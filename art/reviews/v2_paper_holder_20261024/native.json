@@ -1,0 +1,107 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native holder diagnostic; no runtime or human acceptance",
+  "parts": [
+    {
+      "name": "WallEscutcheon",
+      "triangles": 124
+    },
+    {
+      "name": "RaisedBoss",
+      "triangles": 124
+    },
+    {
+      "name": "BracketArm",
+      "triangles": 124
+    },
+    {
+      "name": "SpindleSocket",
+      "triangles": 124
+    },
+    {
+      "name": "TurnedFinial",
+      "triangles": 124
+    },
+    {
+      "name": "SlottedWallScrew",
+      "triangles": 172
+    },
+    {
+      "name": "SlottedWallScrew.001",
+      "triangles": 172
+    },
+    {
+      "name": "WallEscutcheon.001",
+      "triangles": 124
+    },
+    {
+      "name": "RaisedBoss.001",
+      "triangles": 124
+    },
+    {
+      "name": "BracketArm.001",
+      "triangles": 124
+    },
+    {
+      "name": "SpindleSocket.001",
+      "triangles": 124
+    },
+    {
+      "name": "TurnedFinial.001",
+      "triangles": 124
+    },
+    {
+      "name": "SlottedWallScrew.002",
+      "triangles": 172
+    },
+    {
+      "name": "SlottedWallScrew.003",
+      "triangles": 172
+    },
+    {
+      "name": "RemovableWoodSpindle",
+      "triangles": 124
+    },
+    {
+      "name": "HollowWoundPaper",
+      "triangles": 576
+    },
+    {
+      "name": "ContinuousUnwrappedSheet",
+      "triangles": 1296
+    }
+  ],
+  "material_batches": 3,
+  "continuous_sheet": {
+    "single_mesh": true,
+    "wrapped_rows": 49,
+    "hanging_rows": 16,
+    "columns": 5,
+    "tangent_position": [
+      0,
+      0,
+      -0.119
+    ],
+    "simulation": false
+  },
+  "bounds": [
+    [
+      -0.09799999743700027,
+      -0.1560182422399521,
+      -0.1285865157842636
+    ],
+    [
+      0.09799999743700027,
+      0.043999139219522476,
+      9.313225746154785e-10
+    ]
+  ],
+  "exported_tangents": {
+    "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\bath_paper_holder.glb",
+    "primitives": 3,
+    "triangles": 3924,
+    "minimum_tangent_agreement": 0.9999331056095402,
+    "status": "PASS"
+  },
+  "asset_sha256": "173f6900eb9b079e1a80847918f0833d350a2d92361b8957402875dadf38300a"
+}

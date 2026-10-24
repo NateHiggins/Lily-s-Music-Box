@@ -133,6 +133,7 @@ func _pose_reflection(cabinet: Variant) -> void:
 	var near_plane := maxf(.01, plane_distance + .005)
 	var size: Vector2 = cabinet.mirror_surface().get_meta("mirror_size")
 	_material.set_shader_parameter("glass_size", size)
+	_material.set_shader_parameter("condensation",float(cabinet.mirror_surface().get_meta("v2_condensation",0.0)))
 	_view.size = Vector2i(roundi(HEIGHT * size.x / size.y), HEIGHT)
 	var local_center := _camera.to_local(center)
 	var scale_at_near := near_plane / maxf(.01, plane_distance)

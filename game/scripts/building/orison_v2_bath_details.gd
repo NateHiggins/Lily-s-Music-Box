@@ -15,6 +15,8 @@ func mount(adapter: Variant) -> bool:
 		detail.name = str(record.id)
 		detail.set_meta("v2_bath_detail", str(record.kind))
 		detail.set_meta("support_id", str(record.support))
+		detail.position=Vector3(record.position[0],record.position[1],record.position[2])
+		detail.rotation.y=float(record.yaw)
 		# Geometry is identical across homes. Each physical owner gets its own
 		# instances while immutable meshes and existing MatLib materials share.
 		if record.kind in ["hand_towel", "toilet_roll"]:
@@ -65,11 +67,16 @@ func validate(source: Variant, adapter: Variant) -> bool:
 			errors.append("missing bath support or occupied detail identity")
 		# JSON numbers are floats; Array equality also compares element types.
 		# Validate numeric values so a serialized zero origin is accepted.
-		if not _numbers(record.get("position"), 3) \
-				or float(record.position[0]) != 0.0 or float(record.position[1]) != 0.0 \
-				or float(record.position[2]) != 0.0 \
-				or not _numbers([record.get("yaw")], 1) or float(record.yaw) != 0.0:
-			errors.append("bath detail must use its support-local contact")
+		if not _numbers(record.get("position"),3) or not _numbers([record.get("yaw")],1):
+			errors.append("invalid bath detail placement")
+			continue
+		if record.kind=="toilet_roll":
+			var rear: bool=is_equal_approx(float(record.position[0]),-.38) and is_equal_approx(float(record.position[1]),.72) and float(record.position[2])>=.3 and float(record.position[2])<=.6 and float(record.yaw)==0.0
+			var side: bool=record.unit in ["5A","6A"] and is_equal_approx(float(record.position[0]),-.51) and is_equal_approx(float(record.position[1]),.72) and is_equal_approx(float(record.position[2]),-.05) and is_equal_approx(float(record.yaw),-PI*.5)
+			if not rear and not side:
+				errors.append("paper holder must use its unobstructed wall installation")
+		elif float(record.position[0])!=0.0 or float(record.position[1])!=0.0 or float(record.position[2])!=0.0 or float(record.yaw)!=0.0:
+			errors.append("basin detail must use its support-local contact")
 		var before := errors.size()
 		if record.kind in ["hand_towel", "toilet_roll"]:
 			if record.get("model") != (TOWEL_MODEL if record.kind == "hand_towel" else PAPER_MODEL) or record.has("surfaces"):
@@ -81,8 +88,8 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		if bounds is not Array or bounds.size() != 2 or not _numbers(bounds[0],3) or not _numbers(bounds[1],3):
 			errors.append("invalid bath detail bounds")
 			continue
-		var low := Vector3(-.38,0,-.4) if record.kind == "toilet_roll" else Vector3(-.33,0,-.285)
-		var high := Vector3(.27,.84,.36) if record.kind == "toilet_roll" else Vector3(.33,1.2,.24)
+		var low := Vector3(-.1,-.16,-.13) if record.kind == "toilet_roll" else Vector3(-.33,0,-.285)
+		var high := Vector3(.1,.045,.00001) if record.kind == "toilet_roll" else Vector3(.33,1.2,.24)
 		for axis in 3:
 			if bounds[0][axis] < low[axis] or bounds[1][axis] > high[axis] or bounds[0][axis] >= bounds[1][axis]:
 				errors.append("bath detail exceeds supported clearance")
@@ -117,6 +124,10 @@ func _skin_model(node: Node) -> void:
 func _model_points(node: Node3D, parent_pose: Transform3D, points: Array[Vector3]) -> void:
 	var pose := parent_pose * node.transform
 	if node is MeshInstance3D:
-		for vertex in node.mesh.get_faces(): points.append(pose * vertex)
+		# get_faces() builds a collision triangle cache with rounded coordinates.
+		# Visual bounds must inspect the actual imported rendering vertices.
+		for surface in node.mesh.get_surface_count():
+			for vertex: Vector3 in node.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]:
+				points.append(pose * vertex)
 	for child in node.get_children():
 		if child is Node3D: _model_points(child, pose, points)

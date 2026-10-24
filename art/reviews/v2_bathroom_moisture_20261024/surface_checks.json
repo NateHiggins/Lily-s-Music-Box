@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Only listed new spray/film surfaces; no passage or whole-world coverage assertion or runtime_contract.",
+  "checks": [
+    {
+      "run": "after_v2",
+      "draws": 113,
+      "meshes": 113,
+      "maps": 3,
+      "actual_passage_state": "DORMANT",
+      "errors": []
+    },
+    {
+      "run": "after_v3",
+      "draws": 113,
+      "meshes": 113,
+      "maps": 3,
+      "actual_passage_state": "DORMANT",
+      "errors": []
+    }
+  ]
+}

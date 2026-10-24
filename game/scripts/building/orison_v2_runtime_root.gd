@@ -44,6 +44,7 @@ var service_round: ServiceRoundDirector
 var boiler_tend: BoilerTend
 var heat_balance: HeatBalance
 var mirror_renderer: PlanarMirrorRenderer
+var bathroom_moisture: Node
 var household_state: HouseholdState
 var wayfinding: Wayfinding
 var open_shift_ecosystem: Node
@@ -254,6 +255,10 @@ func _ready() -> void:
 	uv_policy.name = "V2UVMaterialPolicy"; add_child(uv_policy)
 	uv_policy.setup(self)
 	atmosphere.bind_weather(self)
+	bathroom_moisture=preload("res://scripts/building/v2_bathroom_moisture.gd").new()
+	bathroom_moisture.name="BathroomMoisture";add_child(bathroom_moisture)
+	if not bathroom_moisture.configure(self):
+		startup_failed=true;push_error("V2 bathroom moisture bindings refused");return
 	_compose_debug_controls()
 	get_node("CaretakerNotebook").debug = building_debug
 	var room_reflections := preload("res://scripts/building/orison_v2_room_reflections.gd").new()
@@ -1066,6 +1071,7 @@ func authority_count(type_name: String) -> int:
 	return find_children("*", type_name, true, false).size()
 
 func shutdown_for_tests() -> void:
+	if is_instance_valid(bathroom_moisture):bathroom_moisture.shutdown()
 	if public_landings!=null:public_landings.teardown()
 	if is_instance_valid(household_state): household_state.shutdown()
 	if is_instance_valid(mirror_renderer): mirror_renderer.shutdown()
@@ -1085,6 +1091,7 @@ func shutdown_for_tests() -> void:
 	if acoustic_topology!=null: acoustic_topology.release()
 
 func _exit_tree() -> void:
+	if is_instance_valid(bathroom_moisture):bathroom_moisture.shutdown()
 	if public_landings!=null:public_landings.teardown();public_landings=null
 	if public_regions!=null:public_regions.teardown();public_regions=null
 	if is_instance_valid(household_state): household_state.shutdown()

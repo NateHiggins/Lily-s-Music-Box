@@ -1,0 +1,28 @@
+[
+  {
+    "scene": "",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_paper_holder_20261024\\import_v2.log",
+    "runner": "long",
+    "timeout": 300,
+    "extra_args": [
+      "--editor",
+      "--import",
+      "--quit"
+    ]
+  },
+  {
+    "scene": "res://tests/V2PaperImportProbe.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_paper_holder_20261024\\import_probe_v2.log",
+    "runner": "serial",
+    "timeout": 120,
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_paper_holder_20261024\\import_probe_v2"
+  },
+  {
+    "scene": "res://tests/V2BathroomPaperReview.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_paper_holder_20261024\\world_v2.log",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_paper_holder_20261024\\world_v2"
+  }
+]

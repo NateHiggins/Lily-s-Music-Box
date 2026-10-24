@@ -1,0 +1,8 @@
+SCRIPT ERROR: Invalid access to property or key 'atmosphere' on a base object of type 'Node3D (OrisonV2RuntimeRoot)'.
+   at: _rain_review (res://tests/v2_bathroom_moisture_review.gd:106)
+   GDScript backtrace (most recent call first):
+       [0] _rain_review (res://tests/v2_bathroom_moisture_review.gd:106)
+       [1] _visual_review (res://tests/v2_bathroom_moisture_review.gd:102)
+       [2] _drag_part (res://tests/orison_v2_4b_door_route_test.gd:225)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

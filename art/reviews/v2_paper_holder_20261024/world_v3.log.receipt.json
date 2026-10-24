@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 304.81,
+  "exit_code": 1,
+  "finished_utc": "2026-10-24T09:22:10Z",
+  "started_utc": "2026-10-24T09:17:05Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_paper_holder_20261024/world_v3.log.stderr",
+  "stderr_sha256": "b6365b78d3aed6012957a8dbc64b441671613d83c1915157b2f378029effc051",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_paper_holder_20261024/world_v3.log",
+  "stdout_sha256": "75945c56fca172b56992be5284568f17af07be3446f570f7509ceed1f2b9bd3a"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2BathroomPaperReview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_paper_holder_20261024/world_v3",
+ "source": {
+  "dirty_paths": 3376,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/bath_paper_holder.blend",
+   " M art/blender/scripts/build_bathroom_details.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import"
+  ],
+  "repository_head": "5ccd76e7d6617c623bce0d783700f1612d459ab0",
+  "repository_tree": "ccd0975f72ee07690538020900d434a6bcbbfb66",
+  "runtime_inputs_sha256": "8f1bbfe27ed2b2853ca52fc2066d09825e4c81108e0ee8a1b7c8321d003d87a9",
+  "test_path": "game/tests/v2_bathroom_paper_review.gd",
+  "test_sha256": "efcbee2a9f2ebf15eac261c44c7f617a3f8f8e83091ea6aa0abd53ee238e4595"
+ },
+ "windowed": true
+}

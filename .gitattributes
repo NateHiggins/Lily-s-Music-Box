@@ -3131,3 +3131,34 @@ art/reviews/v2_hose_spray_visibility_20261024/** -text -whitespace
 
 # Nook shelf construction, native failures and played route diagnostics.
 art/reviews/v2_nook_shelf_dressing_20261024/** -text -whitespace
+
+# Bathroom moisture diagnostics, native paper hardware and original failures.
+art/reviews/v2_bathroom_moisture_20261024/** -text -whitespace
+art/reviews/v2_paper_holder_20261024/** -text -whitespace
+
+# Bathroom source archives and wrapper-bound diagnostics retain tested LF bytes.
+art/blender/scripts/build_bath_paper_holder.py -text
+game/data/orison_v2/bath_details.json -text
+game/scripts/building/orison_v2_bath_details.gd -text
+game/scripts/building/planar_mirror_renderer.gd -text
+game/shaders/planar_mirror.gdshader -text
+game/tests/bath_lavatory_test.gd -text
+game/scripts/building/v2_bathroom_moisture.gd* -text
+game/tests/v2_bathroom_optics_profile.gd* -text
+game/tests/v2_bathroom_moisture_review.gd* -text
+game/tests/v2_bathroom_rain_probe.gd* -text
+game/tests/v2_bathroom_paper_review.gd* -text
+game/tests/v2_bathroom_paper_installation.gd* -text
+game/tests/v2_bathroom_steam_cap_review.gd* -text
+game/tests/V2BathroomOpticsProfile.tscn -text
+game/tests/V2BathroomMoistureReview.tscn -text
+game/tests/V2BathroomRainProbe.tscn -text
+game/tests/V2BathroomPaperReview.tscn -text
+game/tests/V2BathroomPaperInstallation.tscn -text
+game/tests/V2BathroomSteamCapReview.tscn -text
+game/tests/v2_paper_import_probe.gd* -text
+game/tests/V2PaperImportProbe.tscn -text
+game/shaders/v2_bath_steam.gdshader* -text
+game/shaders/v2_glass_film.gdshader* -text
+game/shaders/v2_condensation.gdshaderinc* -text
+game/assets/props/bath_paper_holder.glb.import -text

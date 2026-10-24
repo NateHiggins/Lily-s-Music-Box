@@ -6,6 +6,7 @@ uniform float reflection_gain : hint_range(0.5, 1.5) = 0.92;
 uniform float age_strength : hint_range(0.0, 1.0) = 0.24;
 
 uniform vec2 glass_size = vec2(0.42, 0.57);
+uniform float condensation = 0.0;
 varying vec2 glass_uv;
 
 void vertex() {
@@ -16,6 +17,14 @@ void vertex() {
 void fragment() {
 	vec2 feed_uv = vec2(glass_uv.x, 1.0 - glass_uv.y);
 	vec3 reflected = texture(mirror_view, feed_uv).rgb * reflection_gain;
+	if (condensation>0.01) {
+		vec2 blur=vec2(0.008)*condensation;
+		vec3 diffused=texture(mirror_view,feed_uv+vec2(blur.x,0.0)).rgb
+			+texture(mirror_view,feed_uv-vec2(blur.x,0.0)).rgb
+			+texture(mirror_view,feed_uv+vec2(0.0,blur.y)).rgb
+			+texture(mirror_view,feed_uv-vec2(0.0,blur.y)).rgb;
+		reflected=mix(reflected,diffused*0.25*reflection_gain,condensation*0.8);
+	}
 	float edge = smoothstep(0.42, 0.50, max(abs(glass_uv.x - 0.5), abs(glass_uv.y - 0.5)));
 	float broad = sin(glass_uv.x * 19.0 + sin(glass_uv.y * 13.0) * 2.2)
 		* sin(glass_uv.y * 27.0 - glass_uv.x * 8.0);

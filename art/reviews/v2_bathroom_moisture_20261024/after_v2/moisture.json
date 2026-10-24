@@ -1,0 +1,63 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "Actual valve/input route; optical review and injected weather controls follow timed route. No runtime_contract or human acceptance.",
+	"signal_checks": 216,
+	"signal_mismatches": 0,
+	"states": [
+		{
+			"emitting": false,
+			"humidity": 0.0,
+			"mirror_wet": 0.0,
+			"phase": "dry_shower",
+			"room": "F04_B_BATH",
+			"steam_visible": false,
+			"target": 0.0
+		},
+		{
+			"emitting": false,
+			"humidity": 0.0,
+			"mirror_wet": 0.0,
+			"phase": "dry_mirror",
+			"room": "F04_B_BATH",
+			"steam_visible": false,
+			"target": 0.0
+		},
+		{
+			"emitting": true,
+			"humidity": 0.0,
+			"mirror_wet": 0.0,
+			"phase": "cold_shower",
+			"room": "F04_B_BATH",
+			"steam_visible": false,
+			"target": 0.0
+		},
+		{
+			"emitting": true,
+			"humidity": 0.43854685,
+			"mirror_wet": 0.43854685,
+			"phase": "hot_developing",
+			"room": "F04_B_BATH",
+			"steam_visible": true,
+			"target": 1.0
+		},
+		{
+			"emitting": true,
+			"humidity": 0.787780164393941,
+			"mirror_wet": 0.787780164393941,
+			"phase": "hot_mirror",
+			"room": "F04_B_BATH",
+			"steam_visible": true,
+			"target": 1.0
+		},
+		{
+			"emitting": false,
+			"humidity": 0.666342972838383,
+			"mirror_wet": 0.666342972838383,
+			"phase": "off_mirror_decay",
+			"room": "F04_B_BATH",
+			"steam_visible": true,
+			"target": 0.0
+		}
+	]
+}

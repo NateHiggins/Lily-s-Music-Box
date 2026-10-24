@@ -1,0 +1,581 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Raw diagnostic artifacts, not runtime qualification",
+  "artifacts": [
+    {
+      "path": "after_v1/frames.json",
+      "bytes": 1687189,
+      "sha256": "7c18bbc4e642ab3bf95e274ac0b177b13bda64e878f8d05b20027306e50e236c"
+    },
+    {
+      "path": "after_v1/last_position.png",
+      "bytes": 754204,
+      "sha256": "b5a08cf5a2144f6f20574c6f5765ab6fd4fd116af808bc0b03db5a423f7697d9"
+    },
+    {
+      "path": "after_v1/moisture.json",
+      "bytes": 1383,
+      "sha256": "c805df325a2caebea209906fb304ac76c73eb1acd768df0022f3f5d6cafbe55d"
+    },
+    {
+      "path": "after_v1/route.json",
+      "bytes": 617,
+      "sha256": "8d31e65a4a93086632d932b71dcea718e6fa1375cbfbb28aae899cb76b5bd2d8"
+    },
+    {
+      "path": "after_v1.log",
+      "bytes": 5110,
+      "sha256": "2cff255f988787074c28e48ba3a494467324dadb3d8c5f0c520ab28a258031dc"
+    },
+    {
+      "path": "after_v1.log.receipt.json",
+      "bytes": 3080,
+      "sha256": "523afa0f2c29d89c73577dfdfa49f69b056dbd6a0b7539110696e68847a5e868"
+    },
+    {
+      "path": "after_v1.log.stderr",
+      "bytes": 512,
+      "sha256": "cfdbb4c6afc7a11842c31d0a50e9efa7e0d6d94d782f2ffbdf4fd89dde0bf912"
+    },
+    {
+      "path": "after_v2/cold_spray_cone.png",
+      "bytes": 597744,
+      "sha256": "44fd47c6d0f74947b86d7025a8701a5a1c172cb4c4d5f943f02c24314f2e1162"
+    },
+    {
+      "path": "after_v2/dry_mirror.png",
+      "bytes": 617779,
+      "sha256": "c70933568f41a14ab662a5a019f2f8dde9c5dc332ebc1aae13b75c1e17e8463a"
+    },
+    {
+      "path": "after_v2/fogged_mirror.png",
+      "bytes": 597592,
+      "sha256": "1f0c87a51ac0ced97bf254c42e8fe3603ec60cb29858e38e0ceb13a54a5a1445"
+    },
+    {
+      "path": "after_v2/frames.json",
+      "bytes": 1690483,
+      "sha256": "63e34571fe75cca6c44c43066490ff4f6aa491a695e990264dbe08306d779301"
+    },
+    {
+      "path": "after_v2/hot_spray_steam.png",
+      "bytes": 590984,
+      "sha256": "85812058a96dd73a2a5e679cb25f5a16b0d2cfb4e53ddf1930bc7456d580fb78"
+    },
+    {
+      "path": "after_v2/last_position.png",
+      "bytes": 693999,
+      "sha256": "6a754b434b5a7707b9703c6b2d223d4d32bfca61b5137a21b4d7895bc0f7da91"
+    },
+    {
+      "path": "after_v2/moisture.json",
+      "bytes": 1339,
+      "sha256": "cc06750517d17db69fe938f840b464b741547c272251552db10b2f26855c1efd"
+    },
+    {
+      "path": "after_v2/moisture_surfaces.json",
+      "bytes": 131869,
+      "sha256": "3261c50a3ebea3003fd5fc570190faea0d723103f570a542114361607e936727"
+    },
+    {
+      "path": "after_v2/route.json",
+      "bytes": 570,
+      "sha256": "ff96e1a42d079afae492cfbf589ce72f9cbad2e05dea81cdff8682f24acecb11"
+    },
+    {
+      "path": "after_v2.log",
+      "bytes": 27822,
+      "sha256": "27dbe9a71d414c4fd96f3acd74c27742422cfe9e1ab8ca6d892e97edcbba1555"
+    },
+    {
+      "path": "after_v2.log.receipt.json",
+      "bytes": 3207,
+      "sha256": "dd372f39887ec675fc50d0427146c0e635e99ae0429a8e214fcd5a7be6aad4a5"
+    },
+    {
+      "path": "after_v2.log.stderr",
+      "bytes": 572,
+      "sha256": "af4f3b90097a3223593cc74f65c4a280fede808d4682782a571bdf356b5766d8"
+    },
+    {
+      "path": "after_v3/cold_spray_cone.png",
+      "bytes": 681592,
+      "sha256": "c74f8474b75d5515b23941b5513f6dcf8aa87a1b594df436a992902771c21c94"
+    },
+    {
+      "path": "after_v3/dry_mirror.png",
+      "bytes": 619174,
+      "sha256": "0d19831be2979dc291eb6b57a69beb2ea60f20f024c3de4e46ff0ef5b28b6023"
+    },
+    {
+      "path": "after_v3/fogged_mirror.png",
+      "bytes": 573761,
+      "sha256": "649c34ce08d575fa45674aceedb5028f1b1838ab067c40f2738762a64fee74cb"
+    },
+    {
+      "path": "after_v3/frames.json",
+      "bytes": 1688943,
+      "sha256": "792ae2d2b3b291f7891538d38f77c6ae9374b8b32f3c9f790f99c34b7c90112f"
+    },
+    {
+      "path": "after_v3/hot_spray_steam.png",
+      "bytes": 653750,
+      "sha256": "a06a483b3bdc35480046f0d2d696017a02ddc224415947a0ddbd199f10ab2d08"
+    },
+    {
+      "path": "after_v3/last_position.png",
+      "bytes": 796056,
+      "sha256": "ac8f3bf322c98ce002464b3b23ac7cda4da62e6b7a70b80817c3a19ebbdaf4b0"
+    },
+    {
+      "path": "after_v3/moisture.json",
+      "bytes": 1541,
+      "sha256": "6c1b35f83a28ab1d62097f9244502cca250c134d823e15ffbf0073867e2073a3"
+    },
+    {
+      "path": "after_v3/moisture_surfaces.json",
+      "bytes": 131870,
+      "sha256": "619a92e028da549f6ae9a08c9d9c1b5fe6d915668fb61110c85f5a0cb5a46567"
+    },
+    {
+      "path": "after_v3/rain_inside.png",
+      "bytes": 414796,
+      "sha256": "ae5d186ddb51232acd13fdef7b5281168e448d91b9fe1d8084f655fa737200b3"
+    },
+    {
+      "path": "after_v3/rain_outside.png",
+      "bytes": 494860,
+      "sha256": "87a14a04e0b6ba6430a988c0be9f2a021f18d7c6d975b58d3334ee203c92626b"
+    },
+    {
+      "path": "after_v3/route.json",
+      "bytes": 570,
+      "sha256": "ff96e1a42d079afae492cfbf589ce72f9cbad2e05dea81cdff8682f24acecb11"
+    },
+    {
+      "path": "after_v3.log",
+      "bytes": 42467,
+      "sha256": "05d91096ace7965185e4175733756cae903860296f4a172e14ee366e5dee2df6"
+    },
+    {
+      "path": "after_v3.log.receipt.json",
+      "bytes": 3081,
+      "sha256": "400466b1abf547b483b50128df059b396ce1e7becf9195cc1bb6003b544c39d2"
+    },
+    {
+      "path": "after_v3.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "path": "analysis.json",
+      "bytes": 1035934,
+      "sha256": "608c43e1ab2109a99bfa089aa4ea97acbb8cd58d7dcbefa4d4a86801381ec729"
+    },
+    {
+      "path": "analyze.py",
+      "bytes": 2488,
+      "sha256": "6e103ae525c4421952c18e1856bcc0f23623c99816ed27972cca9e5eeb4ba048"
+    },
+    {
+      "path": "before_sources.json",
+      "bytes": 3070,
+      "sha256": "40436ed81996446eda21f04e76e06cd123a63c58aeff4d4d5c355f7fcdb39ba3"
+    },
+    {
+      "path": "before_v1/frames.json",
+      "bytes": 1684741,
+      "sha256": "ae25dc5fa675ef985ab20e199889ae850e815960dbe1f4f5df73e6e8734726f9"
+    },
+    {
+      "path": "before_v1/last_position.png",
+      "bytes": 776917,
+      "sha256": "9e5d2548dbf0ae42301a2c0f497d5abdeca302d51b14d4982b04a5a2bc201954"
+    },
+    {
+      "path": "before_v1/route.json",
+      "bytes": 570,
+      "sha256": "ff96e1a42d079afae492cfbf589ce72f9cbad2e05dea81cdff8682f24acecb11"
+    },
+    {
+      "path": "before_v1.log",
+      "bytes": 4382,
+      "sha256": "1dfb716bb606764deb49dfe9d5313aa19f6253fe7c34e10133fad3fac26de21a"
+    },
+    {
+      "path": "before_v1.log.receipt.json",
+      "bytes": 2919,
+      "sha256": "ac8c02d799f7939ae5269f4a8f26d35f9487e9288ed7797bcaa376baa210714d"
+    },
+    {
+      "path": "before_v1.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "path": "candidate_v1/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12834,
+      "sha256": "e8bda83ff7f3ab09a7570d32902dd27341d93319233475d525cea10f1dceb904"
+    },
+    {
+      "path": "candidate_v1/game__scripts__building__planar_mirror_renderer.gd.gz",
+      "bytes": 2453,
+      "sha256": "dd7f0caa826e4bd810a32e1c44c931c27623f2b5c94e9483713a88eef662c77a"
+    },
+    {
+      "path": "candidate_v1/game__scripts__building__v2_bathroom_moisture.gd.gz",
+      "bytes": 3366,
+      "sha256": "33160ab4b3e52ec8aa7bd6295a841bdedc054fd1f3aeec897ac4976890d46408"
+    },
+    {
+      "path": "candidate_v1/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13009,
+      "sha256": "7a4821766db1b00b4f32ec6594cab8ee0163d057034909131b2b2c34b0ac2bb2"
+    },
+    {
+      "path": "candidate_v1/game__shaders__planar_mirror.gdshader.gz",
+      "bytes": 732,
+      "sha256": "d7e7f7c166cede1a133a87b3bf38d2e341437f6bbd7454697469e5993f863a40"
+    },
+    {
+      "path": "candidate_v1/game__shaders__v2_bath_steam.gdshader.gz",
+      "bytes": 254,
+      "sha256": "ff6159b660b02e049a03e4394849273ebef77c31c52b97d6e3b5f4a5b0186a79"
+    },
+    {
+      "path": "candidate_v1/game__shaders__v2_condensation.gdshaderinc.gz",
+      "bytes": 648,
+      "sha256": "931fb600c68a759d407dc3ca9bdf525119353f0b71bf8bff3782d5bd5abe05b0"
+    },
+    {
+      "path": "candidate_v1/game__shaders__v2_glass_film.gdshader.gz",
+      "bytes": 770,
+      "sha256": "b16c5bc584261143682dbc760e5c848c8f85bee4a63846fe2e6bc1c4736f0f6a"
+    },
+    {
+      "path": "candidate_v1/game__tests__v2_bathroom_moisture_review.gd.gz",
+      "bytes": 3103,
+      "sha256": "5c54fddc032dfbbe3984b9fe7ba1a840ae5704af327f11834b03dbc158895b5f"
+    },
+    {
+      "path": "candidate_v1/game__tests__V2BathroomMoistureReview.tscn.gz",
+      "bytes": 173,
+      "sha256": "cbde93a707b91f035108285994bac17981af321975a844c3e8c5d2173941829b"
+    },
+    {
+      "path": "candidate_v1/sources.json",
+      "bytes": 2494,
+      "sha256": "4431720361f0558653cff49ade59f9b1119cc4f65e7c75ef5236113af521237e"
+    },
+    {
+      "path": "candidate_v2/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12834,
+      "sha256": "e8bda83ff7f3ab09a7570d32902dd27341d93319233475d525cea10f1dceb904"
+    },
+    {
+      "path": "candidate_v2/game__scripts__building__planar_mirror_renderer.gd.gz",
+      "bytes": 2453,
+      "sha256": "dd7f0caa826e4bd810a32e1c44c931c27623f2b5c94e9483713a88eef662c77a"
+    },
+    {
+      "path": "candidate_v2/game__scripts__building__v2_bathroom_moisture.gd.gz",
+      "bytes": 3653,
+      "sha256": "8d0d560b1327184009f138b9fcc9679e691b8891ecc35c1bc561f686b761eb22"
+    },
+    {
+      "path": "candidate_v2/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13009,
+      "sha256": "7a4821766db1b00b4f32ec6594cab8ee0163d057034909131b2b2c34b0ac2bb2"
+    },
+    {
+      "path": "candidate_v2/game__shaders__planar_mirror.gdshader.gz",
+      "bytes": 732,
+      "sha256": "d7e7f7c166cede1a133a87b3bf38d2e341437f6bbd7454697469e5993f863a40"
+    },
+    {
+      "path": "candidate_v2/game__shaders__v2_bath_steam.gdshader.gz",
+      "bytes": 254,
+      "sha256": "ff6159b660b02e049a03e4394849273ebef77c31c52b97d6e3b5f4a5b0186a79"
+    },
+    {
+      "path": "candidate_v2/game__shaders__v2_condensation.gdshaderinc.gz",
+      "bytes": 648,
+      "sha256": "931fb600c68a759d407dc3ca9bdf525119353f0b71bf8bff3782d5bd5abe05b0"
+    },
+    {
+      "path": "candidate_v2/game__shaders__v2_glass_film.gdshader.gz",
+      "bytes": 770,
+      "sha256": "b16c5bc584261143682dbc760e5c848c8f85bee4a63846fe2e6bc1c4736f0f6a"
+    },
+    {
+      "path": "candidate_v2/game__tests__v2_bathroom_moisture_review.gd.gz",
+      "bytes": 3378,
+      "sha256": "30eee445df898a7eada33bfbda1062b8a70cb4da04df8d1409b870c6b607fb05"
+    },
+    {
+      "path": "candidate_v2/game__tests__V2BathroomMoistureReview.tscn.gz",
+      "bytes": 173,
+      "sha256": "cbde93a707b91f035108285994bac17981af321975a844c3e8c5d2173941829b"
+    },
+    {
+      "path": "candidate_v2/sources.json",
+      "bytes": 2494,
+      "sha256": "6b6b6a5b72ad73290cd1a3e9efd21c39fd20ac19c8d7dff47b6c58b0b782ca4b"
+    },
+    {
+      "path": "candidate_v3/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12834,
+      "sha256": "e8bda83ff7f3ab09a7570d32902dd27341d93319233475d525cea10f1dceb904"
+    },
+    {
+      "path": "candidate_v3/game__scripts__building__planar_mirror_renderer.gd.gz",
+      "bytes": 2453,
+      "sha256": "dd7f0caa826e4bd810a32e1c44c931c27623f2b5c94e9483713a88eef662c77a"
+    },
+    {
+      "path": "candidate_v3/game__scripts__building__v2_bathroom_moisture.gd.gz",
+      "bytes": 3987,
+      "sha256": "dc5c997c4833f04eced34e507c94e4c4559f720f5728e74cd317c76fbffe4b4a"
+    },
+    {
+      "path": "candidate_v3/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13009,
+      "sha256": "7a4821766db1b00b4f32ec6594cab8ee0163d057034909131b2b2c34b0ac2bb2"
+    },
+    {
+      "path": "candidate_v3/game__shaders__planar_mirror.gdshader.gz",
+      "bytes": 732,
+      "sha256": "d7e7f7c166cede1a133a87b3bf38d2e341437f6bbd7454697469e5993f863a40"
+    },
+    {
+      "path": "candidate_v3/game__shaders__v2_bath_steam.gdshader.gz",
+      "bytes": 254,
+      "sha256": "ff6159b660b02e049a03e4394849273ebef77c31c52b97d6e3b5f4a5b0186a79"
+    },
+    {
+      "path": "candidate_v3/game__shaders__v2_condensation.gdshaderinc.gz",
+      "bytes": 682,
+      "sha256": "140810bdf9567e0d17574892e742baeb7f7bbed55007c2f70dd84e391f5546d3"
+    },
+    {
+      "path": "candidate_v3/game__shaders__v2_glass_film.gdshader.gz",
+      "bytes": 770,
+      "sha256": "b16c5bc584261143682dbc760e5c848c8f85bee4a63846fe2e6bc1c4736f0f6a"
+    },
+    {
+      "path": "candidate_v3/game__tests__v2_bathroom_moisture_review.gd.gz",
+      "bytes": 3453,
+      "sha256": "8958cda174ef765cb68f918d0d280c6a2042dad0f0ff7c200d3ed785b452439b"
+    },
+    {
+      "path": "candidate_v3/game__tests__V2BathroomMoistureReview.tscn.gz",
+      "bytes": 173,
+      "sha256": "cbde93a707b91f035108285994bac17981af321975a844c3e8c5d2173941829b"
+    },
+    {
+      "path": "candidate_v3/sources.json",
+      "bytes": 2494,
+      "sha256": "6e57e1f39c3154cd58c1fe931b01df7f3f11b6d19c64554e56d5daca362cad2e"
+    },
+    {
+      "path": "check_surfaces.py",
+      "bytes": 1941,
+      "sha256": "9c38e2fb677099245ce1448d361d548fb2bfd223e2f8c2478557015736d4853c"
+    },
+    {
+      "path": "gates_v1/board.json",
+      "bytes": 376171,
+      "sha256": "452b61cb17eece3d5691e26cc559314044710195bea8d1c740230af3beb3ece4"
+    },
+    {
+      "path": "gates_v1/board.md",
+      "bytes": 8382,
+      "sha256": "30a0673a0b11df9b0cbcd54d39aa5b79d22e19a1b49846a0accf83ca633965f8"
+    },
+    {
+      "path": "gates_v1.log",
+      "bytes": 8523,
+      "sha256": "b3f47b2303bb85251ffb777be6b59c239b20a71d2f32d3ad22648eb5b3761e37"
+    },
+    {
+      "path": "gates_v3/board.json",
+      "bytes": 376905,
+      "sha256": "9f2b3a39e8df1d15607792fdcd2bdaceba504f05fd07b7d84eea0327e3638938"
+    },
+    {
+      "path": "gates_v3/board.md",
+      "bytes": 8680,
+      "sha256": "2cc219539fdabdca103279f8aa9e6f2b09eab6b31219cfcee3639b95a6f9760c"
+    },
+    {
+      "path": "gates_v3.log",
+      "bytes": 8824,
+      "sha256": "94d5093931fcbb962a07a322560e76507d9ce1fdeac90e1be53a42190c86d3dd"
+    },
+    {
+      "path": "import_v1.log",
+      "bytes": 69765,
+      "sha256": "63748cd944c0eaef3de8c72f89eabefdd6f34eee38ddf217649d77141f29995f"
+    },
+    {
+      "path": "import_v1.log.receipt.json",
+      "bytes": 2870,
+      "sha256": "d5a3af98c50b91b8b4b4c2a74f4298f109839a68fccf322d680c50be1871fc8e"
+    },
+    {
+      "path": "import_v1.log.stderr",
+      "bytes": 249,
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "parse_v2.log",
+      "bytes": 75,
+      "sha256": "9d581ec5492fe988c9c06ba731f53831e0de994203e89ae19ffcf5b503748acc"
+    },
+    {
+      "path": "parse_v2.log.receipt.json",
+      "bytes": 2996,
+      "sha256": "aae0f02ab8aca8038d89582b34cba81607cce166a0718ce83bb102b82fa43b29"
+    },
+    {
+      "path": "parse_v2.log.stderr",
+      "bytes": 576,
+      "sha256": "6de33c7f6ae319c13913bdb1d134fecc4d5866dd537c8d84e6138433b40d147a"
+    },
+    {
+      "path": "rain_v1/last_position.png",
+      "bytes": 920497,
+      "sha256": "24c6b1e395df379f93745c1f075c9a142b8180f411e8b5c4d6aede992356f847"
+    },
+    {
+      "path": "rain_v1/route.json",
+      "bytes": 35,
+      "sha256": "dfd3e751903238283a251f8e5e91a45dc6b7c782caabc22ebd98af4f97fc82cd"
+    },
+    {
+      "path": "rain_v1.log",
+      "bytes": 16687,
+      "sha256": "857b2a24540acd982fe9fe97ee1c24ce249b6349eae4f8f1089acaa537dae2cf"
+    },
+    {
+      "path": "rain_v1.log.receipt.json",
+      "bytes": 3141,
+      "sha256": "6d027424382c31a279b6f1f4a5fd8cbb8a944ec8b1a7e4aa063514b4c405013f"
+    },
+    {
+      "path": "rain_v1.log.stderr",
+      "bytes": 1864,
+      "sha256": "ea0e4a69a711b61cd80028f305462d6f8a82bbc433f66c477226adf0ce458a11"
+    },
+    {
+      "path": "rain_v1_source.gd.gz",
+      "bytes": 1660,
+      "sha256": "51e84975fc7ff578f3c94304ba3b205ff079f2c57c89d8175194b59add5a6991"
+    },
+    {
+      "path": "source_before/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12746,
+      "sha256": "ab3ac5e320bacae33d4fe1843fe1a5662888c1acf5c108ad42d89c9696cc1161"
+    },
+    {
+      "path": "source_before/game__scripts__building__orison_v2_window_joinery.gd.gz",
+      "bytes": 1066,
+      "sha256": "54586c25ec0154c69dc58a0838f50278e61a85969131486fc7f3d724e23523e6"
+    },
+    {
+      "path": "source_before/game__scripts__building__planar_mirror_renderer.gd.gz",
+      "bytes": 2425,
+      "sha256": "c32502f3f41b3add889e0c44da9f67c5a2c30a26ce8d82e2719cbf2c295822e1"
+    },
+    {
+      "path": "source_before/game__scripts__building__v2_weather_fx.gd.gz",
+      "bytes": 908,
+      "sha256": "54224bf2cb9bf25247f06d3b3c810436836b8b71e44a27f436089b2f42f31487"
+    },
+    {
+      "path": "source_before/game__scripts__building__weather_noise.gd.gz",
+      "bytes": 489,
+      "sha256": "a4a2e4269bd3552c3c561a3547503762d0518779f54fdb50c580d20e03cd76dd"
+    },
+    {
+      "path": "source_before/game__scripts__props__medicine_cabinet_prop.gd.gz",
+      "bytes": 5297,
+      "sha256": "48fc631d8be2a53866896ae62d1608aa4e235c954d2026374b39a3d3a36d1446"
+    },
+    {
+      "path": "source_before/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 12990,
+      "sha256": "7b7f67dcb4ac0be32a1e747607b9ce086f472e9901781d4810008935202b119a"
+    },
+    {
+      "path": "source_before/game__shaders__planar_mirror.gdshader.gz",
+      "bytes": 616,
+      "sha256": "5c6edf80641fc5439592255ed357a1d41b79cb3c765febbe3a6ce786ede97133"
+    },
+    {
+      "path": "source_before/game__tests__orison_v2_4b_door_route_test.gd.gz",
+      "bytes": 4027,
+      "sha256": "536ecb934cd73dd34968341c7e8b0feafd9b901b2bee6adba7d64e42f01779c7"
+    },
+    {
+      "path": "source_before/game__tests__orison_v2_connected_exterior_route_test.gd.gz",
+      "bytes": 2281,
+      "sha256": "4fb2de3064a90faa0162dd60077a566d191633ce1321fa385cdd0b191fbc053a"
+    },
+    {
+      "path": "source_before/game__tests__v2_bathroom_optics_profile.gd.gz",
+      "bytes": 2353,
+      "sha256": "f1e70c3f610ceefd81823e40acc62fc490694e3bd73ef0712fc5abdfee74688d"
+    },
+    {
+      "path": "source_before/tools__orison_spatial_dependency_manifest.json.gz",
+      "bytes": 379908,
+      "sha256": "4f19a3db5197b6c5b2492e5f91fef2a888d1862f99b7934dc291a7ec4c89992a"
+    },
+    {
+      "path": "source_gates_v1/board.json",
+      "bytes": 301747,
+      "sha256": "e6db5f008216970fa6f45e3b6ed9b13ebbc99f155a6ba5565c110b4e6e4cc95b"
+    },
+    {
+      "path": "source_gates_v1/board.md",
+      "bytes": 6662,
+      "sha256": "6345d2dff21180444b893c395b6b3672497ed915f24602f422389e2a48cc4dbb"
+    },
+    {
+      "path": "source_gates_v1.log",
+      "bytes": 6802,
+      "sha256": "4183314fce8aeb3aff5bad0086e210b1e01a71943ecd70a342ab2d81f36109fb"
+    },
+    {
+      "path": "source_gates_v2/board.json",
+      "bytes": 326037,
+      "sha256": "13bb9b80d2249793cfac419cd4a61310b62ab290690ea5d546d6b87732d7ed1f"
+    },
+    {
+      "path": "source_gates_v2/board.md",
+      "bytes": 6587,
+      "sha256": "e76947b8c7079da2ece62d9123426afbe98cb5fad9a1cd953faffb29b10709f7"
+    },
+    {
+      "path": "source_gates_v2.log",
+      "bytes": 6726,
+      "sha256": "e6fd0aba295e08e925892f2f24f813aac74a132aff97761de142584a951c3006"
+    },
+    {
+      "path": "spatial_v1.json",
+      "bytes": 46455,
+      "sha256": "365c4ffaafee29da3b75914a4a4e1aafaec5917fa8a6f845e527196e2bc871cf"
+    },
+    {
+      "path": "spatial_v2.json",
+      "bytes": 46489,
+      "sha256": "8bad1c8bc8c9f25e9d8a8c0d84bcb4633c7add44b4c508f5a8d90d625945cb66"
+    },
+    {
+      "path": "surface_checks.json",
+      "bytes": 479,
+      "sha256": "712a08f6b68645b125e2e5a89b5827f2831d43156712beb573e193a750a137fe"
+    }
+  ]
+}

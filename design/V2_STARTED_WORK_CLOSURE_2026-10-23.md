@@ -2,6 +2,22 @@
 
 Evidence class: **INERT**. Scope inventory and remaining work, not acceptance.
 
+Latest bathroom diagnostic, October24: **V2_BATHROOM_MOISTURE_AND_PAPER_2026-10-24.md**.
+Native wall-mounted paper has one continuous wrapped/hanging sheet. Ten rear
+and two side installations preserve the ventilation stacks; all24 bearing
+contacts, twelve clearance checks,36 imported meshes and nine PBR maps pass.
+The final focused hot-input/steam-cap/paper run passes114 checks; other failed
+runs and Texture-RID warnings remain explicit. The measured bathroom route
+still has roughly72ms mirror p95 and first-view spikes; no broad speed claim.
+
+Owner's next bathroom finishing batch: narrow wall-junction/floor-seam grout
+beads, tiled wainscot with plaster above and taller shower protection, doorway
+material spill, matching45-degree head/jamb mitres, and fitted shower rail
+brackets/rings/eyelets. Current shower flange ends at0.355m while actual walls
+sit0.40-0.48m back. A native miter prototype is in repository tmp only and is
+not installed. Finish these existing defects, then return to broader measured
+performance and the remaining started V2 work; do not mark V2 complete.
+
 Current-source correction, October 24: **V2_NOOK_SHELF_DRESSING_2026-10-24.md**.
 The 61 nook copies already share the primary native formats and flexible bindings
 (**e9df01d2**, preserved by **48da899c**); the earlier carried-forward bespoke-binding
@@ -121,7 +137,7 @@ Serialization/barriers and the broader performance/started-work queue remain ope
 | Remove photographic lens flare, keep volumetric light | Removal checkpoint exists in **V2_BOOK_SLOTS_AND_LIGHT_REMOVAL_2026-10-22.md**. Preserve global deletion. Fixture emission/lighting appearance remains a separate repair, not permission to restore flare. |
 | Toilet seat/bowl form, drain/trap, fitted hinge hardware, larger cistern connection, ergonomic linked flush and attached internals | Native form and mechanism repairs have 192 local checks. Final complete occupied-world route qualification remains missing; prior route failed and subsequent one was cancelled during the easy-door contract change. Keep swing limits and avoid unwanted seat impact tests. |
 | Consistent shower-curtain mouse travel | Four distance/FOV input cases pass in the broader 116-check manipulation diagnostic. Re-exercise in the completed occupied bathroom route. |
-| Shower cone, heat-driven steam/mirror fog, edge wear and side-correct glass condensation/rivulets | **V2_BATHROOM_WET_GLASS_BRIEF_2026-10-22.md** remains a brief; current production search finds no installed bathroom humidity/rivulet system. Complete measured baseline, actual effects, dry/cold/hot/off controls and paired performance. |
+| Shower cone, heat-driven steam/mirror fog, edge wear and side-correct glass condensation/rivulets | Production now has actual-flow spray, bounded room steam, mirror fog and side-correct wet-glass overlays. See **V2_BATHROOM_MOISTURE_AND_PAPER_2026-10-24.md** for source-bound diagnostic scope, original failures, focused114-check pass and remaining mirror/first-view performance debt. Broader weather/save/runtime/human qualification remains open. |
 | Easy fixed-gesture doors, player accommodation, slow automatic close | Installed easy-door checkpoint has 34 focused actual-input checks. Complete room/street routes under the current contract; do not restore old door obstruction sweeps. Eleven arcade floor contacts remain historical evidence to reconcile with the new mechanism. |
 | Remove existing movie projectors; period one-person film tent beside bar | Native tent candidate exists but installation/retirement/access are not qualified. Preserve current untracked contributors' sources, establish ownership, then finish. |
 | Natural subway exit as visible wall; traffic crossing; road/intersection/gaslights/cars | Street baseline exists. Finish owning native generators, installation, low-stakes traffic and actual crossing/access; no finished-street claim from candidate art. |

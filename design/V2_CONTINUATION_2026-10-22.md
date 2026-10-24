@@ -3,6 +3,22 @@
 Evidence class: **INERT**. Working continuation and issue log; no completion
 ledger promotion, runtime qualification or human acceptance is claimed.
 
+Latest bathroom diagnostic, October24: **V2_BATHROOM_MOISTURE_AND_PAPER_2026-10-24.md**.
+Native wall-mounted paper has one continuous wrapped/hanging sheet. Ten rear
+and two side installations preserve the ventilation stacks; all24 bearing
+contacts, twelve clearance checks,36 imported meshes and nine PBR maps pass.
+The final focused hot-input/steam-cap/paper run passes114 checks; other failed
+runs and Texture-RID warnings remain explicit. The measured bathroom route
+still has roughly72ms mirror p95 and first-view spikes; no broad speed claim.
+
+Owner's next bathroom finishing batch: narrow wall-junction/floor-seam grout
+beads, tiled wainscot with plaster above and taller shower protection, doorway
+material spill, matching45-degree head/jamb mitres, and fitted shower rail
+brackets/rings/eyelets. Current shower flange ends at0.355m while actual walls
+sit0.40-0.48m back. A native miter prototype is in repository tmp only and is
+not installed. Finish these existing defects, then return to broader measured
+performance and the remaining started V2 work; do not mark V2 complete.
+
 Current-source correction, October 24: **V2_NOOK_SHELF_DRESSING_2026-10-24.md**.
 The 61 nook copies already share the primary native formats and flexible bindings
 (**e9df01d2**, preserved by **48da899c**); the earlier carried-forward bespoke-binding
@@ -11,8 +27,7 @@ existing keepsakes. Native review has zero external overlaps;3,437 windowed
 family checks and eleven occupied-world waypoints pass with empty stderr.
 Pickup p95 stays16.57 to16.65ms; both local runs have no frames over50ms.
 The complete final static board has no regressions; wider V2 work remains open.
-Next construction batch: the already-requested shower spray, local hot-water
-steam and wet-glass work; renew the actual bathroom baseline before changes.
+The subsequent bathroom moisture/paper batch is recorded above; preserve its original before/after observations and failures.
 
 
 The owner reconfirmed autonomous continuation, ordered at the implementer's

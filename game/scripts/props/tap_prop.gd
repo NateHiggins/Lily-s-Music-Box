@@ -44,6 +44,7 @@ var _cold := false
 var _valve_openings := Vector2.ZERO
 var _held_valve := -1
 signal manipulation_changed
+signal flow_changed
 var _stopper := false
 var _water_level := 0.0
 var drain_capacity := 1.0
@@ -977,6 +978,7 @@ func _update_flow() -> void:
 	if _tick and not _tick.playing:
 		_tick.play()
 	state = PState.OPERATING if flowing else PState.IDLE
+	flow_changed.emit()
 
 
 func _start_normal_function() -> void:

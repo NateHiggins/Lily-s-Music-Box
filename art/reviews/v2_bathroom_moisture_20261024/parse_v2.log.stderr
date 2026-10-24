@@ -1,0 +1,8 @@
+SCRIPT ERROR: Compile Error: Identifier not found: Conductor
+   at: GDScript::reload (res://scripts/props/functional_prop.gd:35)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/props/tap_prop.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/building/v2_bathroom_moisture.gd:0)
+ERROR: Failed to load script "res://scripts/building/v2_bathroom_moisture.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

@@ -214,30 +214,8 @@ path.write_text(json.dumps(data,separators=(',',':'))+'\n',newline='\n')
 import runpy
 runpy.run_path(str(ROOT/'art/blender/scripts/build_operable_water_closet.py'))
 
-clear()
-paper=material('paper',(.86,.83,.74),0,.92)
-# Opposite the flush handle, behind the seat opening: nothing crosses lap/knees.
-cyl('PaperBracketWall',(-.232,.625,.235),.024,.009,nickel,(1,0,0))
-pipe('PaperBracket',[(-.232,.625,.235),(-.292,.625,.235),(-.305,.625,.174)],.005,nickel)
-cyl('PaperSpindle',(-.305,.625,.235),.007,.137,nickel,(0,0,1))
-cyl('PaperRoll',(-.305,.625,.235),.044,.112,paper,(0,0,1))
-for z in [.177,.293]:cyl('SpindleButton',(-.305,.625,z),.013,.008,nickel,(0,0,1))
-verts=[];faces=[]
-for j in range(17):
-    t=j/16
-    for i in range(9):
-        u=i/8;verts.append((-.35-.005*math.sin(t*math.pi),.625-.14*t+.0015*math.sin(u*13)*t,.183+.104*u))
-for j in range(16):
-    for i in range(8):
-        a=j*9+i;faces.append((a,a+1,a+10,a+9))
-mesh('LoosePaperEnd',verts,faces,paper,solid=.0004)
-apply();save('bath_paper_holder')
-data=json.loads(path.read_text())
-for record in data['props']:
-    if record['kind']=='toilet_roll':
-        record.pop('surfaces',None);record['model']='res://assets/props/bath_paper_holder.glb'
-        record['bounds']=[[-.36,.48,.16],[-.225,.675,.31]]
-path.write_text(json.dumps(data,separators=(',',':'))+'\n',newline='\n')
+# The wall-mounted roller has its own source, also callable for this batch.
+runpy.run_path(str(ROOT/'art/blender/scripts/build_bath_paper_holder.py'))
 
 source=ROOT/'art/data/orison_v2/domestic_furniture_source.json'
 data=json.loads(source.read_text())
