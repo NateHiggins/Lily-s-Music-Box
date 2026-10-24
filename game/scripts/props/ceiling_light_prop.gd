@@ -63,7 +63,8 @@ func _perform_synced_event(_index: int, accent: float, _pitch: float) -> void:
 func set_budget(scale: float, _with_bounce: bool, with_shadow: bool) -> void:
 	_target_scale = scale
 	light.visible = scale > 0.001
-	light.shadow_enabled = with_shadow
+	if light.shadow_enabled != with_shadow:
+		light.shadow_enabled = with_shadow
 
 
 func _process(delta: float) -> void:

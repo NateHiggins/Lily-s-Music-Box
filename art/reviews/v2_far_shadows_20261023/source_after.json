@@ -1,0 +1,54 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Four equality guards, no shadow budget or light visibility change. Frozen for actual world_after_v1.",
+  "files": [
+    {
+      "path": "game/scripts/props/light_fixture_prop.gd",
+      "raw_sha256": "5712db08a0e353a6fd8e8b6c2f22377bc67ce67a6967ec0a3317499f08935ca8",
+      "lf_sha256": "5712db08a0e353a6fd8e8b6c2f22377bc67ce67a6967ec0a3317499f08935ca8",
+      "archive": "source_after/game/scripts/props/light_fixture_prop.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/ceiling_light_prop.gd",
+      "raw_sha256": "a4c74d333b28c83a599931cf7df2acaaf36779dc9da434a316e28df2587bd0f2",
+      "lf_sha256": "a623f671bc1d6150a456b67aa6d018c157f41ef1fa2a751f08b17a7a4119d146",
+      "archive": "source_after/game/scripts/props/ceiling_light_prop.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/lamp_prop.gd",
+      "raw_sha256": "311e1e0d0569720ae8aa524b4191a862a5c656e7257ab3ea5939f8e612681928",
+      "lf_sha256": "311e1e0d0569720ae8aa524b4191a862a5c656e7257ab3ea5939f8e612681928",
+      "archive": "source_after/game/scripts/props/lamp_prop.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_shadow_setter_control.gd",
+      "raw_sha256": "eea0c5c543b664efe31199de263c1ef462b0f18328d362f4979a713d914f869b",
+      "lf_sha256": "eea0c5c543b664efe31199de263c1ef462b0f18328d362f4979a713d914f869b",
+      "archive": "source_after/game/tests/v2_shadow_setter_control.gd.gz"
+    },
+    {
+      "path": "game/tests/V2ShadowSetterControl.tscn",
+      "raw_sha256": "a38443c76a0311b88783eae93fa71120544968fbe73e7162fecad4831e629426",
+      "lf_sha256": "a38443c76a0311b88783eae93fa71120544968fbe73e7162fecad4831e629426",
+      "archive": "source_after/game/tests/V2ShadowSetterControl.tscn.gz"
+    },
+    {
+      "path": "game/tests/v2_commit_cause_world.gd",
+      "raw_sha256": "999edb4d0930b1284339d6f1d6b10a4e6e7d05c8ec2a529bc16c064914e89279",
+      "lf_sha256": "999edb4d0930b1284339d6f1d6b10a4e6e7d05c8ec2a529bc16c064914e89279",
+      "archive": "source_after/game/tests/v2_commit_cause_world.gd.gz"
+    },
+    {
+      "path": "game/tests/V2CommitCauseWorld.tscn",
+      "raw_sha256": "27d3d8feb228f0b2a20dc01467a57abf29827cc5d5c7db287443215495c3ae49",
+      "lf_sha256": "27d3d8feb228f0b2a20dc01467a57abf29827cc5d5c7db287443215495c3ae49",
+      "archive": "source_after/game/tests/V2CommitCauseWorld.tscn.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_work_attribution.gd",
+      "raw_sha256": "307f240002e59b000edc436f0e424e128d5a4806a66080d11859cd36dcba861a",
+      "lf_sha256": "307f240002e59b000edc436f0e424e128d5a4806a66080d11859cd36dcba861a",
+      "archive": "source_after/game/tests/v2_hose_work_attribution.gd.gz"
+    }
+  ]
+}

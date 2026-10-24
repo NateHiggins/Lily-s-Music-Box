@@ -1,0 +1,42 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Executed top-level sources match wrapper hashes; inherited dependencies archived separately. Motion assertions are a later diagnostic variant; production guards unchanged.",
+  "checks": [
+    {
+      "run": "probe_v1",
+      "archive": "source_probe/game/tests/v2_far_shadow_study.gd.gz",
+      "lf_sha256": "1b9ee529d98f1c5ee408faf922c82f06ebb3e4b36ac23ebe7f7dff531aeb0fdb",
+      "matches": true
+    },
+    {
+      "run": "setter_v1",
+      "archive": "setter_v1_source.gd.gz",
+      "lf_sha256": "1f40929e7ffbd91bd4ff144fbaf4e0ec4396d20defee4a9cbf6299d482516ecf",
+      "matches": true
+    },
+    {
+      "run": "budget_before_v1",
+      "archive": "source_budget_before/game/tests/v2_shadow_setter_control.gd.gz",
+      "lf_sha256": "eea0c5c543b664efe31199de263c1ef462b0f18328d362f4979a713d914f869b",
+      "matches": true
+    },
+    {
+      "run": "budget_after_v1",
+      "archive": "source_after/game/tests/v2_shadow_setter_control.gd.gz",
+      "lf_sha256": "eea0c5c543b664efe31199de263c1ef462b0f18328d362f4979a713d914f869b",
+      "matches": true
+    },
+    {
+      "run": "motion_after_v1",
+      "archive": "motion_source.gd.gz",
+      "lf_sha256": "d36d63cfe8d6cec6b4e5ba6172399ebc1abb94fad2abc49b6cde0ae19c2f8a88",
+      "matches": true
+    },
+    {
+      "run": "world_after_v1",
+      "archive": "source_after/game/tests/v2_commit_cause_world.gd.gz",
+      "lf_sha256": "999edb4d0930b1284339d6f1d6b10a4e6e7d05c8ec2a529bc16c064914e89279",
+      "matches": true
+    }
+  ]
+}

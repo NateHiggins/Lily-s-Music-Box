@@ -12,6 +12,26 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Newest rendering repair: **V2_SHADOW_BUDGET_WRITES_2026-10-23.md**. Four equality
+guards in ceiling/lamp/general fixture budget methods avoid invalidating shadow
+maps when their boolean is unchanged. No light budget, color, mask or shadow
+selection changes. Exact-engine control: repeated actual budget writes give4
+shadow draws median before,0 after, with26 state checks in both; the29-check extended control
+confirms geometry/light movement and real off/on still refresh maps. Actual same
+ten-waypoint49-check automatic-save route/reconstruction passes, empty stderr.
+Observed p50/p95/p99/max39.632/54.532/101.933/167.854→
+34.965/48.768/94.323/166.297ms;8→5 intervals above100ms. Changed save commits stay13.
+Root shadow draw median33315→29871; visible306 and final shadow-enabled40 unchanged.
+Whole-route pair remains observational; isolated controls establish cache behavior.
+Far-shadow controls are retained as uninstalled experiments; originals drift and
+appearance is unaccepted. Do not treat service/directional-off diagnostics as policy.
+Full board plus final focused recheck has no regressions (101 PASS,8 FAIL,1
+INCOMPLETE;98 tools suites,1194 tests, five existing failures). Two executed fixture
+refs selectively staged65 lines; two shared bathroom records remain62 unstaged.
+Remaining synchronous save stalls, shadow submission, actual cell streaming and
+all started-work/surface/runtime/human coverage remain open.
+
+
 Newest input/save repair: **V2_UNCHANGED_FIRE_RELEASE_2026-10-23.md**. Cabinet
 grabs bookmark their own persistent snapshot; unchanged release/Space cleanup
 no longer requests a whole-campaign save solely because the watchman clock

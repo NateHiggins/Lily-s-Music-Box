@@ -596,10 +596,12 @@ func set_budget(scale: float, with_bounce: bool, with_shadow: bool) -> void:
 		# Compatibility counts visible zero-energy lights against its
 		# per-object limit, so dormant fixtures must leave the render list.
 		light.visible = scale > 0.001
-		light.shadow_enabled = with_shadow
+		if light.shadow_enabled != with_shadow:
+			light.shadow_enabled = with_shadow
 	if _entry_spot:
 		_entry_spot.visible = scale > 0.001
-		_entry_spot.shadow_enabled = with_shadow
+		if _entry_spot.shadow_enabled != with_shadow:
+			_entry_spot.shadow_enabled = with_shadow
 	if _halo:
 		_halo.visible = scale > 0.001
 	if bounce:

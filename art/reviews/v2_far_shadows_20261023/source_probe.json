@@ -1,0 +1,42 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original production lighting, test-only shadow perturbations with paused ranking in every phase.",
+  "files": [
+    {
+      "path": "game/tests/v2_far_shadow_study.gd",
+      "raw_sha256": "1b9ee529d98f1c5ee408faf922c82f06ebb3e4b36ac23ebe7f7dff531aeb0fdb",
+      "lf_sha256": "1b9ee529d98f1c5ee408faf922c82f06ebb3e4b36ac23ebe7f7dff531aeb0fdb",
+      "archive": "source_probe/game/tests/v2_far_shadow_study.gd.gz"
+    },
+    {
+      "path": "game/tests/V2FarShadowStudy.tscn",
+      "raw_sha256": "0ddba2cd0a0945ed8675d9312d4fbe7f6bf2739d061d33f223fa95a0f23b70ba",
+      "lf_sha256": "0ddba2cd0a0945ed8675d9312d4fbe7f6bf2739d061d33f223fa95a0f23b70ba",
+      "archive": "source_probe/game/tests/V2FarShadowStudy.tscn.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_installed_world.gd",
+      "raw_sha256": "fdd823e474bf91d5c8377ee140a4f79ec5456b01084e2995ec4fb8c135c64d79",
+      "lf_sha256": "fdd823e474bf91d5c8377ee140a4f79ec5456b01084e2995ec4fb8c135c64d79",
+      "archive": "source_probe/game/tests/v2_hose_installed_world.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_golden_repair_profile.gd",
+      "raw_sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7",
+      "lf_sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7",
+      "archive": "source_probe/game/tests/v2_golden_repair_profile.gd.gz"
+    },
+    {
+      "path": "game/scripts/building/light_rig.gd",
+      "raw_sha256": "d25b416c3c97660880510ac07dfd43ced442e59e7eea8fc30e387c91268d529b",
+      "lf_sha256": "41781087dfcea71f186a40980adca98e926acdcfb7fcfaecfd921ec118755e15",
+      "archive": "source_probe/game/scripts/building/light_rig.gd.gz"
+    },
+    {
+      "path": "game/scripts/building/service_light_distance.gd",
+      "raw_sha256": "ee427d4229493fb595d16508128a848390d8efa47255d128aae9695c6ebc87dc",
+      "lf_sha256": "ee427d4229493fb595d16508128a848390d8efa47255d128aae9695c6ebc87dc",
+      "archive": "source_probe/game/scripts/building/service_light_distance.gd.gz"
+    }
+  ]
+}
