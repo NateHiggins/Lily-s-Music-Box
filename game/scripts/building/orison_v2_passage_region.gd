@@ -301,6 +301,7 @@ func _ready() -> void:
 		sign_prop.bind_hours_director(finish.hours_director)
 	_mount_counters()
 	if not _mount_key_counter(): return
+	if not _mount_news_stand(): return
 	preload("res://scripts/building/v2_legacy_material_stock.gd").apply(self)
 	add_to_group("orison_v2_passage_region")
 	print("[V2 PASSAGE] ", cell_nodes.size(), " resident cells; ", doors.size(), " doors; ", _counter_ids.size(), " shared-service counters")
@@ -425,6 +426,30 @@ func _mount_key_counter() -> bool:
 	counter.size = Vector3(float(rect[2])-float(rect[0]),.30,float(rect[3])-float(rect[1]))
 	counter.position = GameBoot.b2g([(float(rect[0])+float(rect[2]))*.5,(float(rect[1])+float(rect[3]))*.5,float(source.z0)+float(source.h)+.15])
 	_actors.add_child(counter)
+	return true
+
+## News & Cigars sells over its counter (design/ORISON_NEWSPAPERS_2026-10-23.md
+## section 6): the papers control sits on the authored counter top.
+func _mount_news_stand() -> bool:
+	var rows: Dictionary = {}
+	for floor: Dictionary in source_layout.floors:
+		if floor.id != "F01": continue
+		for item: Dictionary in floor.furniture:
+			if str(item.id) == "storm_shop_news_cigars_counter_top":
+				rows[str(item.id)] = item
+	if rows.size() != 1:
+		_fail("news stand sources missing")
+		return false
+	var top: Dictionary = rows.storm_shop_news_cigars_counter_top
+	var rect: Array = top.rect
+	var stand := NewsRackProp.new()
+	stand.name = "NewsStand"
+	stand.hours = finish.hours_director
+	stand.setup("counter", Vector3(absf(float(rect[2]) - float(rect[0])), 0.3,
+			absf(float(rect[3]) - float(rect[1]))))
+	stand.position = GameBoot.b2g([(float(rect[0]) + float(rect[2])) * 0.5,
+			(float(rect[1]) + float(rect[3])) * 0.5, float(top.z0) + float(top.h) + 0.15])
+	_actors.add_child(stand)
 	return true
 
 func shutdown() -> void:

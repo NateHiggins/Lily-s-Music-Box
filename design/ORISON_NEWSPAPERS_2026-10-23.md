@@ -148,8 +148,9 @@ name, and both papers present on every day.
   two papers for the day and the three days before (the rack keeps a
   few); a paper taken is collected at once and may be read there. Papers
   go on the desk account like the mail: no coin changes hands.
-- **The shelf.** The player's desk in 4B carries a `papers` control
-  listing the collection by month; choosing an issue opens it.
+- **The shelf.** The player's own bookshelf in 4B (the V2 `4B_shelf`
+  furniture anchor) carries a `papers` control listing the collection,
+  newest first; choosing an issue opens it.
 - **Reading.** `NewspaperPanel` draws the front page on the telegram
   paper style: masthead, date line, ears, the lead in large capitals
   with its deck and body, three columns, the late wire. ESC or the
@@ -203,7 +204,7 @@ budgets and the flags.
 ## 8. What done looks like
 
 Twenty-five files, 730 front pages, the audit clean; the catalogue
-loads them all headless; the counter sells and the desk collects; a
+loads them all headless; the counter sells and the bookshelf keeps; a
 captured frame of the panel over the real shop; the design doc and the
 drafts doc cross-referenced. Opinions for every resident per §7, audited. Not done by this brief: no newsboys, no
 delivery to the door, no back pages, no classifieds beyond the one the

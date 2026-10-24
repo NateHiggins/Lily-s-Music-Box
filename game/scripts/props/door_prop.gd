@@ -97,9 +97,12 @@ func _build_leaf() -> void:
 	add_child(_body)
 	var shape := CollisionShape3D.new()
 	var box := BoxShape3D.new()
-	box.size = Vector3(width - 0.02, height - 0.02, 0.044)
+	# A 20 mm undercut: the leaf's shell clears a finished floor that sits a
+	# little proud of the door's datum (the arcade terrazzo is ~10 mm up), so
+	# the swing sweep is not refused at the first step. The top edge is unchanged.
+	box.size = Vector3(width - 0.02, height - LEAF_UNDERCUT - 0.01, 0.044)
 	shape.shape = box
-	shape.position = Vector3(width * 0.5, height * 0.5, _hinge_offset)
+	shape.position = Vector3(width * 0.5, (height + LEAF_UNDERCUT - 0.01) * 0.5, _hinge_offset)
 	_body.add_child(shape)
 	_fixed = Node3D.new()
 	_fixed.name = "FixedIronmongery"
@@ -370,6 +373,8 @@ func interact_control(control_id: String, player: Node) -> Variant:
 
 ## The knock's cue id, read here by name: "door_knock" in audio_cues.json.
 const KNOCK_CUE := "door_knock"
+## Clear gap between the leaf's collision shell and the door datum.
+const LEAF_UNDERCUT := 0.02
 
 
 func _play_knock() -> void:

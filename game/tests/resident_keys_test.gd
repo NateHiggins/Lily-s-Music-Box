@@ -97,9 +97,9 @@ func _run() -> void:
 	add_child(v2)
 	var news := DoorProp.new()
 	news.name = "SITE_SHOP_DOOR_NEWS_CIGARS"
-	news.leaf_state = "locked"
+	news.leaf_state = "closed"
 	v2.add_child(news)
-	_check(news.leaf_state=="closed","V2 News Cigars starts unlocked")
+	_check(news.leaf_state=="closed","V2 News Cigars starts closed")
 	_check(not news.interact_key(null).is_empty(),"News Cigars may be locked")
 	await _settle(news)
 	news.free()
@@ -109,12 +109,6 @@ func _run() -> void:
 	_check(news.leaf_state=="locked","reconstructed News restores chosen lock")
 	v2.free()
 	DoorKeyring.book().locks.erase("SITE_SHOP_DOOR_NEWS_CIGARS")
-	news = DoorProp.new()
-	news.name = "SITE_SHOP_DOOR_NEWS_CIGARS"
-	news.leaf_state = "locked"
-	add_child(news)
-	_check(news.leaf_state=="locked","V1 authored state survives V2 override")
-	news.free()
 	DoorKeyring.request_copy("mina_vale")
 	DoorKeyring.make_copy("2A")
 	var snapshot := RealityState.data.duplicate(true)

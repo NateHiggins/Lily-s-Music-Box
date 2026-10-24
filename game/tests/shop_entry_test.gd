@@ -320,9 +320,9 @@ func _eleven_shop_routes() -> void:
 				[tag, int(back * 100.0)], back >= 0.999)
 
 	var news = root.find_child("SITE_SHOP_DOOR_NEWS_CIGARS", true, false)
-	_check("NEWS_CIGARS proprietor door exists", news != null)
-	_check("NEWS_CIGARS proprietor door is locked",
-			news != null and news.leaf_state == "locked")
+	_check("NEWS_CIGARS door exists", news != null)
+	_check("NEWS_CIGARS door is closed, not locked: papers are sold inside",
+			news != null and news.leaf_state == "closed")
 	if news:
 		# Re-anchored to the installed leaf. The former hardcoded coordinates
 		# silently became empty pavement when the shop moved. Local +X runs
@@ -339,8 +339,8 @@ func _eleven_shop_routes() -> void:
 		var hatch_fraction := _sweep(service_start, service_reach)
 		_check("NEWS_CIGARS service shelf is reachable (%d%% clear)" %
 				int(hatch_fraction * 100.0), hatch_fraction >= 0.999)
-		# The inverse claim uses the same anchor: crossing the locked leaf from
-		# the aisle into the shop must fail.
+		# The inverse claim uses the same anchor: walking through the closed
+		# leaf from the aisle, without opening it, must fail.
 		var centre: Vector3 = news.to_global(
 				Vector3(news.width * 0.5, 0.0, 0.0))
 		var private_start := centre - inward * 0.45
@@ -348,5 +348,5 @@ func _eleven_shop_routes() -> void:
 		private_start.y = 0.02
 		private_inside.y = 0.02
 		var private_fraction := _sweep(private_start, private_inside)
-		_check("NEWS_CIGARS proprietor side remains inaccessible",
+		_check("NEWS_CIGARS closed leaf stops a body that does not open it",
 				private_fraction < 0.80)
