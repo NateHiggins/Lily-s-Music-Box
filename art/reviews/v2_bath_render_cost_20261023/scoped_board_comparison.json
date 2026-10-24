@@ -1,0 +1,92 @@
+{
+  "evidence_class": "INERT",
+  "limits": "Two historical dirty snapshots with different scopes; informational common-gate comparison only, not a clean merge-base baseline or verifier certificate.",
+  "static_reference": "art/reviews/v2_reflection_capture_20261023/gates/board.json",
+  "tools_reference": "art/reviews/v2_device_hand_20261023/tool_tests/board.json",
+  "static": [
+    {
+      "id": "spatial",
+      "before": {
+        "drift.class_changes": 0,
+        "drift.new_failing": 8,
+        "drift.new_reported": 21,
+        "drift.save_unresolved": 0,
+        "drift.stale_preserved": 0,
+        "drift.target_vanished": 0
+      },
+      "after": {
+        "drift.class_changes": 0,
+        "drift.new_failing": 8,
+        "drift.new_reported": 45,
+        "drift.save_unresolved": 0,
+        "drift.stale_preserved": 0,
+        "drift.target_vanished": 0
+      },
+      "new_defects": [
+        "new_reported:161a8a03115dc2e8",
+        "new_reported:1d8cd0d4e7bc6443",
+        "new_reported:2bb19937111d7e7e",
+        "new_reported:2fbceaea220b4fe1",
+        "new_reported:3bd4e4a354c6d8bb",
+        "new_reported:40397dc19c0c561f",
+        "new_reported:4043cc8400ca0463",
+        "new_reported:479e9ab792af93a5",
+        "new_reported:516bda63fdfa1cb0",
+        "new_reported:558879c0cb8b4c14",
+        "new_reported:5c27d701bb5f2eea",
+        "new_reported:5d54b6cadd0d9e3a",
+        "new_reported:642d39a5dece3748",
+        "new_reported:6c0cf99cebb303c3",
+        "new_reported:89b99a8e81ccf6c9",
+        "new_reported:8edc62628acae61f",
+        "new_reported:9cf5c638ad747bd3",
+        "new_reported:adcda059df2a56c5",
+        "new_reported:c46522bc58811c4c",
+        "new_reported:c7e72fb66ff1d25a",
+        "new_reported:cbd62eb68971e340",
+        "new_reported:dafdc729865f35e8",
+        "new_reported:df545f5e9d5dd594",
+        "new_reported:f5d4a827f36614b6"
+      ]
+    },
+    {
+      "id": "systemic",
+      "before": {
+        "drift.new_actionable": 0,
+        "drift.new_review": 26
+      },
+      "after": {
+        "drift.new_actionable": 0,
+        "drift.new_review": 26
+      },
+      "new_defects": []
+    },
+    {
+      "id": "reader",
+      "before": {
+        "unread": 1141
+      },
+      "after": {
+        "unread": 1141
+      },
+      "new_defects": []
+    },
+    {
+      "id": "carriers",
+      "before": {
+        "ambiguous_dynamic": 2,
+        "baseline_stale": 0,
+        "forbidden": 0,
+        "legacy_uncovered": 0
+      },
+      "after": {
+        "ambiguous_dynamic": 2,
+        "baseline_stale": 0,
+        "forbidden": 0,
+        "legacy_uncovered": 0
+      },
+      "new_defects": []
+    }
+  ],
+  "changed_tools": []
+}

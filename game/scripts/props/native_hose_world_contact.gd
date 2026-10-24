@@ -12,6 +12,14 @@ var error:=""
 var broad_queries:=0
 var shell_queries:=0
 var chunked:=true
+var analytic_boxes:=false
+var capsule_broadphase:=false
+var capsule_queries:=0
+var capsule_clears:=0
+var _capsule:=CapsuleShape3D.new()
+var _capsule_query:=PhysicsShapeQueryParameters3D.new()
+var analytic_segments:=0
+var _box_support:=preload("res://scripts/props/native_hose_box_support.gd").new()
 var last_collider: Object
 var _radius:=0.0
 var _box:=BoxShape3D.new()
@@ -24,11 +32,16 @@ var _response_limit:=128
 var _response_error:=""
 func _fail(message: String) -> bool:
 	error=message;return false
+func set_exclusions(exclude: Array[RID]) -> void:
+	exclusions=exclude.duplicate()
+	_query.exclude=exclusions;_capsule_query.exclude=exclusions
 func configure(owner_rig: RefCounted,world: PhysicsDirectSpaceState3D,exclude: Array[RID]) -> bool:
 	if ready or owner_rig==null or not owner_rig.configured:return _fail("unconfigured or already bound hose")
 	rig=owner_rig;space=world;exclusions=exclude.duplicate()
 	_box.margin=.000001;_shell.margin=.000001;_query.margin=0.
 	_query.collision_mask=1;_query.collide_with_areas=false;_query.exclude=exclusions
+	_capsule_query.collision_mask=1;_capsule_query.collide_with_areas=false;_capsule_query.exclude=exclusions
+	_capsule_query.margin=0.;_capsule_query.shape=_capsule
 	var draws: Array[Node]=rig.model.find_children("*","MeshInstance3D",true,false)
 	if draws.size()!=1:return _fail("expected one native cloth skin")
 	var draw: MeshInstance3D=draws[0]
@@ -85,13 +98,45 @@ func configure(owner_rig: RefCounted,world: PhysicsDirectSpaceState3D,exclude: A
 		var bounds:=AABB(points[0],Vector3.ZERO)
 		for p: Vector3 in points:
 			bounds=bounds.expand(p);_radius=maxf(_radius,(rig.original_frames[ring].basis*p).length())
-		sections.append({"outer":sorted_outer,"inner":sorted_inner,"bounds":bounds})
+		var section_radius:=0.
+		for point: Vector3 in points:section_radius=maxf(section_radius,point.length())
+		sections.append({"outer":sorted_outer,"inner":sorted_inner,"bounds":bounds,"radius":section_radius})
 	ready=sections.size()==rig.indices.size()
 	return ready
 func _hits_box(bounds: AABB) -> bool:
 	_box.size=Vector3(maxf(bounds.size.x,.000002),maxf(bounds.size.y,.000002),maxf(bounds.size.z,.000002))
 	_query.shape=_box;_query.transform=Transform3D(Basis.IDENTITY,bounds.get_center())
 	return not space.intersect_shape(_query,1).is_empty()
+
+func _basis_radius_bound(basis: Basis) -> float:
+	# Largest absolute row sum of B'B bounds its largest eigenvalue. This
+	# remains conservative for nonuniform scale and shear, not only rotations.
+	var xy:=absf(basis.x.dot(basis.y));var xz:=absf(basis.x.dot(basis.z));var yz:=absf(basis.y.dot(basis.z))
+	return sqrt(maxf(basis.x.length_squared()+xy+xz,maxf(basis.y.length_squared()+xy+yz,basis.z.length_squared()+xz+yz)))
+
+func _capsule_sweep_clear(world: Transform3D,old: Array[Transform3D],next: Array[Transform3D],index: int) -> bool:
+	var a: Vector3=world*old[index].origin;var b: Vector3=world*old[index+1].origin
+	var c: Vector3=world*next[index].origin;var d: Vector3=world*next[index+1].origin
+	var length: float=a.distance_to(b)
+	if length<.000001:return false
+	var radius:=0.
+	for ring: int in [index,index+1]:
+		for pose: Transform3D in [old[ring],next[ring]]:
+			radius=maxf(radius,float(sections[ring].radius)*_basis_radius_bound(world.basis*pose.basis))
+	# Every intermediate centreline lies within max endpoint displacement of
+	# the old segment. Each native vertex lies within the section radius.
+	# A clear envelope therefore proves the entire swept native shell clear.
+	radius+=maxf(a.distance_to(c),b.distance_to(d))+.00002
+	if not is_finite(radius) or not is_finite(length+2.*radius) or not a.is_finite() or not b.is_finite() or not c.is_finite() or not d.is_finite():return false
+	_capsule.radius=radius;_capsule.height=length+2.*radius
+	var y: Vector3=(b-a)/length
+	var reference:=Vector3.RIGHT if absf(y.dot(Vector3.UP))>.95 else Vector3.UP
+	var x: Vector3=reference.cross(y).normalized()
+	_capsule_query.transform=Transform3D(Basis(x,y,x.cross(y)),(a+b)*.5)
+	capsule_queries+=1
+	var clear: bool=space.intersect_shape(_capsule_query,1).is_empty()
+	if clear:capsule_clears+=1
+	return clear
 func veto(before: PackedVector3Array,after: PackedVector3Array) -> bool:return _test(before,after,false)
 func intersects_pose(points: PackedVector3Array) -> bool:return _test(points,points,true)
 func contact_constraints(points: PackedVector3Array,limit: int=128) -> Dictionary:
@@ -102,8 +147,8 @@ func contact_constraints(points: PackedVector3Array,limit: int=128) -> Dictionar
 	return {"valid":_response_valid,"truncated":_response_truncated,"planes":_response_planes.duplicate(true),"error":_response_error}
 func motion_constraints(before: PackedVector3Array,after: PackedVector3Array,limit: int=128) -> Dictionary:
 	_response_limit=clampi(limit,1,4096)
-	_test(before,after,true,true)
-	return {"valid":_response_valid,"truncated":_response_truncated,"planes":_response_planes.duplicate(true),"error":_response_error}
+	var blocked: bool=_test(before,after,true,true)
+	return {"valid":_response_valid,"truncated":_response_truncated,"planes":_response_planes.duplicate(true),"error":_response_error,"sweep_clear":not blocked and _response_valid and not _response_truncated}
 func _cell_hull(posed: Array[PackedVector3Array],sector: int,origin: Vector3,fraction: float) -> PackedVector3Array:
 	var hull:=PackedVector3Array()
 	for row in 4:
@@ -112,7 +157,7 @@ func _cell_hull(posed: Array[PackedVector3Array],sector: int,origin: Vector3,fra
 			if row>=2:p=posed[row-2][index].lerp(p,fraction)
 			hull.append(p-origin)
 	return hull
-func _contact_plane(ring: int,frame: Transform3D,world: Transform3D,info: Dictionary) -> Dictionary:
+func _contact_plane(ring: int,frame: Transform3D,world: Transform3D,info: Dictionary,refine: bool=true) -> Dictionary:
 	if info.is_empty():return {}
 	var normal: Vector3=info.normal
 	var point: Vector3=info.point
@@ -122,7 +167,7 @@ func _contact_plane(ring: int,frame: Transform3D,world: Transform3D,info: Dictio
 	# on what is physically one flat floor. Retain the manifold if the local
 	# ray does not hit that same body or describes a different-facing surface.
 	var ray:=PhysicsRayQueryParameters3D.create(point+normal*.005,point-normal*.005,1,exclusions)
-	var hit: Dictionary=space.intersect_ray(ray)
+	var hit: Dictionary=space.intersect_ray(ray) if refine else {}
 	if not hit.is_empty() and hit.rid==info.rid and normal.dot(hit.normal)>.9:
 		normal=hit.normal;point=hit.position
 	var local: Vector3=world.basis.transposed()*normal
@@ -134,9 +179,39 @@ func _contact_plane(ring: int,frame: Transform3D,world: Transform3D,info: Dictio
 	for p: Vector3 in sections[ring].outer:support=minf(support,local.dot(frame.basis*p))
 	# A0.1mm stand-off prevents resting contact chatter. This moves cloth away
 	# from the obstacle; narrow/swept collision margins remain at1micrometre.
-	return {"ring":ring,"normal":local,"offset":surface-support+RESPONSE_CLEARANCE_M/scale,"rid":info.rid}
+	return {"ring":ring,"normal":local,"offset":surface-support+RESPONSE_CLEARANCE_M/scale,"rid":info.rid,"surface":surface,"clearance":RESPONSE_CLEARANCE_M/scale}
+func remember_support(records: Array,plane: Dictionary) -> bool:
+	if not plane.has_all(["ring","normal","surface","clearance","rid"]):return false
+	var ring: int=plane.ring
+	var normal: Vector3=plane.normal
+	if ring<0 or ring>=sections.size() or not normal.is_finite() or absf(normal.length_squared()-1.)>.000001:return false
+	if not is_finite(plane.surface) or not is_finite(plane.clearance) or plane.clearance<=0.:return false
+	for old: Dictionary in records:
+		if old.ring==ring and old.rid==plane.rid and (old.normal-normal).length_squared()<1e-14 and absf(old.surface-plane.surface)<.000002:
+			old.surface=maxf(old.surface,plane.surface);return true
+	records.append(plane.duplicate());return true
+func reframe_support(records: Array,points: PackedVector3Array) -> Dictionary:
+	var planes: Dictionary={}
+	if records.is_empty():return {"valid":true,"planes":planes}
+	var frames: Array[Transform3D]=rig.model_frames(points)
+	if frames.size()!=sections.size():return {"valid":false,"planes":{}}
+	for plane: Dictionary in records:
+		var ring: int=plane.ring
+		var support:=INF
+		for point: Vector3 in sections[ring].outer:support=minf(support,plane.normal.dot(frames[ring].basis*point))
+		var offset: float=plane.surface-support+plane.clearance
+		if not is_finite(offset):return {"valid":false,"planes":{}}
+		if not planes.has(ring):planes[ring]=[]
+		var merged:=false
+		for old: Dictionary in planes[ring]:
+			if (old.normal-plane.normal).length_squared()<1e-14:
+				old.offset=maxf(old.offset,offset);merged=true;break
+		if not merged:planes[ring].append({"normal":plane.normal,"offset":offset})
+	return {"valid":true,"planes":planes}
 func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: bool,collect: bool=false) -> bool:
 	broad_queries=0;shell_queries=0;last_collider=null
+	analytic_segments=0
+	if analytic_boxes:_box_support.begin_test()
 	_response_planes.clear();_response_valid=false;_response_truncated=false
 	_response_error=""
 	if not ready or before.size()!=sections.size() or after.size()!=sections.size():return true
@@ -158,13 +233,19 @@ func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: b
 	# Chunk bounds avoid thousands of native shape queries on long, clear
 	# spans. Every occupied chunk still gets the original per-cell narrow test.
 	var bounds_by_segment: Array[AABB]=[];bounds_by_segment.resize(sections.size()-1)
+	var old_bounds_by_segment: Array[AABB]=[];old_bounds_by_segment.resize(sections.size()-1)
+	var next_bounds_by_segment: Array[AABB]=[];next_bounds_by_segment.resize(sections.size()-1)
 	var occupied:=PackedByteArray();occupied.resize(sections.size()-1);occupied.fill(0)
 	for start in range(0,sections.size()-1,32):
 		var chunk:=AABB(world*old[start].origin,Vector3.ZERO)
 		for i in range(start,mini(start+32,sections.size()-1)):
 			var bounds: AABB=(world*old[i])*sections[i].bounds
 			bounds=bounds.merge((world*old[i+1])*sections[i+1].bounds)
-			bounds=bounds.merge((world*next[i])*sections[i].bounds).merge((world*next[i+1])*sections[i+1].bounds)
+			if analytic_boxes:old_bounds_by_segment[i]=bounds
+			var first: AABB=(world*next[i])*sections[i].bounds
+			var second: AABB=(world*next[i+1])*sections[i+1].bounds
+			if analytic_boxes:next_bounds_by_segment[i]=first.merge(second)
+			bounds=bounds.merge(first).merge(second)
 			bounds_by_segment[i]=bounds;chunk=chunk.merge(bounds)
 		if chunked:broad_queries+=1
 		if not chunked or _hits_box(chunk.grow(.000002)):
@@ -172,9 +253,23 @@ func _test(before: PackedVector3Array,after: PackedVector3Array,include_still: b
 	for i in range(sections.size()-1):
 		if occupied[i]==0:continue
 		if not include_still and old[i]==next[i] and old[i+1]==next[i+1]:continue
+		if capsule_broadphase and _capsule_sweep_clear(world,old,next,i):continue
 		var bounds: AABB=bounds_by_segment[i]
 		broad_queries+=1
 		if not _hits_box(bounds.grow(.000002)):continue
+		if analytic_boxes:
+			# _hits_box left the same conservative broad-phase box in _query.
+			var broad_hits: Array[Dictionary]=space.intersect_shape(_query,65)
+			var shortcut: Dictionary=_box_support.segment(self,broad_hits,bounds,old_bounds_by_segment[i],next_bounds_by_segment[i],world,old,next,i)
+			if shortcut.handled:
+				analytic_segments+=1
+				if shortcut.planes.is_empty():continue
+				last_collider=shortcut.collider
+				if not collect:return true
+				for plane: Dictionary in shortcut.planes:
+					_response_planes.append(plane)
+					if _response_planes.size()>=_response_limit:_response_truncated=true;return true
+				continue
 		var posed: Array[PackedVector3Array]=[]
 		for frame: Transform3D in [world*old[i],world*old[i+1],world*next[i],world*next[i+1]]:
 			var index: int=i if posed.size()%2==0 else i+1

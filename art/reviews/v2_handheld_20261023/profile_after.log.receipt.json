@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 170.18,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T13:05:28Z",
+  "started_utc": "2026-10-23T13:02:37Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "HANDHELD PROFILE: PASS samples=879"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/profile_after.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/profile_after.log",
+  "stdout_sha256": "1cd657036ee243e4013386fd50596ebfdfd34119b4e432ba48d4ef6ce6d6e04a"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2HandheldProfile.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/profile_after",
+ "source": {
+  "dirty_paths": 3031,
+  "dirty_sample": [
+   "M art/blender/scripts/build_service_radiophone_v2.py",
+   " M art/blender/scripts/radiophone_printer_cartridge.py",
+   " M art/blender/service_radiophone_v2.blend",
+   " M art/tools/fix_runtime_texture_imports.py",
+   " M game/assets/props/service_radiophone_v2.glb",
+   " M game/scripts/device/hot_type_writer.gd",
+   " M game/scripts/device/mechanical_teletype.gd",
+   " M game/scripts/device/service_set_carrier.gd",
+   " M game/scripts/device/service_set_prop.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json"
+  ],
+  "repository_head": "99ea932d051fb34e74be6600c99b7e4d1a26b996",
+  "repository_tree": "aa2ad62cb5f6e77142cd704d15118ae3c4b99b0d",
+  "runtime_inputs_sha256": "029dd62427255678b42c87343e94d38fa2587e38a84f09b6ce7a788a80e30ac6",
+  "test_path": "game/tests/v2_handheld_profile.gd",
+  "test_sha256": "df5449a546f1e43660f4b62bf6768e9e334c62dd4723e9163e0c6607fca785be"
+ },
+ "windowed": true
+}

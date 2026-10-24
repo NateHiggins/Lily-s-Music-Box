@@ -1,0 +1,120 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Final source. World v2 executes the preceding formatting variant; final enqueue metric reuses its already sampled finish tick. Queue v4 executes this final source. Original variants retained.",
+  "files": [
+    {
+      "path": "game/scripts/game/reality_game_state.gd",
+      "sha256": "56fb569b0c246ccb5e31341b2555ccb553877052236b75e6dcb290fd584c4fdd",
+      "lf_sha256": "74a780100e48e81c93d7cac10f70dbcf8eb84430d30c4fa89bd5a13a3d7f29c8",
+      "bytes": 17621
+    },
+    {
+      "path": "game/scripts/game/reality_save_queue.gd",
+      "sha256": "4efe9fba9dc1420004a40e59a8fea8f01202ea2556095ace83e00d2bfb2c763f",
+      "lf_sha256": "6ac33f352a0e17322b48fd451ee4502c5805e8fee171b3fdb6e6d37acb669dc1",
+      "bytes": 2486
+    },
+    {
+      "path": "game/scripts/game/reality_save_document.gd",
+      "sha256": "f99acc38b02c38adc47873821cdc558806467dd899b33ea7fb04898ce781401f",
+      "lf_sha256": "f99acc38b02c38adc47873821cdc558806467dd899b33ea7fb04898ce781401f",
+      "bytes": 3842
+    },
+    {
+      "path": "game/scripts/game/reality_save_storage.gd",
+      "sha256": "82467603a1d67ba2c27df169a3421eec25b2829e9a29b1891fa19e063f7c5b63",
+      "lf_sha256": "03a4ce83cc97d4b12c426612bdbfeef3b7f2237d606c11239840fc5a15d0d6ae",
+      "bytes": 15065
+    },
+    {
+      "path": "game/scripts/game/campaign_clock.gd",
+      "sha256": "05a20108a3e303995ae6aa138e9c316a68274eeddf422a2fbe6743f93133c377",
+      "lf_sha256": "05a20108a3e303995ae6aa138e9c316a68274eeddf422a2fbe6743f93133c377",
+      "bytes": 14152
+    },
+    {
+      "path": "game/scripts/game/door_keyring.gd",
+      "sha256": "6f7073bbf6dbbd91884ecb0f3be94702dc475bf8313013131c32d486c969edb3",
+      "lf_sha256": "6f7073bbf6dbbd91884ecb0f3be94702dc475bf8313013131c32d486c969edb3",
+      "bytes": 5996
+    },
+    {
+      "path": "game/scripts/building/orison_v2_household_state.gd",
+      "sha256": "a5f445d1a3ed8dfe301ca549a78e9b7f896219331989c4c653cce199682628d5",
+      "lf_sha256": "a5f445d1a3ed8dfe301ca549a78e9b7f896219331989c4c653cce199682628d5",
+      "bytes": 20797
+    },
+    {
+      "path": "game/tests/reality_background_save_test.gd",
+      "sha256": "1aea08d0e0b488ecede79a065c9906800c03de1640dc6b3d77a2dcb2fa3bc5b7",
+      "lf_sha256": "81555ea04d4a7dfb921c69c9abb027077b67b8d6e89072ff7c2966b21c26cfc8",
+      "bytes": 9431
+    },
+    {
+      "path": "game/tests/RealityBackgroundSaveTest.tscn",
+      "sha256": "d4ec30cbb2fe36b1ee77cfb7b95933d3f2123a805167dcf1d3759cc61474b202",
+      "lf_sha256": "d4ec30cbb2fe36b1ee77cfb7b95933d3f2123a805167dcf1d3759cc61474b202",
+      "bytes": 198
+    },
+    {
+      "path": "game/tests/v2_background_save_world.gd",
+      "sha256": "3bbb29bc47a6276aa1376ab136d0abc7f9d01332ff695a8165aa259b54bdbcde",
+      "lf_sha256": "3bbb29bc47a6276aa1376ab136d0abc7f9d01332ff695a8165aa259b54bdbcde",
+      "bytes": 3687
+    },
+    {
+      "path": "game/tests/V2BackgroundSaveWorld.tscn",
+      "sha256": "0e80c651b41497da23ca4ac2bff54cd86a42a68c3e460f5ac9ab482dd72d48f9",
+      "lf_sha256": "0e80c651b41497da23ca4ac2bff54cd86a42a68c3e460f5ac9ab482dd72d48f9",
+      "bytes": 192
+    },
+    {
+      "path": "game/tests/v2_commit_cause_world.gd",
+      "sha256": "999edb4d0930b1284339d6f1d6b10a4e6e7d05c8ec2a529bc16c064914e89279",
+      "lf_sha256": "999edb4d0930b1284339d6f1d6b10a4e6e7d05c8ec2a529bc16c064914e89279",
+      "bytes": 2805
+    },
+    {
+      "path": "game/tests/v2_hose_work_attribution.gd",
+      "sha256": "307f240002e59b000edc436f0e424e128d5a4806a66080d11859cd36dcba861a",
+      "lf_sha256": "307f240002e59b000edc436f0e424e128d5a4806a66080d11859cd36dcba861a",
+      "bytes": 5711
+    },
+    {
+      "path": "game/tests/v2_hose_installed_world.gd",
+      "sha256": "fdd823e474bf91d5c8377ee140a4f79ec5456b01084e2995ec4fb8c135c64d79",
+      "lf_sha256": "fdd823e474bf91d5c8377ee140a4f79ec5456b01084e2995ec4fb8c135c64d79",
+      "bytes": 12878
+    },
+    {
+      "path": "game/tests/v2_golden_repair_profile.gd",
+      "sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7",
+      "lf_sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7",
+      "bytes": 3799
+    },
+    {
+      "path": "game/tests/v2_frame_work_probe.gd",
+      "sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "lf_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "bytes": 4005
+    },
+    {
+      "path": "game/tests/hose_saved_pose_comparison.gd",
+      "sha256": "e345d4ea53827e552a3aa3fdab0e3cb087fc0073bb7001d0053c59483e59eb1c",
+      "lf_sha256": "e345d4ea53827e552a3aa3fdab0e3cb087fc0073bb7001d0053c59483e59eb1c",
+      "bytes": 2775
+    },
+    {
+      "path": "game/tests/hose_saved_pose_comparison_test.gd",
+      "sha256": "62230a6a127510d03f0950c5e5dba225eded2e6825e1084fe3f8c5f28b2a1b01",
+      "lf_sha256": "62230a6a127510d03f0950c5e5dba225eded2e6825e1084fe3f8c5f28b2a1b01",
+      "bytes": 1694
+    },
+    {
+      "path": "game/tests/HoseSavedPoseComparisonTest.tscn",
+      "sha256": "74e886daa3f8a05ce51ca4e83f5c42a7a7fb9c1abad2a2ea6b7f21843d73f18b",
+      "lf_sha256": "74e886daa3f8a05ce51ca4e83f5c42a7a7fb9c1abad2a2ea6b7f21843d73f18b",
+      "bytes": 203
+    }
+  ]
+}

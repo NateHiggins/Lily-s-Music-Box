@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 9.39,
+  "exit_code": 1,
+  "finished_utc": "2026-10-23T13:05:38Z",
+  "started_utc": "2026-10-23T13:05:28Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "HOT TYPE REVIEW: FAIL checks=84"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/installed_stock/imported_surfaces_v1.log.stderr",
+  "stderr_sha256": "c3e87ab104668d93598deb0780137b98197d1f9e2ef42998fac4c68e766c8b1d",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/installed_stock/imported_surfaces_v1.log",
+  "stdout_sha256": "ee48d63e86c721102f2c4e06b960be9c1308ff5806b0751a344c35e6c790a58e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/HotTypeWriterReview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/installed_stock/imported_surfaces_v1",
+ "source": {
+  "dirty_paths": 3032,
+  "dirty_sample": [
+   "M art/blender/scripts/build_service_radiophone_v2.py",
+   " M art/blender/scripts/radiophone_printer_cartridge.py",
+   " M art/blender/service_radiophone_v2.blend",
+   " M art/tools/fix_runtime_texture_imports.py",
+   " M game/assets/props/service_radiophone_v2.glb",
+   " M game/scripts/device/hot_type_writer.gd",
+   " M game/scripts/device/mechanical_teletype.gd",
+   " M game/scripts/device/service_set_carrier.gd",
+   " M game/scripts/device/service_set_prop.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json"
+  ],
+  "repository_head": "99ea932d051fb34e74be6600c99b7e4d1a26b996",
+  "repository_tree": "aa2ad62cb5f6e77142cd704d15118ae3c4b99b0d",
+  "runtime_inputs_sha256": "029dd62427255678b42c87343e94d38fa2587e38a84f09b6ce7a788a80e30ac6",
+  "test_path": "game/tests/hot_type_writer_review.gd",
+  "test_sha256": "f64cd1540221d7de87c5948678b88c3e28b7faf354e32951719e0b5a6ac0d5be"
+ },
+ "windowed": true
+}

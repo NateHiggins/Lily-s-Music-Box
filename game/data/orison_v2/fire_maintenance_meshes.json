@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/fire_maintenance_stock.glb",
+  "finishes": {
+    "Bottle": {
+      "catalog_key": "porcelain_fixture",
+      "normal": 0.18,
+      "roughness": 0.7,
+      "pigment": 1.0,
+      "tint": [
+        0.48,
+        0.28,
+        0.12,
+        1
+      ]
+    },
+    "Cap": {
+      "catalog_key": "brass_dull",
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        0.65,
+        0.6,
+        0.47,
+        1
+      ]
+    },
+    "Label": {
+      "catalog_key": "paper",
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        0.85,
+        0.79,
+        0.62,
+        1
+      ]
+    },
+    "Tin": {
+      "catalog_key": "fire_hardware_steel",
+      "normal": 1.0,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        0.7,
+        0.7,
+        0.66,
+        1
+      ]
+    },
+    "Gasket": {
+      "catalog_key": "washer_rubber",
+      "normal": 1.0,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "BottleHinge": {
+      "catalog_key": "brass_dull",
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        0.65,
+        0.6,
+        0.47,
+        1
+      ]
+    },
+    "TerminalShell": {
+      "catalog_key": "bakelite_black",
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "TerminalMetal": {
+      "catalog_key": "brass_dull",
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "TerminalLever": {
+      "catalog_key": "bakelite_black",
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 1.0,
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "cap_pivot": [
+    0,
+    0.171,
+    0.018
+  ],
+  "asset_sha256": "f787e943abb6df7a7046c7c97d8127d02ad11a1846401c2ddd5997d88866e4ef"
+}

@@ -1,0 +1,177 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Append only19 reviewed new diagnostic fixture dependencies; retain all previous rows and all live classifications. Two pre-existing baseline incidental references remain unregistered. No audit code, predicate or baseline changes.",
+  "added": [
+    {
+      "key": "4592740573d2e205",
+      "file": "game/tests/orison_v2_golden_repair_route_test.gd",
+      "kind": "id_candidate",
+      "token": "SITE_SHOP_DOOR_",
+      "disposition_unchanged": "UNRESOLVED",
+      "evidence": "golden_profile_v2:94 actual waypoints; final quiet rerun queued",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "b5760fdd419d1414",
+      "file": "game/tests/orison_v2_golden_repair_route_test.gd",
+      "kind": "id_reference",
+      "token": "F01_INNER_DOOR",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "golden_profile_v2:94 actual waypoints; final quiet rerun queued",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "3f457a9edf18ae5d",
+      "file": "game/tests/orison_v2_golden_repair_route_test.gd",
+      "kind": "vector3_coordinate",
+      "token": "_enter_front_entrance",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "golden_profile_v2:94 actual waypoints; final quiet rerun queued",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "0af7e6965a3297f6",
+      "file": "game/tests/orison_v2_surface_inventory.gd",
+      "kind": "id_reference",
+      "token": "F03_B_BATH",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "surface_final_v6:40140 checks and reviewed current glare stations",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "4d71e7f8c9e0af06",
+      "file": "game/tests/orison_v2_surface_inventory.gd",
+      "kind": "id_reference",
+      "token": "F06_B_KITCHEN",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "surface_final_v6:40140 checks and reviewed current glare stations",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "2744302eba03cfa7",
+      "file": "game/tests/v2_alcove_review.gd",
+      "kind": "vector3_coordinate",
+      "token": "_route",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "alcove_final_v3:three actual waypoints and three reviewed opening views",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "b49c56e8c1de83de",
+      "file": "game/tests/v2_depth_light_culling_probe.gd",
+      "kind": "id_reference",
+      "token": "ROOF_PUBLIC_DOOR",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "depth_light_production_v4:four native stations, byte pairs, reviewed main PBR A/B/A",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "105bc9834c4d0ecf",
+      "file": "game/tests/v2_depth_light_culling_probe.gd",
+      "kind": "vector3_coordinate",
+      "token": "_main_light_views",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "depth_light_production_v4:four native stations, byte pairs, reviewed main PBR A/B/A",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "06e3bfe4d718bc68",
+      "file": "game/tests/v2_depth_light_culling_probe.gd",
+      "kind": "vector3_coordinate",
+      "token": "_route",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "depth_light_production_v4:four native stations, byte pairs, reviewed main PBR A/B/A",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "447c093e8fdeb384",
+      "file": "game/tests/v2_floor_transition_profile.gd",
+      "kind": "vector3_coordinate",
+      "token": "_play_route",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "step_guard_paired:27 actual waypoints and original/candidate/restored controls",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "8f0313a5eaea72c8",
+      "file": "game/tests/v2_lamp_depth_equivalence.gd",
+      "kind": "id_reference",
+      "token": "ROOF_PUBLIC_DOOR",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "depth-view paired controls:32 nonvacuous field byte pairs",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "4717735f73c0f555",
+      "file": "game/tests/v2_lamp_depth_equivalence.gd",
+      "kind": "vector3_coordinate",
+      "token": "_route",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "depth-view paired controls:32 nonvacuous field byte pairs",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "965aebd31f95adaf",
+      "file": "game/tests/v2_lamp_glare_probe.gd",
+      "kind": "id_reference",
+      "token": "3B_LT_SCONCE",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "reflection_ambient:controlled glare isolation and original reviewed captures",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "3b8ae620fdf8b14a",
+      "file": "game/tests/v2_lamp_glare_probe.gd",
+      "kind": "id_reference",
+      "token": "F03_B_BATH",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "reflection_ambient:controlled glare isolation and original reviewed captures",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "06e1e5c0d7e7fab9",
+      "file": "game/tests/v2_lamp_glare_probe.gd",
+      "kind": "id_reference",
+      "token": "F06_B_KITCHEN",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "reflection_ambient:controlled glare isolation and original reviewed captures",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "de2d3ee0e7c624a6",
+      "file": "game/tests/v2_lamp_glare_probe.gd",
+      "kind": "id_reference",
+      "token": "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "reflection_ambient:controlled glare isolation and original reviewed captures",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "0525f2a5658cb515",
+      "file": "game/tests/v2_reflection_capture_probe.gd",
+      "kind": "id_reference",
+      "token": "F03_B_BATH",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "reflection_ambient:original composed reflection controls",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "e7e55ca4a50b44fc",
+      "file": "game/tests/v2_reflection_capture_probe.gd",
+      "kind": "id_reference",
+      "token": "F06_B_KITCHEN",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "reflection_ambient:original composed reflection controls",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    },
+    {
+      "key": "2b8e1bc087f02841",
+      "file": "game/tests/v2_world_inspection_profile.gd",
+      "kind": "runtime_id",
+      "token": "F01_FIRE_LINE_STAIR",
+      "disposition_unchanged": "UPDATE_TEST_FIXTURE",
+      "evidence": "inspection_quiet_v2:27 actual Space/cursor/lever/escape checks",
+      "note": "Diagnostic fixture inventory only; grants no access, runtime or acceptance status. SITE_SHOP_DOOR_ is an intentional generated-name prefix, not a literal layout anchor."
+    }
+  ]
+}

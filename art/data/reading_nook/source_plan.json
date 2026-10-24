@@ -26,7 +26,6 @@
     "fabric_warm",
     "fabric_green",
     "linen",
-    "rug_warm",
     "glassish",
     "ceramic",
     "paper",
@@ -40,7 +39,9 @@
     "timber",
     "terracotta",
     "soil",
-    "rubber_aged"
+    "rubber_aged",
+    "nook_woven_wool",
+    "rug_binding"
   ],
   "catalog_variants": {
     "wood_dark": "wood_dark",
@@ -60,10 +61,25 @@
     "timber": "timber",
     "terracotta": "terracotta",
     "soil": "soil",
-    "rubber_aged": "rubber_aged"
+    "rubber_aged": "rubber_aged",
+    "nook_woven_wool": "nook_woven_wool",
+    "rug_binding": "nook_woven_wool"
   },
   "material_aliases": {},
-  "material_tints": {},
+  "material_tints": {
+    "plant": [
+      0.34,
+      0.48,
+      0.26,
+      1.0
+    ],
+    "rug_binding": [
+      0.2,
+      0.24,
+      0.16,
+      1.0
+    ]
+  },
   "placement": {
     "level": "B1",
     "space": "B1_PUBLIC_CORE",
@@ -83,7 +99,10 @@
     "Coffee glass retains its 365 mm visible top; original marker/mug/bookpile used a 370 mm collision hull. Lower their bearings to the actual glass and move the lamp foot inward enough to eliminate its elliptical-edge overhang.",
     "Rug lies on the actual floor; seat aprons and table fins terminate on its top. Retained visible seat/cushion heights do not change.",
     "Both table fins end on flat bearings beneath the glass, with thin rubber pads closing the original five-millimetre gap.",
-    "The visually inspected floor-oak map has vertical V grain. Its native boards follow their longest dimension; shared grain helpers and other families remain unchanged."
+    "The visually inspected floor-oak map has vertical V grain. Its native boards follow their longest dimension; shared grain helpers and other families remain unchanged.",
+    "2026-10-22: move table, mug and pile 850 mm south as one supported group; preserve the structural transfer beam, exact collision and lamp support-local fit. The seating/table cross-aisle grows from 0.0792 m to 0.9292 m.",
+    "2026-10-22: fit a 2.50 x 3.50 m wool rug under the revised composition, with a distinct bound edge and 240 mm woven repeat; remake plant as sixteen basal folded blades in the retained pot.",
+    "Retain the original nook_pile logical save frame. Its parked native copies follow the table in owner-local coordinates, while loose saves retain their world poses."
   ],
   "open_work": [
     "External lamp supply cords and the wider household furniture/material pass remain unfinished."
@@ -116,6 +135,35 @@
     "book_teal": {
       "normal_scale": 1.0,
       "roughness": 1.0
+    }
+  },
+  "record_adaptations": {
+    "nook_rug": {
+      "rect": [
+        -1.61,
+        -1.95,
+        0.89,
+        1.55
+      ],
+      "mat": "nook_woven_wool"
+    },
+    "nook_table": {
+      "at": [
+        -0.46,
+        -1.4602
+      ]
+    },
+    "nook_mug": {
+      "at": [
+        -0.28,
+        -1.4002
+      ]
+    },
+    "nook_plant": {
+      "at": [
+        0.61,
+        1.1698
+      ]
     }
   }
 }

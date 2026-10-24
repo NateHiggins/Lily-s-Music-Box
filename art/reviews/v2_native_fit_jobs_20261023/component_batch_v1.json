@@ -1,0 +1,18 @@
+[
+  {
+    "scene": "res://tests/V2FittingCollisionCacheTest.tscn",
+    "runner": "serial",
+    "timeout": 120,
+    "windowed": false,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_native_fit_jobs_20261023\\cache_sync_v2.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_native_fit_jobs_20261023\\cache_sync_v2"
+  },
+  {
+    "scene": "res://tests/V2NativeFitJobBench.tscn",
+    "runner": "serial",
+    "timeout": 120,
+    "windowed": false,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_native_fit_jobs_20261023\\job_v1.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_native_fit_jobs_20261023\\job_v1"
+  }
+]

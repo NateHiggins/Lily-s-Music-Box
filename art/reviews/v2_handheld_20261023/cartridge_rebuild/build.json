@@ -1,0 +1,128 @@
+{
+  "evidence_class": "INERT",
+  "concept": "C",
+  "export": {
+    "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\service_radiophone_v2.glb",
+    "primitives": 33,
+    "triangles": 21078,
+    "minimum_tangent_agreement": 0.9999917295296572,
+    "status": "PASS"
+  },
+  "mesh_nodes": 33,
+  "editable_parts": 214,
+  "finishes": {
+    "Case": {
+      "catalog_key": "bakelite_black",
+      "tint": [
+        0.58,
+        0.67,
+        0.63,
+        1
+      ],
+      "normal": 0.22,
+      "roughness": 0.85,
+      "pigment": 0.4
+    },
+    "Brass": {
+      "catalog_key": "brass_dull",
+      "tint": [
+        0.86,
+        0.82,
+        0.67,
+        1
+      ],
+      "normal": 0.25,
+      "roughness": 0.85,
+      "pigment": 0.6
+    },
+    "Steel": {
+      "catalog_key": "fire_hardware_steel",
+      "tint": [
+        0.32,
+        0.37,
+        0.38,
+        1
+      ],
+      "normal": 0.28,
+      "roughness": 0.75,
+      "pigment": 0.5
+    },
+    "Paper": {
+      "catalog_key": "paper",
+      "tint": [
+        1.0,
+        0.96,
+        0.84,
+        1
+      ],
+      "normal": 0.12,
+      "roughness": 1.0,
+      "pigment": 0.65
+    },
+    "Rubber": {
+      "catalog_key": "washer_rubber",
+      "tint": [
+        0.6,
+        0.6,
+        0.58,
+        1
+      ],
+      "normal": 0.3,
+      "roughness": 1.0,
+      "pigment": 0.7
+    },
+    "Leather": {
+      "catalog_key": "leather_worn",
+      "tint": [
+        0.6,
+        0.44,
+        0.3,
+        1
+      ],
+      "normal": 0.5,
+      "roughness": 1.0,
+      "pigment": 0.65
+    },
+    "Porcelain": {
+      "catalog_key": "porcelain_fixture",
+      "tint": [
+        0.88,
+        0.83,
+        0.67,
+        1
+      ],
+      "normal": 0.12,
+      "roughness": 0.65,
+      "pigment": 0.4
+    },
+    "Lens": {
+      "catalog_key": "milk_glass",
+      "tint": [
+        0.98,
+        0.98,
+        0.94,
+        1
+      ],
+      "normal": 0.1,
+      "roughness": 0.35,
+      "pigment": 0.15
+    }
+  },
+  "paper": {
+    "center": [
+      0.0,
+      0.028,
+      0.0523
+    ],
+    "width": 0.14,
+    "height": 0.114
+  },
+  "dimensions": [
+    0.214,
+    0.193,
+    0.055
+  ],
+  "view": "front",
+  "cartridge_sha256": "0ca6e41dfcafa75454bc330562f5c1fc0194b2ffd37b108aa647a51b5807a077",
+  "source_sha256": "ff1ad7d2c973d8dd48e3af67b750018b67b8410c400257b3c79d5becd4da5481"
+}

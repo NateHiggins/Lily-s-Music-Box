@@ -37,6 +37,7 @@ var _key_turning := false
 var _hand_gripped := false
 signal manipulation_changed
 var _leaf_motion: Tween
+var _easy: RefCounted
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -73,11 +74,13 @@ func _ready() -> void:
 		open = true
 		_body.rotation.y = motion_target_angle(true)
 	apply_hinge_setback()
+	_configure_easy_motion()
 
 
 func _exit_tree() -> void:
 	# The host owns its semantic pool source even after a one-shot has finished.
 	# Leave other doors and other users of the shared voice pool intact.
+	if _easy!=null:_easy.release()
 	if is_instance_valid(AudioPolicy):
 		AudioPolicy.release_source(StringName(name))
 
@@ -383,6 +386,8 @@ func _play_knock() -> void:
 
 
 func interact(_player: Node) -> void:
+	_configure_easy_motion()
+	if _easy.closing:_easy.stop()
 	# Player acquisition and movement go through manipulation_target; this
 	# endpoint command remains the resident/director API during migration.
 	if _hand_gripped: return
@@ -391,6 +396,7 @@ func interact(_player: Node) -> void:
 	if leaf_state == "locked":
 		_rattle()
 		return
+	_easy.prepare_motion()
 	_moving = true
 	open = not open
 	motion_revision += 1
@@ -402,12 +408,16 @@ func interact(_player: Node) -> void:
 	tween.tween_callback(_settled)
 
 
-## The leaf owner supplies the angle to callers checking its proposed sweep.
+## The leaf owner retains its authored angular stop.
 func motion_target_angle(want_open: bool) -> float:
 	return deg_to_rad(-100.0 if swing_out else 100.0) if want_open else 0.0
 
 
 func npc_set_open(want_open: bool, resident_id := "") -> void:
+	_configure_easy_motion()
+	if _easy.closing and not _hand_gripped:
+		_easy.stop()
+		if want_open:open=false
 	if _moving or _key_turning or open == want_open:
 		return
 	if leaf_state == "locked":
@@ -423,15 +433,22 @@ func npc_set_open(want_open: bool, resident_id := "") -> void:
 
 
 func manipulation_target(hit: Dictionary) -> Dictionary:
-	if hit.get("collider") != _body or _key_turning or (_moving and not _hand_gripped): return {}
+	if hit.get("collider") != _body or _key_turning: return {}
+	_configure_easy_motion()
 	return {"owner":self,"part":_body,"frame":self,"kind":"hinge","axis":Vector3.UP,
 		"minimum":minf(0,motion_target_angle(true)),"maximum":maxf(0,motion_target_angle(true)),
+		"gesture_travel_px":240.0,"gesture_screen_axis":Vector2.RIGHT*signf(motion_target_angle(true)),
+		"bind_holder":_easy.bind_holder,"unobstructed_hold":true,
+		"reach_point":func():return to_global(Vector3(width*.5,1.0,0)),
 		"read":func(): return _body.rotation.y,"write":_move_by_hand,
 		"owns":func(): return _hand_gripped,
 		"begin":_take_leaf,"end":_release_leaf}
 
 func _take_leaf() -> bool:
-	if _moving or _key_turning: return false
+	if _key_turning: return false
+	_configure_easy_motion()
+	_easy.stop()
+	if _leaf_motion!=null and _leaf_motion.is_valid():_leaf_motion.kill()
 	_hand_gripped = true
 	_moving = true
 	motion_revision += 1
@@ -445,25 +462,9 @@ func _move_by_hand(angle: float) -> void:
 			set_meta("hand_motion_sound",true)
 		return
 	var old := _body.rotation.y
-	# Small angular steps test the actual collision shell throughout the sweep.
-	var shape_node := _body.get_child(0) as CollisionShape3D
-	# AnimatableBody may defer its transform until the next physics tick.
-	# Sweep a local candidate, then publish geometry and state from that value.
-	var accepted := old
-	for i in maxi(1,int(ceil(absf(angle-old)/.025))):
-		var trial := move_toward(accepted,angle,.025)
-		var pose := _body.transform
-		pose.basis = Basis(Vector3.UP,trial)
-		if shape_node != null:
-			var query := PhysicsShapeQueryParameters3D.new()
-			query.shape = shape_node.shape
-			query.transform = global_transform * pose * shape_node.transform
-			query.collision_mask = _body.collision_mask
-			query.exclude = [_body.get_rid()]
-			query.margin = .001
-			if not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): break
-		accepted = trial
-	_body.rotation.y = accepted
+	_easy.accommodate(angle)
+	var accepted:=clampf(angle,minf(0,motion_target_angle(true)),maxf(0,motion_target_angle(true)))
+	_body.rotation.y=accepted
 	open = absf(accepted) > .01
 	if not is_equal_approx(old,accepted) and not has_meta("hand_motion_sound"):
 		_play_move()
@@ -493,6 +494,8 @@ func restore_mechanism(value: Dictionary) -> void:
 	_body.force_update_transform()
 	_body.sync_to_physics = true
 	open = absf(_body.rotation.y)>.01
+	_configure_easy_motion()
+	_easy.schedule()
 
 
 func _turn_key(holder: Node) -> void:
@@ -523,12 +526,23 @@ func is_ready_for_passage() -> bool:
 
 func _settled() -> void:
 	_moving = false
+	_configure_easy_motion()
+	_easy.schedule()
 	if not open:
 		_play_latch()
 		if _relock_after_close:
 			leaf_state = "locked"
 			_relock_after_close = false
 
+
+func _configure_easy_motion() -> void:
+	if _easy!=null:return
+	_easy=preload("res://scripts/props/easy_door_motion.gd").new(self)
+	set_physics_process(false)
+	if open:_easy.schedule()
+
+func _physics_process(delta: float) -> void:
+	if _easy!=null:_easy.update(delta)
 
 func _rattle() -> void:
 	var tween := create_tween()

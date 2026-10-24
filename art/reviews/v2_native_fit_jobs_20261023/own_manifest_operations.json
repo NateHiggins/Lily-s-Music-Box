@@ -1,0 +1,181 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Relocate the existing generated Label3D name contract into its private _publish helper; register five executed component fixture references. No scope/authority/classification relaxed. Shared bathroom records excluded from index reconstruction.",
+  "remove": [
+    "9af1923d5f84683b"
+  ],
+  "add": [
+    {
+      "key": "b90744fb14754135",
+      "kind": "generated_name",
+      "token": "_publish",
+      "file": "game/scripts/building/orison_v2_shop_seating.gd",
+      "tier": "production",
+      "subsystem": "building",
+      "symbols": [
+        "_publish"
+      ],
+      "lines": [
+        677
+      ],
+      "count": 1,
+      "context": [
+        "\"Words_\"+str(label.get(\"id\",\"label\"))"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "GENERATED_IDENTITY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "REGENERATE_CONSUMER",
+      "confidence": "MEDIUM",
+      "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "45ac2ab44e794dae",
+      "kind": "asset_path",
+      "token": "res://assets/building/floor_01_cells/shop_hardware_paint.gltf",
+      "file": "game/tests/v2_native_fit_job_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "check_streamed_families"
+      ],
+      "lines": [
+        129,
+        130
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "3d1a19904e02d28d",
+      "kind": "asset_path",
+      "token": "res://assets/building/floor_01_cells/shop_otis_son.gltf",
+      "file": "game/tests/v2_native_fit_job_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "check_streamed_families"
+      ],
+      "lines": [
+        131
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "d63e57987835c71c",
+      "kind": "asset_path",
+      "token": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+      "file": "game/tests/v2_native_fit_job_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "<module>"
+      ],
+      "lines": [
+        6
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "854252b1bcff8150",
+      "kind": "asset_path",
+      "token": "res://assets/building/orison_v2/passage/passage.gltf",
+      "file": "game/tests/v2_native_fit_job_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "check_streamed_families"
+      ],
+      "lines": [
+        127,
+        128
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "7abb658f479fad73",
+      "kind": "layout_load",
+      "token": "building_layout.json",
+      "file": "game/tests/v2_native_fit_job_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "<module>"
+      ],
+      "lines": [
+        60
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "DERIVED_LAYOUT_LOOKUP"
+      ],
+      "disposition": "REGENERATE_CONSUMER",
+      "confidence": "HIGH",
+      "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+      "resolved_target": null,
+      "target_exists": null
+    }
+  ]
+}

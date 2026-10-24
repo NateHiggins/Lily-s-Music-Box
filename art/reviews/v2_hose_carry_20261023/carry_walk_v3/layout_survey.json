@@ -1,0 +1,1748 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "complete-world layout diagnostic, no installed removal or runtime qualification",
+	"stations": [
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 4.4, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "F02_FIRE_LINE_STAIR",
+			"input": {
+				"carry": [
+					{
+						"aim_error_degrees": 80.7732786822108,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 463,
+						"process_frame": 163,
+						"profile": {},
+						"progress_m": 0.0,
+						"step": 0,
+						"tip": [
+							14.8629999160767,
+							0.218000024557114,
+							0.214000016450882
+						]
+					},
+					{
+						"aim_error_degrees": 80.7732786822108,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 469,
+						"process_frame": 164,
+						"profile": {
+							"broad_queries": -115,
+							"fitting_usec": 454,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 59,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 464,
+							"prepare_usec": 12334,
+							"process_frame": 164,
+							"responses": 7,
+							"shell_queries": -128,
+							"tether": {
+								"commit_self": 289,
+								"commit_world": 1840,
+								"contact_seed": 426,
+								"seed": 448,
+								"self_constraints": 875,
+								"skin_apply": 41,
+								"world_constraints": 10357
+							},
+							"total_usec": 15095
+						},
+						"progress_m": 0.38765349984169,
+						"step": 1,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 46.3969112342192,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 476,
+						"process_frame": 165,
+						"profile": {
+							"broad_queries": -9,
+							"fitting_usec": 473,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 67,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 470,
+							"prepare_usec": 2110,
+							"process_frame": 165,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 284,
+								"commit_world": 1454,
+								"seed": 71,
+								"self_constraints": 324,
+								"skin_apply": 42,
+								"world_constraints": 1664
+							},
+							"total_usec": 4485
+						},
+						"progress_m": 0.0,
+						"step": 2,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 12.0195403885968,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 482,
+						"process_frame": 166,
+						"profile": {
+							"broad_queries": 4,
+							"fitting_usec": 483,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 348,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 477,
+							"prepare_usec": 2470,
+							"process_frame": 166,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 285,
+								"commit_world": 1658,
+								"seed": 352,
+								"self_constraints": 284,
+								"skin_apply": 43,
+								"world_constraints": 1787
+							},
+							"total_usec": 5068
+						},
+						"progress_m": 0.0,
+						"step": 3,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 490,
+						"process_frame": 167,
+						"profile": {
+							"broad_queries": -1,
+							"fitting_usec": 464,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 483,
+							"prepare_usec": 2418,
+							"process_frame": 167,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 287,
+								"commit_world": 1576,
+								"seed": 317,
+								"self_constraints": 290,
+								"skin_apply": 40,
+								"world_constraints": 1764
+							},
+							"total_usec": 4916
+						},
+						"progress_m": 0.0,
+						"step": 4,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 498,
+						"process_frame": 168,
+						"profile": {
+							"broad_queries": -3,
+							"fitting_usec": 484,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 491,
+							"prepare_usec": 9,
+							"process_frame": 168,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 316,
+								"commit_world": 1522,
+								"skin_apply": 40
+							},
+							"total_usec": 2463
+						},
+						"progress_m": 0.0,
+						"step": 5,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 506,
+						"process_frame": 169,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 517,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 499,
+							"prepare_usec": 10,
+							"process_frame": 169,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 324,
+								"commit_world": 1507,
+								"skin_apply": 40
+							},
+							"total_usec": 2498
+						},
+						"progress_m": 0.0,
+						"step": 6,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 514,
+						"process_frame": 170,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 467,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 507,
+							"prepare_usec": 10,
+							"process_frame": 170,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 290,
+								"commit_world": 1478,
+								"skin_apply": 39
+							},
+							"total_usec": 2380
+						},
+						"progress_m": 0.0,
+						"step": 7,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 522,
+						"process_frame": 171,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 517,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 515,
+							"prepare_usec": 11,
+							"process_frame": 171,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 291,
+								"commit_world": 1499,
+								"skin_apply": 41
+							},
+							"total_usec": 2461
+						},
+						"progress_m": 0.0,
+						"step": 8,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 530,
+						"process_frame": 172,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 525,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 523,
+							"prepare_usec": 10,
+							"process_frame": 172,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 290,
+								"commit_world": 1495,
+								"skin_apply": 42
+							},
+							"total_usec": 2462
+						},
+						"progress_m": 0.0,
+						"step": 9,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 538,
+						"process_frame": 173,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 512,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 531,
+							"prepare_usec": 10,
+							"process_frame": 173,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 298,
+								"commit_world": 1526,
+								"skin_apply": 42
+							},
+							"total_usec": 2495
+						},
+						"progress_m": 0.0,
+						"step": 10,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 546,
+						"process_frame": 174,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 478,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 539,
+							"prepare_usec": 10,
+							"process_frame": 174,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 303,
+								"commit_world": 1505,
+								"skin_apply": 54
+							},
+							"total_usec": 2445
+						},
+						"progress_m": 0.0,
+						"step": 11,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 554,
+						"process_frame": 175,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 481,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 547,
+							"prepare_usec": 10,
+							"process_frame": 175,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 291,
+								"commit_world": 1515,
+								"skin_apply": 41
+							},
+							"total_usec": 2433
+						},
+						"progress_m": 0.0,
+						"step": 12,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 562,
+						"process_frame": 176,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 505,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 555,
+							"prepare_usec": 12,
+							"process_frame": 176,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 318,
+								"commit_world": 1540,
+								"skin_apply": 42
+							},
+							"total_usec": 2517
+						},
+						"progress_m": 0.0,
+						"step": 13,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 570,
+						"process_frame": 177,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 478,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 563,
+							"prepare_usec": 9,
+							"process_frame": 177,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 312,
+								"commit_world": 1529,
+								"skin_apply": 40
+							},
+							"total_usec": 2466
+						},
+						"progress_m": 0.0,
+						"step": 14,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.0,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 578,
+						"process_frame": 178,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 481,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 571,
+							"prepare_usec": 10,
+							"process_frame": 178,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 299,
+								"commit_world": 1474,
+								"skin_apply": 41
+							},
+							"total_usec": 2399
+						},
+						"progress_m": 0.0,
+						"step": 15,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.251788296168279,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 586,
+						"process_frame": 179,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 474,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 313,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 579,
+							"prepare_usec": 10,
+							"process_frame": 179,
+							"responses": 1,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 296,
+								"commit_world": 1487,
+								"skin_apply": 42
+							},
+							"total_usec": 2403
+						},
+						"progress_m": 0.0,
+						"step": 16,
+						"tip": [
+							14.7187271118164,
+							-0.121735572814941,
+							0.332491874694824
+						]
+					},
+					{
+						"aim_error_degrees": 0.253337779747713,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 594,
+						"process_frame": 180,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 469,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 61,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 587,
+							"prepare_usec": 2020,
+							"process_frame": 180,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 283,
+								"commit_world": 1443,
+								"seed": 65,
+								"self_constraints": 310,
+								"skin_apply": 40,
+								"world_constraints": 1598
+							},
+							"total_usec": 4384
+						},
+						"progress_m": 0.00207202881574631,
+						"step": 17,
+						"tip": [
+							14.7187271118164,
+							-0.123494148254395,
+							0.333587646484375
+						]
+					},
+					{
+						"aim_error_degrees": 0.251788296168279,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 602,
+						"process_frame": 181,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 479,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 59,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 595,
+							"prepare_usec": 1995,
+							"process_frame": 181,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 304,
+								"commit_world": 1444,
+								"seed": 62,
+								"self_constraints": 282,
+								"skin_apply": 40,
+								"world_constraints": 1605
+							},
+							"total_usec": 4389
+						},
+						"progress_m": 0.00207163230516016,
+						"step": 18,
+						"tip": [
+							14.7187271118164,
+							-0.125247478485107,
+							0.334691047668457
+						]
+					},
+					{
+						"aim_error_degrees": 0.252564226214888,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 610,
+						"process_frame": 182,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 468,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 57,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 603,
+							"prepare_usec": 2037,
+							"process_frame": 182,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 297,
+								"commit_world": 1483,
+								"seed": 62,
+								"self_constraints": 284,
+								"skin_apply": 41,
+								"world_constraints": 1646
+							},
+							"total_usec": 4454
+						},
+						"progress_m": 0.00207167980261147,
+						"step": 19,
+						"tip": [
+							14.7187271118164,
+							-0.126996040344238,
+							0.33580207824707
+						]
+					},
+					{
+						"aim_error_degrees": 0.253337779747713,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 618,
+						"process_frame": 183,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 467,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 59,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 611,
+							"prepare_usec": 2036,
+							"process_frame": 183,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 283,
+								"commit_world": 1467,
+								"seed": 62,
+								"self_constraints": 287,
+								"skin_apply": 42,
+								"world_constraints": 1641
+							},
+							"total_usec": 4418
+						},
+						"progress_m": 0.002071478869766,
+						"step": 20,
+						"tip": [
+							14.7187271118164,
+							-0.128738880157471,
+							0.336921691894531
+						]
+					},
+					{
+						"aim_error_degrees": 0.253337779747713,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 626,
+						"process_frame": 184,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 471,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 59,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 619,
+							"prepare_usec": 2010,
+							"process_frame": 184,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 290,
+								"commit_world": 1474,
+								"seed": 63,
+								"self_constraints": 287,
+								"skin_apply": 41,
+								"world_constraints": 1613
+							},
+							"total_usec": 4416
+						},
+						"progress_m": 0.00207161018624902,
+						"step": 21,
+						"tip": [
+							14.7187271118164,
+							-0.130476951599121,
+							0.338048934936523
+						]
+					},
+					{
+						"aim_error_degrees": 0.254108978470363,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 634,
+						"process_frame": 185,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 462,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 62,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 627,
+							"prepare_usec": 2028,
+							"process_frame": 185,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 334,
+								"commit_world": 1464,
+								"seed": 66,
+								"self_constraints": 300,
+								"skin_apply": 42,
+								"world_constraints": 1616
+							},
+							"total_usec": 4462
+						},
+						"progress_m": 0.00207138177938759,
+						"step": 22,
+						"tip": [
+							14.7187271118164,
+							-0.132209777832031,
+							0.339183807373047
+						]
+					},
+					{
+						"aim_error_degrees": 0.251788296168279,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 642,
+						"process_frame": 186,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 498,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 63,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 635,
+							"prepare_usec": 2011,
+							"process_frame": 186,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 300,
+								"commit_world": 1470,
+								"seed": 67,
+								"self_constraints": 284,
+								"skin_apply": 40,
+								"world_constraints": 1615
+							},
+							"total_usec": 4447
+						},
+						"progress_m": 0.00207172054797411,
+						"step": 23,
+						"tip": [
+							14.7187271118164,
+							-0.133937358856201,
+							0.340327262878418
+						]
+					},
+					{
+						"aim_error_degrees": 0.253337779747713,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 650,
+						"process_frame": 187,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 476,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 63,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 643,
+							"prepare_usec": 2072,
+							"process_frame": 187,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 286,
+								"commit_world": 1488,
+								"seed": 67,
+								"self_constraints": 285,
+								"skin_apply": 42,
+								"world_constraints": 1673
+							},
+							"total_usec": 4492
+						},
+						"progress_m": 0.00207157852128148,
+						"step": 24,
+						"tip": [
+							14.7187271118164,
+							-0.135659694671631,
+							0.34147834777832
+						]
+					},
+					{
+						"aim_error_degrees": 0.251788296168279,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 658,
+						"process_frame": 188,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 473,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 61,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 651,
+							"prepare_usec": 2018,
+							"process_frame": 188,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 304,
+								"commit_world": 1457,
+								"seed": 65,
+								"self_constraints": 283,
+								"skin_apply": 42,
+								"world_constraints": 1622
+							},
+							"total_usec": 4421
+						},
+						"progress_m": 0.00207201112061739,
+						"step": 25,
+						"tip": [
+							14.7187271118164,
+							-0.13737678527832,
+							0.34263801574707
+						]
+					},
+					{
+						"aim_error_degrees": 0.253337779747713,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 666,
+						"process_frame": 189,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 465,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 61,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 659,
+							"prepare_usec": 2008,
+							"process_frame": 189,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 314,
+								"commit_world": 1470,
+								"seed": 65,
+								"self_constraints": 284,
+								"skin_apply": 41,
+								"world_constraints": 1613
+							},
+							"total_usec": 4428
+						},
+						"progress_m": 0.0020710239186883,
+						"step": 26,
+						"tip": [
+							14.7187271118164,
+							-0.139088153839111,
+							0.343804359436035
+						]
+					},
+					{
+						"aim_error_degrees": 0.253337779747713,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 674,
+						"process_frame": 190,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 462,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 63,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 667,
+							"prepare_usec": 1995,
+							"process_frame": 190,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 312,
+								"commit_world": 1471,
+								"seed": 67,
+								"self_constraints": 285,
+								"skin_apply": 42,
+								"world_constraints": 1596
+							},
+							"total_usec": 4407
+						},
+						"progress_m": 0.00207194034010172,
+						"step": 27,
+						"tip": [
+							14.7187271118164,
+							-0.14079475402832,
+							0.344979286193848
+						]
+					},
+					{
+						"aim_error_degrees": 0.254108978470363,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 682,
+						"process_frame": 191,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 467,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 57,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 675,
+							"prepare_usec": 1996,
+							"process_frame": 191,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 303,
+								"commit_world": 1475,
+								"seed": 61,
+								"self_constraints": 286,
+								"skin_apply": 41,
+								"world_constraints": 1602
+							},
+							"total_usec": 4410
+						},
+						"progress_m": 0.00207212008535862,
+						"step": 28,
+						"tip": [
+							14.7187271118164,
+							-0.142495632171631,
+							0.346162796020508
+						]
+					},
+					{
+						"aim_error_degrees": 0.253337779747713,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 690,
+						"process_frame": 192,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 462,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 56,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 683,
+							"prepare_usec": 1992,
+							"process_frame": 192,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 286,
+								"commit_world": 1583,
+								"seed": 60,
+								"self_constraints": 284,
+								"skin_apply": 46,
+								"world_constraints": 1603
+							},
+							"total_usec": 4512
+						},
+						"progress_m": 0.00207212008535862,
+						"step": 29,
+						"tip": [
+							14.7187271118164,
+							-0.14079475402832,
+							0.344979286193848
+						]
+					},
+					{
+						"aim_error_degrees": 0.251788296168279,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 698,
+						"process_frame": 193,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 471,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 46,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 691,
+							"prepare_usec": 2000,
+							"process_frame": 193,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 295,
+								"commit_world": 1463,
+								"seed": 50,
+								"self_constraints": 285,
+								"skin_apply": 42,
+								"world_constraints": 1620
+							},
+							"total_usec": 4398
+						},
+						"progress_m": 0.00207194034010172,
+						"step": 30,
+						"tip": [
+							14.7187271118164,
+							-0.139088153839111,
+							0.343804359436035
+						]
+					},
+					{
+						"aim_error_degrees": 0.254108978470363,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 706,
+						"process_frame": 194,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 465,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 43,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 699,
+							"prepare_usec": 1983,
+							"process_frame": 194,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 312,
+								"commit_world": 1469,
+								"seed": 47,
+								"self_constraints": 285,
+								"skin_apply": 41,
+								"world_constraints": 1604
+							},
+							"total_usec": 4398
+						},
+						"progress_m": 0.0020710239186883,
+						"step": 31,
+						"tip": [
+							14.7187271118164,
+							-0.13737678527832,
+							0.34263801574707
+						]
+					},
+					{
+						"aim_error_degrees": 0.253337779747713,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 714,
+						"process_frame": 195,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 459,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 44,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 707,
+							"prepare_usec": 2005,
+							"process_frame": 195,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 292,
+								"commit_world": 1500,
+								"seed": 48,
+								"self_constraints": 287,
+								"skin_apply": 43,
+								"world_constraints": 1622
+							},
+							"total_usec": 4427
+						},
+						"progress_m": 0.00207201112061739,
+						"step": 32,
+						"tip": [
+							14.7187271118164,
+							-0.135659694671631,
+							0.34147834777832
+						]
+					},
+					{
+						"aim_error_degrees": 0.252564226214888,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 722,
+						"process_frame": 196,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 476,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 42,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 715,
+							"prepare_usec": 1995,
+							"process_frame": 196,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 298,
+								"commit_world": 1469,
+								"seed": 46,
+								"self_constraints": 284,
+								"skin_apply": 40,
+								"world_constraints": 1618
+							},
+							"total_usec": 4409
+						},
+						"progress_m": 0.00207157852128148,
+						"step": 33,
+						"tip": [
+							14.7187271118164,
+							-0.133937358856201,
+							0.340327262878418
+						]
+					},
+					{
+						"aim_error_degrees": 0.253337779747713,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 730,
+						"process_frame": 197,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 471,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 43,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 723,
+							"prepare_usec": 1992,
+							"process_frame": 197,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 310,
+								"commit_world": 1478,
+								"seed": 47,
+								"self_constraints": 285,
+								"skin_apply": 41,
+								"world_constraints": 1613
+							},
+							"total_usec": 4425
+						},
+						"progress_m": 0.00207172054797411,
+						"step": 34,
+						"tip": [
+							14.7187271118164,
+							-0.132209777832031,
+							0.339183807373047
+						]
+					},
+					{
+						"aim_error_degrees": 0.253337779747713,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 738,
+						"process_frame": 198,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 464,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 44,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 731,
+							"prepare_usec": 1984,
+							"process_frame": 198,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 292,
+								"commit_world": 1463,
+								"seed": 48,
+								"self_constraints": 286,
+								"skin_apply": 41,
+								"world_constraints": 1603
+							},
+							"total_usec": 4372
+						},
+						"progress_m": 0.00207138177938759,
+						"step": 35,
+						"tip": [
+							14.7187271118164,
+							-0.130476951599121,
+							0.338048934936523
+						]
+					},
+					{
+						"aim_error_degrees": 0.255644396664741,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 746,
+						"process_frame": 199,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 483,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 49,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 739,
+							"prepare_usec": 2032,
+							"process_frame": 199,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 291,
+								"commit_world": 1471,
+								"seed": 53,
+								"self_constraints": 284,
+								"skin_apply": 41,
+								"world_constraints": 1647
+							},
+							"total_usec": 4460
+						},
+						"progress_m": 0.00207161018624902,
+						"step": 36,
+						"tip": [
+							14.7187271118164,
+							-0.128738880157471,
+							0.336921691894531
+						]
+					},
+					{
+						"aim_error_degrees": 0.253337779747713,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 754,
+						"process_frame": 200,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 472,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 44,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 747,
+							"prepare_usec": 2037,
+							"process_frame": 200,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 284,
+								"commit_world": 1448,
+								"seed": 48,
+								"self_constraints": 296,
+								"skin_apply": 42,
+								"world_constraints": 1645
+							},
+							"total_usec": 4416
+						},
+						"progress_m": 0.002071478869766,
+						"step": 37,
+						"tip": [
+							14.7187271118164,
+							-0.126996040344238,
+							0.33580207824707
+						]
+					},
+					{
+						"aim_error_degrees": 0.254108978470363,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 762,
+						"process_frame": 201,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 502,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 44,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 755,
+							"prepare_usec": 1995,
+							"process_frame": 201,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 316,
+								"commit_world": 1459,
+								"seed": 48,
+								"self_constraints": 284,
+								"skin_apply": 41,
+								"world_constraints": 1617
+							},
+							"total_usec": 4439
+						},
+						"progress_m": 0.00207167980261147,
+						"step": 38,
+						"tip": [
+							14.7187271118164,
+							-0.125247478485107,
+							0.334691047668457
+						]
+					},
+					{
+						"aim_error_degrees": 0.251788296168279,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"fitting_blocker": "",
+						"held": true,
+						"physics_frame": 770,
+						"process_frame": 202,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 480,
+							"local_enabled": true,
+							"local_join": 12,
+							"local_usec": 41,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 763,
+							"prepare_usec": 1967,
+							"process_frame": 202,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 299,
+								"commit_world": 1438,
+								"seed": 46,
+								"self_constraints": 283,
+								"skin_apply": 45,
+								"world_constraints": 1592
+							},
+							"total_usec": 4356
+						},
+						"progress_m": 0.00207163230516016,
+						"step": 39,
+						"tip": [
+							14.7187271118164,
+							-0.123494148254395,
+							0.333587646484375
+						]
+					}
+				],
+				"collision_mask": 2097153,
+				"deployed": true,
+				"error": "",
+				"events": [
+					{
+						"cpu_input_ms": 0.831,
+						"error": "",
+						"extraction_m": 0.0080000001858765,
+						"feedback": "grabbed",
+						"step": 0
+					},
+					{
+						"cpu_input_ms": 0.784,
+						"error": "",
+						"extraction_m": 0.0160000005566099,
+						"feedback": "grabbed",
+						"step": 1
+					},
+					{
+						"cpu_input_ms": 0.806,
+						"error": "",
+						"extraction_m": 0.0240000008257705,
+						"feedback": "grabbed",
+						"step": 2
+					},
+					{
+						"cpu_input_ms": 0.916,
+						"error": "",
+						"extraction_m": 0.0320000015438589,
+						"feedback": "grabbed",
+						"step": 3
+					},
+					{
+						"cpu_input_ms": 0.964,
+						"error": "",
+						"extraction_m": 0.04000000203813,
+						"feedback": "grabbed",
+						"step": 4
+					},
+					{
+						"cpu_input_ms": 0.93,
+						"error": "",
+						"extraction_m": 0.048000002863499,
+						"feedback": "grabbed",
+						"step": 5
+					},
+					{
+						"cpu_input_ms": 0.932,
+						"error": "",
+						"extraction_m": 0.0560000034479367,
+						"feedback": "grabbed",
+						"step": 6
+					},
+					{
+						"cpu_input_ms": 0.785,
+						"error": "",
+						"extraction_m": 0.064000003416595,
+						"feedback": "grabbed",
+						"step": 7
+					},
+					{
+						"cpu_input_ms": 0.738,
+						"error": "",
+						"extraction_m": 0.0720000046836749,
+						"feedback": "grabbed",
+						"step": 8
+					},
+					{
+						"cpu_input_ms": 0.778,
+						"error": "",
+						"extraction_m": 0.0800000043718958,
+						"feedback": "grabbed",
+						"step": 9
+					},
+					{
+						"cpu_input_ms": 0.855,
+						"error": "",
+						"extraction_m": 0.0880000045401879,
+						"feedback": "grabbed",
+						"step": 10
+					},
+					{
+						"cpu_input_ms": 0.996,
+						"error": "",
+						"extraction_m": 0.0960000046616222,
+						"feedback": "grabbed",
+						"step": 11
+					},
+					{
+						"cpu_input_ms": 0.813,
+						"error": "",
+						"extraction_m": 0.104000004291721,
+						"feedback": "grabbed",
+						"step": 12
+					},
+					{
+						"cpu_input_ms": 0.809,
+						"error": "",
+						"extraction_m": 0.112000003590306,
+						"feedback": "grabbed",
+						"step": 13
+					},
+					{
+						"cpu_input_ms": 0.947,
+						"error": "",
+						"extraction_m": 0.120000003437789,
+						"feedback": "grabbed",
+						"step": 14
+					},
+					{
+						"cpu_input_ms": 0.904,
+						"error": "",
+						"extraction_m": 0.128000003463574,
+						"feedback": "grabbed",
+						"step": 15
+					},
+					{
+						"cpu_input_ms": 0.856,
+						"error": "",
+						"extraction_m": 0.13600000338064,
+						"feedback": "grabbed",
+						"step": 16
+					},
+					{
+						"cpu_input_ms": 0.772,
+						"error": "",
+						"extraction_m": 0.144000003122404,
+						"feedback": "grabbed",
+						"step": 17
+					},
+					{
+						"cpu_input_ms": 0.703,
+						"error": "",
+						"extraction_m": 0.152000003213869,
+						"feedback": "grabbed",
+						"step": 18
+					},
+					{
+						"cpu_input_ms": 0.769,
+						"error": "",
+						"extraction_m": 0.16000000391263,
+						"feedback": "grabbed",
+						"step": 19
+					},
+					{
+						"cpu_input_ms": 0.749,
+						"error": "",
+						"extraction_m": 0.16800000395914,
+						"feedback": "grabbed",
+						"step": 20
+					},
+					{
+						"cpu_input_ms": 0.823,
+						"error": "",
+						"extraction_m": 0.176000004857374,
+						"feedback": "grabbed",
+						"step": 21
+					},
+					{
+						"cpu_input_ms": 0.786,
+						"error": "",
+						"extraction_m": 0.184000004795511,
+						"feedback": "grabbed",
+						"step": 22
+					},
+					{
+						"cpu_input_ms": 0.911,
+						"error": "",
+						"extraction_m": 0.192000004795511,
+						"feedback": "grabbed",
+						"step": 23
+					},
+					{
+						"cpu_input_ms": 16.761,
+						"error": "",
+						"extraction_m": 0.2,
+						"feedback": "grabbed",
+						"step": 24
+					}
+				],
+				"picked": true,
+				"player_position": "(-3.730422, 3.200941, -8.702542)",
+				"released": true
+			},
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 163.169
+		}
+	]
+}

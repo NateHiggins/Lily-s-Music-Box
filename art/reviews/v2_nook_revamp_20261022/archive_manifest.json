@@ -1,0 +1,948 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Exact retained diagnostic/source bytes, selected native and Godot captures. Original files retained. No runtime_contract or human acceptance.",
+  "files": [
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_after_v1/clearance.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_after_v1/clearance.json.gz",
+      "sha256": "afe2b6616204734afae45f3e0dc63add9326adf9e1350208850d036672dbccfd",
+      "bytes": 294781
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_after_v1/frames.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_after_v1/frames.json.gz",
+      "sha256": "3d72ab9670558c16813a0039ad4387503f54ed54a187b95c2f0d61605f1b7317",
+      "bytes": 345789
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_after_v1/nook_state.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_after_v1/nook_state.json.gz",
+      "sha256": "7d46b6d1e4e4be498b4085ca8382121972fb3cee331198d0e2f967299e79ea3c",
+      "bytes": 528
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_after_v1/route.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_after_v1/route.json.gz",
+      "sha256": "87e1afea68149dc73971835cf590bb474e83bb0c037b7f7730890d78821d2550",
+      "bytes": 2934
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_after_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_after_v1.log.gz",
+      "sha256": "736a5ac39392cdd06cd5d68aae804e9eb894cc2464bf5e6603197f952e4e604a",
+      "bytes": 14543
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_after_v1.log.receipt.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_after_v1.log.receipt.json.gz",
+      "sha256": "f987adf931d5d6682585a9bdd355f502182635d9b2d583e26acd54694c7a5ae9",
+      "bytes": 2717
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_after_v1.log.stderr",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_after_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_before_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_before_v1.log.gz",
+      "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+      "bytes": 183
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_before_v1.log.receipt.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_before_v1.log.receipt.json.gz",
+      "sha256": "650f7df7ce6d95ba4562bc186153e40c25b0a82f811f0b39e2b60eb82a2bb220",
+      "bytes": 3153
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_before_v1.log.stderr",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_before_v1.log.stderr.gz",
+      "sha256": "b7c8ed2d940d20c705f11571b3aa29dab7cef3eaef7873aaaba7e58982266f24",
+      "bytes": 336
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_before_v2/clearance.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_before_v2/clearance.json.gz",
+      "sha256": "2cc761c05150f1320130899c78d60e72d32ab656df3a5da7540408674aa43031",
+      "bytes": 297067
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_before_v2/frames.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_before_v2/frames.json.gz",
+      "sha256": "a1da2ddaba3f2bd4816ba745d8a51099f7c8c35c387da979c48e45205de002c4",
+      "bytes": 192684
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_before_v2/route.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_before_v2/route.json.gz",
+      "sha256": "f78713a2aff0ca45bf41a6014cb6d3afdb760502c24be8aaa705942b1be0fd3b",
+      "bytes": 1339
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_before_v2.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_before_v2.log.gz",
+      "sha256": "e3251d15d44bf481372c56e353c08d699abc7784309b095bfda243fe8479f94e",
+      "bytes": 2047
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_before_v2.log.receipt.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_before_v2.log.receipt.json.gz",
+      "sha256": "9ac035d9a583ddfb5cb9624bc2e74daa8e863b875d3b20fdc6f572b5e7cc805e",
+      "bytes": 2927
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_before_v2.log.stderr",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_before_v2.log.stderr.gz",
+      "sha256": "62e0e4d3ab60a02ec224bd3d8e8a40f8ef0c0b093e0274f9d7fe271a9261b041",
+      "bytes": 274
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_final_v1/clearance.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_final_v1/clearance.json.gz",
+      "sha256": "afe2b6616204734afae45f3e0dc63add9326adf9e1350208850d036672dbccfd",
+      "bytes": 294781
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_final_v1/frames.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_final_v1/frames.json.gz",
+      "sha256": "33f00fe8b5fa4fb4822d5f8b1730695b5334d0b978817990a7717ca1d27db0ca",
+      "bytes": 347741
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_final_v1/nook_state.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_final_v1/nook_state.json.gz",
+      "sha256": "3dc89df4ce4fc020c1f6899224cbd18bae0bc516e212e9384a24a3b81dd0ee62",
+      "bytes": 527
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_final_v1/route.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_final_v1/route.json.gz",
+      "sha256": "87e1afea68149dc73971835cf590bb474e83bb0c037b7f7730890d78821d2550",
+      "bytes": 2934
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_final_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_final_v1.log.gz",
+      "sha256": "3690540891d5247489af954c68b538529e0b93396dd7057f99024305dd2fd025",
+      "bytes": 14739
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_final_v1.log.receipt.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_final_v1.log.receipt.json.gz",
+      "sha256": "30a286dbb490e1b8a6c811080ae93589d24771be4287e0194067741793b81e5f",
+      "bytes": 2680
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/access_final_v1.log.stderr",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/access_final_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/additive_material_v2.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/additive_material_v2.json.gz",
+      "sha256": "8de454c6737069d70c001f708cf56a4bb2addfeabc85447dd0e9d50e6e6c2101",
+      "bytes": 364014
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/book_world_pose_comparison.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/book_world_pose_comparison.json.gz",
+      "sha256": "4778f7b39f5be25507b21c42512c2fa9b5efa518d199ed1943ebb6c4913b8cc7",
+      "bytes": 6018
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/composed_board.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/composed_board.json.gz",
+      "sha256": "a3c4725b2f5fb1d2c85b102b5d8f4b9e327f63d47c5ebcf05d0348f5724b7f8e",
+      "bytes": 334932
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/composed_board.md",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/composed_board.md.gz",
+      "sha256": "ff8e5d5415af29ee1e06ec861e441d01d7323594e8397d45ea6280c49fe2665e",
+      "bytes": 8958
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/composed_comparison.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/composed_comparison.json.gz",
+      "sha256": "40e54ea88591383b69b07ba4e752b0164d21e5a441898557b55c8a61fef5b0c0",
+      "bytes": 885
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/composition_final_v1/contacts.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/composition_final_v1/contacts.json.gz",
+      "sha256": "95724b48183365166cd43ead5f735297882e1a777d62614c003a13eeb934cc12",
+      "bytes": 271
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/composition_v1/contacts.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/composition_v1/contacts.json.gz",
+      "sha256": "c3b484d3f904f592c49e8437124021a3afc469950b8a0c400dff7c429e21dec6",
+      "bytes": 271
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/early_board/board.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/early_board/board.json.gz",
+      "sha256": "39988d4dabe09a1fee83cf9ed0f5a9841c98a994d6ca3b479444066acf12bf2d",
+      "bytes": 186444
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/early_board/board.md",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/early_board/board.md.gz",
+      "sha256": "f649a06241dc50e29bacc81c6996692499ffd869b74ad676e231f4a7e3a2a4b0",
+      "bytes": 255
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/full_board_v1/board.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/full_board_v1/board.json.gz",
+      "sha256": "371ef7ffceee7659293e54b160844c1cad47cf4b87ba0ad5735daef9ad79e76d",
+      "bytes": 316681
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/full_board_v1/board.md",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/full_board_v1/board.md.gz",
+      "sha256": "9151acbbc1bbadd36271ca9b455734823a8200518c79aedb2c2f9fc990225d49",
+      "bytes": 9387
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/import_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/import_v1.log.gz",
+      "sha256": "8984e21fe918d7dd3c010f5606304efb4a6013f85425f02539e0422122656511",
+      "bytes": 66336
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/import_v1.log.receipt.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/import_v1.log.receipt.json.gz",
+      "sha256": "5c55a11c0caa41f5ac2fcfcef045806dbe704ad65994181448cbc7157c906c49",
+      "bytes": 2501
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/import_v1.log.stderr",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/import_v1.log.stderr.gz",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+      "bytes": 249
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/library_final_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/library_final_v1.log.gz",
+      "sha256": "a18ddcfc521726164cb1305ed65ba5b794ef08caa9500fe2b4722a6b1f5eb72b",
+      "bytes": 101681
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/library_final_v1.log.receipt.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/library_final_v1.log.receipt.json.gz",
+      "sha256": "f5df2d7d379c7d3b862a17a04c98f29bc4fda986c61924442775208c3af7329e",
+      "bytes": 2746
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/library_final_v1.log.stderr",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/library_final_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/library_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/library_v1.log.gz",
+      "sha256": "1b736922de9f57ae3203bc3443fd3a466483d390ca3e2973524b37983633c68b",
+      "bytes": 101681
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/library_v1.log.receipt.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/library_v1.log.receipt.json.gz",
+      "sha256": "d85b896044049c38da76c32616f35e434f1a13730647d5fbb9ead7cccc5318ad",
+      "bytes": 2759
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/library_v1.log.stderr",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/library_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/measurements.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/measurements.json.gz",
+      "sha256": "1862ecd1650dd7b00bdb66b5c933bfc74dbf700b1fa7aacb55143343ca713cc0",
+      "bytes": 40594
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/native_final_v1/inspection.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/native_final_v1/inspection.json.gz",
+      "sha256": "16bc6a0d7ca4105bb15483fb7168b599680c6cae17479ac1eedd00dddb30ce24",
+      "bytes": 19346
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/native_v1/inspection.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/native_v1/inspection.json.gz",
+      "sha256": "a38bc0f9c3bf77bf745d732829ad362daf60760c97368d2416c4af29a3661fa0",
+      "bytes": 19618
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/protected.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/protected.json.gz",
+      "sha256": "aac046f10b8fe6fb2ea9b83325c5a92647f2473e1ce93a998b0ae16f6fb1344d",
+      "bytes": 1630
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/repair_board_v1/board.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/repair_board_v1/board.json.gz",
+      "sha256": "a34379f980bf5be6dcb0de23332c1cfbc5861317e539907b5e23e1b6747a835a",
+      "bytes": 260976
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/repair_board_v1/board.md",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/repair_board_v1/board.md.gz",
+      "sha256": "9f9418edd863692d4bef0d90328abcd75ade11cc9adf8c1527a65f6383a70055",
+      "bytes": 619
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/source_board_v1/board.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/source_board_v1/board.json.gz",
+      "sha256": "e139e4b240222e83fc6251bd634726976cfc47213f0dfeedd7d47547d845254b",
+      "bytes": 283137
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/source_board_v1/board.md",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/source_board_v1/board.md.gz",
+      "sha256": "acab39f39980f3b32e2a371ca4df60a11f0b9d9ce400aa19d6d6917ce0508172",
+      "bytes": 670
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/stable_frame_board_v1/board.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/stable_frame_board_v1/board.json.gz",
+      "sha256": "587ea2abe04bbf0353e731ba60d0c73c03d5b78c38f8dedfa7becafd81a6c48a",
+      "bytes": 260825
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/stable_frame_board_v1/board.md",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/stable_frame_board_v1/board.md.gz",
+      "sha256": "bd02b9b8d034a2f838a0772e5a595ff50f9a43479555c03356f954b686db5fa3",
+      "bytes": 529
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/stable_frame_final_board_v1/board.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/stable_frame_final_board_v1/board.json.gz",
+      "sha256": "26841dc011f40f64eadf4461d97f34a819bbca945a146597ea455833ff9db707",
+      "bytes": 260825
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/stable_frame_final_board_v1/board.md",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/stable_frame_final_board_v1/board.md.gz",
+      "sha256": "484c15c452bb08497784d3828dd510e0b40121cf68b8bea12679102c5a38493b",
+      "bytes": 529
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/tint_source_board_v1/board.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/tint_source_board_v1/board.json.gz",
+      "sha256": "6c76f14ef5e4fbff7fca4b0db3563280a3943053d92982203adc0f9f85eea545",
+      "bytes": 260185
+    },
+    {
+      "original": "art/reviews/v2_nook_revamp_20261022/tint_source_board_v1/board.md",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/diagnostics/tint_source_board_v1/board.md.gz",
+      "sha256": "d413d41b33ce98539098f236734f424d8c63043387b13ce04d31291cc542ff1a",
+      "bytes": 555
+    },
+    {
+      "original": "tmp/nook_revamp_build_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/native_logs/nook_revamp_build_v1.log.gz",
+      "sha256": "cb645bfb4dd3ff54dbed3c2981eb6289edb53ce04b8a341d9feb5863fb3299fe",
+      "bytes": 2929
+    },
+    {
+      "original": "tmp/nook_revamp_composition_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/native_logs/nook_revamp_composition_v1.log.gz",
+      "sha256": "45a70530a27822ed0b69ae6ded5924d25f7ec1346112b6a52a2fb49aaa160260",
+      "bytes": 3983
+    },
+    {
+      "original": "tmp/nook_revamp_copies_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/native_logs/nook_revamp_copies_v1.log.gz",
+      "sha256": "a8cd810b702b017fd751c025ed84a0f6dfd16c096ae1512e3745534b279c1e07",
+      "bytes": 214
+    },
+    {
+      "original": "tmp/nook_revamp_measurements_summary.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/native_logs/nook_revamp_measurements_summary.log.gz",
+      "sha256": "3de2b4525354d204e586049773080a182cada939dd76de9a008650b49228c7f1",
+      "bytes": 2667
+    },
+    {
+      "original": "tmp/nook_revamp_native_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/native_logs/nook_revamp_native_v1.log.gz",
+      "sha256": "596d1d16b4dd87416d648ef39f17194f45a0cc5808cd102590c91c53abe7fdee",
+      "bytes": 3845
+    },
+    {
+      "original": "tmp/nook_revamp_stable_frame_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/native_logs/nook_revamp_stable_frame_v1.log.gz",
+      "sha256": "6af10b0b5c1be81c5a02ecf3b94266107b726b8d9083e0156e33713209d330c5",
+      "bytes": 4007
+    },
+    {
+      "original": "tmp/nook_revamp_support_final_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/native_logs/nook_revamp_support_final_v1.log.gz",
+      "sha256": "8825e6f7767d3ecf8c64bb43c3c8aea7991e33a4c8ec927c0da25790e4d2cbea",
+      "bytes": 3478
+    },
+    {
+      "original": "tmp/nook_revamp_tint_bindings_v1.log",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/native_logs/nook_revamp_tint_bindings_v1.log.gz",
+      "sha256": "1a9099303014109baf1bade186c44dcfa3fc4570e4d0fc89bb375cae356d899e",
+      "bytes": 3061
+    },
+    {
+      "original": "art/blender/reading_nook_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/reading_nook_construction.json.gz",
+      "sha256": "79dbe9a005c3e18d261ca887b6e0b9b3ff065ff41a44f8222f3da481a82c9832",
+      "bytes": 87165
+    },
+    {
+      "original": "git:e9df01d2:art/blender/reading_nook_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/reading_nook_construction.json.gz",
+      "sha256": "d402d1d402d609bb3badc27989196861cde48d60a9841e313632d909979b05e8",
+      "bytes": 84048
+    },
+    {
+      "original": "art/blender/nook_readable_books_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/nook_readable_books_construction.json.gz",
+      "sha256": "88f17889b62598ca58ea141aa2679349847fc59790a2d1988fb14b3ceea68c3c",
+      "bytes": 191649
+    },
+    {
+      "original": "git:e9df01d2:art/blender/nook_readable_books_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/nook_readable_books_construction.json.gz",
+      "sha256": "908f6b4ab06e40b9c0739e203f9f18d91cda264a81f60426a444b8b194d63887",
+      "bytes": 191649
+    },
+    {
+      "original": "art/blender/scripts/build_reading_nook.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/scripts/build_reading_nook.py.gz",
+      "sha256": "6d7386b824556d7e1701d4456973157a3c3934bc40bc185af7b62035e1c1f321",
+      "bytes": 24829
+    },
+    {
+      "original": "git:e9df01d2:art/blender/scripts/build_reading_nook.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/scripts/build_reading_nook.py.gz",
+      "sha256": "14eb089f088ac4046cf068b4fa05ebba240c59cdc75673dd94537df31711cc82",
+      "bytes": 24651
+    },
+    {
+      "original": "art/blender/scripts/inspect_reading_nook.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/scripts/inspect_reading_nook.py.gz",
+      "sha256": "350335473959be58853e3bed7bd6d7c82b5166465fc2092984959ee4ceed7615",
+      "bytes": 8348
+    },
+    {
+      "original": "git:e9df01d2:art/blender/scripts/inspect_reading_nook.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/scripts/inspect_reading_nook.py.gz",
+      "sha256": "b948f408c33d66aa97a0e8bf68eed78969f698cf4549cc896a1aa1ae68c761ca",
+      "bytes": 8215
+    },
+    {
+      "original": "art/blender/scripts/reading_nook_geometry.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/scripts/reading_nook_geometry.py.gz",
+      "sha256": "5c4ed1545e13993b80205cf8d611ec5f9f7700c9e347f80fcc9b219c950cccc5",
+      "bytes": 10885
+    },
+    {
+      "original": "git:e9df01d2:art/blender/scripts/reading_nook_geometry.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/scripts/reading_nook_geometry.py.gz",
+      "sha256": "bb6e9dcb32bc8c531f1235b103d1b5c7442d1f67048410cb3744a0305ba00d4b",
+      "bytes": 9948
+    },
+    {
+      "original": "art/data/reading_nook/source_plan.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/data/reading_nook/source_plan.json.gz",
+      "sha256": "47760bcd732c6eecde89e4935f89c05286db620d1c50131e295f232d3fedc694",
+      "bytes": 4694
+    },
+    {
+      "original": "git:e9df01d2:art/data/reading_nook/source_plan.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/data/reading_nook/source_plan.json.gz",
+      "sha256": "f96aa25f1221e080c8d93c2a32808e76a6e8dd63f5fcf0a55e77793722b0ce76",
+      "bytes": 3447
+    },
+    {
+      "original": "art/data/gen_layout.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/data/gen_layout.py.gz",
+      "sha256": "e4f72feafc6d7ec8860c5d4365b6e91ef44379f32302b2578b0f988ae741d540",
+      "bytes": 570938
+    },
+    {
+      "original": "git:e9df01d2:art/data/gen_layout.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/data/gen_layout.py.gz",
+      "sha256": "6f9213bbe5970d9d57e3f30d78db489211dba7644b5bac11c609104b3c4327de",
+      "bytes": 570842
+    },
+    {
+      "original": "art/data/material_catalog.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/data/material_catalog.json.gz",
+      "sha256": "050c17973a6fd1c1a337a8991a80289c9d94a25481e34a1732af21bdeedb53d4",
+      "bytes": 16329
+    },
+    {
+      "original": "git:e9df01d2:art/data/material_catalog.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/data/material_catalog.json.gz",
+      "sha256": "e3cb8f4442520da2ebe4402ae007a8eeaa163a9a263c1721ab52cecc94dfb282",
+      "bytes": 16236
+    },
+    {
+      "original": "art/textures/catalog_mapping.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/textures/catalog_mapping.json.gz",
+      "sha256": "8ba3e2d3b4dc05c2d6d2a7ea6104b4cb2516d24506fa29d6970e530f3f38ea78",
+      "bytes": 12671
+    },
+    {
+      "original": "git:e9df01d2:art/textures/catalog_mapping.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/textures/catalog_mapping.json.gz",
+      "sha256": "3106088e3eeb8268441780a83ff2f88505203e301e662362bb59a8e0c343fc54",
+      "bytes": 12621
+    },
+    {
+      "original": "art/data/runtime_material_sets.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/data/runtime_material_sets.json.gz",
+      "sha256": "195e23fe430e88675bd3deaff13e77be7686785d73f57a93f8efbf206c5bfe26",
+      "bytes": 44736
+    },
+    {
+      "original": "git:e9df01d2:art/data/runtime_material_sets.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/data/runtime_material_sets.json.gz",
+      "sha256": "6f4c72832a6671c3c36e557560ff147a9e31abbfd0fb1db6504acb7567298e59",
+      "bytes": 44287
+    },
+    {
+      "original": "game/data/runtime_material_sets.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/data/runtime_material_sets.json.gz",
+      "sha256": "195e23fe430e88675bd3deaff13e77be7686785d73f57a93f8efbf206c5bfe26",
+      "bytes": 44736
+    },
+    {
+      "original": "git:e9df01d2:game/data/runtime_material_sets.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/data/runtime_material_sets.json.gz",
+      "sha256": "6f4c72832a6671c3c36e557560ff147a9e31abbfd0fb1db6504acb7567298e59",
+      "bytes": 44287
+    },
+    {
+      "original": "game/scripts/generated/material_sets.gd",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/scripts/generated/material_sets.gd.gz",
+      "sha256": "132bb198ce87d5720fb5cf382d8fa94eb7410f47988902d44a0c741e4701f6ff",
+      "bytes": 17305
+    },
+    {
+      "original": "git:e9df01d2:game/scripts/generated/material_sets.gd",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/scripts/generated/material_sets.gd.gz",
+      "sha256": "716b084c0d30b10c6b751c3ea2003d7e17a7b6591dd71e6251e33e55db202041",
+      "bytes": 17097
+    },
+    {
+      "original": "art/tools/generate_runtime_materials.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/tools/generate_runtime_materials.py.gz",
+      "sha256": "943b23f2456a6ec3b54482e35d0203d8daf1e471c4ab8e3c51619fb85e991237",
+      "bytes": 13873
+    },
+    {
+      "original": "git:e9df01d2:art/tools/generate_runtime_materials.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/tools/generate_runtime_materials.py.gz",
+      "sha256": "263d9745d708084ef17cd5b8f871e986b7aeee58c1c0543cb8dce2e97f152d02",
+      "bytes": 13827
+    },
+    {
+      "original": "art/tools/build_nook_wool.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/tools/build_nook_wool.py.gz",
+      "sha256": "784b237fb885ee2319fa29cc20d175cea20f3df97edd96778ac5b17102934aaf",
+      "bytes": 3119
+    },
+    {
+      "original": "game/data/orison_v2/reading_nook.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/data/orison_v2/reading_nook.json.gz",
+      "sha256": "8be8dd9d88488be6402464ea95f5358e5c38955a87fa3cc90a15766bdb846dbe",
+      "bytes": 6767
+    },
+    {
+      "original": "git:e9df01d2:game/data/orison_v2/reading_nook.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/data/orison_v2/reading_nook.json.gz",
+      "sha256": "02feaedaa7680d7a99d8c93c0e066b3e3c82e7543d5291372d5234710f93c054",
+      "bytes": 6793
+    },
+    {
+      "original": "game/scripts/building/orison_v2_reading_nook.gd",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/scripts/building/orison_v2_reading_nook.gd.gz",
+      "sha256": "b0a0498f127c5d0f7dd70b8ab65a184286ad2b755a1f30a40e8ac0f025c31916",
+      "bytes": 4648
+    },
+    {
+      "original": "git:e9df01d2:game/scripts/building/orison_v2_reading_nook.gd",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/scripts/building/orison_v2_reading_nook.gd.gz",
+      "sha256": "cfc3374f8a730432a0eed19a22172314482e2513bd1633fc7dd986f080446afa",
+      "bytes": 4575
+    },
+    {
+      "original": "game/tests/fixtures/orison_reading_nook.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/fixtures/orison_reading_nook.json.gz",
+      "sha256": "79dbe9a005c3e18d261ca887b6e0b9b3ff065ff41a44f8222f3da481a82c9832",
+      "bytes": 87165
+    },
+    {
+      "original": "git:e9df01d2:game/tests/fixtures/orison_reading_nook.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/tests/fixtures/orison_reading_nook.json.gz",
+      "sha256": "d402d1d402d609bb3badc27989196861cde48d60a9841e313632d909979b05e8",
+      "bytes": 84048
+    },
+    {
+      "original": "game/tests/v2_nook_access_survey.gd",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/v2_nook_access_survey.gd.gz",
+      "sha256": "9b1e11e79748f2f4209cdce833521997d62311be0654c1632e00c3d68f37363d",
+      "bytes": 4247
+    },
+    {
+      "original": "game/tests/V2NookAccessSurvey.tscn",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/V2NookAccessSurvey.tscn.gz",
+      "sha256": "e5afc467d4d1b27ff4c325c03fbf4a3bfc82af64a5e757b34aba2924da803d87",
+      "bytes": 188
+    },
+    {
+      "original": "tools/orison_spatial_dependency_manifest.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/tools/orison_spatial_dependency_manifest.json.gz",
+      "sha256": "2a242b540b81b2084487d4131f372ddd11239ca4287ee488ba3ac513ea800da0",
+      "bytes": 7576128
+    },
+    {
+      "original": "git:e9df01d2:tools/orison_spatial_dependency_manifest.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/tools/orison_spatial_dependency_manifest.json.gz",
+      "sha256": "07101598b1d15246199b7019f10a74831f0fc4e265f46965111f07ba9082ed49",
+      "bytes": 7573793
+    },
+    {
+      "original": "game/tests/fixtures/orison_city_closure.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/fixtures/orison_city_closure.json.gz",
+      "sha256": "caea662d085025e0f5acb60fcbe37b48c93de2177ef0644832a310fbc879b38e",
+      "bytes": 178742
+    },
+    {
+      "original": "git:e9df01d2:game/tests/fixtures/orison_city_closure.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/tests/fixtures/orison_city_closure.json.gz",
+      "sha256": "47a0f9e5b3b7037c2b8954ce1ef9d43efd01e4240b55013f989a562afb522002",
+      "bytes": 178742
+    },
+    {
+      "original": "art/blender/city_closure_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/city_closure_construction.json.gz",
+      "sha256": "caea662d085025e0f5acb60fcbe37b48c93de2177ef0644832a310fbc879b38e",
+      "bytes": 178742
+    },
+    {
+      "original": "git:e9df01d2:art/blender/city_closure_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/city_closure_construction.json.gz",
+      "sha256": "47a0f9e5b3b7037c2b8954ce1ef9d43efd01e4240b55013f989a562afb522002",
+      "bytes": 178742
+    },
+    {
+      "original": "game/tests/fixtures/orison_city_elevations.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/fixtures/orison_city_elevations.json.gz",
+      "sha256": "5464e1ff65598d9bd0f34ee2d0e458167410684546b668566e0af5863be3bd47",
+      "bytes": 1505881
+    },
+    {
+      "original": "git:e9df01d2:game/tests/fixtures/orison_city_elevations.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/tests/fixtures/orison_city_elevations.json.gz",
+      "sha256": "2a38840cdf979d372b1f25c7c939f86c0b9637394a3b0c63822292a7f0d51b5e",
+      "bytes": 1505881
+    },
+    {
+      "original": "game/tests/fixtures/orison_city_ground_apron.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/fixtures/orison_city_ground_apron.json.gz",
+      "sha256": "e0a4185b993a743d3a9319c5fa4543eb0ee04dde0e708c3a47d66874af382407",
+      "bytes": 3741
+    },
+    {
+      "original": "git:e9df01d2:game/tests/fixtures/orison_city_ground_apron.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/tests/fixtures/orison_city_ground_apron.json.gz",
+      "sha256": "c2793ccf95ddf42bb69ffcbac117d2923e44aa33b55deeacf618fae9a1eb0942",
+      "bytes": 3741
+    },
+    {
+      "original": "art/blender/city_ground_apron_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/city_ground_apron_construction.json.gz",
+      "sha256": "e0a4185b993a743d3a9319c5fa4543eb0ee04dde0e708c3a47d66874af382407",
+      "bytes": 3741
+    },
+    {
+      "original": "git:e9df01d2:art/blender/city_ground_apron_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/city_ground_apron_construction.json.gz",
+      "sha256": "c2793ccf95ddf42bb69ffcbac117d2923e44aa33b55deeacf618fae9a1eb0942",
+      "bytes": 3741
+    },
+    {
+      "original": "game/tests/fixtures/orison_city_horizon.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/fixtures/orison_city_horizon.json.gz",
+      "sha256": "6ffadc69bce5d2de6a16f154cf33a6bb6ee4e8ae809acea3974a21bdfbf598b3",
+      "bytes": 3732605
+    },
+    {
+      "original": "git:e9df01d2:game/tests/fixtures/orison_city_horizon.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/tests/fixtures/orison_city_horizon.json.gz",
+      "sha256": "d2c9fb08dc0b9bcfba73d67d06e3ef50a3f38b95ec153e24d6a6254f72f018e1",
+      "bytes": 3732605
+    },
+    {
+      "original": "game/tests/fixtures/orison_surface_stock.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/fixtures/orison_surface_stock.json.gz",
+      "sha256": "f8ddeeab0b79ded00eb30d19f11b58154a47b5de3579cb988eaa3c3ba5f7ab74",
+      "bytes": 998373
+    },
+    {
+      "original": "git:e9df01d2:game/tests/fixtures/orison_surface_stock.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/tests/fixtures/orison_surface_stock.json.gz",
+      "sha256": "f891676e006226da1178b39d00102cf69ea0b43aa9cc65d6f4bf5c7382aa6dec",
+      "bytes": 998373
+    },
+    {
+      "original": "game/tests/fixtures/orison_domestic_objects.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/fixtures/orison_domestic_objects.json.gz",
+      "sha256": "cb72174fbe1b638029b0179676c08505c38a2a97c3b80822220882ea74dafa02",
+      "bytes": 1201657
+    },
+    {
+      "original": "git:e9df01d2:game/tests/fixtures/orison_domestic_objects.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/tests/fixtures/orison_domestic_objects.json.gz",
+      "sha256": "59cdbec7405e0acbce7ef64e8e0250068f81d0832770c3f04331665404b5d5e1",
+      "bytes": 1201657
+    },
+    {
+      "original": "game/tests/fixtures/orison_domestic_storage.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/fixtures/orison_domestic_storage.json.gz",
+      "sha256": "84a3ddb7ff589cc2ca523a7fb11cc267a54097a76fd3380a06be66d3f3735121",
+      "bytes": 178279
+    },
+    {
+      "original": "git:e9df01d2:game/tests/fixtures/orison_domestic_storage.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/tests/fixtures/orison_domestic_storage.json.gz",
+      "sha256": "03648dde36df38c7d9e750c99050cf37c5d44d8579d82a12b68b47dcaa18c04f",
+      "bytes": 178279
+    },
+    {
+      "original": "game/tests/fixtures/orison_roof_public_weathering.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/fixtures/orison_roof_public_weathering.json.gz",
+      "sha256": "9938622773115ee9be4b78ff169ac2b8e784464b06fd28ec0c790ccf70e9ef78",
+      "bytes": 72517
+    },
+    {
+      "original": "git:e9df01d2:game/tests/fixtures/orison_roof_public_weathering.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/tests/fixtures/orison_roof_public_weathering.json.gz",
+      "sha256": "bc4b9d825f7036eb6a8ac9a3852f56afc861920e170b5faef979ec23b7dfaa27",
+      "bytes": 72517
+    },
+    {
+      "original": "game/tests/fixtures/orison_street_paving_details.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/fixtures/orison_street_paving_details.json.gz",
+      "sha256": "66f545db2d9d170ae276d7012a799eed5e233e5a402d0b65f5dbdadcf9a71ef0",
+      "bytes": 54335
+    },
+    {
+      "original": "git:e9df01d2:game/tests/fixtures/orison_street_paving_details.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/tests/fixtures/orison_street_paving_details.json.gz",
+      "sha256": "1b07db3370855b58f7fbffad05827f1e99bd3bffdc7a65a0b3c929d475eea8e3",
+      "bytes": 54335
+    },
+    {
+      "original": "art/blender/case_calibrator_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/case_calibrator_construction.json.gz",
+      "sha256": "99d4a911bbca5fdc552bb7c36761a3236b5fca568f8681f5a4472b56557d853a",
+      "bytes": 7040
+    },
+    {
+      "original": "git:e9df01d2:art/blender/case_calibrator_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/case_calibrator_construction.json.gz",
+      "sha256": "6a38ab604260c5784399683d86d736f7919805914f5b42f0b1a35402d6535e8f",
+      "bytes": 7040
+    },
+    {
+      "original": "art/blender/city_elevations_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/city_elevations_construction.json.gz",
+      "sha256": "5464e1ff65598d9bd0f34ee2d0e458167410684546b668566e0af5863be3bd47",
+      "bytes": 1505881
+    },
+    {
+      "original": "git:e9df01d2:art/blender/city_elevations_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/city_elevations_construction.json.gz",
+      "sha256": "2a38840cdf979d372b1f25c7c939f86c0b9637394a3b0c63822292a7f0d51b5e",
+      "bytes": 1505881
+    },
+    {
+      "original": "art/blender/city_horizon_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/city_horizon_construction.json.gz",
+      "sha256": "6ffadc69bce5d2de6a16f154cf33a6bb6ee4e8ae809acea3974a21bdfbf598b3",
+      "bytes": 3732605
+    },
+    {
+      "original": "git:e9df01d2:art/blender/city_horizon_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/city_horizon_construction.json.gz",
+      "sha256": "d2c9fb08dc0b9bcfba73d67d06e3ef50a3f38b95ec153e24d6a6254f72f018e1",
+      "bytes": 3732605
+    },
+    {
+      "original": "art/blender/domestic_objects_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/domestic_objects_construction.json.gz",
+      "sha256": "cb72174fbe1b638029b0179676c08505c38a2a97c3b80822220882ea74dafa02",
+      "bytes": 1201657
+    },
+    {
+      "original": "git:e9df01d2:art/blender/domestic_objects_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/domestic_objects_construction.json.gz",
+      "sha256": "59cdbec7405e0acbce7ef64e8e0250068f81d0832770c3f04331665404b5d5e1",
+      "bytes": 1201657
+    },
+    {
+      "original": "art/blender/domestic_storage_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/domestic_storage_construction.json.gz",
+      "sha256": "84a3ddb7ff589cc2ca523a7fb11cc267a54097a76fd3380a06be66d3f3735121",
+      "bytes": 178279
+    },
+    {
+      "original": "git:e9df01d2:art/blender/domestic_storage_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/domestic_storage_construction.json.gz",
+      "sha256": "03648dde36df38c7d9e750c99050cf37c5d44d8579d82a12b68b47dcaa18c04f",
+      "bytes": 178279
+    },
+    {
+      "original": "art/blender/fire_fold_stock_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/fire_fold_stock_construction.json.gz",
+      "sha256": "e8e6fdc607725635014087eace921ed5057e873e424ec832dace311e88e43715",
+      "bytes": 2799
+    },
+    {
+      "original": "git:e9df01d2:art/blender/fire_fold_stock_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/fire_fold_stock_construction.json.gz",
+      "sha256": "a1188a394f7ecbfdebe4e03fb416b1ac7669f29b816404fe13f72eb2e82fd355",
+      "bytes": 2875
+    },
+    {
+      "original": "art/blender/fire_hose_stock_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/fire_hose_stock_construction.json.gz",
+      "sha256": "0efe7187d3f1862120bf7fe50079c7091176884d73b2d69192f60e29555bb7d0",
+      "bytes": 2298
+    },
+    {
+      "original": "git:e9df01d2:art/blender/fire_hose_stock_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/fire_hose_stock_construction.json.gz",
+      "sha256": "dd66b557c2288cef46ca63d07912fa4fefb62c0c0c3aa10fe0518c91492f8456",
+      "bytes": 2360
+    },
+    {
+      "original": "art/blender/house_switchboard_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/house_switchboard_construction.json.gz",
+      "sha256": "30b7682f482d0da09b77b5f942b1e9c555fe9771eed19abb89218deccad41c49",
+      "bytes": 15967
+    },
+    {
+      "original": "git:e9df01d2:art/blender/house_switchboard_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/house_switchboard_construction.json.gz",
+      "sha256": "d62e6d7ad43b3cf23c1d58b632bc00483f3e64518a3f9b71e1185d305bdd8a61",
+      "bytes": 15967
+    },
+    {
+      "original": "art/blender/readable_library_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/readable_library_construction.json.gz",
+      "sha256": "296356049e2706c5bcea66f7a6304e93f97387e63315eaf7daaed80da35ed555",
+      "bytes": 294079
+    },
+    {
+      "original": "git:e9df01d2:art/blender/readable_library_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/readable_library_construction.json.gz",
+      "sha256": "f2cd72102d4a9be10d5531438f4b5e2c052c3a0cfe99edb618f694cf425d1ce9",
+      "bytes": 294079
+    },
+    {
+      "original": "art/blender/roof_public_weathering_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/roof_public_weathering_construction.json.gz",
+      "sha256": "9938622773115ee9be4b78ff169ac2b8e784464b06fd28ec0c790ccf70e9ef78",
+      "bytes": 72517
+    },
+    {
+      "original": "git:e9df01d2:art/blender/roof_public_weathering_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/roof_public_weathering_construction.json.gz",
+      "sha256": "bc4b9d825f7036eb6a8ac9a3852f56afc861920e170b5faef979ec23b7dfaa27",
+      "bytes": 72517
+    },
+    {
+      "original": "art/blender/street_paving_details_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/street_paving_details_construction.json.gz",
+      "sha256": "66f545db2d9d170ae276d7012a799eed5e233e5a402d0b65f5dbdadcf9a71ef0",
+      "bytes": 54335
+    },
+    {
+      "original": "git:e9df01d2:art/blender/street_paving_details_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/street_paving_details_construction.json.gz",
+      "sha256": "1b07db3370855b58f7fbffad05827f1e99bd3bffdc7a65a0b3c929d475eea8e3",
+      "bytes": 54335
+    },
+    {
+      "original": "art/blender/surface_stock_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/surface_stock_construction.json.gz",
+      "sha256": "f8ddeeab0b79ded00eb30d19f11b58154a47b5de3579cb988eaa3c3ba5f7ab74",
+      "bytes": 998373
+    },
+    {
+      "original": "git:e9df01d2:art/blender/surface_stock_construction.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/surface_stock_construction.json.gz",
+      "sha256": "f891676e006226da1178b39d00102cf69ea0b43aa9cc65d6f4bf5c7382aa6dec",
+      "bytes": 998373
+    },
+    {
+      "original": "art/blender/scripts/build_nook_readable_books.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/blender/scripts/build_nook_readable_books.py.gz",
+      "sha256": "b85945d36781b622a6098138914eb1e41d14a34c95d7977931e1da9a920bbd82",
+      "bytes": 10804
+    },
+    {
+      "original": "git:e9df01d2:art/blender/scripts/build_nook_readable_books.py",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/art/blender/scripts/build_nook_readable_books.py.gz",
+      "sha256": "1d50219acc2ead020479573d78bec09ca5b58ecae7ccbfaddc399ef2f8b913d2",
+      "bytes": 10199
+    },
+    {
+      "original": "game/data/orison_v2/nook_readable_books.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/data/orison_v2/nook_readable_books.json.gz",
+      "sha256": "299f51ffa4a6b1e25c4a7ec59e8040a36a9e0ca0de3433627d0c72ad452b9b2b",
+      "bytes": 307998
+    },
+    {
+      "original": "git:e9df01d2:game/data/orison_v2/nook_readable_books.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/data/orison_v2/nook_readable_books.json.gz",
+      "sha256": "0ffc7b41623e70c667b064c107c4fe02993b2b081a16ceabdab24322cea06994",
+      "bytes": 307969
+    },
+    {
+      "original": "game/scripts/building/v2_loose_library.gd",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/scripts/building/v2_loose_library.gd.gz",
+      "sha256": "9f8e7276aa30b7266f06289899f66331a1c87c2da0430c80f78ace0d1ce52b8f",
+      "bytes": 6380
+    },
+    {
+      "original": "git:e9df01d2:game/scripts/building/v2_loose_library.gd",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/scripts/building/v2_loose_library.gd.gz",
+      "sha256": "fbd1e17d591193b94bb8f801c7756c89e022594f1e02584b62e341a9aca67116",
+      "bytes": 5969
+    },
+    {
+      "original": "game/tests/v2_nook_library_bench.gd",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/game/tests/v2_nook_library_bench.gd.gz",
+      "sha256": "7f60f2b1c0fd28d5a6f10326e6ab8d06801831f700693154f6fb1deb9278c93a",
+      "bytes": 16215
+    },
+    {
+      "original": "git:e9df01d2:game/tests/v2_nook_library_bench.gd",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/previous_source/game/tests/v2_nook_library_bench.gd.gz",
+      "sha256": "0b2966f9232a0152bed7b40eb15b2c910a6ab8cf89ee6701364c5914a395b16c",
+      "bytes": 14534
+    },
+    {
+      "original": "art/textures/procedural/nook_woven_wool/material.json",
+      "stored": "art/reviews/v2_nook_revamp_20261022/archive/final_source/art/textures/procedural/nook_woven_wool/material.json.gz",
+      "sha256": "14004f8d810e9464863b2ab26dd676975ae0d297be459b67e5cccb05b25e5c16",
+      "bytes": 1454
+    }
+  ]
+}

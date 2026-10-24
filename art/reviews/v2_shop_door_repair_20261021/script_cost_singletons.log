@@ -1,0 +1,98 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1491 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2582
+[ORISON V2 RUNTIME] ready startup_ms=113094.228
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+[HARUKIYA] OPEN, 18 fixtures
+TICK COST live p50_ms=76.403 p95_ms=84.028
+TICK COST without_script:res://scripts/props/neon_sign_prop.gd p50_ms=78.917 p95_ms=88.248
+TICK COST without_script:res://scripts/props/arcade_cabinet_prop.gd p50_ms=78.681 p95_ms=87.261
+TICK COST without_script:res://scripts/props/washer_prop.gd p50_ms=79.6 p95_ms=86.838
+TICK COST without_script:res://scripts/arcade/arcade_machine.gd p50_ms=79.311 p95_ms=86.596
+TICK COST without_script:res://scripts/phoneos/phone_light_mask.gd p50_ms=78.902 p95_ms=86.234
+TICK COST live_control_5 p50_ms=79.154 p95_ms=86.066
+TICK COST without_script:res://scripts/ui/telegram_hud.gd p50_ms=79.946 p95_ms=88.414
+TICK COST without_script:res://scripts/props/bodega_signage_prop.gd p50_ms=80.602 p95_ms=87.983
+TICK COST without_script:res://scripts/props/photo_darkroom_light.gd p50_ms=79.527 p95_ms=87.613
+TICK COST without_script:res://scripts/building/passage_hours_director.gd p50_ms=80.629 p95_ms=86.916
+TICK COST without_script:res://scripts/building/orison_v2_passage_residency.gd p50_ms=81.057 p95_ms=88.034
+TICK COST live_control_10 p50_ms=80.357 p95_ms=87.666
+TICK COST without_script:res://scripts/building/orison_v2_bar_sink.gd p50_ms=80.698 p95_ms=86.975
+TICK COST without_script:res://scripts/props/songbook_terminal_prop.gd p50_ms=80.967 p95_ms=88.06
+TICK COST without_script:res://scripts/props/harukiya_signage_prop.gd p50_ms=80.658 p95_ms=86.678
+TICK COST without_script:res://scripts/building/harukiya_state_director.gd p50_ms=81.4 p95_ms=87.697
+TICK COST without_script:res://scripts/call/call_interface.gd p50_ms=80.583 p95_ms=88.489
+TICK COST live_control_15 p50_ms=80.477 p95_ms=88.422
+TICK COST without_script:res://scripts/audio/virus_sound_director.gd p50_ms=81.256 p95_ms=88.316
+TICK COST without_script:res://scripts/building/planar_mirror_renderer.gd p50_ms=80.853 p95_ms=87.016
+TICK COST without_script:res://scripts/game/open_shift_radiator_ecosystem.gd p50_ms=80.955 p95_ms=88.464
+TICK COST without_script:res://scripts/characters/schedule_director.gd p50_ms=81.684 p95_ms=87.935
+TICK COST without_script:res://scripts/characters/orison_v2_mina_routine.gd p50_ms=82.32 p95_ms=90.308
+TICK COST live_control_20 p50_ms=82.819 p95_ms=90.05
+TICK COST without_script:res://scripts/characters/animated_resident.gd p50_ms=81.835 p95_ms=89.172
+TICK COST without_script:res://scripts/building/orison_v2_shop_simulation.gd p50_ms=82.578 p95_ms=90.018
+TICK COST without_script:res://scripts/player/safety_net.gd p50_ms=82.622 p95_ms=91.189
+TICK COST without_script:res://scripts/building/orison_v2_caretaking.gd p50_ms=82.062 p95_ms=89.207
+TICK COST without_script:res://scripts/ui/caretaker_notebook.gd p50_ms=81.787 p95_ms=88.701
+TICK COST live_control_25 p50_ms=82.355 p95_ms=88.267
+TICK COST without_script:res://scripts/building/orison_v2_lamp_atmosphere.gd p50_ms=82.028 p95_ms=89.383
+TICK COST without_script:res://scripts/lamp/lamp_scene_shadow.gd p50_ms=82.168 p95_ms=89.625
+TICK COST without_script:res://scripts/building/v2_weather_fx.gd p50_ms=81.614 p95_ms=90.061
+TICK COST without_script:res://scripts/building/orison_v2_room_reflections.gd p50_ms=81.797 p95_ms=89.352
+TICK COST without_script:res://scripts/building/v2_city_day_night_director.gd p50_ms=82.457 p95_ms=88.695
+TICK COST live_control_30 p50_ms=82.241 p95_ms=88.535
+TICK COST without_script:res://scripts/building/light_rig.gd p50_ms=79.266 p95_ms=84.701
+TICK COST without_script:res://scripts/building/WeatherManager.gd p50_ms=81.293 p95_ms=90.277
+TICK COST without_script:res://scripts/building/live_weather_service.gd p50_ms=82.361 p95_ms=89.595
+TICK COST without_script:res://scripts/props/otis_prop.gd p50_ms=82.232 p95_ms=89.455
+TICK COST without_script:res://scripts/props/annunciator_service_controls.gd p50_ms=82.202 p95_ms=88.334
+TICK COST live_control_35 p50_ms=82.077 p95_ms=89.592
+TICK COST without_script:res://scripts/props/annunciator_dispatch_controls.gd p50_ms=82.018 p95_ms=89.88
+TICK COST without_script:res://scripts/props/roof_tank_ballcock_prop.gd p50_ms=83.413 p95_ms=91.185
+TICK COST without_script:res://scripts/props/watchman_clock_prop.gd p50_ms=82.649 p95_ms=89.822
+TICK COST without_script:res://scripts/props/night_register_prop.gd p50_ms=81.522 p95_ms=88.664
+TICK COST without_script:res://scripts/props/watch_register_prop.gd p50_ms=82.248 p95_ms=90.508
+TICK COST live_control_40 p50_ms=82.644 p95_ms=88.319
+TICK COST without_script:res://scripts/props/tour_key_guard_prop.gd p50_ms=82.495 p95_ms=89.288
+TICK COST without_script:res://scripts/props/radiator_prop.gd p50_ms=74.643 p95_ms=82.436
+TICK COST without_script:res://scripts/props/radiator_vent_stock.gd p50_ms=81.808 p95_ms=89.821
+TICK COST without_script:res://scripts/props/boiler_prop.gd p50_ms=82.325 p95_ms=89.556
+TICK COST without_script:res://scripts/props/fuse_panel_prop.gd p50_ms=81.754 p95_ms=90.388
+TICK COST live_control_45 p50_ms=82.834 p95_ms=89.439
+TICK COST without_script:res://scripts/building/orison_v2_laundry_airer.gd p50_ms=82.711 p95_ms=90.489
+TICK COST without_script:res://scripts/props/house_switchboard_prop.gd p50_ms=82.833 p95_ms=89.032
+TICK COST without_script:res://scripts/props/dumbwaiter_prop.gd p50_ms=82.358 p95_ms=90.422
+TICK COST without_script:res://scripts/building/orison_v2_dumbwaiter_rope_visual.gd p50_ms=81.867 p95_ms=88.555
+TICK COST without_script:res://scripts/building/elevator.gd p50_ms=82.581 p95_ms=89.888
+TICK COST live_control_50 p50_ms=82.236 p95_ms=88.058
+TICK COST without_script:res://scripts/building/orison_v2_lift_gate.gd p50_ms=82.238 p95_ms=89.633
+TICK COST without_script:res://scripts/building/orison_v2_lift_drive.gd p50_ms=81.806 p95_ms=89.33
+TICK COST without_script:res://scripts/props/boiler_tend.gd p50_ms=81.827 p95_ms=88.511
+TICK COST without_script:res://scripts/player/player_controller.gd p50_ms=82.632 p95_ms=89.902
+TICK COST without_script:res://scripts/device/service_set_carrier.gd p50_ms=81.657 p95_ms=89.592
+TICK COST live_control_55 p50_ms=81.977 p95_ms=87.964
+TICK COST without_script:res://scripts/device/mechanical_teletype.gd p50_ms=81.971 p95_ms=89.227
+TICK COST live_restored p50_ms=82.39 p95_ms=88.961
+V2 SCRIPT COST DIAGNOSTIC: 0 waypoints; 0 failures

@@ -66,8 +66,6 @@ func _run() -> void:
 	var carried_overlay := _carrier_overlay(player)
 	_check("the carried service set has its ordinary overlay", carried_overlay != null and carried_overlay.visible)
 	var lamp_before_inspection := player.lamp_is_enabled()
-	var beam_overlay := player._light_mask.get_parent() as CanvasLayer
-	var beam_visible_before := beam_overlay.visible
 	var beam_allowed_before: bool = player._beam_mask_allowed
 	var stand: Vector3 = zoo.zoo_stand()
 	_check("the visitor is standing in the hall",
@@ -155,7 +153,7 @@ func _run() -> void:
 				and player.lamp_is_enabled() == lamp_before_inspection
 				and player.carried_device.is_processing())
 		_check("inspection hides the player's screen beam mask without changing its policy",
-				not beam_overlay.visible and player._beam_mask_allowed == beam_allowed_before)
+				player._light_mask == null and player._beam_mask_allowed == beam_allowed_before)
 		# Walking lights the plaques by putting the exhibit in overview. That
 		# is the walk's setting, not the operator's, so the orbit bench has to
 		# open on its specimen instead of inheriting the whole room.
@@ -202,7 +200,7 @@ func _run() -> void:
 			_check("Leave camera restores the held service set and lamp state",
 					not zoo.active and carried_overlay != null and carried_overlay.visible
 					and player.lamp_is_enabled() == lamp_before_inspection
-					and beam_overlay.visible == beam_visible_before
+					and player._light_mask == null
 					and player._beam_mask_allowed == beam_allowed_before)
 		# Reopen with a deliberately hidden overlay. The inspector restores the
 		# prior state, rather than turning on a pass another owner had hidden.

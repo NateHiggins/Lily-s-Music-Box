@@ -1,0 +1,470 @@
+{
+  "evidence_class": "INERT",
+  "method": "Linear quantiles. Drop only samples whose preceding phase differs. Wall and overlapping engine timing counters are not additive. No input-to-photon measurement.",
+  "routes": {
+    "original_before": {
+      "path": "art\\reviews\\v2_bathroom_moisture_20261024\\before_v1\\frames.json",
+      "settings": {
+        "resolution": "(1280.0, 720.0)",
+        "fov": 72.0,
+        "render_method": "forward_plus",
+        "vsync": false
+      },
+      "phases": {
+        "dry_shower": {
+          "n": 449,
+          "p50": 16.804,
+          "p95": 22.117,
+          "p99": 25.39,
+          "maximum_ms": 123.445,
+          "above_33ms": 2,
+          "above_50ms": 2,
+          "above_100ms": 1,
+          "counter_medians_ms": {
+            "process_ms": 18.825,
+            "physics_ms": 3.344,
+            "render_cpu_ms": 8.533,
+            "render_gpu_ms": 5.816,
+            "mirror_cpu_ms": 14.627,
+            "mirror_gpu_ms": 6.219
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "cold_shower": {
+          "n": 382,
+          "p50": 21.506,
+          "p95": 25.621,
+          "p99": 27.456,
+          "maximum_ms": 29.488,
+          "above_33ms": 0,
+          "above_50ms": 0,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 24.391,
+            "physics_ms": 3.211,
+            "render_cpu_ms": 11.394,
+            "render_gpu_ms": 7.944,
+            "mirror_cpu_ms": 14.233,
+            "mirror_gpu_ms": 5.835
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "hot_developing": {
+          "n": 624,
+          "p50": 19.913,
+          "p95": 23.604,
+          "p99": 26.6,
+          "maximum_ms": 36.09,
+          "above_33ms": 2,
+          "above_50ms": 0,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 21.342,
+            "physics_ms": 3.154,
+            "render_cpu_ms": 8.84,
+            "render_gpu_ms": 6.146,
+            "mirror_cpu_ms": 14.233,
+            "mirror_gpu_ms": 5.835
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "hot_mirror": {
+          "n": 150,
+          "p50": 65.614,
+          "p95": 70.998,
+          "p99": 74.531,
+          "maximum_ms": 75.59,
+          "above_33ms": 150,
+          "above_50ms": 150,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 64.899,
+            "physics_ms": 3.184,
+            "render_cpu_ms": 29.563,
+            "render_gpu_ms": 17.625,
+            "mirror_cpu_ms": 14.444,
+            "mirror_gpu_ms": 6.203
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "off_mirror_decay": {
+          "n": 149,
+          "p50": 65.648,
+          "p95": 71.362,
+          "p99": 75.428,
+          "maximum_ms": 80.798,
+          "above_33ms": 149,
+          "above_50ms": 149,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 64.498,
+            "physics_ms": 3.172,
+            "render_cpu_ms": 29.883,
+            "render_gpu_ms": 18.103,
+            "mirror_cpu_ms": 14.45,
+            "mirror_gpu_ms": 6.327
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        }
+      }
+    },
+    "previous_checkpoint": {
+      "path": "art\\reviews\\v2_paper_holder_20261024\\world_v6\\frames.json",
+      "settings": {
+        "resolution": "(1280.0, 720.0)",
+        "fov": 72.0,
+        "render_method": "forward_plus",
+        "vsync": false
+      },
+      "phases": {
+        "dry_shower": {
+          "n": 441,
+          "p50": 17.12,
+          "p95": 21.993,
+          "p99": 24.36,
+          "maximum_ms": 113.878,
+          "above_33ms": 3,
+          "above_50ms": 2,
+          "above_100ms": 1,
+          "counter_medians_ms": {
+            "process_ms": 18.042,
+            "physics_ms": 3.367,
+            "render_cpu_ms": 8.623,
+            "render_gpu_ms": 6.049,
+            "mirror_cpu_ms": 14.881,
+            "mirror_gpu_ms": 8.068
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "cold_shower": {
+          "n": 387,
+          "p50": 21.283,
+          "p95": 24.647,
+          "p99": 26.291,
+          "maximum_ms": 28.916,
+          "above_33ms": 0,
+          "above_50ms": 0,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 22.622,
+            "physics_ms": 3.148,
+            "render_cpu_ms": 11.097,
+            "render_gpu_ms": 7.381,
+            "mirror_cpu_ms": 13.238,
+            "mirror_gpu_ms": 5.963
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "hot_developing": {
+          "n": 628,
+          "p50": 19.977,
+          "p95": 23.175,
+          "p99": 24.664,
+          "maximum_ms": 44.593,
+          "above_33ms": 1,
+          "above_50ms": 0,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 21.048,
+            "physics_ms": 3.092,
+            "render_cpu_ms": 8.622,
+            "render_gpu_ms": 5.954,
+            "mirror_cpu_ms": 13.238,
+            "mirror_gpu_ms": 5.963
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "hot_mirror": {
+          "n": 152,
+          "p50": 64.461,
+          "p95": 72.285,
+          "p99": 74.553,
+          "maximum_ms": 75.492,
+          "above_33ms": 152,
+          "above_50ms": 152,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 66.833,
+            "physics_ms": 3.228,
+            "render_cpu_ms": 28.792,
+            "render_gpu_ms": 17.259,
+            "mirror_cpu_ms": 14.346,
+            "mirror_gpu_ms": 6.215
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "off_mirror_decay": {
+          "n": 150,
+          "p50": 65.242,
+          "p95": 72.009,
+          "p99": 75.977,
+          "maximum_ms": 76.992,
+          "above_33ms": 150,
+          "above_50ms": 150,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 64.17,
+            "physics_ms": 3.157,
+            "render_cpu_ms": 29.239,
+            "render_gpu_ms": 17.416,
+            "mirror_cpu_ms": 14.367,
+            "mirror_gpu_ms": 6.133
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        }
+      }
+    },
+    "finishing_candidate": {
+      "path": "art\\reviews\\v2_bathroom_finishing_20261024\\performance_v1\\frames.json",
+      "settings": {
+        "resolution": "(1280.0, 720.0)",
+        "fov": 72.0,
+        "render_method": "forward_plus",
+        "vsync": false
+      },
+      "phases": {
+        "dry_shower": {
+          "n": 442,
+          "p50": 17.267,
+          "p95": 22.483,
+          "p99": 29.467,
+          "maximum_ms": 52.395,
+          "above_33ms": 4,
+          "above_50ms": 2,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 18.099,
+            "physics_ms": 3.524,
+            "render_cpu_ms": 8.712,
+            "render_gpu_ms": 6.011,
+            "mirror_cpu_ms": 16.495,
+            "mirror_gpu_ms": 8.379
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "cold_shower": {
+          "n": 382,
+          "p50": 21.404,
+          "p95": 25.456,
+          "p99": 28.908,
+          "maximum_ms": 30.011,
+          "above_33ms": 0,
+          "above_50ms": 0,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 24.107,
+            "physics_ms": 3.184,
+            "render_cpu_ms": 10.795,
+            "render_gpu_ms": 7.562,
+            "mirror_cpu_ms": 13.73,
+            "mirror_gpu_ms": 6.416
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "hot_developing": {
+          "n": 616,
+          "p50": 20.046,
+          "p95": 24.146,
+          "p99": 28.976,
+          "maximum_ms": 34.954,
+          "above_33ms": 2,
+          "above_50ms": 0,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 21.469,
+            "physics_ms": 3.176,
+            "render_cpu_ms": 9.624,
+            "render_gpu_ms": 6.316,
+            "mirror_cpu_ms": 13.73,
+            "mirror_gpu_ms": 6.416
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "hot_mirror": {
+          "n": 149,
+          "p50": 66.204,
+          "p95": 72.436,
+          "p99": 78.503,
+          "maximum_ms": 80.287,
+          "above_33ms": 149,
+          "above_50ms": 149,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 63.928,
+            "physics_ms": 3.191,
+            "render_cpu_ms": 29.508,
+            "render_gpu_ms": 18.173,
+            "mirror_cpu_ms": 14.126,
+            "mirror_gpu_ms": 6.287
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "off_mirror_decay": {
+          "n": 150,
+          "p50": 65.303,
+          "p95": 73.121,
+          "p99": 77.273,
+          "maximum_ms": 80.912,
+          "above_33ms": 150,
+          "above_50ms": 150,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 66.235,
+            "physics_ms": 3.203,
+            "render_cpu_ms": 29.073,
+            "render_gpu_ms": 17.827,
+            "mirror_cpu_ms": 14.117,
+            "mirror_gpu_ms": 6.297
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        }
+      }
+    },
+    "frame_clearance_final": {
+      "path": "art\\reviews\\v2_bathroom_finishing_20261024\\frame_clearance_world_v1\\frames.json",
+      "settings": {
+        "resolution": "(1280.0, 720.0)",
+        "fov": 72.0,
+        "render_method": "forward_plus",
+        "vsync": false
+      },
+      "phases": {
+        "dry_shower": {
+          "n": 430,
+          "p50": 17.583,
+          "p95": 23.346,
+          "p99": 31.748,
+          "maximum_ms": 52.498,
+          "above_33ms": 4,
+          "above_50ms": 2,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 21.4,
+            "physics_ms": 3.183,
+            "render_cpu_ms": 8.851,
+            "render_gpu_ms": 6.112,
+            "mirror_cpu_ms": 15.573,
+            "mirror_gpu_ms": 8.013
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "cold_shower": {
+          "n": 377,
+          "p50": 21.781,
+          "p95": 25.437,
+          "p99": 26.55,
+          "maximum_ms": 27.921,
+          "above_33ms": 0,
+          "above_50ms": 0,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 22.605,
+            "physics_ms": 2.938,
+            "render_cpu_ms": 11.516,
+            "render_gpu_ms": 7.884,
+            "mirror_cpu_ms": 13.703,
+            "mirror_gpu_ms": 5.852
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "hot_developing": {
+          "n": 617,
+          "p50": 19.799,
+          "p95": 24.006,
+          "p99": 26.283,
+          "maximum_ms": 31.394,
+          "above_33ms": 0,
+          "above_50ms": 0,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 21.852,
+            "physics_ms": 2.943,
+            "render_cpu_ms": 8.884,
+            "render_gpu_ms": 6.252,
+            "mirror_cpu_ms": 13.703,
+            "mirror_gpu_ms": 5.852
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "hot_mirror": {
+          "n": 150,
+          "p50": 64.868,
+          "p95": 74.152,
+          "p99": 80.884,
+          "maximum_ms": 84.553,
+          "above_33ms": 150,
+          "above_50ms": 150,
+          "above_100ms": 0,
+          "counter_medians_ms": {
+            "process_ms": 65.517,
+            "physics_ms": 2.988,
+            "render_cpu_ms": 29.368,
+            "render_gpu_ms": 17.339,
+            "mirror_cpu_ms": 13.814,
+            "mirror_gpu_ms": 6.059
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        },
+        "off_mirror_decay": {
+          "n": 140,
+          "p50": 67.993,
+          "p95": 95.42,
+          "p99": 111.341,
+          "maximum_ms": 128.075,
+          "above_33ms": 140,
+          "above_50ms": 140,
+          "above_100ms": 4,
+          "counter_medians_ms": {
+            "process_ms": 68.311,
+            "physics_ms": 3.066,
+            "render_cpu_ms": 30.165,
+            "render_gpu_ms": 17.745,
+            "mirror_cpu_ms": 14.097,
+            "mirror_gpu_ms": 6.28
+          },
+          "residency_states": [
+            "DORMANT"
+          ]
+        }
+      }
+    }
+  }
+}

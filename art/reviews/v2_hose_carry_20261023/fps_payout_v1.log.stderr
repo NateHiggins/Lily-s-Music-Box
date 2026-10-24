@@ -1,0 +1,5 @@
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: run (res://tests/v2_hose_fps_payout_programme.gd:72)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/v2_hose_fps_payout_programme.gd:72)
+       [1] _settle (res://tests/v2_hose_fps_payout_programme.gd:11)

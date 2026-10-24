@@ -10,6 +10,7 @@ class HandBody extends AnimatableBody3D:
 
 var _hands_ready := false
 var _hand := ""
+var _hand_start: Dictionary = {}
 var _door_angle := 0.0
 var _lever_angle := -.95
 var _tag_hinge: Node3D
@@ -29,6 +30,30 @@ var _observed_coupled := true
 var _loose_union: RefCounted
 var _gasket_body: RigidBody3D
 var _nozzle_joint: Node3D
+var rubber_dressed := false
+var _undressed_rubber: Material
+var _live_hose: Node3D
+var _door_motion: RefCounted
+var last_hand_obstruction: Dictionary={}
+
+func try_dress_gasket(items: MaintenanceInventory, contact: Vector3) -> bool:
+	if rubber_dressed or items==null or not items.has_item("fire_hose_rubber_protectant") \
+			or not contact.is_finite() or not door_open or coupling_made_up or absf(_wheel_angle)>.0001:return false
+	if _spare_gasket==null or _spare_gasket.mesh==null:return false
+	var at:=_spare_gasket.to_local(contact)
+	var bounds: AABB=_spare_gasket.mesh.get_aabb()
+	var radius:=Vector2(at.x,at.z).length()
+	var outer:=maxf(absf(bounds.position.x),absf(bounds.end.x))
+	var inner:=float(_joint_stock.data.dimensions.bore_radius_m)
+	if radius<inner-.003 or radius>outer+.003 or at.y<bounds.position.y-.003 or at.y>bounds.end.y+.003:return false
+	rubber_dressed=true;_rubber_finish();manipulation_changed.emit();return true
+
+func _rubber_finish() -> void:
+	if _spare_gasket==null:return
+	if _undressed_rubber==null:_undressed_rubber=_spare_gasket.material_override
+	if not rubber_dressed:_spare_gasket.material_override=_undressed_rubber;return
+	var finish:=_undressed_rubber.duplicate() as StandardMaterial3D
+	if finish!=null:finish.roughness*=.85;_spare_gasket.material_override=finish
 
 func install_nozzle_joint() -> bool:
 	_nozzle_joint=preload("res://scripts/props/fire_nozzle_coupling.gd").new();_nozzle_joint.name="NativeNozzleCoupling";add_child(_nozzle_joint)
@@ -91,6 +116,7 @@ func interact_control(_control_id: String, _player: Node) -> bool: return false
 
 func install_native_hand_controls() -> bool:
 	if _hands_ready: return false
+	_door_motion=preload("res://scripts/props/fire_cabinet_door_motion.gd").new(self)
 	_door_angle = 1.78 if door_open else 0.0
 	_lever_angle = 0.0 if nozzle_shut else -.95
 	_observed_open = door_open; _observed_shut = nozzle_shut
@@ -185,6 +211,7 @@ func _axis(id: String) -> Vector3:
 	return Vector3.LEFT if id=="tag" else Vector3.BACK
 
 func _minimum(id: String) -> float:
+	if id=="door" and is_instance_valid(_live_hose) and _live_hose.deployed:return preload("res://scripts/props/hose_cabinet_route.gd").AJAR
 	if id=="joint":return TAU*float(_joint_stock.data.dimensions.gasket_thickness_m)/float(_joint_stock.data.dimensions.pitch_m) if gasket_seated else 0.
 	return -.95 if id=="lever" else 0.0
 
@@ -192,31 +219,47 @@ func _maximum(id: String) -> float:
 	match id:
 		"door": return 1.78
 		"tag": return 1.0
-		"valve": return .025
+		"valve": return TAU*2. if is_instance_valid(_live_hose) and _live_hose.deployed else .025
 		"joint": return TAU*.008/float(_joint_stock.data.dimensions.pitch_m)
 	return 0.0
+
+func hose_supply_opening() -> float:
+	# Retain the original 25 mrad spindle play as closed-seat travel. Tiny
+	# accepted angles inside that play cannot create a permanent trickle.
+	if not is_instance_valid(_live_hose) or not _live_hose.deployed:return 0.
+	return clampf((_wheel_angle-.025)/(TAU*2.-.025),0.,1.)
 
 func _claim(id: String) -> bool:
 	if not _hands_ready or not _hand.is_empty(): return false
 	if id=="joint" and not door_open:return false
+	_hand_start=mechanism_snapshot().duplicate(true)
 	_hand = id; _balk_left = 0.0; _balk_focus = ""
 	if id=="tag": _tag_velocity=0.0
 	return true
 
 func _release() -> void:
 	if _hand=="joint":_loose_union.release()
-	_hand = ""; manipulation_changed.emit()
+	var was_door: bool=_hand=="door"
+	# Cleanup also happens when inspection borrows an unmoved grip. Only a
+	# change to this cabinet requests a household save; unrelated live clocks
+	# are still captured by every real change and explicit save as before.
+	var changed: bool=_hand_start.is_empty() or mechanism_snapshot()!=_hand_start
+	_hand = ""; _hand_start={}
+	if changed:manipulation_changed.emit()
+	if was_door:_door_motion.schedule()
 
 func _grip(id: String) -> Dictionary:
 	if id=="joint" and not door_open:return {}
 	if id=="joint" and _loose_union!=null and _loose_union.active:return _loose_union.grip()
-	return {"owner":self, "part":_part(id), "frame":_part(id).get_parent_node_3d(),
+	var result: Dictionary={"owner":self, "part":_part(id), "frame":_part(id).get_parent_node_3d(),
 		"kind":"hinge", "axis":_axis(id),
 		"minimum":_minimum(id), "maximum":_maximum(id),
 		"read":func():return _read(id), "write":func(value: float):
 			if _hand==id: _move_hand_part(id,value),
 		"begin":func():return _claim(id), "owns":func():return _hand==id,
 		"end":_release}
+	if id=="door":result.bind_holder=_door_motion.bind_holder
+	return result
 
 func _move_hand_part(id: String, value: float) -> void:
 	if not is_finite(value): return
@@ -224,10 +267,13 @@ func _move_hand_part(id: String, value: float) -> void:
 	var before: float = _read(id)
 	var steps: int = maxi(1,ceili(absf(value-before)/.01))
 	var accepted: float = before
-	for step in range(1,steps+1):
-		var proposed: float = lerpf(before,value,float(step)/steps)
-		if _obstructed(id,proposed): break
-		accepted = proposed
+	if id=="door":
+		_door_motion.accommodate(value);accepted=value
+	else:
+		for step in range(1,steps+1):
+			var proposed: float = value if step==steps else lerpf(before,value,float(step)/steps)
+			if _obstructed(id,proposed): break
+			accepted = proposed
 	if id=="door":
 		_door_angle = accepted; door_open = accepted>=.8; _observed_open = door_open
 	elif id=="lever":
@@ -237,8 +283,10 @@ func _move_hand_part(id: String, value: float) -> void:
 	elif id=="joint":
 		_union_angle=accepted;coupling_made_up=absf(accepted-_minimum("joint"))<.0001;_observed_coupled=coupling_made_up
 	_apply_hand_pose()
+	if is_instance_valid(_live_hose):_live_hose.water_controls_changed()
 
 func _obstructed(id: String, value: float) -> bool:
+	last_hand_obstruction={}
 	var part: Node3D = _part(id)
 	var proposed: Transform3D = part.transform
 	proposed.basis = Basis(_axis(id),value+PI if id=="lever" else value)
@@ -249,6 +297,7 @@ func _obstructed(id: String, value: float) -> bool:
 		world=global_transform*frame*proposed
 	var excluded: Array[RID] = [(_bodies[id] as HandBody).get_rid()]
 	if id=="lever" and _nozzle_joint!=null and _nozzle_joint.body!=null:excluded.append(_nozzle_joint.body.get_rid())
+	if id=="lever" and is_instance_valid(_live_hose):excluded.append_array(_live_hose.inspection_control_exclusions())
 	if id=="joint" and _loose_union!=null:excluded.append_array(_loose_union._excluded)
 	if id=="joint" and gasket_seated:excluded.append(_gasket_body.get_rid())
 	# Fixed stock in this same fitted assembly supplies the hinge/valve stops.
@@ -259,7 +308,11 @@ func _obstructed(id: String, value: float) -> bool:
 	query.collision_mask = 1; query.exclude = excluded; query.margin = .00001
 	for stock: Dictionary in _stock[id]:
 		query.shape = stock.shape; query.transform = world*stock.frame
-		if not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): return true
+		var hits: Array[Dictionary]=get_world_3d().direct_space_state.intersect_shape(query,1)
+		if not hits.is_empty():
+			var collider: Object=hits[0].get("collider")
+			last_hand_obstruction={"control":id,"value":value,"collider":str(collider.get_path()) if collider is Node else str(collider)}
+			return true
 	return false
 
 func _apply_hand_pose() -> void:
@@ -282,6 +335,7 @@ func _apply_nozzle_pose() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not _hands_ready: return
+	_door_motion.tick(delta)
 	_loose_union.tick(delta)
 	# Neither transient wire swing nor locked-spindle play is a saved setting.
 	if _hand!="tag" and (_tag_angle>0.0 or absf(_tag_velocity)>.00001):
@@ -289,7 +343,7 @@ func _physics_process(delta: float) -> void:
 		var before: float = _tag_angle
 		_move_hand_part("tag",_tag_angle+_tag_velocity*delta)
 		if _tag_angle<=0.0 or is_equal_approx(before,_tag_angle): _tag_velocity=0.0
-	if _hand!="valve" and _wheel_angle>0.0:
+	if _hand!="valve" and _wheel_angle>0.0 and not (is_instance_valid(_live_hose) and _live_hose.deployed):
 		_move_hand_part("valve",move_toward(_wheel_angle,0.0,delta*.2))
 
 func _refresh_cabinet() -> void:
@@ -304,7 +358,15 @@ func _refresh_cabinet() -> void:
 		_apply_hand_pose(); _observed_open = door_open; _observed_shut = nozzle_shut;_observed_coupled=coupling_made_up
 
 func inspection_view() -> Dictionary:
+	if is_instance_valid(_live_hose) and _live_hose.deployed:
+		return {"from":to_global(Vector3(-.10,.60,1.10)),"at":to_global(Vector3(.04,.35,.15)),"fov":60.0}
 	return {"from":to_global(Vector3(-.10,.80,.85)),"at":to_global(Vector3(.04,.43,.10)),"fov":50.0}
+
+func inspection_view_for(part: Node3D) -> Dictionary:
+	if is_instance_valid(_live_hose) and _live_hose.deployed and (part==_play_pipe or _play_pipe.is_ancestor_of(part)):
+		var camera:=get_viewport().get_camera_3d()
+		return {"from":camera.global_position,"at":camera.global_position-camera.global_basis.z,"fov":50.}
+	return inspection_view()
 
 func flexible_outlet_hose_points() -> Dictionary:
 	var fold: MeshInstance3D=_fold_leaves.back()
@@ -317,14 +379,19 @@ func mechanism_snapshot() -> Dictionary:
 	var at: Vector3=_loose_union.location if _loose_union.active else _loose_union.receiving()
 	var value: Dictionary={"door":_door_angle,"lever":_lever_angle,"joint":_union_angle,"loose":{"active":_loose_union.active,"position":[at.x,at.y,at.z]},"gasket":_gasket_body.snapshot(),"facts":maintenance_snapshot()}
 	if _nozzle_joint!=null:value.nozzle=_nozzle_joint.snapshot()
+	value.rubber_dressed=rubber_dressed
+	if is_instance_valid(_live_hose) and _live_hose.visual_follow_enabled:value.hose=_live_hose.deployment_snapshot()
 	return value
 
 func valid_mechanism(value: Variant) -> bool:
-	if value is not Dictionary or value.size() not in [3,4,5,6,7]: return false
-	if value.size()>=4 and not value.has("joint"):return false
-	if value.size()>=5 and not value.has("loose"):return false
-	if value.size()>=6 and not value.has("gasket"):return false
-	if value.size()==7 and (not value.has("nozzle") or _nozzle_joint==null):return false
+	if value is not Dictionary or value.size()<3 or value.size()>9:return false
+	for key: String in value:
+		if key not in ["door","lever","facts","joint","loose","gasket","nozzle","rubber_dressed","hose"]:return false
+	if value.has("hose") and (not value.has("nozzle") or not is_instance_valid(_live_hose) or not _live_hose.valid_deployment(value.hose)):return false
+	if value.has("loose") and not value.has("joint"):return false
+	if value.has("gasket") and not value.has("loose"):return false
+	if value.has("nozzle") and (not value.has("gasket") or _nozzle_joint==null):return false
+	if value.has("rubber_dressed") and value.rubber_dressed is not bool:return false
 	if value.has("gasket") and not preload("res://scripts/props/fire_line_gasket.gd").valid(value.gasket):return false
 	if value.has("joint"):
 		if typeof(value.joint) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(value.joint)) or float(value.joint)<0. or float(value.joint)>_maximum("joint"):return false
@@ -340,7 +407,14 @@ func valid_mechanism(value: Variant) -> bool:
 		if key=="tag_line":
 			if facts.get(key) is not String or str(facts[key]).length()>64: return false
 		elif typeof(facts.get(key))!=TYPE_BOOL: return false
-	if value.has("nozzle") and (_nozzle_joint==null or not _nozzle_joint.valid(value.nozzle,facts.nozzle_coupled)):return false
+	var receiver: Variant=null
+	if value.has("hose"):
+		if value.hose.deployed and facts.hose_racked:return false
+		receiver=_live_hose.saved_receiver(value.hose)
+	elif is_instance_valid(_live_hose) and _live_hose.visual_follow_enabled:
+		# Legacy rack saves must not depend on the current deployed receiver.
+		receiver=_live_hose._receiver
+	if value.has("nozzle") and (_nozzle_joint==null or not _nozzle_joint.valid(value.nozzle,facts.nozzle_coupled,receiver)):return false
 	if value.has("joint"):
 		var stop: float=TAU*float(_joint_stock.data.dimensions.gasket_thickness_m)/float(_joint_stock.data.dimensions.pitch_m) if facts.gasket_seated else 0.
 		if float(value.joint)<stop or facts.coupling_made_up!=(absf(float(value.joint)-stop)<.0001):return false
@@ -380,5 +454,14 @@ func restore_mechanism(value: Dictionary) -> void:
 	_observed_open = door_open; _observed_shut = nozzle_shut; _apply_hand_pose()
 	if value.has("gasket"):_gasket_body.restore(value.gasket)
 	else:_gasket_body.restore({"position":[.245,.048,.150],"rotation":[0.,0.,0.,1.]})
+	if is_instance_valid(_live_hose) and _live_hose.visual_follow_enabled:
+		if value.has("hose"):_live_hose.restore_deployment(value.hose)
+		else:_live_hose.restore_stored()
+		_apply_hand_pose()
 	if value.has("nozzle"):_nozzle_joint.restore(value.nozzle)
 	elif _nozzle_joint!=null:_nozzle_joint.restore_legacy(value.facts.nozzle_coupled)
+	rubber_dressed=bool(value.get("rubber_dressed",false));_rubber_finish()
+	_door_motion.schedule()
+
+func _exit_tree() -> void:
+	if _door_motion!=null:_door_motion.release()

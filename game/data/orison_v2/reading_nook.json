@@ -7,15 +7,28 @@
       "id": "nook_rug",
       "parts": [
         {
-          "name": "nook_rug__rug_warm",
-          "key": "rug_warm",
-          "tile": 1.5
+          "name": "nook_rug__nook_woven_wool",
+          "key": "nook_woven_wool",
+          "tile": 0.24,
+          "catalog_key": "nook_woven_wool"
+        },
+        {
+          "name": "nook_rug__rug_binding",
+          "key": "rug_binding",
+          "tile": 0.24,
+          "catalog_key": "nook_woven_wool",
+          "tint": [
+            0.2,
+            0.24,
+            0.16,
+            1.0
+          ]
         }
       ],
       "position": [
-        -0.48,
+        -0.5999999999999999,
         0,
-        2.35
+        1.9000000000000001
       ],
       "yaw": 3.141592653589793
     },
@@ -218,7 +231,7 @@
       "position": [
         -0.49999999999999994,
         0,
-        1.4898000000000002
+        0.6398000000000001
       ],
       "yaw": 3.141592653589793
     },
@@ -235,7 +248,7 @@
       "position": [
         -0.6799999999999999,
         0,
-        1.5498
+        0.6998000000000002
       ],
       "yaw": 2.5307274153917776
     },
@@ -256,7 +269,13 @@
           "name": "nook_plant__plant",
           "key": "plant",
           "tile": 0.5,
-          "catalog_key": "plant"
+          "catalog_key": "plant",
+          "tint": [
+            0.34,
+            0.48,
+            0.26,
+            1.0
+          ]
         },
         {
           "name": "nook_plant__soil",
@@ -269,16 +288,10 @@
           "key": "terracotta",
           "tile": 0.4,
           "catalog_key": "terracotta"
-        },
-        {
-          "name": "nook_plant__timber",
-          "key": "timber",
-          "tile": 1.0,
-          "catalog_key": "timber"
         }
       ],
       "position": [
-        -1.42,
+        -1.5699999999999998,
         0,
         3.2698
       ],
@@ -291,23 +304,6 @@
         "T_ai_materials_fabric_green_albedo.png",
         "T_ai_materials_fabric_green_rough.png",
         "T_ai_materials_fabric_green_normal.png"
-      ],
-      "metallic": 0,
-      "roughness": 1,
-      "normal_scale": 0.3499999940395355,
-      "color": [
-        1,
-        1,
-        1,
-        1
-      ],
-      "alpha": false
-    },
-    "rug_warm": {
-      "files": [
-        "T_ai_materials_rug_warm_albedo.png",
-        "T_ai_materials_rug_warm_rough.png",
-        "T_ai_materials_rug_warm_normal.png"
       ],
       "metallic": 0,
       "roughness": 1,

@@ -1,0 +1,105 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Final source and original diagnostic artifacts; no runtime_contract, world installation or human acceptance.",
+  "parent": "41afb0866de400139384b0ab8357cbda62045047",
+  "source_lf_sha256": {
+    "game/scripts/props/fire_nozzle_coupling.gd": "aa40ec07a11e75bb7464b569f36ac6162b738372cb588daa7c86394d40bfdbfb",
+    "game/scripts/props/fire_unracked_hose.gd": "5d5204eef6917477373da38b3509352a922a83b0cdc08dbc9dfa93f6ce691a2e",
+    "game/scripts/props/v2_fire_line_cabinet.gd": "686f94ea483624415db2fc9b2427909ab25269c2ef2fce28e01a0b0d30a01469",
+    "game/tests/v2_hose_save_bench.gd": "a9506335336a77cf764ec6fcb9be620e94da55c32f6463a27fc51f1bade22265",
+    "game/tests/V2HoseSaveBench.tscn": "3a9dddef49f624649acd0516447d23432b9f3f4f3f4f5ddf39b4b20e0dd8eaed"
+  },
+  "protected": [
+    {
+      "path": "art/data/building_layout.json",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/data/building_layout.json",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/scripts/building/building_root_selector.gd",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_01.gltf",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_01.bin",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_02.gltf",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_02.bin",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_03.gltf",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_03.bin",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_04.gltf",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_04.bin",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_05.gltf",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_05.bin",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_06.gltf",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_06.bin",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_b1.gltf",
+      "unchanged_normalized_vs_parent": true
+    },
+    {
+      "path": "game/assets/building/floor_b1.bin",
+      "unchanged_normalized_vs_parent": true
+    }
+  ],
+  "artifacts_sha256": {
+    "coupling_regression_v1.log": "86e710ee0acacea69c6d1851073b49ae2fb4a8f318cdaadb4e8da55a902f9ca2",
+    "coupling_regression_v1.log.receipt.json": "adf2620e7514b268459ee8c25e2401915c1d8e0d1d5946709ee50f99aa5a411c",
+    "coupling_regression_v1.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reader_baseline.txt": "105ee5c14863190c58ce8c5de72d2d1762aed307c9c2a167a3c68cd36ab4768f",
+    "save_v1.log": "7bcd170742a828699dd515eb16db2f5bbe9ed06a6fe46a3aaab131820713e176",
+    "save_v1.log.receipt.json": "4b7b82cda6ceafc4203afd3006d8905172041d1ac23d727de21b7bc7136c32ae",
+    "save_v1.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "save_v2.log": "4e07aed4ee4d8a61c89766d327e3c23e8da0b6904f7695f9fbb91dc50da15ef3",
+    "save_v2.log.receipt.json": "147ebed6d00be9ec62e30927fd3c34d97241da12afc7a4a90e891598f82bc5fd",
+    "save_v2.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "save_v3.log": "82046b7e18d52debe4047f9dbd69274c04812d5eb8bffb49f05c53c3660d347a",
+    "save_v3.log.receipt.json": "1044776cd91780865c2936996f7cb322e2a9ecac062c44ade51eeafdeb882f67",
+    "save_v3.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "water_regression_v1.log": "714d0653f2927c862d2d34be6e29f20d2a417c7a52afb82d4a252a9892e15258",
+    "water_regression_v1.log.receipt.json": "1a5b6f2bf4cf1b250ea7d5dd18e4e68b1fcbdd12cd05bb595696a35330fb1ee1",
+    "water_regression_v1.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "water_regression_v1/charged_spray.png": "e18868a9350757eab7d93ccc3654f0f8815538a2824cbb1d5e9979ebba725b24",
+    "water_regression_v1/diagnostic.json": "de73e096239f7def3f63bf335428a3a89eeaba27a2b8e40aa4ef60ed89a2b080",
+    "water_regression_v1/extraction.png": "f7fdf1cbfb3b0791125b7ef496d08d63afdf9a724d6278df1645550bc89b4ffe",
+    "water_regression_v1/flat_native_stock.png": "d5a482f6d50654eb5282b72ef17ef6fe46c9b9ca1916930ba28ed0f2ce364a94",
+    "water_regression_v1/round_native_stock.png": "1c5a2d89da480470ee3e4ebfd8b5d7ae7049f508f99cb104a9233e9f5d5801ee"
+  }
+}

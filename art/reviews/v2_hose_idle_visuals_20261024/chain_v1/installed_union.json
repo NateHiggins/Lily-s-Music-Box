@@ -1,0 +1,651 @@
+{
+	"after": {
+		"door": 1.78,
+		"facts": {
+			"coupling_made_up": true,
+			"door_open": true,
+			"folds_fresh": false,
+			"gasket_seated": true,
+			"gasket_seen": true,
+			"hose_racked": true,
+			"nozzle_coupled": false,
+			"nozzle_shut": true,
+			"tag_line": "- - -",
+			"tag_signed": false
+		},
+		"gasket": {
+			"position": [
+				0.170000001788139,
+				0.531499981880188,
+				0.0979999974370003
+			],
+			"rotation": [
+				0.0,
+				0.0,
+				0.0,
+				1.0
+			]
+		},
+		"hose": {
+			"deployed": false,
+			"extraction": 0.0,
+			"receiver": {
+				"basis": [
+					[
+						0.0000038266221054073,
+						-1.0,
+						0.0
+					],
+					[
+						1.0,
+						0.0000038266221054073,
+						0.0
+					],
+					[
+						0.0,
+						0.0,
+						1.0
+					]
+				],
+				"position": [
+					-0.0480000004172325,
+					0.0680000483989716,
+					0.112000003457069
+				]
+			},
+			"water": {
+				"fill": 0.0,
+				"pressure": 0.0
+			},
+			"wheel": 0.0
+		},
+		"joint": 3.36599213457281,
+		"lever": 0.0,
+		"loose": {
+			"active": false,
+			"position": [
+				0.170000001788139,
+				0.504999995231628,
+				0.0979999974370003
+			]
+		},
+		"nozzle": {
+			"angle": 26.9279370284339,
+			"basis": [
+				[
+					0.0000038266221054073,
+					-1.0,
+					0.0
+				],
+				[
+					1.0,
+					0.0000038266221054073,
+					0.0
+				],
+				[
+					0.0,
+					0.0,
+					1.0
+				]
+			],
+			"clocking": 0.0,
+			"loose": true,
+			"position": [
+				-0.00600004196166992,
+				0.0480313301086426,
+				0.111999988555908
+			],
+			"spin": 0.0
+		},
+		"rubber_dressed": false
+	},
+	"before": {
+		"door": 0.0,
+		"facts": {
+			"coupling_made_up": true,
+			"door_open": false,
+			"folds_fresh": false,
+			"gasket_seated": false,
+			"gasket_seen": false,
+			"hose_racked": true,
+			"nozzle_coupled": false,
+			"nozzle_shut": false,
+			"tag_line": "- - -",
+			"tag_signed": false
+		},
+		"gasket": {
+			"position": [
+				0.244999885559082,
+				0.0235199928283691,
+				0.150003910064697
+			],
+			"rotation": [
+				0.0,
+				0.0,
+				0.0,
+				1.0
+			]
+		},
+		"hose": {
+			"deployed": false,
+			"extraction": 0.0,
+			"receiver": {
+				"basis": [
+					[
+						0.0000038266221054073,
+						-1.0,
+						0.0
+					],
+					[
+						1.0,
+						0.0000038266221054073,
+						0.0
+					],
+					[
+						0.0,
+						0.0,
+						1.0
+					]
+				],
+				"position": [
+					-0.0480000004172325,
+					0.0680000483989716,
+					0.112000003457069
+				]
+			},
+			"water": {
+				"fill": 0.0,
+				"pressure": 0.0
+			},
+			"wheel": 0.0
+		},
+		"joint": 0.0,
+		"lever": -0.95,
+		"loose": {
+			"active": false,
+			"position": [
+				0.170000001788139,
+				0.504999995231628,
+				0.0979999974370003
+			]
+		},
+		"nozzle": {
+			"angle": 26.9279370307697,
+			"basis": [
+				[
+					0.0000038266221054073,
+					-1.0,
+					0.0
+				],
+				[
+					1.0,
+					0.0000038266221054073,
+					0.0
+				],
+				[
+					0.0,
+					0.0,
+					1.0
+				]
+			],
+			"clocking": 0.0,
+			"loose": true,
+			"position": [
+				-0.00600004196166992,
+				0.0480313301086426,
+				0.111999988555908
+			],
+			"spin": 0.0
+		},
+		"rubber_dressed": false
+	},
+	"completed": true,
+	"evidence_class": "INERT",
+	"gasket_checks": [
+		{
+			"label": "actual grabbed tag opens the fixed gasket inspection view",
+			"ok": true
+		},
+		{
+			"label": "gasket work starts by actually unthreading the union",
+			"ok": true
+		},
+		{
+			"label": "actual carry exposes the receiving washer seat",
+			"ok": true
+		},
+		{
+			"label": "actual visible washer has an operable screen pixel",
+			"ok": true
+		},
+		{
+			"label": "actual washer annulus is individually selectable in the relocated tin",
+			"ok": true
+		},
+		{
+			"label": "actual mouse and depth wheel lift the original washer out of its tin",
+			"ok": true
+		},
+		{
+			"label": "carrying the spare washer does not counterfeit fitting or inspection",
+			"ok": true
+		},
+		{
+			"label": "loose washer position and orientation pass the household save schema",
+			"ok": true
+		},
+		{
+			"label": "invalid washer orientation is rejected",
+			"ok": true
+		},
+		{
+			"label": "actual loose washer pose restores without duplicating its draw",
+			"ok": true
+		},
+		{
+			"label": "actual inspection cursor observes the exposed receiving annulus",
+			"ok": true
+		},
+		{
+			"label": "actual continuous grab carries the washer into the receiving seat",
+			"ok": true
+		},
+		{
+			"label": "releasing the physically fitted washer seats it without tightening the nut",
+			"ok": true
+		},
+		{
+			"label": "actual washer collision has a positive solid-annulus control",
+			"ok": true
+		},
+		{
+			"label": "actual annular collision leaves an18.8mm bore gauge unobstructed",
+			"ok": true
+		},
+		{
+			"label": "seated washer and loose union have a consistent household snapshot",
+			"ok": true
+		},
+		{
+			"label": "actual carry returns the washer-bearing hose end to the male outlet",
+			"ok": true
+		},
+		{
+			"label": "actual screw motion tightens against the real washer thickness",
+			"ok": true
+		},
+		{
+			"label": "fitted washer moves the union stop by its actual1.5mm thickness",
+			"ok": true
+		},
+		{
+			"label": "tightened gasket-bearing union passes the existing household schema",
+			"ok": true
+		},
+		{
+			"label": "saved seated washer cannot float10mm above its actual support",
+			"ok": true
+		},
+		{
+			"label": "actual mouse can unthread the repaired union again",
+			"ok": true
+		},
+		{
+			"label": "actual carry exposes the installed washer for removal",
+			"ok": true
+		},
+		{
+			"label": "actual grab removes the same installed washer from the opened union",
+			"ok": true
+		},
+		{
+			"label": "physical washer removal restores the gasket fault without changing inspection history",
+			"ok": true
+		},
+		{
+			"label": "actual seated washer pose and union stop restore together",
+			"ok": true
+		},
+		{
+			"label": "actual gasket inspection frame is saved",
+			"ok": true
+		}
+	],
+	"gasket_failures": [],
+	"loose": {
+		"door": 1.78,
+		"facts": {
+			"coupling_made_up": false,
+			"door_open": true,
+			"folds_fresh": false,
+			"gasket_seated": false,
+			"gasket_seen": false,
+			"hose_racked": true,
+			"nozzle_coupled": false,
+			"nozzle_shut": false,
+			"tag_line": "- - -",
+			"tag_signed": false
+		},
+		"gasket": {
+			"position": [
+				0.244999885559082,
+				0.0235199928283691,
+				0.150003910064697
+			],
+			"rotation": [
+				0.0,
+				0.0,
+				0.0,
+				1.0
+			]
+		},
+		"hose": {
+			"deployed": false,
+			"extraction": 0.0,
+			"receiver": {
+				"basis": [
+					[
+						0.0000038266221054073,
+						-1.0,
+						0.0
+					],
+					[
+						1.0,
+						0.0000038266221054073,
+						0.0
+					],
+					[
+						0.0,
+						0.0,
+						1.0
+					]
+				],
+				"position": [
+					-0.0480000004172325,
+					0.0680000483989716,
+					0.112000003457069
+				]
+			},
+			"water": {
+				"fill": 0.0,
+				"pressure": 0.0
+			},
+			"wheel": 0.0
+		},
+		"joint": 17.9519580203851,
+		"lever": -0.95,
+		"loose": {
+			"active": true,
+			"position": [
+				0.170000106096268,
+				0.490000218153,
+				0.112999767065048
+			]
+		},
+		"nozzle": {
+			"angle": 26.9279370307697,
+			"basis": [
+				[
+					0.0000038266221054073,
+					-1.0,
+					0.0
+				],
+				[
+					1.0,
+					0.0000038266221054073,
+					0.0
+				],
+				[
+					0.0,
+					0.0,
+					1.0
+				]
+			],
+			"clocking": 0.0,
+			"loose": true,
+			"position": [
+				-0.00600004196166992,
+				0.0480313301086426,
+				0.111999988555908
+			],
+			"spin": 0.0
+		},
+		"rubber_dressed": false
+	},
+	"nozzle_checks": [
+		{
+			"label": "actual grabbed tag opens static service inspection",
+			"ok": true
+		},
+		{
+			"label": "actual input closes nozzle valve before carrying review",
+			"ok": true
+		},
+		{
+			"label": "actual grab and depth wheel carry the separate original nozzle",
+			"ok": true
+		},
+		{
+			"label": "loose carrying leaves repair facts false and inspection camera static",
+			"ok": true
+		},
+		{
+			"label": "empty captured nut turns freely through actual mouse input",
+			"ok": true
+		},
+		{
+			"label": "empty nut rotation neither twists its hose seat nor joins the nozzle",
+			"ok": true
+		},
+		{
+			"label": "actual mouse inserts spigot into native-certified entry guide; release does not snap or catch",
+			"ok": true
+		},
+		{
+			"label": "contact and release leave original body clocking and coupling facts unchanged",
+			"ok": true
+		},
+		{
+			"label": "unthreaded guided pose remains a valid household record",
+			"ok": true
+		},
+		{
+			"label": "restored entry guide derives its constraint from the saved physical pose",
+			"ok": true
+		},
+		{
+			"label": "actual loosening gesture turns inserted nut without forced pickup",
+			"ok": true
+		},
+		{
+			"label": "wrong direction and release neither tighten nor move the guided nozzle",
+			"ok": true
+		},
+		{
+			"label": "actual outward carry withdraws unthreaded spigot from guide",
+			"ok": true
+		},
+		{
+			"label": "withdrawal frees guide without fabricating a coupled fact",
+			"ok": true
+		},
+		{
+			"label": "actual mouse reinserts withdrawn original nozzle",
+			"ok": true
+		},
+		{
+			"label": "grabbing inserted nut leaves nozzle pose and engagement unchanged",
+			"ok": true
+		},
+		{
+			"label": "actual tightening gesture picks up native helix; releasing nut retains partial thread without snap",
+			"ok": true
+		},
+		{
+			"label": "actual mouse screws whole nozzle along its native thread to the seal",
+			"ok": true
+		},
+		{
+			"label": "only completed nozzle travel changes its coupling fact",
+			"ok": true
+		},
+		{
+			"label": "screwing the nozzle preserves its actual fixed hose inlet",
+			"ok": true
+		},
+		{
+			"label": "household mechanism includes nozzle pose and existing rubber dressing state",
+			"ok": true
+		},
+		{
+			"label": "saved overtravel cannot replace actual thread state",
+			"ok": true
+		},
+		{
+			"label": "saved nozzle fact cannot contradict actual sealing travel",
+			"ok": true
+		},
+		{
+			"label": "actual mouse leaves a partial nozzle thread setting",
+			"ok": true
+		},
+		{
+			"label": "partial physical withdrawal follows measured pitch",
+			"ok": true
+		},
+		{
+			"label": "actual physical nozzle and all existing mechanism fields restore exactly",
+			"ok": true
+		},
+		{
+			"label": "actual mouse clears the complete threaded stroke",
+			"ok": true
+		},
+		{
+			"label": "releasing fully cleared thread frees the original nozzle",
+			"ok": true
+		},
+		{
+			"label": "resting loose nozzle retains a valid physical household record",
+			"ok": true
+		},
+		{
+			"label": "restored supported loose nozzle retains its exact saved pose",
+			"ok": true
+		},
+		{
+			"label": "restored nozzle identifies its actual physical support",
+			"ok": true
+		},
+		{
+			"label": "loose nozzle rests on retained structural floor under cosmetic enamel",
+			"ok": true
+		},
+		{
+			"label": "moving actual saved support wakes gravity and nozzle lands on displaced floor within200um",
+			"ok": true
+		}
+	],
+	"nozzle_failures": [],
+	"partial": {
+		"door": 1.78,
+		"facts": {
+			"coupling_made_up": false,
+			"door_open": true,
+			"folds_fresh": false,
+			"gasket_seated": false,
+			"gasket_seen": false,
+			"hose_racked": true,
+			"nozzle_coupled": false,
+			"nozzle_shut": false,
+			"tag_line": "- - -",
+			"tag_signed": false
+		},
+		"gasket": {
+			"position": [
+				0.244999885559082,
+				0.0235199928283691,
+				0.150003910064697
+			],
+			"rotation": [
+				0.0,
+				0.0,
+				0.0,
+				1.0
+			]
+		},
+		"hose": {
+			"deployed": false,
+			"extraction": 0.0,
+			"receiver": {
+				"basis": [
+					[
+						0.0000038266221054073,
+						-1.0,
+						0.0
+					],
+					[
+						1.0,
+						0.0000038266221054073,
+						0.0
+					],
+					[
+						0.0,
+						0.0,
+						1.0
+					]
+				],
+				"position": [
+					-0.0480000004172325,
+					0.0680000483989716,
+					0.112000003457069
+				]
+			},
+			"water": {
+				"fill": 0.0,
+				"pressure": 0.0
+			},
+			"wheel": 0.0
+		},
+		"joint": 0.899999995958575,
+		"lever": -0.95,
+		"loose": {
+			"active": false,
+			"position": [
+				0.170000001788139,
+				0.504999995231628,
+				0.0979999974370003
+			]
+		},
+		"nozzle": {
+			"angle": 26.9279370307697,
+			"basis": [
+				[
+					0.0000038266221054073,
+					-1.0,
+					0.0
+				],
+				[
+					1.0,
+					0.0000038266221054073,
+					0.0
+				],
+				[
+					0.0,
+					0.0,
+					1.0
+				]
+			],
+			"clocking": 0.0,
+			"loose": true,
+			"position": [
+				-0.00600004196166992,
+				0.0480313301086426,
+				0.111999988555908
+			],
+			"spin": 0.0
+		},
+		"rubber_dressed": false
+	},
+	"scope": "Actual installed F02 union grab/motion/release. Original initial mechanism restored afterward; inherited extraction route still stages the remaining assembled line."
+}

@@ -1,0 +1,36 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Frozen after_v1 and state-contract fixture inputs; original-order controls remain available.",
+  "files": [
+    {
+      "path": "game/scripts/building/orison_v2_household_state.gd",
+      "raw_sha256": "cf076611b90b56efdb49df04a452889276ae7aa2d23bffff85b195e950cbdcd3",
+      "lf_sha256": "cf076611b90b56efdb49df04a452889276ae7aa2d23bffff85b195e950cbdcd3",
+      "archive": "source_after/game/scripts/building/orison_v2_household_state.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_frame_work_probe.gd",
+      "raw_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "lf_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "archive": "source_after/game/tests/v2_frame_work_probe.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_work_attribution.gd",
+      "raw_sha256": "c60997d26fa6be8ab0f0e84d5f8a1bfeb4a690deb82a2383c1fa1935dc61af4b",
+      "lf_sha256": "c60997d26fa6be8ab0f0e84d5f8a1bfeb4a690deb82a2383c1fa1935dc61af4b",
+      "archive": "source_after/game/tests/v2_hose_work_attribution.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_household_unchanged_bench.gd",
+      "raw_sha256": "4380567915a7d08d1142400395e12100c51bd8027da62540da71121fce6f431b",
+      "lf_sha256": "4380567915a7d08d1142400395e12100c51bd8027da62540da71121fce6f431b",
+      "archive": "source_after/game/tests/v2_household_unchanged_bench.gd.gz"
+    },
+    {
+      "path": "game/tests/V2HouseholdUnchangedBench.tscn",
+      "raw_sha256": "44ba5eea8a94eaae81af79aba0ec5022481b0c4eab3a45e8043c90e72ede0ef3",
+      "lf_sha256": "44ba5eea8a94eaae81af79aba0ec5022481b0c4eab3a45e8043c90e72ede0ef3",
+      "archive": "source_after/game/tests/V2HouseholdUnchangedBench.tscn.gz"
+    }
+  ]
+}

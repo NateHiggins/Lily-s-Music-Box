@@ -14,11 +14,19 @@ var _last_motion: Dictionary = {}
 var _contact_ids: Dictionary = {}
 var _push_frame := -1
 var _pushed: Dictionary = {}
+var _pickup_exit := Vector3.ZERO
+var _pickup_extracted := false
+var _pickup_lifted := false
+var _pickup_lift_goal := Vector3.ZERO
+var _hold_blocked := false
+var _hold_feedback_active := false
 
 var _rest_until := -1
 var _rest_pose := Transform3D.IDENTITY
 var _rest_velocity := Vector3.ZERO
 var _rest_spin := Vector3.ZERO
+const CARRY_SPEED_MPS := 16.
+const CARRY_TURN_RADPS := 6.
 
 func start_at_rest() -> void:
 	# Shape/mass synchronization can wake newly placed bodies after sleeping
@@ -54,6 +62,13 @@ func _claim(tag: String) -> bool:
 	_rest_until=-1
 	_contact_ids.clear()
 	_before=transform
+	_pickup_lift_goal=global_position+Vector3.UP*.004
+	var withdrawal: Vector3=shelf.pickup_withdrawal_for(self) if shelf.has_method("pickup_withdrawal_for") else shelf.global_basis.z*.26
+	_pickup_exit=_pickup_lift_goal+withdrawal
+	_pickup_extracted=not requires_shelf_withdrawal()
+	_pickup_lifted=_pickup_extracted
+	_hold_blocked=false
+	_hold_feedback_active=false
 	_held=true;_hand_tag=tag
 	freeze=true
 	linear_velocity=Vector3.ZERO;angular_velocity=Vector3.ZERO
@@ -67,13 +82,74 @@ func _release() -> void:
 
 func grip() -> Dictionary:
 	return {"owner":shelf,"part":self,"frame":shelf,"kind":"free",
+		"pickup":true,"hold_pose":hold_pose,
+		"constraint_feedback":func(): return ("blocked" if _hold_blocked else "grabbed") if _hold_feedback_active else "",
 		"change_origin":func(): return global_position,
 		"read":func(): return position,
+		"read_basis":func():return basis,"write_basis":_manipulate_basis,
 		"write":func(value: Vector3):
 			if _held and _hand_tag=="body": _carry(value),
 		"begin":func(): return _claim("body"),
 		"owns":func(): return _held and _hand_tag=="body",
 		"end":_release}
+
+func _manipulate_basis(value: Basis) -> void:
+	if not _held or _hand_tag!="body" or not value.is_finite():return
+	_hold_feedback_active=false
+	var from:=basis
+	var wanted:=value.orthonormalized().scaled(from.get_scale())
+	var angle: float=from.get_rotation_quaternion().angle_to(wanted.get_rotation_quaternion())
+	var start:=global_transform
+	for index in range(1,maxi(1,ceili(angle/.025))+1):
+		var pose:=start
+		pose.basis=shelf.global_basis*from.slerp(wanted,float(index)/maxi(1,ceili(angle/.025)))
+		if not _clear_pose(pose):return
+		global_transform=pose
+
+func requires_shelf_withdrawal() -> bool: return false
+
+func pickup_centre() -> Vector3: return Vector3.ZERO
+
+func hold_pose(camera_pose: Transform3D, centered := false) -> void:
+	_hold_blocked=false
+	_hold_feedback_active=true
+	var elapsed: float=get_physics_process_delta_time()
+	var travel: float=CARRY_SPEED_MPS*elapsed
+	# First withdraw from the shelf, keeping the binding/bookend orientation.
+	# The accepted body follows the ordinary native-stock sweep throughout.
+	if not _pickup_extracted:
+		if not _pickup_lifted:
+			_carry(position+shelf.global_basis.inverse()*(_pickup_lift_goal-global_position))
+			_pickup_lifted=global_position.distance_to(_pickup_lift_goal)<.0001
+			if not _pickup_lifted:
+				_hold_blocked=not _last_motion.is_empty()
+				return
+		var withdraw:=_pickup_exit-global_position
+		_carry(position+shelf.global_basis.inverse()*withdraw.limit_length(travel))
+		_pickup_extracted=global_position.distance_to(_pickup_exit)<.002
+		if not _pickup_extracted:
+			_hold_blocked=not _last_motion.is_empty()
+			return
+	var offset:=Vector3(0,-.035,-.80) if centered else Vector3(.17,-.16,-.48)
+	var centre:=pickup_centre()
+	var desired:=camera_pose*offset-camera_pose.basis*centre
+	_carry(position+shelf.global_basis.inverse()*(desired-global_position).limit_length(travel))
+	_hold_blocked=global_position.distance_to(desired)>.002 and not _last_motion.is_empty()
+	var local_basis:=shelf.global_basis.inverse()*camera_pose.basis
+	if basis.is_equal_approx(local_basis): return
+	var angle:=basis.get_rotation_quaternion().angle_to(local_basis.get_rotation_quaternion())
+	if angle<.0001: return
+	var start:=global_transform
+	var from_basis:=basis
+	var accepted_angle:=minf(angle,CARRY_TURN_RADPS*elapsed)
+	# Keep the established angular clearance resolution while reducing lag.
+	# A faster hand must not skip an intervening physical obstruction.
+	var steps:=maxi(1,ceili(accepted_angle/.025))
+	for index in range(1,steps+1):
+		var pose:=start
+		pose.basis=shelf.global_basis*from_basis.slerp(local_basis,accepted_angle/angle*float(index)/steps)
+		if not _clear_pose(pose):_hold_blocked=true;break
+		global_transform=pose
 
 func turn_grip(axis: Vector3) -> Dictionary:
 	return {"owner":shelf,"part":self,"frame":shelf,"kind":"hinge","axis":func(): return _turn_axis,
@@ -88,10 +164,18 @@ func turn_grip(axis: Vector3) -> Dictionary:
 		"owns":func(): return _held and _hand_tag=="turn",
 		"end":_release}
 
+func _query_exclusions() -> Array[RID]:
+	var result: Array[RID]=[get_rid()]
+	# Swept hand queries follow the body's real collision exceptions. The
+	# active carrier is excluded; every external obstruction still participates.
+	for body: PhysicsBody3D in get_collision_exceptions():
+		if is_instance_valid(body): result.append(body.get_rid())
+	return result
+
 func _shape_query(solid: CollisionShape3D, pose: Transform3D) -> PhysicsShapeQueryParameters3D:
 	var query:=PhysicsShapeQueryParameters3D.new()
 	query.shape=solid.shape;query.transform=pose*solid.transform
-	query.exclude=[get_rid()];query.margin=.00002;query.collision_mask=collision_mask
+	query.exclude=_query_exclusions();query.margin=.00002;query.collision_mask=collision_mask
 	return query
 
 func _contact(info: Dictionary, motion: Vector3) -> void:
@@ -172,7 +256,7 @@ func _clear_pose(pose: Transform3D, selected: Array[CollisionShape3D]=[]) -> boo
 		if shape.disabled: continue
 		var query:=PhysicsShapeQueryParameters3D.new()
 		query.shape=shape.shape;query.transform=pose*shape.transform
-		query.exclude=[get_rid()];query.margin=.00001;query.collision_mask=collision_mask
+		query.exclude=_query_exclusions();query.margin=.00001;query.collision_mask=collision_mask
 		if not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): return false
 	return true
 

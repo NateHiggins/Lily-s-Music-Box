@@ -1,0 +1,131 @@
+{
+  "evidence_class": "INERT",
+  "phases": [
+    {
+      "phase": "normal_static",
+      "n": 119,
+      "p50": 46.216,
+      "p95": 52.57,
+      "p99": 54.653,
+      "max": 60.536,
+      "cpu": 22.3920001983643,
+      "shadowdraws": 44067,
+      "context": [
+        ""
+      ],
+      "source_counts": [
+        0
+      ],
+      "conservative": [
+        true
+      ],
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.325, 6.400265, -0.575)"
+    },
+    {
+      "phase": "connected_static",
+      "n": 119,
+      "p50": 24.807,
+      "p95": 32.886,
+      "p99": 34.441,
+      "max": 37.262,
+      "cpu": 8.6230001449585,
+      "shadowdraws": 14564,
+      "context": [
+        "F03_B_BATH"
+      ],
+      "source_counts": [
+        0
+      ],
+      "conservative": [
+        false
+      ],
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.325, 6.400265, -0.575)"
+    },
+    {
+      "phase": "normal_static_restored",
+      "n": 119,
+      "p50": 48.517,
+      "p95": 56.424,
+      "p99": 59.069,
+      "max": 60.46,
+      "cpu": 22.9650001525879,
+      "shadowdraws": 42023,
+      "context": [
+        "F03_B_BATH"
+      ],
+      "source_counts": [
+        0
+      ],
+      "conservative": [
+        false
+      ],
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.325, 6.400265, -0.575)"
+    },
+    {
+      "phase": "normal_move",
+      "n": 64,
+      "p50": 55.3925,
+      "p95": 100.686,
+      "p99": 135.108,
+      "max": 155.546,
+      "cpu": 25.45100021362305,
+      "shadowdraws": 47452.0,
+      "context": [
+        "F03_B_BATH"
+      ],
+      "source_counts": [
+        0
+      ],
+      "conservative": [
+        false
+      ],
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.13627, 6.40084, -0.759834)"
+    },
+    {
+      "phase": "connected_move",
+      "n": 123,
+      "p50": 28.81,
+      "p95": 54.025,
+      "p99": 95.817,
+      "max": 103.888,
+      "cpu": 8.89200019836426,
+      "shadowdraws": 14593,
+      "context": [
+        "F03_B_BATH"
+      ],
+      "source_counts": [
+        0
+      ],
+      "conservative": [
+        false
+      ],
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.19151, 6.400818, -0.744542)"
+    },
+    {
+      "phase": "normal_restored_move",
+      "n": 58,
+      "p50": 64.08500000000001,
+      "p95": 102.911,
+      "p99": 136.379,
+      "max": 181.141,
+      "cpu": 25.833000183105447,
+      "shadowdraws": 46767.5,
+      "context": [
+        "F03_B_BATH"
+      ],
+      "source_counts": [
+        0
+      ],
+      "conservative": [
+        false
+      ],
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.27047, 6.40084, -0.683159)"
+    }
+  ]
+}

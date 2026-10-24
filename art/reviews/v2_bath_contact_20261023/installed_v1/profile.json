@@ -1,0 +1,5047 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"installed": true,
+	"interactions": {
+		"checks": [
+			{
+				"label": "actual player ray selects operable part: installed_sink_[0, 1.5707963267949]",
+				"ok": true
+			},
+			{
+				"label": "click grabs without toggling: installed_sink_[0, 1.5707963267949]",
+				"ok": true
+			},
+			{
+				"label": "physical stop remains saveable: installed_sink_[0, 1.5707963267949]",
+				"ok": true
+			},
+			{
+				"label": "mouse motion reaches stop and second click releases: installed_sink_[0, 1.5707963267949]",
+				"ok": true
+			},
+			{
+				"label": "actual player ray selects operable part: installed_sink_[1, 1.5707963267949]",
+				"ok": true
+			},
+			{
+				"label": "click grabs without toggling: installed_sink_[1, 1.5707963267949]",
+				"ok": true
+			},
+			{
+				"label": "physical stop remains saveable: installed_sink_[1, 1.5707963267949]",
+				"ok": true
+			},
+			{
+				"label": "mouse motion reaches stop and second click releases: installed_sink_[1, 1.5707963267949]",
+				"ok": true
+			},
+			{
+				"label": "actual player ray selects operable part: installed_sink_[0, 0.0]",
+				"ok": true
+			},
+			{
+				"label": "click grabs without toggling: installed_sink_[0, 0.0]",
+				"ok": true
+			},
+			{
+				"label": "physical stop remains saveable: installed_sink_[0, 0.0]",
+				"ok": true
+			},
+			{
+				"label": "mouse motion reaches stop and second click releases: installed_sink_[0, 0.0]",
+				"ok": true
+			},
+			{
+				"label": "actual player ray selects operable part: installed_sink_[1, 0.0]",
+				"ok": true
+			},
+			{
+				"label": "click grabs without toggling: installed_sink_[1, 0.0]",
+				"ok": true
+			},
+			{
+				"label": "physical stop remains saveable: installed_sink_[1, 0.0]",
+				"ok": true
+			},
+			{
+				"label": "mouse motion reaches stop and second click releases: installed_sink_[1, 0.0]",
+				"ok": true
+			},
+			{
+				"label": "open basin permits exact plug target",
+				"ok": true
+			}
+		],
+		"limits": "Direct placement at full-capsule service stance, actual valve click/motion/release and authoritative plug target. Not a walked approach or full save reconstruction.",
+		"stance": "(-15.15, 6.400265, -0.530001)"
+	},
+	"limits": "Windowed contact study. Wall/render/physics monitors overlap. Captures, interaction checks and isolated query timing outside sampled route. No independent asset, compilation or streaming attribution; not runtime qualification.",
+	"records": [
+		{
+			"end": "(-14.27148, 6.399907, -0.684665)",
+			"phase": "installed",
+			"query_ms": [
+				2.075,
+				2.047,
+				2.03,
+				1.991,
+				2.014
+			],
+			"slow_physics": [
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 55,
+					"position": [
+						-14.3647975921631,
+						6.40026521682739,
+						-0.544731795787811
+					],
+					"slide_ms": 2.692,
+					"step_guard_disabled": false,
+					"step_ms": 0.09,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 56,
+					"position": [
+						-14.404595375061,
+						6.40026521682739,
+						-0.514463603496552
+					],
+					"slide_ms": 3.4,
+					"step_guard_disabled": false,
+					"step_ms": 0.093,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 57,
+					"position": [
+						-14.444393157959,
+						6.40026521682739,
+						-0.484195411205292
+					],
+					"slide_ms": 3.434,
+					"step_guard_disabled": false,
+					"step_ms": 0.106,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 58,
+					"position": [
+						-14.4841909408569,
+						6.40026521682739,
+						-0.453927218914032
+					],
+					"slide_ms": 4.227,
+					"step_guard_disabled": false,
+					"step_ms": 0.149,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 59,
+					"position": [
+						-14.5239887237549,
+						6.40026521682739,
+						-0.423659026622772
+					],
+					"slide_ms": 4.404,
+					"step_guard_disabled": false,
+					"step_ms": 0.193,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.018,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 60,
+					"position": [
+						-14.564302444458,
+						6.40026521682739,
+						-0.394081801176071
+					],
+					"slide_ms": 4.651,
+					"step_guard_disabled": false,
+					"step_ms": 0.324,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.027,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 61,
+					"position": [
+						-14.6046161651611,
+						6.40026521682739,
+						-0.36450457572937
+					],
+					"slide_ms": 4.903,
+					"step_guard_disabled": false,
+					"step_ms": 0.362,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 62,
+					"position": [
+						-14.6449298858643,
+						6.40026521682739,
+						-0.334927350282669
+					],
+					"slide_ms": 5.206,
+					"step_guard_disabled": false,
+					"step_ms": 0.489,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 63,
+					"position": [
+						-14.6852436065674,
+						6.70026540756226,
+						-0.305350124835968
+					],
+					"slide_ms": 11.3,
+					"step_guard_disabled": false,
+					"step_ms": 9.932,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision",
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.028,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.011,
+					"physics_frame": 64,
+					"position": [
+						-14.7245721817017,
+						6.69804763793945,
+						-0.277815133333206
+					],
+					"slide_ms": 10.93,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision",
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.02,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 65,
+					"position": [
+						-14.7302742004395,
+						6.69496297836304,
+						-0.286235809326172
+					],
+					"slide_ms": 13.42,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision",
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.024,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.009,
+					"physics_frame": 66,
+					"position": [
+						-14.7350788116455,
+						6.68994426727295,
+						-0.295614570379257
+					],
+					"slide_ms": 13.056,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.026,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.009,
+					"physics_frame": 67,
+					"position": [
+						-14.7390794754028,
+						6.68291234970093,
+						-0.305852770805359
+					],
+					"slide_ms": 13.15,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 68,
+					"position": [
+						-14.7423286437988,
+						6.67368459701538,
+						-0.316894143819809
+					],
+					"slide_ms": 11.06,
+					"step_guard_disabled": false,
+					"step_ms": 0.0,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.025,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.008,
+					"physics_frame": 69,
+					"position": [
+						-14.7432651519775,
+						6.65622425079346,
+						-0.330568224191666
+					],
+					"slide_ms": 12.007,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision",
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.022,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 70,
+					"position": [
+						-14.7376270294189,
+						6.65093278884888,
+						-0.329125583171844
+					],
+					"slide_ms": 8.083,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.024,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 71,
+					"position": [
+						-14.7253103256226,
+						6.63467788696289,
+						-0.32885929942131
+					],
+					"slide_ms": 9.521,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.018,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.009,
+					"physics_frame": 72,
+					"position": [
+						-14.7196035385132,
+						6.61370038986206,
+						-0.334962040185928
+					],
+					"slide_ms": 8.218,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.018,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 73,
+					"position": [
+						-14.7142763137817,
+						6.58913278579712,
+						-0.340657502412796
+					],
+					"slide_ms": 8.185,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision",
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.008,
+					"physics_frame": 74,
+					"position": [
+						-14.7101993560791,
+						6.56065034866333,
+						-0.345233678817749
+					],
+					"slide_ms": 8.591,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.031,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 75,
+					"position": [
+						-14.7111864089966,
+						6.53004455566406,
+						-0.354419320821762
+					],
+					"slide_ms": 10.334,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision"
+					],
+					"follow_and_contact_ms": 0.022,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 76,
+					"position": [
+						-14.7152156829834,
+						6.49756669998169,
+						-0.359750688076019
+					],
+					"slide_ms": 9.244,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.008,
+					"physics_frame": 77,
+					"position": [
+						-14.7152156829834,
+						6.4594554901123,
+						-0.359750688076019
+					],
+					"slide_ms": 3.709,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 78,
+					"position": [
+						-14.7152156829834,
+						6.41862201690674,
+						-0.359750688076019
+					],
+					"slide_ms": 3.777,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.03,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 79,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.056,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.026,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 80,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.158,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.031,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 81,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.141,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.042,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.012,
+					"physics_frame": 82,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.992,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.029,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 83,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.166,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.025,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 84,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.151,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.027,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 85,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.141,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.02,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 86,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.185,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.041,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 87,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.324,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.024,
+					"gravity_ms": 0.004,
+					"native_sync_ms": 0.013,
+					"physics_frame": 88,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.42,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.025,
+					"gravity_ms": 0.004,
+					"native_sync_ms": 0.013,
+					"physics_frame": 89,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.378,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.027,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 90,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.341,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.023,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 91,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.306,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.032,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.009,
+					"physics_frame": 92,
+					"position": [
+						-14.7152156829834,
+						6.39990663528442,
+						-0.359750688076019
+					],
+					"slide_ms": 4.385,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.022,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 93,
+					"position": [
+						-14.6745977401733,
+						6.39990663528442,
+						-0.388909071683884
+					],
+					"slide_ms": 4.622,
+					"step_guard_disabled": false,
+					"step_ms": 0.712,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.02,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 94,
+					"position": [
+						-14.6339797973633,
+						6.39990663528442,
+						-0.418067455291748
+					],
+					"slide_ms": 4.549,
+					"step_guard_disabled": false,
+					"step_ms": 0.477,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.02,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 95,
+					"position": [
+						-14.5933618545532,
+						6.39990663528442,
+						-0.447225838899612
+					],
+					"slide_ms": 4.319,
+					"step_guard_disabled": false,
+					"step_ms": 0.383,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 96,
+					"position": [
+						-14.5527439117432,
+						6.39990663528442,
+						-0.476384222507477
+					],
+					"slide_ms": 4.139,
+					"step_guard_disabled": false,
+					"step_ms": 0.228,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 97,
+					"position": [
+						-14.5121259689331,
+						6.39990663528442,
+						-0.505542635917664
+					],
+					"slide_ms": 3.835,
+					"step_guard_disabled": false,
+					"step_ms": 0.181,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 98,
+					"position": [
+						-14.471508026123,
+						6.39990663528442,
+						-0.534700989723206
+					],
+					"slide_ms": 3.13,
+					"step_guard_disabled": false,
+					"step_ms": 0.117,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.011,
+					"physics_frame": 99,
+					"position": [
+						-14.4315023422241,
+						6.39990663528442,
+						-0.564693868160248
+					],
+					"slide_ms": 3.09,
+					"step_guard_disabled": false,
+					"step_ms": 0.114,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.018,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 100,
+					"position": [
+						-14.3914966583252,
+						6.39990663528442,
+						-0.59468674659729
+					],
+					"slide_ms": 3.111,
+					"step_guard_disabled": false,
+					"step_ms": 0.084,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 101,
+					"position": [
+						-14.3514909744263,
+						6.39990663528442,
+						-0.624679625034332
+					],
+					"slide_ms": 2.846,
+					"step_guard_disabled": false,
+					"step_ms": 0.051,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.008,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 102,
+					"position": [
+						-14.3114852905273,
+						6.39990663528442,
+						-0.654672503471375
+					],
+					"slide_ms": 2.607,
+					"step_guard_disabled": false,
+					"step_ms": 0.056,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.009,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 103,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 2.391,
+					"step_guard_disabled": false,
+					"step_ms": 0.054,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.018,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 104,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 2.127,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 105,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.72,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.019,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.008,
+					"physics_frame": 106,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.744,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.004,
+					"native_sync_ms": 0.007,
+					"physics_frame": 107,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.698,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 108,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.723,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 109,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.708,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 110,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.782,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 111,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.705,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 112,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.737,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 113,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.728,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.006,
+					"physics_frame": 114,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.711,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 115,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.754,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 116,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.731,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 117,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.706,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 118,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.739,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 119,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.7,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 120,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.705,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 121,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.727,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.023,
+					"physics_frame": 122,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.729,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.018,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 123,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.771,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.019,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 124,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.723,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.004,
+					"native_sync_ms": 0.014,
+					"physics_frame": 125,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.724,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.009,
+					"physics_frame": 126,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.701,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 127,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.723,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.009,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 128,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.69,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.012,
+					"physics_frame": 129,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.733,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 130,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.756,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 131,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.83,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 132,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.729,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 133,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.736,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 134,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.693,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 135,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.71,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 136,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.721,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 137,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.74,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.009,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 138,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.686,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 139,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.728,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 140,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.756,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 141,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.773,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 142,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.72,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.011,
+					"physics_frame": 143,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.721,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.018,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 144,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.74,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 145,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.69,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 146,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.764,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.02,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 147,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.748,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.018,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 148,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.714,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.007,
+					"physics_frame": 149,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.686,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.011,
+					"physics_frame": 150,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.723,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.019,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 151,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.746,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 152,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.731,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 153,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.716,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 154,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.715,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 155,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.72,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 156,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.685,
+					"step_guard_disabled": false,
+					"step_ms": 0.0,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 157,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.725,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.018,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 158,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.755,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 159,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.701,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.011,
+					"physics_frame": 160,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.724,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 161,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.771,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 162,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.758,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 163,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.74,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 164,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.736,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 165,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.911,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 166,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.907,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.012,
+					"physics_frame": 167,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.731,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.009,
+					"physics_frame": 168,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.718,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.027,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 169,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.821,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 170,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.728,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.018,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 171,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.73,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 172,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.691,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 173,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.699,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 174,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.739,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.019,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 175,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.73,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.007,
+					"physics_frame": 176,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.71,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.005,
+					"native_sync_ms": 0.011,
+					"physics_frame": 177,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.788,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 178,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.763,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 179,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.744,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.012,
+					"physics_frame": 180,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.743,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 181,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.708,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 182,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.713,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.009,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 183,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.686,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 184,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.732,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 185,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.728,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 186,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.707,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 187,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.722,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 188,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.714,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 189,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.7,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.009,
+					"physics_frame": 190,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.769,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.024,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 191,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.826,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.007,
+					"physics_frame": 192,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.725,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 193,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.695,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 194,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.73,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.018,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.008,
+					"physics_frame": 195,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.72,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 196,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.708,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 197,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.723,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 198,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.731,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 199,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.71,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 200,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.719,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 201,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.733,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.006,
+					"physics_frame": 202,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.733,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 203,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.738,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 204,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.705,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 205,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.712,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 206,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.709,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 207,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.726,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.009,
+					"physics_frame": 208,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.704,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 209,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.724,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 210,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.724,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 211,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.703,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.006,
+					"physics_frame": 212,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.75,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 213,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.723,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 214,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.737,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 215,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.702,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 216,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.726,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 217,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.728,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 218,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.708,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.009,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 219,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.685,
+					"step_guard_disabled": false,
+					"step_ms": 0.0,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 220,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.719,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 221,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.74,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 222,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.715,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 223,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.725,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 224,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.726,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 225,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.705,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 226,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.732,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 227,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.698,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.006,
+					"physics_frame": 228,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.765,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 229,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.734,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 230,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.69,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 231,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.726,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 232,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.724,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 233,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.758,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 234,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.702,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 235,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.726,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 236,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.732,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 237,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.718,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 238,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.704,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 239,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.747,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 240,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.732,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.008,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 241,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.685,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.016,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.011,
+					"physics_frame": 242,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.726,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 243,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.721,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 244,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.73,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 245,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.724,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 246,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.749,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 247,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.743,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 248,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.724,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 249,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.728,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.01,
+					"physics_frame": 250,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.795,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.02,
+					"gravity_ms": 0.004,
+					"native_sync_ms": 0.017,
+					"physics_frame": 251,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.797,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.008,
+					"physics_frame": 252,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.709,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.006,
+					"physics_frame": 253,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.7,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.008,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 254,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.716,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.019,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 255,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.804,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 256,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.727,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 257,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.708,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 258,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.722,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 259,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.736,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 260,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.687,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 261,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.685,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.011,
+					"physics_frame": 262,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.72,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 263,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.72,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 264,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.703,
+					"step_guard_disabled": false,
+					"step_ms": 0.0,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 265,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.746,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.009,
+					"physics_frame": 266,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.722,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 267,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.732,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.009,
+					"physics_frame": 268,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.744,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.012,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 269,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.713,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 270,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.73,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 271,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.689,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 272,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.723,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 273,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.706,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.009,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 274,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.697,
+					"step_guard_disabled": false,
+					"step_ms": 0.0,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 275,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.757,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 276,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.743,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.01,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 277,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.699,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.009,
+					"physics_frame": 278,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.742,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 279,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.7,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 280,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.771,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.011,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.005,
+					"physics_frame": 281,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.7,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 282,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.735,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 283,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.761,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 284,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.712,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.011,
+					"physics_frame": 285,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.713,
+					"step_guard_disabled": false,
+					"step_ms": 0.008,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.014,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 286,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.757,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.008,
+					"gravity_ms": 0.001,
+					"native_sync_ms": 0.005,
+					"physics_frame": 287,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.685,
+					"step_guard_disabled": false,
+					"step_ms": 0.0,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.015,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 288,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.73,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 289,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.722,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.008,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.007,
+					"physics_frame": 290,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.686,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.006,
+					"physics_frame": 291,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.734,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.013,
+					"gravity_ms": 0.003,
+					"native_sync_ms": 0.01,
+					"physics_frame": 292,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.718,
+					"step_guard_disabled": false,
+					"step_ms": 0.002,
+					"step_up_disabled": false
+				},
+				{
+					"contacts": [
+						"/root/V2BathContactInstalled/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+					],
+					"follow_and_contact_ms": 0.017,
+					"gravity_ms": 0.002,
+					"native_sync_ms": 0.008,
+					"physics_frame": 293,
+					"position": [
+						-14.2714796066284,
+						6.39990663528442,
+						-0.684665381908417
+					],
+					"slide_ms": 1.736,
+					"step_guard_disabled": false,
+					"step_ms": 0.001,
+					"step_up_disabled": false
+				}
+			],
+			"start": "(-14.325, 6.400265, -0.575)"
+		}
+	],
+	"samples": [
+		{
+			"phase": "installed",
+			"physics_ms": 21.718,
+			"pipeline_draw": 22.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 133.185,
+			"render_cpu_ms": 24.4640007019043,
+			"render_gpu_ms": 15.3830003738403,
+			"wall_ms": 28.776
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.977,
+			"pipeline_draw": 22.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.075,
+			"render_cpu_ms": 22.5610008239746,
+			"render_gpu_ms": 13.7189998626709,
+			"wall_ms": 94.584
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.977,
+			"pipeline_draw": 30.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.075,
+			"render_cpu_ms": 25.2199993133545,
+			"render_gpu_ms": 15.003999710083,
+			"wall_ms": 153.938
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.977,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.075,
+			"render_cpu_ms": 24.386999130249,
+			"render_gpu_ms": 12.8629999160767,
+			"wall_ms": 130.903
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.977,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.075,
+			"render_cpu_ms": 24.2229995727539,
+			"render_gpu_ms": 13.4899997711182,
+			"wall_ms": 103.495
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.977,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.075,
+			"render_cpu_ms": 26.0359992980957,
+			"render_gpu_ms": 14.3100004196167,
+			"wall_ms": 104.24
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.977,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.075,
+			"render_cpu_ms": 27.9249992370605,
+			"render_gpu_ms": 12.58899974823,
+			"wall_ms": 83.236
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.977,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.075,
+			"render_cpu_ms": 25.07200050354,
+			"render_gpu_ms": 13.0129995346069,
+			"wall_ms": 72.396
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.977,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.075,
+			"render_cpu_ms": 23.30299949646,
+			"render_gpu_ms": 12.5880002975464,
+			"wall_ms": 60.875
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.977,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.075,
+			"render_cpu_ms": 24.9209995269775,
+			"render_gpu_ms": 13.0799999237061,
+			"wall_ms": 61.076
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.977,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.075,
+			"render_cpu_ms": 21.8509998321533,
+			"render_gpu_ms": 12.4949998855591,
+			"wall_ms": 51.271
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.977,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.075,
+			"render_cpu_ms": 22.2970008850098,
+			"render_gpu_ms": 13.048999786377,
+			"wall_ms": 58.794
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 21.7929992675781,
+			"render_gpu_ms": 14.0080003738403,
+			"wall_ms": 57.462
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 21.8290004730225,
+			"render_gpu_ms": 14.5509996414185,
+			"wall_ms": 56.695
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 22.0149993896484,
+			"render_gpu_ms": 14.6160001754761,
+			"wall_ms": 65.759
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 22.1639995574951,
+			"render_gpu_ms": 14.6269998550415,
+			"wall_ms": 55.852
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 22.7649993896484,
+			"render_gpu_ms": 15.2360000610352,
+			"wall_ms": 62.308
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 24.2240009307861,
+			"render_gpu_ms": 15.7569999694824,
+			"wall_ms": 57.832
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 21.4370002746582,
+			"render_gpu_ms": 14.2220001220703,
+			"wall_ms": 54.433
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 21.9139995574951,
+			"render_gpu_ms": 15.2220001220703,
+			"wall_ms": 56.154
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 22.4519996643066,
+			"render_gpu_ms": 15.3140001296997,
+			"wall_ms": 66.471
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 22.1009998321533,
+			"render_gpu_ms": 14.5769996643066,
+			"wall_ms": 53.629
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 23.568000793457,
+			"render_gpu_ms": 15.0609998703003,
+			"wall_ms": 54.513
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 22.6770000457764,
+			"render_gpu_ms": 15.0959997177124,
+			"wall_ms": 57.681
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 21.9549999237061,
+			"render_gpu_ms": 14.164999961853,
+			"wall_ms": 55.284
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 21.863000869751,
+			"render_gpu_ms": 15.0520000457764,
+			"wall_ms": 53.468
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 23.2970008850098,
+			"render_gpu_ms": 15.0600004196167,
+			"wall_ms": 60.491
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 21.8799991607666,
+			"render_gpu_ms": 14.46399974823,
+			"wall_ms": 58.68
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 23.4669990539551,
+			"render_gpu_ms": 15.7889995574951,
+			"wall_ms": 55.648
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 22.922,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 62.265,
+			"render_cpu_ms": 23.1690006256104,
+			"render_gpu_ms": 15.7279996871948,
+			"wall_ms": 57.157
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 21.6389999389648,
+			"render_gpu_ms": 14.3920001983643,
+			"wall_ms": 54.891
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 23.701000213623,
+			"render_gpu_ms": 15.3540000915527,
+			"wall_ms": 51.539
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 23.1849994659424,
+			"render_gpu_ms": 15.4469995498657,
+			"wall_ms": 62.045
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 22.4370002746582,
+			"render_gpu_ms": 14.6459999084473,
+			"wall_ms": 55.205
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 24.0419998168945,
+			"render_gpu_ms": 15.914999961853,
+			"wall_ms": 52.573
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 24.0739994049072,
+			"render_gpu_ms": 16.44700050354,
+			"wall_ms": 56.326
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 21.3850002288818,
+			"render_gpu_ms": 14.4980001449585,
+			"wall_ms": 50.165
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 22.7150001525879,
+			"render_gpu_ms": 15.3730001449585,
+			"wall_ms": 53.479
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 22.5310001373291,
+			"render_gpu_ms": 15.3509998321533,
+			"wall_ms": 55.931
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 22.0189990997314,
+			"render_gpu_ms": 14.414999961853,
+			"wall_ms": 49.394
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 22.4179992675781,
+			"render_gpu_ms": 15.4370002746582,
+			"wall_ms": 49.558
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 22.613000869751,
+			"render_gpu_ms": 15.3719997406006,
+			"wall_ms": 58.065
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 21.7269992828369,
+			"render_gpu_ms": 14.3950004577637,
+			"wall_ms": 49.241
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 22.6660003662109,
+			"render_gpu_ms": 15.3579998016357,
+			"wall_ms": 49.113
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 22.4610004425049,
+			"render_gpu_ms": 15.4340000152588,
+			"wall_ms": 55.6
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 22.0419998168945,
+			"render_gpu_ms": 14.4079999923706,
+			"wall_ms": 50.139
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 22.9769992828369,
+			"render_gpu_ms": 15.3649997711182,
+			"wall_ms": 53.251
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 6.333,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 51.64,
+			"render_cpu_ms": 22.5639991760254,
+			"render_gpu_ms": 15.3570003509521,
+			"wall_ms": 62.151
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 21.878999710083,
+			"render_gpu_ms": 14.4630002975464,
+			"wall_ms": 50.453
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 22.5249996185303,
+			"render_gpu_ms": 15.3690004348755,
+			"wall_ms": 55.981
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 22.57200050354,
+			"render_gpu_ms": 15.3500003814697,
+			"wall_ms": 61.12
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 21.4120006561279,
+			"render_gpu_ms": 14.41100025177,
+			"wall_ms": 55.705
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 22.5240001678467,
+			"render_gpu_ms": 15.2959995269775,
+			"wall_ms": 55.574
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 24.1229991912842,
+			"render_gpu_ms": 15.9099998474121,
+			"wall_ms": 58.972
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 22.9810009002686,
+			"render_gpu_ms": 15.701000213623,
+			"wall_ms": 57.076
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 22.9750003814697,
+			"render_gpu_ms": 16.6459999084473,
+			"wall_ms": 54.292
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 23.2919998168945,
+			"render_gpu_ms": 16.6490001678467,
+			"wall_ms": 56.716
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 22.2369995117188,
+			"render_gpu_ms": 15.6510000228882,
+			"wall_ms": 52.846
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 23.1669998168945,
+			"render_gpu_ms": 16.6299991607666,
+			"wall_ms": 50.886
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 23.6900005340576,
+			"render_gpu_ms": 17.2240009307861,
+			"wall_ms": 55.586
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 21.5550003051758,
+			"render_gpu_ms": 15.1379995346069,
+			"wall_ms": 52.87
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 22.556999206543,
+			"render_gpu_ms": 16.0659999847412,
+			"wall_ms": 50.229
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 22.3229999542236,
+			"render_gpu_ms": 15.3870000839233,
+			"wall_ms": 59.233
+		},
+		{
+			"phase": "installed",
+			"physics_ms": 5.929,
+			"pipeline_draw": 33.0,
+			"pipeline_surface": 325.0,
+			"process_ms": 48.859,
+			"render_cpu_ms": 21.5890007019043,
+			"render_gpu_ms": 14.4390001296997,
+			"wall_ms": 56.35
+		}
+	],
+	"settings": {
+		"max_fps": 0,
+		"physics_hz": 60,
+		"ticks_per_phase": 240,
+		"viewport": "(1280, 720)",
+		"vsync": "disabled"
+	},
+	"shapes": []
+}

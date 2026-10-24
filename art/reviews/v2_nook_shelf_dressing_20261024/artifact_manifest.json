@@ -1,0 +1,886 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Exact diagnostic packet bytes; suite_run and INERT findings confer no runtime_contract or acceptance.",
+  "files": [
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/after_v1/clearance.json",
+      "bytes": 293000,
+      "sha256": "0661d1afe74794ca55ff66ae69b373f62f7268da232079a12fe75130999262ef"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/after_v1/frames.json",
+      "bytes": 383131,
+      "sha256": "2affb15600c3e1aedb196f037f54b88e3206940d5e7e113bd5ae5ed2f72db8fa"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/after_v1/inside_nook.png",
+      "bytes": 753212,
+      "sha256": "4013edaf23432ca04390290ef0b0fff7d7b583b44d6c7c6864192a35821631f0"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/after_v1/last_position.png",
+      "bytes": 580573,
+      "sha256": "b7ab8f43af22349d01ad1e638b0ce14c9af3c621cd6574cc5b2d402d1b1c1c74"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/after_v1/nook_state.json",
+      "bytes": 527,
+      "sha256": "3dc89df4ce4fc020c1f6899224cbd18bae0bc516e212e9384a24a3b81dd0ee62"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/after_v1/nook_world_floating_book.png",
+      "bytes": 921793,
+      "sha256": "d303371d02224ef2642d57d3f3ed82e879309fe436fc12edc4e681f56a0c9320"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/after_v1/outside_approach.png",
+      "bytes": 582163,
+      "sha256": "68fe3a46c4dd86f02407e53749a6c10dc2dfc7e1fc2a56876ce968ab5f5719d6"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/after_v1/route.json",
+      "bytes": 2934,
+      "sha256": "87e1afea68149dc73971835cf590bb474e83bb0c037b7f7730890d78821d2550"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/after_v1.log",
+      "bytes": 14727,
+      "sha256": "67aa785c6f7fce7932d7095aaac7de0a54743c2294d6f8b7761191c9551d830a"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/after_v1.log.receipt.json",
+      "bytes": 2697,
+      "sha256": "1c550a12ce7222674369ac28d0956c4929568e652e98cb9c30a412f05d30d19d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/after_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/analysis.json",
+      "bytes": 19222,
+      "sha256": "ce41ebc66cc1894d282910ef8a00ec50c711e99c9f65e861f7f315018a3f40f1"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/analyze.py",
+      "bytes": 1973,
+      "sha256": "c1c9b27369664f415e3f16634b4a4183c0e77e51f53a94ba51095a1590ab6db0"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_sources.json",
+      "bytes": 2352,
+      "sha256": "83048412dcab9cc77ca157e025c83bab475f97ee6f833a2a09f37fde3f7e4364"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_v1/clearance.json",
+      "bytes": 295403,
+      "sha256": "3fb273edb8ddb95976b0f5afbf3eaccb664654c24a1b638c4ce547b59fd5d7fa"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_v1/frames.json",
+      "bytes": 383021,
+      "sha256": "f520f3aa550f738a02ffdd65faab15747b9280bb5d0c6a89143010a5dd6b0afd"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_v1/inside_nook.png",
+      "bytes": 752611,
+      "sha256": "8cfac1962f68dde5539ef094efe8b87e916e9415172cf19663d03ff8e765de0c"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_v1/last_position.png",
+      "bytes": 579886,
+      "sha256": "910c0496d7be2a05c01dc30a0eae620ee0d027385998601117e96087a0c7425a"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_v1/nook_state.json",
+      "bytes": 527,
+      "sha256": "3dc89df4ce4fc020c1f6899224cbd18bae0bc516e212e9384a24a3b81dd0ee62"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_v1/nook_world_floating_book.png",
+      "bytes": 919050,
+      "sha256": "a21e132037e0cac44abf7dbe1a0353a38b4c5990eba6aa9d29984f8b5a9d3a5b"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_v1/outside_approach.png",
+      "bytes": 581235,
+      "sha256": "d9e144069b157bb29d38914a99375692c9b24d9fc66947f1120b7a535d68b9a6"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_v1/route.json",
+      "bytes": 2934,
+      "sha256": "87e1afea68149dc73971835cf590bb474e83bb0c037b7f7730890d78821d2550"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_v1.log",
+      "bytes": 14740,
+      "sha256": "8edde8944c30fe413f856cf65fffdb67640a3d669effd41dea89194d2017f7b5"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_v1.log.receipt.json",
+      "bytes": 2915,
+      "sha256": "d7ae1b10db8e56ed1924602ce03dfbc8699da96c33149806ed4d17271901904a"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/before_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/build_v1.log",
+      "bytes": 214,
+      "sha256": "a8cd810b702b017fd751c025ed84a0f6dfd16c096ae1512e3745534b279c1e07"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/build_v2.log",
+      "bytes": 214,
+      "sha256": "a8cd810b702b017fd751c025ed84a0f6dfd16c096ae1512e3745534b279c1e07"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/build_v3.log",
+      "bytes": 214,
+      "sha256": "a8cd810b702b017fd751c025ed84a0f6dfd16c096ae1512e3745534b279c1e07"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/failed_layout_v1__build_nook_readable_books.py.gz",
+      "bytes": 4316,
+      "sha256": "639aa5874241ae8d90d9bc0dc162491b32e52c3903e31d0479ce5cd1f3132317"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/failed_layout_v1__nook_readable_books.json.gz",
+      "bytes": 21728,
+      "sha256": "397ad4eba582f1202b1c8cdb3b3727997ca75f391608ea0c7ebbda782eea3a27"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/focused/board.json",
+      "bytes": 224761,
+      "sha256": "d42b47b4b4e820f9d49c329c2af8a2d5e5fb366e17a67274fce9316a988da136"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/focused/board.md",
+      "bytes": 6492,
+      "sha256": "9b275f96c1f9d3d55ad0358a9d5c5edb441b487d1765fd590e36f015cf11df9f"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/focused.log",
+      "bytes": 6631,
+      "sha256": "b7aab3cfed4445e78023df28a525a942fba1aceb7e3dc3679dba69c76da000fc"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/focused_v2/board.json",
+      "bytes": 302104,
+      "sha256": "4c0dd56e0042a47d61ccc32a9ec831a340d5ca61a73b489135bbd8b846dd05ba"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/focused_v2/board.md",
+      "bytes": 6688,
+      "sha256": "a57ed2dac0b17f7f48da6281e37263a497b517f3c2cc28dce9c4308bafb1da5c"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/focused_v2.log",
+      "bytes": 6828,
+      "sha256": "f484b660578cdd563e1f5dcc432d43ff0dfd6d86b9a687cf230a20030cf97df1"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/focused_v3/board.json",
+      "bytes": 301971,
+      "sha256": "399c1b63e8c5b328855774338730133b2ed67153cfb817c41966e93946c3a242"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/focused_v3/board.md",
+      "bytes": 6587,
+      "sha256": "dcce770caa962a3a4fec7666478d86e9524e33d1b46b850d453a52bb189f2396"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/focused_v3.log",
+      "bytes": 6726,
+      "sha256": "b66c6847f7066150b83e7c17654eccbdea803609b34fe5af40ee79d1c91fde46"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/gates/board.json",
+      "bytes": 352427,
+      "sha256": "7d46e4c7419785f0264c7679fb0e9cf6055e8148b01165bbbc3b1a82294c6ec6"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/gates/board.md",
+      "bytes": 8603,
+      "sha256": "02301456bd3ec191cd87c55b451070545112a9b2088a6c4509a47e96fcc03eef"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/gates.log",
+      "bytes": 8748,
+      "sha256": "b0c16995ef9fae396bcd612a4d7c63a99d2bfbe1e2d46df68a87bb353686cb01"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/gates_v2/board.json",
+      "bytes": 351996,
+      "sha256": "f6a11f11023c122f98d3032830ff302fbfbb098cfd3b0051c89bcc296f3f5074"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/gates_v2/board.md",
+      "bytes": 8308,
+      "sha256": "4c3df662f6267ed6111c1add4ceb482960368ba3edb610896cca7d8a4fb1717a"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/gates_v2.log",
+      "bytes": 8448,
+      "sha256": "ff17a7554b667ca9f4e5c74910b95163c50e41b6830314e3a77cd8b53f31e4c2"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_atlas.png",
+      "bytes": 785079,
+      "sha256": "517d673c3671edcaa135119765b7101a7382f71fc6548c370c39c3f1e63c3042"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_barsongs.png",
+      "bytes": 465629,
+      "sha256": "235cb83489beb6d4a67d9ee54f2e648c9d07d0f33d1096cf53c4b56c4d1530a9"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_billiards.png",
+      "bytes": 525432,
+      "sha256": "501d30596e5bc323e70ef424c1fc6207f94b3ac8551b8ad4180141687831df49"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_birds.png",
+      "bytes": 776962,
+      "sha256": "b81b0674bb308efd0286c386584af3c3e06dba392aa4f2b3b6b8028e1857a176"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_concrete.png",
+      "bytes": 702200,
+      "sha256": "3c26fbf60a7fee80019a1903535c6a5dee45d421ed35defc074f2f203885bda5"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_cordcircuits.png",
+      "bytes": 700265,
+      "sha256": "fd28cb812403690e4fe6eef1338f9f2bc486150735a103ebb8453546a99b31d1"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_darts.png",
+      "bytes": 509048,
+      "sha256": "9e378ff0428c763c8278cc58420aff500e3fcd7a9eba46c0422fcfbe5b4615de"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_deadletter.png",
+      "bytes": 580790,
+      "sha256": "feba09141201276a2d7a8bddcc067c4575c625a71f560dc186b7b87fe1fe3490"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_dreams.png",
+      "bytes": 560408,
+      "sha256": "6f7e39b55287d62353e1ff9c6e8084fe31b6d658d51fcb82be7b8e1715bedce2"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_dressmaking.png",
+      "bytes": 772066,
+      "sha256": "60af7e5c3f90cb4e742ddaca8e52e50afa3f57b784a1b044e8a877449b2edf3d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_elevator.png",
+      "bytes": 685210,
+      "sha256": "4f78218bb031d9a875cf6569eb1e856df4ae512063a3c73cc0ff22707fba5e19"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_flowers.png",
+      "bytes": 755735,
+      "sha256": "4af480cbfafc0f340d056ce1b9f7e57453bf9fa5add4e206cf51a5b3847872c8"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_glass.png",
+      "bytes": 580067,
+      "sha256": "a89bed59d8449fa4c58996c6aede2717cbf9061c4e267b046943669dc832785d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_interborough.png",
+      "bytes": 550219,
+      "sha256": "b7087d0d1dc9cb67c07ee1a9b08e4eebe7e88308acb43a8310a0d7f554c5e6ef"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_knots.png",
+      "bytes": 528458,
+      "sha256": "11d10b7f69fd0ad22d44c2dcc7ffb4e0fff678b85b24a3e298a4cfecf66895b6"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_letters.png",
+      "bytes": 534805,
+      "sha256": "fa31f80ac0dbc5504f63d1b9b7de63ef7fcd869290d98016ef453f835a720d99"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_missing.png",
+      "bytes": 669670,
+      "sha256": "a78f34a7bb974ef5dd993bad9ec8f7a550a696ab8c9f4c66f60171e4dec79825"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_nurse.png",
+      "bytes": 462971,
+      "sha256": "f8cff2dc5baf6d135a50d33beaed3eb71fe0b2827c6a6aec158e0a159861f467"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_photochem.png",
+      "bytes": 691551,
+      "sha256": "148870ed8fd8893afd097422c127475bdc484269ff57cc84696a12caf9fb23ba"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_radio.png",
+      "bytes": 607076,
+      "sha256": "88be2266221e63324548038845638601e24630d85cd13f6aae1887676c8216f1"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_recipes.png",
+      "bytes": 533528,
+      "sha256": "950684b6b658fb8283ed07d99e80bc6ecf4110fc60e2852c09d96d7658fa0759"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_sorting.png",
+      "bytes": 505865,
+      "sha256": "eab468838d2a6894d2b6b794c140bd9483a3c09fae3acdee1d0d2a9c9519d684"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_standards.png",
+      "bytes": 763395,
+      "sha256": "9b1f231a90ce67f4e70d531fb190cdd0f49bd4ac10f1bb54741cf91838e2d38c"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_switchboard.png",
+      "bytes": 529756,
+      "sha256": "19b70bf6af7adece89d12bdd7b133aaa75bc1659434a4cbd50f9d806bfbff77b"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_walls.png",
+      "bytes": 587013,
+      "sha256": "3122b40d507ff88f905d41b8beffbd855a5f94445c1d775c5265393afe3b2497"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/copy_spread_wiring.png",
+      "bytes": 513465,
+      "sha256": "9e7c8f0df714248d9d2d95561221b612c541c8a97e9df687ec4b89347b3e72c6"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/nook_hand_opened_pamphlet.png",
+      "bytes": 698005,
+      "sha256": "ae8c9573f0c1f0a969461d627149fa66228cfddc147f15db4b9a0b41253c8c74"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/nook_hand_opened_pocket.png",
+      "bytes": 676556,
+      "sha256": "e10c37b9a1c794d7e6ec8a11fb3bc1b1e11d6f5951cdee296798f9dde5af8b98"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/nook_hand_opened_trade.png",
+      "bytes": 692094,
+      "sha256": "fdc7cc542100b5fe476a892979769f17c0d4317c134ec0b36c34eaf4319cb6b2"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/nook_installed.png",
+      "bytes": 328341,
+      "sha256": "e267f309ed73950065c7d47134d2fb8ab4ce018dceb64006333e607bbad8d8a1"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/nook_reading_pamphlet.png",
+      "bytes": 667785,
+      "sha256": "1abb33b02a801a003a32fb20deb6fe33092c01f811d2b134c4fd0d4b5ae3abd5"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/nook_reading_pocket.png",
+      "bytes": 697827,
+      "sha256": "c533f934de48f8260b359e7940068492f58ff77f7f7f48c8308fc1f70138edc1"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2/nook_reading_trade.png",
+      "bytes": 855728,
+      "sha256": "729fd4a8155ba4f19823238bcdee9d3ff9a3f0fdab1cfba93fb60c05e68ce505"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2.log",
+      "bytes": 103515,
+      "sha256": "f078ae2c44220ea0ffddce87aceb61243a7d1bad3fdd2d58e1f769b8a29b8c85"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2.log.receipt.json",
+      "bytes": 2765,
+      "sha256": "77ae61c0f9dce4dbf71e871b9fb2c5f18190051cf26d1e62686a183c20cbe5c4"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v2.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_atlas.png",
+      "bytes": 784945,
+      "sha256": "06714cd8310511695adb64970780b8b4cb8b5cc51a8ff24f0a1258a08cd8b9cc"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_barsongs.png",
+      "bytes": 465568,
+      "sha256": "4b2e7f168f141a23c773951a2ab7e00b12c4312b68ded1aeff91ef965944bb01"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_billiards.png",
+      "bytes": 524997,
+      "sha256": "1f8ac59819e2b8da1b966328e458a678b231f04ca83186866c59a9e4c127f172"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_birds.png",
+      "bytes": 776705,
+      "sha256": "1ff455c3b02fcaa106d89f77e4401aec347c8cb97df91b78ad7cdea531f25b17"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_concrete.png",
+      "bytes": 702202,
+      "sha256": "7bc3b02a943498fb8091dc12197ec3188da1ba98865edef8f910b13c987a3cdc"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_cordcircuits.png",
+      "bytes": 700122,
+      "sha256": "723ada41aac684e1839dd487513cd1b0d51c48d493c9efca8fa2fc1e5e182447"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_darts.png",
+      "bytes": 508461,
+      "sha256": "1f980e760d5ce299228a75937afceaea11681b36706d750ba890ed21a49c391c"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_deadletter.png",
+      "bytes": 580714,
+      "sha256": "de89577de0b95a49e54ad03a7a4c6f6ba06fb98a441da7d4ead24978ecb00526"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_dreams.png",
+      "bytes": 560055,
+      "sha256": "87dd30aba377321d24c921f19ae416ab9412e169ef6462bc8794e686d4c0b769"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_dressmaking.png",
+      "bytes": 772141,
+      "sha256": "9d30aafe4d3b8208dbf055f84f7fe487a3bee25cc638b4eb9c8942e1666315cb"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_elevator.png",
+      "bytes": 685014,
+      "sha256": "29b141fa82b70d12172cf206007430131d74647a56bb4980a6e06924e803fecb"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_flowers.png",
+      "bytes": 755664,
+      "sha256": "8defa719255f2cbb6216eb949f06e9ee090e37cc1162b3f9e2904ea20e7b3eb6"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_glass.png",
+      "bytes": 580180,
+      "sha256": "90211729212b6c45ddeea53ef4f00e8bffbb74468db961ebdfd96d57c156c2a5"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_interborough.png",
+      "bytes": 550001,
+      "sha256": "779b7f5d7af794fab7b133790fd8e44c966e43fca82d271ab2b273b743fca838"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_knots.png",
+      "bytes": 528631,
+      "sha256": "a396873928519ffb11ee328aedc2a0cb1917b426b8eb7485418af72368a7b745"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_letters.png",
+      "bytes": 534792,
+      "sha256": "05113e52f266a95e8fc5d9d8d64d16dbda5c0ec687769a8005608d549d917c36"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_missing.png",
+      "bytes": 669512,
+      "sha256": "f6f8eab704227582de52ebad8b56ae4e62be74a34c65aef5e1eb768832657c10"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_nurse.png",
+      "bytes": 462714,
+      "sha256": "e7b40cb1e3d9feeb9c1fda6eb4e67e2055324f8841788c021986153b4b55e195"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_photochem.png",
+      "bytes": 691620,
+      "sha256": "9b9d1444629da92c07d47bf2f2e7a6be02d2a41dc3c2c92a5af79ca69260fe4d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_radio.png",
+      "bytes": 606829,
+      "sha256": "0bd0465d187c75f84bc4333a9939ca4c393d4026e49855e0d88203cabb69e444"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_recipes.png",
+      "bytes": 533473,
+      "sha256": "37acc159a295f473c4fec3e992b40d20008301d545e4bb01d92627b6822c49ab"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_sorting.png",
+      "bytes": 505705,
+      "sha256": "ba8af2fba8e2584258d8fd6ce894bdfd1ced416af36532036254359db4fb9461"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_standards.png",
+      "bytes": 763331,
+      "sha256": "1bec6ea6f13d505a0579cfdac50bd1771a594e5b793ca7ce995a28774ee87ac5"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_switchboard.png",
+      "bytes": 529742,
+      "sha256": "9ab47fd61ef2d97430614fa6877866e5935f2693c4ede0966836fe4081e49a49"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_walls.png",
+      "bytes": 586740,
+      "sha256": "5868f8a8b95c28d1eb5c96e3b33a83aa6210379cdee79c8d258222063f1522e7"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/copy_spread_wiring.png",
+      "bytes": 513505,
+      "sha256": "15f3b6953283f99790836e10f818ad94ce92633a071eab52cfd285dfab7f001d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/nook_hand_opened_pamphlet.png",
+      "bytes": 697006,
+      "sha256": "9c3f298c152e61c10a49a759bc891827e8d2b481dd51b238be0826d9ff93b7ac"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/nook_hand_opened_pocket.png",
+      "bytes": 676082,
+      "sha256": "42067641bda7308787181b94a7b0aef4fe9ffc84828a69d2f116bd18bdb04985"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/nook_hand_opened_trade.png",
+      "bytes": 691845,
+      "sha256": "06e6bc985849be0a2644fc882fe3c0cd6476f9da64ea046b1778e442901ed26b"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/nook_installed.png",
+      "bytes": 328288,
+      "sha256": "48f897a9204bacb7f6fabed49923193d5c4e1bc532bf11d51364ab9eb4b55995"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/nook_reading_pamphlet.png",
+      "bytes": 667720,
+      "sha256": "b041f742d8632626a4adb9ea1fd9e17830e55d866d6d84e7fc82e336d6daffb0"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/nook_reading_pocket.png",
+      "bytes": 698123,
+      "sha256": "68728e042de2a2732d7d4371b26d580597b7582604d9d3f33b36752e9c2fe11d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3/nook_reading_trade.png",
+      "bytes": 855936,
+      "sha256": "0aea72842932b50b4dda9fc07ff7a806528b9778650e07e5245459d35de5e19f"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3.log",
+      "bytes": 103515,
+      "sha256": "c7a0b66d348c0e3ca6ca83b73b2c1e19956e92e16de4bb467c034149a3e8196f"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3.log.receipt.json",
+      "bytes": 2781,
+      "sha256": "9cea7266da7b8865b68a12ce09e9ac8fbdf3de891bca37a67b311fb7ca6967d9"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/library_v3.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/native_v1.log",
+      "bytes": 560,
+      "sha256": "f9aaa6fc58629644857a66c5da056080dc734f2a6e1765ad6fe089094dbef1e0"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/native_v2/contacts.json",
+      "bytes": 2595,
+      "sha256": "600b0f3ba5e91444c66ccf77a86a63e38714a7931127726d77bd30e9de04150f"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/native_v2.log",
+      "bytes": 2038,
+      "sha256": "6fee0537b117a5985edf48895f34025b02f9413c3bd5dce79ffd01c11ba09414"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/native_v3/contacts.json",
+      "bytes": 271,
+      "sha256": "a2523b6d7f140acb01ebd5059fc308f67cf35a39fdda2c1d639c33e93a35f078"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/native_v3/context.png",
+      "bytes": 1608285,
+      "sha256": "b720080d887e73b9a24d24c23426a777eb6f41ac1a47f787f7226b4a85c158d1"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/native_v3/pile.png",
+      "bytes": 1808918,
+      "sha256": "3201baeb6a87f7c5513a33368d4fb43fe05fed8806cd9435b196ea3a07c87abf"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/native_v3/rack.png",
+      "bytes": 1790813,
+      "sha256": "c2b84a23cf837189d0ef70005099a0e95e29050edbf6a1b3c3bd2db56a7b0896"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/native_v3/reader.png",
+      "bytes": 1850240,
+      "sha256": "5cdc435cd7ff4c012877b9ea3ee908e8a3099a3a99009f336e7691d753941335"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/native_v3.log",
+      "bytes": 1014,
+      "sha256": "471e6d359a8d231259d97502236e4ee53ad542a79102ae1c0eddb475013b0b49"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/nook_owner_projection_v1.gd.gz",
+      "bytes": 2022,
+      "sha256": "a86557f239edf2fc1a3c7396b53f76f9d7b5667156792516c6aeb38e3a3a2771"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/probe/contacts.json",
+      "bytes": 2595,
+      "sha256": "600b0f3ba5e91444c66ccf77a86a63e38714a7931127726d77bd30e9de04150f"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/probe.log",
+      "bytes": 3921,
+      "sha256": "033def75a0bf0c2f74b05b168cccc49ffd301b43b4951caafa01133f8a08c5f5"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/probe_native.py",
+      "bytes": 514,
+      "sha256": "e4882608d6abc58976c691446b4ee60cd7c39215cca27c4f0448d346c36be012"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/review_failed_v1.py.gz",
+      "bytes": 2839,
+      "sha256": "90f3c537a987335a2c0ea1f2af880c6cafb58beabcb8e3210b01a3d367397e5c"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_before/art__blender__nook_readable_books_construction.json.gz",
+      "bytes": 11509,
+      "sha256": "e7580837c6840f7b62f1697ac593acf34ff21beb06fa7bbf2d8430589872158d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_before/art__blender__scripts__build_nook_readable_books.py.gz",
+      "bytes": 3914,
+      "sha256": "41816ef1bef18d2b3e9f6729ed9100d7c0f990ccf0d2dd315cdf76e99921e20e"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_before/art__blender__scripts__review_nook_readable_books.py.gz",
+      "bytes": 2734,
+      "sha256": "647437e3cabfb5a9fcbbc09d61cc9525e809062ed6db7a768af1930625d9b2b9"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_before/game__data__orison_v2__nook_readable_books.json.gz",
+      "bytes": 21059,
+      "sha256": "1e92e6d4c11dec279db27db45e2e5befe66b63c1da94517240331296e0ff5c43"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_before/game__scripts__building__orison_v2_reading_nook.gd.gz",
+      "bytes": 1721,
+      "sha256": "57989ab0a7055b75f184a292ff5f5b29876358e7bafbedb981c7b40ddfa6e23d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_before/game__scripts__building__v2_loose_library.gd.gz",
+      "bytes": 2204,
+      "sha256": "35c3229a5b5d2a3fdf3c835ccc3c3fae1032d1c54e98a5c346e6d05fbc703297"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_before/game__scripts__building__v2_readable_bookshelf.gd.gz",
+      "bytes": 6358,
+      "sha256": "091a58df12563090ce13a8d4415fdc9b9b7f0f0be012ee23f53b7f1a13efefdc"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_before/game__tests__v2_nook_library_bench.gd.gz",
+      "bytes": 5420,
+      "sha256": "6174c3eaf245c31b1903b1260d171cd958f0765ecf22780f5e664c3304846728"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_before/tools__orison_spatial_dependency_manifest.json.gz",
+      "bytes": 379908,
+      "sha256": "4f19a3db5197b6c5b2492e5f91fef2a888d1862f99b7934dc291a7ec4c89992a"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_checks.json",
+      "bytes": 2442,
+      "sha256": "bf0c9800e0d5847227c989057e4df6939a5fb0f180e893710eb18a699f8da1e5"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_controls.json",
+      "bytes": 4174,
+      "sha256": "be3771c52d3f3a947e14037a02cabedd7ad5d031b7a044d41294e2ec721f7005"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/art__blender__nook_readable_books_construction.json.gz",
+      "bytes": 11517,
+      "sha256": "bb40bae05ab6f0f9d6da0f2bd7a7b98406d15c3d2d9322ee41659afacc1c5208"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/art__blender__scripts__build_nook_readable_books.py.gz",
+      "bytes": 4305,
+      "sha256": "31fe2672ec8e829ff563fff92bfbbfaa98299dad168aa48df7c8d707e58854e2"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/art__blender__scripts__review_nook_readable_books.py.gz",
+      "bytes": 2837,
+      "sha256": "03e7174f63467bbe1a259bef0b88af3d652042cd43ffdaa8f967b264f0954598"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__data__orison_v2__nook_readable_books.json.gz",
+      "bytes": 21740,
+      "sha256": "5fe8ae153fef882835ed73b37a486a37cffd86f26e22a22ee3e2f5311bc181f5"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__scripts__building__orison_v2_reading_nook.gd.gz",
+      "bytes": 1985,
+      "sha256": "cecf64eae2fea58f393f1cb3cc288805256db811d53fd9dfccdb8bd4df891e3d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__scripts__building__v2_loose_library.gd.gz",
+      "bytes": 2248,
+      "sha256": "9931deedf82aa919ac5db4fc50827355032f77ddae737b0700617c8913682408"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__scripts__building__v2_readable_bookshelf.gd.gz",
+      "bytes": 6367,
+      "sha256": "94a00227c8a475b4ac2eb402c1797f6c9c213609e4d0aca7791d8a5e16d67b4e"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__scripts__building__v2_readable_library_stock.gd.gz",
+      "bytes": 6792,
+      "sha256": "e4decec0944a85b4c4b31c1dd3f9c67c75e28d2548a32adf51020fe10c532c15"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__tests__v2_golden_repair_profile.gd.gz",
+      "bytes": 1559,
+      "sha256": "39b37345eb216fe83c0a4e810ef71aebc90fafe7e642e1eced3f1633009574a5"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__tests__v2_nook_access_survey.gd.gz",
+      "bytes": 1907,
+      "sha256": "5b3bb0f072aafc3f3cf188e16b0b0c9683e9ce77eee63e2671d82ee91116b183"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__tests__v2_nook_library_bench.gd.gz",
+      "bytes": 5773,
+      "sha256": "19658e8b0b7fa10d87dbfadd6bc5a24289f14ee7c51079405bdbd58f5ec95ec0"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__tests__v2_nook_world_profile.gd.gz",
+      "bytes": 1566,
+      "sha256": "7efd447d5d1da4809a1213d2ee3a90d2b2162677169c9312084b4f6dbcaf9b81"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__tests__v2_readable_library_bench.gd.gz",
+      "bytes": 10073,
+      "sha256": "6eeba0bbac0d93948dcefaefc522dcd8db32bb1169289be6cf05315ad7852433"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__tests__V2NookAccessSurvey.tscn.gz",
+      "bytes": 169,
+      "sha256": "2e51a67bc1c1fe3e7691d3b0bd04658d61ce324703f85d77747514c34e0fbb10"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/game__tests__V2NookLibraryBench.tscn.gz",
+      "bytes": 175,
+      "sha256": "692a0f70a7aa4375b417b0ca9d290cffbc626b39252cd4ca5db6cf53ba15fc8d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v1/sources.json",
+      "bytes": 3841,
+      "sha256": "9ff25353d16ec0f2a7e41983b2aad8c8e7742913b6e6601a2833c049a168a100"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/art__blender__nook_readable_books_construction.json.gz",
+      "bytes": 11517,
+      "sha256": "bb40bae05ab6f0f9d6da0f2bd7a7b98406d15c3d2d9322ee41659afacc1c5208"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/art__blender__scripts__build_nook_readable_books.py.gz",
+      "bytes": 4305,
+      "sha256": "31fe2672ec8e829ff563fff92bfbbfaa98299dad168aa48df7c8d707e58854e2"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/art__blender__scripts__review_nook_readable_books.py.gz",
+      "bytes": 2837,
+      "sha256": "03e7174f63467bbe1a259bef0b88af3d652042cd43ffdaa8f967b264f0954598"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__data__orison_v2__nook_readable_books.json.gz",
+      "bytes": 21740,
+      "sha256": "5fe8ae153fef882835ed73b37a486a37cffd86f26e22a22ee3e2f5311bc181f5"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__scripts__building__orison_v2_reading_nook.gd.gz",
+      "bytes": 1777,
+      "sha256": "8edb414e25f3276454e98fe148cde7887ef67f83c864068706d294238107e08f"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__scripts__building__v2_loose_library.gd.gz",
+      "bytes": 2248,
+      "sha256": "9931deedf82aa919ac5db4fc50827355032f77ddae737b0700617c8913682408"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__scripts__building__v2_readable_bookshelf.gd.gz",
+      "bytes": 6367,
+      "sha256": "94a00227c8a475b4ac2eb402c1797f6c9c213609e4d0aca7791d8a5e16d67b4e"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__scripts__building__v2_readable_library_stock.gd.gz",
+      "bytes": 6970,
+      "sha256": "6daf1b3144583d47a27e5611655eab0e6f9b2b8dd4da518ec62d2954cf5d7d59"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__tests__v2_golden_repair_profile.gd.gz",
+      "bytes": 1559,
+      "sha256": "39b37345eb216fe83c0a4e810ef71aebc90fafe7e642e1eced3f1633009574a5"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__tests__v2_nook_access_survey.gd.gz",
+      "bytes": 1907,
+      "sha256": "5b3bb0f072aafc3f3cf188e16b0b0c9683e9ce77eee63e2671d82ee91116b183"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__tests__v2_nook_library_bench.gd.gz",
+      "bytes": 5759,
+      "sha256": "da0a89b2122351dddf92c2088a4ba20dda307b46a974edb68aa4e8e78d36cb75"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__tests__v2_nook_world_profile.gd.gz",
+      "bytes": 1566,
+      "sha256": "7efd447d5d1da4809a1213d2ee3a90d2b2162677169c9312084b4f6dbcaf9b81"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__tests__v2_readable_library_bench.gd.gz",
+      "bytes": 10073,
+      "sha256": "6eeba0bbac0d93948dcefaefc522dcd8db32bb1169289be6cf05315ad7852433"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__tests__V2NookAccessSurvey.tscn.gz",
+      "bytes": 169,
+      "sha256": "2e51a67bc1c1fe3e7691d3b0bd04658d61ce324703f85d77747514c34e0fbb10"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/game__tests__V2NookLibraryBench.tscn.gz",
+      "bytes": 175,
+      "sha256": "692a0f70a7aa4375b417b0ca9d290cffbc626b39252cd4ca5db6cf53ba15fc8d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/source_final_v2/sources.json",
+      "bytes": 3748,
+      "sha256": "c16adb867b6ecf98183b23b18055612bd55b1805ffe3f69c0ec99adc18479e34"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/spatial_scan.json",
+      "bytes": 47954,
+      "sha256": "a856c4226897906483eb458ec744446ea665f02f23e4923a6d48d93982eadd2d"
+    },
+    {
+      "path": "art/reviews/v2_nook_shelf_dressing_20261024/verify_sources.py",
+      "bytes": 1972,
+      "sha256": "2ae4f8bc60f1437f041f1dd4d81983fd0b17f22d4e32d70ae33cc14cf03e3e03"
+    }
+  ]
+}

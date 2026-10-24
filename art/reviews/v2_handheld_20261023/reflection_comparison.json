@@ -1,0 +1,344 @@
+{
+  "evidence_class": "INERT",
+  "notes": [
+    "First partial frame excluded per phase. Same 300 physics tick movement/turn route, 1280x720, uncapped, VSync off. Initialized world, not cold driver.",
+    "Reflection-off is causal diagnostic only; hidden-node declaration and extra-viewport treatment were rejected. Timings overlap; no independent asset/streaming qualification."
+  ],
+  "runs": {
+    "profile_ui_v2": {
+      "settings": {
+        "fixed_route_ticks": 300,
+        "fps_limit": 0,
+        "physics_hz": 60,
+        "viewport": "(1280, 720)",
+        "vsync": "disabled"
+      },
+      "phases": {
+        "first_print": {
+          "frames": 212,
+          "wall_ms": {
+            "p50": 20.868000000000002,
+            "p95": 32.2078,
+            "p99": 39.69658999999997,
+            "max": 322.443
+          },
+          "over_50ms": 1,
+          "over_100ms": 1,
+          "surface_pipeline_delta": 90.0,
+          "reflection_probes_max": -1,
+          "loading_warm_ms": null
+        },
+        "steady_print": {
+          "frames": 233,
+          "wall_ms": {
+            "p50": 19.758,
+            "p95": 26.460199999999997,
+            "p99": 29.198920000000005,
+            "max": 36.181
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": -1,
+          "loading_warm_ms": null
+        },
+        "held_idle": {
+          "frames": 240,
+          "wall_ms": {
+            "p50": 19.921999999999997,
+            "p95": 26.093049999999995,
+            "p99": 27.52454,
+            "max": 28.565
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": -1,
+          "loading_warm_ms": null
+        },
+        "lowered": {
+          "frames": 239,
+          "wall_ms": {
+            "p50": 19.647,
+            "p95": 26.3922,
+            "p99": 28.9161,
+            "max": 38.912
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": -1,
+          "loading_warm_ms": null
+        }
+      }
+    },
+    "reflection_off_control": {
+      "settings": {
+        "fixed_route_ticks": 300,
+        "fps_limit": 0,
+        "physics_hz": 60,
+        "viewport": "(1280, 720)",
+        "vsync": "disabled"
+      },
+      "phases": {
+        "first_print": {
+          "frames": 212,
+          "wall_ms": {
+            "p50": 21.41,
+            "p95": 32.4476,
+            "p99": 42.48774999999992,
+            "max": 46.802
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 0,
+          "loading_warm_ms": null
+        },
+        "steady_print": {
+          "frames": 217,
+          "wall_ms": {
+            "p50": 21.597,
+            "p95": 27.8936,
+            "p99": 30.295240000000003,
+            "max": 36.491
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 0,
+          "loading_warm_ms": null
+        },
+        "held_idle": {
+          "frames": 218,
+          "wall_ms": {
+            "p50": 22.205,
+            "p95": 29.221499999999995,
+            "p99": 30.0441,
+            "max": 30.324
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 0,
+          "loading_warm_ms": null
+        },
+        "lowered": {
+          "frames": 228,
+          "wall_ms": {
+            "p50": 20.5215,
+            "p95": 29.27055,
+            "p99": 32.073319999999995,
+            "max": 34.56
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 0,
+          "loading_warm_ms": null
+        }
+      }
+    },
+    "reflection_early_v1": {
+      "settings": {
+        "fixed_route_ticks": 300,
+        "fps_limit": 0,
+        "physics_hz": 60,
+        "viewport": "(1280, 720)",
+        "vsync": "disabled"
+      },
+      "phases": {
+        "first_print": {
+          "frames": 205,
+          "wall_ms": {
+            "p50": 21.605,
+            "p95": 32.640999999999984,
+            "p99": 40.19528000000003,
+            "max": 322.352
+          },
+          "over_50ms": 1,
+          "over_100ms": 1,
+          "surface_pipeline_delta": 90.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": null
+        },
+        "steady_print": {
+          "frames": 210,
+          "wall_ms": {
+            "p50": 22.043999999999997,
+            "p95": 28.979749999999996,
+            "p99": 35.46413,
+            "max": 42.834
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": null
+        },
+        "held_idle": {
+          "frames": 228,
+          "wall_ms": {
+            "p50": 20.835,
+            "p95": 27.61235,
+            "p99": 28.783739999999998,
+            "max": 29.482
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": null
+        },
+        "lowered": {
+          "frames": 231,
+          "wall_ms": {
+            "p50": 20.773,
+            "p95": 27.387,
+            "p99": 30.78229999999999,
+            "max": 33.956
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": null
+        }
+      }
+    },
+    "reflection_early_v2": {
+      "settings": {
+        "fixed_route_ticks": 300,
+        "fps_limit": 0,
+        "physics_hz": 60,
+        "viewport": "(1280, 720)",
+        "vsync": "disabled"
+      },
+      "phases": {
+        "first_print": {
+          "frames": 205,
+          "wall_ms": {
+            "p50": 21.864,
+            "p95": 30.6476,
+            "p99": 35.99232000000001,
+            "max": 205.339
+          },
+          "over_50ms": 2,
+          "over_100ms": 1,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": null
+        },
+        "steady_print": {
+          "frames": 216,
+          "wall_ms": {
+            "p50": 21.214,
+            "p95": 28.1295,
+            "p99": 37.00649999999999,
+            "max": 39.321
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": null
+        },
+        "held_idle": {
+          "frames": 221,
+          "wall_ms": {
+            "p50": 21.504,
+            "p95": 28.278,
+            "p99": 30.46700000000001,
+            "max": 31.977
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": null
+        },
+        "lowered": {
+          "frames": 229,
+          "wall_ms": {
+            "p50": 20.892,
+            "p95": 27.189799999999998,
+            "p99": 30.09412,
+            "max": 39.913
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": null
+        }
+      }
+    },
+    "reflection_final_v1": {
+      "settings": {
+        "fixed_route_ticks": 300,
+        "fps_limit": 0,
+        "physics_hz": 60,
+        "viewport": "(1280, 720)",
+        "vsync": "disabled"
+      },
+      "phases": {
+        "first_print": {
+          "frames": 215,
+          "wall_ms": {
+            "p50": 19.621,
+            "p95": 32.18429999999999,
+            "p99": 106.19117999999881,
+            "max": 259.59
+          },
+          "over_50ms": 3,
+          "over_100ms": 3,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": 10.022
+        },
+        "steady_print": {
+          "frames": 226,
+          "wall_ms": {
+            "p50": 20.724,
+            "p95": 26.850250000000003,
+            "p99": 28.622999999999998,
+            "max": 37.072
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": 10.022
+        },
+        "held_idle": {
+          "frames": 239,
+          "wall_ms": {
+            "p50": 19.932,
+            "p95": 26.6391,
+            "p99": 28.767440000000004,
+            "max": 30.784
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": 10.022
+        },
+        "lowered": {
+          "frames": 242,
+          "wall_ms": {
+            "p50": 19.511000000000003,
+            "p95": 26.5968,
+            "p99": 28.83933,
+            "max": 41.736
+          },
+          "over_50ms": 0,
+          "over_100ms": 0,
+          "surface_pipeline_delta": 0.0,
+          "reflection_probes_max": 1,
+          "loading_warm_ms": 10.022
+        }
+      }
+    }
+  }
+}

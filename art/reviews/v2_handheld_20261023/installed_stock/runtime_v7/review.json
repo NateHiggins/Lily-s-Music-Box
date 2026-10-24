@@ -1,0 +1,167 @@
+{
+	"checks": 20,
+	"evidence_class": "INERT",
+	"failures": [],
+	"observations": {
+		"banks": [
+			0,
+			-1,
+			1
+		],
+		"pages": 2,
+		"peak_impression_m": 0.00155000004451722,
+		"text_high": "(0.058185, 0.0621, 0.0527)",
+		"text_low": "(-0.05832, -0.027, 0.0527)"
+	},
+	"scope": "Production printer in an isolated render fixture; direct service-cover input, composed save and whole-world performance are not qualified",
+	"stderr_stages": [
+		{
+			"stage": "01_printing",
+			"stderr": ""
+		},
+		{
+			"stage": "02_full_page",
+			"stderr": ""
+		},
+		{
+			"stage": "03_service",
+			"stderr": ""
+		},
+		{
+			"stage": "04_radio_back",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_puff",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_labels",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Aerial__Brass",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Carriage__Brass",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Carriage__Steel",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Type_hammer__Brass",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Type_hammer__Steel",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:TypeSelector__Steel",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:TypeSelector__TypeEmboss",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:FeedWheel0__Brass",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:FeedWheel0__Steel",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:FeedWheel1__Brass",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:FeedWheel1__Steel",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Fixed__Brass",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Fixed__Case",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Fixed__Leather",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Fixed__Paper",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Fixed__Porcelain",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Fixed__Rubber",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Fixed__Steel",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:FocusWheel__Brass",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:LampJewel",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:LampSwitch__Steel",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:NetJewel",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:OrderJewel",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Paper",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:Platen__Rubber",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:RadioSwitch__Steel",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:ServiceCover__Brass",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:ServiceCover__Case",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_mesh:TorchLens",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_model",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_device",
+			"stderr": ""
+		}
+	]
+}

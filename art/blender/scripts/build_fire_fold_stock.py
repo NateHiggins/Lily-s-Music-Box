@@ -37,7 +37,7 @@ finish=dict(catalog_key='linen',tint=[.75,.71,.59,1],pigment=1.,normal=.08,rough
 mat=material(ROOT,'linen',finish,catalog)
 native=bpy.data.collections.new('Editable continuous folded stock');bpy.context.scene.collection.children.link(native)
 exports=bpy.data.collections.new('FireFoldStock');bpy.context.scene.collection.children.link(exports)
-sources={};draws={};proofs={};N=64;THICK=.00195;FLAT=.0315
+sources={};draws={};proofs={};N=64;CURVE_STEPS=16;THICK=.00195;FLAT=.0315
 def tube(points,axes,radii):
     vertices=[];faces=[];count=len(points)
     for inner in [False,True]:
@@ -72,7 +72,7 @@ stock('FoldPair',[leg(-.010),leg(.010)])
 stock('FirstPair',[leg(-.010,-.091),leg(.010)])
 stock('LastLeg',[leg(-.010)])
 def crown(stop=0.):
-    angles=[math.pi+(stop-math.pi)*j/64 for j in range(65)]
+    angles=[math.pi+(stop-math.pi)*j/CURVE_STEPS for j in range(CURVE_STEPS+1)]
     return ([Vector((.010*math.cos(a),.010*math.sin(a),0)) for a in angles],
             [Vector((math.sin(a),-math.cos(a),0)) for a in angles])
 p,t=crown();stock('Crown',[tube(p,t,[(.004,FLAT)]*len(p))])
@@ -80,8 +80,8 @@ p,t=crown();stock('Crown',[tube(p,t,[(.004,FLAT)]*len(p))])
 # circular stock. Its annular end is exactly the live S-bend's first ring.
 p,t=crown(math.acos(.3));radii=[(.004,FLAT)]*len(p)
 start=p[-1];c1=start+t[-1]*.018;end=Vector((.050,.045,0));c2=end-Vector((0,.030,0))
-for i in range(1,65):
-    a=i/64;s=a*a*(3-2*a)
+for i in range(1,CURVE_STEPS+1):
+    a=i/CURVE_STEPS;s=a*a*(3-2*a)
     p.append((1-a)**3*start+3*(1-a)**2*a*c1+3*(1-a)*a*a*c2+a**3*end)
     t.append((3*(1-a)**2*(c1-start)+6*(1-a)*a*(c2-c1)+3*a*a*(end-c2)).normalized())
     radii.append((.004+(.021-.004)*s,FLAT+(.021-FLAT)*s))
@@ -92,8 +92,8 @@ gap=.0295-.020;radius=gap/2
 for name,delta in [('ReturnFlat',0.),('ReturnRise',.012),('ReturnDrop',-.012)]:
     points=[];axes=[];low=min(0.,delta)
     if low<0:points.append(Vector((0,0,0)));axes.append(Vector((0,-1,0)))
-    for i in range(65):
-        a=math.pi*i/64
+    for i in range(CURVE_STEPS+1):
+        a=math.pi*i/CURVE_STEPS
         points.append(Vector((-radius*(1-math.cos(a)),low-radius*math.sin(a),0)))
         axes.append(Vector((-math.sin(a),-math.cos(a),0)))
     if delta>low:points.append(Vector((-gap,delta,0)));axes.append(Vector((0,1,0)))
@@ -116,8 +116,8 @@ for name,tail in zip(names,loaded.objects):
     axis=godot(plane);mouth_axes[key]=list(axis)
     start=Vector();end=Vector((0,.070,0));c1=start+axis*.025;c2=end-Vector((0,.025,0))
     points=[];axes=[];radii=[]
-    for i in range(65):
-        t=i/64;s=min(1.,t*1.5);s=s*s*(3-2*s)
+    for i in range(CURVE_STEPS+1):
+        t=i/CURVE_STEPS;s=min(1.,t*1.5);s=s*s*(3-2*s)
         points.append((1-t)**3*start+3*(1-t)**2*t*c1+3*(1-t)*t*t*c2+t**3*end)
         axes.append((3*(1-t)**2*(c1-start)+6*(1-t)*t*(c2-c1)+3*t*t*(end-c2)).normalized())
         radii.append((.021+(.004-.021)*s,.021+(FLAT-.021)*s))

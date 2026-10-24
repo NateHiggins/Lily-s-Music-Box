@@ -1,0 +1,1078 @@
+{
+  "evidence_class": "INERT",
+  "method": "Inclusive phase frames; linear quantiles; process/physics/render observations overlap and lag. V1 is capture-boundary contaminated. V2 drains diagnostic captures before measured input. One corrected post-fix route, no before/after performance claim.",
+  "runs": [
+    {
+      "run": "world_final_v1",
+      "phases": {
+        "walk_(-0.48, -3.178, 2.2)": {
+          "wall_ms": {
+            "n": 1,
+            "p50": 17.109,
+            "p95": 17.109,
+            "p99": 17.109,
+            "maximum": 17.109,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 1,
+            "p50": 161.665,
+            "p95": 161.665,
+            "p99": 161.665,
+            "maximum": 161.665,
+            "above_33_333": 1,
+            "above_50": 1
+          },
+          "physics_ms": {
+            "n": 1,
+            "p50": 19.668,
+            "p95": 19.668,
+            "p99": 19.668,
+            "maximum": 19.668,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 1,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 1,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "walk_(-0.35, -3.178, 2.2)": {
+          "wall_ms": {
+            "n": 2,
+            "p50": 60.475,
+            "p95": 65.725,
+            "p99": 66.191,
+            "maximum": 66.308,
+            "above_33_333": 2,
+            "above_50": 2
+          },
+          "process_ms": {
+            "n": 2,
+            "p50": 161.665,
+            "p95": 161.665,
+            "p99": 161.665,
+            "maximum": 161.665,
+            "above_33_333": 2,
+            "above_50": 2
+          },
+          "physics_ms": {
+            "n": 2,
+            "p50": 19.668,
+            "p95": 19.668,
+            "p99": 19.668,
+            "maximum": 19.668,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 2,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 2,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "walk_(-0.48, -3.178, 2.1)": {
+          "wall_ms": {
+            "n": 1,
+            "p50": 33.121,
+            "p95": 33.121,
+            "p99": 33.121,
+            "maximum": 33.121,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 1,
+            "p50": 65.196,
+            "p95": 65.196,
+            "p99": 65.196,
+            "maximum": 65.196,
+            "above_33_333": 1,
+            "above_50": 1
+          },
+          "physics_ms": {
+            "n": 1,
+            "p50": 6.63,
+            "p95": 6.63,
+            "p99": 6.63,
+            "maximum": 6.63,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 1,
+            "p50": 22.497,
+            "p95": 22.497,
+            "p99": 22.497,
+            "maximum": 22.497,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 1,
+            "p50": 11.264,
+            "p95": 11.264,
+            "p99": 11.264,
+            "maximum": 11.264,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_near_still": {
+          "wall_ms": {
+            "n": 120,
+            "p50": 13.863,
+            "p95": 18.15,
+            "p99": 19.421,
+            "maximum": 19.776,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 120,
+            "p50": 24.511,
+            "p95": 65.196,
+            "p99": 65.196,
+            "maximum": 65.196,
+            "above_33_333": 46,
+            "above_50": 46
+          },
+          "physics_ms": {
+            "n": 120,
+            "p50": 20.732,
+            "p95": 20.732,
+            "p99": 20.732,
+            "maximum": 20.732,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 120,
+            "p50": 3.533,
+            "p95": 3.834,
+            "p99": 3.967,
+            "maximum": 4.756,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 120,
+            "p50": 3.976,
+            "p95": 4.879,
+            "p99": 5.228,
+            "maximum": 5.272,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_turning": {
+          "wall_ms": {
+            "n": 48,
+            "p50": 15.422,
+            "p95": 19.117,
+            "p99": 20.166,
+            "maximum": 20.865,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 48,
+            "p50": 15.503,
+            "p95": 15.503,
+            "p99": 15.503,
+            "maximum": 15.503,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "physics_ms": {
+            "n": 48,
+            "p50": 6.038,
+            "p95": 6.038,
+            "p99": 6.038,
+            "maximum": 6.038,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 48,
+            "p50": 3.688,
+            "p95": 4.31,
+            "p99": 4.457,
+            "maximum": 4.503,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 48,
+            "p50": 4.608,
+            "p95": 5.358,
+            "p99": 5.654,
+            "maximum": 5.678,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_pickup": {
+          "wall_ms": {
+            "n": 99,
+            "p50": 13.676,
+            "p95": 19.149,
+            "p99": 28.565,
+            "maximum": 40.131,
+            "above_33_333": 1,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 99,
+            "p50": 16.632,
+            "p95": 18.698,
+            "p99": 18.698,
+            "maximum": 18.698,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "physics_ms": {
+            "n": 99,
+            "p50": 6.787,
+            "p95": 27.525,
+            "p99": 27.525,
+            "maximum": 27.525,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 99,
+            "p50": 3.541,
+            "p95": 4.025,
+            "p99": 4.419,
+            "maximum": 4.454,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 99,
+            "p50": 4.806,
+            "p95": 5.227,
+            "p99": 5.574,
+            "maximum": 5.617,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_held_turn": {
+          "wall_ms": {
+            "n": 32,
+            "p50": 14.887,
+            "p95": 19.161,
+            "p99": 21.67,
+            "maximum": 22.485,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 32,
+            "p50": 18.698,
+            "p95": 18.698,
+            "p99": 18.698,
+            "maximum": 18.698,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "physics_ms": {
+            "n": 32,
+            "p50": 27.525,
+            "p95": 27.525,
+            "p99": 27.525,
+            "maximum": 27.525,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 32,
+            "p50": 3.528,
+            "p95": 4.014,
+            "p99": 4.383,
+            "maximum": 4.474,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 32,
+            "p50": 4.303,
+            "p95": 4.882,
+            "p99": 5.075,
+            "maximum": 5.083,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_enter_inspection": {
+          "wall_ms": {
+            "n": 100,
+            "p50": 11.043,
+            "p95": 17.215,
+            "p99": 37.462,
+            "maximum": 50.797,
+            "above_33_333": 3,
+            "above_50": 1
+          },
+          "process_ms": {
+            "n": 100,
+            "p50": 46.641,
+            "p95": 46.641,
+            "p99": 46.641,
+            "maximum": 46.641,
+            "above_33_333": 83,
+            "above_50": 0
+          },
+          "physics_ms": {
+            "n": 100,
+            "p50": 24.708,
+            "p95": 27.525,
+            "p99": 27.525,
+            "maximum": 27.525,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 100,
+            "p50": 3.077,
+            "p95": 3.827,
+            "p99": 4.16,
+            "maximum": 4.596,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 100,
+            "p50": 3.955,
+            "p95": 4.534,
+            "p99": 4.869,
+            "maximum": 5.633,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_static_inspection": {
+          "wall_ms": {
+            "n": 120,
+            "p50": 10.006,
+            "p95": 13.373,
+            "p99": 14.542,
+            "maximum": 16.14,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 120,
+            "p50": 15.051,
+            "p95": 15.051,
+            "p99": 46.641,
+            "maximum": 46.641,
+            "above_33_333": 5,
+            "above_50": 0
+          },
+          "physics_ms": {
+            "n": 120,
+            "p50": 3.467,
+            "p95": 3.467,
+            "p99": 24.708,
+            "maximum": 24.708,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 120,
+            "p50": 2.867,
+            "p95": 3.556,
+            "p99": 3.679,
+            "maximum": 3.778,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 120,
+            "p50": 3.611,
+            "p95": 4.016,
+            "p99": 4.215,
+            "maximum": 4.222,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_return_hand": {
+          "wall_ms": {
+            "n": 109,
+            "p50": 13.707,
+            "p95": 18.106,
+            "p99": 35.734,
+            "maximum": 249.02,
+            "above_33_333": 2,
+            "above_50": 1
+          },
+          "process_ms": {
+            "n": 109,
+            "p50": 223.992,
+            "p95": 223.992,
+            "p99": 223.992,
+            "maximum": 223.992,
+            "above_33_333": 67,
+            "above_50": 67
+          },
+          "physics_ms": {
+            "n": 109,
+            "p50": 5.013,
+            "p95": 5.013,
+            "p99": 5.013,
+            "maximum": 5.013,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 109,
+            "p50": 3.68,
+            "p95": 4.278,
+            "p99": 4.55,
+            "maximum": 5.381,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 109,
+            "p50": 4.03,
+            "p95": 4.524,
+            "p99": 4.914,
+            "maximum": 4.972,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_return_release": {
+          "wall_ms": {
+            "n": 39,
+            "p50": 14.206,
+            "p95": 24.174,
+            "p99": 137.152,
+            "maximum": 200.169,
+            "above_33_333": 2,
+            "above_50": 1
+          },
+          "process_ms": {
+            "n": 39,
+            "p50": 174.454,
+            "p95": 174.454,
+            "p99": 205.168,
+            "maximum": 223.992,
+            "above_33_333": 39,
+            "above_50": 39
+          },
+          "physics_ms": {
+            "n": 39,
+            "p50": 7.46,
+            "p95": 7.46,
+            "p99": 7.46,
+            "maximum": 7.46,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 39,
+            "p50": 3.711,
+            "p95": 4.25,
+            "p99": 4.443,
+            "maximum": 4.548,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 39,
+            "p50": 4.928,
+            "p95": 5.377,
+            "p99": 5.628,
+            "maximum": 5.73,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        }
+      },
+      "world_return": {
+        "evidence_class": "INERT",
+        "failures": [],
+        "held_error_m": 0.0,
+        "stock_id": "nook_books__Volume0"
+      }
+    },
+    {
+      "run": "world_final_v2",
+      "phases": {
+        "walk_(-0.48, -3.178, 2.2)": {
+          "wall_ms": {
+            "n": 1,
+            "p50": 33.032,
+            "p95": 33.032,
+            "p99": 33.032,
+            "maximum": 33.032,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 1,
+            "p50": 152.144,
+            "p95": 152.144,
+            "p99": 152.144,
+            "maximum": 152.144,
+            "above_33_333": 1,
+            "above_50": 1
+          },
+          "physics_ms": {
+            "n": 1,
+            "p50": 19.004,
+            "p95": 19.004,
+            "p99": 19.004,
+            "maximum": 19.004,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 1,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 1,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "walk_(-0.35, -3.178, 2.2)": {
+          "wall_ms": {
+            "n": 2,
+            "p50": 53.222,
+            "p95": 53.677,
+            "p99": 53.717,
+            "maximum": 53.727,
+            "above_33_333": 2,
+            "above_50": 2
+          },
+          "process_ms": {
+            "n": 2,
+            "p50": 152.144,
+            "p95": 152.144,
+            "p99": 152.144,
+            "maximum": 152.144,
+            "above_33_333": 2,
+            "above_50": 2
+          },
+          "physics_ms": {
+            "n": 2,
+            "p50": 19.004,
+            "p95": 19.004,
+            "p99": 19.004,
+            "maximum": 19.004,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 2,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 2,
+            "p50": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "walk_(-0.48, -3.178, 2.1)": {
+          "wall_ms": {
+            "n": 1,
+            "p50": 43.361,
+            "p95": 43.361,
+            "p99": 43.361,
+            "maximum": 43.361,
+            "above_33_333": 1,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 1,
+            "p50": 152.144,
+            "p95": 152.144,
+            "p99": 152.144,
+            "maximum": 152.144,
+            "above_33_333": 1,
+            "above_50": 1
+          },
+          "physics_ms": {
+            "n": 1,
+            "p50": 19.004,
+            "p95": 19.004,
+            "p99": 19.004,
+            "maximum": 19.004,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 1,
+            "p50": 21.738,
+            "p95": 21.738,
+            "p99": 21.738,
+            "maximum": 21.738,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 1,
+            "p50": 10.583,
+            "p95": 10.583,
+            "p99": 10.583,
+            "maximum": 10.583,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_near_still": {
+          "wall_ms": {
+            "n": 120,
+            "p50": 13.565,
+            "p95": 18.577,
+            "p99": 20.839,
+            "maximum": 21.483,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 120,
+            "p50": 64.069,
+            "p95": 152.144,
+            "p99": 152.144,
+            "maximum": 152.144,
+            "above_33_333": 80,
+            "above_50": 80
+          },
+          "physics_ms": {
+            "n": 120,
+            "p50": 19.727,
+            "p95": 19.727,
+            "p99": 19.727,
+            "maximum": 19.727,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 120,
+            "p50": 3.469,
+            "p95": 3.9,
+            "p99": 4.565,
+            "maximum": 4.774,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 120,
+            "p50": 3.893,
+            "p95": 4.455,
+            "p99": 4.614,
+            "maximum": 4.692,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_turning": {
+          "wall_ms": {
+            "n": 48,
+            "p50": 14.907,
+            "p95": 18.626,
+            "p99": 19.394,
+            "maximum": 19.606,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 48,
+            "p50": 16.084,
+            "p95": 16.653,
+            "p99": 16.653,
+            "maximum": 16.653,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "physics_ms": {
+            "n": 48,
+            "p50": 6.169,
+            "p95": 6.169,
+            "p99": 6.169,
+            "maximum": 6.169,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 48,
+            "p50": 3.863,
+            "p95": 4.189,
+            "p99": 4.423,
+            "maximum": 4.529,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 48,
+            "p50": 4.52,
+            "p95": 5.006,
+            "p99": 5.124,
+            "maximum": 5.138,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_pickup": {
+          "wall_ms": {
+            "n": 99,
+            "p50": 13.707,
+            "p95": 19.372,
+            "p99": 26.299,
+            "maximum": 36.716,
+            "above_33_333": 1,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 99,
+            "p50": 20.517,
+            "p95": 20.517,
+            "p99": 20.517,
+            "maximum": 20.517,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "physics_ms": {
+            "n": 99,
+            "p50": 27.336,
+            "p95": 27.336,
+            "p99": 27.336,
+            "maximum": 27.336,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 99,
+            "p50": 3.693,
+            "p95": 4.202,
+            "p99": 4.334,
+            "maximum": 4.49,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 99,
+            "p50": 4.863,
+            "p95": 4.953,
+            "p99": 5.27,
+            "maximum": 5.277,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_held_turn": {
+          "wall_ms": {
+            "n": 32,
+            "p50": 14.413,
+            "p95": 19.046,
+            "p99": 19.128,
+            "maximum": 19.146,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 32,
+            "p50": 20.517,
+            "p95": 20.517,
+            "p99": 20.517,
+            "maximum": 20.517,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "physics_ms": {
+            "n": 32,
+            "p50": 27.336,
+            "p95": 27.336,
+            "p99": 27.336,
+            "maximum": 27.336,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 32,
+            "p50": 3.497,
+            "p95": 3.965,
+            "p99": 4.283,
+            "maximum": 4.357,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 32,
+            "p50": 4.48,
+            "p95": 4.937,
+            "p99": 5.143,
+            "maximum": 5.234,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_enter_inspection": {
+          "wall_ms": {
+            "n": 100,
+            "p50": 11.014,
+            "p95": 17.999,
+            "p99": 37.946,
+            "maximum": 47.323,
+            "above_33_333": 3,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 100,
+            "p50": 15.078,
+            "p95": 43.066,
+            "p99": 43.066,
+            "maximum": 43.066,
+            "above_33_333": 38,
+            "above_50": 0
+          },
+          "physics_ms": {
+            "n": 100,
+            "p50": 5.853,
+            "p95": 25.531,
+            "p99": 25.531,
+            "maximum": 25.531,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 100,
+            "p50": 3.014,
+            "p95": 3.667,
+            "p99": 3.768,
+            "maximum": 3.774,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 100,
+            "p50": 3.638,
+            "p95": 5.831,
+            "p99": 5.949,
+            "maximum": 6.288,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_static_inspection": {
+          "wall_ms": {
+            "n": 120,
+            "p50": 9.961,
+            "p95": 13.388,
+            "p99": 14.609,
+            "maximum": 15.185,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 120,
+            "p50": 15.555,
+            "p95": 43.066,
+            "p99": 43.066,
+            "maximum": 43.066,
+            "above_33_333": 56,
+            "above_50": 0
+          },
+          "physics_ms": {
+            "n": 120,
+            "p50": 3.324,
+            "p95": 25.531,
+            "p99": 25.531,
+            "maximum": 25.531,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 120,
+            "p50": 2.908,
+            "p95": 3.475,
+            "p99": 3.814,
+            "maximum": 3.952,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 120,
+            "p50": 3.626,
+            "p95": 3.714,
+            "p99": 4.045,
+            "maximum": 4.049,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_return_hand": {
+          "wall_ms": {
+            "n": 110,
+            "p50": 13.664,
+            "p95": 18.158,
+            "p99": 18.998,
+            "maximum": 19.624,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 110,
+            "p50": 256.61,
+            "p95": 256.61,
+            "p99": 256.61,
+            "maximum": 256.61,
+            "above_33_333": 74,
+            "above_50": 74
+          },
+          "physics_ms": {
+            "n": 110,
+            "p50": 5.102,
+            "p95": 5.102,
+            "p99": 5.102,
+            "maximum": 5.102,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 110,
+            "p50": 3.668,
+            "p95": 4.369,
+            "p99": 4.405,
+            "maximum": 4.57,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 110,
+            "p50": 4.036,
+            "p95": 4.501,
+            "p99": 4.587,
+            "maximum": 4.907,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        },
+        "nook_return_release": {
+          "wall_ms": {
+            "n": 40,
+            "p50": 14.126,
+            "p95": 24.125,
+            "p99": 35.484,
+            "maximum": 42.659,
+            "above_33_333": 1,
+            "above_50": 0
+          },
+          "process_ms": {
+            "n": 40,
+            "p50": 83.175,
+            "p95": 150.756,
+            "p99": 150.756,
+            "maximum": 150.756,
+            "above_33_333": 20,
+            "above_50": 20
+          },
+          "physics_ms": {
+            "n": 40,
+            "p50": 4.726,
+            "p95": 5.176,
+            "p99": 5.176,
+            "maximum": 5.176,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 40,
+            "p50": 3.696,
+            "p95": 4.269,
+            "p99": 4.651,
+            "maximum": 4.823,
+            "above_33_333": 0,
+            "above_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 40,
+            "p50": 4.942,
+            "p95": 5.322,
+            "p99": 5.329,
+            "maximum": 5.332,
+            "above_33_333": 0,
+            "above_50": 0
+          }
+        }
+      },
+      "world_return": {
+        "evidence_class": "INERT",
+        "failures": [],
+        "held_error_m": 5.96046447753906e-08,
+        "stock_id": "nook_books__Volume0"
+      }
+    }
+  ],
+  "mechanism_failures": {
+    "mechanism_before_v1": [
+      "cover can clear cistern rim",
+      "free cursor selects internal float",
+      "internal float follows mouse",
+      "cursor selects discharge ball and lift rod",
+      "lifting discharge opens drain independently of handle"
+    ],
+    "mechanism_v1": [
+      "cover can clear cistern rim",
+      "free cursor selects internal float",
+      "internal float follows mouse",
+      "cursor selects discharge ball and lift rod",
+      "lifting discharge opens drain independently of handle"
+    ]
+  }
+}

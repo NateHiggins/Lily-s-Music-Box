@@ -1,0 +1,8 @@
+ERROR: V2 PLAYED STREAMING PROFILE: F01_DOOR_06 reaches its stop through primary grab, fixed mouse travel and release
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _move_front_entrance (res://tests/v2_played_streaming_profile.gd:22)
+       [2] operate (res://tests/orison_v2_first_slice_contract_test.gd:48)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

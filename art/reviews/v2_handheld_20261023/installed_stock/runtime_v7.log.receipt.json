@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 11.53,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T13:00:57Z",
+  "started_utc": "2026-10-23T13:00:45Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "RADIOPHONE REVIEW: PASS checks=20"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/installed_stock/runtime_v7.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/installed_stock/runtime_v7.log",
+  "stdout_sha256": "0367c01635e60f4d182dd10c2924426f0fd8fe7f6228715a0922f428d9cbef70"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/ServiceRadiophoneReview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/installed_stock/runtime_v7",
+ "source": {
+  "dirty_paths": 3310,
+  "dirty_sample": [
+   "M art/blender/scripts/build_service_radiophone_v2.py",
+   " M art/blender/scripts/radiophone_printer_cartridge.py",
+   " M art/blender/service_radiophone_v2.blend",
+   " M art/tools/fix_runtime_texture_imports.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import"
+  ],
+  "repository_head": "99ea932d051fb34e74be6600c99b7e4d1a26b996",
+  "repository_tree": "aa2ad62cb5f6e77142cd704d15118ae3c4b99b0d",
+  "runtime_inputs_sha256": "01700ffd545c18699a4dc855efd067aac4d8faa30f4f894ea53d3d1c7cbf6c7d",
+  "test_path": "game/tests/service_radiophone_review.gd",
+  "test_sha256": "4719894de6573b8386a2967fe677b14e59cdd14deb9942032e40dd10da23f288"
+ },
+ "windowed": true
+}

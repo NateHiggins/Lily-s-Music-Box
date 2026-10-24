@@ -1,0 +1,525 @@
+{
+  "evidence_class": "INERT",
+  "files": [
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/bath_lavatory_contact.png",
+      "sha256": "6136fd068e8ce9f2d67e491370db28de7550b99bfdd54034fe1f18c47bcf3e8d"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/bath_lavatory_contact_final.png",
+      "sha256": "b4d7114b011c77fc809a46091f736bbc0e1504eb435c4e0cff7b946b788f8d70"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/bath_lavatory_contact_front.png",
+      "sha256": "97ba2c5b709396e38f8884f9a34ecd8a7cec39a887cb97b50452db693d194cd2"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/bath_water_closet_contact.png",
+      "sha256": "57236b3309f4b0b2d095394ad02ab81f627417b65da2132998d0a1a12147a8bd"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/bath_water_closet_contact_final.png",
+      "sha256": "2ecea24a894d16127582704e641f1b00f61f5c414cf9a0e8d5f05b8dc5403c15"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/bath_water_closet_contact_front.png",
+      "sha256": "cf347c15d1e1ee67598246883d73256c14139737b23c9b6fccf9666cded7aaa8"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/candidate_v1/bath_water_closet_contact.glb",
+      "sha256": "7e7fbb03acc4cc5e76ff4b5c54cf363154f9644cbffef32219d5ebb320256f08"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/candidate_v1/build_bath_contact_candidates.py",
+      "sha256": "b9d7bafa30dea12ab3e4810ff8602706bc36eb0d94de6ff23f076fc60347c841"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/candidate_v1/native_candidates.json",
+      "sha256": "9a1665bdd4ad9f1a7d356aa6c2cb62d8e8f0b9c9accd25b7a822a9525e72532b"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/candidate_v3/bath_water_closet_contact.glb",
+      "sha256": "8a576f07722a7d9b031237f82324f99ed098efc88ff3c27fb05618b61f5b1ea7"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/candidate_v3/build_bath_contact_candidates.py",
+      "sha256": "690b402dfccd33e933b32710a0138a098749f47c39ac4f03f251c10bec1c31c8"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/candidate_v3/native_candidates.json",
+      "sha256": "bb9c8656bd60c642b17cdf10bb0d99551e30d24d0ea1788066a186e22631d83c"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/earlier_diagnostic_retention.json",
+      "sha256": "785778ce7444c6fbbae9634504fdcbbf3f90bedfca06401cc2b3fd5db1d0dedb"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/final_batch.json",
+      "sha256": "fef5817d27f9114ec70a25191a297f56aa0a8909fcc672f6e754cee4bd262a80"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/import_v1.log",
+      "sha256": "6838ae03561ff00c3fbb9666a2c9cc4f19732c9cfe9f1475e50ed56c14893a6f"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/import_v1.log.receipt.json",
+      "sha256": "0b7f8d4aec9324722d345040289a367c0e1f6616f9ed0b7d65550a756168eb1c"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/import_v1.log.stderr",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/import_v2.log",
+      "sha256": "c9e12451ee52f97533e331d832ea3e26ea3d4cad641e7d0e913488bdbb41da84"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/import_v2.log.receipt.json",
+      "sha256": "64fe9cc845d6640ee0b9759cdca56321ee17f50a936f45b81df917dc44246b55"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/import_v2.log.stderr",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/import_v3.log",
+      "sha256": "f0941f32dd092fb0dee37853de992b1c9e939bccc25b5c40a1608f0f8dab1f05"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/import_v3.log.receipt.json",
+      "sha256": "30ca1d74de9322d01eebe307d6058623423e3eec721e3f97af22836ef813dc91"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/import_v3.log.stderr",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/installed_v1/installed.png",
+      "sha256": "08c34b5955ccb91f58fc08052a45472b20832bb0bb2a75f27d510ee52cdf6d21"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/installed_v1/profile.json",
+      "sha256": "2838eb4aab4e371bbeeda029f63d7e636feea6d500604c2b107d8928e245215f"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/installed_v1/summary.json",
+      "sha256": "439928161b7d8e82e2ddc2cf21580bae32e707671d154cee3b9dcc8571e8ca5d"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/installed_v1.log",
+      "sha256": "9f1e9b9c9167e5bd16d3216efe77a4380d1db49afe56bda74a73adb612fdddfb"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/installed_v1.log.receipt.json",
+      "sha256": "2bf7c26fcd777d1daff89e0e33372e45a58278891941b550d74dce3b56d8dccf"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/installed_v1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/legacy_input_before_wait.gd",
+      "sha256": "0e32a7077b47dcf519352a0fe1ca7e129b6afcebaeff54678b7069c20a3bbb96"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/native_build_v3.log",
+      "sha256": "4adf2f0596f37ff0e73653240a30972c622396f1e7a7ad57e97ddd82e0c004f3"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/native_build_v4.log",
+      "sha256": "b38245fbea82fc7e679daf175e381f508795392fca255f6e98d925c5b9d62e62"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/native_candidates.json",
+      "sha256": "9baf8d6023d76715996002f575bd974b888ec7e0b1c0305a0f0ad3488e5ac222"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/native_render.log",
+      "sha256": "881f6e82f386a3f0c0a7876a69c98e5060a367c19e50a776e52be7ad088726af"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/native_render_front.log",
+      "sha256": "32dce21ffd6cbda43629d3ff2c3b81f1876576d5f922ee53b88db37c461d04f5"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/native_render_v2.log",
+      "sha256": "b46a1634d0c8dfc6b713caca20c32181d606dd14440349586fa7f4a37e880939"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/native_render_v3.log",
+      "sha256": "66529bc5d5f96c4ee846dc48b7845d05e4524231edbf33a178fb441d3377d3a7"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/physical_imports.log",
+      "sha256": "ddc2ca5bfb7a67e625bfda3300467eb1a1363f468ca728eb07299de90f426dbd"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v1/cistern_bottom.png",
+      "sha256": "68fbb0e309c37253b19c10778bfa5f89038b5c723b3de3507a8abcebbb6d72e4"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v1/cistern_inspection.png",
+      "sha256": "dd3b73d522bd2d94784e21132444b32548b196948a08ae22d1448b171a224baa"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v1/handheld_collapsed.png",
+      "sha256": "e55204bcf46b77394cbf9b2c20b61688280e7c777b28971dc6b84258eb3a6911"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v1/handheld_expanded.png",
+      "sha256": "b99ecbf80a25a04f9c3b02921e973f89576fa608ff32a1ab326b6f328da731de"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v1/handle_pressed_linkage.png",
+      "sha256": "cb4b72abd53ffc1aaf7d5447e59f2aae574dff3d0dc735a737c73c6772c12a0e"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v1/locked_reticle.png",
+      "sha256": "73145f390a7527382ede9ee5561905df944a83a119f5513aad0ccf824b4eaaaf"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v1/seat_and_drain.png",
+      "sha256": "a0685f633b01a456857fb29a3d7f854e3b5f6c960df8171b745375d3b3ee5e3f"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v1/toilet_form.png",
+      "sha256": "9bf5a22a20e0a2697645ef3230243a06a368fe2f2388897755727f89999be706"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v1.log",
+      "sha256": "c208f8b66cb8831690f59d7d8761c84ccfd43484d0ac477a12536cfef8b4f078"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v1.log.receipt.json",
+      "sha256": "b7412528b6ce15d0f226150e898bad08761c0172a0fba017bc489770e74e7044"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v2/cistern_bottom.png",
+      "sha256": "68fbb0e309c37253b19c10778bfa5f89038b5c723b3de3507a8abcebbb6d72e4"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v2/cistern_inspection.png",
+      "sha256": "bbcef0394ee2ca05f5b6776cca4ca212500acd2d0598f981b437ba7d4a4addaa"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v2/handheld_collapsed.png",
+      "sha256": "1949e334f94e6db2b10410dd7335a6cde362c25c36f5180a58fa97a88c7b7b83"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v2/handheld_expanded.png",
+      "sha256": "65b2af7449088446f6f2c0a8c2dd143a4192d1ce4de2282e6f7e59e84be09340"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v2/handle_pressed_linkage.png",
+      "sha256": "cb4b72abd53ffc1aaf7d5447e59f2aae574dff3d0dc735a737c73c6772c12a0e"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v2/locked_reticle.png",
+      "sha256": "73145f390a7527382ede9ee5561905df944a83a119f5513aad0ccf824b4eaaaf"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v2/seat_and_drain.png",
+      "sha256": "a0685f633b01a456857fb29a3d7f854e3b5f6c960df8171b745375d3b3ee5e3f"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v2/toilet_form.png",
+      "sha256": "784a80693e938fe77902a7f770308edf6e086d84692c4caac80ee967a80accd4"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v2.log",
+      "sha256": "a74889c9cfa1adb38f45d4f8d835f4eab3c43a789bb3f30a05ece246fd51800c"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v2.log.receipt.json",
+      "sha256": "b2523e29fe86e7ce0332521cea80ffbcf726b3d7cfe4b9c8be45ef73e25e69b0"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v3/cistern_bottom.png",
+      "sha256": "68fbb0e309c37253b19c10778bfa5f89038b5c723b3de3507a8abcebbb6d72e4"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v3/cistern_inspection.png",
+      "sha256": "ca95c3e9ecc7ce122f7df8081e7ef4e1fc16c094d588a1c83625f134612f6902"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v3/handheld_collapsed.png",
+      "sha256": "0d72b6dc613b5f8da51a021ddfb3a93ed3ed3f16a1345e8b15adba02be23d8db"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v3/handheld_expanded.png",
+      "sha256": "e1da1f88cbd394cf8b52146ebf2167301de2cbcd2f1496b203b801f77439ac6e"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v3/handle_pressed_linkage.png",
+      "sha256": "cb4b72abd53ffc1aaf7d5447e59f2aae574dff3d0dc735a737c73c6772c12a0e"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v3/locked_reticle.png",
+      "sha256": "73145f390a7527382ede9ee5561905df944a83a119f5513aad0ccf824b4eaaaf"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v3/seat_and_drain.png",
+      "sha256": "a0685f633b01a456857fb29a3d7f854e3b5f6c960df8171b745375d3b3ee5e3f"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v3/toilet_form.png",
+      "sha256": "a52035a741b611e1b684de3e55e49f5194252db87291822b64f1fc8b96bce5ab"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v3.log",
+      "sha256": "a35c718231d7df137795047fc1b55830927debfbeca397a31d2cd77bf47418ec"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v3.log.receipt.json",
+      "sha256": "394e9294818886d98e3f267738c4712cf39fd18204c5c829ba75a917301234f8"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v3.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v4/cistern_bottom.png",
+      "sha256": "68fbb0e309c37253b19c10778bfa5f89038b5c723b3de3507a8abcebbb6d72e4"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v4/cistern_inspection.png",
+      "sha256": "bbcef0394ee2ca05f5b6776cca4ca212500acd2d0598f981b437ba7d4a4addaa"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v4/handheld_collapsed.png",
+      "sha256": "5db6958c005d3776b1893c1d50994e28329e1cbb1c63c08214fe7601df9cf998"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v4/handheld_expanded.png",
+      "sha256": "b99ecbf80a25a04f9c3b02921e973f89576fa608ff32a1ab326b6f328da731de"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v4/handle_pressed_linkage.png",
+      "sha256": "cb4b72abd53ffc1aaf7d5447e59f2aae574dff3d0dc735a737c73c6772c12a0e"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v4/locked_reticle.png",
+      "sha256": "73145f390a7527382ede9ee5561905df944a83a119f5513aad0ccf824b4eaaaf"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v4/seat_and_drain.png",
+      "sha256": "a0685f633b01a456857fb29a3d7f854e3b5f6c960df8171b745375d3b3ee5e3f"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v4/toilet_form.png",
+      "sha256": "b406fe6178c66fc7caa200b6cd3772db3c92f6b3d31d6253c3101f19a6630202"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v4.log",
+      "sha256": "44e47415094fad6a10c6fe0c6c3e0e572814bdc93acf39c6c5ef04dc493f9758"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v4.log.receipt.json",
+      "sha256": "7761f803267e88c37a47c167e762e53a13c006dfeda796ae080bfb7b87618e5a"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/pick_trace_v4.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/preservation.json",
+      "sha256": "f4ac34677de4ebe561d11087d0f31270a381c2775e8d2985300cc7bfdb1eb325"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/reader.log",
+      "sha256": "105ee5c14863190c58ce8c5de72d2d1762aed307c9c2a167a3c68cd36ab4768f"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_original/cistern_bottom.png",
+      "sha256": "68fbb0e309c37253b19c10778bfa5f89038b5c723b3de3507a8abcebbb6d72e4"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_original/cistern_inspection.png",
+      "sha256": "bbcef0394ee2ca05f5b6776cca4ca212500acd2d0598f981b437ba7d4a4addaa"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_original/handheld_collapsed.png",
+      "sha256": "fcca971a844da8a40b3ede6765a9ea5743f3334bc7db023d22ae8988a5768699"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_original/handheld_expanded.png",
+      "sha256": "b99ecbf80a25a04f9c3b02921e973f89576fa608ff32a1ab326b6f328da731de"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_original/handle_pressed_linkage.png",
+      "sha256": "cb4b72abd53ffc1aaf7d5447e59f2aae574dff3d0dc735a737c73c6772c12a0e"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_original/locked_reticle.png",
+      "sha256": "73145f390a7527382ede9ee5561905df944a83a119f5513aad0ccf824b4eaaaf"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_original/seat_and_drain.png",
+      "sha256": "a0685f633b01a456857fb29a3d7f854e3b5f6c960df8171b745375d3b3ee5e3f"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_original/toilet_form.png",
+      "sha256": "6af44ede2936a8f1c8a89962cfab9625a8414a8b02b9fdbb1e199bc23868ee69"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_original.log",
+      "sha256": "e51d98dcb789aaa13546c885a3ba41ccdbce498c81a2828e93ac707ebc3f3e71"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_original.log.receipt.json",
+      "sha256": "5f883336bb6b71bbb9491147e355a2e5226c7530cd5b594e3e81fa818c314c08"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_original.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_v1/cistern_bottom.png",
+      "sha256": "68fbb0e309c37253b19c10778bfa5f89038b5c723b3de3507a8abcebbb6d72e4"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_v1/cistern_inspection.png",
+      "sha256": "dd3b73d522bd2d94784e21132444b32548b196948a08ae22d1448b171a224baa"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_v1/handheld_collapsed.png",
+      "sha256": "abe753f789ae8f4d4a794161bfe31ac2d5f57719420a7f2714ad02f6e87635d8"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_v1/handheld_expanded.png",
+      "sha256": "507732454a16fa6cfd922c62fab2bcce424c43088060be741941228c8cbdf750"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_v1/handle_pressed_linkage.png",
+      "sha256": "cb4b72abd53ffc1aaf7d5447e59f2aae574dff3d0dc735a737c73c6772c12a0e"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_v1/locked_reticle.png",
+      "sha256": "73145f390a7527382ede9ee5561905df944a83a119f5513aad0ccf824b4eaaaf"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_v1/seat_and_drain.png",
+      "sha256": "a0685f633b01a456857fb29a3d7f854e3b5f6c960df8171b745375d3b3ee5e3f"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_v1/toilet_form.png",
+      "sha256": "5585bfc0cb0b880fe7d58a632797b31c439279abde131ed56890c3357174b8fd"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_v1.log",
+      "sha256": "48ca4acc4e84c42c33e73885de8db755cb32237fe745ee26b44ebf5ad2ba474d"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_v1.log.receipt.json",
+      "sha256": "a4dce1dffc200d0beac895f4e41e8bdcb4405b7feaa164dafb9f94b145e62526"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/toilet_v1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v1/candidate.png",
+      "sha256": "3775b3dd50cfb356f888528ec0d4a71dcf2d11d9be4a54b4cac2f4e85ba85826"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v1/original.png",
+      "sha256": "db30a43b16f08c2edbb41901159a78d0d89a08dcebf1439c505d6d9e67c3fcd2"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v1/profile.json",
+      "sha256": "c384c5d91f524ec5273fbb71ab91a8651ad5529585d4c8644157e01d6592b533"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v1/restored.png",
+      "sha256": "f3080c440d0129ad075dc1b9930e561bac431e91178879bf7d684206eba44cd9"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v1/summary.json",
+      "sha256": "00de1fd249ab36f2cbfa590fe19f955ec43c12997e47f66f86e5c3f4c76c92a9"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v1.log",
+      "sha256": "533fe8561ae6e6cfbeb7784a4ad6aecff3dbac6c83adaeb362c85a7b1a408fdf"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v1.log.receipt.json",
+      "sha256": "587ca56a8a7f3f49c688a94af079193c96185098ab29bb68ea61c48b7ffc10eb"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v2/candidate.png",
+      "sha256": "77bd526d6be2309041fdd5d2c02c8c994e062d8718572afc2101fb2cf7783916"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v2/original.png",
+      "sha256": "aabdea76132b37e57a80dad765520ba05303ac1771aecd70e5c133b601c694b6"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v2/profile.json",
+      "sha256": "908c59179a4d8ded7268a6e8777680eae3d9a38107e794eeee4be896acd90895"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v2/restored.png",
+      "sha256": "364659800b513866f3551d470ba297cd22a75f9c986781d3434c4f0d8f23f84b"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v2/summary.json",
+      "sha256": "d3ca97aba450e3cfa60b462ac10cc4a96b8be362e0bf19ba5cccc16cd7fd3929"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v2.log",
+      "sha256": "5096eb8050871b499006cc62064c17a70d792d11d9e5b3d9c6328d0f1f9dba60"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v2.log.receipt.json",
+      "sha256": "0f40f809222d6a862e75b4868eb86aa04a3871a248649fbb1b0b118cf53f495e"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v3/candidate.png",
+      "sha256": "0a02ccce383589162c3674854ccb3f2bb44664e4ef746c973afbb0b721b4f6b6"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v3/original.png",
+      "sha256": "1590759ed17c21e9767dd151aa3f6a79ba1cbd79c2457dee97bf6946c8599438"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v3/profile.json",
+      "sha256": "aadf37727b720bea5519f4985953eba359612eef56938bd7d5d886babad04a2a"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v3/restored.png",
+      "sha256": "fbc1d643617fa3ee949e284fff273007d2c67521070b0470f5ab2586d7af9069"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v3/summary.json",
+      "sha256": "ea25af30757cb6c6d67e5fc10133922f04af41c28d8fd8bf8faddfba99b75355"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v3.log",
+      "sha256": "c54d27e6c7a3a95d5ab202401fb9e6c51c4e401e0dd2f5bb71737ba7930372d3"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v3.log.receipt.json",
+      "sha256": "6bae20dc9ad44e6616ed3f0b97b4413b9dc3467ac58978459e957d65964fca5a"
+    },
+    {
+      "path": "art/reviews/v2_bath_contact_20261023/world_v3.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

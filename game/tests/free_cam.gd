@@ -80,10 +80,10 @@ func _ready() -> void:
 	# back as a dim blob and looked like a lighting problem in the room.
 	if OS.get_environment("SHOT_TORCH") == "0":
 		player.flashlight.visible = false
-		player._light_mask.visible = false
+		pass # Photographic lamp overlay retired globally.
 	if OS.get_environment("SHOT_TORCH") != "0":
 		player.flashlight.visible = true
-		player._light_mask.visible = true
+		pass # Photographic lamp overlay retired globally.
 		# carry the torch with the free camera, not the parked body
 		player.flashlight.reparent(cam)
 		player.flashlight.transform = Transform3D(
@@ -666,7 +666,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_F:
 				var t: SpotLight3D = root.player.flashlight
 				t.visible = not t.visible
-				root.player._light_mask.visible = t.visible
+				pass # Photographic lamp overlay retired globally.
 			KEY_L:
 				fill.light_energy = 0.0 if fill.light_energy > 0.0 else 3.0
 			KEY_P:

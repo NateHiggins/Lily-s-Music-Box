@@ -1,0 +1,516 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Packet integrity. Runtime runs, diagnostic captions, original sources and static boards retain their own verification boundaries.",
+  "files": [
+    {
+      "path": "analysis.json",
+      "bytes": 3117,
+      "sha256": "7fc1cd3b176ab5e7cf332dbce6cd6350bca435282ee0ecfde63918d95e9a53ef"
+    },
+    {
+      "path": "analyze.py",
+      "bytes": 2119,
+      "sha256": "7ed4d590498aee516a10afe2a421796c928bfb4e771d9203c0b8b0ec808a78ce"
+    },
+    {
+      "path": "before_v1/frames.json",
+      "bytes": 281072,
+      "sha256": "d59b975cdec1bb76f7610f7e1db3ddf7d219e96d31fb5c6236181edfe63e4f97"
+    },
+    {
+      "path": "before_v1/held_projection.json",
+      "bytes": 4662,
+      "sha256": "b96b4eb4e7830cf9e30121705946cf5eb7d66e235b9948ac24d8d5431dcb677e"
+    },
+    {
+      "path": "before_v1/hose_checks.json",
+      "bytes": 9892,
+      "sha256": "b6bfb87d65aefb3f0ce01db11ffa325011a8ce167bd350b8c618b4227e0ebe10"
+    },
+    {
+      "path": "before_v1/idle_visuals.json",
+      "bytes": 5287,
+      "sha256": "8f88ffd5f2d38e898864769c64204f6f4bc241025660cd28f4c77b17f669db6f"
+    },
+    {
+      "path": "before_v1/installed_held_nozzle.png",
+      "bytes": 597671,
+      "sha256": "d9c720c13a2f2b08d6255af706f4b2e9ec658edbf880d4bb89b21bfb62f12323"
+    },
+    {
+      "path": "before_v1/last_position.png",
+      "bytes": 595483,
+      "sha256": "cd8c14bf95ea2829f6aea2df48c77250688e0348d08b152feafded1d076889fc"
+    },
+    {
+      "path": "before_v1/route.json",
+      "bytes": 1480,
+      "sha256": "5599966d99021e1b53c54e97125ef86dcb64a3e83ad8b23fb77fdbaf3c3cd19a"
+    },
+    {
+      "path": "before_v1.log",
+      "bytes": 3431,
+      "sha256": "4580baaa4f93b9ad1d2ce99673189d446b78242334b17ea3cd65f8e6fab72b07"
+    },
+    {
+      "path": "before_v1.log.receipt.json",
+      "bytes": 2880,
+      "sha256": "13c9e5988afd574116973eba743bad802a053aa65bee2265b309c741e7510492"
+    },
+    {
+      "path": "before_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "chain_v1/actual_repaired_line.json",
+      "bytes": 1894,
+      "sha256": "15a873de9d1a196f8ce40346946d1fc0a01fae72da0e40b968132f0f77bd247f"
+    },
+    {
+      "path": "chain_v1/frames.json",
+      "bytes": 734958,
+      "sha256": "b875911eedbc9268848097fc10b525799adcbca0a00f5ff0f914d93d91d2e67c"
+    },
+    {
+      "path": "chain_v1/held_projection.json",
+      "bytes": 4696,
+      "sha256": "d2e2821c2ee7a3c709796b9cb5d44b8a9d9981c0f6bd59529f1526b64103d0e4"
+    },
+    {
+      "path": "chain_v1/hose_checks.json",
+      "bytes": 28647,
+      "sha256": "9c1dfa5e91cdad4fd3cbadee0feff4c1c6fac306001b4526293117740ac0e034"
+    },
+    {
+      "path": "chain_v1/installed_held_nozzle.png",
+      "bytes": 598378,
+      "sha256": "a8f52ad45bd86015ddd6f305a73316495bf5c72a585ddf0a191556130785a7e3"
+    },
+    {
+      "path": "chain_v1/installed_spray.png",
+      "bytes": 819248,
+      "sha256": "1e3dcd2735171955909531edcccbcd25cb068f12d237e11e1166d51af6c150cf"
+    },
+    {
+      "path": "chain_v1/installed_union.json",
+      "bytes": 12400,
+      "sha256": "21883bb791d17a432d93d47eb379978c17ea88e7dc5bd58f0cccab5d934808c6"
+    },
+    {
+      "path": "chain_v1/installed_union_review.png",
+      "bytes": 904899,
+      "sha256": "a4134dfc05663d8e95476e096871da15985788b1a1b2b772d629f0b0f39957bb"
+    },
+    {
+      "path": "chain_v1/last_position.png",
+      "bytes": 1314465,
+      "sha256": "67a15ecf2e61f9c2585854400080173a41e644e92b0d80cc4114a5eaf7bfe201"
+    },
+    {
+      "path": "chain_v1/physical_gasket_work.png",
+      "bytes": 841049,
+      "sha256": "e930c42243cd18a67bca5cf0b1f776854be3f4af2413e9443182462972042346"
+    },
+    {
+      "path": "chain_v1/rebuild_comparison.json",
+      "bytes": 3747,
+      "sha256": "173a4356f2fbdac77a1ab92c753e7c127194e7f173f70e0fcc28739410331795"
+    },
+    {
+      "path": "chain_v1/release_support.json",
+      "bytes": 229,
+      "sha256": "04b2874ed6c0b0db8359984548832ffd99af158c38765369dd7b7da232d0bc25"
+    },
+    {
+      "path": "chain_v1/remote_nozzle_inspection.png",
+      "bytes": 1077741,
+      "sha256": "4c3c35d4ff50eb6305f02b3e14a963cea8dd70e3102fcdc26895cf4d5827fb98"
+    },
+    {
+      "path": "chain_v1/remote_state.json",
+      "bytes": 1666,
+      "sha256": "7b7e84076e341111c189534f873f4407899506bf15bf3e3152a96211f78019be"
+    },
+    {
+      "path": "chain_v1/route.json",
+      "bytes": 3218,
+      "sha256": "e75166e347402ffa6b8288b6e90f18a6d8de2e3c881d2e41d1955ca13f84561c"
+    },
+    {
+      "path": "chain_v1.log",
+      "bytes": 16445,
+      "sha256": "482385d77deeefeaba212ee87631b279351b862eff2e6e3725f5314b9405d0af"
+    },
+    {
+      "path": "chain_v1.log.receipt.json",
+      "bytes": 2848,
+      "sha256": "81278400b5d30bbdb28950a672b6a39346f3b4024402548708387a0ea5166a7c"
+    },
+    {
+      "path": "chain_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "chain_v1_v2_hose_installed_union_review.gd.gz",
+      "bytes": 2398,
+      "sha256": "951ec398340ad63683c5694c72deb1420437b3f298eeb93f303b58c3155bb129"
+    },
+    {
+      "path": "chain_v1_v2_hose_installed_world.gd.gz",
+      "bytes": 4267,
+      "sha256": "9bce31683194a81efd195e0ad59cff20471fb4bad9e878f30e3ce0e44136c109"
+    },
+    {
+      "path": "gasket_v1/frames.json",
+      "bytes": 293119,
+      "sha256": "124952df6cfe3ab0c48af73d1b6d98e5c6400cf68dfd4ec1f119d80dba35bab0"
+    },
+    {
+      "path": "gasket_v1/held_projection.json",
+      "bytes": 4695,
+      "sha256": "5d6f63b2958a2fc8949d85a000306a34b7453673c2492a8f20489c79febf3cec"
+    },
+    {
+      "path": "gasket_v1/hose_checks.json",
+      "bytes": 11054,
+      "sha256": "b0459f2c14aeafebb6016125517536827a3ddcddf57047b25b6bfe0e3f41fd27"
+    },
+    {
+      "path": "gasket_v1/installed_held_nozzle.png",
+      "bytes": 596569,
+      "sha256": "1142c75aafcdb6192b7081f4b85b02c134bdb298eac79505bcd917baf8945218"
+    },
+    {
+      "path": "gasket_v1/installed_union.json",
+      "bytes": 8975,
+      "sha256": "4f0d21b715341a64b3932b3d6063a1661cae5e5666a8c36b32193a4dc42cb001"
+    },
+    {
+      "path": "gasket_v1/installed_union_review.png",
+      "bytes": 905533,
+      "sha256": "25ebb7deb3afab8a76750a22ce520d439a2f06bd03b03e529889baff4636fc14"
+    },
+    {
+      "path": "gasket_v1/last_position.png",
+      "bytes": 593873,
+      "sha256": "67f2535731b196fc96d662ca66ecc20cc3dffee229a73e3a953db4df051355ae"
+    },
+    {
+      "path": "gasket_v1/physical_gasket_work.png",
+      "bytes": 841897,
+      "sha256": "ccc5481f79fcb59f4aa20bc686e25049d43dab45cf0579ed9a90d30c9468fae4"
+    },
+    {
+      "path": "gasket_v1/route.json",
+      "bytes": 1483,
+      "sha256": "ff340d7d35beb3a5ce249ba17a99a9454ddc88dff0295235d88b50f38ff9accb"
+    },
+    {
+      "path": "gasket_v1.log",
+      "bytes": 7607,
+      "sha256": "03612b39c256ae4201889fb7ab8155d6acf9b26ee75722b5a9a45f268b13501a"
+    },
+    {
+      "path": "gasket_v1.log.receipt.json",
+      "bytes": 2886,
+      "sha256": "2f889de8fe72b2a0ca1170efe576d9c0a86ee5e18cb2beb7934ccd955ec6204c"
+    },
+    {
+      "path": "gasket_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gasket_v1_source.gd.gz",
+      "bytes": 1566,
+      "sha256": "ab931e91b64f74930a1590cadf2962e3156767e72c97f58e625b930e2b653d22"
+    },
+    {
+      "path": "gates/board.json",
+      "bytes": 351765,
+      "sha256": "b0b6f9ea380f8d59ec84908e91a9c6ba4351c920e2e0fa9fae13334b90d0c366"
+    },
+    {
+      "path": "gates/board.md",
+      "bytes": 8308,
+      "sha256": "e8c45d86aea3a68276fcbd83b6ce941fa588594a7ea8a24a59cbd9f44296cf4c"
+    },
+    {
+      "path": "nozzle_v1/frames.json",
+      "bytes": 513941,
+      "sha256": "388255dd11338842a0a3fc534278921d9c88a421ab0710bf0dd68c258f1f8d2d"
+    },
+    {
+      "path": "nozzle_v1/held_projection.json",
+      "bytes": 4688,
+      "sha256": "c34e1c26705bcacd12b25d9cb521f8ea6e9eeba61806a7752f1d11846d2e88b6"
+    },
+    {
+      "path": "nozzle_v1/hose_checks.json",
+      "bytes": 11333,
+      "sha256": "3c837fe3cad3d9a7184584666a77544d13d1f6cbb1435878d743ba0bfaad10ce"
+    },
+    {
+      "path": "nozzle_v1/installed_held_nozzle.png",
+      "bytes": 595649,
+      "sha256": "fc4fe59607408364019716bcfe69b3f10fee3c286b05e142ffa99bad8034b8f5"
+    },
+    {
+      "path": "nozzle_v1/installed_union.json",
+      "bytes": 12400,
+      "sha256": "c9b196a04a1b01a781a860ea95826d4ec1b8979d18ded7bb1e7738537448912a"
+    },
+    {
+      "path": "nozzle_v1/installed_union_review.png",
+      "bytes": 904208,
+      "sha256": "a81f7318b253fdd7f42bf01bb8531c51f1a47ae4f4c7b0bc8a50d426aaccecce"
+    },
+    {
+      "path": "nozzle_v1/last_position.png",
+      "bytes": 595442,
+      "sha256": "c94d0e2e0bc3ad4128ecd705c61c1a9cdb9596c154a972ed2c1062f72ef8c285"
+    },
+    {
+      "path": "nozzle_v1/physical_gasket_work.png",
+      "bytes": 843196,
+      "sha256": "545e310c7efb2a7149b06b89de14e7b32beb6eb5a0ae73f78e52e00f8bfc9d78"
+    },
+    {
+      "path": "nozzle_v1/route.json",
+      "bytes": 1483,
+      "sha256": "ff340d7d35beb3a5ce249ba17a99a9454ddc88dff0295235d88b50f38ff9accb"
+    },
+    {
+      "path": "nozzle_v1.log",
+      "bytes": 11756,
+      "sha256": "eebbc82435e5dbc26bee946c191ad538c357c1abaaa369b76614f6245ea6a828"
+    },
+    {
+      "path": "nozzle_v1.log.receipt.json",
+      "bytes": 2877,
+      "sha256": "9bc472ad58cf6305f75f22e104a074a6858fc87300519bc72288f692d6bc007c"
+    },
+    {
+      "path": "nozzle_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nozzle_v1_source.gd.gz",
+      "bytes": 1681,
+      "sha256": "7832013612756f9c2e1ba15b24ba17cb3a859aceaf13ed387af450323fc8f711"
+    },
+    {
+      "path": "original_installed_world.gd.gz",
+      "bytes": 4236,
+      "sha256": "46b75230daaa2182ba8d56df415b1bafc85e0de48989cb8bdfc9859921c062de"
+    },
+    {
+      "path": "original_nozzle_bench.gd.gz",
+      "bytes": 6172,
+      "sha256": "58d9e77c7651843988049dcfd147a4187a4fd2b4e41654e5c23ee932572ec0b5"
+    },
+    {
+      "path": "protected.json",
+      "bytes": 3999,
+      "sha256": "74d194246b2383b00ec3b493b09f0b41345dbb6d9dffc817fccb081bd5b840ff"
+    },
+    {
+      "path": "shared_records_preserved.json",
+      "bytes": 1754,
+      "sha256": "056181b12519e13d0f9d1e1d8b859a5fddb68e6409437af3437f32b3611e70cc"
+    },
+    {
+      "path": "source_before/fire_fold_stock.gd.gz",
+      "bytes": 1673,
+      "sha256": "c3a1dcd1877e1cd1826b667965f4bccf28483a5e1fefaecd0107c7650dcce90e"
+    },
+    {
+      "path": "source_before/fire_hose_rack.gd.gz",
+      "bytes": 1843,
+      "sha256": "8f077ce912dd1523387cfea69948455cb374ae723253bee4427f12ae9f9f5e20"
+    },
+    {
+      "path": "source_before/orison_v2_fire_hose_visual.gd.gz",
+      "bytes": 887,
+      "sha256": "1ca260c4757197365b39b17f70eb18153147bf18b6ad8c4da37040dbca9c3d55"
+    },
+    {
+      "path": "source_before/sources.json",
+      "bytes": 1780,
+      "sha256": "ca98aff40a4c923026747bf0d9f51270c3b01baec04ff4a5ccaeadf8f1d86b4d"
+    },
+    {
+      "path": "source_before/v2_fire_line_cabinet.gd.gz",
+      "bytes": 7562,
+      "sha256": "de96a7d1e431a2efdab54d2f029e8aa7c5bd24bc4fb359b839b9beadf2712eea"
+    },
+    {
+      "path": "source_before/v2_hose_idle_visual_profile.gd.gz",
+      "bytes": 1151,
+      "sha256": "40e752fcabd9701e532f64bca99641f31304fa313112ed8cfeceea5eb2ea7c01"
+    },
+    {
+      "path": "source_checks.json",
+      "bytes": 2796,
+      "sha256": "79367bf816bd0b642f48f15826607b31a49b8ee617275ddb13e53468572b4e02"
+    },
+    {
+      "path": "source_final/fire_line_gasket.gd.gz",
+      "bytes": 3359,
+      "sha256": "3edfcfadb0a350efb1338e0bc9cec805ca15fad4fc3329420d314197aea21e2c"
+    },
+    {
+      "path": "source_final/fire_loose_union.gd.gz",
+      "bytes": 2079,
+      "sha256": "52c22fd28e32290762122e1e2eb2e4eb72207104b51aa09eb052e9253f15cd59"
+    },
+    {
+      "path": "source_final/fire_nozzle_coupling.gd.gz",
+      "bytes": 9726,
+      "sha256": "7028b69e03cbf51bfff8e75fc4063692cb4eb0b1d6dac5a4a7eb78ef18ca2554"
+    },
+    {
+      "path": "source_final/fire_unracked_hose.gd.gz",
+      "bytes": 11751,
+      "sha256": "7d528e4741d1713de3c4c51ee9b42dd75f90a86350644893935d90f33ece1c37"
+    },
+    {
+      "path": "source_final/fixed_gesture_patrol_hand.gd.gz",
+      "bytes": 763,
+      "sha256": "f65f12fb435e8882a9a8f988ac0b4775ff99c82c5a8df44ad7fad75c6268c7f0"
+    },
+    {
+      "path": "source_final/sources.json",
+      "bytes": 5488,
+      "sha256": "9dfc295e4c8972881d55f419d80adbf03e09c87afbe1d92062bfad1e5f142555"
+    },
+    {
+      "path": "source_final/v2_fire_hand_bench.gd.gz",
+      "bytes": 10547,
+      "sha256": "f7ab9e0794f6ef34bfbbc32ac367fae9a609340a99148a2015770c6f5f9a3692"
+    },
+    {
+      "path": "source_final/v2_fire_line_cabinet.gd.gz",
+      "bytes": 7562,
+      "sha256": "de96a7d1e431a2efdab54d2f029e8aa7c5bd24bc4fb359b839b9beadf2712eea"
+    },
+    {
+      "path": "source_final/v2_fire_nozzle_coupling_bench.gd.gz",
+      "bytes": 6183,
+      "sha256": "26a6f01d7dace6374fc28f753f213432a866ffb514641f1d61310159896c3521"
+    },
+    {
+      "path": "source_final/v2_hose_idle_visual_profile.gd.gz",
+      "bytes": 1151,
+      "sha256": "40e752fcabd9701e532f64bca99641f31304fa313112ed8cfeceea5eb2ea7c01"
+    },
+    {
+      "path": "source_final/v2_hose_installed_union_review.gd.gz",
+      "bytes": 2407,
+      "sha256": "aeb6c453a3cc674dcb744232282419aabdeb9e7c00749fdaf9e317ffdb354b7d"
+    },
+    {
+      "path": "source_final/v2_hose_installed_world.gd.gz",
+      "bytes": 4297,
+      "sha256": "ec2a05a83d3a34df39d624f27af0634a7bcecd6e1f71ebbedc4b6fe7e6da0e9a"
+    },
+    {
+      "path": "source_final/v2_hose_production_hand_bench.gd.gz",
+      "bytes": 4649,
+      "sha256": "6719b93ebb02f790f9125a6a1e33039f01fb1fa5d6f11dcf9203ed94e62bacd8"
+    },
+    {
+      "path": "source_final/v2_hose_water_programme.gd.gz",
+      "bytes": 2219,
+      "sha256": "2ead8c626c7d9a4543cdee1627385dd6faca982bf299ae78cce4cb57073edf8e"
+    },
+    {
+      "path": "source_final/V2HoseIdleVisualProfile.tscn.gz",
+      "bytes": 173,
+      "sha256": "6371783e0a8ee4508e1c16022faaf8efc865cd8134c9e0a00ee38d0ed8b58e4d"
+    },
+    {
+      "path": "source_final/V2HoseInstalledUnionReview.tscn.gz",
+      "bytes": 175,
+      "sha256": "180b4b6e30e027050ff4e9fd58a906314b2b823e55432404bf0b868b29abf2ed"
+    },
+    {
+      "path": "staged_static/board.json",
+      "bytes": 309753,
+      "sha256": "88a300203435cad6aea20bcf0f1fc387566ea9b132f215f7ea192c5e3922e6fe"
+    },
+    {
+      "path": "staged_static/board.md",
+      "bytes": 6587,
+      "sha256": "56ae017192133d5a9848056f57766e0b946f64d103e0b6de94a86352be4e227b"
+    },
+    {
+      "path": "union_v1/frames.json",
+      "bytes": 163186,
+      "sha256": "ca2a1d7abaa060164ae636b1b1a5df66b0d90ec48fc4618a61a638172951371d"
+    },
+    {
+      "path": "union_v1/held_projection.json",
+      "bytes": 4711,
+      "sha256": "884e510f486099f9b5aa34f4d6976c2128774762255bdfaee6c48d2745597f01"
+    },
+    {
+      "path": "union_v1/hose_checks.json",
+      "bytes": 11028,
+      "sha256": "877436216895570b6c73139eef2ae2c1579e47e9b474b840a1246704f38b7f54"
+    },
+    {
+      "path": "union_v1/installed_held_nozzle.png",
+      "bytes": 597676,
+      "sha256": "109afc019871440800057880d610370969018ab7828f948c8ab4c5bb259e3342"
+    },
+    {
+      "path": "union_v1/installed_union.json",
+      "bytes": 6223,
+      "sha256": "23425e8a3e14452a02ffd0223ec63ce5f6ca83ac08d05419bae42cc32a2a2647"
+    },
+    {
+      "path": "union_v1/installed_union_review.png",
+      "bytes": 841447,
+      "sha256": "9d617a2584e810e7bf1ef8187e966e372be1d731488c4cfed3ee710827b6fa41"
+    },
+    {
+      "path": "union_v1/last_position.png",
+      "bytes": 595132,
+      "sha256": "dcc5227c7120a8d80129160bfff4bd4fbcf5a4fd2c448cfe7a9d4cd8a4acbe9e"
+    },
+    {
+      "path": "union_v1/route.json",
+      "bytes": 1483,
+      "sha256": "ff340d7d35beb3a5ce249ba17a99a9454ddc88dff0295235d88b50f38ff9accb"
+    },
+    {
+      "path": "union_v1.log",
+      "bytes": 4508,
+      "sha256": "895af0dff68919af87e3c77d0b8c53df043b2198e42576e3df0b25c6456e7a2d"
+    },
+    {
+      "path": "union_v1.log.receipt.json",
+      "bytes": 2882,
+      "sha256": "a32e89d7c74d93bba1c97a73a1bf8bafd0a1be54b4dd753517b19be86e8c8a32"
+    },
+    {
+      "path": "union_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "union_v1_source.gd.gz",
+      "bytes": 1396,
+      "sha256": "a1e64656451c772dd40497444693d9357364ec6fdc67427a581c0949c618c992"
+    },
+    {
+      "path": "verify_sources.py",
+      "bytes": 2354,
+      "sha256": "b9013a3a13507cd10da8d9a4b8aff6f0f17844c6d1f46c01b1ff11f8ec8ea1a7"
+    }
+  ]
+}

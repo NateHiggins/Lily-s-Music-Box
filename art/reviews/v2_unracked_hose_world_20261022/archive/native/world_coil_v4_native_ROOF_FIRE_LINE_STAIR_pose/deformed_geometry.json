@@ -1,0 +1,17 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Actual native vertices deformed with the captured imported bind/current frames. Static self-crossing and native appearance review only. No self-contact dynamics, installed world, water, save or human acceptance.",
+  "vertices": 8640,
+  "triangles": 17280,
+  "nonmanifold_edges": 0,
+  "signed_volume_m3": 0.0037196023480126346,
+  "self_crossing_pairs_without_shared_vertices": 0,
+  "first_pairs": [],
+  "first_pair_rings": [],
+  "known_crossing_control": true,
+  "source_bindings": {
+    "art/reviews/v2_unracked_hose_20261022/world_coil_v4/ROOF_FIRE_LINE_STAIR_pose.json": "aaf14a4ff3bab16841a1662ba59124d6e2bdcf27ce9412d56eae88bc05f14986",
+    "art/blender/v2_unracked_hose/native_v1/blender/unracked_fire_hose.blend": "8397ea005251bf9fb95045c83c1865e8c91a584ef0c8a6ac5158c2c928bb884e",
+    "art/blender/scripts/review_deployed_hose.py": "75d071df6476d20464618fa78a65b5f1995f7ff86818868fee85cc4a9926e935"
+  }
+}

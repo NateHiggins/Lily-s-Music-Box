@@ -1,0 +1,801 @@
+{
+	"causes": [
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F02_FIRE_LINE_STAIR",
+				"B1_BOILER_01"
+			],
+			"physics_frame": 480,
+			"probe_usec": 587,
+			"process_frame": 204,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "use_primary_interaction",
+					"line": 1019,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 478,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "click",
+					"line": 12,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				},
+				{
+					"function": "operate",
+					"line": 58,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				},
+				{
+					"function": "move_to",
+					"line": 19,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				}
+			],
+			"start_usec": 150235692
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F03_3D_FRIDGE_01",
+				"F02_FIRE_LINE_STAIR",
+				"B1_BOILER_01"
+			],
+			"physics_frame": 644,
+			"probe_usec": 583,
+			"process_frame": 273,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "_release",
+					"line": 733,
+					"source": "res://scripts/props/fire_unracked_hose.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "begin_inspection",
+					"line": 1386,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 436,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "key",
+					"line": 25,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "_play_route",
+					"line": 74,
+					"source": "res://tests/v2_hose_installed_world.gd"
+				},
+				{
+					"function": "_picture",
+					"line": 133,
+					"source": "res://tests/v2_hose_installed_world.gd"
+				}
+			],
+			"start_usec": 153052429
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F03_3D_FRIDGE_01",
+				"F02_FIRE_LINE_STAIR"
+			],
+			"physics_frame": 660,
+			"probe_usec": 650,
+			"process_frame": 278,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "use_primary_interaction",
+					"line": 1019,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 463,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "click",
+					"line": 23,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "inspect_operate",
+					"line": 112,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "move_to",
+					"line": 19,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				}
+			],
+			"start_usec": 153285433
+		},
+		{
+			"changed": [
+				"F02_FIRE_LINE_STAIR"
+			],
+			"physics_frame": 660,
+			"probe_usec": 567,
+			"process_frame": 278,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "_release",
+					"line": 733,
+					"source": "res://scripts/props/fire_unracked_hose.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "use_primary_interaction",
+					"line": 1019,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 478,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "click",
+					"line": 23,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "_play_route",
+					"line": 79,
+					"source": "res://tests/v2_hose_installed_world.gd"
+				},
+				{
+					"function": "inspect_operate",
+					"line": 113,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "move_to",
+					"line": 19,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				}
+			],
+			"start_usec": 153343018
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR"
+			],
+			"physics_frame": 662,
+			"probe_usec": 574,
+			"process_frame": 279,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "begin_inspection",
+					"line": 1386,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 436,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "key",
+					"line": 25,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "_play_route",
+					"line": 83,
+					"source": "res://tests/v2_hose_installed_world.gd"
+				},
+				{
+					"function": "aim",
+					"line": 27,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				}
+			],
+			"start_usec": 153453109
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F02_FIRE_LINE_STAIR",
+				"B1_BOILER_01"
+			],
+			"physics_frame": 781,
+			"probe_usec": 609,
+			"process_frame": 316,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "use_primary_interaction",
+					"line": 1019,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 463,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "click",
+					"line": 23,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "inspect_operate",
+					"line": 112,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "move_to",
+					"line": 19,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				}
+			],
+			"start_usec": 155330554
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F02_FIRE_LINE_STAIR",
+				"B1_BOILER_01"
+			],
+			"physics_frame": 878,
+			"probe_usec": 597,
+			"process_frame": 357,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_physics_process",
+					"line": 164,
+					"source": "res://scripts/props/fire_unracked_hose.gd"
+				}
+			],
+			"start_usec": 156958537
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F02_FIRE_LINE_STAIR",
+				"B1_BOILER_01"
+			],
+			"physics_frame": 1033,
+			"probe_usec": 594,
+			"process_frame": 418,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "_release",
+					"line": 733,
+					"source": "res://scripts/props/fire_unracked_hose.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "begin_inspection",
+					"line": 1386,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 436,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "key",
+					"line": 25,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "_play_route",
+					"line": 93,
+					"source": "res://tests/v2_hose_installed_world.gd"
+				}
+			],
+			"start_usec": 159525634
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F02_FIRE_LINE_STAIR"
+			],
+			"physics_frame": 1046,
+			"probe_usec": 619,
+			"process_frame": 421,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "use_primary_interaction",
+					"line": 1019,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 463,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "click",
+					"line": 23,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "inspect_operate",
+					"line": 112,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "move_to",
+					"line": 19,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				}
+			],
+			"start_usec": 159755516
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F01_1D_FRIDGE_01",
+				"F04_4D_FRIDGE_01",
+				"F02_FIRE_LINE_STAIR",
+				"B1_BOILER_01"
+			],
+			"physics_frame": 1423,
+			"probe_usec": 608,
+			"process_frame": 580,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "use_primary_interaction",
+					"line": 1019,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 463,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "click",
+					"line": 23,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "inspect_operate",
+					"line": 112,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "move_to",
+					"line": 19,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				}
+			],
+			"start_usec": 166170137
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F01_1D_FRIDGE_01",
+				"F04_4D_FRIDGE_01",
+				"F02_FIRE_LINE_STAIR"
+			],
+			"physics_frame": 1465,
+			"probe_usec": 602,
+			"process_frame": 596,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "_release",
+					"line": 733,
+					"source": "res://scripts/props/fire_unracked_hose.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "use_primary_interaction",
+					"line": 1019,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 478,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "click",
+					"line": 23,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "_play_route",
+					"line": 103,
+					"source": "res://tests/v2_hose_installed_world.gd"
+				}
+			],
+			"start_usec": 166854508
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F04_B_FRIDGE_01",
+				"F05_5C_FRIDGE_01",
+				"F02_FIRE_LINE_STAIR",
+				"B1_BOILER_01"
+			],
+			"physics_frame": 1582,
+			"probe_usec": 581,
+			"process_frame": 632,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "use_primary_interaction",
+					"line": 1019,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 463,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "click",
+					"line": 23,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "inspect_operate",
+					"line": 112,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "move_to",
+					"line": 19,
+					"source": "res://tests/orison_v2_first_slice_contract_test.gd"
+				}
+			],
+			"start_usec": 168790111
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F04_B_FRIDGE_01",
+				"F05_5C_FRIDGE_01",
+				"F02_FIRE_LINE_STAIR",
+				"B1_BOILER_01"
+			],
+			"physics_frame": 1851,
+			"probe_usec": 556,
+			"process_frame": 736,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "_release",
+					"line": 733,
+					"source": "res://scripts/props/fire_unracked_hose.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "use_primary_interaction",
+					"line": 1019,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 478,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "click",
+					"line": 23,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "_play_route",
+					"line": 114,
+					"source": "res://tests/v2_hose_installed_world.gd"
+				},
+				{
+					"function": "_walk",
+					"line": 38,
+					"source": "res://tests/v2_golden_repair_profile.gd"
+				},
+				{
+					"function": "_walk",
+					"line": 137,
+					"source": "res://tests/orison_v2_vertical_route_test.gd"
+				}
+			],
+			"start_usec": 173277618
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR"
+			],
+			"physics_frame": 1855,
+			"probe_usec": 634,
+			"process_frame": 737,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "_release",
+					"line": 733,
+					"source": "res://scripts/props/fire_unracked_hose.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "begin_inspection",
+					"line": 1386,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_unhandled_input",
+					"line": 436,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "key",
+					"line": 25,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				},
+				{
+					"function": "_play_route",
+					"line": 120,
+					"source": "res://tests/v2_hose_installed_world.gd"
+				},
+				{
+					"function": "_aim_nozzle_surface",
+					"line": 214,
+					"source": "res://tests/v2_unracked_hose_bench.gd"
+				},
+				{
+					"function": "aim",
+					"line": 27,
+					"source": "res://tests/v2_fire_hand_bench.gd"
+				}
+			],
+			"start_usec": 173394866
+		},
+		{
+			"changed": [
+				"F01_WATCHMAN_DETECTOR",
+				"F02_FIRE_LINE_STAIR"
+			],
+			"physics_frame": 1864,
+			"probe_usec": 567,
+			"process_frame": 738,
+			"stack": [
+				{
+					"function": "_commit_change",
+					"line": 365,
+					"source": "res://scripts/building/orison_v2_household_state.gd"
+				},
+				{
+					"function": "_release",
+					"line": 241,
+					"source": "res://scripts/props/v2_fire_line_cabinet.gd"
+				},
+				{
+					"function": "_release",
+					"line": 733,
+					"source": "res://scripts/props/fire_unracked_hose.gd"
+				},
+				{
+					"function": "release",
+					"line": 227,
+					"source": "res://scripts/player/constrained_grab.gd"
+				},
+				{
+					"function": "cancel_manipulation",
+					"line": 1348,
+					"source": "res://scripts/player/player_controller.gd"
+				},
+				{
+					"function": "_play_route",
+					"line": 123,
+					"source": "res://tests/v2_hose_installed_world.gd"
+				},
+				{
+					"function": "_picture",
+					"line": 133,
+					"source": "res://tests/v2_hose_installed_world.gd"
+				}
+			],
+			"start_usec": 173682466
+		}
+	],
+	"evidence_class": "INERT",
+	"scope": "Changed IDs and call origins for synchronous household commits in the actual route. No scheduling change. CPU overhead separately recorded; render CPU/GPU measurements lag their frame."
+}

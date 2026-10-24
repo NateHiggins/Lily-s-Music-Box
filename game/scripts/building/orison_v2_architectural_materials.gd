@@ -59,7 +59,8 @@ func key_for(part: String, room_class: String) -> String:
 		return "floor_oak"
 	if part == "Ceiling": return "limewash_plaster"
 	if part == "ExteriorSoffit": return "concrete"
-	if room_class == "wet": return "bath_wall_tile"
+	if part == "BathroomTileWainscot": return "bath_wall_tile"
+	if room_class == "wet": return "limewash_plaster"
 	if room_class == "service": return "concrete"
 	return "limewash_plaster"
 

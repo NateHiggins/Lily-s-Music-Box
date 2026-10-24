@@ -1,0 +1,15 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+HOUSEHOLD CACHE: initial payload passes the real household validator = true
+HOUSEHOLD CACHE: same owned payload skips validation without rolling back live intermediate motion = true
+HOUSEHOLD CACHE: original-order control validates but also preserves live motion = true
+HOUSEHOLD CACHE: equal-valued replacement document still validates and restores = true
+HOUSEHOLD CACHE: changed valid payload restores through the original authority = true
+HOUSEHOLD CACHE: in-place invalid mutation blocks without restoring invalid state = true
+HOUSEHOLD CACHE: blocked recovery validates even when payload equals the last good value = true
+HOUSEHOLD CACHE: cross-record inconsistency still fails full related-record validation = true
+HOUSEHOLD CACHE: changed unsupported schema still blocks = true
+HOUSEHOLD CACHE: new live positions still snapshot and validate before publication = true
+HOUSEHOLD CACHE: unbound owner does not process campaign events = true
+HOUSEHOLD CACHE: PASS failures=0

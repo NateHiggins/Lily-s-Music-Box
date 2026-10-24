@@ -1,0 +1,1535 @@
+{
+  "evidence_class": "INERT",
+  "method": "Linear quantiles; discard boundary-straddling frames. Counters are observed, not additive CPU/GPU attribution.",
+  "matched_book_pair": [
+    {
+      "packet": "v2_nook_bindings_20261022",
+      "run": "world_before_v3",
+      "resolution": "(1280.0, 720.0)",
+      "vsync": false,
+      "failures": [],
+      "phases": {
+        "nook_near_still": {
+          "wall_ms": {
+            "n": 119,
+            "p50": 18.749,
+            "p95": 31.754,
+            "p99": 34.092,
+            "maximum": 35.644,
+            "above_33_333": 3,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "process_ms": {
+            "n": 119,
+            "p50": 16.526,
+            "p95": 55.568,
+            "p99": 55.568,
+            "maximum": 55.568,
+            "above_33_333": 35,
+            "above_50": 35,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 119,
+            "p50": 15.989,
+            "p95": 20.179,
+            "p99": 20.179,
+            "maximum": 20.179,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_cpu_ms": {
+            "n": 119,
+            "p50": 3.554,
+            "p95": 3.956,
+            "p99": 4.168,
+            "maximum": 4.916,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 119,
+            "p50": 4.599,
+            "p95": 6.466,
+            "p99": 6.507,
+            "maximum": 6.56,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 119
+          }
+        },
+        "nook_turning": {
+          "wall_ms": {
+            "n": 47,
+            "p50": 29.189,
+            "p95": 36.075,
+            "p99": 37.491,
+            "maximum": 37.765,
+            "above_33_333": 7,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "process_ms": {
+            "n": 47,
+            "p50": 16.301,
+            "p95": 18.158,
+            "p99": 18.158,
+            "maximum": 18.158,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 47,
+            "p50": 10.524,
+            "p95": 15.989,
+            "p99": 15.989,
+            "maximum": 15.989,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_cpu_ms": {
+            "n": 47,
+            "p50": 3.552,
+            "p95": 3.735,
+            "p99": 3.907,
+            "maximum": 4.028,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 47,
+            "p50": 6.821,
+            "p95": 7.277,
+            "p99": 7.309,
+            "maximum": 7.315,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 47
+          }
+        },
+        "nook_pickup": {
+          "wall_ms": {
+            "n": 98,
+            "p50": 65.053,
+            "p95": 154.167,
+            "p99": 192.37,
+            "maximum": 264.961,
+            "above_33_333": 87,
+            "above_50": 58,
+            "above_100": 39
+          },
+          "process_ms": {
+            "n": 98,
+            "p50": 20.496,
+            "p95": 31.795,
+            "p99": 31.795,
+            "maximum": 31.795,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 98,
+            "p50": 24.464,
+            "p95": 175.611,
+            "p99": 175.611,
+            "maximum": 175.611,
+            "above_33_333": 20,
+            "above_50": 20,
+            "above_100": 20
+          },
+          "render_cpu_ms": {
+            "n": 98,
+            "p50": 3.688,
+            "p95": 4.107,
+            "p99": 4.284,
+            "maximum": 4.365,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 98,
+            "p50": 8.722,
+            "p95": 47.724,
+            "p99": 79.172,
+            "maximum": 79.906,
+            "above_33_333": 21,
+            "above_50": 5,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 98
+          }
+        },
+        "nook_held_turn": {
+          "wall_ms": {
+            "n": 31,
+            "p50": 33.676,
+            "p95": 49.385,
+            "p99": 61.285,
+            "maximum": 65.655,
+            "above_33_333": 17,
+            "above_50": 2,
+            "above_100": 0
+          },
+          "process_ms": {
+            "n": 31,
+            "p50": 18.86,
+            "p95": 31.795,
+            "p99": 31.795,
+            "maximum": 31.795,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 31,
+            "p50": 16.977,
+            "p95": 18.851,
+            "p99": 18.851,
+            "maximum": 18.851,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_cpu_ms": {
+            "n": 31,
+            "p50": 3.625,
+            "p95": 3.885,
+            "p99": 3.955,
+            "maximum": 3.976,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 31,
+            "p50": 3.823,
+            "p95": 7.927,
+            "p99": 8.0,
+            "maximum": 8.032,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 31
+          }
+        },
+        "nook_enter_inspection": {
+          "wall_ms": {
+            "n": 99,
+            "p50": 22.026,
+            "p95": 43.768,
+            "p99": 190.841,
+            "maximum": 196.988,
+            "above_33_333": 14,
+            "above_50": 4,
+            "above_100": 2
+          },
+          "process_ms": {
+            "n": 99,
+            "p50": 33.137,
+            "p95": 35.082,
+            "p99": 35.082,
+            "maximum": 35.082,
+            "above_33_333": 27,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 99,
+            "p50": 19.205,
+            "p95": 170.784,
+            "p99": 170.784,
+            "maximum": 170.784,
+            "above_33_333": 46,
+            "above_50": 46,
+            "above_100": 46
+          },
+          "render_cpu_ms": {
+            "n": 99,
+            "p50": 5.965,
+            "p95": 6.752,
+            "p99": 6.933,
+            "maximum": 6.997,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 99,
+            "p50": 9.104,
+            "p95": 11.401,
+            "p99": 11.628,
+            "maximum": 11.686,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 99
+          }
+        },
+        "nook_static_inspection": {
+          "wall_ms": {
+            "n": 119,
+            "p50": 15.465,
+            "p95": 19.953,
+            "p99": 22.209,
+            "maximum": 22.76,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "process_ms": {
+            "n": 119,
+            "p50": 19.101,
+            "p95": 19.386,
+            "p99": 19.386,
+            "maximum": 19.386,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 119,
+            "p50": 179.458,
+            "p95": 179.458,
+            "p99": 179.458,
+            "maximum": 179.458,
+            "above_33_333": 62,
+            "above_50": 62,
+            "above_100": 62
+          },
+          "render_cpu_ms": {
+            "n": 119,
+            "p50": 6.105,
+            "p95": 6.647,
+            "p99": 6.769,
+            "maximum": 6.884,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 119,
+            "p50": 5.716,
+            "p95": 6.244,
+            "p99": 6.527,
+            "maximum": 6.53,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 119
+          }
+        }
+      }
+    },
+    {
+      "packet": "v2_nook_bindings_20261022",
+      "run": "world_after_v1",
+      "resolution": "(1280.0, 720.0)",
+      "vsync": false,
+      "failures": [],
+      "phases": {
+        "nook_near_still": {
+          "wall_ms": {
+            "n": 119,
+            "p50": 14.27,
+            "p95": 18.704,
+            "p99": 20.658,
+            "maximum": 21.076,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "process_ms": {
+            "n": 119,
+            "p50": 56.004,
+            "p95": 56.004,
+            "p99": 56.004,
+            "maximum": 56.004,
+            "above_33_333": 60,
+            "above_50": 60,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 119,
+            "p50": 22.491,
+            "p95": 22.491,
+            "p99": 22.491,
+            "maximum": 22.491,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_cpu_ms": {
+            "n": 119,
+            "p50": 3.528,
+            "p95": 3.781,
+            "p99": 4.079,
+            "maximum": 4.977,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 119,
+            "p50": 3.989,
+            "p95": 4.662,
+            "p99": 4.743,
+            "maximum": 4.868,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 119
+          }
+        },
+        "nook_turning": {
+          "wall_ms": {
+            "n": 47,
+            "p50": 15.818,
+            "p95": 19.403,
+            "p99": 19.651,
+            "maximum": 19.78,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "process_ms": {
+            "n": 47,
+            "p50": 16.156,
+            "p95": 16.156,
+            "p99": 16.156,
+            "maximum": 16.156,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 47,
+            "p50": 6.558,
+            "p95": 10.088,
+            "p99": 10.088,
+            "maximum": 10.088,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_cpu_ms": {
+            "n": 47,
+            "p50": 3.503,
+            "p95": 4.129,
+            "p99": 4.16,
+            "maximum": 4.177,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 47,
+            "p50": 4.724,
+            "p95": 4.992,
+            "p99": 5.09,
+            "maximum": 5.146,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 47
+          }
+        },
+        "nook_pickup": {
+          "wall_ms": {
+            "n": 98,
+            "p50": 14.195,
+            "p95": 19.85,
+            "p99": 22.168,
+            "maximum": 38.282,
+            "above_33_333": 1,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "process_ms": {
+            "n": 98,
+            "p50": 16.895,
+            "p95": 16.953,
+            "p99": 16.953,
+            "maximum": 16.953,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 98,
+            "p50": 10.699,
+            "p95": 27.155,
+            "p99": 27.155,
+            "maximum": 27.155,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_cpu_ms": {
+            "n": 98,
+            "p50": 3.537,
+            "p95": 3.86,
+            "p99": 4.058,
+            "maximum": 4.246,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 98,
+            "p50": 5.029,
+            "p95": 5.63,
+            "p99": 6.427,
+            "maximum": 6.567,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 98
+          }
+        },
+        "nook_held_turn": {
+          "wall_ms": {
+            "n": 31,
+            "p50": 15.417,
+            "p95": 19.669,
+            "p99": 19.857,
+            "maximum": 19.864,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "process_ms": {
+            "n": 31,
+            "p50": 16.953,
+            "p95": 16.953,
+            "p99": 16.953,
+            "maximum": 16.953,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 31,
+            "p50": 27.155,
+            "p95": 27.155,
+            "p99": 27.155,
+            "maximum": 27.155,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_cpu_ms": {
+            "n": 31,
+            "p50": 3.471,
+            "p95": 3.695,
+            "p99": 3.706,
+            "maximum": 3.71,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 31,
+            "p50": 4.195,
+            "p95": 4.732,
+            "p99": 4.733,
+            "maximum": 4.733,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 31
+          }
+        },
+        "nook_enter_inspection": {
+          "wall_ms": {
+            "n": 99,
+            "p50": 10.993,
+            "p95": 15.177,
+            "p99": 33.532,
+            "maximum": 36.679,
+            "above_33_333": 2,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "process_ms": {
+            "n": 99,
+            "p50": 37.367,
+            "p95": 37.367,
+            "p99": 37.367,
+            "maximum": 37.367,
+            "above_33_333": 75,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 99,
+            "p50": 24.907,
+            "p95": 27.155,
+            "p99": 27.155,
+            "maximum": 27.155,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_cpu_ms": {
+            "n": 99,
+            "p50": 3.055,
+            "p95": 3.75,
+            "p99": 3.814,
+            "maximum": 3.839,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 99,
+            "p50": 3.922,
+            "p95": 4.345,
+            "p99": 4.465,
+            "maximum": 4.529,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 99
+          }
+        },
+        "nook_static_inspection": {
+          "wall_ms": {
+            "n": 119,
+            "p50": 10.021,
+            "p95": 14.345,
+            "p99": 14.751,
+            "maximum": 17.86,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "process_ms": {
+            "n": 119,
+            "p50": 14.547,
+            "p95": 37.367,
+            "p99": 37.367,
+            "maximum": 37.367,
+            "above_33_333": 15,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "physics_ms": {
+            "n": 119,
+            "p50": 3.385,
+            "p95": 24.907,
+            "p99": 24.907,
+            "maximum": 24.907,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_cpu_ms": {
+            "n": 119,
+            "p50": 2.871,
+            "p95": 3.499,
+            "p99": 3.616,
+            "maximum": 3.719,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "render_gpu_ms": {
+            "n": 119,
+            "p50": 3.67,
+            "p95": 4.021,
+            "p99": 4.085,
+            "maximum": 4.3,
+            "above_33_333": 0,
+            "above_50": 0,
+            "above_100": 0
+          },
+          "pipeline_compilation_delta": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "residency_states": {
+            "RESIDENT": 119
+          }
+        }
+      }
+    }
+  ],
+  "revamp_route": {
+    "packet": "v2_nook_revamp_20261022",
+    "run": "access_after_v1",
+    "resolution": "(1280.0, 720.0)",
+    "vsync": false,
+    "failures": [],
+    "phases": {
+      "nook_near_still": {
+        "wall_ms": {
+          "n": 119,
+          "p50": 13.998,
+          "p95": 17.914,
+          "p99": 19.099,
+          "maximum": 21.558,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 119,
+          "p50": 37.608,
+          "p95": 37.608,
+          "p99": 37.608,
+          "maximum": 37.608,
+          "above_33_333": 65,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "physics_ms": {
+          "n": 119,
+          "p50": 23.516,
+          "p95": 23.516,
+          "p99": 23.516,
+          "maximum": 23.516,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 119,
+          "p50": 3.737,
+          "p95": 4.25,
+          "p99": 4.432,
+          "maximum": 4.468,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 119,
+          "p50": 4.33,
+          "p95": 6.263,
+          "p99": 7.191,
+          "maximum": 7.259,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 119
+        }
+      },
+      "nook_turning": {
+        "wall_ms": {
+          "n": 47,
+          "p50": 14.477,
+          "p95": 18.05,
+          "p99": 18.272,
+          "maximum": 18.335,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 47,
+          "p50": 17.467,
+          "p95": 17.467,
+          "p99": 17.467,
+          "maximum": 17.467,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "physics_ms": {
+          "n": 47,
+          "p50": 5.483,
+          "p95": 5.657,
+          "p99": 5.657,
+          "maximum": 5.657,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 47,
+          "p50": 3.539,
+          "p95": 4.078,
+          "p99": 4.252,
+          "maximum": 4.343,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 47,
+          "p50": 4.348,
+          "p95": 4.93,
+          "p99": 5.09,
+          "maximum": 5.22,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 47
+        }
+      },
+      "nook_pickup": {
+        "wall_ms": {
+          "n": 98,
+          "p50": 13.764,
+          "p95": 18.731,
+          "p99": 20.964,
+          "maximum": 36.705,
+          "above_33_333": 1,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 98,
+          "p50": 15.446,
+          "p95": 17.467,
+          "p99": 17.467,
+          "maximum": 17.467,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "physics_ms": {
+          "n": 98,
+          "p50": 27.162,
+          "p95": 27.162,
+          "p99": 27.162,
+          "maximum": 27.162,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 98,
+          "p50": 3.59,
+          "p95": 3.81,
+          "p99": 4.159,
+          "maximum": 4.203,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 98,
+          "p50": 4.995,
+          "p95": 5.226,
+          "p99": 5.277,
+          "maximum": 5.281,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 98
+        }
+      },
+      "nook_held_turn": {
+        "wall_ms": {
+          "n": 31,
+          "p50": 15.096,
+          "p95": 19.02,
+          "p99": 19.688,
+          "maximum": 19.732,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 31,
+          "p50": 16.733,
+          "p95": 16.733,
+          "p99": 16.733,
+          "maximum": 16.733,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "physics_ms": {
+          "n": 31,
+          "p50": 5.494,
+          "p95": 27.162,
+          "p99": 27.162,
+          "maximum": 27.162,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 31,
+          "p50": 3.567,
+          "p95": 4.12,
+          "p99": 4.292,
+          "maximum": 4.328,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 31,
+          "p50": 4.641,
+          "p95": 5.182,
+          "p99": 5.189,
+          "maximum": 5.189,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 31
+        }
+      },
+      "nook_enter_inspection": {
+        "wall_ms": {
+          "n": 99,
+          "p50": 10.864,
+          "p95": 15.201,
+          "p99": 33.573,
+          "maximum": 38.72,
+          "above_33_333": 2,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 99,
+          "p50": 38.755,
+          "p95": 38.755,
+          "p99": 38.755,
+          "maximum": 38.755,
+          "above_33_333": 50,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "physics_ms": {
+          "n": 99,
+          "p50": 24.796,
+          "p95": 24.796,
+          "p99": 24.796,
+          "maximum": 24.796,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 99,
+          "p50": 2.995,
+          "p95": 3.694,
+          "p99": 3.723,
+          "maximum": 4.303,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 99,
+          "p50": 4.011,
+          "p95": 4.598,
+          "p99": 4.704,
+          "maximum": 5.044,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 99
+        }
+      },
+      "nook_static_inspection": {
+        "wall_ms": {
+          "n": 119,
+          "p50": 10.524,
+          "p95": 14.602,
+          "p99": 15.351,
+          "maximum": 17.113,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 119,
+          "p50": 13.783,
+          "p95": 38.755,
+          "p99": 38.755,
+          "maximum": 38.755,
+          "above_33_333": 42,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "physics_ms": {
+          "n": 119,
+          "p50": 3.144,
+          "p95": 24.796,
+          "p99": 24.796,
+          "maximum": 24.796,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 119,
+          "p50": 3.103,
+          "p95": 3.697,
+          "p99": 3.86,
+          "maximum": 3.917,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 119,
+          "p50": 3.751,
+          "p95": 4.216,
+          "p99": 4.36,
+          "maximum": 4.377,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 119
+        }
+      }
+    }
+  },
+  "corrected_tint_route": {
+    "packet": "v2_nook_revamp_20261022",
+    "run": "access_final_v1",
+    "resolution": "(1280.0, 720.0)",
+    "vsync": false,
+    "failures": [],
+    "phases": {
+      "nook_near_still": {
+        "wall_ms": {
+          "n": 119,
+          "p50": 13.876,
+          "p95": 18.694,
+          "p99": 22.089,
+          "maximum": 23.357,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 119,
+          "p50": 181.27,
+          "p95": 181.27,
+          "p99": 181.27,
+          "maximum": 181.27,
+          "above_33_333": 69,
+          "above_50": 69,
+          "above_100": 69
+        },
+        "physics_ms": {
+          "n": 119,
+          "p50": 20.57,
+          "p95": 20.57,
+          "p99": 20.57,
+          "maximum": 20.57,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 119,
+          "p50": 3.651,
+          "p95": 4.399,
+          "p99": 6.074,
+          "maximum": 6.744,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 119,
+          "p50": 4.708,
+          "p95": 4.994,
+          "p99": 5.197,
+          "maximum": 5.236,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 119
+        }
+      },
+      "nook_turning": {
+        "wall_ms": {
+          "n": 47,
+          "p50": 15.067,
+          "p95": 18.662,
+          "p99": 19.659,
+          "maximum": 20.112,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 47,
+          "p50": 17.95,
+          "p95": 17.95,
+          "p99": 17.95,
+          "maximum": 17.95,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "physics_ms": {
+          "n": 47,
+          "p50": 5.548,
+          "p95": 5.548,
+          "p99": 5.548,
+          "maximum": 5.548,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 47,
+          "p50": 3.738,
+          "p95": 4.317,
+          "p99": 4.424,
+          "maximum": 4.49,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 47,
+          "p50": 4.716,
+          "p95": 5.181,
+          "p99": 5.359,
+          "maximum": 5.401,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 47
+        }
+      },
+      "nook_pickup": {
+        "wall_ms": {
+          "n": 98,
+          "p50": 13.473,
+          "p95": 18.052,
+          "p99": 19.891,
+          "maximum": 36.481,
+          "above_33_333": 1,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 98,
+          "p50": 16.116,
+          "p95": 17.95,
+          "p99": 17.95,
+          "maximum": 17.95,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "physics_ms": {
+          "n": 98,
+          "p50": 27.045,
+          "p95": 27.045,
+          "p99": 27.045,
+          "maximum": 27.045,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 98,
+          "p50": 3.575,
+          "p95": 3.93,
+          "p99": 4.304,
+          "maximum": 4.353,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 98,
+          "p50": 4.881,
+          "p95": 5.297,
+          "p99": 5.313,
+          "maximum": 5.358,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 98
+        }
+      },
+      "nook_held_turn": {
+        "wall_ms": {
+          "n": 31,
+          "p50": 14.807,
+          "p95": 19.177,
+          "p99": 19.914,
+          "maximum": 20.211,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 31,
+          "p50": 16.243,
+          "p95": 16.243,
+          "p99": 16.243,
+          "maximum": 16.243,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "physics_ms": {
+          "n": 31,
+          "p50": 4.989,
+          "p95": 27.045,
+          "p99": 27.045,
+          "maximum": 27.045,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 31,
+          "p50": 3.589,
+          "p95": 3.86,
+          "p99": 4.111,
+          "maximum": 4.206,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 31,
+          "p50": 4.423,
+          "p95": 4.943,
+          "p99": 4.954,
+          "maximum": 4.958,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 31
+        }
+      },
+      "nook_enter_inspection": {
+        "wall_ms": {
+          "n": 99,
+          "p50": 10.762,
+          "p95": 15.471,
+          "p99": 33.729,
+          "maximum": 37.198,
+          "above_33_333": 2,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 99,
+          "p50": 16.243,
+          "p95": 36.237,
+          "p99": 36.237,
+          "maximum": 36.237,
+          "above_33_333": 48,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "physics_ms": {
+          "n": 99,
+          "p50": 4.989,
+          "p95": 24.769,
+          "p99": 24.769,
+          "maximum": 24.769,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 99,
+          "p50": 2.977,
+          "p95": 3.667,
+          "p99": 3.827,
+          "maximum": 3.828,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 99,
+          "p50": 3.901,
+          "p95": 4.397,
+          "p99": 4.503,
+          "maximum": 4.76,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 99
+        }
+      },
+      "nook_static_inspection": {
+        "wall_ms": {
+          "n": 119,
+          "p50": 10.492,
+          "p95": 14.567,
+          "p99": 15.355,
+          "maximum": 16.824,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "process_ms": {
+          "n": 119,
+          "p50": 13.489,
+          "p95": 36.237,
+          "p99": 36.237,
+          "maximum": 36.237,
+          "above_33_333": 45,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "physics_ms": {
+          "n": 119,
+          "p50": 2.807,
+          "p95": 24.769,
+          "p99": 24.769,
+          "maximum": 24.769,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_cpu_ms": {
+          "n": 119,
+          "p50": 2.939,
+          "p95": 3.532,
+          "p99": 3.657,
+          "maximum": 3.821,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "render_gpu_ms": {
+          "n": 119,
+          "p50": 3.683,
+          "p95": 4.035,
+          "p99": 4.167,
+          "maximum": 4.301,
+          "above_33_333": 0,
+          "above_50": 0,
+          "above_100": 0
+        },
+        "pipeline_compilation_delta": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "residency_states": {
+          "RESIDENT": 119
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Only the book pair has the same local start/route. The final revamp includes entry and loaded-map diagnostics before book phases; do not compare it as isolated optimization.",
+    "Cold startup, loading, streaming and first-use cover rendering are not fully isolated by these local phases.",
+    "No runtime_contract or human acceptance."
+  ]
+}

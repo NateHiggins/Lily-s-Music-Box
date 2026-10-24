@@ -3,7 +3,7 @@ extends RefCounted
 const DATA := "res://data/orison_v2/bar_receiving.json"
 const SourceTriangles := preload("res://scripts/building/orison_v2_bar_furniture.gd")
 
-static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
+static func mount_cell(cell: Node3D, layout: Dictionary, enabled: bool = true) -> bool:
 	var decoded: Variant=JSON.parse_string(FileAccess.get_file_as_string(DATA))
 	if decoded is not Dictionary or decoded.get("schema_version")!=1 or cell.has_node("BarReceiving"): return _reject()
 	var data: Dictionary=decoded; var rows := {}
@@ -38,6 +38,17 @@ static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
 			hulls[shape]={"original":shape.shape,"next":next}
 		else: return _reject()
 		removed[node]=int(record.count)
+	if not enabled:
+		# Use the same exact source-triangle and hull retirement validated above.
+		# Preserve all neighbouring floor, furniture, collision and source assets.
+		for draw: MeshInstance3D in changes:
+			draw.mesh=changes[draw]
+			if draw.mesh.get_surface_count()==0:draw.hide()
+		for shape: CollisionShape3D in hulls:shape.shape=hulls[shape].next
+		var receipt:=Node3D.new();receipt.name="RetiredBarCabinets"
+		receipt.set_meta("original_meshes",originals);receipt.set_meta("original_hulls",hulls);receipt.set_meta("removed_triangles",removed)
+		cell.add_child(receipt)
+		return true
 	var packed := ResourceLoader.load(str(data.asset),"PackedScene",ResourceLoader.CACHE_MODE_IGNORE_DEEP) as PackedScene
 	if packed==null: return _reject()
 	var model := packed.instantiate() as Node3D; model.name="BarReceiving"

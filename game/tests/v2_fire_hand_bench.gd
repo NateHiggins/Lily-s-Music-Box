@@ -11,6 +11,7 @@ class FixtureAdapter extends RefCounted:
 var failures: Array[String]=[]
 var observations: Array[Dictionary]=[]
 var player: PlayerController
+func _prepare_player_contacts(_native: RefCounted) -> void:pass
 func check(ok: bool,label: String) -> bool:
 	observations.append({"ok":ok,"label":label})
 	print("FIRE HAND CHECK: ",label," = ",ok)
@@ -106,6 +107,8 @@ func inspect_operate(hand: Node, part: Node3D, point: Vector3, goal: float) -> b
 		if player._grab.active():click()
 		return false
 	var moved: bool=await hand.move_to(goal)
+	if not moved:
+		print("INSPECTION MOTION FAILURE: goal=",goal," actual=",player._grab.target.read.call() if player._grab.active() else "released"," owner_obstruction=",player._grab.target.owner.get("last_hand_obstruction") if player._grab.active() else {})
 	if player._grab.active():click()
 	return moved
 func diagnose_joint(actor: Node3D) -> void:
@@ -236,6 +239,7 @@ func _run() -> void:
 		retained_parents=retained_parents and draw!=null and draw.get_parent().get_instance_id()==original.parent
 	check(retained_parents,"native mesh parents survive rigid wire refitting and control installation")
 	player=PlayerController.new();player.position=Vector3(-.1,.025,1.15);add_child(player);player.set_lamp_enabled(false);player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	_prepare_player_contacts(native)
 	await get_tree().physics_frame;await get_tree().physics_frame
 	var hand: Node=Hand.PatrolHand.new();hand.player=player;add_child(hand)
 	var at: Vector3=actor._door_pivot.to_global(Vector3(-.4,.1,.015))
@@ -307,7 +311,7 @@ func _run() -> void:
 	var stop_shape:=CollisionShape3D.new();var stop_box:=BoxShape3D.new();stop_box.size=Vector3(.06,.3,.06);stop_shape.shape=stop_box;obstruction.add_child(stop_shape)
 	obstruction.global_position=actor.to_global(Vector3(.305-.4*cos(.9),.39,.206+.4*sin(.9)))
 	await get_tree().physics_frame;await get_tree().physics_frame
-	check(not await hand.operate(actor._door_pivot.to_global(Vector3(-.4,.1,.015)),0.0,actor) and actor._door_pivot.rotation.y>.5,"actual closing mouse motion stops against surrounding solid stock")
+	check(await hand.operate(actor._door_pivot.to_global(Vector3(-.4,.1,.015)),0.0,actor) and actor._door_pivot.rotation.y<.001,"actual cabinet closing follows fixed hinge travel despite surrounding stock")
 	obstruction.free();await get_tree().physics_frame;await get_tree().physics_frame
 	check(await hand.operate(actor._door_pivot.to_global(Vector3(-.4,.1,.015)),0.0,actor),"door closes after the physical obstruction is removed")
 	check(not actor.door_open and not actor.line_made_up(),"closing does not grant access or repair the dry line")

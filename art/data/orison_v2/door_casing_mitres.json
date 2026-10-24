@@ -1,0 +1,101 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Uninstalled native miter candidate; no runtime qualification",
+  "variants": [
+    {
+      "id": "D0760_2130",
+      "width": 0.76,
+      "height": 2.13,
+      "style": "domestic",
+      "joint_max_error_m": 0.0,
+      "parts": 3
+    },
+    {
+      "id": "S0760_2130",
+      "width": 0.76,
+      "height": 2.13,
+      "style": "service",
+      "joint_max_error_m": 0.0,
+      "parts": 3
+    },
+    {
+      "id": "D0810_2130",
+      "width": 0.81,
+      "height": 2.13,
+      "style": "domestic",
+      "joint_max_error_m": 0.0,
+      "parts": 3
+    },
+    {
+      "id": "S0810_2130",
+      "width": 0.81,
+      "height": 2.13,
+      "style": "service",
+      "joint_max_error_m": 0.0,
+      "parts": 3
+    },
+    {
+      "id": "D0910_2130",
+      "width": 0.91,
+      "height": 2.13,
+      "style": "domestic",
+      "joint_max_error_m": 0.0,
+      "parts": 3
+    },
+    {
+      "id": "S0910_2130",
+      "width": 0.91,
+      "height": 2.13,
+      "style": "service",
+      "joint_max_error_m": 0.0,
+      "parts": 3
+    },
+    {
+      "id": "D1050_2130",
+      "width": 1.05,
+      "height": 2.13,
+      "style": "domestic",
+      "joint_max_error_m": 0.0,
+      "parts": 3
+    },
+    {
+      "id": "S1050_2130",
+      "width": 1.05,
+      "height": 2.13,
+      "style": "service",
+      "joint_max_error_m": 0.0,
+      "parts": 3
+    },
+    {
+      "id": "D1100_2130",
+      "width": 1.1,
+      "height": 2.13,
+      "style": "domestic",
+      "joint_max_error_m": 0.0,
+      "parts": 3
+    },
+    {
+      "id": "S1100_2130",
+      "width": 1.1,
+      "height": 2.13,
+      "style": "service",
+      "joint_max_error_m": 0.0,
+      "parts": 3
+    }
+  ],
+  "exported_tangents": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\casing-mitre-review\\door_casing_mitres.glb",
+    "primitives": 40,
+    "triangles": 3360,
+    "minimum_tangent_agreement": 0.99995565119569,
+    "status": "PASS"
+  },
+  "source_profile_sha256": "b9e90c7078579576f32b875baafc0a168a3179085791080691d346a4ca95e271",
+  "asset_sha256": "71e44e8961d68d4f2f7c18ff3c88bc4984bb7b30bf3ca17349501f385d2bc454",
+  "source_bindings": {
+    "art/blender/scripts/build_door_casing_mitres.py": "9150b63cd0eb970a2fb840398e3f90e737a3b0f0717e809108aba3f3cdc27e08",
+    "art/blender/scripts/build_millwork_profile.py": "b9e90c7078579576f32b875baafc0a168a3179085791080691d346a4ca95e271",
+    "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
+    "art/data/runtime_material_sets.json": "3e083bb287f70cc21ec305bf89b64cf5c335f3b908681a5152f7a613025e882c"
+  }
+}

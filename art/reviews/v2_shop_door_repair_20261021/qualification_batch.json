@@ -1,0 +1,70 @@
+[
+  {
+    "scene": "res://tests/V2ChangedCompileCheck.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_compile.log",
+    "timeout": 60,
+    "windowed": false,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_compile"
+  },
+  {
+    "scene": "res://tests/V2FittingCollisionCacheTest.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_cache.log",
+    "timeout": 120,
+    "windowed": false,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_cache"
+  },
+  {
+    "scene": "res://tests/V2StepContactTest.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_steps.log",
+    "timeout": 120,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_steps"
+  },
+  {
+    "scene": "res://tests/ToiletInspectionTest.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_reticle.log",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_reticle"
+  },
+  {
+    "scene": "res://tests/OrisonV2PassageResidencyTest.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_residency.log",
+    "timeout": 900,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_residency",
+    "runner": "long"
+  },
+  {
+    "scene": "res://tests/OrisonV2PassageLoadTeardownTest.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_load_teardown.log",
+    "timeout": 900,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_load_teardown",
+    "runner": "long"
+  },
+  {
+    "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final.log",
+    "timeout": 1500,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final",
+    "runner": "long"
+  },
+  {
+    "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/first_slice_final.log",
+    "timeout": 900,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/first_slice_final",
+    "runner": "long"
+  },
+  {
+    "scene": "res://tests/OrisonV2UpperAccessCohort.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/upper_final.log",
+    "timeout": 1500,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/upper_final",
+    "runner": "long"
+  }
+]

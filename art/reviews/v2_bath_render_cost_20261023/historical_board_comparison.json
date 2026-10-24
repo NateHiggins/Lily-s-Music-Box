@@ -1,0 +1,28 @@
+{
+  "from_commit": "2774d4b4d72044faac75ae20a1a5f1fc6b15f73f",
+  "to_commit": "64ce1fa319b5a34204ea5b2a9bfb1253450baeba",
+  "regressions": [
+    "physical_import_sources: new gate is FAIL (exit 1)",
+    "reader: new gate is FAIL (exit 1)",
+    "spatial: new gate is FAIL (exit 1)",
+    "v2_surface_qualification: new gate is FAIL (exit 1)"
+  ],
+  "improvements": [],
+  "changes": [
+    "carriers: new gate (PASS, exit 0)",
+    "ledger: new gate (INCOMPLETE, exit 2)",
+    "period: new gate (PASS, exit 0)",
+    "physical_import_sources: new gate (FAIL, exit 1)",
+    "reader: new gate (FAIL, exit 1)",
+    "rulings: new gate (PASS, exit 0)",
+    "spatial: new gate (FAIL, exit 1)",
+    "systemic: new gate (PASS, exit 0)",
+    "v2_mesh_uv_imports: new gate (PASS, exit 0)",
+    "v2_recipe_projections: new gate (PASS, exit 0)",
+    "v2_surface_imports: new gate (PASS, exit 0)",
+    "v2_surface_qualification: new gate (FAIL, exit 1)"
+  ],
+  "requirements_changed": [],
+  "comparable": true,
+  "limits": "REJECTED as a full-board comparison: historical reference contains tools gates only. Newly listed static gates are coverage differences, not evidence of newly introduced failures. Preserve original output; use scoped_board_comparison.json for common-gate observations. Neither reference is a clean merge-base board."
+}

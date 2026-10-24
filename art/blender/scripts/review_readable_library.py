@@ -1,10 +1,12 @@
 """Native construction views before engine input/readability qualification."""
 from pathlib import Path
-import json,math
+import json,math,sys,os
+sys.path.insert(0,str(Path(__file__).parent))
+from book_flex_math import left_translation,ANGLES,KEYS
 import bpy
 from mathutils import Matrix,Vector
 ROOT=Path(__file__).resolve().parents[3]
-OUT=ROOT/'tmp/v2-readable-books-20261020/native'
+OUT=ROOT/os.environ.get('BOOK_REVIEW_OUT','art/reviews/v2_library_editorial_20261022/native')
 OUT.mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/blender/readable_library.blend'))
 data=json.loads((ROOT/'game/data/orison_v2/readable_library.json').read_text())
@@ -17,8 +19,10 @@ scene.world.node_tree.nodes['Background'].inputs[1].default_value=.45
 original={name:bpy.data.objects[name] for name in data['parts']}
 for obj in original.values():obj.hide_render=True
 copies=[]
+focus=os.environ.get("BOOK_REVIEW_FOCUS")=="1"
 def b(point):return Vector((point[0],-point[2],point[1]))
 def copy(name,pose=Matrix.Identity(4)):
+    if not data['parts'][name].get('render_surface',True):return None
     obj=original[name].copy();scene.collection.objects.link(obj);obj.hide_render=False;obj.matrix_world=pose@original[name].matrix_world;copies.append(obj);return obj
 def clear():
     for obj in copies:bpy.data.objects.remove(obj,do_unlink=True)
@@ -31,7 +35,7 @@ bpy.ops.object.camera_add();camera=bpy.context.object;camera.data.lens=50;scene.
 def capture(label,eye,point):
     camera.location=eye;camera.rotation_euler=(Vector(point)-camera.location).to_track_quat('-Z','Y').to_euler();scene.render.filepath=str(OUT/(label+'.png'));bpy.ops.render.render(write_still=True)
 ids=['prospectus','minutes','wiring','atlas','sorting','glass','onefinger','letters','deadletter']
-for style in ['plain','repaired','sectional']:
+for style in ([] if focus else ['plain','repaired','sectional']):
     clear();case=data['cases'][style]
     for name in case['parts']:copy(name)
     for index,door in enumerate(case['doors']):
@@ -52,12 +56,38 @@ for style in ['plain','repaired','sectional']:
         for name in data['bookends'][endstyle]['parts']:copy(name,pose)
     capture(style+'_case',Vector((1.55,-2.25,1.55)),(0,0,case['height']*.5))
 clear()
-record=data['books']['wiring']
-for name in record['parts']:
-    copy(name,Matrix.Rotation(-math.pi,4,'Z') if data['parts'][name]['role']=='left' else Matrix.Identity(4))
-plate=data['illustrations']['circuit_wiring'];copy(plate['part'],Matrix.Translation(b((record['width']*.5,record['height']*.55,record['right_page_z']+.00004))))
-capture('open_binding_and_plate',Vector((.10,-.57,.27)),(0,0,record['height']*.5))
+for identity in ([] if focus else ['letters','wiring','standards','birds','onefinger']):
+    record=data['books'][identity]
+    for angle in [math.pi*.5,math.pi]:
+        clear()
+        step=angle/(math.pi/8);high=min(8,math.ceil(step));low=math.floor(step);fraction=step-low
+        for name in record['parts']:
+            leaf=Matrix.Translation(b(left_translation(record['thickness'],angle,record['opening_style'])))@Matrix.Rotation(-angle,4,'Z')
+            obj=copy(name,leaf if data['parts'][name]['role']=='left' else Matrix.Identity(4))
+            if obj is not None and obj.data.shape_keys:
+                for i,key in enumerate(KEYS,1):obj.data.shape_keys.key_blocks[key].value=(1-fraction if i==low else 0)+(fraction if i==high else 0)
+        capture(identity+('_half_open' if angle<math.pi else '_open'),Vector((.10,-.57,.29)),(-.015,0,record['height']*.5))
 clear()
-for name in data['bookends']['pressed']['parts']:copy(name)
-capture('pressed_bookend',Vector((.23,-.25,.20)),(.02,0,.06))
+for identity in os.environ.get('BOOK_REVIEW_IDS','wiring,missing,letters').split(','):
+    record=data['books'][identity];angle=math.pi
+    table=Matrix.Translation(Vector((0,0,record['thickness']*.5+.0001)))@Matrix.Rotation(-math.pi*.5,4,'X')
+    for name in record['parts']:
+        leaf=Matrix.Translation(b(left_translation(record['thickness'],angle,record['opening_style'])))@Matrix.Rotation(-angle,4,'Z')
+        obj=copy(name,table@(leaf if data['parts'][name]['role']=='left' else Matrix.Identity(4)))
+        if obj is not None and obj.data.shape_keys:
+            for key in KEYS:obj.data.shape_keys.key_blocks[key].value=1. if key==KEYS[-1] else 0.
+    bpy.context.view_layer.update();deps=bpy.context.evaluated_depsgraph_get();minimum=0.
+    for obj in copies:
+        evaluated=obj.evaluated_get(deps);mesh=evaluated.to_mesh()
+        minimum=min(minimum,min((obj.matrix_world@vertex.co).z for vertex in mesh.vertices));evaluated.to_mesh_clear()
+    for obj in copies:obj.location.z+=max(0.,.0001-minimum)
+    capture(identity+'_'+record['opening_style']+'_table',Vector((.14,-.30,.27)),(-record['thickness']*.5,record['height']*.45,.018))
+    if record['opening_style']=='paperback':
+        for obj in copies:obj.hide_render=not obj.name.startswith(identity+'__continuous_wrap')
+        capture(identity+'_continuous_paper_wrap',Vector((.13,-.26,.18)),(-record['thickness']*.5,record['height']*.4,.01))
+    clear()
+clear()
+if not focus:
+    for name in data['bookends']['pressed']['parts']:copy(name)
+    capture('pressed_bookend',Vector((.23,-.25,.20)),(.02,0,.06))
 (OUT/'scope.json').write_text(json.dumps(dict(evidence_class='INERT',scope='Native forms/finishes only; lettering, input, contacts and save reconstruction require the Godot bench.',source='art/blender/readable_library.blend'),indent=2)+'\n',encoding='utf8',newline='\n')

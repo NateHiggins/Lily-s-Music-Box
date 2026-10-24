@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 209.3,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T15:22:31Z",
+  "started_utc": "2026-10-23T15:19:02Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "BATH COLLISION COST: PASS diagnostic only"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_movement_20261023/collision_v1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_movement_20261023/collision_v1.log",
+  "stdout_sha256": "6a9d5c19d784e52c3a8b02f0f3e31a08b2da82c7e3a67393ebfa5a75d6d342df"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2BathCollisionCost.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_movement_20261023/collision_v1",
+ "source": {
+  "dirty_paths": 2995,
+  "dirty_sample": [
+   "M game/scripts/player/player_controller.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_reset.png",
+   "?? art/reviews/v2_arcade_clock_install_20261018/bench3/"
+  ],
+  "repository_head": "7731aa877b5a7c37aeccc038b4baae3bca428574",
+  "repository_tree": "e9eaf27e237b393a3a2de3ac17cedce0af9bde00",
+  "runtime_inputs_sha256": "7c976e05d6bdd2c90247fec08f9e57ba7d939893fe315d04d890cf2daf116b28",
+  "test_path": "game/tests/v2_bath_collision_cost.gd",
+  "test_sha256": "de00950f6786c7b2aa1e6d42673b981fc110a920c13316aa062c865001c80cb5"
+ },
+ "windowed": true
+}

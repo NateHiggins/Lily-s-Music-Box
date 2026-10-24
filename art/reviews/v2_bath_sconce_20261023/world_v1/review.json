@@ -1,0 +1,37 @@
+{
+	"evidence_class": "INERT",
+	"review": {
+		"actors": 220,
+		"checks": 6588,
+		"failures": [],
+		"parts": 830,
+		"unique_triangles": 488320,
+		"variants": 28,
+		"views": [
+			{
+				"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+				"feet": [
+					-14.4674816131592,
+					6.41499996185303,
+					-0.26529923081398
+				],
+				"id": "3B_LT_SCONCE_powered",
+				"image": "3B_LT_SCONCE_powered.png",
+				"owner": "3B_LT_SCONCE",
+				"status": "captured_pending_visual_review"
+			},
+			{
+				"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+				"feet": [
+					-14.4674816131592,
+					6.41499996185303,
+					-0.26529923081398
+				],
+				"id": "3B_LT_SCONCE_off",
+				"image": "3B_LT_SCONCE_off.png",
+				"owner": "3B_LT_SCONCE",
+				"status": "captured_pending_visual_review"
+			}
+		]
+	}
+}

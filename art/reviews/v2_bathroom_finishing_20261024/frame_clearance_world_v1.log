@@ -1,0 +1,478 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1491 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 197 surfaces layered (99 materials)
+[HARUKIYA] 9 interactables placed
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2530
+[ORISON V2 RUNTIME] ready startup_ms=137242.206
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+[HARUKIYA] OPEN, 18 fixtures
+CONNECTED EXTERIOR CHECK: production moisture owner is available before inherited phase checks = true
+CONNECTED EXTERIOR CHECK: retained bathroom door exists = true
+CONNECTED EXTERIOR CHECK: actual 4B shower and bathroom mirror exist = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: bathroom_easy_open = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: bathroom_easy_open = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: bathroom_easy_open = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: bathroom_easy_open = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: profile_curtain_open = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: profile_curtain_open = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: profile_curtain_open = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: profile_curtain_open = true
+CONNECTED EXTERIOR CHECK: dry/cold input creates no steam: dry_shower = true
+CONNECTED EXTERIOR CHECK: dry/cold input creates no steam: dry_mirror = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: profile_cold_on = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: profile_cold_on = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: profile_cold_on = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: profile_cold_on = true
+CONNECTED EXTERIOR CHECK: cold phase uses actual cold supply = true
+CONNECTED EXTERIOR CHECK: dry/cold input creates no steam: cold_shower = true
+CONNECTED EXTERIOR CHECK: cold input produces spray without local steam = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: profile_cold_off = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: profile_cold_off = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: profile_cold_off = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: profile_cold_off = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: profile_hot_on = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: profile_hot_on = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: profile_hot_on = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: profile_hot_on = true
+CONNECTED EXTERIOR CHECK: hot phase has actual heated water = true
+CONNECTED EXTERIOR CHECK: actual hot flow develops bounded local steam = true
+CONNECTED EXTERIOR CHECK: same room moisture reaches the active mirror front = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: profile_hot_off = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: profile_hot_off = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: profile_hot_off = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: profile_hot_off = true
+CONNECTED EXTERIOR CHECK: shutoff dries gradually rather than erasing condensation = true
+CONNECTED EXTERIOR CHECK: shut spray retires its GPU simulation = true
+CONNECTED EXTERIOR CHECK: complete dry/cold/hot/mirror/decay input sequence = true
+CONNECTED EXTERIOR CHECK: released room door closes automatically during ordinary use = true
+CONNECTED EXTERIOR CHECK: wet room exists: F02_A_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F02_A_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F02_A_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=64 derivatives=true bad_derivatives=0 min_determinant=0.00067498726844 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F02_A_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000065739732 widest=1.00056180295072 vertices=440 derivatives=true bad_derivatives=0 min_determinant=0.00000344101409 worst_dot=0.99999994039536
+CONNECTED EXTERIOR CHECK: installed architectural finish: F02_A_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000139744952 widest=1.00084114343595 vertices=3480 derivatives=true bad_derivatives=0 min_determinant=0.00000397311726 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: wet room exists: F02_B_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F02_B_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F02_B_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=68 derivatives=true bad_derivatives=0 min_determinant=0.0000900098421 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F02_B_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000168487895 widest=1.00143906652479 vertices=498 derivatives=true bad_derivatives=0 min_determinant=0.00000343858937 worst_dot=0.99999976158142
+CONNECTED EXTERIOR CHECK: installed architectural finish: F02_B_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000260071829 widest=1.00229464075039 vertices=5568 derivatives=true bad_derivatives=0 min_determinant=0.00000372535033 worst_dot=0.99999976158142
+CONNECTED EXTERIOR CHECK: wet room exists: F04_B_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F04_B_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_B_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=76 derivatives=true bad_derivatives=0 min_determinant=0.00031499677652 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_B_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000102841295 widest=1.00087844434408 vertices=488 derivatives=true bad_derivatives=0 min_determinant=0.00000344128762 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_B_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000192597508 widest=1.00194500420508 vertices=5830 derivatives=true bad_derivatives=0 min_determinant=0.00000372762997 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: wet room exists: F03_B_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F03_B_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F03_B_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=60 derivatives=true bad_derivatives=0 min_determinant=0.00202517852813 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F03_B_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000176229514 widest=1.001361081312 vertices=500 derivatives=true bad_derivatives=0 min_determinant=0.00000343870033 worst_dot=0.99999970197678
+CONNECTED EXTERIOR CHECK: installed architectural finish: F03_B_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000320002437 widest=1.00219640154317 vertices=4626 derivatives=true bad_derivatives=0 min_determinant=0.00000372535033 worst_dot=0.99999982118607
+CONNECTED EXTERIOR CHECK: wet room exists: F03_A_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F03_A_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F03_A_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=64 derivatives=true bad_derivatives=0 min_determinant=0.00067498726844 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F03_A_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000132177956 widest=1.00091809392881 vertices=456 derivatives=true bad_derivatives=0 min_determinant=0.00000344101409 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: installed architectural finish: F03_A_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000190967694 widest=1.00122793589913 vertices=3720 derivatives=true bad_derivatives=0 min_determinant=0.00000397201302 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: wet room exists: F04_A_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F04_A_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_A_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=68 derivatives=true bad_derivatives=0 min_determinant=0.0000900098421 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_A_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000168487895 widest=1.00143906652479 vertices=496 derivatives=true bad_derivatives=0 min_determinant=0.00000343858846 worst_dot=0.99999976158142
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_A_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000338954851 widest=1.00269438252962 vertices=5568 derivatives=true bad_derivatives=0 min_determinant=0.00000372581781 worst_dot=0.99999976158142
+CONNECTED EXTERIOR CHECK: wet room exists: F05_A_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F05_A_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F05_A_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=74 derivatives=true bad_derivatives=0 min_determinant=0.00036003078458 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F05_A_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000139768235 widest=1.00081668858199 vertices=476 derivatives=true bad_derivatives=0 min_determinant=0.00000343858846 worst_dot=0.99999982118607
+CONNECTED EXTERIOR CHECK: installed architectural finish: F05_A_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000216299668 widest=1.00213023132646 vertices=4910 derivatives=true bad_derivatives=0 min_determinant=0.0000039671213 worst_dot=0.99999982118607
+CONNECTED EXTERIOR CHECK: wet room exists: F05_B_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F05_B_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F05_B_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00008999601368 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F05_B_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000081211329 widest=1.00064003808609 vertices=368 derivatives=true bad_derivatives=0 min_determinant=0.00000343924694 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: installed architectural finish: F05_B_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000252109021 widest=1.00174595455158 vertices=2134 derivatives=true bad_derivatives=0 min_determinant=0.00000397193344 worst_dot=0.99999982118607
+CONNECTED EXTERIOR CHECK: wet room exists: F05_C_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F05_C_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F05_C_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00017999631882 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F05_C_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000114669092 widest=1.0009795733595 vertices=368 derivatives=true bad_derivatives=0 min_determinant=0.00000343815373 worst_dot=0.99999994039536
+CONNECTED EXTERIOR CHECK: installed architectural finish: F05_C_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000197812915 widest=1.00147108784229 vertices=2110 derivatives=true bad_derivatives=0 min_determinant=0.00000396733412 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: wet room exists: F06_A_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F06_A_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F06_A_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=74 derivatives=true bad_derivatives=0 min_determinant=0.00036003078458 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F06_A_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000234227628 widest=1.00200167794733 vertices=476 derivatives=true bad_derivatives=0 min_determinant=0.00000343858846 worst_dot=0.99999970197678
+CONNECTED EXTERIOR CHECK: installed architectural finish: F06_A_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000377465039 widest=1.00272246191863 vertices=4922 derivatives=true bad_derivatives=0 min_determinant=0.00000397201302 worst_dot=0.99999976158142
+CONNECTED EXTERIOR CHECK: wet room exists: F06_B_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F06_B_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F06_B_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00008999601368 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F06_B_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000159267802 widest=1.001361081312 vertices=368 derivatives=true bad_derivatives=0 min_determinant=0.00000343924694 worst_dot=0.99999976158142
+CONNECTED EXTERIOR CHECK: installed architectural finish: F06_B_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000388547778 widest=1.00269929161661 vertices=2130 derivatives=true bad_derivatives=0 min_determinant=0.00000397685289 worst_dot=0.99999976158142
+CONNECTED EXTERIOR CHECK: wet room exists: F06_C_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F06_C_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F06_C_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00017999631882 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F06_C_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000132806599 widest=1.00081668858199 vertices=368 derivatives=true bad_derivatives=0 min_determinant=0.0000034396835 worst_dot=0.99999976158142
+CONNECTED EXTERIOR CHECK: installed architectural finish: F06_C_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0000027869828 widest=1.00240109423561 vertices=2106 derivatives=true bad_derivatives=0 min_determinant=0.00000397559234 worst_dot=0.99999976158142
+CONNECTED EXTERIOR CHECK: wet room exists: F02_C_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F02_C_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F02_C_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00017999631882 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F02_C_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000063935295 widest=1.00033431400099 vertices=368 derivatives=true bad_derivatives=0 min_determinant=0.00000344233081 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: installed architectural finish: F02_C_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000087055378 widest=1.00073664055852 vertices=2114 derivatives=true bad_derivatives=0 min_determinant=0.0000039716947 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: wet room exists: F04_C_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F04_C_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_C_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=52 derivatives=true bad_derivatives=0 min_determinant=0.00017999631882 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_C_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000110315159 widest=1.00094241923872 vertices=368 derivatives=true bad_derivatives=0 min_determinant=0.000003441231 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_C_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000155158341 widest=1.00137141169479 vertices=2114 derivatives=true bad_derivatives=0 min_determinant=0.00000396746282 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: wet room exists: F01_D_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F01_D_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F01_D_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=76 derivatives=true bad_derivatives=0 min_determinant=0.0000900098421 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F01_D_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000168487895 widest=1.00143906652479 vertices=536 derivatives=true bad_derivatives=0 min_determinant=0.00000343858937 worst_dot=0.99999976158142
+CONNECTED EXTERIOR CHECK: installed architectural finish: F01_D_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000246393029 widest=1.0025097892453 vertices=6724 derivatives=true bad_derivatives=0 min_determinant=0.0000037254672 worst_dot=0.99999976158142
+CONNECTED EXTERIOR CHECK: wet room exists: F01_A_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F01_A_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F01_A_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=73 derivatives=true bad_derivatives=0 min_determinant=0.00054004617687 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F01_A_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000159267802 widest=1.001361081312 vertices=488 derivatives=true bad_derivatives=0 min_determinant=0.000003438372 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: installed architectural finish: F01_A_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000201631337 widest=1.00159375981642 vertices=4553 derivatives=true bad_derivatives=0 min_determinant=0.00000397215808 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: wet room exists: F03_D_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F03_D_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F03_D_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=67 derivatives=true bad_derivatives=0 min_determinant=0.0003825332451 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F03_D_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000159267802 widest=1.001361081312 vertices=478 derivatives=true bad_derivatives=0 min_determinant=0.000003438372 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: installed architectural finish: F03_D_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000253878534 widest=1.00159976964649 vertices=4287 derivatives=true bad_derivatives=0 min_determinant=0.00000397201302 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: wet room exists: F04_D_BATH = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F04_D_BATH = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_D_BATH/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=66 derivatives=true bad_derivatives=0 min_determinant=0.0003825332451 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_D_BATH/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000159267802 widest=1.001361081312 vertices=476 derivatives=true bad_derivatives=0 min_determinant=0.000003438372 worst_dot=0.99999982118607
+CONNECTED EXTERIOR CHECK: installed architectural finish: F04_D_BATH/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000335415825 widest=1.00210271040907 vertices=4242 derivatives=true bad_derivatives=0 min_determinant=0.00000396825999 worst_dot=0.99999982118607
+CONNECTED EXTERIOR CHECK: wet room exists: F01_STAFF_RESTROOM = true
+CONNECTED EXTERIOR CHECK: wet room floor joints replace wooden skirting: F01_STAFF_RESTROOM = true
+CONNECTED EXTERIOR CHECK: installed architectural finish: F01_STAFF_RESTROOM/BathroomTileWainscot = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=40 derivatives=true bad_derivatives=0 min_determinant=0.00114759758935 worst_dot=1.0
+CONNECTED EXTERIOR CHECK: installed architectural finish: F01_STAFF_RESTROOM/BathroomGroutJoints = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000064214692 widest=1.00048221337031 vertices=368 derivatives=true bad_derivatives=0 min_determinant=0.00000344183468 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: installed architectural finish: F01_STAFF_RESTROOM/BathroomTileEdging = true
+CONNECTED EXTERIOR CHECK: finish adds no collision or process owner = true
+CAP MAPPING: mesh= valid_basis=true max_uv_excess=0.00000132992864 widest=1.00079738379843 vertices=1190 derivatives=true bad_derivatives=0 min_determinant=0.00000397268605 worst_dot=0.99999988079071
+CONNECTED EXTERIOR CHECK: all nineteen existing wet rooms receive the finish pass = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F04_4B_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F02_2A_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F02_2B_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F03_3A_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F04_4A_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F05_5A_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F05_5B_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F05_5C_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F06_6A_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F06_6B_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F06_6C_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F02_2C_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F04_4C_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F01_1D_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F01_1A_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F03_3D_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: exactly one measured native support set: /root/V2BathroomFinishingReview/OrisonV2Runtime/OrisonV2Blockout/F04_4D_SHOWER_01 = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: native shower plate has actual structural wall backing = true
+CONNECTED EXTERIOR CHECK: all eighteen installed showers use fitted supports = true
+CONNECTED EXTERIOR CHECK: imported architectural UV/normal/tangent checks: [] = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_bath_wall_tile_albedo.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_bath_wall_tile_normal.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_bath_wall_tile_rough.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/height/bath_wall_tile.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/masks/wall_age.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_arcade_lime_mortar_albedo.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_arcade_lime_mortar_rough.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_arcade_lime_mortar_normal.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_porcelain_fixture_albedo.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_porcelain_fixture_rough.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_porcelain_fixture_normal.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_enamel_appliance_albedo.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_enamel_appliance_normal.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_enamel_appliance_rough.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_nickel_plated_normal.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_nickel_plated_rough.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_rubber_aged_albedo.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_rubber_aged_rough.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_ai_materials_rubber_aged_normal.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_library_furniture_linen_albedo.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_library_furniture_linen_rough.png = true
+CONNECTED EXTERIOR CHECK: loaded full finish mip chain: res://assets/building/textures/T_library_furniture_linen_normal.png = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: finishing_prepare_drawn = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: finishing_prepare_drawn = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: finishing_prepare_drawn = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: finishing_prepare_drawn = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: finishing_curtain_open = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: finishing_curtain_open = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: finishing_curtain_open = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: finishing_curtain_open = true
+CONNECTED EXTERIOR CHECK: actual player ray selects operable part: finishing_curtain_close = true
+CONNECTED EXTERIOR CHECK: click grabs without toggling: finishing_curtain_close = true
+CONNECTED EXTERIOR CHECK: physical stop remains saveable: finishing_curtain_close = true
+CONNECTED EXTERIOR CHECK: mouse motion reaches stop and second click releases: finishing_curtain_close = true
+DOOR CASINGS: openings=109 wall_contacts=654 failures=0
+SERVICE FRAMES: openings=17 fasteners=272 failures=0
+CONNECTED EXTERIOR CHECK: retained installed casing/contact checks: 66400 = true
+V2 BATHROOM FINISHING REVIEW: 2 waypoints; 0 failures

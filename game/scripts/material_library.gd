@@ -18,6 +18,10 @@ static var _cache: Dictionary = {}
 ## Shared material for a semantic key, optionally tinted. Albedo colour
 ## multiplies the map; scale_mult changes projection scale without claiming a
 ## second meters-per-tile for the material itself.
+static func is_shared_material(material: Material) -> bool:
+	return material!=null and int(material.get_meta("matlib_owner_instance_id",0))==material.get_instance_id()
+
+
 static func get_mat(key: String, tint := Color.WHITE,
 		scale_mult := 1.0) -> StandardMaterial3D:
 	var ck := "%s|%s|%.2f" % [key, tint.to_html(), scale_mult]
@@ -25,6 +29,7 @@ static func get_mat(key: String, tint := Color.WHITE,
 		return _cache[ck]
 	var spec: Array = SETS.get(key, [])
 	var mat := StandardMaterial3D.new()
+	mat.set_meta("matlib_owner_instance_id",mat.get_instance_id())
 	if spec.is_empty():
 		mat.albedo_color = tint
 		_cache[ck] = mat

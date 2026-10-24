@@ -1,0 +1,62 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original diagnostic wrappers/logs; preserve failures, no runtime qualification",
+  "runs": [
+    {
+      "run": "triangle_partition_diagnostic",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 2.85,
+        "exit_code": 1,
+        "finished_utc": "2026-10-21T19:59:59Z",
+        "started_utc": "2026-10-21T19:59:55Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "fail_count": 0,
+      "receipt": "art/reviews/v2_case_calibrator_20261021/triangle_partition_diagnostic.log.receipt.json"
+    },
+    {
+      "run": "triangle_equivalence",
+      "execution": {
+        "completed": false,
+        "elapsed_s": 60.15,
+        "exit_code": null,
+        "finished_utc": "2026-10-21T20:11:10Z",
+        "started_utc": "2026-10-21T20:10:10Z",
+        "timed_out": true
+      },
+      "script_error_count": 2,
+      "fail_count": 0,
+      "receipt": "art/reviews/v2_case_calibrator_20261021/triangle_equivalence.log.receipt.json"
+    },
+    {
+      "run": "triangle_equivalence_v2",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 3.19,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T20:12:10Z",
+        "started_utc": "2026-10-21T20:12:06Z",
+        "timed_out": false
+      },
+      "script_error_count": 0,
+      "fail_count": 0,
+      "receipt": "art/reviews/v2_case_calibrator_20261021/triangle_equivalence_v2.log.receipt.json"
+    },
+    {
+      "run": "partition_stair_control",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 222.34,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T20:19:04Z",
+        "started_utc": "2026-10-21T20:15:21Z",
+        "timed_out": false
+      },
+      "script_error_count": 1,
+      "fail_count": 0,
+      "receipt": "art/reviews/v2_case_calibrator_20261021/partition_stair_control.log.receipt.json"
+    }
+  ]
+}

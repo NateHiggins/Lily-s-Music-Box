@@ -1,0 +1,72 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Installed halo removal and actual-input route/untimed lighting diagnostics. Native fitter and historical movement/contract drivers unchanged.",
+  "files": [
+    {
+      "path": "game/scripts/props/light_fixture_prop.gd",
+      "sha256": "eb7ca30cc557152e96e8663c61add69d0a5e396c8b98609571637ef48812acc7",
+      "lf_sha256": "eb7ca30cc557152e96e8663c61add69d0a5e396c8b98609571637ef48812acc7",
+      "bytes": 28137
+    },
+    {
+      "path": "game/scripts/props/photo_darkroom_light.gd",
+      "sha256": "edfbb61736bbacade4ca7641951aed0893a66ba5c6f584fa9d62e19c159d01e1",
+      "lf_sha256": "edfbb61736bbacade4ca7641951aed0893a66ba5c6f584fa9d62e19c159d01e1",
+      "bytes": 3193
+    },
+    {
+      "path": "game/scripts/building/orison_v2_native_fixed_lighting.gd",
+      "sha256": "b42d0fcc52a09c5abda7c88904141edb61c7e9a1396093042fe7601f43618a19",
+      "lf_sha256": "b42d0fcc52a09c5abda7c88904141edb61c7e9a1396093042fe7601f43618a19",
+      "bytes": 6110
+    },
+    {
+      "path": "game/scripts/building/orison_v2_native_service_work_lights.gd",
+      "sha256": "28dcba1fe1234556bb341fe94fe6082debc7978cea5ad3759021151f9f622066",
+      "lf_sha256": "28dcba1fe1234556bb341fe94fe6082debc7978cea5ad3759021151f9f622066",
+      "bytes": 2506
+    },
+    {
+      "path": "game/tests/orison_v2_fixed_lighting_test.gd",
+      "sha256": "a6363e786666a6c88007e8d38c0a7790a0f7f676459b29aa00e70fa4a3693ac5",
+      "lf_sha256": "a6363e786666a6c88007e8d38c0a7790a0f7f676459b29aa00e70fa4a3693ac5",
+      "bytes": 16101
+    },
+    {
+      "path": "game/tests/orison_v2_service_instruments_test.gd",
+      "sha256": "aae4ebfdcea570e7569635206ebb883f4503f19b2d8edd294b168febda08175b",
+      "lf_sha256": "aae4ebfdcea570e7569635206ebb883f4503f19b2d8edd294b168febda08175b",
+      "bytes": 21090
+    },
+    {
+      "path": "game/tests/orison_v2_photo_radio_fittings_test.gd",
+      "sha256": "b282f22c475cf6bfd866b1ac202749df1c796e059348d8bdc8be79f4a590533d",
+      "lf_sha256": "b282f22c475cf6bfd866b1ac202749df1c796e059348d8bdc8be79f4a590533d",
+      "bytes": 17075
+    },
+    {
+      "path": "game/tests/walk_test.gd",
+      "sha256": "fca41aafe307db4779109bfb850e094531f9829ecf2f6ad48a0d3308f41eecd2",
+      "lf_sha256": "fca41aafe307db4779109bfb850e094531f9829ecf2f6ad48a0d3308f41eecd2",
+      "bytes": 164594
+    },
+    {
+      "path": "game/tests/fixed_gesture_patrol_hand.gd",
+      "sha256": "d1a5236038a648a5e16d9132ffddcb1c1f8f4e9d6f9ad2037f5a9bc5b13f23d4",
+      "lf_sha256": "d1a5236038a648a5e16d9132ffddcb1c1f8f4e9d6f9ad2037f5a9bc5b13f23d4",
+      "bytes": 1689
+    },
+    {
+      "path": "game/tests/v2_played_streaming_profile.gd",
+      "sha256": "c31679aa80c86bc05aa95cb9242eac9402254e2874fdd55b17b2fe5c5b43ee1e",
+      "lf_sha256": "c31679aa80c86bc05aa95cb9242eac9402254e2874fdd55b17b2fe5c5b43ee1e",
+      "bytes": 9738
+    },
+    {
+      "path": "game/tests/v2_fixed_gesture_driver_bench.gd",
+      "sha256": "4add4587f491870e047672ff566716e5adc8d47af12191fb3119f66fd9d919b3",
+      "lf_sha256": "4add4587f491870e047672ff566716e5adc8d47af12191fb3119f66fd9d919b3",
+      "bytes": 2897
+    }
+  ]
+}

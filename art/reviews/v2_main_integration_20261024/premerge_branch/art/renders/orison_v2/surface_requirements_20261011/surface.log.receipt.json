@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 309.95,
+  "exit_code": 0,
+  "finished_utc": "2026-10-17T02:03:17Z",
+  "started_utc": "2026-10-17T01:58:07Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SURFACE QUALIFICATION: PASS; 26795 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-front-integration-20261017/surface.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-front-integration-20261017/surface.log",
+  "stdout_sha256": "60afc5e757f8e798775d85131bb0a4cb13d723fb4a9ef0ecd57987e20490dcc2"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-front-integration-20261017/surface",
+ "source": {
+  "dirty_paths": 1477,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  DOCS.md",
+   "M  art/blender/front_lighting_candidate.blend",
+   "M  art/blender/front_lighting_candidate/build.py",
+   "M  art/blender/front_lighting_candidate/review.py",
+   "M  art/data/front_lighting_plan.json",
+   "A  art/data/orison_v2/front_lighting_source.json",
+   "A  art/data/orison_v2/front_lighting_supply_export.json",
+   " M art/renders/insitu/shots.md",
+   "A  art/renders/orison_v2/front_lighting_install_20261017/ceiling-cull/bias04.png",
+   "A  art/renders/orison_v2/front_lighting_install_20261017/ceiling-cull/bias08.png",
+   "A  art/renders/orison_v2/front_lighting_install_20261017/ceiling-cull/bias16.png",
+   "A  art/renders/orison_v2/front_lighting_install_20261017/ceiling-cull/bias32.png",
+   "A  art/renders/orison_v2/front_lighting_install_20261017/ceiling-cull/bias64.png",
+   "A  art/renders/orison_v2/front_lighting_install_20261017/ceiling-cull/catalogue.png",
+   "A  art/renders/orison_v2/front_lighting_install_20261017/ceiling-cull/plain.png",
+   "A  art/renders/orison_v2/front_lighting_install_20261017/ceiling-cull/point.png",
+   "A  art/renders/orison_v2/front_lighting_install_20261017/ceiling-cull/reverse.png",
+   "A  art/renders/orison_v2/front_lighting_install_20261017/ceiling-cull/shader.png",
+   "A  art/renders/orison_v2/front_lighting_install_20261017/ceiling-cull/shader_no_normal.png"
+  ],
+  "repository_head": "4b5340f051ff838f08d090b68d908a288b1b1608",
+  "repository_tree": "d326395f28714700efeb91a4f03bd097dd539286",
+  "runtime_inputs_sha256": "13298c07584d739084cac2eac8e859a0322f5b2afc7e5c5fa4cf117e32f51a47",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "82b9a6877e58326ff535310992b3c4ea49040c467063ecb4fb79e392c6ea4c1e"
+ },
+ "windowed": true
+}

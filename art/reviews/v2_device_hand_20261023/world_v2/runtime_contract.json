@@ -1,0 +1,47 @@
+{
+	"checks": 24,
+	"contracts": {
+		"ceiling_mount": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"direct_manipulation": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"inspection_cursor": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 165.229,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"observations": [
+		{
+			"grabs": 2,
+			"heads": 1,
+			"maximum_plate_gap_m": 0.0,
+			"mount": "(10.1, 6.2, -13.05)",
+			"point_id": "F02_A_MAIN_VANTRY_POINT"
+		}
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "One existing V2 Vantry ceiling backplate, standing click/motion, Space inspection and free-cursor closing/release; actual E paper deployment. Does not qualify all V2 spaces, legacy Vantry surface finish, saved intermediate grille travel or subjective audiovisual quality.",
+	"selector": "v2",
+	"source": {
+		"runtime_inputs_sha256": "516ddcbb2cf77cdff2e17965257bbf5d35a1b5666aecaa8d062240fe9a41b0ba",
+		"test_path": "game/tests/v2_handheld_profile.gd",
+		"test_sha256": "b0d7c7335c8cfa6bc1d30c6621ba3580f11a1828353d5707f7709bac1f9a5ec6",
+		"test_sources": {
+			"game/tests/v2_handheld_profile.gd": "b0d7c7335c8cfa6bc1d30c6621ba3580f11a1828353d5707f7709bac1f9a5ec6",
+			"game/tests/v2_vantry_ceiling_review.gd": "fccb1bf77f8d9b73069c3b4002d6dfc5b55f3589833998839dccb64ebe3ead19"
+		}
+	}
+}

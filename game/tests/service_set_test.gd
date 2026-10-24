@@ -65,7 +65,7 @@ func _ready() -> void:
 	player.set_lamp_enabled(false)
 	await get_tree().process_frame
 	_check("one public call opens the circuit, plate and rear LAMP jewel",
-			not player.lamp_is_enabled() and not player._light_mask.visible
+			not player.lamp_is_enabled() and player._light_mask == null
 			and not device.lamp_enabled
 			and not device._lamp_indicator_material.emission_enabled)
 	await get_tree().create_timer(0.30).timeout

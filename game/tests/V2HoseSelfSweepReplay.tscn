@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/v2_hose_self_sweep_replay.gd" id="1"]
+[node name="V2HoseSelfSweepReplay" type="Node"]
+script = ExtResource("1")

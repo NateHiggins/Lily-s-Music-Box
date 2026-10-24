@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 168.01,
+  "exit_code": 1,
+  "finished_utc": "2026-10-23T22:02:54Z",
+  "started_utc": "2026-10-23T22:00:05Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_support_20261023/world_after_v2.log.stderr",
+  "stderr_sha256": "5bde703b36edecb4df1b88f270eb0988dcb2109fc189bdc6f0555264a37923bd",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_support_20261023/world_after_v2.log",
+  "stdout_sha256": "515f96cdf89af6b305a83409c77b89fc05a56419bcfd5fb5cd0cde80ed56ee41"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2HoseInstalledWorld.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_support_20261023/world_after_v2",
+ "source": {
+  "dirty_paths": 3028,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M game/scripts/props/fire_unracked_hose.gd",
+   " M game/scripts/props/hose_cabinet_route.gd",
+   " M game/tests/v2_hose_installed_world.gd",
+   " M game/tests/v2_hose_production_hand_bench.gd",
+   " M game/tests/v2_unracked_hose_bench.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/"
+  ],
+  "repository_head": "702e14a7e878078736931258b24251e10abc3cf8",
+  "repository_tree": "89dcad947f854f5fe51f8ebbe88210e7e55fe3d3",
+  "runtime_inputs_sha256": "d477c22d6d3e884a079ce74f08b8c9643f624b2285d92e25471b00eb7b5f49ea",
+  "test_path": "game/tests/v2_hose_installed_world.gd",
+  "test_sha256": "7a62024d0177c8147cf246ff449b7c40b7a1cccd98c6ba5bd424b461ae91207f"
+ },
+ "windowed": true
+}

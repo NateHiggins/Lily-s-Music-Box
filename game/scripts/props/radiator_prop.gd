@@ -75,6 +75,7 @@ const NATIVE_REPAIR_PROVE_SECONDS := 3.0
 var _native_repair_seconds := 0.0
 var _native_repair_reported := false
 var _native_repair_completion: Dictionary = {}
+var _work_orders_reference: WeakRef
 
 var supply_position := 1.0
 var _supply_held := false
@@ -817,6 +818,20 @@ func prompt_for_action(action_id: String, authored_prompt: String) -> String:
 	return authored_prompt
 
 
+func _work_orders_owner() -> WorkOrders:
+	if not is_inside_tree(): return null
+	var orders: WorkOrders = _work_orders_reference.get_ref() as WorkOrders if _work_orders_reference!=null else null
+	if is_instance_valid(orders) and orders.is_inside_tree() and not orders.is_queued_for_deletion() and str(orders.name)=="WorkOrders":
+		return orders
+	# Resolve the same sole lifecycle authority, including late creation and
+	# replacement. Never retain a retired world or cache its changing job state.
+	orders=get_tree().root.find_child("WorkOrders",true,false) as WorkOrders
+	_work_orders_reference=null
+	if is_instance_valid(orders) and orders.is_inside_tree() and not orders.is_queued_for_deletion():
+		_work_orders_reference=weakref(orders)
+		return orders
+	return null
+
 func _repair_prerequisites_satisfied() -> bool:
 	# A radiator whose packing is gone for good cannot be seated and
 	# tested; packing at the union or in the player's custody can.
@@ -825,7 +840,7 @@ func _repair_prerequisites_satisfied() -> bool:
 		return false
 	if not is_inside_tree():
 		return true
-	var orders := get_tree().root.find_child("WorkOrders", true, false) as WorkOrders
+	var orders := _work_orders_owner()
 	return orders == null or orders.job_stage(ServiceRoundDirector.JOB_ID) \
 			== "repairable"
 
@@ -1215,7 +1230,7 @@ func _prove_native_repair(delta: float) -> void:
 	# This authored service job belongs to 2B, not every factory-healthy emitter.
 	if graph_node_id!=ServiceRoundDirector.RADIATOR_ID or _native_repair_reported:
 		return
-	var orders := get_tree().root.find_child("WorkOrders",true,false) as WorkOrders
+	var orders := _work_orders_owner()
 	if RealityState.save_write_blocked or orders==null or orders.job_stage(ServiceRoundDirector.JOB_ID)!="repairable":
 		_native_repair_seconds=0.0
 		return

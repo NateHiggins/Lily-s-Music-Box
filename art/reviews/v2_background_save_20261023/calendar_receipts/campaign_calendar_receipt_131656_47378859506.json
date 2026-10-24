@@ -1,0 +1,49 @@
+{
+	"checks": 52,
+	"cleanup_after_receipt": true,
+	"cleanup_attempted": true,
+	"cleanup_ok": true,
+	"evidence_class": "test_fixture",
+	"failures": 0,
+	"final_load_status": {
+		"has_saved_campaign": true,
+		"reason": "future_save_read_only",
+		"status": "protected"
+	},
+	"preserved_on_failure": false,
+	"save_files": [
+		{
+			"bytes": 568,
+			"path": "C:/Users/nate_/AppData/Roaming/PleaseRemainOnTheLine/tests/campaign_calendar_runs/131656_371954_47378859506/save.json",
+			"sha256": "d11a12f77db8a85205a57d8fd877fc59ab771acc017461fbe1008b98a5c2b649"
+		}
+	],
+	"save_fixture_directory": "C:/Users/nate_/AppData/Roaming/PleaseRemainOnTheLine/tests/campaign_calendar_runs/131656_371954_47378859506",
+	"save_observations": [
+		{
+			"boundary": "real save",
+			"last_save_result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete"
+			},
+			"load_status": {
+				"has_saved_campaign": true,
+				"reason": "",
+				"status": "loaded"
+			}
+		},
+		{
+			"boundary": "real reload",
+			"load_status": {
+				"has_saved_campaign": true,
+				"reason": "",
+				"status": "loaded"
+			}
+		}
+	],
+	"status": "PASS",
+	"test": "campaign_calendar"
+}

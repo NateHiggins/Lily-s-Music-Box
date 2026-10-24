@@ -1,0 +1,103 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Paired actual-world diagnostic views, fixed physical stances. White-pixel counts measure clipping, not photometric correctness. Material/light state unchanged by ambient-only treatment; specular room capture retained.",
+  "review": "Both ambient-disabled views inspected; tile, timber, porcelain, metal, curtain and shadow detail retained. Original normal/interior/tenth-intensity treatments remain clipped.",
+  "rows": [
+    {
+      "room": "F03_B_BATH",
+      "treatment": "normal",
+      "file": "F03_B_BATH_normal.png",
+      "sha256": "7b00337362356ed12f3a0a5ebb8bd9fd699d65a6614deb03cd5ec8f95e7e0e0e",
+      "white_fraction": 0.7560818142361111,
+      "mean_srgb": 0.8936302054965505
+    },
+    {
+      "room": "F03_B_BATH",
+      "treatment": "ambient_disabled",
+      "file": "F03_B_BATH_ambient_disabled.png",
+      "sha256": "42a116e3a77eb024f3bcee233f6411618ce0198ba4fb1673b0935c9d258b35ec",
+      "white_fraction": 2.604166666666667e-05,
+      "mean_srgb": 0.39869467706063905
+    },
+    {
+      "room": "F03_B_BATH",
+      "treatment": "interior",
+      "file": "F03_B_BATH_interior.png",
+      "sha256": "5b88fe3cc5c6c5be4a8b57ccaa4b6a18eca0e1d73d4fd105d42993ff5f9cc13f",
+      "white_fraction": 0.7555598958333334,
+      "mean_srgb": 0.8929742590323166
+    },
+    {
+      "room": "F03_B_BATH",
+      "treatment": "intensity_tenth",
+      "file": "F03_B_BATH_intensity_tenth.png",
+      "sha256": "50fee06209c6fd6002da6ddd01b75ea784933979fdedb244c92a77a50ba9a47f",
+      "white_fraction": 0.7406325954861112,
+      "mean_srgb": 0.8896710367306645
+    },
+    {
+      "room": "F03_B_BATH",
+      "treatment": "zero_intensity",
+      "file": "F03_B_BATH_zero_intensity.png",
+      "sha256": "6cd27e253158904066f35d26ea483bc8ff403afde76f4b119755f12dc1b08d44",
+      "white_fraction": 0.7384884982638888,
+      "mean_srgb": 0.8881705885189723
+    },
+    {
+      "room": "F03_B_BATH",
+      "treatment": "restored",
+      "file": "F03_B_BATH_restored.png",
+      "sha256": "ab94b42f8e11f978da79d3ae9c52374fba09f5931ff373c3c03df0723ecd57a4",
+      "white_fraction": 0.7569585503472223,
+      "mean_srgb": 0.8937506794094953
+    },
+    {
+      "room": "F06_B_KITCHEN",
+      "treatment": "normal",
+      "file": "F06_B_KITCHEN_normal.png",
+      "sha256": "a8640cfba369b5f1138288feabc38b06c2b826c4893970dbd620fd574743271d",
+      "white_fraction": 0.37535481770833334,
+      "mean_srgb": 0.6499726108614743
+    },
+    {
+      "room": "F06_B_KITCHEN",
+      "treatment": "ambient_disabled",
+      "file": "F06_B_KITCHEN_ambient_disabled.png",
+      "sha256": "d8ae0ba905396c543c3a9137d7b404132c2c73092488c4b91abb3a3da56c61c2",
+      "white_fraction": 5.642361111111111e-05,
+      "mean_srgb": 0.3134011310253268
+    },
+    {
+      "room": "F06_B_KITCHEN",
+      "treatment": "interior",
+      "file": "F06_B_KITCHEN_interior.png",
+      "sha256": "9b01ae36a44763270af8d2aa920d05eef98834bdfe4761835bd70c96f67742cb",
+      "white_fraction": 0.3748025173611111,
+      "mean_srgb": 0.6466663588757262
+    },
+    {
+      "room": "F06_B_KITCHEN",
+      "treatment": "intensity_tenth",
+      "file": "F06_B_KITCHEN_intensity_tenth.png",
+      "sha256": "56e12d21cb213e231a8b7046d5444aeacb9d9e85d51f6efd1e82fe632af1be91",
+      "white_fraction": 0.3749055989583333,
+      "mean_srgb": 0.6198537610067175
+    },
+    {
+      "room": "F06_B_KITCHEN",
+      "treatment": "zero_intensity",
+      "file": "F06_B_KITCHEN_zero_intensity.png",
+      "sha256": "1ee6ca628add8cf7ffec83e01fb7ca3ddec5d628eb6836752a79f06671287e7f",
+      "white_fraction": 0.3749826388888889,
+      "mean_srgb": 0.6154655373434096
+    },
+    {
+      "room": "F06_B_KITCHEN",
+      "treatment": "restored",
+      "file": "F06_B_KITCHEN_restored.png",
+      "sha256": "10f717912174e7099bf409f104c109ebd4686550d25f83cc221efe250e541916",
+      "white_fraction": 0.37548611111111113,
+      "mean_srgb": 0.6493138233592047
+    }
+  ]
+}

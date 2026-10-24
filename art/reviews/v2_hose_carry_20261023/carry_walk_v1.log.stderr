@@ -1,0 +1,5 @@
+ERROR: V2 FPS HOSE WORLD PROFILE: walked FPS hose settles in the hand and aims along the reticle
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _carry_control (res://tests/v2_hose_fps_world_profile.gd:79)

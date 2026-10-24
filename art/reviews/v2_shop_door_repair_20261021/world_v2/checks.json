@@ -1,0 +1,728 @@
+{
+	"checks": [
+		{
+			"label": "all eleven original shop identities remain",
+			"ok": true
+		},
+		{
+			"label": "installed native export matches owning Blender build",
+			"ok": true
+		},
+		{
+			"label": "all thirteen authored native stocks imported",
+			"ok": true
+		},
+		{
+			"label": "Glazing loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "LowerPanel loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "Pull1 loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "Pull-1 loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "Rail0 loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "Rail1 loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "Rail2 loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "Stand1_0 loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "Stand1_1 loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "Stand-1_0 loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "Stand-1_1 loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "Stile0 loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "Stile1 loaded native UVs are finite and nondegenerate",
+			"ok": true
+		},
+		{
+			"label": "installed leaf finish samples native UVs",
+			"ok": true
+		},
+		{
+			"label": "installed leaf finish has custom albedo roughness and normal",
+			"ok": true
+		},
+		{
+			"label": "installed leaf finish samples native UVs",
+			"ok": true
+		},
+		{
+			"label": "installed leaf finish has custom albedo roughness and normal",
+			"ok": true
+		},
+		{
+			"label": "installed leaf finish samples native UVs",
+			"ok": true
+		},
+		{
+			"label": "installed leaf finish has custom albedo roughness and normal",
+			"ok": true
+		},
+		{
+			"label": "installed leaf map has loaded mip levels",
+			"ok": true
+		},
+		{
+			"label": "installed leaf map has loaded mip levels",
+			"ok": true
+		},
+		{
+			"label": "installed leaf map has loaded mip levels",
+			"ok": true
+		},
+		{
+			"label": "installed leaf map has loaded mip levels",
+			"ok": true
+		},
+		{
+			"label": "installed leaf map has loaded mip levels",
+			"ok": true
+		},
+		{
+			"label": "installed leaf map has loaded mip levels",
+			"ok": true
+		},
+		{
+			"label": "installed leaf map has loaded mip levels",
+			"ok": true
+		},
+		{
+			"label": "installed leaf map has loaded mip levels",
+			"ok": true
+		},
+		{
+			"label": "installed leaf map has loaded mip levels",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY real hand reaches fitted open stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING real hand reaches fitted open stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT real hand reaches fitted open stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT real hand reaches fitted open stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR real hand reaches fitted open stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES real hand reaches fitted open stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE real hand reaches fitted open stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER real hand reaches fitted open stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS real hand reaches fitted open stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS closes through hand before key setup",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS existing key authority locks the closed leaf",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS key-owned lock refuses actual pointer motion",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON real hand reaches fitted open stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE real hand reaches fitted open stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "projected leaf motion follows pointer direction",
+			"ok": true
+		},
+		{
+			"label": "existing RealityState writes actual disk save",
+			"ok": true
+		},
+		{
+			"label": "disk contains existing household domain",
+			"ok": true
+		},
+		{
+			"label": "actual disk load and fresh world reconstruction succeed",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "historical 100 degree pose migrates to fitted 90 degree stop",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"expected": {
+		"SITE_SHOP_DOOR_FUNERAL_PARLOUR": {
+			"angle": 0.540000021457672
+		},
+		"SITE_SHOP_DOOR_HARDWARE_PAINT": {
+			"angle": 0.504999995231628
+		},
+		"SITE_SHOP_DOOR_KEYS_CUT": {
+			"angle": 0.469999969005585
+		},
+		"SITE_SHOP_DOOR_LUNCHEONETTE": {
+			"angle": 0.75
+		},
+		"SITE_SHOP_DOOR_MODEL_LAUNDRY": {
+			"angle": 0.400000005960464
+		},
+		"SITE_SHOP_DOOR_NEWS_CIGARS": {
+			"angle": 0.00000000307616287997803
+		},
+		"SITE_SHOP_DOOR_OTIS___SON": {
+			"angle": 0.714999973773956
+		},
+		"SITE_SHOP_DOOR_PAWNBROKER": {
+			"angle": 0.644999980926514
+		},
+		"SITE_SHOP_DOOR_PHOTO_SUPPLIES": {
+			"angle": 0.574999988079071
+		},
+		"SITE_SHOP_DOOR_RADIO_SERVICE": {
+			"angle": 0.610000014305115
+		},
+		"SITE_SHOP_DOOR_SHOE_REBUILDING": {
+			"angle": 0.435000002384186
+		}
+	},
+	"save_path": "C:/Users/nate_/AppData/Roaming/PleaseRemainOnTheLine/tests/shop_door_00762fc71d92259a.json",
+	"scope": "Eleven original shop doors: compound sweep, actual pointer input and disk/world reconstruction; stance placement and key setup are fixtures, not route or key acceptance.",
+	"sweeps": [
+		{
+			"blocked": [],
+			"id": "SITE_SHOP_DOOR_MODEL_LAUNDRY"
+		},
+		{
+			"blocked": [],
+			"id": "SITE_SHOP_DOOR_SHOE_REBUILDING"
+		},
+		{
+			"blocked": [],
+			"id": "SITE_SHOP_DOOR_KEYS_CUT"
+		},
+		{
+			"blocked": [],
+			"id": "SITE_SHOP_DOOR_HARDWARE_PAINT"
+		},
+		{
+			"blocked": [],
+			"id": "SITE_SHOP_DOOR_FUNERAL_PARLOUR"
+		},
+		{
+			"blocked": [],
+			"id": "SITE_SHOP_DOOR_PHOTO_SUPPLIES"
+		},
+		{
+			"blocked": [],
+			"id": "SITE_SHOP_DOOR_RADIO_SERVICE"
+		},
+		{
+			"blocked": [],
+			"id": "SITE_SHOP_DOOR_PAWNBROKER"
+		},
+		{
+			"blocked": [],
+			"id": "SITE_SHOP_DOOR_NEWS_CIGARS"
+		},
+		{
+			"blocked": [],
+			"id": "SITE_SHOP_DOOR_OTIS___SON"
+		},
+		{
+			"blocked": [],
+			"id": "SITE_SHOP_DOOR_LUNCHEONETTE"
+		}
+	]
+}

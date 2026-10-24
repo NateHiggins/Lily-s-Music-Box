@@ -911,7 +911,7 @@ func _check_bath_details(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> vo
 		check(detail != null and detail.get_parent() == support, "bath detail belongs to physical support: " + str(record.id))
 		if detail == null: continue
 		refs.append(weakref(detail))
-		check(detail.transform.is_equal_approx(Transform3D.IDENTITY), "bath contact remains support-local")
+		check(detail.position.is_equal_approx(Vector3(record.position[0],record.position[1],record.position[2])) and is_equal_approx(detail.rotation.y,float(record.yaw)), "bath detail uses authored support-local contact")
 		var visuals := detail.find_children("*", "MeshInstance3D", true, false)
 		if record.has("model"):
 			check(detail.get_child_count() == 1 and not visuals.is_empty(), "bath has one shared Blender assembly")
@@ -939,8 +939,9 @@ func _check_bath_details(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> vo
 		check(not loader.validate(bad_bounds,dry), "Blender vertices must remain inside declared bounds")
 	var integer_origin := source.duplicate(true)
 	for record: Dictionary in integer_origin.props:
-		record.position = [0, 0, 0]
-		record.yaw = 0
+		if record.kind != "toilet_roll":
+			record.position = [0, 0, 0]
+			record.yaw = 0
 	check(loader.validate(integer_origin, dry), "integer and JSON float origins have the same contact")
 	check(not loader.validate(source, world.adapter), "duplicate bath mount refused")
 	for mutation: String in ["missing", "support", "offset", "yaw", "numeric_string", "bounds", "surface", "material"]:

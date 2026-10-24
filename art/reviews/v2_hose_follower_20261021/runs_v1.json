@@ -1,0 +1,52 @@
+[
+  {
+    "scene": "",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\import_v1_1.log"
+  },
+  {
+    "scene": "",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\import_v1_2.log"
+  },
+  {
+    "scene": "res://tests/HoseFollowKernelTest.tscn",
+    "runner": "long",
+    "timeout": 500,
+    "windowed": false,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\kernel_v1.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\kernel_v1"
+  },
+  {
+    "scene": "res://tests/V2HoseFollowerTest.tscn",
+    "runner": "long",
+    "timeout": 500,
+    "windowed": true,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\follower_v1.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\follower_v1"
+  },
+  {
+    "scene": "res://tests/V2DeployableHoseNativeTest.tscn",
+    "runner": "long",
+    "timeout": 500,
+    "windowed": true,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\sparse_control_v1.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\sparse_control_v1"
+  },
+  {
+    "scene": "res://tests/V2FireCapacityNativeTest.tscn",
+    "runner": "long",
+    "timeout": 500,
+    "windowed": true,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\dense_control_v1.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\dense_control_v1"
+  }
+]

@@ -172,10 +172,13 @@ func interact_prompt() -> String:
 
 
 func interact(_player: Node) -> void:
+	set_grille_open(1.0)
+	_report_inspection()
+
+func _report_inspection() -> void:
 	var stage_before := work_orders.job_stage(ChirpHunt.JOB_ID) \
 			if work_orders else "missing"
 	var repaired_before := _repaired
-	set_grille_open(1.0)
 	inspected.emit(point_id)
 	var cue := &"interaction.vantry_grille"
 	if not repaired_before and _repaired:
@@ -183,6 +186,21 @@ func interact(_player: Node) -> void:
 	elif stage_before == "repairable" and not _repaired:
 		cue = &"interaction.vantry_repair_refuse"
 	AudioPolicy.present_3d(cue, global_position, 1.0, StringName(point_id))
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	if not _grille.is_ancestor_of(hit.collider):return {}
+	return {"owner":self,"part":_grille,"frame":self,"kind":"slider","axis":Vector3.DOWN,
+		"minimum":0.,"maximum":.05,"gesture_pixels":160.,"label":"Captive grille",
+		"read":func():return _grille_open*.05,
+		"begin":func():
+			if _grille_tween and _grille_tween.is_valid():_grille_tween.kill()
+			return true,
+		"write":func(value: float):set_grille_open(value/.05,0.),
+		"end":func():
+			if _grille_open>.8:_report_inspection()}
+
+func inspection_view() -> Dictionary:
+	return {"from":to_global(Vector3(.22,-.42,.34)),"at":to_global(Vector3(0,-.07,0)),"fov":50.}
 
 
 func interact_area(_area: Area3D) -> void:
@@ -216,7 +234,7 @@ func _build_service_area() -> void:
 	shape.shape = cyl
 	shape.position.y = -0.055
 	area.add_child(shape)
-	add_child(area)
+	_grille.add_child(area)
 
 
 func _box(parent: Node3D, size: Vector3, at: Vector3,

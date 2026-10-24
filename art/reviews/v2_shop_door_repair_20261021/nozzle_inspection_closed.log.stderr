@@ -1,0 +1,28 @@
+SCRIPT ERROR: Parse Error: Could not preload resource script "res://scripts/building/orison_v2_shop_seating.gd".
+   at: GDScript::reload (res://scripts/building/orison_v2_passage_region.gd:10)
+SCRIPT ERROR: Parse Error: Could not resolve script "res://scripts/building/orison_v2_shop_seating.gd".
+   at: GDScript::reload (res://scripts/building/orison_v2_passage_region.gd:10)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "Seating" constant because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/building/orison_v2_passage_region.gd:10)
+SCRIPT ERROR: Parse Error: Could not resolve script "res://scripts/building/orison_v2_shop_seating.gd".
+   at: GDScript::reload (res://scripts/building/orison_v2_bar_pool.gd:4)
+SCRIPT ERROR: Parse Error: Could not resolve script "res://scripts/building/orison_v2_shop_seating.gd".
+   at: GDScript::reload (res://scripts/building/orison_v2_bar_ceiling_finish.gd:26)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "retained" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/building/orison_v2_bar_ceiling_finish.gd:26)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "surface" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/building/orison_v2_bar_ceiling_finish.gd:42)
+SCRIPT ERROR: Parse Error: Could not resolve script "res://scripts/building/orison_v2_shop_seating.gd".
+   at: GDScript::reload (res://scripts/building/orison_v2_bar_stage.gd:4)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/building/orison_v2_bar_region.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/building/orison_v2_runtime_root.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/orison_v2_first_slice_contract_test.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/v2_fire_hand_bench.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/v2_fire_nozzle_coupling_bench.gd:0)
+ERROR: Failed to load script "res://tests/v2_fire_nozzle_coupling_bench.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_registered_catalog_survives_regeneration (test_material_catalog_persistence.MaterialCatalogPersistenceTest.test_registered_catalog_survives_regeneration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\tools\tests\test_material_catalog_persistence.py", line 23, in test_registered_catalog_survives_regeneration
+    self.assertEqual(generated, registered,
+AssertionError: {'noo[177 chars]0}, 'arcade_terrazzo': {'base_color': [1.0, 1.[12418 chars].88}} != {'noo[177 chars]0}, 'plaster': {'base_color': [0.62, 0.64, 0.5[12508 chars]0.0}}
+Diff is 16351 characters long. Set self.maxDiff to None to see it. : gen_layout would retire or alter registered finishes; update its source catalogue too
+
+----------------------------------------------------------------------
+Ran 1 test in 0.078s
+
+FAILED (failures=1)

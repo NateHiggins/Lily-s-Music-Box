@@ -1,0 +1,204 @@
+{
+  "checks": [
+    {
+      "label": "production counter mounts at the retained shop",
+      "ok": true
+    },
+    {
+      "label": "primary click reaches hardware door part",
+      "ok": true
+    },
+    {
+      "label": "hardware door allows immediate player passage",
+      "ok": true
+    },
+    {
+      "label": "real handheld radio switch is off",
+      "ok": true
+    },
+    {
+      "label": "actual ray and full mouse stroke reach mounted sale lever",
+      "ok": true
+    },
+    {
+      "label": "radio-off refusal preserves money and stock custody",
+      "ok": true
+    },
+    {
+      "label": "same handheld radio switch supplies settlement carrier",
+      "ok": true
+    },
+    {
+      "label": "actual full pull settles bottle purchase",
+      "ok": true
+    },
+    {
+      "label": "original inventory and cash ledger record exactly25c",
+      "ok": true
+    },
+    {
+      "label": "paid native bottle is picked up through its specific target",
+      "ok": true
+    },
+    {
+      "label": "picked bottle reaches the real FPS hand pose without obstruction",
+      "ok": true
+    },
+    {
+      "label": "held bottle enters supported static inspection",
+      "ok": true
+    },
+    {
+      "label": "supported inspection actually presents bottle at reading distance",
+      "ok": true
+    },
+    {
+      "label": "inspection free cursor identifies cap rather than bottle",
+      "ok": true
+    },
+    {
+      "label": "primary click takes the cap mechanism",
+      "ok": true
+    },
+    {
+      "label": "actual mouse motion opens cap to its stop",
+      "ok": true
+    },
+    {
+      "label": "leaving inspection returns bottle to hand",
+      "ok": true
+    },
+    {
+      "label": "unlocked door grants the carrier's held stock the same passage priority",
+      "ok": true
+    },
+    {
+      "label": "held stock physically follows through the shop threshold",
+      "ok": true
+    },
+    {
+      "label": "release restores ordinary stock collision with the door",
+      "ok": true
+    },
+    {
+      "label": "released bottle settles on actual arcade floor",
+      "ok": true
+    },
+    {
+      "label": "sole household owner captures dropped pose and cap",
+      "ok": true
+    },
+    {
+      "label": "production front entrance leaf exists: F01_DOOR_06",
+      "ok": true
+    },
+    {
+      "label": "primary click identifies entrance leaf: F01_DOOR_06",
+      "ok": true
+    },
+    {
+      "label": "fixed mouse travel reaches entrance stop: F01_DOOR_06",
+      "ok": true
+    },
+    {
+      "label": "production front entrance leaf exists: F01_INNER_DOOR",
+      "ok": true
+    },
+    {
+      "label": "primary click identifies entrance leaf: F01_INNER_DOOR",
+      "ok": true
+    },
+    {
+      "label": "fixed mouse travel reaches entrance stop: F01_INNER_DOOR",
+      "ok": true
+    },
+    {
+      "label": "actual departure retires shop geometry",
+      "ok": true
+    },
+    {
+      "label": "dormant stock retains original physical save pose",
+      "ok": false
+    },
+    {
+      "label": "dormant stock is suspended before floor retirement",
+      "ok": false
+    }
+  ],
+  "evidence_class": "INERT",
+  "residency": {
+    "cell_count": 1,
+    "collision_cache_bytes": 88608528,
+    "collision_cache_parts": 1269,
+    "collision_cache_seed_ms": 1180.191,
+    "fit_records": [],
+    "load_cycles": 0,
+    "peak_activation_ms": 0.0,
+    "peak_stage_ms": 0.0,
+    "pending_requests": 0,
+    "physical_actors_retained": true,
+    "retired_geometry_roots_alive": 0,
+    "retired_mesh_resources_alive": 0,
+    "stage_records": [],
+    "state": "DORMANT",
+    "unload_cycles": 1
+  },
+  "stock": {
+    "fire_hose_rubber_protectant": {
+      "cap": 1.9,
+      "parked": false,
+      "stock": {
+        "position": [
+          -1.28605270385742,
+          -1.10932409763336,
+          4.48342514038086
+        ],
+        "rotation": [
+          0.00501982448622584,
+          0.999985992908478,
+          0.00162610271945596,
+          0.000392590707633644
+        ],
+        "sleeping": true,
+        "spin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "fire_hose_spare_gasket": {
+      "cap": 0.0,
+      "parked": true,
+      "stock": {
+        "position": [
+          0.0,
+          0.0000199999994947575,
+          -0.189999997615814
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "sleeping": false,
+        "spin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

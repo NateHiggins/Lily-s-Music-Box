@@ -1,0 +1,25 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_bath_paper_holder.py:27: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(key); m.use_nodes = True
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+Info: Applied modifier was not first, result may not be as expected
+SURFACE UV REPAIR: 0 polygons; vertex positions and topology retained
+Info: Saved as "bath_paper_holder.blend"
+Warning: No mesh data to join
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+05:39:16 | INFO: Starting glTF 2.0 export
+05:39:16 | INFO: Extracting primitive: Cylinder
+05:39:16 | INFO: Primitives created: 1
+05:39:16 | INFO: Extracting primitive: HollowWoundPaper
+05:39:16 | INFO: Primitives created: 1
+05:39:16 | INFO: Extracting primitive: Cylinder.014
+05:39:16 | INFO: Primitives created: 1
+05:39:16 | INFO: Finished glTF 2.0 export in 0.07781100273132324 s
+00:10.515  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_paper_holder_20261024\native_holder.png'
+
+PAPER HOLDER: native source, three batches, continuous outer sheet exported and rendered
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

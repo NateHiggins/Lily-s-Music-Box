@@ -1,0 +1,92 @@
+{
+  "evidence_class": "INERT",
+  "kind": "performance_comparison",
+  "before": {
+    "p50_ms": 71.343,
+    "p90_ms": 90.189,
+    "p95_ms": 104.288,
+    "p99_ms": 547.389,
+    "max_ms": 1093.229,
+    "frames": 801,
+    "over_33ms": 801,
+    "over_50ms": 764,
+    "over_100ms": 47
+  },
+  "after": {
+    "p50_ms": 72.474,
+    "p90_ms": 93.118,
+    "p95_ms": 107.131,
+    "p99_ms": 148.586,
+    "max_ms": 275.787,
+    "frames": 821,
+    "over_33ms": 821,
+    "over_50ms": 773,
+    "over_100ms": 57
+  },
+  "before_startup_ms": 115104.555,
+  "after_startup_ms": 110038.292,
+  "cache_face_bytes": 88608528,
+  "cache_parts": 1269,
+  "cache_seed_ms": 1237.203,
+  "before_peak_fitting_ms": 1024.366,
+  "after_peak_fitting_ms": 212.721,
+  "largest_interaction_callbacks": [
+    {
+      "ms": 17.312,
+      "owner": "F01_INNER_DOOR_Leaf",
+      "stage": "end"
+    },
+    {
+      "ms": 17.259,
+      "owner": "F01_DOOR_06_Leaf",
+      "stage": "end"
+    },
+    {
+      "ms": 0.285,
+      "owner": "F01_INNER_DOOR_Leaf",
+      "stage": "constrained_motion"
+    },
+    {
+      "ms": 0.245,
+      "owner": "F01_DOOR_06_Leaf",
+      "stage": "constrained_motion"
+    },
+    {
+      "ms": 0.116,
+      "owner": "F01_DOOR_06_Leaf",
+      "stage": "constrained_motion"
+    },
+    {
+      "ms": 0.096,
+      "owner": "F01_DOOR_06_Leaf",
+      "stage": "constrained_motion"
+    },
+    {
+      "ms": 0.096,
+      "owner": "F01_DOOR_06_Leaf",
+      "stage": "constrained_motion"
+    },
+    {
+      "ms": 0.094,
+      "owner": "F01_INNER_DOOR_Leaf",
+      "stage": "constrained_motion"
+    },
+    {
+      "ms": 0.091,
+      "owner": "F01_DOOR_06_Leaf",
+      "stage": "constrained_motion"
+    },
+    {
+      "ms": 0.09,
+      "owner": "F01_DOOR_06_Leaf",
+      "stage": "constrained_motion"
+    }
+  ],
+  "limitations": [
+    "first baseline cycle overlapped initial static gates; warm second cycle is cleaner",
+    "no input-to-photon or exact shader-compilation measurement",
+    "main viewport timings exclude other viewports",
+    "p95 and median are not improved overall",
+    "all-area and full-world inspection/furnishing performance coverage remains pending"
+  ]
+}

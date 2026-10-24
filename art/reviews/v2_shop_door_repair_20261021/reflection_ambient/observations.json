@@ -1,0 +1,114 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"records": [
+		{
+			"ambient": 1,
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_normal.png",
+			"intensity": 1.0,
+			"interior": false,
+			"origin": "(-14.325, 7.812999, -0.575)",
+			"treatment": "normal"
+		},
+		{
+			"ambient": 0,
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_ambient_disabled.png",
+			"intensity": 1.0,
+			"interior": false,
+			"origin": "(-14.325, 7.812999, -0.575)",
+			"treatment": "ambient_disabled"
+		},
+		{
+			"ambient": 1,
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_interior.png",
+			"intensity": 1.0,
+			"interior": true,
+			"origin": "(-14.325, 7.812999, -0.575)",
+			"treatment": "interior"
+		},
+		{
+			"ambient": 1,
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_intensity_tenth.png",
+			"intensity": 0.100000001490116,
+			"interior": false,
+			"origin": "(-14.325, 7.812999, -0.575)",
+			"treatment": "intensity_tenth"
+		},
+		{
+			"ambient": 1,
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_zero_intensity.png",
+			"intensity": 0.0,
+			"interior": false,
+			"origin": "(-14.325, 7.812999, -0.575)",
+			"treatment": "zero_intensity"
+		},
+		{
+			"ambient": 1,
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_restored.png",
+			"intensity": 1.0,
+			"interior": false,
+			"origin": "(-14.325, 7.812999, -0.575)",
+			"treatment": "restored"
+		},
+		{
+			"ambient": 1,
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_normal.png",
+			"intensity": 1.0,
+			"interior": false,
+			"origin": "(7.900002, 17.413, -20.65)",
+			"treatment": "normal"
+		},
+		{
+			"ambient": 0,
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_ambient_disabled.png",
+			"intensity": 1.0,
+			"interior": false,
+			"origin": "(7.900002, 17.413, -20.65)",
+			"treatment": "ambient_disabled"
+		},
+		{
+			"ambient": 1,
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_interior.png",
+			"intensity": 1.0,
+			"interior": true,
+			"origin": "(7.900002, 17.413, -20.65)",
+			"treatment": "interior"
+		},
+		{
+			"ambient": 1,
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_intensity_tenth.png",
+			"intensity": 0.100000001490116,
+			"interior": false,
+			"origin": "(7.900002, 17.413, -20.65)",
+			"treatment": "intensity_tenth"
+		},
+		{
+			"ambient": 1,
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_zero_intensity.png",
+			"intensity": 0.0,
+			"interior": false,
+			"origin": "(7.900002, 17.413, -20.65)",
+			"treatment": "zero_intensity"
+		},
+		{
+			"ambient": 1,
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_restored.png",
+			"intensity": 1.0,
+			"interior": false,
+			"origin": "(7.900002, 17.413, -20.65)",
+			"treatment": "restored"
+		}
+	]
+}

@@ -1,0 +1,3044 @@
+{
+	"amount": 128,
+	"cast_shadow": 0,
+	"evidence_class": "INERT",
+	"scope": "Actual spraying aim/inspection views and fixed-view performance. Visual readability requires image review; emission flags alone are not visual acceptance.",
+	"triangles_per_drop": 80,
+	"views": [
+		{
+			"aim_error_degrees": 0.0,
+			"camera": "Transform3D(-0.9479772, -0.29339245, 0.12353179, 0, 0.38805208, 0.9216375, -0.3183382, 0.8736914, -0.36786452, -4.4025874, 4.6102343, -8.719999)",
+			"id": "floor",
+			"samples": [
+				{
+					"render_cpu_ms": 20.0750007629395,
+					"render_gpu_ms": 12.1809997558594,
+					"wall_ms": 34.343
+				},
+				{
+					"render_cpu_ms": 19.0900001525879,
+					"render_gpu_ms": 11.2720003128052,
+					"wall_ms": 31.693
+				},
+				{
+					"render_cpu_ms": 20.0779991149902,
+					"render_gpu_ms": 12.2030000686646,
+					"wall_ms": 34.791
+				},
+				{
+					"render_cpu_ms": 18.6319999694824,
+					"render_gpu_ms": 11.2790002822876,
+					"wall_ms": 32.135
+				},
+				{
+					"render_cpu_ms": 20.3419990539551,
+					"render_gpu_ms": 12.2019996643066,
+					"wall_ms": 33.476
+				},
+				{
+					"render_cpu_ms": 19.3969993591309,
+					"render_gpu_ms": 11.2829999923706,
+					"wall_ms": 32.317
+				},
+				{
+					"render_cpu_ms": 19.8509998321533,
+					"render_gpu_ms": 12.1789999008179,
+					"wall_ms": 33.97
+				},
+				{
+					"render_cpu_ms": 19.3349990844727,
+					"render_gpu_ms": 11.2889995574951,
+					"wall_ms": 33.845
+				},
+				{
+					"render_cpu_ms": 19.9069995880127,
+					"render_gpu_ms": 12.2279996871948,
+					"wall_ms": 36.199
+				},
+				{
+					"render_cpu_ms": 20.9020004272461,
+					"render_gpu_ms": 12.4930000305176,
+					"wall_ms": 33.89
+				},
+				{
+					"render_cpu_ms": 22.0240001678467,
+					"render_gpu_ms": 13.4099998474121,
+					"wall_ms": 35.466
+				},
+				{
+					"render_cpu_ms": 20.996000289917,
+					"render_gpu_ms": 12.4779996871948,
+					"wall_ms": 34.328
+				},
+				{
+					"render_cpu_ms": 21.1709995269775,
+					"render_gpu_ms": 13.4069995880127,
+					"wall_ms": 37.361
+				},
+				{
+					"render_cpu_ms": 21.0750007629395,
+					"render_gpu_ms": 12.4919996261597,
+					"wall_ms": 32.349
+				},
+				{
+					"render_cpu_ms": 22.9640007019043,
+					"render_gpu_ms": 14.003999710083,
+					"wall_ms": 33.413
+				},
+				{
+					"render_cpu_ms": 18.5480003356934,
+					"render_gpu_ms": 11.2849998474121,
+					"wall_ms": 30.763
+				},
+				{
+					"render_cpu_ms": 19.4599990844727,
+					"render_gpu_ms": 12.1879997253418,
+					"wall_ms": 32.492
+				},
+				{
+					"render_cpu_ms": 18.423999786377,
+					"render_gpu_ms": 11.2659997940063,
+					"wall_ms": 35.246
+				},
+				{
+					"render_cpu_ms": 19.9990005493164,
+					"render_gpu_ms": 12.2069997787476,
+					"wall_ms": 36.713
+				},
+				{
+					"render_cpu_ms": 20.4409999847412,
+					"render_gpu_ms": 12.4899997711182,
+					"wall_ms": 33.774
+				},
+				{
+					"render_cpu_ms": 21.4580001831055,
+					"render_gpu_ms": 13.4130001068115,
+					"wall_ms": 31.852
+				},
+				{
+					"render_cpu_ms": 20.8509998321533,
+					"render_gpu_ms": 13.1400003433228,
+					"wall_ms": 30.873
+				},
+				{
+					"render_cpu_ms": 19.3649997711182,
+					"render_gpu_ms": 12.1579999923706,
+					"wall_ms": 32.69
+				},
+				{
+					"render_cpu_ms": 18.4489994049072,
+					"render_gpu_ms": 11.2889995574951,
+					"wall_ms": 31.262
+				},
+				{
+					"render_cpu_ms": 19.2520008087158,
+					"render_gpu_ms": 12.2069997787476,
+					"wall_ms": 33.028
+				},
+				{
+					"render_cpu_ms": 18.8239994049072,
+					"render_gpu_ms": 11.2749996185303,
+					"wall_ms": 34.742
+				},
+				{
+					"render_cpu_ms": 19.9680004119873,
+					"render_gpu_ms": 12.210000038147,
+					"wall_ms": 36.137
+				},
+				{
+					"render_cpu_ms": 18.8560009002686,
+					"render_gpu_ms": 11.2670001983643,
+					"wall_ms": 34.868
+				},
+				{
+					"render_cpu_ms": 19.8780002593994,
+					"render_gpu_ms": 12.1890001296997,
+					"wall_ms": 34.487
+				},
+				{
+					"render_cpu_ms": 19.1550006866455,
+					"render_gpu_ms": 11.2709999084473,
+					"wall_ms": 31.624
+				},
+				{
+					"render_cpu_ms": 20.3600006103516,
+					"render_gpu_ms": 12.1639995574951,
+					"wall_ms": 34.149
+				},
+				{
+					"render_cpu_ms": 18.6849994659424,
+					"render_gpu_ms": 11.2840003967285,
+					"wall_ms": 34.039
+				},
+				{
+					"render_cpu_ms": 20.5359992980957,
+					"render_gpu_ms": 12.1859998703003,
+					"wall_ms": 35.994
+				},
+				{
+					"render_cpu_ms": 18.6709995269775,
+					"render_gpu_ms": 11.2700004577637,
+					"wall_ms": 38.364
+				},
+				{
+					"render_cpu_ms": 20.6459999084473,
+					"render_gpu_ms": 12.1940002441406,
+					"wall_ms": 34.979
+				},
+				{
+					"render_cpu_ms": 19.451000213623,
+					"render_gpu_ms": 11.2670001983643,
+					"wall_ms": 31.082
+				},
+				{
+					"render_cpu_ms": 19.8409996032715,
+					"render_gpu_ms": 12.3020000457764,
+					"wall_ms": 33.185
+				},
+				{
+					"render_cpu_ms": 18.5090007781982,
+					"render_gpu_ms": 11.3900003433228,
+					"wall_ms": 35.306
+				},
+				{
+					"render_cpu_ms": 20.3959999084473,
+					"render_gpu_ms": 12.3140001296997,
+					"wall_ms": 36.605
+				},
+				{
+					"render_cpu_ms": 19.1410007476807,
+					"render_gpu_ms": 11.3970003128052,
+					"wall_ms": 35.176
+				},
+				{
+					"render_cpu_ms": 20.0440006256104,
+					"render_gpu_ms": 12.3269996643066,
+					"wall_ms": 33.682
+				},
+				{
+					"render_cpu_ms": 19.3729991912842,
+					"render_gpu_ms": 11.3929996490479,
+					"wall_ms": 31.847
+				},
+				{
+					"render_cpu_ms": 19.9050006866455,
+					"render_gpu_ms": 12.4139995574951,
+					"wall_ms": 34.889
+				},
+				{
+					"render_cpu_ms": 19.0849990844727,
+					"render_gpu_ms": 11.4670000076294,
+					"wall_ms": 32.369
+				},
+				{
+					"render_cpu_ms": 20.4540004730225,
+					"render_gpu_ms": 12.3940000534058,
+					"wall_ms": 32.866
+				},
+				{
+					"render_cpu_ms": 19.6040000915527,
+					"render_gpu_ms": 11.460000038147,
+					"wall_ms": 31.405
+				},
+				{
+					"render_cpu_ms": 19.6049995422363,
+					"render_gpu_ms": 12.3850002288818,
+					"wall_ms": 34.242
+				},
+				{
+					"render_cpu_ms": 18.8430004119873,
+					"render_gpu_ms": 11.4840002059937,
+					"wall_ms": 35.005
+				},
+				{
+					"render_cpu_ms": 20.3780002593994,
+					"render_gpu_ms": 12.3970003128052,
+					"wall_ms": 35.132
+				},
+				{
+					"render_cpu_ms": 20.1599998474121,
+					"render_gpu_ms": 12.7159996032715,
+					"wall_ms": 35.952
+				},
+				{
+					"render_cpu_ms": 21.1760005950928,
+					"render_gpu_ms": 13.6510000228882,
+					"wall_ms": 31.63
+				},
+				{
+					"render_cpu_ms": 21.0069999694824,
+					"render_gpu_ms": 12.960000038147,
+					"wall_ms": 29.911
+				},
+				{
+					"render_cpu_ms": 18.0459995269775,
+					"render_gpu_ms": 11.0690002441406,
+					"wall_ms": 33.315
+				},
+				{
+					"render_cpu_ms": 17.94700050354,
+					"render_gpu_ms": 11.0710000991821,
+					"wall_ms": 32.549
+				},
+				{
+					"render_cpu_ms": 18.0410003662109,
+					"render_gpu_ms": 11.0349998474121,
+					"wall_ms": 33.938
+				},
+				{
+					"render_cpu_ms": 18.0419998168945,
+					"render_gpu_ms": 11.0609998703003,
+					"wall_ms": 31.872
+				},
+				{
+					"render_cpu_ms": 18.0559997558594,
+					"render_gpu_ms": 11.0710000991821,
+					"wall_ms": 30.876
+				},
+				{
+					"render_cpu_ms": 18.386999130249,
+					"render_gpu_ms": 11.0819997787476,
+					"wall_ms": 30.95
+				},
+				{
+					"render_cpu_ms": 18.3099994659424,
+					"render_gpu_ms": 11.0740003585815,
+					"wall_ms": 31.869
+				},
+				{
+					"render_cpu_ms": 18.5990009307861,
+					"render_gpu_ms": 11.0550003051758,
+					"wall_ms": 28.88
+				},
+				{
+					"render_cpu_ms": 18.6200008392334,
+					"render_gpu_ms": 11.0950002670288,
+					"wall_ms": 32.919
+				},
+				{
+					"render_cpu_ms": 18.1849994659424,
+					"render_gpu_ms": 11.0909996032715,
+					"wall_ms": 31.042
+				},
+				{
+					"render_cpu_ms": 19.9890003204346,
+					"render_gpu_ms": 12.4309997558594,
+					"wall_ms": 33.782
+				},
+				{
+					"render_cpu_ms": 18.7240009307861,
+					"render_gpu_ms": 11.5190000534058,
+					"wall_ms": 31.555
+				},
+				{
+					"render_cpu_ms": 19.7450008392334,
+					"render_gpu_ms": 12.4479999542236,
+					"wall_ms": 33.08
+				},
+				{
+					"render_cpu_ms": 18.8460006713867,
+					"render_gpu_ms": 11.496000289917,
+					"wall_ms": 31.312
+				},
+				{
+					"render_cpu_ms": 19.8290004730225,
+					"render_gpu_ms": 12.5249996185303,
+					"wall_ms": 33.211
+				},
+				{
+					"render_cpu_ms": 18.6110000610352,
+					"render_gpu_ms": 11.5740003585815,
+					"wall_ms": 30.785
+				},
+				{
+					"render_cpu_ms": 19.5540008544922,
+					"render_gpu_ms": 12.5430002212524,
+					"wall_ms": 32.774
+				},
+				{
+					"render_cpu_ms": 18.4519996643066,
+					"render_gpu_ms": 11.5749998092651,
+					"wall_ms": 31.884
+				},
+				{
+					"render_cpu_ms": 19.7630004882813,
+					"render_gpu_ms": 12.5,
+					"wall_ms": 31.692
+				},
+				{
+					"render_cpu_ms": 19.431999206543,
+					"render_gpu_ms": 11.5860004425049,
+					"wall_ms": 30.623
+				},
+				{
+					"render_cpu_ms": 19.6340007781982,
+					"render_gpu_ms": 12.5,
+					"wall_ms": 32.773
+				},
+				{
+					"render_cpu_ms": 18.3309993743896,
+					"render_gpu_ms": 11.4490003585815,
+					"wall_ms": 31.743
+				},
+				{
+					"render_cpu_ms": 19.7390003204346,
+					"render_gpu_ms": 12.3819999694824,
+					"wall_ms": 33.406
+				},
+				{
+					"render_cpu_ms": 18.5429992675781,
+					"render_gpu_ms": 11.4469995498657,
+					"wall_ms": 30.96
+				},
+				{
+					"render_cpu_ms": 19.5839996337891,
+					"render_gpu_ms": 12.3680000305176,
+					"wall_ms": 32.625
+				},
+				{
+					"render_cpu_ms": 18.5970001220703,
+					"render_gpu_ms": 11.4420003890991,
+					"wall_ms": 31.332
+				},
+				{
+					"render_cpu_ms": 19.8159999847412,
+					"render_gpu_ms": 12.3719997406006,
+					"wall_ms": 36.849
+				},
+				{
+					"render_cpu_ms": 18.82200050354,
+					"render_gpu_ms": 11.1219997406006,
+					"wall_ms": 34.627
+				},
+				{
+					"render_cpu_ms": 20.9330005645752,
+					"render_gpu_ms": 12.7229995727539,
+					"wall_ms": 35.528
+				},
+				{
+					"render_cpu_ms": 21.1949996948242,
+					"render_gpu_ms": 12.2980003356934,
+					"wall_ms": 31.307
+				},
+				{
+					"render_cpu_ms": 21.9330005645752,
+					"render_gpu_ms": 13.8400001525879,
+					"wall_ms": 31.576
+				},
+				{
+					"render_cpu_ms": 18.4810009002686,
+					"render_gpu_ms": 11.1079998016357,
+					"wall_ms": 34.472
+				},
+				{
+					"render_cpu_ms": 19.5790004730225,
+					"render_gpu_ms": 12.0340003967285,
+					"wall_ms": 34.756
+				},
+				{
+					"render_cpu_ms": 18.8540000915527,
+					"render_gpu_ms": 11.1059999465942,
+					"wall_ms": 33.53
+				},
+				{
+					"render_cpu_ms": 19.681999206543,
+					"render_gpu_ms": 11.9840002059937,
+					"wall_ms": 35.703
+				},
+				{
+					"render_cpu_ms": 18.5960006713867,
+					"render_gpu_ms": 11.1540002822876,
+					"wall_ms": 31.127
+				},
+				{
+					"render_cpu_ms": 20.3010005950928,
+					"render_gpu_ms": 12.0229997634888,
+					"wall_ms": 32.581
+				},
+				{
+					"render_cpu_ms": 18.5400009155273,
+					"render_gpu_ms": 11.1370000839233,
+					"wall_ms": 34.934
+				},
+				{
+					"render_cpu_ms": 19.9039993286133,
+					"render_gpu_ms": 12.0319995880127,
+					"wall_ms": 35.973
+				},
+				{
+					"render_cpu_ms": 19.0230007171631,
+					"render_gpu_ms": 11.1029996871948,
+					"wall_ms": 34.099
+				},
+				{
+					"render_cpu_ms": 19.878999710083,
+					"render_gpu_ms": 12.0299997329712,
+					"wall_ms": 34.034
+				},
+				{
+					"render_cpu_ms": 18.5400009155273,
+					"render_gpu_ms": 11.1049995422363,
+					"wall_ms": 31.456
+				},
+				{
+					"render_cpu_ms": 19.5400009155273,
+					"render_gpu_ms": 12.0030002593994,
+					"wall_ms": 33.825
+				},
+				{
+					"render_cpu_ms": 18.863000869751,
+					"render_gpu_ms": 11.1260004043579,
+					"wall_ms": 34.21
+				},
+				{
+					"render_cpu_ms": 19.4529991149902,
+					"render_gpu_ms": 12.0349998474121,
+					"wall_ms": 37.171
+				},
+				{
+					"render_cpu_ms": 18.632999420166,
+					"render_gpu_ms": 11.125,
+					"wall_ms": 37.383
+				},
+				{
+					"render_cpu_ms": 21.5520000457764,
+					"render_gpu_ms": 13.3000001907349,
+					"wall_ms": 36.851
+				},
+				{
+					"render_cpu_ms": 20.3759994506836,
+					"render_gpu_ms": 12.3070001602173,
+					"wall_ms": 32.816
+				},
+				{
+					"render_cpu_ms": 21.1180000305176,
+					"render_gpu_ms": 13.2150001525879,
+					"wall_ms": 34.61
+				},
+				{
+					"render_cpu_ms": 20.2679996490479,
+					"render_gpu_ms": 12.3079996109009,
+					"wall_ms": 33.436
+				},
+				{
+					"render_cpu_ms": 21.5839996337891,
+					"render_gpu_ms": 13.1949996948242,
+					"wall_ms": 35.185
+				},
+				{
+					"render_cpu_ms": 20.6319999694824,
+					"render_gpu_ms": 12.3219995498657,
+					"wall_ms": 32.902
+				},
+				{
+					"render_cpu_ms": 21.3099994659424,
+					"render_gpu_ms": 13.2200002670288,
+					"wall_ms": 34.406
+				},
+				{
+					"render_cpu_ms": 20.1730003356934,
+					"render_gpu_ms": 12.3109998703003,
+					"wall_ms": 33.926
+				},
+				{
+					"render_cpu_ms": 21.238000869751,
+					"render_gpu_ms": 13.1870002746582,
+					"wall_ms": 36.553
+				},
+				{
+					"render_cpu_ms": 20.1940002441406,
+					"render_gpu_ms": 12.3059997558594,
+					"wall_ms": 31.877
+				},
+				{
+					"render_cpu_ms": 21.9750003814697,
+					"render_gpu_ms": 13.7379999160767,
+					"wall_ms": 35.774
+				},
+				{
+					"render_cpu_ms": 19.1000003814697,
+					"render_gpu_ms": 10.8140001296997,
+					"wall_ms": 37.012
+				},
+				{
+					"render_cpu_ms": 21.0559997558594,
+					"render_gpu_ms": 12.3170003890991,
+					"wall_ms": 38.659
+				},
+				{
+					"render_cpu_ms": 20.128999710083,
+					"render_gpu_ms": 11.9739999771118,
+					"wall_ms": 36.429
+				},
+				{
+					"render_cpu_ms": 22.0149993896484,
+					"render_gpu_ms": 13.4449996948242,
+					"wall_ms": 33.459
+				},
+				{
+					"render_cpu_ms": 18.875,
+					"render_gpu_ms": 10.8170003890991,
+					"wall_ms": 31.371
+				},
+				{
+					"render_cpu_ms": 20.261999130249,
+					"render_gpu_ms": 11.6920003890991,
+					"wall_ms": 33.056
+				},
+				{
+					"render_cpu_ms": 18.7709999084473,
+					"render_gpu_ms": 10.8039999008179,
+					"wall_ms": 30.868
+				},
+				{
+					"render_cpu_ms": 19.5090007781982,
+					"render_gpu_ms": 11.6899995803833,
+					"wall_ms": 32.345
+				},
+				{
+					"render_cpu_ms": 18.4050006866455,
+					"render_gpu_ms": 10.8190002441406,
+					"wall_ms": 31.0
+				},
+				{
+					"render_cpu_ms": 19.6469993591309,
+					"render_gpu_ms": 11.6709995269775,
+					"wall_ms": 33.153
+				},
+				{
+					"render_cpu_ms": 18.8640003204346,
+					"render_gpu_ms": 10.8240003585815,
+					"wall_ms": 31.435
+				}
+			]
+		},
+		{
+			"aim_error_degrees": 0.0,
+			"camera": "Transform3D(-0.4159655, -0.20678736, 0.8855573, 0, 0.9738029, 0.22739369, -0.9093804, 0.09458793, -0.40506846, -4.4025874, 4.6102343, -8.719999)",
+			"id": "level",
+			"samples": [
+				{
+					"render_cpu_ms": 21.9990005493164,
+					"render_gpu_ms": 13.4379997253418,
+					"wall_ms": 35.28
+				},
+				{
+					"render_cpu_ms": 20.0550003051758,
+					"render_gpu_ms": 11.9139995574951,
+					"wall_ms": 34.144
+				},
+				{
+					"render_cpu_ms": 21.5809993743896,
+					"render_gpu_ms": 13.4270000457764,
+					"wall_ms": 36.159
+				},
+				{
+					"render_cpu_ms": 19.7759990692139,
+					"render_gpu_ms": 11.9340000152588,
+					"wall_ms": 37.149
+				},
+				{
+					"render_cpu_ms": 21.8339996337891,
+					"render_gpu_ms": 13.4099998474121,
+					"wall_ms": 37.59
+				},
+				{
+					"render_cpu_ms": 20.4580001831055,
+					"render_gpu_ms": 11.9270000457764,
+					"wall_ms": 37.673
+				},
+				{
+					"render_cpu_ms": 21.5100002288818,
+					"render_gpu_ms": 13.423999786377,
+					"wall_ms": 41.297
+				},
+				{
+					"render_cpu_ms": 19.9209995269775,
+					"render_gpu_ms": 11.9200000762939,
+					"wall_ms": 36.011
+				},
+				{
+					"render_cpu_ms": 22.6280002593994,
+					"render_gpu_ms": 13.6040000915527,
+					"wall_ms": 38.564
+				},
+				{
+					"render_cpu_ms": 21.3190002441406,
+					"render_gpu_ms": 12.9589996337891,
+					"wall_ms": 34.082
+				},
+				{
+					"render_cpu_ms": 24.1100006103516,
+					"render_gpu_ms": 15.1389999389648,
+					"wall_ms": 36.056
+				},
+				{
+					"render_cpu_ms": 19.8519992828369,
+					"render_gpu_ms": 11.8889999389648,
+					"wall_ms": 34.31
+				},
+				{
+					"render_cpu_ms": 22.1720008850098,
+					"render_gpu_ms": 13.4029998779297,
+					"wall_ms": 36.945
+				},
+				{
+					"render_cpu_ms": 20.576000213623,
+					"render_gpu_ms": 11.9169998168945,
+					"wall_ms": 33.452
+				},
+				{
+					"render_cpu_ms": 21.5450000762939,
+					"render_gpu_ms": 13.418999671936,
+					"wall_ms": 35.405
+				},
+				{
+					"render_cpu_ms": 19.4680004119873,
+					"render_gpu_ms": 11.8889999389648,
+					"wall_ms": 32.834
+				},
+				{
+					"render_cpu_ms": 21.4139995574951,
+					"render_gpu_ms": 13.4309997558594,
+					"wall_ms": 35.342
+				},
+				{
+					"render_cpu_ms": 19.7299995422363,
+					"render_gpu_ms": 11.8999996185303,
+					"wall_ms": 33.986
+				},
+				{
+					"render_cpu_ms": 21.5879993438721,
+					"render_gpu_ms": 13.414999961853,
+					"wall_ms": 34.399
+				},
+				{
+					"render_cpu_ms": 19.8279991149902,
+					"render_gpu_ms": 11.8889999389648,
+					"wall_ms": 33.99
+				},
+				{
+					"render_cpu_ms": 21.0100002288818,
+					"render_gpu_ms": 13.3950004577637,
+					"wall_ms": 35.117
+				},
+				{
+					"render_cpu_ms": 19.4200000762939,
+					"render_gpu_ms": 11.9320001602173,
+					"wall_ms": 34.295
+				},
+				{
+					"render_cpu_ms": 21.1350002288818,
+					"render_gpu_ms": 13.4250001907349,
+					"wall_ms": 34.612
+				},
+				{
+					"render_cpu_ms": 20.32200050354,
+					"render_gpu_ms": 11.9010000228882,
+					"wall_ms": 33.056
+				},
+				{
+					"render_cpu_ms": 21.0139999389648,
+					"render_gpu_ms": 13.4169998168945,
+					"wall_ms": 34.643
+				},
+				{
+					"render_cpu_ms": 19.8199996948242,
+					"render_gpu_ms": 11.9130001068115,
+					"wall_ms": 33.82
+				},
+				{
+					"render_cpu_ms": 21.2590007781982,
+					"render_gpu_ms": 13.2910003662109,
+					"wall_ms": 35.544
+				},
+				{
+					"render_cpu_ms": 19.7560005187988,
+					"render_gpu_ms": 11.7729997634888,
+					"wall_ms": 33.15
+				},
+				{
+					"render_cpu_ms": 21.2660007476807,
+					"render_gpu_ms": 13.2559995651245,
+					"wall_ms": 34.825
+				},
+				{
+					"render_cpu_ms": 19.8929996490479,
+					"render_gpu_ms": 11.7779998779297,
+					"wall_ms": 35.789
+				},
+				{
+					"render_cpu_ms": 21.0459995269775,
+					"render_gpu_ms": 13.2749996185303,
+					"wall_ms": 37.408
+				},
+				{
+					"render_cpu_ms": 20.125,
+					"render_gpu_ms": 11.7959995269775,
+					"wall_ms": 33.173
+				},
+				{
+					"render_cpu_ms": 21.7390003204346,
+					"render_gpu_ms": 13.2819995880127,
+					"wall_ms": 38.705
+				},
+				{
+					"render_cpu_ms": 19.8719997406006,
+					"render_gpu_ms": 11.7829999923706,
+					"wall_ms": 36.065
+				},
+				{
+					"render_cpu_ms": 21.7059993743896,
+					"render_gpu_ms": 13.2779998779297,
+					"wall_ms": 38.365
+				},
+				{
+					"render_cpu_ms": 19.6989994049072,
+					"render_gpu_ms": 11.7729997634888,
+					"wall_ms": 39.014
+				},
+				{
+					"render_cpu_ms": 21.5919990539551,
+					"render_gpu_ms": 13.2589998245239,
+					"wall_ms": 38.263
+				},
+				{
+					"render_cpu_ms": 22.0049991607666,
+					"render_gpu_ms": 12.5749998092651,
+					"wall_ms": 39.965
+				},
+				{
+					"render_cpu_ms": 23.0610008239746,
+					"render_gpu_ms": 14.3229999542236,
+					"wall_ms": 39.915
+				},
+				{
+					"render_cpu_ms": 22.242000579834,
+					"render_gpu_ms": 13.4989995956421,
+					"wall_ms": 35.736
+				},
+				{
+					"render_cpu_ms": 21.761999130249,
+					"render_gpu_ms": 13.2770004272461,
+					"wall_ms": 35.624
+				},
+				{
+					"render_cpu_ms": 19.6200008392334,
+					"render_gpu_ms": 11.7910003662109,
+					"wall_ms": 34.832
+				},
+				{
+					"render_cpu_ms": 21.7670001983643,
+					"render_gpu_ms": 13.2740001678467,
+					"wall_ms": 35.383
+				},
+				{
+					"render_cpu_ms": 20.4540004730225,
+					"render_gpu_ms": 11.7880001068115,
+					"wall_ms": 38.997
+				},
+				{
+					"render_cpu_ms": 21.4220008850098,
+					"render_gpu_ms": 13.2519998550415,
+					"wall_ms": 39.663
+				},
+				{
+					"render_cpu_ms": 20.5820007324219,
+					"render_gpu_ms": 11.8050003051758,
+					"wall_ms": 37.509
+				},
+				{
+					"render_cpu_ms": 22.2259998321533,
+					"render_gpu_ms": 13.2799997329712,
+					"wall_ms": 35.834
+				},
+				{
+					"render_cpu_ms": 19.9899997711182,
+					"render_gpu_ms": 11.7980003356934,
+					"wall_ms": 35.533
+				},
+				{
+					"render_cpu_ms": 21.2749996185303,
+					"render_gpu_ms": 13.2829999923706,
+					"wall_ms": 35.786
+				},
+				{
+					"render_cpu_ms": 20.2530002593994,
+					"render_gpu_ms": 11.78600025177,
+					"wall_ms": 34.402
+				},
+				{
+					"render_cpu_ms": 21.4340000152588,
+					"render_gpu_ms": 13.2729997634888,
+					"wall_ms": 34.843
+				},
+				{
+					"render_cpu_ms": 20.2689990997314,
+					"render_gpu_ms": 11.7679996490479,
+					"wall_ms": 32.737
+				},
+				{
+					"render_cpu_ms": 21.0459995269775,
+					"render_gpu_ms": 13.2480001449585,
+					"wall_ms": 36.491
+				},
+				{
+					"render_cpu_ms": 19.7180004119873,
+					"render_gpu_ms": 11.8339996337891,
+					"wall_ms": 34.161
+				},
+				{
+					"render_cpu_ms": 21.5139999389648,
+					"render_gpu_ms": 13.2770004272461,
+					"wall_ms": 35.076
+				},
+				{
+					"render_cpu_ms": 19.8110008239746,
+					"render_gpu_ms": 11.7819995880127,
+					"wall_ms": 33.187
+				},
+				{
+					"render_cpu_ms": 21.3929996490479,
+					"render_gpu_ms": 13.2930002212524,
+					"wall_ms": 38.448
+				},
+				{
+					"render_cpu_ms": 19.8349990844727,
+					"render_gpu_ms": 11.8030004501343,
+					"wall_ms": 37.393
+				},
+				{
+					"render_cpu_ms": 21.3990001678467,
+					"render_gpu_ms": 13.2650003433228,
+					"wall_ms": 38.079
+				},
+				{
+					"render_cpu_ms": 19.9799995422363,
+					"render_gpu_ms": 11.8020000457764,
+					"wall_ms": 34.332
+				},
+				{
+					"render_cpu_ms": 21.3050003051758,
+					"render_gpu_ms": 13.2449998855591,
+					"wall_ms": 34.815
+				},
+				{
+					"render_cpu_ms": 19.6000003814697,
+					"render_gpu_ms": 11.7910003662109,
+					"wall_ms": 33.876
+				},
+				{
+					"render_cpu_ms": 21.298999786377,
+					"render_gpu_ms": 13.2770004272461,
+					"wall_ms": 35.132
+				},
+				{
+					"render_cpu_ms": 19.7350006103516,
+					"render_gpu_ms": 11.8009996414185,
+					"wall_ms": 37.813
+				},
+				{
+					"render_cpu_ms": 21.4009990692139,
+					"render_gpu_ms": 13.3000001907349,
+					"wall_ms": 37.224
+				},
+				{
+					"render_cpu_ms": 21.1650009155273,
+					"render_gpu_ms": 12.460000038147,
+					"wall_ms": 36.516
+				},
+				{
+					"render_cpu_ms": 22.6180000305176,
+					"render_gpu_ms": 14.2189998626709,
+					"wall_ms": 35.004
+				},
+				{
+					"render_cpu_ms": 22.0139999389648,
+					"render_gpu_ms": 13.4160003662109,
+					"wall_ms": 32.818
+				},
+				{
+					"render_cpu_ms": 21.2929992675781,
+					"render_gpu_ms": 13.1660003662109,
+					"wall_ms": 34.92
+				},
+				{
+					"render_cpu_ms": 19.8540000915527,
+					"render_gpu_ms": 11.7209997177124,
+					"wall_ms": 33.751
+				},
+				{
+					"render_cpu_ms": 21.0520000457764,
+					"render_gpu_ms": 13.1680002212524,
+					"wall_ms": 34.649
+				},
+				{
+					"render_cpu_ms": 19.7329998016357,
+					"render_gpu_ms": 11.7180004119873,
+					"wall_ms": 32.876
+				},
+				{
+					"render_cpu_ms": 21.0750007629395,
+					"render_gpu_ms": 13.173999786377,
+					"wall_ms": 34.659
+				},
+				{
+					"render_cpu_ms": 19.7199993133545,
+					"render_gpu_ms": 11.6909999847412,
+					"wall_ms": 34.98
+				},
+				{
+					"render_cpu_ms": 21.1240005493164,
+					"render_gpu_ms": 13.1619997024536,
+					"wall_ms": 35.55
+				},
+				{
+					"render_cpu_ms": 19.7199993133545,
+					"render_gpu_ms": 11.7030000686646,
+					"wall_ms": 33.34
+				},
+				{
+					"render_cpu_ms": 21.6490001678467,
+					"render_gpu_ms": 13.1579999923706,
+					"wall_ms": 34.869
+				},
+				{
+					"render_cpu_ms": 19.9370002746582,
+					"render_gpu_ms": 11.7040004730225,
+					"wall_ms": 34.187
+				},
+				{
+					"render_cpu_ms": 21.3840007781982,
+					"render_gpu_ms": 13.1960000991821,
+					"wall_ms": 35.142
+				},
+				{
+					"render_cpu_ms": 19.8040008544922,
+					"render_gpu_ms": 11.6969995498657,
+					"wall_ms": 32.95
+				},
+				{
+					"render_cpu_ms": 21.4340000152588,
+					"render_gpu_ms": 13.2180004119873,
+					"wall_ms": 34.725
+				},
+				{
+					"render_cpu_ms": 19.8129997253418,
+					"render_gpu_ms": 11.701000213623,
+					"wall_ms": 34.227
+				},
+				{
+					"render_cpu_ms": 21.0559997558594,
+					"render_gpu_ms": 13.1730003356934,
+					"wall_ms": 35.007
+				},
+				{
+					"render_cpu_ms": 20.1149997711182,
+					"render_gpu_ms": 11.7159996032715,
+					"wall_ms": 32.813
+				},
+				{
+					"render_cpu_ms": 21.1529998779297,
+					"render_gpu_ms": 13.1709995269775,
+					"wall_ms": 35.229
+				},
+				{
+					"render_cpu_ms": 19.6919994354248,
+					"render_gpu_ms": 11.7200002670288,
+					"wall_ms": 36.779
+				},
+				{
+					"render_cpu_ms": 21.6900005340576,
+					"render_gpu_ms": 13.1700000762939,
+					"wall_ms": 38.288
+				},
+				{
+					"render_cpu_ms": 19.7070007324219,
+					"render_gpu_ms": 11.6990003585815,
+					"wall_ms": 35.763
+				},
+				{
+					"render_cpu_ms": 21.2339992523193,
+					"render_gpu_ms": 13.1780004501343,
+					"wall_ms": 35.435
+				},
+				{
+					"render_cpu_ms": 19.8589992523193,
+					"render_gpu_ms": 11.6870002746582,
+					"wall_ms": 34.905
+				},
+				{
+					"render_cpu_ms": 21.1149997711182,
+					"render_gpu_ms": 13.168999671936,
+					"wall_ms": 34.592
+				},
+				{
+					"render_cpu_ms": 19.4890003204346,
+					"render_gpu_ms": 11.6909999847412,
+					"wall_ms": 36.045
+				},
+				{
+					"render_cpu_ms": 21.1580009460449,
+					"render_gpu_ms": 13.1660003662109,
+					"wall_ms": 39.726
+				},
+				{
+					"render_cpu_ms": 19.6940002441406,
+					"render_gpu_ms": 11.710000038147,
+					"wall_ms": 39.254
+				},
+				{
+					"render_cpu_ms": 21.6079998016357,
+					"render_gpu_ms": 13.3470001220703,
+					"wall_ms": 39.278
+				},
+				{
+					"render_cpu_ms": 21.2150001525879,
+					"render_gpu_ms": 12.7399997711182,
+					"wall_ms": 34.858
+				},
+				{
+					"render_cpu_ms": 23.6509990692139,
+					"render_gpu_ms": 14.8800001144409,
+					"wall_ms": 34.684
+				},
+				{
+					"render_cpu_ms": 19.5779991149902,
+					"render_gpu_ms": 11.7030000686646,
+					"wall_ms": 36.788
+				},
+				{
+					"render_cpu_ms": 20.9090003967285,
+					"render_gpu_ms": 13.1770000457764,
+					"wall_ms": 37.81
+				},
+				{
+					"render_cpu_ms": 19.6280002593994,
+					"render_gpu_ms": 11.6780004501343,
+					"wall_ms": 35.877
+				},
+				{
+					"render_cpu_ms": 21.2609996795654,
+					"render_gpu_ms": 13.1400003433228,
+					"wall_ms": 35.808
+				},
+				{
+					"render_cpu_ms": 19.8430004119873,
+					"render_gpu_ms": 11.7290000915527,
+					"wall_ms": 37.58
+				},
+				{
+					"render_cpu_ms": 21.1679992675781,
+					"render_gpu_ms": 13.1540002822876,
+					"wall_ms": 36.742
+				},
+				{
+					"render_cpu_ms": 21.7569999694824,
+					"render_gpu_ms": 12.7399997711182,
+					"wall_ms": 34.5
+				},
+				{
+					"render_cpu_ms": 23.0130004882813,
+					"render_gpu_ms": 14.2220001220703,
+					"wall_ms": 37.068
+				},
+				{
+					"render_cpu_ms": 21.2639999389648,
+					"render_gpu_ms": 12.7340002059937,
+					"wall_ms": 36.967
+				},
+				{
+					"render_cpu_ms": 22.863000869751,
+					"render_gpu_ms": 14.2119998931885,
+					"wall_ms": 36.077
+				},
+				{
+					"render_cpu_ms": 22.5270004272461,
+					"render_gpu_ms": 13.3730001449585,
+					"wall_ms": 35.952
+				},
+				{
+					"render_cpu_ms": 22.076000213623,
+					"render_gpu_ms": 13.1619997024536,
+					"wall_ms": 35.759
+				},
+				{
+					"render_cpu_ms": 20.9020004272461,
+					"render_gpu_ms": 11.6979999542236,
+					"wall_ms": 32.712
+				},
+				{
+					"render_cpu_ms": 21.6949996948242,
+					"render_gpu_ms": 12.4469995498657,
+					"wall_ms": 35.068
+				},
+				{
+					"render_cpu_ms": 18.7049999237061,
+					"render_gpu_ms": 10.1890001296997,
+					"wall_ms": 33.776
+				},
+				{
+					"render_cpu_ms": 18.9640007019043,
+					"render_gpu_ms": 10.6999998092651,
+					"wall_ms": 35.531
+				},
+				{
+					"render_cpu_ms": 18.4230003356934,
+					"render_gpu_ms": 10.1829996109009,
+					"wall_ms": 34.657
+				},
+				{
+					"render_cpu_ms": 19.6019992828369,
+					"render_gpu_ms": 10.6899995803833,
+					"wall_ms": 32.265
+				},
+				{
+					"render_cpu_ms": 18.5620002746582,
+					"render_gpu_ms": 10.2069997787476,
+					"wall_ms": 31.2
+				},
+				{
+					"render_cpu_ms": 19.246000289917,
+					"render_gpu_ms": 10.6859998703003,
+					"wall_ms": 32.57
+				},
+				{
+					"render_cpu_ms": 18.5499992370605,
+					"render_gpu_ms": 10.2720003128052,
+					"wall_ms": 32.364
+				},
+				{
+					"render_cpu_ms": 19.378999710083,
+					"render_gpu_ms": 10.6780004501343,
+					"wall_ms": 32.847
+				},
+				{
+					"render_cpu_ms": 18.617000579834,
+					"render_gpu_ms": 10.2040004730225,
+					"wall_ms": 33.138
+				}
+			]
+		},
+		{
+			"aim_error_degrees": 0.0,
+			"camera": "Transform3D(-0.913657, 0.006428295, -0.40643525, 0, 0.99987495, 0.015814306, 0.4064861, 0.01444885, -0.91354275, -4.4025874, 4.6102343, -8.719999)",
+			"id": "turned",
+			"samples": [
+				{
+					"render_cpu_ms": 14.0190000534058,
+					"render_gpu_ms": 8.14599990844727,
+					"wall_ms": 26.781
+				},
+				{
+					"render_cpu_ms": 13.0959997177124,
+					"render_gpu_ms": 7.77199983596802,
+					"wall_ms": 26.529
+				},
+				{
+					"render_cpu_ms": 14.1000003814697,
+					"render_gpu_ms": 8.12800025939941,
+					"wall_ms": 25.67
+				},
+				{
+					"render_cpu_ms": 13.4750003814697,
+					"render_gpu_ms": 7.78299999237061,
+					"wall_ms": 25.672
+				},
+				{
+					"render_cpu_ms": 14.0780000686646,
+					"render_gpu_ms": 8.17500019073486,
+					"wall_ms": 23.55
+				},
+				{
+					"render_cpu_ms": 13.3149995803833,
+					"render_gpu_ms": 7.78499984741211,
+					"wall_ms": 25.946
+				},
+				{
+					"render_cpu_ms": 13.673999786377,
+					"render_gpu_ms": 8.16199970245361,
+					"wall_ms": 23.826
+				},
+				{
+					"render_cpu_ms": 13.4099998474121,
+					"render_gpu_ms": 7.78200006484985,
+					"wall_ms": 26.144
+				},
+				{
+					"render_cpu_ms": 13.6149997711182,
+					"render_gpu_ms": 8.46199989318848,
+					"wall_ms": 23.09
+				},
+				{
+					"render_cpu_ms": 13.3819999694824,
+					"render_gpu_ms": 8.65900039672852,
+					"wall_ms": 24.547
+				},
+				{
+					"render_cpu_ms": 13.4200000762939,
+					"render_gpu_ms": 8.60999965667725,
+					"wall_ms": 22.535
+				},
+				{
+					"render_cpu_ms": 13.0139999389648,
+					"render_gpu_ms": 8.6230001449585,
+					"wall_ms": 25.084
+				},
+				{
+					"render_cpu_ms": 12.8819999694824,
+					"render_gpu_ms": 8.65900039672852,
+					"wall_ms": 23.524
+				},
+				{
+					"render_cpu_ms": 12.9980001449585,
+					"render_gpu_ms": 8.63599967956543,
+					"wall_ms": 23.232
+				},
+				{
+					"render_cpu_ms": 13.0279998779297,
+					"render_gpu_ms": 8.65799999237061,
+					"wall_ms": 31.181
+				},
+				{
+					"render_cpu_ms": 12.8909997940063,
+					"render_gpu_ms": 8.64799976348877,
+					"wall_ms": 27.135
+				},
+				{
+					"render_cpu_ms": 13.1709995269775,
+					"render_gpu_ms": 8.64000034332275,
+					"wall_ms": 27.435
+				},
+				{
+					"render_cpu_ms": 13.3959999084473,
+					"render_gpu_ms": 8.65499973297119,
+					"wall_ms": 25.243
+				},
+				{
+					"render_cpu_ms": 13.2200002670288,
+					"render_gpu_ms": 8.59500026702881,
+					"wall_ms": 25.936
+				},
+				{
+					"render_cpu_ms": 13.128999710083,
+					"render_gpu_ms": 8.65299987792969,
+					"wall_ms": 25.807
+				},
+				{
+					"render_cpu_ms": 13.16100025177,
+					"render_gpu_ms": 8.68299961090088,
+					"wall_ms": 28.319
+				},
+				{
+					"render_cpu_ms": 13.3959999084473,
+					"render_gpu_ms": 8.66499996185303,
+					"wall_ms": 22.768
+				},
+				{
+					"render_cpu_ms": 15.1750001907349,
+					"render_gpu_ms": 9.95100021362305,
+					"wall_ms": 26.595
+				},
+				{
+					"render_cpu_ms": 13.0310001373291,
+					"render_gpu_ms": 8.55799961090088,
+					"wall_ms": 23.485
+				},
+				{
+					"render_cpu_ms": 13.7930002212524,
+					"render_gpu_ms": 8.95899963378906,
+					"wall_ms": 25.745
+				},
+				{
+					"render_cpu_ms": 13.6459999084473,
+					"render_gpu_ms": 8.5629997253418,
+					"wall_ms": 22.535
+				},
+				{
+					"render_cpu_ms": 14.1300001144409,
+					"render_gpu_ms": 8.9350004196167,
+					"wall_ms": 24.985
+				},
+				{
+					"render_cpu_ms": 12.8999996185303,
+					"render_gpu_ms": 8.58699989318848,
+					"wall_ms": 23.701
+				},
+				{
+					"render_cpu_ms": 13.5080003738403,
+					"render_gpu_ms": 8.96199989318848,
+					"wall_ms": 25.177
+				},
+				{
+					"render_cpu_ms": 13.0059995651245,
+					"render_gpu_ms": 8.54699993133545,
+					"wall_ms": 22.953
+				},
+				{
+					"render_cpu_ms": 13.6829996109009,
+					"render_gpu_ms": 8.97500038146973,
+					"wall_ms": 25.776
+				},
+				{
+					"render_cpu_ms": 13.1630001068115,
+					"render_gpu_ms": 8.55200004577637,
+					"wall_ms": 22.92
+				},
+				{
+					"render_cpu_ms": 14.0240001678467,
+					"render_gpu_ms": 9.01700019836426,
+					"wall_ms": 25.92
+				},
+				{
+					"render_cpu_ms": 13.1180000305176,
+					"render_gpu_ms": 8.61400032043457,
+					"wall_ms": 22.266
+				},
+				{
+					"render_cpu_ms": 13.581000328064,
+					"render_gpu_ms": 9.02799987792969,
+					"wall_ms": 25.497
+				},
+				{
+					"render_cpu_ms": 12.8229999542236,
+					"render_gpu_ms": 8.64000034332275,
+					"wall_ms": 25.293
+				},
+				{
+					"render_cpu_ms": 13.6070003509521,
+					"render_gpu_ms": 9.03699970245361,
+					"wall_ms": 26.793
+				},
+				{
+					"render_cpu_ms": 13.4849996566772,
+					"render_gpu_ms": 8.62399959564209,
+					"wall_ms": 23.491
+				},
+				{
+					"render_cpu_ms": 14.0299997329712,
+					"render_gpu_ms": 9.05500030517578,
+					"wall_ms": 25.16
+				},
+				{
+					"render_cpu_ms": 13.0640001296997,
+					"render_gpu_ms": 8.60700035095215,
+					"wall_ms": 23.746
+				},
+				{
+					"render_cpu_ms": 13.6020002365112,
+					"render_gpu_ms": 9.04500007629395,
+					"wall_ms": 25.723
+				},
+				{
+					"render_cpu_ms": 13.1940002441406,
+					"render_gpu_ms": 8.62899971008301,
+					"wall_ms": 23.016
+				},
+				{
+					"render_cpu_ms": 14.0139999389648,
+					"render_gpu_ms": 9.03899955749512,
+					"wall_ms": 26.398
+				},
+				{
+					"render_cpu_ms": 13.1850004196167,
+					"render_gpu_ms": 8.66800022125244,
+					"wall_ms": 23.099
+				},
+				{
+					"render_cpu_ms": 13.4919996261597,
+					"render_gpu_ms": 9.0649995803833,
+					"wall_ms": 26.693
+				},
+				{
+					"render_cpu_ms": 13.1029996871948,
+					"render_gpu_ms": 8.63300037384033,
+					"wall_ms": 23.599
+				},
+				{
+					"render_cpu_ms": 14.2329998016357,
+					"render_gpu_ms": 9.05399990081787,
+					"wall_ms": 25.95
+				},
+				{
+					"render_cpu_ms": 13.5790004730225,
+					"render_gpu_ms": 8.63399982452393,
+					"wall_ms": 24.34
+				},
+				{
+					"render_cpu_ms": 13.9879999160767,
+					"render_gpu_ms": 9.05000019073486,
+					"wall_ms": 26.303
+				},
+				{
+					"render_cpu_ms": 13.1400003433228,
+					"render_gpu_ms": 8.64900016784668,
+					"wall_ms": 23.545
+				},
+				{
+					"render_cpu_ms": 14.3649997711182,
+					"render_gpu_ms": 9.0620002746582,
+					"wall_ms": 25.178
+				},
+				{
+					"render_cpu_ms": 13.4390001296997,
+					"render_gpu_ms": 8.67800045013428,
+					"wall_ms": 23.702
+				},
+				{
+					"render_cpu_ms": 13.6199998855591,
+					"render_gpu_ms": 9.07100009918213,
+					"wall_ms": 27.529
+				},
+				{
+					"render_cpu_ms": 13.7080001831055,
+					"render_gpu_ms": 8.65799999237061,
+					"wall_ms": 24.002
+				},
+				{
+					"render_cpu_ms": 14.21399974823,
+					"render_gpu_ms": 9.06099987030029,
+					"wall_ms": 26.486
+				},
+				{
+					"render_cpu_ms": 13.7840003967285,
+					"render_gpu_ms": 8.64599990844727,
+					"wall_ms": 22.904
+				},
+				{
+					"render_cpu_ms": 14.2849998474121,
+					"render_gpu_ms": 9.09700012207031,
+					"wall_ms": 25.01
+				},
+				{
+					"render_cpu_ms": 13.0509996414185,
+					"render_gpu_ms": 8.71599960327148,
+					"wall_ms": 27.298
+				},
+				{
+					"render_cpu_ms": 13.621000289917,
+					"render_gpu_ms": 9.11800003051758,
+					"wall_ms": 27.133
+				},
+				{
+					"render_cpu_ms": 13.2379999160767,
+					"render_gpu_ms": 8.71399974822998,
+					"wall_ms": 24.105
+				},
+				{
+					"render_cpu_ms": 13.6899995803833,
+					"render_gpu_ms": 9.13700008392334,
+					"wall_ms": 28.661
+				},
+				{
+					"render_cpu_ms": 12.9359998703003,
+					"render_gpu_ms": 8.71300029754639,
+					"wall_ms": 24.24
+				},
+				{
+					"render_cpu_ms": 13.8920001983643,
+					"render_gpu_ms": 9.15299987792969,
+					"wall_ms": 26.416
+				},
+				{
+					"render_cpu_ms": 13.201000213623,
+					"render_gpu_ms": 8.71399974822998,
+					"wall_ms": 23.833
+				},
+				{
+					"render_cpu_ms": 13.6660003662109,
+					"render_gpu_ms": 9.14500045776367,
+					"wall_ms": 26.079
+				},
+				{
+					"render_cpu_ms": 13.6579999923706,
+					"render_gpu_ms": 8.71500015258789,
+					"wall_ms": 26.785
+				},
+				{
+					"render_cpu_ms": 14.1359996795654,
+					"render_gpu_ms": 9.14999961853027,
+					"wall_ms": 27.527
+				},
+				{
+					"render_cpu_ms": 13.5749998092651,
+					"render_gpu_ms": 8.73999977111816,
+					"wall_ms": 26.473
+				},
+				{
+					"render_cpu_ms": 13.918999671936,
+					"render_gpu_ms": 9.14999961853027,
+					"wall_ms": 28.516
+				},
+				{
+					"render_cpu_ms": 13.039999961853,
+					"render_gpu_ms": 8.73499965667725,
+					"wall_ms": 24.979
+				},
+				{
+					"render_cpu_ms": 13.7309999465942,
+					"render_gpu_ms": 9.17500019073486,
+					"wall_ms": 24.139
+				},
+				{
+					"render_cpu_ms": 13.3190002441406,
+					"render_gpu_ms": 8.71500015258789,
+					"wall_ms": 24.539
+				},
+				{
+					"render_cpu_ms": 13.7609996795654,
+					"render_gpu_ms": 9.24300003051758,
+					"wall_ms": 24.307
+				},
+				{
+					"render_cpu_ms": 13.0150003433228,
+					"render_gpu_ms": 8.82400035858154,
+					"wall_ms": 27.736
+				},
+				{
+					"render_cpu_ms": 13.6929998397827,
+					"render_gpu_ms": 9.21199989318848,
+					"wall_ms": 25.261
+				},
+				{
+					"render_cpu_ms": 13.0659999847412,
+					"render_gpu_ms": 8.81700038909912,
+					"wall_ms": 27.645
+				},
+				{
+					"render_cpu_ms": 13.5559997558594,
+					"render_gpu_ms": 9.27099990844727,
+					"wall_ms": 26.796
+				},
+				{
+					"render_cpu_ms": 13.0299997329712,
+					"render_gpu_ms": 8.8129997253418,
+					"wall_ms": 26.248
+				},
+				{
+					"render_cpu_ms": 13.6389999389648,
+					"render_gpu_ms": 9.25800037384033,
+					"wall_ms": 25.253
+				},
+				{
+					"render_cpu_ms": 13.2299995422363,
+					"render_gpu_ms": 8.82299995422363,
+					"wall_ms": 22.886
+				},
+				{
+					"render_cpu_ms": 13.5550003051758,
+					"render_gpu_ms": 9.26799964904785,
+					"wall_ms": 25.223
+				},
+				{
+					"render_cpu_ms": 13.1619997024536,
+					"render_gpu_ms": 8.85200023651123,
+					"wall_ms": 22.498
+				},
+				{
+					"render_cpu_ms": 13.6870002746582,
+					"render_gpu_ms": 9.25899982452393,
+					"wall_ms": 26.507
+				},
+				{
+					"render_cpu_ms": 12.9399995803833,
+					"render_gpu_ms": 8.85999965667725,
+					"wall_ms": 23.483
+				},
+				{
+					"render_cpu_ms": 13.5480003356934,
+					"render_gpu_ms": 9.2819995880127,
+					"wall_ms": 25.425
+				},
+				{
+					"render_cpu_ms": 13.5839996337891,
+					"render_gpu_ms": 8.8430004119873,
+					"wall_ms": 22.616
+				},
+				{
+					"render_cpu_ms": 13.8179998397827,
+					"render_gpu_ms": 9.28600025177002,
+					"wall_ms": 25.721
+				},
+				{
+					"render_cpu_ms": 13.0530004501343,
+					"render_gpu_ms": 8.84200000762939,
+					"wall_ms": 23.834
+				},
+				{
+					"render_cpu_ms": 13.8990001678467,
+					"render_gpu_ms": 9.16699981689453,
+					"wall_ms": 25.543
+				},
+				{
+					"render_cpu_ms": 13.1429996490479,
+					"render_gpu_ms": 8.76000022888184,
+					"wall_ms": 24.393
+				},
+				{
+					"render_cpu_ms": 13.9420003890991,
+					"render_gpu_ms": 9.14000034332275,
+					"wall_ms": 23.514
+				},
+				{
+					"render_cpu_ms": 13.16100025177,
+					"render_gpu_ms": 8.77499961853027,
+					"wall_ms": 25.36
+				},
+				{
+					"render_cpu_ms": 13.6499996185303,
+					"render_gpu_ms": 9.15799999237061,
+					"wall_ms": 27.36
+				},
+				{
+					"render_cpu_ms": 13.4610004425049,
+					"render_gpu_ms": 8.74600028991699,
+					"wall_ms": 26.186
+				},
+				{
+					"render_cpu_ms": 13.6750001907349,
+					"render_gpu_ms": 9.15100002288818,
+					"wall_ms": 24.566
+				},
+				{
+					"render_cpu_ms": 13.0200004577637,
+					"render_gpu_ms": 8.73099994659424,
+					"wall_ms": 27.676
+				},
+				{
+					"render_cpu_ms": 13.6680002212524,
+					"render_gpu_ms": 9.15200042724609,
+					"wall_ms": 24.649
+				},
+				{
+					"render_cpu_ms": 13.039999961853,
+					"render_gpu_ms": 8.76299953460693,
+					"wall_ms": 25.577
+				},
+				{
+					"render_cpu_ms": 14.0220003128052,
+					"render_gpu_ms": 9.18599987030029,
+					"wall_ms": 23.86
+				},
+				{
+					"render_cpu_ms": 13.2589998245239,
+					"render_gpu_ms": 8.75699996948242,
+					"wall_ms": 24.689
+				},
+				{
+					"render_cpu_ms": 13.8950004577637,
+					"render_gpu_ms": 9.16499996185303,
+					"wall_ms": 23.243
+				},
+				{
+					"render_cpu_ms": 13.0190000534058,
+					"render_gpu_ms": 8.72900009155273,
+					"wall_ms": 24.438
+				},
+				{
+					"render_cpu_ms": 13.5,
+					"render_gpu_ms": 9.17000007629395,
+					"wall_ms": 24.738
+				},
+				{
+					"render_cpu_ms": 13.2349996566772,
+					"render_gpu_ms": 8.76399993896484,
+					"wall_ms": 24.383
+				},
+				{
+					"render_cpu_ms": 13.7360000610352,
+					"render_gpu_ms": 9.16300010681152,
+					"wall_ms": 23.489
+				},
+				{
+					"render_cpu_ms": 13.1549997329712,
+					"render_gpu_ms": 8.77499961853027,
+					"wall_ms": 24.533
+				},
+				{
+					"render_cpu_ms": 13.5729999542236,
+					"render_gpu_ms": 9.13799953460693,
+					"wall_ms": 23.427
+				},
+				{
+					"render_cpu_ms": 13.1029996871948,
+					"render_gpu_ms": 8.74499988555908,
+					"wall_ms": 23.535
+				},
+				{
+					"render_cpu_ms": 13.6079998016357,
+					"render_gpu_ms": 9.16600036621094,
+					"wall_ms": 25.775
+				},
+				{
+					"render_cpu_ms": 12.9440002441406,
+					"render_gpu_ms": 8.74100017547607,
+					"wall_ms": 23.07
+				},
+				{
+					"render_cpu_ms": 14.4540004730225,
+					"render_gpu_ms": 9.17199993133545,
+					"wall_ms": 25.599
+				},
+				{
+					"render_cpu_ms": 13.25,
+					"render_gpu_ms": 8.73999977111816,
+					"wall_ms": 22.995
+				},
+				{
+					"render_cpu_ms": 13.9040002822876,
+					"render_gpu_ms": 9.01700019836426,
+					"wall_ms": 26.004
+				},
+				{
+					"render_cpu_ms": 13.1000003814697,
+					"render_gpu_ms": 8.61299991607666,
+					"wall_ms": 22.841
+				},
+				{
+					"render_cpu_ms": 13.6339998245239,
+					"render_gpu_ms": 9.01000022888184,
+					"wall_ms": 25.778
+				},
+				{
+					"render_cpu_ms": 13.1510000228882,
+					"render_gpu_ms": 8.64200019836426,
+					"wall_ms": 24.595
+				},
+				{
+					"render_cpu_ms": 13.8000001907349,
+					"render_gpu_ms": 9.02799987792969,
+					"wall_ms": 26.442
+				},
+				{
+					"render_cpu_ms": 13.0450000762939,
+					"render_gpu_ms": 8.63000011444092,
+					"wall_ms": 23.712
+				},
+				{
+					"render_cpu_ms": 13.8970003128052,
+					"render_gpu_ms": 9.03600025177002,
+					"wall_ms": 23.803
+				},
+				{
+					"render_cpu_ms": 13.16100025177,
+					"render_gpu_ms": 8.6540002822876,
+					"wall_ms": 24.501
+				}
+			]
+		},
+		{
+			"aim_error_degrees": 0.0,
+			"camera": "Transform3D(0.9136767, -0.00043451428, 0.40644163, 0, 0.99999946, 0.0010690687, -0.40644187, -0.0009767831, 0.91367614, -4.4025874, 4.6102343, -8.719999)",
+			"id": "away",
+			"samples": [
+				{
+					"render_cpu_ms": 16.8649997711182,
+					"render_gpu_ms": 10.5,
+					"wall_ms": 30.423
+				},
+				{
+					"render_cpu_ms": 16.0520000457764,
+					"render_gpu_ms": 9.89400005340576,
+					"wall_ms": 31.124
+				},
+				{
+					"render_cpu_ms": 16.8840007781982,
+					"render_gpu_ms": 10.5229997634888,
+					"wall_ms": 32.473
+				},
+				{
+					"render_cpu_ms": 15.9799995422363,
+					"render_gpu_ms": 9.89400005340576,
+					"wall_ms": 31.479
+				},
+				{
+					"render_cpu_ms": 17.7000007629395,
+					"render_gpu_ms": 11.003999710083,
+					"wall_ms": 28.264
+				},
+				{
+					"render_cpu_ms": 16.6350002288818,
+					"render_gpu_ms": 10.1560001373291,
+					"wall_ms": 28.518
+				},
+				{
+					"render_cpu_ms": 17.5669994354248,
+					"render_gpu_ms": 11.0109996795654,
+					"wall_ms": 31.28
+				},
+				{
+					"render_cpu_ms": 16.3959999084473,
+					"render_gpu_ms": 10.1579999923706,
+					"wall_ms": 28.252
+				},
+				{
+					"render_cpu_ms": 17.5769996643066,
+					"render_gpu_ms": 10.9779996871948,
+					"wall_ms": 27.888
+				},
+				{
+					"render_cpu_ms": 16.1959991455078,
+					"render_gpu_ms": 10.1680002212524,
+					"wall_ms": 29.048
+				},
+				{
+					"render_cpu_ms": 17.3969993591309,
+					"render_gpu_ms": 11.0150003433228,
+					"wall_ms": 30.2
+				},
+				{
+					"render_cpu_ms": 16.7140007019043,
+					"render_gpu_ms": 10.16100025177,
+					"wall_ms": 29.566
+				},
+				{
+					"render_cpu_ms": 17.5459995269775,
+					"render_gpu_ms": 11.0150003433228,
+					"wall_ms": 27.545
+				},
+				{
+					"render_cpu_ms": 16.5340003967285,
+					"render_gpu_ms": 10.1680002212524,
+					"wall_ms": 28.632
+				},
+				{
+					"render_cpu_ms": 17.2199993133545,
+					"render_gpu_ms": 11.0080003738403,
+					"wall_ms": 29.812
+				},
+				{
+					"render_cpu_ms": 15.9809999465942,
+					"render_gpu_ms": 9.80900001525879,
+					"wall_ms": 27.715
+				},
+				{
+					"render_cpu_ms": 17.3859996795654,
+					"render_gpu_ms": 10.6260004043579,
+					"wall_ms": 28.364
+				},
+				{
+					"render_cpu_ms": 16.0270004272461,
+					"render_gpu_ms": 9.79300022125244,
+					"wall_ms": 28.006
+				},
+				{
+					"render_cpu_ms": 16.6399993896484,
+					"render_gpu_ms": 10.6409997940063,
+					"wall_ms": 28.855
+				},
+				{
+					"render_cpu_ms": 15.8940000534058,
+					"render_gpu_ms": 9.81099987030029,
+					"wall_ms": 28.164
+				},
+				{
+					"render_cpu_ms": 16.8400001525879,
+					"render_gpu_ms": 10.6450004577637,
+					"wall_ms": 28.025
+				},
+				{
+					"render_cpu_ms": 16.1979999542236,
+					"render_gpu_ms": 9.79399967193604,
+					"wall_ms": 29.991
+				},
+				{
+					"render_cpu_ms": 17.3439998626709,
+					"render_gpu_ms": 10.6499996185303,
+					"wall_ms": 29.175
+				},
+				{
+					"render_cpu_ms": 16.5270004272461,
+					"render_gpu_ms": 9.80500030517578,
+					"wall_ms": 27.616
+				},
+				{
+					"render_cpu_ms": 16.7719993591309,
+					"render_gpu_ms": 10.6180000305176,
+					"wall_ms": 30.655
+				},
+				{
+					"render_cpu_ms": 15.8610000610352,
+					"render_gpu_ms": 9.83199977874756,
+					"wall_ms": 31.929
+				},
+				{
+					"render_cpu_ms": 18.1909999847412,
+					"render_gpu_ms": 11.6350002288818,
+					"wall_ms": 32.818
+				},
+				{
+					"render_cpu_ms": 18.2040004730225,
+					"render_gpu_ms": 11.3959999084473,
+					"wall_ms": 27.629
+				},
+				{
+					"render_cpu_ms": 19.3339996337891,
+					"render_gpu_ms": 12.8500003814697,
+					"wall_ms": 27.538
+				},
+				{
+					"render_cpu_ms": 16.113000869751,
+					"render_gpu_ms": 10.1820001602173,
+					"wall_ms": 28.154
+				},
+				{
+					"render_cpu_ms": 17.1389999389648,
+					"render_gpu_ms": 11.0279998779297,
+					"wall_ms": 28.979
+				},
+				{
+					"render_cpu_ms": 16.1650009155273,
+					"render_gpu_ms": 10.1770000457764,
+					"wall_ms": 29.266
+				},
+				{
+					"render_cpu_ms": 17.0380001068115,
+					"render_gpu_ms": 11.0129995346069,
+					"wall_ms": 27.406
+				},
+				{
+					"render_cpu_ms": 16.1580009460449,
+					"render_gpu_ms": 10.1770000457764,
+					"wall_ms": 28.034
+				},
+				{
+					"render_cpu_ms": 17.1259994506836,
+					"render_gpu_ms": 11.0290002822876,
+					"wall_ms": 29.263
+				},
+				{
+					"render_cpu_ms": 16.0559997558594,
+					"render_gpu_ms": 10.1850004196167,
+					"wall_ms": 31.106
+				},
+				{
+					"render_cpu_ms": 17.121000289917,
+					"render_gpu_ms": 11.0179996490479,
+					"wall_ms": 30.668
+				},
+				{
+					"render_cpu_ms": 16.2089996337891,
+					"render_gpu_ms": 10.1859998703003,
+					"wall_ms": 31.827
+				},
+				{
+					"render_cpu_ms": 17.576000213623,
+					"render_gpu_ms": 11.0249996185303,
+					"wall_ms": 32.053
+				},
+				{
+					"render_cpu_ms": 17.1429996490479,
+					"render_gpu_ms": 10.1990003585815,
+					"wall_ms": 28.756
+				},
+				{
+					"render_cpu_ms": 16.9120006561279,
+					"render_gpu_ms": 10.9989995956421,
+					"wall_ms": 27.428
+				},
+				{
+					"render_cpu_ms": 16.6630001068115,
+					"render_gpu_ms": 10.1990003585815,
+					"wall_ms": 33.327
+				},
+				{
+					"render_cpu_ms": 16.8460006713867,
+					"render_gpu_ms": 11.0279998779297,
+					"wall_ms": 31.783
+				},
+				{
+					"render_cpu_ms": 16.94700050354,
+					"render_gpu_ms": 10.1820001602173,
+					"wall_ms": 31.823
+				},
+				{
+					"render_cpu_ms": 17.3540000915527,
+					"render_gpu_ms": 11.0389995574951,
+					"wall_ms": 31.407
+				},
+				{
+					"render_cpu_ms": 16.5799999237061,
+					"render_gpu_ms": 10.1829996109009,
+					"wall_ms": 30.191
+				},
+				{
+					"render_cpu_ms": 17.4820003509521,
+					"render_gpu_ms": 11.0190000534058,
+					"wall_ms": 29.553
+				},
+				{
+					"render_cpu_ms": 16.6040000915527,
+					"render_gpu_ms": 10.1780004501343,
+					"wall_ms": 27.329
+				},
+				{
+					"render_cpu_ms": 17.201000213623,
+					"render_gpu_ms": 11.0109996795654,
+					"wall_ms": 32.923
+				},
+				{
+					"render_cpu_ms": 16.6280002593994,
+					"render_gpu_ms": 10.1899995803833,
+					"wall_ms": 31.428
+				},
+				{
+					"render_cpu_ms": 16.6669998168945,
+					"render_gpu_ms": 10.1479997634888,
+					"wall_ms": 32.74
+				},
+				{
+					"render_cpu_ms": 16.2469997406006,
+					"render_gpu_ms": 9.70400047302246,
+					"wall_ms": 28.651
+				},
+				{
+					"render_cpu_ms": 16.3950004577637,
+					"render_gpu_ms": 10.1309995651245,
+					"wall_ms": 28.634
+				},
+				{
+					"render_cpu_ms": 15.8780002593994,
+					"render_gpu_ms": 9.71399974822998,
+					"wall_ms": 28.877
+				},
+				{
+					"render_cpu_ms": 16.6140003204346,
+					"render_gpu_ms": 10.1429996490479,
+					"wall_ms": 26.186
+				},
+				{
+					"render_cpu_ms": 16.0189990997314,
+					"render_gpu_ms": 9.71399974822998,
+					"wall_ms": 28.201
+				},
+				{
+					"render_cpu_ms": 16.0790004730225,
+					"render_gpu_ms": 10.0729999542236,
+					"wall_ms": 28.264
+				},
+				{
+					"render_cpu_ms": 16.2110004425049,
+					"render_gpu_ms": 9.68400001525879,
+					"wall_ms": 28.604
+				},
+				{
+					"render_cpu_ms": 16.5510005950928,
+					"render_gpu_ms": 10.3859996795654,
+					"wall_ms": 32.872
+				},
+				{
+					"render_cpu_ms": 15.9350004196167,
+					"render_gpu_ms": 9.9350004196167,
+					"wall_ms": 31.163
+				},
+				{
+					"render_cpu_ms": 18.2430000305176,
+					"render_gpu_ms": 11.4079999923706,
+					"wall_ms": 32.35
+				},
+				{
+					"render_cpu_ms": 17.8050003051758,
+					"render_gpu_ms": 11.2159996032715,
+					"wall_ms": 30.756
+				},
+				{
+					"render_cpu_ms": 21.0930004119873,
+					"render_gpu_ms": 13.7209997177124,
+					"wall_ms": 30.67
+				},
+				{
+					"render_cpu_ms": 17.0049991607666,
+					"render_gpu_ms": 10.9689998626709,
+					"wall_ms": 29.337
+				},
+				{
+					"render_cpu_ms": 18.1049995422363,
+					"render_gpu_ms": 11.7580003738403,
+					"wall_ms": 34.084
+				},
+				{
+					"render_cpu_ms": 17.3080005645752,
+					"render_gpu_ms": 10.9930000305176,
+					"wall_ms": 32.587
+				},
+				{
+					"render_cpu_ms": 18.2560005187988,
+					"render_gpu_ms": 11.9130001068115,
+					"wall_ms": 31.678
+				},
+				{
+					"render_cpu_ms": 17.443000793457,
+					"render_gpu_ms": 11.0220003128052,
+					"wall_ms": 30.288
+				},
+				{
+					"render_cpu_ms": 17.826000213623,
+					"render_gpu_ms": 11.8920001983643,
+					"wall_ms": 30.742
+				},
+				{
+					"render_cpu_ms": 17.2709999084473,
+					"render_gpu_ms": 11.0279998779297,
+					"wall_ms": 30.081
+				},
+				{
+					"render_cpu_ms": 18.1459999084473,
+					"render_gpu_ms": 11.8879995346069,
+					"wall_ms": 30.77
+				},
+				{
+					"render_cpu_ms": 17.0130004882813,
+					"render_gpu_ms": 11.0249996185303,
+					"wall_ms": 29.404
+				},
+				{
+					"render_cpu_ms": 17.9009990692139,
+					"render_gpu_ms": 11.8360004425049,
+					"wall_ms": 29.104
+				},
+				{
+					"render_cpu_ms": 17.261999130249,
+					"render_gpu_ms": 10.9969997406006,
+					"wall_ms": 30.178
+				},
+				{
+					"render_cpu_ms": 18.3419990539551,
+					"render_gpu_ms": 11.9300003051758,
+					"wall_ms": 30.508
+				},
+				{
+					"render_cpu_ms": 16.9909992218018,
+					"render_gpu_ms": 11.0310001373291,
+					"wall_ms": 28.961
+				},
+				{
+					"render_cpu_ms": 18.1620006561279,
+					"render_gpu_ms": 11.9090003967285,
+					"wall_ms": 30.464
+				},
+				{
+					"render_cpu_ms": 17.07200050354,
+					"render_gpu_ms": 11.0249996185303,
+					"wall_ms": 29.898
+				},
+				{
+					"render_cpu_ms": 17.9209995269775,
+					"render_gpu_ms": 11.8760004043579,
+					"wall_ms": 28.144
+				},
+				{
+					"render_cpu_ms": 16.9370002746582,
+					"render_gpu_ms": 11.0190000534058,
+					"wall_ms": 29.228
+				},
+				{
+					"render_cpu_ms": 17.7119998931885,
+					"render_gpu_ms": 11.8229999542236,
+					"wall_ms": 30.211
+				},
+				{
+					"render_cpu_ms": 17.0,
+					"render_gpu_ms": 10.996000289917,
+					"wall_ms": 30.296
+				},
+				{
+					"render_cpu_ms": 17.9790000915527,
+					"render_gpu_ms": 11.9060001373291,
+					"wall_ms": 30.743
+				},
+				{
+					"render_cpu_ms": 17.2070007324219,
+					"render_gpu_ms": 11.0220003128052,
+					"wall_ms": 28.941
+				},
+				{
+					"render_cpu_ms": 18.0790004730225,
+					"render_gpu_ms": 11.9010000228882,
+					"wall_ms": 28.555
+				},
+				{
+					"render_cpu_ms": 17.0669994354248,
+					"render_gpu_ms": 11.0220003128052,
+					"wall_ms": 29.323
+				},
+				{
+					"render_cpu_ms": 18.0849990844727,
+					"render_gpu_ms": 11.8970003128052,
+					"wall_ms": 31.169
+				},
+				{
+					"render_cpu_ms": 17.1709995269775,
+					"render_gpu_ms": 11.0290002822876,
+					"wall_ms": 28.954
+				},
+				{
+					"render_cpu_ms": 18.0510005950928,
+					"render_gpu_ms": 11.8360004425049,
+					"wall_ms": 28.33
+				},
+				{
+					"render_cpu_ms": 17.113000869751,
+					"render_gpu_ms": 11.0089998245239,
+					"wall_ms": 29.176
+				},
+				{
+					"render_cpu_ms": 17.8040008544922,
+					"render_gpu_ms": 11.918999671936,
+					"wall_ms": 30.285
+				},
+				{
+					"render_cpu_ms": 17.3360004425049,
+					"render_gpu_ms": 10.6169996261597,
+					"wall_ms": 30.547
+				},
+				{
+					"render_cpu_ms": 18.17799949646,
+					"render_gpu_ms": 11.4700002670288,
+					"wall_ms": 31.179
+				},
+				{
+					"render_cpu_ms": 17.0839996337891,
+					"render_gpu_ms": 10.6190004348755,
+					"wall_ms": 32.144
+				},
+				{
+					"render_cpu_ms": 18.8719997406006,
+					"render_gpu_ms": 12.0839996337891,
+					"wall_ms": 32.96
+				},
+				{
+					"render_cpu_ms": 18.7910003662109,
+					"render_gpu_ms": 11.8229999542236,
+					"wall_ms": 29.161
+				},
+				{
+					"render_cpu_ms": 20.1889991760254,
+					"render_gpu_ms": 13.5220003128052,
+					"wall_ms": 29.231
+				},
+				{
+					"render_cpu_ms": 17.2859992980957,
+					"render_gpu_ms": 10.581000328064,
+					"wall_ms": 29.161
+				},
+				{
+					"render_cpu_ms": 17.8099994659424,
+					"render_gpu_ms": 11.0869998931885,
+					"wall_ms": 33.827
+				},
+				{
+					"render_cpu_ms": 16.9099998474121,
+					"render_gpu_ms": 10.2829999923706,
+					"wall_ms": 30.652
+				},
+				{
+					"render_cpu_ms": 18.5459995269775,
+					"render_gpu_ms": 11.1079998016357,
+					"wall_ms": 32.661
+				},
+				{
+					"render_cpu_ms": 16.9489994049072,
+					"render_gpu_ms": 10.2840003967285,
+					"wall_ms": 30.63
+				},
+				{
+					"render_cpu_ms": 17.8349990844727,
+					"render_gpu_ms": 11.1049995422363,
+					"wall_ms": 30.163
+				},
+				{
+					"render_cpu_ms": 17.5030002593994,
+					"render_gpu_ms": 10.2700004577637,
+					"wall_ms": 29.592
+				},
+				{
+					"render_cpu_ms": 17.8929996490479,
+					"render_gpu_ms": 11.0310001373291,
+					"wall_ms": 33.319
+				},
+				{
+					"render_cpu_ms": 16.9060001373291,
+					"render_gpu_ms": 10.2600002288818,
+					"wall_ms": 32.25
+				},
+				{
+					"render_cpu_ms": 18.0809993743896,
+					"render_gpu_ms": 11.0970001220703,
+					"wall_ms": 33.264
+				},
+				{
+					"render_cpu_ms": 16.9290008544922,
+					"render_gpu_ms": 10.298999786377,
+					"wall_ms": 31.512
+				},
+				{
+					"render_cpu_ms": 18.0650005340576,
+					"render_gpu_ms": 11.1099996566772,
+					"wall_ms": 30.305
+				},
+				{
+					"render_cpu_ms": 17.2560005187988,
+					"render_gpu_ms": 10.2760000228882,
+					"wall_ms": 28.322
+				},
+				{
+					"render_cpu_ms": 18.1100006103516,
+					"render_gpu_ms": 11.0979995727539,
+					"wall_ms": 30.747
+				},
+				{
+					"render_cpu_ms": 17.0230007171631,
+					"render_gpu_ms": 10.2729997634888,
+					"wall_ms": 32.527
+				},
+				{
+					"render_cpu_ms": 18.4309997558594,
+					"render_gpu_ms": 11.0389995574951,
+					"wall_ms": 32.472
+				},
+				{
+					"render_cpu_ms": 17.451000213623,
+					"render_gpu_ms": 10.2559995651245,
+					"wall_ms": 32.632
+				},
+				{
+					"render_cpu_ms": 17.9300003051758,
+					"render_gpu_ms": 11.3950004577637,
+					"wall_ms": 32.472
+				},
+				{
+					"render_cpu_ms": 17.0270004272461,
+					"render_gpu_ms": 10.2700004577637,
+					"wall_ms": 29.845
+				},
+				{
+					"render_cpu_ms": 17.9669990539551,
+					"render_gpu_ms": 11.0950002670288,
+					"wall_ms": 33.83
+				},
+				{
+					"render_cpu_ms": 17.3799991607666,
+					"render_gpu_ms": 10.1370000839233,
+					"wall_ms": 32.157
+				},
+				{
+					"render_cpu_ms": 20.2439994812012,
+					"render_gpu_ms": 12.0959997177124,
+					"wall_ms": 29.855
+				},
+				{
+					"render_cpu_ms": 18.8549995422363,
+					"render_gpu_ms": 11.298999786377,
+					"wall_ms": 30.582
+				}
+			]
+		},
+		{
+			"aim_error_degrees": 0.0,
+			"camera": "Transform3D(0.40644163, 6.62226e-05, -0.9136768, 0, 1, 7.247925e-05, 0.9136768, -2.9458583e-05, 0.40644163, -4.4025874, 4.6102343, -8.719999)",
+			"id": "back",
+			"samples": [
+				{
+					"render_cpu_ms": 25.4370002746582,
+					"render_gpu_ms": 13.0240001678467,
+					"wall_ms": 40.169
+				},
+				{
+					"render_cpu_ms": 23.382999420166,
+					"render_gpu_ms": 11.7349996566772,
+					"wall_ms": 43.858
+				},
+				{
+					"render_cpu_ms": 24.8880004882813,
+					"render_gpu_ms": 14.3570003509521,
+					"wall_ms": 44.858
+				},
+				{
+					"render_cpu_ms": 23.8439998626709,
+					"render_gpu_ms": 12.9379997253418,
+					"wall_ms": 41.978
+				},
+				{
+					"render_cpu_ms": 24.8540000915527,
+					"render_gpu_ms": 14.3339996337891,
+					"wall_ms": 42.259
+				},
+				{
+					"render_cpu_ms": 23.4540004730225,
+					"render_gpu_ms": 12.9119997024536,
+					"wall_ms": 41.688
+				},
+				{
+					"render_cpu_ms": 25.0319995880127,
+					"render_gpu_ms": 14.3780002593994,
+					"wall_ms": 42.652
+				},
+				{
+					"render_cpu_ms": 24.5130004882813,
+					"render_gpu_ms": 13.0649995803833,
+					"wall_ms": 38.864
+				},
+				{
+					"render_cpu_ms": 25.1879997253418,
+					"render_gpu_ms": 14.5260000228882,
+					"wall_ms": 45.487
+				},
+				{
+					"render_cpu_ms": 23.5030002593994,
+					"render_gpu_ms": 13.1239995956421,
+					"wall_ms": 38.045
+				},
+				{
+					"render_cpu_ms": 26.2660007476807,
+					"render_gpu_ms": 14.5369997024536,
+					"wall_ms": 41.679
+				},
+				{
+					"render_cpu_ms": 23.2049999237061,
+					"render_gpu_ms": 13.1319999694824,
+					"wall_ms": 39.069
+				},
+				{
+					"render_cpu_ms": 24.4909992218018,
+					"render_gpu_ms": 14.5670003890991,
+					"wall_ms": 44.302
+				},
+				{
+					"render_cpu_ms": 23.2210006713867,
+					"render_gpu_ms": 13.1400003433228,
+					"wall_ms": 41.258
+				},
+				{
+					"render_cpu_ms": 24.3920001983643,
+					"render_gpu_ms": 14.5190000534058,
+					"wall_ms": 47.414
+				},
+				{
+					"render_cpu_ms": 23.2530002593994,
+					"render_gpu_ms": 13.0790004730225,
+					"wall_ms": 41.526
+				},
+				{
+					"render_cpu_ms": 24.8859996795654,
+					"render_gpu_ms": 14.7720003128052,
+					"wall_ms": 41.325
+				},
+				{
+					"render_cpu_ms": 23.8320007324219,
+					"render_gpu_ms": 14.128999710083,
+					"wall_ms": 40.844
+				},
+				{
+					"render_cpu_ms": 25.6469993591309,
+					"render_gpu_ms": 15.6520004272461,
+					"wall_ms": 40.556
+				},
+				{
+					"render_cpu_ms": 23.693000793457,
+					"render_gpu_ms": 13.201000213623,
+					"wall_ms": 39.678
+				},
+				{
+					"render_cpu_ms": 25.0769996643066,
+					"render_gpu_ms": 14.6829996109009,
+					"wall_ms": 42.978
+				},
+				{
+					"render_cpu_ms": 23.1319999694824,
+					"render_gpu_ms": 13.2819995880127,
+					"wall_ms": 41.221
+				},
+				{
+					"render_cpu_ms": 25.6760005950928,
+					"render_gpu_ms": 14.6660003662109,
+					"wall_ms": 40.983
+				},
+				{
+					"render_cpu_ms": 24.3279991149902,
+					"render_gpu_ms": 13.2110004425049,
+					"wall_ms": 41.188
+				},
+				{
+					"render_cpu_ms": 25.1849994659424,
+					"render_gpu_ms": 14.6920003890991,
+					"wall_ms": 40.811
+				},
+				{
+					"render_cpu_ms": 23.9829998016357,
+					"render_gpu_ms": 13.2919998168945,
+					"wall_ms": 43.66
+				},
+				{
+					"render_cpu_ms": 24.9419994354248,
+					"render_gpu_ms": 14.8280000686646,
+					"wall_ms": 43.843
+				},
+				{
+					"render_cpu_ms": 25.2229995727539,
+					"render_gpu_ms": 13.3839998245239,
+					"wall_ms": 39.407
+				},
+				{
+					"render_cpu_ms": 26.2789993286133,
+					"render_gpu_ms": 14.8450002670288,
+					"wall_ms": 42.432
+				},
+				{
+					"render_cpu_ms": 23.3269996643066,
+					"render_gpu_ms": 13.4309997558594,
+					"wall_ms": 40.805
+				},
+				{
+					"render_cpu_ms": 26.3610000610352,
+					"render_gpu_ms": 14.8739995956421,
+					"wall_ms": 42.718
+				},
+				{
+					"render_cpu_ms": 23.5939998626709,
+					"render_gpu_ms": 13.5120000839233,
+					"wall_ms": 40.193
+				},
+				{
+					"render_cpu_ms": 26.6730003356934,
+					"render_gpu_ms": 14.9930000305176,
+					"wall_ms": 41.977
+				},
+				{
+					"render_cpu_ms": 23.4729995727539,
+					"render_gpu_ms": 13.5500001907349,
+					"wall_ms": 41.071
+				},
+				{
+					"render_cpu_ms": 25.5499992370605,
+					"render_gpu_ms": 14.9940004348755,
+					"wall_ms": 41.196
+				},
+				{
+					"render_cpu_ms": 24.1009998321533,
+					"render_gpu_ms": 13.6199998855591,
+					"wall_ms": 40.903
+				},
+				{
+					"render_cpu_ms": 24.996000289917,
+					"render_gpu_ms": 15.0900001525879,
+					"wall_ms": 41.126
+				},
+				{
+					"render_cpu_ms": 23.7840003967285,
+					"render_gpu_ms": 13.6470003128052,
+					"wall_ms": 42.372
+				},
+				{
+					"render_cpu_ms": 25.6000003814697,
+					"render_gpu_ms": 15.0369997024536,
+					"wall_ms": 46.427
+				},
+				{
+					"render_cpu_ms": 23.1770000457764,
+					"render_gpu_ms": 13.5740003585815,
+					"wall_ms": 44.023
+				},
+				{
+					"render_cpu_ms": 25.1909999847412,
+					"render_gpu_ms": 15.2189998626709,
+					"wall_ms": 43.956
+				},
+				{
+					"render_cpu_ms": 24.2450008392334,
+					"render_gpu_ms": 14.2080001831055,
+					"wall_ms": 41.949
+				},
+				{
+					"render_cpu_ms": 26.0189990997314,
+					"render_gpu_ms": 16.431999206543,
+					"wall_ms": 44.84
+				},
+				{
+					"render_cpu_ms": 23.2089996337891,
+					"render_gpu_ms": 13.6440000534058,
+					"wall_ms": 40.042
+				},
+				{
+					"render_cpu_ms": 24.8990001678467,
+					"render_gpu_ms": 15.081000328064,
+					"wall_ms": 44.141
+				},
+				{
+					"render_cpu_ms": 23.2880001068115,
+					"render_gpu_ms": 13.6780004501343,
+					"wall_ms": 38.28
+				},
+				{
+					"render_cpu_ms": 24.6019992828369,
+					"render_gpu_ms": 15.0769996643066,
+					"wall_ms": 45.064
+				},
+				{
+					"render_cpu_ms": 23.2099990844727,
+					"render_gpu_ms": 13.6339998245239,
+					"wall_ms": 42.59
+				},
+				{
+					"render_cpu_ms": 24.8719997406006,
+					"render_gpu_ms": 15.1490001678467,
+					"wall_ms": 44.009
+				},
+				{
+					"render_cpu_ms": 23.1830005645752,
+					"render_gpu_ms": 13.75,
+					"wall_ms": 39.635
+				},
+				{
+					"render_cpu_ms": 25.1760005950928,
+					"render_gpu_ms": 15.2430000305176,
+					"wall_ms": 42.33
+				},
+				{
+					"render_cpu_ms": 23.2759990692139,
+					"render_gpu_ms": 13.7770004272461,
+					"wall_ms": 39.083
+				},
+				{
+					"render_cpu_ms": 24.44700050354,
+					"render_gpu_ms": 15.2229995727539,
+					"wall_ms": 39.796
+				},
+				{
+					"render_cpu_ms": 23.1609992980957,
+					"render_gpu_ms": 13.7679996490479,
+					"wall_ms": 40.472
+				},
+				{
+					"render_cpu_ms": 24.3229999542236,
+					"render_gpu_ms": 15.1639995574951,
+					"wall_ms": 39.891
+				},
+				{
+					"render_cpu_ms": 23.3169994354248,
+					"render_gpu_ms": 13.7080001831055,
+					"wall_ms": 39.382
+				},
+				{
+					"render_cpu_ms": 24.5200004577637,
+					"render_gpu_ms": 15.2340002059937,
+					"wall_ms": 42.091
+				},
+				{
+					"render_cpu_ms": 23.1660003662109,
+					"render_gpu_ms": 13.7620000839233,
+					"wall_ms": 38.072
+				},
+				{
+					"render_cpu_ms": 24.6580009460449,
+					"render_gpu_ms": 15.2259998321533,
+					"wall_ms": 44.465
+				},
+				{
+					"render_cpu_ms": 23.5550003051758,
+					"render_gpu_ms": 13.753999710083,
+					"wall_ms": 41.406
+				},
+				{
+					"render_cpu_ms": 24.4720001220703,
+					"render_gpu_ms": 15.2329998016357,
+					"wall_ms": 43.778
+				},
+				{
+					"render_cpu_ms": 23.1690006256104,
+					"render_gpu_ms": 13.7749996185303,
+					"wall_ms": 37.743
+				},
+				{
+					"render_cpu_ms": 24.3460006713867,
+					"render_gpu_ms": 15.1599998474121,
+					"wall_ms": 44.281
+				},
+				{
+					"render_cpu_ms": 23.0170001983643,
+					"render_gpu_ms": 13.7209997177124,
+					"wall_ms": 39.744
+				},
+				{
+					"render_cpu_ms": 24.9489994049072,
+					"render_gpu_ms": 15.4250001907349,
+					"wall_ms": 43.103
+				},
+				{
+					"render_cpu_ms": 23.7959995269775,
+					"render_gpu_ms": 14.6940002441406,
+					"wall_ms": 38.546
+				},
+				{
+					"render_cpu_ms": 25.7600002288818,
+					"render_gpu_ms": 16.2759990692139,
+					"wall_ms": 41.234
+				},
+				{
+					"render_cpu_ms": 22.9209995269775,
+					"render_gpu_ms": 13.8090000152588,
+					"wall_ms": 38.415
+				},
+				{
+					"render_cpu_ms": 24.5090007781982,
+					"render_gpu_ms": 15.3149995803833,
+					"wall_ms": 40.903
+				},
+				{
+					"render_cpu_ms": 23.2880001068115,
+					"render_gpu_ms": 13.7959995269775,
+					"wall_ms": 40.014
+				},
+				{
+					"render_cpu_ms": 24.6089992523193,
+					"render_gpu_ms": 15.2189998626709,
+					"wall_ms": 39.757
+				},
+				{
+					"render_cpu_ms": 23.1809997558594,
+					"render_gpu_ms": 13.7670001983643,
+					"wall_ms": 40.776
+				},
+				{
+					"render_cpu_ms": 24.2469997406006,
+					"render_gpu_ms": 14.793999671936,
+					"wall_ms": 39.627
+				},
+				{
+					"render_cpu_ms": 23.3589992523193,
+					"render_gpu_ms": 13.8210000991821,
+					"wall_ms": 39.558
+				},
+				{
+					"render_cpu_ms": 24.3110008239746,
+					"render_gpu_ms": 14.7869997024536,
+					"wall_ms": 39.157
+				},
+				{
+					"render_cpu_ms": 23.2089996337891,
+					"render_gpu_ms": 13.8129997253418,
+					"wall_ms": 39.156
+				},
+				{
+					"render_cpu_ms": 24.3460006713867,
+					"render_gpu_ms": 14.8159999847412,
+					"wall_ms": 40.984
+				},
+				{
+					"render_cpu_ms": 23.128999710083,
+					"render_gpu_ms": 13.8120002746582,
+					"wall_ms": 37.874
+				},
+				{
+					"render_cpu_ms": 24.2810001373291,
+					"render_gpu_ms": 14.7679996490479,
+					"wall_ms": 39.468
+				},
+				{
+					"render_cpu_ms": 23.1889991760254,
+					"render_gpu_ms": 13.8529996871948,
+					"wall_ms": 39.996
+				},
+				{
+					"render_cpu_ms": 24.2409992218018,
+					"render_gpu_ms": 15.4139995574951,
+					"wall_ms": 39.982
+				},
+				{
+					"render_cpu_ms": 23.003999710083,
+					"render_gpu_ms": 13.8979997634888,
+					"wall_ms": 39.144
+				},
+				{
+					"render_cpu_ms": 24.681999206543,
+					"render_gpu_ms": 15.3990001678467,
+					"wall_ms": 39.842
+				},
+				{
+					"render_cpu_ms": 23.0109996795654,
+					"render_gpu_ms": 13.9060001373291,
+					"wall_ms": 42.026
+				},
+				{
+					"render_cpu_ms": 24.4599990844727,
+					"render_gpu_ms": 15.4040002822876,
+					"wall_ms": 44.197
+				},
+				{
+					"render_cpu_ms": 23.4710006713867,
+					"render_gpu_ms": 13.9139995574951,
+					"wall_ms": 41.164
+				},
+				{
+					"render_cpu_ms": 24.6499996185303,
+					"render_gpu_ms": 15.3459997177124,
+					"wall_ms": 41.205
+				},
+				{
+					"render_cpu_ms": 23.3449993133545,
+					"render_gpu_ms": 13.8629999160767,
+					"wall_ms": 45.977
+				},
+				{
+					"render_cpu_ms": 24.80299949646,
+					"render_gpu_ms": 15.4079999923706,
+					"wall_ms": 44.67
+				},
+				{
+					"render_cpu_ms": 23.7399997711182,
+					"render_gpu_ms": 14.4209995269775,
+					"wall_ms": 43.655
+				},
+				{
+					"render_cpu_ms": 25.246000289917,
+					"render_gpu_ms": 16.0690002441406,
+					"wall_ms": 41.353
+				},
+				{
+					"render_cpu_ms": 24.3409996032715,
+					"render_gpu_ms": 15.0670003890991,
+					"wall_ms": 40.307
+				},
+				{
+					"render_cpu_ms": 25.0030002593994,
+					"render_gpu_ms": 15.5010004043579,
+					"wall_ms": 40.174
+				},
+				{
+					"render_cpu_ms": 23.8939990997314,
+					"render_gpu_ms": 14.1180000305176,
+					"wall_ms": 44.407
+				},
+				{
+					"render_cpu_ms": 25.0300006866455,
+					"render_gpu_ms": 15.6230001449585,
+					"wall_ms": 44.374
+				},
+				{
+					"render_cpu_ms": 24.0839996337891,
+					"render_gpu_ms": 14.1280002593994,
+					"wall_ms": 41.95
+				},
+				{
+					"render_cpu_ms": 24.6490001678467,
+					"render_gpu_ms": 15.6859998703003,
+					"wall_ms": 43.25
+				},
+				{
+					"render_cpu_ms": 23.4039993286133,
+					"render_gpu_ms": 14.1529998779297,
+					"wall_ms": 37.923
+				},
+				{
+					"render_cpu_ms": 25.3040008544922,
+					"render_gpu_ms": 15.6730003356934,
+					"wall_ms": 41.129
+				},
+				{
+					"render_cpu_ms": 22.8740005493164,
+					"render_gpu_ms": 14.1420001983643,
+					"wall_ms": 39.243
+				},
+				{
+					"render_cpu_ms": 24.7320003509521,
+					"render_gpu_ms": 15.6429996490479,
+					"wall_ms": 41.324
+				},
+				{
+					"render_cpu_ms": 23.4290008544922,
+					"render_gpu_ms": 14.1149997711182,
+					"wall_ms": 37.864
+				},
+				{
+					"render_cpu_ms": 24.5419998168945,
+					"render_gpu_ms": 15.5979995727539,
+					"wall_ms": 43.175
+				},
+				{
+					"render_cpu_ms": 23.0389995574951,
+					"render_gpu_ms": 14.0860004425049,
+					"wall_ms": 38.187
+				},
+				{
+					"render_cpu_ms": 25.128999710083,
+					"render_gpu_ms": 15.6619997024536,
+					"wall_ms": 44.023
+				},
+				{
+					"render_cpu_ms": 23.2259998321533,
+					"render_gpu_ms": 14.1510000228882,
+					"wall_ms": 42.433
+				},
+				{
+					"render_cpu_ms": 24.5030002593994,
+					"render_gpu_ms": 15.6780004501343,
+					"wall_ms": 44.389
+				},
+				{
+					"render_cpu_ms": 23.1100006103516,
+					"render_gpu_ms": 14.1429996490479,
+					"wall_ms": 39.507
+				},
+				{
+					"render_cpu_ms": 24.8509998321533,
+					"render_gpu_ms": 15.6940002441406,
+					"wall_ms": 41.912
+				},
+				{
+					"render_cpu_ms": 23.8540000915527,
+					"render_gpu_ms": 14.1379995346069,
+					"wall_ms": 38.319
+				},
+				{
+					"render_cpu_ms": 24.6569995880127,
+					"render_gpu_ms": 15.5900001525879,
+					"wall_ms": 40.87
+				},
+				{
+					"render_cpu_ms": 23.2180004119873,
+					"render_gpu_ms": 14.0939998626709,
+					"wall_ms": 41.672
+				},
+				{
+					"render_cpu_ms": 24.7469997406006,
+					"render_gpu_ms": 15.6669998168945,
+					"wall_ms": 43.517
+				},
+				{
+					"render_cpu_ms": 23.8999996185303,
+					"render_gpu_ms": 14.6230001449585,
+					"wall_ms": 39.511
+				},
+				{
+					"render_cpu_ms": 25.5769996643066,
+					"render_gpu_ms": 16.6049995422363,
+					"wall_ms": 42.617
+				},
+				{
+					"render_cpu_ms": 24.4249992370605,
+					"render_gpu_ms": 15.2379999160767,
+					"wall_ms": 38.521
+				},
+				{
+					"render_cpu_ms": 25.1070003509521,
+					"render_gpu_ms": 15.7290000915527,
+					"wall_ms": 40.536
+				},
+				{
+					"render_cpu_ms": 23.5170001983643,
+					"render_gpu_ms": 14.1870002746582,
+					"wall_ms": 39.062
+				},
+				{
+					"render_cpu_ms": 24.3990001678467,
+					"render_gpu_ms": 15.6400003433228,
+					"wall_ms": 41.579
+				},
+				{
+					"render_cpu_ms": 23.2950000762939,
+					"render_gpu_ms": 14.1420001983643,
+					"wall_ms": 37.69
+				}
+			]
+		}
+	]
+}

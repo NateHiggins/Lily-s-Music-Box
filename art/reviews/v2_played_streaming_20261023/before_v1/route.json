@@ -1,0 +1,23 @@
+{
+  "failures": [
+    "target (1.925, 0.0, -6.5) actual (0.370692, 0.000943, -12.33352)"
+  ],
+  "trace": [
+    {
+      "actual": [
+        0.370692431926727,
+        0.000942570914048702,
+        -12.3335237503052
+      ],
+      "ok": false,
+      "target": [
+        1.92499995231628,
+        0.0,
+        -6.5
+      ],
+      "wall_contacts": {
+        "/root/V2PlayedStreamingProfile/OrisonV2Runtime/OrisonV2Blockout/F01_DOOR_06/F01_DOOR_06_Leaf/CenturyOakLeaf": "(-0.372478, 1.194943, 0.347)"
+      }
+    }
+  ]
+}

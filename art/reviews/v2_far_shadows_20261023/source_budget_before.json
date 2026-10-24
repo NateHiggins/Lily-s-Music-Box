@@ -1,0 +1,36 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original repeated shadow assignment, exact executed budget method control.",
+  "files": [
+    {
+      "path": "game/scripts/props/light_fixture_prop.gd",
+      "raw_sha256": "29bf8f3e6e9918c86349dfbb63ab926f7e1fda63ce663a17ab873671a1575413",
+      "lf_sha256": "29bf8f3e6e9918c86349dfbb63ab926f7e1fda63ce663a17ab873671a1575413",
+      "archive": "source_budget_before/game/scripts/props/light_fixture_prop.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/ceiling_light_prop.gd",
+      "raw_sha256": "7ae408291b5831265c7d86cfd61e7cb82f64fa91936f9d469c26440cb313d67c",
+      "lf_sha256": "b896fb292033c0564a28cd7b8acfcd9f86b45c4849a30930bd77b9c78f96ef79",
+      "archive": "source_budget_before/game/scripts/props/ceiling_light_prop.gd.gz"
+    },
+    {
+      "path": "game/scripts/props/lamp_prop.gd",
+      "raw_sha256": "2a06473b1ee4ea5aece5df4394d3f555df61cc8065b01004cca27e8ad3137ddd",
+      "lf_sha256": "2a06473b1ee4ea5aece5df4394d3f555df61cc8065b01004cca27e8ad3137ddd",
+      "archive": "source_budget_before/game/scripts/props/lamp_prop.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_shadow_setter_control.gd",
+      "raw_sha256": "eea0c5c543b664efe31199de263c1ef462b0f18328d362f4979a713d914f869b",
+      "lf_sha256": "eea0c5c543b664efe31199de263c1ef462b0f18328d362f4979a713d914f869b",
+      "archive": "source_budget_before/game/tests/v2_shadow_setter_control.gd.gz"
+    },
+    {
+      "path": "game/tests/V2ShadowSetterControl.tscn",
+      "raw_sha256": "a38443c76a0311b88783eae93fa71120544968fbe73e7162fecad4831e629426",
+      "lf_sha256": "a38443c76a0311b88783eae93fa71120544968fbe73e7162fecad4831e629426",
+      "archive": "source_budget_before/game/tests/V2ShadowSetterControl.tscn.gz"
+    }
+  ]
+}

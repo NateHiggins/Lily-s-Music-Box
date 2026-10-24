@@ -1,0 +1,19 @@
+{
+	"checks": 20,
+	"evidence_class": "INERT",
+	"failures": [
+		"actual print loop reaches bounded impression stroke"
+	],
+	"observations": {
+		"banks": [
+			0,
+			-1,
+			1
+		],
+		"pages": 2,
+		"peak_impression_m": 0.00000011012889444828,
+		"text_high": "(0.058185, 0.0621, 0.0527)",
+		"text_low": "(-0.05832, -0.027, 0.0527)"
+	},
+	"scope": "Production printer in an isolated render fixture; direct service-cover input, composed save and whole-world performance are not qualified"
+}

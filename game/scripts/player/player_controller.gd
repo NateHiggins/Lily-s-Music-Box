@@ -42,7 +42,7 @@ var _carried_light_pose := preload("res://scripts/lamp/carried_lamp_pose.gd").ne
 var lamp_presentation: Node
 var _prompt: Label
 var _prompt_panel: PanelContainer
-var _target_dot: ColorRect
+var _target_dot: Control
 var inspect_owner: Node3D
 var _inspection_active := false
 var _inspection_jump_consumed := false
@@ -50,6 +50,19 @@ var _inspect_camera_fov := 72.0
 var _inspect_camera_pose := Transform3D.IDENTITY
 var _inspect_mouse_mode := Input.MOUSE_MODE_CAPTURED
 var _inspect_anchor := Transform3D.IDENTITY
+var _inspect_pickup: Dictionary = {}
+var _inspect_pickup_contact := Vector3.ZERO
+var _profile_disable_step_guard:=false
+var _profile_disable_step_up:=false
+var step_guard_rejections:=0
+var profile_physics:=false
+var physics_profile_records: Array=[]
+var _low_step_probe_enabled:=false
+var _step_cap: CharacterBody3D
+var _step_cap_shape: SphereShape3D
+var _step_cap_exceptions: Array=[]
+var _native_contact_agent: RefCounted
+var _native_contact_layers:=0
 var _grab: RefCounted
 var telegram_hud: TelegramHud
 var _interaction_hud: CanvasLayer
@@ -80,14 +93,9 @@ var _prompt_input_family: StringName = &"keyboard"
 var _shape: CollisionShape3D
 var _capsule: CapsuleShape3D
 var _hand: Node3D
-var _light_mask: PhoneLightMask
-## Whether this WORLD permits the screen-space beam plate at all. The dream
-## does not. Held separately from the lamp's own on/off because
-## `set_lamp_enabled()` shows and hides the plate with the switch, and a world
-## that has refused it must not have that refusal undone by the next toggle --
-## which is exactly what was happening: the dream turned the plate off at
-## build, and the first lamp toggle turned it straight back on.
-var _beam_mask_allowed := true
+## Retired compatibility reference for historical diagnostics. Never mounted.
+var _light_mask: Control = null
+var _beam_mask_allowed := false # Historical diagnostics; the renderer is retired.
 var _throw_due := 0.0
 ## Throw measurement cadence; no cookie is baked and no GPU image is read back.
 const THROW_EVERY := 0.10
@@ -223,18 +231,8 @@ func _ready() -> void:
 
 
 func _build_hud() -> void:
-	# The atmospheric screen mask sits under the HUD. It never becomes a
-	# light_projector; the physical beam is the spotlight's authored cone.
-	var mask_layer := CanvasLayer.new()
-	mask_layer.layer = 6
-	add_child(mask_layer)
-	# Three plates blended live instead of one still image. The mix
-	# answers to sanity pressure, to whether the player is walking, and
-	# to the building intruding - see phone_light_mask.gd.
-	_light_mask = PhoneLightMask.new()
-	_light_mask.setup(self)
-	mask_layer.add_child(_light_mask)
-
+	# The real lamp and participating air own the beam. No photographic
+	# screen plate, flare canvas or projected cookie is constructed.
 	# The spotlight owns no projected texture. The former second mask rendered
 	# into a SubViewport and copied the GPU target back into light_projector;
 	# reused backing memory made a deleted Dream plate recur on waking walls.
@@ -243,12 +241,9 @@ func _build_hud() -> void:
 	layer.layer = 7
 	_interaction_hud=layer
 	add_child(layer)
-	var dot := ColorRect.new()
+	var dot := preload("res://scripts/player/target_reticle.gd").new()
 	_target_dot = dot
 	_grab = preload("res://scripts/player/constrained_grab.gd").new(self)
-	dot.size = Vector2(4, 4)
-	dot.position = Vector2(638, 358)
-	dot.color = Color(0.9, 0.92, 0.95, 0.55)
 	dot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(dot)
 	_prompt_panel = PanelContainer.new()
@@ -294,13 +289,14 @@ func _update_prompt() -> void:
 	_prompt_panel.visible = false
 	if _grab != null:
 		_grab.validate()
-		var aimed: Dictionary = _grab.find_target()
+		# A latched hand retains its part; hovering must not scan another object.
+		var can_aim := not call_locked and not mouse_released and (inspecting() or touch_input or Input.mouse_mode==Input.MOUSE_MODE_CAPTURED)
+		var aimed: Dictionary = {} if _grab.active() or not can_aim else _grab.find_target()
 		var available: bool = not call_locked and not mouse_released and aimed.get("part") is Node3D
-		_target_dot.set_anchors_preset(Control.PRESET_CENTER)
-		var radius := 5.0 if _grab.active() else 3.0 if available else 2.0
-		_target_dot.position = (get_viewport().get_mouse_position() if inspecting() else get_viewport().get_visible_rect().size*.5)-Vector2.ONE*radius
-		_target_dot.size = Vector2.ONE*radius*2
-		_target_dot.color = Color(1,.85,.58,.95) if _grab.active() else Color(1,.96,.82,.95) if available else Color(.9,.92,.95,.45)
+		var feedback: Dictionary = _grab.feedback(aimed)
+		if call_locked or mouse_released or (not inspecting() and not touch_input and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED): feedback.state="hidden"
+		_target_dot.present(feedback.state,feedback.inspectable,
+			get_viewport().get_mouse_position() if inspecting() else get_viewport().get_visible_rect().size*.5,feedback.get("transform_axis",-1),feedback.get("transform_rotating",false))
 		if _grab.active() or available or aimed.get("blocked",false): return
 	if is_instance_valid(seated_interaction):
 		if seated_interaction.has_method("interact_prompt"):
@@ -311,12 +307,8 @@ func _update_prompt() -> void:
 	if call_locked or (not touch_input
 			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED):
 		return
-	var from := camera.global_position
-	var to := from + camera.global_transform.basis * Vector3(0, 0, -2.1)
-	var params := PhysicsRayQueryParameters3D.create(from, to)
-	params.collide_with_areas = true
-	params.exclude = [get_rid()]
-	var hit := get_world_3d().direct_space_state.intersect_ray(params)
+	# The same ray supplies legacy semantic prompts. Do not rescan the world.
+	var hit: Dictionary = _grab.last_hit if _grab != null else {}
 	if hit.is_empty():
 		return
 	if hit.collider is Area3D:
@@ -386,7 +378,6 @@ func _process(_delta: float) -> void:
 			end_inspection()
 		else:
 			camera.global_transform = _inspect_anchor
-	_update_prompt()
 	_advance_lamp(_delta)
 	_carry_service_light(_delta)
 	if not call_locked and not inspecting():
@@ -410,6 +401,7 @@ func _process(_delta: float) -> void:
 			and carried_device and carried_device.has_method("toggle_radio_power"):
 		carried_device.toggle_radio_power()
 	if call_locked:
+		_update_prompt()
 		return
 	# POLLED, not event-driven. An on-screen button presses an action
 	# through Input.action_press(), which sets the action's state but never
@@ -422,14 +414,19 @@ func _process(_delta: float) -> void:
 			and Input.is_action_just_pressed("noclip"):
 		noclip = not noclip
 		collision_layer = 0 if noclip else 1
-		collision_mask = 0 if noclip else 1
+		collision_mask = 0 if noclip else (1|_native_contact_layers)
 		if noclip:
 			_clear_stagger()
 	if Input.is_action_just_pressed("crouch") and not inspecting():
 		_set_crouched(not crouched)
+	# Resolve after controller look, interaction and eye-height changes so the
+	# drawn target describes the camera and hand actually rendered this frame.
+	_update_prompt()
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _grab!=null and _grab.transform_input(event):
+		get_viewport().set_input_as_handled();return
 	if event.is_action_pressed("jump") and not event.is_echo():
 		if inspecting():
 			_inspection_jump_consumed=true
@@ -445,6 +442,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		_grab.move_depth((-.025 if event.button_index==MOUSE_BUTTON_WHEEL_UP else .025)*event.factor)
 		get_viewport().set_input_as_handled()
 		return
+	if inspecting() and event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and not _grab.active() and inspect_owner.has_method("reading_view_active") and inspect_owner.reading_view_active():
+		var pixel:=get_viewport().get_mouse_position()
+		var old_ray:=camera.global_basis.inverse()*camera.project_ray_normal(pixel)
+		camera.fov=clampf(camera.fov+(-2. if event.button_index==MOUSE_BUTTON_WHEEL_UP else 2.)*event.factor,8.,65.)
+		var new_ray:=camera.global_basis.inverse()*camera.project_ray_normal(pixel)
+		# Zoom about the free cursor with a rotation at the same eye position.
+		# The inspected stock and the physical camera anchor never translate.
+		_inspect_anchor.basis=_inspect_anchor.basis*Basis(Quaternion(new_ray,old_ray))
+		camera.global_transform=_inspect_anchor
+		get_viewport().set_input_as_handled();return
 	if inspecting():
 		if event.is_action_pressed("pause_services") or event.is_action_pressed("release_mouse"):
 			end_inspection()
@@ -508,8 +515,6 @@ func _carry_service_light(delta: float) -> void:
 	var hold: Transform3D
 	if carried_device and carried_device.get("beam_valid"):
 		hold = camera.transform * carried_device.beam_xform
-		if _light_mask:
-			_light_mask.set_aim(carried_device.beam_aim)
 	else:
 		# No carried model in the scene (test rigs, mostly). Keep the old
 		# hand-held offset so the building is still lit.
@@ -601,14 +606,16 @@ func _measure_throw() -> void:
 ## drift into different sensitivities or clamp differently.
 func apply_look(rel: Vector2) -> void:
 	if inspecting(): return
-	if _grab != null and _grab.active():
+	if _grab != null and _grab.active() and not _grab.holding_pickup():
 		_grab.move(rel)
 		return
 	if call_locked:
 		return
 	var sensitivity := clampf(float(GameBoot.settings.get(
 			"look_sensitivity", 1.0)), 0.25, 2.0)
-	rotate_y(-rel.x * MOUSE_SENS * sensitivity)
+	# Rebuild from yaw rather than repeatedly multiplying the float basis.
+	# Long mouse turns must not gradually shrink the physical capsule frame.
+	rotation.y -= rel.x * MOUSE_SENS * sensitivity
 	camera.rotate_x(-rel.y * MOUSE_SENS * sensitivity)
 	# The hand trails the view. One look path in, one hand lag out, so
 	# a mouse and a dragged thumb can never disagree about it.
@@ -632,7 +639,7 @@ func apply_look_rate(axis: Vector2, delta: float) -> void:
 			"controller_look_sensitivity", 1.0)), 0.25, 2.0)
 	var y_sign := -1.0 if bool(GameBoot.settings.get(
 			"controller_invert_y", false)) else 1.0
-	rotate_y(-shaped.x * 2.45 * sensitivity * delta)
+	rotation.y -= shaped.x * 2.45 * sensitivity * delta
 	camera.rotate_x(-shaped.y * y_sign * 2.05 * sensitivity * delta)
 	if carried_device and carried_device.has_method("apply_look"):
 		carried_device.apply_look(Vector2(shaped.x, shaped.y * y_sign)
@@ -673,8 +680,6 @@ func _set_crouched(on: bool) -> void:
 func set_lamp_enabled(on: bool) -> void:
 	var changed := on != _lamp_on
 	_lamp_on = on
-	if _light_mask:
-		_light_mask.visible = on and _beam_mask_allowed
 	if on:
 		_throw_due = 0.0
 	if flashlight:
@@ -872,23 +877,6 @@ func _apply_lamp_gutter() -> void:
 		flashlight.light_energy = _lamp_base_energy * _lamp_gutter_multiplier
 
 
-## Put the carried beam's SCREEN-SPACE mask away entirely.
-##
-## `PhoneLightMask` multiplies a torch plate over the whole frame. In the
-## waking Orison that is most of what makes the lamp feel carried, and it is
-## correct there: the beam is a screen effect because the building is lit by
-## its own fixtures and the torch is a lens on top of them.
-##
-## In the dream it is wrong twice. The Klimt shader already answers the beam ON
-## THE SURFACE -- the gold melts, ripples and reflects where the light lands --
-## so the screen plate is a second, contradictory account of the same lamp. And
-## because it is an oversized screen-space rect, it lays a flat lit RECTANGLE
-## across the frame that follows the camera rather than the geometry, washing
-## the ornament out and reading as a rendering artifact. It is the thing that
-## was ruining the shots.
-##
-## So a world can decline it. The 3D SpotLight3D is untouched and still does
-## all the actual lighting; only the screen plate goes.
 ## THE LAMP AS A POSE, published every frame and coupled to nothing.
 ##
 ## `beam_splash` used to be computed inside `_bake_cookie()`, which returns
@@ -940,15 +928,8 @@ func lamp_pose() -> Dictionary:
 
 
 func set_beam_mask_enabled(on: bool) -> void:
-	_beam_mask_allowed = on
-	# The whole CanvasLayer, not just the plate on it. Hiding the PhoneLightMask
-	# alone left its layer drawing, which is why a band of it survived across
-	# the top of every dream frame after the plate itself was switched off.
-	if _light_mask:
-		_light_mask.visible = on
-		var layer := _light_mask.get_parent() as CanvasLayer
-		if layer:
-			layer.visible = on
+	# Compatibility with world builders. The screen effect is retired globally;
+	# this call cannot allocate or restore it, including when passed true.
 	if on and _lamp_on:
 		_throw_due = 0.0
 	# No world may restore the retired projector path.
@@ -956,17 +937,8 @@ func set_beam_mask_enabled(on: bool) -> void:
 		flashlight.light_projector = null
 
 
-## Tell the beam's screen mask that this world lights itself.
-##
-## The mask dims everything outside the beam, and how far it may dim is set by
-## how much light the LightRig reports. A world without a rig reports nothing
-## and gets the darkest vignette there is, which is wrong for the dream: it
-## lights itself, and crushing its ambient made switching the lamp ON darken
-## the frame. Waking Orison never calls this.
-func set_world_lift_floor(value: float) -> void:
-	var lift: float = clampf(value, 0.0, 1.0)
-	if _light_mask:
-		_light_mask.floor_lift = lift
+## Compatibility with older worlds; surface and volumetric lighting own lift.
+func set_world_lift_floor(_value: float) -> void: pass
 
 
 ## Two transients, built rather than shipped, because the project already
@@ -1100,6 +1072,18 @@ func _clear_stagger() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	var sync_started:=Time.get_ticks_usec() if profile_physics else 0
+	if _native_contact_agent!=null:
+		# CharacterBody's transform round trips also accumulate basis drift
+		# during walking. Keep an intended unit rigid frame orthonormal. The
+		# 1e-4 bound admits float roundoff; deliberate scale and tilt retain
+		# their original values and the contact agent's fallback protection.
+		var scale_error: Vector3=(basis.get_scale()-Vector3.ONE).abs()
+		var largest_error:=maxf(scale_error.x,maxf(scale_error.y,scale_error.z))
+		if largest_error>.000001 and largest_error<.0001:
+			basis=basis.orthonormalized()
+		_native_contact_agent.sync()
+	var native_sync_ms: float=(Time.get_ticks_usec()-sync_started)/1000. if profile_physics else 0.
 	if inspecting():
 		velocity=Vector3.ZERO
 		return
@@ -1125,7 +1109,9 @@ func _physics_process(delta: float) -> void:
 		_stride_last = Vector3.INF
 		_stride_travel = 0.0
 		return
+	var physics_started:=Time.get_ticks_usec() if profile_physics else 0
 	var gravity_direction := _reality_gravity()
+	var gravity_done:=Time.get_ticks_usec() if profile_physics else 0
 	# A collapsing distortion volume can disappear on the same physics tick
 	# that the safety net returns the player. Never hand CharacterBody3D a
 	# zero or non-finite up vector while those two states cross.
@@ -1151,11 +1137,21 @@ func _physics_process(delta: float) -> void:
 		var into_floor := velocity.dot(gravity_direction)
 		if into_floor > 0.0:
 			velocity -= gravity_direction * into_floor
+	var step_started:=Time.get_ticks_usec() if profile_physics else 0
 	if gravity_direction.dot(Vector3.DOWN) > 0.98:
 		_try_step_up(delta)
+	var step_done:=Time.get_ticks_usec() if profile_physics else 0
 	move_and_slide()
+	var slide_done:=Time.get_ticks_usec() if profile_physics else 0
 	if _grab!=null: _grab.follow_holder()
 	_publish_foot_contacts()
+	if profile_physics and Time.get_ticks_usec()-sync_started>1000:
+		var contacts: Array=[]
+		for index in get_slide_collision_count():
+			var collider: Object=get_slide_collision(index).get_collider()
+			if collider is Node:contacts.append(str(collider.get_path()))
+		physics_profile_records.append({"physics_frame":Engine.get_physics_frames(),"native_sync_ms":native_sync_ms,"step_up_disabled":_profile_disable_step_up,"step_guard_disabled":_profile_disable_step_guard,"position":[global_position.x,global_position.y,global_position.z],"gravity_ms":(gravity_done-physics_started)/1000.,"step_ms":(step_done-step_started)/1000.,"slide_ms":(slide_done-step_done)/1000.,"follow_and_contact_ms":(Time.get_ticks_usec()-slide_done)/1000.,"contacts":contacts})
+		if physics_profile_records.size()>6000:physics_profile_records.pop_front()
 	if _stagger_left > 0.0:
 		_stagger_left = maxf(0.0, _stagger_left - delta)
 		_stagger_velocity = _stagger_velocity.move_toward(
@@ -1208,14 +1204,66 @@ func _reality_gravity() -> Vector3:
 ## foot level but clear 0.30 m up, lift the capsule; floor snap settles it
 ## onto the tread. This is what makes risers, thresholds and ramp lips
 ## walkable without jumping.
+func enable_low_step_probe() -> void:
+	# V2 opts in after _ready. The lower hemisphere is exactly the capsule
+	# surface throughout the legal300mm step band (current radius330mm).
+	# Keep this query body physically inert between synchronous test calls.
+	if _capsule==null:return
+	if _step_cap==null:
+		_step_cap=CharacterBody3D.new();_step_cap.name="StepCapQuery"
+		_step_cap.top_level=true;_step_cap.collision_layer=0;_step_cap.collision_mask=0
+		_step_cap_shape=SphereShape3D.new();_step_cap_shape.radius=_capsule.radius
+		var shape:=CollisionShape3D.new();shape.shape=_step_cap_shape;_step_cap.add_child(shape)
+		add_child(_step_cap);_step_cap.global_transform=Transform3D.IDENTITY
+		_step_cap.add_collision_exception_with(self)
+	_low_step_probe_enabled=true
+
+func install_native_contact_agent(agent: RefCounted) -> bool:
+	if agent==null or _native_contact_agent!=null:return false
+	_native_contact_agent=agent;agent.sync();return true
+
+func set_native_contact_layers(layers: int) -> void:
+	_native_contact_layers=layers
+	# Supplemental query layers never replace the world's physical layer.
+	collision_mask=0 if noclip else (1|layers)
+
+func clear_native_contact_agent() -> void:
+	var previous: RefCounted=_native_contact_agent;_native_contact_agent=null
+	if previous!=null:previous.release()
+
+func _step_path_blocked(probe: Vector3) -> bool:
+	if not _low_step_probe_enabled or _step_cap==null or _capsule.radius<.30 or _shape.basis!=Basis.IDENTITY:
+		return test_move(global_transform,probe)
+	if _step_cap_shape.radius!=_capsule.radius:_step_cap_shape.radius=_capsule.radius
+	var exceptions: Array=get_collision_exceptions()
+	if exceptions!=_step_cap_exceptions:
+		for previous: Variant in _step_cap_exceptions:
+			if is_instance_valid(previous) and previous!=self:_step_cap.remove_collision_exception_with(previous)
+		for body: PhysicsBody3D in exceptions:
+			if body!=_step_cap:_step_cap.add_collision_exception_with(body)
+		_step_cap_exceptions=exceptions.duplicate()
+	var centre: Vector3=_shape.position-Vector3.UP*(_capsule.height*.5-_capsule.radius)
+	_step_cap.collision_mask=collision_mask
+	var blocked:=_step_cap.test_move(global_transform*Transform3D(Basis.IDENTITY,centre),probe)
+	_step_cap.collision_mask=0
+	return blocked
+
 func _try_step_up(delta: float) -> void:
+	if _profile_disable_step_up:return
 	if not is_on_floor():
 		return
 	var motion := Vector3(velocity.x, 0, velocity.z) * delta
 	if motion.length() < 0.0005:
 		return
+	# The previous resolved contact is authoritative evidence of a solid above
+	# our legal lift. Moving into that face cannot become a step; avoid three
+	# costly full-capsule casts against detailed native stock. Sliding below
+	# still resolves every actual obstruction and refreshes these contacts.
+	if not _profile_disable_step_guard and _blocked_above_step(motion):
+		if profile_physics:step_guard_rejections+=1
+		return
 	var probe := motion.normalized() * maxf(motion.length(), 0.06)
-	if not test_move(global_transform, probe):
+	if not _step_path_blocked(probe):
 		return  # path clear at ground level
 	var lift := Vector3.UP * 0.30
 	if test_move(global_transform, lift):
@@ -1223,6 +1271,14 @@ func _try_step_up(delta: float) -> void:
 	if test_move(global_transform.translated(lift), probe):
 		return  # still blocked higher: a real wall
 	global_position.y += 0.30
+
+
+func _blocked_above_step(motion: Vector3) -> bool:
+	for index in get_slide_collision_count():
+		var contact:=get_slide_collision(index)
+		if contact.get_position().y>global_position.y+.30 and contact.get_normal().dot(motion)<-.00001:
+			return true
+	return false
 
 
 func _try_interact() -> void:
@@ -1254,6 +1310,9 @@ func _try_interact() -> void:
 ## Presentation follows the authoritative interaction; it cannot make a prop
 ## respond, open a job or acquire an item. Protected/modal interactions suppress
 ## the slip so a field note can never cover dialogue or a call surface.
+func present_service_note(owner: Node, card: Dictionary) -> void:
+	_present_interaction_telegram(owner,card)
+
 func _present_interaction_telegram(owner: Node, result: Variant) -> void:
 	if telegram_hud == null or call_locked or not is_instance_valid(owner):
 		return
@@ -1281,22 +1340,31 @@ func set_mouse_released(released: bool) -> void:
 
 func _exit_tree() -> void:
 	if _grab != null: _grab.release()
+	clear_native_contact_agent()
 
 
 func cancel_manipulation() -> void:
 	end_inspection(false)
 	if _grab != null: _grab.release(false)
 
+func held_stock_body() -> PhysicsBody3D:
+	return _grab.held_physics_body() if _grab!=null else null
+
 
 func inspecting() -> bool:
 	return _inspection_active and is_instance_valid(inspect_owner)
 
 func begin_inspection() -> bool:
-	if call_locked or mouse_released or _grab == null or not _grab.active(): return false
-	var owner: Node3D = _grab.target.owner
-	if owner.has_method("inspection_owner_for"): owner=owner.inspection_owner_for(_grab.target.part)
+	if call_locked or mouse_released or _grab == null: return false
+	var owner: Node3D
+	if _grab.active():
+		owner=_grab.target.owner
+		if owner.has_method("inspection_owner_for"): owner=owner.inspection_owner_for(_grab.target.part)
+	elif is_instance_valid(carried_device) and carried_device.has_method("can_inspect_controls") and carried_device.can_inspect_controls():
+		owner=carried_device
+	else:return false
 	if not owner.has_method("inspection_view"): return false
-	var view: Dictionary = owner.inspection_view_for(_grab.target.part) if owner.has_method("inspection_view_for") else owner.inspection_view()
+	var view: Dictionary = owner.inspection_view_for(_grab.target.part) if _grab.active() and owner.has_method("inspection_view_for") else owner.inspection_view()
 	var from: Vector3 = view.from
 	var at: Vector3 = view.at
 	# Do not move the eye through a neighbouring wall into another room.
@@ -1304,11 +1372,15 @@ func begin_inspection() -> bool:
 	query.exclude=[get_rid()]
 	for body: CollisionObject3D in owner.find_children("*","CollisionObject3D",true,false): query.exclude.append(body.get_rid())
 	if owner is CollisionObject3D: query.exclude.append(owner.get_rid())
-	if not get_world_3d().direct_space_state.intersect_ray(query).is_empty(): return false
+	if camera.global_position.distance_squared_to(from)>.000001 and not get_world_3d().direct_space_state.intersect_ray(query).is_empty(): return false
 	_inspect_camera_pose=camera.transform
 	_inspect_camera_fov=camera.fov
 	camera.fov=clampf(float(view.get("fov",camera.fov)),40.0,100.0)
 	_inspect_mouse_mode=Input.mouse_mode
+	# Inspection borrows the hand for individual mechanisms. Remember a
+	# carried object's original grip so Space returns it to the same hand.
+	_inspect_pickup=_grab.target.duplicate() if _grab.holding_pickup() else {}
+	_inspect_pickup_contact=_grab.contact
 	inspect_owner=owner
 	_inspection_active=true
 	_grab.release()
@@ -1324,6 +1396,8 @@ func begin_inspection() -> bool:
 func end_inspection(notify_change := true) -> void:
 	if not _inspection_active: return
 	var previous_owner:=inspect_owner
+	var pickup:=_inspect_pickup
+	_inspect_pickup={}
 	if _grab != null: _grab.release(notify_change)
 	inspect_owner=null
 	_inspection_active=false
@@ -1331,3 +1405,11 @@ func end_inspection(notify_change := true) -> void:
 	camera.fov=_inspect_camera_fov
 	Input.mouse_mode=_inspect_mouse_mode
 	if is_instance_valid(previous_owner) and previous_owner.has_method("inspection_ended"): previous_owner.call("inspection_ended")
+	if notify_change and not call_locked and not mouse_released and _grab!=null and not pickup.is_empty():
+		if is_instance_valid(pickup.get("part")) and is_instance_valid(pickup.get("owner")) and is_instance_valid(pickup.get("frame")):
+			var part: Node3D=pickup.part
+			if not part.is_inside_tree():return
+			pickup.hit_position=part.to_global(_inspect_pickup_contact)
+			# Reacquire through the owner's begin/permission and ordinary swept
+			# hold path. Never teleport the stock or bypass physical blockers.
+			_grab.acquire(pickup)

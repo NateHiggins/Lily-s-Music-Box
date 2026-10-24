@@ -6,12 +6,19 @@ var camera: Camera3D
 var effect: CompositorEffect
 var field: RefCounted
 var lamp: SpotLight3D
-func setup(owner_field: RefCounted, owner_lamp: SpotLight3D) -> void:
+var excluded_light_layers := 0
+func setup(owner_field: RefCounted, owner_lamp: SpotLight3D, use_scene_occlusion := false, depth_light_exclusions := 0) -> void:
 	field = owner_field
 	lamp = owner_lamp
+	excluded_light_layers = depth_light_exclusions
 	viewport = SubViewport.new()
 	viewport.size = Vector2i(128,128)
 	viewport.world_3d = get_world_3d()
+	# This unshaded camera supplies scene depth, not a second lit presentation.
+	# Keep original opaque geometry/deformation without rendering every light's
+	# shadow atlas again. Paired near/mid injection remains byte-identical.
+	viewport.positional_shadow_atlas_size = 0
+	viewport.use_occlusion_culling = use_scene_occlusion
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	viewport.debug_draw = Viewport.DEBUG_DRAW_UNSHADED
 	add_child(viewport)
@@ -36,7 +43,7 @@ func _process(_delta: float) -> void:
 	camera.global_transform = lamp.global_transform
 	camera.far = lamp.spot_range
 	camera.fov = lamp.spot_angle*2.0
-	camera.cull_mask = lamp.shadow_caster_mask
+	camera.cull_mask = lamp.shadow_caster_mask & ~excluded_light_layers
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if field.enabled else SubViewport.UPDATE_DISABLED
 func _exit_tree() -> void:
 	if effect != null: effect.dispose()

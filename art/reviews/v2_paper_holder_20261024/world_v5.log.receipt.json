@@ -1,0 +1,69 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 89.14,
+  "exit_code": 1,
+  "finished_utc": "2026-10-24T09:41:49Z",
+  "started_utc": "2026-10-24T09:40:19Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 4,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"side\" variable because the value doesn't have a set type.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://scripts/building/orison_v2_runtime_root.gd\" with error \"Compilation failed\".",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'."
+  ],
+  "stale_cache_lines": [
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'."
+  ],
+  "stale_cache_suspect": true,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_paper_holder_20261024/world_v5.log.stderr",
+  "stderr_sha256": "3b458db3e7989b5f95c6f36d74cb880e7dd1d8880109b661cb6c832ace45e03c",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_paper_holder_20261024/world_v5.log",
+  "stdout_sha256": "cd4b2f42e71d0574b9fe976ef0ffabae42ad9c0521283a4342405309336da454"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2BathroomPaperReview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_paper_holder_20261024/world_v5",
+ "source": {
+  "dirty_paths": 3378,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/bath_paper_holder.blend",
+   " M art/blender/scripts/build_bathroom_details.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import"
+  ],
+  "repository_head": "5ccd76e7d6617c623bce0d783700f1612d459ab0",
+  "repository_tree": "ccd0975f72ee07690538020900d434a6bcbbfb66",
+  "runtime_inputs_sha256": "e47309ac1995255d7941b2ddf55de401896c69ab4858724155e31582cc39513c",
+  "test_path": "game/tests/v2_bathroom_paper_review.gd",
+  "test_sha256": "05a40587b1ce22b2ff179ecf00b4814d0071ffee3c49994d16825f877eb73912"
+ },
+ "windowed": true
+}

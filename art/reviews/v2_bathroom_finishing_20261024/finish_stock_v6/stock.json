@@ -1,0 +1,1166 @@
+{
+	"bad": [],
+	"draws": 38,
+	"evidence_class": "INERT",
+	"failures": [
+		"native foot has independent actual shell backing: F03_3D_SHOWER_01 (-0.24, 2.02) error=inf",
+		"native foot has independent actual shell backing: F03_3D_SHOWER_01 (-0.24, 2.19) error=inf",
+		"native foot has independent actual shell backing: F04_4D_SHOWER_01 (-0.24, 2.02) error=inf",
+		"native foot has independent actual shell backing: F04_4D_SHOWER_01 (-0.24, 2.19) error=inf"
+	],
+	"mounts": [
+		{
+			"depth": 0.480000495910645,
+			"error": 0.0,
+			"id": "F03_3B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.480000495910645,
+			"error": 0.0,
+			"id": "F03_3B_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.480000495910645,
+			"error": 0.0,
+			"id": "F03_3B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.480000495910645,
+			"error": 0.0,
+			"id": "F03_3B_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.480000495910645,
+			"error": 0.0,
+			"id": "F03_3B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.480000495910645,
+			"error": 0.0,
+			"id": "F03_3B_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.480000495910645,
+			"error": 0.0,
+			"id": "F03_3B_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.480000495910645,
+			"error": 0.0,
+			"id": "F03_3B_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.400000095367432,
+			"error": 0.0,
+			"id": "F04_4B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.400000095367432,
+			"error": 0.0,
+			"id": "F04_4B_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.400000095367432,
+			"error": 0.0,
+			"id": "F04_4B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.400000095367432,
+			"error": 0.0,
+			"id": "F04_4B_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.400000095367432,
+			"error": 0.0,
+			"id": "F04_4B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.400000095367432,
+			"error": 0.0,
+			"id": "F04_4B_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.400000095367432,
+			"error": 0.0,
+			"id": "F04_4B_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.400000095367432,
+			"error": 0.0,
+			"id": "F04_4B_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.0,
+			"id": "F02_2A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F02_2A_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.0,
+			"id": "F02_2A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F02_2A_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F02_2A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F02_2A_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F02_2A_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F02_2A_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F02_2B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F02_2B_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F02_2B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F02_2B_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F02_2B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F02_2B_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F02_2B_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F02_2B_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.0,
+			"id": "F03_3A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F03_3A_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.0,
+			"id": "F03_3A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F03_3A_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F03_3A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F03_3A_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F03_3A_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.399999856948853,
+			"error": 0.000000238418579101563,
+			"id": "F03_3A_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F04_4A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F04_4A_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F04_4A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F04_4A_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F04_4A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F04_4A_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F04_4A_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F04_4A_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F05_5A_SHOWER_01",
+			"offset": true,
+			"point": "(-0.24, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F05_5A_SHOWER_01",
+			"offset": true,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F05_5A_SHOWER_01",
+			"offset": true,
+			"point": "(-0.24, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F05_5A_SHOWER_01",
+			"offset": true,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F05_5A_SHOWER_01",
+			"offset": true,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F05_5A_SHOWER_01",
+			"offset": true,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F05_5A_SHOWER_01",
+			"offset": true,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F05_5A_SHOWER_01",
+			"offset": true,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F05_5B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F05_5B_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F05_5B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F05_5B_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F05_5B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F05_5B_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F05_5B_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F05_5B_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F05_5C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F05_5C_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F05_5C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F05_5C_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F05_5C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F05_5C_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F05_5C_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F05_5C_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F06_6A_SHOWER_01",
+			"offset": true,
+			"point": "(-0.24, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F06_6A_SHOWER_01",
+			"offset": true,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F06_6A_SHOWER_01",
+			"offset": true,
+			"point": "(-0.24, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F06_6A_SHOWER_01",
+			"offset": true,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F06_6A_SHOWER_01",
+			"offset": true,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F06_6A_SHOWER_01",
+			"offset": true,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F06_6A_SHOWER_01",
+			"offset": true,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000305175781,
+			"error": 0.0,
+			"id": "F06_6A_SHOWER_01",
+			"offset": true,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F06_6B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F06_6B_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F06_6B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F06_6B_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F06_6B_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F06_6B_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F06_6B_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.429999828338623,
+			"error": 0.0,
+			"id": "F06_6B_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F06_6C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F06_6C_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F06_6C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F06_6C_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F06_6C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F06_6C_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F06_6C_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F06_6C_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F02_2C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F02_2C_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F02_2C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F02_2C_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F02_2C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F02_2C_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F02_2C_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F02_2C_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F04_4C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F04_4C_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F04_4C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F04_4C_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F04_4C_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F04_4C_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F04_4C_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.430000066757202,
+			"error": 0.000000238418579101563,
+			"id": "F04_4C_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F01_1D_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F01_1D_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F01_1D_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F01_1D_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F01_1D_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F01_1D_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F01_1D_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.40000057220459,
+			"error": 0.0,
+			"id": "F01_1D_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.380001068115234,
+			"error": 0.0,
+			"id": "F01_1A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.380001068115234,
+			"error": 0.0,
+			"id": "F01_1A_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.380001068115234,
+			"error": 0.0,
+			"id": "F01_1A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.380001068115234,
+			"error": 0.0,
+			"id": "F01_1A_SHOWER_01",
+			"offset": false,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.380001068115234,
+			"error": 0.0,
+			"id": "F01_1A_SHOWER_01",
+			"offset": false,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.380001068115234,
+			"error": 0.0,
+			"id": "F01_1A_SHOWER_01",
+			"offset": false,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.380001068115234,
+			"error": 0.0,
+			"id": "F01_1A_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.380001068115234,
+			"error": 0.0,
+			"id": "F01_1A_SHOWER_01",
+			"offset": false,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 1e99999,
+			"id": "F03_3D_SHOWER_01",
+			"offset": true,
+			"point": "(-0.24, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F03_3D_SHOWER_01",
+			"offset": true,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 1e99999,
+			"id": "F03_3D_SHOWER_01",
+			"offset": true,
+			"point": "(-0.24, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F03_3D_SHOWER_01",
+			"offset": true,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F03_3D_SHOWER_01",
+			"offset": true,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F03_3D_SHOWER_01",
+			"offset": true,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F03_3D_SHOWER_01",
+			"offset": true,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F03_3D_SHOWER_01",
+			"offset": true,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 1e99999,
+			"id": "F04_4D_SHOWER_01",
+			"offset": true,
+			"point": "(-0.24, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F04_4D_SHOWER_01",
+			"offset": true,
+			"point": "(0.34, 2.02)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 1e99999,
+			"id": "F04_4D_SHOWER_01",
+			"offset": true,
+			"point": "(-0.24, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F04_4D_SHOWER_01",
+			"offset": true,
+			"point": "(0.34, 2.19)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F04_4D_SHOWER_01",
+			"offset": true,
+			"point": "(-0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F04_4D_SHOWER_01",
+			"offset": true,
+			"point": "(0.095, 0.98)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F04_4D_SHOWER_01",
+			"offset": true,
+			"point": "(0.0, 1.18)",
+			"stepped": false
+		},
+		{
+			"depth": 0.440000534057617,
+			"error": 0.0,
+			"id": "F04_4D_SHOWER_01",
+			"offset": true,
+			"point": "(0.0, 1.65)",
+			"stepped": false
+		}
+	],
+	"scope": "Static original shell finish stock, no interactions/runtime qualification"
+}

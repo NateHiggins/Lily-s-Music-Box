@@ -1,0 +1,26 @@
+ERROR: Can't save PNG at path: 'C:/PleaseRemainOnTheLine/art/reviews/v2_bathroom_moisture_20261024/rain_v1/rain_inside.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _rain_review (res://tests/v2_bathroom_moisture_review.gd:136)
+ERROR: Can't save PNG at path: 'C:/PleaseRemainOnTheLine/art/reviews/v2_bathroom_moisture_20261024/rain_v1/rain_outside.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _rain_review (res://tests/v2_bathroom_moisture_review.gd:136)
+ERROR: Can't save PNG at path: 'C:/PleaseRemainOnTheLine/art/reviews/v2_bathroom_moisture_20261024/rain_v1/water_priority.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _route (res://tests/v2_bathroom_rain_probe.gd:35)
+ERROR: Can't save PNG at path: 'C:/PleaseRemainOnTheLine/art/reviews/v2_bathroom_moisture_20261024/rain_v1/without_film.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _route (res://tests/v2_bathroom_rain_probe.gd:35)
+ERROR: Can't save PNG at path: 'C:/PleaseRemainOnTheLine/art/reviews/v2_bathroom_moisture_20261024/rain_v1/positive_window_mask.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] _route (res://tests/v2_bathroom_rain_probe.gd:35)
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: _route (res://tests/v2_bathroom_rain_probe.gd:47)
+   GDScript backtrace (most recent call first):
+       [0] _route (res://tests/v2_bathroom_rain_probe.gd:47)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

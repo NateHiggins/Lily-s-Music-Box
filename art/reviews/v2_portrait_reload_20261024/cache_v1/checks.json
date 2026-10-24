@@ -1,0 +1,66 @@
+{
+	"checks": [
+		{
+			"label": "first complete source/import/payload generation loads one mipmapped atlas",
+			"ok": true
+		},
+		{
+			"label": "unchanged generation reuses the exact texture without loading",
+			"ok": true
+		},
+		{
+			"label": "CRLF-only import rewrite preserves normalized text binding",
+			"ok": true
+		},
+		{
+			"label": "same-length imported payload mutation forces a fresh load",
+			"ok": true
+		},
+		{
+			"label": "retired texture change listener is disconnected",
+			"ok": true
+		},
+		{
+			"label": "import settings mutation invalidates a byte-identical source",
+			"ok": true
+		},
+		{
+			"label": "wrong current source hash refuses reuse and load",
+			"ok": true
+		},
+		{
+			"label": "newly authorized source generation loads current pixels",
+			"ok": true
+		},
+		{
+			"label": "in-place texture mutation marks the cache dirty",
+			"ok": true
+		},
+		{
+			"label": "dirty texture cannot substitute for validated imported bytes",
+			"ok": true
+		},
+		{
+			"label": "unverifiable import payload falls back to fresh loads without caching",
+			"ok": true
+		},
+		{
+			"label": "wrong texture dimensions are not installed or retained",
+			"ok": true
+		},
+		{
+			"label": "import generation changing during load is refused",
+			"ok": true
+		},
+		{
+			"label": "abandoned cache and its texture release outside getter scope",
+			"ok": true
+		},
+		{
+			"label": "explicit world shutdown releases the cached atlas",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"scope": "Synthetic loader tests exact file binding and resource lifetime. Actual imported pixels/maps and player input remain separate."
+}

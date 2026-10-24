@@ -1,0 +1,65 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 37.81,
+  "exit_code": 1,
+  "finished_utc": "2026-10-23T10:37:15Z",
+  "started_utc": "2026-10-23T10:36:37Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 2,
+  "fail_lines": [
+   "INSPECTION CURSOR DELIVERY FAILED: wanted=(832.0, 1116.0) before=(640.0, 360.0) actual=(832.0, 1103.0) focused=true initial_focus=true mode=0 initial_mode=0 viewport=[P: (0.0, 0.0), S: (1280.0, 720.0)]",
+   "V2 UNRACKED HOSE: FAIL failures=4"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_carry_20261023/water_v1.log.stderr",
+  "stderr_sha256": "197f41f1c88d5f1dac3b3d0bf66d807e5013e882f0e89cdaf9eddc8cd731a62c",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_carry_20261023/water_v1.log",
+  "stdout_sha256": "7f826ab97aa694ab21a4c7bbf8bee70c4d3b69c242e4ebe1a3dd86b22d262be8"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2UnrackedHoseBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_carry_20261023/water_v1",
+ "source": {
+  "dirty_paths": 2978,
+  "dirty_sample": [
+   "M game/scripts/props/fire_unracked_hose.gd",
+   " M game/scripts/props/native_hose_rig.gd",
+   " M game/scripts/props/v2_fire_line_cabinet.gd",
+   " M game/tests/v2_unracked_hose_bench.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png"
+  ],
+  "repository_head": "7378f8fd664dcb3d77018723bdb12356d848577c",
+  "repository_tree": "e38edaf7857d4e4cf9547dd078ab4dda23334553",
+  "runtime_inputs_sha256": "ee21f580ae57b2dcc3a1a28d67183d2226b64e448d6ea804fe1a753ed7603833",
+  "test_path": "game/tests/v2_unracked_hose_bench.gd",
+  "test_sha256": "c0f55ff20b3d0df3ab6dcea21703a90cdfe9021f55f1a2fb7615cd5c0064a573"
+ },
+ "windowed": true
+}

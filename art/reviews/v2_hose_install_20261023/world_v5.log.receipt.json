@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 363.3,
+  "exit_code": 1,
+  "finished_utc": "2026-10-23T20:19:26Z",
+  "started_utc": "2026-10-23T20:13:22Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/world_v5.log.stderr",
+  "stderr_sha256": "ae6f4976593d2d539e4e021545838ddfcd4f478cd2976207c0b320da8627d5f8",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/world_v5.log",
+  "stdout_sha256": "b094e98f02550a41e14a2a4369facf37d47f2614264058bd049adab1a31c037e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2HoseInstalledWorld.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/world_v5",
+ "source": {
+  "dirty_paths": 3054,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   "A  game/assets/props/unracked_fire_hose.glb",
+   "A  game/assets/props/unracked_fire_hose.glb.import",
+   "A  game/data/orison_v2/unracked_fire_hose_rig.json",
+   " M game/scripts/building/orison_v2_native_fire_service.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/scripts/player/constrained_grab.gd",
+   " M game/scripts/props/fire_unracked_hose.gd",
+   " M game/scripts/props/hose_water_charge.gd",
+   " M game/scripts/props/native_hose_rig.gd",
+   " M game/scripts/props/v2_fire_line_cabinet.gd",
+   " M game/scripts/props/v2_readable_book.gd",
+   " M game/tests/v2_fire_hand_bench.gd",
+   " M game/tests/v2_hose_save_bench.gd",
+   " M game/tests/v2_hose_water_programme.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py"
+  ],
+  "repository_head": "cef32947ea3ff3785ee267025591ecc7eba00516",
+  "repository_tree": "6606931c3fb2a6ee8a7c239dfdea5a602b397086",
+  "runtime_inputs_sha256": "edfaae323ac1f2dd0c3d16a7f2010f89961bf6a34039da723e35d072ab8d9c6a",
+  "test_path": "game/tests/v2_hose_installed_world.gd",
+  "test_sha256": "89ce77b094df7e7a3c450ef702b678fb480ea1d73ee95140edbcaceba86b0a1b"
+ },
+ "windowed": true
+}

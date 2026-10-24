@@ -1,0 +1,7 @@
+{
+  "evidence_class": "INERT",
+  "engine_revision": "a13da4feb",
+  "source": "https://github.com/godotengine/godot/blob/a13da4feb/servers/rendering/renderer_rd/storage_rd/light_storage.cpp#L238",
+  "scope": "Primary-source reference only; renderer controls independently exercise equal-boolean invalidation.",
+  "observed_implementation": "light_set_shadow assigns the boolean, increments version and notifies dependency without an equality guard."
+}

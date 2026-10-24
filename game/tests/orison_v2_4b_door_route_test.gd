@@ -40,7 +40,7 @@ func _route() -> void:
 			toilets.append(prop)
 	if not _require(toilets.size()==1,"4B has one physical toilet in the household care roster"): return
 	var wc := toilets[0]
-	if not await _drag_part(wc,wc.to_global(Vector3(.31,.64,.098)),deg_to_rad(-36),"4B_toilet_flush"): return
+	if not await _drag_part(wc,wc.get_node("CisternHandle/HandleTouchPoint").global_position,deg_to_rad(-36),"4B_toilet_flush"): return
 	if not _require(wc._refilling,"walking approach reaches the actual flush"): return
 	await get_tree().create_timer(5.0).timeout
 	if not _require(not wc._refilling,"toilet refills before leaving the bathroom"): return
@@ -52,6 +52,7 @@ func _route() -> void:
 	for point in [Vector3(-9.8, 9.6, 5.5), Vector3(-9.8, 9.6, 7.25),
 			Vector3(-8.8, 9.6, 7.25)]:
 		if not await _walk(point): return
+	if not await _walk(Vector3(-8.4,9.6,7.25)): return
 	if not await _open_door("F04_B_CLOSET_DOOR"): return
 	for point in [Vector3(-6.95, 9.6, 7.25), Vector3(-9.8, 9.6, 7.25),
 			Vector3(-10.05, 9.6, 5.5), Vector3(-10.05, 9.6, 2.25),
@@ -67,7 +68,7 @@ func _route() -> void:
 	closed_ray.exclude = [player.get_rid()]
 	var hit := world.get_world_3d().direct_space_state.intersect_ray(closed_ray)
 	_require(hit.get("collider") == entry_body, "closed entry restores its solid barrier")
-	_require(not player.noclip and player.collision_mask == 1
+	_require(not player.noclip and player.collision_mask == (1|player._native_contact_layers)
 			and player.is_physics_processing(), "ordinary collision remains active after returning to public hall")
 
 func _leaf(identity: String) -> DoorProp:
@@ -179,6 +180,10 @@ func _part_gesture(grip: Dictionary,goal: float) -> Vector2:
 	var gesture: Vector2=(player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
 	if gesture.length()<24.0 and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5:
 		gesture=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
+	if float(grip.get("gesture_travel_px",0.0))>0.0:
+		var fixed_axis: Vector2=player._grab._gesture_axis
+		if fixed_axis.length_squared()<.01:fixed_axis=gesture.normalized()
+		return fixed_axis*signf(goal-float(grip.read.call()))*12.0
 	return gesture*signf(goal-float(grip.read.call()))*.06
 
 ## Drive only player input. Read the constraint to choose a screen-space gesture;
@@ -211,7 +216,7 @@ func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String) ->
 					"unrelated commit preserves installed held leaf: " + label): return false
 	var reached: bool = absf(float(grip.read.call())-goal)<.00001
 	if not reached:
-		print("GRAB DIAGNOSTIC: ",label," value=",grip.read.call()," goal=",goal," held=",player._grab.active()," player=",world.adapter.root.to_local(player.global_position)," part=",part_path(grip.part))
+		print("GRAB DIAGNOSTIC: ",label," value=",grip.read.call()," goal=",goal," held=",player._grab.active()," player=",world.adapter.root.to_local(player.global_position)," part=",part_path(grip.part)," reach_m=",player.camera.global_position.distance_to(grip.part.to_global(player._grab.contact)))
 	if player._grab.active(): player._unhandled_input(click)
 	await get_tree().physics_frame
 	await get_tree().physics_frame

@@ -1,0 +1,93 @@
+{
+  "evidence_class": "INERT",
+  "runs": [
+    {
+      "run": "before_v1",
+      "wall_ms": {
+        "n": 3198,
+        "p50": 24.6575,
+        "p95": 38.9402,
+        "p99": 51.87968999999994,
+        "max": 182.896,
+        "above100": 2
+      },
+      "loading_ms": {
+        "n": 840,
+        "p50": 23.6,
+        "p95": 41.69784999999999,
+        "p99": 65.68363000000004,
+        "max": 99.18,
+        "above100": 0
+      },
+      "peak_stage_ms": 62.933,
+      "timed_route_failures": [],
+      "scope": "Timed route only; see separate receipt and untimed assertions for full verdict."
+    },
+    {
+      "run": "cached_v1",
+      "wall_ms": {
+        "n": 3184,
+        "p50": 24.854,
+        "p95": 38.86234999999999,
+        "p99": 51.90840000000004,
+        "max": 187.856,
+        "above100": 2
+      },
+      "loading_ms": {
+        "n": 840,
+        "p50": 24.0045,
+        "p95": 41.15334999999998,
+        "p99": 64.13923000000011,
+        "max": 99.877,
+        "above100": 0
+      },
+      "peak_stage_ms": 58.258,
+      "timed_route_failures": [],
+      "scope": "Timed route only; see separate receipt and untimed assertions for full verdict."
+    },
+    {
+      "run": "weak_policy_v1",
+      "wall_ms": {
+        "n": 3196,
+        "p50": 24.416,
+        "p95": 39.006,
+        "p99": 51.768100000000025,
+        "max": 216.265,
+        "above100": 5
+      },
+      "loading_ms": {
+        "n": 933,
+        "p50": 23.011,
+        "p95": 39.624599999999994,
+        "p99": 51.91571999999994,
+        "max": 109.578,
+        "above100": 2
+      },
+      "peak_stage_ms": 49.163,
+      "timed_route_failures": [],
+      "scope": "Timed route only; see separate receipt and untimed assertions for full verdict."
+    },
+    {
+      "run": "final_v1",
+      "wall_ms": {
+        "n": 3189,
+        "p50": 24.685,
+        "p95": 39.09859999999999,
+        "p99": 50.87164,
+        "max": 167.109,
+        "above100": 3
+      },
+      "loading_ms": {
+        "n": 922,
+        "p50": 23.1125,
+        "p95": 39.53544999999998,
+        "p99": 51.52816999999998,
+        "max": 106.489,
+        "above100": 1
+      },
+      "peak_stage_ms": 39.426,
+      "timed_route_failures": [],
+      "scope": "Timed route only; see separate receipt and untimed assertions for full verdict."
+    }
+  ]
+}

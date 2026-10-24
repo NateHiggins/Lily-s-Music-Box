@@ -839,11 +839,6 @@ def _literal_asset_paths() -> set[Path]:
         if not path.is_file():
             raise PreparationError(f"runtime material texture is absent: {path}")
         result.add(path)
-    for filename in ("mask_clean.png", "mask_cracked.png", "mask_haze.png"):
-        path = GAME_ROOT / "assets" / "ui" / "phone" / filename
-        if not path.is_file():
-            raise PreparationError(f"PlayerController mask is absent: {path}")
-        result.add(path)
     return result
 
 

@@ -1,0 +1,365 @@
+{
+  "evidence_class": "INERT",
+  "source_bindings": {
+    "art/blender/scripts/build_bath_contact_candidates.py": "0c6d759e6de0c83345e58dfd39380d4fc0d2d0bfd2ac73e5288884f3e3348919"
+  },
+  "families": [
+    {
+      "family": "bath_lavatory",
+      "source": "art/blender/bath_lavatory.blend",
+      "source_sha256": "f0bda96a44982d4d1c149449a87171240f90ab02687677cd387a260de04298a8",
+      "asset": "game/assets/props/bath_lavatory_contact.glb",
+      "asset_sha256": "ce83f1ed65ac42620a37a095cc4c6dc3568e08beb869a3f3668bdfae5180c078",
+      "export_partitions": 3,
+      "parts": [
+        {
+          "name": "CastAndPlumbing_nickel_plated",
+          "triangles_before": 19292,
+          "triangles_after": 2315,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0009333684574812651,
+          "candidate_to_source_m": 0.0008809763821773231
+        },
+        {
+          "name": "CastAndPlumbing_porcelain_fixture",
+          "triangles_before": 5944,
+          "triangles_after": 1486,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.001137666986323893,
+          "candidate_to_source_m": 0.0008355880854651332
+        },
+        {
+          "name": "CastAndPlumbing_rubber_aged",
+          "triangles_before": 764,
+          "triangles_after": 216,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0003313710622023791,
+          "candidate_to_source_m": 0.0006521957111544907
+        }
+      ]
+    },
+    {
+      "family": "bath_water_closet",
+      "source": "art/blender/bath_water_closet.blend",
+      "source_sha256": "4ecf13c4b027c3503e0ff0adf7d783eabe284e499fb651eeedf38f876d3de96b",
+      "asset": "game/assets/props/bath_water_closet_contact.glb",
+      "asset_sha256": "c30ce4806326ae7e5c6cfe9409f3566fdd215e447fae5740482de4d010b39b46",
+      "export_partitions": 5,
+      "parts": [
+        {
+          "name": "BallcockPivotCheek",
+          "triangles_before": 428,
+          "triangles_after": 50,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0001239777193404734,
+          "candidate_to_source_m": 0.00012001395225524902
+        },
+        {
+          "name": "BallcockPivotCheek.001",
+          "triangles_before": 428,
+          "triangles_after": 50,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0001239777193404734,
+          "candidate_to_source_m": 0.00012001395225524902
+        },
+        {
+          "name": "BallcockPivotPin",
+          "triangles_before": 188,
+          "triangles_after": 22,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.000649316469207406,
+          "candidate_to_source_m": 0.0005747500108554959
+        },
+        {
+          "name": "CisternOutletBoss",
+          "triangles_before": 384,
+          "triangles_after": 96,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.001349643338471651,
+          "candidate_to_source_m": 0.0010471617570146918
+        },
+        {
+          "name": "ClosetPedestal",
+          "triangles_before": 1152,
+          "triangles_after": 576,
+          "ratio": 0.5,
+          "source_to_candidate_m": 0.0007077462505549192,
+          "candidate_to_source_m": 0.0006521239411085844
+        },
+        {
+          "name": "DischargeFlange",
+          "triangles_before": 384,
+          "triangles_after": 96,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0013057179749011993,
+          "candidate_to_source_m": 0.0012404576409608126
+        },
+        {
+          "name": "DischargeSeat",
+          "triangles_before": 384,
+          "triangles_after": 96,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.000988118932582438,
+          "candidate_to_source_m": 0.0007044363301247358
+        },
+        {
+          "name": "DrainTrap",
+          "triangles_before": 3712,
+          "triangles_after": 1856,
+          "ratio": 0.5,
+          "source_to_candidate_m": 0.000709927873685956,
+          "candidate_to_source_m": 0.001052479143254459
+        },
+        {
+          "name": "FloorBolt",
+          "triangles_before": 188,
+          "triangles_after": 22,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0017869318835437298,
+          "candidate_to_source_m": 0.001426874310709536
+        },
+        {
+          "name": "FloorBolt.001",
+          "triangles_before": 188,
+          "triangles_after": 22,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0017869318835437298,
+          "candidate_to_source_m": 0.001426874310709536
+        },
+        {
+          "name": "FlushConnection",
+          "triangles_before": 2176,
+          "triangles_after": 544,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0014938863459974527,
+          "candidate_to_source_m": 0.0011281510815024376
+        },
+        {
+          "name": "GuideFoot",
+          "triangles_before": 188,
+          "triangles_after": 22,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.000927925924770534,
+          "candidate_to_source_m": 0.0008454066701233387
+        },
+        {
+          "name": "GuideFoot.001",
+          "triangles_before": 188,
+          "triangles_after": 22,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.000927925924770534,
+          "candidate_to_source_m": 0.000845409813337028
+        },
+        {
+          "name": "HandleRose",
+          "triangles_before": 188,
+          "triangles_after": 22,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0017869758885353804,
+          "candidate_to_source_m": 0.001426874310709536
+        },
+        {
+          "name": "HandleShaftBush",
+          "triangles_before": 188,
+          "triangles_after": 46,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0005951288621872663,
+          "candidate_to_source_m": 0.0005769117851741612
+        },
+        {
+          "name": "HingePin",
+          "triangles_before": 188,
+          "triangles_after": 22,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0008997540571726859,
+          "candidate_to_source_m": 0.0007447969983331859
+        },
+        {
+          "name": "HingePin.001",
+          "triangles_before": 188,
+          "triangles_after": 22,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0008997541735880077,
+          "candidate_to_source_m": 0.0007447969983331859
+        },
+        {
+          "name": "HingePost",
+          "triangles_before": 188,
+          "triangles_after": 22,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0014872264582663774,
+          "candidate_to_source_m": 0.001104336348362267
+        },
+        {
+          "name": "HingePost.001",
+          "triangles_before": 188,
+          "triangles_after": 22,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0014872264582663774,
+          "candidate_to_source_m": 0.001104336348362267
+        },
+        {
+          "name": "HingeRosette",
+          "triangles_before": 188,
+          "triangles_after": 46,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0008921038242988288,
+          "candidate_to_source_m": 0.0008161053410731256
+        },
+        {
+          "name": "HingeRosette.001",
+          "triangles_before": 188,
+          "triangles_after": 46,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0008921038242988288,
+          "candidate_to_source_m": 0.0008161121513694525
+        },
+        {
+          "name": "HollowCistern",
+          "triangles_before": 1408,
+          "triangles_after": 352,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0008495465735904872,
+          "candidate_to_source_m": 0.0005273967981338501
+        },
+        {
+          "name": "HollowWashDownBowl",
+          "triangles_before": 2176,
+          "triangles_after": 1088,
+          "ratio": 0.5,
+          "source_to_candidate_m": 0.0007159871747717261,
+          "candidate_to_source_m": 0.0005269192042760551
+        },
+        {
+          "name": "InletFloorNut",
+          "triangles_before": 384,
+          "triangles_after": 46,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0017736171139404178,
+          "candidate_to_source_m": 0.0015354851493611932
+        },
+        {
+          "name": "InletRiser",
+          "triangles_before": 256,
+          "triangles_after": 30,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0006090556853450835,
+          "candidate_to_source_m": 0.0007095541805028915
+        },
+        {
+          "name": "InletUnion",
+          "triangles_before": 384,
+          "triangles_after": 46,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0018959081498906016,
+          "candidate_to_source_m": 0.0011567642213776708
+        },
+        {
+          "name": "InletValveBody",
+          "triangles_before": 188,
+          "triangles_after": 46,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0008208509534597397,
+          "candidate_to_source_m": 0.0007032541907392442
+        },
+        {
+          "name": "LiftGuide",
+          "triangles_before": 496,
+          "triangles_after": 496,
+          "ratio": 1.0,
+          "source_to_candidate_m": 7.450580596923828e-08,
+          "candidate_to_source_m": 7.450580596923828e-08
+        },
+        {
+          "name": "LiftGuide.001",
+          "triangles_before": 496,
+          "triangles_after": 496,
+          "ratio": 1.0,
+          "source_to_candidate_m": 1.2489448408814496e-07,
+          "candidate_to_source_m": 1.2489448408814496e-07
+        },
+        {
+          "name": "OutletGasket",
+          "triangles_before": 384,
+          "triangles_after": 96,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0013251747004687786,
+          "candidate_to_source_m": 0.0009351835469715297
+        },
+        {
+          "name": "OutletUnion",
+          "triangles_before": 384,
+          "triangles_after": 96,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0019897446036338806,
+          "candidate_to_source_m": 0.0013656402006745338
+        },
+        {
+          "name": "OverflowFoot",
+          "triangles_before": 384,
+          "triangles_after": 96,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0007385358330793679,
+          "candidate_to_source_m": 0.0006415748503059149
+        },
+        {
+          "name": "OverflowStandpipe",
+          "triangles_before": 384,
+          "triangles_after": 96,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.000614697695709765,
+          "candidate_to_source_m": 0.0003780779952649027
+        },
+        {
+          "name": "OverflowWallPlate",
+          "triangles_before": 428,
+          "triangles_after": 50,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.00025350553914904594,
+          "candidate_to_source_m": 0.00022473931312561035
+        },
+        {
+          "name": "OverflowWallStrap",
+          "triangles_before": 976,
+          "triangles_after": 116,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0005852310569025576,
+          "candidate_to_source_m": 0.0005147498450241983
+        },
+        {
+          "name": "PorcelainHingePlinth",
+          "triangles_before": 428,
+          "triangles_after": 50,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0006418085540644825,
+          "candidate_to_source_m": 0.0005348622798919678
+        },
+        {
+          "name": "PorcelainHingePlinth.001",
+          "triangles_before": 428,
+          "triangles_after": 50,
+          "ratio": 0.12,
+          "source_to_candidate_m": 0.0006418085540644825,
+          "candidate_to_source_m": 0.0005348622798919678
+        },
+        {
+          "name": "SupplyPipe",
+          "triangles_before": 496,
+          "triangles_after": 124,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0011512284399941564,
+          "candidate_to_source_m": 0.0010672725038602948
+        },
+        {
+          "name": "SupplyShutoff",
+          "triangles_before": 188,
+          "triangles_after": 46,
+          "ratio": 0.25,
+          "source_to_candidate_m": 0.0008133109658956528,
+          "candidate_to_source_m": 0.0007032132707536221
+        }
+      ]
+    }
+  ],
+  "limits": "Two-way sampled error <=2 mm; exact LiftGuide stock preserves lift-rod access. Runtime installation and actual contact/input checks are separate evidence."
+}

@@ -1,0 +1,110 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Working-tree protected content, LF-normalized text; no clean candidate qualification.",
+  "merge_base": "21f0b1fc27ac8e25c8466fe1ed2ce64019ee7ede",
+  "files": [
+    {
+      "path": "art/data/building_layout.json",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c"
+    },
+    {
+      "path": "game/data/building_layout.json",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c"
+    },
+    {
+      "path": "game/scripts/building/building_root_selector.gd",
+      "unchanged_lf": true,
+      "authorized_selector_change": true,
+      "sha256": "36f3e54b08f31f864aa8469cc239b849f5f8d3ef448c555c227bdc4deb6c0a24"
+    },
+    {
+      "path": "game/assets/building/floor_01.gltf",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "46756641f389b29f287731bb88b31af13972b098b483d92d66d077112909bd89"
+    },
+    {
+      "path": "game/assets/building/floor_01.bin",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "0d0c955e0057d0681d1b700af3dbec9fdc49e01354528674f7369b90c0dceb15"
+    },
+    {
+      "path": "game/assets/building/floor_02.gltf",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "de62d5bec6190d87413d5b6dc21feb9810b3fc9dba326fe75f793236639dfa33"
+    },
+    {
+      "path": "game/assets/building/floor_02.bin",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "c9adc63be8d56eaa20a4452a202f62c2ce66dc1a05931e858001ac845baacbf1"
+    },
+    {
+      "path": "game/assets/building/floor_03.gltf",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "b47e6553fe86b23743d01415b8f8269074420ca0c9c12f9b8d50bf86aeceabb6"
+    },
+    {
+      "path": "game/assets/building/floor_03.bin",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "9bb107eb16aecdd9a99e859b308338196b311a09c268d2b1ddb9cbbc8985807c"
+    },
+    {
+      "path": "game/assets/building/floor_04.gltf",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "33996b679c680effc8946f305a2d3d412bcf470fd1fcbce839e5456246fa96f0"
+    },
+    {
+      "path": "game/assets/building/floor_04.bin",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "83b3a03036fa25190c50c900a86716fd4dea2fed04f2099327d896cd4b46716d"
+    },
+    {
+      "path": "game/assets/building/floor_05.gltf",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "8459d034d554893b3a8d0b02b5841b2c3e4d9c9339b0fdcc9db64bacad213d5a"
+    },
+    {
+      "path": "game/assets/building/floor_05.bin",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "57717fae14b8fc2788fb2aadb94c6ccad4a6b854e9afcac7336f3b673c636c8c"
+    },
+    {
+      "path": "game/assets/building/floor_06.gltf",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "5a4ca0026535b03eb60c5a4bbbbf5176c4115aa119a31784521d9054ef6e70cc"
+    },
+    {
+      "path": "game/assets/building/floor_06.bin",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "2ec1913636fbade5eed601cc02257e4a8c90534e718107fe79af51d508f30a5b"
+    },
+    {
+      "path": "game/assets/building/floor_b1.gltf",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e"
+    },
+    {
+      "path": "game/assets/building/floor_b1.bin",
+      "unchanged_lf": true,
+      "authorized_selector_change": false,
+      "sha256": "8c4a66050d61eae9a86968fb6a4c3d0a76447ec0f889d0af14cfd1ea1938e799"
+    }
+  ],
+  "all_preserved": true
+}

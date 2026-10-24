@@ -35,6 +35,8 @@ var _sway := Vector2.ZERO
 var _proof_pose := 0
 var _sleep_onset := 0.0
 var _service_round: Node
+var _pass_reading := false
+var _hand: RefCounted
 
 
 func setup(player: PlayerController, camera: Camera3D,
@@ -45,6 +47,7 @@ func setup(player: PlayerController, camera: Camera3D,
 	device.name = "VantryServiceSet"
 	device.bind_work_orders(work_orders)
 	_build_overlay_pass(camera)
+	_hand=preload("res://scripts/device/service_set_hand.gd").new(self)
 	player.set_physical_display_enabled(true)
 	if player.telegram_hud != null:
 		player.telegram_hud.card_presented.connect(func(_serial: int, card: Dictionary):
@@ -230,7 +233,10 @@ func _resize_pass() -> void:
 	if _pass_view == null:
 		return
 	var size := get_viewport().get_visible_rect().size
-	_pass_view.size = Vector2i(maxi(2, int(size.x / 3.0)), maxi(2, int(size.y)))
+	var fraction:=.40 if reading else 1./3.
+	_pass_view.size = Vector2i(maxi(2, int(size.x*fraction)), maxi(2, int(size.y)))
+	_device_rect.anchor_left=1.-fraction
+	_pass_reading=reading
 	if _message_line: _message_line.offset_left=-minf(size.x-32,540)
 
 
@@ -245,11 +251,21 @@ func adjust_reading_distance(amount: float) -> void:
 	reading_distance=clampf(reading_distance+amount,READING_NEAR,READING_FAR)
 	device.teletype.set_focus_position(inverse_lerp(READING_FAR,READING_NEAR,reading_distance))
 
+func can_inspect_controls() -> bool:
+	return reading and not _capture_hidden and _proof_pose==0
+
+func inspection_view() -> Dictionary:
+	return {"from":_player.camera.global_position,"at":_player.camera.global_position-_player.camera.global_basis.z}
+
+func find_manipulation_target() -> Dictionary:
+	return _hand.find_target() if _hand!=null else {}
+
 func _process(delta: float) -> void:
 	if device == null:
 		return
-	_device_rect.visible = reading or _proof_pose>0
-	_message_line.visible = not reading and _proof_pose==0
+	if _pass_reading!=reading:_resize_pass()
+	_device_rect.visible = true
+	_message_line.visible = false
 	_message_line.text = device.teletype.ink.text.get_slice("\n",0)
 	_pass_view.render_target_update_mode = SubViewport.UPDATE_ALWAYS if _device_rect.visible and not _capture_hidden else SubViewport.UPDATE_DISABLED
 	var hint := _player._prompt.text if is_instance_valid(_player) else ""
@@ -272,8 +288,9 @@ func _process(delta: float) -> void:
 
 	# This camera renders only the right third; keep the complete instrument inside it.
 	var aspect := float(_pass_view.size.x)/maxf(1.0,_pass_view.size.y)
-	var pose := Vector3(0,-.015,-maxf(.18,.17/(tan(deg_to_rad(_pass_cam.fov*.5))*aspect))*reading_distance/.305)
-	var rotation := Vector3.ZERO
+	var width: float=.125 if reading else .185
+	var pose := Vector3(0,-.028 if reading else -.145,-(.065+width/(tan(deg_to_rad(_pass_cam.fov*.5))*aspect))*(reading_distance/.305 if reading else 1.))
+	var rotation := Vector3(-1.,-3.,0.) if reading else Vector3(-5.,-6.,-3.)
 	var scale := Vector3.ONE
 	if _proof_pose > 0:
 		pose = Vector3(0, -0.01, -0.43)
@@ -319,6 +336,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 	if event.is_action_pressed("teletype_read"):
+		if _player.inspecting() and _player.inspect_owner==self:_player.end_inspection()
 		reading=not reading
 		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("teletype_next"):

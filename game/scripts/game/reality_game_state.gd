@@ -12,8 +12,15 @@ const SAVE_STORAGE = preload("res://scripts/game/reality_save_storage.gd")
 const SAVE_VERSION := 4
 const SAVE_PATH := "user://reality_maintenance_save.json"
 
-var data: Dictionary = {}
-var persistence_enabled := true
+var data: Dictionary = {}:
+	set(value):
+		if not is_same(data,value):flush_background_saves()
+		data=value
+var persistence_enabled := true:
+	set(value):
+		if persistence_enabled==value:return
+		flush_background_saves()
+		persistence_enabled=value
 ## A rollback may encounter a save written by a newer build. That file is not
 ## ours to migrate or overwrite. Runtime state remains fresh and commits stay
 ## read-only until the player explicitly starts a new campaign.
@@ -23,7 +30,11 @@ var _player_notice: Dictionary = {}
 ## Injectable so a harness can exercise the real save/load path against its
 ## own file under user://tests/ without touching the player's save.
 ## Production never changes it.
-var save_path := SAVE_PATH
+var save_path := SAVE_PATH:
+	set(value):
+		if save_path==value:return
+		flush_background_saves()
+		save_path=value
 ## Tests may inject file-operation failures and a creation-time sample. Neither
 ## callback is installed by production. The clock still owns sample validation.
 var storage_operation_override: Callable
@@ -31,10 +42,87 @@ var new_campaign_time_provider: Callable
 var _preparing_state := false
 var _load_result := {"status": "missing", "reason": "", "has_saved_campaign": false}
 var _last_save_result: Dictionary = {}
+var _save_queue: RefCounted
+var background_save_records: Array[Dictionary]=[]
+var background_save_profiling:=false
+var _background_requested:=0
+var _background_completed:=0
+var _background_discarded:=0
 
 
 func _ready() -> void:
+	process_mode=Node.PROCESS_MODE_ALWAYS
 	load_game()
+
+
+func _process(_delta: float) -> void:
+	_poll_background_saves()
+
+
+func _exit_tree() -> void:
+	flush_background_saves()
+
+
+## Household autosave only. Explicit saves/ordinary commits remain barriers.
+## The returned world notification does not assert that pending bytes are durable.
+func commit_background() -> void:
+	if _preparing_state:return
+	if not persistence_enabled or storage_operation_override.is_valid():
+		commit();return
+	_poll_background_saves()
+	if save_write_blocked:
+		save_game();state_changed.emit();return
+	if _save_queue==null:
+		# This immutable authored lookup is otherwise lazy. Never initialize its
+		# shared static dictionaries while another thread is reading them.
+		DoorKeyring._sources()
+		_save_queue=preload("res://scripts/game/reality_save_queue.gd").new()
+	if _save_queue.pending_count()>=8:
+		flush_background_saves()
+		if save_write_blocked:state_changed.emit();return
+	var started:=Time.get_ticks_usec()
+	snapshot_preparing.emit()
+	var bytes:=JSON.stringify(data,"\t",true,true).to_utf8_buffer()
+	_background_requested=_save_queue.submit(save_path,bytes,SAVE_VERSION)
+	_save_queue.start_next()
+	if background_save_profiling:
+		# Profiling ticks are ephemeral metadata, never campaign-clock facts.
+		var finished_at:=Time.get_ticks_usec()
+		background_save_records.append({"stage":"enqueue","started_usec":started,"finished_usec":finished_at,"process_frame":Engine.get_process_frames(),"physics_frame":Engine.get_physics_frames(),"id":_background_requested,"main_usec":finished_at-started,"bytes":bytes.size(),"pending":_save_queue.pending_count()})
+		if background_save_records.size()>256:background_save_records.pop_front()
+	state_changed.emit()
+
+
+func background_save_status() -> Dictionary:
+	return {"pending":_save_queue.pending_count() if _save_queue!=null else 0,
+		"requested":_background_requested,"completed":_background_completed,"discarded":_background_discarded}
+
+
+func _poll_background_saves() -> void:
+	if _save_queue==null:return
+	for job: Dictionary in _save_queue.take_completed():_adopt_background_result(job)
+	if save_write_blocked:_background_discarded+=_save_queue.discard_pending()
+	else:_save_queue.start_next()
+
+
+func flush_background_saves() -> void:
+	if _save_queue==null:return
+	while _save_queue.pending_count()>0:
+		if save_write_blocked:_background_discarded+=_save_queue.discard_pending()
+		_save_queue.start_next()
+		for job: Dictionary in _save_queue.take_completed(true):_adopt_background_result(job)
+
+
+func _adopt_background_result(job: Dictionary) -> void:
+	_background_completed=int(job.id)
+	var result: Dictionary=job.result
+	if background_save_profiling:
+		var adopted_at:=Time.get_ticks_usec()
+		background_save_records.append({"stage":"completed","adopted_usec":adopted_at,"id":job.id,"result":result.duplicate(true)})
+		if background_save_records.size()>256:background_save_records.pop_front()
+	# A live clock/domain owner may have protected the campaign while this
+	# older valid snapshot was writing. Its success cannot clear that refusal.
+	if not (save_write_blocked and bool(result.get("ok",false))):_finish_save(result)
 
 
 func _fresh_data() -> Dictionary:
@@ -190,12 +278,17 @@ func _storage() -> SAVE_STORAGE:
 func save_game() -> bool:
 	if _preparing_state:
 		return false
+	flush_background_saves()
 	if save_write_blocked:
 		_last_save_result = {"ok": false, "code": str(_player_notice.get("code", "save_recovery_required")),
 				"stage": "write_latch", "recovered": false, "protection_required": true}
 		return false
 	snapshot_preparing.emit()
-	_last_save_result = _storage().write_snapshot(JSON.stringify(data, "\t", true, true).to_utf8_buffer())
+	return _finish_save(_storage().write_snapshot(JSON.stringify(data, "\t", true, true).to_utf8_buffer()))
+
+
+func _finish_save(result: Dictionary) -> bool:
+	_last_save_result=result
 	if not bool(_last_save_result.ok):
 		if bool(_last_save_result.get("protection_required", false)):
 			_block_save(str(_last_save_result.code), _last_save_result)
@@ -213,6 +306,7 @@ func save_game() -> bool:
 
 
 func load_game() -> void:
+	flush_background_saves()
 	data = _fresh_data()
 	save_write_blocked = false
 	incompatible_save_version = 0
@@ -249,92 +343,7 @@ func last_save_result() -> Dictionary:
 
 
 func _validate_document(candidate: Dictionary) -> Dictionary:
-	var version: Variant = candidate.get("version", 0)
-	if not _whole_number(version) or float(version) < 0.0:
-		return {"ok": false, "code": "save_invalid_read_only", "detail": "Invalid save version."}
-	if float(version) > SAVE_VERSION:
-		return {"ok": false, "code": "future_save_read_only", "version": int(version)}
-	if candidate.has("lamp_optics") and not preload("res://scripts/lamp/lamp_optical_snapshot.gd").valid(candidate.lamp_optics):
-		return _invalid_shape("lamp_optics")
-	if candidate.has("caretaker_economy") and not preload("res://scripts/game/caretaker_economy.gd").valid(candidate.caretaker_economy):
-		return _invalid_shape("caretaker_economy")
-	if candidate.has("door_keys") and not preload("res://scripts/game/door_keyring.gd").valid(candidate.door_keys):
-		return _invalid_shape("door_keys")
-	for key in ["cases", "building_personality", "work_orders", "maintenance_jobs",
-			"maintenance_items", "open_shift_situations", "shop_buckets", "exterior_semantics",
-			"organism_incidents", "core_loop", "first_shift", "dream", "sleep_pressure", "waking_residues",
-			"night_register", "npc_observations", "porter_actor",
-			"resident_trust", "conversation_visits"]:
-		if candidate.has(key) and candidate[key] is not Dictionary:
-			return _invalid_shape(key)
-	for key in ["portal_rules", "discovered_documents", "music_library", "heard_music_anecdotes",
-			"knowledge_flags", "newspapers_collected"]:
-		if candidate.has(key) and candidate[key] is not Array:
-			return _invalid_shape(key)
-	for key in ["current_case_id", "dream_seed", "last_waking_residue_id"]:
-		if candidate.has(key) and candidate[key] is not String:
-			return _invalid_shape(key)
-	if candidate.has("intro_complete") and candidate.intro_complete is not bool:
-		return _invalid_shape("intro_complete")
-	for key in ["building_stability", "reality_coherence"]:
-		if candidate.has(key) and not _finite_number(candidate[key]):
-			return _invalid_shape(key)
-	if candidate.has("dreams_had") and (not _whole_number(candidate.dreams_had) or float(candidate.dreams_had) < 0.0):
-		return _invalid_shape("dreams_had")
-	# These are maps of durable records, not arbitrary nested dictionaries.
-	# Domain owners still validate IDs, vocabulary, quantities and chronology.
-	for key in ["cases", "work_orders", "maintenance_jobs", "maintenance_items",
-			"open_shift_situations", "shop_buckets", "exterior_semantics",
-			"organism_incidents", "waking_residues"]:
-		for record in candidate.get(key, {}).values():
-			if record is not Dictionary:
-				return _invalid_shape(key + " entry")
-	for beliefs in candidate.get("npc_observations", {}).values():
-		if not _array_of_records(beliefs):
-			return _invalid_shape("npc_observations entry")
-	var register: Dictionary = candidate.get("night_register", {})
-	if register.has("lines") and not _array_of_records(register.lines):
-		return _invalid_shape("night_register.lines")
-	# CampaignClock remains the sole calendar validator. Its error callback is
-	# contained while inspecting a candidate; validation cannot emit or resample.
-	var previous_data := data
-	var previous_blocked := save_write_blocked
-	var previous_version := incompatible_save_version
-	var previous_notice := _player_notice
-	var previous_preparing := _preparing_state
-	_preparing_state = true
-	data = candidate
-	save_write_blocked = false
-	incompatible_save_version = 0
-	var clock := CampaignClock.new()
-	var valid := clock.validate_saved_state()
-	data = previous_data
-	save_write_blocked = previous_blocked
-	incompatible_save_version = previous_version
-	_player_notice = previous_notice
-	_preparing_state = previous_preparing
-	return {"ok": true} if valid else {"ok": false, "code": "campaign_clock_read_only", "detail": clock.validation_error}
-
-
-func _finite_number(value: Variant) -> bool:
-	return (value is int or value is float) and is_finite(float(value))
-
-
-func _array_of_records(value: Variant) -> bool:
-	if value is not Array:
-		return false
-	for record in value:
-		if record is not Dictionary:
-			return false
-	return true
-
-
-func _whole_number(value: Variant) -> bool:
-	return _finite_number(value) and float(value) == floor(float(value))
-
-
-func _invalid_shape(key: String) -> Dictionary:
-	return {"ok": false, "code": "save_invalid_read_only", "detail": "Invalid saved field: " + key + "."}
+	return preload("res://scripts/game/reality_save_document.gd").validate(candidate, SAVE_VERSION)
 
 
 func _block_save(code: String, details: Dictionary = {}, emit_now := true) -> void:
@@ -387,6 +396,7 @@ func _set_player_notice(code: String, title: String, message: String,
 
 
 func start_new_campaign() -> bool:
+	flush_background_saves()
 	# Build privately: failure must not publish fresh facts or erase protection.
 	var previous_data := data
 	var previous_blocked := save_write_blocked
@@ -445,6 +455,7 @@ func _migrate() -> void:
 
 
 func reset_campaign_for_tests() -> void:
+	flush_background_saves()
 	_load_result = {"status": "missing", "reason": "", "has_saved_campaign": false}
 	_last_save_result = {}
 	save_write_blocked = false

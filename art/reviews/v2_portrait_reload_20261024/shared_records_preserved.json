@@ -1,0 +1,69 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Preexisting shared manifest records preserved unstaged; not claimed by this checkpoint.",
+  "records": [
+    {
+      "key": "8033a14b0236be14",
+      "kind": "vector3_coordinate",
+      "token": "_played_bathroom",
+      "file": "game/tests/v2_bathroom_optics_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_played_bathroom"
+      ],
+      "lines": [
+        59
+      ],
+      "count": 1,
+      "context": [
+        "if not await _walk(Vector3(-8.45,9.6,4.35)):return false"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "b1399412f2ad213f",
+      "kind": "vector3_coordinate",
+      "token": "_route",
+      "file": "game/tests/v2_bathroom_optics_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_route"
+      ],
+      "lines": [
+        37
+      ],
+      "count": 1,
+      "context": [
+        "var stance: Vector3=world.adapter.root.to_global(Vector3(-8.45,9.62,4.35))"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    }
+  ],
+  "removed": []
+}

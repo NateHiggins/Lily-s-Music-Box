@@ -1,0 +1,497 @@
+{
+  "evidence_class": "INERT",
+  "original": {
+    "active_budget": 4096,
+    "fog": true,
+    "mirror_atlas": 2048,
+    "msaa": 3,
+    "rig_process": true,
+    "shadow_budget": 32,
+    "ssao": true,
+    "ssil": true,
+    "volumetric": false
+  },
+  "failures": [],
+  "phases": [
+    {
+      "phase": "normal_static",
+      "wall_ms": {
+        "n": 119,
+        "p50": 47.133,
+        "p95": 54.181,
+        "p99": 57.414,
+        "max": 58.951,
+        "over50": 42,
+        "over100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 51.659,
+        "p95": 56.386,
+        "p99": 56.824,
+        "max": 56.824,
+        "over50": 8,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 23.0709991455078,
+        "render_gpu_ms": 13.5939998626709,
+        "mirror_cpu_ms": 6.1560001373291,
+        "mirror_gpu_ms": 3.39499998092651,
+        "main_shadow_draws": 44197,
+        "mirror_shadow_draws": 10395
+      },
+      "shadow_budget": 32,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.477278070014393,
+        "shadows": 32
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.325, 6.400265, -0.575)"
+    },
+    {
+      "phase": "shadow16_static",
+      "wall_ms": {
+        "n": 119,
+        "p50": 48.214,
+        "p95": 54.039,
+        "p99": 56.081,
+        "max": 56.58,
+        "over50": 43,
+        "over100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 49.179,
+        "p95": 54.217,
+        "p99": 55.95,
+        "max": 55.95,
+        "over50": 6,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 23.4930000305176,
+        "render_gpu_ms": 14.1049995422363,
+        "mirror_cpu_ms": 6.16400003433228,
+        "mirror_gpu_ms": 3.45600008964539,
+        "main_shadow_draws": 44201,
+        "mirror_shadow_draws": 10395
+      },
+      "shadow_budget": 16,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.477859888459938,
+        "shadows": 16
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.325, 6.400265, -0.575)"
+    },
+    {
+      "phase": "shadow8_static",
+      "wall_ms": {
+        "n": 119,
+        "p50": 44.921,
+        "p95": 54.332,
+        "p99": 56.217,
+        "max": 57.81,
+        "over50": 29,
+        "over100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 45.698,
+        "p95": 52.476,
+        "p99": 52.667,
+        "max": 52.667,
+        "over50": 4,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 22.0170001983643,
+        "render_gpu_ms": 12.7410001754761,
+        "mirror_cpu_ms": 6.16400003433228,
+        "mirror_gpu_ms": 3.35999989509583,
+        "main_shadow_draws": 41028,
+        "mirror_shadow_draws": 10395
+      },
+      "shadow_budget": 8,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.475760929846481,
+        "shadows": 8
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.325, 6.400265, -0.575)"
+    },
+    {
+      "phase": "shadow4_static",
+      "wall_ms": {
+        "n": 119,
+        "p50": 43.161,
+        "p95": 52.015,
+        "p99": 53.699,
+        "max": 54.62,
+        "over50": 17,
+        "over100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 41.012,
+        "p95": 50.52,
+        "p99": 54.062,
+        "max": 54.062,
+        "over50": 3,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 20.4629993438721,
+        "render_gpu_ms": 12.2760000228882,
+        "mirror_cpu_ms": 6.23600006103516,
+        "mirror_gpu_ms": 3.44300007820129,
+        "main_shadow_draws": 36723,
+        "mirror_shadow_draws": 10398
+      },
+      "shadow_budget": 4,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.475830586466724,
+        "shadows": 4
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.325, 6.400265, -0.575)"
+    },
+    {
+      "phase": "shadow2_static",
+      "wall_ms": {
+        "n": 119,
+        "p50": 37.078,
+        "p95": 45.95,
+        "p99": 47.297,
+        "max": 49.45,
+        "over50": 0,
+        "over100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 37.632,
+        "p95": 46.1,
+        "p99": 46.122,
+        "max": 46.122,
+        "over50": 0,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 18.4500007629395,
+        "render_gpu_ms": 11.2299995422363,
+        "mirror_cpu_ms": 4.18699979782104,
+        "mirror_gpu_ms": 2.30399990081787,
+        "main_shadow_draws": 32553,
+        "mirror_shadow_draws": 6232
+      },
+      "shadow_budget": 2,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.470301144920175,
+        "shadows": 2
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.325, 6.400265, -0.575)"
+    },
+    {
+      "phase": "mirror_shadow_off",
+      "wall_ms": {
+        "n": 119,
+        "p50": 40.353,
+        "p95": 48.07,
+        "p99": 49.072,
+        "max": 50.538,
+        "over50": 1,
+        "over100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 40.003,
+        "p95": 49.442,
+        "p99": 51.996,
+        "max": 51.996,
+        "over50": 1,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 24.1459999084473,
+        "render_gpu_ms": 14.6160001754761,
+        "mirror_cpu_ms": 0.649999976158142,
+        "mirror_gpu_ms": 0.559000015258789,
+        "main_shadow_draws": 44204,
+        "mirror_shadow_draws": 22
+      },
+      "shadow_budget": 32,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.470004488770902,
+        "shadows": 32
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.325, 6.400265, -0.575)"
+    },
+    {
+      "phase": "celestial_shadow_off",
+      "wall_ms": {
+        "n": 119,
+        "p50": 45.488,
+        "p95": 53.122,
+        "p99": 56.542,
+        "max": 57.881,
+        "over50": 35,
+        "over100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 43.712,
+        "p95": 50.405,
+        "p99": 50.56,
+        "max": 50.56,
+        "over50": 4,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 23.0459995269775,
+        "render_gpu_ms": 13.3520002365112,
+        "mirror_cpu_ms": 6.14699983596802,
+        "mirror_gpu_ms": 3.43099999427795,
+        "main_shadow_draws": 41634,
+        "mirror_shadow_draws": 10376
+      },
+      "shadow_budget": 32,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.465972536049505,
+        "shadows": 32
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.325, 6.400265, -0.575)"
+    },
+    {
+      "phase": "normal_static_restored",
+      "wall_ms": {
+        "n": 119,
+        "p50": 47.575,
+        "p95": 54.829,
+        "p99": 57.436,
+        "max": 61.366,
+        "over50": 44,
+        "over100": 0
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 45.923,
+        "p95": 52.5,
+        "p99": 52.964,
+        "max": 52.964,
+        "over50": 6,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 23.9570007324219,
+        "render_gpu_ms": 14.0819997787476,
+        "mirror_cpu_ms": 6.36600017547607,
+        "mirror_gpu_ms": 3.51300001144409,
+        "main_shadow_draws": 44202,
+        "mirror_shadow_draws": 10398
+      },
+      "shadow_budget": 32,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.466474504966748,
+        "shadows": 32
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.325, 6.400265, -0.575)"
+    },
+    {
+      "phase": "normal_move",
+      "wall_ms": {
+        "n": 61,
+        "p50": 58.859,
+        "p95": 105.907,
+        "p99": 119.344,
+        "max": 192.693,
+        "over50": 61,
+        "over100": 4
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 48.718,
+        "p95": 53.254,
+        "p99": 53.981,
+        "max": 53.981,
+        "over50": 5,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 23.943000793457,
+        "render_gpu_ms": 16.0149993896484,
+        "mirror_cpu_ms": 6.54099988937378,
+        "mirror_gpu_ms": 3.86299991607666,
+        "main_shadow_draws": 41047,
+        "mirror_shadow_draws": 10402
+      },
+      "shadow_budget": 32,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.542155202950451,
+        "shadows": 32
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.36495, 6.400845, -0.694802)"
+    },
+    {
+      "phase": "shadow8_move",
+      "wall_ms": {
+        "n": 69,
+        "p50": 53.994,
+        "p95": 84.061,
+        "p99": 116.185,
+        "max": 143.916,
+        "over50": 45,
+        "over100": 2
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 46.192,
+        "p95": 52.432,
+        "p99": 55.122,
+        "max": 55.122,
+        "over50": 5,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 22.8110008239746,
+        "render_gpu_ms": 14.4139995574951,
+        "mirror_cpu_ms": 6.53700017929077,
+        "mirror_gpu_ms": 3.86700010299683,
+        "main_shadow_draws": 39283,
+        "mirror_shadow_draws": 10399
+      },
+      "shadow_budget": 8,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.534110429320297,
+        "shadows": 8
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.23284, 6.40003, -0.715816)"
+    },
+    {
+      "phase": "shadow4_move",
+      "wall_ms": {
+        "n": 73,
+        "p50": 49.226,
+        "p95": 72.475,
+        "p99": 110.986,
+        "max": 141.979,
+        "over50": 33,
+        "over100": 2
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 43.591,
+        "p95": 52.646,
+        "p99": 53.988,
+        "max": 53.988,
+        "over50": 4,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 20.6560001373291,
+        "render_gpu_ms": 13.7080001831055,
+        "mirror_cpu_ms": 6.52400016784668,
+        "mirror_gpu_ms": 3.75200009346008,
+        "main_shadow_draws": 36746,
+        "mirror_shadow_draws": 10399
+      },
+      "shadow_budget": 4,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.525912335897466,
+        "shadows": 4
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.23195, 6.400164, -0.714423)"
+    },
+    {
+      "phase": "normal_restored_move",
+      "wall_ms": {
+        "n": 62,
+        "p50": 58.673,
+        "p95": 100.581,
+        "p99": 122.293,
+        "max": 131.587,
+        "over50": 62,
+        "over100": 4
+      },
+      "warm_wall_ms": {
+        "n": 16,
+        "p50": 47.746,
+        "p95": 55.972,
+        "p99": 56.324,
+        "max": 56.324,
+        "over50": 5,
+        "over100": 0
+      },
+      "medians": {
+        "render_cpu_ms": 24.363500595092802,
+        "render_gpu_ms": 15.9989995956421,
+        "mirror_cpu_ms": 6.469500064849855,
+        "mirror_gpu_ms": 3.843500018119815,
+        "main_shadow_draws": 44211.0,
+        "mirror_shadow_draws": 10399.0
+      },
+      "shadow_budget": 32,
+      "light_rig": {
+        "active_floor": "F03",
+        "full": 80,
+        "half": 0,
+        "off": 187,
+        "room_light": 0.502721807613964,
+        "shadows": 32
+      },
+      "start": "(-14.325, 6.400265, -0.575)",
+      "end": "(-14.29333, 6.400844, -0.639175)"
+    }
+  ]
+}

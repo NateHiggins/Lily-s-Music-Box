@@ -1,0 +1,272 @@
+{
+  "evidence_class": "INERT",
+  "source": "Existing .48 x .42 x .26 m case-owned calibrator; original placement and callback retained",
+  "asset_sha256": "eefa4eb9adac11c9956321e06a29c4c8380db889ad61a55eff9bd2df26c86f82",
+  "source_bindings": {
+    "art/blender/scripts/build_case_calibrator.py": "c3cf4d06169a84f781e55c00e3385452b85c9d91dc5a1312dd8b99b34cdbc0ee",
+    "art/blender/scripts/build_signal_terminal.py": "d127ced53f551c681c7d2712f210999782dc7282eb384d6222ae4016a9946867",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "game/data/runtime_material_sets.json": "6f4c72832a6671c3c36e557560ff147a9e31abbfd0fb1db6504acb7567298e59",
+    "game/scripts/cases/case_interactable.gd": "d64e314bb4129111d785758389c317e208b4dcc96a558d02987f5b180778fcd6",
+    "game/scripts/building/orison_v2_case_one_placement.gd": "315eca7fcedcc041765020a96bfdd76a7c89342fa5356022c9a90ad2d0f45516",
+    "game/data/orison_v2/case_one_placement.json": "a37c320e5d880bf235e4e48375fdb36bceb8774266777e75a99b5df677fc9f01"
+  },
+  "closed_stocks": [
+    {
+      "name": "Fixed_Base",
+      "assembly": "Fixed",
+      "key": "bakelite",
+      "volume_m3": 0.0014975999246120458
+    },
+    {
+      "name": "Fixed_Side-0.24",
+      "assembly": "Fixed",
+      "key": "bakelite",
+      "volume_m3": 0.001235519365958008
+    },
+    {
+      "name": "Fixed_Side0.228",
+      "assembly": "Fixed",
+      "key": "bakelite",
+      "volume_m3": 0.001235519365958008
+    },
+    {
+      "name": "Fixed_End-0.13",
+      "assembly": "Fixed",
+      "key": "bakelite",
+      "volume_m3": 0.002166910968602676
+    },
+    {
+      "name": "Fixed_End0.118",
+      "assembly": "Fixed",
+      "key": "bakelite",
+      "volume_m3": 0.002166910968602676
+    },
+    {
+      "name": "Fixed_DeckSide-0.24",
+      "assembly": "Fixed",
+      "key": "bakelite",
+      "volume_m3": 0.0006676796519899562
+    },
+    {
+      "name": "Fixed_DeckSide0.026",
+      "assembly": "Fixed",
+      "key": "bakelite",
+      "volume_m3": 0.0006676796519899564
+    },
+    {
+      "name": "Fixed_DeckEnd-0.13",
+      "assembly": "Fixed",
+      "key": "bakelite",
+      "volume_m3": 6.489596837329954e-05
+    },
+    {
+      "name": "Fixed_DeckEnd0.026",
+      "assembly": "Fixed",
+      "key": "bakelite",
+      "volume_m3": 6.489596837329958e-05
+    },
+    {
+      "name": "Fixed_GuideLipSide-0.032",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 4.608010312559234e-06
+    },
+    {
+      "name": "Fixed_GuideLipSide0.026",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 4.608010312559232e-06
+    },
+    {
+      "name": "Fixed_GuideLipEnd-0.032",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 3.7440082783713153e-06
+    },
+    {
+      "name": "Fixed_GuideLipEnd0.026",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 3.744008278371311e-06
+    },
+    {
+      "name": "Fixed_GuideSide-0.026",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 1.9603990171670454e-05
+    },
+    {
+      "name": "Fixed_GuideSide0.013",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 1.9603990171670454e-05
+    },
+    {
+      "name": "Fixed_GuideEnd-0.026",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 9.801995085835227e-06
+    },
+    {
+      "name": "Fixed_GuideEnd0.013",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 9.801995085835227e-06
+    },
+    {
+      "name": "Fixed_TravelStopSide-0.013",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 4.6799871021483857e-07
+    },
+    {
+      "name": "Fixed_TravelStopSide0.01",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 4.6799871021483857e-07
+    },
+    {
+      "name": "Fixed_TravelStopEnd-0.013",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 3.599989923833273e-07
+    },
+    {
+      "name": "Fixed_TravelStopEnd0.01",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 3.599989923833273e-07
+    },
+    {
+      "name": "Plunger_LowerShoulder",
+      "assembly": "Plunger",
+      "key": "brass_dull",
+      "volume_m3": 3.456007063865784e-06
+    },
+    {
+      "name": "Plunger_Stem",
+      "assembly": "Plunger",
+      "key": "brass_dull",
+      "volume_m3": 1.3607997437954097e-05
+    },
+    {
+      "name": "Plunger_Cap",
+      "assembly": "Plunger",
+      "key": "bakelite",
+      "volume_m3": 2.539198849534979e-05
+    },
+    {
+      "name": "Fixed_FacePlate",
+      "assembly": "Fixed",
+      "key": "metal",
+      "volume_m3": 0.00015360030441282795
+    },
+    {
+      "name": "Fixed_Screw(-0.145, 0.145, -0.0015)",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 1.1999953746682371e-08
+    },
+    {
+      "name": "Fixed_Screw(-0.145, 0.145, 0.0015)",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 1.2000043153789895e-08
+    },
+    {
+      "name": "Fixed_Screw(-0.145, 0.275, -0.0015)",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 1.1999923944461284e-08
+    },
+    {
+      "name": "Fixed_Screw(-0.145, 0.275, 0.0015)",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 1.2000013351346678e-08
+    },
+    {
+      "name": "Fixed_Screw(0.145, 0.145, -0.0015)",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 1.2000043153789895e-08
+    },
+    {
+      "name": "Fixed_Screw(0.145, 0.145, 0.0015)",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 1.1999953746682365e-08
+    },
+    {
+      "name": "Fixed_Screw(0.145, 0.275, -0.0015)",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 1.2000013351346678e-08
+    },
+    {
+      "name": "Fixed_Screw(0.145, 0.275, 0.0015)",
+      "assembly": "Fixed",
+      "key": "brass_dull",
+      "volume_m3": 1.1999923944461296e-08
+    }
+  ],
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/case_calibrator.glb",
+    "parts": [
+      {
+        "name": "Fixed__bakelite",
+        "component": "Fixed",
+        "key": "bakelite",
+        "tile": 0.04,
+        "triangles": 1692
+      },
+      {
+        "name": "Fixed__brass_dull",
+        "component": "Fixed",
+        "key": "brass_dull",
+        "tile": 0.5,
+        "triangles": 3760
+      },
+      {
+        "name": "Fixed__metal",
+        "component": "Fixed",
+        "key": "metal",
+        "tile": 0.9,
+        "triangles": 188
+      },
+      {
+        "name": "Plunger__bakelite",
+        "component": "Plunger",
+        "key": "bakelite",
+        "tile": 0.04,
+        "triangles": 188
+      },
+      {
+        "name": "Plunger__brass_dull",
+        "component": "Plunger",
+        "key": "brass_dull",
+        "tile": 0.5,
+        "triangles": 376
+      }
+    ],
+    "stroke_m": 0.004,
+    "stop_rest_y_m": 0.389,
+    "stop_fixed_y_m": 0.385,
+    "cap_rest_top_y_m": 0.449,
+    "guide_top_y_m": 0.432,
+    "housing_bounds_m": [
+      0.48,
+      0.42,
+      0.26
+    ]
+  },
+  "precision_chart_fallbacks": 0,
+  "scope_limits": [
+    "internal spring and electrical circuit not exposed",
+    "case outcomes remain callback-owned",
+    "native review is not runtime qualification"
+  ]
+}

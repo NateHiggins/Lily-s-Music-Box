@@ -1,0 +1,30 @@
+{
+	"checks": 43,
+	"contracts": {
+		"electrical_fabric": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Fixed electrical riser, wall contacts, slab bores, local standing stances and owned teardown; no circuit energization or endpoint acceptance.",
+	"selector": "v2",
+	"source": {
+		"test_path": "game/tests/v2_electrical_service_review.gd",
+		"test_sha256": "5ee35cefe596d597691ac010f66a2f3d1863bf989234cde1fc3b26d3d4ceedd6"
+	}
+}

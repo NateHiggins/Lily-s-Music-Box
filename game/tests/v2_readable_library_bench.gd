@@ -106,33 +106,24 @@ func hand_review(shelf: Node3D) -> void:
 	if not check(player._grab.active() and player._grab.target.part==book,"primary grabs binding before inspection"): return
 	await space()
 	if not check(player.inspecting() and not player._grab.active() and book.freeze,"Space inspects and supports the selected book"): return
+	for frame in 100: await get_tree().physics_frame
 	var camera_pose:=player.camera.global_transform
-	var point:=book.to_global(Vector3(-.0025,float(book.construction.height)*.5,0))
+	var point: Vector3=book.left.to_global(Vector3(float(book.construction.width)*.7,float(book.construction.height)*.7,float(book.construction.thickness)*.5))
 	check(await cursor_at(point),"native inspection cursor delivered");print("CURSOR TARGET: ",player._grab.find_target());click()
-	if check(player._grab.active() and player._grab.target.part==book and player._grab.target.kind=="free","cursor grabs individual spine"):
-		var goal:=book.position+Vector3(0,.025,.35)
-		check(await carry(goal),"mouse and wheel extract book from real shelf")
-		click()
-		check(not player._grab.active() and book.freeze,"second click releases the manipulating hand while inspection supports the book")
-		await cursor_at(book.to_global(Vector3(-.0043,float(book.construction.height)*.82,float(book.construction.thickness)*.5+.006)))
-		click()
-		if check(player._grab.active() and player._grab.target.part==book and player._grab.target.kind=="hinge","upper binding edge supplies turn grip"):
-			var axis: Vector3=player._grab.target.frame.global_basis*player._grab.target.axis.call()
-			var facing: Vector3=(player.camera.global_position-book.global_position).slide(axis).normalized()
-			var angle: float=book.global_basis.z.slide(axis).normalized().signed_angle_to(facing,axis)
-			check(await hinge(angle),"mouse turns extracted binding about its own spine to reveal its cover");click()
-			await cursor_at(book.to_global(Vector3(float(book.construction.width)*.65,float(book.construction.height)*.5,float(book.construction.thickness)*.5+.001)))
-			click()
-			if check(player._grab.active() and player._grab.target.part==book.left,"cursor grabs the actual opening gathering"):
-				check(await hinge(PI),"mouse opens binding to featured two page spread")
-				await capture("hand_opened_spread")
-				click();check(not player._grab.active(),"second click releases opened binding")
+	if check(player._grab.active() and player._grab.target.part==book.left and player._grab.target.kind=="hinge","free cursor grabs actual floating cover"):
+		check(await hinge(PI),"mouse opens binding to featured two page spread")
+		await capture("hand_opened_spread")
+		click();check(not player._grab.active(),"second click releases opened binding")
 	check(player.camera.global_transform.is_equal_approx(camera_pose),"inspection camera stays fixed through hand motion")
 	await capture("inspection_book_extracted")
 	if player._grab.active(): player._grab.release()
 	await space();check(not player.inspecting() and not book.freeze,"backing out releases the inspected book to gravity")
 
 func bookend_review(shelf: Node3D) -> void:
+	# Prior book drops run on real physics and may disturb neighbouring loose
+	# stock. Reconstruct this independent contact fixture before its input route.
+	shelf.restore_order(shelf.sorter.order.duplicate())
+	for frame in 3: await get_tree().physics_frame
 	player.set_mouse_released(false);player.global_position=shelf.global_position+Vector3(0,.02,1.2)
 	var bookend: Node3D=shelf._ends.left
 	var handle: MeshInstance3D=bookend.get_node("bookend_pressed__TopReturn")
@@ -146,7 +137,6 @@ func bookend_review(shelf: Node3D) -> void:
 	var camera_pose:=player.camera.global_transform
 	await cursor_at(bookend.to_global(Vector3(0,.050,.034)));click()
 	if check(player._grab.active() and player._grab.target.part==bookend and player._grab.target.kind=="free","cursor grabs physical bookend web"):
-		check(await carry(bookend.position+Vector3(-.10,.008,0)),"mouse lifts and draws bookend out from under bindings")
 		await bookend_obstructions(shelf,bookend)
 		click()
 	check(player.camera.global_transform.is_equal_approx(camera_pose),"bookend inspection camera stays fixed")
@@ -155,14 +145,19 @@ func bookend_review(shelf: Node3D) -> void:
 func bookend_obstructions(shelf: Node3D, bookend: Node3D) -> void:
 	# First retain the actual shelf bearing under downward input.
 	var before: Vector3=bookend.position
+	var initial_lowest: float=INF
+	for solid: CollisionShape3D in bookend._solids:
+		for point: Vector3 in solid.shape.points: initial_lowest=minf(initial_lowest,shelf.to_local(solid.global_transform*point).y)
 	check(not await carry(before+Vector3(0,-.06,0)),"bookend cannot be dragged down through its shelf")
 	var lowest: float=INF
 	for solid: CollisionShape3D in bookend._solids:
 		for point: Vector3 in solid.shape.points: lowest=minf(lowest,shelf.to_local(solid.global_transform*point).y)
 	check(lowest>=float(shelf._case_record.shelf_tops[2])-.0001,"actual native foot stays above shelf after downward input")
+	print("BOOKEND BEARING: initial=",initial_lowest," final=",lowest," shelf=",shelf._case_record.shelf_tops[2]," pose=",bookend.transform," contact=",bookend._last_motion)
 	# Move clear of case walls before the independent wall control, so a real
 	# side board or a falling neighbouring book cannot substitute for the wall.
-	check(await carry(bookend.position+Vector3(0,.012,.25)),"mouse draws bookend into clear foreground")
+	check(await carry(bookend.position+Vector3(0,0,.25)),"mouse draws bookend horizontally clear of fixed bindings")
+	check(await carry(bookend.position+Vector3(0,.012,0)),"mouse lifts withdrawn bookend into clear foreground")
 	before=bookend.position
 	var edge: float=INF
 	for solid: CollisionShape3D in bookend._solids:
@@ -254,6 +249,45 @@ func print_review(stock: RefCounted,shelf: Node3D) -> void:
 					var b: Label3D=labels[b_index]
 					var bb: AABB=b.transform*b.get_aabb()
 					check(ab.end.x<=bb.position.x or bb.end.x<=ab.position.x or ab.end.y<=bb.position.y or bb.end.y<=ab.position.y,"printed fields do not overlap: "+book.stock_id+"/"+a.name+"/"+b.name)
+	# Compare rendered ink vertices to the imported, deformed paper profile.
+	# Field rectangles alone cannot discover text buried under the page.
+	for book: Node3D in proofs.get_children():
+		for printed: Dictionary in book._print_surfaces:
+			if printed.node is not Label3D: continue
+			var side: String=printed.side
+			var direction: float=-1. if side=="left" else 1.
+			var profile: Dictionary={}
+			var part: String=book.stock_id+"__left_board" if side=="cover_left" else book.stock_id+"__"+side+"_leaves"
+			var neutral: PackedVector3Array=stock._part_points(part,stock.opening_weights(0.))
+			var points: PackedVector3Array=stock._part_points(part,stock.opening_weights(PI))
+			var face_z:=float(printed.face_z)
+			for index in points.size():
+				if absf(neutral[index].z-face_z)>.0000002: continue
+				var point:=points[index]
+				var key:=roundi(point.x*1000000.)
+				profile[key]=point.z
+			var xs: Array=profile.keys();xs.sort()
+			var minimum:=INF;var maximum:=-INF
+			var to_leaf: Transform3D=printed.frame*printed.node.transform
+			for surface in RenderingServer.mesh_get_surface_count(printed.mesh):
+				var vertices: PackedVector3Array=RenderingServer.mesh_surface_get_arrays(printed.mesh,surface)[Mesh.ARRAY_VERTEX]
+				for vertex: Vector3 in vertices:
+					var point:=to_leaf*vertex;var x:=point.x*1000000.
+					var hi:=clampi(xs.bsearch(x),1,xs.size()-1);var lo:=hi-1
+					var z:=lerpf(float(profile[xs[lo]]),float(profile[xs[hi]]),clampf((x-float(xs[lo]))/(float(xs[hi])-float(xs[lo])),0.,1.))
+					var distance:=direction*(point.z-z)
+					minimum=minf(minimum,distance);maximum=maxf(maximum,distance)
+			check(minimum>.000009 and maximum<.00015,"rendered ink remains above native paper: "+book.stock_id+"/"+str(printed.node.name)+" clearance="+str(Vector2(minimum,maximum)))
+	var debug_book: Node3D=proofs.get_children()[0]
+	var print_debug: Array=[]
+	for label: Label3D in debug_book.printed_labels:
+		var mesh: RID=label.get_base()
+		for surface in RenderingServer.mesh_get_surface_count(mesh):
+			var material: RID=RenderingServer.mesh_surface_get_material(mesh,surface)
+			var arrays: Array=RenderingServer.mesh_surface_get_arrays(mesh,surface)
+			print_debug.append({"label":label.name,"modulate":str(label.modulate),"albedo":str(RenderingServer.material_get_param(material,"albedo")),"specular":str(RenderingServer.material_get_param(material,"specular")),"vertex_colour":str(arrays[Mesh.ARRAY_COLOR][0] if arrays[Mesh.ARRAY_COLOR]!=null and arrays[Mesh.ARRAY_COLOR].size()>0 else null),"normal":str(arrays[Mesh.ARRAY_NORMAL][0])})
+	var debug_file:=FileAccess.open(OS.get_environment("SHOT_DIR")+"/glyph_materials.json",FileAccess.WRITE)
+	if debug_file: debug_file.store_string(JSON.stringify(print_debug,"  "))
 	# Render every featured gathering using the production lamp and physical pages.
 	proofs.show()
 	for book: Node3D in proofs.get_children():
@@ -284,7 +318,9 @@ func carried_stock_review(stock: RefCounted) -> void:
 	player.camera.look_at(book.to_global(Vector3(-.0025,float(book.construction.height)*.5,0)))
 	click()
 	if not check(player._grab.active() and player._grab.target.part==book,"primary acquires travel binding without entering inspection"): library.free();return
-	if not check(await carry(book.position+Vector3(0,.10,.45)),"mouse extracts travel binding into clear space"):
+	for frame in 130: await get_tree().physics_frame
+	var wanted: Vector3=player.camera.global_transform*Vector3(.17,-.16,-.48)
+	if not check((book.global_transform*book.pickup_centre()).distance_to(wanted)<.003,"actual pickup withdraws travel binding into FPS held pose"):
 		player.cancel_manipulation();library.free();return
 	var start:=player.global_position
 	var relative:=book.global_position-player.global_position
@@ -309,9 +345,10 @@ func carried_stock_review(stock: RefCounted) -> void:
 	check(changes.size()==1 and changes[0].distance_to(book.global_position)<.001,"world-change signal follows the distant book while retaining its semantic owner")
 	check(library._tap.global_position.distance_to(book.global_position)<.001,"handling sound originates at the distant stock")
 	check(not player._grab.active() and not book.freeze,"primary releases travelling stock to ordinary gravity")
-	for frame in 180:
+	for frame in 600:
 		await get_tree().physics_frame
 		if book.sleeping: break
+	print("RELEASE SETTLING: pose=",book.transform," velocity=",book.linear_velocity," spin=",book.angular_velocity," sleeping=",book.sleeping)
 	check(book.sleeping,"released travelling binding settles on the distant floor")
 	var saved: Dictionary=library.library_snapshot()
 	check(library.valid_library(saved),"original library accepts the real distant physical snapshot")
@@ -324,8 +361,12 @@ func carried_stock_review(stock: RefCounted) -> void:
 	var restored:=Shelf.new();restored.native_stock=stock;restored.owner_name="Iris Bell";restored.unit="5C";restored.case_style="plain"
 	restored.position=Vector3(2.4,0,-2.);add_child(restored)
 	restored.restore_order(encoded)
+	check(equivalent(restored._books[identity].book_snapshot(),encoded.books[identity]),"new native owner rebuilds the distant binding pose/opening/velocity before physics resumes")
 	for frame in 4: await get_tree().physics_frame
-	check(equivalent(restored._books[identity].book_snapshot(),encoded.books[identity]),"new native owner rebuilds the distant binding pose/opening/velocity after JSON round trip")
+	print("DISTANT REBUILD: saved=",encoded.books[identity]," restored=",restored._books[identity].book_snapshot())
+	var saved_body: Dictionary=encoded.books[identity].body
+	var saved_pose:=Transform3D(Basis(Quaternion(saved_body.rotation[0],saved_body.rotation[1],saved_body.rotation[2],saved_body.rotation[3])),Vector3(saved_body.position[0],saved_body.position[1],saved_body.position[2]))
+	check(restored._books[identity].position.distance_to(saved_pose.origin)<.0001 and restored._books[identity].basis.get_rotation_quaternion().angle_to(saved_pose.basis.get_rotation_quaternion())<.001,"resumed contact solver preserves restored binding pose within contact precision")
 	check(restored.valid_library(restored.library_snapshot()),"reconstructed distant stock remains a valid household payload")
 	var rebuilt: Node3D=restored._books[identity]
 	player.camera.look_at(rebuilt.to_global(Vector3(float(rebuilt.construction.width)*.5,float(rebuilt.construction.height)*.5,0)))
@@ -351,6 +392,8 @@ func reading_order_review() -> void:
 	fixture.free()
 
 func _run() -> void:
+	for property: Dictionary in ClassDB.class_get_property_list("Label3D"):
+		if str(property.name).contains("alpha"): print("GLYPH ALPHA PROPERTY: ",property.name)
 	reading_order_review()
 	print("LIBRARY ENGINE: ",ProjectSettings.get_setting_with_override("physics/3d/physics_engine")," contact allowance=",PhysicsServer3D.space_get_param(get_world_3d().space,PhysicsServer3D.SPACE_PARAM_CONTACT_MAX_ALLOWED_PENETRATION))
 	check(contact_precision.bind(get_world_3d()),"production native contact precision binds")

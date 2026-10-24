@@ -1,0 +1,4 @@
+SCRIPT ERROR: Parse Error: Function "validate_in_world()" is a coroutine, so it must be called with "await".
+   at: GDScript::reload (res://tests/v2_played_streaming_profile.gd:120)
+ERROR: Failed to load script "res://tests/v2_played_streaming_profile.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

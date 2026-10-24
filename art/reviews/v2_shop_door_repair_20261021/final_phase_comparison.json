@@ -1,0 +1,284 @@
+{
+  "evidence_class": "INERT",
+  "settings": "Same1280x720 Forward+ VSync-off uncapped two-cycle route. Timed controller movement yields different sample counts; second-cycle phases remain separate. Persistent driver/cache history was not reset. Specific causal attributions use separate paired controls.",
+  "whole_before": {
+    "p50_ms": 71.343,
+    "p90_ms": 90.189,
+    "p95_ms": 104.288,
+    "p99_ms": 547.389,
+    "max_ms": 1093.229,
+    "frames": 801,
+    "over_33ms": 801,
+    "over_50ms": 764,
+    "over_100ms": 47,
+    "over_250ms": 25,
+    "over_1000ms": 2
+  },
+  "whole_after": {
+    "p50_ms": 40.008,
+    "p90_ms": 53.472,
+    "p95_ms": 59.447,
+    "p99_ms": 108.42,
+    "max_ms": 267.882,
+    "frames": 1010,
+    "over_33ms": 694,
+    "over_50ms": 197,
+    "over_100ms": 12,
+    "over_250ms": 1,
+    "over_1000ms": 0
+  },
+  "phases": {
+    "idle": {
+      "before": {
+        "p50_ms": 70.969,
+        "p90_ms": 81.605,
+        "p95_ms": 84.542,
+        "p99_ms": 112.272,
+        "max_ms": 130.654,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 2,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      },
+      "after": {
+        "p50_ms": 31.712,
+        "p90_ms": 36.065,
+        "p95_ms": 38.366,
+        "p99_ms": 42.382,
+        "max_ms": 73.731,
+        "frames": 119,
+        "over_33ms": 47,
+        "over_50ms": 1,
+        "over_100ms": 0,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      }
+    },
+    "lobby_turn_0": {
+      "before": {
+        "p50_ms": 78.258,
+        "p90_ms": 85.375,
+        "p95_ms": 88.599,
+        "p99_ms": 91.635,
+        "max_ms": 95.208,
+        "frames": 120,
+        "over_33ms": 120,
+        "over_50ms": 120,
+        "over_100ms": 0,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      },
+      "after": {
+        "p50_ms": 49.986,
+        "p90_ms": 55.022,
+        "p95_ms": 56.329,
+        "p99_ms": 58.592,
+        "max_ms": 59.138,
+        "frames": 120,
+        "over_33ms": 118,
+        "over_50ms": 59,
+        "over_100ms": 0,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      }
+    },
+    "lobby_turn_1": {
+      "before": {
+        "p50_ms": 76.51,
+        "p90_ms": 86.514,
+        "p95_ms": 88.229,
+        "p99_ms": 123.336,
+        "max_ms": 150.512,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 119,
+        "over_100ms": 2,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      },
+      "after": {
+        "p50_ms": 48.538,
+        "p90_ms": 53.63,
+        "p95_ms": 57.139,
+        "p99_ms": 60.061,
+        "max_ms": 81.478,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 39,
+        "over_100ms": 0,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      }
+    },
+    "return_and_stream_0": {
+      "before": {
+        "p50_ms": 83.186,
+        "p90_ms": 99.043,
+        "p95_ms": 101.902,
+        "p99_ms": 134.507,
+        "max_ms": 134.507,
+        "frames": 52,
+        "over_33ms": 52,
+        "over_50ms": 46,
+        "over_100ms": 5,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      },
+      "after": {
+        "p50_ms": 46.995,
+        "p90_ms": 56.352,
+        "p95_ms": 61.393,
+        "p99_ms": 120.826,
+        "max_ms": 120.826,
+        "frames": 87,
+        "over_33ms": 82,
+        "over_50ms": 27,
+        "over_100ms": 1,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      }
+    },
+    "return_and_stream_1": {
+      "before": {
+        "p50_ms": 83.385,
+        "p90_ms": 102.378,
+        "p95_ms": 112.781,
+        "p99_ms": 131.297,
+        "max_ms": 131.297,
+        "frames": 51,
+        "over_33ms": 51,
+        "over_50ms": 45,
+        "over_100ms": 7,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      },
+      "after": {
+        "p50_ms": 44.963,
+        "p90_ms": 55.608,
+        "p95_ms": 59.447,
+        "p99_ms": 120.517,
+        "max_ms": 120.517,
+        "frames": 90,
+        "over_33ms": 82,
+        "over_50ms": 21,
+        "over_100ms": 2,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      }
+    },
+    "street_turn_0": {
+      "before": {
+        "p50_ms": 59.643,
+        "p90_ms": 70.893,
+        "p95_ms": 75.29,
+        "p99_ms": 547.389,
+        "max_ms": 1093.229,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 108,
+        "over_100ms": 5,
+        "over_250ms": 3,
+        "over_1000ms": 1
+      },
+      "after": {
+        "p50_ms": 36.876,
+        "p90_ms": 66.392,
+        "p95_ms": 79.036,
+        "p99_ms": 110.346,
+        "max_ms": 129.093,
+        "frames": 119,
+        "over_33ms": 84,
+        "over_50ms": 19,
+        "over_100ms": 3,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      }
+    },
+    "street_turn_1": {
+      "before": {
+        "p50_ms": 62.717,
+        "p90_ms": 74.677,
+        "p95_ms": 150.577,
+        "p99_ms": 594.385,
+        "max_ms": 1062.972,
+        "frames": 119,
+        "over_33ms": 119,
+        "over_50ms": 111,
+        "over_100ms": 6,
+        "over_250ms": 5,
+        "over_1000ms": 1
+      },
+      "after": {
+        "p50_ms": 38.741,
+        "p90_ms": 68.082,
+        "p95_ms": 74.828,
+        "p99_ms": 113.871,
+        "max_ms": 126.876,
+        "frames": 119,
+        "over_33ms": 84,
+        "over_50ms": 19,
+        "over_100ms": 2,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      }
+    },
+    "walk_and_grab_0": {
+      "before": {
+        "p50_ms": 73.067,
+        "p90_ms": 458.03,
+        "p95_ms": 620.383,
+        "p99_ms": 908.088,
+        "max_ms": 908.088,
+        "frames": 52,
+        "over_33ms": 52,
+        "over_50ms": 49,
+        "over_100ms": 12,
+        "over_250ms": 10,
+        "over_1000ms": 0
+      },
+      "after": {
+        "p50_ms": 32.69,
+        "p90_ms": 44.761,
+        "p95_ms": 61.737,
+        "p99_ms": 138.974,
+        "max_ms": 267.882,
+        "frames": 118,
+        "over_33ms": 55,
+        "over_50ms": 8,
+        "over_100ms": 3,
+        "over_250ms": 1,
+        "over_1000ms": 0
+      }
+    },
+    "walk_and_grab_1": {
+      "before": {
+        "p50_ms": 62.128,
+        "p90_ms": 404.261,
+        "p95_ms": 473.084,
+        "p99_ms": 896.737,
+        "max_ms": 896.737,
+        "frames": 50,
+        "over_33ms": 50,
+        "over_50ms": 47,
+        "over_100ms": 8,
+        "over_250ms": 7,
+        "over_1000ms": 0
+      },
+      "after": {
+        "p50_ms": 29.001,
+        "p90_ms": 38.047,
+        "p95_ms": 47.675,
+        "p99_ms": 99.251,
+        "max_ms": 128.744,
+        "frames": 119,
+        "over_33ms": 23,
+        "over_50ms": 4,
+        "over_100ms": 1,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      }
+    }
+  }
+}

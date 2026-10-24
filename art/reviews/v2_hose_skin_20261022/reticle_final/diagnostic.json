@@ -1,0 +1,299 @@
+{
+	"checks": 69,
+	"checks_log": [
+		{
+			"label": "legacy negative control dispatches on click without hand motion",
+			"ok": true
+		},
+		{
+			"label": "native housing and independent plunger mount",
+			"ok": true
+		},
+		{
+			"label": "fixed housing has no operable target, semantic prompt or activation",
+			"ok": true
+		},
+		{
+			"label": "fixed housing click cannot emit a world modification",
+			"ok": true
+		},
+		{
+			"label": "exactly five native material draws",
+			"ok": true
+		},
+		{
+			"label": "physical PBR uses metre charts Plunger__bakelite",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Plunger__bakelite",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Plunger__bakelite",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Plunger__bakelite",
+			"ok": true
+		},
+		{
+			"label": "custom normal map enabled Plunger__bakelite",
+			"ok": true
+		},
+		{
+			"label": "physical PBR uses metre charts Plunger__brass_dull",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Plunger__brass_dull",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Plunger__brass_dull",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Plunger__brass_dull",
+			"ok": true
+		},
+		{
+			"label": "custom normal map enabled Plunger__brass_dull",
+			"ok": true
+		},
+		{
+			"label": "physical PBR uses metre charts Fixed__bakelite",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Fixed__bakelite",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Fixed__bakelite",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Fixed__bakelite",
+			"ok": true
+		},
+		{
+			"label": "custom normal map enabled Fixed__bakelite",
+			"ok": true
+		},
+		{
+			"label": "physical PBR uses metre charts Fixed__brass_dull",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Fixed__brass_dull",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Fixed__brass_dull",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Fixed__brass_dull",
+			"ok": true
+		},
+		{
+			"label": "custom normal map enabled Fixed__brass_dull",
+			"ok": true
+		},
+		{
+			"label": "physical PBR uses metre charts Fixed__metal",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Fixed__metal",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Fixed__metal",
+			"ok": true
+		},
+		{
+			"label": "complete loaded physical-map mip chain Fixed__metal",
+			"ok": true
+		},
+		{
+			"label": "custom normal map enabled Fixed__metal",
+			"ok": true
+		},
+		{
+			"label": "all imported UV metrics and tangent derivatives pass",
+			"ok": true
+		},
+		{
+			"label": "bearing probes hit original imported stop and moving shoulder",
+			"ok": true
+		},
+		{
+			"label": "native shoulder gap matches physical stroke within forty micrometres",
+			"ok": true
+		},
+		{
+			"label": "hover resolves actual plunger",
+			"ok": true
+		},
+		{
+			"label": "primary click grabs specific moving part",
+			"ok": true
+		},
+		{
+			"label": "acquire does not activate or move control",
+			"ok": true
+		},
+		{
+			"label": "half stroke stays partial and cannot invoke case callback",
+			"ok": true
+		},
+		{
+			"label": "drag leaves camera stable",
+			"ok": true
+		},
+		{
+			"label": "next click releases partial stroke without activation",
+			"ok": true
+		},
+		{
+			"label": "spring returns exactly to rest and stops processing",
+			"ok": true
+		},
+		{
+			"label": "micrometre residual settles and rearms after actual partial stroke 0.000561",
+			"ok": true
+		},
+		{
+			"label": "micrometre residual settles and rearms after actual partial stroke 0.001116",
+			"ok": true
+		},
+		{
+			"label": "micrometre residual settles and rearms after actual partial stroke 0.001672",
+			"ok": true
+		},
+		{
+			"label": "micrometre residual settles and rearms after actual partial stroke 0.002228",
+			"ok": true
+		},
+		{
+			"label": "actual full mouse stroke dispatches callback once",
+			"ok": true
+		},
+		{
+			"label": "bearing probes hit original imported stop and moving shoulder",
+			"ok": true
+		},
+		{
+			"label": "native shoulder gap matches physical stroke within forty micrometres",
+			"ok": true
+		},
+		{
+			"label": "physical stop cannot overtravel or repeat outcome",
+			"ok": true
+		},
+		{
+			"label": "accepted stop supplies shared reticle limit feedback",
+			"ok": true
+		},
+		{
+			"label": "same latched grab cannot duplicate activation by pumping",
+			"ok": true
+		},
+		{
+			"label": "release returns without another outcome",
+			"ok": true
+		},
+		{
+			"label": "new deliberate full press can activate once again",
+			"ok": true
+		},
+		{
+			"label": "foreign physical plate blocks cap before activation",
+			"ok": true
+		},
+		{
+			"label": "shared accepted-motion feedback reports physical obstruction",
+			"ok": true
+		},
+		{
+			"label": "spring withdraws from obstruction without another callback",
+			"ok": true
+		},
+		{
+			"label": "removing physical obstruction restores the original full stroke",
+			"ok": true
+		},
+		{
+			"label": "legacy direct call cannot bypass installed physical control",
+			"ok": true
+		},
+		{
+			"label": "case refusal retains installed housing and collision",
+			"ok": true
+		},
+		{
+			"label": "disabled case control is neither selectable nor actionable",
+			"ok": true
+		},
+		{
+			"label": "save authority refuses physical acquisition",
+			"ok": true
+		},
+		{
+			"label": "lost reach releases partial control without case action",
+			"ok": true
+		},
+		{
+			"label": "lost-reach release springs back",
+			"ok": true
+		},
+		{
+			"label": "case disable interrupts ownership safely",
+			"ok": true
+		},
+		{
+			"label": "full stroke preserves case owner's unrepaired-transmitter refusal",
+			"ok": true
+		},
+		{
+			"label": "full stroke preserves missing-caption refusal",
+			"ok": true
+		},
+		{
+			"label": "full physical press delegates permitted stabilization to case authority",
+			"ok": true
+		},
+		{
+			"label": "repeat calibration cannot invent repair or inventory facts",
+			"ok": true
+		},
+		{
+			"label": "control and moving targets retire with original case object",
+			"ok": true
+		},
+		{
+			"label": "all mechanical, authority and teardown phases executed",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"native_events": [
+		{
+			"at": 1875,
+			"phase": "setup",
+			"relative": "(0.0, 0.0)"
+		}
+	],
+	"phases": [
+		"native_mount",
+		"loaded_surfaces",
+		"partial_release",
+		"full_stroke",
+		"guards",
+		"case_authority",
+		"teardown"
+	]
+}

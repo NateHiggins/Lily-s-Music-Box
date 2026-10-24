@@ -1,0 +1,6 @@
+ERROR: V2 FPS HOSE WORLD PROFILE: actual unracked carry moves the original nozzle and full hose: local_b
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _exercise_pull (res://tests/v2_unracked_hose_world_survey.gd:122)
+       [2] _carry_control (res://tests/v2_hose_fps_world_profile.gd:62)

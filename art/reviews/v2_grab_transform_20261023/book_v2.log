@@ -1,0 +1,28 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+[PLAYER] pointer captured (backtick key)
+HELD WALL: active=true feedback={ "state": "blocked", "transform_axis": -1, "transform_rotating": false, "inspectable": true } blocked=true last={ "collider": @StaticBody3D@114:<StaticBody3D#835186610431>, "normal": (0.020883, -0.331841, -0.943104), "point": (0.084686, 1.170495, 0.822258) }
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=V2BookSlotHandBench:<Node3D#747072652790>
+CURSOR REQUEST: (517.0, 301.0)
+CURSOR DELIVERED: 0
+CURSOR REQUEST: (623.0, 341.0)
+CURSOR DELIVERED: 0
+FLOATING COVER TARGET: { "owner": @Node3D@6:<Node3D#792723475357>, "part": OpeningGathering:<Node3D#796347354741>, "frame": Book_missing:<RigidBody3D#796313800307>, "kind": "hinge", "axis": (0.0, -1.0, 0.0), "minimum": 0.0, "maximum": 3.14159265358979, "minimum_lever": 0.025, "constraint_feedback": <anonymous lambda>(self lambda), "change_origin": <anonymous lambda>(self lambda), "read": <anonymous lambda>(self lambda), "write": <anonymous lambda>(self lambda), "begin": <anonymous lambda>(self lambda), "owns": <anonymous lambda>(self lambda), "end": RigidBody3D(v2_readable_book.gd)::_release, "hit_position": (0.002913, 1.164952, 0.460253) }
+HINGE STOP: OpeningGathering wanted=3.14159265358979 actual=1.27999999631884
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=V2BookSlotHandBench:<Node3D#747072652790>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=V2BookSlotHandBench:<Node3D#747072652790>
+SPACE BEGIN inspecting=false
+SPACE END inspecting=true
+SPACE RETURN paused=false current=V2BookSlotHandBench:<Node3D#747072652790>
+SPACE BEGIN inspecting=true
+SPACE END inspecting=false
+SPACE RETURN paused=false current=V2BookSlotHandBench:<Node3D#747072652790>
+BOOK SLOT HAND DIAGNOSTIC: FAIL checks=101 failures=["stock translates on selected X axis through actual mouse input"]

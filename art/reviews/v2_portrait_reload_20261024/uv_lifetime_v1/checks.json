@@ -1,0 +1,49 @@
+{
+	"checks": [
+		{
+			"label": "frozen original ledger retains a retired shader and texture",
+			"ok": true
+		},
+		{
+			"label": "original retention ends when the entire policy world exits",
+			"ok": true
+		},
+		{
+			"label": "same live shared material receives authored-UV selection",
+			"ok": true
+		},
+		{
+			"label": "live material state remains mutable through the same reference",
+			"ok": true
+		},
+		{
+			"label": "explicit and implicit surface shader modes remain corrected",
+			"ok": true
+		},
+		{
+			"label": "weak restoration records release retired local shader and texture",
+			"ok": true
+		},
+		{
+			"label": "bounded incremental pruning reclaims dead restoration records",
+			"ok": true
+		},
+		{
+			"label": "pruning preserves every live restoration record",
+			"ok": true
+		},
+		{
+			"label": "shared catalogue projection defaults restore on world exit",
+			"ok": true
+		},
+		{
+			"label": "teardown preserves live color state",
+			"ok": true
+		},
+		{
+			"label": "explicit and implicit shader defaults restore exactly",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT"
+}

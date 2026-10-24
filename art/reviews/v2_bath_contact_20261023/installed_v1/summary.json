@@ -1,0 +1,107 @@
+{
+  "evidence_class": "INERT",
+  "wall_ms": {
+    "n": 63,
+    "p50": 55.981,
+    "p95": 103.495,
+    "p99": 130.903,
+    "max": 153.938,
+    "over_50": 59,
+    "over_100": 4
+  },
+  "query_median_ms": 2.03,
+  "slide_ms": {
+    "n": 239,
+    "p50": 1.73,
+    "p95": 8.185,
+    "p99": 13.056,
+    "max": 13.42,
+    "over_50": 0,
+    "over_100": 0
+  },
+  "step_ms": {
+    "n": 239,
+    "p50": 0.001,
+    "p95": 0.114,
+    "p99": 0.489,
+    "max": 9.932,
+    "over_50": 0,
+    "over_100": 0
+  },
+  "end": "(-14.27148, 6.399907, -0.684665)",
+  "interactions": {
+    "checks": [
+      {
+        "label": "actual player ray selects operable part: installed_sink_[0, 1.5707963267949]",
+        "ok": true
+      },
+      {
+        "label": "click grabs without toggling: installed_sink_[0, 1.5707963267949]",
+        "ok": true
+      },
+      {
+        "label": "physical stop remains saveable: installed_sink_[0, 1.5707963267949]",
+        "ok": true
+      },
+      {
+        "label": "mouse motion reaches stop and second click releases: installed_sink_[0, 1.5707963267949]",
+        "ok": true
+      },
+      {
+        "label": "actual player ray selects operable part: installed_sink_[1, 1.5707963267949]",
+        "ok": true
+      },
+      {
+        "label": "click grabs without toggling: installed_sink_[1, 1.5707963267949]",
+        "ok": true
+      },
+      {
+        "label": "physical stop remains saveable: installed_sink_[1, 1.5707963267949]",
+        "ok": true
+      },
+      {
+        "label": "mouse motion reaches stop and second click releases: installed_sink_[1, 1.5707963267949]",
+        "ok": true
+      },
+      {
+        "label": "actual player ray selects operable part: installed_sink_[0, 0.0]",
+        "ok": true
+      },
+      {
+        "label": "click grabs without toggling: installed_sink_[0, 0.0]",
+        "ok": true
+      },
+      {
+        "label": "physical stop remains saveable: installed_sink_[0, 0.0]",
+        "ok": true
+      },
+      {
+        "label": "mouse motion reaches stop and second click releases: installed_sink_[0, 0.0]",
+        "ok": true
+      },
+      {
+        "label": "actual player ray selects operable part: installed_sink_[1, 0.0]",
+        "ok": true
+      },
+      {
+        "label": "click grabs without toggling: installed_sink_[1, 0.0]",
+        "ok": true
+      },
+      {
+        "label": "physical stop remains saveable: installed_sink_[1, 0.0]",
+        "ok": true
+      },
+      {
+        "label": "mouse motion reaches stop and second click releases: installed_sink_[1, 0.0]",
+        "ok": true
+      },
+      {
+        "label": "open basin permits exact plug target",
+        "ok": true
+      }
+    ],
+    "limits": "Direct placement at full-capsule service stance, actual valve click/motion/release and authoritative plug target. Not a walked approach or full save reconstruction.",
+    "stance": "(-15.15, 6.400265, -0.530001)"
+  },
+  "failures": []
+}

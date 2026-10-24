@@ -14,6 +14,12 @@ ROOT=Path(__file__).resolve().parents[3]
 OUT=Path(os.environ.get('ORISON_FIRE_CAPACITY_OUT',str(ROOT/'tmp/v2-fire-hand-20261019/capacity_stock_native1'))).resolve()
 assert OUT.is_relative_to(ROOT/'tmp'),'Candidate outputs must remain under repository tmp'
 OUT.mkdir(parents=True,exist_ok=True)
+# Keep the previous dense study reproducible by default. A separate, uninstalled
+# real-time candidate can choose fewer curved samples and longer straight spans;
+# it must repeat its native bearing, UV, deformation and contact checks.
+CURVE_STEPS=int(os.environ.get('ORISON_FIRE_CAPACITY_CURVE_STEPS','16'))
+TRANSITION_STEPS=int(os.environ.get('ORISON_FIRE_CAPACITY_TRANSITION_STEPS','64'))
+assert CURVE_STEPS in [8,16,32] and TRANSITION_STEPS in [16,32,64]
 def add(a,b):return tuple(x+y for x,y in zip(a,b))
 def sub(a,b):return tuple(x-y for x,y in zip(a,b))
 def mul(a,s):return tuple(x*s for x in a)
@@ -29,20 +35,24 @@ def build(depth):
             if points and norm(sub(p,points[-1]))<1e-10:continue
             points.append(p);radii.append(radius);sides.append(side)
     def line(p):append([points[-1],p])
-    def arc(center,r,a,c,n=16):
+    def arc(center,r,a,c,n=CURVE_STEPS):
+        # Keep the original bearing profiles on every supported crown and the
+        # larger visible return. Eight samples on a supported crown intersect
+        # the rounded carrier between the original bearing-ray locations.
+        if r>.02 or c==0:n=max(n,16)
         append([(center[0]+r*math.cos(t),center[1]+r*math.sin(t),center[2]) for t in [a+(c-a)*i/n for i in range(n+1)]])
     old=1.5708;angle=old+math.pi
     port=(-.060+.012*math.sin(old),.068-.012*math.cos(old),.112)
     axis=(-math.sin(angle),math.cos(angle),0)
     mouth=(-.265,.119,.100);entry=sub(port,mul(axis,.025))
-    tail=bezier(mouth,add(mouth,(0,-.09,.02)),sub(entry,mul(axis,.05)),entry,64)
+    tail=bezier(mouth,add(mouth,(0,-.09,.02)),sub(entry,mul(axis,.05)),entry,TRANSITION_STEPS)
     tail += [add(entry,mul(sub(port,entry),i/8)) for i in range(1,9)]
     append(list(reversed(tail)),(.021,.021))
     throat_axis=json.loads((ROOT/'game/data/orison_v2/fire_fold_stock.json').read_text())['nozzle_mouth_axes'][0]
     def transition(t):
         s=min(1.,t*1.5);s=s*s*(3-2*s)
         return (.021+(.004-.021)*s,.021+(.0315-.021)*s)
-    append(bezier(mouth,add(mouth,mul(throat_axis,.025)),(-.274,.164,.100),(-.274,.189,.100),64),transition)
+    append(bezier(mouth,add(mouth,mul(throat_axis,.025)),(-.274,.164,.100),(-.274,.189,.100),TRANSITION_STEPS),transition)
     xs=[-.274+(j//2)*.0295+(.020 if j%2 else 0) for j in range(26)]
     for j,x in enumerate(xs):
         end_y=.680 if j%2==0 else (.180 if j==1 else .680-depth)
@@ -55,7 +65,7 @@ def build(depth):
     radius=(.170-xs[-1])/2
     arc(((xs[-1]+.170)/2,.680-depth,.100),radius,math.pi,math.tau)
     line((.170,.300,.100))
-    append(bezier((.170,.300,.100),(.170,.350,.100),(.170,.395,.098),(.170,.445,.098),64),lambda t:(.004+(.021-.004)*t*t*(3-2*t),.0315+(.021-.0315)*t*t*(3-2*t)))
+    append(bezier((.170,.300,.100),(.170,.350,.100),(.170,.395,.098),(.170,.445,.098),TRANSITION_STEPS),lambda t:(.004+(.021-.004)*t*t*(3-2*t),.0315+(.021-.0315)*t*t*(3-2*t)))
     return points,radii,sides
 def length(points):return sum(norm(sub(b,a)) for a,b in zip(points,points[1:]))
 lo=.35;hi=.62
@@ -67,7 +77,7 @@ depth=(lo+hi)*.5
 points,radii,sides=build(depth);actual=length(points)
 assert abs(actual-15.24)<1e-9,(depth,actual)
 max_span=float(os.environ.get('ORISON_FIRE_CAPACITY_MAX_SPAN','.005'))
-assert math.isfinite(max_span) and .001<=max_span<=.02
+assert math.isfinite(max_span) and .001<=max_span<=.10
 # Preserve every authored curved sample and both ports. Subdivide only long
 # intervals, carrying the original radial stock and side direction with them.
 old_points,old_radii,old_sides=points,radii,sides
@@ -87,6 +97,7 @@ report={'evidence_class':'INERT','scope':'Uninstalled single-bank capacity clay 
 'legs':26,'crowns':13,'crown_centre_y_m':.680,'single_bank_depth_m':.100,
 'points':points,'radii':radii,'sides':sides,
 'maximum_segment_m':max_span,'original_ring_count':len(old_points),'ring_count':len(points),
+'curve_steps':CURVE_STEPS,'transition_steps':TRANSITION_STEPS,
 'source_bindings':{p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [Path(__file__).resolve(),ROOT/'game/data/orison_v2/fire_fold_stock.json']}}
 (OUT/'capacity_plan.json').write_text(json.dumps(report,indent=2)+'\n')
 print('CAPACITY STUDY',json.dumps({k:v for k,v in report.items() if k not in ['points','radii','sides','source_bindings']}))
@@ -261,6 +272,10 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'art/blender/fire_capacity_candidat
 catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']
 finish=dict(catalog_key='linen',tint=[.75,.71,.59,1],pigment=1.,normal=.08,roughness=.9,metallic=0.)
 mesh.materials.clear();mesh.materials.append(material(ROOT,'linen',finish,catalog))
+# The editable source is also the rig builder's input. Save after binding the
+# actual linen maps, not merely the earlier clay preview.
+bpy.ops.file.make_paths_relative()
+bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'art/blender/fire_capacity_candidate.blend'))
 exports=bpy.data.collections.new('Single bank cloth candidate');bpy.context.scene.collection.children.link(exports);exports.objects.link(obj)
 result=export(OUT,'fire_capacity_candidate',exports,material_names_only=True)
 result.update(evidence_class='INERT',scope='Uninstalled segmented conformal native cloth candidate with physical metre charts. No loaded mip, mechanism, pose or appearance acceptance.',worst_triangles=sorted(worst,reverse=True)[:12],islands=len(islands),uv_area_quantiles=np.quantile(ratios,[0,.01,.5,.99,1]).tolist(),uv_stretch_quantiles=np.quantile(stretches,[0,.01,.5,.99,1]).tolist())

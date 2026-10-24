@@ -1,0 +1,419 @@
+{
+  "failures": [],
+  "trace": [
+    {
+      "actual": [
+        1.92500019073486,
+        1.6007993221283,
+        1.20408153533936
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.87984156608582,
+        1.60094308853149,
+        1.27155876159668
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.87984, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        3.9724714756012,
+        3.2002158164978,
+        -2.30219841003418
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -2.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.97459936141968,
+        3.2002158164978,
+        -3.22610759735107
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision": "(-4.045499, 4.4004, -8.088)"
+      }
+    },
+    {
+      "actual": [
+        2.02187871932983,
+        3.20078659057617,
+        -3.39177989959717
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.83812355995178,
+        3.20094203948975,
+        -3.29386043548584
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/@MeshInstance3D@31563/NativeCaseCollision": "(-4.039999, 4.4, -8.08)",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision": "(-4.045099, 4.4004, -8.0878)"
+      }
+    },
+    {
+      "actual": [
+        3.97201180458069,
+        1.62178313732147,
+        1.22082328796387
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.972011, 1.76, -12.6)"
+      }
+    },
+    {
+      "actual": [
+        2.01972103118896,
+        1.60094058513641,
+        1.27156448364258
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.967424, 1.76, -12.6)",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-2.022647, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        1.92693698406219,
+        0.000811518577393144,
+        -3.40258693695068
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        0.0,
+        -3.5
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        1.92503929138184,
+        1.60084414482117,
+        1.20407390594482
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.87984037399292,
+        1.60094058513641,
+        1.27156448364258
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.876844, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        3.97246766090393,
+        3.20026516914368,
+        -2.30207347869873
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -2.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.97459888458252,
+        3.20026516914368,
+        -3.22605514526367
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision": "(-4.045199, 4.4002, -8.0879)"
+      }
+    },
+    {
+      "actual": [
+        2.02188730239868,
+        3.20081925392151,
+        -3.3917760848999
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.83811593055725,
+        3.2009437084198,
+        -3.29384326934814
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/@MeshInstance3D@31563/NativeCaseCollision": "(-4.039999, 4.4, -8.08)",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision": "(-4.045199, 4.4004, -8.0879)"
+      }
+    },
+    {
+      "actual": [
+        3.97201156616211,
+        1.62185204029083,
+        1.22076511383057
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.97201, 1.76, -12.6)"
+      }
+    },
+    {
+      "actual": [
+        2.01973032951355,
+        1.60094273090363,
+        1.27157688140869
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.967424, 1.76, -12.6)",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-2.019729, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        1.92693758010864,
+        0.000797050714027137,
+        -3.40256500244141
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        0.0,
+        -3.5
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        1.92503929138184,
+        1.60085129737854,
+        1.20407199859619
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.87982964515686,
+        1.60094237327576,
+        1.27157688140869
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.879828, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        3.9724702835083,
+        3.20024657249451,
+        -2.30219268798828
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -2.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.97459888458252,
+        3.20024657249451,
+        -3.22608375549316
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision": "(-4.045499, 4.4004, -8.088)"
+      }
+    },
+    {
+      "actual": [
+        2.02189254760742,
+        3.200838804245,
+        -3.39177894592285
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.8381404876709,
+        3.20094108581543,
+        -3.29383373260498
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -3.40000009536743
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/@MeshInstance3D@31563/NativeCaseCollision": "(-4.039999, 4.4, -8.08)",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/F02_FIRE_LINE_STAIR/CabinetDoor/NativeHandCollision": "(-4.045199, 4.4004, -8.0879)"
+      }
+    },
+    {
+      "actual": [
+        3.97201180458069,
+        1.6219265460968,
+        1.22070693969727
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.972011, 1.76, -12.6)"
+      }
+    },
+    {
+      "actual": [
+        2.01973509788513,
+        1.60094058513641,
+        1.27158164978027
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.967425, 1.76, -12.6)",
+        "/root/V2FloorTransitionProfile/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-2.022615, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        1.92693758010864,
+        0.000786686956416816,
+        -3.40255260467529
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        0.0,
+        -3.5
+      ],
+      "wall_contacts": {}
+    }
+  ]
+}

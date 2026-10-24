@@ -68,6 +68,26 @@ func _run() -> void:
 		print("NATIVE CASE FLOOR LOADED UV: PASS");get_tree().quit(0);return
 	var actor: Node3D=native.stations.values()[0].get_ref()
 	var joint: Node3D=actor._nozzle_joint
+	var initial_mechanism: Dictionary=actor.mechanism_snapshot()
+	var seated: Dictionary=initial_mechanism.duplicate(true)
+	seated.facts.nozzle_coupled=true
+	var seated_origin: Vector3=joint.thread_pose(0.,0.).origin
+	seated.nozzle={"angle":0.,"spin":0.,"clocking":0.,"loose":false,"position":[seated_origin.x,seated_origin.y,seated_origin.z]}
+	if not check(actor.valid_mechanism(seated),"ancestor regression starts from a valid seated mechanism"):
+		get_tree().quit(1);return
+	actor.restore_mechanism(seated)
+	var original_frame: Transform3D=adapter.root.global_transform
+	for shifted in [true,false]:
+		adapter.root.global_transform=original_frame*Transform3D(Basis(Vector3.UP,.13),Vector3(.11,0,.07)) if shifted else original_frame
+		for frame in 3:await get_tree().physics_frame
+		var published: Transform3D=PhysicsServer3D.body_get_state(joint.body.get_rid(),PhysicsServer3D.BODY_STATE_TRANSFORM)
+		check(published.is_equal_approx(joint.body.global_transform),"ancestor movement publishes the seated nozzle body to physics")
+		for index: int in joint._lever_shapes:
+			var lever_shape: CollisionShape3D=joint.body.get_child(index)
+			var physical: Transform3D=published*PhysicsServer3D.body_get_shape_transform(joint.body.get_rid(),index)
+			for row: Dictionary in joint._lever_rows:
+				if row.shape==lever_shape:check(physical.is_equal_approx(row.draw.global_transform),"ancestor movement keeps original lever physics at its native draw")
+	actor.restore_mechanism(initial_mechanism)
 	var facts: Dictionary=actor.maintenance_snapshot();facts.door_open=true;actor.restore_maintenance_snapshot(facts)
 	for frame in range(15):await get_tree().physics_frame
 	check(joint.loose and not actor.nozzle_coupled and joint.body.position.y<joint.receiver.origin.y-.01,"unthreaded original nozzle falls onto actual cabinet support")
@@ -75,6 +95,9 @@ func _run() -> void:
 	if OS.get_environment("ORISON_NOZZLE_WORLD_POSE")=="1":player.global_position=actor.to_global(Vector3(-.1,-1.175,1.15))
 	await get_tree().physics_frame;await get_tree().physics_frame
 	var hand: Node=Hand.PatrolHand.new();hand.player=player;add_child(hand)
+	# The standalone programme includes the installed review's actual valve
+	# closure, after entering its supported inspection camera.
+	OS.set_environment("ORISON_NOZZLE_CLOSED_VALVE","1")
 	await exercise_nozzle(actor,hand)
 	if not failures.is_empty():get_tree().quit(1);return
 	player.set_lamp_enabled(false)
@@ -116,8 +139,12 @@ func exercise_nozzle(actor: Node3D,hand: Node) -> void:
 	var goal: Vector3=joint.body.position+Vector3(0,.060,.060)
 	# Withdraw the loose spigot from the recessed receiving nut before
 	# lifting across its rim; keep the actual collision and hand path.
-	var clear: Vector3=joint.body.position+joint.receiver.basis.y*.012
-	check(await carry_path(actor,actor._play_pipe,point,[clear,goal+joint.receiver.basis.y*.012,goal],.0001),"actual grab and depth wheel carry the separate original nozzle")
+	# Lift from the actual bearing before withdrawing across the rim. A
+	# horizontal waypoint at the old contact height fights floor recovery.
+	# Keep the original final goal, reach tolerance and all collision checks.
+	var lifted: Vector3=joint.body.position+Vector3.UP*.001
+	var clear: Vector3=lifted+joint.receiver.basis.y*.012
+	check(await carry_path(actor,actor._play_pipe,point,[lifted,clear,goal+joint.receiver.basis.y*.012,goal],.0001),"actual grab and depth wheel carry the separate original nozzle")
 	check(joint.loose and not actor.nozzle_coupled and player.camera.global_transform.is_equal_approx(eye),"loose carrying leaves repair facts false and inspection camera static")
 	var inlet: Transform3D=joint.seat.global_transform
 	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),1.1),"empty captured nut turns freely through actual mouse input")
@@ -150,7 +177,7 @@ func exercise_nozzle(actor: Node3D,hand: Node) -> void:
 	check(actor.nozzle_coupled and not actor.gasket_seen and not actor.tag_signed,"only completed nozzle travel changes its coupling fact")
 	check(joint.seat.global_transform.is_equal_approx(inlet),"screwing the nozzle preserves its actual fixed hose inlet")
 	var saved: Dictionary=actor.mechanism_snapshot()
-	check(actor.valid_mechanism(saved) and saved.size()==7,"seven-field household mechanism includes physical nozzle state")
+	check(actor.valid_mechanism(saved) and saved.size()==8+int(saved.has("hose")) and saved.has_all(["door","lever","joint","loose","gasket","facts","nozzle","rubber_dressed"]),"household mechanism includes nozzle pose and existing rubber dressing state")
 	var bad: Dictionary=saved.duplicate(true);bad.nozzle.angle=joint.stock.maximum_angle()+1.
 	check(not actor.valid_mechanism(bad),"saved overtravel cannot replace actual thread state")
 	bad=saved.duplicate(true);bad.facts.nozzle_coupled=false

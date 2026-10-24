@@ -1,0 +1,12 @@
+{
+  "evidence_class": "INERT",
+  "decision": "REJECTED",
+  "reason": "Thin-wire convex engine ray contacts are up to 0.282 mm from original native triangle boundary despite identical footprints/capsule travel. Do not relax the precision test. All production integration reverted; original native trimesh retained.",
+  "runs": [
+    "native_convex_contacts",
+    "native_convex_contacts_v2",
+    "native_convex_contacts_v3",
+    "native_convex_contacts_v4",
+    "native_convex_contacts_v5"
+  ]
+}

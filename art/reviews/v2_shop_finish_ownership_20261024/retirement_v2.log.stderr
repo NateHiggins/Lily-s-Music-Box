@@ -1,0 +1,18 @@
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: _news_views (res://tests/orison_v2_news_fittings_test.gd:148)
+   GDScript backtrace (most recent call first):
+       [0] _news_views (res://tests/orison_v2_news_fittings_test.gd:148)
+       [1] validate_in_world (res://tests/orison_v2_news_fittings_test.gd:92)
+       [2] validate_in_world (res://tests/v2_arcade_retirement_review.gd:5)
+       [3] _run (res://tests/orison_v2_news_fittings_test.gd:31)
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: validate_in_world (res://tests/orison_v2_news_fittings_test.gd:94)
+   GDScript backtrace (most recent call first):
+       [0] validate_in_world (res://tests/orison_v2_news_fittings_test.gd:94)
+       [1] validate_in_world (res://tests/v2_arcade_retirement_review.gd:5)
+       [2] _run (res://tests/orison_v2_news_fittings_test.gd:31)
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: validate_in_world (res://tests/v2_arcade_retirement_review.gd:37)
+   GDScript backtrace (most recent call first):
+       [0] validate_in_world (res://tests/v2_arcade_retirement_review.gd:37)
+       [1] _run (res://tests/orison_v2_news_fittings_test.gd:31)

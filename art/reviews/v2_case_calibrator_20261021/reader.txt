@@ -1,0 +1,13 @@
+data consumption audit
+  DURABLE_NUMERIC_MONOTONIC_ONLY: 2
+  FIELD_UNREAD: 1104
+  FILE_UNREAD: 9
+  known (in baseline): 1109
+  resolved since baseline: 199
+  NEW: 6
+  - FIELD_UNREAD game/data/orison_v2/case_calibrator.json:cap_rest_top_y_m (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/case_calibrator.json:guide_top_y_m (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/case_calibrator.json:housing_bounds_m (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/case_calibrator.json:stop_fixed_y_m (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/case_calibrator.json:stop_rest_y_m (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/case_calibrator.json:triangles (zero production token readers)

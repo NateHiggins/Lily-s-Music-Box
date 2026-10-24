@@ -1,0 +1,60 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+INSPECT CHECK: RaisedLid hover indicates actual movable part = true
+INSPECT CHECK: RaisedLid latched hand indicator = true
+INSPECT CHECK: RaisedLid visible part acquires = true
+INSPECT CHECK: RaisedLid mouse reaches physical stop = true
+INSPECT CHECK: RaisedLid travel limit feedback retains physical stop = true
+INSPECT CHECK: RaisedLid hover indicates actual movable part = true
+INSPECT CHECK: RaisedLid latched hand indicator = true
+INSPECT CHECK: RaisedLid visible part acquires = true
+INSPECT CHECK: RaisedLid mouse reaches physical stop = true
+INSPECT CHECK: RaisedLid travel limit feedback retains physical stop = true
+INSPECT CHECK: SeatHinge hover indicates actual movable part = true
+INSPECT CHECK: SeatHinge latched hand indicator = true
+INSPECT CHECK: SeatHinge visible part acquires = true
+INSPECT CHECK: SeatHinge mouse reaches physical stop = true
+INSPECT CHECK: SeatHinge travel limit feedback retains physical stop = true
+INSPECT CHECK: SeatHinge hover indicates actual movable part = true
+INSPECT CHECK: SeatHinge latched hand indicator = true
+INSPECT CHECK: SeatHinge visible part acquires = true
+INSPECT CHECK: SeatHinge mouse reaches physical stop = true
+INSPECT CHECK: SeatHinge travel limit feedback retains physical stop = true
+INSPECT CHECK: actual handle ray grabs = true
+INSPECT CHECK: inspection capability comes from selected mechanism = true
+INSPECT CHECK: handle selection is precise = true
+INSPECT CHECK: grab alone does not flush = true
+INSPECT CHECK: mouse turns full handle stroke = true
+INSPECT CHECK: handle lifts discharge and starts water flow = true
+INSPECT CHECK: float refills and stops water = true
+INSPECT CHECK: cover is separately targetable = true
+INSPECT CHECK: cover can clear cistern rim = true
+INSPECT CHECK: space while grabbed enters inspection = true
+INSPECT CHECK: inspection releases hand and exposes pointer = true
+INSPECT CHECK: cursor motion leaves inspection camera static = true
+INSPECT CHECK: free cursor selects internal float = true
+INSPECT CHECK: internal float follows mouse = true
+DISCHARGE picked=FlushBall:<Node3D#95948900766>
+INSPECT CHECK: cursor selects discharge ball and lift rod = true
+INSPECT CHECK: lifting discharge opens drain independently of handle = true
+INSPECT CHECK: escape restores exact previous eye = true
+INSPECT CHECK: exit restores captured look = true
+INSPECT CHECK: inspection can be reentered = true
+INSPECT CHECK: save reconstruction cancellation restores eye and releases hand = true
+INSPECT CHECK: all articulated parts have valid durable state = true
+INSPECT CHECK: snapshot roundtrip retains mechanisms = true
+INSPECT CHECK: nonfinite water snapshot rejected = true
+INSPECT CHECK: locked physical leaf can be gripped = true
+INSPECT CHECK: rejected owner motion shows blocked without bypassing lock = true
+INSPECT CHECK: startup slip does not teach retired controls = true
+INSPECT CHECK: collapsed carry has only one HUD line = true
+INSPECT CHECK: HUD follows actual printed first line = true
+INSPECT CHECK: E expands message = true
+INSPECT CHECK: device is confined to right third = true
+INSPECT CHECK: E collapses message = true
+INSPECT CHECK: E cannot operate a world object = true
+INSPECT CHECK: carried beam stays steady across chatter cycles and movement shocks = true
+INSPECT CHECK: carried optical observation reports stable output = true
+TOILET INSPECTION: PASS; 54 checks; 0 failures

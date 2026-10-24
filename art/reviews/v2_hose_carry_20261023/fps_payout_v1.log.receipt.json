@@ -1,0 +1,66 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 27.64,
+  "exit_code": 1,
+  "finished_utc": "2026-10-23T06:46:19Z",
+  "started_utc": "2026-10-23T06:45:51Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 UNRACKED HOSE: FAIL failures=1"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Cannot call method 'store_string' on a null value."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_carry_20261023/fps_payout_v1.log.stderr",
+  "stderr_sha256": "2cfc43a8e4232d2ac1c4d95d10a077682abbcf90c960695acda7ab88b0738876",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_carry_20261023/fps_payout_v1.log",
+  "stdout_sha256": "9786050108c3a6f3ed0d8529fc44ed8332eebd2c4cf6a74d358224f6ada5251e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2UnrackedHoseBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_carry_20261023/fps_payout_v1",
+ "source": {
+  "dirty_paths": 2974,
+  "dirty_sample": [
+   "M game/scripts/props/fire_unracked_hose.gd",
+   " M game/tests/v2_unracked_hose_bench.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_reset.png"
+  ],
+  "repository_head": "d6ea2a50cb68f4a44461076784c19fc01d9bc8fb",
+  "repository_tree": "d2a0f5a0a0ab079ca0f2d694c2ade69e1bd59d33",
+  "runtime_inputs_sha256": "c07123288ac9f561e6cfabad536632a1b90bf3717fac2775aa160c16453a3f0a",
+  "test_path": "game/tests/v2_unracked_hose_bench.gd",
+  "test_sha256": "ec2c539b788feb21ce286e58b3677933cd9800f3262a2c3f7bab8be7e751281a"
+ },
+ "windowed": true
+}

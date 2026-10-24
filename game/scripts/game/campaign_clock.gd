@@ -32,46 +32,51 @@ func bind_state() -> bool:
 ## No sampling or mutation; load validates before older save-version migration.
 func validate_saved_state() -> bool:
 	validation_error = ""
-	var saved: Variant = RealityState.data.get("campaign_clock", {})
+	var checked := validate_snapshot(RealityState.data.get("campaign_clock", {}))
+	return true if checked.ok else _invalid(str(checked.error))
+
+
+## Pure inspection of a detached candidate; no sampling, mutation or notices.
+static func validate_snapshot(saved: Variant) -> Dictionary:
 	if saved is not Dictionary:
-		return _invalid("The saved campaign clock is not a record.")
+		return {"ok":false,"error":"The saved campaign clock is not a record."}
 	var value: Dictionary = saved
 	if value.is_empty():
-		return true
+		return {"ok":true}
 	if not _integer_between(value.get("start_minute_of_day"), 0, 1439) \
 			or not _finite_number(value.get("elapsed_minutes")) \
 			or float(value.elapsed_minutes) < 0.0:
-		return _invalid("The saved start time or elapsed duration is invalid.")
+		return {"ok":false,"error":"The saved start time or elapsed duration is invalid."}
 	if not value.has("schema_version"):
 		var last_key := 365 if str(value.get("epoch_date", "")) == "TEST_INJECTED" else 366
 		if str(value.get("start_weekday", "")) not in DAY_NAMES \
 				or not _integer_between(value.get("start_doy"), 1, last_key) \
 				or float(value.elapsed_minutes) > 4000000000.0:
-			return _invalid("The legacy campaign clock is incomplete or outside the calendar range.")
-		return true
+			return {"ok":false,"error":"The legacy campaign clock is incomplete or outside the calendar range."}
+		return {"ok":true}
 	if not _integer_between(value.get("schema_version"), SCHEMA_VERSION, SCHEMA_VERSION):
-		return _invalid("This campaign clock version is not supported.")
+		return {"ok":false,"error":"This campaign clock version is not supported."}
 	var mode := str(value.get("calendar_mode", ""))
 	if mode == "test_schedule_365":
 		if str(value.get("start_weekday", "")) not in DAY_NAMES \
 				or not _integer_between(value.get("start_doy"), 1, 365) \
 				or float(value.elapsed_minutes) > 4000000000.0:
-			return _invalid("The injected schedule clock is invalid.")
-		return true
+			return {"ok":false,"error":"The injected schedule clock is invalid."}
+		return {"ok":true}
 	if mode != "gregorian" or not _valid_date_values(value):
-		return _invalid("The saved campaign date is invalid.")
+		return {"ok":false,"error":"The saved campaign date is invalid."}
 	if str(value.get("timezone", "")) != "America/New_York" \
 			or not _integer_between(value.get("utc_offset_minutes"), -300, -300):
-		return _invalid("The saved campaign time zone is invalid.")
+		return {"ok":false,"error":"The saved campaign time zone is invalid."}
 	var ordinal := _ordinal(int(value.year), int(value.month), int(value.day_of_month))
 	if float(value.elapsed_minutes) >= float(LAST_ORDINAL - ordinal + 1) * MINUTES_PER_DAY \
 			- float(value.start_minute_of_day):
-		return _invalid("The saved campaign duration exceeds the calendar range.")
+		return {"ok":false,"error":"The saved campaign duration exceeds the calendar range."}
 	if str(value.get("epoch_date", "")) != _date_string(value) \
 			or str(value.get("start_weekday", "")) != DAY_NAMES[ordinal % 7] \
 			or not _integer_between(value.get("start_doy"), _schedule_doy(value), _schedule_doy(value)):
-		return _invalid("The saved campaign date fields disagree.")
-	return true
+		return {"ok":false,"error":"The saved campaign date fields disagree."}
+	return {"ok":true}
 
 
 func _invalid(reason: String) -> bool:

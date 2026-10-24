@@ -198,12 +198,15 @@ static func apply(root: Node) -> int:
 			if stock.resource_name in ["M_glassish", "M_screen"]:
 				recipes = [[stock.albedo_color,"milk_glass"]]
 			if visited.has(stock.get_instance_id()): continue
-			if stock.albedo_texture != null and stock.roughness_texture != null and stock.normal_texture != null and stock.normal_enabled: continue
+			# Clear source glass deliberately carries literal tint/alpha, without
+			# a diffuse map. Supplying missing PBR must not milk over that glass.
+			var literal_glass: bool=stock.resource_name=="M_glassish" and stock.transparency in [BaseMaterial3D.TRANSPARENCY_ALPHA,BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS] and stock.albedo_color.a>0.0 and stock.albedo_color.a<1.0
+			if (stock.albedo_texture != null or literal_glass) and stock.roughness_texture != null and stock.normal_texture != null and stock.normal_enabled: continue
 			for recipe: Array in recipes:
 				if not stock.albedo_color.is_equal_approx(recipe[0]): continue
 				var maps := MatLib.get_mat(recipe[1])
 				var retained_surface_maps := stock.roughness_texture != null and stock.normal_texture != null
-				if stock.albedo_texture == null: stock.albedo_texture = maps.albedo_texture
+				if stock.albedo_texture == null and not literal_glass: stock.albedo_texture = maps.albedo_texture
 				if stock.roughness_texture == null: stock.roughness_texture = maps.roughness_texture
 				if stock.normal_texture == null: stock.normal_texture = maps.normal_texture
 				stock.normal_enabled = true

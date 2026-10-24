@@ -1,0 +1,79 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"limits": "Two diagnostic camera stations, not walked access or material acceptance. Main scene shadows remain enabled; fixture personality/weather can vary. Refresh samples are still-eye, not the movement phases.",
+	"records": [
+		{
+			"eye": "[X: (0.793856, 0.0, -0.608106), Y: (0.058889, 0.9953, 0.076877), Z: (0.605248, -0.09684, 0.790124), O: (-14.325, 7.813, -0.575)]",
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_lit_shadows.png",
+			"origin": "(-14.32499, 7.813, -0.575)",
+			"powered": true,
+			"refresh_count": 4,
+			"shadows": true
+		},
+		{
+			"eye": "[X: (0.793856, 0.0, -0.608106), Y: (0.058889, 0.9953, 0.076877), Z: (0.605248, -0.09684, 0.790124), O: (-14.325, 7.813, -0.575)]",
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_lit_unshadowed.png",
+			"origin": "(-14.32501, 7.813, -0.575)",
+			"powered": true,
+			"refresh_count": 5,
+			"shadows": false
+		},
+		{
+			"eye": "[X: (0.793856, 0.0, -0.608106), Y: (0.058889, 0.9953, 0.076877), Z: (0.605248, -0.09684, 0.790124), O: (-14.325, 7.813, -0.575)]",
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_dark_shadows.png",
+			"origin": "(-14.32499, 7.813, -0.575)",
+			"powered": false,
+			"refresh_count": 6,
+			"shadows": true
+		},
+		{
+			"eye": "[X: (0.793856, 0.0, -0.608106), Y: (0.058889, 0.9953, 0.076877), Z: (0.605248, -0.09684, 0.790124), O: (-14.325, 7.813, -0.575)]",
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_dark_unshadowed.png",
+			"origin": "(-14.32501, 7.813, -0.575)",
+			"powered": false,
+			"refresh_count": 7,
+			"shadows": false
+		},
+		{
+			"eye": "[X: (-0.847201, 0.0, -0.531273), Y: (-0.08552, 0.986959, 0.136375), Z: (0.524344, 0.160971, -0.836153), O: (7.900002, 17.413, -20.65)]",
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_lit_shadows.png",
+			"origin": "(7.900012, 17.413, -20.65)",
+			"powered": true,
+			"refresh_count": 9,
+			"shadows": true
+		},
+		{
+			"eye": "[X: (-0.847201, 0.0, -0.531273), Y: (-0.08552, 0.986959, 0.136375), Z: (0.524344, 0.160971, -0.836153), O: (7.900002, 17.413, -20.65)]",
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_lit_unshadowed.png",
+			"origin": "(7.899992, 17.413, -20.65)",
+			"powered": true,
+			"refresh_count": 10,
+			"shadows": false
+		},
+		{
+			"eye": "[X: (-0.847201, 0.0, -0.531273), Y: (-0.08552, 0.986959, 0.136375), Z: (0.524344, 0.160971, -0.836153), O: (7.900002, 17.413, -20.65)]",
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_dark_shadows.png",
+			"origin": "(7.900012, 17.413, -20.65)",
+			"powered": false,
+			"refresh_count": 11,
+			"shadows": true
+		},
+		{
+			"eye": "[X: (-0.847201, 0.0, -0.531273), Y: (-0.08552, 0.986959, 0.136375), Z: (0.524344, 0.160971, -0.836153), O: (7.900002, 17.413, -20.65)]",
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_dark_unshadowed.png",
+			"origin": "(7.899992, 17.413, -20.65)",
+			"powered": false,
+			"refresh_count": 12,
+			"shadows": false
+		}
+	]
+}

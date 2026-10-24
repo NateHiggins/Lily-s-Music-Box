@@ -1,0 +1,365 @@
+{
+  "evidence_class": "INERT",
+  "status": "SCOPED_REPAIR_PASS_VERIFIED",
+  "source_head": "87ce3dad",
+  "origin_main": "21f0b1fc27ac8e25c8466fe1ed2ce64019ee7ede",
+  "production_sources_unchanged_since": "1762e9fd",
+  "performance": {
+    "evidence_class": "INERT",
+    "settings": "1280x720 Forward+ RTX4080 VSync off uncapped. Quiet final measurements; no input-to-photon claim. Original golden route lacks Space camera entry; separate final camera diagnostic has no before-source timing sample.",
+    "distributions": {
+      "golden_profile_v2": {
+        "p50_ms": 31.937,
+        "p90_ms": 60.172,
+        "p95_ms": 67.392,
+        "p99_ms": 279.031,
+        "max_ms": 2327.624,
+        "frames": 3157,
+        "over_33ms": 1529,
+        "over_50ms": 745,
+        "over_100ms": 68,
+        "over_250ms": 45,
+        "over_1000ms": 2
+      },
+      "golden_final": {
+        "p50_ms": 30.814,
+        "p90_ms": 58.22,
+        "p95_ms": 64.495,
+        "p99_ms": 118.695,
+        "max_ms": 364.821,
+        "frames": 3518,
+        "over_33ms": 1658,
+        "over_50ms": 776,
+        "over_100ms": 42,
+        "over_250ms": 5,
+        "over_1000ms": 0
+      },
+      "performance_final": {
+        "p50_ms": 40.008,
+        "p90_ms": 53.472,
+        "p95_ms": 59.447,
+        "p99_ms": 108.42,
+        "max_ms": 267.882,
+        "frames": 1010,
+        "over_33ms": 694,
+        "over_50ms": 197,
+        "over_100ms": 12,
+        "over_250ms": 1,
+        "over_1000ms": 0
+      },
+      "inspection_quiet_v2": {
+        "p50_ms": 37.919,
+        "p90_ms": 44.511,
+        "p95_ms": 46.117,
+        "p99_ms": 56.636,
+        "max_ms": 180.686,
+        "frames": 894,
+        "over_33ms": 528,
+        "over_50ms": 14,
+        "over_100ms": 1,
+        "over_250ms": 0,
+        "over_1000ms": 0
+      }
+    }
+  },
+  "short_route_original": {
+    "p50_ms": 71.343,
+    "p90_ms": 90.189,
+    "p95_ms": 104.288,
+    "p99_ms": 547.389,
+    "max_ms": 1093.229,
+    "frames": 801,
+    "over_33ms": 801,
+    "over_50ms": 764,
+    "over_100ms": 47,
+    "over_250ms": 25,
+    "over_1000ms": 2
+  },
+  "published_surface_consistency": {
+    "result": "PASS",
+    "counts": {
+      "defects": 0
+    },
+    "defects": [],
+    "coverage": {
+      "draws": 28339,
+      "materials": 6436,
+      "textures": 530
+    }
+  },
+  "published_first_slice_consistency": {
+    "evidence_class": "INERT",
+    "result": "PASS",
+    "checks": 359,
+    "scope": "Seven first-slice authorities: opening detector/report, seven player-ray patrol stations, ordered Lena round, actual disk save and CampaignShell rebuild. Call/dialogue and the closed prior-job gate are fixtures; board, boiler and radiator outcomes come from physical input. Service travel and workshop insert delivery use the collision-bearing controller. Patrol stance placement and whole-world visual acceptance remain separate."
+  },
+  "published_spatial_consistency": {
+    "evidence_class": "INERT",
+    "result": "PASS",
+    "runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+    "surface_inputs_sha256": "09a56bdb883265b8caa86502e26e95c27842a3ae1038c03c8a20b09fb1b61ea6",
+    "packets": [
+      {
+        "packet": "access_upper_cohort_20261018",
+        "result": "PASS",
+        "contract_sha256": "6134b0c3478e76ecf5fc8ee8fa327e5cbd7902a6d154404d6ce5bb6e019e2063",
+        "rooms": 69
+      },
+      {
+        "packet": "access_home_cohort_20261018",
+        "result": "PASS",
+        "contract_sha256": "e47ed8affeb6f7f3c7db9cd022d329a98e054a0cae0c7e9b05dac8fac4c63402",
+        "rooms": 62
+      },
+      {
+        "packet": "access_service_circulation_20261018",
+        "result": "PASS",
+        "contract_sha256": "312005df6f4c39d2b68cf1985f831a6fa1ab771eee58feec9d91339e89b4aa56",
+        "rooms": 27
+      },
+      {
+        "packet": "access_public_landings_20261018",
+        "result": "PASS",
+        "contract_sha256": "dcc047ae3716b04063bd5456804a74fe8b5380c52dc51fe6b9ff90d4e6e3d5ea",
+        "rooms": 6
+      },
+      {
+        "packet": "access_exterior_regions_20261019",
+        "result": "PASS",
+        "contract_sha256": "aa34ee98b3750804fecb98ddf1e0ba3d1a5ef12fe166dc80fd60d33f58632863",
+        "rooms": 1
+      }
+    ]
+  },
+  "board": {
+    "path": "art/reviews/v2_shop_door_repair_20261021/final_board_registered/board.json",
+    "passing": 109,
+    "existing_incomplete": 1,
+    "tools_tests_passing": 98,
+    "regressions": [],
+    "scope_blockers_before": {
+      "blockers.FIRST_SLICE_TECHNICAL": 0,
+      "blockers.FULL_BUILDING_RUNTIME": 26,
+      "blockers.FULL_BUILDING_STRUCTURAL": 56,
+      "blockers.GOLDEN_SHIFT_V2": 1,
+      "blockers.PRODUCTION_CUTOVER": 73,
+      "blockers.V1_RETIREMENT": 75
+    },
+    "scope_blockers_after": {
+      "blockers.FIRST_SLICE_TECHNICAL": 0,
+      "blockers.FULL_BUILDING_RUNTIME": 25,
+      "blockers.FULL_BUILDING_STRUCTURAL": 21,
+      "blockers.GOLDEN_SHIFT_V2": 1,
+      "blockers.PRODUCTION_CUTOVER": 38,
+      "blockers.V1_RETIREMENT": 40
+    },
+    "requirements_changed": [
+      {
+        "id": "circ.F01.public_landing",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F02.service_core",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F02.service_route",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F03.public_core",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F03.public_landing",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F03.service_core",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F03.service_route",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F04.service_core",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F04.service_route",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F05.public_core",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F05.public_landing",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F05.service_core",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F05.service_route",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F06.public_core",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F06.public_landing",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F06.service_core",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "circ.F06.service_route",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "contract.F04_B_BATH",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "contract.F04_B_CLOSET",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "contract.F04_B_KITCHEN",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "region.arcade_hall",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "region.arcade_portal",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "region.arcade_throat",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "region.construction_seam",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "region.shops",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "region.street",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.2A",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.2A.cooking",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.2A.sanitary",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.2A.sleep",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.2A.storage",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.2B.cooking",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.2B.living",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.2B.sanitary",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.2B.sleep",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.4B.cooking",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.4B.sanitary",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      },
+      {
+        "id": "unit.4B.storage",
+        "before": "PROGRAMMED",
+        "after": "SPATIALLY_PROVEN"
+      }
+    ],
+    "clean_merge_base_certificate": false
+  },
+  "coverage": {
+    "areas_accounted": 226,
+    "camera_areas": 225,
+    "camera_views": 900,
+    "settle_frames_per_direction": 20,
+    "reviewed_sheets": 29,
+    "shallow_recess": "Separate actual three-point walk and three full-resolution views; no interior capsule stance claimed."
+  },
+  "remaining": [
+    "250\u2013365 ms route spikes; sustained60FPS unqualified",
+    "Fine appearance and lowest mop-bucket floor contact",
+    "Small clipped highlights and seven existing TextureRID warnings",
+    "Existing whole-V2 ledger blockers and human acceptance",
+    "Management candidate requires fully clean checkout; unrelated/generated untracked work remains"
+  ]
+}

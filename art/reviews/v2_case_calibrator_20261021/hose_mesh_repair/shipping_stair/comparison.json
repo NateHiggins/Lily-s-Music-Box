@@ -1,0 +1,157 @@
+{
+  "evidence_class": "INERT",
+  "kind": "paired_performance_diagnostic",
+  "scope": "Same-run A/B/A on shipping lower-cap query with simplified native hose meshes in every leg. Does not isolate mesh savings, measure hardware input latency, or renew runtime qualifications.",
+  "current": {
+    "resolution": "(1280.0, 720.0)",
+    "vsync": false,
+    "capture_control": false,
+    "failures": [],
+    "cycles": {
+      "original_a_": {
+        "movement": {
+          "n": 780,
+          "p50_ms": 47.566,
+          "p95_ms": 77.119,
+          "p99_ms": 217.335,
+          "max_ms": 293.656,
+          "over_100_ms": 28,
+          "over_250_ms": 1
+        },
+        "inspection": {
+          "n": 270,
+          "p50_ms": 26.654,
+          "p95_ms": 90.948,
+          "p99_ms": 97.935,
+          "max_ms": 163.516,
+          "over_100_ms": 2,
+          "over_250_ms": 0
+        },
+        "physics_ticks": 2764,
+        "step": {
+          "n": 1069,
+          "p50_ms": 0.003,
+          "p95_ms": 0.006,
+          "p99_ms": 7.736,
+          "max_ms": 211.168,
+          "over_100_ms": 1,
+          "over_250_ms": 0
+        },
+        "slide": {
+          "n": 1069,
+          "p50_ms": 4.013,
+          "p95_ms": 20.038,
+          "p99_ms": 20.703,
+          "max_ms": 28.065,
+          "over_100_ms": 0,
+          "over_250_ms": 0
+        },
+        "prompt": {
+          "n": 1051,
+          "p50_ms": 0.055,
+          "p95_ms": 0.118,
+          "p99_ms": 0.138,
+          "max_ms": 0.308,
+          "over_100_ms": 0,
+          "over_250_ms": 0
+        }
+      },
+      "lower_cap_b_": {
+        "movement": {
+          "n": 774,
+          "p50_ms": 46.633,
+          "p95_ms": 72.552,
+          "p99_ms": 196.586,
+          "max_ms": 224.247,
+          "over_100_ms": 28,
+          "over_250_ms": 0
+        },
+        "inspection": {
+          "n": 271,
+          "p50_ms": 30.835,
+          "p95_ms": 98.895,
+          "p99_ms": 107.032,
+          "max_ms": 156.963,
+          "over_100_ms": 12,
+          "over_250_ms": 0
+        },
+        "physics_ticks": 2884,
+        "step": {
+          "n": 1097,
+          "p50_ms": 0.003,
+          "p95_ms": 0.006,
+          "p99_ms": 0.069,
+          "max_ms": 0.084,
+          "over_100_ms": 0,
+          "over_250_ms": 0
+        },
+        "slide": {
+          "n": 1097,
+          "p50_ms": 4.001,
+          "p95_ms": 17.575,
+          "p99_ms": 20.74,
+          "max_ms": 28.108,
+          "over_100_ms": 0,
+          "over_250_ms": 0
+        },
+        "prompt": {
+          "n": 1046,
+          "p50_ms": 0.054,
+          "p95_ms": 0.118,
+          "p99_ms": 0.129,
+          "max_ms": 0.196,
+          "over_100_ms": 0,
+          "over_250_ms": 0
+        }
+      },
+      "restored_a_": {
+        "movement": {
+          "n": 782,
+          "p50_ms": 47.248,
+          "p95_ms": 72.287,
+          "p99_ms": 201.903,
+          "max_ms": 313.334,
+          "over_100_ms": 33,
+          "over_250_ms": 1
+        },
+        "inspection": {
+          "n": 270,
+          "p50_ms": 30.721,
+          "p95_ms": 96.03,
+          "p99_ms": 108.579,
+          "max_ms": 166.556,
+          "over_100_ms": 5,
+          "over_250_ms": 0
+        },
+        "physics_ticks": 2875,
+        "step": {
+          "n": 1098,
+          "p50_ms": 0.003,
+          "p95_ms": 0.005,
+          "p99_ms": 7.738,
+          "max_ms": 207.849,
+          "over_100_ms": 1,
+          "over_250_ms": 0
+        },
+        "slide": {
+          "n": 1098,
+          "p50_ms": 3.984,
+          "p95_ms": 17.63,
+          "p99_ms": 20.646,
+          "max_ms": 27.763,
+          "over_100_ms": 0,
+          "over_250_ms": 0
+        },
+        "prompt": {
+          "n": 1053,
+          "p50_ms": 0.053,
+          "p95_ms": 0.119,
+          "p99_ms": 0.145,
+          "max_ms": 0.272,
+          "over_100_ms": 0,
+          "over_250_ms": 0
+        }
+      }
+    }
+  }
+}

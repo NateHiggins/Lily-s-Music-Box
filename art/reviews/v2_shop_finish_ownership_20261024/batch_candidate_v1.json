@@ -1,0 +1,53 @@
+[
+  {
+    "scene": "",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_finish_ownership_20261024\\import_candidate_v1.log",
+    "runner": "long",
+    "timeout": 300,
+    "extra_args": [
+      "--editor",
+      "--import",
+      "--quit"
+    ]
+  },
+  {
+    "scene": "res://tests/V2SharedFinishOwnershipTest.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_finish_ownership_20261024\\ownership_v1.log",
+    "runner": "serial",
+    "timeout": 90,
+    "windowed": true,
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_finish_ownership_20261024\\ownership_v1"
+  },
+  {
+    "scene": "res://tests/V2BathroomFinishStockBench.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v5.log",
+    "runner": "serial",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v5"
+  },
+  {
+    "scene": "res://tests/V2BathroomFinishingReview.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_bathroom_finishing_20261024\\world_v4.log",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_bathroom_finishing_20261024\\world_v4"
+  },
+  {
+    "scene": "res://tests/V2ArcadeRetirementReview.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_finish_ownership_20261024\\retirement_v1.log",
+    "runner": "long",
+    "timeout": 300,
+    "windowed": true,
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_finish_ownership_20261024\\retirement_v1"
+  },
+  {
+    "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_finish_ownership_20261024\\templates_v1.log",
+    "runner": "long",
+    "timeout": 1500,
+    "windowed": true,
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_finish_ownership_20261024\\templates_v1"
+  }
+]

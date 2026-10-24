@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 1.96,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T15:32:44Z",
+  "started_utc": "2026-10-21T15:32:41Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/depth_light_layers_v2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/depth_light_layers_v2.log",
+  "stdout_sha256": "eaab50669eb682d7d1359466384374557b6c3b71bcfb42e68a1333bf07f9e274"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2DepthLightLayersTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/depth_light_layers_v2",
+ "source": {
+  "dirty_paths": 2544,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  DOCS.md",
+   " M art/blender/bodega_frontage.blend",
+   " M art/blender/bodega_frontage_construction.json",
+   "AM art/reviews/v2_shop_door_repair_20261021/CONTINUATION.txt",
+   "A  art/reviews/v2_shop_door_repair_20261021/after_batch.json",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled.log",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled.log.receipt.json",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled.log.stderr",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled/F01_FRONT_STORE_ALCOVE_0.jpg",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled/F01_FRONT_STORE_ALCOVE_1.jpg",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled/F01_FRONT_STORE_ALCOVE_2.jpg",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled/F01_FRONT_STORE_ALCOVE_3.jpg",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled/F03_A_KITCHEN_0.jpg",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled/F03_A_KITCHEN_1.jpg",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled/F03_A_KITCHEN_2.jpg",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled/F03_A_KITCHEN_3.jpg",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled/F03_B_BATH_0.jpg",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled/F03_B_BATH_1.jpg",
+   "A  art/reviews/v2_shop_door_repair_20261021/area_settled/F03_B_BATH_2.jpg"
+  ],
+  "repository_head": "f82a4f0838991504a1a9401ba6bbff3287bc9f65",
+  "repository_tree": "bfb1effddb1a9fd69ded67fb70037ab906189fea",
+  "runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+  "test_path": "game/tests/v2_depth_light_layers_test.gd",
+  "test_sha256": "614f1bea0aaa6d4639eb424989ceda0beead29603b0176045e6703c226dec047"
+ },
+ "windowed": true
+}

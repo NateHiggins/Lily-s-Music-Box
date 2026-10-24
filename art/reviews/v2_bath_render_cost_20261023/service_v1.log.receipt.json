@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 192.62,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T17:41:09Z",
+  "started_utc": "2026-10-23T17:37:56Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "BATH RENDER COST: PASS diagnostic only"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_render_cost_20261023/service_v1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_render_cost_20261023/service_v1.log",
+  "stdout_sha256": "77575e528f07e00908ce1dfd86b6e401854837e567f86a5581d09df5a75aad37"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2BathServiceLightStudy.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_render_cost_20261023/service_v1",
+ "source": {
+  "dirty_paths": 3018,
+  "dirty_sample": [
+   "M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_reset.png",
+   "?? art/reviews/v2_arcade_clock_install_20261018/bench3/",
+   "?? art/reviews/v2_arcade_clock_install_20261018/native06/"
+  ],
+  "repository_head": "64ce1fa319b5a34204ea5b2a9bfb1253450baeba",
+  "repository_tree": "5cd319a2fa5fb90b0feca70a24b067751510a9a4",
+  "runtime_inputs_sha256": "2c8234a4ffe42fd97ee42503355aeb5035238cf137a6bf9bd9f3982dd341eb9e",
+  "test_path": "game/tests/v2_bath_service_light_study.gd",
+  "test_sha256": "0ff656b6f2d1ba8ba2ead437a3b8a1df33a99fc37372c7fb43b2706ff9dfca26"
+ },
+ "windowed": true
+}

@@ -1,0 +1,8 @@
+ERROR: V2 BATHROOM MOISTURE REVIEW: shut spray retires its GPU simulation
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _measure (res://tests/v2_bathroom_moisture_review.gd:48)
+       [2] _measure (res://tests/v2_bathroom_optics_profile.gd:27)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

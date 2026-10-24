@@ -9,6 +9,9 @@ class CursorBody extends AnimatableBody3D:
 class LooseBody extends RigidBody3D:
 	var provider: Callable
 	func manipulation_target(hit: Dictionary) -> Dictionary:return provider.call(hit)
+class SeatBody extends StaticBody3D:
+	var provider: Callable
+	func manipulation_target(_hit: Dictionary) -> Dictionary:return provider.call() if provider.is_valid() else {}
 class RadialEnvelope extends RefCounted:
 	var minimum:=INF
 	var peak:=-INF
@@ -62,6 +65,9 @@ var _bounds_stamp:=Transform3D.IDENTITY
 var _bounds_ready:=false
 var _world_box:=BoxShape3D.new()
 var receiver_queries:=0
+var hose_grip_provider: Callable
+var hose_seat_grip_provider: Callable
+var _submitted_poses: Dictionary={}
 func configure(owner_actor: Node3D) -> bool:
 	actor=owner_actor;stock=preload("res://scripts/props/fire_nozzle_joint_stock.gd").new()
 	if not stock.load_stock():return false
@@ -75,7 +81,8 @@ func configure(owner_actor: Node3D) -> bool:
 	seat.global_transform=actor.global_transform*receiver
 	nut=stock.make_part("NozzleNut");add_child(nut);nut.transform=receiver
 	spigot=stock.make_part("NozzleSpigot");actor._play_pipe.add_child(spigot)
-	var fixed:=StaticBody3D.new();fixed.name="NativeNozzleSeatCollision";fixed.collision_layer=1|FITTING_LAYER;seat.add_child(fixed)
+	var fixed:=SeatBody.new();fixed.name="NativeNozzleSeatCollision";fixed.collision_layer=1|FITTING_LAYER;seat.add_child(fixed)
+	fixed.provider=func():return hose_seat_grip_provider.call() if loose and hose_seat_grip_provider.is_valid() else {}
 	var shape:=ConcavePolygonShape3D.new();shape.set_faces(preload("res://scripts/props/fire_hose_rack.gd").imported_faces(seat.mesh))
 	var collision:=CollisionShape3D.new();collision.shape=shape;fixed.add_child(collision)
 	var hand:=CursorBody.new();hand.sync_to_physics=false;hand.name="NativeNozzleNutCursor";hand.collision_layer=CURSOR_LAYER;nut.add_child(hand);hand.provider=func(_hit: Dictionary):return nut_grip()
@@ -121,27 +128,66 @@ func thread_pose(value: float,phase: float=NAN) -> Transform3D:
 	if is_nan(phase):phase=clocking
 	return receiver*Transform3D(Basis(Vector3.UP,phase),Vector3(0,stock.body_y(value),0))
 func _apply_visuals() -> void:
-	actor._play_pipe.global_transform=body.global_transform
-	seat.global_transform=actor.global_transform*receiver
-	nut.transform=receiver*Transform3D(Basis(Vector3.UP,angle+spin),Vector3.ZERO)
-	for row: Dictionary in _lever_rows:row.shape.global_transform=row.draw.global_transform
+	_submit_global_pose(actor._play_pipe,body.global_transform)
+	_submit_global_pose(seat,actor.global_transform*receiver)
+	_submit_local_pose(nut,receiver*Transform3D(Basis(Vector3.UP,angle+spin),Vector3.ZERO))
+	for row: Dictionary in _lever_rows:_submit_global_pose(row.shape,row.draw.global_transform)
+func _submit_global_pose(node: Node3D,pose: Transform3D) -> void:
+	# Compare exact matrices. Parent movement must still submit even if the
+	# inherited node transform already looks correct: physics can publish later.
+	if _pose_was_submitted(node,pose):return
+	node.global_transform=pose
+	_submitted_poses[node]=[pose,node.transform,node.get_parent_node_3d().global_transform]
+func _submit_local_pose(node: Node3D,pose: Transform3D) -> void:
+	var world_pose: Transform3D=node.get_parent_node_3d().global_transform*pose
+	if _pose_was_submitted(node,world_pose) and node.transform==pose:return
+	node.transform=pose
+	_submitted_poses[node]=[world_pose,node.transform,node.get_parent_node_3d().global_transform]
+func _pose_was_submitted(node: Node3D,world_pose: Transform3D) -> bool:
+	if not _submitted_poses.has(node):return false
+	var previous: Array=_submitted_poses[node]
+	# Capture the accepted local pose: a global-to-local round trip need not
+	# reproduce the requested world matrix bit-for-bit at translated frames.
+	return previous[0]==world_pose and previous[1]==node.transform and previous[2]==node.get_parent_node_3d().global_transform
 func sync() -> void:
 	if body==null:return
 	if actor.nozzle_coupled!=_observed:
 		clocking=fposmod(spin,TAU);spin=clocking
 		angle=0. if actor.nozzle_coupled else stock.maximum_angle();loose=not actor.nozzle_coupled;body.transform=thread_pose(angle);_support=null;_speed=0.
-	if not loose:body.transform=thread_pose(angle)
+	if not loose:_submit_local_pose(body,thread_pose(angle))
 	_observed=not loose and absf(angle)<.0001;actor.nozzle_coupled=_observed
 	_apply_visuals()
 func _grip(kind: String,part: Node3D) -> Dictionary:
 	return {"owner":actor,"part":part,"frame":actor,"kind":kind,
+		"read_basis":func():return body.basis,"write_basis":_manipulate_basis,
 		"begin":func():
 			if not actor._claim("nozzle_body"):return false
 			_support=null;_speed=0.;return true,
 		"owns":func():return actor._hand=="nozzle_body","end":_release_body,
 		"read":func():return body.position,"write":func(value: Vector3):
 			if actor._hand=="nozzle_body":_carry(value)}
+
+func _manipulate_basis(value: Basis) -> void:
+	if actor._hand!="nozzle_body" or not loose or _on_pilot() or not value.is_finite():return
+	var before: Basis=body.basis
+	var wanted:=value.orthonormalized()
+	var angle: float=before.get_rotation_quaternion().angle_to(wanted.get_rotation_quaternion())
+	var steps: int=maxi(1,ceili(angle/.025))
+	var query:=PhysicsShapeQueryParameters3D.new();query.collision_mask=1;query.margin=.00002
+	query.exclude=[body.get_rid(),actor._bodies.lever.get_rid()]
+	for step in range(1,steps+1):
+		var pose:=Transform3D(before.slerp(wanted,float(step)/steps),body.position)
+		for shape: CollisionShape3D in body.get_children():
+			if shape.disabled:continue
+			query.shape=shape.shape;query.transform=actor.global_transform*pose*shape.transform
+			if not actor.get_world_3d().direct_space_state.intersect_shape(query,1).is_empty():return
+		body.transform=pose
+	# Retain independent barrel clocking for the nut's thread pickup phase.
+	var relative: Basis=receiver.basis.inverse()*body.basis
+	clocking=fposmod(atan2(-relative.x.z,relative.x.x),TAU)
+	_apply_visuals()
 func body_grip() -> Dictionary:
+	if not loose and hose_grip_provider.is_valid():return hose_grip_provider.call()
 	# A still-threaded body is constrained by its receiving thread. The nut is
 	# the operable turning part; clearing it exposes genuine loose-body carrying.
 	if not loose:return {}
@@ -165,7 +211,7 @@ func _turn_loose(value: float) -> void:
 	var travel: float=local.y-float(stock.data.dimensions.nozzle_base_y_m)
 	var pitch: float=stock.data.dimensions.pitch_m
 	var entered: bool=travel>=0. and travel<float(stock.data.dimensions.withdrawal_m)-.0001
-	var aligned: bool=Vector2(local.x,local.z).length()<=float(stock.data.dimensions.radial_clearance_m)
+	var aligned: bool=Vector2(local.x,local.z).length()<=float(stock.data.dimensions.radial_clearance_m) and body.basis.y.dot(receiver.basis.y)>.9999
 	if delta<0. and entered and aligned:
 		var pickup: float=TAU*travel/pitch
 		# Female angle = maximum+spin; male phase = body clocking. The
@@ -460,12 +506,35 @@ func _adopt_support() -> void:
 		_support=weakref(support);_support_pose=support.global_transform;_speed=0.
 		_support_geometry=actor._lever.transform
 		_support_frame=Engine.get_physics_frames();_support_confirmed=false
-func snapshot() -> Dictionary:return {"angle":angle,"spin":spin,"clocking":clocking,"loose":loose,"position":[body.position.x,body.position.y,body.position.z]}
-func valid(value: Variant,made_up: bool) -> bool:
-	if value is not Dictionary or value.size()!=5 or typeof(value.get("loose"))!=TYPE_BOOL:return false
+func snapshot() -> Dictionary:
+	var axes: Array=[]
+	for axis: Vector3 in [body.basis.x,body.basis.y,body.basis.z]:axes.append([axis.x,axis.y,axis.z])
+	return {"angle":angle,"spin":spin,"clocking":clocking,"loose":loose,"position":[body.position.x,body.position.y,body.position.z],"basis":axes}
+
+func _saved_basis(value: Dictionary,saved_receiver: Variant=null) -> Basis:
+	var reference: Transform3D=receiver if saved_receiver==null else saved_receiver
+	if not value.has("basis"):return reference.basis*Basis(Vector3.UP,float(value.clocking))
+	if value.basis is not Array or value.basis.size()!=3:return Basis(Vector3.ZERO,Vector3.ZERO,Vector3.ZERO)
+	var axes: Array[Vector3]=[]
+	for row: Variant in value.basis:
+		if row is not Array or row.size()!=3:return Basis(Vector3.ZERO,Vector3.ZERO,Vector3.ZERO)
+		for number: Variant in row:
+			if typeof(number) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(number)):return Basis(Vector3.ZERO,Vector3.ZERO,Vector3.ZERO)
+		axes.append(Vector3(row[0],row[1],row[2]))
+	return Basis(axes[0],axes[1],axes[2])
+func valid(value: Variant,made_up: bool,saved_receiver: Variant=null) -> bool:
+	if saved_receiver!=null and typeof(saved_receiver)!=TYPE_TRANSFORM3D:return false
+	var reference: Transform3D=receiver if saved_receiver==null else saved_receiver
+	if not reference.is_finite() or absf(reference.basis.determinant()-1.)>.00001 or not reference.basis.transposed().is_equal_approx(reference.basis.inverse()):return false
+	if value is not Dictionary or value.size() not in [5,6] or typeof(value.get("loose"))!=TYPE_BOOL:return false
+	for key: String in value:
+		if key not in ["angle","spin","clocking","loose","position","basis"]:return false
 	for key: String in ["spin","clocking"]:
 		if typeof(value.get(key)) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(value[key])):return false
 	if value.clocking<0. or value.clocking>=TAU or value.spin<0. or value.spin>=TAU:return false
+	var orientation: Basis=_saved_basis(value,saved_receiver)
+	if not orientation.is_finite() or absf(orientation.determinant()-1.)>.00001 or not orientation.transposed().is_equal_approx(orientation.inverse()):return false
+	if not value.loose and not orientation.is_equal_approx(reference.basis*Basis(Vector3.UP,float(value.clocking))):return false
 	if typeof(value.get("angle")) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(value.angle)) or value.angle<0. or value.angle>stock.maximum_angle():return false
 	if value.get("position") is not Array or value.position.size()!=3:return false
 	for coordinate: Variant in value.position:
@@ -473,11 +542,12 @@ func valid(value: Variant,made_up: bool) -> bool:
 	var at:=Vector3(value.position[0],value.position[1],value.position[2])
 	if at.length()>10000.:return false
 	if value.loose and absf(float(value.angle)-stock.maximum_angle())>.000001:return false
-	if not value.loose and (at.distance_to(thread_pose(float(value.angle),float(value.clocking)).origin)>.000001 or absf(float(value.spin)-float(value.clocking))>.000001):return false
+	var saved_pose:=reference*Transform3D(Basis(Vector3.UP,float(value.clocking)),Vector3(0,stock.body_y(float(value.angle)),0))
+	if not value.loose and (at.distance_to(saved_pose.origin)>.000001 or absf(float(value.spin)-float(value.clocking))>.000001):return false
 	return made_up==(not value.loose and absf(float(value.angle))<.0001)
 func restore(value: Dictionary) -> void:
 	angle=value.angle;spin=value.spin;clocking=value.clocking;loose=value.loose;_observed=actor.nozzle_coupled;_support=null;_speed=0.;_restore_support=true
-	body.transform=Transform3D(receiver.basis*Basis(Vector3.UP,clocking),Vector3(value.position[0],value.position[1],value.position[2]));sync()
+	body.transform=Transform3D(_saved_basis(value),Vector3(value.position[0],value.position[1],value.position[2]));sync()
 func restore_legacy(made_up: bool) -> void:
 	angle=0. if made_up else stock.maximum_angle();spin=0.;clocking=0.;loose=not made_up;_observed=made_up
 	_support=null;_speed=0.;_restore_support=true;body.transform=thread_pose(angle);sync()

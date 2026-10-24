@@ -96,11 +96,7 @@ func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
 			"distance": player.camera.global_position.distance_to(target),
 			"hit": str(hit.get("collider")), "prompt": player._prompt.text}))
 	if not _require(matched and not player._prompt.text.is_empty(), "actual player ray/prompt reaches " + label): return false
-	var directory := OS.get_environment("SHOT_DIR")
-	if not directory.is_empty():
-		DirAccess.make_dir_recursive_absolute(directory)
-		await RenderingServer.frame_post_draw
-		get_viewport().get_texture().get_image().save_png(directory.path_join(label + ".png"))
+	await _capture_interaction(label)
 	await get_tree().process_frame
 	Input.action_press("interact")
 	await get_tree().process_frame
@@ -108,3 +104,11 @@ func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
 	Input.action_release("interact")
 	await get_tree().create_timer(0.15).timeout
 	return true
+
+
+func _capture_interaction(label: String) -> void:
+	var directory := OS.get_environment("SHOT_DIR")
+	if not directory.is_empty():
+		DirAccess.make_dir_recursive_absolute(directory)
+		await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(directory.path_join(label + ".png"))

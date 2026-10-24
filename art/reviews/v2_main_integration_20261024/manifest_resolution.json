@@ -1,0 +1,32 @@
+{
+  "records": 10662,
+  "two_sided_field_conflicts": [
+    {
+      "key": "b5760fdd419d1414",
+      "field": "lines",
+      "main": [
+        122
+      ],
+      "branch": [
+        125
+      ],
+      "resolution": "Main discovery lines; unchanged shared semantic classification"
+    },
+    {
+      "key": "3f457a9edf18ae5d",
+      "field": "lines",
+      "main": [
+        119,
+        121,
+        123
+      ],
+      "branch": [
+        122,
+        124,
+        126
+      ],
+      "resolution": "Main discovery lines; unchanged shared semantic classification"
+    }
+  ],
+  "scope": "All semantic authority/disposition fields merge without conflicting edits; union of additive IDs"
+}

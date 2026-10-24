@@ -1,0 +1,354 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "complete-world layout diagnostic, no installed removal or runtime qualification",
+	"stations": [
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, -2.0, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "B1_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 185.684
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 1.2, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "F01_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 139.839
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 4.4, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "F02_FIRE_LINE_STAIR",
+			"input": {
+				"carry": [
+					{
+						"cpu_input_ms": 45.062,
+						"error": "",
+						"feedback": "grabbed",
+						"pending_frames": 0,
+						"pose_acceptance_ms": 45.063,
+						"progress_m": 0.00215749000199139,
+						"step": 0
+					},
+					{
+						"cpu_input_ms": 45.33,
+						"error": "",
+						"feedback": "grabbed",
+						"pending_frames": 0,
+						"pose_acceptance_ms": 45.331,
+						"progress_m": 0.00216647563502193,
+						"step": 1
+					},
+					{
+						"cpu_input_ms": 45.59,
+						"error": "",
+						"feedback": "grabbed",
+						"pending_frames": 0,
+						"pose_acceptance_ms": 45.591,
+						"progress_m": 0.00217451201751828,
+						"step": 2
+					},
+					{
+						"cpu_input_ms": 45.625,
+						"error": "",
+						"feedback": "grabbed",
+						"pending_frames": 0,
+						"pose_acceptance_ms": 45.626,
+						"progress_m": 0.00218098005279899,
+						"step": 3
+					},
+					{
+						"cpu_input_ms": 44.91,
+						"error": "",
+						"feedback": "grabbed",
+						"pending_frames": 0,
+						"pose_acceptance_ms": 44.911,
+						"progress_m": 0.00218733306974173,
+						"step": 4
+					},
+					{
+						"cpu_input_ms": 74.076,
+						"error": "",
+						"feedback": "grabbed",
+						"pending_frames": 0,
+						"pose_acceptance_ms": 74.077,
+						"progress_m": 0.00109704025089741,
+						"step": 5
+					},
+					{
+						"cpu_input_ms": 59.131,
+						"error": "incompatible follower support planes",
+						"feedback": "grabbed",
+						"pending_frames": 0,
+						"pose_acceptance_ms": 59.132,
+						"progress_m": 0.0,
+						"step": 6
+					},
+					{
+						"cpu_input_ms": 59.969,
+						"error": "incompatible follower support planes",
+						"feedback": "grabbed",
+						"pending_frames": 0,
+						"pose_acceptance_ms": 59.969,
+						"progress_m": 0.0,
+						"step": 7
+					}
+				],
+				"collision_mask": 2097153,
+				"deployed": true,
+				"error": "incompatible follower support planes",
+				"events": [
+					{
+						"cpu_input_ms": 0.771,
+						"error": "",
+						"extraction_m": 0.0080000001858765,
+						"feedback": "grabbed",
+						"step": 0
+					},
+					{
+						"cpu_input_ms": 0.938,
+						"error": "",
+						"extraction_m": 0.0160000005566099,
+						"feedback": "grabbed",
+						"step": 1
+					},
+					{
+						"cpu_input_ms": 0.917,
+						"error": "",
+						"extraction_m": 0.0240000008257705,
+						"feedback": "grabbed",
+						"step": 2
+					},
+					{
+						"cpu_input_ms": 0.932,
+						"error": "",
+						"extraction_m": 0.0320000015438589,
+						"feedback": "grabbed",
+						"step": 3
+					},
+					{
+						"cpu_input_ms": 0.99,
+						"error": "",
+						"extraction_m": 0.04000000203813,
+						"feedback": "grabbed",
+						"step": 4
+					},
+					{
+						"cpu_input_ms": 0.79,
+						"error": "",
+						"extraction_m": 0.048000002863499,
+						"feedback": "grabbed",
+						"step": 5
+					},
+					{
+						"cpu_input_ms": 0.755,
+						"error": "",
+						"extraction_m": 0.0560000034479367,
+						"feedback": "grabbed",
+						"step": 6
+					},
+					{
+						"cpu_input_ms": 0.753,
+						"error": "",
+						"extraction_m": 0.064000003416595,
+						"feedback": "grabbed",
+						"step": 7
+					},
+					{
+						"cpu_input_ms": 0.819,
+						"error": "",
+						"extraction_m": 0.0720000046836749,
+						"feedback": "grabbed",
+						"step": 8
+					},
+					{
+						"cpu_input_ms": 0.711,
+						"error": "",
+						"extraction_m": 0.0800000043718958,
+						"feedback": "grabbed",
+						"step": 9
+					},
+					{
+						"cpu_input_ms": 0.972,
+						"error": "",
+						"extraction_m": 0.0880000045401879,
+						"feedback": "grabbed",
+						"step": 10
+					},
+					{
+						"cpu_input_ms": 0.861,
+						"error": "",
+						"extraction_m": 0.0960000046616222,
+						"feedback": "grabbed",
+						"step": 11
+					},
+					{
+						"cpu_input_ms": 0.793,
+						"error": "",
+						"extraction_m": 0.104000004291721,
+						"feedback": "grabbed",
+						"step": 12
+					},
+					{
+						"cpu_input_ms": 0.829,
+						"error": "",
+						"extraction_m": 0.112000003590306,
+						"feedback": "grabbed",
+						"step": 13
+					},
+					{
+						"cpu_input_ms": 0.835,
+						"error": "",
+						"extraction_m": 0.120000003437789,
+						"feedback": "grabbed",
+						"step": 14
+					},
+					{
+						"cpu_input_ms": 0.846,
+						"error": "",
+						"extraction_m": 0.128000003463574,
+						"feedback": "grabbed",
+						"step": 15
+					},
+					{
+						"cpu_input_ms": 0.75,
+						"error": "",
+						"extraction_m": 0.13600000338064,
+						"feedback": "grabbed",
+						"step": 16
+					},
+					{
+						"cpu_input_ms": 0.867,
+						"error": "",
+						"extraction_m": 0.144000003122404,
+						"feedback": "grabbed",
+						"step": 17
+					},
+					{
+						"cpu_input_ms": 0.798,
+						"error": "",
+						"extraction_m": 0.152000003213869,
+						"feedback": "grabbed",
+						"step": 18
+					},
+					{
+						"cpu_input_ms": 0.788,
+						"error": "",
+						"extraction_m": 0.16000000391263,
+						"feedback": "grabbed",
+						"step": 19
+					},
+					{
+						"cpu_input_ms": 0.865,
+						"error": "",
+						"extraction_m": 0.16800000395914,
+						"feedback": "grabbed",
+						"step": 20
+					},
+					{
+						"cpu_input_ms": 0.81,
+						"error": "",
+						"extraction_m": 0.176000004857374,
+						"feedback": "grabbed",
+						"step": 21
+					},
+					{
+						"cpu_input_ms": 0.84,
+						"error": "",
+						"extraction_m": 0.184000004795511,
+						"feedback": "grabbed",
+						"step": 22
+					},
+					{
+						"cpu_input_ms": 0.831,
+						"error": "",
+						"extraction_m": 0.192000004795511,
+						"feedback": "grabbed",
+						"step": 23
+					},
+					{
+						"cpu_input_ms": 14.599,
+						"error": "",
+						"extraction_m": 0.2,
+						"feedback": "grabbed",
+						"step": 24
+					}
+				],
+				"picked": true,
+				"player_position": "(-4.404536, 3.200234, -8.683311)",
+				"released": true
+			},
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 201.948
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 7.6, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "F03_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 154.602
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 10.8, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "F04_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 139.662
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 14.0, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "F05_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 227.819
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 17.2, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "F06_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 143.162
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 20.4, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "ROOF_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 107.585
+		}
+	]
+}

@@ -33,6 +33,9 @@ var drain_side := 1
 var compact_kitchen := false
 var has_drainboard := true
 var warehouse_curtain_open := false
+# Native support depth chosen once from the actual V2 shell; warehouse default.
+var shower_wall_setback := .36
+var shower_finish_inset := 0.0
 
 var _bath_plug: Node3D
 var _plug_hand: RefCounted
@@ -44,6 +47,7 @@ var _cold := false
 var _valve_openings := Vector2.ZERO
 var _held_valve := -1
 signal manipulation_changed
+signal flow_changed
 var _stopper := false
 var _water_level := 0.0
 var drain_capacity := 1.0
@@ -78,10 +82,10 @@ func warehouse_variants() -> Array[Dictionary]:
 					"warehouse_curtain_open": true}},
 		]
 	return [
-		{"label": "sink / lavatory — legacy granular porcelain",
+		{"label": "sink / lavatory â€” legacy granular porcelain",
 				"properties": {"fixture": "bath_sink", "unit": "2B",
 					"porcelain_material_key": "porcelain"}},
-		{"label": "sink / lavatory — calm fired glaze",
+		{"label": "sink / lavatory â€” calm fired glaze",
 				"properties": {"fixture": "bath_sink", "unit": "4B",
 					"porcelain_material_key": "porcelain_fixture"}},
 		{"label": "sink / roll-rim kitchen",
@@ -159,6 +163,11 @@ func _build_bath_sink(parent: Node3D) -> void:
 	var model := preload("res://assets/props/bath_lavatory.glb").instantiate() as Node3D
 	parent.add_child(model)
 	_skin_fixture_model(model)
+	var support_name: String="WallMount%03d"%roundi(shower_wall_setback*1000.0)
+	for support: Node3D in model.find_children("WallMount*","Node3D",true,false):
+		if support is MeshInstance3D:continue
+		support.visible=str(support.name)==support_name
+		support.position.z-=shower_finish_inset
 	for handle_name in ["HotValve", "ColdValve"]:
 		var handle := model.find_child(handle_name, true, false) as Node3D
 		handle.reparent(self)
@@ -208,6 +217,7 @@ func _skin_fixture_model(node: Node) -> void:
 			if key == "shower_duck":
 				material = material.duplicate() as StandardMaterial3D
 				material.normal_scale = .14
+				material.cull_mode = BaseMaterial3D.CULL_DISABLED
 			node.set_surface_override_material(surface, material)
 	for child in node.get_children(): _skin_fixture_model(child)
 
@@ -277,6 +287,11 @@ func _build_shower(parent: Node3D) -> void:
 	var model := preload("res://assets/props/bath_shower.glb").instantiate() as Node3D
 	parent.add_child(model)
 	_skin_fixture_model(model)
+	for depth: int in [360,380,400,430,440,480]:
+		var support:=model.find_child("WallMount%03d"%depth,true,false) as Node3D
+		if support!=null:
+			support.visible=depth==roundi(shower_wall_setback*1000.0)
+			support.position.z-=shower_finish_inset
 	for handle_name in ["HotValve", "ColdValve"]:
 		var handle := model.find_child(handle_name, true, false) as Node3D
 		handle.reparent(self)
@@ -480,7 +495,7 @@ func _make_oval_bowl(parent: Node3D, at: Vector3, w: float, d: float,
 	var segments := 96
 	# Meet the torus at its measured inner ellipse, then sit just below it.
 	# The old top ring sat 2 mm outside the torus's inner edge in X. It was not
-	# the starburst — isolation proved that was the pedestal cap — but two
+	# the starburst â€” isolation proved that was the pedestal cap â€” but two
 	# overlapping glazed skins are still the wrong joint.
 	var rim_inner_x := w * 0.5 - 0.025
 	var rim_inner_z := rim_inner_x * d / w
@@ -977,6 +992,7 @@ func _update_flow() -> void:
 	if _tick and not _tick.playing:
 		_tick.play()
 	state = PState.OPERATING if flowing else PState.IDLE
+	flow_changed.emit()
 
 
 func _start_normal_function() -> void:

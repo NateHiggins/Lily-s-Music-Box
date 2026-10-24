@@ -1,0 +1,141 @@
+{
+  "failures": [
+    "F01_INNER_DOOR did not reach its requested stop through player input: 0.28868556022644 / 1.5707963267949"
+  ],
+  "trace": [
+    {
+      "actual": "(12.49642, 0.010859, 48.63)",
+      "ok": true,
+      "target": "(12.4, 0.01, 48.63)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(10.89609, 0.010859, 48.63)",
+      "ok": true,
+      "target": "(10.8, 0.01, 48.63)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(9.796055, 0.010859, 48.63)",
+      "ok": true,
+      "target": "(9.7, 0.01, 48.63)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(8.99534, 0.010933, 47.60093)",
+      "ok": true,
+      "target": "(8.95, 0.01, 47.515)",
+      "wall_contacts": {
+        "/root/V2FireMaintenanceWorldTest/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/HardwareStock/F01_retail_hardware_stock_storm_shop_hardware_paint_counter__countertop/F01_retail_hardware_stock_storm_shop_hardware_paint_counter__countertop_col": "(9.5504, 1.073, 47.9435)"
+      }
+    },
+    {
+      "actual": "(9.637815, 0.010933, 48.55755)",
+      "ok": true,
+      "target": "(9.7, 0.01, 48.63)",
+      "wall_contacts": {
+        "/root/V2FireMaintenanceWorldTest/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/HardwareStock/F01_retail_hardware_stock_storm_shop_hardware_paint_counter__countertop/F01_retail_hardware_stock_storm_shop_hardware_paint_counter__countertop_col": "(9.550799, 1.1184, 47.9434)"
+      }
+    },
+    {
+      "actual": "(10.70211, 0.010933, 48.6239)",
+      "ok": true,
+      "target": "(10.8, 0.01, 48.63)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(13.90378, 0.010933, 48.62981)",
+      "ok": true,
+      "target": "(14.0, 0.01, 48.63)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(13.99942, 0.010933, 32.09987)",
+      "ok": true,
+      "target": "(14.0, 0.01, 32.0)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(13.99999, 0.010933, 27.59642)",
+      "ok": true,
+      "target": "(14.0, 0.01, 27.5)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(14.0, 0.010933, 20.0961)",
+      "ok": true,
+      "target": "(14.0, 0.01, 20.0)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(14.0, 0.000387, 17.39605)",
+      "ok": true,
+      "target": "(14.0, 0.01, 17.3)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(14.0, 0.000387, 15.09605)",
+      "ok": true,
+      "target": "(14.0, 0.0, 15.0)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(14.0, -0.019167, 13.69594)",
+      "ok": true,
+      "target": "(14.0, -0.1, 13.6)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(14.0, -0.019167, 8.096039)",
+      "ok": true,
+      "target": "(14.0, -0.1, 8.0)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(14.0, 0.000836, 4.295669)",
+      "ok": true,
+      "target": "(14.0, 0.0, 4.2)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(14.0, 0.000836, 3.096015)",
+      "ok": true,
+      "target": "(14.0, 0.0, 3.0)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(0.096454, 0.000836, 3.000662)",
+      "ok": true,
+      "target": "(0.0, 0.0, 3.0)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        -0.00621255952864885,
+        0.000835714454296976,
+        -13.2466564178467
+      ],
+      "ok": true,
+      "target": [
+        0.0,
+        0.0,
+        -13.1499996185303
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        -0.000195979024283588,
+        0.000835714454296976,
+        -10.2961082458496
+      ],
+      "ok": true,
+      "target": [
+        0.0,
+        0.0,
+        -10.1999998092651
+      ],
+      "wall_contacts": {}
+    }
+  ]
+}

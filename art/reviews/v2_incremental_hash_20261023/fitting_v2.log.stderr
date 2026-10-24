@@ -1,0 +1,8 @@
+ERROR: Node not found: "CobblerFittings" (relative to "shop_shoe_rebuilding").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/v2_native_fit_job_bench.gd:82)
+SCRIPT ERROR: Cannot call method 'get_instance_id' on a null value.
+   at: run (res://tests/v2_native_fit_job_bench.gd:82)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/v2_native_fit_job_bench.gd:82)

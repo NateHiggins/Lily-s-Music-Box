@@ -1,0 +1,11 @@
+{
+  "reason": "Verified owned window has a script parse error and no gameplay; graceful close is not a suite pass",
+  "engine_pid": 200888,
+  "engine_command": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\PleaseRemainOnTheLine\\game res://tests/V2CooperativeStreamingProfile.tscn",
+  "console_pid": 135928,
+  "runner_command": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -File tools/run_godot_long_suite.ps1 -ProjectPath game -Scene res://tests/V2CooperativeStreamingProfile.tscn -Windowed -ShotDir C:/PleaseRemainOnTheLine/art/reviews/v2_incremental_hash_20261023/warm_shader_v2 -LogPath art/reviews/v2_incremental_hash_20261023/warm_shader_v2.log -TimeoutSeconds 850",
+  "evidence_class": "INERT",
+  "runner_pid": 231452,
+  "action": "CloseMainWindow",
+  "requested": true
+}

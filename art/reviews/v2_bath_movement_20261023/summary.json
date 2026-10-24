@@ -1,0 +1,246 @@
+{
+  "evidence_class": "INERT",
+  "settings": {
+    "fixed_route_ticks": 300,
+    "fps_limit": 0,
+    "physics_hz": 60,
+    "viewport": "(1280, 720)",
+    "vsync": "disabled"
+  },
+  "limits": [
+    "First incomplete wall sample of every phase excluded.",
+    "Physics stage records contain only ticks above one millisecond; no unbiased physics percentiles implied.",
+    "Render and global process/physics counters overlap and lag. Diagnostic disables never qualify production.",
+    "Global exclusion bisection in collision_v3 is confounded: query cost collapses after yielding a frame, independently of chosen subset. Its named suspect is not established as causal."
+  ],
+  "phases": {
+    "static": {
+      "render_frames": 14,
+      "wall_ms": {
+        "p50": 128.1725,
+        "p95": 137.68135,
+        "p99": 140.25066999999999,
+        "max": 140.893
+      },
+      "over_50ms": 14,
+      "over_100ms": 14,
+      "slow_physics_records": 119,
+      "slow_physics_stages_ms": {
+        "native_sync_ms": {
+          "p50": 0.007,
+          "p95": 0.01,
+          "p99": 0.011,
+          "max": 0.014
+        },
+        "step_ms": {
+          "p50": 0.001,
+          "p95": 0.002,
+          "p99": 0.002,
+          "max": 0.002
+        },
+        "slide_ms": {
+          "p50": 8.339,
+          "p95": 8.5678,
+          "p99": 8.60086,
+          "max": 8.607
+        },
+        "follow_and_contact_ms": {
+          "p50": 0.014,
+          "p95": 0.028099999999999997,
+          "p99": 0.029819999999999992,
+          "max": 0.03
+        }
+      }
+    },
+    "normal": {
+      "render_frames": 13,
+      "wall_ms": {
+        "p50": 151.76,
+        "p95": 295.18719999999973,
+        "p99": 385.4238399999998,
+        "max": 407.983
+      },
+      "over_50ms": 13,
+      "over_100ms": 13,
+      "slow_physics_records": 119,
+      "slow_physics_stages_ms": {
+        "native_sync_ms": {
+          "p50": 0.007,
+          "p95": 0.01,
+          "p99": 0.011819999999999994,
+          "max": 0.015
+        },
+        "step_ms": {
+          "p50": 0.001,
+          "p95": 0.4282999999999995,
+          "p99": 1.009399999999999,
+          "max": 28.969
+        },
+        "slide_ms": {
+          "p50": 10.065,
+          "p95": 36.2266,
+          "p99": 42.414819999999985,
+          "max": 44.103
+        },
+        "follow_and_contact_ms": {
+          "p50": 0.015,
+          "p95": 0.027,
+          "p99": 0.030639999999999987,
+          "max": 0.032
+        }
+      }
+    },
+    "step_disabled": {
+      "render_frames": 14,
+      "wall_ms": {
+        "p50": 126.9865,
+        "p95": 226.79669999999993,
+        "p99": 302.3225399999999,
+        "max": 321.204
+      },
+      "over_50ms": 14,
+      "over_100ms": 14,
+      "slow_physics_records": 119,
+      "slow_physics_stages_ms": {
+        "native_sync_ms": {
+          "p50": 0.006,
+          "p95": 0.011,
+          "p99": 0.011,
+          "max": 0.011
+        },
+        "step_ms": {
+          "p50": 0.001,
+          "p95": 0.001,
+          "p99": 0.001819999999999993,
+          "max": 0.002
+        },
+        "slide_ms": {
+          "p50": 7.822,
+          "p95": 30.917399999999997,
+          "p99": 31.764919999999996,
+          "max": 35.72
+        },
+        "follow_and_contact_ms": {
+          "p50": 0.014,
+          "p95": 0.026099999999999995,
+          "p99": 0.029639999999999986,
+          "max": 0.03
+        }
+      }
+    },
+    "mirror_disabled": {
+      "render_frames": 25,
+      "wall_ms": {
+        "p50": 54.109,
+        "p95": 196.17959999999988,
+        "p99": 340.37707999999964,
+        "max": 383.243
+      },
+      "over_50ms": 17,
+      "over_100ms": 6,
+      "slow_physics_records": 56,
+      "slow_physics_stages_ms": {
+        "native_sync_ms": {
+          "p50": 0.008,
+          "p95": 0.011,
+          "p99": 0.01650000000000003,
+          "max": 0.022
+        },
+        "step_ms": {
+          "p50": 0.0015,
+          "p95": 0.762,
+          "p99": 13.45455000000008,
+          "max": 28.623
+        },
+        "slide_ms": {
+          "p50": 12.317,
+          "p95": 40.32575,
+          "p99": 43.10095,
+          "max": 43.338
+        },
+        "follow_and_contact_ms": {
+          "p50": 0.0155,
+          "p95": 0.02425,
+          "p99": 0.027,
+          "max": 0.027
+        }
+      }
+    },
+    "both_disabled": {
+      "render_frames": 26,
+      "wall_ms": {
+        "p50": 49.464,
+        "p95": 173.1385,
+        "p99": 266.56375,
+        "max": 296.45
+      },
+      "over_50ms": 12,
+      "over_100ms": 6,
+      "slow_physics_records": 56,
+      "slow_physics_stages_ms": {
+        "native_sync_ms": {
+          "p50": 0.008,
+          "p95": 0.01,
+          "p99": 0.011,
+          "max": 0.011
+        },
+        "step_ms": {
+          "p50": 0.001,
+          "p95": 0.001,
+          "p99": 0.001450000000000003,
+          "max": 0.002
+        },
+        "slide_ms": {
+          "p50": 12.380500000000001,
+          "p95": 31.6755,
+          "p99": 35.497100000000025,
+          "max": 39.995
+        },
+        "follow_and_contact_ms": {
+          "p50": 0.015,
+          "p95": 0.02725,
+          "p99": 0.029900000000000006,
+          "max": 0.031
+        }
+      }
+    },
+    "normal_repeat": {
+      "render_frames": 13,
+      "wall_ms": {
+        "p50": 151.415,
+        "p95": 289.37739999999974,
+        "p99": 383.1170799999998,
+        "max": 406.552
+      },
+      "over_50ms": 13,
+      "over_100ms": 13,
+      "slow_physics_records": 119,
+      "slow_physics_stages_ms": {
+        "native_sync_ms": {
+          "p50": 0.008,
+          "p95": 0.01,
+          "p99": 0.011,
+          "max": 0.011
+        },
+        "step_ms": {
+          "p50": 0.001,
+          "p95": 0.47059999999999985,
+          "p99": 1.0080399999999987,
+          "max": 29.092
+        },
+        "slide_ms": {
+          "p50": 10.092,
+          "p95": 36.3954,
+          "p99": 42.945939999999986,
+          "max": 44.576
+        },
+        "follow_and_contact_ms": {
+          "p50": 0.015,
+          "p95": 0.027,
+          "p99": 0.03309999999999997,
+          "max": 0.035
+        }
+      }
+    }
+  }
+}

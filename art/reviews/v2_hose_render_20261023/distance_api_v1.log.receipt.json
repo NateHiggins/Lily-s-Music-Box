@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 3.37,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T20:55:42Z",
+  "started_utc": "2026-10-23T20:55:38Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "LIGHT DISTANCE CONTROL: PASS failures=0 original=0.43805147086581 faded=0.0 restored=0.43805147086581"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_render_20261023/distance_api_v1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_render_20261023/distance_api_v1.log",
+  "stdout_sha256": "80fd3069830f6987ed864557634d28246366bde4403882c1eb7f281dd968703d"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2LightDistanceControl.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_render_20261023/distance_api_v1",
+ "source": {
+  "dirty_paths": 3026,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_reset.png"
+  ],
+  "repository_head": "b0b65bca26a6d1e6865c6c9eb8016cc5d5559279",
+  "repository_tree": "2fe65e44d00063bbbe803e2255c33e130b99a4a2",
+  "runtime_inputs_sha256": "739f77d32885233a286e471b41e2150514202445a2f386d666247e1020fd9eec",
+  "test_path": "game/tests/v2_light_distance_control.gd",
+  "test_sha256": "fc65f3738cf84073702db5cffaf0fa499c5febb558f4ebc4754bc79985985df6"
+ },
+ "windowed": true
+}

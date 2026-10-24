@@ -1,0 +1,50 @@
+{
+  "evidence_class": "INERT",
+  "normalization": "LF",
+  "files": {
+    "game/scripts/player/constrained_grab.gd": {
+      "sha256_lf": "17d8ea4d2987aa60f2b42ea39210daa66e6f5fc061f5ec73600dc5a784bcffed",
+      "archive": "game__scripts__player__constrained_grab.gd.gz"
+    },
+    "game/scripts/player/player_controller.gd": {
+      "sha256_lf": "d476a7aebf7c7bebffa3a4bde00d2b2ae96377c90fb028956f152e64a88ce863",
+      "archive": "game__scripts__player__player_controller.gd.gz"
+    },
+    "game/scripts/player/target_reticle.gd": {
+      "sha256_lf": "8138a9621a117af779b86ee25e015494bd9f6f33eec60ab964b7c8ec2ba61015",
+      "archive": "game__scripts__player__target_reticle.gd.gz"
+    },
+    "game/scripts/props/v2_library_movable.gd": {
+      "sha256_lf": "603e8645d4344a36f26491ed014e267b8409131a4d8c9f9cf27f602cdb00467a",
+      "archive": "game__scripts__props__v2_library_movable.gd.gz"
+    },
+    "game/scripts/props/v2_readable_book.gd": {
+      "sha256_lf": "b002c82ac5d303474a5e76dbfa9b6756d06053741ccbf3d005fb2d5b69c74601",
+      "archive": "game__scripts__props__v2_readable_book.gd.gz"
+    },
+    "game/scripts/props/fire_maintenance_pickup.gd": {
+      "sha256_lf": "47115fc0ecf38c15092af8bdb1ac2dc3b57b85f0deaba0e02a9f1b26c9fd51e9",
+      "archive": "game__scripts__props__fire_maintenance_pickup.gd.gz"
+    },
+    "game/scripts/props/fire_nozzle_coupling.gd": {
+      "sha256_lf": "f33cb69813b3c433275a2314caa71f611ed8baf69bf9569ffeeda6b43210b5a1",
+      "archive": "game__scripts__props__fire_nozzle_coupling.gd.gz"
+    },
+    "game/tests/v2_grab_transform_bench.gd": {
+      "sha256_lf": "6b13928a8ef9ade1504a637973dd504d29e895dda97cf86b790ff6751dd9f956",
+      "archive": "game__tests__v2_grab_transform_bench.gd.gz"
+    },
+    "game/tests/grab_transform_stock_programme.gd": {
+      "sha256_lf": "f842e8e49e80721f4c74d88ff7265dcffece943014fbab1e348d82bfe9a211aa",
+      "archive": "game__tests__grab_transform_stock_programme.gd.gz"
+    },
+    "game/tests/v2_book_slot_hand_bench.gd": {
+      "sha256_lf": "d6cd51f0206d77734cb3298897683d4ca11b1d6f6c07a7d8bbd509acc271448c",
+      "archive": "game__tests__v2_book_slot_hand_bench.gd.gz"
+    },
+    "game/tests/v2_fire_nozzle_coupling_bench.gd": {
+      "sha256_lf": "bdbdee140f1dcd5f4ce73ba15844e5f74ec26e51c6bb18c0f5fe47de2c07821f",
+      "archive": "game__tests__v2_fire_nozzle_coupling_bench.gd.gz"
+    }
+  }
+}

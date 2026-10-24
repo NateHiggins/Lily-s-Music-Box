@@ -1,0 +1,111 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"records": [
+		{
+			"absolute_native_1um_control_pass": false,
+			"candidate_native_ray_error_m": 0.000591893214732409,
+			"capsule_casts": [
+				{
+					"blocked": true,
+					"candidate_us": 4434,
+					"original_us": 8835,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 4510,
+					"original_us": 12368,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 3676,
+					"original_us": 9536,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 4603,
+					"original_us": 8691,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 5045,
+					"original_us": 12430,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 4616,
+					"original_us": 9450,
+					"travel_error_m": 0.0
+				}
+			],
+			"id": "SafetyWire",
+			"max_native_boundary_error_m": 0.000188844114542007,
+			"max_ray_error_m": 0.0,
+			"native_footprint_mismatches": 0,
+			"original_engine_ray_mismatches": 0,
+			"ray_mismatches": 0,
+			"ray_queries": 800,
+			"shells": 70,
+			"source_native_boundary_error_m": 0.000188844114542007,
+			"source_native_ray_error_m": 0.000591893214732409
+		},
+		{
+			"absolute_native_1um_control_pass": true,
+			"candidate_native_ray_error_m": 0.0000000434838902663159,
+			"capsule_casts": [
+				{
+					"blocked": true,
+					"candidate_us": 587,
+					"original_us": 648,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 877,
+					"original_us": 880,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 545,
+					"original_us": 580,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 592,
+					"original_us": 626,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 881,
+					"original_us": 890,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 543,
+					"original_us": 555,
+					"travel_error_m": 0.0
+				}
+			],
+			"id": "F069",
+			"max_native_boundary_error_m": 0.0000000314712524414063,
+			"max_ray_error_m": 0.0,
+			"native_footprint_mismatches": 0,
+			"original_engine_ray_mismatches": 0,
+			"ray_mismatches": 0,
+			"ray_queries": 800,
+			"shells": 1,
+			"source_native_boundary_error_m": 0.0000000314712524414063,
+			"source_native_ray_error_m": 0.0000000434838902663159
+		}
+	],
+	"scope": "Byte-exact triangles and paired original-engine equivalence only. Original absolute native1um control unresolved; no accuracy or whole-world qualification."
+}

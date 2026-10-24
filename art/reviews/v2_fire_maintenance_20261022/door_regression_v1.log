@@ -1,0 +1,41 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+EASY DOOR CHECK: actual part acquires = true
+EASY DOOR CHECK: grab leaves angle unchanged = true
+EASY DOOR CHECK: 240-pixel horizontal gesture reaches full stop = true
+EASY DOOR CHECK: opening toward player backs the physical character away = true
+EASY DOOR CHECK: fixed gesture retains grip across the full swing = true
+EASY DOOR CHECK: next primary releases = true
+EASY DOOR CHECK: open leaf gives the player passage priority = true
+EASY DOOR CHECK: angle retains existing save schema = true
+EASY DOOR CHECK: restoration preserves the exact saved angle = true
+EASY DOOR CHECK: ordinary walking passes the opened leaf = true
+EASY DOOR CHECK: released leaf starts closing slowly = true
+EASY DOOR CHECK: player can interrupt slow closing = true
+CLOSER DIAGNOSTIC: angle=0.0 moving=false held=false remaining=0.0 closing=false processing=false player=(0.4, 0.0, -0.8)
+EASY DOOR CHECK: slow closer reaches closed stop = true
+EASY DOOR CHECK: closed leaf restores its ordinary barrier = true
+EASY DOOR CHECK: actual input acquires the locked leaf = true
+EASY DOOR CHECK: fixed gesture retains lock authority = true
+EASY DOOR CHECK: locked leaf retains its barrier = true
+EASY DOOR CHECK: actual part acquires = true
+EASY DOOR CHECK: grab leaves angle unchanged = true
+EASY DOOR CHECK: 240-pixel horizontal gesture reaches full stop = true
+EASY DOOR CHECK: opening toward player backs the physical character away = true
+EASY DOOR CHECK: fixed gesture retains grip across the full swing = true
+EASY DOOR CHECK: next primary releases = true
+EASY DOOR CHECK: open leaf gives the player passage priority = true
+EASY DOOR CHECK: angle retains existing save schema = true
+EASY DOOR CHECK: restoration preserves the exact saved angle = true
+EASY DOOR CHECK: ordinary walking passes the opened leaf = true
+EASY DOOR CHECK: released leaf starts closing slowly = true
+EASY DOOR CHECK: player can interrupt slow closing = true
+CLOSER DIAGNOSTIC: angle=0.0 moving=false held=false remaining=0.0 closing=false processing=false player=(0.4, 0.0, 0.8)
+EASY DOOR CHECK: slow closer reaches closed stop = true
+EASY DOOR CHECK: closed leaf restores its ordinary barrier = true
+EASY DOOR CHECK: actual input acquires the locked leaf = true
+EASY DOOR CHECK: fixed gesture retains lock authority = true
+EASY DOOR CHECK: locked leaf retains its barrier = true
+EASY DOOR BENCH: PASS; 34 checks; 0 failures

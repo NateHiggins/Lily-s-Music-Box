@@ -1,0 +1,69 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 180.16,
+  "exit_code": null,
+  "finished_utc": "2026-10-24T12:54:03Z",
+  "started_utc": "2026-10-24T12:51:02Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 4,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Too few arguments for \"_emit()\" call. Expected at least 5 but received 4.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://tests/v2_bathroom_finish_stock_bench.gd\" with error \"Compilation failed\".",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'build' in base 'GDScript'."
+  ],
+  "stale_cache_lines": [
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'build' in base 'GDScript'."
+  ],
+  "stale_cache_suspect": true,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_bathroom_finishing_20261024/edging_stock_v2.log.stderr",
+  "stderr_sha256": "574ceef337bda834033867e303fe003a4c24a996a373c980228d48c693a57c40",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_bathroom_finishing_20261024/edging_stock_v2.log",
+  "stdout_sha256": "2ab6d94a9ce6bb1b29454c670da76ea6a088b4bb5c269ff12d5596dd9b4b12d3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2BathroomFinishStockBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_bathroom_finishing_20261024/edging_stock_v2",
+ "source": {
+  "dirty_paths": 3390,
+  "dirty_sample": [
+   "M  .gitattributes",
+   " M DOCS.md",
+   "M  art/blender/bath_shower.blend",
+   "A  art/blender/door_casing_mitres.blend",
+   "M  art/blender/scripts/build_bathroom_details.py",
+   "A  art/blender/scripts/build_door_casing_mitres.py",
+   "A  art/data/orison_v2/door_casing_mitres.json",
+   "M  art/tools/fix_v2_mesh_imports.py",
+   " M design/V2_CONTINUATION_2026-10-22.md",
+   " M design/V2_STARTED_WORK_CLOSURE_2026-10-23.md",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import"
+  ],
+  "repository_head": "1a2029b4044b7cc51f85de7c598dd905a40f80ac",
+  "repository_tree": "c6381a1b4c35d4a5ee3515ae0a5cfe2d746064ea",
+  "runtime_inputs_sha256": "ce1b03c436a6d2ad37103214ff7bb148b2968b2c59c8e7dc2006c7c53b4ba3b0",
+  "test_path": "game/tests/v2_bathroom_finish_stock_bench.gd",
+  "test_sha256": "4b25a265512ccb78b6c974da8eb8d78a7ba91c1863dc217b23a28d2d70e9f37e"
+ },
+ "windowed": true
+}

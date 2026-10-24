@@ -1,0 +1,57 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native stock/preview only, no runtime or human acceptance.",
+  "parts": {
+    "OutletStock": {
+      "length_m": 0.3,
+      "outer_radius_m": 0.021,
+      "inner_radius_m": 0.01905,
+      "segments": 192,
+      "sides": 16,
+      "port_sides": 64,
+      "port_rows": 3,
+      "nonmanifold_edges": 0,
+      "volume_m3": 7.177247345870798e-05,
+      "maximum_metric_error": 5.739690672967868e-06,
+      "triangles": 13504,
+      "clear_bore_rays": 17,
+      "end_bearing_rays": 16,
+      "exported_vertices": 12024
+    },
+    "NozzleStock": {
+      "length_m": 0.42,
+      "outer_radius_m": 0.021,
+      "inner_radius_m": 0.01905,
+      "segments": 192,
+      "sides": 16,
+      "port_sides": 64,
+      "port_rows": 3,
+      "nonmanifold_edges": 0,
+      "volume_m3": 0.00010048145546159406,
+      "maximum_metric_error": 5.739690672967868e-06,
+      "triangles": 13504,
+      "clear_bore_rays": 17,
+      "end_bearing_rays": 16,
+      "exported_vertices": 11978
+    }
+  },
+  "source_bindings": {
+    "art/blender/scripts/build_fire_hose_stock.py": "5689c8725c859bc5bbc837f2dd7589bc28b21f5f7ed58a5acd833d13d28354e5",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+    "game/data/runtime_material_sets.json": "6f4c72832a6671c3c36e557560ff147a9e31abbfd0fb1db6504acb7567298e59"
+  },
+  "blend_sha256": "3e5ac94fb5fce4fd35d503b15030c58f9be871c0be1a6fb1d432551cd78fe6d9",
+  "export": {
+    "sha256": "b84908b8fe09b366e5d90aaada36b2890eda2bd8aa397f9c7b2dee6ed7fcf0c4",
+    "bytes": 1316488,
+    "images": 0,
+    "tangents": {
+      "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-hose-repair-20261021\\short_stock_v1\\fire_hose_stock.glb",
+      "primitives": 2,
+      "triangles": 27008,
+      "minimum_tangent_agreement": 0.9999999648467923,
+      "status": "PASS"
+    }
+  }
+}

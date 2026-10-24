@@ -1,0 +1,675 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Read-only exported stock topology and exact half-space convexity discovery; runtime imported precision and input remain separate.",
+  "rows": [
+    {
+      "id": "DoorPull",
+      "components": [
+        {
+          "triangles": 4152,
+          "unique_vertices": 2072,
+          "closed": true,
+          "volume": 8.818719162877357e-06,
+          "convex_deviation_m": 0.07412751342589403,
+          "certified_convex": false
+        }
+      ]
+    },
+    {
+      "id": "F065",
+      "components": [
+        {
+          "triangles": 800,
+          "unique_vertices": 400,
+          "closed": true,
+          "volume": 0.0005429774254202445,
+          "convex_deviation_m": 0.9796583267566464,
+          "certified_convex": false
+        }
+      ]
+    },
+    {
+      "id": "F069",
+      "components": [
+        {
+          "triangles": 188,
+          "unique_vertices": 96,
+          "closed": true,
+          "volume": 0.0028324315388521207,
+          "convex_deviation_m": 6.42326214730795e-09,
+          "certified_convex": true
+        }
+      ]
+    },
+    {
+      "id": "GlazingSeal",
+      "components": [
+        {
+          "triangles": 1360,
+          "unique_vertices": 680,
+          "closed": true,
+          "volume": 1.1152997155962994e-05,
+          "convex_deviation_m": 0.7947106160580525,
+          "certified_convex": false
+        }
+      ]
+    },
+    {
+      "id": "HingeMoving0",
+      "components": [
+        {
+          "triangles": 2462,
+          "unique_vertices": 1231,
+          "closed": true,
+          "volume": 2.679344137148782e-06,
+          "convex_deviation_m": 0.034266670002549106,
+          "certified_convex": false
+        }
+      ]
+    },
+    {
+      "id": "HingeMoving1",
+      "components": [
+        {
+          "triangles": 2462,
+          "unique_vertices": 1231,
+          "closed": true,
+          "volume": 2.679344137148782e-06,
+          "convex_deviation_m": 0.034266670002549106,
+          "certified_convex": false
+        }
+      ]
+    },
+    {
+      "id": "PullScrew0",
+      "components": [
+        {
+          "triangles": 1212,
+          "unique_vertices": 608,
+          "closed": true,
+          "volume": 7.390284791519027e-08,
+          "convex_deviation_m": 0.006000000052154064,
+          "certified_convex": false
+        }
+      ]
+    },
+    {
+      "id": "PullScrew1",
+      "components": [
+        {
+          "triangles": 1212,
+          "unique_vertices": 608,
+          "closed": true,
+          "volume": 7.390284791519027e-08,
+          "convex_deviation_m": 0.006000000052154064,
+          "certified_convex": false
+        }
+      ]
+    },
+    {
+      "id": "SafetyWire",
+      "components": [
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 4.935575321405007e-09,
+          "convex_deviation_m": 8.928206610527303e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.3248126177853787e-08,
+          "convex_deviation_m": 8.928206610527303e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 2.156081071269239e-08,
+          "convex_deviation_m": 8.928206610527303e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 2.9873412176761335e-08,
+          "convex_deviation_m": 8.928206610527303e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 3.8185709036636344e-08,
+          "convex_deviation_m": 8.928206610526557e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 4.6498268254987235e-08,
+          "convex_deviation_m": 8.928206610526557e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 5.4810540643722096e-08,
+          "convex_deviation_m": 8.07577176973953e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 6.312319725599727e-08,
+          "convex_deviation_m": 8.075771769738472e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 7.143568718120467e-08,
+          "convex_deviation_m": 7.649535795846164e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 7.974832274583906e-08,
+          "convex_deviation_m": 8.07577176973953e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 8.806056294413673e-08,
+          "convex_deviation_m": 8.075771769738472e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 9.637267763756749e-08,
+          "convex_deviation_m": 7.22328745259573e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.0468604711657607e-07,
+          "convex_deviation_m": 8.928206610527303e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.1299942573559116e-07,
+          "convex_deviation_m": 8.928206610527303e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.2131202933453e-07,
+          "convex_deviation_m": 8.928206610527303e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.2962462958571638e-07,
+          "convex_deviation_m": 8.928206610527303e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.3403961446210711e-07,
+          "convex_deviation_m": 8.928206610526557e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.3403905081630174e-07,
+          "convex_deviation_m": 2.544484295554685e-17,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.3403987365091956e-07,
+          "convex_deviation_m": 8.928206610524598e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.2962463034025417e-07,
+          "convex_deviation_m": 8.928206610524598e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.2131204967006785e-07,
+          "convex_deviation_m": 8.928206610527613e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.1299943074649451e-07,
+          "convex_deviation_m": 8.928206610525e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.0468605175884659e-07,
+          "convex_deviation_m": 8.928206610524593e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 9.637268191121815e-08,
+          "convex_deviation_m": 7.223287452597029e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 8.806053714689297e-08,
+          "convex_deviation_m": 8.075771769739846e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 7.974833346003207e-08,
+          "convex_deviation_m": 8.07577176973984e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 7.14356044597159e-08,
+          "convex_deviation_m": 7.64953579584936e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 6.312319825428354e-08,
+          "convex_deviation_m": 8.075771769739846e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 5.4810540962778516e-08,
+          "convex_deviation_m": 8.07577176973984e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 4.6498268525668326e-08,
+          "convex_deviation_m": 8.928206610524598e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 3.818573096490332e-08,
+          "convex_deviation_m": 8.928206610525e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 2.9873415041082655e-08,
+          "convex_deviation_m": 8.928206610524598e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 2.156081278001546e-08,
+          "convex_deviation_m": 8.928206610524598e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.3248095783164949e-08,
+          "convex_deviation_m": 8.928206610524283e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 4.935575540276874e-09,
+          "convex_deviation_m": 8.928206610524593e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 4.935577789047987e-09,
+          "convex_deviation_m": 8.928206610527613e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.3248126225502497e-08,
+          "convex_deviation_m": 8.928206610527303e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 2.1560810790244327e-08,
+          "convex_deviation_m": 8.928206610527303e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 2.987341228419448e-08,
+          "convex_deviation_m": 8.928206610527303e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 3.818573260582319e-08,
+          "convex_deviation_m": 8.928206610526557e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 4.649824249289293e-08,
+          "convex_deviation_m": 8.928206610527494e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 5.4810543027595814e-08,
+          "convex_deviation_m": 8.07577176973984e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 6.312321414586247e-08,
+          "convex_deviation_m": 8.075771769739846e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 7.143569878231579e-08,
+          "convex_deviation_m": 7.436433567147832e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 7.974834338101685e-08,
+          "convex_deviation_m": 8.07577176973984e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 8.806056677415602e-08,
+          "convex_deviation_m": 8.075771769739846e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 9.63726818290897e-08,
+          "convex_deviation_m": 7.223287452598541e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.0468605166967011e-07,
+          "convex_deviation_m": 8.928206610527613e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.129994306502727e-07,
+          "convex_deviation_m": 8.928206610527613e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.213120263433475e-07,
+          "convex_deviation_m": 8.928206610527613e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.296246352234618e-07,
+          "convex_deviation_m": 8.928206610527613e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.3403988211979298e-07,
+          "convex_deviation_m": 8.928206610526557e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.340390592852265e-07,
+          "convex_deviation_m": 2.544484295554685e-17,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.34039943305702e-07,
+          "convex_deviation_m": 8.928206610525e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.2962462527909594e-07,
+          "convex_deviation_m": 8.928206610525e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.2131204678215716e-07,
+          "convex_deviation_m": 8.928206610524598e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.1299943287495138e-07,
+          "convex_deviation_m": 8.928206610525e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.0468599117684256e-07,
+          "convex_deviation_m": 8.928206610524593e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 9.637268372648712e-08,
+          "convex_deviation_m": 7.223287452599335e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 8.806056001848959e-08,
+          "convex_deviation_m": 8.075771769739846e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 7.974833332359823e-08,
+          "convex_deviation_m": 8.07577176973984e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 7.143566066062736e-08,
+          "convex_deviation_m": 7.517819151828434e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 6.312321358771695e-08,
+          "convex_deviation_m": 8.075771769739846e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 5.481053882273905e-08,
+          "convex_deviation_m": 8.07577176973984e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 4.6498266710166706e-08,
+          "convex_deviation_m": 8.928206610525e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 3.818570814750875e-08,
+          "convex_deviation_m": 8.928206610524598e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 2.9873416621761967e-08,
+          "convex_deviation_m": 8.928206610527613e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 2.1560813920824526e-08,
+          "convex_deviation_m": 8.928206610527613e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 1.3248090436668527e-08,
+          "convex_deviation_m": 8.928206610527613e-08,
+          "certified_convex": true
+        },
+        {
+          "triangles": 36,
+          "unique_vertices": 20,
+          "closed": true,
+          "volume": 4.935575633239728e-09,
+          "convex_deviation_m": 8.928206610524593e-08,
+          "certified_convex": true
+        }
+      ]
+    }
+  ]
+}

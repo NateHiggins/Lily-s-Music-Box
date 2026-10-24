@@ -36,9 +36,27 @@ func configure(material_lengths: PackedFloat64Array,bend_spans: PackedFloat64Arr
 func _native_result(value: Dictionary) -> PackedVector3Array:
 	error=value.error;iterations=int(value.iterations);qp_iterations=int(value.qp_iterations);last_iterate=value.last_iterate
 	return value.points
+func set_bend_error(value: float) -> bool:
+	return _native!=null and _native.has_method("set_bend_error") and bool(_native.call("set_bend_error",value))
+func pin_rings(indices: PackedInt32Array) -> bool:
+	if _native==null or not _native.has_method("pin") or not bool(_native.call("pin",indices)):
+		error="native fixed-ring configuration rejected";return false
+	for ring: int in indices:inverse[ring]=0.
+	return true
 func warm_start(seed: PackedVector3Array,anchor: Vector3,planes: Dictionary,hints: PackedVector3Array) -> Dictionary:
 	if _native==null:return {"points":PackedVector3Array(),"accepted":false,"iterations":0,"error":"native warm kernel unavailable"}
 	return _native.call("warm_start",seed,anchor,planes,hints)
+func follow(seed: PackedVector3Array,anchor: Vector3,planes: Dictionary,pins: Dictionary={},continuation:=false) -> PackedVector3Array:
+	var method: String="resume_follow" if continuation else "follow"
+	if _native==null or not _native.has_method(method):
+		error="native follower unavailable";return PackedVector3Array()
+	return _native_result(_native.call(method,seed,anchor,planes,pins))
+func round_self_constraints(before: PackedVector3Array,after: PackedVector3Array,radius: float,pins: Dictionary={}) -> Dictionary:
+	if _native==null or not _native.has_method("round_self_constraints"):return {"valid":false,"clear":false,"planes":[],"error":"native round self-contact unavailable"}
+	return _native.call("round_self_constraints",before,after,radius,pins)
+func round_guide_seed(before: PackedVector3Array,goal: Vector3,join: int,axis: Vector3,side: Vector3,floor: float) -> Dictionary:
+	if _native==null or not _native.has_method("round_guide_seed"):return {"points":PackedVector3Array()}
+	return _native.call("round_guide_seed",before,goal,join,axis,side,floor)
 func _dot(a: Vector3,b: Vector3) -> float:
 	# Keep matrix accumulation inFloat64; imported positions remainFloat32.
 	return float(a.x)*float(b.x)+float(a.y)*float(b.y)+float(a.z)*float(b.z)

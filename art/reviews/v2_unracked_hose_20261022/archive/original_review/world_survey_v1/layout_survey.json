@@ -1,0 +1,95 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "complete-world layout diagnostic, no installed removal or runtime qualification",
+	"stations": [
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, -2.0, -7.87)]",
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/B1_LIFT_JAMB_WEST/Collision",
+			"configured": true,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "B1_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 120.91
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 1.2, -7.87)]",
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F01_LIFT_JAMB_WEST/Collision",
+			"configured": true,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F01_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 60.609
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 4.4, -7.87)]",
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"configured": true,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 102.932
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 7.6, -7.87)]",
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F03_LIFT_JAMB_WEST/Collision",
+			"configured": true,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F03_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 61.182
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 10.8, -7.87)]",
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F04_LIFT_JAMB_WEST/Collision",
+			"configured": true,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F04_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 61.828
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 14.0, -7.87)]",
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F05_LIFT_JAMB_WEST/Collision",
+			"configured": true,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F05_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 61.72
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 17.2, -7.87)]",
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F06_LIFT_JAMB_WEST/Collision",
+			"configured": true,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F06_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 60.81
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 20.4, -7.87)]",
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/ROOF_LIFT_DRIVE/PlantGuard",
+			"configured": true,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "ROOF_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 119.808
+		}
+	]
+}

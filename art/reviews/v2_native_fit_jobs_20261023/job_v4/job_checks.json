@@ -1,0 +1,62 @@
+{
+	"checks": [
+		{
+			"label": "frozen pre-refactor fitter accepts actual authored cell",
+			"ok": true
+		},
+		{
+			"label": "original native collision shapes seed the unchanged cache",
+			"ok": true
+		},
+		{
+			"label": "prepare keeps public cell byte/pose/material/collision state unchanged",
+			"ok": true
+		},
+		{
+			"label": "part chunks yield without partial publication",
+			"ok": true
+		},
+		{
+			"label": "cooperative result equals frozen original buffers, transforms, PBR fields, collision faces and source counts",
+			"ok": true
+		},
+		{
+			"label": "original wrapper consumes one exact prepared result without rebuilding",
+			"ok": true
+		},
+		{
+			"label": "duplicate mount remains refused after token consumption",
+			"ok": true
+		},
+		{
+			"label": "cancellation releases private model and preserves original cell",
+			"ok": true
+		},
+		{
+			"label": "abandoned unfinished job releases private model without an explicit cancel",
+			"ok": true
+		},
+		{
+			"label": "source resource mutation during yielded construction refuses publication",
+			"ok": true
+		},
+		{
+			"label": "source pose mutation during yielded construction refuses publication",
+			"ok": true
+		},
+		{
+			"label": "same-RID cached shape mutation between chunks is rechecked before publication",
+			"ok": true
+		},
+		{
+			"label": "prepared token refuses mismatched arguments and is consumed once",
+			"ok": true
+		},
+		{
+			"label": "foreign prepared object cannot bypass source validation",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"scope": "Actual imported component and frozen original fitter equivalence/cancellation checks; not player input or runtime_contract."
+}

@@ -1,0 +1,8 @@
+WARNING: 'res://assets/characters/juno_kells/juno_kells.gltf': In external resource #0, invalid UID: 'uid://cco75vi30oljc' - using text path instead: 'res://assets/characters/juno_kells/texture_0.png'.
+   at: open (core/io/resource_format_binary.cpp:1025)
+   GDScript backtrace (most recent call first):
+       [0] _borrow_silhouette (res://scripts/dream/dream_pursuer.gd:140)
+       [1] setup (res://scripts/dream/dream_pursuer.gd:88)
+       [2] _build_world (res://scripts/dream/dream_maze_root.gd:456)
+       [3] _ready (res://scripts/dream/dream_maze_root.gd:240)
+       [4] _run (res://tests/lamp_dream_material_test.gd:13)

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/case_calibrator.glb",
+  "parts": [
+    {
+      "name": "Fixed__bakelite",
+      "component": "Fixed",
+      "key": "bakelite",
+      "tile": 0.04,
+      "triangles": 1324
+    },
+    {
+      "name": "Fixed__brass_dull",
+      "component": "Fixed",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 3760
+    },
+    {
+      "name": "Fixed__metal",
+      "component": "Fixed",
+      "key": "metal",
+      "tile": 0.9,
+      "triangles": 188
+    },
+    {
+      "name": "Plunger__bakelite",
+      "component": "Plunger",
+      "key": "bakelite",
+      "tile": 0.04,
+      "triangles": 188
+    },
+    {
+      "name": "Plunger__brass_dull",
+      "component": "Plunger",
+      "key": "brass_dull",
+      "tile": 0.5,
+      "triangles": 376
+    }
+  ],
+  "stroke_m": 0.004,
+  "housing_bounds_m": [
+    0.48,
+    0.42,
+    0.26
+  ]
+}

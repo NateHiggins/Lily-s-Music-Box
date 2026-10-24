@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/v2_save_utf8_probe.gd" id="1"]
+[node name="V2SaveUtf8Probe" type="Node"]
+script = ExtResource("1")

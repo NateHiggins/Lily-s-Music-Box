@@ -1,0 +1,96 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Executed diagnostic chain and unchanged production hose owners; raw and LF text bindings. Two scope captions corrected after chain_v1; executed versions retained separately. No behavioral change or world rerun for caption-only edits.",
+  "sources": [
+    {
+      "path": "game/tests/v2_hose_idle_visual_profile.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/v2_hose_idle_visual_profile.gd.gz",
+      "sha256": "1d10ea6207f23e2a4a27a7df565d62e215b915c93d7fe65af591d97e86aafb66",
+      "lf_sha256": "1d10ea6207f23e2a4a27a7df565d62e215b915c93d7fe65af591d97e86aafb66"
+    },
+    {
+      "path": "game/tests/V2HoseIdleVisualProfile.tscn",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/V2HoseIdleVisualProfile.tscn.gz",
+      "sha256": "ccbe51a36f22164a3f022068c52b4668e67a177097a262a2be142cff53e043ac",
+      "lf_sha256": "ccbe51a36f22164a3f022068c52b4668e67a177097a262a2be142cff53e043ac"
+    },
+    {
+      "path": "game/tests/v2_hose_installed_union_review.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/v2_hose_installed_union_review.gd.gz",
+      "sha256": "a58d9a03680354952b14bb22fa5b23fa79df29d84cea46b5dec8b7a80dc21bc2",
+      "lf_sha256": "a58d9a03680354952b14bb22fa5b23fa79df29d84cea46b5dec8b7a80dc21bc2"
+    },
+    {
+      "path": "game/tests/V2HoseInstalledUnionReview.tscn",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/V2HoseInstalledUnionReview.tscn.gz",
+      "sha256": "6c94c41c102a09e77da00c6b13d388557a4c9e3689a07568b231c21b2c6cbd7e",
+      "lf_sha256": "6c94c41c102a09e77da00c6b13d388557a4c9e3689a07568b231c21b2c6cbd7e"
+    },
+    {
+      "path": "game/tests/v2_fire_nozzle_coupling_bench.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/v2_fire_nozzle_coupling_bench.gd.gz",
+      "sha256": "69ad4cd3d5e560757a7d523454e390fc37e870989d7d0bc7d346b529da9221d7",
+      "lf_sha256": "69ad4cd3d5e560757a7d523454e390fc37e870989d7d0bc7d346b529da9221d7"
+    },
+    {
+      "path": "game/tests/v2_hose_installed_world.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/v2_hose_installed_world.gd.gz",
+      "sha256": "6dc3ccaabb3fb2607886deddfb953852c22a7d18dc699f01a0d20d614b56da51",
+      "lf_sha256": "6dc3ccaabb3fb2607886deddfb953852c22a7d18dc699f01a0d20d614b56da51"
+    },
+    {
+      "path": "game/tests/v2_fire_hand_bench.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/v2_fire_hand_bench.gd.gz",
+      "sha256": "757dd2531aa41edeaefe466528280bbb27405a72d4fa3b2a2158cd3572b07395",
+      "lf_sha256": "757dd2531aa41edeaefe466528280bbb27405a72d4fa3b2a2158cd3572b07395"
+    },
+    {
+      "path": "game/tests/fixed_gesture_patrol_hand.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/fixed_gesture_patrol_hand.gd.gz",
+      "sha256": "d1a5236038a648a5e16d9132ffddcb1c1f8f4e9d6f9ad2037f5a9bc5b13f23d4",
+      "lf_sha256": "d1a5236038a648a5e16d9132ffddcb1c1f8f4e9d6f9ad2037f5a9bc5b13f23d4"
+    },
+    {
+      "path": "game/tests/v2_hose_production_hand_bench.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/v2_hose_production_hand_bench.gd.gz",
+      "sha256": "6f8fb7716198846addc6dee72b769f4f5ca475b79581fc2ee40ac77fde651381",
+      "lf_sha256": "6f8fb7716198846addc6dee72b769f4f5ca475b79581fc2ee40ac77fde651381"
+    },
+    {
+      "path": "game/tests/v2_hose_water_programme.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/v2_hose_water_programme.gd.gz",
+      "sha256": "2086d2a9a45c85808c79103c471ddf8b0e27100f9ed9d6761ad9a311088c04c5",
+      "lf_sha256": "2086d2a9a45c85808c79103c471ddf8b0e27100f9ed9d6761ad9a311088c04c5"
+    },
+    {
+      "path": "game/scripts/props/fire_unracked_hose.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/fire_unracked_hose.gd.gz",
+      "sha256": "bb5299024a152a75c85705f4529950a480015c754cc4ee43429743db1a371d0d",
+      "lf_sha256": "bb5299024a152a75c85705f4529950a480015c754cc4ee43429743db1a371d0d"
+    },
+    {
+      "path": "game/scripts/props/fire_nozzle_coupling.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/fire_nozzle_coupling.gd.gz",
+      "sha256": "aa40ec07a11e75bb7464b569f36ac6162b738372cb588daa7c86394d40bfdbfb",
+      "lf_sha256": "aa40ec07a11e75bb7464b569f36ac6162b738372cb588daa7c86394d40bfdbfb"
+    },
+    {
+      "path": "game/scripts/props/fire_line_gasket.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/fire_line_gasket.gd.gz",
+      "sha256": "1ec9d71967d60a804a7767c9b059ac01125da0dc91fbd6f41d882e0d959ca879",
+      "lf_sha256": "1ec9d71967d60a804a7767c9b059ac01125da0dc91fbd6f41d882e0d959ca879"
+    },
+    {
+      "path": "game/scripts/props/fire_loose_union.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/fire_loose_union.gd.gz",
+      "sha256": "be00aa2aa21da67a282f843810966baf4b39592483ca01486fe22adea7e16e6d",
+      "lf_sha256": "be00aa2aa21da67a282f843810966baf4b39592483ca01486fe22adea7e16e6d"
+    },
+    {
+      "path": "game/scripts/props/v2_fire_line_cabinet.gd",
+      "archive": "art/reviews/v2_hose_idle_visuals_20261024/source_final/v2_fire_line_cabinet.gd.gz",
+      "sha256": "dfa0ba7571b9fc96d0d151242c07c8b8ec09b3b8434bfa3de7447fdc015f6e35",
+      "lf_sha256": "dfa0ba7571b9fc96d0d151242c07c8b8ec09b3b8434bfa3de7447fdc015f6e35"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "evidence_class": "INERT",
+  "settings": "1280x720, Forward+, RTX4080, VSync off, uncapped; raw wall-frame distributions. No input-to-photon latency claim.",
+  "records": [
+    {
+      "directory": "performance_buffers_v2",
+      "group": "all",
+      "count": 985,
+      "p50_ms": 43.814,
+      "p95_ms": 65.777,
+      "p99_ms": 105.076,
+      "max_ms": 261.808,
+      "over_100ms": 14
+    },
+    {
+      "directory": "reflection_controls",
+      "group": "all",
+      "count": 986,
+      "p50_ms": 42.993,
+      "p95_ms": 65.951,
+      "p99_ms": 110.096,
+      "max_ms": 266.981,
+      "over_100ms": 16
+    },
+    {
+      "directory": "step_guard_paired",
+      "group": "original_control0",
+      "count": 348,
+      "p50_ms": 43.41,
+      "p95_ms": 279.345,
+      "p99_ms": 293.11,
+      "max_ms": 3120.604,
+      "over_100ms": 30
+    },
+    {
+      "directory": "step_guard_paired",
+      "group": "guard_candidate",
+      "count": 448,
+      "p50_ms": 47.12,
+      "p95_ms": 212.937,
+      "p99_ms": 226.215,
+      "max_ms": 241.863,
+      "over_100ms": 27
+    },
+    {
+      "directory": "step_guard_paired",
+      "group": "original_control2",
+      "count": 372,
+      "p50_ms": 41.518,
+      "p95_ms": 279.387,
+      "p99_ms": 291.832,
+      "max_ms": 2755.988,
+      "over_100ms": 26
+    }
+  ],
+  "percentile_method": "Sorted sample at min(N-1, floor(N*p)); matches preceding checkpoint report. All raw samples retained."
+}

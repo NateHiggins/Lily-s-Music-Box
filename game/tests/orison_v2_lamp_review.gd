@@ -108,7 +108,7 @@ func _run() -> void:
 	_check(fog.global_basis.y.dot(player.flashlight.global_basis.z) > .999
 			and fog.to_global(Vector3(0,3.25,0)).distance_to(player.flashlight.global_position) < .001,
 			"native cone apex is at lens and opens along actual beam")
-	_check(not player._light_mask.is_visible_in_tree() and player.flashlight.light_projector == null,
+	_check(player._light_mask == null and player.flashlight.light_projector == null,
 			"no photographic overlay or projected texture")
 	# A dark-room comparison isolates the lamp from the room pendant.
 	for energy in [.74,1.5,2.4]:
@@ -154,7 +154,7 @@ func _run() -> void:
 	_off_bytes.clear()
 	player.set_lamp_enabled(true)
 	await get_tree().create_timer(.6).timeout
-	_check(fog.visible and not player._light_mask.is_visible_in_tree(), "toggle cannot restore photographic overlay")
+	_check(fog.visible and player._light_mask == null, "toggle cannot restore photographic overlay")
 	_check(environment.volumetric_fog_enabled, "lamp on restores participating fog pass")
 	_check(fog.global_transform.is_equal_approx(player.flashlight.global_transform * Transform3D(Basis(Vector3.RIGHT,PI*.5),Vector3(0,0,-3.25))),
 			"volume follows the real carried lens transform")

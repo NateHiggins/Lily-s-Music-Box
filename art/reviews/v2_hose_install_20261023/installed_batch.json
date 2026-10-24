@@ -1,0 +1,17 @@
+[
+  {
+    "scene": "res://tests/V2HoseProductionSaveBench.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/production_save_v3.log",
+    "runner": "serial",
+    "timeout": 120,
+    "windowed": false
+  },
+  {
+    "scene": "res://tests/V2HoseInstalledWorld.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/world_v3.log",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/world_v3"
+  }
+]

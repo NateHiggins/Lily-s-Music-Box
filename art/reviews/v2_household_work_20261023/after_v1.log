@@ -1,0 +1,98 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1491 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2558
+[ORISON V2 RUNTIME] ready startup_ms=112084.634
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+[HARUKIYA] OPEN, 18 fixtures
+CONNECTED EXTERIOR CHECK: all eight production hose cabinets mount in the occupied world = true
+CONNECTED EXTERIOR CHECK: stored installed hose has no contact/cloth/fluid loop: B1_FIRE_LINE_STAIR = true
+CONNECTED EXTERIOR CHECK: stored installed hose has no contact/cloth/fluid loop: F01_FIRE_LINE_STAIR = true
+CONNECTED EXTERIOR CHECK: stored installed hose has no contact/cloth/fluid loop: F02_FIRE_LINE_STAIR = true
+CONNECTED EXTERIOR CHECK: stored installed hose has no contact/cloth/fluid loop: F03_FIRE_LINE_STAIR = true
+CONNECTED EXTERIOR CHECK: stored installed hose has no contact/cloth/fluid loop: F04_FIRE_LINE_STAIR = true
+CONNECTED EXTERIOR CHECK: stored installed hose has no contact/cloth/fluid loop: F05_FIRE_LINE_STAIR = true
+CONNECTED EXTERIOR CHECK: stored installed hose has no contact/cloth/fluid loop: F06_FIRE_LINE_STAIR = true
+CONNECTED EXTERIOR CHECK: stored installed hose has no contact/cloth/fluid loop: ROOF_FIRE_LINE_STAIR = true
+CONNECTED EXTERIOR CHECK: actual grab/motion/release opens the installed cabinet = true
+CONNECTED EXTERIOR CHECK: explicit assembled-line fixture is a valid physical household state = true
+CONNECTED EXTERIOR CHECK: walked stance reaches the specific installed nozzle surface = true
+INSTALLED HOSE EXTRACTION: {"active":true,"deployed":true,"error":"","extraction":0.2,"hand":"hose","kind":"free","registered_body":true}
+CONNECTED EXTERIOR CHECK: actual installed pull continues directly into FPS carry = true
+CONNECTED EXTERIOR CHECK: ordinary turning retains the deployed hose = true
+CONNECTED EXTERIOR CHECK: presented installed nozzle remains within one degree of reticle aim while turning = true
+CONNECTED EXTERIOR CHECK: held nozzle enters static free-cursor inspection before release = true
+CONNECTED EXTERIOR CHECK: actual held nozzle lever closes before floor placement = true
+CONNECTED EXTERIOR CHECK: ordinary release places the installed nozzle on real floor support = true
+CONNECTED EXTERIOR CHECK: actual tag grab enters the supported mechanism view = true
+CONNECTED EXTERIOR CHECK: actual supply-wheel input charges the installed hose = true
+CONNECTED EXTERIOR CHECK: installed closed nozzle holds full charge without spraying = true
+CONNECTED EXTERIOR CHECK: charged floor nozzle remains within reach from standing = true
+CONNECTED EXTERIOR CHECK: charged nozzle returns to static inspection for its separate lever = true
+CONNECTED EXTERIOR CHECK: actual separate lever input starts first installed spray = true
+CONNECTED EXTERIOR CHECK: open installed supply sustains charge and spray without draining = true
+CONNECTED EXTERIOR CHECK: actual nozzle lever stops spray = true
+CONNECTED EXTERIOR CHECK: charged nozzle can be set down again before closing supply = true
+CONNECTED EXTERIOR CHECK: cabinet valve remains independently accessible after nozzle placement = true
+CONNECTED EXTERIOR CHECK: actual supply-wheel closure traps charge independently = true
+CONNECTED EXTERIOR CHECK: released deployed nozzle can be selected again at the unchanged standing stance = true
+CONNECTED EXTERIOR CHECK: charged hose follows ordinary standing walking and stair descent = true
+CONNECTED EXTERIOR CHECK: remote stair-carried nozzle rests on real floor support = true
+CONNECTED EXTERIOR CHECK: released remote charged hose has a valid household payload = true
+CONNECTED EXTERIOR CHECK: remote released nozzle remains targetable away from its cabinet = true
+CONNECTED EXTERIOR CHECK: remote nozzle enters supported inspection without returning to cabinet = true
+CONNECTED EXTERIOR CHECK: installed stable hose has no environment-query, cloth or fluid tick = true
+CONNECTED EXTERIOR CHECK: paired unchanged notification preserves the campaign document and household payload: 0 = true
+CONNECTED EXTERIOR CHECK: paired unchanged notification preserves the campaign document and household payload: 1 = true
+CONNECTED EXTERIOR CHECK: paired unchanged notification preserves the campaign document and household payload: 2 = true
+CONNECTED EXTERIOR CHECK: paired unchanged notification preserves the campaign document and household payload: 3 = true
+CONNECTED EXTERIOR CHECK: real disk save captures deployed charged hose through the sole household owner = true
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1491 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2558
+[ORISON V2 RUNTIME] ready startup_ms=119398.173
+CONNECTED EXTERIOR CHECK: production world reconstructs from deployed charged hose save = true
+CONNECTED EXTERIOR CHECK: disk rebuild restores physical poses within10um, wheel within1e-12rad and identical water and maintenance facts = true
+CONNECTED EXTERIOR CHECK: reconstructed world shows the extended native skin and hides stored stock = true
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[63, 56, 58, 49, 41]
+[HARUKIYA] OPEN, 18 fixtures
+V2 INSTALLED HOSE WORLD: 10 waypoints; 0 failures

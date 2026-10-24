@@ -11,6 +11,7 @@ var inverse:=PackedFloat64Array()
 var bend_spans:=PackedFloat64Array()
 var bend_hints:=PackedVector3Array()
 var error:=""
+var bend_error_m:=ACCEPT_ERROR_M
 var iterations:=0
 var last_input:=PackedVector3Array()
 var last_planes: Dictionary={}
@@ -18,9 +19,12 @@ var last_result:=PackedVector3Array()
 var joint_accepted:=false
 var joint_usec:=0
 var coupled:=preload("res://scripts/props/hose_contact_projection.gd").new()
-func configure(rest_lengths: PackedFloat64Array,rest_points: PackedVector3Array) -> bool:
+func configure(rest_lengths: PackedFloat64Array,rest_points: PackedVector3Array,minimum_radii: PackedFloat64Array=PackedFloat64Array()) -> bool:
 	if not lengths.is_empty() or rest_lengths.size()<2:return false
 	if rest_points.size()!=rest_lengths.size()+1:return false
+	if not minimum_radii.is_empty() and minimum_radii.size()!=rest_points.size():return false
+	for radius: float in minimum_radii:
+		if not is_finite(radius) or radius<=0.:return false
 	for point: Vector3 in rest_points:
 		if not point.is_finite():return false
 	for value: float in rest_lengths:
@@ -30,12 +34,16 @@ func configure(rest_lengths: PackedFloat64Array,rest_points: PackedVector3Array)
 		masses[i]=(lengths[i-1]*.5 if i>0 else 0.)+(lengths[i]*.5 if i<lengths.size() else 0.)
 		inverse[i]=1./masses[i] if i<lengths.size() else 0.
 	for i in range(1,rest_points.size()-1):
-		var angle: float=minf((lengths[i-1]+lengths[i])*.5/MIN_BEND_RADIUS_M,PI*.5)
+		var radius: float=MIN_BEND_RADIUS_M if minimum_radii.is_empty() else minimum_radii[i]
+		var angle: float=minf((lengths[i-1]+lengths[i])*.5/radius,PI*.5)
 		bend_spans.append(sqrt(lengths[i-1]*lengths[i-1]+lengths[i]*lengths[i]+2.*lengths[i-1]*lengths[i]*cos(angle)))
 		var span: Vector3=rest_points[i+1]-rest_points[i-1]
 		if span.length_squared()<1e-14:return false
 		bend_hints.append(span.normalized())
 	coupled.configure(lengths,bend_spans,inverse)
+	if not minimum_radii.is_empty():
+		bend_error_m=.000001
+		if not coupled.set_bend_error(bend_error_m):error="native skin bend precision unavailable";return false
 	if coupled.backend_name=="native_invalid":error=coupled.error;return false
 	return true
 func _bend(points: PackedVector3Array,collapsed_only: bool=true) -> PackedVector3Array:
@@ -243,3 +251,27 @@ func project_velocity(points: PackedVector3Array,velocity: PackedVector3Array,pl
 	var result: PackedVector3Array=coupled.project_velocity(points,velocity,planes)
 	if result.is_empty():error=coupled.error
 	return result
+func follow(target: PackedVector3Array,anchor: Vector3,planes: Dictionary,pins: Dictionary={},continuation:=false) -> PackedVector3Array:
+	error="";iterations=0;joint_usec=0;joint_accepted=false
+	last_input=target.duplicate();last_planes=planes.duplicate(true);last_result=PackedVector3Array()
+	var points: PackedVector3Array=coupled.follow(target,anchor,planes,pins,continuation)
+	iterations=coupled.iterations;error=coupled.error
+	if points.is_empty():return points
+	# The fast numerical path must pass the same independent material bounds.
+	var total:=0.
+	for i in lengths.size():
+		var difference: float=points[i].distance_to(points[i+1])-lengths[i]
+		if absf(difference)>ACCEPT_ERROR_M:error="follower interval residual";return PackedVector3Array()
+		total+=difference
+	if absf(total)>ACCEPT_ERROR_M or _bend_error(points)>bend_error_m or points[-1]!=anchor:
+		error="follower material/anchor residual";return PackedVector3Array()
+	for ring: int in planes:
+		for plane: Dictionary in planes[ring]:
+			if plane.normal.dot(points[ring])<plane.offset-PROJECTION_ERROR_M:error="follower support residual";return PackedVector3Array()
+	for ring: int in pins:
+		if points[ring]!=pins[ring]:error="follower pin residual";return PackedVector3Array()
+	return points
+func pin_rings(indices: PackedInt32Array) -> bool:
+	if not coupled.pin_rings(indices):error=coupled.error;return false
+	for ring: int in indices:inverse[ring]=0.
+	return true

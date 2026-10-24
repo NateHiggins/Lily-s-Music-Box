@@ -1,0 +1,522 @@
+{
+	"aim_errors_degrees": [
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0
+	],
+	"checks": [
+		{
+			"label": "production native and deployment factories mount",
+			"ok": true
+		},
+		{
+			"label": "actual ray selects the fitted nozzle for extraction",
+			"ok": true
+		},
+		{
+			"label": "primary click latches the stored hose without toggling deployment",
+			"ok": true
+		},
+		{
+			"label": "actual pull replaces stored cloth with the separate native skin",
+			"ok": true
+		},
+		{
+			"label": "extraction continues into the same FPS grab without release or extra click",
+			"ok": true
+		},
+		{
+			"label": "continued grab registers the original physical nozzle",
+			"ok": true
+		},
+		{
+			"label": "held nozzle follows reticle yaw and pitch within a tenth of a degree",
+			"ok": true
+		},
+		{
+			"label": "FPS visual follow runs no environment scan or cloth solver",
+			"ok": true
+		},
+		{
+			"label": "continued FPS hose hold rendered",
+			"ok": true
+		},
+		{
+			"label": "next click releases the same hand and publishes exactly one owner event",
+			"ok": true
+		},
+		{
+			"label": "deployed hose remains operable when its distant cabinet is closed",
+			"ok": true
+		},
+		{
+			"label": "uncharged native hose is a flat ribbon with unchanged longitudinal scale",
+			"ok": true
+		},
+		{
+			"label": "empty uncharged hose performs no resting fluid or cloth tick",
+			"ok": true
+		},
+		{
+			"label": "native hose section render saved: flat_native_stock",
+			"ok": true
+		},
+		{
+			"label": "actual grabbed tag enters water-control inspection",
+			"ok": true
+		},
+		{
+			"label": "actual mouse closes nozzle lever before charging",
+			"ok": true
+		},
+		{
+			"label": "actual grab and mouse rotation open the separate supply valve",
+			"ok": true
+		},
+		{
+			"label": "closed nozzle can hold a full charge without spraying",
+			"ok": true
+		},
+		{
+			"label": "charging rounds the native hose without changing its length axis",
+			"ok": true
+		},
+		{
+			"label": "stable charged hose stops CPU fluid and cloth callbacks",
+			"ok": true
+		},
+		{
+			"label": "native hose section render saved: round_native_stock",
+			"ok": true
+		},
+		{
+			"label": "actual separate nozzle lever starts water spray",
+			"ok": true
+		},
+		{
+			"label": "open lever emits water only through the charged nozzle",
+			"ok": true
+		},
+		{
+			"label": "open supply keeps hose charged throughout sustained spraying",
+			"ok": true
+		},
+		{
+			"label": "water spray retains the registered UV-based custom water finish",
+			"ok": true
+		},
+		{
+			"label": "spray PBR map has its loaded mip chain",
+			"ok": true
+		},
+		{
+			"label": "spray PBR map has its loaded mip chain",
+			"ok": true
+		},
+		{
+			"label": "spray PBR map has its loaded mip chain",
+			"ok": true
+		},
+		{
+			"label": "charged spray and round hose are captured",
+			"ok": true
+		},
+		{
+			"label": "actual nozzle lever closes before trapping charge",
+			"ok": true
+		},
+		{
+			"label": "actual supply valve closure is independent of nozzle lever",
+			"ok": true
+		},
+		{
+			"label": "gradual supply closure with shut nozzle retains full trapped charge",
+			"ok": true
+		},
+		{
+			"label": "separate lever can release the trapped charge with supply closed",
+			"ok": true
+		},
+		{
+			"label": "open nozzle drains the isolated hose and stops spray",
+			"ok": true
+		},
+		{
+			"label": "drained hose lies flat without resting simulation",
+			"ok": true
+		},
+		{
+			"label": "charging and spraying do not certify or fabricate gasket inspection",
+			"ok": true
+		},
+		{
+			"label": "actual supply operation exercises the missing-gasket denial",
+			"ok": true
+		},
+		{
+			"label": "missing gasket prevents hose charging and nozzle spray",
+			"ok": true
+		},
+		{
+			"label": "actual supply input returns the denied line to shut",
+			"ok": true
+		},
+		{
+			"label": "cabinet automatic closure stays slow and leaves the deployed hose exit clear",
+			"ok": true
+		},
+		{
+			"label": "automatic closure restores only its owned player collision exceptions",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [0.0, 0]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [0.0, 1]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [0.0, 2]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [0.0, 3]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [0.0, 4]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [0.0, 5]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [0.0, 6]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [1.0, 0]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [1.0, 1]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [1.0, 2]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [1.0, 3]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [1.0, 4]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [1.0, 5]",
+			"ok": true
+		},
+		{
+			"label": "external cloth clears expanded cabinet bounds: [1.0, 6]",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"motion_calls": [
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 18,
+			"shell_queries": 0,
+			"total_usec": 303
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 19,
+			"shell_queries": 0,
+			"total_usec": 343
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 20,
+			"shell_queries": 0,
+			"total_usec": 301
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 21,
+			"shell_queries": 0,
+			"total_usec": 300
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 22,
+			"shell_queries": 0,
+			"total_usec": 332
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 23,
+			"shell_queries": 0,
+			"total_usec": 319
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 24,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 25,
+			"shell_queries": 0,
+			"total_usec": 296
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 26,
+			"shell_queries": 0,
+			"total_usec": 319
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 27,
+			"shell_queries": 0,
+			"total_usec": 310
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 28,
+			"shell_queries": 0,
+			"total_usec": 348
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 29,
+			"shell_queries": 0,
+			"total_usec": 309
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 30,
+			"shell_queries": 0,
+			"total_usec": 306
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 31,
+			"shell_queries": 0,
+			"total_usec": 327
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 32,
+			"shell_queries": 0,
+			"total_usec": 324
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 33,
+			"shell_queries": 0,
+			"total_usec": 318
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 34,
+			"shell_queries": 0,
+			"total_usec": 310
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 35,
+			"shell_queries": 0,
+			"total_usec": 287
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 36,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 37,
+			"shell_queries": 0,
+			"total_usec": 322
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 38,
+			"shell_queries": 0,
+			"total_usec": 348
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 39,
+			"shell_queries": 0,
+			"total_usec": 340
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 40,
+			"shell_queries": 0,
+			"total_usec": 305
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 41,
+			"shell_queries": 0,
+			"total_usec": 326
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1253,
+			"shell_queries": 0,
+			"total_usec": 295
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1253,
+			"shell_queries": 0,
+			"total_usec": 360
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1254,
+			"shell_queries": 0,
+			"total_usec": 327
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1255,
+			"shell_queries": 0,
+			"total_usec": 339
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1256,
+			"shell_queries": 0,
+			"total_usec": 329
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1257,
+			"shell_queries": 0,
+			"total_usec": 336
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1258,
+			"shell_queries": 0,
+			"total_usec": 350
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1259,
+			"shell_queries": 0,
+			"total_usec": 336
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1260,
+			"shell_queries": 0,
+			"total_usec": 344
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1261,
+			"shell_queries": 0,
+			"total_usec": 345
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1262,
+			"shell_queries": 0,
+			"total_usec": 358
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1263,
+			"shell_queries": 0,
+			"total_usec": 330
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1264,
+			"shell_queries": 0,
+			"total_usec": 334
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 1265,
+			"shell_queries": 0,
+			"total_usec": 338
+		}
+	],
+	"scope": "Production factory in isolated fixture; camera physics and collision disabled. No world route or household reconstruction qualification.",
+	"setup_ms": 13.715
+}
