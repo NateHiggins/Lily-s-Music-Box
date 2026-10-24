@@ -1,0 +1,691 @@
+{
+	"callbacks_main": true,
+	"checks": [
+		{
+			"label": "background requests are explicitly pending before settlement",
+			"ok": true
+		},
+		{
+			"label": "FIFO writes every detached snapshot and retains the previous generation",
+			"ok": true
+		},
+		{
+			"label": "worker validation never swaps live state or reads later mutations",
+			"ok": true
+		},
+		{
+			"label": "real verified transactions run off the main thread",
+			"ok": true
+		},
+		{
+			"label": "snapshot, state and notice callbacks stay on the main thread",
+			"ok": true
+		},
+		{
+			"label": "ordinary commit drains older work then writes current state synchronously",
+			"ok": true
+		},
+		{
+			"label": "path change drains the old path before switching",
+			"ok": true
+		},
+		{
+			"label": "campaign document replacement is a settlement barrier",
+			"ok": true
+		},
+		{
+			"label": "reset drains old work before creating fresh live data",
+			"ok": true
+		},
+		{
+			"label": "disabling persistence drains pending work and prevents new writes",
+			"ok": true
+		},
+		{
+			"label": "load waits for the current campaign's queued snapshot",
+			"ok": true
+		},
+		{
+			"label": "explicit New settles prior writes and retains the original replacement authority",
+			"ok": true
+		},
+		{
+			"label": "worker detects and protects a future primary without altering its bytes",
+			"ok": true
+		},
+		{
+			"label": "protection failure discards queued attempts before another writer starts",
+			"ok": true
+		},
+		{
+			"label": "ordinary worker IO failure publishes the existing failure notice without a false protection latch",
+			"ok": true
+		},
+		{
+			"label": "older worker success cannot clear a newer live-domain protection latch",
+			"ok": true
+		},
+		{
+			"label": "burst backpressure bounds memory while preserving ordered generations",
+			"ok": true
+		},
+		{
+			"label": "all asynchronous results settle on main before teardown",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"worker_records": [
+		{
+			"bytes": 288690,
+			"id": 1,
+			"main_usec": 1046,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 288690,
+			"id": 2,
+			"main_usec": 1392,
+			"pending": 2,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 288690,
+			"id": 3,
+			"main_usec": 1025,
+			"pending": 3,
+			"stage": "enqueue"
+		},
+		{
+			"id": 1,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 407896,
+				"worker_main_thread": false,
+				"worker_started_usec": 387292,
+				"worker_usec": 20604
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 2,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 435035,
+				"worker_main_thread": false,
+				"worker_started_usec": 408106,
+				"worker_usec": 26929
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 3,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 459250,
+				"worker_main_thread": false,
+				"worker_started_usec": 435221,
+				"worker_usec": 24029
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 288690,
+			"id": 4,
+			"main_usec": 994,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 4,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 506997,
+				"worker_main_thread": false,
+				"worker_started_usec": 478570,
+				"worker_usec": 28427
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 288690,
+			"id": 5,
+			"main_usec": 1000,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 5,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 564919,
+				"worker_main_thread": false,
+				"worker_started_usec": 539356,
+				"worker_usec": 25563
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 288690,
+			"id": 6,
+			"main_usec": 984,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 6,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 589103,
+				"worker_main_thread": false,
+				"worker_started_usec": 571549,
+				"worker_usec": 17554
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 288690,
+			"id": 7,
+			"main_usec": 986,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 7,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 616808,
+				"worker_main_thread": false,
+				"worker_started_usec": 593689,
+				"worker_usec": 23119
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 674,
+			"id": 8,
+			"main_usec": 61,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 8,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 641707,
+				"worker_main_thread": false,
+				"worker_started_usec": 620313,
+				"worker_usec": 21394
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 675,
+			"id": 9,
+			"main_usec": 83,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 9,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 657741,
+				"worker_main_thread": false,
+				"worker_started_usec": 643677,
+				"worker_usec": 14064
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 692,
+			"id": 10,
+			"main_usec": 64,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 10,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 678100,
+				"worker_main_thread": false,
+				"worker_started_usec": 660294,
+				"worker_usec": 17806
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 11,
+			"result": {
+				"code": "future_save_read_only",
+				"ok": false,
+				"protection_required": true,
+				"recovered": false,
+				"stage": "validate_primary",
+				"version": 99,
+				"worker_finished_usec": 699823,
+				"worker_main_thread": false,
+				"worker_started_usec": 699201,
+				"worker_usec": 622
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 674,
+			"id": 13,
+			"main_usec": 53,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 13,
+			"result": {
+				"code": "save_write_failed",
+				"ok": false,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "write_primary",
+				"worker_finished_usec": 703493,
+				"worker_main_thread": false,
+				"worker_started_usec": 703225,
+				"worker_usec": 268
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 674,
+			"id": 14,
+			"main_usec": 47,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 14,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 718027,
+				"worker_main_thread": false,
+				"worker_started_usec": 704695,
+				"worker_usec": 13332
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 675,
+			"id": 15,
+			"main_usec": 59,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 16,
+			"main_usec": 16,
+			"pending": 2,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 17,
+			"main_usec": 13,
+			"pending": 3,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 18,
+			"main_usec": 13,
+			"pending": 4,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 19,
+			"main_usec": 13,
+			"pending": 5,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 20,
+			"main_usec": 12,
+			"pending": 6,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 21,
+			"main_usec": 14,
+			"pending": 7,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 22,
+			"main_usec": 11,
+			"pending": 8,
+			"stage": "enqueue"
+		},
+		{
+			"id": 15,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 734598,
+				"worker_main_thread": false,
+				"worker_started_usec": 719671,
+				"worker_usec": 14927
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 16,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 749153,
+				"worker_main_thread": false,
+				"worker_started_usec": 734769,
+				"worker_usec": 14384
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 17,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 762772,
+				"worker_main_thread": false,
+				"worker_started_usec": 749332,
+				"worker_usec": 13440
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 18,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 776544,
+				"worker_main_thread": false,
+				"worker_started_usec": 762937,
+				"worker_usec": 13607
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 19,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 794242,
+				"worker_main_thread": false,
+				"worker_started_usec": 776731,
+				"worker_usec": 17511
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 20,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 811611,
+				"worker_main_thread": false,
+				"worker_started_usec": 794434,
+				"worker_usec": 17177
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 21,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 828961,
+				"worker_main_thread": false,
+				"worker_started_usec": 811819,
+				"worker_usec": 17142
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 22,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 846492,
+				"worker_main_thread": false,
+				"worker_started_usec": 829156,
+				"worker_usec": 17336
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 675,
+			"id": 23,
+			"main_usec": 66,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 24,
+			"main_usec": 18,
+			"pending": 2,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 676,
+			"id": 25,
+			"main_usec": 14,
+			"pending": 3,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 676,
+			"id": 26,
+			"main_usec": 15,
+			"pending": 4,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 676,
+			"id": 27,
+			"main_usec": 12,
+			"pending": 5,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 676,
+			"id": 28,
+			"main_usec": 12,
+			"pending": 6,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 676,
+			"id": 29,
+			"main_usec": 12,
+			"pending": 7,
+			"stage": "enqueue"
+		},
+		{
+			"id": 23,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 860957,
+				"worker_main_thread": false,
+				"worker_started_usec": 846711,
+				"worker_usec": 14246
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 24,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 874628,
+				"worker_main_thread": false,
+				"worker_started_usec": 861160,
+				"worker_usec": 13468
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 25,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 888300,
+				"worker_main_thread": false,
+				"worker_started_usec": 874825,
+				"worker_usec": 13475
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 26,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 903710,
+				"worker_main_thread": false,
+				"worker_started_usec": 888499,
+				"worker_usec": 15211
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 27,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 917865,
+				"worker_main_thread": false,
+				"worker_started_usec": 903918,
+				"worker_usec": 13947
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 28,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 931977,
+				"worker_main_thread": false,
+				"worker_started_usec": 918054,
+				"worker_usec": 13923
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 29,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 945565,
+				"worker_main_thread": false,
+				"worker_started_usec": 932168,
+				"worker_usec": 13397
+			},
+			"stage": "completed"
+		}
+	]
+}

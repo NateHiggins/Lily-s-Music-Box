@@ -11,10 +11,18 @@ it does not replace the existing issue logs or erase original failures.
 ## Current verification boundary
 
 Canonical checkout **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-acoustic-topology**, preceding pushed checkpoint **99e93e64**.
+**codex/v2-acoustic-topology**, preceding pushed checkpoint **9e7ef3fb**.
 The spatial dependency manifest is unrelated shared WIP. Untracked street/tent,
 traffic and art work remains preserved. All engine runs use the shared lane.
 No human acceptance or clean candidate verification is claimed.
+
+Latest scoped performance work: **V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md**.
+V2 household saves now use a bounded FIFO worker for the unchanged storage
+transaction, with explicit context/Save/Load/New/quit settlement. Final53-check
+actual route/rebuild passes. Warm comparison improves p99 100.169→71.060ms,
+maximum167.840→119.983ms and main household commit52.189→22.210ms; median/p95
+slightly worsen. Original slower timing and rounding-test failure remain.
+Serialization/barriers and the broader performance/started-work queue remain open.
 
 ## Finish these requests before opening unrelated work
 

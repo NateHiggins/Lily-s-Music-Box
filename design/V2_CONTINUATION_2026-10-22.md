@@ -12,6 +12,23 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-23
 
+Newest save scheduling repair: **V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md**.
+V2 household commits capture/serialize on main and run the unchanged recovery
+transaction on one FIFO worker. No coalescing; explicit Save/Load/New, context
+changes and quit settle pending work.18 focused checks and confirmed live-worker
+3.2MB quit settlement pass;195 recovery,52 calendar and14 compatibility checks
+pass. Same warmed route: synchronous p50/p95/p99/max36.219/50.255/100.169/167.840
+versus background37.534/51.123/71.060/119.983ms;8→3 intervals above100ms.
+Main household commit median52.189→22.210ms. Median/p95 slightly worsen: no broad
+FPS gain claimed. Final53-check actual route/disk reconstruction passes,13 worker
+writes, pending0, empty stderr. A separate22us mouse handler turns the camera
+while a large worker is alive. Initial much slower world run and original one-ULP
+door comparison failure are retained; door uses the existing1e-12rad angular
+policy, five rejection/rounding controls pass. Main serialization, synchronous
+non-household/barrier/backpressure stalls, shadow costs, actual cell streaming
+and all started-work/runtime/human closure remain open. Final combined board has
+no regressions; shared62-line bathroom manifest WIP remains untouched.
+
 Newest rendering repair: **V2_SHADOW_BUDGET_WRITES_2026-10-23.md**. Four equality
 guards in ceiling/lamp/general fixture budget methods avoid invalidating shadow
 maps when their boolean is unchanged. No light budget, color, mask or shadow

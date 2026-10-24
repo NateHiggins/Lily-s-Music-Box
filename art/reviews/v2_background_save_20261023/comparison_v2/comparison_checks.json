@@ -1,0 +1,26 @@
+{
+	"checks": [
+		{
+			"label": "original one-ULP door JSON round-trip accepted",
+			"ok": true
+		},
+		{
+			"label": "door change beyond angular tolerance refused",
+			"ok": true
+		},
+		{
+			"label": "water facts remain exact",
+			"ok": true
+		},
+		{
+			"label": "maintenance facts remain exact",
+			"ok": true
+		},
+		{
+			"label": "20 micrometer pose error refused",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"original_source": "C:/PleaseRemainOnTheLine/art/reviews/v2_background_save_20261023/world_after_v1/rebuild_comparison.json"
+}

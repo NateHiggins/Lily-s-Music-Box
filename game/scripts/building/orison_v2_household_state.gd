@@ -23,6 +23,7 @@ var profiling:=false
 var profile_records: Array[Dictionary]=[]
 var profile_causes: Array[Dictionary]=[]
 var reuse_unchanged_validation:=true
+var background_persistence:=true
 
 func _profile_start() -> int:
 	return Time.get_ticks_usec() if profiling else 0
@@ -364,7 +365,8 @@ func _commit_change() -> void:
 					changed.append(identity)
 			profile_causes.append({"start_usec":profile_started,"process_frame":Engine.get_process_frames(),"physics_frame":Engine.get_physics_frames(),"changed":changed,"stack":get_stack(),"probe_usec":Time.get_ticks_usec()-probe_started})
 			if profile_causes.size()>128:profile_causes.pop_front()
-		RealityState.commit()
+		if background_persistence:RealityState.commit_background()
+		else:RealityState.commit()
 	_profile_end("commit_change",profile_started)
 
 func _on_room_changed(_room: String, _on: bool) -> void:

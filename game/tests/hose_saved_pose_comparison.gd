@@ -1,5 +1,5 @@
 extends RefCounted
-## Physical poses within10um; wheel/lever JSON round-trip within1e-12 radians.
+## Physical poses within10um; wheel/lever/door JSON round-trip within1e-12 radians.
 ## Water, maintenance facts and all other non-pose fields remain exact.
 static func pose(value: Dictionary) -> Transform3D:
 	var axes: Array[Vector3]=[]
@@ -33,5 +33,8 @@ static func compare(actual: Dictionary,wanted: Dictionary) -> Dictionary:
 	result.lever_error_rad=absf(float(a.lever)-float(b.lever))
 	var lever_equal: bool=result.lever_error_rad<.000000000001
 	a.erase("lever");b.erase("lever")
-	result.other_fields_equal=a==b;result.equal=poses_equal and wheel_equal and lever_equal and result.other_fields_equal
+	result.door_error_rad=absf(float(a.door)-float(b.door))
+	var door_equal: bool=result.door_error_rad<.000000000001
+	a.erase("door");b.erase("door")
+	result.other_fields_equal=a==b;result.equal=poses_equal and wheel_equal and lever_equal and door_equal and result.other_fields_equal
 	return result

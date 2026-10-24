@@ -1,0 +1,635 @@
+{
+	"callbacks_main": true,
+	"checks": [
+		{
+			"label": "background requests are explicitly pending before settlement",
+			"ok": true
+		},
+		{
+			"label": "FIFO writes every detached snapshot and retains the previous generation",
+			"ok": true
+		},
+		{
+			"label": "worker validation never swaps live state or reads later mutations",
+			"ok": true
+		},
+		{
+			"label": "real verified transactions run off the main thread",
+			"ok": true
+		},
+		{
+			"label": "snapshot, state and notice callbacks stay on the main thread",
+			"ok": true
+		},
+		{
+			"label": "ordinary commit drains older work then writes current state synchronously",
+			"ok": true
+		},
+		{
+			"label": "path change drains the old path before switching",
+			"ok": true
+		},
+		{
+			"label": "campaign document replacement is a settlement barrier",
+			"ok": true
+		},
+		{
+			"label": "reset drains old work before creating fresh live data",
+			"ok": true
+		},
+		{
+			"label": "disabling persistence drains pending work and prevents new writes",
+			"ok": true
+		},
+		{
+			"label": "load waits for the current campaign's queued snapshot",
+			"ok": true
+		},
+		{
+			"label": "explicit New settles prior writes and retains the original replacement authority",
+			"ok": true
+		},
+		{
+			"label": "worker detects and protects a future primary without altering its bytes",
+			"ok": true
+		},
+		{
+			"label": "protection failure discards queued attempts before another writer starts",
+			"ok": true
+		},
+		{
+			"label": "ordinary worker IO failure publishes the existing failure notice without a false protection latch",
+			"ok": true
+		},
+		{
+			"label": "older worker success cannot clear a newer live-domain protection latch",
+			"ok": true
+		},
+		{
+			"label": "burst backpressure bounds memory while preserving ordered generations",
+			"ok": true
+		},
+		{
+			"label": "all asynchronous results settle on main before teardown",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"worker_records": [
+		{
+			"bytes": 288690,
+			"id": 1,
+			"main_usec": 1070,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 288690,
+			"id": 2,
+			"main_usec": 1045,
+			"pending": 2,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 288690,
+			"id": 3,
+			"main_usec": 964,
+			"pending": 3,
+			"stage": "enqueue"
+		},
+		{
+			"id": 1,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 19215
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 2,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 25907
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 3,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 29541
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 288690,
+			"id": 4,
+			"main_usec": 1057,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 4,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 23720
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 288690,
+			"id": 5,
+			"main_usec": 1604,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 5,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 33916
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 288690,
+			"id": 6,
+			"main_usec": 1070,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 6,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 20189
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 288690,
+			"id": 7,
+			"main_usec": 1057,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 7,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 27317
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 674,
+			"id": 8,
+			"main_usec": 65,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 8,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 20727
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 675,
+			"id": 9,
+			"main_usec": 63,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 9,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 14790
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 692,
+			"id": 10,
+			"main_usec": 62,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 10,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 14435
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 11,
+			"result": {
+				"code": "future_save_read_only",
+				"ok": false,
+				"protection_required": true,
+				"recovered": false,
+				"stage": "validate_primary",
+				"version": 99,
+				"worker_main_thread": false,
+				"worker_usec": 3703
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 674,
+			"id": 13,
+			"main_usec": 54,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 13,
+			"result": {
+				"code": "save_write_failed",
+				"ok": false,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "write_primary",
+				"worker_main_thread": false,
+				"worker_usec": 269
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 674,
+			"id": 14,
+			"main_usec": 47,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"id": 14,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 12742
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 675,
+			"id": 15,
+			"main_usec": 61,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 16,
+			"main_usec": 15,
+			"pending": 2,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 17,
+			"main_usec": 13,
+			"pending": 3,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 18,
+			"main_usec": 13,
+			"pending": 4,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 19,
+			"main_usec": 13,
+			"pending": 5,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 20,
+			"main_usec": 14,
+			"pending": 6,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 21,
+			"main_usec": 15,
+			"pending": 7,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 22,
+			"main_usec": 13,
+			"pending": 8,
+			"stage": "enqueue"
+		},
+		{
+			"id": 15,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 14636
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 16,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 15033
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 17,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 14484
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 18,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 14296
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 19,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 14255
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 20,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 25800
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 21,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 24426
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 22,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 25446
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 675,
+			"id": 23,
+			"main_usec": 112,
+			"pending": 1,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 675,
+			"id": 24,
+			"main_usec": 29,
+			"pending": 2,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 676,
+			"id": 25,
+			"main_usec": 25,
+			"pending": 3,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 676,
+			"id": 26,
+			"main_usec": 25,
+			"pending": 4,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 676,
+			"id": 27,
+			"main_usec": 24,
+			"pending": 5,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 676,
+			"id": 28,
+			"main_usec": 23,
+			"pending": 6,
+			"stage": "enqueue"
+		},
+		{
+			"bytes": 676,
+			"id": 29,
+			"main_usec": 22,
+			"pending": 7,
+			"stage": "enqueue"
+		},
+		{
+			"id": 23,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 18699
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 24,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 16135
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 25,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 16553
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 26,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 13888
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 27,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 16141
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 28,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 14309
+			},
+			"stage": "completed"
+		},
+		{
+			"id": 29,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_main_thread": false,
+				"worker_usec": 14010
+			},
+			"stage": "completed"
+		}
+	]
+}

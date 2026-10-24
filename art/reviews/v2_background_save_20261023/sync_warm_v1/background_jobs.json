@@ -1,0 +1,19 @@
+{
+	"evidence_class": "INERT",
+	"final_status": {
+		"completed": 0,
+		"discarded": 0,
+		"pending": 0,
+		"requested": 0
+	},
+	"route_jobs": [],
+	"route_status": {
+		"completed": 0,
+		"discarded": 0,
+		"pending": 0,
+		"requested": 0
+	},
+	"scope": "Same timed route; optional untimed large-payload mouse-overlap control. Main-thread serialization remains. Route-only controls do not rebuild. No runtime_contract or human acceptance.",
+	"synchronous_control": true,
+	"untimed_overlap": {}
+}

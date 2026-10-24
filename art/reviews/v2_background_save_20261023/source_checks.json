@@ -1,0 +1,132 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Every executed top-level test matches its wrapper raw source hash; LF-normalized hashes also retained. Controlled dependencies archived separately. No runtime qualification.",
+  "checks": [
+    {
+      "receipt": "comparison_v1.log.receipt.json",
+      "test_path": "game/tests/hose_saved_pose_comparison_test.gd",
+      "sha256": "940c6c7e67e458a76eeb4ea556414eb3cc948a7e9d5b516543eadab9db71a63b",
+      "lf_sha256": "940c6c7e67e458a76eeb4ea556414eb3cc948a7e9d5b516543eadab9db71a63b",
+      "matched_from": "comparison_v1_source.gd.gz",
+      "archive": "receipt_sources\\comparison_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "comparison_v2.log.receipt.json",
+      "test_path": "game/tests/hose_saved_pose_comparison_test.gd",
+      "sha256": "62230a6a127510d03f0950c5e5dba225eded2e6825e1084fe3f8c5f28b2a1b01",
+      "lf_sha256": "62230a6a127510d03f0950c5e5dba225eded2e6825e1084fe3f8c5f28b2a1b01",
+      "matched_from": "current/game/tests/hose_saved_pose_comparison_test.gd",
+      "archive": "receipt_sources\\comparison_v2.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "pure_calendar_v1.log.receipt.json",
+      "test_path": "game/tests/campaign_calendar_test.gd",
+      "sha256": "af9f4e292263d11281f2044a9dc529a5515f868efe2c2fb58e14868c347cd70c",
+      "lf_sha256": "60d3c349961a67054913a8adb6ae3cb5489e7a81f857ed407904211cd1ff75a2",
+      "matched_from": "current/game/tests/campaign_calendar_test.gd",
+      "archive": "receipt_sources\\pure_calendar_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "pure_compat_v1.log.receipt.json",
+      "test_path": "game/tests/reality_save_compat_test.gd",
+      "sha256": "c52ef7483abd2867dd23e7e47b6ba9ce9c8e4babdc60b7fcc3ce2748db3a32ba",
+      "lf_sha256": "c52ef7483abd2867dd23e7e47b6ba9ce9c8e4babdc60b7fcc3ce2748db3a32ba",
+      "matched_from": "current/game/tests/reality_save_compat_test.gd",
+      "archive": "receipt_sources\\pure_compat_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "pure_recovery_v1.log.receipt.json",
+      "test_path": "game/tests/reality_save_recovery_test.gd",
+      "sha256": "48f5b934e3d2a6d0d5ebe93987e4e3d475324a633e5b4af0e9cc2cc41f39cc12",
+      "lf_sha256": "bb9aa9031a98f389d12e867c5e2a1d20c625b05c6c19c8868eeac1149b87ab6f",
+      "matched_from": "current/game/tests/reality_save_recovery_test.gd",
+      "archive": "receipt_sources\\pure_recovery_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "queue_calendar_v1.log.receipt.json",
+      "test_path": "game/tests/campaign_calendar_test.gd",
+      "sha256": "af9f4e292263d11281f2044a9dc529a5515f868efe2c2fb58e14868c347cd70c",
+      "lf_sha256": "60d3c349961a67054913a8adb6ae3cb5489e7a81f857ed407904211cd1ff75a2",
+      "matched_from": "current/game/tests/campaign_calendar_test.gd",
+      "archive": "receipt_sources\\queue_calendar_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "queue_recovery_v1.log.receipt.json",
+      "test_path": "game/tests/reality_save_recovery_test.gd",
+      "sha256": "48f5b934e3d2a6d0d5ebe93987e4e3d475324a633e5b4af0e9cc2cc41f39cc12",
+      "lf_sha256": "bb9aa9031a98f389d12e867c5e2a1d20c625b05c6c19c8868eeac1149b87ab6f",
+      "matched_from": "current/game/tests/reality_save_recovery_test.gd",
+      "archive": "receipt_sources\\queue_recovery_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "queue_v1.log.receipt.json",
+      "test_path": "game/tests/reality_background_save_test.gd",
+      "sha256": "7db08749b4db590256237706c0564231a8bd74ce0fc3a8d82fe277a1e66d1710",
+      "lf_sha256": "7db08749b4db590256237706c0564231a8bd74ce0fc3a8d82fe277a1e66d1710",
+      "matched_from": "queue_v1/test_source.gd",
+      "archive": "receipt_sources\\queue_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "queue_v2.log.receipt.json",
+      "test_path": "game/tests/reality_background_save_test.gd",
+      "sha256": "7db08749b4db590256237706c0564231a8bd74ce0fc3a8d82fe277a1e66d1710",
+      "lf_sha256": "7db08749b4db590256237706c0564231a8bd74ce0fc3a8d82fe277a1e66d1710",
+      "matched_from": "queue_v1/test_source.gd",
+      "archive": "receipt_sources\\queue_v2.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "queue_v3.log.receipt.json",
+      "test_path": "game/tests/reality_background_save_test.gd",
+      "sha256": "73c3e1f3dcd41ea0c48f2dbf5be507672fb75b87b726049267f6bd8613c25fbd",
+      "lf_sha256": "b76ac67051047ee2b9304c85ba484fc24456d57dd23468ea1972be320c99944d",
+      "matched_from": "source_after\\game\\tests\\reality_background_save_test.gd.gz",
+      "archive": "receipt_sources\\queue_v3.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "queue_v4.log.receipt.json",
+      "test_path": "game/tests/reality_background_save_test.gd",
+      "sha256": "1aea08d0e0b488ecede79a065c9906800c03de1640dc6b3d77a2dcb2fa3bc5b7",
+      "lf_sha256": "81555ea04d4a7dfb921c69c9abb027077b67b8d6e89072ff7c2966b21c26cfc8",
+      "matched_from": "current/game/tests/reality_background_save_test.gd",
+      "archive": "receipt_sources\\queue_v4.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "sync_warm_v1.log.receipt.json",
+      "test_path": "game/tests/v2_background_save_world.gd",
+      "sha256": "3bbb29bc47a6276aa1376ab136d0abc7f9d01332ff695a8165aa259b54bdbcde",
+      "lf_sha256": "3bbb29bc47a6276aa1376ab136d0abc7f9d01332ff695a8165aa259b54bdbcde",
+      "matched_from": "current/game/tests/v2_background_save_world.gd",
+      "archive": "receipt_sources\\sync_warm_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "world_after_v1.log.receipt.json",
+      "test_path": "game/tests/v2_background_save_world.gd",
+      "sha256": "0ab7e619911c2639e4707e5b5a30ed4ee636d9eac658998dca00b6326a1012c4",
+      "lf_sha256": "0ab7e619911c2639e4707e5b5a30ed4ee636d9eac658998dca00b6326a1012c4",
+      "matched_from": "source_after\\game\\tests\\v2_background_save_world.gd.gz",
+      "archive": "receipt_sources\\world_after_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "world_after_v2.log.receipt.json",
+      "test_path": "game/tests/v2_background_save_world.gd",
+      "sha256": "3bbb29bc47a6276aa1376ab136d0abc7f9d01332ff695a8165aa259b54bdbcde",
+      "lf_sha256": "3bbb29bc47a6276aa1376ab136d0abc7f9d01332ff695a8165aa259b54bdbcde",
+      "matched_from": "current/game/tests/v2_background_save_world.gd",
+      "archive": "receipt_sources\\world_after_v2.gd.gz",
+      "matches": true
+    }
+  ]
+}

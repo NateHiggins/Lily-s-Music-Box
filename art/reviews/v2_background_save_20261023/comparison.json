@@ -1,0 +1,1037 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Warm controls share the route and settings. Unfrozen ambient activity/frame counts differ. Rendering counters lag; workers and main overlap. Initial failed rebuild remains failed. Main household summaries exclude untimed post-route stress records.",
+  "routes": {
+    "preceding": {
+      "evidence_class": "INERT",
+      "wall_ms": {
+        "n": 793,
+        "p50": 34.965,
+        "p95": 48.76819999999999,
+        "p99": 94.32264000000008,
+        "max": 166.297,
+        "above_100": 5
+      },
+      "residency": [
+        "DORMANT"
+      ],
+      "main_household_ms": {
+        "capture_cached": {
+          "n": 14,
+          "p50": 3.4215,
+          "p95": 3.85235,
+          "p99": 3.86327,
+          "max": 3.866,
+          "above_100": 0
+        },
+        "capture_changed": {
+          "n": 12,
+          "p50": 11.6125,
+          "p95": 11.8428,
+          "p99": 11.87096,
+          "max": 11.878,
+          "above_100": 0
+        },
+        "commit_change": {
+          "n": 14,
+          "p50": 52.584,
+          "p95": 55.95095,
+          "p99": 56.32379,
+          "max": 56.417,
+          "above_100": 0
+        },
+        "snapshot": {
+          "n": 26,
+          "p50": 3.1180000000000003,
+          "p95": 3.3535,
+          "p99": 3.411,
+          "max": 3.428,
+          "above_100": 0
+        },
+        "state_cached": {
+          "n": 12,
+          "p50": 0.4225,
+          "p95": 0.5043,
+          "p99": 0.51926,
+          "max": 0.523,
+          "above_100": 0
+        },
+        "validate": {
+          "n": 12,
+          "p50": 6.9704999999999995,
+          "p95": 7.1377999999999995,
+          "p99": 7.17476,
+          "max": 7.184,
+          "above_100": 0
+        }
+      },
+      "compilation_deltas": {
+        "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+        "PIPELINE_COMPILATIONS_DRAW": 16.0,
+        "PIPELINE_COMPILATIONS_MESH": 0.0,
+        "PIPELINE_COMPILATIONS_SPECIALIZATION": 99.0,
+        "PIPELINE_COMPILATIONS_SURFACE": 0.0
+      },
+      "root_render_cpu_ms": {
+        "n": 794,
+        "p50": 20.414000511169398,
+        "p95": 25.544549560546905,
+        "p99": 30.32284070968625,
+        "max": 36.6870002746582,
+        "above_100": 0
+      },
+      "root_render_gpu_ms": {
+        "n": 794,
+        "p50": 12.24000024795535,
+        "p95": 15.49514989852907,
+        "p99": 17.12633975982667,
+        "max": 21.4120006561279,
+        "above_100": 0
+      },
+      "largest_intervals": [
+        {
+          "start_usec": 142443354,
+          "end_usec": 142609651,
+          "phase": "charge_control_input",
+          "ms": 166.297
+        },
+        {
+          "start_usec": 157838464,
+          "end_usec": 157969718,
+          "phase": "steady_spray",
+          "ms": 131.254
+        },
+        {
+          "start_usec": 139575581,
+          "end_usec": 139701388,
+          "phase": "actual_cabinet_open",
+          "ms": 125.807
+        },
+        {
+          "start_usec": 157969718,
+          "end_usec": 158078926,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 109.208
+        },
+        {
+          "start_usec": 155892542,
+          "end_usec": 155995038,
+          "phase": "steady_spray",
+          "ms": 102.496
+        },
+        {
+          "start_usec": 148582380,
+          "end_usec": 148681441,
+          "phase": "first_spray_input",
+          "ms": 99.061
+        },
+        {
+          "start_usec": 155232342,
+          "end_usec": 155329917,
+          "phase": "steady_spray",
+          "ms": 97.575
+        },
+        {
+          "start_usec": 148832811,
+          "end_usec": 148929004,
+          "phase": "steady_spray",
+          "ms": 96.193
+        },
+        {
+          "start_usec": 162296929,
+          "end_usec": 162391089,
+          "phase": "walk_(1.925, 0.0, -3.5)",
+          "ms": 94.16
+        },
+        {
+          "start_usec": 144416635,
+          "end_usec": 144510421,
+          "phase": "first_fill",
+          "ms": 93.786
+        },
+        {
+          "start_usec": 146036658,
+          "end_usec": 146128169,
+          "phase": "first_fill",
+          "ms": 91.511
+        },
+        {
+          "start_usec": 155995038,
+          "end_usec": 156067239,
+          "phase": "steady_spray",
+          "ms": 72.201
+        },
+        {
+          "start_usec": 148440661,
+          "end_usec": 148503717,
+          "phase": "first_fill",
+          "ms": 63.056
+        },
+        {
+          "start_usec": 148723166,
+          "end_usec": 148783650,
+          "phase": "first_spray_input",
+          "ms": 60.484
+        },
+        {
+          "start_usec": 139701388,
+          "end_usec": 139760099,
+          "phase": "actual_extract",
+          "ms": 58.711
+        },
+        {
+          "start_usec": 139247631,
+          "end_usec": 139305747,
+          "phase": "actual_cabinet_open",
+          "ms": 58.116
+        },
+        {
+          "start_usec": 139517879,
+          "end_usec": 139575581,
+          "phase": "actual_cabinet_open",
+          "ms": 57.702
+        },
+        {
+          "start_usec": 158078926,
+          "end_usec": 158136622,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 57.696
+        },
+        {
+          "start_usec": 139358402,
+          "end_usec": 139414229,
+          "phase": "actual_cabinet_open",
+          "ms": 55.827
+        },
+        {
+          "start_usec": 136742046,
+          "end_usec": 136796333,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 54.287
+        }
+      ],
+      "checks": 49,
+      "failures": [],
+      "sources": [
+        {
+          "path": "v2_far_shadows_20261023/world_after_v1/work_trace.json",
+          "sha256": "870caa6f0f3ac720994e06001cdc584453fbf3b2620c8c8651693458263a637e"
+        },
+        {
+          "path": "v2_far_shadows_20261023/world_after_v1/frames.json",
+          "sha256": "ef06bb5d353912d5948bc61bbca86e9486ed5c4f6b677726c831f221bf77e914"
+        },
+        {
+          "path": "v2_far_shadows_20261023/world_after_v1/hose_checks.json",
+          "sha256": "a82eaf8bbd4101cdd43def95de36fb29654885eaa1d3930b1c0e3c33f551d866"
+        }
+      ]
+    },
+    "world_after_v1": {
+      "evidence_class": "INERT",
+      "wall_ms": {
+        "n": 568,
+        "p50": 49.8125,
+        "p95": 110.38864999999993,
+        "p99": 497.06308000000325,
+        "max": 3917.987,
+        "above_100": 38
+      },
+      "residency": [
+        "DORMANT"
+      ],
+      "main_household_ms": {
+        "capture_cached": {
+          "n": 14,
+          "p50": 5.636,
+          "p95": 8.800449999999998,
+          "p99": 12.662489999999995,
+          "max": 13.628,
+          "above_100": 0
+        },
+        "capture_changed": {
+          "n": 12,
+          "p50": 18.4685,
+          "p95": 129.85664999999983,
+          "p99": 233.36093000000017,
+          "max": 259.237,
+          "above_100": 1
+        },
+        "commit_change": {
+          "n": 14,
+          "p50": 35.083,
+          "p95": 150.2110499999999,
+          "p99": 304.09100999999976,
+          "max": 342.561,
+          "above_100": 1
+        },
+        "snapshot": {
+          "n": 26,
+          "p50": 4.7325,
+          "p95": 10.69075,
+          "p99": 107.07225,
+          "max": 138.766,
+          "above_100": 1
+        },
+        "state_cached": {
+          "n": 12,
+          "p50": 0.5845,
+          "p95": 0.7238,
+          "p99": 0.74316,
+          "max": 0.748,
+          "above_100": 0
+        },
+        "validate": {
+          "n": 12,
+          "p50": 11.3835,
+          "p95": 32.78129999999997,
+          "p99": 52.640260000000026,
+          "max": 57.605,
+          "above_100": 0
+        }
+      },
+      "compilation_deltas": {
+        "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+        "PIPELINE_COMPILATIONS_DRAW": 14.0,
+        "PIPELINE_COMPILATIONS_MESH": 0.0,
+        "PIPELINE_COMPILATIONS_SPECIALIZATION": 88.0,
+        "PIPELINE_COMPILATIONS_SURFACE": 0.0
+      },
+      "root_render_cpu_ms": {
+        "n": 569,
+        "p50": 24.3740005493164,
+        "p95": 39.0293991088867,
+        "p99": 48.08959884643558,
+        "max": 296.503997802734,
+        "above_100": 2
+      },
+      "root_render_gpu_ms": {
+        "n": 569,
+        "p50": 15.2550001144409,
+        "p95": 24.356600570678722,
+        "p99": 84.24868072509788,
+        "max": 183.138000488281,
+        "above_100": 5
+      },
+      "enqueue_main_ms": {
+        "n": 13,
+        "p50": 13.143,
+        "p95": 29.35619999999995,
+        "p99": 46.17683999999996,
+        "max": 50.382,
+        "above_100": 0
+      },
+      "worker_ms": {
+        "n": 13,
+        "p50": 60.404,
+        "p95": 81.10339999999998,
+        "p99": 88.46708,
+        "max": 90.308,
+        "above_100": 0
+      },
+      "route_status": {
+        "completed": 13,
+        "discarded": 0,
+        "pending": 0,
+        "requested": 13
+      },
+      "overlap_control": {
+        "camera_turned": true,
+        "input_usec": 24,
+        "mouse_mode": 2,
+        "payload_bytes": 3220000,
+        "worker_alive_after": true,
+        "worker_alive_before": true
+      },
+      "largest_intervals": [
+        {
+          "start_usec": 236184826,
+          "end_usec": 240102813,
+          "phase": "steady_spray",
+          "ms": 3917.987,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 211702650,
+          "end_usec": 213413445,
+          "phase": "walk_(1.925, 1.6, 1.3)",
+          "ms": 1710.795,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 240102813,
+          "end_usec": 240942775,
+          "phase": "steady_spray",
+          "ms": 839.962,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 220866625,
+          "end_usec": 221580474,
+          "phase": "actual_cabinet_open",
+          "ms": 713.849,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 222451754,
+          "end_usec": 223030568,
+          "phase": "actual_extract",
+          "ms": 578.814,
+          "intersecting_workers": 1
+        },
+        {
+          "start_usec": 210635566,
+          "end_usec": 211185677,
+          "phase": "walk_(1.925, 1.6, 1.3)",
+          "ms": 550.111,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 221580474,
+          "end_usec": 222051409,
+          "phase": "actual_cabinet_open",
+          "ms": 470.935,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 235733848,
+          "end_usec": 236184826,
+          "phase": "steady_spray",
+          "ms": 450.978,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 222051409,
+          "end_usec": 222451754,
+          "phase": "actual_cabinet_open",
+          "ms": 400.345,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 210241314,
+          "end_usec": 210635566,
+          "phase": "walk_(1.925, 1.6, 1.3)",
+          "ms": 394.252,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 216351687,
+          "end_usec": 216726527,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 374.84,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 209990982,
+          "end_usec": 210241314,
+          "phase": "walk_(1.925, 1.6, 1.3)",
+          "ms": 250.332,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 211185677,
+          "end_usec": 211409762,
+          "phase": "walk_(1.925, 1.6, 1.3)",
+          "ms": 224.085,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 233350456,
+          "end_usec": 233544773,
+          "phase": "first_spray_input",
+          "ms": 194.317,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 226815423,
+          "end_usec": 227009128,
+          "phase": "charge_control_input",
+          "ms": 193.705,
+          "intersecting_workers": 2
+        },
+        {
+          "start_usec": 213413445,
+          "end_usec": 213605607,
+          "phase": "walk_(1.925, 1.6, 1.3)",
+          "ms": 192.162,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 235566238,
+          "end_usec": 235733848,
+          "phase": "steady_spray",
+          "ms": 167.61,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 215380711,
+          "end_usec": 215545389,
+          "phase": "walk_(3.975, 3.2, -2.4)",
+          "ms": 164.678,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 216834952,
+          "end_usec": 216994676,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 159.724,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 214170761,
+          "end_usec": 214328836,
+          "phase": "walk_(3.975, 1.6, 1.3)",
+          "ms": 158.075,
+          "intersecting_workers": 0
+        }
+      ],
+      "checks": 53,
+      "failures": [
+        "disk rebuild restores physical poses within10um, wheel within1e-12rad and identical water and maintenance facts"
+      ],
+      "sources": [
+        {
+          "path": "v2_background_save_20261023/world_after_v1/work_trace.json",
+          "sha256": "eebce1181345adb576882ef34c8210f3062fedb87970ce34de90a876b24c0af3"
+        },
+        {
+          "path": "v2_background_save_20261023/world_after_v1/frames.json",
+          "sha256": "9af966417b20eede2d63f5b9a12e157c095ccedb0a2b8411a697fa92f748e53a"
+        },
+        {
+          "path": "v2_background_save_20261023/world_after_v1/hose_checks.json",
+          "sha256": "500f8c9d1ae19253b29ca50222ac3b9a980ee6a5ace100f95ce869716cc8bc2c"
+        }
+      ]
+    },
+    "sync_warm_v1": {
+      "evidence_class": "INERT",
+      "wall_ms": {
+        "n": 765,
+        "p50": 36.219,
+        "p95": 50.2554,
+        "p99": 100.16884000000005,
+        "max": 167.84,
+        "above_100": 8
+      },
+      "residency": [
+        "DORMANT"
+      ],
+      "main_household_ms": {
+        "capture_cached": {
+          "n": 14,
+          "p50": 3.3765,
+          "p95": 3.86675,
+          "p99": 3.91095,
+          "max": 3.922,
+          "above_100": 0
+        },
+        "capture_changed": {
+          "n": 12,
+          "p50": 11.662500000000001,
+          "p95": 11.8903,
+          "p99": 11.89646,
+          "max": 11.898,
+          "above_100": 0
+        },
+        "commit_change": {
+          "n": 14,
+          "p50": 52.189,
+          "p95": 53.83245,
+          "p99": 53.99209,
+          "max": 54.032,
+          "above_100": 0
+        },
+        "snapshot": {
+          "n": 26,
+          "p50": 3.1745,
+          "p95": 3.43375,
+          "p99": 3.4535,
+          "max": 3.458,
+          "above_100": 0
+        },
+        "state_cached": {
+          "n": 12,
+          "p50": 0.448,
+          "p95": 0.49134999999999995,
+          "p99": 0.51027,
+          "max": 0.515,
+          "above_100": 0
+        },
+        "validate": {
+          "n": 12,
+          "p50": 6.9365,
+          "p95": 7.085850000000001,
+          "p99": 7.109170000000001,
+          "max": 7.115,
+          "above_100": 0
+        }
+      },
+      "compilation_deltas": {
+        "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+        "PIPELINE_COMPILATIONS_DRAW": 14.0,
+        "PIPELINE_COMPILATIONS_MESH": 0.0,
+        "PIPELINE_COMPILATIONS_SPECIALIZATION": 95.0,
+        "PIPELINE_COMPILATIONS_SURFACE": 0.0
+      },
+      "root_render_cpu_ms": {
+        "n": 766,
+        "p50": 20.95399951934815,
+        "p95": 25.783500671386676,
+        "p99": 30.244099426269532,
+        "max": 35.0830001831055,
+        "above_100": 0
+      },
+      "root_render_gpu_ms": {
+        "n": 766,
+        "p50": 12.5954999923706,
+        "p95": 16.2419996261597,
+        "p99": 17.623400020599384,
+        "max": 21.253999710083,
+        "above_100": 0
+      },
+      "enqueue_main_ms": {},
+      "worker_ms": {},
+      "route_status": {
+        "completed": 0,
+        "discarded": 0,
+        "pending": 0,
+        "requested": 0
+      },
+      "overlap_control": {},
+      "largest_intervals": [
+        {
+          "start_usec": 148946489,
+          "end_usec": 149114329,
+          "phase": "charge_control_input",
+          "ms": 167.84,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 164441459,
+          "end_usec": 164575039,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 133.58,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 164310961,
+          "end_usec": 164441459,
+          "phase": "steady_spray",
+          "ms": 130.498,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 150938276,
+          "end_usec": 151062334,
+          "phase": "first_fill",
+          "ms": 124.058,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 155338087,
+          "end_usec": 155447271,
+          "phase": "steady_spray",
+          "ms": 109.184,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 146130066,
+          "end_usec": 146237013,
+          "phase": "actual_cabinet_open",
+          "ms": 106.947,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 161689617,
+          "end_usec": 161793980,
+          "phase": "steady_spray",
+          "ms": 104.363,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 162374374,
+          "end_usec": 162476523,
+          "phase": "steady_spray",
+          "ms": 102.149,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 155132325,
+          "end_usec": 155231380,
+          "phase": "first_spray_input",
+          "ms": 99.055,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 152548457,
+          "end_usec": 152638198,
+          "phase": "first_fill",
+          "ms": 89.741,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 168785012,
+          "end_usec": 168872935,
+          "phase": "walk_(1.925, 0.0, -3.5)",
+          "ms": 87.923,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 162476523,
+          "end_usec": 162553063,
+          "phase": "steady_spray",
+          "ms": 76.54,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 146237013,
+          "end_usec": 146309433,
+          "phase": "actual_extract",
+          "ms": 72.42,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 155271783,
+          "end_usec": 155338087,
+          "phase": "first_spray_input",
+          "ms": 66.304,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 154981338,
+          "end_usec": 155045305,
+          "phase": "first_fill",
+          "ms": 63.967,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 164575039,
+          "end_usec": 164636637,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 61.598,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 145914140,
+          "end_usec": 145974746,
+          "phase": "actual_cabinet_open",
+          "ms": 60.606,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 143285112,
+          "end_usec": 143342562,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 57.45,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 143342562,
+          "end_usec": 143399311,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 56.749,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 145803102,
+          "end_usec": 145859739,
+          "phase": "actual_cabinet_open",
+          "ms": 56.637,
+          "intersecting_workers": 0
+        }
+      ],
+      "checks": 37,
+      "failures": [],
+      "sources": [
+        {
+          "path": "v2_background_save_20261023/sync_warm_v1/work_trace.json",
+          "sha256": "eb879b9f9fbb5d4061fbe84da675bde19c5108039e599727182d9108075f538e"
+        },
+        {
+          "path": "v2_background_save_20261023/sync_warm_v1/frames.json",
+          "sha256": "b859ef05c16789bd82ece5fd705b94d6e8e68951d24db469d188f7ca047f61fe"
+        },
+        {
+          "path": "v2_background_save_20261023/sync_warm_v1/hose_checks.json",
+          "sha256": "a822a50d26bb36ccf909de8ed2181c4c08eaac44745bed74c3bac15ade1e8bc2"
+        }
+      ]
+    },
+    "world_after_v2": {
+      "evidence_class": "INERT",
+      "wall_ms": {
+        "n": 762,
+        "p50": 37.534499999999994,
+        "p95": 51.12339999999999,
+        "p99": 71.05982999999998,
+        "max": 119.983,
+        "above_100": 3
+      },
+      "residency": [
+        "DORMANT"
+      ],
+      "main_household_ms": {
+        "capture_cached": {
+          "n": 14,
+          "p50": 3.37,
+          "p95": 3.62515,
+          "p99": 3.70263,
+          "max": 3.722,
+          "above_100": 0
+        },
+        "capture_changed": {
+          "n": 12,
+          "p50": 11.660499999999999,
+          "p95": 11.98545,
+          "p99": 12.07389,
+          "max": 12.096,
+          "above_100": 0
+        },
+        "commit_change": {
+          "n": 14,
+          "p50": 22.2095,
+          "p95": 22.706,
+          "p99": 22.862,
+          "max": 22.901,
+          "above_100": 0
+        },
+        "snapshot": {
+          "n": 26,
+          "p50": 3.0855,
+          "p95": 3.558,
+          "p99": 3.56675,
+          "max": 3.569,
+          "above_100": 0
+        },
+        "state_cached": {
+          "n": 12,
+          "p50": 0.2675,
+          "p95": 0.31915,
+          "p99": 0.32223,
+          "max": 0.323,
+          "above_100": 0
+        },
+        "validate": {
+          "n": 12,
+          "p50": 6.952500000000001,
+          "p95": 7.122850000000001,
+          "p99": 7.146170000000001,
+          "max": 7.152,
+          "above_100": 0
+        }
+      },
+      "compilation_deltas": {
+        "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+        "PIPELINE_COMPILATIONS_DRAW": 12.0,
+        "PIPELINE_COMPILATIONS_MESH": 0.0,
+        "PIPELINE_COMPILATIONS_SPECIALIZATION": 94.0,
+        "PIPELINE_COMPILATIONS_SURFACE": 0.0
+      },
+      "root_render_cpu_ms": {
+        "n": 763,
+        "p50": 22.0860004425049,
+        "p95": 26.17759952545168,
+        "p99": 30.39431991577146,
+        "max": 35.4700012207031,
+        "above_100": 0
+      },
+      "root_render_gpu_ms": {
+        "n": 763,
+        "p50": 12.9420003890991,
+        "p95": 16.760399627685523,
+        "p99": 17.624639701843282,
+        "max": 22.246000289917,
+        "above_100": 0
+      },
+      "enqueue_main_ms": {
+        "n": 13,
+        "p50": 8.292,
+        "p95": 8.4468,
+        "p99": 8.45256,
+        "max": 8.454,
+        "above_100": 0
+      },
+      "worker_ms": {
+        "n": 13,
+        "p50": 32.606,
+        "p95": 35.605199999999996,
+        "p99": 37.28424,
+        "max": 37.704,
+        "above_100": 0
+      },
+      "route_status": {
+        "completed": 13,
+        "discarded": 0,
+        "pending": 0,
+        "requested": 13
+      },
+      "overlap_control": {
+        "camera_turned": true,
+        "input_usec": 22,
+        "mouse_mode": 2,
+        "payload_bytes": 3220000,
+        "worker_alive_after": true,
+        "worker_alive_before": true
+      },
+      "largest_intervals": [
+        {
+          "start_usec": 154754692,
+          "end_usec": 154874675,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 119.983,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 139407042,
+          "end_usec": 139522154,
+          "phase": "charge_control_input",
+          "ms": 115.112,
+          "intersecting_workers": 2
+        },
+        {
+          "start_usec": 136508523,
+          "end_usec": 136613068,
+          "phase": "actual_cabinet_open",
+          "ms": 104.545,
+          "intersecting_workers": 1
+        },
+        {
+          "start_usec": 154660441,
+          "end_usec": 154754692,
+          "phase": "steady_spray",
+          "ms": 94.251,
+          "intersecting_workers": 1
+        },
+        {
+          "start_usec": 152129368,
+          "end_usec": 152204281,
+          "phase": "steady_spray",
+          "ms": 74.913,
+          "intersecting_workers": 1
+        },
+        {
+          "start_usec": 145713029,
+          "end_usec": 145787607,
+          "phase": "steady_spray",
+          "ms": 74.578,
+          "intersecting_workers": 1
+        },
+        {
+          "start_usec": 152774543,
+          "end_usec": 152847723,
+          "phase": "steady_spray",
+          "ms": 73.18,
+          "intersecting_workers": 1
+        },
+        {
+          "start_usec": 141346019,
+          "end_usec": 141418297,
+          "phase": "first_fill",
+          "ms": 72.278,
+          "intersecting_workers": 1
+        },
+        {
+          "start_usec": 145501418,
+          "end_usec": 145571699,
+          "phase": "first_spray_input",
+          "ms": 70.281,
+          "intersecting_workers": 1
+        },
+        {
+          "start_usec": 152847723,
+          "end_usec": 152917616,
+          "phase": "steady_spray",
+          "ms": 69.893,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 145354307,
+          "end_usec": 145415312,
+          "phase": "first_fill",
+          "ms": 61.005,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 142974921,
+          "end_usec": 143035873,
+          "phase": "first_fill",
+          "ms": 60.952,
+          "intersecting_workers": 1
+        },
+        {
+          "start_usec": 159139197,
+          "end_usec": 159198619,
+          "phase": "walk_(1.925, 0.0, -3.5)",
+          "ms": 59.422,
+          "intersecting_workers": 1
+        },
+        {
+          "start_usec": 154874675,
+          "end_usec": 154933307,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 58.632,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 136182955,
+          "end_usec": 136240176,
+          "phase": "actual_cabinet_open",
+          "ms": 57.221,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 136295455,
+          "end_usec": 136352438,
+          "phase": "actual_cabinet_open",
+          "ms": 56.983,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 158057344,
+          "end_usec": 158112752,
+          "phase": "walk_(1.925, 0.0, -3.5)",
+          "ms": 55.408,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 136240176,
+          "end_usec": 136295455,
+          "phase": "actual_cabinet_open",
+          "ms": 55.279,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 133704297,
+          "end_usec": 133758601,
+          "phase": "walk_(3.65, 3.2, -3.0)",
+          "ms": 54.304,
+          "intersecting_workers": 0
+        },
+        {
+          "start_usec": 152075332,
+          "end_usec": 152129368,
+          "phase": "steady_spray",
+          "ms": 54.036,
+          "intersecting_workers": 0
+        }
+      ],
+      "checks": 53,
+      "failures": [],
+      "sources": [
+        {
+          "path": "v2_background_save_20261023/world_after_v2/work_trace.json",
+          "sha256": "395a0198e2186c050e7b446a01ac102d4c556975af8ac5828c6faf9db1fbd8dd"
+        },
+        {
+          "path": "v2_background_save_20261023/world_after_v2/frames.json",
+          "sha256": "62e1df4aa059b07487efa0b617002a6af792654daf7b2036a594296c184d07a8"
+        },
+        {
+          "path": "v2_background_save_20261023/world_after_v2/hose_checks.json",
+          "sha256": "577d17997eb97329f851c311da1b7ea2e6e9ffba3ef0006ed80ceac5ccfb380a"
+        }
+      ]
+    }
+  }
+}
