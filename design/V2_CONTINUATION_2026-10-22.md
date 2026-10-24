@@ -17,10 +17,15 @@ rebuilds mesh/normals/tangents/trimesh selection every travel event. Isolate and
 replace that rebuild while preserving actual click/motion/release, part targeting,
 physical travel and save authority. Geometry reduction alone is insufficient.
 
-Owner follow-up: add a proper rounded glazed ceramic finishing edge to the
-wainscot and exposed shower tile ends. The current thin flat cap does not
-complete that request. Finish the frozen comparison, then build and verify
-the native edging before closing the bathroom repair batch.
+Edging follow-up is already repaired in **V2_BATHROOM_FINISHING_2026-10-24.md**:
+rounded glazed ceramic runs terminate at the door/window joinery envelope.
+The original conflict and failures remain in that report. The final
+**frame_clearance_stock_v1** checks all19 wet rooms with zero ceramic vertices
+inside joinery; **frame_clearance_world_v1** includes reviewed casing-end and
+shower-return images. The current finishing component matches its archived
+source exactly after LF normalization. This replaces the stale thin-flat-cap
+queue entry; it does not grant whole-room or V2 acceptance. Curtain responsiveness
+and the separate current-source route/save/surface renewal remain open.
 
 Current finishing batch: **V2_BATHROOM_FINISHING_2026-10-24.md**. Matching
 native45-degree casing stock is installed. All19 wet rooms have tiled wainscot,
