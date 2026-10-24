@@ -42,6 +42,7 @@ func mount_source(adapter: Variant, parsed: Variant) -> bool:
 			errors.append("native stove preparation failed")
 			return false
 		adapter.root.set_meta("v2_native_stove_factory",native_stoves)
+	var wall_stock: Array[Dictionary]=preload("res://scripts/building/orison_v2_millwork.gd").collect_wall_stock(adapter.root)
 	var acoustic_ids: Array[String] = []
 	for record: Dictionary in parsed.fittings:
 		if AcousticGraphData.nodes.has(record.id):
@@ -58,12 +59,31 @@ func mount_source(adapter: Variant, parsed: Variant) -> bool:
 		for property: String in record.properties:
 			var value: Variant = record.properties[property]
 			consumer.set(property, int(value) if PROPERTY_TYPES[record.kind][property] == TYPE_INT else value)
+		if record.kind=="shower":
+			var anchor:=adapter.resolve(str(record.id)) as Node3D
+			var install: Transform3D=anchor.global_transform*Transform3D(Basis.IDENTITY,preload("res://scripts/building/orison_v2_shower_placement.gd").local_offset(str(record.id)))
+			var relative: Transform3D=install.affine_inverse()*adapter.root.global_transform
+			var setback:=INF
+			for wall: Dictionary in wall_stock:
+				var box: AABB=relative*(wall.bounds as AABB)
+				if box.position.x<=0.0 and box.end.x>=0.0 and box.position.y<=2.02 and box.end.y>=2.02 and box.position.z>=.355:
+					setback=minf(setback,box.position.z)
+			if not is_finite(setback) or roundi(setback*1000.0) not in [380,400,430,440,480]:
+				consumer.free();errors.append("unsupported actual shower mounting wall: "+str(record.id)+" depth="+str(setback));return false
+			for x: float in [-.34,.34]:
+				var foot:=_shower_foot_depth(relative,wall_stock,x)
+				if not is_finite(foot) or absf(foot-setback)>.002:
+					consumer.free();errors.append("shower support cannot bear on actual wall: "+str(record.id)+" foot="+str(x)+" depth="+str(foot));return false
+			consumer.set("shower_wall_setback",setback)
+			consumer.set("shower_finish_inset",preload("res://scripts/building/orison_v2_bathroom_finishes.gd").SKIN)
 		if AcousticGraphData.nodes.has(record.id):
 			consumer.graph_node_id = str(record.id)
 		if not adapter.mount_consumer(str(record.id), consumer):
 			consumer.free()
 			errors.append("domestic fitting mount failed: " + str(record.id))
 			return false
+		if record.kind=="shower":
+			consumer.transform=consumer.transform*Transform3D(Basis.IDENTITY,preload("res://scripts/building/orison_v2_shower_placement.gd").local_offset(str(record.id)))
 		if record.kind in ["stove", "fridge"]:
 			if not consumer.get("native_ready"):
 				errors.append("native appliance installation failed: " + str(record.id))
@@ -151,3 +171,11 @@ func validate(source: Variant, adapter: Variant) -> bool:
 					or (kind == "sink" and fixture not in ["bath_sink", "kitchen_sink"]):
 				errors.append("water fitting subtype disagrees with its kind: " + identity)
 	return errors.is_empty()
+
+func _shower_foot_depth(relative: Transform3D,stock: Array[Dictionary],x: float) -> float:
+	var depth:=INF
+	for wall: Dictionary in stock:
+		var box: AABB=relative*(wall.bounds as AABB)
+		if box.position.x<=x-.029 and box.end.x>=x+.029 and box.position.y<=2.00 and box.end.y>=2.21 and box.position.z>=.355:
+			depth=minf(depth,box.position.z)
+	return depth

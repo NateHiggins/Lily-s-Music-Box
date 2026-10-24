@@ -1,0 +1,37 @@
+{
+  "scope": "Zero-length stale index lock: no surviving git process predates creation; exclusive open succeeded. No processes stopped.",
+  "creation_utc": "2026-10-24T13:28:02.4562001Z",
+  "checked_utc": "2026-10-24T13:47:52.6868767Z",
+  "git_processes": [
+    {
+      "ProcessId": 60288,
+      "CreationDate": "2026-10-24T09:47:21.714896-04:00",
+      "CommandLine": "\"C:\\Program Files\\Git\\ucrt64\\bin\\git.exe\" worktree add -q C:/ov/vestibule -b claude/entry-vestibule origin/main"
+    },
+    {
+      "ProcessId": 176152,
+      "CreationDate": "2026-10-24T09:47:21.836098-04:00",
+      "CommandLine": "git reset --hard --no-recurse-submodules --quiet"
+    },
+    {
+      "ProcessId": 151772,
+      "CreationDate": "2026-10-24T09:47:51.148969-04:00",
+      "CommandLine": "git ls-files --cached --others --exclude-standard -z"
+    },
+    {
+      "ProcessId": 117020,
+      "CreationDate": "2026-10-24T09:47:51.167064-04:00",
+      "CommandLine": "git.exe ls-files --cached --others --exclude-standard -z"
+    },
+    {
+      "ProcessId": 72960,
+      "CreationDate": "2026-10-24T09:47:51.865021-04:00",
+      "CommandLine": "\"C:\\Program Files\\Git\\cmd\\git.exe\" -c diff.mnemonicPrefix=false -c diff.noprefix=false -c core.quotePath=false -c safe.bareRepository=explicit -c core.hooksPath=NUL -c core.fsmonitor= diff --no-ext-diff --no-textconv --color=never --src-prefix=a/ --dst-prefix=b/ 21f0b1fc27ac8e25c8466fe1ed2ce64019ee7ede --find-renames --raw --no-abbrev --numstat -z"
+    },
+    {
+      "ProcessId": 152024,
+      "CreationDate": "2026-10-24T09:47:51.913834-04:00",
+      "CommandLine": "git.exe -c diff.mnemonicPrefix=false -c diff.noprefix=false -c core.quotePath=false -c safe.bareRepository=explicit -c core.hooksPath=NUL -c core.fsmonitor= diff --no-ext-diff --no-textconv --color=never --src-prefix=a/ --dst-prefix=b/ 21f0b1fc27ac8e25c8466fe1ed2ce64019ee7ede --find-renames --raw --no-abbrev --numstat -z"
+    }
+  ]
+}

@@ -115,7 +115,9 @@ func configure(service: MaintenanceShopService, programmes: Variant=null) -> boo
 	if is_inside_tree() or service == null:
 		return false
 	shop_service = service
-	cabinets_enabled = OS.get_environment("ORISON_PASSAGE_CABINETS") == "1"
+	# Owner retired all arcade cabinets from play pending a complete revamp.
+	# Historical opt-in fixtures cannot turn them back on in the live world.
+	cabinets_enabled = false
 	var decoded: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json"))
 	if decoded is not Dictionary:
 		return false

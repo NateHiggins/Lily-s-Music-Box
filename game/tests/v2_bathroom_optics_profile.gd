@@ -26,6 +26,9 @@ func _measure(label: String,look_at: Vector3,seconds: float=8.0) -> void:
 	while Time.get_ticks_msec()-start<seconds*1000.0:
 		await get_tree().process_frame;frames+=1
 func _route() -> void:
+	await _profile_route()
+
+func _profile_route() -> void:
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED);Engine.max_fps=0
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 	RenderingServer.viewport_set_measure_render_time(world.mirror_renderer._view.get_viewport_rid(),true)

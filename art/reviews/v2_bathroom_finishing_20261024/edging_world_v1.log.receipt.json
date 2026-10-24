@@ -1,0 +1,73 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 247.23,
+  "exit_code": 0,
+  "finished_utc": "2026-10-24T13:29:06Z",
+  "started_utc": "2026-10-24T13:24:58Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 12,
+  "script_error_lines": [
+   "SCRIPT ERROR: Invalid access to property or key '_sources' on a base object of type 'Nil'.",
+   "SCRIPT ERROR: Invalid access to property or key '_rooms' on a base object of type 'Nil'.",
+   "SCRIPT ERROR: Invalid access to property or key '_sources' on a base object of type 'Nil'.",
+   "SCRIPT ERROR: Invalid access to property or key '_rooms' on a base object of type 'Nil'.",
+   "SCRIPT ERROR: Invalid access to property or key '_sources' on a base object of type 'Nil'.",
+   "SCRIPT ERROR: Invalid access to property or key '_rooms' on a base object of type 'Nil'.",
+   "SCRIPT ERROR: Invalid access to property or key '_sources' on a base object of type 'Nil'.",
+   "SCRIPT ERROR: Invalid access to property or key '_rooms' on a base object of type 'Nil'.",
+   "SCRIPT ERROR: Invalid access to property or key '_sources' on a base object of type 'Nil'.",
+   "SCRIPT ERROR: Invalid access to property or key '_rooms' on a base object of type 'Nil'."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_bathroom_finishing_20261024/edging_world_v1.log.stderr",
+  "stderr_sha256": "9f6c0ff31293d0ea9c91ac45b4e3ef35b691cabfb7641e01ba18c44f7c33703b",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_bathroom_finishing_20261024/edging_world_v1.log",
+  "stdout_sha256": "abd59dfbac5a03371dc67797827b4b3ce72d77a9a516de3368d0c0dc0ea9d786"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2BathroomFinishingReview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_bathroom_finishing_20261024/edging_world_v1",
+ "source": {
+  "dirty_paths": 3390,
+  "dirty_sample": [
+   "M  .gitattributes",
+   " M DOCS.md",
+   "M  art/blender/bath_shower.blend",
+   "A  art/blender/door_casing_mitres.blend",
+   "M  art/blender/scripts/build_bathroom_details.py",
+   "A  art/blender/scripts/build_door_casing_mitres.py",
+   "A  art/data/orison_v2/door_casing_mitres.json",
+   "M  art/tools/fix_v2_mesh_imports.py",
+   " M design/V2_CONTINUATION_2026-10-22.md",
+   " M design/V2_STARTED_WORK_CLOSURE_2026-10-23.md",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import"
+  ],
+  "repository_head": "1a2029b4044b7cc51f85de7c598dd905a40f80ac",
+  "repository_tree": "c6381a1b4c35d4a5ee3515ae0a5cfe2d746064ea",
+  "runtime_inputs_sha256": "54b8efb2f0fc056985ecc3c93ee2868e7ddba5278b65b65a0cb57518360b4219",
+  "test_path": "game/tests/v2_bathroom_finishing_review.gd",
+  "test_sha256": "0d50c8891e79d3eff8501fbe34811cb2fd9d8d95ef1d9079c018afecceef781d"
+ },
+ "windowed": true
+}

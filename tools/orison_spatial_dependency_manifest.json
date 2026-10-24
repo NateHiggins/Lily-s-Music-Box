@@ -312267,6 +312267,187 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F04/marker+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "9fb1ec457f908fce",
+   "kind": "id_reference",
+   "token": "F04_4B_SHOWER_01",
+   "file": "game/tests/v2_bathroom_finishing_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    54
+   ],
+   "count": 1,
+   "context": [
+    "_tap=world.adapter.resolve(\"F04_4B_SHOWER_01\") as TapProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "005266b25b0ca062",
+   "kind": "id_reference",
+   "token": "F03_3D_SHOWER_01",
+   "file": "game/scripts/building/orison_v2_shower_placement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_3D_SHOWER_01\":.175,\"F04_4D_SHOWER_01\":.175,"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F03/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "df10165fcaaa0b33",
+   "kind": "id_reference",
+   "token": "F04_4D_SHOWER_01",
+   "file": "game/scripts/building/orison_v2_shower_placement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_3D_SHOWER_01\":.175,\"F04_4D_SHOWER_01\":.175,"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "36d92bbabec0b286",
+   "kind": "id_reference",
+   "token": "F05_5A_SHOWER_01",
+   "file": "game/scripts/building/orison_v2_shower_placement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_5A_SHOWER_01\":.08,\"F06_6A_SHOWER_01\":.08,"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F05/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8f9d7c6fe64693ee",
+   "kind": "id_reference",
+   "token": "F06_6A_SHOWER_01",
+   "file": "game/scripts/building/orison_v2_shower_placement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_5A_SHOWER_01\":.08,\"F06_6A_SHOWER_01\":.08,"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F06/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "87fe0f3ebf1d86ea",
+   "kind": "vector3_coordinate",
+   "token": "_profile_route",
+   "file": "game/tests/v2_bathroom_optics_profile.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_profile_route"
+   ],
+   "lines": [
+    40
+   ],
+   "count": 1,
+   "context": [
+    "var stance: Vector3=world.adapter.root.to_global(Vector3(-8.45,9.62,4.35))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

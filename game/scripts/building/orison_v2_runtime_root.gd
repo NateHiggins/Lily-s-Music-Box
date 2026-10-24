@@ -311,6 +311,7 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: upper floor door mounting refused")
 		return
+	preload("res://scripts/building/orison_v2_bathroom_finishes.gd").build(_blockout,layout,_blockout.level_y,_blockout.architectural_materials,preload("res://scripts/building/orison_v2_millwork.gd").collect_wall_stock(_blockout))
 	var fittings := DomesticFittings.new()
 	if not fittings.mount(adapter):
 		startup_failed = true
@@ -323,7 +324,10 @@ func _compose_authorities() -> void:
 		return
 	preload("res://scripts/building/orison_v2_reading_furniture.gd").mount(adapter,layout)
 	preload("res://scripts/building/orison_v2_public_furnishings.gd").mount(adapter,layout)
-	preload("res://scripts/building/orison_v2_door_casings.gd").mount(adapter,layout)
+	if not preload("res://scripts/building/orison_v2_door_casings.gd").mount(adapter,layout):
+		startup_failed=true
+		push_error("ORISON V2 RUNTIME: native mitered door casings refused")
+		return
 	preload("res://scripts/building/orison_v2_window_joinery.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_exterior_masonry.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_front_restoration.gd").mount(_blockout)

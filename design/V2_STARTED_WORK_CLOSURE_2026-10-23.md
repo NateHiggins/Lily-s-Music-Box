@@ -10,13 +10,39 @@ The final focused hot-input/steam-cap/paper run passes114 checks; other failed
 runs and Texture-RID warnings remain explicit. The measured bathroom route
 still has roughly72ms mirror p95 and first-view spikes; no broad speed claim.
 
-Owner's next bathroom finishing batch: narrow wall-junction/floor-seam grout
-beads, tiled wainscot with plaster above and taller shower protection, doorway
-material spill, matching45-degree head/jamb mitres, and fitted shower rail
-brackets/rings/eyelets. Current shower flange ends at0.355m while actual walls
-sit0.40-0.48m back. A native miter prototype is in repository tmp only and is
-not installed. Finish these existing defects, then return to broader measured
-performance and the remaining started V2 work; do not mark V2 complete.
+Next measured responsiveness repair after the edging review: actual curtain
+motion callbacks still reach159.714ms (prior374.362ms). The current hand path
+rebuilds mesh/normals/tangents/trimesh selection every travel event. Isolate and
+replace that rebuild while preserving actual click/motion/release, part targeting,
+physical travel and save authority. Geometry reduction alone is insufficient.
+
+Owner follow-up: add a proper rounded glazed ceramic finishing edge to the
+wainscot and exposed shower tile ends. The current thin flat cap does not
+complete that request. Finish the frozen comparison, then build and verify
+the native edging before closing the bathroom repair batch.
+
+Current finishing batch: **V2_BATHROOM_FINISHING_2026-10-24.md**. Matching
+native45-degree casing stock is installed. All19 wet rooms have tiled wainscot,
+plaster above, taller shower protection and narrow seam beads. Fitted rail
+supports, rings/eyelets and the shower-head union are installed; the original
+wall survey passes144 rays and36 full plate footprints. Real curtain opening
+and closing pass. Final combined **world_v7** passes66,400 casing assertions,144 installed backing
+rays and both curtain input directions with no engine/script errors. Seven
+historical Texture-RID teardown warnings remain; the earlier metadata-error
+run is retained.
+Final shop checks and same-route performance are still pending.
+
+Owner also retired every playable V2 arcade cabinet pending redesign. Keep
+source assets/programmes/save data. Shared finish ownership and literal glass
+repairs are recorded in **V2_SHARED_FINISH_OWNERSHIP_AND_ARCADE_RETIREMENT_2026-10-24.md**.
+The focused ownership test passes14 checks. Full-world retirement passes993
+checks with empty stderr,48 retired shop draws and exact bar retirement. The
+28 existing shop validators are being renewed; five legacy hardware E-key
+purchase failures remain explicit and do not qualify current hand controls. All reported **fx_shadow** failures were independently
+bisected by the owner windowed to **975da382**, before the newspaper merges;
+do not attribute them to those merges or rewrite historical active-cabinet proof.
+Finish this batch, then return to broader measured performance and started V2
+work. No V2 completion or runtime/human acceptance is claimed.
 
 Current-source correction, October 24: **V2_NOOK_SHELF_DRESSING_2026-10-24.md**.
 The 61 nook copies already share the primary native formats and flexible bindings
@@ -157,3 +183,23 @@ bathroom effects/routes. Complete the remaining device states/calls/history,
 street/shop/avatar requests and systematic source-bound coverage. Reorder within
 this existing scope when evidence exposes a dependency. Do not expand scope to
 unrelated polish or promote diagnostics into runtime qualification.
+
+
+### 2026-10-24 ceramic edging / casing conflict follow-up
+
+Owner-reported ceramic band crossing the door casing is repaired by clipping
+the full profile against existing casing envelopes and imported window bounds.
+**frame_clearance_stock_v1**:57 finish batches, zero joinery intrusions, valid
+metric UV/basis and retained native shower/support checks. Actual installed
+**frame_clearance_world_v1**: zero assertion/script/engine errors; seven existing
+Texture-RID teardown warnings. Reviewed door termination and shower-return
+images; retained66,400 casing checks and actual curtain grab/move/release pass.
+No runtime_contract or human acceptance grant. Full details and original failures
+remain in **design/V2_BATHROOM_FINISHING_2026-10-24.md** and its review packet.
+
+Performance remains open: final hot/off-mirror p95 74.152/95.420ms, with a worse
+off-mirror tail in this single run. Curtain callback median139.105ms still
+severe despite native triangle reduction. Next: remove per-motion curtain mesh,
+tangent and triangle selection-shape rebuild, then repeat actual input/timing.
+Preserve shared manifest WIP, other contributors' street/tent/traffic candidates
+and all seventeen protected paths. V2 is not complete.

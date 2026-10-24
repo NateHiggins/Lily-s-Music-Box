@@ -62,6 +62,8 @@ Knowing which kind you are reading tells you how much to trust it.
 | Carried physical controls, native feed repair and actual-input scope | `design/V2_CARRIED_INSTRUMENT_HAND_2026-10-23.md` |
 | Retained reflection hitch controls and rejected warmup treatments | `design/V2_REFLECTION_PIPELINE_WARMUP_2026-10-23.md` |
 | Installed physical service UI, flush ceiling listener and paired frame-time limits | `design/V2_PHYSICAL_DEVICE_AND_CEILING_POINTS_2026-10-23.md` |
+| Bathroom mitres, tiled wainscot, grout beads and shower attachments | `design/V2_BATHROOM_FINISHING_2026-10-24.md` |
+| Shared finish ownership, literal glass and playable arcade retirement | `design/V2_SHARED_FINISH_OWNERSHIP_AND_ARCADE_RETIREMENT_2026-10-24.md` |
 | Latest V2 work order, measured routes and requested mirror-visible player | `design/V2_CONTINUATION_2026-10-22.md` |
 | Radio-based shop settlement, hardware hose supplies and selected resident staff | `design/V2_RADIO_SHOP_NETWORK_2026-10-22.md` |
 | Passage-first door controls and queued input checks | `design/V2_EASY_DOORS_2026-10-22.md` |

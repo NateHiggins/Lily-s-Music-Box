@@ -3162,3 +3162,31 @@ game/shaders/v2_bath_steam.gdshader* -text
 game/shaders/v2_glass_film.gdshader* -text
 game/shaders/v2_condensation.gdshaderinc* -text
 game/assets/props/bath_paper_holder.glb.import -text
+
+# Native matching casing mitres and their stock diagnostics.
+art/blender/scripts/build_door_casing_mitres.py -text
+art/data/orison_v2/door_casing_mitres.json -text
+game/scripts/building/orison_v2_casing_mitre_stock.gd* -text
+game/tests/v2_casing_mitre_bench.gd* -text
+game/tests/V2CasingMitreBench.tscn -text
+game/assets/props/door_casing_mitres.glb.import -text
+art/reviews/v2_bathroom_finishing_20261024/** -text -whitespace
+
+game/scripts/building/orison_v2_bathroom_finishes.gd* -text
+game/scripts/building/orison_v2_door_casings.gd -text
+game/tests/orison_v2_door_casings_test.gd -text
+game/tests/v2_bathroom_finishing_review.gd* -text
+game/tests/V2BathroomFinishingReview.tscn -text
+game/tests/v2_bathroom_finish_stock_bench.gd* -text
+game/tests/V2BathroomFinishStockBench.tscn -text
+
+game/scripts/material_library.gd -text
+game/scripts/building/v2_legacy_material_stock.gd -text
+game/scripts/building/orison_v2_bar_region.gd -text
+game/scripts/building/orison_v2_shower_placement.gd* -text
+game/tests/v2_shared_finish_ownership_test.gd* -text
+game/tests/V2SharedFinishOwnershipTest.tscn -text
+game/tests/v2_arcade_retirement_review.gd* -text
+game/tests/V2ArcadeRetirementReview.tscn -text
+art/reviews/v2_shop_finish_ownership_20261024/** -text -whitespace
+game/tests/orison_v2_photo_portraits_test.gd -text

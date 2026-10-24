@@ -175,10 +175,7 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> vo
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Supported standing unclaimed-print observations with actual visibility rays; continuous shop/darkroom routes and operating photography remain separate."},"\t"))
 
 func _catalogue_uv_owned(world: Node, material: StandardMaterial3D) -> bool:
-	# A composed V2 world temporarily selects authored charts on shared stock.
-	# Check the original restoration record instead of assuming V1 defaults
-	# remain active while that policy owns the material.
+	# Catalogue projection remains immutable while V2 binds native local copies.
+	# Reject the previous in-place mutation even if teardown could restore it.
 	var policy:=world.get_node_or_null("V2UVMaterialPolicy")
-	if policy==null:return material.uv1_triplanar
-	var state: Dictionary=policy.changed_materials.get(material.get_instance_id(),{})
-	return not material.uv1_triplanar and state.get("uv1",false) and (state.get("material") as WeakRef).get_ref()==material
+	return material.uv1_triplanar and (policy==null or not policy.changed_materials.has(material.get_instance_id()))
