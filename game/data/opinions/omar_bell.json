@@ -1,0 +1,223 @@
+{
+  "resident_id": "omar_bell",
+  "hook": "You've seen the Record?",
+  "hook_line": "Seen it. Which job. I've a bench full and a paper full.",
+  "opinions": [
+    {
+      "id": "ob_op_tug",
+      "from": "1928-11-14",
+      "until": "1928-12-10",
+      "topic": "A transmitter on the river.",
+      "line": "Tug master says there's a station on the river off Hunters Point, calls itself sixteen-ten. Division goes out in a launch and finds water. Here's what I know about transmitters. They've a mast. They've a feed. They eat valves like a horse eats oats and somebody has to carry the valves in. You don't lose one. You can lose a sock. You can't lose a thing that needs a man to change its valves every three weeks.",
+      "choices": [
+        {"label": "Unless the man's still out there carrying them.", "reply": "Then he's tired. Valves are heavy in quantity. You'd know a man like that by his shoulders. I'll not guess off a newspaper about who carries what. Pass me the five-eighths.", "trust": 1, "flag": "ob_man_with_valves"},
+        {"label": "Maybe it's on a boat.", "reply": "Then it's on a boat with a mast and a generator and a coal bill, and a tug master who knows every hull on that river says he saw none. Boats are easy. Boats is the first thing you'd check."},
+        {"label": "Some things just can't be found.", "reply": "That's not a sentence. That's a man who didn't look under the floor. Everything can be found. Some of it can't be fixed once you find it, and that's a different tag.", "trust": -1}
+      ]
+    },
+    {
+      "id": "ob_op_pipes",
+      "from": "1928-11-17",
+      "until": "1928-12-15",
+      "topic": "Burst pipes, first frost.",
+      "line": "Nineteen degrees at dawn and three hundred and forty burst pipes by noon. Insurers will pay on most of them, because the house records say which pipe went and when, to the minute. Fine. The record says when. It never says who lagged it with newspaper and string in 1919 and called it done. I could tell them. I've a list. I lagged ours in October. Not one of mine went.",
+      "choices": [
+        {"label": "Not one of yours went. You checked every run at dawn, didn't you.", "reply": "Half past four. Torch and a mallet. Tapped every run from the cellar to the fifth. Not one. I don't sleep the first frost. Never have. It's the one night a year the building tells you exactly how good you are.", "trust": 1},
+        {"label": "The insurers should pay you, then.", "reply": "They'd want it on a form. Pipe, date, lagging, man. I'd fill it in. Nobody's ever asked a super for a form. They ask the record. The record wasn't on its knees in October."},
+        {"label": "Pipes burst. It's the cold, not the lagging.", "reply": "Cold's the test. Lagging's the answer. You're blaming the exam for the boy who didn't study. Go and look at the ones that held. They're all lagged.", "trust": -1}
+      ]
+    },
+    {
+      "id": "ob_op_feeder",
+      "from": "1928-12-11",
+      "until": "1929-01-10",
+      "topic": "Ten minutes off the feeder.",
+      "line": "The Hum committee asked Queens Light & Power to cut the Astoria feeder for ten minutes. Ten minutes, as a test. The company won't. They're reading the refusal at Borough Hall this afternoon. Now I'm no friend of the committee; they've a man on it who thinks you can hear a dynamo think. But a company that won't switch off for ten minutes to see if the noise stops is a company that doesn't want to know the answer.",
+      "choices": [
+        {"label": "Or one that knows what it's like when the lights go.", "reply": "Could be that. You switch a feeder off, you've a whole district in the dark looking at you. Ten minutes is long in the dark. Longer if it doesn't come back when you throw it. I'd still do the test. I'd hate it.", "trust": 1, "flag": "ob_feeder_dark"},
+        {"label": "You'd do the test yourself.", "reply": "I'd do it at three in the morning on a Tuesday with a man at every cellar and a lantern in my hand. That's how you test. Not at a committee, with the newspapers. Nobody does good work with a reporter watching."},
+        {"label": "It's obviously the plant. Why test?", "reply": "Obvious is what a man says before he opens the panel. Then he opens it and it's a mouse. Test it. If it's the plant, they'll know. If it isn't, they'll know something worse.", "trust": -1}
+      ]
+    },
+    {
+      "id": "ob_op_carol",
+      "from": "1928-12-26",
+      "until": "1929-01-20",
+      "topic": "A carol and no valves.",
+      "line": "Christmas night, thirty-one parlours get a station playing an organ and a choir for twelve minutes. Same day's paper: no receiving valves in stock anywhere in Queens. Jamaica, Flushing, Astoria, the Arcade, nothing. A pawnbroker on Jackson Avenue has bought three hundred used ones at twelve cents. So whoever's running sixteen-ten has stock. That's what I took from it. Everyone else wants the name of the hymn. I want the name of his supplier.",
+      "choices": [
+        {"label": "You were listening, though. Christmas night.", "reply": "Had a set on the bench I'd just finished for the fourth floor. Testing it. It came in. I'll say that. Clean. Cleaner than anything I could get out of Newark valves. I sat through the whole twelve minutes. Testing.", "trust": 1},
+        {"label": "Ask the pawnbroker.", "reply": "I've asked him. Twelve cents in, a quarter out, and he doesn't hear the question about whose set they came out of. If sixteen-ten bought from him it paid cash and didn't haggle. That'd be a first."}
+      ]
+    },
+    {
+      "id": "ob_op_newark",
+      "from": "1929-01-12",
+      "until": "1929-02-10",
+      "topic": "Newark's glass shop burns.",
+      "line": "Annealing room at the Newark works goes up at twenty-eight past two and burns till twenty to eight. Four men burned, nobody dead, six hundred and forty laid off, six weeks before they make another valve. The Arcade's back to two sleeves a customer at a dollar ten. I've a drawer downstairs. I'm not telling you how many. What I'll tell you is the first thing a building runs out of in a valve famine is patience, and the second is me.",
+      "choices": [
+        {"label": "Four men burned. That's the news, not the valves.", "reply": "It is. Annealing burns go deep and slow. St. Michael's will keep them weeks. Nobody's dead, the paper says, and I believe it till the second week, when it's the dressing that decides. Yes. That's the news.", "trust": 1, "flag": "ob_four_burned"},
+        {"label": "There's a wireless on your shelf with its valves pulled.", "reply": "Pulled and wrapped and labelled by stage. And they stay with it. I'll strip a doorbell before I strip that set. Don't ask why. A man's allowed one thing on the bench that isn't for anybody."},
+        {"label": "Buy up what's left before it goes.", "reply": "And be the man the shut-ins are waiting on? No. I've what I need. Hoarding's a fault you can see from the street. I'll not have the building known for it.", "trust": -1}
+      ]
+    },
+    {
+      "id": "ob_op_steinway",
+      "from": "1929-01-20",
+      "until": "1929-02-17",
+      "requires": ["op:ob_op_newark"],
+      "topic": "Sermon by telephone.",
+      "line": "Steinway church goes off the air for one fifty-watt output valve. One. On the air since 1907 and two hundred and twelve shut-ins waiting. So the parson prints the sermon and every member with a telephone rings one shut-in and reads it down the line. Now that's a repair. Not a fix. A fix is the valve. A repair is getting the job done with what's in the room when the part's not coming. I'd shake that man's hand.",
+      "choices": [
+        {"label": "And the shut-ins get a voice they know instead of a broadcast.", "reply": "That's the bit the parson didn't plan. A neighbour reading, stumbling on the long words. I'd wager some of them want it kept that way. A repair's sometimes better than the fix. Don't tell anybody I said it.", "trust": 1},
+        {"label": "You'd have done that, the night the lights went.", "requires": ["omar_dead_air"], "reply": "Candles on every landing. I did that. Knocked on doors. Said it'd be back. It wasn't, for hours. You're kind to call it a repair. It felt like a man walking about with a candle saying sorry.", "trust": 1},
+        {"label": "It's not the same as hearing the church.", "reply": "No. You lose the organ and the room. You get the work done. Not every job comes back to how it was. Some come back to working. I'll take working."}
+      ]
+    },
+    {
+      "id": "ob_op_bearings",
+      "from": "1929-02-10",
+      "until": "1929-03-10",
+      "requires": ["op:ob_op_tug"],
+      "topic": "Instruments checked, found correct.",
+      "line": "Two launches, Hell Gate and College Point, thirty-one seconds of sixteen-ten at two-fourteen, and the bearings come out parallel. Don't cross. Then this: the instruments were checked on Saturday and found correct. I've written that sentence on a hundred tags. Know what it means, every time? It means the fault is somewhere I haven't looked. Mr. Pike's looking at his instruments. He wants to be looking at his chart.",
+      "choices": [
+        {"label": "What would you check, if it were your job?", "reply": "The thing I'm surest of. That's where faults live, in the part you passed first. Here it's the chart. Maybe the bearings are right and the thing isn't a point. Not every fault sits in one place. That's as far as I go. I'm a super.", "trust": 1},
+        {"label": "Pike's doing what he can.", "reply": "He is. Out in the cold at two in the morning with a loop and a flask. I've respect. I've also seen a man check his own joint ten times and never see the crack. Send somebody else to check his."}
+      ]
+    },
+    {
+      "id": "ob_op_hum_dismissed",
+      "from": "1929-02-27",
+      "until": "1929-03-25",
+      "requires": ["op:ob_op_feeder"],
+      "topic": "Seven cents and no tone.",
+      "line": "Fifty-one minutes Lacey reads. Company gets seven cents, not seven and a half. Astoria petition on the Hum dismissed, no finding either way. And then the one line in it worth the paper: a Commission engineer into the Astoria works by April first, with an instrument not of the company's make. That's good work. First sensible thing out of the whole hearing. You never let a man test his own joint.",
+      "choices": [
+        {"label": "You've had your own work checked like that.", "reply": "Once. Insurance man in '24, his own gauge. Went through every joint in the boiler room. Found nothing. I was furious for a week. Best sleep I had all year, after. You need somebody else's instrument now and then.", "trust": 1},
+        {"label": "The petitioners lost, though.", "reply": "They lost the petition. They've won the engineer. If I were Astoria I'd sit tight till April and keep my cellar readings dated. You don't win a fault in a hearing. You win it in the cellar."},
+        {"label": "No finding means there's nothing there.", "reply": "No finding means nobody found it. Twenty years of jobs where the first man found nothing and I came along with a torch. There's always a second man.", "trust": -1}
+      ]
+    },
+    {
+      "id": "ob_op_thaw",
+      "from": "1929-03-17",
+      "until": "1929-04-15",
+      "requires": ["op:ob_op_hum_dismissed"],
+      "topic": "The thaw in the ground.",
+      "line": "Company says the night calls to the Exchange about the tone are consistent with the thaw. Frost leaving the ground, they say, is a noisy process. It is. It's also a slow one, and it doesn't happen at forty-one cycles, and it didn't happen in January when the ground was iron and the tone sat steady all the same. Columbia man says he hasn't measured the frost. Neither have they. Ground creaks. Ground doesn't hum.",
+      "choices": [
+        {"label": "So they're guessing, and calling it a reading.", "reply": "That's it. A guess in a reading's coat. I do it myself at three in the morning with a tenant stood over me. Settling, I say. Settling covers a great deal. I don't put it on a tag. They've put it in the paper.", "trust": 1},
+        {"label": "Maybe the frost is part of it.", "reply": "Could be part. Frost moves pipes, pipes ring. I'll give them a ring. I won't give them a tone that held steady through January. That's not the ground. I don't know what it is."}
+      ]
+    },
+    {
+      "id": "ob_op_midfigure",
+      "from": "1929-04-11",
+      "until": "1929-05-10",
+      "requires": ["op:ob_op_tug"],
+      "topic": "Cut off mid-figure.",
+      "line": "Fourth night running sixteen-ten reads its figures and stops at sixteen past, in the middle of one. People are making a mystery of it. I'll tell you how it looks from a bench. It looks like a supply dropping. You don't stop a sentence halfway because you're bored. You stop halfway because the power's gone, the valve's gone, or something on the board threw. Somebody somewhere lost the lights.",
+      "choices": [
+        {"label": "You've thought a lot about the lights going.", "requires": ["omar_dead_air"], "reply": "Halfway through a sentence. That's how it went here. Lift between floors, a kettle on, a set in the basement going. Then all of it at once. I've heard 'mid-figure' every night since the paper printed it. Doesn't help.", "trust": 1, "flag": "ob_midfigure_dark"},
+        {"label": "There was a station here that went quiet like that.", "requires": ["station_went_quiet"], "reply": "In the laundry. Yes. People said it, I fixed what I could, and it never came back up. I'm not saying it's the same. I'm saying I know what a stopped station looks like from a basement, and it looks like my fault.", "trust": 1},
+        {"label": "Or he chose to stop.", "reply": "A man doesn't choose to stop in the middle of a number. He finishes the number and then he stops. Halfway's the machine. Always the machine. If it isn't, I don't want to hear about it."}
+      ]
+    },
+    {
+      "id": "ob_op_switch",
+      "from": "1929-05-28",
+      "until": "1929-06-22",
+      "topic": "Switched off at the board.",
+      "line": "Lindbergh's wedding at Englewood, and the house system was switched off at its board at three o'clock, by request. No record made. The papers are cross. I'm not. I read that and thought, there's a house where the board does what it's told. Throw a switch, the system's off, nobody hears. That's a well-kept house. Somebody maintains that board. I'd shake his hand, then come home and look at ours and not say anything.",
+      "choices": [
+        {"label": "Not every house is that easy to switch off.", "reply": "No. Some of them you throw the switch and the system carries on, and you stand there with your hand on the lever like a fool. I'm not saying ours. I'm saying I've stood like that. Leave it there.", "trust": 1, "flag": "ob_board_admitted"},
+        {"label": "They should have recorded it. It's a famous wedding.", "reply": "For who? The newspapers had a week of his dinner menus. Two people asked for one afternoon nobody'd play back. The whole country could give them that. Most of it didn't want to.", "trust": -1}
+      ]
+    },
+    {
+      "id": "ob_op_rockaway",
+      "from": "1929-06-23",
+      "until": "1929-07-20",
+      "topic": "The pavilion's switch was off.",
+      "line": "Rockaway. Three hundred people on the sand and sixteen-ten comes out of the Seaside Pavilion's speakers for twelve minutes. Manager switched the system off at the board at ten. Showed the Record's man the switch. It was off. I'll say this for Mr. Brodsky: he showed the switch. Every man I've worked for would have said the boy left it on. He stood by his board. That's the professional thing. The rest isn't my department.",
+      "choices": [
+        {"label": "It's your department when ours does it.", "requires": ["ob_board_admitted"], "reply": "You remembered. Yes. And I'll do what Brodsky did. Show the switch, say it's off, and not explain the rest. That's not cowardice. It's not claiming a job you can't do.", "trust": 1},
+        {"label": "What would you check first?", "reply": "The board, the feed, the earth. Then the speakers themselves, for a stray set somebody's wired in behind. Then again in the morning with a meter. Then I'd go home. Some jobs you sign off as observed."},
+        {"label": "He must have missed a second feed.", "reply": "Must have. That's what I'd say if I hadn't spent twenty years being the man everyone says must have missed something. Give him the switch. Look somewhere else.", "trust": -1}
+      ]
+    },
+    {
+      "id": "ob_op_ditmars",
+      "from": "1929-07-18",
+      "until": "1929-08-18",
+      "topic": "Cut at the street, still recording.",
+      "line": "Frame house on Ditmars Avenue. Inspector disconnects the system on the second. Exchange cuts it at the street on the fourth. Two weeks later their engineers lift the record and it's complete, the whole fortnight, and no current at the point. Owner can't be found. Room sealed. I want to see that cut. I've seen men cut at the street and take the wrong pair. I'd bet a week's wage it's the wrong pair, and I'd half hate to lose.",
+      "choices": [
+        {"label": "You'd hate it more if they cut the right one.", "reply": "I would. Because then I'm stood in a sealed room with a system that records off nothing, and a bag full of tools that need current to mean anything. Wrong pair. I'm sticking with wrong pair.", "trust": 1},
+        {"label": "Nobody's found the owner either.", "reply": "No. Frame house, a system nobody licensed, a man nobody can ring. Owners like that leave a building to run itself. Buildings don't. They run down. Or they don't, and you wish they would."}
+      ]
+    },
+    {
+      "id": "ob_op_hum_stopped",
+      "from": "1929-08-20",
+      "until": "1929-09-18",
+      "topic": "Monday, when it stopped.",
+      "line": "Four past midnight Monday. I woke because something was wrong and I couldn't say what. Got the torch. Boiler, fine. Lift, fine. Every bell, every riser, every fuse from the cellar to the roof. All of it fine. Nothing broken, all day, and it was the worst day I've had in this job but one. Light company says its load was as on any Monday. They did nothing. I believe them. That's what frightens me.",
+      "choices": [
+        {"label": "Nothing broken and nothing to fix. Your worst kind of day.", "reply": "That's the day. Every man in my trade has one he dreads, and it's not the flood. It's walking round with a full bag and nothing to use it on while everybody listens to you not find it. It came back at two past twelve. I sat down on the stair.", "trust": 1},
+        {"label": "And the one worse day. The night the lights went.", "requires": ["omar_dead_air"], "reply": "That one. Monday was the other way round. That night everything was broken and I couldn't fix it. Monday nothing was and I still couldn't. Twenty years and I've found both ways a building can beat you. I'd thank it to stop.", "trust": 1, "flag": "ob_two_bad_days"},
+        {"label": "Everyone slept fine once it came back.", "reply": "They did. Overslept. Milk late in Woodhaven. I didn't. I sat on the stair till six with the torch on, listening to it be back. You don't trust a thing that fixes itself. You wait for it to go again."}
+      ]
+    },
+    {
+      "id": "ob_op_reply",
+      "from": "1929-09-04",
+      "until": "1929-10-04",
+      "requires": ["op:ob_op_hum_stopped"],
+      "topic": "The company's one-page reply.",
+      "line": "Aldermen asked the light company to account for Monday in writing. Reply came on the thirtieth. One page. Read to the Board today, and Feeney's motion for their load sheets referred to committee. One page. I've written one-page reports. You know which ones? The ones where I didn't find it. When you find it, it's three pages and a diagram. One page is a man writing 'did nothing' very neatly and hoping nobody asks for his sheets.",
+      "choices": [
+        {"label": "You'd have written one page too.", "reply": "Half a page. Walked the building. All in order. Tone absent twenty-four hours. Cause not found. And under it, if they'd let me: not my work, not anyone's. That's the line nobody will print, and it's the true one.", "trust": 1},
+        {"label": "Feeney should get the load sheets.", "reply": "He should. They'll show a Monday like any Monday, which is what the company said, and he'll have spent a month proving they told the truth. Some sheets you ask for to be sure. Then you're sure. Then what."}
+      ]
+    },
+    {
+      "id": "ob_op_maspeth",
+      "from": "1929-09-26",
+      "until": "1929-10-24",
+      "topic": "A line that answered itself.",
+      "line": "Maspeth baker's line gets rung at two-fourteen in the morning. Something picks up, says the call sign, sixteen-ten, four seconds of tone, clears. Mr. Ruzicka says his bell never rang and he was asleep. I believe the bell. A bell's a simple thing; it rings or it doesn't, and I've fixed hundreds. So it didn't ring, and the line picked up. A line doesn't pick itself up. Somebody, or something, was on it already. Waiting.",
+      "choices": [
+        {"label": "You've had a bell in this building do something like that.", "reply": "One. Second floor. Rings for nobody now and then. I've had it apart four times. Sound. I've stopped writing it up. You didn't hear that from me, and I didn't hear it from the bell.", "trust": 1},
+        {"label": "Pike will find a crossed wire.", "reply": "He'll look. Position 12's record, the Maspeth pairs, the pole. Good. Somebody should. If it's a cross he'll have it by Friday. If it's Friday and he hasn't, that's your answer, and it's not a wire."},
+        {"label": "A baker half asleep would say anything.", "reply": "He'd say he was asleep. That's what he said. Bakers are up at three; two-fourteen's the soundest hour they get. Leave the man his sleep.", "trust": -1}
+      ]
+    },
+    {
+      "id": "ob_op_lamps",
+      "from": "1929-10-22",
+      "until": "1929-11-09",
+      "topic": "Lamps out one minute, for Edison.",
+      "line": "Edison lights his lamp again at Dearborn for the Jubilee, the President and Ford stood by, and here they switched every street lamp in Queens off at seven fifty-two and on at seven fifty-three. For a celebration. I was at the front window when they went. One minute. The Exchange took three hundred and twelve calls in it, two hundred and ninety about the tone. I didn't ring anybody. I stood with my hand on the sash and counted.",
+      "choices": [
+        {"label": "One minute's a long time when you remember hours.", "requires": ["omar_dead_air"], "reply": "Sixty. I counted sixty and they came on at fifty-eight. Two short. Hours, that night. You're right. A minute's nothing. I had the torch out of the drawer before the second lamp went. Old habit. They came on and I put it away.", "trust": 1, "flag": "ob_counted_the_minute"},
+        {"label": "Edison didn't even hear it, the paper says.", "requires": ["declare_unrepairable"], "reply": "Hard of hearing. Fifty years since he lit it and the man can't hear his own broadcast. I'd tag that, if it were mine. Ran its course. Good work. Not failed. You taught me that tag. I'm using it more than I meant to.", "trust": 1},
+        {"label": "Funny, putting the lights out to celebrate a lamp.", "reply": "It's a fine joke if you're not the one with the switch. The Speaker will make it. I'll laugh. It's right to honour the man. I'd just have warned the boroughs first. People have nights behind them."}
+      ]
+    },
+    {
+      "id": "ob_op_ticker",
+      "from": "1929-10-24",
+      "until": "1929-11-09",
+      "topic": "The ticker didn't break.",
+      "line": "Paper says the ticker's voice broke at eleven twenty-two. Gone up and not come down, the clerk writes, ninety minutes behind the floor by noon. The ticker didn't break. It was asked to carry twelve million shares on a wire built for four. That's overload. Overload's not breakage; take the load off and it runs. They'll blame the ticker because the ticker can't talk back. The men who loaded it can. They won't.",
+      "choices": [
+        {"label": "Overloaded isn't broken. You'd say that about anything but yourself.", "requires": ["cal_omar_blackout"], "reply": "Cal said that. Don't tell me Cal didn't say that. He's a mouth on him for a man who keeps his door shut. Fine. Overloaded. One night. I'll think about it. On the bench. Not here.", "trust": 1},
+        {"label": "A lot of men in Queens lost everything this week.", "reply": "Margin. Bought on air, and the air's been called in. I don't hold with it. I'll see them on the stair soon enough, selling their sets. I'll give them a fair price for the valves. That's what I can do."},
+        {"label": "They should've built a faster ticker.", "reply": "They built it as fast as it'll go. You can always build a thing bigger. You can't build it big enough for a crowd that's frightened. Nothing's rated for that.", "trust": -1}
+      ]
+    }
+  ]
+}

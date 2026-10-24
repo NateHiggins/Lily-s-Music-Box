@@ -41,6 +41,7 @@ var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var service_round: ServiceRoundDirector
 var conversations: ResidentConversations
+var newspapers: NewspaperCatalog
 var boiler_tend: BoilerTend
 var heat_balance: HeatBalance
 var mirror_renderer: PlanarMirrorRenderer
@@ -583,6 +584,20 @@ func _compose_authorities() -> void:
 			Callable(self, "resident_is_home"))
 	if not conversations.errors.is_empty():
 		push_warning("ORISON V2 RUNTIME: dialogue trees: %s" % [conversations.errors])
+	# The two daily papers: the catalogue answers the rack and the shelf; the
+	# desk in 4B keeps what the player bought at News & Cigars.
+	newspapers = NewspaperCatalog.new()
+	newspapers.name = "NewspaperCatalog"
+	add_child(newspapers)
+	if not newspapers.errors.is_empty():
+		push_warning("ORISON V2 RUNTIME: newspapers: %s" % [newspapers.errors.slice(0, 8)])
+	var desk_stance := adapter.resolve("F04_B_MONITOR_STANCE") as Node3D
+	if desk_stance != null:
+		var desk_papers := NewsRackProp.new()
+		desk_papers.name = "DeskPapers"
+		desk_papers.setup("desk", Vector3(0.5, 0.25, 0.4))
+		add_child(desk_papers)
+		desk_papers.global_position = desk_stance.global_position + Vector3(0.55, 0.78, 0.0)
 	open_shift_ecosystem = preload("res://scripts/game/open_shift_radiator_ecosystem.gd").new()
 	open_shift_ecosystem.name = "OpenShiftRadiatorEcosystem"
 	add_child(open_shift_ecosystem)

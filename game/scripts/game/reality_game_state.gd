@@ -83,6 +83,9 @@ func _fresh_data() -> Dictionary:
 		# in one flat unlocks an inference in another. Flat list of strings, no
 		# owner but the player; never a case resolution flag.
 		"knowledge_flags": [],
+		# The daily papers kept on the desk (design/ORISON_NEWSPAPERS_2026-10-23.md):
+		# "<paper>:<YYYY-MM-DD>" strings, read by NewspaperCatalog.
+		"newspapers_collected": [],
 		# Per-resident trust for threshold conversations that have no case, and
 		# how many times each resident has been spoken to. Case residents keep
 		# their trust on the case record as before.
@@ -265,7 +268,7 @@ func _validate_document(candidate: Dictionary) -> Dictionary:
 		if candidate.has(key) and candidate[key] is not Dictionary:
 			return _invalid_shape(key)
 	for key in ["portal_rules", "discovered_documents", "music_library", "heard_music_anecdotes",
-			"knowledge_flags"]:
+			"knowledge_flags", "newspapers_collected"]:
 		if candidate.has(key) and candidate[key] is not Array:
 			return _invalid_shape(key)
 	for key in ["current_case_id", "dream_seed", "last_waking_residue_id"]:

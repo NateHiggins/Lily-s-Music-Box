@@ -1,0 +1,217 @@
+{
+  "resident_id": "noel_price",
+  "hook": "You'll have handled the Record in the lobby.",
+  "hook_line": "Received, flattened and read. Which item is under discussion?",
+  "opinions": [
+    {
+      "id": "np_op_silence",
+      "from": "1928-11-12",
+      "until": "1928-12-10",
+      "topic": "Two minutes, recorded and compared.",
+      "line": "Two hundred and twelve buildings took down the silence, and the records have been compared, borough against borough, which I find correct and faintly obscene. The courthouse record has a cough at one minute ten, entered by the stenographer as 'unidentified.' I have been thinking about that cough. Someone in a courthouse could not hold it for two minutes and is now catalogued, nameless, for good. One should be allowed to cough in a courthouse.",
+      "choices": [
+        {"label": "You've sat in a courthouse and tried not to make a sound.", "reply": "Once. One is told to sit still, and one sits so still that one stops being a boy and becomes a fixture. I did not cough. I have regretted, now and then, that there is no record of my not coughing.", "trust": 1, "flag": "np_courthouse_quiet", "requires": ["noel_father_tried"]},
+        {"label": "Queens came second quietest. The elevated cost us.", "reply": "The elevated at Queensboro Plaza does not stop, and was entered 'not silent.' I approve. Something ought to be honest enough to go on running. The rest of us stood still for the record."},
+        {"label": "It's only a cough. Nobody cares.", "reply": "The stenographer cared enough to enter it. That is the difficulty with records: nothing in them is only. Once it is accessioned it is a cough forever, and somebody's.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_returned_to_desk",
+      "from": "1928-11-16",
+      "until": "1928-12-14",
+      "topic": "He returned to his desk at one.",
+      "line": "Mr. Walter Pruitt, receiving clerk, thirty-four. The Board heard him in private for ninety-five minutes, the record stays sealed, and the paragraph ends: 'Mr. Pruitt returned to his desk at 1 p.m.' I read the whole item for that line. The Record always gives a man's age. It never gives his children's. I should like to know whether there is a boy who reads the Record at breakfast and found his father's name in it this week, and what was done with the page.",
+      "choices": [
+        {"label": "What was done with the page in your house?", "reply": "It was kept. Folded in four, in a drawer, by a woman who could not throw it away and could not read it twice. I took custody of it later. It is in very good condition. It has not been unfolded since the day it was folded.", "trust": 1, "flag": "np_page_kept", "requires": ["noel_father_tried"]},
+        {"label": "He went back to work. That's a good sign.", "reply": "It is a sign that he went back to work. Whether it is good depends on what was waiting at the desk: colleagues who look up, or colleagues who do not. I have known men who would have preferred to be stared at."},
+        {"label": "Thirty-four's young enough to live it down.", "reply": "One does not live a newspaper down. One is shelved beside it. Forgive me; you meant it kindly, and kindness about these things is generally offered by people whose name was never in the paper.", "trust": -1}
+      ],
+      "silence_reply": "You have not asked why a man reads for the children's ages. Thank you. The question would have required an answer, and the answer is not catalogued."
+    },
+    {
+      "id": "np_op_spaniel",
+      "from": "1928-12-27",
+      "until": "1929-01-25",
+      "topic": "'It's only Vic, Brownie.'",
+      "line": "A parlour record names a burglar. At fourteen minutes past midnight on Christmas Eve a man's voice tells the Hales' spaniel, 'It's only Vic, Brownie, go back to sleep.' Mr. Lasko, the former ice man, is held. The silver was found at a Flushing pawnshop. The fur coat has not been found. I keep returning to the coat. Silver comes back with a ticket and a description. A coat goes onto someone's shoulders and becomes theirs.",
+      "choices": [
+        {"label": "Things in use stop being evidence. They become someone's.", "reply": "Yes. That is precisely the danger. The coat is being worn somewhere tonight, in this cold. It is warm on someone. As a curator I deplore it. I find I am not entirely a curator about it.", "trust": 1, "flag": "np_use_changes_things"},
+        {"label": "The dog knew him. That's what will convict him.", "reply": "The dog went back to sleep, which is evidence of familiarity and of nothing else. A dog will settle for anyone who says its name kindly. I would not convict a man on a spaniel's good nature."},
+        {"label": "Shame about the coat. Insurance will cover it.", "reply": "Insurance covers the value. Value is the least interesting fact about an object. Mrs. Hale wore that coat to something, once, and remembers it. The cheque will not.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_red_ink",
+      "from": "1929-01-08",
+      "until": "1929-02-06",
+      "requires": ["op:np_op_returned_to_desk"],
+      "topic": "Mr. Pruitt, cleared.",
+      "line": "Mr. Pruitt is cleared. The Justice ordered the false entry ruled through in red and the order noted beneath, which is correct practice; one never erases, one annotates. So the ledger will carry, for as long as it is kept, a wrong entry beside his name and a line through it. That is what being cleared looks like when it is done properly: the name, the mark and the correction, all legible. I wonder whether it comforts him. It would not comfort me.",
+      "choices": [
+        {"label": "A cleared name still has the line through it.", "reply": "Always. Clearing is an annotation, not a restoration. One can stabilise a damaged object; one cannot return it to before. His children will grow up with a father whose name has red ink near it. Better than the alternative. Not nothing.", "trust": 1, "flag": "np_annotation_not_restoration"},
+        {"label": "Did they ever find the lineman?", "reply": "No. The warrant 'stands until he does,' the Justice said. A sentence with its subject absent. I liked it. Somewhere there is a man who left with a valise and a receiving set, and an order waiting for him to stand."},
+        {"label": "So it all came right in the end.", "reply": "It came corrected. 'Right' would require the second voice to be identified and the man to have been spared the eight weeks. Nothing was put right. Something was put on record. The two are frequently confused.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_tools",
+      "from": "1929-01-19",
+      "until": "1929-02-18",
+      "topic": "His tools, held at the precinct.",
+      "line": "The lineman's room in Ridgewood has been let. A canvas bag of his tools, with a test set, is held at the 104th Precinct. I read the item twice. When a man is removed, the room is the first thing to go, because rooms are worth rent. The tools stay, because nobody can use them without him and nobody may throw them away. There is a shelf in every precinct in Queens of things kept for men who are not coming for them.",
+      "choices": [
+        {"label": "Your father's chair is on a shelf like that. Kept for a man not coming.", "reply": "... It is not on a shelf. It is by the window, at the correct angle. But yes. Kept, unused, by someone with no authority to dispose of it. The precinct at least has a form. I have only the angle.", "trust": 1, "flag": "np_shelf_named", "requires": ["noel_chair_by_sight"]},
+        {"label": "The Association keeps a chair like that. 'Until its owner can be found.'", "reply": "You have read the minutes. Then you know the phrase. 'Until its owner can be found' is the kindest sentence in the language and the least honest. It means: we shall never decide. I recognise the hand that wrote it. It could be mine.", "trust": 1, "requires": ["minutes_read"]},
+        {"label": "Someone should sell them. Tools rust.", "reply": "Tools rust, and that is the strongest argument for use I know. Nonetheless they are evidence, and evidence may not be sold by whoever finds it inconvenient. Believe me, I have looked into the procedure.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_standing",
+      "from": "1929-02-16",
+      "until": "1929-03-16",
+      "topic": "Six jurors, standing.",
+      "line": "In Chicago a coroner overruled the owner's counsel and had the garage record played in open session: fourteen minutes twenty seconds, played once, to six jurors. They heard it standing. The paper gives that detail without comment. I find it the most correct thing I have read this year. There are objects one does not sit down in front of. One stands, one does not touch, one hears it the once, and one does not ask for it again.",
+      "choices": [
+        {"label": "You've stood like that for something of your own.", "reply": "I stand in a doorway every Sunday drinking coffee with my brother, which is perhaps the same posture for a smaller occasion. Do not draw a conclusion. I see you have drawn one. It is broadly accurate.", "trust": 1, "flag": "np_doorway_posture"},
+        {"label": "Mr. Tully says the record convicts the building.", "reply": "Mr. Tully represents landlords, and so must believe a building can be a defendant. It cannot. A room is a witness. One does not convict a witness; one only stops letting it in. I suppose that is what he wants."},
+        {"label": "I'd want to hear it twice, to be sure.", "reply": "Then you would have been in the wrong trade on that jury. Twice is for study. Once is for respect. Those were men's last minutes, not a recording to be got right.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_overcoat",
+      "from": "1929-03-12",
+      "until": "1929-04-10",
+      "requires": ["op:np_op_spaniel"],
+      "topic": "Mr. Lasko's overcoat, returned.",
+      "line": "Acquitted on the first of March, and yesterday the County Clerk returned Mr. Lasko's overcoat, held as an exhibit since January. 'Mr. Lasko signed for it and wore it from the building.' Signed for it and wore it. Not wrapped, not carried over the arm. He put on the exhibit and walked out in it, and it became a coat again. The Hales' fur is still missing. His own coat came home. I have been standing at my window with the paper since the lobby.",
+      "choices": [
+        {"label": "Some exhibits never come home. Sometimes the man doesn't either.", "reply": "No. Some are held, in boxes with numbers, and the letter that answers you says 'retained.' I have such a letter. I applied once, at nineteen. I did not apply again. I filed the reply.", "trust": 1, "flag": "np_exhibit_named", "requires": ["noel_father_tried"]},
+        {"label": "He wore it out. You'd have had it under glass within the hour.", "reply": "Cleaned, padded, labelled 'Exhibit, returned.' And it would never keep anyone warm again. You are right, and you know you are right, and I would be obliged if you did not look so pleased about it.", "trust": 1},
+        {"label": "Lucky man, guilty or not.", "reply": "The jury heard a man and could not say which. Luck is not a finding. He was acquitted, which is a condition, and he wore his coat, which is a use. I will not have it called luck.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_case",
+      "from": "1929-04-14",
+      "until": "1929-05-12",
+      "topic": "A copper case for 1978.",
+      "line": "The Society has sealed its fifth copper case in the vault under Borough Hall: thirty-one records, to be opened in 1978. The Armistice silence is in it, and the inauguration. Record No. 23 is not; its makers asked that it be withheld, and the chair kept his promise three votes running. Professionally, I approve of the case. Sealed, cool, dark, untouched for fifty years. It is exactly what I would do. That is my objection.",
+      "choices": [
+        {"label": "It's what you've done with a whole flat.", "reply": "Without the copper, and with no date on the lid. Yes. Nobody will open mine in 1978. A case with no opening date is not a case; it is a tomb with good ventilation. Thank you. That was not pleasant.", "trust": 1, "flag": "np_flat_is_a_case"},
+        {"label": "And the record they won't play?", "reply": "No. 23 is held unplayed at its makers' request. I think it the most professional decision of the lot. Some objects should be kept and not shown. Mrs. Grieve resigned from the committee over it. I should not have, but I understood her."},
+        {"label": "Who'll care in 1978?", "reply": "Nobody, probably, which is the condition every archive is built for. One does not keep things because someone will care. One keeps them in case. You have described my profession as a folly and you are about half right.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_not_kept",
+      "from": "1929-05-28",
+      "until": "1929-06-25",
+      "topic": "A wedding with the system switched off.",
+      "line": "Colonel Lindbergh married Miss Morrow at Englewood, and the house system was switched off at its board at three, at the family's request. No record of the ceremony was made, and the marriage was announced after they had left by motor car. The Record reports it as an omission. I think it the most beautiful acquisition policy I have ever heard of. They decided in advance that the day would be had, and not kept.",
+      "choices": [
+        {"label": "Had, and not kept. You've only ever kept.", "reply": "Yes. There is a mug behind glass that was had every day by a woman who never once thought of it. I kept it. She had it. I am coming round to the view that hers was the better arrangement.", "trust": 1},
+        {"label": "You took the mug out. You're having it now.", "reply": "I am. It has a new chip, recorded. I drink from it in the mornings and nobody makes a record of that either. The Colonel and I have this in common. I shall not write to tell him.", "trust": 1, "flag": "np_had_not_kept", "requires": ["use_is_love"]},
+        {"label": "Strange, for a man the papers follow everywhere.", "reply": "That is presumably why. When everything one does is accessioned by the public, the only private thing left is what one declines to record. I should know. My collection is very largely declined."}
+      ]
+    },
+    {
+      "id": "np_op_staying",
+      "from": "1929-06-19",
+      "until": "1929-07-18",
+      "topic": "Mrs. Dorr is staying.",
+      "line": "Mr. Pruett is convicted, the first under the Act, and fined. But it is Mrs. Dorr I read for. Her kitchen record of the fire was sold for fifteen dollars to the adjuster who refused her claim. Four of the six tenants moved out in May. Mrs. Dorr said then that she 'is staying, and talking.' Yesterday she told the court she had heard the record once before, in the adjuster's office, 'when he told me no.' She stayed in the house that sold her.",
+      "choices": [
+        {"label": "Staying is harder than leaving. You'd know.", "reply": "I would. One stays in a flat after the thing has happened in it because leaving would be a decision about what it meant. Mrs. Dorr has decided the opposite: she stays because it is hers. I admire her. I stayed for the other reason.", "trust": 1, "flag": "np_stayed_for_the_other_reason"},
+        {"label": "The talking's the part that matters.", "reply": "For her, evidently. She talked to the court at six minutes past eleven, and the insurer will reconsider her claim 'without reference to any record.' A woman's own account, unrecorded, restored to standing. I should like that framed."},
+        {"label": "I'd have moved out with the other four.", "reply": "Most people would. That is why four did. One should not assume the remaining two are merely slower. Some people are the condition report of a house. They remain so that someone is left who saw.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_two_horses",
+      "from": "1929-07-24",
+      "until": "1929-08-22",
+      "topic": "Nineteen brought down, two horses led out.",
+      "line": "Ditmars Avenue: a feed store and the three floors of flats above it, destroyed. Nineteen persons brought down by ladder and two horses led from the yard. No one killed. The paper lists what came out, and it is people and horses and nothing else. When a building burns one learns what a household is for. I sat up last night deciding what I would carry. It took until two. I chose wrongly.",
+      "choices": [
+        {"label": "What did you choose?", "reply": "The chair. Obviously. It weighs forty pounds and I could not get it down a ladder. That is why it was wrong. One should carry what can be carried, and I have arranged my life around a thing that cannot."},
+        {"label": "You'd carry the mug. It fits in a coat pocket.", "reply": "I would. I have already decided. It is in use, and things in use go with you. The chair would stay and burn, and I find I can say that sentence now, which I could not in the spring.", "trust": 1, "flag": "np_would_carry_the_mug", "requires": ["use_is_love"]},
+        {"label": "You'd just get yourself out. Things don't matter.", "reply": "Things matter. That is not my difficulty. My difficulty is that I made some of them matter more than the room they were for. Do not tell a curator that things do not matter; tell him which.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_four_children",
+      "from": "1929-08-18",
+      "until": "1929-09-15",
+      "topic": "'A widow and four children.'",
+      "line": "A guard on the Flushing elevated for nineteen years cut his hand on a gate latch at Junction Boulevard and was dead eleven days later. Every train on the line stood for one minute, and the line's system recorded the minute. Then the last sentence: 'He leaves a widow and four children.' The paper always ends there. It never says what is done with his chair. Someone at that table will put a cloth over it this week, and think it temporary.",
+      "choices": [
+        {"label": "You were the one who put the cloth on.", "reply": "I was eleven. Yes. I thought it was temporary; I thought, quite clearly, that it was a holding measure. That is what nobody tells children. There is no such thing as a holding measure. Whatever you do to an object in grief becomes its condition.", "trust": 1, "flag": "np_cloth_said", "requires": ["noel_father_tried"]},
+        {"label": "The trains stopping for him. That's something.", "reply": "It is a great deal, and it is recorded, and his children will be given the record. A minute of trains not moving. I wonder whether they will play it. I suspect they will keep it, which is not the same."},
+        {"label": "Blood poisoning from a latch. Bad luck.", "reply": "It is the commonest death in the borough. A cut, a fever, a fortnight. Calling it luck is how the rest of us avoid washing our hands. My gloves are not entirely for the objects.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_unheard",
+      "from": "1929-09-12",
+      "until": "1929-09-26",
+      "topic": "Destroyed unheard.",
+      "line": "Mrs. Lindqvist of Elmhurst asks the court to have a record of her bedroom destroyed unheard. Unheard. Her landlord says it is his property, and his system is licensed. Every rule of my trade says no. One does not destroy an object one has not examined. One does not destroy an object at all if it can be housed. I have written two letters to the Record saying so and posted neither. I am not sure my trade's rules reach a woman's bedroom.",
+      "choices": [
+        {"label": "Some things aren't objects. They're a person, kept against her will.", "reply": "Yes. That is the distinction my training does not make, because objects have no wills and the question never arises. Here it has arisen. I shall keep the letters. I shall not post them. That is, for me, a position.", "trust": 1, "flag": "np_not_an_object"},
+        {"label": "Who would even want to hear it?", "reply": "The landlord's counsel asked that it be played. Justice Brett said the court 'will not hear it to decide whether it may be heard.' The sanest sentence a court has produced this year. Most people want to hear everything. That is what frightens her."},
+        {"label": "Rules are rules. Keep it sealed in an archive.", "reply": "That is my own position said back to me in another voice, and I find I dislike the sound of it. An archive is not a place to keep a person. I have been kept in one, of a kind. It is cold.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_burned",
+      "from": "1929-09-22",
+      "until": "1929-10-20",
+      "requires": ["op:np_op_unheard"],
+      "topic": "Burned at four minutes past eleven.",
+      "line": "It was burned. The referee heard it alone and reported one word, and yesterday at four minutes past eleven the record went into the courthouse boiler, Mrs. Lindqvist present, both counsel, an officer. The referee declined to attend. I had expected to grieve it. I find I approve of the procedure. Deaccessioned with witnesses, the owner of the room present, the destruction recorded only by the clerk. Properly done. Even a fire can be properly done.",
+      "choices": [
+        {"label": "She watched it go. That's what made it right.", "reply": "Yes. She was present at the end of it. Most of us are not present at the end of anything; we are told afterwards, in a corridor. She stood at the boiler. I have never stood at the end of anything. I have only kept the middle.", "trust": 1, "flag": "np_kept_the_middle"},
+        {"label": "Why wouldn't the referee go?", "reply": "Because he alone heard it, and to see it burned would be to watch the only other copy of his memory destroyed. He is eighty-one. I think he wished it kept in the one place it is now safe. One does not attend the destruction of one's own collection."},
+        {"label": "You've changed your tune since the start of the month.", "reply": "I have revised my assessment on new information, which is what one is supposed to do and what nobody forgives. Yes. I changed. You will find it recorded."}
+      ]
+    },
+    {
+      "id": "np_op_played_to_counsel",
+      "from": "1929-09-24",
+      "until": "1929-10-22",
+      "requires": ["op:np_op_red_ink"],
+      "topic": "Eleven seconds, to counsel only.",
+      "line": "The Appellate Division has ordered the Riverhead eleven seconds played. To counsel, in chambers, on a day the Justice fixes. Mr. Pruitt was cleared in January; his name is no longer the point. The seconds themselves are the point now. They will be played to lawyers in a closed room, and the clerk's family will learn of it, as they have learned everything, from the paper at breakfast. That is the order in which families are told things. Last, and in print.",
+      "choices": [
+        {"label": "You learned it from the paper too. At breakfast.", "reply": "Upside down, across the table, because my mother was holding it. I could read upside down at eleven. I have never lost the skill. I still read every court item upside down first, out of habit, to see whether it is ours.", "trust": 1, "flag": "np_reads_upside_down", "requires": ["noel_father_tried"]},
+        {"label": "Maybe he doesn't care now. He's cleared.", "reply": "Possibly. Cleared men are expected to stop caring; it is part of the condition. But his name was on that line for eight weeks. I should think he reads about the eleven seconds with the attention of a man who was nearly what they contain."},
+        {"label": "It's just lawyers fighting over a wire now.", "reply": "It is lawyers. It is a wire. It is also a man's name in a ledger with red ink beside it, and whatever is in the seconds will be beside him too. You may call that a fight about a wire. He will not.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_what_gets_sold",
+      "from": "1929-10-30",
+      "until": "1929-11-09",
+      "topic": "Margin calls, and what gets sold.",
+      "line": "Sixteen million shares on Tuesday, and the operators reading margin calls aloud where the broker could not hold. In a month the auction rooms will fill, because when the money goes the furniture follows. I know how it is done. A family is dispersed an object at a time: the piano first, the good chairs, the mother's things last. Somebody with a clipboard writes 'condition fair' on what a father sat in. I have been that man. I never told the family.",
+      "choices": [
+        {"label": "You've seen it from the family's side too.", "reply": "Once. The good chair was not sold. That was my doing; I was a boy, I had put a cloth over it, and nobody had the heart to lift the cloth. So I saved it from sale and from use at once. It was not a rescue. It was a condition.", "trust": 1},
+        {"label": "Are you all right? For money?", "reply": "I own nothing anyone would buy, which this week is a kind of fortune. Mr Ortiz asked the same question at the table, from his end. I gave him the same answer and he laughed. Thank you for asking."},
+        {"label": "People will buy cheap this winter.", "reply": "They will. Objects do well out of a crash; they go to people who have never heard their history and use them carelessly and well. It is the families who do badly. Do not tell me about bargains. Not this week.", "trust": -1}
+      ]
+    },
+    {
+      "id": "np_op_forgotten_rooms",
+      "from": "1929-11-08",
+      "until": "1929-11-09",
+      "requires": ["op:np_op_case"],
+      "topic": "A museum that keeps no record.",
+      "line": "A museum of modern pictures opens on Fifth Avenue today, about a hundred canvases, all lent. 'No record of the rooms will be kept, at the lenders' request.' A museum that keeps nothing of itself. The pictures go home when the loan ends. The trustees expect many visitors 'who have never seen one.' I have read it in the lobby four times. I think I should like to go. Not for the pictures. To stand in a room that has agreed to forget me.",
+      "choices": [
+        {"label": "Go. Leave the gloves at home.", "reply": "Without gloves. In a museum. ... You understand that is the most indecent thing anyone has ever suggested to me. I shall consider it on the train. I may take my brother. We could stand in front of something and not write it down.", "trust": 1, "flag": "np_museum_without_gloves"},
+        {"label": "Lent pictures. Everything goes back.", "reply": "Everything goes back. That is the principle of a loan, and of most of what one is given. A father, for instance, is a loan with no return date stated. I am sorry. That was more than the item called for."}
+      ],
+      "silence_reply": "You are not going to tell me to go. Good. If I go, I should like it to have been my decision, recorded nowhere."
+    }
+  ]
+}

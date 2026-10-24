@@ -1,0 +1,202 @@
+{
+ "resident_id": "mae_kessler",
+ "hook": "Have you read the Record today?",
+ "hook_line": "I have read all of it, twice, with a glass. Choose a column. I have views on most of them and attributions for the rest.",
+ "opinions": [
+  {"id": "mk_op_arcade", "from": "1928-11-10", "until": "1928-12-05",
+   "topic": "The Arcade's eleven shops.",
+   "line": "Eleven shops, trade 'satisfactory to brisk,' and the Record prints that name above the door every morning as though names cost nothing. I do not say it. I appraised the brackets on that arcade years ago: the iron is good, the gilding is a lie. The luncheonette asks its customers to stop telephoning the luncheonette from the luncheonette. That is the only honest sentence in the column. A building that rings itself is asking who is in.",
+   "choices": [
+    {"label": "You don't say the name. You told me it wasn't yours to spend.", "requires": ["mae_vantry_appraisal"], "trust": 1, "flag": "mk_name_unspent",
+     "reply": "I said it once and I spent it. Saying it twice would be forgery. The Record may print it daily; the Record does not keep a bowl with a key in it that fits nothing in this flat."},
+    {"label": "What's wrong with the gilding?",
+     "reply": "Brass leaf on a pine core, painted to pass for bronze from the kerb. From the kerb it does. I have never in my life appraised anything from the kerb, and I do not intend to begin with shop fronts."},
+    {"label": "Sounds like a nice place to shop.", "trust": -1,
+     "reply": "Nice. I have spent thirty years removing that word from catalogues. A place is sound or it is not, and one does not learn which by buying a valve in it."}
+   ]},
+  {"id": "mk_op_downpipe", "from": "1928-12-07", "until": "1929-01-05",
+   "topic": "Holders who do not answer.",
+   "line": "Mr. Haas has written three times to Signal Ground Rents Incorporated about a frozen downpipe, and the exchange rang their number for thirty minutes, and the Borough thawed the pipe itself and sent a bill for fourteen dollars. 'Holders of the ground rent.' Holders. Not owners; holders. The word is exact and I admire it. A holder may keep a thing for years without once looking at it. It is a family skill. I did not know companies had it.",
+   "choices": [
+    {"label": "Holding without looking. You told me that's what a family does.", "requires": ["estate_is_kessler"], "trust": 1, "flag": "mk_holders_named",
+     "reply": "I said custody. ... It is the same word in a better coat. That company has held a downpipe for three weeks without looking at it. I have held a building for thirty years. I answer my telephone. It is not as large a difference as I should like."},
+    {"label": "Fourteen dollars. Will they pay it?",
+     "reply": "They will neither pay it nor return it; one can tell from the quality of the silence. A creditor who returns a bill is quarrelling. One who keeps it is waiting. Waiting for what, I could not attribute. I should like to see their letterhead."},
+    {"label": "Maybe the company's just badly run.", "trust": -1,
+     "reply": "Badly run companies answer the telephone to make excuses. This one does not answer at all. That is not disorder. That is a policy, and somebody wrote it down in a good hand."}
+   ],
+   "silence_reply": "You are letting the word sit. Holders. Yes. It improves with sitting, like a port nobody was meant to open."},
+  {"id": "mk_op_one_hand", "from": "1928-12-18", "until": "1929-01-20",
+   "topic": "Two papers in one hand.",
+   "line": "Mr. Brandt, the handwriting man, has told Justice Rourke that the ledger entry at 10:31 and the postcard from Wilkes-Barre are 'in one hand, to a degree I would put in writing.' That is a beautiful sentence. He commits exactly as far as his eye goes and not a hair further. Two documents, one hand, one of them a lie. The court finds that remarkable. I find it ordinary. The hand is never the difficulty. The difficulty is which afternoon the hand was having.",
+   "choices": [
+    {"label": "Your two cards. Both in your hand, and one of them shouldn't be.", "trust": 1, "flag": "mk_hand_compared",
+     "reply": "Both mine, and both correct, which is a worse position than Mr. Brandt's by a clear margin. He has a liar and a postcard. I have a witness I would trust with my life, and she contradicts herself. I should like him to examine me. I should like it less than he would."},
+    {"label": "Will they find Mr. Marchetti?",
+     "reply": "They will find a man of that name. Whether they find the one who held the pen is another matter. Hands outlast their owners' addresses. I have letters on my shelves from people nobody could find for a century, and every one of them is perfectly legible."},
+    {"label": "Handwriting experts are only guessing.", "trust": -1,
+     "reply": "Some are. Mr. Brandt is not; he wrote 'to a degree.' A guesser does not measure his own confidence aloud. Doubt the method if you like, but do not insult a man for being exact. There are so few of us left."}
+   ]},
+  {"id": "mk_op_lien", "from": "1929-01-25", "until": "1929-02-22",
+   "topic": "Putty, painted to match.",
+   "line": "The Borough screwed a notice of lien to the Arcade's north door for twenty-eight dollars, and by seven the next morning it was gone, and the screw holes had been filled with putty and painted to match the door. Painted to match. Do you understand what that costs? A vandal tears. A thief takes. Somebody with a paint pot and an eye for colour came in the night and restored the door. That is not defiance. That is conservation, by someone who considers the door theirs.",
+   "choices": [
+    {"label": "Whoever did it loves that door more than they fear the debt.", "trust": 1, "flag": "mk_door_conserved",
+     "reply": "Loves. ... Yes, I suppose one would have to. Nobody matches a paint at three in the morning for a creditor. One does it for the object. I have done it myself, once, to a frame in my mother's hall, and I told no one, and the frame was not mine either."},
+    {"label": "It's only twenty-eight dollars.",
+     "reply": "It is twenty-eight dollars and an evening's careful work to avoid paying it, which is a poor exchange unless one does not intend to be found at all. The money is a pretext. The door is the point."},
+    {"label": "Kids, probably.", "trust": -1,
+     "reply": "Children do not match paint. Children carve their initials, which is at least a signature. This was done by a hand that leaves none. I have met that hand in auction rooms, and it was always very old."}
+   ]},
+  {"id": "mk_op_screws", "from": "1929-02-23", "until": "1929-03-31",
+   "requires": ["op:mk_op_lien"],
+   "topic": "Screws of a pattern not made since 1924.",
+   "line": "The third notice stayed up. A watchman sat on the pavement with a recording set, and his record has four minutes of a screwdriver from ten past three, and he saw no one, and in the morning the four brass screws were steel. Now the Borough's inspector says the steel is of a company pattern 'not made since 1924.' Somebody keeps a drawer of those. Somebody came in the night to hang the Borough's own notice properly, with the right screws.",
+   "choices": [
+    {"label": "They didn't take the notice down. They made it theirs.", "trust": 1, "flag": "mk_screws_read",
+     "reply": "Exactly that. A notice held by the house's own screws is a notice on loan. The Borough believes it has posted a lien. It has posted a guest. ... Families do that with everything. We let the world hang its papers on our doors, and we choose the screws."},
+    {"label": "A watchman who sees nothing is no use.",
+     "reply": "His record heard everything and he saw nothing. That is the usual division of labour on a pavement at three in the morning, and it is why I trust shelves over watchmen. Dust is at least awake."},
+    {"label": "Old screws turn up in any junk shop.", "trust": -1,
+     "reply": "Not four of them, matched, of one pattern, at three in the morning. A junk shop is where things go to be separated. These have been kept together. Keeping is a deliberate act; I would know."}
+   ]},
+  {"id": "mk_op_renewals", "from": "1929-03-25", "until": "1929-04-30",
+   "requires": ["op:mk_op_downpipe"],
+   "topic": "Leases nobody signed.",
+   "line": "Eleven renewals of lease found beneath eleven doors, typed, in the company's name, and unsigned, and no postman brought them. Ten tenants declined. The news stand signed his and put it under his own door, and on Sunday it was gone. I have read leases all my life; the name on every lease in this house is one I know better than my own face. A lease is a promise with a hand at the bottom. Take the hand away and it is a weather report.",
+   "choices": [
+    {"label": "Whose hand is at the bottom of the leases here, Mae?", "requires": ["estate_is_kessler"], "trust": 1, "flag": "mk_lease_hand",
+     "reply": "The family's. My grandfather's form, renewed by a manager who pours my tea. I have never once signed one of them myself. ... I am the hand at the bottom of every lease in this house and I have never held the pen. Thank you. I had not put it so, and I wish you had not."},
+    {"label": "The news stand signed. Maybe that was clever.",
+     "reply": "Clever, and gone. He signed, and the paper vanished from beneath his own door, so he is now the only tenant in that arcade with a lease he cannot produce. The careful ones are always first to lose the evidence. I speak from experience."},
+    {"label": "So the tenants are free of it.", "trust": -1,
+     "reply": "Nobody is free of a lease they did not sign. They are merely unrecorded. There is a difference, and the company that keeps a drawer of old screws knows it far better than the tenants do."}
+   ]},
+  {"id": "mk_op_belief", "from": "1929-04-24", "until": "1929-05-25",
+   "topic": "'By belief.'",
+   "line": "The licence hearings at Borough Hall. Fourteen owners could not say who installed the systems in their own buildings, and eleven of them named a company 'by belief,' and Mr. Crane accepted 'by belief' as an answer. As an answer. On a State form. I have spent thirty years refusing that phrase in catalogues. 'Attributed to.' 'Circle of.' 'Traditionally.' Never 'by belief.' Belief is what one writes when the provenance is a feeling. Mr. Crane has licensed eleven feelings.",
+   "choices": [
+    {"label": "And who installed the one in this building?", "requires": ["vantry_in_3c"], "trust": 1, "flag": "mk_by_belief_here",
+     "reply": "... I could write it on the form 'by belief.' I could write it with rather more than belief; a man of that name lived on the third floor until the spring, and I appraised his table. I shall not apply in person. A licence would require me to say it twice."},
+    {"label": "Sometimes belief is all anyone has.", "trust": 1,
+     "reply": "Then one says so, and one says whose. 'By belief of the owner, unexamined.' That is honest. 'By belief' alone is a door with no frame. I would accept the first from a stranger. I would not accept the second from my own mother, and I did not."},
+    {"label": "It's just a form. Nobody reads them.", "trust": -1,
+     "reply": "Somebody files them. In a century somebody will read them, and find eleven buildings attributed by belief, and conclude we were a credulous people. They will be right. I should prefer not to be in the sample."}
+   ]},
+  {"id": "mk_op_waiver", "from": "1929-05-28", "until": "1929-06-25",
+   "topic": "Rent accepted, notices waived.",
+   "line": "Judge Hanrahan has ruled that the May rent, taken by the company's collector in cash on the first, waives all ten notices to vacate. Accept the money, lose the quarrel. A man in a grey coat sat at the back of the court and left two minutes before the ruling. He knew. One does not accept a thing and keep one's grievance; the acceptance is the answer. Every landlord knows it. Every guest at a tea table knows it too.",
+   "choices": [
+    {"label": "You take tea on Thursdays. What does a cup waive?", "requires": ["mae_knows_tea_is_not_neutral"], "trust": 1, "flag": "mk_tea_waives",
+     "reply": "Everything I might have asked, presumably, from the first cup. Thirty years of Thursdays, each one a receipt initialled in sugar. ... The judge is quite right. I shall go on Thursday regardless. I simply know now what I am signing for."},
+    {"label": "The tenants won, then.",
+     "reply": "They won the right to go on paying a company that will not be found. That is a victory in the sense that a well-kept grave is a victory. I am pleased for the luncheonette. I should like to see the receipts."},
+    {"label": "The grey coat should have stayed to hear it.", "trust": -1,
+     "reply": "He did not need to hear it. People who leave before a verdict have usually written it. I have walked out of auction rooms before the hammer, and it was never because I did not know the price."}
+   ]},
+  {"id": "mk_op_deed", "from": "1929-06-06", "until": "1929-07-15",
+   "requires": ["op:mk_op_renewals"],
+   "topic": "'One dollar and other value.'",
+   "line": "The estate has sold the Arcade's ground rent outright to that company. Deed dated the thirty-first, consideration 'one dollar and other value.' The executors sign by hand. The company signs by rubber stamp, 'by its Secretary,' no signature appearing. A grey coat read the deed at the Register's and said 'Correct.' I have appraised what a family sells when it sells for a dollar. It is never the thing. It is the duty of looking after the thing. They have sold the looking.",
+   "choices": [
+    {"label": "The executors signed by hand. The buyer never did.", "trust": 1, "flag": "mk_deed_read",
+     "reply": "Yes. That is the whole document. One party present, one party a shape. The family put its hand to it and the other side put a stamp. ... If I ever sold this house I should want the buyer's hand. I suspect I would get a stamp. I suspect I have one already."},
+    {"label": "What's the 'other value'?",
+     "reply": "The only interesting phrase in any deed, and it is never explained. In my experience it means relief. The executors have been relieved of something. One does not learn what until one has carried it."},
+    {"label": "One dollar. Somebody got a bargain.", "trust": -1,
+     "reply": "Nobody gets a bargain on a ground rent. The ground stays where it was; only the trouble moves. You are thinking like a buyer. Think like an object for a moment. It is instructive."}
+   ]},
+  {"id": "mk_op_sealed_room", "from": "1929-07-18", "until": "1929-08-20",
+   "topic": "The room that records with no current.",
+   "line": "A frame house on Ditmars Avenue. The inspector disconnected its system on the second, the Exchange cut it at the street on the fourth, and when they lifted the record a fortnight later it was complete. No current at the point. The owner has not been found. They have sealed the room. I approve of the seal. I do not approve of the reason. One seals a room to keep things out. They have sealed this one because they cannot find whom it belongs to.",
+   "choices": [
+    {"label": "A house nobody owns, still keeping its own account.", "trust": 1, "flag": "mk_room_keeps",
+     "reply": "Still keeping. Yes. Like a clerk left at his desk after the firm has gone. ... Some houses do not need the family. They need someone to stop asking them questions. I have thought that about this one more than once, on the stairs at night."},
+    {"label": "Then who pays the bill for it?",
+     "reply": "Nobody, presumably, which is why the Exchange is so upset. A room that works without being paid is an affront to every institution in the borough. I find it restful. It is the only employee in Queens with no grievance."},
+    {"label": "It's a fault in the wiring.", "trust": -1,
+     "reply": "A fault produces noise. This produced a fortnight, complete. Faults are untidy. Whatever is in that room keeps better records than the Borough, and you may tell the Borough I said so."}
+   ]},
+  {"id": "mk_op_held", "from": "1929-08-15", "until": "1929-09-20",
+   "requires": ["op:mk_op_deed"],
+   "topic": "'Held.'",
+   "line": "Mr. Ewald wrote to the company asking it to call for its rent, and after nine months of silence it answered. Typed, unsigned, postmarked Long Island City at six in the evening. One word. 'Held.' He has written again to ask what is held, by whom, and until when. He will not be told. 'Held' is not a reply. It is a classification. It is what one writes on a file tag when an item is neither for sale nor for viewing.",
+   "choices": [
+    {"label": "Like the box on your bottom shelf. Kept, never opened.", "requires": ["mae_ledger_unopened"], "trust": 1, "flag": "mk_held_named",
+     "reply": "Held. Yes, I should tag it so. 'Held: family accounts, Kessler, not for viewing.' ... That company has written the word I have been living for thirty years. I resent the economy of it. It took me a whole life to say what they said in one."},
+    {"label": "At least it's an answer.",
+     "reply": "It is a kind of answer. It tells Mr. Ewald the box is read and the reader owns a typewriter. It tells him nothing else. In my trade we call that a condition report: the object exists, and it is in a drawer."},
+    {"label": "Sounds like a joke.", "trust": -1,
+     "reply": "It is the least humorous word in the language. Nobody has ever laughed at a thing that was being held. Ask anyone who has waited in a hospital corridor, or a lawyer's anteroom, or a family."}
+   ]},
+  {"id": "mk_op_trust", "from": "1929-09-11", "until": "1929-10-10",
+   "requires": ["op:mk_op_sealed_room"],
+   "topic": "The Ditmars Holding Trust.",
+   "line": "The Cleveland attorney came for the Ditmars Avenue house with a deed in the name of the Ditmars Holding Trust, trustees not stated, and said his client 'does not travel,' and took the six o'clock train home. That sealed room, mind, took down the feed-store fire in July three minutes before any other on the block. Now a trust nobody can name holds a house nobody may enter. I know trusts. A trust is a family that has decided to stop having faces.",
+   "choices": [
+    {"label": "The Estate's a trust of sorts. With one face left.", "requires": ["estate_is_kessler"], "trust": 1, "flag": "mk_trust_face",
+     "reply": "One face, and it is mine, and I lend it to Thursdays and leases. ... When I go there will be no face at all, and some attorney will take the six o'clock train. I had not thought to pity the Ditmars house. I seem to."},
+    {"label": "'Does not travel.' What does that mean?",
+     "reply": "It means the client is the house. Or the client is dead and nobody has told the house. Or the client is a ledger. I have known all three, and each was spoken for by an attorney who caught his train."},
+    {"label": "Lawyers will sort it out eventually.", "trust": -1,
+     "reply": "Lawyers sort nothing. They file. Filing is sorting with the decision postponed until everyone concerned is dead. I say that with respect; it is my own method."}
+   ]},
+  {"id": "mk_op_lindqvist", "from": "1929-09-21", "until": "1929-10-20",
+   "topic": "A record burned unheard.",
+   "line": "The bedroom record of a Mrs. Lindqvist, burned in the courthouse boiler at four minutes past eleven, heard by nobody but a referee who reported one word and declined to attend the burning. The first ruling under the section. I do not burn provenance. One does not. A false card is still evidence of a falsehood. But I have been thinking, since Saturday, that there may be records one keeps only by burning them. I find I do not like thinking it.",
+   "choices": [
+    {"label": "Some things are kept by not being read.", "trust": 1, "flag": "mk_burned_kept",
+     "reply": "That is the argument for my bottom shelf, and I have made it to myself for thirty years in better words. ... The difference is that Mrs. Lindqvist chose. She asked. She waited in the corridor. I have never asked anyone to burn anything. I simply never look."},
+    {"label": "The referee heard it. That's one too many.",
+     "reply": "One is the smallest possible audience, and he paid for it by not coming to the boiler. I understand him. When one has heard a thing on someone's behalf one does not then wish to watch it go. It would be like attending the sale of one's own memories."},
+    {"label": "Good. Bedrooms are nobody's business.", "trust": -1,
+     "reply": "Everything is somebody's business; that is what a record is for. The question is only whose. You have answered too quickly. I have been at the question four days and I am nowhere near."}
+   ]},
+  {"id": "mk_op_property", "from": "1929-10-07", "until": "1929-11-05",
+   "requires": ["op:mk_op_trust"],
+   "topic": "'Of the property, as it has always been.'",
+   "line": "Mr. Crane has a letter from the attorney, posted at Buffalo, with no address. It says the Ditmars Holding Trust is 'of the property, as it has always been.' Of the property. Not owning the property. Of it. The way a crack is of a lid. I have read that sentence perhaps forty times. It is either a lawyer's slip or the most exact provenance I have ever seen, and I am not certain I am permitted to know which.",
+   "choices": [
+    {"label": "Maybe some buildings own their families.", "trust": 1, "flag": "mk_of_the_property",
+     "reply": "... Do not say that in this flat. I have a box on the bottom shelf and a key in a bowl and a name on every lease, and I have always assumed the arrangement ran in one direction. 'As it has always been.' I shall dust around that sentence too."},
+    {"label": "Buffalo. Will they find him there?",
+     "reply": "They will find a post office counter. They will not find a man. One does not find people who write 'of the property.' One finds their handwriting, years later, in drawers that were left unlocked."},
+    {"label": "It's a typing error.", "trust": -1,
+     "reply": "Lawyers do not mistype prepositions in letters about property. They mistype names, dates and sums; never prepositions. The preposition is where they keep the law."}
+   ]},
+  {"id": "mk_op_barclay", "from": "1929-10-11", "until": "1929-11-09",
+   "requires": ["op:mk_op_held"],
+   "topic": "Forty-six seconds on Barclay 4420.",
+   "line": "The company has a telephone now. Barclay 4420, in the autumn book, no address, the bill paid. The Exchange rang it for Mr. Ewald and it was answered at two minutes past three, and nobody spoke, and the line cleared after forty-six seconds. The operator's record holds forty-six seconds without speech. I should like to hear it. I should like to know what a room sounds like at the far end of a thing that holds everything and says nothing.",
+   "choices": [
+    {"label": "Like the box for 3C. The post comes, and no one answers.", "requires": ["vantry_in_3c"], "trust": 1, "flag": "mk_barclay_3c",
+     "reply": "... You would find the comparison. That box has been silent since spring and the letters still come for a man I appraised and do not name. Forty-six seconds is a long time to stand at a telephone and choose not to be anyone. I have done it at a door."},
+    {"label": "Someone picked up. That's something.",
+     "reply": "Someone lifted the receiver, heard an operator say Mr. Ewald's name, and answered to none of it. That is not nothing. That is attendance without testimony. I know the posture. I take tea in it."},
+    {"label": "Probably a wrong connection.", "trust": -1,
+     "reply": "A wrong connection says 'hello' and is annoyed. This waited forty-six seconds and put the receiver down so neatly the operator could time it. That is not an error. That is someone keeping time."}
+   ]},
+  {"id": "mk_op_this_week", "from": "1929-10-28", "until": "1929-11-09",
+   "topic": "Paid, 'this week of all weeks.'",
+   "line": "The ticker ran ninety minutes behind the floor and men are being rung at midnight for their margins, and in the middle of it Mr. Ewald announces that the Arcade's tenants have paid November in full, 'every one, this week of all weeks,' into a court that holds it for a company that empties its box and answers nothing. Two thousand four hundred and seventy-two dollars, held. Prices are attributions. The market has merely revised its attributions. The rent has not moved.",
+   "choices": [
+    {"label": "The only steady money in Queens is paid to no one.", "trust": 1, "flag": "mk_rent_steady",
+     "reply": "Paid to no one, and therefore safe from everyone. ... There is a lesson there I do not care for. The family's accounts sit unread on my bottom shelf, and this week they are the only figures in Queens that have not fallen. Ignorance has never paid so well."},
+    {"label": "Did you lose anything in the market?",
+     "reply": "I own nothing that is quoted. I own things that are appraised, which is slower and kinder. A walnut box does not fall forty points before lunch. It cracks once, sometime in the eighteen-forties, and then it waits."},
+    {"label": "The tenants are fools to pay into nothing.", "trust": -1,
+     "reply": "They pay into a court, which is the opposite of nothing; it is nothing with a receipt. They are the only people in the borough this week who know exactly where their money is. Do not call them fools until you can say the same."}
+   ]},
+  {"id": "mk_op_two_records", "from": "1929-11-08", "until": "1929-11-09",
+   "topic": "Two records of one silence.",
+   "line": "On Monday they will record the two minutes again, in every borough, and compare them with last year's. Two records of one silence, a year apart, both correct, and they will not match. The cough will be in a different place. Somebody will be dead who was not, and somebody will be standing who was not born. The committee will call it a discrepancy. I have learned this year to call it a provenance. Same object. Different afternoon. Different light.",
+   "choices": [
+    {"label": "Two cards, one sleeve. Facing.", "requires": ["mae_two_cards_kept"], "trust": 1, "flag": "mk_silences_filed",
+     "reply": "Facing. Yes. I shall tell the committee to file them so, if it asks, which it will not. ... You have listened all year. It is a rare thing in a witness. I find I should like you in the room on Monday, if the switchboard can spare you."},
+    {"label": "Will you keep the two minutes?",
+     "reply": "I shall stand at the window at eleven with my gloves on and keep them exactly, and I shall be thinking of a different year from the one everyone else is thinking of. That is permitted. Nobody has ever recorded what a silence is about."},
+    {"label": "A silence is a silence. Why compare them?", "trust": -1,
+     "reply": "Because nothing is merely itself. A silence has a date, a room and a cough in it. If you think two silences are the same, you have never sat in one long enough to hear the furniture."}
+   ]}
+ ]
+}

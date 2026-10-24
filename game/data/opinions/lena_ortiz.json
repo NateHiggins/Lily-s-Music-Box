@@ -1,0 +1,200 @@
+{
+ "resident_id": "lena_ortiz",
+ "hook": "Did you see the paper?",
+ "hook_line": "Saw it, read it, lined the scrap drawer with it. Which bit? Sit down first, I'll not talk to you in the doorway.",
+ "opinions": [
+  {"id": "lo_op_pipes", "from": "1928-11-17", "until": "1928-12-12",
+   "topic": "Three hundred and forty bursts by noon.",
+   "line": "First hard frost, nineteen at dawn, three hundred and forty burst pipes before noon. And the insurers are sending men round with machines to play back each house and fix the hour of the burst, because the policies only pay after midnight. Listen to that. A family's kitchen under an inch of water and a man in a good coat listening for the minute. I did the round twice last night. Nothing burst here. I'd like that written down somewhere.",
+   "choices": [
+    {"label": "You were up twice so nobody here would need the man in the coat.", "trust": 1, "flag": "lo_round_seen",
+     "reply": "Somebody has to be. It's not brave, love, it's radiators. You turn the valve, you feel the iron, you listen for the knock. ... Nobody thanks a pipe that didn't burst. That's fine. I'd rather be unthanked than listened to by an adjuster."},
+    {"label": "Most of them went before midnight, the Record says.",
+     "reply": "Then most of those families paid for their own floors because a pipe went at the wrong hour. Water doesn't read the policy. Nor does a child asleep under it. I'd have the adjusters do a round in January, barefoot."},
+    {"label": "That's what insurance is for.", "trust": -1,
+     "reply": "Insurance is for the company. I've worked for companies. They'll pay you for the hour that suits them and play back the rest to prove it. Don't tell me what it's for. Tell me who listened."}
+   ]},
+  {"id": "lo_op_train", "from": "1928-11-19", "until": "1928-12-15",
+   "topic": "Walked out two abreast.",
+   "line": "Eleven hundred people stood forty-eight minutes in a stalled train on the Plaza curve, twenty-eight degrees, and then the guards walked them along the structure to the platform, two abreast. Two abreast. Somebody decided that. Somebody measured the walk against the crowd and let the doors go in the right order. 'No one was hurt,' the Record says, like it happened by itself. It never happens by itself. I'd like that guard's name.",
+   "choices": [
+    {"label": "Getting people out in order is a skill. Nobody sees it.", "trust": 1, "flag": "lo_two_abreast",
+     "reply": "Nobody sees it because when it's done right there's nothing to see. Forty-eight minutes and nothing happened. That's the job. ... When it's done wrong, love, everybody sees it, for years, and they put up a plaque, and the plaque has the wrong names on it."},
+    {"label": "Forty-eight minutes in the cold. Poor souls.",
+     "reply": "Cold's nothing. Cold you can stamp your feet at. It's standing in a car you can't get out of that does it. Your legs know before your head. I'd have been at the door asking the guard what he was waiting for."},
+    {"label": "Trains stall. It's the weather.", "trust": -1,
+     "reply": "Weather stalls a train. People decide what happens next. The Interborough says ice on the rail; I say a guard with sense. One of those you can't help. The other you can hire, and mostly they don't."}
+   ]},
+  {"id": "lo_op_hand", "from": "1928-12-08", "until": "1929-01-05",
+   "topic": "A cut on the left hand.",
+   "line": "The ice cutter, Mr. Hanrahan, thirty-one, College Point. Cut on the left hand by a saw on the first, dead of blood poisoning on the seventh. The doctor says the infection was heard in his chest by Tuesday and couldn't be reached. Heard, and couldn't be reached. Four hundred and ten men stopped work an hour. A wife and three children. I've had a needle through my thumb more times than I've had dinner sitting down. You wash it. You wash it every time.",
+   "choices": [
+    {"label": "You're telling me to look after my hands.", "trust": 1, "flag": "lo_hands_washed",
+     "reply": "I'm telling you to show me that cut on your knuckle you've had since Tuesday. Yes, that one. Sit. ... Men with saws and girls with needles. Nobody counts the little cuts until one of them's on the front page. Hold still."},
+    {"label": "An hour's stoppage. That's something.",
+     "reply": "It's what men can give that costs the company least. An hour on the ice with their caps off. I'd have given his wife the hour's wages. Nobody asked me. Nobody asks the women what an hour's for."},
+    {"label": "Bad luck, that's all.", "trust": -1,
+     "reply": "Luck's what people say when they'd rather not know whose saw it was, or who had the washing water. Nothing's all. Drink your tea and don't say luck in my kitchen."}
+   ]},
+  {"id": "lo_op_newark", "from": "1929-01-12", "until": "1929-02-10",
+   "topic": "Six hundred and forty hands out.",
+   "line": "Fire at the Newark valve works. Glass shop, the annealing furnace, half past two in the afternoon till twenty to eight. Six alarms. Four men burned, no deaths. Six hundred and forty hands laid off. The Record calls them hands. Six hundred and forty of them out of that building at half past two. I want to know which doors they used. I want to know if the doors were open, or whether somebody had to run for a key.",
+   "choices": [
+    {"label": "You always ask about the doors first.", "requires": ["lena_locked_doors"], "trust": 1, "flag": "lo_doors_asked",
+     "reply": "I always will. ... A paper tells you how many alarms and how many acres and how many hands. It never tells you which way the doors opened. That's the only figure I need. That's the one that decides who's on the list after."},
+    {"label": "No deaths. They must have got out quickly.", "trust": 1,
+     "reply": "Quickly means the doors were open. Six hundred and forty, out, in daylight. Somebody kept them open, or nobody'd thought to lock them. Either way, good. I'll sleep. ... Laid off six weeks, though. Getting out's not the end of it. You still need the wages."},
+    {"label": "Valves will be dear now.", "trust": -1,
+     "reply": "Valves. Six hundred and forty families with no pay till March and you're fretting for your wireless. Go on, then. Count the sleeves. I'll count the hands. We'll see which list keeps you up."}
+   ]},
+  {"id": "lo_op_marathon", "from": "1929-02-09", "until": "1929-03-08",
+   "topic": "Asleep, standing.",
+   "line": "That dance marathon at the Jamaica Arena. Seventy-two hours in, a Woodside couple disqualified at twelve past four in the morning because the gentleman was found asleep, standing. Asleep standing up, still holding her. A nurse doing blisters, a band on records that won't tire, and three thousand people paying a quarter to watch. Sit down. I'm serious, sit, I can't talk about it with you standing. People pay to watch other people not stop.",
+   "choices": [
+    {"label": "You're the one who never sits down, Lena.", "trust": 1, "flag": "lo_not_stopping",
+     "reply": "... I sit. I sit to sew. That's work sitting; it doesn't count. All right. I don't stop, and I watch people who don't stop, and I don't like it. Cam stands in a doorway like a dancer at the hundredth hour. He doesn't know why. I do."},
+    {"label": "A thousand dollars is a lot of money.",
+     "reply": "It is, split two ways over two hundred-odd hours, and it comes to less than a girl makes at a machine. I've done the sum. They'd be better off at a machine. At least a machine lets you sit."},
+    {"label": "It's a craze. They're having fun.", "trust": -1,
+     "reply": "Fun stops when you want it to. That's the whole of what fun is. When you can't stop, it's a shift, and a shift with a crowd watching is a worse one. Don't tell me about fun. I've seen the blisters."}
+   ]},
+  {"id": "lo_op_carters", "from": "1929-03-16", "until": "1929-04-12",
+   "topic": "Carried by hand to 1,312 doors.",
+   "line": "The carters stopped under the elevated, so nobody had ice or coal off a wagon all day, and it went by hand from the corners instead. Thirteen hundred and twelve doors. Forty-one hand-carts, about three hundred buckets, two ice men treated for strains. That's what a city is, love, when the horses stop: people walking to doors with a bucket. Nobody'll remember it. I'd like the list of doors. I'd like to know every one was opened when the knock came.",
+   "choices": [
+    {"label": "A delivery only counts if somebody answers the door.", "trust": 1, "flag": "lo_doors_answered",
+     "reply": "Yes. A bucket left on a step's no use to anyone at five in the morning with a baby on her hip. You need the door. ... I answer mine before the knock. It's always open. It saves them knocking, and it saves me hearing a knock and not getting there."},
+    {"label": "Good on the carters for stopping.",
+     "reply": "Good on them. The drip off the elevated's been ruining horses' feet all winter, and the Commission's engineer says it's 'within normal limits.' Normal for whom? Not the horse. Stop as long as you like. I'll carry my own coal."},
+    {"label": "Couldn't they just go around the elevated?", "trust": -1,
+     "reply": "Go around. As if there's a Roosevelt Avenue without the elevated over it. You've lived here long enough to know there's no around. There's under, or there's carrying."}
+   ]},
+  {"id": "lo_op_smoke", "from": "1929-04-20", "until": "1929-05-15",
+   "topic": "'A reopened walk-up on the ash road.'",
+   "line": "Did you see we're in the Record? The ash dumps by the Flushing River caught again, forty acres, five engine companies pumping from the creek all night, smoke over Elmhurst. And there we are: 'A reopened walk-up on the ash road reported smoke at its windows.' That's us. I went round shutting every window and leaving every door open, which the fire chief would tell you is backwards. I'd tell him he's never been in a smoke he couldn't walk out of.",
+   "choices": [
+    {"label": "You'd rather breathe smoke than have a door shut on you.", "requires": ["lena_locked_doors"], "trust": 1, "flag": "lo_smoke_doors",
+     "reply": "... Yes. I'd rather. I know it's wrong. Smoke you can see through a doorway. A shut door you can't see through at all. I stood on every landing that night with my sleeve over my mouth, so nobody'd be behind one without me knowing."},
+    {"label": "Who reported the smoke? Was it you?",
+     "reply": "The operator, I'd think. Somebody at a board put the call through. I don't report things, love. I go round. By the time a report's made I've been to every door twice."},
+    {"label": "Smoke's nothing. It's out now.", "trust": -1,
+     "reply": "The Department says the heaps will smoulder for weeks, 'as in other years.' Out means no flame. It doesn't mean done. Nothing that's been on fire is ever done, it's only quiet. I'll be on the landings again Thursday."}
+   ]},
+  {"id": "lo_op_together", "from": "1929-04-28", "until": "1929-05-25",
+   "requires": ["op:lo_op_marathon"],
+   "topic": "Both couples down 'together.'",
+   "line": "The second marathon ended in its four hundred and thirteenth hour. Mrs. Corrigan and her trombonist and the Novaks went down at the same moment, and the Arena played the record of the last minute to two thousand people, and the judges heard 'one sound, not two.' So they split the money, five hundred each. Seventeen days on their feet and they stopped together, the four of them, in one sound. That's the first part of either marathon I've liked.",
+   "choices": [
+    {"label": "Nobody had to be the last one standing.", "trust": 1, "flag": "lo_stopped_together",
+     "reply": "Nobody had to be the one left. That's it, love. I've been the last one out of a place, and I'd not wish it on a dog. Four of them going down in one sound and the money split down the middle. That's how a thing should end."},
+    {"label": "Mrs. Corrigan never gave up, did she?",
+     "reply": "Never. Danced alone in the first one when her partner went to hospital. Danced through the rests in this one. I'd hire her. I'd also sit her down and take her shoes off her and not give them back."},
+    {"label": "They should have had a proper winner.", "trust": -1,
+     "reply": "Why? So one couple could be the ones who lasted and the other the ones who didn't? The record heard one sound. That's a proper finish. You want a winner, go to the track."}
+   ]},
+  {"id": "lo_op_clinic", "from": "1929-05-16", "until": "1929-06-14",
+   "requires": ["op:lo_op_newark"],
+   "topic": "The Cleveland Clinic.",
+   "line": "Cleveland. Fire and gas from the film store in the basement of a clinic, half past eleven in the morning, and by midnight a hundred and seven dead. The Clinic's own system recorded the alarm at eleven thirty-one. That's all the Record has. One column. A hundred and seven. A clinic, love. People went in there to be mended. I read it standing up, and then I went and propped the street door, which was already propped, and stood there with my hand on it.",
+   "choices": [
+    {"label": "You were somewhere like that once.", "requires": ["lena_locked_doors"], "trust": 1, "flag": "lo_clinic_spoken",
+     "reply": "... A floor. The ninth. A Saturday, near closing. The doors locked from outside so we'd not slip off early. I got to the stairs because I was sat by the stairs. That's the whole of the skill, love: where you were sitting. I've never told anyone the floor before."},
+    {"label": "The alarm was recorded. Was it heard?", "trust": 1,
+     "reply": "Recorded at eleven thirty-one. Doesn't say who heard it or what they did. A machine keeping the minute's no use to anyone on the stairs. You want a person who hears the bell and goes. Every time. That's all a building needs."},
+    {"label": "That's far away. It couldn't happen here.", "trust": -1,
+     "reply": "It's always far away till it's the floor you're on. Don't say couldn't. I've propped every door in this place every morning for years precisely because couldn't is what they said."}
+   ]},
+  {"id": "lo_op_heat", "from": "1929-06-20", "until": "1929-07-18",
+   "topic": "Every door in Queens open.",
+   "line": "Ninety-one at twenty to four, four prostrations, four hundred and ten thousand at Rockaway, and last month sixteen hundred slept in the parks. Do you know what I like about a heat? Every door in Queens stands open. Every window, every fire escape, every landing. Nobody locks a thing in July. You can walk down any street at midnight and see straight through people's flats to the yard. It's the only time the borough lives the way I'd have it.",
+   "choices": [
+    {"label": "Open doors feel safe to you. Most people feel the opposite.", "trust": 1, "flag": "lo_open_safe",
+     "reply": "Most people have never been on the wrong side of a locked one. ... I don't blame them. A lock's a comfort if you've only ever been outside it. In July the whole borough comes round to my way of thinking for a few weeks, and I sleep."},
+    {"label": "People are sleeping on the roofs, too.",
+     "reply": "And ringing the exchange from them in the small hours, the Record says. I'll not sleep on a roof. One stair and a parapet. You want a ground floor and a door you can reach in four steps. That's where I'd sleep, given the choice."},
+    {"label": "Somebody'll get robbed with every door open.", "trust": -1,
+     "reply": "Then they'll lose a clock. I've seen what people lose behind a locked door, and it isn't clocks. Let the thieves have July. I'll take my chances with a thief over a key."}
+   ]},
+  {"id": "lo_op_dorr", "from": "1929-07-10", "until": "1929-08-05",
+   "topic": "'I said it once, and that will do.'",
+   "line": "Mrs. Dorr of Elmhurst had her claim heard for the kitchen fire in March, an hour and fifty-two minutes, and she asked them to switch the company's system off, and they did, and took notes in pencil. They've paid her three hundred and eighty dollars. And she says, 'I said it once, and that will do.' I cut that out. It's on the shelf over the machine. That's a woman who knows how much of a thing to tell, and to whom, and how often.",
+   "choices": [
+    {"label": "You told me once. That will do, too.", "requires": ["lena_locked_doors"], "trust": 1, "flag": "lo_said_once",
+     "reply": "... It will. Thank you. Once, to someone who sat still for it, with no machine on. I didn't know I'd been waiting to be let off saying it twice. Mrs. Dorr knew. Pencil notes and a cheque. Sensible woman. I'd have her at my table."},
+    {"label": "Why did she want the system off?", "trust": 1,
+     "reply": "Because if it's on the wall it's said for ever, every time somebody plays it. Said once to a person, it's said once. A woman's entitled to a story that ends when she stops talking. Most of us don't get one."},
+    {"label": "Records keep people honest.", "trust": -1,
+     "reply": "Records keep people repeating themselves. Honest is something else. She told it straight with the machine off and they paid her. If the company could believe her without the wall, so can you."}
+   ]},
+  {"id": "lo_op_ditmars", "from": "1929-07-24", "until": "1929-08-20",
+   "requires": ["op:lo_op_clinic"],
+   "topic": "Nineteen brought down by ladder.",
+   "line": "Ditmars Avenue. A feed store and three floors of flats over it, gone. Nineteen people brought down by ladder, two horses led out of the yard, and nobody killed. Eleven house systems on the block took the fire down from nineteen minutes to ten, eleven minutes before anyone pulled the alarm. Eleven minutes, love. Every wall on that street heard it and not one of them could knock on a door. It took a man running. It always takes a man running.",
+   "choices": [
+    {"label": "Hearing isn't the same as getting people out.", "trust": 1, "flag": "lo_running_man",
+     "reply": "No. Hearing's what a wall does. Getting out is what a neighbour does, banging with the flat of his hand. ... I'm the woman who bangs. I've never been the wall. I couldn't stand to be the wall, hearing all that and not able to lift a latch."},
+    {"label": "Nobody killed. And the horses too.",
+     "reply": "The horses too. Somebody went back for them. You don't go back for a horse unless all the people are out. So somebody counted at the foot of the ladder, love, and the count was right. That's what I'd have on the front page."},
+    {"label": "The records will help the Fire Marshal.", "trust": -1,
+     "reply": "They'll tell him it was a lantern in the feed loft. Eleven minutes after it would have helped anyone. Records are for afterwards. I'm interested in before."}
+   ]},
+  {"id": "lo_op_latch", "from": "1929-08-18", "until": "1929-09-15",
+   "requires": ["op:lo_op_hand"],
+   "topic": "A guard, a gate latch, eleven days.",
+   "line": "Another one. Mr. Rourke, forty-four, a guard on the Flushing line nineteen years, cut his hand on a gate latch at Junction Boulevard and was dead in eleven days. Blood poisoning, same as the ice cutter in December. Every train on the line stood a minute at ten, and the line's own system kept the minute. A gate latch. He'll have opened that gate ten thousand times. You open enough gates, love, one of them bites.",
+   "choices": [
+    {"label": "You'd have washed it for him.", "trust": 1, "flag": "lo_latch_washed",
+     "reply": "I'd have washed it and bound it and stood over him at the sink, and he'd have called me an old woman, and he'd have been right, and he'd be alive. ... I can't wash every hand in Queens. I try. Show me yours. Go on."},
+    {"label": "A minute's stop on the whole line. That's respect.",
+     "reply": "It's respect, and it's sixty seconds, and his widow has four children and no guard's wage. I'm glad of the minute. I'd rather the Interborough stood for a pension. Put that in the line's system."},
+    {"label": "Gate latches are dangerous things.", "trust": -1,
+     "reply": "Gate latches are iron. It's dirt that's dangerous, and nobody to tell you to come in and wash. Don't make it about the latch. You'll go blaming gates, and next you'll want them locked."}
+   ]},
+  {"id": "lo_op_nell", "from": "1929-09-03", "until": "1929-09-30",
+   "topic": "The mare Nell, out of harness.",
+   "line": "Labor Day. Nine thousand four hundred marched to King Park, and the exchange girls marched for the first time, behind a switchboard on a motor truck, connected at fourteen corners and taking calls the whole way. Taking calls on their own holiday. And the Ice Drivers led old Nell on her last day, and at five o'clock Mr. Pohl took her harness off at King Park. Twenty seasons. I'd have liked to see her face when nobody put it back on.",
+   "choices": [
+    {"label": "Some people don't know how to be taken out of harness.", "trust": 1, "flag": "lo_out_of_harness",
+     "reply": "Some don't. ... I've been told I'm one, by people who'd know. You take the strap off and the body still leans into it. Nell'll stand at the gate at six tomorrow waiting for the wagon. Somebody had better go and stand with her."},
+    {"label": "The operators marching with their board. Is that good?",
+     "reply": "It's good they marched. It's not good they had to bring the work along to be let in. Two hundred and twelve calls on a holiday, off the back of a truck. That's a girl's Labor Day: you may march, love, so long as you keep answering."},
+    {"label": "A motor truck will do her route faster.", "trust": -1,
+     "reply": "It will. And it'll never once stop at a door because it knows the woman inside's poorly. Faster isn't the only figure. Ask anybody Nell delivered to for twenty years."}
+   ]},
+  {"id": "lo_op_roll", "from": "1929-09-10", "until": "1929-10-10",
+   "topic": "The roll, called twice.",
+   "line": "The schools opened with the new systems taking the roll, and they entered four thousand one hundred and twelve answers of 'Present' beyond the number of children enrolled. The nine schools taking it by hand had no discrepancy. Now the superintendent says call it twice, once by the system and once by the teacher. Good. Count by hand. A machine'll tell you it heard someone. A teacher looks at faces. After anything bad, you want a person counting faces.",
+   "choices": [
+    {"label": "After anything bad. You've stood somewhere while someone counted.", "requires": ["lena_locked_doors"], "trust": 1, "flag": "lo_counted_faces",
+     "reply": "In the street, after. A man with a list and a pencil, calling names, and the ones who answered and the ones who didn't. ... The list was right, love. That's the worst of it. A hand count's always right. That's why I trust one, and why I can't bear to hear one."},
+    {"label": "Where did the extra answers come from?",
+     "reply": "I don't know and I'll not guess at it after dark. Children answering for their friends, I suppose. Ask the teacher. She'll know who's sat in front of her. That's what she's for, and it's why you keep her."},
+    {"label": "The systems just need adjusting.", "trust": -1,
+     "reply": "Adjusting. Four thousand children who aren't there, and you'd adjust it. Have it called twice. Have a woman with eyes in the room. Machines don't need adjusting, love. They need watching."}
+   ]},
+  {"id": "lo_op_kept_on", "from": "1929-10-30", "until": "1929-11-09",
+   "requires": ["op:lo_op_nell"],
+   "topic": "'The board held.'",
+   "line": "The market's gone through the floor and the Queens exchange put forty-six thousand eight hundred calls through to Manhattan in one day, the most ever, and the day's girls were kept on till ten at night. 'No position was left unstaffed,' says Mr. Arne. 'The board held.' The board held. That's a whole day and half the night at a board, love. Nobody went home. I read that and I thought of a door with the key turned on the outside, so nobody'd slip off early.",
+   "choices": [
+    {"label": "Nobody locked them in. But nobody let them go.", "requires": ["lena_locked_doors"], "trust": 1, "flag": "lo_kept_on",
+     "reply": "That's it. You don't need a key. You need a supervisor saying 'the board held' like it's something to be proud of. ... I'll make tea for whoever comes off your board tonight. You tell them the door's open. They'll know which door."},
+    {"label": "You'd be the one telling them to go home.", "trust": 1,
+     "reply": "I'd be the one at the door at six with sandwiches and the door wedged, saying go on, five minutes, the board won't fall. It never does fall. Boards don't. Girls do."},
+    {"label": "It's an emergency. Everyone pulls their weight.", "trust": -1,
+     "reply": "Everyone? The men ringing about their margins went home at five, love. It's the girls who pulled. It's always the girls who pull, and it's always called an emergency, and it's always twelve hours."}
+   ]},
+  {"id": "lo_op_gate", "from": "1929-11-01", "until": "1929-11-09",
+   "requires": ["op:lo_op_ditmars"],
+   "topic": "A gate wired shut.",
+   "line": "Hallowe'en. A hundred and eighty-eight complaints in Queens, thirty-one about gates the boys lifted off their hinges, sixty-four soaped windows. And one gate in Sunnyside that somebody had wired shut, which the boys left where it was. I've been thinking about that one all day. Somebody wired a gate so tight the whole night's mischief went round it. I'd have taken the pliers to it myself. A gate's for opening. If it won't open, it's a wall that's lying.",
+   "choices": [
+    {"label": "Somebody on the other side might need to get out.", "trust": 1, "flag": "lo_gate_wire",
+     "reply": "Somebody always does. That's what the people with the wire never think of. ... I'll walk to Sunnyside on Sunday. I won't touch it. I'll just see whose gate it is and whether there's a light behind it. Habit. Don't laugh."},
+    {"label": "The boys left it alone. That's something.",
+     "reply": "They left it because it was hard, not because it was right. Boys always know which gates are worth the trouble. Thirty-one gates in the street by morning and one wired shut, and you know which one I'd worry about."},
+    {"label": "Smart owner. He saved his gate.", "trust": -1,
+     "reply": "Saved his gate and kept whoever's behind it in. You think like a man with a gate. Think like whatever's on the other side of it on a bad night. Then tell me who's smart."}
+   ]}
+ ]
+}

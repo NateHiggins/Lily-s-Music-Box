@@ -25,6 +25,9 @@ EXPECTED_CONSUMERS = {
     # Authored Gregorian calendar; host hour/minute may be sampled once.
     "game/scripts/game/campaign_clock.gd": "authored_campaign_calendar",
     "game/scripts/game/historical_radio_notice.gd": "observed_printed_historical_notice",
+    # The daily papers print the campaign date; the year comes off CampaignClock.
+    "game/scripts/game/newspaper_catalog.gd": "authored_campaign_calendar",
+    "game/scripts/game/resident_conversations.gd": "authored_campaign_calendar",
     "game/scripts/minigames/shelf_sort.gd": "player_readable_period_library",
     "game/scripts/songbook/songbook_store.gd": "local_filename_only",
     "game/scripts/ui/bookshelf_panel.gd": "player_readable_period_library",

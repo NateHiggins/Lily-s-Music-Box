@@ -1,0 +1,228 @@
+{
+  "resident_id": "cal_dwyer",
+  "hook": "Heard anything on the set tonight?",
+  "hook_line": "I hear everything on the set. Pick a frequency.",
+  "opinions": [
+    {
+      "id": "cd_op_silence",
+      "from": "1928-11-11",
+      "until": "1928-11-28",
+      "topic": "Two minutes, recorded.",
+      "line": "Two hundred and twelve buildings took down the two minutes and the Record calls it silence. It is not silence. Borough Hall ran two minutes four seconds because a clerk started his watch at the bell, and the courthouse has a cough at one minute ten, entered as unidentified. Queens second quietest, docked for the elevated. I took it off the window here. Two minutes of a city holding its breath has a level on it. A good one. Better than most music.",
+      "choices": [
+        {"label": "You sound like you've heard real silence. Worse than that.", "reply": "Real silence. Once. It's flat. No breath under it, no elevated, nobody coughing to prove they're alive. Two minutes of that and you'd beg for the cough. I'd not recommend it. Leave it there.", "trust": 1, "flag": "cd_named_flat_silence"},
+        {"label": "Who coughed?", "reply": "Unidentified. The stenographer was right to put it that way. You don't guess at a cough on a record; you log the level and the minute and leave the man his privacy. Somebody's grandfather, I expect."},
+        {"label": "Seems a lot of fuss over two minutes.", "reply": "They read sixty-one names off the First Ward stone that morning. You'll forgive me if I think a fuss is the least a borough can do. Fuss is noise with manners.", "trust": -1}
+      ]
+    },
+    {
+      "id": "cd_op_hum_meter",
+      "from": "1928-11-20",
+      "until": "1928-12-20",
+      "topic": "Forty-one cycles in a cellar.",
+      "line": "Mr. Lind takes his own meter down four cellars on Steinway Street and reads forty-one cycles in each. The utility says its plant turns at sixty. Both of them can be right; that's the joke nobody's told the Record. A meter in a cellar measures the cellar. I've had a meter on this house for years. I'll not tell you what it reads. I'll tell you it's steady, and steady is not the same as harmless.",
+      "choices": [
+        {"label": "You don't want them to find the source.", "reply": "I want them to measure properly. That's different. If they find it they'll want to switch it off, and a borough that's slept on a tone for years won't thank them for the quiet. You've not heard Queens without it. Nor have I. Nor want to.", "trust": 1},
+        {"label": "Forty-one. What does it read in here?", "reply": "Steady. I said. You've the face of a man who wants a number to write on a wall. I don't hand out numbers about a house to a man with keys to every flat in it."},
+        {"label": "It's the plant. Everyone knows it's the plant.", "reply": "Everyone knows the earth is flat when they're standing on it. The plant turns at sixty. Forty-one isn't half of anything at sixty. Go and divide, and come back when it comes out even.", "trust": -1}
+      ]
+    },
+    {
+      "id": "cd_op_tug",
+      "from": "1928-11-20",
+      "until": "1928-12-15",
+      "topic": "The tug and sixteen-ten.",
+      "line": "The tug Margaret Doyle, inbound at ten to midnight, has her deck set pick up a station calling itself WORS 1610, very near, off Hunters Point. The Radio Division goes out in a launch and finds the river. Now a boy on 31st Street gets it on a crystal set with no valve in it, and they've borrowed his set. Of course they have. Calling itself. You notice the Record's word. A station that has to keep telling you its name.",
+      "choices": [
+        {"label": "Calling itself. Like it's not sure anyone's still out there.", "reply": "That's the sound of it. A call sign is for the listener, not the station. You say it again and again because you can't see who's there. The master's a reliable man. I'd have liked to stand on that deck.", "trust": 1, "flag": "cd_heard_the_call"},
+        {"label": "Probably some amateur on a barge.", "reply": "An amateur on a barge can be found. He has a mast, a battery and a mother who wants him in for supper. The Division found the river. I'd sooner believe the river than the barge.", "trust": -1},
+        {"label": "Did you hear it that night?", "reply": "I keep a log. Monday night I was on the municipal band, clearing my ears. I'll say I heard nothing I'd swear to and leave it at that. You'll find I leave a lot of things at that."}
+      ]
+    },
+    {
+      "id": "cd_op_carol",
+      "from": "1928-12-26",
+      "until": "1929-01-20",
+      "requires": ["op:cd_op_tug"],
+      "topic": "The carol on Christmas night.",
+      "line": "Thirty-one parlours, nine-forty to nine-fifty-two, organ and voices, and not an organist in Queens can name the tune. Sister Bernadette says it's a carol, certainly, and not one of ours. Everyone wants the name of the hymn. Nobody asks the only question worth asking, which is who sat at an organ on Christmas night with no congregation. Two Woodside households had the sense to record it. One copy to the seminary, one to the 1978 box. Neither to anybody who'll listen properly.",
+      "choices": [
+        {"label": "Somebody played for nobody, on Christmas. That's what you heard.", "reply": "Played for whoever was still up. That's not nobody. That's the night shift, the sick, the ice men, a man at a set who'd stopped expecting anything. Twelve minutes. It's a long carol. Somebody wanted it to last.", "trust": 1, "flag": "cd_heard_the_organist"},
+        {"label": "Maybe it's an old Welsh one.", "reply": "Maybe. The seminary will try Welsh, then Breton, then they'll tell us it was never sung. They'll find the bars. They won't find the room it was played in. That's the part I'd want."}
+      ]
+    },
+    {
+      "id": "cd_op_no23",
+      "from": "1929-01-19",
+      "until": "1929-02-20",
+      "topic": "Record No. 23, unplayed.",
+      "line": "The Phonautograph Society votes nineteen to eighteen not to play its own record No. 23, the Maspeth party's midnight. Old Abbot sat out every fight all winter and walked to the front to vote no, because three men asked in writing that it rest a year. He didn't give their reason. Good. Mrs. Grieve will move again in February. She'll lose again, if there's any decency left in Jamaica. Some records are kept so that they aren't played. That's a use.",
+      "choices": [
+        {"label": "You have one like that. On the high shelf.", "requires": ["cal_reel_named"], "reply": "I do. And I'd vote with Abbot, and I'd not give my reason either. You've a long memory for shelves. Keep it to the shelf. Don't go saying the reel's name at people.", "trust": 1},
+        {"label": "Why would three men ask that?", "reply": "Because something's on it they need another year before they can stand to hear. Or because it's nothing, and they need a year before they can stand that. I'd bet the second. People forgive a voice sooner than a gap."},
+        {"label": "A record nobody plays is just a shelf of wax.", "reply": "Then the vault at Borough Hall is a shelf of wax and so is every Bible in a drawer. A thing kept unplayed is still doing work. It's holding the place where the playing would go.", "trust": -1}
+      ]
+    },
+    {
+      "id": "cd_op_valves",
+      "from": "1929-01-20",
+      "until": "1929-02-17",
+      "topic": "Steinway off the air.",
+      "line": "First Reformed of Steinway, on the air every Sunday since 1907, and this morning nothing, for want of one fifty-watt output valve that only Newark makes, and Newark's glass shop is ash. Two hundred and twelve shut-ins on the list. The members are reading the sermon down the telephone, one each. Very decent. It's not the sermon I'm thinking of. It's two hundred and twelve sets switched on at eleven, tuned and warm, to a carrier that isn't there.",
+      "choices": [
+        {"label": "The dead air's the part you can't bear.", "reply": "A parson's off for a valve. He'll be back by Lent. It's the hour I mind, the hour before they know, when they're sure it's their own set and they're tapping the cabinet. Somebody ought to tell them first. Nobody ever tells them first.", "trust": 1},
+        {"label": "There was a station here once that went off like that.", "requires": ["station_went_quiet"], "reply": "One valve, a parson. For the other it wasn't a valve. Don't make me draw you the comparison; you've drawn it. The shut-ins on Steinway will get their Sunday back. That's the difference, and I'll thank you to let it be the only one.", "trust": 1, "flag": "cd_steinway_compared"},
+        {"label": "The telephone's a fair substitute.", "reply": "It's a man reading. It's not the room, the organ, the cough in the third pew. But fair, yes. Better than the carrier dropping and nothing coming down it at all."}
+      ]
+    },
+    {
+      "id": "cd_op_bearings",
+      "from": "1929-02-25",
+      "until": "1929-03-25",
+      "requires": ["op:cd_op_tug"],
+      "topic": "Three bearings that don't meet.",
+      "line": "Three launches, Hell Gate, College Point and Riker's Island, forty-four seconds at ten past two, and the three bearings run within half a degree of one another and never cross. Instruments checked and found correct. Mr. Pike will try a fourth. He can try forty. Bearings run parallel when the source is very far off, or when it's all round you at once, and either way you can stop launching boats. And it was a man's voice, reading figures.",
+      "choices": [
+        {"label": "You went quiet at 'a man reading figures.'", "reply": "Did I. Figures are a test. You read figures when you've nothing to say and you need to know the line is still open. Date, hour, level. I've read thousands. I'd want to know who he thinks is taking them down.", "trust": 1},
+        {"label": "So it's everywhere at once.", "reply": "I said either. The Division will take the far-off and put a man somewhere windy. I'd take the other, if I were taking. I'm not. I'm drinking my tea."}
+      ]
+    },
+    {
+      "id": "cd_op_hum_dismissed",
+      "from": "1929-02-27",
+      "until": "1929-03-25",
+      "requires": ["op:cd_op_hum_meter"],
+      "topic": "The Commission finds no tone.",
+      "line": "Fifty-one minutes Commissioner Lacey read, and the sentence that matters is this one: the Commission is unable to find a tone in the company's readings, or the absence of one in the petitioners' readings. I've cut that out. The absence of one. A man in a government office has said in print that an absence can be measured. He meant it as a dodge. It's the truest thing a commission has printed since the war.",
+      "choices": [
+        {"label": "You've measured an absence yourself.", "reply": "Measured it, logged it, labelled it. You can't hear it twice the same; that's the cruelty. Every time you play dead air back it's the room you're in now that you're hearing. The petitioners should keep their readings. They'll want them.", "trust": 1, "flag": "cd_absence_measured"},
+        {"label": "Seven cents, though. That's what people will remember.", "reply": "The rate, yes. Half a cent off what was asked, and an engineer into the works by April with an instrument not of the company's make. That last bit's sound. Never let a man read his own meter."},
+        {"label": "So the Hum's nothing. Official.", "reply": "Official, it's neither. Read the sentence. He found no tone and no absence. You can't call that nothing. Nothing would be a finding. He's left it standing in the room like the rest of us.", "trust": -1}
+      ]
+    },
+    {
+      "id": "cd_op_wales",
+      "from": "1929-03-22",
+      "until": "1929-04-20",
+      "requires": ["op:cd_op_no23"],
+      "topic": "The twenty-third bar.",
+      "line": "Dr. Strand sings the carol down the cable to the Library of Wales. Twenty-two bars arrive. Where the twenty-third should be, they've got the singer's breath and the line's own noise. About four seconds. The operator on Broad Street heard him sing it. He'll try again Monday. He'll get the breath again; I'd put money on it, if I bet. Four seconds with a level on them and nothing in them. They should stop trying to fill it and start measuring it.",
+      "choices": [
+        {"label": "Four seconds. Like the gap you logged.", "requires": ["cal_courtroom_gap"], "reply": "I'd noticed. I'm not saying it's the same four seconds. I'm saying the world keeps a size for things it won't let through, and the size is four seconds, and I'd like to know who cut it. No. I wouldn't. Don't write that down.", "trust": 1, "flag": "cd_wales_gap"},
+        {"label": "Maybe the line's at fault.", "reply": "The line carried his hello and his goodbye. A line that drops one bar in the middle of a clean call has an opinion. I've never met a fault that discerning."}
+      ]
+    },
+    {
+      "id": "cd_op_midfigure",
+      "from": "1929-04-11",
+      "until": "1929-05-07",
+      "requires": ["op:cd_op_bearings"],
+      "topic": "Stopped in the middle of a figure.",
+      "line": "Four nights running, eleven-oh-four, figures in the February voice, no carol. Last night it stopped at sixteen past, in the middle of a figure. The Record prints it like a curiosity. It isn't. Every operator knows you don't stop in the middle. You finish the figure, you give the call sign, you sign off. A man who stops mid-figure was cut, or heard something in the room, or decided all at once he'd been talking to nobody. Three choices. I've lived in all three.",
+      "choices": [
+        {"label": "Omar says the night the lights went, everything stopped like that.", "requires": ["omar_dead_air"], "reply": "Omar says. Omar says that to his bench. Yes. Mid-figure. Everything in the building stopped where it was and the dark came in after. He thinks he didn't finish something. He's wrong about which of us didn't.", "trust": 1, "flag": "cd_midfigure_omar"},
+        {"label": "Which of the three was it for you?", "reply": "The last. Talking to nobody. It's not a sudden thing; it feels sudden. You've been at it for years and one night you hear your own voice coming back off the wall and you can't, for the life of you, find the next number.", "trust": 1},
+        {"label": "He'll be back tomorrow.", "reply": "Perhaps. You don't sign off mid-figure if you meant to come back. You stop mid-figure when the meaning's gone out of it. You say tomorrow like a transmitter owes you one.", "trust": -1}
+      ]
+    },
+    {
+      "id": "cd_op_sermon",
+      "from": "1929-05-08",
+      "until": "1929-06-05",
+      "topic": "Is anyone in this house listening?",
+      "line": "Dr. Hartwell on WLBQ, a sermon on the licensing of a sanctuary, and his last words at eleven-oh-one are 'Is anyone in this house listening?' At eleven-oh-two, after twenty-seven nights of nothing, sixteen-ten comes up with its figures for fourteen minutes and stops at sixteen past, where it stopped last month. Three hundred and seven calls to the Exchange. Mr. Pike notes the times. The Speaker calls it an answer. If it is, it's somebody who heard a question and could only reply in figures.",
+      "choices": [
+        {"label": "Somebody who could only answer in figures. You'd know the type.", "reply": "I'd know the type. Date, hour, frequency, weather. It's a way of saying 'here' without saying anything you could be held to. The parson asked a fair question. Somebody gave him figures. Better than nothing. Not much better.", "trust": 1},
+        {"label": "Coincidence. A minute's a long time on the air.", "reply": "A minute's a very long time on the air. That's why it isn't one. Twenty-seven nights it kept off. It came on for the question. Call it what you like at the Exchange; I call it timing.", "trust": -1}
+      ]
+    },
+    {
+      "id": "cd_op_lindbergh",
+      "from": "1929-05-28",
+      "until": "1929-06-25",
+      "topic": "The wedding with no record.",
+      "line": "Colonel Lindbergh marries Miss Morrow at Englewood and the house system is switched off at its board at three o'clock, at the family's request. No record made. Announced after they'd motored off. Every paper in the city is furious. I think it's the most sensible thing a famous man has done in my lifetime. They had it once, in the room, and then it was over, and nobody can play it back to them on their anniversary to show them how young they sounded.",
+      "choices": [
+        {"label": "You let a tape end once, with me. It wasn't so bad.", "requires": ["record_the_present"], "reply": "It was bad. It was bad for about a minute, then it was the room, and the room was fine. I've done two more since. Don't make a thing of it. The Colonel didn't.", "trust": 1},
+        {"label": "Seems a shame. That wedding's history.", "reply": "History's had plenty. It had his flight, his landing, his mother on the dock. Let the man have one afternoon nobody can wind back. If that's a shame, I'm all for shame."},
+        {"label": "You'd switch the whole borough off if you could.", "reply": "Not the borough. Just the bits that ought to be allowed to finish. That's more of it than you'd think, and less than I'd manage.", "trust": -1}
+      ]
+    },
+    {
+      "id": "cd_op_rockaway",
+      "from": "1929-06-23",
+      "until": "1929-07-20",
+      "topic": "The pavilion with its switch off.",
+      "line": "Forty-five nights quiet, then Rockaway Beach, eleven-oh-four, three hundred bathers on the sand at 98th Street, and it comes out of the Seaside Pavilion's loudspeakers. Mr. Brodsky switched the system off at the board at ten. He showed the Record's man the switch. It was off. Everyone thinks that's the strange part. I don't. A speaker that's been fed one frequency long enough might hold it. I've seen it in sets. You switch off the current; you don't switch off the habit.",
+      "choices": [
+        {"label": "Is that what your set does? Holds the habit?", "reply": "Mine holds Tuesdays. I told you. It's been tuned to one place so long it brings in that place whether the place is sending or not. Brodsky's speakers have played bands for ten summers. They'd hold anything. They held figures.", "trust": 1},
+        {"label": "Three hundred people heard it at once.", "reply": "On a beach, in the dark, cooling off, nothing to do but listen. Best audience it's ever had. I'd have liked to be on that sand. I don't go to the beach. I'd have liked to."},
+        {"label": "The manager must have left something on.", "reply": "He showed the man the switch. You can't argue with a switch. Well, you can; people will argue it for a month. It was off. Let the off be off and wonder about the rest.", "trust": -1}
+      ]
+    },
+    {
+      "id": "cd_op_eastward",
+      "from": "1929-07-20",
+      "until": "1929-08-25",
+      "requires": ["op:cd_op_rockaway"],
+      "topic": "It's going east.",
+      "line": "Plot it. Rockaway in June. Long Beach on the seventh. Port Washington the thirteenth. Last night the Navy at Bay Shore, in Suffolk, eleven minutes of figures straight through the thunderstorm. Every time, Mr. Pike puts men where it was the time before. Every time it's further out along the Island. That's not a transmitter being hunted. That's somebody walking away from a building and not looking back, and the Division following behind, picking up what he dropped.",
+      "choices": [
+        {"label": "Away from which building?", "reply": "I said a building. Any building. Ours has been very quiet on sixteen-ten for a long while, if that's what you're asking, and I'd rather you didn't ask it twice.", "trust": 1, "flag": "cd_asked_which_building"},
+        {"label": "Or it's coming back, the long way round.", "reply": "Round by Montauk and back down the Sound. You're an optimist. It's not a fault in a night man; I had it once. Let's see where it is in August. I've a chart. I'll pencil it."},
+        {"label": "The Navy will catch it at sea.", "reply": "The Navy logged it clear through a thunderstorm and didn't catch a thing. If they want to catch it they should stop listening for a ship.", "trust": -1}
+      ]
+    },
+    {
+      "id": "cd_op_hum_stopped",
+      "from": "1929-08-20",
+      "until": "1929-09-20",
+      "topic": "The day the Hum stopped.",
+      "line": "Four minutes past midnight Monday it went, and two minutes past midnight Tuesday it came back, same pitch, same strength. In between, four thousand eight hundred and seventy calls to the Exchange and thirty-one at Jamaica Hospital for want of sleep. The light company says its load was as on any Monday. I believe it. I didn't sleep either. I sat with the set off and the window open and heard the borough without its carrier. I taped it. I won't be playing it.",
+      "choices": [
+        {"label": "You've heard that before. The night a station went quiet.", "requires": ["station_went_quiet"], "reply": "Once before. One building, not a borough, and nobody rang the Exchange, because nobody knew anything was missing but me. Monday everyone knew. Four thousand people rang to say it's gone. I'd have given a great deal for one, that other night.", "trust": 1, "flag": "cd_twice_the_dead_air"},
+        {"label": "Omar walked the whole building on Monday.", "requires": ["omar_dead_air"], "reply": "He would. Every boiler, every bell, looking for a fault he could put his hand on. There wasn't one. That's his worst kind of day, and I'd guess he knows I know it. We'll re-cap a chassis Thursday and not mention Monday at all.", "trust": 1},
+        {"label": "Everyone slept like stones once it came back.", "reply": "They did. Overslept an hour; the milk was late in Woodhaven. That's what a carrier is. You don't know you're leaning on it till it goes, and then you fall asleep the minute it's back. I slept too. I'm not proud."}
+      ],
+      "silence_reply": "You're letting it be quiet. Good. That's the only decent thing to do about Monday. Sit in it a while and don't explain it."
+    },
+    {
+      "id": "cd_op_maspeth",
+      "from": "1929-09-26",
+      "until": "1929-10-25",
+      "requires": ["op:cd_op_tug"],
+      "topic": "It answered a call.",
+      "line": "Two fourteen in the morning, Position 12 rings a Maspeth baker for a Woodside caller. The line answers: 'W, O, R, S, sixteen-ten.' Four seconds of tone, then it clears. Mr. Ruzicka says his bell never rang and he was asleep. That's new. A year of turning up in sets and pavilions and the Navy's ear, and now it picks up when it's rung. Stations don't answer. People do. Answering is a habit, and you don't lose it.",
+      "choices": [
+        {"label": "It said its name like somebody asked too often.", "requires": ["cd_heard_the_call"], "reply": "You remembered the tug. Yes. Tired. Like a man at a switchboard at the end of a double shift. It answered because the bell went, somewhere. You train yourself to the bell. You never untrain.", "trust": 1},
+        {"label": "Four seconds again.", "requires": ["cd_wales_gap"], "reply": "Four seconds again. Of tone this time, not breath. I'm keeping a list, and I'm not showing you the list, and I'd thank you to stop noticing what I notice. It makes me feel listened to, and I'm out of practice.", "trust": 1},
+        {"label": "A crossed line. The Exchange crosses them every week.", "reply": "Crossed lines say 'hello, who's this' and swear. This one knew exactly who it was. That's the part that ought to keep Mr. Pike up, and I expect it does.", "trust": -1}
+      ]
+    },
+    {
+      "id": "cd_op_window_four",
+      "from": "1929-10-23",
+      "until": "1929-11-09",
+      "requires": ["op:cd_op_wales"],
+      "topic": "The boy's four seconds.",
+      "line": "The Society compares nine records of a Long Island City window. Seven of theirs, two of the boy's own. All nine agree, except the boy's two carry four seconds at eleven past three that the Society's seven don't. Mr. Fahey declines to describe them. Sealed for 1978. The boy sat in the hall an hour and fifty minutes on a chair and they sent him home with nothing. Somebody should go and tell that boy his four seconds are his.",
+      "choices": [
+        {"label": "Would you tell him? You'd know what to say.", "reply": "I'd tell him to date the tape and keep it dry and never let a committee play it for him. And that the four seconds don't have to mean anything to be his. That's all I'd say. That's more than anybody said to me.", "trust": 1},
+        {"label": "Maybe Fahey's protecting him.", "reply": "Maybe. People protect boys from things by taking them away. I know the method. It's kindly meant, and the boy goes home and lies awake wondering what was on his own record. 1978. He'll be an old man."},
+        {"label": "Probably a fault in the boy's machine.", "reply": "A fault that's in two records and not seven, at the same minute, and a grown man won't describe it. That's a very particular fault. I'd like to meet the machine.", "trust": -1}
+      ]
+    },
+    {
+      "id": "cd_op_ticker",
+      "from": "1929-10-24",
+      "until": "1929-11-09",
+      "topic": "The ticker's voice broke.",
+      "line": "Ninety minutes behind the floor by noon, the ticker, so every office in the city was selling on prices an hour and a half dead. And at eleven twenty-two the tone book enters 'broken,' the ticker's voice having gone up and not come down. The clerk's word. Four thousand at the Record's window, orderly and very quiet. That's a broadcast of the past, with everyone acting on it as though it's now. I know that set. I have one. You don't sell on what it says.",
+      "choices": [
+        {"label": "You know about hearing the past late.", "reply": "I know you can't tell, from inside. The price sounds like now. Tuesday sounds like now. The kettle's always just boiling. The only cure is a man in the room telling you the time. Nobody told the city the time on Thursday.", "trust": 1},
+        {"label": "Omar would say the ticker did nothing wrong.", "requires": ["omar_dead_air"], "reply": "He would, and he'd be right. Overloaded's not broken. He'll say it about the ticker and he'll never say it about himself. Some Thursday you'll be there when I say it to him, and he'll pretend he's busy with a joint.", "trust": 1},
+        {"label": "Gone up and not come down sounds like a valve.", "reply": "It does. A valve run too hot too long. It sings up the scale and then it's done. They'll fit a new one by Monday. Nobody fits a new one to the men at the window."}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+ "resident_id": "rhea_sato",
+ "hook": "Did you catch the news tonight?",
+ "hook_line": "Darling, I caught all of it and threw most of it back. Pick a scene and I'll play it for you.",
+ "opinions": [
+  {"id": "rs_op_silence", "from": "1928-11-12", "until": "1928-12-10",
+   "topic": "Queens, 'second quietest.'",
+   "line": "They recorded the two minutes in two hundred and twelve buildings and played them in a row to a committee of five, and the Bronx won. Queens came second; the elevated let us down. Darling, do you know what that is? Notices. A silence, reviewed. And Borough Hall's has a cough at one minute ten, entered as 'unidentified.' Some poor man held it in for seventy seconds and then didn't. He'll read that. He'll be relieved and heartbroken at once.",
+   "choices": [
+    {"label": "He'd rather be unidentified than be the man who coughed.", "trust": 1, "flag": "rs_cough_heard",
+     "reply": "Of course he would. Everyone would. Unidentified is the kindest review there is. ... And the cruellest, because he knows. He's the only one who knows it was him, and he can't take a bow or make an apology. I've sung for that man. I've been him."},
+    {"label": "It's a silence. You can't perform a silence.",
+     "reply": "You can perform anything that has an audience, and two hundred and twelve buildings is a very large house. Everyone in Queens stood still knowing the wall was listening. That's not silence, love. That's a held pose."},
+    {"label": "Second's not bad.", "trust": -1,
+     "reply": "Second is the worst place there is. First gets the notice, last gets the sympathy, second gets told it was very nearly. I've been very nearly for twelve years. It's a long run and the matinees are dreadful."}
+   ]},
+  {"id": "rs_op_ordinary", "from": "1928-12-03", "until": "1928-12-30",
+   "topic": "Four withdrawn for singing.",
+   "line": "The Phonautograph Society asked its members to record one ordinary Sunday, waking to sleeping, for nineteen seventy-eight. A hundred and eighty pledged; a hundred and seventy-six managed it. Four were withdrawn by the secretary for singing, three of them hymns. He'd asked them not to sing, and they sang. Darling, I'd have been the fourth. Somewhere in Queens a woman started on something over the washing-up and forgot the machine was on. That's the only record in the case I'd want.",
+   "choices": [
+    {"label": "She sang because she forgot she was heard. That's the take you want.", "trust": 1, "flag": "rs_fourth_singer",
+     "reply": "... That's the only take anyone wants, and nobody can get it on purpose. The moment you know the machine's on, you're an impression of yourself. She forgot. Lucky woman. I haven't forgotten a microphone since I was nine."},
+    {"label": "What would you record for 1978?",
+     "reply": "Something finished. I've never finished anything, darling; I've a sheet of takes of one song and not one I'd let a stranger open in fifty years. They'd hear a woman trying. Better they hear the washing-up."},
+    {"label": "Rules are rules. They were told not to sing.", "trust": -1,
+     "reply": "Told by a secretary. I've been told not to sing by better men than Mr. Abbot, and I sang, and they clapped, and I've regretted it in a cab ever since. The four were right. They were just unprofessional about it."}
+   ]},
+  {"id": "rs_op_carol", "from": "1928-12-26", "until": "1929-01-25",
+   "topic": "A carol no organist can name.",
+   "line": "Thirty-one people rang the exchange on Christmas night about a station calling itself 1610 and playing a carol for organ and voices. Two households in Woodside got it down, and Sister Bernadette and the St. Fidelis organist listened and couldn't name it. Couldn't name it! Organists can name a hymn from three bars and a cough. I don't want to know what it is. I want to know who's singing, and whether they knew anyone would hear.",
+   "choices": [
+    {"label": "You're listening for whether they meant it.", "trust": 1, "flag": "rs_carol_listening",
+     "reply": "I always am. It's a sickness. ... I'll tell you what I think, from nothing but the Speaker's description. I think they didn't know. I think somebody sang it to a room once, and the room kept it. That's the only way you get a voice nobody can place."},
+    {"label": "Will you try to hear it?",
+     "reply": "The Society's sending one record to a hymnologist at Union Seminary and putting the other in a copper box for nineteen seventy-eight. So, no. I'll hear it the way anyone hears anything worth hearing: second-hand, described badly, by someone who was there."},
+    {"label": "Probably someone's gramophone on a crossed line.", "trust": -1,
+     "reply": "A gramophone record has a label, darling, and somebody printed it. Two organists, thousands of hymns between them, and not one bar. That's not a crossed line. That's an unpublished song. I know what those sound like. I write them and burn them."}
+   ]},
+  {"id": "rs_op_no23", "from": "1929-01-19", "until": "1929-02-20",
+   "topic": "Record No. 23, kept back a year.",
+   "line": "The Society voted nineteen to eighteen not to play record number twenty-three, the Maspeth party's midnight record. The three who made it asked in writing that it be withheld 'for a year,' and Mr. Abbot agreed, and gave no reason. A year. That's how long you can keep a thing you can't bear and can't wipe; I know the length exactly. Mrs. Grieve wants it played. Mrs. Grieve has never been on a record she couldn't stand.",
+   "choices": [
+    {"label": "Someone's keeping something of yours, too. For about a year.", "requires": ["rhea_knows_juno_has_it"], "trust": 1, "flag": "rs_no23_hers",
+     "reply": "... Don't. Yes. Downstairs, in a box, with a better catalogue than mine. A year this month. I've heard my own breath come up through the riser and I've never once gone down. Mr. Abbot keeps promises. So does she. I never asked her to. That's the unbearable part."},
+    {"label": "Why do you think the party wants it kept back?", "trust": 1,
+     "reply": "Because something true happened at midnight and three people heard themselves the next morning. You don't withhold a bad record, darling. You throw a bad record away. You withhold a good one that tells the truth about you."},
+    {"label": "If it's in the Society's box, it's theirs to play.", "trust": -1,
+     "reply": "That's what every archivist believes and every singer dreads. The box is theirs. The midnight wasn't. Mr. Abbot understands that, which makes him the only man in the Society I'd let hold my coat."}
+   ]},
+  {"id": "rs_op_precentor", "from": "1929-02-03", "until": "1929-03-05",
+   "requires": ["op:rs_op_carol"],
+   "topic": "'Sung it, but not in this country.'",
+   "line": "Dr. Strand at the Seminary played the carol to a Welsh precentor from a Brooklyn chapel. Mr. Pritchard, seventy-one, came from Merthyr in eighty-two. He listened three times and said he'd 'sung it, but not in this country,' and couldn't give a name or a place. Darling, I've read that sentence nine times. That's what it is to have sung a thing properly. You don't keep the title. You keep it in your chest and lose the rest of the paperwork.",
+   "choices": [
+    {"label": "He knows it with his body and not his head.", "trust": 1, "flag": "rs_precentor_body",
+     "reply": "Yes. The breath knows. The breath always knows first and the head comes running after with the programme. I've a song like that, with a crack in it. My chest knows exactly where the crack was. I'm the only one in the room pretending not to."},
+    {"label": "Maybe he's misremembering.",
+     "reply": "At seventy-one, three times through? No. Misremembering adds things. He's taken away everything but the singing. That's the opposite of a mistake, love. That's what's left when you sang a thing for the right reason."},
+    {"label": "Sounds like an old man's fancy.", "trust": -1,
+     "reply": "Old men's fancies have dates and girls' names in them. His has nothing. 'Not in this country.' No flourish at all. I'd kill for that delivery. I'd die of it, more likely."}
+   ]},
+  {"id": "rs_op_marathon", "from": "1929-02-07", "until": "1929-03-01",
+   "topic": "A band that 'will not tire.'",
+   "line": "The marathon at the Jamaica Arena is dancing to the Harmony Kings on records, six hours round and round, and the management says the band 'will not tire.' Of course it won't. It isn't there. It played once, in a studio, tired at the end probably, and somebody kept the take where it didn't sound tired. Now the couples are dancing themselves to blisters for musicians who can't see them fall. That's the cruellest booking I've ever heard of.",
+   "choices": [
+    {"label": "The band can't watch them fall. You'd rather be watched.", "trust": 1, "flag": "rs_band_absent",
+     "reply": "Would I? ... I'd rather be needed. It isn't the same. A live band would slow for a dancer on her last legs. Would have to. The record can't. It's the most perfect accompaniment in Queens and it doesn't care who's still standing."},
+    {"label": "At least records don't play wrong notes.",
+     "reply": "They play the same wrong notes every time, which audiences call a performance. The Kings have a clarinet that's flat in the second chorus. By the hundredth hour every couple on that floor will lean into it like a step."},
+    {"label": "It's only dance music.", "trust": -1,
+     "reply": "Nothing's only dance music to the people dancing to it at four in the morning. Ask them. They'll tell you which bar the trumpet comes in on, and they'll hate it, and they'll wait for it."}
+   ]},
+  {"id": "rs_op_bar", "from": "1929-03-22", "until": "1929-04-20",
+   "requires": ["op:rs_op_precentor"],
+   "topic": "The 23rd bar, 'not received.'",
+   "line": "Dr. Strand sang the carol down the cable to Wales from Broad Street. Twenty-two bars arrived. Where the twenty-third should be, the Library recorded 'the singer's breath and the line's own noise, about four seconds.' The operator in the booth says she heard it sung. He tried again from Rockaway with two witnesses, and Wales got breath again. Darling. He sang it. Three people heard it. The machine only took the breath. I know exactly what's on that record.",
+   "choices": [
+    {"label": "The breath is the part you can't fake.", "trust": 1, "flag": "rs_breath_kept",
+     "reply": "No. You can fake the note; anyone can. The breath before it tells you whether you meant it. ... Somewhere below this floor there's a breath of mine nobody was meant to keep. I heard it once through the boards. Four seconds. About that."},
+    {"label": "Why won't the bar go down the wire?",
+     "reply": "I don't know and I'm not sure I want to. Some notes are only for the room they're sung in. I've sung a few. They don't travel, they don't go on the sheet. The people who were there just look at you differently afterwards."},
+    {"label": "Bad line. He should try a better cable.", "trust": -1,
+     "reply": "Twice? With twenty-two bars coming through clean as a bell? No, love. The line took everything it was given. It just wasn't given that. Some things you hand to the person in front of you, or to nobody."}
+   ]},
+  {"id": "rs_op_vault", "from": "1929-04-14", "until": "1929-05-12",
+   "requires": ["op:rs_op_no23"],
+   "topic": "The case sealed without No. 23.",
+   "line": "The fifth copper case went into the Borough Hall vault at nineteen minutes to three: thirty-one records, the Armistice silence, the inauguration, two St. Patrick's parades. Not number twenty-three. Thirteen members walked out on Friday. Mrs. Grieve came and didn't speak. And the vault's own system recorded the sealing, which 'will be kept with the vault.' So there's a record of not putting a record in. Darling, that's my whole career on one side of a disc.",
+   "choices": [
+    {"label": "A record of what you left out. That's the honest one.", "trust": 1, "flag": "rs_vault_absence",
+     "reply": "... Oh, don't. That's lovely and I'll steal it for a lyric and ruin it. Yes. My sheet has every take on it, numbered, and one number with nothing beside it. That blank's the truest thing I own. I wrote it."},
+    {"label": "Mrs. Grieve didn't speak. Why not?",
+     "reply": "Because she'd lost and she's good at losing. You sit in the second row and keep your hands still and let everyone watch your face do nothing. It's the hardest piece of acting there is. I've done it at three auditions and a wedding."},
+    {"label": "It'll all be dust by 1978 anyway.", "trust": -1,
+     "reply": "Copper doesn't go to dust, darling, and neither do grudges. Someone will open that case and look for number twenty-three, and the vault's record will tell them it was never there, and that's what they'll remember."}
+   ]},
+  {"id": "rs_op_received", "from": "1929-04-17", "until": "1929-05-20",
+   "requires": ["op:rs_op_bar"],
+   "topic": "'Received and played.'",
+   "line": "Wales has it. Dr. Strand sang the twenty-third bar into a record at the Seminary and sent it by ship on the Berengaria, and the Library cabled: 'Received and played. Send twenty-two bars before it sung not transmitted.' Sung, not transmitted. It won't go down a wire, darling, but it'll go in a box across the Atlantic, days in the dark. Some notes have to be carried. You can't telephone them in. I find that unbearably romantic and I'm furious about it.",
+   "choices": [
+    {"label": "Some things only travel if someone carries them by hand.", "trust": 1, "flag": "rs_carried",
+     "reply": "By hand. In the dark. Across an ocean. ... I've never carried anything of mine to anyone, darling. I've always sent it out down a wire, beautifully. And the one take that mattered, somebody else is carrying. I didn't even post it. It walked."},
+    {"label": "What do you think is in the letter?",
+     "reply": "Questions. Libraries adore a question; it keeps the file open. I'd guess they want to know who sang it first. So would I. So would everyone. Dr. Strand will answer with a song, if he has any sense."},
+    {"label": "Why are you furious?",
+     "reply": "Because it means you can't cheat. Every trick I know is a wire trick. Lean into the microphone, warm the low notes, breathe off the mark. And here's a bar that won't be tricked onto a wire. It wants a room, or a box. It wants to be meant."}
+   ]},
+  {"id": "rs_op_academy", "from": "1929-05-17", "until": "1929-06-15",
+   "topic": "Twenty-two minutes, chiefly applause.",
+   "line": "The first Academy dinner. Fifteen statuettes in fifteen minutes, 'Wings' the outstanding picture, and the hotel's system sent the evening east by wire. It runs twenty-two minutes, chiefly applause. Darling, that's the most honest review of my profession ever printed. A silent art, and its party is all clapping. And the Paramount asks patrons not to speak to the picture, 'it being unable to reply.' None of them can reply. That's why it's dear. You can love it all you like. It can't hear you.",
+   "choices": [
+    {"label": "They can't hear the applause. You can't stop hearing it.", "trust": 1, "flag": "rs_applause_heard",
+     "reply": "... That's it exactly. They get the statuette and none of the noise. I get all the noise, every night, in my head, a whole house clapping harder to show it didn't mind. I'd swap. For one evening I'd be a face on a screen in a quiet room."},
+    {"label": "Will you go and see 'Wings'?",
+     "reply": "Two dollars to sit in the dark and watch men fall out of the sky while an orchestra tells me how to feel? Of course I will. Twice. I'll cry at the same place both times and despise myself professionally."},
+    {"label": "Pictures will never last without voices.", "trust": -1,
+     "reply": "They've lasted perfectly well without them, darling. It's voices that don't last. A voice is an event; a face on film is a monument. I'm in the wrong trade and have been since I could stand."}
+   ]},
+  {"id": "rs_op_taps", "from": "1929-05-31", "until": "1929-06-28",
+   "requires": ["op:rs_op_silence"],
+   "topic": "Thirty-eight seconds after Taps.",
+   "line": "Mr. Varga sounded Taps at Cypress Hills, sixty-four seconds, and four thousand people kept silent for thirty-eight seconds after the last note. On Armistice Day they held two minutes four after his Last Post. Same bugle, the Society says; they can tell by its tone. Same man. Half the silence. Darling, that's not a careless crowd. That's a crowd in May, hot, with a parade to get to. The bugle played just as well. The house was just thinner.",
+   "choices": [
+    {"label": "The silence after the last note is the real review.", "trust": 1, "flag": "rs_after_silence",
+     "reply": "It always is. Applause you can buy; anyone can lead it. But the second after the last note, before anyone moves, that's what they actually thought. I've had a few long ones. I left before them. I couldn't bear to find out how long they'd go."},
+    {"label": "Is it the bugler's fault?",
+     "reply": "Never. Sixty-four seconds, clean, the same instrument. It's the room's fault, and the room is never at fault, so it's his anyway. That's the arrangement. You'll get used to it if you ever go on a stage. Don't."},
+    {"label": "Thirty-eight seconds is plenty.", "trust": -1,
+     "reply": "Plenty for a crowd. Not for a dead soldier. You've never stood at the end of a song waiting to learn whether it mattered. Every second's a vote, love. Thirty-eight is a polite house."}
+   ]},
+  {"id": "rs_op_unrecorded", "from": "1929-06-03", "until": "1929-07-02",
+   "requires": ["op:rs_op_received"],
+   "topic": "'It was sung, and that is the record.'",
+   "line": "Dr. Strand sang in the Seminary chapel, four minutes, in Welsh, unaccompanied, with the chapel's system switched off at its board at five to four. Sixty people. No record made. Two seminarians say one word came three times, at the close of three lines. He won't name the word or the piece. He said, 'it was sung, and that is the record.' Darling. He's done the thing. In public. On purpose. I've been trying to do it in a booth for a year.",
+   "choices": [
+    {"label": "He let sixty people hear it and kept nothing.", "requires": ["humiliation_named"], "trust": 1, "flag": "rs_strand_example",
+     "reply": "Sixty people and no machine. So they'll each remember it wrong, a different wrong apiece. ... That's what I couldn't stand, you know. Not the crack. That they'd keep it. He's let them keep it badly. I think that might be the only mercy a singer ever gets."},
+    {"label": "You could do the same. Switch it off. Sing once.", "trust": 1, "flag": "rs_switch_off",
+     "reply": "Switch it off. The booth has no switch, darling; I'm the switch. ... But yes. I could stand in a room and sing a thing once and let the room go home with it. Don't watch me while I think about it. I'm terrible when I'm thinking."},
+    {"label": "Shame nobody recorded it.", "trust": -1,
+     "reply": "It isn't a shame, it's the point. You'd have it on a shelf by now with a label and a little review. He's made sure it stays a thing that happened. Do you know how rare those are? I don't own one."}
+   ]},
+  {"id": "rs_op_grieve", "from": "1929-06-16", "until": "1929-07-20",
+   "requires": ["op:rs_op_vault"],
+   "topic": "An empty sleeve numbered 23.",
+   "line": "Mrs. Grieve sealed her own capsule under the Flushing library floor: thirty-eight records, the thirteen mothers, and an empty sleeve numbered twenty-three, in her hand. Mr. Abbot stayed nine minutes and left before the solder. Darling, she's put the absence in the box. Nineteen seventy-eight will open it and find a number with nothing inside and wonder who was careless. She wasn't careless. That's the most deliberate thing anyone in Queens has done all year.",
+   "choices": [
+    {"label": "She made the missing take part of the record.", "trust": 1, "flag": "rs_empty_sleeve",
+     "reply": "She did. She's the first person I've met who knows a gap can be a performance. ... I've a sheet with a number on it and nothing beside it. I've always thought of it as a hole. Perhaps it's a sleeve. Perhaps somebody will read it in fifty years and know what I meant."},
+    {"label": "Why did Mr. Abbot leave before the solder?",
+     "reply": "Because he's holding the record that belongs in that sleeve, and he couldn't watch the space for it sealed in front of him. I'd have left too. Beautifully, coat over the arm, and cried on the tram."},
+    {"label": "Seems petty, sealing an empty sleeve.", "trust": -1,
+     "reply": "Petty is the word for a gesture you didn't think of first. She's said more with one empty sleeve than the Society has said in five copper cases. If I were Mr. Abbot I'd be sick with envy."}
+   ]},
+  {"id": "rs_op_tone", "from": "1929-07-25", "until": "1929-08-25",
+   "topic": "A bay that 'sounds smaller.'",
+   "line": "The Society split down the middle over the dawn at Alley Pond: forty-seven birds and, beneath them, the tone. Mr. Abbot says keep the records 'as heard.' Fourteen walked out to found a Circle at Flushing that records 'what is meant to be heard,' tone removed where possible. They've played their first, Flushing Bay at evening, and the members say the bay 'sounds smaller.' Of course it does, darling. You took the room out of it. Every engineer I've ever had does that to me.",
+   "choices": [
+    {"label": "They cleaned it and lost the size of it.", "trust": 1, "flag": "rs_room_left_in",
+     "reply": "The size. Yes. Every take I've ever kept had the room scrubbed out of it. The one I didn't keep was full of room. You could hear the walls. You could hear me in a place, not on a disc. ... I may have been throwing away the wrong part."},
+    {"label": "Which side are you on?",
+     "reply": "Mr. Abbot's, and I hate it. 'As heard' means you keep the cough, the bus, the thing underneath. I've spent my life recording what's meant to be heard. It sounds wonderful, and smaller every year."},
+    {"label": "Sensible to take the noise out.", "trust": -1,
+     "reply": "Sensible is how you get a bay that sounds like a basin. Noise is where you are, love. Take it out and you're nowhere, beautifully. I've a whole stack of records of me being nowhere."}
+   ]},
+  {"id": "rs_op_contest", "from": "1929-08-16", "until": "1929-09-15",
+   "topic": "A grandmother's cradle song.",
+   "line": "Seven thousand children recorded a minute of 'anything that is theirs,' and the winner's a Ridgewood girl of nine with her grandmother singing a Hungarian cradle song. The grandmother's seventy-one. Darling, she won't have known it was a performance. She sang the way you sing to a cot, to one person, nobody judging, eyes on the child. And they've sealed it in the vault for nineteen seventy-eight. The best take in Queens, sung to somebody falling asleep.",
+   "choices": [
+    {"label": "She was singing to one person. That's why it's good.", "trust": 1, "flag": "rs_audience_of_one",
+     "reply": "To one person who wasn't even listening. ... That's the trick none of us can do. I sing to the back row, and the back row's never asleep, more's the pity. I wonder what it sounds like, singing to someone who doesn't need you to be any good."},
+    {"label": "And the boy's record of his street at night?",
+     "reply": "Set aside 'for further hearing.' I'd want that one too. A boy with a machine at a window, catching the street when nobody's performing for it. They'll keep it. Everyone wants a record nobody acted in."},
+    {"label": "The girl should have sung herself.", "trust": -1,
+     "reply": "She was nine and she knew better. She knew the best thing she had wasn't her own voice. Most professionals never learn that. I learned it at a bar on a Friday, far too late, in front of witnesses."}
+   ]},
+  {"id": "rs_op_postcards", "from": "1929-09-28", "until": "1929-10-30",
+   "requires": ["op:rs_op_unrecorded"],
+   "topic": "Dr. Strand's chapel door.",
+   "line": "Dr. Strand's still in Wales and still not writing. He sends postcards of one chapel with nothing on the back. First the chapel. Then nearer. Then the door, shut. Now the door, open, the inside not visible. The Seminary's pinned them in its porch so someone can say which chapel it is. Nobody has. Darling, it's an entrance. The slowest entrance I've ever seen. He's walking up to a door in front of all of us and not saying what he'll sing.",
+   "choices": [
+    {"label": "He's going in. He doesn't need us to watch.", "trust": 1, "flag": "rs_door_open",
+     "reply": "No. And he sends the postcards anyway, which is the most generous thing a performer can do: let you see the door and not the stage. ... I'd follow him in. I'd sit at the back. I wouldn't clap. I'd want to see whether I could manage not to."},
+    {"label": "Why send them at all, with no message?",
+     "reply": "Because a message would be a performance. A picture of a door is just a fact. He's saying 'nearer,' and nothing else, and that's all an audience is owed. I've always given them far too much."},
+    {"label": "Maybe he's just on holiday.", "trust": -1,
+     "reply": "Nobody on holiday photographs the same door five times. That's a man rehearsing a walk. I know, because I've done it in my corridor, in heels, at two in the morning."}
+   ]},
+  {"id": "rs_op_window", "from": "1929-10-23", "until": "1929-11-09",
+   "topic": "Four seconds the Society missed.",
+   "line": "The Phonautograph Society put a machine in a Long Island City window for seven nights and compared its records with the two from the boy's own recorder. All nine agree, except that the boy's two carry four seconds at eleven past three that the Society's seven don't. Mr. Fahey won't describe them. The boy waited in the hall an hour and fifty minutes. Darling, the amateur caught it. It's always the amateur. Amateurs don't know where not to point.",
+   "choices": [
+    {"label": "The boy was listening for something. The Society was only recording.", "trust": 1, "flag": "rs_boy_listening",
+     "reply": "That's it. You can't catch a thing you're not waiting for. The Society was waiting for proof; the boy was waiting for his street. ... I used to listen like that, before I knew what a good take was. I'd like it back."},
+    {"label": "What do you think was in the four seconds?",
+     "reply": "I shan't guess, and neither should you. If it's his, it's his. Mr. Fahey's right not to describe it. Something heard once, by a child, at a window, at three in the morning. Leave him one thing nobody's reviewed."},
+    {"label": "Four seconds. Could be anything.", "trust": -1,
+     "reply": "Could be, and wasn't. Nine records, seven nights, and four seconds that only turned up for the one who cared. You'd call that anything? I'd call it a debut."}
+   ]},
+  {"id": "rs_op_ticker", "from": "1929-10-24", "until": "1929-11-09",
+   "topic": "'Gone up and not come down.'",
+   "line": "Thursday the market broke, and at twenty-two past eleven the tone book entered 'broken,' the ticker's voice having 'gone up and not come down.' Gone up and not come down. Darling, that's a crack. That's a voice reaching for a note it can't hold, in public, with the floor's system carried out to the street. Thousands of men listening to it fail. And nobody clapped harder to show they didn't mind. They ran for the telephones. I've never envied a machine before.",
+   "choices": [
+    {"label": "It cracked in front of everyone, and nobody pretended it hadn't.", "requires": ["imperfection_voluntary"], "trust": 1, "flag": "rs_ticker_crack",
+     "reply": "Nobody pretended. That's what I envied. ... I let mine go in the booth, on purpose, and the note left. I think I could let it go in front of people now. Not well. Just in front of them. The ticker managed it, and it hasn't even got a chest."},
+    {"label": "People are losing everything. It isn't a performance.", "trust": 1,
+     "reply": "You're right. I'm sorry; it's a habit, I hear everything as a stage. ... But listen. Men losing everything, and what they'll remember is the sound. Not the figures. The voice going up and not coming down. That's how you'll know it was true."},
+    {"label": "The ticker's just a machine.", "trust": -1,
+     "reply": "So's a throat, darling, if you're careless with it. Pipes and breath and a little brass. The ticker did exactly what I've spent a career not doing. I can be glib about the money. I can't be glib about that."}
+   ]}
+ ]
+}

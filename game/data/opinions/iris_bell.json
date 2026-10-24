@@ -1,0 +1,421 @@
+{
+  "resident_id": "iris_bell",
+  "hook": "Anything in the paper worth looking at?",
+  "hook_line": "Several things. Stand there, where the light's flat, and I'll choose which one you get.",
+  "opinions": [
+    {
+      "id": "ib_op_silences",
+      "from": "1928-11-12",
+      "until": "1928-12-10",
+      "topic": "Two hundred and twelve silences, judged.",
+      "line": "They played two hundred and twelve silences to five men in a row and gave it to the Bronx. Queens came second, docked for the elevated. Manhattan's had a steamship in it. I read that standing up. A silence entered in a competition. Somebody in every one of those buildings stood very still knowing they'd be compared, and that isn't silence, that's a pose. I know the pose. I could hold it two minutes and four seconds without blinking.",
+      "choices": [
+        {
+          "label": "Was anyone in Queens actually quiet?",
+          "reply": "The horse, probably. And the baby in Dutch Kills, who didn't know there was a contest. The only honest silence in the borough came from people nobody told it was being taken down. ... I wouldn't have lasted. I'd have stood where the light was flat.",
+          "trust": 1,
+          "flag": "ib_honest_silence"
+        },
+        {
+          "label": "You'd have won it for Queens.",
+          "reply": "I'd have won it beautifully, and the five men would have heard a woman winning. That's the trouble with being good at it. You can always hear the being good."
+        },
+        {
+          "label": "It's only a ceremony. Nobody's judging.",
+          "reply": "Everybody's judging. That's what a ceremony is: a room arranged so the judging looks like grief. You'd make a terrible painter. You'd paint what was there.",
+          "trust": -1
+        }
+      ],
+      "silence_reply": "You've said nothing and it's exactly the right length. Don't look pleased about it. You'll spoil it."
+    },
+    {
+      "id": "ib_op_shepherd",
+      "from": "1928-12-14",
+      "until": "1929-01-08",
+      "topic": "The shepherd who heard himself.",
+      "line": "St. Rita's played the children their own rehearsal, and the second shepherd, who'd forgotten everything at four, heard himself forget it and had it cold by half past seven. 'Much improved on hearing,' the Record says. I'd like to know what he looked like at half past seven. Better, I expect. Smaller. You hear yourself once and you start standing where the light is. Poor little sheep-minder. Ruined at eight years old.",
+      "choices": [
+        {
+          "label": "Who did you first hear yourself through?",
+          "reply": "A man in a chair, saying nothing. You hear yourself very loudly in somebody's nothing. ... That's two questions too near for a Christmas pageant. Ask me about the amens. One more amen than children, and the nun blamed the organ.",
+          "trust": 1,
+          "requires": ["iris_first_audience"]
+        },
+        {
+          "label": "He might just have learnt his lines.",
+          "reply": "He might. ... No. I want him ruined; it's company. Fine, he learnt his lines. And the ox asked for his moo to be played twice, which is the most honest thing in the paper. The ox knows exactly what he is."
+        },
+        {
+          "label": "Sounds like a sweet evening for the parents.",
+          "reply": "Ninety parents pretending not to be proud, the Speaker says. Pretending not to be proud in a parish hall is a full evening's work. I've done it at openings. Sweet's the word on the poster."
+        }
+      ]
+    },
+    {
+      "id": "ib_op_doll",
+      "from": "1929-01-13",
+      "until": "1929-02-10",
+      "topic": "A doll put facing the wall.",
+      "line": "The Elmhurst doll. Said seven words at home and six at the counter, and they gave it back. Read the last line: 'The doll is on the back shelf, facing the wall.' Somebody at the Arcade did that with her own hands. You don't throw a thing out when it's said something you can't account for. You'd have to look at it to decide. You turn it round. I'd like to meet the toy-shop woman. I think we keep house the same way.",
+      "choices": [
+        {
+          "label": "Your failures face the wall too.",
+          "reply": "Faces to the wall, in order, dusted. Yes. I've a back shelf eleven feet long. The doll's in good company; it just doesn't know it. Don't tell the toy-shop woman. She'd want to compare shelves, and I'd lose.",
+          "trust": 1
+        },
+        {
+          "label": "What do you think the seventh word was?",
+          "reply": "Something it heard in the house, I expect. That's what the Vosses can't forgive: not that it said a word, but that it was a word of theirs. Nobody minds being overheard. They mind being repeated."
+        },
+        {
+          "label": "It's a toy. They should have kept it.",
+          "reply": "They should have, and they couldn't, and that's the most interesting thing a toy's done all winter. Keep a thing that answers back in your own words? You'd need a very large wall."
+        }
+      ]
+    },
+    {
+      "id": "ib_op_engraving",
+      "from": "1929-02-06",
+      "until": "1929-03-08",
+      "topic": "A woman drawn from a telephone call.",
+      "line": "There's an engraving in the Speaker of a tall woman in a fur coat at Corona, and the engraver drew her from a reader's description over the telephone. Never saw her. Drew her from somebody's voice saying what she looked like. The Sergeant wants to know which reader. I want to know what the reader left out. That's the portrait. Not the coat. What someone chooses to say about you when they think you'll never see it.",
+      "choices": [
+        {
+          "label": "What would someone say, describing you?",
+          "reply": "'Stands where the light's flat. Talks with her hands. Composed.' They'd all say composed. One person wouldn't. He'd say something about the back of my neck, and he'd be right, and it would be a terrible drawing and the only good one.",
+          "trust": 1,
+          "flag": "ib_described"
+        },
+        {
+          "label": "The engraver should have taken a name.",
+          "reply": "Engravers never ask for names. They ask what colour the coat was, and then they cut it in black. Sergeant Moran will learn that or he won't."
+        }
+      ],
+      "silence_reply": "You're doing it now. Looking, and not describing. I can feel the drawing you're not making. Stop it."
+    },
+    {
+      "id": "ib_op_valentine",
+      "from": "1929-02-14",
+      "until": "1929-03-12",
+      "topic": "Two hundred and fourteen second takes.",
+      "line": "Fifteen cents, twenty-five seconds, a stiff envelope. The Arcade booth cut eighteen hundred and sixty speaking valentines, and two hundred and fourteen people asked to do it again. The attendant says the second take is always shorter and always better. Of course it is. The first take is what you meant. The second is what you meant once you'd heard how it sounded. I'd have done six. The sixth would have been a date and nothing else.",
+      "choices": [
+        {
+          "label": "Just a date. Like the note you leave once a year.",
+          "reply": "... Yes. That's the sixth take. Everything cut but the day, because everything else was arguable. He can't fix a date. He can't come up for it. Fifteen cents, and I'd still have stood in the booth composing my face for a machine that can't see.",
+          "trust": 1,
+          "requires": ["iris_anniversary_note"]
+        },
+        {
+          "label": "Did you send one?",
+          "reply": "The booth's beside the toy counter. I'd have had to queue with schoolboys and say something tender to a disc in front of a girl with a pencil. ... I stood across the street and thought about it. That counts as a draft."
+        },
+        {
+          "label": "Shorter isn't better. It's just less.",
+          "reply": "Less is what better is, mostly. You scrape a canvas back until it stops lying. The trouble is it never quite stops. It just gets quieter about it."
+        }
+      ]
+    },
+    {
+      "id": "ib_op_strand_bars",
+      "from": "1929-03-07",
+      "until": "1929-04-15",
+      "topic": "Twenty-two bars, 'not nearly enough.'",
+      "line": "Dr. Strand at the seminary has written down the carol off sixteen-ten and posted it to Wales in twenty-two bars, with a note: 'written as nearly as it can be, and not nearly enough.' I cut that out. It's on the easel. Every painter alive should have that pinned somewhere they can't reach it. He heard a thing on a parlour record and he's trying to put it on paper, and he's honest enough to say the paper's losing.",
+      "choices": [
+        {
+          "label": "What have you tried to get down that wouldn't go?",
+          "reply": "The light court at dawn. It goes grey-violet for about four minutes before the pigeons wake, and by the time I've mixed it it's gone ordinary, and I've a palette full of a colour that isn't anywhere. Not nearly enough. I'll have that on the stone, thank you.",
+          "trust": 1,
+          "flag": "ib_not_nearly"
+        },
+        {
+          "label": "Maybe Wales will know the tune.",
+          "reply": "Maybe. I hope they write back 'nearly' and nothing else. Some things are better left as an argument between a man and a sheet of paper."
+        },
+        {
+          "label": "It's only a tune off a radio set.",
+          "reply": "Everything's only something. A painting's only some oil on a sheet. You can say 'only' about anything you haven't tried to copy.",
+          "trust": -1
+        }
+      ]
+    },
+    {
+      "id": "ib_op_grieve",
+      "from": "1929-04-14",
+      "until": "1929-05-15",
+      "requires": ["op:ib_op_silences"],
+      "topic": "Mrs. Grieve, silent on purpose.",
+      "line": "The Society sealed its copper case under Borough Hall, and the vault recorded itself being shut, which I'd frame. And Mrs. Grieve stood at the back and said nothing. The Speaker says 'on purpose.' Do you see how bad that is for her? Once somebody's printed that your silence was on purpose, it's a performance, and you can never be quiet in a room again without being reviewed. I know. I've been reviewed on purpose since I was nineteen.",
+      "choices": [
+        {
+          "label": "Like the Armistice silences. The pose shows.",
+          "reply": "Yes. Two hundred and twelve buildings holding still and one woman at the back holding still harder. ... You remember things. That's inconvenient. I'll have to start meaning what I said to you in November.",
+          "trust": 1
+        },
+        {
+          "label": "Maybe she simply had nothing to say.",
+          "reply": "Nobody simply has nothing to say. She's sealing a second capsule at Flushing in June, 'containing what the first would not.' That isn't nothing. That's a woman composing a reply for fifty years."
+        }
+      ],
+      "silence_reply": "You did it too. Stood there and said nothing. ... It looked accidental. How do you do that?"
+    },
+    {
+      "id": "ib_op_applause",
+      "from": "1929-05-17",
+      "until": "1929-06-15",
+      "topic": "Twenty-two minutes, chiefly applause.",
+      "line": "The Academy dinner. Fifteen gold statuettes for pictures that can't come to dinner, being on a reel. The record came east by wire and the Record says it runs twenty-two minutes, 'chiefly applause.' And Mr. Jannings got his before he sailed for Germany. Took the statuette and went to the boat. I've thought about him all morning. A man who collected his prize and was at sea when they clapped.",
+      "choices": [
+        {
+          "label": "You leave the bar before the clapping, too.",
+          "reply": "Two songs and out before the end. Yes. If I heard the end I'd know how it ended. ... Jannings knows. He'll stand at the rail and imagine twenty-two minutes, and it'll be the best twenty-two minutes he ever had, because he composed them himself.",
+          "trust": 1,
+          "requires": ["iris_two_songs"]
+        },
+        {
+          "label": "Would you want a statuette?",
+          "reply": "I'd want to be seen not wanting one, which is wanting one with extra steps. ... Yes. A small one. On the sill, facing in, where I could pretend it was a candlestick."
+        },
+        {
+          "label": "Pictures are for rich people anyway.",
+          "reply": "A dollar a seat at the Paramount, and they ask you not to speak to the picture. I'd go and speak to it. Somebody should tell it it's being looked at.",
+          "trust": -1
+        }
+      ]
+    },
+    {
+      "id": "ib_op_strand_sung",
+      "from": "1929-06-03",
+      "until": "1929-07-10",
+      "requires": ["op:ib_op_strand_bars"],
+      "topic": "'It was sung, and that is the record.'",
+      "line": "Dr. Strand again. He sang four minutes in Welsh in the seminary chapel and had the system switched off at its board first. Sixty people. One word three times, at the ends of three lines, and he won't name it. 'It was sung, and that is the record.' In March he was apologising to a sheet of paper. Now he's stopped trying to keep it at all. I'm jealous enough to spoil a canvas.",
+      "choices": [
+        {
+          "label": "You could do that. Paint one and not keep it.",
+          "reply": "Paint it and scrape it the same afternoon? ... I'd want someone to know I'd done it. That's the whole disease in one sentence. He had sixty people and turned off the one thing that would remember. I'd have turned off the machine and kept the sixty.",
+          "trust": 1,
+          "flag": "ib_not_kept"
+        },
+        {
+          "label": "What do you think the word was?",
+          "reply": "Something you'd only say three times if you meant it once. Not a name; names you shout. A word you put at the end of a line and leave there, like a cup on a sill for someone who isn't coming."
+        },
+        {
+          "label": "Seems a waste, not recording it.",
+          "reply": "That's what the Speaker says, and the Speaker's right, and I've never wanted so badly to be wrong with somebody."
+        }
+      ]
+    },
+    {
+      "id": "ib_op_dawn",
+      "from": "1929-06-22",
+      "until": "1929-07-20",
+      "topic": "Eighty-five minutes of dawn.",
+      "line": "Thirty-one people from the Society took fourteen machines to Alley Pond at ten to five and recorded eighty-five minutes of dawn. Forty-seven kinds of bird. And something underneath the birds the whole way, which Mr. Abbot says they'll keep 'as heard.' I'm up at that hour. The light court does a thing for four minutes nobody's arranged. I didn't know you could take dawn down. I thought that was the one hour that couldn't be kept.",
+      "choices": [
+        {
+          "label": "You draw the light court at dawn. For nobody.",
+          "reply": "When I'm too tired to pose the pigeons. Yes. It's the only hour I don't hang. ... If they put a machine in the light court I'd stop. Isn't that ugly? The only honest work I do, and it's honest because nothing's keeping it.",
+          "trust": 1
+        },
+        {
+          "label": "Forty-seven birds. Did they name them all?",
+          "reply": "By ear. Forty-seven kinds and a milkman, the Speaker says. I like the milkman. He was doing his round and walked into 1978 with two pints. That's the way to go into a copper case. Carrying something."
+        }
+      ],
+      "silence_reply": "Yes. That's about what four minutes of grey-violet sounds like. Thank you. Nobody's ever kept me company in it."
+    },
+    {
+      "id": "ib_op_meant",
+      "from": "1929-07-09",
+      "until": "1929-08-15",
+      "topic": "'What is meant to be heard.'",
+      "line": "Fourteen walked out of the Phonautograph Society and founded a Circle in Flushing by eleven o'clock, 'to record what is meant to be heard.' The nineteen keep everything 'as heard.' I've been both clubs. I was the Circle for twenty years: only what's meant, lit, hung, composed. The Speaker asks who decides what's meant, and doesn't answer. I'll answer. Whoever's most afraid of the rest.",
+      "choices": [
+        {
+          "label": "Which club are you now?",
+          "reply": "A woman with one foot in each, in a doorway, in July. ... Ask me in a month. If I can say 'as heard' without arranging my face, you'll know before I do.",
+          "trust": 1,
+          "flag": "ib_as_heard"
+        },
+        {
+          "label": "The Circle sounds more like you.",
+          "reply": "It sounds like who I was at nine o'clock last night, rehanging a wall for nobody. Yes. Thank you. That stung in exactly the right place."
+        },
+        {
+          "label": "It's a hobby club. Nobody's afraid of anything.",
+          "reply": "Fourteen people walked out into ninety-four degrees at twenty to ten over something under some birds. Nobody does that for a hobby.",
+          "trust": -1
+        }
+      ]
+    },
+    {
+      "id": "ib_op_grandmother",
+      "from": "1929-08-16",
+      "until": "1929-09-20",
+      "requires": ["op:ib_op_grieve"],
+      "topic": "The grandmother who didn't know.",
+      "line": "Seven thousand one hundred and twelve children's records, and the prize went to a Ridgewood girl of nine who held the machine up to her grandmother singing a Hungarian cradle song. The grandmother didn't know she was being taken down. She knows now, the Speaker says. That's the winning minute in Queens: a woman who didn't know anyone was listening. Everyone else's dogs and fires were performances. Hers goes into the vault for 1978.",
+      "choices": [
+        {
+          "label": "Mrs. Grieve said nothing on purpose. The grandmother sang by accident.",
+          "reply": "And the accident won. ... I've hoped all year it was the other way, that you could get there on purpose if you were clever enough. You can't. You can only be caught. I'd like to be caught once. Nicely. By somebody small.",
+          "trust": 1
+        },
+        {
+          "label": "She'll sing it differently now she knows.",
+          "reply": "She'll never sing it right again. That's the price. Somebody should go to Ridgewood and tell the child to put the machine down. No. Let her. The child's the only one who's allowed."
+        }
+      ]
+    },
+    {
+      "id": "ib_op_meadow",
+      "from": "1929-08-22",
+      "until": "1929-09-25",
+      "requires": ["op:ib_op_meant"],
+      "topic": "The record the Circle wouldn't keep.",
+      "line": "Monday the tone was gone for a day, and the Flushing man recorded the Meadow with nothing to take out. The Circle that wanted only what's meant played it at the library. Mrs. Grieve left in the second minute. Then seventeen to none: not to keep it. No reason entered. I know the reason. I turned my canvases to the wall once and lasted an hour in the colour that was left. It isn't quiet. It's a room that's given up on you.",
+      "choices": [
+        {
+          "label": "So 'as heard' won. Even the Circle couldn't stand the other.",
+          "reply": "They wanted only what's meant and got what's left, and it frightened them out of the room. ... I said ask me in a month. It's a month. As heard. There. My face did nothing. Did it? Don't tell me.",
+          "trust": 1,
+          "requires": ["ib_as_heard"]
+        },
+        {
+          "label": "What did you hear on Monday?",
+          "reply": "The flat. Everything sounded painted. The tap, the stair, a spanner dropped two floors down. I didn't work. I sat on the floor until it came back, and I've never been so glad of a thing I can't name."
+        }
+      ]
+    },
+    {
+      "id": "ib_op_strand_card",
+      "from": "1929-08-23",
+      "until": "1929-09-30",
+      "requires": ["op:ib_op_strand_sung"],
+      "topic": "A postcard with only the address.",
+      "line": "Third postcard from Dr. Strand. The same chapel in Wales, taken from nearer, so you can see the door. On the back, the address and nothing else. The seminary waits. The Speaker's cousin says the next one will be from inside. I've stopped reading the rest of the paper. A man in Bangor is walking up to a door one postcard at a time, and saying nothing on the back because the front's saying it.",
+      "choices": [
+        {
+          "label": "You send one like that. Only a date.",
+          "reply": "... Only the date. Every year. And he leaves it in the box, because there's nothing on it to fix. Strand's got nearer in three cards. I've sent mine for longer than I'll say, and I've never once changed the picture. I don't send a picture. That might be the mistake.",
+          "trust": 1,
+          "requires": ["iris_anniversary_note"],
+          "flag": "ib_change_the_picture"
+        },
+        {
+          "label": "He's going home, isn't he?",
+          "reply": "Or he's going in. They're not the same. You can walk up to a door every fortnight for a year and still be on the step. I should know. I've a landing."
+        },
+        {
+          "label": "Maybe he just forgot to write anything.",
+          "reply": "Three times? Nobody forgets three times. You forget once. The second time you've decided, and the third time you're saying so.",
+          "trust": -1
+        }
+      ]
+    },
+    {
+      "id": "ib_op_referee",
+      "from": "1929-09-21",
+      "until": "1929-10-20",
+      "requires": ["op:ib_op_engraving"],
+      "topic": "Heard by one man, alone.",
+      "line": "The Elmhurst widow's bedroom record. The referee sat with it alone three hours and twelve minutes in a locked room, said one word, 'Yes,' and they burned it in the courthouse boiler. A smell of candles. Asked to watch, he said he'd been there already. One person in the world heard all of it and he won't say what. I keep thinking she's lucky. Most of us never get a witness that careful.",
+      "choices": [
+        {
+          "label": "Like Sacha's camera on Sundays. The one lens you let in.",
+          "reply": "One lens, and I direct every frame, and they let me, which is why I let them. That isn't the same. Mr. Coombe didn't let her direct. He listened, and said 'yes,' and let it burn. I'd like somebody to say 'yes' about me and then refuse to elaborate.",
+          "trust": 1
+        },
+        {
+          "label": "She must have been mortified.",
+          "reply": "She watched it go with her hat on. That isn't mortified. That's a woman dressed for an occasion. I'd have worn the good gloves."
+        },
+        {
+          "label": "Somebody else should have heard it properly.",
+          "reply": "Somebody did. That's the point. One is properly. Two is an audience, and you know what I think of those.",
+          "trust": -1
+        }
+      ]
+    },
+    {
+      "id": "ib_op_lamps",
+      "from": "1929-10-22",
+      "until": "1929-11-09",
+      "topic": "Every lamp in Queens out for a minute.",
+      "line": "Eight minutes to eight, every street lamp in Queens off for one minute, for Mr. Edison. I was at the window. The light court went the colour of a bruise, then the colour of nothing, and two hundred and ninety people rang the Exchange about what they heard. I didn't ring anyone. I stood and counted, and I wasn't composing anything, and I want you to know it was the first minute in years the dark's been only dark.",
+      "choices": [
+        {
+          "label": "The last time the lights went, it wasn't a minute.",
+          "reply": "No. ... It was the week after our anniversary, and it lasted, and when it came back the chair was empty. Tuesday I stood in the dark a minute and the chair didn't matter. Then the lamps came on and it did. One minute's a start. Don't tell him I said start.",
+          "trust": 1,
+          "requires": ["bells_married"]
+        },
+        {
+          "label": "The paper says Mr. Edison didn't hear the broadcast.",
+          "reply": "He's hard of hearing. The whole nation listening to him light a lamp and he couldn't hear them listening. Fifty years on, and he did it again for an audience he couldn't hear. I'd give a great deal for his ears."
+        }
+      ],
+      "silence_reply": "Yes. Like that. Dark the right length, and nobody in the room arranging it."
+    },
+    {
+      "id": "ib_op_window",
+      "from": "1929-10-25",
+      "until": "1929-11-09",
+      "topic": "Six thousand at a window with no picture.",
+      "line": "Six thousand people on Jackson Avenue at the Record's window, listening to the floor of the Exchange, and the window's got nothing in it but a speaker and some lettering. I walked past. Faces turned up at a pane of glass like a gallery at an opening, and nothing hung. A terrier at the front from eleven. Nobody was looking at anybody. Everybody looked at the glass. It's the only crowd this year I wasn't afraid of.",
+      "choices": [
+        {
+          "label": "Because nobody was looking at you.",
+          "reply": "Because nobody was looking at anyone. Six thousand faces undone. I could have painted every one and none of them would have minded. ... I didn't. I went home. I thought I might paint the dog. He's the only one who came to watch.",
+          "trust": 1
+        },
+        {
+          "label": "Those are people losing their savings, Iris.",
+          "reply": "I know. I saw a man reading his bank book against the glass. I'm not making a picture of it. I'm telling you what it looked like, because that's the only way I know how to tell you what it was."
+        }
+      ]
+    },
+    {
+      "id": "ib_op_strand_door",
+      "from": "1929-10-29",
+      "until": "1929-11-09",
+      "requires": ["op:ib_op_strand_card"],
+      "topic": "The door, closed, from inside.",
+      "line": "Seventh card. The seminary had it yesterday. The same chapel door, closed, and the camera inside with it, in the dark. Nothing on the back but the address, and the seminary can't reply, having no address. He got in. Seven postcards and he's on the other side of the door with nobody watching. I've read it four times. I can't tell whether it's the saddest thing in the paper or the only happy one.",
+      "choices": [
+        {
+          "label": "Both. Don't make yourself pick.",
+          "reply": "That's my line. You've stolen my line and said it better. ... Both. He's in, and he's alone in there, and he sent a picture of the door from the right side. I've started something. I'm not telling you what. It hasn't got a date on it.",
+          "trust": 1,
+          "flag": "ib_started_something"
+        },
+        {
+          "label": "Maybe he'll come back out.",
+          "reply": "He's sent seven. A man who wanted to come back would have stopped at the step. ... I don't know. Doors open both ways. Mine does. I keep testing it."
+        }
+      ]
+    },
+    {
+      "id": "ib_op_two_silences",
+      "from": "1929-11-08",
+      "until": "1929-11-09",
+      "requires": ["op:ib_op_grandmother"],
+      "topic": "This year's silence beside last year's.",
+      "line": "Monday they record the two minutes again and play each building's silence beside last year's, to hear what changed. I was so clever last November about poses. I'd like to sit in the Municipal Building and hear the two side by side. Not for the borough. For me. I'd like to know whether a year can be heard. If you'd stood in my flat both Novembers with a machine, would you hear a difference, or just the elevated?",
+      "choices": [
+        {
+          "label": "I'd hear one. You've stopped standing in the light.",
+          "reply": "... Have I? I'm standing in it now. No. I'm standing near it. That's different. That's a year. Monday at eleven I'll be at the window, not posing. If it comes out a pose anyway, don't tell me. Let the committee keep it for 1978.",
+          "trust": 1
+        },
+        {
+          "label": "Just the elevated. It never stops.",
+          "reply": "It never stops. Good. Something should be the same both years, so you can hear what wasn't. I'll paint the elevated in. The constant. Everything else is allowed to move."
+        }
+      ]
+    }
+  ]
+}

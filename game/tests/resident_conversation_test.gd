@@ -173,6 +173,60 @@ func _run() -> void:
 			panel.current_node_id != first and panel.current_node_id in ["co_open", "np_open"])
 	panel.close()
 
+	# --- dated opinions: the news grafted onto the tree ------------------------------
+	RealityState.reset_campaign_for_tests()
+	var saved_opinions: Dictionary = director.opinions.duplicate(true)
+	director.opinions["peter_wren"] = {"resident_id": "peter_wren", "hook": "You've seen the paper.",
+			"hook_line": "Which part?", "opinions": [
+		{"id": "pw_op_t1", "from": "1928-11-10", "until": "1928-11-20", "topic": "The count.",
+			"line": "A count is a form with arithmetic in it.",
+			"choices": [{"label": "You'd have counted it once.", "reply": "Once, and signed.", "trust": 1}],
+			"silence_reply": "Quite."},
+		{"id": "pw_op_t2", "from": "1928-11-15", "until": "1928-11-30", "topic": "The clerk.",
+			"line": "The clerk swore. Swearing is a form.", "choices": [{"label": "Go on.", "reply": "I shall not."}]},
+		{"id": "pw_op_t3", "from": "1928-11-18", "until": "1928-11-30", "topic": "The seal.",
+			"requires": ["op:pw_op_t1"], "line": "Sealed, like a decision.",
+			"choices": [{"label": "Like yours.", "reply": "Like mine.", "trust": 1}]}]}
+	_check("an opinion is live only inside its window",
+			director.active_opinions("peter_wren", "1928-11-10").size() == 1
+			and director.active_opinions("peter_wren", "1928-12-01").is_empty()
+			and director.active_opinions("peter_wren", "").is_empty())
+	var plain: Dictionary = director.trees["peter_wren"]
+	var one := director.with_opinions("peter_wren", plain, "1928-11-10")
+	var entry_node: Dictionary = one.nodes[one.entries.first_stable]
+	_check("one live opinion: the entry gains the hook straight to it",
+			entry_node.choices.any(func(c): return c.label == "You've seen the paper." and c.goto == "op:pw_op_t1")
+			and one.nodes.has("op:pw_op_t1") and one.nodes["op:pw_op_t1"].flag == "op:pw_op_t1"
+			and not plain.nodes.has("op:pw_op_t1"))
+	_check("the grafted reply answers and returns to the door",
+			one.nodes["op:pw_op_t1:r0"].line == "Once, and signed."
+			and one.nodes["op:pw_op_t1:r0"].choices[0].goto == one.entries.first_stable
+			and one.nodes["op:pw_op_t1"].silence_goto == "op:pw_op_t1:s")
+	var two := director.with_opinions("peter_wren", plain, "1928-11-16")
+	_check("two live opinions: the hook opens a menu of topics",
+			two.nodes.has(ResidentConversations.OPINION_MENU)
+			and two.nodes[ResidentConversations.OPINION_MENU].choices.size() == 2
+			and two.nodes[two.entries.real_talk].choices.any(func(c): return c.goto == ResidentConversations.OPINION_MENU))
+	_check("a later opinion waits for the earlier one to be heard",
+			not director.active_opinions("peter_wren", "1928-11-19").any(func(o): return o.id == "pw_op_t3"))
+	_unit = ""
+	director.start("peter_wren")
+	var seen_hook := _index(panel.offered_labels(), "You've seen the paper.")
+	_check("the live tree offers the hook at the door (campaign date permitting)",
+			director.today() == "" or seen_hook >= 0)
+	panel.close()
+	panel.current_node_id = ""
+	RealityState.grant_knowledge("op:pw_op_t1")
+	var later := director.active_opinions("peter_wren", "1928-11-19")
+	_check("heard opinions do not return, and the one that built on it opens",
+			not later.any(func(o): return o.id == "pw_op_t1") and later.any(func(o): return o.id == "pw_op_t3"))
+	_check("an opinions record without a hook is refused",
+			not director._valid_opinions({"opinions": []}, "test")
+			and not director._valid_opinions({"hook": "x", "opinions": [{"id": "a", "from": "1929-01-02",
+				"until": "1929-01-01", "topic": "t", "line": "l"}]}, "test"))
+	director.opinions = saved_opinions
+	director.errors.clear()
+
 	# --- the presentation -----------------------------------------------------------------
 	panel.present("TEST", "A line.", [{"text": "One", "action": Callable()},
 			{"text": "Two", "action": Callable(), "silent": true}])

@@ -1,0 +1,145 @@
+{"resident_id": "teresa_vale",
+ "hook": "Read the Record before your shift?",
+ "hook_line": "On the tram, standing. Pick one. I've thirty-five minutes and my boots on.",
+ "opinions": [
+  {"id": "tv_op_platform", "from": "1928-11-19", "until": "1928-12-12",
+   "topic": "'No one was hurt.'",
+   "line": "Eleven hundred stood forty-eight minutes on the Plaza curve at twenty-eight degrees, then walked the structure two abreast. 'No one was hurt,' says the Record. That's a nine o'clock sentence. By nine at night we had two of them: a woman with white fingers she'd not felt since Jackson Avenue, and an old man whose chest had decided, somewhere over the street, that it was done with November. Nobody fell. I'll give the guards that. Falling's the only thing papers count.",
+   "choices": [
+     {"label": "'No one was hurt' is a morning sentence. You work the evening.", "reply": "That's it exactly. The paper goes to bed before the damage does. I'd like one edition at four in the morning, just one, that prints who came in after. It would sell poorly. I'd buy it.", "trust": 1, "flag": "tv_heard_the_evening"},
+     {"label": "Did the old man come through?", "reply": "He's sitting up and complaining about the food, which is the best sign there is. Don't ask me his name; I've given him back to his daughter and I don't keep them after."},
+     {"label": "Forty-eight minutes. They'll live.", "reply": "Most of them. That's the arithmetic I do all night and I don't need it done for me on my own mat. Most is a word you say when you're not the one at the bedside.", "trust": -1}
+   ]},
+  {"id": "tv_op_saw", "from": "1928-12-08", "until": "1929-01-05",
+   "topic": "The ice cutter's hand.",
+   "line": "Michael Hanrahan. Thirty-one. Cut his left hand on an ice saw on the first and died of it on the seventh at Flushing Hospital. Dr. Lowe told the Record the infection 'was heard in the chest by Tuesday and could not be reached.' Read that twice. Heard by Tuesday. We can hear a man's blood go wrong through a wall and a blanket, and then we stand there holding the listening and nothing else. Four hundred men stopped work an hour. That's about what the rest of us do, too.",
+   "choices": [
+     {"label": "Heard, and not reached. That's the part you carry home.", "reply": "Every night. You learn the sound of a thing going the wrong way long before you learn there's nothing in the cupboard for it. Thirty years, and the cupboard's the same size. The instruments get better. I'd trade every one of them for something that worked.", "trust": 1, "flag": "tv_could_not_be_reached"},
+     {"label": "Couldn't they have taken the hand?", "reply": "By Tuesday it wasn't in the hand. That's the thing about blood; it doesn't stay where you were hurt. If he'd come in on the first, with the cut fresh, maybe. Ice men don't come in on the first. They come in on the fifth."},
+     {"label": "Sending something to the Hanrahan fund?", "reply": "Two dollars at the Record's counter, on the way to the tram. Three children. Two dollars doesn't reach them either, but it's a thing the hands can do while the head's busy."}
+   ],
+   "silence_reply": "You're not saying anything useful, which is the correct amount. There's nothing useful. Go and tell somebody to wash their cuts. That's the whole of medicine this winter."},
+  {"id": "tv_op_shut_ins", "from": "1929-01-21", "until": "1929-02-15",
+   "topic": "Fifteen who could not be reached.",
+   "line": "The Steinway church lost one valve and couldn't send its service out, so its members rang the shut-ins and read the sermon down the line. A hundred and ninety-seven heard it. Fifteen 'could not be reached.' I've a list of shut-ins too; it's called the district round, and when one doesn't answer you don't write 'could not be reached.' You go round. Somebody ought to have gone round to those fifteen. I'd like to know who did.",
+   "choices": [
+     {"label": "You'd have gone round. Even off shift. Even if they weren't yours.", "reply": "I would, and you know I would, and I'd like you to stop knowing things about me on my own mat. Yes. Fifteen doors. Some of them just don't like the telephone. One of them won't be that.", "trust": 1},
+     {"label": "One old gentleman asked to hear the second half again.", "reply": "I saw. That's a man who's been alone long enough to want a sermon twice. Write him down as well. A man who asks for more sermon is a man who wants somebody to stay on the line."}
+   ]},
+  {"id": "tv_op_occupant", "from": "1929-01-23", "until": "1929-02-22",
+   "topic": "'Consent of the occupant.'",
+   "line": "Albany voted down Mr. Kilbride's amendment, seventy-four to sixty-nine: no consent of the occupant needed before a room's record goes to court. Mr. Burkhardt said if a man is dead his parlour is 'all that can go.' Every bed on my ward has a grille over it. I know what's on those records at three in the morning. Men ask for their mothers. They tell you where the money is. They say the thing they never said. I don't repeat it. Now the wall can.",
+   "choices": [
+     {"label": "What gets said to you at three in the morning was never meant for a court.", "reply": "It was meant for whoever was there. That's the whole arrangement. A man says it to the nurse because the nurse goes off at seven and takes it with her. If the wall keeps it, nobody's ever going off shift again. Not him. Not me.", "trust": 1, "flag": "tv_bedside_words"},
+     {"label": "If the record catches a careless nurse, isn't that good?", "reply": "Catch them. I've no love for careless nurses. But the record has the bell and who came. It hasn't got who heard the bell and thought somebody else would. That's the one that matters, and no grille in the world takes it down."},
+     {"label": "Five votes. Close thing.", "reply": "Close is a word for the people counting. For the man in the bed it went one way. Seventy-four to sixty-nine, and none of them has been the occupant yet. They will be. Everyone is, in the end."}
+   ]},
+  {"id": "tv_op_garage", "from": "1929-02-16", "until": "1929-03-12",
+   "topic": "Six jurors, standing.",
+   "line": "Chicago. Seven men in a garage on Clark Street, and the garage's own system ran the whole fourteen minutes twenty. The Coroner had it played once in open session to six jurors, standing. The Speaker said it would not describe it. Good. I'll tell you this much: fourteen minutes is long. People think it's quick. It is very seldom quick. Somebody should have sat those jurors down first and given them water after. Nobody thinks of the ones who have to listen.",
+   "choices": [
+     {"label": "You've sat with it. Not on a record. In the room.", "reply": "Hundreds of times. There's a sound near the end that isn't in any book and every nurse knows it. I've never once heard it from a chair. You stand. The jurors stood. Somebody in Chicago knew that much, at least.", "trust": 1},
+     {"label": "Should it have been heard in private?", "reply": "It should have been heard by as few as can do the job, and not one more. Six is about right. The lawyers wanting copies are the ones I'd keep out. They want to hear it. Nobody should want to."}
+   ]},
+  {"id": "tv_op_marathon", "from": "1929-02-16", "until": "1929-03-10",
+   "topic": "Two hundred and forty-three hours.",
+   "line": "Jamaica Arena. The Dunns of Ozone Park sat down at eight minutes to midnight after two hundred and forty-three hours on their feet, and Mrs. Corrigan danced alone until they switched the band off at half past twelve, and asked them to put it back on. The Health Department nurse treated fourteen for blisters the first day. I'd have treated Mrs. Corrigan for something else, and I've not got a name for it, and I've been meaning to find one for thirty years.",
+   "choices": [
+     {"label": "She couldn't stop when the music did. You know that one from the inside.", "reply": "Don't. ... Yes. A bell goes and I'm up, and when it stops I'm still up, looking for the next one. Mrs. Corrigan and I could start a club. We'd never sit down long enough to hold a meeting.", "trust": 1, "flag": "tv_mrs_corrigan"},
+     {"label": "Who wins the prize?", "reply": "The judges rule Monday. If I were judging I'd give it to whoever sat down first and had the sense to. Nobody gives prizes for that. Nobody gives prizes for sleep at all, which tells you who writes the rules."},
+     {"label": "Fourteen blisters is nothing.", "reply": "Fourteen blisters on the first day is a hundred on the fifth and a septic heel by the eighth. There's no such thing as nothing in a foot. I've lost men to less than a blister. You'd do well to remember it.", "trust": -1}
+   ]},
+  {"id": "tv_op_bedroom", "from": "1929-03-28", "until": "1929-04-26",
+   "requires": ["op:tv_op_occupant"],
+   "topic": "Bedrooms, adjusters, confessionals.",
+   "line": "The Senate committee's adopted three amendments: no records of bedrooms without consent, insurance adjusters licensed, and confession exempt by voice. So the priest has his box and a widow has her bedroom. I asked our almoner this morning whether a ward bed is a bedroom under Senator Keel's amendment. She said she'd write to Albany. Twenty-eight beds. More said in them in a night than in a month of confessions, and none of it absolved. I'd like an answer before July.",
+   "choices": [
+     {"label": "So a night nurse hears more than a priest, and gets less protection than his box.", "reply": "And no absolution to hand out at the end. I give them a bedpan and the time. Albany's decided the priest's grille is sacred and mine's evidence. I'd not mind it so much if any of them had ever stood a night on a ward.", "trust": 1, "flag": "tv_ward_not_a_bedroom"},
+     {"label": "The hospital will be covered somehow.", "reply": "Somehow is what the almoner said, in a letter to Albany that'll come back in August. Hospitals are always covered somehow. It's the patients who aren't. You'll see. The first ward record in a courtroom will be somebody's last night."},
+     {"label": "Somebody in that committee room said 'resent' again.", "reply": "At twelve minutes past five, and nobody owns it. I'd not chase it. Half my ward says things in the night nobody owns. You learn to chart them and leave them. Albany will learn, or it won't."}
+   ]},
+  {"id": "tv_op_brennan", "from": "1929-04-21", "until": "1929-05-12",
+   "topic": "Mrs. Brennan, thirty-eight years.",
+   "line": "Mrs. Hattie Brennan of the Astoria exchange. Took her first call in 1891, trained about four hundred operators, died Friday of pneumonia at sixty-one. The board will connect nobody for one minute on Tuesday at ten. I liked that. A whole switchboard sitting down for a minute. We don't do it. On a ward the next bed is the minute. Pneumonia at sixty-one; I could tell you the day it reached the second lung, and I'd be right, and it would change nothing.",
+   "choices": [
+     {"label": "Thirty years of you. Who'll stop the board for a minute for you?", "reply": "Nobody, and I'd sack them if they tried. There'd be a bell in that minute. ... Thank you for asking it, though. It's not a question anybody's put to me, and I find I don't mind having heard it.", "trust": 1},
+     {"label": "Your daughter keeps hours like yours. Just not the same ones.", "reply": "She keeps a desk's hours and I keep a ward's, and we built it so they'd miss each other by seventy minutes. Mrs. Brennan's girls sat at the same board as their mother. I've not the faintest idea how anybody manages that. I'd like to have asked her.", "trust": 1, "requires": ["vales_hours_do_not_overlap"]},
+     {"label": "Pneumonia at sixty-one isn't old.", "reply": "No. It's what we get. A cough in March, a chest in April, a minute's quiet at the board. If we'd anything for it but mustard and sitting up, she'd have trained another forty. We haven't."}
+   ]},
+  {"id": "tv_op_mothers", "from": "1929-05-13", "until": "1929-06-08",
+   "topic": "Seven minutes forty, the mother speaking.",
+   "line": "Mother's Day. The exchange put through three thousand six hundred and four long-distance calls, the most ever, and the six-minute rule was 'waived in most cases, the mother speaking.' Two operators at the Jamaica board relieved for fatigue. Relieved. I'd like that written on my chart some morning. We had a woman on the ward asking for Ohio every hour. She got through at eleven. She talked for nine minutes and slept for nine hours. Best medicine on the floor.",
+   "choices": [
+     {"label": "There was a carnation and a note on your table, wasn't there. From upstairs.", "reply": "Pink. Left on the table before I was in, the way she leaves everything. The Speaker says pink's for a mother who has not decided. ... I've decided. I just haven't been awake for it. I'll write back. I always write back.", "trust": 1, "flag": "tv_pink_carnation", "requires": ["vales_hours_do_not_overlap"]},
+     {"label": "Did you ring anyone?", "reply": "I was on the ward from seven, ringing Ohio for somebody else's mother. That's how it goes. You put through other people's calls and go home and the line's quiet. It's not a complaint. It's a shift."},
+     {"label": "Fatigue's not much of an illness.", "reply": "It's what kills the ones who don't have the other illnesses. Two girls at the Jamaica board sent home white, and I'd wager nobody docks the rule that did it. You'll want to watch yourself on nights, too.", "trust": -1}
+   ]},
+  {"id": "tv_op_clinic", "from": "1929-05-16", "until": "1929-06-14",
+   "requires": ["op:tv_op_saw"],
+   "topic": "The Cleveland Clinic's film store.",
+   "line": "Cleveland. Fire and gas from the Clinic's basement film store, at least a hundred and seven dead by midnight. The house system recorded the alarm at eleven thirty-one. So the bell went, on time, in a hospital, where everyone answers bells, and it didn't matter. That's the one I'll lie awake on. We keep films in our basement too. I went down this morning before handoff and stood there with the porter and I didn't know what I was looking for.",
+   "choices": [
+     {"label": "The alarm was heard, and nobody could reach them. Like the ice cutter.", "reply": "Like him. Heard on Tuesday, heard at eleven thirty-one. We're very good at hearing in this country. We're going to have to get better at the other thing, and I don't know what it's called.", "trust": 1, "flag": "tv_heard_too_late"},
+     {"label": "You went down to look. That's not nothing.", "reply": "It's a nurse in a cellar with a porter asking her what she wants. I made him move the boxes off the boiler pipes. He looked at me as if I'd asked for the moon. They're moved. That's something."},
+     {"label": "That couldn't happen here.", "reply": "That's what they said at eleven thirty in Cleveland. Everywhere's here. Don't say that sentence on my mat again; I've heard it on the ward the night before every bad night.", "trust": -1}
+   ]},
+  {"id": "tv_op_roofs", "from": "1929-06-20", "until": "1929-07-16",
+   "topic": "Neighbours to be asked to be quiet.",
+   "line": "Ninety-one at twenty to four, four overcome, and the exchange took two thousand two hundred calls between ten and two, most of them asking that neighbours sleeping on the roofs 'be asked to be quiet.' Half of Queens rang the operator because the other half was sleeping. I've slept by day for thirty years under a borough of coal carts and children, and not once has anybody rung the exchange to have the day asked to be quiet for me.",
+   "choices": [
+     {"label": "Somebody should. Ring in for the day sleepers.", "reply": "Put me down for the first call. 'The whole of the block is shouting under a nurse's window, could it be asked to stop.' She'd laugh. I'd laugh. I'd still be awake. But it would be nice to be counted among the people who get asked about.", "trust": 1, "flag": "tv_day_sleepers"},
+     {"label": "Did any of the four overcome come to you?", "reply": "One. A coal heaver, red as a brick and insulted to be lying down. Wet sheets and salt water and he was arguing by six. The heat ones are easy if they come early. They never come early."},
+     {"label": "Sleep on the roof yourself.", "reply": "At two in the afternoon? I'd come down cooked. The roof's for night people who've the night off. I've not had one of those since the Armistice. The first one.", "trust": -1}
+   ]},
+  {"id": "tv_op_maspeth", "from": "1929-07-18", "until": "1929-08-10",
+   "topic": "The man at the Maspeth gas works.",
+   "line": "Ninety-seven at a quarter past three. Nine overcome, one fatally, a laborer of sixty-one at a Maspeth gas works. The day before, a Flushing Bay ice mare went down on Northern Boulevard and a patrolman opened a hydrant on her and forty people cheered her up. Good. I'm glad for the mare. But the man at Maspeth got one line at the bottom of a column and no hydrant, and I'd like to know who was with him, and whether anyone ran.",
+   "choices": [
+     {"label": "You'd have run, whether he was on your list or not.", "reply": "I'd have run, and been too late, and run anyway. ... You've heard me on that before. Yes. It's the running that matters. Not because it saves them. Because nobody standing near him should get to think 'he's somebody else's.'", "trust": 1, "requires": ["teresa_alarm_not_hers"]},
+     {"label": "Sixty-one is old for that kind of work in that heat.", "reply": "Sixty-one is old for gas works in any weather. They keep the old men on because they know the valves. Then the heat comes and the knowing doesn't help. We'll have three more like him before September."},
+     {"label": "At least the horse got up.", "reply": "The horse had forty people and a patrolman. I'm not against the horse. I'm against a city that turns a hydrant on for the one that pulls ice and lets the one who shovels coke fold up quiet. Don't make me say it twice.", "trust": -1}
+   ]},
+  {"id": "tv_op_eleven_minutes", "from": "1929-07-24", "until": "1929-08-22",
+   "requires": ["op:tv_op_clinic"],
+   "topic": "Eleven walls and Mrs. Carrow.",
+   "line": "Ditmars Avenue. A feed store and three floors of flats. Eleven house systems on the block took the fire down from nine forty-one. The first alarm came at nine fifty-two, from a Mrs. Carrow on the corner who smelled oats burning. Eleven minutes. Every wall on the street heard it and not one rang. Nineteen brought down by ladder, nobody killed, and that's Mrs. Carrow's doing and her nose's. Hearing isn't answering. I wish to God we'd stop mixing the two up.",
+   "choices": [
+     {"label": "Eleven walls, and each one decided the fire was somebody else's to ring in.", "reply": "... Each one thought 'that's hers.' Yes. You'd know I'd read it that way. Walls can't help it. People can. Mrs. Carrow didn't wait to find out whose fire it was. I'd like to shake her hand. I'd like to be her, once, on the right night.", "trust": 1, "flag": "tv_walls_thought_hers", "requires": ["teresa_alarm_not_hers"]},
+     {"label": "Mrs. Carrow should get a medal.", "reply": "She should get her oats back. Medals go to the ones on ladders, and the ladder men earned theirs. But somebody smelled it and picked up the telephone, and in this borough that's rarer than courage. I'd give her a week's sleep."},
+     {"label": "Walls don't ring. That's what neighbours are for.", "reply": "That's the Speaker's line and it's the right one. I clipped it. It's on the drawer with the bell in it, where I'll see it at four in the morning."}
+   ]},
+  {"id": "tv_op_quiet_day", "from": "1929-08-20", "until": "1929-09-15",
+   "requires": ["op:tv_op_roofs"],
+   "topic": "Thirty-one for want of sleep.",
+   "line": "The tone stopped for twenty-four hours, Monday. Four thousand eight hundred and seventy people rang the exchange to say so, and Jamaica Hospital treated thirty-one for want of sleep. Thirty-one. Because it was too quiet. I sleep through coal carts and a bell with no wire, and Queens couldn't sleep one night without its noise. I'll not ask what the noise is; I've beds to count. I'll only say I slept better Monday than in a year, and felt guilty for it.",
+   "choices": [
+     {"label": "The one day the borough was quiet for you, and the borough couldn't stand it.", "reply": "That's the joke, isn't it. Thirty years waiting for Queens to hush, and when it did, it rang the operator to complain. I'd have kept the day if anyone had asked. Nobody did. They got their noise back at two minutes past midnight.", "trust": 1, "flag": "tv_slept_monday"},
+     {"label": "What would you have given the thirty-one?", "reply": "Warm milk and a ward clock, which ticks. People can sleep through anything that keeps time. It's the stopping they can't bear. You'd do well to remember that, in your line."},
+     {"label": "Where do you think it went?", "reply": "I've twenty-eight beds and you're asking me about a noise on its day off. Put it at the bottom of the round. If it's still missing when I've seen to the living, I'll worry about it then."}
+   ]},
+  {"id": "tv_op_burned", "from": "1929-09-21", "until": "1929-10-20",
+   "requires": ["op:tv_op_bedroom"],
+   "topic": "Three months of nights in the boiler.",
+   "line": "Mrs. Lindqvist's bedroom record went into the courthouse boiler at four minutes past eleven. Three months of her nights, burned in about a minute with a smell of candles, heard by nobody but the referee, who said 'Yes' and then wouldn't come to watch. She watched with her hat on and went home to Elmhurst to sleep. I've been thinking about that hat all week. I'd like to have stood next to her. Nights are the only thing I know.",
+   "choices": [
+     {"label": "If there's a record of that night on the custody ward, would you want it heard or burned?", "reply": "... Heard. By me. Once. With nobody's opinion in the room. I've had years of my own version and I'd like to know if it's the true one. Then they can burn it. I'll bring my hat.", "trust": 1, "flag": "tv_would_hear_it", "requires": ["teresa_alarm_not_hers"]},
+     {"label": "The referee said he'd been there already. Odd thing to say.", "reply": "Not odd. Right. Once you've heard somebody's nights you've been in the room, and you don't go in twice for the show. Night nurses know that. We don't talk about the ward at breakfast."},
+     {"label": "Seems a waste. It was evidence.", "reply": "Of what? A widow snoring and praying. If that's evidence, I'm a witness to half of Queens. It's not evidence. It's her. They burned her nights, which is what she asked for, and she's the only one who gets to ask.", "trust": -1}
+   ]},
+  {"id": "tv_op_even_pace", "from": "1929-10-29", "until": "1929-11-09",
+   "topic": "'Exactly and at an even pace.'",
+   "line": "The exchange placed fifty-eight hundred margin calls into Queens between three and one in the morning, and the operators read twenty-four hundred brokers' messages themselves, told to read 'exactly and at an even pace.' That's our instruction. Word for word, near enough. It's what we teach the probationers for telling a family. I've said it to a thousand kitchens. Now girls of nineteen are saying it at one in the morning about money, and I'd like to sit them down after.",
+   "choices": [
+     {"label": "You know what it costs the one reading. Nobody reads it back to her.", "reply": "Nobody. You go home and the kettle's cold and you've a voice in your head that was yours an hour ago and isn't now. The kitchens say the girls read kindly. Good girls. They'll be worse nurses than me in the right way. Slower.", "trust": 1, "flag": "tv_even_pace"},
+     {"label": "Did any of it come up the ward?", "reply": "Two men Tuesday night with chests that weren't chests. Nothing in them. Fright. I sat them up and gave them the clock to watch. One asked me if I had shares. I said I had twenty-eight beds. He laughed. Then he slept."},
+     {"label": "It's only money. Nobody died.", "reply": "Not on my ward, not yet. Give it a week. Money's what people die of when they've nothing else wrong with them. I've seen it after every panic since 1907. You'll not say 'only' on my mat.", "trust": -1}
+   ]},
+  {"id": "tv_op_two_minutes", "from": "1929-11-08", "until": "1929-11-09",
+   "requires": ["op:tv_op_eleven_minutes"],
+   "topic": "Two minutes, compared with last year's.",
+   "line": "Monday at eleven they'll record the two minutes again in two hundred and thirty buildings and play each one against last year's, to hear what's changed. I'll be asleep. I'm always asleep at eleven. I'll put the alarm clock on the chair, and I'll get up for the two minutes, and stand by the drawer with the bell in it, and if it rings I'll let it. Two minutes of not answering. That's my contribution.",
+   "choices": [
+     {"label": "Two minutes of letting a bell ring. That's harder for you than any shift.", "reply": "Much. I'll count them on my pulse; I've a reliable pulse. A hundred and twenty beats and then I'm a civilian again. If you're passing at eleven you can stand on the mat. Don't say anything. You're good at that.", "trust": 1, "flag": "tv_two_minutes"},
+     {"label": "The elevated still won't stop.", "reply": "The elevated never stops; it's got a timetable. So have I. I'll stop anyway. Somebody on every line has to be the one who doesn't keep moving, or the silence is just a gap between trains."}
+   ]}
+ ]}
