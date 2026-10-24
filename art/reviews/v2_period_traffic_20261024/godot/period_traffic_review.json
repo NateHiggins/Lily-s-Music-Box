@@ -1,0 +1,58 @@
+{
+ "checks": [
+  {
+   "label": "production V2 composes the period traffic owner",
+   "ok": true
+  },
+  {
+   "label": "traffic lives in the authored street frame",
+   "ok": true
+  },
+  {
+   "label": "the street starts already in use",
+   "ok": true
+  },
+  {
+   "label": "every traffic surface samples authored UVs with catalogue albedo, normal and roughness maps and mips",
+   "ok": true
+  },
+  {
+   "label": "the carriageway, not the pavement, refuses sleep",
+   "ok": true
+  },
+  {
+   "label": "a horse wagon stops for a person in its lane",
+   "ok": true
+  },
+  {
+   "label": "and stops short of them rather than through them",
+   "ok": true
+  },
+  {
+   "label": "the live stream keeps the street populated",
+   "ok": true
+  }
+ ],
+ "captures": [
+  "live_east.png",
+  "street_east.png",
+  "signal_traffic.png",
+  "street_west.png",
+  "from_arcade_kerb.png"
+ ],
+ "draw_calls": {
+  "street_east": {
+   "with_traffic": 28627.0,
+   "without": 28572.0
+  }
+ },
+ "yield_clearance_m": 1.40000000019847,
+ "live_kinds": [
+  "coal_cart",
+  "checker_cab",
+  "model_a_tudor",
+  "saloon_bus",
+  "model_a_tudor",
+  "ice_wagon"
+ ]
+}
