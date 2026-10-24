@@ -10906,6 +10906,9 @@ MATERIAL_CATALOG = {
     "sign_board": {"base_color": [0.60, 0.56, 0.50, 1.0],
                    "roughness": 0.72},
     "chochin": {"base_color": [0.54, 0.15, 0.12, 1.0], "roughness": 0.88},
+    "monks_cloth": {"base_color": [0.71, 0.66, 0.55, 1.0], "roughness": 0.9},
+    "velour": {"base_color": [0.57, 0.54, 0.52, 1.0], "roughness": 0.8},
+    "ninon": {"base_color": [0.92, 0.91, 0.89, 1.0], "roughness": 0.68},
 }
 
 
