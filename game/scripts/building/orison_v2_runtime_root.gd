@@ -836,6 +836,7 @@ func _compose_exterior() -> bool:
 	horizon.transform = city_shells.global_transform.affine_inverse() * _blockout.global_transform
 	city_shells.add_child(horizon)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
+	if preload("res://scripts/building/orison_v2_entry_vestibule.gd").mount(self) == null:return false
 	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false
 	period_traffic = preload("res://scripts/building/orison_v2_street_traffic.gd").mount(self)
 	if period_traffic == null:return false

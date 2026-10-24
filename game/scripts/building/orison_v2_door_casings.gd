@@ -15,15 +15,17 @@ static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 		var anchor := adapter.resolve(str(record.id)) as Node3D
 		if anchor==null: continue
 		var leaf := anchor.get_node_or_null(str(record.id)+"_Leaf") as DoorProp
-		if leaf==null or leaf.door_kind not in ["apartment_entry","apartment_interior","service"]: continue
+		# An unhung doorway is still cased; its kind stays on the anchor.
+		var kind := leaf.door_kind if leaf!=null else str(anchor.get_meta("unhung_door_kind",""))
+		if kind not in ["apartment_entry","apartment_interior","service"]: continue
 		var span: Vector2=preload("res://scripts/generated/v2_exterior_masonry.gd").DOOR_SPANS.get(str(record.id),Vector2(-partition_depth*.5,partition_depth*.5))
 		var wall_depth := span.y-span.x
 		var center := (span.x+span.y)*.5
-		if wall_depth>partition_depth+.001:
+		if leaf!=null and wall_depth>partition_depth+.001:
 			var outward := span.y if absf(span.y)>absf(span.x) else span.x
 			var swing: Vector3=leaf.basis*Vector3(0,0,1 if leaf.swing_out else -1)
 			if signf(swing.z)==signf(outward):leaf.position.z=outward+signf(outward)*.01
-		var service := leaf.door_kind=="service"
+		var service := kind=="service"
 		var faces: Array[Transform3D] = []
 		var reveals: Array[Transform3D] = []
 		var material: Material

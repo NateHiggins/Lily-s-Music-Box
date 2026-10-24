@@ -1,0 +1,147 @@
+{
+ "schema": "orison.v2.entry-vestibule.v1",
+ "wall_faces": {
+  "west": -2.33,
+  "east": 2.33,
+  "north": -9.32
+ },
+ "fittings": [
+  {
+   "id": "Directory",
+   "stock": "directory_board",
+   "wall": "west",
+   "along": -10.55,
+   "height": 1.84
+  },
+  {
+   "id": "EstablishedPlaque",
+   "stock": "bronze_plaque",
+   "wall": "north",
+   "along": -1.5,
+   "height": 1.68,
+   "scale": 0.75
+  },
+  {
+   "id": "NoticeHum",
+   "stock": "notice_frame",
+   "wall": "north",
+   "along": 1.12,
+   "height": 1.62
+  },
+  {
+   "id": "NoticeHouse",
+   "stock": "notice_frame",
+   "wall": "north",
+   "along": 1.64,
+   "height": 1.62
+  },
+  {
+   "id": "SignalPoint",
+   "stock": "signal_point",
+   "wall": "north",
+   "along": 2.02,
+   "height": 1.44
+  },
+  {
+   "id": "Radiator",
+   "stock": "radiator",
+   "wall": "east",
+   "along": -10.55,
+   "height": 0.0
+  },
+  {
+   "id": "CoatHooks",
+   "stock": "coat_hooks",
+   "wall": "east",
+   "along": -10.55,
+   "height": 1.74
+  },
+  {
+   "id": "DoorMat",
+   "stock": "door_mat",
+   "floor": [
+    0.0,
+    -11.05
+   ]
+  }
+ ],
+ "directory": {
+  "header": "TENANTS",
+  "first_row": 0.29,
+  "row_pitch": 0.038,
+  "names": [
+   {
+    "resident": "transient_guests",
+    "letters": "FURNISHED ROOMS"
+   }
+  ]
+ },
+ "notices": [
+  {
+   "fitting": "NoticeHum",
+   "mail": "notice_hum"
+  },
+  {
+   "fitting": "NoticeHouse",
+   "title": "NOTICE",
+   "body": "This door is kept shut. Callers wait here, and the house operator will ring the tenant. Residents carry their own key after eleven. Do not prop the door, and do not let in anyone you have not been rung about. — Management"
+  }
+ ],
+ "lamps": {
+  "fittings": [
+   {
+    "id": "EntranceLamp",
+    "facade_point": [
+     0.79,
+     2.45,
+     0.0185
+    ],
+    "light": {
+     "color": [
+      1.0,
+      0.86,
+      0.62
+     ],
+     "energy": 1.3,
+     "range": 4.5,
+     "attenuation": 1.5
+    },
+    "stock": "gas_lantern",
+    "flame": [
+     0.0,
+     -0.2,
+     0.33
+    ]
+   },
+   {
+    "id": "VestibuleLamp",
+    "wall": "north",
+    "along": 0.0,
+    "height": 2.45,
+    "light": {
+     "color": [
+      1.0,
+      0.88,
+      0.66
+     ],
+     "energy": 0.85,
+     "range": 3.8,
+     "attenuation": 1.3
+    },
+    "stock": "gas_bracket",
+    "flame": [
+     0.0,
+     -0.132,
+     0.21
+    ]
+   }
+  ]
+ },
+ "gas": {
+  "riser": 2.26,
+  "run_height": 2.8
+ },
+ "frame_stocks": [
+  "gas_pipe_vestibule"
+ ]
+}

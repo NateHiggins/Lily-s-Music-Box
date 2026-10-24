@@ -3,7 +3,9 @@ static var _knob_mesh: Mesh
 static var _hinge_meshes: Dictionary = {}
 ## Reuse production leaves at the semantic opening's hinge, retaining its frame.
 const SPECS := {
-	"F01_INNER_DOOR": {"kind": "apartment_interior", "swing_out": true, "unit": ""},
+	# The vestibule's inner doorway keeps its frame and casings; the leaf came off
+	# at the 1928 reopening and only the empty butts remain on the jamb.
+	"F01_INNER_DOOR": {"kind": "unhung", "swing_out": true, "unit": ""},
 	"F01_REAR_SERVICE_DOOR": {"kind": "service", "swing_out": true, "unit": ""},
 	"F01_SERVICE_CORE_DOOR": {"kind": "service", "swing_out": true, "unit": "", "native_service_joinery": true},
 	"F03_SERVICE_CORE_DOOR": {"kind": "service", "swing_out": true, "unit": "", "native_service_joinery": true},
@@ -68,8 +70,10 @@ func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dict
 		var placeholder := anchor.get_node("Hinge")
 		anchor.remove_child(placeholder)
 		placeholder.free()
-		var door: OrisonV2FittedDoor = (preload("res://scripts/building/orison_v2_vestibule_door.gd").new()
-				if identity=="F01_INNER_DOOR" else OrisonV2FittedDoor.new())
+		if str(specs[identity].kind) == "unhung":
+			_retain_empty_butts(anchor, record)
+			continue
+		var door := OrisonV2FittedDoor.new()
 		if str(record.level)=="ROOF": door.open_stop_degrees=100.0
 		if identity=="B1_SHOP_STAIR_DOOR": door.open_stop_degrees=85.0
 		door.knob_mesh=_knob_mesh
@@ -98,6 +102,27 @@ func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dict
 			if str(specs[identity].get("leaf_notice", "")) == "corrected":
 				_add_corrected_notice(door, hall_side)
 	return true
+
+## An unhung doorway: no leaf and no collision in the aperture. The opening's
+## kind is left on the anchor for the casing owner. The jamb halves of the
+## three original butts stay screwed to the hinge jamb; the leaf was lifted
+## off its pins and the moving halves went with it.
+func _retain_empty_butts(anchor: Node3D, record: Dictionary) -> void:
+	anchor.set_meta("unhung_door_kind", "apartment_interior")
+	var butts := Node3D.new()
+	butts.name = "EmptyButts"
+	butts.position.x = float(record.width) * (0.5 if str(record.hinge) == "right" else -0.5)
+	butts.rotation.y = PI if str(record.hinge) == "right" else 0.0
+	anchor.add_child(butts)
+	var metal := MatLib.get_mat("brass_dull", Color(0.58, 0.52, 0.39))
+	var height := float(record.height)
+	for y in [0.26, height * 0.5, height - 0.26]:
+		var draw := MeshInstance3D.new()
+		draw.name = "JambButt"
+		draw.mesh = _hinge_meshes["FixedFront"]
+		draw.material_override = metal
+		draw.position.y = y
+		butts.add_child(draw)
 
 ## Which leaf face looks into the hall: +1 for the leaf's +z face, -1 for -z,
 ## from the centre of the connected space that is not the vestibule.
