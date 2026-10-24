@@ -99,6 +99,11 @@ Label3D.
 - Godot, windowed: **OrisonV2StreetLampsShot** checks each post, its maps
   and mips, the retired placeholders and the light in each globe, then
   captures the street.
+- The lamps follow the campaign clock (follow-up, 2026-10-24). A
+  `LampClock` node reads `CampaignClock` every four seconds and dims globes
+  and pools together, dusk to dawn with a 25-minute ramp. It shares
+  `OrisonV2StreetTraffic.lamp_factor` and the traffic recipe's times, so
+  street and vehicle lamps go dark together.
 - Not done: the box has no interaction or sound, and the period hum on the
   crossing lamp is deferred. Any merged script or data change expires the V2
   runtime and surface receipts.

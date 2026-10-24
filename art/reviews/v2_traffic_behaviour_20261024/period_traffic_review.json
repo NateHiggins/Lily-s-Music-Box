@@ -1,0 +1,130 @@
+{
+ "checks": [
+  {
+   "label": "production V2 composes the period traffic owner",
+   "ok": true
+  },
+  {
+   "label": "traffic lives in the authored street frame",
+   "ok": true
+  },
+  {
+   "label": "the street starts already in use",
+   "ok": true
+  },
+  {
+   "label": "every traffic surface samples authored UVs with catalogue albedo, normal and roughness maps and mips",
+   "ok": true
+  },
+  {
+   "label": "the carriageway, not the pavement, refuses sleep",
+   "ok": true
+  },
+  {
+   "label": "a horse wagon stops for a person in its lane",
+   "ok": true
+  },
+  {
+   "label": "and stops short of them rather than through them",
+   "ok": true
+  },
+  {
+   "label": "the teamster's whip cracks once as the horse is pulled up; at most two courtesy notes follow",
+   "ok": true
+  },
+  {
+   "label": "the live stream keeps the street populated",
+   "ok": true
+  },
+  {
+   "label": "a cab sounds its Klaxon once and shrieks to a stop for the player; at most two courtesy notes follow",
+   "ok": true
+  },
+  {
+   "label": "the cross streets carry traffic in the middle distance",
+   "ok": true
+  }
+ ],
+ "captures": [
+  "live_east.png",
+  "street_east.png",
+  "signal_traffic.png",
+  "street_west.png",
+  "from_arcade_kerb.png",
+  "hand_signals.png",
+  "hard_stop_from_the_road.png",
+  "toward_east_t.png",
+  "toward_west_t.png"
+ ],
+ "draw_calls": {
+  "street_east": {
+   "with_traffic": 33672.0,
+   "without": 35948.0
+  }
+ },
+ "yield_clearance_m": 1.58098664515096,
+ "yield_warnings": [
+  "traffic.whip_crack",
+  "traffic.whip_crack",
+  "traffic.whip_crack"
+ ],
+ "yield_detail": [
+  {
+   "cue": "traffic.whip_crack",
+   "kind": "ice_wagon",
+   "presented": true,
+   "speed": 3.0,
+   "vehicle": 554865553
+  },
+  {
+   "cue": "traffic.whip_crack",
+   "kind": "ice_wagon",
+   "presented": true,
+   "speed": 0.0,
+   "vehicle": 554865553
+  },
+  {
+   "cue": "traffic.whip_crack",
+   "kind": "ice_wagon",
+   "presented": true,
+   "speed": 0.0,
+   "vehicle": 554865553
+  }
+ ],
+ "live_kinds": [
+  "model_a_tudor",
+  "checker_cab",
+  "model_t_touring",
+  "checker_cab",
+  "model_t_touring"
+ ],
+ "hard_stop_warnings": [
+  "traffic.klaxon",
+  "traffic.brake_shriek",
+  "traffic.klaxon"
+ ],
+ "hard_stop_detail": [
+  {
+   "cue": "traffic.klaxon",
+   "kind": "checker_cab",
+   "presented": true,
+   "speed": 10.0,
+   "vehicle": 969381262
+  },
+  {
+   "cue": "traffic.brake_shriek",
+   "kind": "checker_cab",
+   "presented": true,
+   "speed": 10.0,
+   "vehicle": 969381262
+  },
+  {
+   "cue": "traffic.klaxon",
+   "kind": "checker_cab",
+   "presented": true,
+   "speed": 0.0,
+   "vehicle": 969381262
+  }
+ ],
+ "cross_live": 3
+}

@@ -205298,7 +205298,7 @@
     "_add_batch"
    ],
    "lines": [
-    224
+    271
    ],
    "count": 1,
    "context": [
@@ -205328,7 +205328,7 @@
     "_park"
    ],
    "lines": [
-    243
+    291
    ],
    "count": 1,
    "context": [
@@ -206524,34 +206524,34 @@
    "token": "B1_BOILER_AIR_E"
   },
   {
-   "authority": [
-    "GENERATED_IDENTITY"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "id.capitalize()+\"Control\""
-   ],
-   "count": 1,
-   "disposition": "REGENERATE_CONSUMER",
-   "file": "game/scripts/building/orison_v2_window_treatment.gd",
-   "gameplay_binding": false,
    "key": "d70d5a6602e371f4",
    "kind": "generated_name",
-   "lines": [
-    102
-   ],
-   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
-   "resolved_target": null,
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "token": "_control",
+   "file": "game/scripts/building/orison_v2_window_treatment.gd",
+   "tier": "production",
    "subsystem": "building",
    "symbols": [
     "_control"
    ],
-   "target_exists": null,
-   "tier": "production",
-   "token": "_control"
+   "lines": [
+    158
+   ],
+   "count": 1,
+   "context": [
+    "id.capitalize()+\"Control\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "authority": [
@@ -254347,22 +254347,15 @@
    "token": "_ready"
   },
   {
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "confidence": "MEDIUM",
-   "context": [
-    "[Vector3(-1.5,1.5,-11.6),Vector3(-2.5,1.5,-11.6)],",
-    "[Vector3(1.5,1.5,-11.6),Vector3(2.5,1.5,-11.6)],",
-    "[Vector3(-1.5,1.3,-11.8),Vector3(-1.5,.6,-11.8)]]:",
-    "player.camera.look_at(cell.to_global(Vector3(-1.4,1.1,-11.4)))"
-   ],
-   "count": 9,
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "file": "game/tests/orison_v2_bodega_receiving_route_test.gd",
-   "gameplay_binding": true,
    "key": "0211f330381c92c8",
    "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_bodega_receiving_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
    "lines": [
     27,
     27,
@@ -254370,23 +254363,30 @@
     28,
     31,
     67,
-    94,
-    94,
-    94
+    107,
+    107,
+    107
    ],
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
+   "count": 9,
+   "context": [
+    "[Vector3(-1.5,1.5,-11.6),Vector3(-2.5,1.5,-11.6)],",
+    "[Vector3(1.5,1.5,-11.6),Vector3(2.5,1.5,-11.6)],",
+    "[Vector3(-1.5,1.3,-11.8),Vector3(-1.5,.6,-11.8)]]:",
+    "player.camera.look_at(cell.to_global(Vector3(-1.4,1.1,-11.4)))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
    "spatial": [
     "CAMERA_STATION",
     "RAW_GODOT_COORDINATE"
    ],
-   "subsystem": "tests",
-   "symbols": [
-    "_route"
-   ],
-   "target_exists": null,
-   "tier": "test",
-   "token": "_route"
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "authority": [
@@ -314508,6 +314508,282 @@
    "count": 1,
    "context": [
     "if not await _walk(Vector3(-8.45,9.6,4.35)):return false"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0fbb2551f6865941",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/orison_v2_traffic_behaviour_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    45,
+    169
+   ],
+   "count": 2,
+   "context": [
+    "person.position = Vector3(0, 0, -50)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a084bbb2f46424e7",
+   "kind": "floor_reference",
+   "token": "F04",
+   "file": "game/tests/orison_v2_window_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    22
+   ],
+   "count": 1,
+   "context": [
+    "var level_y: float = world.adapter.root.to_global(Vector3(0.0, float(world.adapter.root.level_y[\"F04\"]), 0.0)).y"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "180d87c58f2ed884",
+   "kind": "id_reference",
+   "token": "F04_B_MAIN_WINDOW_W_N",
+   "file": "game/tests/orison_v2_window_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "const WINDOW_ID := \"F04_B_MAIN_WINDOW_W_N\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9220dbd7caee4524",
+   "kind": "unit_reference",
+   "token": "1A",
+   "file": "game/tests/orison_v2_window_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    76
+   ],
+   "count": 1,
+   "context": [
+    "for wanted in [[\"1A\", \"linen\", true], [\"2A\", \"linen\", false], [\"3D\", \"velour\", false], [\"6C\", \"velour\", true]]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "437e982271c1edef",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/orison_v2_window_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    76
+   ],
+   "count": 1,
+   "context": [
+    "for wanted in [[\"1A\", \"linen\", true], [\"2A\", \"linen\", false], [\"3D\", \"velour\", false], [\"6C\", \"velour\", true]]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "a8220326f149f850",
+   "kind": "unit_reference",
+   "token": "3D",
+   "file": "game/tests/orison_v2_window_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    76,
+    79,
+    80
+   ],
+   "count": 3,
+   "context": [
+    "for wanted in [[\"1A\", \"linen\", true], [\"2A\", \"linen\", false], [\"3D\", \"velour\", false], [\"6C\", \"velour\", true]]:",
+    "_require(actor.fabric == wanted[1] and ((actor._sheers != null) == (wanted[0] != \"3D\"))",
+    "and (actor.sheer_lace == wanted[2] or wanted[0] == \"3D\"),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "4e79473f50e3d5ad",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/tests/orison_v2_window_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    76
+   ],
+   "count": 1,
+   "context": [
+    "for wanted in [[\"1A\", \"linen\", true], [\"2A\", \"linen\", false], [\"3D\", \"velour\", false], [\"6C\", \"velour\", true]]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "3491929911600bf0",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_window_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    85
+   ],
+   "count": 1,
+   "context": [
+    "var at: Vector3 = actor.to_global(Vector3(0.0, 0.0, 1.6))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7c5b6c405936d018",
+   "kind": "vector3_coordinate",
+   "token": "_shot",
+   "file": "game/tests/orison_v2_window_hand_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_shot"
+   ],
+   "lines": [
+    167
+   ],
+   "count": 1,
+   "context": [
+    "player.camera.look_at(_actor.to_global(Vector3(0.0, -0.75, 0.0)))"
    ],
    "gameplay_binding": true,
    "authority": [

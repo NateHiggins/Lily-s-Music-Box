@@ -438,6 +438,71 @@
       "max_instances": 2,
       "caption": "knuckles on a door panel",
       "graph_transmitted": false
+    },
+    "traffic.klaxon": {
+      "stream_key": "klaxon",
+      "purpose": "hazard",
+      "bus": "Hazard",
+      "priority": 86,
+      "volume_db": -4.0,
+      "unit_size": 7.0,
+      "max_distance": 55.0,
+      "cooldown": 1.4,
+      "max_instances": 2,
+      "caption": "Klaxon: ah-oo-gah",
+      "graph_transmitted": false
+    },
+    "traffic.bulb_horn": {
+      "stream_key": "bulb_horn",
+      "purpose": "hazard",
+      "bus": "Hazard",
+      "priority": 84,
+      "volume_db": -6.0,
+      "unit_size": 5.0,
+      "max_distance": 40.0,
+      "cooldown": 1.0,
+      "max_instances": 2,
+      "caption": "bulb horn honks",
+      "graph_transmitted": false
+    },
+    "traffic.foot_gong": {
+      "stream_key": "foot_gong",
+      "purpose": "hazard",
+      "bus": "Hazard",
+      "priority": 84,
+      "volume_db": -6.0,
+      "unit_size": 6.0,
+      "max_distance": 45.0,
+      "cooldown": 1.4,
+      "max_instances": 2,
+      "caption": "bus bell clangs",
+      "graph_transmitted": false
+    },
+    "traffic.brake_shriek": {
+      "stream_key": "brake_shriek",
+      "purpose": "hazard",
+      "bus": "Hazard",
+      "priority": 82,
+      "volume_db": -7.0,
+      "unit_size": 6.0,
+      "max_distance": 45.0,
+      "cooldown": 1.2,
+      "max_instances": 2,
+      "caption": "brakes squeal",
+      "graph_transmitted": false
+    },
+    "traffic.whip_crack": {
+      "stream_key": "whip_crack",
+      "purpose": "hazard",
+      "bus": "Hazard",
+      "priority": 83,
+      "volume_db": -6.0,
+      "unit_size": 5.0,
+      "max_distance": 40.0,
+      "cooldown": 1.4,
+      "max_instances": 2,
+      "caption": "whip cracks",
+      "graph_transmitted": false
     }
   }
 }

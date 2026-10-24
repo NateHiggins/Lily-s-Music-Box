@@ -54,6 +54,7 @@ FINISHES = {
     "hood_cloth": {"catalog_key": "fabric_warm", "tint": [0.10, 0.10, 0.10, 1], "normal": 1., "roughness": 1.},
     "upholstery": {"catalog_key": "fabric_warm", "tint": [0.10, 0.085, 0.075, 1], "normal": .8, "roughness": 1.},
     "wool": {"catalog_key": "fabric_warm", "tint": [0.17, 0.16, 0.17, 1], "normal": 1., "roughness": 1.},
+    "glove": {"catalog_key": "leather_worn", "tint": [0.86, 0.80, 0.68, 1], "normal": .6, "roughness": 1.},
     "skin": {"catalog_key": "linen", "tint": [0.78, 0.60, 0.50, 1], "normal": .4, "roughness": 1.},
     "hide": {"catalog_key": "leather_worn", "tint": [0.42, 0.26, 0.15, 1], "normal": .7, "roughness": 1., "paint": True},
     "hoof": {"catalog_key": "leather_worn", "tint": [0.12, 0.10, 0.09, 1], "normal": 1., "roughness": 1.},
@@ -348,6 +349,14 @@ def horse_leg():
     radii = [(0.12, 0.10), (0.085, 0.07), (0.06, 0.055), (0.045, 0.042), (0.06, 0.055)]
     return {"hide": [skin(pts, [(0, 1), (1, 2), (2, 3), (3, 4)], radii, 1)],
             "hoof": [cyl((0.05, 0, -L + 0.05), 0.07, 0.1, "Z", 10, 0.06)]}
+
+
+def signal_arm():
+    """A driver's left arm out of the window, origin at the shoulder, along +Y."""
+    # A motoring duster's linen sleeve and a pale driving glove: dark wool
+    # vanished against dark coachwork at night, and the signal must read.
+    return {"canvas": [tube([(0, 0, 0), (0.02, 0.3, -0.02), (0.03, 0.56, 0.0)], 0.05, 8)],
+            "glove": [sphere((0.04, 0.64, 0.0), 0.06, (1.1, 1.3, 0.8))]}
 
 
 def seated_figure():
@@ -763,7 +772,7 @@ STOCKS = {
 SHARED = {"wheel_wagon": lambda: wheel_stock("wagon"), "wheel_artillery": lambda: wheel_stock("artillery"),
           "wheel_wire": lambda: wheel_stock("wire"), "wheel_disc": lambda: wheel_stock("disc"),
           "wheel_solid": lambda: wheel_stock("solid"), "horse_body": horse_body, "horse_leg": horse_leg,
-          "figure": seated_figure}
+          "figure": seated_figure, "signal_arm": signal_arm}
 
 # ---------------------------------------------------------------- runtime table
 # Coordinates in this table are Godot vehicle-local: x forward, y up, z right
@@ -864,6 +873,100 @@ for kind in KINDS:
     kind.setdefault("horse", None)
     kind["paint"] = PAINTS[kind["paint"]]
 
+# ---------------------------------------------------------------- behaviour
+# design/V2_TRAFFIC_BEHAVIOUR_2026-10-24.md. Speeds are in-town 1928: motors
+# 15-25 mph (6.7-11.2 m/s), heavy solid-tyred trucks governed near 12 mph,
+# horses at a walk (1.5-2.2) or a jog-trot (2.5-3.5). Braking is mechanical:
+# a Model A with four-wheel brakes stops from 20 mph in about 25 ft dry
+# (5.3 m/s^2), less on wet setts; two-wheel brakes need about twice that.
+CLASSES = [
+    {"id": "horse_heavy", "acceleration": 0.45, "service_brake": 1.1, "panic_brake": 2.6, "reaction": 0.55, "warning": "traffic.whip_crack", "brake": ""},
+    {"id": "horse_light", "acceleration": 0.7, "service_brake": 1.4, "panic_brake": 3.0, "reaction": 0.5, "warning": "traffic.whip_crack", "brake": ""},
+    {"id": "car_four_wheel", "acceleration": 1.1, "service_brake": 1.6, "panic_brake": 4.2, "reaction": 0.9, "warning": "traffic.klaxon", "brake": "traffic.brake_shriek"},
+    {"id": "car_two_wheel", "acceleration": 0.85, "service_brake": 1.2, "panic_brake": 2.4, "reaction": 0.9, "warning": "traffic.klaxon", "brake": "traffic.brake_shriek"},
+    {"id": "taxi", "acceleration": 1.25, "service_brake": 1.8, "panic_brake": 4.2, "reaction": 0.75, "warning": "traffic.klaxon", "brake": "traffic.brake_shriek"},
+    {"id": "light_truck", "acceleration": 0.7, "service_brake": 1.3, "panic_brake": 3.4, "reaction": 1.0, "warning": "traffic.klaxon", "brake": "traffic.brake_shriek"},
+    {"id": "heavy_truck", "acceleration": 0.4, "service_brake": 0.9, "panic_brake": 2.0, "reaction": 1.1, "warning": "traffic.klaxon", "brake": "traffic.brake_shriek"},
+    {"id": "bus", "acceleration": 0.55, "service_brake": 1.2, "panic_brake": 3.0, "reaction": 0.9, "warning": "traffic.foot_gong", "brake": "traffic.brake_shriek"},
+    {"id": "motorcycle", "acceleration": 1.6, "service_brake": 2.0, "panic_brake": 4.5, "reaction": 0.7, "warning": "traffic.bulb_horn", "brake": "traffic.brake_shriek"},
+]
+# kind: class, cruise m/s, schedule pattern, driver's left shoulder (hand signals; None = nobody to signal)
+BEHAVIOUR = {
+    "model_a_tudor": ("car_four_wheel", [7.5, 10.5], "car", (-0.35, 0.80, 1.45)),
+    "broadcast_car": ("car_four_wheel", [6.5, 9.0], "press", (-0.35, 0.80, 1.45)),
+    "model_t_touring": ("car_two_wheel", [6.5, 9.0], "car", (-0.33, 0.62, 1.55)),
+    "checker_cab": ("taxi", [8.0, 11.0], "taxi", (0.10, 0.84, 1.55)),
+    "aa_stake": ("light_truck", [6.0, 8.5], "trade", (0.35, 0.80, 1.70)),
+    "line_truck": ("light_truck", [6.0, 8.0], "service", (0.35, 0.80, 1.70)),
+    "sound_wagon": ("light_truck", [5.0, 7.0], "police", (0.35, 0.80, 1.70)),
+    "mack_ac": ("heavy_truck", [4.5, 6.0], "coal", (0.14, 0.62, 1.99)),
+    "saloon_bus": ("bus", [6.0, 8.0], "bus", (2.60, 1.19, 2.10)),
+    "motorcycle": ("motorcycle", [8.0, 11.0], "car", (-0.25, 0.20, 1.55)),
+    "ice_wagon": ("horse_heavy", [1.5, 2.2], "ice", (1.08, 0.45, 2.08)),
+    "coal_cart": ("horse_heavy", [1.5, 2.1], "coal", (1.03, 0.45, 2.27)),
+    "milk_wagon": ("horse_light", [2.0, 3.2], "milk", (0.81, 0.35, 1.70)),
+    "milk_wagon_riderless": ("horse_light", [1.4, 1.8], "milk", None),
+    "valve_wagon": ("horse_light", [2.5, 3.4], "trade", (0.63, 0.45, 2.02)),
+}
+for kind in KINDS:
+    klass, cruise, pattern, shoulder = BEHAVIOUR[kind["id"]]
+    kind["class"] = klass
+    kind["speed"] = cruise
+    kind["pattern"] = pattern
+    kind["signal_arm"] = W(*shoulder) if shoulder else []
+
+# The block ends at a T at each end; the cross streets carry the middle
+# distance. Street frame x of each cross street's centre line, its half
+# width, lane offset from its centre, and the street's centre z.
+# Measured in V2's registered city (city_shells_registration.json offsets
+# applied to the plan): each end of the block already opens onto a cross
+# street before the building that faces down the street. West: corner masses
+# end at x -61.4, site_far_w stands at -77.8. East: corners end at 63.8,
+# site_far_e stands at 73.8. Asphalt court ground runs through both.
+JUNCTIONS = {"east_x": 68.8, "west_x": -69.6, "center_z": 9.527, "cross_half_width": 4.6,
+             "cross_lane_offset": 1.5, "stop_gap_m": 0.8, "exit_run_m": 11.0,
+             "left_turn_yield_m": 8.0}
+# The cross streets are the busier avenues: well over the side street's flow.
+LOD = {"max_cross_vehicles": 12, "cross_flow_scale": 3.0, "cross_reach_m": 18.0,
+       "detail_x": 24.0, "junction_clear_m": 9.0}
+
+H = lambda *v: list(v)
+# Vehicles per minute, both directions, at multiplier 1: about one every seven seconds.
+SCHEDULE = {
+    "flow_per_minute": 8.5,
+    # Monday first, as CampaignClock.DAY_NAMES.
+    "weekday": H(1.0, 1.0, 1.0, 1.0, 1.05, 0.85, 0.45),
+    "patterns": [
+        {"id": "car", "hours": H(.15, .08, .05, .05, .08, .2, .5, 1., 1.3, 1., .9, .9, 1., .9, .9, 1., 1.2, 1.4, 1.1, .9, .8, .6, .4, .25),
+         "months": H(.85, .85, .95, 1., 1.05, 1.1, 1.1, 1.1, 1.05, 1., .95, .9), "sunday": 1.6},
+        {"id": "taxi", "hours": H(.6, .5, .35, .25, .2, .2, .35, .7, .9, .8, .8, .9, 1., .9, .9, 1., 1.1, 1.2, 1.2, 1.2, 1.2, 1.1, 1., .8),
+         "months": H(1.1, 1.1, 1.05, 1., 1., .95, .9, .9, 1., 1., 1.05, 1.15), "sunday": 1.3},
+        {"id": "trade", "hours": H(0, 0, 0, 0, .1, .4, .9, 1.2, 1.3, 1.3, 1.2, 1., .8, 1., 1.1, 1., .8, .5, .2, .05, 0, 0, 0, 0),
+         "months": H(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.15), "sunday": .1},
+        {"id": "coal", "hours": H(0, 0, 0, 0, .1, .5, 1., 1.3, 1.3, 1.2, 1.1, 1., .7, .8, .8, .7, .4, .2, 0, 0, 0, 0, 0, 0),
+         "months": H(1.6, 1.5, 1.2, .6, .25, .1, .1, .15, .4, 1., 1.4, 1.6), "sunday": 0},
+        {"id": "ice", "hours": H(0, 0, 0, 0, .2, .7, 1.1, 1.3, 1.3, 1.2, 1.1, 1., .8, .6, .5, .4, .3, .1, 0, 0, 0, 0, 0, 0),
+         "months": H(.15, .15, .25, .5, 1., 1.6, 1.8, 1.8, 1.3, .6, .25, .15), "sunday": .3},
+        {"id": "milk", "hours": H(.05, .05, .1, .8, 1.6, 1.8, 1.4, .8, .4, .2, .1, .05, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, .02),
+         "months": H(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "sunday": 2.2},
+        {"id": "bus", "hours": H(.1, .05, 0, 0, .1, .4, .9, 1.2, 1.2, 1., 1., 1., 1., 1., 1., 1., 1.2, 1.2, 1., .8, .6, .5, .3, .2),
+         "months": H(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "sunday": 1.3},
+        {"id": "service", "hours": H(.05, .05, .05, .05, .1, .3, .8, 1.1, 1.2, 1.2, 1.1, 1., .9, 1., 1., .9, .7, .4, .2, .1, .1, .05, .05, .05),
+         "months": H(1.3, 1.3, 1.1, 1, .9, .9, 1, 1.2, 1, 1, 1.1, 1.3), "sunday": .5},
+        {"id": "police", "hours": H(.4, .3, .3, .3, .3, .4, .6, .8, .9, 1., 1., 1., 1., 1., 1., 1., 1., 1., .9, .8, .7, .6, .5, .4),
+         "months": H(1, 1, 1, 1, 1.3, 1, 1, 1, 1.2, 1, 1, 1), "sunday": 2.0},
+        {"id": "press", "hours": H(.3, .2, .1, .1, .1, .2, .4, .6, .7, .8, .8, .9, .9, .9, 1., 1., 1.1, 1.2, 1.3, 1.3, 1.2, 1., .8, .5),
+         "months": H(1, 1, 1, 1, 1, 1, 1, 1, 1, 1.3, 1.2, 1), "sunday": 1.2},
+    ],
+    # The carters' stoppage (Speaker and Record, March 1929): no horse under
+    # the El on Roosevelt Avenue from 6 a.m. on the Ides; the ice and coal came
+    # round by the side streets instead, so this street saw more of them.
+    "events": [{"id": "carters_stoppage", "from": [1929, 3, 15], "to": [1929, 3, 20], "patterns": ["ice", "coal"], "multiplier": 1.8}],
+    # Lamps lit dusk to dawn, local clock minutes (New York; 1929 daylight saving 28 Apr - 29 Sep).
+    "dusk": H(1030, 1065, 1095, 1190, 1220, 1250, 1245, 1210, 1165, 1115, 1020, 1010),
+    "dawn": H(420, 400, 360, 370, 325, 305, 315, 345, 375, 400, 390, 420),
+}
+
 PARKED = [{"stock": "pushcart", "x": -12.4, "z": 5.42, "yaw_degrees": 180.0, "extent": [-1.6, 0.9], "width": 0.9,
            "wheels": wheels("wagon", [[0.75, 0.48], [0.75, -0.48]], 0.45, 0.8), "period": "Peddler's pushcart left at the kerb."}]
 
@@ -905,7 +1008,7 @@ def main():
     scratch.hide_render = True
     scratch.hide_viewport = True
     proof = export(ROOT, FAMILY, exports, material_names_only=True, staged_output=True)
-    runtime_kind_keys = ("id", "stock", "weight", "speed", "paint", "extent", "width", "wheels", "horse", "figures", "voice")
+    runtime_kind_keys = ("id", "stock", "weight", "speed", "paint", "extent", "width", "wheels", "horse", "figures", "voice", "class", "pattern", "signal_arm")
     runtime_finish_keys = ("catalog_key", "tint", "normal", "roughness", "paint", "emission", "albedo_mean")
     table = {
         "schema": "orison.v2.street-traffic.v1",
@@ -913,14 +1016,18 @@ def main():
         "street_instance": "STREET_ORISON_01",
         "stock": "res://assets/props/v2_period_traffic.glb",
         "site": {"road_y": -0.10, "lane_west_z": 7.205, "lane_east_z": 12.005,
-                 "carriageway_z": [4.955, 14.1], "spawn_x": 25.5, "despawn_x": 27.0},
-        "timing": {"max_vehicles": 8, "max_wait": 8.0, "gap_seconds": 3.4, "following_gap_m": 2.2,
-                   "yield_lookahead_m": 7.0, "yield_stop_m": 1.4, "acceleration": 2.2, "braking": 4.5,
-                   "stride_m": 1.7, "leg_swing_degrees": 22.0},
+                 "carriageway_z": [4.955, 14.1], "carriageway_x": 21.0},
+        "timing": {"max_vehicles": 12, "max_wait": 8.0, "following_gap_m": 2.0,
+                   "yield_lookahead_m": 8.0, "yield_stop_m": 1.6, "patience_seconds": 4.0,
+                   "warm_start_seconds": 90.0, "stride_m": 1.7, "leg_swing_degrees": 22.0},
+        "junctions": JUNCTIONS,
+        "lod": LOD,
         "finishes": [dict({"id": fid}, **{k: v for k, v in spec.items() if k in runtime_finish_keys}) for fid, spec in FINISHES.items()],
         "kinds": [{k: kind[k] for k in runtime_kind_keys} for kind in KINDS],
         "parked": [{k: v for k, v in parked.items() if k != "period"} for parked in PARKED],
         "horse_coats": PAINTS["hide"],
+        "classes": CLASSES,
+        "schedule": SCHEDULE,
     }
     out = ROOT / "game/data/orison_v2/exterior/street_traffic.json"
     out.write_text(json.dumps(table, indent=1) + "\n", newline="\n")

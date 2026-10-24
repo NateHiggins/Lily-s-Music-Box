@@ -2,6 +2,11 @@
   "schema": "orison.data-consumption-exceptions.v1",
   "files": {},
   "fields": {
-    "game/data/audio_cues.json:door_knock": "Cue id presented dynamically: AudioPolicy looks every cue up by the id its caller passes (cues[cue_id]), and DoorProp presents interaction.door_knock from a const. Same read shape as every other cue id, which predate the baseline."
+    "game/data/audio_cues.json:door_knock": "Cue id presented dynamically: AudioPolicy looks every cue up by the id its caller passes (cues[cue_id]), and DoorProp presents interaction.door_knock from a const. Same read shape as every other cue id, which predate the baseline.",
+    "game/data/audio_cues.json:klaxon": "Cue id presented dynamically: OrisonV2StreetTraffic presents traffic.klaxon by the id its class record names (street_traffic.json classes[].warning/brake), validated against its WARNING_CUES const; AudioPolicy looks it up by that id (cues[cue_id]).",
+    "game/data/audio_cues.json:bulb_horn": "Cue id presented dynamically: OrisonV2StreetTraffic presents traffic.bulb_horn by the id its class record names (street_traffic.json classes[].warning/brake), validated against its WARNING_CUES const; AudioPolicy looks it up by that id (cues[cue_id]).",
+    "game/data/audio_cues.json:foot_gong": "Cue id presented dynamically: OrisonV2StreetTraffic presents traffic.foot_gong by the id its class record names (street_traffic.json classes[].warning/brake), validated against its WARNING_CUES const; AudioPolicy looks it up by that id (cues[cue_id]).",
+    "game/data/audio_cues.json:brake_shriek": "Cue id presented dynamically: OrisonV2StreetTraffic presents traffic.brake_shriek by the id its class record names (street_traffic.json classes[].warning/brake), validated against its WARNING_CUES const; AudioPolicy looks it up by that id (cues[cue_id]).",
+    "game/data/audio_cues.json:whip_crack": "Cue id presented dynamically: OrisonV2StreetTraffic presents traffic.whip_crack by the id its class record names (street_traffic.json classes[].warning/brake), validated against its WARNING_CUES const; AudioPolicy looks it up by that id (cues[cue_id])."
   }
 }

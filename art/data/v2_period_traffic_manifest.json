@@ -4,8 +4,8 @@
  "design": "design/V2_PERIOD_TRAFFIC_2026-10-24.md",
  "runtime_table": "game/data/orison_v2/exterior/street_traffic.json",
  "export_proof": {
-  "primitives": 167,
-  "triangles": 25004,
+  "primitives": 169,
+  "triangles": 25216,
   "minimum_tangent_agreement": 0.9999999603127512,
   "status": "PASS"
  },
@@ -116,6 +116,7 @@
   "horse_body": 1256,
   "horse_leg": 340,
   "figure": 1258,
+  "signal_arm": 212,
   "ice_wagon": 804,
   "coal_cart": 712,
   "milk_wagon": 732,

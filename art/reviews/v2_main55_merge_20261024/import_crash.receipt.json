@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 349.64,
+  "exit_code": -1073741819,
+  "finished_utc": "2026-10-24T22:10:40Z",
+  "started_utc": "2026-10-24T22:04:49Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/main55_merge/diagnostic_v1/import1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2integration24/main55_merge/diagnostic_v1/import1.log",
+  "stdout_sha256": "0c613d501611606ac751405a1d654e8322180846b3d0438ed2ab1c12a870d8fe"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 2210,
+  "dirty_sample": [
+   "M  art/blender/scripts/build_v2_period_traffic.py",
+   "M  art/blender/scripts/build_v2_street_lamps.py",
+   "M  art/blender/v2_period_traffic.blend",
+   "M  art/blender/v2_street_lamps.blend",
+   "M  art/data/v2_period_traffic_manifest.json",
+   "A  art/reviews/v2_traffic_behaviour_20261024/behaviour.log.receipt.json",
+   "A  art/reviews/v2_traffic_behaviour_20261024/behaviour_checks.txt",
+   "A  art/reviews/v2_traffic_behaviour_20261024/crossing.log.receipt.json",
+   "A  art/reviews/v2_traffic_behaviour_20261024/from_arcade_kerb.png",
+   "A  art/reviews/v2_traffic_behaviour_20261024/hand_signals.png",
+   "A  art/reviews/v2_traffic_behaviour_20261024/hard_stop_from_the_road.png",
+   "A  art/reviews/v2_traffic_behaviour_20261024/live_east.png",
+   "A  art/reviews/v2_traffic_behaviour_20261024/period_traffic_review.json",
+   "A  art/reviews/v2_traffic_behaviour_20261024/shot.log.receipt.json",
+   "A  art/reviews/v2_traffic_behaviour_20261024/signal_traffic.png",
+   "A  art/reviews/v2_traffic_behaviour_20261024/street_east.png",
+   "A  art/reviews/v2_traffic_behaviour_20261024/street_west.png",
+   "A  art/reviews/v2_traffic_behaviour_20261024/toward_east_t.png",
+   "A  art/reviews/v2_traffic_behaviour_20261024/toward_west_t.png",
+   "A  art/reviews/v2_traffic_polish_20261024/behaviour.log.receipt.json"
+  ],
+  "repository_head": "9a1b6043c4d85c6205316aa24df58ee8324bdcc0",
+  "repository_tree": "59c20ee5632fdb8ae08f01bbf00407cd13992ea3",
+  "runtime_inputs_sha256": "b9b38bc73197cef9a63dbeb1639471ef5555b864c5bc4fcf6f53506878857a93",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

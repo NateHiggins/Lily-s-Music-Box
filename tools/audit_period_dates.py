@@ -30,6 +30,9 @@ EXPECTED_CONSUMERS = {
     # The daily papers print the campaign date; the year comes off CampaignClock.
     "game/scripts/game/newspaper_catalog.gd": "authored_campaign_calendar",
     "game/scripts/game/resident_conversations.gd": "authored_campaign_calendar",
+    # Street traffic's dated schedule events (the March 1929 carters' stoppage)
+    # compare the campaign date; the year comes off CampaignClock.
+    "game/scripts/building/orison_v2_street_traffic.gd": "authored_campaign_calendar",
     "game/scripts/minigames/shelf_sort.gd": "player_readable_period_library",
     "game/scripts/songbook/songbook_store.gd": "local_filename_only",
     "game/scripts/ui/bookshelf_panel.gd": "player_readable_period_library",

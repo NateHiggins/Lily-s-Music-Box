@@ -11,20 +11,35 @@
    4.955,
    14.1
   ],
-  "spawn_x": 25.5,
-  "despawn_x": 27.0
+  "carriageway_x": 21.0
  },
  "timing": {
-  "max_vehicles": 8,
+  "max_vehicles": 12,
   "max_wait": 8.0,
-  "gap_seconds": 3.4,
-  "following_gap_m": 2.2,
-  "yield_lookahead_m": 7.0,
-  "yield_stop_m": 1.4,
-  "acceleration": 2.2,
-  "braking": 4.5,
+  "following_gap_m": 2.0,
+  "yield_lookahead_m": 8.0,
+  "yield_stop_m": 1.6,
+  "patience_seconds": 4.0,
+  "warm_start_seconds": 90.0,
   "stride_m": 1.7,
   "leg_swing_degrees": 22.0
+ },
+ "junctions": {
+  "east_x": 68.8,
+  "west_x": -69.6,
+  "center_z": 9.527,
+  "cross_half_width": 4.6,
+  "cross_lane_offset": 1.5,
+  "stop_gap_m": 0.8,
+  "exit_run_m": 11.0,
+  "left_turn_yield_m": 8.0
+ },
+ "lod": {
+  "max_cross_vehicles": 12,
+  "cross_flow_scale": 3.0,
+  "cross_reach_m": 18.0,
+  "detail_x": 24.0,
+  "junction_clear_m": 9.0
  },
  "finishes": [
   {
@@ -394,6 +409,23 @@
    ]
   },
   {
+   "id": "glove",
+   "catalog_key": "leather_worn",
+   "tint": [
+    0.86,
+    0.8,
+    0.68,
+    1
+   ],
+   "normal": 0.6,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5379,
+    0.3153,
+    0.2012
+   ]
+  },
+  {
    "id": "skin",
    "catalog_key": "linen",
    "tint": [
@@ -520,8 +552,8 @@
    "stock": "model_a_tudor",
    "weight": 17,
    "speed": [
-    5.2,
-    7.4
+    7.5,
+    10.5
    ],
    "paint": [
     [
@@ -599,15 +631,22 @@
    ],
    "horse": null,
    "figures": [],
-   "voice": "motor"
+   "voice": "motor",
+   "class": "car_four_wheel",
+   "pattern": "car",
+   "signal_arm": [
+    -0.35,
+    1.45,
+    -0.8
+   ]
   },
   {
    "id": "model_t_touring",
    "stock": "model_t_touring",
    "weight": 13,
    "speed": [
-    4.6,
-    6.6
+    6.5,
+    9.0
    ],
    "paint": [
     [
@@ -676,15 +715,22 @@
      -0.33
     ]
    ],
-   "voice": "motor"
+   "voice": "motor",
+   "class": "car_two_wheel",
+   "pattern": "car",
+   "signal_arm": [
+    -0.33,
+    1.55,
+    -0.62
+   ]
   },
   {
    "id": "checker_cab",
    "stock": "checker_cab",
    "weight": 12,
    "speed": [
-    5.0,
-    7.2
+    8.0,
+    11.0
    ],
    "paint": [
     [
@@ -757,15 +803,22 @@
    ],
    "horse": null,
    "figures": [],
-   "voice": "motor"
+   "voice": "motor",
+   "class": "taxi",
+   "pattern": "taxi",
+   "signal_arm": [
+    0.1,
+    1.55,
+    -0.84
+   ]
   },
   {
    "id": "aa_stake",
    "stock": "aa_stake",
    "weight": 9,
    "speed": [
-    4.4,
-    6.2
+    6.0,
+    8.5
    ],
    "paint": [
     [
@@ -838,15 +891,22 @@
    ],
    "horse": null,
    "figures": [],
-   "voice": "motor"
+   "voice": "motor",
+   "class": "light_truck",
+   "pattern": "trade",
+   "signal_arm": [
+    0.35,
+    1.7,
+    -0.8
+   ]
   },
   {
    "id": "mack_ac",
    "stock": "mack_ac",
    "weight": 5,
    "speed": [
-    3.6,
-    5.0
+    4.5,
+    6.0
    ],
    "paint": [
     [
@@ -915,15 +975,22 @@
      -0.42
     ]
    ],
-   "voice": "heavy"
+   "voice": "heavy",
+   "class": "heavy_truck",
+   "pattern": "coal",
+   "signal_arm": [
+    0.14,
+    1.99,
+    -0.62
+   ]
   },
   {
    "id": "saloon_bus",
    "stock": "saloon_bus",
    "weight": 3,
    "speed": [
-    4.2,
-    5.8
+    6.0,
+    8.0
    ],
    "paint": [
     [
@@ -986,15 +1053,22 @@
    ],
    "horse": null,
    "figures": [],
-   "voice": "heavy"
+   "voice": "heavy",
+   "class": "bus",
+   "pattern": "bus",
+   "signal_arm": [
+    2.6,
+    2.1,
+    -1.19
+   ]
   },
   {
    "id": "motorcycle",
    "stock": "motorcycle",
    "weight": 3,
    "speed": [
-    5.6,
-    7.6
+    8.0,
+    11.0
    ],
    "paint": [
     [
@@ -1053,15 +1127,22 @@
      0
     ]
    ],
-   "voice": "motor"
+   "voice": "motor",
+   "class": "motorcycle",
+   "pattern": "car",
+   "signal_arm": [
+    -0.25,
+    1.55,
+    -0.2
+   ]
   },
   {
    "id": "ice_wagon",
    "stock": "ice_wagon",
    "weight": 9,
    "speed": [
-    2.4,
-    3.4
+    1.5,
+    2.2
    ],
    "paint": [
     [
@@ -1164,15 +1245,22 @@
      -0.25
     ]
    ],
-   "voice": "hooves"
+   "voice": "hooves",
+   "class": "horse_heavy",
+   "pattern": "ice",
+   "signal_arm": [
+    1.08,
+    2.08,
+    -0.45
+   ]
   },
   {
    "id": "coal_cart",
    "stock": "coal_cart",
    "weight": 7,
    "speed": [
-    2.2,
-    3.2
+    1.5,
+    2.1
    ],
    "paint": [
     [
@@ -1270,15 +1358,22 @@
      -0.25
     ]
    ],
-   "voice": "hooves"
+   "voice": "hooves",
+   "class": "horse_heavy",
+   "pattern": "coal",
+   "signal_arm": [
+    1.03,
+    2.27,
+    -0.45
+   ]
   },
   {
    "id": "milk_wagon",
    "stock": "milk_wagon",
    "weight": 6,
    "speed": [
-    2.2,
-    3.0
+    2.0,
+    3.2
    ],
    "paint": [
     [
@@ -1376,15 +1471,22 @@
      -0.15
     ]
    ],
-   "voice": "hooves"
+   "voice": "hooves",
+   "class": "horse_light",
+   "pattern": "milk",
+   "signal_arm": [
+    0.81,
+    1.7,
+    -0.35
+   ]
   },
   {
    "id": "milk_wagon_riderless",
    "stock": "milk_wagon",
    "weight": 1.5,
    "speed": [
-    1.8,
-    2.4
+    1.4,
+    1.8
    ],
    "paint": [
     [
@@ -1476,15 +1578,18 @@
     ]
    },
    "figures": [],
-   "voice": "hooves"
+   "voice": "hooves",
+   "class": "horse_light",
+   "pattern": "milk",
+   "signal_arm": []
   },
   {
    "id": "valve_wagon",
    "stock": "valve_wagon",
    "weight": 3,
    "speed": [
-    2.4,
-    3.2
+    2.5,
+    3.4
    ],
    "paint": [
     [
@@ -1592,15 +1697,22 @@
      -0.25
     ]
    ],
-   "voice": "hooves"
+   "voice": "hooves",
+   "class": "horse_light",
+   "pattern": "trade",
+   "signal_arm": [
+    0.63,
+    2.02,
+    -0.45
+   ]
   },
   {
    "id": "line_truck",
    "stock": "line_truck",
    "weight": 2.5,
    "speed": [
-    4.2,
-    5.8
+    6.0,
+    8.0
    ],
    "paint": [
     [
@@ -1663,15 +1775,22 @@
    ],
    "horse": null,
    "figures": [],
-   "voice": "motor"
+   "voice": "motor",
+   "class": "light_truck",
+   "pattern": "service",
+   "signal_arm": [
+    0.35,
+    1.7,
+    -0.8
+   ]
   },
   {
    "id": "sound_wagon",
    "stock": "sound_wagon",
    "weight": 1.5,
    "speed": [
-    3.8,
-    5.0
+    5.0,
+    7.0
    ],
    "paint": [
     [
@@ -1729,15 +1848,22 @@
    ],
    "horse": null,
    "figures": [],
-   "voice": "motor"
+   "voice": "motor",
+   "class": "light_truck",
+   "pattern": "police",
+   "signal_arm": [
+    0.35,
+    1.7,
+    -0.8
+   ]
   },
   {
    "id": "broadcast_car",
    "stock": "broadcast_car",
    "weight": 1.5,
    "speed": [
-    4.6,
-    6.4
+    6.5,
+    9.0
    ],
    "paint": [
     [
@@ -1795,7 +1921,14 @@
    ],
    "horse": null,
    "figures": [],
-   "voice": "motor"
+   "voice": "motor",
+   "class": "car_four_wheel",
+   "pattern": "press",
+   "signal_arm": [
+    -0.35,
+    1.45,
+    -0.8
+   ]
   }
  ],
  "parked": [
@@ -1859,5 +1992,590 @@
    0.32,
    0.18
   ]
- ]
+ ],
+ "classes": [
+  {
+   "id": "horse_heavy",
+   "acceleration": 0.45,
+   "service_brake": 1.1,
+   "panic_brake": 2.6,
+   "reaction": 0.55,
+   "warning": "traffic.whip_crack",
+   "brake": ""
+  },
+  {
+   "id": "horse_light",
+   "acceleration": 0.7,
+   "service_brake": 1.4,
+   "panic_brake": 3.0,
+   "reaction": 0.5,
+   "warning": "traffic.whip_crack",
+   "brake": ""
+  },
+  {
+   "id": "car_four_wheel",
+   "acceleration": 1.1,
+   "service_brake": 1.6,
+   "panic_brake": 4.2,
+   "reaction": 0.9,
+   "warning": "traffic.klaxon",
+   "brake": "traffic.brake_shriek"
+  },
+  {
+   "id": "car_two_wheel",
+   "acceleration": 0.85,
+   "service_brake": 1.2,
+   "panic_brake": 2.4,
+   "reaction": 0.9,
+   "warning": "traffic.klaxon",
+   "brake": "traffic.brake_shriek"
+  },
+  {
+   "id": "taxi",
+   "acceleration": 1.25,
+   "service_brake": 1.8,
+   "panic_brake": 4.2,
+   "reaction": 0.75,
+   "warning": "traffic.klaxon",
+   "brake": "traffic.brake_shriek"
+  },
+  {
+   "id": "light_truck",
+   "acceleration": 0.7,
+   "service_brake": 1.3,
+   "panic_brake": 3.4,
+   "reaction": 1.0,
+   "warning": "traffic.klaxon",
+   "brake": "traffic.brake_shriek"
+  },
+  {
+   "id": "heavy_truck",
+   "acceleration": 0.4,
+   "service_brake": 0.9,
+   "panic_brake": 2.0,
+   "reaction": 1.1,
+   "warning": "traffic.klaxon",
+   "brake": "traffic.brake_shriek"
+  },
+  {
+   "id": "bus",
+   "acceleration": 0.55,
+   "service_brake": 1.2,
+   "panic_brake": 3.0,
+   "reaction": 0.9,
+   "warning": "traffic.foot_gong",
+   "brake": "traffic.brake_shriek"
+  },
+  {
+   "id": "motorcycle",
+   "acceleration": 1.6,
+   "service_brake": 2.0,
+   "panic_brake": 4.5,
+   "reaction": 0.7,
+   "warning": "traffic.bulb_horn",
+   "brake": "traffic.brake_shriek"
+  }
+ ],
+ "schedule": {
+  "flow_per_minute": 8.5,
+  "weekday": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.05,
+   0.85,
+   0.45
+  ],
+  "patterns": [
+   {
+    "id": "car",
+    "hours": [
+     0.15,
+     0.08,
+     0.05,
+     0.05,
+     0.08,
+     0.2,
+     0.5,
+     1.0,
+     1.3,
+     1.0,
+     0.9,
+     0.9,
+     1.0,
+     0.9,
+     0.9,
+     1.0,
+     1.2,
+     1.4,
+     1.1,
+     0.9,
+     0.8,
+     0.6,
+     0.4,
+     0.25
+    ],
+    "months": [
+     0.85,
+     0.85,
+     0.95,
+     1.0,
+     1.05,
+     1.1,
+     1.1,
+     1.1,
+     1.05,
+     1.0,
+     0.95,
+     0.9
+    ],
+    "sunday": 1.6
+   },
+   {
+    "id": "taxi",
+    "hours": [
+     0.6,
+     0.5,
+     0.35,
+     0.25,
+     0.2,
+     0.2,
+     0.35,
+     0.7,
+     0.9,
+     0.8,
+     0.8,
+     0.9,
+     1.0,
+     0.9,
+     0.9,
+     1.0,
+     1.1,
+     1.2,
+     1.2,
+     1.2,
+     1.2,
+     1.1,
+     1.0,
+     0.8
+    ],
+    "months": [
+     1.1,
+     1.1,
+     1.05,
+     1.0,
+     1.0,
+     0.95,
+     0.9,
+     0.9,
+     1.0,
+     1.0,
+     1.05,
+     1.15
+    ],
+    "sunday": 1.3
+   },
+   {
+    "id": "trade",
+    "hours": [
+     0,
+     0,
+     0,
+     0,
+     0.1,
+     0.4,
+     0.9,
+     1.2,
+     1.3,
+     1.3,
+     1.2,
+     1.0,
+     0.8,
+     1.0,
+     1.1,
+     1.0,
+     0.8,
+     0.5,
+     0.2,
+     0.05,
+     0,
+     0,
+     0,
+     0
+    ],
+    "months": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1.15
+    ],
+    "sunday": 0.1
+   },
+   {
+    "id": "coal",
+    "hours": [
+     0,
+     0,
+     0,
+     0,
+     0.1,
+     0.5,
+     1.0,
+     1.3,
+     1.3,
+     1.2,
+     1.1,
+     1.0,
+     0.7,
+     0.8,
+     0.8,
+     0.7,
+     0.4,
+     0.2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "months": [
+     1.6,
+     1.5,
+     1.2,
+     0.6,
+     0.25,
+     0.1,
+     0.1,
+     0.15,
+     0.4,
+     1.0,
+     1.4,
+     1.6
+    ],
+    "sunday": 0
+   },
+   {
+    "id": "ice",
+    "hours": [
+     0,
+     0,
+     0,
+     0,
+     0.2,
+     0.7,
+     1.1,
+     1.3,
+     1.3,
+     1.2,
+     1.1,
+     1.0,
+     0.8,
+     0.6,
+     0.5,
+     0.4,
+     0.3,
+     0.1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "months": [
+     0.15,
+     0.15,
+     0.25,
+     0.5,
+     1.0,
+     1.6,
+     1.8,
+     1.8,
+     1.3,
+     0.6,
+     0.25,
+     0.15
+    ],
+    "sunday": 0.3
+   },
+   {
+    "id": "milk",
+    "hours": [
+     0.05,
+     0.05,
+     0.1,
+     0.8,
+     1.6,
+     1.8,
+     1.4,
+     0.8,
+     0.4,
+     0.2,
+     0.1,
+     0.05,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0.02
+    ],
+    "months": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "sunday": 2.2
+   },
+   {
+    "id": "bus",
+    "hours": [
+     0.1,
+     0.05,
+     0,
+     0,
+     0.1,
+     0.4,
+     0.9,
+     1.2,
+     1.2,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.2,
+     1.2,
+     1.0,
+     0.8,
+     0.6,
+     0.5,
+     0.3,
+     0.2
+    ],
+    "months": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "sunday": 1.3
+   },
+   {
+    "id": "service",
+    "hours": [
+     0.05,
+     0.05,
+     0.05,
+     0.05,
+     0.1,
+     0.3,
+     0.8,
+     1.1,
+     1.2,
+     1.2,
+     1.1,
+     1.0,
+     0.9,
+     1.0,
+     1.0,
+     0.9,
+     0.7,
+     0.4,
+     0.2,
+     0.1,
+     0.1,
+     0.05,
+     0.05,
+     0.05
+    ],
+    "months": [
+     1.3,
+     1.3,
+     1.1,
+     1,
+     0.9,
+     0.9,
+     1,
+     1.2,
+     1,
+     1,
+     1.1,
+     1.3
+    ],
+    "sunday": 0.5
+   },
+   {
+    "id": "police",
+    "hours": [
+     0.4,
+     0.3,
+     0.3,
+     0.3,
+     0.3,
+     0.4,
+     0.6,
+     0.8,
+     0.9,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.9,
+     0.8,
+     0.7,
+     0.6,
+     0.5,
+     0.4
+    ],
+    "months": [
+     1,
+     1,
+     1,
+     1,
+     1.3,
+     1,
+     1,
+     1,
+     1.2,
+     1,
+     1,
+     1
+    ],
+    "sunday": 2.0
+   },
+   {
+    "id": "press",
+    "hours": [
+     0.3,
+     0.2,
+     0.1,
+     0.1,
+     0.1,
+     0.2,
+     0.4,
+     0.6,
+     0.7,
+     0.8,
+     0.8,
+     0.9,
+     0.9,
+     0.9,
+     1.0,
+     1.0,
+     1.1,
+     1.2,
+     1.3,
+     1.3,
+     1.2,
+     1.0,
+     0.8,
+     0.5
+    ],
+    "months": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1.3,
+     1.2,
+     1
+    ],
+    "sunday": 1.2
+   }
+  ],
+  "events": [
+   {
+    "id": "carters_stoppage",
+    "from": [
+     1929,
+     3,
+     15
+    ],
+    "to": [
+     1929,
+     3,
+     20
+    ],
+    "patterns": [
+     "ice",
+     "coal"
+    ],
+    "multiplier": 1.8
+   }
+  ],
+  "dusk": [
+   1030,
+   1065,
+   1095,
+   1190,
+   1220,
+   1250,
+   1245,
+   1210,
+   1165,
+   1115,
+   1020,
+   1010
+  ],
+  "dawn": [
+   420,
+   400,
+   360,
+   370,
+   325,
+   305,
+   315,
+   345,
+   375,
+   400,
+   390,
+   420
+  ]
+ }
 }

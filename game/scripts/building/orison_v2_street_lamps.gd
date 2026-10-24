@@ -10,6 +10,41 @@ const DATA := "res://data/orison_v2/exterior/street_lamps.json"
 const SCHEMA := "orison.v2.street-lamps.v1"
 
 
+## Lights the lamps from dusk to dawn by the campaign clock, as the city did.
+class LampClock extends Node:
+	## How often the lamps read the campaign clock, in seconds.
+	const CLOCK_PERIOD := 4.0
+	var lights: Array[OmniLight3D] = []
+	var globe: StandardMaterial3D
+	var energy := 1.0
+	var dusk: Array = []
+	var dawn: Array = []
+	## Tests may pin the clock instead of reading the campaign.
+	var clock_override: Dictionary = {}
+	var lit := -1.0
+	var _accum := INF
+
+	func _process(delta: float) -> void:
+		_accum += delta
+		if _accum < CLOCK_PERIOD:
+			return
+		_accum = 0.0
+		refresh()
+
+	func refresh() -> void:
+		var info: Dictionary = clock_override
+		if info.is_empty():
+			info = CampaignClock.new().day_info()
+		if not bool(info.get("valid", true)):
+			return
+		lit = OrisonV2StreetTraffic.lamp_factor(info, dusk, dawn)
+		for light in lights:
+			light.visible = lit > 0.01
+			light.light_energy = energy * lit
+		if globe != null:
+			globe.emission_energy_multiplier = float(globe.get_meta("lamp_energy", 1.0)) * lit
+
+
 static func load_table(path := DATA) -> Dictionary:
 	if not FileAccess.file_exists(path):
 		return {}
@@ -17,9 +52,12 @@ static func load_table(path := DATA) -> Dictionary:
 	if source is not Dictionary or source.get("schema") != SCHEMA \
 			or source.get("frame") != "ORISON_FRONT_DOOR_THRESHOLD":
 		return {}
-	for key: String in ["street_instance", "stock", "globe_local", "post_radius_m", "light", "finishes", "lamps"]:
+	for key: String in ["street_instance", "stock", "globe_local", "post_radius_m", "light", "finishes", "lamps",
+			"dusk", "dawn"]:
 		if not source.has(key):
 			return {}
+	if (source.dusk as Array).size() != 12 or (source.dawn as Array).size() != 12:
+		return {}
 	# Finish records go to the shared stock binder; refuse a malformed one here.
 	for finish: Dictionary in source.finishes:
 		for key: String in ["id", "catalog_key", "tint", "normal", "roughness"]:
@@ -46,6 +84,13 @@ static func mount(world: Node) -> Node3D:
 		lights[str(light.get_meta("authored_record_id", ""))] = light
 	var root := Node3D.new()
 	root.name = "StreetLamps"
+	var clock := LampClock.new()
+	clock.name = "LampClock"
+	clock.globe = materials.get("globe_lit")
+	clock.energy = float(data.light.energy)
+	clock.dusk = data.dusk
+	clock.dawn = data.dawn
+	root.add_child(clock)
 	var globe: Array = data.globe_local
 	var colour: Array = data.light.color_rgb
 	for lamp: Dictionary in data.lamps:
@@ -101,5 +146,7 @@ static func mount(world: Node) -> Node3D:
 		light.light_energy = float(data.light.energy)
 		light.omni_range = float(data.light.range_m)
 		light.shadow_enabled = bool(lamp.shadows)
+		clock.lights.append(light)
 	street.add_child(root)
+	clock.refresh()
 	return root

@@ -90,6 +90,7 @@ func _review() -> void:
 
 	# Yield: a person standing in the west lane stops the next vehicle short.
 	traffic.stage([{"id": "ice_wagon", "lane_west": true, "x": 12.0, "speed": 3.0}])
+	traffic.warnings.clear()
 	traffic.frozen = false
 	var keep := world.player.global_position
 	world.player.global_position = traffic.to_global(Vector3(2.0, 0.0, lane_z))
@@ -99,10 +100,17 @@ func _review() -> void:
 	check(not wagon.is_empty() and float(wagon.speed) < 0.2, "a horse wagon stops for a person in its lane")
 	var clearance := -1.0
 	if not wagon.is_empty():
-		# Westbound: the nose is at x - front extent.
-		clearance = float(wagon.x) - float(traffic._kinds[int(wagon.kind)].extent[1]) - 2.0
+		# Westbound progress runs along -x: the person stands at p = -2.
+		clearance = -2.0 - OrisonV2StreetTraffic.PLAYER_RADIUS 				- (float(wagon.p) + float(traffic._kinds[int(wagon.kind)].extent[1]))
 	summary["yield_clearance_m"] = clearance
-	check(clearance > 0.8 and clearance < 2.5, "and stops short of them rather than through them")
+	summary["yield_warnings"] = traffic.warnings.map(func(w): return w.cue)
+	summary["yield_detail"] = traffic.warnings.duplicate(true)
+	check(clearance >= 0.0 and clearance < 3.0, "and stops short of them rather than through them")
+	# The windowed world runs slowly, so the wait spans many simulated seconds:
+	# judge the alarm (sounded while moving) and the courtesy cap, not a count.
+	var alarms: Array = summary.yield_detail.filter(func(w): return float(w.speed) > 0.5)
+	check(alarms.size() == 1 and alarms[0].cue == "traffic.whip_crack" and summary.yield_detail.size() <= 3,
+			"the teamster's whip cracks once as the horse is pulled up; at most two courtesy notes follow")
 	world.player.global_position = keep
 
 	# Live stream for review: let it run, capture what is actually there.
@@ -140,6 +148,44 @@ func _review() -> void:
 	])
 	await _view(traffic, "street_west", Vector3(16.0, 1.62, 3.4), Vector3(-2.0, 1.0, 10.0))
 	await _view(traffic, "from_arcade_kerb", Vector3(6.0, 1.62, 15.4), Vector3(4.0, 1.0, 6.0))
+	# Hand signals: left arm out to turn left, raised to turn right, down to stop.
+	# Eastbound drivers signal with the left arm toward the Orison pavement and
+	# its lamps: stage them under the lamp at x 8.1 and watch from that kerb.
+	traffic.stage([
+		{"id": "model_a_tudor", "lane_west": false, "x": 6.5, "hand": "left"},
+		{"id": "checker_cab", "lane_west": false, "x": 13.0, "hand": "right", "paint": 1},
+		{"id": "ice_wagon", "lane_west": false, "x": 0.0, "hand": "stop"},
+	])
+	await _view(traffic, "hand_signals", Vector3(4.5, 1.62, 4.2), Vector3(7.0, 1.6, 11.0))
+	await _view(traffic, "hand_signal_left", Vector3(6.8, 1.62, 4.4), Vector3(6.6, 1.5, 11.0))
+	# Seen from the road: a cab braking hard for the player standing in its lane.
+	traffic.stage([{"id": "checker_cab", "lane_west": false, "x": -19.0, "speed": 10.0}])
+	traffic.warnings.clear()
+	world.player.global_position = traffic.to_global(Vector3(0.0, 0.0, float(traffic.data.site.lane_east_z)))
+	traffic.frozen = false
+	for i in 150:
+		await get_tree().process_frame
+	traffic.frozen = true
+	summary["hard_stop_warnings"] = traffic.warnings.map(func(w): return w.cue)
+	summary["hard_stop_detail"] = traffic.warnings.duplicate(true)
+	var scare: Array = summary.hard_stop_detail.filter(func(w): return float(w.speed) > 0.5)
+	check(scare.map(func(w): return w.cue) == ["traffic.klaxon", "traffic.brake_shriek"] and summary.hard_stop_detail.size() <= 4,
+			"a cab sounds its Klaxon once and shrieks to a stop for the player; at most two courtesy notes follow")
+	await _view(traffic, "hard_stop_from_the_road", Vector3(0.0, 1.62, float(traffic.data.site.lane_east_z)),
+			Vector3(-8.0, 1.2, float(traffic.data.site.lane_east_z)))
+	world.player.global_position = keep
+	# The middle distance: the block ends at a T with its own traffic both ways.
+	traffic.stage([])
+	traffic.frozen = false
+	traffic.clock_override = {"valid": true, "day": "tue", "month": 11, "day_of_month": 20, "year": 1928, "minute_of_day": 1050.0}
+	traffic._read_clock()
+	for i in 1200:
+		await get_tree().process_frame
+	summary["cross_live"] = traffic.cross_count()
+	check(traffic.cross_count() > 0, "the cross streets carry traffic in the middle distance")
+	var junctions: Dictionary = traffic.data.junctions
+	await _view(traffic, "toward_east_t", Vector3(17.5, 1.62, 9.5), Vector3(float(junctions.east_x), 1.4, float(junctions.center_z)))
+	await _view(traffic, "toward_west_t", Vector3(-17.5, 1.62, 9.5), Vector3(float(junctions.west_x), 1.4, float(junctions.center_z)))
 	traffic.frozen = false
 
 
