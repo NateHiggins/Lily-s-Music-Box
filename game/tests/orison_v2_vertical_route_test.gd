@@ -137,12 +137,11 @@ func _walk(local_target: Vector3) -> bool:
 	return ok
 
 ## Every street round now passes the same closed production landmark leaf.
-## Grab from outside the real leaf sweep, then walk through the settled opening.
+## The vestibule's inner doorway is unhung; walk through it to the street
+## door, grab from outside the real leaf sweep, then walk through.
 func _leave_front_entrance() -> bool:
-	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65)]:
+	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-10.2)]:
 		if not await _walk(point):return false
-	if not await _open_front_entrance("F01_INNER_DOOR"):return false
-	if not await _walk(Vector3(0,0,-10.2)):return false
 	if not await _open_front_entrance():return false
 	return await _walk(Vector3(0,0,-12.2))
 
@@ -151,7 +150,6 @@ func _enter_front_entrance() -> bool:
 	if not await _walk(Vector3(0,0,-13.15)):return false
 	if not await _open_front_entrance():return false
 	if not await _walk(Vector3(0,0,-10.2)):return false
-	if not await _open_front_entrance("F01_INNER_DOOR"):return false
 	return await _walk(Vector3(0,0,-8.5))
 
 func _open_front_entrance(identity: String="F01_DOOR_06") -> bool:

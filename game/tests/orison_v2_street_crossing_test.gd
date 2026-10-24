@@ -25,7 +25,5 @@ func _route() -> void:
 	for point in [Vector3(0,0,-10.2),Vector3(0,0,-10.6)]:
 		if not await _walk(point):return
 	if not await _close_front_entrance():return
-	for point in [Vector3(0,0,-8.5),Vector3(0,0,-7.65)]:
+	for point in [Vector3(0,0,-8.5),Vector3(0,0,-7.65),Vector3(1.925,0,-6.5)]:
 		if not await _walk(point):return
-	if not await _close_front_entrance("F01_INNER_DOOR"):return
-	if not await _walk(Vector3(1.925,0,-6.5)):return

@@ -45,7 +45,7 @@ class RoofWalker extends "res://tests/orison_v2_roof_route_test.gd":
 
 func _init() -> void:
 	contract_key="owner_building_routes"
-	contract_scope="Existing closed entrance collision and keyboard E round trip, inner vestibule full swing/both approaches/key operations, roof public/service-door approaches, seven-stop passenger lift route with live platform carry, empty-shaft barrier and physical F06 recall. One shared production world; original helpers and inputs; route traces and owner teardown. No save reconstruction."
+	contract_scope="Existing closed entrance collision and keyboard E round trip, unhung vestibule doorway clearance/both approaches, roof public/service-door approaches, seven-stop passenger lift route with live platform carry, empty-shaft barrier and physical F06 recall. One shared production world; original helpers and inputs; route traces and owner teardown. No save reconstruction."
 
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	contract_started=Time.get_ticks_msec()

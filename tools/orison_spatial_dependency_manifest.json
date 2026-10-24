@@ -195986,7 +195986,7 @@
     "mount_specs"
    ],
    "lines": [
-    73
+    77
    ],
    "count": 1,
    "context": [
@@ -196016,7 +196016,7 @@
     "_add_chain_guard"
    ],
    "lines": [
-    225
+    250
    ],
    "count": 1,
    "context": [
@@ -196046,7 +196046,7 @@
     "mount_specs"
    ],
    "lines": [
-    77
+    81
    ],
    "count": 1,
    "context": [
@@ -196076,7 +196076,7 @@
     "<module>"
    ],
    "lines": [
-    31
+    33
    ],
    "count": 1,
    "context": [
@@ -196104,7 +196104,7 @@
     "mount_specs"
    ],
    "lines": [
-    74
+    78
    ],
    "count": 1,
    "context": [
@@ -196129,17 +196129,14 @@
    "tier": "production",
    "subsystem": "building",
    "symbols": [
-    "<module>",
-    "mount_specs"
+    "<module>"
    ],
    "lines": [
-    6,
-    72
+    8
    ],
-   "count": 2,
+   "count": 1,
    "context": [
-    "\"F01_INNER_DOOR\": {\"kind\": \"apartment_interior\", \"swing_out\": true, \"unit\": \"\"},",
-    "if identity==\"F01_INNER_DOOR\" else OrisonV2FittedDoor.new())"
+    "\"F01_INNER_DOOR\": {\"kind\": \"unhung\", \"swing_out\": true, \"unit\": \"\"},"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -196163,7 +196160,7 @@
     "<module>"
    ],
    "lines": [
-    11
+    13
    ],
    "count": 1,
    "context": [
@@ -196191,7 +196188,7 @@
     "<module>"
    ],
    "lines": [
-    12
+    14
    ],
    "count": 1,
    "context": [
@@ -196219,7 +196216,7 @@
     "<module>"
    ],
    "lines": [
-    7
+    9
    ],
    "count": 1,
    "context": [
@@ -196247,7 +196244,7 @@
     "<module>"
    ],
    "lines": [
-    8
+    10
    ],
    "count": 1,
    "context": [
@@ -196275,7 +196272,7 @@
     "<module>"
    ],
    "lines": [
-    10
+    12
    ],
    "count": 1,
    "context": [
@@ -196303,7 +196300,7 @@
     "<module>"
    ],
    "lines": [
-    25
+    27
    ],
    "count": 1,
    "context": [
@@ -196331,7 +196328,7 @@
     "<module>"
    ],
    "lines": [
-    26
+    28
    ],
    "count": 1,
    "context": [
@@ -196359,7 +196356,7 @@
     "<module>"
    ],
    "lines": [
-    24
+    26
    ],
    "count": 1,
    "context": [
@@ -196387,7 +196384,7 @@
     "<module>"
    ],
    "lines": [
-    30
+    32
    ],
    "count": 1,
    "context": [
@@ -196415,7 +196412,7 @@
     "<module>"
    ],
    "lines": [
-    29
+    31
    ],
    "count": 1,
    "context": [
@@ -196443,7 +196440,7 @@
     "<module>"
    ],
    "lines": [
-    27
+    29
    ],
    "count": 1,
    "context": [
@@ -196471,7 +196468,7 @@
     "<module>"
    ],
    "lines": [
-    28
+    30
    ],
    "count": 1,
    "context": [
@@ -196499,7 +196496,7 @@
     "<module>"
    ],
    "lines": [
-    23
+    25
    ],
    "count": 1,
    "context": [
@@ -196529,7 +196526,7 @@
     "<module>"
    ],
    "lines": [
-    17
+    19
    ],
    "count": 1,
    "context": [
@@ -196557,7 +196554,7 @@
     "<module>"
    ],
    "lines": [
-    18
+    20
    ],
    "count": 1,
    "context": [
@@ -196585,7 +196582,7 @@
     "<module>"
    ],
    "lines": [
-    16
+    18
    ],
    "count": 1,
    "context": [
@@ -196613,7 +196610,7 @@
     "<module>"
    ],
    "lines": [
-    38
+    40
    ],
    "count": 1,
    "context": [
@@ -196641,7 +196638,7 @@
     "<module>"
    ],
    "lines": [
-    39
+    41
    ],
    "count": 1,
    "context": [
@@ -196669,7 +196666,7 @@
     "<module>"
    ],
    "lines": [
-    37
+    39
    ],
    "count": 1,
    "context": [
@@ -196697,7 +196694,7 @@
     "<module>"
    ],
    "lines": [
-    15
+    17
    ],
    "count": 1,
    "context": [
@@ -196727,7 +196724,7 @@
     "<module>"
    ],
    "lines": [
-    36
+    38
    ],
    "count": 1,
    "context": [
@@ -196757,7 +196754,7 @@
     "<module>"
    ],
    "lines": [
-    9
+    11
    ],
    "count": 1,
    "context": [
@@ -196785,7 +196782,7 @@
     "<module>"
    ],
    "lines": [
-    22
+    24
    ],
    "count": 1,
    "context": [
@@ -196813,7 +196810,7 @@
     "<module>"
    ],
    "lines": [
-    21
+    23
    ],
    "count": 1,
    "context": [
@@ -196841,7 +196838,7 @@
     "<module>"
    ],
    "lines": [
-    20
+    22
    ],
    "count": 1,
    "context": [
@@ -196869,7 +196866,7 @@
     "<module>"
    ],
    "lines": [
-    35
+    37
    ],
    "count": 1,
    "context": [
@@ -196897,7 +196894,7 @@
     "<module>"
    ],
    "lines": [
-    33
+    35
    ],
    "count": 1,
    "context": [
@@ -196925,7 +196922,7 @@
     "<module>"
    ],
    "lines": [
-    34
+    36
    ],
    "count": 1,
    "context": [
@@ -196953,7 +196950,7 @@
     "<module>"
    ],
    "lines": [
-    19
+    21
    ],
    "count": 1,
    "context": [
@@ -196983,7 +196980,7 @@
     "<module>"
    ],
    "lines": [
-    32
+    34
    ],
    "count": 1,
    "context": [
@@ -197013,7 +197010,7 @@
     "<module>"
    ],
    "lines": [
-    13
+    15
    ],
    "count": 1,
    "context": [
@@ -197041,7 +197038,7 @@
     "<module>"
    ],
    "lines": [
-    14
+    16
    ],
    "count": 1,
    "context": [
@@ -197069,10 +197066,10 @@
     "<module>"
    ],
    "lines": [
-    23,
-    24,
     25,
-    26
+    26,
+    27,
+    28
    ],
    "count": 4,
    "context": [
@@ -197105,10 +197102,10 @@
     "<module>"
    ],
    "lines": [
-    27,
-    28,
     29,
-    30
+    30,
+    31,
+    32
    ],
    "count": 4,
    "context": [
@@ -197141,10 +197138,10 @@
     "<module>"
    ],
    "lines": [
-    15,
-    16,
     17,
-    18
+    18,
+    19,
+    20
    ],
    "count": 4,
    "context": [
@@ -197177,7 +197174,7 @@
     "mount_specs"
    ],
    "lines": [
-    87
+    91
    ],
    "count": 1,
    "context": [
@@ -197207,10 +197204,10 @@
     "<module>"
    ],
    "lines": [
-    19,
-    20,
     21,
-    22
+    22,
+    23,
+    24
    ],
    "count": 4,
    "context": [
@@ -197243,10 +197240,10 @@
     "<module>"
    ],
    "lines": [
-    32,
-    33,
     34,
-    35
+    35,
+    36,
+    37
    ],
    "count": 4,
    "context": [
@@ -198052,6 +198049,36 @@
    "target_exists": true
   },
   {
+   "key": "5f7cfe7d42007132",
+   "kind": "generated_name",
+   "token": "_directory",
+   "file": "game/scripts/building/orison_v2_entry_vestibule.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_directory"
+   ],
+   "lines": [
+    151
+   ],
+   "count": 1,
+   "context": [
+    "\"Unit\" + str(order[i])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "a4145bc597f82a1f",
    "kind": "generated_name",
    "token": "mount",
@@ -198240,7 +198267,7 @@
     "mount"
    ],
    "lines": [
-    71
+    69
    ],
    "count": 1,
    "context": [
@@ -198270,7 +198297,7 @@
     "mount"
    ],
    "lines": [
-    71
+    69
    ],
    "count": 1,
    "context": [
@@ -198300,7 +198327,7 @@
     "mount"
    ],
    "lines": [
-    67
+    65
    ],
    "count": 1,
    "context": [
@@ -203218,7 +203245,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    960
+    962
    ],
    "count": 1,
    "context": [
@@ -203248,8 +203275,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1040,
-    1043
+    1042,
+    1045
    ],
    "count": 2,
    "context": [
@@ -203491,9 +203518,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    954,
-    957,
-    1019
+    956,
+    959,
+    1021
    ],
    "count": 3,
    "context": [
@@ -203525,7 +203552,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    969
+    971
    ],
    "count": 1,
    "context": [
@@ -203555,7 +203582,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    961
+    963
    ],
    "count": 1,
    "context": [
@@ -203585,7 +203612,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    978
+    980
    ],
    "count": 1,
    "context": [
@@ -203645,7 +203672,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    970
+    972
    ],
    "count": 1,
    "context": [
@@ -203855,9 +203882,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1037,
-    1041,
-    1044
+    1039,
+    1043,
+    1046
    ],
    "count": 3,
    "context": [
@@ -204009,7 +204036,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    945
+    947
    ],
    "count": 1,
    "context": [
@@ -204039,7 +204066,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    946
+    948
    ],
    "count": 1,
    "context": [
@@ -204159,7 +204186,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    866
+    868
    ],
    "count": 1,
    "context": [
@@ -204221,7 +204248,7 @@
    ],
    "lines": [
     748,
-    851
+    853
    ],
    "count": 2,
    "context": [
@@ -204252,7 +204279,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    852
+    854
    ],
    "count": 1,
    "context": [
@@ -204402,7 +204429,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1003
+    1005
    ],
    "count": 1,
    "context": [
@@ -204432,7 +204459,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1004
+    1006
    ],
    "count": 1,
    "context": [
@@ -204462,7 +204489,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1005
+    1007
    ],
    "count": 1,
    "context": [
@@ -204492,7 +204519,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1002
+    1004
    ],
    "count": 1,
    "context": [
@@ -204585,8 +204612,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    938,
-    1003
+    940,
+    1005
    ],
    "count": 2,
    "context": [
@@ -204619,8 +204646,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    941,
-    1004
+    943,
+    1006
    ],
    "count": 2,
    "context": [
@@ -204653,8 +204680,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    944,
-    1005
+    946,
+    1007
    ],
    "count": 2,
    "context": [
@@ -204687,8 +204714,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    935,
-    1002
+    937,
+    1004
    ],
    "count": 2,
    "context": [
@@ -204880,7 +204907,7 @@
    ],
    "lines": [
     407,
-    1043
+    1045
    ],
    "count": 2,
    "context": [
@@ -204911,7 +204938,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    904
+    906
    ],
    "count": 1,
    "context": [
@@ -204941,7 +204968,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    905
+    907
    ],
    "count": 1,
    "context": [
@@ -205301,7 +205328,7 @@
     "_add_batch"
    ],
    "lines": [
-    222
+    224
    ],
    "count": 1,
    "context": [
@@ -205331,7 +205358,7 @@
     "_park"
    ],
    "lines": [
-    241
+    243
    ],
    "count": 1,
    "context": [
@@ -261189,6 +261216,126 @@
    "target_exists": null
   },
   {
+   "key": "a6b5f3b5ba64463e",
+   "kind": "id_reference",
+   "token": "F01_DOOR_06",
+   "file": "game/tests/orison_v2_entry_vestibule_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review"
+   ],
+   "lines": [
+    61
+   ],
+   "count": 1,
+   "context": [
+    "var street_door := world.adapter.resolve(\"F01_DOOR_06\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8e029facff136807",
+   "kind": "id_reference",
+   "token": "F01_INNER_DOOR",
+   "file": "game/tests/orison_v2_entry_vestibule_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review"
+   ],
+   "lines": [
+    62
+   ],
+   "count": 1,
+   "context": [
+    "var inner := world.adapter.resolve(\"F01_INNER_DOOR\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5d7a04ffe3b127c5",
+   "kind": "node_path",
+   "token": "F01_DOOR_06_Leaf",
+   "file": "game/tests/orison_v2_entry_vestibule_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review"
+   ],
+   "lines": [
+    63
+   ],
+   "count": 1,
+   "context": [
+    "check(street_door != null and street_door.has_node(\"F01_DOOR_06_Leaf\"),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1253f089b88cfb3a",
+   "kind": "node_path",
+   "token": "F01_INNER_DOOR_Leaf",
+   "file": "game/tests/orison_v2_entry_vestibule_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review"
+   ],
+   "lines": [
+    65
+   ],
+   "count": 1,
+   "context": [
+    "check(inner != null and not inner.has_node(\"Hinge\") and not inner.has_node(\"F01_INNER_DOOR_Leaf\"),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "7ad911edce53c71c",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_v2_blockout.tscn",
@@ -263932,34 +264079,6 @@
    "target_exists": null
   },
   {
-   "key": "b5760fdd419d1414",
-   "kind": "id_reference",
-   "token": "F01_INNER_DOOR",
-   "file": "game/tests/orison_v2_golden_repair_route_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_enter_front_entrance"
-   ],
-   "lines": [
-    122
-   ],
-   "count": 1,
-   "context": [
-    "if not await _open_front_entrance(\"F01_INNER_DOOR\"):return false"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "5ed137ad23303941",
    "kind": "id_reference",
    "token": "F02_DOOR_02",
@@ -263970,7 +264089,7 @@
     "_enter_2a"
    ],
    "lines": [
-    137
+    136
    ],
    "count": 1,
    "context": [
@@ -264064,7 +264183,7 @@
    "lines": [
     119,
     121,
-    123
+    122
    ],
    "count": 3,
    "context": [
@@ -265635,14 +265754,11 @@
     "_route"
    ],
    "lines": [
-    6,
-    62,
-    62
+    7
    ],
-   "count": 3,
+   "count": 1,
    "context": [
-    "var anchor:=world.adapter.resolve(\"F01_INNER_DOOR\") as Node3D",
-    "if DoorKeyring.identity(door)!=\"F01_INNER_DOOR\" or DoorKeyring.book().locks.get(\"F01_INNER_DOOR\",true):"
+    "var anchor:=world.adapter.resolve(\"F01_INNER_DOOR\") as Node3D"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -265666,11 +265782,11 @@
     "_route"
    ],
    "lines": [
-    7
+    8
    ],
    "count": 1,
    "context": [
-    "var door:=anchor.get_node_or_null(\"F01_INNER_DOOR_Leaf\") as DoorProp"
+    "if anchor==null or anchor.has_node(\"Hinge\") or anchor.has_node(\"F01_INNER_DOOR_Leaf\"):"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -282779,34 +282895,6 @@
    "target_exists": null
   },
   {
-   "key": "f30dd4faec731af0",
-   "kind": "id_reference",
-   "token": "F01_INNER_DOOR",
-   "file": "game/tests/orison_v2_street_crossing_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_route"
-   ],
-   "lines": [
-    30
-   ],
-   "count": 1,
-   "context": [
-    "if not await _close_front_entrance(\"F01_INNER_DOOR\"):return"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "f19e90d4ba89fbaa",
    "kind": "vector3_coordinate",
    "token": "_route",
@@ -282829,7 +282917,7 @@
     25,
     28,
     28,
-    31
+    28
    ],
    "count": 13,
    "context": [
@@ -286740,8 +286828,8 @@
     "_close_front_entrance"
    ],
    "lines": [
-    157,
-    160
+    155,
+    158
    ],
    "count": 2,
    "context": [
@@ -286759,36 +286847,6 @@
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F01/marker+v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "2e46f8dab04f0aef",
-   "kind": "id_reference",
-   "token": "F01_INNER_DOOR",
-   "file": "game/tests/orison_v2_vertical_route_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_leave_front_entrance",
-    "_enter_front_entrance"
-   ],
-   "lines": [
-    144,
-    154
-   ],
-   "count": 2,
-   "context": [
-    "if not await _open_front_entrance(\"F01_INNER_DOOR\"):return false"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -286832,9 +286890,9 @@
     "_enter_front_entrance"
    ],
    "lines": [
-    151,
-    153,
-    155
+    150,
+    152,
+    153
    ],
    "count": 3,
    "context": [
@@ -286867,12 +286925,10 @@
     "_leave_front_entrance"
    ],
    "lines": [
-    145,
-    147
+    146
    ],
-   "count": 2,
+   "count": 1,
    "context": [
-    "if not await _walk(Vector3(0,0,-10.2)):return false",
     "return await _walk(Vector3(0,0,-12.2))"
    ],
    "gameplay_binding": true,

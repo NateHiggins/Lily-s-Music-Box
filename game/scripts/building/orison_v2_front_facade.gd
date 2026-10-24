@@ -57,12 +57,10 @@ static func mount(world: Node3D) -> bool:
 	door.position=Vector3(-door.width*.5,0,-reach-.035)
 	door.set_meta("semantic_id","F01_DOOR_06");anchor.add_child(door)
 	var dress:=Marquee.new();dress.position.y=-.72;model.add_child(dress)
-	var plaque:=BuildingEntrySign.new();plaque.position=Vector3(.79,1.58,.032)
-	# The narrow fitted pier receives the original plaque through a smaller
-	# supported face, keeping it clear of both the leaf and broad stone pilaster.
-	plaque.scale=Vector3.ONE*.60;model.add_child(plaque)
+	# The bronze EST. 1928 plaque now hangs inside the entry vestibule. The
+	# gilt transom title takes light rather than giving it.
 	var title:=Label3D.new();title.text="THE ORISON  ·  1928";title.font_size=26;title.pixel_size=.00115
-	title.position=Vector3(0,door.height+.15,.058);title.modulate=Color(.73,.50,.20);model.add_child(title)
+	title.position=Vector3(0,door.height+.15,.058);title.modulate=Color(.73,.50,.20);title.shaded=true;model.add_child(title)
 	var blade:=NeonSignProp.new();var marker: Dictionary=markers.F01_NEON_BLADE
 	blade.name=str(marker.id);blade.prop_type="neon_sign";blade.sign_text=str(marker.text);blade.vertical=bool(marker.vertical)
 	blade.tint=Color(marker.tint[0],marker.tint[1],marker.tint[2])
