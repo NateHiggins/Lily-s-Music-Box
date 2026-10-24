@@ -87,6 +87,17 @@ func _run() -> void:
 	_check("the panel prints three column heads",
 			texts.count("TWO MINUTES' SILENCE: QUEENS TO HOLD ITS BREATH, THEN PLAY IT BACK") == 1
 			and texts.has("ASK THE OPERATOR: 'IS MY HUSBAND AT THE ARCADE?'"))
+	_check("Saturday's Speaker carries the Editor's Chair on Lilith",
+			texts.has("THE EDITOR'S CHAIR") and texts.has("A lady on the line? A menace on the wire!")
+			and texts.has("Barnaby Grail, Editor"))
+	var saturdays := 0
+	for day in catalog.dates:
+		var speaker := catalog.issue("speaker", day)
+		if speaker.has("editorial"):
+			saturdays += 1
+		if catalog.issue("record", day).has("editorial"):
+			saturdays = -1000
+	_check("fifty-three Saturdays of the Speaker carry the editorial, and the Record none", saturdays == 53)
 	panel.close()
 	await get_tree().process_frame
 	var shelf := NewspaperPanel.new()
