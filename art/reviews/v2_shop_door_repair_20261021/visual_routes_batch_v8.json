@@ -1,0 +1,34 @@
+[
+  {
+    "runner": "long",
+    "timeout": 500,
+    "windowed": true,
+    "scene": "res://tests/V2AlcoveReview.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\alcove_final_v3.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\alcove_final_v3"
+  },
+  {
+    "runner": "long",
+    "timeout": 1500,
+    "windowed": true,
+    "scene": "res://tests/V2AreaSurvey.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/area_final.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/area_final"
+  },
+  {
+    "runner": "long",
+    "timeout": 1000,
+    "windowed": true,
+    "scene": "res://tests/V2GoldenRepairProfile.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/golden_final.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/golden_final"
+  },
+  {
+    "runner": "long",
+    "timeout": 800,
+    "windowed": true,
+    "scene": "res://tests/OrisonV2ResponsivenessProfile.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/performance_final.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/performance_final"
+  }
+]

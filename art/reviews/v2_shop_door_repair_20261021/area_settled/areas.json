@@ -1,0 +1,139 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"records": [
+		{
+			"class": "public",
+			"id": "F01_FRONT_STORE_ALCOVE",
+			"images": [
+				"F01_FRONT_STORE_ALCOVE_0.jpg",
+				"F01_FRONT_STORE_ALCOVE_1.jpg",
+				"F01_FRONT_STORE_ALCOVE_2.jpg",
+				"F01_FRONT_STORE_ALCOVE_3.jpg"
+			],
+			"level": "F01",
+			"rect": [
+				5.4,
+				-4.6,
+				8.3,
+				-3.85
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					-8.80999946594238,
+					0.00299996277317405,
+					-7.42500066757202
+				],
+				"floor": "/root/V2AreaSurvey/OrisonV2Runtime/OrisonV2Blockout/F01_SERVICE_HALL/Floor/Collision",
+				"outside_space": true
+			}
+		},
+		{
+			"class": "wet",
+			"id": "F03_B_BATH",
+			"images": [
+				"F03_B_BATH_0.jpg",
+				"F03_B_BATH_1.jpg",
+				"F03_B_BATH_2.jpg",
+				"F03_B_BATH_3.jpg"
+			],
+			"level": "F03",
+			"rect": [
+				13.0,
+				-12.35,
+				15.65,
+				-9.8
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					-14.3249998092651,
+					6.40299940109253,
+					-0.575000464916229
+				],
+				"floor": "/root/V2AreaSurvey/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+			}
+		},
+		{
+			"class": "private",
+			"id": "F03_A_KITCHEN",
+			"images": [
+				"F03_A_KITCHEN_0.jpg",
+				"F03_A_KITCHEN_1.jpg",
+				"F03_A_KITCHEN_2.jpg",
+				"F03_A_KITCHEN_3.jpg"
+			],
+			"level": "F03",
+			"rect": [
+				-15.65,
+				3.1,
+				-10.25,
+				6.2
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					12.9500007629395,
+					6.40299940109253,
+					-16.2999992370605
+				],
+				"floor": "/root/V2AreaSurvey/OrisonV2Runtime/OrisonV2Blockout/F03_A_KITCHEN/Floor/Collision"
+			}
+		},
+		{
+			"class": "private",
+			"id": "F06_B_KITCHEN",
+			"images": [
+				"F06_B_KITCHEN_0.jpg",
+				"F06_B_KITCHEN_1.jpg",
+				"F06_B_KITCHEN_2.jpg",
+				"F06_B_KITCHEN_3.jpg"
+			],
+			"level": "F06",
+			"rect": [
+				-9.3,
+				6.35,
+				-6.5,
+				11.65
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					7.90000200271606,
+					16.0030002593994,
+					-20.6499977111816
+				],
+				"floor": "/root/V2AreaSurvey/OrisonV2Runtime/OrisonV2Blockout/F06_B_KITCHEN/Floor/Collision"
+			}
+		},
+		{
+			"class": "private",
+			"id": "F06_C_STUDIO",
+			"images": [
+				"F06_C_STUDIO_0.jpg",
+				"F06_C_STUDIO_1.jpg",
+				"F06_C_STUDIO_2.jpg",
+				"F06_C_STUDIO_3.jpg"
+			],
+			"level": "F06",
+			"rect": [
+				-5.6,
+				3.85,
+				-2.2,
+				6.35
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					3.90000152587891,
+					16.0030002593994,
+					-16.75
+				],
+				"floor": "/root/V2AreaSurvey/OrisonV2Runtime/OrisonV2Blockout/F06_C_STUDIO/Floor/Collision"
+			}
+		}
+	],
+	"scope": "Four diagnostic camera directions from measured capsule-clear floor poses; fixture placement, no route or interaction grant. Uncaptured areas remain explicit.",
+	"source_resolution": "(1280.0, 720.0)"
+}

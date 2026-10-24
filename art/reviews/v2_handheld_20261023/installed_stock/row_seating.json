@@ -1,0 +1,30 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "checks": [
+    {
+      "mesh": "TypeSelector__Steel",
+      "morph": "LowerSeat",
+      "vertices": 5026,
+      "maximum_delta_m": 0.00019949800353256787
+    },
+    {
+      "mesh": "TypeSelector__Steel",
+      "morph": "UpperSeat",
+      "vertices": 5023,
+      "maximum_delta_m": 0.00019949934346101986
+    },
+    {
+      "mesh": "TypeSelector__TypeEmboss",
+      "morph": "LowerSeat",
+      "vertices": 64,
+      "maximum_delta_m": 0.00019887904037203108
+    },
+    {
+      "mesh": "TypeSelector__TypeEmboss",
+      "morph": "UpperSeat",
+      "vertices": 64,
+      "maximum_delta_m": 0.0001988791378634485
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE HAND CHECK: production cabinet installer mounts = true
+FIRE HAND CHECK: 135-ring separate round hose prepares before input = true
+CAP MAPPING: mesh=v2_unracked_fire_hose_UnrackedHose valid_basis=true max_uv_excess=0.00000006705523 widest=1.00002459646573 vertices=19348 derivatives=true bad_derivatives=0 min_determinant=0.00000724698455 worst_dot=0.99999982118607
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: isolated following camera has no physical player capsule in the hose route = true
+FIRE HAND CHECK: native annular world queries and short solver initialize = true
+FIRE HAND CHECK: optional local numerical seed prepares before input = true
+FIRE HAND CHECK: stored representation has no running hose simulation = true
+UNRACKED READY: setup_ms=49.546 initial_placement_clear=true collider=none
+FIRE HAND CHECK: actual nozzle surface targets the rack extraction owner = true
+FIRE HAND CHECK: primary click grabs without removing or moving the stored hose = true
+FIRE HAND CHECK: a real distant obstruction prevents the representation swap = true
+UNRACKED EXTRACTION: deployed=true distance=0.2 error= collider=none
+FIRE HAND CHECK: actual mouse pull replaces stored stock with full-length round hose = true
+FIRE HAND CHECK: second click releases extraction = true
+FIRE HAND CHECK: unracked nozzle remains the actual carry target = true
+FIRE HAND CHECK: regrabbing the actual unracked nozzle does not snap the hose = true
+FIRE HAND CHECK: actual unracked mouse carry moves the full material without stretching or world penetration = true
+UNRACKED CARRY: moved=0.20992004871368 error= input_ms=[8.028, 7.986, 7.76, 7.612, 7.621, 7.403, 7.608, 7.708, 7.446, 7.373, 7.557, 7.721, 7.574, 7.824, 7.78, 7.436]
+FIRE HAND CHECK: carry blocker begins outside the accepted hose without stealing the held sightline = true
+UNRACKED BLOCK: direction=(1.0, 0.0, 0.0) wall=[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.189795, 1.14597, 0.525146)] delta=(0.013349, -0.021722, 0.028778) error=nozzle obstructed feedback=blocked clear=true
+FIRE HAND CHECK: actual nozzle carry retains physical obstruction protection = true
+FIRE HAND CHECK: reticle reads blocked carry from the same accepted motion state = true
+FIRE HAND CHECK: second click cancels pending hose carry and preserves its accepted pose = true
+FIRE HAND CHECK: uncharged native hose is a flat ribbon with unchanged longitudinal scale = true
+FIRE HAND CHECK: empty uncharged hose performs no resting fluid or cloth tick = true
+FIRE HAND CHECK: native hose section render saved: flat_native_stock = true
+FIRE HAND CHECK: actual grabbed tag enters water-control inspection = true
+FIRE HAND CHECK: actual mouse closes nozzle lever before charging = true
+FIRE HAND CHECK: actual grab and mouse rotation open the separate supply valve = true
+HOSE CHARGE: { "fill": 1.0, "pressure": 0.99999999868141 } supply=12.5663705978223 lever=-0.00000000593869 ticks=60
+FIRE HAND CHECK: closed nozzle can hold a full charge without spraying = true
+FIRE HAND CHECK: charging rounds the native hose without changing its length axis = true
+FIRE HAND CHECK: stable charged hose stops CPU fluid and cloth callbacks = true
+FIRE HAND CHECK: native hose section render saved: round_native_stock = true
+FIRE HAND CHECK: actual separate nozzle lever starts water spray = true
+FIRE HAND CHECK: open lever emits water only through the charged nozzle = true
+FIRE HAND CHECK: water spray retains the registered UV-based custom water finish = true
+FIRE HAND CHECK: spray PBR map has its loaded mip chain = true
+FIRE HAND CHECK: spray PBR map has its loaded mip chain = true
+FIRE HAND CHECK: spray PBR map has its loaded mip chain = true
+FIRE HAND CHECK: charged spray and round hose are captured = true
+FIRE HAND CHECK: actual supply valve closure is independent of nozzle lever = true
+FIRE HAND CHECK: open nozzle drains the isolated hose and stops spray = true
+FIRE HAND CHECK: drained hose lies flat without resting simulation = true
+FIRE HAND CHECK: charging and spraying do not certify or fabricate gasket inspection = true
+FIRE HAND CHECK: actual supply operation exercises the missing-gasket denial = true
+FIRE HAND CHECK: missing gasket prevents hose charging and nozzle spray = true
+FIRE HAND CHECK: actual supply input returns the denied line to shut = true
+V2 UNRACKED HOSE: PASS failures=0

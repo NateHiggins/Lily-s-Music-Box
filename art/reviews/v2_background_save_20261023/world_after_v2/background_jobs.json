@@ -1,0 +1,378 @@
+{
+	"evidence_class": "INERT",
+	"final_status": {
+		"completed": 14,
+		"discarded": 0,
+		"pending": 0,
+		"requested": 14
+	},
+	"route_jobs": [
+		{
+			"bytes": 272311,
+			"finished_usec": 136530892,
+			"id": 1,
+			"main_usec": 8454,
+			"pending": 1,
+			"physics_frame": 457,
+			"process_frame": 217,
+			"stage": "enqueue",
+			"started_usec": 136522438
+		},
+		{
+			"adopted_usec": 136569681,
+			"id": 1,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 136553673,
+				"worker_main_thread": false,
+				"worker_started_usec": 136531096,
+				"worker_usec": 22577
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272530,
+			"finished_usec": 139220850,
+			"id": 2,
+			"main_usec": 8292,
+			"pending": 1,
+			"physics_frame": 617,
+			"process_frame": 287,
+			"stage": "enqueue",
+			"started_usec": 139212558
+		},
+		{
+			"adopted_usec": 139271426,
+			"id": 2,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 139258716,
+				"worker_main_thread": false,
+				"worker_started_usec": 139221012,
+				"worker_usec": 37704
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272523,
+			"finished_usec": 139433856,
+			"id": 3,
+			"main_usec": 8253,
+			"pending": 1,
+			"physics_frame": 630,
+			"process_frame": 292,
+			"stage": "enqueue",
+			"started_usec": 139425603
+		},
+		{
+			"bytes": 272351,
+			"finished_usec": 139463176,
+			"id": 4,
+			"main_usec": 7980,
+			"pending": 2,
+			"physics_frame": 630,
+			"process_frame": 292,
+			"stage": "enqueue",
+			"started_usec": 139455197
+		},
+		{
+			"adopted_usec": 139480689,
+			"id": 3,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 139465303,
+				"worker_main_thread": false,
+				"worker_started_usec": 139434032,
+				"worker_usec": 31271
+			},
+			"stage": "completed"
+		},
+		{
+			"adopted_usec": 139535053,
+			"id": 4,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 139513903,
+				"worker_main_thread": false,
+				"worker_started_usec": 139480902,
+				"worker_usec": 33001
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272382,
+			"finished_usec": 141371926,
+			"id": 5,
+			"main_usec": 8281,
+			"pending": 1,
+			"physics_frame": 746,
+			"process_frame": 333,
+			"stage": "enqueue",
+			"started_usec": 141363645
+		},
+		{
+			"adopted_usec": 141425905,
+			"id": 5,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 141404690,
+				"worker_main_thread": false,
+				"worker_started_usec": 141372084,
+				"worker_usec": 32606
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272351,
+			"finished_usec": 142996804,
+			"id": 6,
+			"main_usec": 8442,
+			"pending": 1,
+			"physics_frame": 843,
+			"process_frame": 378,
+			"stage": "enqueue",
+			"started_usec": 142988362
+		},
+		{
+			"adopted_usec": 143041560,
+			"id": 6,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 143031169,
+				"worker_main_thread": false,
+				"worker_started_usec": 142996963,
+				"worker_usec": 34206
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272473,
+			"finished_usec": 145529895,
+			"id": 7,
+			"main_usec": 8198,
+			"pending": 1,
+			"physics_frame": 997,
+			"process_frame": 443,
+			"stage": "enqueue",
+			"started_usec": 145521698
+		},
+		{
+			"adopted_usec": 145580146,
+			"id": 7,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 145562151,
+				"worker_main_thread": false,
+				"worker_started_usec": 145530065,
+				"worker_usec": 32086
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272504,
+			"finished_usec": 145739901,
+			"id": 8,
+			"main_usec": 8322,
+			"pending": 1,
+			"physics_frame": 1008,
+			"process_frame": 447,
+			"stage": "enqueue",
+			"started_usec": 145731580
+		},
+		{
+			"adopted_usec": 145794473,
+			"id": 8,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 145773663,
+				"worker_main_thread": false,
+				"worker_started_usec": 145740053,
+				"worker_usec": 33610
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272473,
+			"finished_usec": 152156928,
+			"id": 9,
+			"main_usec": 8424,
+			"pending": 1,
+			"physics_frame": 1388,
+			"process_frame": 610,
+			"stage": "enqueue",
+			"started_usec": 152148505
+		},
+		{
+			"adopted_usec": 152211316,
+			"id": 9,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 152190574,
+				"worker_main_thread": false,
+				"worker_started_usec": 152157105,
+				"worker_usec": 33469
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272342,
+			"finished_usec": 152806700,
+			"id": 10,
+			"main_usec": 8425,
+			"pending": 1,
+			"physics_frame": 1428,
+			"process_frame": 626,
+			"stage": "enqueue",
+			"started_usec": 152798275
+		},
+		{
+			"adopted_usec": 152882447,
+			"id": 10,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 152838855,
+				"worker_main_thread": false,
+				"worker_started_usec": 152806865,
+				"worker_usec": 31990
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272329,
+			"finished_usec": 154691856,
+			"id": 11,
+			"main_usec": 8175,
+			"pending": 1,
+			"physics_frame": 1541,
+			"process_frame": 664,
+			"stage": "enqueue",
+			"started_usec": 154683681
+		},
+		{
+			"adopted_usec": 154824621,
+			"id": 11,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 154725278,
+				"worker_main_thread": false,
+				"worker_started_usec": 154692009,
+				"worker_usec": 33269
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272338,
+			"finished_usec": 159166115,
+			"id": 12,
+			"main_usec": 8377,
+			"pending": 1,
+			"physics_frame": 1810,
+			"process_frame": 772,
+			"stage": "enqueue",
+			"started_usec": 159157738
+		},
+		{
+			"adopted_usec": 159222506,
+			"id": 12,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 159198801,
+				"worker_main_thread": false,
+				"worker_started_usec": 159166278,
+				"worker_usec": 32523
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272339,
+			"finished_usec": 159504165,
+			"id": 13,
+			"main_usec": 8274,
+			"pending": 1,
+			"physics_frame": 1823,
+			"process_frame": 775,
+			"stage": "enqueue",
+			"started_usec": 159495891
+		},
+		{
+			"adopted_usec": 159535275,
+			"id": 13,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 159535006,
+				"worker_main_thread": false,
+				"worker_started_usec": 159504340,
+				"worker_usec": 30666
+			},
+			"stage": "completed"
+		}
+	],
+	"route_status": {
+		"completed": 13,
+		"discarded": 0,
+		"pending": 0,
+		"requested": 13
+	},
+	"scope": "Same timed route; optional untimed large-payload mouse-overlap control. Main-thread serialization remains. Route-only controls do not rebuild. No runtime_contract or human acceptance.",
+	"synchronous_control": false,
+	"untimed_overlap": {
+		"camera_turned": true,
+		"input_usec": 22,
+		"mouse_mode": 2,
+		"payload_bytes": 3220000,
+		"worker_alive_after": true,
+		"worker_alive_before": true
+	}
+}

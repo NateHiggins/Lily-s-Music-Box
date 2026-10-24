@@ -1,0 +1,95 @@
+Info: Saved as "service_radiophone_v2.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+07:29:34 | INFO: Starting glTF 2.0 export
+07:29:34 | INFO: Extracting primitive: Aerial__Brass
+07:29:34 | INFO: Primitives created: 1
+07:29:34 | INFO: Extracting primitive: Aerial__Steel
+07:29:34 | INFO: Primitives created: 1
+07:29:34 | INFO: Extracting primitive: Carriage__Brass
+07:29:34 | INFO: Primitives created: 1
+07:29:34 | INFO: Extracting primitive: Type_hammer__Brass
+07:29:34 | INFO: Primitives created: 1
+07:29:34 | INFO: Extracting primitive: FeedWheel0__Brass
+07:29:34 | INFO: Primitives created: 1
+07:29:34 | INFO: Extracting primitive: FeedWheel0__Steel
+07:29:34 | INFO: Primitives created: 1
+07:29:34 | INFO: Extracting primitive: FeedWheel1__Brass
+07:29:34 | INFO: Primitives created: 1
+07:29:34 | INFO: Extracting primitive: FeedWheel1__Steel
+07:29:34 | INFO: Primitives created: 1
+07:29:34 | INFO: Extracting primitive: Fixed__Brass
+07:29:34 | INFO: Primitives created: 1
+07:29:34 | INFO: Extracting primitive: Fixed__Case
+07:29:34 | INFO: Primitives created: 1
+07:29:34 | INFO: Extracting primitive: Fixed__Leather
+07:29:34 | INFO: Primitives created: 1
+07:29:34 | INFO: Extracting primitive: Fixed__Paper
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: Fixed__Porcelain
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: Fixed__Rubber
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: Fixed__Steel
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: FocusWheel__Brass
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: FocusWheel__Steel
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: LampJewel
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: LampSwitch__Case
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: LampSwitch__Steel
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: NetJewel
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: OrderJewel
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: Paper
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: Platen__Rubber
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: RadioSwitch__Case
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: RadioSwitch__Steel
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: ReturnBand__Steel
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: ServiceCover__Brass
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: ServiceCover__Case
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: SupplySpool__Brass
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: SupplySpool__Rubber
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: SupplySpool__Steel
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: TakeupSpool__Brass
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: TakeupSpool__Rubber
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: TakeupSpool__Steel
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Extracting primitive: TorchLens
+07:29:35 | INFO: Primitives created: 1
+07:29:35 | INFO: Finished glTF 2.0 export in 0.4154202938079834 s
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_service_radiophone_v2.py:405: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Review ink');mat.use_nodes=True
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_service_radiophone_v2.py:430: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral review');scene.world.use_nodes=True
+00:13.938  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\mechanical_joins\front.png'
+00:22.032  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\mechanical_joins\service.png'
+00:29.313  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\mechanical_joins\back.png'
+00:38.485  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\mechanical_joins\printer.png'
+00:50.985  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\mechanical_joins\lamp.png'
+
+HANDHELD NATIVE REVIEW C front 36 25120
+HANDHELD NATIVE REVIEW C service 36 25120
+HANDHELD NATIVE REVIEW C back 36 25120
+HANDHELD NATIVE REVIEW C printer 36 25120
+HANDHELD NATIVE REVIEW C lamp 36 25120
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

@@ -1,0 +1,130 @@
+{
+  "evidence_class": "INERT",
+  "kind": "paired_capture_overhead_diagnostic",
+  "settings": {
+    "renderer": "Forward+",
+    "resolution": [
+      1280,
+      720
+    ],
+    "vsync": false,
+    "max_fps": 0
+  },
+  "production_change": false,
+  "order": [
+    "capture_control",
+    "captures_enabled"
+  ],
+  "note": "The first directory name is historical: its frames.json capture_control=false is authoritative. A read-only audit ran during first startup and was terminated before runtime-ready and timed sampling. No audit ran during either timed route. Driver/cache state was not reset. Diagnostic frame samples are not runtime-contract or input-to-photon proof.",
+  "runs": {
+    "capture_control": {
+      "capture_enabled": false,
+      "frames": 3505,
+      "quantiles_ms": {
+        "p50": 30.838,
+        "p95": 65.58,
+        "p99": 102.684,
+        "max": 264.085
+      },
+      "over_100ms": 37,
+      "over_250ms": 1,
+      "failures": [],
+      "frames_sha256": "64fbd5d410279bd245268ef03a1649646385b944c3e561efedb52eedf7ae5754",
+      "capture_stages": [],
+      "phases": {
+        "use_hardware_counter": {
+          "frames": 6,
+          "max_ms": 81.162
+        },
+        "use_hardware_counter_repeat": {
+          "frames": 6,
+          "max_ms": 68.206
+        },
+        "use_physical_mina_complaint": {
+          "frames": 52,
+          "max_ms": 51.363
+        }
+      },
+      "wrapper_receipt": "art/reviews/v2_counter_hitch_20261021/capture_control.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 275.44,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T18:35:58Z",
+        "started_utc": "2026-10-21T18:31:22Z",
+        "timed_out": false
+      },
+      "script_errors": 0
+    },
+    "captures_enabled": {
+      "capture_enabled": true,
+      "frames": 3506,
+      "quantiles_ms": {
+        "p50": 31.448,
+        "p95": 65.806,
+        "p99": 122.468,
+        "max": 351.058
+      },
+      "over_100ms": 45,
+      "over_250ms": 6,
+      "failures": [],
+      "frames_sha256": "eae079f9477c38088207f33d714478d9d215c8f235a946a3a3f2085f06ff66ba",
+      "capture_stages": [
+        {
+          "label": "physical_mina_complaint",
+          "png_ms": 207.036,
+          "readback_ms": 13.195
+        },
+        {
+          "label": "mina_complaint_open",
+          "png_ms": 188.291,
+          "readback_ms": 13.183
+        },
+        {
+          "label": "listening_head_inspection",
+          "png_ms": 195.368,
+          "readback_ms": 11.178
+        },
+        {
+          "label": "hardware_counter",
+          "png_ms": 258.68,
+          "readback_ms": 17.996
+        },
+        {
+          "label": "hardware_counter_repeat",
+          "png_ms": 252.051,
+          "readback_ms": 23.637
+        },
+        {
+          "label": "listening_head_repair",
+          "png_ms": 186.7,
+          "readback_ms": 11.526
+        }
+      ],
+      "phases": {
+        "use_hardware_counter": {
+          "frames": 6,
+          "max_ms": 349.343
+        },
+        "use_hardware_counter_repeat": {
+          "frames": 6,
+          "max_ms": 351.058
+        },
+        "use_physical_mina_complaint": {
+          "frames": 51,
+          "max_ms": 255.789
+        }
+      },
+      "wrapper_receipt": "art/reviews/v2_counter_hitch_20261021/captures_enabled.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 271.12,
+        "exit_code": 0,
+        "finished_utc": "2026-10-21T18:40:31Z",
+        "started_utc": "2026-10-21T18:35:59Z",
+        "timed_out": false
+      },
+      "script_errors": 0
+    }
+  }
+}

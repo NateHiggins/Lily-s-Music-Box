@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "asset": "res://tests/fixtures/v2_fire_capacity_rack.glb",
+  "parts": {
+    "Shaft": "iron",
+    "EndNut": "brass",
+    "MountBracket": "iron",
+    "MountScrew": "iron",
+    "CarrierArm": "brass"
+  },
+  "materials": {
+    "iron": {
+      "catalog_key": "fire_hardware_steel",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 1.0,
+      "roughness": 1.0,
+      "metallic": 0.88
+    },
+    "brass": {
+      "catalog_key": "radiator_service_brass",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 1.0,
+      "roughness": 1.0,
+      "metallic": 0.92
+    }
+  },
+  "pivot_y_m": 0.666,
+  "pivot_z_m": 0.032,
+  "tip_local_m": [
+    0,
+    0.014,
+    0.068
+  ],
+  "carrier_x_m": [
+    -0.264,
+    -0.23450000000000001,
+    -0.20500000000000002,
+    -0.17550000000000002,
+    -0.14600000000000002,
+    -0.11650000000000002,
+    -0.08700000000000002,
+    -0.05750000000000002,
+    -0.028000000000000025,
+    0.0014999999999999458,
+    0.030999999999999972,
+    0.0605,
+    0.08999999999999997
+  ],
+  "bracket_x_m": [
+    -0.279,
+    0.103
+  ]
+}

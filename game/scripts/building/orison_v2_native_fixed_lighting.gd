@@ -60,7 +60,7 @@ func install_on(prop: LightFixtureProp) -> bool:
 	var source_visuals: Array[Node] = []
 	var stained: Material
 	for child: Node in prop._swing_node.get_children():
-		if child is MeshInstance3D and child != prop._halo:
+		if child is MeshInstance3D:
 			source_visuals.append(child)
 			if str(child.name).to_lower().contains("stained") or str(child.name).to_lower().contains("prismatic"):
 				stained = (child as MeshInstance3D).get_active_material(0)
@@ -68,7 +68,7 @@ func install_on(prop: LightFixtureProp) -> bool:
 	if _variants[variant].any(func(part): return part.component == "Stained") and stained == null: return false
 	prop.set_meta("v2_source_light_snapshot", {"actor_pose":prop.transform,
 		"light":prop.light.get_instance_id(), "bounce":prop.bounce.get_instance_id(),
-		"bulb_material":prop._bulb_mat.get_instance_id(), "halo":prop._halo.get_instance_id(),
+		"bulb_material":prop._bulb_mat.get_instance_id(), "halo":0,
 		"swing":prop._swing_node.get_instance_id(), "light_pose":prop.light.transform,
 		"bounce_pose":prop.bounce.transform,
 		"base_energy":prop._base_energy, "range":prop.light.omni_range,
@@ -101,12 +101,12 @@ func install_on(prop: LightFixtureProp) -> bool:
 			draw.material_override = prop._bulb_mat
 		elif part.component == "Stained": draw.material_override = stained
 		(prop if part.component == "Mount" else prop._swing_node).add_child(draw)
-	# Bound the local optical halo to this small globe beside the medicine mirror.
-	# The original halo object, gradient, light energy and circuit remain owners.
-	if identity == "3B_LT_SCONCE":
-		var halo_mesh := prop._halo.mesh.duplicate() as QuadMesh
-		halo_mesh.size = Vector2(.205, .205)
-		prop._halo.mesh = halo_mesh
+	if identity == "3B_LT_SCONCE" and variant == "bath_bell_over_mirror":
+		# The original actor/circuit remains. Its presentation now seats on
+		# the basin wall above the mirror; aim the emitter inside that shade.
+		prop.light.position=Vector3(-.150,.058,0)
+		prop.bounce.position=_offsets[identity]+Vector3(-.150,-.142,0)
+		prop.envelope_gain=.28
 	# Single-face architectural slab undersides otherwise self-shadow in bands.
 	# Match the rendered native-front policy; keep energy, range and biases.
 	prop.light.shadow_reverse_cull_face = true

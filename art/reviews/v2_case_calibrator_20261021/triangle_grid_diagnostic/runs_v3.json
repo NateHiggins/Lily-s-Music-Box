@@ -1,0 +1,22 @@
+[
+  {
+    "scene": "",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/parse_v3.log",
+    "runner": "serial",
+    "timeout": 60,
+    "windowed": false,
+    "extra_args": [
+      "--check-only",
+      "--script",
+      "res://tests/v2_triangle_grid_stair_profile_v3.gd"
+    ]
+  },
+  {
+    "scene": "res://tests/V2TriangleGridStairProfileV3.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair_v3.log",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair_v3"
+  }
+]

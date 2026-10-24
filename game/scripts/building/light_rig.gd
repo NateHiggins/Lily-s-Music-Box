@@ -101,8 +101,8 @@ var _accum := 0.0
 # thin; the building is meant to be dark, not dim.
 # Raised again to 0.80 (ruled 2026-08-08) on the brief that the TORCH was
 # doing too much of the work and the building's own fixtures too little.
-# The other half of that ruling is in phone_light_mask.gd, which was
-# multiplying every fixture in the frame down to a fifth of itself.
+# The former photographic screen multiplier is retired. Fixture illumination
+# reaches the camera without that additional full-frame darkening.
 var fixture_gain := 0.80
 ## HOW LIT THE ROOM AROUND THE CAMERA ACTUALLY IS, 0..1. Recomputed each
 ## tick from the fixtures that are genuinely on, and read by the torch:

@@ -1,0 +1,204 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Top-level raw source matching only; no reconstruction of every dirty-world input or runtime_contract status.",
+  "checks": [
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/cache_final.log.receipt.json",
+      "test_path": "game/tests/v2_fitting_collision_cache_test.gd",
+      "test_sha256": "eb1306477d8e39c0fcc399f08f44768162ca29c0c7a70e2560fcb1d7e4c418e9",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_final/v2_fitting_collision_cache_test.gd.gz",
+        "game/tests/v2_fitting_collision_cache_test.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/cache_final_inline.log.receipt.json",
+      "test_path": "game/tests/v2_fitting_collision_cache_test.gd",
+      "test_sha256": "eb1306477d8e39c0fcc399f08f44768162ca29c0c7a70e2560fcb1d7e4c418e9",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_final/v2_fitting_collision_cache_test.gd.gz",
+        "game/tests/v2_fitting_collision_cache_test.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/cache_sync_v1.log.receipt.json",
+      "test_path": "game/tests/v2_fitting_collision_cache_test.gd",
+      "test_sha256": "eb1306477d8e39c0fcc399f08f44768162ca29c0c7a70e2560fcb1d7e4c418e9",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_final/v2_fitting_collision_cache_test.gd.gz",
+        "game/tests/v2_fitting_collision_cache_test.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/cache_sync_v2.log.receipt.json",
+      "test_path": "game/tests/v2_fitting_collision_cache_test.gd",
+      "test_sha256": "eb1306477d8e39c0fcc399f08f44768162ca29c0c7a70e2560fcb1d7e4c418e9",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_final/v2_fitting_collision_cache_test.gd.gz",
+        "game/tests/v2_fitting_collision_cache_test.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/cooperative_final_v1.log.receipt.json",
+      "test_path": "game/tests/v2_cooperative_streaming_profile.gd",
+      "test_sha256": "5f5e1d10ccbb707aa4043b95e47087dd84baec6a0390fce7db8573cd0b2a18ba",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_final/v2_cooperative_streaming_profile.gd.gz",
+        "art/reviews/v2_native_fit_jobs_20261023/source_played_v2/v2_cooperative_streaming_profile.gd.gz",
+        "game/tests/v2_cooperative_streaming_profile.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/job_final.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "a016f684995998988b08a07f8cbe98dfdcfff975d0f61f45c8edd89f938028eb",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_final/v2_native_fit_job_bench.gd.gz",
+        "art/reviews/v2_native_fit_jobs_20261023/source_played_v2/v2_native_fit_job_bench.gd.gz",
+        "game/tests/v2_native_fit_job_bench.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/job_v1.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "2644fc25c7191eac4e4bdd1983a183272a5b7ac2cf55069f126e3f67ba84a956",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/job_v1_source.gd.gz"
+      ],
+      "completed": false,
+      "exit_code": null,
+      "timed_out": true
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/job_v2.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "08fdc1f38be827fd9b79b5ceef25a06720e7c32c78f63bf51ddcdd580eaffac5",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_played_v1/v2_native_fit_job_bench.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/job_v3.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "08fdc1f38be827fd9b79b5ceef25a06720e7c32c78f63bf51ddcdd580eaffac5",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_played_v1/v2_native_fit_job_bench.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/job_v4.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "08fdc1f38be827fd9b79b5ceef25a06720e7c32c78f63bf51ddcdd580eaffac5",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_played_v1/v2_native_fit_job_bench.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/job_v5.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "e278e6be26041a2426b5f4f8ff39dc135f856531005234af83911d05244b9fb8",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/job_v5_source.gd.gz"
+      ],
+      "completed": false,
+      "exit_code": null,
+      "timed_out": true
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/job_v6.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "a016f684995998988b08a07f8cbe98dfdcfff975d0f61f45c8edd89f938028eb",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_final/v2_native_fit_job_bench.gd.gz",
+        "art/reviews/v2_native_fit_jobs_20261023/source_played_v2/v2_native_fit_job_bench.gd.gz",
+        "game/tests/v2_native_fit_job_bench.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/played_v1.log.receipt.json",
+      "test_path": "game/tests/v2_played_streaming_profile.gd",
+      "test_sha256": "c31679aa80c86bc05aa95cb9242eac9402254e2874fdd55b17b2fe5c5b43ee1e",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_final/v2_played_streaming_profile.gd.gz",
+        "art/reviews/v2_native_fit_jobs_20261023/source_played_v1/v2_played_streaming_profile.gd.gz",
+        "art/reviews/v2_native_fit_jobs_20261023/source_played_v2/v2_played_streaming_profile.gd.gz",
+        "game/tests/v2_played_streaming_profile.gd"
+      ],
+      "completed": true,
+      "exit_code": 1,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/played_v2.log.receipt.json",
+      "test_path": "game/tests/v2_played_streaming_profile.gd",
+      "test_sha256": "c31679aa80c86bc05aa95cb9242eac9402254e2874fdd55b17b2fe5c5b43ee1e",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_final/v2_played_streaming_profile.gd.gz",
+        "art/reviews/v2_native_fit_jobs_20261023/source_played_v1/v2_played_streaming_profile.gd.gz",
+        "art/reviews/v2_native_fit_jobs_20261023/source_played_v2/v2_played_streaming_profile.gd.gz",
+        "game/tests/v2_played_streaming_profile.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_native_fit_jobs_20261023/sync_control_v1.log.receipt.json",
+      "test_path": "game/tests/v2_cooperative_streaming_profile.gd",
+      "test_sha256": "5f5e1d10ccbb707aa4043b95e47087dd84baec6a0390fce7db8573cd0b2a18ba",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_native_fit_jobs_20261023/source_final/v2_cooperative_streaming_profile.gd.gz",
+        "art/reviews/v2_native_fit_jobs_20261023/source_played_v2/v2_cooperative_streaming_profile.gd.gz",
+        "game/tests/v2_cooperative_streaming_profile.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    }
+  ]
+}

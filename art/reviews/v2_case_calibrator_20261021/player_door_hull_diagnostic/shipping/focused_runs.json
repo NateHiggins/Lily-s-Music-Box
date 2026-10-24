@@ -1,0 +1,32 @@
+[
+  {
+    "scene": "",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--editor",
+      "--import",
+      "--quit"
+    ],
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import1.log"
+  },
+  {
+    "scene": "",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--editor",
+      "--import",
+      "--quit"
+    ],
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import2.log"
+  },
+  {
+    "scene": "res://tests/V2FirePlayerContactBench.tscn",
+    "runner": "serial",
+    "timeout": 180,
+    "windowed": true,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand"
+  }
+]

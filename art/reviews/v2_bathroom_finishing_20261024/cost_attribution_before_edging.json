@@ -1,0 +1,500 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Observed counters and instrumented method costs only. TIME_PROCESS includes engine work; it is not isolated script time. Rendering counters can overlap or lag. No additive attribution or input-to-photon claim.",
+  "routes": {
+    "previous_checkpoint": {
+      "phases": {
+        "dry_shower": {
+          "pipeline_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "texture_bytes_range": [
+            2879888896.0,
+            2879888896.0
+          ],
+          "source_residency": [
+            "DORMANT"
+          ],
+          "render_draw_calls_median": 10114.0,
+          "spikes_over_50ms": [
+            {
+              "wall_ms": 113.878,
+              "process_ms": 102.88,
+              "physics_ms": 7.242,
+              "render_cpu_ms": 12.7819995880127,
+              "render_gpu_ms": 118.871002197266,
+              "mirror_cpu_ms": 14.8809995651245,
+              "mirror_gpu_ms": 8.06799983978271
+            },
+            {
+              "wall_ms": 93.689,
+              "process_ms": 102.88,
+              "physics_ms": 7.242,
+              "render_cpu_ms": 11.923999786377,
+              "render_gpu_ms": 87.4169998168945,
+              "mirror_cpu_ms": 14.8809995651245,
+              "mirror_gpu_ms": 8.06799983978271
+            }
+          ]
+        },
+        "cold_shower": {
+          "pipeline_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 1.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "texture_bytes_range": [
+            2879888896.0,
+            2879888896.0
+          ],
+          "source_residency": [
+            "DORMANT"
+          ],
+          "render_draw_calls_median": 17476.0,
+          "spikes_over_50ms": []
+        },
+        "hot_developing": {
+          "pipeline_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "texture_bytes_range": [
+            2879888896.0,
+            2879888896.0
+          ],
+          "source_residency": [
+            "DORMANT"
+          ],
+          "render_draw_calls_median": 9554.0,
+          "spikes_over_50ms": []
+        },
+        "hot_mirror": {
+          "pipeline_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "texture_bytes_range": [
+            2879888896.0,
+            2879888896.0
+          ],
+          "source_residency": [
+            "DORMANT"
+          ],
+          "render_draw_calls_median": 75362.0,
+          "spikes_over_50ms": [
+            {
+              "wall_ms": 65.49,
+              "process_ms": 23.696,
+              "physics_ms": 3.068,
+              "render_cpu_ms": 8.54199981689453,
+              "render_gpu_ms": 5.48299980163574,
+              "mirror_cpu_ms": 13.2379999160767,
+              "mirror_gpu_ms": 5.96299982070923
+            },
+            {
+              "wall_ms": 64.241,
+              "process_ms": 23.696,
+              "physics_ms": 3.068,
+              "render_cpu_ms": 31.7670001983643,
+              "render_gpu_ms": 16.2210006713867,
+              "mirror_cpu_ms": 10.6190004348755,
+              "mirror_gpu_ms": 3.29999995231628
+            },
+            {
+              "wall_ms": 68.631,
+              "process_ms": 23.696,
+              "physics_ms": 3.068,
+              "render_cpu_ms": 29.3700008392334,
+              "render_gpu_ms": 16.1860008239746,
+              "mirror_cpu_ms": 15.0740003585815,
+              "mirror_gpu_ms": 5.93699979782104
+            },
+            {
+              "wall_ms": 69.979,
+              "process_ms": 23.696,
+              "physics_ms": 3.068,
+              "render_cpu_ms": 30.75,
+              "render_gpu_ms": 15.4759998321533,
+              "mirror_cpu_ms": 14.7480001449585,
+              "mirror_gpu_ms": 5.52899980545044
+            },
+            {
+              "wall_ms": 64.569,
+              "process_ms": 23.696,
+              "physics_ms": 3.068,
+              "render_cpu_ms": 30.1509990692139,
+              "render_gpu_ms": 16.7590007781982,
+              "mirror_cpu_ms": 15.4049997329712,
+              "mirror_gpu_ms": 6.30800008773804
+            }
+          ]
+        },
+        "off_mirror_decay": {
+          "pipeline_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "texture_bytes_range": [
+            2879888896.0,
+            2879888896.0
+          ],
+          "source_residency": [
+            "DORMANT"
+          ],
+          "render_draw_calls_median": 76603.0,
+          "spikes_over_50ms": [
+            {
+              "wall_ms": 67.705,
+              "process_ms": 68.184,
+              "physics_ms": 3.222,
+              "render_cpu_ms": 11.4440002441406,
+              "render_gpu_ms": 8.15499973297119,
+              "mirror_cpu_ms": 14.3509998321533,
+              "mirror_gpu_ms": 6.41300010681152
+            },
+            {
+              "wall_ms": 65.393,
+              "process_ms": 68.184,
+              "physics_ms": 3.222,
+              "render_cpu_ms": 29.9190006256104,
+              "render_gpu_ms": 17.4230003356934,
+              "mirror_cpu_ms": 14.7510004043579,
+              "mirror_gpu_ms": 6.2480001449585
+            },
+            {
+              "wall_ms": 64.776,
+              "process_ms": 61.461,
+              "physics_ms": 18.726,
+              "render_cpu_ms": 29.4629993438721,
+              "render_gpu_ms": 17.0540008544922,
+              "mirror_cpu_ms": 15.1960000991821,
+              "mirror_gpu_ms": 6.40199995040894
+            },
+            {
+              "wall_ms": 64.615,
+              "process_ms": 61.461,
+              "physics_ms": 18.726,
+              "render_cpu_ms": 29.5410003662109,
+              "render_gpu_ms": 16.2889995574951,
+              "mirror_cpu_ms": 14.0629997253418,
+              "mirror_gpu_ms": 5.83699989318848
+            },
+            {
+              "wall_ms": 63.75,
+              "process_ms": 61.461,
+              "physics_ms": 18.726,
+              "render_cpu_ms": 30.1459999084473,
+              "render_gpu_ms": 17.0830001831055,
+              "mirror_cpu_ms": 14.4289999008179,
+              "mirror_gpu_ms": 6.03800010681152
+            }
+          ]
+        }
+      },
+      "input_method_costs": {
+        "begin": {
+          "n": 6,
+          "median_ms": 0.007,
+          "max_ms": 0.007
+        },
+        "constrained_motion": {
+          "n": 152,
+          "median_ms": 0.036,
+          "max_ms": 374.362
+        },
+        "end": {
+          "n": 6,
+          "median_ms": 13.628,
+          "max_ms": 17.466
+        },
+        "world_modified": {
+          "n": 6,
+          "median_ms": 0.005,
+          "max_ms": 0.01
+        }
+      },
+      "slow_player_physics": [
+        {
+          "contacts": [
+            "/root/V2BathroomPaperReview/OrisonV2Runtime/OrisonV2Blockout/F04_B_PRIVATE_HALL/Floor/Collision"
+          ],
+          "follow_and_contact_ms": 0.856,
+          "gravity_ms": 0.003,
+          "native_sync_ms": 0.009,
+          "physics_frame": 43,
+          "position": [
+            9.65000152587891,
+            9.60086059570313,
+            -16.3999977111816
+          ],
+          "slide_ms": 87.25,
+          "step_guard_disabled": false,
+          "step_ms": 0.002,
+          "step_up_disabled": false
+        }
+      ]
+    },
+    "before_edging": {
+      "phases": {
+        "dry_shower": {
+          "pipeline_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "texture_bytes_range": [
+            2876317184.0,
+            2876317184.0
+          ],
+          "source_residency": [
+            "DORMANT"
+          ],
+          "render_draw_calls_median": 10190.0,
+          "spikes_over_50ms": [
+            {
+              "wall_ms": 51.95,
+              "process_ms": 31.037,
+              "physics_ms": 7.128,
+              "render_cpu_ms": 10.6110000610352,
+              "render_gpu_ms": 51.5830001831055,
+              "mirror_cpu_ms": 16.4950008392334,
+              "mirror_gpu_ms": 8.37899971008301
+            },
+            {
+              "wall_ms": 52.395,
+              "process_ms": 31.037,
+              "physics_ms": 7.128,
+              "render_cpu_ms": 10.8280000686646,
+              "render_gpu_ms": 49.6450004577637,
+              "mirror_cpu_ms": 16.4950008392334,
+              "mirror_gpu_ms": 8.37899971008301
+            }
+          ]
+        },
+        "cold_shower": {
+          "pipeline_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "texture_bytes_range": [
+            2876317184.0,
+            2876317184.0
+          ],
+          "source_residency": [
+            "DORMANT"
+          ],
+          "render_draw_calls_median": 17553.0,
+          "spikes_over_50ms": []
+        },
+        "hot_developing": {
+          "pipeline_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 1.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "texture_bytes_range": [
+            2876317184.0,
+            2876317184.0
+          ],
+          "source_residency": [
+            "DORMANT"
+          ],
+          "render_draw_calls_median": 9627.0,
+          "spikes_over_50ms": []
+        },
+        "hot_mirror": {
+          "pipeline_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "texture_bytes_range": [
+            2876317184.0,
+            2876317184.0
+          ],
+          "source_residency": [
+            "DORMANT"
+          ],
+          "render_draw_calls_median": 77718.0,
+          "spikes_over_50ms": [
+            {
+              "wall_ms": 60.937,
+              "process_ms": 24.518,
+              "physics_ms": 3.107,
+              "render_cpu_ms": 7.92399978637695,
+              "render_gpu_ms": 5.73299980163574,
+              "mirror_cpu_ms": 13.7299995422363,
+              "mirror_gpu_ms": 6.41599988937378
+            },
+            {
+              "wall_ms": 66.764,
+              "process_ms": 24.518,
+              "physics_ms": 3.107,
+              "render_cpu_ms": 30.4950008392334,
+              "render_gpu_ms": 16.7719993591309,
+              "mirror_cpu_ms": 9.12399959564209,
+              "mirror_gpu_ms": 2.85199999809265
+            },
+            {
+              "wall_ms": 61.962,
+              "process_ms": 60.423,
+              "physics_ms": 3.051,
+              "render_cpu_ms": 29.8320007324219,
+              "render_gpu_ms": 16.2210006713867,
+              "mirror_cpu_ms": 14.7390003204346,
+              "mirror_gpu_ms": 6.03299999237061
+            },
+            {
+              "wall_ms": 62.212,
+              "process_ms": 60.423,
+              "physics_ms": 3.051,
+              "render_cpu_ms": 29.238000869751,
+              "render_gpu_ms": 15.585000038147,
+              "mirror_cpu_ms": 13.1929998397827,
+              "mirror_gpu_ms": 5.22599983215332
+            },
+            {
+              "wall_ms": 61.636,
+              "process_ms": 60.423,
+              "physics_ms": 3.051,
+              "render_cpu_ms": 28.6070003509521,
+              "render_gpu_ms": 15.8660001754761,
+              "mirror_cpu_ms": 13.7480001449585,
+              "mirror_gpu_ms": 5.46199989318848
+            }
+          ]
+        },
+        "off_mirror_decay": {
+          "pipeline_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          },
+          "texture_bytes_range": [
+            2876317184.0,
+            2876317184.0
+          ],
+          "source_residency": [
+            "DORMANT"
+          ],
+          "render_draw_calls_median": 76997.0,
+          "spikes_over_50ms": [
+            {
+              "wall_ms": 74.682,
+              "process_ms": 66.008,
+              "physics_ms": 6.623,
+              "render_cpu_ms": 12.3889999389648,
+              "render_gpu_ms": 8.49400043487549,
+              "mirror_cpu_ms": 16.4220008850098,
+              "mirror_gpu_ms": 6.49700021743774
+            },
+            {
+              "wall_ms": 80.912,
+              "process_ms": 66.008,
+              "physics_ms": 6.623,
+              "render_cpu_ms": 32.2910003662109,
+              "render_gpu_ms": 18.367000579834,
+              "mirror_cpu_ms": 15.8850002288818,
+              "mirror_gpu_ms": 6.9229998588562
+            },
+            {
+              "wall_ms": 69.456,
+              "process_ms": 66.008,
+              "physics_ms": 6.623,
+              "render_cpu_ms": 33.8300018310547,
+              "render_gpu_ms": 18.0949993133545,
+              "mirror_cpu_ms": 18.4370002746582,
+              "mirror_gpu_ms": 7.19899988174438
+            },
+            {
+              "wall_ms": 74.19,
+              "process_ms": 66.008,
+              "physics_ms": 6.623,
+              "render_cpu_ms": 32.181999206543,
+              "render_gpu_ms": 17.2089996337891,
+              "mirror_cpu_ms": 14.3450002670288,
+              "mirror_gpu_ms": 6.06300020217896
+            },
+            {
+              "wall_ms": 68.567,
+              "process_ms": 66.008,
+              "physics_ms": 6.623,
+              "render_cpu_ms": 30.3400001525879,
+              "render_gpu_ms": 17.9820003509521,
+              "mirror_cpu_ms": 14.4490003585815,
+              "mirror_gpu_ms": 6.3270001411438
+            }
+          ]
+        }
+      },
+      "input_method_costs": {
+        "begin": {
+          "n": 6,
+          "median_ms": 0.008,
+          "max_ms": 0.013
+        },
+        "constrained_motion": {
+          "n": 152,
+          "median_ms": 0.034,
+          "max_ms": 159.714
+        },
+        "end": {
+          "n": 6,
+          "median_ms": 14.0245,
+          "max_ms": 17.189
+        },
+        "world_modified": {
+          "n": 6,
+          "median_ms": 0.006500000000000001,
+          "max_ms": 0.008
+        }
+      },
+      "slow_player_physics": [
+        {
+          "contacts": [
+            "/root/V2BathroomOpticsProfile/OrisonV2Runtime/OrisonV2Blockout/F04_B_PRIVATE_HALL/Floor/Collision"
+          ],
+          "follow_and_contact_ms": 0.912,
+          "gravity_ms": 0.003,
+          "native_sync_ms": 0.011,
+          "physics_frame": 43,
+          "position": [
+            9.65000152587891,
+            9.60086059570313,
+            -16.3999977111816
+          ],
+          "slide_ms": 79.983,
+          "step_guard_disabled": false,
+          "step_ms": 0.002,
+          "step_up_disabled": false
+        }
+      ]
+    }
+  }
+}

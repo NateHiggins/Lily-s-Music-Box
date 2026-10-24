@@ -1,0 +1,696 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1491 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_model_laundry","collision_ms":119.506,"cut_ms":26.672,"data":"res://data/orison_v2/laundry_fittings.json","duplicate_ms":53.132,"face_hash_ms":0.0,"instantiate_ms":0.341,"load_ms":16.744,"material_ms":1.374,"mesh_hash_ms":0.0,"model_and_collision_ms":175.491,"publish_ms":9.236,"slot_assignment_ms":0.28}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_model_laundry","collision_ms":40.236,"cut_ms":7.274,"data":"res://data/orison_v2/laundry_apparatus.json","duplicate_ms":19.204,"face_hash_ms":0.0,"instantiate_ms":0.07,"load_ms":5.683,"material_ms":0.882,"mesh_hash_ms":0.0,"model_and_collision_ms":60.671,"publish_ms":1.041,"slot_assignment_ms":0.111}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_model_laundry","collision_ms":30.857,"cut_ms":8.365,"data":"res://data/orison_v2/laundry_trade.json","duplicate_ms":12.977,"face_hash_ms":0.0,"instantiate_ms":0.068,"load_ms":4.931,"material_ms":1.168,"mesh_hash_ms":0.0,"model_and_collision_ms":45.367,"publish_ms":1.851,"slot_assignment_ms":0.154}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_model_laundry","collision_ms":6.952,"cut_ms":5.417,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":3.576,"face_hash_ms":0.0,"instantiate_ms":0.102,"load_ms":10.543,"material_ms":0.425,"mesh_hash_ms":0.0,"model_and_collision_ms":55.534,"publish_ms":1.511,"slot_assignment_ms":13.329}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_model_laundry","collision_ms":12.328,"cut_ms":4.417,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":6.962,"face_hash_ms":0.0,"instantiate_ms":0.095,"load_ms":18.717,"material_ms":0.358,"mesh_hash_ms":0.0,"model_and_collision_ms":20.553,"publish_ms":1.186,"slot_assignment_ms":0.042}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_shoe_rebuilding","collision_ms":6.748,"cut_ms":5.015,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":3.184,"face_hash_ms":0.0,"instantiate_ms":0.094,"load_ms":10.381,"material_ms":0.324,"mesh_hash_ms":0.0,"model_and_collision_ms":10.919,"publish_ms":1.126,"slot_assignment_ms":0.037}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_shoe_rebuilding","collision_ms":12.569,"cut_ms":6.567,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":6.441,"face_hash_ms":0.0,"instantiate_ms":0.091,"load_ms":18.121,"material_ms":0.333,"mesh_hash_ms":0.0,"model_and_collision_ms":20.166,"publish_ms":1.448,"slot_assignment_ms":0.042}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_shoe_rebuilding","collision_ms":166.098,"cut_ms":9.961,"data":"res://data/orison_v2/cobbler_fittings.json","duplicate_ms":51.732,"face_hash_ms":0.0,"instantiate_ms":0.146,"load_ms":18.822,"material_ms":1.677,"mesh_hash_ms":0.0,"model_and_collision_ms":220.327,"publish_ms":4.899,"slot_assignment_ms":0.234}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_keys_cut","collision_ms":6.393,"cut_ms":4.951,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":3.239,"face_hash_ms":0.0,"instantiate_ms":0.119,"load_ms":10.759,"material_ms":0.314,"mesh_hash_ms":0.0,"model_and_collision_ms":15.301,"publish_ms":1.243,"slot_assignment_ms":0.038}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_keys_cut","collision_ms":12.589,"cut_ms":6.803,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":9.563,"face_hash_ms":0.0,"instantiate_ms":0.104,"load_ms":18.256,"material_ms":0.38,"mesh_hash_ms":0.0,"model_and_collision_ms":23.498,"publish_ms":2.222,"slot_assignment_ms":0.047}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_keys_cut","collision_ms":114.458,"cut_ms":18.558,"data":"res://data/orison_v2/locksmith_fittings.json","duplicate_ms":37.753,"face_hash_ms":0.0,"instantiate_ms":0.119,"load_ms":11.693,"material_ms":1.754,"mesh_hash_ms":0.0,"model_and_collision_ms":154.745,"publish_ms":1.8,"slot_assignment_ms":0.262}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_hardware_paint","collision_ms":7.233,"cut_ms":7.425,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":5.033,"face_hash_ms":0.0,"instantiate_ms":0.12,"load_ms":9.894,"material_ms":0.344,"mesh_hash_ms":0.0,"model_and_collision_ms":16.89,"publish_ms":1.44,"slot_assignment_ms":0.047}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_hardware_paint","collision_ms":13.013,"cut_ms":8.675,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":6.985,"face_hash_ms":0.0,"instantiate_ms":0.12,"load_ms":18.311,"material_ms":0.429,"mesh_hash_ms":0.0,"model_and_collision_ms":21.485,"publish_ms":3.393,"slot_assignment_ms":0.053}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_hardware_paint","collision_ms":159.175,"cut_ms":19.403,"data":"res://data/orison_v2/hardware_drawers.json","duplicate_ms":107.986,"face_hash_ms":0.0,"instantiate_ms":0.261,"load_ms":22.95,"material_ms":1.949,"mesh_hash_ms":0.0,"model_and_collision_ms":270.639,"publish_ms":6.057,"slot_assignment_ms":0.313}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_hardware_paint","collision_ms":17.609,"cut_ms":6.456,"data":"res://data/orison_v2/hardware_apparatus.json","duplicate_ms":6.077,"face_hash_ms":0.0,"instantiate_ms":0.039,"load_ms":3.196,"material_ms":0.456,"mesh_hash_ms":0.0,"model_and_collision_ms":24.295,"publish_ms":1.468,"slot_assignment_ms":0.06}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_hardware_paint","collision_ms":209.07,"cut_ms":10.269,"data":"res://data/orison_v2/hardware_stock.json","duplicate_ms":72.817,"face_hash_ms":0.0,"instantiate_ms":0.215,"load_ms":25.421,"material_ms":1.589,"mesh_hash_ms":0.0,"model_and_collision_ms":284.783,"publish_ms":2.876,"slot_assignment_ms":0.27}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_hardware_paint","collision_ms":16.249,"cut_ms":8.651,"data":"res://data/orison_v2/hardware_tools.json","duplicate_ms":9.19,"face_hash_ms":0.0,"instantiate_ms":0.05,"load_ms":2.7,"material_ms":11.673,"mesh_hash_ms":0.0,"model_and_collision_ms":37.344,"publish_ms":1.479,"slot_assignment_ms":0.099}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_funeral_parlour","collision_ms":38.913,"cut_ms":5.046,"data":"res://data/orison_v2/shop_seating.json","duplicate_ms":17.696,"face_hash_ms":0.0,"instantiate_ms":0.144,"load_ms":9.831,"material_ms":0.228,"mesh_hash_ms":0.0,"model_and_collision_ms":76.502,"publish_ms":1.407,"slot_assignment_ms":0.047}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_funeral_parlour","collision_ms":6.937,"cut_ms":5.113,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":3.549,"face_hash_ms":0.0,"instantiate_ms":0.095,"load_ms":10.052,"material_ms":0.333,"mesh_hash_ms":0.0,"model_and_collision_ms":12.826,"publish_ms":1.211,"slot_assignment_ms":0.043}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_funeral_parlour","collision_ms":17.644,"cut_ms":5.065,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":7.654,"face_hash_ms":0.0,"instantiate_ms":0.104,"load_ms":18.031,"material_ms":0.509,"mesh_hash_ms":0.0,"model_and_collision_ms":26.902,"publish_ms":1.612,"slot_assignment_ms":0.064}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_funeral_parlour","collision_ms":8.416,"cut_ms":5.53,"data":"res://data/orison_v2/funeral_fittings.json","duplicate_ms":7.252,"face_hash_ms":0.0,"instantiate_ms":0.043,"load_ms":2.207,"material_ms":0.788,"mesh_hash_ms":0.0,"model_and_collision_ms":16.676,"publish_ms":0.671,"slot_assignment_ms":0.095}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_funeral_parlour","collision_ms":65.645,"cut_ms":3.978,"data":"res://data/orison_v2/funeral_drapes.json","duplicate_ms":11.221,"face_hash_ms":0.0,"instantiate_ms":0.036,"load_ms":7.879,"material_ms":0.338,"mesh_hash_ms":0.0,"model_and_collision_ms":77.448,"publish_ms":0.099,"slot_assignment_ms":0.046}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_funeral_parlour","collision_ms":144.405,"cut_ms":5.313,"data":"res://data/orison_v2/funeral_foliage.json","duplicate_ms":20.879,"face_hash_ms":0.0,"instantiate_ms":0.061,"load_ms":15.47,"material_ms":0.74,"mesh_hash_ms":0.0,"model_and_collision_ms":166.42,"publish_ms":0.426,"slot_assignment_ms":0.103}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_photo_supplies","collision_ms":6.882,"cut_ms":7.962,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":4.674,"face_hash_ms":0.0,"instantiate_ms":0.116,"load_ms":10.547,"material_ms":0.32,"mesh_hash_ms":0.0,"model_and_collision_ms":15.773,"publish_ms":1.306,"slot_assignment_ms":0.046}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_photo_supplies","collision_ms":13.212,"cut_ms":5.138,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":6.241,"face_hash_ms":0.0,"instantiate_ms":0.118,"load_ms":19.521,"material_ms":0.436,"mesh_hash_ms":0.0,"model_and_collision_ms":20.755,"publish_ms":1.604,"slot_assignment_ms":0.051}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_photo_supplies","collision_ms":3.232,"cut_ms":5.748,"data":"res://data/orison_v2/photo_radio_fittings.json","duplicate_ms":2.633,"face_hash_ms":0.0,"instantiate_ms":0.039,"load_ms":3.016,"material_ms":0.375,"mesh_hash_ms":0.0,"model_and_collision_ms":6.867,"publish_ms":0.689,"slot_assignment_ms":0.044}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_photo_supplies","collision_ms":13.291,"cut_ms":6.885,"data":"res://data/orison_v2/photo_cameras.json","duplicate_ms":10.406,"face_hash_ms":0.0,"instantiate_ms":0.049,"load_ms":2.611,"material_ms":0.604,"mesh_hash_ms":0.0,"model_and_collision_ms":24.516,"publish_ms":3.172,"slot_assignment_ms":0.072}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_photo_supplies","collision_ms":10.871,"cut_ms":5.126,"data":"res://data/orison_v2/photo_counter.json","duplicate_ms":4.766,"face_hash_ms":0.0,"instantiate_ms":0.036,"load_ms":2.66,"material_ms":0.72,"mesh_hash_ms":0.0,"model_and_collision_ms":16.546,"publish_ms":1.456,"slot_assignment_ms":0.095}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_photo_supplies","collision_ms":81.898,"cut_ms":7.284,"data":"res://data/orison_v2/photo_stock.json","duplicate_ms":46.171,"face_hash_ms":0.0,"instantiate_ms":0.117,"load_ms":11.699,"material_ms":1.486,"mesh_hash_ms":0.0,"model_and_collision_ms":130.313,"publish_ms":0.558,"slot_assignment_ms":0.184}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_photo_supplies","collision_ms":11.453,"cut_ms":4.563,"data":"res://data/orison_v2/photo_enlargers.json","duplicate_ms":5.582,"face_hash_ms":0.0,"instantiate_ms":0.062,"load_ms":2.485,"material_ms":0.547,"mesh_hash_ms":0.0,"model_and_collision_ms":17.793,"publish_ms":1.054,"slot_assignment_ms":0.07}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_photo_supplies","collision_ms":33.997,"cut_ms":6.898,"data":"res://data/orison_v2/photo_process.json","duplicate_ms":20.243,"face_hash_ms":0.0,"instantiate_ms":0.124,"load_ms":5.659,"material_ms":0.93,"mesh_hash_ms":0.0,"model_and_collision_ms":55.67,"publish_ms":0.909,"slot_assignment_ms":0.137}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_photo_supplies","collision_ms":9.714,"cut_ms":4.828,"data":"res://data/orison_v2/photo_portraits.json","duplicate_ms":9.179,"face_hash_ms":0.0,"instantiate_ms":0.079,"load_ms":3.189,"material_ms":0.56,"mesh_hash_ms":0.0,"model_and_collision_ms":19.764,"publish_ms":0.868,"slot_assignment_ms":0.09}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_photo_supplies","collision_ms":0.834,"cut_ms":3.7,"data":"res://data/orison_v2/photo_glazing.json","duplicate_ms":1.476,"face_hash_ms":0.0,"instantiate_ms":0.026,"load_ms":1.127,"material_ms":0.112,"mesh_hash_ms":0.0,"model_and_collision_ms":2.478,"publish_ms":0.059,"slot_assignment_ms":0.017}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_radio_service","collision_ms":6.956,"cut_ms":5.297,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":3.486,"face_hash_ms":0.0,"instantiate_ms":0.106,"load_ms":10.181,"material_ms":0.359,"mesh_hash_ms":0.0,"model_and_collision_ms":24.358,"publish_ms":1.548,"slot_assignment_ms":0.044}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_radio_service","collision_ms":12.7,"cut_ms":4.663,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":6.182,"face_hash_ms":0.0,"instantiate_ms":0.111,"load_ms":18.351,"material_ms":0.354,"mesh_hash_ms":0.0,"model_and_collision_ms":20.197,"publish_ms":1.458,"slot_assignment_ms":0.043}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_radio_service","collision_ms":5.335,"cut_ms":4.127,"data":"res://data/orison_v2/photo_radio_fittings.json","duplicate_ms":4.13,"face_hash_ms":0.0,"instantiate_ms":0.034,"load_ms":2.537,"material_ms":0.238,"mesh_hash_ms":0.0,"model_and_collision_ms":10.299,"publish_ms":1.006,"slot_assignment_ms":0.032}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_radio_service","collision_ms":11.177,"cut_ms":4.223,"data":"res://data/orison_v2/radio_bench.json","duplicate_ms":5.535,"face_hash_ms":0.0,"instantiate_ms":0.041,"load_ms":2.471,"material_ms":0.737,"mesh_hash_ms":0.0,"model_and_collision_ms":17.649,"publish_ms":0.772,"slot_assignment_ms":0.097}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_radio_service","collision_ms":47.993,"cut_ms":6.759,"data":"res://data/orison_v2/radio_apparatus.json","duplicate_ms":18.349,"face_hash_ms":0.0,"instantiate_ms":0.056,"load_ms":6.351,"material_ms":1.14,"mesh_hash_ms":0.0,"model_and_collision_ms":67.881,"publish_ms":2.67,"slot_assignment_ms":0.155}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_radio_service","collision_ms":76.94,"cut_ms":5.643,"data":"res://data/orison_v2/radio_stock.json","duplicate_ms":33.016,"face_hash_ms":0.0,"instantiate_ms":0.13,"load_ms":10.368,"material_ms":1.03,"mesh_hash_ms":0.0,"model_and_collision_ms":111.763,"publish_ms":0.417,"slot_assignment_ms":0.158}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_radio_service","collision_ms":24.906,"cut_ms":6.449,"data":"res://data/orison_v2/radio_battery.json","duplicate_ms":13.207,"face_hash_ms":0.0,"instantiate_ms":0.041,"load_ms":3.695,"material_ms":1.146,"mesh_hash_ms":0.0,"model_and_collision_ms":39.544,"publish_ms":1.138,"slot_assignment_ms":0.126}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_radio_service","collision_ms":51.627,"cut_ms":7.318,"data":"res://data/orison_v2/radio_wire.json","duplicate_ms":7.126,"face_hash_ms":0.0,"instantiate_ms":0.04,"load_ms":7.274,"material_ms":0.557,"mesh_hash_ms":0.0,"model_and_collision_ms":59.501,"publish_ms":0.08,"slot_assignment_ms":0.071}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_radio_service","collision_ms":12.484,"cut_ms":11.254,"data":"res://data/orison_v2/radio_display.json","duplicate_ms":9.339,"face_hash_ms":0.0,"instantiate_ms":0.04,"load_ms":2.372,"material_ms":0.637,"mesh_hash_ms":0.0,"model_and_collision_ms":22.656,"publish_ms":0.428,"slot_assignment_ms":0.09}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_pawnbroker","collision_ms":6.512,"cut_ms":7.957,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":3.385,"face_hash_ms":0.0,"instantiate_ms":0.098,"load_ms":9.425,"material_ms":0.369,"mesh_hash_ms":0.0,"model_and_collision_ms":18.873,"publish_ms":1.27,"slot_assignment_ms":0.044}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_pawnbroker","collision_ms":12.737,"cut_ms":8.193,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":6.465,"face_hash_ms":0.0,"instantiate_ms":0.119,"load_ms":19.001,"material_ms":0.421,"mesh_hash_ms":0.0,"model_and_collision_ms":20.664,"publish_ms":1.82,"slot_assignment_ms":0.066}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_pawnbroker","collision_ms":39.672,"cut_ms":5.847,"data":"res://data/orison_v2/pawn_display.json","duplicate_ms":10.372,"face_hash_ms":0.0,"instantiate_ms":0.061,"load_ms":5.191,"material_ms":1.068,"mesh_hash_ms":0.0,"model_and_collision_ms":51.469,"publish_ms":2.06,"slot_assignment_ms":0.134}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_pawnbroker","collision_ms":51.47,"cut_ms":7.416,"data":"res://data/orison_v2/pawn_clocks.json","duplicate_ms":33.966,"face_hash_ms":0.0,"instantiate_ms":0.268,"load_ms":6.213,"material_ms":0.988,"mesh_hash_ms":0.0,"model_and_collision_ms":87.387,"publish_ms":0.826,"slot_assignment_ms":0.178}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_pawnbroker","collision_ms":59.354,"cut_ms":15.56,"data":"res://data/orison_v2/pawn_fittings.json","duplicate_ms":25.672,"face_hash_ms":0.0,"instantiate_ms":0.131,"load_ms":8.188,"material_ms":1.623,"mesh_hash_ms":0.0,"model_and_collision_ms":87.359,"publish_ms":1.783,"slot_assignment_ms":0.218}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_news_cigars","collision_ms":6.785,"cut_ms":9.999,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":3.406,"face_hash_ms":0.0,"instantiate_ms":0.1,"load_ms":10.017,"material_ms":0.438,"mesh_hash_ms":0.0,"model_and_collision_ms":23.434,"publish_ms":4.74,"slot_assignment_ms":0.043}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_news_cigars","collision_ms":13.603,"cut_ms":4.511,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":10.484,"face_hash_ms":0.0,"instantiate_ms":0.104,"load_ms":17.067,"material_ms":0.406,"mesh_hash_ms":0.0,"model_and_collision_ms":25.44,"publish_ms":1.019,"slot_assignment_ms":0.059}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_news_cigars","collision_ms":69.552,"cut_ms":14.114,"data":"res://data/orison_v2/news_fittings.json","duplicate_ms":41.853,"face_hash_ms":0.0,"instantiate_ms":0.156,"load_ms":8.926,"material_ms":1.693,"mesh_hash_ms":0.0,"model_and_collision_ms":113.907,"publish_ms":3.896,"slot_assignment_ms":0.249}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_otis_son","collision_ms":10.79,"cut_ms":4.179,"data":"res://data/orison_v2/shop_seating.json","duplicate_ms":11.021,"face_hash_ms":0.0,"instantiate_ms":0.125,"load_ms":9.091,"material_ms":0.289,"mesh_hash_ms":0.0,"model_and_collision_ms":27.694,"publish_ms":0.872,"slot_assignment_ms":0.038}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_otis_son","collision_ms":6.827,"cut_ms":6.733,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":3.027,"face_hash_ms":0.0,"instantiate_ms":0.092,"load_ms":9.081,"material_ms":0.314,"mesh_hash_ms":0.0,"model_and_collision_ms":11.476,"publish_ms":1.623,"slot_assignment_ms":0.037}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_otis_son","collision_ms":12.117,"cut_ms":10.139,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":5.949,"face_hash_ms":0.0,"instantiate_ms":0.09,"load_ms":16.449,"material_ms":0.376,"mesh_hash_ms":0.0,"model_and_collision_ms":19.258,"publish_ms":1.436,"slot_assignment_ms":0.041}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_otis_son","collision_ms":274.523,"cut_ms":7.879,"data":"res://data/orison_v2/druggist_drawers.json","duplicate_ms":151.824,"face_hash_ms":0.0,"instantiate_ms":0.473,"load_ms":36.288,"material_ms":1.905,"mesh_hash_ms":0.0,"model_and_collision_ms":430.775,"publish_ms":1.973,"slot_assignment_ms":0.406}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_otis_son","collision_ms":7.732,"cut_ms":4.453,"data":"res://data/orison_v2/druggist_counter.json","duplicate_ms":2.369,"face_hash_ms":0.0,"instantiate_ms":0.031,"load_ms":1.8,"material_ms":0.47,"mesh_hash_ms":0.0,"model_and_collision_ms":10.686,"publish_ms":1.162,"slot_assignment_ms":0.053}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_otis_son","collision_ms":4.821,"cut_ms":3.888,"data":"res://data/orison_v2/druggist_mortar.json","duplicate_ms":1.525,"face_hash_ms":0.0,"instantiate_ms":0.02,"load_ms":1.325,"material_ms":0.105,"mesh_hash_ms":0.0,"model_and_collision_ms":6.499,"publish_ms":1.153,"slot_assignment_ms":0.015}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_otis_son","collision_ms":84.862,"cut_ms":7.495,"data":"res://data/orison_v2/druggist_dispensary.json","duplicate_ms":44.545,"face_hash_ms":0.0,"instantiate_ms":0.313,"load_ms":12.18,"material_ms":1.182,"mesh_hash_ms":0.0,"model_and_collision_ms":131.651,"publish_ms":1.016,"slot_assignment_ms":0.215}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_otis_son","collision_ms":27.666,"cut_ms":7.238,"data":"res://data/orison_v2/druggist_cupboard.json","duplicate_ms":13.307,"face_hash_ms":0.0,"instantiate_ms":0.09,"load_ms":4.705,"material_ms":0.889,"mesh_hash_ms":0.0,"model_and_collision_ms":42.322,"publish_ms":1.936,"slot_assignment_ms":0.119}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_otis_son","collision_ms":125.994,"cut_ms":7.738,"data":"res://data/orison_v2/druggist_carboys.json","duplicate_ms":26.104,"face_hash_ms":0.0,"instantiate_ms":0.079,"load_ms":15.892,"material_ms":1.323,"mesh_hash_ms":0.0,"model_and_collision_ms":153.998,"publish_ms":1.75,"slot_assignment_ms":0.174}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_otis_son","collision_ms":24.303,"cut_ms":4.529,"data":"res://data/orison_v2/druggist_fountain.json","duplicate_ms":8.571,"face_hash_ms":0.0,"instantiate_ms":0.043,"load_ms":5.47,"material_ms":0.309,"mesh_hash_ms":0.0,"model_and_collision_ms":33.339,"publish_ms":0.078,"slot_assignment_ms":0.042}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_luncheonette","collision_ms":22.137,"cut_ms":8.762,"data":"res://data/orison_v2/shop_seating.json","duplicate_ms":19.429,"face_hash_ms":0.0,"instantiate_ms":0.14,"load_ms":8.522,"material_ms":0.491,"mesh_hash_ms":0.0,"model_and_collision_ms":69.917,"publish_ms":1.001,"slot_assignment_ms":0.069}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_luncheonette","collision_ms":6.665,"cut_ms":5.383,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":3.285,"face_hash_ms":0.0,"instantiate_ms":0.081,"load_ms":8.968,"material_ms":0.322,"mesh_hash_ms":0.0,"model_and_collision_ms":11.994,"publish_ms":1.373,"slot_assignment_ms":0.04}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_luncheonette","collision_ms":12.184,"cut_ms":5.397,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":6.224,"face_hash_ms":0.0,"instantiate_ms":0.09,"load_ms":16.528,"material_ms":0.348,"mesh_hash_ms":0.0,"model_and_collision_ms":19.562,"publish_ms":1.196,"slot_assignment_ms":0.041}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_luncheonette","collision_ms":15.671,"cut_ms":5.208,"data":"res://data/orison_v2/diner_counter.json","duplicate_ms":5.5,"face_hash_ms":0.0,"instantiate_ms":0.03,"load_ms":2.753,"material_ms":0.544,"mesh_hash_ms":0.0,"model_and_collision_ms":21.873,"publish_ms":1.133,"slot_assignment_ms":0.075}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_luncheonette","collision_ms":19.955,"cut_ms":4.512,"data":"res://data/orison_v2/diner_till.json","duplicate_ms":7.29,"face_hash_ms":0.0,"instantiate_ms":0.033,"load_ms":2.837,"material_ms":0.493,"mesh_hash_ms":0.0,"model_and_collision_ms":27.898,"publish_ms":0.617,"slot_assignment_ms":0.069}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_luncheonette","collision_ms":5.634,"cut_ms":7.156,"data":"res://data/orison_v2/diner_backbar.json","duplicate_ms":2.311,"face_hash_ms":0.0,"instantiate_ms":0.024,"load_ms":1.601,"material_ms":0.255,"mesh_hash_ms":0.0,"model_and_collision_ms":8.274,"publish_ms":0.842,"slot_assignment_ms":0.035}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_luncheonette","collision_ms":14.79,"cut_ms":4.612,"data":"res://data/orison_v2/diner_urns.json","duplicate_ms":6.141,"face_hash_ms":0.0,"instantiate_ms":0.037,"load_ms":2.646,"material_ms":0.39,"mesh_hash_ms":0.0,"model_and_collision_ms":21.488,"publish_ms":1.207,"slot_assignment_ms":0.061}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_luncheonette","collision_ms":24.159,"cut_ms":6.542,"data":"res://data/orison_v2/diner_apparatus.json","duplicate_ms":6.474,"face_hash_ms":0.0,"instantiate_ms":0.029,"load_ms":3.652,"material_ms":0.465,"mesh_hash_ms":0.0,"model_and_collision_ms":31.248,"publish_ms":1.015,"slot_assignment_ms":0.074}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"shop_luncheonette","collision_ms":7.444,"cut_ms":5.281,"data":"res://data/orison_v2/diner_overhead.json","duplicate_ms":4.057,"face_hash_ms":0.0,"instantiate_ms":0.02,"load_ms":1.543,"material_ms":0.203,"mesh_hash_ms":0.0,"model_and_collision_ms":11.764,"publish_ms":1.162,"slot_assignment_ms":0.027}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"passage","collision_ms":50.969,"cut_ms":7.799,"data":"res://data/orison_v2/arcade_canopy.json","duplicate_ms":6.908,"face_hash_ms":0.0,"instantiate_ms":0.031,"load_ms":6.853,"material_ms":0.53,"mesh_hash_ms":0.0,"model_and_collision_ms":58.562,"publish_ms":1.381,"slot_assignment_ms":0.072}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"passage","collision_ms":530.493,"cut_ms":5.684,"data":"res://data/orison_v2/arcade_throat.json","duplicate_ms":34.071,"face_hash_ms":0.0,"instantiate_ms":0.033,"load_ms":40.843,"material_ms":10.685,"mesh_hash_ms":0.0,"model_and_collision_ms":575.461,"publish_ms":0.649,"slot_assignment_ms":0.081}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"passage","collision_ms":9.69,"cut_ms":5.882,"data":"res://data/orison_v2/arcade_lantern.json","duplicate_ms":4.321,"face_hash_ms":0.0,"instantiate_ms":0.02,"load_ms":1.979,"material_ms":0.135,"mesh_hash_ms":0.0,"model_and_collision_ms":14.225,"publish_ms":1.284,"slot_assignment_ms":0.015}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"passage","collision_ms":48.864,"cut_ms":10.119,"data":"res://data/orison_v2/arcade_clock.json","duplicate_ms":11.116,"face_hash_ms":0.0,"instantiate_ms":0.082,"load_ms":7.707,"material_ms":0.616,"mesh_hash_ms":0.0,"model_and_collision_ms":60.884,"publish_ms":0.689,"slot_assignment_ms":0.088}
+[SURFACE] 402 surfaces layered (263 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"RetainedBarGeometry","collision_ms":58.814,"cut_ms":15.18,"data":"res://data/orison_v2/bar_pool.json","duplicate_ms":29.145,"face_hash_ms":0.0,"instantiate_ms":0.071,"load_ms":7.417,"material_ms":5.219,"mesh_hash_ms":0.0,"model_and_collision_ms":93.498,"publish_ms":1.736,"slot_assignment_ms":0.143}
+NATIVE_FIT_DETAIL {"attach_ms":0.0,"cell":"RetainedBarGeometry","collision_ms":39.918,"cut_ms":4.849,"data":"res://data/orison_v2/bar_stage.json","duplicate_ms":6.259,"face_hash_ms":0.0,"instantiate_ms":0.051,"load_ms":4.831,"material_ms":0.451,"mesh_hash_ms":0.0,"model_and_collision_ms":46.755,"publish_ms":0.562,"slot_assignment_ms":0.051}
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2557
+[ORISON V2 RUNTIME] ready startup_ms=114088.813
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+[HARUKIYA] OPEN, 18 fixtures
+PASSAGE_RETIRE_DETAIL {"actors_ms":6.663,"detach_ms":3.933,"enqueue_release_ms":0.282}
+[PLAYER] pointer captured (backtick key)
+CONNECTED EXTERIOR CHECK: F01_INNER_DOOR reaches its stop through primary grab, fixed mouse travel and release = true
+[PLAYER] pointer captured (backtick key)
+CONNECTED EXTERIOR CHECK: F01_DOOR_06 reaches its stop through primary grab, fixed mouse travel and release = true
+NATIVE_FIT_DETAIL {"attach_ms":0.066,"cell":"passage","collision_ms":7.427,"cut_ms":6.528,"data":"res://data/orison_v2/arcade_canopy.json","duplicate_ms":3.077,"face_hash_ms":0.012,"instantiate_ms":0.031,"load_ms":0.012,"material_ms":0.558,"mesh_hash_ms":7.298,"model_and_collision_ms":87.409,"publish_ms":1.7,"slot_assignment_ms":76.277}
+NATIVE_FIT_DETAIL {"attach_ms":0.087,"cell":"passage","collision_ms":50.185,"cut_ms":4.13,"data":"res://data/orison_v2/arcade_throat.json","duplicate_ms":9.042,"face_hash_ms":0.012,"instantiate_ms":0.03,"load_ms":0.01,"material_ms":0.604,"mesh_hash_ms":50.038,"model_and_collision_ms":59.976,"publish_ms":0.578,"slot_assignment_ms":0.078}
+NATIVE_FIT_DETAIL {"attach_ms":0.014,"cell":"passage","collision_ms":1.281,"cut_ms":4.727,"data":"res://data/orison_v2/arcade_lantern.json","duplicate_ms":1.041,"face_hash_ms":0.002,"instantiate_ms":0.02,"load_ms":0.012,"material_ms":0.145,"mesh_hash_ms":1.256,"model_and_collision_ms":2.622,"publish_ms":0.274,"slot_assignment_ms":0.017}
+NATIVE_FIT_DETAIL {"attach_ms":0.093,"cell":"passage","collision_ms":5.78,"cut_ms":4.415,"data":"res://data/orison_v2/arcade_clock.json","duplicate_ms":3.321,"face_hash_ms":0.016,"instantiate_ms":0.052,"load_ms":0.009,"material_ms":0.46,"mesh_hash_ms":5.605,"model_and_collision_ms":9.727,"publish_ms":0.569,"slot_assignment_ms":0.065}
+[SURFACE] 33 surfaces layered (22 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.558,"cell":"shop_model_laundry","collision_ms":17.101,"cut_ms":7.013,"data":"res://data/orison_v2/laundry_fittings.json","duplicate_ms":20.439,"face_hash_ms":0.092,"instantiate_ms":0.304,"load_ms":0.011,"material_ms":0.964,"mesh_hash_ms":15.957,"model_and_collision_ms":39.373,"publish_ms":1.186,"slot_assignment_ms":0.189}
+NATIVE_FIT_DETAIL {"attach_ms":0.215,"cell":"shop_model_laundry","collision_ms":6.125,"cut_ms":5.723,"data":"res://data/orison_v2/laundry_apparatus.json","duplicate_ms":5.105,"face_hash_ms":0.026,"instantiate_ms":0.067,"load_ms":0.01,"material_ms":0.694,"mesh_hash_ms":5.774,"model_and_collision_ms":12.171,"publish_ms":0.488,"slot_assignment_ms":0.099}
+NATIVE_FIT_DETAIL {"attach_ms":0.12,"cell":"shop_model_laundry","collision_ms":4.015,"cut_ms":6.407,"data":"res://data/orison_v2/laundry_trade.json","duplicate_ms":4.172,"face_hash_ms":0.022,"instantiate_ms":0.062,"load_ms":0.01,"material_ms":1.013,"mesh_hash_ms":3.778,"model_and_collision_ms":9.523,"publish_ms":0.79,"slot_assignment_ms":0.144}
+NATIVE_FIT_DETAIL {"attach_ms":0.026,"cell":"shop_model_laundry","collision_ms":1.033,"cut_ms":4.75,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.812,"face_hash_ms":0.003,"instantiate_ms":0.1,"load_ms":0.011,"material_ms":0.292,"mesh_hash_ms":0.979,"model_and_collision_ms":3.08,"publish_ms":0.7,"slot_assignment_ms":0.038}
+NATIVE_FIT_DETAIL {"attach_ms":0.032,"cell":"shop_model_laundry","collision_ms":2.021,"cut_ms":3.634,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.237,"face_hash_ms":0.005,"instantiate_ms":0.106,"load_ms":0.01,"material_ms":0.344,"mesh_hash_ms":1.959,"model_and_collision_ms":4.58,"publish_ms":0.298,"slot_assignment_ms":0.042}
+[SURFACE] 53 surfaces layered (41 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.039,"cell":"shop_shoe_rebuilding","collision_ms":1.099,"cut_ms":4.296,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":1.035,"face_hash_ms":0.005,"instantiate_ms":0.102,"load_ms":0.01,"material_ms":0.336,"mesh_hash_ms":1.03,"model_and_collision_ms":3.339,"publish_ms":1.027,"slot_assignment_ms":0.053}
+NATIVE_FIT_DETAIL {"attach_ms":0.028,"cell":"shop_shoe_rebuilding","collision_ms":2.001,"cut_ms":3.995,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.254,"face_hash_ms":0.004,"instantiate_ms":0.103,"load_ms":0.01,"material_ms":0.326,"mesh_hash_ms":1.95,"model_and_collision_ms":4.431,"publish_ms":0.511,"slot_assignment_ms":0.042}
+NATIVE_FIT_DETAIL {"attach_ms":0.375,"cell":"shop_shoe_rebuilding","collision_ms":23.134,"cut_ms":9.622,"data":"res://data/orison_v2/cobbler_fittings.json","duplicate_ms":13.837,"face_hash_ms":0.05,"instantiate_ms":0.176,"load_ms":0.014,"material_ms":1.52,"mesh_hash_ms":22.377,"model_and_collision_ms":39.15,"publish_ms":0.824,"slot_assignment_ms":0.223}
+[SURFACE] 88 surfaces layered (55 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.051,"cell":"shop_keys_cut","collision_ms":1.19,"cut_ms":6.048,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":1.079,"face_hash_ms":0.007,"instantiate_ms":0.211,"load_ms":0.011,"material_ms":0.417,"mesh_hash_ms":1.097,"model_and_collision_ms":3.64,"publish_ms":0.639,"slot_assignment_ms":0.068}
+NATIVE_FIT_DETAIL {"attach_ms":0.035,"cell":"shop_keys_cut","collision_ms":1.981,"cut_ms":5.917,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.183,"face_hash_ms":0.006,"instantiate_ms":0.108,"load_ms":0.011,"material_ms":0.355,"mesh_hash_ms":1.916,"model_and_collision_ms":4.544,"publish_ms":1.517,"slot_assignment_ms":0.045}
+NATIVE_FIT_DETAIL {"attach_ms":0.244,"cell":"shop_keys_cut","collision_ms":13.531,"cut_ms":12.788,"data":"res://data/orison_v2/locksmith_fittings.json","duplicate_ms":8.993,"face_hash_ms":0.042,"instantiate_ms":0.103,"load_ms":0.011,"material_ms":1.303,"mesh_hash_ms":13.037,"model_and_collision_ms":24.373,"publish_ms":1.065,"slot_assignment_ms":0.245}
+[SURFACE] 107 surfaces layered (69 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.035,"cell":"shop_hardware_paint","collision_ms":1.059,"cut_ms":4.369,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.939,"face_hash_ms":0.004,"instantiate_ms":0.105,"load_ms":0.012,"material_ms":0.317,"mesh_hash_ms":0.993,"model_and_collision_ms":3.22,"publish_ms":0.541,"slot_assignment_ms":0.046}
+NATIVE_FIT_DETAIL {"attach_ms":0.03,"cell":"shop_hardware_paint","collision_ms":1.949,"cut_ms":4.918,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.617,"face_hash_ms":0.005,"instantiate_ms":0.102,"load_ms":0.01,"material_ms":0.343,"mesh_hash_ms":1.891,"model_and_collision_ms":4.817,"publish_ms":1.24,"slot_assignment_ms":0.043}
+NATIVE_FIT_DETAIL {"attach_ms":0.959,"cell":"shop_hardware_paint","collision_ms":26.336,"cut_ms":11.169,"data":"res://data/orison_v2/hardware_drawers.json","duplicate_ms":28.183,"face_hash_ms":0.129,"instantiate_ms":0.259,"load_ms":0.012,"material_ms":1.772,"mesh_hash_ms":24.516,"model_and_collision_ms":57.627,"publish_ms":2.351,"slot_assignment_ms":0.335}
+NATIVE_FIT_DETAIL {"attach_ms":0.05,"cell":"shop_hardware_paint","collision_ms":2.242,"cut_ms":4.374,"data":"res://data/orison_v2/hardware_apparatus.json","duplicate_ms":1.902,"face_hash_ms":0.008,"instantiate_ms":0.031,"load_ms":0.01,"material_ms":0.363,"mesh_hash_ms":2.145,"model_and_collision_ms":4.617,"publish_ms":0.763,"slot_assignment_ms":0.049}
+NATIVE_FIT_DETAIL {"attach_ms":0.619,"cell":"shop_hardware_paint","collision_ms":29.064,"cut_ms":8.655,"data":"res://data/orison_v2/hardware_stock.json","duplicate_ms":28.516,"face_hash_ms":0.104,"instantiate_ms":0.227,"load_ms":0.011,"material_ms":1.122,"mesh_hash_ms":27.853,"model_and_collision_ms":59.596,"publish_ms":1.66,"slot_assignment_ms":0.218}
+NATIVE_FIT_DETAIL {"attach_ms":0.08,"cell":"shop_hardware_paint","collision_ms":2.087,"cut_ms":6.208,"data":"res://data/orison_v2/hardware_tools.json","duplicate_ms":2.896,"face_hash_ms":0.014,"instantiate_ms":0.048,"load_ms":0.011,"material_ms":0.741,"mesh_hash_ms":1.928,"model_and_collision_ms":5.936,"publish_ms":0.569,"slot_assignment_ms":0.1}
+[SURFACE] 155 surfaces layered (83 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.114,"cell":"shop_funeral_parlour","collision_ms":5.293,"cut_ms":4.921,"data":"res://data/orison_v2/shop_seating.json","duplicate_ms":4.851,"face_hash_ms":0.018,"instantiate_ms":0.13,"load_ms":0.01,"material_ms":0.204,"mesh_hash_ms":5.063,"model_and_collision_ms":11.171,"publish_ms":0.448,"slot_assignment_ms":0.038}
+NATIVE_FIT_DETAIL {"attach_ms":0.03,"cell":"shop_funeral_parlour","collision_ms":1.045,"cut_ms":4.236,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.72,"face_hash_ms":0.005,"instantiate_ms":0.096,"load_ms":0.01,"material_ms":0.372,"mesh_hash_ms":0.987,"model_and_collision_ms":3.43,"publish_ms":0.473,"slot_assignment_ms":0.042}
+NATIVE_FIT_DETAIL {"attach_ms":0.048,"cell":"shop_funeral_parlour","collision_ms":2.82,"cut_ms":10.876,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.306,"face_hash_ms":0.006,"instantiate_ms":0.193,"load_ms":0.011,"material_ms":0.403,"mesh_hash_ms":2.732,"model_and_collision_ms":5.738,"publish_ms":0.606,"slot_assignment_ms":0.102}
+NATIVE_FIT_DETAIL {"attach_ms":0.061,"cell":"shop_funeral_parlour","collision_ms":1.249,"cut_ms":7.749,"data":"res://data/orison_v2/funeral_fittings.json","duplicate_ms":1.715,"face_hash_ms":0.011,"instantiate_ms":0.044,"load_ms":0.012,"material_ms":0.572,"mesh_hash_ms":1.125,"model_and_collision_ms":3.695,"publish_ms":0.595,"slot_assignment_ms":0.083}
+NATIVE_FIT_DETAIL {"attach_ms":0.056,"cell":"shop_funeral_parlour","collision_ms":9.825,"cut_ms":7.511,"data":"res://data/orison_v2/funeral_drapes.json","duplicate_ms":2.256,"face_hash_ms":0.012,"instantiate_ms":0.032,"load_ms":0.011,"material_ms":0.267,"mesh_hash_ms":9.727,"model_and_collision_ms":12.634,"publish_ms":0.041,"slot_assignment_ms":0.036}
+NATIVE_FIT_DETAIL {"attach_ms":0.207,"cell":"shop_funeral_parlour","collision_ms":19.225,"cut_ms":6.167,"data":"res://data/orison_v2/funeral_foliage.json","duplicate_ms":6.538,"face_hash_ms":0.023,"instantiate_ms":0.056,"load_ms":0.011,"material_ms":0.562,"mesh_hash_ms":18.888,"model_and_collision_ms":26.65,"publish_ms":0.282,"slot_assignment_ms":0.178}
+[SURFACE] 173 surfaces layered (101 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.028,"cell":"shop_photo_supplies","collision_ms":1.066,"cut_ms":6.907,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.707,"face_hash_ms":0.004,"instantiate_ms":0.101,"load_ms":0.012,"material_ms":0.236,"mesh_hash_ms":1.012,"model_and_collision_ms":3.44,"publish_ms":0.63,"slot_assignment_ms":0.031}
+NATIVE_FIT_DETAIL {"attach_ms":0.032,"cell":"shop_photo_supplies","collision_ms":1.958,"cut_ms":8.629,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.016,"face_hash_ms":0.005,"instantiate_ms":0.109,"load_ms":0.011,"material_ms":0.34,"mesh_hash_ms":1.899,"model_and_collision_ms":4.572,"publish_ms":0.563,"slot_assignment_ms":0.041}
+NATIVE_FIT_DETAIL {"attach_ms":0.037,"cell":"shop_photo_supplies","collision_ms":0.576,"cut_ms":8.641,"data":"res://data/orison_v2/photo_radio_fittings.json","duplicate_ms":0.996,"face_hash_ms":0.005,"instantiate_ms":0.046,"load_ms":0.013,"material_ms":0.38,"mesh_hash_ms":0.507,"model_and_collision_ms":2.999,"publish_ms":0.839,"slot_assignment_ms":0.046}
+NATIVE_FIT_DETAIL {"attach_ms":0.06,"cell":"shop_photo_supplies","collision_ms":1.738,"cut_ms":7.474,"data":"res://data/orison_v2/photo_cameras.json","duplicate_ms":1.531,"face_hash_ms":0.009,"instantiate_ms":0.049,"load_ms":0.01,"material_ms":0.414,"mesh_hash_ms":1.623,"model_and_collision_ms":3.814,"publish_ms":0.507,"slot_assignment_ms":0.056}
+NATIVE_FIT_DETAIL {"attach_ms":0.055,"cell":"shop_photo_supplies","collision_ms":1.662,"cut_ms":8.369,"data":"res://data/orison_v2/photo_counter.json","duplicate_ms":1.639,"face_hash_ms":0.007,"instantiate_ms":0.036,"load_ms":0.01,"material_ms":0.583,"mesh_hash_ms":1.554,"model_and_collision_ms":4.038,"publish_ms":0.9,"slot_assignment_ms":0.087}
+NATIVE_FIT_DETAIL {"attach_ms":0.312,"cell":"shop_photo_supplies","collision_ms":12.515,"cut_ms":8.891,"data":"res://data/orison_v2/photo_stock.json","duplicate_ms":7.689,"face_hash_ms":0.032,"instantiate_ms":0.107,"load_ms":0.011,"material_ms":1.018,"mesh_hash_ms":11.986,"model_and_collision_ms":21.64,"publish_ms":0.303,"slot_assignment_ms":0.121}
+NATIVE_FIT_DETAIL {"attach_ms":0.071,"cell":"shop_photo_supplies","collision_ms":1.643,"cut_ms":3.886,"data":"res://data/orison_v2/photo_enlargers.json","duplicate_ms":1.923,"face_hash_ms":0.011,"instantiate_ms":0.044,"load_ms":0.011,"material_ms":0.432,"mesh_hash_ms":1.504,"model_and_collision_ms":4.141,"publish_ms":0.351,"slot_assignment_ms":0.056}
+NATIVE_FIT_DETAIL {"attach_ms":0.176,"cell":"shop_photo_supplies","collision_ms":4.672,"cut_ms":8.011,"data":"res://data/orison_v2/photo_process.json","duplicate_ms":5.472,"face_hash_ms":0.029,"instantiate_ms":0.264,"load_ms":0.01,"material_ms":0.679,"mesh_hash_ms":4.308,"model_and_collision_ms":11.244,"publish_ms":0.677,"slot_assignment_ms":0.112}
+NATIVE_FIT_DETAIL {"attach_ms":0.269,"cell":"shop_photo_supplies","collision_ms":1.567,"cut_ms":4.516,"data":"res://data/orison_v2/photo_portraits.json","duplicate_ms":4.965,"face_hash_ms":0.035,"instantiate_ms":0.171,"load_ms":0.015,"material_ms":0.606,"mesh_hash_ms":1.09,"model_and_collision_ms":7.528,"publish_ms":0.685,"slot_assignment_ms":0.111}
+NATIVE_FIT_DETAIL {"attach_ms":0.022,"cell":"shop_photo_supplies","collision_ms":0.086,"cut_ms":3.082,"data":"res://data/orison_v2/photo_glazing.json","duplicate_ms":0.484,"face_hash_ms":0.003,"instantiate_ms":0.027,"load_ms":0.01,"material_ms":0.135,"mesh_hash_ms":0.042,"model_and_collision_ms":0.746,"publish_ms":0.019,"slot_assignment_ms":0.017}
+[SURFACE] 212 surfaces layered (133 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.027,"cell":"shop_radio_service","collision_ms":1.05,"cut_ms":5.488,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.758,"face_hash_ms":0.005,"instantiate_ms":0.096,"load_ms":0.009,"material_ms":0.362,"mesh_hash_ms":0.994,"model_and_collision_ms":3.276,"publish_ms":0.543,"slot_assignment_ms":0.04}
+NATIVE_FIT_DETAIL {"attach_ms":0.03,"cell":"shop_radio_service","collision_ms":1.967,"cut_ms":6.89,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.007,"face_hash_ms":0.005,"instantiate_ms":0.103,"load_ms":0.011,"material_ms":0.323,"mesh_hash_ms":1.913,"model_and_collision_ms":4.453,"publish_ms":0.591,"slot_assignment_ms":0.04}
+NATIVE_FIT_DETAIL {"attach_ms":0.023,"cell":"shop_radio_service","collision_ms":0.808,"cut_ms":8.246,"data":"res://data/orison_v2/photo_radio_fittings.json","duplicate_ms":0.613,"face_hash_ms":0.002,"instantiate_ms":0.041,"load_ms":0.011,"material_ms":0.241,"mesh_hash_ms":0.765,"model_and_collision_ms":2.508,"publish_ms":0.36,"slot_assignment_ms":0.027}
+NATIVE_FIT_DETAIL {"attach_ms":0.053,"cell":"shop_radio_service","collision_ms":1.59,"cut_ms":6.734,"data":"res://data/orison_v2/radio_bench.json","duplicate_ms":1.602,"face_hash_ms":0.008,"instantiate_ms":0.039,"load_ms":0.01,"material_ms":0.591,"mesh_hash_ms":1.481,"model_and_collision_ms":3.935,"publish_ms":0.525,"slot_assignment_ms":0.083}
+NATIVE_FIT_DETAIL {"attach_ms":0.103,"cell":"shop_radio_service","collision_ms":6.638,"cut_ms":5.208,"data":"res://data/orison_v2/radio_apparatus.json","duplicate_ms":4.168,"face_hash_ms":0.015,"instantiate_ms":0.07,"load_ms":0.011,"material_ms":0.787,"mesh_hash_ms":6.432,"model_and_collision_ms":11.822,"publish_ms":0.519,"slot_assignment_ms":0.11}
+NATIVE_FIT_DETAIL {"attach_ms":0.283,"cell":"shop_radio_service","collision_ms":10.769,"cut_ms":4.64,"data":"res://data/orison_v2/radio_stock.json","duplicate_ms":9.698,"face_hash_ms":0.048,"instantiate_ms":0.125,"load_ms":0.01,"material_ms":0.744,"mesh_hash_ms":10.196,"model_and_collision_ms":21.676,"publish_ms":0.597,"slot_assignment_ms":0.112}
+NATIVE_FIT_DETAIL {"attach_ms":0.134,"cell":"shop_radio_service","collision_ms":3.325,"cut_ms":5.813,"data":"res://data/orison_v2/radio_battery.json","duplicate_ms":1.948,"face_hash_ms":0.011,"instantiate_ms":0.035,"load_ms":0.01,"material_ms":0.66,"mesh_hash_ms":3.134,"model_and_collision_ms":6.104,"publish_ms":0.231,"slot_assignment_ms":0.091}
+NATIVE_FIT_DETAIL {"attach_ms":0.057,"cell":"shop_radio_service","collision_ms":7.576,"cut_ms":4.999,"data":"res://data/orison_v2/radio_wire.json","duplicate_ms":2.909,"face_hash_ms":0.01,"instantiate_ms":0.036,"load_ms":0.011,"material_ms":0.448,"mesh_hash_ms":7.47,"model_and_collision_ms":11.068,"publish_ms":0.031,"slot_assignment_ms":0.064}
+NATIVE_FIT_DETAIL {"attach_ms":0.074,"cell":"shop_radio_service","collision_ms":1.85,"cut_ms":4.719,"data":"res://data/orison_v2/radio_display.json","duplicate_ms":2.116,"face_hash_ms":0.01,"instantiate_ms":0.044,"load_ms":0.012,"material_ms":0.779,"mesh_hash_ms":1.708,"model_and_collision_ms":4.913,"publish_ms":0.302,"slot_assignment_ms":0.086}
+[SURFACE] 273 surfaces layered (165 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.037,"cell":"shop_pawnbroker","collision_ms":1.044,"cut_ms":4.719,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.903,"face_hash_ms":0.005,"instantiate_ms":0.103,"load_ms":0.01,"material_ms":0.405,"mesh_hash_ms":0.974,"model_and_collision_ms":3.555,"publish_ms":0.626,"slot_assignment_ms":0.048}
+NATIVE_FIT_DETAIL {"attach_ms":0.031,"cell":"shop_pawnbroker","collision_ms":2.027,"cut_ms":5.511,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.074,"face_hash_ms":0.005,"instantiate_ms":0.103,"load_ms":0.01,"material_ms":0.356,"mesh_hash_ms":1.964,"model_and_collision_ms":4.642,"publish_ms":0.801,"slot_assignment_ms":0.042}
+NATIVE_FIT_DETAIL {"attach_ms":0.134,"cell":"shop_pawnbroker","collision_ms":5.537,"cut_ms":7.056,"data":"res://data/orison_v2/pawn_display.json","duplicate_ms":4.357,"face_hash_ms":0.021,"instantiate_ms":0.06,"load_ms":0.01,"material_ms":0.983,"mesh_hash_ms":5.268,"model_and_collision_ms":11.234,"publish_ms":1.035,"slot_assignment_ms":0.143}
+NATIVE_FIT_DETAIL {"attach_ms":0.457,"cell":"shop_pawnbroker","collision_ms":4.795,"cut_ms":4.454,"data":"res://data/orison_v2/pawn_clocks.json","duplicate_ms":11.733,"face_hash_ms":0.073,"instantiate_ms":0.184,"load_ms":0.01,"material_ms":0.761,"mesh_hash_ms":3.95,"model_and_collision_ms":17.897,"publish_ms":0.583,"slot_assignment_ms":0.14}
+NATIVE_FIT_DETAIL {"attach_ms":0.339,"cell":"shop_pawnbroker","collision_ms":9.311,"cut_ms":10.233,"data":"res://data/orison_v2/pawn_fittings.json","duplicate_ms":9.852,"face_hash_ms":0.051,"instantiate_ms":0.111,"load_ms":0.012,"material_ms":1.612,"mesh_hash_ms":8.639,"model_and_collision_ms":21.475,"publish_ms":0.708,"slot_assignment_ms":0.273}
+[SURFACE] 294 surfaces layered (186 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.029,"cell":"shop_news_cigars","collision_ms":1.053,"cut_ms":4.704,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.744,"face_hash_ms":0.005,"instantiate_ms":0.101,"load_ms":0.01,"material_ms":0.293,"mesh_hash_ms":0.996,"model_and_collision_ms":3.201,"publish_ms":0.56,"slot_assignment_ms":0.04}
+NATIVE_FIT_DETAIL {"attach_ms":0.03,"cell":"shop_news_cigars","collision_ms":1.961,"cut_ms":4.953,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.215,"face_hash_ms":0.003,"instantiate_ms":0.109,"load_ms":0.011,"material_ms":0.331,"mesh_hash_ms":1.903,"model_and_collision_ms":4.632,"publish_ms":0.432,"slot_assignment_ms":0.039}
+NATIVE_FIT_DETAIL {"attach_ms":0.305,"cell":"shop_news_cigars","collision_ms":9.025,"cut_ms":7.037,"data":"res://data/orison_v2/news_fittings.json","duplicate_ms":9.218,"face_hash_ms":0.046,"instantiate_ms":0.131,"load_ms":0.01,"material_ms":1.386,"mesh_hash_ms":8.423,"model_and_collision_ms":20.384,"publish_ms":1.65,"slot_assignment_ms":0.251}
+[SURFACE] 313 surfaces layered (204 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.062,"cell":"shop_otis_son","collision_ms":1.575,"cut_ms":6.472,"data":"res://data/orison_v2/shop_seating.json","duplicate_ms":2.666,"face_hash_ms":0.009,"instantiate_ms":0.127,"load_ms":0.01,"material_ms":0.374,"mesh_hash_ms":1.452,"model_and_collision_ms":5.52,"publish_ms":0.292,"slot_assignment_ms":0.037}
+NATIVE_FIT_DETAIL {"attach_ms":0.031,"cell":"shop_otis_son","collision_ms":1.08,"cut_ms":4.736,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.901,"face_hash_ms":0.004,"instantiate_ms":0.096,"load_ms":0.01,"material_ms":0.311,"mesh_hash_ms":1.019,"model_and_collision_ms":3.286,"publish_ms":0.833,"slot_assignment_ms":0.042}
+NATIVE_FIT_DETAIL {"attach_ms":0.033,"cell":"shop_otis_son","collision_ms":1.971,"cut_ms":5.603,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.01,"face_hash_ms":0.005,"instantiate_ms":0.111,"load_ms":0.011,"material_ms":0.349,"mesh_hash_ms":1.911,"model_and_collision_ms":4.443,"publish_ms":0.623,"slot_assignment_ms":0.043}
+NATIVE_FIT_DETAIL {"attach_ms":1.216,"cell":"shop_otis_son","collision_ms":41.53,"cut_ms":6.424,"data":"res://data/orison_v2/druggist_drawers.json","duplicate_ms":36.643,"face_hash_ms":0.182,"instantiate_ms":0.568,"load_ms":0.011,"material_ms":1.285,"mesh_hash_ms":39.184,"model_and_collision_ms":81.06,"publish_ms":0.551,"slot_assignment_ms":0.294}
+NATIVE_FIT_DETAIL {"attach_ms":0.033,"cell":"shop_otis_son","collision_ms":1.0,"cut_ms":3.52,"data":"res://data/orison_v2/druggist_counter.json","duplicate_ms":0.936,"face_hash_ms":0.005,"instantiate_ms":0.033,"load_ms":0.011,"material_ms":0.4,"mesh_hash_ms":0.934,"model_and_collision_ms":2.479,"publish_ms":0.27,"slot_assignment_ms":0.052}
+NATIVE_FIT_DETAIL {"attach_ms":0.029,"cell":"shop_otis_son","collision_ms":0.873,"cut_ms":3.975,"data":"res://data/orison_v2/druggist_mortar.json","duplicate_ms":0.679,"face_hash_ms":0.004,"instantiate_ms":0.029,"load_ms":0.013,"material_ms":0.155,"mesh_hash_ms":0.821,"model_and_collision_ms":1.803,"publish_ms":0.306,"slot_assignment_ms":0.02}
+NATIVE_FIT_DETAIL {"attach_ms":0.533,"cell":"shop_otis_son","collision_ms":13.039,"cut_ms":6.119,"data":"res://data/orison_v2/druggist_dispensary.json","duplicate_ms":13.902,"face_hash_ms":0.081,"instantiate_ms":0.402,"load_ms":0.011,"material_ms":0.97,"mesh_hash_ms":12.019,"model_and_collision_ms":28.717,"publish_ms":1.024,"slot_assignment_ms":0.25}
+NATIVE_FIT_DETAIL {"attach_ms":0.361,"cell":"shop_otis_son","collision_ms":5.572,"cut_ms":7.368,"data":"res://data/orison_v2/druggist_cupboard.json","duplicate_ms":7.562,"face_hash_ms":0.039,"instantiate_ms":0.254,"load_ms":0.011,"material_ms":0.982,"mesh_hash_ms":4.963,"model_and_collision_ms":14.627,"publish_ms":1.288,"slot_assignment_ms":0.154}
+NATIVE_FIT_DETAIL {"attach_ms":0.169,"cell":"shop_otis_son","collision_ms":19.229,"cut_ms":6.094,"data":"res://data/orison_v2/druggist_carboys.json","duplicate_ms":7.893,"face_hash_ms":0.024,"instantiate_ms":0.07,"load_ms":0.011,"material_ms":0.95,"mesh_hash_ms":18.901,"model_and_collision_ms":28.409,"publish_ms":0.726,"slot_assignment_ms":0.141}
+NATIVE_FIT_DETAIL {"attach_ms":0.072,"cell":"shop_otis_son","collision_ms":4.002,"cut_ms":3.601,"data":"res://data/orison_v2/druggist_fountain.json","duplicate_ms":3.197,"face_hash_ms":0.01,"instantiate_ms":0.043,"load_ms":0.011,"material_ms":0.273,"mesh_hash_ms":3.858,"model_and_collision_ms":7.596,"publish_ms":0.039,"slot_assignment_ms":0.04}
+[SURFACE] 354 surfaces layered (229 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.146,"cell":"shop_luncheonette","collision_ms":3.312,"cut_ms":8.462,"data":"res://data/orison_v2/shop_seating.json","duplicate_ms":4.072,"face_hash_ms":0.018,"instantiate_ms":0.129,"load_ms":0.01,"material_ms":0.401,"mesh_hash_ms":3.058,"model_and_collision_ms":8.857,"publish_ms":1.027,"slot_assignment_ms":0.058}
+NATIVE_FIT_DETAIL {"attach_ms":0.046,"cell":"shop_luncheonette","collision_ms":1.142,"cut_ms":6.933,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":1.127,"face_hash_ms":0.005,"instantiate_ms":0.215,"load_ms":0.015,"material_ms":0.371,"mesh_hash_ms":1.065,"model_and_collision_ms":4.224,"publish_ms":0.964,"slot_assignment_ms":0.046}
+NATIVE_FIT_DETAIL {"attach_ms":0.03,"cell":"shop_luncheonette","collision_ms":2.024,"cut_ms":6.102,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.035,"face_hash_ms":0.006,"instantiate_ms":0.1,"load_ms":0.01,"material_ms":0.354,"mesh_hash_ms":1.964,"model_and_collision_ms":4.437,"publish_ms":0.551,"slot_assignment_ms":0.043}
+NATIVE_FIT_DETAIL {"attach_ms":0.058,"cell":"shop_luncheonette","collision_ms":2.593,"cut_ms":5.039,"data":"res://data/orison_v2/diner_counter.json","duplicate_ms":1.652,"face_hash_ms":0.009,"instantiate_ms":0.038,"load_ms":0.011,"material_ms":0.55,"mesh_hash_ms":2.484,"model_and_collision_ms":4.95,"publish_ms":0.959,"slot_assignment_ms":0.08}
+NATIVE_FIT_DETAIL {"attach_ms":0.054,"cell":"shop_luncheonette","collision_ms":2.566,"cut_ms":4.544,"data":"res://data/orison_v2/diner_till.json","duplicate_ms":1.6,"face_hash_ms":0.008,"instantiate_ms":0.037,"load_ms":0.011,"material_ms":0.468,"mesh_hash_ms":2.46,"model_and_collision_ms":4.763,"publish_ms":0.59,"slot_assignment_ms":0.069}
+NATIVE_FIT_DETAIL {"attach_ms":0.028,"cell":"shop_luncheonette","collision_ms":0.951,"cut_ms":4.276,"data":"res://data/orison_v2/diner_backbar.json","duplicate_ms":0.777,"face_hash_ms":0.004,"instantiate_ms":0.025,"load_ms":0.01,"material_ms":0.315,"mesh_hash_ms":0.895,"model_and_collision_ms":2.133,"publish_ms":0.344,"slot_assignment_ms":0.048}
+NATIVE_FIT_DETAIL {"attach_ms":0.06,"cell":"shop_luncheonette","collision_ms":2.089,"cut_ms":6.675,"data":"res://data/orison_v2/diner_urns.json","duplicate_ms":1.715,"face_hash_ms":0.009,"instantiate_ms":0.041,"load_ms":0.011,"material_ms":0.415,"mesh_hash_ms":1.969,"model_and_collision_ms":4.358,"publish_ms":0.554,"slot_assignment_ms":0.059}
+NATIVE_FIT_DETAIL {"attach_ms":0.053,"cell":"shop_luncheonette","collision_ms":3.556,"cut_ms":6.762,"data":"res://data/orison_v2/diner_apparatus.json","duplicate_ms":1.57,"face_hash_ms":0.009,"instantiate_ms":0.036,"load_ms":0.011,"material_ms":0.468,"mesh_hash_ms":3.455,"model_and_collision_ms":5.774,"publish_ms":0.458,"slot_assignment_ms":0.063}
+NATIVE_FIT_DETAIL {"attach_ms":0.021,"cell":"shop_luncheonette","collision_ms":0.969,"cut_ms":6.306,"data":"res://data/orison_v2/diner_overhead.json","duplicate_ms":0.502,"face_hash_ms":0.003,"instantiate_ms":0.023,"load_ms":0.01,"material_ms":0.237,"mesh_hash_ms":0.928,"model_and_collision_ms":1.771,"publish_ms":0.4,"slot_assignment_ms":0.027}
+[SURFACE] 392 surfaces layered (256 materials)
+CONNECTED EXTERIOR CHECK: ordinary street approach completes passage reconstruction before gateway cycle 0 = true
+CONNECTED EXTERIOR CHECK: passage eventually reaches resident state cycle 0 = true
+[PLAYER] pointer captured (backtick key)
+CONNECTED EXTERIOR CHECK: F01_DOOR_06 reaches its stop through primary grab, fixed mouse travel and release = true
+[PLAYER] pointer captured (backtick key)
+CONNECTED EXTERIOR CHECK: F01_INNER_DOOR reaches its stop through primary grab, fixed mouse travel and release = true
+PASSAGE_RETIRE_DETAIL {"actors_ms":2.584,"detach_ms":3.09,"enqueue_release_ms":0.24}
+CONNECTED EXTERIOR CHECK: return retires imported passage roots and meshes cycle 0 = true
+[PLAYER] pointer captured (backtick key)
+CONNECTED EXTERIOR CHECK: F01_INNER_DOOR reaches its stop through primary grab, fixed mouse travel and release = true
+[PLAYER] pointer captured (backtick key)
+CONNECTED EXTERIOR CHECK: F01_DOOR_06 reaches its stop through primary grab, fixed mouse travel and release = true
+NATIVE_FIT_DETAIL {"attach_ms":0.059,"cell":"passage","collision_ms":7.363,"cut_ms":6.432,"data":"res://data/orison_v2/arcade_canopy.json","duplicate_ms":2.169,"face_hash_ms":0.009,"instantiate_ms":0.031,"load_ms":0.01,"material_ms":0.542,"mesh_hash_ms":7.251,"model_and_collision_ms":84.209,"publish_ms":1.627,"slot_assignment_ms":74.071}
+NATIVE_FIT_DETAIL {"attach_ms":0.068,"cell":"passage","collision_ms":50.117,"cut_ms":4.317,"data":"res://data/orison_v2/arcade_throat.json","duplicate_ms":8.347,"face_hash_ms":0.01,"instantiate_ms":0.027,"load_ms":0.01,"material_ms":0.582,"mesh_hash_ms":50.0,"model_and_collision_ms":59.169,"publish_ms":0.583,"slot_assignment_ms":0.068}
+NATIVE_FIT_DETAIL {"attach_ms":0.014,"cell":"passage","collision_ms":1.357,"cut_ms":4.471,"data":"res://data/orison_v2/arcade_lantern.json","duplicate_ms":0.903,"face_hash_ms":0.002,"instantiate_ms":0.018,"load_ms":0.01,"material_ms":0.133,"mesh_hash_ms":1.331,"model_and_collision_ms":2.518,"publish_ms":0.279,"slot_assignment_ms":0.017}
+NATIVE_FIT_DETAIL {"attach_ms":0.075,"cell":"passage","collision_ms":5.843,"cut_ms":4.486,"data":"res://data/orison_v2/arcade_clock.json","duplicate_ms":3.087,"face_hash_ms":0.014,"instantiate_ms":0.049,"load_ms":0.01,"material_ms":0.451,"mesh_hash_ms":5.685,"model_and_collision_ms":9.545,"publish_ms":0.558,"slot_assignment_ms":0.077}
+[SURFACE] 33 surfaces layered (22 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.545,"cell":"shop_model_laundry","collision_ms":17.099,"cut_ms":6.935,"data":"res://data/orison_v2/laundry_fittings.json","duplicate_ms":19.225,"face_hash_ms":0.087,"instantiate_ms":0.263,"load_ms":0.011,"material_ms":0.946,"mesh_hash_ms":15.97,"model_and_collision_ms":38.087,"publish_ms":1.065,"slot_assignment_ms":0.179}
+NATIVE_FIT_DETAIL {"attach_ms":0.104,"cell":"shop_model_laundry","collision_ms":5.867,"cut_ms":6.4,"data":"res://data/orison_v2/laundry_apparatus.json","duplicate_ms":3.721,"face_hash_ms":0.019,"instantiate_ms":0.067,"load_ms":0.01,"material_ms":0.578,"mesh_hash_ms":5.651,"model_and_collision_ms":10.375,"publish_ms":0.614,"slot_assignment_ms":0.088}
+NATIVE_FIT_DETAIL {"attach_ms":0.109,"cell":"shop_model_laundry","collision_ms":3.952,"cut_ms":6.976,"data":"res://data/orison_v2/laundry_trade.json","duplicate_ms":3.427,"face_hash_ms":0.019,"instantiate_ms":0.069,"load_ms":0.01,"material_ms":0.916,"mesh_hash_ms":3.728,"model_and_collision_ms":8.609,"publish_ms":0.856,"slot_assignment_ms":0.131}
+NATIVE_FIT_DETAIL {"attach_ms":0.03,"cell":"shop_model_laundry","collision_ms":1.072,"cut_ms":4.808,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.781,"face_hash_ms":0.005,"instantiate_ms":0.108,"load_ms":0.011,"material_ms":0.297,"mesh_hash_ms":1.014,"model_and_collision_ms":3.314,"publish_ms":0.538,"slot_assignment_ms":0.038}
+NATIVE_FIT_DETAIL {"attach_ms":0.032,"cell":"shop_model_laundry","collision_ms":1.976,"cut_ms":3.634,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.016,"face_hash_ms":0.006,"instantiate_ms":0.127,"load_ms":0.01,"material_ms":0.331,"mesh_hash_ms":1.917,"model_and_collision_ms":4.338,"publish_ms":0.382,"slot_assignment_ms":0.041}
+[SURFACE] 53 surfaces layered (41 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.035,"cell":"shop_shoe_rebuilding","collision_ms":1.123,"cut_ms":4.217,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.839,"face_hash_ms":0.004,"instantiate_ms":0.101,"load_ms":0.01,"material_ms":0.334,"mesh_hash_ms":1.056,"model_and_collision_ms":3.253,"publish_ms":0.533,"slot_assignment_ms":0.043}
+NATIVE_FIT_DETAIL {"attach_ms":0.031,"cell":"shop_shoe_rebuilding","collision_ms":1.96,"cut_ms":4.085,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":0.943,"face_hash_ms":0.004,"instantiate_ms":0.112,"load_ms":0.01,"material_ms":0.335,"mesh_hash_ms":1.9,"model_and_collision_ms":4.389,"publish_ms":0.595,"slot_assignment_ms":0.041}
+NATIVE_FIT_DETAIL {"attach_ms":0.356,"cell":"shop_shoe_rebuilding","collision_ms":23.08,"cut_ms":9.194,"data":"res://data/orison_v2/cobbler_fittings.json","duplicate_ms":12.6,"face_hash_ms":0.051,"instantiate_ms":0.146,"load_ms":0.012,"material_ms":1.376,"mesh_hash_ms":22.39,"model_and_collision_ms":37.688,"publish_ms":0.847,"slot_assignment_ms":0.214}
+[SURFACE] 88 surfaces layered (55 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.042,"cell":"shop_keys_cut","collision_ms":1.117,"cut_ms":4.786,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":1.654,"face_hash_ms":0.006,"instantiate_ms":0.106,"load_ms":0.011,"material_ms":0.378,"mesh_hash_ms":1.036,"model_and_collision_ms":4.169,"publish_ms":0.772,"slot_assignment_ms":0.05}
+NATIVE_FIT_DETAIL {"attach_ms":0.036,"cell":"shop_keys_cut","collision_ms":2.076,"cut_ms":5.714,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.292,"face_hash_ms":0.005,"instantiate_ms":0.115,"load_ms":0.011,"material_ms":0.374,"mesh_hash_ms":2.006,"model_and_collision_ms":4.979,"publish_ms":1.622,"slot_assignment_ms":0.047}
+NATIVE_FIT_DETAIL {"attach_ms":0.237,"cell":"shop_keys_cut","collision_ms":13.384,"cut_ms":14.031,"data":"res://data/orison_v2/locksmith_fittings.json","duplicate_ms":8.585,"face_hash_ms":0.038,"instantiate_ms":0.129,"load_ms":0.012,"material_ms":1.267,"mesh_hash_ms":12.915,"model_and_collision_ms":23.779,"publish_ms":1.13,"slot_assignment_ms":0.193}
+[SURFACE] 107 surfaces layered (69 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.042,"cell":"shop_hardware_paint","collision_ms":1.059,"cut_ms":4.436,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.858,"face_hash_ms":0.005,"instantiate_ms":0.096,"load_ms":0.01,"material_ms":0.359,"mesh_hash_ms":0.986,"model_and_collision_ms":3.221,"publish_ms":0.546,"slot_assignment_ms":0.044}
+NATIVE_FIT_DETAIL {"attach_ms":0.033,"cell":"shop_hardware_paint","collision_ms":2.02,"cut_ms":4.973,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":0.963,"face_hash_ms":0.003,"instantiate_ms":0.143,"load_ms":0.01,"material_ms":0.343,"mesh_hash_ms":1.958,"model_and_collision_ms":4.152,"publish_ms":1.198,"slot_assignment_ms":0.041}
+NATIVE_FIT_DETAIL {"attach_ms":0.834,"cell":"shop_hardware_paint","collision_ms":25.766,"cut_ms":10.932,"data":"res://data/orison_v2/hardware_drawers.json","duplicate_ms":25.688,"face_hash_ms":0.125,"instantiate_ms":0.243,"load_ms":0.012,"material_ms":1.512,"mesh_hash_ms":24.127,"model_and_collision_ms":54.18,"publish_ms":2.515,"slot_assignment_ms":0.302}
+NATIVE_FIT_DETAIL {"attach_ms":0.048,"cell":"shop_hardware_paint","collision_ms":2.197,"cut_ms":4.827,"data":"res://data/orison_v2/hardware_apparatus.json","duplicate_ms":1.537,"face_hash_ms":0.007,"instantiate_ms":0.035,"load_ms":0.011,"material_ms":0.351,"mesh_hash_ms":2.104,"model_and_collision_ms":4.197,"publish_ms":0.943,"slot_assignment_ms":0.049}
+NATIVE_FIT_DETAIL {"attach_ms":0.564,"cell":"shop_hardware_paint","collision_ms":28.953,"cut_ms":8.47,"data":"res://data/orison_v2/hardware_stock.json","duplicate_ms":19.803,"face_hash_ms":0.089,"instantiate_ms":0.315,"load_ms":0.012,"material_ms":1.082,"mesh_hash_ms":27.82,"model_and_collision_ms":50.685,"publish_ms":1.578,"slot_assignment_ms":0.196}
+NATIVE_FIT_DETAIL {"attach_ms":0.073,"cell":"shop_hardware_paint","collision_ms":2.092,"cut_ms":6.455,"data":"res://data/orison_v2/hardware_tools.json","duplicate_ms":2.188,"face_hash_ms":0.012,"instantiate_ms":0.047,"load_ms":0.011,"material_ms":0.649,"mesh_hash_ms":1.94,"model_and_collision_ms":5.12,"publish_ms":0.649,"slot_assignment_ms":0.092}
+[SURFACE] 155 surfaces layered (83 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.102,"cell":"shop_funeral_parlour","collision_ms":5.332,"cut_ms":8.918,"data":"res://data/orison_v2/shop_seating.json","duplicate_ms":4.97,"face_hash_ms":0.019,"instantiate_ms":0.124,"load_ms":0.011,"material_ms":0.197,"mesh_hash_ms":5.121,"model_and_collision_ms":11.718,"publish_ms":0.515,"slot_assignment_ms":0.035}
+NATIVE_FIT_DETAIL {"attach_ms":0.032,"cell":"shop_funeral_parlour","collision_ms":1.096,"cut_ms":6.287,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.737,"face_hash_ms":0.004,"instantiate_ms":0.098,"load_ms":0.011,"material_ms":0.289,"mesh_hash_ms":1.033,"model_and_collision_ms":3.39,"publish_ms":0.709,"slot_assignment_ms":0.043}
+NATIVE_FIT_DETAIL {"attach_ms":0.046,"cell":"shop_funeral_parlour","collision_ms":2.788,"cut_ms":8.291,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.456,"face_hash_ms":0.009,"instantiate_ms":0.102,"load_ms":0.01,"material_ms":0.401,"mesh_hash_ms":2.695,"model_and_collision_ms":5.872,"publish_ms":1.215,"slot_assignment_ms":0.057}
+NATIVE_FIT_DETAIL {"attach_ms":0.069,"cell":"shop_funeral_parlour","collision_ms":1.298,"cut_ms":6.876,"data":"res://data/orison_v2/funeral_fittings.json","duplicate_ms":1.742,"face_hash_ms":0.011,"instantiate_ms":0.041,"load_ms":0.01,"material_ms":0.584,"mesh_hash_ms":1.159,"model_and_collision_ms":3.791,"publish_ms":0.612,"slot_assignment_ms":0.086}
+NATIVE_FIT_DETAIL {"attach_ms":0.052,"cell":"shop_funeral_parlour","collision_ms":9.702,"cut_ms":5.741,"data":"res://data/orison_v2/funeral_drapes.json","duplicate_ms":2.148,"face_hash_ms":0.008,"instantiate_ms":0.03,"load_ms":0.011,"material_ms":0.255,"mesh_hash_ms":9.609,"model_and_collision_ms":12.33,"publish_ms":0.041,"slot_assignment_ms":0.036}
+NATIVE_FIT_DETAIL {"attach_ms":0.137,"cell":"shop_funeral_parlour","collision_ms":19.233,"cut_ms":6.921,"data":"res://data/orison_v2/funeral_foliage.json","duplicate_ms":6.343,"face_hash_ms":0.016,"instantiate_ms":0.053,"load_ms":0.011,"material_ms":0.568,"mesh_hash_ms":18.977,"model_and_collision_ms":26.366,"publish_ms":0.288,"slot_assignment_ms":0.075}
+[SURFACE] 173 surfaces layered (101 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.028,"cell":"shop_photo_supplies","collision_ms":1.031,"cut_ms":4.866,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":1.218,"face_hash_ms":0.004,"instantiate_ms":0.099,"load_ms":0.016,"material_ms":0.244,"mesh_hash_ms":0.978,"model_and_collision_ms":3.695,"publish_ms":0.584,"slot_assignment_ms":0.031}
+NATIVE_FIT_DETAIL {"attach_ms":0.033,"cell":"shop_photo_supplies","collision_ms":1.991,"cut_ms":6.545,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.023,"face_hash_ms":0.005,"instantiate_ms":0.107,"load_ms":0.011,"material_ms":0.346,"mesh_hash_ms":1.927,"model_and_collision_ms":4.528,"publish_ms":0.633,"slot_assignment_ms":0.041}
+NATIVE_FIT_DETAIL {"attach_ms":0.037,"cell":"shop_photo_supplies","collision_ms":0.576,"cut_ms":5.866,"data":"res://data/orison_v2/photo_radio_fittings.json","duplicate_ms":1.023,"face_hash_ms":0.005,"instantiate_ms":0.041,"load_ms":0.011,"material_ms":0.388,"mesh_hash_ms":0.507,"model_and_collision_ms":3.137,"publish_ms":0.73,"slot_assignment_ms":0.05}
+NATIVE_FIT_DETAIL {"attach_ms":0.063,"cell":"shop_photo_supplies","collision_ms":1.769,"cut_ms":5.06,"data":"res://data/orison_v2/photo_cameras.json","duplicate_ms":2.373,"face_hash_ms":0.01,"instantiate_ms":0.041,"load_ms":0.011,"material_ms":0.45,"mesh_hash_ms":1.645,"model_and_collision_ms":4.753,"publish_ms":0.554,"slot_assignment_ms":0.064}
+NATIVE_FIT_DETAIL {"attach_ms":0.065,"cell":"shop_photo_supplies","collision_ms":1.679,"cut_ms":7.98,"data":"res://data/orison_v2/photo_counter.json","duplicate_ms":1.698,"face_hash_ms":0.01,"instantiate_ms":0.043,"load_ms":0.01,"material_ms":0.67,"mesh_hash_ms":1.558,"model_and_collision_ms":4.232,"publish_ms":0.928,"slot_assignment_ms":0.095}
+NATIVE_FIT_DETAIL {"attach_ms":0.212,"cell":"shop_photo_supplies","collision_ms":12.253,"cut_ms":7.028,"data":"res://data/orison_v2/photo_stock.json","duplicate_ms":7.827,"face_hash_ms":0.036,"instantiate_ms":0.098,"load_ms":0.011,"material_ms":0.871,"mesh_hash_ms":11.827,"model_and_collision_ms":21.353,"publish_ms":0.536,"slot_assignment_ms":0.116}
+NATIVE_FIT_DETAIL {"attach_ms":0.075,"cell":"shop_photo_supplies","collision_ms":1.677,"cut_ms":4.535,"data":"res://data/orison_v2/photo_enlargers.json","duplicate_ms":2.788,"face_hash_ms":0.011,"instantiate_ms":0.045,"load_ms":0.012,"material_ms":0.489,"mesh_hash_ms":1.519,"model_and_collision_ms":5.122,"publish_ms":0.303,"slot_assignment_ms":0.069}
+NATIVE_FIT_DETAIL {"attach_ms":0.224,"cell":"shop_photo_supplies","collision_ms":4.773,"cut_ms":7.669,"data":"res://data/orison_v2/photo_process.json","duplicate_ms":6.825,"face_hash_ms":0.036,"instantiate_ms":0.097,"load_ms":0.011,"material_ms":0.805,"mesh_hash_ms":4.333,"model_and_collision_ms":12.779,"publish_ms":0.677,"slot_assignment_ms":0.122}
+NATIVE_FIT_DETAIL {"attach_ms":0.241,"cell":"shop_photo_supplies","collision_ms":1.715,"cut_ms":4.319,"data":"res://data/orison_v2/photo_portraits.json","duplicate_ms":5.954,"face_hash_ms":0.035,"instantiate_ms":0.087,"load_ms":0.011,"material_ms":0.619,"mesh_hash_ms":1.241,"model_and_collision_ms":8.705,"publish_ms":0.83,"slot_assignment_ms":0.116}
+NATIVE_FIT_DETAIL {"attach_ms":0.024,"cell":"shop_photo_supplies","collision_ms":0.091,"cut_ms":2.949,"data":"res://data/orison_v2/photo_glazing.json","duplicate_ms":0.567,"face_hash_ms":0.004,"instantiate_ms":0.027,"load_ms":0.01,"material_ms":0.136,"mesh_hash_ms":0.043,"model_and_collision_ms":0.843,"publish_ms":0.021,"slot_assignment_ms":0.019}
+[SURFACE] 212 surfaces layered (133 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.029,"cell":"shop_radio_service","collision_ms":1.069,"cut_ms":5.264,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.729,"face_hash_ms":0.005,"instantiate_ms":0.096,"load_ms":0.01,"material_ms":0.302,"mesh_hash_ms":1.015,"model_and_collision_ms":3.296,"publish_ms":0.485,"slot_assignment_ms":0.038}
+NATIVE_FIT_DETAIL {"attach_ms":0.029,"cell":"shop_radio_service","collision_ms":1.995,"cut_ms":5.482,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.004,"face_hash_ms":0.005,"instantiate_ms":0.105,"load_ms":0.009,"material_ms":0.325,"mesh_hash_ms":1.938,"model_and_collision_ms":4.496,"publish_ms":0.552,"slot_assignment_ms":0.041}
+NATIVE_FIT_DETAIL {"attach_ms":0.022,"cell":"shop_radio_service","collision_ms":0.859,"cut_ms":5.083,"data":"res://data/orison_v2/photo_radio_fittings.json","duplicate_ms":0.568,"face_hash_ms":0.004,"instantiate_ms":0.035,"load_ms":0.011,"material_ms":0.237,"mesh_hash_ms":0.815,"model_and_collision_ms":2.622,"publish_ms":0.422,"slot_assignment_ms":0.029}
+NATIVE_FIT_DETAIL {"attach_ms":0.058,"cell":"shop_radio_service","collision_ms":1.592,"cut_ms":4.603,"data":"res://data/orison_v2/radio_bench.json","duplicate_ms":1.592,"face_hash_ms":0.01,"instantiate_ms":0.038,"load_ms":0.01,"material_ms":0.6,"mesh_hash_ms":1.481,"model_and_collision_ms":3.933,"publish_ms":0.529,"slot_assignment_ms":0.084}
+NATIVE_FIT_DETAIL {"attach_ms":0.1,"cell":"shop_radio_service","collision_ms":6.761,"cut_ms":6.724,"data":"res://data/orison_v2/radio_apparatus.json","duplicate_ms":3.482,"face_hash_ms":0.016,"instantiate_ms":0.054,"load_ms":0.01,"material_ms":0.756,"mesh_hash_ms":6.567,"model_and_collision_ms":11.232,"publish_ms":0.516,"slot_assignment_ms":0.112}
+NATIVE_FIT_DETAIL {"attach_ms":0.276,"cell":"shop_radio_service","collision_ms":10.747,"cut_ms":5.801,"data":"res://data/orison_v2/radio_stock.json","duplicate_ms":8.899,"face_hash_ms":0.049,"instantiate_ms":0.127,"load_ms":0.01,"material_ms":0.677,"mesh_hash_ms":10.198,"model_and_collision_ms":20.774,"publish_ms":0.552,"slot_assignment_ms":0.11}
+NATIVE_FIT_DETAIL {"attach_ms":0.056,"cell":"shop_radio_service","collision_ms":3.216,"cut_ms":4.882,"data":"res://data/orison_v2/radio_battery.json","duplicate_ms":1.882,"face_hash_ms":0.008,"instantiate_ms":0.037,"load_ms":0.01,"material_ms":0.663,"mesh_hash_ms":3.104,"model_and_collision_ms":5.937,"publish_ms":0.364,"slot_assignment_ms":0.09}
+NATIVE_FIT_DETAIL {"attach_ms":0.062,"cell":"shop_radio_service","collision_ms":7.698,"cut_ms":4.147,"data":"res://data/orison_v2/radio_wire.json","duplicate_ms":2.386,"face_hash_ms":0.01,"instantiate_ms":0.037,"load_ms":0.012,"material_ms":0.466,"mesh_hash_ms":7.584,"model_and_collision_ms":10.691,"publish_ms":0.033,"slot_assignment_ms":0.069}
+NATIVE_FIT_DETAIL {"attach_ms":0.051,"cell":"shop_radio_service","collision_ms":1.807,"cut_ms":4.572,"data":"res://data/orison_v2/radio_display.json","duplicate_ms":1.563,"face_hash_ms":0.008,"instantiate_ms":0.038,"load_ms":0.011,"material_ms":0.523,"mesh_hash_ms":1.702,"model_and_collision_ms":4.031,"publish_ms":0.516,"slot_assignment_ms":0.079}
+[SURFACE] 273 surfaces layered (165 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.036,"cell":"shop_pawnbroker","collision_ms":1.066,"cut_ms":6.502,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.934,"face_hash_ms":0.003,"instantiate_ms":0.1,"load_ms":0.011,"material_ms":0.36,"mesh_hash_ms":0.996,"model_and_collision_ms":3.585,"publish_ms":0.533,"slot_assignment_ms":0.046}
+NATIVE_FIT_DETAIL {"attach_ms":0.031,"cell":"shop_pawnbroker","collision_ms":1.969,"cut_ms":5.347,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":0.968,"face_hash_ms":0.005,"instantiate_ms":0.103,"load_ms":0.01,"material_ms":0.342,"mesh_hash_ms":1.909,"model_and_collision_ms":4.841,"publish_ms":0.752,"slot_assignment_ms":0.04}
+NATIVE_FIT_DETAIL {"attach_ms":0.133,"cell":"shop_pawnbroker","collision_ms":5.452,"cut_ms":6.355,"data":"res://data/orison_v2/pawn_display.json","duplicate_ms":3.992,"face_hash_ms":0.023,"instantiate_ms":0.062,"load_ms":0.011,"material_ms":0.944,"mesh_hash_ms":5.184,"model_and_collision_ms":10.733,"publish_ms":0.958,"slot_assignment_ms":0.128}
+NATIVE_FIT_DETAIL {"attach_ms":0.403,"cell":"shop_pawnbroker","collision_ms":4.782,"cut_ms":6.023,"data":"res://data/orison_v2/pawn_clocks.json","duplicate_ms":11.92,"face_hash_ms":0.064,"instantiate_ms":0.195,"load_ms":0.01,"material_ms":0.757,"mesh_hash_ms":3.929,"model_and_collision_ms":18.092,"publish_ms":0.584,"slot_assignment_ms":0.138}
+NATIVE_FIT_DETAIL {"attach_ms":0.317,"cell":"shop_pawnbroker","collision_ms":8.809,"cut_ms":14.394,"data":"res://data/orison_v2/pawn_fittings.json","duplicate_ms":10.086,"face_hash_ms":0.044,"instantiate_ms":0.229,"load_ms":0.015,"material_ms":1.504,"mesh_hash_ms":8.185,"model_and_collision_ms":21.108,"publish_ms":0.807,"slot_assignment_ms":0.278}
+[SURFACE] 294 surfaces layered (186 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.028,"cell":"shop_news_cigars","collision_ms":1.044,"cut_ms":5.843,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.707,"face_hash_ms":0.005,"instantiate_ms":0.095,"load_ms":0.01,"material_ms":0.292,"mesh_hash_ms":0.987,"model_and_collision_ms":3.141,"publish_ms":0.489,"slot_assignment_ms":0.04}
+NATIVE_FIT_DETAIL {"attach_ms":0.027,"cell":"shop_news_cigars","collision_ms":1.942,"cut_ms":4.684,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":0.93,"face_hash_ms":0.004,"instantiate_ms":0.104,"load_ms":0.01,"material_ms":0.327,"mesh_hash_ms":1.885,"model_and_collision_ms":4.461,"publish_ms":0.414,"slot_assignment_ms":0.038}
+NATIVE_FIT_DETAIL {"attach_ms":0.263,"cell":"shop_news_cigars","collision_ms":8.888,"cut_ms":7.84,"data":"res://data/orison_v2/news_fittings.json","duplicate_ms":9.067,"face_hash_ms":0.04,"instantiate_ms":0.216,"load_ms":0.009,"material_ms":1.212,"mesh_hash_ms":8.353,"model_and_collision_ms":19.713,"publish_ms":0.674,"slot_assignment_ms":0.215}
+[SURFACE] 313 surfaces layered (204 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.054,"cell":"shop_otis_son","collision_ms":1.557,"cut_ms":6.094,"data":"res://data/orison_v2/shop_seating.json","duplicate_ms":1.895,"face_hash_ms":0.009,"instantiate_ms":0.129,"load_ms":0.011,"material_ms":0.256,"mesh_hash_ms":1.448,"model_and_collision_ms":4.672,"publish_ms":0.279,"slot_assignment_ms":0.088}
+NATIVE_FIT_DETAIL {"attach_ms":0.035,"cell":"shop_otis_son","collision_ms":1.058,"cut_ms":4.845,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":0.917,"face_hash_ms":0.005,"instantiate_ms":0.1,"load_ms":0.01,"material_ms":0.345,"mesh_hash_ms":0.988,"model_and_collision_ms":3.43,"publish_ms":0.779,"slot_assignment_ms":0.045}
+NATIVE_FIT_DETAIL {"attach_ms":0.035,"cell":"shop_otis_son","collision_ms":1.951,"cut_ms":6.789,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.069,"face_hash_ms":0.004,"instantiate_ms":0.106,"load_ms":0.011,"material_ms":0.333,"mesh_hash_ms":1.886,"model_and_collision_ms":4.423,"publish_ms":0.598,"slot_assignment_ms":0.043}
+NATIVE_FIT_DETAIL {"attach_ms":1.213,"cell":"shop_otis_son","collision_ms":41.665,"cut_ms":6.513,"data":"res://data/orison_v2/druggist_drawers.json","duplicate_ms":37.226,"face_hash_ms":0.188,"instantiate_ms":0.548,"load_ms":0.01,"material_ms":1.361,"mesh_hash_ms":39.301,"model_and_collision_ms":81.948,"publish_ms":0.559,"slot_assignment_ms":0.303}
+NATIVE_FIT_DETAIL {"attach_ms":0.038,"cell":"shop_otis_son","collision_ms":0.983,"cut_ms":3.566,"data":"res://data/orison_v2/druggist_counter.json","duplicate_ms":0.906,"face_hash_ms":0.005,"instantiate_ms":0.033,"load_ms":0.012,"material_ms":0.392,"mesh_hash_ms":0.912,"model_and_collision_ms":2.391,"publish_ms":0.282,"slot_assignment_ms":0.052}
+NATIVE_FIT_DETAIL {"attach_ms":0.026,"cell":"shop_otis_son","collision_ms":0.838,"cut_ms":4.198,"data":"res://data/orison_v2/druggist_mortar.json","duplicate_ms":0.669,"face_hash_ms":0.003,"instantiate_ms":0.029,"load_ms":0.012,"material_ms":0.144,"mesh_hash_ms":0.792,"model_and_collision_ms":1.717,"publish_ms":0.251,"slot_assignment_ms":0.02}
+NATIVE_FIT_DETAIL {"attach_ms":0.526,"cell":"shop_otis_son","collision_ms":13.201,"cut_ms":6.896,"data":"res://data/orison_v2/druggist_dispensary.json","duplicate_ms":15.314,"face_hash_ms":0.087,"instantiate_ms":0.2,"load_ms":0.01,"material_ms":1.025,"mesh_hash_ms":12.181,"model_and_collision_ms":30.291,"publish_ms":0.93,"slot_assignment_ms":0.181}
+NATIVE_FIT_DETAIL {"attach_ms":0.334,"cell":"shop_otis_son","collision_ms":4.948,"cut_ms":8.007,"data":"res://data/orison_v2/druggist_cupboard.json","duplicate_ms":6.942,"face_hash_ms":0.037,"instantiate_ms":0.183,"load_ms":0.016,"material_ms":0.965,"mesh_hash_ms":4.354,"model_and_collision_ms":13.351,"publish_ms":1.247,"slot_assignment_ms":0.139}
+NATIVE_FIT_DETAIL {"attach_ms":0.148,"cell":"shop_otis_son","collision_ms":19.239,"cut_ms":6.631,"data":"res://data/orison_v2/druggist_carboys.json","duplicate_ms":6.927,"face_hash_ms":0.027,"instantiate_ms":0.072,"load_ms":0.011,"material_ms":0.989,"mesh_hash_ms":18.94,"model_and_collision_ms":27.48,"publish_ms":1.254,"slot_assignment_ms":0.136}
+NATIVE_FIT_DETAIL {"attach_ms":0.067,"cell":"shop_otis_son","collision_ms":3.993,"cut_ms":3.671,"data":"res://data/orison_v2/druggist_fountain.json","duplicate_ms":2.154,"face_hash_ms":0.01,"instantiate_ms":0.042,"load_ms":0.011,"material_ms":0.252,"mesh_hash_ms":3.863,"model_and_collision_ms":6.525,"publish_ms":0.032,"slot_assignment_ms":0.039}
+[SURFACE] 354 surfaces layered (229 materials)
+NATIVE_FIT_DETAIL {"attach_ms":0.136,"cell":"shop_luncheonette","collision_ms":3.303,"cut_ms":5.413,"data":"res://data/orison_v2/shop_seating.json","duplicate_ms":5.437,"face_hash_ms":0.023,"instantiate_ms":0.134,"load_ms":0.01,"material_ms":0.452,"mesh_hash_ms":3.029,"model_and_collision_ms":10.329,"publish_ms":0.545,"slot_assignment_ms":0.07}
+NATIVE_FIT_DETAIL {"attach_ms":0.042,"cell":"shop_luncheonette","collision_ms":1.072,"cut_ms":7.036,"data":"res://data/orison_v2/shop_clerestories.json","duplicate_ms":1.012,"face_hash_ms":0.004,"instantiate_ms":0.148,"load_ms":0.015,"material_ms":0.417,"mesh_hash_ms":0.992,"model_and_collision_ms":3.719,"publish_ms":0.686,"slot_assignment_ms":0.169}
+NATIVE_FIT_DETAIL {"attach_ms":0.034,"cell":"shop_luncheonette","collision_ms":1.964,"cut_ms":4.362,"data":"res://data/orison_v2/shop_joinery.json","duplicate_ms":1.013,"face_hash_ms":0.005,"instantiate_ms":0.11,"load_ms":0.011,"material_ms":0.355,"mesh_hash_ms":1.898,"model_and_collision_ms":4.414,"publish_ms":0.583,"slot_assignment_ms":0.042}
+NATIVE_FIT_DETAIL {"attach_ms":0.056,"cell":"shop_luncheonette","collision_ms":2.588,"cut_ms":4.302,"data":"res://data/orison_v2/diner_counter.json","duplicate_ms":1.627,"face_hash_ms":0.009,"instantiate_ms":0.04,"load_ms":0.01,"material_ms":0.587,"mesh_hash_ms":2.476,"model_and_collision_ms":4.954,"publish_ms":0.933,"slot_assignment_ms":0.08}
+NATIVE_FIT_DETAIL {"attach_ms":0.071,"cell":"shop_luncheonette","collision_ms":2.581,"cut_ms":4.29,"data":"res://data/orison_v2/diner_till.json","duplicate_ms":2.579,"face_hash_ms":0.008,"instantiate_ms":0.079,"load_ms":0.011,"material_ms":0.552,"mesh_hash_ms":2.452,"model_and_collision_ms":5.87,"publish_ms":0.564,"slot_assignment_ms":0.081}
+NATIVE_FIT_DETAIL {"attach_ms":0.03,"cell":"shop_luncheonette","collision_ms":0.97,"cut_ms":4.879,"data":"res://data/orison_v2/diner_backbar.json","duplicate_ms":0.739,"face_hash_ms":0.005,"instantiate_ms":0.029,"load_ms":0.011,"material_ms":0.307,"mesh_hash_ms":0.913,"model_and_collision_ms":2.103,"publish_ms":0.371,"slot_assignment_ms":0.039}
+NATIVE_FIT_DETAIL {"attach_ms":0.115,"cell":"shop_luncheonette","collision_ms":2.168,"cut_ms":6.327,"data":"res://data/orison_v2/diner_urns.json","duplicate_ms":2.012,"face_hash_ms":0.009,"instantiate_ms":0.048,"load_ms":0.011,"material_ms":0.41,"mesh_hash_ms":1.996,"model_and_collision_ms":4.765,"publish_ms":0.517,"slot_assignment_ms":0.055}
+NATIVE_FIT_DETAIL {"attach_ms":0.051,"cell":"shop_luncheonette","collision_ms":3.532,"cut_ms":5.217,"data":"res://data/orison_v2/diner_apparatus.json","duplicate_ms":1.555,"face_hash_ms":0.008,"instantiate_ms":0.034,"load_ms":0.01,"material_ms":0.497,"mesh_hash_ms":3.437,"model_and_collision_ms":5.743,"publish_ms":0.518,"slot_assignment_ms":0.062}
+NATIVE_FIT_DETAIL {"attach_ms":0.024,"cell":"shop_luncheonette","collision_ms":1.009,"cut_ms":4.527,"data":"res://data/orison_v2/diner_overhead.json","duplicate_ms":0.553,"face_hash_ms":0.003,"instantiate_ms":0.026,"load_ms":0.01,"material_ms":0.227,"mesh_hash_ms":0.966,"model_and_collision_ms":1.856,"publish_ms":0.319,"slot_assignment_ms":0.029}
+[SURFACE] 392 surfaces layered (256 materials)
+CONNECTED EXTERIOR CHECK: ordinary street approach completes passage reconstruction before gateway cycle 1 = true
+CONNECTED EXTERIOR CHECK: passage eventually reaches resident state cycle 1 = true
+[PLAYER] pointer captured (backtick key)
+CONNECTED EXTERIOR CHECK: F01_DOOR_06 reaches its stop through primary grab, fixed mouse travel and release = true
+[PLAYER] pointer captured (backtick key)
+CONNECTED EXTERIOR CHECK: F01_INNER_DOOR reaches its stop through primary grab, fixed mouse travel and release = true
+PASSAGE_RETIRE_DETAIL {"actors_ms":2.891,"detach_ms":3.207,"enqueue_release_ms":0.296}
+CONNECTED EXTERIOR CHECK: return retires imported passage roots and meshes cycle 1 = true
+CONNECTED EXTERIOR CHECK: all installed general fixtures have no optical halo billboard or texture node = true
+CONNECTED EXTERIOR CHECK: installed fixture sources retain volumetric scattering energy = true
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise150__Body_ON_brass valid_basis=true max_uv_excess=0.00000176858157 widest=1.00018508260331 vertices=8829 derivatives=true bad_derivatives=0 min_determinant=0.00000002000626 worst_dot=0.99999868869781
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise150__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000218115747 widest=1.00019718349396 vertices=55307 derivatives=true bad_derivatives=0 min_determinant=0.0000032627654 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise150__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00071499261512 vertices=1250 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Body_ON_rubber valid_basis=true max_uv_excess=0.00000007357448 widest=1.00006088965948 vertices=357 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Mount_ON_brass valid_basis=true max_uv_excess=0.00000561028719 widest=1.00077299988628 vertices=3475 derivatives=true bad_derivatives=0 min_determinant=0.00000058501542 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Body_ON_rubber valid_basis=true max_uv_excess=0.00000007357448 widest=1.00006088965948 vertices=363 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Mount_ON_brass valid_basis=true max_uv_excess=0.00000561028719 widest=1.00077299988628 vertices=3397 derivatives=true bad_derivatives=0 min_determinant=0.00000058499423 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise100__Body_ON_brass valid_basis=true max_uv_excess=0.0000000516884 widest=1.00010404230321 vertices=795 derivatives=true bad_derivatives=0 min_determinant=0.00000002002169 worst_dot=0.99999910593033
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise100__Body_ON_enamel valid_basis=true max_uv_excess=0.00000011920929 widest=1.00023916423925 vertices=3568 derivatives=true bad_derivatives=0 min_determinant=0.00000002891519 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise100__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000190059654 widest=1.00072630571091 vertices=956 derivatives=true bad_derivatives=0 min_determinant=0.00000665328705 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise100__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00071499261512 vertices=1237 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise100__Body_ON_brass valid_basis=true max_uv_excess=0.00000176858157 widest=1.00018508260331 vertices=8829 derivatives=true bad_derivatives=0 min_determinant=0.00000002000626 worst_dot=0.99999868869781
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise100__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000218115747 widest=1.00019718349396 vertices=55307 derivatives=true bad_derivatives=0 min_determinant=0.0000032627654 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise100__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00071499261512 vertices=1237 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_bath_bell_over_mirror__Body_ON_brass valid_basis=true max_uv_excess=0.00000255508348 widest=1.0007314968032 vertices=12936 derivatives=true bad_derivatives=0 min_determinant=0.00000000876893 worst_dot=0.99999809265137
+CAP MAPPING: mesh=fixed_lighting_bath_bell_over_mirror__Body_ON_enamel valid_basis=true max_uv_excess=0.00000180769712 widest=1.00072735121621 vertices=906 derivatives=true bad_derivatives=0 min_determinant=0.00000994590911 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_bath_bell_over_mirror__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000635720789 widest=1.00073683671068 vertices=5430 derivatives=true bad_derivatives=0 min_determinant=0.00000392689926 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Body_ON_rubber valid_basis=true max_uv_excess=0.00000007357448 widest=1.00006088965948 vertices=352 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Mount_ON_brass valid_basis=true max_uv_excess=0.00000561028719 widest=1.00077299988628 vertices=3400 derivatives=true bad_derivatives=0 min_determinant=0.00000058499423 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_flush_dome__Body_ON_brass valid_basis=true max_uv_excess=0.00000176858157 widest=1.00018508260331 vertices=8829 derivatives=true bad_derivatives=0 min_determinant=0.00000002000626 worst_dot=0.99999868869781
+CAP MAPPING: mesh=fixed_lighting_flush_dome__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000218115747 widest=1.00019718349396 vertices=55307 derivatives=true bad_derivatives=0 min_determinant=0.0000032627654 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear__Body_ON_brass valid_basis=true max_uv_excess=0.0000000516884 widest=1.00010404230321 vertices=795 derivatives=true bad_derivatives=0 min_determinant=0.00000002002169 worst_dot=0.99999910593033
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear__Body_ON_enamel valid_basis=true max_uv_excess=0.00000011920929 widest=1.00023916423925 vertices=3568 derivatives=true bad_derivatives=0 min_determinant=0.00000002891519 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000190059654 widest=1.00072630571091 vertices=956 derivatives=true bad_derivatives=0 min_determinant=0.00000665328705 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4665 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Mount_ON_brass valid_basis=true max_uv_excess=0.00000518234447 widest=1.00077299988628 vertices=4574 derivatives=true bad_derivatives=0 min_determinant=0.00000058501687 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4647 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+LIGHT CONTACT PASSAGE_AISLE_LT_00 at=(13.975, 3.88, 21.405) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_00 at=(14.025, 3.88, 21.405) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_01 at=(13.975, 3.88, 25.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_01 at=(14.025, 3.88, 25.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_02 at=(13.975, 3.88, 31.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_02 at=(14.025, 3.88, 31.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_03 at=(13.975, 3.88, 35.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_03 at=(14.025, 3.88, 35.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_04 at=(13.975, 3.88, 39.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_04 at=(14.025, 3.88, 39.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_05 at=(13.975, 3.88, 43.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_05 at=(14.025, 3.88, 43.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_06 at=(13.975, 3.88, 47.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_06 at=(14.025, 3.88, 47.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_07 at=(13.975, 3.88, 51.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT PASSAGE_AISLE_LT_07 at=(14.025, 3.88, 51.205) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4654 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4660 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4643 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4690 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise80__Body_ON_brass valid_basis=true max_uv_excess=0.0000000516884 widest=1.00010404230321 vertices=795 derivatives=true bad_derivatives=0 min_determinant=0.00000002002169 worst_dot=0.99999910593033
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise80__Body_ON_enamel valid_basis=true max_uv_excess=0.00000011920929 widest=1.00023916423925 vertices=3568 derivatives=true bad_derivatives=0 min_determinant=0.00000002891519 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise80__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000190059654 widest=1.00072630571091 vertices=956 derivatives=true bad_derivatives=0 min_determinant=0.00000665328705 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise80__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00071499261512 vertices=1225 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Body_ON_rubber valid_basis=true max_uv_excess=0.00000007357448 widest=1.00006088965948 vertices=377 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Mount_ON_brass valid_basis=true max_uv_excess=0.00000561028719 widest=1.00077299988628 vertices=3504 derivatives=true bad_derivatives=0 min_determinant=0.00000058501542 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Body_ON_rubber valid_basis=true max_uv_excess=0.00000004778849 widest=1.00006088965948 vertices=373 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Mount_ON_brass valid_basis=true max_uv_excess=0.00000561028719 widest=1.00077299988628 vertices=3476 derivatives=true bad_derivatives=0 min_determinant=0.00000058501542 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_retained_rod__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_retained_rod__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_retained_rod__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_retained_rod__Body_ON_rubber valid_basis=true max_uv_excess=0.00000007357448 widest=1.00006088965948 vertices=352 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_retained_rod__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_retained_rod__Mount_ON_brass valid_basis=true max_uv_excess=0.00000197556801 widest=1.0007191909733 vertices=880 derivatives=true bad_derivatives=0 min_determinant=0.00000369695909 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4659 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back80__Body_ON_brass valid_basis=true max_uv_excess=0.00000229291618 widest=1.0007709499817 vertices=11640 derivatives=true bad_derivatives=0 min_determinant=0.00000005667773 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back80__Body_ON_enamel valid_basis=true max_uv_excess=0.00000172224827 widest=1.0007314681308 vertices=905 derivatives=true bad_derivatives=0 min_determinant=0.00000936085915 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back80__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000162003562 widest=1.00031747355831 vertices=55871 derivatives=true bad_derivatives=0 min_determinant=0.00000159960502 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back160__Body_ON_brass valid_basis=true max_uv_excess=0.00000229291618 widest=1.0007709499817 vertices=11659 derivatives=true bad_derivatives=0 min_determinant=0.00000005666249 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back160__Body_ON_enamel valid_basis=true max_uv_excess=0.00000172224827 widest=1.0007314681308 vertices=905 derivatives=true bad_derivatives=0 min_determinant=0.00000936085915 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back160__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000162003562 widest=1.00031747355831 vertices=55871 derivatives=true bad_derivatives=0 min_determinant=0.00000159960502 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back100__Body_ON_brass valid_basis=true max_uv_excess=0.00000229291618 widest=1.0007709499817 vertices=11654 derivatives=true bad_derivatives=0 min_determinant=0.00000005666249 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back100__Body_ON_enamel valid_basis=true max_uv_excess=0.00000172224827 widest=1.0007314681308 vertices=905 derivatives=true bad_derivatives=0 min_determinant=0.00000936085915 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back100__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000162003562 widest=1.00031747355831 vertices=55871 derivatives=true bad_derivatives=0 min_determinant=0.00000159960502 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4664 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Mount_ON_brass valid_basis=true max_uv_excess=0.00000518234447 widest=1.00077299988628 vertices=4472 derivatives=true bad_derivatives=0 min_determinant=0.00000058501687 worst_dot=0.99999982118607
+LIGHT CONTACT SITE_SHOP_LT_MODEL_LAUNDRY at=(11.26, 2.625, 34.03) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_MODEL_LAUNDRY at=(11.26, 2.695, 34.03) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4653 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+LIGHT CONTACT SITE_SHOP_IN0_MODEL_LAUNDRY at=(10.05, 3.3, 32.18) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_MODEL_LAUNDRY at=(10.05, 3.3, 32.23) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_MODEL_LAUNDRY at=(7.5, 3.3, 32.18) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_MODEL_LAUNDRY at=(7.5, 3.3, 32.23) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN2_MODEL_LAUNDRY at=(4.95, 3.3, 32.18) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN2_MODEL_LAUNDRY at=(4.95, 3.3, 32.23) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_SHOE_REBUILDING at=(11.26, 2.625, 39.63) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_SHOE_REBUILDING at=(11.26, 2.695, 39.63) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_SHOE_REBUILDING at=(10.05, 3.3, 37.78) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_SHOE_REBUILDING at=(10.05, 3.3, 37.83) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_SHOE_REBUILDING at=(5.95, 3.3, 37.78) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_SHOE_REBUILDING at=(5.95, 3.3, 37.83) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_KEYS_CUT at=(11.26, 2.625, 43.23) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_KEYS_CUT at=(11.26, 2.695, 43.23) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_KEYS_CUT at=(10.05, 3.3, 42.38) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_KEYS_CUT at=(10.05, 3.3, 42.43) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_KEYS_CUT at=(6.95, 3.3, 42.38) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_KEYS_CUT at=(6.95, 3.3, 42.43) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_HARDWARE_PAINT at=(11.26, 2.625, 48.63) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_HARDWARE_PAINT at=(11.26, 2.695, 48.63) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_HARDWARE_PAINT at=(10.05, 3.3, 46.88) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_HARDWARE_PAINT at=(10.05, 3.3, 46.93) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_HARDWARE_PAINT at=(7.75, 3.3, 46.88) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_HARDWARE_PAINT at=(7.75, 3.3, 46.93) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN2_HARDWARE_PAINT at=(5.45, 3.3, 46.88) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN2_HARDWARE_PAINT at=(5.45, 3.3, 46.93) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_FUNERAL_PARLOUR at=(11.26, 2.625, 53.23) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_FUNERAL_PARLOUR at=(11.26, 2.695, 53.23) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_FUNERAL_PARLOUR at=(10.05, 3.3, 51.88) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_FUNERAL_PARLOUR at=(10.05, 3.3, 51.93) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_FUNERAL_PARLOUR at=(7.5, 3.3, 51.88) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_FUNERAL_PARLOUR at=(7.5, 3.3, 51.93) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN2_FUNERAL_PARLOUR at=(4.95, 3.3, 51.88) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN2_FUNERAL_PARLOUR at=(4.95, 3.3, 51.93) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_PHOTO_SUPPLIES at=(16.74, 2.625, 53.18) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_PHOTO_SUPPLIES at=(16.74, 2.695, 53.18) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_PHOTO_SUPPLIES at=(17.95, 3.3, 51.63) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_PHOTO_SUPPLIES at=(17.95, 3.3, 51.58) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_PHOTO_SUPPLIES at=(22.05, 3.3, 51.63) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_PHOTO_SUPPLIES at=(22.05, 3.3, 51.58) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_RADIO_SERVICE at=(16.74, 2.625, 46.78) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_RADIO_SERVICE at=(16.74, 2.695, 46.78) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_RADIO_SERVICE at=(17.95, 3.3, 47.43) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_RADIO_SERVICE at=(17.95, 3.3, 47.38) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_RADIO_SERVICE at=(21.05, 3.3, 47.43) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_RADIO_SERVICE at=(21.05, 3.3, 47.38) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_PAWNBROKER at=(16.74, 2.625, 42.18) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_PAWNBROKER at=(16.74, 2.695, 42.18) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_PAWNBROKER at=(17.95, 3.3, 43.53) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_PAWNBROKER at=(17.95, 3.3, 43.48) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_PAWNBROKER at=(22.05, 3.3, 43.53) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_PAWNBROKER at=(22.05, 3.3, 43.48) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_NEWS_CIGARS at=(16.74, 2.625, 40.18) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_NEWS_CIGARS at=(16.74, 2.695, 40.18) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_NEWS_CIGARS at=(17.95, 3.3, 40.08) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_NEWS_CIGARS at=(17.95, 3.3, 40.03) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_NEWS_CIGARS at=(20.05, 3.3, 40.08) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_NEWS_CIGARS at=(20.05, 3.3, 40.03) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_OTIS___SON at=(16.74, 2.625, 35.58) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_OTIS___SON at=(16.74, 2.695, 35.58) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_OTIS___SON at=(17.95, 3.3, 36.78) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_OTIS___SON at=(17.95, 3.3, 36.73) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_OTIS___SON at=(20.5, 3.3, 36.78) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_OTIS___SON at=(20.5, 3.3, 36.73) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN2_OTIS___SON at=(23.05, 3.3, 36.78) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN2_OTIS___SON at=(23.05, 3.3, 36.73) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_LUNCHEONETTE at=(16.74, 2.625, 33.58) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_LT_LUNCHEONETTE at=(16.74, 2.695, 33.58) direction=(-1.0, 0.0, -0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_LUNCHEONETTE at=(17.95, 3.3, 32.03) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN0_LUNCHEONETTE at=(17.95, 3.3, 31.98) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_LUNCHEONETTE at=(20.5, 3.3, 32.03) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN1_LUNCHEONETTE at=(20.5, 3.3, 31.98) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN2_LUNCHEONETTE at=(23.05, 3.3, 32.03) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT SITE_SHOP_IN2_LUNCHEONETTE at=(23.05, 3.3, 31.98) direction=(0.0, -1.0, 0.0) hit={  } nearby={  }
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back050__Body_ON_brass valid_basis=true max_uv_excess=0.00000229291618 widest=1.0007709499817 vertices=11639 derivatives=true bad_derivatives=0 min_determinant=0.00000005666249 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back050__Body_ON_enamel valid_basis=true max_uv_excess=0.00000172224827 widest=1.0007314681308 vertices=905 derivatives=true bad_derivatives=0 min_determinant=0.00000936085915 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back050__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000162003562 widest=1.00031747355831 vertices=55871 derivatives=true bad_derivatives=0 min_determinant=0.00000159960502 worst_dot=0.99999976158142
+[SWITCHES] F02_C_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F02_C_MAIN -> off (1 fixtures)
+[SWITCHES] F02_C_STUDIO -> off (1 fixtures)
+[SWITCHES] F02_C_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F02_C_BATH -> off (1 fixtures)
+[SWITCHES] F02_C_KITCHEN -> off (1 fixtures)
+[SWITCHES] F02_C_BED1 -> off (1 fixtures)
+[SWITCHES] F02_C_BED2 -> off (1 fixtures)
+[SWITCHES] F04_C_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F04_C_MAIN -> off (1 fixtures)
+[SWITCHES] F04_C_STUDIO -> off (1 fixtures)
+[SWITCHES] F04_C_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F04_C_BATH -> off (1 fixtures)
+[SWITCHES] F04_C_KITCHEN -> off (1 fixtures)
+[SWITCHES] F04_C_BED1 -> off (1 fixtures)
+[SWITCHES] F04_C_BED2 -> off (1 fixtures)
+[SWITCHES] F01_D_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F01_D_MAIN -> off (1 fixtures)
+[SWITCHES] F01_D_KITCHEN -> off (1 fixtures)
+[SWITCHES] F01_D_BED -> off (1 fixtures)
+[SWITCHES] F01_D_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F01_D_BATH -> off (1 fixtures)
+[SWITCHES] F01_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F01_A_MAIN -> off (1 fixtures)
+[SWITCHES] F01_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F01_A_BATH -> off (1 fixtures)
+[SWITCHES] F01_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F01_A_BED -> off (1 fixtures)
+[SWITCHES] F01_A_STUDY -> off (1 fixtures)
+[SWITCHES] F03_D_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F03_D_MAIN -> off (1 fixtures)
+[SWITCHES] F03_D_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F03_D_BATH -> off (1 fixtures)
+[SWITCHES] F03_D_KITCHEN -> off (1 fixtures)
+[SWITCHES] F03_D_BED -> off (1 fixtures)
+[SWITCHES] F03_D_STUDY -> off (1 fixtures)
+[SWITCHES] F04_D_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F04_D_MAIN -> off (1 fixtures)
+[SWITCHES] F04_D_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F04_D_BATH -> off (1 fixtures)
+[SWITCHES] F04_D_KITCHEN -> off (1 fixtures)
+[SWITCHES] F04_D_BED -> off (1 fixtures)
+[SWITCHES] F04_D_STUDY -> off (1 fixtures)
+[SWITCHES] F02_SOUTHWEST_HALL -> off (1 fixtures)
+[SWITCHES] F03_SOUTHWEST_HALL -> off (1 fixtures)
+[SWITCHES] F04_SOUTHWEST_HALL -> off (1 fixtures)
+[SWITCHES] F01_STAFF_RESTROOM -> off (1 fixtures)
+[SWITCHES] B1_ELECTRICAL -> off (1 fixtures)
+[SWITCHES] B1_MAINTENANCE_SHOP -> off (1 fixtures)
+[SWITCHES] B1_COAL_ROOM -> off (1 fixtures)
+[SWITCHES] B1_RESIDENT_STORAGE -> off (1 fixtures)
+[SWITCHES] B1_SERVICE_CORE -> off (1 fixtures)
+[SWITCHES] B1_BOILER_ROOM -> off (2 fixtures)
+[SWITCHES] B1_LAUNDRY -> off (1 fixtures)
+[SWITCHES] F02_A_MAIN -> off (1 fixtures)
+[SWITCHES] F03_B_MAIN -> off (1 fixtures)
+[SWITCHES] F03_B_KITCHEN -> off (1 fixtures)
+[SWITCHES] F03_B_ALCOVE -> off (1 fixtures)
+[SWITCHES] F03_B_BATH -> off (1 fixtures)
+[SWITCHES] F04_B_ALCOVE -> off (1 fixtures)
+[SWITCHES] F04_B_MAIN -> off (1 fixtures)
+[SWITCHES] F04_B_BATH -> off (1 fixtures)
+[SWITCHES] F04_B_KITCHEN -> off (1 fixtures)
+[SWITCHES] F04_B_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F04_B_CLOSET -> off (1 fixtures)
+[SWITCHES] F02_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F02_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F02_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F02_A_BATH -> off (1 fixtures)
+[SWITCHES] F02_A_BED -> off (1 fixtures)
+[SWITCHES] F02_B_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F02_B_MAIN -> off (1 fixtures)
+[SWITCHES] F02_B_KITCHEN -> off (1 fixtures)
+[SWITCHES] F02_B_BED -> off (1 fixtures)
+[SWITCHES] F02_B_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F02_B_BATH -> off (1 fixtures)
+[SWITCHES] F03_B_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F03_B_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F04_B_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F04_B_ALCOVE_APPROACH -> off (1 fixtures)
+[SWITCHES] F03_A_MAIN -> off (1 fixtures)
+[SWITCHES] F03_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F03_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F03_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F03_A_BATH -> off (1 fixtures)
+[SWITCHES] F03_A_BED -> off (1 fixtures)
+[SWITCHES] F04_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F04_A_MAIN -> off (1 fixtures)
+[SWITCHES] F04_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F04_A_BED -> off (1 fixtures)
+[SWITCHES] F04_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F04_A_BATH -> off (1 fixtures)
+[SWITCHES] F05_A_MAIN -> off (1 fixtures)
+[SWITCHES] F05_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F05_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F05_A_BATH -> off (1 fixtures)
+[SWITCHES] F05_A_BED -> off (1 fixtures)
+[SWITCHES] F05_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F05_A_STUDY -> off (1 fixtures)
+[SWITCHES] F05_B_MAIN -> off (1 fixtures)
+[SWITCHES] F05_B_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F05_B_BATH -> off (1 fixtures)
+[SWITCHES] F05_B_ALCOVE -> off (1 fixtures)
+[SWITCHES] F05_B_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F05_B_KITCHEN -> off (1 fixtures)
+[SWITCHES] F05_C_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F05_C_MAIN -> off (1 fixtures)
+[SWITCHES] F05_C_STUDIO -> off (1 fixtures)
+[SWITCHES] F05_C_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F05_C_BATH -> off (1 fixtures)
+[SWITCHES] F05_C_KITCHEN -> off (1 fixtures)
+[SWITCHES] F05_C_BED1 -> off (1 fixtures)
+[SWITCHES] F05_C_BED2 -> off (1 fixtures)
+[SWITCHES] F06_A_MAIN -> off (1 fixtures)
+[SWITCHES] F06_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F06_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F06_A_BATH -> off (1 fixtures)
+[SWITCHES] F06_A_BED -> off (1 fixtures)
+[SWITCHES] F06_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F06_A_STUDY -> off (1 fixtures)
+[SWITCHES] F06_B_MAIN -> off (1 fixtures)
+[SWITCHES] F06_B_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F06_B_BATH -> off (1 fixtures)
+[SWITCHES] F06_B_ALCOVE -> off (1 fixtures)
+[SWITCHES] F06_B_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F06_B_KITCHEN -> off (1 fixtures)
+[SWITCHES] F06_C_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F06_C_MAIN -> off (1 fixtures)
+[SWITCHES] F06_C_STUDIO -> off (1 fixtures)
+[SWITCHES] F06_C_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F06_C_BATH -> off (1 fixtures)
+[SWITCHES] F06_C_KITCHEN -> off (1 fixtures)
+[SWITCHES] F06_C_BED1 -> off (1 fixtures)
+[SWITCHES] F06_C_BED2 -> off (1 fixtures)
+[SWITCHES] F02_WEST_HALL -> off (2 fixtures)
+[SWITCHES] F02_EAST_HALL -> off (1 fixtures)
+[SWITCHES] F03_WEST_HALL -> off (2 fixtures)
+[SWITCHES] F03_EAST_HALL -> off (1 fixtures)
+[SWITCHES] F04_WEST_HALL -> off (2 fixtures)
+[SWITCHES] F04_EAST_HALL -> off (1 fixtures)
+[SWITCHES] F05_WEST_HALL -> off (3 fixtures)
+[SWITCHES] F05_EAST_HALL -> off (1 fixtures)
+[SWITCHES] F06_WEST_HALL -> off (3 fixtures)
+[SWITCHES] F06_EAST_HALL -> off (1 fixtures)
+[SWITCHES] F02_FRONT_GALLERY -> off (3 fixtures)
+[SWITCHES] F02_FRONT_HALL -> off (2 fixtures)
+[SWITCHES] F02_FRONT_SERVICE_RETURN -> off (1 fixtures)
+[SWITCHES] F03_FRONT_GALLERY -> off (3 fixtures)
+[SWITCHES] F03_FRONT_HALL -> off (2 fixtures)
+[SWITCHES] F03_FRONT_SERVICE_RETURN -> off (1 fixtures)
+[SWITCHES] F04_FRONT_GALLERY -> off (3 fixtures)
+[SWITCHES] F04_FRONT_HALL -> off (2 fixtures)
+[SWITCHES] F04_FRONT_SERVICE_RETURN -> off (1 fixtures)
+[SWITCHES] F05_FRONT_GALLERY -> off (3 fixtures)
+[SWITCHES] F05_FRONT_HALL -> off (2 fixtures)
+[SWITCHES] F05_FRONT_SERVICE_RETURN -> off (1 fixtures)
+[SWITCHES] F06_FRONT_GALLERY -> off (3 fixtures)
+[SWITCHES] F06_FRONT_HALL -> off (2 fixtures)
+[SWITCHES] F06_FRONT_SERVICE_RETURN -> off (1 fixtures)
+[SWITCHES] F01_FRONT_WEST_BAY -> off (1 fixtures)
+[SWITCHES] F01_FRONT_EAST_BAY -> off (1 fixtures)
+[SWITCHES] F01_FRONT_WORKROOM -> off (1 fixtures)
+[SWITCHES] F01_FRONT_SERVICE_RETURN -> off (1 fixtures)
+[SWITCHES] F01_FRONT_STORE_ALCOVE -> off (1 fixtures)
+[SWITCHES] ROOF_PUBLIC_CORE -> off (1 fixtures)
+[SWITCHES] ROOF_SERVICE_CORE -> off (1 fixtures)
+CONNECTED EXTERIOR CHECK: native fixed lighting retains geometry, maps, mounts, photometry and circuit diagnostics after halo removal = false
+V2 PLAYED STREAMING PROFILE: 54 waypoints; 1 failures

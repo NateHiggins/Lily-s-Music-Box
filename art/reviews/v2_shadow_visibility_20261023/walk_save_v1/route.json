@@ -1,0 +1,154 @@
+{
+  "failures": [
+    "disk rebuild restores physical poses within10um, wheel within1e-12rad and identical water and maintenance facts"
+  ],
+  "trace": [
+    {
+      "actual": [
+        1.92500019073486,
+        1.6007993221283,
+        1.20408153533936
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.87984156608582,
+        1.60094308853149,
+        1.27155876159668
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2HoseInstalledWorld/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-3.87984, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        3.97247123718262,
+        3.20023441314697,
+        -2.30218696594238
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -2.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.69135093688965,
+        3.20023441314697,
+        -2.91051769256592
+      ],
+      "ok": true,
+      "target": [
+        3.65000009536743,
+        3.20000004768372,
+        -3.0
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        4.40258836746216,
+        3.20023441314697,
+        -2.94524383544922
+      ],
+      "ok": true,
+      "target": [
+        4.5,
+        3.20000004768372,
+        -2.95000004768372
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.74667716026306,
+        3.20023441314697,
+        -2.99100780487061
+      ],
+      "ok": true,
+      "target": [
+        3.65000009536743,
+        3.20000004768372,
+        -3.0
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.94080996513367,
+        3.20023441314697,
+        -2.48849868774414
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        3.20000004768372,
+        -2.40000009536743
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        3.97410273551941,
+        1.6170848608017,
+        1.22412204742432
+      ],
+      "ok": true,
+      "target": [
+        3.97499990463257,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2HoseInstalledWorld/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.974076, 1.76, -12.6)"
+      }
+    },
+    {
+      "actual": [
+        2.01994729042053,
+        1.60094058513641,
+        1.27155876159668
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        1.60000002384186,
+        1.29999995231628
+      ],
+      "wall_contacts": {
+        "/root/V2HoseInstalledWorld/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/FlightB_Step00/Collision": "(-3.969515, 1.76, -12.6)",
+        "/root/V2HoseInstalledWorld/OrisonV2Runtime/OrisonV2Blockout/PRIMARY_F01_F02/StairGuards": "(-2.022919, 2.485, -13.2525)"
+      }
+    },
+    {
+      "actual": [
+        1.92694139480591,
+        0.000798049499280751,
+        -3.40259552001953
+      ],
+      "ok": true,
+      "target": [
+        1.92499995231628,
+        0.0,
+        -3.5
+      ],
+      "wall_contacts": {}
+    }
+  ]
+}

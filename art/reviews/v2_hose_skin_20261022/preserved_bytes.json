@@ -1,0 +1,521 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Exact original diagnostic bytes. Gzip archives preserve failures and executed source snapshots, not runtime qualification.",
+  "files": [
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/before_fillet/build_manifest.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/before_fillet/build_manifest.json.gz",
+      "sha256": "1b18c7564a26207fe1681414469dedfadd9ee1d4b197775687c00a626020629b"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/before_head_sweep/build_manifest.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/before_head_sweep/build_manifest.json.gz",
+      "sha256": "078864e05b80fb83a7587d0a3ee27e3a412ec5f8292df9530ced92407466824e"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/before_local_arc/build_manifest.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/before_local_arc/build_manifest.json.gz",
+      "sha256": "a36e5b827456dd921c2584fc9141500122bf4e90bf95ac781e587ed02fc8e72f"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/board_final/board.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/board_final/board.json.gz",
+      "sha256": "c2aa0cc4fb390f00a074a41d57951e079d941322b7169ebd50afe9f89b36b505"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/board_final/board.md",
+      "archive": "art/reviews/v2_hose_skin_20261022/board_final/board.md.gz",
+      "sha256": "cceacf461598861c8370e1ab96f1362fd23f38951882d410d31ff64032683156"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/board_final.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/board_final.log.gz",
+      "sha256": "8ba0cdd9838be5a5c4d52dd4a943d9a072c51b971aaf592f6a58fe54960e5c05"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v24.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v24.log.gz",
+      "sha256": "bd00b5962c5020895999a99d7a8e8f23e69b3447396e53c924891969413547c4"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v25.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v25.log.gz",
+      "sha256": "19a7799e25d5ea32e698304e5eb421cc9bed110502982adbe0e3a8ab6965df46"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v25b.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v25b.log.gz",
+      "sha256": "d1ca6e59ab9ef9d14a581a349b5df8e266b28fbb35a4b0f7f1c0335fb946c721"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v25c.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v25c.log.gz",
+      "sha256": "8a0fd199d3aca7064dbc8638db99f967eb46aa66cdbd643df63a4d4df4d9dd1f"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v26.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v26.log.gz",
+      "sha256": "c5c4a59537147a4f154841d63b067852afd98b4dc9e2c9c21338ab576770fc3c"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v27.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v27.log.gz",
+      "sha256": "225ed8cd48156c47c7f03dcb32f5ae46abb3c8d61c191094b1507d9a9accfbc0"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v28.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v28.log.gz",
+      "sha256": "2706eeb7a9113f59b967ed82c4f78b61e93c3bdf666a48d5209c1be8797eeb25"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v29.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v29.log.gz",
+      "sha256": "32678f07b517d356f384b0b7915b5e0270e00ea5a6135eb6b6d858869255233a"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v30.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v30.log.gz",
+      "sha256": "a029fcfea8c989c406cf8a74ff7ffdee8d7e20939fd56216c94c6a0640e56da6"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v31.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v31.log.gz",
+      "sha256": "02f6ca5dc89afc326e5eef605fb5affee74782d6c12bc50f4aed3ae5251861d8"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v32.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v32.log.gz",
+      "sha256": "58d46424b8bcfda88a5b9e8a7a2383a807d2e5f4fe8d88984d5f5ad9b1dc8da9"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v33.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v33.log.gz",
+      "sha256": "a029fcfea8c989c406cf8a74ff7ffdee8d7e20939fd56216c94c6a0640e56da6"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v34.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v34.log.gz",
+      "sha256": "7b42c83c820bdf560508e0036e5bc5128504f760702e0954052c2e4d436b0419"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v35.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v35.log.gz",
+      "sha256": "45806a521057421bbf2f6cfd66ce32f15db98327e5712b493b9200de4418b741"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/build_v36.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/build_v36.log.gz",
+      "sha256": "027fd57df18aae54d87de2888ae3cc22275a659e11a851c22f18c2dededd5ba4"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/case_replay_v1.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/case_replay_v1.log.gz",
+      "sha256": "87603478f33acfbfc65fce405664c861c5b311163a2ba53cc913ee57a7a68bdd"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/case_replay_v1.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/case_replay_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/deformed_native_v2.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/deformed_native_v2.log.gz",
+      "sha256": "98dca228da1bce33259c9e42fb2ca96731bcffa3c1b0fe7da696c0d92aa455a6"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/deformed_native_v3.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/deformed_native_v3.log.gz",
+      "sha256": "5119e3b2696a44cb5aa1fee23de0c545a2fe1715bbf84bfedffd5afcd55d8f55"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/deformed_native_v4.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/deformed_native_v4.log.gz",
+      "sha256": "76947772ca960664628efcdf071d29254e4183069dd8a58acd6cb466b5c57569"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/deformed_v2/deformed_skin.blend",
+      "archive": "art/reviews/v2_hose_skin_20261022/deformed_v2/deformed_skin.blend.gz",
+      "sha256": "8fa4c69aae9555bd900688753f046929aeb1ba95213669a40bc39dcfb031f559"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/deformed_v3/deformed_skin.blend",
+      "archive": "art/reviews/v2_hose_skin_20261022/deformed_v3/deformed_skin.blend.gz",
+      "sha256": "a2325ca95ffdb90cbe2502aa28076b7d565c426d6ae54f3fa0c899c9675fee50"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/deformed_v4/deformed_skin.blend",
+      "archive": "art/reviews/v2_hose_skin_20261022/deformed_v4/deformed_skin.blend.gz",
+      "sha256": "ecd90c0c8c3304ec8413b8b6d293ee33ebbd1fea43bf5e53e270ae7bb8bda781"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/dense_control_final/gravity_trace.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/dense_control_final/gravity_trace.json.gz",
+      "sha256": "c5f2cb8e44abe3b071844e3e0371614729d972edfe43c39428e600974c89909b"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/dense_control_final.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/dense_control_final.log.gz",
+      "sha256": "abc2f8a48f6606bc303edada39d606a829c0f69b8db5452aaa19b30b809396bd"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/dense_control_final.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/dense_control_final.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/final_batch_exits.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/final_batch_exits.json.gz",
+      "sha256": "0671b395a3c09e6e79ce14350ebb3017f9f1e34a0d6c6c138cf2c0adb9192225"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/build_manifest.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/build_manifest.json.gz",
+      "sha256": "fcf116d5b8ed56a4ed6431a87a3d16480de90802512af87d3e489e7f59464bb4"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/follower_v1.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/follower_v1.log.gz",
+      "sha256": "393e55d60220b2833143fb1f0bf63633844e84542e8b41cf0cb2cf6833da2cc9"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/follower_v1.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/follower_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/kernel_final.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/kernel_final.log.gz",
+      "sha256": "aac1e99e37ab05f757afbe145c5afd65873b6657f3710f49e68238802f04bb46"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/kernel_final.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/kernel_final.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/kernel_v24.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/kernel_v24.log.gz",
+      "sha256": "bdfcb0af2ac5a8bc3223c2713714746f8557cc854169d1baad14e3035e71fc26"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/kernel_v24.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/kernel_v24.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/settling.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/settling.json.gz",
+      "sha256": "ee1ae1641b586e682078f5cf566ca51f43a60e7e13b688e938bd2bdda7b2df01"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v1.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v1.log.gz",
+      "sha256": "7836405301f8c99ee9a19d429807f79a49db44f7be50bf0a7f9436a5908c65ef"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v1.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v10/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v10/payout.json.gz",
+      "sha256": "163a3a9be209d85e38cff8628dc8b6e50086a4edc171b731b9cd9881d25d808f"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v10.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v10.log.gz",
+      "sha256": "8e45ea6cd8abef205322ac65a72799cb2a9c5fed4f49b4a0413b1a73a13942e7"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v10.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v10.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v11/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v11/payout.json.gz",
+      "sha256": "ce920b3c902e0325a91a1882979f83e896e57afa78037afe2fade98b910b3866"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v11.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v11.log.gz",
+      "sha256": "97bec9b3644c1d8ef67119fc54f853fdf9a4c60aea51a474c9b9fe42efc8c98a"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v11.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v11.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v12/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v12/payout.json.gz",
+      "sha256": "957ebbe8011fa3954c33df8373bf59f7510081006679c0f4e10c6483f0fcc9e0"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v12.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v12.log.gz",
+      "sha256": "ee3f9116bde6cd3c5c405ab6103f320021360fd76566f3219105028a14f9adbd"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v12.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v12.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v13/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v13/payout.json.gz",
+      "sha256": "8eeed3b3d4d00b562fee325a3f98d3e2c0b2ee0a17dbabbe6cd63efb77785581"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v13.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v13.log.gz",
+      "sha256": "fe4a605a2020531be5fb7ae9b313c01a104c7984244143860e2e0e24e9970c42"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v13.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v13.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v14/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v14/payout.json.gz",
+      "sha256": "07fb09edad13a352fd385c18f1714551bdf9d4980d311012bba31349d8856814"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v14.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v14.log.gz",
+      "sha256": "a9793dcdff816909db379f743a088ebe7373286f203988f43ee2152ac1a30557"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v14.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v14.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v15/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v15/payout.json.gz",
+      "sha256": "1e515cd658a056a43c8f50fd354653d5568f313e227d17210a1a5fd1443363bd"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v15.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v15.log.gz",
+      "sha256": "6b480d8042d7e5a2b3e942487fb16076d59372b5e4741f85ece1c44a232fbc1a"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v15.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v15.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v16/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v16/payout.json.gz",
+      "sha256": "e9660953eec2538df6b86467499abb912531d1a15638ec54efee0c4ff9a63b40"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v16.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v16.log.gz",
+      "sha256": "a32806331e6baf77b414a1a0fda41dd1a3f1cd437070140d754ef0b024a9d689"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v16.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v16.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v2/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v2/payout.json.gz",
+      "sha256": "e3c7e7b0ef4b6970e79414eb4db3038a7173806fe94d032790f6985d393093a3"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v2.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v2.log.gz",
+      "sha256": "8ea9e7a4d467d962231d9be0078d45b5b0a3c9df668069cea0187e206d6b211c"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v2.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v2.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v3/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v3/payout.json.gz",
+      "sha256": "1b153ce9149cb40dab62be315daed406241ed22ebb1cc52d471f36b2ee4eea4d"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v3.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v3.log.gz",
+      "sha256": "ba92fa31be40b9a7107d1390c588b5015d0633b0a4bfdd1e2ec553d770735378"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v3.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v3.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v4/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v4/payout.json.gz",
+      "sha256": "8b442364bee5029c62de0c24f84eb807e650c6c496827f91ba54ca3e0dcac897"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v4.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v4.log.gz",
+      "sha256": "50550f3ae68e4e9041edf1abf4ee62248bcc3e9d344c3c54fb793e73c501b6e2"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v4.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v4.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v5/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v5/payout.json.gz",
+      "sha256": "69ef3c4d13e9007797bedaa2d90f5fae174e83237355ce82af81fd68184dfc21"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v5.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v5.log.gz",
+      "sha256": "5303ebedf55dd9dbb5f5f243ab9da46d6d489417c52553feb92499b9bcac8b85"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v5.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v5.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v6/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v6/payout.json.gz",
+      "sha256": "4dd5d03ecc38c66402400c22d56092e8f093a994d68a66dab834199e1431fdad"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v6.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v6.log.gz",
+      "sha256": "6660e944d9a5b86da9f8d2685feccb2f55e59a906ef4b3074df4a64b45e80ca3"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v6.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v6.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v7.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v7.log.gz",
+      "sha256": "50690cb74b4b85a3edbcc506b6a05228fde49cad72a6a5b7339c4b94f225722c"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v7.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v7.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v8/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v8/payout.json.gz",
+      "sha256": "6f299f195f09138a20da0348e3ab4246a14e63e194a60aa6fbb503d6edc416e8"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v8.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v8.log.gz",
+      "sha256": "c9385bd6da60a9bf8187a9565276658105f66a6078c25fdf2bed87a97166b30c"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v8.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v8.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v9/payout.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v9/payout.json.gz",
+      "sha256": "f3110d89c1dbc196d3574af58b411f7db1af90561cc2ae024802cf7b128744a0"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v9.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v9.log.gz",
+      "sha256": "8b883609ce72f6e94780d94383e33c906fe2d29d0fb5da6ce2f216e2ba9a205e"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/payout_v9.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/payout_v9.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/rejected_head_first/build_manifest.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/rejected_head_first/build_manifest.json.gz",
+      "sha256": "5fcefaec2e10603112c7b8617d6f412e93a24751a78593d2c094621a462b8d8c"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/reticle_final.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/reticle_final.log.gz",
+      "sha256": "440bfe04ec2beb327cd6308a0b03874cc9db6b0f7293057d7edd2782ac717420"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/reticle_final.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/reticle_final.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/settling_final/settling.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/settling_final/settling.json.gz",
+      "sha256": "9b5df5228822be59e9cf1fd8c5d3e951af1024ec18223ea435e2ce1464430712"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/settling_final.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/settling_final.log.gz",
+      "sha256": "0c01052acadbb3f8c9e2d38c141d6cd98316ed1f39f4af392c6f21376c471620"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/settling_final.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/settling_final.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/settling_v1/settling.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/settling_v1/settling.json.gz",
+      "sha256": "0bd2eec7b5235aa305346634288db02fab2543c7bf7c27b92cfad6ad8b6c3368"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/settling_v1.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/settling_v1.log.gz",
+      "sha256": "bcdcd093976dc09e83c7b51461c4b9468bf7f985f42fe22654592aeac1f5a1a2"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/settling_v1.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/settling_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/settling_v2.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/settling_v2.log.gz",
+      "sha256": "0d67ffb30ccc6d5df784f46078182b5638b5d8eeea73d2b5d6e972dd663a718d"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/settling_v2.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/settling_v2.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/settling_v3/settling.json",
+      "archive": "art/reviews/v2_hose_skin_20261022/settling_v3/settling.json.gz",
+      "sha256": "0801d8d6f1a52c5330b447339f2121a5cebcc2f1d8375ea0a61eaf1aaad55b33"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/settling_v3.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/settling_v3.log.gz",
+      "sha256": "c0daa953895581673d42226f3b78b601faf10d3f8ae115ddf7dd11f8de9adea8"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/settling_v3.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/settling_v3.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/sparse_control_final.log",
+      "archive": "art/reviews/v2_hose_skin_20261022/sparse_control_final.log.gz",
+      "sha256": "686a5277d95f5dd0b47d91ff3abea0306beb51dae57650748d7d81b8ea2a4be2"
+    },
+    {
+      "original": "art/reviews/v2_hose_skin_20261022/sparse_control_final.log.stderr",
+      "archive": "art/reviews/v2_hose_skin_20261022/sparse_control_final.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "stages": [
+    {
+      "script": "art/blender/scripts/build_fire_hose_stock.py",
+      "env": {
+        "ORISON_FIRE_HOSE_OUT": "C:/PleaseRemainOnTheLine/tmp/v2-hose-repair-20261021/short_stock_v3",
+        "ORISON_FIRE_HOSE_PUBLISH": "1"
+      }
+    },
+    {
+      "script": "art/blender/scripts/build_fire_fold_stock.py",
+      "env": {
+        "ORISON_FIRE_FOLD_OUT": "C:/PleaseRemainOnTheLine/tmp/v2-hose-repair-20261021/fold_stock_v1",
+        "ORISON_FIRE_FOLD_PUBLISH": "1"
+      }
+    }
+  ]
+}

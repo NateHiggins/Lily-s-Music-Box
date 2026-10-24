@@ -1,0 +1,130 @@
+{
+	"aim_errors_degrees": [
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0197823410294464,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0
+	],
+	"checks": [
+		{
+			"label": "all eight production hose cabinets mount in the occupied world",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: B1_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F01_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F02_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F03_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F04_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F05_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F06_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: ROOF_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "actual grab/motion/release opens the installed cabinet",
+			"ok": true
+		},
+		{
+			"label": "explicit assembled-line fixture is a valid physical household state",
+			"ok": true
+		},
+		{
+			"label": "walked stance reaches the specific installed nozzle surface",
+			"ok": true
+		},
+		{
+			"label": "actual installed pull continues directly into FPS carry",
+			"ok": true
+		},
+		{
+			"label": "ordinary turning retains the deployed hose",
+			"ok": true
+		},
+		{
+			"label": "presented installed nozzle remains within one degree of reticle aim while turning",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"motion_calls": [],
+	"scope": "Actual installed approach, operation, stair carrying and disk rebuild; repaired assembly staged. No full payout, all-area coverage, runtime_contract or human acceptance."
+}

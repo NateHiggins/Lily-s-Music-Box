@@ -1,0 +1,16 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_player_doodle.py:34: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material=bpy.data.materials.new('player_doodle');material.use_nodes=True
+FBX version: 7400
+Info: Saved as "player_doodle.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+12:15:10 | INFO: Starting glTF 2.0 export
+12:15:10 | INFO: Extracting primitive: Mesh_0
+12:15:10 | INFO: Primitives created: 1
+12:15:10 | WARNING: There are more than 4 joint vertex influences.The 4 with highest weight will be used (and normalized).
+12:15:11 | INFO: Finished glTF 2.0 export in 1.231245756149292 s
+
+{"evidence_class": "INERT", "source": "art/source/player_doodle_20261023/Meshy_AI_Smiling_Stick_Figure_biped/Meshy_AI_Smiling_Stick_Figure_biped_Animation__01a16981_df16_7433_b162_60a018f2b8ab_frame_rate_30.fbx", "source_sha256": "5755d4abfa5286fae52faf186ca57f6f6b34167936980fdde3acf76ed33ea711", "native": "art/blender/player_doodle.blend", "asset": "game/assets/characters/player_doodle/player_doodle.glb", "asset_sha256": "3746ccd71b06b202313f18bcbd89a944559b5f3267ac005c0863b317dda54533", "source_triangles": 198520, "runtime_triangles": 19852, "vertices": 17415, "bones": 52, "fps": 30, "frames": [1, 300], "clip": "Idle", "scale": 0.8929883782991032, "source_height_m": 1.706629153341055, "uv_degenerate_triangles": 0, "removed_object_transform_channels": ["location", "location", "location", "rotation_euler", "rotation_euler", "rotation_euler", "scale", "scale", "scale"], "limits": "Native preservation/LOD build. Loaded maps, deformation, orientation, loop continuity and mirror appearance require runtime review."}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

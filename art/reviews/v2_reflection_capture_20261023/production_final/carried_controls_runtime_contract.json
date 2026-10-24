@@ -1,0 +1,79 @@
+{
+	"checks": 71,
+	"contracts": {
+		"circuit_authority": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"continuous_travel_stops": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"inspection_interruption": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"latched_grab_motion_release": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"specific_part_target": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 155.385,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"observations": [
+		{
+			"before": -0.400000005960464,
+			"part": "lamp",
+			"partial": -0.300000011920929
+		},
+		{
+			"before": -0.400000005960464,
+			"part": "radio",
+			"partial": -0.300000011920929
+		},
+		{
+			"before": 0.0,
+			"part": "cover",
+			"partial": 0.231250002980232
+		},
+		{
+			"before": 0.305,
+			"part": "focus",
+			"partial": 0.32125
+		},
+		{
+			"before": 0.0,
+			"part": "feed0",
+			"partial": 1.5707963267949
+		},
+		{
+			"before": 1.5707963267949,
+			"part": "feed1",
+			"partial": 1.5707963267949
+		}
+	],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Installed carried instrument: E deployment, explicit Space free-cursor inspection, six specific native controls, click/motion/release, partial positions, four full-travel stops, lamp/radio authority and Escape/E interruption. Does not qualify saved device positions, incoming-call answering, every V2 interaction, whole-world performance or human acceptance.",
+	"selector": "v2",
+	"source": {
+		"runtime_inputs_sha256": "b3eab3ee7143453e57ed19d3c06e30a8946e095ca3825ddd03e71c92d6509e51",
+		"test_path": "game/tests/v2_service_set_hand_world_test.gd",
+		"test_sha256": "dd98298a498dbec2a80cb8b1b87a528b25520670743a98448df39a2d88d0e3c2",
+		"test_sources": {
+			"game/tests/service_set_hand_test.gd": "a070fd0e86d3c35a984be149cf44e42fc1bc2649e3eba4be2249e9fd58f2f5da",
+			"game/tests/v2_handheld_profile.gd": "b0d7c7335c8cfa6bc1d30c6621ba3580f11a1828353d5707f7709bac1f9a5ec6",
+			"game/tests/v2_service_set_hand_world_test.gd": "dd98298a498dbec2a80cb8b1b87a528b25520670743a98448df39a2d88d0e3c2"
+		}
+	}
+}

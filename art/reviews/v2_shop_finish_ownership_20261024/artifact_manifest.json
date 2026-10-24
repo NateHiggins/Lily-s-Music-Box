@@ -1,0 +1,951 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Immutable diagnostic bytes, excluding engine-generated image import sidecars and Python caches. Original failed verdicts retained; no runtime_contract grant.",
+  "files": [
+    {
+      "path": "batch_candidate_v1.json",
+      "bytes": 2038,
+      "sha256": "d079199af9dade283ebba751a99f2ac32a4c7bbdce37cca1c3c82ad66a3b1377"
+    },
+    {
+      "path": "batch_candidate_v2.json",
+      "bytes": 1681,
+      "sha256": "aa4a5100b2b8c91a0a305cc07147f947d4684feb05a6d4fa5c603813a24c4515"
+    },
+    {
+      "path": "gates_v2/board.json",
+      "bytes": 378167,
+      "sha256": "eea26813440da39ba1fe492882b4846d1ac5ab29db19d6a3729b525def8e97fc"
+    },
+    {
+      "path": "gates_v2/board.md",
+      "bytes": 8542,
+      "sha256": "99ba5f2c9249d4b2bdb205e324710743e85c8093f938bc28316b952613d198d9"
+    },
+    {
+      "path": "import_candidate_v1.log",
+      "bytes": 3720,
+      "sha256": "580ffa48f4de74994c0c5efebba3011dd42469360cc260c76faafcabe2d86dbc"
+    },
+    {
+      "path": "import_candidate_v1.log.receipt.json",
+      "bytes": 2778,
+      "sha256": "b268f78dd4af92d6ac1602f74329054bcb76e5756b4a7a7fd66c5dd6fdfeeaf5"
+    },
+    {
+      "path": "import_candidate_v1.log.stderr",
+      "bytes": 249,
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "import_candidate_v2.log",
+      "bytes": 3144,
+      "sha256": "48977f31310bbf73cd401b229630f94b1bca538741f1d04b436cde7b9200c62c"
+    },
+    {
+      "path": "import_candidate_v2.log.receipt.json",
+      "bytes": 2777,
+      "sha256": "56b85c7c31f4d47c885ab3874f85dcc8d98afb63b50ff7a71c460c290c089565"
+    },
+    {
+      "path": "import_candidate_v2.log.stderr",
+      "bytes": 249,
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "ownership_v1/ownership.json",
+      "bytes": 151,
+      "sha256": "6c01821fa05f5455fccd6e3df96f5b8ec02fcbf8fe5c6688aaa2906330ad7e9f"
+    },
+    {
+      "path": "ownership_v1.log",
+      "bytes": 1777,
+      "sha256": "8a15a3a04976de5cdcc4d980b0121c75bfa8df9bf4ec7fccb6f786894559c38e"
+    },
+    {
+      "path": "ownership_v1.log.receipt.json",
+      "bytes": 2999,
+      "sha256": "831213278afe530830fa5882633a833ec1f81fe948146d0b5984b282a50f340d"
+    },
+    {
+      "path": "ownership_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "retirement_v1.log",
+      "bytes": 242,
+      "sha256": "2ab6d94a9ce6bb1b29454c670da76ea6a088b4bb5c269ff12d5596dd9b4b12d3"
+    },
+    {
+      "path": "retirement_v1.log.receipt.json",
+      "bytes": 2994,
+      "sha256": "39726929b619980ddeededd18156a192ddd213c145e2ed23cc158fc46f22667e"
+    },
+    {
+      "path": "retirement_v1.log.stderr",
+      "bytes": 818,
+      "sha256": "cd658be72dd0d57489060844646b3115f24eca25f8d967cf74b339366f492d2a"
+    },
+    {
+      "path": "retirement_v2.log",
+      "bytes": 13178,
+      "sha256": "14d24c96081acc631f0785a7a74c61ce00749169007384d407f966e3dea1d761"
+    },
+    {
+      "path": "retirement_v2.log.receipt.json",
+      "bytes": 3050,
+      "sha256": "d91d8b2a2fcabefcd938bf5bcf651dda77c4707331d0d13bda39de61e9eb6fa9"
+    },
+    {
+      "path": "retirement_v2.log.stderr",
+      "bytes": 1226,
+      "sha256": "79453a7830dfb1fa3b8245266296d626c8633625ba3ef17fe803f3c668433174"
+    },
+    {
+      "path": "retirement_v3/fittings.json",
+      "bytes": 132,
+      "sha256": "4de8667c0de068a7dea59558430865dfa92c5d46c54e230523ce7f133d080907"
+    },
+    {
+      "path": "retirement_v3/retirement.json",
+      "bytes": 246,
+      "sha256": "98f45b6b9b53c0afd6d19d26767e9cb4b2b03b5012f6e8f2f3e2847c60c3664e"
+    },
+    {
+      "path": "retirement_v3/views.json",
+      "bytes": 3105,
+      "sha256": "7467f5d31f45df4ececbb1353ae76df01dddbbe6af6914cd9e1bc2ffd62d2c0a"
+    },
+    {
+      "path": "retirement_v3.log",
+      "bytes": 13265,
+      "sha256": "90ab1ce152ee57e24a9237e4bee58b6f56b72d6482a2edd50ed6c22a86e10e4c"
+    },
+    {
+      "path": "retirement_v3.log.receipt.json",
+      "bytes": 2835,
+      "sha256": "dabdb2690efc64f72a63cedac08e0e47ada25ad95f34a3d98b43c741770cf667"
+    },
+    {
+      "path": "retirement_v3.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "source_before/game__scripts__building__orison_v2_uv_material_policy.gd.gz",
+      "bytes": 1461,
+      "sha256": "f4084fbb976dc00f59ee50919d81885f6809e6e33b50113108040bb64bf2ba9a"
+    },
+    {
+      "path": "source_before/game__scripts__building__v2_legacy_material_stock.gd.gz",
+      "bytes": 3674,
+      "sha256": "af498edc4f8f76cf63a7427403c303116fb92b890f30f44179651f06ed42168f"
+    },
+    {
+      "path": "source_before/game__scripts__material_library.gd.gz",
+      "bytes": 979,
+      "sha256": "618d49f4a4ba8fe9f6d32529063a81720f95dbd3ed81175a790022c405a52dd8"
+    },
+    {
+      "path": "source_before/game__tests__orison_v2_news_receiving_test.gd.gz",
+      "bytes": 4141,
+      "sha256": "98216d72306968588ea22232757198c1ab3d9ea5f72093244a6aaa47dd8e7f4a"
+    },
+    {
+      "path": "source_before/game__tests__orison_v2_photo_portraits_test.gd.gz",
+      "bytes": 5760,
+      "sha256": "6afd7b84d68b91cca561feacabd70f4c420fe504f04ff884a309f04c35e4c891"
+    },
+    {
+      "path": "source_before/sources.json",
+      "bytes": 901,
+      "sha256": "846d554b1a14427b41ba90cb5d950df872a58abf6660dd6ec4b0f0a459e3ae6d"
+    },
+    {
+      "path": "source_candidate_v1/game__scripts__building__orison_v2_bar_receiving.gd.gz",
+      "bytes": 2468,
+      "sha256": "90594c072353953e287d8505e5d39843086e122ed2dd0c7305944fa174a85d65"
+    },
+    {
+      "path": "source_candidate_v1/game__scripts__building__orison_v2_bar_region.gd.gz",
+      "bytes": 2985,
+      "sha256": "48f110a168865bd2084047fed8db8786ea86533aa22cded6f93e0d1d400c0b89"
+    },
+    {
+      "path": "source_candidate_v1/game__scripts__building__orison_v2_passage_region.gd.gz",
+      "bytes": 5820,
+      "sha256": "db7462d4b65c57c246eaea13fc347f0874b7fa04391cc0be98a7321fe66fa1fc"
+    },
+    {
+      "path": "source_candidate_v1/game__scripts__building__orison_v2_uv_material_policy.gd.gz",
+      "bytes": 1856,
+      "sha256": "86aad5673f98503fe572cd98390eda424b017d352e780ea42fbaeb8900ae1b31"
+    },
+    {
+      "path": "source_candidate_v1/game__scripts__building__v2_legacy_material_stock.gd.gz",
+      "bytes": 3847,
+      "sha256": "c0a391694fe35058200d16279a0cda9c1aabb94782c5081518da0e03f5340d55"
+    },
+    {
+      "path": "source_candidate_v1/game__scripts__material_library.gd.gz",
+      "bytes": 1064,
+      "sha256": "a872eef5e8726efc44592fd906e56e24e4e07f4a346512e6cddd85f6f39b5427"
+    },
+    {
+      "path": "source_candidate_v1/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3963,
+      "sha256": "ee65a519bdd4d0719cc5e0af99c32c5f0bb17ddf4bcaeb81dc0e59e7294d67c5"
+    },
+    {
+      "path": "source_candidate_v1/game__tests__v2_arcade_retirement_review.gd.gz",
+      "bytes": 1517,
+      "sha256": "c6d523ecc60a9d968488205ffd308e684adddaf1ec86d60852a3880f9c328753"
+    },
+    {
+      "path": "source_candidate_v1/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2580,
+      "sha256": "ebfc6bc3964b67fa3664dc91a3f562f001921f386f2fc663471868b03caabe85"
+    },
+    {
+      "path": "source_candidate_v1/game__tests__v2_shared_finish_ownership_test.gd.gz",
+      "bytes": 2380,
+      "sha256": "4e31e87347b7db63693dc75de5e079ab2dd250a6ee860847d0d331748cb45495"
+    },
+    {
+      "path": "source_candidate_v1/sources.json",
+      "bytes": 2250,
+      "sha256": "4f81ceeb1c44a25ba6d92b57d92802ccd4963f4bb6c92d7aea8daa32287ed074"
+    },
+    {
+      "path": "source_candidate_v2/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 7738,
+      "sha256": "a7349a43ce958442be0c42541a601692628a046a4449a47d9913b5a17ec0288d"
+    },
+    {
+      "path": "source_candidate_v2/game__assets__props__bath_shower.glb.gz",
+      "bytes": 3059171,
+      "sha256": "4be5d36169c7d8d0c3b23911a121ca99918fb0db2055a0aa126fd17ce04338ba"
+    },
+    {
+      "path": "source_candidate_v2/game__scripts__building__orison_v2_bar_receiving.gd.gz",
+      "bytes": 2468,
+      "sha256": "90594c072353953e287d8505e5d39843086e122ed2dd0c7305944fa174a85d65"
+    },
+    {
+      "path": "source_candidate_v2/game__scripts__building__orison_v2_bar_region.gd.gz",
+      "bytes": 2985,
+      "sha256": "48f110a168865bd2084047fed8db8786ea86533aa22cded6f93e0d1d400c0b89"
+    },
+    {
+      "path": "source_candidate_v2/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 2818,
+      "sha256": "41304982b6eb1e1c61500d74e627d39a95e4ca8929ac9693662996f86d32e0b4"
+    },
+    {
+      "path": "source_candidate_v2/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 3084,
+      "sha256": "cbaf574c0c508e0fb9a49b32453a2ffd148d1ab53cb707397bd1bf2d78f780bd"
+    },
+    {
+      "path": "source_candidate_v2/game__scripts__building__orison_v2_passage_region.gd.gz",
+      "bytes": 5820,
+      "sha256": "db7462d4b65c57c246eaea13fc347f0874b7fa04391cc0be98a7321fe66fa1fc"
+    },
+    {
+      "path": "source_candidate_v2/game__scripts__building__orison_v2_shower_placement.gd.gz",
+      "bytes": 329,
+      "sha256": "2fbd38a7a540d0dbd41cfa18e8e40b6a68ad20d92c1359b23e6ec68f0f3944f4"
+    },
+    {
+      "path": "source_candidate_v2/game__scripts__building__orison_v2_uv_material_policy.gd.gz",
+      "bytes": 1856,
+      "sha256": "86aad5673f98503fe572cd98390eda424b017d352e780ea42fbaeb8900ae1b31"
+    },
+    {
+      "path": "source_candidate_v2/game__scripts__building__v2_legacy_material_stock.gd.gz",
+      "bytes": 3847,
+      "sha256": "c0a391694fe35058200d16279a0cda9c1aabb94782c5081518da0e03f5340d55"
+    },
+    {
+      "path": "source_candidate_v2/game__scripts__material_library.gd.gz",
+      "bytes": 1064,
+      "sha256": "a872eef5e8726efc44592fd906e56e24e4e07f4a346512e6cddd85f6f39b5427"
+    },
+    {
+      "path": "source_candidate_v2/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13278,
+      "sha256": "67820362d2b3e53427cbfc3ce4fba2c1b91a2e13c49272f980e7970baa2db335"
+    },
+    {
+      "path": "source_candidate_v2/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3963,
+      "sha256": "ee65a519bdd4d0719cc5e0af99c32c5f0bb17ddf4bcaeb81dc0e59e7294d67c5"
+    },
+    {
+      "path": "source_candidate_v2/game__tests__v2_arcade_retirement_review.gd.gz",
+      "bytes": 1517,
+      "sha256": "c6d523ecc60a9d968488205ffd308e684adddaf1ec86d60852a3880f9c328753"
+    },
+    {
+      "path": "source_candidate_v2/game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+      "bytes": 1874,
+      "sha256": "0129e7b0493e26e3ae08e9d394227b315af38d5ea21ab21677db6542532f7b84"
+    },
+    {
+      "path": "source_candidate_v2/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2539,
+      "sha256": "74383229f3bbfb041705a9d81b73f9cd64d630b583b594483a1262fd65d1c14d"
+    },
+    {
+      "path": "source_candidate_v2/game__tests__v2_shared_finish_ownership_test.gd.gz",
+      "bytes": 2380,
+      "sha256": "4e31e87347b7db63693dc75de5e079ab2dd250a6ee860847d0d331748cb45495"
+    },
+    {
+      "path": "source_candidate_v2/sources.json",
+      "bytes": 3815,
+      "sha256": "0798d43c629e74c718b016bcdabe83d13a7e0562f67df5a02a8767b82b0ea53b"
+    },
+    {
+      "path": "source_candidate_v3/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 7738,
+      "sha256": "a7349a43ce958442be0c42541a601692628a046a4449a47d9913b5a17ec0288d"
+    },
+    {
+      "path": "source_candidate_v3/art__tools__fix_v2_mesh_imports.py.gz",
+      "bytes": 2305,
+      "sha256": "96403bbdefd8d0f62d8b9fd45fcabf7b36473526846e1131e32e691db6c4ba42"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__orison_v2_architectural_materials.gd.gz",
+      "bytes": 1820,
+      "sha256": "95de5f35ec4d5038861140447644792a3fdd4d43f0f1b5a360c0d9bd0db9fc7b"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__orison_v2_bar_receiving.gd.gz",
+      "bytes": 2468,
+      "sha256": "90594c072353953e287d8505e5d39843086e122ed2dd0c7305944fa174a85d65"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__orison_v2_bar_region.gd.gz",
+      "bytes": 2985,
+      "sha256": "48f110a168865bd2084047fed8db8786ea86533aa22cded6f93e0d1d400c0b89"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 2849,
+      "sha256": "1d889f67285a1874c6739eecb78c439aca2bdd1e49cdcdfa232041a2565ec006"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__orison_v2_casing_mitre_stock.gd.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 3084,
+      "sha256": "cbaf574c0c508e0fb9a49b32453a2ffd148d1ab53cb707397bd1bf2d78f780bd"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__orison_v2_door_casings.gd.gz",
+      "bytes": 1817,
+      "sha256": "9ea74c1cded47e50d754aabf27a76413531eb2ad98efea2a3b76d0bc59968ea0"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__orison_v2_passage_region.gd.gz",
+      "bytes": 5820,
+      "sha256": "db7462d4b65c57c246eaea13fc347f0874b7fa04391cc0be98a7321fe66fa1fc"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12901,
+      "sha256": "692a2f65d2f7e2135e9cf614ae52d49129a4c1ed7f6a552ae1a480041adc91f1"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__orison_v2_shower_placement.gd.gz",
+      "bytes": 329,
+      "sha256": "2414566ed47da9fd63bfcd6703ec6fab5bf0f2dffa30f632b5e90f8f7ed87940"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__orison_v2_uv_material_policy.gd.gz",
+      "bytes": 1856,
+      "sha256": "86aad5673f98503fe572cd98390eda424b017d352e780ea42fbaeb8900ae1b31"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__building__v2_legacy_material_stock.gd.gz",
+      "bytes": 3847,
+      "sha256": "c0a391694fe35058200d16279a0cda9c1aabb94782c5081518da0e03f5340d55"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__material_library.gd.gz",
+      "bytes": 1064,
+      "sha256": "a872eef5e8726efc44592fd906e56e24e4e07f4a346512e6cddd85f6f39b5427"
+    },
+    {
+      "path": "source_candidate_v3/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13278,
+      "sha256": "67820362d2b3e53427cbfc3ce4fba2c1b91a2e13c49272f980e7970baa2db335"
+    },
+    {
+      "path": "source_candidate_v3/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3963,
+      "sha256": "ee65a519bdd4d0719cc5e0af99c32c5f0bb17ddf4bcaeb81dc0e59e7294d67c5"
+    },
+    {
+      "path": "source_candidate_v3/game__tests__v2_arcade_retirement_review.gd.gz",
+      "bytes": 1517,
+      "sha256": "c6d523ecc60a9d968488205ffd308e684adddaf1ec86d60852a3880f9c328753"
+    },
+    {
+      "path": "source_candidate_v3/game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+      "bytes": 2151,
+      "sha256": "3a870269a194f6288222b587c216cd19fccfda40e560bcfd81aa916ba5db17b5"
+    },
+    {
+      "path": "source_candidate_v3/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2539,
+      "sha256": "74383229f3bbfb041705a9d81b73f9cd64d630b583b594483a1262fd65d1c14d"
+    },
+    {
+      "path": "source_candidate_v3/game__tests__v2_shared_finish_ownership_test.gd.gz",
+      "bytes": 2380,
+      "sha256": "4e31e87347b7db63693dc75de5e079ab2dd250a6ee860847d0d331748cb45495"
+    },
+    {
+      "path": "source_candidate_v3/sources.json",
+      "bytes": 3248,
+      "sha256": "da62aef87272f01bcaf01d94bf64c9fc6d122488850b385facd0332cd3662abc"
+    },
+    {
+      "path": "template_modules.json",
+      "bytes": 585,
+      "sha256": "a2550d9261abb66eab0637b2918c422420332e4baa98664e23c9e074f55d3e9f"
+    },
+    {
+      "path": "templates_v1.log",
+      "bytes": 242,
+      "sha256": "2ab6d94a9ce6bb1b29454c670da76ea6a088b4bb5c269ff12d5596dd9b4b12d3"
+    },
+    {
+      "path": "templates_v1.log.receipt.json",
+      "bytes": 2991,
+      "sha256": "d14ae53e1d2b9ebad1b077b6937b0944d2a41db6fd85035ad24e78883d07042c"
+    },
+    {
+      "path": "templates_v1.log.stderr",
+      "bytes": 798,
+      "sha256": "54e65d8cc2e9e5208622a2ade114e98c595389c92b0e1748ed42c96cd97d71e6"
+    },
+    {
+      "path": "templates_v2/batch.json",
+      "bytes": 15327,
+      "sha256": "e5f48a84c3633e9400975b0724c2c749fb7de44b4e03c3c730afb638bd889def"
+    },
+    {
+      "path": "templates_v2/diner_apparatus/fittings.json",
+      "bytes": 131,
+      "sha256": "da614ba0663090c1018d6cb5349d78b398fd82d06f468cca999c352fc8fc6ce2"
+    },
+    {
+      "path": "templates_v2/diner_counter/fittings.json",
+      "bytes": 129,
+      "sha256": "b70ff36666aee554c920da53eaebd7b514a87d5bc5783b612ff23e6598a43d77"
+    },
+    {
+      "path": "templates_v2/diner_counter/views.json",
+      "bytes": 1845,
+      "sha256": "3f8dbef75d4664ed916a524dff46d1ddba0dd11133cfcfad9aa5a61221c015ea"
+    },
+    {
+      "path": "templates_v2/diner_till/fittings.json",
+      "bytes": 129,
+      "sha256": "551d660071608a8e83644c3e1f1240297ce15ebd7a8473553e9fffe7568827f7"
+    },
+    {
+      "path": "templates_v2/diner_till/views.json",
+      "bytes": 2243,
+      "sha256": "45977f34ced6d2d32cb5bcc91bdcb7628821e23730752fd65bc4040d29d6f0d0"
+    },
+    {
+      "path": "templates_v2/diner_urns/fittings.json",
+      "bytes": 131,
+      "sha256": "2081446d7f99f9ee72ddb4f92d3d67290271c79d96e4fa8322069d0e50b646a0"
+    },
+    {
+      "path": "templates_v2/druggist_carboys/fittings.json",
+      "bytes": 132,
+      "sha256": "58b67edb57f5c360a818f6bdd1821cb315c1929da05b8e2ba44cb1fdebf741da"
+    },
+    {
+      "path": "templates_v2/druggist_cupboard/fittings.json",
+      "bytes": 132,
+      "sha256": "f6adcfff2fc3a8c675b64dd8e95f306486b5e2e0065faab63e4d6f0ff02829d1"
+    },
+    {
+      "path": "templates_v2/druggist_cupboard/views.json",
+      "bytes": 2227,
+      "sha256": "97b0ba30966f53c92d1bc329752faa6e00d154eea6b824f12197e6b9a88676a5"
+    },
+    {
+      "path": "templates_v2/druggist_fountain/fittings.json",
+      "bytes": 129,
+      "sha256": "c09f32ffce675e63ee70e4bc778649bac364a2a7dfda8739bb97dec4be0b1058"
+    },
+    {
+      "path": "templates_v2/druggist_mortar/fittings.json",
+      "bytes": 127,
+      "sha256": "cf45bc9f5b49a24f8109791baa4884b9a9e3c076da6b5402017a5a4cb9479f28"
+    },
+    {
+      "path": "templates_v2/funeral_drapes/fittings.json",
+      "bytes": 131,
+      "sha256": "331a4067f66d9d0f90006b302997385c5db46a66b803748a806852ebc9a57e7b"
+    },
+    {
+      "path": "templates_v2/funeral_foliage/fittings.json",
+      "bytes": 131,
+      "sha256": "e0ea6faae45a5aefe91609237dd1446654143283cbe8c38a73aa3868fd982e13"
+    },
+    {
+      "path": "templates_v2/hardware_stock/fittings.json",
+      "bytes": 490,
+      "sha256": "6fea13029e28587f2b1ece3bd6b98c91f012e14c084bd3d067d69b499d364aca"
+    },
+    {
+      "path": "templates_v2/hardware_stock/views.json",
+      "bytes": 2156,
+      "sha256": "479dd6c4c873dde520ea56d6dfe94c18f12ea9ac8080ef3c13dd46efce41bb6a"
+    },
+    {
+      "path": "templates_v2/hardware_tools/fittings.json",
+      "bytes": 132,
+      "sha256": "e87fb549f7c3aada0ba8f501179f748c53cdf16ef5d4f814a1f8ed43050762c7"
+    },
+    {
+      "path": "templates_v2/hardware_tools/views.json",
+      "bytes": 2483,
+      "sha256": "e5a7d790c9c713cdb7990db8f2b79bccc01adb4db6f69fbe89e7d930bd951b20"
+    },
+    {
+      "path": "templates_v2/laundry_trade/trade.json",
+      "bytes": 132,
+      "sha256": "5965e0450f5d0e213fefb72f3e50fe9b9c095b0e4c15d7f06dc53b15df531e30"
+    },
+    {
+      "path": "templates_v2/laundry_trade/views.json",
+      "bytes": 2188,
+      "sha256": "3e6df87feadb87a2036758696a3606a905cf7d25bcea7e6f42acb05f9a47f484"
+    },
+    {
+      "path": "templates_v2/news_fittings/fittings.json",
+      "bytes": 132,
+      "sha256": "8859c40fc33e4211203178bf8c4ff12e58ce836ec0191f3571e8f522fab30ee6"
+    },
+    {
+      "path": "templates_v2/news_fittings/views.json",
+      "bytes": 3105,
+      "sha256": "7467f5d31f45df4ececbb1353ae76df01dddbbe6af6914cd9e1bc2ffd62d2c0a"
+    },
+    {
+      "path": "templates_v2/pawn_clocks/fittings.json",
+      "bytes": 132,
+      "sha256": "36bc5ab3a2690b1d7abd22b371c324b0ec8840f438a36fdec1dd42d8be1d32af"
+    },
+    {
+      "path": "templates_v2/pawn_clocks/views.json",
+      "bytes": 2257,
+      "sha256": "eed413b823f66781f4331b4412cb4184c39186be15bdee2a73439e7277046a1f"
+    },
+    {
+      "path": "templates_v2/pawn_display/fittings.json",
+      "bytes": 131,
+      "sha256": "c49e466d2a2098ad7c4778aae40d34c9fe8528d7fdd85d4607b79ceef2415bbc"
+    },
+    {
+      "path": "templates_v2/pawn_display/views.json",
+      "bytes": 2477,
+      "sha256": "e8f275cae5e90349ea14241396adfb47dddf7ffc3f63cca06b1b1abf4b85c264"
+    },
+    {
+      "path": "templates_v2/pawn_fittings/fittings.json",
+      "bytes": 132,
+      "sha256": "20f5493948da9760b7f222d72016cfb9cca17dca11486ef18be555eb2135260f"
+    },
+    {
+      "path": "templates_v2/pawn_fittings/views.json",
+      "bytes": 3227,
+      "sha256": "99711bdbf17b786ae775188bc2b8672d868a4aeea1006b437b6c4fb04e3d54d5"
+    },
+    {
+      "path": "templates_v2/photo_cameras/fittings.json",
+      "bytes": 129,
+      "sha256": "504947c9745cbf2920e635b97ba1fc92bfcf2aa279a41fbf8ce9116a3cf674ed"
+    },
+    {
+      "path": "templates_v2/photo_cameras/views.json",
+      "bytes": 2574,
+      "sha256": "52c57a9c5db670098a4a1b6b20df2e8205a1161dd9413f12df60dd1089f18d00"
+    },
+    {
+      "path": "templates_v2/photo_counter/fittings.json",
+      "bytes": 128,
+      "sha256": "b08ba08861c62492738bc560f48b9e46e89914949ad10bc3d9597dd1997e761e"
+    },
+    {
+      "path": "templates_v2/photo_counter/views.json",
+      "bytes": 1846,
+      "sha256": "1f41686b0fe70d1f5b01e48416c06ef4b810b3d202dbed831d8ecce1b148a723"
+    },
+    {
+      "path": "templates_v2/photo_enlargers/fittings.json",
+      "bytes": 129,
+      "sha256": "048acc307933cb9aa6f066afbbd232f9bbcab7a00af3de4a3603dc7b023a453b"
+    },
+    {
+      "path": "templates_v2/photo_enlargers/views.json",
+      "bytes": 1528,
+      "sha256": "1cbb14493472d84a91ae337f8ab83abbfdc2b86167c9dc916709a0c9b6625154"
+    },
+    {
+      "path": "templates_v2/photo_portraits/views.json",
+      "bytes": 3016,
+      "sha256": "7cc15613254a6d748c8715de5055060a2e39cb5328d239ff38b1780e1d2647bb"
+    },
+    {
+      "path": "templates_v2/photo_radio_fittings/photo_radio.json",
+      "bytes": 130,
+      "sha256": "7e9e99c7b1875de1b966a78e2bf5e31b18a863e1ed46c20dddded8db0cae88bf"
+    },
+    {
+      "path": "templates_v2/photo_radio_fittings/views.json",
+      "bytes": 724,
+      "sha256": "5a54d18e41e4c2d6628b01ae0c474d68cde7eac5436b453383a49af8dbea28dd"
+    },
+    {
+      "path": "templates_v2/photo_stock/fittings.json",
+      "bytes": 132,
+      "sha256": "e40f3ace6f494b85cc32269f9ae47752e0aa58ede7dbab37a6346852eac23688"
+    },
+    {
+      "path": "templates_v2/photo_stock/views.json",
+      "bytes": 1584,
+      "sha256": "3001e97a082dd4212288f4c5bbfde61aad8d8475c840d6bd182930c9e720860b"
+    },
+    {
+      "path": "templates_v2/radio_battery/fittings.json",
+      "bytes": 130,
+      "sha256": "6a291543fa385ad6262b7560578e487f389ab6f9a38a142468389824b59cfdd9"
+    },
+    {
+      "path": "templates_v2/radio_display/fittings.json",
+      "bytes": 129,
+      "sha256": "9ffec4c809938b773dad9f5f3b77991930d99dddd423a07d1e6da0f5bd501645"
+    },
+    {
+      "path": "templates_v2/radio_display/views.json",
+      "bytes": 1265,
+      "sha256": "ea4bb6076b79daba4b984b06cdaa0e8f256ea35792c7e2ef27dabec09b31fed2"
+    },
+    {
+      "path": "templates_v2/radio_wire/fittings.json",
+      "bytes": 129,
+      "sha256": "e2fad61d466930d718027273e9b697fff0ca49e8ed1ab50490573cf00443c4a3"
+    },
+    {
+      "path": "templates_v2/radio_wire/views.json",
+      "bytes": 1325,
+      "sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c"
+    },
+    {
+      "path": "templates_v2/shop_clerestories/clerestories.json",
+      "bytes": 2385,
+      "sha256": "705053c32ae93b1e4c62c713da9d917768a174bd3228b3fc1dd808ff5b011cef"
+    },
+    {
+      "path": "templates_v2/shop_clerestories/views.json",
+      "bytes": 2648,
+      "sha256": "5c3c007cb6225f4e3a6e06bd9a18211083210eb849c18b69fd90f41e2c616941"
+    },
+    {
+      "path": "templates_v2/shop_joinery/joinery.json",
+      "bytes": 133,
+      "sha256": "b07793f8e8cbe0f7b31c3b1753a0c0911c26b94adca9df1d010a28ecbe5afd54"
+    },
+    {
+      "path": "templates_v2/shop_joinery/views.json",
+      "bytes": 2854,
+      "sha256": "b7da869d200496e90aa286fdb2823c792032ee909187debeb45bbab5ce3edc26"
+    },
+    {
+      "path": "templates_v2.log",
+      "bytes": 146274,
+      "sha256": "af0004d61d99b0fb58e704a6068e8b90c2694c02b7dfb2ab1acc6fd10f38e789"
+    },
+    {
+      "path": "templates_v2.log.receipt.json",
+      "bytes": 4508,
+      "sha256": "cc3d753cacd1b3aa15a8b656da24dfa04c17b2d102c9aec734e718a74d8089ad"
+    },
+    {
+      "path": "templates_v2.log.stderr",
+      "bytes": 7958,
+      "sha256": "690638716cc89c465d25e058b03f785ffa2c7f93ee59b3daee11a7fde2f4d99a"
+    },
+    {
+      "path": "templates_v3/batch.json",
+      "bytes": 13514,
+      "sha256": "036d1370294536574743a8f8b50a4eae91f7f7207e72c5a4016d55b6a1e901f1"
+    },
+    {
+      "path": "templates_v3/diner_apparatus/fittings.json",
+      "bytes": 131,
+      "sha256": "da614ba0663090c1018d6cb5349d78b398fd82d06f468cca999c352fc8fc6ce2"
+    },
+    {
+      "path": "templates_v3/diner_counter/fittings.json",
+      "bytes": 129,
+      "sha256": "b70ff36666aee554c920da53eaebd7b514a87d5bc5783b612ff23e6598a43d77"
+    },
+    {
+      "path": "templates_v3/diner_counter/views.json",
+      "bytes": 1845,
+      "sha256": "3f8dbef75d4664ed916a524dff46d1ddba0dd11133cfcfad9aa5a61221c015ea"
+    },
+    {
+      "path": "templates_v3/diner_till/fittings.json",
+      "bytes": 129,
+      "sha256": "551d660071608a8e83644c3e1f1240297ce15ebd7a8473553e9fffe7568827f7"
+    },
+    {
+      "path": "templates_v3/diner_till/views.json",
+      "bytes": 2243,
+      "sha256": "45977f34ced6d2d32cb5bcc91bdcb7628821e23730752fd65bc4040d29d6f0d0"
+    },
+    {
+      "path": "templates_v3/diner_urns/fittings.json",
+      "bytes": 131,
+      "sha256": "2081446d7f99f9ee72ddb4f92d3d67290271c79d96e4fa8322069d0e50b646a0"
+    },
+    {
+      "path": "templates_v3/druggist_carboys/fittings.json",
+      "bytes": 132,
+      "sha256": "58b67edb57f5c360a818f6bdd1821cb315c1929da05b8e2ba44cb1fdebf741da"
+    },
+    {
+      "path": "templates_v3/druggist_cupboard/fittings.json",
+      "bytes": 132,
+      "sha256": "f6adcfff2fc3a8c675b64dd8e95f306486b5e2e0065faab63e4d6f0ff02829d1"
+    },
+    {
+      "path": "templates_v3/druggist_cupboard/views.json",
+      "bytes": 2227,
+      "sha256": "97b0ba30966f53c92d1bc329752faa6e00d154eea6b824f12197e6b9a88676a5"
+    },
+    {
+      "path": "templates_v3/druggist_fountain/fittings.json",
+      "bytes": 129,
+      "sha256": "c09f32ffce675e63ee70e4bc778649bac364a2a7dfda8739bb97dec4be0b1058"
+    },
+    {
+      "path": "templates_v3/druggist_mortar/fittings.json",
+      "bytes": 127,
+      "sha256": "cf45bc9f5b49a24f8109791baa4884b9a9e3c076da6b5402017a5a4cb9479f28"
+    },
+    {
+      "path": "templates_v3/funeral_drapes/fittings.json",
+      "bytes": 131,
+      "sha256": "331a4067f66d9d0f90006b302997385c5db46a66b803748a806852ebc9a57e7b"
+    },
+    {
+      "path": "templates_v3/funeral_foliage/fittings.json",
+      "bytes": 131,
+      "sha256": "e0ea6faae45a5aefe91609237dd1446654143283cbe8c38a73aa3868fd982e13"
+    },
+    {
+      "path": "templates_v3/hardware_stock/fittings.json",
+      "bytes": 490,
+      "sha256": "6fea13029e28587f2b1ece3bd6b98c91f012e14c084bd3d067d69b499d364aca"
+    },
+    {
+      "path": "templates_v3/hardware_stock/views.json",
+      "bytes": 2156,
+      "sha256": "479dd6c4c873dde520ea56d6dfe94c18f12ea9ac8080ef3c13dd46efce41bb6a"
+    },
+    {
+      "path": "templates_v3/hardware_tools/fittings.json",
+      "bytes": 132,
+      "sha256": "e87fb549f7c3aada0ba8f501179f748c53cdf16ef5d4f814a1f8ed43050762c7"
+    },
+    {
+      "path": "templates_v3/hardware_tools/views.json",
+      "bytes": 2483,
+      "sha256": "e5a7d790c9c713cdb7990db8f2b79bccc01adb4db6f69fbe89e7d930bd951b20"
+    },
+    {
+      "path": "templates_v3/laundry_trade/trade.json",
+      "bytes": 132,
+      "sha256": "5965e0450f5d0e213fefb72f3e50fe9b9c095b0e4c15d7f06dc53b15df531e30"
+    },
+    {
+      "path": "templates_v3/laundry_trade/views.json",
+      "bytes": 2188,
+      "sha256": "3e6df87feadb87a2036758696a3606a905cf7d25bcea7e6f42acb05f9a47f484"
+    },
+    {
+      "path": "templates_v3/news_fittings/fittings.json",
+      "bytes": 132,
+      "sha256": "8859c40fc33e4211203178bf8c4ff12e58ce836ec0191f3571e8f522fab30ee6"
+    },
+    {
+      "path": "templates_v3/news_fittings/views.json",
+      "bytes": 3105,
+      "sha256": "7467f5d31f45df4ececbb1353ae76df01dddbbe6af6914cd9e1bc2ffd62d2c0a"
+    },
+    {
+      "path": "templates_v3/pawn_clocks/fittings.json",
+      "bytes": 132,
+      "sha256": "36bc5ab3a2690b1d7abd22b371c324b0ec8840f438a36fdec1dd42d8be1d32af"
+    },
+    {
+      "path": "templates_v3/pawn_clocks/views.json",
+      "bytes": 2257,
+      "sha256": "eed413b823f66781f4331b4412cb4184c39186be15bdee2a73439e7277046a1f"
+    },
+    {
+      "path": "templates_v3/pawn_display/fittings.json",
+      "bytes": 131,
+      "sha256": "c49e466d2a2098ad7c4778aae40d34c9fe8528d7fdd85d4607b79ceef2415bbc"
+    },
+    {
+      "path": "templates_v3/pawn_display/views.json",
+      "bytes": 2477,
+      "sha256": "e8f275cae5e90349ea14241396adfb47dddf7ffc3f63cca06b1b1abf4b85c264"
+    },
+    {
+      "path": "templates_v3/pawn_fittings/fittings.json",
+      "bytes": 132,
+      "sha256": "20f5493948da9760b7f222d72016cfb9cca17dca11486ef18be555eb2135260f"
+    },
+    {
+      "path": "templates_v3/pawn_fittings/views.json",
+      "bytes": 3227,
+      "sha256": "99711bdbf17b786ae775188bc2b8672d868a4aeea1006b437b6c4fb04e3d54d5"
+    },
+    {
+      "path": "templates_v3/photo_cameras/fittings.json",
+      "bytes": 129,
+      "sha256": "504947c9745cbf2920e635b97ba1fc92bfcf2aa279a41fbf8ce9116a3cf674ed"
+    },
+    {
+      "path": "templates_v3/photo_cameras/views.json",
+      "bytes": 2574,
+      "sha256": "52c57a9c5db670098a4a1b6b20df2e8205a1161dd9413f12df60dd1089f18d00"
+    },
+    {
+      "path": "templates_v3/photo_counter/fittings.json",
+      "bytes": 128,
+      "sha256": "b08ba08861c62492738bc560f48b9e46e89914949ad10bc3d9597dd1997e761e"
+    },
+    {
+      "path": "templates_v3/photo_counter/views.json",
+      "bytes": 1846,
+      "sha256": "1f41686b0fe70d1f5b01e48416c06ef4b810b3d202dbed831d8ecce1b148a723"
+    },
+    {
+      "path": "templates_v3/photo_enlargers/fittings.json",
+      "bytes": 129,
+      "sha256": "048acc307933cb9aa6f066afbbd232f9bbcab7a00af3de4a3603dc7b023a453b"
+    },
+    {
+      "path": "templates_v3/photo_enlargers/views.json",
+      "bytes": 1528,
+      "sha256": "1cbb14493472d84a91ae337f8ab83abbfdc2b86167c9dc916709a0c9b6625154"
+    },
+    {
+      "path": "templates_v3/photo_portraits/views.json",
+      "bytes": 3016,
+      "sha256": "7cc15613254a6d748c8715de5055060a2e39cb5328d239ff38b1780e1d2647bb"
+    },
+    {
+      "path": "templates_v3/photo_radio_fittings/photo_radio.json",
+      "bytes": 130,
+      "sha256": "7e9e99c7b1875de1b966a78e2bf5e31b18a863e1ed46c20dddded8db0cae88bf"
+    },
+    {
+      "path": "templates_v3/photo_radio_fittings/views.json",
+      "bytes": 724,
+      "sha256": "5a54d18e41e4c2d6628b01ae0c474d68cde7eac5436b453383a49af8dbea28dd"
+    },
+    {
+      "path": "templates_v3/photo_stock/fittings.json",
+      "bytes": 132,
+      "sha256": "e40f3ace6f494b85cc32269f9ae47752e0aa58ede7dbab37a6346852eac23688"
+    },
+    {
+      "path": "templates_v3/photo_stock/views.json",
+      "bytes": 1584,
+      "sha256": "3001e97a082dd4212288f4c5bbfde61aad8d8475c840d6bd182930c9e720860b"
+    },
+    {
+      "path": "templates_v3/radio_battery/fittings.json",
+      "bytes": 130,
+      "sha256": "6a291543fa385ad6262b7560578e487f389ab6f9a38a142468389824b59cfdd9"
+    },
+    {
+      "path": "templates_v3/radio_display/fittings.json",
+      "bytes": 129,
+      "sha256": "9ffec4c809938b773dad9f5f3b77991930d99dddd423a07d1e6da0f5bd501645"
+    },
+    {
+      "path": "templates_v3/radio_display/views.json",
+      "bytes": 1265,
+      "sha256": "ea4bb6076b79daba4b984b06cdaa0e8f256ea35792c7e2ef27dabec09b31fed2"
+    },
+    {
+      "path": "templates_v3/radio_wire/fittings.json",
+      "bytes": 129,
+      "sha256": "e2fad61d466930d718027273e9b697fff0ca49e8ed1ab50490573cf00443c4a3"
+    },
+    {
+      "path": "templates_v3/radio_wire/views.json",
+      "bytes": 1325,
+      "sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c"
+    },
+    {
+      "path": "templates_v3/shop_clerestories/clerestories.json",
+      "bytes": 2385,
+      "sha256": "705053c32ae93b1e4c62c713da9d917768a174bd3228b3fc1dd808ff5b011cef"
+    },
+    {
+      "path": "templates_v3/shop_clerestories/views.json",
+      "bytes": 2648,
+      "sha256": "5c3c007cb6225f4e3a6e06bd9a18211083210eb849c18b69fd90f41e2c616941"
+    },
+    {
+      "path": "templates_v3/shop_joinery/joinery.json",
+      "bytes": 133,
+      "sha256": "b07793f8e8cbe0f7b31c3b1753a0c0911c26b94adca9df1d010a28ecbe5afd54"
+    },
+    {
+      "path": "templates_v3/shop_joinery/views.json",
+      "bytes": 2854,
+      "sha256": "b7da869d200496e90aa286fdb2823c792032ee909187debeb45bbab5ce3edc26"
+    },
+    {
+      "path": "templates_v3.log",
+      "bytes": 145175,
+      "sha256": "681ea0781be171109a4b18c84ee5ef4816c2fa7bc28a276716f204ee82a184f2"
+    },
+    {
+      "path": "templates_v3.log.receipt.json",
+      "bytes": 3364,
+      "sha256": "6b39d3e81f19ffeade1ff8a4be69fd56a8c11cb8743bc22299f2deffe1c96e81"
+    },
+    {
+      "path": "templates_v3.log.stderr",
+      "bytes": 2126,
+      "sha256": "dd0c81b6ec73214005eb1ac2e301f8607720ab9d2a256ca173931f6b37dc92f1"
+    }
+  ]
+}

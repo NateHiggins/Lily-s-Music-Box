@@ -10,6 +10,17 @@ var data: Dictionary
 var _root: Node3D
 var _skin_stock: RefCounted
 
+func mount_hose_deployment() -> bool:
+	if stations.is_empty():return false
+	for reference: WeakRef in stations.values():
+		var actor: Node3D=reference.get_ref()
+		if actor==null or is_instance_valid(actor._live_hose):errors.append("duplicate or missing hose owner");return false
+		var hose:=preload("res://scripts/props/fire_unracked_hose.gd").new()
+		hose.name="DeployableHose";hose.ground_y_local=-1.2;actor.add_child(hose)
+		if not hose.configure_visual(actor,"res://assets/props/unracked_fire_hose.glb"):
+			errors.append("deployed native hose "+str(actor.name)+": "+hose.error);return false
+	return true
+
 func mount(adapter: RefCounted, layout: Dictionary) -> bool:
 	data = JSON.parse_string(FileAccess.get_file_as_string(PATH))
 	if data.get("schema_version") != 1: return false

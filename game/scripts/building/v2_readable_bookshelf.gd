@@ -14,6 +14,7 @@ var _case_record: Dictionary
 var _restoring_library := false
 var _inspection_stock: Node3D
 var _pending_inspection_stock: Node3D
+var book_slots: Array[Transform3D] = []
 
 func _build_visual() -> void:
 	_derive()
@@ -46,6 +47,7 @@ func _build_visual() -> void:
 		book.settled.connect(library_stock_changed.bind(book))
 	for side: String in ["left","right"]: _make_end(side)
 	_arrange(sorter.order)
+	_decorate()
 	_tap=make_emitter("tick",-26.)
 	set_process(false)
 
@@ -64,33 +66,45 @@ func _make_end(side: String) -> void:
 	body.mass=float(native_stock.data.bookends[style].mass_kg)
 	for identity: String in native_stock.data.bookends[style].parts:
 		var draw: MeshInstance3D=native_stock.draw(body,identity)
+		if identity.ends_with("__Foot") or identity.ends_with("__Felt"): continue
 		var shape: CollisionShape3D=native_stock.collision(body,identity,Transform3D.IDENTITY)
 		if shape!=null: body._solids.append(shape)
+	var bearing: Dictionary=native_stock.bookend_bearing(style)
+	var sole:=CollisionShape3D.new();sole.name="BondedFootBearing"
+	sole.shape=bearing.shape;sole.transform=bearing.pose
+	body.add_child(sole);body._solids.append(sole)
 	body.set_meta("library_stock_id",body.stock_id)
 	body.settled.connect(library_stock_changed.bind(body));_ends[side]=body
 
 func _arrange(order: Array) -> void:
 	var restoring_before:=_restoring_library
 	_restoring_library=true
+	book_slots.clear()
 	var tops: Array=_case_record.shelf_tops
 	var row:=2 if case_style!="sectional" else 1
 	var upright:=order.size() if unit in ["6C","4A"] else maxi(4,order.size()-3)
 	var width:=0.0
 
-	for index in upright: width+=float(native_stock.data.books[str(order[index])].thickness)+.003
+	for index in upright:
+		var size: Dictionary=native_stock.data.books[str(order[index])]
+		var lean:=.085 if index==upright-1 else 0.
+		width+=float(size.thickness)*cos(lean)+float(size.height)*sin(lean)+.003
+	var widest:=0.0
+	for index in upright: widest=maxf(widest,float(native_stock.data.books[str(order[index])].width))
 	var start: float=-width*.5
 	var cursor:=start
-	var front:=float(_case_record.depth)*.5-.040
+	var front:=float(_case_record.depth)*.5-.012
 	var style: String="brass" if unit in ["6C","4A"] else "pressed"
 	var end_spec: Dictionary=native_stock.data.bookends[style]
 	var end_y:=float(tops[row])-float(end_spec.support_y)+.00035
+	var heel: AABB=native_stock._bounds(["bookend_"+style+"__FloorReturn"])
 	for side: String in _ends:
 		var end: Node3D=_ends[side]
 		end.freeze=true;end.linear_velocity=Vector3.ZERO;end.angular_velocity=Vector3.ZERO
 		# The return on the hand grip projects 8.3 mm into the L. Keep that
 		# folded stock clear of the first binding. The broad foot carries
 		# adjacent bindings; their authored bearings below include its height.
-		end.position=Vector3(start-.011 if side=="left" else start+width+.008,end_y,front-.041 if side=="left" else front-.133)
+		end.position=Vector3(start-.011 if side=="left" else start+width+.008,end_y,front+.00155-heel.position.z if side=="left" else front-widest-.00335+heel.position.z)
 		end.rotation=Vector3(0,0 if side=="left" else PI,0)
 		# Author placed stock at rest. Real hand movement wakes the body.
 		end.freeze=false;end.sleeping=true
@@ -99,17 +113,20 @@ func _arrange(order: Array) -> void:
 		var identity:=str(order[index]);var book: Node3D=_books[identity]
 		var thickness:=float(native_stock.data.books[identity].thickness)
 		book.freeze=true;book.linear_velocity=Vector3.ZERO;book.angular_velocity=Vector3.ZERO
-		book.basis=Basis(Vector3.UP,PI*.5)
-		book.position=Vector3(cursor+thickness*.5,0,front)
+		var lean:=.085 if index==upright-1 else 0.
+		book.basis=Basis(Vector3.BACK,lean)*Basis(Vector3.UP,PI*.5)
+		book.position=Vector3(0,0,front-float(index%3)*.0015)
+		var native_bounds: AABB=book.transform*native_stock._bounds(native_stock.data.books[identity].parts)
+		book.position.x=cursor-native_bounds.position.x
 		var bounds: AABB=book.transform*native_stock._bounds(native_stock.data.books[identity].parts)
 		var bearing: float=tops[row]
 		for end: Node3D in _ends.values():
 			var foot: AABB=end.transform*native_stock._bounds(["bookend_"+style+"__Foot"])
-			if minf(bounds.end.x,foot.end.x)-maxf(bounds.position.x,foot.position.x)>.002 and minf(bounds.end.z,foot.end.z)-maxf(bounds.position.z,foot.position.z)>.02:
+			if minf(bounds.end.x,foot.end.x)-maxf(bounds.position.x,foot.position.x)>.000001 and minf(bounds.end.z,foot.end.z)-maxf(bounds.position.z,foot.position.z)>.000001:
 				bearing=maxf(bearing,foot.end.y)
 		book.position.y=bearing-bounds.position.y+.00035
 		book._apply_opening(0.);book.freeze=false;book.sleeping=true
-		cursor+=thickness+.003
+		cursor+=thickness*cos(lean)+float(native_stock.data.books[identity].height)*sin(lean)+.003
 	var height:=float(tops[0])+.00035
 	for index in range(order.size()-1,upright-1,-1):
 		var identity:=str(order[index]);var book: Node3D=_books[identity]
@@ -121,12 +138,70 @@ func _arrange(order: Array) -> void:
 		book._apply_opening(0.);book.freeze=false;book.sleeping=true
 		height+=thickness+.00035
 
+	# Books occupy authored spots. They remain collision stock, but never
+	# enter the rigid-body solver while parked on the shelf.
+	for identity: String in order:
+		var book: Node3D=_books[identity]
+		book_slots.append(book.transform)
+		book.park_in_slot(book_slots.size()-1,book.transform)
 	# Moving later neighbours can wake an earlier placed body. Publish the
 	# completed arrangement at rest only after every stock has its final pose.
 	for body: RigidBody3D in _books.values()+_ends.values():
 		body.force_update_transform()
 	for body: RigidBody3D in _books.values()+_ends.values(): body.start_at_rest()
 	_restoring_library=restoring_before
+
+func _decorate() -> void:
+	var tops: Array=_case_record.shelf_tops
+	var roster: Array=[["cup",0,-.23],["letters",1,-.21],["inkwell",1,.23],["model_boat",2,.23]]
+	for item: Array in roster:
+		_mount_decoration(str(item[0]),str(item[0]),Vector3(float(item[2]),float(tops[int(item[1])])+.00035,0.),0.)
+
+func _mount_decoration(identity: String,style: String,at: Vector3,yaw: float) -> void:
+	var record: Dictionary=native_stock.data.decorations[style]
+	var body:=StaticBody3D.new();body.name=identity
+	body.position=at;body.rotation.y=yaw
+	_fixed.add_child(body)
+	for part: String in record.parts:
+		var draw: MeshInstance3D=native_stock.draw(body,part)
+		var solid:=CollisionShape3D.new();solid.name=part
+		# Preserve the hollow cup mouth and the original native contact stock.
+		solid.shape=draw.mesh.create_trimesh_shape() if bool(record.open_vessel) else native_stock.hulls[part]
+		solid.transform=draw.transform if bool(record.open_vessel) else native_stock.hull_poses[part]
+		body.add_child(solid)
+
+func try_place_book(book: Node3D) -> bool:
+	if book.opening>.04: return false
+	for index in book_slots.size():
+		var pose:=book_slots[index]
+		if book.position.distance_to(pose.origin)>.065: continue
+		if book.basis.get_rotation_quaternion().angle_to(pose.basis.get_rotation_quaternion())>.20: continue
+		var occupied:=false
+		for other: Node3D in _books.values():
+			if other!=book and other.shelf_slot==index: occupied=true;break
+		if occupied: continue
+		# Use the same swept carry as the hand. Existing resting contacts may
+		# separate; an occupancy sample alone incorrectly rejects that escape.
+		# The original world/contact authority still vetoes travel into stock.
+		if not book._clear_pose(_books_at.global_transform*pose): continue
+		book._carry(pose.origin)
+		if book.position.distance_to(pose.origin)>.00001:
+			# Lift over the bookend's fitted foot before lowering onto the spot.
+			# Every leg retains native sweeps; a blocked leg stays blocked.
+			book._carry(book.position+Vector3.UP*.004)
+			book._carry(pose.origin+Vector3.UP*.004)
+			book._carry(pose.origin)
+		if book.position.distance_to(pose.origin)>.00001: return false
+		var before: Transform3D=book.transform
+		var angle:=before.basis.get_rotation_quaternion().angle_to(pose.basis.get_rotation_quaternion())
+		var steps:=maxi(1,ceili(angle/.01))
+		for step in range(1,steps+1):
+			var candidate:=before.interpolate_with(pose,float(step)/steps)
+			if not book._clear_pose(_books_at.global_transform*candidate): return false
+			book.transform=candidate
+		book.park_in_slot(index,pose)
+		return true
+	return false
 
 func claim_library_hand(part: Node3D, tag: String) -> bool:
 	if is_instance_valid(_hand_node): return false
@@ -199,13 +274,9 @@ func inspection_view_for(part: Node3D) -> Dictionary:
 		var identity:=str(cursor.get_meta("library_stock_id",""))
 		if _books.has(identity):
 			var book: Node3D=_books[identity]
-			var spec: Dictionary=native_stock.data.books[identity]
-			var point:=book.to_global(Vector3(0,float(spec.height)*.5,0))
 			_pending_inspection_stock=book
-			# Retain room in front of the case for extraction, rotation and an
-			# opened spread. The player can pull the held book nearer to read it.
-			var from:=point+global_basis.z*.9
-			return {"from":from,"at":point,"fov":40.}
+			var camera:=get_viewport().get_camera_3d()
+			return {"from":camera.global_position,"at":camera.global_position-camera.global_basis.z,"fov":40.}
 		if cursor in _ends.values():
 			_pending_inspection_stock=cursor
 			# The current view has just acquired this loose stock through the
@@ -225,30 +296,73 @@ func inspection_started() -> void:
 	if is_instance_valid(_inspection_stock):
 		_inspection_stock.freeze=true
 		_inspection_stock.linear_velocity=Vector3.ZERO;_inspection_stock.angular_velocity=Vector3.ZERO
+		if _inspection_stock is Book:
+			_inspection_stock.begin_floating_view(get_viewport().get_camera_3d().global_transform)
 
 func inspection_ended() -> void:
 	if is_instance_valid(_inspection_stock):
-		_inspection_stock.freeze=false;_inspection_stock.sleeping=false
+		if _inspection_stock is Book: _inspection_stock.end_floating_view()
+		var parked: bool=_inspection_stock is Book and _inspection_stock.shelf_slot>=0
+		_inspection_stock.freeze=parked;_inspection_stock.sleeping=parked
 	_inspection_stock=null;_pending_inspection_stock=null
+
+func reading_view_active() -> bool: return is_instance_valid(_inspection_stock) and _inspection_stock is Book
 
 func supports_inspected_stock(body: Node3D) -> bool:
 	return is_instance_valid(_inspection_stock) and _inspection_stock==body
 
 func library_snapshot() -> Dictionary:
 	var books: Dictionary={};var ends: Dictionary={};var doors: Array=[]
+	var slots: Array=[]
+	for pose: Transform3D in book_slots:
+		var q:=pose.basis.get_rotation_quaternion().normalized()
+		slots.append([pose.origin.x,pose.origin.y,pose.origin.z,q.x,q.y,q.z,q.w])
 	for identity: String in _books: books[identity]=_books[identity].book_snapshot()
 	for side: String in _ends: ends[side]=_ends[side].stock_snapshot()
 	for sash: Node3D in _sashes: doors.append(sash.snapshot())
-	return {"schema_version":2,"order":sorter.order.duplicate(),"books":books,"bookends":ends,"doors":doors,"moves":sorter.moves}
+	return {"schema_version":4,"geometry":_geometry_signature(),"order":sorter.order.duplicate(),"books":books,"bookends":ends,"doors":doors,"moves":sorter.moves,"slots":slots}
+
+func _geometry_signature() -> String:
+	var dimensions: Array=[]
+	for identity: String in _library_ids:
+		var book: Dictionary=native_stock.data.books[identity]
+		dimensions.append([identity,book.width,book.height,book.thickness])
+	return JSON.stringify(dimensions).sha256_text()
+
+func _saved_slots(value: Dictionary) -> Array[Transform3D]:
+	var result: Array[Transform3D]=[]
+	if value.get("schema_version")==2: return book_slots
+	if value.get("slots") is not Array or value.slots.size()!=_library_ids.size(): return result
+	for row: Variant in value.slots:
+		if row is not Array or row.size()!=7: return []
+		for number: Variant in row:
+			if typeof(number) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(number)): return []
+		var point:=Vector3(row[0],row[1],row[2])
+		var rotation:=Quaternion(row[3],row[4],row[5],row[6])
+		if not point.is_finite() or absf(rotation.length_squared()-1.)>.0001: return []
+		result.append(Transform3D(Basis(rotation),point))
+	return result
 
 func valid_library(value: Variant) -> bool:
-	if value is not Dictionary or value.size()!=6 or value.get("schema_version")!=2 or value.get("order") is not Array \
+	if value is not Dictionary or not ((value.size()==6 and value.get("schema_version")==2) or (value.size()==7 and value.get("schema_version")==3) or (value.size()==8 and value.get("schema_version")==4 and value.get("geometry") is String)) or value.get("order") is not Array \
 		or value.get("books") is not Dictionary or value.get("bookends") is not Dictionary or value.get("doors") is not Array \
 		or typeof(value.get("moves")) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(value.moves)) \
 		or float(value.moves)<0. or float(value.moves)!=floorf(float(value.moves)): return false
 	if not _valid_order(value.order) or value.books.size()!=_books.size() or value.bookends.size()!=_ends.size() or value.doors.size()!=_sashes.size(): return false
+	var slots:=_saved_slots(value)
+	if slots.size()!=_library_ids.size(): return false
+	var occupied: Dictionary={}
 	for identity: String in _library_ids:
 		if not value.books.has(identity) or not Book.valid_book(value.books[identity]): return false
+		var slot:=int(value.books[identity].get("slot",-1))
+		if slot>=slots.size() or (slot>=0 and occupied.has(slot)): return false
+		if slot>=0:
+			occupied[slot]=true
+			# The saved body and placement reference must describe one pose.
+			var body: Dictionary=value.books[identity].body
+			var position:=Vector3(body.position[0],body.position[1],body.position[2])
+			var rotation:=Quaternion(body.rotation[0],body.rotation[1],body.rotation[2],body.rotation[3])
+			if position.distance_to(slots[slot].origin)>.0001 or absf(rotation.dot(slots[slot].basis.get_rotation_quaternion()))<.999999: return false
 	for side: String in _ends:
 		if not value.bookends.has(side) or not Movable.valid_stock(value.bookends[side]): return false
 	for index in value.doors.size():
@@ -271,9 +385,22 @@ func restore_order(value: Variant) -> void:
 		sorter.order=value.duplicate();sorter.moves=0;_arrange(sorter.order)
 		for sash: Node3D in _sashes: sash.restore({"angle":0.,"inset":0.})
 	else:
+		var refit: bool=value.get("schema_version",2)<4 or str(value.get("geometry",""))!=_geometry_signature()
 		sorter.order=value.order.duplicate();sorter.moves=int(value.moves)
-		for identity: String in _library_ids: _books[identity].restore_book(value.books[identity])
-		for side: String in _ends: _ends[side].restore_stock(value.bookends[side])
+		var authored: Dictionary={}
+		if refit:
+			_arrange(sorter.order)
+			for identity: String in _library_ids: authored[identity]=_books[identity].book_snapshot()
+		else: book_slots=_saved_slots(value)
+		for identity: String in _library_ids:
+			var saved: Dictionary=value.books[identity]
+			var parked: bool=int(saved.get("slot",-1))>=0
+			if int(value.schema_version)==2:
+				# Legacy closed resting copies were the old shelf arrangement.
+				parked=bool(saved.body.get("sleeping",false)) and float(saved.opening)<.04
+			_books[identity].restore_book(authored[identity] if refit and parked else saved)
+		if not refit:
+			for side: String in _ends: _ends[side].restore_stock(value.bookends[side])
 		for index in _sashes.size(): _sashes[index].restore(value.doors[index])
 	_restoring_library=false
 

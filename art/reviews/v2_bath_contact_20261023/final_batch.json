@@ -1,0 +1,25 @@
+[
+  {
+    "scene": "",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_contact_20261023/import_v3.log",
+    "extra_args": [
+      "--import"
+    ],
+    "timeout": 180
+  },
+  {
+    "scene": "res://tests/V2BathContactPickTrace.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_contact_20261023/pick_trace_v3.log",
+    "windowed": true,
+    "timeout": 180,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_contact_20261023/pick_trace_v3"
+  },
+  {
+    "scene": "res://tests/V2BathContactFinal.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_contact_20261023/world_v3.log",
+    "windowed": true,
+    "runner": "long",
+    "timeout": 480,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_contact_20261023/world_v3"
+  }
+]

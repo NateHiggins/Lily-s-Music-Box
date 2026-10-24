@@ -1,0 +1,8 @@
+ERROR: V2 INSTALLED HOSE WORLD: disk rebuild restores receiver, nozzle and gasket poses within10um and identical water, controls and maintenance facts
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _check (res://tests/v2_hose_installed_world.gd:16)
+       [2] _save_reload (res://tests/v2_hose_installed_world.gd:131)
+       [3] _play_route (res://tests/v2_hose_installed_world.gd:105)
+       [4] _picture (res://tests/v2_hose_installed_world.gd:112)

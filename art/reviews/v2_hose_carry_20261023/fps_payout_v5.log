@@ -1,0 +1,44 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE HAND CHECK: production cabinet installer mounts = true
+FIRE HAND CHECK: 135-ring separate round hose prepares before input = true
+CAP MAPPING: mesh=v2_unracked_fire_hose_UnrackedHose valid_basis=true max_uv_excess=0.00000006705523 widest=1.00002459646573 vertices=19348 derivatives=true bad_derivatives=0 min_determinant=0.00000724698455 worst_dot=0.99999982118607
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: isolated following camera has no physical player capsule in the hose route = true
+FIRE HAND CHECK: native annular world queries and short solver initialize = true
+FIRE HAND CHECK: optional local numerical seed prepares before input = true
+FIRE HAND CHECK: stored representation has no running hose simulation = true
+UNRACKED READY: setup_ms=141.332 initial_placement_clear=true collider=none
+FIRE HAND CHECK: actual nozzle surface targets the rack extraction owner = true
+FIRE HAND CHECK: primary click grabs without removing or moving the stored hose = true
+FIRE HAND CHECK: a real distant obstruction prevents the representation swap = true
+UNRACKED EXTRACTION: deployed=true distance=0.2 error= collider=none
+FIRE HAND CHECK: actual mouse pull replaces stored stock with full-length round hose = true
+FIRE HAND CHECK: second click releases extraction = true
+FIRE HAND CHECK: unracked nozzle remains the actual carry target = true
+FIRE HAND CHECK: regrabbing the actual unracked nozzle does not snap the hose = true
+FIRE HAND CHECK: actual unracked mouse carry moves the full material without stretching or world penetration = true
+UNRACKED CARRY: moved=0.20992004871368 error= input_ms=[10.591, 7.752, 7.932, 7.696, 7.749, 7.676, 7.555, 7.698, 7.71, 7.607, 7.769, 7.642, 7.438, 7.392, 7.504, 7.467]
+FIRE HAND CHECK: carry blocker begins outside the accepted hose without stealing the held sightline = true
+UNRACKED BLOCK: direction=(1.0, 0.0, 0.0) wall=[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.189795, 1.14597, 0.525146)] delta=(0.013349, -0.021722, 0.028778) error=nozzle obstructed feedback=blocked clear=true
+FIRE HAND CHECK: actual nozzle carry retains physical obstruction protection = true
+FIRE HAND CHECK: reticle reads blocked carry from the same accepted motion state = true
+FIRE HAND CHECK: second click cancels pending hose carry and preserves its accepted pose = true
+FIRE HAND CHECK: full FPS payout prepares local contact-aware following = true
+FIRE HAND CHECK: payout uses the live player capsule and ordinary ground collision = true
+FIRE HAND CHECK: FPS payout targets the actual nozzle without relocating the player = true
+FIRE HAND CHECK: actual primary click acquires the FPS nozzle and its physical body = true
+FIRE HAND CHECK: FPS nozzle initially settles at the camera hand pose = true
+FPS PAYOUT: {"aim_degrees":0.0,"elapsed_ms":102,"error":"","feedback":"grabbed","fitting_blocker":"","hand_distance_m":0.000000168587391158326,"held":true,"player":[-0.46249994635582,0.0000512134283781052,1.14999997615814],"player_contacts":["/root/V2UnrackedHoseBench/@StaticBody3D@5152"],"profile":{"broad_queries":0,"fitting_usec":515,"local_enabled":true,"local_join":12,"local_usec":42,"native_iterations":1,"native_qp_iterations":0,"physics_frame":164,"prepare_usec":1290,"process_frame":120,"responses":2,"shell_queries":0,"tether":{"commit_self":308,"commit_world":798,"seed":45,"self_constraints":288,"skin_apply":40,"world_constraints":908},"total_usec":3085},"span_m":1.42657136917114,"step":0,"supported_rings":[]}
+FPS PAYOUT: {"aim_degrees":0.0,"elapsed_ms":100,"error":"","feedback":"grabbed","fitting_blocker":"","hand_distance_m":0.000000238418579101563,"held":true,"player":[-2.02500319480896,0.0000512134283781052,1.14999997615814],"player_contacts":["/root/V2UnrackedHoseBench/@StaticBody3D@5152"],"profile":{"broad_queries":0,"fitting_usec":464,"local_enabled":true,"local_join":12,"local_usec":39,"native_iterations":1,"native_qp_iterations":0,"physics_frame":318,"prepare_usec":1363,"process_frame":245,"responses":2,"shell_queries":0,"tether":{"commit_self":286,"commit_world":826,"seed":43,"self_constraints":290,"skin_apply":39,"world_constraints":982},"total_usec":3106},"span_m":2.80772542953491,"step":25,"supported_rings":[]}
+FPS PAYOUT FINAL: span=3.55063462257385 steps=42 last={"aim_degrees":0.0,"elapsed_ms":2035,"error":"bounded held contact response ceiling","feedback":"blocked","fitting_blocker":"","hand_distance_m":0.220864817500114,"held":true,"player":[-3.01921439170837,0.000941254838835448,1.18756127357483],"player_contacts":["/root/V2UnrackedHoseBench/@StaticBody3D@5152"],"profile":{"broad_queries":0,"fitting_usec":0,"local_enabled":true,"local_join":76,"local_usec":93,"native_iterations":1,"native_qp_iterations":0,"physics_frame":796,"prepare_usec":14788,"process_frame":576,"responses":8,"shell_queries":0,"tether":{"contact_seed":597,"seed":112,"self_constraints":1903,"self_support_requery":164,"world_constraints":11762},"total_usec":14791},"span_m":3.55063462257385,"step":41,"supported_rings":[60]}
+FIRE HAND CHECK: actual FPS walking pays out all15.24m within the original150mm rigid-end span allowance = false
+FIRE HAND CHECK: full FPS payout retains material, bends and native world/fitting clearance = true
+FIRE HAND CHECK: fully paid-out FPS nozzle still aims along the reticle = true
+FIRE HAND CHECK: next actual click releases full payout and restores query ownership = true
+FIRE HAND CHECK: FPS payout diagnostic destination is writable = true
+V2 UNRACKED HOSE: FAIL failures=1

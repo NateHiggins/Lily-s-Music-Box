@@ -1,0 +1,23 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Uninstalled simple unracked native candidate. No stored-form simulation, installed interaction, world contact or water qualification.",
+  "rings": 135,
+  "vertices": 8640,
+  "triangles": 17280,
+  "length_m": 15.24,
+  "outer_radius_m": 0.021,
+  "wall_m": 0.00195,
+  "volume_m3": 0.0037151628111794744,
+  "export": {
+    "asset": "C:\\PleaseRemainOnTheLine\\tmp\\v2-unracked-hose-20261022\\native_v1\\game\\assets\\props\\unracked_fire_hose.glb",
+    "primitives": 1,
+    "triangles": 17280,
+    "minimum_tangent_agreement": 0.9999999595393572,
+    "status": "PASS"
+  },
+  "source_bindings": {
+    "art/blender/scripts/build_unracked_fire_hose.py": "c2f9134b3acfa20bf6f1df0ed3162fd7d4fbe64ac063353dbe9a03aace4313e2",
+    "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
+    "game/data/runtime_material_sets.json": "6f4c72832a6671c3c36e557560ff147a9e31abbfd0fb1db6504acb7567298e59"
+  }
+}

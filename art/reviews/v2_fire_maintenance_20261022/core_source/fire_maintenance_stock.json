@@ -1,0 +1,23 @@
+{
+	"schema_version": 1,
+	"stock": {
+		"fire_hose_rubber_protectant": {
+			"shop_id": "hardware_paint",
+			"display_name": "Rubber protectant — service bottle",
+			"kind": "tool",
+			"price_cents": 25,
+			"acquisition_verb": "buy",
+			"counter_anchor_id": "storm_shop_hardware_paint_counter_top",
+			"provenance": "A stoppered service bottle of rubber dressing from the hardware counter, for the exposed rubber washers in the fire-hose fittings. The bottle is reusable service stock; dressing does not replace a missing washer or certify the line."
+		},
+		"fire_hose_spare_gasket": {
+			"shop_id": "hardware_paint",
+			"display_name": "Fire-hose coupling gasket",
+			"kind": "part",
+			"price_cents": 10,
+			"acquisition_verb": "buy",
+			"counter_anchor_id": "storm_shop_hardware_paint_counter_top",
+			"provenance": "A spare rubber washer of the fire-cabinet union's retained pattern, supplied in a small pressed tin by the hardware counter. The existing cabinet spare remains a separate physical piece."
+		}
+	}
+}

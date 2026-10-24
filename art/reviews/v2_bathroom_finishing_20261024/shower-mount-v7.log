@@ -1,0 +1,68 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_bathroom_details.py:24: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.get(name) or bpy.data.materials.new(name);m.use_nodes=True
+LOCAL TANGENT NORMAL REPAIR RodWallStem.012 11 triangles; remaining 0
+LOCAL TANGENT NORMAL REPAIR RodWallStem.014 11 triangles; remaining 0
+LOCAL TANGENT NORMAL REPAIR RubberizedDuck.001 86 triangles; remaining 18
+LOCAL TANGENT NORMAL REPAIR SewnBottomHem.001 5 triangles; remaining 0
+Warning: No mesh data to join
+Warning: No mesh data to join
+Warning: No mesh data to join
+SURFACE UV REPAIR: 0 polygons; vertex positions and topology retained
+Info: Saved as "bath_shower.blend"
+SURFACE UV REPAIR: 0 polygons; vertex positions and topology retained
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+07:10:50 | INFO: Starting glTF 2.0 export
+07:10:50 | INFO: Extracting primitive: Cylinder.029
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.027
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: CurtainHook
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: RubberizedDuck
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: CurtainHook.019
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: RubberizedDuck.001
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.025
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.023
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: CovedReceptor
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Inlet
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.001
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.083
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.099
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.115
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.131
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.179
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.147
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.195
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Extracting primitive: Cylinder.163
+07:10:50 | INFO: Primitives created: 1
+07:10:50 | INFO: Finished glTF 2.0 export in 0.2742128372192383 s
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_bathroom_details.py", line 252, in <module>
+    print('SHOWER EXPORTED TANGENTS',validate_tangents(OUTPUT/'bath_shower.glb' if REVIEW_ONLY else ROOT/'game/assets/props/bath_shower.glb'))
+                                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\check_exported_tangents.py", line 43, in validate
+    assert np.min(agreement)>.999 and np.min(handed)>0,(mesh['name'],float(np.min(agreement)),int(np.sum(handed<=0)))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('RubberizedDuck.001', 0.9999297259034134, 18)
+
+Error: script failed, file: 'art/blender/scripts/build_bathroom_details.py', exiting.
+
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

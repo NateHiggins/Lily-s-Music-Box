@@ -62,7 +62,7 @@ func _route() -> void:
 		if not await _walk_world(point): return
 	if not await _use(door, door._body.to_global(Vector3(door.width*0.5, 1.15, 0)), "hardware_door_exit"): return
 	await get_tree().create_timer(0.6).timeout
-	for point in [Vector3(10.8, 0, door_center.z), Vector3(12.4, 0, door_center.z), Vector3(14, 0, door_center.z)]:
+	for point in [Vector3(10.8, 0, door_center.z), Vector3(12.8, 0, door_center.z), Vector3(14, 0, door_center.z)]:
 		if not await _walk_world(point): return
 	outward.reverse()
 	for point: Vector3 in outward:
@@ -80,25 +80,22 @@ func _capture(identity: String, target: Vector3) -> void:
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(output.path_join(identity+".png"))
 
-## Doors are grabbed and moved by hand since the direct-manipulation ruling
-## (RUL-013); the old interact key no longer offers them a prompt. A
-## storefront leaf meets its own shopfront a little short of the nominal
-## 100 degrees, so 86 is asked for: a full walk-through opening.
-func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
-	if owner_node is DoorProp:
-		var leaf := owner_node as DoorProp
-		var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
-		add_child(hand)
-		hand.player = player
-		player.set_mouse_released(false)
-		var moved: bool = await hand.operate(target, 0.0 if leaf.open else leaf.motion_target_angle(true) * 0.86, leaf)
-		hand.free()
-		return _require(moved, "actual grab, mouse motion and release: " + label)
-	return await super._use(owner_node, target, label)
-
 func _prepare_procurement() -> bool:
 	var job := "vantry_chirp_2a"
 	var orders := world.work_orders
 	return _require(orders.issue_job(job, "reported") and orders.acknowledge_job(job)
 			and orders.diagnose_job(job) and orders.mark_job_awaiting_part(job),
 			"maintenance job awaits authored capsule")
+
+func _use(owner_node: Node3D,target: Vector3,label: String) -> bool:
+	if owner_node is DoorProp:
+		var door:=owner_node as DoorProp
+		# Use the exposed original hinge stile from both sides of the native leaf.
+		target=door._body.to_global(Vector3(.065,1.35,door._hinge_offset+.0275))
+		var hand:=preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+		add_child(hand);hand.player=player;player.set_mouse_released(false)
+		var moved: bool=await hand.operate(target,0.0 if door.open else door.motion_target_angle(true)*0.86,door)
+		var follows: bool=hand.follows_cursor
+		hand.free()
+		return _require(moved and follows,"actual grab, mouse motion and release: "+label)
+	return await super._use(owner_node,target,label)

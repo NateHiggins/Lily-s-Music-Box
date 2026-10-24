@@ -1,0 +1,95 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "complete-world layout diagnostic, no installed removal or runtime qualification",
+	"stations": [
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, -2.0, -7.87)]",
+			"clear": false,
+			"collider": "<null>",
+			"configured": false,
+			"error": "",
+			"id": "B1_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 80.076
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 1.2, -7.87)]",
+			"clear": false,
+			"collider": "<null>",
+			"configured": false,
+			"error": "",
+			"id": "F01_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 49.708
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 4.4, -7.87)]",
+			"clear": false,
+			"collider": "<null>",
+			"configured": false,
+			"error": "",
+			"id": "F02_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 85.017
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 7.6, -7.87)]",
+			"clear": false,
+			"collider": "<null>",
+			"configured": false,
+			"error": "",
+			"id": "F03_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 45.827
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 10.8, -7.87)]",
+			"clear": false,
+			"collider": "<null>",
+			"configured": false,
+			"error": "",
+			"id": "F04_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 45.842
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 14.0, -7.87)]",
+			"clear": false,
+			"collider": "<null>",
+			"configured": false,
+			"error": "",
+			"id": "F05_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 54.848
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 17.2, -7.87)]",
+			"clear": false,
+			"collider": "<null>",
+			"configured": false,
+			"error": "",
+			"id": "F06_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 45.902
+		},
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 20.4, -7.87)]",
+			"clear": false,
+			"collider": "<null>",
+			"configured": false,
+			"error": "",
+			"id": "ROOF_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 100.689
+		}
+	]
+}

@@ -1,0 +1,65 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 60.12,
+  "exit_code": null,
+  "finished_utc": "2026-10-21T09:59:00Z",
+  "started_utc": "2026-10-21T09:57:59Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 2,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"equal\" variable because the value doesn't have a set type.",
+   "ERROR: Failed to load script \"res://tests/v2_triangle_fitter_bench.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_responsiveness_20261021/fitter.log.stderr",
+  "stderr_sha256": "196fce32fed28f83e39100d1f6ffaa968d46c09e92c664648197edd8792ae4fb",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_responsiveness_20261021/fitter.log",
+  "stdout_sha256": "a044b49f207911799554f94730842d9a9e050b01131d98a3deaffa2b56d18e53"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2TriangleFitterBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_responsiveness_20261021/fitter",
+ "source": {
+  "dirty_paths": 758,
+  "dirty_sample": [
+   "M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/scripts/player/constrained_grab.gd",
+   " M game/scripts/player/player_controller.gd",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_reset.png",
+   "?? art/reviews/v2_arcade_clock_install_20261018/bench3/",
+   "?? art/reviews/v2_arcade_clock_install_20261018/native06/",
+   "?? art/reviews/v2_arcade_clock_install_20261018/native07/",
+   "?? art/reviews/v2_arcade_install_20261018/fit_bench/"
+  ],
+  "repository_head": "21f0b1fc27ac8e25c8466fe1ed2ce64019ee7ede",
+  "repository_tree": "513a57f34f50295e9ba1c1ba50ea451e7ea6c3bb",
+  "runtime_inputs_sha256": "a0b9270185be0343fe1ec9c42b1ac1cb316cce339605778c6019e9df7aba09b7",
+  "test_path": "game/tests/v2_triangle_fitter_bench.gd",
+  "test_sha256": "25b50df9712700b122c8a90378a32aa4e59f52abc7aefd5e7e8489d362769307"
+ },
+ "windowed": false
+}

@@ -1,0 +1,67 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 79.35,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T18:41:14Z",
+  "started_utc": "2026-10-23T18:39:54Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 4,
+  "pass_lines": [
+   "V2 FIRE NOZZLE COUPLING: PASS failures=0",
+   "V2 FIRE FOLD STOCK: PASS failures=0",
+   "V2 FIRE RACK STOCK: PASS failures=0",
+   "V2 FIRE HAND BENCH: PASS failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_save_20261023/coupling_regression_v1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_save_20261023/coupling_regression_v1.log",
+  "stdout_sha256": "86e710ee0acacea69c6d1851073b49ae2fb4a8f318cdaadb4e8da55a902f9ca2"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2FireNozzleCouplingBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 3017,
+  "dirty_sample": [
+   "M game/scripts/props/fire_nozzle_coupling.gd",
+   " M game/scripts/props/fire_unracked_hose.gd",
+   " M game/scripts/props/v2_fire_line_cabinet.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png"
+  ],
+  "repository_head": "41afb0866de400139384b0ab8357cbda62045047",
+  "repository_tree": "0debf27dbf30ec421195ac06d951615b8670e0a2",
+  "runtime_inputs_sha256": "98c9ce9337e66781f0e5e63867d412be38583aafb0f959cf86d6291473df4783",
+  "test_path": "game/tests/v2_fire_nozzle_coupling_bench.gd",
+  "test_sha256": "bdbdee140f1dcd5f4ce73ba15844e5f74ec26e51c6bb18c0f5fe47de2c07821f"
+ },
+ "windowed": true
+}

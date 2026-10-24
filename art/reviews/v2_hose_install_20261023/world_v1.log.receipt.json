@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 164.79,
+  "exit_code": 1,
+  "finished_utc": "2026-10-23T19:11:22Z",
+  "started_utc": "2026-10-23T19:08:36Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/world_v1.log.stderr",
+  "stderr_sha256": "b80a044439e8695b016ae6006e8e538d65c771fc5985b19f685890269e2c860e",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/world_v1.log",
+  "stdout_sha256": "e858d7690cbc9c14bda83517c276a52756c0ef9a39f2e13b5ae924ec83a4df99"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2HoseInstalledWorld.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/world_v1",
+ "source": {
+  "dirty_paths": 3039,
+  "dirty_sample": [
+   "M .gitattributes",
+   "A  game/assets/props/unracked_fire_hose.glb",
+   "A  game/assets/props/unracked_fire_hose.glb.import",
+   "A  game/data/orison_v2/unracked_fire_hose_rig.json",
+   " M game/scripts/building/orison_v2_native_fire_service.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/scripts/player/constrained_grab.gd",
+   " M game/scripts/props/fire_unracked_hose.gd",
+   " M game/scripts/props/native_hose_rig.gd",
+   " M game/scripts/props/v2_fire_line_cabinet.gd",
+   " M game/tests/v2_hose_save_bench.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/"
+  ],
+  "repository_head": "cef32947ea3ff3785ee267025591ecc7eba00516",
+  "repository_tree": "6606931c3fb2a6ee8a7c239dfdea5a602b397086",
+  "runtime_inputs_sha256": "0847bc818afa9c204da80633d30e4810f506795eede80c340f3118249ea4b9de",
+  "test_path": "game/tests/v2_hose_installed_world.gd",
+  "test_sha256": "333a70221af7a40533f87b1c08046c3ba4a4fb7c1c62d906f71979d04388d857"
+ },
+ "windowed": true
+}

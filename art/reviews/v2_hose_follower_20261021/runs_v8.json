@@ -1,0 +1,18 @@
+[
+  {
+    "scene": "res://tests/HoseFollowKernelTest.tscn",
+    "runner": "long",
+    "timeout": 300,
+    "windowed": false,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\kernel_v8.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\kernel_v8"
+  },
+  {
+    "scene": "res://tests/V2HoseSettlingTest.tscn",
+    "runner": "long",
+    "timeout": 300,
+    "windowed": true,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\settling_v4.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_hose_follower_20261021\\settling_v4"
+  }
+]

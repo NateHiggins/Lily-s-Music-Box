@@ -1,0 +1,60 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Installed sparse validator with unchanged full-buffer fallback; exact sources for extended Unicode/recovery checks and world_installed_v1.",
+  "files": [
+    {
+      "path": "game/scripts/game/reality_save_storage.gd",
+      "raw_sha256": "82467603a1d67ba2c27df169a3421eec25b2829e9a29b1891fa19e063f7c5b63",
+      "lf_sha256": "03a4ce83cc97d4b12c426612bdbfeef3b7f2237d606c11239840fc5a15d0d6ae",
+      "archive": "source_installed/game/scripts/game/reality_save_storage.gd.gz"
+    },
+    {
+      "path": "game/scripts/game/reality_game_state.gd",
+      "raw_sha256": "9963b3aee4d7654fb3625a6b87592800f2ce54c732cf58ef6ae8fdf77bf2ebb2",
+      "lf_sha256": "9963b3aee4d7654fb3625a6b87592800f2ce54c732cf58ef6ae8fdf77bf2ebb2",
+      "archive": "source_installed/game/scripts/game/reality_game_state.gd.gz"
+    },
+    {
+      "path": "game/tests/save_stage_storage_probe.gd",
+      "raw_sha256": "5710c974ba6f43ea307f8c7cadd21c633f1bb2fbb0473174aeb7afec366631b6",
+      "lf_sha256": "5710c974ba6f43ea307f8c7cadd21c633f1bb2fbb0473174aeb7afec366631b6",
+      "archive": "source_installed/game/tests/save_stage_storage_probe.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_save_utf8_probe.gd",
+      "raw_sha256": "911f06dfb8eb29ed8859a0e1f353c9213cc72292725ce778a91a33c7a78d093a",
+      "lf_sha256": "911f06dfb8eb29ed8859a0e1f353c9213cc72292725ce778a91a33c7a78d093a",
+      "archive": "source_installed/game/tests/v2_save_utf8_probe.gd.gz"
+    },
+    {
+      "path": "game/tests/V2SaveUtf8Probe.tscn",
+      "raw_sha256": "a57e7dee2d8133a50671c463867fda7d5e25d87ee232fe4795403d6936eb5542",
+      "lf_sha256": "a57e7dee2d8133a50671c463867fda7d5e25d87ee232fe4795403d6936eb5542",
+      "archive": "source_installed/game/tests/V2SaveUtf8Probe.tscn.gz"
+    },
+    {
+      "path": "game/tests/v2_save_stage_world.gd",
+      "raw_sha256": "39e2cb278261a67469a1fba67ff37e3f2527b0f0115dca9e0c0b7ae78d245ec3",
+      "lf_sha256": "39e2cb278261a67469a1fba67ff37e3f2527b0f0115dca9e0c0b7ae78d245ec3",
+      "archive": "source_installed/game/tests/v2_save_stage_world.gd.gz"
+    },
+    {
+      "path": "game/tests/V2SaveStageWorld.tscn",
+      "raw_sha256": "35d0e61dc9eca302ed87e047de0047d61492d049935e5dccb28f32cc2b1e3d99",
+      "lf_sha256": "35d0e61dc9eca302ed87e047de0047d61492d049935e5dccb28f32cc2b1e3d99",
+      "archive": "source_installed/game/tests/V2SaveStageWorld.tscn.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_work_attribution.gd",
+      "raw_sha256": "307f240002e59b000edc436f0e424e128d5a4806a66080d11859cd36dcba861a",
+      "lf_sha256": "307f240002e59b000edc436f0e424e128d5a4806a66080d11859cd36dcba861a",
+      "archive": "source_installed/game/tests/v2_hose_work_attribution.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_frame_work_probe.gd",
+      "raw_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "lf_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "archive": "source_installed/game/tests/v2_frame_work_probe.gd.gz"
+    }
+  ]
+}

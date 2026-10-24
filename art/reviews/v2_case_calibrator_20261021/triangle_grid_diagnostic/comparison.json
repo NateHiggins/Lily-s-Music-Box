@@ -1,0 +1,81 @@
+{
+  "evidence_class": "INERT",
+  "source_frames_sha256": "8148ae9253597a5cec1c9e8d564c4b98cde805bd44f8bc56552c453e8052e0d2",
+  "quantile_method": "sorted[min(N-1,floor(N*q))], same convention throughout these diagnostic comparisons",
+  "rows": [
+    {
+      "cycle": "original_a_",
+      "scope": "movement",
+      "n": 782,
+      "p50_ms": 46.739,
+      "p95_ms": 68.781,
+      "p99_ms": 216.087,
+      "max_ms": 290.291,
+      "over100": 29,
+      "over250": 1
+    },
+    {
+      "cycle": "original_a_",
+      "scope": "inspection",
+      "n": 269,
+      "p50_ms": 30.973,
+      "p95_ms": 94.852,
+      "p99_ms": 104.872,
+      "max_ms": 167.634,
+      "over100": 6,
+      "over250": 0
+    },
+    {
+      "cycle": "grid_b_",
+      "scope": "movement",
+      "n": 815,
+      "p50_ms": 45.221,
+      "p95_ms": 66.995,
+      "p99_ms": 195.069,
+      "max_ms": 275.212,
+      "over100": 31,
+      "over250": 1
+    },
+    {
+      "cycle": "grid_b_",
+      "scope": "inspection",
+      "n": 269,
+      "p50_ms": 32.664,
+      "p95_ms": 104.656,
+      "p99_ms": 130.958,
+      "max_ms": 184.835,
+      "over100": 22,
+      "over250": 0
+    },
+    {
+      "cycle": "restored_a_",
+      "scope": "movement",
+      "n": 763,
+      "p50_ms": 48.436,
+      "p95_ms": 71.146,
+      "p99_ms": 200.84,
+      "max_ms": 283.496,
+      "over100": 30,
+      "over250": 1
+    },
+    {
+      "cycle": "restored_a_",
+      "scope": "inspection",
+      "n": 269,
+      "p50_ms": 30.138,
+      "p95_ms": 95.128,
+      "p99_ms": 107.56,
+      "max_ms": 160.623,
+      "over100": 7,
+      "over250": 0
+    }
+  ],
+  "failures": [],
+  "limitations": [
+    "No hardware input-to-display latency measurement.",
+    "RenderingServer getters are delayed; Performance process/physics values are rolling monitors, not same-frame attribution.",
+    "Different route programmes are not interchangeable baselines.",
+    "No runtime-contract, ledger grant or human acceptance.",
+    "Isolated microbench used radius0.22m/height1.72m, not the current player radius0.33m/height1.524m. The played-world route uses the real current controller. Microbench is not current-player proof."
+  ]
+}

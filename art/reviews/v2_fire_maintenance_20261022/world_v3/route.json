@@ -1,0 +1,33 @@
+{
+  "failures": [
+    "picked bottle reaches the real FPS hand pose without obstruction"
+  ],
+  "trace": [
+    {
+      "actual": "(12.49642, 0.010859, 48.63)",
+      "ok": true,
+      "target": "(12.4, 0.01, 48.63)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(10.89609, 0.010859, 48.63)",
+      "ok": true,
+      "target": "(10.8, 0.01, 48.63)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(9.796055, 0.010859, 48.63)",
+      "ok": true,
+      "target": "(9.7, 0.01, 48.63)",
+      "wall_contacts": {}
+    },
+    {
+      "actual": "(8.99534, 0.010933, 47.60093)",
+      "ok": true,
+      "target": "(8.95, 0.01, 47.515)",
+      "wall_contacts": {
+        "/root/V2FireMaintenanceWorldTest/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/HardwareStock/F01_retail_hardware_stock_storm_shop_hardware_paint_counter__countertop/F01_retail_hardware_stock_storm_shop_hardware_paint_counter__countertop_col": "(9.5504, 1.073, 47.9435)"
+      }
+    }
+  ]
+}

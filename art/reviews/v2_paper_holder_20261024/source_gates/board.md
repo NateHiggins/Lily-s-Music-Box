@@ -1,0 +1,11 @@
+# Gate board - 5ccd76e7d661
+
+- commit `5ccd76e7d6617c623bce0d783700f1612d459ab0`
+- tree `ccd0975f72ee07690538020900d434a6bcbbfb66`
+- created 2026-10-24T09:05:26Z
+- dirty paths: 3367
+
+| gate | severity | exit | seconds | headline |
+|---|---|---:|---:|---|
+| spatial | FAIL | 1 | 5.67 | drift.new_failing 8, drift.new_reported 44 |
+| reader | FAIL | 1 | 3.61 | unread 1141; vs frozen baseline: new 33, resolved 200 |

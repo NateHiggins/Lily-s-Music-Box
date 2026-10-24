@@ -50,6 +50,7 @@ var _disposed := false
 var _initialized := false
 var texture_bindings := 0
 var transform_bindings := 0
+var shape_bindings := 0
 var resource_allocations := 0
 var _code := ""
 var _rd: RenderingDevice
@@ -152,6 +153,9 @@ func observe(lamp: Node3D, force := false) -> bool:
 		return _reject_observation("Invalid energy or scattering")
 	lamp.state.write_output(_output)
 	var new_pose := raw_pose.orthonormalized()
+	var previous_range := range_m
+	var previous_shape := Vector4(NEAR,grid_far,outer,1.0 if enabled else 0.0)
+	var previous_near := Vector4(NEAR,near_cascade.grid_far,outer,1) if near_cascade!=null else Vector4.ZERO
 	var new_energy: float = float(_output.intensity)*lamp.base_energy if lamp.state.switched_on else 0.0
 	var angle:=float(_output.cone_angle_deg)
 	var new_color: Color = _output.color
@@ -172,7 +176,6 @@ func observe(lamp: Node3D, force := false) -> bool:
 	var pose_changed := pose != new_pose
 	var moved: bool = pose_changed or range_m!=lamp.range_m or absf(outer-new_outer)>0.00001
 	if not force and not moved and enabled==(new_energy>0.0) and absf(energy-new_energy)<0.00001 and color==new_color and absf(stability-new_stability)<0.00001 and absf(rate_of_change-absf(lamp.state.intensity_rate))<0.00001 and scattering==_applied_scattering and _geometry_revision==_applied_geometry:return false
-	var was_enabled := enabled
 	_mutex.lock()
 	pose=new_pose;range_m=lamp.range_m;outer=new_outer
 	if pose_changed:_world_to_local=pose.affine_inverse()
@@ -198,7 +201,11 @@ func observe(lamp: Node3D, force := false) -> bool:
 	_mutex.unlock()
 	if pose_changed:
 		for material in _materials:_bind_transform(material)
-	elif moved or was_enabled!=enabled:
+	# Pose changes do not change cone dimensions. Thousands of receivers share
+	# these values; resubmitting them on every carried-light movement is costly.
+	var shape := Vector4(NEAR,grid_far,outer,1.0 if enabled else 0.0)
+	var near_shape := Vector4(NEAR,near_cascade.grid_far,outer,1) if near_cascade!=null else Vector4.ZERO
+	if previous_range!=range_m or previous_shape!=shape or previous_near!=near_shape:
 		for material in _materials:_bind_shape(material)
 	if profiling:construction_us.append(float(Time.get_ticks_usec()-start))
 	if schedule:RenderingServer.call_on_render_thread(_inject_call)
@@ -276,6 +283,7 @@ func bind_material(material: ShaderMaterial) -> void:
 	material.set_shader_parameter("lamp_near_optics",near_cascade.optics if near_cascade!=null else null)
 	if near_cascade!=null:texture_bindings+=2
 	_bind_transform(material)
+	_bind_shape(material)
 
 func unbind_material(material: ShaderMaterial) -> void:
 	if material==null:return
@@ -293,9 +301,9 @@ func unbind_material(material: ShaderMaterial) -> void:
 func _bind_transform(material: ShaderMaterial) -> void:
 	transform_bindings+=1
 	material.set_shader_parameter("lamp_world_to_local",_world_to_local)
-	_bind_shape(material)
 
 func _bind_shape(material: ShaderMaterial) -> void:
+	shape_bindings+=1
 	material.set_shader_parameter("lamp_physical_range",range_m)
 	material.set_shader_parameter("lamp_near_shape",Vector4(NEAR,near_cascade.grid_far,outer,1) if near_cascade!=null else Vector4.ZERO)
 	material.set_shader_parameter("lamp_volume_shape",Vector4(NEAR,grid_far,outer,1.0 if enabled else 0.0))

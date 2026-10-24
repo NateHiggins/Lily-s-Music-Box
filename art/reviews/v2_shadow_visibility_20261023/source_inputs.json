@@ -1,0 +1,78 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Current production and test inputs. Candidate before-production fixture reconstructed and hash-checked separately.",
+  "files": [
+    {
+      "path": "game/scripts/building/service_light_distance.gd",
+      "raw_sha256": "ee427d4229493fb595d16508128a848390d8efa47255d128aae9695c6ebc87dc",
+      "lf_sha256": "ee427d4229493fb595d16508128a848390d8efa47255d128aae9695c6ebc87dc",
+      "archive": "source/game/scripts/building/service_light_distance.gd.gz"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_service_light_visibility.gd",
+      "raw_sha256": "1adae1fa94915be56e2d1888efb52e14ebb7519b4793c84a15938387e4e04711",
+      "lf_sha256": "1adae1fa94915be56e2d1888efb52e14ebb7519b4793c84a15938387e4e04711",
+      "archive": "source/game/scripts/building/orison_v2_service_light_visibility.gd.gz"
+    },
+    {
+      "path": "game/scripts/building/planar_mirror_renderer.gd",
+      "raw_sha256": "1488582749b7d0141e8725766ea25a8e2e258610e2c3c852d657223d1564038c",
+      "lf_sha256": "af65d0226c404f34c2658dd74132ea532aa3e6b5eebdedaca7363e40627ce575",
+      "archive": "source/game/scripts/building/planar_mirror_renderer.gd.gz"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_room_reflections.gd",
+      "raw_sha256": "3165f3af07979b93ecb7d3ae4b94f5396f4e966ee79142bfb4be4dd307d12d9a",
+      "lf_sha256": "3165f3af07979b93ecb7d3ae4b94f5396f4e966ee79142bfb4be4dd307d12d9a",
+      "archive": "source/game/scripts/building/orison_v2_room_reflections.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_render_attribution.gd",
+      "raw_sha256": "828f575baae2adfc11caadc516679e66f60844674ce00aea73a419d672249d99",
+      "lf_sha256": "828f575baae2adfc11caadc516679e66f60844674ce00aea73a419d672249d99",
+      "archive": "source/game/tests/v2_hose_render_attribution.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_service_distance_bench.gd",
+      "raw_sha256": "53f819157fe3c1752f3e026e584c188f610d3e8190727566097756943ffe0cc3",
+      "lf_sha256": "53f819157fe3c1752f3e026e584c188f610d3e8190727566097756943ffe0cc3",
+      "archive": "source/game/tests/v2_service_distance_bench.gd.gz"
+    },
+    {
+      "path": "game/tests/V2ServiceDistanceBench.tscn",
+      "raw_sha256": "0b67f9b35f4bda942881e5ea103ad8346d3681bdddf2111a1d0411a910b1b1d2",
+      "lf_sha256": "0b67f9b35f4bda942881e5ea103ad8346d3681bdddf2111a1d0411a910b1b1d2",
+      "archive": "source/game/tests/V2ServiceDistanceBench.tscn.gz"
+    },
+    {
+      "path": "game/tests/v2_service_light_visibility_review.gd",
+      "raw_sha256": "4fa7633284c18b97076c8ff8050530522538386e159f92435f592ae3e2060b35",
+      "lf_sha256": "4fa7633284c18b97076c8ff8050530522538386e159f92435f592ae3e2060b35",
+      "archive": "source/game/tests/v2_service_light_visibility_review.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_player_mirror_review.gd",
+      "raw_sha256": "57c0110d5f31ea79f4297a6a7381c77059d2eb324a107cc8877603ebb85bfd32",
+      "lf_sha256": "57c0110d5f31ea79f4297a6a7381c77059d2eb324a107cc8877603ebb85bfd32",
+      "archive": "source/game/tests/v2_player_mirror_review.gd.gz"
+    },
+    {
+      "path": "game/tests/hose_saved_pose_comparison.gd",
+      "raw_sha256": "59bbf9fa8a2c633d9941e5207a3d0cd8c883cf23adf5d518099a3b9bf0339766",
+      "lf_sha256": "59bbf9fa8a2c633d9941e5207a3d0cd8c883cf23adf5d518099a3b9bf0339766",
+      "archive": "source/game/tests/hose_saved_pose_comparison.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_installed_world.gd",
+      "raw_sha256": "e0f6c93e683f09f62de7f91a5ba9b308ea1152c685e904c7a2530be653becc62",
+      "lf_sha256": "e0f6c93e683f09f62de7f91a5ba9b308ea1152c685e904c7a2530be653becc62",
+      "archive": "source/game/tests/v2_hose_installed_world.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_remote_restore_bench.gd",
+      "raw_sha256": "fd12ef0be1ead6160daa0f429b99c8e845dc36504a63acc1ead203cefc2b7d82",
+      "lf_sha256": "fd12ef0be1ead6160daa0f429b99c8e845dc36504a63acc1ead203cefc2b7d82",
+      "archive": "source/game/tests/v2_hose_remote_restore_bench.gd.gz"
+    }
+  ]
+}

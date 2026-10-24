@@ -1,0 +1,721 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Actual played streaming baseline, halo removal, original fixture failures, diagnostics and sources. No runtime_contract or human acceptance. Manifest excludes itself/Python caches.",
+  "files": [
+    {
+      "path": "after_no_halo_v1.log",
+      "bytes": 183,
+      "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+    },
+    {
+      "path": "after_no_halo_v1.log.receipt.json",
+      "bytes": 3013,
+      "sha256": "ebb4a03a2c749be6712d8874a2d09fb9fff481feb83f8a196853ca1fed787b74"
+    },
+    {
+      "path": "after_no_halo_v1.log.stderr",
+      "bytes": 349,
+      "sha256": "1a0b3b080c98c5f3fb9baa43969d71e0163672585969784ec721a9a610652e6b"
+    },
+    {
+      "path": "after_no_halo_v1_source.gd.gz",
+      "bytes": 3314,
+      "sha256": "de0d099289c75df948d6432cf502c866c45e466f77d6d7f5e4e3ae4321716ecc"
+    },
+    {
+      "path": "after_no_halo_v1_terminal.json",
+      "bytes": 315,
+      "sha256": "bd886adf54c267280ae236f69c9e5b762a8339182bc9dc5f52a982ecd832b5b1"
+    },
+    {
+      "path": "after_no_halo_v2/cleanup.json",
+      "bytes": 131,
+      "sha256": "1807cfc38a78d64879c26c5ee533b8644d1401dfc2311aac85418dc6bbd43d8f"
+    },
+    {
+      "path": "after_no_halo_v2/cycle_0_nave.png",
+      "bytes": 1079854,
+      "sha256": "04dd080e012dac10d128d7a721ed3103359085f934c892475e3780e59bb702a6"
+    },
+    {
+      "path": "after_no_halo_v2/cycle_1_nave.png",
+      "bytes": 1078016,
+      "sha256": "c1e020bcab2facedfbe0db220f3dc8db5a866cb29dc4052d8e9ae290b40e60d5"
+    },
+    {
+      "path": "after_no_halo_v2/frames.json",
+      "bytes": 1154036,
+      "sha256": "41535e49fb558eb4f0b116106db9bacaf7264b044a1fd7948c8fb5ccffe735b5"
+    },
+    {
+      "path": "after_no_halo_v2/last_position.png",
+      "bytes": 547825,
+      "sha256": "556211fe5cf80ce83425ae0cad2e3e4bc29cc86a8ad2c3d5d35af52e82abfd7c"
+    },
+    {
+      "path": "after_no_halo_v2/no_halo_checks.json",
+      "bytes": 7762,
+      "sha256": "d0e9ea916ae70e78d96566a7b52c6393c0ef6121c26e72a43414cfc15e423f94"
+    },
+    {
+      "path": "after_no_halo_v2/route.json",
+      "bytes": 13889,
+      "sha256": "314c2d5d9f4e2937c98bcb681acb7878b1b79c839c6e5d5d82235ea8ef81a91c"
+    },
+    {
+      "path": "after_no_halo_v2/streaming.json",
+      "bytes": 192097,
+      "sha256": "b70b5a12829298597054f0f4a3bcdff74adab7b91a9a4acd038aacbecca435a2"
+    },
+    {
+      "path": "after_no_halo_v2/streaming_analysis.json",
+      "bytes": 128952,
+      "sha256": "fdc0dc8143c1a953fb3edac8fd1cba4f40f3ff6a448217e775d73f7de9a1ada2"
+    },
+    {
+      "path": "after_no_halo_v2/work_trace.json",
+      "bytes": 4452421,
+      "sha256": "d3ffbe89ebfa00fa4a607da2114b8edbe2e1bc354d5a70090ec4199c2549759b"
+    },
+    {
+      "path": "after_no_halo_v2.log",
+      "bytes": 134485,
+      "sha256": "e7054ef65a9aed61e34f4c120a4afc2da853d66a59204fb877cbcdc764347ef3"
+    },
+    {
+      "path": "after_no_halo_v2.log.receipt.json",
+      "bytes": 2782,
+      "sha256": "18bcbbf6287d16cf12567b53ce71bf1fd982987d2a7d2e8791a1bae4d6e78d73"
+    },
+    {
+      "path": "after_no_halo_v2.log.stderr",
+      "bytes": 51271,
+      "sha256": "d16035ab34a9d686b8cd5579f4ce033265d5f3c022840ae34efb854d12597831"
+    },
+    {
+      "path": "after_no_halo_v2_source.gd.gz",
+      "bytes": 3318,
+      "sha256": "60adb3832e8628128454b5505388578674a46f51a1bccda5a15b688ae93a1a11"
+    },
+    {
+      "path": "after_no_halo_v3/cleanup.json",
+      "bytes": 131,
+      "sha256": "1807cfc38a78d64879c26c5ee533b8644d1401dfc2311aac85418dc6bbd43d8f"
+    },
+    {
+      "path": "after_no_halo_v3/cycle_0_nave.png",
+      "bytes": 1079871,
+      "sha256": "4d64abce94d9589c5906fde1d0009ba43fca62e4d250c5015285baded41a5835"
+    },
+    {
+      "path": "after_no_halo_v3/cycle_1_nave.png",
+      "bytes": 1078658,
+      "sha256": "236b1da51e9515672a1a93f297e85893e71a8c3c1837fea103619929914fcb56"
+    },
+    {
+      "path": "after_no_halo_v3/frames.json",
+      "bytes": 1154054,
+      "sha256": "6e7bdf749d367aa66bd4fb4207c67a31cd2c76434b776a5fbb48a67c769207bf"
+    },
+    {
+      "path": "after_no_halo_v3/last_position.png",
+      "bytes": 775439,
+      "sha256": "216a3e182c32caaf5ef85ae4c19d796b7278eb08b8aa0d07e1bb668b7aefa393"
+    },
+    {
+      "path": "after_no_halo_v3/no_halo_checks.json",
+      "bytes": 854,
+      "sha256": "de2108b342b42ef0a9cdb46f1ce43a0174f8680c2f16d1b6afe037d815856b91"
+    },
+    {
+      "path": "after_no_halo_v3/route.json",
+      "bytes": 14759,
+      "sha256": "bec17f96ecbca2d721bbc67a9355e0df04186b611d9dfd6878fb5d7a645e4965"
+    },
+    {
+      "path": "after_no_halo_v3/streaming.json",
+      "bytes": 196880,
+      "sha256": "e1984c6adfdc471ce57efc860fb1d61cdfae6b9306bc097c9291fdbe583b1942"
+    },
+    {
+      "path": "after_no_halo_v3/streaming_analysis.json",
+      "bytes": 128977,
+      "sha256": "d1873466966ab1ce6bb5073e0be50895e000b3a33a06f05d88d6550f83c01274"
+    },
+    {
+      "path": "after_no_halo_v3/work_trace.json",
+      "bytes": 4452812,
+      "sha256": "29376823253fe5c970f053471aec807dad9f450dd0bf73634d4a80ed879fedc4"
+    },
+    {
+      "path": "after_no_halo_v3.log",
+      "bytes": 150659,
+      "sha256": "4909c8cc73853101ef53329b18d00bf8bb3ef203527a392ba5d5188ea481d215"
+    },
+    {
+      "path": "after_no_halo_v3.log.receipt.json",
+      "bytes": 2781,
+      "sha256": "eac128f1d6fb40303218f6ca77a544a6a232310102b0a32f09ee8b89cc55aec1"
+    },
+    {
+      "path": "after_no_halo_v3.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "path": "analyze.py",
+      "bytes": 3852,
+      "sha256": "bef847958f5050820b631011a9ff11d717440856b6e8ccd82b3ea49c32dbb688"
+    },
+    {
+      "path": "analyze_work.py",
+      "bytes": 4382,
+      "sha256": "1f94c52c15b45576c0613ddd354b416f82d104fdc378da787da8af1a3d909fea"
+    },
+    {
+      "path": "before_v1/frames.json",
+      "bytes": 64196,
+      "sha256": "1cfb3e90d7d16bf047a89857ec8d5ec921cfc9a94f4dd4ff793a42ae45cdb47e"
+    },
+    {
+      "path": "before_v1/last_position.png",
+      "bytes": 946713,
+      "sha256": "94ab944bf923c6a7661068843c80418fd11d56350e1cb207c1acf700c46ac082"
+    },
+    {
+      "path": "before_v1/route.json",
+      "bytes": 515,
+      "sha256": "8a14a125d818e95c4fdec3aef3e3c20901b0c381228937aaf72cbe54d23a5a89"
+    },
+    {
+      "path": "before_v1.log",
+      "bytes": 2057,
+      "sha256": "7d8075788f5103b1803a480b0a22fa8e5013354c97c6273929de3fa57241f57b"
+    },
+    {
+      "path": "before_v1.log.receipt.json",
+      "bytes": 3022,
+      "sha256": "8ba2d20164111c58b7599f315ce5ade502d38d7f8f7518b5e56883039f98f385"
+    },
+    {
+      "path": "before_v1.log.stderr",
+      "bytes": 1267,
+      "sha256": "ce8ae7319ebb42310b16b60de6e84f7537d0e4d762103c3857bf85f03fa0f10b"
+    },
+    {
+      "path": "before_v2/cleanup.json",
+      "bytes": 87,
+      "sha256": "f3300426188fb4466b8fd61b9331ef5acd855a77bd9397d9460e68a4878c7652"
+    },
+    {
+      "path": "before_v2/frames.json",
+      "bytes": 60075,
+      "sha256": "733ff39ae5c6fabbd8388e3dc0c8b0244c3f0914f2679d8cc3a670d00149b413"
+    },
+    {
+      "path": "before_v2/last_position.png",
+      "bytes": 495653,
+      "sha256": "fbcac4b51e7b800fefac726f2f6900df19212e06a25ff4a0029ef34ef262279f"
+    },
+    {
+      "path": "before_v2/route.json",
+      "bytes": 630,
+      "sha256": "8c95b7188626e891f13f71519c87b486ae0d0e7bfa50129c3069e4771f04de85"
+    },
+    {
+      "path": "before_v2/streaming.json",
+      "bytes": 1307,
+      "sha256": "04b7f025d0418ca1cb99786104b86ae1e4647477119ee8d7eeb0097cb727aca1"
+    },
+    {
+      "path": "before_v2/work_trace.json",
+      "bytes": 243732,
+      "sha256": "63c44269b15bdf412e2b751ae969137991fa2d8c51adc68dbcddf04cffbbf0df"
+    },
+    {
+      "path": "before_v2.log",
+      "bytes": 2027,
+      "sha256": "795c7d64b04f4699497ee6b7e5ba30086b1b51442728a4b29b499e86ce9ce3bc"
+    },
+    {
+      "path": "before_v2.log.receipt.json",
+      "bytes": 2878,
+      "sha256": "b1c580628bbda80aff3fafeae03e702ac898ef37b205e7d9c0a18a4c162c8e10"
+    },
+    {
+      "path": "before_v2.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "path": "before_v3/cleanup.json",
+      "bytes": 131,
+      "sha256": "1807cfc38a78d64879c26c5ee533b8644d1401dfc2311aac85418dc6bbd43d8f"
+    },
+    {
+      "path": "before_v3/cycle_0_nave.png",
+      "bytes": 1082879,
+      "sha256": "db3fd3674d3d142b866049ea9fcb1f7c095a8ff9aff403d56672227b8b1c8e02"
+    },
+    {
+      "path": "before_v3/frames.json",
+      "bytes": 600806,
+      "sha256": "691a1325311d71c2a3edf5820c84f84de9714f03ab68d9fad8902a4cf5c57786"
+    },
+    {
+      "path": "before_v3/last_position.png",
+      "bytes": 709108,
+      "sha256": "24803822f80fee77c6453b1800ad40a43f6f44813de1af99d9e895cfe24d9ffc"
+    },
+    {
+      "path": "before_v3/route.json",
+      "bytes": 7737,
+      "sha256": "7a60af6448f7f4f84fdc17eba4986d25e4be4b86819a34c7631d23b579457de6"
+    },
+    {
+      "path": "before_v3/streaming.json",
+      "bytes": 95556,
+      "sha256": "bf000c55122494277702efc29109b2e7c4d1b18e6d6338a7cd4c8ed425e146cf"
+    },
+    {
+      "path": "before_v3/work_trace.json",
+      "bytes": 2333674,
+      "sha256": "0cf2e573bfdf6edd7de5199a8546ec588b097f10be8048fd2ba8d5bc504ea29e"
+    },
+    {
+      "path": "before_v3.log",
+      "bytes": 3682,
+      "sha256": "3df3c963f7c0167d3f554f67b977fd566d155cb95ccacc40d72862b877c683dc"
+    },
+    {
+      "path": "before_v3.log.receipt.json",
+      "bytes": 2878,
+      "sha256": "0aa656ca1f81ea6b2b3ecc4db0ce147e289e9aaf6e1e131335de5e76997796b5"
+    },
+    {
+      "path": "before_v3.log.stderr",
+      "bytes": 576,
+      "sha256": "067b7b3b6f8f8a92154014d918ded55073534855c07a2f36db84a082bd2dc97e"
+    },
+    {
+      "path": "before_v4/cleanup.json",
+      "bytes": 131,
+      "sha256": "1807cfc38a78d64879c26c5ee533b8644d1401dfc2311aac85418dc6bbd43d8f"
+    },
+    {
+      "path": "before_v4/cycle_0_nave.png",
+      "bytes": 1083351,
+      "sha256": "abe55307556193b49ef2fdde5d30454f594a73f445a395d9d9ec82e9219256e9"
+    },
+    {
+      "path": "before_v4/cycle_1_nave.png",
+      "bytes": 1080767,
+      "sha256": "702bb716ffc9e97561ee3239e5769121624872917d92eb2d9dc61a4fe1abd32d"
+    },
+    {
+      "path": "before_v4/frames.json",
+      "bytes": 1104498,
+      "sha256": "ac17faf5f3eb0e8fdb94a2f7322b07def4a3bcfe2c2e3ab2f0486389a5ed3f44"
+    },
+    {
+      "path": "before_v4/last_position.png",
+      "bytes": 546698,
+      "sha256": "647117ebcf8c912f82adc8ebd29143a9626095dc94226fbd69da533a4b7e06ba"
+    },
+    {
+      "path": "before_v4/route.json",
+      "bytes": 13770,
+      "sha256": "6f2b18cf714ce3c58474d7351c8efc8af0b2186c12b13e3cd79f263fd09c60b0"
+    },
+    {
+      "path": "before_v4/streaming.json",
+      "bytes": 195335,
+      "sha256": "c1d4d06d6438b073359d1328532115b62d0335b76d50ee19abe1dfc27f3e74d7"
+    },
+    {
+      "path": "before_v4/streaming_analysis.json",
+      "bytes": 128871,
+      "sha256": "a9c270e2c1691f7d6829b3c69621579fbbc430e53c29256daa69d9ec1c54277e"
+    },
+    {
+      "path": "before_v4/work_analysis.json",
+      "bytes": 2064506,
+      "sha256": "7b40f2941b3d2b971a9cadd32e0436e4387c95cb19b2042c9bcfc2d9001f3acf"
+    },
+    {
+      "path": "before_v4/work_trace.json",
+      "bytes": 4308268,
+      "sha256": "5dc79d9fcb8c9bbd80f2858049c7b66b5c28e1b445416b5a6861080f10364d9c"
+    },
+    {
+      "path": "before_v4.log",
+      "bytes": 82101,
+      "sha256": "8453110e45c71b887632cfde10a2cb61e38f4ec2c6ba6bb0eb2b95ece89fec40"
+    },
+    {
+      "path": "before_v4.log.receipt.json",
+      "bytes": 2878,
+      "sha256": "8295c091cf48a9b175d3c2353e50ca7e8da68368de3324d66b343519de475b22"
+    },
+    {
+      "path": "before_v4.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "path": "driver_v1/driver_checks.json",
+      "bytes": 2438,
+      "sha256": "3a4f2d83c37365f61bb8867fc6f74da452da2e960002d40c1015f65c7618e4dc"
+    },
+    {
+      "path": "driver_v1.log",
+      "bytes": 2199,
+      "sha256": "b929ca66aaa85d75f7e7d04a55f8df2ef327cd788bd508998f6c214a27d9a88a"
+    },
+    {
+      "path": "driver_v1.log.receipt.json",
+      "bytes": 2896,
+      "sha256": "d5f69db0b2872c34582a54bfc91f71a7945db330d3aceadbff3dbbca59e87ba1"
+    },
+    {
+      "path": "driver_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "driver_v2/driver_checks.json",
+      "bytes": 2438,
+      "sha256": "3a4f2d83c37365f61bb8867fc6f74da452da2e960002d40c1015f65c7618e4dc"
+    },
+    {
+      "path": "driver_v2.log",
+      "bytes": 2199,
+      "sha256": "b929ca66aaa85d75f7e7d04a55f8df2ef327cd788bd508998f6c214a27d9a88a"
+    },
+    {
+      "path": "driver_v2.log.receipt.json",
+      "bytes": 2919,
+      "sha256": "9462d4f9cae6326917dc06805e85da0e03283933d97aa27d15c3376490a82a7b"
+    },
+    {
+      "path": "driver_v2.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "finalize_evidence.py",
+      "bytes": 1809,
+      "sha256": "2dd7891bacf8ae923f34f8e25e784a0d44354dd40686a858d1a731c534eb9d94"
+    },
+    {
+      "path": "gates/board.json",
+      "bytes": 351682,
+      "sha256": "ff121fe7e8dcd7efdda48f269b1206efa43e84e7d65ee936151a876b4fabcec9"
+    },
+    {
+      "path": "gates/board.md",
+      "bytes": 8391,
+      "sha256": "16a0fa87e55a2f0e25c25e1a518001ecdfe95bb342dbed1c3aba9682fedb9531"
+    },
+    {
+      "path": "gates_after/board.json",
+      "bytes": 351973,
+      "sha256": "6157d321767d2ae23b401c20116449ba630c4a77eddd755eaa9244c1972da274"
+    },
+    {
+      "path": "gates_after/board.md",
+      "bytes": 8307,
+      "sha256": "1e7669a08382e18e4b7686d411b0b246e6163bab0e8c63190ad42236fd2f8c51"
+    },
+    {
+      "path": "own_manifest_record.json",
+      "bytes": 1473,
+      "sha256": "52595fc1f0f84ef33c220c4c1be35d932b55309b6a70a559d7d2deb67e3e281c"
+    },
+    {
+      "path": "protected.json",
+      "bytes": 4046,
+      "sha256": "e9cc1b6ec7e51b3d01ef5ad06d78dd99f07758e8d72987401a4eefb83918ee72"
+    },
+    {
+      "path": "receipt_sources/after_no_halo_v1.gd.gz",
+      "bytes": 3314,
+      "sha256": "de0d099289c75df948d6432cf502c866c45e466f77d6d7f5e4e3ae4321716ecc"
+    },
+    {
+      "path": "receipt_sources/after_no_halo_v2.gd.gz",
+      "bytes": 3318,
+      "sha256": "60adb3832e8628128454b5505388578674a46f51a1bccda5a15b688ae93a1a11"
+    },
+    {
+      "path": "receipt_sources/after_no_halo_v3.gd.gz",
+      "bytes": 3520,
+      "sha256": "2ba9c5fd338e4023ac7a8d4459918ce419ead0ed96fa0218f43f36778001b49a"
+    },
+    {
+      "path": "receipt_sources/before_v1.gd.gz",
+      "bytes": 2027,
+      "sha256": "f2e4adae000cd6b2bc31017d43f627b706c8044606d886976d56b8f5e3878c00"
+    },
+    {
+      "path": "receipt_sources/before_v2.gd.gz",
+      "bytes": 2163,
+      "sha256": "0201452a29c0e4145866ca9cb4f21c2ffde1b6cda7b28280e2faf40ee68f118c"
+    },
+    {
+      "path": "receipt_sources/before_v3.gd.gz",
+      "bytes": 2486,
+      "sha256": "7bfd7165fc69e45521eca30ae342dee3bc700cb20f849ef4aba186bfd2fb6b5b"
+    },
+    {
+      "path": "receipt_sources/before_v4.gd.gz",
+      "bytes": 2599,
+      "sha256": "7e9ea0104739c016b5b446f835312c16c416d378c15b254e6927c629f15a01f3"
+    },
+    {
+      "path": "receipt_sources/driver_v1.gd.gz",
+      "bytes": 1337,
+      "sha256": "e45646c5f2f222c74a2be32a11dfc19c2651345a9d243d668055f44505b0fcd2"
+    },
+    {
+      "path": "receipt_sources/driver_v2.gd.gz",
+      "bytes": 1325,
+      "sha256": "f043f70960e73cd611f3980cbee235db3fd2bea2f68da2cb2c1b4748a14e4585"
+    },
+    {
+      "path": "source_before/game/scripts/building/orison_v2_fitting_collision_cache.gd.gz",
+      "bytes": 1304,
+      "sha256": "85d5ee647021ad7c8bf9988d0fde5446a2431e8b064cf2bcb6a7e4c1c66df227"
+    },
+    {
+      "path": "source_before/game/scripts/building/orison_v2_passage_region.gd.gz",
+      "bytes": 5719,
+      "sha256": "626ccf23576e4cab30b51c565cf12b10bd484895c926f40873333264f18e3e3a"
+    },
+    {
+      "path": "source_before/game/scripts/building/orison_v2_passage_residency.gd.gz",
+      "bytes": 5030,
+      "sha256": "5efb1575f692962ba5b47c9276a90e4b44df3f1884d963f5a46e4bd5b94c29ff"
+    },
+    {
+      "path": "source_before/game/scripts/building/surface_pass.gd.gz",
+      "bytes": 9850,
+      "sha256": "cd6d06b6220801bb09a5c57c14a8558a79108d01339ba884a720a19a63339858"
+    },
+    {
+      "path": "source_before/game/tests/orison_v2_vertical_route_test.gd.gz",
+      "bytes": 3534,
+      "sha256": "95889e2db972d3e51ef3f5d2a3c3a285ad8c13196b071f258a6fe9f97d89db6b"
+    },
+    {
+      "path": "source_before/game/tests/v2_frame_work_probe.gd.gz",
+      "bytes": 1617,
+      "sha256": "299d870289f71a3df8f10dd5150362743973c14947b4f040d19edde2511113d8"
+    },
+    {
+      "path": "source_before/game/tests/v2_golden_repair_profile.gd.gz",
+      "bytes": 1559,
+      "sha256": "39b37345eb216fe83c0a4e810ef71aebc90fafe7e642e1eced3f1633009574a5"
+    },
+    {
+      "path": "source_before/game/tests/v2_played_streaming_profile.gd.gz",
+      "bytes": 2027,
+      "sha256": "f2e4adae000cd6b2bc31017d43f627b706c8044606d886976d56b8f5e3878c00"
+    },
+    {
+      "path": "source_before/game/tests/V2PlayedStreamingProfile.tscn.gz",
+      "bytes": 172,
+      "sha256": "c755e1a6fb470d5c28443b074eada995fafbe8ab7e91fd483d691e963566f5b0"
+    },
+    {
+      "path": "source_before.json",
+      "bytes": 2652,
+      "sha256": "5ef54a097ea7cb82457c4e42c3dd381c25db8d8a3e11478826932d474fa81cd9"
+    },
+    {
+      "path": "source_before_v2/game/tests/v2_played_streaming_profile.gd.gz",
+      "bytes": 2163,
+      "sha256": "0201452a29c0e4145866ca9cb4f21c2ffde1b6cda7b28280e2faf40ee68f118c"
+    },
+    {
+      "path": "source_before_v3/game/tests/fixed_gesture_patrol_hand.gd.gz",
+      "bytes": 763,
+      "sha256": "f65f12fb435e8882a9a8f988ac0b4775ff99c82c5a8df44ad7fad75c6268c7f0"
+    },
+    {
+      "path": "source_before_v3/game/tests/v2_fixed_gesture_driver_bench.gd.gz",
+      "bytes": 1325,
+      "sha256": "f043f70960e73cd611f3980cbee235db3fd2bea2f68da2cb2c1b4748a14e4585"
+    },
+    {
+      "path": "source_before_v3/game/tests/v2_played_streaming_profile.gd.gz",
+      "bytes": 2486,
+      "sha256": "7bfd7165fc69e45521eca30ae342dee3bc700cb20f849ef4aba186bfd2fb6b5b"
+    },
+    {
+      "path": "source_before_v4/game/scripts/building/orison_v2_arcade_fabric.gd.gz",
+      "bytes": 2085,
+      "sha256": "976146144aadfb08535884c342ab84ad889a555a77dadc003100daefb229ffec"
+    },
+    {
+      "path": "source_before_v4/game/scripts/building/orison_v2_shop_seating.gd.gz",
+      "bytes": 7596,
+      "sha256": "d90d0ffd483c62c9ab5e8e1e56c6b77417abe993833b9fb5a4c596260152d1e7"
+    },
+    {
+      "path": "source_before_v4/game/tests/fixed_gesture_patrol_hand.gd.gz",
+      "bytes": 763,
+      "sha256": "f65f12fb435e8882a9a8f988ac0b4775ff99c82c5a8df44ad7fad75c6268c7f0"
+    },
+    {
+      "path": "source_before_v4/game/tests/v2_fixed_gesture_driver_bench.gd.gz",
+      "bytes": 1325,
+      "sha256": "f043f70960e73cd611f3980cbee235db3fd2bea2f68da2cb2c1b4748a14e4585"
+    },
+    {
+      "path": "source_before_v4/game/tests/v2_played_streaming_profile.gd.gz",
+      "bytes": 2599,
+      "sha256": "7e9ea0104739c016b5b446f835312c16c416d378c15b254e6927c629f15a01f3"
+    },
+    {
+      "path": "source_before_v4/game/tests/V2FixedGestureDriverBench.tscn.gz",
+      "bytes": 177,
+      "sha256": "c951ba3db0ca275ce346e40ca655930df482b1c57648ba8f925c0423935c8f49"
+    },
+    {
+      "path": "source_before_v4/game/tests/V2PlayedStreamingProfile.tscn.gz",
+      "bytes": 172,
+      "sha256": "c755e1a6fb470d5c28443b074eada995fafbe8ab7e91fd483d691e963566f5b0"
+    },
+    {
+      "path": "source_before_v4.json",
+      "bytes": 2064,
+      "sha256": "0a3e09a89292531c23c56ad240b96b5a0bf12f87187dd09cb66c9684df94f37d"
+    },
+    {
+      "path": "source_checks.json",
+      "bytes": 4448,
+      "sha256": "2ebaa99ab82a26d878e4611984ff8354cb5b1c17ccaaea6615533e4959740b4d"
+    },
+    {
+      "path": "source_driver_v1/game/tests/orison_v2_first_slice_contract_test.gd.gz",
+      "bytes": 14072,
+      "sha256": "23cf205663e453b5e7bd10e8f324bb1d381da495994cd23cbc13f57f4cbab759"
+    },
+    {
+      "path": "source_driver_v1/game/tests/orison_v2_vertical_route_test.gd.gz",
+      "bytes": 3674,
+      "sha256": "669ea6637725802b31a551e093b64e6145cd6ba00eea9ecbddb61389d87bbc10"
+    },
+    {
+      "path": "source_driver_v1/game/tests/v2_fixed_gesture_driver_bench.gd.gz",
+      "bytes": 1337,
+      "sha256": "e45646c5f2f222c74a2be32a11dfc19c2651345a9d243d668055f44505b0fcd2"
+    },
+    {
+      "path": "source_final/game/scripts/building/orison_v2_native_fixed_lighting.gd.gz",
+      "bytes": 2350,
+      "sha256": "2cb827f3bd6cf432072126f0b5e4391df93f730d74cd3933b33c93ef73e2e452"
+    },
+    {
+      "path": "source_final/game/scripts/building/orison_v2_native_service_work_lights.gd.gz",
+      "bytes": 1112,
+      "sha256": "f67d2fae50f77f00a8c5934d964468be41714bf4569b8c1bbc2426ff952de1f3"
+    },
+    {
+      "path": "source_final/game/scripts/props/light_fixture_prop.gd.gz",
+      "bytes": 10165,
+      "sha256": "255468b1019f1b725a1724e7c45f07f912a7501a6e157efca44c6e7980dc4da4"
+    },
+    {
+      "path": "source_final/game/scripts/props/photo_darkroom_light.gd.gz",
+      "bytes": 1424,
+      "sha256": "31eea5ab50231b75751f73899ba5d0996c5bea0090273453ea927972655b3451"
+    },
+    {
+      "path": "source_final/game/tests/fixed_gesture_patrol_hand.gd.gz",
+      "bytes": 763,
+      "sha256": "f65f12fb435e8882a9a8f988ac0b4775ff99c82c5a8df44ad7fad75c6268c7f0"
+    },
+    {
+      "path": "source_final/game/tests/orison_v2_fixed_lighting_test.gd.gz",
+      "bytes": 5197,
+      "sha256": "c6fd7aa1dfcaecff762696024340f2ced0d9fae8ec6728bb68039abcca89229e"
+    },
+    {
+      "path": "source_final/game/tests/orison_v2_photo_radio_fittings_test.gd.gz",
+      "bytes": 5531,
+      "sha256": "58fdebeacf82805e017bd7bfc2e4d092159b3ec3453e817cc68cd29010f488c8"
+    },
+    {
+      "path": "source_final/game/tests/orison_v2_service_instruments_test.gd.gz",
+      "bytes": 6897,
+      "sha256": "6216be5f0efe1cc9dba0629ad5d7373f0ffbd85511d969aea68821d7db29f9ed"
+    },
+    {
+      "path": "source_final/game/tests/v2_fixed_gesture_driver_bench.gd.gz",
+      "bytes": 1325,
+      "sha256": "f043f70960e73cd611f3980cbee235db3fd2bea2f68da2cb2c1b4748a14e4585"
+    },
+    {
+      "path": "source_final/game/tests/v2_played_streaming_profile.gd.gz",
+      "bytes": 3520,
+      "sha256": "2ba9c5fd338e4023ac7a8d4459918ce419ead0ed96fa0218f43f36778001b49a"
+    },
+    {
+      "path": "source_final/game/tests/walk_test.gd.gz",
+      "bytes": 52114,
+      "sha256": "6f88ca1a8b3022a59ce876665b41341ac0f0f3294e07aabf27aabc9ee517dc50"
+    },
+    {
+      "path": "source_final.json",
+      "bytes": 3210,
+      "sha256": "38d88a89ea5f5de61a295c00993bef19e1ce5af774d241634294d3d06e29c348"
+    },
+    {
+      "path": "source_halo_before/game/scripts/building/orison_v2_native_fixed_lighting.gd.gz",
+      "bytes": 2514,
+      "sha256": "ed2891f874108ca34a85f74df320c29ca951f3091e3cd6f8c0485e88380c6f1d"
+    },
+    {
+      "path": "source_halo_before/game/scripts/building/orison_v2_native_service_work_lights.gd.gz",
+      "bytes": 1121,
+      "sha256": "350d9a96e8bc37a14ad2147073091d01791386eda40a0cf3176dc6d8b2951591"
+    },
+    {
+      "path": "source_halo_before/game/scripts/props/light_fixture_prop.gd.gz",
+      "bytes": 10766,
+      "sha256": "c1e113b42719cbaf93f82ca6d8761042ab3ad06cb84a33b87a657c70e5ca5850"
+    },
+    {
+      "path": "source_halo_before/game/scripts/props/photo_darkroom_light.gd.gz",
+      "bytes": 1454,
+      "sha256": "b1b751a0c088abec91f5894f41e55b167f1c972226b1bee2f00269ce91f0d761"
+    },
+    {
+      "path": "source_halo_before/game/tests/orison_v2_fixed_lighting_test.gd.gz",
+      "bytes": 5209,
+      "sha256": "dee8f4fef5db642735a79258821fa8de68ae907c8cf17f137fa9685b02ceec81"
+    },
+    {
+      "path": "source_halo_before/game/tests/orison_v2_photo_radio_fittings_test.gd.gz",
+      "bytes": 5529,
+      "sha256": "807b3d698f4cdc8c21ff7a3a35951bc5980be5580f10765c1c6732c3cfd113cc"
+    },
+    {
+      "path": "source_halo_before/game/tests/orison_v2_service_instruments_test.gd.gz",
+      "bytes": 6892,
+      "sha256": "01bdd670a194a846caae3bce1b5497ff3e3af75db760c3f5fbbb8afd5f818136"
+    },
+    {
+      "path": "source_halo_before/game/tests/walk_test.gd.gz",
+      "bytes": 52532,
+      "sha256": "4bdc1893d97c2a7156ceb3eca64f122e411c3f542fd82aeacc87e976ea31128c"
+    },
+    {
+      "path": "spatial_review_before.json",
+      "bytes": 46930,
+      "sha256": "01bf6ffe1cdce335ce90def79be93688db3eb0e615bf7dabc16c1360b9df02b9"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "failures": [
+    "mounting escutcheon bears on retained wall within 2 mm: 5A_toilet_roll",
+    "mounting escutcheon bears on retained wall within 2 mm: 6A_toilet_roll"
+  ],
+  "trace": [
+    {
+      "actual": [
+        -8.39642143249512,
+        9.60086059570313,
+        4.74999809265137
+      ],
+      "ok": true,
+      "target": [
+        -8.29999923706055,
+        9.6200008392334,
+        4.74999809265137
+      ],
+      "wall_contacts": {}
+    },
+    {
+      "actual": [
+        -8.43714427947998,
+        9.60086059570313,
+        4.44597625732422
+      ],
+      "ok": true,
+      "target": [
+        -8.44999980926514,
+        9.60000038146973,
+        4.34999990463257
+      ],
+      "wall_contacts": {}
+    }
+  ]
+}

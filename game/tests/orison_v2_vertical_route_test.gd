@@ -126,7 +126,7 @@ func _walk(local_target: Vector3) -> bool:
 	var actual: Vector3 = world.adapter.root.to_local(player.global_position)
 	var ok := Vector2(actual.x - local_target.x, actual.z - local_target.z).length() < 0.18 \
 			and absf(actual.y - local_target.y) < 0.15 and not player.noclip \
-			and player.collision_mask == 1 and player.is_physics_processing()
+			and (player.collision_mask & 1) == 1 and player.is_physics_processing()
 	trace.append({"target": [local_target.x, local_target.y, local_target.z],
 			"actual": [actual.x, actual.y, actual.z], "ok": ok, "wall_contacts": contacts})
 	if not ok:

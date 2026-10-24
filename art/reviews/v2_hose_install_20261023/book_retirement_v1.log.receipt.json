@@ -1,0 +1,66 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 120.09,
+  "exit_code": null,
+  "finished_utc": "2026-10-23T20:08:16Z",
+  "started_utc": "2026-10-23T20:06:16Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 3,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: The variable type is being inferred from a Variant value, so it will be typed as Variant. (Warning treated as error.)",
+   "SCRIPT ERROR: Parse Error: The variable type is being inferred from a Variant value, so it will be typed as Variant. (Warning treated as error.)",
+   "ERROR: Failed to load script \"res://tests/v2_book_print_retirement.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/book_retirement_v1.log.stderr",
+  "stderr_sha256": "e19abfcbc6136690a205ca1f81889601d0f76a2e5ae46491da3fbd445583330b",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_install_20261023/book_retirement_v1.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2BookPrintRetirement.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 3052,
+  "dirty_sample": [
+   "M .gitattributes",
+   "A  game/assets/props/unracked_fire_hose.glb",
+   "A  game/assets/props/unracked_fire_hose.glb.import",
+   "A  game/data/orison_v2/unracked_fire_hose_rig.json",
+   " M game/scripts/building/orison_v2_native_fire_service.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/scripts/player/constrained_grab.gd",
+   " M game/scripts/props/fire_unracked_hose.gd",
+   " M game/scripts/props/hose_water_charge.gd",
+   " M game/scripts/props/native_hose_rig.gd",
+   " M game/scripts/props/v2_fire_line_cabinet.gd",
+   " M game/scripts/props/v2_readable_book.gd",
+   " M game/tests/v2_fire_hand_bench.gd",
+   " M game/tests/v2_hose_save_bench.gd",
+   " M game/tests/v2_hose_water_programme.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py"
+  ],
+  "repository_head": "cef32947ea3ff3785ee267025591ecc7eba00516",
+  "repository_tree": "6606931c3fb2a6ee8a7c239dfdea5a602b397086",
+  "runtime_inputs_sha256": "edfaae323ac1f2dd0c3d16a7f2010f89961bf6a34039da723e35d072ab8d9c6a",
+  "test_path": "game/tests/v2_book_print_retirement.gd",
+  "test_sha256": "a02eb846cb546cc0cdd8f0508e323030cd4ba12d430ee5d9e6be83e38e400705"
+ },
+ "windowed": true
+}

@@ -1,0 +1,4 @@
+ERROR: Can't save PNG at path: 'C:/PleaseRemainOnTheLine/art/reviews/v2_hose_carry_20261023/water_v1/charged_spray.png'.
+   at: save_image (drivers/png/resource_saver_png.cpp:56)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/v2_hose_water_programme.gd:29)

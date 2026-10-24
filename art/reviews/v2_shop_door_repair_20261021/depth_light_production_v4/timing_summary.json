@@ -1,0 +1,102 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Same frozen actual world, one reference/candidate depth view active, reference/candidate/restored reference. Not live-route frame qualification.",
+  "records": [
+    {
+      "station": "lobby",
+      "treatment": "reference",
+      "frames": 90,
+      "median_wall_ms": 30.8345,
+      "median_depth_cpu_ms": 1.560000002384185,
+      "median_depth_gpu_ms": 0.815999984741211
+    },
+    {
+      "station": "lobby",
+      "treatment": "candidate",
+      "frames": 90,
+      "median_wall_ms": 29.240000000000002,
+      "median_depth_cpu_ms": 0.777999997138977,
+      "median_depth_gpu_ms": 0.16849999874830252
+    },
+    {
+      "station": "lobby",
+      "treatment": "reference_restored",
+      "frames": 90,
+      "median_wall_ms": 29.932000000000002,
+      "median_depth_cpu_ms": 1.572499990463255,
+      "median_depth_gpu_ms": 0.818000018596649
+    },
+    {
+      "station": "mina_library",
+      "treatment": "reference",
+      "frames": 90,
+      "median_wall_ms": 30.529,
+      "median_depth_cpu_ms": 1.83399999141693,
+      "median_depth_gpu_ms": 1.14400005340576
+    },
+    {
+      "station": "mina_library",
+      "treatment": "candidate",
+      "frames": 90,
+      "median_wall_ms": 29.3095,
+      "median_depth_cpu_ms": 0.904999971389771,
+      "median_depth_gpu_ms": 0.317999988794327
+    },
+    {
+      "station": "mina_library",
+      "treatment": "reference_restored",
+      "frames": 90,
+      "median_wall_ms": 30.4585,
+      "median_depth_cpu_ms": 1.84450000524521,
+      "median_depth_gpu_ms": 1.14699995517731
+    },
+    {
+      "station": "shop_leaf",
+      "treatment": "reference",
+      "frames": 90,
+      "median_wall_ms": 30.759,
+      "median_depth_cpu_ms": 1.2154999971389748,
+      "median_depth_gpu_ms": 0.558000028133392
+    },
+    {
+      "station": "shop_leaf",
+      "treatment": "candidate",
+      "frames": 90,
+      "median_wall_ms": 30.3625,
+      "median_depth_cpu_ms": 0.9044999778270725,
+      "median_depth_gpu_ms": 0.217999994754791
+    },
+    {
+      "station": "shop_leaf",
+      "treatment": "reference_restored",
+      "frames": 90,
+      "median_wall_ms": 30.985500000000002,
+      "median_depth_cpu_ms": 1.26300001144409,
+      "median_depth_gpu_ms": 0.556999981403351
+    },
+    {
+      "station": "actual_roof_door",
+      "treatment": "reference",
+      "frames": 90,
+      "median_wall_ms": 37.1875,
+      "median_depth_cpu_ms": 5.69950008392334,
+      "median_depth_gpu_ms": 2.7124999761581448
+    },
+    {
+      "station": "actual_roof_door",
+      "treatment": "candidate",
+      "frames": 90,
+      "median_wall_ms": 31.0975,
+      "median_depth_cpu_ms": 1.74899995326996,
+      "median_depth_gpu_ms": 0.587999999523163
+    },
+    {
+      "station": "actual_roof_door",
+      "treatment": "reference_restored",
+      "frames": 90,
+      "median_wall_ms": 36.317,
+      "median_depth_cpu_ms": 5.668999910354615,
+      "median_depth_gpu_ms": 2.71099996566772
+    }
+  ]
+}

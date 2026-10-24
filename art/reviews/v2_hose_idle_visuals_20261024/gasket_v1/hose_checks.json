@@ -1,0 +1,606 @@
+{
+	"aim_errors_degrees": [
+		0.188711590398598,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0197823410294464,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0197823410294464,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0
+	],
+	"checks": [
+		{
+			"label": "all eight production hose cabinets mount in the occupied world",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: B1_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F01_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F02_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F03_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F04_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F05_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F06_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: ROOF_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "actual installed cover opens before union maintenance",
+			"ok": true
+		},
+		{
+			"label": "actual installed tag grip enters supported maintenance inspection",
+			"ok": true
+		},
+		{
+			"label": "actual installed union accepts a partial screw stroke",
+			"ok": true
+		},
+		{
+			"label": "partial unscrewing neither repairs nor counterfeits gasket inspection",
+			"ok": true
+		},
+		{
+			"label": "actual installed union follows the full retained screw travel",
+			"ok": true
+		},
+		{
+			"label": "actual mouse and depth input move the installed loose hose end on Y and Z",
+			"ok": true
+		},
+		{
+			"label": "loose installed union preserves maintenance faults and a valid saved pose",
+			"ok": true
+		},
+		{
+			"label": "actual installed loose hose end returns to its receiving thread",
+			"ok": true
+		},
+		{
+			"label": "actual installed union retightens through mouse motion",
+			"ok": true
+		},
+		{
+			"label": "an empty tightened union retains the original gasket fault",
+			"ok": true
+		},
+		{
+			"label": "installed physical washer programme retains actual fitting, inspection and original save checks",
+			"ok": true
+		},
+		{
+			"label": "original installed diagnostic precondition restores after union review",
+			"ok": true
+		},
+		{
+			"label": "actual grab/motion/release opens the installed cabinet",
+			"ok": true
+		},
+		{
+			"label": "explicit assembled-line fixture is a valid physical household state",
+			"ok": true
+		},
+		{
+			"label": "walked stance reaches the specific installed nozzle surface",
+			"ok": true
+		},
+		{
+			"label": "actual installed pull continues directly into FPS carry",
+			"ok": true
+		},
+		{
+			"label": "ordinary turning retains the deployed hose",
+			"ok": true
+		},
+		{
+			"label": "presented installed nozzle remains within one degree of reticle aim while turning",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"motion_calls": [
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 766,
+			"shell_queries": 0,
+			"total_usec": 311
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 767,
+			"shell_queries": 0,
+			"total_usec": 310
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 768,
+			"shell_queries": 0,
+			"total_usec": 309
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 769,
+			"shell_queries": 0,
+			"total_usec": 310
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 770,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 771,
+			"shell_queries": 0,
+			"total_usec": 308
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 772,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 773,
+			"shell_queries": 0,
+			"total_usec": 309
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 774,
+			"shell_queries": 0,
+			"total_usec": 312
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 775,
+			"shell_queries": 0,
+			"total_usec": 310
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 776,
+			"shell_queries": 0,
+			"total_usec": 309
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 777,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 778,
+			"shell_queries": 0,
+			"total_usec": 323
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 779,
+			"shell_queries": 0,
+			"total_usec": 309
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 780,
+			"shell_queries": 0,
+			"total_usec": 310
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 781,
+			"shell_queries": 0,
+			"total_usec": 309
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 782,
+			"shell_queries": 0,
+			"total_usec": 316
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 783,
+			"shell_queries": 0,
+			"total_usec": 316
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 784,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 785,
+			"shell_queries": 0,
+			"total_usec": 312
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 786,
+			"shell_queries": 0,
+			"total_usec": 329
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 787,
+			"shell_queries": 0,
+			"total_usec": 335
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 788,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 789,
+			"shell_queries": 0,
+			"total_usec": 312
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 790,
+			"shell_queries": 0,
+			"total_usec": 323
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 791,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 792,
+			"shell_queries": 0,
+			"total_usec": 317
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 793,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 794,
+			"shell_queries": 0,
+			"total_usec": 335
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 795,
+			"shell_queries": 0,
+			"total_usec": 312
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 796,
+			"shell_queries": 0,
+			"total_usec": 319
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 797,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 798,
+			"shell_queries": 0,
+			"total_usec": 319
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 799,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 800,
+			"shell_queries": 0,
+			"total_usec": 310
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 801,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 802,
+			"shell_queries": 0,
+			"total_usec": 325
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 803,
+			"shell_queries": 0,
+			"total_usec": 319
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 804,
+			"shell_queries": 0,
+			"total_usec": 311
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 805,
+			"shell_queries": 0,
+			"total_usec": 309
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 806,
+			"shell_queries": 0,
+			"total_usec": 319
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 807,
+			"shell_queries": 0,
+			"total_usec": 325
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 808,
+			"shell_queries": 0,
+			"total_usec": 330
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 809,
+			"shell_queries": 0,
+			"total_usec": 330
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 810,
+			"shell_queries": 0,
+			"total_usec": 315
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 811,
+			"shell_queries": 0,
+			"total_usec": 318
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 812,
+			"shell_queries": 0,
+			"total_usec": 310
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 813,
+			"shell_queries": 0,
+			"total_usec": 314
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 814,
+			"shell_queries": 0,
+			"total_usec": 319
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 815,
+			"shell_queries": 0,
+			"total_usec": 314
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 816,
+			"shell_queries": 0,
+			"total_usec": 316
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 817,
+			"shell_queries": 0,
+			"total_usec": 316
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 818,
+			"shell_queries": 0,
+			"total_usec": 309
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 819,
+			"shell_queries": 0,
+			"total_usec": 314
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 820,
+			"shell_queries": 0,
+			"total_usec": 311
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 821,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 822,
+			"shell_queries": 0,
+			"total_usec": 317
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 823,
+			"shell_queries": 0,
+			"total_usec": 311
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 824,
+			"shell_queries": 0,
+			"total_usec": 315
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 825,
+			"shell_queries": 0,
+			"total_usec": 319
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 826,
+			"shell_queries": 0,
+			"total_usec": 316
+		}
+	],
+	"scope": "Actual installed approach, operation, stair carrying and disk rebuild; repaired assembly staged. No full payout, all-area coverage, runtime_contract or human acceptance."
+}

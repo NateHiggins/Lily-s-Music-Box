@@ -1,0 +1,90 @@
+Info: Saved as "service_radiophone_v2.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+08:02:37 | INFO: Starting glTF 2.0 export
+08:02:37 | INFO: Extracting primitive: Aerial__Brass
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Carriage__Brass
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Carriage__Steel
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Type_hammer__Brass
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: TypeSelector__Brass
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: TypeSelector__Porcelain
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: TypeSelector__Steel
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: TypeSelector__TypeEmboss
+08:02:37 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: FeedWheel0__Brass
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: FeedWheel0__Steel
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: FeedWheel1__Brass
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: FeedWheel1__Steel
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Fixed__Brass
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Fixed__Case
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Fixed__Leather
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Fixed__Paper
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Fixed__Porcelain
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Fixed__Rubber
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Fixed__Steel
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: FocusWheel__Brass
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: LampJewel
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: LampSwitch__Steel
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: NetJewel
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: OrderJewel
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Paper
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: Platen__Rubber
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: RadioSwitch__Steel
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: ServiceCover__Brass
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: ServiceCover__Case
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Extracting primitive: TorchLens
+08:02:37 | INFO: Primitives created: 1
+08:02:37 | INFO: Finished glTF 2.0 export in 0.4800271987915039 s
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_service_radiophone_v2.py:196: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('Review ink');mat.use_nodes=True
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_service_radiophone_v2.py:221: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral review');scene.world.use_nodes=True
+00:13.016  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\printer.png'
+00:16.094  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\hot_type_sharp.png'
+00:19.422  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_004.png'
+00:22.688  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_007.png'
+00:25.938  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_010.png'
+00:29.188  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_013.png'
+00:32.422  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_016.png'
+00:35.719  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_019.png'
+00:38.953  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_022.png'
+00:42.250  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_025.png'
+00:45.516  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_028.png'
+00:48.766  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_031.png'
+00:52.000  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_034.png'
+00:55.266  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_handheld_20261023\hot_type\spin_037.png'
+
+HANDHELD NATIVE REVIEW C printer 30 19866
+HOT TYPE NATIVE ANIMATION: 12 frames, local type-cylinder motion blur
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

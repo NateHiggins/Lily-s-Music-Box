@@ -1,0 +1,16 @@
+{
+  "from_commit": "dc6d1cf10650d44c2b81af136f1c67e3b4fd4d96",
+  "to_commit": "d14cc63eb59db529b2ba433fcc792bdab0856242",
+  "regressions": [
+    "spatial: drift.new_reported 0 -> 2",
+    "spatial: new defect new_reported:2ad8ee8a867ff004",
+    "spatial: new defect new_reported:409080b46d3ef9ab"
+  ],
+  "improvements": [
+    "reader: unread 1109 -> 1108",
+    "reader: resolved FIELD_UNREAD|game/data/runtime_material_sets.json|metallic"
+  ],
+  "changes": [],
+  "requirements_changed": [],
+  "comparable": true
+}

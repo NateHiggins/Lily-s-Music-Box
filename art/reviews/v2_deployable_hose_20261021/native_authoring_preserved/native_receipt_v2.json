@@ -1,0 +1,14 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_fire_capacity_candidate.py",
+      "elapsed_s": 25.761
+    },
+    {
+      "script": "art/blender/scripts/build_fire_capacity_rig.py",
+      "elapsed_s": 0.854
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "scene": "",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_bathroom_finishing_20261024\\import_finishes_v4.log",
+    "runner": "long",
+    "timeout": 300,
+    "extra_args": [
+      "--editor",
+      "--import",
+      "--quit"
+    ]
+  },
+  {
+    "scene": "res://tests/V2BathroomFinishStockBench.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v4.log",
+    "runner": "serial",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v4"
+  },
+  {
+    "scene": "res://tests/V2BathroomFinishingReview.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_bathroom_finishing_20261024\\world_v3.log",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_bathroom_finishing_20261024\\world_v3"
+  }
+]

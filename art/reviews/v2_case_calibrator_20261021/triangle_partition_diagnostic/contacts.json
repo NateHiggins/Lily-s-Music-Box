@@ -1,0 +1,110 @@
+{
+	"evidence_class": "INERT",
+	"failures": [
+		"SafetyWire 800 ray/gap controls match native footprints and physical boundaries within1um",
+		"concave native frame remains triangle stock without a hull"
+	],
+	"records": [
+		{
+			"candidate_native_ray_error_m": 0.000591893214732409,
+			"capsule_casts": [
+				{
+					"blocked": true,
+					"candidate_us": 4450,
+					"original_us": 8796,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 4541,
+					"original_us": 12514,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 3770,
+					"original_us": 9685,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 4670,
+					"original_us": 8842,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 5084,
+					"original_us": 12579,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 4674,
+					"original_us": 9518,
+					"travel_error_m": 0.0
+				}
+			],
+			"id": "SafetyWire",
+			"max_native_boundary_error_m": 0.000188844114542007,
+			"max_ray_error_m": 0.0,
+			"native_footprint_mismatches": 0,
+			"original_engine_ray_mismatches": 0,
+			"ray_mismatches": 0,
+			"ray_queries": 800,
+			"shells": 70,
+			"source_native_ray_error_m": 0.000591893214732409
+		},
+		{
+			"candidate_native_ray_error_m": 0.0000000434838902663159,
+			"capsule_casts": [
+				{
+					"blocked": true,
+					"candidate_us": 591,
+					"original_us": 607,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 905,
+					"original_us": 890,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 546,
+					"original_us": 557,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 596,
+					"original_us": 607,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 886,
+					"original_us": 892,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 559,
+					"original_us": 572,
+					"travel_error_m": 0.0
+				}
+			],
+			"id": "F069",
+			"max_native_boundary_error_m": 0.0000000314712524414063,
+			"max_ray_error_m": 0.0,
+			"native_footprint_mismatches": 0,
+			"original_engine_ray_mismatches": 0,
+			"ray_mismatches": 0,
+			"ray_queries": 800,
+			"shells": 1,
+			"source_native_ray_error_m": 0.0000000434838902663159
+		}
+	],
+	"scope": "Imported native byte-exact triangle partition plus physics ray/gap and actual player-capsule comparisons; not appearance or whole-world qualification."
+}

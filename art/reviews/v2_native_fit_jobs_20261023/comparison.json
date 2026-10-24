@@ -1,0 +1,159 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Observed same-route comparison, not exclusive CPU/GPU time or display latency. Control uses the same refactored fitter with cooperative scheduling disabled; final repeat nests identical construction code inside its owner for static provenance.",
+  "runs": [
+    {
+      "name": "sync_control_v1",
+      "wall_ms": {
+        "n": 3201,
+        "p50": 23.032,
+        "p95": 39.74,
+        "p99": 60.877,
+        "max": 164.679,
+        "above100": 9
+      },
+      "by_residency_ms": {
+        "DORMANT": {
+          "n": 210,
+          "p50": 25.245,
+          "p95": 35.3474,
+          "p99": 63.324839999999966,
+          "max": 164.679,
+          "above100": 1
+        },
+        "LOADING": {
+          "n": 376,
+          "p50": 29.178,
+          "p95": 63.03075,
+          "p99": 110.51275,
+          "max": 132.345,
+          "above100": 8
+        },
+        "RESIDENT": {
+          "n": 2615,
+          "p50": 20.77,
+          "p95": 38.05129999999999,
+          "p99": 43.66892000000006,
+          "max": 96.387,
+          "above100": 0
+        }
+      },
+      "peak_stage_ms": 108.765,
+      "peak_activation_ms": 19.313,
+      "load_duration_ms": [
+        6562.604,
+        6300.627
+      ],
+      "timed_waypoints": 54,
+      "checks": 14,
+      "failures": [],
+      "cache_parts": 1269,
+      "cache_bytes": 88608528,
+      "retired_roots_alive": 0,
+      "retired_meshes_alive": 0,
+      "pending": 0
+    },
+    {
+      "name": "played_v2",
+      "wall_ms": {
+        "n": 3158,
+        "p50": 25.168999999999997,
+        "p95": 39.422999999999995,
+        "p99": 53.10628999999993,
+        "max": 202.179,
+        "above100": 5
+      },
+      "by_residency_ms": {
+        "DORMANT": {
+          "n": 203,
+          "p50": 25.523,
+          "p95": 40.120499999999986,
+          "p99": 62.01093999999992,
+          "max": 183.463,
+          "above100": 1
+        },
+        "LOADING": {
+          "n": 823,
+          "p50": 24.743,
+          "p95": 44.24649999999999,
+          "p99": 69.42821999999994,
+          "max": 105.142,
+          "above100": 2
+        },
+        "RESIDENT": {
+          "n": 2132,
+          "p50": 25.732,
+          "p95": 38.7386,
+          "p99": 45.456700000000026,
+          "max": 202.179,
+          "above100": 2
+        }
+      },
+      "peak_stage_ms": 80.466,
+      "peak_activation_ms": 21.687,
+      "load_duration_ms": [
+        10919.82,
+        10549.555
+      ],
+      "timed_waypoints": 54,
+      "checks": 14,
+      "failures": [],
+      "cache_parts": 1269,
+      "cache_bytes": 88608528,
+      "retired_roots_alive": 0,
+      "retired_meshes_alive": 0,
+      "pending": 0
+    },
+    {
+      "name": "cooperative_final_v1",
+      "wall_ms": {
+        "n": 3182,
+        "p50": 24.951,
+        "p95": 38.9677,
+        "p99": 52.51558000000013,
+        "max": 160.286,
+        "above100": 4
+      },
+      "by_residency_ms": {
+        "DORMANT": {
+          "n": 209,
+          "p50": 25.37,
+          "p95": 37.2082,
+          "p99": 59.75619999999996,
+          "max": 160.286,
+          "above100": 1
+        },
+        "LOADING": {
+          "n": 812,
+          "p50": 24.608,
+          "p95": 43.2106,
+          "p99": 67.88786999999996,
+          "max": 101.182,
+          "above100": 1
+        },
+        "RESIDENT": {
+          "n": 2161,
+          "p50": 25.126,
+          "p95": 38.574,
+          "p99": 43.25280000000001,
+          "max": 112.524,
+          "above100": 2
+        }
+      },
+      "peak_stage_ms": 77.0,
+      "peak_activation_ms": 18.844,
+      "load_duration_ms": [
+        10551.933,
+        10550.66
+      ],
+      "timed_waypoints": 54,
+      "checks": 14,
+      "failures": [],
+      "cache_parts": 1269,
+      "cache_bytes": 88608528,
+      "retired_roots_alive": 0,
+      "retired_meshes_alive": 0,
+      "pending": 0
+    }
+  ]
+}

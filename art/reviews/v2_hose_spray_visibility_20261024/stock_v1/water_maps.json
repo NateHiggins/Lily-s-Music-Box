@@ -1,0 +1,27 @@
+{
+	"evidence_class": "INERT",
+	"maps": [
+		{
+			"expected": 8,
+			"height": 256,
+			"mipmaps": 8,
+			"path": "res://assets/building/textures/T_ai_materials_water_clear_albedo.png",
+			"width": 256
+		},
+		{
+			"expected": 8,
+			"height": 256,
+			"mipmaps": 8,
+			"path": "res://assets/building/textures/T_ai_materials_water_clear_rough.png",
+			"width": 256
+		},
+		{
+			"expected": 8,
+			"height": 256,
+			"mipmaps": 8,
+			"path": "res://assets/building/textures/T_ai_materials_water_clear_normal.png",
+			"width": 256
+		}
+	],
+	"scope": "Loaded map identity and complete mip chains during actual fixture spray input. No installed-area or human acceptance."
+}

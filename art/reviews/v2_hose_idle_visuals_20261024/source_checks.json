@@ -1,0 +1,68 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Top-level raw source matching only; no reconstruction of every dirty-world input or runtime_contract status.",
+  "checks": [
+    {
+      "receipt": "art/reviews/v2_hose_idle_visuals_20261024/before_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_idle_visual_profile.gd",
+      "test_sha256": "1d10ea6207f23e2a4a27a7df565d62e215b915c93d7fe65af591d97e86aafb66",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_idle_visuals_20261024/source_before/v2_hose_idle_visual_profile.gd.gz",
+        "art/reviews/v2_hose_idle_visuals_20261024/source_final/v2_hose_idle_visual_profile.gd.gz",
+        "game/tests/v2_hose_idle_visual_profile.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_installed_union_review.gd",
+      "test_sha256": "12f8851d0bb8c287fdc5f5ef8f07843a7354bb46339771ed1ca6b198d23150df",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_idle_visuals_20261024/chain_v1_v2_hose_installed_union_review.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_installed_union_review.gd",
+      "test_sha256": "c87436ebc4630217d125cf33f5032d21bc69a8909f8f1da3f30eba011189df1e",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1_source.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_installed_union_review.gd",
+      "test_sha256": "799c55b96b6b874620492056f8d437512713d0fb95800b700ffdb6f15a3057b9",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1_source.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_idle_visuals_20261024/union_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_installed_union_review.gd",
+      "test_sha256": "210e062842631833be329066af345a7ed15ceffeade7e0de15be17325279a6d1",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_idle_visuals_20261024/union_v1_source.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    }
+  ]
+}

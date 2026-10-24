@@ -1,0 +1,88 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "complete-world layout diagnostic, no installed removal or runtime qualification",
+	"stations": [
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 4.4, -7.87)]",
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"configured": true,
+			"error": "initial hose contact fit: incompatible follower support planes",
+			"id": "F02_FIRE_LINE_STAIR",
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 94.904
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"degrees": 30.0,
+			"error": "unconfigured or already bound hose",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"degrees": 45.0,
+			"error": "unconfigured or already bound hose",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"degrees": 60.0,
+			"error": "unconfigured or already bound hose",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"degrees": 90.0,
+			"error": "unconfigured or already bound hose",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"degrees": 120.0,
+			"error": "unconfigured or already bound hose",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"degrees": 180.0,
+			"error": "unconfigured or already bound hose",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"degrees": 240.0,
+			"error": "unconfigured or already bound hose",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"degrees": 270.0,
+			"error": "unconfigured or already bound hose",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"degrees": 300.0,
+			"error": "unconfigured or already bound hose",
+			"id": "F02_FIRE_LINE_STAIR"
+		},
+		{
+			"clear": false,
+			"collider": "/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/Player",
+			"degrees": 330.0,
+			"error": "unconfigured or already bound hose",
+			"id": "F02_FIRE_LINE_STAIR"
+		}
+	]
+}

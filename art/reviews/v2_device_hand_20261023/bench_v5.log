@@ -1,0 +1,48 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+E STATE: reading=true inspecting=false pointer=2
+SERVICE HAND: E raises physical UI without entering inspection = true
+SERVICE HAND: Space explicitly frees pointer for carried mechanisms = true
+SERVICE HAND: free cursor targets specific lamp = true
+SERVICE HAND: primary click acquires lamp = true
+SERVICE HAND: acquire does not move lamp = true
+SERVICE HAND: actual mouse produces partial lamp travel = true
+SERVICE HAND: next click releases lamp = true
+SERVICE HAND: release retains lamp position = true
+SERVICE HAND: operating lamp does not create a received report = true
+SERVICE HAND: free cursor targets specific radio = true
+SERVICE HAND: primary click acquires radio = true
+SERVICE HAND: acquire does not move radio = true
+SERVICE HAND: actual mouse produces partial radio travel = true
+SERVICE HAND: next click releases radio = true
+SERVICE HAND: release retains radio position = true
+SERVICE HAND: operating radio does not create a received report = true
+SERVICE HAND: free cursor targets specific cover = true
+SERVICE HAND: primary click acquires cover = true
+SERVICE HAND: acquire does not move cover = true
+SERVICE HAND: actual mouse produces partial cover travel = true
+SERVICE HAND: next click releases cover = true
+SERVICE HAND: release retains cover position = true
+SERVICE HAND: operating cover does not create a received report = true
+SERVICE HAND: free cursor targets specific focus = true
+SERVICE HAND: primary click acquires focus = true
+SERVICE HAND: acquire does not move focus = true
+SERVICE HAND: actual mouse produces partial focus travel = true
+SERVICE HAND: next click releases focus = true
+SERVICE HAND: release retains focus position = true
+SERVICE HAND: operating focus does not create a received report = true
+SERVICE HAND: free cursor targets specific feed0 = true
+SERVICE HAND: primary click acquires feed0 = true
+SERVICE HAND: acquire does not move feed0 = true
+SERVICE HAND: actual mouse produces partial feed0 travel = true
+SERVICE HAND: next click releases feed0 = true
+SERVICE HAND: release retains feed0 position = true
+SERVICE HAND: operating feed0 does not create a received report = true
+PICK DIAGNOSTIC: part=FeedWheel0__Brass point=(-0.116174, -0.057228, -0.284806) projected=(53.88449, 459.5628) mouse=(821.0, 453.0) rect=[P: (768.0, 0.0), S: (512.0, 720.0)] hit={ "position": (-0.113684, -0.052082, -0.277489), "normal": (-0.027509, 0.850714, 0.524908), "face_index": -1, "collider_id": 85630912507, "collider": ManipulationTarget:<Area3D#85630912507>, "shape": 1, "rid": RID(8126078124038) } parent=FeedWheel0
+PICK DIAGNOSTIC: part=FeedWheel0__Brass point=(-0.116174, -0.057228, -0.284806) projected=(53.88449, 459.5628) mouse=(821.0, 453.0) rect=[P: (768.0, 0.0), S: (512.0, 720.0)] hit={ "position": (-0.113684, -0.052082, -0.277489), "normal": (-0.027509, 0.850714, 0.524908), "face_index": -1, "collider_id": 85630912507, "collider": ManipulationTarget:<Area3D#85630912507>, "shape": 1, "rid": RID(8126078124038) } parent=FeedWheel0
+SERVICE HAND: free cursor targets specific feed1 = false
+SERVICE HAND: all device gestures retain world camera = true
+SERVICE HAND: Space restores walking pointer = true
+SERVICE HAND: FAIL

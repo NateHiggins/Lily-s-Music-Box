@@ -1,0 +1,65 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 60.15,
+  "exit_code": null,
+  "finished_utc": "2026-10-23T13:47:46Z",
+  "started_utc": "2026-10-23T13:46:46Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 2,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Static function \"make_dir_recursive_directory_absolute()\" not found in base \"GDScriptNativeClass\".",
+   "ERROR: Failed to load script \"res://tests/reflection_warmup_test.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/reflection_warmup_small_v1.log.stderr",
+  "stderr_sha256": "c0a2955a04064c26842de13e3c31f6f0910360e317e8b9290906a17a0d5d6522",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/reflection_warmup_small_v1.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/ReflectionWarmupTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_handheld_20261023/reflection_warmup_small_v1",
+ "source": {
+  "dirty_paths": 3006,
+  "dirty_sample": [
+   "M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/tests/v2_handheld_profile.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_reset.png"
+  ],
+  "repository_head": "0548d2fda09694c183236728d82995a1df6e3917",
+  "repository_tree": "56f7c30d4d5298eca753a0bb0f5ad356d113f6e3",
+  "runtime_inputs_sha256": "08527c86472782087b45349120b29e44e88fefc883be60b768ca11ce600da844",
+  "test_path": "game/tests/reflection_warmup_test.gd",
+  "test_sha256": "e666602e3b5f13be057edff96e940175c7cf64177f63252f9d7c1be00a5841e0"
+ },
+ "windowed": true
+}

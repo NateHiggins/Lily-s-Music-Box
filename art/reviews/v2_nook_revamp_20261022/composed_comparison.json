@@ -1,0 +1,19 @@
+{
+  "from_commit": "b98efbd32763a5061b99dcd3ccdd78a0b972bc63",
+  "to_commit": "e9df01d2babb6e751ebb302522fe9898fed8823d",
+  "regressions": [],
+  "improvements": [
+    "spatial: FAIL -> PASS",
+    "spatial: drift.new_failing 1 -> 0",
+    "spatial: resolved new_failing:624e888547a3c32c",
+    "test:test_nook_readable_books: FAIL -> PASS",
+    "test:test_nook_readable_books: failed 1 -> 0",
+    "test:test_nook_readable_books: resolved test_manufactured_outputs_bind_current_source (__main__.NookBooksTests.test_manufactured_outputs_bind_current_source)",
+    "test:test_orison_spatial_dependencies: FAIL -> PASS",
+    "test:test_orison_spatial_dependencies: failed 1 -> 0",
+    "test:test_orison_spatial_dependencies: resolved test_live_check_is_clean (__main__.ProductionSmokeTests.test_live_check_is_clean)"
+  ],
+  "changes": [],
+  "requirements_changed": [],
+  "comparable": true
+}

@@ -1,0 +1,36 @@
+{
+  "evidence_class": "INERT",
+  "status": "REVIEWED_SCOPE_ONLY",
+  "scope": "Agent native and composed appearance review only, not human acceptance or a canonical surface packet. Full cabinet, plunger guide, front orientation/ink, table seating and complete bucket floor contact were viewed.",
+  "asset_sha256": "950dcb2f6446785cb8fe0a54f3dcfee71250181ab8874ec62bcf7745bb76faad",
+  "images": [
+    {
+      "file": "native/diffuse.png",
+      "sha256": "e5aa3ace6b089ffdcc4c58da277c758de98cf71a98130956441fb7f8c979cb5e"
+    },
+    {
+      "file": "native/grazing.png",
+      "sha256": "6ebaf5a11f84bcb0e69032546d9161f94452316ea43f97a3818674a5955c9cda"
+    },
+    {
+      "file": "native/plunger.png",
+      "sha256": "98ad0b8c2670fe03eb853904c521a65a07c983208b73eb3483606c7ecdb0e9e4"
+    },
+    {
+      "file": "world_final/installed_after.png",
+      "sha256": "16b1cd8bcdc406e81593d3aea9faaff67cd31ad10427456b696c5a0825aef9ed"
+    },
+    {
+      "file": "world_frozen/installed_after.png",
+      "sha256": "0d8fc9e3b66429f78100ac5d7f07cd762c968feb7e43291d16eaa43acd60f481"
+    },
+    {
+      "file": "performance_frozen/mop_bucket_room.png",
+      "sha256": "14c7478e6a63e54fd4ad515180d64ee5879e693f68e6663781d06cc8ca373994"
+    },
+    {
+      "file": "performance_frozen/mop_bucket_lamp.png",
+      "sha256": "c9b1175618f305912989537c33021069627859f5be018501d7296d70c0111d91"
+    }
+  ]
+}

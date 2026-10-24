@@ -1,0 +1,24 @@
+{
+  "stages": [
+    {
+      "script": "art/blender/scripts/review_deployed_hose.py",
+      "env": {
+        "ORISON_HOSE_POSE": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_unracked_hose_20261022\\world_coil_v4\\B1_FIRE_LINE_STAIR_pose.json",
+        "ORISON_HOSE_POSE_SOURCE": "C:\\PleaseRemainOnTheLine\\art\\blender\\v2_unracked_hose\\native_v1\\blender\\unracked_fire_hose.blend",
+        "ORISON_HOSE_POSE_OBJECT": "UnrackedHose",
+        "ORISON_HOSE_POSE_RINGS": "135",
+        "ORISON_HOSE_POSE_REVIEW_OUT": "C:\\PleaseRemainOnTheLine\\tmp\\v2-unracked-hose-20261022\\world_coil_v4_native_B1_FIRE_LINE_STAIR_pose"
+      }
+    },
+    {
+      "script": "art/blender/scripts/review_deployed_hose.py",
+      "env": {
+        "ORISON_HOSE_POSE": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_unracked_hose_20261022\\world_coil_v4\\ROOF_FIRE_LINE_STAIR_pose.json",
+        "ORISON_HOSE_POSE_SOURCE": "C:\\PleaseRemainOnTheLine\\art\\blender\\v2_unracked_hose\\native_v1\\blender\\unracked_fire_hose.blend",
+        "ORISON_HOSE_POSE_OBJECT": "UnrackedHose",
+        "ORISON_HOSE_POSE_RINGS": "135",
+        "ORISON_HOSE_POSE_REVIEW_OUT": "C:\\PleaseRemainOnTheLine\\tmp\\v2-unracked-hose-20261022\\world_coil_v4_native_ROOF_FIRE_LINE_STAIR_pose"
+      }
+    }
+  ]
+}

@@ -6,6 +6,7 @@ extends Node3D
 ## Scene-mesh shadows remain engine-owned; ecological exposure is untouched.
 const FOG_SHADER := preload("res://shaders/lamp_optical_air.gdshader")
 const Field := preload("res://scripts/lamp/lamp_optical_voxel_field.gd")
+const ReceiverBinding := preload("res://scripts/lamp/lamp_optical_receivers.gd")
 var field: RefCounted
 var observation: Node3D
 var _bound := false
@@ -69,11 +70,11 @@ func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	volume.material = material
 	add_child(volume)
 	_build_dust()
-	receivers = preload("res://scripts/lamp/lamp_optical_receivers.gd").new()
-	receivers.setup(get_parent(),player.flashlight,field)
+	receivers = ReceiverBinding.new()
+	receivers.setup(get_parent(),player.flashlight,field,true)
 	scene_shadow = preload("res://scripts/lamp/lamp_scene_shadow.gd").new()
 	add_child(scene_shadow)
-	scene_shadow.setup(field,player.flashlight)
+	scene_shadow.setup(field,player.flashlight,true,ReceiverBinding.DEPTH_CAMERA_EXCLUSIONS)
 	process_priority = 100
 	_update_volume(0)
 	return true
@@ -103,6 +104,13 @@ func _update_volume(delta: float) -> void:
 		observation.observe_light(source,inspection.lamp_enabled,delta)
 	else:
 		observation.observe_player(player,delta)
+	var presentation_camera := get_viewport().get_camera_3d()
+	if receivers.isolate_depth_lights and presentation_camera != null \
+			and presentation_camera.cull_mask & 1 \
+			and not presentation_camera.cull_mask & ReceiverBinding.DEPTH_LIGHT_LAYER:
+		receivers.restore_depth_light_layers()
+	scene_shadow.excluded_light_layers = ReceiverBinding.DEPTH_CAMERA_EXCLUSIONS \
+			if receivers.isolate_depth_lights and receivers.depth_geometry_clear else 0
 	receivers.select_lamp(source)
 	scene_shadow.lamp = source
 	if field.ready:

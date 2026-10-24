@@ -1,0 +1,48 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE HAND CHECK: production cabinet installer mounts = true
+FIRE HAND CHECK: 135-ring separate round hose prepares before input = true
+CAP MAPPING: mesh=v2_unracked_fire_hose_UnrackedHose valid_basis=true max_uv_excess=0.00000006705523 widest=1.00002459646573 vertices=19348 derivatives=true bad_derivatives=0 min_determinant=0.00000724698455 worst_dot=0.99999982118607
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: unracked custom PBR map has loaded mipmaps = true
+FIRE HAND CHECK: isolated following camera has no physical player capsule in the hose route = true
+FIRE HAND CHECK: native annular world queries and short solver initialize = true
+FIRE HAND CHECK: optional local numerical seed prepares before input = true
+FIRE HAND CHECK: stored representation has no running hose simulation = true
+UNRACKED READY: setup_ms=49.662 initial_placement_clear=true collider=none
+FIRE HAND CHECK: actual nozzle surface targets the rack extraction owner = true
+FIRE HAND CHECK: primary click grabs without removing or moving the stored hose = true
+FIRE HAND CHECK: a real distant obstruction prevents the representation swap = true
+UNRACKED EXTRACTION: deployed=true distance=0.2 error= collider=none
+FIRE HAND CHECK: actual mouse pull replaces stored stock with full-length round hose = true
+FIRE HAND CHECK: second click releases extraction = true
+FIRE HAND CHECK: unracked nozzle remains the actual carry target = true
+FIRE HAND CHECK: regrabbing the actual unracked nozzle does not snap the hose = true
+FIRE HAND CHECK: actual unracked mouse carry moves the full material without stretching or world penetration = true
+UNRACKED CARRY: moved=0.08995426446199 error=wide nonlinear line search stalled input_ms=[6.987, 10.524, 7.32, 7.651, 8.638, 8.198, 7.798, 8.677, 8.025, 7.965, 7.638, 7.7, 8.511, 7.303, 7.306, 7.232]
+FIRE HAND CHECK: carry blocker begins outside the accepted hose without stealing the held sightline = true
+UNRACKED BLOCK: direction=(1.0, 0.0, 0.0) wall=[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.218087, 1.236682, 0.381887)] delta=(-0.014114, 0.003269, 0.02627) error= feedback=blocked clear=true
+FIRE HAND CHECK: actual nozzle carry retains physical obstruction protection = true
+FIRE HAND CHECK: reticle reads blocked carry from the same accepted motion state = true
+FIRE HAND CHECK: second click cancels pending hose carry and preserves its accepted pose = true
+FIRE HAND CHECK: full FPS payout prepares local contact-aware following = true
+FIRE HAND CHECK: payout uses the live player capsule and ordinary ground collision = true
+FIRE HAND CHECK: FPS payout targets the actual nozzle without relocating the player = true
+FIRE HAND CHECK: actual primary click acquires the FPS nozzle and its physical body = true
+FIRE HAND CHECK: FPS nozzle initially settles at the camera hand pose = false
+FPS PAYOUT: {"aim_degrees":0.0197823410294464,"elapsed_ms":117,"error":"","feedback":"grabbed","fitting_blocker":"","hand_distance_m":0.0,"held":true,"player":[-0.46249994635582,0.0000512134283781052,1.14999997615814],"player_contacts":["/root/V2UnrackedHoseBench/@StaticBody3D@5152"],"profile":{"broad_queries":0,"fitting_usec":449,"local_enabled":true,"local_join":12,"local_usec":41,"native_iterations":1,"native_qp_iterations":0,"physics_frame":330,"prepare_usec":1316,"process_frame":262,"responses":2,"shell_queries":0,"tether":{"commit_self":282,"commit_world":782,"seed":47,"self_constraints":305,"skin_apply":40,"world_constraints":918},"total_usec":2991},"span_m":1.43772411346436,"step":0,"supported_rings":[]}
+FPS PAYOUT: {"aim_degrees":0.0197823410294464,"elapsed_ms":100,"error":"","feedback":"grabbed","fitting_blocker":"","hand_distance_m":0.000000238418579101563,"held":true,"player":[-2.02500319480896,0.0000512134283781052,1.14999997615814],"player_contacts":["/root/V2UnrackedHoseBench/@StaticBody3D@5152"],"profile":{"broad_queries":-1,"fitting_usec":406,"local_enabled":true,"local_join":12,"local_usec":34,"native_iterations":1,"native_qp_iterations":0,"physics_frame":480,"prepare_usec":1309,"process_frame":387,"responses":2,"shell_queries":0,"tether":{"commit_self":277,"commit_world":754,"seed":39,"self_constraints":302,"skin_apply":36,"world_constraints":924},"total_usec":2883},"span_m":2.8167712688446,"step":25,"supported_rings":[]}
+FPS PAYOUT: {"aim_degrees":0.0197823410294464,"elapsed_ms":99,"error":"","feedback":"grabbed","fitting_blocker":"","hand_distance_m":0.000000238418579101563,"held":true,"player":[-3.58750915527344,0.0000512134283781052,1.14999997615814],"player_contacts":["/root/V2UnrackedHoseBench/@StaticBody3D@5152"],"profile":{"broad_queries":-1,"fitting_usec":420,"local_enabled":true,"local_join":12,"local_usec":36,"native_iterations":1,"native_qp_iterations":0,"physics_frame":630,"prepare_usec":1263,"process_frame":512,"responses":2,"shell_queries":0,"tether":{"commit_self":264,"commit_world":756,"seed":40,"self_constraints":265,"skin_apply":36,"world_constraints":913},"total_usec":2843},"span_m":4.3225622177124,"step":50,"supported_rings":[]}
+FPS PAYOUT: {"aim_degrees":0.0197823410294464,"elapsed_ms":100,"error":"","feedback":"grabbed","fitting_blocker":"","hand_distance_m":0.000000238418579101563,"held":true,"player":[-5.14999294281006,0.0000512134283781052,1.14999997615814],"player_contacts":["/root/V2UnrackedHoseBench/@StaticBody3D@5152"],"profile":{"broad_queries":0,"fitting_usec":402,"local_enabled":true,"local_join":12,"local_usec":33,"native_iterations":1,"native_qp_iterations":0,"physics_frame":780,"prepare_usec":1034,"process_frame":637,"responses":2,"shell_queries":0,"tether":{"commit_self":218,"commit_world":595,"seed":37,"self_constraints":237,"skin_apply":36,"world_constraints":719},"total_usec":2386},"span_m":5.85811233520508,"step":75,"supported_rings":[]}
+FPS PAYOUT: {"aim_degrees":0.0197823410294464,"elapsed_ms":100,"error":"","feedback":"grabbed","fitting_blocker":"","hand_distance_m":0.000000238418579101563,"held":true,"player":[-6.71246910095215,0.0000512134283781052,1.14999997615814],"player_contacts":["/root/V2UnrackedHoseBench/@StaticBody3D@5152"],"profile":{"broad_queries":0,"fitting_usec":438,"local_enabled":true,"local_join":12,"local_usec":44,"native_iterations":1,"native_qp_iterations":0,"physics_frame":930,"prepare_usec":948,"process_frame":762,"responses":2,"shell_queries":0,"tether":{"commit_self":216,"commit_world":476,"seed":49,"self_constraints":242,"skin_apply":37,"world_constraints":614},"total_usec":2228},"span_m":7.40493249893188,"step":100,"supported_rings":[]}
+FPS PAYOUT: {"aim_degrees":0.0197823410294464,"elapsed_ms":100,"error":"","feedback":"grabbed","fitting_blocker":"","hand_distance_m":0.000000238418579101563,"held":true,"player":[-8.27494525909424,0.0000512134283781052,1.14999997615814],"player_contacts":["/root/V2UnrackedHoseBench/@StaticBody3D@5152"],"profile":{"broad_queries":-30,"fitting_usec":448,"local_enabled":true,"local_join":12,"local_usec":43,"native_iterations":1,"native_qp_iterations":0,"physics_frame":1080,"prepare_usec":936,"process_frame":887,"responses":2,"shell_queries":0,"tether":{"commit_self":210,"commit_world":478,"seed":48,"self_constraints":223,"skin_apply":38,"world_constraints":614},"total_usec":2229},"span_m":8.95718860626221,"step":125,"supported_rings":[]}
+FPS PAYOUT FINAL: span=8.96340560913086 steps=130 last={"aim_degrees":0.0197823410294464,"elapsed_ms":1963,"error":"bounded held contact response ceiling","feedback":"blocked","fitting_blocker":"","hand_distance_m":0.22722789645195,"held":true,"player":[-8.50306224822998,0.000744040531571954,1.19906365871429],"player_contacts":["/root/V2UnrackedHoseBench/@StaticBody3D@5152"],"profile":{"broad_queries":0,"fitting_usec":0,"local_enabled":true,"local_join":134,"local_usec":89,"native_iterations":2,"native_qp_iterations":0,"physics_frame":1482,"prepare_usec":14342,"process_frame":1119,"responses":8,"shell_queries":0,"tether":{"contact_seed":564,"seed":151,"self_constraints":1776,"self_lift_seed":193,"world_constraints":8436},"total_usec":14345},"span_m":8.96340560913086,"step":129,"supported_rings":[]}
+FIRE HAND CHECK: actual FPS walking pays out all15.24m within the original150mm rigid-end span allowance = false
+FIRE HAND CHECK: full FPS payout retains material, bends and native world/fitting clearance = true
+FIRE HAND CHECK: fully paid-out FPS nozzle still aims along the reticle = true
+FIRE HAND CHECK: next actual click releases full payout and restores query ownership = true
+FIRE HAND CHECK: FPS payout diagnostic destination is writable = true
+V2 UNRACKED HOSE: FAIL failures=2

@@ -1,0 +1,99 @@
+{
+	"evidence_class": "INERT",
+	"failures": [
+		"SafetyWire 800 native-side ray/gap controls preserve original hit positions within1um"
+	],
+	"records": [
+		{
+			"capsule_casts": [
+				{
+					"blocked": true,
+					"candidate_us": 555,
+					"original_us": 8605,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 616,
+					"original_us": 12800,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 614,
+					"original_us": 9384,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 563,
+					"original_us": 8983,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 640,
+					"original_us": 12339,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 682,
+					"original_us": 9373,
+					"travel_error_m": 0.0
+				}
+			],
+			"id": "SafetyWire",
+			"max_ray_error_m": 0.0,
+			"ray_mismatches": 19,
+			"ray_queries": 800,
+			"shells": 70
+		},
+		{
+			"capsule_casts": [
+				{
+					"blocked": true,
+					"candidate_us": 126,
+					"original_us": 638,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 127,
+					"original_us": 958,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 122,
+					"original_us": 552,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 120,
+					"original_us": 615,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 124,
+					"original_us": 925,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 118,
+					"original_us": 550,
+					"travel_error_m": 0.0
+				}
+			],
+			"id": "F069",
+			"max_ray_error_m": 0.00000000372529029846191,
+			"ray_mismatches": 0,
+			"ray_queries": 800,
+			"shells": 1
+		}
+	],
+	"scope": "Imported native closed-shell half-space certificate plus physics ray/gap and actual player-capsule comparisons; not appearance or whole-world qualification."
+}

@@ -1,0 +1,1417 @@
+{
+	"checks": [
+		{
+			"label": "all eleven original shop identities remain",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY real hand reaches fitted open stop",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING real hand reaches fitted open stop",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT real hand reaches fitted open stop",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT real hand reaches fitted open stop",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR real hand reaches fitted open stop",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES real hand reaches fitted open stop",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE real hand reaches fitted open stop",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER real hand reaches fitted open stop",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS real hand reaches fitted open stop",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON real hand reaches fitted open stop",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE belongs to existing household save authority",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE lower shell datum is 16 mm",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE retained shell and six pull supports are physical",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE complete shell and pull sweep clears 0 through 90 degrees",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE intermediate angle follows real pointer input",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE real hand reaches fitted open stop",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE real hand returns to closed stop",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE partial pose prepared through pointer input for disk save",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE legacy 100 degree record accepted, excessive travel refused",
+			"ok": true
+		},
+		{
+			"label": "projected leaf motion follows pointer direction",
+			"ok": true
+		},
+		{
+			"label": "existing RealityState writes actual disk save",
+			"ok": true
+		},
+		{
+			"label": "disk contains existing household domain",
+			"ok": true
+		},
+		{
+			"label": "actual disk load and fresh world reconstruction succeed",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_MODEL_LAUNDRY lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_SHOE_REBUILDING lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_KEYS_CUT lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_HARDWARE_PAINT lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_FUNERAL_PARLOUR lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PHOTO_SUPPLIES lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_RADIO_SERVICE lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_PAWNBROKER lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_NEWS_CIGARS lock authority survives reconstruction",
+			"ok": false
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_OTIS___SON lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE partial angle survives disk and destruction",
+			"ok": true
+		},
+		{
+			"label": "SITE_SHOP_DOOR_LUNCHEONETTE lock authority survives reconstruction",
+			"ok": true
+		},
+		{
+			"label": "historical 100 degree pose migrates to fitted 90 degree stop",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"expected": {
+		"SITE_SHOP_DOOR_FUNERAL_PARLOUR": {
+			"angle": 0.540000021457672
+		},
+		"SITE_SHOP_DOOR_HARDWARE_PAINT": {
+			"angle": 0.505000054836273
+		},
+		"SITE_SHOP_DOOR_KEYS_CUT": {
+			"angle": 0.469999998807907
+		},
+		"SITE_SHOP_DOOR_LUNCHEONETTE": {
+			"angle": 0.75
+		},
+		"SITE_SHOP_DOOR_MODEL_LAUNDRY": {
+			"angle": 0.400000005960464
+		},
+		"SITE_SHOP_DOOR_NEWS_CIGARS": {
+			"angle": 0.680000007152557
+		},
+		"SITE_SHOP_DOOR_OTIS___SON": {
+			"angle": 0.714999973773956
+		},
+		"SITE_SHOP_DOOR_PAWNBROKER": {
+			"angle": 0.645000040531158
+		},
+		"SITE_SHOP_DOOR_PHOTO_SUPPLIES": {
+			"angle": 0.574999988079071
+		},
+		"SITE_SHOP_DOOR_RADIO_SERVICE": {
+			"angle": 0.610000014305115
+		},
+		"SITE_SHOP_DOOR_SHOE_REBUILDING": {
+			"angle": 0.435000002384186
+		}
+	},
+	"save_path": "C:/Users/nate_/AppData/Roaming/PleaseRemainOnTheLine/tests/shop_door_ae62af7fbe59c927.json",
+	"scope": "Eleven original shop doors: compound sweep, actual pointer input and disk/world reconstruction; stance placement and key setup are fixtures, not route or key acceptance.",
+	"sweeps": [
+		{
+			"blocked": [
+				{
+					"degrees": 77,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 78,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 79,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 80,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 81,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 82,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 83,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 84,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 85,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 86,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 87,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 88,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 89,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				},
+				{
+					"degrees": 90,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_model_laundry/F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@24824"
+				}
+			],
+			"id": "SITE_SHOP_DOOR_MODEL_LAUNDRY"
+		},
+		{
+			"blocked": [
+				{
+					"degrees": 77,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 78,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 79,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 80,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 81,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 82,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 83,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 84,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 85,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 86,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 87,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 88,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 89,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				},
+				{
+					"degrees": 90,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_shoe_rebuilding/F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24871"
+				}
+			],
+			"id": "SITE_SHOP_DOOR_SHOE_REBUILDING"
+		},
+		{
+			"blocked": [
+				{
+					"degrees": 76,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 77,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 78,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 79,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 80,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 81,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 82,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 83,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 84,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 85,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 86,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 87,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 88,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 89,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				},
+				{
+					"degrees": 90,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_keys_cut/F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@24911"
+				}
+			],
+			"id": "SITE_SHOP_DOOR_KEYS_CUT"
+		},
+		{
+			"blocked": [
+				{
+					"degrees": 77,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 78,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 79,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 80,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 81,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 82,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 83,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 84,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 85,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 86,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 87,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 88,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 89,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				},
+				{
+					"degrees": 90,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_hardware_paint/F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@24951"
+				}
+			],
+			"id": "SITE_SHOP_DOOR_HARDWARE_PAINT"
+		},
+		{
+			"blocked": [
+				{
+					"degrees": 76,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 77,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 78,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 79,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 80,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 81,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 82,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 83,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 84,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 85,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 86,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 87,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 88,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 89,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				},
+				{
+					"degrees": 90,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_funeral_parlour/F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25000"
+				}
+			],
+			"id": "SITE_SHOP_DOOR_FUNERAL_PARLOUR"
+		},
+		{
+			"blocked": [
+				{
+					"degrees": 76,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 77,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 78,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 79,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 80,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 81,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 82,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 83,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 84,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 85,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 86,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 87,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 88,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 89,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				},
+				{
+					"degrees": 90,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_photo_supplies/F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained/StaticBody3D",
+					"part": "@CollisionShape3D@25047"
+				}
+			],
+			"id": "SITE_SHOP_DOOR_PHOTO_SUPPLIES"
+		},
+		{
+			"blocked": [
+				{
+					"degrees": 76,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 77,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 78,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 79,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 80,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 81,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 82,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 83,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 84,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 85,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 86,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 87,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 88,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 89,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				},
+				{
+					"degrees": 90,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_radio_service/F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25085"
+				}
+			],
+			"id": "SITE_SHOP_DOOR_RADIO_SERVICE"
+		},
+		{
+			"blocked": [
+				{
+					"degrees": 76,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 77,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 78,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 79,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 80,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 81,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 82,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 83,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 84,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 85,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 86,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 87,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 88,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 89,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				},
+				{
+					"degrees": 90,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_pawnbroker/F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick/StaticBody3D",
+					"part": "@CollisionShape3D@25123"
+				}
+			],
+			"id": "SITE_SHOP_DOOR_PAWNBROKER"
+		},
+		{
+			"blocked": [
+				{
+					"degrees": 76,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 77,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 78,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 79,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 80,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 81,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 82,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 83,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 84,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 85,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 86,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 87,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 88,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 89,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				},
+				{
+					"degrees": 90,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_news_cigars/F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark/StaticBody3D",
+					"part": "@CollisionShape3D@25163"
+				}
+			],
+			"id": "SITE_SHOP_DOOR_NEWS_CIGARS"
+		},
+		{
+			"blocked": [
+				{
+					"degrees": 76,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 77,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 78,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 79,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 80,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 81,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 82,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 83,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 84,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 85,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 86,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 87,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 88,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 89,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				},
+				{
+					"degrees": 90,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_otis_son/F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone/StaticBody3D",
+					"part": "@CollisionShape3D@25203"
+				}
+			],
+			"id": "SITE_SHOP_DOOR_OTIS___SON"
+		},
+		{
+			"blocked": [
+				{
+					"degrees": 76,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 77,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 78,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 79,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 80,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 81,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 82,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 83,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 84,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 85,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 86,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 87,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 88,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 89,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				},
+				{
+					"degrees": 90,
+					"owner": "/root/V2PassageShopDoorRepair/OrisonV2Runtime/VantryArcade/ResidentGeometry/shop_luncheonette/F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome/StaticBody3D",
+					"part": "@CollisionShape3D@25250"
+				}
+			],
+			"id": "SITE_SHOP_DOOR_LUNCHEONETTE"
+		}
+	]
+}

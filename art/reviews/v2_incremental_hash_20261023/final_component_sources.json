@@ -1,0 +1,27 @@
+{
+  "evidence_class": "INERT",
+  "checks": [
+    {
+      "path": "game/scripts/building/orison_v2_shop_seating.gd",
+      "same_raw_source_as_passing_component_checks": true
+    },
+    {
+      "path": "game/scripts/building/orison_v2_fitting_collision_cache.gd",
+      "same_raw_source_as_passing_component_checks": true
+    },
+    {
+      "path": "game/tests/v2_native_fit_job_bench.gd",
+      "same_raw_source_as_passing_component_checks": true
+    },
+    {
+      "path": "game/tests/v2_incremental_signature_bench.gd",
+      "same_raw_source_as_passing_component_checks": true
+    }
+  ],
+  "checks_covered": [
+    "fitting_v5:37",
+    "signature_final:60",
+    "cache_final:73"
+  ],
+  "residency_shader_lifetime": "New world-owned reference tested in full windowed routes, not implied by these component checks."
+}

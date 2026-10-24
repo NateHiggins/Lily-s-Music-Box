@@ -1,0 +1,20 @@
+[
+  {
+    "scene": "res://tests/V2FittingCollisionCacheTest.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/buffer_cache.log",
+    "timeout": 180
+  },
+  {
+    "scene": "res://tests/V2TriangleFitterBench.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/buffer_triangle.log",
+    "timeout": 180
+  },
+  {
+    "timeout": 1500,
+    "scene": "res://tests/OrisonV2ResponsivenessProfile.tscn",
+    "runner": "long",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/performance_buffers.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/performance_buffers",
+    "windowed": true
+  }
+]

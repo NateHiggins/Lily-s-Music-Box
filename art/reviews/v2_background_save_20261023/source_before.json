@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original synchronous owner, live-state candidate validation and transaction before background-save work.",
+  "files": [
+    {
+      "path": "game/scripts/game/reality_game_state.gd",
+      "lf_sha256": "9963b3aee4d7654fb3625a6b87592800f2ce54c732cf58ef6ae8fdf77bf2ebb2",
+      "archive": "source_before/game/scripts/game/reality_game_state.gd.gz"
+    },
+    {
+      "path": "game/scripts/game/campaign_clock.gd",
+      "lf_sha256": "b54070fe3fe43f4aa77a081f27ded51f325875a7081e288612dc3d0025250dcd",
+      "archive": "source_before/game/scripts/game/campaign_clock.gd.gz"
+    },
+    {
+      "path": "game/scripts/game/reality_save_storage.gd",
+      "lf_sha256": "03a4ce83cc97d4b12c426612bdbfeef3b7f2237d606c11239840fc5a15d0d6ae",
+      "archive": "source_before/game/scripts/game/reality_save_storage.gd.gz"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_household_state.gd",
+      "lf_sha256": "20ea2645daceed869dd9e99aba8514d1148cb94204ae4d4b10152b1b2cee9a84",
+      "archive": "source_before/game/scripts/building/orison_v2_household_state.gd.gz"
+    }
+  ]
+}

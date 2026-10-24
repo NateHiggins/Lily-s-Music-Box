@@ -1,0 +1,18 @@
+[
+  {
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\import_v2.log",
+    "runner": "long",
+    "timeout": 1500,
+    "extra_args": [
+      "--import"
+    ]
+  },
+  {
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\world_v1.log",
+    "runner": "long",
+    "timeout": 1500,
+    "windowed": true,
+    "scene": "res://tests/V2PassageShopDoorRepair.tscn",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\world_v1"
+  }
+]

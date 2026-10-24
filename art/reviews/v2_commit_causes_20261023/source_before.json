@@ -1,0 +1,48 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original synchronous behavior plus optional changed-ID/call-stack diagnostic. Frozen during world_before_v1.",
+  "files": [
+    {
+      "path": "game/scripts/building/orison_v2_household_state.gd",
+      "raw_sha256": "20ea2645daceed869dd9e99aba8514d1148cb94204ae4d4b10152b1b2cee9a84",
+      "lf_sha256": "20ea2645daceed869dd9e99aba8514d1148cb94204ae4d4b10152b1b2cee9a84",
+      "archive": "source_before/game/scripts/building/orison_v2_household_state.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_commit_cause_world.gd",
+      "raw_sha256": "5e57c1001e5473562fc88dfa76c634bad0746b2e880804221b97e766c405cdc2",
+      "lf_sha256": "5e57c1001e5473562fc88dfa76c634bad0746b2e880804221b97e766c405cdc2",
+      "archive": "source_before/game/tests/v2_commit_cause_world.gd.gz"
+    },
+    {
+      "path": "game/tests/V2CommitCauseWorld.tscn",
+      "raw_sha256": "27d3d8feb228f0b2a20dc01467a57abf29827cc5d5c7db287443215495c3ae49",
+      "lf_sha256": "27d3d8feb228f0b2a20dc01467a57abf29827cc5d5c7db287443215495c3ae49",
+      "archive": "source_before/game/tests/V2CommitCauseWorld.tscn.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_work_attribution.gd",
+      "raw_sha256": "307f240002e59b000edc436f0e424e128d5a4806a66080d11859cd36dcba861a",
+      "lf_sha256": "307f240002e59b000edc436f0e424e128d5a4806a66080d11859cd36dcba861a",
+      "archive": "source_before/game/tests/v2_hose_work_attribution.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_frame_work_probe.gd",
+      "raw_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "lf_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "archive": "source_before/game/tests/v2_frame_work_probe.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_golden_repair_profile.gd",
+      "raw_sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7",
+      "lf_sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7",
+      "archive": "source_before/game/tests/v2_golden_repair_profile.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_installed_world.gd",
+      "raw_sha256": "fdd823e474bf91d5c8377ee140a4f79ec5456b01084e2995ec4fb8c135c64d79",
+      "lf_sha256": "fdd823e474bf91d5c8377ee140a4f79ec5456b01084e2995ec4fb8c135c64d79",
+      "archive": "source_before/game/tests/v2_hose_installed_world.gd.gz"
+    }
+  ]
+}

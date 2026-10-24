@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Primary upstream code informs hypotheses; master is not proof of the installed revision. Actual Godot4.7.1 runs qualify behavior only within their diagnostic scope.",
+  "references": [
+    {
+      "url": "https://raw.githubusercontent.com/godotengine/godot/master/scene/resources/mesh.cpp",
+      "functions": [
+        "ArrayMesh::_set_surfaces",
+        "ArrayMesh::surface_set_material"
+      ],
+      "finding": "The construction path accepts each material in the serialized surface dictionary; a later material setter updates an existing surface. Moving this assignment is an experimental option, not evidence of a speedup. The actual played material candidate moved the stall into construction and was rejected."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/godotengine/godot/master/scene/resources/material.cpp",
+      "functions": [
+        "BaseMaterial3D::_update_shader",
+        "BaseMaterial3D::~BaseMaterial3D"
+      ],
+      "finding": "Shader variants are shared by key with a user count, and are released when no materials use them. Retaining the measured canopy material may avoid regenerating that variant after geometry retirement. This causal hypothesis requires an actual-world comparison."
+    }
+  ]
+}

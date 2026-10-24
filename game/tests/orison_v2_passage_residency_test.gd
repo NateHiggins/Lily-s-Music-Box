@@ -63,13 +63,19 @@ func _route() -> void:
 	for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5), Vector3(0, 0, -10.2)]:
 		if not await _walk(point): return
 	var started := Time.get_ticks_msec()
-	while passage.residency.state == "LOADING" and Time.get_ticks_msec()-started < 5000:
-		await get_tree().process_frame
+	# Cooperative fitting spends more frames to bound input stalls. Its real
+	# deadline is arrival at the retained physical loading barrier, not five
+	# stationary seconds in the vestibule. Exercise the ordinary street route
+	# and require readiness BEFORE attempting the protected gateway crossing.
+	if not await _leave_front_entrance():return
+	for point: Vector3 in [Vector3(0,0,3),Vector3(14,0,3),Vector3(14,0,4.2),Vector3(14,-.1,8),Vector3(14,-.1,13.6),Vector3(14,0,15)]:
+		if not await _walk_world(point):return
+	print("RESIDENCY_SECOND_APPROACH_MS ",Time.get_ticks_msec()-started)
 	var resumed: Dictionary = passage.residency.snapshot()
 	print("RESIDENCY_RESUMED ", JSON.stringify(resumed))
 	if not _require(resumed.state == "RESIDENT" and resumed.cell_count == 13
 			and resumed.load_cycles >= 2 and resumed.unload_cycles >= 2,
-			"vestibule prefetch reconstructs a second geometry cycle"): return
+			"ordinary street approach completes second reconstruction before the protected gateway"): return
 	if not _check_specialist_fittings():return
 	if not _require(passage.cell_nodes.shop_luncheonette.get_node("DinerBackbar/DinerFinishReflection").get_instance_id()!=_diner_probe_id,
 			"reconstruction creates a fresh one-time Diner reflection owner"):return
@@ -272,14 +278,28 @@ func _check_removed_cabinets() -> bool:
 	return _require(total==7, "all seven shop cabinets remain removed after geometry reconstruction")
 
 func _check_ceiling_detail() -> void:
-	var cell: Node3D = world.passage_region.cell_nodes.passage
-	var details := cell.find_children("V2_PASSAGE_finish_ceiling_*", "MeshInstance3D", true, false)
-	_require(details.size() == 3, "all three ceiling detail batches survive passage residency")
-	for mesh: MeshInstance3D in details:
-		_require(mesh.mesh != null and mesh.mesh.get_surface_count() == 1,
-				"ceiling ornaments remain single batched surfaces")
-		var material := mesh.get_active_material(0) as ShaderMaterial
-		_require(material != null, "ceiling detail receives the architectural surface pass")
+	var cell: Node3D=world.passage_region.cell_nodes.passage
+	var legacy:=cell.find_children("V2_PASSAGE_finish_ceiling_*","MeshInstance3D",true,false)
+	_require(legacy.is_empty(),"retired floating ceiling ornament batches do not return")
+	var model:=cell.get_node_or_null("ArcadeCanopy") as Node3D
+	if not _require(model!=null,"native source-owned ceiling canopy survives residency"):return
+	_require(int(model.get_meta("retired_ornament_draws",0))==3,"native canopy retains all three original ornament retirements")
+	_require((model.get_meta("removed_triangles",{}) as Dictionary).size()==34,"native canopy retains its exact 34 source replacement boundaries")
+	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/arcade_canopy.json"))
+	var expected: Dictionary={}
+	for part: Dictionary in data.cells[0].parts:expected[str(part.name)]=false
+	var draws:=model.find_children("*","MeshInstance3D",true,false)
+	_require(draws.size()==4 and expected.size()==4,"all four native canopy material batches survive residency")
+	for draw: MeshInstance3D in draws:
+		var identity:=str(draw.get_meta("arcade_canopy_part",""))
+		if not _require(expected.has(identity) and not expected.get(identity,true),"native canopy part retains unique authored identity: "+identity):continue
+		expected[identity]=true
+		_require(draw.mesh!=null and draw.mesh.get_surface_count()==1 and draw.get_active_material(0)!=null,"native canopy part retains batched geometry and its actual material: "+identity)
+		if identity=="canopy__glassish":
+			var material:=draw.get_active_material(0) as ShaderMaterial
+			_require(material!=null and material.shader.resource_path=="res://shaders/lamp_glass_surface.gdshader","native canopy retains the registered physical glass shader")
+	_require(false not in expected.values(),"every declared native canopy part is present after reconstruction")
+
 
 func _surface_values() -> Dictionary:
 	var result := {}

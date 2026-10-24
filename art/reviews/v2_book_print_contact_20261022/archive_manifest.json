@@ -1,0 +1,840 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Exact diagnostic/source bytes and selected captures. No runtime_contract or human acceptance.",
+  "files": [
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/after_preflight_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/after_preflight_v1.log.gz",
+      "sha256": "9d581ec5492fe988c9c06ba731f53831e0de994203e89ae19ffcf5b503748acc",
+      "bytes": 75
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/after_preflight_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/after_preflight_v1.log.receipt.json.gz",
+      "sha256": "8bb6502c733f5788d429f1a3c58e16d2b962467a4ed9e1573d731109d2a5403c",
+      "bytes": 3392
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/after_preflight_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/after_preflight_v1.log.stderr.gz",
+      "sha256": "97180e0b9aa3eb056e43b7c00a3b534214c7ff1c89ae05402aaedd819bd1d1c8",
+      "bytes": 1926
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/all_titles_v1/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/all_titles_v1/contact.json.gz",
+      "sha256": "219a184c39db45f04776b4b146e9d17ef8913f555b101804b58a06f5b6535279",
+      "bytes": 13735
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/all_titles_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/all_titles_v1.log.gz",
+      "sha256": "ee93702b5e812b6e9e9fd6c36108bdf136bcc13f8b02577c0431b76cab513cfd",
+      "bytes": 13086
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/all_titles_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/all_titles_v1.log.receipt.json.gz",
+      "sha256": "d4812b55d7282d5da3fca0e810acb799c12f41036478a1a8ffba58edb7dfaaeb",
+      "bytes": 2962
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/all_titles_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/all_titles_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/before_v1/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/before_v1/contact.json.gz",
+      "sha256": "cd8944fe92e950394dd421afe6e49872c5f42897db38c71f3161e3675e4ae688",
+      "bytes": 1624
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/before_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/before_v1.log.gz",
+      "sha256": "d4b6d9995cf750588bd1b9735f2a6c0e8b0e42540be2fbb42ff83d4ab33c7dc7",
+      "bytes": 1505
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/before_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/before_v1.log.receipt.json.gz",
+      "sha256": "588159fed3a490f13bacc2b0476b35c5273eb81208948ca44e33e17274878618",
+      "bytes": 2979
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/before_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/before_v1.log.stderr.gz",
+      "sha256": "df22b11c0f01b48501bbc1cba3b3f51c385182aa6836b80c714d988ec6ff1c2f",
+      "bytes": 945
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/budget_all_v1/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/budget_all_v1/contact.json.gz",
+      "sha256": "18987cd6374e41911e69da113467f2677a24656c2808a568385c2c89557441d3",
+      "bytes": 13735
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/budget_all_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/budget_all_v1.log.gz",
+      "sha256": "ed8ac05507c83e5f5ddbf7686906c7ed6e0569810f7bb79f8765e30e1d695fc2",
+      "bytes": 13087
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/budget_all_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/budget_all_v1.log.receipt.json.gz",
+      "sha256": "38353c3373e35e3c0d1640e1fcc3320e39e9121500131b702c2d5946e369305d",
+      "bytes": 2845
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/budget_all_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/budget_all_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/cached_all_v1/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/cached_all_v1/contact.json.gz",
+      "sha256": "18987cd6374e41911e69da113467f2677a24656c2808a568385c2c89557441d3",
+      "bytes": 13735
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/cached_all_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/cached_all_v1.log.gz",
+      "sha256": "e80296ec5a3e4bea3978c18d1fa1480cd2e0af6c5dc7dae9b3e5cfa317f87620",
+      "bytes": 13086
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/cached_all_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/cached_all_v1.log.receipt.json.gz",
+      "sha256": "310084415399a14c61426bbf4b30ada0775564e1bd66329fcb245f02e6916f4e",
+      "bytes": 2844
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/cached_all_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/cached_all_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_no_aa/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_no_aa/contact.json.gz",
+      "sha256": "f359e1c5f8a5fc9c07f75f1d3702d12c14b8912f52cf0356c49db947acca3010",
+      "bytes": 284
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_no_aa.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_no_aa.log.gz",
+      "sha256": "c9ca387a9d6c1677c5ca42ddb8e4d05c75851b2f5cc23c657719bcb66533bd93",
+      "bytes": 372
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_no_aa.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_no_aa.log.receipt.json.gz",
+      "sha256": "a203d592bad6cd5ae249a5c11ab38a22b9079ce4983e48bb04cd1feaf46c81d9",
+      "bytes": 2990
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_no_aa.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_no_aa.log.stderr.gz",
+      "sha256": "1f621d552099cbf2f604f4de925eab5710b40e6ce6feae32ec3c2d8889cdc263",
+      "bytes": 315
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_no_depth/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_no_depth/contact.json.gz",
+      "sha256": "f359e1c5f8a5fc9c07f75f1d3702d12c14b8912f52cf0356c49db947acca3010",
+      "bytes": 284
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_no_depth.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_no_depth.log.gz",
+      "sha256": "c9ca387a9d6c1677c5ca42ddb8e4d05c75851b2f5cc23c657719bcb66533bd93",
+      "bytes": 372
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_no_depth.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_no_depth.log.receipt.json.gz",
+      "sha256": "cc9b1ef15659d35b01c8ac5ee0822478f695f3c1485a1259082501d810236572",
+      "bytes": 2998
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_no_depth.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_no_depth.log.stderr.gz",
+      "sha256": "1f621d552099cbf2f604f4de925eab5710b40e6ce6feae32ec3c2d8889cdc263",
+      "bytes": 315
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_unshaded/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_unshaded/contact.json.gz",
+      "sha256": "f359e1c5f8a5fc9c07f75f1d3702d12c14b8912f52cf0356c49db947acca3010",
+      "bytes": 284
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_unshaded.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_unshaded.log.gz",
+      "sha256": "c9ca387a9d6c1677c5ca42ddb8e4d05c75851b2f5cc23c657719bcb66533bd93",
+      "bytes": 372
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_unshaded.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_unshaded.log.receipt.json.gz",
+      "sha256": "4c8102143bf4b2f4636208e85a6971dd8d55322a3518bc1fb6975ed85e405f35",
+      "bytes": 3000
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/control_unshaded.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/control_unshaded.log.stderr.gz",
+      "sha256": "1f621d552099cbf2f604f4de925eab5710b40e6ce6feae32ec3c2d8889cdc263",
+      "bytes": 315
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_all_v1/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_all_v1/contact.json.gz",
+      "sha256": "d248664fe3ee3490a0d06f6e98bd52ade4b4c323f48d1ce528f958bf5f470c47",
+      "bytes": 36558
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_all_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_all_v1.log.gz",
+      "sha256": "098de212130188ad7096df036a921cdeac27912645d657b3e5fa04c3abe2554f",
+      "bytes": 34486
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_all_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_all_v1.log.receipt.json.gz",
+      "sha256": "ad3559a2628e25ce91d9be0abefd364f6e969ae9e63f7b259fe9399e8ae4b3d2",
+      "bytes": 2842
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_all_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_all_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_hand_v1/input_costs.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_hand_v1/input_costs.json.gz",
+      "sha256": "db5e9bbd4a6c40e6829874cc5384ff9deecd8aa055bded795a27744dbaeec251",
+      "bytes": 3678
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_hand_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_hand_v1.log.gz",
+      "sha256": "33a0411e1bdc38af816b9ed58e0f6e2bae37860b2ffb3dc54fbbf4f229bfd57f",
+      "bytes": 1571
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_hand_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_hand_v1.log.receipt.json.gz",
+      "sha256": "d5df3945efb2050006d866f67e47f97a65325c39a90c695cd7f46fa8b4529256",
+      "bytes": 2855
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_hand_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_hand_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_nook_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_nook_v1.log.gz",
+      "sha256": "5497ae8151b8d917209920bb637236ca899a015cceb54d56c6bddfbdbb3f5ccf",
+      "bytes": 101681
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_nook_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_nook_v1.log.receipt.json.gz",
+      "sha256": "815a57c0d46f81738e7c1d0335e7de45a87949cd428901fc0264e7704cb6126d",
+      "bytes": 2849
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_nook_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_nook_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_preflight_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_preflight_v1.log.gz",
+      "sha256": "9d581ec5492fe988c9c06ba731f53831e0de994203e89ae19ffcf5b503748acc",
+      "bytes": 75
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_preflight_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_preflight_v1.log.receipt.json.gz",
+      "sha256": "9ec5cd0576b0566e3160ca90d747bcefac0d1af7c54e286ba737b8aed8ff87ee",
+      "bytes": 3337
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_preflight_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_preflight_v1.log.stderr.gz",
+      "sha256": "97180e0b9aa3eb056e43b7c00a3b534214c7ff1c89ae05402aaedd819bd1d1c8",
+      "bytes": 1926
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_source_board_v1/board.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_source_board_v1/board.json.gz",
+      "sha256": "0591a9f8b9ca42ecc4984d2becfb740d7bfc5a6587cd1a722c128b3c0f604b31",
+      "bytes": 264585
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_source_board_v1/board.md",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_source_board_v1/board.md.gz",
+      "sha256": "752fd7b0e96c5a2080dc7aed983f4deff65d4a2ada87472c7246ffa8927729ab",
+      "bytes": 529
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_source_board_v2/board.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_source_board_v2/board.json.gz",
+      "sha256": "a515a062d9781a17ab50218bbe576fc376d9542646f8873ef5e8b4dd2a817ed0",
+      "bytes": 264601
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/final_source_board_v2/board.md",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/final_source_board_v2/board.md.gz",
+      "sha256": "59506eb681efa6bee89189d679a6a8e51c8a14a20dd102749c3cc9c5538d8aa5",
+      "bytes": 528
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/measurements.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/measurements.json.gz",
+      "sha256": "129cb12dd1adade91779380cc972183cc0b6eff72f2c94dcd8e4cb235d8e3aca",
+      "bytes": 62041
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/protected.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/protected.json.gz",
+      "sha256": "aac046f10b8fe6fb2ea9b83325c5a92647f2473e1ce93a998b0ae16f6fb1344d",
+      "bytes": 1630
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/source_board_v1/board.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/source_board_v1/board.json.gz",
+      "sha256": "aad8373c7c794893495ea11a9ceeec4f657a7b9f0a8ccea4cd73166ad4363abc",
+      "bytes": 264562
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/source_board_v1/board.md",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/source_board_v1/board.md.gz",
+      "sha256": "e9a0c363afc08c11a0f3ed876f53e2e639954229ffe7fd2e4d48cfe83f081e01",
+      "bytes": 529
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/split_v1/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/split_v1/contact.json.gz",
+      "sha256": "54d1cb54eaf866be21d9ec04cf681c85334e1bcf30b08a107ad2488b164c0954",
+      "bytes": 1427
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/split_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/split_v1.log.gz",
+      "sha256": "9c70a0857bcec92bbb074137a1205a70ee18a5a02a6bab4cd375a5d35181fb47",
+      "bytes": 1510
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/split_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/split_v1.log.receipt.json.gz",
+      "sha256": "109c0519ad9b3f3221c0e15e96a41c34e2e01510bdadedd6f9b7c55f94843da4",
+      "bytes": 2966
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/split_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/split_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v1/frames.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v1/frames.json.gz",
+      "sha256": "7425f49939e3df417c57faa4c4db90e23469b8c33053c15f5e67d42f5ebf8bb2",
+      "bytes": 376176
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v1/nook_state.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v1/nook_state.json.gz",
+      "sha256": "98b4757ceeecd8b92cecd8c3b686c2a6ddfcf1e19a22dbdff4ec47c99183a650",
+      "bytes": 525
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v1/print.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v1/print.json.gz",
+      "sha256": "1e711b395e3c45541ad95c93cbef3125b9f5f72ae43fc7d9b2cb6e1120b19344",
+      "bytes": 202
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v1/route.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v1/route.json.gz",
+      "sha256": "1f57be3817d8d25af15fd382ff4277a9862dffca4fcff84e5543b6dbd4f3cf92",
+      "bytes": 850
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v1.log.gz",
+      "sha256": "640cc87f7296712c404bd8f878a1db1272fac913d1d841d0916ab2ec4a550529",
+      "bytes": 2529
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v1.log.receipt.json.gz",
+      "sha256": "9d26dd48bb22b6763861dfef75fe6f803c38fd971644013a379ca2ad986fc427",
+      "bytes": 2805
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v2/frames.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v2/frames.json.gz",
+      "sha256": "ff2fc759b57488127e7c8a2622716f38c9a91db9f3ae767a4ea3b30317462093",
+      "bytes": 377963
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v2/nook_state.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v2/nook_state.json.gz",
+      "sha256": "98b4757ceeecd8b92cecd8c3b686c2a6ddfcf1e19a22dbdff4ec47c99183a650",
+      "bytes": 525
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v2/print.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v2/print.json.gz",
+      "sha256": "a6aa03735a46426f9a0356939562ce003fc5b5b8689d53ff897e3fd85af98fca",
+      "bytes": 305
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v2/route.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v2/route.json.gz",
+      "sha256": "1f57be3817d8d25af15fd382ff4277a9862dffca4fcff84e5543b6dbd4f3cf92",
+      "bytes": 850
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v2.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v2.log.gz",
+      "sha256": "d271eb3f785124e2644a5352cc13ac386900bf833ebea25b4a815953d987e495",
+      "bytes": 2530
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v2.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v2.log.receipt.json.gz",
+      "sha256": "934fbef49c0ee1ecf9812e1d675a618b8a55de749d1bc50fc2e48947b22a772f",
+      "bytes": 2750
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_after_v2.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_after_v2.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v1.log.gz",
+      "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+      "bytes": 183
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v1.log.receipt.json.gz",
+      "sha256": "93e86125280a39dacb6d9c7b4f3d8f2fc555cb62f4d24dbdf567c54379b1abad",
+      "bytes": 3191
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v1.log.stderr.gz",
+      "sha256": "05482301073d789f929225c864b5f4691300ec37db8854e322ba3878c65e1c7a",
+      "bytes": 351
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v2/frames.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v2/frames.json.gz",
+      "sha256": "cb479af227633176318e5b0be953f9c540dae41c4755e620318831aea73a747d",
+      "bytes": 288116
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v2/nook_state.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v2/nook_state.json.gz",
+      "sha256": "98b4757ceeecd8b92cecd8c3b686c2a6ddfcf1e19a22dbdff4ec47c99183a650",
+      "bytes": 525
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v2/route.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v2/route.json.gz",
+      "sha256": "19ca7923b1d01da033dc8e28b26ec8dcfc5c03871cd6b5374cd05781c651da3e",
+      "bytes": 900
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v2.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v2.log.gz",
+      "sha256": "ea96d0b7500390a52dd66fc05d9a30e84bbc8352b016797f35ee4efe72d087dc",
+      "bytes": 2276
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v2.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v2.log.receipt.json.gz",
+      "sha256": "c066885ecdcf18e1a1c8f83d0464fe6f74353c4dc2ebb6c9da6b693159e92c20",
+      "bytes": 2956
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v2.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v2.log.stderr.gz",
+      "sha256": "d6905d90b9a6cea3e981bbffc3ea72839e37d00dc803de86079c1194a1adb515",
+      "bytes": 405
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v3/frames.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v3/frames.json.gz",
+      "sha256": "94bd1ab5bdd10df7dd67f962135b608457b7559e7ed075e39be4c4a9b9292a89",
+      "bytes": 377876
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v3/nook_state.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v3/nook_state.json.gz",
+      "sha256": "8b764118d27ddf0ac6d4b83c1af8a15d1755b1e48d2bcb5d4233c0549f3420b4",
+      "bytes": 526
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v3/print.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v3/print.json.gz",
+      "sha256": "365a468370347e382f819ecdc5ceea884b337903cafa2bda5485dc3407e74ab4",
+      "bytes": 175
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v3/route.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v3/route.json.gz",
+      "sha256": "1f57be3817d8d25af15fd382ff4277a9862dffca4fcff84e5543b6dbd4f3cf92",
+      "bytes": 850
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v3.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v3.log.gz",
+      "sha256": "e97734e37fc50cb55320d1eefe18021c0a2e011b96f86c69c153447d49c962fd",
+      "bytes": 2529
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v3.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v3.log.receipt.json.gz",
+      "sha256": "e1b00248e2ae0519702e1fb891feda1e86140435aef5f3c8b06baf7d13fe55ee",
+      "bytes": 2942
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_before_v3.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_before_v3.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_preflight_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_preflight_v1.log.gz",
+      "sha256": "9d581ec5492fe988c9c06ba731f53831e0de994203e89ae19ffcf5b503748acc",
+      "bytes": 75
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_preflight_v1.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_preflight_v1.log.receipt.json.gz",
+      "sha256": "23c74f3b7569520fa2f267020ee4c709ba8e211c0d656e82254c59520cb0612b",
+      "bytes": 3540
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_preflight_v1.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_preflight_v1.log.stderr.gz",
+      "sha256": "97180e0b9aa3eb056e43b7c00a3b534214c7ff1c89ae05402aaedd819bd1d1c8",
+      "bytes": 1926
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_preflight_v2.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_preflight_v2.log.gz",
+      "sha256": "9d581ec5492fe988c9c06ba731f53831e0de994203e89ae19ffcf5b503748acc",
+      "bytes": 75
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_preflight_v2.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_preflight_v2.log.receipt.json.gz",
+      "sha256": "831c93d2dc27e48cf03c8b9f8f12bba3c8e3e71d8e2a23fa358fb7dd80947375",
+      "bytes": 3526
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/world_preflight_v2.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/world_preflight_v2.log.stderr.gz",
+      "sha256": "97180e0b9aa3eb056e43b7c00a3b534214c7ff1c89ae05402aaedd819bd1d1c8",
+      "bytes": 1926
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_bitmap/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_bitmap/contact.json.gz",
+      "sha256": "80e9e06f33ac5c9733a6d267a0ab019b99552b1b50bcf7fa58ad1437fcf0c224",
+      "bytes": 215
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_bitmap.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_bitmap.log.gz",
+      "sha256": "84a09daead61b62d348fa84a5b41f4dba1c4267707da56dfe446830c0ac839ed",
+      "bytes": 371
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_bitmap.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_bitmap.log.receipt.json.gz",
+      "sha256": "3fbeb702029f8110e282e758496e0f0f35ead538f0753bc177460fc4669f2715",
+      "bytes": 2985
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_bitmap.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_bitmap.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_blend/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_blend/contact.json.gz",
+      "sha256": "f359e1c5f8a5fc9c07f75f1d3702d12c14b8912f52cf0356c49db947acca3010",
+      "bytes": 284
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_blend.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_blend.log.gz",
+      "sha256": "c9ca387a9d6c1677c5ca42ddb8e4d05c75851b2f5cc23c657719bcb66533bd93",
+      "bytes": 372
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_blend.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_blend.log.receipt.json.gz",
+      "sha256": "af7c010561dcdb0252c83c978f3afca56d1fa86d6cab7e7d8fa1522fdc8f205d",
+      "bytes": 2981
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_blend.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_blend.log.stderr.gz",
+      "sha256": "e04f7193e4759f47c8b831f8f8d8cfc22df5171d30c57defaa032676d602a0e6",
+      "bytes": 315
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_blend_matte/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_blend_matte/contact.json.gz",
+      "sha256": "f359e1c5f8a5fc9c07f75f1d3702d12c14b8912f52cf0356c49db947acca3010",
+      "bytes": 284
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_blend_matte.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_blend_matte.log.gz",
+      "sha256": "c9ca387a9d6c1677c5ca42ddb8e4d05c75851b2f5cc23c657719bcb66533bd93",
+      "bytes": 372
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_blend_matte.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_blend_matte.log.receipt.json.gz",
+      "sha256": "d54811384b1cb78299316b33260bf341087e7b68874cc3068e303605e7ca5e96",
+      "bytes": 2999
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_blend_matte.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_blend_matte.log.stderr.gz",
+      "sha256": "e1fd419650c2b6caf32125642cc389ff66a4e3bbe51476313b855e42a7c84621",
+      "bytes": 315
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_flat/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_flat/contact.json.gz",
+      "sha256": "da647dc658e37f09fdd1c9d62df0221e3ce5e8d2b0cd8a9bb7a68a0990c4515d",
+      "bytes": 212
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_flat.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_flat.log.gz",
+      "sha256": "b196705db8349012d06794c9c6931a2dbe1905b63f8ee186a1f8b890dac3c7da",
+      "bytes": 371
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_flat.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_flat.log.receipt.json.gz",
+      "sha256": "0fc47cd0c582f6d9402949a3caa5e7c28181d3432c3f7db854e6220af7f412fa",
+      "bytes": 2978
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_flat.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_flat.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_prepass_matte/contact.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_prepass_matte/contact.json.gz",
+      "sha256": "f359e1c5f8a5fc9c07f75f1d3702d12c14b8912f52cf0356c49db947acca3010",
+      "bytes": 284
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_prepass_matte.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_prepass_matte.log.gz",
+      "sha256": "c9ca387a9d6c1677c5ca42ddb8e4d05c75851b2f5cc23c657719bcb66533bd93",
+      "bytes": 372
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_prepass_matte.log.receipt.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_prepass_matte.log.receipt.json.gz",
+      "sha256": "1b365aaa52a064e4a82081df30761036cff448c1783b67761b06e9c5a6081fba",
+      "bytes": 3006
+    },
+    {
+      "original": "art/reviews/v2_book_print_contact_20261022/zoom_prepass_matte.log.stderr",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/diagnostics/zoom_prepass_matte.log.stderr.gz",
+      "sha256": "e1fd419650c2b6caf32125642cc389ff66a4e3bbe51476313b855e42a7c84621",
+      "bytes": 315
+    },
+    {
+      "original": "DOCS.md",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/DOCS.md.gz",
+      "sha256": "2ce21cd94d3084734c99310a17168f940c7760798ef1a5f48ae7509422f8dad3",
+      "bytes": 55210
+    },
+    {
+      "original": "git:48da899c:DOCS.md",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/previous_source/DOCS.md.gz",
+      "sha256": "5087dd5fbe1af4e02f960bdb6465f77b5d10d0978191be9a372f39615fe9b584",
+      "bytes": 55075
+    },
+    {
+      "original": "design/V2_BOOK_PRINT_CONTACT_2026-10-22.md",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/design/V2_BOOK_PRINT_CONTACT_2026-10-22.md.gz",
+      "sha256": "1404d0e2b88b80457b8a1a0223c64f6a5bb7826c9c34a6253abd10f560d1edf5",
+      "bytes": 5859
+    },
+    {
+      "original": "art/blender/reading_nook_construction.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/art/blender/reading_nook_construction.json.gz",
+      "sha256": "accaa300d04930ab0549b736ca58fe06a37c7e2296b26a2b5ea82b5c5de40918",
+      "bytes": 87278
+    },
+    {
+      "original": "git:48da899c:art/blender/reading_nook_construction.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/previous_source/art/blender/reading_nook_construction.json.gz",
+      "sha256": "79dbe9a005c3e18d261ca887b6e0b9b3ff065ff41a44f8222f3da481a82c9832",
+      "bytes": 87165
+    },
+    {
+      "original": "art/blender/nook_readable_books_construction.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/art/blender/nook_readable_books_construction.json.gz",
+      "sha256": "5d92bfd748e806cb1fb795aaa606c38fe12ebb61165d5c83916fbed360b26b83",
+      "bytes": 191649
+    },
+    {
+      "original": "git:48da899c:art/blender/nook_readable_books_construction.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/previous_source/art/blender/nook_readable_books_construction.json.gz",
+      "sha256": "88f17889b62598ca58ea141aa2679349847fc59790a2d1988fb14b3ceea68c3c",
+      "bytes": 191649
+    },
+    {
+      "original": "art/blender/scripts/build_reading_nook.py",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/art/blender/scripts/build_reading_nook.py.gz",
+      "sha256": "4a3d383c7090132f8f491e1f1165174460a6c269551d2928b32f2bb60433b8e7",
+      "bytes": 24891
+    },
+    {
+      "original": "git:48da899c:art/blender/scripts/build_reading_nook.py",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/previous_source/art/blender/scripts/build_reading_nook.py.gz",
+      "sha256": "6d7386b824556d7e1701d4456973157a3c3934bc40bc185af7b62035e1c1f321",
+      "bytes": 24829
+    },
+    {
+      "original": "game/scripts/props/v2_readable_book.gd",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/game/scripts/props/v2_readable_book.gd.gz",
+      "sha256": "fd121446db2d2362a6dabc6b6cfcb31999d7d971bbb6bd61bab6df98f4e1cc1a",
+      "bytes": 24913
+    },
+    {
+      "original": "git:48da899c:game/scripts/props/v2_readable_book.gd",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/previous_source/game/scripts/props/v2_readable_book.gd.gz",
+      "sha256": "6e54232f1548d32879be31de9008a6ceab5bdf446e2c59dfe606bc2d11b2284f",
+      "bytes": 22928
+    },
+    {
+      "original": "game/scripts/props/book_print_mesh.gd",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/game/scripts/props/book_print_mesh.gd.gz",
+      "sha256": "9f158d52ae43b4779720500aaacc1f736fbdec8f2f1440382c2d62f8448dfa4e",
+      "bytes": 4330
+    },
+    {
+      "original": "game/tests/fixtures/orison_reading_nook.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/game/tests/fixtures/orison_reading_nook.json.gz",
+      "sha256": "accaa300d04930ab0549b736ca58fe06a37c7e2296b26a2b5ea82b5c5de40918",
+      "bytes": 87278
+    },
+    {
+      "original": "git:48da899c:game/tests/fixtures/orison_reading_nook.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/previous_source/game/tests/fixtures/orison_reading_nook.json.gz",
+      "sha256": "79dbe9a005c3e18d261ca887b6e0b9b3ff065ff41a44f8222f3da481a82c9832",
+      "bytes": 87165
+    },
+    {
+      "original": "game/tests/v2_nook_world_profile.gd",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/game/tests/v2_nook_world_profile.gd.gz",
+      "sha256": "7ccd93caf9fe15c96d85eac0e63e461439317efb5e82f7e47223a141ab903775",
+      "bytes": 3923
+    },
+    {
+      "original": "git:48da899c:game/tests/v2_nook_world_profile.gd",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/previous_source/game/tests/v2_nook_world_profile.gd.gz",
+      "sha256": "d802608161ad67fef05f97acb5ab2963770ec6cb9032d30521d3e3ae929dfe35",
+      "bytes": 3824
+    },
+    {
+      "original": "game/tests/v2_book_print_contact.gd",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/game/tests/v2_book_print_contact.gd.gz",
+      "sha256": "f6a36b2be0e70176a357dca90d5e550eb0c180569bc441073475c2fd073e6940",
+      "bytes": 5607
+    },
+    {
+      "original": "game/tests/V2BookPrintContact.tscn",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/game/tests/V2BookPrintContact.tscn.gz",
+      "sha256": "aa4333792471de7b47e203ccf3cb8b90e196031844e74a9c5807f397a42ef6e6",
+      "bytes": 186
+    },
+    {
+      "original": "game/tests/v2_book_print_world_profile.gd",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/game/tests/v2_book_print_world_profile.gd.gz",
+      "sha256": "7c6c7d78ce6b7df9e10ee48c8e73aca6a3d063b521515cff919fa5bd923d6856",
+      "bytes": 2561
+    },
+    {
+      "original": "game/tests/V2BookPrintWorldProfile.tscn",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/game/tests/V2BookPrintWorldProfile.tscn.gz",
+      "sha256": "3ccf65b6d602c92df952f83ef9ae939d8ec1e401f6f616ca5ea3292aa0b5cf7f",
+      "bytes": 197
+    },
+    {
+      "original": "tools/orison_spatial_dependency_manifest.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/final_source/tools/orison_spatial_dependency_manifest.json.gz",
+      "sha256": "0fb03969b6102dc42c5850f1d9d2de30a3b545678187ab481e1b234e4276c02a",
+      "bytes": 7576956
+    },
+    {
+      "original": "git:48da899c:tools/orison_spatial_dependency_manifest.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/previous_source/tools/orison_spatial_dependency_manifest.json.gz",
+      "sha256": "2a242b540b81b2084487d4131f372ddd11239ca4287ee488ba3ac513ea800da0",
+      "bytes": 7576128
+    },
+    {
+      "original": "tmp/book_print_candidate.gd",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/intermediate/book_print_candidate.gd.gz",
+      "sha256": "0490aed44bc1e953bab8a4a0d67a3ff6d37a6e981e87d3046ce1b03ece04c5d7",
+      "bytes": 23993
+    },
+    {
+      "original": "tmp/book_print_before.gd",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/intermediate/book_print_before.gd.gz",
+      "sha256": "6e54232f1548d32879be31de9008a6ceab5bdf446e2c59dfe606bc2d11b2284f",
+      "bytes": 22928
+    },
+    {
+      "original": "tmp/book_print_swap.json",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/intermediate/book_print_swap.json.gz",
+      "sha256": "434f7c2258cd5af94c2b6009a84309e63aeb708fdc7d0161023d39f904e45160",
+      "bytes": 175
+    },
+    {
+      "original": "tmp/book_print_native_final_v1.log",
+      "stored": "art/reviews/v2_book_print_contact_20261022/archive/intermediate/book_print_native_final_v1.log.gz",
+      "sha256": "3ce40dbcc247241a09021b1ab8bcc075d7b2c83d7daa65463ddec4b7233b08bb",
+      "bytes": 3063
+    }
+  ]
+}

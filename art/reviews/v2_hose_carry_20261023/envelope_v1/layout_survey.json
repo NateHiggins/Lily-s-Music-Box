@@ -1,0 +1,4521 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "complete-world layout diagnostic, no installed removal or runtime qualification",
+	"stations": [
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 4.4, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "F02_FIRE_LINE_STAIR",
+			"input": {
+				"carry": [
+					{
+						"aim_error_degrees": 80.7732786822108,
+						"cycle": "global_a",
+						"error": "",
+						"feedback": "grabbed",
+						"held": true,
+						"physics_frame": 460,
+						"process_frame": 165,
+						"profile": {},
+						"progress_m": 0.0,
+						"step": 0,
+						"tip": [
+							14.8629999160767,
+							0.218000024557114,
+							0.214000016450882
+						]
+					},
+					{
+						"aim_error_degrees": 89.1632430545435,
+						"cycle": "global_a",
+						"error": "",
+						"feedback": "grabbed",
+						"held": true,
+						"physics_frame": 465,
+						"process_frame": 166,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 507,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 465,
+							"prepare_usec": 19093,
+							"process_frame": 166,
+							"responses": 3,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 299,
+								"commit_world": 9034,
+								"self_constraints": 295,
+								"skin_apply": 50,
+								"solver": 251,
+								"world_constraints": 18327
+							},
+							"total_usec": 29137
+						},
+						"progress_m": 0.0447118170559406,
+						"step": 1,
+						"tip": [
+							14.8420562744141,
+							0.181583434343338,
+							0.229308262467384
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 473,
+						"process_frame": 167,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 784,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 473,
+							"prepare_usec": 31491,
+							"process_frame": 167,
+							"responses": 4,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 366,
+								"commit_world": 11970,
+								"self_constraints": 539,
+								"skin_apply": 62,
+								"solver": 502,
+								"world_constraints": 30022
+							},
+							"total_usec": 44920
+						},
+						"progress_m": 0.0599890202283859,
+						"step": 2,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 481,
+						"process_frame": 168,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 481,
+							"prepare_usec": 76160,
+							"process_frame": 168,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1310,
+								"solver": 1192,
+								"world_constraints": 72821
+							},
+							"total_usec": 76163
+						},
+						"progress_m": 0.0,
+						"step": 3,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 489,
+						"process_frame": 169,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 489,
+							"prepare_usec": 79328,
+							"process_frame": 169,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1299,
+								"solver": 1215,
+								"world_constraints": 75987
+							},
+							"total_usec": 79331
+						},
+						"progress_m": 0.0,
+						"step": 4,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 497,
+						"process_frame": 170,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 497,
+							"prepare_usec": 78967,
+							"process_frame": 170,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1299,
+								"solver": 1172,
+								"world_constraints": 75695
+							},
+							"total_usec": 78970
+						},
+						"progress_m": 0.0,
+						"step": 5,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 505,
+						"process_frame": 171,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 505,
+							"prepare_usec": 79180,
+							"process_frame": 171,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1290,
+								"solver": 1188,
+								"world_constraints": 75887
+							},
+							"total_usec": 79187
+						},
+						"progress_m": 0.0,
+						"step": 6,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 513,
+						"process_frame": 172,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 513,
+							"prepare_usec": 79068,
+							"process_frame": 172,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1313,
+								"solver": 1206,
+								"world_constraints": 75701
+							},
+							"total_usec": 79071
+						},
+						"progress_m": 0.0,
+						"step": 7,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 521,
+						"process_frame": 173,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 521,
+							"prepare_usec": 79188,
+							"process_frame": 173,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1312,
+								"solver": 1206,
+								"world_constraints": 75821
+							},
+							"total_usec": 79191
+						},
+						"progress_m": 0.0,
+						"step": 8,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 529,
+						"process_frame": 174,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 529,
+							"prepare_usec": 79809,
+							"process_frame": 174,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1307,
+								"solver": 1210,
+								"world_constraints": 76475
+							},
+							"total_usec": 79812
+						},
+						"progress_m": 0.0,
+						"step": 9,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 537,
+						"process_frame": 175,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 537,
+							"prepare_usec": 76460,
+							"process_frame": 175,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1312,
+								"solver": 1264,
+								"world_constraints": 72997
+							},
+							"total_usec": 76463
+						},
+						"progress_m": 0.0,
+						"step": 10,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 545,
+						"process_frame": 176,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 545,
+							"prepare_usec": 78806,
+							"process_frame": 176,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1302,
+								"solver": 1206,
+								"world_constraints": 75453
+							},
+							"total_usec": 78809
+						},
+						"progress_m": 0.0,
+						"step": 11,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 553,
+						"process_frame": 177,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 553,
+							"prepare_usec": 76083,
+							"process_frame": 177,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1291,
+								"solver": 1200,
+								"world_constraints": 72739
+							},
+							"total_usec": 76086
+						},
+						"progress_m": 0.0,
+						"step": 12,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 561,
+						"process_frame": 178,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 561,
+							"prepare_usec": 79695,
+							"process_frame": 178,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1311,
+								"solver": 1212,
+								"world_constraints": 76319
+							},
+							"total_usec": 79698
+						},
+						"progress_m": 0.0,
+						"step": 13,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 569,
+						"process_frame": 179,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 569,
+							"prepare_usec": 79027,
+							"process_frame": 179,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1300,
+								"solver": 1179,
+								"world_constraints": 75726
+							},
+							"total_usec": 79030
+						},
+						"progress_m": 0.0,
+						"step": 14,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720089958289,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 577,
+						"process_frame": 180,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 577,
+							"prepare_usec": 79402,
+							"process_frame": 180,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1301,
+								"solver": 1238,
+								"world_constraints": 75957
+							},
+							"total_usec": 79405
+						},
+						"progress_m": 0.0,
+						"step": 15,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.8360957269375,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 585,
+						"process_frame": 181,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 585,
+							"prepare_usec": 75966,
+							"process_frame": 181,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1282,
+								"solver": 1186,
+								"world_constraints": 72691
+							},
+							"total_usec": 75969
+						},
+						"progress_m": 0.0,
+						"step": 16,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.6000661245739,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 593,
+						"process_frame": 182,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 593,
+							"prepare_usec": 78905,
+							"process_frame": 182,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1325,
+								"solver": 1197,
+								"world_constraints": 75543
+							},
+							"total_usec": 78908
+						},
+						"progress_m": 0.0,
+						"step": 17,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.3639230066062,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 601,
+						"process_frame": 183,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 601,
+							"prepare_usec": 80007,
+							"process_frame": 183,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1324,
+								"solver": 1258,
+								"world_constraints": 76542
+							},
+							"total_usec": 80010
+						},
+						"progress_m": 0.0,
+						"step": 18,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.1276666181548,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 609,
+						"process_frame": 184,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 609,
+							"prepare_usec": 80114,
+							"process_frame": 184,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1332,
+								"solver": 1174,
+								"world_constraints": 76766
+							},
+							"total_usec": 80117
+						},
+						"progress_m": 0.0,
+						"step": 19,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.8912920694087,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 617,
+						"process_frame": 185,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 617,
+							"prepare_usec": 80845,
+							"process_frame": 185,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1357,
+								"solver": 1258,
+								"world_constraints": 77285
+							},
+							"total_usec": 80848
+						},
+						"progress_m": 0.0,
+						"step": 20,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.6548072676425,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 625,
+						"process_frame": 186,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 625,
+							"prepare_usec": 82421,
+							"process_frame": 186,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1334,
+								"solver": 1330,
+								"world_constraints": 78722
+							},
+							"total_usec": 82424
+						},
+						"progress_m": 0.0,
+						"step": 21,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.4182115707095,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 633,
+						"process_frame": 187,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 633,
+							"prepare_usec": 81960,
+							"process_frame": 187,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1319,
+								"solver": 1282,
+								"world_constraints": 78438
+							},
+							"total_usec": 81963
+						},
+						"progress_m": 0.0,
+						"step": 22,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.1815026168389,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 641,
+						"process_frame": 188,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 641,
+							"prepare_usec": 80576,
+							"process_frame": 188,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1325,
+								"solver": 1242,
+								"world_constraints": 77133
+							},
+							"total_usec": 80578
+						},
+						"progress_m": 0.0,
+						"step": 23,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.9446823036445,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 649,
+						"process_frame": 189,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 649,
+							"prepare_usec": 78615,
+							"process_frame": 189,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1322,
+								"solver": 1230,
+								"world_constraints": 75190
+							},
+							"total_usec": 78617
+						},
+						"progress_m": 0.0,
+						"step": 24,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.7077567911206,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 657,
+						"process_frame": 190,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 657,
+							"prepare_usec": 77046,
+							"process_frame": 190,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1324,
+								"solver": 1310,
+								"world_constraints": 73481
+							},
+							"total_usec": 77049
+						},
+						"progress_m": 0.0,
+						"step": 25,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.47072026822,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 665,
+						"process_frame": 191,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 665,
+							"prepare_usec": 74956,
+							"process_frame": 191,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1301,
+								"solver": 1218,
+								"world_constraints": 71592
+							},
+							"total_usec": 74959
+						},
+						"progress_m": 0.0,
+						"step": 26,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.2335788760699,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 673,
+						"process_frame": 192,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 673,
+							"prepare_usec": 79275,
+							"process_frame": 192,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1322,
+								"solver": 1207,
+								"world_constraints": 75827
+							},
+							"total_usec": 79278
+						},
+						"progress_m": 0.0,
+						"step": 27,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.4707194136138,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 681,
+						"process_frame": 193,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 681,
+							"prepare_usec": 77465,
+							"process_frame": 193,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1339,
+								"solver": 1205,
+								"world_constraints": 74079
+							},
+							"total_usec": 77468
+						},
+						"progress_m": 0.0,
+						"step": 28,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.7077559366632,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 689,
+						"process_frame": 194,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 689,
+							"prepare_usec": 76139,
+							"process_frame": 194,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1328,
+								"solver": 1172,
+								"world_constraints": 72782
+							},
+							"total_usec": 76142
+						},
+						"progress_m": 0.0,
+						"step": 29,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.944680594998,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 697,
+						"process_frame": 195,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 697,
+							"prepare_usec": 77991,
+							"process_frame": 195,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1313,
+								"solver": 1210,
+								"world_constraints": 74582
+							},
+							"total_usec": 77994
+						},
+						"progress_m": 0.0,
+						"step": 30,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.1815000542273,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 705,
+						"process_frame": 196,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 705,
+							"prepare_usec": 78223,
+							"process_frame": 196,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1304,
+								"solver": 1212,
+								"world_constraints": 74846
+							},
+							"total_usec": 78225
+						},
+						"progress_m": 0.0,
+						"step": 31,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.4182064461148,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 713,
+						"process_frame": 197,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 713,
+							"prepare_usec": 79340,
+							"process_frame": 197,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1325,
+								"solver": 1291,
+								"world_constraints": 75783
+							},
+							"total_usec": 79343
+						},
+						"progress_m": 0.0,
+						"step": 32,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.6548012895795,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 721,
+						"process_frame": 198,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 721,
+							"prepare_usec": 78571,
+							"process_frame": 198,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1335,
+								"solver": 1285,
+								"world_constraints": 74997
+							},
+							"total_usec": 78574
+						},
+						"progress_m": 0.0,
+						"step": 33,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.891284384007,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 729,
+						"process_frame": 199,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 729,
+							"prepare_usec": 78930,
+							"process_frame": 199,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1305,
+								"solver": 1243,
+								"world_constraints": 75504
+							},
+							"total_usec": 78933
+						},
+						"progress_m": 0.0,
+						"step": 34,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.1276597871739,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 737,
+						"process_frame": 200,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 737,
+							"prepare_usec": 78239,
+							"process_frame": 200,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1297,
+								"solver": 1177,
+								"world_constraints": 74909
+							},
+							"total_usec": 78242
+						},
+						"progress_m": 0.0,
+						"step": 35,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.3639144683436,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 745,
+						"process_frame": 201,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 745,
+							"prepare_usec": 78286,
+							"process_frame": 201,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1348,
+								"solver": 1211,
+								"world_constraints": 74850
+							},
+							"total_usec": 78289
+						},
+						"progress_m": 0.0,
+						"step": 36,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.6000592942183,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 753,
+						"process_frame": 202,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 753,
+							"prepare_usec": 79785,
+							"process_frame": 202,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1327,
+								"solver": 1210,
+								"world_constraints": 76383
+							},
+							"total_usec": 79788
+						},
+						"progress_m": 0.0,
+						"step": 37,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.8360863353889,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 761,
+						"process_frame": 203,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 761,
+							"prepare_usec": 78715,
+							"process_frame": 203,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1317,
+								"solver": 1302,
+								"world_constraints": 75131
+							},
+							"total_usec": 78718
+						},
+						"progress_m": 0.0,
+						"step": 38,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0719970429884,
+						"cycle": "global_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 769,
+						"process_frame": 204,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 769,
+							"prepare_usec": 77967,
+							"process_frame": 204,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1310,
+								"solver": 1215,
+								"world_constraints": 74598
+							},
+							"total_usec": 77970
+						},
+						"progress_m": 0.0,
+						"step": 39,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 80.7732786822108,
+						"cycle": "envelope_b",
+						"error": "",
+						"feedback": "grabbed",
+						"held": true,
+						"physics_frame": 838,
+						"process_frame": 213,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 777,
+							"prepare_usec": 78128,
+							"process_frame": 205,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1324,
+								"solver": 1212,
+								"world_constraints": 74709
+							},
+							"total_usec": 78131
+						},
+						"progress_m": 0.0,
+						"step": 0,
+						"tip": [
+							14.8629999160767,
+							0.218000024557114,
+							0.214000016450882
+						]
+					},
+					{
+						"aim_error_degrees": 89.151176219935,
+						"cycle": "envelope_b",
+						"error": "",
+						"feedback": "grabbed",
+						"held": true,
+						"physics_frame": 844,
+						"process_frame": 214,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 483,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 844,
+							"prepare_usec": 9691,
+							"process_frame": 214,
+							"responses": 3,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 289,
+								"commit_world": 4239,
+								"self_constraints": 288,
+								"skin_apply": 41,
+								"solver": 244,
+								"world_constraints": 8942
+							},
+							"total_usec": 14871
+						},
+						"progress_m": 0.0521883107721806,
+						"step": 1,
+						"tip": [
+							14.8389825820923,
+							0.175121009349823,
+							0.231554999947548
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 852,
+						"process_frame": 215,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 852,
+							"prepare_usec": 38209,
+							"process_frame": 215,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1280,
+								"solver": 1121,
+								"world_constraints": 35005
+							},
+							"total_usec": 38212
+						},
+						"progress_m": 0.0524921789765358,
+						"step": 2,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 860,
+						"process_frame": 216,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 860,
+							"prepare_usec": 38397,
+							"process_frame": 216,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1287,
+								"solver": 1184,
+								"world_constraints": 35099
+							},
+							"total_usec": 38399
+						},
+						"progress_m": 0.0,
+						"step": 3,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 868,
+						"process_frame": 217,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 868,
+							"prepare_usec": 38076,
+							"process_frame": 217,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1281,
+								"solver": 1116,
+								"world_constraints": 34918
+							},
+							"total_usec": 38078
+						},
+						"progress_m": 0.0,
+						"step": 4,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 876,
+						"process_frame": 218,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 876,
+							"prepare_usec": 38495,
+							"process_frame": 218,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1292,
+								"solver": 1222,
+								"world_constraints": 35121
+							},
+							"total_usec": 38498
+						},
+						"progress_m": 0.0,
+						"step": 5,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 884,
+						"process_frame": 219,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 884,
+							"prepare_usec": 39047,
+							"process_frame": 219,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1298,
+								"solver": 1203,
+								"world_constraints": 35695
+							},
+							"total_usec": 39050
+						},
+						"progress_m": 0.0,
+						"step": 6,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 892,
+						"process_frame": 220,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 892,
+							"prepare_usec": 37741,
+							"process_frame": 220,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1270,
+								"solver": 1105,
+								"world_constraints": 34606
+							},
+							"total_usec": 37744
+						},
+						"progress_m": 0.0,
+						"step": 7,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 900,
+						"process_frame": 221,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 900,
+							"prepare_usec": 38410,
+							"process_frame": 221,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1301,
+								"solver": 1166,
+								"world_constraints": 35132
+							},
+							"total_usec": 38412
+						},
+						"progress_m": 0.0,
+						"step": 8,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 908,
+						"process_frame": 222,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 908,
+							"prepare_usec": 37719,
+							"process_frame": 222,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1270,
+								"solver": 1104,
+								"world_constraints": 34589
+							},
+							"total_usec": 37721
+						},
+						"progress_m": 0.0,
+						"step": 9,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 916,
+						"process_frame": 223,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 916,
+							"prepare_usec": 37730,
+							"process_frame": 223,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1270,
+								"solver": 1084,
+								"world_constraints": 34627
+							},
+							"total_usec": 37732
+						},
+						"progress_m": 0.0,
+						"step": 10,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 924,
+						"process_frame": 224,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 924,
+							"prepare_usec": 37728,
+							"process_frame": 224,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1271,
+								"solver": 1108,
+								"world_constraints": 34593
+							},
+							"total_usec": 37730
+						},
+						"progress_m": 0.0,
+						"step": 11,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 932,
+						"process_frame": 225,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 932,
+							"prepare_usec": 38074,
+							"process_frame": 225,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1271,
+								"solver": 1104,
+								"world_constraints": 34946
+							},
+							"total_usec": 38076
+						},
+						"progress_m": 0.0,
+						"step": 12,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 940,
+						"process_frame": 226,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 940,
+							"prepare_usec": 38126,
+							"process_frame": 226,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1274,
+								"solver": 1129,
+								"world_constraints": 34929
+							},
+							"total_usec": 38129
+						},
+						"progress_m": 0.0,
+						"step": 13,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 948,
+						"process_frame": 227,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 948,
+							"prepare_usec": 37737,
+							"process_frame": 227,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1267,
+								"solver": 1112,
+								"world_constraints": 34606
+							},
+							"total_usec": 37740
+						},
+						"progress_m": 0.0,
+						"step": 14,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792933989333,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 956,
+						"process_frame": 228,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 956,
+							"prepare_usec": 37650,
+							"process_frame": 228,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1266,
+								"solver": 1087,
+								"world_constraints": 34549
+							},
+							"total_usec": 37653
+						},
+						"progress_m": 0.0,
+						"step": 15,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 89.8433844210722,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 964,
+						"process_frame": 229,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 964,
+							"prepare_usec": 38139,
+							"process_frame": 229,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1291,
+								"solver": 1121,
+								"world_constraints": 34961
+							},
+							"total_usec": 38142
+						},
+						"progress_m": 0.0,
+						"step": 16,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 89.6073600873028,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 972,
+						"process_frame": 230,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 972,
+							"prepare_usec": 38059,
+							"process_frame": 230,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1271,
+								"solver": 1136,
+								"world_constraints": 34890
+							},
+							"total_usec": 38062
+						},
+						"progress_m": 0.0,
+						"step": 17,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 89.3712180930456,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 980,
+						"process_frame": 231,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 980,
+							"prepare_usec": 38600,
+							"process_frame": 231,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1323,
+								"solver": 1227,
+								"world_constraints": 35188
+							},
+							"total_usec": 38603
+						},
+						"progress_m": 0.0,
+						"step": 18,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 89.1349663680337,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 988,
+						"process_frame": 232,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 988,
+							"prepare_usec": 37432,
+							"process_frame": 232,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1261,
+								"solver": 1078,
+								"world_constraints": 34355
+							},
+							"total_usec": 37435
+						},
+						"progress_m": 0.0,
+						"step": 19,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 88.8985940459292,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 996,
+						"process_frame": 233,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 996,
+							"prepare_usec": 38183,
+							"process_frame": 233,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1288,
+								"solver": 1106,
+								"world_constraints": 35035
+							},
+							"total_usec": 38186
+						},
+						"progress_m": 0.0,
+						"step": 20,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 88.6621133037892,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1004,
+						"process_frame": 234,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1004,
+							"prepare_usec": 38063,
+							"process_frame": 234,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1280,
+								"solver": 1108,
+								"world_constraints": 34886
+							},
+							"total_usec": 38065
+						},
+						"progress_m": 0.0,
+						"step": 21,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 88.4255209380352,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1012,
+						"process_frame": 235,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1012,
+							"prepare_usec": 37823,
+							"process_frame": 235,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1265,
+								"solver": 1083,
+								"world_constraints": 34726
+							},
+							"total_usec": 37825
+						},
+						"progress_m": 0.0,
+						"step": 22,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 88.1888154412101,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1020,
+						"process_frame": 236,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1020,
+							"prepare_usec": 38380,
+							"process_frame": 236,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1319,
+								"solver": 1117,
+								"world_constraints": 35137
+							},
+							"total_usec": 38382
+						},
+						"progress_m": 0.0,
+						"step": 23,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 87.9519995656261,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1028,
+						"process_frame": 237,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1028,
+							"prepare_usec": 37419,
+							"process_frame": 237,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1257,
+								"solver": 1078,
+								"world_constraints": 34340
+							},
+							"total_usec": 37421
+						},
+						"progress_m": 0.0,
+						"step": 24,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 87.7150743453247,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1036,
+						"process_frame": 238,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1036,
+							"prepare_usec": 37501,
+							"process_frame": 238,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1271,
+								"solver": 1130,
+								"world_constraints": 34343
+							},
+							"total_usec": 37503
+						},
+						"progress_m": 0.0,
+						"step": 25,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 87.4780425135218,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1044,
+						"process_frame": 239,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1044,
+							"prepare_usec": 38265,
+							"process_frame": 239,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1286,
+								"solver": 1132,
+								"world_constraints": 35063
+							},
+							"total_usec": 38268
+						},
+						"progress_m": 0.0,
+						"step": 26,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 87.2409025211143,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1052,
+						"process_frame": 240,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1052,
+							"prepare_usec": 37749,
+							"process_frame": 240,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1264,
+								"solver": 1116,
+								"world_constraints": 34574
+							},
+							"total_usec": 37752
+						},
+						"progress_m": 0.0,
+						"step": 27,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 87.478040804319,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1060,
+						"process_frame": 241,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1060,
+							"prepare_usec": 38572,
+							"process_frame": 241,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1282,
+								"solver": 1158,
+								"world_constraints": 35330
+							},
+							"total_usec": 38575
+						},
+						"progress_m": 0.0,
+						"step": 28,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 87.7150743453247,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1068,
+						"process_frame": 242,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1068,
+							"prepare_usec": 38143,
+							"process_frame": 242,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1290,
+								"solver": 1172,
+								"world_constraints": 34881
+							},
+							"total_usec": 38146
+						},
+						"progress_m": 0.0,
+						"step": 29,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 87.951997002668,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1076,
+						"process_frame": 243,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1076,
+							"prepare_usec": 38257,
+							"process_frame": 243,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1284,
+								"solver": 1122,
+								"world_constraints": 35062
+							},
+							"total_usec": 38259
+						},
+						"progress_m": 0.0,
+						"step": 30,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 88.1888111702081,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1084,
+						"process_frame": 244,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1084,
+							"prepare_usec": 38394,
+							"process_frame": 244,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1282,
+								"solver": 1207,
+								"world_constraints": 35090
+							},
+							"total_usec": 38396
+						},
+						"progress_m": 0.0,
+						"step": 31,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 88.4255149593624,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1092,
+						"process_frame": 245,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1092,
+							"prepare_usec": 38364,
+							"process_frame": 245,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1285,
+								"solver": 1170,
+								"world_constraints": 35134
+							},
+							"total_usec": 38366
+						},
+						"progress_m": 0.0,
+						"step": 32,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 88.662107325744,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1100,
+						"process_frame": 246,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1100,
+							"prepare_usec": 37483,
+							"process_frame": 246,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1270,
+								"solver": 1097,
+								"world_constraints": 34364
+							},
+							"total_usec": 37485
+						},
+						"progress_m": 0.0,
+						"step": 33,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 88.8985872144778,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1108,
+						"process_frame": 247,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1108,
+							"prepare_usec": 37740,
+							"process_frame": 247,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1256,
+								"solver": 1108,
+								"world_constraints": 34630
+							},
+							"total_usec": 37743
+						},
+						"progress_m": 0.0,
+						"step": 34,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 89.1349561215821,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1116,
+						"process_frame": 248,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1116,
+							"prepare_usec": 37490,
+							"process_frame": 248,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1262,
+								"solver": 1104,
+								"world_constraints": 34371
+							},
+							"total_usec": 37492
+						},
+						"progress_m": 0.0,
+						"step": 35,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 89.3712069933198,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1124,
+						"process_frame": 249,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1124,
+							"prepare_usec": 38497,
+							"process_frame": 249,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1298,
+								"solver": 1122,
+								"world_constraints": 35272
+							},
+							"total_usec": 38500
+						},
+						"progress_m": 0.0,
+						"step": 36,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 89.6073506955722,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1132,
+						"process_frame": 250,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1132,
+							"prepare_usec": 38174,
+							"process_frame": 250,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1287,
+								"solver": 1141,
+								"world_constraints": 34927
+							},
+							"total_usec": 38177
+						},
+						"progress_m": 0.0,
+						"step": 37,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 89.8433741757502,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1140,
+						"process_frame": 251,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1140,
+							"prepare_usec": 38425,
+							"process_frame": 251,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1296,
+								"solver": 1137,
+								"world_constraints": 35237
+							},
+							"total_usec": 38428
+						},
+						"progress_m": 0.0,
+						"step": 38,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 90.0792805923163,
+						"cycle": "envelope_b",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1148,
+						"process_frame": 252,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1148,
+							"prepare_usec": 38938,
+							"process_frame": 252,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1302,
+								"solver": 1160,
+								"world_constraints": 35671
+							},
+							"total_usec": 38941
+						},
+						"progress_m": 0.0,
+						"step": 39,
+						"tip": [
+							14.8184967041016,
+							0.129155695438385,
+							0.24648642539978
+						]
+					},
+					{
+						"aim_error_degrees": 80.7732778172458,
+						"cycle": "restored_a",
+						"error": "",
+						"feedback": "grabbed",
+						"held": true,
+						"physics_frame": 1217,
+						"process_frame": 261,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1156,
+							"prepare_usec": 38208,
+							"process_frame": 253,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1320,
+								"solver": 1108,
+								"world_constraints": 35039
+							},
+							"total_usec": 38211
+						},
+						"progress_m": 0.0,
+						"step": 0,
+						"tip": [
+							14.8629999160767,
+							0.218000024557114,
+							0.214000016450882
+						]
+					},
+					{
+						"aim_error_degrees": 89.1632413468141,
+						"cycle": "restored_a",
+						"error": "",
+						"feedback": "grabbed",
+						"held": true,
+						"physics_frame": 1222,
+						"process_frame": 262,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 464,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1222,
+							"prepare_usec": 19990,
+							"process_frame": 262,
+							"responses": 3,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 291,
+								"commit_world": 9019,
+								"self_constraints": 296,
+								"skin_apply": 46,
+								"solver": 234,
+								"world_constraints": 19238
+							},
+							"total_usec": 29953
+						},
+						"progress_m": 0.0447118170559406,
+						"step": 1,
+						"tip": [
+							14.8420562744141,
+							0.181583434343338,
+							0.229308262467384
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1230,
+						"process_frame": 263,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 487,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1230,
+							"prepare_usec": 28609,
+							"process_frame": 263,
+							"responses": 4,
+							"shell_queries": 0,
+							"tether": {
+								"commit_self": 298,
+								"commit_world": 8373,
+								"self_constraints": 498,
+								"skin_apply": 45,
+								"solver": 469,
+								"world_constraints": 27284
+							},
+							"total_usec": 37957
+						},
+						"progress_m": 0.0599890202283859,
+						"step": 2,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1238,
+						"process_frame": 264,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1238,
+							"prepare_usec": 78222,
+							"process_frame": 264,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1301,
+								"solver": 1230,
+								"world_constraints": 74805
+							},
+							"total_usec": 78225
+						},
+						"progress_m": 0.0,
+						"step": 3,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1246,
+						"process_frame": 265,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1246,
+							"prepare_usec": 77185,
+							"process_frame": 265,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1316,
+								"solver": 1299,
+								"world_constraints": 73651
+							},
+							"total_usec": 77188
+						},
+						"progress_m": 0.0,
+						"step": 4,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1254,
+						"process_frame": 266,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1254,
+							"prepare_usec": 73792,
+							"process_frame": 266,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1313,
+								"solver": 1243,
+								"world_constraints": 70337
+							},
+							"total_usec": 73795
+						},
+						"progress_m": 0.0,
+						"step": 5,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1262,
+						"process_frame": 267,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1262,
+							"prepare_usec": 78066,
+							"process_frame": 267,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1288,
+								"solver": 1200,
+								"world_constraints": 74738
+							},
+							"total_usec": 78068
+						},
+						"progress_m": 0.0,
+						"step": 6,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1270,
+						"process_frame": 268,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1270,
+							"prepare_usec": 77861,
+							"process_frame": 268,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1318,
+								"solver": 1315,
+								"world_constraints": 74281
+							},
+							"total_usec": 77864
+						},
+						"progress_m": 0.0,
+						"step": 7,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1278,
+						"process_frame": 269,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1278,
+							"prepare_usec": 77900,
+							"process_frame": 269,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1295,
+								"solver": 1234,
+								"world_constraints": 74445
+							},
+							"total_usec": 77903
+						},
+						"progress_m": 0.0,
+						"step": 8,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1286,
+						"process_frame": 270,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1286,
+							"prepare_usec": 78456,
+							"process_frame": 270,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1317,
+								"solver": 1289,
+								"world_constraints": 74910
+							},
+							"total_usec": 78459
+						},
+						"progress_m": 0.0,
+						"step": 9,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1294,
+						"process_frame": 271,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1294,
+							"prepare_usec": 77723,
+							"process_frame": 271,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1296,
+								"solver": 1242,
+								"world_constraints": 74284
+							},
+							"total_usec": 77725
+						},
+						"progress_m": 0.0,
+						"step": 10,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1302,
+						"process_frame": 272,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1302,
+							"prepare_usec": 75643,
+							"process_frame": 272,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1316,
+								"solver": 1304,
+								"world_constraints": 72074
+							},
+							"total_usec": 75647
+						},
+						"progress_m": 0.0,
+						"step": 11,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1310,
+						"process_frame": 273,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1310,
+							"prepare_usec": 77405,
+							"process_frame": 273,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1292,
+								"solver": 1208,
+								"world_constraints": 74068
+							},
+							"total_usec": 77408
+						},
+						"progress_m": 0.0,
+						"step": 12,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1318,
+						"process_frame": 274,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1318,
+							"prepare_usec": 78502,
+							"process_frame": 274,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1315,
+								"solver": 1221,
+								"world_constraints": 75117
+							},
+							"total_usec": 78505
+						},
+						"progress_m": 0.0,
+						"step": 13,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1326,
+						"process_frame": 275,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1326,
+							"prepare_usec": 78148,
+							"process_frame": 275,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1344,
+								"solver": 1202,
+								"world_constraints": 74754
+							},
+							"total_usec": 78150
+						},
+						"progress_m": 0.0,
+						"step": 14,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720081420546,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1334,
+						"process_frame": 276,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1334,
+							"prepare_usec": 79064,
+							"process_frame": 276,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1299,
+								"solver": 1267,
+								"world_constraints": 75613
+							},
+							"total_usec": 79066
+						},
+						"progress_m": 0.0,
+						"step": 15,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.8360965807146,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1342,
+						"process_frame": 277,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1342,
+							"prepare_usec": 78976,
+							"process_frame": 277,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1303,
+								"solver": 1192,
+								"world_constraints": 75656
+							},
+							"total_usec": 78978
+						},
+						"progress_m": 0.0,
+						"step": 16,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.6000678321628,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1350,
+						"process_frame": 278,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1350,
+							"prepare_usec": 77993,
+							"process_frame": 278,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1314,
+								"solver": 1197,
+								"world_constraints": 74647
+							},
+							"total_usec": 77995
+						},
+						"progress_m": 0.0,
+						"step": 17,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.363925568085,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1358,
+						"process_frame": 279,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1358,
+							"prepare_usec": 76089,
+							"process_frame": 279,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1301,
+								"solver": 1187,
+								"world_constraints": 72760
+							},
+							"total_usec": 76092
+						},
+						"progress_m": 0.0,
+						"step": 18,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.1276691797726,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1366,
+						"process_frame": 280,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1366,
+							"prepare_usec": 79590,
+							"process_frame": 280,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1321,
+								"solver": 1239,
+								"world_constraints": 76086
+							},
+							"total_usec": 79593
+						},
+						"progress_m": 0.0,
+						"step": 19,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.8912946312092,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1374,
+						"process_frame": 281,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1374,
+							"prepare_usec": 78525,
+							"process_frame": 281,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1338,
+								"solver": 1296,
+								"world_constraints": 74896
+							},
+							"total_usec": 78528
+						},
+						"progress_m": 0.0,
+						"step": 20,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.6548115376876,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1382,
+						"process_frame": 282,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1382,
+							"prepare_usec": 79157,
+							"process_frame": 282,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1319,
+								"solver": 1216,
+								"world_constraints": 75764
+							},
+							"total_usec": 79160
+						},
+						"progress_m": 0.0,
+						"step": 21,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.4182124248086,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1390,
+						"process_frame": 283,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1390,
+							"prepare_usec": 75157,
+							"process_frame": 283,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1302,
+								"solver": 1235,
+								"world_constraints": 71695
+							},
+							"total_usec": 75160
+						},
+						"progress_m": 0.0,
+						"step": 22,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.1815068878581,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1398,
+						"process_frame": 284,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1398,
+							"prepare_usec": 74972,
+							"process_frame": 284,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1286,
+								"solver": 1198,
+								"world_constraints": 71649
+							},
+							"total_usec": 74974
+						},
+						"progress_m": 0.0,
+						"step": 23,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.9446882839074,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1406,
+						"process_frame": 285,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1406,
+							"prepare_usec": 78681,
+							"process_frame": 285,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1311,
+								"solver": 1266,
+								"world_constraints": 75221
+							},
+							"total_usec": 78684
+						},
+						"progress_m": 0.0,
+						"step": 24,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.7077627723222,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1414,
+						"process_frame": 286,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1414,
+							"prepare_usec": 79128,
+							"process_frame": 286,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1328,
+								"solver": 1262,
+								"world_constraints": 75646
+							},
+							"total_usec": 79131
+						},
+						"progress_m": 0.0,
+						"step": 25,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.4707279596759,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1422,
+						"process_frame": 287,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1422,
+							"prepare_usec": 78548,
+							"process_frame": 287,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1314,
+								"solver": 1234,
+								"world_constraints": 75127
+							},
+							"total_usec": 78551
+						},
+						"progress_m": 0.0,
+						"step": 26,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.2335865689981,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1430,
+						"process_frame": 288,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1430,
+							"prepare_usec": 77266,
+							"process_frame": 288,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1362,
+								"solver": 1193,
+								"world_constraints": 73878
+							},
+							"total_usec": 77268
+						},
+						"progress_m": 0.0,
+						"step": 27,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.4707279596759,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1438,
+						"process_frame": 289,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1438,
+							"prepare_usec": 79251,
+							"process_frame": 289,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1327,
+								"solver": 1268,
+								"world_constraints": 75783
+							},
+							"total_usec": 79254
+						},
+						"progress_m": 0.0,
+						"step": 28,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.7077627723222,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1446,
+						"process_frame": 290,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1446,
+							"prepare_usec": 78582,
+							"process_frame": 290,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1609,
+								"solver": 1264,
+								"world_constraints": 74786
+							},
+							"total_usec": 78585
+						},
+						"progress_m": 0.0,
+						"step": 29,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 87.9446848666143,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1454,
+						"process_frame": 291,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1454,
+							"prepare_usec": 81574,
+							"process_frame": 291,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1315,
+								"solver": 1264,
+								"world_constraints": 78011
+							},
+							"total_usec": 81577
+						},
+						"progress_m": 0.0,
+						"step": 30,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.1815034710427,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1462,
+						"process_frame": 292,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1462,
+							"prepare_usec": 78205,
+							"process_frame": 292,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1336,
+								"solver": 1196,
+								"world_constraints": 74834
+							},
+							"total_usec": 78207
+						},
+						"progress_m": 0.0,
+						"step": 31,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.4182115707095,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1470,
+						"process_frame": 293,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1470,
+							"prepare_usec": 80078,
+							"process_frame": 293,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1319,
+								"solver": 1292,
+								"world_constraints": 76569
+							},
+							"total_usec": 80081
+						},
+						"progress_m": 0.0,
+						"step": 32,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.6548072676425,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1478,
+						"process_frame": 294,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1478,
+							"prepare_usec": 78804,
+							"process_frame": 294,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1306,
+								"solver": 1191,
+								"world_constraints": 75445
+							},
+							"total_usec": 78807
+						},
+						"progress_m": 0.0,
+						"step": 33,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 88.8912912154752,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1486,
+						"process_frame": 295,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1486,
+							"prepare_usec": 78026,
+							"process_frame": 295,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1309,
+								"solver": 1157,
+								"world_constraints": 74741
+							},
+							"total_usec": 78029
+						},
+						"progress_m": 0.0,
+						"step": 34,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.1276640565369,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1494,
+						"process_frame": 296,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1494,
+							"prepare_usec": 78906,
+							"process_frame": 296,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1316,
+								"solver": 1251,
+								"world_constraints": 75436
+							},
+							"total_usec": 78910
+						},
+						"progress_m": 0.0,
+						"step": 35,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.3639238604325,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1502,
+						"process_frame": 297,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1502,
+							"prepare_usec": 79059,
+							"process_frame": 297,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1355,
+								"solver": 1198,
+								"world_constraints": 75640
+							},
+							"total_usec": 79061
+						},
+						"progress_m": 0.0,
+						"step": 36,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.6000695397517,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1510,
+						"process_frame": 298,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1510,
+							"prepare_usec": 77126,
+							"process_frame": 298,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1314,
+								"solver": 1197,
+								"world_constraints": 73762
+							},
+							"total_usec": 77128
+						},
+						"progress_m": 0.0,
+						"step": 37,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 89.8360940193832,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1518,
+						"process_frame": 299,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1518,
+							"prepare_usec": 75460,
+							"process_frame": 299,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1287,
+								"solver": 1164,
+								"world_constraints": 72191
+							},
+							"total_usec": 75463
+						},
+						"progress_m": 0.0,
+						"step": 38,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					},
+					{
+						"aim_error_degrees": 90.0720072882802,
+						"cycle": "restored_a",
+						"error": "bounded held contact response ceiling",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 1526,
+						"process_frame": 300,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 0,
+							"local_enabled": false,
+							"local_join": -1,
+							"local_usec": 0,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 1526,
+							"prepare_usec": 77215,
+							"process_frame": 300,
+							"responses": 8,
+							"shell_queries": 0,
+							"tether": {
+								"self_constraints": 1297,
+								"solver": 1196,
+								"world_constraints": 73876
+							},
+							"total_usec": 77218
+						},
+						"progress_m": 0.0,
+						"step": 39,
+						"tip": [
+							14.8184986114502,
+							0.129157453775406,
+							0.246490687131882
+						]
+					}
+				],
+				"collision_mask": 2097153,
+				"deployed": true,
+				"error": "bounded held contact response ceiling",
+				"events": [
+					{
+						"cpu_input_ms": 0.745,
+						"error": "",
+						"extraction_m": 0.0080000001858765,
+						"feedback": "grabbed",
+						"step": 0
+					},
+					{
+						"cpu_input_ms": 0.838,
+						"error": "",
+						"extraction_m": 0.0160000005566099,
+						"feedback": "grabbed",
+						"step": 1
+					},
+					{
+						"cpu_input_ms": 0.839,
+						"error": "",
+						"extraction_m": 0.0240000008257705,
+						"feedback": "grabbed",
+						"step": 2
+					},
+					{
+						"cpu_input_ms": 0.993,
+						"error": "",
+						"extraction_m": 0.0320000015438589,
+						"feedback": "grabbed",
+						"step": 3
+					},
+					{
+						"cpu_input_ms": 0.922,
+						"error": "",
+						"extraction_m": 0.04000000203813,
+						"feedback": "grabbed",
+						"step": 4
+					},
+					{
+						"cpu_input_ms": 0.861,
+						"error": "",
+						"extraction_m": 0.048000002863499,
+						"feedback": "grabbed",
+						"step": 5
+					},
+					{
+						"cpu_input_ms": 0.84,
+						"error": "",
+						"extraction_m": 0.0560000034479367,
+						"feedback": "grabbed",
+						"step": 6
+					},
+					{
+						"cpu_input_ms": 0.795,
+						"error": "",
+						"extraction_m": 0.064000003416595,
+						"feedback": "grabbed",
+						"step": 7
+					},
+					{
+						"cpu_input_ms": 0.756,
+						"error": "",
+						"extraction_m": 0.0720000046836749,
+						"feedback": "grabbed",
+						"step": 8
+					},
+					{
+						"cpu_input_ms": 0.727,
+						"error": "",
+						"extraction_m": 0.0800000043718958,
+						"feedback": "grabbed",
+						"step": 9
+					},
+					{
+						"cpu_input_ms": 0.808,
+						"error": "",
+						"extraction_m": 0.0880000045401879,
+						"feedback": "grabbed",
+						"step": 10
+					},
+					{
+						"cpu_input_ms": 0.845,
+						"error": "",
+						"extraction_m": 0.0960000046616222,
+						"feedback": "grabbed",
+						"step": 11
+					},
+					{
+						"cpu_input_ms": 0.834,
+						"error": "",
+						"extraction_m": 0.104000004291721,
+						"feedback": "grabbed",
+						"step": 12
+					},
+					{
+						"cpu_input_ms": 0.951,
+						"error": "",
+						"extraction_m": 0.112000003590306,
+						"feedback": "grabbed",
+						"step": 13
+					},
+					{
+						"cpu_input_ms": 0.944,
+						"error": "",
+						"extraction_m": 0.120000003437789,
+						"feedback": "grabbed",
+						"step": 14
+					},
+					{
+						"cpu_input_ms": 0.771,
+						"error": "",
+						"extraction_m": 0.128000003463574,
+						"feedback": "grabbed",
+						"step": 15
+					},
+					{
+						"cpu_input_ms": 0.79,
+						"error": "",
+						"extraction_m": 0.13600000338064,
+						"feedback": "grabbed",
+						"step": 16
+					},
+					{
+						"cpu_input_ms": 0.738,
+						"error": "",
+						"extraction_m": 0.144000003122404,
+						"feedback": "grabbed",
+						"step": 17
+					},
+					{
+						"cpu_input_ms": 0.725,
+						"error": "",
+						"extraction_m": 0.152000003213869,
+						"feedback": "grabbed",
+						"step": 18
+					},
+					{
+						"cpu_input_ms": 0.775,
+						"error": "",
+						"extraction_m": 0.16000000391263,
+						"feedback": "grabbed",
+						"step": 19
+					},
+					{
+						"cpu_input_ms": 0.941,
+						"error": "",
+						"extraction_m": 0.16800000395914,
+						"feedback": "grabbed",
+						"step": 20
+					},
+					{
+						"cpu_input_ms": 0.928,
+						"error": "",
+						"extraction_m": 0.176000004857374,
+						"feedback": "grabbed",
+						"step": 21
+					},
+					{
+						"cpu_input_ms": 0.88,
+						"error": "",
+						"extraction_m": 0.184000004795511,
+						"feedback": "grabbed",
+						"step": 22
+					},
+					{
+						"cpu_input_ms": 0.776,
+						"error": "",
+						"extraction_m": 0.192000004795511,
+						"feedback": "grabbed",
+						"step": 23
+					},
+					{
+						"cpu_input_ms": 15.839,
+						"error": "",
+						"extraction_m": 0.2,
+						"feedback": "grabbed",
+						"step": 24
+					}
+				],
+				"picked": true,
+				"player_position": "(-4.404536, 3.200234, -8.683311)",
+				"released": true
+			},
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 147.415
+		}
+	]
+}

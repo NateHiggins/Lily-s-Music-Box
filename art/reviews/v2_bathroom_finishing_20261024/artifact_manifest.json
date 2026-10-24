@@ -1,0 +1,2391 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Immutable diagnostic bytes, excluding engine-generated image import sidecars and Python caches. Original failed verdicts retained; no runtime_contract grant.",
+  "files": [
+    {
+      "path": "batch_mitre_v1.json",
+      "bytes": 615,
+      "sha256": "f2b02803749bfbb47ec80229dc4af0e7ad24f2c60b2eea9a56c8623f0fe3b239"
+    },
+    {
+      "path": "batch_mitre_v2.json",
+      "bytes": 615,
+      "sha256": "360d423bb95bb8bb6e516ba89734f4caa150e71bea002ab8d76022e3cc2d7080"
+    },
+    {
+      "path": "batch_stock_v1.json",
+      "bytes": 628,
+      "sha256": "d667596810b6ea4691062252ac76f26275bb4d5539ce0d6ecfde034e58c2b1af"
+    },
+    {
+      "path": "batch_world_v2.json",
+      "bytes": 611,
+      "sha256": "2de5d8ac7632c9f85758f4081e177e4b486010116a203c05800fd90835498867"
+    },
+    {
+      "path": "batch_world_v3.json",
+      "bytes": 968,
+      "sha256": "6894f07afe8472f744a3854ad125516a5f5a1686a017dd9356b23d3c3fa4f631"
+    },
+    {
+      "path": "batch_world_v4_news.json",
+      "bytes": 1701,
+      "sha256": "b3f3caf163699b0aeb128710ab095d18f4016b67d09705b725df2f4fc39d2ad9"
+    },
+    {
+      "path": "before_edging/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 2849,
+      "sha256": "1d889f67285a1874c6739eecb78c439aca2bdd1e49cdcdfa232041a2565ec006"
+    },
+    {
+      "path": "before_edging/game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+      "bytes": 2151,
+      "sha256": "3a870269a194f6288222b587c216cd19fccfda40e560bcfd81aa916ba5db17b5"
+    },
+    {
+      "path": "before_edging/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2539,
+      "sha256": "74383229f3bbfb041705a9d81b73f9cd64d630b583b594483a1262fd65d1c14d"
+    },
+    {
+      "path": "before_edging/game__tests__v2_bathroom_optics_profile.gd.gz",
+      "bytes": 2353,
+      "sha256": "f1e70c3f610ceefd81823e40acc62fc490694e3bd73ef0712fc5abdfee74688d"
+    },
+    {
+      "path": "compare_frames.py",
+      "bytes": 2558,
+      "sha256": "cc78830c8e783a3c7c3aa9f3df37c7526b829d6fe13dfc3f1148ec418e1cf446"
+    },
+    {
+      "path": "cost_attribution_before_edging.json",
+      "bytes": 16253,
+      "sha256": "75c7c9adfbbc305454f7548b9a30558b879127724b28d96657642c219a5e3f16"
+    },
+    {
+      "path": "edging_stock_v1/stock.json",
+      "bytes": 22518,
+      "sha256": "3d21ab0cc2101d1c0c95b3fcdaac6c2a8006808b973d13adf9e7b5a0d2825ed0"
+    },
+    {
+      "path": "edging_stock_v1.log",
+      "bytes": 16225,
+      "sha256": "149ac3b2190adf60f7214d0da2ad174d1e1968afb9e17bb09ee4491f6aa280a3"
+    },
+    {
+      "path": "edging_stock_v1.log.receipt.json",
+      "bytes": 2838,
+      "sha256": "a865226ba791a4db18b0c1aad2d3682b3c8ca3c5b5a322186f4ed6d98ecc341a"
+    },
+    {
+      "path": "edging_stock_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "edging_stock_v2.log",
+      "bytes": 242,
+      "sha256": "2ab6d94a9ce6bb1b29454c670da76ea6a088b4bb5c269ff12d5596dd9b4b12d3"
+    },
+    {
+      "path": "edging_stock_v2.log.receipt.json",
+      "bytes": 3311,
+      "sha256": "9076f8e459397c9f303d8c8a18227b75a790f00a391b12bebf60fe072403b6f1"
+    },
+    {
+      "path": "edging_stock_v2.log.stderr",
+      "bytes": 760,
+      "sha256": "574ceef337bda834033867e303fe003a4c24a996a373c980228d48c693a57c40"
+    },
+    {
+      "path": "edging_stock_v3/stock.json",
+      "bytes": 22518,
+      "sha256": "3d21ab0cc2101d1c0c95b3fcdaac6c2a8006808b973d13adf9e7b5a0d2825ed0"
+    },
+    {
+      "path": "edging_stock_v3.log",
+      "bytes": 16225,
+      "sha256": "149ac3b2190adf60f7214d0da2ad174d1e1968afb9e17bb09ee4491f6aa280a3"
+    },
+    {
+      "path": "edging_stock_v3.log.receipt.json",
+      "bytes": 2838,
+      "sha256": "3104f192126269a7b6448a5c4da056fb6f8141744efadcdec07377160deda2aa"
+    },
+    {
+      "path": "edging_stock_v3.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "edging_world_v1/B1_LAUNDRY_DOOR.png",
+      "bytes": 769125,
+      "sha256": "d9f862c142fbf58b45f1033cb0b3a50a9a9a6b12e4f8688696eeb22fec1d073e"
+    },
+    {
+      "path": "edging_world_v1/bathroom_finish_drawn.png",
+      "bytes": 540021,
+      "sha256": "ee6d40ca52d6df0ac9fb0b5f026485a72e462908e5b00c8967dfda05b607400e"
+    },
+    {
+      "path": "edging_world_v1/bathroom_finish_gathered.png",
+      "bytes": 540143,
+      "sha256": "102a5c489dea7761116bb407db2eecb501875ee6dd057c8fcbc4b09ea7e59670"
+    },
+    {
+      "path": "edging_world_v1/bathroom_wainscot.png",
+      "bytes": 689763,
+      "sha256": "448b36bb155b8b54bef383b80489bec29d307f5637cbba1a4c4f0b38d69a4ee1"
+    },
+    {
+      "path": "edging_world_v1/casing_joint_detail.png",
+      "bytes": 826121,
+      "sha256": "546fb79659f2018e43154591da89244ffcd79d071b6a9f5b8b5aa63085e7439b"
+    },
+    {
+      "path": "edging_world_v1/F01_INNER_DOOR.png",
+      "bytes": 219806,
+      "sha256": "dd5f4231beaef336dacb32e9d86c4b491999eb81537e0e486db93f848d9bb4c7"
+    },
+    {
+      "path": "edging_world_v1/F02_DOOR_02.png",
+      "bytes": 395574,
+      "sha256": "05496d9884345a345a102c327641181811267ea9f39f95ec462400fd9e81df6c"
+    },
+    {
+      "path": "edging_world_v1/F04_DOOR_03.png",
+      "bytes": 446408,
+      "sha256": "5cdd3a9df38622e61b13c6bd55ce496878f59640b643a93d7ab60d02b222097f"
+    },
+    {
+      "path": "edging_world_v1/finishes.json",
+      "bytes": 683037,
+      "sha256": "2427f6b7f232ccb9515fc8dfc5dcf69e3366febd5da3a911edd75071eb21ac21"
+    },
+    {
+      "path": "edging_world_v1/frames.json",
+      "bytes": 1681999,
+      "sha256": "60402a4343e7d241bcb5385095f24858d8865961a3ba755d3feee35034dd9dc8"
+    },
+    {
+      "path": "edging_world_v1/last_position.png",
+      "bytes": 460132,
+      "sha256": "7260a54fede8e916e176f69057516e88a903568f8faa2efd1b2c78c67148a23e"
+    },
+    {
+      "path": "edging_world_v1/route.json",
+      "bytes": 570,
+      "sha256": "ff96e1a42d079afae492cfbf589ce72f9cbad2e05dea81cdff8682f24acecb11"
+    },
+    {
+      "path": "edging_world_v1/service_fastener_detail.png",
+      "bytes": 479418,
+      "sha256": "4a00ae0de9a4b70c55cf4cbef95548a878fd8b9cac873b944193e83ae73b5481"
+    },
+    {
+      "path": "edging_world_v1/shower_head_union.png",
+      "bytes": 893197,
+      "sha256": "1a98404335521a9438d351dcd1945e46cabb7d18f40b1b76746fd779feeeba65"
+    },
+    {
+      "path": "edging_world_v1/tile_cap_corner.png",
+      "bytes": 781929,
+      "sha256": "550df3fdb4265bf4c592455638c88e81d478d18fe65a3ffe55ef57113f4a1d2a"
+    },
+    {
+      "path": "edging_world_v1/tile_finishing_edges.png",
+      "bytes": 718601,
+      "sha256": "259b22618dc553382df4f5816d92557d6b6998f87061fcb06560df13f05a017e"
+    },
+    {
+      "path": "edging_world_v1.log",
+      "bytes": 48023,
+      "sha256": "abd59dfbac5a03371dc67797827b4b3ce72d77a9a516de3368d0c0dc0ea9d786"
+    },
+    {
+      "path": "edging_world_v1.log.receipt.json",
+      "bytes": 3797,
+      "sha256": "eaa070c1fca347a78b74883a6fa263e6058504d0ca7715d7a7fb48bee9021af5"
+    },
+    {
+      "path": "edging_world_v1.log.stderr",
+      "bytes": 4617,
+      "sha256": "9f6c0ff31293d0ea9c91ac45b4e3ef35b691cabfb7641e01ba18c44f7c33703b"
+    },
+    {
+      "path": "finish_stock_v1/stock.json",
+      "bytes": 642,
+      "sha256": "d7a4d16c7d691e22be8b16aaad2809fa3eaa50570cf9a86edf65c96d46b17551"
+    },
+    {
+      "path": "finish_stock_v1.log",
+      "bytes": 7041,
+      "sha256": "82a231c3e801d8e7b819f2a94f67aeca67c527e3b302c1c264e79abf545dd5fe"
+    },
+    {
+      "path": "finish_stock_v1.log.receipt.json",
+      "bytes": 2998,
+      "sha256": "dc9fe92abf2452af29f590594e803aa9a66ad728c1d16a99d864109f0369c2ba"
+    },
+    {
+      "path": "finish_stock_v1.log.stderr",
+      "bytes": 3307,
+      "sha256": "abb7ea41f7a383cbc872ad860937520fe03145c4d630792f8733d74a9cb3ccd2"
+    },
+    {
+      "path": "finish_stock_v10/stock.json",
+      "bytes": 22518,
+      "sha256": "d4f5400bc642b793a3b42ce96c105684e4d729b14bc21ba124a04fbf34354e97"
+    },
+    {
+      "path": "finish_stock_v10.log",
+      "bytes": 12413,
+      "sha256": "c855b68092ab3b5d9943d0954bc09fe1fc8a458e450a4c1c84464ccde202a23b"
+    },
+    {
+      "path": "finish_stock_v10.log.receipt.json",
+      "bytes": 2996,
+      "sha256": "06a2ef21486e7e1b532cee4eb3079a8f9388ed165289bbbbca2dc5e63d040202"
+    },
+    {
+      "path": "finish_stock_v10.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "finish_stock_v2.log",
+      "bytes": 7041,
+      "sha256": "82a231c3e801d8e7b819f2a94f67aeca67c527e3b302c1c264e79abf545dd5fe"
+    },
+    {
+      "path": "finish_stock_v2.log.receipt.json",
+      "bytes": 2968,
+      "sha256": "0facbfa5b29849694a010a57e3981b9b97a8d29cb4c32257ad4f955389424b34"
+    },
+    {
+      "path": "finish_stock_v2.log.stderr",
+      "bytes": 3307,
+      "sha256": "2b6a03afc211f2ade0327f90f064aed06e2825df1e2bf62afbde0c14ac75520f"
+    },
+    {
+      "path": "finish_stock_v2_relative_output/stock.json",
+      "bytes": 27467,
+      "sha256": "7ed8ecbf29eb9041c00afb7629318d780844ada4dd2df38da92784de868c3a24"
+    },
+    {
+      "path": "finish_stock_v3/stock.json",
+      "bytes": 160,
+      "sha256": "665ec976c334ab630b355b7387f2f6350c1fdf83ae47c9e76956f3c33c1ed466"
+    },
+    {
+      "path": "finish_stock_v3.log",
+      "bytes": 7097,
+      "sha256": "3ea860d81a5352fb9120b823ea944a0a10b8389c51b30cbe52b8a2b1e8666aa9"
+    },
+    {
+      "path": "finish_stock_v3.log.receipt.json",
+      "bytes": 2993,
+      "sha256": "80ed57089451ba7bfbe849dc97c17dae75115ae0848c85f133ef9a0fb9ab6008"
+    },
+    {
+      "path": "finish_stock_v3.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "finish_stock_v4/stock.json",
+      "bytes": 160,
+      "sha256": "665ec976c334ab630b355b7387f2f6350c1fdf83ae47c9e76956f3c33c1ed466"
+    },
+    {
+      "path": "finish_stock_v4.log",
+      "bytes": 11397,
+      "sha256": "2a27e38a6522db84334d1a8a811fb84d2c8eee6d15a10efa7d5266a906c2a067"
+    },
+    {
+      "path": "finish_stock_v4.log.receipt.json",
+      "bytes": 2998,
+      "sha256": "2bcfa7dcf9826975bd80bab00ab1310594b0177575db9f3596ef317ffd4328f1"
+    },
+    {
+      "path": "finish_stock_v4.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "finish_stock_v5/stock.json",
+      "bytes": 23631,
+      "sha256": "603788febda5f7f60b4a20d7c714b347eb54138fedfb2139ba83a74e4997cf2a"
+    },
+    {
+      "path": "finish_stock_v5.log",
+      "bytes": 11397,
+      "sha256": "1b8fe48f237eb4e4f3704bcfb0df1ea6c2a88837cbaabcc9279a79fbb9313d70"
+    },
+    {
+      "path": "finish_stock_v5.log.receipt.json",
+      "bytes": 2998,
+      "sha256": "0edc2ed1d970145ca732e25da8e8d585919d26931c0739ccf0f4165577ec1070"
+    },
+    {
+      "path": "finish_stock_v5.log.stderr",
+      "bytes": 1648,
+      "sha256": "cb49a05431cb9df5b25557fd6763055295147232422c99bcbf5575d5b93fd12b"
+    },
+    {
+      "path": "finish_stock_v6/stock.json",
+      "bytes": 23631,
+      "sha256": "603788febda5f7f60b4a20d7c714b347eb54138fedfb2139ba83a74e4997cf2a"
+    },
+    {
+      "path": "finish_stock_v6.log",
+      "bytes": 12813,
+      "sha256": "51487427fdbe66b6d1a92597e7a71b113a802927013af7baf9ea610059f9616c"
+    },
+    {
+      "path": "finish_stock_v6.log.receipt.json",
+      "bytes": 2993,
+      "sha256": "a40badc9dd3298958c1461884cafa284fb1d8ab0058414d2bbe92a682b7ff4df"
+    },
+    {
+      "path": "finish_stock_v6.log.stderr",
+      "bytes": 1648,
+      "sha256": "17d9c5425f240c44c396fb6b2b50a75e7f91ecce91b4fab185a67340fdcc1afe"
+    },
+    {
+      "path": "finish_stock_v7/stock.json",
+      "bytes": 22518,
+      "sha256": "d4f5400bc642b793a3b42ce96c105684e4d729b14bc21ba124a04fbf34354e97"
+    },
+    {
+      "path": "finish_stock_v7.log",
+      "bytes": 12415,
+      "sha256": "b695656c33c9a5961e3801e07b43bad9d7fd9394e65ebf411254a386a6b6968c"
+    },
+    {
+      "path": "finish_stock_v7.log.receipt.json",
+      "bytes": 2998,
+      "sha256": "8f0c61ac1fb16d950b2449486a3aca1ff938c48e0852137ae38cc76322111743"
+    },
+    {
+      "path": "finish_stock_v7.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "finish_stock_v8/stock.json",
+      "bytes": 22543,
+      "sha256": "c54b2a01f25adeb583bee62ce0e7a5100c6483b5c92e7e628d8a3fbdd2c03b74"
+    },
+    {
+      "path": "finish_stock_v8.log",
+      "bytes": 12389,
+      "sha256": "8893634c0eb9995cf2b8d59ef3e0f4e612ce9d08e79cb93405c0a1b2604320d1"
+    },
+    {
+      "path": "finish_stock_v8.log.receipt.json",
+      "bytes": 2993,
+      "sha256": "88bbf1d116f801219a916fda92bdcec765e5ed86485b499ad4e511f0ced41ac4"
+    },
+    {
+      "path": "finish_stock_v8.log.stderr",
+      "bytes": 816,
+      "sha256": "962e7dcf15a2e74c30609e01d67b0a0c9cd00ba1d2e8cc00f6cc45e585602e18"
+    },
+    {
+      "path": "finish_stock_v9/stock.json",
+      "bytes": 22543,
+      "sha256": "c54b2a01f25adeb583bee62ce0e7a5100c6483b5c92e7e628d8a3fbdd2c03b74"
+    },
+    {
+      "path": "finish_stock_v9.log",
+      "bytes": 13225,
+      "sha256": "4b868baa80bc0ef6f749b09482d2087423feea3297306decf5d5e293ecffb6c9"
+    },
+    {
+      "path": "finish_stock_v9.log.receipt.json",
+      "bytes": 2993,
+      "sha256": "818239fab2534a242dcc2095fc0fac215568c4865b0b2006055d5f67e095930e"
+    },
+    {
+      "path": "finish_stock_v9.log.stderr",
+      "bytes": 816,
+      "sha256": "653beb52fce93ddebee309449f13b5be16f6af60974a07e3d6d2922557f71456"
+    },
+    {
+      "path": "frame_clearance_stock_v1/stock.json",
+      "bytes": 22518,
+      "sha256": "3d21ab0cc2101d1c0c95b3fcdaac6c2a8006808b973d13adf9e7b5a0d2825ed0"
+    },
+    {
+      "path": "frame_clearance_stock_v1.log",
+      "bytes": 16226,
+      "sha256": "eaaeb526739a781665f9d2da1630053615931c883d79b9dde25cbf66150583c3"
+    },
+    {
+      "path": "frame_clearance_stock_v1.log.receipt.json",
+      "bytes": 2865,
+      "sha256": "8c3136767149d284e39d8891b3684e5e96fc64a4a055cc2dcd7ca4d83c4db782"
+    },
+    {
+      "path": "frame_clearance_stock_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "frame_clearance_world_v1/B1_LAUNDRY_DOOR.png",
+      "bytes": 770161,
+      "sha256": "8c467f3c4e00eb20ef15ae7f3971e029feab3086b808490cd83fe73ff3e33f22"
+    },
+    {
+      "path": "frame_clearance_world_v1/bathroom_finish_drawn.png",
+      "bytes": 525521,
+      "sha256": "a0c860ead0c0e2f7469f692fda3bbc30745f8e8a936f37d669ab0f69937ee4b0"
+    },
+    {
+      "path": "frame_clearance_world_v1/bathroom_finish_gathered.png",
+      "bytes": 540301,
+      "sha256": "97db6c3834d487b814658ddfcaf598a468371801b846d82da0b1d1a681ec8688"
+    },
+    {
+      "path": "frame_clearance_world_v1/bathroom_wainscot.png",
+      "bytes": 670951,
+      "sha256": "bc8a59b516c9e9b190162f06c5663844b35bf49a425136dc7bf0e927c5f8ffc2"
+    },
+    {
+      "path": "frame_clearance_world_v1/casing_joint_detail.png",
+      "bytes": 838977,
+      "sha256": "80680423052a49aaad51901f1fbaca8fb3de55d93a54210d26a6f2a217bca1bc"
+    },
+    {
+      "path": "frame_clearance_world_v1/F01_INNER_DOOR.png",
+      "bytes": 217344,
+      "sha256": "3c3ccadb97cce5b369a5494f24ae1fbfb1e6beb78e2cc0e86dbb046b4391b2b2"
+    },
+    {
+      "path": "frame_clearance_world_v1/F02_DOOR_02.png",
+      "bytes": 390722,
+      "sha256": "b26adff379954fb6063a0436a3854922ecb7123cb52a9b71cfda55333cc90c46"
+    },
+    {
+      "path": "frame_clearance_world_v1/F04_DOOR_03.png",
+      "bytes": 450268,
+      "sha256": "af6f28a372da69797f549fa9a315e4568e0476d3780e0300b9a7055f919496c3"
+    },
+    {
+      "path": "frame_clearance_world_v1/finishes.json",
+      "bytes": 672842,
+      "sha256": "29a26fcfbc495851f895324fa8cd967a3dc68822d339cc39ce4cc315596202a1"
+    },
+    {
+      "path": "frame_clearance_world_v1/frames.json",
+      "bytes": 1645202,
+      "sha256": "30d590f049b6e2335130c021febec29e4be54b156dc0241ad192d729f9c56e42"
+    },
+    {
+      "path": "frame_clearance_world_v1/last_position.png",
+      "bytes": 456516,
+      "sha256": "5ff1e680c4063f384c03e881a38a88c61020d4f4c74ecbae3055dbab4a5ad6f6"
+    },
+    {
+      "path": "frame_clearance_world_v1/route.json",
+      "bytes": 570,
+      "sha256": "ff96e1a42d079afae492cfbf589ce72f9cbad2e05dea81cdff8682f24acecb11"
+    },
+    {
+      "path": "frame_clearance_world_v1/service_fastener_detail.png",
+      "bytes": 473087,
+      "sha256": "29a933fb464531e6bc08005c521b918b60afe92b93a8e30bd31573f829c001d0"
+    },
+    {
+      "path": "frame_clearance_world_v1/shower_head_union.png",
+      "bytes": 890519,
+      "sha256": "b2d6cbb3be1cc10923c800b84a47e180287bfffc427aa47b1e8173bb515c69b7"
+    },
+    {
+      "path": "frame_clearance_world_v1/tile_cap_corner.png",
+      "bytes": 760135,
+      "sha256": "3edeb314243e6fa20b78b40116aa5ef1319010e30a9b2472bc69d59d15df319c"
+    },
+    {
+      "path": "frame_clearance_world_v1/tile_finishing_edges.png",
+      "bytes": 722426,
+      "sha256": "637656d3e765a53456067761977d6f1690dbf03deb96d02e572ab183fb6c5eaa"
+    },
+    {
+      "path": "frame_clearance_world_v1.log",
+      "bytes": 48768,
+      "sha256": "8ea2dbd315554ba1b654818ad20896f1b752132b5b3ce32f88556cdb2096eca3"
+    },
+    {
+      "path": "frame_clearance_world_v1.log.receipt.json",
+      "bytes": 2860,
+      "sha256": "620368fabeb708105020cc848e652c6bdb7081323ebca9e8af13aa2de3751dd6"
+    },
+    {
+      "path": "frame_clearance_world_v1.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "path": "frame_distributions.json",
+      "bytes": 12887,
+      "sha256": "c010deadf727e02ec4ae853062c0f3aedc5db117fd247ae10ac046e77132f33f"
+    },
+    {
+      "path": "gates_final_frame_clearance/board.json",
+      "bytes": 377975,
+      "sha256": "574162043c64635be11b2eba4292da24a55b24f593badf4edf3b63232cdf6ee9"
+    },
+    {
+      "path": "gates_final_frame_clearance/board.md",
+      "bytes": 8311,
+      "sha256": "65486e5e0dcf1a6ce154c6584bcdcc9117dd370c89fc9ae9eea11d45f04fe89d"
+    },
+    {
+      "path": "gates_v1/board.json",
+      "bytes": 378496,
+      "sha256": "267340e970427a9e94ad8288d9c826c8f5c482f9307a730eabc44d910fccf383"
+    },
+    {
+      "path": "gates_v1/board.md",
+      "bytes": 9144,
+      "sha256": "4c17237b39ea85bd1d08cc5538de9889d9663750d93870b41f4e612d4126ca85"
+    },
+    {
+      "path": "gates_v3/board.json",
+      "bytes": 377924,
+      "sha256": "a52a40d874b3cf490874a16abf77b433f8a5b2fb9885f7d32d4076386788a8c1"
+    },
+    {
+      "path": "gates_v3/board.md",
+      "bytes": 8309,
+      "sha256": "82859846f9922a061ee0547dc72c90f28ad73825c502a86a3554d0aa28a443b1"
+    },
+    {
+      "path": "gates_v3.log",
+      "bytes": 8449,
+      "sha256": "415b2ab9c299143a35dc75f7cd6b95e8d3d12ef51400313b886170d70683ea12"
+    },
+    {
+      "path": "gates_v4/board.json",
+      "bytes": 378118,
+      "sha256": "3f98688b3963fd893d9293bbb1e560003376508f65719a2a9629deaa975573a8"
+    },
+    {
+      "path": "gates_v4/board.md",
+      "bytes": 8395,
+      "sha256": "29c5a0cab314164e3a73bebb3ea5a620084c9b17cb70282f0cf9f7bd2c7ea326"
+    },
+    {
+      "path": "gates_v4.log",
+      "bytes": 8536,
+      "sha256": "37e3fd2e7a9c1c3db876db14a59f1e91d8ee664f677cfae281fa0fc2a29742d2"
+    },
+    {
+      "path": "gates_v5/board.json",
+      "bytes": 377977,
+      "sha256": "79e1fc7746544b104d4cb1a9f46474acf13aa2422477024f2ca8962336611933"
+    },
+    {
+      "path": "gates_v5/board.md",
+      "bytes": 8313,
+      "sha256": "6b65710c220c375a4b26d18706e75ff03fc31743d3fbd8612f0fd0051c1909c7"
+    },
+    {
+      "path": "gates_v5.log",
+      "bytes": 8453,
+      "sha256": "331ff8342dc2b62b8b0ac4837900eca6362a4d775556833bc57ef2438fa4e056"
+    },
+    {
+      "path": "gesture_costs_before_edging.json",
+      "bytes": 2693,
+      "sha256": "f5a63c6abb9651361a89b44fba8fac0dc8ae535b6d45a23c4b9e55f36dedcbfc"
+    },
+    {
+      "path": "gesture_costs_final.json",
+      "bytes": 1233,
+      "sha256": "9a622d5d932810d72be9dd5d60ebe2d20cff15519cb624d0c61eb35dc002c7f5"
+    },
+    {
+      "path": "import_eol_cleanup.json",
+      "bytes": 134,
+      "sha256": "f9b5273dd5e0c0ec513667e936cecbefde601a69e83d687ec3150ce5a7b350e9"
+    },
+    {
+      "path": "import_finishes_v1.log",
+      "bytes": 3203,
+      "sha256": "8a3b3835cc7ccb1845d069ecb76b82a0f3bc771c3809eb2137c40e09aa38cd4b"
+    },
+    {
+      "path": "import_finishes_v1.log.receipt.json",
+      "bytes": 2769,
+      "sha256": "de0fe824f6a6b60fdda048d195f046759916aca840d811e1a108c3c19ad6ee2a"
+    },
+    {
+      "path": "import_finishes_v1.log.stderr",
+      "bytes": 249,
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "import_finishes_v2.log",
+      "bytes": 3459,
+      "sha256": "5ff2aa71e4e999b8ac211d3f45cc3d241f2086dff5e7b94444d530ad108e49e8"
+    },
+    {
+      "path": "import_finishes_v2.log.receipt.json",
+      "bytes": 2770,
+      "sha256": "2b1c0af3135910802e74c1b43cbc53a902e7b149c4d76700e059f5b65d847157"
+    },
+    {
+      "path": "import_finishes_v2.log.stderr",
+      "bytes": 249,
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "import_finishes_v3.log",
+      "bytes": 3085,
+      "sha256": "16269b599fe42f394f29ab829558ad09f5d010c9a3d86af9c8ca4cec5a0a3e84"
+    },
+    {
+      "path": "import_finishes_v3.log.receipt.json",
+      "bytes": 2770,
+      "sha256": "6656e1ab64775307a79338d3b932d10bf7e1d81ba15c6bef31cf943a6faf3b23"
+    },
+    {
+      "path": "import_finishes_v3.log.stderr",
+      "bytes": 249,
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "import_finishes_v4.log",
+      "bytes": 3163,
+      "sha256": "71dc125cf303abcab9ea68c914ca10ac29b7e77c3dc1d7acbcc71a5765c4348d"
+    },
+    {
+      "path": "import_finishes_v4.log.receipt.json",
+      "bytes": 2769,
+      "sha256": "114e7b40dcfb230d3ef75480eaf4f45e2aa2be7177c4832860e2d3b5f98bb936"
+    },
+    {
+      "path": "import_finishes_v4.log.stderr",
+      "bytes": 249,
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "import_mitre_v1.log",
+      "bytes": 65552,
+      "sha256": "976d76d9ecdcdc2124b584da4d6a38dc4b9790216fc9a1747172b9eb0c8355e6"
+    },
+    {
+      "path": "import_mitre_v1.log.receipt.json",
+      "bytes": 2842,
+      "sha256": "8e871cdcf8770876ddb4dd68585a8847ba5c189487da1e0f429a3b4fb0fc6c2f"
+    },
+    {
+      "path": "import_mitre_v1.log.stderr",
+      "bytes": 249,
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "import_mitre_v2.log",
+      "bytes": 2626,
+      "sha256": "2c49d0a8ae7f87eb1e9ccb08831929f8e04451c0bfd38754d53df55b4a3eb180"
+    },
+    {
+      "path": "import_mitre_v2.log.receipt.json",
+      "bytes": 2815,
+      "sha256": "98d972fc4008f8bade4b748f1e8d010f2ba7bff27d4117b51b54c96c3fcc6306"
+    },
+    {
+      "path": "import_mitre_v2.log.stderr",
+      "bytes": 249,
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270"
+    },
+    {
+      "path": "manifest_before_sha256.txt",
+      "bytes": 66,
+      "sha256": "7047c0253f071a057c66713a417b0fe0404bbd3351d6543a6db36b89c5b36ee1"
+    },
+    {
+      "path": "mitre_precision_fix.json",
+      "bytes": 149,
+      "sha256": "814f00d70118f11eaac3354f5efe57affa0662301e07cfb4730907a94b4819d9"
+    },
+    {
+      "path": "mitre_stock_v1/imported_mitre.png",
+      "bytes": 116182,
+      "sha256": "db2770bceef91ea9c9923439d7e27b96d8b7a9c62052658e18379afc2616540a"
+    },
+    {
+      "path": "mitre_stock_v1/stock.json",
+      "bytes": 22687,
+      "sha256": "cff15e00e3016cb2266b0c13b7abdec2f0dde465fda96b2ac4fe023ccc6ac25d"
+    },
+    {
+      "path": "mitre_stock_v1.log",
+      "bytes": 14557,
+      "sha256": "51c654e2343c15c2eb6a998719d835ad45fc002754f43ae541fc3b685efce95e"
+    },
+    {
+      "path": "mitre_stock_v1.log.receipt.json",
+      "bytes": 3056,
+      "sha256": "f219ff73bf6dbfb9cd0fb9009cb42efbc9f623b558ebddfc91180bf512d4d070"
+    },
+    {
+      "path": "mitre_stock_v1.log.stderr",
+      "bytes": 8190,
+      "sha256": "c7361fd06e21e0a4df9cee79a80446ad092619d5956bab5b0edfd134af3949c3"
+    },
+    {
+      "path": "mitre_stock_v2/imported_mitre.png",
+      "bytes": 116044,
+      "sha256": "b0f5b0d21595beedd0c63b4e517528b7f2164de290bd17d320934ebba874f64b"
+    },
+    {
+      "path": "mitre_stock_v2/stock.json",
+      "bytes": 21570,
+      "sha256": "4b1ccbb5bc500ac9620189ed3a92dd138898faaa29ee3eb6ab4d54541801bfc3"
+    },
+    {
+      "path": "mitre_stock_v2.log",
+      "bytes": 12793,
+      "sha256": "ce7acba61dbf0f54ccd8d475f4af267bc71a19156b84e2938119bf57e2a63e31"
+    },
+    {
+      "path": "mitre_stock_v2.log.receipt.json",
+      "bytes": 3029,
+      "sha256": "fd5872ef67f2f9958f2009472d0173d735de439dd624b6ebdb53de76276c89a7"
+    },
+    {
+      "path": "mitre_stock_v2.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native_head_fitting.png",
+      "bytes": 827956,
+      "sha256": "ff5faf8b7ecb0ed06117d92bbca5d376bffefa783f25fecf3e6c022813e5606c"
+    },
+    {
+      "path": "native_mitre_v1.log",
+      "bytes": 1990,
+      "sha256": "f433ba2e4a2fa84ed2997e3e52a2629cc079fbd5582d6a657c8d636d87f4306c"
+    },
+    {
+      "path": "native_mitre_v2.json",
+      "bytes": 2215,
+      "sha256": "53d9cdd88dba69b2d14275738c86aedfa2b6357ad32e72899ec96f0a60ac869e"
+    },
+    {
+      "path": "native_mitre_v2.log",
+      "bytes": 4920,
+      "sha256": "9d5b6d369c2a668f992744e395e3d80178a477e1ebed98c5c2be9273aea01bdf"
+    },
+    {
+      "path": "native_mitre_v2.png",
+      "bytes": 704623,
+      "sha256": "02e3bac1956c99255875e21ecbdcf50ea45b5ff19a61e2e2059776d93c6c4822"
+    },
+    {
+      "path": "native_mounts.png",
+      "bytes": 871357,
+      "sha256": "b4dc5a46ba66e56c00ab2ea0ef75564c1ccfd2d6db890799de453642a81451d5"
+    },
+    {
+      "path": "native_shower_mounts_v2.png",
+      "bytes": 879753,
+      "sha256": "782a19e9e591f3db62d45c4256be28bda2118916201157466bdb23e3e71a025c"
+    },
+    {
+      "path": "native_shower_mounts_v3.png",
+      "bytes": 878945,
+      "sha256": "b06bca71716194f82747dc15e86371f44cb253868b995da5fbece78b04b3feef"
+    },
+    {
+      "path": "native_tangent_v6/bath_shower.glb.gz",
+      "bytes": 4282699,
+      "sha256": "18b1be5be3adc193cbae8f8335e4b1e0ea82fc3c1f5be98959fd351c0281bac8"
+    },
+    {
+      "path": "native_tangent_v6/build_bathroom_details.py.gz",
+      "bytes": 6965,
+      "sha256": "7216aa686edc6f914820359d7746a65ab36fb152a2d68c36d376619d3fa2673f"
+    },
+    {
+      "path": "native_tangent_v7/bath_shower.glb.gz",
+      "bytes": 4282766,
+      "sha256": "fb8dd380c0c5884045c707282f815f9fd8eb7d7b37f4e2d82c8d7ecce65d6f6c"
+    },
+    {
+      "path": "native_tangent_v7/build_bathroom_details.py.gz",
+      "bytes": 7305,
+      "sha256": "f0f6a59d742274c8b4e87cd7db8967ce3be8ecd88834f679d8a890f962417933"
+    },
+    {
+      "path": "native_tangent_v8/bath_shower.glb.gz",
+      "bytes": 4274982,
+      "sha256": "7852d807e7f5ec69c6d71d5d2560f1bade8e3af6505e462b9dd1bdbd04349fc5"
+    },
+    {
+      "path": "native_tangent_v8/build_bathroom_details.py.gz",
+      "bytes": 7305,
+      "sha256": "cf4cdaf82c81b9a0a46376353e7f142c369a46c63e5efa1105639f824bf1ddac"
+    },
+    {
+      "path": "native_tangent_v9/bath_shower.glb.gz",
+      "bytes": 3280864,
+      "sha256": "3703e3a9a3d5dd94a7df675d18c98928e1997e24b3f15bf0634b13f1b89c793b"
+    },
+    {
+      "path": "native_tangent_v9/build_bathroom_details.py.gz",
+      "bytes": 7369,
+      "sha256": "ff76514e35dcbe06818c7ee54724c36895929ffce104d25d49ba123e5db8ead2"
+    },
+    {
+      "path": "owned_spatial_rows.json",
+      "bytes": 4054,
+      "sha256": "ce717c8f75e317b7be09b8652debd684ed873e28ee9100da9f727aa786473a24"
+    },
+    {
+      "path": "performance_v1/frames.json",
+      "bytes": 1660938,
+      "sha256": "2b2c25c4dd5f35d440a8d551915ae7c00d8814bf8e434672c790c0ddb64cb95d"
+    },
+    {
+      "path": "performance_v1/last_position.png",
+      "bytes": 618798,
+      "sha256": "81915ef0ddaf2654f2875eb0834243d6a19bae0ce399b5650ccdd1c1d8a4df42"
+    },
+    {
+      "path": "performance_v1/route.json",
+      "bytes": 570,
+      "sha256": "ff96e1a42d079afae492cfbf589ce72f9cbad2e05dea81cdff8682f24acecb11"
+    },
+    {
+      "path": "performance_v1.log",
+      "bytes": 4222,
+      "sha256": "6e3c079ff43a6945bef962f6daa740c16f93978f60de3c7cf2c1b2ae7c8e030a"
+    },
+    {
+      "path": "performance_v1.log.receipt.json",
+      "bytes": 2826,
+      "sha256": "895956ff0177c26ffafeec61dee83aecd926bcbb4168cc0822cbcf37bf3b20c1"
+    },
+    {
+      "path": "performance_v1.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "path": "profile_body_reuse.json",
+      "bytes": 293,
+      "sha256": "f39471388153f01f2d87ceb1989f15a42dfa372da03e9fd15cad6ca54bf96bbd"
+    },
+    {
+      "path": "reference_scope.txt",
+      "bytes": 379,
+      "sha256": "ce24f678a959ae2297ec709c39dc6988e85dc1ec2fb2598e2317d8ff50ec844d"
+    },
+    {
+      "path": "shower-mount-v1.log",
+      "bytes": 2516,
+      "sha256": "d2d4130fae1122c7beb6616072780ed7318197452e5e4f303c7357ac6d7823f1"
+    },
+    {
+      "path": "shower-mount-v10.log",
+      "bytes": 3514,
+      "sha256": "03711a4fd96f72c00f67cdcd2d5e85e6c8b58c561ee7a86c533ec3515df0cc55"
+    },
+    {
+      "path": "shower-mount-v11.log",
+      "bytes": 3443,
+      "sha256": "5814fe5831d22258d6ee20fdc5cbbd32660932c6a4faa7c54dbed39fb0f0cbf1"
+    },
+    {
+      "path": "shower-mount-v12.log",
+      "bytes": 3186,
+      "sha256": "2ceff6a4447f3f0ca0ac1910c3c5985da851b9f22959a6e3d800f297bf75d7b4"
+    },
+    {
+      "path": "shower-mount-v2.log",
+      "bytes": 2701,
+      "sha256": "65648e6ecb1a600f1f1308dc7cbb0d573b34a4da083f47c5746cb9e459365f2d"
+    },
+    {
+      "path": "shower-mount-v3.log",
+      "bytes": 2888,
+      "sha256": "05dd6b6fb4167178a42d9a8f8b890a3ae641575eba2c50aecc3a73b326a64470"
+    },
+    {
+      "path": "shower-mount-v4.log",
+      "bytes": 3690,
+      "sha256": "94392562c803c494386f24f7ec5a0d6c9f6952799a2d71fa6d44a5d5279fb513"
+    },
+    {
+      "path": "shower-mount-v5.log",
+      "bytes": 3690,
+      "sha256": "26a710fa177efe71ebd3460f4ee8c3d2060669510484a9159a4d3340f32748a5"
+    },
+    {
+      "path": "shower-mount-v6.log",
+      "bytes": 3800,
+      "sha256": "67f298b0ec25cc5f962becad2ce3b1621c7a48f0aab932757d9b16ead187b0f6"
+    },
+    {
+      "path": "shower-mount-v7.log",
+      "bytes": 3944,
+      "sha256": "6e3f4d8e3512c6178658fc2de7deecac50b6b346691f29c8f3401a6ddf3c5121"
+    },
+    {
+      "path": "shower-mount-v8.log",
+      "bytes": 3942,
+      "sha256": "b23251692b33851f19af8b701a5b0cf9074d17aab25ebab1dc96f95f36b8b7ef"
+    },
+    {
+      "path": "shower-mount-v9.log",
+      "bytes": 3389,
+      "sha256": "720e3e3920cad6ec989efd91ddcb72104c4d8bc6d10fa8cd80a706f6ed3631e7"
+    },
+    {
+      "path": "source_checks.json",
+      "bytes": 37388,
+      "sha256": "829d561717f0958cb5bc956c266050b87fc92d4c90d59c73df988c2c44f7b6fe"
+    },
+    {
+      "path": "source_edging_v1/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 7738,
+      "sha256": "a7349a43ce958442be0c42541a601692628a046a4449a47d9913b5a17ec0288d"
+    },
+    {
+      "path": "source_edging_v1/art__tools__fix_v2_mesh_imports.py.gz",
+      "bytes": 2305,
+      "sha256": "96403bbdefd8d0f62d8b9fd45fcabf7b36473526846e1131e32e691db6c4ba42"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__orison_v2_architectural_materials.gd.gz",
+      "bytes": 1820,
+      "sha256": "95de5f35ec4d5038861140447644792a3fdd4d43f0f1b5a360c0d9bd0db9fc7b"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__orison_v2_bar_receiving.gd.gz",
+      "bytes": 2468,
+      "sha256": "90594c072353953e287d8505e5d39843086e122ed2dd0c7305944fa174a85d65"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__orison_v2_bar_region.gd.gz",
+      "bytes": 2985,
+      "sha256": "48f110a168865bd2084047fed8db8786ea86533aa22cded6f93e0d1d400c0b89"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 4076,
+      "sha256": "f93201142c310147922b3acbfe081e38067a8e481b44655760fd5f16e49cd0af"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__orison_v2_casing_mitre_stock.gd.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 3084,
+      "sha256": "cbaf574c0c508e0fb9a49b32453a2ffd148d1ab53cb707397bd1bf2d78f780bd"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__orison_v2_door_casings.gd.gz",
+      "bytes": 1817,
+      "sha256": "9ea74c1cded47e50d754aabf27a76413531eb2ad98efea2a3b76d0bc59968ea0"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__orison_v2_passage_region.gd.gz",
+      "bytes": 5820,
+      "sha256": "db7462d4b65c57c246eaea13fc347f0874b7fa04391cc0be98a7321fe66fa1fc"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12901,
+      "sha256": "692a2f65d2f7e2135e9cf614ae52d49129a4c1ed7f6a552ae1a480041adc91f1"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__orison_v2_shower_placement.gd.gz",
+      "bytes": 330,
+      "sha256": "3d6c11d3f86473bf0d59ac48fa8c90b23fa78b17334d35f87531b60234ff178e"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__orison_v2_uv_material_policy.gd.gz",
+      "bytes": 1856,
+      "sha256": "86aad5673f98503fe572cd98390eda424b017d352e780ea42fbaeb8900ae1b31"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__building__v2_legacy_material_stock.gd.gz",
+      "bytes": 3847,
+      "sha256": "c0a391694fe35058200d16279a0cda9c1aabb94782c5081518da0e03f5340d55"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__material_library.gd.gz",
+      "bytes": 1064,
+      "sha256": "a872eef5e8726efc44592fd906e56e24e4e07f4a346512e6cddd85f6f39b5427"
+    },
+    {
+      "path": "source_edging_v1/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13278,
+      "sha256": "67820362d2b3e53427cbfc3ce4fba2c1b91a2e13c49272f980e7970baa2db335"
+    },
+    {
+      "path": "source_edging_v1/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3973,
+      "sha256": "dec14d3bce48b0068053e70b5b6ac51aef905da16ece3c4f1915d56d6019fe0b"
+    },
+    {
+      "path": "source_edging_v1/game__tests__orison_v2_photo_portraits_test.gd.gz",
+      "bytes": 5690,
+      "sha256": "6facf4b5b8e7faecb3be26a7be1422737c0785f29b13378f31deba9039331c02"
+    },
+    {
+      "path": "source_edging_v1/game__tests__v2_arcade_retirement_review.gd.gz",
+      "bytes": 1617,
+      "sha256": "3836e9b21df9face154171dbf3e2cefe4b6fd50fe1c7eff64e945190b76b23f9"
+    },
+    {
+      "path": "source_edging_v1/game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+      "bytes": 2152,
+      "sha256": "208d26cf336b891b3be8cd2aacc81a89e9d06c1be33f5704a17ad612cbb45496"
+    },
+    {
+      "path": "source_edging_v1/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2700,
+      "sha256": "21a402a3b9ef3c4aafe43860c986821f59bcc3d31bf4eeda2e1e690d02467f1c"
+    },
+    {
+      "path": "source_edging_v1/game__tests__v2_bathroom_optics_profile.gd.gz",
+      "bytes": 2366,
+      "sha256": "7215f4e3716c014a103fbe1b5845fa5394890c2969f430df3a09aa22cd0e4c23"
+    },
+    {
+      "path": "source_edging_v1/game__tests__v2_casing_mitre_bench.gd.gz",
+      "bytes": 1955,
+      "sha256": "6c4edddfd1f62d2f116f84f4a0a8fcedb9b7d6970c561fd55d5bba1768104455"
+    },
+    {
+      "path": "source_edging_v1/game__tests__v2_shared_finish_ownership_test.gd.gz",
+      "bytes": 2380,
+      "sha256": "4e31e87347b7db63693dc75de5e079ab2dd250a6ee860847d0d331748cb45495"
+    },
+    {
+      "path": "source_edging_v1/sources.json",
+      "bytes": 3694,
+      "sha256": "eb52ed879a6293a55f1530e7fee48e3c7ad72835189807549aa9a9d3d13fa9d6"
+    },
+    {
+      "path": "source_edging_v2/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 7738,
+      "sha256": "a7349a43ce958442be0c42541a601692628a046a4449a47d9913b5a17ec0288d"
+    },
+    {
+      "path": "source_edging_v2/art__tools__fix_v2_mesh_imports.py.gz",
+      "bytes": 2305,
+      "sha256": "96403bbdefd8d0f62d8b9fd45fcabf7b36473526846e1131e32e691db6c4ba42"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__orison_v2_architectural_materials.gd.gz",
+      "bytes": 1820,
+      "sha256": "95de5f35ec4d5038861140447644792a3fdd4d43f0f1b5a360c0d9bd0db9fc7b"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__orison_v2_bar_receiving.gd.gz",
+      "bytes": 2468,
+      "sha256": "90594c072353953e287d8505e5d39843086e122ed2dd0c7305944fa174a85d65"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__orison_v2_bar_region.gd.gz",
+      "bytes": 2985,
+      "sha256": "48f110a168865bd2084047fed8db8786ea86533aa22cded6f93e0d1d400c0b89"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 4077,
+      "sha256": "50285749ecc9d11d2a3031fd20e5a552c5d5bb17d358391e89bdc76dcf1d42bd"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__orison_v2_casing_mitre_stock.gd.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 3084,
+      "sha256": "cbaf574c0c508e0fb9a49b32453a2ffd148d1ab53cb707397bd1bf2d78f780bd"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__orison_v2_door_casings.gd.gz",
+      "bytes": 1817,
+      "sha256": "9ea74c1cded47e50d754aabf27a76413531eb2ad98efea2a3b76d0bc59968ea0"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__orison_v2_passage_region.gd.gz",
+      "bytes": 5820,
+      "sha256": "db7462d4b65c57c246eaea13fc347f0874b7fa04391cc0be98a7321fe66fa1fc"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12901,
+      "sha256": "692a2f65d2f7e2135e9cf614ae52d49129a4c1ed7f6a552ae1a480041adc91f1"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__orison_v2_shower_placement.gd.gz",
+      "bytes": 330,
+      "sha256": "3d6c11d3f86473bf0d59ac48fa8c90b23fa78b17334d35f87531b60234ff178e"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__orison_v2_uv_material_policy.gd.gz",
+      "bytes": 1856,
+      "sha256": "86aad5673f98503fe572cd98390eda424b017d352e780ea42fbaeb8900ae1b31"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__building__v2_legacy_material_stock.gd.gz",
+      "bytes": 3847,
+      "sha256": "c0a391694fe35058200d16279a0cda9c1aabb94782c5081518da0e03f5340d55"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__material_library.gd.gz",
+      "bytes": 1064,
+      "sha256": "a872eef5e8726efc44592fd906e56e24e4e07f4a346512e6cddd85f6f39b5427"
+    },
+    {
+      "path": "source_edging_v2/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13278,
+      "sha256": "67820362d2b3e53427cbfc3ce4fba2c1b91a2e13c49272f980e7970baa2db335"
+    },
+    {
+      "path": "source_edging_v2/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3973,
+      "sha256": "dec14d3bce48b0068053e70b5b6ac51aef905da16ece3c4f1915d56d6019fe0b"
+    },
+    {
+      "path": "source_edging_v2/game__tests__orison_v2_photo_portraits_test.gd.gz",
+      "bytes": 5690,
+      "sha256": "6facf4b5b8e7faecb3be26a7be1422737c0785f29b13378f31deba9039331c02"
+    },
+    {
+      "path": "source_edging_v2/game__tests__v2_arcade_retirement_review.gd.gz",
+      "bytes": 1617,
+      "sha256": "3836e9b21df9face154171dbf3e2cefe4b6fd50fe1c7eff64e945190b76b23f9"
+    },
+    {
+      "path": "source_edging_v2/game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+      "bytes": 2152,
+      "sha256": "208d26cf336b891b3be8cd2aacc81a89e9d06c1be33f5704a17ad612cbb45496"
+    },
+    {
+      "path": "source_edging_v2/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2700,
+      "sha256": "21a402a3b9ef3c4aafe43860c986821f59bcc3d31bf4eeda2e1e690d02467f1c"
+    },
+    {
+      "path": "source_edging_v2/game__tests__v2_bathroom_optics_profile.gd.gz",
+      "bytes": 2366,
+      "sha256": "7215f4e3716c014a103fbe1b5845fa5394890c2969f430df3a09aa22cd0e4c23"
+    },
+    {
+      "path": "source_edging_v2/game__tests__v2_casing_mitre_bench.gd.gz",
+      "bytes": 1955,
+      "sha256": "6c4edddfd1f62d2f116f84f4a0a8fcedb9b7d6970c561fd55d5bba1768104455"
+    },
+    {
+      "path": "source_edging_v2/game__tests__v2_shared_finish_ownership_test.gd.gz",
+      "bytes": 2380,
+      "sha256": "4e31e87347b7db63693dc75de5e079ab2dd250a6ee860847d0d331748cb45495"
+    },
+    {
+      "path": "source_edging_v2/sources.json",
+      "bytes": 3694,
+      "sha256": "bef05da16f7d5a11051c74b2c0100d0f7c5319ceaf19facb967d48fe2680ea83"
+    },
+    {
+      "path": "source_edging_v3/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 7738,
+      "sha256": "a7349a43ce958442be0c42541a601692628a046a4449a47d9913b5a17ec0288d"
+    },
+    {
+      "path": "source_edging_v3/art__tools__fix_v2_mesh_imports.py.gz",
+      "bytes": 2305,
+      "sha256": "96403bbdefd8d0f62d8b9fd45fcabf7b36473526846e1131e32e691db6c4ba42"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__orison_v2_architectural_materials.gd.gz",
+      "bytes": 1820,
+      "sha256": "95de5f35ec4d5038861140447644792a3fdd4d43f0f1b5a360c0d9bd0db9fc7b"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__orison_v2_bar_receiving.gd.gz",
+      "bytes": 2468,
+      "sha256": "90594c072353953e287d8505e5d39843086e122ed2dd0c7305944fa174a85d65"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__orison_v2_bar_region.gd.gz",
+      "bytes": 2985,
+      "sha256": "48f110a168865bd2084047fed8db8786ea86533aa22cded6f93e0d1d400c0b89"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 4263,
+      "sha256": "8d1287fd641b87fae1815bafe1c83507e54e867f64b71947d7d418d179948e61"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__orison_v2_casing_mitre_stock.gd.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 3084,
+      "sha256": "cbaf574c0c508e0fb9a49b32453a2ffd148d1ab53cb707397bd1bf2d78f780bd"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__orison_v2_door_casings.gd.gz",
+      "bytes": 1817,
+      "sha256": "9ea74c1cded47e50d754aabf27a76413531eb2ad98efea2a3b76d0bc59968ea0"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__orison_v2_passage_region.gd.gz",
+      "bytes": 5820,
+      "sha256": "db7462d4b65c57c246eaea13fc347f0874b7fa04391cc0be98a7321fe66fa1fc"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12901,
+      "sha256": "692a2f65d2f7e2135e9cf614ae52d49129a4c1ed7f6a552ae1a480041adc91f1"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__orison_v2_shower_placement.gd.gz",
+      "bytes": 330,
+      "sha256": "3d6c11d3f86473bf0d59ac48fa8c90b23fa78b17334d35f87531b60234ff178e"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__orison_v2_uv_material_policy.gd.gz",
+      "bytes": 1856,
+      "sha256": "86aad5673f98503fe572cd98390eda424b017d352e780ea42fbaeb8900ae1b31"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__building__v2_legacy_material_stock.gd.gz",
+      "bytes": 3847,
+      "sha256": "c0a391694fe35058200d16279a0cda9c1aabb94782c5081518da0e03f5340d55"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__material_library.gd.gz",
+      "bytes": 1064,
+      "sha256": "a872eef5e8726efc44592fd906e56e24e4e07f4a346512e6cddd85f6f39b5427"
+    },
+    {
+      "path": "source_edging_v3/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13278,
+      "sha256": "67820362d2b3e53427cbfc3ce4fba2c1b91a2e13c49272f980e7970baa2db335"
+    },
+    {
+      "path": "source_edging_v3/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3973,
+      "sha256": "dec14d3bce48b0068053e70b5b6ac51aef905da16ece3c4f1915d56d6019fe0b"
+    },
+    {
+      "path": "source_edging_v3/game__tests__orison_v2_photo_portraits_test.gd.gz",
+      "bytes": 5690,
+      "sha256": "6facf4b5b8e7faecb3be26a7be1422737c0785f29b13378f31deba9039331c02"
+    },
+    {
+      "path": "source_edging_v3/game__tests__v2_arcade_retirement_review.gd.gz",
+      "bytes": 1617,
+      "sha256": "3836e9b21df9face154171dbf3e2cefe4b6fd50fe1c7eff64e945190b76b23f9"
+    },
+    {
+      "path": "source_edging_v3/game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+      "bytes": 2152,
+      "sha256": "208d26cf336b891b3be8cd2aacc81a89e9d06c1be33f5704a17ad612cbb45496"
+    },
+    {
+      "path": "source_edging_v3/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2765,
+      "sha256": "db1d68d801ab4acca67df2e34e39ca2a2c9b52c17050c7036a2280a24abc51b6"
+    },
+    {
+      "path": "source_edging_v3/game__tests__v2_bathroom_optics_profile.gd.gz",
+      "bytes": 2366,
+      "sha256": "7215f4e3716c014a103fbe1b5845fa5394890c2969f430df3a09aa22cd0e4c23"
+    },
+    {
+      "path": "source_edging_v3/game__tests__v2_casing_mitre_bench.gd.gz",
+      "bytes": 1955,
+      "sha256": "6c4edddfd1f62d2f116f84f4a0a8fcedb9b7d6970c561fd55d5bba1768104455"
+    },
+    {
+      "path": "source_edging_v3/game__tests__v2_shared_finish_ownership_test.gd.gz",
+      "bytes": 2380,
+      "sha256": "4e31e87347b7db63693dc75de5e079ab2dd250a6ee860847d0d331748cb45495"
+    },
+    {
+      "path": "source_edging_v3/sources.json",
+      "bytes": 3694,
+      "sha256": "387ef3741982bcf38d80333218fe76a042dec5b1935514930b008c7bbea65c7d"
+    },
+    {
+      "path": "source_final_v1/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 7738,
+      "sha256": "a7349a43ce958442be0c42541a601692628a046a4449a47d9913b5a17ec0288d"
+    },
+    {
+      "path": "source_final_v1/art__tools__fix_v2_mesh_imports.py.gz",
+      "bytes": 2305,
+      "sha256": "96403bbdefd8d0f62d8b9fd45fcabf7b36473526846e1131e32e691db6c4ba42"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__orison_v2_architectural_materials.gd.gz",
+      "bytes": 1820,
+      "sha256": "95de5f35ec4d5038861140447644792a3fdd4d43f0f1b5a360c0d9bd0db9fc7b"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__orison_v2_bar_receiving.gd.gz",
+      "bytes": 2468,
+      "sha256": "90594c072353953e287d8505e5d39843086e122ed2dd0c7305944fa174a85d65"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__orison_v2_bar_region.gd.gz",
+      "bytes": 2985,
+      "sha256": "48f110a168865bd2084047fed8db8786ea86533aa22cded6f93e0d1d400c0b89"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 2849,
+      "sha256": "1d889f67285a1874c6739eecb78c439aca2bdd1e49cdcdfa232041a2565ec006"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__orison_v2_casing_mitre_stock.gd.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 3084,
+      "sha256": "cbaf574c0c508e0fb9a49b32453a2ffd148d1ab53cb707397bd1bf2d78f780bd"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__orison_v2_door_casings.gd.gz",
+      "bytes": 1817,
+      "sha256": "9ea74c1cded47e50d754aabf27a76413531eb2ad98efea2a3b76d0bc59968ea0"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__orison_v2_passage_region.gd.gz",
+      "bytes": 5820,
+      "sha256": "db7462d4b65c57c246eaea13fc347f0874b7fa04391cc0be98a7321fe66fa1fc"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12901,
+      "sha256": "692a2f65d2f7e2135e9cf614ae52d49129a4c1ed7f6a552ae1a480041adc91f1"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__orison_v2_shower_placement.gd.gz",
+      "bytes": 330,
+      "sha256": "3d6c11d3f86473bf0d59ac48fa8c90b23fa78b17334d35f87531b60234ff178e"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__orison_v2_uv_material_policy.gd.gz",
+      "bytes": 1856,
+      "sha256": "86aad5673f98503fe572cd98390eda424b017d352e780ea42fbaeb8900ae1b31"
+    },
+    {
+      "path": "source_final_v1/game__scripts__building__v2_legacy_material_stock.gd.gz",
+      "bytes": 3847,
+      "sha256": "c0a391694fe35058200d16279a0cda9c1aabb94782c5081518da0e03f5340d55"
+    },
+    {
+      "path": "source_final_v1/game__scripts__material_library.gd.gz",
+      "bytes": 1064,
+      "sha256": "a872eef5e8726efc44592fd906e56e24e4e07f4a346512e6cddd85f6f39b5427"
+    },
+    {
+      "path": "source_final_v1/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13278,
+      "sha256": "67820362d2b3e53427cbfc3ce4fba2c1b91a2e13c49272f980e7970baa2db335"
+    },
+    {
+      "path": "source_final_v1/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3963,
+      "sha256": "ee65a519bdd4d0719cc5e0af99c32c5f0bb17ddf4bcaeb81dc0e59e7294d67c5"
+    },
+    {
+      "path": "source_final_v1/game__tests__v2_arcade_retirement_review.gd.gz",
+      "bytes": 1517,
+      "sha256": "c6d523ecc60a9d968488205ffd308e684adddaf1ec86d60852a3880f9c328753"
+    },
+    {
+      "path": "source_final_v1/game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+      "bytes": 2151,
+      "sha256": "3a870269a194f6288222b587c216cd19fccfda40e560bcfd81aa916ba5db17b5"
+    },
+    {
+      "path": "source_final_v1/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2539,
+      "sha256": "74383229f3bbfb041705a9d81b73f9cd64d630b583b594483a1262fd65d1c14d"
+    },
+    {
+      "path": "source_final_v1/game__tests__v2_casing_mitre_bench.gd.gz",
+      "bytes": 1955,
+      "sha256": "6c4edddfd1f62d2f116f84f4a0a8fcedb9b7d6970c561fd55d5bba1768104455"
+    },
+    {
+      "path": "source_final_v1/game__tests__v2_shared_finish_ownership_test.gd.gz",
+      "bytes": 2380,
+      "sha256": "4e31e87347b7db63693dc75de5e079ab2dd250a6ee860847d0d331748cb45495"
+    },
+    {
+      "path": "source_final_v1/sources.json",
+      "bytes": 3392,
+      "sha256": "220f0c92a9b8ef45eb48c37676576d197dbc3655c63da3dd2e4e50c0c53e50db"
+    },
+    {
+      "path": "source_final_v2/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 7738,
+      "sha256": "a7349a43ce958442be0c42541a601692628a046a4449a47d9913b5a17ec0288d"
+    },
+    {
+      "path": "source_final_v2/art__tools__fix_v2_mesh_imports.py.gz",
+      "bytes": 2305,
+      "sha256": "96403bbdefd8d0f62d8b9fd45fcabf7b36473526846e1131e32e691db6c4ba42"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__orison_v2_architectural_materials.gd.gz",
+      "bytes": 1820,
+      "sha256": "95de5f35ec4d5038861140447644792a3fdd4d43f0f1b5a360c0d9bd0db9fc7b"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__orison_v2_bar_receiving.gd.gz",
+      "bytes": 2468,
+      "sha256": "90594c072353953e287d8505e5d39843086e122ed2dd0c7305944fa174a85d65"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__orison_v2_bar_region.gd.gz",
+      "bytes": 2985,
+      "sha256": "48f110a168865bd2084047fed8db8786ea86533aa22cded6f93e0d1d400c0b89"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 2849,
+      "sha256": "1d889f67285a1874c6739eecb78c439aca2bdd1e49cdcdfa232041a2565ec006"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__orison_v2_casing_mitre_stock.gd.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 3084,
+      "sha256": "cbaf574c0c508e0fb9a49b32453a2ffd148d1ab53cb707397bd1bf2d78f780bd"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__orison_v2_door_casings.gd.gz",
+      "bytes": 1817,
+      "sha256": "9ea74c1cded47e50d754aabf27a76413531eb2ad98efea2a3b76d0bc59968ea0"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__orison_v2_passage_region.gd.gz",
+      "bytes": 5820,
+      "sha256": "db7462d4b65c57c246eaea13fc347f0874b7fa04391cc0be98a7321fe66fa1fc"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12901,
+      "sha256": "692a2f65d2f7e2135e9cf614ae52d49129a4c1ed7f6a552ae1a480041adc91f1"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__orison_v2_shower_placement.gd.gz",
+      "bytes": 330,
+      "sha256": "3d6c11d3f86473bf0d59ac48fa8c90b23fa78b17334d35f87531b60234ff178e"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__orison_v2_uv_material_policy.gd.gz",
+      "bytes": 1856,
+      "sha256": "86aad5673f98503fe572cd98390eda424b017d352e780ea42fbaeb8900ae1b31"
+    },
+    {
+      "path": "source_final_v2/game__scripts__building__v2_legacy_material_stock.gd.gz",
+      "bytes": 3847,
+      "sha256": "c0a391694fe35058200d16279a0cda9c1aabb94782c5081518da0e03f5340d55"
+    },
+    {
+      "path": "source_final_v2/game__scripts__material_library.gd.gz",
+      "bytes": 1064,
+      "sha256": "a872eef5e8726efc44592fd906e56e24e4e07f4a346512e6cddd85f6f39b5427"
+    },
+    {
+      "path": "source_final_v2/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13278,
+      "sha256": "67820362d2b3e53427cbfc3ce4fba2c1b91a2e13c49272f980e7970baa2db335"
+    },
+    {
+      "path": "source_final_v2/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3973,
+      "sha256": "dec14d3bce48b0068053e70b5b6ac51aef905da16ece3c4f1915d56d6019fe0b"
+    },
+    {
+      "path": "source_final_v2/game__tests__orison_v2_photo_portraits_test.gd.gz",
+      "bytes": 5690,
+      "sha256": "6facf4b5b8e7faecb3be26a7be1422737c0785f29b13378f31deba9039331c02"
+    },
+    {
+      "path": "source_final_v2/game__tests__v2_arcade_retirement_review.gd.gz",
+      "bytes": 1617,
+      "sha256": "3836e9b21df9face154171dbf3e2cefe4b6fd50fe1c7eff64e945190b76b23f9"
+    },
+    {
+      "path": "source_final_v2/game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+      "bytes": 2151,
+      "sha256": "3a870269a194f6288222b587c216cd19fccfda40e560bcfd81aa916ba5db17b5"
+    },
+    {
+      "path": "source_final_v2/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2539,
+      "sha256": "74383229f3bbfb041705a9d81b73f9cd64d630b583b594483a1262fd65d1c14d"
+    },
+    {
+      "path": "source_final_v2/game__tests__v2_casing_mitre_bench.gd.gz",
+      "bytes": 1955,
+      "sha256": "6c4edddfd1f62d2f116f84f4a0a8fcedb9b7d6970c561fd55d5bba1768104455"
+    },
+    {
+      "path": "source_final_v2/game__tests__v2_shared_finish_ownership_test.gd.gz",
+      "bytes": 2380,
+      "sha256": "4e31e87347b7db63693dc75de5e079ab2dd250a6ee860847d0d331748cb45495"
+    },
+    {
+      "path": "source_final_v2/sources.json",
+      "bytes": 3545,
+      "sha256": "1c8dbd10c0a6cfd225db141bcfcb69e9b822301841bf0de9d9fc92dd73d79c66"
+    },
+    {
+      "path": "source_frame_clearance_v1/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 7738,
+      "sha256": "a7349a43ce958442be0c42541a601692628a046a4449a47d9913b5a17ec0288d"
+    },
+    {
+      "path": "source_frame_clearance_v1/art__tools__fix_v2_mesh_imports.py.gz",
+      "bytes": 2305,
+      "sha256": "96403bbdefd8d0f62d8b9fd45fcabf7b36473526846e1131e32e691db6c4ba42"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__orison_v2_architectural_materials.gd.gz",
+      "bytes": 1820,
+      "sha256": "95de5f35ec4d5038861140447644792a3fdd4d43f0f1b5a360c0d9bd0db9fc7b"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__orison_v2_bar_receiving.gd.gz",
+      "bytes": 2468,
+      "sha256": "90594c072353953e287d8505e5d39843086e122ed2dd0c7305944fa174a85d65"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__orison_v2_bar_region.gd.gz",
+      "bytes": 2985,
+      "sha256": "48f110a168865bd2084047fed8db8786ea86533aa22cded6f93e0d1d400c0b89"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 4814,
+      "sha256": "d3c078b269fbf8ccf031771ff750e180c4e0ebe883b877b26cfd397562b43efc"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__orison_v2_casing_mitre_stock.gd.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 3084,
+      "sha256": "cbaf574c0c508e0fb9a49b32453a2ffd148d1ab53cb707397bd1bf2d78f780bd"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__orison_v2_door_casings.gd.gz",
+      "bytes": 1817,
+      "sha256": "9ea74c1cded47e50d754aabf27a76413531eb2ad98efea2a3b76d0bc59968ea0"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__orison_v2_passage_region.gd.gz",
+      "bytes": 5820,
+      "sha256": "db7462d4b65c57c246eaea13fc347f0874b7fa04391cc0be98a7321fe66fa1fc"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12901,
+      "sha256": "692a2f65d2f7e2135e9cf614ae52d49129a4c1ed7f6a552ae1a480041adc91f1"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__orison_v2_shower_placement.gd.gz",
+      "bytes": 330,
+      "sha256": "3d6c11d3f86473bf0d59ac48fa8c90b23fa78b17334d35f87531b60234ff178e"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__orison_v2_uv_material_policy.gd.gz",
+      "bytes": 1856,
+      "sha256": "86aad5673f98503fe572cd98390eda424b017d352e780ea42fbaeb8900ae1b31"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__building__v2_legacy_material_stock.gd.gz",
+      "bytes": 3847,
+      "sha256": "c0a391694fe35058200d16279a0cda9c1aabb94782c5081518da0e03f5340d55"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__material_library.gd.gz",
+      "bytes": 1064,
+      "sha256": "a872eef5e8726efc44592fd906e56e24e4e07f4a346512e6cddd85f6f39b5427"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13278,
+      "sha256": "67820362d2b3e53427cbfc3ce4fba2c1b91a2e13c49272f980e7970baa2db335"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3973,
+      "sha256": "dec14d3bce48b0068053e70b5b6ac51aef905da16ece3c4f1915d56d6019fe0b"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__tests__orison_v2_photo_portraits_test.gd.gz",
+      "bytes": 5690,
+      "sha256": "6facf4b5b8e7faecb3be26a7be1422737c0785f29b13378f31deba9039331c02"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__tests__v2_arcade_retirement_review.gd.gz",
+      "bytes": 1617,
+      "sha256": "3836e9b21df9face154171dbf3e2cefe4b6fd50fe1c7eff64e945190b76b23f9"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+      "bytes": 2317,
+      "sha256": "fa7ce4addfb7cc29ca7a3e8d298357f1afbc0fcc24122440a314add330a99ad9"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2765,
+      "sha256": "db1d68d801ab4acca67df2e34e39ca2a2c9b52c17050c7036a2280a24abc51b6"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__tests__v2_bathroom_optics_profile.gd.gz",
+      "bytes": 2366,
+      "sha256": "7215f4e3716c014a103fbe1b5845fa5394890c2969f430df3a09aa22cd0e4c23"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__tests__v2_casing_mitre_bench.gd.gz",
+      "bytes": 1955,
+      "sha256": "6c4edddfd1f62d2f116f84f4a0a8fcedb9b7d6970c561fd55d5bba1768104455"
+    },
+    {
+      "path": "source_frame_clearance_v1/game__tests__v2_shared_finish_ownership_test.gd.gz",
+      "bytes": 2380,
+      "sha256": "4e31e87347b7db63693dc75de5e079ab2dd250a6ee860847d0d331748cb45495"
+    },
+    {
+      "path": "source_frame_clearance_v1/sources.json",
+      "bytes": 4174,
+      "sha256": "324422ad87918509e089c89966edbce20da1c143f57807b5c1d19262c594a91c"
+    },
+    {
+      "path": "spatial_final.json",
+      "bytes": 45624,
+      "sha256": "10a1348b4ee3f3a25ebbe4be5479d36bdfe31446d5905cfdcd986bdf43d1d08b"
+    },
+    {
+      "path": "stale_index_lock_085818.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stale_index_lock_085818.json",
+      "bytes": 489,
+      "sha256": "dd2c401e0bf7d39c3c7ba16a9adfec11a115112e907833b1f68a5f62da125ddb"
+    },
+    {
+      "path": "stale_index_lock_132802.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stale_index_lock_132802.json",
+      "bytes": 1981,
+      "sha256": "415f525fa1ecc3cdd4dbe79087db306248d26e1f117e3600d143b951a90d4f6a"
+    },
+    {
+      "path": "stock_source_v1/0.gz",
+      "bytes": 43277,
+      "sha256": "4a1729365fc892b6eb88dc0e9c06adf7568a708ec938d692dfc4c447aba9e19d"
+    },
+    {
+      "path": "stock_source_v1/1.gz",
+      "bytes": 556,
+      "sha256": "9c134712d6597cf9a9d3cc8633af7598dbad586d4e98f7c454994207d07884c9"
+    },
+    {
+      "path": "stock_source_v1/2.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "stock_source_v1/3.gz",
+      "bytes": 1946,
+      "sha256": "8531159fc25ce9048c925f591a8b1628efa3e254d4b2e98a630ab8ad9b11d2ab"
+    },
+    {
+      "path": "stock_source_v1/4.gz",
+      "bytes": 3410,
+      "sha256": "6ec4f46e39faa942d4cd442f646e398c803037c19a666416b4294b54e15507ec"
+    },
+    {
+      "path": "stock_source_v1/sources.json",
+      "bytes": 1018,
+      "sha256": "4902076518910d83ac01836f58dfcb15f8809e83c2114a8b31d33605f3d4895a"
+    },
+    {
+      "path": "verify_packets.py",
+      "bytes": 3347,
+      "sha256": "518cdd2ad9fd9ef857cb5016e064e0c024253a38a211c8abe511fa027e2d9ead"
+    },
+    {
+      "path": "world_source_v1/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 5903,
+      "sha256": "7f56851ef453655f9a55a922281816141e054642f6115e1cb97767ae86dc3023"
+    },
+    {
+      "path": "world_source_v1/game__assets__props__bath_shower.glb.gz",
+      "bytes": 3729501,
+      "sha256": "195c2c1b464f99d0e1b8bfa4cd9179debb773a73d42fd7bfad4853d4b6e214b5"
+    },
+    {
+      "path": "world_source_v1/game__assets__props__door_casing_mitres.glb.gz",
+      "bytes": 43277,
+      "sha256": "4a1729365fc892b6eb88dc0e9c06adf7568a708ec938d692dfc4c447aba9e19d"
+    },
+    {
+      "path": "world_source_v1/game__scripts__building__orison_v2_architectural_materials.gd.gz",
+      "bytes": 1820,
+      "sha256": "95de5f35ec4d5038861140447644792a3fdd4d43f0f1b5a360c0d9bd0db9fc7b"
+    },
+    {
+      "path": "world_source_v1/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 2579,
+      "sha256": "e5f65b47b5781bddc09240438af7286d164808a5b57c597536a7fa27b0740a41"
+    },
+    {
+      "path": "world_source_v1/game__scripts__building__orison_v2_blockout.gd.gz",
+      "bytes": 17755,
+      "sha256": "677e101c2f0d87fea9ea6e6a13655b20818f119eee94990e231d890f010a3628"
+    },
+    {
+      "path": "world_source_v1/game__scripts__building__orison_v2_casing_mitre_stock.gd.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "world_source_v1/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 2845,
+      "sha256": "152ad27fc35fb1d27fb45f02f7f023488ce1884dd508bf69fb64741d014dc30f"
+    },
+    {
+      "path": "world_source_v1/game__scripts__building__orison_v2_door_casings.gd.gz",
+      "bytes": 1817,
+      "sha256": "9ea74c1cded47e50d754aabf27a76413531eb2ad98efea2a3b76d0bc59968ea0"
+    },
+    {
+      "path": "world_source_v1/game__scripts__building__orison_v2_millwork.gd.gz",
+      "bytes": 5542,
+      "sha256": "572a13d95cc01a52b6d532f26c002095a852d20d06d8f2bfd3f4f3f6aca43e52"
+    },
+    {
+      "path": "world_source_v1/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12856,
+      "sha256": "aed05489bee1cbd09228359e242d1ba24bbe849ff91609f5b36bd52bda595b0f"
+    },
+    {
+      "path": "world_source_v1/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13182,
+      "sha256": "46f9a122f2652c6a62c8ae90fd8c22b6c67cc6d911af79fffb55ff527377f377"
+    },
+    {
+      "path": "world_source_v1/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3872,
+      "sha256": "c6d6144a7f80621edc3ff3f352551e1cf29d7176e5ee0781dd63581e4617c86c"
+    },
+    {
+      "path": "world_source_v1/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2207,
+      "sha256": "01bfe97525b598bf0274152d54aa6a15aae3b13bfd0b7420c5731f5436b220d5"
+    },
+    {
+      "path": "world_source_v1/sources.json",
+      "bytes": 3159,
+      "sha256": "c288ada18083bccb5b0653e21abe5252189a692d4a39a526ab6bee0f4b32c2b3"
+    },
+    {
+      "path": "world_source_v2/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 5909,
+      "sha256": "6dd5ed6be3063e2893d7da758d09942315c8d42ca45584fa2eb8caac6c1d800b"
+    },
+    {
+      "path": "world_source_v2/game__assets__props__bath_shower.glb.gz",
+      "bytes": 3905426,
+      "sha256": "28c0b3cb311415a63f83815c418f4578704c4a86eb9fd8c63ae258bb280b8363"
+    },
+    {
+      "path": "world_source_v2/game__assets__props__door_casing_mitres.glb.gz",
+      "bytes": 43277,
+      "sha256": "4a1729365fc892b6eb88dc0e9c06adf7568a708ec938d692dfc4c447aba9e19d"
+    },
+    {
+      "path": "world_source_v2/game__scripts__building__orison_v2_architectural_materials.gd.gz",
+      "bytes": 1820,
+      "sha256": "95de5f35ec4d5038861140447644792a3fdd4d43f0f1b5a360c0d9bd0db9fc7b"
+    },
+    {
+      "path": "world_source_v2/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 2643,
+      "sha256": "27e0e84cad2c2aea38cead10f2644181c4b253a07b336ff3a1ea1bc7f88e8ccd"
+    },
+    {
+      "path": "world_source_v2/game__scripts__building__orison_v2_blockout.gd.gz",
+      "bytes": 17755,
+      "sha256": "677e101c2f0d87fea9ea6e6a13655b20818f119eee94990e231d890f010a3628"
+    },
+    {
+      "path": "world_source_v2/game__scripts__building__orison_v2_casing_mitre_stock.gd.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "world_source_v2/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 2846,
+      "sha256": "42f8728db4f70fa44a12479f9f0606b6b9173c12793fb5ae7402116161ff80ac"
+    },
+    {
+      "path": "world_source_v2/game__scripts__building__orison_v2_door_casings.gd.gz",
+      "bytes": 1817,
+      "sha256": "9ea74c1cded47e50d754aabf27a76413531eb2ad98efea2a3b76d0bc59968ea0"
+    },
+    {
+      "path": "world_source_v2/game__scripts__building__orison_v2_millwork.gd.gz",
+      "bytes": 5542,
+      "sha256": "572a13d95cc01a52b6d532f26c002095a852d20d06d8f2bfd3f4f3f6aca43e52"
+    },
+    {
+      "path": "world_source_v2/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12856,
+      "sha256": "aed05489bee1cbd09228359e242d1ba24bbe849ff91609f5b36bd52bda595b0f"
+    },
+    {
+      "path": "world_source_v2/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13206,
+      "sha256": "a6da71e6a828bd07ecf099e2b8a0f7ca015181d49257d05eb0c99c9f91225820"
+    },
+    {
+      "path": "world_source_v2/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3872,
+      "sha256": "c6d6144a7f80621edc3ff3f352551e1cf29d7176e5ee0781dd63581e4617c86c"
+    },
+    {
+      "path": "world_source_v2/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2211,
+      "sha256": "d773bd4aecfabd02f2a0e20cb61422e61299f5d8fab305bcd10f0d14449a86e6"
+    },
+    {
+      "path": "world_source_v2/sources.json",
+      "bytes": 3159,
+      "sha256": "b12fbb7c3ea77f4b681ead564ed67af6e559a51d2cc9d477c7e5f3424b4bf9ed"
+    },
+    {
+      "path": "world_source_v3/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 7815,
+      "sha256": "e212657ca671dcc2cb8f81e724626a9163a825f91c3ec3f96f87e75d97434fb6"
+    },
+    {
+      "path": "world_source_v3/game__assets__props__bath_shower.glb.gz",
+      "bytes": 3327452,
+      "sha256": "883569df4e48fd29fdb7552ed47f5bc3212bd623c8863d201b7b576a4a77feae"
+    },
+    {
+      "path": "world_source_v3/game__assets__props__door_casing_mitres.glb.gz",
+      "bytes": 43277,
+      "sha256": "4a1729365fc892b6eb88dc0e9c06adf7568a708ec938d692dfc4c447aba9e19d"
+    },
+    {
+      "path": "world_source_v3/game__scripts__building__orison_v2_architectural_materials.gd.gz",
+      "bytes": 1820,
+      "sha256": "95de5f35ec4d5038861140447644792a3fdd4d43f0f1b5a360c0d9bd0db9fc7b"
+    },
+    {
+      "path": "world_source_v3/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 2776,
+      "sha256": "1f8deb1130de690815131844f56663a54351c269c17fce09d419bd09ba110af6"
+    },
+    {
+      "path": "world_source_v3/game__scripts__building__orison_v2_blockout.gd.gz",
+      "bytes": 17724,
+      "sha256": "c96bf987e6ddf60106ed46844e027cd3fb77b35a51a44744faa00c8a1f36fd96"
+    },
+    {
+      "path": "world_source_v3/game__scripts__building__orison_v2_casing_mitre_stock.gd.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "world_source_v3/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 3095,
+      "sha256": "7f7685f8249420a7069c1f91465e458f83d79b34e7fd292e3f206aad06cfcc91"
+    },
+    {
+      "path": "world_source_v3/game__scripts__building__orison_v2_door_casings.gd.gz",
+      "bytes": 1817,
+      "sha256": "9ea74c1cded47e50d754aabf27a76413531eb2ad98efea2a3b76d0bc59968ea0"
+    },
+    {
+      "path": "world_source_v3/game__scripts__building__orison_v2_millwork.gd.gz",
+      "bytes": 5531,
+      "sha256": "cbe42a4fea089bf1c2222b90585b148a6f7b123cc5465e4adac58ab7a9568e75"
+    },
+    {
+      "path": "world_source_v3/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12901,
+      "sha256": "692a2f65d2f7e2135e9cf614ae52d49129a4c1ed7f6a552ae1a480041adc91f1"
+    },
+    {
+      "path": "world_source_v3/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13307,
+      "sha256": "fa389a501398c5a5a15d3f44578da71bb6738b0f6a4f6152f7aa7d7d57670640"
+    },
+    {
+      "path": "world_source_v3/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3872,
+      "sha256": "c6d6144a7f80621edc3ff3f352551e1cf29d7176e5ee0781dd63581e4617c86c"
+    },
+    {
+      "path": "world_source_v3/game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+      "bytes": 1224,
+      "sha256": "879edc0f2b209f7d0cb207a927db39552e71350e84d9d35be72fc4646e817fa4"
+    },
+    {
+      "path": "world_source_v3/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2398,
+      "sha256": "041e561f5c3b0670fb29fec9e9d837245cf1df41c0fc7d77e89dbf1d4408dfc5"
+    },
+    {
+      "path": "world_source_v3/sources.json",
+      "bytes": 3382,
+      "sha256": "4d32adfc98465ca50869d9c1d3e5d292e30a5a0d0413c18da1cc90cc2a600984"
+    },
+    {
+      "path": "world_source_v4/art__blender__scripts__build_bathroom_details.py.gz",
+      "bytes": 7846,
+      "sha256": "5a4a9f6f8516f10a5fc0bf98820f6eb88c7ee261774cf0fa8520762bb4f8347b"
+    },
+    {
+      "path": "world_source_v4/game__assets__props__bath_shower.glb.gz",
+      "bytes": 3312936,
+      "sha256": "d764153f5f0d601264eaaa07c9b6e80a4ecf8392d9cb848400a22043fde7965c"
+    },
+    {
+      "path": "world_source_v4/game__assets__props__door_casing_mitres.glb.gz",
+      "bytes": 43277,
+      "sha256": "4a1729365fc892b6eb88dc0e9c06adf7568a708ec938d692dfc4c447aba9e19d"
+    },
+    {
+      "path": "world_source_v4/game__scripts__building__orison_v2_architectural_materials.gd.gz",
+      "bytes": 1820,
+      "sha256": "95de5f35ec4d5038861140447644792a3fdd4d43f0f1b5a360c0d9bd0db9fc7b"
+    },
+    {
+      "path": "world_source_v4/game__scripts__building__orison_v2_bathroom_finishes.gd.gz",
+      "bytes": 2776,
+      "sha256": "1f8deb1130de690815131844f56663a54351c269c17fce09d419bd09ba110af6"
+    },
+    {
+      "path": "world_source_v4/game__scripts__building__orison_v2_blockout.gd.gz",
+      "bytes": 17724,
+      "sha256": "c96bf987e6ddf60106ed46844e027cd3fb77b35a51a44744faa00c8a1f36fd96"
+    },
+    {
+      "path": "world_source_v4/game__scripts__building__orison_v2_casing_mitre_stock.gd.gz",
+      "bytes": 755,
+      "sha256": "2ea5c09bece66eb12d12aea5f9a4693e52e2475c7b9b83e73b70ce4e7200db6a"
+    },
+    {
+      "path": "world_source_v4/game__scripts__building__orison_v2_domestic_fittings.gd.gz",
+      "bytes": 3144,
+      "sha256": "240339643a8f85b9bb03d411441a2a05dbb3913200d2b1e881e1710015f44fad"
+    },
+    {
+      "path": "world_source_v4/game__scripts__building__orison_v2_door_casings.gd.gz",
+      "bytes": 1817,
+      "sha256": "9ea74c1cded47e50d754aabf27a76413531eb2ad98efea2a3b76d0bc59968ea0"
+    },
+    {
+      "path": "world_source_v4/game__scripts__building__orison_v2_millwork.gd.gz",
+      "bytes": 5531,
+      "sha256": "cbe42a4fea089bf1c2222b90585b148a6f7b123cc5465e4adac58ab7a9568e75"
+    },
+    {
+      "path": "world_source_v4/game__scripts__building__orison_v2_runtime_root.gd.gz",
+      "bytes": 12901,
+      "sha256": "692a2f65d2f7e2135e9cf614ae52d49129a4c1ed7f6a552ae1a480041adc91f1"
+    },
+    {
+      "path": "world_source_v4/game__scripts__props__tap_prop.gd.gz",
+      "bytes": 13327,
+      "sha256": "4b4112906ceced90572cd043622670ade01e110f11065bec29594bac47264717"
+    },
+    {
+      "path": "world_source_v4/game__tests__orison_v2_door_casings_test.gd.gz",
+      "bytes": 3872,
+      "sha256": "c6d6144a7f80621edc3ff3f352551e1cf29d7176e5ee0781dd63581e4617c86c"
+    },
+    {
+      "path": "world_source_v4/game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+      "bytes": 1897,
+      "sha256": "decebecc03069fd13262176f913051f0acaf7997430ef5b1d58bf4d5ad4f6253"
+    },
+    {
+      "path": "world_source_v4/game__tests__v2_bathroom_finishing_review.gd.gz",
+      "bytes": 2580,
+      "sha256": "ebfc6bc3964b67fa3664dc91a3f562f001921f386f2fc663471868b03caabe85"
+    },
+    {
+      "path": "world_source_v4/sources.json",
+      "bytes": 3382,
+      "sha256": "c298552e9ce846e19a6d20429f7e2c21551f8ccf48484061897d2da3c07b3360"
+    },
+    {
+      "path": "world_v1.log",
+      "bytes": 297,
+      "sha256": "15f3b50b1c2c7b3857b42f69b1031df6879013413e226cf185bd9cc12196c30f"
+    },
+    {
+      "path": "world_v1.log.receipt.json",
+      "bytes": 2942,
+      "sha256": "8a517b6188d555c46648bfc2679fd1f007585a0a2cb880a4fac9553511751e32"
+    },
+    {
+      "path": "world_v1.log.stderr",
+      "bytes": 478,
+      "sha256": "88ac5f8acc5a7e4f7eeebc61f046bf6c0763ffbb0a1cd1d4b1d05e5cd15f6e27"
+    },
+    {
+      "path": "world_v1_relative_output/last_position.png",
+      "bytes": 4332,
+      "sha256": "5895a60d5cc28e47d6fe89ab1a90a8c1575bfe09a34c3933541294a9eb6b068d"
+    },
+    {
+      "path": "world_v1_relative_output/route.json",
+      "bytes": 60,
+      "sha256": "06a209267bf2f1a73613e2d7d077d58842d0a81fbb41e27ed6c86f44a34926e3"
+    },
+    {
+      "path": "world_v2/B1_LAUNDRY_DOOR.png",
+      "bytes": 884038,
+      "sha256": "c62f5f474dda670646903c60e26fe3a9f7a79e91873ab6009c2a3ecf2a6196bc"
+    },
+    {
+      "path": "world_v2/bathroom_finish_drawn.png",
+      "bytes": 804046,
+      "sha256": "20a2d1b1afb96712b708d85c68254679d0a73b87daabce6b4867012edb4eaeeb"
+    },
+    {
+      "path": "world_v2/bathroom_finish_gathered.png",
+      "bytes": 508464,
+      "sha256": "109d4266601d342b8b876eb6b949ad104843a3622671fc23b8eea6e2682f1b26"
+    },
+    {
+      "path": "world_v2/casing_joint_detail.png",
+      "bytes": 807806,
+      "sha256": "8077b8321a3862c89503f1315e3318a9399b146b90c1040e684abe61acad21a5"
+    },
+    {
+      "path": "world_v2/F01_INNER_DOOR.png",
+      "bytes": 426357,
+      "sha256": "68c33fa7d6624fae501fa62e7ae286950c758dfe0beb15b92a8a1252bf931e9e"
+    },
+    {
+      "path": "world_v2/F02_DOOR_02.png",
+      "bytes": 465334,
+      "sha256": "b578ff03bdbd148ba265d768ffb4448c210c970612602bdfa347482a7024536a"
+    },
+    {
+      "path": "world_v2/F04_DOOR_03.png",
+      "bytes": 559670,
+      "sha256": "4c11c5e28edb8981708a7efe2e1c455106b96483237994e73156931496c99a83"
+    },
+    {
+      "path": "world_v2/finishes.json",
+      "bytes": 297947,
+      "sha256": "10d1e5ae890ef4963c2d5e4580283bc0ed9dc8c5b7774e1f74a5a54686841d76"
+    },
+    {
+      "path": "world_v2/last_position.png",
+      "bytes": 455660,
+      "sha256": "0ccfaad2f8be84af3e1a35d786b913059d52a376197a3e022c2fe51a78348c32"
+    },
+    {
+      "path": "world_v2/route.json",
+      "bytes": 3866,
+      "sha256": "bf6683a49f1d2c27f4a4bce654b0232c0ae05e70a491ff10c1102fafa4c4e7f6"
+    },
+    {
+      "path": "world_v2/service_fastener_detail.png",
+      "bytes": 462048,
+      "sha256": "f2fc40b62f38125f4f542d2e3ebac0e419572c1bcd243ec816e46ff4da75c0f1"
+    },
+    {
+      "path": "world_v2.log",
+      "bytes": 59885,
+      "sha256": "4452e4c9789127f55edcae63eba40d5916e2ffcbd9ffd2cf25b9775fc29dfe9a"
+    },
+    {
+      "path": "world_v2.log.receipt.json",
+      "bytes": 2973,
+      "sha256": "b1bfdb584f3cfa72ca9e855e99860c4057cb69e29e8f6480f7d43daf7a55ab41"
+    },
+    {
+      "path": "world_v2.log.stderr",
+      "bytes": 31180,
+      "sha256": "d11937da1cef4dcbd8de46363900168ba6b82dc448fd8416f26db2246b6dc6c9"
+    },
+    {
+      "path": "world_v3/last_position.png",
+      "bytes": 4332,
+      "sha256": "5895a60d5cc28e47d6fe89ab1a90a8c1575bfe09a34c3933541294a9eb6b068d"
+    },
+    {
+      "path": "world_v3/route.json",
+      "bytes": 60,
+      "sha256": "06a209267bf2f1a73613e2d7d077d58842d0a81fbb41e27ed6c86f44a34926e3"
+    },
+    {
+      "path": "world_v3.log",
+      "bytes": 297,
+      "sha256": "15f3b50b1c2c7b3857b42f69b1031df6879013413e226cf185bd9cc12196c30f"
+    },
+    {
+      "path": "world_v3.log.receipt.json",
+      "bytes": 2972,
+      "sha256": "d53bfe19f4ace83618f82d37f36af6fd109140d584dafb558616d7e40b2b4cd7"
+    },
+    {
+      "path": "world_v3.log.stderr",
+      "bytes": 457,
+      "sha256": "ea1485edeab8ed0f582d37699a9ba04fbc1c2013bb1fd5bbaeeca396e994a24e"
+    },
+    {
+      "path": "world_v4/last_position.png",
+      "bytes": 4332,
+      "sha256": "5895a60d5cc28e47d6fe89ab1a90a8c1575bfe09a34c3933541294a9eb6b068d"
+    },
+    {
+      "path": "world_v4/route.json",
+      "bytes": 60,
+      "sha256": "06a209267bf2f1a73613e2d7d077d58842d0a81fbb41e27ed6c86f44a34926e3"
+    },
+    {
+      "path": "world_v4.log",
+      "bytes": 297,
+      "sha256": "15f3b50b1c2c7b3857b42f69b1031df6879013413e226cf185bd9cc12196c30f"
+    },
+    {
+      "path": "world_v4.log.receipt.json",
+      "bytes": 2972,
+      "sha256": "3d3d01471f68621908e48f594257f150383ea994b2138cb2d14482cc3aba5523"
+    },
+    {
+      "path": "world_v4.log.stderr",
+      "bytes": 457,
+      "sha256": "ea1485edeab8ed0f582d37699a9ba04fbc1c2013bb1fd5bbaeeca396e994a24e"
+    },
+    {
+      "path": "world_v5/last_position.png",
+      "bytes": 4332,
+      "sha256": "5895a60d5cc28e47d6fe89ab1a90a8c1575bfe09a34c3933541294a9eb6b068d"
+    },
+    {
+      "path": "world_v5/route.json",
+      "bytes": 60,
+      "sha256": "06a209267bf2f1a73613e2d7d077d58842d0a81fbb41e27ed6c86f44a34926e3"
+    },
+    {
+      "path": "world_v5.log",
+      "bytes": 297,
+      "sha256": "15f3b50b1c2c7b3857b42f69b1031df6879013413e226cf185bd9cc12196c30f"
+    },
+    {
+      "path": "world_v5.log.receipt.json",
+      "bytes": 2972,
+      "sha256": "1e02426a7d10f3697823ffbc4045b4ad49f487ddbfac6c85d27daf6288dba310"
+    },
+    {
+      "path": "world_v5.log.stderr",
+      "bytes": 477,
+      "sha256": "a7b0c4345127358c77f258c0b557472eded2f910712e1e6ab3062c92b5f48df7"
+    },
+    {
+      "path": "world_v6/B1_LAUNDRY_DOOR.png",
+      "bytes": 770231,
+      "sha256": "06bdda474dfb75a035a5edb0de2ac1ec428079ed90dc6098798d89b0746fac49"
+    },
+    {
+      "path": "world_v6/bathroom_finish_drawn.png",
+      "bytes": 512573,
+      "sha256": "a859632b94491b93c34d640b6864171e8860c1fb2ef9d3db05a59318fbe53902"
+    },
+    {
+      "path": "world_v6/bathroom_finish_gathered.png",
+      "bytes": 531095,
+      "sha256": "cd554bf5f7183cf95030c64cc37629be99e1a086895362d1640b2c6ecc11ba1c"
+    },
+    {
+      "path": "world_v6/bathroom_wainscot.png",
+      "bytes": 719087,
+      "sha256": "50f36612f70c25e7869464fd86204a886af247ca4eeafa7c10c47b05af08231a"
+    },
+    {
+      "path": "world_v6/casing_joint_detail.png",
+      "bytes": 826939,
+      "sha256": "613f7eed797af54374105ac7bbbe5462f5d5c9e9c9383f4ffd75250706554096"
+    },
+    {
+      "path": "world_v6/F01_INNER_DOOR.png",
+      "bytes": 228948,
+      "sha256": "79d6b949821a51d9f80af55cb0be6183e287910c4a498832ad181615649c72b9"
+    },
+    {
+      "path": "world_v6/F02_DOOR_02.png",
+      "bytes": 432015,
+      "sha256": "cb11eef83a119284eef823976bca1157d616e6a8854df32d4f899612736af82e"
+    },
+    {
+      "path": "world_v6/F04_DOOR_03.png",
+      "bytes": 551028,
+      "sha256": "65316fd03353e175805512bffb80506dd16917288f105a69cb7be8cc6f87c4cd"
+    },
+    {
+      "path": "world_v6/finishes.json",
+      "bytes": 565498,
+      "sha256": "f14f29b6c3377cc01c4de321b77148b6fbee9723157f8a636ee857de8587f893"
+    },
+    {
+      "path": "world_v6/last_position.png",
+      "bytes": 458011,
+      "sha256": "cc39c9c1a98fe69ebff81aa9425fc6fe9867affc77ce247033ed637f0a9a0c3c"
+    },
+    {
+      "path": "world_v6/route.json",
+      "bytes": 35,
+      "sha256": "dfd3e751903238283a251f8e5e91a45dc6b7c782caabc22ebd98af4f97fc82cd"
+    },
+    {
+      "path": "world_v6/service_fastener_detail.png",
+      "bytes": 461204,
+      "sha256": "0699b9730d8de0f86c70604c6e0f53d22b9d906e3ec6f2376f3fa08e79f69cd9"
+    },
+    {
+      "path": "world_v6/shower_head_union.png",
+      "bytes": 887066,
+      "sha256": "8f53f789be09a175d294c576a1152a05ed9cc020c34f3e2d318cbb888de98e58"
+    },
+    {
+      "path": "world_v6.log",
+      "bytes": 37505,
+      "sha256": "e138f58652700bc16314851bcb948aed2618019dbcd1cc1ff7b4fe1feeb7793b"
+    },
+    {
+      "path": "world_v6.log.receipt.json",
+      "bytes": 2907,
+      "sha256": "dd61d546f1e47b718428ade15d07c63d737df5b3d12486583c6eecbdde0a5dfc"
+    },
+    {
+      "path": "world_v6.log.stderr",
+      "bytes": 221463,
+      "sha256": "fa6b32186c2b2a7cd4d9a06fb31280aa2750bf5ca9818aff9d1f54beb91d2505"
+    },
+    {
+      "path": "world_v7/B1_LAUNDRY_DOOR.png",
+      "bytes": 771887,
+      "sha256": "7d2343366e7485c9d13b720c5056bbd24facfe3ada99f23f9ca0591253c238da"
+    },
+    {
+      "path": "world_v7/bathroom_finish_drawn.png",
+      "bytes": 509819,
+      "sha256": "e8775f36b5b97a5614efae9c262645a21fad322b51dc18c989aed349a1de5009"
+    },
+    {
+      "path": "world_v7/bathroom_finish_gathered.png",
+      "bytes": 530735,
+      "sha256": "a4ead88d9113fcb7166a78d9e54868437654b411388a2c5868c184b11dcf19dd"
+    },
+    {
+      "path": "world_v7/bathroom_wainscot.png",
+      "bytes": 721083,
+      "sha256": "a13c604ca96179317426558198fc59f2e1a0e9eb69d20a2afe8f316e8d01b2e5"
+    },
+    {
+      "path": "world_v7/casing_joint_detail.png",
+      "bytes": 825159,
+      "sha256": "30b70568a44aafc48a74730de74f4dac049708372d052bce8b081f3f0ca09206"
+    },
+    {
+      "path": "world_v7/F01_INNER_DOOR.png",
+      "bytes": 228988,
+      "sha256": "a46d065fa05bde3f1f06ea809a10b9bf1ac322ff988ef9719173a7c2c0968e27"
+    },
+    {
+      "path": "world_v7/F02_DOOR_02.png",
+      "bytes": 438669,
+      "sha256": "820ab7655a2ef0b832cd47d529f6ecbdf76e6af61dc7150b14dd1b7e043946f0"
+    },
+    {
+      "path": "world_v7/F04_DOOR_03.png",
+      "bytes": 551329,
+      "sha256": "1a9045a05f9fc09e2f15f0d11f8f24039af3bc1a6d60062104139cf971d92045"
+    },
+    {
+      "path": "world_v7/finishes.json",
+      "bytes": 565498,
+      "sha256": "f14f29b6c3377cc01c4de321b77148b6fbee9723157f8a636ee857de8587f893"
+    },
+    {
+      "path": "world_v7/last_position.png",
+      "bytes": 457523,
+      "sha256": "8481425940905e2de13ece3f9853fb0e63ed18428365c9e396061492274b9ee2"
+    },
+    {
+      "path": "world_v7/route.json",
+      "bytes": 35,
+      "sha256": "dfd3e751903238283a251f8e5e91a45dc6b7c782caabc22ebd98af4f97fc82cd"
+    },
+    {
+      "path": "world_v7/service_fastener_detail.png",
+      "bytes": 456826,
+      "sha256": "cd90ce5719f9beb745ee68b98cdb538393ac2c3229c99fffd92f392a8a72eac6"
+    },
+    {
+      "path": "world_v7/shower_head_union.png",
+      "bytes": 887524,
+      "sha256": "50155179de1a29c226472700d1292c26dc21ed4270a106d95ee4acf92e8f7503"
+    },
+    {
+      "path": "world_v7.log",
+      "bytes": 37505,
+      "sha256": "c8c4128f0a76a96491c906ceb01091141a7fa4297ce9d98f2c0c4266de84dfc3"
+    },
+    {
+      "path": "world_v7.log.receipt.json",
+      "bytes": 2812,
+      "sha256": "6b5542202b3b78bcad857acc9c0b9e0eb45f463cb92f1275be04169baf713d96"
+    },
+    {
+      "path": "world_v7.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    }
+  ]
+}

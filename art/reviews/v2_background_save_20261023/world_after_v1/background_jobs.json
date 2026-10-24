@@ -1,0 +1,377 @@
+{
+	"evidence_class": "INERT",
+	"final_status": {
+		"completed": 14,
+		"discarded": 0,
+		"pending": 0,
+		"requested": 14
+	},
+	"route_jobs": [
+		{
+			"bytes": 272310,
+			"finished_usec": 222774998,
+			"id": 1,
+			"main_usec": 50382,
+			"pending": 1,
+			"physics_frame": 559,
+			"process_frame": 118,
+			"stage": "enqueue",
+			"started_usec": 222724616
+		},
+		{
+			"adopted_usec": 222934496,
+			"id": 1,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 222867368,
+				"worker_main_thread": false,
+				"worker_started_usec": 222777060,
+				"worker_usec": 90308
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272510,
+			"finished_usec": 226629440,
+			"id": 2,
+			"main_usec": 13681,
+			"pending": 1,
+			"physics_frame": 777,
+			"process_frame": 183,
+			"stage": "enqueue",
+			"started_usec": 226615760
+		},
+		{
+			"adopted_usec": 226717372,
+			"id": 2,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 226704879,
+				"worker_main_thread": false,
+				"worker_started_usec": 226629912,
+				"worker_usec": 74967
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272507,
+			"finished_usec": 226874087,
+			"id": 3,
+			"main_usec": 13143,
+			"pending": 1,
+			"physics_frame": 793,
+			"process_frame": 186,
+			"stage": "enqueue",
+			"started_usec": 226860944
+		},
+		{
+			"bytes": 272333,
+			"finished_usec": 226925739,
+			"id": 4,
+			"main_usec": 13870,
+			"pending": 2,
+			"physics_frame": 793,
+			"process_frame": 186,
+			"stage": "enqueue",
+			"started_usec": 226911870
+		},
+		{
+			"adopted_usec": 226947137,
+			"id": 3,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 226937060,
+				"worker_main_thread": false,
+				"worker_started_usec": 226874664,
+				"worker_usec": 62396
+			},
+			"stage": "completed"
+		},
+		{
+			"adopted_usec": 227034497,
+			"id": 4,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 227006144,
+				"worker_main_thread": false,
+				"worker_started_usec": 226947447,
+				"worker_usec": 58697
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272380,
+			"finished_usec": 228935556,
+			"id": 5,
+			"main_usec": 13765,
+			"pending": 1,
+			"physics_frame": 911,
+			"process_frame": 212,
+			"stage": "enqueue",
+			"started_usec": 228921791
+		},
+		{
+			"adopted_usec": 229010616,
+			"id": 5,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 228989611,
+				"worker_main_thread": false,
+				"worker_started_usec": 228935745,
+				"worker_usec": 53866
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272348,
+			"finished_usec": 230506705,
+			"id": 6,
+			"main_usec": 14319,
+			"pending": 1,
+			"physics_frame": 1008,
+			"process_frame": 240,
+			"stage": "enqueue",
+			"started_usec": 230492387
+		},
+		{
+			"adopted_usec": 230572175,
+			"id": 6,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 230567664,
+				"worker_main_thread": false,
+				"worker_started_usec": 230507260,
+				"worker_usec": 60404
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272469,
+			"finished_usec": 233230636,
+			"id": 7,
+			"main_usec": 15339,
+			"pending": 1,
+			"physics_frame": 1172,
+			"process_frame": 287,
+			"stage": "enqueue",
+			"started_usec": 233215298
+		},
+		{
+			"adopted_usec": 233310148,
+			"id": 7,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 233295709,
+				"worker_main_thread": false,
+				"worker_started_usec": 233230837,
+				"worker_usec": 64872
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272502,
+			"finished_usec": 233601983,
+			"id": 8,
+			"main_usec": 13026,
+			"pending": 1,
+			"physics_frame": 1186,
+			"process_frame": 290,
+			"stage": "enqueue",
+			"started_usec": 233588958
+		},
+		{
+			"adopted_usec": 233690046,
+			"id": 8,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 233667576,
+				"worker_main_thread": false,
+				"worker_started_usec": 233602239,
+				"worker_usec": 65337
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272469,
+			"finished_usec": 244715426,
+			"id": 9,
+			"main_usec": 9528,
+			"pending": 1,
+			"physics_frame": 1562,
+			"process_frame": 416,
+			"stage": "enqueue",
+			"started_usec": 244705899
+		},
+		{
+			"adopted_usec": 244803905,
+			"id": 9,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 244778794,
+				"worker_main_thread": false,
+				"worker_started_usec": 244715599,
+				"worker_usec": 63195
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272342,
+			"finished_usec": 245379123,
+			"id": 10,
+			"main_usec": 11287,
+			"pending": 1,
+			"physics_frame": 1603,
+			"process_frame": 435,
+			"stage": "enqueue",
+			"started_usec": 245367836
+		},
+		{
+			"adopted_usec": 245456924,
+			"id": 10,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 245419113,
+				"worker_main_thread": false,
+				"worker_started_usec": 245379617,
+				"worker_usec": 39496
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272328,
+			"finished_usec": 247285706,
+			"id": 11,
+			"main_usec": 9626,
+			"pending": 1,
+			"physics_frame": 1716,
+			"process_frame": 477,
+			"stage": "enqueue",
+			"started_usec": 247276080
+		},
+		{
+			"adopted_usec": 247428354,
+			"id": 11,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 247322094,
+				"worker_main_thread": false,
+				"worker_started_usec": 247285876,
+				"worker_usec": 36218
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272332,
+			"finished_usec": 251781440,
+			"id": 12,
+			"main_usec": 8514,
+			"pending": 1,
+			"physics_frame": 1985,
+			"process_frame": 577,
+			"stage": "enqueue",
+			"started_usec": 251772926
+		},
+		{
+			"adopted_usec": 251839295,
+			"id": 12,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 251817634,
+				"worker_main_thread": false,
+				"worker_started_usec": 251781593,
+				"worker_usec": 36041
+			},
+			"stage": "completed"
+		},
+		{
+			"bytes": 272333,
+			"finished_usec": 252112905,
+			"id": 13,
+			"main_usec": 8784,
+			"pending": 1,
+			"physics_frame": 1999,
+			"process_frame": 580,
+			"stage": "enqueue",
+			"started_usec": 252104121
+		},
+		{
+			"adopted_usec": 252146493,
+			"id": 13,
+			"result": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete",
+				"worker_finished_usec": 252146205,
+				"worker_main_thread": false,
+				"worker_started_usec": 252113114,
+				"worker_usec": 33091
+			},
+			"stage": "completed"
+		}
+	],
+	"route_status": {
+		"completed": 13,
+		"discarded": 0,
+		"pending": 0,
+		"requested": 13
+	},
+	"scope": "Same timed route plus separate untimed large-payload mouse-overlap control; main-thread serialization remains. No runtime_contract or human acceptance.",
+	"untimed_overlap": {
+		"camera_turned": true,
+		"input_usec": 24,
+		"mouse_mode": 2,
+		"payload_bytes": 3220000,
+		"worker_alive_after": true,
+		"worker_alive_before": true
+	}
+}

@@ -1,0 +1,817 @@
+{
+  "evidence_class": "INERT",
+  "unit": "milliseconds",
+  "limitations": [
+    "World routes have identical input waypoints/settings; carrier contact changed the post-pickup view. No isolated geometry performance claim.",
+    "Render CPU/GPU timings are measured viewport counters; process/physics monitors are coarse and lagging, not a per-frame cost decomposition.",
+    "Residency and pipeline counters separate observed streaming/compilation activity but do not time loading or compilation costs.",
+    "World route does not open a book. Input handler timings come from a separate actual-input controlled scene.",
+    "No human acceptance or runtime_contract qualification."
+  ],
+  "world": {
+    "world_before_v4": {
+      "phases": {
+        "library_near_still": {
+          "wall_ms": {
+            "n": 119,
+            "p50": 31.1,
+            "p95": 36.29,
+            "p99": 37.174,
+            "maximum": 38.634,
+            "over_33_333": 34,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 119,
+            "p50": 17.673,
+            "p95": 19.062,
+            "p99": 19.471,
+            "maximum": 19.668,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 119,
+            "p50": 10.355,
+            "p95": 11.7,
+            "p99": 12.096,
+            "maximum": 12.549,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 119
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_turning": {
+          "wall_ms": {
+            "n": 47,
+            "p50": 35.23,
+            "p95": 40.161,
+            "p99": 43.571,
+            "maximum": 44.372,
+            "over_33_333": 33,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 47,
+            "p50": 19.069,
+            "p95": 21.396,
+            "p99": 23.211,
+            "maximum": 24.47,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 47,
+            "p50": 11.985,
+            "p95": 13.302,
+            "p99": 13.687,
+            "maximum": 13.691,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 47
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_pickup": {
+          "wall_ms": {
+            "n": 98,
+            "p50": 41.164,
+            "p95": 49.535,
+            "p99": 55.968,
+            "maximum": 59.745,
+            "over_33_333": 98,
+            "over_50": 3
+          },
+          "render_cpu_ms": {
+            "n": 98,
+            "p50": 20.818,
+            "p95": 25.947,
+            "p99": 27.028,
+            "maximum": 27.155,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 98,
+            "p50": 13.433,
+            "p95": 17.516,
+            "p99": 18.117,
+            "maximum": 18.237,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 98
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_held_turn": {
+          "wall_ms": {
+            "n": 31,
+            "p50": 49.633,
+            "p95": 57.892,
+            "p99": 58.742,
+            "maximum": 58.981,
+            "over_33_333": 31,
+            "over_50": 13
+          },
+          "render_cpu_ms": {
+            "n": 31,
+            "p50": 26.98,
+            "p95": 30.508,
+            "p99": 31.014,
+            "maximum": 31.063,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 31,
+            "p50": 17.247,
+            "p95": 18.952,
+            "p99": 19.281,
+            "maximum": 19.368,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 31
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_enter_inspection": {
+          "wall_ms": {
+            "n": 99,
+            "p50": 26.243,
+            "p95": 32.594,
+            "p99": 41.61,
+            "maximum": 48.925,
+            "over_33_333": 5,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 99,
+            "p50": 14.489,
+            "p95": 18.78,
+            "p99": 22.434,
+            "maximum": 28.433,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 99,
+            "p50": 9.504,
+            "p95": 12.707,
+            "p99": 14.244,
+            "maximum": 17.209,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 99
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_static_inspection": {
+          "wall_ms": {
+            "n": 119,
+            "p50": 25.886,
+            "p95": 31.509,
+            "p99": 33.504,
+            "maximum": 36.383,
+            "over_33_333": 3,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 119,
+            "p50": 14.404,
+            "p95": 15.479,
+            "p99": 15.641,
+            "maximum": 16.382,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 119,
+            "p50": 8.997,
+            "p95": 9.762,
+            "p99": 9.82,
+            "maximum": 9.839,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 119
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        }
+      },
+      "resolution": "(1280.0, 720.0)",
+      "vsync": false,
+      "failures": [],
+      "own_book_contacts": 138
+    },
+    "world_after_v1": {
+      "phases": {
+        "library_near_still": {
+          "wall_ms": {
+            "n": 119,
+            "p50": 32.862,
+            "p95": 37.107,
+            "p99": 38.23,
+            "maximum": 39.133,
+            "over_33_333": 53,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 119,
+            "p50": 18.877,
+            "p95": 20.174,
+            "p99": 20.366,
+            "maximum": 20.573,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 119,
+            "p50": 11.721,
+            "p95": 12.922,
+            "p99": 12.946,
+            "maximum": 12.999,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 119
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_turning": {
+          "wall_ms": {
+            "n": 47,
+            "p50": 36.56,
+            "p95": 41.16,
+            "p99": 45.067,
+            "maximum": 48.234,
+            "over_33_333": 43,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 47,
+            "p50": 19.613,
+            "p95": 21.857,
+            "p99": 23.7,
+            "maximum": 24.516,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 47,
+            "p50": 12.331,
+            "p95": 13.39,
+            "p99": 13.482,
+            "maximum": 13.514,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 47
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_pickup": {
+          "wall_ms": {
+            "n": 98,
+            "p50": 58.293,
+            "p95": 70.388,
+            "p99": 89.094,
+            "maximum": 90.373,
+            "over_33_333": 98,
+            "over_50": 83
+          },
+          "render_cpu_ms": {
+            "n": 98,
+            "p50": 31.834,
+            "p95": 34.76,
+            "p99": 36.109,
+            "maximum": 39.507,
+            "over_33_333": 26,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 98,
+            "p50": 18.724,
+            "p95": 22.545,
+            "p99": 24.062,
+            "maximum": 24.453,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 98
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_held_turn": {
+          "wall_ms": {
+            "n": 31,
+            "p50": 61.551,
+            "p95": 67.813,
+            "p99": 70.952,
+            "maximum": 72.211,
+            "over_33_333": 31,
+            "over_50": 31
+          },
+          "render_cpu_ms": {
+            "n": 31,
+            "p50": 32.492,
+            "p95": 34.16,
+            "p99": 34.467,
+            "maximum": 34.582,
+            "over_33_333": 8,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 31,
+            "p50": 19.021,
+            "p95": 21.431,
+            "p99": 21.675,
+            "maximum": 21.769,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 31
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_enter_inspection": {
+          "wall_ms": {
+            "n": 99,
+            "p50": 37.378,
+            "p95": 43.215,
+            "p99": 45.184,
+            "maximum": 54.44,
+            "over_33_333": 99,
+            "over_50": 1
+          },
+          "render_cpu_ms": {
+            "n": 99,
+            "p50": 22.196,
+            "p95": 24.094,
+            "p99": 25.091,
+            "maximum": 33.556,
+            "over_33_333": 1,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 99,
+            "p50": 13.488,
+            "p95": 15.285,
+            "p99": 16.928,
+            "maximum": 21.697,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 99
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_static_inspection": {
+          "wall_ms": {
+            "n": 119,
+            "p50": 37.648,
+            "p95": 42.184,
+            "p99": 44.754,
+            "maximum": 49.024,
+            "over_33_333": 118,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 119,
+            "p50": 22.237,
+            "p95": 24.136,
+            "p99": 24.683,
+            "maximum": 25.22,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 119,
+            "p50": 12.414,
+            "p95": 14.059,
+            "p99": 14.182,
+            "maximum": 14.188,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 119
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        }
+      },
+      "resolution": "(1280.0, 720.0)",
+      "vsync": false,
+      "failures": [],
+      "own_book_contacts": 27
+    },
+    "world_after_carrier_v1": {
+      "phases": {
+        "library_near_still": {
+          "wall_ms": {
+            "n": 119,
+            "p50": 31.913,
+            "p95": 36.888,
+            "p99": 38.02,
+            "maximum": 41.037,
+            "over_33_333": 38,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 119,
+            "p50": 17.694,
+            "p95": 19.145,
+            "p99": 19.586,
+            "maximum": 19.769,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 119,
+            "p50": 10.877,
+            "p95": 12.189,
+            "p99": 12.361,
+            "maximum": 12.384,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 119
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_turning": {
+          "wall_ms": {
+            "n": 47,
+            "p50": 33.752,
+            "p95": 38.151,
+            "p99": 38.919,
+            "maximum": 39.425,
+            "over_33_333": 27,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 47,
+            "p50": 17.737,
+            "p95": 19.268,
+            "p99": 19.838,
+            "maximum": 20.114,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 47,
+            "p50": 11.463,
+            "p95": 12.827,
+            "p99": 12.876,
+            "maximum": 12.897,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 47
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_pickup": {
+          "wall_ms": {
+            "n": 98,
+            "p50": 35.828,
+            "p95": 44.807,
+            "p99": 48.713,
+            "maximum": 51.487,
+            "over_33_333": 60,
+            "over_50": 1
+          },
+          "render_cpu_ms": {
+            "n": 98,
+            "p50": 18.95,
+            "p95": 20.396,
+            "p99": 20.775,
+            "maximum": 20.787,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 98,
+            "p50": 12.661,
+            "p95": 14.076,
+            "p99": 14.119,
+            "maximum": 14.489,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 98
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_held_turn": {
+          "wall_ms": {
+            "n": 31,
+            "p50": 33.929,
+            "p95": 39.62,
+            "p99": 43.097,
+            "maximum": 44.208,
+            "over_33_333": 22,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 31,
+            "p50": 18.703,
+            "p95": 19.522,
+            "p99": 19.757,
+            "maximum": 19.851,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 31,
+            "p50": 12.295,
+            "p95": 12.944,
+            "p99": 13.015,
+            "maximum": 13.032,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 31
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_enter_inspection": {
+          "wall_ms": {
+            "n": 99,
+            "p50": 22.443,
+            "p95": 31.401,
+            "p99": 41.41,
+            "maximum": 44.999,
+            "over_33_333": 4,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 99,
+            "p50": 11.65,
+            "p95": 14.018,
+            "p99": 14.789,
+            "maximum": 18.487,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 99,
+            "p50": 7.91,
+            "p95": 9.032,
+            "p99": 10.014,
+            "maximum": 12.225,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 99
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        },
+        "library_static_inspection": {
+          "wall_ms": {
+            "n": 119,
+            "p50": 21.468,
+            "p95": 27.741,
+            "p99": 29.558,
+            "maximum": 30.776,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_cpu_ms": {
+            "n": 119,
+            "p50": 11.167,
+            "p95": 12.426,
+            "p99": 12.67,
+            "maximum": 13.152,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "render_gpu_ms": {
+            "n": 119,
+            "p50": 7.447,
+            "p95": 8.468,
+            "p99": 8.997,
+            "maximum": 9.003,
+            "over_33_333": 0,
+            "over_50": 0
+          },
+          "residency": {
+            "DORMANT": 119
+          },
+          "pipeline_counter_deltas": {
+            "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+            "PIPELINE_COMPILATIONS_DRAW": 0.0,
+            "PIPELINE_COMPILATIONS_MESH": 0.0,
+            "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+            "PIPELINE_COMPILATIONS_SURFACE": 0.0
+          }
+        }
+      },
+      "resolution": "(1280.0, 720.0)",
+      "vsync": false,
+      "failures": [],
+      "own_book_contacts": 0
+    }
+  },
+  "input": {
+    "cover_cost_before_v1": {
+      "begin": {
+        "n": 3,
+        "p50": 0.013,
+        "p95": 0.02,
+        "p99": 0.021,
+        "maximum": 0.021,
+        "over_33_333": 0,
+        "over_50": 0
+      },
+      "end": {
+        "n": 3,
+        "p50": 0.415,
+        "p95": 0.419,
+        "p99": 0.42,
+        "maximum": 0.42,
+        "over_33_333": 0,
+        "over_50": 0
+      },
+      "world_modified": {
+        "n": 3,
+        "p50": 0.001,
+        "p95": 0.002,
+        "p99": 0.002,
+        "maximum": 0.002,
+        "over_33_333": 0,
+        "over_50": 0
+      },
+      "constrained_motion": {
+        "n": 36,
+        "p50": 22.587,
+        "p95": 26.887,
+        "p99": 43.578,
+        "maximum": 52.549,
+        "over_33_333": 1,
+        "over_50": 1
+      }
+    },
+    "cover_cost_after_v1": {
+      "begin": {
+        "n": 3,
+        "p50": 0.013,
+        "p95": 0.017,
+        "p99": 0.017,
+        "maximum": 0.017,
+        "over_33_333": 0,
+        "over_50": 0
+      },
+      "end": {
+        "n": 3,
+        "p50": 0.423,
+        "p95": 0.424,
+        "p99": 0.424,
+        "maximum": 0.424,
+        "over_33_333": 0,
+        "over_50": 0
+      },
+      "world_modified": {
+        "n": 3,
+        "p50": 0.002,
+        "p95": 0.002,
+        "p99": 0.002,
+        "maximum": 0.002,
+        "over_33_333": 0,
+        "over_50": 0
+      },
+      "constrained_motion": {
+        "n": 36,
+        "p50": 7.306,
+        "p95": 8.247,
+        "p99": 31.781,
+        "maximum": 44.451,
+        "over_33_333": 1,
+        "over_50": 0
+      }
+    }
+  }
+}

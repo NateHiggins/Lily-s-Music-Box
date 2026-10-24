@@ -1,0 +1,71 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 1.05,
+  "exit_code": 1,
+  "finished_utc": "2026-10-23T23:04:53Z",
+  "started_utc": "2026-10-23T23:04:51Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 8,
+  "script_error_lines": [
+   "SCRIPT ERROR: Compile Error: Identifier not found: RealityState",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://scripts/building/orison_v2_blockout.gd\" with error \"Compilation failed\".",
+   "SCRIPT ERROR: Compile Error: Identifier not found: GameBoot",
+   "ERROR: Failed to load script \"res://scripts/building/orison_v2_runtime_root.gd\" with error \"Compilation failed\".",
+   "SCRIPT ERROR: Compile Error: Identifier not found: RealityState",
+   "ERROR: Failed to load script \"res://tests/v2_hose_work_attribution.gd\" with error \"Compilation failed\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_household_work_20261023/format_check_v2.log.stderr",
+  "stderr_sha256": "bbfe44f59e72fba782815633af3a9857f57deca80b0202d215ad5cc23f6e3b33",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_household_work_20261023/format_check_v2.log",
+  "stdout_sha256": "9d581ec5492fe988c9c06ba731f53831e0de994203e89ae19ffcf5b503748acc"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 3029,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M design/V2_CONTINUATION_2026-10-22.md",
+   " M game/scripts/building/orison_v2_household_state.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png"
+  ],
+  "repository_head": "2faba6e1eaca3429b9ca2fe86489cafb252cc89e",
+  "repository_tree": "9030eda548278642ff1f67afc54d30d70e0aa43f",
+  "runtime_inputs_sha256": "7737bbc9ba4ca654bdfbc5a952c45060ebead6f35fef317fc27f110cf61b5dcd",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

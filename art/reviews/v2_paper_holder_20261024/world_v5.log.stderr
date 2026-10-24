@@ -1,0 +1,23 @@
+SCRIPT ERROR: Parse Error: Cannot infer the type of "side" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/building/orison_v2_bath_details.gd:75)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/building/orison_v2_runtime_root.gd:0)
+ERROR: Failed to load script "res://scripts/building/orison_v2_runtime_root.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: OrisonV2RuntimeRoot._compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:478)
+   GDScript backtrace (most recent call first):
+       [0] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:478)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:187)
+       [2] _run (res://tests/orison_v2_vertical_route_test.gd:19)
+ERROR: V2 porter dispatch could not bind the passenger lift
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_runtime_root.gd:199)
+       [1] _run (res://tests/orison_v2_vertical_route_test.gd:19)
+WARNING: 3 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)

@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 0.68,
+  "exit_code": 0,
+  "finished_utc": "2026-10-24T04:53:57Z",
+  "started_utc": "2026-10-24T04:53:56Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "PORTRAIT ATLAS CACHE: PASS checks=16"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_portrait_reload_20261024/cache_v2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_portrait_reload_20261024/cache_v2.log",
+  "stdout_sha256": "f60f72400a6eb3cc2eace932a77004f58b307b5d6d216346d2a7e88c61932a43"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2PortraitAtlasCacheBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_portrait_reload_20261024/cache_v2",
+ "source": {
+  "dirty_paths": 3026,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_photo_portraits.gd",
+   " M game/tests/v2_cooperative_streaming_profile.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png"
+  ],
+  "repository_head": "29c88736425e725e5e878ae5aa50f649bb4d5a4e",
+  "repository_tree": "8a57db860538730751a76b1c267d68f9b85b1868",
+  "runtime_inputs_sha256": "e73786a7d67adfde87d1bdd5cec982f27b1a9857a41e1dfa7e50679e587f33a6",
+  "test_path": "game/tests/v2_portrait_atlas_cache_bench.gd",
+  "test_sha256": "1c631c46d5eb4cff54968da0616a23f0505740dc8a721a93893b8fca20f4dc46"
+ },
+ "windowed": false
+}

@@ -36,6 +36,10 @@ func mount(adapter: Variant, owner: MinaCaseGameplay) -> bool:
 			for z in [-depth*.5+.07,depth*.5-.07]:
 				_piece(body,Vector3(x,(height-.08)*.5,z),Vector3(.09,height-.08,.09))
 	for i in 3: _evidence_body(owner.evidence_nodes[i],str(owner.EVIDENCE[i].id))
+	var control := preload("res://scripts/cases/orison_v2_calibrator_plunger.gd").new()
+	if not control.configure(owner.console):
+		control.free()
+		return false
 	return true
 
 func _evidence_body(item: CaseInteractable, identity: String) -> void:

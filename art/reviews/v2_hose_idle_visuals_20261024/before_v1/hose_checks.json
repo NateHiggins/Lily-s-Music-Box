@@ -1,0 +1,565 @@
+{
+	"aim_errors_degrees": [
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0197823410294464,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0,
+		0.0
+	],
+	"checks": [
+		{
+			"label": "all eight production hose cabinets mount in the occupied world",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: B1_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F01_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F02_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F03_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F04_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F05_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: F06_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "stored installed hose has no contact/cloth/fluid loop: ROOF_FIRE_LINE_STAIR",
+			"ok": true
+		},
+		{
+			"label": "actual grab/motion/release opens the installed cabinet",
+			"ok": true
+		},
+		{
+			"label": "explicit assembled-line fixture is a valid physical household state",
+			"ok": true
+		},
+		{
+			"label": "walked stance reaches the specific installed nozzle surface",
+			"ok": true
+		},
+		{
+			"label": "actual installed pull continues directly into FPS carry",
+			"ok": true
+		},
+		{
+			"label": "ordinary turning retains the deployed hose",
+			"ok": true
+		},
+		{
+			"label": "presented installed nozzle remains within one degree of reticle aim while turning",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"motion_calls": [
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 733,
+			"shell_queries": 0,
+			"total_usec": 314
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 734,
+			"shell_queries": 0,
+			"total_usec": 325
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 735,
+			"shell_queries": 0,
+			"total_usec": 320
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 736,
+			"shell_queries": 0,
+			"total_usec": 322
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 737,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 738,
+			"shell_queries": 0,
+			"total_usec": 309
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 739,
+			"shell_queries": 0,
+			"total_usec": 329
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 740,
+			"shell_queries": 0,
+			"total_usec": 314
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 741,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 742,
+			"shell_queries": 0,
+			"total_usec": 317
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 743,
+			"shell_queries": 0,
+			"total_usec": 309
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 744,
+			"shell_queries": 0,
+			"total_usec": 337
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 745,
+			"shell_queries": 0,
+			"total_usec": 356
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 746,
+			"shell_queries": 0,
+			"total_usec": 310
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 747,
+			"shell_queries": 0,
+			"total_usec": 317
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 748,
+			"shell_queries": 0,
+			"total_usec": 354
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 749,
+			"shell_queries": 0,
+			"total_usec": 332
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 750,
+			"shell_queries": 0,
+			"total_usec": 314
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 751,
+			"shell_queries": 0,
+			"total_usec": 312
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 752,
+			"shell_queries": 0,
+			"total_usec": 311
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 753,
+			"shell_queries": 0,
+			"total_usec": 319
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 754,
+			"shell_queries": 0,
+			"total_usec": 320
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 755,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 756,
+			"shell_queries": 0,
+			"total_usec": 332
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 757,
+			"shell_queries": 0,
+			"total_usec": 313
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 758,
+			"shell_queries": 0,
+			"total_usec": 315
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 759,
+			"shell_queries": 0,
+			"total_usec": 319
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 760,
+			"shell_queries": 0,
+			"total_usec": 315
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 761,
+			"shell_queries": 0,
+			"total_usec": 319
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 762,
+			"shell_queries": 0,
+			"total_usec": 326
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 763,
+			"shell_queries": 0,
+			"total_usec": 322
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 764,
+			"shell_queries": 0,
+			"total_usec": 312
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 765,
+			"shell_queries": 0,
+			"total_usec": 344
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 766,
+			"shell_queries": 0,
+			"total_usec": 327
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 767,
+			"shell_queries": 0,
+			"total_usec": 311
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 768,
+			"shell_queries": 0,
+			"total_usec": 318
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 769,
+			"shell_queries": 0,
+			"total_usec": 316
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 770,
+			"shell_queries": 0,
+			"total_usec": 375
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 771,
+			"shell_queries": 0,
+			"total_usec": 315
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 772,
+			"shell_queries": 0,
+			"total_usec": 326
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 773,
+			"shell_queries": 0,
+			"total_usec": 321
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 774,
+			"shell_queries": 0,
+			"total_usec": 338
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 775,
+			"shell_queries": 0,
+			"total_usec": 317
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 776,
+			"shell_queries": 0,
+			"total_usec": 316
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 777,
+			"shell_queries": 0,
+			"total_usec": 329
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 778,
+			"shell_queries": 0,
+			"total_usec": 316
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 779,
+			"shell_queries": 0,
+			"total_usec": 311
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 780,
+			"shell_queries": 0,
+			"total_usec": 324
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 781,
+			"shell_queries": 0,
+			"total_usec": 315
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 782,
+			"shell_queries": 0,
+			"total_usec": 330
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 783,
+			"shell_queries": 0,
+			"total_usec": 310
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 784,
+			"shell_queries": 0,
+			"total_usec": 343
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 785,
+			"shell_queries": 0,
+			"total_usec": 329
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 786,
+			"shell_queries": 0,
+			"total_usec": 311
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 787,
+			"shell_queries": 0,
+			"total_usec": 317
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 788,
+			"shell_queries": 0,
+			"total_usec": 318
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 789,
+			"shell_queries": 0,
+			"total_usec": 314
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 790,
+			"shell_queries": 0,
+			"total_usec": 312
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 791,
+			"shell_queries": 0,
+			"total_usec": 312
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 792,
+			"shell_queries": 0,
+			"total_usec": 318
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 793,
+			"shell_queries": 0,
+			"total_usec": 325
+		},
+		{
+			"broad_queries": 0,
+			"mode": "visual",
+			"process_frame": 794,
+			"shell_queries": 0,
+			"total_usec": 319
+		}
+	],
+	"scope": "Actual installed approach, operation, stair carrying and disk rebuild; repaired assembly staged. No full payout, all-area coverage, runtime_contract or human acceptance."
+}

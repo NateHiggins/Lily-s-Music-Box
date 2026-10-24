@@ -1,0 +1,48 @@
+ERROR: The object does not have any 'meta' values with the key 'prepared_native_fit'.
+   at: get_meta (core/object/object.cpp:1053)
+   GDScript backtrace (most recent call first):
+       [0] mount_records (res://scripts/building/orison_v2_shop_seating.gd:229)
+       [1] mount_cobbler (res://scripts/building/orison_v2_shop_seating.gd:42)
+       [2] _run (res://tests/v2_fitting_collision_cache_test.gd:19)
+SCRIPT ERROR: Attempt to call function '_disconnect_sources' in base 'null instance' on a null instance.
+   at: _notification (res://scripts/building/orison_v2_native_fit_job.gd:94)
+   GDScript backtrace (most recent call first):
+       [0] _notification (res://scripts/building/orison_v2_native_fit_job.gd:94)
+       [1] mount_cobbler (res://scripts/building/orison_v2_shop_seating.gd:42)
+       [2] _run (res://tests/v2_fitting_collision_cache_test.gd:19)
+ERROR: The object does not have any 'meta' values with the key 'prepared_native_fit'.
+   at: get_meta (core/object/object.cpp:1053)
+   GDScript backtrace (most recent call first):
+       [0] mount_records (res://scripts/building/orison_v2_shop_seating.gd:229)
+       [1] mount_cobbler (res://scripts/building/orison_v2_shop_seating.gd:42)
+       [2] _run (res://tests/v2_fitting_collision_cache_test.gd:60)
+SCRIPT ERROR: Attempt to call function '_disconnect_sources' in base 'null instance' on a null instance.
+   at: _notification (res://scripts/building/orison_v2_native_fit_job.gd:94)
+   GDScript backtrace (most recent call first):
+       [0] _notification (res://scripts/building/orison_v2_native_fit_job.gd:94)
+       [1] mount_cobbler (res://scripts/building/orison_v2_shop_seating.gd:42)
+       [2] _run (res://tests/v2_fitting_collision_cache_test.gd:60)
+ERROR: The object does not have any 'meta' values with the key 'prepared_native_fit'.
+   at: get_meta (core/object/object.cpp:1053)
+   GDScript backtrace (most recent call first):
+       [0] mount_records (res://scripts/building/orison_v2_shop_seating.gd:229)
+       [1] mount_cobbler (res://scripts/building/orison_v2_shop_seating.gd:42)
+       [2] _run (res://tests/v2_fitting_collision_cache_test.gd:76)
+SCRIPT ERROR: Attempt to call function '_disconnect_sources' in base 'null instance' on a null instance.
+   at: _notification (res://scripts/building/orison_v2_native_fit_job.gd:94)
+   GDScript backtrace (most recent call first):
+       [0] _notification (res://scripts/building/orison_v2_native_fit_job.gd:94)
+       [1] mount_cobbler (res://scripts/building/orison_v2_shop_seating.gd:42)
+       [2] _run (res://tests/v2_fitting_collision_cache_test.gd:76)
+ERROR: The object does not have any 'meta' values with the key 'prepared_native_fit'.
+   at: get_meta (core/object/object.cpp:1053)
+   GDScript backtrace (most recent call first):
+       [0] mount_records (res://scripts/building/orison_v2_shop_seating.gd:229)
+       [1] mount_cobbler (res://scripts/building/orison_v2_shop_seating.gd:42)
+       [2] _run (res://tests/v2_fitting_collision_cache_test.gd:84)
+SCRIPT ERROR: Attempt to call function '_disconnect_sources' in base 'null instance' on a null instance.
+   at: _notification (res://scripts/building/orison_v2_native_fit_job.gd:94)
+   GDScript backtrace (most recent call first):
+       [0] _notification (res://scripts/building/orison_v2_native_fit_job.gd:94)
+       [1] mount_cobbler (res://scripts/building/orison_v2_shop_seating.gd:42)
+       [2] _run (res://tests/v2_fitting_collision_cache_test.gd:84)

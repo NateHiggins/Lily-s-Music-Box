@@ -1,0 +1,15 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+FIRE HAND CHECK: native fixture mounts = true
+FIRE HAND CHECK: real household validator accepts native controls and running clock fixture = true
+FIRE HAND CHECK: primary input grabs the real door = true
+FIRE HAND CHECK: unchanged second click still releases and cleans up = true
+FIRE HAND CHECK: unchanged release does not save incidental clock advance or roll it back = true
+FIRE HAND CHECK: actual motion opens and releases the real door = true
+FIRE HAND CHECK: changed release publishes controls and live clock through the original owner = false
+FIRE HAND CHECK: Space borrows the unchanged tag grip and clears ownership = true
+FIRE HAND CHECK: unchanged inspection entry does not request another save = false
+FIRE HAND CHECK: normal pre-save snapshot still captures live clock movement = true
+FIRE UNCHANGED RELEASE: FAIL checks=10

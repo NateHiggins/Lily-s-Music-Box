@@ -57,7 +57,6 @@ func _build_visual() -> void:
 	_bulb_mat.normal_scale = glass.normal_scale
 	_bulb_mat.roughness = glass.roughness
 	_bulb_mat.uv1_scale = Vector3.ONE / float(MatLib.SETS["milk_glass"][3])
-	(_halo.mesh as QuadMesh).size = Vector2(0.20, 0.20)
 	bounce.light_color = _individual_tone * 0.65
 
 func _process(delta: float) -> void:

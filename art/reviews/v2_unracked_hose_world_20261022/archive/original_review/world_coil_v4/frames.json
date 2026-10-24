@@ -1,0 +1,2574 @@
+{
+	"capture_control": false,
+	"capture_samples": [],
+	"columns": [
+		"phase",
+		"wall_ms",
+		"process_ms",
+		"physics_ms",
+		"render_cpu_ms",
+		"render_gpu_ms",
+		"residency",
+		"engine_monitors"
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"kind": "performance_diagnostic",
+	"player_physics": [
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.03,
+			"gravity_ms": 0.002,
+			"position": [
+				-3.76109719276428,
+				3.20023441314697,
+				-8.62821960449219
+			],
+			"slide_ms": 3.951,
+			"step_guard_disabled": false,
+			"step_ms": 0.063
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.009,
+			"gravity_ms": 0.002,
+			"position": [
+				-3.74700570106506,
+				3.20023441314697,
+				-8.58024597167969
+			],
+			"slide_ms": 4.29,
+			"step_guard_disabled": false,
+			"step_ms": 0.056
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.027,
+			"gravity_ms": 0.003,
+			"position": [
+				-3.73320603370667,
+				3.20023441314697,
+				-8.5332670211792
+			],
+			"slide_ms": 4.509,
+			"step_guard_disabled": false,
+			"step_ms": 0.078
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.021,
+			"gravity_ms": 0.002,
+			"position": [
+				-3.72187066078186,
+				3.20023441314697,
+				-8.49467658996582
+			],
+			"slide_ms": 4.457,
+			"step_guard_disabled": false,
+			"step_ms": 0.062
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.015,
+			"gravity_ms": 0.002,
+			"position": [
+				-3.71255946159363,
+				3.20023441314697,
+				-8.46297740936279
+			],
+			"slide_ms": 4.336,
+			"step_guard_disabled": false,
+			"step_ms": 0.058
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.022,
+			"gravity_ms": 0.003,
+			"position": [
+				-3.70491099357605,
+				3.20023441314697,
+				-8.43693923950195
+			],
+			"slide_ms": 4.468,
+			"step_guard_disabled": false,
+			"step_ms": 0.083
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.013,
+			"gravity_ms": 0.003,
+			"position": [
+				-3.69862818717957,
+				3.20023441314697,
+				-8.41555023193359
+			],
+			"slide_ms": 4.517,
+			"step_guard_disabled": false,
+			"step_ms": 0.098
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.012,
+			"gravity_ms": 0.002,
+			"position": [
+				-3.69346737861633,
+				3.20023441314697,
+				-8.39798069000244
+			],
+			"slide_ms": 4.476,
+			"step_guard_disabled": false,
+			"step_ms": 0.058
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.026,
+			"gravity_ms": 0.003,
+			"position": [
+				-3.68922805786133,
+				3.20023441314697,
+				-8.38354873657227
+			],
+			"slide_ms": 4.607,
+			"step_guard_disabled": false,
+			"step_ms": 0.081
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.01,
+			"gravity_ms": 0.002,
+			"position": [
+				-3.68574595451355,
+				3.20023441314697,
+				-8.37169361114502
+			],
+			"slide_ms": 4.305,
+			"step_guard_disabled": false,
+			"step_ms": 0.066
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.013,
+			"gravity_ms": 0.001,
+			"position": [
+				-3.68288564682007,
+				3.20023441314697,
+				-8.3619556427002
+			],
+			"slide_ms": 3.937,
+			"step_guard_disabled": false,
+			"step_ms": 0.058
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.01,
+			"gravity_ms": 0.002,
+			"position": [
+				-3.68053603172302,
+				3.20023441314697,
+				-8.3539571762085
+			],
+			"slide_ms": 3.374,
+			"step_guard_disabled": false,
+			"step_ms": 0.062
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.017,
+			"gravity_ms": 0.003,
+			"position": [
+				-3.6786060333252,
+				3.20023441314697,
+				-8.34738636016846
+			],
+			"slide_ms": 3.246,
+			"step_guard_disabled": false,
+			"step_ms": 0.083
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.014,
+			"gravity_ms": 0.003,
+			"position": [
+				-3.67702054977417,
+				3.20023441314697,
+				-8.34198951721191
+			],
+			"slide_ms": 3.1,
+			"step_guard_disabled": false,
+			"step_ms": 0.07
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.009,
+			"gravity_ms": 0.001,
+			"position": [
+				-3.67702054977417,
+				3.20023441314697,
+				-8.34198951721191
+			],
+			"slide_ms": 2.726,
+			"step_guard_disabled": false,
+			"step_ms": 0.001
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.011,
+			"gravity_ms": 0.003,
+			"position": [
+				-3.67328786849976,
+				3.20023441314697,
+				-8.3845386505127
+			],
+			"slide_ms": 1.141,
+			"step_guard_disabled": false,
+			"step_ms": 0.079
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.016,
+			"gravity_ms": 0.001,
+			"position": [
+				-4.40453624725342,
+				3.20023441314697,
+				-8.68331050872803
+			],
+			"slide_ms": 2.967,
+			"step_guard_disabled": false,
+			"step_ms": 0.0
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.014,
+			"gravity_ms": 0.001,
+			"position": [
+				-4.40453624725342,
+				3.20023441314697,
+				-8.68331050872803
+			],
+			"slide_ms": 3.564,
+			"step_guard_disabled": false,
+			"step_ms": 0.001
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.023,
+			"gravity_ms": 0.003,
+			"position": [
+				-4.40453624725342,
+				3.20023441314697,
+				-8.68331050872803
+			],
+			"slide_ms": 4.362,
+			"step_guard_disabled": false,
+			"step_ms": 0.002
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.012,
+			"gravity_ms": 0.002,
+			"position": [
+				-4.40453624725342,
+				3.20023441314697,
+				-8.68331050872803
+			],
+			"slide_ms": 4.613,
+			"step_guard_disabled": false,
+			"step_ms": 0.002
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.011,
+			"gravity_ms": 0.001,
+			"position": [
+				-4.40453624725342,
+				3.20023441314697,
+				-8.68331050872803
+			],
+			"slide_ms": 5.066,
+			"step_guard_disabled": false,
+			"step_ms": 0.0
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.023,
+			"gravity_ms": 0.003,
+			"position": [
+				-4.40453624725342,
+				3.20023441314697,
+				-8.68331050872803
+			],
+			"slide_ms": 5.992,
+			"step_guard_disabled": false,
+			"step_ms": 0.001
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.016,
+			"gravity_ms": 0.002,
+			"position": [
+				-4.40453624725342,
+				3.20023441314697,
+				-8.68331050872803
+			],
+			"slide_ms": 6.053,
+			"step_guard_disabled": false,
+			"step_ms": 0.001
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.015,
+			"gravity_ms": 0.002,
+			"position": [
+				-4.40453624725342,
+				3.20023441314697,
+				-8.68331050872803
+			],
+			"slide_ms": 5.949,
+			"step_guard_disabled": false,
+			"step_ms": 0.001
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.048,
+			"gravity_ms": 0.002,
+			"position": [
+				-4.40453624725342,
+				3.20023441314697,
+				-8.68331050872803
+			],
+			"slide_ms": 5.921,
+			"step_guard_disabled": false,
+			"step_ms": 0.002
+		},
+		{
+			"contacts": [
+				"/root/V2UnrackedHoseWorldSurvey/OrisonV2Runtime/OrisonV2Blockout/F02_PUBLIC_LANDING_S/Collision"
+			],
+			"follow_and_contact_ms": 0.017,
+			"gravity_ms": 0.003,
+			"position": [
+				-4.40453624725342,
+				3.20023441314697,
+				-8.68331050872803
+			],
+			"slide_ms": 3.201,
+			"step_guard_disabled": false,
+			"step_ms": 0.001
+		}
+	],
+	"resolution": "(1280.0, 720.0)",
+	"samples": [
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			132.039,
+			122.709,
+			2.861,
+			0.0,
+			0.0,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 70.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 231.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			112.238,
+			122.709,
+			2.861,
+			0.0,
+			0.0,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 70.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 231.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			51.388,
+			122.709,
+			2.861,
+			0.0,
+			0.0,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 71.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 235.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			53.826,
+			122.709,
+			2.861,
+			19.2670001983643,
+			9.89999961853027,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 71.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 235.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			49.53,
+			122.709,
+			2.861,
+			19.1100006103516,
+			10.1129999160767,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 71.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 236.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			52.168,
+			122.709,
+			2.861,
+			18.6319999694824,
+			9.70100021362305,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 75.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 240.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			65.855,
+			122.709,
+			2.861,
+			18.2229995727539,
+			9.54699993133545,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 77.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 243.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			51.713,
+			122.709,
+			2.861,
+			18.9810009002686,
+			9.85400009155273,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			39.678,
+			122.709,
+			2.861,
+			17.9109992980957,
+			10.2279996871948,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			34.543,
+			122.709,
+			2.861,
+			15.5950002670288,
+			9.21599960327148,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			29.883,
+			122.709,
+			2.861,
+			16.2770004272461,
+			9.30399990081787,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			28.379,
+			122.709,
+			2.861,
+			16.181999206543,
+			9.23900032043457,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			29.264,
+			122.709,
+			2.861,
+			15.7419996261597,
+			9.06999969482422,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			33.818,
+			122.709,
+			2.861,
+			15.2709999084473,
+			9.07999992370605,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			29.701,
+			122.709,
+			2.861,
+			16.0319995880127,
+			9.14500045776367,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			31.077,
+			122.709,
+			2.861,
+			15.6199998855591,
+			8.85900020599365,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			29.378,
+			122.709,
+			2.861,
+			16.4529991149902,
+			9.18900012969971,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			30.786,
+			122.709,
+			2.861,
+			15.4409999847412,
+			8.79800033569336,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			26.12,
+			122.709,
+			2.861,
+			14.7729997634888,
+			8.65900039672852,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			26.18,
+			122.709,
+			2.861,
+			13.0200004577637,
+			7.95499992370605,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			23.982,
+			122.709,
+			2.861,
+			12.793999671936,
+			7.73000001907349,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			24.107,
+			122.709,
+			2.861,
+			12.5559997558594,
+			7.38199996948242,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			28.264,
+			102.289,
+			6.739,
+			12.6389999389648,
+			7.7039999961853,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			23.127,
+			102.289,
+			6.739,
+			11.1619997024536,
+			7.19399976730347,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			23.395,
+			102.289,
+			6.739,
+			11.5019998550415,
+			7.28299999237061,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			21.763,
+			102.289,
+			6.739,
+			10.5319995880127,
+			6.49499988555908,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			19.684,
+			102.289,
+			6.739,
+			10.8439998626709,
+			6.94399976730347,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 247.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			21.032,
+			102.289,
+			6.739,
+			9.13500022888184,
+			5.84600019454956,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 251.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			45.527,
+			102.289,
+			6.739,
+			8.82900047302246,
+			5.85500001907349,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			29.563,
+			102.289,
+			6.739,
+			21.8549995422363,
+			11.9899997711182,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			26.207,
+			102.289,
+			6.739,
+			16.1700000762939,
+			9.69600009918213,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			30.128,
+			102.289,
+			6.739,
+			13.5860004425049,
+			7.33599996566772,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			23.996,
+			102.289,
+			6.739,
+			14.9370002746582,
+			8.73200035095215,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			32.779,
+			102.289,
+			6.739,
+			12.8280000686646,
+			7.18699979782104,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			26.565,
+			102.289,
+			6.739,
+			14.7969999313354,
+			8.44699954986572,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			26.395,
+			102.289,
+			6.739,
+			13.9980001449585,
+			7.90199995040894,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			28.765,
+			102.289,
+			6.739,
+			14.4589996337891,
+			8.62399959564209,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			29.902,
+			102.289,
+			6.739,
+			13.378999710083,
+			7.17700004577637,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			33.188,
+			102.289,
+			6.739,
+			14.6239995956421,
+			9.19299983978271,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			29.415,
+			102.289,
+			6.739,
+			12.7270002365112,
+			7.68200016021729,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			31.233,
+			102.289,
+			6.739,
+			13.2150001525879,
+			8.34799957275391,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			28.051,
+			102.289,
+			6.739,
+			13.5069999694824,
+			8.07299995422363,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			32.009,
+			102.289,
+			6.739,
+			14.8579998016357,
+			10.0830001831055,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			30.188,
+			102.289,
+			6.739,
+			13.043999671936,
+			8.00100040435791,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			25.617,
+			102.289,
+			6.739,
+			14.1730003356934,
+			9.37100028991699,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			32.624,
+			102.289,
+			6.739,
+			12.41100025177,
+			7.77099990844727,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			33.205,
+			102.289,
+			6.739,
+			15.5649995803833,
+			9.37600040435791,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			27.325,
+			102.289,
+			6.739,
+			13.0559997558594,
+			7.625,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			24.164,
+			102.289,
+			6.739,
+			14.2569999694824,
+			9.22599983215332,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			27.544,
+			102.289,
+			6.739,
+			12.7919998168945,
+			8.07699966430664,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			29.921,
+			102.289,
+			6.739,
+			14.0030002593994,
+			9.54199981689453,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(1.925, 1.6, 1.3)",
+			33.863,
+			102.289,
+			6.739,
+			13.4219999313354,
+			8.00300025939941,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			28.852,
+			102.289,
+			6.739,
+			13.2469997406006,
+			7.5149998664856,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 81.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 253.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			48.57,
+			102.289,
+			6.739,
+			13.7950000762939,
+			8.37199974060059,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			41.788,
+			102.289,
+			6.739,
+			27.568000793457,
+			15.3039999008179,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			38.99,
+			102.289,
+			6.739,
+			25.2129993438721,
+			15.918999671936,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			35.203,
+			44.321,
+			4.398,
+			19.9729995727539,
+			12.41100025177,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			31.966,
+			44.321,
+			4.398,
+			20.5669994354248,
+			13.9899997711182,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			31.285,
+			44.321,
+			4.398,
+			17.8990001678467,
+			12.335000038147,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			37.373,
+			44.321,
+			4.398,
+			17.3400001525879,
+			11.2290000915527,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			33.774,
+			44.321,
+			4.398,
+			18.2810001373291,
+			12.0240001678467,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			31.725,
+			44.321,
+			4.398,
+			19.2770004272461,
+			12.8199996948242,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			29.845,
+			44.321,
+			4.398,
+			17.3250007629395,
+			11.2840003967285,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			37.289,
+			44.321,
+			4.398,
+			15.3850002288818,
+			10.53600025177,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			32.995,
+			44.321,
+			4.398,
+			18.4559993743896,
+			12.0089998245239,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			28.898,
+			44.321,
+			4.398,
+			16.9850006103516,
+			11.6949996948242,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			28.67,
+			44.321,
+			4.398,
+			13.8800001144409,
+			10.2329998016357,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			33.855,
+			44.321,
+			4.398,
+			12.8439998626709,
+			8.47999954223633,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			26.531,
+			44.321,
+			4.398,
+			14.6370000839233,
+			10.1359996795654,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			26.849,
+			44.321,
+			4.398,
+			15.0159997940063,
+			10.3170003890991,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			23.075,
+			44.321,
+			4.398,
+			13.7550001144409,
+			9.73799991607666,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			31.76,
+			44.321,
+			4.398,
+			12.4479999542236,
+			8.63899993896484,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			32.322,
+			44.321,
+			4.398,
+			14.8020000457764,
+			9.67800045013428,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			29.642,
+			44.321,
+			4.398,
+			14.8059997558594,
+			9.57999992370605,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			25.808,
+			44.321,
+			4.398,
+			17.7409992218018,
+			12.2170000076294,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			28.401,
+			44.321,
+			4.398,
+			12.9899997711182,
+			8.75500011444092,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 1.6, 1.3)",
+			22.141,
+			44.321,
+			4.398,
+			15.1510000228882,
+			10.6040000915527,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			30.546,
+			44.321,
+			4.398,
+			11.7360000610352,
+			8.27499961853027,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 261.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			57.233,
+			44.321,
+			4.398,
+			13.3179998397827,
+			9.83399963378906,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 278.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			52.742,
+			44.321,
+			4.398,
+			36.8769989013672,
+			20.2390003204346,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 278.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			53.756,
+			44.321,
+			4.398,
+			33.8190002441406,
+			21.8199996948242,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 278.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			53.074,
+			44.321,
+			4.398,
+			31.076000213623,
+			19.1800003051758,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 278.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			45.969,
+			44.321,
+			4.398,
+			33.8390007019043,
+			22.1860008239746,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 279.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			55.033,
+			44.321,
+			4.398,
+			29.0270004272461,
+			18.0690002441406,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 279.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			50.023,
+			52.465,
+			4.081,
+			31.9449996948242,
+			19.4850006103516,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 279.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			46.009,
+			52.465,
+			4.081,
+			31.8229999542236,
+			20.4610004425049,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 279.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			52.388,
+			52.465,
+			4.081,
+			28.2119998931885,
+			18.867000579834,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 279.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			51.66,
+			52.465,
+			4.081,
+			30.0020008087158,
+			19.0540008544922,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 279.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			44.575,
+			52.465,
+			4.081,
+			32.9490013122559,
+			22.0160007476807,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 279.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			54.763,
+			52.465,
+			4.081,
+			27.701000213623,
+			16.5830001831055,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 279.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			49.206,
+			52.465,
+			4.081,
+			31.3419990539551,
+			18.4090003967285,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 285.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			55.975,
+			52.465,
+			4.081,
+			31.2929992675781,
+			19.3250007629395,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 285.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			56.078,
+			52.465,
+			4.081,
+			32.6570014953613,
+			19.492000579834,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 285.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			56.122,
+			52.465,
+			4.081,
+			29.6790008544922,
+			17.2970008850098,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 285.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			57.279,
+			52.465,
+			4.081,
+			33.015998840332,
+			21.9950008392334,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 285.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			57.082,
+			52.465,
+			4.081,
+			29.1350002288818,
+			18.6040000915527,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 285.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			48.428,
+			52.465,
+			4.081,
+			29.6800003051758,
+			18.1870002746582,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 285.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			51.548,
+			52.465,
+			4.081,
+			29.7250003814697,
+			18.9699993133545,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 285.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			53.205,
+			52.465,
+			4.081,
+			32.4770011901855,
+			20.9050006866455,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 285.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			54.989,
+			52.465,
+			4.081,
+			27.996000289917,
+			17.2999992370605,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			46.727,
+			52.465,
+			4.081,
+			31.1000003814697,
+			20.5869998931885,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			51.813,
+			52.465,
+			4.081,
+			29.3509998321533,
+			18.2029991149902,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.975, 3.2, -2.4)",
+			46.911,
+			52.465,
+			4.081,
+			29.2840003967285,
+			17.621000289917,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.4)",
+			43.109,
+			52.465,
+			4.081,
+			30.0919990539551,
+			18.4400005340576,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.4)",
+			48.153,
+			51.328,
+			4.162,
+			27.5230007171631,
+			17.5389995574951,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.4)",
+			44.252,
+			51.328,
+			4.162,
+			26.2250003814697,
+			16.0200004577637,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.4)",
+			40.697,
+			51.328,
+			4.162,
+			27.7509994506836,
+			17.7889995574951,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.4)",
+			49.355,
+			51.328,
+			4.162,
+			25.2329998016357,
+			15.9390001296997,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.4)",
+			56.43,
+			51.328,
+			4.162,
+			25.201000213623,
+			15.7659997940063,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.4)",
+			61.015,
+			51.328,
+			4.162,
+			27.193000793457,
+			17.1200008392334,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.4)",
+			63.506,
+			51.328,
+			4.162,
+			27.3570003509521,
+			16.44700050354,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.4)",
+			62.18,
+			51.328,
+			4.162,
+			26.5949993133545,
+			16.6459999084473,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.4)",
+			50.852,
+			51.328,
+			4.162,
+			26.7569999694824,
+			16.32200050354,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.0)",
+			45.244,
+			51.328,
+			4.162,
+			24.0809993743896,
+			14.4420003890991,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.0)",
+			54.87,
+			51.328,
+			4.162,
+			22.1879997253418,
+			13.3579998016357,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(3.65, 3.2, -3.0)",
+			41.56,
+			51.328,
+			4.162,
+			29.8360004425049,
+			16.9890003204346,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(4.5, 3.2, -2.95)",
+			44.665,
+			51.328,
+			4.162,
+			24.4389991760254,
+			16.1200008392334,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(4.5, 3.2, -2.95)",
+			49.268,
+			51.328,
+			4.162,
+			23.2290000915527,
+			14.375,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(4.5, 3.2, -2.95)",
+			44.191,
+			51.328,
+			4.162,
+			28.2250003814697,
+			17.2110004425049,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 83.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 287.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(4.5, 3.2, -2.95)",
+			49.844,
+			51.328,
+			4.162,
+			26.7229995727539,
+			17.4519996643066,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(4.5, 3.2, -2.95)",
+			43.798,
+			51.328,
+			4.162,
+			25.1749992370605,
+			16.9139995574951,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(4.5, 3.2, -2.95)",
+			41.507,
+			51.328,
+			4.162,
+			26.2439994812012,
+			18.2169990539551,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(4.5, 3.2, -2.95)",
+			46.853,
+			51.328,
+			4.162,
+			23.8050003051758,
+			17.2800006866455,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(4.5, 3.2, -2.95)",
+			45.087,
+			51.328,
+			4.162,
+			25.7660007476807,
+			16.5799999237061,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"walk_(4.5, 3.2, -2.95)",
+			36.28,
+			46.724,
+			6.784,
+			27.382999420166,
+			19.8269996643066,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 72.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"layout_survey_excluded",
+			134.3,
+			46.724,
+			6.784,
+			21.1760005950928,
+			14.8629999160767,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 74.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"played_unrack_input",
+			428.83,
+			46.724,
+			6.784,
+			25.4370002746582,
+			17.4549999237061,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 74.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"played_unrack_input",
+			59.004,
+			46.724,
+			6.784,
+			24.9230003356934,
+			17.6590003967285,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 74.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"played_unrack_input",
+			62.145,
+			46.724,
+			6.784,
+			23.3360004425049,
+			16.8540000915527,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 74.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"played_unrack_input",
+			51.746,
+			46.724,
+			6.784,
+			23.2299995422363,
+			16.9479999542236,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 74.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"played_unrack_input",
+			51.139,
+			46.724,
+			6.784,
+			25.1350002288818,
+			19.3840007781982,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 74.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"played_unrack_input",
+			51.893,
+			46.724,
+			6.784,
+			23.1189994812012,
+			17.1860008239746,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 74.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"played_unrack_input",
+			60.168,
+			46.724,
+			6.784,
+			25.1599998474121,
+			19.9909992218018,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 74.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"layout_survey_excluded",
+			117.141,
+			46.724,
+			6.784,
+			24.6569995880127,
+			18.3859996795654,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 74.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		],
+		[
+			"layout_survey_excluded",
+			617.736,
+			46.724,
+			6.784,
+			24.6569995880127,
+			18.3859996795654,
+			"DORMANT",
+			{
+				"PIPELINE_COMPILATIONS_CANVAS": 1.0,
+				"PIPELINE_COMPILATIONS_DRAW": 84.0,
+				"PIPELINE_COMPILATIONS_MESH": 74.0,
+				"PIPELINE_COMPILATIONS_SPECIALIZATION": 289.0,
+				"PIPELINE_COMPILATIONS_SURFACE": 313.0
+			}
+		]
+	],
+	"step_guard_rejections": 17,
+	"vsync": false
+}

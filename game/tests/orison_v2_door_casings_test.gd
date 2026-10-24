@@ -16,6 +16,11 @@ func _run() -> void:
 	if world.player==null:
 		check(false,"production world initialized")
 		world.free(); get_tree().quit(1); return
+	await inspect_world(world)
+	world.shutdown_for_tests(); world.free()
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func inspect_world(world: Node3D) -> void:
 	world.player.set_physics_process(false)
 	for child in world.adapter.root.get_children():
 		if child is OrisonV2ReadabilityCues:
@@ -33,10 +38,8 @@ func _run() -> void:
 	var capture_ids: Array[String] = []
 	var captured_types: Array[String] = []
 	var half_depth := float(world.layout.dimensions.partition_wall)*.5
-	var profile_source := (load("res://assets/props/millwork_profile.glb") as PackedScene).instantiate()
-	var expected_service_mesh := (profile_source.find_child("ServiceCasing",true,false) as MeshInstance3D).mesh
-	var expected_domestic_mesh := (profile_source.find_child("DoorCasing",true,false) as MeshInstance3D).mesh
-	profile_source.free()
+	var stock: RefCounted=world.adapter.root.get_meta("v2_casing_mitre_stock")
+	check(stock!=null,"native stock cache is installed")
 	for record: Dictionary in world.layout.doors:
 		var anchor := world.adapter.resolve(str(record.id)) as Node3D
 		if anchor==null: continue
@@ -57,11 +60,14 @@ func _run() -> void:
 		var lining := anchor.get_node_or_null("DoorLinings") as MultiMeshInstance3D
 		check(casing!=null and lining!=null,str(record.id)+" has its molded surround")
 		if casing==null or lining==null: continue
-		check(casing.multimesh.instance_count==6 and lining.multimesh.instance_count==3,"two-sided casing and three reveal liners")
+		check(casing.multimesh.instance_count==2 and lining.multimesh.instance_count==3,"two-sided casing and three reveal liners")
 		check(casing.multimesh.mesh is ArrayMesh and casing.multimesh.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX].size()>8,"Blender section is imported")
 		check(casing.get_child_count()==0 and lining.get_child_count()==0,"joinery adds no collision owners")
 		check(leaf.get_node("HingedLeaf") is AnimatableBody3D,"existing moving collision owner retained")
-		check(casing.multimesh.mesh==(expected_service_mesh if service else expected_domestic_mesh),"opening uses the correct imported Blender section")
+		var expected: Dictionary=stock.frame_for(float(record.width),float(record.height),service)
+		check(casing.multimesh.mesh==expected.mesh,"opening uses its exact native mitered front frame")
+		var native_parts: Dictionary=casing.get_meta("native_parts",{})
+		check(native_parts.size()==3,"three independent native parts remain available for contact checks")
 		if service:
 			var screws := anchor.get_node_or_null("FrameFasteners") as MultiMeshInstance3D
 			check(screws!=null,"service frame retains visible mechanical fixings")
@@ -77,13 +83,16 @@ func _run() -> void:
 					check(absf(back-depth-.018)<.0001,"washer back seats on the metal frame face")
 					var on_face := false
 					for face_index in casing.multimesh.instance_count:
-						var face: AABB = casing.multimesh.get_instance_transform(face_index)*casing.multimesh.mesh.get_aabb()
-						if face.grow(.0002).has_point(Vector3(screw.origin.x,screw.origin.y,center+side*(depth+.018))): on_face=true
+						for part_mesh: Mesh in native_parts.values():
+							var face: AABB = casing.multimesh.get_instance_transform(face_index)*part_mesh.get_aabb()
+							if face.grow(.0002).has_point(Vector3(screw.origin.x,screw.origin.y,center+side*(depth+.018))): on_face=true
 					check(on_face,"each screw has a frame behind it")
 					fasteners+=1
 		for index in 6:
-			var transform := casing.multimesh.get_instance_transform(index)
-			var bounds: AABB = transform*casing.multimesh.mesh.get_aabb()
+			var part: String = ["FrameLeft","FrameRight","FrameHead"][index/2]
+			if not native_parts.has(part):continue
+			var transform := casing.multimesh.get_instance_transform(index%2)
+			var bounds: AABB = transform*(native_parts[part] as Mesh).get_aabb()
 			for room_id: String in record.connects:
 				var room := world.adapter.resolve(room_id) as Node3D
 				if room==null: continue
@@ -95,10 +104,12 @@ func _run() -> void:
 						var trim_bounds: AABB = relative*trim.multimesh.mesh.get_aabb()
 						var overlap := bounds.intersection(trim_bounds).size
 						check(minf(overlap.x,minf(overlap.y,overlap.z))<.0001,str(record.id)+" casing is clear of room trim: "+room_id+"/"+batch_name+" casing="+str(bounds)+" trim="+str(trim_bounds))
-			var part: String = ["FrameLeft","FrameRight","FrameHead"][index/2]
 			var frame := anchor.get_node(part) as MeshInstance3D
 			check(not frame.visible,"original rectangular frame is not double-rendered")
-			check(casing.material_override==(MatLib.get_mat("cast_iron",Color(.24,.25,.23)) if service else frame.get_active_material(0)),"architectural material authority retained")
+			var authority: Material=MatLib.get_mat("cast_iron",Color(.24,.25,.23)) if service else frame.get_active_material(0)
+			var bound: Material=casing.material_override
+			var source_ref: WeakRef=bound.get_meta("v2_uv_catalogue_owner") if bound.has_meta("v2_uv_catalogue_owner") else null
+			check(bound==authority or (source_ref!=null and source_ref.get_ref()==authority),"architectural material authority retained in its original or native UV delivery")
 			check(bounds.position.y>=-.0001,"casing never extends below the finished floor")
 			if part=="FrameHead":
 				check(bounds.position.y>=float(record.height)-.0001,"head stays above the clear opening")
@@ -164,5 +175,3 @@ func _run() -> void:
 		await shot("service_fastener_detail")
 	print("DOOR CASINGS: openings=%d wall_contacts=%d failures=%d" % [openings,contacts,failures.size()])
 	print("SERVICE FRAMES: openings=%d fasteners=%d failures=%d" % [service_openings,fasteners,failures.size()])
-	world.shutdown_for_tests(); world.free()
-	get_tree().quit(0 if failures.is_empty() else 1)

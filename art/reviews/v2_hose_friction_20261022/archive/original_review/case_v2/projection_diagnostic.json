@@ -1,0 +1,61 @@
+{
+	"evidence_class": "INERT",
+	"input": "C:/PleaseRemainOnTheLine/art/reviews/v2_hose_friction_20261022/capture_v1/projection_cases.json",
+	"results": [
+		{
+			"accepted": false,
+			"case": 0,
+			"error": "bounded follower pin convergence ceiling; first incompatible follower caps at ring 35",
+			"iterations": 544,
+			"mode": "follow",
+			"ms": 14.624,
+			"qp_iterations": 0
+		},
+		{
+			"accepted": true,
+			"case": 0,
+			"error": "",
+			"iterations": 138,
+			"mode": "project_target",
+			"ms": 19.294,
+			"qp_iterations": 327
+		},
+		{
+			"accepted": true,
+			"case": 0,
+			"error": "",
+			"iterations": 212,
+			"mode": "project_warm",
+			"ms": 32.001,
+			"qp_iterations": 534
+		},
+		{
+			"accepted": false,
+			"case": 1,
+			"error": "bounded follower pin convergence ceiling; first incompatible follower caps at ring 35",
+			"iterations": 544,
+			"mode": "follow",
+			"ms": 14.366,
+			"qp_iterations": 0
+		},
+		{
+			"accepted": true,
+			"case": 1,
+			"error": "",
+			"iterations": 5,
+			"mode": "project_target",
+			"ms": 1.264,
+			"qp_iterations": 30
+		},
+		{
+			"accepted": true,
+			"case": 1,
+			"error": "",
+			"iterations": 7,
+			"mode": "project_warm",
+			"ms": 1.067,
+			"qp_iterations": 15
+		}
+	],
+	"scope": "Reproduces failed numerical attempts; completion grants no acceptance."
+}

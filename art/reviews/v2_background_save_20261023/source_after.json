@@ -1,0 +1,101 @@
+{
+  "evidence_class": "INERT",
+  "files": [
+    {
+      "path": "game/scripts/game/reality_game_state.gd",
+      "sha256": "a2eec93728560e4edcc14f58160bdf5364a90c7b10e6e0a70f689e70af817fbc",
+      "lf_sha256": "763ce4095556d1ddf95dff991e7b205a46bb91bedbcd54800de8882f86258eda",
+      "bytes": 17496
+    },
+    {
+      "path": "game/scripts/game/reality_save_queue.gd",
+      "sha256": "4efe9fba9dc1420004a40e59a8fea8f01202ea2556095ace83e00d2bfb2c763f",
+      "lf_sha256": "6ac33f352a0e17322b48fd451ee4502c5805e8fee171b3fdb6e6d37acb669dc1",
+      "bytes": 2486
+    },
+    {
+      "path": "game/scripts/game/reality_save_document.gd",
+      "sha256": "f99acc38b02c38adc47873821cdc558806467dd899b33ea7fb04898ce781401f",
+      "lf_sha256": "f99acc38b02c38adc47873821cdc558806467dd899b33ea7fb04898ce781401f",
+      "bytes": 3842
+    },
+    {
+      "path": "game/scripts/game/reality_save_storage.gd",
+      "sha256": "82467603a1d67ba2c27df169a3421eec25b2829e9a29b1891fa19e063f7c5b63",
+      "lf_sha256": "03a4ce83cc97d4b12c426612bdbfeef3b7f2237d606c11239840fc5a15d0d6ae",
+      "bytes": 15065
+    },
+    {
+      "path": "game/scripts/game/campaign_clock.gd",
+      "sha256": "05a20108a3e303995ae6aa138e9c316a68274eeddf422a2fbe6743f93133c377",
+      "lf_sha256": "05a20108a3e303995ae6aa138e9c316a68274eeddf422a2fbe6743f93133c377",
+      "bytes": 14152
+    },
+    {
+      "path": "game/scripts/game/door_keyring.gd",
+      "sha256": "6f7073bbf6dbbd91884ecb0f3be94702dc475bf8313013131c32d486c969edb3",
+      "lf_sha256": "6f7073bbf6dbbd91884ecb0f3be94702dc475bf8313013131c32d486c969edb3",
+      "bytes": 5996
+    },
+    {
+      "path": "game/scripts/building/orison_v2_household_state.gd",
+      "sha256": "a5f445d1a3ed8dfe301ca549a78e9b7f896219331989c4c653cce199682628d5",
+      "lf_sha256": "a5f445d1a3ed8dfe301ca549a78e9b7f896219331989c4c653cce199682628d5",
+      "bytes": 20797
+    },
+    {
+      "path": "game/tests/reality_background_save_test.gd",
+      "sha256": "73c3e1f3dcd41ea0c48f2dbf5be507672fb75b87b726049267f6bd8613c25fbd",
+      "lf_sha256": "b76ac67051047ee2b9304c85ba484fc24456d57dd23468ea1972be320c99944d",
+      "bytes": 9410
+    },
+    {
+      "path": "game/tests/RealityBackgroundSaveTest.tscn",
+      "sha256": "d4ec30cbb2fe36b1ee77cfb7b95933d3f2123a805167dcf1d3759cc61474b202",
+      "lf_sha256": "d4ec30cbb2fe36b1ee77cfb7b95933d3f2123a805167dcf1d3759cc61474b202",
+      "bytes": 198
+    },
+    {
+      "path": "game/tests/v2_background_save_world.gd",
+      "sha256": "0ab7e619911c2639e4707e5b5a30ed4ee636d9eac658998dca00b6326a1012c4",
+      "lf_sha256": "0ab7e619911c2639e4707e5b5a30ed4ee636d9eac658998dca00b6326a1012c4",
+      "bytes": 3214
+    },
+    {
+      "path": "game/tests/V2BackgroundSaveWorld.tscn",
+      "sha256": "0e80c651b41497da23ca4ac2bff54cd86a42a68c3e460f5ac9ab482dd72d48f9",
+      "lf_sha256": "0e80c651b41497da23ca4ac2bff54cd86a42a68c3e460f5ac9ab482dd72d48f9",
+      "bytes": 192
+    },
+    {
+      "path": "game/tests/v2_commit_cause_world.gd",
+      "sha256": "999edb4d0930b1284339d6f1d6b10a4e6e7d05c8ec2a529bc16c064914e89279",
+      "lf_sha256": "999edb4d0930b1284339d6f1d6b10a4e6e7d05c8ec2a529bc16c064914e89279",
+      "bytes": 2805
+    },
+    {
+      "path": "game/tests/v2_hose_work_attribution.gd",
+      "sha256": "307f240002e59b000edc436f0e424e128d5a4806a66080d11859cd36dcba861a",
+      "lf_sha256": "307f240002e59b000edc436f0e424e128d5a4806a66080d11859cd36dcba861a",
+      "bytes": 5711
+    },
+    {
+      "path": "game/tests/v2_hose_installed_world.gd",
+      "sha256": "fdd823e474bf91d5c8377ee140a4f79ec5456b01084e2995ec4fb8c135c64d79",
+      "lf_sha256": "fdd823e474bf91d5c8377ee140a4f79ec5456b01084e2995ec4fb8c135c64d79",
+      "bytes": 12878
+    },
+    {
+      "path": "game/tests/v2_golden_repair_profile.gd",
+      "sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7",
+      "lf_sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7",
+      "bytes": 3799
+    },
+    {
+      "path": "game/tests/v2_frame_work_probe.gd",
+      "sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "lf_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "bytes": 4005
+    }
+  ]
+}

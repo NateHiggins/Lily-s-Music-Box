@@ -2905,11 +2905,9 @@ func _medicine_cabinet_checks() -> void:
 			continue
 		bath_sconce_count += 1
 		var fixture := child as LightFixtureProp
-		var halo_mesh := fixture._halo.mesh as QuadMesh
-		compact_sconce_halos = compact_sconce_halos and halo_mesh != null \
-				and halo_mesh.size.x <= 0.32 and halo_mesh.size.y <= 0.32
+		compact_sconce_halos = compact_sconce_halos and fixture._halo == null
 	_check(bath_sconce_count == 23 and compact_sconce_halos,
-			"bathroom globe halos stay clear of the medicine-cabinet glass")
+			"bathroom globe has no optical billboard over medicine-cabinet glass")
 	_check(hinge_sides.has("left") and hinge_sides.has("right")
 			and hinge_sides.size() == 2,
 			"cabinet markers choose one of both geometry-derived hinge sides")
@@ -3006,9 +3004,9 @@ func _switch_checks() -> void:
 	var dark := not fixtures.is_empty()
 	for fixture in fixtures:
 		dark = dark and not fixture.powered and not fixture.light.visible \
-				and not fixture._halo.visible
+				and fixture._halo == null
 	_check(dark,
-			"bathroom switch kills direct light and visible emissive envelope")
+			"bathroom switch kills the direct pool and retains halo absence")
 	root.switch_system.toggle_room(rid)
 	for fixture in fixtures:
 		# LightRig normally restores the current budget on its next frame. Do
@@ -3018,8 +3016,8 @@ func _switch_checks() -> void:
 	var restored := not fixtures.is_empty()
 	for fixture in fixtures:
 		restored = restored and fixture.powered and fixture.light.visible \
-				and fixture._halo.visible
-	_check(restored, "bathroom circuit restores source, pool and envelope")
+				and fixture._halo == null
+	_check(restored, "bathroom circuit restores source and pool without an optical halo")
 
 
 ## H18: the same signal node and call verbs, embodied by an instrument rather

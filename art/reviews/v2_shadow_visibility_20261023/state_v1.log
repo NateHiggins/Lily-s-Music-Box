@@ -1,0 +1,16 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+SERVICE DISTANCE: main camera retains sources inside eight metres = true
+SERVICE DISTANCE: originally unshadowed source stays unshadowed = true
+SERVICE DISTANCE: stable resting view repeats no source switches = true
+SERVICE DISTANCE: distance vote never bypasses the existing room graph = true
+SERVICE DISTANCE: active reflected camera preserves distant illumination and shadows = true
+SERVICE DISTANCE: reflected camera never enables an originally hidden source = true
+SERVICE DISTANCE: shadowless cube capture preserves illumination without extra shadow work = true
+SERVICE DISTANCE: actual camera movement controls distance independently of player feet = true
+SERVICE DISTANCE: nearby sources return after camera movement = true
+SERVICE DISTANCE: disabling distance policy restores every original light property and graph visibility = true
+SERVICE DISTANCE: real cube capture exports its transformed optical origin = true
+SERVICE DISTANCE: finished cube captures stop retaining source illumination = true
+SERVICE DISTANCE BENCH: PASS checks=12 failures=0

@@ -1,0 +1,24 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Frozen persistent_v1 inputs. Automatic disk writes use only an owned disposable path; normal storage authority unchanged.",
+  "files": [
+    {
+      "path": "game/scripts/building/orison_v2_household_state.gd",
+      "raw_sha256": "06f74b5b7418eecfd0f923799afe9ea0ae8733963d72ce700979382292509f19",
+      "lf_sha256": "06f74b5b7418eecfd0f923799afe9ea0ae8733963d72ce700979382292509f19",
+      "archive": "source_persistent/game/scripts/building/orison_v2_household_state.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_hose_work_attribution.gd",
+      "raw_sha256": "566dfcc0c8a69dadff048edc24dbf3d89c736b8bb0d4ce749b0413cdc9133213",
+      "lf_sha256": "566dfcc0c8a69dadff048edc24dbf3d89c736b8bb0d4ce749b0413cdc9133213",
+      "archive": "source_persistent/game/tests/v2_hose_work_attribution.gd.gz"
+    },
+    {
+      "path": "game/tests/v2_frame_work_probe.gd",
+      "raw_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "lf_sha256": "121612b07c67f5ca5d9f5dcd5a30239085f6a9ad2ed0ddbd541e505bd94d326f",
+      "archive": "source_persistent/game/tests/v2_frame_work_probe.gd.gz"
+    }
+  ]
+}

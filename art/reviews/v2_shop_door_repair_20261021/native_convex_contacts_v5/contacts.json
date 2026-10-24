@@ -1,0 +1,109 @@
+{
+	"evidence_class": "INERT",
+	"failures": [
+		"SafetyWire 800 ray/gap controls match native footprints and physical boundaries within1um"
+	],
+	"records": [
+		{
+			"candidate_native_ray_error_m": 0.000360514648491517,
+			"capsule_casts": [
+				{
+					"blocked": true,
+					"candidate_us": 644,
+					"original_us": 8859,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 584,
+					"original_us": 12516,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 580,
+					"original_us": 9642,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 623,
+					"original_us": 8765,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 613,
+					"original_us": 12567,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 591,
+					"original_us": 9552,
+					"travel_error_m": 0.0
+				}
+			],
+			"id": "SafetyWire",
+			"max_native_boundary_error_m": 0.00028164479136467,
+			"max_ray_error_m": 0.000338912010192871,
+			"native_footprint_mismatches": 0,
+			"original_engine_ray_mismatches": 0,
+			"ray_mismatches": 0,
+			"ray_queries": 800,
+			"shells": 70,
+			"source_native_ray_error_m": 0.000591893214732409
+		},
+		{
+			"candidate_native_ray_error_m": 0.000000153789528667403,
+			"capsule_casts": [
+				{
+					"blocked": true,
+					"candidate_us": 127,
+					"original_us": 606,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 129,
+					"original_us": 889,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 124,
+					"original_us": 557,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 125,
+					"original_us": 608,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 125,
+					"original_us": 893,
+					"travel_error_m": 0.0
+				},
+				{
+					"blocked": true,
+					"candidate_us": 123,
+					"original_us": 561,
+					"travel_error_m": 0.0
+				}
+			],
+			"id": "F069",
+			"max_native_boundary_error_m": 0.000000150680541992188,
+			"max_ray_error_m": 0.000000119209289550781,
+			"native_footprint_mismatches": 0,
+			"original_engine_ray_mismatches": 0,
+			"ray_mismatches": 0,
+			"ray_queries": 800,
+			"shells": 1,
+			"source_native_ray_error_m": 0.0000000434838902663159
+		}
+	],
+	"scope": "Imported native closed-shell half-space certificate plus physics ray/gap and actual player-capsule comparisons; not appearance or whole-world qualification."
+}

@@ -79,7 +79,7 @@ func _ready() -> void:
 		geometry.free()
 		_fail("native stage furniture and target differ from their exact source triangles")
 		return
-	if not preload("res://scripts/building/orison_v2_bar_receiving.gd").mount_cell(geometry, source_layout):
+	if not preload("res://scripts/building/orison_v2_bar_receiving.gd").mount_cell(geometry, source_layout, false):
 		geometry.free()
 		_fail("native receiving cases differ from their source cases and shared hull")
 		return
@@ -132,15 +132,8 @@ func _ready() -> void:
 	if not preload("res://scripts/building/orison_v2_bar_pool.gd").fit_inspection(actors.get_node("BAR_POOL_TABLE")):
 		_fail("native pool inspection target is missing or invalid")
 		return
-	floor_copy.furniture = floor_copy.furniture.filter(func(f): return str(f.id).begins_with("retail_bar"))
-	var bar_layout := {"floors": [floor_copy]}
-	var arcade := ArcadeRow.new()
-	actors.add_child(arcade)
-	arcade.install(bar_layout, {"F01": actors})
-	for cabinet: ArcadeCabinetProp in arcade.cabinets:
-		# The retained installer selects its graph node in source coordinates.
-		# V2 has already registered the graph mouths in the shared world frame.
-		cabinet.graph_node_id = arcade._nearest_graph_node(cabinet.global_position)
+	# Cabinets are retired from play. Their native/baked bodies were removed
+	# above; do not construct game screens, interaction targets or audio actors.
 	add_to_group("orison_v2_bar_region")
 	print("[V2 BAR] retained cell; ", seen.size(), " registered markers; ", doors.size(), " doors")
 

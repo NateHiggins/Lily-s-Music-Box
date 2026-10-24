@@ -1,0 +1,52 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 344.02,
+  "exit_code": 0,
+  "finished_utc": "2026-10-20T21:37:14Z",
+  "started_utc": "2026-10-20T21:31:30Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SERVICE CIRCULATION CONTRACT: PASS rooms=27 connections=6 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/service1.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/service1.log",
+  "stdout_sha256": "4d1ed2be0e7324e08044d4757bca972603e450c4aa0e7ba6a51cfc46e7703a6e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2ServiceCirculationContract.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/v2-fire-verify/tmp/v2-qualification-20261020/service1",
+ "source": {
+  "dirty_paths": 8,
+  "dirty_sample": [
+   "M art/renders/orison_v2/access_public_landings_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_public_landings_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_public_landings_20261018/suite_run.stdout.log.gz",
+   " M design/ORISON_V2_PUBLIC_LANDING_SPATIAL_ACCESS_CHECKPOINT_2026-10-18.md",
+   " M design/V2_ROOF_ACCESS_REPAIR_2026-10-20.md",
+   "?? art/reviews/v2_roof_access_repair_20261020/previous_public_packet/",
+   "?? art/reviews/v2_roof_access_repair_20261020/public1-ledger-delta.json",
+   "?? art/reviews/v2_roof_access_repair_20261020/public1-publication.json"
+  ],
+  "repository_head": "b2a067f3a6442c868c9bdf2dca624f6aae7f185d",
+  "repository_tree": "fb7e385dceb81c43553ac1d74c5f8b2b46b35e4e",
+  "runtime_inputs_sha256": "757f40622f29558c49309942d09836c4bf754f34a0f1f6f84fac8d7b0fb7bc83",
+  "test_path": "game/tests/v2_service_circulation_contract.gd",
+  "test_sha256": "b25a23c9e339469906df0a73b84804375f920bbeccc15effdb8a16151a827e14"
+ },
+ "windowed": true
+}

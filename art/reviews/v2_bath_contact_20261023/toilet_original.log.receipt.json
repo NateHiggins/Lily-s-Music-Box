@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 21.57,
+  "exit_code": 1,
+  "finished_utc": "2026-10-23T16:56:09Z",
+  "started_utc": "2026-10-23T16:55:47Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "TOILET INSPECTION: FAIL; 192 checks; 3 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_contact_20261023/toilet_original.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_contact_20261023/toilet_original.log",
+  "stdout_sha256": "e51d98dcb789aaa13546c885a3ba41ccdbce498c81a2828e93ac707ebc3f3e71"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2BathContactLegacyControl.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_bath_contact_20261023/toilet_original",
+ "source": {
+  "dirty_paths": 3316,
+  "dirty_sample": [
+   "M design/V2_BATH_MOVEMENT_DIAGNOSIS_2026-10-23.md",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
+   " M game/assets/audio/music/covers/living_with_the_motor.webp.import",
+   " M game/assets/audio/music/covers/mina_s_midday_quest.webp.import",
+   " M game/assets/audio/music/covers/no_subject_line.webp.import"
+  ],
+  "repository_head": "d88b4c144c0ad5e241f6361a1229e26337a0cd5f",
+  "repository_tree": "88ba4b5bcb18cb45e01d3ecff7880ac9345de6b9",
+  "runtime_inputs_sha256": "2c8234a4ffe42fd97ee42503355aeb5035238cf137a6bf9bd9f3982dd341eb9e",
+  "test_path": "game/tests/v2_bath_contact_legacy_control.gd",
+  "test_sha256": "290c978fc9eee0c7fe140a21c518afc67866cb5546657ece222fba4bea2e076e"
+ },
+ "windowed": true
+}

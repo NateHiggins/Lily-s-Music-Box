@@ -1,0 +1,305 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Only the new passive occluder naming template and this task's diagnostic fixture references. No source target, save identity, classification, existing baseline debt or runtime qualification changed.",
+  "records": [
+    {
+      "key": "2c7df472eb771c17",
+      "kind": "generated_name",
+      "token": "setup",
+      "file": "game/scripts/building/orison_v2_structural_occlusion.gd",
+      "tier": "production",
+      "subsystem": "building",
+      "symbols": [
+        "setup"
+      ],
+      "lines": [
+        21
+      ],
+      "count": 1,
+      "context": [
+        "\"InteriorSolid_\"+str(sources.size())"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "GENERATED_IDENTITY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "REGENERATE_CONSUMER",
+      "confidence": "MEDIUM",
+      "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "b6b0ccc2892de6de",
+      "kind": "vector3_coordinate",
+      "token": "_route",
+      "file": "game/tests/orison_v2_responsiveness_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_route"
+      ],
+      "lines": [
+        49
+      ],
+      "count": 1,
+      "context": [
+        "if not await _walk(Vector3(1.925,0,-3.5)): break"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "d69b55203a33e0c2",
+      "kind": "asset_path",
+      "token": "res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf",
+      "file": "game/tests/v2_fitting_collision_cache_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        17
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "90186153e3c1b3e5",
+      "kind": "layout_load",
+      "token": "building_layout.json",
+      "file": "game/tests/v2_fitting_collision_cache_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "<module>"
+      ],
+      "lines": [
+        16
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "DERIVED_LAYOUT_LOOKUP"
+      ],
+      "disposition": "REGENERATE_CONSUMER",
+      "confidence": "HIGH",
+      "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "6981f51047e5813f",
+      "kind": "asset_path",
+      "token": "res://assets/building/floor_01_cells/",
+      "file": "game/tests/v2_native_fitting_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_ready"
+      ],
+      "lines": [
+        11
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "21a247b755667c8a",
+      "kind": "asset_path",
+      "token": "res://assets/building/orison_v2/passage/passage.gltf",
+      "file": "game/tests/v2_native_fitting_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_ready"
+      ],
+      "lines": [
+        11
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "69d0ba2e4f471eb8",
+      "kind": "layout_load",
+      "token": "building_layout.json",
+      "file": "game/tests/v2_native_fitting_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "<module>"
+      ],
+      "lines": [
+        5
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "DERIVED_LAYOUT_LOOKUP"
+      ],
+      "disposition": "REGENERATE_CONSUMER",
+      "confidence": "HIGH",
+      "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "9cf32842cd1c5a35",
+      "kind": "vector3_coordinate",
+      "token": "_route",
+      "file": "game/tests/v2_structural_occlusion_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_route"
+      ],
+      "lines": [
+        25,
+        25,
+        26,
+        26,
+        27,
+        27,
+        28,
+        29,
+        29
+      ],
+      "count": 9,
+      "context": [
+        "[\"lobby\",Vector3(1.925,1.43,-3.5),Vector3(1.925,1.43,-7.5)],",
+        "[\"street\",Vector3(0,1.43,-12.2),Vector3(0,1.43,-8.5)],",
+        "[\"upper_landing\",Vector3(3.975,11.01,-3.4),Vector3(1.925,11.01,-3.4)],",
+        "[\"mina_room\",Vector3(-8.5,4.61,0),Vector3(-13.4,4.3,.75)],"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "8c0d6a560b6b0922",
+      "kind": "asset_path",
+      "token": "res://assets/building/floor_01_cells/",
+      "file": "game/tests/v2_triangle_fitter_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_ready"
+      ],
+      "lines": [
+        12
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "011207c873990577",
+      "kind": "asset_path",
+      "token": "res://assets/building/orison_v2/passage/passage.gltf",
+      "file": "game/tests/v2_triangle_fitter_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_ready"
+      ],
+      "lines": [
+        13
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    }
+  ]
+}

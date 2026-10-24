@@ -1,0 +1,33 @@
+[
+  {
+    "scene": "res://tests/LampDreamMaterialTest.tscn",
+    "timeout": 180,
+    "windowed": true,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/lamp_default_final.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/lamp_default_final"
+  },
+  {
+    "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+    "timeout": 1500,
+    "windowed": true,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final_v5.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final_v5",
+    "runner": "long"
+  },
+  {
+    "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
+    "timeout": 900,
+    "windowed": true,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/first_slice_final_v5.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/first_slice_final_v5",
+    "runner": "long"
+  },
+  {
+    "scene": "res://tests/OrisonV2UpperAccessCohort.tscn",
+    "timeout": 1500,
+    "windowed": true,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/upper_final_v5.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/upper_final_v5",
+    "runner": "long"
+  }
+]

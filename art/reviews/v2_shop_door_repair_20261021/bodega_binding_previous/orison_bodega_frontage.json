@@ -1,0 +1,1099 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "parts": [
+    {
+      "name": "Frontage__glass",
+      "key": "glass",
+      "triangles": 48
+    },
+    {
+      "name": "Frontage__oak_quartered",
+      "key": "oak_quartered",
+      "triangles": 1520
+    },
+    {
+      "name": "LeafPanel__oak_quartered",
+      "key": "oak_quartered",
+      "triangles": 44,
+      "owner": "original_hinged_leaf"
+    }
+  ],
+  "triangles": 1612,
+  "closed_native_pieces": 71,
+  "closed_pieces": [
+    {
+      "id": "DoorJamb-1__0",
+      "bounds": [
+        -0.55,
+        0.0455,
+        -0.015,
+        -0.4875,
+        2.13,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__1",
+      "bounds": [
+        -0.55,
+        2.55,
+        -0.015,
+        -0.4875,
+        2.65,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__2",
+      "bounds": [
+        -0.55,
+        2.13,
+        -0.015,
+        -0.4875,
+        2.55,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__3",
+      "bounds": [
+        -0.55,
+        2.13,
+        0.0325,
+        -0.4875,
+        2.55,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__4",
+      "bounds": [
+        -0.57,
+        0.76,
+        -0.015,
+        -0.55,
+        2.13,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__5",
+      "bounds": [
+        -0.57,
+        2.55,
+        -0.015,
+        -0.55,
+        2.65,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__6",
+      "bounds": [
+        -0.57,
+        2.13,
+        -0.015,
+        -0.55,
+        2.55,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__7",
+      "bounds": [
+        -0.57,
+        2.13,
+        0.0325,
+        -0.55,
+        2.55,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__8",
+      "bounds": [
+        -0.5875,
+        2.38,
+        -0.015,
+        -0.58,
+        2.65,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__9",
+      "bounds": [
+        -0.58,
+        2.55,
+        -0.015,
+        -0.57,
+        2.65,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__10",
+      "bounds": [
+        -0.58,
+        2.38,
+        -0.015,
+        -0.57,
+        2.55,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__11",
+      "bounds": [
+        -0.58,
+        2.38,
+        0.0325,
+        -0.57,
+        2.55,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__12",
+      "bounds": [
+        -0.5875,
+        0.76,
+        -0.015,
+        -0.57,
+        2.38,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb-1__13",
+      "bounds": [
+        -0.5875,
+        0.76,
+        0.0325,
+        -0.57,
+        2.38,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__0",
+      "bounds": [
+        0.4875,
+        0.0455,
+        -0.015,
+        0.55,
+        2.13,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__1",
+      "bounds": [
+        0.4875,
+        2.55,
+        -0.015,
+        0.55,
+        2.65,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__2",
+      "bounds": [
+        0.4875,
+        2.13,
+        -0.015,
+        0.55,
+        2.55,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__3",
+      "bounds": [
+        0.4875,
+        2.13,
+        0.0325,
+        0.55,
+        2.55,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__4",
+      "bounds": [
+        0.55,
+        0.76,
+        -0.015,
+        0.57,
+        2.13,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__5",
+      "bounds": [
+        0.55,
+        2.55,
+        -0.015,
+        0.57,
+        2.65,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__6",
+      "bounds": [
+        0.55,
+        2.13,
+        -0.015,
+        0.57,
+        2.55,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__7",
+      "bounds": [
+        0.55,
+        2.13,
+        0.0325,
+        0.57,
+        2.55,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__8",
+      "bounds": [
+        0.58,
+        2.38,
+        -0.015,
+        0.5875,
+        2.65,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__9",
+      "bounds": [
+        0.57,
+        2.55,
+        -0.015,
+        0.58,
+        2.65,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__10",
+      "bounds": [
+        0.57,
+        2.38,
+        -0.015,
+        0.58,
+        2.55,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__11",
+      "bounds": [
+        0.57,
+        2.38,
+        0.0325,
+        0.58,
+        2.55,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__12",
+      "bounds": [
+        0.57,
+        0.76,
+        -0.015,
+        0.5875,
+        2.38,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorJamb1__13",
+      "bounds": [
+        0.57,
+        0.76,
+        0.0325,
+        0.5875,
+        2.38,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "DoorTransomRail__0",
+      "bounds": [
+        -0.4875,
+        2.1,
+        -0.015,
+        0.4875,
+        2.13,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "DoorTransomHead__0",
+      "bounds": [
+        -0.4875,
+        2.55,
+        -0.015,
+        0.4875,
+        2.65,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "ContinuousHeader__0",
+      "bounds": [
+        -1.98,
+        2.65,
+        -0.015,
+        1.6765,
+        2.7,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "ContinuousHeader__1",
+      "bounds": [
+        1.6985,
+        2.65,
+        -0.015,
+        1.98,
+        2.7,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "ContinuousHeader__2",
+      "bounds": [
+        1.6765,
+        2.65,
+        -0.015,
+        1.6985,
+        2.6639999999999997,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "ContinuousHeader__3",
+      "bounds": [
+        1.6765,
+        2.686,
+        -0.015,
+        1.6985,
+        2.7,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "UpperlightRail-1__0",
+      "bounds": [
+        -1.98,
+        2.38,
+        -0.015,
+        -0.5875,
+        2.44,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "Upperlight-1__0",
+      "bounds": [
+        -1.98,
+        2.44,
+        0.0265,
+        -0.5875,
+        2.65,
+        0.0325
+      ],
+      "key": "glass",
+      "grain_axis": 1
+    },
+    {
+      "id": "RetainedDisplayFrontLeft-1__0",
+      "bounds": [
+        -1.98,
+        0.76,
+        0.0325,
+        -1.962,
+        2.38,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "RetainedDisplayFrontRight-1__0",
+      "bounds": [
+        -0.6055,
+        0.76,
+        0.0325,
+        -0.5875,
+        2.38,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "RetainedDisplayFrontBottom-1__0",
+      "bounds": [
+        -1.962,
+        0.76,
+        0.0325,
+        -0.6055,
+        0.778,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "RetainedDisplayFrontTop-1__0",
+      "bounds": [
+        -1.962,
+        2.362,
+        0.0325,
+        -0.6055,
+        2.38,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "RetainedDisplayBackLeft-1__0",
+      "bounds": [
+        -1.98,
+        0.76,
+        -0.0265,
+        -1.962,
+        2.38,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "RetainedDisplayBackRight-1__0",
+      "bounds": [
+        -0.6055,
+        0.76,
+        -0.0265,
+        -0.5875,
+        2.38,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "RetainedDisplayBackBottom-1__0",
+      "bounds": [
+        -1.962,
+        0.76,
+        -0.0265,
+        -0.6055,
+        0.778,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "RetainedDisplayBackTop-1__0",
+      "bounds": [
+        -1.962,
+        2.362,
+        -0.0265,
+        -0.6055,
+        2.38,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "UpperlightFrontLeft-1__0",
+      "bounds": [
+        -1.98,
+        2.44,
+        0.0325,
+        -1.962,
+        2.65,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "UpperlightFrontRight-1__0",
+      "bounds": [
+        -0.6055,
+        2.44,
+        0.0325,
+        -0.5875,
+        2.65,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "UpperlightFrontBottom-1__0",
+      "bounds": [
+        -1.962,
+        2.44,
+        0.0325,
+        -0.6055,
+        2.458,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "UpperlightFrontTop-1__0",
+      "bounds": [
+        -1.962,
+        2.632,
+        0.0325,
+        -0.6055,
+        2.65,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "UpperlightBackLeft-1__0",
+      "bounds": [
+        -1.98,
+        2.44,
+        0.0025,
+        -1.962,
+        2.65,
+        0.0265
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "UpperlightBackRight-1__0",
+      "bounds": [
+        -0.6055,
+        2.44,
+        0.0025,
+        -0.5875,
+        2.65,
+        0.0265
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "UpperlightBackBottom-1__0",
+      "bounds": [
+        -1.962,
+        2.44,
+        0.0025,
+        -0.6055,
+        2.458,
+        0.0265
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "UpperlightBackTop-1__0",
+      "bounds": [
+        -1.962,
+        2.632,
+        0.0025,
+        -0.6055,
+        2.65,
+        0.0265
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "UpperlightRail1__0",
+      "bounds": [
+        0.5875,
+        2.38,
+        -0.015,
+        1.98,
+        2.44,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "Upperlight1__0",
+      "bounds": [
+        0.5875,
+        2.44,
+        0.0265,
+        1.98,
+        2.65,
+        0.0325
+      ],
+      "key": "glass",
+      "grain_axis": 1
+    },
+    {
+      "id": "RetainedDisplayFrontLeft1__0",
+      "bounds": [
+        0.5875,
+        0.76,
+        0.0325,
+        0.6055,
+        2.38,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "RetainedDisplayFrontRight1__0",
+      "bounds": [
+        1.962,
+        0.76,
+        0.0325,
+        1.98,
+        2.38,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "RetainedDisplayFrontBottom1__0",
+      "bounds": [
+        0.6055,
+        0.76,
+        0.0325,
+        1.962,
+        0.778,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "RetainedDisplayFrontTop1__0",
+      "bounds": [
+        0.6055,
+        2.362,
+        0.0325,
+        1.962,
+        2.38,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "RetainedDisplayBackLeft1__0",
+      "bounds": [
+        0.5875,
+        0.76,
+        -0.0265,
+        0.6055,
+        2.38,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "RetainedDisplayBackRight1__0",
+      "bounds": [
+        1.962,
+        0.76,
+        -0.0265,
+        1.98,
+        2.38,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "RetainedDisplayBackBottom1__0",
+      "bounds": [
+        0.6055,
+        0.76,
+        -0.0265,
+        1.962,
+        0.778,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "RetainedDisplayBackTop1__0",
+      "bounds": [
+        0.6055,
+        2.362,
+        -0.0265,
+        1.962,
+        2.38,
+        -0.0025
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "UpperlightFrontLeft1__0",
+      "bounds": [
+        0.5875,
+        2.44,
+        0.0325,
+        0.6055,
+        2.65,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "UpperlightFrontRight1__0",
+      "bounds": [
+        1.962,
+        2.44,
+        0.0325,
+        1.98,
+        2.65,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "UpperlightFrontBottom1__0",
+      "bounds": [
+        0.6055,
+        2.44,
+        0.0325,
+        1.962,
+        2.458,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "UpperlightFrontTop1__0",
+      "bounds": [
+        0.6055,
+        2.632,
+        0.0325,
+        1.962,
+        2.65,
+        0.0565
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "UpperlightBackLeft1__0",
+      "bounds": [
+        0.5875,
+        2.44,
+        0.0025,
+        0.6055,
+        2.65,
+        0.0265
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "UpperlightBackRight1__0",
+      "bounds": [
+        1.962,
+        2.44,
+        0.0025,
+        1.98,
+        2.65,
+        0.0265
+      ],
+      "key": "wood",
+      "grain_axis": 1
+    },
+    {
+      "id": "UpperlightBackBottom1__0",
+      "bounds": [
+        0.6055,
+        2.44,
+        0.0025,
+        1.962,
+        2.458,
+        0.0265
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "UpperlightBackTop1__0",
+      "bounds": [
+        0.6055,
+        2.632,
+        0.0025,
+        1.962,
+        2.65,
+        0.0265
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    }
+  ],
+  "retained": [
+    {
+      "owner": "facade_left_pier",
+      "bounds": [
+        -2.2,
+        0.0,
+        -0.14,
+        -1.98,
+        3.55,
+        0.14
+      ]
+    },
+    {
+      "owner": "facade_right_pier",
+      "bounds": [
+        1.98,
+        0.0,
+        -0.14,
+        2.2,
+        3.55,
+        0.14
+      ]
+    },
+    {
+      "owner": "facade_head",
+      "bounds": [
+        -2.1,
+        2.7,
+        -0.15,
+        2.1,
+        3.52,
+        0.15
+      ]
+    },
+    {
+      "owner": "left_bulkhead",
+      "bounds": [
+        -2.01,
+        0.0,
+        -0.11,
+        -0.55,
+        0.76,
+        0.11
+      ]
+    },
+    {
+      "owner": "right_bulkhead",
+      "bounds": [
+        0.55,
+        0.0,
+        -0.11,
+        2.01,
+        0.76,
+        0.11
+      ]
+    },
+    {
+      "owner": "left_store_glass",
+      "bounds": [
+        -1.99,
+        0.76,
+        -0.0025,
+        -0.57,
+        2.38,
+        0.0325
+      ]
+    },
+    {
+      "owner": "right_store_glass",
+      "bounds": [
+        0.57,
+        0.76,
+        -0.0025,
+        1.99,
+        2.38,
+        0.0325
+      ]
+    },
+    {
+      "owner": "front_transom",
+      "bounds": [
+        -0.58,
+        2.13,
+        -0.0025,
+        0.58,
+        2.55,
+        0.0325
+      ]
+    },
+    {
+      "owner": "threshold_sill",
+      "bounds": [
+        -0.61,
+        0.0005,
+        -0.2,
+        0.61,
+        0.0455,
+        0.16
+      ]
+    }
+  ],
+  "new_glass": [
+    {
+      "id": "Upperlight-1",
+      "bounds": [
+        -1.98,
+        2.44,
+        0.026500000000000003,
+        -0.5875,
+        2.6500000000000004,
+        0.0325
+      ]
+    },
+    {
+      "id": "Upperlight1",
+      "bounds": [
+        0.5875,
+        2.44,
+        0.026500000000000003,
+        1.98,
+        2.6500000000000004,
+        0.0325
+      ]
+    }
+  ],
+  "omitted_contact_cells": 1742,
+  "sign_service_port": {
+    "center": [
+      1.6875,
+      2.675
+    ],
+    "width": 0.022,
+    "height": 0.022,
+    "owner": "Existing independent BodegaPower front lighting junction; fixed sign branch only"
+  },
+  "door_clear_width": 0.975,
+  "door_clear_height": 2.1,
+  "leaf_panel_bounds": [
+    0.13,
+    0.13,
+    -0.009,
+    0.82,
+    0.7150000000000001,
+    0.009
+  ],
+  "leaf_panel_triangles": 44,
+  "leaf_panel_raise": 0.002,
+  "wood_key": "oak_quartered",
+  "wood_tint": [
+    0.42,
+    0.3,
+    0.2,
+    1.0
+  ],
+  "wood_scale_multiplier": 0.8,
+  "asset_sha256": "a780cffaed39caf71a51e0ad2cb985256060455f6e75464d59dadc40692d140a",
+  "source_bindings": {
+    "art/data/bodega_frontage/source_plan.json": "d55f4df463243faa2bfcfbe5162c5395ac14fbdea94a77fd46118c583e1de498",
+    "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
+    "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
+    "game/scripts/props/door_prop.gd": "476e37ff1c09e5ca277f723435f88cb307af10273c4e93b1483856c2940c8699"
+  },
+  "open_work": "Original facade, plinth, shop shell and independent utilities retain their owners. This closes the fixed frontage bands; whole-envelope weather and material acceptance remain separate."
+}

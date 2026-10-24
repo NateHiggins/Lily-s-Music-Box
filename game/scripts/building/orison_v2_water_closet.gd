@@ -21,6 +21,12 @@ var _held := ""
 var water_level := 1.0
 var _draining := false
 var _cover_velocity := 0.0
+var _native_finishes: Dictionary = {}
+var _chain: Node3D
+var _chain_from := Vector3.INF
+var _chain_to := Vector3.INF
+const CHAIN_LENGTH := .077
+
 
 func _ready() -> void:
 	super._ready()
@@ -52,17 +58,16 @@ func _ready() -> void:
 				var hull: Node=part.get_node("HandMovedCollision").get_child(index)
 				hull.get_parent().remove_child(hull)
 				hull.free()
+	_chain = model.find_child("DischargeChain",true,false) as Node3D
+	_chain.reparent(self)
 	_lever = parts.CisternHandle
+	_update_chain()
 	# Concave fixed castings preserve the bowl and cistern openings.
 	var casting := StaticBody3D.new()
 	casting.name="FixedCastingCollision"
 	add_child(casting)
-	for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
-		if draw.name in ["WaterSeal", "StoredWater"]: continue
-		var shape := CollisionShape3D.new()
-		shape.shape = draw.mesh.create_trimesh_shape()
-		casting.add_child(shape)
-		shape.global_transform = draw.global_transform
+	if not preload("res://scripts/props/native_bath_contacts.gd").install(casting,self,"bath_water_closet"):
+		push_error("Native water closet contact stock did not load")
 	parts["Water"] = model.find_child("CisternWaterSurface", true, false)
 
 func manipulation_target(hit: Dictionary) -> Dictionary:
@@ -124,8 +129,8 @@ func _move_part(key: String, value: Variant) -> void:
 	var proposed := clampf(float(value),limits.x,limits.y)
 	if key == "SeatHinge": proposed=minf(proposed,_value("RaisedLid"))
 	if key == "RaisedLid": proposed=maxf(proposed,_value("SeatHinge"))
-	var axis := Vector3.RIGHT if key in ["SeatHinge","RaisedLid"] else Vector3.UP if key=="FlushBall" else Vector3.BACK
-	proposed=Sweep.limited(self,part,axis,_value(key),proposed,key=="FlushBall")
+	# Bounded seats, lids and enclosed controls use their functional stops.
+	# The removable cover alone keeps a world sweep for carried placement.
 	if key == "FlushBall": part.position.y=proposed
 	elif key in ["SeatHinge","RaisedLid"]: part.rotation.x=proposed
 	else: part.rotation.z=proposed
@@ -139,8 +144,12 @@ func _physics_process(delta: float) -> void:
 	if _held != "CisternHandle": _lever.rotation.z=move_toward(_lever.rotation.z,0,delta*2.0)
 	var ball: Node3D=parts.FlushBall
 	if _held != "FlushBall":
-		var lift := maxf(-_lever.rotation.z*.10,.05 if _draining and water_level>.08 else 0.0)
-		ball.position.y=.558+lift
+		var anchor := to_local(_lever.get_node("LiftLeverAnchor").global_position)
+		var lateral_squared := Vector2(anchor.x-.075,anchor.z-.205).length_squared()
+		var hanging_drop := sqrt(maxf(0.0,CHAIN_LENGTH*CHAIN_LENGTH-lateral_squared))
+		var chain_lift := clampf(anchor.y-hanging_drop-.090,.558,.628)
+		ball.position.y=maxf(chain_lift,.608 if _draining and water_level>.08 else .558)
+	_update_chain()
 	if _draining:
 		water_level=maxf(0,water_level-delta*.55)
 		if water_level<=.02 and _held!="FlushBall" and absf(_lever.rotation.z)<.02: _draining=false
@@ -160,6 +169,36 @@ func _physics_process(delta: float) -> void:
 			pose.origin.y=maxf(floor_y,pose.origin.y-_cover_velocity*delta)
 			if Sweep.clear(self,cover,pose): cover.transform=pose
 			else: _cover_velocity=0
+
+func _chain_points(start: Vector3, finish: Vector3, bow: float) -> PackedVector3Array:
+	var points := PackedVector3Array()
+	for i in 17:
+		var t := float(i)/16.0
+		points.append(start.lerp(finish,t)+Vector3.LEFT*bow*sin(PI*t))
+	return points
+
+func _update_chain() -> void:
+	if _chain == null: return
+	var start := to_local(parts.FlushBall.get_node("LiftEye").global_position)
+	var finish := to_local(parts.CisternHandle.get_node("LiftLeverAnchor").global_position)
+	if start.is_equal_approx(_chain_from) and finish.is_equal_approx(_chain_to): return
+	_chain_from=start
+	_chain_to=finish
+	var low := 0.0
+	var high := CHAIN_LENGTH*.5
+	var points := PackedVector3Array()
+	for iteration in 12:
+		var bow := (low+high)*.5
+		points=_chain_points(start,finish,bow)
+		var length := 0.0
+		for i in 16: length+=points[i].distance_to(points[i+1])
+		if length<CHAIN_LENGTH: low=bow
+		else: high=bow
+	for i in _chain.get_child_count():
+		var link := _chain.get_child(i) as Node3D
+		var direction := (points[i*2+2]-points[i*2]).normalized()
+		link.position=points[i*2+1]
+		link.basis=Basis(Quaternion(Vector3.UP,direction))
 
 func mechanism_snapshot() -> Dictionary:
 	var state := {"water":water_level,"draining":_draining,"refilling":_refilling,"stroke":_flush_stroke_completed}
@@ -195,6 +234,7 @@ func restore_mechanism(state: Dictionary) -> void:
 	_refilling=state.refilling
 	_flush_stroke_completed=state.stroke
 	_cover_velocity=0
+	_update_chain()
 
 func _skin(node: Node) -> void:
 	if node is MeshInstance3D:
@@ -205,10 +245,18 @@ func _skin(node: Node) -> void:
 				water.albedo_color = Color(.75,.84,.85,.055)
 				water.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 				water.roughness = .08
+				water.uv1_triplanar=false
+				water.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 				node.set_surface_override_material(surface, water)
 				node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 			else:
-				node.set_surface_override_material(surface, MatLib.get_mat(source.resource_name))
+				var key:=source.resource_name
+				if not _native_finishes.has(key):
+					var finish:=MatLib.get_mat(key).duplicate() as StandardMaterial3D
+					finish.uv1_triplanar=false
+					finish.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+					_native_finishes[key]=finish
+				node.set_surface_override_material(surface,_native_finishes[key])
 	for child in node.get_children(): _skin(child)
 
 func _exit_tree() -> void:

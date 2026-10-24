@@ -1,0 +1,44 @@
+{
+  "material": "nook_woven_wool",
+  "status": "QUALIFICATION_PENDING",
+  "meters_per_tile": 0.24,
+  "generator": "art/tools/build_nook_wool.py",
+  "generator_sha256_lf": "784b237fb885ee2319fa29cc20d175cea20f3df97edd96778ac5b17102934aaf",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "df6f3aed36d565fe280d5d763a50f6eabd484e3a141a1aba6c34754376662d91",
+    "roughness": "48c85862366f0af64a94a39b51ef7785feda2afc5802aec4b4b02019af7237f6",
+    "normal": "dfb35862504e7e80e392bb452a16b98f015cc909618fad4b40e08425946af096",
+    "height": "b6138a4dcf64d2345f9fbd1ac9461f18260f5d5645afc1032f21630764b0bb04"
+  },
+  "height_storage_bits": 16,
+  "normal_strength": 1.0,
+  "normal_convention": "OpenGL",
+  "normal_authoring": {
+    "construction": "crossing wool warp/weft with alternating over-under relief",
+    "height_units": "metres",
+    "normal_convention": "OpenGL",
+    "normal_strength": 1.0,
+    "physical_tile_m": 0.24,
+    "height_min_m": -0.00018,
+    "height_max_m": 0.00018,
+    "nominal_feature_bands_m": {
+      "yarn": [
+        0.001875,
+        0.00375
+      ]
+    },
+    "pigment_is_not_height": true,
+    "unresolved_detail": "Subpixel fibres remain in roughness."
+  },
+  "measurements": {
+    "normal_slope_rms": 0.2798856909525745,
+    "roughness_min": 0.8406508763373272,
+    "roughness_max": 0.9775803462681754
+  }
+}

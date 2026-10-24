@@ -16,6 +16,23 @@ func _run() -> void:
 	check(collections.size()==3 and books.size()==61 and ends.size()==6,"three owners retain all 61 copies and six real ends")
 	var stock: RefCounted=collections[0].native_stock
 	var metadata: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(Nook.COPIES))
+	var frames: Dictionary={}
+	for collection: Node3D in collections: frames[str(collection.get_parent().name)]=true
+	check(stock.valid_copy_decorations(metadata.decorations,frames),"authored keepsake placements validate")
+	var bad_decor: Array=metadata.decorations.duplicate(true);bad_decor.append(bad_decor[0].duplicate(true))
+	check(not stock.valid_copy_decorations(bad_decor,frames),"duplicate keepsake identity refused")
+	bad_decor=metadata.decorations.duplicate(true);bad_decor[0].position[0]=INF
+	check(not stock.valid_copy_decorations(bad_decor,frames),"nonfinite keepsake placement refused")
+	bad_decor=metadata.decorations.duplicate(true);bad_decor[0].assembly="missing_owner"
+	check(not stock.valid_copy_decorations(bad_decor,frames),"unowned keepsake placement refused")
+	var keepsake_owner: Node3D=adapter.resolve("nook_books_library")
+	check(keepsake_owner._fixed.get_child_count()==4,"all four passive keepsakes mount exactly once")
+	for record: Dictionary in metadata.decorations:
+		var body: StaticBody3D=keepsake_owner._fixed.get_node(str(record.id))
+		check(not body.is_processing() and not body.is_physics_processing(),"keepsake has no idle polling or simulation: "+str(record.id))
+		for identity: String in stock.data.decorations[str(record.style)].parts:
+			var draw:=body.get_node(identity) as MeshInstance3D
+			check(draw!=null and draw.mesh==stock.meshes[identity],"keepsake shares its original native buffer: "+identity)
 	check(stock.valid_copy_records(metadata.copies,stock) and stock.valid_end_records(metadata.ends,stock),"complete physical-copy programme validates")
 	var malformed: Array=metadata.copies.duplicate(true);malformed[1].id=malformed[0].id
 	check(not stock.valid_copy_records(malformed,stock),"duplicate physical-copy identity refused")
@@ -29,9 +46,14 @@ func _run() -> void:
 		check(not ids.has(book.stock_id),"physical copies have independent identities")
 		ids[book.stock_id]=true;titles[book.title_id]=true
 		check(book.entry==book.shelf.sorter.book(book.title_id),"display title and author resolve independently of copy ID")
+		check(book.freeze and book.shelf_slot>=0 and not book.is_physics_processing(),"authored copy occupies a static placement spot: "+book.stock_id)
 	check(titles.size()==26,"shared collection excludes rare pamphlets and singular minutes")
 	var metrics:=preload("res://tests/orison_v2_domestic_native_test.gd").new()
 	for identity: String in metadata.parts: metrics._check_cap_mapping(stock.meshes[identity],true)
+	for record: Dictionary in metadata.decorations:
+		for identity: String in stock.data.decorations[str(record.style)].parts: metrics._check_cap_mapping(stock.meshes[identity],true)
+	for identity: String in metadata.parts:
+		check(stock.meshes[identity]==stock.meshes[str(metadata.parts[identity].native_part)],"physical copies share exact native edition buffers: "+identity)
 	for failure: String in metrics.failures: check(false,failure)
 	metrics.free()
 	for key: String in stock.materials:
@@ -47,7 +69,7 @@ func _run() -> void:
 	environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;environment.ambient_light_color=Color(.45,.48,.55);environment.ambient_light_energy=.3
 	var sky:=WorldEnvironment.new();sky.environment=environment;add_child(sky)
 	var sun:=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-35,-25,0);sun.light_energy=.3;add_child(sun)
-	player=PlayerController.new();player.position=Vector3(-1.6,-3.199,1.4);add_child(player);player.set_physics_process(false)
+	player=PlayerController.new();player.position=Vector3(-1.6,-3.199,1.4);add_child(player)
 	player.camera.make_current();player.set_mouse_released(false);player.set_lamp_enabled(true)
 	var air:=preload("res://scripts/building/orison_v2_lamp_atmosphere.gd").new();add_child(air)
 	check(air.setup(player,environment),"production carried voxel lamp initializes")
@@ -59,10 +81,19 @@ func _run() -> void:
 			check(hits.is_empty(),"native stock starts without overlap: "+body.stock_id+"/"+solid.name)
 			for hit: Dictionary in hits: print("NOOK INITIAL CONTACT: ",body.stock_id," -> ",hit.collider.get_path())
 	player.camera.look_at(Vector3(-.48,-2.35,3.0));await capture("nook_installed")
+	for collection: Node3D in collections:
+		legacy_save_review(collection)
+		placement_save_review(collection)
 	var owner: Node3D=adapter.resolve("nook_books_library")
-	var selected: Node3D=owner._books.values()[0]
-	if await approach(selected): await manipulate_binding(owner,selected)
-	else: check(false,"standing capsule and real cursor find the lending binding")
+	var original: Dictionary=owner.library_snapshot()
+	for format: String in ["trade","pocket","pamphlet"]:
+		var selected: Node3D
+		for candidate: Node3D in owner._books.values():
+			if str(candidate.construction.format)==format and absf(candidate.global_basis.y.dot(Vector3.UP))>.5:selected=candidate;break
+		if not check(selected!=null,"representative native format exists: "+format):continue
+		if await approach(selected): await manipulate_binding(owner,selected)
+		else: check(false,"standing capsule and real cursor find the lending binding: "+format)
+		owner.restore_order(original)
 	var snapshots: Dictionary={}
 	for collection: Node3D in collections:
 		var saved: Dictionary=collection.library_snapshot();snapshots[str(collection.name)]=saved
@@ -89,6 +120,7 @@ func _run() -> void:
 	var rebuilt:=Node3D.new();rebuilt.name="RebuiltNook";add_child(rebuilt)
 	var fresh:=OrisonV2AnchorAdapter.new(rebuilt)
 	check(Nook.mount(fresh),"new native nook owners reconstruct")
+	check(fresh.resolve("nook_books_library")._fixed.get_child_count()==4,"all keepsakes reconstruct without a new save domain")
 	for identity: String in snapshots:
 		var collection: Node3D=fresh.resolve(identity)
 		var encoded: Dictionary=JSON.parse_string(JSON.stringify(snapshots[identity],"",true,true))
@@ -105,33 +137,94 @@ func approach(book: Node3D) -> bool:
 			var support:=get_world_3d().direct_space_state.intersect_ray(floor_ray)
 			if support.is_empty() or support.normal.dot(Vector3.UP)<.9 or support.position.y> -3.18: continue
 			player.global_position=Vector3(x,support.position.y+player.safe_margin,z)
+			player.velocity=Vector3.ZERO
 			var query:=PhysicsShapeQueryParameters3D.new();query.shape=capsule;query.transform=Transform3D(Basis.IDENTITY,player.global_position+Vector3.UP*PlayerController.STANDING_HEIGHT*.5);query.exclude=[player.get_rid()];query.margin=0.
 			if not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): continue
 			player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0)
 			player.camera.look_at(book.to_global(Vector3(-.0025,float(book.construction.height)*.5,0)))
+			for frame in 2: await get_tree().physics_frame
 			var target: Dictionary=player._grab.find_target()
+			print("LENDING APPROACH: ",book.stock_id," stance=",player.global_position," target=",target.get("part")," kind=",target.get("kind"))
 			if target.get("part")==book and target.get("kind")=="free": return true
 	return false
 
 func manipulate_binding(owner: Node3D,book: Node3D) -> void:
 	click();check(player._grab.active() and player._grab.target.part==book,"primary grabs physical lending copy")
+	for frame in 130: await get_tree().physics_frame
+	var wanted: Vector3=player.camera.global_transform*Vector3(.17,-.16,-.48)
+	check((book.global_transform*book.pickup_centre()).distance_to(wanted)<.003,"lending copy withdraws toward its real front and reaches FPS hand")
 	await space();check(player.inspecting() and book.freeze,"Space supports the selected copy")
-	if not check(await grab_visible_stock(book),"real cursor grabs inspected copy"): await space();return
-	check(await carry(book.position-book.basis.x*.32+Vector3.UP*.05),"mouse extracts lending copy without shifting its duplicate")
-	click()
-	await cursor_at(book.to_global(Vector3(-.0043,float(book.construction.height)*.82,float(book.construction.thickness)*.5+.006)));click()
-	if check(player._grab.active() and player._grab.target.kind=="hinge","binding edge supplies constrained turn"):
-		var axis: Vector3=player._grab.target.frame.global_basis*player._grab.target.axis.call()
-		var facing: Vector3=(player.camera.global_position-book.global_position).slide(axis).normalized()
-		check(await hinge(book.global_basis.z.slide(axis).normalized().signed_angle_to(facing,axis)),"mouse turns lending binding to view");click()
-	await cursor_at(book.to_global(Vector3(float(book.construction.width)*.65,float(book.construction.height)*.5,float(book.construction.thickness)*.5+.001)));click()
+	for frame in 110: await get_tree().physics_frame
+	var pose: Transform3D=book.global_transform
+	check(not book.is_physics_processing(),"floating nook inspection settles without polling")
+	await cursor_at(book.left.to_global(Vector3(float(book.construction.width)*.7,float(book.construction.height)*.7,float(book.construction.thickness)*.5)));click()
 	if check(player._grab.active() and player._grab.target.part==book.left,"actual gathering supplies opening grip"):
 		check(await hinge(PI),"mouse opens featured spread directly on lending copy");click()
-	await capture("nook_hand_opened")
+	check(book.global_transform.is_equal_approx(pose),"operating the gathering keeps the floating binding static")
+	await capture("nook_hand_opened_"+str(book.construction.format))
+	var before_fov:=player.camera.fov
+	var zoom:=InputEventMouseButton.new();zoom.pressed=true;zoom.button_index=MOUSE_BUTTON_WHEEL_UP;zoom.factor=12.
+	player._unhandled_input(zoom)
+	check(player.camera.fov<before_fov and book.global_transform.is_equal_approx(pose),"nook reading zoom preserves the static floating copy")
+	await capture("nook_reading_"+str(book.construction.format))
 	for duplicate: Node3D in owner._books.values():
-		if duplicate!=book and duplicate.title_id==book.title_id: check(is_zero_approx(duplicate.opening),"same-title physical copy keeps an independent opening")
+		if duplicate!=book and duplicate.title_id==book.title_id:
+			check(is_zero_approx(duplicate.opening),"same-title physical copy keeps an independent opening")
+			for draw: MeshInstance3D in duplicate._native_draws:
+				for key in draw.get_blend_shape_count():check(is_zero_approx(draw.get_blend_shape_value(key)),"shared mesh does not share instance opening weights")
 	if player._grab.active(): player._grab.release()
 	await space()
+	check(player._grab.holding_pickup() and player._grab.target.part==book,"Space returns lending copy to original hand")
+	click()
+	check(not player._grab.active() and not book._held,"next primary releases returned lending copy")
+
+func legacy_save_review(collection: Node3D) -> void:
+	var original: Dictionary=collection.library_snapshot()
+	var legacy: Dictionary=original.duplicate(true);legacy.slots=[];legacy.geometry="previous native dimensions"
+	for record: Dictionary in collection.copy_records:
+		var saved: Dictionary=legacy.books[str(record.id)];var row: Array=record.legacy_pose
+		saved.slot=-1;saved.opening=record.legacy_opening
+		saved.body.position=row.slice(0,3);saved.body.rotation=row.slice(3,7)
+		saved.body.sleeping=true;saved.body.velocity=[0.,0.,0.];saved.body.spin=[0.,0.,0.]
+	for record: Dictionary in collection.end_records:
+		var saved: Dictionary=legacy.bookends[str(record.id)];var row: Array=record.legacy_pose
+		saved.position=row.slice(0,3);saved.rotation=row.slice(3,7);saved.sleeping=true
+		saved.velocity=[0.,0.,0.];saved.spin=[0.,0.,0.]
+	var moved_id: String=collection.copy_records[0].id
+	legacy.books[moved_id].body.position[0]+=2.
+	check(collection.valid_library(legacy),"empty-slot historical nook payload validates: "+str(collection.name))
+	collection.restore_order(legacy)
+	for identity: String in collection._books:
+		var book: Node3D=collection._books[identity]
+		if identity==moved_id:
+			check(book.shelf_slot==-1 and equivalent(book.book_snapshot(),legacy.books[identity]),"migration preserves a previously moved loose copy")
+		else:check(book.shelf_slot>=0 and book.transform.is_equal_approx(collection.book_slots[book.shelf_slot]),"untouched old copy refits its coherent native spot")
+	collection.restore_order(original)
+	check(equivalent(collection.library_snapshot(),original),"current nook placement JSON restores exactly")
+
+func placement_save_review(collection: Node3D) -> void:
+	var original: Dictionary=collection.library_snapshot()
+	var previous: Dictionary=original.duplicate(true);previous.geometry="previous furniture placement"
+	var loose_id: String=collection.copy_records[0].id
+	for identity: String in previous.books:
+		var saved: Dictionary=previous.books[identity]
+		if identity==loose_id:
+			saved.slot=-1;saved.body.position[0]+=24.
+		else:
+			var slot:=int(saved.slot)
+			previous.slots[slot][0]+=.2;saved.body.position[0]+=.2
+	var point: Array=previous.books[loose_id].body.position
+	var expected: Vector3=collection._books_at.to_global(Vector3(point[0],point[1],point[2]))
+	check(collection.valid_library(previous),"previous placement validates without a new save domain")
+	collection.restore_order(previous)
+	for identity: String in collection._books:
+		var book: Node3D=collection._books[identity]
+		if identity==loose_id:
+			check(equivalent(book.book_snapshot(),previous.books[identity]) and book.global_position.distance_to(expected)<.00001,"furniture refit preserves a distant loose saved copy in world space")
+		else:
+			check(book.shelf_slot>=0 and book.transform.is_equal_approx(collection.book_slots[book.shelf_slot]),"parked copy follows revised authored furniture placement")
+	collection.restore_order(original)
+	check(equivalent(collection.library_snapshot(),original),"placement-aware current save restores exactly")
 
 func check_pages(book: Node3D) -> void:
 	check(book._sheets.size()==2,"two printed sheets for copy: "+book.stock_id)

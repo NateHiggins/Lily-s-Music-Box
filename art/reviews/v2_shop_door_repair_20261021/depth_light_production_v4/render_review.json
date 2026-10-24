@@ -1,0 +1,32 @@
+{
+  "evidence_class": "INERT",
+  "reviewer": "Codex agent",
+  "scope": "Paired actual PBR lighting, not whole-world or human acceptance. Air volume/particles hidden equally for native-surface comparison.",
+  "observation": "Original and isolated lobby/Mina images inspected. Native material, illumination, fixture shadows and known library cast shadow remain. Mean isolated differences are smaller than restored-control differences. All16 near/mid field channels are byte-identical; world fallback checks pass.",
+  "images": [
+    {
+      "file": "lobby_original_layer_one.png",
+      "sha256": "8cc3488e78fc6ae5db640b22a9566f4ff7cf79df84598c1755fb863590c40a67"
+    },
+    {
+      "file": "lobby_isolated_layer_seventeen.png",
+      "sha256": "bf2dfcc54cbe9e6e6563839453d925be487d151085af9d4acfeb4665a4bc591e"
+    },
+    {
+      "file": "lobby_original_restored.png",
+      "sha256": "bf29e32fda213158a28505b8bb0ae658f158ad5ec9dc02eefb2647b49d690f96"
+    },
+    {
+      "file": "mina_library_original_layer_one.png",
+      "sha256": "0e5d44e86b422eca274d871009253c11d8df7d1a7d69b9ed2fca1e23619a9869"
+    },
+    {
+      "file": "mina_library_isolated_layer_seventeen.png",
+      "sha256": "8a86e84feba1515281c0dd63164860a2e27381f6de9ea061f7fabfa2fb858f0b"
+    },
+    {
+      "file": "mina_library_original_restored.png",
+      "sha256": "37537cd363d355f66eff97dec08e9638790f9fafc23bf2bf2a25a654f2690134"
+    }
+  ]
+}

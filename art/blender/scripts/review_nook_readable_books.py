@@ -2,12 +2,14 @@
 then render the actual source arrangement before Godot imports the batch."""
 from pathlib import Path
 import hashlib, json, math, os
-import bpy
+import bpy, sys
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from book_flex_math import left_translation
 from mathutils import Matrix, Vector
 from mathutils.bvhtree import BVHTree
 
 ROOT=Path(__file__).resolve().parents[3]
-OUT=ROOT/'tmp/v2-readable-books-20261020/nook-source'
+OUT=Path(os.environ.get('NOOK_REVIEW_OUT',str(ROOT/'tmp/v2-readable-books-20261020/nook-source')))
 OUT.mkdir(parents=True,exist_ok=True)
 data=json.loads((ROOT/'game/data/orison_v2/nook_readable_books.json').read_text())
 nook=json.loads((ROOT/'game/data/orison_v2/reading_nook.json').read_text())
@@ -35,9 +37,16 @@ groups={}
 for copy in data['copies']:
     objects=[]
     for name in data['books'][copy['id']]['parts']:
-        obj=native[name];scene.collection.objects.link(obj);obj.hide_render=False
+        obj=native[name];scene.collection.objects.link(obj);obj.hide_render=not data['parts'][name].get('render_surface',True)
+        obj.data=obj.data.copy()
+        if obj.data.shape_keys:
+            step=max(0.,min(8.,copy['opening']*8/math.pi));low=int(step);high=min(8,low+1);fraction=step-low
+            for index,key in enumerate(obj.data.shape_keys.key_blocks):key.value=(1-fraction if index==low else (fraction if index==high else 0.)) if index>0 else 0.
         target=pose(copy)
-        if data['parts'][name]['role']=='left':target=target@Matrix.Rotation(-copy['opening'],4,'Y')
+        if data['parts'][name]['role']=='left':
+            book=data['books'][copy['id']]
+            offset=Vector(left_translation(book['thickness'],copy['opening'],book['opening_style']))
+            target=target@Matrix.Translation(offset)@Matrix.Rotation(-copy['opening'],4,'Y')
         obj.matrix_world=G.inverted()@target@G@obj.matrix_world
         objects.append(obj)
     groups[copy['id']]=objects
@@ -52,12 +61,25 @@ for end in data['ends']:
         obj.name=end['id']+'_'+name;scene.collection.objects.link(obj);obj.hide_render=False
         obj.matrix_world=G.inverted()@pose(end)@G@obj.matrix_world;objects.append(obj)
     groups[end['id']]=objects
+names=sorted({name for record in data['decorations'] for name in base['decorations'][record['style']]['parts']})
+with bpy.data.libraries.load(str(ROOT/'art/blender/readable_library.blend'),link=False) as (src,dst):dst.objects=list(names)
+templates=dict(zip(names,dst.objects))
+for record in data['decorations']:
+    target=frame(frames[record['assembly']])@Matrix.Translation(Vector(record['position']))@Matrix.Rotation(record['yaw'],4,'Y')
+    objects=[]
+    for name in base['decorations'][record['style']]['parts']:
+        obj=templates[name].copy();obj.data=templates[name].data;obj.name=record['id']+'_'+name
+        scene.collection.objects.link(obj);obj.hide_render=False
+        obj.matrix_world=G.inverted()@target@G@obj.matrix_world;objects.append(obj)
+    groups[record['id']]=objects
 bpy.context.view_layer.update()
 def tree(objects):
     vertices=[];faces=[]
     for obj in objects:
-        offset=len(vertices);vertices.extend(obj.matrix_world@v.co for v in obj.data.vertices)
-        faces.extend(tuple(offset+i for i in p.vertices) for p in obj.data.polygons)
+        evaluated=obj.evaluated_get(bpy.context.evaluated_depsgraph_get());mesh=evaluated.to_mesh()
+        offset=len(vertices);vertices.extend(obj.matrix_world@v.co for v in mesh.vertices)
+        faces.extend(tuple(offset+i for i in p.vertices) for p in mesh.polygons)
+        evaluated.to_mesh_clear()
     return BVHTree.FromPolygons(vertices,faces,epsilon=0.)
 trees={name:tree(objects) for name,objects in groups.items()}
 obstructions={obj.name:tree([obj]) for obj in fixed}
@@ -74,7 +96,7 @@ for index,(name,body) in enumerate(trees.items()):
                     if tree([left]).overlap(tree([right])):details.append([left.name,right.name])
             overlaps.append([name,other_name,details])
 (OUT/'contacts.json').write_text(json.dumps({'evidence_class':'INERT','copies':len(data['copies']),
-    'ends':len(data['ends']),'external_overlaps':overlaps,'source_asset_sha256':hashlib.sha256((ROOT/'game/assets/props/nook_readable_books.glb').read_bytes()).hexdigest(),'programme_sha256':hashlib.sha256((ROOT/'game/data/orison_v2/nook_readable_books.json').read_bytes().replace(b'\r\n',b'\n')).hexdigest()},indent=2)+'\n',newline='\n')
+    'ends':len(data['ends']),'external_overlaps':overlaps,'source_asset_sha256':hashlib.sha256((ROOT/'game'/data['asset'].removeprefix('res://')).read_bytes()).hexdigest(),'programme_sha256':hashlib.sha256((ROOT/'game/data/orison_v2/nook_readable_books.json').read_bytes().replace(b'\r\n',b'\n')).hexdigest()},indent=2)+'\n',newline='\n')
 assert not overlaps,overlaps
 if os.environ.get('NOOK_REVIEW_PROBE')=='1':
     first=data['copies'][0]

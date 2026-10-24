@@ -1,0 +1,9 @@
+ERROR: ORISON V2 RUNTIME: acoustic binding failed: ["Stale physical source: res://data/orison_v2_blockout.json"]
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_runtime_root.gd:182)
+       [1] _run (res://tests/v2_handheld_profile.gd:50)
+SCRIPT ERROR: Invalid access to property or key 'camera' on a base object of type 'Nil'.
+   at: _run (res://tests/v2_handheld_profile.gd:54)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/v2_handheld_profile.gd:54)

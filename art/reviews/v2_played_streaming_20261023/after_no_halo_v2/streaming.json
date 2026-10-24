@@ -1,0 +1,7351 @@
+{
+	"checks": [
+		{
+			"label": "F01_INNER_DOOR reaches its stop through primary grab, fixed mouse travel and release",
+			"ok": true
+		},
+		{
+			"label": "F01_DOOR_06 reaches its stop through primary grab, fixed mouse travel and release",
+			"ok": true
+		},
+		{
+			"label": "ordinary street approach completes passage reconstruction before gateway cycle 0",
+			"ok": true
+		},
+		{
+			"label": "passage eventually reaches resident state cycle 0",
+			"ok": true
+		},
+		{
+			"label": "F01_DOOR_06 reaches its stop through primary grab, fixed mouse travel and release",
+			"ok": true
+		},
+		{
+			"label": "F01_INNER_DOOR reaches its stop through primary grab, fixed mouse travel and release",
+			"ok": true
+		},
+		{
+			"label": "return retires imported passage roots and meshes cycle 0",
+			"ok": true
+		},
+		{
+			"label": "F01_INNER_DOOR reaches its stop through primary grab, fixed mouse travel and release",
+			"ok": true
+		},
+		{
+			"label": "F01_DOOR_06 reaches its stop through primary grab, fixed mouse travel and release",
+			"ok": true
+		},
+		{
+			"label": "ordinary street approach completes passage reconstruction before gateway cycle 1",
+			"ok": true
+		},
+		{
+			"label": "passage eventually reaches resident state cycle 1",
+			"ok": true
+		},
+		{
+			"label": "F01_DOOR_06 reaches its stop through primary grab, fixed mouse travel and release",
+			"ok": true
+		},
+		{
+			"label": "F01_INNER_DOOR reaches its stop through primary grab, fixed mouse travel and release",
+			"ok": true
+		},
+		{
+			"label": "return retires imported passage roots and meshes cycle 1",
+			"ok": true
+		}
+	],
+	"cycles": [
+		{
+			"at_gateway": {
+				"cell_count": 13,
+				"collision_cache_bytes": 88608528,
+				"collision_cache_parts": 1269,
+				"collision_cache_seed_ms": 1164.639,
+				"fit_records": [
+					{
+						"cell": "passage",
+						"ms": 17.318,
+						"operation": "standard wall millwork reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.124,
+						"operation": "native druggist drawer/counter reload fit refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 105.095,
+						"operation": "source-fitted arcade canopy reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 65.863,
+						"operation": "source-fitted arcade throat reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 9.141,
+						"operation": "source-fitted arcade lantern reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 17.34,
+						"operation": "source-fitted arcade clock reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.197,
+						"operation": "source-fitted arcade retained finishes reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.73,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "passage",
+						"ms": 3.743,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 4.265,
+						"operation": "standard wall millwork reload refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 49.124,
+						"operation": "native laundry reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 19.973,
+						"operation": "native laundry apparatus reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 17.846,
+						"operation": "native laundry trade furniture reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 10.918,
+						"operation": "native borrowed-light reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 10.188,
+						"operation": "native closed shop joinery reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 4.1,
+						"operation": "native Laundry receiving chassis reload refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 5.22,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 3.881,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.989,
+						"operation": "standard wall millwork reload refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 11.127,
+						"operation": "native borrowed-light reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 10.54,
+						"operation": "native closed shop joinery reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 51.441,
+						"operation": "native cobbler reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.334,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.031,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 4.334,
+						"operation": "standard wall millwork reload refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 1.1,
+						"operation": "native seating reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 1.296,
+						"operation": "native laundry reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 14.04,
+						"operation": "native borrowed-light reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 13.714,
+						"operation": "native closed shop joinery reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 39.972,
+						"operation": "native locksmith reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 3.487,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 2.943,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 4.475,
+						"operation": "standard wall millwork reload refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 10.606,
+						"operation": "native borrowed-light reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 12.993,
+						"operation": "native closed shop joinery reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 73.14,
+						"operation": "native hardware drawer reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 11.299,
+						"operation": "native hardware apparatus reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 71.218,
+						"operation": "native hardware stock reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 14.322,
+						"operation": "native hardware tools reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 5.595,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 3.965,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 4.292,
+						"operation": "standard wall millwork reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 18.248,
+						"operation": "native seating reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 10.547,
+						"operation": "native borrowed-light reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 19.028,
+						"operation": "native closed shop joinery reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 13.779,
+						"operation": "native funeral furniture reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 21.384,
+						"operation": "native funeral drapery reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 34.66,
+						"operation": "native funeral foliage reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 3.9,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 3.13,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.16,
+						"operation": "standard wall millwork reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 12.996,
+						"operation": "native borrowed-light reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 18.627,
+						"operation": "native closed shop joinery reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 14.105,
+						"operation": "native Photo/Radio reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 1.046,
+						"operation": "native locksmith reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 13.427,
+						"operation": "native photography display reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 14.896,
+						"operation": "native photography counter reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 32.506,
+						"operation": "native photography supply shelving reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 9.998,
+						"operation": "native photography enlarger reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 21.628,
+						"operation": "native photography process reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 69.492,
+						"operation": "native unclaimed portrait reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 5.823,
+						"operation": "native fixed photographic glazing reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.368,
+						"operation": "native Photo Supplies receiving chassis reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 6.366,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.905,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 3.903,
+						"operation": "standard wall millwork reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 11.948,
+						"operation": "native borrowed-light reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 13.604,
+						"operation": "native closed shop joinery reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 12.272,
+						"operation": "native Photo/Radio reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 12.717,
+						"operation": "native radio bench reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 19.205,
+						"operation": "native radio apparatus reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 28.648,
+						"operation": "native radio valve stock reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 13.799,
+						"operation": "native radio charging display reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 18.073,
+						"operation": "native passive wire/ring stock reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 14.824,
+						"operation": "native fitted counter/display reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 5.445,
+						"operation": "native period receiving chassis reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 6.084,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 4.997,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.622,
+						"operation": "standard wall millwork reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 11.866,
+						"operation": "native borrowed-light reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 12.651,
+						"operation": "native closed shop joinery reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.416,
+						"operation": "native Pawn Shop receiving chassis reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 21.625,
+						"operation": "native Pawn Shop display reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 24.725,
+						"operation": "native Pawn Shop clocks reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 34.277,
+						"operation": "native Pawn Shop fittings reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 6.096,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.014,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 4.054,
+						"operation": "standard wall millwork reload refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 10.891,
+						"operation": "native borrowed-light reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 11.698,
+						"operation": "native closed shop joinery reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 30.815,
+						"operation": "native news reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.663,
+						"operation": "native News Cigars receiving chassis reload refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.381,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.291,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 4.283,
+						"operation": "standard wall millwork reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 14.62,
+						"operation": "native seating reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 11.463,
+						"operation": "native borrowed-light reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 11.869,
+						"operation": "native closed shop joinery reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 90.3,
+						"operation": "native druggist drawer/counter reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 7.804,
+						"operation": "native druggist counter objects reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 7.712,
+						"operation": "native druggist marble objects reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 38.017,
+						"operation": "native composed dispensary reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 25.302,
+						"operation": "native druggist cupboard reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 37.007,
+						"operation": "native druggist display carboys reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 12.444,
+						"operation": "native unused druggist fountain reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 6.344,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 1.076,
+						"operation": "material stock"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 5.48,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.1,
+						"operation": "standard wall millwork reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 20.112,
+						"operation": "native seating reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 1.312,
+						"operation": "native laundry reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 15.501,
+						"operation": "native borrowed-light reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 12.792,
+						"operation": "native closed shop joinery reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 12.53,
+						"operation": "native Diner counter reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 11.463,
+						"operation": "native Diner register/display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 9.55,
+						"operation": "native Diner rear bench/shelves reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 13.373,
+						"operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 14.571,
+						"operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 10.052,
+						"operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 5.244,
+						"operation": "native Diner receiving pair reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.672,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 8.078,
+						"operation": "surface binding"
+					}
+				],
+				"load_cycles": 1,
+				"peak_activation_ms": 24.154,
+				"peak_stage_ms": 106.711,
+				"pending_requests": 0,
+				"physical_actors_retained": true,
+				"retired_geometry_roots_alive": 0,
+				"retired_mesh_resources_alive": 0,
+				"stage_records": [
+					{
+						"cell": "passage",
+						"fetch_ms": 0.003,
+						"instantiate_ms": 1.127,
+						"surface_ms": 232.716
+					},
+					{
+						"cell": "shop_model_laundry",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.625,
+						"surface_ms": 134.465
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.497,
+						"surface_ms": 93.323
+					},
+					{
+						"cell": "shop_keys_cut",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.795,
+						"surface_ms": 89.222
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.797,
+						"surface_ms": 216.621
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.662,
+						"surface_ms": 138.157
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.504,
+						"surface_ms": 243.104
+					},
+					{
+						"cell": "shop_radio_service",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.601,
+						"surface_ms": 175.315
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.505,
+						"surface_ms": 135.129
+					},
+					{
+						"cell": "shop_news_cigars",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.507,
+						"surface_ms": 77.59
+					},
+					{
+						"cell": "shop_otis_son",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.696,
+						"surface_ms": 281.32
+					},
+					{
+						"cell": "shop_luncheonette",
+						"fetch_ms": 0.008,
+						"instantiate_ms": 0.648,
+						"surface_ms": 152.265
+					}
+				],
+				"state": "RESIDENT",
+				"unload_cycles": 1
+			},
+			"before": {
+				"cell_count": 1,
+				"collision_cache_bytes": 88608528,
+				"collision_cache_parts": 1269,
+				"collision_cache_seed_ms": 1164.639,
+				"fit_records": [],
+				"load_cycles": 0,
+				"peak_activation_ms": 0.0,
+				"peak_stage_ms": 0.0,
+				"pending_requests": 0,
+				"physical_actors_retained": true,
+				"retired_geometry_roots_alive": 0,
+				"retired_mesh_resources_alive": 0,
+				"stage_records": [],
+				"state": "DORMANT",
+				"unload_cycles": 1
+			},
+			"cycle": 0,
+			"end_usec": 176650274,
+			"returned": {
+				"cell_count": 1,
+				"collision_cache_bytes": 88608528,
+				"collision_cache_parts": 1269,
+				"collision_cache_seed_ms": 1164.639,
+				"fit_records": [
+					{
+						"cell": "passage",
+						"ms": 17.318,
+						"operation": "standard wall millwork reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.124,
+						"operation": "native druggist drawer/counter reload fit refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 105.095,
+						"operation": "source-fitted arcade canopy reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 65.863,
+						"operation": "source-fitted arcade throat reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 9.141,
+						"operation": "source-fitted arcade lantern reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 17.34,
+						"operation": "source-fitted arcade clock reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.197,
+						"operation": "source-fitted arcade retained finishes reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.73,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "passage",
+						"ms": 3.743,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 4.265,
+						"operation": "standard wall millwork reload refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 49.124,
+						"operation": "native laundry reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 19.973,
+						"operation": "native laundry apparatus reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 17.846,
+						"operation": "native laundry trade furniture reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 10.918,
+						"operation": "native borrowed-light reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 10.188,
+						"operation": "native closed shop joinery reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 4.1,
+						"operation": "native Laundry receiving chassis reload refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 5.22,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 3.881,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.989,
+						"operation": "standard wall millwork reload refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 11.127,
+						"operation": "native borrowed-light reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 10.54,
+						"operation": "native closed shop joinery reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 51.441,
+						"operation": "native cobbler reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.334,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.031,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 4.334,
+						"operation": "standard wall millwork reload refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 1.1,
+						"operation": "native seating reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 1.296,
+						"operation": "native laundry reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 14.04,
+						"operation": "native borrowed-light reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 13.714,
+						"operation": "native closed shop joinery reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 39.972,
+						"operation": "native locksmith reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 3.487,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 2.943,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 4.475,
+						"operation": "standard wall millwork reload refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 10.606,
+						"operation": "native borrowed-light reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 12.993,
+						"operation": "native closed shop joinery reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 73.14,
+						"operation": "native hardware drawer reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 11.299,
+						"operation": "native hardware apparatus reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 71.218,
+						"operation": "native hardware stock reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 14.322,
+						"operation": "native hardware tools reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 5.595,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 3.965,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 4.292,
+						"operation": "standard wall millwork reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 18.248,
+						"operation": "native seating reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 10.547,
+						"operation": "native borrowed-light reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 19.028,
+						"operation": "native closed shop joinery reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 13.779,
+						"operation": "native funeral furniture reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 21.384,
+						"operation": "native funeral drapery reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 34.66,
+						"operation": "native funeral foliage reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 3.9,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 3.13,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.16,
+						"operation": "standard wall millwork reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 12.996,
+						"operation": "native borrowed-light reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 18.627,
+						"operation": "native closed shop joinery reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 14.105,
+						"operation": "native Photo/Radio reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 1.046,
+						"operation": "native locksmith reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 13.427,
+						"operation": "native photography display reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 14.896,
+						"operation": "native photography counter reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 32.506,
+						"operation": "native photography supply shelving reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 9.998,
+						"operation": "native photography enlarger reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 21.628,
+						"operation": "native photography process reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 69.492,
+						"operation": "native unclaimed portrait reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 5.823,
+						"operation": "native fixed photographic glazing reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.368,
+						"operation": "native Photo Supplies receiving chassis reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 6.366,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.905,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 3.903,
+						"operation": "standard wall millwork reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 11.948,
+						"operation": "native borrowed-light reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 13.604,
+						"operation": "native closed shop joinery reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 12.272,
+						"operation": "native Photo/Radio reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 12.717,
+						"operation": "native radio bench reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 19.205,
+						"operation": "native radio apparatus reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 28.648,
+						"operation": "native radio valve stock reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 13.799,
+						"operation": "native radio charging display reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 18.073,
+						"operation": "native passive wire/ring stock reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 14.824,
+						"operation": "native fitted counter/display reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 5.445,
+						"operation": "native period receiving chassis reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 6.084,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 4.997,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.622,
+						"operation": "standard wall millwork reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 11.866,
+						"operation": "native borrowed-light reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 12.651,
+						"operation": "native closed shop joinery reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.416,
+						"operation": "native Pawn Shop receiving chassis reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 21.625,
+						"operation": "native Pawn Shop display reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 24.725,
+						"operation": "native Pawn Shop clocks reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 34.277,
+						"operation": "native Pawn Shop fittings reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 6.096,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.014,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 4.054,
+						"operation": "standard wall millwork reload refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 10.891,
+						"operation": "native borrowed-light reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 11.698,
+						"operation": "native closed shop joinery reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 30.815,
+						"operation": "native news reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.663,
+						"operation": "native News Cigars receiving chassis reload refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.381,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.291,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 4.283,
+						"operation": "standard wall millwork reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 14.62,
+						"operation": "native seating reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 11.463,
+						"operation": "native borrowed-light reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 11.869,
+						"operation": "native closed shop joinery reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 90.3,
+						"operation": "native druggist drawer/counter reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 7.804,
+						"operation": "native druggist counter objects reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 7.712,
+						"operation": "native druggist marble objects reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 38.017,
+						"operation": "native composed dispensary reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 25.302,
+						"operation": "native druggist cupboard reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 37.007,
+						"operation": "native druggist display carboys reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 12.444,
+						"operation": "native unused druggist fountain reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 6.344,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 1.076,
+						"operation": "material stock"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 5.48,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.1,
+						"operation": "standard wall millwork reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 20.112,
+						"operation": "native seating reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 1.312,
+						"operation": "native laundry reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 15.501,
+						"operation": "native borrowed-light reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 12.792,
+						"operation": "native closed shop joinery reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 12.53,
+						"operation": "native Diner counter reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 11.463,
+						"operation": "native Diner register/display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 9.55,
+						"operation": "native Diner rear bench/shelves reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 13.373,
+						"operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 14.571,
+						"operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 10.052,
+						"operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 5.244,
+						"operation": "native Diner receiving pair reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.672,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 8.078,
+						"operation": "surface binding"
+					}
+				],
+				"load_cycles": 1,
+				"peak_activation_ms": 24.154,
+				"peak_stage_ms": 106.711,
+				"pending_requests": 0,
+				"physical_actors_retained": true,
+				"retired_geometry_roots_alive": 0,
+				"retired_mesh_resources_alive": 0,
+				"stage_records": [
+					{
+						"cell": "passage",
+						"fetch_ms": 0.003,
+						"instantiate_ms": 1.127,
+						"surface_ms": 232.716
+					},
+					{
+						"cell": "shop_model_laundry",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.625,
+						"surface_ms": 134.465
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.497,
+						"surface_ms": 93.323
+					},
+					{
+						"cell": "shop_keys_cut",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.795,
+						"surface_ms": 89.222
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.797,
+						"surface_ms": 216.621
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.662,
+						"surface_ms": 138.157
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.504,
+						"surface_ms": 243.104
+					},
+					{
+						"cell": "shop_radio_service",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.601,
+						"surface_ms": 175.315
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.505,
+						"surface_ms": 135.129
+					},
+					{
+						"cell": "shop_news_cigars",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.507,
+						"surface_ms": 77.59
+					},
+					{
+						"cell": "shop_otis_son",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.696,
+						"surface_ms": 281.32
+					},
+					{
+						"cell": "shop_luncheonette",
+						"fetch_ms": 0.008,
+						"instantiate_ms": 0.648,
+						"surface_ms": 152.265
+					}
+				],
+				"state": "DORMANT",
+				"unload_cycles": 2
+			},
+			"start_usec": 134714893
+		},
+		{
+			"at_gateway": {
+				"cell_count": 13,
+				"collision_cache_bytes": 88608528,
+				"collision_cache_parts": 1269,
+				"collision_cache_seed_ms": 1164.639,
+				"fit_records": [
+					{
+						"cell": "shop_luncheonette",
+						"ms": 13.373,
+						"operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 14.571,
+						"operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 10.052,
+						"operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 5.244,
+						"operation": "native Diner receiving pair reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.672,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 8.078,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "passage",
+						"ms": 16.926,
+						"operation": "standard wall millwork reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 102.002,
+						"operation": "source-fitted arcade canopy reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 65.655,
+						"operation": "source-fitted arcade throat reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 8.831,
+						"operation": "source-fitted arcade lantern reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 17.263,
+						"operation": "source-fitted arcade clock reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.138,
+						"operation": "source-fitted arcade retained finishes reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.596,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "passage",
+						"ms": 6.839,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 4.275,
+						"operation": "standard wall millwork reload refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 47.973,
+						"operation": "native laundry reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 19.019,
+						"operation": "native laundry apparatus reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 18.045,
+						"operation": "native laundry trade furniture reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 11.109,
+						"operation": "native borrowed-light reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 10.1,
+						"operation": "native closed shop joinery reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 3.692,
+						"operation": "native Laundry receiving chassis reload refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 5.267,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 3.449,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 4.131,
+						"operation": "standard wall millwork reload refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 10.51,
+						"operation": "native borrowed-light reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 10.76,
+						"operation": "native closed shop joinery reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 49.523,
+						"operation": "native cobbler reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.276,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.379,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 4.277,
+						"operation": "standard wall millwork reload refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 12.765,
+						"operation": "native borrowed-light reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 14.167,
+						"operation": "native closed shop joinery reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 40.347,
+						"operation": "native locksmith reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 3.355,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 3.024,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 4.027,
+						"operation": "standard wall millwork reload refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 10.41,
+						"operation": "native borrowed-light reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 12.207,
+						"operation": "native closed shop joinery reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 69.734,
+						"operation": "native hardware drawer reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 11.652,
+						"operation": "native hardware apparatus reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 62.377,
+						"operation": "native hardware stock reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 13.811,
+						"operation": "native hardware tools reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 5.614,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 3.985,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 4.122,
+						"operation": "standard wall millwork reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 22.906,
+						"operation": "native seating reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 12.877,
+						"operation": "native borrowed-light reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 17.042,
+						"operation": "native closed shop joinery reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 12.907,
+						"operation": "native funeral furniture reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 19.779,
+						"operation": "native funeral drapery reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 35.271,
+						"operation": "native funeral foliage reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 3.874,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 2.676,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.121,
+						"operation": "standard wall millwork reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 11.355,
+						"operation": "native borrowed-light reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 13.487,
+						"operation": "native closed shop joinery reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 11.443,
+						"operation": "native Photo/Radio reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 1.228,
+						"operation": "native locksmith reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 12.0,
+						"operation": "native photography display reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 14.711,
+						"operation": "native photography counter reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 30.639,
+						"operation": "native photography supply shelving reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 11.582,
+						"operation": "native photography enlarger reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 22.829,
+						"operation": "native photography process reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 66.852,
+						"operation": "native unclaimed portrait reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 5.869,
+						"operation": "native fixed photographic glazing reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.921,
+						"operation": "native Photo Supplies receiving chassis reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 6.441,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.789,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 3.848,
+						"operation": "standard wall millwork reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 11.285,
+						"operation": "native borrowed-light reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 12.285,
+						"operation": "native closed shop joinery reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 9.741,
+						"operation": "native Photo/Radio reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 1.139,
+						"operation": "native druggist drawer/counter reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 10.679,
+						"operation": "native radio bench reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 20.125,
+						"operation": "native radio apparatus reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 28.904,
+						"operation": "native radio valve stock reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 12.813,
+						"operation": "native radio charging display reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 16.538,
+						"operation": "native passive wire/ring stock reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 10.72,
+						"operation": "native fitted counter/display reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 5.544,
+						"operation": "native period receiving chassis reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 5.548,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 4.669,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.424,
+						"operation": "standard wall millwork reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 1.024,
+						"operation": "native seating reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 1.136,
+						"operation": "native laundry reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 16.438,
+						"operation": "native borrowed-light reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 12.2,
+						"operation": "native closed shop joinery reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 5.652,
+						"operation": "native Pawn Shop receiving chassis reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 20.286,
+						"operation": "native Pawn Shop display reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 26.566,
+						"operation": "native Pawn Shop clocks reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 38.438,
+						"operation": "native Pawn Shop fittings reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 5.95,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.038,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.947,
+						"operation": "standard wall millwork reload refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 11.852,
+						"operation": "native borrowed-light reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 11.309,
+						"operation": "native closed shop joinery reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 29.624,
+						"operation": "native news reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.969,
+						"operation": "native News Cigars receiving chassis reload refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.45,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.177,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 4.103,
+						"operation": "standard wall millwork reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 12.847,
+						"operation": "native seating reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 11.576,
+						"operation": "native borrowed-light reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 13.581,
+						"operation": "native closed shop joinery reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 94.662,
+						"operation": "native druggist drawer/counter reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 7.78,
+						"operation": "native druggist counter objects reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 7.791,
+						"operation": "native druggist marble objects reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 40.142,
+						"operation": "native composed dispensary reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 25.952,
+						"operation": "native druggist cupboard reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 37.143,
+						"operation": "native druggist display carboys reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 11.904,
+						"operation": "native unused druggist fountain reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 6.4,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 1.149,
+						"operation": "material stock"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 5.148,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.307,
+						"operation": "standard wall millwork reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 18.177,
+						"operation": "native seating reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 1.332,
+						"operation": "native laundry reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 14.383,
+						"operation": "native borrowed-light reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 11.151,
+						"operation": "native closed shop joinery reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 11.791,
+						"operation": "native Diner counter reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 12.003,
+						"operation": "native Diner register/display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 9.806,
+						"operation": "native Diner rear bench/shelves reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 13.249,
+						"operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 13.06,
+						"operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 8.341,
+						"operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 5.543,
+						"operation": "native Diner receiving pair reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.846,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 3.779,
+						"operation": "surface binding"
+					}
+				],
+				"load_cycles": 2,
+				"peak_activation_ms": 24.154,
+				"peak_stage_ms": 106.711,
+				"pending_requests": 0,
+				"physical_actors_retained": true,
+				"retired_geometry_roots_alive": 0,
+				"retired_mesh_resources_alive": 0,
+				"stage_records": [
+					{
+						"cell": "passage",
+						"fetch_ms": 0.003,
+						"instantiate_ms": 1.127,
+						"surface_ms": 232.716
+					},
+					{
+						"cell": "shop_model_laundry",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.625,
+						"surface_ms": 134.465
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.497,
+						"surface_ms": 93.323
+					},
+					{
+						"cell": "shop_keys_cut",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.795,
+						"surface_ms": 89.222
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.797,
+						"surface_ms": 216.621
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.662,
+						"surface_ms": 138.157
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.504,
+						"surface_ms": 243.104
+					},
+					{
+						"cell": "shop_radio_service",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.601,
+						"surface_ms": 175.315
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.505,
+						"surface_ms": 135.129
+					},
+					{
+						"cell": "shop_news_cigars",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.507,
+						"surface_ms": 77.59
+					},
+					{
+						"cell": "shop_otis_son",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.696,
+						"surface_ms": 281.32
+					},
+					{
+						"cell": "shop_luncheonette",
+						"fetch_ms": 0.008,
+						"instantiate_ms": 0.648,
+						"surface_ms": 152.265
+					},
+					{
+						"cell": "passage",
+						"fetch_ms": 0.002,
+						"instantiate_ms": 1.103,
+						"surface_ms": 230.862
+					},
+					{
+						"cell": "shop_model_laundry",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.668,
+						"surface_ms": 131.646
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.551,
+						"surface_ms": 91.5929999999999
+					},
+					{
+						"cell": "shop_keys_cut",
+						"fetch_ms": 0.007,
+						"instantiate_ms": 0.725,
+						"surface_ms": 88.1919999999999
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.797,
+						"surface_ms": 202.76
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.592,
+						"surface_ms": 140.695
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.494,
+						"surface_ms": 230.948
+					},
+					{
+						"cell": "shop_radio_service",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.441,
+						"surface_ms": 163.266
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.501,
+						"surface_ms": 145.648
+					},
+					{
+						"cell": "shop_news_cigars",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.502,
+						"surface_ms": 76.911
+					},
+					{
+						"cell": "shop_otis_son",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.804,
+						"surface_ms": 287.879
+					},
+					{
+						"cell": "shop_luncheonette",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.645,
+						"surface_ms": 140.699
+					}
+				],
+				"state": "RESIDENT",
+				"unload_cycles": 2
+			},
+			"before": {
+				"cell_count": 1,
+				"collision_cache_bytes": 88608528,
+				"collision_cache_parts": 1269,
+				"collision_cache_seed_ms": 1164.639,
+				"fit_records": [
+					{
+						"cell": "passage",
+						"ms": 17.318,
+						"operation": "standard wall millwork reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.124,
+						"operation": "native druggist drawer/counter reload fit refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 105.095,
+						"operation": "source-fitted arcade canopy reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 65.863,
+						"operation": "source-fitted arcade throat reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 9.141,
+						"operation": "source-fitted arcade lantern reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 17.34,
+						"operation": "source-fitted arcade clock reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.197,
+						"operation": "source-fitted arcade retained finishes reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.73,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "passage",
+						"ms": 3.743,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 4.265,
+						"operation": "standard wall millwork reload refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 49.124,
+						"operation": "native laundry reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 19.973,
+						"operation": "native laundry apparatus reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 17.846,
+						"operation": "native laundry trade furniture reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 10.918,
+						"operation": "native borrowed-light reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 10.188,
+						"operation": "native closed shop joinery reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 4.1,
+						"operation": "native Laundry receiving chassis reload refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 5.22,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 3.881,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.989,
+						"operation": "standard wall millwork reload refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 11.127,
+						"operation": "native borrowed-light reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 10.54,
+						"operation": "native closed shop joinery reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 51.441,
+						"operation": "native cobbler reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.334,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.031,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 4.334,
+						"operation": "standard wall millwork reload refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 1.1,
+						"operation": "native seating reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 1.296,
+						"operation": "native laundry reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 14.04,
+						"operation": "native borrowed-light reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 13.714,
+						"operation": "native closed shop joinery reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 39.972,
+						"operation": "native locksmith reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 3.487,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 2.943,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 4.475,
+						"operation": "standard wall millwork reload refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 10.606,
+						"operation": "native borrowed-light reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 12.993,
+						"operation": "native closed shop joinery reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 73.14,
+						"operation": "native hardware drawer reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 11.299,
+						"operation": "native hardware apparatus reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 71.218,
+						"operation": "native hardware stock reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 14.322,
+						"operation": "native hardware tools reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 5.595,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 3.965,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 4.292,
+						"operation": "standard wall millwork reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 18.248,
+						"operation": "native seating reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 10.547,
+						"operation": "native borrowed-light reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 19.028,
+						"operation": "native closed shop joinery reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 13.779,
+						"operation": "native funeral furniture reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 21.384,
+						"operation": "native funeral drapery reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 34.66,
+						"operation": "native funeral foliage reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 3.9,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 3.13,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.16,
+						"operation": "standard wall millwork reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 12.996,
+						"operation": "native borrowed-light reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 18.627,
+						"operation": "native closed shop joinery reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 14.105,
+						"operation": "native Photo/Radio reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 1.046,
+						"operation": "native locksmith reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 13.427,
+						"operation": "native photography display reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 14.896,
+						"operation": "native photography counter reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 32.506,
+						"operation": "native photography supply shelving reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 9.998,
+						"operation": "native photography enlarger reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 21.628,
+						"operation": "native photography process reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 69.492,
+						"operation": "native unclaimed portrait reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 5.823,
+						"operation": "native fixed photographic glazing reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.368,
+						"operation": "native Photo Supplies receiving chassis reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 6.366,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.905,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 3.903,
+						"operation": "standard wall millwork reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 11.948,
+						"operation": "native borrowed-light reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 13.604,
+						"operation": "native closed shop joinery reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 12.272,
+						"operation": "native Photo/Radio reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 12.717,
+						"operation": "native radio bench reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 19.205,
+						"operation": "native radio apparatus reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 28.648,
+						"operation": "native radio valve stock reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 13.799,
+						"operation": "native radio charging display reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 18.073,
+						"operation": "native passive wire/ring stock reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 14.824,
+						"operation": "native fitted counter/display reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 5.445,
+						"operation": "native period receiving chassis reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 6.084,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 4.997,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.622,
+						"operation": "standard wall millwork reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 11.866,
+						"operation": "native borrowed-light reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 12.651,
+						"operation": "native closed shop joinery reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.416,
+						"operation": "native Pawn Shop receiving chassis reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 21.625,
+						"operation": "native Pawn Shop display reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 24.725,
+						"operation": "native Pawn Shop clocks reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 34.277,
+						"operation": "native Pawn Shop fittings reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 6.096,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.014,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 4.054,
+						"operation": "standard wall millwork reload refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 10.891,
+						"operation": "native borrowed-light reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 11.698,
+						"operation": "native closed shop joinery reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 30.815,
+						"operation": "native news reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.663,
+						"operation": "native News Cigars receiving chassis reload refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.381,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.291,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 4.283,
+						"operation": "standard wall millwork reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 14.62,
+						"operation": "native seating reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 11.463,
+						"operation": "native borrowed-light reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 11.869,
+						"operation": "native closed shop joinery reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 90.3,
+						"operation": "native druggist drawer/counter reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 7.804,
+						"operation": "native druggist counter objects reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 7.712,
+						"operation": "native druggist marble objects reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 38.017,
+						"operation": "native composed dispensary reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 25.302,
+						"operation": "native druggist cupboard reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 37.007,
+						"operation": "native druggist display carboys reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 12.444,
+						"operation": "native unused druggist fountain reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 6.344,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 1.076,
+						"operation": "material stock"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 5.48,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.1,
+						"operation": "standard wall millwork reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 20.112,
+						"operation": "native seating reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 1.312,
+						"operation": "native laundry reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 15.501,
+						"operation": "native borrowed-light reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 12.792,
+						"operation": "native closed shop joinery reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 12.53,
+						"operation": "native Diner counter reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 11.463,
+						"operation": "native Diner register/display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 9.55,
+						"operation": "native Diner rear bench/shelves reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 13.373,
+						"operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 14.571,
+						"operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 10.052,
+						"operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 5.244,
+						"operation": "native Diner receiving pair reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.672,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 8.078,
+						"operation": "surface binding"
+					}
+				],
+				"load_cycles": 1,
+				"peak_activation_ms": 24.154,
+				"peak_stage_ms": 106.711,
+				"pending_requests": 0,
+				"physical_actors_retained": true,
+				"retired_geometry_roots_alive": 0,
+				"retired_mesh_resources_alive": 0,
+				"stage_records": [
+					{
+						"cell": "passage",
+						"fetch_ms": 0.003,
+						"instantiate_ms": 1.127,
+						"surface_ms": 232.716
+					},
+					{
+						"cell": "shop_model_laundry",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.625,
+						"surface_ms": 134.465
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.497,
+						"surface_ms": 93.323
+					},
+					{
+						"cell": "shop_keys_cut",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.795,
+						"surface_ms": 89.222
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.797,
+						"surface_ms": 216.621
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.662,
+						"surface_ms": 138.157
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.504,
+						"surface_ms": 243.104
+					},
+					{
+						"cell": "shop_radio_service",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.601,
+						"surface_ms": 175.315
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.505,
+						"surface_ms": 135.129
+					},
+					{
+						"cell": "shop_news_cigars",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.507,
+						"surface_ms": 77.59
+					},
+					{
+						"cell": "shop_otis_son",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.696,
+						"surface_ms": 281.32
+					},
+					{
+						"cell": "shop_luncheonette",
+						"fetch_ms": 0.008,
+						"instantiate_ms": 0.648,
+						"surface_ms": 152.265
+					}
+				],
+				"state": "DORMANT",
+				"unload_cycles": 2
+			},
+			"cycle": 1,
+			"end_usec": 218078296,
+			"returned": {
+				"cell_count": 1,
+				"collision_cache_bytes": 88608528,
+				"collision_cache_parts": 1269,
+				"collision_cache_seed_ms": 1164.639,
+				"fit_records": [
+					{
+						"cell": "shop_luncheonette",
+						"ms": 13.373,
+						"operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 14.571,
+						"operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 10.052,
+						"operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 5.244,
+						"operation": "native Diner receiving pair reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.672,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 8.078,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "passage",
+						"ms": 16.926,
+						"operation": "standard wall millwork reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 102.002,
+						"operation": "source-fitted arcade canopy reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 65.655,
+						"operation": "source-fitted arcade throat reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 8.831,
+						"operation": "source-fitted arcade lantern reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 17.263,
+						"operation": "source-fitted arcade clock reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.138,
+						"operation": "source-fitted arcade retained finishes reload refused: passage"
+					},
+					{
+						"cell": "passage",
+						"ms": 1.596,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "passage",
+						"ms": 6.839,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 4.275,
+						"operation": "standard wall millwork reload refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 47.973,
+						"operation": "native laundry reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 19.019,
+						"operation": "native laundry apparatus reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 18.045,
+						"operation": "native laundry trade furniture reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 11.109,
+						"operation": "native borrowed-light reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 10.1,
+						"operation": "native closed shop joinery reload fit refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 3.692,
+						"operation": "native Laundry receiving chassis reload refused: shop_model_laundry"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 5.267,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_model_laundry",
+						"ms": 3.449,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 4.131,
+						"operation": "standard wall millwork reload refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 10.51,
+						"operation": "native borrowed-light reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 10.76,
+						"operation": "native closed shop joinery reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 49.523,
+						"operation": "native cobbler reload fit refused: shop_shoe_rebuilding"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.276,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"ms": 3.379,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 4.277,
+						"operation": "standard wall millwork reload refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 12.765,
+						"operation": "native borrowed-light reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 14.167,
+						"operation": "native closed shop joinery reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 40.347,
+						"operation": "native locksmith reload fit refused: shop_keys_cut"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 3.355,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_keys_cut",
+						"ms": 3.024,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 4.027,
+						"operation": "standard wall millwork reload refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 10.41,
+						"operation": "native borrowed-light reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 12.207,
+						"operation": "native closed shop joinery reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 69.734,
+						"operation": "native hardware drawer reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 11.652,
+						"operation": "native hardware apparatus reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 62.377,
+						"operation": "native hardware stock reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 13.811,
+						"operation": "native hardware tools reload fit refused: shop_hardware_paint"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 5.614,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"ms": 3.985,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 4.122,
+						"operation": "standard wall millwork reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 22.906,
+						"operation": "native seating reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 12.877,
+						"operation": "native borrowed-light reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 17.042,
+						"operation": "native closed shop joinery reload fit refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 12.907,
+						"operation": "native funeral furniture reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 19.779,
+						"operation": "native funeral drapery reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 35.271,
+						"operation": "native funeral foliage reload refused: shop_funeral_parlour"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 3.874,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"ms": 2.676,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.121,
+						"operation": "standard wall millwork reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 11.355,
+						"operation": "native borrowed-light reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 13.487,
+						"operation": "native closed shop joinery reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 11.443,
+						"operation": "native Photo/Radio reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 1.228,
+						"operation": "native locksmith reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 12.0,
+						"operation": "native photography display reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 14.711,
+						"operation": "native photography counter reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 30.639,
+						"operation": "native photography supply shelving reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 11.582,
+						"operation": "native photography enlarger reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 22.829,
+						"operation": "native photography process reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 66.852,
+						"operation": "native unclaimed portrait reload fit refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 5.869,
+						"operation": "native fixed photographic glazing reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.921,
+						"operation": "native Photo Supplies receiving chassis reload refused: shop_photo_supplies"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 6.441,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"ms": 4.789,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 3.848,
+						"operation": "standard wall millwork reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 11.285,
+						"operation": "native borrowed-light reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 12.285,
+						"operation": "native closed shop joinery reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 9.741,
+						"operation": "native Photo/Radio reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 1.139,
+						"operation": "native druggist drawer/counter reload fit refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 10.679,
+						"operation": "native radio bench reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 20.125,
+						"operation": "native radio apparatus reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 28.904,
+						"operation": "native radio valve stock reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 12.813,
+						"operation": "native radio charging display reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 16.538,
+						"operation": "native passive wire/ring stock reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 10.72,
+						"operation": "native fitted counter/display reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 5.544,
+						"operation": "native period receiving chassis reload refused: shop_radio_service"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 5.548,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_radio_service",
+						"ms": 4.669,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.424,
+						"operation": "standard wall millwork reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 1.024,
+						"operation": "native seating reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 1.136,
+						"operation": "native laundry reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 16.438,
+						"operation": "native borrowed-light reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 12.2,
+						"operation": "native closed shop joinery reload fit refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 5.652,
+						"operation": "native Pawn Shop receiving chassis reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 20.286,
+						"operation": "native Pawn Shop display reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 26.566,
+						"operation": "native Pawn Shop clocks reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 38.438,
+						"operation": "native Pawn Shop fittings reload refused: shop_pawnbroker"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 5.95,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"ms": 4.038,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.947,
+						"operation": "standard wall millwork reload refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 11.852,
+						"operation": "native borrowed-light reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 11.309,
+						"operation": "native closed shop joinery reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 29.624,
+						"operation": "native news reload fit refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.969,
+						"operation": "native News Cigars receiving chassis reload refused: shop_news_cigars"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.45,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_news_cigars",
+						"ms": 3.177,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 4.103,
+						"operation": "standard wall millwork reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 12.847,
+						"operation": "native seating reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 11.576,
+						"operation": "native borrowed-light reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 13.581,
+						"operation": "native closed shop joinery reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 94.662,
+						"operation": "native druggist drawer/counter reload fit refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 7.78,
+						"operation": "native druggist counter objects reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 7.791,
+						"operation": "native druggist marble objects reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 40.142,
+						"operation": "native composed dispensary reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 25.952,
+						"operation": "native druggist cupboard reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 37.143,
+						"operation": "native druggist display carboys reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 11.904,
+						"operation": "native unused druggist fountain reload refused: shop_otis_son"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 6.4,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 1.149,
+						"operation": "material stock"
+					},
+					{
+						"cell": "shop_otis_son",
+						"ms": 5.148,
+						"operation": "surface binding"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.307,
+						"operation": "standard wall millwork reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 18.177,
+						"operation": "native seating reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 1.332,
+						"operation": "native laundry reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 14.383,
+						"operation": "native borrowed-light reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 11.151,
+						"operation": "native closed shop joinery reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 11.791,
+						"operation": "native Diner counter reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 12.003,
+						"operation": "native Diner register/display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 9.806,
+						"operation": "native Diner rear bench/shelves reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 13.249,
+						"operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 13.06,
+						"operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 8.341,
+						"operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 5.543,
+						"operation": "native Diner receiving pair reload refused: shop_luncheonette"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 4.846,
+						"operation": "owner finishes"
+					},
+					{
+						"cell": "shop_luncheonette",
+						"ms": 3.779,
+						"operation": "surface binding"
+					}
+				],
+				"load_cycles": 2,
+				"peak_activation_ms": 24.154,
+				"peak_stage_ms": 106.711,
+				"pending_requests": 0,
+				"physical_actors_retained": true,
+				"retired_geometry_roots_alive": 0,
+				"retired_mesh_resources_alive": 0,
+				"stage_records": [
+					{
+						"cell": "passage",
+						"fetch_ms": 0.003,
+						"instantiate_ms": 1.127,
+						"surface_ms": 232.716
+					},
+					{
+						"cell": "shop_model_laundry",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.625,
+						"surface_ms": 134.465
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.497,
+						"surface_ms": 93.323
+					},
+					{
+						"cell": "shop_keys_cut",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.795,
+						"surface_ms": 89.222
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.797,
+						"surface_ms": 216.621
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.662,
+						"surface_ms": 138.157
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.504,
+						"surface_ms": 243.104
+					},
+					{
+						"cell": "shop_radio_service",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.601,
+						"surface_ms": 175.315
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.505,
+						"surface_ms": 135.129
+					},
+					{
+						"cell": "shop_news_cigars",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.507,
+						"surface_ms": 77.59
+					},
+					{
+						"cell": "shop_otis_son",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.696,
+						"surface_ms": 281.32
+					},
+					{
+						"cell": "shop_luncheonette",
+						"fetch_ms": 0.008,
+						"instantiate_ms": 0.648,
+						"surface_ms": 152.265
+					},
+					{
+						"cell": "passage",
+						"fetch_ms": 0.002,
+						"instantiate_ms": 1.103,
+						"surface_ms": 230.862
+					},
+					{
+						"cell": "shop_model_laundry",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.668,
+						"surface_ms": 131.646
+					},
+					{
+						"cell": "shop_shoe_rebuilding",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.551,
+						"surface_ms": 91.5929999999999
+					},
+					{
+						"cell": "shop_keys_cut",
+						"fetch_ms": 0.007,
+						"instantiate_ms": 0.725,
+						"surface_ms": 88.1919999999999
+					},
+					{
+						"cell": "shop_hardware_paint",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.797,
+						"surface_ms": 202.76
+					},
+					{
+						"cell": "shop_funeral_parlour",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.592,
+						"surface_ms": 140.695
+					},
+					{
+						"cell": "shop_photo_supplies",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.494,
+						"surface_ms": 230.948
+					},
+					{
+						"cell": "shop_radio_service",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.441,
+						"surface_ms": 163.266
+					},
+					{
+						"cell": "shop_pawnbroker",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.501,
+						"surface_ms": 145.648
+					},
+					{
+						"cell": "shop_news_cigars",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.502,
+						"surface_ms": 76.911
+					},
+					{
+						"cell": "shop_otis_son",
+						"fetch_ms": 0.006,
+						"instantiate_ms": 0.804,
+						"surface_ms": 287.879
+					},
+					{
+						"cell": "shop_luncheonette",
+						"fetch_ms": 0.005,
+						"instantiate_ms": 0.645,
+						"surface_ms": 140.699
+					}
+				],
+				"state": "DORMANT",
+				"unload_cycles": 3
+			},
+			"start_usec": 176650524
+		}
+	],
+	"events": [
+		{
+			"kind": "state",
+			"phase": "cycle_0_walk_(1.925, 0.0, -6.5)",
+			"process_frame": 6,
+			"state": "DORMANT",
+			"usec": 134715403
+		},
+		{
+			"kind": "state",
+			"phase": "cycle_0_walk_(0.0, 0.0, -10.2)",
+			"process_frame": 107,
+			"state": "LOADING",
+			"usec": 137609715
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -10.2)",
+			"process_frame": 125,
+			"record": {
+				"cell": "passage",
+				"ms": 17.318,
+				"operation": "standard wall millwork reload refused: passage"
+			},
+			"usec": 138128413
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 129,
+			"record": {
+				"cell": "passage",
+				"ms": 1.124,
+				"operation": "native druggist drawer/counter reload fit refused: passage"
+			},
+			"usec": 138366792
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 129,
+			"record": {
+				"cell": "passage",
+				"ms": 105.095,
+				"operation": "source-fitted arcade canopy reload refused: passage"
+			},
+			"usec": 138366796
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 130,
+			"record": {
+				"cell": "passage",
+				"ms": 65.863,
+				"operation": "source-fitted arcade throat reload refused: passage"
+			},
+			"usec": 138472064
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 131,
+			"record": {
+				"cell": "passage",
+				"ms": 9.141,
+				"operation": "source-fitted arcade lantern reload refused: passage"
+			},
+			"usec": 138505847
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 132,
+			"record": {
+				"cell": "passage",
+				"ms": 17.34,
+				"operation": "source-fitted arcade clock reload refused: passage"
+			},
+			"usec": 138546960
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 133,
+			"record": {
+				"cell": "passage",
+				"ms": 1.197,
+				"operation": "source-fitted arcade retained finishes reload refused: passage"
+			},
+			"usec": 138571585
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 133,
+			"record": {
+				"cell": "passage",
+				"ms": 1.73,
+				"operation": "owner finishes"
+			},
+			"usec": 138571589
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 134,
+			"record": {
+				"cell": "passage",
+				"ms": 3.743,
+				"operation": "surface binding"
+			},
+			"usec": 138595440
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 136,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 4.265,
+				"operation": "standard wall millwork reload refused: shop_model_laundry"
+			},
+			"usec": 138639634
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 137,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 49.124,
+				"operation": "native laundry reload fit refused: shop_model_laundry"
+			},
+			"usec": 138714363
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 138,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 19.973,
+				"operation": "native laundry apparatus reload fit refused: shop_model_laundry"
+			},
+			"usec": 138756960
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 139,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 17.846,
+				"operation": "native laundry trade furniture reload fit refused: shop_model_laundry"
+			},
+			"usec": 138799869
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 140,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 10.918,
+				"operation": "native borrowed-light reload fit refused: shop_model_laundry"
+			},
+			"usec": 138833343
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 141,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 10.188,
+				"operation": "native closed shop joinery reload fit refused: shop_model_laundry"
+			},
+			"usec": 138867050
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 144,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 4.1,
+				"operation": "native Laundry receiving chassis reload refused: shop_model_laundry"
+			},
+			"usec": 138942889
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 145,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 5.22,
+				"operation": "owner finishes"
+			},
+			"usec": 138967965
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 146,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 3.881,
+				"operation": "surface binding"
+			},
+			"usec": 138993672
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 148,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 3.989,
+				"operation": "standard wall millwork reload refused: shop_shoe_rebuilding"
+			},
+			"usec": 139037565
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 149,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 11.127,
+				"operation": "native borrowed-light reload fit refused: shop_shoe_rebuilding"
+			},
+			"usec": 139070639
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 150,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 10.54,
+				"operation": "native closed shop joinery reload fit refused: shop_shoe_rebuilding"
+			},
+			"usec": 139099454
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 151,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 51.441,
+				"operation": "native cobbler reload fit refused: shop_shoe_rebuilding"
+			},
+			"usec": 139176545
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 154,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 3.334,
+				"operation": "owner finishes"
+			},
+			"usec": 139251399
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 155,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 3.031,
+				"operation": "surface binding"
+			},
+			"usec": 139271288
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 157,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 4.334,
+				"operation": "standard wall millwork reload refused: shop_keys_cut"
+			},
+			"usec": 139313040
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 158,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 1.1,
+				"operation": "native seating reload fit refused: shop_keys_cut"
+			},
+			"usec": 139333551
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 158,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 1.296,
+				"operation": "native laundry reload fit refused: shop_keys_cut"
+			},
+			"usec": 139333556
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 159,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 14.04,
+				"operation": "native borrowed-light reload fit refused: shop_keys_cut"
+			},
+			"usec": 139364674
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 160,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 13.714,
+				"operation": "native closed shop joinery reload fit refused: shop_keys_cut"
+			},
+			"usec": 139391558
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 161,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 39.972,
+				"operation": "native locksmith reload fit refused: shop_keys_cut"
+			},
+			"usec": 139448972
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 164,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 3.487,
+				"operation": "owner finishes"
+			},
+			"usec": 139502713
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 165,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 2.943,
+				"operation": "surface binding"
+			},
+			"usec": 139519453
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 167,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 4.475,
+				"operation": "standard wall millwork reload refused: shop_hardware_paint"
+			},
+			"usec": 139552369
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 168,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 10.606,
+				"operation": "native borrowed-light reload fit refused: shop_hardware_paint"
+			},
+			"usec": 139579413
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 169,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 12.993,
+				"operation": "native closed shop joinery reload fit refused: shop_hardware_paint"
+			},
+			"usec": 139606076
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 170,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 73.14,
+				"operation": "native hardware drawer reload fit refused: shop_hardware_paint"
+			},
+			"usec": 139701431
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 171,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 11.299,
+				"operation": "native hardware apparatus reload fit refused: shop_hardware_paint"
+			},
+			"usec": 139729466
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 172,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 71.218,
+				"operation": "native hardware stock reload fit refused: shop_hardware_paint"
+			},
+			"usec": 139820943
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 173,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 14.322,
+				"operation": "native hardware tools reload fit refused: shop_hardware_paint"
+			},
+			"usec": 139852880
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 175,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 5.595,
+				"operation": "owner finishes"
+			},
+			"usec": 139897307
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 176,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 3.965,
+				"operation": "surface binding"
+			},
+			"usec": 139916889
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 178,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 4.292,
+				"operation": "standard wall millwork reload refused: shop_funeral_parlour"
+			},
+			"usec": 139951352
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 179,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 18.248,
+				"operation": "native seating reload fit refused: shop_funeral_parlour"
+			},
+			"usec": 139984004
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 180,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 10.547,
+				"operation": "native borrowed-light reload fit refused: shop_funeral_parlour"
+			},
+			"usec": 140028884
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 181,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 19.028,
+				"operation": "native closed shop joinery reload fit refused: shop_funeral_parlour"
+			},
+			"usec": 140072519
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 184,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 13.779,
+				"operation": "native funeral furniture reload refused: shop_funeral_parlour"
+			},
+			"usec": 140168685
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 185,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 21.384,
+				"operation": "native funeral drapery reload refused: shop_funeral_parlour"
+			},
+			"usec": 140216131
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 186,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 34.66,
+				"operation": "native funeral foliage reload refused: shop_funeral_parlour"
+			},
+			"usec": 140284949
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 187,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 3.9,
+				"operation": "owner finishes"
+			},
+			"usec": 140322073
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 188,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 3.13,
+				"operation": "surface binding"
+			},
+			"usec": 140349188
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 190,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 4.16,
+				"operation": "standard wall millwork reload refused: shop_photo_supplies"
+			},
+			"usec": 140400250
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 191,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 12.996,
+				"operation": "native borrowed-light reload fit refused: shop_photo_supplies"
+			},
+			"usec": 140438330
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 192,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 18.627,
+				"operation": "native closed shop joinery reload fit refused: shop_photo_supplies"
+			},
+			"usec": 140480401
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 193,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 14.105,
+				"operation": "native Photo/Radio reload fit refused: shop_photo_supplies"
+			},
+			"usec": 140517818
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 194,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 1.046,
+				"operation": "native locksmith reload fit refused: shop_photo_supplies"
+			},
+			"usec": 140544070
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 195,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 13.427,
+				"operation": "native photography display reload fit refused: shop_photo_supplies"
+			},
+			"usec": 140582934
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 196,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 14.896,
+				"operation": "native photography counter reload fit refused: shop_photo_supplies"
+			},
+			"usec": 140622747
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 197,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 32.506,
+				"operation": "native photography supply shelving reload fit refused: shop_photo_supplies"
+			},
+			"usec": 140682768
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 198,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 9.998,
+				"operation": "native photography enlarger reload fit refused: shop_photo_supplies"
+			},
+			"usec": 140724954
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 199,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 21.628,
+				"operation": "native photography process reload fit refused: shop_photo_supplies"
+			},
+			"usec": 140778117
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 200,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 69.492,
+				"operation": "native unclaimed portrait reload fit refused: shop_photo_supplies"
+			},
+			"usec": 140876560
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 201,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 5.823,
+				"operation": "native fixed photographic glazing reload refused: shop_photo_supplies"
+			},
+			"usec": 140910660
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 202,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 4.368,
+				"operation": "native Photo Supplies receiving chassis reload refused: shop_photo_supplies"
+			},
+			"usec": 140941605
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 203,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 6.366,
+				"operation": "owner finishes"
+			},
+			"usec": 140970052
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 204,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 4.905,
+				"operation": "surface binding"
+			},
+			"usec": 140999172
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 206,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 3.903,
+				"operation": "standard wall millwork reload refused: shop_radio_service"
+			},
+			"usec": 141047711
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 207,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 11.948,
+				"operation": "native borrowed-light reload fit refused: shop_radio_service"
+			},
+			"usec": 141083112
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 208,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 13.604,
+				"operation": "native closed shop joinery reload fit refused: shop_radio_service"
+			},
+			"usec": 141116085
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 209,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 12.272,
+				"operation": "native Photo/Radio reload fit refused: shop_radio_service"
+			},
+			"usec": 141148850
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 212,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 12.717,
+				"operation": "native radio bench reload refused: shop_radio_service"
+			},
+			"usec": 141234112
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 213,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 19.205,
+				"operation": "native radio apparatus reload refused: shop_radio_service"
+			},
+			"usec": 141280914
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 214,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 28.648,
+				"operation": "native radio valve stock reload refused: shop_radio_service"
+			},
+			"usec": 141335236
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 215,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 13.799,
+				"operation": "native radio charging display reload refused: shop_radio_service"
+			},
+			"usec": 141374909
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 216,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 18.073,
+				"operation": "native passive wire/ring stock reload refused: shop_radio_service"
+			},
+			"usec": 141416859
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 217,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 14.824,
+				"operation": "native fitted counter/display reload refused: shop_radio_service"
+			},
+			"usec": 141456258
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 218,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 5.445,
+				"operation": "native period receiving chassis reload refused: shop_radio_service"
+			},
+			"usec": 141484183
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 219,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 6.084,
+				"operation": "owner finishes"
+			},
+			"usec": 141513152
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 220,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 4.997,
+				"operation": "surface binding"
+			},
+			"usec": 141621590
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 222,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 4.622,
+				"operation": "standard wall millwork reload refused: shop_pawnbroker"
+			},
+			"usec": 141677030
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 223,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 11.866,
+				"operation": "native borrowed-light reload fit refused: shop_pawnbroker"
+			},
+			"usec": 141715535
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 224,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 12.651,
+				"operation": "native closed shop joinery reload fit refused: shop_pawnbroker"
+			},
+			"usec": 141751555
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 227,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 4.416,
+				"operation": "native Pawn Shop receiving chassis reload refused: shop_pawnbroker"
+			},
+			"usec": 141834432
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 228,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 21.625,
+				"operation": "native Pawn Shop display reload refused: shop_pawnbroker"
+			},
+			"usec": 141878995
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 229,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 24.725,
+				"operation": "native Pawn Shop clocks reload refused: shop_pawnbroker"
+			},
+			"usec": 141931767
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 230,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 34.277,
+				"operation": "native Pawn Shop fittings reload refused: shop_pawnbroker"
+			},
+			"usec": 141995353
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 231,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 6.096,
+				"operation": "owner finishes"
+			},
+			"usec": 142029644
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 232,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 4.014,
+				"operation": "surface binding"
+			},
+			"usec": 142058746
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 234,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 4.054,
+				"operation": "standard wall millwork reload refused: shop_news_cigars"
+			},
+			"usec": 142105864
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 235,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 10.891,
+				"operation": "native borrowed-light reload fit refused: shop_news_cigars"
+			},
+			"usec": 142143117
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 236,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 11.698,
+				"operation": "native closed shop joinery reload fit refused: shop_news_cigars"
+			},
+			"usec": 142177798
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 237,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 30.815,
+				"operation": "native news reload fit refused: shop_news_cigars"
+			},
+			"usec": 142237027
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 239,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 3.663,
+				"operation": "native News Cigars receiving chassis reload refused: shop_news_cigars"
+			},
+			"usec": 142299737
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 240,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 3.381,
+				"operation": "owner finishes"
+			},
+			"usec": 142325925
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 241,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 3.291,
+				"operation": "surface binding"
+			},
+			"usec": 142352222
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 243,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 4.283,
+				"operation": "standard wall millwork reload refused: shop_otis_son"
+			},
+			"usec": 142399703
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 244,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 14.62,
+				"operation": "native seating reload fit refused: shop_otis_son"
+			},
+			"usec": 142435477
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 245,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 11.463,
+				"operation": "native borrowed-light reload fit refused: shop_otis_son"
+			},
+			"usec": 142471138
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 246,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 11.869,
+				"operation": "native closed shop joinery reload fit refused: shop_otis_son"
+			},
+			"usec": 142504672
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 248,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 90.3,
+				"operation": "native druggist drawer/counter reload fit refused: shop_otis_son"
+			},
+			"usec": 142653167
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 249,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 7.804,
+				"operation": "native druggist counter objects reload refused: shop_otis_son"
+			},
+			"usec": 142696333
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 250,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 7.712,
+				"operation": "native druggist marble objects reload refused: shop_otis_son"
+			},
+			"usec": 142728412
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 251,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 38.017,
+				"operation": "native composed dispensary reload refused: shop_otis_son"
+			},
+			"usec": 142791222
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 252,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 25.302,
+				"operation": "native druggist cupboard reload refused: shop_otis_son"
+			},
+			"usec": 142841886
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 253,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 37.007,
+				"operation": "native druggist display carboys reload refused: shop_otis_son"
+			},
+			"usec": 142903112
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 254,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 12.444,
+				"operation": "native unused druggist fountain reload refused: shop_otis_son"
+			},
+			"usec": 142940290
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 255,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 6.344,
+				"operation": "owner finishes"
+			},
+			"usec": 142972033
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 256,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 1.076,
+				"operation": "material stock"
+			},
+			"usec": 143003915
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 256,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 5.48,
+				"operation": "surface binding"
+			},
+			"usec": 143003918
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 258,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 4.1,
+				"operation": "standard wall millwork reload refused: shop_luncheonette"
+			},
+			"usec": 143050651
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 259,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 20.112,
+				"operation": "native seating reload fit refused: shop_luncheonette"
+			},
+			"usec": 143092276
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 260,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 1.312,
+				"operation": "native laundry reload fit refused: shop_luncheonette"
+			},
+			"usec": 143118192
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 261,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 15.501,
+				"operation": "native borrowed-light reload fit refused: shop_luncheonette"
+			},
+			"usec": 143154449
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 262,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 12.792,
+				"operation": "native closed shop joinery reload fit refused: shop_luncheonette"
+			},
+			"usec": 143187215
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 264,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 12.53,
+				"operation": "native Diner counter reload fit refused: shop_luncheonette"
+			},
+			"usec": 143246242
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 265,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 11.463,
+				"operation": "native Diner register/display reload fit refused: shop_luncheonette"
+			},
+			"usec": 143280998
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 266,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 9.55,
+				"operation": "native Diner rear bench/shelves reload fit refused: shop_luncheonette"
+			},
+			"usec": 143310723
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 267,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 13.373,
+				"operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+			},
+			"usec": 143344286
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 268,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 14.571,
+				"operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+			},
+			"usec": 143379983
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 269,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 10.052,
+				"operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+			},
+			"usec": 143410297
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 270,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 5.244,
+				"operation": "native Diner receiving pair reload refused: shop_luncheonette"
+			},
+			"usec": 143436442
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 271,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 4.672,
+				"operation": "owner finishes"
+			},
+			"usec": 143461634
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 272,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 8.078,
+				"operation": "surface binding"
+			},
+			"usec": 143496762
+		},
+		{
+			"kind": "state",
+			"phase": "cycle_0_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 273,
+			"state": "RESIDENT",
+			"usec": 143603000
+		},
+		{
+			"kind": "state",
+			"phase": "cycle_0_walk_(1.925, 0.0, -3.5)",
+			"process_frame": 1611,
+			"state": "DORMANT",
+			"usec": 176592212
+		},
+		{
+			"kind": "state",
+			"phase": "cycle_1_walk_(0.0, 0.0, -10.2)",
+			"process_frame": 1717,
+			"state": "LOADING",
+			"usec": 179313946
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1738,
+			"record": {
+				"cell": "passage",
+				"ms": 16.926,
+				"operation": "standard wall millwork reload refused: passage"
+			},
+			"usec": 179829535
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1742,
+			"record": {
+				"cell": "passage",
+				"ms": 102.002,
+				"operation": "source-fitted arcade canopy reload refused: passage"
+			},
+			"usec": 180045351
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1743,
+			"record": {
+				"cell": "passage",
+				"ms": 65.655,
+				"operation": "source-fitted arcade throat reload refused: passage"
+			},
+			"usec": 180145828
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1744,
+			"record": {
+				"cell": "passage",
+				"ms": 8.831,
+				"operation": "source-fitted arcade lantern reload refused: passage"
+			},
+			"usec": 180179445
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1745,
+			"record": {
+				"cell": "passage",
+				"ms": 17.263,
+				"operation": "source-fitted arcade clock reload refused: passage"
+			},
+			"usec": 180219537
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1746,
+			"record": {
+				"cell": "passage",
+				"ms": 1.138,
+				"operation": "source-fitted arcade retained finishes reload refused: passage"
+			},
+			"usec": 180246234
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1746,
+			"record": {
+				"cell": "passage",
+				"ms": 1.596,
+				"operation": "owner finishes"
+			},
+			"usec": 180246238
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1747,
+			"record": {
+				"cell": "passage",
+				"ms": 6.839,
+				"operation": "surface binding"
+			},
+			"usec": 180276099
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1749,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 4.275,
+				"operation": "standard wall millwork reload refused: shop_model_laundry"
+			},
+			"usec": 180325168
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1750,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 47.973,
+				"operation": "native laundry reload fit refused: shop_model_laundry"
+			},
+			"usec": 180396714
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1751,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 19.019,
+				"operation": "native laundry apparatus reload fit refused: shop_model_laundry"
+			},
+			"usec": 180437043
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1752,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 18.045,
+				"operation": "native laundry trade furniture reload fit refused: shop_model_laundry"
+			},
+			"usec": 180478061
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1753,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 11.109,
+				"operation": "native borrowed-light reload fit refused: shop_model_laundry"
+			},
+			"usec": 180509758
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(0.0, 0.0, -12.2)",
+			"process_frame": 1754,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 10.1,
+				"operation": "native closed shop joinery reload fit refused: shop_model_laundry"
+			},
+			"usec": 180539665
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1757,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 3.692,
+				"operation": "native Laundry receiving chassis reload refused: shop_model_laundry"
+			},
+			"usec": 180612740
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1758,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 5.267,
+				"operation": "owner finishes"
+			},
+			"usec": 180637682
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1759,
+			"record": {
+				"cell": "shop_model_laundry",
+				"ms": 3.449,
+				"operation": "surface binding"
+			},
+			"usec": 180662741
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1761,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 4.131,
+				"operation": "standard wall millwork reload refused: shop_shoe_rebuilding"
+			},
+			"usec": 180709014
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1762,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 10.51,
+				"operation": "native borrowed-light reload fit refused: shop_shoe_rebuilding"
+			},
+			"usec": 180738868
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1763,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 10.76,
+				"operation": "native closed shop joinery reload fit refused: shop_shoe_rebuilding"
+			},
+			"usec": 180772219
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1764,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 49.523,
+				"operation": "native cobbler reload fit refused: shop_shoe_rebuilding"
+			},
+			"usec": 180848238
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1767,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 3.276,
+				"operation": "owner finishes"
+			},
+			"usec": 180918560
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1768,
+			"record": {
+				"cell": "shop_shoe_rebuilding",
+				"ms": 3.379,
+				"operation": "surface binding"
+			},
+			"usec": 180936701
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1770,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 4.277,
+				"operation": "standard wall millwork reload refused: shop_keys_cut"
+			},
+			"usec": 180970587
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1771,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 12.765,
+				"operation": "native borrowed-light reload fit refused: shop_keys_cut"
+			},
+			"usec": 181002454
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1772,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 14.167,
+				"operation": "native closed shop joinery reload fit refused: shop_keys_cut"
+			},
+			"usec": 181031728
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1773,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 40.347,
+				"operation": "native locksmith reload fit refused: shop_keys_cut"
+			},
+			"usec": 181089819
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1776,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 3.355,
+				"operation": "owner finishes"
+			},
+			"usec": 181147669
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1777,
+			"record": {
+				"cell": "shop_keys_cut",
+				"ms": 3.024,
+				"operation": "surface binding"
+			},
+			"usec": 181165663
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1779,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 4.027,
+				"operation": "standard wall millwork reload refused: shop_hardware_paint"
+			},
+			"usec": 181199088
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1780,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 10.41,
+				"operation": "native borrowed-light reload fit refused: shop_hardware_paint"
+			},
+			"usec": 181227341
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1781,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 12.207,
+				"operation": "native closed shop joinery reload fit refused: shop_hardware_paint"
+			},
+			"usec": 181252939
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1782,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 69.734,
+				"operation": "native hardware drawer reload fit refused: shop_hardware_paint"
+			},
+			"usec": 181345865
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1783,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 11.652,
+				"operation": "native hardware apparatus reload fit refused: shop_hardware_paint"
+			},
+			"usec": 181376839
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1784,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 62.377,
+				"operation": "native hardware stock reload fit refused: shop_hardware_paint"
+			},
+			"usec": 181458259
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-0.0, 0.0, -14.65)",
+			"process_frame": 1785,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 13.811,
+				"operation": "native hardware tools reload fit refused: shop_hardware_paint"
+			},
+			"usec": 181487031
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1787,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 5.614,
+				"operation": "owner finishes"
+			},
+			"usec": 181526614
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1788,
+			"record": {
+				"cell": "shop_hardware_paint",
+				"ms": 3.985,
+				"operation": "surface binding"
+			},
+			"usec": 181555388
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1790,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 4.122,
+				"operation": "standard wall millwork reload refused: shop_funeral_parlour"
+			},
+			"usec": 181604794
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1791,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 22.906,
+				"operation": "native seating reload fit refused: shop_funeral_parlour"
+			},
+			"usec": 181650006
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1792,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 12.877,
+				"operation": "native borrowed-light reload fit refused: shop_funeral_parlour"
+			},
+			"usec": 181685629
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1793,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 17.042,
+				"operation": "native closed shop joinery reload fit refused: shop_funeral_parlour"
+			},
+			"usec": 181726819
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1796,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 12.907,
+				"operation": "native funeral furniture reload refused: shop_funeral_parlour"
+			},
+			"usec": 181824405
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1797,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 19.779,
+				"operation": "native funeral drapery reload refused: shop_funeral_parlour"
+			},
+			"usec": 181867525
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1798,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 35.271,
+				"operation": "native funeral foliage reload refused: shop_funeral_parlour"
+			},
+			"usec": 181929715
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1799,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 3.874,
+				"operation": "owner finishes"
+			},
+			"usec": 181968689
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1800,
+			"record": {
+				"cell": "shop_funeral_parlour",
+				"ms": 2.676,
+				"operation": "surface binding"
+			},
+			"usec": 181999743
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1802,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 4.121,
+				"operation": "standard wall millwork reload refused: shop_photo_supplies"
+			},
+			"usec": 182050227
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1803,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 11.355,
+				"operation": "native borrowed-light reload fit refused: shop_photo_supplies"
+			},
+			"usec": 182087134
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1804,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 13.487,
+				"operation": "native closed shop joinery reload fit refused: shop_photo_supplies"
+			},
+			"usec": 182124351
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1805,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 11.443,
+				"operation": "native Photo/Radio reload fit refused: shop_photo_supplies"
+			},
+			"usec": 182161575
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1806,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 1.228,
+				"operation": "native locksmith reload fit refused: shop_photo_supplies"
+			},
+			"usec": 182190985
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1807,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 12.0,
+				"operation": "native photography display reload fit refused: shop_photo_supplies"
+			},
+			"usec": 182232777
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1808,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 14.711,
+				"operation": "native photography counter reload fit refused: shop_photo_supplies"
+			},
+			"usec": 182276174
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1809,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 30.639,
+				"operation": "native photography supply shelving reload fit refused: shop_photo_supplies"
+			},
+			"usec": 182332772
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1810,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 11.582,
+				"operation": "native photography enlarger reload fit refused: shop_photo_supplies"
+			},
+			"usec": 182369046
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1811,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 22.829,
+				"operation": "native photography process reload fit refused: shop_photo_supplies"
+			},
+			"usec": 182417415
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1812,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 66.852,
+				"operation": "native unclaimed portrait reload fit refused: shop_photo_supplies"
+			},
+			"usec": 182512931
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1813,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 5.869,
+				"operation": "native fixed photographic glazing reload refused: shop_photo_supplies"
+			},
+			"usec": 182545288
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1814,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 4.921,
+				"operation": "native Photo Supplies receiving chassis reload refused: shop_photo_supplies"
+			},
+			"usec": 182574853
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1815,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 6.441,
+				"operation": "owner finishes"
+			},
+			"usec": 182604442
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1816,
+			"record": {
+				"cell": "shop_photo_supplies",
+				"ms": 4.789,
+				"operation": "surface binding"
+			},
+			"usec": 182634911
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1818,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 3.848,
+				"operation": "standard wall millwork reload refused: shop_radio_service"
+			},
+			"usec": 182687620
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1819,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 11.285,
+				"operation": "native borrowed-light reload fit refused: shop_radio_service"
+			},
+			"usec": 182724753
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1820,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 12.285,
+				"operation": "native closed shop joinery reload fit refused: shop_radio_service"
+			},
+			"usec": 182758184
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1821,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 9.741,
+				"operation": "native Photo/Radio reload fit refused: shop_radio_service"
+			},
+			"usec": 182788481
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1824,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 1.139,
+				"operation": "native druggist drawer/counter reload fit refused: shop_radio_service"
+			},
+			"usec": 182872493
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1824,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 10.679,
+				"operation": "native radio bench reload refused: shop_radio_service"
+			},
+			"usec": 182872497
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1825,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 20.125,
+				"operation": "native radio apparatus reload refused: shop_radio_service"
+			},
+			"usec": 182914349
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1826,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 28.904,
+				"operation": "native radio valve stock reload refused: shop_radio_service"
+			},
+			"usec": 182967517
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1827,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 12.813,
+				"operation": "native radio charging display reload refused: shop_radio_service"
+			},
+			"usec": 183007097
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1828,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 16.538,
+				"operation": "native passive wire/ring stock reload refused: shop_radio_service"
+			},
+			"usec": 183048512
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1829,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 10.72,
+				"operation": "native fitted counter/display reload refused: shop_radio_service"
+			},
+			"usec": 183083801
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1830,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 5.544,
+				"operation": "native period receiving chassis reload refused: shop_radio_service"
+			},
+			"usec": 183110962
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1831,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 5.548,
+				"operation": "owner finishes"
+			},
+			"usec": 183139648
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1832,
+			"record": {
+				"cell": "shop_radio_service",
+				"ms": 4.669,
+				"operation": "surface binding"
+			},
+			"usec": 183245940
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1834,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 4.424,
+				"operation": "standard wall millwork reload refused: shop_pawnbroker"
+			},
+			"usec": 183298754
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1835,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 1.024,
+				"operation": "native seating reload fit refused: shop_pawnbroker"
+			},
+			"usec": 183325010
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1835,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 1.136,
+				"operation": "native laundry reload fit refused: shop_pawnbroker"
+			},
+			"usec": 183325014
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1836,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 16.438,
+				"operation": "native borrowed-light reload fit refused: shop_pawnbroker"
+			},
+			"usec": 183362327
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1837,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 12.2,
+				"operation": "native closed shop joinery reload fit refused: shop_pawnbroker"
+			},
+			"usec": 183396940
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1840,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 5.652,
+				"operation": "native Pawn Shop receiving chassis reload refused: shop_pawnbroker"
+			},
+			"usec": 183476571
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1841,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 20.286,
+				"operation": "native Pawn Shop display reload refused: shop_pawnbroker"
+			},
+			"usec": 183520206
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1842,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 26.566,
+				"operation": "native Pawn Shop clocks reload refused: shop_pawnbroker"
+			},
+			"usec": 183570586
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1843,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 38.438,
+				"operation": "native Pawn Shop fittings reload refused: shop_pawnbroker"
+			},
+			"usec": 183635089
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1844,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 5.95,
+				"operation": "owner finishes"
+			},
+			"usec": 183665435
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1845,
+			"record": {
+				"cell": "shop_pawnbroker",
+				"ms": 4.038,
+				"operation": "surface binding"
+			},
+			"usec": 183696657
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1847,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 3.947,
+				"operation": "standard wall millwork reload refused: shop_news_cigars"
+			},
+			"usec": 183748100
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1848,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 11.852,
+				"operation": "native borrowed-light reload fit refused: shop_news_cigars"
+			},
+			"usec": 183785543
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1849,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 11.309,
+				"operation": "native closed shop joinery reload fit refused: shop_news_cigars"
+			},
+			"usec": 183821735
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1850,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 29.624,
+				"operation": "native news reload fit refused: shop_news_cigars"
+			},
+			"usec": 183878890
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1852,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 3.969,
+				"operation": "native News Cigars receiving chassis reload refused: shop_news_cigars"
+			},
+			"usec": 183934628
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1853,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 3.45,
+				"operation": "owner finishes"
+			},
+			"usec": 183960521
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1854,
+			"record": {
+				"cell": "shop_news_cigars",
+				"ms": 3.177,
+				"operation": "surface binding"
+			},
+			"usec": 183988148
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1856,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 4.103,
+				"operation": "standard wall millwork reload refused: shop_otis_son"
+			},
+			"usec": 184040635
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1857,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 12.847,
+				"operation": "native seating reload fit refused: shop_otis_son"
+			},
+			"usec": 184077162
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1858,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 11.576,
+				"operation": "native borrowed-light reload fit refused: shop_otis_son"
+			},
+			"usec": 184115401
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1859,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 13.581,
+				"operation": "native closed shop joinery reload fit refused: shop_otis_son"
+			},
+			"usec": 184154682
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1861,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 94.662,
+				"operation": "native druggist drawer/counter reload fit refused: shop_otis_son"
+			},
+			"usec": 184306682
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1862,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 7.78,
+				"operation": "native druggist counter objects reload refused: shop_otis_son"
+			},
+			"usec": 184339874
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1863,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 7.791,
+				"operation": "native druggist marble objects reload refused: shop_otis_son"
+			},
+			"usec": 184369807
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1864,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 40.142,
+				"operation": "native composed dispensary reload refused: shop_otis_son"
+			},
+			"usec": 184434032
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1865,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 25.952,
+				"operation": "native druggist cupboard reload refused: shop_otis_son"
+			},
+			"usec": 184486778
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1866,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 37.143,
+				"operation": "native druggist display carboys reload refused: shop_otis_son"
+			},
+			"usec": 184549434
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1867,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 11.904,
+				"operation": "native unused druggist fountain reload refused: shop_otis_son"
+			},
+			"usec": 184589915
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1868,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 6.4,
+				"operation": "owner finishes"
+			},
+			"usec": 184626103
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1869,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 1.149,
+				"operation": "material stock"
+			},
+			"usec": 184655737
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1869,
+			"record": {
+				"cell": "shop_otis_son",
+				"ms": 5.148,
+				"operation": "surface binding"
+			},
+			"usec": 184655740
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1871,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 4.307,
+				"operation": "standard wall millwork reload refused: shop_luncheonette"
+			},
+			"usec": 184703412
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1872,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 18.177,
+				"operation": "native seating reload fit refused: shop_luncheonette"
+			},
+			"usec": 184742420
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1873,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 1.332,
+				"operation": "native laundry reload fit refused: shop_luncheonette"
+			},
+			"usec": 184766713
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1874,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 14.383,
+				"operation": "native borrowed-light reload fit refused: shop_luncheonette"
+			},
+			"usec": 184803097
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1875,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 11.151,
+				"operation": "native closed shop joinery reload fit refused: shop_luncheonette"
+			},
+			"usec": 184834705
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1877,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 11.791,
+				"operation": "native Diner counter reload fit refused: shop_luncheonette"
+			},
+			"usec": 184893398
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1878,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 12.003,
+				"operation": "native Diner register/display reload fit refused: shop_luncheonette"
+			},
+			"usec": 184926016
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1879,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 9.806,
+				"operation": "native Diner rear bench/shelves reload fit refused: shop_luncheonette"
+			},
+			"usec": 184954635
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1880,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 13.249,
+				"operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+			},
+			"usec": 184988091
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1881,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 13.06,
+				"operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+			},
+			"usec": 185026705
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1882,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 8.341,
+				"operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+			},
+			"usec": 185056489
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1883,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 5.543,
+				"operation": "native Diner receiving pair reload refused: shop_luncheonette"
+			},
+			"usec": 185084674
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1884,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 4.846,
+				"operation": "owner finishes"
+			},
+			"usec": 185110046
+		},
+		{
+			"kind": "fit_observed",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1885,
+			"record": {
+				"cell": "shop_luncheonette",
+				"ms": 3.779,
+				"operation": "surface binding"
+			},
+			"usec": 185134528
+		},
+		{
+			"kind": "state",
+			"phase": "cycle_1_walk_(-14.0, 0.0, -14.65)",
+			"process_frame": 1886,
+			"state": "RESIDENT",
+			"usec": 185215167
+		},
+		{
+			"kind": "state",
+			"phase": "cycle_1_walk_(1.925, 0.0, -3.5)",
+			"process_frame": 3185,
+			"state": "DORMANT",
+			"usec": 218012711
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"final_residency": {
+		"cell_count": 1,
+		"collision_cache_bytes": 88608528,
+		"collision_cache_parts": 1269,
+		"collision_cache_seed_ms": 1164.639,
+		"fit_records": [
+			{
+				"cell": "shop_luncheonette",
+				"ms": 13.373,
+				"operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 14.571,
+				"operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 10.052,
+				"operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 5.244,
+				"operation": "native Diner receiving pair reload refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 4.672,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 8.078,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "passage",
+				"ms": 16.926,
+				"operation": "standard wall millwork reload refused: passage"
+			},
+			{
+				"cell": "passage",
+				"ms": 102.002,
+				"operation": "source-fitted arcade canopy reload refused: passage"
+			},
+			{
+				"cell": "passage",
+				"ms": 65.655,
+				"operation": "source-fitted arcade throat reload refused: passage"
+			},
+			{
+				"cell": "passage",
+				"ms": 8.831,
+				"operation": "source-fitted arcade lantern reload refused: passage"
+			},
+			{
+				"cell": "passage",
+				"ms": 17.263,
+				"operation": "source-fitted arcade clock reload refused: passage"
+			},
+			{
+				"cell": "passage",
+				"ms": 1.138,
+				"operation": "source-fitted arcade retained finishes reload refused: passage"
+			},
+			{
+				"cell": "passage",
+				"ms": 1.596,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "passage",
+				"ms": 6.839,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "shop_model_laundry",
+				"ms": 4.275,
+				"operation": "standard wall millwork reload refused: shop_model_laundry"
+			},
+			{
+				"cell": "shop_model_laundry",
+				"ms": 47.973,
+				"operation": "native laundry reload fit refused: shop_model_laundry"
+			},
+			{
+				"cell": "shop_model_laundry",
+				"ms": 19.019,
+				"operation": "native laundry apparatus reload fit refused: shop_model_laundry"
+			},
+			{
+				"cell": "shop_model_laundry",
+				"ms": 18.045,
+				"operation": "native laundry trade furniture reload fit refused: shop_model_laundry"
+			},
+			{
+				"cell": "shop_model_laundry",
+				"ms": 11.109,
+				"operation": "native borrowed-light reload fit refused: shop_model_laundry"
+			},
+			{
+				"cell": "shop_model_laundry",
+				"ms": 10.1,
+				"operation": "native closed shop joinery reload fit refused: shop_model_laundry"
+			},
+			{
+				"cell": "shop_model_laundry",
+				"ms": 3.692,
+				"operation": "native Laundry receiving chassis reload refused: shop_model_laundry"
+			},
+			{
+				"cell": "shop_model_laundry",
+				"ms": 5.267,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_model_laundry",
+				"ms": 3.449,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "shop_shoe_rebuilding",
+				"ms": 4.131,
+				"operation": "standard wall millwork reload refused: shop_shoe_rebuilding"
+			},
+			{
+				"cell": "shop_shoe_rebuilding",
+				"ms": 10.51,
+				"operation": "native borrowed-light reload fit refused: shop_shoe_rebuilding"
+			},
+			{
+				"cell": "shop_shoe_rebuilding",
+				"ms": 10.76,
+				"operation": "native closed shop joinery reload fit refused: shop_shoe_rebuilding"
+			},
+			{
+				"cell": "shop_shoe_rebuilding",
+				"ms": 49.523,
+				"operation": "native cobbler reload fit refused: shop_shoe_rebuilding"
+			},
+			{
+				"cell": "shop_shoe_rebuilding",
+				"ms": 3.276,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_shoe_rebuilding",
+				"ms": 3.379,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "shop_keys_cut",
+				"ms": 4.277,
+				"operation": "standard wall millwork reload refused: shop_keys_cut"
+			},
+			{
+				"cell": "shop_keys_cut",
+				"ms": 12.765,
+				"operation": "native borrowed-light reload fit refused: shop_keys_cut"
+			},
+			{
+				"cell": "shop_keys_cut",
+				"ms": 14.167,
+				"operation": "native closed shop joinery reload fit refused: shop_keys_cut"
+			},
+			{
+				"cell": "shop_keys_cut",
+				"ms": 40.347,
+				"operation": "native locksmith reload fit refused: shop_keys_cut"
+			},
+			{
+				"cell": "shop_keys_cut",
+				"ms": 3.355,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_keys_cut",
+				"ms": 3.024,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "shop_hardware_paint",
+				"ms": 4.027,
+				"operation": "standard wall millwork reload refused: shop_hardware_paint"
+			},
+			{
+				"cell": "shop_hardware_paint",
+				"ms": 10.41,
+				"operation": "native borrowed-light reload fit refused: shop_hardware_paint"
+			},
+			{
+				"cell": "shop_hardware_paint",
+				"ms": 12.207,
+				"operation": "native closed shop joinery reload fit refused: shop_hardware_paint"
+			},
+			{
+				"cell": "shop_hardware_paint",
+				"ms": 69.734,
+				"operation": "native hardware drawer reload fit refused: shop_hardware_paint"
+			},
+			{
+				"cell": "shop_hardware_paint",
+				"ms": 11.652,
+				"operation": "native hardware apparatus reload fit refused: shop_hardware_paint"
+			},
+			{
+				"cell": "shop_hardware_paint",
+				"ms": 62.377,
+				"operation": "native hardware stock reload fit refused: shop_hardware_paint"
+			},
+			{
+				"cell": "shop_hardware_paint",
+				"ms": 13.811,
+				"operation": "native hardware tools reload fit refused: shop_hardware_paint"
+			},
+			{
+				"cell": "shop_hardware_paint",
+				"ms": 5.614,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_hardware_paint",
+				"ms": 3.985,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "shop_funeral_parlour",
+				"ms": 4.122,
+				"operation": "standard wall millwork reload refused: shop_funeral_parlour"
+			},
+			{
+				"cell": "shop_funeral_parlour",
+				"ms": 22.906,
+				"operation": "native seating reload fit refused: shop_funeral_parlour"
+			},
+			{
+				"cell": "shop_funeral_parlour",
+				"ms": 12.877,
+				"operation": "native borrowed-light reload fit refused: shop_funeral_parlour"
+			},
+			{
+				"cell": "shop_funeral_parlour",
+				"ms": 17.042,
+				"operation": "native closed shop joinery reload fit refused: shop_funeral_parlour"
+			},
+			{
+				"cell": "shop_funeral_parlour",
+				"ms": 12.907,
+				"operation": "native funeral furniture reload refused: shop_funeral_parlour"
+			},
+			{
+				"cell": "shop_funeral_parlour",
+				"ms": 19.779,
+				"operation": "native funeral drapery reload refused: shop_funeral_parlour"
+			},
+			{
+				"cell": "shop_funeral_parlour",
+				"ms": 35.271,
+				"operation": "native funeral foliage reload refused: shop_funeral_parlour"
+			},
+			{
+				"cell": "shop_funeral_parlour",
+				"ms": 3.874,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_funeral_parlour",
+				"ms": 2.676,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 4.121,
+				"operation": "standard wall millwork reload refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 11.355,
+				"operation": "native borrowed-light reload fit refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 13.487,
+				"operation": "native closed shop joinery reload fit refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 11.443,
+				"operation": "native Photo/Radio reload fit refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 1.228,
+				"operation": "native locksmith reload fit refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 12.0,
+				"operation": "native photography display reload fit refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 14.711,
+				"operation": "native photography counter reload fit refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 30.639,
+				"operation": "native photography supply shelving reload fit refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 11.582,
+				"operation": "native photography enlarger reload fit refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 22.829,
+				"operation": "native photography process reload fit refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 66.852,
+				"operation": "native unclaimed portrait reload fit refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 5.869,
+				"operation": "native fixed photographic glazing reload refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 4.921,
+				"operation": "native Photo Supplies receiving chassis reload refused: shop_photo_supplies"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 6.441,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"ms": 4.789,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 3.848,
+				"operation": "standard wall millwork reload refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 11.285,
+				"operation": "native borrowed-light reload fit refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 12.285,
+				"operation": "native closed shop joinery reload fit refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 9.741,
+				"operation": "native Photo/Radio reload fit refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 1.139,
+				"operation": "native druggist drawer/counter reload fit refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 10.679,
+				"operation": "native radio bench reload refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 20.125,
+				"operation": "native radio apparatus reload refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 28.904,
+				"operation": "native radio valve stock reload refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 12.813,
+				"operation": "native radio charging display reload refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 16.538,
+				"operation": "native passive wire/ring stock reload refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 10.72,
+				"operation": "native fitted counter/display reload refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 5.544,
+				"operation": "native period receiving chassis reload refused: shop_radio_service"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 5.548,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_radio_service",
+				"ms": 4.669,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"ms": 4.424,
+				"operation": "standard wall millwork reload refused: shop_pawnbroker"
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"ms": 1.024,
+				"operation": "native seating reload fit refused: shop_pawnbroker"
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"ms": 1.136,
+				"operation": "native laundry reload fit refused: shop_pawnbroker"
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"ms": 16.438,
+				"operation": "native borrowed-light reload fit refused: shop_pawnbroker"
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"ms": 12.2,
+				"operation": "native closed shop joinery reload fit refused: shop_pawnbroker"
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"ms": 5.652,
+				"operation": "native Pawn Shop receiving chassis reload refused: shop_pawnbroker"
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"ms": 20.286,
+				"operation": "native Pawn Shop display reload refused: shop_pawnbroker"
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"ms": 26.566,
+				"operation": "native Pawn Shop clocks reload refused: shop_pawnbroker"
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"ms": 38.438,
+				"operation": "native Pawn Shop fittings reload refused: shop_pawnbroker"
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"ms": 5.95,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"ms": 4.038,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "shop_news_cigars",
+				"ms": 3.947,
+				"operation": "standard wall millwork reload refused: shop_news_cigars"
+			},
+			{
+				"cell": "shop_news_cigars",
+				"ms": 11.852,
+				"operation": "native borrowed-light reload fit refused: shop_news_cigars"
+			},
+			{
+				"cell": "shop_news_cigars",
+				"ms": 11.309,
+				"operation": "native closed shop joinery reload fit refused: shop_news_cigars"
+			},
+			{
+				"cell": "shop_news_cigars",
+				"ms": 29.624,
+				"operation": "native news reload fit refused: shop_news_cigars"
+			},
+			{
+				"cell": "shop_news_cigars",
+				"ms": 3.969,
+				"operation": "native News Cigars receiving chassis reload refused: shop_news_cigars"
+			},
+			{
+				"cell": "shop_news_cigars",
+				"ms": 3.45,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_news_cigars",
+				"ms": 3.177,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 4.103,
+				"operation": "standard wall millwork reload refused: shop_otis_son"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 12.847,
+				"operation": "native seating reload fit refused: shop_otis_son"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 11.576,
+				"operation": "native borrowed-light reload fit refused: shop_otis_son"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 13.581,
+				"operation": "native closed shop joinery reload fit refused: shop_otis_son"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 94.662,
+				"operation": "native druggist drawer/counter reload fit refused: shop_otis_son"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 7.78,
+				"operation": "native druggist counter objects reload refused: shop_otis_son"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 7.791,
+				"operation": "native druggist marble objects reload refused: shop_otis_son"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 40.142,
+				"operation": "native composed dispensary reload refused: shop_otis_son"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 25.952,
+				"operation": "native druggist cupboard reload refused: shop_otis_son"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 37.143,
+				"operation": "native druggist display carboys reload refused: shop_otis_son"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 11.904,
+				"operation": "native unused druggist fountain reload refused: shop_otis_son"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 6.4,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 1.149,
+				"operation": "material stock"
+			},
+			{
+				"cell": "shop_otis_son",
+				"ms": 5.148,
+				"operation": "surface binding"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 4.307,
+				"operation": "standard wall millwork reload refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 18.177,
+				"operation": "native seating reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 1.332,
+				"operation": "native laundry reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 14.383,
+				"operation": "native borrowed-light reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 11.151,
+				"operation": "native closed shop joinery reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 11.791,
+				"operation": "native Diner counter reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 12.003,
+				"operation": "native Diner register/display reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 9.806,
+				"operation": "native Diner rear bench/shelves reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 13.249,
+				"operation": "native Diner urns/pie display reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 13.06,
+				"operation": "native Diner apparatus/pie display reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 8.341,
+				"operation": "native Diner overhead/pie display reload fit refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 5.543,
+				"operation": "native Diner receiving pair reload refused: shop_luncheonette"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 4.846,
+				"operation": "owner finishes"
+			},
+			{
+				"cell": "shop_luncheonette",
+				"ms": 3.779,
+				"operation": "surface binding"
+			}
+		],
+		"load_cycles": 2,
+		"peak_activation_ms": 24.154,
+		"peak_stage_ms": 106.711,
+		"pending_requests": 0,
+		"physical_actors_retained": true,
+		"retired_geometry_roots_alive": 0,
+		"retired_mesh_resources_alive": 0,
+		"stage_records": [
+			{
+				"cell": "passage",
+				"fetch_ms": 0.003,
+				"instantiate_ms": 1.127,
+				"surface_ms": 232.716
+			},
+			{
+				"cell": "shop_model_laundry",
+				"fetch_ms": 0.005,
+				"instantiate_ms": 0.625,
+				"surface_ms": 134.465
+			},
+			{
+				"cell": "shop_shoe_rebuilding",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.497,
+				"surface_ms": 93.323
+			},
+			{
+				"cell": "shop_keys_cut",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.795,
+				"surface_ms": 89.222
+			},
+			{
+				"cell": "shop_hardware_paint",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.797,
+				"surface_ms": 216.621
+			},
+			{
+				"cell": "shop_funeral_parlour",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.662,
+				"surface_ms": 138.157
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.504,
+				"surface_ms": 243.104
+			},
+			{
+				"cell": "shop_radio_service",
+				"fetch_ms": 0.005,
+				"instantiate_ms": 0.601,
+				"surface_ms": 175.315
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.505,
+				"surface_ms": 135.129
+			},
+			{
+				"cell": "shop_news_cigars",
+				"fetch_ms": 0.005,
+				"instantiate_ms": 0.507,
+				"surface_ms": 77.59
+			},
+			{
+				"cell": "shop_otis_son",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.696,
+				"surface_ms": 281.32
+			},
+			{
+				"cell": "shop_luncheonette",
+				"fetch_ms": 0.008,
+				"instantiate_ms": 0.648,
+				"surface_ms": 152.265
+			},
+			{
+				"cell": "passage",
+				"fetch_ms": 0.002,
+				"instantiate_ms": 1.103,
+				"surface_ms": 230.862
+			},
+			{
+				"cell": "shop_model_laundry",
+				"fetch_ms": 0.005,
+				"instantiate_ms": 0.668,
+				"surface_ms": 131.646
+			},
+			{
+				"cell": "shop_shoe_rebuilding",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.551,
+				"surface_ms": 91.5929999999999
+			},
+			{
+				"cell": "shop_keys_cut",
+				"fetch_ms": 0.007,
+				"instantiate_ms": 0.725,
+				"surface_ms": 88.1919999999999
+			},
+			{
+				"cell": "shop_hardware_paint",
+				"fetch_ms": 0.005,
+				"instantiate_ms": 0.797,
+				"surface_ms": 202.76
+			},
+			{
+				"cell": "shop_funeral_parlour",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.592,
+				"surface_ms": 140.695
+			},
+			{
+				"cell": "shop_photo_supplies",
+				"fetch_ms": 0.005,
+				"instantiate_ms": 0.494,
+				"surface_ms": 230.948
+			},
+			{
+				"cell": "shop_radio_service",
+				"fetch_ms": 0.005,
+				"instantiate_ms": 0.441,
+				"surface_ms": 163.266
+			},
+			{
+				"cell": "shop_pawnbroker",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.501,
+				"surface_ms": 145.648
+			},
+			{
+				"cell": "shop_news_cigars",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.502,
+				"surface_ms": 76.911
+			},
+			{
+				"cell": "shop_otis_son",
+				"fetch_ms": 0.006,
+				"instantiate_ms": 0.804,
+				"surface_ms": 287.879
+			},
+			{
+				"cell": "shop_luncheonette",
+				"fetch_ms": 0.005,
+				"instantiate_ms": 0.645,
+				"surface_ms": 140.699
+			}
+		],
+		"state": "DORMANT",
+		"unload_cycles": 3
+	},
+	"owned_path": "user://v2_played_stream_134714717.json",
+	"save_result": {
+		"code": "",
+		"ok": true,
+		"protection_required": false,
+		"recovered": false,
+		"stage": "complete",
+		"worker_finished_usec": 215448967,
+		"worker_main_thread": false,
+		"worker_started_usec": 215415063,
+		"worker_usec": 33904
+	},
+	"scope": "Actual primary-grab doors, standing walk and mouse turning over two street/passage residency cycles; no shop transaction, item manipulation, save reconstruction, runtime_contract or human acceptance."
+}

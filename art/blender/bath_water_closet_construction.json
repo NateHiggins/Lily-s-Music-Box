@@ -1,0 +1,603 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native casting/form and metric chart source record; no runtime qualification.",
+  "asset_sha256": "a1587bad15314b8d21ba728d3a9283c79ef22281bacc5d08358b59b31c48a484",
+  "source_bindings": {
+    "art/blender/scripts/build_operable_water_closet.py": "593211de8121fde241d92d59ca604a993dbe4c18fd2f0c56ee4c66180e76becf",
+    "art/blender/scripts/water_closet_form.py": "22c1ea1046203a7efcb2414d24a5a07241c5c8abd6c79fcf5474f903fb0f5c42",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/repair_surface_uvs.py": "aaa93b835a8f839e7ef95d5b0a62dae3e86533840ddac27c86142da1e1b3d045",
+    "art/data/runtime_material_sets.json": "3e083bb287f70cc21ec305bf89b64cf5c335f3b908681a5152f7a613025e882c"
+  },
+  "parts": [
+    {
+      "name": "HollowWashDownBowl",
+      "triangles": 2176,
+      "materials": [
+        "porcelain_fixture"
+      ]
+    },
+    {
+      "name": "ClosetPedestal",
+      "triangles": 1152,
+      "materials": [
+        "porcelain_fixture"
+      ]
+    },
+    {
+      "name": "PolishedWoodSeat",
+      "triangles": 768,
+      "materials": [
+        "wood_dark"
+      ]
+    },
+    {
+      "name": "HollowCistern",
+      "triangles": 1408,
+      "materials": [
+        "porcelain_fixture"
+      ]
+    },
+    {
+      "name": "RemovableCisternLid",
+      "triangles": 428,
+      "materials": [
+        "porcelain_fixture"
+      ]
+    },
+    {
+      "name": "FlushConnection",
+      "triangles": 2176,
+      "materials": [
+        "porcelain_fixture"
+      ]
+    },
+    {
+      "name": "DrainTrap",
+      "triangles": 3712,
+      "materials": [
+        "iron_blackened"
+      ]
+    },
+    {
+      "name": "SupplyPipe",
+      "triangles": 496,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "SupplyShutoff",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "FloorBolt",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "PorcelainHingePlinth",
+      "triangles": 428,
+      "materials": [
+        "porcelain_fixture"
+      ]
+    },
+    {
+      "name": "HingeRosette",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "HingePost",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "HingePin",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "SeatKnuckle",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "SeatLeaf",
+      "triangles": 428,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "SeatLeafScrew",
+      "triangles": 156,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "FloorBolt.001",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "PorcelainHingePlinth.001",
+      "triangles": 428,
+      "materials": [
+        "porcelain_fixture"
+      ]
+    },
+    {
+      "name": "HingeRosette.001",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "HingePost.001",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "HingePin.001",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "SeatKnuckle.001",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "SeatLeaf.001",
+      "triangles": 428,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "SeatLeafScrew.001",
+      "triangles": 156,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "Lid",
+      "triangles": 384,
+      "materials": [
+        "wood_dark"
+      ]
+    },
+    {
+      "name": "LidKnuckle",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "LidLeaf",
+      "triangles": 428,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "LidLeafWeb",
+      "triangles": 428,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "LidLeafScrew",
+      "triangles": 156,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "LidKnuckle.001",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "LidLeaf.001",
+      "triangles": 428,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "LidLeafWeb.001",
+      "triangles": 428,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "LidLeafScrew.001",
+      "triangles": 156,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "HandleRose",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "FlushLever",
+      "triangles": 736,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "FingerPaddle",
+      "triangles": 528,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "HandleShaftBush",
+      "triangles": 188,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "HandleSpindle",
+      "triangles": 188,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "InletRiser",
+      "triangles": 256,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "InletValveBody",
+      "triangles": 188,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "FloatRod",
+      "triangles": 496,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "BallFloat",
+      "triangles": 2208,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "OverflowStandpipe",
+      "triangles": 384,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "CisternOutletBoss",
+      "triangles": 384,
+      "materials": [
+        "porcelain_fixture"
+      ]
+    },
+    {
+      "name": "OutletUnion",
+      "triangles": 384,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "OutletGasket",
+      "triangles": 384,
+      "materials": [
+        "rubber_aged"
+      ]
+    },
+    {
+      "name": "InletUnion",
+      "triangles": 384,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "DischargeSeat",
+      "triangles": 384,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "RubberFlushBall",
+      "triangles": 1520,
+      "materials": [
+        "rubber_aged"
+      ]
+    },
+    {
+      "name": "LiftRod",
+      "triangles": 188,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "HandleInsideArm",
+      "triangles": 496,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "ChainLink00",
+      "triangles": 192,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "ChainLink01",
+      "triangles": 192,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "ChainLink02",
+      "triangles": 192,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "ChainLink03",
+      "triangles": 192,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "ChainLink04",
+      "triangles": 192,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "ChainLink05",
+      "triangles": 192,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "ChainLink06",
+      "triangles": 192,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "ChainLink07",
+      "triangles": 192,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "DischargeFlange",
+      "triangles": 384,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "InletFloorNut",
+      "triangles": 384,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "BallcockPivotCheek",
+      "triangles": 428,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "BallcockPivotCheek.001",
+      "triangles": 428,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "BallcockPivotPin",
+      "triangles": 188,
+      "materials": [
+        "nickel_plated"
+      ]
+    },
+    {
+      "name": "FloatThreadedNipple",
+      "triangles": 188,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "OverflowFoot",
+      "triangles": 384,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "OverflowWallPlate",
+      "triangles": 428,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "OverflowWallStrap",
+      "triangles": 976,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "GuideFoot",
+      "triangles": 188,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "GuideFoot.001",
+      "triangles": 188,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "LiftRodEye",
+      "triangles": 384,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "LiftGuide",
+      "triangles": 496,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "LiftGuide.001",
+      "triangles": 496,
+      "materials": [
+        "brass"
+      ]
+    },
+    {
+      "name": "StoredWater",
+      "triangles": 380,
+      "materials": [
+        "WaterSeal"
+      ]
+    },
+    {
+      "name": "WaterSeal",
+      "triangles": 768,
+      "materials": [
+        "WaterSeal"
+      ]
+    }
+  ],
+  "runtime_meshes": [
+    "WaterClosetCasting_porcelain_fixture_Stock",
+    "PolishedWoodSeat",
+    "RemovableCisternLid",
+    "DrainTrap",
+    "WaterClosetCasting_nickel_plated_Stock",
+    "SeatHinge_nickel_plated_Stock",
+    "Lid",
+    "RaisedLid_nickel_plated_Stock",
+    "CisternHandle_nickel_plated_Stock",
+    "WaterClosetCasting_brass_Stock",
+    "HandleSpindle",
+    "FloatArm_brass_Stock",
+    "OutletGasket",
+    "RubberFlushBall",
+    "FlushBall_brass_Stock",
+    "HandleInsideArm",
+    "ChainLink00",
+    "ChainLink01",
+    "ChainLink02",
+    "ChainLink03",
+    "ChainLink04",
+    "ChainLink05",
+    "ChainLink06",
+    "ChainLink07",
+    "StoredWater",
+    "WaterSeal"
+  ],
+  "exported_tangents": {
+    "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\bath_water_closet.glb",
+    "primitives": 26,
+    "triangles": 36898,
+    "minimum_tangent_agreement": 0.9999295486110751,
+    "status": "PASS"
+  },
+  "corrected_partitions": 26,
+  "handle_pivot": [
+    0.188,
+    0.744,
+    0.119
+  ],
+  "handle_touch": [
+    0.214,
+    0.706,
+    0.098
+  ],
+  "bowl_throat": {
+    "mouth_y": 0.176,
+    "minimum_radius_m": 0.04,
+    "outlet_y": 0.089
+  },
+  "seat_aperture": {
+    "half_width_m": 0.137,
+    "half_length_m": 0.186,
+    "centre_z": -0.157,
+    "back_fraction": 0.82
+  }
+}

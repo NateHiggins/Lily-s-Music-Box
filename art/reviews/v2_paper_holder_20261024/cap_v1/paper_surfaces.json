@@ -1,0 +1,2100 @@
+{
+	"contacts": [
+		{
+			"error_m": 0.0,
+			"expected": "(7.393002, 3.92, -17.23)",
+			"hit": "(7.393002, 3.92, -17.23)",
+			"id": "2A_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F02_A_BATH/WallNorth_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.0,
+			"expected": "(7.247002, 3.92, -17.23)",
+			"hit": "(7.247002, 3.92, -17.23)",
+			"id": "2A_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F02_A_BATH/WallNorth_00/Collision",
+			"x": 0.073
+		},
+		{
+			"error_m": 0.0000000596046447753906,
+			"expected": "(-15.453, 3.92, 0.63)",
+			"hit": "(-15.453, 3.92, 0.63)",
+			"id": "2B_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallSouth_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.0000000596046447753906,
+			"expected": "(-15.307, 3.92, 0.63)",
+			"hit": "(-15.307, 3.92, 0.63)",
+			"id": "2B_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallSouth_00/Collision",
+			"x": 0.073
+		},
+		{
+			"error_m": 0.0,
+			"expected": "(7.393002, 7.12, -17.23)",
+			"hit": "(7.393002, 7.12, -17.23)",
+			"id": "3A_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F03_A_BATH/WallNorth_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.0,
+			"expected": "(7.247002, 7.12, -17.23)",
+			"hit": "(7.247002, 7.12, -17.23)",
+			"id": "3A_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F03_A_BATH/WallNorth_00/Collision",
+			"x": 0.073
+		},
+		{
+			"error_m": 0.000000655651092529297,
+			"expected": "(-15.503, 7.12, 0.629999)",
+			"hit": "(-15.503, 7.12, 0.63)",
+			"id": "3B_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallSouth_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.000000655651092529297,
+			"expected": "(-15.357, 7.12, 0.629999)",
+			"hit": "(-15.357, 7.12, 0.63)",
+			"id": "3B_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallSouth_00/Collision",
+			"x": 0.073
+		},
+		{
+			"error_m": 0.0000000596046447753906,
+			"expected": "(-15.453, 10.32, 0.63)",
+			"hit": "(-15.453, 10.32, 0.63)",
+			"id": "4A_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F04_A_BATH/WallSouth_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.0000000596046447753906,
+			"expected": "(-15.307, 10.32, 0.63)",
+			"hit": "(-15.307, 10.32, 0.63)",
+			"id": "4A_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F04_A_BATH/WallSouth_00/Collision",
+			"x": 0.073
+		},
+		{
+			"error_m": 0.0,
+			"expected": "(7.503002, 10.32, -17.63)",
+			"hit": "(7.503002, 10.32, -17.63)",
+			"id": "4B_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F04_B_BATH/WallNorth_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.0,
+			"expected": "(7.357002, 10.32, -17.63)",
+			"hit": "(7.357002, 10.32, -17.63)",
+			"id": "4B_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F04_B_BATH/WallNorth_00/Collision",
+			"x": 0.073
+		},
+		{
+			"error_m": 0.000000477767571283039,
+			"expected": "(5.67, 13.52, 0.077002)",
+			"hit": "(5.67, 13.52, 0.077002)",
+			"id": "5A_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F05_A_BATH/WallEast_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.000000476837158203125,
+			"expected": "(5.67, 13.52, 0.223002)",
+			"hit": "(5.67, 13.52, 0.223002)",
+			"id": "5A_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F05_A_BATH/WallEast_00/Collision",
+			"x": 0.073
+		},
+		{
+			"error_m": 0.0,
+			"expected": "(7.603002, 13.52, -17.93)",
+			"hit": "(7.603002, 13.52, -17.93)",
+			"id": "5B_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F05_B_BATH/WallNorth_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.0,
+			"expected": "(7.457002, 13.52, -17.93)",
+			"hit": "(7.457002, 13.52, -17.93)",
+			"id": "5B_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F05_B_BATH/WallNorth_00/Collision",
+			"x": 0.073
+		},
+		{
+			"error_m": 0.000000238418579101563,
+			"expected": "(-3.729999, 13.52, -17.503)",
+			"hit": "(-3.729998, 13.52, -17.503)",
+			"id": "5C_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F05_C_BATH/WallEast_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.0,
+			"expected": "(-3.729999, 13.52, -17.357)",
+			"hit": "(-3.729999, 13.52, -17.357)",
+			"id": "5C_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F05_C_BATH/WallEast_00/Collision",
+			"x": 0.073
+		},
+		{
+			"error_m": 0.000000477767571283039,
+			"expected": "(5.67, 16.72, 0.077002)",
+			"hit": "(5.67, 16.72, 0.077002)",
+			"id": "6A_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F06_A_BATH/WallEast_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.000000476837158203125,
+			"expected": "(5.67, 16.72, 0.223002)",
+			"hit": "(5.67, 16.72, 0.223002)",
+			"id": "6A_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F06_A_BATH/WallEast_00/Collision",
+			"x": 0.073
+		},
+		{
+			"error_m": 0.0,
+			"expected": "(7.603002, 16.72, -17.93)",
+			"hit": "(7.603002, 16.72, -17.93)",
+			"id": "6B_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F06_B_BATH/WallNorth_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.0,
+			"expected": "(7.457002, 16.72, -17.93)",
+			"hit": "(7.457002, 16.72, -17.93)",
+			"id": "6B_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F06_B_BATH/WallNorth_00/Collision",
+			"x": 0.073
+		},
+		{
+			"error_m": 0.000000238418579101563,
+			"expected": "(-3.729999, 16.72, -17.503)",
+			"hit": "(-3.729998, 16.72, -17.503)",
+			"id": "6C_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F06_C_BATH/WallEast_00/Collision",
+			"x": -0.073
+		},
+		{
+			"error_m": 0.0,
+			"expected": "(-3.729999, 16.72, -17.357)",
+			"hit": "(-3.729999, 16.72, -17.357)",
+			"id": "6C_toilet_roll",
+			"owner": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/F06_C_BATH/WallEast_00/Collision",
+			"x": 0.073
+		}
+	],
+	"draws": [
+		{
+			"materials": [
+				"2A_toilet_roll/0"
+			],
+			"mesh": "2A_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/2A_wc/2A_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"2A_toilet_roll/1"
+			],
+			"mesh": "2A_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/2A_wc/2A_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"2A_toilet_roll/2"
+			],
+			"mesh": "2A_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/2A_wc/2A_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		},
+		{
+			"materials": [
+				"2B_toilet_roll/0"
+			],
+			"mesh": "2B_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/2B_wc/2B_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"2B_toilet_roll/1"
+			],
+			"mesh": "2B_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/2B_wc/2B_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"2B_toilet_roll/2"
+			],
+			"mesh": "2B_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/2B_wc/2B_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		},
+		{
+			"materials": [
+				"3A_toilet_roll/0"
+			],
+			"mesh": "3A_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/3A_wc/3A_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"3A_toilet_roll/1"
+			],
+			"mesh": "3A_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/3A_wc/3A_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"3A_toilet_roll/2"
+			],
+			"mesh": "3A_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/3A_wc/3A_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		},
+		{
+			"materials": [
+				"3B_toilet_roll/0"
+			],
+			"mesh": "3B_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/3B_wc/3B_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"3B_toilet_roll/1"
+			],
+			"mesh": "3B_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/3B_wc/3B_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"3B_toilet_roll/2"
+			],
+			"mesh": "3B_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/3B_wc/3B_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		},
+		{
+			"materials": [
+				"4A_toilet_roll/0"
+			],
+			"mesh": "4A_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/4A_wc/4A_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"4A_toilet_roll/1"
+			],
+			"mesh": "4A_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/4A_wc/4A_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"4A_toilet_roll/2"
+			],
+			"mesh": "4A_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/4A_wc/4A_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		},
+		{
+			"materials": [
+				"4B_toilet_roll/0"
+			],
+			"mesh": "4B_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/4B_wc/4B_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"4B_toilet_roll/1"
+			],
+			"mesh": "4B_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/4B_wc/4B_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"4B_toilet_roll/2"
+			],
+			"mesh": "4B_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/4B_wc/4B_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		},
+		{
+			"materials": [
+				"5A_toilet_roll/0"
+			],
+			"mesh": "5A_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/5A_wc/5A_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"5A_toilet_roll/1"
+			],
+			"mesh": "5A_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/5A_wc/5A_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"5A_toilet_roll/2"
+			],
+			"mesh": "5A_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/5A_wc/5A_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		},
+		{
+			"materials": [
+				"5B_toilet_roll/0"
+			],
+			"mesh": "5B_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/5B_wc/5B_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"5B_toilet_roll/1"
+			],
+			"mesh": "5B_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/5B_wc/5B_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"5B_toilet_roll/2"
+			],
+			"mesh": "5B_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/5B_wc/5B_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		},
+		{
+			"materials": [
+				"5C_toilet_roll/0"
+			],
+			"mesh": "5C_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/5C_wc/5C_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"5C_toilet_roll/1"
+			],
+			"mesh": "5C_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/5C_wc/5C_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"5C_toilet_roll/2"
+			],
+			"mesh": "5C_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/5C_wc/5C_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		},
+		{
+			"materials": [
+				"6A_toilet_roll/0"
+			],
+			"mesh": "6A_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/6A_wc/6A_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"6A_toilet_roll/1"
+			],
+			"mesh": "6A_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/6A_wc/6A_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"6A_toilet_roll/2"
+			],
+			"mesh": "6A_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/6A_wc/6A_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		},
+		{
+			"materials": [
+				"6B_toilet_roll/0"
+			],
+			"mesh": "6B_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/6B_wc/6B_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"6B_toilet_roll/1"
+			],
+			"mesh": "6B_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/6B_wc/6B_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"6B_toilet_roll/2"
+			],
+			"mesh": "6B_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/6B_wc/6B_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		},
+		{
+			"materials": [
+				"6C_toilet_roll/0"
+			],
+			"mesh": "6C_toilet_roll/0",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/6C_wc/6C_toilet_roll/bath_paper_holder/PaperHolder_nickel_plated"
+		},
+		{
+			"materials": [
+				"6C_toilet_roll/1"
+			],
+			"mesh": "6C_toilet_roll/1",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/6C_wc/6C_toilet_roll/bath_paper_holder/PaperHolder_paper"
+		},
+		{
+			"materials": [
+				"6C_toilet_roll/2"
+			],
+			"mesh": "6C_toilet_roll/2",
+			"path": "/root/V2BathroomSteamCapReview/OrisonV2Runtime/OrisonV2Blockout/6C_wc/6C_toilet_roll/bath_paper_holder/PaperHolder_wood_dark"
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"materials": {
+		"2A_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"2A_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"2A_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"2B_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"2B_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"2B_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"3A_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"3A_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"3A_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"3B_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"3B_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"3B_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"4A_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"4A_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"4A_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"4B_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"4B_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"4B_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"5A_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"5A_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"5A_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"5B_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"5B_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"5B_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"5C_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"5C_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"5C_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"6A_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"6A_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"6A_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"6B_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"6B_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"6B_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"6C_toilet_roll/0": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_nickel_plated_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"6C_toilet_roll/1": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_aged_paper_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_aged_paper_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"6C_toilet_roll/2": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"rough_tex": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		}
+	},
+	"meshes": {
+		"2A_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"2A_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"2A_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"2B_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"2B_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"2B_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"3A_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"3A_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"3A_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"3B_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"3B_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"3B_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"4A_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"4A_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"4A_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"4B_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"4B_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"4B_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"5A_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"5A_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"5A_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"5B_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"5B_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"5B_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"5C_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"5C_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"5C_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"6A_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"6A_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"6A_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"6B_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"6B_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"6B_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"6C_toilet_roll/0": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1928,
+					"vertices": 4460
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"6C_toilet_roll/1": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1872,
+					"vertices": 3469
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"6C_toilet_roll/2": {
+			"source": "res://assets/props/bath_paper_holder.glb::ArrayMesh_irwhw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 298
+				}
+			],
+			"type": "ArrayMesh"
+		}
+	},
+	"scope": "Twelve installed fixed paper holders; no interaction/save or whole-world qualification",
+	"textures": {
+		"res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_nickel_plated_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_nickel_plated_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_library_furniture_aged_paper_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_furniture_aged_paper_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_furniture_aged_paper_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_furniture_walnut_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_furniture_walnut_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_furniture_walnut_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		}
+	}
+}

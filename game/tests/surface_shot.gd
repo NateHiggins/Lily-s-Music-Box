@@ -194,7 +194,7 @@ func _run() -> void:
 	cam.make_current()
 	root.view_override = cam
 	player.flashlight.visible = true
-	player._light_mask.visible = true
+	pass # Photographic lamp overlay retired globally.
 	player.flashlight.reparent(cam)
 	player.flashlight.transform = Transform3D(Basis(), Vector3(0.16, -0.19, -0.06))
 	var vp_rid := get_viewport().get_viewport_rid()

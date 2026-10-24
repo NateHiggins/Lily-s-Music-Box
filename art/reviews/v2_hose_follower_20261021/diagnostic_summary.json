@@ -1,0 +1,1332 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Separate fixture solver work from actual played frame samples. Source diagnostics, never runtime qualification.",
+  "settling": {
+    "1": {
+      "step_cost_ms": {
+        "n": 71,
+        "p50": 23.201,
+        "p95": 177.5265,
+        "p99": 669.6852999999973,
+        "max": 1338.27,
+        "over_50ms": 25,
+        "over_100ms": 12,
+        "over_250ms": 2
+      },
+      "requested_simulated_seconds": 0.5916666666666667,
+      "total_solver_ms": 4563.954,
+      "all_accepted": false,
+      "follow_fallbacks": 126,
+      "failures": [
+        "full native strand advances all120steps across60real physics frames"
+      ],
+      "category_ms": {
+        "accepted_skin": 9.463,
+        "rollback_skin": 1.927,
+        "joint_projection": 3823.604,
+        "world_contact": 596.959,
+        "position_projection": 3859.804,
+        "velocity_projection": 17.979,
+        "final_sweep": 0.069
+      }
+    },
+    "2": {
+      "step_cost_ms": {
+        "n": 120,
+        "p50": 56.5155,
+        "p95": 208.47589999999985,
+        "p99": 328.85591000000005,
+        "max": 349.779,
+        "over_50ms": 69,
+        "over_100ms": 29,
+        "over_250ms": 6
+      },
+      "requested_simulated_seconds": 1.0,
+      "total_solver_ms": 8428.945,
+      "all_accepted": true,
+      "follow_fallbacks": 276,
+      "failures": [],
+      "category_ms": {
+        "accepted_skin": 15.864,
+        "rollback_skin": 0.288,
+        "joint_projection": 4434.657,
+        "world_contact": 2575.054,
+        "position_projection": 5643.091,
+        "velocity_projection": 30.939,
+        "final_sweep": 0.122
+      }
+    },
+    "3": {
+      "step_cost_ms": {
+        "n": 120,
+        "p50": 57.9495,
+        "p95": 271.81379999999996,
+        "p99": 581.5581900000005,
+        "max": 812.365,
+        "over_50ms": 68,
+        "over_100ms": 31,
+        "over_250ms": 7
+      },
+      "requested_simulated_seconds": 1.0,
+      "total_solver_ms": 9938.028,
+      "all_accepted": true,
+      "follow_fallbacks": 324,
+      "failures": [],
+      "category_ms": {
+        "accepted_skin": 16.274,
+        "rollback_skin": 0.718,
+        "fallback_projection": 6066.391,
+        "follow_projection": 949.203,
+        "joint_projection": 4850.587,
+        "world_contact": 2704.273,
+        "position_projection": 7017.362,
+        "velocity_projection": 34.39,
+        "final_sweep": 0.133
+      }
+    },
+    "4": {
+      "step_cost_ms": {
+        "n": 118,
+        "p50": 73.03049999999999,
+        "p95": 269.36704999999984,
+        "p99": 448.88084,
+        "max": 1640.057,
+        "over_50ms": 74,
+        "over_100ms": 41,
+        "over_250ms": 8
+      },
+      "requested_simulated_seconds": 0.9833333333333333,
+      "total_solver_ms": 11871.527,
+      "all_accepted": false,
+      "follow_fallbacks": 315,
+      "failures": [
+        "full native strand advances all120steps across60real physics frames"
+      ],
+      "category_ms": {
+        "accepted_skin": 16.155,
+        "rollback_skin": 2.371,
+        "fallback_projection": 7428.916,
+        "follow_projection": 1579.557,
+        "joint_projection": 7381.163,
+        "world_contact": 2646.208,
+        "position_projection": 9010.279,
+        "velocity_projection": 31.067,
+        "final_sweep": 0.123
+      }
+    },
+    "5": {
+      "step_cost_ms": {
+        "n": 120,
+        "p50": 21.119500000000002,
+        "p95": 200.55064999999996,
+        "p99": 390.7008200000003,
+        "max": 617.505,
+        "over_50ms": 51,
+        "over_100ms": 22,
+        "over_250ms": 4
+      },
+      "requested_simulated_seconds": 1.0,
+      "total_solver_ms": 7353.2970000000005,
+      "all_accepted": true,
+      "follow_fallbacks": 196,
+      "failures": [],
+      "category_ms": {
+        "accepted_skin": 15.346,
+        "fallback_projection": 4351.039,
+        "follow_projection": 861.197,
+        "joint_projection": 4320.895,
+        "world_contact": 1950.824,
+        "position_projection": 5213.674,
+        "velocity_projection": 27.52,
+        "final_sweep": 0.111
+      }
+    },
+    "6": {
+      "step_cost_ms": {
+        "n": 120,
+        "p50": 75.2855,
+        "p95": 225.95784999999992,
+        "p99": 371.0596800000002,
+        "max": 500.713,
+        "over_50ms": 71,
+        "over_100ms": 44,
+        "over_250ms": 5
+      },
+      "requested_simulated_seconds": 1.0,
+      "total_solver_ms": 10055.225,
+      "all_accepted": true,
+      "follow_fallbacks": 307,
+      "failures": [],
+      "category_ms": {
+        "accepted_skin": 15.558,
+        "rollback_skin": 0.278,
+        "fallback_projection": 6316.32,
+        "follow_projection": 1484.229,
+        "joint_projection": 6262.605,
+        "world_contact": 2033.487,
+        "position_projection": 7802.304,
+        "velocity_projection": 38.37,
+        "final_sweep": 0.113
+      }
+    },
+    "7": {
+      "step_cost_ms": {
+        "n": 120,
+        "p50": 22.7125,
+        "p95": 188.98704999999998,
+        "p99": 238.94824000000003,
+        "max": 328.783,
+        "over_50ms": 43,
+        "over_100ms": 25,
+        "over_250ms": 1
+      },
+      "requested_simulated_seconds": 1.0,
+      "total_solver_ms": 6278.46,
+      "all_accepted": true,
+      "follow_fallbacks": 88,
+      "failures": [],
+      "category_ms": {
+        "accepted_skin": 15.525,
+        "fallback_projection": 1915.77,
+        "follow_projection": 2282.974,
+        "joint_projection": 1902.21,
+        "world_contact": 1885.488,
+        "position_projection": 4200.316,
+        "velocity_projection": 26.494,
+        "final_sweep": 0.119
+      }
+    },
+    "8": {
+      "step_cost_ms": {
+        "n": 120,
+        "p50": 22.789,
+        "p95": 139.07949999999997,
+        "p99": 169.76597,
+        "max": 262.504,
+        "over_50ms": 37,
+        "over_100ms": 15,
+        "over_250ms": 1
+      },
+      "requested_simulated_seconds": 1.0,
+      "total_solver_ms": 4957.714,
+      "all_accepted": true,
+      "follow_fallbacks": 107,
+      "failures": [],
+      "category_ms": {
+        "accepted_skin": 15.485,
+        "rollback_skin": 0.147,
+        "fallback_projection": 452.652,
+        "follow_projection": 2369.255,
+        "joint_projection": 434.763,
+        "world_contact": 1942.101,
+        "position_projection": 2823.316,
+        "velocity_projection": 25.611,
+        "final_sweep": 0.122
+      }
+    },
+    "9": {
+      "step_cost_ms": {
+        "n": 120,
+        "p50": 50.81,
+        "p95": 253.92215,
+        "p99": 309.97652,
+        "max": 494.609,
+        "over_50ms": 61,
+        "over_100ms": 40,
+        "over_250ms": 7
+      },
+      "requested_simulated_seconds": 1.0,
+      "total_solver_ms": 9617.016,
+      "all_accepted": true,
+      "follow_fallbacks": 177,
+      "failures": [],
+      "category_ms": {
+        "accepted_skin": 23.065,
+        "rollback_skin": 0.193,
+        "fallback_projection": 999.272,
+        "follow_projection": 4677.68,
+        "joint_projection": 944.265,
+        "world_contact": 3580.806,
+        "position_projection": 5680.362,
+        "velocity_projection": 49.402,
+        "final_sweep": 0.154
+      }
+    },
+    "10": {
+      "step_cost_ms": {
+        "n": 120,
+        "p50": 22.3245,
+        "p95": 123.24735,
+        "p99": 183.0815,
+        "max": 226.599,
+        "over_50ms": 41,
+        "over_100ms": 14,
+        "over_250ms": 0
+      },
+      "requested_simulated_seconds": 1.0,
+      "total_solver_ms": 4944.54,
+      "all_accepted": true,
+      "follow_fallbacks": 143,
+      "failures": [],
+      "category_ms": {
+        "accepted_skin": 15.638,
+        "rollback_skin": 0.137,
+        "fallback_projection": 606.073,
+        "follow_projection": 2496.214,
+        "joint_projection": 584.395,
+        "world_contact": 1649.053,
+        "position_projection": 3103.784,
+        "velocity_projection": 26.751,
+        "final_sweep": 0.129
+      }
+    }
+  },
+  "carrier_route": {
+    "resolution": "(1280.0, 720.0)",
+    "vsync": false,
+    "failures": [],
+    "cycles": {
+      "original_a_": {
+        "all": {
+          "wall_ms": {
+            "n": 1149,
+            "p50": 39.071,
+            "p95": 81.44639999999998,
+            "p99": 132.69091999999995,
+            "max": 167.631,
+            "over_50ms": 201,
+            "over_100ms": 43,
+            "over_250ms": 0
+          },
+          "process_ms": {
+            "n": 1149,
+            "p50": 45.74,
+            "p95": 68.882,
+            "p99": 121.829,
+            "max": 121.829,
+            "over_50ms": 426,
+            "over_100ms": 26,
+            "over_250ms": 0
+          },
+          "physics_ms": {
+            "n": 1149,
+            "p50": 3.674,
+            "p95": 28.505,
+            "p99": 39.995,
+            "max": 39.995,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_cpu_ms": {
+            "n": 1149,
+            "p50": 20.9009990692139,
+            "p95": 32.713400268554715,
+            "p99": 36.12172027587892,
+            "max": 40.4449996948242,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_gpu_ms": {
+            "n": 1149,
+            "p50": 13.1899995803833,
+            "p95": 21.456400680542007,
+            "p99": 32.96451965332034,
+            "max": 40.2179985046387,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          }
+        },
+        "movement_and_turn": {
+          "wall_ms": {
+            "n": 879,
+            "p50": 41.256,
+            "p95": 86.51469999999959,
+            "p99": 135.95514000000006,
+            "max": 146.89,
+            "over_50ms": 168,
+            "over_100ms": 41,
+            "over_250ms": 0
+          },
+          "process_ms": {
+            "n": 879,
+            "p50": 47.577,
+            "p95": 69.624,
+            "p99": 121.829,
+            "max": 121.829,
+            "over_50ms": 310,
+            "over_100ms": 26,
+            "over_250ms": 0
+          },
+          "physics_ms": {
+            "n": 879,
+            "p50": 3.693,
+            "p95": 12.841,
+            "p99": 16.522,
+            "max": 16.549,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_cpu_ms": {
+            "n": 879,
+            "p50": 22.0690002441406,
+            "p95": 32.68889846801761,
+            "p99": 36.27601982116699,
+            "max": 40.4449996948242,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_gpu_ms": {
+            "n": 879,
+            "p50": 13.9409999847412,
+            "p95": 22.183200073242137,
+            "p99": 35.33120162963872,
+            "max": 40.2179985046387,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          }
+        },
+        "inspection": {
+          "wall_ms": {
+            "n": 270,
+            "p50": 31.03,
+            "p95": 80.9029,
+            "p99": 91.95456,
+            "max": 167.631,
+            "over_50ms": 33,
+            "over_100ms": 2,
+            "over_250ms": 0
+          },
+          "process_ms": {
+            "n": 270,
+            "p50": 38.809,
+            "p95": 68.882,
+            "p99": 68.882,
+            "max": 68.882,
+            "over_50ms": 116,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "physics_ms": {
+            "n": 270,
+            "p50": 3.178,
+            "p95": 39.995,
+            "p99": 39.995,
+            "max": 39.995,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_cpu_ms": {
+            "n": 270,
+            "p50": 17.07649993896485,
+            "p95": 32.74344844818117,
+            "p99": 33.78867874145511,
+            "max": 37.4440002441406,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_gpu_ms": {
+            "n": 270,
+            "p50": 10.57100009918215,
+            "p95": 19.19669914245604,
+            "p99": 22.927870445251447,
+            "max": 23.875,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          }
+        },
+        "phases": {
+          "original_a_inspection_approach_walk_(1.925, 1.6, 1.3)": {
+            "n": 62,
+            "p50": 24.648,
+            "p95": 53.651199999999996,
+            "p99": 63.00688000000001,
+            "max": 67.028,
+            "over_50ms": 7,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_inspection_approach_walk_(3.65, 3.2, -3.4)": {
+            "n": 3,
+            "p50": 82.616,
+            "p95": 85.72189999999999,
+            "p99": 85.99798,
+            "max": 86.067,
+            "over_50ms": 3,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_inspection_approach_walk_(3.975, 1.6, 1.3)": {
+            "n": 24,
+            "p50": 31.616,
+            "p95": 45.2213,
+            "p99": 47.38111,
+            "max": 47.943,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_inspection_approach_walk_(3.975, 3.2, -2.4)": {
+            "n": 24,
+            "p50": 55.6575,
+            "p95": 60.2631,
+            "p99": 61.63944,
+            "max": 62.001,
+            "over_50ms": 22,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_inspection_approach_walk_(3.975, 3.2, -3.4)": {
+            "n": 145,
+            "p50": 41.045,
+            "p95": 47.4364,
+            "p99": 49.75372,
+            "max": 50.55,
+            "over_50ms": 2,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_inspection_cursor_acquisition": {
+            "n": 1,
+            "p50": 30.597,
+            "p95": 30.597,
+            "p99": 30.597,
+            "max": 30.597,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_inspection_drag": {
+            "n": 1,
+            "p50": 71.096,
+            "p95": 71.096,
+            "p99": 71.096,
+            "max": 71.096,
+            "over_50ms": 1,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_inspection_enter": {
+            "n": 119,
+            "p50": 27.336,
+            "p95": 40.50999999999999,
+            "p99": 58.3290599999999,
+            "max": 105.967,
+            "over_50ms": 2,
+            "over_100ms": 1,
+            "over_250ms": 0
+          },
+          "original_a_inspection_exit": {
+            "n": 30,
+            "p50": 80.726,
+            "p95": 88.73559999999998,
+            "p99": 93.82496,
+            "max": 95.181,
+            "over_50ms": 29,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_inspection_idle": {
+            "n": 119,
+            "p50": 31.55,
+            "p95": 38.47979999999998,
+            "p99": 48.666419999999974,
+            "max": 167.631,
+            "over_50ms": 1,
+            "over_100ms": 1,
+            "over_250ms": 0
+          },
+          "original_a_upper_turn": {
+            "n": 119,
+            "p50": 35.086,
+            "p95": 41.0893,
+            "p99": 42.67276,
+            "max": 46.867,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_walk_(1.925, 0.0, -3.5)": {
+            "n": 65,
+            "p50": 51.549,
+            "p95": 60.407,
+            "p99": 68.55095999999999,
+            "max": 75.758,
+            "over_50ms": 41,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_walk_(1.925, 1.6, 1.3)": {
+            "n": 87,
+            "p50": 39.394,
+            "p95": 53.5628,
+            "p99": 56.347100000000005,
+            "max": 62.423,
+            "over_50ms": 13,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_walk_(1.925, 3.2, -3.4)": {
+            "n": 15,
+            "p50": 42.32,
+            "p95": 87.53299999999993,
+            "p99": 127.13619999999996,
+            "max": 137.037,
+            "over_50ms": 4,
+            "over_100ms": 1,
+            "over_250ms": 0
+          },
+          "original_a_walk_(3.975, 1.6, 1.3)": {
+            "n": 107,
+            "p50": 36.085,
+            "p95": 51.74809999999997,
+            "p99": 80.35427999999997,
+            "max": 105.854,
+            "over_50ms": 7,
+            "over_100ms": 1,
+            "over_250ms": 0
+          },
+          "original_a_walk_(3.975, 3.2, -2.4)": {
+            "n": 26,
+            "p50": 52.032,
+            "p95": 58.11375,
+            "p99": 59.35875,
+            "max": 59.739,
+            "over_50ms": 17,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "original_a_walk_(3.975, 3.2, -3.4)": {
+            "n": 202,
+            "p50": 43.796499999999995,
+            "p95": 130.68395,
+            "p99": 145.70936000000003,
+            "max": 146.89,
+            "over_50ms": 52,
+            "over_100ms": 39,
+            "over_250ms": 0
+          }
+        },
+        "pipeline_deltas": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 14.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 86.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "primitives": {
+          "n": 1149,
+          "p50": 131178703.0,
+          "p95": 215226182.0,
+          "p99": 245734623.0,
+          "max": 275735124.0,
+          "over_50ms": 1149,
+          "over_100ms": 1149,
+          "over_250ms": 1149
+        }
+      },
+      "reduced_carrier_b_": {
+        "all": {
+          "wall_ms": {
+            "n": 1120,
+            "p50": 41.5085,
+            "p95": 81.9865,
+            "p99": 123.98648999999988,
+            "max": 174.253,
+            "over_50ms": 236,
+            "over_100ms": 45,
+            "over_250ms": 0
+          },
+          "process_ms": {
+            "n": 1120,
+            "p50": 46.705,
+            "p95": 58.941,
+            "p99": 76.766,
+            "max": 76.766,
+            "over_50ms": 459,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "physics_ms": {
+            "n": 1120,
+            "p50": 3.252,
+            "p95": 28.828,
+            "p99": 40.005,
+            "max": 40.005,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_cpu_ms": {
+            "n": 1120,
+            "p50": 22.708999633789098,
+            "p95": 34.226948547363286,
+            "p99": 37.23041042327882,
+            "max": 39.3079986572266,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_gpu_ms": {
+            "n": 1120,
+            "p50": 13.7330002784729,
+            "p95": 21.76294918060302,
+            "p99": 33.675798377990674,
+            "max": 38.4459991455078,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          }
+        },
+        "movement_and_turn": {
+          "wall_ms": {
+            "n": 850,
+            "p50": 44.0565,
+            "p95": 94.48934999999935,
+            "p99": 125.89810999999999,
+            "max": 136.07,
+            "over_50ms": 201,
+            "over_100ms": 43,
+            "over_250ms": 0
+          },
+          "process_ms": {
+            "n": 850,
+            "p50": 47.637,
+            "p95": 58.787,
+            "p99": 59.912,
+            "max": 61.273,
+            "over_50ms": 374,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "physics_ms": {
+            "n": 850,
+            "p50": 3.359,
+            "p95": 12.718,
+            "p99": 17.053,
+            "max": 18.608,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_cpu_ms": {
+            "n": 850,
+            "p50": 24.0115003585815,
+            "p95": 35.108898925781226,
+            "p99": 37.69289943695073,
+            "max": 39.3079986572266,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_gpu_ms": {
+            "n": 850,
+            "p50": 14.611999988555901,
+            "p95": 22.618949413299557,
+            "p99": 34.82181079864503,
+            "max": 38.4459991455078,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          }
+        },
+        "inspection": {
+          "wall_ms": {
+            "n": 270,
+            "p50": 31.4535,
+            "p95": 80.74425000000001,
+            "p99": 87.73470999999999,
+            "max": 174.253,
+            "over_50ms": 35,
+            "over_100ms": 2,
+            "over_250ms": 0
+          },
+          "process_ms": {
+            "n": 270,
+            "p50": 34.206,
+            "p95": 76.766,
+            "p99": 76.766,
+            "max": 76.766,
+            "over_50ms": 85,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "physics_ms": {
+            "n": 270,
+            "p50": 3.087,
+            "p95": 40.005,
+            "p99": 40.005,
+            "max": 40.005,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_cpu_ms": {
+            "n": 270,
+            "p50": 17.827500343322747,
+            "p95": 32.13639984130857,
+            "p99": 33.98284091949462,
+            "max": 37.5410003662109,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_gpu_ms": {
+            "n": 270,
+            "p50": 11.46449995040895,
+            "p95": 20.051249980926503,
+            "p99": 22.867799663543707,
+            "max": 23.5510005950928,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          }
+        },
+        "phases": {
+          "reduced_carrier_b_inspection_approach_walk_(1.925, 1.6, 1.3)": {
+            "n": 55,
+            "p50": 26.337,
+            "p95": 56.897,
+            "p99": 59.37842,
+            "max": 60.797,
+            "over_50ms": 8,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_inspection_approach_walk_(3.65, 3.2, -3.4)": {
+            "n": 3,
+            "p50": 80.656,
+            "p95": 85.7599,
+            "p99": 86.21358,
+            "max": 86.327,
+            "over_50ms": 3,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_inspection_approach_walk_(3.975, 1.6, 1.3)": {
+            "n": 25,
+            "p50": 32.418,
+            "p95": 39.8608,
+            "p99": 43.25647999999999,
+            "max": 44.3,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_inspection_approach_walk_(3.975, 3.2, -2.4)": {
+            "n": 24,
+            "p50": 56.959999999999994,
+            "p95": 60.776799999999994,
+            "p99": 63.05883,
+            "max": 63.698,
+            "over_50ms": 21,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_inspection_approach_walk_(3.975, 3.2, -3.4)": {
+            "n": 135,
+            "p50": 44.02,
+            "p95": 52.3381,
+            "p99": 56.59985999999999,
+            "max": 58.174,
+            "over_50ms": 14,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_inspection_cursor_acquisition": {
+            "n": 1,
+            "p50": 29.202,
+            "p95": 29.202,
+            "p99": 29.202,
+            "max": 29.202,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_inspection_drag": {
+            "n": 1,
+            "p50": 78.183,
+            "p95": 78.183,
+            "p99": 78.183,
+            "max": 78.183,
+            "over_50ms": 1,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_inspection_enter": {
+            "n": 119,
+            "p50": 30.308,
+            "p95": 41.61439999999999,
+            "p99": 60.734519999999925,
+            "max": 101.508,
+            "over_50ms": 4,
+            "over_100ms": 1,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_inspection_exit": {
+            "n": 30,
+            "p50": 79.5335,
+            "p95": 87.0525,
+            "p99": 87.83111,
+            "max": 87.901,
+            "over_50ms": 29,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_inspection_idle": {
+            "n": 119,
+            "p50": 31.283,
+            "p95": 37.3656,
+            "p99": 43.917139999999975,
+            "max": 174.253,
+            "over_50ms": 1,
+            "over_100ms": 1,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_upper_turn": {
+            "n": 119,
+            "p50": 37.903,
+            "p95": 44.2835,
+            "p99": 47.94122,
+            "max": 48.874,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_walk_(1.925, 0.0, -3.5)": {
+            "n": 64,
+            "p50": 52.0955,
+            "p95": 61.45564999999999,
+            "p99": 65.82288,
+            "max": 66.594,
+            "over_50ms": 39,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_walk_(1.925, 1.6, 1.3)": {
+            "n": 90,
+            "p50": 36.208,
+            "p95": 53.87615,
+            "p99": 59.00619,
+            "max": 63.393,
+            "over_50ms": 11,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_walk_(1.925, 3.2, -3.4)": {
+            "n": 16,
+            "p50": 48.177,
+            "p95": 56.206,
+            "p99": 62.7964,
+            "max": 64.444,
+            "over_50ms": 6,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_walk_(3.975, 1.6, 1.3)": {
+            "n": 104,
+            "p50": 38.452,
+            "p95": 48.8793,
+            "p99": 81.79019999999998,
+            "max": 86.516,
+            "over_50ms": 5,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_walk_(3.975, 3.2, -2.4)": {
+            "n": 24,
+            "p50": 57.2905,
+            "p95": 63.75465,
+            "p99": 63.87627,
+            "max": 63.888,
+            "over_50ms": 22,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "reduced_carrier_b_walk_(3.975, 3.2, -3.4)": {
+            "n": 191,
+            "p50": 48.739,
+            "p95": 124.842,
+            "p99": 131.33559999999997,
+            "max": 136.07,
+            "over_50ms": 72,
+            "over_100ms": 43,
+            "over_250ms": 0
+          }
+        },
+        "pipeline_deltas": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 5.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 8.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "primitives": {
+          "n": 1120,
+          "p50": 133173399.0,
+          "p95": 219173113.75,
+          "p99": 249416500.17999992,
+          "max": 274408858.0,
+          "over_50ms": 1120,
+          "over_100ms": 1120,
+          "over_250ms": 1120
+        }
+      },
+      "restored_a_": {
+        "all": {
+          "wall_ms": {
+            "n": 1096,
+            "p50": 43.571,
+            "p95": 79.594,
+            "p99": 135.6636,
+            "max": 167.843,
+            "over_50ms": 303,
+            "over_100ms": 41,
+            "over_250ms": 0
+          },
+          "process_ms": {
+            "n": 1096,
+            "p50": 49.395,
+            "p95": 62.214,
+            "p99": 65.093,
+            "max": 65.093,
+            "over_50ms": 521,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "physics_ms": {
+            "n": 1096,
+            "p50": 3.304,
+            "p95": 29.329,
+            "p99": 39.354,
+            "max": 39.354,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_cpu_ms": {
+            "n": 1096,
+            "p50": 23.52000045776365,
+            "p95": 34.48449993133548,
+            "p99": 39.420948219299305,
+            "max": 40.4220008850098,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_gpu_ms": {
+            "n": 1096,
+            "p50": 14.495500087738051,
+            "p95": 21.959500312805176,
+            "p99": 35.07325038909914,
+            "max": 39.6759986877441,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          }
+        },
+        "movement_and_turn": {
+          "wall_ms": {
+            "n": 826,
+            "p50": 46.4495,
+            "p95": 78.7965,
+            "p99": 136.75875,
+            "max": 151.782,
+            "over_50ms": 269,
+            "over_100ms": 39,
+            "over_250ms": 0
+          },
+          "process_ms": {
+            "n": 826,
+            "p50": 49.903,
+            "p95": 63.383,
+            "p99": 65.093,
+            "max": 65.093,
+            "over_50ms": 404,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "physics_ms": {
+            "n": 826,
+            "p50": 3.313,
+            "p95": 12.827,
+            "p99": 15.386,
+            "max": 16.07,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_cpu_ms": {
+            "n": 826,
+            "p50": 26.4079999923706,
+            "p95": 35.742999076843276,
+            "p99": 39.5707492828369,
+            "max": 40.4220008850098,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_gpu_ms": {
+            "n": 826,
+            "p50": 15.59299993515015,
+            "p95": 22.176999568939202,
+            "p99": 35.73124980926515,
+            "max": 39.6759986877441,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          }
+        },
+        "inspection": {
+          "wall_ms": {
+            "n": 270,
+            "p50": 28.961,
+            "p95": 79.62639999999999,
+            "p99": 84.99625,
+            "max": 167.843,
+            "over_50ms": 34,
+            "over_100ms": 2,
+            "over_250ms": 0
+          },
+          "process_ms": {
+            "n": 270,
+            "p50": 37.526,
+            "p95": 62.214,
+            "p99": 62.214,
+            "max": 62.214,
+            "over_50ms": 117,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "physics_ms": {
+            "n": 270,
+            "p50": 3.268,
+            "p95": 39.354,
+            "p99": 39.354,
+            "max": 39.354,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_cpu_ms": {
+            "n": 270,
+            "p50": 16.125,
+            "p95": 31.417249393463173,
+            "p99": 33.25886917114255,
+            "max": 34.4589996337891,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "render_gpu_ms": {
+            "n": 270,
+            "p50": 10.5455002784729,
+            "p95": 20.264099884033204,
+            "p99": 22.05462051391603,
+            "max": 22.6469993591309,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          }
+        },
+        "phases": {
+          "restored_a_inspection_approach_walk_(1.925, 1.6, 1.3)": {
+            "n": 54,
+            "p50": 27.6405,
+            "p95": 55.141049999999986,
+            "p99": 60.85763999999999,
+            "max": 64.044,
+            "over_50ms": 8,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_inspection_approach_walk_(3.65, 3.2, -3.4)": {
+            "n": 3,
+            "p50": 77.475,
+            "p95": 82.8048,
+            "p99": 83.27856,
+            "max": 83.397,
+            "over_50ms": 3,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_inspection_approach_walk_(3.975, 1.6, 1.3)": {
+            "n": 23,
+            "p50": 32.997,
+            "p95": 42.334199999999996,
+            "p99": 43.887620000000005,
+            "max": 44.268,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_inspection_approach_walk_(3.975, 3.2, -2.4)": {
+            "n": 25,
+            "p50": 56.154,
+            "p95": 61.581599999999995,
+            "p99": 64.6468,
+            "max": 65.554,
+            "over_50ms": 23,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_inspection_approach_walk_(3.975, 3.2, -3.4)": {
+            "n": 125,
+            "p50": 47.729,
+            "p95": 54.276399999999995,
+            "p99": 56.930040000000005,
+            "max": 57.047,
+            "over_50ms": 37,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_inspection_cursor_acquisition": {
+            "n": 1,
+            "p50": 24.7,
+            "p95": 24.7,
+            "p99": 24.7,
+            "max": 24.7,
+            "over_50ms": 0,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_inspection_drag": {
+            "n": 1,
+            "p50": 77.169,
+            "p95": 77.169,
+            "p99": 77.169,
+            "max": 77.169,
+            "over_50ms": 1,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_inspection_enter": {
+            "n": 119,
+            "p50": 27.094,
+            "p95": 44.9846,
+            "p99": 65.22305999999996,
+            "max": 109.388,
+            "over_50ms": 3,
+            "over_100ms": 1,
+            "over_250ms": 0
+          },
+          "restored_a_inspection_exit": {
+            "n": 30,
+            "p50": 78.27199999999999,
+            "p95": 84.07845,
+            "p99": 86.14625000000001,
+            "max": 86.98,
+            "over_50ms": 29,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_inspection_idle": {
+            "n": 119,
+            "p50": 29.73,
+            "p95": 35.5331,
+            "p99": 42.666859999999986,
+            "max": 167.843,
+            "over_50ms": 1,
+            "over_100ms": 1,
+            "over_250ms": 0
+          },
+          "restored_a_upper_turn": {
+            "n": 119,
+            "p50": 38.012,
+            "p95": 45.3304,
+            "p99": 49.69759999999999,
+            "max": 53.026,
+            "over_50ms": 2,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_walk_(1.925, 0.0, -3.5)": {
+            "n": 64,
+            "p50": 52.6045,
+            "p95": 62.427499999999995,
+            "p99": 65.24449,
+            "max": 65.608,
+            "over_50ms": 49,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_walk_(1.925, 1.6, 1.3)": {
+            "n": 100,
+            "p50": 30.0305,
+            "p95": 55.4086,
+            "p99": 58.11812000000002,
+            "max": 62.783,
+            "over_50ms": 24,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_walk_(1.925, 3.2, -3.4)": {
+            "n": 17,
+            "p50": 45.656,
+            "p95": 58.618599999999994,
+            "p99": 67.50052,
+            "max": 69.721,
+            "over_50ms": 3,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_walk_(3.975, 1.6, 1.3)": {
+            "n": 93,
+            "p50": 43.683,
+            "p95": 54.12179999999997,
+            "p99": 83.00619999999992,
+            "max": 126.352,
+            "over_50ms": 16,
+            "over_100ms": 1,
+            "over_250ms": 0
+          },
+          "restored_a_walk_(3.975, 3.2, -2.4)": {
+            "n": 22,
+            "p50": 64.285,
+            "p95": 70.55085,
+            "p99": 71.06605,
+            "max": 71.191,
+            "over_50ms": 21,
+            "over_100ms": 0,
+            "over_250ms": 0
+          },
+          "restored_a_walk_(3.975, 3.2, -3.4)": {
+            "n": 181,
+            "p50": 49.676,
+            "p95": 135.732,
+            "p99": 145.10099999999997,
+            "max": 151.782,
+            "over_50ms": 83,
+            "over_100ms": 38,
+            "over_250ms": 0
+          }
+        },
+        "pipeline_deltas": {
+          "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+          "PIPELINE_COMPILATIONS_DRAW": 0.0,
+          "PIPELINE_COMPILATIONS_MESH": 0.0,
+          "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+          "PIPELINE_COMPILATIONS_SURFACE": 0.0
+        },
+        "primitives": {
+          "n": 1096,
+          "p50": 141730337.0,
+          "p95": 225714054.75,
+          "p99": 251872611.69999993,
+          "max": 282176659.0,
+          "over_50ms": 1096,
+          "over_100ms": 1096,
+          "over_250ms": 1096
+        }
+      }
+    }
+  }
+}

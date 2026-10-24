@@ -1,0 +1,39 @@
+{
+	"checks": 21,
+	"evidence_class": "INERT",
+	"failures": [],
+	"observations": {
+		"banks": [
+			0,
+			-1,
+			1
+		],
+		"pages": 3,
+		"peak_impression_m": 0.00155000004451722,
+		"text_high": "(0.058185, 0.059825, 0.0527)",
+		"text_low": "(-0.05832, -0.007, 0.0527)"
+	},
+	"scope": "Production printer in an isolated render fixture; direct service-cover input, composed save and whole-world performance are not qualified",
+	"stderr_stages": [
+		{
+			"stage": "01_printing",
+			"stderr": ""
+		},
+		{
+			"stage": "02_full_page",
+			"stderr": ""
+		},
+		{
+			"stage": "03_service",
+			"stderr": ""
+		},
+		{
+			"stage": "04_radio_back",
+			"stderr": ""
+		},
+		{
+			"stage": "freed_device",
+			"stderr": ""
+		}
+	]
+}

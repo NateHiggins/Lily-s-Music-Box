@@ -1,0 +1,71 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 66.64,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T23:46:35Z",
+  "started_utc": "2026-10-21T23:45:28Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 5,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"same\" variable because the value doesn't have a set type.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://tests/v2_deployable_hose_native_test.gd\" with error \"Compilation failed\".",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'prepare' in base 'Nil'."
+  ],
+  "stale_cache_lines": [
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'prepare' in base 'Nil'."
+  ],
+  "stale_cache_suspect": true,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_deployable_hose_20261021/native_v4.log.stderr",
+  "stderr_sha256": "72fc853738bff39ac58a0ca37afe8fb7b10c862df48ec7ae3e8b5c24cef67cb5",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_deployable_hose_20261021/native_v4.log",
+  "stdout_sha256": "68a4c275b55afa260286f8c2b885ddf3d2d3082af59279ed94471d9a4f488232"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2DeployableHoseNativeTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_deployable_hose_20261021/native_v4",
+ "source": {
+  "dirty_paths": 1630,
+  "dirty_sample": [
+   "M art/blender/scripts/build_fire_capacity_candidate.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
+   " M game/assets/audio/music/covers/living_with_the_motor.webp.import",
+   " M game/assets/audio/music/covers/mina_s_midday_quest.webp.import",
+   " M game/assets/audio/music/covers/no_subject_line.webp.import"
+  ],
+  "repository_head": "5cee5926ca96a5e9fdae8a1f4a2c2dd621c685f8",
+  "repository_tree": "4f74c116db6d036159f2e7812cae6438da00570a",
+  "runtime_inputs_sha256": "83a7e534ed0e3fe1951e40b82ac198c7e7d212270b9e7815f3993486ca315a15",
+  "test_path": "game/tests/v2_deployable_hose_native_test.gd",
+  "test_sha256": "93ee82ab07dc33c4f591be4e3a60aebe49e710662f4dcb05af22ef17428e5a4f"
+ },
+ "windowed": true
+}

@@ -1,0 +1,7 @@
+ERROR: V2 BATHROOM PAPER AND MOISTURE REVIEW: continued hot flow accumulates room steam up to its density cap
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _visual_review (res://tests/v2_bathroom_moisture_review.gd:110)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

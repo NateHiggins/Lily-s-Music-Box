@@ -1,0 +1,21 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Immutable pre-execution diagnostic source snapshot, not runtime qualification. Production source remains unchanged. Wrapper and own outputs must be inspected after execution.",
+  "head": "0c596a199afa7d5a0b90cb601e21b19cfba26696",
+  "sources_sha256": {
+    "game/scripts/player/player_controller.gd": "30bfdc6aecb34ac06adfb69f9b187a431ce57c791ea81d91f9d3073d9ca760be",
+    "game/tests/v2_floor_transition_profile.gd": "5a6e304df582c1a5b4adde53dc4b7d9b17466eb30ef86505324a044789de2eaf",
+    "game/tests/v2_golden_repair_profile.gd": "b46664f16d6b6091f7bfe70788cb66a1fa29676541e8847e36c9a6f89c52d9db",
+    "game/tests/orison_v2_golden_repair_route_test.gd": "c3e82af1cbe54221c71b55945882775325b356e7891e929def9082d29d662b1c",
+    "game/tests/orison_v2_connected_exterior_route_test.gd": "ddcdb8faa1c4a8826cb15ecb467adbfb17ca695d8b98b614adc92f170e7ebe34",
+    "game/tests/orison_v2_vertical_route_test.gd": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+    "game/tests/orison_v2_first_slice_contract_test.gd": "884c1b94e63ed438bed885173aae490cee06f3aa71ad1d901007f32ba053a971",
+    "game/tests/v2_fire_hand_bench.gd": "6bcd764eb0c1f9b54e2ed69e03f08f697d528372a0fa75144df47df779adc190",
+    "game/tests/v2_triangle_partition_stair_profile.gd": "6f7a8bf20e51ba0f337aa43e74d7463fdf073b0a198e016d8dac3b2dbf5af667",
+    "game/tests/native_triangle_grid.gd": "e3c1d59b0599fa4ae6b20ba1d477e3614fac018da049958a3d7320302ef78f4b",
+    "game/tests/native_triangle_grid_bench.gd": "795d6ba1799f7fc3a8af69c5f7a51c67732d6bd32af4b80673d162bc82b4bc0a",
+    "game/tests/NativeTriangleGridBench.tscn": "1ef0b66d36c123b0b87618756be6843830cd935483bbc8e66799494a9170057a",
+    "game/tests/v2_triangle_grid_stair_profile.gd": "12d77a8a6f8b6d357daa44af40a0f127c65e33a717872dcd4113d38a0c4ec486",
+    "game/tests/V2TriangleGridStairProfile.tscn": "efb436c45901bc7f38a76bfd1e66e184448a401702183e49573a6d471f162bd3"
+  }
+}

@@ -1,0 +1,6 @@
+ERROR: ORISON V2 RUNTIME: remaining interiors refused: ["unsupported actual shower mounting wall: F01_1A_SHOWER_01 depth=0.38000106811523"]
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:322)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:187)
+       [2] _run (res://tests/orison_v2_vertical_route_test.gd:19)

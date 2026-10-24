@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "evidence_class": "INERT",
+  "authorship": "Original built-in imagegen illustrations; no reference photographs; lettering remains runtime Label3D. Native/page installation is not qualified.",
+  "plates": {
+    "empty_house_frontispiece": {
+      "source": "art/illustrations/book_editorial_20261022/empty_house_frontispiece.png",
+      "tool": "built-in image_gen",
+      "original_generated_path": "C:\\Users\\nate_\\.codex\\generated_images\\01a15d9e-30c0-74b0-b8f8-b4859bc4f5a7\\exec-6d5e5ece-cacc-4635-a8e1-1087868c6207.png",
+      "sha256": "93937c5638f2ae59fd7cd6ddbdde945e386d8294401552c4ae1cc76e5fd1c95f"
+    },
+    "walls_frontispiece": {
+      "source": "art/illustrations/book_editorial_20261022/walls_frontispiece.png",
+      "tool": "built-in image_gen",
+      "original_generated_path": "C:\\Users\\nate_\\.codex\\generated_images\\01a15d9e-30c0-74b0-b8f8-b4859bc4f5a7\\exec-6e70e99e-c0d9-4adc-bb45-92ea1453d0d3.png",
+      "sha256": "ebf5fa6af9b6eb5b06b09c70741084c3de1733201f77fc50a8aacdcef63f91cd"
+    },
+    "midnight_receiver": {
+      "source": "art/illustrations/book_editorial_20261022/midnight_receiver.png",
+      "tool": "built-in image_gen",
+      "original_generated_path": "C:\\Users\\nate_\\.codex\\generated_images\\01a15d9e-30c0-74b0-b8f8-b4859bc4f5a7\\exec-32ea0ff0-7c1a-4d43-b104-5eaa7017b8a9.png",
+      "sha256": "41efc34c56c2009504aced1c456f7df0717e0a6ec69294ba67c96063cf9141e6"
+    },
+    "shore_boat_frontispiece": {
+      "source": "art/illustrations/book_editorial_20261022/shore_boat_frontispiece.png",
+      "tool": "built-in image_gen",
+      "original_generated_path": "C:\\Users\\nate_\\.codex\\generated_images\\01a15d9e-30c0-74b0-b8f8-b4859bc4f5a7\\exec-a62432b9-2a43-460d-af3a-c2be75cdad71.png",
+      "sha256": "fe68fd2c49848ba308ea0ebb10e375e501ebaa3d525c3aa6546b2f1c0b274b44"
+    }
+  },
+  "rejected_commission": {
+    "id": "shore_knot_plate",
+    "reason": "Image generator rejected output as self-harm. Replaced with a model-boat still life; existing native knot diagram retained.",
+    "request_id": "db2f4cb4-a5eb-4c6e-83e9-31a50e531c33"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "evidence_class": "INERT",
+  "kind": "same_run_performance_diagnostic",
+  "scope": "Original / player-only native constraint hulls / original. Lower-cap step enabled throughout. Diagnostic controls, not runtime qualification or hardware latency.",
+  "resolution": "(1280.0, 720.0)",
+  "vsync": false,
+  "capture_control": false,
+  "route_waypoints": 51,
+  "failures": [],
+  "execution": {
+    "completed": true,
+    "elapsed_s": 312.72,
+    "exit_code": 0,
+    "finished_utc": "2026-10-21T23:51:50Z",
+    "started_utc": "2026-10-21T23:46:37Z",
+    "timed_out": false
+  },
+  "script_errors": 0,
+  "cycles": {
+    "original_a_": {
+      "movement": {
+        "n": 807,
+        "p50_ms": 46.484,
+        "p95_ms": 64.657,
+        "p99_ms": 210.925,
+        "max_ms": 228.905,
+        "over_100_ms": 27,
+        "over_250_ms": 0
+      },
+      "inspection": {
+        "n": 271,
+        "p50_ms": 31.717,
+        "p95_ms": 102.802,
+        "p99_ms": 112.139,
+        "max_ms": 161.864,
+        "over_100_ms": 18,
+        "over_250_ms": 0
+      },
+      "step": {
+        "n": 1088,
+        "p50_ms": 0.003,
+        "p95_ms": 0.005,
+        "p99_ms": 0.069,
+        "max_ms": 0.089,
+        "over_100_ms": 0,
+        "over_250_ms": 0
+      },
+      "slide": {
+        "n": 1088,
+        "p50_ms": 4.039,
+        "p95_ms": 19.976,
+        "p99_ms": 20.659,
+        "max_ms": 27.728,
+        "over_100_ms": 0,
+        "over_250_ms": 0
+      }
+    },
+    "player_hulls_b_": {
+      "movement": {
+        "n": 918,
+        "p50_ms": 42.265,
+        "p95_ms": 63.434,
+        "p99_ms": 69.949,
+        "max_ms": 88.751,
+        "over_100_ms": 0,
+        "over_250_ms": 0
+      },
+      "inspection": {
+        "n": 270,
+        "p50_ms": 31.803,
+        "p95_ms": 84.637,
+        "p99_ms": 111.213,
+        "max_ms": 184.967,
+        "over_100_ms": 3,
+        "over_250_ms": 0
+      },
+      "step": {
+        "n": 490,
+        "p50_ms": 0.003,
+        "p95_ms": 0.006,
+        "p99_ms": 0.066,
+        "max_ms": 0.087,
+        "over_100_ms": 0,
+        "over_250_ms": 0
+      },
+      "slide": {
+        "n": 490,
+        "p50_ms": 4.842,
+        "p95_ms": 5.141,
+        "p99_ms": 9.39,
+        "max_ms": 9.819,
+        "over_100_ms": 0,
+        "over_250_ms": 0
+      }
+    },
+    "restored_a_": {
+      "movement": {
+        "n": 754,
+        "p50_ms": 48.91,
+        "p95_ms": 75.926,
+        "p99_ms": 201.597,
+        "max_ms": 239.385,
+        "over_100_ms": 29,
+        "over_250_ms": 0
+      },
+      "inspection": {
+        "n": 270,
+        "p50_ms": 31.783,
+        "p95_ms": 99.106,
+        "p99_ms": 116.326,
+        "max_ms": 167.409,
+        "over_100_ms": 12,
+        "over_250_ms": 0
+      },
+      "step": {
+        "n": 1095,
+        "p50_ms": 0.003,
+        "p95_ms": 0.006,
+        "p99_ms": 0.066,
+        "max_ms": 0.09,
+        "over_100_ms": 0,
+        "over_250_ms": 0
+      },
+      "slide": {
+        "n": 1095,
+        "p50_ms": 3.953,
+        "p95_ms": 17.626,
+        "p99_ms": 20.56,
+        "max_ms": 28.055,
+        "over_100_ms": 0,
+        "over_250_ms": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+ERROR: V2 INSTALLED HOSE WORLD: actual separate lever input starts first installed spray
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _check (res://tests/v2_hose_installed_world.gd:16)
+       [2] _play_route (res://tests/v2_hose_installed_world.gd:96)
+       [3] inspect_operate (res://tests/v2_fire_hand_bench.gd:111)
+       [4] move_to (res://tests/orison_v2_first_slice_contract_test.gd:39)

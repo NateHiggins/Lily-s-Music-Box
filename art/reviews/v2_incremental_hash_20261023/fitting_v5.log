@@ -1,0 +1,41 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+NATIVE JOB: frozen pre-refactor fitter accepts actual authored cell = true
+NATIVE JOB: original native collision shapes seed the unchanged cache = true
+NATIVE JOB: prepare keeps public cell byte/pose/material/collision state unchanged = true
+NATIVE JOB: part chunks yield without partial publication = true
+NATIVE JOB: cooperative result equals frozen original buffers, transforms, PBR fields, collision faces and source counts = true
+NATIVE JOB: original wrapper consumes one exact prepared result without rebuilding = true
+NATIVE JOB: duplicate mount remains refused after token consumption = true
+NATIVE JOB: cancellation releases private model and preserves original cell = true
+NATIVE JOB: abandoned unfinished job releases private model without an explicit cancel = true
+NATIVE JOB: source resource mutation during yielded construction refuses publication = true
+NATIVE JOB: source pose mutation during yielded construction refuses publication = true
+NATIVE JOB: same-RID cached shape mutation between chunks is rechecked before publication = true
+NATIVE JOB: prepared token refuses mismatched arguments and is consumed once = true
+NATIVE JOB: foreign prepared object cannot bypass source validation = true
+NATIVE JOB: cancel during hash releases context/model outside temporary getter scope = true
+NATIVE JOB: abandon during hash releases context/model outside temporary getter scope = true
+NATIVE JOB: native mesh identity change during hashing refuses publication = true
+NATIVE JOB: arcade_canopy frozen original accepts actual source cell = true
+NATIVE JOB: arcade_canopy original exact collision cache seeds = true
+NATIVE JOB: arcade_canopy yielded mesh/material/pose/collision output equals frozen original = true
+NATIVE JOB: arcade_canopy exact original entry consumes prepared result = true
+NATIVE JOB: arcade_throat frozen original accepts actual source cell = true
+NATIVE JOB: arcade_throat original exact collision cache seeds = true
+NATIVE JOB: arcade_throat yielded mesh/material/pose/collision output equals frozen original = true
+NATIVE JOB: arcade_throat exact original entry consumes prepared result = true
+NATIVE JOB: hardware_drawers frozen original accepts actual source cell = true
+NATIVE JOB: hardware_drawers original exact collision cache seeds = true
+NATIVE JOB: hardware_drawers yielded mesh/material/pose/collision output equals frozen original = true
+NATIVE JOB: hardware_drawers exact original entry consumes prepared result = true
+NATIVE JOB: hardware_stock frozen original accepts actual source cell = true
+NATIVE JOB: hardware_stock original exact collision cache seeds = true
+NATIVE JOB: hardware_stock yielded mesh/material/pose/collision output equals frozen original = true
+NATIVE JOB: hardware_stock exact original entry consumes prepared result = true
+NATIVE JOB: druggist_drawers frozen original accepts actual source cell = true
+NATIVE JOB: druggist_drawers original exact collision cache seeds = true
+NATIVE JOB: druggist_drawers yielded mesh/material/pose/collision output equals frozen original = true
+NATIVE JOB: druggist_drawers exact original entry consumes prepared result = true
+NATIVE JOB: PASS checks=37

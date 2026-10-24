@@ -1,0 +1,245 @@
+{
+	"checks": [
+		{
+			"label": "synchronous empty buffer is an error-free no-op vertex_data",
+			"ok": true
+		},
+		{
+			"label": "complete original digest vertex_data size 0",
+			"ok": true
+		},
+		{
+			"label": "synchronous empty buffer is an error-free no-op attribute_data",
+			"ok": true
+		},
+		{
+			"label": "complete original digest attribute_data size 0",
+			"ok": true
+		},
+		{
+			"label": "synchronous empty buffer is an error-free no-op skin_data",
+			"ok": true
+		},
+		{
+			"label": "complete original digest skin_data size 0",
+			"ok": true
+		},
+		{
+			"label": "synchronous empty buffer is an error-free no-op index_data",
+			"ok": true
+		},
+		{
+			"label": "complete original digest index_data size 0",
+			"ok": true
+		},
+		{
+			"label": "synchronous empty buffer is an error-free no-op blend_shape_data",
+			"ok": true
+		},
+		{
+			"label": "complete original digest blend_shape_data size 0",
+			"ok": true
+		},
+		{
+			"label": "complete original digest vertex_data size 1",
+			"ok": true
+		},
+		{
+			"label": "complete original digest attribute_data size 1",
+			"ok": true
+		},
+		{
+			"label": "complete original digest skin_data size 1",
+			"ok": true
+		},
+		{
+			"label": "complete original digest index_data size 1",
+			"ok": true
+		},
+		{
+			"label": "complete original digest blend_shape_data size 1",
+			"ok": true
+		},
+		{
+			"label": "complete original digest vertex_data size 262143",
+			"ok": true
+		},
+		{
+			"label": "complete original digest attribute_data size 262143",
+			"ok": true
+		},
+		{
+			"label": "complete original digest skin_data size 262143",
+			"ok": true
+		},
+		{
+			"label": "complete original digest index_data size 262143",
+			"ok": true
+		},
+		{
+			"label": "complete original digest blend_shape_data size 262143",
+			"ok": true
+		},
+		{
+			"label": "complete original digest vertex_data size 262144",
+			"ok": true
+		},
+		{
+			"label": "complete original digest attribute_data size 262144",
+			"ok": true
+		},
+		{
+			"label": "complete original digest skin_data size 262144",
+			"ok": true
+		},
+		{
+			"label": "complete original digest index_data size 262144",
+			"ok": true
+		},
+		{
+			"label": "complete original digest blend_shape_data size 262144",
+			"ok": true
+		},
+		{
+			"label": "complete original digest vertex_data size 262145",
+			"ok": true
+		},
+		{
+			"label": "large buffer yields without omitting suffix vertex_data size 262145",
+			"ok": true
+		},
+		{
+			"label": "complete original digest attribute_data size 262145",
+			"ok": true
+		},
+		{
+			"label": "large buffer yields without omitting suffix attribute_data size 262145",
+			"ok": true
+		},
+		{
+			"label": "complete original digest skin_data size 262145",
+			"ok": true
+		},
+		{
+			"label": "large buffer yields without omitting suffix skin_data size 262145",
+			"ok": true
+		},
+		{
+			"label": "complete original digest index_data size 262145",
+			"ok": true
+		},
+		{
+			"label": "large buffer yields without omitting suffix index_data size 262145",
+			"ok": true
+		},
+		{
+			"label": "complete original digest blend_shape_data size 262145",
+			"ok": true
+		},
+		{
+			"label": "large buffer yields without omitting suffix blend_shape_data size 262145",
+			"ok": true
+		},
+		{
+			"label": "complete original digest vertex_data size 1048577",
+			"ok": true
+		},
+		{
+			"label": "large buffer yields without omitting suffix vertex_data size 1048577",
+			"ok": true
+		},
+		{
+			"label": "complete original digest attribute_data size 1048577",
+			"ok": true
+		},
+		{
+			"label": "large buffer yields without omitting suffix attribute_data size 1048577",
+			"ok": true
+		},
+		{
+			"label": "complete original digest skin_data size 1048577",
+			"ok": true
+		},
+		{
+			"label": "large buffer yields without omitting suffix skin_data size 1048577",
+			"ok": true
+		},
+		{
+			"label": "complete original digest index_data size 1048577",
+			"ok": true
+		},
+		{
+			"label": "large buffer yields without omitting suffix index_data size 1048577",
+			"ok": true
+		},
+		{
+			"label": "complete original digest blend_shape_data size 1048577",
+			"ok": true
+		},
+		{
+			"label": "large buffer yields without omitting suffix blend_shape_data size 1048577",
+			"ok": true
+		},
+		{
+			"label": "empty input digest stays identical",
+			"ok": true
+		},
+		{
+			"label": "multiple surfaces and original non-packed fallback encoding",
+			"ok": true
+		},
+		{
+			"label": "constructor freezes caller dictionary/header/buffer/array mutation",
+			"ok": true
+		},
+		{
+			"label": "mesh-copy snapshot is exactly the complete hashed snapshot",
+			"ok": true
+		},
+		{
+			"label": "completed job is stable on repeated advance",
+			"ok": true
+		},
+		{
+			"label": "complete identity includes format",
+			"ok": true
+		},
+		{
+			"label": "complete identity includes primitive",
+			"ok": true
+		},
+		{
+			"label": "complete identity includes vertex_count",
+			"ok": true
+		},
+		{
+			"label": "complete identity includes index_count",
+			"ok": true
+		},
+		{
+			"label": "complete identity includes aabb",
+			"ok": true
+		},
+		{
+			"label": "complete identity includes vertex_data",
+			"ok": true
+		},
+		{
+			"label": "complete identity includes attribute_data",
+			"ok": true
+		},
+		{
+			"label": "complete identity includes skin_data",
+			"ok": true
+		},
+		{
+			"label": "complete identity includes index_data",
+			"ok": true
+		},
+		{
+			"label": "complete identity includes blend_shape_data",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT"
+}

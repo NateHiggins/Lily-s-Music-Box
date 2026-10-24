@@ -29,12 +29,21 @@ class NookBooksTests(unittest.TestCase):
         library={r["id"]:r for r in read("game/data/library.json")["books"]}
         public=set(library)-{"prospectus","hymns","onefinger","minutes"}
         programme=read("art/data/reading_nook/book_programme.json")["copies"]
+        editions=read("game/data/orison_v2/readable_library.json")
         self.assertEqual({r["id"]:r["title_id"] for r in data["copies"]},programme)
         self.assertTrue(set(programme.values())<=public)
         self.assertLess(len(public),len(data["copies"]),"Distinct physical copies may share a title")
         for copy in data["copies"]:
             self.assertLessEqual(library[copy["title_id"]]["year"],1928)
-            self.assertEqual(data["books"][copy["id"]]["binding"],"case binding")
+            book=data["books"][copy["id"]]
+            edition=editions["books"][copy["title_id"]]
+            self.assertEqual(book["native_title"],copy["title_id"])
+            for field in ["width","height","thickness","binding","opening_style","format","layout","publisher","page_count"]:
+                self.assertEqual(book[field],edition[field],(copy["id"],field))
+            self.assertEqual(len(book["opening_keys"]),8)
+            if book["opening_style"]=="paperback":
+                wrappers=[p for p in book["parts"] if p.endswith("__continuous_wrap")]
+                self.assertEqual(len(wrappers),1,"A paperback has one continuous flexible wrapper")
 
     def test_each_volume_keeps_its_own_dimensions_and_closed_native_parts(self):
         data=read("game/data/orison_v2/nook_readable_books.json")
@@ -42,8 +51,11 @@ class NookBooksTests(unittest.TestCase):
         self.assertEqual(set(report["parts"]),set(data["parts"]))
         self.assertEqual({r["part"] for r in report["closed_stocks"]},set(data["parts"]))
         self.assertTrue(all(r["closed"] and r["volume_m3"]>0 for r in report["closed_stocks"]))
+        self.assertEqual(data["asset"],"res://assets/props/readable_library.glb","Copies share the native edition buffers")
+        sizes={"pocket":(.112,.178),"trade":(.140,.216),"reference":(.185,.254),"illustrated":(.210,.260),"pamphlet":(.130,.200)}
         for lineage in report["lineage"]:
             book=data["books"][lineage["id"]]
+            self.assertEqual((book["width"],book["height"]),sizes[book["format"]])
             for field,value in zip(["width","height","thickness"],lineage["dimensions"]):
                 self.assertAlmostEqual(book[field],value,places=6)
             self.assertEqual({data["parts"][p]["role"] for p in book["parts"]},{"left","right","fixed"})

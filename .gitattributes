@@ -2731,5 +2731,477 @@ game/tests/orison_v2_golden_repair_route_test.gd -text
 game/tests/v2_passage_door_sweep_probe.gd -text
 game/tests/V2PassageDoorSweepProbe.tscn -text
 
+# V2 responsiveness diagnostics and source-bound local input/collision checks.
+art/reviews/v2_responsiveness_20261021/** -text whitespace=cr-at-eol
+art/reviews/v2_responsiveness_20261021/*.log binary
+art/reviews/v2_responsiveness_20261021/*.stderr binary
+game/scripts/building/orison_v2_shop_seating.gd -text
+game/scripts/building/orison_v2_fitting_collision_cache.gd -text
+game/scripts/building/orison_v2_structural_occlusion.gd -text
+game/scripts/player/target_reticle.gd -text
+game/tests/orison_v2_responsiveness_profile.gd -text
+game/tests/v2_triangle_fitter_bench.gd -text
+game/tests/fixtures/v2_triangle_fitter_reference.gd -text
+game/tests/v2_native_fitting_profile.gd -text
+game/tests/v2_shop_door_clearance_survey.gd -text
+game/tests/v2_fitting_collision_cache_test.gd -text
+game/tests/v2_structural_occlusion_review.gd -text
+
+# Native arcade leaf repair and source-bound diagnostics.
+art/reviews/v2_shop_door_repair_20261021/** -text whitespace=cr-at-eol
+game/scripts/building/orison_v2_passage_shop_door.gd -text
+game/tests/v2_passage_shop_door_repair.gd -text
+game/tests/v2_tick_cost_diagnostic.gd -text
+game/tests/fixtures/passage_shop_leaves.json -text
+art/blender/scripts/build_passage_shop_leaves.py -text
+art/blender/scripts/inspect_passage_shop_leaves.py -text
+game/tests/v2_script_cost_diagnostic.gd -text
+game/tests/v2_lamp_depth_equivalence.gd -text
+game/tests/v2_radiator_authority_lookup_test.gd -text
+game/tests/v2_golden_repair_profile.gd -text
+game/scripts/props/fire_nozzle_coupling.gd -text
+game/tests/v2_area_survey.gd -text
+game/scripts/cases/mina_caption_manifestation.gd -text
+game/tests/v2_caption_retirement_test.gd -text
+game/tests/v2_floor_transition_profile.gd -text
+game/tests/v2_lamp_glare_probe.gd -text
+game/tests/v2_step_contact_test.gd -text
+art/reviews/v2_shop_door_repair_20261021/*.log binary
+art/reviews/v2_shop_door_repair_20261021/*.stderr binary
+game/tests/v2_reflection_capture_probe.gd -text
+game/scripts/building/orison_v2_room_reflections.gd -text
+
+game/scripts/lamp/lamp_scene_shadow.gd -text
+game/scripts/lamp/lamp_optical_receivers.gd -text
+game/tests/v2_depth_light_culling_probe.gd -text
+game/tests/v2_depth_light_layers_test.gd -text
+game/tests/V2DepthLightCullingProbe.tscn -text
+game/tests/V2DepthLightLayersTest.tscn -text
+
+game/tests/v2_alcove_review.gd -text
+
+game/tests/v2_world_inspection_profile.gd -text
+game/tests/V2WorldInspectionProfile.tscn -text
+
+# Exact executed profiling inputs and raw diagnostic samples.
+art/reviews/v2_counter_hitch_20261021/** -text
+game/tests/orison_v2_connected_exterior_route_test.gd -text
+game/tests/orison_v2_golden_repair_route_test.gd -text
+
+# Native caption-calibrator source and runtime input bindings.
+art/blender/scripts/build_case_calibrator.py -text
+game/scripts/cases/case_interactable.gd -text
+game/scripts/cases/orison_v2_calibrator_plunger.gd -text
+game/scripts/building/orison_v2_case_one_placement.gd -text
+game/data/orison_v2/case_calibrator.json -text
+art/blender/case_calibrator_construction.json -text
+game/tests/calibrator_hand_bench.gd -text
+game/tests/CalibratorHandBench.tscn -text
+game/tests/v2_calibrator_world_review.gd -text
+game/tests/V2CalibratorWorldReview.tscn -text
+art/blender/case_calibrator.blend -text
+art/reviews/v2_case_calibrator_20261021/** -text
+game/data/orison_v2/case_one_placement.json -text
+game/tests/v2_played_profile_and_bucket_review.gd -text
+game/tests/V2PlayedProfileAndBucketReview.tscn -text
+game/tests/v2_attributed_played_profile.gd -text
+game/tests/V2AttributedPlayedProfile.tscn -text
+
+# Byte-exact CRLF archive evidence; preserve originals, suppress text whitespace diff.
+art/reviews/v2_case_calibrator_20261021/early_board.txt binary
+art/reviews/v2_case_calibrator_20261021/preflight.txt binary
+art/reviews/v2_case_calibrator_20261021/reader.txt binary
+art/reviews/v2_case_calibrator_20261021/reader_v2.txt binary
+art/reviews/v2_case_calibrator_20261021/world_v1/executed_sources/case_one_placement.json binary
+
+# Original executed lane batch configuration; retain its CRLF bytes.
+art/reviews/v2_case_calibrator_20261021/renewal/runs.json binary
+
+# Source-bound hose density and V2 step-query repair.
+art/blender/scripts/build_fire_hose_stock.py -text
+art/blender/scripts/build_fire_fold_stock.py -text
+game/scripts/player/player_controller.gd -text
+game/scripts/building/orison_v2_runtime_root.gd -text
+game/tests/v2_low_step_probe_bench.gd -text
+game/tests/V2LowStepProbeBench.tscn -text
+game/tests/v2_low_step_profile_controller.gd -text
+game/tests/v2_low_step_stair_profile.gd -text
+game/tests/V2LowStepStairProfile.tscn -text
+
+# Source-bound player contact repair and uninstalled full-hose diagnostics.
+game/scripts/building/v2_fire_player_contact.gd -text
+game/tests/v2_fire_player_contact_bench.gd -text
+game/tests/v2_fire_player_contact_profile.gd -text
+game/tests/V2FirePlayerContactBench.tscn -text
+game/tests/V2FirePlayerContactProfile.tscn -text
+game/scripts/props/hose_contact_energy.gd -text
+game/scripts/props/native_hose_box_support.gd -text
+game/tests/v2_deployable_hose_programme.gd -text
+game/tests/v2_deployable_hose_native_test.gd -text
+game/tests/V2DeployableHoseNativeTest.tscn -text
+game/tests/hose_contact_energy_test.gd -text
+game/tests/HoseContactEnergyTest.tscn -text
+game/tests/fixtures/v2_deployable_hose_rig.json -text
+art/reviews/v2_deployable_hose_20261021/** -text
+art/blender/scripts/build_fire_capacity_candidate.py -text
+game/scripts/props/native_hose_dynamics.gd -text
+game/scripts/props/native_hose_world_contact.gd -text
+game/tests/v2_fire_capacity_native_test.gd -text
+game/tests/v2_fire_capacity_rig_programme.gd -text
+game/tests/v2_fire_hose_world_contact_programme.gd -text
+game/tests/v2_fire_hose_gravity_programme.gd -text
+game/scripts/props/native_hose_rig.gd -text
+art/blender/v2_deployable_hose/** -text
+
+# Source-bound uninstalled hose follower and native review.
+art/blender/scripts/build_fire_capacity_rack.py -text
+art/blender/scripts/review_deployed_hose.py -text
+game/native/hose_math/src/hose_projection.cpp -text
+game/scripts/props/hose_contact_projection.gd -text
+game/scripts/props/hose_mass_constraints.gd -text
+game/scripts/props/native_hose_tether.gd -text
+game/tests/hose_follow_kernel_test.gd -text
+game/tests/HoseFollowKernelTest.tscn -text
+game/tests/v2_hose_follower_programme.gd -text
+game/tests/v2_hose_follower_test.gd -text
+game/tests/V2HoseFollowerTest.tscn -text
+game/tests/v2_hose_settling_programme.gd -text
+game/tests/v2_hose_settling_test.gd -text
+game/tests/V2HoseSettlingTest.tscn -text
+game/tests/v2_fire_carrier_profile.gd -text
+game/tests/V2FireCarrierProfile.tscn -text
+game/tests/v2_capacity_rack_surface_test.gd -text
+game/tests/V2CapacityRackSurfaceTest.tscn -text
+game/tests/v2_hose_payout_programme.gd -text
+game/tests/v2_hose_payout_test.gd -text
+game/tests/V2HosePayoutTest.tscn -text
+game/tests/v2_hose_right_payout_programme.gd -text
+game/tests/v2_hose_right_payout_test.gd -text
+game/tests/V2HoseRightPayoutTest.tscn -text
+game/tests/fixtures/v2_fire_capacity_rack.json -text
+game/tests/fixtures/v2_fire_capacity_rack.glb.import -text
+game/tests/fixtures/v2_hose_held_case.json -text
+game/tests/fixtures/v2_hose_held_roundoff_case.json -text
+game/tests/fixtures/v2_hose_taut_case.json -text
+art/reviews/v2_hose_follower_20261021/** -text
+art/reviews/v3_hose_follower_20261021/** -text
+
+# Uninstalled native hose skin, contact response and diagnostic sources.
+game/scripts/props/native_hose_bend_limits.gd -text
+game/tests/v2_hose_skin_payout_programme.gd -text
+game/tests/v2_hose_skin_payout_test.gd -text
+game/tests/V2HoseSkinPayoutTest.tscn -text
+art/reviews/v2_hose_skin_20261022/** -text
+art/reviews/v2_hose_friction_20261022/** -text
+art/reviews/v2_unracked_hose_20261022/** -text
+game/scripts/props/fire_unracked_hose.gd -text
+game/tests/v2_unracked_hose_bench.gd -text
+game/tests/V2UnrackedHoseBench.tscn -text
+game/tests/round_hose_contact_bench.gd -text
+game/tests/v2_unracked_hose_world_survey.gd -text
+game/tests/V2UnrackedHoseWorldSurvey.tscn -text
+game/tests/fixtures/v2_unracked_fire_hose.glb.import -text
+game/tests/fixtures/v2_unracked_fire_hose_rig.json -text
+game/tests/fixtures/v2_unracked_fire_hose_placement.json -text
+art/blender/scripts/build_unracked_fire_hose.py -text
+art/blender/scripts/build_unracked_floor_pose.py -text
+game/tests/fixtures/v2_unracked_floor_hose_placement.json -text
+game/tests/v2_unracked_bare_hose_bench.gd -text
+game/tests/V2UnrackedBareHoseBench.tscn -text
+game/tests/v2_fire_nozzle_coupling_bench.gd -text
+art/reviews/v2_unracked_hose_world_20261022/** -text
+art/reviews/v2_book_slots_20261022/** -text
+game/scripts/building/v2_readable_bookshelf.gd -text
+game/scripts/props/v2_library_movable.gd -text
+game/tests/v2_book_slot_hand_bench.gd -text
+game/tests/V2BookSlotHandBench.tscn -text
+art/data/readable_library/editorial.json -text
+art/blender/scripts/book_flex_math.py -text
+art/blender/scripts/fabrication_book_export.py -text
+tools/apply_book_editorial.py -text
+art/illustrations/book_editorial_20261022/** -text
+art/reviews/v2_library_editorial_20261022/** -text
+art/reviews/v2_bookend_bearing_20261022/** -text
+art/reviews/v2_nook_bindings_20261022/** -text
+art/data/reading_nook/legacy_copy_poses.json -text
+game/tests/v2_nook_world_profile.gd -text
+art/reviews/v2_nook_revamp_20261022/** -text
+art/tools/build_nook_wool.py -text
+art/textures/procedural/nook_woven_wool/** -text
+game/tests/v2_nook_access_survey.gd -text
+art/reviews/v2_book_print_contact_20261022/** -text
+game/scripts/props/book_print_mesh.gd -text
+game/tests/v2_book_print_contact.gd -text
+game/tests/V2BookPrintContact.tscn -text
+game/tests/v2_book_print_world_profile.gd -text
+game/tests/V2BookPrintWorldProfile.tscn -text
+art/reviews/v2_book_inspection_return_20261022/** -text
+game/tests/v2_book_inspection_return_world.gd -text
+game/tests/V2BookInspectionReturnWorld.tscn -text
+game/tests/v2_nook_library_bench.gd -text
+art/reviews/v2_cistern_hand_20261022/** -text
+
+art/blender/scripts/water_closet_form.py -text
+art/blender/scripts/review_operable_water_closet.py -text
+art/blender/bath_water_closet_construction.json -text
+game/tests/v2_curtain_gesture_bench.gd -text
+game/tests/V2CurtainGestureBench.tscn -text
+art/reviews/v2_toilet_form_20261022/** -text
+
+game/tests/v2_curtain_gesture_bench.gd.uid -text
+
+design/V2_TOILET_FORM_AND_GESTURES_2026-10-22.md -text
+
+game/scripts/props/landmark_entry_door.gd -text
+
+game/scripts/props/easy_door_motion.gd -text
+
+game/tests/v2_easy_door_bench.gd -text
+
+game/tests/v2_easy_door_bench.gd.uid -text
+
+game/tests/V2EasyDoorBench.tscn -text
+
+game/tests/v2_bathroom_optics_profile.gd -text
+
+game/tests/v2_bathroom_optics_profile.gd.uid -text
+
+game/tests/V2BathroomOpticsProfile.tscn -text
+
+design/V2_EASY_DOORS_2026-10-22.md -text
+
+art/reviews/v2_easy_doors_20261022/** -text
+
+art/reviews/v2_bathroom_optics_20261022/** -text
+
+game/scripts/props/easy_door_motion.gd.uid -text
+
+design/V2_BATHROOM_WET_GLASS_BRIEF_2026-10-22.md -text
+
+art/reviews/v2_fire_maintenance_20261022/** -text whitespace=cr-at-eol
+game/scripts/game/radio_clearing_network.gd -text
+game/scripts/game/v2_maintenance_shop_service.gd -text
+game/data/orison_v2/fire_maintenance_stock.json -text
+game/tests/v2_fire_maintenance_stock_test.gd -text
+game/tests/V2FireMaintenanceStockTest.tscn -text
+design/V2_RADIO_SHOP_NETWORK_2026-10-22.md -text
+design/V2_CONTINUATION_2026-10-22.md -text
+
+art/blender/scripts/build_fire_maintenance_stock.py -text
+
+art/blender/scripts/review_fire_maintenance_stock.py -text
+
+art/blender/scripts/native_textile_export.py -text
+
+game/data/orison_v2/fire_maintenance_meshes.json -text
+
+game/assets/props/fire_maintenance_stock.glb.import -text
+
+game/scripts/props/fire_maintenance_stock_library.gd -text
+
+game/scripts/props/fire_maintenance_pickup.gd -text
+
+game/scripts/props/radio_sale_terminal.gd -text
+
+game/scripts/building/fire_maintenance_counter.gd -text
+
+game/scripts/building/orison_v2_fire_maintenance_counter.gd -text
+
+game/scripts/props/v2_fire_line_cabinet.gd -text
+
+game/scripts/game/caretaker_economy.gd -text
+
+game/tests/v2_fire_maintenance_hand_bench.gd -text
+
+game/tests/v2_fire_maintenance_hand_runner.gd -text
+
+game/tests/V2FireMaintenanceHandBench.tscn -text
+
+game/tests/v2_fire_maintenance_world_test.gd -text
+
+game/tests/V2FireMaintenanceWorldTest.tscn -text
+
+design/V2_HARDWARE_RADIO_COUNTER_2026-10-22.md -text
+
+# Byte-bound hose performance diagnostic packet.
+art/reviews/v2_hose_carry_20261023/** -text
+
+# Byte-bound actual-input transform diagnostic packet.
+art/reviews/v2_grab_transform_20261023/** -text
+
+# Original handheld baseline and native concept review bytes.
+art/reviews/v2_handheld_20261023/** -text
+game/assets/device/writer_type/** -text
+game/data/device/service_radiophone_v2.json -text
+
+# Byte-bound carried UI input and profile packet.
+art/reviews/v2_device_hand_20261023/** -text
+game/tests/service_set_hand_test.gd -text
+game/tests/v2_service_set_hand_world_test.gd -text
+game/tests/v2_handheld_profile.gd -text
+
+# Byte-bound reflection capture performance and appearance packet.
+art/reviews/v2_reflection_capture_20261023/** -text
+game/tests/v2_reflection_shadow_control.gd -text
+game/tests/v2_reflection_capture_study.gd -text
+
+# Original bathroom diagnostics, native replacement review and player concept.
+art/reviews/v2_bath_movement_20261023/** -text -whitespace
+art/reviews/v2_bath_sconce_20261023/** -text -whitespace
+art/concepts/v2_player_doodle_20261023/** -text
+game/tests/v2_bath_movement_profile.gd -text
+game/tests/v2_bath_collision_cost.gd -text
+game/tests/v2_bath_sconce_review.gd -text
+
+# Owner rig native source and byte-bound review inputs.
+art/source/player_doodle_20261023/** -text -whitespace
+art/reviews/v2_player_doodle_20261023/** -text -whitespace
+game/assets/characters/player_doodle/** -text
+game/tests/v2_player_mirror_review.gd -text
+game/tests/v2_player_rig_bench.gd -text
+
+# Byte-bound bathroom contact diagnostics and hidden native contact sources.
+art/reviews/v2_bath_contact_20261023/** -text -whitespace
+art/reviews/v2_bath_contact_build*_20261023.log -text -whitespace
+game/assets/props/bath_lavatory_contact.glb* -text
+game/assets/props/bath_water_closet_contact.glb* -text
+game/tests/v2_bath_contact_*.gd -text
+
+# Byte-bound rendering diagnosis and original alternative captures.
+art/reviews/v2_bath_render_cost_20261023/** -text -whitespace
+game/tests/v2_bath_render_cost.gd -text
+game/tests/v2_bath_shadow_budget.gd -text
+game/tests/v2_bath_service_light_study.gd -text
+game/tests/v2_bath_shadow_projection.gd -text
+game/tests/v2_service_room_light_study.gd -text
+game/tests/v2_service_light_visibility_review.gd -text
+
+# Original hose-save diagnostic logs and wrapper receipts are byte-bound.
+art/reviews/v2_hose_save_20261023/** -text -whitespace
+
+# Unchanged native hose publication and its skeletal projection.
+game/assets/props/unracked_fire_hose.glb* -text
+game/data/orison_v2/unracked_fire_hose_rig.json -text
+
+# Original installed-hose controls, captures, failures and source archives.
+art/reviews/v2_hose_install_20261023/** -text -whitespace
+game/tests/fixtures/v2_hose_remote_restore_20261023.json -text
+
+# Byte-bound installed cabinet rendering controls and rejected treatments.
+art/reviews/v2_hose_render_20261023/** -text -whitespace
+
+# Installed source-light distance controls and original comparison captures.
+art/reviews/v2_shadow_visibility_20261023/** -text -whitespace
+
+# Hose support placement originals, actual input and source-bound captures.
+art/reviews/v2_hose_support_20261023/** -text -whitespace
+
+# Household validation and frame callback attribution, original raw diagnostics.
+art/reviews/v2_household_work_20261023/** -text -whitespace
+
+# Strict UTF-8 and occupied-world synchronous storage component originals.
+art/reviews/v2_save_stages_20261023/** -text -whitespace
+
+# Synchronous commit origins and fixed-route frame diagnostics.
+art/reviews/v2_commit_causes_20261023/** -text -whitespace
+
+# Far-shadow fixed-view controls, source-bound frames and originals.
+art/reviews/v2_far_shadows_20261023/** -text -whitespace
+
+# Background-save validation, queue, recovery and playable route originals.
+art/reviews/v2_background_save_20261023/** -text -whitespace
+
+# Played street/passage streaming timings, sources and original failures.
+art/reviews/v2_played_streaming_20261023/** -text -whitespace
+
+# Cooperative native fitting, frozen baseline, failures and route measurements.
+art/reviews/v2_native_fit_jobs_20261023/** -text -whitespace
+
+# Exact incremental signatures, source controls and played streaming intervals.
+art/reviews/v2_incremental_hash_20261023/** -text -whitespace
+
+# Portrait reload attribution, source guards and played streaming comparisons.
+art/reviews/v2_portrait_reload_20261024/** -text -whitespace
+
+# Occupied-world hose visual idle controls and source snapshots.
+art/reviews/v2_hose_idle_visuals_20261024/** -text -whitespace
+
+# Installed hose spray visibility controls and measurements.
+art/reviews/v2_hose_spray_visibility_20261024/** -text -whitespace
+
+# Nook shelf construction, native failures and played route diagnostics.
+art/reviews/v2_nook_shelf_dressing_20261024/** -text -whitespace
+
+# Bathroom moisture diagnostics, native paper hardware and original failures.
+art/reviews/v2_bathroom_moisture_20261024/** -text -whitespace
+art/reviews/v2_paper_holder_20261024/** -text -whitespace
+
+# Bathroom source archives and wrapper-bound diagnostics retain tested LF bytes.
+art/blender/scripts/build_bath_paper_holder.py -text
+game/data/orison_v2/bath_details.json -text
+game/scripts/building/orison_v2_bath_details.gd -text
+game/scripts/building/planar_mirror_renderer.gd -text
+game/shaders/planar_mirror.gdshader -text
+game/tests/bath_lavatory_test.gd -text
+game/scripts/building/v2_bathroom_moisture.gd* -text
+game/tests/v2_bathroom_optics_profile.gd* -text
+game/tests/v2_bathroom_moisture_review.gd* -text
+game/tests/v2_bathroom_rain_probe.gd* -text
+game/tests/v2_bathroom_paper_review.gd* -text
+game/tests/v2_bathroom_paper_installation.gd* -text
+game/tests/v2_bathroom_steam_cap_review.gd* -text
+game/tests/V2BathroomOpticsProfile.tscn -text
+game/tests/V2BathroomMoistureReview.tscn -text
+game/tests/V2BathroomRainProbe.tscn -text
+game/tests/V2BathroomPaperReview.tscn -text
+game/tests/V2BathroomPaperInstallation.tscn -text
+game/tests/V2BathroomSteamCapReview.tscn -text
+game/tests/v2_paper_import_probe.gd* -text
+game/tests/V2PaperImportProbe.tscn -text
+game/shaders/v2_bath_steam.gdshader* -text
+game/shaders/v2_glass_film.gdshader* -text
+game/shaders/v2_condensation.gdshaderinc* -text
+game/assets/props/bath_paper_holder.glb.import -text
+
+# Native matching casing mitres and their stock diagnostics.
+art/blender/scripts/build_door_casing_mitres.py -text
+art/data/orison_v2/door_casing_mitres.json -text
+game/scripts/building/orison_v2_casing_mitre_stock.gd* -text
+game/tests/v2_casing_mitre_bench.gd* -text
+game/tests/V2CasingMitreBench.tscn -text
+game/assets/props/door_casing_mitres.glb.import -text
+art/reviews/v2_bathroom_finishing_20261024/** -text -whitespace
+
+game/scripts/building/orison_v2_bathroom_finishes.gd* -text
+game/scripts/building/orison_v2_door_casings.gd -text
+game/tests/orison_v2_door_casings_test.gd -text
+game/tests/v2_bathroom_finishing_review.gd* -text
+game/tests/V2BathroomFinishingReview.tscn -text
+game/tests/v2_bathroom_finish_stock_bench.gd* -text
+game/tests/V2BathroomFinishStockBench.tscn -text
+
+game/scripts/material_library.gd -text
+game/scripts/building/v2_legacy_material_stock.gd -text
+game/scripts/building/orison_v2_bar_region.gd -text
+game/scripts/building/orison_v2_shower_placement.gd* -text
+game/tests/v2_shared_finish_ownership_test.gd* -text
+game/tests/V2SharedFinishOwnershipTest.tscn -text
+game/tests/v2_arcade_retirement_review.gd* -text
+game/tests/V2ArcadeRetirementReview.tscn -text
+art/reviews/v2_shop_finish_ownership_20261024/** -text -whitespace
+game/tests/orison_v2_photo_portraits_test.gd -text
 # Original editorial-pass proof renewal: boards, run receipts and archived packets.
 art/reviews/v2_editorial_proof_20261022/** -text whitespace=cr-at-eol
+
+# Source-bound integration diagnostic, retaining main editorial/save authorities.
+game/tests/v2_merged_save_knowledge_test.gd* -text
+game/tests/V2MergedSaveKnowledgeTest.tscn -text
+art/reviews/v2_main_integration_20261024/** -text -whitespace
+
+game/tests/v2_main_integration_world.gd* -text
+game/tests/V2MainIntegrationWorld.tscn -text
+
+# Preserve merged save and route sources across Windows checkouts.
+game/scripts/game/reality_game_state.gd -text
+game/scripts/game/reality_save_document.gd -text
+game/tests/orison_v2_passage_route_test.gd -text

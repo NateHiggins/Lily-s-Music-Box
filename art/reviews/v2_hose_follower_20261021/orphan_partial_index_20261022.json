@@ -1,0 +1,19 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Truncated orphan Git index write, not the valid authoritative index. Original bytes retained. Reading its isolated copy made Git exit3221225477, so no further Git read of the corrupt copy is attempted. The valid current index contains only owned named staged paths.",
+  "path": "C:\\PleaseRemainOnTheLine\\.git\\index.lock",
+  "length": 10747904,
+  "mtime_ns": 1792643452439857000,
+  "mtime_utc": "2026-10-22T04:30:52.439857+00:00",
+  "age_seconds": 326.8274664878845,
+  "git_processes": 0,
+  "header": [
+    2,
+    87790
+  ],
+  "lock_checksum_valid": false,
+  "main_index_checksum_valid": true,
+  "main_index_sha256": "d828cbc376bcd6b3a339bce0a7a67c35f8c2d33443c1b157b1b48160ff80229c",
+  "staged_owned_paths": 746,
+  "sha256": "1d4e56dccf57750b8e967cb27e1bf0ff74cdecb9ece03691d9df04779d487a01"
+}

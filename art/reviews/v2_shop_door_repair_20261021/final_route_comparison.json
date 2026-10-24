@@ -1,0 +1,58 @@
+{
+  "evidence_class": "INERT",
+  "settings": "1280x720 Forward+ RTX4080 VSync off uncapped. Quiet final measurements; no input-to-photon claim. Original golden route lacks Space camera entry; separate final camera diagnostic has no before-source timing sample.",
+  "distributions": {
+    "golden_profile_v2": {
+      "p50_ms": 31.937,
+      "p90_ms": 60.172,
+      "p95_ms": 67.392,
+      "p99_ms": 279.031,
+      "max_ms": 2327.624,
+      "frames": 3157,
+      "over_33ms": 1529,
+      "over_50ms": 745,
+      "over_100ms": 68,
+      "over_250ms": 45,
+      "over_1000ms": 2
+    },
+    "golden_final": {
+      "p50_ms": 30.814,
+      "p90_ms": 58.22,
+      "p95_ms": 64.495,
+      "p99_ms": 118.695,
+      "max_ms": 364.821,
+      "frames": 3518,
+      "over_33ms": 1658,
+      "over_50ms": 776,
+      "over_100ms": 42,
+      "over_250ms": 5,
+      "over_1000ms": 0
+    },
+    "performance_final": {
+      "p50_ms": 40.008,
+      "p90_ms": 53.472,
+      "p95_ms": 59.447,
+      "p99_ms": 108.42,
+      "max_ms": 267.882,
+      "frames": 1010,
+      "over_33ms": 694,
+      "over_50ms": 197,
+      "over_100ms": 12,
+      "over_250ms": 1,
+      "over_1000ms": 0
+    },
+    "inspection_quiet_v2": {
+      "p50_ms": 37.919,
+      "p90_ms": 44.511,
+      "p95_ms": 46.117,
+      "p99_ms": 56.636,
+      "max_ms": 180.686,
+      "frames": 894,
+      "over_33ms": 528,
+      "over_50ms": 14,
+      "over_100ms": 1,
+      "over_250ms": 0,
+      "over_1000ms": 0
+    }
+  }
+}

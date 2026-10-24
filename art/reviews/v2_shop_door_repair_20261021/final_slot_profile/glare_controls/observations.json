@@ -1,0 +1,526 @@
+{
+	"evidence_class": "INERT",
+	"observations": [
+		{
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_normal.png",
+			"lamp_energy": 2.40000009536743,
+			"lights": [
+				{
+					"distance": 16.3272533416748,
+					"energy": 0.0520000010728836,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/WakingAtmosphere/CelestialKey",
+					"range": 10000.0,
+					"shadow": true
+				},
+				{
+					"distance": 4.57062149047852,
+					"energy": 3.20000004768372,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_KITCHEN_OPENING/ServicePractical/WarmServiceLight",
+					"range": 4.80000019073486,
+					"shadow": true
+				},
+				{
+					"distance": 1.37001264095306,
+					"energy": 1.17867493629456,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/3B_LT_SCONCE/@Node3D@19724/@OmniLight3D@19728",
+					"range": 5.19999980926514,
+					"shadow": true
+				},
+				{
+					"distance": 3.85308003425598,
+					"energy": 1.70993876457214,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19861/@OmniLight3D@19866",
+					"range": 4.5,
+					"shadow": true
+				},
+				{
+					"distance": 16.3272533416748,
+					"energy": 0.550000011920929,
+					"mask": 2,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/@Camera3D@21199/ServiceSetCarrier/ServiceSetPass/InstrumentBroadReflection",
+					"range": 10000.0,
+					"shadow": false
+				},
+				{
+					"distance": 0.208802849054337,
+					"energy": 2.40000009536743,
+					"mask": 1048573,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/ServiceSetHand/@SpotLight3D@21200",
+					"range": 16.0,
+					"shadow": true
+				}
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					-14.3249998092651,
+					6.40299940109253,
+					-0.575000464916229
+				],
+				"floor": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+			},
+			"treatment": "normal"
+		},
+		{
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_voxel_receivers_hidden.png",
+			"lamp_energy": 2.40000009536743,
+			"lights": [
+				{
+					"distance": 16.3272533416748,
+					"energy": 0.0520000010728836,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/WakingAtmosphere/CelestialKey",
+					"range": 10000.0,
+					"shadow": true
+				},
+				{
+					"distance": 4.57062149047852,
+					"energy": 3.20000004768372,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_KITCHEN_OPENING/ServicePractical/WarmServiceLight",
+					"range": 4.80000019073486,
+					"shadow": true
+				},
+				{
+					"distance": 1.37001264095306,
+					"energy": 1.18795347213745,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/3B_LT_SCONCE/@Node3D@19724/@OmniLight3D@19728",
+					"range": 5.19999980926514,
+					"shadow": true
+				},
+				{
+					"distance": 3.85308003425598,
+					"energy": 1.7636171579361,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19861/@OmniLight3D@19866",
+					"range": 4.5,
+					"shadow": true
+				},
+				{
+					"distance": 16.3272533416748,
+					"energy": 0.550000011920929,
+					"mask": 2,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/@Camera3D@21199/ServiceSetCarrier/ServiceSetPass/InstrumentBroadReflection",
+					"range": 10000.0,
+					"shadow": false
+				},
+				{
+					"distance": 0.208802849054337,
+					"energy": 2.40000009536743,
+					"mask": 1048573,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/ServiceSetHand/@SpotLight3D@21200",
+					"range": 16.0,
+					"shadow": true
+				}
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					-14.3249998092651,
+					6.40299940109253,
+					-0.575000464916229
+				],
+				"floor": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+			},
+			"treatment": "voxel_receivers_hidden"
+		},
+		{
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_lamp_off.png",
+			"lamp_energy": 0.59991055727005,
+			"lights": [
+				{
+					"distance": 16.3272533416748,
+					"energy": 0.0520000010728836,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/WakingAtmosphere/CelestialKey",
+					"range": 10000.0,
+					"shadow": true
+				},
+				{
+					"distance": 4.57062149047852,
+					"energy": 3.20000004768372,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_KITCHEN_OPENING/ServicePractical/WarmServiceLight",
+					"range": 4.80000019073486,
+					"shadow": true
+				},
+				{
+					"distance": 1.37001264095306,
+					"energy": 1.18999576568604,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/3B_LT_SCONCE/@Node3D@19724/@OmniLight3D@19728",
+					"range": 5.19999980926514,
+					"shadow": true
+				},
+				{
+					"distance": 3.85308003425598,
+					"energy": 1.78800177574158,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19861/@OmniLight3D@19866",
+					"range": 4.5,
+					"shadow": true
+				},
+				{
+					"distance": 16.3272533416748,
+					"energy": 0.550000011920929,
+					"mask": 2,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/@Camera3D@21199/ServiceSetCarrier/ServiceSetPass/InstrumentBroadReflection",
+					"range": 10000.0,
+					"shadow": false
+				},
+				{
+					"distance": 0.208802849054337,
+					"energy": 0.59991055727005,
+					"mask": 1048573,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/ServiceSetHand/@SpotLight3D@21200",
+					"range": 16.0,
+					"shadow": true
+				}
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					-14.3249998092651,
+					6.40299940109253,
+					-0.575000464916229
+				],
+				"floor": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+			},
+			"treatment": "lamp_off"
+		},
+		{
+			"id": "F03_B_BATH",
+			"image": "F03_B_BATH_restored_normal.png",
+			"lamp_energy": 1.99753618240356,
+			"lights": [
+				{
+					"distance": 16.3272533416748,
+					"energy": 0.0520000010728836,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/WakingAtmosphere/CelestialKey",
+					"range": 10000.0,
+					"shadow": true
+				},
+				{
+					"distance": 4.57062149047852,
+					"energy": 3.20000004768372,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_KITCHEN_OPENING/ServicePractical/WarmServiceLight",
+					"range": 4.80000019073486,
+					"shadow": true
+				},
+				{
+					"distance": 1.37001264095306,
+					"energy": 1.18557167053223,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/3B_LT_SCONCE/@Node3D@19724/@OmniLight3D@19728",
+					"range": 5.19999980926514,
+					"shadow": true
+				},
+				{
+					"distance": 3.85308003425598,
+					"energy": 1.73780333995819,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@19861/@OmniLight3D@19866",
+					"range": 4.5,
+					"shadow": true
+				},
+				{
+					"distance": 16.3272533416748,
+					"energy": 0.550000011920929,
+					"mask": 2,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/@Camera3D@21199/ServiceSetCarrier/ServiceSetPass/InstrumentBroadReflection",
+					"range": 10000.0,
+					"shadow": false
+				},
+				{
+					"distance": 0.208802849054337,
+					"energy": 1.99753618240356,
+					"mask": 1048573,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/ServiceSetHand/@SpotLight3D@21200",
+					"range": 16.0,
+					"shadow": true
+				}
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					-14.3249998092651,
+					6.40299940109253,
+					-0.575000464916229
+				],
+				"floor": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision"
+			},
+			"treatment": "restored_normal"
+		},
+		{
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_normal.png",
+			"lamp_energy": 2.40000009536743,
+			"lights": [
+				{
+					"distance": 28.1432952880859,
+					"energy": 0.0520000010728836,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/WakingAtmosphere/CelestialKey",
+					"range": 10000.0,
+					"shadow": true
+				},
+				{
+					"distance": 2.75453615188599,
+					"energy": 1.07516348361969,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@20193/@OmniLight3D@20198",
+					"range": 3.61999988555908,
+					"shadow": true
+				},
+				{
+					"distance": 1.51700019836426,
+					"energy": 1.27046251296997,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@20200/@OmniLight3D@20204",
+					"range": 4.01999998092651,
+					"shadow": true
+				},
+				{
+					"distance": 5.43668937683105,
+					"energy": 2.09518790245056,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_C_MAIN_LT_PENDANT_SHADE/@Node3D@20213/@OmniLight3D@20219",
+					"range": 6.30999994277954,
+					"shadow": true
+				},
+				{
+					"distance": 28.1432952880859,
+					"energy": 0.550000011920929,
+					"mask": 2,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/@Camera3D@21199/ServiceSetCarrier/ServiceSetPass/InstrumentBroadReflection",
+					"range": 10000.0,
+					"shadow": false
+				},
+				{
+					"distance": 0.208802789449692,
+					"energy": 2.40000009536743,
+					"mask": 1048573,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/ServiceSetHand/@SpotLight3D@21200",
+					"range": 16.0,
+					"shadow": true
+				}
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					7.90000200271606,
+					16.0030002593994,
+					-20.6499977111816
+				],
+				"floor": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_KITCHEN/Floor/Collision"
+			},
+			"treatment": "normal"
+		},
+		{
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_voxel_receivers_hidden.png",
+			"lamp_energy": 2.40000009536743,
+			"lights": [
+				{
+					"distance": 28.1432952880859,
+					"energy": 0.0520000010728836,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/WakingAtmosphere/CelestialKey",
+					"range": 10000.0,
+					"shadow": true
+				},
+				{
+					"distance": 2.75453615188599,
+					"energy": 1.07388138771057,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@20193/@OmniLight3D@20198",
+					"range": 3.61999988555908,
+					"shadow": true
+				},
+				{
+					"distance": 1.51700019836426,
+					"energy": 1.26639592647552,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@20200/@OmniLight3D@20204",
+					"range": 4.01999998092651,
+					"shadow": true
+				},
+				{
+					"distance": 5.43668937683105,
+					"energy": 2.14366674423218,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_C_MAIN_LT_PENDANT_SHADE/@Node3D@20213/@OmniLight3D@20219",
+					"range": 6.30999994277954,
+					"shadow": true
+				},
+				{
+					"distance": 28.1432952880859,
+					"energy": 0.550000011920929,
+					"mask": 2,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/@Camera3D@21199/ServiceSetCarrier/ServiceSetPass/InstrumentBroadReflection",
+					"range": 10000.0,
+					"shadow": false
+				},
+				{
+					"distance": 0.208802789449692,
+					"energy": 2.40000009536743,
+					"mask": 1048573,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/ServiceSetHand/@SpotLight3D@21200",
+					"range": 16.0,
+					"shadow": true
+				}
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					7.90000200271606,
+					16.0030002593994,
+					-20.6499977111816
+				],
+				"floor": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_KITCHEN/Floor/Collision"
+			},
+			"treatment": "voxel_receivers_hidden"
+		},
+		{
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_lamp_off.png",
+			"lamp_energy": 0.000020778585167136,
+			"lights": [
+				{
+					"distance": 28.1432952880859,
+					"energy": 0.0520000010728836,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/WakingAtmosphere/CelestialKey",
+					"range": 10000.0,
+					"shadow": true
+				},
+				{
+					"distance": 2.75453615188599,
+					"energy": 1.07879829406738,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@20193/@OmniLight3D@20198",
+					"range": 3.61999988555908,
+					"shadow": true
+				},
+				{
+					"distance": 1.51700019836426,
+					"energy": 1.27371859550476,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@20200/@OmniLight3D@20204",
+					"range": 4.01999998092651,
+					"shadow": true
+				},
+				{
+					"distance": 5.43668937683105,
+					"energy": 2.10541915893555,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_C_MAIN_LT_PENDANT_SHADE/@Node3D@20213/@OmniLight3D@20219",
+					"range": 6.30999994277954,
+					"shadow": true
+				},
+				{
+					"distance": 28.1432952880859,
+					"energy": 0.550000011920929,
+					"mask": 2,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/@Camera3D@21199/ServiceSetCarrier/ServiceSetPass/InstrumentBroadReflection",
+					"range": 10000.0,
+					"shadow": false
+				},
+				{
+					"distance": 0.208802789449692,
+					"energy": 0.000020778585167136,
+					"mask": 1048573,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/ServiceSetHand/@SpotLight3D@21200",
+					"range": 16.0,
+					"shadow": true
+				}
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					7.90000200271606,
+					16.0030002593994,
+					-20.6499977111816
+				],
+				"floor": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_KITCHEN/Floor/Collision"
+			},
+			"treatment": "lamp_off"
+		},
+		{
+			"id": "F06_B_KITCHEN",
+			"image": "F06_B_KITCHEN_restored_normal.png",
+			"lamp_energy": 2.39883041381836,
+			"lights": [
+				{
+					"distance": 28.1432952880859,
+					"energy": 0.0520000010728836,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/WakingAtmosphere/CelestialKey",
+					"range": 10000.0,
+					"shadow": true
+				},
+				{
+					"distance": 2.75453615188599,
+					"energy": 1.07465660572052,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@20193/@OmniLight3D@20198",
+					"range": 3.61999988555908,
+					"shadow": true
+				},
+				{
+					"distance": 1.51700019836426,
+					"energy": 1.27728414535522,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@20200/@OmniLight3D@20204",
+					"range": 4.01999998092651,
+					"shadow": true
+				},
+				{
+					"distance": 5.43668937683105,
+					"energy": 2.12015771865845,
+					"mask": 4294836223,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_C_MAIN_LT_PENDANT_SHADE/@Node3D@20213/@OmniLight3D@20219",
+					"range": 6.30999994277954,
+					"shadow": true
+				},
+				{
+					"distance": 28.1432952880859,
+					"energy": 0.550000011920929,
+					"mask": 2,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/@Camera3D@21199/ServiceSetCarrier/ServiceSetPass/InstrumentBroadReflection",
+					"range": 10000.0,
+					"shadow": false
+				},
+				{
+					"distance": 0.208802789449692,
+					"energy": 2.39883041381836,
+					"mask": 1048573,
+					"path": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/Player/ServiceSetHand/@SpotLight3D@21200",
+					"range": 16.0,
+					"shadow": true
+				}
+			],
+			"stance": {
+				"crouched": false,
+				"feet": [
+					7.90000200271606,
+					16.0030002593994,
+					-20.6499977111816
+				],
+				"floor": "/root/OrisonV2ResponsivenessProfile/OrisonV2Runtime/OrisonV2Blockout/F06_B_KITCHEN/Floor/Collision"
+			},
+			"treatment": "restored_normal"
+		}
+	],
+	"scope": "Same-world normal, voxel receiver hiding, lamp-off and restored controls. No geometry, light-source or material repair is made by this probe."
+}

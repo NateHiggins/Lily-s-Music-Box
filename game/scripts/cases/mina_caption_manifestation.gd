@@ -166,7 +166,7 @@ func _noun_for(node_id: String) -> String:
 
 func _clear_remote() -> void:
 	for node_id in _remote_labels:
-		var label: Label3D = _remote_labels[node_id]
+		var label: Variant = _remote_labels[node_id]
 		if is_instance_valid(label):
 			label.queue_free()
 	_remote_labels.clear()

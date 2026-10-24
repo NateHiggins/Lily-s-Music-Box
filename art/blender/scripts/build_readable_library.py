@@ -4,13 +4,15 @@ All lettering is runtime Label3D. Source drawings contain no text or numbers.
 The existing library owns book identity; these stocks own only manufactured form.
 """
 from pathlib import Path
-import hashlib,json,math,sys
+import hashlib,json,math,sys,colorsys
 import bpy,bmesh,numpy as np
 from mathutils import Matrix,Vector
 ROOT=Path(__file__).resolve().parents[3]
 sys.path.insert(0,str(Path(__file__).parent))
-from fabrication_native_batch import material,partition,export
+from fabrication_native_batch import material,partition
 from fabrication_chart_batch import triangle_charts
+from fabrication_book_export import export_books
+from book_flex_math import ANGLES,KEYS,spine_profile,spine_point,page_point,trim_point,cover_point,left_translation,wrapper_point,cover_contact_point
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.context.preferences.filepaths.save_version=0
@@ -21,8 +23,9 @@ library=json.loads((ROOT/'game/data/library.json').read_text())
 spreads=json.loads((ROOT/'game/data/orison_v2/book_spreads.json').read_text())
 artwork=json.loads((ROOT/'art/illustrations/book_plates/provenance.json').read_text())['plates']
 page_designs=json.loads((ROOT/'art/illustrations/book_plates/page_designs.json').read_text())
+editorial=json.loads((ROOT/'art/data/readable_library/editorial.json').read_text())
 assert {b['id'] for b in library['books']}==set(spreads['spreads'])
-keys=['book_brown','book_burgundy','book_green','book_navy','book_ochre','book_teal','paper',
+keys=['ceramic','book_brown','book_burgundy','book_green','book_navy','book_ochre','book_teal','paper',
       'linen','soot','oak_work_surface','wood_dark','site_softwood','fire_hardware_steel',
       'brass_dull','washer_rubber','glass_drawn_expressive']
 finishes={key:dict(catalog_key=key,normal=1. if key.startswith('book_') or key in ['fire_hardware_steel','glass_drawn_expressive','site_softwood'] else .35,
@@ -36,7 +39,7 @@ glass=materials['glass_drawn_expressive']
 glass.node_tree.nodes['Principled BSDF'].inputs['Alpha'].default_value=.055
 glass.node_tree.nodes['Principled BSDF'].inputs['Transmission Weight'].default_value=.9
 glass.surface_render_method='DITHERED'
-parts={};stocks=[];exports=[]
+parts={};stocks=[];exports=[];deformers={}
 
 def b(point):return (point[0],-point[2],point[1])
 
@@ -113,42 +116,127 @@ def ink(name,a,c,width=.00034):
     obj=bpy.data.objects.new(name,mesh);bpy.context.collection.objects.link(obj)
     return obj
 
-books={}
-palette=['book_burgundy','book_ochre','book_green','book_teal','book_navy','book_brown']
-for entry in library['books']:
-    identity=entry['id'];seed=int(hashlib.sha256(identity.encode()).hexdigest()[:8],16)
-    height=min(.27,max(.15,entry['height']/1000.));depth=.145+(seed%5)*.007
-    thickness=.022+(seed%14)*.001
-    if identity in ['prospectus','hymns']:thickness=.004 if identity=='prospectus' else .006
-    if identity=='onefinger':thickness=.0016
-    cover=.00035 if thickness<.01 else .0016
-    key=palette[min(5,int(entry['hue'])//60)]
-    if identity=='onefinger':key='paper'
-    record=dict(width=depth,height=height,thickness=thickness,material=key,parts=[],
-                binding='lace pamphlet' if identity=='onefinger' else ('stitched pamphlet' if thickness<.01 else 'case binding'),
-                right_page_z=-.00016,left_page_z=.00016)
-    for side,lo,hi in [('right',-thickness/2.,-.00020),('left',.00020,thickness/2.)]:
+def ring_stock(name,rings,key,role):
+    vertices=[b(point) for ring in rings for point in ring];faces=[]
+    for index in range(len(rings)-1):
+        for edge in range(4):faces.append((index*4+edge,index*4+(edge+1)%4,(index+1)*4+(edge+1)%4,(index+1)*4+edge))
+    faces.extend([(3,2,1,0),tuple((len(rings)-1)*4+i for i in range(4))])
+    mesh=bpy.data.meshes.new(name);mesh.from_pydata(vertices,[],faces);mesh.update()
+    obj=bpy.data.objects.new(name,mesh);bpy.context.collection.objects.link(obj)
+    return finish(name,[obj],key,role,0.,True)
+
+def morphs(name,functions):
+    draw=draws.objects[name];draw.shape_key_add(name='Basis',from_mix=False)
+    neutral=[tuple(vertex.co) for vertex in draw.data.vertices]
+    for key,deform in zip(KEYS,functions):
+        target=draw.shape_key_add(name=key,from_mix=False);target.value=0.
+        for vertex,point in zip(target.data,neutral):
+            x,z,minus_y=point
+            vertex.co=b(deform((x,minus_y,-z)))
+    deformers[name]=functions
+
+def binding(identity,width,height,thickness,key,cover,kind):
+    seam=.00002
+    style='paperback' if kind=='sewn paper cover' else ('pamphlet' if 'pamphlet' in kind else 'hardback')
+    record=dict(width=width,height=height,thickness=thickness,material=key,parts=[],binding=kind,
+                right_page_z=-seam+.00004,left_page_z=seam-.00004,
+                opening_angles=list(ANGLES),opening_keys=list(KEYS),opening_style=style)
+    profiles=[spine_profile(thickness,a,style) for a in ANGLES[1:]]
+    for side,lo,hi in [('right',-thickness*.5,-seam),('left',seam,thickness*.5)]:
         board_z=lo+cover*.5 if side=='right' else hi-cover*.5
-        record['parts'].append(box(identity+'__'+side+'_board',(depth,height,cover),(depth*.5,height*.5,board_z),key,side,min(.00035,cover*.20)))
-        page_lo=lo+cover if side=='right' else lo
-        page_hi=hi if side=='right' else hi-cover
-        record['parts'].append(box(identity+'__'+side+'_leaves',(depth-.007,height-.007,page_hi-page_lo),((depth+.001)*.5,height*.5,(page_hi+page_lo)*.5),'paper',side,min(.00012,(page_hi-page_lo)*.18)))
-        # Raised blind tooling is separate manufactured relief, never repeated
-        # ornamental colour in the binding tile.
-        if key in ['book_brown','book_burgundy'] and thickness>.01:
+        if style=='hardback':
+            name=box(identity+'__'+side+'_board',(width,height,cover),(width*.5,height*.5,board_z),key,side,min(.00035,cover*.20))
+        else:
+            rings=[[(x,0,board_z-cover*.5),(x,height,board_z-cover*.5),(x,height,board_z+cover*.5),(x,0,board_z+cover*.5)] for x in np.linspace(0,width,33)]
+            name=ring_stock(identity+'__'+side+'_board',rings,key,side)
+            morphs(name,[lambda p,a=a,pr=pr,w=width,t=thickness,s=side,st=style:cover_contact_point(p,w,t,st,a,pr,s) for a,pr in zip(ANGLES[1:],profiles)])
+            parts[name]['render_surface']=False
+        record['parts'].append(name)
+        page_low,page_high=(lo+cover,hi) if side=='right' else (lo,hi-cover)
+        assert page_high>page_low,(identity,side,page_low,page_high)
+        rings=[[(x,.0035,page_low),(x,height-.0035,page_low),(x,height-.0035,page_high),(x,.0035,page_high)] for x in np.linspace(.004,width-.003,33)]
+        name=ring_stock(identity+'__'+side+'_leaves',rings,'paper',side)
+        morphs(name,[lambda p,a=a,w=width,low=page_low,high=page_high,s=side,t=thickness,st=style:page_point(p,w,low,high,s,a,t,st) for a in ANGLES[1:]])
+        record['parts'].append(name)
+        if style=='hardback' and key in ['book_brown','book_burgundy'] and thickness>.01:
             z=board_z+(-1 if side=='right' else 1)*(cover*.5+.00006)
-            pieces=[]
-            for x in [.010,depth-.010]:pieces.append(cube((.00045,height-.020,.00012),(x,height*.5,z)))
-            for y in [.010,height-.010]:pieces.append(cube((depth-.020,.00045,.00012),(depth*.5,y,z)))
+            pieces=[cube((.00045,height-.020,.00012),(x,height*.5,z)) for x in [.010,width-.010]]
+            pieces += [cube((width-.020,.00045,.00012),(width*.5,y,z)) for y in [.010,height-.010]]
             record['parts'].append(finish(identity+'__'+side+'_tooling',pieces,key,side,.00002,False))
-    record['parts'].append(box(identity+'__spine',(.002,height,thickness),(-.001,height*.5,0),key,'fixed',min(.00045,thickness*.18)))
+    wall=min(.0012,cover*.85) if style=='hardback' else cover
+    rings=[[(-wall,0,z),(0,0,z),(0,height,z),(-wall,height,z)] for z in np.linspace(-thickness*.5,thickness*.5,25)]
+    name=ring_stock(identity+'__spine',rings,key,'fixed')
+    record['spine_frames']=[]
+    for profile in [spine_profile(thickness,0.,style)]+profiles:
+        start,chord,normal,bow=profile;length=math.hypot(*chord)
+        frame=Matrix(((-normal[0],0.,chord[0]/length),(0.,1.,0.),(-normal[1],0.,chord[1]/length)))
+        q=frame.to_quaternion()
+        record['spine_frames'].append([start[0]+chord[0]*.5+normal[0]*bow,0.,start[1]+chord[1]*.5+normal[1]*bow,q.x,q.y,q.z,q.w])
+    functions=[lambda p,t=thickness,profile=profile:spine_point(p,t,profile) for profile in profiles]
+    morphs(name,functions);record['parts'].append(name)
+    if style!='hardback':
+        parts[name]['render_surface']=False
+        rings=[]
+        for u in np.linspace(0.,1.,33):
+            outer=(width*(1-u)-cover*u,-thickness*.5);inner=(width*(1-u),-thickness*.5+cover)
+            rings.append([(outer[0],0,outer[1]),(inner[0],0,inner[1]),(inner[0],height,inner[1]),(outer[0],height,outer[1])])
+        for u in np.linspace(0.,1.,25)[1:]:
+            outer=(-cover,-thickness*.5+thickness*u);inner=(0,-thickness*.5+cover+(thickness-2*cover)*u)
+            rings.append([(outer[0],0,outer[1]),(inner[0],0,inner[1]),(inner[0],height,inner[1]),(outer[0],height,outer[1])])
+        for u in np.linspace(0.,1.,33)[1:]:
+            outer=(width*u-cover*(1-u),thickness*.5);inner=(width*u,thickness*.5-cover)
+            rings.append([(outer[0],0,outer[1]),(inner[0],0,inner[1]),(inner[0],height,inner[1]),(outer[0],height,outer[1])])
+        wrapper=ring_stock(identity+'__continuous_wrap',rings,key,'fixed')
+        parts[wrapper]['collision']=False
+        morphs(wrapper,[lambda p,a=a,pr=pr,w=width,t=thickness,st=style:wrapper_point(p,w,t,st,a,pr) for a,pr in zip(ANGLES[1:],profiles)])
+        record['parts'].append(wrapper)
+    trim_functions=[lambda p,profile=profile:trim_point(p,profile) for profile in profiles]
     if identity=='onefinger':
         for i,y in enumerate([height*.22,height*.5,height*.78]):
-            record['parts'].append(wire(identity+'__lace'+str(i),[(-.002,y,-.002),(.003,y,-.002),(.004,y,.002),(-.002,y,.002),(-.004,y,0)],.00065,'book_navy','fixed'))
-        record['parts'].append(wire(identity+'__lace_tail',[(-.003,height*.5,0),(-.014,height*.48,.002),(-.019,height*.54,.001)],.00065,'book_navy','fixed'))
-    else:
+            name=wire(identity+'__lace'+str(i),[(-.002,y,-thickness*.45),(.003,y,-thickness*.45),(.004,y,thickness*.45),(-.002,y,thickness*.45),(-.004,y,0)],.0004,'book_navy','fixed')
+            morphs(name,trim_functions);record['parts'].append(name)
+    elif style=='hardback':
         for i,y in enumerate([.004,height-.004]):
-            record['parts'].append(wire(identity+'__headband'+str(i),[(.003,y,-thickness*.35),(.003,y,thickness*.35)],.00055,'linen','fixed'))
+            name=wire(identity+'__headband'+str(i),[(.001,y,-thickness*.35),(.001,y,thickness*.35)],min(.00055,thickness*.18),'linen','fixed')
+            morphs(name,trim_functions);record['parts'].append(name)
+    return record
+
+books={};opening_checks=[]
+palette=['book_burgundy','book_ochre','book_green','book_teal','book_navy','book_brown']
+for entry in library['books']:
+    identity=entry['id'];edition=editorial['books'][identity];format=editorial['formats'][edition['format']]
+    thickness=edition['page_count']*.5*format['leaf_m']+2*format['cover_m']
+    record=binding(identity,format['width_m'],format['height_m'],thickness,edition['material'],format['cover_m'], 'lace pamphlet' if identity=='onefinger' else format['binding'])
+    if record['opening_style']!='hardback':
+        # A pigmented paper finish uses the registered paper PBR triplet;
+        # it does not borrow the embossed cloth/leather cover normal.
+        hue={'book_burgundy':350,'book_brown':25,'book_ochre':50,'book_green':110,'book_teal':180,'book_navy':225,'paper':45}[edition['material']]
+        tint=list(colorsys.hsv_to_rgb(hue/360.,.50,.72))+[1.]
+        finish_spec=dict(finishes['paper']);finish_spec['tint']=tint
+        stock_material=material(ROOT,'paper',finish_spec,catalog)
+        for part in record['parts']:
+            if part.endswith(('_board','__spine','__continuous_wrap')):
+                parts[part]['material']='paper';parts[part]['tint']=tint
+                mesh=draws.objects[part].data;mesh.materials.clear();mesh.materials.append(stock_material)
+    record.update(format=edition['format'],layout=edition['layout'],publisher=edition['publisher'],page_count=edition['page_count'],subtitle=edition['subtitle'])
+    style=record['opening_style'];w=record['width'];h=record['height'];t=record['thickness'];seam=.00002
+    right=Vector(page_point((.004,h*.5,-seam),w,-t*.5+format['cover_m'],-seam,'right',math.pi,t,style))
+    left=Vector(page_point((.004,h*.5,seam),w,seam,t*.5-format['cover_m'],'left',math.pi,t,style))
+    left=Matrix.Rotation(-math.pi,3,'Y')@left+Vector(left_translation(t,math.pi,style))
+    assert (left-right).length<1e-7,(identity,'sewn gutter disconnected',(left-right).length)
+    components=0
+    if style!='hardback':
+        mesh=draws.objects[identity+'__continuous_wrap'].data
+        adjacency={v.index:set() for v in mesh.vertices}
+        for edge in mesh.edges:
+            a,c=edge.vertices;adjacency[a].add(c);adjacency[c].add(a)
+        unseen=set(adjacency)
+        while unseen:
+            pending=[unseen.pop()];components+=1
+            while pending:
+                for index in adjacency[pending.pop()]&unseen:unseen.remove(index);pending.append(index)
+        assert components==1,(identity,'paper cover is not one connected piece',components)
+    opening_checks.append(dict(book=identity,style=style,sewn_gutter_gap_m=(left-right).length,rigid_boards=style=='hardback',continuous_wrap_components=components))
     books[identity]=record
 
 cases={}
@@ -220,12 +308,42 @@ def plate(kind,paths):
     coordinates=np.asarray([v.co[:] for v in draws.objects[name].data.vertices])
     illustrations[kind]=dict(part=name,width=float(np.ptp(coordinates[:,0])),height=float(np.ptp(coordinates[:,2])))
 
+decorations={}
+def lathe(name,profile,key):
+    count=32;vertices=[b((r*math.cos(a),y,r*math.sin(a))) for r,y in profile for a in np.linspace(0,2*math.pi,count,endpoint=False)]
+    faces=[]
+    for level in range(len(profile)-1):
+        for i in range(count):faces.append((level*count+i,level*count+(i+1)%count,(level+1)*count+(i+1)%count,(level+1)*count+i))
+    vertices.extend([b((0,profile[0][1],0)),b((0,profile[-1][1],0))])
+    for i in range(count):
+        faces.append((len(vertices)-2,(i+1)%count,i));faces.append((len(vertices)-1,(len(profile)-1)*count+i,(len(profile)-1)*count+(i+1)%count))
+    mesh=bpy.data.meshes.new(name);mesh.from_pydata(vertices,[],faces);mesh.update()
+    obj=bpy.data.objects.new(name,mesh);bpy.context.collection.objects.link(obj)
+    return finish(name,[obj],key,'fixed',0.,True)
+
+# A hollow stoneware cup; the runtime keeps its closed wall sections instead
+# of filling the mouth with a whole-object convex hull.
+name=lathe('decor__cup',[(.027,0),(.032,.075),(.028,.075),(.024,.006)],'ceramic')
+decorations['cup']={'parts':[name], 'open_vessel':True}
+name=box('decor__letter_packet',(.09,.018,.065),(0,.009,0),'paper','fixed',.0003)
+band=box('decor__packet_band',(.012,.0185,.0655),(0,.009,0),'linen','fixed',.0002)
+decorations['letters']={'parts':[name,band], 'open_vessel':False}
+name=lathe('decor__inkwell',[(.025,0),(.026,.028),(.012,.040),(.012,.046)],'glass_drawn_expressive')
+cap=lathe('decor__inkwell_cap',[(.014,.046),(.014,.050)],'fire_hardware_steel')
+decorations['inkwell']={'parts':[name,cap], 'open_vessel':False}
+# An unfinished model hull, a solid workshop keepsake rather than a live boat.
+hull=ring_stock('decor__model_hull',[[(-w*.5,y,-d*.5),(w*.5,y,-d*.5),(w*.5,y,d*.5),(-w*.5,y,d*.5)] for w,d,y in [(.06,.022,.012),(.11,.040,.024),(.085,.033,.040)]],'wood_dark','fixed')
+keel=box('decor__model_stand',(.055,.012,.045),(0,.006,0),'site_softwood','fixed',.001)
+decorations['model_boat']={'parts':[hull,keel], 'open_vessel':False}
+
 def engraved_plate(kind,spec):
     path=ROOT/'game'/spec['image'].removeprefix('res://')
     image=bpy.data.images.load(str(path),check_existing=True)
     width=.102;height=width*image.size[1]/image.size[0]
     image.filepath=bpy.path.relpath(str(path),start=str(ROOT/'art/blender'))
-    name=box('plate__'+kind,(width,height,.00008),(0,0,0),'paper','print',0.,False)
+    rings=[[(x,-height*.5,-.00004),(x,height*.5,-.00004),(x,height*.5,.00004),(x,-height*.5,.00004)] for x in np.linspace(-width*.5,width*.5,25)]
+    name=ring_stock('plate__'+kind,rings,'paper','print')
+    parts[name]['collision']=False
     draw=draws.objects[name];mesh=draw.data
     uv=mesh.uv_layers.new(name='Artwork')
     for loop in mesh.loops:
@@ -290,22 +408,28 @@ for kind in sorted({v[side]['illustration'] for v in spreads['spreads'].values()
     plate(kind,paths)
 
 source.hide_render=True
-type_rule=box('type__running_rule',(.102,.00012,.000024),(0,0,0),'soot','print',0.,False)
-proof=export(ROOT,'readable_library',draws)
+type_rule=ring_stock('type__running_rule',[[(x,-.00006,-.000012),(x,.00006,-.000012),(x,.00006,.000012),(x,-.00006,.000012)] for x in np.linspace(-.051,.051,25)],'soot','print')
+parts[type_rule]['collision']=False
+proof=export_books(ROOT,'readable_library',draws,deformers)
 proof['asset']='game/assets/props/readable_library.glb'
 data=dict(schema_version=1,asset='res://assets/props/readable_library.glb',books=books,cases=cases,
-          bookends=bookends,illustrations=illustrations,parts=parts,finishes=finishes,
+          bookends=bookends,illustrations=illustrations,decorations=decorations,parts=parts,finishes=finishes,
           page_designs=page_designs,typography=dict(running_rule=type_rule),
+          formats={k:{field:v[field] for field in ['width_m','height_m','cover_m','leaf_m','binding']} for k,v in editorial['formats'].items()},
+          publishers={k:{field:v[field] for field in ['name','place']} for k,v in editorial['publishers'].items()},
+          publication_layouts={k:{field:v[field] for field in ['body_em_m','margin_fraction','columns','plate_fraction']} for k,v in editorial['layouts'].items()},
           material_intent={'soot':'Printed ink film: intentionally flat; paper supplies the grain.',
                            'paper':'Restrained fibre normal; lettering and illustrations are independent of relief.'})
 (ROOT/'game/data/orison_v2/readable_library.json').write_text(json.dumps(data,indent=2)+'\n',encoding='utf8',newline='\n')
 bindings=[Path(__file__),ROOT/'game/data/library.json',ROOT/'game/data/orison_v2/book_spreads.json',ROOT/'game/data/runtime_material_sets.json']
 bindings += [ROOT/'art/illustrations/book_plates/provenance.json']+[ROOT/'game'/v['image'].removeprefix('res://') for v in artwork.values()]
 bindings += [ROOT/'art/illustrations/book_plates/page_designs.json']
+bindings += [ROOT/'art/data/readable_library/editorial.json']
+bindings += [ROOT/'art/blender/scripts'/p for p in ['book_flex_math.py','fabrication_book_export.py']]
 bindings += [ROOT/'art/blender/scripts'/p for p in ['fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]
 bindings += [ROOT/'game/assets/building/textures'/f for key in keys for f in catalog[key]['files']]
 report=dict(evidence_class='INERT',scope='Native stock construction, authored UV/tangents and physical size only. No runtime, save, narrative or human acceptance.',
-            parts=parts,closed_stocks=stocks,export=proof,source_bindings={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n') if p.suffix in ['.json','.py'] else p.read_bytes()).hexdigest() for p in bindings})
+            parts=parts,closed_stocks=stocks,opening_checks=opening_checks,export=proof,source_bindings={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n') if p.suffix in ['.json','.py'] else p.read_bytes()).hexdigest() for p in bindings})
 report['outputs']={path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in ['game/assets/props/readable_library.glb','art/blender/readable_library.blend','game/data/orison_v2/readable_library.json']}
 (ROOT/'art/blender/readable_library_construction.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf8',newline='\n')
 print('READABLE LIBRARY:',len(books),'books;',len(cases),'cases;',len(bookends),'bookends;',len(illustrations),'original plates;',len(parts),'parts')

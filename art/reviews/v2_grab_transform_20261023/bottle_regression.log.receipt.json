@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 17.61,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T10:17:40Z",
+  "started_utc": "2026-10-23T10:17:22Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_grab_transform_20261023/bottle_regression.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_grab_transform_20261023/bottle_regression.log",
+  "stdout_sha256": "c8a1411fe05e49211c93fb8e8073f6ae672f2737e7fe3f202729572deadb6eee"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2FireMaintenanceHandBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_grab_transform_20261023/bottle_regression",
+ "source": {
+  "dirty_paths": 3078,
+  "dirty_sample": [
+   "M art/blender/scripts/build_unracked_floor_pose.py",
+   " M game/scripts/player/constrained_grab.gd",
+   " M game/scripts/player/player_controller.gd",
+   " M game/scripts/player/target_reticle.gd",
+   " M game/scripts/props/fire_maintenance_pickup.gd",
+   " M game/scripts/props/fire_nozzle_coupling.gd",
+   " M game/scripts/props/fire_unracked_hose.gd",
+   " M game/scripts/props/v2_library_movable.gd",
+   " M game/scripts/props/v2_readable_book.gd",
+   " M game/tests/v2_book_slot_hand_bench.gd",
+   " M game/tests/v2_fire_nozzle_coupling_bench.gd",
+   " M game/tests/v2_unracked_hose_bench.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend"
+  ],
+  "repository_head": "d6ea2a50cb68f4a44461076784c19fc01d9bc8fb",
+  "repository_tree": "d2a0f5a0a0ab079ca0f2d694c2ade69e1bd59d33",
+  "runtime_inputs_sha256": "056e98e7da1116f5b1875fde68804e6c24310321fcfaa268bd16ea452ea91ce5",
+  "test_path": "game/tests/v2_fire_maintenance_hand_runner.gd",
+  "test_sha256": "f46b490cf32bddce99b8546aaed46bee0ddd656310b3d87dbcb8d034cf6187a3"
+ },
+ "windowed": true
+}

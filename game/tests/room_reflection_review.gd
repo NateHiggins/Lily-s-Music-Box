@@ -87,6 +87,7 @@ func _run() -> void:
 		if manager.probes.has(station.space):
 			var probe: ReflectionProbe=manager.probes[station.space]
 			check(not probe.interior,"production room capture retains outdoor sky")
+			check(probe.ambient_mode==ReflectionProbe.AMBIENT_DISABLED,"room capture retains specular context without duplicating diffuse light")
 			probe.interior=true;probe.position.x+=.00001
 			without_sky=await _reflection_capture(station.id+"_room_without_sky_context")
 			probe.interior=false

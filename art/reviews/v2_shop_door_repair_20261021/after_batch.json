@@ -1,0 +1,44 @@
+[
+  {
+    "runner": "long",
+    "timeout": 1500,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\import_final.log",
+    "extra_args": [
+      "--import"
+    ]
+  },
+  {
+    "timeout": 60,
+    "scene": "res://tests/V2RadiatorAuthorityLookupTest.tscn",
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\radiator_owner.log"
+  },
+  {
+    "timeout": 180,
+    "scene": "res://tests/V2FireNozzleCouplingBench.tscn",
+    "windowed": true,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\nozzle_guard.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\nozzle_guard"
+  },
+  {
+    "timeout": 180,
+    "scene": "res://tests/LampDreamMaterialTest.tscn",
+    "windowed": true,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\lamp_after.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\lamp_after"
+  },
+  {
+    "timeout": 180,
+    "scene": "res://tests/ToiletInspectionTest.tscn",
+    "windowed": true,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\input_after.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\input_after"
+  },
+  {
+    "runner": "long",
+    "timeout": 1500,
+    "scene": "res://tests/OrisonV2ResponsivenessProfile.tscn",
+    "windowed": true,
+    "log": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\performance_after.log",
+    "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\performance_after"
+  }
+]

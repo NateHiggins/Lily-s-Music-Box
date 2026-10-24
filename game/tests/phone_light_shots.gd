@@ -79,10 +79,10 @@ func _run(root: Node3D) -> void:
 	await get_tree().process_frame
 	# The torch defaults on now; the comparison still wants a dark frame.
 	player.flashlight.visible = false
-	player._light_mask.visible = false
+	pass # Photographic lamp overlay retired globally.
 	await _snap("phone_light_off.png")
 	player.flashlight.visible = true
-	player._light_mask.visible = true
+	pass # Photographic lamp overlay retired globally.
 	# Let the hand chase settle and shadows land.
 	await get_tree().create_timer(0.5).timeout
 	await _snap("phone_light_on.png")

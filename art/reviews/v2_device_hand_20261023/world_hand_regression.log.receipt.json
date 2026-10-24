@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 64.57,
+  "exit_code": 0,
+  "finished_utc": "2026-10-23T14:23:35Z",
+  "started_utc": "2026-10-23T14:22:30Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "DIRECT MANIPULATION: PASS; 116 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_device_hand_20261023/world_hand_regression.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_device_hand_20261023/world_hand_regression.log",
+  "stdout_sha256": "cda9d1a22626976afa21abeca1ff5fd63c8739ae3317bbde59f59809f4ae3914"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/DirectManipulationTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_device_hand_20261023/world_hand_regression",
+ "source": {
+  "dirty_paths": 3001,
+  "dirty_sample": [
+   "M game/scripts/device/mechanical_teletype.gd",
+   " M game/scripts/device/service_set_carrier.gd",
+   " M game/scripts/device/service_set_prop.gd",
+   " M game/scripts/player/constrained_grab.gd",
+   " M game/scripts/player/player_controller.gd",
+   " M game/tests/v2_handheld_profile.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json"
+  ],
+  "repository_head": "2774d4b4d72044faac75ae20a1a5f1fc6b15f73f",
+  "repository_tree": "59d59663785a363e67bb386e757940c81ee0c4ed",
+  "runtime_inputs_sha256": "516ddcbb2cf77cdff2e17965257bbf5d35a1b5666aecaa8d062240fe9a41b0ba",
+  "test_path": "game/tests/direct_manipulation_test.gd",
+  "test_sha256": "2c67c6cdadb86b43051893260c41562a87b7bf96426ccb4e44380b46a10573df"
+ },
+ "windowed": true
+}

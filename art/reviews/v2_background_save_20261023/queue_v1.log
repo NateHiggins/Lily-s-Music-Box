@@ -1,0 +1,22 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+BACKGROUND SAVE: background requests are explicitly pending before settlement = true
+BACKGROUND SAVE: FIFO writes every detached snapshot and retains the previous generation = true
+BACKGROUND SAVE: worker validation never swaps live state or reads later mutations = true
+BACKGROUND SAVE: real verified transactions run off the main thread = true
+BACKGROUND SAVE: snapshot, state and notice callbacks stay on the main thread = true
+BACKGROUND SAVE: ordinary commit drains older work then writes current state synchronously = true
+BACKGROUND SAVE: path change drains the old path before switching = true
+BACKGROUND SAVE: campaign document replacement is a settlement barrier = true
+BACKGROUND SAVE: reset drains old work before creating fresh live data = true
+BACKGROUND SAVE: disabling persistence drains pending work and prevents new writes = true
+BACKGROUND SAVE: load waits for the current campaign's queued snapshot = true
+BACKGROUND SAVE: explicit New settles prior writes and retains the original replacement authority = true
+BACKGROUND SAVE: worker detects and protects a future primary without altering its bytes = true
+BACKGROUND SAVE: protection failure discards queued attempts before another writer starts = true
+BACKGROUND SAVE: ordinary worker IO failure publishes the existing failure notice without a false protection latch = true
+BACKGROUND SAVE: older worker success cannot clear a newer live-domain protection latch = true
+BACKGROUND SAVE: burst backpressure bounds memory while preserving ordered generations = true
+BACKGROUND SAVE: all asynchronous results settle on main before teardown = true
+BACKGROUND SAVE: PASS checks=18

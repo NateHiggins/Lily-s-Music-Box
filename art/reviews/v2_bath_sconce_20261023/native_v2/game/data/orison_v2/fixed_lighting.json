@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/fixed_lighting.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "bath_bell",
+      "parts": [
+        {
+          "name": "bath_bell__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "bath_bell__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "bath_bell__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "3B_LT_SCONCE",
+      "variant": "bath_bell"
+    }
+  ],
+  "tint_space": "linear"
+}

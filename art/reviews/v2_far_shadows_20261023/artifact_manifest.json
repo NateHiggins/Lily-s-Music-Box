@@ -1,0 +1,491 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original culling experiments, cache controls, source-bound route and explicit final gate combination. No runtime-contract promotion. Manifest excludes itself.",
+  "files": [
+    {
+      "path": "analyze.py",
+      "bytes": 3248,
+      "sha256": "332a5d03e1f38a9e457abb4c3564ea754051e9c6c3df04bcc5c3b2381da7eb27"
+    },
+    {
+      "path": "budget_after_v1/setter_control.json",
+      "bytes": 116592,
+      "sha256": "0917f8abe734739d655fc412523dc77e95b1036ec4b84d72daef072220cf1049"
+    },
+    {
+      "path": "budget_after_v1.log",
+      "bytes": 234,
+      "sha256": "e417acd7d091b7e96220c83fe3b4e6478c788e43d799b5963ccd60004553f56b"
+    },
+    {
+      "path": "budget_after_v1.log.receipt.json",
+      "bytes": 2866,
+      "sha256": "0b5df1349ca15036a10280c283ee88d9d5ec270fcec6140372a4cc86afefe259"
+    },
+    {
+      "path": "budget_after_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "budget_after_v1_source.gd.gz",
+      "bytes": 1587,
+      "sha256": "f1ac2b9fcd13fb4e2a7acb2b2081425b3a1ed0c21bc2344769a02fa69f1dfadd"
+    },
+    {
+      "path": "budget_before_v1/setter_control.json",
+      "bytes": 116571,
+      "sha256": "395428bec25d26c8e21bafe59213ddd0dfb33563b225b21f831d006c6788ef3e"
+    },
+    {
+      "path": "budget_before_v1.log",
+      "bytes": 234,
+      "sha256": "e417acd7d091b7e96220c83fe3b4e6478c788e43d799b5963ccd60004553f56b"
+    },
+    {
+      "path": "budget_before_v1.log.receipt.json",
+      "bytes": 2936,
+      "sha256": "20174cfc0771c9655077b54b0fd08b5204bef5988c6896184bca9acfa22117c5"
+    },
+    {
+      "path": "budget_before_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "comparison.json",
+      "bytes": 32684,
+      "sha256": "9a3f50585b734c9fb379753e3ac9165621cacd3c6b32bcf9ba0c3d15efe593f3"
+    },
+    {
+      "path": "engine_reference.json",
+      "bytes": 458,
+      "sha256": "5987d2b5fad343decea5e63ecff6f754ff0241191f52d4ff340ebd3138cde313"
+    },
+    {
+      "path": "gates/board.json",
+      "bytes": 351607,
+      "sha256": "5307bb53b2bf54531111b88e0193b2616f2503c7b60226898c108efd9cb00c8e"
+    },
+    {
+      "path": "gates/board.md",
+      "bytes": 8315,
+      "sha256": "7dff618d44143574c116ae4842a9541f29131b656b74c684d015f83f90fbb4ba"
+    },
+    {
+      "path": "gates_early/board.json",
+      "bytes": 296349,
+      "sha256": "5ba476c9058629c581d94e47e51c43b5d1cbf1752e5fa463508dcc6511e1e49e"
+    },
+    {
+      "path": "gates_early/board.md",
+      "bytes": 468,
+      "sha256": "531c72386d86258c7a8697c9d30a8b26e0a19698753898cd25e404b7a9256892"
+    },
+    {
+      "path": "gates_final.json",
+      "bytes": 377342,
+      "sha256": "fb41087bc223ce2f74092650ea5d6520fcdba4b496780262696c8c6ad58adc38"
+    },
+    {
+      "path": "gates_guarded/board.json",
+      "bytes": 296625,
+      "sha256": "b6e920124241a7d7155b616fe561b8965624bdee189a964f4cb59cef4ec1cfb1"
+    },
+    {
+      "path": "gates_guarded/board.md",
+      "bytes": 468,
+      "sha256": "b8181756b67de2009989ebb7c0b46c7702d7979951d192d70c8842b7099a24c7"
+    },
+    {
+      "path": "gates_motion/board.json",
+      "bytes": 296641,
+      "sha256": "d68b72629c4a4f3359d9cdce85825ab36e7e7e2ffab86762c4c0988adf63bb6c"
+    },
+    {
+      "path": "gates_motion/board.md",
+      "bytes": 468,
+      "sha256": "6ff45485b4f0bcf4e8241cdce0a28c9777969779cdf1f1e2b47ac4acbacfd38b"
+    },
+    {
+      "path": "motion_after_v1/setter_control.json",
+      "bytes": 117300,
+      "sha256": "df59c7cf1c09d39a2f0f07e95b9b3f8c0d540e548c65dfaa1e9ecbb0784bd913"
+    },
+    {
+      "path": "motion_after_v1.log",
+      "bytes": 234,
+      "sha256": "5b9e875247cc11359dcd7c9a323619c588350e551b713e4d8645671e167de956"
+    },
+    {
+      "path": "motion_after_v1.log.receipt.json",
+      "bytes": 2865,
+      "sha256": "82a21f64d08ccca923edab3087ddb2c23e67de213928fd9f436eb038db88dfdf"
+    },
+    {
+      "path": "motion_after_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "motion_source.gd.gz",
+      "bytes": 1894,
+      "sha256": "3c0a69d4f83eb78d682fddcea99c384eb6118a373f1aadbac9533b26c221ca1f"
+    },
+    {
+      "path": "probe_v1/directional_off.png",
+      "bytes": 734417,
+      "sha256": "04d9ec405f47e8072b9d6e62ab1216634eea4a0e8f088b6a4822f47a856f0f39"
+    },
+    {
+      "path": "probe_v1/far_gap4.png",
+      "bytes": 690297,
+      "sha256": "becd3f9482277a29cb852942f574753872de2fb5ece51b965e7b85a458162def"
+    },
+    {
+      "path": "probe_v1/far_gap8.png",
+      "bytes": 686640,
+      "sha256": "ef6f2739345cfe71949199625a0f977042e4b20b1baf1668b4fcd97d78d493e1"
+    },
+    {
+      "path": "probe_v1/frames.json",
+      "bytes": 626362,
+      "sha256": "aecc08995b0c5e88b2d2b39d028d631f601feb8c5c4c3022104887a8c7e57618"
+    },
+    {
+      "path": "probe_v1/last_position.png",
+      "bytes": 705743,
+      "sha256": "41a5848cc6386d28b94b42c113c7217a2c0bcb2f29b7fafa5d7d70240ef6af3b"
+    },
+    {
+      "path": "probe_v1/original_a.png",
+      "bytes": 693770,
+      "sha256": "ad075818cc549e1336a193067c4bd28f5bee2f01794f21894fae254b13012981"
+    },
+    {
+      "path": "probe_v1/original_b.png",
+      "bytes": 694137,
+      "sha256": "1098950f36a61304023e64141591d5bcac041eda4ba446af4fd3932bf077b520"
+    },
+    {
+      "path": "probe_v1/original_c.png",
+      "bytes": 693017,
+      "sha256": "6096c0d2b96b8abc882d65db996cee69635498722cbae61b7324175067da8c3a"
+    },
+    {
+      "path": "probe_v1/original_d.png",
+      "bytes": 693235,
+      "sha256": "7eb3366bc9f2a93b1757cc7f149b419957cdaf8090e623231bc95f6fdcf109a5"
+    },
+    {
+      "path": "probe_v1/original_e.png",
+      "bytes": 705093,
+      "sha256": "cca3ba82bbd615f40a83eb35d98c86c1dce6232ea037d89dc015029c49d7c49a"
+    },
+    {
+      "path": "probe_v1/original_f.png",
+      "bytes": 705895,
+      "sha256": "f48b694c931caf39040509acf43ff0c4c2383df58dcf1593c9ff1697ee663420"
+    },
+    {
+      "path": "probe_v1/other_point_off.png",
+      "bytes": 759323,
+      "sha256": "99ccd0392349242abc869efd3b7a3efdfbf4436bc5de1416a7da43e47cf36cec"
+    },
+    {
+      "path": "probe_v1/route.json",
+      "bytes": 1473,
+      "sha256": "86675181bb0a4cfaf22844d2248d5c532d719e01e7afbe9c6001dcbadfd85850"
+    },
+    {
+      "path": "probe_v1/service_off.png",
+      "bytes": 728712,
+      "sha256": "e7b4f081d266addfd5fd76cbd4f59b22dfca9913523d7d5100599439526995f8"
+    },
+    {
+      "path": "probe_v1/shadow_study.json",
+      "bytes": 711753,
+      "sha256": "7ea0aee53e75659d5cc309d4e6e67377148722c2da338f4c9b3a378e47a859bd"
+    },
+    {
+      "path": "probe_v1.log",
+      "bytes": 2920,
+      "sha256": "aa83b063103d249430ef4eb2e3c03f5ad887084d1b13572ea9459bd59769361f"
+    },
+    {
+      "path": "probe_v1.log.receipt.json",
+      "bytes": 2844,
+      "sha256": "8ca758256a2a990fb8ed72056b1e6ac8d4824c2adbc4ea057e71c1cb2a1d04d5"
+    },
+    {
+      "path": "probe_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "protected.json",
+      "bytes": 4046,
+      "sha256": "e9cc1b6ec7e51b3d01ef5ad06d78dd99f07758e8d72987401a4eefb83918ee72"
+    },
+    {
+      "path": "setter_v1/setter_control.json",
+      "bytes": 75517,
+      "sha256": "6efbf472781bff022aae5a1e2f94c1f698aa23f9ab3f40cb10c0f43f22a76a20"
+    },
+    {
+      "path": "setter_v1.log",
+      "bytes": 229,
+      "sha256": "d3ece56e31243c9e4baef89faf3fd7c8b86303eac1a2b6a979dbdbfdfc521b30"
+    },
+    {
+      "path": "setter_v1.log.receipt.json",
+      "bytes": 2856,
+      "sha256": "56c2c48cb2f14b56e11d5b09b677c4fa81f6d94a17306359e829f6d8fe12205c"
+    },
+    {
+      "path": "setter_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "setter_v1_source.gd.gz",
+      "bytes": 1046,
+      "sha256": "d38d27d42bf7d3a5e0e791bd12d29f20798684c0d695e1b8edeeedc7c34829ca"
+    },
+    {
+      "path": "source_after/game/scripts/props/ceiling_light_prop.gd.gz",
+      "bytes": 1225,
+      "sha256": "69fe2b491c33cd33b85bdd086fba4b41cdc0d8c3e2bdf7368ae01b56d10cac25"
+    },
+    {
+      "path": "source_after/game/scripts/props/lamp_prop.gd.gz",
+      "bytes": 6478,
+      "sha256": "7dda9b4bbab4e4ebc5f9ed7e38405b8ecf64727d41d790a1643664e293a3e6f7"
+    },
+    {
+      "path": "source_after/game/scripts/props/light_fixture_prop.gd.gz",
+      "bytes": 10766,
+      "sha256": "c1e113b42719cbaf93f82ca6d8761042ab3ad06cb84a33b87a657c70e5ca5850"
+    },
+    {
+      "path": "source_after/game/tests/v2_commit_cause_world.gd.gz",
+      "bytes": 1304,
+      "sha256": "53b12d34db487956e0bcea02bf5f7bfee22d605a316ef0ae5d28f299393cd1a3"
+    },
+    {
+      "path": "source_after/game/tests/v2_hose_work_attribution.gd.gz",
+      "bytes": 1950,
+      "sha256": "65870108a40161465a96affea8ac00f11a7f748cbd9e873c55f2818e1f9811ce"
+    },
+    {
+      "path": "source_after/game/tests/v2_shadow_setter_control.gd.gz",
+      "bytes": 1587,
+      "sha256": "f1ac2b9fcd13fb4e2a7acb2b2081425b3a1ed0c21bc2344769a02fa69f1dfadd"
+    },
+    {
+      "path": "source_after/game/tests/V2CommitCauseWorld.tscn.gz",
+      "bytes": 168,
+      "sha256": "dca310956bc126c4ee66d5bb01152696fc4c33329b3a6aea7627a84d2c291f20"
+    },
+    {
+      "path": "source_after/game/tests/V2ShadowSetterControl.tscn.gz",
+      "bytes": 169,
+      "sha256": "b9d20b41502e0e4d1b48b1e1b3a8e06d7fcf0dc5e8797aa0fe898a98597e2f32"
+    },
+    {
+      "path": "source_after.json",
+      "bytes": 2740,
+      "sha256": "636b165b98e62dbe15baf2f647d3b7425d3aea8183b045eddca2e39f4717ba3f"
+    },
+    {
+      "path": "source_budget_before/game/scripts/props/ceiling_light_prop.gd.gz",
+      "bytes": 1213,
+      "sha256": "62df157c6d41927e5a50efec04bb04920b0bde50821ba0a2c3f958a5a739e7e1"
+    },
+    {
+      "path": "source_budget_before/game/scripts/props/lamp_prop.gd.gz",
+      "bytes": 6469,
+      "sha256": "ffa76682350d9c92f37257b8a56fdeac20b891e963945c81a33766258f2dbb7e"
+    },
+    {
+      "path": "source_budget_before/game/scripts/props/light_fixture_prop.gd.gz",
+      "bytes": 10749,
+      "sha256": "c18c78d5793c2322d760d613da01a89be3e0bd145735285468ef776f412d33de"
+    },
+    {
+      "path": "source_budget_before/game/tests/v2_shadow_setter_control.gd.gz",
+      "bytes": 1587,
+      "sha256": "f1ac2b9fcd13fb4e2a7acb2b2081425b3a1ed0c21bc2344769a02fa69f1dfadd"
+    },
+    {
+      "path": "source_budget_before/game/tests/V2ShadowSetterControl.tscn.gz",
+      "bytes": 169,
+      "sha256": "b9d20b41502e0e4d1b48b1e1b3a8e06d7fcf0dc5e8797aa0fe898a98597e2f32"
+    },
+    {
+      "path": "source_budget_before.json",
+      "bytes": 1796,
+      "sha256": "4ed078e18f890eabea7b9e6d41322785bc1e787d3d210a1e47f061360bba9ccc"
+    },
+    {
+      "path": "source_checks.json",
+      "bytes": 1572,
+      "sha256": "4b24320d87b885718b3c61b2e28f3a11c5b24a06a2704de2cab90fd053db04a0"
+    },
+    {
+      "path": "source_probe/game/scripts/building/light_rig.gd.gz",
+      "bytes": 10398,
+      "sha256": "44c96eb79c8c9c1780a49b8ab7c5ec0b1fcc2f212527f5d20e56e750e8e444ee"
+    },
+    {
+      "path": "source_probe/game/scripts/building/service_light_distance.gd.gz",
+      "bytes": 1007,
+      "sha256": "d293df99e8c40593e30450fc92cf8600bad56bc6f60be1f181f0ba227fe49b50"
+    },
+    {
+      "path": "source_probe/game/tests/v2_far_shadow_study.gd.gz",
+      "bytes": 1990,
+      "sha256": "c8ab50152ada3d5aa2ab9fb4b5b940577222f47e24956cc85b905c38ebb496a4"
+    },
+    {
+      "path": "source_probe/game/tests/v2_golden_repair_profile.gd.gz",
+      "bytes": 1559,
+      "sha256": "39b37345eb216fe83c0a4e810ef71aebc90fafe7e642e1eced3f1633009574a5"
+    },
+    {
+      "path": "source_probe/game/tests/v2_hose_installed_world.gd.gz",
+      "bytes": 4236,
+      "sha256": "46b75230daaa2182ba8d56df415b1bafc85e0de48989cb8bdfc9859921c062de"
+    },
+    {
+      "path": "source_probe/game/tests/V2FarShadowStudy.tscn.gz",
+      "bytes": 165,
+      "sha256": "e1446d3855bd446836bbb8689e834911f540794c04237d40df5aeb5ff2709f6a"
+    },
+    {
+      "path": "source_probe.json",
+      "bytes": 2096,
+      "sha256": "4a458c2137ebedec490cde58b2e6f1d45fac70a7a509d9039607a886c379ad96"
+    },
+    {
+      "path": "spatial_registration.json",
+      "bytes": 2373,
+      "sha256": "107f8cd67056809ed239c41ec097a5691d5f06f5e1de04006c642539262d31ee"
+    },
+    {
+      "path": "world_after_v1/automatic_persistence.json",
+      "bytes": 385,
+      "sha256": "7838049375e733116097a1a110ed1c1116b99c2e9fe836a40c658daaea1f9b11"
+    },
+    {
+      "path": "world_after_v1/cause_analysis.json",
+      "bytes": 22499,
+      "sha256": "1e59e40683ab0cbd6c24defeab3a7b3a06fd51533410efad5190b95305566818"
+    },
+    {
+      "path": "world_after_v1/commit_causes.json",
+      "bytes": 15653,
+      "sha256": "f67edcbcdaae323af63942f4ccec07dfddfc8866271b62d84594a938bb8fae19"
+    },
+    {
+      "path": "world_after_v1/commit_pairs.json",
+      "bytes": 7987,
+      "sha256": "5240c34ca76018598e078aec72da5fc7310a84583cf541f04eb73108f6be4032"
+    },
+    {
+      "path": "world_after_v1/frames.json",
+      "bytes": 276734,
+      "sha256": "ef06bb5d353912d5948bc61bbca86e9486ed5c4f6b677726c831f221bf77e914"
+    },
+    {
+      "path": "world_after_v1/held_projection.json",
+      "bytes": 4699,
+      "sha256": "80758aff4ad5d30ec69301f7d325bd14ae2c1eee4a495e6f4b9c98cb83efcd4a"
+    },
+    {
+      "path": "world_after_v1/hose_checks.json",
+      "bytes": 27955,
+      "sha256": "a82eaf8bbd4101cdd43def95de36fb29654885eaa1d3930b1c0e3c33f551d866"
+    },
+    {
+      "path": "world_after_v1/installed_held_nozzle.png",
+      "bytes": 598734,
+      "sha256": "238f1d184275453d999a315b3a01c12aee9f07b7d88c12ee8c32ffaa8c9437e0"
+    },
+    {
+      "path": "world_after_v1/installed_spray.png",
+      "bytes": 823888,
+      "sha256": "f7fb1e142cdaa713eb1fdf459de6f5341b8cf8275b3d2520a98e783d54d0d206"
+    },
+    {
+      "path": "world_after_v1/last_position.png",
+      "bytes": 1312725,
+      "sha256": "ca66fd3be8eb1dd9042192485990094c64123de3f5142df50f0da85fba91119c"
+    },
+    {
+      "path": "world_after_v1/rebuild_comparison.json",
+      "bytes": 3685,
+      "sha256": "41a577383437ade2408953ffca4c468429223314ca81b88f97a66d60a0aaf6d1"
+    },
+    {
+      "path": "world_after_v1/release_support.json",
+      "bytes": 232,
+      "sha256": "21639f57b5929e1de29509c886a542924d242628a15761d33e8fa6a6c24acdbe"
+    },
+    {
+      "path": "world_after_v1/remote_nozzle_inspection.png",
+      "bytes": 1108900,
+      "sha256": "31d776cf5f6c6d232d3078ca81be6b540ea36c840e45720ef5ebba16a085ecce"
+    },
+    {
+      "path": "world_after_v1/remote_state.json",
+      "bytes": 1622,
+      "sha256": "047317976c8700149aa04149ccdd499ca88a479fda13d2a24b05280267fc21c9"
+    },
+    {
+      "path": "world_after_v1/render_passes.json",
+      "bytes": 410098,
+      "sha256": "a524dcb21c54e77f7c235a9f8b5cc13a96349de49fb63477f694111331de5e9a"
+    },
+    {
+      "path": "world_after_v1/route.json",
+      "bytes": 3188,
+      "sha256": "017e7a75fbb86b4d72812ba9ad8636381385e8e9b29d01aad5d9ec60c4ab8e06"
+    },
+    {
+      "path": "world_after_v1/save_expectation.json",
+      "bytes": 3263,
+      "sha256": "591f0ef6aceb48f324f6f7efd50a3223f59f26a3aa585cc37dadf6a38bffa213"
+    },
+    {
+      "path": "world_after_v1/unchanged_pairs.json",
+      "bytes": 10763,
+      "sha256": "e778918fdaed6c5be8d6ad43358a10d7be68a6e53c76db6ae8eb421983d09291"
+    },
+    {
+      "path": "world_after_v1/work_analysis.json",
+      "bytes": 535572,
+      "sha256": "671c5fc1e3c2e498d4ab626d8712b7fd96e7e0741a8f4b3cba2e3842addf0f5a"
+    },
+    {
+      "path": "world_after_v1/work_trace.json",
+      "bytes": 1152913,
+      "sha256": "870caa6f0f3ac720994e06001cdc584453fbf3b2620c8c8651693458263a637e"
+    },
+    {
+      "path": "world_after_v1.log",
+      "bytes": 8471,
+      "sha256": "a5f6b513471440d036522255babce0a7f6856ce4120a40dc4142c4aa80e593e6"
+    },
+    {
+      "path": "world_after_v1.log.receipt.json",
+      "bytes": 2799,
+      "sha256": "03c69e1cf4611e7756a0902a8f8079554fbd211cee11873382e2063fbedbd3b5"
+    },
+    {
+      "path": "world_after_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

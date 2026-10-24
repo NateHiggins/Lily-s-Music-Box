@@ -117,7 +117,7 @@ func _run() -> void:
 	check(air.setup(player,environment),"production carried voxel light initializes")
 	for frame in 30: await get_tree().physics_frame
 	check(air.field != null and air.field.ready and air.field.failed.is_empty(),"live voxel field ready")
-	check(player.flashlight.light_projector==null and not player._light_mask.is_visible_in_tree(),"legacy light plate disabled")
+	check(player.flashlight.light_projector==null and player._light_mask == null,"legacy light plate disabled")
 	player.camera.look_at(Vector3(0,1.15,0))
 	await _capture("native_bindings_normals_on")
 	var materials: Array[StandardMaterial3D] = []

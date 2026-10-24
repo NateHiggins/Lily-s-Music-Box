@@ -1,0 +1,129 @@
+{
+  "evidence_class": "INERT",
+  "scope": "No production optimization. Median uses the central pair; p95/p99 use floor((n-1)*p). No whole-route performance or runtime qualification claim.",
+  "source_sha256": "8f88ffd5f2d38e898864769c64204f6f4bc241025660cd28f4c77b17f669db6f",
+  "helpers": 24,
+  "scheduled_helpers": 24,
+  "manual_calls_ms": {
+    "n": 60,
+    "p50": 0.1935,
+    "p95": 0.24,
+    "p99": 0.256,
+    "maximum": 0.276
+  },
+  "treatments": [
+    {
+      "name": "original_a",
+      "wall_ms": {
+        "n": 120,
+        "p50": 32.117000000000004,
+        "p95": 36.039,
+        "p99": 36.939,
+        "maximum": 38.955
+      }
+    },
+    {
+      "name": "polling_disabled",
+      "wall_ms": {
+        "n": 120,
+        "p50": 33.465999999999994,
+        "p95": 37.934,
+        "p99": 40.226,
+        "maximum": 40.664
+      }
+    },
+    {
+      "name": "original_b",
+      "wall_ms": {
+        "n": 120,
+        "p50": 33.545500000000004,
+        "p95": 37.073,
+        "p99": 38.191,
+        "maximum": 39.65
+      }
+    }
+  ],
+  "runs": [
+    {
+      "name": "before_v1",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 164.81,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T05:36:00Z",
+        "started_utc": "2026-10-24T05:33:15Z",
+        "timed_out": false
+      },
+      "top_level_checks": 15,
+      "failures": []
+    },
+    {
+      "name": "union_v1",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 155.4,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T05:41:01Z",
+        "started_utc": "2026-10-24T05:38:25Z",
+        "timed_out": false
+      },
+      "top_level_checks": 26,
+      "failures": [],
+      "nozzle_checks": 0,
+      "nozzle_failures": [],
+      "gasket_checks": 0,
+      "gasket_failures": []
+    },
+    {
+      "name": "gasket_v1",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 166.64,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T05:44:37Z",
+        "started_utc": "2026-10-24T05:41:50Z",
+        "timed_out": false
+      },
+      "top_level_checks": 27,
+      "failures": [],
+      "nozzle_checks": 0,
+      "nozzle_failures": [],
+      "gasket_checks": 27,
+      "gasket_failures": []
+    },
+    {
+      "name": "nozzle_v1",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 182.65,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T05:48:43Z",
+        "started_utc": "2026-10-24T05:45:40Z",
+        "timed_out": false
+      },
+      "top_level_checks": 28,
+      "failures": [],
+      "nozzle_checks": 33,
+      "nozzle_failures": [],
+      "gasket_checks": 27,
+      "gasket_failures": []
+    },
+    {
+      "name": "chain_v1",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 350.91,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T05:56:42Z",
+        "started_utc": "2026-10-24T05:50:51Z",
+        "timed_out": false
+      },
+      "top_level_checks": 56,
+      "failures": [],
+      "nozzle_checks": 33,
+      "nozzle_failures": [],
+      "gasket_checks": 27,
+      "gasket_failures": []
+    }
+  ]
+}

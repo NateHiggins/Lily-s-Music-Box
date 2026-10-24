@@ -1,0 +1,283 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Complete-world initial layout and actual removal diagnostic. No matched before/after optimization, released behavior, save, spray or runtime qualification.",
+  "clear_stations": [
+    "B1_FIRE_LINE_STAIR",
+    "F01_FIRE_LINE_STAIR",
+    "F02_FIRE_LINE_STAIR",
+    "F03_FIRE_LINE_STAIR",
+    "F04_FIRE_LINE_STAIR",
+    "F05_FIRE_LINE_STAIR",
+    "F06_FIRE_LINE_STAIR",
+    "ROOF_FIRE_LINE_STAIR"
+  ],
+  "actual_removal": {
+    "picked": true,
+    "deployed": true,
+    "released": true,
+    "cpu_input_ms": {
+      "samples": 25,
+      "p50": 0.831,
+      "p95": 0.9863999999999999,
+      "p99": 11.332839999999972,
+      "maximum": 14.599,
+      "over_16_667": 0,
+      "over_33_333": 0,
+      "over_100": 0
+    }
+  },
+  "frames": {
+    "wall_ms": {
+      "samples": 28,
+      "p50": 42.4405,
+      "p95": 77.3033,
+      "p99": 84.12096000000001,
+      "maximum": 85.296,
+      "over_16_667": 27,
+      "over_33_333": 27,
+      "over_100": 0
+    },
+    "process_ms": {
+      "samples": 28,
+      "p50": 58.914,
+      "p95": 58.914,
+      "p99": 58.914,
+      "maximum": 58.914,
+      "over_16_667": 28,
+      "over_33_333": 28,
+      "over_100": 0
+    },
+    "physics_ms": {
+      "samples": 28,
+      "p50": 87.921,
+      "p95": 87.921,
+      "p99": 87.921,
+      "maximum": 87.921,
+      "over_16_667": 17,
+      "over_33_333": 17,
+      "over_100": 0
+    },
+    "render_cpu_ms": {
+      "samples": 28,
+      "p50": 21.5920000076294,
+      "p95": 25.586349678039554,
+      "p99": 28.060799598693833,
+      "maximum": 28.9139995574951,
+      "over_16_667": 28,
+      "over_33_333": 0,
+      "over_100": 0
+    },
+    "render_gpu_ms": {
+      "samples": 28,
+      "p50": 15.66099977493285,
+      "p95": 18.877200222015382,
+      "p99": 21.418520145416256,
+      "maximum": 22.3159999847412,
+      "over_16_667": 7,
+      "over_33_333": 0,
+      "over_100": 0
+    }
+  },
+  "pipeline_compilation_changes": {
+    "PIPELINE_COMPILATIONS_CANVAS": 0.0,
+    "PIPELINE_COMPILATIONS_DRAW": 0.0,
+    "PIPELINE_COMPILATIONS_MESH": 0.0,
+    "PIPELINE_COMPILATIONS_SPECIALIZATION": 0.0,
+    "PIPELINE_COMPILATIONS_SURFACE": 0.0
+  },
+  "actual_carry": {
+    "cpu_input_ms": {
+      "samples": 8,
+      "p50": 45.6075,
+      "p95": 69.13854999999998,
+      "p99": 73.08850999999999,
+      "maximum": 74.076,
+      "over_16_667": 8,
+      "over_33_333": 8,
+      "over_100": 0
+    },
+    "stalled_events": 2,
+    "events": [
+      {
+        "cpu_input_ms": 45.062,
+        "error": "",
+        "feedback": "grabbed",
+        "pending_frames": 0,
+        "pose_acceptance_ms": 45.063,
+        "progress_m": 0.00215749000199139,
+        "step": 0
+      },
+      {
+        "cpu_input_ms": 45.33,
+        "error": "",
+        "feedback": "grabbed",
+        "pending_frames": 0,
+        "pose_acceptance_ms": 45.331,
+        "progress_m": 0.00216647563502193,
+        "step": 1
+      },
+      {
+        "cpu_input_ms": 45.59,
+        "error": "",
+        "feedback": "grabbed",
+        "pending_frames": 0,
+        "pose_acceptance_ms": 45.591,
+        "progress_m": 0.00217451201751828,
+        "step": 2
+      },
+      {
+        "cpu_input_ms": 45.625,
+        "error": "",
+        "feedback": "grabbed",
+        "pending_frames": 0,
+        "pose_acceptance_ms": 45.626,
+        "progress_m": 0.00218098005279899,
+        "step": 3
+      },
+      {
+        "cpu_input_ms": 44.91,
+        "error": "",
+        "feedback": "grabbed",
+        "pending_frames": 0,
+        "pose_acceptance_ms": 44.911,
+        "progress_m": 0.00218733306974173,
+        "step": 4
+      },
+      {
+        "cpu_input_ms": 74.076,
+        "error": "",
+        "feedback": "grabbed",
+        "pending_frames": 0,
+        "pose_acceptance_ms": 74.077,
+        "progress_m": 0.00109704025089741,
+        "step": 5
+      },
+      {
+        "cpu_input_ms": 59.131,
+        "error": "incompatible follower support planes",
+        "feedback": "grabbed",
+        "pending_frames": 0,
+        "pose_acceptance_ms": 59.132,
+        "progress_m": 0.0,
+        "step": 6
+      },
+      {
+        "cpu_input_ms": 59.969,
+        "error": "incompatible follower support planes",
+        "feedback": "grabbed",
+        "pending_frames": 0,
+        "pose_acceptance_ms": 59.969,
+        "progress_m": 0.0,
+        "step": 7
+      }
+    ]
+  },
+  "phases_boundary_excluded": {
+    "played_unrack_input": {
+      "wall_ms": {
+        "samples": 27,
+        "p50": 42.693,
+        "p95": 77.82339999999999,
+        "p99": 84.16448,
+        "maximum": 85.296,
+        "over_16_667": 27,
+        "over_33_333": 27,
+        "over_100": 0
+      },
+      "process_ms": {
+        "samples": 27,
+        "p50": 58.914,
+        "p95": 58.914,
+        "p99": 58.914,
+        "maximum": 58.914,
+        "over_16_667": 27,
+        "over_33_333": 27,
+        "over_100": 0
+      },
+      "physics_ms": {
+        "samples": 27,
+        "p50": 87.921,
+        "p95": 87.921,
+        "p99": 87.921,
+        "maximum": 87.921,
+        "over_16_667": 16,
+        "over_33_333": 16,
+        "over_100": 0
+      },
+      "render_cpu_ms": {
+        "samples": 27,
+        "p50": 21.5170001983643,
+        "p95": 25.14629993438722,
+        "p99": 25.629459686279297,
+        "maximum": 25.753999710083,
+        "over_16_667": 27,
+        "over_33_333": 0,
+        "over_100": 0
+      },
+      "render_gpu_ms": {
+        "samples": 27,
+        "p50": 15.5419998168945,
+        "p95": 18.46359977722167,
+        "p99": 18.906720314025883,
+        "maximum": 18.992000579834,
+        "over_16_667": 6,
+        "over_33_333": 0,
+        "over_100": 0
+      }
+    },
+    "played_unracked_carry": {
+      "wall_ms": {
+        "samples": 10,
+        "p50": 162.2005,
+        "p95": 184.2389,
+        "p99": 186.69338,
+        "maximum": 187.307,
+        "over_16_667": 10,
+        "over_33_333": 10,
+        "over_100": 10
+      },
+      "process_ms": {
+        "samples": 10,
+        "p50": 96.389,
+        "p95": 117.545,
+        "p99": 117.545,
+        "maximum": 117.545,
+        "over_16_667": 10,
+        "over_33_333": 10,
+        "over_100": 4
+      },
+      "physics_ms": {
+        "samples": 10,
+        "p50": 9.321,
+        "p95": 10.058,
+        "p99": 10.058,
+        "maximum": 10.058,
+        "over_16_667": 0,
+        "over_33_333": 0,
+        "over_100": 0
+      },
+      "render_cpu_ms": {
+        "samples": 10,
+        "p50": 29.36450004577635,
+        "p95": 31.44505014419555,
+        "p99": 31.61460969924927,
+        "maximum": 31.6569995880127,
+        "over_16_667": 10,
+        "over_33_333": 0,
+        "over_100": 0
+      },
+      "render_gpu_ms": {
+        "samples": 10,
+        "p50": 19.1374998092651,
+        "p95": 31.679550075530987,
+        "p99": 32.48630979537963,
+        "maximum": 32.6879997253418,
+        "over_16_667": 10,
+        "over_33_333": 0,
+        "over_100": 0
+      }
+    }
+  },
+  "boundary_method": "Exclude the first partial interval following the diagnostic timer reset. Retain three post-release presentation frames. No displayed-latency or matched before/after claim.",
+  "native": []
+}

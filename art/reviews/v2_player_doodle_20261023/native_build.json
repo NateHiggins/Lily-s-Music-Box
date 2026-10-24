@@ -1,0 +1,33 @@
+{
+  "evidence_class": "INERT",
+  "source": "art/source/player_doodle_20261023/Meshy_AI_Smiling_Stick_Figure_biped/Meshy_AI_Smiling_Stick_Figure_biped_Animation__01a16981_df16_7433_b162_60a018f2b8ab_frame_rate_30.fbx",
+  "source_sha256": "5755d4abfa5286fae52faf186ca57f6f6b34167936980fdde3acf76ed33ea711",
+  "native": "art/blender/player_doodle.blend",
+  "asset": "game/assets/characters/player_doodle/player_doodle.glb",
+  "asset_sha256": "3746ccd71b06b202313f18bcbd89a944559b5f3267ac005c0863b317dda54533",
+  "source_triangles": 198520,
+  "runtime_triangles": 19852,
+  "vertices": 17415,
+  "bones": 52,
+  "fps": 30,
+  "frames": [
+    1,
+    300
+  ],
+  "clip": "Idle",
+  "scale": 0.8929883782991032,
+  "source_height_m": 1.706629153341055,
+  "uv_degenerate_triangles": 0,
+  "removed_object_transform_channels": [
+    "location",
+    "location",
+    "location",
+    "rotation_euler",
+    "rotation_euler",
+    "rotation_euler",
+    "scale",
+    "scale",
+    "scale"
+  ],
+  "limits": "Native preservation/LOD build. Loaded maps, deformation, orientation, loop continuity and mirror appearance require runtime review."
+}

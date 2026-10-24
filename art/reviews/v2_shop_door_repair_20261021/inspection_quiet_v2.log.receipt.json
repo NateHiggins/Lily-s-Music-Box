@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 173.04,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T17:17:37Z",
+  "started_utc": "2026-10-21T17:14:43Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 WORLD INSPECTION PROFILE: PASS checks=27 failures=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/inspection_quiet_v2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/inspection_quiet_v2.log",
+  "stdout_sha256": "07587a5c0e76da5bc62bebd8cdbf1fe4bd300f7c6dba1089fe1ff53063a7b0ba"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2WorldInspectionProfile.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\reviews\\v2_shop_door_repair_20261021\\inspection_quiet_v2",
+ "source": {
+  "dirty_paths": 1129,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/renders/orison_v2/access_exterior_regions_20261019/runtime_contract.json",
+   " M art/renders/orison_v2/access_exterior_regions_20261019/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_exterior_regions_20261019/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/access_public_landings_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_public_landings_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_public_landings_20261018/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/access_service_circulation_20261018/runtime_contract.json",
+   " M art/renders/orison_v2/access_service_circulation_20261018/suite_run.receipt.json",
+   " M art/renders/orison_v2/access_service_circulation_20261018/suite_run.stdout.log.gz",
+   " M art/reviews/v2_shop_door_repair_20261021/CONTINUATION.txt",
+   " M art/reviews/v2_shop_door_repair_20261021/diagnostic_dispositions.json",
+   " M design/V2_SHOP_DOOR_REPAIR_2026-10-21.md",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import"
+  ],
+  "repository_head": "1e8b332fdfefc76a73bd50ad5e1df7beaf8fcaee",
+  "repository_tree": "4f6c6b2fd0c1142a68daa25298d5c6f3798d1543",
+  "runtime_inputs_sha256": "00a6a3de7cdbdf7dc3efc5ff9292a64014b7d94626b7bb524b3071e685e9bbce",
+  "test_path": "game/tests/v2_world_inspection_profile.gd",
+  "test_sha256": "9f8c08063fe8e318a61477cb66d30b9637a5fb1268f6b428fe3fdd10aea9d64b"
+ },
+ "windowed": true
+}

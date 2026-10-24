@@ -1,0 +1,10 @@
+ERROR: V2 INSTALLED HOSE WORLD: disk rebuild restores remote receiving pose within10um and identical water, controls and maintenance facts
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:75)
+       [1] _check (res://tests/v2_hose_installed_world.gd:16)
+       [2] _save_reload (res://tests/v2_hose_installed_world.gd:133)
+       [3] _play_route (res://tests/v2_hose_installed_world.gd:105)
+       [4] _picture (res://tests/v2_hose_installed_world.gd:112)
+ERROR: Resumed function '_capture_print()' after await, but class instance is gone. At script: res://scripts/props/v2_readable_book.gd:257
+   at: resume (modules/gdscript/gdscript_function.cpp:323)

@@ -1,0 +1,211 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Architectural DoorProp input diagnostics only; no broader runtime or performance acceptance.",
+  "source_base": "e801168b",
+  "records": [
+    {
+      "original": ".gitattributes",
+      "archive": "archive/source/.gitattributes.gz",
+      "sha256": "4f22fb7266d6d46de7c223ce14f0bb999994f2d9a1cc3accccea16bcfca74c77",
+      "bytes": 146145
+    },
+    {
+      "original": "DOCS.md",
+      "archive": "archive/source/DOCS.md.gz",
+      "sha256": "6b53fc8a401f991e53aa64f213fa9fcacf05451cb93be1911180f4915ffde4bd",
+      "bytes": 55840
+    },
+    {
+      "original": "game/scripts/props/door_prop.gd",
+      "archive": "archive/source/game/scripts/props/door_prop.gd.gz",
+      "sha256": "db7130239d15fb984d67a26a4a3ddac2c0458015c72ee7a98c2ca24ae958d582",
+      "bytes": 21855
+    },
+    {
+      "original": "game/scripts/props/landmark_entry_door.gd",
+      "archive": "archive/source/game/scripts/props/landmark_entry_door.gd.gz",
+      "sha256": "6505dc9ea4d51aa4f7ea21d570cd6d2e7fab53718239457d627f2e7821eea75b",
+      "bytes": 12825
+    },
+    {
+      "original": "game/scripts/props/easy_door_motion.gd",
+      "archive": "archive/source/game/scripts/props/easy_door_motion.gd.gz",
+      "sha256": "c162617b4312e43d3c178b28629bfaa7ed19777ba21ac8113d561d1951629959",
+      "bytes": 3224
+    },
+    {
+      "original": "game/scripts/props/easy_door_motion.gd.uid",
+      "archive": "archive/source/game/scripts/props/easy_door_motion.gd.uid.gz",
+      "sha256": "f03fa6923a3c422595bbae51fbbde2138c0779746a95963f753502c055bb7fec",
+      "bytes": 20
+    },
+    {
+      "original": "game/scripts/building/orison_v2_passage_shop_door.gd",
+      "archive": "archive/source/game/scripts/building/orison_v2_passage_shop_door.gd.gz",
+      "sha256": "7a8a26620eb5bd0c14c21064e48343e8cd57dc2c989e280116592ef5842aea72",
+      "bytes": 2308
+    },
+    {
+      "original": "game/scripts/player/constrained_grab.gd",
+      "archive": "archive/source/game/scripts/player/constrained_grab.gd.gz",
+      "sha256": "a29921e65a7ebd26e7dea59c9377e8a7386ec63edc5bbfc04a560c3476345b8d",
+      "bytes": 15710
+    },
+    {
+      "original": "game/tests/v2_easy_door_bench.gd",
+      "archive": "archive/source/game/tests/v2_easy_door_bench.gd.gz",
+      "sha256": "eff7c4720fc4881ae703693012046f0a93889c21457459c60a77cd89cc47d5f6",
+      "bytes": 4771
+    },
+    {
+      "original": "game/tests/v2_easy_door_bench.gd.uid",
+      "archive": "archive/source/game/tests/v2_easy_door_bench.gd.uid.gz",
+      "sha256": "b120c7d2bb63c487c04f2ee0f2bf45f4dbb49d9901107f15baa7b21f596866f2",
+      "bytes": 20
+    },
+    {
+      "original": "game/tests/V2EasyDoorBench.tscn",
+      "archive": "archive/source/game/tests/V2EasyDoorBench.tscn.gz",
+      "sha256": "71786331de5156713275ebafc74fdcb63fb6a41932ebe442c237d67e228c0854",
+      "bytes": 180
+    },
+    {
+      "original": "game/tests/direct_manipulation_test.gd",
+      "archive": "archive/source/game/tests/direct_manipulation_test.gd.gz",
+      "sha256": "2c67c6cdadb86b43051893260c41562a87b7bf96426ccb4e44380b46a10573df",
+      "bytes": 25742
+    },
+    {
+      "original": "design/V2_EASY_DOORS_2026-10-22.md",
+      "archive": "archive/source/design/V2_EASY_DOORS_2026-10-22.md.gz",
+      "sha256": "79f4df5dd7ae52f186dee9beded968caebf72a4c51411eabfd251aaa155e9dfa",
+      "bytes": 6302
+    },
+    {
+      "original": "design/V2_BATHROOM_WET_GLASS_BRIEF_2026-10-22.md",
+      "archive": "archive/source/design/V2_BATHROOM_WET_GLASS_BRIEF_2026-10-22.md.gz",
+      "sha256": "985d5a0096cd432ef1011bc3bffd165f3b7e1c139a5db9f9c449bca61407e876",
+      "bytes": 5054
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v1.log",
+      "archive": "archive/runs/hand_v1.log.gz",
+      "sha256": "5557c03d5fc1bb3ef26f9d53e19d577eeb126e5ed3f37cf591ac07571a14a944",
+      "bytes": 1967
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v1.log.receipt.json",
+      "archive": "archive/runs/hand_v1.log.receipt.json.gz",
+      "sha256": "f2193e4ce51b35578aa101a28d31249a86525a5f4dcb1794cba8c98374ef85b9",
+      "bytes": 3093
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v1.log.stderr",
+      "archive": "archive/runs/hand_v1.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v2.log",
+      "archive": "archive/runs/hand_v2.log.gz",
+      "sha256": "44fb212c7fea2101a93e18d4a9afd297b865fa8e30a7699c50fb41a71ecdf22c",
+      "bytes": 2237
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v2.log.receipt.json",
+      "archive": "archive/runs/hand_v2.log.receipt.json.gz",
+      "sha256": "ca0f604677deb4714cea2ad3298f54d9789e95177b3a3666a4500fa1e4cef5f6",
+      "bytes": 3028
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v2.log.stderr",
+      "archive": "archive/runs/hand_v2.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v3.log",
+      "archive": "archive/runs/hand_v3.log.gz",
+      "sha256": "b6cde9dec08e606a47d93223f524922973d01d72dee2472b479508b5c41fb6fe",
+      "bytes": 2351
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v3.log.receipt.json",
+      "archive": "archive/runs/hand_v3.log.receipt.json.gz",
+      "sha256": "ec40380974afd0559b26c96843adb9624974fe416430e80d86196f59256d91fa",
+      "bytes": 3028
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v3.log.stderr",
+      "archive": "archive/runs/hand_v3.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v4.log",
+      "archive": "archive/runs/hand_v4.log.gz",
+      "sha256": "fe8a25cfb4b7ba21f63945c4a8af6412fc15235bff4751299721f2f4b2d436ba",
+      "bytes": 2598
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v4.log.receipt.json",
+      "archive": "archive/runs/hand_v4.log.receipt.json.gz",
+      "sha256": "2a6e812a95d1a7e824a45e05fa493a50d9952e48b954646a5fd7d7a69131b50e",
+      "bytes": 2988
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/hand_v4.log.stderr",
+      "archive": "archive/runs/hand_v4.log.stderr.gz",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/import_v1.log",
+      "archive": "archive/runs/import_v1.log.gz",
+      "sha256": "9ed69c991e00b4af061b98bb9cb455737f83d971fb0cb3b90384373fbdcc680d",
+      "bytes": 64655
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/import_v1.log.receipt.json",
+      "archive": "archive/runs/import_v1.log.receipt.json.gz",
+      "sha256": "362bb871557d70cdd95a58f36c98000062709b0ddf1328a61ee5fa65cac52912",
+      "bytes": 2856
+    },
+    {
+      "original": "art/reviews/v2_easy_doors_20261022/import_v1.log.stderr",
+      "archive": "archive/runs/import_v1.log.stderr.gz",
+      "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+      "bytes": 249
+    },
+    {
+      "original": "e801168b:game/scripts/props/door_prop.gd",
+      "archive": "archive/baseline/game/scripts/props/door_prop.gd.gz",
+      "sha256": "297030850f9c7e13934b3f569cb731ce290f0c90d4ceae63909aa4d33fba5ea8",
+      "bytes": 21809
+    },
+    {
+      "original": "e801168b:game/scripts/player/constrained_grab.gd",
+      "archive": "archive/baseline/game/scripts/player/constrained_grab.gd.gz",
+      "sha256": "f0bcdf4a87211151221a18e7aa5576b0c0d72921bddd6711734c086df7c08ce8",
+      "bytes": 15478
+    },
+    {
+      "original": "e801168b:game/scripts/building/orison_v2_passage_shop_door.gd",
+      "archive": "archive/baseline/game/scripts/building/orison_v2_passage_shop_door.gd.gz",
+      "sha256": "45ff4dd783b1807e0c867ada681321c4f6358d6a726edf1cea7a09ba42e8ff2a",
+      "bytes": 2608
+    },
+    {
+      "original": "tmp/easy_door_spatial_final.json",
+      "archive": "archive/static/easy_door_spatial_final.json.gz",
+      "sha256": "972dcbf66288d3c09c8a6547c084fac99a5f7c1948f962809e10b1b8f5a5bc2b",
+      "bytes": 14627
+    },
+    {
+      "original": "tmp/easy_door_spatial_reviewed.json",
+      "archive": "archive/static/easy_door_spatial_reviewed.json.gz",
+      "sha256": "b58e46c4a89def3dc8d2fe0df40a2e0110f88215fca68915a402afd88a6ba256",
+      "bytes": 13113
+    }
+  ]
+}

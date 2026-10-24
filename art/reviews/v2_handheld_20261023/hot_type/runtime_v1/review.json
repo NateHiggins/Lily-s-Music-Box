@@ -1,0 +1,26 @@
+{
+	"checks": 26,
+	"evidence_class": "INERT",
+	"failures": [
+		"physical map coverage is nonempty"
+	],
+	"observations": [
+		{
+			"bank": -1,
+			"character": "A",
+			"travel_m": 0.000542500056326389
+		},
+		{
+			"bank": 0,
+			"character": "Q",
+			"travel_m": 0.000542500056326389
+		},
+		{
+			"bank": 1,
+			"character": "6",
+			"travel_m": 0.000542500056326389
+		}
+	],
+	"physical_maps": [],
+	"scope": "Isolated imported candidate and actual rendering; no campaign or performance qualification"
+}

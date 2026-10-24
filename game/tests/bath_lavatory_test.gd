@@ -203,10 +203,14 @@ func run() -> void:
 				"res://data/orison_v2/bath_details.json"))
 		for record: Dictionary in detail_data.props:
 			if record.kind == "toilet_roll":
-				check(float(record.bounds[1][0]) < -.21 and float(record.bounds[0][2]) > .14,
+				var pose:=Transform3D(Basis(Vector3.UP,float(record.yaw)),Vector3(record.position[0],record.position[1],record.position[2]))
+				var low:=Vector3(record.bounds[0][0],record.bounds[0][1],record.bounds[0][2])
+				var high:=Vector3(record.bounds[1][0],record.bounds[1][1],record.bounds[1][2])
+				var fitted:=pose*AABB(low,high-low)
+				check(fitted.end.x<-.27 and fitted.position.y>.45,
 						"paper stays outside seat opening and knee space: " + str(record.id))
 		camera.global_position = wc.to_global(Vector3(0,1.02,-.12))
-		camera.look_at(wc.to_global(Vector3(-.305,.625,.235)))
+		camera.look_at(paper.to_global(Vector3(0,-.04,-.075)))
 		await capture("paper_from_seat")
 		camera.queue_free()
 	var directory := OS.get_environment("SHOT_DIR")

@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/lower_cap_history_control.gd" id="1"]
+[node name="LowerCapHistoryControl" type="Node3D"]
+script = ExtResource("1")

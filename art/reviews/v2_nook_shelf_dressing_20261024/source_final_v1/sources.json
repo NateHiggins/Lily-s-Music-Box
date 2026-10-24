@@ -1,0 +1,81 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Frozen batch sources; not a complete reconstruction of unrelated dirty inputs.",
+  "files": [
+    {
+      "path": "art/blender/scripts/build_nook_readable_books.py",
+      "raw_sha256": "91dfc2cddccb11bdb5c2c56bee6f2c80e69edd4bfb6b9094b9a74af8fa339c39",
+      "lf_sha256": "91dfc2cddccb11bdb5c2c56bee6f2c80e69edd4bfb6b9094b9a74af8fa339c39"
+    },
+    {
+      "path": "art/blender/scripts/review_nook_readable_books.py",
+      "raw_sha256": "85a8adc3b998baed8231b73107dac1130ed1c9e466ae370ed2933c2a296a929e",
+      "lf_sha256": "85a8adc3b998baed8231b73107dac1130ed1c9e466ae370ed2933c2a296a929e"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_reading_nook.gd",
+      "raw_sha256": "4e3f8154a36977fc3edb3cc856f0ab8ad78a3c10eaf11eb51e0e3169290638f5",
+      "lf_sha256": "4e3f8154a36977fc3edb3cc856f0ab8ad78a3c10eaf11eb51e0e3169290638f5"
+    },
+    {
+      "path": "game/scripts/building/v2_loose_library.gd",
+      "raw_sha256": "64e9d6fa24b661ab58f29b3e4b759a45348e13cc302c506d56fa1ee2e38c14ff",
+      "lf_sha256": "64e9d6fa24b661ab58f29b3e4b759a45348e13cc302c506d56fa1ee2e38c14ff"
+    },
+    {
+      "path": "game/scripts/building/v2_readable_bookshelf.gd",
+      "raw_sha256": "b372a5c8ba2a64ecebb62b8df6747c70f9116f60edfde6e164553f8dcb86768e",
+      "lf_sha256": "b372a5c8ba2a64ecebb62b8df6747c70f9116f60edfde6e164553f8dcb86768e"
+    },
+    {
+      "path": "game/data/orison_v2/nook_readable_books.json",
+      "raw_sha256": "a93d4d4602ad59e3014b1abbb6d8fb18e76809f8f672da26abce848dcb99d358",
+      "lf_sha256": "a93d4d4602ad59e3014b1abbb6d8fb18e76809f8f672da26abce848dcb99d358"
+    },
+    {
+      "path": "art/blender/nook_readable_books_construction.json",
+      "raw_sha256": "570491a6bb6f6f8a7f83ea703a38fd8054751fc4a690449cf0a78d69fb94dafd",
+      "lf_sha256": "570491a6bb6f6f8a7f83ea703a38fd8054751fc4a690449cf0a78d69fb94dafd"
+    },
+    {
+      "path": "game/tests/v2_nook_library_bench.gd",
+      "raw_sha256": "12657ee26ebaa1fb9ef9a9f1339e7103aebcc6711c61ed45502263b34a0b853c",
+      "lf_sha256": "12657ee26ebaa1fb9ef9a9f1339e7103aebcc6711c61ed45502263b34a0b853c"
+    },
+    {
+      "path": "game/scripts/building/v2_readable_library_stock.gd",
+      "raw_sha256": "8531f9d64a30bc4f3c6339fc10f8ac9adcf7374efb39d0171f2c22d142628075",
+      "lf_sha256": "8531f9d64a30bc4f3c6339fc10f8ac9adcf7374efb39d0171f2c22d142628075"
+    },
+    {
+      "path": "game/tests/v2_nook_access_survey.gd",
+      "raw_sha256": "9b1e11e79748f2f4209cdce833521997d62311be0654c1632e00c3d68f37363d",
+      "lf_sha256": "9b1e11e79748f2f4209cdce833521997d62311be0654c1632e00c3d68f37363d"
+    },
+    {
+      "path": "game/tests/v2_nook_world_profile.gd",
+      "raw_sha256": "7ccd93caf9fe15c96d85eac0e63e461439317efb5e82f7e47223a141ab903775",
+      "lf_sha256": "7ccd93caf9fe15c96d85eac0e63e461439317efb5e82f7e47223a141ab903775"
+    },
+    {
+      "path": "game/tests/v2_golden_repair_profile.gd",
+      "raw_sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7",
+      "lf_sha256": "9a35c8e3e142a04fe45e2e01be97233d3f6a777d671c6a925f059538b501ddf7"
+    },
+    {
+      "path": "game/tests/v2_readable_library_bench.gd",
+      "raw_sha256": "6026c755abe28815799b798c3618453f51461e74b7756eb50444cf195376646f",
+      "lf_sha256": "6026c755abe28815799b798c3618453f51461e74b7756eb50444cf195376646f"
+    },
+    {
+      "path": "game/tests/V2NookLibraryBench.tscn",
+      "raw_sha256": "ea3514cdf776163a9a28ffd41af347c29db32247e8e35030ca115847399086cc",
+      "lf_sha256": "8cbcb7d45d3a9f14f93b7ea3f14dba7a3be1717651b5d030ab060d76fbe6793f"
+    },
+    {
+      "path": "game/tests/V2NookAccessSurvey.tscn",
+      "raw_sha256": "e5afc467d4d1b27ff4c325c03fbf4a3bfc82af64a5e757b34aba2924da803d87",
+      "lf_sha256": "e5afc467d4d1b27ff4c325c03fbf4a3bfc82af64a5e757b34aba2924da803d87"
+    }
+  ]
+}

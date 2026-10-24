@@ -34,6 +34,62 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Shower moisture, side-correct wet glass and native wall-mounted toilet paper | `design/V2_BATHROOM_MOISTURE_AND_PAPER_2026-10-24.md` |
+| Varied nook shelves, reused keepsakes and correction of stale binding debt | `design/V2_NOOK_SHELF_DRESSING_2026-10-24.md` |
+| Readable hose jet, inactive prepared emitters and first-spray timing | `design/V2_HOSE_SPRAY_READABILITY_2026-10-24.md` |
+| Installed hose maintenance input, connected charge/save route and idle negative control | `design/V2_HOSE_INSTALLED_MAINTENANCE_2026-10-24.md` |
+| Portrait atlas reloads, retired shader ownership and eight cooperative fitting families | `design/V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md` |
+| Incremental signatures, canopy shader lifetime and same-process cache control | `design/V2_INCREMENTAL_NATIVE_SIGNATURES_2026-10-24.md` |
+| Cooperative fitting jobs, source equivalence and loading frame tails | `design/V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md` |
+| Fixture halo retirement, actual passage streaming and native fitting stalls | `design/V2_FIXTURE_HALOS_AND_PASSAGE_PROFILE_2026-10-23.md` |
+| Background household save transactions, settlement barriers and warmed route tails | `design/V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md` |
+| Redundant shadow-budget writes, cache controls and observed route frame improvement | `design/V2_SHADOW_BUDGET_WRITES_2026-10-23.md` |
+| Unchanged fire-service release saves, call origins and visible/shadow rendering counts | `design/V2_UNCHANGED_FIRE_RELEASE_2026-10-23.md` |
+| Strict save-byte validation, Unicode/corruption controls and occupied-world storage timing | `design/V2_SAVE_UTF8_COST_2026-10-23.md` |
+| Household notification timing, guarded validation reuse and automatic-save attribution | `design/V2_HOUSEHOLD_NOTIFICATION_COST_2026-10-23.md` |
+| Supported hose release, clear FPS routing and actual-input checks | `design/V2_HOSE_RELEASE_SUPPORT_2026-10-23.md` |
+| Installed distance culling for service lights, mirror protection and paired frame times | `design/V2_SERVICE_SHADOW_DISTANCE_2026-10-23.md` |
+| Controlled cabinet geometry and service-light shadow rendering costs | `design/V2_HOSE_RENDER_ATTRIBUTION_2026-10-23.md` |
+| Installed extended hose, sustained charge, cabinet clearance and world disk reconstruction | `design/V2_HOSE_PRODUCTION_DEPLOYMENT_2026-10-23.md` |
+| Hose household saved receiver, charge completion and legacy payload diagnostics | `design/V2_HOSE_HOUSEHOLD_SAVE_2026-10-23.md` |
+| Service-source shadow cost, room/door visibility and retained rendering alternatives | `design/V2_SERVICE_LIGHT_VISIBILITY_2026-10-23.md` |
+| Reduced sink/toilet collision cost, retained contact regression and final timing limits | `design/V2_BATH_CONTACT_REDUCTION_2026-10-23.md` |
+| Owner-supplied rig, reduced native mesh and three actual mirror idle images | `design/V2_PLAYER_DOODLE_INSTALLATION_2026-10-23.md` |
+| Bathroom bell replacement, period research and powered review | `design/V2_BATH_SCONCE_REPLACEMENT_2026-10-23.md` |
+| Finish already-started chat work before unrelated scope | `design/V2_STARTED_WORK_CLOSURE_2026-10-23.md` |
+| Bathroom movement cost and isolated-query attribution limits | `design/V2_BATH_MOVEMENT_DIAGNOSIS_2026-10-23.md` |
+| Reduced reflection capture stall, rejected mirror culling and severe bathroom movement finding | `design/V2_REFLECTION_CAPTURE_COST_2026-10-23.md` |
+| Carried physical controls, native feed repair and actual-input scope | `design/V2_CARRIED_INSTRUMENT_HAND_2026-10-23.md` |
+| Retained reflection hitch controls and rejected warmup treatments | `design/V2_REFLECTION_PIPELINE_WARMUP_2026-10-23.md` |
+| Installed physical service UI, flush ceiling listener and paired frame-time limits | `design/V2_PHYSICAL_DEVICE_AND_CEILING_POINTS_2026-10-23.md` |
+| Bathroom mitres, tiled wainscot, grout beads and shower attachments | `design/V2_BATHROOM_FINISHING_2026-10-24.md` |
+| Shared finish ownership, literal glass and playable arcade retirement | `design/V2_SHARED_FINISH_OWNERSHIP_AND_ARCADE_RETIREMENT_2026-10-24.md` |
+| Latest V2 work order, measured routes and requested mirror-visible player | `design/V2_CONTINUATION_2026-10-22.md` |
+| Radio-based shop settlement, hardware hose supplies and selected resident staff | `design/V2_RADIO_SHOP_NETWORK_2026-10-22.md` |
+| Passage-first door controls and queued input checks | `design/V2_EASY_DOORS_2026-10-22.md` |
+| Requested shower spray, steam and side-correct wet-glass work | `design/V2_BATHROOM_WET_GLASS_BRIEF_2026-10-22.md` |
+| Toilet casting, attached hinges, linked flush mechanism and curtain mouse travel | `design/V2_TOILET_FORM_AND_GESTURES_2026-10-22.md` |
+| Cistern pickup test migration and continuous held-object reticle feedback | `design/V2_CISTERN_HAND_FEEDBACK_2026-10-22.md` |
+| Returning inspected books to the hand, loose-cover pickup and retained mechanism-test failures | `design/V2_BOOK_INSPECTION_RETURN_2026-10-22.md` |
+| Curved book print contact, retained regression and actual-input frame distributions | `design/V2_BOOK_PRINT_CONTACT_2026-10-22.md` |
+| Continuous paperback covers, bowed attached pages, editorial formats and measured book input costs | `design/V2_BOOK_EDITORIAL_AND_BINDING_2026-10-22.md` |
+| Remade nook plant, fitted woven rug and actual-input entry/exit | `design/V2_NOOK_REVAMP_2026-10-22.md` |
+| Shared native nook bindings, static lending spots and paired local world timings | `design/V2_NOOK_BINDINGS_2026-10-22.md` |
+| Thin bookend sole collision repair and the combined 2,182-check library diagnostic | `design/V2_BOOKEND_BEARING_2026-10-22.md` |
+| Static book placement, held stock, floating inspection and removal of the photographic lamp overlay | `design/V2_BOOK_SLOTS_AND_LIGHT_REMOVAL_2026-10-22.md` |
+| World-fitting unracked hose, actual removal, bare-end targeting and remaining installation requirements | `design/V2_UNRACKED_HOSE_WORLD_FIT_2026-10-22.md` |
+| Static-rack removal, a simpler full-length round-hose candidate and the remaining world-layout repair | `design/V2_UNRACKED_HOSE_2026-10-22.md` |
+| Retired stored-hose simulation diagnostics and the owner's static-rack/simple-extended-hose direction | `design/V2_STORED_HOSE_DIAGNOSTICS_2026-10-22.md` |
+| Repaired candidate hose skin, pending-grab feedback, expensive release and remaining installed water work | `design/V2_HOSE_SKIN_REPAIR_2026-10-22.md` |
+| Full-length hose input, reduced rack, retained deformed-skin failure and remaining release/spray work | `design/V2_HOSE_FOLLOWER_STUDY_2026-10-22.md` |
+| V2 player-only fire-door contact, transform drift, measured tail improvement and p95 tradeoff | `design/V2_FIRE_PLAYER_CONTACT_2026-10-21.md` |
+| Uninstalled full-length hose candidate, physical support, release costs and remaining spray work | `design/V2_DEPLOYABLE_HOSE_STUDY_2026-10-21.md` |
+| Fire-cabinet step-query repair, reduced hose density, paired frame distributions and remaining deployment work | `design/V2_HOSE_RESPONSIVENESS_2026-10-21.md` |
+| Rejected exact-triangle stair acceleration, paired frame distributions and retained failures | `design/V2_STAIR_TRIANGLE_DIAGNOSIS_2026-10-21.md` |
+| V2 physical caption-calibrator construction, exact spring return and current renewal status | `design/V2_CASE_CALIBRATOR_2026-10-21.md` |
+| Corrected played profiling: diagnostic capture overhead at the hardware counter | `design/V2_COUNTER_CAPTURE_DIAGNOSIS_2026-10-21.md` |
+| Final V2 performance distributions, part targeting, native leaf repairs and renewed qualifications | `design/V2_SHOP_DOOR_REPAIR_2026-10-21.md` |
+| Measured V2 stutter diagnosis, restrained part targeting and remaining repair coverage | `design/V2_RESPONSIVENESS_REPAIR_2026-10-21.md` |
 | Current main integration comparison, retained passing checks and explicit blockers | `design/V2_MAIN_INTEGRATION_REVIEW_2026-10-21.md` |
 |---|---|
 | Renewed upper-room and roof access, library shadow diagnosis and remaining full-shift work | `design/V2_UPPER_ACCESS_AND_LIBRARY_SHADOW_2026-10-21.md` |

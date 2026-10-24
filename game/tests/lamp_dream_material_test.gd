@@ -70,10 +70,19 @@ func _run() -> void:
 	var warm_color := warm_image.get_pixel(warm_image.get_width()/2+30,warm_image.get_height()/2+30)
 	_check(warm_color.r>warm_color.g and warm_color.g>warm_color.b,"shared sample carries lamp spectrum into material transfer")
 	observation.state.color = Color.WHITE
+	var prior_shape_bindings: int = bridge.field.shape_bindings
+	var prior_transform_bindings: int = bridge.field.transform_bindings
 	observation.position.x = 20
 	bridge.field.observe(observation)
+	_check(bridge.field.shape_bindings==prior_shape_bindings and bridge.field.transform_bindings>prior_transform_bindings,"moving lamp updates transforms without rebinding unchanged cone dimensions")
 	var translated := await _sample("translated_away")
 	_check(translated < .01,"translated lamp cannot wrap onto old material position")
+	var original_range: float = observation.range_m
+	observation.range_m = original_range+.5
+	bridge.field.observe(observation)
+	_check(bridge.field.shape_bindings>prior_shape_bindings and is_equal_approx(float(material.get_shader_parameter("lamp_physical_range")),observation.range_m),"changed physical range reaches already bound receivers")
+	observation.range_m=original_range
+	bridge.field.observe(observation)
 	observation.position.x = 0
 	observation.state.switched_on = false
 	observation.state.intensity = 0

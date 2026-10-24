@@ -1,0 +1,87 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Raw executed top-level hashes match wrappers, including failed attempts. LF-normalized hashes retained separately. Dependencies and temporary driver variants archived separately. No runtime-contract promotion.",
+  "checks": [
+    {
+      "receipt": "after_no_halo_v1.log.receipt.json",
+      "test_path": "game/tests/v2_played_streaming_profile.gd",
+      "sha256": "bb7fa4bac387098999c897c95a1470279c5eba8457a602335f33182c0602aa16",
+      "lf_sha256": "bb7fa4bac387098999c897c95a1470279c5eba8457a602335f33182c0602aa16",
+      "matched_from": "after_no_halo_v1_source.gd.gz",
+      "archive": "receipt_sources\\after_no_halo_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "after_no_halo_v2.log.receipt.json",
+      "test_path": "game/tests/v2_played_streaming_profile.gd",
+      "sha256": "a0d948e53d0576b0626e5a40932f8c88e626425df0704e1dd7601d4b6e4300b5",
+      "lf_sha256": "a0d948e53d0576b0626e5a40932f8c88e626425df0704e1dd7601d4b6e4300b5",
+      "matched_from": "after_no_halo_v2_source.gd.gz",
+      "archive": "receipt_sources\\after_no_halo_v2.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "after_no_halo_v3.log.receipt.json",
+      "test_path": "game/tests/v2_played_streaming_profile.gd",
+      "sha256": "c31679aa80c86bc05aa95cb9242eac9402254e2874fdd55b17b2fe5c5b43ee1e",
+      "lf_sha256": "c31679aa80c86bc05aa95cb9242eac9402254e2874fdd55b17b2fe5c5b43ee1e",
+      "matched_from": "current/game/tests/v2_played_streaming_profile.gd",
+      "archive": "receipt_sources\\after_no_halo_v3.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "before_v1.log.receipt.json",
+      "test_path": "game/tests/v2_played_streaming_profile.gd",
+      "sha256": "541c6a46ee13402add343356e99f29c9a69c371ad1dbf3ab4e40bde9eb51f4f8",
+      "lf_sha256": "541c6a46ee13402add343356e99f29c9a69c371ad1dbf3ab4e40bde9eb51f4f8",
+      "matched_from": "source_before\\game\\tests\\v2_played_streaming_profile.gd.gz",
+      "archive": "receipt_sources\\before_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "before_v2.log.receipt.json",
+      "test_path": "game/tests/v2_played_streaming_profile.gd",
+      "sha256": "f368347f607bd078aee68069c2a52b5035e4fd99d8d59658ba19f90be6eec406",
+      "lf_sha256": "f368347f607bd078aee68069c2a52b5035e4fd99d8d59658ba19f90be6eec406",
+      "matched_from": "source_before_v2\\game\\tests\\v2_played_streaming_profile.gd.gz",
+      "archive": "receipt_sources\\before_v2.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "before_v3.log.receipt.json",
+      "test_path": "game/tests/v2_played_streaming_profile.gd",
+      "sha256": "21e6275fa072e397595a8f9dcd72de1e838b504fd014bf47ba6b829831e3d80a",
+      "lf_sha256": "21e6275fa072e397595a8f9dcd72de1e838b504fd014bf47ba6b829831e3d80a",
+      "matched_from": "source_before_v3\\game\\tests\\v2_played_streaming_profile.gd.gz",
+      "archive": "receipt_sources\\before_v3.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "before_v4.log.receipt.json",
+      "test_path": "game/tests/v2_played_streaming_profile.gd",
+      "sha256": "efdcf4714e18b3407fe2e8626869fea6e6f9de7933e11e1ab0304ddc41802e37",
+      "lf_sha256": "efdcf4714e18b3407fe2e8626869fea6e6f9de7933e11e1ab0304ddc41802e37",
+      "matched_from": "source_before_v4\\game\\tests\\v2_played_streaming_profile.gd.gz",
+      "archive": "receipt_sources\\before_v4.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "driver_v1.log.receipt.json",
+      "test_path": "game/tests/v2_fixed_gesture_driver_bench.gd",
+      "sha256": "5fc6084dc9e728be9d543974a3242c6c408ea970f8d4c05617320df5f1ff9758",
+      "lf_sha256": "5fc6084dc9e728be9d543974a3242c6c408ea970f8d4c05617320df5f1ff9758",
+      "matched_from": "source_driver_v1\\game\\tests\\v2_fixed_gesture_driver_bench.gd.gz",
+      "archive": "receipt_sources\\driver_v1.gd.gz",
+      "matches": true
+    },
+    {
+      "receipt": "driver_v2.log.receipt.json",
+      "test_path": "game/tests/v2_fixed_gesture_driver_bench.gd",
+      "sha256": "4add4587f491870e047672ff566716e5adc8d47af12191fb3119f66fd9d919b3",
+      "lf_sha256": "4add4587f491870e047672ff566716e5adc8d47af12191fb3119f66fd9d919b3",
+      "matched_from": "current/game/tests/v2_fixed_gesture_driver_bench.gd",
+      "archive": "receipt_sources\\driver_v2.gd.gz",
+      "matches": true
+    }
+  ]
+}

@@ -1,0 +1,1665 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"scope": "complete-world layout diagnostic, no installed removal or runtime qualification",
+	"stations": [
+		{
+			"actor_transform": "[X: (-1.0, 0.0, -0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, -1.0), O: (-4.349999, 4.4, -7.87)]",
+			"clear": true,
+			"collider": "<null>",
+			"configured": true,
+			"error": "",
+			"id": "F02_FIRE_LINE_STAIR",
+			"input": {
+				"carry": [
+					{
+						"aim_error_degrees": 80.7732786822108,
+						"cycle": "aim_b",
+						"error": "",
+						"feedback": "grabbed",
+						"held": true,
+						"physics_frame": 474,
+						"process_frame": 167,
+						"profile": {},
+						"progress_m": 0.0,
+						"step": 0,
+						"tip": [
+							14.8629999160767,
+							0.218000024557114,
+							0.214000016450882
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 480,
+						"process_frame": 168,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6917,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 226,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 480,
+							"prepare_usec": 4276,
+							"process_frame": 168,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 229,
+								"self_constraints": 300,
+								"solver": 40,
+								"world_constraints": 3606
+							},
+							"total_usec": 11208
+						},
+						"progress_m": 0.240000218153,
+						"step": 1,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 488,
+						"process_frame": 169,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6897,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 221,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 488,
+							"prepare_usec": 4197,
+							"process_frame": 169,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 223,
+								"self_constraints": 287,
+								"solver": 38,
+								"world_constraints": 3562
+							},
+							"total_usec": 11109
+						},
+						"progress_m": 0.0,
+						"step": 2,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 496,
+						"process_frame": 170,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6748,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 235,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 496,
+							"prepare_usec": 4230,
+							"process_frame": 170,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 237,
+								"self_constraints": 287,
+								"solver": 45,
+								"world_constraints": 3566
+							},
+							"total_usec": 10993
+						},
+						"progress_m": 0.0,
+						"step": 3,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 504,
+						"process_frame": 171,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6793,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 233,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 504,
+							"prepare_usec": 4244,
+							"process_frame": 171,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 235,
+								"self_constraints": 306,
+								"solver": 42,
+								"world_constraints": 3566
+							},
+							"total_usec": 11052
+						},
+						"progress_m": 0.0,
+						"step": 4,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 512,
+						"process_frame": 172,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6746,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 238,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 512,
+							"prepare_usec": 4250,
+							"process_frame": 172,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 241,
+								"self_constraints": 294,
+								"solver": 44,
+								"world_constraints": 3574
+							},
+							"total_usec": 11014
+						},
+						"progress_m": 0.0,
+						"step": 5,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 520,
+						"process_frame": 173,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6742,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 221,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 520,
+							"prepare_usec": 4208,
+							"process_frame": 173,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 225,
+								"self_constraints": 317,
+								"solver": 44,
+								"world_constraints": 3531
+							},
+							"total_usec": 10966
+						},
+						"progress_m": 0.0,
+						"step": 6,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 528,
+						"process_frame": 174,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6784,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 223,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 528,
+							"prepare_usec": 4189,
+							"process_frame": 174,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 226,
+								"self_constraints": 305,
+								"solver": 42,
+								"world_constraints": 3527
+							},
+							"total_usec": 10989
+						},
+						"progress_m": 0.0,
+						"step": 7,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 536,
+						"process_frame": 175,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6789,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 229,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 536,
+							"prepare_usec": 4214,
+							"process_frame": 175,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 232,
+								"self_constraints": 287,
+								"solver": 49,
+								"world_constraints": 3549
+							},
+							"total_usec": 11018
+						},
+						"progress_m": 0.0,
+						"step": 8,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 544,
+						"process_frame": 176,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6951,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 214,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 544,
+							"prepare_usec": 4349,
+							"process_frame": 176,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 217,
+								"self_constraints": 302,
+								"solver": 47,
+								"world_constraints": 3687
+							},
+							"total_usec": 11318
+						},
+						"progress_m": 0.0,
+						"step": 9,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 552,
+						"process_frame": 177,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6662,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 221,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 552,
+							"prepare_usec": 4121,
+							"process_frame": 177,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 222,
+								"self_constraints": 301,
+								"solver": 40,
+								"world_constraints": 3467
+							},
+							"total_usec": 10797
+						},
+						"progress_m": 0.0,
+						"step": 10,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 560,
+						"process_frame": 178,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6706,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 227,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 560,
+							"prepare_usec": 4240,
+							"process_frame": 178,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 229,
+								"self_constraints": 288,
+								"solver": 40,
+								"world_constraints": 3594
+							},
+							"total_usec": 10959
+						},
+						"progress_m": 0.0,
+						"step": 11,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 568,
+						"process_frame": 179,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6707,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 220,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 568,
+							"prepare_usec": 4126,
+							"process_frame": 179,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 223,
+								"self_constraints": 287,
+								"solver": 39,
+								"world_constraints": 3489
+							},
+							"total_usec": 10846
+						},
+						"progress_m": 0.0,
+						"step": 12,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 576,
+						"process_frame": 180,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6775,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 232,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 576,
+							"prepare_usec": 4170,
+							"process_frame": 180,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 235,
+								"self_constraints": 290,
+								"solver": 41,
+								"world_constraints": 3514
+							},
+							"total_usec": 10959
+						},
+						"progress_m": 0.0,
+						"step": 13,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 584,
+						"process_frame": 181,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6785,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 225,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 584,
+							"prepare_usec": 4235,
+							"process_frame": 181,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 227,
+								"self_constraints": 290,
+								"solver": 50,
+								"world_constraints": 3572
+							},
+							"total_usec": 11034
+						},
+						"progress_m": 0.0,
+						"step": 14,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 592,
+						"process_frame": 182,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6995,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 242,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 592,
+							"prepare_usec": 4463,
+							"process_frame": 182,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 244,
+								"self_constraints": 290,
+								"solver": 57,
+								"world_constraints": 3762
+							},
+							"total_usec": 11475
+						},
+						"progress_m": 0.0,
+						"step": 15,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.6020542154942,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 600,
+						"process_frame": 183,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6711,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 218,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 600,
+							"prepare_usec": 4225,
+							"process_frame": 183,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 220,
+								"self_constraints": 287,
+								"solver": 50,
+								"world_constraints": 3576
+							},
+							"total_usec": 10949
+						},
+						"progress_m": 0.0,
+						"step": 16,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.3490778109696,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 608,
+						"process_frame": 184,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6653,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 221,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 608,
+							"prepare_usec": 4169,
+							"process_frame": 184,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 223,
+								"self_constraints": 291,
+								"solver": 49,
+								"world_constraints": 3509
+							},
+							"total_usec": 10838
+						},
+						"progress_m": 0.0,
+						"step": 17,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.096115814578,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 616,
+						"process_frame": 185,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6631,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 225,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 616,
+							"prepare_usec": 7259,
+							"process_frame": 185,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 228,
+								"self_constraints": 300,
+								"solver": 43,
+								"world_constraints": 6600
+							},
+							"total_usec": 13905
+						},
+						"progress_m": 0.0,
+						"step": 18,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 56.8431715562781,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 624,
+						"process_frame": 186,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6741,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 216,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 624,
+							"prepare_usec": 4123,
+							"process_frame": 186,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 218,
+								"self_constraints": 289,
+								"solver": 43,
+								"world_constraints": 3483
+							},
+							"total_usec": 10881
+						},
+						"progress_m": 0.0,
+						"step": 19,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 56.590244329399,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 632,
+						"process_frame": 187,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6632,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 225,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 632,
+							"prepare_usec": 4184,
+							"process_frame": 187,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 227,
+								"self_constraints": 287,
+								"solver": 43,
+								"world_constraints": 3539
+							},
+							"total_usec": 10832
+						},
+						"progress_m": 0.0,
+						"step": 20,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 56.3373416416122,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 640,
+						"process_frame": 188,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6591,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 520,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 640,
+							"prepare_usec": 4703,
+							"process_frame": 188,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 522,
+								"self_constraints": 290,
+								"solver": 49,
+								"world_constraints": 3747
+							},
+							"total_usec": 11310
+						},
+						"progress_m": 0.0,
+						"step": 21,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 56.0844546447985,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 648,
+						"process_frame": 189,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6694,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 216,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 648,
+							"prepare_usec": 4595,
+							"process_frame": 189,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 218,
+								"self_constraints": 287,
+								"solver": 54,
+								"world_constraints": 3934
+							},
+							"total_usec": 11305
+						},
+						"progress_m": 0.0,
+						"step": 22,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 55.8315867852381,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 656,
+						"process_frame": 190,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6673,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 222,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 656,
+							"prepare_usec": 4191,
+							"process_frame": 190,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 224,
+								"self_constraints": 297,
+								"solver": 42,
+								"world_constraints": 3540
+							},
+							"total_usec": 10879
+						},
+						"progress_m": 0.0,
+						"step": 23,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 55.5787415673065,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 664,
+						"process_frame": 191,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6515,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 219,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 664,
+							"prepare_usec": 4164,
+							"process_frame": 191,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 222,
+								"self_constraints": 286,
+								"solver": 40,
+								"world_constraints": 3526
+							},
+							"total_usec": 10693
+						},
+						"progress_m": 0.0,
+						"step": 24,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 55.3259184025219,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 672,
+						"process_frame": 192,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6643,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 218,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 672,
+							"prepare_usec": 10324,
+							"process_frame": 192,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 220,
+								"self_constraints": 290,
+								"solver": 44,
+								"world_constraints": 9680
+							},
+							"total_usec": 16983
+						},
+						"progress_m": 0.0,
+						"step": 25,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 55.0731167127949,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 680,
+						"process_frame": 193,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6567,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 212,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 680,
+							"prepare_usec": 10494,
+							"process_frame": 193,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 214,
+								"self_constraints": 288,
+								"solver": 46,
+								"world_constraints": 9851
+							},
+							"total_usec": 17076
+						},
+						"progress_m": 0.0,
+						"step": 26,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 54.8203401088135,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 688,
+						"process_frame": 194,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6779,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 219,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 688,
+							"prepare_usec": 10383,
+							"process_frame": 194,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 222,
+								"self_constraints": 290,
+								"solver": 50,
+								"world_constraints": 9728
+							},
+							"total_usec": 17178
+						},
+						"progress_m": 0.0,
+						"step": 27,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 55.0731208781369,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 696,
+						"process_frame": 195,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6546,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 216,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 696,
+							"prepare_usec": 10392,
+							"process_frame": 195,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 219,
+								"self_constraints": 294,
+								"solver": 48,
+								"world_constraints": 9743
+							},
+							"total_usec": 16953
+						},
+						"progress_m": 0.0,
+						"step": 28,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 55.3259225551099,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 704,
+						"process_frame": 196,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6577,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 213,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 704,
+							"prepare_usec": 10207,
+							"process_frame": 196,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 215,
+								"self_constraints": 293,
+								"solver": 49,
+								"world_constraints": 9556
+							},
+							"total_usec": 16799
+						},
+						"progress_m": 0.0,
+						"step": 29,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 55.5787415673065,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 712,
+						"process_frame": 197,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6689,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 214,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 712,
+							"prepare_usec": 10409,
+							"process_frame": 197,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 216,
+								"self_constraints": 311,
+								"solver": 48,
+								"world_constraints": 9746
+							},
+							"total_usec": 17115
+						},
+						"progress_m": 0.0,
+						"step": 30,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 55.8315909127876,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 720,
+						"process_frame": 198,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6650,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 214,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 720,
+							"prepare_usec": 10262,
+							"process_frame": 198,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 216,
+								"self_constraints": 294,
+								"solver": 47,
+								"world_constraints": 9618
+							},
+							"total_usec": 16928
+						},
+						"progress_m": 0.0,
+						"step": 31,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 56.0844505295371,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 728,
+						"process_frame": 199,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6566,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 223,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 728,
+							"prepare_usec": 4293,
+							"process_frame": 199,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 226,
+								"self_constraints": 315,
+								"solver": 47,
+								"world_constraints": 3607
+							},
+							"total_usec": 10875
+						},
+						"progress_m": 0.0,
+						"step": 32,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 56.3373375384873,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 736,
+						"process_frame": 200,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6490,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 259,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 736,
+							"prepare_usec": 4363,
+							"process_frame": 200,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 261,
+								"self_constraints": 290,
+								"solver": 40,
+								"world_constraints": 3682
+							},
+							"total_usec": 10867
+						},
+						"progress_m": 0.0,
+						"step": 33,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 56.590244329399,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 744,
+						"process_frame": 201,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6524,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 229,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 744,
+							"prepare_usec": 4148,
+							"process_frame": 201,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 232,
+								"self_constraints": 288,
+								"solver": 38,
+								"world_constraints": 3502
+							},
+							"total_usec": 10687
+						},
+						"progress_m": 0.0,
+						"step": 34,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 56.8431756355779,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 752,
+						"process_frame": 202,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6545,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 229,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 752,
+							"prepare_usec": 4153,
+							"process_frame": 202,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 232,
+								"self_constraints": 291,
+								"solver": 40,
+								"world_constraints": 3499
+							},
+							"total_usec": 10715
+						},
+						"progress_m": 0.0,
+						"step": 35,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.096115814578,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 760,
+						"process_frame": 203,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6601,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 223,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 760,
+							"prepare_usec": 4122,
+							"process_frame": 203,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 226,
+								"self_constraints": 298,
+								"solver": 41,
+								"world_constraints": 3470
+							},
+							"total_usec": 10740
+						},
+						"progress_m": 0.0,
+						"step": 36,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.3490778109696,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 768,
+						"process_frame": 204,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6500,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 228,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 768,
+							"prepare_usec": 4167,
+							"process_frame": 204,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 231,
+								"self_constraints": 286,
+								"solver": 41,
+								"world_constraints": 3514
+							},
+							"total_usec": 10683
+						},
+						"progress_m": 0.0,
+						"step": 37,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.6020623048079,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 776,
+						"process_frame": 205,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6646,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 224,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 776,
+							"prepare_usec": 7206,
+							"process_frame": 205,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 226,
+								"self_constraints": 287,
+								"solver": 49,
+								"world_constraints": 6552
+							},
+							"total_usec": 13868
+						},
+						"progress_m": 0.0,
+						"step": 38,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					},
+					{
+						"aim_error_degrees": 57.8550578847868,
+						"cycle": "aim_b",
+						"error": "nozzle obstructed",
+						"feedback": "blocked",
+						"held": true,
+						"physics_frame": 784,
+						"process_frame": 206,
+						"profile": {
+							"broad_queries": 0,
+							"fitting_usec": 6582,
+							"local_enabled": true,
+							"local_join": 28,
+							"local_usec": 214,
+							"native_iterations": 1,
+							"native_qp_iterations": 0,
+							"physics_frame": 784,
+							"prepare_usec": 4185,
+							"process_frame": 206,
+							"responses": 2,
+							"shell_queries": 0,
+							"tether": {
+								"seed": 216,
+								"self_constraints": 288,
+								"solver": 41,
+								"world_constraints": 3553
+							},
+							"total_usec": 10810
+						},
+						"progress_m": 0.0,
+						"step": 39,
+						"tip": [
+							14.7736787796021,
+							0.00766640529036522,
+							0.287359476089478
+						]
+					}
+				],
+				"collision_mask": 2097153,
+				"deployed": true,
+				"error": "nozzle obstructed",
+				"events": [
+					{
+						"cpu_input_ms": 0.716,
+						"error": "",
+						"extraction_m": 0.0080000001858765,
+						"feedback": "grabbed",
+						"step": 0
+					},
+					{
+						"cpu_input_ms": 0.872,
+						"error": "",
+						"extraction_m": 0.0160000005566099,
+						"feedback": "grabbed",
+						"step": 1
+					},
+					{
+						"cpu_input_ms": 0.967,
+						"error": "",
+						"extraction_m": 0.0240000008257705,
+						"feedback": "grabbed",
+						"step": 2
+					},
+					{
+						"cpu_input_ms": 0.959,
+						"error": "",
+						"extraction_m": 0.0320000015438589,
+						"feedback": "grabbed",
+						"step": 3
+					},
+					{
+						"cpu_input_ms": 0.785,
+						"error": "",
+						"extraction_m": 0.04000000203813,
+						"feedback": "grabbed",
+						"step": 4
+					},
+					{
+						"cpu_input_ms": 0.921,
+						"error": "",
+						"extraction_m": 0.048000002863499,
+						"feedback": "grabbed",
+						"step": 5
+					},
+					{
+						"cpu_input_ms": 0.832,
+						"error": "",
+						"extraction_m": 0.0560000034479367,
+						"feedback": "grabbed",
+						"step": 6
+					},
+					{
+						"cpu_input_ms": 0.751,
+						"error": "",
+						"extraction_m": 0.064000003416595,
+						"feedback": "grabbed",
+						"step": 7
+					},
+					{
+						"cpu_input_ms": 0.798,
+						"error": "",
+						"extraction_m": 0.0720000046836749,
+						"feedback": "grabbed",
+						"step": 8
+					},
+					{
+						"cpu_input_ms": 0.782,
+						"error": "",
+						"extraction_m": 0.0800000043718958,
+						"feedback": "grabbed",
+						"step": 9
+					},
+					{
+						"cpu_input_ms": 0.91,
+						"error": "",
+						"extraction_m": 0.0880000045401879,
+						"feedback": "grabbed",
+						"step": 10
+					},
+					{
+						"cpu_input_ms": 0.841,
+						"error": "",
+						"extraction_m": 0.0960000046616222,
+						"feedback": "grabbed",
+						"step": 11
+					},
+					{
+						"cpu_input_ms": 0.962,
+						"error": "",
+						"extraction_m": 0.104000004291721,
+						"feedback": "grabbed",
+						"step": 12
+					},
+					{
+						"cpu_input_ms": 0.851,
+						"error": "",
+						"extraction_m": 0.112000003590306,
+						"feedback": "grabbed",
+						"step": 13
+					},
+					{
+						"cpu_input_ms": 0.773,
+						"error": "",
+						"extraction_m": 0.120000003437789,
+						"feedback": "grabbed",
+						"step": 14
+					},
+					{
+						"cpu_input_ms": 0.855,
+						"error": "",
+						"extraction_m": 0.128000003463574,
+						"feedback": "grabbed",
+						"step": 15
+					},
+					{
+						"cpu_input_ms": 0.951,
+						"error": "",
+						"extraction_m": 0.13600000338064,
+						"feedback": "grabbed",
+						"step": 16
+					},
+					{
+						"cpu_input_ms": 0.846,
+						"error": "",
+						"extraction_m": 0.144000003122404,
+						"feedback": "grabbed",
+						"step": 17
+					},
+					{
+						"cpu_input_ms": 0.759,
+						"error": "",
+						"extraction_m": 0.152000003213869,
+						"feedback": "grabbed",
+						"step": 18
+					},
+					{
+						"cpu_input_ms": 0.949,
+						"error": "",
+						"extraction_m": 0.16000000391263,
+						"feedback": "grabbed",
+						"step": 19
+					},
+					{
+						"cpu_input_ms": 0.835,
+						"error": "",
+						"extraction_m": 0.16800000395914,
+						"feedback": "grabbed",
+						"step": 20
+					},
+					{
+						"cpu_input_ms": 0.922,
+						"error": "",
+						"extraction_m": 0.176000004857374,
+						"feedback": "grabbed",
+						"step": 21
+					},
+					{
+						"cpu_input_ms": 0.914,
+						"error": "",
+						"extraction_m": 0.184000004795511,
+						"feedback": "grabbed",
+						"step": 22
+					},
+					{
+						"cpu_input_ms": 0.938,
+						"error": "",
+						"extraction_m": 0.192000004795511,
+						"feedback": "grabbed",
+						"step": 23
+					},
+					{
+						"cpu_input_ms": 14.646,
+						"error": "",
+						"extraction_m": 0.2,
+						"feedback": "grabbed",
+						"step": 24
+					}
+				],
+				"picked": true,
+				"player_position": "(-4.404536, 3.200234, -8.683311)",
+				"released": true
+			},
+			"player_collision_layer": 1,
+			"player_collision_mask": 2097153,
+			"prepare_ms": 206.894
+		}
+	]
+}

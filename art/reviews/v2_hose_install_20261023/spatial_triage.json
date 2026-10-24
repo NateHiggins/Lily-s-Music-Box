@@ -1,0 +1,191 @@
+{
+  "evidence_class": "INERT",
+  "note": "Six added non-failing references in this checkpoint are diagnostic test selectors/coordinates, not production semantic dependencies. Shared manifest intentionally unchanged. Eight existing failing references remain explicit.",
+  "own_new_reported": [
+    {
+      "key": "bb33ea3828865d01",
+      "kind": "vector3_coordinate",
+      "token": "_run",
+      "file": "game/tests/v2_book_print_retirement.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        14
+      ],
+      "count": 1,
+      "context": [
+        "player=PlayerController.new();player.position=Vector3(0,2,5);add_child(player);player.set_physics_process(false);player.camera.make_current()"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "ba5868cf43b8a4c5",
+      "kind": "vector3_coordinate",
+      "token": "make_book",
+      "file": "game/tests/v2_book_print_retirement.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "make_book"
+      ],
+      "lines": [
+        6
+      ],
+      "count": 1,
+      "context": [
+        "book.position=Vector3(0,3,8);add_child(book);book.freeze=true;book._apply_opening(PI)"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "d7247b7add1de719",
+      "kind": "vector3_coordinate",
+      "token": "_play_route",
+      "file": "game/tests/v2_hose_installed_world.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_play_route"
+      ],
+      "lines": [
+        25,
+        25,
+        25,
+        25,
+        91,
+        91,
+        91,
+        91
+      ],
+      "count": 8,
+      "context": [
+        "for point in [Vector3(1.925,1.6,1.3),Vector3(3.975,1.6,1.3),Vector3(3.975,3.2,-2.4),Vector3(3.65,3.2,-3.),Vector3(4.5,3.2,-2.95)]:",
+        "for point in [Vector3(3.65,3.2,-3.),Vector3(3.975,3.2,-2.4),Vector3(3.975,1.6,1.3),Vector3(1.925,1.6,1.3),Vector3(1.925,0,-3.5)]:"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "9651b6eb6b5c0472",
+      "kind": "id_reference",
+      "token": "FIRE_SERVICE_RISER",
+      "file": "game/tests/v2_hose_production_hand_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        6
+      ],
+      "count": 1,
+      "context": [
+        "var reserve:=MeshInstance3D.new();reserve.name=\"FIRE_SERVICE_RISER\";adapter.root.add_child(reserve)"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "20473a820f4ad384",
+      "kind": "id_reference",
+      "token": "FIRE_SERVICE_RISER",
+      "file": "game/tests/v2_hose_remote_restore_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        9
+      ],
+      "count": 1,
+      "context": [
+        "var reserve:=MeshInstance3D.new();reserve.name=\"FIRE_SERVICE_RISER\";adapter.root.add_child(reserve)"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "7e2e003be489791e",
+      "kind": "id_reference",
+      "token": "FIRE_SERVICE_RISER",
+      "file": "game/tests/v2_hose_save_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        13
+      ],
+      "count": 1,
+      "context": [
+        "var reserve:=MeshInstance3D.new();reserve.name=\"FIRE_SERVICE_RISER\";adapter.root.add_child(reserve)"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    }
+  ]
+}

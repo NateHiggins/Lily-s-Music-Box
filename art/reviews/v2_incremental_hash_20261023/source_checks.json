@@ -1,0 +1,223 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Top-level raw source matching only; no reconstruction of every dirty-world input or runtime_contract status.",
+  "checks": [
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/cache_final.log.receipt.json",
+      "test_path": "game/tests/v2_fitting_collision_cache_test.gd",
+      "test_sha256": "eb1306477d8e39c0fcc399f08f44768162ca29c0c7a70e2560fcb1d7e4c418e9",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/source_final/v2_fitting_collision_cache_test.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_hash_only/v2_fitting_collision_cache_test.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_material_candidate/v2_fitting_collision_cache_test.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_warm_shader/v2_fitting_collision_cache_test.gd.gz",
+        "game/tests/v2_fitting_collision_cache_test.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/fitting_v1.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "d548fabe968049ad2e89f86c76e87f50ee6bbcbecbb0c961c9a40a76d001985f",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/source_fitting_v1/v2_native_fit_job_bench.gd.gz"
+      ],
+      "completed": false,
+      "exit_code": null,
+      "timed_out": true
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/fitting_v2.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "d548fabe968049ad2e89f86c76e87f50ee6bbcbecbb0c961c9a40a76d001985f",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/source_fitting_v1/v2_native_fit_job_bench.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": -1,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/fitting_v3.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "7ef497872eb65823758af2c8e8bcb429d9b5457a97deb24b2267f29fb4e276da",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/fitting_v4_source.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_fitting_v3/v2_native_fit_job_bench.gd.gz"
+      ],
+      "completed": false,
+      "exit_code": null,
+      "timed_out": true
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/fitting_v4.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "7ef497872eb65823758af2c8e8bcb429d9b5457a97deb24b2267f29fb4e276da",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/fitting_v4_source.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_fitting_v3/v2_native_fit_job_bench.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 1,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/fitting_v5.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "42fadf3dd1ca13c60631b9136eb88274b96b9b84db932e32a62b0c6d1c229c6a",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/source_final/v2_native_fit_job_bench.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_hash_only/v2_native_fit_job_bench.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_material_candidate/v2_native_fit_job_bench.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_warm_shader/v2_native_fit_job_bench.gd.gz",
+        "game/tests/v2_native_fit_job_bench.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/material_cache.log.receipt.json",
+      "test_path": "game/tests/v2_fitting_collision_cache_test.gd",
+      "test_sha256": "eb1306477d8e39c0fcc399f08f44768162ca29c0c7a70e2560fcb1d7e4c418e9",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/source_final/v2_fitting_collision_cache_test.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_hash_only/v2_fitting_collision_cache_test.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_material_candidate/v2_fitting_collision_cache_test.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_warm_shader/v2_fitting_collision_cache_test.gd.gz",
+        "game/tests/v2_fitting_collision_cache_test.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/material_candidate.log.receipt.json",
+      "test_path": "game/tests/v2_native_fit_job_bench.gd",
+      "test_sha256": "42fadf3dd1ca13c60631b9136eb88274b96b9b84db932e32a62b0c6d1c229c6a",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/source_final/v2_native_fit_job_bench.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_hash_only/v2_native_fit_job_bench.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_material_candidate/v2_native_fit_job_bench.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_warm_shader/v2_native_fit_job_bench.gd.gz",
+        "game/tests/v2_native_fit_job_bench.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/material_played_v1.log.receipt.json",
+      "test_path": "game/tests/v2_cooperative_streaming_profile.gd",
+      "test_sha256": "5f5e1d10ccbb707aa4043b95e47087dd84baec6a0390fce7db8573cd0b2a18ba",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/source_hash_only/v2_cooperative_streaming_profile.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_material_candidate/v2_cooperative_streaming_profile.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/played_v1.log.receipt.json",
+      "test_path": "game/tests/v2_cooperative_streaming_profile.gd",
+      "test_sha256": "5f5e1d10ccbb707aa4043b95e47087dd84baec6a0390fce7db8573cd0b2a18ba",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/source_hash_only/v2_cooperative_streaming_profile.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_material_candidate/v2_cooperative_streaming_profile.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/signature_final.log.receipt.json",
+      "test_path": "game/tests/v2_incremental_signature_bench.gd",
+      "test_sha256": "bc73f632b8229554bb04e51d009e89dd18672a42938ac5ad277ec0212da892d3",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/source_final/v2_incremental_signature_bench.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_hash_only/v2_incremental_signature_bench.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_material_candidate/v2_incremental_signature_bench.gd.gz",
+        "art/reviews/v2_incremental_hash_20261023/source_warm_shader/v2_incremental_signature_bench.gd.gz",
+        "game/tests/v2_incremental_signature_bench.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/signature_v1.log.receipt.json",
+      "test_path": "game/tests/v2_incremental_signature_bench.gd",
+      "test_sha256": "8b34d496fa183169acfcafe6adfd76be72143597dbe5217302374c3d9dd8e821",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/signature_v1_source.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/signature_v2.log.receipt.json",
+      "test_path": "game/tests/v2_incremental_signature_bench.gd",
+      "test_sha256": "1a76d45a02ca443f462f7ed27994f4e0c66a1389d796520644e9550634eaa223",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/signature_v2_source.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/warm_shader_v1.log.receipt.json",
+      "test_path": "game/tests/v2_cooperative_streaming_profile.gd",
+      "test_sha256": "bf077f0feb49a5f2fff3d03cfb0f0f7c78ba5fcb1410d9217789c4e8d8a4b26d",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/source_warm_shader/v2_cooperative_streaming_profile.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/warm_shader_v2.log.receipt.json",
+      "test_path": "game/tests/v2_cooperative_streaming_profile.gd",
+      "test_sha256": "202812dcdd6f915d84e73b7bfbd85f29d2376c460fbdddc882b6ae1e34587a4b",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/warm_shader_v2_source.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_incremental_hash_20261023/warm_shader_v3.log.receipt.json",
+      "test_path": "game/tests/v2_cooperative_streaming_profile.gd",
+      "test_sha256": "49e09265d1024636a1382315ee4840810cd4d3cfb37f83edb2b19cb974e3985c",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_incremental_hash_20261023/source_final/v2_cooperative_streaming_profile.gd.gz",
+        "game/tests/v2_cooperative_streaming_profile.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    }
+  ]
+}

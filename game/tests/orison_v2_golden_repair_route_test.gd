@@ -21,10 +21,7 @@ func _route() -> void:
 	if not _require(world.mina_gameplay.dialogue.visible and player.call_locked,
 			"physical Mina opens the authored protected complaint dialogue"): return
 	await get_tree().create_timer(.4).timeout
-	var directory := OS.get_environment("SHOT_DIR")
-	if not directory.is_empty():
-		await RenderingServer.frame_post_draw
-		get_viewport().get_texture().get_image().save_png(directory.path_join("mina_complaint_open.png"))
+	await _capture_interaction("mina_complaint_open")
 	for i in 30:
 		if not world.mina_gameplay.dialogue.visible: break
 		world.mina_gameplay.dialogue.choose(0)
@@ -107,7 +104,10 @@ func _hand_move(owner_node: Node3D,point: Vector3,goal: float,label: String) -> 
 func _use(owner_node: Node3D,target: Vector3,label: String) -> bool:
 	if owner_node is DoorProp:
 		var door:=owner_node as DoorProp
-		# A storefront leaf meets its shopfront short of the nominal 100 degrees.
+		if str(door.name).begins_with("SITE_SHOP_DOOR_"):
+			# The open leaf's centre lies beyond reach from the inner aisle.
+			# Its original hinge stile stays exposed and physically reachable.
+			target=door._body.to_global(Vector3(.065,1.35,door._hinge_offset+.0275))
 		return await _hand_move(door,target,0.0 if door.open else door.motion_target_angle(true)*0.86,label)
 	# Conversation and authored semantic actions keep their existing owners.
 	return await super._use(owner_node,target,label)

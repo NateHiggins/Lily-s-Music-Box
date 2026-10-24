@@ -1,0 +1,48 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Two-round-trip instrumented baseline and detailed native-fitting timings. Production code unchanged.",
+  "files": [
+    {
+      "path": "game/tests/v2_played_streaming_profile.gd",
+      "sha256": "efdcf4714e18b3407fe2e8626869fea6e6f9de7933e11e1ab0304ddc41802e37",
+      "lf_sha256": "efdcf4714e18b3407fe2e8626869fea6e6f9de7933e11e1ab0304ddc41802e37",
+      "bytes": 6853
+    },
+    {
+      "path": "game/tests/fixed_gesture_patrol_hand.gd",
+      "sha256": "d1a5236038a648a5e16d9132ffddcb1c1f8f4e9d6f9ad2037f5a9bc5b13f23d4",
+      "lf_sha256": "d1a5236038a648a5e16d9132ffddcb1c1f8f4e9d6f9ad2037f5a9bc5b13f23d4",
+      "bytes": 1689
+    },
+    {
+      "path": "game/tests/v2_fixed_gesture_driver_bench.gd",
+      "sha256": "4add4587f491870e047672ff566716e5adc8d47af12191fb3119f66fd9d919b3",
+      "lf_sha256": "4add4587f491870e047672ff566716e5adc8d47af12191fb3119f66fd9d919b3",
+      "bytes": 2897
+    },
+    {
+      "path": "game/tests/V2FixedGestureDriverBench.tscn",
+      "sha256": "6c3e0803f8eb3940957be2c543927c97d15b12929f5897ff49e1b6cc323a595c",
+      "lf_sha256": "6c3e0803f8eb3940957be2c543927c97d15b12929f5897ff49e1b6cc323a595c",
+      "bytes": 201
+    },
+    {
+      "path": "game/tests/V2PlayedStreamingProfile.tscn",
+      "sha256": "d7c1250c60dd563584115abcd7c781e8a5db04271f842f68853add4d79c9eb3b",
+      "lf_sha256": "d7c1250c60dd563584115abcd7c781e8a5db04271f842f68853add4d79c9eb3b",
+      "bytes": 198
+    },
+    {
+      "path": "game/scripts/building/orison_v2_shop_seating.gd",
+      "sha256": "5a549fe5862a5e51af0d8e1db783f8bf67020add4f4a94275854a33541fe394d",
+      "lf_sha256": "5a549fe5862a5e51af0d8e1db783f8bf67020add4f4a94275854a33541fe394d",
+      "bytes": 32529
+    },
+    {
+      "path": "game/scripts/building/orison_v2_arcade_fabric.gd",
+      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29",
+      "lf_sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29",
+      "bytes": 6586
+    }
+  ]
+}

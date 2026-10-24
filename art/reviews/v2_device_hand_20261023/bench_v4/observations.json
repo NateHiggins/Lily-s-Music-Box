@@ -1,0 +1,34 @@
+{
+	"checks": 40,
+	"evidence_class": "INERT",
+	"failures": [
+		"free cursor targets specific feed1"
+	],
+	"observations": [
+		{
+			"before": -0.400000005960464,
+			"part": "lamp",
+			"partial": -0.300000011920929
+		},
+		{
+			"before": -0.400000005960464,
+			"part": "radio",
+			"partial": -0.300000011920929
+		},
+		{
+			"before": 0.0,
+			"part": "cover",
+			"partial": 0.231250002980232
+		},
+		{
+			"before": 0.305,
+			"part": "focus",
+			"partial": 0.32125
+		},
+		{
+			"before": 0.0,
+			"part": "feed0",
+			"partial": 1.5707963267949
+		}
+	]
+}

@@ -1,0 +1,174 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Final changed source/asset archive; does not reconstruct unrelated dirty inputs",
+  "sources": [
+    {
+      "path": "art/blender/scripts/build_bath_paper_holder.py",
+      "archive": "00.gz",
+      "raw_sha256": "87b81469171646f158d7a022dfa1203697a3117140c11ab88c192668c6d94bf1",
+      "normalized_sha256": "87b81469171646f158d7a022dfa1203697a3117140c11ab88c192668c6d94bf1"
+    },
+    {
+      "path": "art/blender/scripts/build_bathroom_details.py",
+      "archive": "01.gz",
+      "raw_sha256": "c3d016c082045d49e83c78eb133a6f52d8e6aee62c60a84a694a885ef4e9ec71",
+      "normalized_sha256": "c3d016c082045d49e83c78eb133a6f52d8e6aee62c60a84a694a885ef4e9ec71"
+    },
+    {
+      "path": "game/data/orison_v2/bath_details.json",
+      "archive": "02.gz",
+      "raw_sha256": "883b0b336b0b4cc65e694be2c4a148fc8d6660aed84bd69981a2d2b97749d99e",
+      "normalized_sha256": "883b0b336b0b4cc65e694be2c4a148fc8d6660aed84bd69981a2d2b97749d99e"
+    },
+    {
+      "path": "game/assets/props/bath_paper_holder.glb",
+      "archive": "03.gz",
+      "raw_sha256": "173f6900eb9b079e1a80847918f0833d350a2d92361b8957402875dadf38300a",
+      "normalized_sha256": "72e89deb7b7d3fbe3af2506cf7ffbbb97d3d92fb26b55c8732fca041a2a8649b"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_bath_details.gd",
+      "archive": "04.gz",
+      "raw_sha256": "13e14527264d0f6e7ce8137997ef55a7bfb786f1b0944359ae6941f24ed7389d",
+      "normalized_sha256": "13e14527264d0f6e7ce8137997ef55a7bfb786f1b0944359ae6941f24ed7389d"
+    },
+    {
+      "path": "game/tests/v2_bathroom_paper_review.gd",
+      "archive": "05.gz",
+      "raw_sha256": "05a40587b1ce22b2ff179ecf00b4814d0071ffee3c49994d16825f877eb73912",
+      "normalized_sha256": "05a40587b1ce22b2ff179ecf00b4814d0071ffee3c49994d16825f877eb73912"
+    },
+    {
+      "path": "game/tests/V2BathroomPaperReview.tscn",
+      "archive": "06.gz",
+      "raw_sha256": "5081a7d6e5ec1891de3904b9c49634621e7c60357ba09476f8740b3a2972e930",
+      "normalized_sha256": "5081a7d6e5ec1891de3904b9c49634621e7c60357ba09476f8740b3a2972e930"
+    },
+    {
+      "path": "game/tests/v2_bathroom_moisture_review.gd",
+      "archive": "07.gz",
+      "raw_sha256": "afadb8d7455e3d1459fe7eb00655ede201c5aa4136adefa68148afdf2d485441",
+      "normalized_sha256": "afadb8d7455e3d1459fe7eb00655ede201c5aa4136adefa68148afdf2d485441"
+    },
+    {
+      "path": "game/tests/v2_bathroom_rain_probe.gd",
+      "archive": "08.gz",
+      "raw_sha256": "6d5125fe2b6b234ed9e1d36e8507766e112872212eedadc8bac6ba541729a91e",
+      "normalized_sha256": "6d5125fe2b6b234ed9e1d36e8507766e112872212eedadc8bac6ba541729a91e"
+    },
+    {
+      "path": "game/scripts/building/v2_bathroom_moisture.gd",
+      "archive": "09.gz",
+      "raw_sha256": "3fb1d452933039ceca869ebe23c82d7a0befd2229ce8b1f06c821eac4be3326f",
+      "normalized_sha256": "3fb1d452933039ceca869ebe23c82d7a0befd2229ce8b1f06c821eac4be3326f"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_runtime_root.gd",
+      "archive": "10.gz",
+      "raw_sha256": "c76ed75dc381ddfcb8b5e90512394319bf0357c0b449c03cbe4825f14217c8dd",
+      "normalized_sha256": "c76ed75dc381ddfcb8b5e90512394319bf0357c0b449c03cbe4825f14217c8dd"
+    },
+    {
+      "path": "game/scripts/building/planar_mirror_renderer.gd",
+      "archive": "11.gz",
+      "raw_sha256": "6d6b49e74a7bcf89695c858397ce411f334316f8a36b9acb599dc9e66e97e57f",
+      "normalized_sha256": "6d6b49e74a7bcf89695c858397ce411f334316f8a36b9acb599dc9e66e97e57f"
+    },
+    {
+      "path": "game/scripts/props/tap_prop.gd",
+      "archive": "12.gz",
+      "raw_sha256": "54870fe512950015f422fa6802b296819e1c07385181eb75031f342572cc7b1a",
+      "normalized_sha256": "54870fe512950015f422fa6802b296819e1c07385181eb75031f342572cc7b1a"
+    },
+    {
+      "path": "game/shaders/v2_glass_film.gdshader",
+      "archive": "13.gz",
+      "raw_sha256": "1309de28aed0693af68f6fa16c835c3f8d2ab24491e76df52ec3cac9bc8b9b9b",
+      "normalized_sha256": "1309de28aed0693af68f6fa16c835c3f8d2ab24491e76df52ec3cac9bc8b9b9b"
+    },
+    {
+      "path": "game/shaders/v2_condensation.gdshaderinc",
+      "archive": "14.gz",
+      "raw_sha256": "2121626fe779bb9e67692de272448e2177cb9795f06c47f6fe6d57c15789e545",
+      "normalized_sha256": "2121626fe779bb9e67692de272448e2177cb9795f06c47f6fe6d57c15789e545"
+    },
+    {
+      "path": "game/shaders/v2_bath_steam.gdshader",
+      "archive": "15.gz",
+      "raw_sha256": "b6848e5b40978db7bafb27d782d2d1712f1635e1e85eeed64ca9f9496ed50030",
+      "normalized_sha256": "b6848e5b40978db7bafb27d782d2d1712f1635e1e85eeed64ca9f9496ed50030"
+    },
+    {
+      "path": "game/shaders/planar_mirror.gdshader",
+      "archive": "16.gz",
+      "raw_sha256": "bd6a8d509d781fbb8d030a8977470df853561491ea0d99cfb2b4a5ef8e674c64",
+      "normalized_sha256": "bd6a8d509d781fbb8d030a8977470df853561491ea0d99cfb2b4a5ef8e674c64"
+    },
+    {
+      "path": "game/assets/props/bath_paper_holder.glb.import",
+      "archive": "17.gz",
+      "raw_sha256": "d7a94300c01db5d0458550fa8b9123d06ee1ae12359a790c3fc1201ae1c49ece",
+      "normalized_sha256": "d7a94300c01db5d0458550fa8b9123d06ee1ae12359a790c3fc1201ae1c49ece"
+    },
+    {
+      "path": "art/tools/fix_v2_mesh_imports.py",
+      "archive": "18.gz",
+      "raw_sha256": "1f26322b79dacc05ed22a8ff89395cc5b8f8eadc11f5fd93b68cd03e209124d3",
+      "normalized_sha256": "1f26322b79dacc05ed22a8ff89395cc5b8f8eadc11f5fd93b68cd03e209124d3"
+    },
+    {
+      "path": "game/tests/v2_paper_import_probe.gd",
+      "archive": "19.gz",
+      "raw_sha256": "051d4d3d36e4ff4d1a44a32db83d699e4db5c4ea17647480e636b9faebcda51c",
+      "normalized_sha256": "051d4d3d36e4ff4d1a44a32db83d699e4db5c4ea17647480e636b9faebcda51c"
+    },
+    {
+      "path": "game/tests/V2PaperImportProbe.tscn",
+      "archive": "20.gz",
+      "raw_sha256": "c795e56e0dc83b4b3edc4a7a0186896cfa569c2bf8128d6282c5042ee6b18021",
+      "normalized_sha256": "c795e56e0dc83b4b3edc4a7a0186896cfa569c2bf8128d6282c5042ee6b18021"
+    },
+    {
+      "path": "game/tests/bath_lavatory_test.gd",
+      "archive": "21.gz",
+      "raw_sha256": "03c7d5674b5b5aeb8d555154e4c9d8994b85b1cc7c444a683241478a0dab167e",
+      "normalized_sha256": "03c7d5674b5b5aeb8d555154e4c9d8994b85b1cc7c444a683241478a0dab167e"
+    },
+    {
+      "path": "game/tests/orison_v2_apartment_batch_test.gd",
+      "archive": "22.gz",
+      "raw_sha256": "2374ed8e18261a3533cd21ea5bc77b27785de98b10b8e8d962a02c44dbe09f95",
+      "normalized_sha256": "2374ed8e18261a3533cd21ea5bc77b27785de98b10b8e8d962a02c44dbe09f95"
+    },
+    {
+      "path": "game/tests/v2_bathroom_paper_installation.gd",
+      "archive": "23.gz",
+      "raw_sha256": "5e17b8155bbbe4ae351af6041ac2e31dbb4ec9ead11e96984ac4b31cc84abacf",
+      "normalized_sha256": "5e17b8155bbbe4ae351af6041ac2e31dbb4ec9ead11e96984ac4b31cc84abacf"
+    },
+    {
+      "path": "game/tests/V2BathroomPaperInstallation.tscn",
+      "archive": "24.gz",
+      "raw_sha256": "7f16bca6b1cab1df1fa577e661de0dd11861271bfc31854f83ebd2a342205442",
+      "normalized_sha256": "7f16bca6b1cab1df1fa577e661de0dd11861271bfc31854f83ebd2a342205442"
+    },
+    {
+      "path": "game/tests/v2_bathroom_steam_cap_review.gd",
+      "archive": "25.gz",
+      "raw_sha256": "ec6437651881f7661cd5e49298ebfb80f921cf3c5bc4b7b4f97f66f760490abc",
+      "normalized_sha256": "ec6437651881f7661cd5e49298ebfb80f921cf3c5bc4b7b4f97f66f760490abc"
+    },
+    {
+      "path": "game/tests/V2BathroomSteamCapReview.tscn",
+      "archive": "26.gz",
+      "raw_sha256": "8a913909a9be903e531c4070efa3521aeab365c21fdf06a81f2f86b67bc20625",
+      "normalized_sha256": "8a913909a9be903e531c4070efa3521aeab365c21fdf06a81f2f86b67bc20625"
+    },
+    {
+      "path": "art/blender/bath_paper_holder.blend",
+      "archive": "27.gz",
+      "raw_sha256": "d7ecbf899f624b623ad59eaf1f33aed0a49da7754a59470504218ee193317505",
+      "normalized_sha256": "aacc875e3ef30ddd307f6c054dcd217595b55e722d0c7cdd40865da3c4d716c7"
+    }
+  ]
+}

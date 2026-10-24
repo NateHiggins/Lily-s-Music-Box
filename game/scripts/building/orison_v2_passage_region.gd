@@ -79,10 +79,32 @@ var _counter_ids: Array[String] = []
 var _geometry_root: Node3D
 var _actors: Node3D
 var residency: Node
+var portrait_atlas_cache := PhotoPortraits.AtlasCache.new()
 var receiving_row: Receivers
 ## Temporarily absent by owner request. Read once so streaming keeps the same policy.
 var cabinets_enabled := false
 var _acoustic_originals: Dictionary = {}
+var _residency_clients: Array[WeakRef] = []
+
+func register_residency_client(client: Node) -> bool:
+	if client==null or not client.has_method("wants_passage_geometry") \
+			or not client.has_method("passage_geometry_dormant") or not client.has_method("passage_geometry_active"):return false
+	for reference: WeakRef in _residency_clients:
+		if reference.get_ref()==client:return true
+	_residency_clients.append(weakref(client));return true
+
+func geometry_required_by_stock() -> bool:
+	for reference: WeakRef in _residency_clients:
+		var client: Node=reference.get_ref()
+		if client!=null and bool(client.wants_passage_geometry()):return true
+	return false
+
+func _notify_stock_residency(active: bool) -> void:
+	for reference: WeakRef in _residency_clients:
+		var client: Node=reference.get_ref()
+		if client!=null:
+			if active:client.passage_geometry_active()
+			else:client.passage_geometry_dormant()
 
 static func cell_path(identity: String) -> String:
 	if identity == "passage":
@@ -93,7 +115,9 @@ func configure(service: MaintenanceShopService, programmes: Variant=null) -> boo
 	if is_inside_tree() or service == null:
 		return false
 	shop_service = service
-	cabinets_enabled = OS.get_environment("ORISON_PASSAGE_CABINETS") == "1"
+	# Owner retired all arcade cabinets from play pending a complete revamp.
+	# Historical opt-in fixtures cannot turn them back on in the live world.
+	cabinets_enabled = false
 	var decoded: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json"))
 	if decoded is not Dictionary:
 		return false
@@ -194,7 +218,7 @@ func _ready() -> void:
 		if not PhotoProcess.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native photography process fit refused: "+identity)
 			return
-		if not PhotoPortraits.mount_cell(cell_nodes[identity],source_layout):
+		if not PhotoPortraits.mount_cell(cell_nodes[identity],source_layout,portrait_atlas_cache):
 			_fail("native unclaimed portrait fit refused: "+identity)
 			return
 		if not PhotoGlazing.mount_cell(cell_nodes[identity],source_layout):
@@ -330,7 +354,7 @@ func _mount_markers() -> void:
 				continue
 			var prop: Node3D
 			if marker.kind == "door":
-				var door := DoorProp.new()
+				var door := preload("res://scripts/building/orison_v2_passage_shop_door.gd").new()
 				door.width = float(marker.w)
 				door.height = float(marker.h)
 				door.leaf_state = str(marker.leaf)
@@ -408,6 +432,13 @@ func _mount_counters() -> void:
 			return
 		_counter_ids.append(identity)
 
+func transaction_actor_root() -> Node3D:
+	return _actors
+
+func transaction_counter_available(shop_id: String) -> bool:
+	return not startup_failed and shop_id in _counter_ids and shop_service!=null \
+			and is_instance_valid(shop_service.counter(shop_id))
+
 
 func _mount_key_counter() -> bool:
 	var matches: Array[Dictionary] = []
@@ -460,6 +491,7 @@ func shutdown() -> void:
 	_acoustic_originals.clear()
 	if is_instance_valid(residency):
 		residency.shutdown()
+	portrait_atlas_cache.clear()
 	if is_instance_valid(shop_service):
 		for identity: String in _counter_ids:
 			shop_service.unmount_counter(identity)
@@ -484,6 +516,8 @@ func enable_residency(player: PlayerController, frame: Node3D, layout: Dictionar
 	return true
 
 func suspend_geometry() -> WeakRef:
+	var retirement_started:=Time.get_ticks_usec()
+	_notify_stock_residency(false)
 	for identity: String in _counter_ids:
 		shop_service.unmount_counter(identity)
 	_counter_ids.clear()
@@ -493,13 +527,17 @@ func suspend_geometry() -> WeakRef:
 	receiving_row.suspend()
 	_actors.visible = false
 	_actors.process_mode = Node.PROCESS_MODE_DISABLED
+	var retirement_actors_done:=Time.get_ticks_usec()
 	var retired: WeakRef = weakref(_geometry_root)
 	remove_child(_geometry_root)
+	var retirement_detached:=Time.get_ticks_usec()
 	_geometry_root.queue_free()
 	_geometry_root = null
 	for identity: String in CELLS:
 		cell_nodes.erase(identity)
 	surface_pass = null
+	if OS.get_environment("ORISON_PROFILE_RESIDENCY")=="1":
+		print("PASSAGE_RETIRE_DETAIL ",JSON.stringify({"actors_ms":(retirement_actors_done-retirement_started)/1000.,"detach_ms":(retirement_detached-retirement_actors_done)/1000.,"enqueue_release_ms":(Time.get_ticks_usec()-retirement_detached)/1000.}))
 	return retired
 
 func activate_geometry(geometry: Node3D, cells: Dictionary, surfaces: RefCounted) -> void:
@@ -516,6 +554,7 @@ func activate_geometry(geometry: Node3D, cells: Dictionary, surfaces: RefCounted
 	for cart: PassagePushcart in finish.pushcarts:
 		cart.set_passage_active(true)
 	_mount_counters()
+	_notify_stock_residency(true)
 
 func _exit_tree() -> void:
 	shutdown()

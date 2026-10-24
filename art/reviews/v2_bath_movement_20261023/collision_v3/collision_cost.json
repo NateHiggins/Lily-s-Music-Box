@@ -1,0 +1,5942 @@
+{
+	"evidence_class": "INERT",
+	"limits": "Synchronous isolated body_test_motion queries at two observed production positions; no bypass installed and no runtime qualification.",
+	"records": [
+		{
+			"feet": "(-14.325, 6.400265, -0.575)",
+			"motions": [
+				{
+					"all_nearby_excluded": {
+						"hit": false,
+						"ms": [
+							0.007,
+							0.006,
+							0.007,
+							0.006,
+							0.006
+						]
+					},
+					"baseline": {
+						"hit": false,
+						"ms": [
+							0.049,
+							0.026,
+							0.025,
+							0.027,
+							0.027
+						]
+					},
+					"motion": "(0.05, 0.0, 0.0)",
+					"owners": [
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.026,
+									0.022,
+									0.022,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FixedCastingCollision",
+							"shapes": [
+								{
+									"triangles": 3712,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 6178,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 3332,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 8152,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.022,
+									0.022,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/VentilationDucts/Stack_D",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.022,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_hall_crate",
+							"shapes": [
+								{
+									"triangles": 1128,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 1316,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.022,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_bath_shelf",
+							"shapes": [
+								{
+									"triangles": 572,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 476,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 376,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 1692,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.022,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.034,
+									0.022,
+									0.021,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BED/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.022,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.022,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Sill01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.022,
+									0.021,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallWest_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.022,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.022,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.022,
+									0.021,
+									0.024,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.009,
+									0.008,
+									0.009,
+									0.009,
+									0.008
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.022,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.022,
+									0.022,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE/WallSouth_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.022,
+									0.022,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.022,
+									0.021,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallWest_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.022,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.022,
+									0.021,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.022,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.022,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.022,
+									0.021,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.022,
+									0.021,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.022,
+									0.022,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 19292,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 5944,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 764,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.019,
+									0.018,
+									0.018,
+									0.018,
+									0.018
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SHOWER_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.02,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/ExteriorMasonry/MasonryCollision",
+							"shapes": [
+								{
+									"triangles": 10080,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.022,
+									0.022,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH_SWITCH",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.021,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE_SWITCH",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.022,
+									0.021,
+									0.024,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/RaisedLid/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.021,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternHandle/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternCover/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.022,
+									0.021,
+									0.022,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FloatArm/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.022,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FlushBall/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.022,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH_DOOR/F03_B_BATH_DOOR_Leaf/HingedLeaf",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.022,
+									0.021,
+									0.022,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/F03_3B_MIRROR_01/CabinetDoor/CabinetLeafBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						}
+					]
+				},
+				{
+					"all_nearby_excluded": {
+						"hit": false,
+						"ms": [
+							0.006,
+							0.006,
+							0.007,
+							0.006,
+							0.007
+						]
+					},
+					"baseline": {
+						"hit": true,
+						"ms": [
+							0.057,
+							0.036,
+							0.036,
+							0.037,
+							0.036
+						]
+					},
+					"motion": "(0.0, -0.01, 0.0)",
+					"owners": [
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.037,
+									0.031,
+									0.029,
+									0.03,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FixedCastingCollision",
+							"shapes": [
+								{
+									"triangles": 3712,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 6178,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 3332,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 8152,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.031,
+									0.03,
+									0.03,
+									0.03,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/VentilationDucts/Stack_D",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.029,
+									0.03,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_hall_crate",
+							"shapes": [
+								{
+									"triangles": 1128,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 1316,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.029,
+									0.029,
+									0.03,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_bath_shelf",
+							"shapes": [
+								{
+									"triangles": 572,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 476,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 376,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 1692,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.029,
+									0.03,
+									0.029,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.029,
+									0.03,
+									0.029,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.029,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.029,
+									0.03,
+									0.029,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.029,
+									0.03,
+									0.063,
+									0.037
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BED/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.033,
+									0.03,
+									0.031,
+									0.03,
+									0.031
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.031,
+									0.03,
+									0.029,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.029,
+									0.03,
+									0.03,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Sill01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.029,
+									0.029,
+									0.029,
+									0.029,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallWest_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.029,
+									0.03,
+									0.03,
+									0.03,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.029,
+									0.03,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.031,
+									0.03,
+									0.029,
+									0.029,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.03,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.008,
+									0.008,
+									0.009,
+									0.008,
+									0.008
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.029,
+									0.029,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.029,
+									0.029,
+									0.03,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE/WallSouth_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.029,
+									0.035,
+									0.029,
+									0.029,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.029,
+									0.029,
+									0.03,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallWest_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.029,
+									0.029,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.029,
+									0.029,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.029,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.03,
+									0.029,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.029,
+									0.03,
+									0.029,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.029,
+									0.03,
+									0.029,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.029,
+									0.029,
+									0.03,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 19292,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 5944,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 764,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.027,
+									0.027,
+									0.026,
+									0.027,
+									0.026
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SHOWER_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.029,
+									0.028,
+									0.029,
+									0.028,
+									0.028
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/ExteriorMasonry/MasonryCollision",
+							"shapes": [
+								{
+									"triangles": 10080,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.061,
+									0.03,
+									0.03,
+									0.029,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH_SWITCH",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.029,
+									0.03,
+									0.029,
+									0.029,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE_SWITCH",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.033,
+									0.029,
+									0.03,
+									0.029,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.029,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/RaisedLid/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.029,
+									0.029,
+									0.03
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternHandle/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.029,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternCover/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.029,
+									0.03,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FloatArm/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.029,
+									0.03,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FlushBall/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.029,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH_DOOR/F03_B_BATH_DOOR_Leaf/HingedLeaf",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": true,
+								"ms": [
+									0.03,
+									0.03,
+									0.029,
+									0.03,
+									0.029
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/F03_3B_MIRROR_01/CabinetDoor/CabinetLeafBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						}
+					]
+				},
+				{
+					"all_nearby_excluded": {
+						"hit": false,
+						"ms": [
+							0.006,
+							0.005,
+							0.005,
+							0.006,
+							0.005
+						]
+					},
+					"baseline": {
+						"hit": false,
+						"ms": [
+							0.047,
+							0.024,
+							0.023,
+							0.022,
+							0.021
+						]
+					},
+					"motion": "(0.0, 0.0, 0.05)",
+					"owners": [
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FixedCastingCollision",
+							"shapes": [
+								{
+									"triangles": 3712,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 6178,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 3332,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 8152,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/VentilationDucts/Stack_D",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_hall_crate",
+							"shapes": [
+								{
+									"triangles": 1128,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 1316,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.02,
+									0.02,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_bath_shelf",
+							"shapes": [
+								{
+									"triangles": 572,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 476,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 376,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 1692,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.022,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.022,
+									0.02,
+									0.02,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.022,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BED/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.051,
+									0.033
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Sill01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.026,
+									0.024,
+									0.026,
+									0.025,
+									0.022
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallWest_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.02,
+									0.021,
+									0.022,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.02
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.02,
+									0.02,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.008,
+									0.008,
+									0.008,
+									0.008,
+									0.008
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.02,
+									0.02,
+									0.02,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.02
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE/WallSouth_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.02,
+									0.02,
+									0.02
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.02,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallWest_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.02,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.02,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.02,
+									0.02
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.02,
+									0.021,
+									0.021,
+									0.02,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.02,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.026,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.02,
+									0.02,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 19292,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 5944,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 764,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.018,
+									0.018,
+									0.017,
+									0.017,
+									0.018
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SHOWER_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.02,
+									0.02,
+									0.019,
+									0.019,
+									0.019
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/ExteriorMasonry/MasonryCollision",
+							"shapes": [
+								{
+									"triangles": 10080,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH_SWITCH",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_ALCOVE_SWITCH",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.044,
+									0.027
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.024,
+									0.023,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/RaisedLid/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.022,
+									0.021,
+									0.021,
+									0.02,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternHandle/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternCover/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FloatArm/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.022,
+									0.021,
+									0.021,
+									0.021
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FlushBall/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.02,
+									0.021,
+									0.021,
+									0.02,
+									0.02
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH_DOOR/F03_B_BATH_DOOR_Leaf/HingedLeaf",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.021,
+									0.021,
+									0.02,
+									0.02
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/F03_3B_MIRROR_01/CabinetDoor/CabinetLeafBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						}
+					]
+				}
+			],
+			"query_hits": 85,
+			"unique_bodies": 41
+		},
+		{
+			"feet": "(-14.684, 6.700265, -0.303697)",
+			"motions": [
+				{
+					"all_nearby_excluded": {
+						"hit": false,
+						"ms": [
+							0.007,
+							0.006,
+							0.006,
+							0.007,
+							0.006
+						]
+					},
+					"baseline": {
+						"hit": false,
+						"ms": [
+							0.238,
+							0.2,
+							0.187,
+							0.183,
+							0.183
+						]
+					},
+					"motion": "(0.05, 0.0, 0.0)",
+					"owners": [
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.02,
+									0.019,
+									0.018,
+									0.017,
+									0.015
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FixedCastingCollision",
+							"shapes": [
+								{
+									"triangles": 3712,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 6178,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 3332,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 8152,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.206,
+									0.184,
+									0.182,
+									0.18,
+									0.178
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/FrontFacade/FixedFacade/FixedFacade__limestone_b__-4_-1_1/FacadeCollision",
+							"shapes": [
+								{
+									"triangles": 89,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.182,
+									0.179,
+									0.178,
+									0.179,
+									0.179
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/VentilationDucts/Stack_D",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.182,
+									0.179,
+									0.179,
+									0.178
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_bath_shelf",
+							"shapes": [
+								{
+									"triangles": 572,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 476,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 376,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 1692,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.181,
+									0.177,
+									0.177,
+									0.179
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.178,
+									0.182,
+									0.179,
+									0.178
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.179,
+									0.178,
+									0.179,
+									0.178
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.19,
+									0.18,
+									0.178,
+									0.181,
+									0.181
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.186,
+									0.183,
+									0.177,
+									0.179,
+									0.179
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.209,
+									0.178,
+									0.178,
+									0.177
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.178,
+									0.181,
+									0.177,
+									0.178
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Sill01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.177,
+									0.18,
+									0.178,
+									0.177
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.178,
+									0.178,
+									0.182,
+									0.178
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.179,
+									0.178,
+									0.178,
+									0.182,
+									0.179
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.188,
+									0.196,
+									0.178,
+									0.177,
+									0.18
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.177,
+									0.178,
+									0.179,
+									0.178,
+									0.181
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.178,
+									0.178,
+									0.178,
+									0.178
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.193,
+									0.18,
+									0.179,
+									0.178,
+									0.178
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.187,
+									0.178,
+									0.178,
+									0.182,
+									0.179
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.178,
+									0.178,
+									0.179,
+									0.182
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.179,
+									0.179,
+									0.178,
+									0.181
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 19292,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 5944,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 764,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.179,
+									0.179,
+									0.179,
+									0.201,
+									0.18
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SHOWER_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.178,
+									0.179,
+									0.178,
+									0.178
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/ExteriorMasonry/MasonryCollision",
+							"shapes": [
+								{
+									"triangles": 10080,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.18,
+									0.178,
+									0.177,
+									0.177,
+									0.177
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH_SWITCH",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.168,
+									0.172,
+									0.169,
+									0.169,
+									0.169
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.181,
+									0.177,
+									0.178,
+									0.179
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/RaisedLid/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.193,
+									0.182,
+									0.196,
+									0.177
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternHandle/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.178,
+									0.177,
+									0.181,
+									0.178,
+									0.178
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternCover/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.181,
+									0.181,
+									0.178,
+									0.177,
+									0.177
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FloatArm/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.187,
+									0.178,
+									0.178,
+									0.178,
+									0.177
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FlushBall/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.177,
+									0.18,
+									0.177,
+									0.177,
+									0.177
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/F03_3B_MIRROR_01/CabinetDoor/CabinetLeafBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						}
+					]
+				},
+				{
+					"all_nearby_excluded": {
+						"hit": false,
+						"ms": [
+							0.008,
+							0.006,
+							0.007,
+							0.006,
+							0.006
+						]
+					},
+					"baseline": {
+						"hit": false,
+						"ms": [
+							0.271,
+							0.255,
+							0.273,
+							0.238,
+							0.231
+						]
+					},
+					"motion": "(0.0, -0.01, 0.0)",
+					"owners": [
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.021,
+									0.02,
+									0.018,
+									0.016,
+									0.015
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FixedCastingCollision",
+							"shapes": [
+								{
+									"triangles": 3712,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 6178,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 3332,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 8152,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.225,
+									0.231,
+									0.223,
+									0.223,
+									0.221
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/FrontFacade/FixedFacade/FixedFacade__limestone_b__-4_-1_1/FacadeCollision",
+							"shapes": [
+								{
+									"triangles": 89,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.225,
+									0.221,
+									0.221,
+									0.22,
+									0.221
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/VentilationDucts/Stack_D",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.238,
+									0.22,
+									0.222,
+									0.221,
+									0.222
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_bath_shelf",
+							"shapes": [
+								{
+									"triangles": 572,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 476,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 376,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 1692,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.224,
+									0.221,
+									0.221,
+									0.221,
+									0.223
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.222,
+									0.221,
+									0.222,
+									0.225,
+									0.222
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.222,
+									0.221,
+									0.253,
+									0.221,
+									0.22
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.22,
+									0.22,
+									0.224,
+									0.22,
+									0.221
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.219,
+									0.24,
+									0.221,
+									0.22,
+									0.22
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.22,
+									0.227,
+									0.219,
+									0.223,
+									0.222
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.221,
+									0.221,
+									0.221,
+									0.226,
+									0.224
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Sill01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.225,
+									0.224,
+									0.225,
+									0.224,
+									0.223
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.223,
+									0.225,
+									0.222,
+									0.22,
+									0.224
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.222,
+									0.224,
+									0.221,
+									0.221,
+									0.221
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.226,
+									0.222,
+									0.221,
+									0.221,
+									0.221
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.223,
+									0.221,
+									0.221,
+									0.221,
+									0.223
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.222,
+									0.22,
+									0.221,
+									0.22,
+									0.233
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.223,
+									0.221,
+									0.223,
+									0.223,
+									0.222
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.231,
+									0.221,
+									0.221,
+									0.222,
+									0.222
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.224,
+									0.221,
+									0.222,
+									0.22,
+									0.224
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.221,
+									0.221,
+									0.221,
+									0.223,
+									0.226
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 19292,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 5944,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 764,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.222,
+									0.223,
+									0.221,
+									0.237,
+									0.224
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SHOWER_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.222,
+									0.22,
+									0.221,
+									0.223,
+									0.22
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/ExteriorMasonry/MasonryCollision",
+							"shapes": [
+								{
+									"triangles": 10080,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.221,
+									0.221,
+									0.225,
+									0.221,
+									0.221
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH_SWITCH",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.213,
+									0.212,
+									0.215,
+									0.212,
+									0.211
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.222,
+									0.224,
+									0.224,
+									0.222,
+									0.223
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/RaisedLid/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.222,
+									0.225,
+									0.223,
+									0.22,
+									0.22
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternHandle/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.231,
+									0.222,
+									0.225,
+									0.222,
+									0.221
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternCover/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.22,
+									0.222,
+									0.227,
+									0.222,
+									0.223
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FloatArm/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.224,
+									0.224,
+									0.222,
+									0.223,
+									0.224
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FlushBall/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.224,
+									0.232,
+									0.23,
+									0.225,
+									0.223
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/F03_3B_MIRROR_01/CabinetDoor/CabinetLeafBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						}
+					]
+				},
+				{
+					"all_nearby_excluded": {
+						"hit": false,
+						"ms": [
+							0.008,
+							0.007,
+							0.006,
+							0.006,
+							0.006
+						]
+					},
+					"baseline": {
+						"hit": false,
+						"ms": [
+							0.313,
+							0.278,
+							0.271,
+							0.268,
+							0.267
+						]
+					},
+					"motion": "(0.0, 0.0, 0.05)",
+					"owners": [
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.017,
+									0.017,
+									0.016,
+									0.016,
+									0.015
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FixedCastingCollision",
+							"shapes": [
+								{
+									"triangles": 3712,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 6178,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 3332,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 8152,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.291,
+									0.321,
+									0.277,
+									0.272,
+									0.268
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/FrontFacade/FixedFacade/FixedFacade__limestone_b__-4_-1_1/FacadeCollision",
+							"shapes": [
+								{
+									"triangles": 89,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.295,
+									0.279,
+									0.267,
+									0.264,
+									0.264
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/VentilationDucts/Stack_D",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.262,
+									0.262,
+									0.263,
+									0.267,
+									0.263
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_bath_shelf",
+							"shapes": [
+								{
+									"triangles": 572,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 476,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 376,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 1692,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 384,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 188,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.262,
+									0.263,
+									0.262,
+									0.263,
+									0.298
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.279,
+									0.264,
+									0.263,
+									0.279,
+									0.262
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.262,
+									0.275,
+									0.306,
+									0.281,
+									0.272
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.269,
+									0.269,
+									0.267,
+									0.312,
+									0.286
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F02_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.276,
+									0.271,
+									0.273,
+									0.267,
+									0.271
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_03/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.268,
+									0.267,
+									0.267,
+									0.262,
+									0.264
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.264,
+									0.286,
+									0.265,
+									0.262,
+									0.26
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Sill01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.264,
+									0.262,
+									0.261,
+									0.261,
+									0.265
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.262,
+									0.261,
+									0.266,
+									0.262,
+									0.262
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.262,
+									0.263,
+									0.262,
+									0.304,
+									0.262
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallNorth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.29,
+									0.273,
+									0.262,
+									0.261,
+									0.265
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.263,
+									0.262,
+									0.262,
+									0.265,
+									0.262
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/Floor/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.263,
+									0.265,
+									0.264,
+									0.263,
+									0.263
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.265,
+									0.262,
+									0.264,
+									0.264,
+									0.268
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH/WallEast_Head02/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.264,
+									0.263,
+									0.263,
+									0.266,
+									0.265
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_Head01/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.264,
+									0.262,
+									0.267,
+									0.262,
+									0.261
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_PRIVATE_HALL/WallSouth_00/Collision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.268,
+									0.263,
+									0.264,
+									0.263,
+									0.262
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 19292,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 5944,
+									"type": "ConcavePolygonShape3D"
+								},
+								{
+									"triangles": 764,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.263,
+									0.274,
+									0.263,
+									0.27,
+									0.263
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SHOWER_01/FixtureBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.262,
+									0.262,
+									0.267,
+									0.263,
+									0.264
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/ExteriorMasonry/MasonryCollision",
+							"shapes": [
+								{
+									"triangles": 10080,
+									"type": "ConcavePolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.265,
+									0.264,
+									0.264,
+									0.264,
+									0.266
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_B_BATH_SWITCH",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.253,
+									0.256,
+									0.254,
+									0.272,
+									0.256
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/SeatHinge/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.264,
+									0.279,
+									0.262,
+									0.263,
+									0.264
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/RaisedLid/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.267,
+									0.263,
+									0.262,
+									0.261,
+									0.266
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternHandle/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.262,
+									0.265,
+									0.264,
+									0.266,
+									0.262
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/CisternCover/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.262,
+									0.271,
+									0.262,
+									0.269,
+									0.263
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FloatArm/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.264,
+									0.262,
+									0.266,
+									0.263,
+									0.263
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/3B_wc/FlushBall/HandMovedCollision",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								},
+								{
+									"triangles": 0,
+									"type": "ConvexPolygonShape3D"
+								}
+							]
+						},
+						{
+							"excluded": {
+								"hit": false,
+								"ms": [
+									0.263,
+									0.266,
+									0.265,
+									0.265,
+									0.266
+								]
+							},
+							"path": "/root/V2BathCollisionCost/OrisonV2Runtime/OrisonV2Blockout/F03_3B_SINK_01/F03_3B_MIRROR_01/CabinetDoor/CabinetLeafBody",
+							"shapes": [
+								{
+									"triangles": 0,
+									"type": "BoxShape3D"
+								}
+							]
+						}
+					]
+				}
+			],
+			"query_hits": 71,
+			"unique_bodies": 31
+		}
+	]
+}

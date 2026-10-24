@@ -1,0 +1,200 @@
+# Gate board - 1e8b332fdfef
+
+- commit `1e8b332fdfefc76a73bd50ad5e1df7beaf8fcaee`
+- tree `4f6c6b2fd0c1142a68daa25298d5c6f3798d1543`
+- created 2026-10-21T17:14:15Z
+- dirty paths: 1120
+
+| gate | severity | exit | seconds | headline |
+|---|---|---:|---:|---|
+| physical_import_sources | PASS | 0 | 0.34 | no defects counted |
+| v2_recipe_projections | PASS | 0 | 0.64 | no defects counted |
+| v2_surface_qualification | PASS | 0 | 6.73 | no defects counted |
+| v2_mesh_uv_imports | PASS | 0 | 0.08 | no defects counted |
+| v2_surface_imports | PASS | 0 | 0.28 | no defects counted |
+| ledger | INCOMPLETE | 2 | 21.06 | blockers 0 / 1 / 21 / 25 / 38 / 40; requirements 240 |
+| spatial | PASS | 0 | 11.62 | drift.new_reported 21 |
+| systemic | PASS | 0 | 5.5 | drift.new_review 21 |
+| period | PASS | 0 | 1.14 | no defects counted |
+| reader | PASS | 0 | 3.52 | unread 1109; vs frozen baseline: new 0, resolved 199 |
+| carriers | PASS | 0 | 0.77 | ambiguous_dynamic 2 |
+| rulings | PASS | 0 | 174.2 | no defects counted |
+| test:test_additive_material_bindings | PASS | 0 | 0.38 | ran 6, failed 0 |
+| test:test_additive_material_rebind | PASS | 0 | 0.12 | ran 8, failed 0 |
+| test:test_arcade_canopy_shells | PASS | 0 | 0.33 | ran 3, failed 0 |
+| test:test_arcade_clock | PASS | 0 | 0.45 | ran 4, failed 0 |
+| test:test_arcade_lantern | PASS | 0 | 0.34 | ran 4, failed 0 |
+| test:test_astra_packet | PASS | 0 | 2.33 | ran 10, failed 0 |
+| test:test_audio_emitters | PASS | 0 | 4.52 | ran 6, failed 0 |
+| test:test_binding_relief | PASS | 0 | 1.14 | ran 3, failed 0 |
+| test:test_check_rulings | PASS | 0 | 1.09 | ran 8, failed 0 |
+| test:test_city_ground_apron | PASS | 0 | 0.22 | ran 2, failed 0 |
+| test:test_city_horizon | PASS | 0 | 0.2 | ran 3, failed 0 |
+| test:test_construction_shed_plan | PASS | 0 | 0.16 | ran 4, failed 0 |
+| test:test_construction_shed_uv | PASS | 0 | 0.31 | ran 5, failed 0 |
+| test:test_data_consumption | PASS | 0 | 8.19 | ran 29, failed 0 |
+| test:test_domestic_objects_bounded_preflight | PASS | 0 | 0.2 | ran 5, failed 0 |
+| test:test_gate_board | PASS | 0 | 0.19 | ran 15, failed 0 |
+| test:test_grade_source_snapshot | PASS | 0 | 0.2 | ran 3, failed 0 |
+| test:test_heating_pipe_fittings | PASS | 0 | 0.09 | ran 3, failed 0 |
+| test:test_honed_stone_maps | PASS | 0 | 0.56 | ran 4, failed 0 |
+| test:test_house_switchboard_native | PASS | 0 | 0.14 | ran 5, failed 0 |
+| test:test_ingest_retirement | PASS | 0 | 0.39 | ran 3, failed 0 |
+| test:test_interaction_implementors | PASS | 0 | 0.81 | ran 31, failed 0 |
+| test:test_interaction_prompt_carriers | PASS | 0 | 0.94 | ran 28, failed 0 |
+| test:test_lanes | PASS | 0 | 1.42 | ran 6, failed 0 |
+| test:test_lint_design_doc | PASS | 0 | 0.19 | ran 9, failed 0 |
+| test:test_m11c0_floor01_harness_contract | PASS | 0 | 0.16 | ran 5, failed 0 |
+| test:test_m11c1_floor01_source_ownership | PASS | 0 | 2.36 | ran 27, failed 0 |
+| test:test_m11c1_owner_first_export | PASS | 0 | 0.23 | ran 11, failed 0 |
+| test:test_m11c1_runtime_rehearsal | PASS | 0 | 5.97 | ran 19, failed 0 |
+| test:test_m11c1_scanner_consumer_adapter | PASS | 0 | 0.11 | ran 7, failed 0 |
+| test:test_m11c2_floor01_production_export | PASS | 0 | 0.62 | ran 11, failed 0 |
+| test:test_m11c2_production_harness_contract | PASS | 0 | 0.2 | ran 22, failed 0 |
+| test:test_material_catalog_persistence | PASS | 0 | 0.19 | ran 1, failed 0 |
+| test:test_material_relief | PASS | 0 | 0.33 | ran 5, failed 0 |
+| test:test_nook_readable_books | PASS | 0 | 0.17 | ran 4, failed 0 |
+| test:test_orison_floor01_source_ownership | PASS | 0 | 0.27 | ran 13, failed 0 |
+| test:test_orison_spatial_dependencies | PASS | 0 | 6.58 | ran 59, failed 0 |
+| test:test_orison_v2_completeness | PASS | 0 | 66.27 | ran 109, failed 0 |
+| test:test_period_dates | PASS | 0 | 0.45 | ran 4, failed 0 |
+| test:test_physical_import_sources | PASS | 0 | 1.41 | ran 6, failed 0 |
+| test:test_prop_reference | PASS | 0 | 0.42 | ran 23, failed 0 |
+| test:test_prop_review | PASS | 0 | 0.3 | ran 4, failed 0 |
+| test:test_readable_library | PASS | 0 | 0.58 | ran 4, failed 0 |
+| test:test_rehearse_orison_floor01_partition | PASS | 0 | 0.34 | ran 5, failed 0 |
+| test:test_room_checkpoint_linter | PASS | 0 | 2.03 | ran 29, failed 0 |
+| test:test_room_checkpoint_reconciler | PASS | 0 | 0.72 | ran 38, failed 0 |
+| test:test_room_evidence_verifier | PASS | 0 | 6.64 | ran 34, failed 0 |
+| test:test_room_gate_hook | PASS | 0 | 80.55 | ran 24, failed 0 |
+| test:test_room_layout_workbench | PASS | 0 | 13.53 | ran 35, failed 0 |
+| test:test_room_reconstruction_gate | PASS | 0 | 89.02 | ran 26, failed 0 |
+| test:test_room_reconstruction_progress | PASS | 0 | 63.75 | ran 24, failed 0 |
+| test:test_run_receipt | PASS | 0 | 1.34 | ran 11, failed 0 |
+| test:test_runtime_source_projections | PASS | 0 | 0.12 | ran 4, failed 0 |
+| test:test_site_softwood_maps | PASS | 0 | 0.64 | ran 2, failed 0 |
+| test:test_spatial_access_evidence | PASS | 0 | 0.28 | ran 9, failed 0 |
+| test:test_spatial_binding_preflight | PASS | 0 | 0.27 | ran 13, failed 0 |
+| test:test_spatial_connection_evidence | PASS | 0 | 0.39 | ran 14, failed 0 |
+| test:test_spatial_region_evidence | PASS | 0 | 2.62 | ran 18, failed 0 |
+| test:test_systemic_situation_authority | PASS | 0 | 5.83 | ran 59, failed 0 |
+| test:test_upper_daylight_contract | PASS | 0 | 0.11 | ran 1, failed 0 |
+| test:test_v2_acoustic_flue | PASS | 0 | 0.38 | ran 10, failed 0 |
+| test:test_v2_acoustic_heating | PASS | 0 | 0.31 | ran 10, failed 0 |
+| test:test_v2_acoustic_ownership | PASS | 0 | 0.11 | ran 15, failed 0 |
+| test:test_v2_acoustic_ventilation | PASS | 0 | 0.19 | ran 8, failed 0 |
+| test:test_v2_audit_digest_snapshot | PASS | 0 | 0.3 | ran 10, failed 0 |
+| test:test_v2_authoring_projection | PASS | 0 | 1.3 | ran 8, failed 0 |
+| test:test_v2_boiler_inlet_projection | PASS | 0 | 0.34 | ran 3, failed 0 |
+| test:test_v2_c_stove_stack_plan | PASS | 0 | 0.19 | ran 10, failed 0 |
+| test:test_v2_completion_projection | PASS | 0 | 0.31 | ran 4, failed 0 |
+| test:test_v2_exterior_source | PASS | 0 | 0.12 | ran 10, failed 0 |
+| test:test_v2_fabrication_batch | PASS | 0 | 0.44 | ran 6, failed 0 |
+| test:test_v2_flue_airway_plan | PASS | 0 | 0.17 | ran 5, failed 0 |
+| test:test_v2_flue_native_evidence | PASS | 0 | 18.8 | ran 1, failed 0 |
+| test:test_v2_front_lighting_plan | PASS | 0 | 0.2 | ran 9, failed 0 |
+| test:test_v2_front_lighting_projection | PASS | 0 | 0.53 | ran 7, failed 0 |
+| test:test_v2_front_trim | PASS | 0 | 0.64 | ran 5, failed 0 |
+| test:test_v2_ground_probe_updates | PASS | 0 | 0.17 | ran 3, failed 0 |
+| test:test_v2_heating_branch_supports | PASS | 0 | 0.12 | ran 3, failed 0 |
+| test:test_v2_heating_envelopes | PASS | 0 | 0.11 | ran 8, failed 0 |
+| test:test_v2_heating_interfaces | PASS | 0 | 0.11 | ran 10, failed 0 |
+| test:test_v2_heating_refit_projection | PASS | 0 | 0.3 | ran 10, failed 0 |
+| test:test_v2_heating_routes | PASS | 0 | 0.14 | ran 8, failed 0 |
+| test:test_v2_heating_takeoff | PASS | 0 | 0.17 | ran 7, failed 0 |
+| test:test_v2_physical_inputs | PASS | 0 | 1.08 | ran 11, failed 0 |
+| test:test_v2_public_landing_footprints | PASS | 0 | 0.12 | ran 8, failed 0 |
+| test:test_v2_public_landing_programmes | PASS | 0 | 0.36 | ran 11, failed 0 |
+| test:test_v2_public_regions | PASS | 0 | 0.34 | ran 7, failed 0 |
+| test:test_v2_radiator_vent_thread | PASS | 0 | 0.11 | ran 2, failed 0 |
+| test:test_v2_recipe_projections | PASS | 0 | 0.16 | ran 5, failed 0 |
+| test:test_v2_retained_grade_plan | PASS | 0 | 0.19 | ran 9, failed 0 |
+| test:test_v2_roof | PASS | 0 | 0.45 | ran 4, failed 0 |
+| test:test_v2_service_entries | PASS | 0 | 0.34 | ran 7, failed 0 |
+| test:test_v2_spatial_publication | PASS | 0 | 0.52 | ran 11, failed 0 |
+| test:test_v2_surface_publication | PASS | 0 | 0.22 | ran 6, failed 0 |
+| test:test_v2_surface_requirements | PASS | 0 | 183.83 | ran 32, failed 0 |
+| test:test_v2_test_dependency_literals | PASS | 0 | 0.12 | ran 2, failed 0 |
+| test:test_v2_ventilation_fabric_projection | PASS | 0 | 0.33 | ran 3, failed 0 |
+| test:test_verify_candidate | PASS | 0 | 2.33 | ran 19, failed 0 |
+
+## Against 21f0b1fc27ac
+
+Verdict: **REGRESSED**
+
+requirements_changed: ['circ.F01.public_landing', 'circ.F02.service_core', 'circ.F02.service_route', 'circ.F03.public_core', 'circ.F03.public_landing', 'circ.F03.service_core', 'circ.F03.service_route', 'circ.F04.service_core', 'circ.F04.service_route', 'circ.F05.public_core', 'circ.F05.public_landing', 'circ.F05.service_core', 'circ.F05.service_route', 'circ.F06.public_core', 'circ.F06.public_landing', 'circ.F06.service_core', 'circ.F06.service_route', 'contract.F04_B_BATH', 'contract.F04_B_CLOSET', 'contract.F04_B_KITCHEN', 'region.arcade_hall', 'region.arcade_portal', 'region.arcade_throat', 'region.construction_seam', 'region.shops', 'region.street', 'unit.2A', 'unit.2A.cooking', 'unit.2A.sanitary', 'unit.2A.sleep', 'unit.2A.storage', 'unit.2B.cooking', 'unit.2B.living', 'unit.2B.sanitary', 'unit.2B.sleep', 'unit.4B.cooking', 'unit.4B.sanitary', 'unit.4B.storage']
+
+### Regressions (20)
+
+- spatial: drift.new_reported 4 -> 21
+- spatial: new defect new_reported:04d0d64c7d537882
+- spatial: new defect new_reported:09955770ad133fe5
+- spatial: new defect new_reported:13a3067dd5d6d8ea
+- spatial: new defect new_reported:1dc24e9aaa39bb0d
+- spatial: new defect new_reported:22119996b18d783e
+- spatial: new defect new_reported:25e6f1ddad958726
+- spatial: new defect new_reported:278dfb8f9dac0078
+- spatial: new defect new_reported:32854892bf0051a4
+- spatial: new defect new_reported:39c3bab752ec9ba6
+- spatial: new defect new_reported:51d7c07992d80f6e
+- spatial: new defect new_reported:5e07576f483a980a
+- spatial: new defect new_reported:7acaa5dff6e5dcf3
+- spatial: new defect new_reported:b571b8e601aca3d0
+- spatial: new defect new_reported:b9104475d7714f64
+- spatial: new defect new_reported:ce4a9a923c1e2b5f
+- spatial: new defect new_reported:dc39e831aaf6974a
+- spatial: new defect new_reported:eb16b6299d394784
+- spatial: new defect new_reported:f346c2cba8d3a558
+- spatial: new defect new_reported:fc10365b3c388333
+
+### Improvements (44)
+
+- ledger: blockers.FULL_BUILDING_RUNTIME 26 -> 25
+- ledger: blockers.FULL_BUILDING_STRUCTURAL 56 -> 21
+- ledger: blockers.PRODUCTION_CUTOVER 73 -> 38
+- ledger: blockers.V1_RETIREMENT 75 -> 40
+- ledger: circ.F01.public_landing PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F02.service_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F02.service_route PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F03.public_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F03.public_landing PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F03.service_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F03.service_route PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F04.service_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F04.service_route PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F05.public_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F05.public_landing PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F05.service_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F05.service_route PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F06.public_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F06.public_landing PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F06.service_core PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: circ.F06.service_route PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: contract.F04_B_BATH PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: contract.F04_B_CLOSET PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: contract.F04_B_KITCHEN PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: region.arcade_hall PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: region.arcade_portal PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: region.arcade_throat PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: region.construction_seam PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: region.shops PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: region.street PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.2A PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.2A.cooking PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.2A.sanitary PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.2A.sleep PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.2A.storage PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.2B.cooking PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.2B.living PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.2B.sanitary PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.2B.sleep PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.4B.cooking PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.4B.sanitary PROGRAMMED -> SPATIALLY_PROVEN
+- ledger: unit.4B.storage PROGRAMMED -> SPATIALLY_PROVEN
+- spatial: resolved new_reported:d7589770c06fea63
+- spatial: resolved new_reported:e24b50399ca5623d
+
+### Other changes (0)
+
+- none
+

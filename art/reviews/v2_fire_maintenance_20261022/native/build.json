@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "export": {
+    "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\fire_maintenance_stock.glb",
+    "primitives": 9,
+    "triangles": 4276,
+    "minimum_tangent_agreement": 0.9999999580064788,
+    "status": "PASS"
+  },
+  "editable_stock_count": 42,
+  "source_bindings": {
+    "art/blender/scripts/build_fire_maintenance_stock.py": "8107dd333e63a323c9d2f4b5af81780bd7d7e7b5f0f8d6ef6ef6359220f9499e",
+    "art/blender/scripts/native_textile_export.py": "cc89af9f4c32cf97fd9cad2092f1f73997e2c6277f8bfd23fc8292b43efdb53c",
+    "art/blender/fire_joint_stock.blend": "a81dda9271fa96714b92e537af655ba4878545b2e0bd5258d165beb234a72924",
+    "game/data/orison_v2/fire_joint_stock.json": "215abf0ca3fa4fec2cdeb0b79070c5ba037844012fed3473da63d4a0702478c1"
+  },
+  "replacement_gasket_m": {
+    "inner_radius": 0.01904999922986512,
+    "outer_radius": 0.022750000864168025,
+    "thickness": 0.0015
+  }
+}

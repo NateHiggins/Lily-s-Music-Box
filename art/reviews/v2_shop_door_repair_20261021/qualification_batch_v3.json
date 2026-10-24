@@ -1,0 +1,49 @@
+[
+  {
+    "scene": "res://tests/V2ChangedCompileCheck.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_compile_v3.log",
+    "timeout": 60,
+    "windowed": false,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_compile_v3"
+  },
+  {
+    "scene": "res://tests/OrisonV2PassageResidencyTest.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_residency_v3.log",
+    "timeout": 900,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_residency_v3",
+    "runner": "long"
+  },
+  {
+    "scene": "res://tests/OrisonV2PassageLoadTeardownTest.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_load_teardown_v3.log",
+    "timeout": 900,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/final_load_teardown_v3",
+    "runner": "long"
+  },
+  {
+    "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final_v3.log",
+    "timeout": 1500,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final_v3",
+    "runner": "long"
+  },
+  {
+    "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/first_slice_final_v3.log",
+    "timeout": 900,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/first_slice_final_v3",
+    "runner": "long"
+  },
+  {
+    "scene": "res://tests/OrisonV2UpperAccessCohort.tscn",
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/upper_final_v3.log",
+    "timeout": 1500,
+    "windowed": true,
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/upper_final_v3",
+    "runner": "long"
+  }
+]

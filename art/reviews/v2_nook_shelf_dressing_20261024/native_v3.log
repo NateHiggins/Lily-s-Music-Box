@@ -1,0 +1,11 @@
+00:01.688  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\reading_nook.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\review_nook_readable_books.py:111: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Nook review daylight');scene.world.use_nodes=True
+00:06.844  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_nook_shelf_dressing_20261024\native_v3\context.png'
+00:11.313  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_nook_shelf_dressing_20261024\native_v3\rack.png'
+00:16.844  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_nook_shelf_dressing_20261024\native_v3\pile.png'
+00:21.532  render           | Saved: 'C:\PleaseRemainOnTheLine\art\reviews\v2_nook_shelf_dressing_20261024\native_v3\reader.png'
+NOOK SOURCE REVIEW: PASS; 61 copies; 6 ends; zero external overlaps
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

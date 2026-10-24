@@ -1,0 +1,106 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Instrumented begin/motion/end groups in the unchanged actual-input route. Groups follow door, curtain, cold on/off, hot on/off. No input-to-photon measurement.",
+  "routes": {
+    "previous_checkpoint": [
+      {
+        "owner": "F04_B_BATH_DOOR_Leaf",
+        "release_ms": 17.466,
+        "route_part": "door",
+        "n": 20,
+        "median_motion_ms": 0.014,
+        "max_motion_ms": 0.591
+      },
+      {
+        "owner": "F04_4B_SHOWER_01",
+        "release_ms": 13.819,
+        "route_part": "curtain",
+        "n": 24,
+        "median_motion_ms": 281.784,
+        "max_motion_ms": 374.362
+      },
+      {
+        "owner": "F04_4B_SHOWER_01",
+        "release_ms": 13.321,
+        "route_part": "cold_on",
+        "n": 27,
+        "median_motion_ms": 0.036,
+        "max_motion_ms": 0.72
+      },
+      {
+        "owner": "F04_4B_SHOWER_01",
+        "release_ms": 13.406,
+        "route_part": "cold_off",
+        "n": 27,
+        "median_motion_ms": 0.034,
+        "max_motion_ms": 0.456
+      },
+      {
+        "owner": "F04_4B_SHOWER_01",
+        "release_ms": 13.437,
+        "route_part": "hot_on",
+        "n": 27,
+        "median_motion_ms": 0.035,
+        "max_motion_ms": 0.382
+      },
+      {
+        "owner": "F04_4B_SHOWER_01",
+        "release_ms": 13.819,
+        "route_part": "hot_off",
+        "n": 27,
+        "median_motion_ms": 0.036,
+        "max_motion_ms": 0.722
+      }
+    ],
+    "before_edging": [
+      {
+        "owner": "F04_B_BATH_DOOR_Leaf",
+        "release_ms": 16.037,
+        "route_part": "door",
+        "n": 20,
+        "median_motion_ms": 0.012,
+        "max_motion_ms": 0.91
+      },
+      {
+        "owner": "F04_4B_SHOWER_01",
+        "release_ms": 14.249,
+        "route_part": "curtain",
+        "n": 24,
+        "median_motion_ms": 147.2375,
+        "max_motion_ms": 159.714
+      },
+      {
+        "owner": "F04_4B_SHOWER_01",
+        "release_ms": 13.666,
+        "route_part": "cold_on",
+        "n": 27,
+        "median_motion_ms": 0.033,
+        "max_motion_ms": 0.752
+      },
+      {
+        "owner": "F04_4B_SHOWER_01",
+        "release_ms": 13.65,
+        "route_part": "cold_off",
+        "n": 27,
+        "median_motion_ms": 0.033,
+        "max_motion_ms": 0.369
+      },
+      {
+        "owner": "F04_4B_SHOWER_01",
+        "release_ms": 13.8,
+        "route_part": "hot_on",
+        "n": 27,
+        "median_motion_ms": 0.033,
+        "max_motion_ms": 0.42
+      },
+      {
+        "owner": "F04_4B_SHOWER_01",
+        "release_ms": 17.189,
+        "route_part": "hot_off",
+        "n": 27,
+        "median_motion_ms": 0.035,
+        "max_motion_ms": 1.103
+      }
+    ]
+  }
+}

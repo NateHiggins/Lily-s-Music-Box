@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 60.14,
+  "exit_code": null,
+  "finished_utc": "2026-10-24T00:58:49Z",
+  "started_utc": "2026-10-24T00:57:48Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Cannot call method 'store_string' on a null value."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_background_save_20261023/comparison_v1.log.stderr",
+  "stderr_sha256": "3724b79e29617603d277f84bbcb4930e4c4949bb972be61f2364ff09b90d1786",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_background_save_20261023/comparison_v1.log",
+  "stdout_sha256": "a044b49f207911799554f94730842d9a9e050b01131d98a3deaffa2b56d18e53"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/HoseSavedPoseComparisonTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_background_save_20261023/comparison_v1",
+ "source": {
+  "dirty_paths": 3032,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/scripts/building/orison_v2_household_state.gd",
+   " M game/scripts/game/campaign_clock.gd",
+   " M game/scripts/game/reality_game_state.gd",
+   " M game/tests/hose_saved_pose_comparison.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png"
+  ],
+  "repository_head": "9e7ef3fbd08e3d4702bf1c9bd185ea9c8810eedd",
+  "repository_tree": "c19e1e018a0d8722ce84bff1ff2afa8d9d9c0905",
+  "runtime_inputs_sha256": "ae4318da5bd205c95161c2b1d785a6c21a65257a977ed2c09b9c4da2b3b3db7a",
+  "test_path": "game/tests/hose_saved_pose_comparison_test.gd",
+  "test_sha256": "940c6c7e67e458a76eeb4ea556414eb3cc948a7e9d5b516543eadab9db71a63b"
+ },
+ "windowed": false
+}

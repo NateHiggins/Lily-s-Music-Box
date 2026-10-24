@@ -1,0 +1,795 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Wrapper logs, top-level diagnostic source matches, protected paths and original shared manifest preservation. No runtime_contract or dirty-tree reconstruction.",
+  "checks": [
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\edging_stock_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 13.72,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T12:39:12Z",
+        "started_utc": "2026-10-24T12:38:58Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\edging_stock_v2.log.receipt.json",
+      "execution": {
+        "completed": false,
+        "elapsed_s": 180.16,
+        "exit_code": null,
+        "finished_utc": "2026-10-24T12:54:03Z",
+        "started_utc": "2026-10-24T12:51:02Z",
+        "timed_out": true
+      },
+      "script_errors": 4,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz"
+      ],
+      "engine_error_lines": 1,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\edging_stock_v3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 22.71,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T13:24:56Z",
+        "started_utc": "2026-10-24T13:24:33Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\edging_world_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 247.23,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T13:29:06Z",
+        "started_utc": "2026-10-24T13:24:58Z",
+        "timed_out": false
+      },
+      "script_errors": 12,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_bathroom_finishing_review.gd.gz"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 13.62,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T11:02:24Z",
+        "started_utc": "2026-10-24T11:02:10Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [],
+      "limitation": "Unbound historical diagnostic source; no source-bound qualification claimed.",
+      "engine_error_lines": 7,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v10.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 13.12,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T12:08:17Z",
+        "started_utc": "2026-10-24T12:08:03Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 12.07,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T11:03:57Z",
+        "started_utc": "2026-10-24T11:03:45Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [],
+      "limitation": "Unbound historical diagnostic source; no source-bound qualification claimed.",
+      "engine_error_lines": 7,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 12.32,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T11:06:17Z",
+        "started_utc": "2026-10-24T11:06:04Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [],
+      "limitation": "Unbound historical diagnostic source; no source-bound qualification claimed.",
+      "engine_error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v4.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 13.07,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T11:20:05Z",
+        "started_utc": "2026-10-24T11:19:51Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v5.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 18.23,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T11:41:22Z",
+        "started_utc": "2026-10-24T11:41:03Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v4\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v4\\game__tests__v2_bathroom_finish_stock_bench.gd.gz"
+      ],
+      "engine_error_lines": 4,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v6.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 12.81,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T11:43:40Z",
+        "started_utc": "2026-10-24T11:43:27Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [],
+      "limitation": "Unbound historical diagnostic source; no source-bound qualification claimed.",
+      "engine_error_lines": 4,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v7.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 15.36,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T11:54:07Z",
+        "started_utc": "2026-10-24T11:53:51Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v8.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 16.83,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T12:06:56Z",
+        "started_utc": "2026-10-24T12:06:39Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [],
+      "limitation": "Unbound historical diagnostic source; no source-bound qualification claimed.",
+      "engine_error_lines": 2,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\finish_stock_v9.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 13.38,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T12:07:36Z",
+        "started_utc": "2026-10-24T12:07:22Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_bathroom_finish_stock_bench.gd.gz"
+      ],
+      "engine_error_lines": 2,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\frame_clearance_stock_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 32.49,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T13:40:38Z",
+        "started_utc": "2026-10-24T13:40:05Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_frame_clearance_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_frame_clearance_v1\\game__tests__v2_bathroom_finish_stock_bench.gd.gz",
+        "game/tests/v2_bathroom_finish_stock_bench.gd"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\frame_clearance_world_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 279.0,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T13:45:27Z",
+        "started_utc": "2026-10-24T13:40:47Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_frame_clearance_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_frame_clearance_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "game/tests/v2_bathroom_finishing_review.gd"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\import_finishes_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 10.1,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T10:50:16Z",
+        "started_utc": "2026-10-24T10:50:06Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\import_finishes_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 10.13,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T10:54:17Z",
+        "started_utc": "2026-10-24T10:54:07Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\import_finishes_v3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 12.08,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T11:02:09Z",
+        "started_utc": "2026-10-24T11:01:57Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\import_finishes_v4.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 9.77,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T11:19:51Z",
+        "started_utc": "2026-10-24T11:19:41Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\import_mitre_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 46.03,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T10:35:37Z",
+        "started_utc": "2026-10-24T10:34:50Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\import_mitre_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 9.18,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T10:37:20Z",
+        "started_utc": "2026-10-24T10:37:10Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\mitre_stock_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 13.72,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T10:35:52Z",
+        "started_utc": "2026-10-24T10:35:38Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\stock_source_v1\\3.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\stock_source_v1\\3.gz"
+      ],
+      "engine_error_lines": 18,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\mitre_stock_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 9.91,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T10:37:30Z",
+        "started_utc": "2026-10-24T10:37:20Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\stock_source_v1\\3.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\stock_source_v1\\3.gz"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\performance_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 220.5,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T12:34:50Z",
+        "started_utc": "2026-10-24T12:31:09Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_optics_profile.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_optics_profile.gd.gz"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\world_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 30.49,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T10:52:21Z",
+        "started_utc": "2026-10-24T10:51:50Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v1\\game__tests__v2_bathroom_finishing_review.gd.gz"
+      ],
+      "engine_error_lines": 1,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\world_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 221.28,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T10:57:59Z",
+        "started_utc": "2026-10-24T10:54:18Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v2\\game__tests__v2_bathroom_finishing_review.gd.gz"
+      ],
+      "engine_error_lines": 54,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\world_v3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 28.73,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T11:20:34Z",
+        "started_utc": "2026-10-24T11:20:05Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v3\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v3\\game__tests__v2_bathroom_finishing_review.gd.gz"
+      ],
+      "engine_error_lines": 1,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\world_v4.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 27.49,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T11:41:50Z",
+        "started_utc": "2026-10-24T11:41:22Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v4\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\world_source_v4\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v1\\game__tests__v2_bathroom_finishing_review.gd.gz"
+      ],
+      "engine_error_lines": 1,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\world_v5.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 29.75,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T11:54:37Z",
+        "started_utc": "2026-10-24T11:54:07Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_bathroom_finishing_review.gd.gz"
+      ],
+      "engine_error_lines": 1,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\world_v6.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 200.31,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T12:11:38Z",
+        "started_utc": "2026-10-24T12:08:17Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_bathroom_finishing_review.gd.gz"
+      ],
+      "engine_error_lines": 552,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_finishing_20261024\\world_v7.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 220.0,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T12:25:36Z",
+        "started_utc": "2026-10-24T12:21:55Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\before_edging\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_bathroom_finishing_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_bathroom_finishing_review.gd.gz"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_shop_finish_ownership_20261024\\import_candidate_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 15.94,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T11:40:58Z",
+        "started_utc": "2026-10-24T11:40:42Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_shop_finish_ownership_20261024\\import_candidate_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 20.6,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T11:53:50Z",
+        "started_utc": "2026-10-24T11:53:29Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "engine_error_lines": 0,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_shop_finish_ownership_20261024\\ownership_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 2.71,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T11:41:03Z",
+        "started_utc": "2026-10-24T11:41:00Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_frame_clearance_v1\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_frame_clearance_v1\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v1\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v1\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_shared_finish_ownership_test.gd.gz",
+        "game/tests/v2_shared_finish_ownership_test.gd"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_shop_finish_ownership_20261024\\retirement_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 26.88,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T11:42:18Z",
+        "started_utc": "2026-10-24T11:41:50Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_arcade_retirement_review.gd.gz"
+      ],
+      "engine_error_lines": 2,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_shop_finish_ownership_20261024\\retirement_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 151.71,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T12:14:16Z",
+        "started_utc": "2026-10-24T12:11:44Z",
+        "timed_out": false
+      },
+      "script_errors": 3,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v2\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_shop_finish_ownership_20261024\\source_candidate_v3\\game__tests__v2_arcade_retirement_review.gd.gz"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_shop_finish_ownership_20261024\\retirement_v3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 143.96,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T12:28:00Z",
+        "started_utc": "2026-10-24T12:25:36Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v2\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_edging_v3\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_final_v2\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_frame_clearance_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "art\\reviews\\v2_bathroom_finishing_20261024\\source_frame_clearance_v1\\game__tests__v2_arcade_retirement_review.gd.gz",
+        "game/tests/v2_arcade_retirement_review.gd"
+      ],
+      "engine_error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_shop_finish_ownership_20261024\\templates_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 27.62,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T11:42:46Z",
+        "started_utc": "2026-10-24T11:42:18Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "game/tests/orison_v2_fabrication_batch.gd"
+      ],
+      "engine_error_lines": 2,
+      "warning_lines": 0
+    },
+    {
+      "receipt": "art\\reviews\\v2_shop_finish_ownership_20261024\\templates_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 179.08,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T12:17:16Z",
+        "started_utc": "2026-10-24T12:14:16Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "game/tests/orison_v2_fabrication_batch.gd"
+      ],
+      "engine_error_lines": 14,
+      "warning_lines": 1
+    },
+    {
+      "receipt": "art\\reviews\\v2_shop_finish_ownership_20261024\\templates_v3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 182.56,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T12:31:04Z",
+        "started_utc": "2026-10-24T12:28:01Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "top_level_source_matches": [
+        "game/tests/orison_v2_fabrication_batch.gd"
+      ],
+      "engine_error_lines": 5,
+      "warning_lines": 1
+    }
+  ],
+  "protected_unchanged": 17,
+  "owned_manifest_rows": 6
+}

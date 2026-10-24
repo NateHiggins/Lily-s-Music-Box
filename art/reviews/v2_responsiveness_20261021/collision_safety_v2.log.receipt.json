@@ -1,0 +1,65 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 25.32,
+  "exit_code": -1,
+  "finished_utc": "2026-10-21T10:26:33Z",
+  "started_utc": "2026-10-21T10:26:07Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 2,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: There is already a variable named \"shapes\" declared in this scope.",
+   "ERROR: Failed to load script \"res://tests/v2_fitting_collision_cache_test.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_responsiveness_20261021/collision_safety_v2.log.stderr",
+  "stderr_sha256": "34c457571a3b522ec1aff9172dea559852d28cb1ed45e654f86a48a72f7ba18b",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_responsiveness_20261021/collision_safety_v2.log",
+  "stdout_sha256": "a044b49f207911799554f94730842d9a9e050b01131d98a3deaffa2b56d18e53"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2FittingCollisionCacheTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 770,
+  "dirty_sample": [
+   "M DOCS.md",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/scripts/lamp/lamp_optical_voxel_field.gd",
+   " M game/scripts/player/constrained_grab.gd",
+   " M game/scripts/player/player_controller.gd",
+   " M game/tests/lamp_dream_material_test.gd",
+   " M game/tests/toilet_inspection_test.gd",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json",
+   "?? art/renders/orison_v2/heating_refit_20261017/",
+   "?? art/renders/orison_v2/heating_refit_clearance_v5_20261017/",
+   "?? art/renders/orison_v2/washer_controls_20261013/native-inspection.json",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_cocks.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_controls.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_drive.png",
+   "?? art/renders/orison_v2/washer_controls_20261013/native_reset.png"
+  ],
+  "repository_head": "21f0b1fc27ac8e25c8466fe1ed2ce64019ee7ede",
+  "repository_tree": "513a57f34f50295e9ba1c1ba50ea451e7ea6c3bb",
+  "runtime_inputs_sha256": "6f8da5dc97f78ea857400d610e981653e0d128ff6999b246ad9838d69b2e59ce",
+  "test_path": "game/tests/v2_fitting_collision_cache_test.gd",
+  "test_sha256": "a4d80677a8208d7faef78e711b936ef8068f7cd7fa53605aad2731a2fb0db410"
+ },
+ "windowed": false
+}

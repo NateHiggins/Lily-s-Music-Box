@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://tests/v2_hose_spray_stock_bench.gd" id="1"]
+[node name="V2HoseSprayStockBench" type="Node3D"]
+script = ExtResource("1")

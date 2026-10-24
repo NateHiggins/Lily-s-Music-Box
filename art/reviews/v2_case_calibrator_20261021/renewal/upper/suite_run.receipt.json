@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 1129.58,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T21:02:30Z",
+  "started_utc": "2026-10-21T20:43:40Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SPATIAL ACCESS COHORT: PASS; 69 rooms; 11 legs; 993 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/renewal/upper.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/renewal/upper.log",
+  "stdout_sha256": "72eeea7253a0b6d12eb4037665adc549b5635dd3d5654e522b2c6ee208a7e262"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2UpperAccessCohort.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/renewal/upper",
+ "source": {
+  "dirty_paths": 1290,
+  "dirty_sample": [
+   "M DOCS.md",
+   " M art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.receipt.json",
+   " M art/renders/orison_v2/first_slice_contract_20261011/suite_run.stdout.log.gz",
+   " M art/renders/orison_v2/first_slice_contract_20261011/verification.json",
+   " M art/renders/orison_v2/surface_requirements_20261011/F03_B_BATH_reflection_repair.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/F06_B_KITCHEN_reflection_repair.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/arcade_clock_detail.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/bookcase.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/construction_joinery_carried.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/control_finish_grazing.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_F01_FIRE_LINE_STAIR_closed.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_F01_FIRE_LINE_STAIR_open.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/fire_ROOF_FIRE_LINE_STAIR_open.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/front_restored_entrance.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/kitchen_2A_filled.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/native_mail_bank_open.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/native_station_open.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/public_arcade_hall.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/radiator_joint_grazing.png"
+  ],
+  "repository_head": "7f88c9237e8525db0ed3433d0ee86e7f89c58350",
+  "repository_tree": "bbf9022263949c7c00e948abcbd98b46213e43be",
+  "runtime_inputs_sha256": "f0464f9e465bc50a69712f0d37edbd7ed68e526e664644be8cf7f6036b65b7ec",
+  "test_path": "game/tests/v2_spatial_access_cohort.gd",
+  "test_sha256": "0ce5d41e36b037a28c64f2b3f5d5ef77dbb81e3fb6727a8a30fa99b1160badb9"
+ },
+ "windowed": true
+}

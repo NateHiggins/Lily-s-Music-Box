@@ -27,6 +27,7 @@ var layout: Dictionary = {}
 var acoustic_topology
 var floor_nodes: Dictionary = {}
 var player: PlayerController
+var player_avatar: Node3D
 var objective_tracker: ObjectiveTracker
 var work_orders: WorkOrders
 var maintenance_inventory: MaintenanceInventory
@@ -49,6 +50,7 @@ const SHELF_PAPERS_HEIGHT := 1.0
 var boiler_tend: BoilerTend
 var heat_balance: HeatBalance
 var mirror_renderer: PlanarMirrorRenderer
+var bathroom_moisture: Node
 var household_state: HouseholdState
 var wayfinding: Wayfinding
 var open_shift_ecosystem: Node
@@ -84,9 +86,11 @@ var exterior_cell: OrisonV2ExteriorCell
 var passage_region: OrisonV2PassageRegion
 var bar_region: OrisonV2BarRegion
 var shop_service: MaintenanceShopService
+var fire_maintenance_counter: Node3D
 var shop_simulation: Node
 var day_night_director: DayNightDirector
 var light_rig: LightRig
+var service_light_visibility: Node
 var touch: TouchControls
 var shots: ShotCapture
 var warehouse: PropWarehouse
@@ -260,6 +264,10 @@ func _ready() -> void:
 	uv_policy.name = "V2UVMaterialPolicy"; add_child(uv_policy)
 	uv_policy.setup(self)
 	atmosphere.bind_weather(self)
+	bathroom_moisture=preload("res://scripts/building/v2_bathroom_moisture.gd").new()
+	bathroom_moisture.name="BathroomMoisture";add_child(bathroom_moisture)
+	if not bathroom_moisture.configure(self):
+		startup_failed=true;push_error("V2 bathroom moisture bindings refused");return
 	_compose_debug_controls()
 	get_node("CaretakerNotebook").debug = building_debug
 	var room_reflections := preload("res://scripts/building/orison_v2_room_reflections.gd").new()
@@ -269,6 +277,10 @@ func _ready() -> void:
 		startup_failed=true
 		push_error("V2 room reflection layout could not be composed")
 		return
+	var structural_occlusion := preload("res://scripts/building/orison_v2_structural_occlusion.gd").new()
+	structural_occlusion.name="V2StructuralOcclusion"
+	add_child(structural_occlusion)
+	structural_occlusion.setup(_blockout)
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
 
@@ -308,6 +320,7 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: upper floor door mounting refused")
 		return
+	preload("res://scripts/building/orison_v2_bathroom_finishes.gd").build(_blockout,layout,_blockout.level_y,_blockout.architectural_materials,preload("res://scripts/building/orison_v2_millwork.gd").collect_wall_stock(_blockout))
 	var fittings := DomesticFittings.new()
 	if not fittings.mount(adapter):
 		startup_failed = true
@@ -320,7 +333,10 @@ func _compose_authorities() -> void:
 		return
 	preload("res://scripts/building/orison_v2_reading_furniture.gd").mount(adapter,layout)
 	preload("res://scripts/building/orison_v2_public_furnishings.gd").mount(adapter,layout)
-	preload("res://scripts/building/orison_v2_door_casings.gd").mount(adapter,layout)
+	if not preload("res://scripts/building/orison_v2_door_casings.gd").mount(adapter,layout):
+		startup_failed=true
+		push_error("ORISON V2 RUNTIME: native mitered door casings refused")
+		return
 	preload("res://scripts/building/orison_v2_window_joinery.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_exterior_masonry.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_front_restoration.gd").mount(_blockout)
@@ -427,6 +443,11 @@ func _compose_authorities() -> void:
 	player.name = "Player"
 	player.position = _connection.arrival.position
 	add_child(player)
+	player.enable_low_step_probe()
+	player_avatar=preload("res://scripts/player/doodle_player_avatar.gd").new()
+	player_avatar.name="ReflectedPlayer";player_avatar.holder=player;player.add_child(player_avatar)
+	if not player_avatar.native_ready:
+		startup_failed=true;push_error("ORISON V2 RUNTIME: owner player rig refused");return
 	if not _compose_exterior():
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: exterior composition failed")
@@ -508,6 +529,16 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: fire service refused: %s" % [fire_service.errors])
 		return
 	adapter.root.set_meta("v2_native_fire_service",fire_service)
+	if not fire_service.mount_hose_deployment():
+		startup_failed=true
+		push_error("ORISON V2 RUNTIME: hose deployment refused: %s"%[fire_service.errors])
+		return
+	var player_fire_contact:=preload("res://scripts/building/v2_fire_player_contact.gd").new()
+	if not player_fire_contact.configure(player,fire_service.stations):
+		startup_failed=true
+		push_error("ORISON V2 RUNTIME: player fire contact refused: %s"%[player_fire_contact.errors])
+		return
+	adapter.root.set_meta("v2_fire_player_contact",player_fire_contact)
 	var electrical_service := preload("res://scripts/building/orison_v2_native_electrical_service.gd").new()
 	if not electrical_service.mount(adapter):
 		startup_failed = true
@@ -555,7 +586,7 @@ func _compose_authorities() -> void:
 		_retire_blockout_fixture(identity)
 	mirror_renderer = PlanarMirrorRenderer.new()
 	add_child(mirror_renderer)
-	mirror_renderer.setup(player.camera)
+	mirror_renderer.setup(player.camera,player_avatar)
 	chirp_hunt = ChirpHunt.new()
 	chirp_hunt.name = "ChirpHunt"
 	add_child(chirp_hunt)
@@ -659,13 +690,6 @@ func _compose_authorities() -> void:
 	var kitchen_plumbing:=preload("res://scripts/building/orison_v2_kitchen_plumbing.gd").new()
 	if not kitchen_plumbing.mount(self):
 		startup_failed=true;push_error("V2 kitchen plumbing refused: %s" % [kitchen_plumbing.errors]);return
-	household_state = HouseholdState.new()
-	household_state.name = "HouseholdState"
-	add_child(household_state)
-	if not household_state.bind(adapter, get_node("V2RoomSwitches") as SwitchSystem):
-		startup_failed = true
-		push_error("ORISON V2 RUNTIME: household save refused: %s" % [household_state.errors])
-		return
 	var economy := preload("res://scripts/game/caretaker_economy.gd").new()
 	economy.name = "CaretakerEconomy"
 	add_child(economy)
@@ -676,6 +700,19 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: caretaker ledger refused")
 		return
+	var installed_fire: RefCounted=adapter.root.get_meta("v2_native_fire_service")
+	fire_maintenance_counter=preload("res://scripts/building/orison_v2_fire_maintenance_counter.gd").mount(self,economy,installed_fire.stations)
+	if fire_maintenance_counter==null:
+		startup_failed=true;push_error("ORISON V2 RUNTIME: fire maintenance counter refused");return
+	var saved_mechanisms: Dictionary=passage_region.doors.duplicate()
+	saved_mechanisms[str(fire_maintenance_counter.name)]=fire_maintenance_counter
+	household_state = HouseholdState.new()
+	household_state.name = "HouseholdState"
+	add_child(household_state)
+	if not household_state.bind(adapter, get_node("V2RoomSwitches") as SwitchSystem, saved_mechanisms):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: household save refused: %s" % [household_state.errors])
+		return
 	var notebook := preload("res://scripts/ui/caretaker_notebook.gd").new()
 	notebook.name = "CaretakerNotebook"
 	notebook.player = player
@@ -683,6 +720,12 @@ func _compose_authorities() -> void:
 	notebook.economy = economy
 	add_child(notebook)
 	preload("res://scripts/building/orison_v2_owner_finishes.gd").new().apply_service_actors(self)
+	service_light_visibility=preload("res://scripts/building/orison_v2_service_light_visibility.gd").new()
+	service_light_visibility.name="ServiceLightVisibility"
+	add_child(service_light_visibility)
+	if not service_light_visibility.setup(self):
+		startup_failed=true;push_error("V2 service practical visibility could not bind original sources");return
+	service_light_visibility.set_enabled(true)
 
 func arrival_placement() -> Dictionary:
 	return (_connection.get("arrival", {}) as Dictionary).duplicate(true)
@@ -759,7 +802,7 @@ func debug_destinations() -> Dictionary:
 func _compose_exterior() -> bool:
 	public_regions=preload("res://scripts/building/orison_v2_public_region_programmes.gd").new()
 	if not public_regions.configure(_exterior_resolver):return false
-	shop_service = MaintenanceShopService.new()
+	shop_service = preload("res://scripts/game/v2_maintenance_shop_service.gd").new()
 	shop_service.name = "MaintenanceShopService"
 	add_child(shop_service)
 	shop_service.setup(maintenance_inventory, work_orders)
@@ -1074,6 +1117,7 @@ func authority_count(type_name: String) -> int:
 	return find_children("*", type_name, true, false).size()
 
 func shutdown_for_tests() -> void:
+	if is_instance_valid(bathroom_moisture):bathroom_moisture.shutdown()
 	if public_landings!=null:public_landings.teardown()
 	if is_instance_valid(household_state): household_state.shutdown()
 	if is_instance_valid(mirror_renderer): mirror_renderer.shutdown()
@@ -1093,6 +1137,7 @@ func shutdown_for_tests() -> void:
 	if acoustic_topology!=null: acoustic_topology.release()
 
 func _exit_tree() -> void:
+	if is_instance_valid(bathroom_moisture):bathroom_moisture.shutdown()
 	if public_landings!=null:public_landings.teardown();public_landings=null
 	if public_regions!=null:public_regions.teardown();public_regions=null
 	if is_instance_valid(household_state): household_state.shutdown()

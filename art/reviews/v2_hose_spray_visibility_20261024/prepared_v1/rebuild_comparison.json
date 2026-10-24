@@ -1,0 +1,229 @@
+{
+	"actual": {
+		"door": 1.78,
+		"facts": {
+			"coupling_made_up": true,
+			"door_open": true,
+			"folds_fresh": false,
+			"gasket_seated": true,
+			"gasket_seen": false,
+			"hose_racked": false,
+			"nozzle_coupled": true,
+			"nozzle_shut": true,
+			"tag_line": "- - -",
+			"tag_signed": false
+		},
+		"gasket": {
+			"position": [
+				0.17000000178813934,
+				0.531499981880188,
+				0.09799999743700027
+			],
+			"rotation": [
+				0.0,
+				0.0,
+				0.0,
+				1.0
+			]
+		},
+		"hose": {
+			"deployed": true,
+			"extraction": 0.2,
+			"receiver": {
+				"basis": [
+					[
+						0.9998013973236084,
+						0.0,
+						-0.01992904394865036
+					],
+					[
+						-0.01992904394865036,
+						0.0,
+						-0.9998013973236084
+					],
+					[
+						0.0,
+						1.0,
+						0.0
+					]
+				],
+				"position": [
+					-2.2626566886901855,
+					-4.37000036239624,
+					-0.10588359832763672
+				]
+			},
+			"water": {
+				"fill": 1.0,
+				"pressure": 1.0
+			},
+			"wheel": 9.623620511600706e-10
+		},
+		"joint": 3.365992128846207,
+		"lever": 0.0,
+		"loose": {
+			"active": false,
+			"position": [
+				0.17000000178813934,
+				0.5049999952316284,
+				0.09799999743700027
+			]
+		},
+		"nozzle": {
+			"angle": 0.0,
+			"basis": [
+				[
+					0.9998013973236084,
+					0.0,
+					-0.01992904394865036
+				],
+				[
+					-0.01992904394865036,
+					0.0,
+					-0.9998013973236084
+				],
+				[
+					0.0,
+					1.0,
+					0.0
+				]
+			],
+			"clocking": 0.0,
+			"loose": false,
+			"position": [
+				-2.2632546424865723,
+				-4.37000036239624,
+				-0.13587763905525208
+			],
+			"spin": 0.0
+		},
+		"rubber_dressed": false
+	},
+	"comparison": {
+		"door_error_rad": 0.0,
+		"equal": true,
+		"lever_error_rad": 0.0,
+		"other_fields_equal": true,
+		"poses": {
+			"gasket": {
+				"basis_axis_error": 0.0,
+				"position_error_m": 0.0
+			},
+			"loose": {
+				"basis_axis_error": 0.0,
+				"position_error_m": 0.0
+			},
+			"nozzle": {
+				"basis_axis_error": 0.0,
+				"position_error_m": 1.0662403155947686e-06
+			},
+			"receiver": {
+				"basis_axis_error": 0.0,
+				"position_error_m": 1.0662403155947686e-06
+			}
+		},
+		"raw_equal": false,
+		"wheel_error_rad": 0.0
+	},
+	"evidence_class": "INERT",
+	"wanted": {
+		"door": 1.78,
+		"facts": {
+			"coupling_made_up": true,
+			"door_open": true,
+			"folds_fresh": false,
+			"gasket_seated": true,
+			"gasket_seen": false,
+			"hose_racked": false,
+			"nozzle_coupled": true,
+			"nozzle_shut": true,
+			"tag_line": "- - -",
+			"tag_signed": false
+		},
+		"gasket": {
+			"position": [
+				0.17000000178813934,
+				0.531499981880188,
+				0.09799999743700027
+			],
+			"rotation": [
+				0.0,
+				0.0,
+				0.0,
+				1.0
+			]
+		},
+		"hose": {
+			"deployed": true,
+			"extraction": 0.2,
+			"receiver": {
+				"basis": [
+					[
+						0.9998013973236084,
+						0.0,
+						-0.01992904394865036
+					],
+					[
+						-0.01992904394865036,
+						0.0,
+						-0.9998013973236084
+					],
+					[
+						0.0,
+						1.0,
+						0.0
+					]
+				],
+				"position": [
+					-2.2626571655273438,
+					-4.37000036239624,
+					-0.10588455200195313
+				]
+			},
+			"water": {
+				"fill": 1.0,
+				"pressure": 1.0
+			},
+			"wheel": 9.623620511600706e-10
+		},
+		"joint": 3.365992128846207,
+		"lever": 0.0,
+		"loose": {
+			"active": false,
+			"position": [
+				0.17000000178813934,
+				0.5049999952316284,
+				0.09799999743700027
+			]
+		},
+		"nozzle": {
+			"angle": 0.0,
+			"basis": [
+				[
+					0.9998013973236084,
+					0.0,
+					-0.01992904394865036
+				],
+				[
+					-0.01992904394865036,
+					0.0,
+					-0.9998013973236084
+				],
+				[
+					0.0,
+					1.0,
+					0.0
+				]
+			],
+			"clocking": 0.0,
+			"loose": false,
+			"position": [
+				-2.2632551193237305,
+				-4.37000036239624,
+				-0.13587859272956848
+			],
+			"spin": 0.0
+		},
+		"rubber_dressed": false
+	}
+}

@@ -1,0 +1,66 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 9.41,
+  "exit_code": 1,
+  "finished_utc": "2026-10-21T15:17:24Z",
+  "started_utc": "2026-10-21T15:17:14Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "ERROR: Native fixture source preflight failed before world composition: [\"orison_bodega_frontage.json: FAIL\\r\\n  stale fixture dependency: game/scripts/props/door_prop.gd\\r\\norison_city_closure.json: PASS\\r\\norison_city_elevations.json: PASS\\r\\norison_city_ground_apron.json: PASS\\r\\norison_city_horizon.json: PASS\\r\\norison_front_pavement_construction.json: PASS\\r\\norison_front_pavement_review.json: PASS\\r\\norison_street_paving_details.json: PASS\\r\\npassage_shop_leaves.json: PASS\\r\\n0 scripts; 9 fixtures; 1 failed; source preflight only\\r\\n\"]"
+  ],
+  "pass_count": 1,
+  "pass_lines": [
+   "ERROR: Native fixture source preflight failed before world composition: [\"orison_bodega_frontage.json: FAIL\\r\\n  stale fixture dependency: game/scripts/props/door_prop.gd\\r\\norison_city_closure.json: PASS\\r\\norison_city_elevations.json: PASS\\r\\norison_city_ground_apron.json: PASS\\r\\norison_city_horizon.json: PASS\\r\\norison_front_pavement_construction.json: PASS\\r\\norison_front_pavement_review.json: PASS\\r\\norison_street_paving_details.json: PASS\\r\\npassage_shop_leaves.json: PASS\\r\\n0 scripts; 9 fixtures; 1 failed; source preflight only\\r\\n\"]"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final_v4.log.stderr",
+  "stderr_sha256": "9941e84460753807add8732febcb2b4079d5b650d67ce36276553a177c31d5c2",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final_v4.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/surface_final_v4",
+ "source": {
+  "dirty_paths": 1388,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
+   " M game/assets/audio/music/covers/living_with_the_motor.webp.import",
+   " M game/assets/audio/music/covers/mina_s_midday_quest.webp.import"
+  ],
+  "repository_head": "f82a4f0838991504a1a9401ba6bbff3287bc9f65",
+  "repository_tree": "bfb1effddb1a9fd69ded67fb70037ab906189fea",
+  "runtime_inputs_sha256": "71163d59651aed04d0d1c5782db22f33e22879dd89e397b9a440446ea26acca6",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "10bed4baae74448199b0431ede71e6a7d9ff4b0f8f4de2fad3c4263d0f82aba7"
+ },
+ "windowed": true
+}

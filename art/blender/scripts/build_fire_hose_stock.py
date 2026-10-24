@@ -36,28 +36,64 @@ bpy.context.preferences.filepaths.save_version=0
 catalog=json.loads((R/'game/data/runtime_material_sets.json').read_text())['materials']
 finish=dict(catalog_key='linen',pigment=1.,normal=.08,roughness=.9,tint=[.75,.71,.59,1],metallic=0.)
 preview=material(R,'linen',finish,catalog)
-N=64;RINGS=192;OUTER=.021;INNER=.01905
+# Keep the original64-sided connection mouths. The short flexible body needs
+# far fewer circumferential samples; longitudinal sampling retains the measured
+# bent tangent/UV agreement. This changes density, never length or port datums.
+N=16;PORT_SIDES=64;PORT_ROWS=3;RINGS=192;OUTER=.021;INNER=.01905
+BODY_SCALE=1/math.cos(math.pi/N)
 def b(p):return (p[0],-p[2],p[1])
 stocks=[];metrics={}
 for name,length in [('OutletStock',.30),('NozzleStock',.42)]:
     vertices=[];faces=[];charts=[];kinds=[]
-    def index(side,ring,j):return side*(RINGS+1)*N+ring*N+j%N
+    counts=[PORT_SIDES if ring<PORT_ROWS or ring>RINGS-PORT_ROWS else N for ring in range(RINGS+1)]
+    offsets=[]
     for radius in [OUTER,INNER]:
         for ring in range(RINGS+1):
-            for j in range(N):vertices.append(b((radius*math.cos(j*math.tau/N),length*ring/RINGS,radius*math.sin(j*math.tau/N))))
+            offsets.append(len(vertices))
+            # Circumscribe the nominal body circles: decimation must not
+            # constrict the bore. Wall thickness normal to each body face is
+            # unchanged; the measured maximum radius is recorded below.
+            at_radius=radius if counts[ring]==PORT_SIDES else radius*BODY_SCALE
+            for j in range(counts[ring]):vertices.append(b((at_radius*math.cos(j*math.tau/counts[ring]),length*ring/RINGS,at_radius*math.sin(j*math.tau/counts[ring]))))
+    def index(side,ring,j):return offsets[side*(RINGS+1)+ring]+j%counts[ring]
     def quad(ids,uv,kind):
         for ids2 in [(0,1,2),(0,2,3)]:
             faces.append(tuple(ids[i] for i in ids2));charts.append([uv[i] for i in ids2]);kinds.append(kind)
     for side,radius in enumerate([OUTER,INNER]):
-        chord=2*radius*math.sin(math.pi/N)
         for ring in range(RINGS):
-            for j in range(N):
-                ids=[index(side,ring,j),index(side,ring+1,j),index(side,ring+1,j+1),index(side,ring,j+1)]
-                uv=[(j*chord,length*ring/RINGS),(j*chord,length*(ring+1)/RINGS),((j+1)*chord,length*(ring+1)/RINGS),((j+1)*chord,length*ring/RINGS)]
-                if side:ids.reverse();uv.reverse()
-                quad(ids,uv,'inner' if side else 'outer')
+            a_count=counts[ring];b_count=counts[ring+1]
+            if a_count==b_count:
+                at_radius=radius if a_count==PORT_SIDES else radius*BODY_SCALE
+                chord=2*at_radius*math.sin(math.pi/a_count)
+                for j in range(a_count):
+                    ids=[index(side,ring,j),index(side,ring+1,j),index(side,ring+1,j+1),index(side,ring,j+1)]
+                    uv=[(j*chord,length*ring/RINGS),(j*chord,length*(ring+1)/RINGS),((j+1)*chord,length*(ring+1)/RINGS),((j+1)*chord,length*ring/RINGS)]
+                    if side:ids.reverse();uv.reverse()
+                    quad(ids,uv,'inner' if side else 'outer')
+            else:
+                # The hull SIDE faces loft two convex circular polygons. A
+                # naive angular zipper can bow into the bore between rings.
+                # Discard both hull caps; outer and inner skins remain separate,
+                # joined only by the original annular mouths below.
+                loft=bmesh.new();source_index=loft.verts.layers.int.new('source_index')
+                for row in [ring,ring+1]:
+                    for j in range(counts[row]):
+                        idx=index(side,row,j);vert=loft.verts.new(vertices[idx]);vert[source_index]=idx
+                bmesh.ops.convex_hull(loft,input=list(loft.verts),use_existing_faces=False)
+                bmesh.ops.recalc_face_normals(loft,faces=list(loft.faces))
+                for face in loft.faces:
+                    if max(v.co.z for v in face.verts)-min(v.co.z for v in face.verts)<1e-8:continue
+                    ids=[v[source_index] for v in face.verts]
+                    if side:ids.reverse()
+                    for corner in range(1,len(ids)-1):
+                        triangle=[ids[0],ids[corner],ids[corner+1]]
+                        p=[Vector(vertices[i]) for i in triangle]
+                        u=(p[1]-p[0]).normalized();edge=p[2]-p[0]
+                        chart=[(0.,0.),((p[1]-p[0]).length,0.),(edge.dot(u),edge.cross(u).length)]
+                        faces.append(tuple(triangle));charts.append(chart);kinds.append('inner' if side else 'outer')
+                loft.free()
     for ring,kind in [(0,'bottom'),(RINGS,'top')]:
-        for j in range(N):
+        for j in range(counts[ring]):
             ids=[index(0,ring,j),index(0,ring,j+1),index(1,ring,j+1),index(1,ring,j)]
             if ring:ids.reverse()
             uv=[(vertices[i][0],-vertices[i][1]) for i in ids]
@@ -97,8 +133,8 @@ for name,length in [('OutletStock',.30),('NozzleStock',.42)]:
     assert bad==0 and volume>0 and maximum_metric_error<.00001,(name,bad,volume,maximum_metric_error)
     tree=BVHTree.FromObject(obj,bpy.context.evaluated_depsgraph_get())
     clear=0;bearing=0
-    for j in range(17):
-        angle=j*math.tau/16;radius=0 if j==16 else INNER-.0001
+    for j in range(129):
+        angle=j*math.tau/128;radius=0 if j==128 else INNER-.0001
         origin=Vector(b((radius*math.cos(angle),-.05,radius*math.sin(angle))))
         assert tree.ray_cast(origin,Vector((0,0,1)),length+.1)[0] is None,(name,'blocked bore',j)
         clear+=1
@@ -107,7 +143,7 @@ for name,length in [('OutletStock',.30),('NozzleStock',.42)]:
         hit=tree.ray_cast(Vector(b((radius*math.cos(angle),-.05,radius*math.sin(angle)))),Vector((0,0,1)),length+.1)
         assert hit[0] is not None and abs(hit[0].z)<.0001,(name,'annular end',j)
         bearing+=1
-    metrics[name]=dict(length_m=length,outer_radius_m=OUTER,inner_radius_m=INNER,segments=RINGS,sides=N,nonmanifold_edges=bad,volume_m3=volume,maximum_metric_error=maximum_metric_error,triangles=len(mesh.polygons),clear_bore_rays=clear,end_bearing_rays=bearing)
+    metrics[name]=dict(length_m=length,outer_radius_m=OUTER*BODY_SCALE,nominal_outer_radius_m=OUTER,connection_outer_radius_m=OUTER,inner_radius_m=INNER,segments=RINGS,sides=N,port_sides=PORT_SIDES,port_rows=PORT_ROWS,nonmanifold_edges=bad,volume_m3=volume,maximum_metric_error=maximum_metric_error,triangles=len(mesh.polygons),clear_bore_rays=clear,end_bearing_rays=bearing)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'fire_hose_stock.blend'))
 # Review instances are excluded from the exported source library.
 copies=[]

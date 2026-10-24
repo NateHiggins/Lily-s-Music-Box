@@ -6,10 +6,12 @@ func check(ok: bool,label: String) -> void:
 	print("FIRE CAPACITY CHECK: ",label," = ",ok)
 	if not ok:failures.append(label)
 func _ready() -> void:_run.call_deferred()
+func _asset_path() -> String:return "res://assets/props/fire_capacity_candidate.glb"
+func _make_programme() -> Node:return preload("res://tests/v2_fire_capacity_rig_programme.gd").new()
 func _run() -> void:
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
-	var packed:=load("res://assets/props/fire_capacity_candidate.glb") as PackedScene
+	var packed:=load(_asset_path()) as PackedScene
 	check(packed!=null,"candidate native scene loads")
 	if packed==null:get_tree().quit(1);return
 	var model:=packed.instantiate();add_child(model)
@@ -32,7 +34,11 @@ func _run() -> void:
 	if not failures.is_empty():
 		print("V2 FIRE CAPACITY NATIVE: FAIL failures=",failures.size())
 		get_tree().quit(1);return
-	var programme:=preload("res://tests/v2_fire_capacity_rig_programme.gd").new();add_child(programme)
+	var programme: Node=_make_programme()
+	check(programme!=null,"native moving-cloth programme script instantiates")
+	if programme==null:
+		print("V2 FIRE CAPACITY NATIVE: FAIL failures=",failures.size());get_tree().quit(1);return
+	add_child(programme)
 	check(programme.prepare(model),"native moving-cloth programme prepares")
 	if not failures.is_empty():get_tree().quit(1);return
 	var environment:=WorldEnvironment.new();environment.environment=Environment.new();add_child(environment)

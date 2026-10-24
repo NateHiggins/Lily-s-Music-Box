@@ -94,7 +94,7 @@ func _run() -> void:
 	root.view_override = cam
 	# THE PLAYER'S OWN LAMP, carried on the camera exactly as in play.
 	player.flashlight.visible = true
-	player._light_mask.visible = true
+	pass # Photographic lamp overlay retired globally.
 	player.flashlight.reparent(cam)
 	player.flashlight.transform = Transform3D(Basis(), Vector3(0.14, -0.16, -0.05))
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)

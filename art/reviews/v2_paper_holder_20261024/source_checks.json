@@ -1,0 +1,362 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Wrapper logs, top-level test source matches, protected paths and preserved manifest records only; no reconstruction of unrelated dirty inputs or runtime_contract.",
+  "checks": [
+    {
+      "receipt": "art\\reviews\\v2_bathroom_moisture_20261024\\after_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 218.1,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T08:11:59Z",
+        "started_utc": "2026-10-24T08:08:20Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_bathroom_moisture_20261024\\candidate_v1\\game__tests__v2_bathroom_moisture_review.gd.gz",
+        "art\\reviews\\v2_bathroom_moisture_20261024\\candidate_v1\\game__tests__v2_bathroom_moisture_review.gd.gz"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_moisture_20261024\\after_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 295.13,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T08:22:28Z",
+        "started_utc": "2026-10-24T08:17:32Z",
+        "timed_out": false
+      },
+      "script_errors": 1,
+      "test_source_matches": [
+        "art\\reviews\\v2_bathroom_moisture_20261024\\candidate_v2\\game__tests__v2_bathroom_moisture_review.gd.gz",
+        "art\\reviews\\v2_bathroom_moisture_20261024\\candidate_v2\\game__tests__v2_bathroom_moisture_review.gd.gz"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_moisture_20261024\\after_v3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 314.33,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T08:34:10Z",
+        "started_utc": "2026-10-24T08:28:55Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_bathroom_moisture_20261024\\candidate_v3\\game__tests__v2_bathroom_moisture_review.gd.gz",
+        "art\\reviews\\v2_bathroom_moisture_20261024\\candidate_v3\\game__tests__v2_bathroom_moisture_review.gd.gz"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_moisture_20261024\\before_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 211.84,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T07:51:15Z",
+        "started_utc": "2026-10-24T07:47:43Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_bathroom_moisture_20261024\\source_before\\game__tests__v2_bathroom_optics_profile.gd.gz",
+        "art\\reviews\\v2_bathroom_moisture_20261024\\source_before\\game__tests__v2_bathroom_optics_profile.gd.gz",
+        "game/tests/v2_bathroom_optics_profile.gd"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_moisture_20261024\\import_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 50.17,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T08:05:44Z",
+        "started_utc": "2026-10-24T08:04:53Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": null
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_moisture_20261024\\parse_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 0.74,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T07:58:30Z",
+        "started_utc": "2026-10-24T07:58:28Z",
+        "timed_out": false
+      },
+      "script_errors": 4,
+      "test_source_matches": null
+    },
+    {
+      "receipt": "art\\reviews\\v2_bathroom_moisture_20261024\\rain_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 177.61,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T09:02:47Z",
+        "started_utc": "2026-10-24T08:59:49Z",
+        "timed_out": false
+      },
+      "script_errors": 1,
+      "test_source_matches": [
+        "art\\reviews\\v2_bathroom_moisture_20261024\\rain_v1_source.gd.gz",
+        "art\\reviews\\v2_bathroom_moisture_20261024\\rain_v1_source.gd.gz"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\cap_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 190.83,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T10:01:04Z",
+        "started_utc": "2026-10-24T09:57:53Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_paper_holder_20261024\\source_final\\25.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_final\\25.gz",
+        "game/tests/v2_bathroom_steam_cap_review.gd"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\contact_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 145.16,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T09:35:41Z",
+        "started_utc": "2026-10-24T09:33:15Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_paper_holder_20261024\\contact_sources_v1\\v2_bathroom_paper_installation.gd.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\contact_sources_v1\\v2_bathroom_paper_installation.gd.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v5\\23.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v5\\23.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v6\\23.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v6\\23.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_final\\23.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_final\\23.gz",
+        "game/tests/v2_bathroom_paper_installation.gd"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\import_probe_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 0.49,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T09:12:17Z",
+        "started_utc": "2026-10-24T09:12:16Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [],
+      "limitation": "Historical diagnostic source not reconstructed; no source-bound qualification claim."
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\import_probe_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 0.5,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T09:13:56Z",
+        "started_utc": "2026-10-24T09:13:55Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v2\\19.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v2\\19.gz"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\import_probe_v3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 0.48,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T09:16:17Z",
+        "started_utc": "2026-10-24T09:16:16Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v3\\19.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v3\\19.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v4\\19.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v4\\19.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v5\\19.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v5\\19.gz"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\import_probe_v6.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 1.33,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T09:48:29Z",
+        "started_utc": "2026-10-24T09:48:27Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v6\\19.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v6\\19.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_final\\19.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_final\\19.gz",
+        "game/tests/v2_paper_import_probe.gd"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\import_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 12.49,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T09:05:54Z",
+        "started_utc": "2026-10-24T09:05:41Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": null
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\import_v2.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 11.16,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T09:13:55Z",
+        "started_utc": "2026-10-24T09:13:43Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": null
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\import_v3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 9.21,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T09:16:16Z",
+        "started_utc": "2026-10-24T09:16:06Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": null
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\world_v1.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 86.33,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T09:10:54Z",
+        "started_utc": "2026-10-24T09:09:27Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v2\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v2\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v3\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v3\\05.gz"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\world_v3.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 304.81,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T09:22:10Z",
+        "started_utc": "2026-10-24T09:17:05Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v2\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v2\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v3\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v3\\05.gz"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\world_v4.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 309.59,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T09:31:41Z",
+        "started_utc": "2026-10-24T09:26:31Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v4\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v4\\05.gz"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\world_v5.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 89.14,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T09:41:49Z",
+        "started_utc": "2026-10-24T09:40:19Z",
+        "timed_out": false
+      },
+      "script_errors": 4,
+      "test_source_matches": [
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v5\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v5\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v6\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v6\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_final\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_final\\05.gz",
+        "game/tests/v2_bathroom_paper_review.gd"
+      ]
+    },
+    {
+      "receipt": "art\\reviews\\v2_paper_holder_20261024\\world_v6.log.receipt.json",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 326.98,
+        "exit_code": 1,
+        "finished_utc": "2026-10-24T09:53:57Z",
+        "started_utc": "2026-10-24T09:48:30Z",
+        "timed_out": false
+      },
+      "script_errors": 0,
+      "test_source_matches": [
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v5\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v5\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v6\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_candidate_v6\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_final\\05.gz",
+        "art\\reviews\\v2_paper_holder_20261024\\source_final\\05.gz",
+        "game/tests/v2_bathroom_paper_review.gd"
+      ]
+    }
+  ],
+  "protected_unchanged": 17,
+  "original_shared_manifest_records_preserved": 10642,
+  "new_own_manifest_records": 6
+}

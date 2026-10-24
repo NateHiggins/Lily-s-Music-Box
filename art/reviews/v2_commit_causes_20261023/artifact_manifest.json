@@ -1,0 +1,506 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original failed and passed tests, source archives, source-hash checks and scoped profile counters. No runtime-contract promotion. Manifest excludes itself.",
+  "files": [
+    {
+      "path": "analysis_after_stdout.json",
+      "bytes": 2272,
+      "sha256": "6e994ca40e9c135754d74cf85cd38eff4fce8ea38debc4d15538e67ed887dab2"
+    },
+    {
+      "path": "analysis_before_stdout.json",
+      "bytes": 908,
+      "sha256": "b884947d68e5137b0470289eff35809f14cc5568485edb33bbd3efe86ec2acd1"
+    },
+    {
+      "path": "analyze.py",
+      "bytes": 3733,
+      "sha256": "133b3fdcec49397c1551e5221166a58cdcbfed3ac5ccfe28a1ba0c1c8ce92b1c"
+    },
+    {
+      "path": "fire_parent_git_lf.gd.gz",
+      "bytes": 7387,
+      "sha256": "37115e6c2852f95d3bb715eb258856a21e993441b285d0097a8cd6980f0bcd45"
+    },
+    {
+      "path": "gates/board.json",
+      "bytes": 351638,
+      "sha256": "b45ac5ef1b178aec7f35616f57b3165dfb831a2a6e982668572501c240c96382"
+    },
+    {
+      "path": "gates/board.md",
+      "bytes": 8311,
+      "sha256": "419878cf8ad03ca01a35092d52328dda15fa5c9c3347a4e383106cda3cc8092f"
+    },
+    {
+      "path": "gates_early/board.json",
+      "bytes": 296605,
+      "sha256": "52de0a9e3abadefa5022e0bcffb8894d096826d182b748f497864ef55f0524ac"
+    },
+    {
+      "path": "gates_early/board.md",
+      "bytes": 468,
+      "sha256": "dac42888b285fc7439c2483b5215161985d8aac5a7e99650d2c3663c2c459f2c"
+    },
+    {
+      "path": "gates_spatial_final/board.json",
+      "bytes": 220000,
+      "sha256": "8b885d8b722a7255fc650cdbb16e05cb08463ce69a2c36159d8451c33ea5db1e"
+    },
+    {
+      "path": "gates_spatial_final/board.md",
+      "bytes": 330,
+      "sha256": "08b1a1014bfeefc48ea7dc9f21de66678cfc76d10a92544d3d51ddefcbd1ec1d"
+    },
+    {
+      "path": "gates_spatial_registered/board.json",
+      "bytes": 220037,
+      "sha256": "e30a57e6173966cd6b3a09af55255c89266fd8170e575358a490c0c59b996e31"
+    },
+    {
+      "path": "gates_spatial_registered/board.md",
+      "bytes": 330,
+      "sha256": "a6799f49421327609ab6a2edf977bf8cc4a36b13ee6eb48eebe37a04bb83f8bb"
+    },
+    {
+      "path": "protected.json",
+      "bytes": 4037,
+      "sha256": "fa3edfbd913140c39cfe327d9abc3efa0665999515b55b72240cdd4f24275b71"
+    },
+    {
+      "path": "source_after/game/scripts/building/orison_v2_household_state.gd.gz",
+      "bytes": 5457,
+      "sha256": "cdab55855fa5e8759b3ad3e77860d1d76869ab78d7380d5442e7fa514de4e822"
+    },
+    {
+      "path": "source_after/game/scripts/props/v2_fire_line_cabinet.gd.gz",
+      "bytes": 7562,
+      "sha256": "de96a7d1e431a2efdab54d2f029e8aa7c5bd24bc4fb359b839b9beadf2712eea"
+    },
+    {
+      "path": "source_after/game/tests/v2_commit_cause_world.gd.gz",
+      "bytes": 1304,
+      "sha256": "53b12d34db487956e0bcea02bf5f7bfee22d605a316ef0ae5d28f299393cd1a3"
+    },
+    {
+      "path": "source_after/game/tests/v2_fire_unchanged_release.gd.gz",
+      "bytes": 2209,
+      "sha256": "c5ed0160cb8aca3cc99878fe65e46500175f8720884e43d7351b3812a26d8e84"
+    },
+    {
+      "path": "source_after/game/tests/v2_frame_work_probe.gd.gz",
+      "bytes": 1617,
+      "sha256": "299d870289f71a3df8f10dd5150362743973c14947b4f040d19edde2511113d8"
+    },
+    {
+      "path": "source_after/game/tests/v2_golden_repair_profile.gd.gz",
+      "bytes": 1559,
+      "sha256": "39b37345eb216fe83c0a4e810ef71aebc90fafe7e642e1eced3f1633009574a5"
+    },
+    {
+      "path": "source_after/game/tests/v2_hose_installed_world.gd.gz",
+      "bytes": 4236,
+      "sha256": "46b75230daaa2182ba8d56df415b1bafc85e0de48989cb8bdfc9859921c062de"
+    },
+    {
+      "path": "source_after/game/tests/v2_hose_work_attribution.gd.gz",
+      "bytes": 1950,
+      "sha256": "65870108a40161465a96affea8ac00f11a7f748cbd9e873c55f2818e1f9811ce"
+    },
+    {
+      "path": "source_after/game/tests/V2CommitCauseWorld.tscn.gz",
+      "bytes": 168,
+      "sha256": "dca310956bc126c4ee66d5bb01152696fc4c33329b3a6aea7627a84d2c291f20"
+    },
+    {
+      "path": "source_after/game/tests/V2FireUnchangedRelease.tscn.gz",
+      "bytes": 171,
+      "sha256": "4b12b499834cce118bb9f7a5dcc98bdd0da330d56e16abe1bcd3fba46fdccffb"
+    },
+    {
+      "path": "source_after.json",
+      "bytes": 3485,
+      "sha256": "95e3a121e0f52e5a1bbb6f89a470b318543e83f61261449fdf5db65bd5de7f1e"
+    },
+    {
+      "path": "source_before/game/scripts/building/orison_v2_household_state.gd.gz",
+      "bytes": 5457,
+      "sha256": "cdab55855fa5e8759b3ad3e77860d1d76869ab78d7380d5442e7fa514de4e822"
+    },
+    {
+      "path": "source_before/game/tests/v2_commit_cause_world.gd.gz",
+      "bytes": 561,
+      "sha256": "1b550b230996015759224a7c36728cb284d086b0dda22262c8c4e94d60ea3438"
+    },
+    {
+      "path": "source_before/game/tests/v2_frame_work_probe.gd.gz",
+      "bytes": 1617,
+      "sha256": "299d870289f71a3df8f10dd5150362743973c14947b4f040d19edde2511113d8"
+    },
+    {
+      "path": "source_before/game/tests/v2_golden_repair_profile.gd.gz",
+      "bytes": 1559,
+      "sha256": "39b37345eb216fe83c0a4e810ef71aebc90fafe7e642e1eced3f1633009574a5"
+    },
+    {
+      "path": "source_before/game/tests/v2_hose_installed_world.gd.gz",
+      "bytes": 4236,
+      "sha256": "46b75230daaa2182ba8d56df415b1bafc85e0de48989cb8bdfc9859921c062de"
+    },
+    {
+      "path": "source_before/game/tests/v2_hose_work_attribution.gd.gz",
+      "bytes": 1950,
+      "sha256": "65870108a40161465a96affea8ac00f11a7f748cbd9e873c55f2818e1f9811ce"
+    },
+    {
+      "path": "source_before/game/tests/V2CommitCauseWorld.tscn.gz",
+      "bytes": 168,
+      "sha256": "dca310956bc126c4ee66d5bb01152696fc4c33329b3a6aea7627a84d2c291f20"
+    },
+    {
+      "path": "source_before.json",
+      "bytes": 2451,
+      "sha256": "88742a8496c7670d28bdb257a05a266dd5e0c2dba5f9ef374e2c0435ebbc6915"
+    },
+    {
+      "path": "source_checks.json",
+      "bytes": 1701,
+      "sha256": "051022ab1f5f9fedda5dbedc0e6cb1f97a04e4f9622a1b472d3eaed9e858c664"
+    },
+    {
+      "path": "source_unchanged_v1/game/scripts/props/v2_fire_line_cabinet.gd.gz",
+      "bytes": 7562,
+      "sha256": "de96a7d1e431a2efdab54d2f029e8aa7c5bd24bc4fb359b839b9beadf2712eea"
+    },
+    {
+      "path": "source_unchanged_v1/game/tests/v2_fire_unchanged_release.gd.gz",
+      "bytes": 1852,
+      "sha256": "b436a8e9229de69b8bd1191aefdac5bd6edc91990ade6e4047c3d2ac22748957"
+    },
+    {
+      "path": "source_unchanged_v1/game/tests/V2FireUnchangedRelease.tscn.gz",
+      "bytes": 171,
+      "sha256": "4b12b499834cce118bb9f7a5dcc98bdd0da330d56e16abe1bcd3fba46fdccffb"
+    },
+    {
+      "path": "source_unchanged_v1.json",
+      "bytes": 898,
+      "sha256": "c94b112ed51f3f97679f6ba88bfedddb45b59d2247a493be47b1e4918de85db2"
+    },
+    {
+      "path": "source_unchanged_v2/fixture.gd.gz",
+      "bytes": 1908,
+      "sha256": "e3718f3a0e3a333dc481ef96c70035081fda6dc3740dbae43eb33053137ac1a9"
+    },
+    {
+      "path": "source_unchanged_v3/fixture.gd.gz",
+      "bytes": 2030,
+      "sha256": "ec967c0229d3d731cbd2b2573b0b525b6e1e0cfa66bc8d1d37179ccb71bab588"
+    },
+    {
+      "path": "spatial_registration.json",
+      "bytes": 1195,
+      "sha256": "23334c6e81030d0565025d4f828eb87bcfb0411aaff852adc87d15a19bb908a4"
+    },
+    {
+      "path": "unchanged_v1.log",
+      "bytes": 231,
+      "sha256": "d12da3b795f4ae4068294b86a30d96be9918dcde14383cbf8f9f38a0c06a9e7c"
+    },
+    {
+      "path": "unchanged_v1.log.receipt.json",
+      "bytes": 2852,
+      "sha256": "e77ecfce8014579cd66616d4850d7124a6b659dd0ac2a67f918af4db68743b37"
+    },
+    {
+      "path": "unchanged_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "unchanged_v2/checks.json",
+      "bytes": 1160,
+      "sha256": "f9a918eb26a50f4729c2c821e0d6b36d4996e17687b9f9fe09f403e7f9f50507"
+    },
+    {
+      "path": "unchanged_v2.log",
+      "bytes": 1030,
+      "sha256": "2b9229037e2636d0018f0ee367575952f9c0ae702fb4183fafa67b5773c00512"
+    },
+    {
+      "path": "unchanged_v2.log.receipt.json",
+      "bytes": 2898,
+      "sha256": "4861f095c91e15b54a48315e0329041598a2b61c470883f02b079b34596715eb"
+    },
+    {
+      "path": "unchanged_v2.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "unchanged_v3/checks.json",
+      "bytes": 4168,
+      "sha256": "38c8122e9503c0a204141ca82f2286096e256d3488b08df73930e56280ee0e2f"
+    },
+    {
+      "path": "unchanged_v3.log",
+      "bytes": 1159,
+      "sha256": "3f4bba7616764f36bc92ba569284f4bc50b151cf4ca5ed157ebd6cea2aa8a6db"
+    },
+    {
+      "path": "unchanged_v3.log.receipt.json",
+      "bytes": 2898,
+      "sha256": "ba99400cfb899716c30696252cba12e4d10990c40bead6436c966c6d72edbbfe"
+    },
+    {
+      "path": "unchanged_v3.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "unchanged_v4/checks.json",
+      "bytes": 3388,
+      "sha256": "c29339f4074141fc928ee851eed85a4f66088e5806013372bc82f88dc1d6499d"
+    },
+    {
+      "path": "unchanged_v4.log",
+      "bytes": 1219,
+      "sha256": "d7418d5dc445ea511bbe8ed27cbaf95341f5cf97c69839a7b11064cff8b1f1b6"
+    },
+    {
+      "path": "unchanged_v4.log.receipt.json",
+      "bytes": 2899,
+      "sha256": "04a136c5627843ec717f53ee4140b9816f776e32b534ef708dea334a2b1d847e"
+    },
+    {
+      "path": "unchanged_v4.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "world_after_v1/automatic_persistence.json",
+      "bytes": 385,
+      "sha256": "963a33f671f04641d2435c7801b7b531751d8df308ec6b17068c9dc5aaf6485c"
+    },
+    {
+      "path": "world_after_v1/cause_analysis.json",
+      "bytes": 22673,
+      "sha256": "3682fab39dbd2141cd03b873026c055dade4b9c8fa92ec230d8fcd7c27e803b1"
+    },
+    {
+      "path": "world_after_v1/commit_causes.json",
+      "bytes": 15758,
+      "sha256": "173299cc7af2e766c1468643325bea4551d2d68ed0c7b08a43cf2e0db9b5edf6"
+    },
+    {
+      "path": "world_after_v1/commit_pairs.json",
+      "bytes": 7987,
+      "sha256": "50e3b79b8f8ecb57789f7dd5b846dd5f2aec0da2a4153a5ed869b069bbe8cd9d"
+    },
+    {
+      "path": "world_after_v1/frames.json",
+      "bytes": 253332,
+      "sha256": "b0c90e9126e7a21530f29e758ebf011392a805c2e72fb3c4ced1f179f456f3ac"
+    },
+    {
+      "path": "world_after_v1/held_projection.json",
+      "bytes": 4656,
+      "sha256": "554d1c422003dd9b6c482a244b2d4c883b3976e13c41e42f8991eeafc3d78db3"
+    },
+    {
+      "path": "world_after_v1/hose_checks.json",
+      "bytes": 27116,
+      "sha256": "4acb988afc5824c5084f1db4116a4565b6765776a698e5a6cbf92f53f3a8b27b"
+    },
+    {
+      "path": "world_after_v1/installed_held_nozzle.png",
+      "bytes": 598046,
+      "sha256": "396f51ecda60a5695fcd887a62594266dff9af1d5e8753143e3986fc70f8d1f2"
+    },
+    {
+      "path": "world_after_v1/installed_spray.png",
+      "bytes": 826623,
+      "sha256": "d4f612c01f1a093cee4b3268213789a204a1f5d20ebd9210fbf2cae0e43b0125"
+    },
+    {
+      "path": "world_after_v1/last_position.png",
+      "bytes": 1310292,
+      "sha256": "58dc212085e389d18f27e017ee5e0debbd65d0849eb2cc74b2b0c5bcf766f387"
+    },
+    {
+      "path": "world_after_v1/rebuild_comparison.json",
+      "bytes": 3685,
+      "sha256": "5bda3264f08712ae31782b8716632ad641941139a15e23a0e32e068066793a53"
+    },
+    {
+      "path": "world_after_v1/release_support.json",
+      "bytes": 228,
+      "sha256": "cd611d2c7d57ac737c8cc4786280f31b87a28124756454c99fd13453278e7f15"
+    },
+    {
+      "path": "world_after_v1/remote_nozzle_inspection.png",
+      "bytes": 1134958,
+      "sha256": "b9feb7065e35526e62695ee4d125071f5acc928f34f1ff02401203839e56dbc8"
+    },
+    {
+      "path": "world_after_v1/remote_state.json",
+      "bytes": 1622,
+      "sha256": "047317976c8700149aa04149ccdd499ca88a479fda13d2a24b05280267fc21c9"
+    },
+    {
+      "path": "world_after_v1/render_passes.json",
+      "bytes": 393947,
+      "sha256": "817a9342dab231a47eeb6609ca3fb63b4ff3ae297aff88240090f6b80d293473"
+    },
+    {
+      "path": "world_after_v1/route.json",
+      "bytes": 3188,
+      "sha256": "017e7a75fbb86b4d72812ba9ad8636381385e8e9b29d01aad5d9ec60c4ab8e06"
+    },
+    {
+      "path": "world_after_v1/save_expectation.json",
+      "bytes": 3263,
+      "sha256": "c864473291357005346db75566916b555906535a17a232bd022500ec6ab50979"
+    },
+    {
+      "path": "world_after_v1/unchanged_pairs.json",
+      "bytes": 10763,
+      "sha256": "5c4e613c70dffbf0ddd5a9b9d37162da7ea5c9c9df80f42d4d14a67725064ef2"
+    },
+    {
+      "path": "world_after_v1/work_analysis.json",
+      "bytes": 491138,
+      "sha256": "5a17c297d4a91d2374685fc7e5960e6301ea7d2d1236198aff76e67941e22ad0"
+    },
+    {
+      "path": "world_after_v1/work_trace.json",
+      "bytes": 1092688,
+      "sha256": "411d717ae2d4408e4b424eb73eacd7475c25b7065982200ac98bd89feb19f831"
+    },
+    {
+      "path": "world_after_v1.log",
+      "bytes": 8471,
+      "sha256": "1ae57d76a406b35bd726516c3a46c7f4981d4124dc683f200a7868c9bc3a3dfd"
+    },
+    {
+      "path": "world_after_v1.log.receipt.json",
+      "bytes": 2849,
+      "sha256": "e023b6310978800977528c442c92da539171884abd6589708b491c000539e2c9"
+    },
+    {
+      "path": "world_after_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "world_before_v1/automatic_persistence.json",
+      "bytes": 385,
+      "sha256": "3b2944c888fabdbf45721b68d94756b3161ad6a5851955920e42f72b6e374904"
+    },
+    {
+      "path": "world_before_v1/cause_analysis.json",
+      "bytes": 24475,
+      "sha256": "6f6c041655be5e900c5119f6f3de935e2b33745f5fd705bd77d86b1e20074a93"
+    },
+    {
+      "path": "world_before_v1/commit_causes.json",
+      "bytes": 18317,
+      "sha256": "c6498f11f75e73fad243518ac7284ea51a67c05c73f7ed9d921264d2d2c6b909"
+    },
+    {
+      "path": "world_before_v1/commit_pairs.json",
+      "bytes": 7987,
+      "sha256": "636ea1252b719f232b253e3a4554fe20911618e38a648e0d41888b594f664383"
+    },
+    {
+      "path": "world_before_v1/frames.json",
+      "bytes": 253392,
+      "sha256": "c4de68dfbe4d1c175c10e8f89448fb462fb63b04060bf4e81c48b965255375de"
+    },
+    {
+      "path": "world_before_v1/held_projection.json",
+      "bytes": 4705,
+      "sha256": "6d93065a342ad839588753e7443797e68a3f4e56c5327762fb811931efb4dd57"
+    },
+    {
+      "path": "world_before_v1/hose_checks.json",
+      "bytes": 26872,
+      "sha256": "ab8c3f8ff4b841cc4324210180706a51f0d72ac3aa7ec4d8128ede79b6f35784"
+    },
+    {
+      "path": "world_before_v1/installed_held_nozzle.png",
+      "bytes": 596620,
+      "sha256": "947c8664b990863428fe8425b43523015ce39c152499cc1d1153be8bc82b9c4e"
+    },
+    {
+      "path": "world_before_v1/installed_spray.png",
+      "bytes": 832349,
+      "sha256": "9dcfd56732e54d1bdeda78b591ce26f49c414fe30a94a3adafebf69ad97f4a67"
+    },
+    {
+      "path": "world_before_v1/last_position.png",
+      "bytes": 1317432,
+      "sha256": "dc12287df87f564030b048fdbf4d26efb260dbb39e00fc9713c3b13dbca6ff0d"
+    },
+    {
+      "path": "world_before_v1/rebuild_comparison.json",
+      "bytes": 3725,
+      "sha256": "fecd7fe1c23affccbe4dcd11a8951831559f9a95ebc58ea0842a3b0bc1690fe0"
+    },
+    {
+      "path": "world_before_v1/release_support.json",
+      "bytes": 233,
+      "sha256": "b580264bc1262d17c69f1249655c6dc148406b227981b8dada3e9c0739384b77"
+    },
+    {
+      "path": "world_before_v1/remote_nozzle_inspection.png",
+      "bytes": 1139574,
+      "sha256": "8c7d172baf0f2271386770bbc9e4367f7e150ecbeac422c8def6deaa898e889b"
+    },
+    {
+      "path": "world_before_v1/remote_state.json",
+      "bytes": 1646,
+      "sha256": "074e0911054e0a5e3faf697c6ff2ca0153b30005116421d5a91ab076d8f69b5c"
+    },
+    {
+      "path": "world_before_v1/route.json",
+      "bytes": 3187,
+      "sha256": "0a67c9447ec1a17ae7c36a737cc08eee6162012e2d7f10a779b42bc95eaa724b"
+    },
+    {
+      "path": "world_before_v1/save_expectation.json",
+      "bytes": 3307,
+      "sha256": "fe37865854b298581189588b968a8b168a62d586b3b6abb2cc02bca960d4a3fe"
+    },
+    {
+      "path": "world_before_v1/unchanged_pairs.json",
+      "bytes": 10763,
+      "sha256": "452ae0f99da999e2b943a7ba473d0cbea91f39fb955fda2579d717f206d8d8f6"
+    },
+    {
+      "path": "world_before_v1/work_analysis.json",
+      "bytes": 491094,
+      "sha256": "d64798de9d30237dfd364d5e97d042d6a789db0c571cf536ee284a36ef26c54f"
+    },
+    {
+      "path": "world_before_v1/work_trace.json",
+      "bytes": 1096426,
+      "sha256": "dcc7fdee53f4cbaa50a116dbab7fa761de4b0049e8bfbc16b457f14eb9e201a7"
+    },
+    {
+      "path": "world_before_v1.log",
+      "bytes": 8471,
+      "sha256": "5d243318039ca9683d7bf1bd25c2e5c7ed58cef686ff10f15ff684da62c6fddd"
+    },
+    {
+      "path": "world_before_v1.log.receipt.json",
+      "bytes": 2873,
+      "sha256": "3a63fd1505f2121e8011586939b86b7c7641578573ce3e9e833fb88d737141c9"
+    },
+    {
+      "path": "world_before_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

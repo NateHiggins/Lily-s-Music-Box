@@ -4034,6 +4034,12 @@
       "kind": "sconce_globe",
       "cell": "shared",
       "source_record": "F01_BAR_LT_WEST0"
+    },
+    {
+      "id": "bath_bell_over_mirror",
+      "kind": "sconce_globe",
+      "cell": "shared",
+      "source_record": "3B_LT_SCONCE"
     }
   ],
   "closed_stocks": [
@@ -6664,6 +6670,96 @@
       "assembly": "sconce_globe_back160",
       "key": "bulb",
       "volume_m3": 0.0001411941594601739
+    },
+    {
+      "name": "bath_bell_over_mirror_OvalRosette",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 7.24121091797685e-05
+    },
+    {
+      "name": "bath_bell_over_mirror_RosetteScrew-0.033",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 2.1599672721039596e-07
+    },
+    {
+      "name": "bath_bell_over_mirror_RosetteScrew0.033",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 2.1599672721039575e-07
+    },
+    {
+      "name": "bath_bell_over_mirror_BentFeed",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 4.566524994133643e-05
+    },
+    {
+      "name": "bath_bell_over_mirror_CeramicSocket",
+      "assembly": "bath_bell_over_mirror",
+      "key": "enamel",
+      "volume_m3": 4.7708892665751774e-05
+    },
+    {
+      "name": "bath_bell_over_mirror_CeramicSocketThread0",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 2.6761334067595653e-07
+    },
+    {
+      "name": "bath_bell_over_mirror_CeramicSocketThread1",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 2.6761334067594176e-07
+    },
+    {
+      "name": "bath_bell_over_mirror_CeramicSocketThread2",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 2.676133406759631e-07
+    },
+    {
+      "name": "bath_bell_over_mirror_CeramicSocketThread3",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 2.6761334067594287e-07
+    },
+    {
+      "name": "bath_bell_over_mirror_ShadeGallery",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 1.222332630102287e-05
+    },
+    {
+      "name": "bath_bell_over_mirror_GalleryScrew0",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 1.0025033551239213e-07
+    },
+    {
+      "name": "bath_bell_over_mirror_GalleryScrew1",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 1.0025037614707674e-07
+    },
+    {
+      "name": "bath_bell_over_mirror_GalleryScrew2",
+      "assembly": "bath_bell_over_mirror",
+      "key": "brass",
+      "volume_m3": 1.0025039667721064e-07
+    },
+    {
+      "name": "bath_bell_over_mirror_OpalBell",
+      "assembly": "bath_bell_over_mirror",
+      "key": "bulb",
+      "volume_m3": 0.00010803286750574463
+    },
+    {
+      "name": "bath_bell_over_mirror_InnerLamp",
+      "assembly": "bath_bell_over_mirror",
+      "key": "bulb",
+      "volume_m3": 1.903384940389008e-05
     }
   ],
   "contacts": [
@@ -7476,6 +7572,36 @@
         1
       ],
       "label": "fitted wall backplate"
+    },
+    {
+      "assembly": "bath_bell_over_mirror",
+      "owner": "wall",
+      "point": [
+        0.05999999865889549,
+        -0.032999999821186066,
+        2.622683181741081e-09
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        -4.371138828673793e-08
+      ],
+      "label": "oval rosette seated to tile wall"
+    },
+    {
+      "assembly": "bath_bell_over_mirror",
+      "owner": "wall",
+      "point": [
+        0.05999999865889549,
+        0.032999999821186066,
+        2.622683181741081e-09
+      ],
+      "direction": [
+        -1.0,
+        0.0,
+        -4.371138828673793e-08
+      ],
+      "label": "oval rosette seated to tile wall"
     }
   ],
   "parts": [
@@ -8409,9 +8535,30 @@
       "cell": "shared",
       "key": "bulb",
       "triangles": 18816
+    },
+    {
+      "name": "bath_bell_over_mirror__Body_ON_brass",
+      "assembly": "bath_bell_over_mirror",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 5336
+    },
+    {
+      "name": "bath_bell_over_mirror__Body_ON_enamel",
+      "assembly": "bath_bell_over_mirror",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 384
+    },
+    {
+      "name": "bath_bell_over_mirror__Bulb_ON_bulb",
+      "assembly": "bath_bell_over_mirror",
+      "cell": "shared",
+      "key": "bulb",
+      "triangles": 1920
     }
   ],
-  "triangles": 480680,
+  "triangles": 488320,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -10315,6 +10462,50 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "bath_bell_over_mirror",
+        "parts": [
+          {
+            "name": "bath_bell_over_mirror__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "finish": {
+              "roughness": 0.7,
+              "normal_scale": 0.25
+            }
+          },
+          {
+            "name": "bath_bell_over_mirror__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.28
+            }
+          },
+          {
+            "name": "bath_bell_over_mirror__Bulb_ON_bulb",
+            "component": "Bulb",
+            "key": "bulb",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.2
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -10340,11 +10531,11 @@
       },
       {
         "id": "3B_LT_SCONCE",
-        "variant": "sconce_globe_back050",
+        "variant": "bath_bell_over_mirror",
         "visual_offset": [
-          0.8,
-          0,
-          0
+          1.17,
+          0.53,
+          0.38
         ]
       },
       {
@@ -11216,17 +11407,17 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "1a1e3b472f82a7b0d9c356be7b0b26fc8851bfe1d99dc25a787e3778c046d170",
+  "asset_sha256": "7a746c15881dd0231806bc14deec4f2082af2b56d7f8fe47d2ec38a3e1297270",
   "source_bindings": {
-    "art/data/fixed_lighting/source_plan.json": "8d3b544b1f2d6c1df58e9d3b87cdc6cb7d56e3ce76a0e908b80ba05d61220854",
+    "art/data/fixed_lighting/source_plan.json": "6d1c02b7c32eb4b3a1da3eb94302ce29547889cb6b0fb226274a9ccedd9cce71",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_fixed_lighting.py": "f0693aa28e5633093a93b0a5fbb4149cc0c8edef1f23649afd8ccc183f59ff6f",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
-    "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
-    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
-    "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",
+    "game/data/runtime_material_sets.json": "3e083bb287f70cc21ec305bf89b64cf5c335f3b908681a5152f7a613025e882c",
+    "game/scripts/generated/material_sets.gd": "81b1e508ef5071711848ec773ce880bc84683ff65e3b12dc06f20aa13d13c794",
     "game/assets/props/fixed_lighting.glb.import": "3d5513ee13f718556f250faa077c5fcb39397d485db9e828390b143e4e386095",
     "art/textures/procedural/bronze_sheet/material.json": "050aa2312ce10e0d1e2793ac0a3390c157d951b64a61ac111728d09146ac6004",
     "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
@@ -11252,20 +11443,20 @@
     "game/assets/building/textures/T_ai_materials_milk_glass_albedo.png": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1",
     "game/assets/building/textures/T_ai_materials_milk_glass_rough.png": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d",
     "game/assets/building/textures/T_ai_materials_milk_glass_normal.png": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286",
-    "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
-    "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
-    "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
-    "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
+    "art/tools/fix_runtime_texture_imports.py": "e9494ea48ff8dc04bbacbd5b04620b6f987a1b8c44a2cc365b6438dbf7dca6fd",
+    "art/data/material_catalog.json": "d2674cb57faa3555b6f6ffdd8c57ae7b9cb4ef31da4e208156886c58e120a042",
+    "art/textures/catalog_mapping.json": "9af972c1e6ba5ed6d03ca047524f5f0627a98e93a8bab0f457e133b2f31c3210",
+    "art/tools/generate_runtime_materials.py": "449b453bc2ea1ac571401d330f85a9842aa76ae784aef62b34fb52f6e9cedbe4",
     "art/blender/scripts/inspect_fixed_lighting.py": "1ae2384b95619db530a363aa18c725741135488c5632e785985993b86ba6865d",
     "art/blender/scripts/render_fixed_lighting.py": "53a3b9e27460f907f4bc0bb150e799c2c9cb175522becfa7acb6ee218bf9f88e",
-    "art/blender/scripts/fixed_lighting_geometry.py": "e9b068042276ad7df4c854974af3c747af45435c54d93c84b2a7b081c34fb30d",
+    "art/blender/scripts/fixed_lighting_geometry.py": "3588abeb4a437fb7239ed128b32f51198ce4fcb2b85dc4be96d81a9151fb2ddb",
     "art/blender/scripts/inspect_fixed_lighting_context.py": "24a2b86aff31a406c00401663b8d0bd293b19ebe9c99981110b7d795aa34e015",
-    "art/blender/scripts/surface_stock_geometry.py": "3e41e821246d05c1116559b9c16e1b4a8e16e6e0db24b74445cbe391d22ceb42",
-    "game/scripts/props/light_fixture_prop.gd": "fb03473169a196be04bcaee3b680af8d11d61844e3da648099e92c696d2ac5b6",
+    "art/blender/scripts/surface_stock_geometry.py": "d7be3aa02882d35e512e23fe2a719916833095ac347c4cffe865482b77a367a1",
+    "game/scripts/props/light_fixture_prop.gd": "29bf8f3e6e9918c86349dfbb63ab926f7e1fda63ce663a17ab873671a1575413",
     "game/scripts/props/functional_prop.gd": "c715e6df864bf2feb593af2cd4229dfe5e48f6fe5f173dca5615ae3fde671853",
-    "game/data/orison_v2/room_lighting.json": "f19a5a4e59ec0f50e9842b48c4b753b0bdd452ed1a27fd9265385b626b80915d",
+    "game/data/orison_v2/room_lighting.json": "8064806e70d31cf2c6c5dc204543d7f4f2e065a3055fe3e1c305b17eee7df305",
     "game/data/orison_v2/completion_interiors.json": "ad4c99dd215a65ea7a9798ae2fa30ef683e7292811526796fbe99d5aa82de97c",
-    "game/data/orison_v2_blockout.json": "63e6614bbd6cbd6ffc9ed4d97e6db31fa0bd127cf51d92edfef70bd150c54260",
+    "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
     "art/blender/scripts/inspect_fixed_lighting_city_context.py": "5c08af2737b7c74140e8d185c1a3bc11c9aa43fa119b86b67998925c6218d996",
     "game/assets/building/floor_01_cells/orison_f01_interior.gltf": "bc6ff5536e374be8385232b65c0404014d5970c9a27f016c0a301d01748c48e4",
     "game/assets/building/floor_01_cells/orison_f01_interior.bin": "42d4bbe5aa6bf9b1772e7c43ec4c1090235b09569793176fcc69e8f18f95f012",
@@ -11305,7 +11496,7 @@
     "game/assets/building/orison_v2/exterior/../../floor_01_cells/site_street_common.bin": "4b8d4a73f088df1b067f850689c2bc436517ef3e13e2e98e18a90a90b51cafa9",
     "game/assets/building/orison_v2/exterior/passage_gateway_subway.bin": "a6158d5440da0bc74695710e8afb911a97e4d01afef1dce8b4914103c5a6a2e0",
     "art/blender/bar_ceiling_finish.blend": "971ca02f7ba7e893c8d18a2a0f254a6df043c1e9602f656fb5e1f50634067609",
-    "art/data/orison_v2/completion_interiors_source.json": "62f87da0bb9c6631f8c2afb29f4fa0557fa693988a920c57265ed1839eada6e3"
+    "art/data/orison_v2/completion_interiors_source.json": "470652934f6d1309b4a08d43ad5fc9b038454579e4493e6160997b7958bd0679"
   },
   "retained_stock": [],
   "construction_groups": [
@@ -11908,6 +12099,27 @@
         "sconce_globe_back160_GlobeCollar",
         "sconce_globe_back160_OpalGlobe"
       ]
+    },
+    {
+      "assembly": "bath_bell_over_mirror",
+      "id": "bath_bell_over_mirror_Fixture",
+      "stocks": [
+        "bath_bell_over_mirror_OvalRosette",
+        "bath_bell_over_mirror_RosetteScrew-0.033",
+        "bath_bell_over_mirror_RosetteScrew0.033",
+        "bath_bell_over_mirror_BentFeed",
+        "bath_bell_over_mirror_CeramicSocket",
+        "bath_bell_over_mirror_CeramicSocketThread0",
+        "bath_bell_over_mirror_CeramicSocketThread1",
+        "bath_bell_over_mirror_CeramicSocketThread2",
+        "bath_bell_over_mirror_CeramicSocketThread3",
+        "bath_bell_over_mirror_ShadeGallery",
+        "bath_bell_over_mirror_GalleryScrew0",
+        "bath_bell_over_mirror_GalleryScrew1",
+        "bath_bell_over_mirror_GalleryScrew2",
+        "bath_bell_over_mirror_OpalBell",
+        "bath_bell_over_mirror_InnerLamp"
+      ]
     }
   ],
   "placement": {
@@ -11938,11 +12150,11 @@
         "id": "3B_LT_SCONCE",
         "classification": "NECESSITY",
         "visual_offset": [
-          0.8,
-          0,
-          0
+          1.17,
+          0.53,
+          0.38
         ],
-        "reason": "Original anchor is centered in the bath window opening. Fit on the adjacent east-wall pier, clear of window trim and the overhead vent duct; retain actor anchor and circuit."
+        "reason": "Owner-requested replacement above the basin mirror; oval plate bears on north tile face at local (15.15,2.15,-9.87); original actor and circuit remain."
       }
     ]
   },

@@ -1,0 +1,17 @@
+[
+  {
+    "scene": "res://tests/V2DepthLightLayersTest.tscn",
+    "timeout": 90,
+    "windowed": true,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/depth_light_layers_v2.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/depth_light_layers_v2"
+  },
+  {
+    "scene": "res://tests/V2DepthLightCullingProbe.tscn",
+    "timeout": 700,
+    "windowed": true,
+    "log": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/depth_light_production.log",
+    "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_shop_door_repair_20261021/depth_light_production",
+    "runner": "long"
+  }
+]
