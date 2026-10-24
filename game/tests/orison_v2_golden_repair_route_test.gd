@@ -107,7 +107,8 @@ func _hand_move(owner_node: Node3D,point: Vector3,goal: float,label: String) -> 
 func _use(owner_node: Node3D,target: Vector3,label: String) -> bool:
 	if owner_node is DoorProp:
 		var door:=owner_node as DoorProp
-		return await _hand_move(door,target,0.0 if door.open else door.motion_target_angle(true),label)
+		# A storefront leaf meets its shopfront short of the nominal 100 degrees.
+		return await _hand_move(door,target,0.0 if door.open else door.motion_target_angle(true)*0.86,label)
 	# Conversation and authored semantic actions keep their existing owners.
 	return await super._use(owner_node,target,label)
 

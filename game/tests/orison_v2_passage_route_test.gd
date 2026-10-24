@@ -28,7 +28,8 @@ func _route() -> void:
 	var door: DoorProp = passage.doors.get("SITE_SHOP_DOOR_HARDWARE_PAINT")
 	if not _require(door != null, "authored hardware shop door exists"): return
 	var door_center := door.to_global(Vector3(door.width*0.5, 0, 0))
-	for point in [Vector3(14, 0, door_center.z), Vector3(12.4, 0, door_center.z)]:
+	# Stand clear of the leaf's outward sweep into the arcade before grabbing it.
+	for point in [Vector3(14, 0, door_center.z), Vector3(12.75, 0, door_center.z)]:
 		if not await _walk_world(point): return
 	if not await _use(door, door.to_global(Vector3(door.width*0.5, 1.15, 0)), "hardware_door"): return
 	await get_tree().create_timer(0.6).timeout
@@ -78,6 +79,22 @@ func _capture(identity: String, target: Vector3) -> void:
 	player.camera.look_at(target)
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(output.path_join(identity+".png"))
+
+## Doors are grabbed and moved by hand since the direct-manipulation ruling
+## (RUL-013); the old interact key no longer offers them a prompt. A
+## storefront leaf meets its own shopfront a little short of the nominal
+## 100 degrees, so 86 is asked for: a full walk-through opening.
+func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
+	if owner_node is DoorProp:
+		var leaf := owner_node as DoorProp
+		var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+		add_child(hand)
+		hand.player = player
+		player.set_mouse_released(false)
+		var moved: bool = await hand.operate(target, 0.0 if leaf.open else leaf.motion_target_angle(true) * 0.86, leaf)
+		hand.free()
+		return _require(moved, "actual grab, mouse motion and release: " + label)
+	return await super._use(owner_node, target, label)
 
 func _prepare_procurement() -> bool:
 	var job := "vantry_chirp_2a"
