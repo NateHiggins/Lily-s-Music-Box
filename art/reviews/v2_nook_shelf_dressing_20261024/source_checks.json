@@ -1,0 +1,73 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Top-level raw sources and final LF sources match; not every unrelated dirty input is reconstructed.",
+  "checks": [
+    {
+      "receipt": "after_v1.log.receipt.json",
+      "source_matches": [
+        "source_final_v1/game__tests__v2_nook_access_survey.gd.gz",
+        "source_final_v2/game__tests__v2_nook_access_survey.gd.gz",
+        "game/tests/v2_nook_access_survey.gd"
+      ],
+      "execution": {
+        "completed": true,
+        "elapsed_s": 155.45,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T07:43:04Z",
+        "started_utc": "2026-10-24T07:40:28Z",
+        "timed_out": false
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "before_v1.log.receipt.json",
+      "source_matches": [
+        "source_final_v1/game__tests__v2_nook_access_survey.gd.gz",
+        "source_final_v2/game__tests__v2_nook_access_survey.gd.gz",
+        "game/tests/v2_nook_access_survey.gd"
+      ],
+      "execution": {
+        "completed": true,
+        "elapsed_s": 203.13,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T07:20:32Z",
+        "started_utc": "2026-10-24T07:17:09Z",
+        "timed_out": false
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "library_v2.log.receipt.json",
+      "source_matches": [
+        "source_final_v1/game__tests__v2_nook_library_bench.gd.gz"
+      ],
+      "execution": {
+        "completed": true,
+        "elapsed_s": 39.95,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T07:31:16Z",
+        "started_utc": "2026-10-24T07:30:36Z",
+        "timed_out": false
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "receipt": "library_v3.log.receipt.json",
+      "source_matches": [
+        "source_final_v2/game__tests__v2_nook_library_bench.gd.gz",
+        "game/tests/v2_nook_library_bench.gd"
+      ],
+      "execution": {
+        "completed": true,
+        "elapsed_s": 38.26,
+        "exit_code": 0,
+        "finished_utc": "2026-10-24T07:35:44Z",
+        "started_utc": "2026-10-24T07:35:05Z",
+        "timed_out": false
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "protected_unchanged": 17,
+  "shared_manifest_unchanged": true
+}

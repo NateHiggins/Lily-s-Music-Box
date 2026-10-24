@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 155.45,
+  "exit_code": 0,
+  "finished_utc": "2026-10-24T07:43:04Z",
+  "started_utc": "2026-10-24T07:40:28Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_nook_shelf_dressing_20261024/after_v1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_nook_shelf_dressing_20261024/after_v1.log",
+  "stdout_sha256": "67aa785c6f7fce7932d7095aaac7de0a54743c2294d6f8b7761191c9551d830a"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2NookAccessSurvey.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_nook_shelf_dressing_20261024/after_v1",
+ "source": {
+  "dirty_paths": 3034,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/nook_readable_books.blend",
+   " M art/blender/nook_readable_books_construction.json",
+   " M art/blender/scripts/build_nook_readable_books.py",
+   " M art/blender/scripts/review_nook_readable_books.py",
+   " M design/V2_CONTINUATION_2026-10-22.md",
+   " M design/V2_STARTED_WORK_CLOSURE_2026-10-23.md",
+   " M game/data/orison_v2/nook_readable_books.json",
+   " M game/scripts/building/orison_v2_reading_nook.gd",
+   " M game/scripts/building/v2_loose_library.gd",
+   " M game/scripts/building/v2_readable_bookshelf.gd",
+   " M game/scripts/building/v2_readable_library_stock.gd",
+   " M game/tests/v2_nook_library_bench.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py"
+  ],
+  "repository_head": "3432d7a310fb73e283f38258f3e5b020d9e37faa",
+  "repository_tree": "b0b593c3ade049be557ced9c1731809d381615d6",
+  "runtime_inputs_sha256": "52c629aeff2e14246fb602a1960a1c2968b710c4a655ce373083cfd82ceec7d9",
+  "test_path": "game/tests/v2_nook_access_survey.gd",
+  "test_sha256": "9b1e11e79748f2f4209cdce833521997d62311be0654c1632e00c3d68f37363d"
+ },
+ "windowed": true
+}

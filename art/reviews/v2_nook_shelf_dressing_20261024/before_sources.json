@@ -1,0 +1,51 @@
+{
+  "evidence_class": "INERT",
+  "head": "3432d7a310fb73e283f38258f3e5b020d9e37faa",
+  "files": [
+    {
+      "path": "art/blender/scripts/build_nook_readable_books.py",
+      "raw_sha256": "b85945d36781b622a6098138914eb1e41d14a34c95d7977931e1da9a920bbd82",
+      "lf_sha256": "b85945d36781b622a6098138914eb1e41d14a34c95d7977931e1da9a920bbd82"
+    },
+    {
+      "path": "art/blender/scripts/review_nook_readable_books.py",
+      "raw_sha256": "9e20154f0e9626a591bf851ac0519fc53b04ee6749211f25ab33e827cad08b6c",
+      "lf_sha256": "9e20154f0e9626a591bf851ac0519fc53b04ee6749211f25ab33e827cad08b6c"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_reading_nook.gd",
+      "raw_sha256": "b0a0498f127c5d0f7dd70b8ab65a184286ad2b755a1f30a40e8ac0f025c31916",
+      "lf_sha256": "b0a0498f127c5d0f7dd70b8ab65a184286ad2b755a1f30a40e8ac0f025c31916"
+    },
+    {
+      "path": "game/scripts/building/v2_loose_library.gd",
+      "raw_sha256": "9f8e7276aa30b7266f06289899f66331a1c87c2da0430c80f78ace0d1ce52b8f",
+      "lf_sha256": "9f8e7276aa30b7266f06289899f66331a1c87c2da0430c80f78ace0d1ce52b8f"
+    },
+    {
+      "path": "game/scripts/building/v2_readable_bookshelf.gd",
+      "raw_sha256": "91540e1eaacf5ac79a5cf8c6ab8234cd9761d0e032d58f6aa06d61e1c5648c40",
+      "lf_sha256": "91540e1eaacf5ac79a5cf8c6ab8234cd9761d0e032d58f6aa06d61e1c5648c40"
+    },
+    {
+      "path": "game/data/orison_v2/nook_readable_books.json",
+      "raw_sha256": "299f51ffa4a6b1e25c4a7ec59e8040a36a9e0ca0de3433627d0c72ad452b9b2b",
+      "lf_sha256": "299f51ffa4a6b1e25c4a7ec59e8040a36a9e0ca0de3433627d0c72ad452b9b2b"
+    },
+    {
+      "path": "art/blender/nook_readable_books_construction.json",
+      "raw_sha256": "9fb2d69fa8ec91845e9097407a9c6fa37d8212bf9e9a4100798db446c818ad4b",
+      "lf_sha256": "9fb2d69fa8ec91845e9097407a9c6fa37d8212bf9e9a4100798db446c818ad4b"
+    },
+    {
+      "path": "game/tests/v2_nook_library_bench.gd",
+      "raw_sha256": "fbe49cbca6eb4df61075d747bfc6ebc0041a5ef74706243917f46ba48d8db9bc",
+      "lf_sha256": "fbe49cbca6eb4df61075d747bfc6ebc0041a5ef74706243917f46ba48d8db9bc"
+    },
+    {
+      "path": "tools/orison_spatial_dependency_manifest.json",
+      "raw_sha256": "7ade38e43bb2dc00c12866991b754ce06aa71887d7ae8069f11454c61b753b43",
+      "lf_sha256": "7ade38e43bb2dc00c12866991b754ce06aa71887d7ae8069f11454c61b753b43"
+    }
+  ]
+}

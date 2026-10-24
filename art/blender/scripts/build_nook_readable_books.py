@@ -94,20 +94,38 @@ upright=Matrix(((0,0,-1),(0,1,0),(1,0,0)))
 flat=Matrix(((0,1,0),(0,0,1),(1,0,0)))
 rack=[r for r in copies if r['assembly']=='nook_books']
 assert len(rack)==57
+decorations=[];stack_groups={}
 for level,top in enumerate([.582,1.002,1.422]):
     residents=rack[level*19:(level+1)*19]
+    upright_count=[13,10,8][level]
     cursor=-.56
-    for index,record in enumerate(residents[:13]):
-        basis=Matrix.Rotation(-.06 if index==12 else 0.,3,'Z')@upright
+    for index,record in enumerate(residents[:upright_count]):
+        basis=Matrix.Rotation(-[.06,.08,.10][level] if index==upright_count-1 else 0.,3,'Z')@upright
         record.update(position=[0.,0.,0.],basis=[list(basis.col[i]) for i in range(3)],opening=0.)
-        align(record,cursor,top+.00035)
+        align(record,cursor,top+.00035,front=-.13+.004*(index%3))
         lo,hi=bounds(record);cursor=hi.x+.003
-    for group,anchor in enumerate([-.02,.30]):
+    gap=(cursor,-.07)
+    remaining=19-upright_count;first=remaining//2
+    stack_groups[level]=[]
+    for group,anchor in enumerate([-.07,.25]):
         height=top+.00035
-        for index,record in enumerate(residents[13+group*3:16+group*3]):
-            record.update(position=[0.,0.,0.],basis=[list(flat.col[i]) for i in range(3)],opening=0.)
+        stack=residents[upright_count:upright_count+first] if group==0 else residents[upright_count+first:]
+        stack_groups[level].append(stack)
+        for index,record in enumerate(stack):
+            basis=Matrix.Rotation((index%3-1)*.035*(level+1),3,'Y')@flat
+            record.update(position=[0.,0.,0.],basis=[list(basis.col[i]) for i in range(3)],opening=0.)
             align(record,anchor+index*.0015,height)
             height=bounds(record)[1].y+.00035
+        assert height<top+.39,('stack exceeds next shelf',level,group,height)
+    # Reuse the manufactured keepsakes already present in resident cases.
+    # These are passive display stock, with no simulation or new mesh buffers.
+    styles=[['cup'],['letters','inkwell'],['model_boat']][level]
+    centre=sum(gap)*.5
+    for index,style in enumerate(styles):
+        offset=(index-(len(styles)-1)*.5)*.105
+        assert gap[1]-gap[0]>.13*len(styles),(level,gap)
+        decorations.append(dict(id='nook_keepsake_'+style,assembly='nook_books',style=style,
+                                position=[centre+offset,top+.00035,.015],yaw=[.12,-.15,.22][level]))
 pile=[r for r in copies if r['assembly']=='nook_pile']
 height=.36535
 for index,record in enumerate(pile):
@@ -143,27 +161,20 @@ for level,top in enumerate([.582,1.002,1.422]):
         for record in residents:
             low,high=bounds(record)
             if min(high.x,hi.x)-max(low.x,lo.x)>1e-6 and min(high.z,hi.z)-max(low.z,lo.z)>1e-6:record['position'][1]+=max(0.,hi.y+.00035-low.y)
-    # Propagate any bearing lift through the authored flat piles.
-    for _ in residents:
-        changed=False
-        for upper in residents:
-            up_lo,up_hi=bounds(upper)
-            if abs(upper['basis'][1][1])>.3:continue
-            for lower in residents:
-                if upper is lower:continue
-                low_lo,low_hi=bounds(lower)
-                if low_lo.y>=up_lo.y or low_hi.y<up_lo.y-.005:continue
-                if up_lo.x<low_hi.x and up_hi.x>low_lo.x and up_lo.z<low_hi.z and up_hi.z>low_lo.z:
-                    lift=low_hi.y+.00035-up_lo.y
-                    if lift>1e-6:upper['position'][1]+=lift;up_lo.y+=lift;up_hi.y+=lift;changed=True
-        if not changed:break
+    # Re-seat each authored pile in its actual bottom-to-top order. A thin
+    # lower book lifted by the foot can overtake the next book's old bottom;
+    # sorting by the resulting height would then miss the necessary lift.
+    for stack in stack_groups[level]:
+        for lower,upper in zip(stack,stack[1:]):
+            lift=bounds(lower)[1].y+.00035-bounds(upper)[0].y
+            if lift>0.:upper['position'][1]+=lift
 
 previous_ends={r['id']:r for r in old['ends']}
 for record in ends:
     legacy=previous_ends[record['id']];q=Matrix(legacy['basis']).transposed().to_quaternion()
     record['legacy_pose']=legacy['position']+[q.x,q.y,q.z,q.w]
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/nook_readable_books.blend'))
-data=dict(schema_version=2,asset=base['asset'],books=books,parts=parts,copies=copies,ends=ends)
+data=dict(schema_version=2,asset=base['asset'],books=books,parts=parts,copies=copies,ends=ends,decorations=decorations)
 data_path=ROOT/'game/data/orison_v2/nook_readable_books.json'
 data_path.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8',newline='\n')
 bindings=[Path(__file__),programme_path,ROOT/'art/data/reading_nook/legacy_copy_poses.json',ROOT/'art/blender/reading_nook_construction.json',ROOT/'game/data/orison_v2/reading_nook.json',ROOT/'game/data/orison_v2/readable_library.json',ROOT/'art/blender/readable_library.blend',ROOT/'art/blender/readable_library_construction.json',ROOT/'game/assets/props/readable_library.glb',ROOT/'art/blender/scripts/book_flex_math.py',ROOT/'art/blender/scripts/review_nook_readable_books.py']

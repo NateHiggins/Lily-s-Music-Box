@@ -151,7 +151,23 @@ func load_copy_programme() -> Dictionary:
 	var copies: Variant=JSON.parse_string(FileAccess.get_file_as_string(PHYSICAL_COPIES))
 	if copies is not Dictionary or copies.get("ends") is not Array: return {}
 	if not append_copies(copies) or not valid_copy_records(copies.copies,self) or not valid_end_records(copies.ends,self): return {}
+	var assemblies: Dictionary={}
+	for record: Dictionary in copies.copies: assemblies[str(record.assembly)]=true
+	if not valid_copy_decorations(copies.get("decorations"),assemblies): return {}
 	return copies
+
+func valid_copy_decorations(value: Variant,assemblies: Dictionary) -> bool:
+	if value is not Array: return false
+	var seen: Dictionary={}
+	for row: Variant in value:
+		if row is not Dictionary or row.get("id") is not String or str(row.id).is_empty() or seen.has(row.id): return false
+		if not assemblies.has(row.get("assembly")) or not data.decorations.has(row.get("style")): return false
+		if row.get("position") is not Array or row.position.size()!=3: return false
+		for coordinate: Variant in row.position:
+			if typeof(coordinate) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(coordinate)) or absf(float(coordinate))>10.: return false
+		if typeof(row.get("yaw")) not in [TYPE_FLOAT,TYPE_INT] or not is_finite(float(row.yaw)): return false
+		seen[row.id]=true
+	return true
 
 func append_copies(copies: Dictionary) -> bool:
 	if not (copies.get("schema_version")==1 or copies.get("schema_version")==2) or copies.get("books") is not Dictionary or copies.get("parts") is not Dictionary or copies.get("copies") is not Array: push_error("Invalid native copy programme schema");return false

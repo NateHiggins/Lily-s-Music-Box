@@ -61,6 +61,17 @@ for end in data['ends']:
         obj.name=end['id']+'_'+name;scene.collection.objects.link(obj);obj.hide_render=False
         obj.matrix_world=G.inverted()@pose(end)@G@obj.matrix_world;objects.append(obj)
     groups[end['id']]=objects
+names=sorted({name for record in data['decorations'] for name in base['decorations'][record['style']]['parts']})
+with bpy.data.libraries.load(str(ROOT/'art/blender/readable_library.blend'),link=False) as (src,dst):dst.objects=list(names)
+templates=dict(zip(names,dst.objects))
+for record in data['decorations']:
+    target=frame(frames[record['assembly']])@Matrix.Translation(Vector(record['position']))@Matrix.Rotation(record['yaw'],4,'Y')
+    objects=[]
+    for name in base['decorations'][record['style']]['parts']:
+        obj=templates[name].copy();obj.data=templates[name].data;obj.name=record['id']+'_'+name
+        scene.collection.objects.link(obj);obj.hide_render=False
+        obj.matrix_world=G.inverted()@target@G@obj.matrix_world;objects.append(obj)
+    groups[record['id']]=objects
 bpy.context.view_layer.update()
 def tree(objects):
     vertices=[];faces=[]

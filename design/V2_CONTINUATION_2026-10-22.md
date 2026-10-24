@@ -3,6 +3,18 @@
 Evidence class: **INERT**. Working continuation and issue log; no completion
 ledger promotion, runtime qualification or human acceptance is claimed.
 
+Current-source correction, October 24: **V2_NOOK_SHELF_DRESSING_2026-10-24.md**.
+The 61 nook copies already share the primary native formats and flexible bindings
+(**e9df01d2**, preserved by **48da899c**); the earlier carried-forward bespoke-binding
+debt was stale. Current construction varies the rack arrangement and adds
+existing keepsakes. Native review has zero external overlaps;3,437 windowed
+family checks and eleven occupied-world waypoints pass with empty stderr.
+Pickup p95 stays16.57 to16.65ms; both local runs have no frames over50ms.
+The complete final static board has no regressions; wider V2 work remains open.
+Next construction batch: the already-requested shower spray, local hot-water
+steam and wet-glass work; renew the actual bathroom baseline before changes.
+
+
 The owner reconfirmed autonomous continuation, ordered at the implementer's
 discretion, on October 22. Work remains in C:/PleaseRemainOnTheLine. Starting
 branch **codex/v2-acoustic-topology**, HEAD **276e2ff4**, remote main/merge-base

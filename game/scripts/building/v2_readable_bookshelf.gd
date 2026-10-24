@@ -155,18 +155,20 @@ func _decorate() -> void:
 	var tops: Array=_case_record.shelf_tops
 	var roster: Array=[["cup",0,-.23],["letters",1,-.21],["inkwell",1,.23],["model_boat",2,.23]]
 	for item: Array in roster:
-		var record: Dictionary=native_stock.data.decorations[str(item[0])]
-		var body:=StaticBody3D.new();body.name=str(item[0])
-		body.position=Vector3(float(item[2]),float(tops[int(item[1])])+.00035,0.)
-		_fixed.add_child(body)
-		for part: String in record.parts:
-			var draw: MeshInstance3D=native_stock.draw(body,part)
-			var solid:=CollisionShape3D.new();solid.name=part
-			# A hollow vessel retains its real opening. It is passive shelf
-			# stock, so a native concave shape is appropriate here.
-			solid.shape=draw.mesh.create_trimesh_shape() if bool(record.open_vessel) else native_stock.hulls[part]
-			solid.transform=draw.transform if bool(record.open_vessel) else native_stock.hull_poses[part]
-			body.add_child(solid)
+		_mount_decoration(str(item[0]),str(item[0]),Vector3(float(item[2]),float(tops[int(item[1])])+.00035,0.),0.)
+
+func _mount_decoration(identity: String,style: String,at: Vector3,yaw: float) -> void:
+	var record: Dictionary=native_stock.data.decorations[style]
+	var body:=StaticBody3D.new();body.name=identity
+	body.position=at;body.rotation.y=yaw
+	_fixed.add_child(body)
+	for part: String in record.parts:
+		var draw: MeshInstance3D=native_stock.draw(body,part)
+		var solid:=CollisionShape3D.new();solid.name=part
+		# Preserve the hollow cup mouth and the original native contact stock.
+		solid.shape=draw.mesh.create_trimesh_shape() if bool(record.open_vessel) else native_stock.hulls[part]
+		solid.transform=draw.transform if bool(record.open_vessel) else native_stock.hull_poses[part]
+		body.add_child(solid)
 
 func try_place_book(book: Node3D) -> bool:
 	if book.opening>.04: return false

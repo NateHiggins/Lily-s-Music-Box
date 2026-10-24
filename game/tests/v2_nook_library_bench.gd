@@ -16,6 +16,23 @@ func _run() -> void:
 	check(collections.size()==3 and books.size()==61 and ends.size()==6,"three owners retain all 61 copies and six real ends")
 	var stock: RefCounted=collections[0].native_stock
 	var metadata: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(Nook.COPIES))
+	var frames: Dictionary={}
+	for collection: Node3D in collections: frames[str(collection.get_parent().name)]=true
+	check(stock.valid_copy_decorations(metadata.decorations,frames),"authored keepsake placements validate")
+	var bad_decor: Array=metadata.decorations.duplicate(true);bad_decor.append(bad_decor[0].duplicate(true))
+	check(not stock.valid_copy_decorations(bad_decor,frames),"duplicate keepsake identity refused")
+	bad_decor=metadata.decorations.duplicate(true);bad_decor[0].position[0]=INF
+	check(not stock.valid_copy_decorations(bad_decor,frames),"nonfinite keepsake placement refused")
+	bad_decor=metadata.decorations.duplicate(true);bad_decor[0].assembly="missing_owner"
+	check(not stock.valid_copy_decorations(bad_decor,frames),"unowned keepsake placement refused")
+	var keepsake_owner: Node3D=adapter.resolve("nook_books_library")
+	check(keepsake_owner._fixed.get_child_count()==4,"all four passive keepsakes mount exactly once")
+	for record: Dictionary in metadata.decorations:
+		var body: StaticBody3D=keepsake_owner._fixed.get_node(str(record.id))
+		check(not body.is_processing() and not body.is_physics_processing(),"keepsake has no idle polling or simulation: "+str(record.id))
+		for identity: String in stock.data.decorations[str(record.style)].parts:
+			var draw:=body.get_node(identity) as MeshInstance3D
+			check(draw!=null and draw.mesh==stock.meshes[identity],"keepsake shares its original native buffer: "+identity)
 	check(stock.valid_copy_records(metadata.copies,stock) and stock.valid_end_records(metadata.ends,stock),"complete physical-copy programme validates")
 	var malformed: Array=metadata.copies.duplicate(true);malformed[1].id=malformed[0].id
 	check(not stock.valid_copy_records(malformed,stock),"duplicate physical-copy identity refused")
@@ -33,6 +50,8 @@ func _run() -> void:
 	check(titles.size()==26,"shared collection excludes rare pamphlets and singular minutes")
 	var metrics:=preload("res://tests/orison_v2_domestic_native_test.gd").new()
 	for identity: String in metadata.parts: metrics._check_cap_mapping(stock.meshes[identity],true)
+	for record: Dictionary in metadata.decorations:
+		for identity: String in stock.data.decorations[str(record.style)].parts: metrics._check_cap_mapping(stock.meshes[identity],true)
 	for identity: String in metadata.parts:
 		check(stock.meshes[identity]==stock.meshes[str(metadata.parts[identity].native_part)],"physical copies share exact native edition buffers: "+identity)
 	for failure: String in metrics.failures: check(false,failure)
@@ -101,6 +120,7 @@ func _run() -> void:
 	var rebuilt:=Node3D.new();rebuilt.name="RebuiltNook";add_child(rebuilt)
 	var fresh:=OrisonV2AnchorAdapter.new(rebuilt)
 	check(Nook.mount(fresh),"new native nook owners reconstruct")
+	check(fresh.resolve("nook_books_library")._fixed.get_child_count()==4,"all keepsakes reconstruct without a new save domain")
 	for identity: String in snapshots:
 		var collection: Node3D=fresh.resolve(identity)
 		var encoded: Dictionary=JSON.parse_string(JSON.stringify(snapshots[identity],"",true,true))

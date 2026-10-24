@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Varied nook shelves, reused keepsakes and correction of stale binding debt | `design/V2_NOOK_SHELF_DRESSING_2026-10-24.md` |
 | Readable hose jet, inactive prepared emitters and first-spray timing | `design/V2_HOSE_SPRAY_READABILITY_2026-10-24.md` |
 | Installed hose maintenance input, connected charge/save route and idle negative control | `design/V2_HOSE_INSTALLED_MAINTENANCE_2026-10-24.md` |
 | Portrait atlas reloads, retired shader ownership and eight cooperative fitting families | `design/V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md` |

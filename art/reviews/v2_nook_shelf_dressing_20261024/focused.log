@@ -1,0 +1,138 @@
+# Gate board - 3432d7a310fb
+
+- commit `3432d7a310fb73e283f38258f3e5b020d9e37faa`
+- tree `b0b593c3ade049be557ced9c1731809d381615d6`
+- created 2026-10-24T07:33:10Z
+- dirty paths: 3032
+
+| gate | severity | exit | seconds | headline |
+|---|---|---:|---:|---|
+
+## Against 191d5de39f67
+
+Verdict: **NO REGRESSIONS**
+
+requirements_changed: []
+
+### Regressions (0)
+
+- none
+
+### Improvements (0)
+
+- none
+
+### Other changes (110)
+
+- carriers: not run on this board
+- ledger: not run on this board
+- period: not run on this board
+- physical_import_sources: not run on this board
+- reader: not run on this board
+- rulings: not run on this board
+- spatial: not run on this board
+- systemic: not run on this board
+- test:test_additive_material_bindings: not run on this board
+- test:test_additive_material_rebind: not run on this board
+- test:test_arcade_canopy_shells: not run on this board
+- test:test_arcade_clock: not run on this board
+- test:test_arcade_lantern: not run on this board
+- test:test_astra_packet: not run on this board
+- test:test_audio_emitters: not run on this board
+- test:test_binding_relief: not run on this board
+- test:test_check_rulings: not run on this board
+- test:test_city_ground_apron: not run on this board
+- test:test_city_horizon: not run on this board
+- test:test_construction_shed_plan: not run on this board
+- test:test_construction_shed_uv: not run on this board
+- test:test_data_consumption: not run on this board
+- test:test_domestic_objects_bounded_preflight: not run on this board
+- test:test_gate_board: not run on this board
+- test:test_grade_source_snapshot: not run on this board
+- test:test_heating_pipe_fittings: not run on this board
+- test:test_honed_stone_maps: not run on this board
+- test:test_house_switchboard_native: not run on this board
+- test:test_ingest_retirement: not run on this board
+- test:test_interaction_implementors: not run on this board
+- test:test_interaction_prompt_carriers: not run on this board
+- test:test_lanes: not run on this board
+- test:test_lint_design_doc: not run on this board
+- test:test_m11c0_floor01_harness_contract: not run on this board
+- test:test_m11c1_floor01_source_ownership: not run on this board
+- test:test_m11c1_owner_first_export: not run on this board
+- test:test_m11c1_runtime_rehearsal: not run on this board
+- test:test_m11c1_scanner_consumer_adapter: not run on this board
+- test:test_m11c2_floor01_production_export: not run on this board
+- test:test_m11c2_production_harness_contract: not run on this board
+- test:test_material_catalog_persistence: not run on this board
+- test:test_material_relief: not run on this board
+- test:test_nook_readable_books: not run on this board
+- test:test_orison_floor01_source_ownership: not run on this board
+- test:test_orison_spatial_dependencies: not run on this board
+- test:test_orison_v2_completeness: not run on this board
+- test:test_period_dates: not run on this board
+- test:test_physical_import_sources: not run on this board
+- test:test_prop_reference: not run on this board
+- test:test_prop_review: not run on this board
+- test:test_readable_library: not run on this board
+- test:test_rehearse_orison_floor01_partition: not run on this board
+- test:test_room_checkpoint_linter: not run on this board
+- test:test_room_checkpoint_reconciler: not run on this board
+- test:test_room_evidence_verifier: not run on this board
+- test:test_room_gate_hook: not run on this board
+- test:test_room_layout_workbench: not run on this board
+- test:test_room_reconstruction_gate: not run on this board
+- test:test_room_reconstruction_progress: not run on this board
+- test:test_run_receipt: not run on this board
+- test:test_runtime_source_projections: not run on this board
+- test:test_site_softwood_maps: not run on this board
+- test:test_spatial_access_evidence: not run on this board
+- test:test_spatial_binding_preflight: not run on this board
+- test:test_spatial_connection_evidence: not run on this board
+- test:test_spatial_region_evidence: not run on this board
+- test:test_systemic_situation_authority: not run on this board
+- test:test_upper_daylight_contract: not run on this board
+- test:test_v2_acoustic_flue: not run on this board
+- test:test_v2_acoustic_heating: not run on this board
+- test:test_v2_acoustic_ownership: not run on this board
+- test:test_v2_acoustic_ventilation: not run on this board
+- test:test_v2_audit_digest_snapshot: not run on this board
+- test:test_v2_authoring_projection: not run on this board
+- test:test_v2_boiler_inlet_projection: not run on this board
+- test:test_v2_c_stove_stack_plan: not run on this board
+- test:test_v2_completion_projection: not run on this board
+- test:test_v2_exterior_source: not run on this board
+- test:test_v2_fabrication_batch: not run on this board
+- test:test_v2_flue_airway_plan: not run on this board
+- test:test_v2_flue_native_evidence: not run on this board
+- test:test_v2_front_lighting_plan: not run on this board
+- test:test_v2_front_lighting_projection: not run on this board
+- test:test_v2_front_trim: not run on this board
+- test:test_v2_ground_probe_updates: not run on this board
+- test:test_v2_heating_branch_supports: not run on this board
+- test:test_v2_heating_envelopes: not run on this board
+- test:test_v2_heating_interfaces: not run on this board
+- test:test_v2_heating_refit_projection: not run on this board
+- test:test_v2_heating_routes: not run on this board
+- test:test_v2_heating_takeoff: not run on this board
+- test:test_v2_physical_inputs: not run on this board
+- test:test_v2_public_landing_footprints: not run on this board
+- test:test_v2_public_landing_programmes: not run on this board
+- test:test_v2_public_regions: not run on this board
+- test:test_v2_radiator_vent_thread: not run on this board
+- test:test_v2_recipe_projections: not run on this board
+- test:test_v2_retained_grade_plan: not run on this board
+- test:test_v2_roof: not run on this board
+- test:test_v2_service_entries: not run on this board
+- test:test_v2_spatial_publication: not run on this board
+- test:test_v2_surface_publication: not run on this board
+- test:test_v2_surface_requirements: not run on this board
+- test:test_v2_test_dependency_literals: not run on this board
+- test:test_v2_ventilation_fabric_projection: not run on this board
+- test:test_verify_candidate: not run on this board
+- v2_mesh_uv_imports: not run on this board
+- v2_recipe_projections: not run on this board
+- v2_surface_imports: not run on this board
+- v2_surface_qualification: not run on this board
+
+

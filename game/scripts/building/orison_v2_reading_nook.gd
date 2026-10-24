@@ -72,9 +72,13 @@ static func mount(adapter: OrisonV2AnchorAdapter) -> bool:
 		if not owned.is_empty():
 			var collection:=LooseLibrary.new();collection.name=str(row.id)+"_library"
 			collection.native_stock=stock;collection.copy_records=owned;collection.end_records=owned_ends
+			for record: Dictionary in copies.decorations:
+				if str(record.assembly)==str(row.id):
+					collection.decoration_records.append({"id":record.id,"style":record.style,"position":record.position,"yaw":record.yaw})
 			body.add_child(collection)
 	model.free()
 	return true
+
 
 static func _source_material(spec: Dictionary) -> StandardMaterial3D:
 	var material := StandardMaterial3D.new()

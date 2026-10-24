@@ -2,6 +2,7 @@ extends "res://scripts/building/v2_readable_bookshelf.gd"
 ## Loose physical copies use the existing household book domain, never a new save.
 var copy_records: Array = []
 var end_records: Array = []
+var decoration_records: Array = []
 
 func _build_visual() -> void:
 	sorter.load_library()
@@ -33,6 +34,9 @@ func _build_visual() -> void:
 		body.settled.connect(library_stock_changed.bind(body));_ends[str(record.id)]=body
 	sorter.order=_library_ids.duplicate()
 	_arrange(sorter.order)
+	for record: Dictionary in decoration_records:
+		var p: Array=record.position
+		_mount_decoration(str(record.id),str(record.style),Vector3(p[0],p[1],p[2]),float(record.yaw))
 	_tap=make_emitter("tick",-26.)
 	add_to_group("v2_library_collections")
 

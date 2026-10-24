@@ -2,6 +2,16 @@
 
 Evidence class: **INERT**. Scope inventory and remaining work, not acceptance.
 
+Current-source correction, October 24: **V2_NOOK_SHELF_DRESSING_2026-10-24.md**.
+The 61 nook copies already share the primary native formats and flexible bindings
+(**e9df01d2**, preserved by **48da899c**); the earlier carried-forward bespoke-binding
+debt was stale. Current construction varies the rack arrangement and adds
+existing keepsakes. Native review has zero external overlaps;3,437 windowed
+family checks and eleven occupied-world waypoints pass with empty stderr.
+Pickup p95 stays16.57 to16.65ms; both local runs have no frames over50ms.
+The complete final static board has no regressions; wider V2 work remains open.
+
+
 Owner direction: finish work already started in this conversation before new
 issues. Preserve the full V2 objective. A fixture pass, installed code, a rendered
 candidate and a production runtime contract are different milestones. None alone
@@ -105,7 +115,7 @@ Serialization/barriers and the broader performance/started-work queue remain ope
 | Nozzle Y/Z alignment, XYZ translation/rotation, threaded brass receiver, no shrinking nut | Preserve existing coupling and shared manipulation owners. Renew production maintenance assembly, charge and save/rebuild checks together; fixture success does not close installed gameplay. |
 | Rubber protectant and gasket from hardware store | Native counter and bottle installed with actual route/purchase/save checks. Purchased washer handoff and actual dressing input remain open; preserve existing inventory/payment/work-order authority. |
 | General pickup to hand; static free-floating book inspection; shelf spots | Shared book handling and return tests exist. Verify installed collection and all loose pickables, retention/release and reconstruction; books on shelves need no resting simulation. |
-| Book binding direction, deformed stacks, bowed attached pages, continuous flexible paperback cover | Thirty-title conversion has 2,136 print and 76 hand checks. The 61 nook copies retain older bespoke sizes/bindings and are explicitly outside that conversion. Finish that collection and close remaining print/contact appearance defects. |
+| Book binding direction, deformed stacks, bowed attached pages, continuous flexible paperback cover | The primary thirty titles and all 61 nook copies share native formats, page deformation and continuous paperback wrappers. Current nook source controls and3,437 windowed checks confirm that conversion; the varied shelf/keepsake batch passes eleven occupied-world waypoints. Broader print/contact appearance and qualification remain open. |
 | Coherent book categories, edited titles/snippets/art, publisher layouts, varied shelves/knickknacks | Editorial pass exists for thirty titles. Nook conversion and denser varied stocking remain open in **V2_BOOK_EDITORIAL_AND_BINDING_2026-10-22.md**. Verify the selected whole collection by rendering and handling. |
 | Plant remake, correctly textured/sized rug, accessible nook | Native nook/access repair exists in **V2_NOOK_REVAMP_2026-10-22.md**. Retain its measured pickup improvement and actual route evidence; renew installed coverage after completing its books. |
 | Remove photographic lens flare, keep volumetric light | Removal checkpoint exists in **V2_BOOK_SLOTS_AND_LIGHT_REMOVAL_2026-10-22.md**. Preserve global deletion. Fixture emission/lighting appearance remains a separate repair, not permission to restore flare. |
