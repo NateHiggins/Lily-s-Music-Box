@@ -198,13 +198,15 @@ func _run() -> void:
 	for frame in 600:
 		if world.passage_region.residency.state == "RESIDENT": break
 		await get_tree().process_frame
-	# Qualify both retained arcade worlds deterministically, including lazy boots.
-	var embedded_flags: Array[Dictionary] = []
-	for cabinet: Node in world.find_children("*","Node3D",true,false):
-		if not cabinet is ArcadeCabinetProp: continue
-		embedded_flags.append({"actor":cabinet,"processing":cabinet.is_processing()})
-		cabinet.set_process(false); cabinet._boot()
-		check(cabinet.machine.is_booted(),"embedded source world boots for surface review")
+	# The owner retired playable cabinets. Inspect their exact source retirement
+	# in this world; historical embedded-game qualifications remain historical.
+	var retirement_review := preload("res://tests/v2_arcade_retirement_review.gd").new()
+	retirement_review.batch_mode=true;add_child(retirement_review)
+	var retirement_result: Dictionary=await retirement_review.validate_in_world(world)
+	batch_checks+=int(retirement_result.checks)
+	for failure: String in retirement_result.failures:failures.append(failure)
+	check(int(retirement_result.checks)>900,"surface review executes the complete current cabinet-retirement validator")
+	retirement_review.free()
 	await get_tree().process_frame; await get_tree().process_frame
 	for node: Node in world.find_children("*", "GeometryInstance3D", true, false):
 		if node is Label3D: continue # Separately authored lettering, RUL-008.
@@ -311,7 +313,6 @@ func _run() -> void:
 		["F04_4A_BOOKSHELF_01",Vector3(.35,.85,1.6),Vector3(0,.8,.15),"bookcase"],
 		["F02_B_RADIATOR_01",Vector3(.35,.65,-1.1),Vector3(0,.48,0),"radiator"],
 		["B1_BOILER_01",Vector3(.6,1.45,-2.15),Vector3(0,1.,0),"boiler"],
-		["Arcade_retail_bar_cab01",Vector3(.4,1.,-1.8),Vector3(0,1.,-.3),"signal_scope"],
 		["F04_B_MONITOR_01",Vector3(.35,.8,-1.3),Vector3(0,.3,-.2),"signal_terminal"],
 		["F02_2A_TOASTER_01",Vector3(.25,.35,-.65),Vector3(0,.1,0),"toaster_crumbs"],
 		["LobbyServiceDumbwaiter",Vector3(.65,1.,1.7),Vector3(0,1.,0),"dumbwaiter"]]:
@@ -358,8 +359,6 @@ func _run() -> void:
 	await preload("res://tests/radiator_joint_review.gd").new().run(world,self)
 	var after := _input_snapshot(root)
 	check(before.get("sha256","") == after.get("sha256","changed"),"rendering inputs stayed fixed during qualification")
-	for entry: Dictionary in embedded_flags:
-		entry.actor.set_process(entry.processing)
 	var owner_ref: WeakRef = weakref(world)
 	world.shutdown_for_tests()
 	world.free()

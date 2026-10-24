@@ -95,3 +95,24 @@ Latest main **591f1aaf** is included, preserving its new bodega door hand helper
 and this branch's diagnostic capture hook. Its separate clean full board has
 103 PASS,6 existing FAIL,1 INCOMPLETE, zero dirty paths. The actual-runtime
 qualification batch resumes after the failed fixture; complete imports are reused.
+
+Latest main **54f3f19b** adds its independent window-hand proof and is merged
+without changing production sources. Its full clean board again records103 PASS,
+6 existing FAIL and1 INCOMPLETE. The integration board previously had only the
+additional expired surface-test binding; no regression has been accepted.
+
+Read-only harness review finds one obsolete surface capture requiring the
+retired bar cabinet. Stop only the identified waiting integration broker before
+it starts children, then replace the old embedded-game boot loop with the
+existing current cabinet-retirement validator (over900 checks), including exact
+source-triangle/hull preservation and absence of playable actors. Remove only
+the obsolete cabinet capture station. Other surface discovery and capture
+requirements remain. Historical cabinet tests and receipts are unchanged.
+The stopped broker ran no test; this is a source-review repair, not a claimed
+runtime failure or pass. Current runtime verification remains pending.
+
+Before renewal, preserve main's complete573-file surface packet externally and
+verify every original Git blob (457,865,220 bytes). The source commit and archive
+manifest identify the originals; no historical receipt is repinned. The canonical
+shared manifest and overlapping untracked street-traffic prototype are also
+copied with hashes before any future checkout handoff. They remain in place.
