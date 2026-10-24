@@ -69,6 +69,9 @@ const PATROL_STATIONS := {
 	"F01_WATCH_STATION": "F01_STATION_LOBBY",
 }
 var street_traffic: Node = null
+## Period traffic on the V2 carriageway. Deliberately not `street_traffic`:
+## that name still selects V1's sleep-gate probes in the dream boundary test.
+var period_traffic: Node3D = null
 var elevator: Node = null
 var startup_failed := false
 var startup_failure_reason := ""
@@ -834,6 +837,8 @@ func _compose_exterior() -> bool:
 	city_shells.add_child(horizon)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
 	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false
+	period_traffic = preload("res://scripts/building/orison_v2_street_traffic.gd").mount(self)
+	if period_traffic == null:return false
 	var signage := preload("res://scripts/building/orison_v2_native_signage.gd").new()
 	if not signage.install(self):
 		push_error("V2 SIGNAGE: %s" % [signage.errors])

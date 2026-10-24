@@ -1,0 +1,1863 @@
+{
+ "schema": "orison.v2.street-traffic.v1",
+ "frame": "ORISON_FRONT_DOOR_THRESHOLD",
+ "street_instance": "STREET_ORISON_01",
+ "stock": "res://assets/props/v2_period_traffic.glb",
+ "site": {
+  "road_y": -0.1,
+  "lane_west_z": 7.205,
+  "lane_east_z": 12.005,
+  "carriageway_z": [
+   4.955,
+   14.1
+  ],
+  "spawn_x": 25.5,
+  "despawn_x": 27.0
+ },
+ "timing": {
+  "max_vehicles": 8,
+  "max_wait": 8.0,
+  "gap_seconds": 3.4,
+  "following_gap_m": 2.2,
+  "yield_lookahead_m": 7.0,
+  "yield_stop_m": 1.4,
+  "acceleration": 2.2,
+  "braking": 4.5,
+  "stride_m": 1.7,
+  "leg_swing_degrees": 22.0
+ },
+ "finishes": [
+  {
+   "id": "coachwork",
+   "catalog_key": "car_paint",
+   "tint": [
+    0.3,
+    0.31,
+    0.34,
+    1
+   ],
+   "normal": 0.55,
+   "roughness": 0.62,
+   "paint": true,
+   "albedo_mean": [
+    0.3601,
+    0.3524,
+    0.2502
+   ]
+  },
+  {
+   "id": "wagon_paint",
+   "catalog_key": "door_paint",
+   "tint": [
+    0.45,
+    0.38,
+    0.22,
+    1
+   ],
+   "normal": 0.8,
+   "roughness": 1.0,
+   "paint": true,
+   "albedo_mean": [
+    0.9249,
+    0.921,
+    0.9053
+   ]
+  },
+  {
+   "id": "japan_black",
+   "catalog_key": "car_paint",
+   "tint": [
+    0.075,
+    0.072,
+    0.07,
+    1
+   ],
+   "normal": 0.6,
+   "roughness": 0.55,
+   "albedo_mean": [
+    0.3601,
+    0.3524,
+    0.2502
+   ]
+  },
+  {
+   "id": "running_iron",
+   "catalog_key": "iron_blackened",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.2046,
+    0.2085,
+    0.2124
+   ]
+  },
+  {
+   "id": "cast_iron",
+   "catalog_key": "cast_iron",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.6801,
+    0.6496,
+    0.6142
+   ]
+  },
+  {
+   "id": "hardwood",
+   "catalog_key": "wood_dark",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.3519,
+    0.2208,
+    0.1353
+   ]
+  },
+  {
+   "id": "timber",
+   "catalog_key": "timber",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5323,
+    0.3976,
+    0.2653
+   ]
+  },
+  {
+   "id": "tyre",
+   "catalog_key": "rubber_aged",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.1823,
+    0.1708,
+    0.1572
+   ]
+  },
+  {
+   "id": "nickel",
+   "catalog_key": "nickel_plated",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.708,
+    0.6839,
+    0.6301
+   ]
+  },
+  {
+   "id": "brass",
+   "catalog_key": "brass_dull",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5425,
+    0.407,
+    0.2213
+   ]
+  },
+  {
+   "id": "lamp_lit",
+   "catalog_key": "milk_glass",
+   "tint": [
+    1,
+    0.93,
+    0.8,
+    1
+   ],
+   "normal": 0.5,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.8,
+    0.52,
+    2.2
+   ],
+   "albedo_mean": [
+    0.8755,
+    0.86,
+    0.8223
+   ]
+  },
+  {
+   "id": "lamp_tail",
+   "catalog_key": "milk_glass",
+   "tint": [
+    0.75,
+    0.16,
+    0.1,
+    1
+   ],
+   "normal": 0.5,
+   "roughness": 1.0,
+   "emission": [
+    0.85,
+    0.1,
+    0.05,
+    1.6
+   ],
+   "albedo_mean": [
+    0.8755,
+    0.86,
+    0.8223
+   ]
+  },
+  {
+   "id": "lamp_oil",
+   "catalog_key": "milk_glass",
+   "tint": [
+    1,
+    0.82,
+    0.58,
+    1
+   ],
+   "normal": 0.5,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.58,
+    0.26,
+    1.2
+   ],
+   "albedo_mean": [
+    0.8755,
+    0.86,
+    0.8223
+   ]
+  },
+  {
+   "id": "valve_glow",
+   "catalog_key": "milk_glass",
+   "tint": [
+    1,
+    0.7,
+    0.45,
+    1
+   ],
+   "normal": 0.4,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.42,
+    0.14,
+    1.4
+   ],
+   "albedo_mean": [
+    0.8755,
+    0.86,
+    0.8223
+   ]
+  },
+  {
+   "id": "leather",
+   "catalog_key": "leather_worn",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5379,
+    0.3153,
+    0.2012
+   ]
+  },
+  {
+   "id": "canvas",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.62,
+    0.57,
+    0.46,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5719,
+    0.352,
+    0.1807
+   ]
+  },
+  {
+   "id": "tarp",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.2,
+    0.22,
+    0.17,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5719,
+    0.352,
+    0.1807
+   ]
+  },
+  {
+   "id": "hood_cloth",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.1,
+    0.1,
+    0.1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5719,
+    0.352,
+    0.1807
+   ]
+  },
+  {
+   "id": "upholstery",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.1,
+    0.085,
+    0.075,
+    1
+   ],
+   "normal": 0.8,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5719,
+    0.352,
+    0.1807
+   ]
+  },
+  {
+   "id": "wool",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.17,
+    0.16,
+    0.17,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5719,
+    0.352,
+    0.1807
+   ]
+  },
+  {
+   "id": "skin",
+   "catalog_key": "linen",
+   "tint": [
+    0.78,
+    0.6,
+    0.5,
+    1
+   ],
+   "normal": 0.4,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.9112,
+    0.8737,
+    0.7997
+   ]
+  },
+  {
+   "id": "hide",
+   "catalog_key": "leather_worn",
+   "tint": [
+    0.42,
+    0.26,
+    0.15,
+    1
+   ],
+   "normal": 0.7,
+   "roughness": 1.0,
+   "paint": true,
+   "albedo_mean": [
+    0.5379,
+    0.3153,
+    0.2012
+   ]
+  },
+  {
+   "id": "hoof",
+   "catalog_key": "leather_worn",
+   "tint": [
+    0.12,
+    0.1,
+    0.09,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5379,
+    0.3153,
+    0.2012
+   ]
+  },
+  {
+   "id": "bakelite",
+   "catalog_key": "bakelite_black",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.1424,
+    0.1258,
+    0.1116
+   ]
+  },
+  {
+   "id": "coal",
+   "catalog_key": "soot",
+   "tint": [
+    0.55,
+    0.55,
+    0.58,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 0.8,
+   "albedo_mean": [
+    0.1054,
+    0.1051,
+    0.1074
+   ]
+  },
+  {
+   "id": "silk_flex",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.55,
+    0.13,
+    0.08,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.5719,
+    0.352,
+    0.1807
+   ]
+  },
+  {
+   "id": "produce",
+   "catalog_key": "plant",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0,
+   "albedo_mean": [
+    0.289,
+    0.4354,
+    0.0404
+   ]
+  }
+ ],
+ "kinds": [
+  {
+   "id": "model_a_tudor",
+   "stock": "model_a_tudor",
+   "weight": 17,
+   "speed": [
+    5.2,
+    7.4
+   ],
+   "paint": [
+    [
+     0.1,
+     0.11,
+     0.12
+    ],
+    [
+     0.2,
+     0.23,
+     0.3
+    ],
+    [
+     0.14,
+     0.19,
+     0.16
+    ],
+    [
+     0.3,
+     0.27,
+     0.22
+    ],
+    [
+     0.24,
+     0.12,
+     0.11
+    ]
+   ],
+   "extent": [
+    -2.05,
+    1.95
+   ],
+   "width": 1.72,
+   "wheels": [
+    {
+     "stock": "wheel_wire",
+     "at": [
+      1.31,
+      0.37,
+      -0.71
+     ],
+     "radius": 0.37,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wire",
+     "at": [
+      1.31,
+      0.37,
+      0.71
+     ],
+     "radius": 0.37,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wire",
+     "at": [
+      -1.32,
+      0.37,
+      -0.71
+     ],
+     "radius": 0.37,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wire",
+     "at": [
+      -1.32,
+      0.37,
+      0.71
+     ],
+     "radius": 0.37,
+     "width": 1.0
+    }
+   ],
+   "horse": null,
+   "figures": [],
+   "voice": "motor"
+  },
+  {
+   "id": "model_t_touring",
+   "stock": "model_t_touring",
+   "weight": 13,
+   "speed": [
+    4.6,
+    6.6
+   ],
+   "paint": [
+    [
+     0.075,
+     0.072,
+     0.07
+    ],
+    [
+     0.09,
+     0.085,
+     0.08
+    ]
+   ],
+   "extent": [
+    -1.75,
+    1.5
+   ],
+   "width": 1.6,
+   "wheels": [
+    {
+     "stock": "wheel_artillery",
+     "at": [
+      1.2,
+      0.38,
+      -0.67
+     ],
+     "radius": 0.38,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_artillery",
+     "at": [
+      1.2,
+      0.38,
+      0.67
+     ],
+     "radius": 0.38,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_artillery",
+     "at": [
+      -1.34,
+      0.38,
+      -0.67
+     ],
+     "radius": 0.38,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_artillery",
+     "at": [
+      -1.34,
+      0.38,
+      0.67
+     ],
+     "radius": 0.38,
+     "width": 1.0
+    }
+   ],
+   "horse": null,
+   "figures": [
+    [
+     -0.35,
+     1.05,
+     -0.33
+    ]
+   ],
+   "voice": "motor"
+  },
+  {
+   "id": "checker_cab",
+   "stock": "checker_cab",
+   "weight": 12,
+   "speed": [
+    5.0,
+    7.2
+   ],
+   "paint": [
+    [
+     0.58,
+     0.46,
+     0.16
+    ],
+    [
+     0.18,
+     0.3,
+     0.2
+    ],
+    [
+     0.42,
+     0.13,
+     0.11
+    ],
+    [
+     0.62,
+     0.52,
+     0.22
+    ]
+   ],
+   "extent": [
+    -2.45,
+    2.18
+   ],
+   "width": 1.84,
+   "wheels": [
+    {
+     "stock": "wheel_disc",
+     "at": [
+      1.62,
+      0.39,
+      -0.74
+     ],
+     "radius": 0.39,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      1.62,
+      0.39,
+      0.74
+     ],
+     "radius": 0.39,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.6,
+      0.39,
+      -0.74
+     ],
+     "radius": 0.39,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.6,
+      0.39,
+      0.74
+     ],
+     "radius": 0.39,
+     "width": 1.0
+    }
+   ],
+   "horse": null,
+   "figures": [],
+   "voice": "motor"
+  },
+  {
+   "id": "aa_stake",
+   "stock": "aa_stake",
+   "weight": 9,
+   "speed": [
+    4.4,
+    6.2
+   ],
+   "paint": [
+    [
+     0.2,
+     0.26,
+     0.21
+    ],
+    [
+     0.3,
+     0.18,
+     0.13
+    ],
+    [
+     0.22,
+     0.22,
+     0.28
+    ],
+    [
+     0.36,
+     0.31,
+     0.22
+    ]
+   ],
+   "extent": [
+    -2.68,
+    2.36
+   ],
+   "width": 1.9,
+   "wheels": [
+    {
+     "stock": "wheel_disc",
+     "at": [
+      1.75,
+      0.42,
+      -0.74
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      1.75,
+      0.42,
+      0.74
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.59,
+      0.42,
+      -0.8
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.59,
+      0.42,
+      0.8
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    }
+   ],
+   "horse": null,
+   "figures": [],
+   "voice": "motor"
+  },
+  {
+   "id": "mack_ac",
+   "stock": "mack_ac",
+   "weight": 5,
+   "speed": [
+    3.6,
+    5.0
+   ],
+   "paint": [
+    [
+     0.25,
+     0.14,
+     0.11
+    ],
+    [
+     0.18,
+     0.2,
+     0.16
+    ]
+   ],
+   "extent": [
+    -3.3,
+    3.1
+   ],
+   "width": 2.0,
+   "wheels": [
+    {
+     "stock": "wheel_solid",
+     "at": [
+      2.25,
+      0.45,
+      -0.8
+     ],
+     "radius": 0.45,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_solid",
+     "at": [
+      2.25,
+      0.45,
+      0.8
+     ],
+     "radius": 0.45,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_solid",
+     "at": [
+      -1.6,
+      0.5,
+      -0.82
+     ],
+     "radius": 0.5,
+     "width": 1.7
+    },
+    {
+     "stock": "wheel_solid",
+     "at": [
+      -1.6,
+      0.5,
+      0.82
+     ],
+     "radius": 0.5,
+     "width": 1.7
+    }
+   ],
+   "horse": null,
+   "figures": [
+    [
+     0.12,
+     1.44,
+     -0.42
+    ]
+   ],
+   "voice": "heavy"
+  },
+  {
+   "id": "saloon_bus",
+   "stock": "saloon_bus",
+   "weight": 3,
+   "speed": [
+    4.2,
+    5.8
+   ],
+   "paint": [
+    [
+     0.38,
+     0.32,
+     0.2
+    ],
+    [
+     0.2,
+     0.27,
+     0.22
+    ]
+   ],
+   "extent": [
+    -4.05,
+    4.18
+   ],
+   "width": 2.4,
+   "wheels": [
+    {
+     "stock": "wheel_disc",
+     "at": [
+      2.9,
+      0.48,
+      -1.0
+     ],
+     "radius": 0.48,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      2.9,
+      0.48,
+      1.0
+     ],
+     "radius": 0.48,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.9,
+      0.48,
+      -1.0
+     ],
+     "radius": 0.48,
+     "width": 1.6
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.9,
+      0.48,
+      1.0
+     ],
+     "radius": 0.48,
+     "width": 1.6
+    }
+   ],
+   "horse": null,
+   "figures": [],
+   "voice": "heavy"
+  },
+  {
+   "id": "motorcycle",
+   "stock": "motorcycle",
+   "weight": 3,
+   "speed": [
+    5.6,
+    7.6
+   ],
+   "paint": [
+    [
+     0.42,
+     0.09,
+     0.07
+    ],
+    [
+     0.2,
+     0.22,
+     0.26
+    ]
+   ],
+   "extent": [
+    -1.05,
+    0.9
+   ],
+   "width": 1.3,
+   "wheels": [
+    {
+     "stock": "wheel_wire",
+     "at": [
+      0.72,
+      0.34,
+      0
+     ],
+     "radius": 0.34,
+     "width": 0.5
+    },
+    {
+     "stock": "wheel_wire",
+     "at": [
+      -0.72,
+      0.34,
+      0
+     ],
+     "radius": 0.34,
+     "width": 0.5
+    },
+    {
+     "stock": "wheel_wire",
+     "at": [
+      -0.3,
+      0.31,
+      1.05
+     ],
+     "radius": 0.31,
+     "width": 0.5
+    }
+   ],
+   "horse": null,
+   "figures": [
+    [
+     -0.28,
+     1.0,
+     0
+    ]
+   ],
+   "voice": "motor"
+  },
+  {
+   "id": "ice_wagon",
+   "stock": "ice_wagon",
+   "weight": 9,
+   "speed": [
+    2.4,
+    3.4
+   ],
+   "paint": [
+    [
+     0.62,
+     0.58,
+     0.45
+    ],
+    [
+     0.3,
+     0.42,
+     0.4
+    ],
+    [
+     0.55,
+     0.48,
+     0.25
+    ]
+   ],
+   "extent": [
+    -1.75,
+    4.05
+   ],
+   "width": 1.7,
+   "wheels": [
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.95,
+      0.42,
+      -0.75
+     ],
+     "radius": 0.42,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.95,
+      0.42,
+      0.75
+     ],
+     "radius": 0.42,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      -1.05,
+      0.42,
+      -0.75
+     ],
+     "radius": 0.42,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      -1.05,
+      0.42,
+      0.75
+     ],
+     "radius": 0.42,
+     "width": 1.0
+    }
+   ],
+   "horse": {
+    "at": [
+     2.55,
+     0,
+     0
+    ],
+    "scale": 1.0,
+    "legs": [
+     [
+      0.55,
+      1.12,
+      -0.19
+     ],
+     [
+      0.55,
+      1.12,
+      0.19
+     ],
+     [
+      -0.52,
+      1.12,
+      -0.2
+     ],
+     [
+      -0.52,
+      1.12,
+      0.2
+     ]
+    ]
+   },
+   "figures": [
+    [
+     1.05,
+     1.53,
+     -0.25
+    ]
+   ],
+   "voice": "hooves"
+  },
+  {
+   "id": "coal_cart",
+   "stock": "coal_cart",
+   "weight": 7,
+   "speed": [
+    2.2,
+    3.2
+   ],
+   "paint": [
+    [
+     0.25,
+     0.14,
+     0.11
+    ],
+    [
+     0.18,
+     0.2,
+     0.16
+    ]
+   ],
+   "extent": [
+    -1.8,
+    4.1
+   ],
+   "width": 1.6,
+   "wheels": [
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.85,
+      0.42,
+      -0.75
+     ],
+     "radius": 0.42,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.85,
+      0.42,
+      0.75
+     ],
+     "radius": 0.42,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      -0.95,
+      0.5,
+      -0.75
+     ],
+     "radius": 0.5,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      -0.95,
+      0.5,
+      0.75
+     ],
+     "radius": 0.5,
+     "width": 1.0
+    }
+   ],
+   "horse": {
+    "at": [
+     2.6,
+     0,
+     0
+    ],
+    "scale": 1.08,
+    "legs": [
+     [
+      0.55,
+      1.12,
+      -0.19
+     ],
+     [
+      0.55,
+      1.12,
+      0.19
+     ],
+     [
+      -0.52,
+      1.12,
+      -0.2
+     ],
+     [
+      -0.52,
+      1.12,
+      0.2
+     ]
+    ]
+   },
+   "figures": [
+    [
+     1.0,
+     1.72,
+     -0.25
+    ]
+   ],
+   "voice": "hooves"
+  },
+  {
+   "id": "milk_wagon",
+   "stock": "milk_wagon",
+   "weight": 6,
+   "speed": [
+    2.2,
+    3.0
+   ],
+   "paint": [
+    [
+     0.7,
+     0.68,
+     0.62
+    ],
+    [
+     0.62,
+     0.6,
+     0.52
+    ]
+   ],
+   "extent": [
+    -1.5,
+    3.85
+   ],
+   "width": 1.5,
+   "wheels": [
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.75,
+      0.36,
+      -0.69
+     ],
+     "radius": 0.36,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.75,
+      0.36,
+      0.69
+     ],
+     "radius": 0.36,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      -0.85,
+      0.48,
+      -0.69
+     ],
+     "radius": 0.48,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      -0.85,
+      0.48,
+      0.69
+     ],
+     "radius": 0.48,
+     "width": 1.0
+    }
+   ],
+   "horse": {
+    "at": [
+     2.35,
+     0,
+     0
+    ],
+    "scale": 0.95,
+    "legs": [
+     [
+      0.55,
+      1.12,
+      -0.19
+     ],
+     [
+      0.55,
+      1.12,
+      0.19
+     ],
+     [
+      -0.52,
+      1.12,
+      -0.2
+     ],
+     [
+      -0.52,
+      1.12,
+      0.2
+     ]
+    ]
+   },
+   "figures": [
+    [
+     0.78,
+     1.15,
+     -0.15
+    ]
+   ],
+   "voice": "hooves"
+  },
+  {
+   "id": "milk_wagon_riderless",
+   "stock": "milk_wagon",
+   "weight": 1.5,
+   "speed": [
+    1.8,
+    2.4
+   ],
+   "paint": [
+    [
+     0.7,
+     0.68,
+     0.62
+    ],
+    [
+     0.62,
+     0.6,
+     0.52
+    ]
+   ],
+   "extent": [
+    -1.5,
+    3.85
+   ],
+   "width": 1.5,
+   "wheels": [
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.75,
+      0.36,
+      -0.69
+     ],
+     "radius": 0.36,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.75,
+      0.36,
+      0.69
+     ],
+     "radius": 0.36,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      -0.85,
+      0.48,
+      -0.69
+     ],
+     "radius": 0.48,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      -0.85,
+      0.48,
+      0.69
+     ],
+     "radius": 0.48,
+     "width": 1.0
+    }
+   ],
+   "horse": {
+    "at": [
+     2.35,
+     0,
+     0
+    ],
+    "scale": 0.95,
+    "legs": [
+     [
+      0.55,
+      1.12,
+      -0.19
+     ],
+     [
+      0.55,
+      1.12,
+      0.19
+     ],
+     [
+      -0.52,
+      1.12,
+      -0.2
+     ],
+     [
+      -0.52,
+      1.12,
+      0.2
+     ]
+    ]
+   },
+   "figures": [],
+   "voice": "hooves"
+  },
+  {
+   "id": "valve_wagon",
+   "stock": "valve_wagon",
+   "weight": 3,
+   "speed": [
+    2.4,
+    3.2
+   ],
+   "paint": [
+    [
+     0.2,
+     0.26,
+     0.21
+    ],
+    [
+     0.3,
+     0.18,
+     0.13
+    ],
+    [
+     0.22,
+     0.22,
+     0.28
+    ],
+    [
+     0.36,
+     0.31,
+     0.22
+    ]
+   ],
+   "extent": [
+    -1.55,
+    3.7
+   ],
+   "width": 1.5,
+   "wheels": [
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.8,
+      0.42,
+      -0.73
+     ],
+     "radius": 0.42,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.8,
+      0.42,
+      0.73
+     ],
+     "radius": 0.42,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      -0.95,
+      0.5,
+      -0.73
+     ],
+     "radius": 0.5,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      -0.95,
+      0.5,
+      0.73
+     ],
+     "radius": 0.5,
+     "width": 1.0
+    }
+   ],
+   "horse": {
+    "at": [
+     2.3,
+     0,
+     0
+    ],
+    "scale": 0.92,
+    "legs": [
+     [
+      0.55,
+      1.12,
+      -0.19
+     ],
+     [
+      0.55,
+      1.12,
+      0.19
+     ],
+     [
+      -0.52,
+      1.12,
+      -0.2
+     ],
+     [
+      -0.52,
+      1.12,
+      0.2
+     ]
+    ]
+   },
+   "figures": [
+    [
+     0.6,
+     1.47,
+     -0.25
+    ]
+   ],
+   "voice": "hooves"
+  },
+  {
+   "id": "line_truck",
+   "stock": "line_truck",
+   "weight": 2.5,
+   "speed": [
+    4.2,
+    5.8
+   ],
+   "paint": [
+    [
+     0.16,
+     0.2,
+     0.17
+    ],
+    [
+     0.24,
+     0.2,
+     0.13
+    ]
+   ],
+   "extent": [
+    -2.75,
+    2.36
+   ],
+   "width": 1.9,
+   "wheels": [
+    {
+     "stock": "wheel_disc",
+     "at": [
+      1.75,
+      0.42,
+      -0.74
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      1.75,
+      0.42,
+      0.74
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.59,
+      0.42,
+      -0.8
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.59,
+      0.42,
+      0.8
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    }
+   ],
+   "horse": null,
+   "figures": [],
+   "voice": "motor"
+  },
+  {
+   "id": "sound_wagon",
+   "stock": "sound_wagon",
+   "weight": 1.5,
+   "speed": [
+    3.8,
+    5.0
+   ],
+   "paint": [
+    [
+     0.1,
+     0.16,
+     0.14
+    ]
+   ],
+   "extent": [
+    -3.0,
+    2.36
+   ],
+   "width": 1.9,
+   "wheels": [
+    {
+     "stock": "wheel_disc",
+     "at": [
+      1.75,
+      0.42,
+      -0.74
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      1.75,
+      0.42,
+      0.74
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.59,
+      0.42,
+      -0.8
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    },
+    {
+     "stock": "wheel_disc",
+     "at": [
+      -1.59,
+      0.42,
+      0.8
+     ],
+     "radius": 0.42,
+     "width": 1.5
+    }
+   ],
+   "horse": null,
+   "figures": [],
+   "voice": "motor"
+  },
+  {
+   "id": "broadcast_car",
+   "stock": "broadcast_car",
+   "weight": 1.5,
+   "speed": [
+    4.6,
+    6.4
+   ],
+   "paint": [
+    [
+     0.3,
+     0.1,
+     0.1
+    ]
+   ],
+   "extent": [
+    -2.05,
+    1.95
+   ],
+   "width": 1.72,
+   "wheels": [
+    {
+     "stock": "wheel_wire",
+     "at": [
+      1.31,
+      0.37,
+      -0.71
+     ],
+     "radius": 0.37,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wire",
+     "at": [
+      1.31,
+      0.37,
+      0.71
+     ],
+     "radius": 0.37,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wire",
+     "at": [
+      -1.32,
+      0.37,
+      -0.71
+     ],
+     "radius": 0.37,
+     "width": 1.0
+    },
+    {
+     "stock": "wheel_wire",
+     "at": [
+      -1.32,
+      0.37,
+      0.71
+     ],
+     "radius": 0.37,
+     "width": 1.0
+    }
+   ],
+   "horse": null,
+   "figures": [],
+   "voice": "motor"
+  }
+ ],
+ "parked": [
+  {
+   "stock": "pushcart",
+   "x": -12.4,
+   "z": 5.42,
+   "yaw_degrees": 180.0,
+   "extent": [
+    -1.6,
+    0.9
+   ],
+   "width": 0.9,
+   "wheels": [
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.75,
+      0.45,
+      -0.48
+     ],
+     "radius": 0.45,
+     "width": 0.8
+    },
+    {
+     "stock": "wheel_wagon",
+     "at": [
+      0.75,
+      0.45,
+      0.48
+     ],
+     "radius": 0.45,
+     "width": 0.8
+    }
+   ]
+  }
+ ],
+ "horse_coats": [
+  [
+   0.42,
+   0.26,
+   0.15
+  ],
+  [
+   0.2,
+   0.14,
+   0.1
+  ],
+  [
+   0.55,
+   0.52,
+   0.48
+  ],
+  [
+   0.12,
+   0.1,
+   0.09
+  ],
+  [
+   0.48,
+   0.32,
+   0.18
+  ]
+ ]
+}

@@ -761,7 +761,7 @@ func _shove(v: Dictionary) -> void:
 ## Forge a loop. `hooved` gives the rhythmic strike of a walking horse over the
 ## rumble; otherwise it is a motor firing unevenly, which is what a 1928 engine
 ## sounded like and is also easier to judge distance from than a smooth note.
-func _forge(seconds: float, hooved: bool) -> AudioStreamWAV:
+static func _forge(seconds: float, hooved: bool) -> AudioStreamWAV:
 	var rate := 22050
 	var n := int(rate * seconds)
 	var rng := RandomNumberGenerator.new()

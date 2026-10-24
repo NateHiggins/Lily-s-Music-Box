@@ -1,0 +1,135 @@
+{
+ "evidence_class": "INERT",
+ "source": "art/blender/scripts/build_v2_period_traffic.py",
+ "design": "design/V2_PERIOD_TRAFFIC_2026-10-24.md",
+ "runtime_table": "game/data/orison_v2/exterior/street_traffic.json",
+ "export_proof": {
+  "primitives": 167,
+  "triangles": 25004,
+  "minimum_tangent_agreement": 0.9999999603127512,
+  "status": "PASS"
+ },
+ "stocks": [
+  {
+   "id": "model_a_tudor",
+   "stock": "model_a_tudor",
+   "signal": false,
+   "period": "Ford Model A Tudor, introduced December 1927; the new car on the street."
+  },
+  {
+   "id": "model_t_touring",
+   "stock": "model_t_touring",
+   "signal": false,
+   "period": "Ford Model T touring, production ended May 1927; second-hand and everywhere."
+  },
+  {
+   "id": "checker_cab",
+   "stock": "checker_cab",
+   "signal": true,
+   "period": "Checker Model K, October 1928. The garage dispatch receiver and roof loop are the signal."
+  },
+  {
+   "id": "aa_stake",
+   "stock": "aa_stake",
+   "signal": false,
+   "period": "Ford Model AA 1.5-ton stake truck, 1928."
+  },
+  {
+   "id": "mack_ac",
+   "stock": "mack_ac",
+   "signal": false,
+   "period": "Mack AC 'Bulldog', chain drive, solid tyres; a Vernon Avenue yard coal dumper."
+  },
+  {
+   "id": "saloon_bus",
+   "stock": "saloon_bus",
+   "signal": false,
+   "period": "Single-deck saloon bus of a private Queens franchise line; buses began replacing trolleys from 1926."
+  },
+  {
+   "id": "motorcycle",
+   "stock": "motorcycle",
+   "signal": false,
+   "period": "Indian Scout with sidecar."
+  },
+  {
+   "id": "ice_wagon",
+   "stock": "ice_wagon",
+   "signal": false,
+   "period": "Ice wagon of the Flushing Bay, Bowery Bay or Astoria companies; horse-drawn into the 1930s."
+  },
+  {
+   "id": "coal_cart",
+   "stock": "coal_cart",
+   "signal": false,
+   "period": "Coal wagon behind a Percheron, a Vernon Avenue yard horse."
+  },
+  {
+   "id": "milk_wagon",
+   "stock": "milk_wagon",
+   "signal": false,
+   "period": "Douglaston dairy route wagon; milk stayed horse-drawn until the late 1930s."
+  },
+  {
+   "id": "milk_wagon_riderless",
+   "stock": "milk_wagon",
+   "signal": false,
+   "period": "The same wagon with nobody on it. Period-correct and never acknowledged."
+  },
+  {
+   "id": "valve_wagon",
+   "stock": "valve_wagon",
+   "signal": true,
+   "period": "A horse delivering the Hollander receiver's salvaged valves in lots of six hundred."
+  },
+  {
+   "id": "line_truck",
+   "stock": "line_truck",
+   "signal": true,
+   "period": "New York Telephone line truck on an AA chassis: silk-braided pair on a timber reel, a live test set."
+  },
+  {
+   "id": "sound_wagon",
+   "stock": "sound_wagon",
+   "signal": true,
+   "period": "Police Department sound wagon (Captain Galvin's): it records the street as it drives."
+  },
+  {
+   "id": "broadcast_car",
+   "stock": "broadcast_car",
+   "signal": true,
+   "period": "The Record's remote car: cage aerial, pickup horn and its own wet cells."
+  },
+  {
+   "id": "pushcart",
+   "stock": "pushcart",
+   "signal": false,
+   "period": "Peddler's pushcart left at the kerb."
+  }
+ ],
+ "triangles": {
+  "wheel_wagon": 732,
+  "wheel_artillery": 938,
+  "wheel_wire": 1044,
+  "wheel_disc": 850,
+  "wheel_solid": 652,
+  "horse_body": 1256,
+  "horse_leg": 340,
+  "figure": 1258,
+  "ice_wagon": 804,
+  "coal_cart": 712,
+  "milk_wagon": 732,
+  "valve_wagon": 1088,
+  "pushcart": 356,
+  "model_a_tudor": 1404,
+  "broadcast_car": 1926,
+  "model_t_touring": 1016,
+  "checker_cab": 1402,
+  "aa_stake": 1132,
+  "line_truck": 1756,
+  "sound_wagon": 2388,
+  "mack_ac": 1156,
+  "saloon_bus": 1120,
+  "motorcycle": 942
+ }
+}
