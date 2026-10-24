@@ -23,12 +23,26 @@ func _ready() -> void:
 	offline.queue_free()
 	GameBoot.settings.weather_network_enabled = previous_network
 	var source := FileAccess.get_file_as_string(
-			"res://scripts/building/live_weather_service.gd")
+			"res://scripts/building/live_weather_service.gd").replace("\r\n","\n")
 	_check(source.contains("func _begin_request(stage: String, url: String)")
 			and source.contains("_awaiting = \"\"\n\t_fail(")
 			and source.count("return _begin_request(") == 3
 			and source.contains("stage == \"weather\".\n\t\treturn"),
 			"request stages release failure gates and never cross-parse their bodies")
+	var api_payload:={"main":{"temp":8.0,"humidity":82.0,"sea_level":1026.0},"wind":{"speed":2.0,"deg":285.0},"clouds":{"all":40.0},"weather":[{"id":615}]}
+	var api:=WeatherServiceScript.presentation(WeatherServiceScript.parse_openweather(api_payload))
+	_check(int(api.get("provider_weather_id",-1))==615 and is_equal_approx(float(api.get("pressure_hpa",0.0)),1026.0) and float(api.get("rain_intensity",0.0))>0.0,
+		"provider condition and sea-level pressure survive normalized presentation")
+	api_payload.weather[0].id=602
+	api=WeatherServiceScript.presentation(WeatherServiceScript.parse_openweather(api_payload))
+	_check(is_equal_approx(float(api.get("snow_intensity",0.0)),1.0) and is_zero_approx(float(api.get("rain_intensity",1.0))),
+		"explicit heavy-snow condition without optional1h amount still drives snow and whiteout")
+	api_payload.weather[0].id=511
+	api=WeatherServiceScript.presentation(WeatherServiceScript.parse_openweather(api_payload))
+	_check(float(api.get("rain_intensity",0.0))>0.0 and is_zero_approx(float(api.get("snow_intensity",1.0))),
+		"freezing-rain provider condition stays liquid rather than becoming sleet")
+	api_payload.main.sea_level="invalid"
+	_check(WeatherServiceScript.parse_openweather(api_payload).is_empty(),"malformed pressure cannot enter the weather state")
 	var queens_url: String = WeatherServiceScript.weather_url(
 			WeatherServiceScript.QUEENS.latitude,
 			WeatherServiceScript.QUEENS.longitude)

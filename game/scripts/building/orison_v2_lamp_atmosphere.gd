@@ -142,7 +142,9 @@ func _update_environment(useful: bool) -> void:
 	# Release the full-screen froxel pass when our only volume is inactive.
 	# An environment that already owned fog must retain that independent pass.
 	if _environment != null:
-		_environment.volumetric_fog_enabled = useful or bool(_environment_before.enabled)
+		_environment.set_meta("carried_lamp_volume_active",useful)
+		_environment.volumetric_fog_enabled = useful or bool(_environment_before.enabled) or bool(_environment.get_meta("outdoor_weather_active",false))
+		_environment.volumetric_fog_length=96.0 if bool(_environment.get_meta("outdoor_weather_active",false)) else 12.0
 
 func _build_dust() -> void:
 	particles = GPUParticles3D.new()
@@ -181,7 +183,8 @@ func _exit_tree() -> void:
 		receivers.dispose()
 		receivers = null
 	if _environment != null:
-		_environment.volumetric_fog_enabled = bool(_environment_before.enabled)
+		_environment.set_meta("carried_lamp_volume_active",false)
+		_environment.volumetric_fog_enabled = bool(_environment_before.enabled) or bool(_environment.get_meta("outdoor_weather_active",false))
 		_environment.volumetric_fog_density = float(_environment_before.density)
 		_environment.volumetric_fog_length = float(_environment_before.length)
 		_environment = null

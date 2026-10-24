@@ -25,12 +25,18 @@ var _wind_offset := Vector3.ZERO
 var _before_taa := false
 var _owns_taa := false
 var _frame := 0
+var extreme_weather: RefCounted
+var _extreme_events: Dictionary={}
 
 func configure(owner_clock: CampaignClock, owner_director: DayNightDirector,
 		material: ShaderMaterial, owner_effects: WeatherFX = null) -> void:
 	clock=owner_clock; director=owner_director; sky=material; effects=owner_effects
 	current=Service.presentation(seasonal_snapshot(clock.local_datetime()))
 	target=current.duplicate(true); origin=current.duplicate(true)
+	if RenderingServer.get_current_rendering_method()=="forward_plus" and OS.get_environment("WEATHER_SKY_BASELINE")!="1":
+		extreme_weather=preload("res://scripts/building/queens_weather_extension.gd").new()
+		director.set("extreme_weather",extreme_weather)
+		if effects!=null:effects.set("extreme_weather",extreme_weather)
 
 func _ready() -> void:
 	if clock == null or sky == null: set_process(false); return
@@ -47,6 +53,7 @@ func _ready() -> void:
 	_publish()
 
 func _exit_tree() -> void:
+	if extreme_weather!=null:RenderingServer.global_shader_parameter_set("wetness",0.0)
 	if _owns_taa and is_instance_valid(get_viewport()): get_viewport().use_taa=_before_taa
 
 static func seasonal_snapshot(date: Dictionary) -> Dictionary:
@@ -59,7 +66,7 @@ static func seasonal_snapshot(date: Dictionary) -> Dictionary:
 		"cloud_total":cover,"cloud_low":cover*season.dot(Vector4(1,.75,.75,.20)),
 		"cloud_mid":cover*.45,"cloud_high":cover*season.dot(Vector4(.12,.20,.17,1.0)),
 		"wind_speed_kmh":season.dot(Vector4(9,22,12,24)),"wind_direction_degrees":285.0,
-		"wind_gusts_kmh":28.0,"precipitation_mm":0.0,"rain_mm":0.0,"showers_mm":0.0,"snowfall_cm":0.0}
+		"wind_gusts_kmh":28.0,"pressure_hpa":1024.0,"precipitation_mm":0.0,"rain_mm":0.0,"showers_mm":0.0,"snowfall_cm":0.0}
 
 static func season_weights(month: int, day: int = 15) -> Vector4:
 	# Calendar art direction changes gradually over the shoulders of each season.
@@ -111,14 +118,20 @@ func _process(delta: float) -> void:
 	var wind_direction := Vector3(-sin(bearing),0,cos(bearing))
 	# km, accumulated rather than TIME*speed: new observations cannot jump clouds.
 	_wind_offset+=wind_direction*float(current.get("wind_speed_kmh",0))/3600.0*delta
-	if RenderingServer.get_current_rendering_method()=="forward_plus":
+	var animate:=true
+	if extreme_weather!=null:
+		animate=extreme_weather.advance(delta)
+		if animate and effects!=null and is_instance_valid(effects._player):
+			var camera:=get_viewport().get_camera_3d()
+			extreme_weather.publish(sky,camera.global_position if camera!=null else effects._player.global_position,effects.get("air_material"))
+	if RenderingServer.get_current_rendering_method()=="forward_plus" and animate:
 		_frame=(_frame+1)%128
 		sky.set_shader_parameter("temporal_phase",float(_frame) if get_viewport().use_taa else 0.0)
 		sky.set_shader_parameter("wind_offset",_wind_offset)
 		sky.set_shader_parameter("shape_kind",_shape)
 		sky.set_shader_parameter("shape_opacity",smoothstep(0,90,_shape_age)*(1.0-smoothstep(720,900,_shape_age)))
 		if effects!=null and effects.get("air_material")!=null:
-			effects.air_material.set_shader_parameter("wind_offset",_wind_offset)
+			if extreme_weather==null:effects.air_material.set_shader_parameter("wind_offset",_wind_offset)
 	_publish_left-=delta
 	if _publish_left<=0.0: _publish_left=1.0; _publish()
 
@@ -126,6 +139,10 @@ func _publish() -> void:
 	var date := clock.local_datetime()
 	var weights := season_weights(int(date.get("month",11)),int(date.get("day",date.get("day_of_month",15))))
 	current["season_weights"]=weights
+	if extreme_weather!=null:
+		var identity:="%04d-%02d-%02d"%[date.get("year",1928),date.get("month",11),date.get("day",date.get("day_of_month",10))]
+		var seed_value:=int(OS.get_environment("WEATHER_SEED")) if OS.get_environment("WEATHER_SEED").is_valid_int() else 1928
+		extreme_weather.receive_conditions(current,identity,seed_value,_extreme_events)
 	director.set_live_conditions(current)
 	if effects != null: effects.set_live_conditions(current)
 	if RenderingServer.get_current_rendering_method()=="forward_plus":
@@ -133,4 +150,13 @@ func _publish() -> void:
 		sky.set_shader_parameter("humidity",float(current.get("relative_humidity",.5)))
 		sky.set_shader_parameter("storm_strength",float(current.get("precipitation_intensity",0)))
 	conditions_changed.emit(current.duplicate(true))
+
+func set_extreme_event(event: Dictionary) -> bool:
+	# Authored coastal-storm/alert adapter. The existing weather owner remains
+	# authoritative; arbitrary descriptions never become tornado forecasts.
+	for key: Variant in event:
+		if key not in ["hail","tornado","cyclone","severe_storm_threat"]:return false
+		if typeof(event[key]) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(event[key])) or float(event[key])<0.0 or float(event[key])>1.0:return false
+	_extreme_events=event.duplicate(true)
+	return true
 

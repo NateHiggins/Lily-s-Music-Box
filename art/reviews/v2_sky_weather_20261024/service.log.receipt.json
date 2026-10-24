@@ -1,0 +1,65 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 1.35,
+  "exit_code": 1,
+  "finished_utc": "2026-10-24T18:14:42Z",
+  "started_utc": "2026-10-24T18:14:41Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 2,
+  "fail_lines": [
+   "[WEATHER SERVICE FAIL] request stages release failure gates and never cross-parse their bodies",
+   "[LIVE WEATHER SERVICE] RESULT: FAIL (1 failures)"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/sky_integration_v3/service.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2integration24/sky_integration_v3/service.log",
+  "stdout_sha256": "a888a3ea0aae33fb8194613c7a3345b2ae98d4430717ff61ef7cbf307a6d65c5"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/LiveWeatherServiceTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/v2integration24/sky_integration_v3/service",
+ "source": {
+  "dirty_paths": 2199,
+  "dirty_sample": [
+   "M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
+   " M game/assets/audio/music/covers/living_with_the_motor.webp.import",
+   " M game/assets/audio/music/covers/mina_s_midday_quest.webp.import",
+   " M game/assets/audio/music/covers/no_subject_line.webp.import",
+   " M game/assets/audio/music/covers/paper_sleep.webp.import"
+  ],
+  "repository_head": "93eb80fdd77c3b098ee29c2723cacba7c41e3927",
+  "repository_tree": "4b33f56ad04832ef7c19f5581548b58e98b36d4c",
+  "runtime_inputs_sha256": "986ac846d8a1a756fdb809e3098a6d93ddcf425f9a996132ce616cce8dd174dd",
+  "test_path": "game/tests/live_weather_service_test.gd",
+  "test_sha256": "2b0767344f642b0dbb72ab352adf7cd8922ed728f36621c4e1ec4aae2a3bebd7"
+ },
+ "windowed": true
+}

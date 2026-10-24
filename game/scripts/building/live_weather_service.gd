@@ -203,11 +203,24 @@ static func presentation(snapshot: Dictionary) -> Dictionary:
 	elif weather_code in LIQUID_WEATHER_CODES:
 		liquid = maxf(liquid, reported_total)
 	precipitation = maxf(precipitation, snowfall)
+	var provider_id:=int(snapshot.get("provider_weather_id",-1))
+	# An explicit OpenWeather precipitation condition is itself an observation
+	# when its optional1h amount is absent. WMO zero observations keep their
+	# existing dry semantics; the manager, glass and particles share this result.
+	if provider_id in [611,612,613,615,616]:
+		liquid=maxf(liquid,.65)
+	elif provider_id>=600 and provider_id<700:
+		snowfall=maxf(snowfall,2.5 if provider_id in [602,622] else .65)
+	elif (provider_id>=200 and provider_id<400) or (provider_id>=500 and provider_id<600):
+		liquid=maxf(liquid,2.5 if provider_id in [202,212,232,502,503,504,522] else .65)
+	precipitation=maxf(precipitation,maxf(liquid,snowfall))
 	var location: Dictionary = snapshot.get("location", {})
 	return {
 		"latitude": float(location.get("latitude", QUEENS.latitude)),
 		"longitude": float(location.get("longitude", QUEENS.longitude)),
 		"weather_code": weather_code,
+		"provider_weather_id": int(snapshot.get("provider_weather_id",-1)),
+		"pressure_hpa": clampf(float(snapshot.get("pressure_hpa",1013.0)),850.0,1100.0),
 		"thunderstorm": weather_code in [95, 96, 99],
 		"hailing": weather_code in [96, 99] and reported_total > 0.02,
 		"foggy": weather_code in [45, 48],
@@ -351,8 +364,11 @@ static func parse_openweather(payload: Variant) -> Dictionary:
 		if key == "rain": rain = maxf(0.0,float(value))
 		else: snow = maxf(0.0,float(value))
 	var cover := clampf(float(payload.clouds.all)/100.0,0.0,1.0)
+	var pressure: Variant=payload.main.get("sea_level",payload.main.get("pressure",1013.0))
+	if typeof(pressure) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(pressure)):return {}
 	return {"source":"openweathermap","observed_at":str(payload.get("dt","")),
 		"location":QUEENS.duplicate(true),"weather_code":code,"provider_weather_id":identity,
+		"pressure_hpa":clampf(float(pressure),850.0,1100.0),
 		"temperature_c":float(payload.main.temp),"relative_humidity":clampf(float(payload.main.humidity),0.0,100.0),
 		"cloud_total":cover,"cloud_low":cover*.80,"cloud_mid":cover*.65,"cloud_high":cover*.35,
 		"wind_speed_kmh":clampf(float(payload.wind.speed)*3.6,0.0,432.0),

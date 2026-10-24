@@ -8,9 +8,12 @@ func _route() -> void:
 	for point in [Vector3(0,0,3), Vector3(-10,0,3), Vector3(-19.2,0,3)]:
 		if not await _walk(world.adapter.root.to_local(point)): return
 	await _shot("west_timber", Vector3(-20.1,1.2,3))
-	var boundary := world.get_node("StreetBoundaries/RetainedStreetEnds/StreetEndWeatherBoundary")
-	for identity in ["WestNorthWorks", "WestStormCore", "WestSouthWorks"]:
+	var boundary := world.get_node("StreetBoundaries/RetainedStreetEnds/StreetEndConstructionBoundary")
+	for identity in ["WestNorthWorks", "WestSouthWorks"]:
 		if not boundary.has_node(identity): failures.append("retained west span " + identity)
+	for identity in ["WestStormCore","EastStormCore"]:
+		if boundary.has_node(identity):failures.append("retired road fog still owns an invisible collision span: "+identity)
+	if not world.find_children("StormCurtain_*","MeshInstance3D",true,false).is_empty():failures.append("placeholder road-end fog cards still enter V2")
 	if boundary.has_node("EastNorthWorks"): failures.append("east pavement remains blocked")
 	var ray := PhysicsRayQueryParameters3D.create(Vector3(-19.2,1.2,3),Vector3(-21,1.2,3))
 	if world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty():

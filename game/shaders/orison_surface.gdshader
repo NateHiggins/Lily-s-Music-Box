@@ -9,6 +9,8 @@ render_mode cull_back, depth_draw_opaque, diffuse_burley, specular_schlick_ggx;
 // path is paid only where the surface really has holes.
 
 #include "res://shaders/orison_surface.gdshaderinc"
+#include "res://shaders/queens_surface_wetness.gdshaderinc"
+uniform float weather_exposure : hint_range(0.0,1.0) = 0.0;
 
 void vertex() {
 	v_world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
@@ -21,6 +23,9 @@ void fragment() {
 	ALBEDO = s.albedo;
 	NORMAL = s.normal;
 	ROUGHNESS = s.rough;
+	float wet_specular=0.5;
+	wx_apply_wetness(ALBEDO,ROUGHNESS,wet_specular,weather_exposure);
+	SPECULAR=wet_specular;
 	METALLIC = s.metal;
 	AO = s.ao;
 	AO_LIGHT_AFFECT = ao_light_affect;

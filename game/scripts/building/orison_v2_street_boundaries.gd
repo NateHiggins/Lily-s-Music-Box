@@ -1,7 +1,7 @@
 extends Node3D
-## The retained western weather boundary and eastern expansion dogleg share
+## The retained pavement works and eastern expansion dogleg share
 ## the same normalized front-door frame as the street and Passage.
-const Detail := preload("res://scripts/building/exterior_detail_pass.gd")
+const Detail := preload("res://scripts/building/v2_street_end_details.gd")
 const SOURCE := "res://data/orison_v2/exterior/construction_shed.json"
 const NATIVE := "res://assets/props/construction_shed.glb"
 const NATIVE_ORIGIN := Vector3(22.25,0,0)

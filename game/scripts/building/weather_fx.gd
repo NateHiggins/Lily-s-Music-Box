@@ -47,6 +47,7 @@ var _lightning_enabled := false
 var _rain_intensity := 1.0
 var _snow_intensity := 0.0
 var _live_conditions: Dictionary = {}
+var extreme_weather: RefCounted
 
 
 func setup(player: Node3D, exposure_query := Callable(),
@@ -63,6 +64,12 @@ func _ready() -> void:
 	_rng.seed = _seed
 	_rain_enabled = OS.get_environment("WEATHER_RAIN") != "0"
 	_mist_enabled = OS.get_environment("WEATHER_MIST") != "0"
+	_build_precipitation()
+	_lightning = Node3D.new()
+	_lightning.name = "DistantLightning"
+	add_child(_lightning)
+
+func _build_precipitation() -> void:
 	_splash = _make_splash()
 	add_child(_splash)
 	_leaves = _make_leaves()
@@ -75,9 +82,6 @@ func _ready() -> void:
 	add_child(_middle_rain)
 	_road_mist = _make_road_mist()
 	add_child(_road_mist)
-	_lightning = Node3D.new()
-	_lightning.name = "DistantLightning"
-	add_child(_lightning)
 
 
 ## Wet ground is only convincing because it reflects. Compatibility has no

@@ -570,6 +570,8 @@ static func surface_for(original: BaseMaterial3D, recipe: Dictionary,
 	m.set_shader_parameter("mesh_uv_scale", Vector2(original.uv1_scale.x, original.uv1_scale.y))
 	m.set_shader_parameter("mesh_uv_offset", Vector2(original.uv1_offset.x, original.uv1_offset.y))
 	var base := base_key(key)
+	if base in ["asphalt","wet_asphalt","sidewalk_haunted"]:
+		m.set_shader_parameter("weather_exposure",1.0)
 	var calibrated: Dictionary = CALIBRATION.get(key, CALIBRATION.get(base, {}))
 	m.set_shader_parameter("tile_m", float(calibrated.get("tile_m", TILE_M.get(base, 1.0))))
 	if original.uv1_triplanar:

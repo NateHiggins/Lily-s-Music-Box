@@ -21,3 +21,19 @@ func _resolve_fog_profile(profile: Dictionary) -> void:
 	# Depth density is an opacity ceiling, not an extinction rate. Keep the
 	# distant ground seam fully extinguished; weather controls physical range.
 	profile.fog_d = 1.0
+	_env.volumetric_fog_enabled=bool(_env.get_meta("outdoor_weather_active",false)) or bool(_env.get_meta("carried_lamp_volume_active",false))
+	if extreme_weather!=null:
+		var span:=_span_at(_last_minute)
+		var fallback:=_source_direction(span.a.elevation,span.a.azimuth).slerp(_source_direction(span.b.elevation,span.b.azimuth),float(span.t)).normalized()
+		if _last_minute<=360.0 or _last_minute>=1110.0:fallback=-fallback
+		var sun: Vector3=profile.get("sun_direction",fallback)
+		var light: Dictionary=extreme_weather.lighting(profile.key,profile.key_e,profile.ambient,profile.ambient_e,sun)
+		profile.key=light.sun_color;profile.key_e=light.sun_energy
+		profile.ambient=light.ambient_color;profile.ambient_e=light.ambient_energy
+		_env.adjustment_enabled=true;_env.adjustment_saturation=float(light.saturation)
+		var whiteout:=smoothstep(.60,1.0,float(extreme_weather.weights.z))
+		var storm:=maxf(float(extreme_weather.cyclone),float(extreme_weather.threat)*.65)
+		var fog: Color=profile.fog
+		profile.fog=fog.lerp(Color(.17,.20,.24),storm*.70).lerp(Color(.78,.83,.88),whiteout)
+		profile.fog_begin=lerpf(float(profile.fog_begin),2.0,whiteout)
+		profile.fog_end=lerpf(float(profile.fog_end),24.0,whiteout)

@@ -62,7 +62,8 @@ func _ready() -> void:
 	if RenderingServer.get_current_rendering_method() == "forward_plus":
 		dome.visible = false
 		var hybrid := ShaderMaterial.new()
-		hybrid.shader = preload("res://shaders/v2_seasonal_sky.gdshader")
+		hybrid.shader = preload("res://shaders/queens_weather_sky.gdshader")
+		if OS.get_environment("WEATHER_SKY_BASELINE")=="1":hybrid.shader=preload("res://shaders/v2_seasonal_sky.gdshader")
 		hybrid.set_shader_parameter("panorama_a",panorama)
 		hybrid.set_shader_parameter("panorama_b",panorama)
 		hybrid.set_shader_parameter("moon_surface",load("res://assets/environment/lroc_color_poles_1k.jpg"))
@@ -89,6 +90,8 @@ func _ready() -> void:
 
 func bind_weather(world: Node3D) -> void:
 	var effects := preload("res://scripts/building/v2_weather_fx.gd").new()
+	effects.weather_environment=environment
+	effects.outdoor_air_frame=world.get_node("StreetBoundaries").global_transform
 	effects.name="WeatherFX"
 	effects.setup(world.player,Callable(effects,"exposed"),Callable(effects,"covered"))
 	world.add_child(effects)

@@ -50,6 +50,13 @@ window/size/viewport_height=720
 
 pointing/emulate_touch_from_mouse=true
 
+[shader_globals]
+
+wetness={
+"type": "float",
+"value": 0.0
+}
+
 [rendering]
 
 ; Owner ruling 2026-08-22 ("fuck compatibility, let's make it cool first"):

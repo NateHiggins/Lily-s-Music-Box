@@ -149,6 +149,7 @@ var _texture_b: Texture2D
 var _last_profile: Dictionary = {}
 var _live_conditions: Dictionary = {}
 var _campaign_clock: CampaignClock
+var extreme_weather: RefCounted
 
 
 func setup(root: Node3D, env: Environment, sky_key: DirectionalLight3D,
