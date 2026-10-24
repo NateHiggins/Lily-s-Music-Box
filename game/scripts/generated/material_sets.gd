@@ -103,6 +103,9 @@ const SETS := {
 	'iron_blackened': ["T_ai_materials_iron_blackened_albedo.png", "T_ai_materials_iron_blackened_rough.png", "T_ai_materials_iron_blackened_normal.png", 0.4, 0.55],
 	'billiard_resin': ["T_ai_materials_billiard_resin_albedo.png", "T_ai_materials_billiard_resin_rough.png", "T_ai_materials_billiard_resin_normal.png", 0.18, 0],
 	'smoked_plaster': ["T_ai_materials_smoked_plaster_albedo.png", "T_ai_materials_smoked_plaster_rough.png", "T_ai_materials_smoked_plaster_normal.png", 1.8, 0],
+	'monks_cloth': ["T_ai_materials_monks_cloth_albedo.png", "T_ai_materials_monks_cloth_rough.png", "T_ai_materials_monks_cloth_normal.png", 0.3, 0],
+	'velour': ["T_ai_materials_velour_albedo.png", "T_ai_materials_velour_rough.png", "T_ai_materials_velour_normal.png", 0.4, 0],
+	'ninon': ["T_ai_materials_ninon_albedo.png", "T_ai_materials_ninon_rough.png", "T_ai_materials_ninon_normal.png", 0.12, 0],
 }
 
 const OPTICS := {

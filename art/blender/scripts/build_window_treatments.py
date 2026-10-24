@@ -1,4 +1,8 @@
 """Fabricate shared crowned blind stock, hardware and sewn pleated cloth.
+Drapery (design/ORISON_DRAPERY_2026-10-24.md): the pleated overdrape has a
+flat buckram heading carried on brass curtain rings by sewn-in hooks; sheer
+ninon glass curtains are finely gathered, one with a scalloped lace hem whose
+eyelets and picots are modelled openings, not a painted pattern.
 Blender meters: X width, Y depth, Z height; Godot imports Y up.
 """
 from pathlib import Path
@@ -79,7 +83,10 @@ for side in [-1,1]:
         for i in range(nx+1):
             u=i/nx
             wave=math.sin(u*math.tau*8+.08*math.sin(v*math.pi))
-            depth=.042*wave*(.78+.22*v)+.006*math.sin(v*math.pi*3+u*8)
+            # Buckram heading: the pleat wave is pinched flat in the top band so
+            # the heading hangs in one line under the rod, carried by its rings.
+            heading=min(1.0,max(0.0,(v-.015)/.05));heading=heading*heading*(3-2*heading)
+            depth=(.042*wave*(.78+.22*v)+.006*math.sin(v*math.pi*3+u*8))*heading
             # Sewn lower hem has physical thickness, not a painted shadow.
             thickness=.0015 if v<.95 else .003
             vertices.append((u-.5,depth+side*thickness/2,-v))
@@ -104,6 +111,85 @@ for face in mesh.polygons:
     for loop in face.loop_indices:
         v=mesh.vertices[mesh.loops[loop].vertex_index].co
         obj.data.uv_layers.active.data[loop].uv=(v.x+.5,-v.z)
+
+# Brass curtain ring around a rod running along X, and the sewn hook below it.
+bpy.ops.mesh.primitive_torus_add(major_radius=.016,minor_radius=.0028,major_segments=24,minor_segments=8,rotation=(0,math.pi/2,0))
+ring=bpy.context.object;bpy.ops.object.transform_apply(location=False,rotation=True,scale=True)
+finish(ring,'CurtainRing','brass_dull')
+for face in ring.data.polygons:face.use_smooth=True
+box('RingHook',(.003,.003,.014),'brass_dull',.0008)
+
+def sheer(name, lace):
+    """A single-layer finely gathered sheer (drawn double-sided by its shader).
+    Top is Z=0, normalized length descends to Z=-1; a lace hem adds a band
+    below Z=-1 whose eyelets, picots and scallops are cut from the grid."""
+    nx=384 if lace else 192
+    rows=40 if lace else 24
+    band=.075 if lace else 0.0
+    scallops=24
+    def fold(u,v):
+        heading=min(1.0,max(0.0,(v-.012)/.04));heading=heading*heading*(3-2*heading)
+        return .014*math.sin(u*math.tau*14+.3*math.sin(v*2.1))*heading*(.85+.15*v)
+    vs=[v/rows for v in range(rows+1)]
+    if lace:
+        lace_rows=30
+        vs+= [1.0+band*(j/lace_rows) for j in range(1,lace_rows+1)]
+    EYELETS=((.5,.40,.17,.06),(.25,.58,.07,.025),(.75,.58,.07,.025))
+    def snap(u,v):
+        """Pull lace-band vertices onto the true scallop and eyelet curves, so the
+        cut edges are smooth arcs rather than grid steps at the same density."""
+        if not lace or v<=1.0:return u,v
+        t=(v-1.0)/band;k=math.floor(u*scallops);cell=u*scallops-k
+        edge=1.0-.32*(1.0-math.sin(math.pi*min(max(cell,0.0),1.0)))
+        if t>edge:t=edge
+        for cx,ty,ru,rt in EYELETS:
+            d=((cell-cx)/ru)**2+((t-ty)/rt)**2
+            if 1e-9<d<1.0:
+                r=math.sqrt(d);cell=cx+(cell-cx)/r;t=ty+(t-ty)/r
+        return (k+cell)/scallops,1.0+band*t
+    verts=[]
+    for v in vs:
+        for i in range(nx+1):
+            su,sv=snap(i/nx,v)
+            verts.append((su-.5,fold(su,sv),-sv))
+    row=nx+1;faces=[]
+    def air(u,v,v_top):
+        if v<=1.0:return False
+        t=(v-1.0)/band
+        cell=(u*scallops)%1.0
+        # scalloped lower edge: a cell is cloth while its top is inside the
+        # scallop; snap() then pulls its lower edge onto the curve.
+        edge=1.0-.32*(1.0-math.sin(math.pi*cell))
+        if (v_top-1.0)/band>=edge:return True
+        # a round eyelet centred in each scallop, a smaller pair flanking it
+        # (a scallop is ~37 mm wide on a 0.9 m panel; the band ~110 mm deep on a
+        # 1.5 m drop, so a round 13 mm eyelet is .17 of a cell by .06 of the band)
+        for cx,ty,ru,rt in EYELETS:
+            if (cell-cx)**2/(ru**2)+(t-ty)**2/(rt**2)<1.0:return True
+        # picot holes between scallops, just above the foot
+        if (cell<.06 or cell>.94) and .62<t<.70:return True
+        # a ruled openwork line at the top of the band
+        if .07<t<.12 and int(u*nx)%3==0:return True
+        return False
+    for j in range(len(vs)-1):
+        for i in range(nx):
+            u=(i+.5)/nx;v=(vs[j]+vs[j+1])*.5
+            if lace and air(u,v,vs[j]):continue
+            a=j*row+i;faces.append((a,a+1,a+1+row,a+row))
+    mesh=bpy.data.meshes.new(name);mesh.from_pydata(verts,[],faces);mesh.update()
+    obj=bpy.data.objects.new(name,mesh);bpy.context.collection.objects.link(obj)
+    finish(obj,name,'linen')
+    for face in mesh.polygons:
+        face.use_smooth=True
+        for loop in face.loop_indices:
+            v=mesh.vertices[mesh.loops[loop].vertex_index].co
+            obj.data.uv_layers.active.data[loop].uv=(v.x+.5,-v.z)
+    bpy.context.view_layer.objects.active=obj;obj.select_set(True)
+    bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT');bpy.ops.mesh.delete_loose()
+    bpy.ops.object.mode_set(mode='OBJECT');obj.select_set(False)
+    return obj
+sheer('GatheredSheerPanel',False)
+sheer('LaceEdgedSheerPanel',True)
 
 for obj in bpy.context.scene.objects:
     if obj.type!='MESH':continue

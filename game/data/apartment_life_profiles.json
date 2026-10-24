@@ -39,7 +39,17 @@
         "raise": 0.5,
         "tilt_degrees": 12,
         "curtain_open": 0.9,
-        "character_note": "Orderly paired ivory linen; reading light with modest privacy."
+        "character_note": "Orderly paired ivory linen over lace-edged ninon glass curtains; reading light with modest privacy.",
+        "sheer": {
+          "material": "ninon",
+          "tint": [
+            0.95,
+            0.92,
+            0.84
+          ],
+          "lace": true,
+          "opacity": 0.5
+        }
       }
     },
     {
@@ -120,7 +130,17 @@
         "raise": 0.45,
         "tilt_degrees": 24,
         "curtain_open": 0.9,
-        "character_note": "Precisely matched neutral panels and measured glare control at the caption desk."
+        "character_note": "Precisely matched neutral panels over a plain ninon glass curtain that softens glare at the caption desk.",
+        "sheer": {
+          "material": "ninon",
+          "tint": [
+            0.94,
+            0.95,
+            0.95
+          ],
+          "lace": false,
+          "opacity": 0.4
+        }
       }
     },
     {
@@ -315,7 +335,7 @@
       "contradiction": "a dressing mirror facing away from the booth",
       "window_treatment": {
         "style": "heavy",
-        "material": "fabric_warm",
+        "material": "velour",
         "tint": [
           0.44,
           0.19,
@@ -324,7 +344,7 @@
         "raise": 0.4,
         "tilt_degrees": 30,
         "curtain_open": 0.7,
-        "character_note": "Rhea’s thrift theatrical drapes frame the vocal workspace."
+        "character_note": "Rhea's thrift theatrical velour drapes, wine-dark, frame the vocal workspace."
       }
     },
     {
@@ -355,7 +375,7 @@
       "contradiction": "an unresolved form at every station, none thrown away",
       "window_treatment": {
         "style": "plain",
-        "material": "linen",
+        "material": "monks_cloth",
         "tint": [
           0.62,
           0.63,
@@ -364,7 +384,7 @@
         "raise": 0.5,
         "tilt_degrees": 25,
         "curtain_open": 0.8,
-        "character_note": "Peter’s restrained matched panels and uniformly ordered slats."
+        "character_note": "Peter's restrained matched monk's cloth panels and uniformly ordered slats."
       }
     },
     {
@@ -412,7 +432,17 @@
         "raise": 0.3,
         "tilt_degrees": 38,
         "curtain_open": 0.75,
-        "character_note": "Player’s worn practical curtains and partial privacy at the alcove."
+        "character_note": "Player's worn practical curtains over a yellowed ninon glass curtain left by the last tenant.",
+        "sheer": {
+          "material": "ninon",
+          "tint": [
+            0.88,
+            0.84,
+            0.74
+          ],
+          "lace": false,
+          "opacity": 0.45
+        }
       }
     },
     {
@@ -522,7 +552,7 @@
       "contradiction": "the exit route is measured, marked, and blocked by nothing — rehearsed",
       "window_treatment": {
         "style": "plain",
-        "material": "linen",
+        "material": "monks_cloth",
         "tint": [
           0.59,
           0.63,
@@ -531,7 +561,7 @@
         "raise": 0.75,
         "tilt_degrees": 15,
         "curtain_open": 1.0,
-        "character_note": "Nadia’s economical straight panels admit drafting light."
+        "character_note": "Nadia's economical straight monk's cloth panels admit drafting light."
       }
     },
     {
@@ -563,7 +593,7 @@
       "contradiction": "a chair worn toward the radio, not the television",
       "window_treatment": {
         "style": "heavy",
-        "material": "fabric_warm",
+        "material": "velour",
         "tint": [
           0.29,
           0.35,
@@ -572,7 +602,7 @@
         "raise": 0.3,
         "tilt_degrees": 45,
         "curtain_open": 0.6,
-        "character_note": "Cal’s evening listening corner uses heavy muted green drapes."
+        "character_note": "Cal's evening listening corner uses heavy muted green velour drapes."
       }
     },
     {
@@ -614,7 +644,17 @@
         "raise": 0.8,
         "tilt_degrees": 8,
         "curtain_open": 1.0,
-        "character_note": "Iris keeps studio daylight open; paint-aged ochre cotton at the sides."
+        "character_note": "Iris keeps studio daylight open through white ninon; paint-aged ochre cotton at the sides.",
+        "sheer": {
+          "material": "ninon",
+          "tint": [
+            0.96,
+            0.95,
+            0.92
+          ],
+          "lace": false,
+          "opacity": 0.32
+        }
       }
     },
     {
@@ -689,7 +729,7 @@
       "contradiction": "the bed faces the desk so the last thing he sees is the unfinished page",
       "window_treatment": {
         "style": "linen",
-        "material": "linen",
+        "material": "monks_cloth",
         "tint": [
           0.58,
           0.59,
@@ -698,7 +738,7 @@
         "raise": 0.55,
         "tilt_degrees": 22,
         "curtain_open": 0.9,
-        "character_note": "Jonah leaves a narrow writing sightline while the rest of the room stays private."
+        "character_note": "Jonah's monk's cloth leaves a narrow writing sightline while the rest of the room stays private."
       }
     },
     {
@@ -731,7 +771,7 @@
       "contradiction": "two catalog cards for the same object, both in her hand",
       "window_treatment": {
         "style": "heavy",
-        "material": "fabric_warm",
+        "material": "velour",
         "tint": [
           0.43,
           0.4,
@@ -740,7 +780,17 @@
         "raise": 0.25,
         "tilt_degrees": 58,
         "curtain_open": 0.4,
-        "character_note": "Mae’s heavy taupe drapes screen the archive against direct sunlight."
+        "character_note": "Mae's heavy taupe velour over lace-edged glass curtains screens the archive against direct sunlight.",
+        "sheer": {
+          "material": "ninon",
+          "tint": [
+            0.93,
+            0.9,
+            0.82
+          ],
+          "lace": true,
+          "opacity": 0.55
+        }
       }
     }
   ]

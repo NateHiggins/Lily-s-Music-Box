@@ -1,0 +1,20 @@
+{
+  "material": "monks_cloth",
+  "generator": "art/tools/build_drapery_fabrics.py",
+  "source": "Coarse 2x2 basket-weave cotton monk's cloth, oatmeal, no pattern, lettering or baked light.",
+  "seed": 19281110,
+  "meters_per_tile": 0.3,
+  "relief_mm": 0.7,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "7c849c80e47b204c7ca915e1eadf9baf8efb01c6dbaa8a894ada396524d19e54",
+    "roughness": "f7c72a97b52042af55afe95caeae18f91975fa69210c3abffa04e3fcf19f1aa9",
+    "height": "a8d4899b04a4d83b02b576882e9daedaec62cf39e33d31a4b10d52dbcdddb7c4",
+    "normal": "21644cad55d4a24d5af121f630187c08880a3809fd944776be5cafcbeda4b14b"
+  }
+}

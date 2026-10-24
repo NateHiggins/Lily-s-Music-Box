@@ -3,6 +3,15 @@ extends Node3D
 signal settings_changed
 const SOURCE := preload("res://assets/props/window_treatments.glb")
 const SHADER := preload("res://shaders/v2_window_stock.gdshader")
+const SHEER_SHADER := preload("res://shaders/v2_window_sheer.gdshader")
+## Brass rings carry the heading on the rod (design/ORISON_DRAPERY_2026-10-24.md):
+## a ring rests on the rod, so its centre sits below the rod's; a sewn hook
+## joins the ring's foot to the buckram heading.
+const RING_DROP := .006
+const RING_OUTER := .0188
+const HOOK := .014
+const RINGS_PER_PANEL := 9
+const SHEER_RINGS := 12
 const PITCH := .045
 const PACKED := .0045
 static var meshes: Dictionary = {}
@@ -15,12 +24,21 @@ var raised := .5
 var tilt_degrees := 20.0
 var curtain_open := .85
 var character_note := ""
+## The glass curtain: a sheer hung on its own slim rod against the glass.
+## Empty material means none.
+var sheer_fabric := ""
+var sheer_tint := Color(.92, .9, .86)
+var sheer_lace := false
+var sheer_opacity := .42
 var _slats: MultiMeshInstance3D
 var _bottom: MultiMeshInstance3D
 var _cords: MultiMeshInstance3D
 var _rungs: MultiMeshInstance3D
 var _panels: MultiMeshInstance3D
-var _tabs: MultiMeshInstance3D
+var _rings: MultiMeshInstance3D
+var _hooks: MultiMeshInstance3D
+var _sheers: MultiMeshInstance3D
+var _sheer_rings: MultiMeshInstance3D
 var _pull: PropControlArea
 var _wand: PropControlArea
 var _tassel: MultiMeshInstance3D
@@ -88,15 +106,53 @@ func _ready() -> void:
     _wand=_control("tilt",Vector3(-width*.43,-.43,.052),Vector3(.10,.18,.10))
     if style!="bare":
         var rod := _batch("CurtainRod","CurtainRod",1,metal)
-        _put(rod,0,_pose(Vector3(0,.10-(height-.16)*.48 if style=="cafe" else .10,.13),Vector3(width+.28,1,1)),Vector2(width+.28,1))
+        _put(rod,0,_pose(Vector3(0,.10-(height-.16)*.48 if style=="cafe" else .10,ROD_DEPTH),Vector3(width+.28,1,1)),Vector2(width+.28,1))
         var supports := _batch("CurtainSupports","CurtainBracket",2,metal)
-        for side in 2:_put(supports,side,_pose(Vector3((side*2-1)*(width*.5+.10),.10-(height-.16)*.48 if style=="cafe" else .10,.04),Vector3.ONE))
+        for side in 2:_put(supports,side,_pose(Vector3((side*2-1)*(width*.5+.10),.10-(height-.16)*.48 if style=="cafe" else .10,ROD_DEPTH-.09),Vector3.ONE))
         var length := height-.16
         if style=="cafe":length*=.52
         _panels=_batch("SewnCurtainPanels","PleatedSewnPanel",2,material(fabric,tint,false,Vector2((width+.24)*.65,length)))
-        _tabs=_batch("SewnHangingTabs","SewnTab",16,material(fabric,tint))
+        _rings=_batch("CurtainRings","CurtainRing",2*RINGS_PER_PANEL,metal)
+        _hooks=_batch("HeadingHooks","RingHook",2*RINGS_PER_PANEL,metal)
+        if sheer_fabric!="" and style!="cafe":_build_sheer(metal)
         _control("curtain",Vector3(width*.5,.07-(height-.16-length)-length*.5,.17),Vector3(.13,.25,.12))
     _apply();set_process(false)
+
+## Two sheer panels meeting at the middle on a slim inner rod, ringed like the
+## overdrapes. They stay drawn: a glass curtain's work is to be there.
+func _build_sheer(metal: Material) -> void:
+    var rod := _batch("SheerRod","CurtainRod",1,metal)
+    _put(rod,0,Transform3D(Basis.from_scale(Vector3(width+.10,.62,.62)),Vector3(0,SHEER_ROD.x,SHEER_ROD.y)),Vector2(width+.10,1))
+    var ends := _batch("SheerRodBrackets","MountBracket",2,metal)
+    for side in 2:_put(ends,side,_pose(Vector3((side*2-1)*(width*.5+.05),SHEER_ROD.x,SHEER_ROD.y-.035),Vector3.ONE))
+    var finish := ShaderMaterial.new();finish.shader=SHEER_SHADER
+    var base := MatLib.get_mat(sheer_fabric) as StandardMaterial3D
+    finish.set_shader_parameter("albedo_tex",base.albedo_texture)
+    finish.set_shader_parameter("rough_tex",base.roughness_texture)
+    finish.set_shader_parameter("normal_tex",base.normal_texture)
+    finish.set_shader_parameter("stock_tint",base.albedo_color*sheer_tint)
+    finish.set_shader_parameter("roughness_gain",base.roughness)
+    finish.set_shader_parameter("meters_per_tile",float(preload("res://scripts/generated/material_sets.gd").SETS[sheer_fabric][3]))
+    finish.set_shader_parameter("opacity",sheer_opacity)
+    _sheers=_batch("GlassCurtains","LaceEdgedSheerPanel" if sheer_lace else "GatheredSheerPanel",2,finish)
+    _sheers.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+    _sheer_rings=_batch("GlassCurtainRings","CurtainRing",2*SHEER_RINGS,metal)
+    # The sheer reaches the sill, its lace hem included.
+    var drop := (height-.16)/(1.075 if sheer_lace else 1.0)
+    var panel := (width+.10)*.5*1.04
+    for side in 2:
+        var cx := (side*2-1)*((width+.10)*.25)
+        _put(_sheers,side,_pose(Vector3(cx,SHEER_ROD.x-RING_DROP-RING_OUTER*.8-HOOK*.5,SHEER_ROD.y),Vector3(panel,drop,1)),Vector2(panel,drop))
+        for ring in SHEER_RINGS:
+            var x := cx+panel*(float(ring)/float(SHEER_RINGS-1)-.5)*.96
+            _put(_sheer_rings,side*SHEER_RINGS+ring,Transform3D(Basis.from_scale(Vector3.ONE*.8),Vector3(x,SHEER_ROD.x-RING_DROP*.8,SHEER_ROD.y)))
+
+## The inner rod (height, depth): a little lower than the overdrape rod and
+## nearer the glass, between the blind's face and the pleats' back folds.
+const SHEER_ROD := Vector2(.085, .072)
+## The overdrape rod stands far enough into the room that the pleats' back
+## folds (half the panel's 99 mm depth) clear the glass curtain's folds.
+const ROD_DEPTH := .14
 
 func _control(id: String, at: Vector3, size: Vector3) -> PropControlArea:
     var area := PropControlArea.new();area.configure(id);area.name=id.capitalize()+"Control"
@@ -210,12 +266,15 @@ func _apply() -> void:
         var center := (width+.24)*.5-panel_width*.5
         var curtain_target := get_node_or_null("CurtainControl") as Node3D
         if curtain_target!=null:curtain_target.position.x=center-panel_width*.5+.04
+        var rod_y := .10-(height-.16)*.48 if style=="cafe" else .10
+        var ring_y := rod_y-RING_DROP
+        var top := ring_y-RING_OUTER-HOOK*.5
         for side in 2:
-            var top := .07-(height-.16-length)
-            _put(_panels,side,_pose(Vector3((side*2-1)*center,top,.14),Vector3(panel_width,length,1)))
-            for tab in 8:
-                var x := (side*2-1)*center+panel_width*(float(tab)/7.0-.5)*.94
-                _put(_tabs,side*8+tab,_pose(Vector3(x,top+.020,.14),Vector3.ONE))
+            _put(_panels,side,_pose(Vector3((side*2-1)*center,top,ROD_DEPTH),Vector3(panel_width,length,1)))
+            for ring in RINGS_PER_PANEL:
+                var x := (side*2-1)*center+panel_width*(float(ring)/float(RINGS_PER_PANEL-1)-.5)*.96
+                _put(_rings,side*RINGS_PER_PANEL+ring,Transform3D(Basis.IDENTITY,Vector3(x,ring_y,ROD_DEPTH)))
+                _put(_hooks,side*RINGS_PER_PANEL+ring,Transform3D(Basis.IDENTITY,Vector3(x,top+HOOK*.25,ROD_DEPTH)))
 
 func _exit_tree() -> void:
     if _motion!=null and _motion.is_valid():_motion.kill()

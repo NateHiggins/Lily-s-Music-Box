@@ -64,6 +64,60 @@ func _route() -> void:
 	_require(_saved_matches(_actor.settings_snapshot()),
 			"the household record saves the blind and drapes as left: %s" % [_actor.settings_snapshot()])
 
+	# The drapes hang from their rings: every hook spans from a ring's foot to the
+	# heading, at the rod's depth, whether drawn or open.
+	for cloth in [0.1, 0.95]:
+		_actor.restore_settings({"raise": _actor.raised, "tilt_degrees": _actor.tilt_degrees, "curtain_open": cloth})
+		_require(_heading_carried(_actor), "the heading is carried by its rings at curtain_open %.2f" % cloth)
+	_require(_actor._sheers != null and _actor.sheer_fabric == "ninon" and not _actor.sheer_lace,
+			"4B hangs its plain ninon glass curtain behind the drapes")
+
+	# The households' drapery, as authored (design/ORISON_DRAPERY_2026-10-24.md).
+	for wanted in [["1A", "linen", true], ["2A", "linen", false], ["3D", "velour", false], ["6C", "velour", true]]:
+		var actor := _main_window(str(wanted[0]))
+		if not _require(actor != null, "%s has a main-room window" % wanted[0]): continue
+		_require(actor.fabric == wanted[1] and ((actor._sheers != null) == (wanted[0] != "3D"))
+				and (actor.sheer_lace == wanted[2] or wanted[0] == "3D"),
+				"%s hangs %s%s" % [wanted[0], wanted[1], " over lace-edged ninon" if wanted[2] else ""])
+		_require(_heading_carried(actor), "%s's heading is carried by its rings" % wanted[0])
+		_actor = actor
+		var floor_y: float = actor.global_position.y - float(actor.height) - 0.6
+		var at: Vector3 = actor.to_global(Vector3(0.0, 0.0, 1.6))
+		player.global_position = Vector3(at.x, floor_y, at.z)
+		player.velocity = Vector3.ZERO
+		for _frame in 6:
+			await get_tree().physics_frame
+		await _shot("drapery_" + str(wanted[0]))
+
+
+func _main_window(unit: String) -> Node3D:
+	for actor: Node3D in get_tree().get_nodes_in_group("v2_window_treatments"):
+		# Match the room, not the window's name: 6C's main window is F06_C_WINDOW_1.
+		if str(actor.get_meta("unit")) == unit and str(actor.get_meta("space")).ends_with("_MAIN"):
+			return actor
+	return null
+
+
+## The heading hangs from the rings: each hook's top reaches a ring's foot and its
+## bottom reaches the panel's top edge, all at the rod's depth.
+func _heading_carried(actor: Node3D) -> bool:
+	if actor._rings == null or actor._panels == null:
+		return false
+	var top: float = actor._panels.multimesh.get_instance_transform(0).origin.y
+	for i in actor._rings.multimesh.instance_count:
+		var ring: Transform3D = actor._rings.multimesh.get_instance_transform(i)
+		var hook: Transform3D = actor._hooks.multimesh.get_instance_transform(i)
+		var foot: float = ring.origin.y - actor.RING_OUTER
+		if absf(ring.origin.z - actor.ROD_DEPTH) > 0.0005 or absf(hook.origin.z - actor.ROD_DEPTH) > 0.0005:
+			return false
+		if absf(hook.origin.x - ring.origin.x) > 0.0005:
+			return false
+		var hook_top: float = hook.origin.y + actor.HOOK * 0.5
+		var hook_bottom: float = hook.origin.y - actor.HOOK * 0.5
+		if hook_top < foot - 0.0015 or hook_bottom > top + 0.0015:
+			return false
+	return true
+
 
 ## Re-stand facing the control, then grab, drag and release it with the player's
 ## own pointer through the shared hand driver.

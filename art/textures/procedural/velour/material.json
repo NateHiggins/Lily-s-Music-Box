@@ -1,0 +1,20 @@
+{
+  "material": "velour",
+  "generator": "art/tools/build_drapery_fabrics.py",
+  "source": "Cotton pile drapery velour, neutral for tinting, crushed sheen, no pattern, lettering or baked light.",
+  "seed": 19281111,
+  "meters_per_tile": 0.4,
+  "relief_mm": 0.35,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "9e2f04379a7793a1dae311fe40b44349844cd8dda31dd162eb68a0915f623d0f",
+    "roughness": "080e93016ebba40797379c9bbb20023cbe89abdd8a020ad8dfc1f0293c6d7869",
+    "height": "279bf98e1641fa27bbf6be58b10b4c88a41ffd53423d4ef26d7b46137ee2d4d4",
+    "normal": "da757fc4f654fc938263cd06641ed57dd03e6887503dfa3d08ceb8be3b106cf9"
+  }
+}
