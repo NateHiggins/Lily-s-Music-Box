@@ -29,7 +29,7 @@ static func surfaces_signature(surfaces: Array) -> String:
 			# megabytes into a temporary Variant encoding on every reconstruction.
 			if bytes is PackedByteArray:
 				digest.update(var_to_bytes([key,bytes.size()]))
-				digest.update(bytes)
+				if not bytes.is_empty():digest.update(bytes)
 			else:digest.update(var_to_bytes([key,bytes]))
 	return digest.finish().hex_encode()
 
@@ -37,6 +37,68 @@ static func face_signature(shape: ConcavePolygonShape3D) -> String:
 	var digest:=HashingContext.new();digest.start(HashingContext.HASH_SHA256)
 	digest.update(shape.get_faces().to_byte_array())
 	return digest.finish().hex_encode()
+
+class SignatureJob extends RefCounted:
+	## Identical complete SHA256 byte stream, bounded PackedByteArray updates.
+	## Only cooperative callers use this; the original synchronous API stays intact.
+	const CHUNK_BYTES := 256*1024
+	const HEADERS := ["format","primitive","vertex_count","index_count","aabb"]
+	const BUFFERS := ["vertex_data","attribute_data","skin_data","index_data","blend_shape_data"]
+	var done := false
+	var result := ""
+	var largest_buffer_update := 0
+	var buffer_updates := 0
+	var _surfaces: Array
+	var _digest := HashingContext.new()
+	var _surface := 0
+	var _field := 0
+	var _buffer: PackedByteArray
+	var _offset := 0
+	var _buffer_active := false
+
+	func _init(surfaces: Array) -> void:
+		# Freeze dictionary/header values; packed buffers retain copy-on-write storage.
+		_surfaces=surfaces.duplicate(true)
+		_digest.start(HashingContext.HASH_SHA256)
+
+	func advance(budget_usec: int) -> void:
+		if done:return
+		var started:=Time.get_ticks_usec()
+		while not done:
+			_step()
+			if budget_usec>0 and Time.get_ticks_usec()-started>=budget_usec:return
+
+	func copy_surfaces() -> Array:
+		# The local mesh copy receives exactly the frozen bytes that were hashed.
+		return _surfaces if done else []
+
+	func _step() -> void:
+		if _buffer_active:
+			var end:=mini(_offset+CHUNK_BYTES,_buffer.size())
+			if end>_offset:
+				_digest.update(_buffer.slice(_offset,end))
+				largest_buffer_update=maxi(largest_buffer_update,end-_offset)
+				buffer_updates+=1
+			_offset=end
+			if _offset>=_buffer.size():
+				_buffer=PackedByteArray();_buffer_active=false;_field+=1
+			return
+		if _surface>=_surfaces.size():
+			result=_digest.finish().hex_encode();done=true
+			return
+		var surface: Dictionary=_surfaces[_surface]
+		if _field<HEADERS.size():
+			_digest.update(var_to_bytes(surface.get(HEADERS[_field])));_field+=1
+		elif _field<HEADERS.size()+BUFFERS.size():
+			var key: String=BUFFERS[_field-HEADERS.size()]
+			var bytes: Variant=surface.get(key)
+			if bytes is PackedByteArray:
+				_digest.update(var_to_bytes([key,bytes.size()]))
+				_buffer=bytes;_offset=0;_buffer_active=true
+			else:
+				_digest.update(var_to_bytes([key,bytes]));_field+=1
+		else:
+			_surface+=1;_field=0
 
 func seed(cells: Dictionary) -> bool:
 	var started := Time.get_ticks_usec()

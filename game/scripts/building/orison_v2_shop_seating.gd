@@ -374,6 +374,10 @@ class FitJob extends RefCounted:
 	var local_materials: Dictionary={}
 	var draws: Array[Node]=[]
 	var cursor:=0
+	var signature_job: RefCounted
+	var signature_mesh: Mesh
+	var profile_buffer_read_us:=0
+	var profile_hash_step_peak_us:=0
 	var prepared:=false
 	var done:=false
 	var ok:=false
@@ -420,13 +424,44 @@ class FitJob extends RefCounted:
 			if budget_usec>0:layout=layout_identity.duplicate(true)
 			if budget_usec>0 and Time.get_ticks_usec()-started>=budget_usec:return
 		while cursor<draws.size():
-			var draw:=draws[cursor];cursor+=1
+			var draw:=draws[cursor]
 			var before:=Time.get_ticks_usec()
-			if not is_instance_valid(draw) or not _mount_draw(draw):_fail();return
+			var status:=_advance_draw(draw,started,budget_usec)
 			profile_model_us+=Time.get_ticks_usec()-before
+			if status<0:_fail();return
+			if status==0:return
+			cursor+=1
 			if budget_usec>0 and Time.get_ticks_usec()-started>=budget_usec:return
 		if not _publish():_fail();return
 		done=true;ok=true;draws.clear();_disconnect_sources()
+
+	func _advance_draw(draw: MeshInstance3D,started: int,budget_usec: int) -> int:
+		if not is_instance_valid(draw) or source_changed:return -1
+		var paths: Dictionary=cell.get_meta("native_collision_paths",{})
+		var use_signature: bool=cooperative and not paths.is_empty() and parts.has(str(draw.name)) and draw.mesh is ArrayMesh and draw.mesh.get_blend_shape_count()==0 and draw.mesh.get_script()==null
+		if use_signature:
+			if signature_job==null:
+				signature_mesh=draw.mesh;_watch_mesh(signature_mesh)
+				var read_started:=Time.get_ticks_usec()
+				var buffers: Array=signature_mesh.get("_surfaces")
+				var read_us:=Time.get_ticks_usec()-read_started
+				profile_buffer_read_us+=read_us;profile_duplicate_us+=read_us
+				signature_job=preload("res://scripts/building/orison_v2_fitting_collision_cache.gd").SignatureJob.new(buffers)
+			if draw.mesh!=signature_mesh:return -1
+			var advanced_hash:=false
+			if not signature_job.done:
+				advanced_hash=true
+				var hash_started:=Time.get_ticks_usec()
+				signature_job.advance(maxi(1,budget_usec-int(hash_started-started)) if budget_usec>0 else 0)
+				var hash_us:=Time.get_ticks_usec()-hash_started
+				profile_mesh_hash_us+=hash_us;profile_collision_us+=hash_us
+				profile_hash_step_peak_us=maxi(profile_hash_step_peak_us,hash_us)
+				if not signature_job.done:return 0
+			if advanced_hash and budget_usec>0 and Time.get_ticks_usec()-started>=budget_usec:return 0
+			var accepted:=_mount_draw(draw,signature_job.copy_surfaces(),str(signature_job.result))
+			signature_job=null;signature_mesh=null
+			return 1 if accepted else -1
+		return 1 if _mount_draw(draw) else -1
 
 	func matches(owner_cell: Node3D,source_layout: Dictionary,path: String,stock_name: String,prefix: String,metadata: String,identity: String,borrowed: Dictionary) -> bool:
 		return done and ok and not skipped and is_instance_valid(cell) and cell==owner_cell and str(cell.name)==cell_name and is_same(layout_identity,source_layout) and layout==source_layout and data_path==path and model_name==stock_name and draw_prefix==prefix and part_meta==metadata and cell_identity==identity and borrowed_materials==borrowed and FileAccess.get_sha256(path)==data_digest and is_instance_valid(model) and model.get_parent()==cell and _shapes_valid()
@@ -439,6 +474,7 @@ class FitJob extends RefCounted:
 		if is_instance_valid(model) and model.get_parent()==null:model.free()
 		model=null;replacements.clear();originals.clear();local_materials.clear()
 		verified_shapes.clear()
+		signature_job=null;signature_mesh=null
 
 	func _notification(what: int) -> void:
 		if what==NOTIFICATION_PREDELETE:
@@ -579,7 +615,7 @@ class FitJob extends RefCounted:
 		draws=model.find_children("*","MeshInstance3D",true,false)
 		return _labels_valid()
 
-	func _mount_draw(draw: MeshInstance3D) -> bool:
+	func _mount_draw(draw: MeshInstance3D,buffered_surfaces: Array=[],buffered_signature: String="") -> bool:
 		if not parts.has(str(draw.name)):draw.free();return true
 		var material_started:=Time.get_ticks_usec()
 		var part: Dictionary=parts[str(draw.name)];var key:=str(part.key)
@@ -609,7 +645,7 @@ class FitJob extends RefCounted:
 			# One renderer-buffer read supplies both the local copy and the exact
 			# collision signature. Resource.duplicate followed by another mesh read
 			# was a large measured cost for the 164-part druggist fitting.
-			native_surface_buffers=native_mesh_source.get("_surfaces")
+			native_surface_buffers=buffered_surfaces if not buffered_surfaces.is_empty() else native_mesh_source.get("_surfaces")
 			draw.mesh=copy_mesh.call(native_mesh_source,native_surface_buffers)
 		else:draw.mesh=native_mesh_source.duplicate() as Mesh
 		profile_duplicate_us += Time.get_ticks_usec()-profile_step
@@ -635,7 +671,7 @@ class FitJob extends RefCounted:
 			var cache := preload("res://scripts/building/orison_v2_fitting_collision_cache.gd")
 			if shape==null: model.free(); return false
 			var checkpoint:=Time.get_ticks_usec()
-			var mesh_hash: String=cache.surfaces_signature(native_surface_buffers) if not native_surface_buffers.is_empty() else cache.mesh_signature(draw.mesh)
+			var mesh_hash: String=buffered_signature if not buffered_signature.is_empty() else (cache.surfaces_signature(native_surface_buffers) if not native_surface_buffers.is_empty() else cache.mesh_signature(draw.mesh))
 			profile_mesh_hash_us+=Time.get_ticks_usec()-checkpoint
 			checkpoint=Time.get_ticks_usec()
 			var face_hash: String=str(entry.face_hash) if int(entry.get("shape_rid",0))==shape.get_rid().get_id() else cache.face_signature(shape)
@@ -693,7 +729,7 @@ class FitJob extends RefCounted:
 		cell.add_child(model)
 		if OS.get_environment("ORISON_PROFILE_NATIVE")=="1" or OS.get_environment("ORISON_PROFILE_RESIDENCY")=="1":
 			print("NATIVE_FIT_DETAIL ",JSON.stringify({"cell":str(cell.name),"data":data_path,
-				"cooperative":cooperative,"material_ms":profile_material_us/1000.0,"slot_assignment_ms":profile_assign_us/1000.0,"cut_ms":(profile_cut-profile_start)/1000.0,"duplicate_ms":profile_duplicate_us/1000.0,"collision_ms":profile_collision_us/1000.0,"mesh_hash_ms":profile_mesh_hash_us/1000.0,"face_hash_ms":profile_face_hash_us/1000.0,"attach_ms":profile_attach_us/1000.0,"load_ms":(profile_load-profile_cut)/1000.0,
+				"hash_step_peak_ms":profile_hash_step_peak_us/1000.0,"buffer_read_ms":profile_buffer_read_us/1000.0,"cooperative":cooperative,"material_ms":profile_material_us/1000.0,"slot_assignment_ms":profile_assign_us/1000.0,"cut_ms":(profile_cut-profile_start)/1000.0,"duplicate_ms":profile_duplicate_us/1000.0,"collision_ms":profile_collision_us/1000.0,"mesh_hash_ms":profile_mesh_hash_us/1000.0,"face_hash_ms":profile_face_hash_us/1000.0,"attach_ms":profile_attach_us/1000.0,"load_ms":(profile_load-profile_cut)/1000.0,
 				"instantiate_ms":(profile_instance-profile_load)/1000.0,"model_and_collision_ms":profile_model_us/1000.0,
 				"publish_ms":(Time.get_ticks_usec()-profile_models)/1000.0}))
 		return true

@@ -10,7 +10,26 @@ branch **codex/v2-acoustic-topology**, HEAD **276e2ff4**, remote main/merge-base
 contributors' files remain in the shared tree. Other worktrees and Godot runs
 are actively in use and must not be removed or stopped.
 
-## Latest verified batch, 2026-10-23
+## Latest verified batch, 2026-10-24
+
+Newest native performance work: **V2_INCREMENTAL_NATIVE_SIGNATURES_2026-10-24.md**.
+Complete mesh-buffer SHA256 now yields in256KiB updates; original byte order,
+header/channel coverage and mesh-copy snapshot remain.60 signature,37 actual-
+asset/cancellation/mutation and73 cache checks pass with empty component stderr.
+One existing canopy material stays world-owned while geometry is dormant;
+four warm assignments take0.07–0.21ms. Releasing that reference during the
+existing untimed third prefetch frees it and restores74.579ms assignment.
+The material-in-construction candidate merely moved the stall and is reverted.
+Two warm played repeats pass54 timed waypoints/14 checks and6,586 untimed lighting
+diagnostics, with roots/meshes retired0 and one material retained. Final versus
+preceding checkpoint p50/p95/p99/max24.907/38.964/51.243/158.335ms versus
+24.951/38.968/52.516/160.286ms; loading p9967.888→61.045ms, peak fitting77→63.098ms.
+Median barely changes, reconstruction remains10.5–10.7s and first-render,
+unclassified waits/other atomic calls and seven texture teardown warnings remain.
+Full static board has no regressions. Original errors, timeouts, rejected
+candidate and source variants remain; no runtime/human/V2-completion promotion.
+
+## Previous verified batch, 2026-10-23
 
 Newest streaming repair: **V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md**.
 Five costly native fitting families now yield between validated parts; the

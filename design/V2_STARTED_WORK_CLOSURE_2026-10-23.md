@@ -11,10 +11,22 @@ it does not replace the existing issue logs or erase original failures.
 ## Current verification boundary
 
 Canonical checkout **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-acoustic-topology**, preceding pushed checkpoint **7852da8b**.
+**codex/v2-acoustic-topology**, preceding pushed checkpoint **62e81171**.
 The spatial dependency manifest is unrelated shared WIP. Untracked street/tent,
 traffic and art work remains preserved. All engine runs use the shared lane.
 No human acceptance or clean candidate verification is claimed.
+
+Latest scoped native work: **V2_INCREMENTAL_NATIVE_SIGNATURES_2026-10-24.md**.
+Complete hashes yield in bounded packed-buffer updates;60 signature,37 fitting
+and73 cache checks pass. A single retained canopy material avoids its recurring
+shader cost; four warm assignments0.07–0.21ms, with74.579ms returning when the
+same-process untimed control releases it. Both warm played repeats preserve
+gateway readiness and retire all imported roots/meshes. Final loading p99
+67.888→61.045ms and peak fitting77→63.098ms versus the preceding checkpoint;
+whole-route p99 barely improves52.516→51.243ms, median effectively unchanged.
+The construction-material candidate is reverted, all failures retained, and
+the static board has no regressions. First-render, remaining atomic/unclassified
+stalls, fast approaches, startup and broad requested-feature closure remain open.
 
 Latest scoped fitting work: **V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md**.
 Five families now construct privately and yield between native parts; original

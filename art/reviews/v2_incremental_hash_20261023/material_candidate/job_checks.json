@@ -1,0 +1,154 @@
+{
+	"checks": [
+		{
+			"label": "frozen pre-refactor fitter accepts actual authored cell",
+			"ok": true
+		},
+		{
+			"label": "original native collision shapes seed the unchanged cache",
+			"ok": true
+		},
+		{
+			"label": "prepare keeps public cell byte/pose/material/collision state unchanged",
+			"ok": true
+		},
+		{
+			"label": "part chunks yield without partial publication",
+			"ok": true
+		},
+		{
+			"label": "cooperative result equals frozen original buffers, transforms, PBR fields, collision faces and source counts",
+			"ok": true
+		},
+		{
+			"label": "original wrapper consumes one exact prepared result without rebuilding",
+			"ok": true
+		},
+		{
+			"label": "duplicate mount remains refused after token consumption",
+			"ok": true
+		},
+		{
+			"label": "cancellation releases private model and preserves original cell",
+			"ok": true
+		},
+		{
+			"label": "abandoned unfinished job releases private model without an explicit cancel",
+			"ok": true
+		},
+		{
+			"label": "source resource mutation during yielded construction refuses publication",
+			"ok": true
+		},
+		{
+			"label": "source pose mutation during yielded construction refuses publication",
+			"ok": true
+		},
+		{
+			"label": "same-RID cached shape mutation between chunks is rechecked before publication",
+			"ok": true
+		},
+		{
+			"label": "prepared token refuses mismatched arguments and is consumed once",
+			"ok": true
+		},
+		{
+			"label": "foreign prepared object cannot bypass source validation",
+			"ok": true
+		},
+		{
+			"label": "cancel during hash releases context/model outside temporary getter scope",
+			"ok": true
+		},
+		{
+			"label": "abandon during hash releases context/model outside temporary getter scope",
+			"ok": true
+		},
+		{
+			"label": "native mesh identity change during hashing refuses publication",
+			"ok": true
+		},
+		{
+			"label": "arcade_canopy frozen original accepts actual source cell",
+			"ok": true
+		},
+		{
+			"label": "arcade_canopy original exact collision cache seeds",
+			"ok": true
+		},
+		{
+			"label": "arcade_canopy yielded mesh/material/pose/collision output equals frozen original",
+			"ok": true
+		},
+		{
+			"label": "arcade_canopy exact original entry consumes prepared result",
+			"ok": true
+		},
+		{
+			"label": "arcade_throat frozen original accepts actual source cell",
+			"ok": true
+		},
+		{
+			"label": "arcade_throat original exact collision cache seeds",
+			"ok": true
+		},
+		{
+			"label": "arcade_throat yielded mesh/material/pose/collision output equals frozen original",
+			"ok": true
+		},
+		{
+			"label": "arcade_throat exact original entry consumes prepared result",
+			"ok": true
+		},
+		{
+			"label": "hardware_drawers frozen original accepts actual source cell",
+			"ok": true
+		},
+		{
+			"label": "hardware_drawers original exact collision cache seeds",
+			"ok": true
+		},
+		{
+			"label": "hardware_drawers yielded mesh/material/pose/collision output equals frozen original",
+			"ok": true
+		},
+		{
+			"label": "hardware_drawers exact original entry consumes prepared result",
+			"ok": true
+		},
+		{
+			"label": "hardware_stock frozen original accepts actual source cell",
+			"ok": true
+		},
+		{
+			"label": "hardware_stock original exact collision cache seeds",
+			"ok": true
+		},
+		{
+			"label": "hardware_stock yielded mesh/material/pose/collision output equals frozen original",
+			"ok": true
+		},
+		{
+			"label": "hardware_stock exact original entry consumes prepared result",
+			"ok": true
+		},
+		{
+			"label": "druggist_drawers frozen original accepts actual source cell",
+			"ok": true
+		},
+		{
+			"label": "druggist_drawers original exact collision cache seeds",
+			"ok": true
+		},
+		{
+			"label": "druggist_drawers yielded mesh/material/pose/collision output equals frozen original",
+			"ok": true
+		},
+		{
+			"label": "druggist_drawers exact original entry consumes prepared result",
+			"ok": true
+		}
+	],
+	"evidence_class": "INERT",
+	"scope": "Actual imported component and frozen original fitter equivalence/cancellation checks; not player input or runtime_contract."
+}

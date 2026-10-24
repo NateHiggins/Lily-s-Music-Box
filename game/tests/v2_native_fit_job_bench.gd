@@ -49,7 +49,7 @@ func snapshot(cell: Node3D) -> Dictionary:
 func drive(job: RefCounted) -> int:
 	var calls:=0
 	while not job.done and calls<1000:
-		job.advance(1);calls+=1
+		job.advance(500);calls+=1
 		await get_tree().process_frame
 	return calls
 
@@ -74,11 +74,14 @@ func run() -> void:
 	check(not job.done and job.prepared and not cell.has_node("CobblerFittings") and snapshot(cell)==before,"prepare keeps public cell byte/pose/material/collision state unchanged")
 	var unpublished:=true;var calls:=0
 	while not job.done and calls<1000:
-		job.advance(1);calls+=1
+		job.advance(500);calls+=1
 		if not job.done:unpublished=unpublished and not cell.has_node("CobblerFittings") and snapshot(cell)==before
 		await get_tree().process_frame
 	check(job.done and job.ok and calls>2 and unpublished,"part chunks yield without partial publication")
 	check(snapshot(cell)==reference,"cooperative result equals frozen original buffers, transforms, PBR fields, collision faces and source counts")
+	if not job.ok:
+		print("NATIVE_JOB_FAILURE ",JSON.stringify({"done":job.done,"cursor":job.cursor,"source_changed":job.source_changed,"signature_pending":job.signature_job!=null,"signature_done":job.signature_job.done if job.signature_job!=null else false}))
+		job=null;cell.free();baseline.free();cache.dispose();finish();return
 	var model_id:=cell.get_node("CobblerFittings").get_instance_id()
 	cell.set_meta("prepared_native_fit",job)
 	check(Fitter.mount_cobbler(cell,layout) and cell.get_node("CobblerFittings").get_instance_id()==model_id and not cell.has_meta("prepared_native_fit"),"original wrapper consumes one exact prepared result without rebuilding")
@@ -118,9 +121,40 @@ func run() -> void:
 	job=null;cell.free()
 	cell=fresh();cell.set_meta("prepared_native_fit",RefCounted.new())
 	check(not Fitter.mount_cobbler(cell,layout) and not cell.has_node("CobblerFittings"),"foreign prepared object cannot bypass source validation")
-	cell.free();baseline.free();cache.dispose();cache=null;packed=null
+	cell.free()
+	for action: String in ["cancel","abandon"]:
+		cell=fresh();before=snapshot(cell)
+		var references: Array=hash_lifetime_case(cell,action)
+		check(references.size()==2 and references[0].get_ref()==null and references[1].get_ref()==null and snapshot(cell)==before,action+" during hash releases context/model outside temporary getter scope")
+		cell.free()
+	cell=fresh();before=snapshot(cell);job=begin_hash(cell)
+	if job.signature_job==null:check(false,"signature phase reached for native source replacement")
+	else:
+		var native_draw:=job.draws[job.cursor] as MeshInstance3D
+		native_draw.mesh=native_draw.mesh.duplicate() as Mesh
+		await drive(job)
+		check(job.done and not job.ok and snapshot(cell)==before,"native mesh identity change during hashing refuses publication")
+	job=null;cell.free()
+	baseline.free();cache.dispose();cache=null;packed=null
 	await check_streamed_families(original)
 	finish()
+
+func begin_hash(cell: Node3D) -> RefCounted:
+	var job:=begin(cell);job.advance(1)
+	for step in 64:
+		if job.done or job.signature_job!=null:break
+		job.advance(1)
+	return job
+
+func hash_lifetime_case(cell: Node3D,action: String) -> Array:
+	# Getter temporaries can keep a RefCounted alive in the probing VM frame.
+	# Return only WeakRefs and check after this entire frame has unwound.
+	var job:=begin_hash(cell)
+	if job.signature_job==null:return []
+	var references: Array=[weakref(job.signature_job),weakref(job.model)]
+	if action=="cancel":job.cancel()
+	job=null
+	return references
 
 func check_streamed_families(original: Script) -> void:
 	for spec: Array in [

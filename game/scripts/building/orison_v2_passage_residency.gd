@@ -23,6 +23,8 @@ var peak_activation_ms := 0.0
 var stage_records: Array[Dictionary] = []
 var _stopped := false
 var _material_statistics: Dictionary = {}
+# Keep the measured canopy shader variant alive without retaining imported geometry.
+var _canopy_shader_material: BaseMaterial3D
 var _height_paths: Dictionary = {}
 var _height_pending: Dictionary = {}
 var _height_resources: Array[Resource] = []
@@ -64,6 +66,8 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 		for draw: MeshInstance3D in cell.find_children("*", "MeshInstance3D", true, false):
 			for surface_index in draw.mesh.get_surface_count():
 				var original := draw.mesh.surface_get_material(surface_index) as BaseMaterial3D
+				if str(draw.get_meta("arcade_canopy_part",""))=="canopy__glassish":
+					_canopy_shader_material=original
 				var layered := draw.get_surface_override_material(surface_index) as ShaderMaterial
 				if original == null or layered == null: continue
 				var key: String = region.Surface.texture_source_key(original)
@@ -375,7 +379,7 @@ func snapshot() -> Dictionary:
 		if reference.get_ref() != null: retained_roots += 1
 	for reference: WeakRef in _retired_meshes:
 		if reference.get_ref() != null: retained_meshes += 1
-	return {"state": state, "pending_requests": _pending.size()+_height_pending.size()+_native_pending.size(), "load_cycles": load_cycles,
+	return {"kept_shader_materials":1 if _canopy_shader_material!=null else 0,"state": state, "pending_requests": _pending.size()+_height_pending.size()+_native_pending.size(), "load_cycles": load_cycles,
 		"unload_cycles": unload_cycles, "retired_geometry_roots_alive": retained_roots,
 		"retired_mesh_resources_alive": retained_meshes, "peak_stage_ms": peak_stage_ms,
 		"peak_activation_ms": peak_activation_ms, "stage_records": stage_records.duplicate(true), "fit_records":fit_records.duplicate(true),
@@ -409,6 +413,7 @@ func shutdown() -> void:
 	_staged_cells.clear()
 	_staged_surface = null
 	_material_statistics.clear()
+	_canopy_shader_material=null
 	_retired.clear()
 	_retired_meshes.clear()
 	player = null

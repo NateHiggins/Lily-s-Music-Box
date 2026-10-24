@@ -1,0 +1,10 @@
+{
+  "engine_command": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --headless --path C:\\PleaseRemainOnTheLine\\game res://tests/V2NativeFitJobBench.tscn",
+  "engine_pid": 228616,
+  "reason": "Stop only the verified owned headless engine after diagnostic errors left it idle; no passing verdict",
+  "action": "Stop-Process owned engine only",
+  "evidence_class": "INERT",
+  "console_pid": 60172,
+  "runner_pid": 168108,
+  "runner_command": "\"C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -File tools/run_godot_serial.ps1 -ProjectPath game -Scene res://tests/V2NativeFitJobBench.tscn -ShotDir C:/PleaseRemainOnTheLine/art/reviews/v2_incremental_hash_20261023/fitting_v2 -LogPath art/reviews/v2_incremental_hash_20261023/fitting_v2.log -TimeoutSeconds 120"
+}
