@@ -31,7 +31,6 @@ var frozen := false
 var _player: Node3D
 var _kinds: Array = []
 var _batches: Dictionary = {}
-var _finishes: Dictionary = {}
 var _live: Array[Dictionary] = []
 var _parked: Array[Dictionary] = []
 var _rng := RandomNumberGenerator.new()
@@ -153,16 +152,23 @@ func _step(delta: float) -> void:
 
 ## The stock GLB carries one mesh per (stock, finish). Each stock becomes one
 ## ArrayMesh whose surfaces keep their catalogue finish, so a MultiMesh draws
-## the whole vehicle with one call per substance.
+## the whole vehicle with one call per substance. The street lamps share it.
 func _stock_meshes() -> Dictionary:
-	var packed := load(str(data.stock)) as PackedScene
+	var materials := {}
+	for id: String in data.finishes:
+		materials[id] = stock_material(data.finishes[id])
+	return stock_meshes(str(data.stock), materials)
+
+
+static func stock_meshes(path: String, materials: Dictionary) -> Dictionary:
+	var packed := load(path) as PackedScene
 	if packed == null:
 		return {}
 	var root := packed.instantiate()
 	var result := {}
 	for node: Node in root.find_children("*", "MeshInstance3D", true, false):
 		var parts := str(node.name).split("__")
-		if parts.size() != 2 or not data.finishes.has(parts[1]):
+		if parts.size() != 2 or not materials.has(parts[1]):
 			continue
 		var source: Mesh = (node as MeshInstance3D).mesh
 		if not result.has(parts[0]):
@@ -170,17 +176,14 @@ func _stock_meshes() -> Dictionary:
 		var mesh: ArrayMesh = result[parts[0]]
 		for surface in source.get_surface_count():
 			mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, source.surface_get_arrays(surface))
-			mesh.surface_set_material(mesh.get_surface_count() - 1, _finish(parts[1]))
+			mesh.surface_set_material(mesh.get_surface_count() - 1, materials[parts[1]])
 	root.free()
 	return result
 
 
-func _finish(id: String) -> StandardMaterial3D:
-	if _finishes.has(id):
-		return _finishes[id]
-	var finish: Dictionary = data.finishes[id]
+static func stock_material(finish: Dictionary) -> StandardMaterial3D:
 	var key := str(finish.catalog_key)
-	assert(MatLib.SETS.has(key), "Unknown traffic finish: " + key)
+	assert(MatLib.SETS.has(key), "Unknown street stock finish: " + key)
 	var mat := MatLib.get_mat(key).duplicate() as StandardMaterial3D
 	mat.uv1_triplanar = false
 	mat.uv2_triplanar = false
@@ -203,7 +206,6 @@ func _finish(id: String) -> StandardMaterial3D:
 		mat.emission = Color(glow[0], glow[1], glow[2])
 		mat.emission_energy_multiplier = float(glow[3])
 	mat.set_meta("v2_surface_stock", key)
-	_finishes[id] = mat
 	return mat
 
 

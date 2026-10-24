@@ -1,0 +1,87 @@
+{
+ "checks": [
+  {
+   "label": "production V2 mounts the street lamps in the street frame",
+   "ok": true
+  },
+  {
+   "label": "post stands: lamp_orison_mid",
+   "ok": true
+  },
+  {
+   "label": "every lamp surface samples authored UVs with catalogue maps and mips: lamp_orison_mid",
+   "ok": true
+  },
+  {
+   "label": "placeholder retired: street_lamp_post",
+   "ok": true
+  },
+  {
+   "label": "placeholder retired: street_lamp_head",
+   "ok": true
+  },
+  {
+   "label": "placeholder retired: street_lamp_cap_west",
+   "ok": true
+  },
+  {
+   "label": "the lamp's light sits in its globe: lamp_orison_mid",
+   "ok": true
+  },
+  {
+   "label": "post stands: lamp_orison_crossing",
+   "ok": true
+  },
+  {
+   "label": "every lamp surface samples authored UVs with catalogue maps and mips: lamp_orison_crossing",
+   "ok": true
+  },
+  {
+   "label": "placeholder retired: street_lamp_post_east",
+   "ok": true
+  },
+  {
+   "label": "placeholder retired: street_lamp_head_east",
+   "ok": true
+  },
+  {
+   "label": "placeholder retired: street_lamp_cap_east",
+   "ok": true
+  },
+  {
+   "label": "the lamp's light sits in its globe: lamp_orison_crossing",
+   "ok": true
+  },
+  {
+   "label": "post stands: lamp_orison_west",
+   "ok": true
+  },
+  {
+   "label": "every lamp surface samples authored UVs with catalogue maps and mips: lamp_orison_west",
+   "ok": true
+  },
+  {
+   "label": "the lamp's light sits in its globe: lamp_orison_west",
+   "ok": true
+  },
+  {
+   "label": "post stands: lamp_arcade_west",
+   "ok": true
+  },
+  {
+   "label": "every lamp surface samples authored UVs with catalogue maps and mips: lamp_arcade_west",
+   "ok": true
+  },
+  {
+   "label": "the lamp's light sits in its globe: lamp_arcade_west",
+   "ok": true
+  }
+ ],
+ "captures": [
+  "pavement_east.png",
+  "pavement_west.png",
+  "from_arcade_side.png",
+  "signal_box.png",
+  "crook_and_globe.png"
+ ]
+}

@@ -1,0 +1,193 @@
+{
+ "schema": "orison.v2.street-lamps.v1",
+ "frame": "ORISON_FRONT_DOOR_THRESHOLD",
+ "street_instance": "STREET_ORISON_01",
+ "stock": "res://assets/props/v2_street_lamps.glb",
+ "globe_local": [
+  0.0,
+  3.86,
+  0.84
+ ],
+ "post_radius_m": 0.22,
+ "light": {
+  "color_rgb": [
+   1.0,
+   0.7,
+   0.42
+  ],
+  "energy": 2.6,
+  "range_m": 10.5
+ },
+ "finishes": [
+  {
+   "id": "post_iron",
+   "catalog_key": "iron_blackened",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "cast_iron",
+   "catalog_key": "cast_iron",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "brass",
+   "catalog_key": "brass_dull",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "globe_lit",
+   "catalog_key": "milk_glass",
+   "tint": [
+    1,
+    0.94,
+    0.84,
+    1
+   ],
+   "normal": 0.5,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.72,
+    0.42,
+    3.0
+   ]
+  },
+  {
+   "id": "box_paint",
+   "catalog_key": "car_paint",
+   "tint": [
+    0.13,
+    0.2,
+    0.16,
+    1
+   ],
+   "normal": 0.7,
+   "roughness": 0.8
+  },
+  {
+   "id": "bakelite",
+   "catalog_key": "bakelite_black",
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  },
+  {
+   "id": "standby_lamp",
+   "catalog_key": "milk_glass",
+   "tint": [
+    0.7,
+    0.95,
+    0.75,
+    1
+   ],
+   "normal": 0.5,
+   "roughness": 1.0,
+   "emission": [
+    0.45,
+    0.95,
+    0.55,
+    1.2
+   ]
+  },
+  {
+   "id": "silk_flex",
+   "catalog_key": "fabric_warm",
+   "tint": [
+    0.55,
+    0.13,
+    0.08,
+    1
+   ],
+   "normal": 1.0,
+   "roughness": 1.0
+  }
+ ],
+ "lamps": [
+  {
+   "id": "lamp_orison_mid",
+   "stock": "bishops_crook",
+   "at": [
+    8.1,
+    0.0,
+    3.975
+   ],
+   "yaw_degrees": 0,
+   "replaces": [
+    "street_lamp_post",
+    "street_lamp_head",
+    "street_lamp_cap_west"
+   ],
+   "authored_light": "street_lamp_pool",
+   "shadows": true
+  },
+  {
+   "id": "lamp_orison_crossing",
+   "stock": "signal_box_crook",
+   "at": [
+    13.3,
+    0.0,
+    3.975
+   ],
+   "yaw_degrees": 0,
+   "replaces": [
+    "street_lamp_post_east",
+    "street_lamp_head_east",
+    "street_lamp_cap_east"
+   ],
+   "authored_light": "street_lamp_pool_east",
+   "shadows": true
+  },
+  {
+   "id": "lamp_orison_west",
+   "stock": "bishops_crook",
+   "at": [
+    -9.6,
+    0.0,
+    3.975
+   ],
+   "yaw_degrees": 0,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  },
+  {
+   "id": "lamp_arcade_west",
+   "stock": "bishops_crook",
+   "at": [
+    -4.2,
+    0.0,
+    14.82
+   ],
+   "yaw_degrees": 180,
+   "replaces": [],
+   "authored_light": "",
+   "shadows": false
+  }
+ ]
+}

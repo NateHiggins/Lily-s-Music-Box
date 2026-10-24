@@ -208,10 +208,15 @@ def tube(points, r, n=6, cap=True):
     pts = [Vector(p) for p in points]
     bm = bmesh.new()
     rings = []
+    u = None
     for i, p in enumerate(pts):
         d = (pts[min(i + 1, len(pts) - 1)] - pts[max(i - 1, 0)]).normalized()
-        seed = Vector((0, 0, 1)) if abs(d.z) < .9 else Vector((1, 0, 0))
-        u = d.cross(seed).normalized()
+        if u is None:
+            seed = Vector((0, 0, 1)) if abs(d.z) < .9 else Vector((1, 0, 0))
+            u = d.cross(seed).normalized()
+        else:
+            # Parallel transport: keep the section from twisting at bends.
+            u = (u - d * u.dot(d)).normalized()
         v = d.cross(u).normalized()
         rings.append([bm.verts.new(p + (u * math.cos(2 * math.pi * k / n) + v * math.sin(2 * math.pi * k / n)) * r) for k in range(n)])
     for a, b in zip(rings, rings[1:]):
@@ -935,4 +940,5 @@ def main():
     print(json.dumps({"proof": proof, "triangles": triangles}))
 
 
-main()
+if __name__ == "__main__":
+    main()
