@@ -146,3 +146,20 @@ callers reject incomplete validator results. Production streaming, mechanics,
 materials and geometry are unchanged. Reuse the three still-bound completed
 diagnostics; rerun the combined world, passage/golden routes and surface suite
 into separate outputs. Runtime qualification remains pending.
+
+The next combined diagnostic, **runtime_v4**, terminates with an actual failed
+result rather than a script exception: nine aggregate failures, eleven retirement
+checks, no resident source cells. The bathroom and casing leg completes, but it
+does not qualify the failed aggregate. Preserve its original wrapper, stderr and
+test-written **integration_world.json** and **retirement.json** unchanged.
+
+| Location | Reproduction | Severity | Evidence | Repair / verification |
+|---|---|---|---|---|
+| Combined world retirement fixture | Finish bathroom review, place the stationary player in the production vestibule, wait600 render frames | Qualification blocker; not yet established as a production streaming defect | **runtime_v4** reports the seven required source cells absent; loading surface messages continue before the failure | **bb96d23d** records wanted state, actual trigger containment, pending requests, staged cells, fitting operation and elapsed time every60 frames. The wait limit and production code are unchanged. Windowed **runtime_v5** is queued through the shared lane; its result remains pending. |
+
+Do not extend this fixture budget or bypass normal residency based only on the
+missing cells. First distinguish a bad trigger, refused load and cooperative
+work still making progress. The diagnostic output is inert and grants no runtime
+contract. Existing completed save diagnostics remain reusable only while their
+actual source/log bindings still verify. PR23 remains unmerged pending the
+combined world, played routes, surface renewal and final baseline comparison.
