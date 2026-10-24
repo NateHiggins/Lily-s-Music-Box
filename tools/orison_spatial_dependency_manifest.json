@@ -312030,6 +312030,62 @@
    "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "6e1a870929bc1517",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_keys_cut.gltf",
+   "file": "game/tests/v2_native_fit_job_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "check_streamed_families"
+   ],
+   "lines": [
+    163
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "9dbdbc7341121b1b",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_model_laundry.gltf",
+   "file": "game/tests/v2_native_fit_job_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "check_streamed_families"
+   ],
+   "lines": [
+    161
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

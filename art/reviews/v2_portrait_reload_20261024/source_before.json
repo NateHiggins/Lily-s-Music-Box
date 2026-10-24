@@ -1,0 +1,55 @@
+{
+  "evidence_class": "INERT",
+  "parent": "29c88736425e725e5e878ae5aa50f649bb4d5a4e",
+  "sources": [
+    {
+      "path": "game/scripts/building/orison_v2_photo_portraits.gd",
+      "archive": "art/reviews/v2_portrait_reload_20261024/source_before/orison_v2_photo_portraits.gd.gz",
+      "sha256": "8fa664f54626e3abce9929ec0b14b5d3a6f3813a6aaea9903b4b4d25f148f1da",
+      "lf_sha256": "8fa664f54626e3abce9929ec0b14b5d3a6f3813a6aaea9903b4b4d25f148f1da"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_passage_residency.gd",
+      "archive": "art/reviews/v2_portrait_reload_20261024/source_before/orison_v2_passage_residency.gd.gz",
+      "sha256": "60af0946cff58f394420726472e514b4a298e329f80d3759388562990bfc3d44",
+      "lf_sha256": "60af0946cff58f394420726472e514b4a298e329f80d3759388562990bfc3d44"
+    },
+    {
+      "path": "game/data/orison_v2/photo_portraits.json",
+      "archive": "art/reviews/v2_portrait_reload_20261024/source_before/photo_portraits.json.gz",
+      "sha256": "9fbf82dd1bbaa89c3c01c6b57482cc48a047c4831aaa32f49b0d7eb58521aa8d",
+      "lf_sha256": "9fbf82dd1bbaa89c3c01c6b57482cc48a047c4831aaa32f49b0d7eb58521aa8d"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_uv_material_policy.gd",
+      "archive": "art/reviews/v2_portrait_reload_20261024/source_before/orison_v2_uv_material_policy.gd.gz",
+      "sha256": "40b9b150dcfa426480602986fa556addc4387c49d17008c1692c6ceed0f57bc3",
+      "lf_sha256": "40b9b150dcfa426480602986fa556addc4387c49d17008c1692c6ceed0f57bc3"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_shop_seating.gd",
+      "archive": "art/reviews/v2_portrait_reload_20261024/source_before/orison_v2_shop_seating.gd.gz",
+      "sha256": "05423dccf5d8734ac151172adf6f686075a76209a1345496fa1bce49a7dcb420",
+      "lf_sha256": "05423dccf5d8734ac151172adf6f686075a76209a1345496fa1bce49a7dcb420"
+    },
+    {
+      "path": "game/tests/v2_native_fit_job_bench.gd",
+      "archive": "art/reviews/v2_portrait_reload_20261024/source_before/v2_native_fit_job_bench.gd.gz",
+      "sha256": "42fadf3dd1ca13c60631b9136eb88274b96b9b84db932e32a62b0c6d1c229c6a",
+      "lf_sha256": "42fadf3dd1ca13c60631b9136eb88274b96b9b84db932e32a62b0c6d1c229c6a"
+    },
+    {
+      "path": "game/tests/orison_v2_photo_portraits_test.gd",
+      "archive": "art/reviews/v2_portrait_reload_20261024/source_before/orison_v2_photo_portraits_test.gd.gz",
+      "sha256": "338d0ddbd7825aaedb244794e8b51acdf30e9043c6d53b9279b22044a02c7a38",
+      "lf_sha256": "338d0ddbd7825aaedb244794e8b51acdf30e9043c6d53b9279b22044a02c7a38"
+    },
+    {
+      "path": "game/tests/v2_cooperative_streaming_profile.gd",
+      "archive": "art/reviews/v2_portrait_reload_20261024/source_before/v2_cooperative_streaming_profile.gd.gz",
+      "sha256": "3be497a09b4818eb056d9e5a170ec237f958713539e9e9381206ab7cc3e15436",
+      "lf_sha256": "3be497a09b4818eb056d9e5a170ec237f958713539e9e9381206ab7cc3e15436"
+    }
+  ],
+  "scope": "Initial untouched sources and later pre-family/UV inspection snapshots. Each raw archive binds its capture phase; later diagnostic snapshots are not asserted to be parent blobs."
+}

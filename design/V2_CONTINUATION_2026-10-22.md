@@ -12,6 +12,18 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-24
 
+Newest scoped performance repair: **V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md**.
+One validated portrait atlas is kept per passage world; complete source/import/
+payload hashes still run. Warm portrait fits31.5–35.1ms versus61.0–61.7ms;
+the cold release control returns79.0ms. Weak UV restoration records release
+retired local shaders/textures while restoring live shared defaults.16 atlas,
+11 lifetime,49 eight-family fitting checks and the existing UV suite pass.
+Final actual route passes54 timed waypoints/14 checks,6,586 lighting and369
+portrait diagnostics; dormant texture release and root/mesh retirement pass.
+Loading p9965.684→51.528ms; whole-route p9951.880→50.872ms and median unchanged.
+Original failed candidate lifetime/stale-test results remain; large rendering
+spikes, cold-load guard overhead and broader feature closure remain open.
+
 Newest native performance work: **V2_INCREMENTAL_NATIVE_SIGNATURES_2026-10-24.md**.
 Complete mesh-buffer SHA256 now yields in256KiB updates; original byte order,
 header/channel coverage and mesh-copy snapshot remain.60 signature,37 actual-

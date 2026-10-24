@@ -235,14 +235,14 @@ func _stage_one() -> void:
 		_fit_operations = [
 			["standard wall millwork reload refused: "+identity, func(): return preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_cell(cell,region.source_layout)],
 			["native seating reload fit refused: "+identity, func(): return region.Seating.mount_cell(cell,region.source_layout)],
-			["native laundry reload fit refused: "+identity, func(): return region.Laundry.mount_cell(cell,region.source_layout)],
+			["native laundry reload fit refused: "+identity, func(): return region.Laundry.mount_cell(cell,region.source_layout), "laundry"],
 			["native laundry apparatus reload fit refused: "+identity, func(): return region.LaundryApparatus.mount_cell(cell,region.source_layout)],
 			["native laundry trade furniture reload fit refused: "+identity, func(): return region.LaundryTrade.mount_cell(cell,region.source_layout)],
 			["native borrowed-light reload fit refused: "+identity, func(): return region.ShopClerestories.mount_cell(cell,region.source_layout)],
 			["native closed shop joinery reload fit refused: "+identity, func(): return region.ShopJoinery.mount_cell(cell,region.source_layout)],
 			["native Photo/Radio reload fit refused: "+identity, func(): return region.PhotoRadioFittings.mount_cell(cell,region.source_layout)],
-			["native locksmith reload fit refused: "+identity, func(): return region.LocksmithFittings.mount_cell(cell,region.source_layout)],
-			["native cobbler reload fit refused: "+identity, func(): return region.CobblerFittings.mount_cell(cell,region.source_layout)],
+			["native locksmith reload fit refused: "+identity, func(): return region.LocksmithFittings.mount_cell(cell,region.source_layout), "locksmith"],
+			["native cobbler reload fit refused: "+identity, func(): return region.CobblerFittings.mount_cell(cell,region.source_layout), "cobbler"],
 			["native news reload fit refused: "+identity, func(): return region.NewsFittings.mount_cell(cell,region.source_layout)],
 			["native hardware drawer reload fit refused: "+identity, func(): return region.HardwareDrawers.mount_cell(cell,region.source_layout), "hardware_drawers"],
 			["native hardware apparatus reload fit refused: "+identity, func(): return region.HardwareApparatus.mount_cell(cell,region.source_layout)],
@@ -259,7 +259,7 @@ func _stage_one() -> void:
 			["native photography supply shelving reload fit refused: "+identity, func(): return region.PhotoStock.mount_cell(cell,region.source_layout)],
 			["native photography enlarger reload fit refused: "+identity, func(): return region.PhotoEnlargers.mount_cell(cell,region.source_layout)],
 			["native photography process reload fit refused: "+identity, func(): return region.PhotoProcess.mount_cell(cell,region.source_layout)],
-			["native unclaimed portrait reload fit refused: "+identity, func(): return region.PhotoPortraits.mount_cell(cell,region.source_layout)],
+			["native unclaimed portrait reload fit refused: "+identity, func(): return region.PhotoPortraits.mount_cell(cell,region.source_layout,region.portrait_atlas_cache)],
 			["native fixed photographic glazing reload refused: "+identity, func(): return region.PhotoGlazing.mount_cell(cell,region.source_layout)],
 			["native druggist drawer/counter reload fit refused: "+identity, func(): return region.DruggistDrawers.mount_cell(cell,region.source_layout), "druggist_drawers"],
 			["native druggist counter objects reload refused: "+identity, func(): return region.DruggistCounter.mount_cell(cell,region.source_layout)],
@@ -379,7 +379,7 @@ func snapshot() -> Dictionary:
 		if reference.get_ref() != null: retained_roots += 1
 	for reference: WeakRef in _retired_meshes:
 		if reference.get_ref() != null: retained_meshes += 1
-	return {"kept_shader_materials":1 if _canopy_shader_material!=null else 0,"state": state, "pending_requests": _pending.size()+_height_pending.size()+_native_pending.size(), "load_cycles": load_cycles,
+	return {"portrait_atlas_cache":region.portrait_atlas_cache.snapshot(),"kept_shader_materials":1 if _canopy_shader_material!=null else 0,"state": state, "pending_requests": _pending.size()+_height_pending.size()+_native_pending.size(), "load_cycles": load_cycles,
 		"unload_cycles": unload_cycles, "retired_geometry_roots_alive": retained_roots,
 		"retired_mesh_resources_alive": retained_meshes, "peak_stage_ms": peak_stage_ms,
 		"peak_activation_ms": peak_activation_ms, "stage_records": stage_records.duplicate(true), "fit_records":fit_records.duplicate(true),

@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Portrait atlas reloads, retired shader ownership and eight cooperative fitting families | `design/V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md` |
 | Incremental signatures, canopy shader lifetime and same-process cache control | `design/V2_INCREMENTAL_NATIVE_SIGNATURES_2026-10-24.md` |
 | Cooperative fitting jobs, source equivalence and loading frame tails | `design/V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md` |
 | Fixture halo retirement, actual passage streaming and native fitting stalls | `design/V2_FIXTURE_HALOS_AND_PASSAGE_PROFILE_2026-10-23.md` |

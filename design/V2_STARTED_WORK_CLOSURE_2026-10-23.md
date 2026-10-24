@@ -11,10 +11,22 @@ it does not replace the existing issue logs or erase original failures.
 ## Current verification boundary
 
 Canonical checkout **C:/PleaseRemainOnTheLine**, branch
-**codex/v2-acoustic-topology**, preceding pushed checkpoint **62e81171**.
+**codex/v2-acoustic-topology**, preceding pushed checkpoint **29c88736**.
 The spatial dependency manifest is unrelated shared WIP. Untracked street/tent,
 traffic and art work remains preserved. All engine runs use the shared lane.
 No human acceptance or clean candidate verification is claimed.
+
+Newest scoped performance repair: **V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md**.
+One validated portrait atlas is kept per passage world; complete source/import/
+payload hashes still run. Warm portrait fits31.5–35.1ms versus61.0–61.7ms;
+the cold release control returns79.0ms. Weak UV restoration records release
+retired local shaders/textures while restoring live shared defaults.16 atlas,
+11 lifetime,49 eight-family fitting checks and the existing UV suite pass.
+Final actual route passes54 timed waypoints/14 checks,6,586 lighting and369
+portrait diagnostics; dormant texture release and root/mesh retirement pass.
+Loading p9965.684→51.528ms; whole-route p9951.880→50.872ms and median unchanged.
+Original failed candidate lifetime/stale-test results remain; large rendering
+spikes, cold-load guard overhead and broader feature closure remain open.
 
 Latest scoped native work: **V2_INCREMENTAL_NATIVE_SIGNATURES_2026-10-24.md**.
 Complete hashes yield in bounded packed-buffer updates;60 signature,37 fitting

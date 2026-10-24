@@ -79,6 +79,7 @@ var _counter_ids: Array[String] = []
 var _geometry_root: Node3D
 var _actors: Node3D
 var residency: Node
+var portrait_atlas_cache := PhotoPortraits.AtlasCache.new()
 var receiving_row: Receivers
 ## Temporarily absent by owner request. Read once so streaming keeps the same policy.
 var cabinets_enabled := false
@@ -215,7 +216,7 @@ func _ready() -> void:
 		if not PhotoProcess.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native photography process fit refused: "+identity)
 			return
-		if not PhotoPortraits.mount_cell(cell_nodes[identity],source_layout):
+		if not PhotoPortraits.mount_cell(cell_nodes[identity],source_layout,portrait_atlas_cache):
 			_fail("native unclaimed portrait fit refused: "+identity)
 			return
 		if not PhotoGlazing.mount_cell(cell_nodes[identity],source_layout):
@@ -463,6 +464,7 @@ func shutdown() -> void:
 	_acoustic_originals.clear()
 	if is_instance_valid(residency):
 		residency.shutdown()
+	portrait_atlas_cache.clear()
 	if is_instance_valid(shop_service):
 		for identity: String in _counter_ids:
 			shop_service.unmount_counter(identity)

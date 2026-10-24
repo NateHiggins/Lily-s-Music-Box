@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 264.67,
+  "exit_code": 1,
+  "finished_utc": "2026-10-24T05:11:08Z",
+  "started_utc": "2026-10-24T05:06:43Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_portrait_reload_20261024/weak_policy_v1.log.stderr",
+  "stderr_sha256": "e40807f022ffd6f94b1d6e322b0316f1121ce5645589e47618009d28b1c29499",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_portrait_reload_20261024/weak_policy_v1.log",
+  "stdout_sha256": "7eea4a7b07a7523b1f59728c8d7ab2d66f043af5896d4a2ba66544ee2938b567"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2CooperativeStreamingProfile.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_portrait_reload_20261024/weak_policy_v1",
+ "source": {
+  "dirty_paths": 3032,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_photo_portraits.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/scripts/building/orison_v2_uv_material_policy.gd",
+   " M game/tests/orison_v2_photo_portraits_test.gd",
+   " M game/tests/v2_cooperative_streaming_profile.gd",
+   " M game/tests/v2_native_fit_job_bench.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/flue_wall_thimble/flue_wall_thimble.glb",
+   "?? art/blender/flue_wall_thimble/thimble_review.png",
+   "?? art/blender/scripts/build_street_film_tent.py",
+   "?? art/blender/scripts/build_v2_traffic_stock.py",
+   "?? art/blender/scripts/review_street_film_tent.py",
+   "?? art/blender/street_film_tent.blend",
+   "?? art/blender/v2_traffic_stock.blend",
+   "?? art/renders/orison_v2/4k_wip_20261019/",
+   "?? art/renders/orison_v2/apartment_access_20261012/last_position.png",
+   "?? art/renders/orison_v2/apartment_access_20261012/route.json"
+  ],
+  "repository_head": "29c88736425e725e5e878ae5aa50f649bb4d5a4e",
+  "repository_tree": "8a57db860538730751a76b1c267d68f9b85b1868",
+  "runtime_inputs_sha256": "64d28b746887ebdb57853fede68bff5497bad681e137c0d03a55df871ccb669a",
+  "test_path": "game/tests/v2_cooperative_streaming_profile.gd",
+  "test_sha256": "3782601405e8c25c3de3cb38a31411731a690d16120d4a7b442ba279b9e04192"
+ },
+ "windowed": true
+}

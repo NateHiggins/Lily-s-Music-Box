@@ -35,6 +35,10 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_photo_portraits.json"))
 	check(FileAccess.get_sha256("res://assets/props/photo_portraits.glb")==fixture.asset_sha256,"installed mesh binds the native process-equipment export")
+	var fresh_atlas:=ResourceLoader.load(str(fixture.runtime.image_content.resource),"Texture2D",ResourceLoader.CACHE_MODE_IGNORE) as Texture2D
+	var expected_pixels:=_atlas_signature(fresh_atlas)
+	check(not expected_pixels.is_empty(),"independent fresh atlas exposes its complete imported mip pixels")
+	var image_signatures: Dictionary={}
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
 	for record: Dictionary in fixture.runtime.cells:
 		var cell: Node3D=passage.cell_nodes[record.id];var model: Node3D=cell.get_node("PhotoPortraits")
@@ -61,7 +65,11 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 				var art:=draw.mesh.surface_get_material(0) as StandardMaterial3D
 				check(art!=null and art.albedo_texture!=null and art.albedo_texture.get_width()==1024 and art.albedo_texture.get_height()==1536,"actual registered art role carries the exact generated atlas")
 				check(art.albedo_texture.get_image().has_mipmaps(),"generated print content has declared mipmaps for stable distance sampling")
-				check(art.uv1_scale==Vector3.ONE and art.uv1_offset==Vector3.ZERO and not art.uv1_triplanar and art.roughness_texture==null and art.normal_texture==null and not art.normal_enabled and is_equal_approx(art.roughness,.82) and art.metallic==0.,"local matte ink face uses the declared flat optical finish and unit cell charts")
+				var texture_id:=art.albedo_texture.get_instance_id()
+				if not image_signatures.has(texture_id):image_signatures[texture_id]=_atlas_signature(art.albedo_texture)
+				check(image_signatures[texture_id]==expected_pixels,"installed cached portrait pixels and all mip levels equal an independent fresh load")
+				var paper:=MatLib.get_mat("paper")
+				check(art.uv1_scale==Vector3.ONE and art.uv1_offset==Vector3.ZERO and not art.uv1_triplanar and art.roughness_texture==paper.roughness_texture and art.normal_texture==paper.normal_texture and art.normal_enabled and is_equal_approx(art.normal_scale,.035) and is_equal_approx(art.roughness,.82) and art.metallic==0.,"local matte ink retains registered paper PBR maps and unit cell charts")
 				check(str(draw.get_meta("material_key"))=="art" and str(draw.get_meta("portrait_content_sha256"))==str(fixture.runtime.image_content.sha256),"local content binds existing artwork role and exact source bytes")
 				_check_atlas_chart(draw,fixture)
 			else:
@@ -73,7 +81,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 					if str(original_draw.name).trim_suffix("-col").ends_with("_"+str(runtime_part.key)):source=originals[original_draw].surface_get_material(0)
 				if runtime_part.has("catalog_key"):
 					var library:=MatLib.get_mat(str(runtime_part.catalog_key))
-					check(library!=mat and library.uv1_triplanar and library.albedo_texture==mat.albedo_texture and library.roughness_texture==mat.roughness_texture and library.normal_texture==mat.normal_texture and mat.uv1_scale.is_equal_approx(library.uv1_scale),"local registered finishes use their catalogue owner without changing shared materials")
+					check(library!=mat and _catalogue_uv_owned(world,library) and library.albedo_texture==mat.albedo_texture and library.roughness_texture==mat.roughness_texture and library.normal_texture==mat.normal_texture and mat.uv1_scale.is_equal_approx(library.uv1_scale),"local registered finishes use their catalogue owner without changing shared materials")
 					check(mat.metallic==library.metallic and mat.roughness==library.roughness and mat.normal_scale==library.normal_scale,"catalogued finish retains its metallic, roughness and normal strength")
 				else:
 					check(source!=null and source!=mat and source.albedo_texture==mat.albedo_texture and source.roughness_texture==mat.roughness_texture and source.normal_texture==mat.normal_texture,"original timber, glass, bakelite and other shipping materials retain their original shipping maps")
@@ -125,6 +133,15 @@ func _check_portrait_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) ->
 		var left: Dictionary=fixture.runtime.portraits[i-1];var right: Dictionary=fixture.runtime.portraits[i]
 		check(absf(float(right.position[1])-float(left.position[1]))-float(left.width)*.5-float(right.width)*.5>=WallArtLaw.VISUAL_GAP,"seven rigid cards retain the shared minimum visual gap")
 
+func _atlas_signature(texture: Texture2D) -> String:
+	if texture==null:return ""
+	var image:=texture.get_image()
+	if image==null:return ""
+	var digest:=HashingContext.new();digest.start(HashingContext.HASH_SHA256)
+	digest.update(var_to_bytes([image.get_width(),image.get_height(),image.get_format(),image.has_mipmaps()]))
+	digest.update(image.get_data())
+	return digest.finish().hex_encode()
+
 func _portrait_visible(world: OrisonV2RuntimeRoot, cell: Node3D, picture: Dictionary, feet: Vector3) -> bool:
 	var eye:=cell.to_global(feet+Vector3(0,world.player.STANDING_EYE,0));var model: Node3D=cell.get_node("PhotoPortraits")
 	var draw: MeshInstance3D=model.find_children("*","MeshInstance3D",true,false).filter(func(part):return str(part.get_meta("photo_portraits_part"))==str(picture.id)+"__image")[0]
@@ -156,3 +173,12 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> vo
 	observations.append({"id":"portrait_context","feet":[20.5,.03,62.70],"target":[22.885,1.385,61.95],"image":"portrait_context.png"})
 	check(observations.size()==8,"all seven unclaimed prints and one standing context observation are retained")
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Supported standing unclaimed-print observations with actual visibility rays; continuous shop/darkroom routes and operating photography remain separate."},"\t"))
+
+func _catalogue_uv_owned(world: Node, material: StandardMaterial3D) -> bool:
+	# A composed V2 world temporarily selects authored charts on shared stock.
+	# Check the original restoration record instead of assuming V1 defaults
+	# remain active while that policy owns the material.
+	var policy:=world.get_node_or_null("V2UVMaterialPolicy")
+	if policy==null:return material.uv1_triplanar
+	var state: Dictionary=policy.changed_materials.get(material.get_instance_id(),{})
+	return not material.uv1_triplanar and state.get("uv1",false) and (state.get("material") as WeakRef).get_ref()==material

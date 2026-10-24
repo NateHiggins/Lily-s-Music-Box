@@ -158,6 +158,9 @@ func hash_lifetime_case(cell: Node3D,action: String) -> Array:
 
 func check_streamed_families(original: Script) -> void:
 	for spec: Array in [
+		["laundry","shop_model_laundry","res://assets/building/floor_01_cells/shop_model_laundry.gltf"],
+		["cobbler","shop_shoe_rebuilding","res://assets/building/floor_01_cells/shop_shoe_rebuilding.gltf"],
+		["locksmith","shop_keys_cut","res://assets/building/floor_01_cells/shop_keys_cut.gltf"],
 		["arcade_canopy","passage","res://assets/building/orison_v2/passage/passage.gltf"],
 		["arcade_throat","passage","res://assets/building/orison_v2/passage/passage.gltf"],
 		["hardware_drawers","shop_hardware_paint","res://assets/building/floor_01_cells/shop_hardware_paint.gltf"],

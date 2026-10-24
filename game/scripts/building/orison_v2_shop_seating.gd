@@ -10,6 +10,9 @@ static func begin_streamed_fitting(kind: String, cell: Node3D, layout: Dictionar
 		"hardware_drawers":return begin_records(cell,layout,"res://data/orison_v2/hardware_drawers.json","HardwareDrawers","F01_retail_hardware_drawers_","hardware_drawer_part")
 		"hardware_stock":return begin_records(cell,layout,"res://data/orison_v2/hardware_stock.json","HardwareStock","F01_retail_hardware_stock_","hardware_stock_part")
 		"druggist_drawers":return begin_records(cell,layout,"res://data/orison_v2/druggist_drawers.json","DruggistDrawers","F01_retail_druggist_drawers_","druggist_drawer_part")
+		"laundry":return begin_records(cell,layout,"res://data/orison_v2/laundry_fittings.json","LaundryFittings","F01_retail_laundry_","laundry_part")
+		"cobbler":return begin_records(cell,layout,"res://data/orison_v2/cobbler_fittings.json","CobblerFittings","F01_retail_cobbler_","cobbler_part")
+		"locksmith":return begin_records(cell,layout,"res://data/orison_v2/locksmith_fittings.json","LocksmithFittings","F01_retail_locksmith_","locksmith_part")
 	return null
 
 static func mount_arcade_canopy(cell: Node3D, layout: Dictionary) -> bool:
