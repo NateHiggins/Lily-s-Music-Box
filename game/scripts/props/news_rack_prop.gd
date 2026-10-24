@@ -80,7 +80,7 @@ func interact_control(control_id: String, player: Node) -> Variant:
 	if shuttered():
 		return {"title": "NEWS AND CIGARS", "body": "GRILLE DRAWN STOP OPENS SIX THIRTY STOP",
 				"condition": "STALL SHUT", "stamp": "SERVICE NOTE"}
-	var offers := offers_for(catalog, catalog.today())
+	var offers := offers_for(catalog, catalog.today(),true)
 	if offers.is_empty():
 		return {"title": "NEWS AND CIGARS", "body": "RACK EMPTY STOP NO PAPER TODAY STOP",
 				"condition": "RACK BARE", "stamp": "SERVICE NOTE"}
@@ -99,10 +99,11 @@ func interact_control(control_id: String, player: Node) -> Variant:
 ## The rack's offers for a date: both papers for it and each day the rack
 ## keeps before it, newest first; at most eight so the replies stay on the
 ## number keys with "Leave them" ninth.
-static func offers_for(catalog: NewspaperCatalog, date: String) -> Array[Dictionary]:
+static func offers_for(catalog: NewspaperCatalog, date: String, published_only := false) -> Array[Dictionary]:
 	var out: Array[Dictionary] = []
 	for day in catalog.on_sale(date):
 		for paper_id in NewspaperCatalog.PAPER_IDS:
+			if published_only and not catalog.published_now(paper_id,day): continue
 			if out.size() >= 8:
 				return out
 			var kept := catalog.is_collected(paper_id, day)
@@ -113,6 +114,7 @@ static func offers_for(catalog: NewspaperCatalog, date: String) -> Array[Diction
 
 
 func _take(player: Node, catalog: NewspaperCatalog, paper_id: String, date: String) -> void:
+	if not catalog.published_now(paper_id,date): return
 	catalog.collect(paper_id, date)
 	_open_panel(player, catalog, paper_id, date)
 

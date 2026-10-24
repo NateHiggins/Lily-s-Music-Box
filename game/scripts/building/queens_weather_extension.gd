@@ -42,6 +42,8 @@ func receive_conditions(conditions: Dictionary,campaign_day: String,seed_value: 
 	var fair:=number(conditions,"pressure_hpa",1013.0)>=1020.0 and speed<7.0 \
 		and _target_weights.length_squared()<.001 and _target_threat<.05 and _target_cyclone<.05
 	_target_formation=_daily_choice if fair else 0
+	if events.has("formation"):
+		_target_formation=clampi(int(events.formation),0,4) if _target_threat<.05 and _target_cyclone<.05 else 0
 	var forced:=OS.get_environment("WEATHER_FORMATION")
 	if forced in ["asperitas","fluctus","lenticular","nacreous"] and _target_threat<.05 and _target_cyclone<.05:
 		_target_formation=["asperitas","fluctus","lenticular","nacreous"].find(forced)+1

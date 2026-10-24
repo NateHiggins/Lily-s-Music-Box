@@ -191,7 +191,7 @@ func start(resident_id: String) -> bool:
 			RealityCases.interact_with_resident(resident_id)
 			return true
 		return false
-	var tree: Dictionary = with_opinions(resident_id, trees[resident_id], today())
+	var tree: Dictionary = with_weather(resident_id,with_opinions(resident_id, trees[resident_id], today()))
 	var entry_id := entry_for(resident_id)
 	var entries: Dictionary = tree.get("entries", {})
 	var node_id := str(entries.get(entry_id, entries.get("first_stable", "")))
@@ -246,6 +246,10 @@ func _available(resident_id: String, choice: Dictionary) -> bool:
 
 
 func _record(resident_id: String, flag: String, trust: int) -> void:
+	if flag.begins_with("wx:"):
+		RealityState.grant_knowledge(flag)
+		RealityState.commit()
+		return
 	if flag != "":
 		RealityState.grant_knowledge(flag)
 	if trust != 0:
@@ -308,6 +312,30 @@ func file_note(note_id: String, player: Node) -> bool:
 
 
 ## --- opinions ------------------------------------------------------------
+
+func with_weather(resident_id: String, tree: Dictionary) -> Dictionary:
+	var manager := get_tree().get_first_node_in_group("weather_manager")
+	if manager==null or str(manager.get("source"))!="campaign-calendar": return tree
+	if _clock==null: _clock=CampaignClock.new()
+	var director: DayNightDirector=manager.get("director")
+	var sunlit:=true
+	if director!=null:
+		var sun: Vector3=director.resolved_profile().get("sun_direction",Vector3.UP)
+		sunlit=sun.y>0.0
+	var note := ResidentWeather.observation(resident_id,_clock.local_datetime(),
+		manager.get("current"),_clock.elapsed_minutes(),sunlit)
+	if note.is_empty() or RealityState.has_knowledge(str(note.id)): return tree
+	var copy := tree.duplicate(true)
+	var home := str(copy.entries.get(entry_for(resident_id),copy.entries.get("first_stable","")))
+	copy.nodes[str(note.id)]={"line":str(note.line),"flag":str(note.id),
+		"choices":[{"label":"...","goto":home}],"silence_goto":home}
+	for entry: Variant in copy.entries.values():
+		var node: Dictionary=copy.nodes.get(str(entry),{})
+		if node.is_empty(): continue
+		var choices: Array=node.get("choices",[])
+		choices.append({"label":str(note.topic),"goto":str(note.id)})
+		node["choices"]=choices
+	return copy
 
 ## The campaign date as YYYY-MM-DD, or "" when no clock is bound (a bare test).
 func today() -> String:

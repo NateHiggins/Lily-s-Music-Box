@@ -3,6 +3,7 @@ extends Node
 signal conditions_changed(conditions: Dictionary)
 const Service := preload("res://scripts/building/live_weather_service.gd")
 const CloudNoise := preload("res://scripts/building/weather_noise.gd")
+const Calendar := preload("res://scripts/game/campaign_weather.gd")
 const TRANSITION_SECONDS := 300.0
 const MEAN_F := [33.7,35.9,42.8,53.7,63.2,72.0,77.5,76.1,69.2,57.9,48.0,39.1]
 const FIELDS := ["temperature_c","relative_humidity","cloud_total","cloud_low","cloud_mid","cloud_high","wind_speed_kmh","wind_gusts_kmh","precipitation_intensity","rain_intensity","snow_intensity"]
@@ -27,11 +28,17 @@ var _owns_taa := false
 var _frame := 0
 var extreme_weather: RefCounted
 var _extreme_events: Dictionary={}
+var _calendar_events: Dictionary={}
+var _calendar_minute := ""
+var _calendar_check_left := 0.0
 
 func configure(owner_clock: CampaignClock, owner_director: DayNightDirector,
 		material: ShaderMaterial, owner_effects: WeatherFX = null) -> void:
 	clock=owner_clock; director=owner_director; sky=material; effects=owner_effects
-	current=Service.presentation(seasonal_snapshot(clock.local_datetime()))
+	var authored := Calendar.snapshot(clock.local_datetime())
+	current=Service.presentation(authored if not authored.is_empty() else seasonal_snapshot(clock.local_datetime()))
+	source="campaign-calendar" if not authored.is_empty() else "seasonal-fallback"
+	_calendar_events=Calendar.events(authored)
 	target=current.duplicate(true); origin=current.duplicate(true)
 	if RenderingServer.get_current_rendering_method()=="forward_plus" and OS.get_environment("WEATHER_SKY_BASELINE")!="1":
 		extreme_weather=preload("res://scripts/building/queens_weather_extension.gd").new()
@@ -40,6 +47,7 @@ func configure(owner_clock: CampaignClock, owner_director: DayNightDirector,
 
 func _ready() -> void:
 	if clock == null or sky == null: set_process(false); return
+	add_to_group("weather_manager")
 	if RenderingServer.get_current_rendering_method() == "forward_plus":
 		sky.set_shader_parameter("cloud_noise",CloudNoise.load_volume())
 		sky.set_shader_parameter("cirrus_tex",load("res://assets/environment/weather/cirrus.png"))
@@ -92,7 +100,10 @@ func receive_snapshot(snapshot: Dictionary) -> void:
 	source=str(snapshot.get("source","unknown")); last_error=""
 
 func _fallback(reason: String) -> void:
-	receive_snapshot(seasonal_snapshot(clock.local_datetime()))
+	var authored := Calendar.snapshot(clock.local_datetime())
+	receive_snapshot(authored if not authored.is_empty() else seasonal_snapshot(clock.local_datetime()))
+	_calendar_events=Calendar.events(authored)
+	_calendar_minute=""
 	last_error=reason
 
 static func shape_for_day(identity: String, seed_value: int) -> int:
@@ -104,11 +115,21 @@ func _process(delta: float) -> void:
 	elapsed=minf(TRANSITION_SECONDS,elapsed+delta)
 	current=interpolate(origin,target,elapsed/TRANSITION_SECONDS)
 	var date := clock.local_datetime()
+	_calendar_check_left-=delta
+	if _calendar_check_left<=0.0:
+		_calendar_check_left=1.0
+		if source=="campaign-calendar" or source.begins_with("nyc-seasonal") or source=="seasonal-fallback":
+			var minute_key:="%s:%s:%s"%[Calendar.date_key(date),date.get("hour",0),date.get("minute",0)]
+			if minute_key!=_calendar_minute:
+				_calendar_minute=minute_key
+				var authored:=Calendar.snapshot(date)
+				current=Service.presentation(authored if not authored.is_empty() else seasonal_snapshot(date))
+				target=current.duplicate(true);origin=current.duplicate(true);elapsed=TRANSITION_SECONDS
+				source="campaign-calendar" if not authored.is_empty() else "seasonal-fallback"
+				_calendar_events=Calendar.events(authored)
 	var identity := "%04d-%02d-%02d" % [date.get("year",1928),date.get("month",11),date.get("day",date.get("day_of_month",10))]
 	if identity != _day:
 		_day=identity
-		if source.begins_with("nyc-seasonal") or source=="seasonal-fallback":
-			receive_snapshot(seasonal_snapshot(date))
 		var seed_value := int(OS.get_environment("WEATHER_SEED")) if OS.get_environment("WEATHER_SEED").is_valid_int() else 1928
 		_shape=shape_for_day(identity,seed_value); _shape_age=0.0
 		var forced := OS.get_environment("WEATHER_CLOUD_SHAPE")
@@ -142,7 +163,9 @@ func _publish() -> void:
 	if extreme_weather!=null:
 		var identity:="%04d-%02d-%02d"%[date.get("year",1928),date.get("month",11),date.get("day",date.get("day_of_month",10))]
 		var seed_value:=int(OS.get_environment("WEATHER_SEED")) if OS.get_environment("WEATHER_SEED").is_valid_int() else 1928
-		extreme_weather.receive_conditions(current,identity,seed_value,_extreme_events)
+		var events:=_calendar_events.duplicate(true) if source=="campaign-calendar" else {}
+		events.merge(_extreme_events,true)
+		extreme_weather.receive_conditions(current,identity,seed_value,events)
 	director.set_live_conditions(current)
 	if effects != null: effects.set_live_conditions(current)
 	if RenderingServer.get_current_rendering_method()=="forward_plus":

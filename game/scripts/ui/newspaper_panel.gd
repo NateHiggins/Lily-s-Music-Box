@@ -140,6 +140,20 @@ func _show(paper: String, issue_date: String) -> void:
 			HORIZONTAL_ALIGNMENT_RIGHT)
 	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_rule(1)
+	var weather: Dictionary = page.get("weather_report",{})
+	if not weather.is_empty():
+		_label("WEATHER DESK / " + CampaignWeather.print_time(str(weather.get("issued_at",""))) + " E.S.T.",14,INK,_bold)
+		_label(str(weather.get("observation","")),14,INK_SOFT,_italic)
+		_label(str(weather.get("prediction","")) + " " + str(weather.get("outlook","")),15,INK)
+		_label("Outlook: %s. Valid %s to %s E.S.T." % [weather.get("confidence",""),
+			CampaignWeather.print_time(str(weather.get("valid_from",""))),
+			CampaignWeather.print_time(str(weather.get("valid_until","")))],12,INK_SOFT,_italic)
+		if str(weather.get("revision",""))!="": _label(str(weather.revision),14,INK_SOFT,_italic)
+		for dispatch: Dictionary in weather.get("timeline",[]):
+			if str(dispatch.get("issued_at",""))==str(weather.get("issued_at","")): continue
+			_label("Previous dispatch, %s E.S.T.: %s"%[CampaignWeather.print_time(str(dispatch.get("issued_at",""))),
+				dispatch.get("prediction","")],12,INK_SOFT,_italic)
+		_rule(1)
 	# The lead.
 	var lead: Dictionary = page.get("lead", {})
 	_label(str(lead.get("headline", "")).to_upper(), 34, RED if red else INK, _bold,

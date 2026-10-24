@@ -1,0 +1,66 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 36.68,
+  "exit_code": -1,
+  "finished_utc": "2026-10-24T19:20:54Z",
+  "started_utc": "2026-10-24T19:20:17Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 3,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"saved\" variable because the value doesn't have a set type.",
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"original\" variable because the value doesn't have a set type.",
+   "ERROR: Failed to load script \"res://tests/campaign_weather_test.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/calendar_v3/calendar.log.stderr",
+  "stderr_sha256": "284681c31d578eac6868c3d8efc58217a2f234bb2e4acba611a51f219c20cb1d",
+  "stdout": "C:/ov/reports/v2integration24/calendar_v3/calendar.log",
+  "stdout_sha256": "105c8475a495681189d35bb4aa1ace2a76165bdd46c5469ef9c1a04acaa199c3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/CampaignWeatherTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\calendar_v3\\calendar",
+ "source": {
+  "dirty_paths": 2184,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
+   " M game/assets/audio/music/covers/living_with_the_motor.webp.import",
+   " M game/assets/audio/music/covers/mina_s_midday_quest.webp.import"
+  ],
+  "repository_head": "0eaa96ba9c94965ba75478c7b328eca7822b39a1",
+  "repository_tree": "51b36b4458b746de3c3cb85b6e297edc9f3c0131",
+  "runtime_inputs_sha256": "d1e81737a8fa3192295684ee21526f97d5deb02262a3bc21caf1ff031f3dc139",
+  "test_path": "game/tests/campaign_weather_test.gd",
+  "test_sha256": "f52735c0f67eacf82dc538f99cb54f32d49f07dec2c16c59dd3e53329cddce89"
+ },
+ "windowed": true
+}

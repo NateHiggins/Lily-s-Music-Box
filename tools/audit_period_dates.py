@@ -24,6 +24,8 @@ EXPECTED_CONSUMERS = {
     "game/scripts/building/WeatherManager.gd": "campaign_season_and_deterministic_cloud_shape",
     # Authored Gregorian calendar; host hour/minute may be sampled once.
     "game/scripts/game/campaign_clock.gd": "authored_campaign_calendar",
+    # Pure dated projection of CampaignClock, with as-of press dispatches.
+    "game/scripts/game/campaign_weather.gd": "authored_campaign_weather_and_issued_forecasts",
     "game/scripts/game/historical_radio_notice.gd": "observed_printed_historical_notice",
     # The daily papers print the campaign date; the year comes off CampaignClock.
     "game/scripts/game/newspaper_catalog.gd": "authored_campaign_calendar",

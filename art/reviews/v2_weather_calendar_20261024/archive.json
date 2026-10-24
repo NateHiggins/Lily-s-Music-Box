@@ -1,0 +1,449 @@
+{
+  "schema": "orison.weather-calendar-review.v1",
+  "evidence_class": "INERT",
+  "calendar_path": "game/data/weather/campaign_weather.json",
+  "calendar_sha256": "e5cd3a6205f90fe72409363ce3cf175bff5a6fbeeb312a43df0fcaaa44f2c63d",
+  "scope": "Dated calendar/forecast/NPC diagnostic, production weather owner in occupied world, four inspected stills; no played performance or full-world runtime qualification",
+  "static_checks": {
+    "weather_python_tests": 7,
+    "period_python_tests": 4,
+    "reader_new": 0,
+    "spatial_new_failing": 0,
+    "existing_spatial_new_reported_preserved": 8
+  },
+  "v3": "Two fixture inferred-type parse errors; no assertions ran. Stopped only own failed GUI; wrapper receipt-1 preserved.",
+  "v4": "395 assertions executed; two fixture failures (3pm-only regime count and wrong shader path); source, result and capture preserved.",
+  "v5": "395 assertions pass, service and newspaper pass, occupied-world dates/source/state pass; all four stderr files empty.",
+  "files": [
+    {
+      "file": "calendar_v3/import1.log.gz",
+      "sha256": "c46371b5193d5a9e4903d128e0ea7212b28c12ccaf4dcf6714f4f1f04d44de87",
+      "bytes": 17296,
+      "original_sha256": "c069bde1fbf27f8812af8c4a3d39fdc4526297253dd86c83c4b8d638f62ccabe",
+      "original_bytes": 379237,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v3/import1.log.stderr.gz",
+      "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+      "bytes": 20,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v3/import1.log.receipt.json",
+      "sha256": "64864e3b4e95b39f22d54d2414b400cfb3c34b8f914a4a5f80732a1d69dac6c1",
+      "bytes": 2724,
+      "original_sha256": "64864e3b4e95b39f22d54d2414b400cfb3c34b8f914a4a5f80732a1d69dac6c1",
+      "original_bytes": 2724,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v3/import2.log.gz",
+      "sha256": "6574b41bcda80094e76e3e2a53b6aedfe1763d7fad5564a373fd84dddb3e3197",
+      "bytes": 351,
+      "original_sha256": "4a397ad49c566a05e88a229bea747004907400e6f2367a980d2512fb29bfdaa7",
+      "original_bytes": 1033,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v3/import2.log.stderr.gz",
+      "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+      "bytes": 20,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v3/import2.log.receipt.json",
+      "sha256": "3bbe7a295c023c9b5c9af6de1a725c04a8ad25d0a9078fcc981102f6eacbd1a2",
+      "bytes": 2722,
+      "original_sha256": "3bbe7a295c023c9b5c9af6de1a725c04a8ad25d0a9078fcc981102f6eacbd1a2",
+      "original_bytes": 2722,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v3/calendar.log.gz",
+      "sha256": "0c55abf2ad25f94c4d377af576d106df211edd05bacc6a0e79e0e8f022cd483f",
+      "bytes": 176,
+      "original_sha256": "105c8475a495681189d35bb4aa1ace2a76165bdd46c5469ef9c1a04acaa199c3",
+      "original_bytes": 183,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v3/calendar.log.stderr.gz",
+      "sha256": "a84b3d8b79dfe64491d9d0130d30827ab090c9d50bee8e8ce9ef42f0b3c85151",
+      "bytes": 253,
+      "original_sha256": "284681c31d578eac6868c3d8efc58217a2f234bb2e4acba611a51f219c20cb1d",
+      "original_bytes": 522,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v3/calendar.log.receipt.json",
+      "sha256": "825920bfe96181fda4d133f7e3349bd27a57b9ce7a022c328857313b6974a3ff",
+      "bytes": 3260,
+      "original_sha256": "825920bfe96181fda4d133f7e3349bd27a57b9ce7a022c328857313b6974a3ff",
+      "original_bytes": 3260,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v3/campaign_weather_test_original.gd",
+      "sha256": "f52735c0f67eacf82dc538f99cb54f32d49f07dec2c16c59dd3e53329cddce89",
+      "bytes": 8852,
+      "original_sha256": "f52735c0f67eacf82dc538f99cb54f32d49f07dec2c16c59dd3e53329cddce89",
+      "original_bytes": 8852,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v4/calendar.log.gz",
+      "sha256": "aec9b7d33270ce54aa226725b2afbce487c8b809b74b6141f890274ca6c33279",
+      "bytes": 2269,
+      "original_sha256": "9f846b7b2f57b219baf1eb75dacec4338f911f44b2c4c8141530460d9795b269",
+      "original_bytes": 32297,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v4/calendar.log.stderr.gz",
+      "sha256": "d4e1aff3591118607f45cfb623fbb8028a8278f703f26d18c19198dd2663c00d",
+      "bytes": 355,
+      "original_sha256": "3cc23e727805fc9fad719f384b88372f7af788f5cbbd37e18a433918664e7229",
+      "original_bytes": 1060,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v4/calendar.log.receipt.json",
+      "sha256": "ee93b22c7c0d39fcd058f3ea3bdbc4860b5c825e6e37ba2ddf9058f886f6da70",
+      "bytes": 6677,
+      "original_sha256": "ee93b22c7c0d39fcd058f3ea3bdbc4860b5c825e6e37ba2ddf9058f886f6da70",
+      "original_bytes": 6677,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v4/campaign_weather_test_original.gd",
+      "sha256": "cdcfb23d6fc5140ef27ea28672377f01b3b6d399119dd94b8fc84ca1a4485ca7",
+      "bytes": 9191,
+      "original_sha256": "cdcfb23d6fc5140ef27ea28672377f01b3b6d399119dd94b8fc84ca1a4485ca7",
+      "original_bytes": 9191,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v4/calendar/calendar_test.json",
+      "sha256": "4262b147910ba1b2b9eb6844ed97b934c0e0821c414144c77b3766bf40179674",
+      "bytes": 376,
+      "original_sha256": "4262b147910ba1b2b9eb6844ed97b934c0e0821c414144c77b3766bf40179674",
+      "original_bytes": 376,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v4/calendar/weather_report.png",
+      "sha256": "4a40bd20290dfc76b21a6c78e301293aeecf149edf42df3e564b6e587638d397",
+      "bytes": 1519591,
+      "original_sha256": "4a40bd20290dfc76b21a6c78e301293aeecf149edf42df3e564b6e587638d397",
+      "original_bytes": 1519591,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v5/calendar.log.gz",
+      "sha256": "5cd1a3168b901894feaa9989e51d6e363cfbc2350d6ca318d0d61cd6a301601b",
+      "bytes": 2261,
+      "original_sha256": "9fee3fdf432e168a2a1dcc007a0959bde0fd6503c52283cf2ae433280341d53a",
+      "original_bytes": 32297,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v5/calendar.log.stderr.gz",
+      "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+      "bytes": 20,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v5/calendar.log.receipt.json",
+      "sha256": "e04ee1af9925a071129295d54815f0ae4a40ad833a9ebd625b639c5832d434d7",
+      "bytes": 6502,
+      "original_sha256": "e04ee1af9925a071129295d54815f0ae4a40ad833a9ebd625b639c5832d434d7",
+      "original_bytes": 6502,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v5/service.log.gz",
+      "sha256": "a91d3bbc12c0b8f5fa103b634d80191ce945bbc7511d0a4dfc9dd11b8bf3f5bc",
+      "bytes": 1021,
+      "original_sha256": "3c7e3e0777866371648952627796f62d3707028cf8df3b89b90a900219c20d62",
+      "original_bytes": 2388,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v5/service.log.stderr.gz",
+      "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+      "bytes": 20,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v5/service.log.receipt.json",
+      "sha256": "525f7a64c9d3010db26cc2f3474abd979a5c89e15a0e15e816b3f365c05b493b",
+      "bytes": 2970,
+      "original_sha256": "525f7a64c9d3010db26cc2f3474abd979a5c89e15a0e15e816b3f365c05b493b",
+      "original_bytes": 2970,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v5/newspaper.log.gz",
+      "sha256": "73e8d4f3321f05cc4f5bb4b9ed33804e9eee16802f75060349d06812424388d1",
+      "bytes": 648,
+      "original_sha256": "b434958db521e78a1a94aaa31993b90cedf3df86c31e9d2b7ecb61463ecd7d45",
+      "original_bytes": 1596,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v5/newspaper.log.stderr.gz",
+      "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+      "bytes": 20,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v5/newspaper.log.receipt.json",
+      "sha256": "75f1e0883a04211a12c0b3774366ccd3a4a99b41f62df7e76569ccbe8bd34b24",
+      "bytes": 2899,
+      "original_sha256": "75f1e0883a04211a12c0b3774366ccd3a4a99b41f62df7e76569ccbe8bd34b24",
+      "original_bytes": 2899,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v5/world.log.gz",
+      "sha256": "7164030b329829471f59d71c08bff87a558864402fc3e5e4f90172afaa0331b6",
+      "bytes": 924,
+      "original_sha256": "df6d031f979e4b1d678a1e94285a7d7b770552021c6418f67207c8530853dba9",
+      "original_bytes": 1577,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v5/world.log.stderr.gz",
+      "sha256": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+      "bytes": 20,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "gzip": true
+    },
+    {
+      "file": "calendar_v5/world.log.receipt.json",
+      "sha256": "f847af5eb68e610290ad8a13c6231d0db6f7b98860902f23fd9228a55fcd2ef4",
+      "bytes": 2915,
+      "original_sha256": "f847af5eb68e610290ad8a13c6231d0db6f7b98860902f23fd9228a55fcd2ef4",
+      "original_bytes": 2915,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v5/calendar/calendar_test.json",
+      "sha256": "495f4b5532ef33617e26be3089da5f956dfba8db07d5fa80b3690804ad220830",
+      "bytes": 270,
+      "original_sha256": "495f4b5532ef33617e26be3089da5f956dfba8db07d5fa80b3690804ad220830",
+      "original_bytes": 270,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v5/calendar/weather_report.png",
+      "sha256": "9c160d6fb96fcd1f6bbfac4386904b8ec8177a87ff1988adfc85bf9628308528",
+      "bytes": 1520329,
+      "original_sha256": "9c160d6fb96fcd1f6bbfac4386904b8ec8177a87ff1988adfc85bf9628308528",
+      "original_bytes": 1520329,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v5/world/august_hail.png",
+      "sha256": "ec8c372272cb8783a9c1c75682b984d68f3f18eb51051ae9a81bd3ca1bd8a3b9",
+      "bytes": 209154,
+      "original_sha256": "ec8c372272cb8783a9c1c75682b984d68f3f18eb51051ae9a81bd3ca1bd8a3b9",
+      "original_bytes": 209154,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v5/world/calendar_world_review.json",
+      "sha256": "931a23415a3be24541039b026c437f657d034181615a6a1b7cd24df63366c1e8",
+      "bytes": 2599,
+      "original_sha256": "931a23415a3be24541039b026c437f657d034181615a6a1b7cd24df63366c1e8",
+      "original_bytes": 2599,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v5/world/christmas_snow.png",
+      "sha256": "874ff76d9b102b1264c039a05695c31945f964eb08a0ac85706330c67e2bce66",
+      "bytes": 320280,
+      "original_sha256": "874ff76d9b102b1264c039a05695c31945f964eb08a0ac85706330c67e2bce66",
+      "original_bytes": 320280,
+      "gzip": false
+    },
+    {
+      "file": "calendar_v5/world/september_cloud.png",
+      "sha256": "311e2a29839842f64bc472fdbca3e9d834b003ee9aaa2ce20ee02ea3be5f3cf0",
+      "bytes": 727169,
+      "original_sha256": "311e2a29839842f64bc472fdbca3e9d834b003ee9aaa2ce20ee02ea3be5f3cf0",
+      "original_bytes": 727169,
+      "gzip": false
+    },
+    {
+      "file": "weather_profile_v1/baseline.log.gz",
+      "sha256": "0c55abf2ad25f94c4d377af576d106df211edd05bacc6a0e79e0e8f022cd483f",
+      "bytes": 176,
+      "original_sha256": "105c8475a495681189d35bb4aa1ace2a76165bdd46c5469ef9c1a04acaa199c3",
+      "original_bytes": 183,
+      "gzip": true
+    },
+    {
+      "file": "weather_profile_v1/baseline.log.stderr.gz",
+      "sha256": "5fc6c4fb11f0f745fd2492cf4d8e9302b3c32bf980e64b9e8facab8d6599193b",
+      "bytes": 222,
+      "original_sha256": "5b3bfd4d3067c410095246d91cfe6b7a2b535f50502cf485c139d732a9f6c63b",
+      "original_bytes": 313,
+      "gzip": true
+    },
+    {
+      "file": "weather_profile_v1/baseline.log.receipt.json",
+      "sha256": "040d51218209e43524aa22666261f31abb60e8432d638fc2ed7899de671ba8c3",
+      "bytes": 3057,
+      "original_sha256": "040d51218209e43524aa22666261f31abb60e8432d638fc2ed7899de671ba8c3",
+      "original_bytes": 3057,
+      "gzip": false
+    },
+    {
+      "file": "weather_profile_v2/baseline.log.gz",
+      "sha256": "af6eeb76cf83ba2c6e094ad99826108dadbbd0ad755e1e7605e0353e54b4f437",
+      "bytes": 1154,
+      "original_sha256": "9b6c5ad78be86da75c6470ef1f2ecb7493d5661f08bd181404472c81863273dd",
+      "original_bytes": 1918,
+      "gzip": true
+    },
+    {
+      "file": "weather_profile_v2/baseline.log.stderr.gz",
+      "sha256": "06672a18e47c030f2a3257a6a0cbd7eecc87c2a9e7f178943182b55a57ddb978",
+      "bytes": 122,
+      "original_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+      "original_bytes": 111,
+      "gzip": true
+    },
+    {
+      "file": "weather_profile_v2/baseline.log.receipt.json",
+      "sha256": "986581aff71903780374abd9aa143816483ec053b53bfe655bd5d9f98304a766",
+      "bytes": 2857,
+      "original_sha256": "986581aff71903780374abd9aa143816483ec053b53bfe655bd5d9f98304a766",
+      "original_bytes": 2857,
+      "gzip": false
+    },
+    {
+      "file": "weather_profile_v2/route.json",
+      "sha256": "86a8910068928d17ae299fa7faef116ecbba84546d54cf8d318bd70aae57d6e4",
+      "bytes": 889,
+      "original_sha256": "86a8910068928d17ae299fa7faef116ecbba84546d54cf8d318bd70aae57d6e4",
+      "original_bytes": 889,
+      "gzip": false
+    },
+    {
+      "file": "weather_profile_v2/weather_frames.json",
+      "sha256": "566915557cff18d4b0d2829a453e1d90374d8b022930590e196a641d707df124",
+      "bytes": 137144,
+      "original_sha256": "566915557cff18d4b0d2829a453e1d90374d8b022930590e196a641d707df124",
+      "original_bytes": 137144,
+      "gzip": false
+    },
+    {
+      "file": "spatial_additions.json",
+      "sha256": "056999124e5884f4edf010769a8c1197e47152f8f7834bde57d8014b46532600",
+      "bytes": 3325,
+      "original_sha256": "056999124e5884f4edf010769a8c1197e47152f8f7834bde57d8014b46532600",
+      "original_bytes": 3325,
+      "gzip": false
+    },
+    {
+      "file": "preview_logic.json",
+      "sha256": "4696cff82d426758d47fb67f541fbd69f1018592db45ad3bf589be00f701564b",
+      "bytes": 270,
+      "original_sha256": "4696cff82d426758d47fb67f541fbd69f1018592db45ad3bf589be00f701564b",
+      "original_bytes": 270,
+      "gzip": false
+    },
+    {
+      "file": "static/board.json.gz",
+      "sha256": "f9883896833af59b9a382830987a884e8db2d50e4b160b9d01578523eb0f5f62",
+      "bytes": 21440,
+      "original_sha256": "7917bc76d8395cc236b242a46dea550cfb6233cabff927093c3f23a73fc33b14",
+      "original_bytes": 172273,
+      "gzip": true
+    },
+    {
+      "file": "static/board.md.gz",
+      "sha256": "dc97fe2c0a95e56003d8bc7183736bdbf845ea82cef2404ba5df80f1f630b145",
+      "bytes": 2524,
+      "original_sha256": "6fc40f604f8e4203828d1925965a49de1534237ceb2431beeccda930f3b714ea",
+      "original_bytes": 10435,
+      "gzip": true
+    },
+    {
+      "file": "static/clean_main_board.json.gz",
+      "sha256": "362a549186c4aeb8ecb97f696c90d36abd5933e966416594df4ddbf87b7fc766",
+      "bytes": 15628,
+      "original_sha256": "5dcf2b0cd7013ae5b73fc3563650759ed07aa8df7042c49484010d4def0dcd00",
+      "original_bytes": 133389,
+      "gzip": true
+    }
+  ],
+  "full_board": {
+    "counts": {
+      "PASS": 104,
+      "FAIL": 7,
+      "INCOMPLETE": 1
+    },
+    "comparison": {
+      "changes": [
+        "test:test_campaign_weather: new gate (PASS, exit 0)",
+        "test:test_city_closure_source: new gate (PASS, exit 0)"
+      ],
+      "comparable": true,
+      "from_commit": "5485fbb442509fe924326884b2872b11e013380d",
+      "improvements": [
+        "reader: unread 1108 -> 1106",
+        "reader: resolved FIELD_UNREAD|game/data/resident_schedules.json|source",
+        "reader: resolved FIELD_UNREAD|game/data/runtime_material_sets.json|metallic",
+        "test:test_house_switchboard_native: FAIL -> PASS",
+        "test:test_house_switchboard_native: failed 1 -> 0",
+        "test:test_house_switchboard_native: resolved test_construction_is_bound_to_current_recipe_and_closed_stock (__main__.NativeSwitchboard.test_construction_is_bound_to_current_recipe_and_closed_stock)",
+        "test:test_nook_readable_books: FAIL -> PASS",
+        "test:test_nook_readable_books: failed 1 -> 0",
+        "test:test_nook_readable_books: resolved test_manufactured_outputs_bind_current_source (__main__.NookBooksTests.test_manufactured_outputs_bind_current_source)",
+        "test:test_readable_library: FAIL -> PASS",
+        "test:test_readable_library: failed 1 -> 0",
+        "test:test_readable_library: resolved test_native_stock_is_closed_and_binds_current_source (__main__.ReadableLibraryTests.test_native_stock_is_closed_and_binds_current_source)",
+        "v2_surface_imports: FAIL -> PASS",
+        "v2_surface_imports: wrong 9 -> 0",
+        "v2_surface_imports: resolved wrong:T_ai_materials_monks_cloth_albedo.png.import",
+        "v2_surface_imports: resolved wrong:T_ai_materials_monks_cloth_normal.png.import",
+        "v2_surface_imports: resolved wrong:T_ai_materials_monks_cloth_rough.png.import",
+        "v2_surface_imports: resolved wrong:T_ai_materials_ninon_albedo.png.import",
+        "v2_surface_imports: resolved wrong:T_ai_materials_ninon_normal.png.import",
+        "v2_surface_imports: resolved wrong:T_ai_materials_ninon_rough.png.import",
+        "v2_surface_imports: resolved wrong:T_ai_materials_velour_albedo.png.import",
+        "v2_surface_imports: resolved wrong:T_ai_materials_velour_normal.png.import",
+        "v2_surface_imports: resolved wrong:T_ai_materials_velour_rough.png.import"
+      ],
+      "regressions": [
+        "v2_surface_qualification: defects 2 -> 3",
+        "v2_surface_qualification: new defect runtime contract does not bind the current surface test"
+      ],
+      "requirements_changed": [],
+      "to_commit": "0eaa96ba9c94965ba75478c7b328eca7822b39a1"
+    },
+    "scope": "Complete static board on the measured working source, verification HEAD0eaa96ba; no full candidate verification or runtime qualification."
+  },
+  "protected_check": {
+    "matched": 17,
+    "expected": 17,
+    "status": "PASS",
+    "selector": "v2",
+    "scope": "HEAD protected paths, with none of the staged weather paths touching a protected owner."
+  }
+}

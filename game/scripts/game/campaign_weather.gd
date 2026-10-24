@@ -1,0 +1,168 @@
+class_name CampaignWeather
+extends RefCounted
+## Pure dated weather/press projection. CampaignClock alone owns elapsed time.
+## No network, per-frame scan, new save state, or resident knowledge grants.
+const PATH := "res://data/weather/campaign_weather.json"
+const Service := preload("res://scripts/building/live_weather_service.gd")
+const MONTHS := ["January","February","March","April","May","June","July","August",
+	"September","October","November","December"]
+const WINDS := ["N.","N.N.E.","N.E.","E.N.E.","E.","E.S.E.","S.E.","S.S.E.",
+	"S.","S.S.W.","S.W.","W.S.W.","W.","W.N.W.","N.W.","N.N.W."]
+const NUMERIC := ["temperature_c", "relative_humidity", "cloud_total", "cloud_low",
+	"cloud_mid", "cloud_high", "wind_speed_kmh", "wind_gusts_kmh", "pressure_hpa",
+	"rain_mm", "snowfall_cm", "hail", "cyclone", "severe_storm_threat"]
+static var _days: Dictionary = {}
+static var _dates: Array[String] = []
+static var error := ""
+
+static func load_calendar() -> bool:
+	if not _days.is_empty(): return true
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+	if parsed is not Dictionary or int(parsed.get("schema_version", 0)) != 1 \
+			or parsed.get("days") is not Array or str(parsed.get("authorship", "")).is_empty():
+		error = "Campaign weather calendar is unreadable"; return false
+	var candidate: Dictionary = {}
+	var dates: Array[String] = []
+	for row: Variant in parsed.days:
+		if row is not Dictionary or not valid_day(row):
+			error = "Campaign weather calendar has an invalid day"; return false
+		var key := str(row.date)
+		if candidate.has(key):
+			error = "Campaign weather calendar repeats " + key; return false
+		candidate[key] = row; dates.append(key)
+	dates.sort()
+	if dates.size() != 365 or dates[0] != str(parsed.get("first_date", "")) \
+			or dates[-1] != str(parsed.get("last_date", "")):
+		error = "Campaign weather calendar range is incomplete"; return false
+	var previous := 0
+	var has_previous := false
+	for key: String in dates:
+		var stamp:=Time.get_unix_time_from_datetime_string(key+"T00:00:00")
+		if Time.get_datetime_string_from_unix_time(stamp).left(10)!=key \
+				or (has_previous and stamp-previous!=86400):
+			error="Campaign weather calendar has a civil-date gap"; return false
+		previous=stamp
+		has_previous=true
+	_days = candidate; _dates = dates; error = ""
+	return true
+
+static func valid_day(row: Dictionary) -> bool:
+	for field: String in ["date", "chapter", "story_hook", "kind", "record_ear", "speaker_ear"]:
+		if str(row.get(field, "")).is_empty(): return false
+	if row.get("frames") is not Array or row.frames.size() < 2 or row.frames.size() > 12 \
+			or row.get("bulletins") is not Array or row.bulletins.size() != 2: return false
+	var last := -1
+	for frame: Variant in row.frames:
+		if frame is not Dictionary: return false
+		var minute := int(frame.get("minute", -1))
+		if minute <= last or minute > 1439: return false
+		last = minute
+		for field: String in NUMERIC + ["minute", "weather_code", "wind_direction_degrees", "formation"]:
+			var value: Variant = frame.get(field)
+			if typeof(value) not in [TYPE_FLOAT, TYPE_INT] or not is_finite(float(value)): return false
+		if float(frame.rain_mm) < 0 or float(frame.snowfall_cm) < 0: return false
+		if int(frame.formation) < 0 or int(frame.formation) > 4: return false
+	if int(row.frames[0].minute) != 0: return false
+	for bulletin: Variant in row.bulletins:
+		if bulletin is not Dictionary: return false
+		for field: String in ["issued_at", "valid_from", "valid_until", "prediction", "outlook", "confidence"]:
+			if str(bulletin.get(field, "")).is_empty(): return false
+		if not bulletin.has("revision") or not bulletin.has("issued_minute"): return false
+		if str(bulletin.valid_until) <= str(bulletin.valid_from): return false
+	return true
+
+static func date_key(date: Dictionary) -> String:
+	return "%04d-%02d-%02d" % [int(date.get("year", 0)), int(date.get("month", 0)),
+		int(date.get("day", date.get("day_of_month", 0)))]
+
+static func day(date: String) -> Dictionary:
+	return _days.get(date, {}).duplicate(true) if load_calendar() else {}
+
+static func snapshot(date: Dictionary) -> Dictionary:
+	if date.is_empty() or not load_calendar(): return {}
+	var key := date_key(date)
+	if not _days.has(key): return {} # Explicit seasonal fallback; never replay last year's news.
+	var row: Dictionary = _days[key]
+	var minute := int(date.get("hour", 0))*60 + float(date.get("minute", 0)) + float(date.get("second", 0))/60.0
+	var frames: Array = row.frames
+	var a: Dictionary = frames[0]
+	var b: Dictionary = frames[-1]
+	var b_minute := 1440.0
+	var index := _dates.bsearch(key)
+	if index + 1 < _dates.size(): b = _days[_dates[index+1]].frames[0]
+	for i in frames.size():
+		if minute >= float(frames[i].minute): a = frames[i]
+		elif float(frames[i].minute) > minute:
+			b = frames[i]; b_minute = float(b.minute); break
+	var weight := clampf((minute-float(a.minute))/maxf(1.0,b_minute-float(a.minute)),0,1)
+	var result: Dictionary = (a if weight < .5 else b).duplicate(true)
+	for field: String in NUMERIC: result[field] = lerpf(float(a[field]),float(b[field]),weight)
+	result.wind_direction_degrees = fposmod(rad_to_deg(lerp_angle(deg_to_rad(float(a.wind_direction_degrees)),
+		deg_to_rad(float(b.wind_direction_degrees)),weight)),360)
+	result.source = "campaign-calendar"
+	result.observed_at = "%sT%02d:%02d" % [key,int(minute)/60,int(minute)%60]
+	result.location = Service.QUEENS.duplicate(true)
+	result.precipitation_mm = float(result.rain_mm) + float(result.snowfall_cm)
+	result.showers_mm = 0.0
+	return result
+
+static func events(snapshot_value: Dictionary) -> Dictionary:
+	return {"hail":float(snapshot_value.get("hail",0.0)),
+		"cyclone":float(snapshot_value.get("cyclone",0.0)),
+		"severe_storm_threat":float(snapshot_value.get("severe_storm_threat",0.0)),
+		"formation":int(snapshot_value.get("formation",0))}
+
+## As-of timeline: an issued prediction is retained verbatim after a correction.
+## Calling it never gives an NPC/player knowledge of a report.
+static func timeline(as_of: String, limit := 4) -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	if not load_calendar() or limit <= 0: return result
+	var index := mini(_dates.bsearch(as_of.left(10),true),_dates.size()-1)
+	for i in range(index,-1,-1):
+		var row: Dictionary = _days[_dates[i]]
+		for j in range(row.bulletins.size()-1,-1,-1):
+			var bulletin: Dictionary = row.bulletins[j]
+			if str(bulletin.issued_at) <= as_of:
+				var entry:=bulletin.duplicate(true)
+				entry["observation"]=report_at(str(bulletin.issued_at))
+				result.push_front(entry)
+				if result.size() >= limit: return result
+	return result
+
+static func report_at(timestamp: String) -> String:
+	var complete:=timestamp+":00" if timestamp.length()==16 else timestamp
+	var facts:=snapshot(Time.get_datetime_dict_from_datetime_string(complete,false))
+	if facts.is_empty(): return "Observation unavailable."
+	var code:=int(facts.weather_code)
+	var condition:="fair intervals"
+	if code in [95,96,99]: condition="thunder showers"
+	elif code in [71,73,75]: condition="snow"
+	elif code in [61,63,65]: condition="rain"
+	elif code in [45,48]: condition="fog"
+	elif code==3: condition="cloudy"
+	var bearing: String=WINDS[roundi(float(facts.wind_direction_degrees)/22.5)%16]
+	return "%s E.S.T.: %s; %d degrees F.; wind %s %d miles per hour; glass %.2f inches." % [
+		print_time(timestamp),condition,roundi(float(facts.temperature_c)*9/5+32),bearing,
+		roundi(float(facts.wind_speed_kmh)/1.609344),float(facts.pressure_hpa)*.029529983]
+
+static func print_time(timestamp: String) -> String:
+	if timestamp.length()<16: return timestamp
+	var month:=int(timestamp.substr(5,2))
+	if month<1 or month>12: return timestamp
+	var hour:=int(timestamp.substr(11,2))
+	var minute:=int(timestamp.substr(14,2))
+	return "%d %s %s, %d%s %s"%[int(timestamp.substr(8,2)),MONTHS[month-1],timestamp.left(4),
+		12 if hour%12==0 else hour%12,":%02d"%minute if minute!=0 else "","A.M." if hour<12 else "P.M."]
+
+static func press_report(date: String, paper: String) -> Dictionary:
+	var row := day(date)
+	if row.is_empty(): return {}
+	var minute := 360 if paper == "record" else 1020
+	var bulletin: Dictionary = row.bulletins[0 if paper == "record" else 1]
+	return {"ear":str(row.record_ear if paper == "record" else row.speaker_ear),
+		"observation":report_at(str(bulletin.issued_at)),
+		"issued_at":str(bulletin.issued_at),"valid_from":str(bulletin.valid_from),
+		"valid_until":str(bulletin.valid_until),"prediction":str(bulletin.prediction),
+		"outlook":str(bulletin.outlook),"confidence":str(bulletin.confidence),
+		"revision":str(bulletin.revision),"chapter":str(row.chapter),
+		"story_hook":str(row.story_hook),"timeline":timeline("%sT%02d:%02d"%[date,minute/60,minute%60],2)}

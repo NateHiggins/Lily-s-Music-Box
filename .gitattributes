@@ -3215,3 +3215,13 @@ tools/systemic_situation_authority_baseline.json -text
 
 # Original integration diagnostics retain exact JSON, log and failing-source bytes.
 art/reviews/v2_main_integration_20261024/runtime_v3/** -text
+
+# Authored weather calendar and its source-bound diagnostics.
+game/data/weather/** -text
+game/scripts/game/campaign_weather.gd* -text
+game/scripts/game/resident_weather.gd* -text
+game/tests/campaign_weather*.gd* -text
+game/tests/CampaignWeather*.tscn -text
+game/tests/v2_weather_route_profile.gd* -text
+game/tests/V2WeatherRoute*.tscn -text
+art/reviews/v2_weather_calendar_20261024/** -text -whitespace

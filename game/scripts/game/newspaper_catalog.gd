@@ -76,7 +76,11 @@ func has_issue(date: String) -> bool:
 
 
 func issue(paper_id: String, date: String) -> Dictionary:
-	return issues.get(date, {}).get(paper_id, {})
+	var page: Dictionary = issues.get(date, {}).get(paper_id, {}).duplicate(true)
+	if not page.is_empty():
+		var report := CampaignWeather.press_report(date,paper_id)
+		if not report.is_empty(): page["weather_report"] = report
+	return page
 
 
 func weekday(date: String) -> String:
@@ -124,6 +128,17 @@ func on_sale(date := "") -> Array[String]:
 	for i in range(index, maxi(-1, index - RACK_DAYS), -1):
 		out.append(dates[i])
 	return out
+
+
+## Production rack gate; archive/authoring access remains a pure dated query.
+func published_now(paper_id: String, date: String) -> bool:
+	if not papers.has(paper_id) or not issues.has(date): return false
+	if _clock==null: _clock=CampaignClock.new()
+	var local:=_clock.local_datetime()
+	if local.is_empty(): return false
+	var current_date:=CampaignWeather.date_key(local)
+	if date!=current_date: return date<current_date
+	return int(local.hour)*60+int(local.minute)>=(360 if paper_id=="record" else 1020)
 
 
 ## --- the collection ----------------------------------------------------------
