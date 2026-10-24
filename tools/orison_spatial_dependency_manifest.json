@@ -107955,6 +107955,62 @@
    "target_exists": true
   },
   {
+   "key": "bd6506f1db57b08e",
+   "kind": "id_candidate",
+   "token": "F01_ENTRANCE_GAS_LANTERN",
+   "file": "game/data/orison_v2/entry_vestibule.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lamps/fittings[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "18a3227be65f7586",
+   "kind": "id_candidate",
+   "token": "F01_VESTIBULE_GAS_BRACKET",
+   "file": "game/data/orison_v2/entry_vestibule.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lamps/fittings[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "c35f0b2e21a09137",
    "kind": "id_reference",
    "token": "B1_FIRE_LINE_STAIR",
@@ -259173,8 +259229,8 @@
     "_run"
    ],
    "lines": [
-    59,
-    60
+    60,
+    61
    ],
    "count": 2,
    "context": [
@@ -259205,12 +259261,10 @@
     "_run"
    ],
    "lines": [
-    67,
-    68
+    69
    ],
-   "count": 2,
+   "count": 1,
    "context": [
-    "await _use(\"3B_wc\", Vector3(15.05, 7.2, -11.9), \"water closet\")",
     "var wc: Node = world.adapter.resolve(\"3B_wc\")"
    ],
    "gameplay_binding": false,
@@ -259237,7 +259291,7 @@
     "_run"
    ],
    "lines": [
-    57
+    58
    ],
    "count": 1,
    "context": [
@@ -259265,7 +259319,7 @@
     "_run"
    ],
    "lines": [
-    64
+    65
    ],
    "count": 1,
    "context": [
@@ -259293,13 +259347,10 @@
     "_run"
    ],
    "lines": [
-    41,
-    42,
-    44
+    42
    ],
-   "count": 3,
+   "count": 1,
    "context": [
-    "await _use(\"F03_B_LAMP_01\", Vector3(14.25, 7.4, -0.02), \"task lamp\")",
     "var lamp := world.find_child(\"F03_B_LAMP_01\", true, false) as LampProp"
    ],
    "gameplay_binding": false,
@@ -259326,7 +259377,7 @@
     "_run"
    ],
    "lines": [
-    73
+    77
    ],
    "count": 1,
    "context": [
@@ -261214,6 +261265,66 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "0b3398670c1aeb40",
+   "kind": "id_candidate",
+   "token": "F01_ENTRANCE_GAS_LANTERN",
+   "file": "game/tests/orison_v2_entry_vestibule_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review"
+   ],
+   "lines": [
+    76
+   ],
+   "count": 1,
+   "context": [
+    "\"SignalPoint\", \"Radiator\", \"DoorMat\", \"CoatHooks\", \"F01_ENTRANCE_GAS_LANTERN\", \"F01_VESTIBULE_GAS_BRACKET\", \"GasSupply\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "5fccad51fd9368e7",
+   "kind": "id_candidate",
+   "token": "F01_VESTIBULE_GAS_BRACKET",
+   "file": "game/tests/orison_v2_entry_vestibule_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review"
+   ],
+   "lines": [
+    76
+   ],
+   "count": 1,
+   "context": [
+    "\"SignalPoint\", \"Radiator\", \"DoorMat\", \"CoatHooks\", \"F01_ENTRANCE_GAS_LANTERN\", \"F01_VESTIBULE_GAS_BRACKET\", \"GasSupply\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
   },
   {
    "key": "a6b5f3b5ba64463e",
@@ -264051,6 +264162,103 @@
    "target_exists": true
   },
   {
+   "key": "de8345e2315d881c",
+   "kind": "id_candidate",
+   "token": "F01_ENTRANCE_GAS_LANTERN",
+   "file": "game/tests/orison_v2_gas_cock_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const LANTERN := \"F01_ENTRANCE_GAS_LANTERN\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "d5770155a0d5f163",
+   "kind": "id_candidate",
+   "token": "F01_VESTIBULE_GAS_BRACKET",
+   "file": "game/tests/orison_v2_gas_cock_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [
+    "const BRACKET := \"F01_VESTIBULE_GAS_BRACKET\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "bb288acd90fb7074",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_gas_cock_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    29,
+    29,
+    29,
+    50,
+    52
+   ],
+   "count": 5,
+   "context": [
+    "for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-9.85)]:",
+    "if not await _walk(Vector3(0.45,0,-13.2)):return",
+    "if not await _walk(Vector3(-0.55,0,-12.55)):return"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "bc5d90463eb65576",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_v2_runtime.tscn",
@@ -265742,6 +265950,66 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "38ec0fe65eba66a3",
+   "kind": "id_candidate",
+   "token": "F01_ENTRANCE_GAS_LANTERN",
+   "file": "game/tests/orison_v2_inner_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    21
+   ],
+   "count": 1,
+   "context": [
+    "for part in [\"Directory\",\"EstablishedPlaque\",\"NoticeHum\",\"NoticeHouse\",\"SignalPoint\",\"Radiator\",\"CoatHooks\",\"DoorMat\",\"F01_ENTRANCE_GAS_LANTERN\",\"F01_VESTIBULE_"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "e4d691edf3e343a7",
+   "kind": "id_candidate",
+   "token": "F01_VESTIBULE_GAS_BRACKET",
+   "file": "game/tests/orison_v2_inner_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    21
+   ],
+   "count": 1,
+   "context": [
+    "for part in [\"Directory\",\"EstablishedPlaque\",\"NoticeHum\",\"NoticeHouse\",\"SignalPoint\",\"Radiator\",\"CoatHooks\",\"DoorMat\",\"F01_ENTRANCE_GAS_LANTERN\",\"F01_VESTIBULE_"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
   },
   {
    "key": "df988026e8ce30b0",

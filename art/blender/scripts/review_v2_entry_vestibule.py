@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[3]
 OUT = ROOT / "art/reviews/v2_entry_vestibule_20261024"
 OUT.mkdir(parents=True, exist_ok=True)
 SLOTS = {"directory_board": (0.0, 1.4), "notice_frame": (0.75, 1.5), "bronze_plaque": (1.6, 1.5),
-         "signal_point": (2.35, 0.9), "coat_hooks": (2.95, 1.7), "gas_bracket": (2.75, 1.3), "gas_lantern": (3.3, 1.3),
+         "signal_point": (2.35, 0.9), "coat_hooks": (2.95, 1.7), "gas_bracket": (2.75, 1.3), "gas_lantern": (3.3, 1.3), "gas_cock_key": (2.75, 1.4), "gas_pilot": (2.75, 1.1),
          "radiator": (3.9, 0.0), "door_mat": (5.0, 0.0)}
 scene = bpy.context.scene
 for obj in list(scene.objects):
@@ -59,12 +59,19 @@ for obj in scene.objects:
     stock = obj.name.split("__")[0]
     if obj.type != "MESH" or obj.name.startswith("Review"):
         continue
-    obj.hide_render = stock not in ("gas_pipe_vestibule", "gas_bracket")
+    obj.hide_render = stock not in ("gas_pipe_vestibule", "gas_bracket", "gas_cock_key", "gas_pilot")
+    at = Vector((row["along"], -place["wall_faces"]["north"], row["height"]))
     if stock == "gas_pipe_vestibule":
         obj.location = (0, 0, 0)
     elif stock == "gas_bracket":
-        obj.location = (row["along"], -place["wall_faces"]["north"], row["height"])
+        obj.location = at
         obj.rotation_euler = (0, 0, math.pi)
+    elif stock == "gas_cock_key":
+        # Shown half open, so the review reads the turn.
+        obj.location = at + Vector((0, 0.11, 0))
+        obj.rotation_euler = (0, 0, math.pi + math.pi / 4)
+    elif stock == "gas_pilot":
+        obj.location = at + Vector((0, 0.21, -0.155))
 w.hide_render = True; f.hide_render = True
 north = bpy.data.meshes.new("north")
 y = -place["wall_faces"]["north"]

@@ -4,8 +4,8 @@
  "design": "design/V2_ENTRY_VESTIBULE_2026-10-24.md",
  "runtime_table": "game/data/orison_v2/entry_vestibule_stock.json",
  "export_proof": {
-  "primitives": 23,
-  "triangles": 11504,
+  "primitives": 26,
+  "triangles": 11656,
   "minimum_tangent_agreement": 0.9999999599844206,
   "status": "PASS"
  },
@@ -56,6 +56,16 @@
    "period": "Wall-bracket gas lantern with a tapered four-light frame and an inverted mantle."
   },
   {
+   "id": "gas_cock_key",
+   "signal": false,
+   "period": "Flat brass key of a quarter-turn plug cock."
+  },
+  {
+   "id": "gas_pilot",
+   "signal": false,
+   "period": "Bypass pilot flame of an inverted burner."
+  },
+  {
    "id": "gas_pipe_vestibule",
    "signal": false,
    "period": "Surface-run half-inch black iron gas supply, floor flange, plug cock and straps."
@@ -69,8 +79,10 @@
   "radiator": 5444,
   "door_mat": 44,
   "coat_hooks": 976,
-  "gas_bracket": 1544,
-  "gas_lantern": 888,
+  "gas_bracket": 1500,
+  "gas_lantern": 932,
+  "gas_cock_key": 72,
+  "gas_pilot": 80,
   "gas_pipe_vestibule": 708
  }
 }
