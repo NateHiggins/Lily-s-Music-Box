@@ -73,7 +73,7 @@ func _review() -> void:
 		check(names != null and names.get_child_count() >= 18,
 				"the directory board lists every unit in Label3D")
 		for part: String in ["EstablishedPlaque", "NoticeHum", "NoticeHouse",
-				"SignalPoint", "Radiator", "DoorMat", "CoatHooks", "EntranceLamp", "VestibuleLamp", "GasSupply"]:
+				"SignalPoint", "Radiator", "DoorMat", "CoatHooks", "F01_ENTRANCE_GAS_LANTERN", "F01_VESTIBULE_GAS_BRACKET", "GasSupply"]:
 			check(vestibule.find_child(part, true, false) != null, "vestibule carries " + part)
 	var door_at := street_door.global_position if street_door != null else Vector3.ZERO
 	for node: Node in world.find_children("*", "Light3D", true, false):

@@ -61,6 +61,34 @@ supply pressure. Both lights cast shadows; the fittings themselves do not,
 because an etched shade diffuses rather than cutting a cone out of its own
 light.
 
+### Operating the gas (finished 2026-10-24, owner: "finish the gas lights")
+
+Each fitting is an **OrisonV2GasFitting**
+(`game/scripts/props/orison_v2_gas_fitting.gd`) under a semantic name:
+**F01_VESTIBULE_GAS_BRACKET** and **F01_ENTRANCE_GAS_LANTERN**.
+
+- **The cock is the control** (RUL-013). Grab the flat brass key, turn it a
+  quarter turn about the plug, release. Across the pipe is shut; in line is
+  open. There is no toggle and no prompt. The bracket's cock is on its arm;
+  the lantern's is on its arm by the wall plate, within reach from the
+  pavement.
+- **Partial opening is real.** The main jet opens past 12% of the turn. The
+  mantle reaches full incandescence at 55% of the jet, as a Welsbach mantle
+  saturates. The light, the mantle, the shade and the lantern panes follow
+  the flame.
+- **The bypass pilot never goes out.** A bead of blue flame stays at the
+  burner with the cock shut, and the mantle relights from it when the cock
+  opens. No matches are needed, which is why period inverted burners had a
+  bypass.
+- **The lantern is on a clockwork controller.** It opens the gas from dusk
+  to dawn by the street lamps' month-by-month table
+  (`game/data/orison_v2/exterior/street_lamps.json`), so the lantern is dark
+  by day with its cock open. The player's cock still governs it at night.
+- **Sound.** Each fitting hisses: a whisper from the pilot that opens into
+  the jet as the cock turns.
+- **Saved.** The cock's opening is a `mechanism` record in the household
+  save (`orison_v2_household_state.gd`). No new save owner exists.
+
 ### Research
 
 - Inverted burners came in about 1905. They threw light downward, and the
@@ -162,10 +190,10 @@ corner.
 
 ## 5. Not done, and follow-ups
 
-- The gas lights are always lit. They have no supply, meter or cock state,
-  are not on the lighting director, and the cocks cannot be turned. A gas
-  service owner (meter in the basement, pressure, a cock the player can
-  grab under RUL-013) is a natural follow-up.
+- There is no gas meter, supply pressure or main. The fittings assume the
+  house gas is always on, and the pipe run is not traced to a basement meter.
+- The lighting director and residents do not see the gas lights; no one
+  else turns them up or down.
 - The radiator is not on the heating graph and cannot knock or be bled.
 - The directory board and notices are not inspectable.
 - Any merged script or data change expires the V2 runtime, access and
@@ -175,6 +203,10 @@ corner.
 
 - Blender review, before Godot, including the gas run landing on the
   bracket's inlet boss: **art/reviews/v2_entry_vestibule_20261024/**.
+- Godot, windowed: **res://tests/OrisonV2GasCockTest.tscn** turns both cocks
+  through the player's latched grab and mouse input: shut to the pilot, half,
+  full open. It checks the household save and the lantern's clock at noon and
+  after dusk.
 - Godot, windowed: **res://tests/OrisonV2EntryVestibuleShot.tscn**, 0
   failures. It checks the leafless doorway, its casings and butts, the dress
   and the gas supply. It counts every light within 6 m of the street door

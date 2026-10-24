@@ -90,7 +90,7 @@
  "lamps": {
   "fittings": [
    {
-    "id": "EntranceLamp",
+    "id": "F01_ENTRANCE_GAS_LANTERN",
     "facade_point": [
      0.79,
      2.45,
@@ -111,10 +111,17 @@
      0.0,
      -0.2,
      0.33
-    ]
+    ],
+    "cock": [
+     0.0,
+     0.04,
+     0.075
+    ],
+    "clock": true,
+    "pilot_glow": 0.03
    },
    {
-    "id": "VestibuleLamp",
+    "id": "F01_VESTIBULE_GAS_BRACKET",
     "wall": "north",
     "along": 0.0,
     "height": 2.45,
@@ -133,7 +140,19 @@
      0.0,
      -0.132,
      0.21
-    ]
+    ],
+    "cock": [
+     0.0,
+     0.0,
+     0.11
+    ],
+    "pilot": [
+     0.0,
+     -0.155,
+     0.21
+    ],
+    "clock": false,
+    "pilot_glow": 0.0
    }
   ]
  },

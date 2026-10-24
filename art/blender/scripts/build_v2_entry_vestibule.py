@@ -48,6 +48,8 @@ FINISHES = {
     # greenish white; the etched shade and the lantern glass glow round it.
     "mantle_lit": {"catalog_key": "milk_glass", "tint": [1, 1, .92, 1], "normal": .3, "roughness": 1., "emission": [1.0, 0.96, 0.80, 3.0]},
     "shade_lit": {"catalog_key": "milk_glass", "tint": [.96, .93, .86, 1], "normal": .5, "roughness": 1., "emission": [1.0, 0.86, 0.62, 0.55]},
+    # The bypass pilot: a bead of blue flame that never goes out.
+    "pilot_lit": {"catalog_key": "milk_glass", "tint": [.40, .60, 1, 1], "normal": .2, "roughness": 1., "emission": [0.35, 0.6, 1.0, 2.5]},
     "pane_lit": {"catalog_key": "milk_glass", "tint": [.90, .86, .74, 1], "normal": .5, "roughness": 1., "emission": [1.0, 0.82, 0.55, 0.7]},
 }
 for spec in FINISHES.values():
@@ -298,8 +300,9 @@ def coat_hooks():
 
 def gas_bracket():
     """Inverted-mantle gas bracket (after c. 1905): a brass rosette fed from
-    above by the surface pipe, a swing arm with its gas cock and flat key, a
-    burner hanging an inverted mantle inside an etched bell shade."""
+    above by the surface pipe, a swing arm with its gas cock (the flat key is
+    gas_cock_key, so it can turn), a burner hanging an inverted mantle inside
+    an etched bell shade."""
     p = {}
     add(p, "brass", cyl((0, -0.008, 0), 0.05, 0.016, "Y", 20),
             cyl((0, -0.022, 0), 0.018, 0.014, "Y", 12),
@@ -307,7 +310,6 @@ def gas_bracket():
             sphere((0, -0.03, 0), 0.012, (1, 1, 1), 10, 6),
             tube([(0, -0.03, 0), (0, -0.21, 0)], 0.007, 10),
             cyl((0, -0.11, 0), 0.011, 0.03, "Z", 12),
-            box((0, -0.11, 0.024), (0.045, 0.005, 0.012), 0.001),
             sphere((0, -0.21, 0), 0.011, (1, 1, 1), 10, 6),
             tube([(0, -0.21, 0), (0, -0.21, -0.065)], 0.0065, 10),
             torus((0, -0.21, -0.07), 0.042, 0.0035, "Z", 24, 6),
@@ -334,6 +336,7 @@ def gas_lantern():
             torus((0, -0.12, -0.005), 0.026, 0.004, "X", 18, 5),
             torus((0, -0.33, 0.012), 0.022, 0.004, "X", 16, 5),
             cyl((0, -0.33, -0.025), 0.004, 0.035, "Z", 6))
+    add(p, "brass", cyl((0, -0.075, 0.04), 0.012, 0.032, "Z", 12))
     for x, z in [(-0.035, 0.06), (0.035, 0.06), (-0.035, -0.06), (0.035, -0.06)]:
         add(p, "iron", cyl((x, -0.022, z), 0.007, 0.006, "Y", 8))
     cy, top, bottom = -0.33, -0.05, -0.35
@@ -350,6 +353,23 @@ def gas_lantern():
     base = cyl((0, cy, bottom - 0.012), 0.09, 0.024, "Z", 4, 0.06)
     base.data.transform(Matrix.Translation((0, cy, 0)) @ Matrix.Rotation(math.pi / 4, 4, "Z") @ Matrix.Translation((0, -cy, 0)))
     add(p, "iron", base, sphere((0, cy, bottom - 0.04), 0.012, (1, 1, 1), 8, 5))
+    return p
+
+
+def gas_cock_key():
+    """The flat key of a plug cock, authored shut (across the pipe); the
+    owner turns it a quarter turn about its own vertical axis, in line with
+    the pipe when open. Origin on the plug's axis at the cock body's centre."""
+    p = {}
+    add(p, "brass", cyl((0, 0, 0.0175), 0.0035, 0.009, "Z", 8),
+            box((0, 0, 0.024), (0.045, 0.005, 0.012), 0.001))
+    return p
+
+
+def gas_pilot():
+    """The bypass pilot jet's flame, a few millimetres of blue at the burner."""
+    p = {}
+    add(p, "pilot_lit", sphere((0, 0, 0), 0.0045, (1, 1, 1.9), 8, 6))
     return p
 
 
@@ -392,6 +412,8 @@ STOCKS = {
     "coat_hooks": coat_hooks,
     "gas_bracket": gas_bracket,
     "gas_lantern": gas_lantern,
+    "gas_cock_key": gas_cock_key,
+    "gas_pilot": gas_pilot,
 }
 
 PERIOD = {
@@ -404,6 +426,8 @@ PERIOD = {
     "coat_hooks": "Cast-iron double coat hooks on a stained oak rail.",
     "gas_bracket": "Inverted Welsbach mantle gas bracket with swing arm, gas cock and etched bell shade (after c. 1905).",
     "gas_lantern": "Wall-bracket gas lantern with a tapered four-light frame and an inverted mantle.",
+    "gas_cock_key": "Flat brass key of a quarter-turn plug cock.",
+    "gas_pilot": "Bypass pilot flame of an inverted burner.",
     "gas_pipe_vestibule": "Surface-run half-inch black iron gas supply, floor flange, plug cock and straps.",
 }
 
