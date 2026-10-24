@@ -76,6 +76,8 @@ func _require(ok: bool, label: String) -> bool:
 	return ok
 
 func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
+	if owner_node is DoorProp:
+		return await _hand_door(owner_node as DoorProp, target, label)
 	player.camera.look_at(target)
 	await get_tree().process_frame
 	var ray := PhysicsRayQueryParameters3D.create(player.camera.global_position,
@@ -112,3 +114,16 @@ func _capture_interaction(label: String) -> void:
 		DirAccess.make_dir_recursive_absolute(directory)
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(directory.path_join(label + ".png"))
+
+## Doors are grabbed and moved by hand since the direct-manipulation ruling
+## (RUL-013); the old interact key no longer offers them a prompt. A
+## storefront leaf meets its own shopfront a little short of the nominal
+## 100 degrees, so 86 is asked for: a full walk-through opening.
+func _hand_door(leaf: DoorProp, target: Vector3, label: String) -> bool:
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var moved: bool = await hand.operate(target, 0.0 if leaf.open else leaf.motion_target_angle(true) * 0.86, leaf)
+	hand.free()
+	return _require(moved, "actual grab, mouse motion and release: " + label)

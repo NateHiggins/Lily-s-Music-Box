@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 224.49,
+  "exit_code": 0,
+  "finished_utc": "2026-10-24T14:14:24Z",
+  "started_utc": "2026-10-24T14:10:38Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/doorfix/tmp/run/receiving2.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/ov/doorfix/tmp/run/receiving2.log",
+  "stdout_sha256": "1b8d5475e29f8515c769fae5efcd357f1860636c7b05529327dfd036c90d827f"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2BodegaReceivingRouteTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/doorfix/tmp/run/receiving2",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "32566baf4bc3c50164ee50e7640fc468e9f335d3",
+  "repository_tree": "f3309762948e2c1f55629c332700f0511587db97",
+  "runtime_inputs_sha256": "c316c76b31d9ea35da737ba4c7befe13e5c383323dd886c00eccd87317849d4c",
+  "test_path": "game/tests/orison_v2_bodega_receiving_route_test.gd",
+  "test_sha256": "8b70615fa979a4ca5d74807154f5bdae9b09cfb52fb866db1a954f5bfa69a357"
+ },
+ "windowed": true
+}

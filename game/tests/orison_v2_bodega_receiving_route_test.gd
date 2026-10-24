@@ -67,7 +67,20 @@ func _route() -> void:
 	player.camera.look_at(cell.to_global(Vector3(-1.4,1.1,-11.4)))
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(OS.get_environment("SHOT_DIR").path_join("receiving_inside.png"))
-	if not await _use(receiving,receiving._body.to_global(Vector3(.3,1.15,-.026)),"receiving_close_inside"):return
+	# A hand-moved leaf sweeps its real shell and stops at whoever stands in
+	# it (RUL-013); the arrival stance lies inside that sweep. Step to the
+	# jamb side, past the free edge's radius, and pull the leaf by its edge.
+	var hinge: Vector3 = receiving._body.global_position
+	var along: Vector3 = receiving.global_basis.x.normalized()
+	var opened: Vector3 = receiving._body.global_basis.x
+	var into_room: Vector3 = (opened - along * opened.dot(along)).normalized()
+	var clear: Vector3 = hinge + along * (receiving.width + .5) + into_room * .6
+	clear.y = player.global_position.y
+	if not await _walk_world(clear):return
+	var edge := [receiving._body.to_global(Vector3(receiving.width * .8, 1.15, -.026)),
+			receiving._body.to_global(Vector3(receiving.width * .8, 1.15, .026))]
+	edge.sort_custom(func(a: Vector3, b: Vector3): return a.distance_to(clear) < b.distance_to(clear))
+	if not await _use(receiving,edge[0],"receiving_close_inside"):return
 	await get_tree().create_timer(.6).timeout
 	if not _require(not receiving.open,"receiving door closes from its supported room"):return
 	if not await _use(receiving,receiving.to_global(Vector3(.475,1.15,0)),"receiving_reopen_inside"):return
@@ -124,6 +137,8 @@ func _require(ok: bool, label: String) -> bool:
 	return ok
 
 func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
+	if owner_node is DoorProp:
+		return await _hand_door(owner_node as DoorProp, target, label)
 	player.camera.look_at(target)
 	await get_tree().process_frame
 	var ray := PhysicsRayQueryParameters3D.create(player.camera.global_position,
@@ -156,3 +171,16 @@ func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
 	Input.action_release("interact")
 	await get_tree().create_timer(0.15).timeout
 	return true
+
+## Doors are grabbed and moved by hand since the direct-manipulation ruling
+## (RUL-013); the old interact key no longer offers them a prompt. A
+## storefront leaf meets its own shopfront a little short of the nominal
+## 100 degrees, so 86 is asked for: a full walk-through opening.
+func _hand_door(leaf: DoorProp, target: Vector3, label: String) -> bool:
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var moved: bool = await hand.operate(target, 0.0 if leaf.open else leaf.motion_target_angle(true) * 0.86, leaf)
+	hand.free()
+	return _require(moved, "actual grab, mouse motion and release: " + label)
