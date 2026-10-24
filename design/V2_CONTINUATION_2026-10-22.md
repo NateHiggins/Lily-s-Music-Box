@@ -12,6 +12,19 @@ are actively in use and must not be removed or stopped.
 
 ## Latest verified batch, 2026-10-24
 
+Newest hose presentation repair: **V2_HOSE_SPRAY_READABILITY_2026-10-24.md**.
+Readable narrow water streaks retain registered UV/PBR maps with complete8-level
+mip chains. Capacity falls384→128 droplets (30,720→10,240 triangles per emitter).
+A restrained optical fill is explicit; no scene light/GI emission is added.
+Rejected backlit trials show128–132ms first-input intervals; tracing finds
+81.384ms construction/76.304ms mesh/material assignment. Final emitters prepare
+hidden during startup and all eight are renderer-inactive before flow. Two
+final first-input peaks52.919/59.223ms versus original65.310ms; steady frame
+variation prevents an overall FPS claim.62 installed checks with disk rebuild,
+58 repeat checks and73 focused fixture checks pass with empty stderr. Five
+actual aim/inspection views are retained; static board has no regressions.
+Full payout, impact/wetting, procurement/dressing and broad closure remain open.
+
 Newest occupied hose review: **V2_HOSE_INSTALLED_MAINTENANCE_2026-10-24.md**.
 Idle visual polling across eight cabinets costs0.1935ms median in direct calls;
 interleaved disabling gives no clear frame-time benefit, so production is left

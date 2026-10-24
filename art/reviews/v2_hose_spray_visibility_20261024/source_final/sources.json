@@ -1,0 +1,90 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Final executed source and relevant unchanged helpers; raw and LF text bindings.",
+  "sources": [
+    {
+      "path": "game/scripts/props/fire_unracked_hose.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/fire_unracked_hose.gd.gz",
+      "sha256": "f8571537220ec67a6148fb4689a4f27bd3dedbb47ae32908186582069b773e43",
+      "lf_sha256": "f8571537220ec67a6148fb4689a4f27bd3dedbb47ae32908186582069b773e43"
+    },
+    {
+      "path": "game/tests/v2_hose_spray_visibility.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/v2_hose_spray_visibility.gd.gz",
+      "sha256": "1cee42b69a02a916f6869f5d54102e735f9b2db53f2547ffda527936cb8a632a",
+      "lf_sha256": "1cee42b69a02a916f6869f5d54102e735f9b2db53f2547ffda527936cb8a632a"
+    },
+    {
+      "path": "game/tests/V2HoseSprayVisibility.tscn",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/V2HoseSprayVisibility.tscn.gz",
+      "sha256": "95855b51b8cf68a50b6f1105560f7c65927cf511520f9979249df895aab2bf91",
+      "lf_sha256": "95855b51b8cf68a50b6f1105560f7c65927cf511520f9979249df895aab2bf91"
+    },
+    {
+      "path": "game/tests/v2_hose_spray_stock_bench.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/v2_hose_spray_stock_bench.gd.gz",
+      "sha256": "e1215f391fa2f48696e5efbf31a72176a0319cc5e6b3f920b688cf68cba90fef",
+      "lf_sha256": "e1215f391fa2f48696e5efbf31a72176a0319cc5e6b3f920b688cf68cba90fef"
+    },
+    {
+      "path": "game/tests/V2HoseSprayStockBench.tscn",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/V2HoseSprayStockBench.tscn.gz",
+      "sha256": "43080181f3bb71642c2420927fab31069c55c3352943dfd87fb24232f1b264ea",
+      "lf_sha256": "43080181f3bb71642c2420927fab31069c55c3352943dfd87fb24232f1b264ea"
+    },
+    {
+      "path": "game/tests/v2_hose_installed_world.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/v2_hose_installed_world.gd.gz",
+      "sha256": "6dc3ccaabb3fb2607886deddfb953852c22a7d18dc699f01a0d20d614b56da51",
+      "lf_sha256": "6dc3ccaabb3fb2607886deddfb953852c22a7d18dc699f01a0d20d614b56da51"
+    },
+    {
+      "path": "game/tests/v2_hose_production_hand_bench.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/v2_hose_production_hand_bench.gd.gz",
+      "sha256": "6f8fb7716198846addc6dee72b769f4f5ca475b79581fc2ee40ac77fde651381",
+      "lf_sha256": "6f8fb7716198846addc6dee72b769f4f5ca475b79581fc2ee40ac77fde651381"
+    },
+    {
+      "path": "game/tests/v2_hose_water_programme.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/v2_hose_water_programme.gd.gz",
+      "sha256": "2086d2a9a45c85808c79103c471ddf8b0e27100f9ed9d6761ad9a311088c04c5",
+      "lf_sha256": "2086d2a9a45c85808c79103c471ddf8b0e27100f9ed9d6761ad9a311088c04c5"
+    },
+    {
+      "path": "game/tests/v2_fire_hand_bench.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/v2_fire_hand_bench.gd.gz",
+      "sha256": "757dd2531aa41edeaefe466528280bbb27405a72d4fa3b2a2158cd3572b07395",
+      "lf_sha256": "757dd2531aa41edeaefe466528280bbb27405a72d4fa3b2a2158cd3572b07395"
+    },
+    {
+      "path": "game/scripts/props/hose_water_charge.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/hose_water_charge.gd.gz",
+      "sha256": "213ed654236516fedcae50b9a7d1de946d2b29cf7aa00efe773d29a262a49bde",
+      "lf_sha256": "213ed654236516fedcae50b9a7d1de946d2b29cf7aa00efe773d29a262a49bde"
+    },
+    {
+      "path": "game/scripts/props/fire_nozzle_coupling.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/fire_nozzle_coupling.gd.gz",
+      "sha256": "aa40ec07a11e75bb7464b569f36ac6162b738372cb588daa7c86394d40bfdbfb",
+      "lf_sha256": "aa40ec07a11e75bb7464b569f36ac6162b738372cb588daa7c86394d40bfdbfb"
+    },
+    {
+      "path": "game/scripts/props/hose_cabinet_route.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/hose_cabinet_route.gd.gz",
+      "sha256": "c30e5c24b2913d1f6e7e070a698309c0bf099fb3b13da549544a6abf4a64ebfa",
+      "lf_sha256": "c30e5c24b2913d1f6e7e070a698309c0bf099fb3b13da549544a6abf4a64ebfa"
+    },
+    {
+      "path": "game/scripts/props/v2_fire_line_cabinet.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/v2_fire_line_cabinet.gd.gz",
+      "sha256": "dfa0ba7571b9fc96d0d151242c07c8b8ec09b3b8434bfa3de7447fdc015f6e35",
+      "lf_sha256": "dfa0ba7571b9fc96d0d151242c07c8b8ec09b3b8434bfa3de7447fdc015f6e35"
+    },
+    {
+      "path": "game/scripts/material_library.gd",
+      "archive": "art/reviews/v2_hose_spray_visibility_20261024/source_final/material_library.gd.gz",
+      "sha256": "7818c9651d9d6bd292e682b8cfe414f28c0ffe3335f13f04cb9a0cab4788f883",
+      "lf_sha256": "7818c9651d9d6bd292e682b8cfe414f28c0ffe3335f13f04cb9a0cab4788f883"
+    }
+  ]
+}

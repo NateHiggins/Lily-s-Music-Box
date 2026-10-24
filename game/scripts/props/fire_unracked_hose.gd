@@ -156,6 +156,7 @@ func _physics_process(delta: float) -> void:
 	if water.spray>0.001 and _spray==null:_make_spray()
 	if _spray!=null:
 		_spray.emitting=water.spray>.001
+		if _spray.emitting:_spray.visible=true
 		_spray.amount_ratio=clampf(water.spray,0.,1.)
 	# Stable pressure and GPU emission require no ongoing cloth/fluid tick.
 	# Publish the completed fill/drain through the existing household signal,
@@ -165,24 +166,39 @@ func _physics_process(delta: float) -> void:
 	set_physics_process(changed)
 
 func _make_spray() -> void:
-	_spray=GPUParticles3D.new();_spray.name="NozzleWater";_spray.emitting=false
+	if _spray!=null:return
+	var started:=Time.get_ticks_usec()
+	_spray=GPUParticles3D.new();_spray.name="NozzleWater";_spray.emitting=false;_spray.visible=false
 	_spray.local_coords=false
-	_spray.amount=384;_spray.lifetime=.65;_spray.fixed_fps=30
+	# Longer overlapping streaks read as a jet at normal play distance.
+	# Fewer droplets also reduce submitted water geometry; water is not an
+	# opaque shadow caster. The original hydraulic owner still gates flow.
+	_spray.amount=128;_spray.lifetime=.65;_spray.fixed_fps=30
+	_spray.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_spray.gi_mode=GeometryInstance3D.GI_MODE_DISABLED
 	_spray.visibility_aabb=AABB(Vector3(-12,-12,-12),Vector3(24,24,24))
-	var process:=ParticleProcessMaterial.new();process.direction=Vector3.UP;process.spread=2.5
+	var process:=ParticleProcessMaterial.new();process.direction=Vector3.UP;process.spread=.75
 	process.initial_velocity_min=11.;process.initial_velocity_max=13.;process.gravity=Vector3(0,-9.8,0)
 	process.particle_flag_align_y=true
-	process.scale_min=.5;process.scale_max=1.;_spray.process_material=process
-	var drop:=SphereMesh.new();drop.radius=.002;drop.height=.025;drop.radial_segments=8;drop.rings=4
+	process.scale_min=.8;process.scale_max=1.2;_spray.process_material=process
+	var drop:=SphereMesh.new();drop.radius=.003;drop.height=.12;drop.radial_segments=8;drop.rings=4
+	var geometry_done:=Time.get_ticks_usec()
 	var finish: StandardMaterial3D=MatLib.get_mat("water_clear").duplicate()
 	finish.uv1_triplanar=false;finish.uv1_scale=Vector3(.05,.10,1.)
 	finish.normal_enabled=true;finish.normal_scale=.1
 	finish.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
-	finish.albedo_color=Color(.7,.85,1.,.5);finish.roughness=.12
+	# Optical scattering fill keeps aerated water readable inside the barrel's
+	# hard shadow. This material does not provide scene/GI illumination.
+	finish.emission_enabled=true;finish.emission=Color(.85,.92,1.);finish.emission_energy_multiplier=.35
+	finish.albedo_color=Color(.72,.86,.94,.5);finish.roughness=.12
+	var finish_done:=Time.get_ticks_usec()
 	drop.material=finish;_spray.draw_pass_1=drop
+	var assigned:=Time.get_ticks_usec()
 	# Keep the physical body's shape-only child contract intact. The original
 	# play-pipe presentation already follows its authoritative rigid pose.
 	actor._play_pipe.add_child(_spray);_spray.position=Vector3(0,.171,0)
+
+	if OS.get_environment("ORISON_PROFILE_HOSE_SPRAY")=="1":print("HOSE_SPRAY_CREATE ",JSON.stringify({"cabinet":str(actor.name),"geometry_ms":(geometry_done-started)/1000.,"finish_ms":(finish_done-geometry_done)/1000.,"assignment_ms":(assigned-finish_done)/1000.,"attach_ms":(Time.get_ticks_usec()-assigned)/1000.,"total_ms":(Time.get_ticks_usec()-started)/1000.}))
 
 func _visual_receiver(wanted: Transform3D) -> void:
 	var started: int=Time.get_ticks_usec()
@@ -235,6 +251,9 @@ func configure_visual(owner_actor: Node3D,asset_path: String) -> bool:
 	if _placement.is_empty():return false
 	enable_visual_follow()
 	joint.hose_grip_provider=grip;joint.hose_seat_grip_provider=grip
+	# Pay native mesh/material setup before play, with emission and visibility
+	# disabled. No cloth/fluid tick or particle simulation is started here.
+	_make_spray()
 	setup_ms=(Time.get_ticks_usec()-started)/1000.
 	return true
 

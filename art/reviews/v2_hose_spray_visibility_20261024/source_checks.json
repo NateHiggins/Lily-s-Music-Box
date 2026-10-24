@@ -1,0 +1,132 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Top-level raw source matching only; no reconstruction of every dirty-world input or runtime_contract status.",
+  "checks": [
+    {
+      "receipt": "art/reviews/v2_hose_spray_visibility_20261024/before_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_spray_visibility.gd",
+      "test_sha256": "15fb3e44602ef3b911ecc144d5708ad4ee33f3446102235d902333d3227e78c1",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_spray_visibility_20261024/debug_probe_v1.gd.gz",
+        "art/reviews/v2_hose_spray_visibility_20261024/v2_hose_spray_visibility.gd.before.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_spray_visibility_20261024/fill_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_spray_visibility.gd",
+      "test_sha256": "8a92d723b2bf688ae9907c2e90e6211990b4de93d6f725741ce035b8c65dcfa8",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_spray_visibility_20261024/fill_v1_probe.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_spray_visibility_20261024/final_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_spray_visibility.gd",
+      "test_sha256": "0446d818a1fffdcd7199213b602386cd25c58c27a61753e6518ac0eed05875bb",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_spray_visibility_20261024/final_v1_probe.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_spray_visibility_20261024/hand_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_production_hand_bench.gd",
+      "test_sha256": "6f8fb7716198846addc6dee72b769f4f5ca475b79581fc2ee40ac77fde651381",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_spray_visibility_20261024/source_final/v2_hose_production_hand_bench.gd.gz",
+        "game/tests/v2_hose_production_hand_bench.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_spray_visibility_20261024/open_views_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_spray_visibility.gd",
+      "test_sha256": "4fa252e33d8c057f8b06b6c59dd3f60ca8910e60d6b5b142909e68f429192b6a",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_spray_visibility_20261024/open_views_v1_probe.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_spray_visibility_20261024/prepared_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_spray_visibility.gd",
+      "test_sha256": "1cee42b69a02a916f6869f5d54102e735f9b2db53f2547ffda527936cb8a632a",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_spray_visibility_20261024/source_final/v2_hose_spray_visibility.gd.gz",
+        "game/tests/v2_hose_spray_visibility.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_spray_visibility_20261024/prepared_v2.log.receipt.json",
+      "test_path": "game/tests/v2_hose_spray_visibility.gd",
+      "test_sha256": "1cee42b69a02a916f6869f5d54102e735f9b2db53f2547ffda527936cb8a632a",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_spray_visibility_20261024/source_final/v2_hose_spray_visibility.gd.gz",
+        "game/tests/v2_hose_spray_visibility.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_spray_visibility_20261024/stock_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_spray_stock_bench.gd",
+      "test_sha256": "e1215f391fa2f48696e5efbf31a72176a0319cc5e6b3f920b688cf68cba90fef",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_spray_visibility_20261024/source_final/v2_hose_spray_stock_bench.gd.gz",
+        "game/tests/v2_hose_spray_stock_bench.gd"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_spray_visibility_20261024/streaks_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_spray_visibility.gd",
+      "test_sha256": "15fb3e44602ef3b911ecc144d5708ad4ee33f3446102235d902333d3227e78c1",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_spray_visibility_20261024/debug_probe_v1.gd.gz",
+        "art/reviews/v2_hose_spray_visibility_20261024/v2_hose_spray_visibility.gd.before.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    },
+    {
+      "receipt": "art/reviews/v2_hose_spray_visibility_20261024/styles_v1.log.receipt.json",
+      "test_path": "game/tests/v2_hose_spray_visibility.gd",
+      "test_sha256": "40d534cd5ee723759abdfb1754a9e2567cb24c316d43c91718c62250e0ab6414",
+      "source_matches": true,
+      "matching_sources": [
+        "art/reviews/v2_hose_spray_visibility_20261024/styles_v1_probe.gd.gz"
+      ],
+      "completed": true,
+      "exit_code": 0,
+      "timed_out": false
+    }
+  ]
+}
