@@ -8139,12 +8139,12 @@
   "asset_sha256": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e",
   "source_bindings": {
     "art/data/city_closure/source_plan.json": "698345a5e6a97318e932e36f4a8a6374cac846c76366d4b5f95ddb363e14e088",
-    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "art/blender/city_shells_registration.json": "b2c296bdb96295c1203acd9910cbab7f1a1aeceaee4c44d8f319e860a8dd721a",
     "art/blender/city_shells.blend": "bc56f8acfe85363368ffb8920e1588c7fa03d121c73500462356d2afcd32bd16",
-    "game/data/orison_v2_blockout.json": "6f9d033f2f1a0dd849d6afb50f9c5799a3dc2c93587d23db826006e2547d0955",
+    "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
     "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
-    "art/blender/scripts/build_city_closure.py": "21cb5c806d55dd02fcfe759f8a6d6c7a89b7c46c5497b22c605492d8ba57597a",
+    "art/blender/scripts/build_city_closure.py": "d67e9004e849c91ed697a263253eb91f3cb21a9082dd75a0ac0b1e39c9fd6b36",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/city_registration.py": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
     "game/data/runtime_material_sets.json": "3e083bb287f70cc21ec305bf89b64cf5c335f3b908681a5152f7a613025e882c",
@@ -8183,7 +8183,9 @@
     "game/assets/props/city_aerials.glb": "092ae72b844bd96c75f6d1b4b214879dbd274840b3f3245f17577fd4fb67c3f0",
     "game/tests/fixtures/orison_city_aerials.json": "9ea81801897b228eee0f6794fe9cc0d16b0f45b7fdda734ced17d19cd5edd037",
     "game/assets/props/city_tanks.glb": "d0ab1ddbd28af3af4bcf22034c60d37b17b6993ba7b37410c0c1791efc2f0f36",
-    "game/tests/fixtures/orison_city_tanks.json": "916bc9d597eec00bb2e20ffcdf7e2aa2c616c45efbd86d15dca7dc57ed8ea037"
+    "game/tests/fixtures/orison_city_tanks.json": "916bc9d597eec00bb2e20ffcdf7e2aa2c616c45efbd86d15dca7dc57ed8ea037",
+    "art/blender/city_shells_consumed_layout.json": "0242c4a4d62272cd2e139276100096f6a0549d80921bad88ccdb0ddbf331f045",
+    "art/blender/scripts/city_closure_source.py": "6be16209ab66695a57bef6ce5963e113fb7a61eb212be84f491138efadad81e4"
   },
   "open_work": "Original city boundary masses only. Join original parapet corner overlaps without moving source envelopes, occupied spaces, services, roof attachments or active controls. Main roof drainage, weather capacity, broader room/city finishes and street/courtyard closure remain open."
 }

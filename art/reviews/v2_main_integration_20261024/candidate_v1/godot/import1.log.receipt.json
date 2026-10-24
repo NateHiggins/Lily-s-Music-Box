@@ -1,0 +1,73 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 180.14,
+  "exit_code": null,
+  "finished_utc": "2026-10-24T14:30:01Z",
+  "started_utc": "2026-10-24T14:27:00Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 12,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Preload file \"res://assets/fonts/courier_prime/CourierPrime-Regular.ttf\" has no resource loaders (unrecognized file extension).",
+   "SCRIPT ERROR: Parse Error: Preload file \"res://assets/fonts/courier_prime/CourierPrime-Bold.ttf\" has no resource loaders (unrecognized file extension).",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://scripts/game_boot.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/candidate_v1/godot/import1.log.stderr",
+  "stderr_sha256": "38435e2716740a2b6387c19a41e38d207aa3a8288d6bf2ccdc3330d8ad091b44",
+  "stdout": "C:/ov/reports/v2integration24/candidate_v1/godot/import1.log",
+  "stdout_sha256": "36a651eed3ed273f1a015f5a46436b1208b49edd10319baf4d67ebeca29a8a3d"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\candidate_v1\\godot\\import1_shots",
+ "source": {
+  "dirty_paths": 1411,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_soil_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_c_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_c_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_c_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_d_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_d_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_d_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_stair_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_stair_b_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_stair_b_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_stair_b_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_stair_c_albedo.png.import"
+  ],
+  "repository_head": "e07488a324dae7ee64f548e25bc4d36b410771ce",
+  "repository_tree": "4c5a1436ffb5e248470efc5881372b8486903811",
+  "runtime_inputs_sha256": "bffa95d909be9eaac15ff2b91c257b26fa308433a4b413ac4ddbcb443f898447",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

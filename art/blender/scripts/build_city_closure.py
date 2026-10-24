@@ -19,7 +19,13 @@ registration=json.loads(registration_path.read_text())
 def digest(path):return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n') if path.suffix not in ['.blend','.glb','.png'] else path.read_bytes()).hexdigest()
 assert plan['classification']=='ADAPTATION' and digest(native_path)==registration['source_native_sha256']
 for path,value in registration['bindings'].items():
- if path not in ['game/data/orison_v2_blockout.json','game/data/orison_v2/exterior/regions.json']:assert digest(ROOT/path)==value,path
+ if path not in ['art/data/building_layout.json','game/data/orison_v2_blockout.json','game/data/orison_v2/exterior/regions.json']:assert digest(ROOT/path)==value,path
+# The registered native library still owns all335 physical records. Permit
+# editorial fields only after exact consumed dimensions/materials match its
+# immutable source projection; the independent native bounds checks remain.
+from city_closure_source import check_registered_layout
+projection_path=ROOT/'art/blender/city_shells_consumed_layout.json'
+check_registered_layout(layout,json.loads(projection_path.read_text()),registration)
 # The historical registration predates later blockout ports and public-region
 # programmes. Re-derive every
 # consumed registration value from the current authority; do not silently reuse
@@ -231,6 +237,7 @@ for key in ['bronze_sheet','galvanized_roof']:
  bindings.extend([ROOT/f'art/tools/build_{key}.py',ROOT/f'art/textures/procedural/{key}/material.json'])
  bindings.extend(ROOT/f'art/textures/procedural/{key}'/name for name in ['albedo.png','roughness.png','height.png','normal.png'])
 for name in ['masts','aerials','tanks']:bindings.extend([ROOT/f'game/assets/props/city_{name}.glb',ROOT/f'game/tests/fixtures/orison_city_{name}.json'])
+bindings.extend([projection_path,ROOT/'art/blender/scripts/city_closure_source.py'])
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':original_records,'original_record_count':335,'source_checks':source_checks,'source_parapet_stocks':100,'closed_joined_parapets':ring_checks,'groups':groups,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':precision_chart_fallbacks,'float32_zero_area_triangles_omitted':float32_zero_area_triangles,'corner_stations':corners,'capture_offsets_godot':plan['capture_offsets_godot'],'skyline_views_godot':plan['skyline_views_godot'],'current_native_derivation':{'bounds_checked':335,'max_bounds_error_m':max_bounds_error,'current_offsets':derived,'historical_blockout_binding_stale':digest(v2_path)!=registration['bindings']['game/data/orison_v2_blockout.json']},'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
 for path in ['art/blender/city_closure_construction.json','game/tests/fixtures/orison_city_closure.json']:(ROOT/path).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('CITY CLOSURE',len(stocks),'retained closed source stocks;',len(merged),'closed parapet rings;',len(draws),'parts;',total_triangles,'triangles')

@@ -1,0 +1,96 @@
+INTEGRATION NATIVE BEGIN build_front_pavement.py
+Info: No orphaned data-blocks to purge
+Info: Saved as "front_pavement.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+10:46:23 | INFO: Starting glTF 2.0 export
+10:46:23 | INFO: Extracting primitive: Pavement_N1_N3
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N1_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N1_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N2_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N2_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N3_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N3_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N4_N3
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N4_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N4_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N5_N3
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N5_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N5_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N6_N3
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N6_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N6_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N7_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_N7_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P0_N3
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P0_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P0_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P1_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P1_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P2_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P2_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P3_N3
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P3_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P3_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P4_N3
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P4_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P4_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P5_N3
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P5_N4
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Extracting primitive: Pavement_P5_N5
+10:46:23 | INFO: Primitives created: 1
+10:46:23 | INFO: Finished glTF 2.0 export in 0.06556391716003418 s
+
+FITTED FRONT PAVEMENT CONSTRUCTION: 34 parts; 2304 triangles; 48 retained masks; 27.583769631318695 m3
+SOURCE PROVIDER BUILD; INDEPENDENT VALIDATION REQUIRED
+INTEGRATION NATIVE COMPLETE build_front_pavement.py
+INTEGRATION NATIVE BEGIN inspect_front_pavement.py
+00:02.062  blend            | Read blend: "C:\ov\v2merge24\art\blender\front_pavement.blend"
+PAVEMENT NATIVE: 34 unchanged masks, 34 parts, positive closed 27.583769631 m3
+INTEGRATION NATIVE COMPLETE inspect_front_pavement.py
+INTEGRATION NATIVE BEGIN inspect_passage_shop_leaves.py
+00:02.109  blend            | Read blend: "C:\ov\v2merge24\art\blender\passage_shop_leaves.blend"
+C:\ov\v2merge24\art\blender\scripts\inspect_domestic_door_leaves.py:11: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  spec=sets[key];mat=bpy.data.materials.new(key);mat.use_nodes=True;nodes=mat.node_tree.nodes;links=mat.node_tree.links
+C:\ov\v2merge24\art\blender\scripts\inspect_passage_shop_leaves.py:30: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('NativeReview');scene.world.use_nodes=True
+00:04.656  render           | Saved: 'C:\ov\reports\v2integration24\native\passage\leaf.png'
+00:07.687  render           | Saved: 'C:\ov\reports\v2integration24\native\passage\pull.png'
+00:11.500  render           | Saved: 'C:\ov\reports\v2integration24\native\passage\clearance.png'
+INTEGRATION NATIVE COMPLETE inspect_passage_shop_leaves.py
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

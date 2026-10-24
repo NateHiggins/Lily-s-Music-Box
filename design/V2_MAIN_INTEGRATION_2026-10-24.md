@@ -37,3 +37,44 @@ is needed to finish authorized integration checks.
 
 BLOCKED â€” candidate verification is pending; this is a prepared integration,
 not permission to bypass regressions or claim V2 complete.
+
+
+## Source-registration repairs before runtime renewal
+
+Verification attempt1 at **e07488a3** passes17 protected paths, V2 selector,
+zero design lint errors and unchanged240 requirement statuses. It correctly
+refuses62 static regressions and the180-second partial import timeout; its
+original report, stdout/stderr and receipt are preserved. No runtime suite ran.
+Five maintenance-counter production/data references and forty test references
+are now explicitly registered. Remove only the obsolete News key-policy
+reference that main already deleted. Six individually inspected REVIEW findings
+are inventory-owner queries, a reusable dressing tool, diagnostic elapsed time
+and an isolated test-save namespace; their source expressions and reasoning
+remain in the packet. Only those exact reviewed records are added to the
+systemic baseline. The focused spatial/systemic/live-spatial tests pass; the
+remaining107 gates were not run in that focused comparison.
+
+Native source preflight exposed older whole-file layout pins invalidated by
+main's editorial and News-door-state changes. Actual Blender recipes rebuild
+the affected bodega, passage leaves, city closure/elevations, front paving and
+dependent street-detail outputs. No glTF or old receipt is hand edited.
+Bodega, city closure/elevation, paving and street-detail GLBs remain byte-identical.
+The passage GLB arrays differ and receive new native rendered review rather
+than an unchanged-asset claim. All nine current preflight fixtures pass.
+Imported precision policy58 and V2 texture policy1380 references have no defects.
+
+The city library remains immutable. The consumed-layout guard pins335 exact
+IDs, rectangles, elevations, heights and material keys to its original layout
+SHA and native SHA, while retaining independent native-bounds and offset checks.
+Three tests reject changed physical fields/provenance and permit unrelated copy.
+The initial native pin refusal remains. A subsequent batch finds hidden city
+objects surviving a context-dependent paving build; reset the Blender scene
+between jobs and rebuild. The independent paving check then passes34 parts,
+48 retained masks and positive closed volume27.583769631m3. Four city views and
+passage leaf, pull and16mm floor-clearance renders were reviewed as native
+candidate diagnostics. Original failed native logs remain.
+
+Next: complete two long-lane imports, run merged worker-save/knowledge and
+actual world routes, then renew the current surface suite/receipt and rendered
+review. The previous surface receipt also has an expired test-source binding;
+it is not rewritten to hide that failure. PR23 remains draft pending verification.

@@ -617,6 +617,72 @@
    "confidence": "HEURISTIC",
    "tier": "test",
    "disposition": "REVIEW"
+  },
+  {
+   "id": "5cb1c5ae0e0e266d",
+   "domain": "custody",
+   "class": "DUPLICATE_CUSTODY",
+   "file": "game/scripts/building/fire_maintenance_counter.gd",
+   "scope": "can_take",
+   "evidence": "return merchant!=null and merchant.inventory.has_item(str(part.item_id))",
+   "confidence": "HEURISTIC",
+   "tier": "production",
+   "disposition": "REVIEW"
+  },
+  {
+   "id": "ba1f3264dd6c9a97",
+   "domain": "custody",
+   "class": "DUPLICATE_CUSTODY",
+   "file": "game/scripts/props/radio_sale_terminal.gd",
+   "scope": "grip",
+   "evidence": "if merchant==null or lever==null or merchant.inventory.has_item(item_id):return {}",
+   "confidence": "HEURISTIC",
+   "tier": "production",
+   "disposition": "REVIEW"
+  },
+  {
+   "id": "b0c27264fdb96424",
+   "domain": "custody",
+   "class": "DUPLICATE_CUSTODY",
+   "file": "game/scripts/props/v2_fire_line_cabinet.gd",
+   "scope": "try_dress_gasket",
+   "evidence": "if rubber_dressed or items==null or not items.has_item(\"fire_hose_rubber_protectant\") \\",
+   "confidence": "HEURISTIC",
+   "tier": "production",
+   "disposition": "REVIEW"
+  },
+  {
+   "id": "cad26cae74ebba5d",
+   "domain": "host-clock",
+   "class": "HOST_CLOCK_MUTATES_WORLD",
+   "file": "game/tests/v2_handheld_profile.gd",
+   "scope": "_run",
+   "evidence": "FileAccess.open(directory.path_join(\"runtime_contract.json\"),FileAccess.WRITE).store_string(JSON.stringify({\"schema_version\":2,\"evidence_kind\":\"runtime_contract\",\"selector\":\"v2\",\"production_runtime\":t",
+   "confidence": "STRONG",
+   "tier": "test",
+   "disposition": "REVIEW"
+  },
+  {
+   "id": "3651b08395f36f8f",
+   "domain": "host-clock",
+   "class": "HOST_CLOCK_MUTATES_WORLD",
+   "file": "game/tests/v2_hose_fps_payout_programme.gd",
+   "scope": "run",
+   "evidence": "file.store_string(JSON.stringify({\"evidence_class\":\"INERT\",\"scope\":\"Owner-authorized visual hose; actual walking and FPS input on an isolated collision-bearing floor. No exact material conservation, p",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "REVIEW"
+  },
+  {
+   "id": "2c377954fd7ede00",
+   "domain": "host-clock",
+   "class": "HOST_CLOCK_MUTATES_WORLD",
+   "file": "game/tests/v2_merged_save_knowledge_test.gd",
+   "scope": "run",
+   "evidence": "RealityState.save_path=\"user://tests/merged_knowledge_%d.json\"%Time.get_ticks_usec()",
+   "confidence": "STRONG",
+   "tier": "test",
+   "disposition": "REVIEW"
   }
  ]
 }

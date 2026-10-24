@@ -1,0 +1,14 @@
+orison_bodega_frontage.json: PASS
+orison_city_closure.json: FAIL
+  stale fixture dependency: art/data/building_layout.json
+  stale fixture dependency: game/data/orison_v2_blockout.json
+orison_city_elevations.json: PASS
+orison_city_ground_apron.json: PASS
+orison_city_horizon.json: PASS
+orison_front_pavement_construction.json: FAIL
+  stale fixture dependency: game/data/orison_v2_blockout.json
+orison_front_pavement_review.json: FAIL
+  stale fixture dependency: game/data/orison_v2_blockout.json
+orison_street_paving_details.json: PASS
+passage_shop_leaves.json: PASS
+0 scripts; 9 fixtures; 3 failed; source preflight only

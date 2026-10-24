@@ -1,0 +1,1401 @@
+{
+  "evidence_class": "INERT",
+  "added_records": [
+    {
+      "key": "925706b8231806a5",
+      "kind": "id_reference",
+      "token": "storm_shop_hardware_paint_counter_top",
+      "file": "game/data/orison_v2/fire_maintenance_stock.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/stock/fire_hose_rubber_protectant/counter_anchor_id",
+        "/stock/fire_hose_spare_gasket/counter_anchor_id"
+      ],
+      "lines": [
+        0,
+        0
+      ],
+      "count": 2,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "4e7859f7823b08ed",
+      "kind": "floor_reference",
+      "token": "F01",
+      "file": "game/scripts/building/fire_maintenance_counter.gd",
+      "tier": "production",
+      "subsystem": "building",
+      "symbols": [
+        "bind_residency"
+      ],
+      "lines": [
+        26
+      ],
+      "count": 1,
+      "context": [
+        "if str(floor.id)!=\"F01\":continue"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "RUNTIME_LOOKUP"
+      ],
+      "spatial": [
+        "FLOOR_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Production code looks up a layout id at runtime.",
+      "resolved_target": "floor+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "6a9745306073bde1",
+      "kind": "generated_name",
+      "token": "configure",
+      "file": "game/scripts/building/fire_maintenance_counter.gd",
+      "tier": "production",
+      "subsystem": "building",
+      "symbols": [
+        "configure"
+      ],
+      "lines": [
+        86
+      ],
+      "count": 1,
+      "context": [
+        "\"RadioSale_\"+identity;terminal_parent.add_child(terminal)"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "GENERATED_IDENTITY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "REGENERATE_CONSUMER",
+      "confidence": "MEDIUM",
+      "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "e307a43a9e13feb9",
+      "kind": "floor_reference",
+      "token": "F01",
+      "file": "game/scripts/building/orison_v2_fire_maintenance_counter.gd",
+      "tier": "production",
+      "subsystem": "building",
+      "symbols": [
+        "mount"
+      ],
+      "lines": [
+        11,
+        26
+      ],
+      "count": 2,
+      "context": [
+        "if str(floor.id)!=\"F01\":continue"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "RUNTIME_LOOKUP"
+      ],
+      "spatial": [
+        "FLOOR_MEMBERSHIP"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Production code looks up a layout id at runtime.",
+      "resolved_target": "floor+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "72b848852c1777b7",
+      "kind": "id_reference",
+      "token": "storm_shop_hardware_paint_counter_top",
+      "file": "game/scripts/game/v2_maintenance_shop_service.gd",
+      "tier": "production",
+      "subsystem": "game",
+      "symbols": [
+        "setup"
+      ],
+      "lines": [
+        27
+      ],
+      "count": 1,
+      "context": [
+        "or str(record.get(\"counter_anchor_id\",\"\"))!=\"storm_shop_hardware_paint_counter_top\" \\"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "RUNTIME_LOOKUP"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Production code looks up a layout id at runtime.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "f7255ae79df30165",
+      "kind": "vector3_coordinate",
+      "token": "warm_reflections",
+      "file": "game/tests/reflection_pipeline_warmup.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "warm_reflections"
+      ],
+      "lines": [
+        12
+      ],
+      "count": 1,
+      "context": [
+        "viewport.position=Vector3(100000,100000,100000)"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "9acf81bea9b7f5de",
+      "kind": "asset_path",
+      "token": "res://scenes/building/orison_v2_runtime.tscn",
+      "file": "game/tests/v2_bath_collision_cost.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        26
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "fa267c4e4e92559d",
+      "kind": "id_reference",
+      "token": "F03_3B_MIRROR_01",
+      "file": "game/tests/v2_bath_collision_cost.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        43
+      ],
+      "count": 1,
+      "context": [
+        "if cabinet!=null and str(cabinet.name)==\"F03_3B_MIRROR_01\":subject=cabinet.mirror_center();break"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/marker",
+      "target_exists": true
+    },
+    {
+      "key": "03d58bc062c864fc",
+      "kind": "id_reference",
+      "token": "F03_3B_SINK_01",
+      "file": "game/tests/v2_bath_contact_installed.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "installed_interactions"
+      ],
+      "lines": [
+        8
+      ],
+      "count": 1,
+      "context": [
+        "var tap:=world.find_child(\"F03_3B_SINK_01\",true,false) as TapProp"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/marker+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "3973c5263bd75173",
+      "kind": "node_path",
+      "token": "F03_3B_SINK_01",
+      "file": "game/tests/v2_bath_contact_installed.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "installed_interactions"
+      ],
+      "lines": [
+        8
+      ],
+      "count": 1,
+      "context": [
+        "var tap:=world.find_child(\"F03_3B_SINK_01\",true,false) as TapProp"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "SCENE_NODE_PATH",
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Node-path lookup embeds spatial identity.",
+      "resolved_target": "F03/marker+v2_blockout",
+      "target_exists": null
+    },
+    {
+      "key": "04f6fc04c40e3cb1",
+      "kind": "asset_path",
+      "token": "res://scenes/building/orison_v2_runtime.tscn",
+      "file": "game/tests/v2_bath_contact_lod_study.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        30
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "d4ba2caa1814ee92",
+      "kind": "id_reference",
+      "token": "3B_wc",
+      "file": "game/tests/v2_bath_contact_lod_study.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        48
+      ],
+      "count": 1,
+      "context": [
+        "for spec: Array in [[\"F03_3B_SINK_01\",\"FixtureBody\",\"bath_lavatory\"],[\"3B_wc\",\"FixedCastingCollision\",\"bath_water_closet\"]]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/furniture+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "6aca9faedef00d28",
+      "kind": "id_reference",
+      "token": "F03_3B_MIRROR_01",
+      "file": "game/tests/v2_bath_contact_lod_study.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        42
+      ],
+      "count": 1,
+      "context": [
+        "if owner!=null and str(owner.name)==\"F03_3B_MIRROR_01\":mirror=owner;break"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/marker",
+      "target_exists": true
+    },
+    {
+      "key": "2e5d501c8623088f",
+      "kind": "id_reference",
+      "token": "F03_3B_SINK_01",
+      "file": "game/tests/v2_bath_contact_lod_study.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        48
+      ],
+      "count": 1,
+      "context": [
+        "for spec: Array in [[\"F03_3B_SINK_01\",\"FixtureBody\",\"bath_lavatory\"],[\"3B_wc\",\"FixedCastingCollision\",\"bath_water_closet\"]]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/marker+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "d31b0de5c68f58fe",
+      "kind": "id_reference",
+      "token": "F03_B_BATH",
+      "file": "game/tests/v2_bath_contact_lod_study.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        44,
+        46,
+        107
+      ],
+      "count": 3,
+      "context": [
+        "var switches: SwitchSystem=world.get_node(\"V2RoomSwitches\");var saved:=switches.room_snapshot(\"F03_B_BATH\");var lit: Dictionary={}",
+        "switches.restore_room(\"F03_B_BATH\",lit)",
+        "switches.restore_room(\"F03_B_BATH\",saved)"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "b0ba81be1adfa6dc",
+      "kind": "id_reference",
+      "token": "F03_3B_MIRROR_01",
+      "file": "game/tests/v2_bath_movement_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "review_controls"
+      ],
+      "lines": [
+        29
+      ],
+      "count": 1,
+      "context": [
+        "if cabinet!=null and str(cabinet.name)==\"F03_3B_MIRROR_01\":subject=cabinet.mirror_center();break"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/marker",
+      "target_exists": true
+    },
+    {
+      "key": "214945da4b5e65db",
+      "kind": "id_reference",
+      "token": "F03_B_BATH",
+      "file": "game/tests/v2_bath_movement_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "review_controls"
+      ],
+      "lines": [
+        16
+      ],
+      "count": 1,
+      "context": [
+        "var identity: String=\"F03_B_BATH\""
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "d653bf3552c85428",
+      "kind": "asset_path",
+      "token": "res://scenes/building/orison_v2_runtime.tscn",
+      "file": "game/tests/v2_bath_render_cost.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        57
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "a9635f837203fdcb",
+      "kind": "id_reference",
+      "token": "F03_3B_MIRROR_01",
+      "file": "game/tests/v2_bath_render_cost.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        70
+      ],
+      "count": 1,
+      "context": [
+        "if owner!=null and str(owner.name)==\"F03_3B_MIRROR_01\":subject=owner;break"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/marker",
+      "target_exists": true
+    },
+    {
+      "key": "ff7127b980ccf9d2",
+      "kind": "id_reference",
+      "token": "F03_B_BATH",
+      "file": "game/tests/v2_bath_render_cost.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        72,
+        74,
+        119
+      ],
+      "count": 3,
+      "context": [
+        "var switches: SwitchSystem=world.get_node(\"V2RoomSwitches\");var saved:=switches.room_snapshot(\"F03_B_BATH\");var lit: Dictionary={}",
+        "switches.restore_room(\"F03_B_BATH\",lit)",
+        "restore();switches.restore_room(\"F03_B_BATH\",saved)"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "d5a51053653a7598",
+      "kind": "asset_path",
+      "token": "res://scenes/building/orison_v2_runtime.tscn",
+      "file": "game/tests/v2_bath_sconce_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        9
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "8033a14b0236be14",
+      "kind": "vector3_coordinate",
+      "token": "_played_bathroom",
+      "file": "game/tests/v2_bathroom_optics_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_played_bathroom"
+      ],
+      "lines": [
+        62
+      ],
+      "count": 1,
+      "context": [
+        "if not await _walk(Vector3(-8.45,9.6,4.35)):return false"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "6efa1b9ce6497b13",
+      "kind": "floor_reference",
+      "token": "F01",
+      "file": "game/tests/v2_fire_maintenance_hand_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "<module>"
+      ],
+      "lines": [
+        8
+      ],
+      "count": 1,
+      "context": [
+        "var source_layout: Dictionary={\"floors\":[{\"id\":\"F01\",\"furniture\":["
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "FLOOR_MEMBERSHIP"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "floor+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "1e0bd7de2406923a",
+      "kind": "id_reference",
+      "token": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+      "file": "game/tests/v2_fire_maintenance_world_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_prepare_player_start"
+      ],
+      "lines": [
+        13
+      ],
+      "count": 1,
+      "context": [
+        "door=world.passage_region.doors.get(\"SITE_SHOP_DOOR_HARDWARE_PAINT\")"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F01/marker",
+      "target_exists": true
+    },
+    {
+      "key": "95c433e17ca126fd",
+      "kind": "vector3_coordinate",
+      "token": "_street_route",
+      "file": "game/tests/v2_fire_maintenance_world_test.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_street_route"
+      ],
+      "lines": [
+        104,
+        104,
+        104,
+        104,
+        108,
+        108
+      ],
+      "count": 6,
+      "context": [
+        "for point in [Vector3(14,0,15),Vector3(14,-.1,13.6),Vector3(14,-.1,8),Vector3(14,0,4.2),Vector3(14,0,3),Vector3(0,0,3)]:",
+        "for point in [Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "f4b29a877e3e6fe6",
+      "kind": "asset_path",
+      "token": "res://scenes/building/orison_v2_runtime.tscn",
+      "file": "game/tests/v2_handheld_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        60
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "68a6d2eda381e01d",
+      "kind": "vector3_coordinate",
+      "token": "_run",
+      "file": "game/tests/v2_handheld_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        73
+      ],
+      "count": 1,
+      "context": [
+        "player.global_position=world.adapter.root.to_global(Vector3(-8.5,3.2,0));player.velocity=Vector3.ZERO"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "29f0947321c69bd0",
+      "kind": "asset_path",
+      "token": "res://scenes/building/orison_v2_runtime.tscn",
+      "file": "game/tests/v2_handheld_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_ready"
+      ],
+      "lines": [
+        11
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "8efbbf714f87f45a",
+      "kind": "vector3_coordinate",
+      "token": "_run",
+      "file": "game/tests/v2_handheld_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        16
+      ],
+      "count": 1,
+      "context": [
+        "player.global_position=world.adapter.root.to_global(Vector3(-8.5,3.2,0))"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "44e1960f5733e6a2",
+      "kind": "generated_name",
+      "token": "_capture_cast",
+      "file": "game/tests/v2_hose_fps_world_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_capture_cast"
+      ],
+      "lines": [
+        131
+      ],
+      "count": 1,
+      "context": [
+        "\"Candidate\"+str(seen.size());body.transform=original.global_transform"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "GENERATED_IDENTITY",
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "REGENERATE_CONSUMER",
+      "confidence": "MEDIUM",
+      "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "d6a1cd38de8d234b",
+      "kind": "id_reference",
+      "token": "F02_2A_BOOKSHELF_01",
+      "file": "game/tests/v2_library_world_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_play_route"
+      ],
+      "lines": [
+        12
+      ],
+      "count": 1,
+      "context": [
+        "var anchor: Node3D=world.adapter.resolve(\"F02_2A_BOOKSHELF_01\")"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F02/marker+bookshelf+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "7211714d6ea54129",
+      "kind": "id_reference",
+      "token": "F02_2A_BOOKSHELF_01_STANCE",
+      "file": "game/tests/v2_library_world_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_play_route"
+      ],
+      "lines": [
+        18
+      ],
+      "count": 1,
+      "context": [
+        "var stance: Node3D=world.adapter.resolve(\"F02_2A_BOOKSHELF_01_STANCE\")"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "ff10c7bf6155fb01",
+      "kind": "asset_path",
+      "token": "res://scenes/building/orison_v2_runtime.tscn",
+      "file": "game/tests/v2_player_mirror_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        16
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "92162057c6ccdac1",
+      "kind": "id_reference",
+      "token": "F03_3B_MIRROR_01",
+      "file": "game/tests/v2_player_mirror_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        39
+      ],
+      "count": 1,
+      "context": [
+        "if owner!=null and str(owner.name)==\"F03_3B_MIRROR_01\":mirror=owner;break"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/marker",
+      "target_exists": true
+    },
+    {
+      "key": "bc00a0a8856874ad",
+      "kind": "id_reference",
+      "token": "F03_3B_MIRROR_01",
+      "file": "game/tests/v2_reflection_capture_study.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "review_controls"
+      ],
+      "lines": [
+        21
+      ],
+      "count": 1,
+      "context": [
+        "for spec in [[\"F03_B_BATH\",\"F03_3B_MIRROR_01\"],[\"F06_B_KITCHEN\",\"F06_6B_KITCHEN_SINK_01\"]]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/marker",
+      "target_exists": true
+    },
+    {
+      "key": "ba00382395b96aa6",
+      "kind": "id_reference",
+      "token": "F03_B_BATH",
+      "file": "game/tests/v2_reflection_capture_study.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "review_controls"
+      ],
+      "lines": [
+        21
+      ],
+      "count": 1,
+      "context": [
+        "for spec in [[\"F03_B_BATH\",\"F03_3B_MIRROR_01\"],[\"F06_B_KITCHEN\",\"F06_6B_KITCHEN_SINK_01\"]]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F03/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "4870b34196c67fc6",
+      "kind": "id_reference",
+      "token": "F06_6B_KITCHEN_SINK_01",
+      "file": "game/tests/v2_reflection_capture_study.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "review_controls"
+      ],
+      "lines": [
+        21
+      ],
+      "count": 1,
+      "context": [
+        "for spec in [[\"F03_B_BATH\",\"F03_3B_MIRROR_01\"],[\"F06_B_KITCHEN\",\"F06_6B_KITCHEN_SINK_01\"]]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F06/marker+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "6bc820c999c7a3c5",
+      "kind": "id_reference",
+      "token": "F06_B_KITCHEN",
+      "file": "game/tests/v2_reflection_capture_study.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "review_controls"
+      ],
+      "lines": [
+        21
+      ],
+      "count": 1,
+      "context": [
+        "for spec in [[\"F03_B_BATH\",\"F03_3B_MIRROR_01\"],[\"F06_B_KITCHEN\",\"F06_6B_KITCHEN_SINK_01\"]]:"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ROOM_MEMBERSHIP"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "F06/room+v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "7ed13281bee9aad8",
+      "kind": "asset_path",
+      "token": "res://scenes/building/orison_v2_runtime.tscn",
+      "file": "game/tests/v2_service_light_visibility_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        37
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "ASSET_PATH"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "a924291da682f4ee",
+      "kind": "vector3_coordinate",
+      "token": "_street_route",
+      "file": "game/tests/v2_street_film_profile.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_street_route"
+      ],
+      "lines": [
+        48,
+        48,
+        51,
+        57,
+        57,
+        57,
+        57
+      ],
+      "count": 7,
+      "context": [
+        "for point in [Vector3(7,0,4.2), Vector3(7,-.1,8), Vector3(7,-.1,13.6), Vector3(7,0,14.8)]:",
+        "if not await _walk_world(Vector3(5.65,0,17.3)): return",
+        "for point in [Vector3(5.65,0,14.8),Vector3(7,0,14.8),Vector3(7,-.1,13.6),Vector3(7,-.1,8),Vector3(7,0,4.2),Vector3(7,0,3)]:"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "f1c16158945a9f5a",
+      "kind": "id_reference",
+      "token": "FIRE_SERVICE_RISER",
+      "file": "game/tests/v2_unracked_bare_hose_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        6
+      ],
+      "count": 1,
+      "context": [
+        "var reserve:=MeshInstance3D.new();reserve.name=\"FIRE_SERVICE_RISER\";adapter.root.add_child(reserve)"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "2431b360a0b1a3ce",
+      "kind": "id_reference",
+      "token": "FIRE_SERVICE_RISER",
+      "file": "game/tests/v2_unracked_hose_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        7
+      ],
+      "count": 1,
+      "context": [
+        "var reserve:=MeshInstance3D.new();reserve.name=\"FIRE_SERVICE_RISER\";adapter.root.add_child(reserve)"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "87c5291ae96e226c",
+      "kind": "id_reference",
+      "token": "F02_FIRE_LINE_STAIR",
+      "file": "game/tests/v2_unracked_hose_world_survey.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_play_route"
+      ],
+      "lines": [
+        38
+      ],
+      "count": 1,
+      "context": [
+        "if clear and id==\"F02_FIRE_LINE_STAIR\" and OS.get_environment(\"ORISON_HOSE_SURVEY_PULL\")==\"1\":"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+      "resolved_target": "v2_blockout",
+      "target_exists": true
+    },
+    {
+      "key": "c21ee4512d0806dd",
+      "kind": "vector3_coordinate",
+      "token": "_play_route",
+      "file": "game/tests/v2_unracked_hose_world_survey.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_play_route"
+      ],
+      "lines": [
+        10,
+        10,
+        10,
+        10,
+        13,
+        13
+      ],
+      "count": 6,
+      "context": [
+        "for target: Vector3 in [Vector3(1.925,1.6,1.3),Vector3(3.975,1.6,1.3),Vector3(3.975,3.2,-2.4),Vector3(3.65,3.2,-3.4)]:",
+        "for target: Vector3 in [Vector3(3.65,3.2,-3.0),Vector3(4.5,3.2,-2.95)]:"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "fb28b0eb790c4136",
+      "kind": "vector3_coordinate",
+      "token": "run",
+      "file": "game/tests/v2_vantry_ceiling_review.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "run"
+      ],
+      "lines": [
+        52
+      ],
+      "count": 1,
+      "context": [
+        "player.global_position=world.adapter.root.to_global(Vector3(-9.2,3.2,1.4));player.velocity=Vector3.ZERO"
+      ],
+      "gameplay_binding": true,
+      "authority": [
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "CAMERA_STATION",
+        "RAW_GODOT_COORDINATE"
+      ],
+      "disposition": "UPDATE_TEST_FIXTURE",
+      "confidence": "MEDIUM",
+      "rationale": "Test/capture Godot-space coordinate.",
+      "resolved_target": null,
+      "target_exists": null
+    }
+  ],
+  "removed_stale_records": [
+    {
+      "key": "e0d8fb9d06a6b664",
+      "kind": "id_reference",
+      "token": "SITE_SHOP_DOOR_NEWS_CIGARS",
+      "file": "game/data/door_key_policy.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/v2_initial_states[0]/door_id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/marker",
+      "target_exists": true
+    }
+  ],
+  "scope": "Five resolved maintenance-counter production/data references and forty test fixture references. Remove only the obsolete main-deleted News door key-policy reference; door authority remains live."
+}
