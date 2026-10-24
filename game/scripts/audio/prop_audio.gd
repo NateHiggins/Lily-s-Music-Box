@@ -73,6 +73,17 @@ const RECORDED := {
 		"res://assets/audio/freesound/processed/cellular/cellular_relay_hiss.ogg",
 	"cellular_vesicle":
 		"res://assets/audio/freesound/processed/cellular/cellular_vesicle_release.ogg",
+	# Street warnings, synthesized offline by art/tools/build_street_warning_audio.py.
+	"klaxon":
+		"res://assets/audio/synth/traffic/klaxon.wav",
+	"bulb_horn":
+		"res://assets/audio/synth/traffic/bulb_horn.wav",
+	"foot_gong":
+		"res://assets/audio/synth/traffic/foot_gong.wav",
+	"brake_shriek":
+		"res://assets/audio/synth/traffic/brake_shriek.wav",
+	"whip_crack":
+		"res://assets/audio/synth/traffic/whip_crack.wav",
 }
 static var _cache: Dictionary = {}
 static var _warned: Dictionary = {}
