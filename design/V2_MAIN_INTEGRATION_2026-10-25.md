@@ -57,3 +57,68 @@ compare against a clean board at this main parent, and run current-source
 occupied access/save/surface checks and candidate verification. Autonomous
 companion movement, typing, context/save integration, personality and matched
 performance remain open; additional resident-world integration remains open.
+
+## Native renewal and strict catalogue provenance
+
+The first thirteen-family authoring batch failed its city-closure guard: main
+had rebuilt the city-shell library while the older consumed-layout projection
+still named another native save. That original assertion and its inputs remain
+archived. The owning **build_city_shells.py** now measures all335 actual closed,
+positive-volume solids before publishing a fresh matching projection. Maximum
+bounds error is5.74575 micrometres against the retained20-micrometre bound.
+The corrected city-shell/closure/elevation batch passes. Four native elevation
+views were inspected. Storage and objects were regenerated in corrected order
+after the surface-stock fixture; actual changed-joinery/nook consumers were
+rebuilt through their own photo/radio, clerestory and nook-book builders.
+Every regenerated production GLB remains byte-identical to the merged export.
+Native saves and provenance change; no frame-time saving is claimed.
+
+The light-fixture plan pin was reviewed against its exact original source at
+**b44d11f6**: the only changes retire the owner's rejected halo and avoid
+redundant shadow writes. Bulb/fitting geometry and circuit authority stay with
+the same owner. Its builder, rather than a fixture-hash edit, writes the new
+construction provenance.
+
+The additive-material tool correctly refused the initial stale storage binding
+and the changed joinery payload. Its current-dependency guard then exposed an
+actual utility defect: even a freshly rebuilt consumer binding the exact new
+payload could not follow a subsequent metadata-only update. The correction
+requires that exact preimage and preserves every non-binding field. Tests
+reject old geometry hashes and any additional geometry change. Fourteen focused
+source/provenance tests pass, including all existing negative controls.
+The guarded renewal proves20 new catalogue keys, no changed existing material
+and298 unchanged existing texture files; it updates166 provenance records.
+Eight pre-existing stale bindings remain stale. No runtime contract is renewed.
+All three refused attempts and the successful comparison report are retained.
+
+## Current static comparison and ownership review
+
+A complete, clean board at main parent **bde30c08** records99 PASS,10 FAIL and
+one INCOMPLETE, with zero dirty paths. The dirty candidate preflight records
+106 PASS,6 FAIL and one INCOMPLETE. Its original comparison reports five
+regression lines: two new review IDs plus their count increase, and one newly
+expired surface-test contract plus its count increase. It is not a successful
+no-regression gate and its output is preserved unchanged.
+
+The two ownership findings were explicitly traced: **9c366ae2c02a8917** is
+validated restoration of this companion's own bounded conversation memory;
+**001fd1a74b60d572** corrupts a duplicate snapshot in a negative-control test and
+verifies rejection without changing real memory. Neither writes resident belief,
+case state or ResidentConversations trust. Only those exact heuristic findings
+are registered as DOCUMENT, with rationale and the companion implementation ledger; every existing
+baseline entry remains unchanged. The focused rerun returns the main baseline's
+23 new reviews, zero new actionable findings and zero policy violations. This
+is a scoped ownership classification, not broad baseline replacement or save
+integration proof. The expired surface contract remains an actual open gate.
+
+The read-only native inventory still finds32 real dirty families plus14 downstream
+consumers, with no dependency cycle. They require their owning builders and
+current-source checks. The historical heating-distribution writer gap remains
+main debt. The planner also assumes a single horizon file although its manifest
+owns separate near/far exports; that diagnostic limitation is not a missing
+runtime asset. Both actual horizon GLBs remain present and unchanged.
+
+Open: remaining native/source closure, current-source occupied routes/save/surface
+renewal and final verification. Companion movement, typing, context/memory-save,
+personality and matched world performance remain open. No all-V2 or merged-tree
+runtime completion is claimed from this native/static preparation.

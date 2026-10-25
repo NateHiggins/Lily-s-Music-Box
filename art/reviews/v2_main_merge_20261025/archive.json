@@ -1,0 +1,218 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native/source preparation, original failures, clean main board and dirty candidate preflight. No current runtime qualification.",
+  "files": [
+    {
+      "path": "candidate_board_before_authority_review/board.json",
+      "sha256": "b4cd92e27edafa6c50d838e14c7e328a2d98b8672e9f2ddae1ce2f3b4352c4d6"
+    },
+    {
+      "path": "candidate_board_before_authority_review/board.md",
+      "sha256": "0cd56080451ead930dbf08ee25d61188630737d7e245f906b7ce39a048f64bf7"
+    },
+    {
+      "path": "candidate_board_before_authority_review/console.log",
+      "sha256": "aa32faf193e9eb118e4823aad02f0c252506199c13291b050aa8123aa0cee7de"
+    },
+    {
+      "path": "clean_main_board/board.json",
+      "sha256": "52b0ea6f3dff5e999d59812e647e4656bdac61d9df86880bfb485ed460a114be"
+    },
+    {
+      "path": "clean_main_board/board.md",
+      "sha256": "15bf7c41313763c8fe2df8f727d1657fddbbe14aac86e3016f4c83c3769372c4"
+    },
+    {
+      "path": "conflicts.json",
+      "sha256": "48b7d38a25612c1d757cb7922c595e721d6d35050d5188645a846cb20023300a"
+    },
+    {
+      "path": "executed_additive_regressions.py",
+      "sha256": "c3cba23be7922bed79b34b4dfd41061c7b4c46fb5e7d641ee31f5133e4579fc2"
+    },
+    {
+      "path": "executed_rebind_additive_material.py",
+      "sha256": "885fd6625a2fe863d411f83c7f36ef6bf4ace080ef2c8fb87b02039f85fb2858"
+    },
+    {
+      "path": "fixed_lighting_pin_review.diff",
+      "sha256": "422c0e653c305a075b306ed98747ecbda1a8e9571e9d1b5ff626de35dcfe9072"
+    },
+    {
+      "path": "main_bde_additive_apply_v2.log",
+      "sha256": "83cb3e5f511ae530e4d211abb9a8f70541cda0a502805c443776795e4a6d14b2"
+    },
+    {
+      "path": "main_bde_additive_apply_v3.log",
+      "sha256": "83cb3e5f511ae530e4d211abb9a8f70541cda0a502805c443776795e4a6d14b2"
+    },
+    {
+      "path": "main_bde_additive_apply_v4.json",
+      "sha256": "41f3aad6b5603642363d1cc2846cc8f6719f89083c3ce0511e33f0f4144cb425"
+    },
+    {
+      "path": "main_bde_additive_apply_v4.log",
+      "sha256": "aaef9cf3422ebb67a0224d4816d88217e55c67f95067202610902a0e50fce2cd"
+    },
+    {
+      "path": "main_bde_additive_dry_v1.log",
+      "sha256": "1957c035205f3b5cba436c4b40afec4d98ec736792804c5dba2b49d0822f33cf"
+    },
+    {
+      "path": "main_bde_after_additive_plan.json",
+      "sha256": "8811c057c0d535b0bd0cd94aea0cd9532aefbd228747ed75c61a3648d3e75355"
+    },
+    {
+      "path": "main_bde_after_native_plan.json",
+      "sha256": "05347e063bdc801442f2386e7d99c64cc31fd2d6dd36f99ee19f3626e14ea81e"
+    },
+    {
+      "path": "main_bde_native_batch.py",
+      "sha256": "890140999a1f877ca587004be2cf624731ee300227529bc09a04abe155cf92bb"
+    },
+    {
+      "path": "main_bde_native_batch_v2.py",
+      "sha256": "5e1cfd9821dd4136f08169bca68d220985fab1498027bc33dde305dd28bce2d2"
+    },
+    {
+      "path": "main_bde_native_batch_v3.py",
+      "sha256": "4f45b888ca0d491e303131c715989185c2d3260e9de636702111fc8aa3054300"
+    },
+    {
+      "path": "main_bde_native_batch_v4.py",
+      "sha256": "466ccf497b93cf48825bae358752f688cdf378f18a221569953a8d118c9b40b3"
+    },
+    {
+      "path": "main_bde_native_order.json",
+      "sha256": "e4999e06d7778f3e3c20e08834c1820ff6249d4d1a25c080326354af8b57b682"
+    },
+    {
+      "path": "main_bde_native_order_v2.json",
+      "sha256": "1a9b3d562ae0e9b161192cf1f57de34947e5f2525ec977267d2e535da4142e3b"
+    },
+    {
+      "path": "main_bde_native_order_v3.json",
+      "sha256": "39be1334c9492b4d6cebd9640eb35b0cebc0e7eb763d6c1a200a9f519ec6cc72"
+    },
+    {
+      "path": "main_bde_native_order_v4.json",
+      "sha256": "56ba0b5128d0e97f45bc18f1de88658a9be12b624396f1580d8faf7bb3f29592"
+    },
+    {
+      "path": "main_bde_native_v1/blender.log",
+      "sha256": "aba5d1c5ce3d182e47fb34e84e1bf9b4f313475ee285368262f2d1fab4a62dcf"
+    },
+    {
+      "path": "main_bde_native_v1/city_failure_inputs/build_city_shells.py",
+      "sha256": "90af2f7683214524eccb7a160a2339543bd3f76de0fdc7067c95a4086be39986"
+    },
+    {
+      "path": "main_bde_native_v1/city_failure_inputs/city_closure_source.py",
+      "sha256": "6be16209ab66695a57bef6ce5963e113fb7a61eb212be84f491138efadad81e4"
+    },
+    {
+      "path": "main_bde_native_v1/city_failure_inputs/city_shells_consumed_layout.json",
+      "sha256": "0242c4a4d62272cd2e139276100096f6a0549d80921bad88ccdb0ddbf331f045"
+    },
+    {
+      "path": "main_bde_native_v1/city_failure_inputs/city_shells_registration.json",
+      "sha256": "759bd68702f864db06dbeac6880348a1da0b9407d30764067e8eb96a59acadf1"
+    },
+    {
+      "path": "main_bde_native_v1/renewal.json",
+      "sha256": "dbdaf0278b22f331dc3b6ff0d65153e8976234fd57c4a9931f2961a308cb4ad2"
+    },
+    {
+      "path": "main_bde_native_v2/blender.log",
+      "sha256": "616e42235e059a35ff560251d72fbde48baa376754de9b08135b5e6f8ebaad4c"
+    },
+    {
+      "path": "main_bde_native_v2/executed_build_city_shells.py",
+      "sha256": "6b76fb757289b22bc05550dd0d94d139a4deada724d7f609e50cad2b1872447f"
+    },
+    {
+      "path": "main_bde_native_v2/near_elevation.png",
+      "sha256": "a723f2e354102c51d9fd7f0d4b33326390144ea57f331d8ca16a64135d822df3"
+    },
+    {
+      "path": "main_bde_native_v2/north_skyline.png",
+      "sha256": "69ab204a1d41743cf6c32262d904e70b2fd075d98516a6c404d77ae219d7d40a"
+    },
+    {
+      "path": "main_bde_native_v2/renewal.json",
+      "sha256": "e4fae1dae5013376383fcf80c65178b6f766cf575280ddd1caaec5419c47f8ca"
+    },
+    {
+      "path": "main_bde_native_v2/south_skyline.png",
+      "sha256": "bb2c820506e6f4b8d17454b93c797c31aea1b4cbd5a00ebfe4fe685084bba45e"
+    },
+    {
+      "path": "main_bde_native_v2/west_neighbors.png",
+      "sha256": "cc1e953b32e5955865f73602a3e6035e0437f5b8fd4ad8a2e65f572079b3b2c1"
+    },
+    {
+      "path": "main_bde_native_v3/blender.log",
+      "sha256": "1eb073fdbaaf3c0eff69a05cb69eb7721148aad6d89c542f090a00d417e18d16"
+    },
+    {
+      "path": "main_bde_native_v3/renewal.json",
+      "sha256": "33bb8591fac19b7195ca22367ab0ff4041c5117c324e65faa7b9c4e4d15fe01b"
+    },
+    {
+      "path": "main_bde_native_v4/blender.log",
+      "sha256": "424da7c1b9a0b983ea3ed7770a7fb8305335fb14908c22b84b3373cee1129a14"
+    },
+    {
+      "path": "main_bde_native_v4/renewal.json",
+      "sha256": "6cd730185a33709535244dfe3520c5e558aa580003c039865f89dacf9e485dda"
+    },
+    {
+      "path": "main_bde_remaining_native_plan.json",
+      "sha256": "c974837072a1da4d3ea4ab5355aa8f6ba5a7ad5c1249bf4c326352e382574c68"
+    },
+    {
+      "path": "main_bde_semantic_consumers.json",
+      "sha256": "78bf18edb795a37e2dec13b7244f83e1708250ee08a1fe2420a98ff848e9a466"
+    },
+    {
+      "path": "main_bde_source_units.log",
+      "sha256": "b723d7a5c3bd154978f0b5c941f3f2e913f724562d924a72e66bef03dde40079"
+    },
+    {
+      "path": "main_bde_source_units_v2.log",
+      "sha256": "4d5107e3b43467d25b81e9a9a6d95d3acc0386ac8acfc5d5775b0f2d05f997eb"
+    },
+    {
+      "path": "main_bde_systemic_review.json",
+      "sha256": "8a57067a3ca778efdb3f7077d0803f633224606bc8e1ce4c72539f21ae568fd1"
+    },
+    {
+      "path": "main_bde_systemic_v1.json",
+      "sha256": "ebd43c71d123ba47c8200f60cb52d2078e66f4851fd72521b5cc63c9370597da"
+    },
+    {
+      "path": "main_bde_systemic_v2.json",
+      "sha256": "fbb9c47f2fb6b06915deb7e7d9923dfcadadf362ada4866325d676c8757a94fd"
+    },
+    {
+      "path": "native_export_comparison.json",
+      "sha256": "f9f1dfb0428c4182133ff698fa686d4f099e42ca9d16f2be38979fbee3e0f2fe"
+    },
+    {
+      "path": "physical_sources.json",
+      "sha256": "a19d6a0d098606e15bb98f7f85b932d5a680e999cb0ee2ed0f7f5b7e575201b1"
+    },
+    {
+      "path": "reader.log",
+      "sha256": "e588792ad309cb2b6b96c38d538cfbc0c2de6792e15feacb3e73a13713190f1d"
+    },
+    {
+      "path": "resident_draft_preservation.json",
+      "sha256": "cdc28a963fbbe96008b6fdaa7c59acdf4df6f95d563be954cf4b05259a2343d2"
+    },
+    {
+      "path": "spatial.json",
+      "sha256": "369aba62257367f661a3b5921fe68e65c283f3d29ac8339833ff6c846c4e34b4"
+    }
+  ]
+}

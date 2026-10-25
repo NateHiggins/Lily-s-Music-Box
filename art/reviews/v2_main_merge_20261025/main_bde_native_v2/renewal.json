@@ -1,0 +1,58 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Authoring-builder renewals only; not rendering, import or runtime qualification",
+  "plan": {
+    "evidence_class": "INERT",
+    "order": [
+      "city_shells",
+      "city_closure",
+      "city_elevations"
+    ],
+    "dependencies": {
+      "city_shells": [],
+      "bodega_frontage": [],
+      "city_closure": [
+        "city_shells"
+      ],
+      "city_ground_apron": [],
+      "city_horizon": [
+        "city_ground_apron"
+      ],
+      "domestic_storage": [],
+      "fixed_lighting": [],
+      "reading_nook": [],
+      "roof_public_weathering": [],
+      "shop_joinery": [],
+      "street_paving_details": [],
+      "surface_stock": [],
+      "city_elevations": [
+        "city_shells",
+        "city_closure"
+      ],
+      "domestic_objects": [
+        "domestic_storage"
+      ]
+    },
+    "scope": "Changed city-shell provenance and transitive consumers only; original failures retained."
+  },
+  "stages": [
+    {
+      "family": "city_shells",
+      "builder_sha256": "6b76fb757289b22bc05550dd0d94d139a4deada724d7f609e50cad2b1872447f",
+      "completed": true,
+      "elapsed_s": 4.176
+    },
+    {
+      "family": "city_closure",
+      "builder_sha256": "d67e9004e849c91ed697a263253eb91f3cb21a9082dd75a0ac0b1e39c9fd6b36",
+      "completed": true,
+      "elapsed_s": 6.56
+    },
+    {
+      "family": "city_elevations",
+      "builder_sha256": "7498704aad526c7f9ca8979cc222043b18353da5a86b9402e41756466196dac1",
+      "completed": true,
+      "elapsed_s": 55.301
+    }
+  ]
+}

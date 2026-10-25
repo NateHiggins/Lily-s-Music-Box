@@ -6077,7 +6077,7 @@
   "asset_sha256": "2f0dc857269e3e49c492e0e78118033a6d649b83e9fa7635b5eea9c1c9ac9945",
   "source_bindings": {
     "art/data/domestic_storage/source_plan.json": "f1d7d05ddba18c46a721ea477d9e9843775b4f12a917ef14e53380c2b7de7e07",
-    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "art/blender/scripts/build_domestic_storage.py": "d41233924ae60808b1df3330fbc646d1581f470ed3652ad00a6b8c5cf174df1c",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
@@ -6134,7 +6134,7 @@
     "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
     "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
     "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
-    "art/tools/fix_runtime_texture_imports.py": "876259e2b0c5a395dc7f0e409c67cbfc458335384cdd0f5c16f43647cb98bcf0",
+    "art/tools/fix_runtime_texture_imports.py": "e9494ea48ff8dc04bbacbd5b04620b6f987a1b8c44a2cc365b6438dbf7dca6fd",
     "art/data/material_catalog.json": "153538df6eb5f3284fb4dd961597803b1b96de2184ae4c4739440953bb1fd5ca",
     "art/textures/catalog_mapping.json": "1fde8f0d1d9980d292e4a99b7af1e3b7274299a68451214fe2efbe6c518f36d8",
     "art/tools/generate_runtime_materials.py": "12415cb6c99635eaf249dec6dd52dde31ac1748a268265f0e351ac5be45255bd",
@@ -6146,13 +6146,13 @@
     "game/data/orison_v2/completion_interiors.json": "ad4c99dd215a65ea7a9798ae2fa30ef683e7292811526796fbe99d5aa82de97c",
     "art/data/orison_v2/completion_interiors_source.json": "470652934f6d1309b4a08d43ad5fc9b038454579e4493e6160997b7958bd0679",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
-    "game/scripts/building/orison_v2_architectural_materials.gd": "058c790a463f807066bde1ccfde6d2cc2110ad0cf9a428af43b411835754167f",
-    "game/shaders/lamp_glass_surface.gdshader": "61a6c7de7497a95d1ea3c09773c48da5be9a18bb75c6265e997fc8d69587c1d0",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec",
+    "game/shaders/lamp_glass_surface.gdshader": "b17cfda6b765fd72c3509eacda38bce4ed33ac3f3a588bdbfaa012931b3c24c8",
     "art/blender/scripts/inspect_domestic_storage_context.py": "2afa965ac1c2c61a2ac49dd35f81353fd48f6c4c53b7a5412a55ed5252f6a537",
-    "game/data/orison_v2_blockout.json": "beb6f53f9eab4d873b89b4436d0fecaab87f976a72f4ffed9ef00a2605fd0e7e",
-    "art/blender/work_tables.blend": "ffc309d94421baa1307cffe02ba2b375b80329c1f98849e4ee4902c9bdd660c6",
+    "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
+    "art/blender/work_tables.blend": "b45b8666700964edf1666028e54c62a4dec99546800066ebc952cdf2be470433",
     "game/data/orison_v2/domestic_surface_props.json": "20ec7e5a42f4db8d81db0eb63707b59aaa1eeafa053e8881d38d30800552acae",
-    "game/tests/fixtures/orison_surface_stock.json": "ea8bcf21477be046fd814e0e72f1aea1bd54585a1ec6bb9201488a6f50f52e0c"
+    "game/tests/fixtures/orison_surface_stock.json": "02bf9e4fd5d3d4ea8e95ab51d37905d4fc461ff818d6f775fa421c67bd6e7e5d"
   },
   "retained_stock": [
     {

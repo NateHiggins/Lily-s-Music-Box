@@ -1,0 +1,36 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Two explicitly reviewed local-memory/test negative-control ownership findings; every existing baseline entry preserved unchanged. Not world integration or save qualification.",
+  "added": [
+    {
+      "id": "9c366ae2c02a8917",
+      "domain": "npc-knowledge",
+      "class": "DIRECT_NPC_KNOWLEDGE_WRITE",
+      "file": "game/scripts/device/companion_memory.gd",
+      "scope": "restore",
+      "evidence": "trust = int(value.trust)",
+      "confidence": "HEURISTIC",
+      "tier": "production",
+      "disposition": "DOCUMENT",
+      "review": "Validated restoration of the companion conversation module's own bounded relationship memory. No resident belief, CaseDialogue or ResidentConversations state is read or written. This is the owning memory implementation, not a coordinator fabricating NPC knowledge.",
+      "evidence_document": "design/V2_COMPANION_TERMINAL_2026-10-24.md"
+    },
+    {
+      "id": "001fd1a74b60d572",
+      "domain": "npc-knowledge",
+      "class": "DIRECT_NPC_KNOWLEDGE_WRITE",
+      "file": "game/tests/companion_conversation_test.gd",
+      "scope": "_ready",
+      "evidence": "invalid.trust = \"unlock_everything\"",
+      "confidence": "HEURISTIC",
+      "tier": "test",
+      "disposition": "DOCUMENT",
+      "review": "Test-only negative control: corrupts a duplicate JSON-safe companion-memory snapshot, expects restore rejection and verifies the real memory remains unchanged. No NPC or world state is assigned.",
+      "evidence_document": "design/V2_COMPANION_TERMINAL_2026-10-24.md"
+    }
+  ],
+  "sources": {
+    "game/scripts/device/companion_memory.gd": "94c24fdc04d4e149b0a0bdd1f3d0503338a4c5d5937387d35fbdef5a19dbc114",
+    "game/tests/companion_conversation_test.gd": "4c899b2dd030b92f4708a111a05d1f2f8c8aa9caab1caed1e11470050a09ef35"
+  }
+}

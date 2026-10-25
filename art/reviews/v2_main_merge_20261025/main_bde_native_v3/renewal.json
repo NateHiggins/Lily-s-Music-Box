@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Authoring-builder renewals only; not rendering, import or runtime qualification",
+  "plan": {
+    "evidence_class": "INERT",
+    "order": [
+      "domestic_storage",
+      "domestic_objects"
+    ],
+    "scope": "Storage must bind the already renewed surface-stock fixture before its object consumer is regenerated."
+  },
+  "stages": [
+    {
+      "family": "domestic_storage",
+      "builder_sha256": "d41233924ae60808b1df3330fbc646d1581f470ed3652ad00a6b8c5cf174df1c",
+      "completed": true,
+      "elapsed_s": 11.969
+    },
+    {
+      "family": "domestic_objects",
+      "builder_sha256": "ce7f8b21a58ed28ef2a7c2d136553cfc365d46686ef04b535a9c87fd3a4bb2de",
+      "completed": true,
+      "elapsed_s": 153.112
+    }
+  ]
+}

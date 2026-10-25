@@ -189194,7 +189194,7 @@
       "sha256": "88215b8981fb617be489642e62cfed0a7d274c401931520626a286fb56a953f0",
       "bytes": 52485040,
       "native": "art/blender/city_horizon_near.blend",
-      "native_sha256": "61c18093c76af46bef1e112176eb431594da0cd17f489e5579dadb0f91c4b064",
+      "native_sha256": "26189c093d5ce166204542216effe9c59139867ec3bcbb683addbc16fc4131b5",
       "bounds": [
         -170.01199340820312,
         -0.2800000011920929,
@@ -189204,7 +189204,7 @@
         170.01199340820312
       ],
       "export_check": {
-        "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\city_horizon_near.glb",
+        "asset": "C:\\ov\\v2merge24\\game\\assets\\props\\city_horizon_near.glb",
         "primitives": 396,
         "triangles": 528364,
         "minimum_tangent_agreement": 1.0,
@@ -191198,7 +191198,7 @@
       "sha256": "14bf89f23519d6877d32aa07ec125254ac16623a7d1ba37de7ed6cbd0dc8edc4",
       "bytes": 87483984,
       "native": "art/blender/city_horizon_far.blend",
-      "native_sha256": "a1b0b4c538bd91938e46ef8d88fdd75c842beb5dedafb25a2ea2c1b871ce8b11",
+      "native_sha256": "6a21ccc648dc6c13083d78a7247aa3ad46ba4b3f149a4a7db37adcf5349d8de1",
       "bounds": [
         -272.0119934082031,
         -0.2800000011920929,
@@ -191208,7 +191208,7 @@
         272.0119934082031
       ],
       "export_check": {
-        "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\city_horizon_far.glb",
+        "asset": "C:\\ov\\v2merge24\\game\\assets\\props\\city_horizon_far.glb",
         "primitives": 214,
         "triangles": 862996,
         "minimum_tangent_agreement": 1.0,
@@ -218437,7 +218437,7 @@
   },
   "source_bindings": {
     "art/data/city_horizon/source_plan.json": "7b7f36fa445bd7b037a7cad240691de053aa36810eac00e9f1f72327c0f19e92",
-    "art/blender/city_ground_apron_construction.json": "9fb1beefddf3dcc8a08575e27bddef6b6f8c3acbbf0a3f8991a962b62ecd380c",
+    "art/blender/city_ground_apron_construction.json": "9f65460b6f1a2c4d3003efaf5afc70e920ba019f6172637ac7547aefae0203c4",
     "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916",
     "game/data/orison_v2/exterior/city_horizon.json": "d653393c31092fcdfab67a924039cbb55ff0f5af4b7382cc6556b98e50b16cfc",
     "art/blender/scripts/build_city_horizon.py": "54b6401dbafa8717d60ef6b308b7bff5913a27064eebffa88d670a4b2978ec2d",
@@ -218449,23 +218449,23 @@
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
-    "game/assets/building/textures/T_ai_materials_door_paint_albedo.png": "3a68fb4497fb0f5b56edfcd168a4d05593b760b0437c20aa4b2ec4e97f19616f",
-    "game/assets/building/textures/T_ai_materials_door_paint_rough.png": "31232d24578d907132c6a97ff15fe93939ab644529968fdad466551647cf83d0",
-    "game/assets/building/textures/T_ai_materials_door_paint_normal.png": "660c2582ee91be3aae0746662cc7c24bf9eb77467cbde8aece2104f920127cc5",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
     "game/assets/building/textures/T_ai_materials_limestone_albedo.png": "98dc560a3b41c71fdac9e0fcc4d78410a7f48377c22152dfe9f18c1d284d2d91",
     "game/assets/building/textures/T_ai_materials_limestone_rough.png": "dc2118543d957385564364c56a9f000377d530ce4c07b30e66273014a1b16b16",
     "game/assets/building/textures/T_ai_materials_limestone_normal.png": "160a35cceaa8b2b296f34a28f9c3e8929f16f813986ab3f0503bf7e7eb4c22c4",
+    "game/assets/building/textures/T_ai_materials_door_paint_albedo.png": "3a68fb4497fb0f5b56edfcd168a4d05593b760b0437c20aa4b2ec4e97f19616f",
+    "game/assets/building/textures/T_ai_materials_door_paint_rough.png": "31232d24578d907132c6a97ff15fe93939ab644529968fdad466551647cf83d0",
+    "game/assets/building/textures/T_ai_materials_door_paint_normal.png": "660c2582ee91be3aae0746662cc7c24bf9eb77467cbde8aece2104f920127cc5",
     "game/assets/building/textures/T_ai_materials_galvanized_roof_albedo.png": "4f5200041f815f4e58eec3607a61dc014291743f807029e958eee2f35ed8f429",
     "game/assets/building/textures/T_ai_materials_galvanized_roof_rough.png": "4aaf1617b32a3c3fcfe8494cead7a50a963fb55f6dfadaa9095e37f09db30f7b",
     "game/assets/building/textures/T_ai_materials_galvanized_roof_normal.png": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf",
-    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_albedo.png": "b30bf3cff86c0718b3d9e1424739caacc388635289b2dd821ac9fbe5f947e14d",
-    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_rough.png": "e5521a01503ef13b22bd53900bc8e7a7bde5b3bf0c0e17e61b79a0c93f7aa258",
-    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_normal.png": "bd48e9cb520637eca05c09fc774962a8ea191424eed92cb639bb20ab0357736b",
     "game/assets/building/textures/T_ai_materials_cast_iron_albedo.png": "1da42ae7a87c9842f38c8222ef07f56dd79ce60e1fba3ce5e9ec0dc3e955f2f3",
     "game/assets/building/textures/T_ai_materials_cast_iron_rough.png": "a2f31fa683810d0b852c5496407685f372f263459f9235eff76d21bc0ecb3049",
-    "game/assets/building/textures/T_ai_materials_cast_iron_normal.png": "feb42ac91b00a637203592c38eb425eba1ebafe942c335122f850561dddda894"
+    "game/assets/building/textures/T_ai_materials_cast_iron_normal.png": "feb42ac91b00a637203592c38eb425eba1ebafe942c335122f850561dddda894",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
+    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_albedo.png": "b30bf3cff86c0718b3d9e1424739caacc388635289b2dd821ac9fbe5f947e14d",
+    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_rough.png": "e5521a01503ef13b22bd53900bc8e7a7bde5b3bf0c0e17e61b79a0c93f7aa258",
+    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_normal.png": "bd48e9cb520637eca05c09fc774962a8ea191424eed92cb639bb20ab0357736b"
   }
 }

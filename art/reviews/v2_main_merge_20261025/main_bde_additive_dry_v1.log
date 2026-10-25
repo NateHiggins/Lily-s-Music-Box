@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\ov\v2merge24\tools\rebind_additive_material.py", line 103, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\ov\v2merge24\tools\rebind_additive_material.py", line 96, in main
+    for s in documents:resolve(s)
+                       ^^^^^^^^^^
+  File "C:\ov\v2merge24\tools\rebind_additive_material.py", line 86, in resolve
+    assert unchanged_stale_binding(prior,unchanged,literal,expected),('drift is not an unchanged baseline fixture',s,literal)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('drift is not an unchanged baseline fixture', 'game/tests/fixtures/orison_domestic_storage.json', 'game/tests/fixtures/orison_surface_stock.json')

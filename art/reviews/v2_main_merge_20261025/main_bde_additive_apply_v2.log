@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\ov\v2merge24\tools\rebind_additive_material.py", line 103, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\ov\v2merge24\tools\rebind_additive_material.py", line 96, in main
+    for s in documents:resolve(s)
+                       ^^^^^^^^^^
+  File "C:\ov\v2merge24\tools\rebind_additive_material.py", line 81, in resolve
+    assert {k:v for k,v in old.items() if k!='source_bindings'}=={k:v for k,v in current.items() if k!='source_bindings'},('dependency changed beyond provenance',s,rel)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('dependency changed beyond provenance', 'game/tests/fixtures/orison_photo_radio_fittings.json', 'game/tests/fixtures/orison_shop_joinery.json')

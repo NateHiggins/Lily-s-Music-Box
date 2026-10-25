@@ -1,0 +1,33 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Authoring-builder renewals only; not rendering, import or runtime qualification",
+  "plan": {
+    "evidence_class": "INERT",
+    "order": [
+      "photo_radio_fittings",
+      "shop_clerestories",
+      "nook_readable_books"
+    ],
+    "scope": "Rebuild actual consumers of changed joinery and nook construction; preserve strict semantic-drift rejection."
+  },
+  "stages": [
+    {
+      "family": "photo_radio_fittings",
+      "builder_sha256": "99fe0225b0e60b55bb770db95dde661fcd9fcbe64fc84a2cfb86a8bfdaa1b2a5",
+      "completed": true,
+      "elapsed_s": 2.569
+    },
+    {
+      "family": "shop_clerestories",
+      "builder_sha256": "fb3e58c9285749b2c711d16a54bc6646019c3b1b74d8d54b1991fac05950ef5a",
+      "completed": true,
+      "elapsed_s": 11.113
+    },
+    {
+      "family": "nook_readable_books",
+      "builder_sha256": "91dfc2cddccb11bdb5c2c56bee6f2c80e69edd4bfb6b9094b9a74af8fa339c39",
+      "completed": true,
+      "elapsed_s": 0.697
+    }
+  ]
+}

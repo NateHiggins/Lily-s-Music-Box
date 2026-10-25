@@ -1,0 +1,42 @@
+{
+  "evidence_class": "INERT",
+  "order": [
+    "bodega_frontage",
+    "city_closure",
+    "city_ground_apron",
+    "city_horizon",
+    "domestic_storage",
+    "fixed_lighting",
+    "reading_nook",
+    "roof_public_weathering",
+    "shop_joinery",
+    "street_paving_details",
+    "surface_stock",
+    "city_elevations",
+    "domestic_objects"
+  ],
+  "dependencies": {
+    "bodega_frontage": [],
+    "city_closure": [],
+    "city_elevations": [
+      "city_closure"
+    ],
+    "city_ground_apron": [],
+    "city_horizon": [],
+    "domestic_objects": [
+      "domestic_storage"
+    ],
+    "domestic_storage": [],
+    "fixed_lighting": [],
+    "reading_nook": [],
+    "roof_public_weathering": [],
+    "shop_joinery": [],
+    "street_paving_details": [],
+    "surface_stock": []
+  },
+  "reviewed_light_pin": {
+    "before": "29bf8f3e6e9918c86349dfbb63ab926f7e1fda63ce663a17ab873671a1575413",
+    "after": "eb7ca30cc557152e96e8663c61add69d0a5e396c8b98609571637ef48812acc7",
+    "basis": "Complete diff against pinned revision b44d11f6: retires owner-rejected optical halo; avoids unchanged shadow writes. Native bulb, fittings, circuit and other authority geometry unchanged."
+  }
+}

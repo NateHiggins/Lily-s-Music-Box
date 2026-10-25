@@ -9,6 +9,8 @@ import json
 import re
 import hashlib
 import bpy
+from collections import Counter
+from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[3]
 layout = json.loads((ROOT/'art/data/building_layout.json').read_text(encoding='utf-8'))
@@ -25,6 +27,9 @@ records = [r for r in floor['furniture'] if is_city_shell(r['id']) and 'rect' in
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from city_registration import derive_city_offsets
+from city_closure_source import shell_projection
+projection_records = shell_projection(layout)
+assert {r["id"] for r in records} == {r["id"] for r in projection_records}
 offsets=derive_city_offsets(layout,v2,regions)
 runtime_keys = {'common_brick':'brick', 'brick_patched':'brick', 'face_brick':'brick',
                 'limestone':'concrete', 'concrete':'concrete', 'bronze':'bronze',
@@ -38,6 +43,7 @@ for key in sorted(set(runtime_keys.values())):
     mat.diffuse_color = (.42,.38,.31,1)
     materials[key] = mat
 groups = {}
+native_checks = []
 for row in records:
     name = row['id']
     group = '_'.join(name.split('_')[:3]) if name.startswith(('site_nbr_', 'site_back_', 'site_far_')) else '_'.join(name.split('_')[:2])
@@ -66,6 +72,27 @@ for row in records:
         for loop in face.loop_indices:
             v = obj.matrix_world @ obj.data.vertices[obj.data.loops[loop].vertex_index].co
             uv.data[loop].uv = (v[axes[0]],v[axes[1]])
+    # Measure the actual constructed solid before writing provenance. A new
+    # registration must never inherit a projection for another native save.
+    corners = [obj.matrix_world @ Vector(corner) for corner in obj.bound_box]
+    low = [min(v[axis] for v in corners) for axis in range(3)]
+    high = [max(v[axis] for v in corners) for axis in range(3)]
+    expected_low = [min(x0,x1)+dx,min(y0,y1),z0]
+    expected_high = [max(x0,x1)+dx,max(y0,y1),z0+h]
+    error = max(abs(a-b) for a,b in zip(low+high,expected_low+expected_high))
+    assert error <= .00002, (name,"native envelope changed",error)
+    edge_uses = Counter()
+    for face in obj.data.polygons:
+        indices = list(face.vertices)
+        for index in range(len(indices)):
+            edge_uses[tuple(sorted((indices[index],indices[(index+1)%len(indices)])))] += 1
+    assert edge_uses and all(count == 2 for count in edge_uses.values()), (name,"open native stock")
+    obj.data.calc_loop_triangles()
+    volume = sum(obj.data.vertices[t.vertices[0]].co.dot(
+        obj.data.vertices[t.vertices[1]].co.cross(obj.data.vertices[t.vertices[2]].co))
+        for t in obj.data.loop_triangles)/6.0
+    assert volume > 0, (name,"nonpositive native stock",volume)
+    native_checks.append({"id":name,"bounds_error_m":error,"volume_m3":volume})
     groups.setdefault((group,key),[]).append(obj)
 bpy.context.preferences.filepaths.save_version = 0
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/city_shells.blend'))
@@ -86,6 +113,21 @@ def source_hash(path):
     return hashlib.sha256(raw).hexdigest()
 report={'evidence_class':'INERT','offsets':offsets,'source_solids':len(records),'runtime_batches':len(groups),
         'source_native_sha256':source_hash(ROOT/'art/blender/city_shells.blend'),
-        'bindings':{str(p.relative_to(ROOT)).replace('\\','/'):source_hash(p) for p in [ROOT/'art/data/building_layout.json',ROOT/'game/data/orison_v2_blockout.json',ROOT/'game/data/orison_v2/exterior/regions.json',Path(__file__),Path(__file__).with_name('city_registration.py')]},
+        'bindings':{str(p.relative_to(ROOT)).replace('\\','/'):source_hash(p) for p in [ROOT/'art/data/building_layout.json',ROOT/'game/data/orison_v2_blockout.json',ROOT/'game/data/orison_v2/exterior/regions.json',Path(__file__),Path(__file__).with_name('city_registration.py'),Path(__file__).with_name('city_closure_source.py')]},
         'note':'Existing authored closed city masses; northwest row shares its near mass registration. No new occupied building or service authority.'}
 (ROOT/'art/blender/city_shells_registration.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
+
+projection = {
+    "evidence_class":"INERT",
+    "scope":"Fresh consumed physical fields measured against all335 independently closed native solids by their owning builder; not runtime qualification.",
+    "producer":"art/blender/scripts/build_city_shells.py",
+    "layout_sha256":report["bindings"]["art/data/building_layout.json"],
+    "native_sha256":report["source_native_sha256"],
+    "records":projection_records,
+    "native_checks":native_checks,
+}
+assert len(native_checks) == len(projection_records) == 335
+(ROOT/"art/blender/city_shells_consumed_layout.json").write_text(
+    json.dumps(projection,indent=2)+"\n",encoding="utf-8",newline="\n")
+print("CITY SHELL PROJECTION",len(native_checks),"closed solids; max bounds error",
+      max(row["bounds_error_m"] for row in native_checks))

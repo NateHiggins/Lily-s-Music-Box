@@ -1,5 +1,6 @@
 """Pre-existing stale evidence must never become new acceptance by rebinding."""
 import copy
+import json
 import importlib.util
 from pathlib import Path
 import unittest
@@ -29,6 +30,31 @@ class BaselineDriftGuardTest(unittest.TestCase):
 
     def test_unrecorded_binding_is_rejected(self):
         self.assertFalse(module.unchanged_stale_binding(self.prior,self.prior,'other','old-hash'))
+
+class RebuiltDependencyGuardTest(unittest.TestCase):
+    def encoded(self, parts, catalog):
+        return json.dumps({'parts':parts,'asset_sha256':str(parts),'source_bindings':{'catalog':catalog}}).encode()
+
+    def test_fresh_consumer_may_follow_exact_rebuilt_payload_provenance(self):
+        prior=self.encoded([1,2],'old')
+        original=self.encoded([1,2,3],'old')
+        updated=self.encoded([1,2,3],'new')
+        expected=module.digest(original)
+        self.assertEqual(module.dependency_binding_preimages(prior,original,updated,expected),{expected})
+        self.assertEqual(module.dependency_binding_preimages(None,original,updated,expected),{expected})
+
+    def test_old_geometry_hash_cannot_be_carried_to_new_geometry(self):
+        prior=self.encoded([1,2],'old')
+        original=self.encoded([1,2,3],'old')
+        updated=self.encoded([1,2,3],'new')
+        with self.assertRaises(AssertionError):
+            module.dependency_binding_preimages(prior,original,updated,module.digest(prior))
+
+    def test_even_fresh_binding_cannot_hide_another_geometry_change(self):
+        original=self.encoded([1,2,3],'old')
+        updated=self.encoded([1,2,3,4],'new')
+        with self.assertRaises(AssertionError):
+            module.dependency_binding_preimages(None,original,updated,module.digest(original))
 
 class GeneratedCalibrationGuardTest(unittest.TestCase):
     before=b"extends RefCounted\nconst SETS := {\n\t'old': ['a', 'r', 'n', 1., 0],\n}\nconst OPTICS := {\n\t'old': {'normal_scale': .35},\n}\n"

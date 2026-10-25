@@ -467,3 +467,14 @@ the observed394-microsecond maximum is not a world performance comparison.
 The original failed observations remain intact. Native/import mechanical
 preparation can now support the independent-movement milestone; the installed
 original carrier remains the gameplay default until full integration is tested.
+
+### Explicit memory-ownership review
+
+The systemic audit's two new heuristic findings were traced before registration.
+**9c366ae2c02a8917** restores only this module's validated, bounded companion
+relationship memory; it has no ResidentConversations, human NPC belief or case
+write. **001fd1a74b60d572** deliberately corrupts a duplicate snapshot in the
+negative-control test and verifies rejection plus unchanged real memory. Only
+those exact expressions are documented in the authority baseline, with every
+existing entry preserved. This is ownership review, not a campaign save hook,
+new runtime contract or completion of the companion conversation milestone.

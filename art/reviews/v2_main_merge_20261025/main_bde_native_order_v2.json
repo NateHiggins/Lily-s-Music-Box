@@ -1,0 +1,34 @@
+{
+  "evidence_class": "INERT",
+  "order": [
+    "city_shells",
+    "city_closure",
+    "city_elevations"
+  ],
+  "dependencies": {
+    "city_shells": [],
+    "bodega_frontage": [],
+    "city_closure": [
+      "city_shells"
+    ],
+    "city_ground_apron": [],
+    "city_horizon": [
+      "city_ground_apron"
+    ],
+    "domestic_storage": [],
+    "fixed_lighting": [],
+    "reading_nook": [],
+    "roof_public_weathering": [],
+    "shop_joinery": [],
+    "street_paving_details": [],
+    "surface_stock": [],
+    "city_elevations": [
+      "city_shells",
+      "city_closure"
+    ],
+    "domestic_objects": [
+      "domestic_storage"
+    ]
+  },
+  "scope": "Changed city-shell provenance and transitive consumers only; original failures retained."
+}

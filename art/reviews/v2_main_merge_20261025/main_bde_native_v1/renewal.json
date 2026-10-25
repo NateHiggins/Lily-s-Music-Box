@@ -1,0 +1,127 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Authoring-builder renewals only; not rendering, import or runtime qualification",
+  "plan": {
+    "evidence_class": "INERT",
+    "order": [
+      "bodega_frontage",
+      "city_closure",
+      "city_ground_apron",
+      "city_horizon",
+      "domestic_storage",
+      "fixed_lighting",
+      "reading_nook",
+      "roof_public_weathering",
+      "shop_joinery",
+      "street_paving_details",
+      "surface_stock",
+      "city_elevations",
+      "domestic_objects"
+    ],
+    "dependencies": {
+      "bodega_frontage": [],
+      "city_closure": [],
+      "city_elevations": [
+        "city_closure"
+      ],
+      "city_ground_apron": [],
+      "city_horizon": [],
+      "domestic_objects": [
+        "domestic_storage"
+      ],
+      "domestic_storage": [],
+      "fixed_lighting": [],
+      "reading_nook": [],
+      "roof_public_weathering": [],
+      "shop_joinery": [],
+      "street_paving_details": [],
+      "surface_stock": []
+    },
+    "reviewed_light_pin": {
+      "before": "29bf8f3e6e9918c86349dfbb63ab926f7e1fda63ce663a17ab873671a1575413",
+      "after": "eb7ca30cc557152e96e8663c61add69d0a5e396c8b98609571637ef48812acc7",
+      "basis": "Complete diff against pinned revision b44d11f6: retires owner-rejected optical halo; avoids unchanged shadow writes. Native bulb, fittings, circuit and other authority geometry unchanged."
+    }
+  },
+  "stages": [
+    {
+      "family": "bodega_frontage",
+      "builder_sha256": "1bdd7f8278e33b43f66171a9411acb85799f6a0e2c358c64a51bed637cc473d9",
+      "completed": true,
+      "elapsed_s": 2.089
+    },
+    {
+      "family": "city_closure",
+      "builder_sha256": "d67e9004e849c91ed697a263253eb91f3cb21a9082dd75a0ac0b1e39c9fd6b36",
+      "completed": false,
+      "failure": "Traceback (most recent call last):\n  File \"C:\\ov\\reports\\v2integration24\\main_bde_native_batch.py\", line 18, in <module>\n    runpy.run_path(str(source),run_name=\"__main__\")\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\ov\\v2merge24\\art\\blender\\scripts\\build_city_closure.py\", line 28, in <module>\n    check_registered_layout(layout,json.loads(projection_path.read_text()),registration)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\ov\\v2merge24\\art\\blender\\scripts\\city_closure_source.py\", line 16, in check_registered_layout\n    assert projection['layout_sha256']==registration['bindings']['art/data/building_layout.json']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "elapsed_s": 0.107
+    },
+    {
+      "family": "city_ground_apron",
+      "builder_sha256": "22f10adb58795931b553af10235110827d6ad036ff535a26664cbaca85e1a362",
+      "completed": true,
+      "elapsed_s": 0.321
+    },
+    {
+      "family": "city_horizon",
+      "builder_sha256": "54b6401dbafa8717d60ef6b308b7bff5913a27064eebffa88d670a4b2978ec2d",
+      "completed": true,
+      "elapsed_s": 19.541
+    },
+    {
+      "family": "domestic_storage",
+      "builder_sha256": "d41233924ae60808b1df3330fbc646d1581f470ed3652ad00a6b8c5cf174df1c",
+      "completed": true,
+      "elapsed_s": 9.846
+    },
+    {
+      "family": "fixed_lighting",
+      "builder_sha256": "b21e055d8bd3d5d17b435a9862f1f157c9cc1a53e9074cb64c9ebd0f56823151",
+      "completed": true,
+      "elapsed_s": 7.6
+    },
+    {
+      "family": "reading_nook",
+      "builder_sha256": "4a3d383c7090132f8f491e1f1165174460a6c269551d2928b32f2bb60433b8e7",
+      "completed": true,
+      "elapsed_s": 2.656
+    },
+    {
+      "family": "roof_public_weathering",
+      "builder_sha256": "c1806b510817ca8c99bccd566c8985862ff000bb8e50fdc6421c7304718bfa84",
+      "completed": true,
+      "elapsed_s": 1.904
+    },
+    {
+      "family": "shop_joinery",
+      "builder_sha256": "766620619d41523e3707f9dc2736852e6cddd024559ca5c099bcfaef5c94a8e0",
+      "completed": true,
+      "elapsed_s": 23.25
+    },
+    {
+      "family": "street_paving_details",
+      "builder_sha256": "88cba18a659c1c0f8b7b5c3aab98d8479c9644ae2218c5dafdcd012bb63370d6",
+      "completed": true,
+      "elapsed_s": 0.326
+    },
+    {
+      "family": "surface_stock",
+      "builder_sha256": "a4781189d5c4a3824dfe8f709c7c510ed9153220bab871d02c3d0ba95e164397",
+      "completed": true,
+      "elapsed_s": 111.014
+    },
+    {
+      "family": "city_elevations",
+      "builder_sha256": "7498704aad526c7f9ca8979cc222043b18353da5a86b9402e41756466196dac1",
+      "completed": true,
+      "elapsed_s": 56.879
+    },
+    {
+      "family": "domestic_objects",
+      "builder_sha256": "ce7f8b21a58ed28ef2a7c2d136553cfc365d46686ef04b535a9c87fd3a4bb2de",
+      "completed": true,
+      "elapsed_s": 149.669
+    }
+  ]
+}
