@@ -166,3 +166,22 @@ Current full-world surface/runtime qualification and the owner's incoming
 acoustic merge remain open. No merged performance gain or new human acceptance
 is claimed. The source integration is a checkpoint; the V2 PR remains draft
 until qualification is renewed.
+
+The next windowed surface attempt stops at native preflight, before composing
+a world: the bodega fixture binds DoorProp's earlier source, while the other
+eight native fixtures pass. Its 20.95-second exit-1 wrapper receipt and raw
+stderr are retained. Neither cost route starts and no runtime contract is
+produced by this attempt.
+
+The owning bodega Blender builder is rerun against the actual held-door repair.
+Its text I/O is made explicitly UTF-8, including the catalogue read; a final
+repeat executes the complete current builder. The shipping GLB remains
+byte-identical at **a780cffaed39caf71a51e0ad2cb985256060455f6e75464d59dadc40692d140a**.
+All construction and fixture fields remain equal except the source-binding
+dictionary, whose only changed path is **game/scripts/props/door_prop.gd**.
+The native source is saved coherently and original files/build logs are kept
+in **art/reviews/v2_bodega_door_binding_20261025**. Existing geometric review is
+reused because the actual runtime asset is exact; no new visual acceptance is
+inferred from the source rebuild. Native preflight now passes. The full
+surface and paired route programme is resumed without reimporting unchanged
+assets.

@@ -14,13 +14,13 @@ plan_path=ROOT/'art/data/bodega_frontage/source_plan.json'
 geometry_path=ROOT/'game/data/orison_v2/exterior/exterior_geometry.json'
 regions_path=ROOT/'game/data/orison_v2/exterior/regions.json'
 door_path=ROOT/'game/scripts/props/door_prop.gd'
-plan=json.loads(plan_path.read_text());geometry=json.loads(geometry_path.read_text())
+plan=json.loads(plan_path.read_text(encoding='utf-8'));geometry=json.loads(geometry_path.read_text(encoding='utf-8'))
 template=next(t for t in geometry['templates'] if t['id']=='TEMPLATE_BODEGA_CELL_V1')
 rows={r['id']:r for r in template['boxes']}
 door=next(r for r in template['doors'] if r['surface_id']=='threshold')
 assert door['width_m']==.95 and door['height_m']==2.1 and not door['swing_out']
 assert plan['classification']=='ADAPTATION'
-door_source=door_path.read_text()
+door_source=door_path.read_text(encoding='utf-8')
 assert 'Vector3(0.13, height - 0.02, 0.055)' in door_source
 assert 'for y in [0.065, 0.78, height - 0.065]:' in door_source
 
@@ -101,7 +101,7 @@ closed=bpy.data.collections.new('ClosedConstruction');bpy.context.scene.collecti
 materials={}
 mat=bpy.data.materials.new(plan['wood_key']);mat.use_nodes=True
 node=mat.node_tree.nodes['Principled BSDF'];node.inputs['Roughness'].default_value=.5
-sets=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']
+sets=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text(encoding='utf-8'))['materials']
 spec=sets[plan['wood_key']]
 uv=bpy.data.materials[mat.name].node_tree.nodes.new('ShaderNodeTexCoord')
 scale=mat.node_tree.nodes.new('ShaderNodeVectorMath');scale.operation='SCALE';scale.inputs['Scale'].default_value=1/(spec['meters_per_tile']*plan['wood_scale_multiplier'])
@@ -244,5 +244,5 @@ manifest={'evidence_class':'INERT','classification':'ADAPTATION','parts':invento
           'source_bindings':{p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [plan_path,geometry_path,regions_path,door_path]},
           'open_work':plan['open_work']}
 for path in ['art/blender/bodega_frontage_construction.json','game/tests/fixtures/orison_bodega_frontage.json']:
-    (ROOT/path).write_text(json.dumps(manifest,indent=2)+'\n',newline='\n')
+    (ROOT/path).write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('BODEGA FRONTAGE',len(pieces),'closed pieces;',len(draws),'draws;',triangles,'triangles;',omitted,'omitted contact cells')
