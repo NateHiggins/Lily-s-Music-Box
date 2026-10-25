@@ -1,0 +1,34 @@
+[
+  {
+    "scene": "res://tests/V2PlayedStreamingProfile.tscn",
+    "runner": "long",
+    "timeout": 900,
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\surface_route_repair\\streaming_baseline_v2",
+    "log": "C:\\ov\\reports\\v2integration24\\surface_route_repair\\streaming_baseline_v2.log"
+  },
+  {
+    "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\surface_route_repair\\fire_only_v3",
+    "log": "C:\\ov\\reports\\v2integration24\\surface_route_repair\\fire_only_v3.log"
+  },
+  {
+    "scene": "res://tests/V2OriginalCarrierCostProbe.tscn",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\surface_route_repair\\original_cost_v3",
+    "log": "C:\\ov\\reports\\v2integration24\\surface_route_repair\\original_cost_v3.log"
+  },
+  {
+    "scene": "res://tests/V2CompanionCostProbe.tscn",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\surface_route_repair\\companion_cost_v3",
+    "log": "C:\\ov\\reports\\v2integration24\\surface_route_repair\\companion_cost_v3.log"
+  }
+]

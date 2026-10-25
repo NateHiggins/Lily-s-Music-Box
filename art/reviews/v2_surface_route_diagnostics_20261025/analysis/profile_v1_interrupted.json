@@ -1,0 +1,9 @@
+{
+  "engine": {
+    "pid": 217508,
+    "command": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe --path C:\\ov\\v2merge24\\game res://tests/V2PlayedStreamingProfile.tscn"
+  },
+  "utc": "2026-10-25T15:10:51.5115416Z",
+  "reason": "Measurement-control race: v1 launched between waiting-process check and cancellation. Python guard correctly failed because scene log existed; subsequent shell statement still stopped owned broker149076. Source was then edited mid-run, so v1 cannot be used as a baseline. Stop only verified owned engine to terminate invalid diagnostic; preserve raw logs and receipts.",
+  "evidence_class": "INERT"
+}

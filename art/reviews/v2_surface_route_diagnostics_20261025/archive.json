@@ -1,0 +1,405 @@
+{
+  "schema": "orison.review-archive.v1",
+  "evidence_class": "INERT",
+  "scope": "Original failed full surface inventory; two failed street diagnostics; interrupted uncontrolled profile v1 (no wrapper receipt); controlled failed streaming profile; passing scoped fire-service runtime contract and two passing INERT carrier probes. No full-surface, complete-route, human acceptance or V2 completion claim.",
+  "source_head": "3fcd7fc23328d0ca18be533dc93d47362a9a1c64",
+  "files": [
+    {
+      "path": "analysis/analyzer_prior_control.json",
+      "bytes": 268283,
+      "sha256": "c3b48fa7b4f79e44a77c62ffe9ce991f0e75ae842dc7c9ac2e9284cb9edd3425"
+    },
+    {
+      "path": "analysis/batch_profile_v1.json",
+      "bytes": 1257,
+      "sha256": "6f61281a360e0cde74d1df756456916f916ee960a80b307a061605e9d59f7134"
+    },
+    {
+      "path": "analysis/batch_profile_v2.json",
+      "bytes": 1257,
+      "sha256": "e139bbde7265cf03f1f2db8fac974fd0f16bfaac626ff4234ae9b4881ffd52b8"
+    },
+    {
+      "path": "analysis/companion_cost_v3_summary.json",
+      "bytes": 6684,
+      "sha256": "6f59210292d873110ed150098ad4cefe5c6bddc88b46986d202736ac11ea56b5"
+    },
+    {
+      "path": "analysis/original_cost_v3_summary.json",
+      "bytes": 6811,
+      "sha256": "b2613014854b0386acfcf10caafbb1fd907f750e2081e4d3320370572b7976e7"
+    },
+    {
+      "path": "analysis/profile_control_repair.json",
+      "bytes": 496,
+      "sha256": "d40bb51dadff8ccd43ce837655eb26fa2b0e4a8a8006815a1c7b463a7afbf3b7"
+    },
+    {
+      "path": "analysis/profile_v1_interrupted.json",
+      "bytes": 750,
+      "sha256": "bbccb61f3b8a5a4368dc1a453a21dd9b9c513ece8afd716f75d97abd98a802ff"
+    },
+    {
+      "path": "analysis/route_contact_sheet.png",
+      "bytes": 3231439,
+      "sha256": "d4d2356d93e407bd505431b5b30b174d3e9c034593a1dd952a422121050da350"
+    },
+    {
+      "path": "analysis/streaming_baseline_v2_summary.json",
+      "bytes": 169285,
+      "sha256": "a3c3e576c240ff7b55dcab505b0cc135c3a3550551310eba2b25f227d4d5950c"
+    },
+    {
+      "path": "analysis/streaming_profile_before_v1.gd",
+      "bytes": 9738,
+      "sha256": "c31679aa80c86bc05aa95cb9242eac9402254e2874fdd55b17b2fe5c5b43ee1e"
+    },
+    {
+      "path": "analysis/summarize_streaming.py",
+      "bytes": 4840,
+      "sha256": "2cdac89b31beb64279502f6806d3c587ba17b24fa9b878ef9e704dad7a4e963d"
+    },
+    {
+      "path": "analysis/triage.json",
+      "bytes": 4912,
+      "sha256": "dc89a6e508dbac2cfb4f360731a31ee337938522e5cd40ce2d1cd158214cf94d"
+    },
+    {
+      "path": "companion_cost_v3/carrier_cost.json.gz",
+      "bytes": 163817,
+      "sha256": "9e01e42fa897cf50a56aba535011ee9d98975f6fd5753b56a13001cccbb0e6fc"
+    },
+    {
+      "path": "companion_cost_v3/companion_cost_v3.log.gz",
+      "bytes": 1109,
+      "sha256": "155a8c3305a0eff6577a7dcece57c9ec7d42e7d015f2433cb0317ba7489bb18e"
+    },
+    {
+      "path": "companion_cost_v3/companion_cost_v3.log.receipt.json",
+      "bytes": 2822,
+      "sha256": "6d3b0fd81ee86a39bcf601ca0c8d445cfab178d56de82e048752d7d39d3b07d5"
+    },
+    {
+      "path": "companion_cost_v3/companion_cost_v3.log.stderr.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "companion_cost_v3/final_world.png",
+      "bytes": 768325,
+      "sha256": "93acd34b0075f9ebfceb1512c0a7856c34369c280369cdbbb823ae965cdc884d"
+    },
+    {
+      "path": "companion_cost_v3/msaa4_warmed.png",
+      "bytes": 788563,
+      "sha256": "7296c5a3ab156c1bf14a40346c2b9c45f4d88959512b3cf3d50dc05a1ad7d268"
+    },
+    {
+      "path": "companion_cost_v3/msaa8_before.png",
+      "bytes": 793750,
+      "sha256": "fb9b2976a1cb194a9f9a9c74e94071b09971ccb18ae3037e01c37170b903f8ec"
+    },
+    {
+      "path": "companion_cost_v3/msaa8_return.png",
+      "bytes": 803567,
+      "sha256": "b30d4ecdc6c8a41ab3be89a4cadadc2d27ad52076c2d61c98e862419f76c04a4"
+    },
+    {
+      "path": "fire_only_v3/fire_F01_FIRE_LINE_STAIR_closed.png",
+      "bytes": 550605,
+      "sha256": "5251e497fb5ab26e5796ffb90b98d8f8ba2035ceaf24cd297580b0acba2f0988"
+    },
+    {
+      "path": "fire_only_v3/fire_F01_FIRE_LINE_STAIR_open.png",
+      "bytes": 573826,
+      "sha256": "d5ed3f8cdeead487286f49a5a523a8e609c8ad8876001cb462c772d5090ee6ce"
+    },
+    {
+      "path": "fire_only_v3/fire_only_v3.log.gz",
+      "bytes": 5255,
+      "sha256": "b3973ed99689d80bf12d4f6e5b0ee043c4cdf6689d46d5e940278563fe3da627"
+    },
+    {
+      "path": "fire_only_v3/fire_only_v3.log.receipt.json",
+      "bytes": 2918,
+      "sha256": "be2538f724115a0bc4e01618c8b742a63f65a79da1bce49a13695b902c1107d8"
+    },
+    {
+      "path": "fire_only_v3/fire_only_v3.log.stderr.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "fire_only_v3/fire_ROOF_FIRE_LINE_STAIR_closed.png",
+      "bytes": 466849,
+      "sha256": "fa096ac6ae0c9288cdc62fc0312dd1e56852cce3f4eb0d32d1449c07b68f06aa"
+    },
+    {
+      "path": "fire_only_v3/fire_ROOF_FIRE_LINE_STAIR_open.png",
+      "bytes": 523352,
+      "sha256": "4ab9b2a1a44bf40b51fbd891485e34bafe9ab1cd0386412407acf155770d775f"
+    },
+    {
+      "path": "fire_only_v3/fire_service_contract.json",
+      "bytes": 1015,
+      "sha256": "06c417ae6ad7e660f662c6dca35e83811781e492f6a17dd074e8239d1ca17fe3"
+    },
+    {
+      "path": "fire_only_v3/physical_gasket_work.png",
+      "bytes": 679382,
+      "sha256": "476e5fe719a2c73bc6b8b064f5348db314291333b6b55fe563872a564e1b3d25"
+    },
+    {
+      "path": "original_cost_v3/carrier_cost.json.gz",
+      "bytes": 101052,
+      "sha256": "ad95809d6e7adbff23935cc25059d3eb16497996bd5291a9f64ab18db9189d68"
+    },
+    {
+      "path": "original_cost_v3/final_world.png",
+      "bytes": 872533,
+      "sha256": "59c9a6dd9cf6072a12e0f7b3880461b58770344cf5a6e35b7d90ddde58cb0813"
+    },
+    {
+      "path": "original_cost_v3/msaa4_warmed.png",
+      "bytes": 877222,
+      "sha256": "d45c47dce26a6cb62f10a452dfb6e28e506122bdce25baf4e9d715b9b3cef052"
+    },
+    {
+      "path": "original_cost_v3/msaa8_before.png",
+      "bytes": 885287,
+      "sha256": "9c4e518b24975789f542f0f99c23e1f020bbec393184ab067c97de557df65b06"
+    },
+    {
+      "path": "original_cost_v3/msaa8_return.png",
+      "bytes": 882768,
+      "sha256": "b39833d598897b4e54fedf72160a4e4e3d80bf16294d6a0c6a282d0baf87d5bc"
+    },
+    {
+      "path": "original_cost_v3/original_cost_v3.log.gz",
+      "bytes": 1103,
+      "sha256": "64a6016dd259775d06fcbe52110f063b9471efab54c4091ee5e9a19d974fec10"
+    },
+    {
+      "path": "original_cost_v3/original_cost_v3.log.receipt.json",
+      "bytes": 2825,
+      "sha256": "fc1b5d3a9d60a01f24a21b8405fc45a902855bb121a869acf6a089cc74e852f7"
+    },
+    {
+      "path": "original_cost_v3/original_cost_v3.log.stderr.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "original_surface_fail/front-restoration-walk.json",
+      "bytes": 973,
+      "sha256": "6cd3cb4c199d1adadae27c6c59048f2a2158442e7b506c354198819bf6c1477b"
+    },
+    {
+      "path": "original_surface_fail/millwork-coverage.json",
+      "bytes": 169212,
+      "sha256": "5630f855fab06d2dc6640ab34deda942a54b7cc53f1395026c3b60fb521566ac"
+    },
+    {
+      "path": "original_surface_fail/runtime_contract.json",
+      "bytes": 3183,
+      "sha256": "dbeb8a85f22a827bddf462bab853db34126da7376b77c44d9c68ac6b91d709c1"
+    },
+    {
+      "path": "original_surface_fail/surface-inventory.json.gz",
+      "bytes": 741996,
+      "sha256": "a7f22ba927e758ee0f90998019a9162e630a7b83d276d5ddeddd2d326d4284a0"
+    },
+    {
+      "path": "original_surface_fail/surface_v2.log.gz",
+      "bytes": 31066,
+      "sha256": "d20680d3f11bad11fff68063bd21b67aad040a41d27b21d843d915b392705f13"
+    },
+    {
+      "path": "original_surface_fail/surface_v2.log.receipt.json",
+      "bytes": 3164,
+      "sha256": "0c4a59c98b1967731438284590d4f59c660077aa73ab7758c0af598e5ca32163"
+    },
+    {
+      "path": "original_surface_fail/surface_v2.log.stderr.gz",
+      "bytes": 1577,
+      "sha256": "ee9b6221ac4d4bf89007dc4229e6b183f04c3f15943f0169034c99c393d7c316"
+    },
+    {
+      "path": "original_surface_fail/technical_findings.json",
+      "bytes": 65886,
+      "sha256": "df70358c1b546ea215f0b8211748b7afe9560d737c9ed2af433e950e3f4b9bdd"
+    },
+    {
+      "path": "source_before/game/tests/orison_v2_street_crossing_test.gd",
+      "bytes": 1341,
+      "sha256": "e99d63bc46533a46076a9587ae18ad76d0935b08e29135d1f121231266c38a33"
+    },
+    {
+      "path": "source_before/game/tests/orison_v2_vertical_route_test.gd",
+      "bytes": 10056,
+      "sha256": "d94c5bb953c1f10801376519d18651411d0db558e060e6a5d566b0d7b17a9012"
+    },
+    {
+      "path": "source_before/game/tests/v2_fire_service_review.gd",
+      "bytes": 14363,
+      "sha256": "e9838f045c4a19ee266482cfdc62566f8f0b71884c1e1577ab5491b25bd72e08"
+    },
+    {
+      "path": "source_before/game/tests/v2_front_restoration_review.gd",
+      "bytes": 4206,
+      "sha256": "1b74a50469917627b0008b28103f6b5a85e32c450e3542c330fca50462fcfb43"
+    },
+    {
+      "path": "source_before/game/tests/v2_played_streaming_profile.gd",
+      "bytes": 9738,
+      "sha256": "c31679aa80c86bc05aa95cb9242eac9402254e2874fdd55b17b2fe5c5b43ee1e"
+    },
+    {
+      "path": "source_executed/game/tests/orison_v2_street_crossing_test.gd",
+      "bytes": 1615,
+      "sha256": "9521efa9dc4b16a888e3cfeba3086f93c471eb8490f70ebb435b9774b6d1fb6f"
+    },
+    {
+      "path": "source_executed/game/tests/orison_v2_vertical_route_test.gd",
+      "bytes": 10656,
+      "sha256": "c8853b22ce64e721b9eda3c51a2980b04938e54bd0676b6f9a67d1c105ecf8db"
+    },
+    {
+      "path": "source_executed/game/tests/v2_fire_service_review.gd",
+      "bytes": 14530,
+      "sha256": "917942953210e5fe690a855eb6f4c4ab69806cfc185feb779c482d791f16cdc1"
+    },
+    {
+      "path": "source_executed/game/tests/v2_front_restoration_review.gd",
+      "bytes": 4378,
+      "sha256": "4225cc4620aded65bdba2e0341a977e1d972d058694ea3f33a7db47a32cd312b"
+    },
+    {
+      "path": "source_executed/game/tests/v2_played_streaming_profile.gd",
+      "bytes": 11007,
+      "sha256": "8ab39e174cacd37984665d73cb96b4429734f405620aad1dea506a2722d37bae"
+    },
+    {
+      "path": "streaming_baseline_v1/streaming_baseline_v1.log.gz",
+      "bytes": 326,
+      "sha256": "2aab811342c3dd565f88312985f72dd2bfc3d5855043db99b7ea474666351a8d"
+    },
+    {
+      "path": "streaming_baseline_v1/streaming_baseline_v1.log.stderr.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    },
+    {
+      "path": "streaming_baseline_v2/cleanup.json",
+      "bytes": 131,
+      "sha256": "1807cfc38a78d64879c26c5ee533b8644d1401dfc2311aac85418dc6bbd43d8f"
+    },
+    {
+      "path": "streaming_baseline_v2/cycle_0_nave.png",
+      "bytes": 1108900,
+      "sha256": "acb4dd25b5316d00f877c9a391673e39296e774b5a89f7e1a68e89ac4f01f91d"
+    },
+    {
+      "path": "streaming_baseline_v2/frames.json.gz",
+      "bytes": 46347,
+      "sha256": "7d5543b62161d236bde13a2f90f10c429442b79bda4af0043b0b7aecab59f921"
+    },
+    {
+      "path": "streaming_baseline_v2/last_position.png",
+      "bytes": 894124,
+      "sha256": "edb84cb9b0d94de1fe2ca82e95b1ff4ca6e42ba798d0e359ed8c06d13953a38d"
+    },
+    {
+      "path": "streaming_baseline_v2/route.json",
+      "bytes": 10556,
+      "sha256": "1da2e85b84475603a02d0897b5e1253e8d69d57dca93c94fae979bf7c782ed4e"
+    },
+    {
+      "path": "streaming_baseline_v2/settings.json",
+      "bytes": 691,
+      "sha256": "a91000e90add6b513afbe2643986c956e15b91f5fe8ed9891028ca3a190c8b98"
+    },
+    {
+      "path": "streaming_baseline_v2/streaming.json",
+      "bytes": 318736,
+      "sha256": "d676815488f078d17a9e9d9cea91b51ac5f0f67f358784d37f171d0aa2fb1c11"
+    },
+    {
+      "path": "streaming_baseline_v2/streaming_baseline_v2.log.gz",
+      "bytes": 1460,
+      "sha256": "75806099e0003eb293c5850e2742e5ae9b31808c8ccc07b3fef602b2be80562c"
+    },
+    {
+      "path": "streaming_baseline_v2/streaming_baseline_v2.log.receipt.json",
+      "bytes": 2844,
+      "sha256": "7ea0d81eba1e17cdff46f0fd06ecc1afd0ae6f1ca4679c2f54efebf068a601b6"
+    },
+    {
+      "path": "streaming_baseline_v2/streaming_baseline_v2.log.stderr.gz",
+      "bytes": 419,
+      "sha256": "f94072c9bc1764fa7017af33487d05e15c8a76a2fb50a7783274f79900a72fc0"
+    },
+    {
+      "path": "streaming_baseline_v2/work_trace.json.gz",
+      "bytes": 221741,
+      "sha256": "4f68c96ead95df600b1fc8b50701097a059b734b225ea518c5a868361f043cd9"
+    },
+    {
+      "path": "street_v1/last_position.png",
+      "bytes": 884367,
+      "sha256": "505697e9ebb5240a55562ca01d9ce340619cd07872c772772f907bd87749422f"
+    },
+    {
+      "path": "street_v1/route.json",
+      "bytes": 5277,
+      "sha256": "b89781a25ad754a9ea70c5d028680dacd2c14faea6b01187ec5bdefbaf19cec4"
+    },
+    {
+      "path": "street_v1/street_from_arcade_line.png",
+      "bytes": 1054171,
+      "sha256": "11092601c3b74c0a41bacbfce608588b6b3221a137337d08eaa3c883adda6a0d"
+    },
+    {
+      "path": "street_v1/street_v1.log.gz",
+      "bytes": 1414,
+      "sha256": "19dc3f2acff9e72bdfd749e188c387e1a232ba068527c1f96913d402b2e91ec2"
+    },
+    {
+      "path": "street_v1/street_v1.log.receipt.json",
+      "bytes": 2833,
+      "sha256": "1d3e7c5203abc39bff315e7c46c0b0dc7d360c090632ccfcdb71bd464eac0dbb"
+    },
+    {
+      "path": "street_v1/street_v1.log.stderr.gz",
+      "bytes": 298,
+      "sha256": "6d12967da74400c2ad385a88d6e79c4a847f5c60e3ba7747c2e89488641af841"
+    },
+    {
+      "path": "street_v2/last_position.png",
+      "bytes": 307926,
+      "sha256": "505ca658d27c1dbaead2acb3207220723c72e5daec5bb747c63381ea73db8b75"
+    },
+    {
+      "path": "street_v2/route.json",
+      "bytes": 3050,
+      "sha256": "73c7e335e2f361ec482c3e301baee6d2fb4f83628c7f079e85e67a2dd35fcd78"
+    },
+    {
+      "path": "street_v2/street_v2.log.gz",
+      "bytes": 1387,
+      "sha256": "c7acd56e214fa01b998d930ab584feda099404d94721c1aa23855a2c7db8ec3f"
+    },
+    {
+      "path": "street_v2/street_v2.log.receipt.json",
+      "bytes": 2823,
+      "sha256": "f61f2ac09439577fcd32af6d3f1173662909b92c2aa099b05b5ee8d103a1b3c4"
+    },
+    {
+      "path": "street_v2/street_v2.log.stderr.gz",
+      "bytes": 294,
+      "sha256": "e3b40fa5d6e5420335fb8636977c3298eabdb7fa4551a1e770e779d2c8dcad85"
+    }
+  ],
+  "source_notes": "street_v1 used source_before street_crossing and source_executed vertical driver. street_v2 used source_executed street/vertical. Interrupted streaming v1 loaded version is uncertain because source changed during launch; never use it as a baseline. Controlled v2/fire/carrier runs used source_executed snapshots. Front helper mask correction is still unverified in a full-surface run.",
+  "render_review": "All five fire images viewed individually; all thirteen route/carrier images reviewed in the archived contact sheet. The original full-surface entrance_door capture was also viewed. This is diagnostic review, not human acceptance."
+}

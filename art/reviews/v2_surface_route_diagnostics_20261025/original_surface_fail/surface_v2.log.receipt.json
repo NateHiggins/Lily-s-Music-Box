@@ -1,0 +1,67 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 555.51,
+  "exit_code": 1,
+  "finished_utc": "2026-10-25T14:40:58Z",
+  "started_utc": "2026-10-25T14:31:42Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 2,
+  "fail_lines": [
+   "V2 SURFACES: FAIL 69 unresolved surfaces; {'incomplete_pbr_maps': 69, 'normal_map_disabled': 1}",
+   "V2 SURFACE QUALIFICATION: FAIL; 38609 checks; 20 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Trying to assign value of type 'StaticBody3D' to a variable of type 'CollisionShape3D'."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/merge_f292_qualification/surface_v2.log.stderr",
+  "stderr_sha256": "fa65740078bb96e3a0861877327b37d389a88ed763403fb9637997c1481ae43d",
+  "stdout": "C:/ov/reports/v2integration24/merge_f292_qualification/surface_v2.log",
+  "stdout_sha256": "903ee4adf544210f3ef824655dde192a7121cd08e0ebb68934312ea4aaa4d184"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\merge_f292_qualification\\surface_v2",
+ "source": {
+  "dirty_paths": 610,
+  "dirty_sample": [
+   "?? game/native/hose_math/hose_math.gdextension.uid",
+   "?? game/scripts/building/WeatherManager.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_heating.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_topology.gd.uid",
+   "?? game/scripts/building/orison_v2_arcade_fabric.gd.uid",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_c_stove_stack.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_cage_light_apertures.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_city_horizon.gd.uid"
+  ],
+  "repository_head": "c5ffce063f603dd30dc68ef0dcb3fbe024717227",
+  "repository_tree": "1969421c57e947935cbebc65896638eeacec73e5",
+  "runtime_inputs_sha256": "1890d59024413619fff3476439d033db1591c21080820ba8c5e715ca43e41dde",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "078cfe05437294b86ca97273f6590c4dc5acfc40b77a2bf5565db273c323c54f"
+ },
+ "windowed": true
+}

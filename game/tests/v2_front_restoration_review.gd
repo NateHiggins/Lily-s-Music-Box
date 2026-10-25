@@ -61,8 +61,9 @@ func _walk(target_local: Vector3) -> bool:
 				if path not in contacts:contacts.append(path)
 	Input.action_release("move_forward")
 	var actual: Vector3=world.adapter.root.to_local(player.global_position)
-	var ok:=Vector2(actual.x-target_local.x,actual.z-target_local.z).length()<.18 and absf(actual.y-target_local.y)<.15 and not player.noclip and player.collision_mask==1
-	trace.append({"target":str(target_local),"actual":str(actual),"ok":ok,"contacts":contacts})
+	var expected_mask: int=1|player._native_contact_layers
+	var ok:=Vector2(actual.x-target_local.x,actual.z-target_local.z).length()<.18 and absf(actual.y-target_local.y)<.15 and not player.noclip and player.collision_mask==expected_mask and player.is_physics_processing()
+	trace.append({"target":str(target_local),"actual":str(actual),"ok":ok,"contacts":contacts,"collision_mask":player.collision_mask,"expected_mask":expected_mask})
 	host.check(ok,"restored front volume is walkable at "+str(target_local)+" actual="+str(actual)+" contacts="+str(contacts))
 	return ok
 

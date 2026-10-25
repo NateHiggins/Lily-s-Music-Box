@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 202.73,
+  "exit_code": 1,
+  "finished_utc": "2026-10-25T15:00:24Z",
+  "started_utc": "2026-10-25T14:57:00Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/surface_route_repair/street_v2.log.stderr",
+  "stderr_sha256": "0af0997204827b2c4f36ebd0c031e242e17a9551c81b0a08a9360d270f4e034a",
+  "stdout": "C:/ov/reports/v2integration24/surface_route_repair/street_v2.log",
+  "stdout_sha256": "426cacd854e8c57cd6e5a80587d36727a4ee3ffcd5fc8e021561c3d4516cd624"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2StreetCrossingTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\surface_route_repair\\street_v2",
+ "source": {
+  "dirty_paths": 614,
+  "dirty_sample": [
+   "M game/tests/orison_v2_street_crossing_test.gd",
+   " M game/tests/orison_v2_vertical_route_test.gd",
+   " M game/tests/v2_fire_service_review.gd",
+   " M game/tests/v2_front_restoration_review.gd",
+   "?? game/native/hose_math/hose_math.gdextension.uid",
+   "?? game/scripts/building/WeatherManager.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_heating.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_topology.gd.uid",
+   "?? game/scripts/building/orison_v2_arcade_fabric.gd.uid",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_c_stove_stack.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid"
+  ],
+  "repository_head": "3fcd7fc23328d0ca18be533dc93d47362a9a1c64",
+  "repository_tree": "1969421c57e947935cbebc65896638eeacec73e5",
+  "runtime_inputs_sha256": "1890d59024413619fff3476439d033db1591c21080820ba8c5e715ca43e41dde",
+  "test_path": "game/tests/orison_v2_street_crossing_test.gd",
+  "test_sha256": "9521efa9dc4b16a888e3cfeba3086f93c471eb8490f70ebb435b9774b6d1fb6f"
+ },
+ "windowed": true
+}

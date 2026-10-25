@@ -1,0 +1,82 @@
+{
+  "evidence_class": "INERT",
+  "original_contract": "C:\\ov\\reports\\v2integration24\\merge_f292_qualification\\surface_v2\\runtime_contract.json",
+  "contract_status": "FAIL",
+  "checks": 38609,
+  "failures": [
+    "restored front volume is walkable at (6.8, 3.2, -4.6) actual=(6.8, 3.2, -4.562232) contacts=[]",
+    "restored front volume is walkable at (6.8, 6.4, -4.6) actual=(6.8, 6.399903, -4.562232) contacts=[]",
+    "restored front volume is walkable at (6.8, 9.6, -4.6) actual=(6.8, 9.599902, -4.562232) contacts=[]",
+    "restored front volume is walkable at (6.8, 12.8, -4.6) actual=(6.8, 12.8, -4.562232) contacts=[]",
+    "restored front volume is walkable at (6.8, 16.0, -4.6) actual=(6.8, 15.9999, -4.562232) contacts=[]",
+    "restored front volume is walkable at (-4.85, 0.0, -9.8) actual=(-4.85, -0.000098, -9.762228) contacts=[]",
+    "restored front volume is walkable at (4.85, 0.0, -9.8) actual=(4.85, 0.0, -9.762229) contacts=[]",
+    "original input/physics street crossing and return completes",
+    "street route: F01_DOOR_06 did not reach its requested stop through player input: 0.07625163346529 / 1.74532925199433",
+    "actual region geometry is resident: REGION_ARCADE_PORTAL",
+    "actual region geometry is resident: REGION_ARCADE_THROAT",
+    "actual region geometry is resident: REGION_ARCADE_HALL",
+    "restored front volume is walkable at (-0.0, 0.04, -12.23) actual=(-0.0, 0.000156, -12.23) contacts=[]",
+    "restored front volume is walkable at (-21.5, 0.0, -14.65) actual=(-21.46222, 0.0, -14.65) contacts=[]",
+    "restored front volume is walkable at (-24.0, 0.0, -11.65) actual=(-23.98302, 0.000938, -11.68615) contacts=[\"/root/OrisonV2SurfaceInventory/OrisonV2Runtime/StreetBoundaries/ShedInnerStreetHoarding\", \"/root/OrisonV2SurfaceInventory/OrisonV2Runtime/StreetBoundaries/ShedTurnPost0_0\"]",
+    "arcade geometry is resident for composed material review",
+    "all authored wet floors and room-facing walls use the new tile sets",
+    "continuous baseboard/panel cap at every sampled actual wall face",
+    "bar retains its original collision owner with only cabinet faces removed",
+    "all loaded surfaces satisfy UV/PBR/mip/filter requirements"
+  ],
+  "surface_families": {
+    "res://scripts/device/mechanical_teletype.gd": 1,
+    "res://scripts/device/hot_type_writer.gd": 1,
+    "res://scripts/player/player_controller.gd": 4,
+    "res://scripts/building/v2_street_end_details.gd": 1,
+    "res://scripts/building/orison_v2_passage_region.gd": 60,
+    "res://scripts/building/orison_v2_bar_region.gd": 2
+  },
+  "diagnoses": [
+    {
+      "issue": "street gesture",
+      "evidence": "street_v1 completes outward street leg after fixed descriptor mapping; fails on return against slowly closed original leaf",
+      "repair": "reopen from outside with actual primary/motion/release before crossing threshold",
+      "verification": "street_v2 queued"
+    },
+    {
+      "issue": "front volume mask",
+      "evidence": "PlayerController.set_native_contact_layers assigns 1 | native layers; old harness tested exact 1 even at reached targets",
+      "repair": "require exact authoritative expected mask and live physics, preserve distances and contacts",
+      "verification": "full front helper not rerun yet"
+    },
+    {
+      "issue": "hose child cast",
+      "evidence": "surface_v2 stderr v2_fire_service_review.gd:136 casts PlayerContactStock StaticBody3D to CollisionShape3D",
+      "repair": "enumerate only actual direct CollisionShape3D children in diagnostic",
+      "verification": "fire_only_v3 queued"
+    },
+    {
+      "issue": "bar hull comparison",
+      "evidence": "bar cafe seating runs after cabinet retirement and retains original_hull metadata for the same CollisionShape3D",
+      "repair": "pending composed-chain verification; do not remove assertion",
+      "verification": "not repaired"
+    },
+    {
+      "issue": "tinted glass",
+      "evidence": "62 StandardMaterial3D glass draws have rough/normal maps, literal tint/alpha and no albedo map",
+      "repair": "pending physical recipe repair; no exemption",
+      "verification": "open"
+    },
+    {
+      "issue": "wet-room coverage harness",
+      "evidence": {
+        "sampled_wall_faces": 14724,
+        "reported_gaps": 703,
+        "rooms": 19,
+        "heights": {
+          "0.07": 703
+        },
+        "current_finish": "orison_v2_bathroom_finishes.gd retires HistoricMillwork; BEAD=.003; BathroomGroutJoints, BathroomTileWainscot and BathroomTileEdging own finish geometry"
+      },
+      "repair": "Pending: retain original wall rays and independently intersect actual grout/tile/edge mesh triangles at correct installed heights; do not skip wet rooms or pass from metadata alone. Old v2_bathroom_tile_review also counts retired wall mesh metadata.",
+      "verification": "Static diagnosis; actual new coverage not implemented or qualified"
+    }
+  ]
+}

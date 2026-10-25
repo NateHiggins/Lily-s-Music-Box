@@ -1,0 +1,35 @@
+{
+	"checks": 1638,
+	"contracts": {
+		"fire_service": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Eight current native stations, actual input for doors/valves/nozzle/washer, measured stock and supported stances, preserved authorities and owned retirement. No refolding/deployment, certification, water-flow, capacity or statutory proof.",
+	"selector": "v2",
+	"source": {
+		"runtime_inputs_sha256": "1890d59024413619fff3476439d033db1591c21080820ba8c5e715ca43e41dde",
+		"test_path": "game/tests/v2_fire_service_review.gd",
+		"test_sha256": "917942953210e5fe690a855eb6f4c4ab69806cfc185feb779c482d791f16cdc1"
+	}
+}

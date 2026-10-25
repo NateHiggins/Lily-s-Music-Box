@@ -180,7 +180,18 @@ func _move_front_entrance(identity: String,want_open: bool) -> bool:
 			var screen: Vector2=(player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
 			if screen.length()<24.0 and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5:
 				screen=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
-			var motion:=InputEventMouseMotion.new();motion.relative=screen*clampf(goal-angle,-.12,.12)
+			# Use the authoritative grip's fixed gesture when present. Projected
+			# hinge tangents belong only to geometric controls: they turn vertical
+			# near a face-on door and cannot drive its horizontal hand contract.
+			var grip: Dictionary=player._grab.target
+			var pixels: float=float(grip.get("gesture_travel_px",0.))
+			var axis: Vector2=grip.get("gesture_screen_axis",Vector2.ZERO)
+			var span: float=float(grip.maximum)-float(grip.minimum)
+			var motion:=InputEventMouseMotion.new()
+			if pixels>0. and span>0. and not axis.is_zero_approx():
+				motion.relative=axis.normalized()*pixels*clampf((goal-angle)/span,-.05,.05)
+			else:
+				motion.relative=screen*clampf(goal-angle,-.12,.12)
 			player._unhandled_input(motion)
 			await get_tree().physics_frame
 		if player._grab.active():player._unhandled_input(click)

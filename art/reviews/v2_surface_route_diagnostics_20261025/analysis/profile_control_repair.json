@@ -1,0 +1,8 @@
+{
+  "evidence_class": "INERT",
+  "original_profile_sha256": "c31679aa80c86bc05aa95cb9242eac9402254e2874fdd55b17b2fe5c5b43ee1e",
+  "v1_completed": false,
+  "v1_wrapper_receipt_present": false,
+  "v1_status": "Interrupted own engine; broker was stopped after guard failure, so no wrapper receipt is available. No runtime or performance qualification.",
+  "candidate": "Clock freeze and explicit network-off before inherited initialization; settings readbacks written before played timing route."
+}

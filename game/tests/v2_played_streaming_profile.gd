@@ -25,6 +25,14 @@ func _move_front_entrance(identity: String,want_open: bool) -> bool:
 	return _require(operated and door.open==want_open,identity+" reaches its stop through primary grab, fixed mouse travel and release")
 
 func _init() -> void:route_label="V2 PLAYED STREAMING PROFILE"
+func _run() -> void:
+	# Construction time must not change the weather/agenda at route start.
+	# This diagnostic measures rendering and residency, not clock advancement.
+	CampaignTime.set_frozen_for_tests(true)
+	GameBoot.settings["weather_network_enabled"]=false
+	seed(1928)
+	await super._run()
+
 func _ready() -> void:
 	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR"))
 	work_probe=preload("res://tests/v2_frame_work_probe.gd").new();work_probe.host=self;add_child(work_probe)
@@ -52,6 +60,14 @@ func _process(delta: float) -> void:
 	last_fit=records[-1]
 
 func _play_route() -> void:
+	var viewport:=get_viewport()
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("settings.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"Observed rendering and clock controls for this diagnostic; not simulation-time qualification",
+		"clock":RealityState.data.campaign_clock.duplicate(true),"clock_frozen":CampaignTime._frozen_for_tests,
+		"weather_network_enabled":GameBoot.settings.get("weather_network_enabled",false),
+		"rendering_method":RenderingServer.get_current_rendering_method(),"resolution":str(viewport.get_visible_rect().size),
+		"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"msaa_3d":viewport.msaa_3d,
+		"taa":viewport.use_taa,"scaling_3d_scale":viewport.scaling_3d_scale,"scaling_3d_mode":viewport.scaling_3d_mode},"\t"))
 	old_path=RealityState.save_path;old_persistence=RealityState.persistence_enabled
 	owned_path="user://v2_played_stream_%d.json"%Time.get_ticks_usec()
 	RealityState.save_path=owned_path;RealityState.persistence_enabled=true
