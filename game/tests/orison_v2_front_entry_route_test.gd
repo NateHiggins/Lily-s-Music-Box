@@ -74,8 +74,11 @@ func _operate_entry(door: DoorProp,want_open: bool,label: String) -> bool:
 	if not await _wait_for_door(door):return false
 	return _require(door.open==want_open,"landmark E motion settles: "+label)
 func _turn_key() -> bool:
+	# Under the direct-manipulation ruling (design/DIRECT_MANIPULATION_2026-10-12.md)
+	# a grabbable leaf shows the target indicator, not a text prompt. The key is
+	# still the keyboard's K at the aimed door; the bolt checks that follow prove it.
 	await get_tree().physics_frame;player._update_prompt()
-	if not _require(player._prompt.text.contains("[K]"),"existing keyboard key prompt reaches the landmark: %s" % player._prompt.text):return false
+	if not _require(player._grab.find_target().get("owner") is DoorProp,"the player aims at the landmark leaf"):return false
 	var event:=InputEventKey.new();event.keycode=KEY_K;event.physical_keycode=KEY_K;event.pressed=true
 	Input.parse_input_event(event);await get_tree().process_frame;await get_tree().process_frame
 	event.pressed=false;Input.parse_input_event(event);await get_tree().process_frame

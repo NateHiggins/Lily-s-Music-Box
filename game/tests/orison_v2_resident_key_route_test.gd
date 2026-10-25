@@ -136,8 +136,10 @@ func _route() -> void:
 		if not await _walk(point): return
 	# Finish at the private threshold. The spare now controls the resident's
 	# real leaf, after a continuous return from its actual copying counter.
+	# The stair head stands clear of the fire-line cabinet, which stays where it
+	# is (owner choice 2026-10-25; design/ORISON_RESIDENT_BODIES_2026-10-25.md).
 	for point in [Vector3(1.925,1.6,1.3),Vector3(3.975,1.6,1.3),Vector3(3.975,3.2,-2.4),
-		Vector3(3.975,3.2,-3.4),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),Vector3(-4.65,3.2,0)]:
+		Vector3(4.0,3.2,-3.1),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),Vector3(-4.65,3.2,0)]:
 		if not await _walk(point): return
 	var opening := world.adapter.resolve("F02_DOOR_02") as Node3D
 	var apartment := opening.get_node("F02_DOOR_02_Leaf") as DoorProp
