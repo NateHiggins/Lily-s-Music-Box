@@ -443,5 +443,27 @@ measured conditioning. Each of32 positive seats is paired with a guard moved
 3mm away and restored; the negative control must both reject the seat and
 measure the introduced gap within the original50-micrometre tolerance. It
 changes neither runtime collision nor contact requirements. **mechanism_v8**
-is queued; no pass is claimed before that run. The original v6/v7 failed checks,
+was queued at this diagnostic checkpoint; its later result is recorded below. The original v6/v7 failed checks,
 probe data, executed sources, dry/wet frames and wrapper receipts are retained.
+
+### Corrected imported mechanism review
+
+Windowed **mechanism_v8** completes2,199 checks in23.5 seconds with zero failed
+checks and zero script errors. All32 positive seats measure a maximum gap of
+0.122935 micrometres. All32 detached controls are rejected and measure gaps from
+2.999878 to3.000060mm. The unchanged tolerance is50 micrometres. The deliberate
+movement is restored before each next observation and before rendering.
+
+All six actual captures were viewed: travel, open keyboard, mouth, umbrella
+illustration, dry reading and wet reading. Carbon lettering remains visible
+through the pane in these closeups. Loaded UV/tangent/PBR/mip checks, physical
+key strokes, exact keyboard stops at30/60/144Hz, interrupted retraction, original
+radio/print authority and bounded bistable tile work pass in this diagnostic.
+It is explicitly INERT: direct animation calls and an isolated model do not
+qualify player input, autonomous movement, world clipping, campaign saves or
+frame time. The zero median tile-step timing includes settled/no-work steps;
+the observed394-microsecond maximum is not a world performance comparison.
+
+The original failed observations remain intact. Native/import mechanical
+preparation can now support the independent-movement milestone; the installed
+original carrier remains the gameplay default until full integration is tested.
