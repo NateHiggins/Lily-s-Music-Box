@@ -1,7 +1,31 @@
 {
   "evidence_class": "INERT",
-  "scope": "INERT native/static/offline diagnostics and original-carrier world records; v4 aborted, v6 mechanism failed, companion uninstalled. Separately scoped original-carrier world contract retained.",
+  "scope": "INERT source/native/import diagnostics and separately scoped original-carrier world records; v4 aborted, v6/v7 mechanism failed. v7 glass images readable; probe diagnoses ray misses; v8 conditioned contact check pending. Companion uninstalled.",
   "files": [
+    {
+      "path": "contact_probe_v1/contact_probe.json",
+      "sha256": "d37bebcd32586bd7b3d1cfd17250a46a51d45c124eecf17fc961cc22b0702ede"
+    },
+    {
+      "path": "contact_probe_v1/contact_probe_v1.log",
+      "sha256": "ffd089046b6c58d2e4509292b3bfe3e3fed3b22736636e8d71d2803fa4975df0"
+    },
+    {
+      "path": "contact_probe_v1/contact_probe_v1.log.receipt.json",
+      "sha256": "71943e2ed480598969091f974c62f800afbf8ee0a0af08fdc51d7c2f0117cedf"
+    },
+    {
+      "path": "contact_probe_v1/contact_probe_v1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "contact_probe_v1/contact_probe_v1_console.log",
+      "sha256": "d388d8329527d135c91f239bd8045cc1f1dfc014dcfd13ae7383edb534960738"
+    },
+    {
+      "path": "contact_probe_v1/executed_companion_contact_probe.gd",
+      "sha256": "43acb8253dc161bd415aeb17a1f0a48ac3a525f7db56cd72b0bfb417de17ba03"
+    },
     {
       "path": "export_contact_diagnostic.json",
       "sha256": "fc1d27be58e99f2d1e4f90921e42211a93791ee0321794f27a42550004a2c854"
@@ -241,6 +265,58 @@
     {
       "path": "mechanism_v6/typing.png",
       "sha256": "392d8d1bdfecb22a367eb51a71ed3c014452da229ae244e43b45e04744a447d1"
+    },
+    {
+      "path": "mechanism_v7/executed_companion_mechanism.gd",
+      "sha256": "f3ce41f885e598ba7c43793201045ae7ba12f6f97bfb5ffa5558fabd78808233"
+    },
+    {
+      "path": "mechanism_v7/executed_companion_mechanism_bench.gd",
+      "sha256": "fdca63216464641bb19fa76d9deaa576ce8f0ef2dbc1c7411e00edb5ff8b2e09"
+    },
+    {
+      "path": "mechanism_v7/glass_reading.png",
+      "sha256": "94917d096929b778e41566e4cc819582792084e4b527d95fd4c9cf66d2b70b8e"
+    },
+    {
+      "path": "mechanism_v7/glass_wet.png",
+      "sha256": "196e93577a0ac6727faf72cd0f819688653768b4fbf15528ee48cc64457392d1"
+    },
+    {
+      "path": "mechanism_v7/illustration.png",
+      "sha256": "58a7a448f629f68108eb9f085e5a9aa4a7a974c78762d53aa5a363feb70273d2"
+    },
+    {
+      "path": "mechanism_v7/mechanism_diagnostic.json",
+      "sha256": "746f00bdf1b56e0ac3ebf09bb177174850421db0d9a232a7c1a2dbab861fe4fc"
+    },
+    {
+      "path": "mechanism_v7/mechanism_v7.log",
+      "sha256": "5a8d3609d0a67df277ea91bde02948ddc210118940a57caad89dfe5d1cf67c9f"
+    },
+    {
+      "path": "mechanism_v7/mechanism_v7.log.receipt.json",
+      "sha256": "33f927fbf07fa4e608e1c40e1699ac5e781dcea39250308c7d74c7968fb057d6"
+    },
+    {
+      "path": "mechanism_v7/mechanism_v7.log.stderr",
+      "sha256": "5abe2fc8af6a7869ee2014fb89c86f697f866c779bd76fe78020ec136a34f9a0"
+    },
+    {
+      "path": "mechanism_v7/mechanism_v7_console.log",
+      "sha256": "34027461b7ff37df30a2e3771c680ae28af048cb6857958905ce487fec388fc6"
+    },
+    {
+      "path": "mechanism_v7/mouth_open.png",
+      "sha256": "ca2adf86a04751ce1369eee3f4410b4a52718e4c877322c8ee75603a13756bf1"
+    },
+    {
+      "path": "mechanism_v7/travel.png",
+      "sha256": "ad2f56404cb73ff77ed9f867e96d3b598a821d1f0ae8517c11e5388c43962b37"
+    },
+    {
+      "path": "mechanism_v7/typing.png",
+      "sha256": "276cfea99b42d9214b2fd4815c4993859faa0ba13dd27a913b5b9defb2838510"
     },
     {
       "path": "native_paths_repair.log",

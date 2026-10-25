@@ -3,6 +3,7 @@ extends Node3D
 var checks: Array[Dictionary] = []
 var failures: Array[String] = []
 var _finished := false
+var _contact_observations: Array[Dictionary] = []
 
 func check(ok: bool, name: String) -> void:
 	checks.append({"name":name, "passed":ok})
@@ -195,7 +196,7 @@ func _run() -> void:
 		check(get_viewport().get_texture().get_image().save_png(out.path_join("glass_wet.png" if wet else "glass_reading.png")) == OK, "rendered glazed reading sample wet=" + str(wet))
 	rig.set_glass_moisture(0.0, 0.0)
 	check(rig.failures.is_empty(), "mechanical animation retains all native attachment constraints")
-	FileAccess.open(out.path_join("mechanism_diagnostic.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":"Imported model, native UV/PBR/mips and direct animation calls only; no player input, navigation, save or performance qualification", "checks":checks, "failures":failures, "meshes":meshes, "materials":materials, "textures":inspector.texture_rows, "poses":pose_records, "keys":key_samples, "tile_step_usec":tile_timings}, "\t"))
+	FileAccess.open(out.path_join("mechanism_diagnostic.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":"Imported model, native UV/PBR/mips and direct animation calls only; no player input, navigation, save or performance qualification", "checks":checks, "failures":failures, "meshes":meshes, "materials":materials, "textures":inspector.texture_rows, "poses":pose_records, "contacts":_contact_observations, "keys":key_samples, "tile_step_usec":tile_timings}, "\t"))
 	metrics.free()
 	inspector.free()
 	print("COMPANION MECHANISM: ", checks.size(), " checks; ", failures.size(), " failures")
@@ -203,41 +204,50 @@ func _run() -> void:
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _fit_contacts(rig: Node3D) -> void:
-	var steel: MeshInstance3D = rig.model.find_child("ShellStudy__ShellSteel", true, false)
-	var brass: MeshInstance3D = rig.model.find_child("ShellStudy__ShellBrass", true, false)
+	var steel := rig.model.find_child("ShellStudy__ShellSteel", true, false) as MeshInstance3D
+	var brass := rig.model.find_child("ShellStudy__ShellBrass", true, false) as MeshInstance3D
 	check(steel != null and brass != null, "formed pan and fastening stock resolve")
 	if steel == null or brass == null: return
-	var bodies: Array[StaticBody3D] = []
-	for draw in [steel, brass]:
-		var body := StaticBody3D.new()
-		body.collision_layer = 1 << 30
-		body.collision_mask = 0
-		var shape := CollisionShape3D.new()
-		shape.shape = draw.mesh.create_trimesh_shape()
-		draw.add_child(body)
-		body.add_child(shape)
-		bodies.append(body)
-	await get_tree().physics_frame
-	await get_tree().physics_frame
-	var space := get_world_3d().direct_space_state
+	# Visual manufacturing contact, not gameplay collision. The retained probe
+	# demonstrates metre-scale engine rays skip these small native triangles.
+	# Condition arithmetic only; never scale the asset or loosen the 50 um seat.
 	for sx in [-1.0, 1.0]:
 		for sy in [-1.0, 1.0]:
 			for point: Vector2 in [Vector2(sx * .1025, sy * .066), Vector2(sx * .063, sy * .093)]:
 				for offset: Vector2 in [Vector2(.002, 0), Vector2(-.002, 0), Vector2(0, .002), Vector2(0, -.002)]:
 					var at := point + offset
-					var faces: Array[float] = []
-					for index in 2:
-						var start := Vector3(at.x, at.y, .5 if index == 0 else -.5)
-						var end := Vector3(at.x, at.y, -.5 if index == 0 else .5)
-						var query := PhysicsRayQueryParameters3D.create(rig.model.to_global(start), rig.model.to_global(end), 1 << 30)
-						query.exclude = [bodies[1 - index].get_rid()]
-						var hit := space.intersect_ray(query)
-						check(not hit.is_empty(), "imported fastening bearing exists " + str(point) + str(offset) + str(index))
-						if not hit.is_empty(): faces.append(rig.model.to_local(hit.position).z)
-					if faces.size() == 2:
-						check(absf(faces[0] - .0275) < .00005 and absf(faces[1] - faces[0]) < .00005, "imported guard seats on formed pan " + str(point) + str(offset))
-	for body in bodies: body.queue_free()
-	await get_tree().physics_frame
+					var pan: Variant = _contact_z(steel, rig.model, at, true)
+					var guard: Variant = _contact_z(brass, rig.model, at, false)
+					check(pan != null and guard != null, "conditioned imported fastening faces exist " + str(at))
+					check(_seated(pan, guard), "imported guard seats on formed pan within fifty micrometres " + str(at))
+					var home := brass.transform
+					brass.position.z += .003
+					var detached: Variant = _contact_z(brass, rig.model, at, false)
+					brass.transform = home
+					check(detached != null and not _seated(pan, detached), "three-millimetre detached guard is rejected " + str(at))
+					if pan != null and detached != null:
+						check(absf(float(detached) - float(pan) - .003) < .00005, "negative control measures the actual introduced gap " + str(at))
+					_contact_observations.append({"point":[at.x, at.y], "pan_z":pan, "guard_z":guard, "detached_guard_z":detached})
+	await get_tree().process_frame
+
+func _seated(pan: Variant, guard: Variant) -> bool:
+	return pan != null and guard != null and absf(float(pan) - .0275) < .00005 and absf(float(guard) - float(pan)) < .00005
+
+func _contact_z(draw: MeshInstance3D, model: Node3D, at: Vector2, front: bool) -> Variant:
+	const MILLIMETRES := 1000.0
+	var start := draw.to_local(model.to_global(Vector3(at.x, at.y, .5 if front else -.5))) * MILLIMETRES
+	var end := draw.to_local(model.to_global(Vector3(at.x, at.y, -.5 if front else .5))) * MILLIMETRES
+	var faces := draw.mesh.get_faces()
+	var nearest := INF
+	var result: Variant = null
+	for index in range(0, faces.size(), 3):
+		var hit: Variant = Geometry3D.segment_intersects_triangle(start, end, faces[index] * MILLIMETRES, faces[index + 1] * MILLIMETRES, faces[index + 2] * MILLIMETRES)
+		if hit is not Vector3: continue
+		var distance := start.distance_squared_to(hit)
+		if distance < nearest:
+			nearest = distance
+			result = model.to_local(draw.to_global(hit / MILLIMETRES)).z
+	return result
 
 func _stays(rig: Node) -> Dictionary:
 	var result: Dictionary = {}

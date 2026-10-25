@@ -419,3 +419,29 @@ the steel front datum ranges0.027499999851 to0.027500001714 metres. This source
 calculation supports neither an imported-geometry pass nor a physics diagnosis.
 The imported comparison is still needed; the33 original failures remain open.
 The source SHA and all32 observations are retained in **export_contact_diagnostic.json**.
+
+### Imported contact diagnosis and rendered lettering repair
+
+Windowed **mechanism_v7** finishes2,148 checks in16.3 seconds, with the same33
+contact failures and zero script errors. It remains failed as a whole. Its dry
+and wet reading captures were actually viewed: the masked carbon glyphs now
+remain visible through the refractive pane, where v6 was blank. This is a
+rendered presentation observation, not a successful mechanism-suite verdict or
+proof of readability at every deployed distance.
+
+**contact_probe_v1** completes in1.39 seconds, with zero script errors. Across
+64 identical imported face queries, physics misses20 and returns37 off-datum
+hits; direct metre arithmetic misses16 and returns41 off-datum hits. Arithmetic
+conditioned to millimetres finds all64 faces between0.027499938384 and
+0.027500122786 metres, within the unchanged50-micrometre seat tolerance.
+The draw transforms are identity. No imported geometry, asset scale or gameplay
+collision was changed by this comparison. It diagnoses a small-triangle query
+failure in this measurement path, not a missing manufactured contact.
+
+The visual contact bench now queries the same imported triangles using the
+measured conditioning. Each of32 positive seats is paired with a guard moved
+3mm away and restored; the negative control must both reject the seat and
+measure the introduced gap within the original50-micrometre tolerance. It
+changes neither runtime collision nor contact requirements. **mechanism_v8**
+is queued; no pass is claimed before that run. The original v6/v7 failed checks,
+probe data, executed sources, dry/wet frames and wrapper receipts are retained.
