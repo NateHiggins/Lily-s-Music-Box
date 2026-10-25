@@ -93,6 +93,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			check(not hit.is_empty() and cell.to_local(hit.position).distance_to(at)<.00003,"fitted support contact: "+str(contact.label)+" / "+str(contact.owner));supports+=1
 	check(parts==fixture.parts.size() and triangles==int(fixture.triangles) and removed==fixture.original_records.size()*12 and supports==fixture.contacts.size(),"native counts bind all original boxes, fitted furniture and floor samples")
 	_check_carboy_details(world,fixture)
+	_check_show_globes(world)
 	await _retail_detail_views(world,fixture)
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
@@ -173,6 +174,25 @@ func _check_carboy_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> v
 		hit=_isolated_ray(world,model,identity+"__wood_dark",cell.to_global(Vector3(cx,.64,cz)),cell.to_global(Vector3(cx,.54,cz)))
 		check(not hit.is_empty() and absf(cell.to_local(hit.position).y-.62)<.00003,"actual pedestal top meets the unchanged vessel base")
 
+## CITY_SHOP_OTIS_SON-001: a tinted lamp behind each fill throws its colour
+## out through the shopfront onto the aisle terrazzo.
+func _check_show_globes(world: OrisonV2RuntimeRoot) -> void:
+	var cell: Node3D=world.passage_region.cell_nodes.shop_otis_son
+	var model: Node3D=cell.get_node("DruggistCarboys")
+	var lamps: Array=model.find_children("ShowGlobeLight*","SpotLight3D",false,false)
+	check(lamps.size()==4 and int(model.get_meta("show_globe_lights",0))==4,"four show-globe lamps, one behind each carboy fill")
+	var hues: Dictionary={}
+	for lamp: SpotLight3D in lamps:
+		var at:=cell.to_local(lamp.global_position)
+		var aim:=(cell.global_transform.basis.inverse()*(-lamp.global_transform.basis.z)).normalized()
+		check(at.x>17.2 and at.x<17.7 and at.y>.6 and at.y<1.4 and at.z>46.3 and at.z<48.6,"show-globe lamp sits inside its carboy in the Otis window: "+str(lamp.name))
+		check(aim.x<-.7 and aim.y<-.1,"show-globe lamp aims out through the shopfront and down onto the aisle: "+str(lamp.name))
+		check(lamp.visible and lamp.light_energy>0. and not lamp.shadow_enabled,"show-globe lamp burns without taking a shadow slot: "+str(lamp.name))
+		var hit:=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(cell.to_global(Vector3(15.4,1.,at.z)),cell.to_global(Vector3(15.4,-.5,at.z))))
+		check(not hit.is_empty() and absf(cell.to_local(hit.position).y)<.05,"the lamp's target is the aisle floor: "+str(lamp.name))
+		hues[lamp.light_color.to_html(false)]=true
+	check(hues.size()==4,"each lamp carries its own carboy's colour")
+
 func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	if not capture_enabled:return
 	var cell: Node3D=world.passage_region.cell_nodes.shop_otis_son
@@ -205,4 +225,19 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> vo
 		if view[0]=="display_bay":
 			world.player.set_lamp_enabled(false);await _settled_optics();await shot("display_bay_shop_light")
 			observations.append({"id":"display_bay_shop_light","lamp_enabled":false,"requested_feet":[preferred.x,preferred.y,preferred.z],"feet":[selected.x,selected.y,selected.z],"target":[view[2].x,view[2].y,view[2].z],"image":"display_bay_shop_light.png"})
+	# Acceptance station for CITY_SHOP_OTIS_SON-001: the pavement through the
+	# glass, hand lamp off, colour on the terrazzo.
+	var pavement:=Vector3(13.6,.03,47.4);var nearest:=INF
+	if not _city_clear_station(world,cell.to_global(pavement)):
+		for u in range(0,21):
+			for v in range(0,21):
+				var at:=Vector3(lerpf(12.2,15.6,u/20.),.03,lerpf(46.0,48.8,v/20.))
+				if at.distance_squared_to(Vector3(13.6,.03,47.4))<nearest and _city_clear_station(world,cell.to_global(at)):
+					pavement=at;nearest=at.distance_squared_to(Vector3(13.6,.03,47.4))
+	if _city_clear_station(world,cell.to_global(pavement)):
+		world.player.global_position=cell.to_global(pavement);world.player.velocity=Vector3.ZERO
+		world.player.face_world_point(cell.to_global(Vector3(16.2,0.,47.4)));world.player.set_lamp_enabled(false)
+		await _settled_optics();await shot("pavement_through_glass")
+		observations.append({"id":"pavement_through_glass","lamp_enabled":false,"feet":[pavement.x,pavement.y,pavement.z],"target":[16.2,0.,47.4],"image":"pavement_through_glass.png"})
+	check(_city_clear_station(world,cell.to_global(pavement)),"the aisle station before the Otis window is clear")
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Standing-capsule display-carboy observations. Opaque bounded display-fill volumes have no liquid simulation, chemistry or medical owner. Fountain, custody, continuous routes and independent services retain separate authority."},"\t"))

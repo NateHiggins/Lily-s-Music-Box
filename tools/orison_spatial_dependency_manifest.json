@@ -202935,6 +202935,36 @@
    "target_exists": true
   },
   {
+   "key": "83cedb86f531fc82",
+   "kind": "generated_name",
+   "token": "_light_show_globes",
+   "file": "game/scripts/building/orison_v2_druggist_carboys.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_light_show_globes"
+   ],
+   "lines": [
+    62
+   ],
+   "count": 1,
+   "context": [
+    "\"ShowGlobeLight%d\"%lit"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "319b20879234f57e",
    "kind": "generated_name",
    "token": "draw",
@@ -265229,7 +265259,7 @@
     "_check_carboy_details"
    ],
    "lines": [
-    118
+    119
    ],
    "count": 1,
    "context": [
@@ -265287,8 +265317,8 @@
     "_retail_detail_views"
    ],
    "lines": [
-    180,
-    180
+    200,
+    200
    ],
    "count": 2,
    "context": [

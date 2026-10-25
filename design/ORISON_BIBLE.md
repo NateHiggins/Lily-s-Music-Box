@@ -592,11 +592,10 @@ The prospectus in Mae's shelf is the sales document — that is the same
 book, and the roof garden is drawn with people in it because the drawing
 was a promise.
 
-Every flat has a **point**: a signal outlet beside the power socket,
-brass, flush, in every room including the bathrooms. Nobody remembers
-what half of them terminate in. The switchboard the player works at is
-Vantry house equipment, not the phone company's, and it was installed
-before the building had tenants.
+The switchboard the player works at is Vantry house equipment, not the
+phone company's, and it was installed before the building had tenants.
+*(Amended 2026-10-15 at the owner's direction, §VIII.5.n: the per-room
+signal outlet is dropped.)*
 
 Vantry & Co. no longer exists. Nothing in the building has been
 serviced by the people who made it since 1924.
@@ -978,6 +977,16 @@ name of the project does not change. Product identity (`project.godot`,
 export presets, the title screen and its test, the tester readme) carries
 the new title; the hold-music card on the televisions reads PLEASE STAY /
 ON THE LINE for the same reason it read the old title.
+
+**VIII.5.n — NO SIGNAL OUTLET IN THE ROOMS.**
+*(Ruled 2026-10-15, at the owner's direction; RUL-014.)*
+
+The flats carry no per-room signal outlet. The concept that every room has a
+brass "point" beside the power socket is dropped, not deferred: a plate beside
+a light switch reads as an older switch, and the house wiring is legible
+enough through the switchboard, the risers, the radios and the bells. Nothing
+is to be added back as a socket form. Light switches stand alone, flush on
+their finished walls.
 
 ### VIII.6 What this does not license
 

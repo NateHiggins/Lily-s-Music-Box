@@ -1734,8 +1734,8 @@
    "acceptance": "Pavement-through-glass station shows colour on the terrazzo",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "CITY_SHOP_OTIS_SON",
-   "status": "deferred",
-   "owner_notes": "Deferred. Corrected reason (follow-ups; the earlier note deferred it to a lighting-budget decision): on desktop there is no 16/16 budget to exceed. The V2 runtime root composes LightRig, whose per-frame light budget has been off on desktop since 2026-08-08 (light_rig.gd; only shadow casters stay capped, at 32), and BW-017's twelve hall domes already rely on that; mobile keeps its caps (ACTIVE_N_MOBILE 12, SHADOW_N_MOBILE 4). The open work is the practical itself, and it is more than a lamp: orison_v2_druggist_carboys.gd turns shadow casting off on the carboy glass, so the glass throws no coloured light of its own; the colour on the terrazzo must come from a tinted light (or a projector) behind the carboys, judged at the pavement-through-glass station."
+   "status": "verified",
+   "owner_notes": "Verified at the owner's go-ahead (2026-10-15): the show globes burn as a druggist's window did. orison_v2_druggist_carboys.gd sets a tinted spot lamp inside each of the four carboy fills (teal, red, green, ochre), aimed out through the shopfront and down onto the aisle terrazzo about 1.5 m from the glass, shadow-free, and gives each fill an emissive override so the globes read as backlit; the shipping mesh materials are untouched. Evidence implementation/otis_lamp at e326950a: OrisonV2DruggistCarboysTest 470 checks, 0 failures, including 19 new show-globe checks (four lamps, inside their carboys, aimed out and down, each its own colour, landing on the aisle floor). The acceptance station, the pavement through the glass with the hand lamp off, shows the four colours on the terrazzo (images/pavement_through_glass)."
   },
   {
    "id": "CITY_SHOP_OTIS_SON-002",
