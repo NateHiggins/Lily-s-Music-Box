@@ -3,10 +3,21 @@ extends "res://tests/service_set_hand_test.gd"
 var done := false
 var old_cap := 0
 var input_checks: Array[Dictionary] = []
+var mouse_trace: Array[Dictionary] = []
 
 func check(ok: bool, label: String) -> bool:
 	input_checks.append({"name":label, "passed":ok})
+	if not ok and is_instance_valid(player) and is_instance_valid(carrier):
+		FileAccess.open(directory.path_join("hand_failure_%02d.json" % input_checks.size()), FileAccess.WRITE).store_string(JSON.stringify({
+			"label":label, "cursor":str(get_viewport().get_mouse_position()), "enabled":carrier.hand_is_enabled(),
+			"active":player._grab.active(), "target":str(player._grab.target.get("part")), "last_hit":str(carrier._hand.last_hit),
+			"hand_control":str(carrier.device.teletype.hand_control), "events":mouse_trace}, "\t"))
 	return super.check(ok, label)
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion or event is InputEventMouseButton:
+		mouse_trace.append({"ticks":Time.get_ticks_msec(), "event":str(event), "part":str(player._grab.target.get("part")) if is_instance_valid(player) else ""})
+		if mouse_trace.size() > 48: mouse_trace.pop_front()
 
 func _ready() -> void:
 	if not standalone: return
@@ -119,6 +130,11 @@ func key(code: Key) -> void:
 			if carrier.can_inspect_controls(): break
 		check(carrier.can_inspect_controls(), "recall settles before actual control inspection")
 
+func drag(amount: Vector2) -> void:
+	Input.flush_buffered_events()
+	await RenderingServer.frame_post_draw
+	await super.drag(amount)
+
 func aim(part: Node3D) -> bool:
 	var points: Array[Vector3] = [part.global_position]
 	var draws: Array[Node] = part.find_children("*", "MeshInstance3D", true, false)
@@ -134,7 +150,14 @@ func aim(part: Node3D) -> bool:
 			await get_tree().process_frame
 			await get_tree().process_frame
 			var target: Dictionary = player._grab.find_target()
-			if target.get("part") == part: return true
+			if target.get("part") == part:
+				# OS pointer warps can arrive after process_frame. Flush only before
+				# acquisition, then require the same authoritative hit in a rendered
+				# frame; never hide a blocker or fabricate the grab descriptor.
+				await RenderingServer.frame_post_draw
+				Input.flush_buffered_events()
+				await get_tree().physics_frame
+				if player._grab.find_target().get("part") == part: return true
 	print("WORLD PICK MISS ", part.name, " hit ", carrier._hand.last_hit)
 	return false
 

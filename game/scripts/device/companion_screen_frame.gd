@@ -68,8 +68,9 @@ func setup(owner_carrier: Node3D, source_camera: Camera3D) -> void:
 	var fill := OmniLight3D.new()
 	fill.name = "InstrumentFill"
 	fill.light_cull_mask = DEVICE_MASK
+	fill.layers = DEVICE_MASK
 	fill.light_color = Color(.88, .94, .88)
-	fill.light_energy = 1.1
+	fill.light_energy = 3.0
 	fill.omni_range = 1.8
 	fill.shadow_enabled = false
 	fill.position = Vector3(-.12, .25, .08)
