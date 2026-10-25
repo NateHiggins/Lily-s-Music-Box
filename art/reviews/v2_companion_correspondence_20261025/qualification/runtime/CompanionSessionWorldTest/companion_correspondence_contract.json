@@ -1,0 +1,380 @@
+{
+	"checks": [
+		{
+			"name": "occupied production V2 starts with companion session",
+			"passed": true
+		},
+		{
+			"name": "production companion binds conversation and witnessed context",
+			"passed": true
+		},
+		{
+			"name": "recall and existing paper finish before input",
+			"passed": true
+		},
+		{
+			"name": "controller recall and accept deploy and settle physical keyboard",
+			"passed": true
+		},
+		{
+			"name": "typing acquires a separate movement/input lease",
+			"passed": true
+		},
+		{
+			"name": "actual text space depresses native spacebar",
+			"passed": true
+		},
+		{
+			"name": "actual Backspace depresses its key and edits the native draft",
+			"passed": true
+		},
+		{
+			"name": "typed R remains text rather than toggling radio",
+			"passed": true
+		},
+		{
+			"name": "native key input reaches preserved draft",
+			"passed": true
+		},
+		{
+			"name": "native keyboard and physical paper present typed text",
+			"passed": true
+		},
+		{
+			"name": "draft editing does not mint received reports",
+			"passed": true
+		},
+		{
+			"name": "retracted keyboard no longer dominates the reading surface in perspective",
+			"passed": true
+		},
+		{
+			"name": "physical reading surface and keyboard fit within viewport",
+			"passed": true
+		},
+		{
+			"name": "foreign native editor suspends typing without discarding draft",
+			"passed": true
+		},
+		{
+			"name": "suspension preserves another editor's focus and pointer",
+			"passed": true
+		},
+		{
+			"name": "explicit input resumes after foreign editor leaves",
+			"passed": true
+		},
+		{
+			"name": "protected conversation interrupts without losing draft",
+			"passed": true
+		},
+		{
+			"name": "interruption releases only companion lease",
+			"passed": true
+		},
+		{
+			"name": "protected owner refuses new typing",
+			"passed": true
+		},
+		{
+			"name": "explicit input resumes after protected owner leaves",
+			"passed": true
+		},
+		{
+			"name": "resumed native editor retains exact draft",
+			"passed": true
+		},
+		{
+			"name": "actual submission depresses native Enter key",
+			"passed": true
+		},
+		{
+			"name": "submission clears accepted draft and returns player input",
+			"passed": true
+		},
+		{
+			"name": "physical submission reaches offline conversation",
+			"passed": true
+		},
+		{
+			"name": "accepted reply uses original animated printer",
+			"passed": true
+		},
+		{
+			"name": "reply physically finishes printing",
+			"passed": true
+		},
+		{
+			"name": "delivered physical copy fits within the reading glass after feed settles",
+			"passed": true
+		},
+		{
+			"name": "reply reading keeps the keyboard beneath the copy rather than folding its face across it",
+			"passed": true
+		},
+		{
+			"name": "next exchange deploys keyboard",
+			"passed": true
+		},
+		{
+			"name": "controller cancel keeps draft and relinquishes only its lease",
+			"passed": true
+		},
+		{
+			"name": "controller-cancelled draft explicitly resumes",
+			"passed": true
+		},
+		{
+			"name": "power interruption retains draft and relinquishes focus",
+			"passed": true
+		},
+		{
+			"name": "unpowered radio cannot accept correspondence",
+			"passed": true
+		},
+		{
+			"name": "powered keyboard explicitly resumes",
+			"passed": true
+		},
+		{
+			"name": "real incoming-call print preempts editing",
+			"passed": true
+		},
+		{
+			"name": "protected incoming-call paper retains original facts",
+			"passed": true
+		},
+		{
+			"name": "pause suspends focus and preserves exact draft",
+			"passed": true
+		},
+		{
+			"name": "actual reading owner withholds unpublished morning edition",
+			"passed": true
+		},
+		{
+			"name": "future edition is not drawn by reading panel",
+			"passed": true
+		},
+		{
+			"name": "actual published reading surface supplies exact witnessed edition",
+			"passed": true
+		},
+		{
+			"name": "reading-owner context retains literal published lead",
+			"passed": true
+		},
+		{
+			"name": "archive reading remains explicitly dated and historically framed",
+			"passed": true
+		},
+		{
+			"name": "real touchscreen WIRE request recalls companion",
+			"passed": true
+		},
+		{
+			"name": "real touchscreen WIRE request deploys native text entry",
+			"passed": true
+		},
+		{
+			"name": "touchscreen cancellation keeps draft and returns focus",
+			"passed": true
+		},
+		{
+			"name": "physical help reads current owner-supplied objective even with overlay disabled",
+			"passed": true
+		},
+		{
+			"name": "native keyboard ready for weather",
+			"passed": true
+		},
+		{
+			"name": "physical reply finishes for weather",
+			"passed": true
+		},
+		{
+			"name": "settled calendar page fits inside reading glass for weather",
+			"passed": true
+		},
+		{
+			"name": "actual typed weather query prints the campaign as-of observation",
+			"passed": true
+		},
+		{
+			"name": "native keyboard ready for newspaper",
+			"passed": true
+		},
+		{
+			"name": "physical reply finishes for newspaper",
+			"passed": true
+		},
+		{
+			"name": "settled calendar page fits inside reading glass for newspaper",
+			"passed": true
+		},
+		{
+			"name": "actual typed newspaper query uses the edition witnessed by the production reading owner",
+			"passed": true
+		},
+		{
+			"name": "actual Escape keeps unsent draft after calendar exchanges",
+			"passed": true
+		},
+		{
+			"name": "existing campaign storage saves companion domain",
+			"passed": true
+		},
+		{
+			"name": "validated disk reload restores correspondence and draft",
+			"passed": true
+		},
+		{
+			"name": "reload preserves the most recent explicit quiet preference",
+			"passed": true
+		},
+		{
+			"name": "reload retires stale paper witnesses and queued discoveries",
+			"passed": true
+		},
+		{
+			"name": "unbounded hidden memory fields are rejected",
+			"passed": true
+		},
+		{
+			"name": "oversized drafts are rejected",
+			"passed": true
+		},
+		{
+			"name": "campaign validator refuses corrupt companion before adoption",
+			"passed": true
+		},
+		{
+			"name": "existing campaigns without companion domain remain compatible",
+			"passed": true
+		},
+		{
+			"name": "second validated generation prepares real recovery control",
+			"passed": true
+		},
+		{
+			"name": "real storage rejects malformed companion and recovers validated previous generation",
+			"passed": true
+		},
+		{
+			"name": "recovery never adopts corrupt correspondence fields",
+			"passed": true
+		},
+		{
+			"name": "correspondence preserves authority: inventories",
+			"passed": true
+		},
+		{
+			"name": "correspondence preserves authority: maintenance_items",
+			"passed": true
+		},
+		{
+			"name": "correspondence preserves authority: maintenance_jobs",
+			"passed": true
+		},
+		{
+			"name": "correspondence preserves authority: work_orders",
+			"passed": true
+		},
+		{
+			"name": "correspondence preserves authority: cases",
+			"passed": true
+		},
+		{
+			"name": "correspondence preserves authority: resident_trust",
+			"passed": true
+		},
+		{
+			"name": "correspondence preserves authority: conversation_visits",
+			"passed": true
+		},
+		{
+			"name": "correspondence preserves authority: knowledge_flags",
+			"passed": true
+		},
+		{
+			"name": "occupied production V2 starts with companion session",
+			"passed": true
+		},
+		{
+			"name": "production companion binds conversation and witnessed context",
+			"passed": true
+		},
+		{
+			"name": "fresh occupied world reconstructs saved companion memory and draft",
+			"passed": true
+		},
+		{
+			"name": "fresh world has no revived transient witnesses",
+			"passed": true
+		},
+		{
+			"name": "both companion instances retire measured owned nodes, resources and observed audio playbacks",
+			"passed": true
+		},
+		{
+			"name": "runtime source remains frozen through composition and reconstruction",
+			"passed": true
+		}
+	],
+	"contracts": {
+		"companion_correspondence": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"premature_action_denial": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"identities": [
+				"companion",
+				"keyboard",
+				"paper"
+			],
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"observed_nodes": 435,
+			"observed_playbacks": 3,
+			"observed_resources": 52,
+			"ownership_scope": "Companion subtree nodes, conversation/memory/hand, native query and collision shapes, tile/key MultiMeshes, per-instance glazing/lens/paper/jewel materials and observed active audio playbacks. Shared native meshes, catalogue materials and sound/font assets excluded.",
+			"retained_nodes": 0,
+			"retained_playbacks": 0,
+			"retained_resources": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Occupied V2 correspondence: real key events, physical keyboard/paper, protected input, power/call/pause interruptions, bounded campaign save and fresh-world reconstruction. No whole-world navigation, surface acceptance, frame-time improvement or human acceptance.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "564ea46bdb636d485896980454369d21721a1450",
+		"runtime_inputs_sha256": "d4c167ff7e23587d95bb422a142580150ca58ff51c574dd899c52b813dc0bde5",
+		"test_path": "game/tests/companion_session_world_test.gd",
+		"test_sha256": "248bf10f9f7974384e4180aff7b4936aa72d55921c40853e1d1c28a974e0e51d",
+		"test_sources": {
+			"game/tests/companion_session_bench.gd": "4cda077a0eb211d9aa35a542b4bcff22abac16c7ff3bbafae96ca69526ccc71d",
+			"game/tests/companion_session_world_test.gd": "248bf10f9f7974384e4180aff7b4936aa72d55921c40853e1d1c28a974e0e51d"
+		}
+	}
+}

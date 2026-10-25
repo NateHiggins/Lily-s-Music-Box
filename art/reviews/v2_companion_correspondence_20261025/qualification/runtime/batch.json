@@ -1,0 +1,36 @@
+[
+  {
+    "scene": "",
+    "runner": "serial",
+    "timeout": 170,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\pr42\\candidate_runtime_564e\\import1.log"
+  },
+  {
+    "scene": "",
+    "runner": "serial",
+    "timeout": 170,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\pr42\\candidate_runtime_564e\\import2.log"
+  },
+  {
+    "scene": "res://tests/CompanionWorldHandBench.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\pr42\\candidate_runtime_564e\\CompanionWorldHandBench.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\pr42\\candidate_runtime_564e\\CompanionWorldHandBench"
+  },
+  {
+    "scene": "res://tests/CompanionSessionWorldTest.tscn",
+    "runner": "long",
+    "timeout": 750,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\pr42\\candidate_runtime_564e\\CompanionSessionWorldTest.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\pr42\\candidate_runtime_564e\\CompanionSessionWorldTest"
+  }
+]

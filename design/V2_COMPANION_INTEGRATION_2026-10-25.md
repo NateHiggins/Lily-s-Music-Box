@@ -166,4 +166,33 @@ Open findings: original V1 ServiceSet failures, main's three surface defects,
 limited examination context, unqualified broad witness/navigation coverage,
 platform hardware and broad performance/human acceptance. Owner decision: none.
 
-BLOCKED final candidate verification pending at this checkpoint
+### Final qualification — code564ea46b
+
+The unchanged repository verifier, run **--in-place --no-godot**, returns
+**MERGE-CANDIDATE 564ea46bdb636d485896980454369d21721a1450**: clean checkout,
+zero gate regressions,17/17 protected paths unchanged, V2 selector, zero document
+lint errors, no gate changes and unchanged ledger counts/requirements. That mode
+runs no engine suites. The original verifier polls a busy lane every30 seconds;
+its waiting engine phase was cancelled without a verdict. No gate was edited.
+
+The same frozen commit then completed the cooperative **tools/lane.ps1 batch**:
+import1 exit0 in9.86s, import2 exit0 in7.46s, physical hand85 in10.73s and occupied
+correspondence80 in293.89s. Both test wrapper receipts bind to source; the test-
+written schema2 runtime contract passes admission with no errors. The80 checks
+include Space/Backspace/Enter travel, controller/touch/native input, settled long
+weather/newspaper pages, protected interruption, disk recovery and fresh-world
+reconstruction. All eight measured authority maps remain unchanged. Teardown
+retires435 nodes,52 owned resources and3 observed playbacks to zero retained.
+The first import's cached-UID recreation warnings are preserved; second import
+and both runtime-test stderr files are empty.
+
+All four final rendered frames were inspected. The long newspaper page now fits
+inside the actual glass after feed settles. Raw reports, wrapper receipts,
+authority comparisons, the unchanged test-written contract and SHA manifest are
+under **art/reviews/v2_companion_correspondence_20261025/qualification**. This
+combines static verification with actual composed runtime qualification; it is
+not a claim that the static verifier itself ran Godot. Fresh-checkout/autocrlf,
+full navigation, every witness circumstance and human acceptance remain outside
+this in-place scope. Subsequent edits are evidence/documentation only.
+
+MERGE-CANDIDATE 564ea46bdb636d485896980454369d21721a1450

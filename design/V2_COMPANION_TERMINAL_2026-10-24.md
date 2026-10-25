@@ -671,3 +671,18 @@ The final keyboard audit also adds native SPACE, Backspace and Enter feedback.
 Its first Enter assertion sampled after the stroke; the diagnostic now observes
 actual key travel across the delivered input frames. A waiting candidate run was
 cancelled before engine startup for this addition; no verdict is claimed for it.
+
+
+Final code **564ea46b** now passes the clean in-place static verifier (zero gate
+regressions,17/17 protected, V2 selector, no gate changes). Engine qualification
+uses the separate cooperative repository broker on that same frozen commit:
+two imports, physical hand85 and occupied correspondence80 all pass. Test wrapper
+receipts bind; the test-written schema2 contract admits with zero errors. Native
+input/ownership64 passes, including actual Space/Backspace/Enter key travel.
+Long weather/newspaper pages were rendered after delivery feed and reviewed.
+The final contract reconstructs a fresh world, preserves all eight measured
+authority maps and retires435 nodes,52 owned resources and3 observed playbacks
+to zero retained. Raw provenance and final frames are in the correspondence
+review packet. The earlier pending/cancelled entries above remain historical.
+No runtime inputs change in the final evidence checkpoint. No broad V2, surface,
+frame-time improvement, complete witness-route or human acceptance is promoted.

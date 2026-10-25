@@ -1,0 +1,170 @@
+{
+  "schema": "orison.companion-correspondence.qualification-index.v1",
+  "evidence_class": "INERT",
+  "scope": "Artifact index. Static candidate verification and cooperative engine qualification are distinct. Only the unchanged test-written schema2 receipt is runtime proof. No whole-V2, surface, frame-time or human acceptance.",
+  "candidate_code": "564ea46bdb636d485896980454369d21721a1450",
+  "base": "ecce6e8c28bc68f3390011e64c9b146f7387a9b9",
+  "static_regressions": [],
+  "static_blocking": [],
+  "runtime_contract": "qualification/runtime/CompanionSessionWorldTest/companion_correspondence_contract.json",
+  "runtime_admission_errors": [],
+  "checks": {
+    "native_input_ownership": 64,
+    "physical_hand": 85,
+    "occupied_correspondence": 80
+  },
+  "teardown": {
+    "executed": true,
+    "measurement_scope": "runtime_owned",
+    "observed_nodes": 435,
+    "observed_playbacks": 3,
+    "observed_resources": 52,
+    "ownership_scope": "Companion subtree nodes, conversation/memory/hand, native query and collision shapes, tile/key MultiMeshes, per-instance glazing/lens/paper/jewel materials and observed active audio playbacks. Shared native meshes, catalogue materials and sound/font assets excluded.",
+    "retained_nodes": 0,
+    "retained_playbacks": 0,
+    "retained_resources": 0,
+    "status": "PASS"
+  },
+  "framing": {
+    "fov": 40.0,
+    "keyboard": "[P: (351.4525, 533.4348), S: (693.1599, 102.438)]",
+    "keyboard_to_paper_width": 1.95238018695467,
+    "paper": "[P: (502.0946, 62.60589), S: (355.0332, 288.2442)]",
+    "paper_height_fraction": 0.400339211357964,
+    "reading_distance": 0.44
+  },
+  "files": [
+    {
+      "path": "qualification/native_input/key_feedback_v2/session.json",
+      "sha256": "741c5e19b8f4c8a33b75e90544b86110a46d7e8a1123589d8ae240e38df26e3f"
+    },
+    {
+      "path": "qualification/native_input/key_feedback_v2.log",
+      "sha256": "a62b0dab7a487e8317232a764d745671628b95aa0a5ed409bf2b4068184d41e5"
+    },
+    {
+      "path": "qualification/native_input/key_feedback_v2.log.receipt.json",
+      "sha256": "de64257553488ecf1f2d4ce3942cb4891c4c17842c8e0f5471b064d7a8a732e1"
+    },
+    {
+      "path": "qualification/native_input/key_feedback_v2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification/runtime/batch.json",
+      "sha256": "4c13aa88b6afd44c7f16dcd280048a9776718ae7f446817936784b92a890a6b4"
+    },
+    {
+      "path": "qualification/runtime/CompanionSessionWorldTest/admission_at_execution.json",
+      "sha256": "7739cdea383e648ca220c827dd17e7653d57c6855e92609db22b797c56b0cd98"
+    },
+    {
+      "path": "qualification/runtime/CompanionSessionWorldTest/authority_comparison.json",
+      "sha256": "90878dd1af0617bc808ea577a4322e36c500dd75e002ded359a699068f8cb9be"
+    },
+    {
+      "path": "qualification/runtime/CompanionSessionWorldTest/companion_correspondence_contract.json",
+      "sha256": "bbd136e64b7db5c7936547dec5acb7636b3419e228de962c1513cf1293f838e7"
+    },
+    {
+      "path": "qualification/runtime/CompanionSessionWorldTest/framing.json",
+      "sha256": "e706ac9ed099c802aad5edac6486108882f8874601e9067b3c7f23ef88b4699c"
+    },
+    {
+      "path": "qualification/runtime/CompanionSessionWorldTest/malformed_companion.json",
+      "sha256": "2d3933be68717e50f50889c9d25bb3c584005da4ccfd441ebedc51b87c110d3f"
+    },
+    {
+      "path": "qualification/runtime/CompanionSessionWorldTest/reload_comparison.json",
+      "sha256": "a779853aaaf818fdfd80530f90d133e9ad50348c29e815035eced9c205ad0620"
+    },
+    {
+      "path": "qualification/runtime/CompanionSessionWorldTest/reply_layout.json",
+      "sha256": "a4ed6e69ba579c58fb0caca89ba43a08097a99cebfd7c2155bd6ff9df7a99a9e"
+    },
+    {
+      "path": "qualification/runtime/CompanionSessionWorldTest.log",
+      "sha256": "7d5e756b1a3d10c16501dd516dff264e048b215141e51180aa625a3770150777"
+    },
+    {
+      "path": "qualification/runtime/CompanionSessionWorldTest.log.receipt.json",
+      "sha256": "351718abb686468935fac358ea1fe3f16938a469b708f03a7b26c7293a52887e"
+    },
+    {
+      "path": "qualification/runtime/CompanionSessionWorldTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification/runtime/CompanionWorldHandBench/observations.json",
+      "sha256": "b99169c3698aa0acdbb57ebca31c2c8cd2c898db5855c1488d5de8e0422378e1"
+    },
+    {
+      "path": "qualification/runtime/CompanionWorldHandBench.log",
+      "sha256": "32029f846253097ec99d5781582701581a37b316aebfe39a8848e32444a7e7dd"
+    },
+    {
+      "path": "qualification/runtime/CompanionWorldHandBench.log.receipt.json",
+      "sha256": "f922d71e2c2412efbbe7fda63dcad991e8d65781c30e9346e58b1e4c51e003ec"
+    },
+    {
+      "path": "qualification/runtime/CompanionWorldHandBench.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification/runtime/import1.log",
+      "sha256": "2d19837c68990c9aaae405e6410b5d1b378b019d4df20282318e69c3b8510160"
+    },
+    {
+      "path": "qualification/runtime/import1.log.receipt.json",
+      "sha256": "9d87f31062bd1151d9149267b760a6d55fdf0219f32df95765efc0995703943c"
+    },
+    {
+      "path": "qualification/runtime/import1.log.stderr",
+      "sha256": "86780fb080772cbf7961519492a515179a7a36b4d098f564deee3fbda055a5ca"
+    },
+    {
+      "path": "qualification/runtime/import2.log",
+      "sha256": "4a397ad49c566a05e88a229bea747004907400e6f2367a980d2512fb29bfdaa7"
+    },
+    {
+      "path": "qualification/runtime/import2.log.receipt.json",
+      "sha256": "dd89161554ff1d576cba4251bed872aee71e83f48094737932bc447a58cde541"
+    },
+    {
+      "path": "qualification/runtime/import2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification/static_verification.json",
+      "sha256": "ee56de75c69d24cb6a13b2ec19a08bccc23d122ba231ec4dfb4ca45cb7d3d8af"
+    },
+    {
+      "path": "qualification/static_verification.md",
+      "sha256": "1991b5ee676ac72888c92d2a26558eb71ed5c9746f34e9112141edd3c43c3112"
+    }
+  ],
+  "ledger_after_evidence": {
+    "requirements": 240,
+    "by_status": {
+      "ABSENT": 4,
+      "HUMAN_ACCEPTED": 1,
+      "PROGRAMMED": 122,
+      "RUNTIME_PROVEN": 27,
+      "SPATIALLY_PROVEN": 86
+    },
+    "blockers_by_scope": {
+      "FIRST_SLICE_TECHNICAL": 7,
+      "GOLDEN_SHIFT_V2": 8,
+      "FULL_BUILDING_STRUCTURAL": 110,
+      "FULL_BUILDING_RUNTIME": 42,
+      "PRODUCTION_CUTOVER": 134,
+      "V1_RETIREMENT": 136
+    },
+    "v1_fallbacks": 2,
+    "heuristic_conclusions": 117,
+    "anchor_only_findings": 0,
+    "stale_checkpoint_ids": 1
+  },
+  "ledger_audit_exit": 2,
+  "ledger_note": "Existing incomplete ledger; all six blocker counts equal the static verified candidate. No promotion."
+}

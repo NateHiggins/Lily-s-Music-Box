@@ -1,0 +1,262 @@
+{
+	"checks": [
+		{
+			"name": "native companion and session initialize",
+			"passed": true
+		},
+		{
+			"name": "recall and existing paper finish before input",
+			"passed": true
+		},
+		{
+			"name": "controller recall and accept deploy and settle physical keyboard",
+			"passed": true
+		},
+		{
+			"name": "typing acquires a separate movement/input lease",
+			"passed": true
+		},
+		{
+			"name": "actual text space depresses native spacebar",
+			"passed": true
+		},
+		{
+			"name": "actual Backspace depresses its key and edits the native draft",
+			"passed": true
+		},
+		{
+			"name": "typed R remains text rather than toggling radio",
+			"passed": true
+		},
+		{
+			"name": "native key input reaches preserved draft",
+			"passed": true
+		},
+		{
+			"name": "native keyboard and physical paper present typed text",
+			"passed": true
+		},
+		{
+			"name": "draft editing does not mint received reports",
+			"passed": true
+		},
+		{
+			"name": "retracted keyboard no longer dominates the reading surface in perspective",
+			"passed": true
+		},
+		{
+			"name": "physical reading surface and keyboard fit within viewport",
+			"passed": true
+		},
+		{
+			"name": "foreign native editor suspends typing without discarding draft",
+			"passed": true
+		},
+		{
+			"name": "suspension preserves another editor's focus and pointer",
+			"passed": true
+		},
+		{
+			"name": "explicit input resumes after foreign editor leaves",
+			"passed": true
+		},
+		{
+			"name": "protected conversation interrupts without losing draft",
+			"passed": true
+		},
+		{
+			"name": "interruption releases only companion lease",
+			"passed": true
+		},
+		{
+			"name": "protected owner refuses new typing",
+			"passed": true
+		},
+		{
+			"name": "explicit input resumes after protected owner leaves",
+			"passed": true
+		},
+		{
+			"name": "resumed native editor retains exact draft",
+			"passed": true
+		},
+		{
+			"name": "actual submission depresses native Enter key",
+			"passed": true
+		},
+		{
+			"name": "submission clears accepted draft and returns player input",
+			"passed": true
+		},
+		{
+			"name": "physical submission reaches offline conversation",
+			"passed": true
+		},
+		{
+			"name": "accepted reply uses original animated printer",
+			"passed": true
+		},
+		{
+			"name": "reply physically finishes printing",
+			"passed": true
+		},
+		{
+			"name": "delivered physical copy fits within the reading glass after feed settles",
+			"passed": true
+		},
+		{
+			"name": "reply reading keeps the keyboard beneath the copy rather than folding its face across it",
+			"passed": true
+		},
+		{
+			"name": "next exchange deploys keyboard",
+			"passed": true
+		},
+		{
+			"name": "controller cancel keeps draft and relinquishes only its lease",
+			"passed": true
+		},
+		{
+			"name": "controller-cancelled draft explicitly resumes",
+			"passed": true
+		},
+		{
+			"name": "power interruption retains draft and relinquishes focus",
+			"passed": true
+		},
+		{
+			"name": "unpowered radio cannot accept correspondence",
+			"passed": true
+		},
+		{
+			"name": "powered keyboard explicitly resumes",
+			"passed": true
+		},
+		{
+			"name": "real incoming-call print preempts editing",
+			"passed": true
+		},
+		{
+			"name": "protected incoming-call paper retains original facts",
+			"passed": true
+		},
+		{
+			"name": "pause suspends focus and preserves exact draft",
+			"passed": true
+		},
+		{
+			"name": "actual reading owner withholds unpublished morning edition",
+			"passed": true
+		},
+		{
+			"name": "future edition is not drawn by reading panel",
+			"passed": true
+		},
+		{
+			"name": "actual published reading surface supplies exact witnessed edition",
+			"passed": true
+		},
+		{
+			"name": "reading-owner context retains literal published lead",
+			"passed": true
+		},
+		{
+			"name": "archive reading remains explicitly dated and historically framed",
+			"passed": true
+		},
+		{
+			"name": "real touchscreen WIRE request recalls companion",
+			"passed": true
+		},
+		{
+			"name": "real touchscreen WIRE request deploys native text entry",
+			"passed": true
+		},
+		{
+			"name": "touchscreen cancellation keeps draft and returns focus",
+			"passed": true
+		},
+		{
+			"name": "first owner takes native typing focus before handoff",
+			"passed": true
+		},
+		{
+			"name": "new presentation retires only the old typing lease",
+			"passed": true
+		},
+		{
+			"name": "one campaign owner inherits the exact unsent native draft",
+			"passed": true
+		},
+		{
+			"name": "retired snapshot callback cannot overwrite newer correspondence",
+			"passed": true
+		},
+		{
+			"name": "retired presentation is hidden and cannot offer controls",
+			"passed": true
+		},
+		{
+			"name": "new owner explicitly resumes on its native keyboard",
+			"passed": true
+		},
+		{
+			"name": "new owner keeps edited draft and releases its own focus",
+			"passed": true
+		},
+		{
+			"name": "actual quiet request silences optional remarks",
+			"passed": true
+		},
+		{
+			"name": "an unsent draft does not revoke the explicit quiet preference",
+			"passed": true
+		},
+		{
+			"name": "existing campaign storage saves companion domain",
+			"passed": true
+		},
+		{
+			"name": "validated disk reload restores correspondence and draft",
+			"passed": true
+		},
+		{
+			"name": "reload preserves the most recent explicit quiet preference",
+			"passed": true
+		},
+		{
+			"name": "reload retires stale paper witnesses and queued discoveries",
+			"passed": true
+		},
+		{
+			"name": "unbounded hidden memory fields are rejected",
+			"passed": true
+		},
+		{
+			"name": "oversized drafts are rejected",
+			"passed": true
+		},
+		{
+			"name": "campaign validator refuses corrupt companion before adoption",
+			"passed": true
+		},
+		{
+			"name": "existing campaigns without companion domain remain compatible",
+			"passed": true
+		},
+		{
+			"name": "second validated generation prepares real recovery control",
+			"passed": true
+		},
+		{
+			"name": "real storage rejects malformed companion and recovers validated previous generation",
+			"passed": true
+		},
+		{
+			"name": "recovery never adopts corrupt correspondence fields",
+			"passed": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": []
+}
