@@ -156,7 +156,7 @@ func _check_membranes() -> void:
 			and membrane.cast_shadow == GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 			and material.get_shader_parameter("exposure_tex") == exhibit.exposure_texture
 			and material.get_shader_parameter("blender_pose_tex") == provider.assets.texture)
-		var split_valid := int(stats.opaque_triangles)+int(stats.membrane_triangles)==int(stats.total_triangles)
+		var split_valid := int(stats.opaque_triangles)+int(stats.membrane_triangles)+int(stats.micro_triangles)==int(stats.total_triangles)
 		split_valid = split_valid and int(stats.total_triangles)==int(stats.triangles)
 		var opaque: Array = controller.mesh_instance.mesh.surface_get_arrays(0)
 		split_valid = split_valid and _partition_matches(opaque,false)
@@ -166,6 +166,17 @@ func _check_membranes() -> void:
 			if membrane.mesh.get_surface_count()==1:
 				split_valid = split_valid and _partition_matches(membrane.mesh.surface_get_arrays(0),true)
 				actual_indices.append_array(membrane.mesh.surface_get_arrays(0)[Mesh.ARRAY_INDEX])
+		for pass_index in provider.micro_instances.size():
+			var micro: MeshInstance3D = provider.micro_instances[pass_index]
+			if micro.mesh == null: continue
+			var arrays: Array = micro.mesh.surface_get_arrays(0)
+			var ids: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+			var roles: PackedColorArray = arrays[Mesh.ARRAY_COLOR]
+			for vertex in ids:
+				var role := int(roundf(roles[vertex].r*10.0))
+				var expected := 2 if role==2 else (1 if role in [0,7,8] else 0)
+				split_valid = split_valid and expected==pass_index
+			actual_indices.append_array(ids)
 		var expected_indices := PackedInt32Array()
 		var vertex_offset := 0
 		var legacy: PackedInt32Array = controller._build_mesh().surface_get_arrays(0)[Mesh.ARRAY_INDEX].slice(0,21000)

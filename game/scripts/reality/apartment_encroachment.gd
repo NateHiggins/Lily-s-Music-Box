@@ -296,6 +296,8 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 			critters = DreamCritterScript.new()
 			add_child(critters)
 			critters.setup(dream_field, "critters".hash())
+			if root_node != null and "player" in root_node and root_node.player != null:
+				critters.bind_companion(root_node, root_node.player)
 			critters.margin = margin
 			critters.residue = residue
 			# §10's ninth broadcast: the margin has to be able to feel them

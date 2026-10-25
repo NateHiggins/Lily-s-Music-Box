@@ -38,6 +38,13 @@ func set_materials(materials: Array[ShaderMaterial]) -> void:
 
 func _bind_ready() -> void:
 	if field == null: return
+	# Visual owners can retire independently of their containing world. Do not
+	# retain or rebind a dead receiver until the next whole-world collection.
+	for material in requested.duplicate():
+		if bool(material.get_meta("lamp_receiver_retired",false)):
+			field.unbind_material(material)
+			bound.erase(material)
+			requested.erase(material)
 	for material in requested:
 		if not bound.has(material):
 			field.bind_material(material)

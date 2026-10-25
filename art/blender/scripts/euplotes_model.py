@@ -107,7 +107,9 @@ def build_objects(api,col,lod,seed):
             if obj.name=='Skin' and not w and p[1]>0:
                 window=.72*max(0.,1.-((p[0]-.09)/.24)**2-((p[2]+.08)/.34)**2)
             region=2 if obj.name!='Skin' else 4 if w or oral[v.index]>.1 else 5 if window>.35 else 1
-            semantics.append((gold[v.index],window,region))
+            # Shared microscopy ABI: R is tissue role, not a gold paint mask.
+            role = (7 if w or oral[v.index]>.1 else 0) if obj.name=='Skin' else (2 if 'Vacuole' in obj.name else 1)
+            semantics.append((role/10.,window,region))
             oral_values=[row[v.index] for row in oral_tables];oral_weight=max(oral_values)
             bindings.append((-2-oral_values.index(oral_weight),oral_weight) if oral_weight>1e-7 else (-1,0.))
         obj.data.update()

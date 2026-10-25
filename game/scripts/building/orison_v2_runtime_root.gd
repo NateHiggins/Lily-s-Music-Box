@@ -774,6 +774,13 @@ func _compose_authorities() -> void:
 	if not service_light_visibility.setup(self):
 		startup_failed=true;push_error("V2 service practical visibility could not bind original sources");return
 	service_light_visibility.set_enabled(true)
+	# A player-only percept shares the creature movement/pose owner and the
+	# already running lamp receiver field; it is not a second ecology or job.
+	var companion_body := DreamCritterController.new()
+	companion_body.name = "TardigradeCompanion"
+	add_child(companion_body)
+	companion_body.setup(null, 240304)
+	companion_body.bind_companion(self, player)
 
 func arrival_placement() -> Dictionary:
 	return (_connection.get("arrival", {}) as Dictionary).duplicate(true)
