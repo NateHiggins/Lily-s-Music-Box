@@ -22,6 +22,8 @@ const WALL_YAW := {"west": PI * 0.5, "east": -PI * 0.5, "north": PI}
 var data: Dictionary = {}
 var meshes: Dictionary = {}
 var lamps: Array[OrisonV2GasFitting] = []
+var gas_service: OrisonV2GasService
+var world: Node
 var materials: Dictionary = {}
 
 
@@ -29,6 +31,7 @@ static func mount(world: Node) -> OrisonV2EntryVestibule:
 	var vestibule := OrisonV2EntryVestibule.new()
 	vestibule.name = "EntryVestibule"
 	var root: Node3D = world.adapter.root
+	vestibule.world = world
 	root.add_child(vestibule)
 	if not vestibule.compose(root):
 		root.remove_child(vestibule)
@@ -76,7 +79,12 @@ func compose(root: Node3D) -> bool:
 	for notice: Dictionary in data.notices:
 		_notice(get_node(str(notice.fitting)) as Node3D, notice)
 	_radiator_body(get_node("Radiator") as Node3D)
-	return _lamps(root)
+	if not _lamps(root):
+		return false
+	# The house service in the front workroom: meter, pressure, residents.
+	gas_service = OrisonV2GasService.new()
+	add_child(gas_service)
+	return gas_service.compose(world, meshes, lamps)
 
 
 func _draw(parent: Node3D, stock: String) -> MeshInstance3D:
@@ -264,6 +272,8 @@ func _lamps(root: Node3D) -> bool:
 		light.shadow_enabled = true
 		fitting.add_child(light)
 		fitting.pilot_glow = float(row.pilot_glow)
+		fitting.full_rate = float(row.rate)
+		fitting.pilot_rate = float(row.pilot_rate)
 		fitting.clock = bool(row.clock)
 		fitting.dusk = lamp_table.dusk
 		fitting.dawn = lamp_table.dawn
