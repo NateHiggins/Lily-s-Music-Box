@@ -24,6 +24,8 @@ const REQUESTS: Array[StringName] = [&"accompany", &"observe", &"present", &"lis
 const READING: Array[StringName] = [&"present", &"listen", &"think", &"speak", &"type"]
 const ROUTE_LIMIT := 64
 var behavior: StringName = &"accompany"
+var screen_framed := false
+var screen_settled := false
 var initialized := false
 var stationary_for_hand := false
 var light_target := Vector3.ZERO
@@ -78,6 +80,12 @@ func setup(player: CharacterBody3D, camera: Camera3D, rig: Mechanism) -> bool:
 	if not is_finite(lateral_offset) or not is_finite(motion_intensity) or motion_intensity < 0.0 or motion_intensity > 1.0: return false
 	if not distance_band.is_finite() or distance_band.x <= 0.0 or distance_band.y < distance_band.x: return false
 	_player = player; _camera = camera; _rig = rig
+	if screen_framed:
+		collision_layer = 0; collision_mask = 0
+		global_position = camera.global_position - camera.global_basis.z
+		initialized = true
+		set_physics_process(true)
+		return true
 	motion_mode = CharacterBody3D.MOTION_MODE_FLOATING
 	collision_layer = 0 # Player movement has priority; this machine cannot block it.
 	collision_mask = 1
@@ -129,6 +137,7 @@ func release_attention() -> void:
 	_candidate = 0; _probe_left = 0.0
 
 func steady_for_input() -> bool:
+	if screen_framed: return initialized and screen_settled and behavior in READING
 	return initialized and not _routing and _accepted_candidate >= 0 and behavior in READING and _current_visible and velocity.length() < .12 and global_position.distance_to(_target) < .06
 
 func hold_for_hand(held: bool) -> bool:
@@ -149,6 +158,13 @@ func _physics_process(delta: float) -> void:
 
 func _advance_motion(delta: float) -> void:
 	if not initialized or not is_instance_valid(_player) or not is_instance_valid(_camera): return
+	if screen_framed:
+		var next := _requested
+		if next == &"accompany" and _player.velocity.length() > 3.8: next = &"travel"
+		if next != behavior:
+			behavior = next
+			behavior_changed.emit(behavior)
+		return
 	if stationary_for_hand:
 		velocity = Vector3.ZERO
 		return

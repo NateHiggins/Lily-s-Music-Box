@@ -14,6 +14,7 @@ var _call_face_presented := false
 var session: Node
 var witness: Node
 var _pick_layers := {}
+var screen_frame: Node
 
 func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) -> void:
 	_player = player
@@ -21,6 +22,7 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	reading_distance = .44
 	motion = Motion.new()
 	motion.name = "CompanionFlight"
+	motion.screen_framed = true
 	add_child(motion)
 	rig = Mechanism.new()
 	motion.add_child(rig)
@@ -39,6 +41,7 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	var hand_started := Time.get_ticks_usec()
 	_hand = preload("res://scripts/device/service_set_hand.gd").new(self, true)
 	for area: Area3D in find_children("*", "Area3D", true, false):
+		area.collision_layer = 1 << 23
 		_pick_layers[area.get_instance_id()] = {"ref":weakref(area), "layer":area.collision_layer}
 	setup_records.append({"stage":"target_shapes", "start_usec":hand_started, "end_usec":Time.get_ticks_usec()})
 	player.set_physical_display_enabled(true)
@@ -49,7 +52,10 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 		failure = "No clear native companion starting position"
 		push_error(failure)
 		return
-	setup_records.append({"stage":"flight_initialization_including_two_physics_waits", "start_usec":placement_started, "end_usec":Time.get_ticks_usec()})
+	setup_records.append({"stage":"flight_initialization", "start_usec":placement_started, "end_usec":Time.get_ticks_usec()})
+	screen_frame = preload("res://scripts/device/companion_screen_frame.gd").new()
+	add_child(screen_frame)
+	screen_frame.setup(self, camera)
 	_lamp_face_state = device.lamp_enabled
 	motion.behavior_changed.connect(_on_companion_behavior)
 	world_ready = true
@@ -161,6 +167,7 @@ func _advance_presentation(_delta: float) -> void:
 	else:
 		rig.request_keyboard(false)
 		motion.request_behavior(&"accompany")
+	screen_frame.advance(_delta, reading and not _player.protected_input_active() and not session._foreign_editor_active())
 
 func _unhandled_input(event: InputEvent) -> void:
 	if session != null and session.retired: return

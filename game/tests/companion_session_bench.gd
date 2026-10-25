@@ -48,6 +48,8 @@ func _run() -> void:
 	await exercise()
 
 func exercise() -> void:
+	await exercise_screen_framing()
+	await measure_foreground_cost()
 	await joy(JOY_BUTTON_DPAD_DOWN)
 	if not check(await wait_for(func(): return carrier.motion.steady_for_input() and not carrier.device.teletype.printing), "recall and existing paper finish before input"):
 		finish(); return
@@ -221,6 +223,84 @@ func additional_checks() -> void:
 func physical_key_down(character: String) -> bool:
 	var index: int = carrier.rig._key_names.find(character)
 	return index >= 0 and carrier.rig.key_transform(index).origin.z > carrier.rig._key_homes[index].origin.z + .0001
+
+func exercise_screen_framing() -> void:
+	var frame: Node = carrier.screen_frame
+	check(frame != null and carrier.motion.screen_framed, "production companion uses foreground flight framing")
+	var saved_rotation := player.rotation
+	var saved_camera_rotation := player.camera.rotation
+	var saved_velocity := player.velocity
+	var saved_fov := player.camera.fov
+	var saved_fps := Engine.max_fps
+	var all_inside := true; var rays_match := true; var center_clear := true
+	var largest_error := 0.0
+	for cap: int in [30, 60, 144]:
+		Engine.max_fps = cap
+		for pitch: float in [-1.44, 0.0, 1.44]:
+			# Actual mouse events exercise the look path; the staged velocity is
+			# a presentation stressor, not a claimed walked route.
+			var event := InputEventMouseMotion.new(); event.relative = Vector2(1500.0, pitch * 100.0)
+			Input.parse_input_event(event)
+			player.camera.rotation.x = pitch
+			player.velocity = Vector3(8.0, 0.0, -8.0)
+			await frames(3)
+			var size := get_viewport().get_visible_rect().size
+			var bounds := projected_bounds(carrier.device.teletype._paper)
+			all_inside = all_inside and Rect2(Vector2.ZERO, size).encloses(bounds)
+			center_clear = center_clear and not frame.image.get_rect().has_point(size * .5)
+			var paper: MeshInstance3D = carrier.device.teletype._paper
+			var point := paper.to_global(paper.mesh.get_aabb().get_center())
+			var composite: Vector2 = frame.view_camera.unproject_position(point) / Vector2(frame.view.size) * frame.image.size + frame.image.position
+			largest_error = maxf(largest_error, composite.distance_to(player.camera.unproject_position(point)))
+			rays_match = rays_match and largest_error < 2.0
+	check(all_inside, "framed paper stays on screen through abrupt turns and pitch extremes at 30 60 144 fps")
+	check(center_clear, "foreground rectangle never covers the centre reticle during travel")
+	check(rays_match, "cropped foreground projection agrees with authoritative physical targeting within two pixels")
+	check(carrier.motion.query_count == 0 and carrier.motion.collision_mask == 0, "screen flight performs no environment sweep or pursuit queries")
+	var old_size := get_window().size
+	var resize_clear := true; var resize_rays := true
+	for window_size: Vector2i in [Vector2i(1280, 720), Vector2i(1024, 768), Vector2i(960, 540)]:
+		get_window().size = window_size
+		await frames(4)
+		var size := get_viewport().get_visible_rect().size
+		resize_clear = resize_clear and not frame.image.get_rect().has_point(size * .5)
+		var paper: MeshInstance3D = carrier.device.teletype._paper
+		var point := paper.to_global(paper.mesh.get_aabb().get_center())
+		var projected: Vector2 = frame.view_camera.unproject_position(point) / Vector2(frame.view.size) * frame.image.size + frame.image.position
+		resize_rays = resize_rays and projected.distance_to(player.camera.unproject_position(point)) < 2.0
+	get_window().size = old_size
+	check(resize_clear and resize_rays, "resize and 4:3 framing preserve centre clearance and authoritative rays")
+	player.rotation = saved_rotation; player.camera.rotation = saved_camera_rotation
+	player.velocity = saved_velocity; player.camera.fov = saved_fov; Engine.max_fps = saved_fps
+	await frames(3)
+	await capture("framed_travel.png")
+	FileAccess.open(directory.path_join("screen_framing.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":"Native mouse turning, staged pitch/velocity, cropped projection and centre keepout. Not a walked world route or human readability acceptance.", "maximum_projection_error_px":largest_error, "stock_bounds":str(frame.stock_bounds), "query_count":carrier.motion.query_count, "reserved_rect":str(frame.safe_rect), "pass_size":str(frame.view.size)}, "\t"))
+
+func measure_foreground_cost() -> void:
+	var rows: Array = []
+	var frame: Node = carrier.screen_frame
+	var old_cap := Engine.max_fps
+	Engine.max_fps = 0
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(), true)
+	RenderingServer.viewport_set_measure_render_time(frame.view.get_viewport_rid(), true)
+	for enabled: bool in [true, false, false, true]:
+		frame.composite_enabled = enabled
+		await frames(24)
+		var before := Time.get_ticks_usec()
+		for index in 90:
+			await get_tree().process_frame
+			var now := Time.get_ticks_usec()
+			rows.append({"foreground":enabled, "wall_ms":float(now-before)/1000.0,
+				"render_cpu_ms":RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),
+				"render_gpu_ms":RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid()),
+				"foreground_cpu_ms":RenderingServer.viewport_get_measured_render_time_cpu(frame.view.get_viewport_rid()),
+				"foreground_gpu_ms":RenderingServer.viewport_get_measured_render_time_gpu(frame.view.get_viewport_rid())})
+			before = now
+	frame.composite_enabled = true
+	Engine.max_fps = old_cap
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(), false)
+	RenderingServer.viewport_set_measure_render_time(frame.view.get_viewport_rid(), false)
+	FileAccess.open(directory.path_join("foreground_cost.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":"Same-world ABBA render-path diagnostic with fixed native rig pose; warm-up24 and90 sampled intervals per leg. Uncapped render-loop diagnostic, not an FPS gain or full route proof; viewport monitors overlap and are not additive.", "rows":rows}, "\t"))
 
 func projected_bounds(draw: MeshInstance3D) -> Rect2:
 	return projected_aabb(draw, draw.mesh.get_aabb())

@@ -45,8 +45,8 @@ func _run() -> void:
 	player.carried_device = carrier
 	if not check(bool(carrier.get("world_ready")), "world companion binds its native flight and existing instrument"):
 		finish(); return
-	check(carrier._pass_view == null and carrier._presentation_layer == null, "world companion adds no private viewport or overlay")
-	check(carrier.find_children("*", "PhysicsBody3D", true, false).size() == 1, "one nonblocking sphere replaces per-mesh moving physical bodies")
+	check(carrier.screen_frame.view.world_3d == get_world_3d() and carrier.screen_frame.view_camera.cull_mask == 2, "framed companion shares its single world rig and isolates only the device render layer")
+	check(carrier.find_children("*", "PhysicsBody3D", true, false).size() == 1, "one nonblocking presentation body retains world lamp and control identity")
 	check(carrier._hand.occlusion != null and carrier._hand.occlusion.get_child_count() == 1, "fixed stock shares one query-only pick mesh")
 	check(carrier._hand.descriptor("lamp").is_empty(), "world reticle and grab share refusal before the device is presented")
 	await exercise()

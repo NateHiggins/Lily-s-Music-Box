@@ -89,7 +89,8 @@ func collect_owned() -> void:
 		if node is AudioStreamPlayer or node is AudioStreamPlayer2D or node is AudioStreamPlayer3D:
 			if node.playing: remember(owned_playbacks, node.call("get_stream_playback"))
 	for resource: RefCounted in [carrier._hand, carrier.session.dialogue, carrier.session.dialogue.memory,
-			carrier.motion._probe, carrier.motion._ray, carrier.rig.glazing_film]: remember(owned_resources, resource)
+			carrier.motion._probe, carrier.motion._ray, carrier.rig.glazing_film,
+			carrier.screen_frame._environment, carrier.screen_frame.image.texture]: remember(owned_resources, resource)
 	var printer: Node = carrier.device.teletype
 	remember(owned_resources, printer.torch_lens.get_active_material(0))
 	remember(owned_resources, printer._paper.get_active_material(0))

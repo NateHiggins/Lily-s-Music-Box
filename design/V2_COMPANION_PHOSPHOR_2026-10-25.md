@@ -130,3 +130,28 @@ period audit passes with19 classified findings. Raw outputs are retained.
 Main subsequently gained the resident walking-body changes at **20b7fee5**.
 Reconciliation and renewed runtime qualification are required before integration;
 the earlier receipts remain exact historical records, not repinned proof.
+
+## Screen framing continuation — implementation pending qualification
+
+The owner subsequently required readability and an unobstructed view regardless
+of player movement, explicitly allowing presentation cheats with bounded flight
+animation. Main20b7fee5 is reconciled with the companion branch; the newer resident
+routes and door safety changes are preserved. The original clean main20b7 gate
+board is retained externally for candidate comparison.
+
+The working implementation keeps one physical rig/world and renders its device
+layer into a cropped foreground region. The primary camera excludes that layer;
+mirror cameras retain the world model. The centre reticle stays outside the crop.
+The reading crop fits paper and the deployed keyboard rather than shrinking all
+peripheral machinery into it. Peripheral stock may be cropped at the edge. Private
+query-layer controls retain their own fixed-stock occlusion while ignoring walls
+which no longer hide the foreground instrument. Native radio/lamp/printing and
+all input/save/gameplay owners remain authoritative.
+
+Camera-relative placement overrides pursuit and environment sweeps. Limited
+banking and propulsion respond to movement/turning; reading cancels incidental
+lean. Off-axis projection is based on the documented Camera3D frustum interface:
+https://docs.godotengine.org/en/4.7/classes/class_camera3d.html#class-camera3d-method-set-frustum
+Projection agreement, resize, actual mouse turns, typing, interruption, physical
+control input, rendering cost and occupied-world reconstruction still require
+executed qualification. No new completion claim is made from these source edits.

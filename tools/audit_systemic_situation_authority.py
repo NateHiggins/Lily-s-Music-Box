@@ -243,7 +243,7 @@ SCHEDULE_ONLY_RE = re.compile(
 
 PROXIMITY_RE = re.compile(
     r"distance_to\(\s*player|player\.global_position|overlaps_body|"
-    r"body_entered|current_room|is_visible|on_screen|near_player|"
+    r"body_entered|current_room|is_visible|(?<![A-Za-z0-9])on_screen|near_player|"
     r"player_in")
 # A file "claims autonomy" only when it says so - autonomous events,
 # simulation advancement, situation progression - never merely because
