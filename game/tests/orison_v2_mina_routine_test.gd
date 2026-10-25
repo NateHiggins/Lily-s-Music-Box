@@ -38,6 +38,9 @@ func _physics_process(_delta: float) -> void:
 func _ready() -> void:
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
+	# These rounds prove the route against the authored timetable; the agenda
+	# that bends it is proven by ResidentAgendaTest.
+	OS.set_environment("AGENDA", "0")
 	var clock := CampaignClock.new()
 	clock.configure_date(1928,11,10,899 if off_map else 779 if laundry_round else 1200 if domestic else 179 if mail_round else 1423 if return_home else 1409)
 	var world: OrisonV2RuntimeRoot = load("res://scenes/building/orison_v2_runtime.tscn").instantiate()

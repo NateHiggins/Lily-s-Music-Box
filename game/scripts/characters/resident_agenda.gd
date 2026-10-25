@@ -60,6 +60,9 @@ var clock_stamps := true
 func setup(schedule: ScheduleDirector, conditions := Callable(), player_place := Callable(),
 		knows := Callable(), trust := Callable()) -> bool:
 	director = schedule
+	# AGENDA=0 keeps the bare timetable, for route tests pinned to it.
+	if OS.get_environment("AGENDA") == "0":
+		return false
 	_conditions = conditions
 	_player_place = player_place
 	_knows = knows
