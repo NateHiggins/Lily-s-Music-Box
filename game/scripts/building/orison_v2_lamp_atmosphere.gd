@@ -20,6 +20,8 @@ var scene_shadow: Node3D
 var driver: Node
 var _environment: Environment
 var _environment_before := {}
+## Outdoor weather air (an ash wall) also needs the froxel pass while it blows.
+var weather_demand := false
 var _elapsed := 0.0
 var _due := 0.0
 
@@ -52,6 +54,7 @@ func setup(owner_player: PlayerController, environment: Environment) -> bool:
 	environment.volumetric_fog_enabled = true
 	environment.volumetric_fog_density = .0001
 	environment.volumetric_fog_length = 12.0
+	add_to_group("v2_volumetric_fog")
 	volume = FogVolume.new()
 	volume.name = "CarriedLampAir"
 	volume.shape = RenderingServer.FOG_VOLUME_SHAPE_CONE
@@ -129,12 +132,15 @@ func _update_volume(delta: float) -> void:
 		material.set_shader_parameter("optical_time",_elapsed)
 		material.set_shader_parameter("lamp_output",minf(1.0,scattering) if useful else 0.0)
 
+func set_weather_demand(on: bool) -> void:
+	weather_demand = on
+
 func _update_environment(useful: bool) -> void:
 	# Waking V2 has no ambient volumetric fog before this owner mounts.
 	# Release the full-screen froxel pass when our only volume is inactive.
 	# An environment that already owned fog must retain that independent pass.
 	if _environment != null:
-		_environment.volumetric_fog_enabled = useful or bool(_environment_before.enabled)
+		_environment.volumetric_fog_enabled = useful or weather_demand or bool(_environment_before.enabled)
 
 func _build_dust() -> void:
 	particles = GPUParticles3D.new()

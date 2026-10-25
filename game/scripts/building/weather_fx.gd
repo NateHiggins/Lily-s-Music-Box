@@ -9,6 +9,8 @@ extends Node3D
 ## "outside" from height alone.
 
 signal weather_flash_changed(level: float)
+## A big ground stroke began; sky phenomena above the storm flash with it.
+signal ground_strike(strength: float)
 
 const SPATTER_COUNT := 72
 const LEAF_COUNT := 8
@@ -47,6 +49,7 @@ var _lightning_enabled := false
 var _rain_intensity := 1.0
 var _snow_intensity := 0.0
 var _live_conditions: Dictionary = {}
+var _burst := 0.0
 
 
 func setup(player: Node3D, exposure_query := Callable(),
@@ -178,6 +181,13 @@ func set_live_conditions(conditions: Dictionary) -> void:
 	# Meteorological bearings say where wind comes from.
 	_observed_wind = Vector3(-sin(bearing), 0.0, cos(bearing)) * speed
 	wind = _observed_wind
+
+
+## Microburst outflow (0-1): the splash particles hurry and the rain drives flat.
+func set_burst(level: float) -> void:
+	_burst = clampf(level, 0.0, 1.0)
+	if _splash:
+		_splash.speed_scale = 1.0 + _burst * 1.6
 
 
 func is_exposed_at(point: Vector3) -> bool:
@@ -510,7 +520,8 @@ func _process(delta: float) -> void:
 	_update_lightning(delta)
 	var gust := sin(_t * GUST_SPEED) * 0.6 \
 			+ sin(_t * GUST_SPEED * 2.7) * 0.4
-	wind = _observed_wind * (1.0 + gust * GUST_STRENGTH)
+	# A microburst's outflow arrives as one long gust on the same air mass.
+	wind = _observed_wind * (1.0 + gust * GUST_STRENGTH + _burst * 1.4)
 	if _leaves:
 		_leaves.gravity = Vector3(wind.x * 0.85, -1.5, wind.z * 0.85)
 	if _snow:
@@ -552,6 +563,7 @@ func _update_lightning(delta: float) -> void:
 		_lightning_age = 0.0
 		_lightning_wait = _rng.randf_range(22.0, 48.0)
 		_lightning.rotation_degrees.y = _rng.randf_range(-110.0, 110.0)
+		ground_strike.emit(_rng.randf_range(0.4, 1.0))
 	var level := 0.0
 	if _lightning_age >= 0.0:
 		_lightning_age += delta

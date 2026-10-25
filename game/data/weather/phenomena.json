@@ -1,0 +1,2345 @@
+{
+ "schema": "orison.sky-phenomena.v1",
+ "campaign": {
+  "first": "1928-11-10",
+  "last": "1929-11-09"
+ },
+ "seed_salt": "sky-phenomena",
+ "slots": 41,
+ "phenomena": [
+  {
+   "id": "mammatus",
+   "slot": 0,
+   "family": "cloud",
+   "label": "pouched storm clouds",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    -4,
+    15
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "wet": true,
+    "cloud_total": 0.8,
+    "cloud_low": 0.65,
+    "cloud_mid": 0.5,
+    "precipitation_intensity": 0.12,
+    "rain_intensity": 0.12,
+    "wind_speed_kmh": 30,
+    "wind_gusts_kmh": 60,
+    "relative_humidity": 0.85
+   },
+   "fade_minutes": 12,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ]
+  },
+  {
+   "id": "shelf_cloud",
+   "slot": 1,
+   "family": "cloud",
+   "label": "the roll before the squall",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    -2,
+    70
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "wet": true,
+    "cloud_total": 0.8,
+    "cloud_low": 0.65,
+    "cloud_mid": 0.5,
+    "precipitation_intensity": 0.12,
+    "rain_intensity": 0.12,
+    "wind_speed_kmh": 30,
+    "wind_gusts_kmh": 60,
+    "relative_humidity": 0.85
+   },
+   "fade_minutes": 6,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ]
+  },
+  {
+   "id": "wall_cloud",
+   "slot": 2,
+   "family": "cloud",
+   "label": "the lowered storm floor",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    0,
+    70
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "wet": true,
+    "cloud_total": 0.95,
+    "cloud_low": 0.85,
+    "cloud_mid": 0.6,
+    "precipitation_intensity": 0.6,
+    "rain_intensity": 0.6,
+    "wind_speed_kmh": 38,
+    "wind_gusts_kmh": 72,
+    "relative_humidity": 0.92
+   },
+   "fade_minutes": 6,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ]
+  },
+  {
+   "id": "lenticular",
+   "slot": 3,
+   "family": "cloud",
+   "label": "lens clouds standing in the wind",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "sun_degrees": [
+    5,
+    40
+   ],
+   "requires": {
+    "wind_min_kmh": 30,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "wind_speed_kmh": 42,
+    "wind_gusts_kmh": 64,
+    "wind_direction_degrees": 305,
+    "cloud_total": 0.3,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.35,
+    "precipitation_intensity": 0.0
+   },
+   "fade_minutes": 20,
+   "ear_any": [
+    "wind",
+    "northwest"
+   ],
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ]
+  },
+  {
+   "id": "morning_glory",
+   "slot": 4,
+   "family": "cloud",
+   "label": "rolling clouds off the Sound",
+   "months": [
+    8,
+    9,
+    10
+   ],
+   "sun_degrees": [
+    -4,
+    10
+   ],
+   "requires": {
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.35,
+    "cloud_low": 0.35,
+    "precipitation_intensity": 0.0,
+    "wind_direction_degrees": 10,
+    "wind_speed_kmh": 24
+   },
+   "fade_minutes": 8,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ]
+  },
+  {
+   "id": "virga",
+   "slot": 5,
+   "family": "cloud",
+   "label": "rain that never lands",
+   "months": [
+    3,
+    4,
+    5,
+    9,
+    10
+   ],
+   "sun_degrees": [
+    3,
+    50
+   ],
+   "requires": {
+    "precipitation_max": 0.02,
+    "humidity_max": 0.6,
+    "cloud_mid_min": 0.3
+   },
+   "weather": {
+    "cloud_total": 0.5,
+    "cloud_mid": 0.6,
+    "cloud_low": 0.1,
+    "relative_humidity": 0.45,
+    "precipitation_intensity": 0.0
+   },
+   "fade_minutes": 15,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ]
+  },
+  {
+   "id": "microburst",
+   "slot": 6,
+   "family": "cloud",
+   "label": "the downburst",
+   "months": [
+    6,
+    7,
+    8
+   ],
+   "sun_degrees": [
+    -2,
+    40
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "wet": true,
+    "cloud_total": 0.95,
+    "cloud_low": 0.85,
+    "cloud_mid": 0.6,
+    "precipitation_intensity": 0.6,
+    "rain_intensity": 0.6,
+    "wind_speed_kmh": 38,
+    "wind_gusts_kmh": 72,
+    "relative_humidity": 0.92
+   },
+   "fade_minutes": 3,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ]
+  },
+  {
+   "id": "haboob",
+   "slot": 7,
+   "family": "dust",
+   "label": "the ash wall from the Corona dumps",
+   "months": [
+    3,
+    4,
+    5,
+    9,
+    10
+   ],
+   "sun_degrees": [
+    0,
+    60
+   ],
+   "requires": {
+    "wind_min_kmh": 30,
+    "precipitation_max": 0.0,
+    "humidity_max": 0.5,
+    "dust_min": 0.5
+   },
+   "weather": {
+    "dust": 1.0,
+    "wind_speed_kmh": 46,
+    "wind_gusts_kmh": 70,
+    "wind_direction_degrees": 95,
+    "relative_humidity": 0.32,
+    "precipitation_intensity": 0.0,
+    "cloud_total": 0.2
+   },
+   "fade_minutes": 8,
+   "ear_any": [
+    "corona",
+    "windy",
+    "smoke"
+   ],
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder"
+   ]
+  },
+  {
+   "id": "asperitas",
+   "slot": 8,
+   "family": "cloud",
+   "label": "the rough sea overhead",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    2,
+    50
+   ],
+   "requires": {
+    "precipitation_max": 0.02,
+    "cloud_low_min": 0.5
+   },
+   "weather": {
+    "cloud_total": 0.85,
+    "cloud_low": 0.75,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0
+   },
+   "fade_minutes": 15,
+   "ear_any": [
+    "after storms"
+   ]
+  },
+  {
+   "id": "kelvin_helmholtz",
+   "slot": 9,
+   "family": "cloud",
+   "label": "breaking-wave clouds",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3,
+    4
+   ],
+   "sun_degrees": [
+    3,
+    45
+   ],
+   "requires": {
+    "wind_min_kmh": 30,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "wind_speed_kmh": 40,
+    "wind_gusts_kmh": 62,
+    "wind_direction_degrees": 310,
+    "cloud_total": 0.35,
+    "cloud_mid": 0.4,
+    "precipitation_intensity": 0.0
+   },
+   "fade_minutes": 8,
+   "ear_any": [
+    "wind",
+    "northwest",
+    "gale"
+   ],
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ]
+  },
+  {
+   "id": "fallstreak_hole",
+   "slot": 10,
+   "family": "cloud",
+   "label": "the hole punched in the cloud",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "sun_degrees": [
+    3,
+    35
+   ],
+   "requires": {
+    "cloud_mid_min": 0.5,
+    "temperature_max_c": 3,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.85,
+    "cloud_mid": 0.85,
+    "cloud_low": 0.8,
+    "precipitation_intensity": 0.0
+   },
+   "fade_minutes": 12,
+   "ear_any": [
+    "cloudy"
+   ],
+   "ear_none": [
+    "rain"
+   ]
+  },
+  {
+   "id": "striated_supercell",
+   "slot": 11,
+   "family": "cloud",
+   "label": "the banded storm",
+   "months": [
+    6,
+    7,
+    8
+   ],
+   "sun_degrees": [
+    0,
+    45
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "wet": true,
+    "cloud_total": 0.8,
+    "cloud_low": 0.65,
+    "cloud_mid": 0.5,
+    "precipitation_intensity": 0.12,
+    "rain_intensity": 0.12,
+    "wind_speed_kmh": 30,
+    "wind_gusts_kmh": 60,
+    "relative_humidity": 0.85
+   },
+   "fade_minutes": 10,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ]
+  },
+  {
+   "id": "anvil_cumulonimbus",
+   "slot": 12,
+   "family": "cloud",
+   "label": "the anvil thunderhead",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    3,
+    70
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "cloud_total": 0.35,
+    "cloud_low": 0.2,
+    "cloud_mid": 0.25,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0,
+    "relative_humidity": 0.8
+   },
+   "fade_minutes": 20,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ]
+  },
+  {
+   "id": "overshooting_top",
+   "slot": 13,
+   "family": "cloud",
+   "label": "the dome over the anvil",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    3,
+    70
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "cloud_total": 0.35,
+    "cloud_low": 0.2,
+    "cloud_mid": 0.25,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0,
+    "relative_humidity": 0.8
+   },
+   "fade_minutes": 10,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ]
+  },
+  {
+   "id": "pileus",
+   "slot": 14,
+   "family": "cloud",
+   "label": "the cap cloud",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    10,
+    75
+   ],
+   "requires": {
+    "cloud_total_min": 0.3,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.45,
+    "cloud_low": 0.4,
+    "precipitation_intensity": 0.0
+   },
+   "fade_minutes": 8,
+   "ear_any": [
+    "storm",
+    "thunder",
+    "hot",
+    "humid"
+   ],
+   "ear_none": [
+    "rain",
+    "showers"
+   ]
+  },
+  {
+   "id": "pyrocumulonimbus",
+   "slot": 15,
+   "family": "cloud",
+   "label": "the fire cloud over Newtown Creek",
+   "months": [
+    7,
+    8,
+    9,
+    10
+   ],
+   "sun_degrees": [
+    -6,
+    60
+   ],
+   "requires": {
+    "precipitation_max": 0.0,
+    "humidity_max": 0.6
+   },
+   "weather": {
+    "cloud_total": 0.25,
+    "cloud_low": 0.1,
+    "relative_humidity": 0.4,
+    "precipitation_intensity": 0.0,
+    "wind_direction_degrees": 240,
+    "wind_speed_kmh": 18
+   },
+   "fade_minutes": 30,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ],
+   "ear_high_f": [
+    80,
+    110
+   ]
+  },
+  {
+   "id": "tornado",
+   "slot": 16,
+   "family": "cloud",
+   "label": "the twister",
+   "months": [
+    6,
+    7,
+    8
+   ],
+   "sun_degrees": [
+    -2,
+    40
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "wet": true,
+    "cloud_total": 0.95,
+    "cloud_low": 0.85,
+    "cloud_mid": 0.6,
+    "precipitation_intensity": 0.6,
+    "rain_intensity": 0.6,
+    "wind_speed_kmh": 38,
+    "wind_gusts_kmh": 72,
+    "relative_humidity": 0.92
+   },
+   "fade_minutes": 4,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ]
+  },
+  {
+   "id": "waterspout",
+   "slot": 17,
+   "family": "cloud",
+   "label": "the water-spout on the Sound",
+   "months": [
+    7,
+    8,
+    9,
+    10
+   ],
+   "sun_degrees": [
+    5,
+    65
+   ],
+   "requires": {
+    "cloud_low_min": 0.3,
+    "precipitation_max": 0.2
+   },
+   "weather": {
+    "cloud_total": 0.6,
+    "cloud_low": 0.5,
+    "precipitation_intensity": 0.05,
+    "rain_intensity": 0.05,
+    "wind_direction_degrees": 330,
+    "wind_speed_kmh": 20
+   },
+   "fade_minutes": 4,
+   "ear_any": [
+    "cool"
+   ],
+   "ear_none": [
+    "rain",
+    "storm",
+    "thunder"
+   ]
+  },
+  {
+   "id": "nacreous",
+   "slot": 18,
+   "family": "dome",
+   "label": "mother-of-pearl clouds",
+   "months": [
+    12,
+    1,
+    2
+   ],
+   "sun_degrees": [
+    -7,
+    -1
+   ],
+   "requires": {
+    "temperature_max_c": -3,
+    "cloud_total_max": 0.3
+   },
+   "weather": {
+    "cloud_total": 0.12,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.05,
+    "cloud_high": 0.05,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0,
+    "temperature_c": -13
+   },
+   "fade_minutes": 6,
+   "ear_any": [
+    "bitter",
+    "very cold",
+    "below"
+   ],
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ],
+   "ear_high_f": [
+    0,
+    25
+   ]
+  },
+  {
+   "id": "noctilucent",
+   "slot": 19,
+   "family": "dome",
+   "label": "luminous night clouds",
+   "months": [
+    6,
+    7
+   ],
+   "sun_degrees": [
+    -12,
+    -6
+   ],
+   "requires": {
+    "cloud_total_max": 0.3
+   },
+   "weather": {
+    "cloud_total": 0.12,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.05,
+    "cloud_high": 0.05,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0
+   },
+   "fade_minutes": 8,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ],
+   "chance_per_day": 0.03
+  },
+  {
+   "id": "aurora",
+   "slot": 20,
+   "family": "dome",
+   "label": "the northern lights",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "sun_degrees": [
+    -90,
+    -15
+   ],
+   "requires": {
+    "cloud_total_max": 0.35
+   },
+   "weather": {
+    "cloud_total": 0.12,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.05,
+    "cloud_high": 0.05,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0
+   },
+   "fade_minutes": 20,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog",
+    "cloudy"
+   ],
+   "chance_per_day": 0.005
+  },
+  {
+   "id": "steve",
+   "slot": 21,
+   "family": "dome",
+   "label": "the violet arch",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "sun_degrees": [
+    -90,
+    -15
+   ],
+   "requires": {
+    "cloud_total_max": 0.35
+   },
+   "weather": {
+    "cloud_total": 0.12,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.05,
+    "cloud_high": 0.05,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0
+   },
+   "fade_minutes": 5,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog",
+    "cloudy"
+   ]
+  },
+  {
+   "id": "spider_lightning",
+   "slot": 22,
+   "family": "electric",
+   "label": "lightning crawling under the cloud",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    -90,
+    10
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "wet": true,
+    "cloud_total": 0.8,
+    "cloud_low": 0.65,
+    "cloud_mid": 0.5,
+    "precipitation_intensity": 0.12,
+    "rain_intensity": 0.12,
+    "wind_speed_kmh": 30,
+    "wind_gusts_kmh": 60,
+    "relative_humidity": 0.85
+   },
+   "fade_minutes": 4,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ],
+   "flash": true
+  },
+  {
+   "id": "red_sprite",
+   "slot": 23,
+   "family": "electric",
+   "label": "red flashes over the storm",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    -90,
+    -12
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "cloud_total": 0.35,
+    "cloud_low": 0.2,
+    "cloud_mid": 0.25,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0,
+    "relative_humidity": 0.8
+   },
+   "fade_minutes": 4,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ],
+   "flash": true
+  },
+  {
+   "id": "blue_jet",
+   "slot": 24,
+   "family": "electric",
+   "label": "blue jets from the storm top",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    -90,
+    -12
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "cloud_total": 0.35,
+    "cloud_low": 0.2,
+    "cloud_mid": 0.25,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0,
+    "relative_humidity": 0.8
+   },
+   "fade_minutes": 4,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ],
+   "flash": true
+  },
+  {
+   "id": "gigantic_jet",
+   "slot": 25,
+   "family": "electric",
+   "label": "the great jet",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    -90,
+    -12
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "cloud_total": 0.35,
+    "cloud_low": 0.2,
+    "cloud_mid": 0.25,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0,
+    "relative_humidity": 0.8
+   },
+   "fade_minutes": 4,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ],
+   "flash": true
+  },
+  {
+   "id": "elves",
+   "slot": 26,
+   "family": "electric",
+   "label": "the red ring",
+   "months": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sun_degrees": [
+    -90,
+    -12
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "cloud_total": 0.35,
+    "cloud_low": 0.2,
+    "cloud_mid": 0.25,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0,
+    "relative_humidity": 0.8
+   },
+   "fade_minutes": 4,
+   "ear_any": [
+    "storm",
+    "thunder"
+   ],
+   "flash": true
+  },
+  {
+   "id": "st_elmos_fire",
+   "slot": 27,
+   "family": "electric",
+   "label": "corposants on the stacks",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "sun_degrees": [
+    -90,
+    90
+   ],
+   "requires": {
+    "thunderstorm": true
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "wet": true,
+    "cloud_total": 0.95,
+    "cloud_low": 0.85,
+    "cloud_mid": 0.6,
+    "precipitation_intensity": 0.6,
+    "rain_intensity": 0.6,
+    "wind_speed_kmh": 38,
+    "wind_gusts_kmh": 72,
+    "relative_humidity": 0.92
+   },
+   "fade_minutes": 4,
+   "ear_any": [
+    "storm",
+    "thunder",
+    "snow"
+   ]
+  },
+  {
+   "id": "volcanic_lightning",
+   "slot": 28,
+   "family": "electric",
+   "label": "lightning in the fire cloud",
+   "months": [
+    7,
+    8,
+    9,
+    10
+   ],
+   "sun_degrees": [
+    -90,
+    60
+   ],
+   "requires": {
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.3,
+    "relative_humidity": 0.4,
+    "precipitation_intensity": 0.0
+   },
+   "fade_minutes": 4,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ],
+   "ear_high_f": [
+    80,
+    110
+   ],
+   "flash": true
+  },
+  {
+   "id": "rainbow",
+   "slot": 29,
+   "family": "optics",
+   "label": "the double bow",
+   "months": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "sun_degrees": [
+    0,
+    42
+   ],
+   "requires": {
+    "precipitation_min": 0.05,
+    "cloud_total_max": 0.85
+   },
+   "weather": {
+    "wet": true,
+    "weather_code": 80,
+    "cloud_total": 0.6,
+    "cloud_low": 0.45,
+    "precipitation_intensity": 0.18,
+    "rain_intensity": 0.18
+   },
+   "fade_minutes": 6,
+   "ear_any": [
+    "showers",
+    "clearing",
+    "storm"
+   ]
+  },
+  {
+   "id": "halo_22",
+   "slot": 30,
+   "family": "optics",
+   "label": "the ring round the sun",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "sun_degrees": [
+    5,
+    60
+   ],
+   "requires": {
+    "cloud_high_min": 0.4,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.55,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.1,
+    "cloud_high": 0.9,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0
+   },
+   "fade_minutes": 20,
+   "ear_any": [
+    "cloudy",
+    "fair",
+    "snow"
+   ],
+   "ear_none": [
+    "rain",
+    "showers"
+   ],
+   "chance_per_day": 0.012
+  },
+  {
+   "id": "sun_dogs",
+   "slot": 31,
+   "family": "optics",
+   "label": "mock suns",
+   "months": [
+    11,
+    12,
+    1,
+    2,
+    3
+   ],
+   "sun_degrees": [
+    0,
+    25
+   ],
+   "requires": {
+    "cloud_high_min": 0.3,
+    "temperature_max_c": 2,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.55,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.1,
+    "cloud_high": 0.9,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0,
+    "temperature_c": -11
+   },
+   "fade_minutes": 10,
+   "ear_any": [
+    "cold"
+   ],
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ],
+   "chance_per_day": 0.012
+  },
+  {
+   "id": "circumhorizontal_arc",
+   "slot": 32,
+   "family": "optics",
+   "label": "the fire rainbow",
+   "months": [
+    5,
+    6,
+    7
+   ],
+   "sun_degrees": [
+    58,
+    90
+   ],
+   "requires": {
+    "cloud_high_min": 0.3,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.55,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.1,
+    "cloud_high": 0.9,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0
+   },
+   "fade_minutes": 10,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ]
+  },
+  {
+   "id": "circumzenithal_arc",
+   "slot": 33,
+   "family": "optics",
+   "label": "the upside-down bow",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "sun_degrees": [
+    5,
+    32
+   ],
+   "requires": {
+    "cloud_high_min": 0.3,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.55,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.1,
+    "cloud_high": 0.9,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0
+   },
+   "fade_minutes": 8,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ]
+  },
+  {
+   "id": "light_pillars",
+   "slot": 34,
+   "family": "optics",
+   "label": "pillars of light",
+   "months": [
+    12,
+    1,
+    2
+   ],
+   "sun_degrees": [
+    -90,
+    6
+   ],
+   "requires": {
+    "temperature_max_c": -5,
+    "wind_max_kmh": 12,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.12,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.05,
+    "cloud_high": 0.35,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0,
+    "temperature_c": -12,
+    "wind_speed_kmh": 6
+   },
+   "fade_minutes": 8,
+   "ear_any": [
+    "cold",
+    "bitter"
+   ],
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ],
+   "ear_high_f": [
+    0,
+    30
+   ],
+   "chance_per_day": 0.01
+  },
+  {
+   "id": "crepuscular_rays",
+   "slot": 35,
+   "family": "optics",
+   "label": "sunbeams fanned over the borough",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "sun_degrees": [
+    -3,
+    12
+   ],
+   "requires": {
+    "cloud_total_min": 0.3,
+    "cloud_total_max": 0.8,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.55,
+    "cloud_low": 0.45,
+    "precipitation_intensity": 0.0
+   },
+   "fade_minutes": 10,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ],
+   "chance_per_day": 0.012
+  },
+  {
+   "id": "anticrepuscular_rays",
+   "slot": 36,
+   "family": "optics",
+   "label": "beams meeting in the east",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "sun_degrees": [
+    -3,
+    12
+   ],
+   "requires": {
+    "cloud_total_min": 0.3,
+    "cloud_total_max": 0.8,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.55,
+    "cloud_low": 0.45,
+    "precipitation_intensity": 0.0
+   },
+   "fade_minutes": 10,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ]
+  },
+  {
+   "id": "glory",
+   "slot": 37,
+   "family": "optics",
+   "label": "the glory on the fog",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "sun_degrees": [
+    0,
+    15
+   ],
+   "requires": {
+    "foggy": true
+   },
+   "weather": {
+    "foggy": true,
+    "weather_code": 45,
+    "relative_humidity": 0.98,
+    "cloud_low": 0.3,
+    "precipitation_intensity": 0.0
+   },
+   "fade_minutes": 8,
+   "ear_any": [
+    "fog"
+   ],
+   "ear_none": [
+    "rain",
+    "snow"
+   ]
+  },
+  {
+   "id": "iridescence",
+   "slot": 38,
+   "family": "optics",
+   "label": "rainbow-edged clouds",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "sun_degrees": [
+    15,
+    70
+   ],
+   "requires": {
+    "cloud_mid_min": 0.3,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.6,
+    "cloud_mid": 0.55,
+    "cloud_low": 0.15,
+    "precipitation_intensity": 0.0
+   },
+   "fade_minutes": 8,
+   "ear_any": [
+    "cloudy",
+    "fair"
+   ],
+   "ear_none": [
+    "rain",
+    "showers"
+   ]
+  },
+  {
+   "id": "green_flash",
+   "slot": 39,
+   "family": "optics",
+   "label": "the green flash",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   "sun_degrees": [
+    2.0,
+    4.5
+   ],
+   "requires": {
+    "cloud_total_max": 0.25
+   },
+   "weather": {
+    "cloud_total": 0.12,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.05,
+    "cloud_high": 0.05,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0
+   },
+   "fade_minutes": 2,
+   "ear_any": [
+    "fair",
+    "calm",
+    "clear",
+    "sundown"
+   ],
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ],
+   "chance_per_day": 0.008
+  },
+  {
+   "id": "fata_morgana",
+   "slot": 40,
+   "family": "optics",
+   "label": "the castles over the Sound",
+   "months": [
+    4,
+    5,
+    6
+   ],
+   "sun_degrees": [
+    10,
+    70
+   ],
+   "requires": {
+    "temperature_min_c": 15,
+    "precipitation_max": 0.0
+   },
+   "weather": {
+    "cloud_total": 0.15,
+    "cloud_low": 0.05,
+    "cloud_mid": 0.05,
+    "cloud_high": 0.05,
+    "precipitation_intensity": 0.0,
+    "rain_intensity": 0.0,
+    "temperature_c": 26
+   },
+   "fade_minutes": 15,
+   "ear_none": [
+    "rain",
+    "snow",
+    "showers",
+    "storm",
+    "thunder",
+    "flurries",
+    "fog"
+   ],
+   "ear_high_f": [
+    70,
+    100
+   ]
+  }
+ ],
+ "occurrences": [
+  {
+   "id": "halo_22",
+   "date": "1928-11-20",
+   "start": "10:00",
+   "minutes": 120,
+   "bearing_degrees": 169,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Ring round the sun before the snow",
+    "record": "A ring of 22 degrees stood about the sun from ten o'clock until noon yesterday; the Weather Bureau's man at the Battery calls it the forerunner of the snow.",
+    "speaker": "A ring round the sun, and the snow came on cue. The old folks in Steinway were right again."
+   }
+  },
+  {
+   "id": "light_pillars",
+   "date": "1928-12-09",
+   "start": "16:15",
+   "minutes": 30,
+   "bearing_degrees": 240,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Pillar of light at sundown",
+    "record": "A column of light rose from the setting sun at 4:25 p.m. yesterday in eight degrees of frost, observers at Fort Totten state.",
+    "speaker": "At sundown a pillar of light stood on the sun like a candle. Eight degrees. Nobody lit it."
+   }
+  },
+  {
+   "id": "aurora",
+   "date": "1928-12-14",
+   "start": "21:30",
+   "minutes": 120,
+   "bearing_degrees": 350,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Northern lights over the Sound",
+    "record": "The aurora borealis was seen over the Sound from 9:30 p.m. until near midnight, green below and rose above; the Radio Division reports heavy fading on the northern circuits.",
+    "speaker": "The northern lights came down as far as Astoria. The radios crackled; the ice men looked up for once."
+   }
+  },
+  {
+   "id": "lenticular",
+   "date": "1928-12-19",
+   "start": "13:00",
+   "minutes": 120,
+   "bearing_degrees": 300,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Clouds stand still over the Palisades",
+    "record": "Three smooth lens-shaped clouds stood still over the Palisades for two hours yesterday in a fresh northwest wind, the Bureau states; airmail pilots report rough air beneath them.",
+    "speaker": "Three clouds parked over Jersey all afternoon and refused to move. The traffic squad wants their names."
+   }
+  },
+  {
+   "id": "glory",
+   "date": "1929-01-08",
+   "start": "07:15",
+   "minutes": 40,
+   "bearing_degrees": 300,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Shadows ringed with colour on the fog",
+    "record": "Men on the roof of the Queensboro Bridge tower saw their shadows ringed with colour on the fog below at sunrise, the Department of Plant and Structures states.",
+    "speaker": "Painters on the bridge saw their own shadows haloed on the fog. Saints, every one, until lunch."
+   }
+  },
+  {
+   "id": "fallstreak_hole",
+   "date": "1929-01-17",
+   "start": "10:30",
+   "minutes": 50,
+   "bearing_degrees": 200,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Hole opens in the cloud over the bay",
+    "record": "A round hole opened in the grey cloud over Jamaica Bay yesterday morning with a fall of snow hanging in its middle, the Bureau states.",
+    "speaker": "Someone punched a hole in the sky over Jamaica and snow fell out of it. We blame Brooklyn."
+   }
+  },
+  {
+   "id": "sun_dogs",
+   "date": "1929-01-19",
+   "start": "07:50",
+   "minutes": 50,
+   "bearing_degrees": 127,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Mock suns in the bitter cold",
+    "record": "Two mock suns stood either side of the sun at sunrise yesterday in one degree above zero, the Bureau states.",
+    "speaker": "Three suns at breakfast and not one of them warm. High 12."
+   }
+  },
+  {
+   "id": "nacreous",
+   "date": "1929-01-20",
+   "start": "17:00",
+   "minutes": 35,
+   "bearing_degrees": 245,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Mother-of-pearl clouds after sundown",
+    "record": "Clouds coloured like mother-of-pearl shone in the southwest for half an hour after sundown, the coldest evening since 1918, the Bureau states.",
+    "speaker": "The sky turned the colour of a shell button after sunset. Two below and still showing off."
+   }
+  },
+  {
+   "id": "light_pillars",
+   "date": "1929-01-21",
+   "start": "22:00",
+   "minutes": 60,
+   "bearing_degrees": 300,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Pillars over the city lamps",
+    "record": "Columns of light stood above the lamps of Manhattan from ten o'clock last night in fourteen degrees of frost and no wind, observers state.",
+    "speaker": "Pillars stood over the city lights last night, like the borough had grown a colonnade."
+   }
+  },
+  {
+   "id": "kelvin_helmholtz",
+   "date": "1929-02-06",
+   "start": "14:30",
+   "minutes": 30,
+   "bearing_degrees": 300,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Clouds break like surf",
+    "record": "A row of clouds curled over like breaking waves across the northwest sky for half an hour yesterday, the Bureau states.",
+    "speaker": "The sky broke like surf over Hell Gate. Nobody was swimming."
+   }
+  },
+  {
+   "id": "st_elmos_fire",
+   "date": "1929-02-07",
+   "start": "21:10",
+   "minutes": 40,
+   "bearing_degrees": 0,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Thunder in the snow; blue fire on the stacks",
+    "record": "Thunder was heard in the snowstorm last night and blue lights burned on the stacks along Newtown Creek, the Fire Department states; no fire resulted.",
+    "speaker": "Thunder in a snowstorm, and blue fire on the chimneys. The firemen came, looked, and went home."
+   },
+   "weather": {
+    "thunderstorm": true,
+    "weather_code": 95,
+    "snowing": true,
+    "snow_intensity": 0.6,
+    "precipitation_intensity": 0.6,
+    "rain_intensity": 0.0,
+    "wet": false,
+    "cloud_total": 0.98,
+    "cloud_low": 0.9,
+    "temperature_c": -2
+   }
+  },
+  {
+   "id": "circumzenithal_arc",
+   "date": "1929-02-20",
+   "start": "09:10",
+   "minutes": 40,
+   "bearing_degrees": 135,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Upside-down bow at mid-morning",
+    "record": "A bow of colour stood upside-down near the top of the sky yesterday morning, like a smile, the Bureau states.",
+    "speaker": "The sky smiled at Queens yesterday. Upside-down, so we are not sure at whom."
+   }
+  },
+  {
+   "id": "haboob",
+   "date": "1929-03-05",
+   "start": "14:00",
+   "minutes": 30,
+   "bearing_degrees": 95,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Ash wall crosses Jackson Heights",
+    "record": "A wall of ash lifted off the Corona dumps in yesterday's wind and crossed Jackson Heights in twenty minutes; the Board of Health has the complaints.",
+    "speaker": "The Corona dumps went for a walk. They came by way of everyone's washing."
+   }
+  },
+  {
+   "id": "virga",
+   "date": "1929-03-22",
+   "start": "15:00",
+   "minutes": 60,
+   "bearing_degrees": 240,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Rain that never reached the ground",
+    "record": "Streamers of rain hung from the clouds over Brooklyn yesterday afternoon and dried away before they reached the ground, the Bureau states.",
+    "speaker": "It rained on Brooklyn yesterday, but only halfway down. Typical."
+   }
+  },
+  {
+   "id": "aurora",
+   "date": "1929-03-29",
+   "start": "22:00",
+   "minutes": 90,
+   "bearing_degrees": 345,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Aurora on Good Friday",
+    "record": "The aurora was seen low in the north from 10 p.m. on Good Friday; the Radio Division reports the transatlantic circuits faded until morning.",
+    "speaker": "Northern lights on Good Friday. The pastor says it is not a sign. The pastor checked."
+   }
+  },
+  {
+   "id": "iridescence",
+   "date": "1929-04-14",
+   "start": "11:00",
+   "minutes": 40,
+   "bearing_degrees": 163,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Pink and green cloud edges",
+    "record": "The edges of the clouds near the sun showed pink and green at midday, the Bureau states.",
+    "speaker": "The clouds by the sun went pink and green at noon, like a bad suit."
+   }
+  },
+  {
+   "id": "rainbow",
+   "date": "1929-04-17",
+   "start": "16:20",
+   "minutes": 30,
+   "bearing_degrees": 82,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Double rainbow over Flushing",
+    "record": "A double rainbow stood over Flushing after the showers at 4:30 p.m., the inner bow fringed with faint green and violet bands, the Bureau states.",
+    "speaker": "Two rainbows over Flushing and a dark stripe between them. The children counted the colours twice."
+   }
+  },
+  {
+   "id": "haboob",
+   "date": "1929-04-20",
+   "start": "15:10",
+   "minutes": 45,
+   "bearing_degrees": 95,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Ash storm halts trolleys",
+    "record": "A brown wall of ash and dust from the Corona dumps crossed Astoria at 3:20 p.m. yesterday in a windy afternoon; street lamps were lit and trolleys halted for twelve minutes.",
+    "speaker": "The ash dumps came to visit at twenty past three. The lamps came on. The washing went brown."
+   }
+  },
+  {
+   "id": "fata_morgana",
+   "date": "1929-05-09",
+   "start": "13:30",
+   "minutes": 90,
+   "bearing_degrees": 45,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Castles stand over the Sound",
+    "record": "Towers and castles appeared over the Sound off Whitestone for an hour and a half yesterday, a mirage of the Connecticut shore, the Bureau states.",
+    "speaker": "There were castles on the Sound yesterday. By evening they were Connecticut again."
+   }
+  },
+  {
+   "id": "rainbow",
+   "date": "1929-05-13",
+   "start": "17:10",
+   "minutes": 30,
+   "bearing_degrees": 100,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Rainbow over Woodside",
+    "record": "A rainbow stood over Woodside after the showers at 5:15 p.m.",
+    "speaker": "A rainbow over Woodside. The bakery claims it."
+   }
+  },
+  {
+   "id": "green_flash",
+   "date": "1929-06-09",
+   "start": "04:44",
+   "minutes": 8,
+   "bearing_degrees": 62,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Green flash at sunrise",
+    "record": "The sun cleared the roofs toward the Sound with a green flash at 4:48 a.m., watchers on the Astoria water tanks state.",
+    "speaker": "The sun came up green for a second over the Sound. The milkman swears to it."
+   }
+  },
+  {
+   "id": "circumhorizontal_arc",
+   "date": "1929-06-14",
+   "start": "11:20",
+   "minutes": 70,
+   "bearing_degrees": 179,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Flat rainbow at noon",
+    "record": "A band of rainbow colours lay flat across the southern sky under the noon sun, the Bureau states.",
+    "speaker": "A rainbow lay down flat at noon. Too hot to stand."
+   }
+  },
+  {
+   "id": "noctilucent",
+   "date": "1929-06-21",
+   "start": "20:05",
+   "minutes": 45,
+   "bearing_degrees": 330,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Shining night clouds on the longest day",
+    "record": "Shining silver-blue clouds stood in the northwest long after sundown on the longest day, the Bureau states; such night clouds are seldom seen so far south.",
+    "speaker": "The longest day would not go dark: silver clouds glowed in the north until bedtime."
+   }
+  },
+  {
+   "id": "anvil_cumulonimbus",
+   "date": "1929-06-25",
+   "start": "15:30",
+   "minutes": 95,
+   "bearing_degrees": 300,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Thunderhead over Jersey",
+    "record": "A thunderhead rose over New Jersey from 3:30 p.m. yesterday, its anvil spreading thirty miles, with a dome above it, the Bureau states.",
+    "speaker": "A thunderhead the size of Jersey stood up at half past three and put a hat on."
+   }
+  },
+  {
+   "id": "overshooting_top",
+   "date": "1929-06-25",
+   "start": "15:50",
+   "minutes": 60,
+   "bearing_degrees": 300,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Dome above the anvil",
+    "record": "The top of the storm stood above the flat of its anvil in a dome for an hour, airmail pilots state.",
+    "speaker": "The storm's head stuck up through its own hat."
+   }
+  },
+  {
+   "id": "mammatus",
+   "date": "1929-06-25",
+   "start": "18:40",
+   "minutes": 50,
+   "bearing_degrees": 100,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Red pouches under the storm cloud",
+    "record": "After the storm the underside of its cloud hung in pouches lit red by the sunset, the Bureau states.",
+    "speaker": "After the thunder the clouds hung down in red pouches. Not the end of the world; just Tuesday."
+   }
+  },
+  {
+   "id": "asperitas",
+   "date": "1929-06-26",
+   "start": "08:00",
+   "minutes": 50,
+   "bearing_degrees": 180,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Rough sea overhead",
+    "record": "The under-side of the cloud over Queens heaved like a rough sea yesterday morning, the Bureau states.",
+    "speaker": "The sky was choppy this morning. Nobody was seasick, except the ferry."
+   }
+  },
+  {
+   "id": "noctilucent",
+   "date": "1929-07-03",
+   "start": "20:10",
+   "minutes": 40,
+   "bearing_degrees": 330,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Night clouds again",
+    "record": "Silver-blue night clouds were seen again in the northwest after sundown, the Bureau states.",
+    "speaker": "The silver clouds came back for the Fourth, a day early."
+   }
+  },
+  {
+   "id": "pileus",
+   "date": "1929-07-11",
+   "start": "14:10",
+   "minutes": 40,
+   "bearing_degrees": 250,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Cap on the thunderhead",
+    "record": "A smooth cap of cloud sat on top of a growing thunderhead over Brooklyn at 2:15 p.m.",
+    "speaker": "A thunderhead wore a skullcap over Brooklyn. Then it took it off and threw it."
+   }
+  },
+  {
+   "id": "shelf_cloud",
+   "date": "1929-07-11",
+   "start": "17:20",
+   "minutes": 25,
+   "bearing_degrees": 290,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Roll cloud ahead of the squall",
+    "record": "A long roll of cloud came in ahead of the squall at 5:25 p.m. and the wind rose to fifty miles an hour at the Battery.",
+    "speaker": "The roll came first, then the wind, then everyone's hat."
+   }
+  },
+  {
+   "id": "spider_lightning",
+   "date": "1929-07-11",
+   "start": "20:10",
+   "minutes": 60,
+   "bearing_degrees": 120,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Lightning crawls under the cloud",
+    "record": "Lightning ran along the under-side of the cloud for an hour after dark, branching like roots, the Bureau states.",
+    "speaker": "Lightning crawled under the cloud like ivy last night. We stayed in."
+   }
+  },
+  {
+   "id": "elves",
+   "date": "1929-07-11",
+   "start": "21:30",
+   "minutes": 60,
+   "bearing_degrees": 110,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Red ring over the storm, pilots say",
+    "record": "Airmail pilots over Long Island report a red ring expanding above the storm in the moment of the larger strokes.",
+    "speaker": "The airmail says the storm blew red smoke rings. The airmail was tired."
+   }
+  },
+  {
+   "id": "asperitas",
+   "date": "1929-07-12",
+   "start": "07:20",
+   "minutes": 60,
+   "bearing_degrees": 180,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Rough sea overhead again",
+    "record": "The cloud over Queens heaved in waves after the night's storms, the Bureau states.",
+    "speaker": "The sky was choppy again. The storm left its sea behind."
+   }
+  },
+  {
+   "id": "striated_supercell",
+   "date": "1929-07-19",
+   "start": "16:40",
+   "minutes": 60,
+   "bearing_degrees": 280,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Banded storm from Jersey",
+    "record": "A great storm with banded sides like a stack of plates approached from New Jersey at 4:40 p.m., the Bureau states.",
+    "speaker": "A storm came over from Jersey shaped like a stack of plates. Then it broke them."
+   }
+  },
+  {
+   "id": "wall_cloud",
+   "date": "1929-07-19",
+   "start": "17:40",
+   "minutes": 30,
+   "bearing_degrees": 300,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Storm floor lowers over Astoria",
+    "record": "The floor of the storm lowered and turned over Astoria at 5:45 p.m., the Bureau states.",
+    "speaker": "The bottom of the storm came down to look at Astoria."
+   }
+  },
+  {
+   "id": "tornado",
+   "date": "1929-07-19",
+   "start": "18:05",
+   "minutes": 18,
+   "bearing_degrees": 320,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Twister crosses Hell Gate",
+    "record": "A twister with several funnels crossed the East River at Hell Gate at 6:08 p.m. and unroofed two sheds at North Beach; no lives were lost, the Police Department states.",
+    "speaker": "A twister with three tails went over Hell Gate. Two sheds are in the Bronx. The Bronx is keeping them."
+   }
+  },
+  {
+   "id": "st_elmos_fire",
+   "date": "1929-07-19",
+   "start": "18:30",
+   "minutes": 40,
+   "bearing_degrees": 0,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Blue fire on the water tanks",
+    "record": "Blue fire burned on the water tanks and stacks of Astoria during the storm, the Fire Department states.",
+    "speaker": "Blue flames on every water tank, and not one of them hot. The tenants watched from the stairs."
+   }
+  },
+  {
+   "id": "red_sprite",
+   "date": "1929-07-19",
+   "start": "22:10",
+   "minutes": 50,
+   "bearing_degrees": 80,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Red flashes over the storm",
+    "record": "Airmail pilots report red flashes standing above the storm over Long Island, high as the stars.",
+    "speaker": "Red ghosts danced over the storm, the airmail says. The airmail has said stranger."
+   }
+  },
+  {
+   "id": "blue_jet",
+   "date": "1929-07-19",
+   "start": "22:40",
+   "minutes": 30,
+   "bearing_degrees": 80,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Blue jets from the storm top",
+    "record": "Pilots report blue cones of light shooting upward from the top of the storm.",
+    "speaker": "Blue jets out of the top of the storm. Going up, for a change."
+   }
+  },
+  {
+   "id": "microburst",
+   "date": "1929-08-06",
+   "start": "17:30",
+   "minutes": 15,
+   "bearing_degrees": 200,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Downburst fells trees in Sunnyside",
+    "record": "A downburst of wind and rain struck Sunnyside at 5:35 p.m., felling eleven trees, the Parks Department states.",
+    "speaker": "The storm dropped all its rain on Sunnyside at once and the trees lay down."
+   }
+  },
+  {
+   "id": "spider_lightning",
+   "date": "1929-08-06",
+   "start": "20:20",
+   "minutes": 40,
+   "bearing_degrees": 160,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Lightning crawls again",
+    "record": "Lightning crept across the under-side of the cloud again after dark, the Bureau states.",
+    "speaker": "The ivy lightning is back. So is the cat."
+   }
+  },
+  {
+   "id": "gigantic_jet",
+   "date": "1929-08-06",
+   "start": "21:50",
+   "minutes": 40,
+   "bearing_degrees": 100,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Lightning straight up",
+    "record": "A pilot over Montauk reports a column of light rising from the storm top to a height he could not judge.",
+    "speaker": "One pilot saw lightning go straight up and keep going. He would like a week off."
+   }
+  },
+  {
+   "id": "crepuscular_rays",
+   "date": "1929-08-15",
+   "start": "17:50",
+   "minutes": 40,
+   "bearing_degrees": 282,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Sunbeams over Manhattan",
+    "record": "Beams of sunlight fanned from behind the clouds over Manhattan at sundown, the Bureau states.",
+    "speaker": "At sundown the sun shone through the clouds in spokes. Very religious. Very hot."
+   }
+  },
+  {
+   "id": "anticrepuscular_rays",
+   "date": "1929-08-15",
+   "start": "18:00",
+   "minutes": 35,
+   "bearing_degrees": 102,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Beams meet in the east",
+    "record": "The sunbeams crossed the whole sky and met again over Flushing in the east, the Bureau states.",
+    "speaker": "The beams went all the way across and met over Flushing. Nobody told them about the bridge."
+   }
+  },
+  {
+   "id": "pyrocumulonimbus",
+   "date": "1929-08-24",
+   "start": "15:00",
+   "minutes": 260,
+   "bearing_degrees": 250,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Oil works fire raises its own thundercloud",
+    "record": "The fire at the Newtown Creek oil works sent up a column of smoke that became a white thunderhead three miles high by evening, the Fire Department states; four alarms.",
+    "speaker": "Four alarms at Newtown Creek. The smoke built its own thundercloud. Close your windows."
+   }
+  },
+  {
+   "id": "volcanic_lightning",
+   "date": "1929-08-24",
+   "start": "18:30",
+   "minutes": 50,
+   "bearing_degrees": 250,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Lightning in the fire smoke",
+    "record": "Lightning flashed inside the smoke of the Newtown Creek fire at dusk, the Fire Department states.",
+    "speaker": "The fire cloud made its own lightning. The firemen did not care for it."
+   }
+  },
+  {
+   "id": "waterspout",
+   "date": "1929-09-12",
+   "start": "11:20",
+   "minutes": 20,
+   "bearing_degrees": 40,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Water-spout off North Beach",
+    "record": "A water-spout stood on the Sound off North Beach for eleven minutes at 11:25 a.m., the Harbor Police state.",
+    "speaker": "A water-spout off North Beach. The ferry captain says he gave it right of way."
+   }
+  },
+  {
+   "id": "aurora",
+   "date": "1929-09-17",
+   "start": "21:40",
+   "minutes": 110,
+   "bearing_degrees": 350,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Aurora and a violet arch",
+    "record": "The aurora was seen in the north from 9:40 p.m., with a violet arch overhead after eleven, the Bureau states; the Radio Division reports a night of fading.",
+    "speaker": "Northern lights again, and a purple stripe across the top of the sky. The radios gave up."
+   }
+  },
+  {
+   "id": "steve",
+   "date": "1929-09-17",
+   "start": "23:05",
+   "minutes": 25,
+   "bearing_degrees": 0,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Violet arch across the sky",
+    "record": "A narrow violet arch crossed the zenith from east to west after eleven o'clock, with green palings beneath it, the Bureau states.",
+    "speaker": "A purple ribbon over the roofs, with a green picket fence under it. Someone up there is fixing the yard."
+   }
+  },
+  {
+   "id": "morning_glory",
+   "date": "1929-09-24",
+   "start": "05:40",
+   "minutes": 40,
+   "bearing_degrees": 0,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Rolling clouds at dawn",
+    "record": "Long rolling clouds came in off the Sound at dawn one behind another, the Bureau states.",
+    "speaker": "Rolled-up clouds came in at dawn like a carpet delivery."
+   }
+  },
+  {
+   "id": "green_flash",
+   "date": "1929-10-04",
+   "start": "17:09",
+   "minutes": 8,
+   "bearing_degrees": 262,
+   "intensity": 1.0,
+   "press": {
+    "headline": "Green flash at sundown",
+    "record": "The sun went down behind the Manhattan towers with a green flash at 5:13 p.m., the Bureau states.",
+    "speaker": "Sundown went green for a blink. The Record missed it; we did not."
+   }
+  }
+ ]
+}

@@ -46,6 +46,11 @@ def evaluate(data):
                 draw['path'].split('/')[-1] in ('DrivingRainSpatter','LiveSnow','LiveHail','DrivingRainMiddle','RoadwayMist') and
                 (material.get('unshaded') or material.get('shader_unshaded'))):
                 effects.append({'id':identity,'class':'weather_optics'});continue
+            if (draw.get('surface_role')=='electric_corona' and
+                draw.get('owner_script')=='res://scripts/building/orison_v2_st_elmo.gd' and
+                shader=='res://shaders/v2_st_elmo_corona.gdshader' and
+                material.get('shader_unshaded')):
+                effects.append({'id':identity,'class':'electric_corona'});continue
             if (draw.get('surface_role')=='storm_volume' and
                 draw.get('owner_script')=='res://scripts/building/exterior_detail_pass.gd' and
                 material.get('name')=='V2_storm_volume' and material.get('shader_unshaded')):
