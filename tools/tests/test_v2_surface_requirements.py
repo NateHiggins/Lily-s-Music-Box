@@ -272,6 +272,15 @@ class Requirements(unittest.TestCase):
         self.assertTrue(evaluate(data)['findings'])
         material['additive']=True;data['textures']['albedo']['mips']=False
         self.assertIn('missing_loaded_mips:albedo',evaluate(data)['findings'][0]['reasons'])
+    def test_st_elmo_corona_is_admitted_only_from_its_owner(self):
+        data=self.inventory();draw=data['draws'][0]
+        draw.update(surface_role='electric_corona',owner_script='res://scripts/building/orison_v2_st_elmo.gd')
+        data['materials']['material']={'type':'ShaderMaterial','shader':'res://shaders/v2_st_elmo_corona.gdshader','shader_unshaded':True,'maps':{}}
+        result=evaluate(data)
+        self.assertFalse(result['findings'])
+        self.assertEqual(result['separate_effects'][0]['class'],'electric_corona')
+        draw['owner_script']='res://scripts/building/orison_v2_city_horizon.gd'
+        self.assertTrue(evaluate(data)['findings'])
     def test_import_repair_preserves_other_authority(self):
         with tempfile.TemporaryDirectory() as directory:
             path=Path(directory)/'normal.png.import';path.write_text('[params]\nprocess/normal_map_invert_y=false\nmipmaps/generate=false\n')

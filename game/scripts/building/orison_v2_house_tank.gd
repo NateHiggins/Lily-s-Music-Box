@@ -39,3 +39,8 @@ static func mount(root: Node3D) -> void:
 			collision.add_child(shape)
 			shape.global_transform=part.global_transform
 	for fixture: MeshInstance3D in fixtures: fixture.hide()
+	# The tank's crown carries St. Elmo's fire in a high-charge storm.
+	var StElmo := preload("res://scripts/building/orison_v2_st_elmo.gd")
+	var vessel := model.find_child("Shell", true, false) as MeshInstance3D
+	if vessel != null:
+		model.add_child(StElmo.new(PackedVector3Array([StElmo.crown_of(vessel, model)]), .9))

@@ -10,6 +10,9 @@ func _ready() -> void:
 	for row: Dictionary in source.buildings: profiles[str(row.id)] = row
 	var materials: Dictionary = {}
 	var roof_finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd").new()
+	# Every block's chimney cap is the top of its limestone stock: St. Elmo's tips.
+	var StElmo := preload("res://scripts/building/orison_v2_st_elmo.gd")
+	var tips := PackedVector3Array()
 	for asset: PackedScene in ASSETS:
 		var model := asset.instantiate() as Node3D
 		add_child(model)
@@ -36,6 +39,7 @@ func _ready() -> void:
 				draw.set_meta("v2_city_roof_source",materials[cache_key])
 				draw.material_override = roof_finishes.material_for(materials[cache_key],"roof")
 			draw.set_meta("v2_city_horizon_building",identity)
+			if key == "limestone": tips.append(StElmo.crown_of(draw, self))
 			var body := StaticBody3D.new()
 			body.name = "HorizonCollision"
 			draw.add_child(body)
@@ -44,3 +48,4 @@ func _ready() -> void:
 			native.set_faces(preload("res://scripts/building/orison_v2_native_faces.gd").read(draw.mesh))
 			shape.shape = native
 			body.add_child(shape)
+	add_child(StElmo.new(tips, 2.6))

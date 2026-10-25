@@ -170,6 +170,10 @@ func _show(paper: String, issue_date: String) -> void:
 		_label(str(chair.get("byline", "")), 14, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_RIGHT)
 	_rule(1)
 	_label(str(page.get("wire", "")), 14, INK_SOFT, _italic)
+	# The sky yesterday, in this paper's own words.
+	for notice: Dictionary in catalog.sky_notices(issue_date):
+		_label(str(notice.get("headline", "")).to_upper(), 14, INK, _bold)
+		_label(str(notice.get(paper, "")), 14, INK)
 	_label("ESC closes the paper", 12, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
