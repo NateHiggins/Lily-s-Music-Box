@@ -89,3 +89,22 @@ Protected17/17, selectorV2 and unchanged ledger counts are confirmed by the firs
 verifier. The final verifier must confirm the corrected checkpoint again.
 Owner decision: none. Remaining work: broad played routes, first-render spikes,
 capture/serialization cost, hose payout/procurement and unqualified V2 coverage.
+
+## Final candidate verification
+
+The unchanged verifier returns **MERGE-CANDIDATE e98e9715c87c3af0fb60610953d1d306b0408b34**
+in clean in-place **--no-godot** mode: zero regressions, zero accepted exceptions,
+protected17/17, selectorV2, no changed gates, no document lint errors and unchanged
+ledger requirements/statuses. That mode runs no engine. The separate cooperative
+lane batch supplies the actual18-check queue and80-check occupied-world runs;
+both wrapper receipts bind, and the unchanged test-written schema2 correspondence
+receipt passes runtime admission. Runtime digest remains
+**e3da2a6f239ce3b18e2143b9c4c7c3a86cbbbf62e229f4fe31a7c411186c629d**.
+
+All four fresh images were inspected: typing, delivered reply, dated newspaper
+and reconstructed world. Paper and keyboard remain readable and within framing
+in the reading poses. The reconstructed image is an ordinary un-recalled world
+view, not a claimed reading pose. Final verification JSON/Markdown accompany the
+byte-preserved archive in **art/reviews/v2_companion_reply_autosave_20261025**.
+Subsequent checkpoint edits are evidence only. Fresh-checkout/autocrlf behavior,
+human acceptance and the remaining broad V2 routes are not claimed.
