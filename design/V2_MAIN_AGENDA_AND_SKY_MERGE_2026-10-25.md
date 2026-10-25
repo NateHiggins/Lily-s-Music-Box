@@ -118,3 +118,20 @@ preserved in **art/reviews/v2_main_2b7_integration_20261025** with a SHA-256
 archive manifest. Edited source files receive an LF-only cleanup
 after the diagnostic; their original executed bytes and LF equivalence are
 recorded. No arithmetic or logic changes accompany that cleanup.
+
+### Surface preflight follow-up
+
+The first full surface attempt stops before composing a world: eight native
+fixtures pass, but **passage_shop_leaves.json** still binds an older material
+catalogue. Its failed wrapper receipt and stderr remain intact; no runtime
+contract is written and the paired performance routes do not start.
+
+The original door builder runs against the actual merged catalogue. Its native
+file, GLB and fixture are regenerated together, without editing generated glTF.
+The GLB's bytes and array order change. Its entire JSON document and all 13
+meshes' position sets and attributed vertex sets remain equal; this is not a
+claim of exact arrays, unchanged triangle connectivity or runtime qualification.
+Three actual Blender views of the leaf, pull and floor gap were reviewed.
+The source preflight now passes. Current Godot import and loaded qualification
+remain pending. Original assets, failed preflight, comparisons and renders are
+preserved in **art/reviews/v2_passage_leaf_renewal_20261025**.
