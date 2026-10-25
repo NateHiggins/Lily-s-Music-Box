@@ -134628,6 +134628,138 @@
    "target_exists": true
   },
   {
+   "key": "ae723f3f3bf2c6e5",
+   "kind": "id_reference",
+   "token": "F02_B_BATH_DOOR",
+   "file": "game/data/orison_v2/lena_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "996b687d148e028a",
+   "kind": "id_reference",
+   "token": "F02_B_BED_DOOR",
+   "file": "game/data/orison_v2/lena_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[2]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7916820aa542d724",
+   "kind": "id_reference",
+   "token": "F02_B_ENTRY_DOOR",
+   "file": "game/data/orison_v2/lena_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[0]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "94d4138484b0dc35",
+   "kind": "id_reference",
+   "token": "F02_B_KITCHEN_DOOR",
+   "file": "game/data/orison_v2/lena_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[1]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "75fa94f13fa74bfb",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/data/orison_v2/lena_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "e4c092e36433732f",
    "kind": "id_reference",
    "token": "storm_shop_keys_cut_bench_vise",
@@ -139240,6 +139372,112 @@
    "target_exists": true
   },
   {
+   "key": "40649dfa7bae2809",
+   "kind": "id_reference",
+   "token": "F02_A_BATH_DOOR",
+   "file": "game/data/orison_v2/mina_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[2]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2077235e99abb575",
+   "kind": "id_reference",
+   "token": "F02_A_BED_DOOR",
+   "file": "game/data/orison_v2/mina_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ee271908bf4fcf3f",
+   "kind": "id_reference",
+   "token": "F02_A_HALL_DOOR",
+   "file": "game/data/orison_v2/mina_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[1]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "887996de31e6524f",
+   "kind": "id_reference",
+   "token": "F02_DOOR_02",
+   "file": "game/data/orison_v2/mina_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[0]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "659ad83ed444c7c3",
    "kind": "id_reference",
    "token": "desk",
@@ -139267,6 +139505,34 @@
    "confidence": "HIGH",
    "rationale": "Mina route-local AStar label joined by paths and places; not a v1 desk lookup. Route points are transformed through the declared interior frame.",
    "resolved_target": "F04/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "89190945728ec628",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/data/orison_v2/mina_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
    "target_exists": true
   },
   {
@@ -208400,7 +208666,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1052
+    1068
    ],
    "count": 1,
    "context": [
@@ -208430,8 +208696,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1132,
-    1135
+    1148,
+    1151
    ],
    "count": 2,
    "context": [
@@ -208452,6 +208718,36 @@
    "target_exists": true
   },
   {
+   "key": "fe5360b778be813d",
+   "kind": "generated_name",
+   "token": "_compose_authorities",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_compose_authorities"
+   ],
+   "lines": [
+    686
+   ],
+   "count": 1,
+   "context": [
+    "resident.to_pascal_case() + \"Routine\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "710ce397f48f4cad",
    "kind": "id_candidate",
    "token": "F01_STATION_LOBBY",
@@ -208462,7 +208758,7 @@
     "<module>"
    ],
    "lines": [
-    78
+    81
    ],
    "count": 1,
    "context": [
@@ -208492,7 +208788,7 @@
     "<module>"
    ],
    "lines": [
-    73
+    76
    ],
    "count": 1,
    "context": [
@@ -208522,7 +208818,7 @@
     "<module>"
    ],
    "lines": [
-    74
+    77
    ],
    "count": 1,
    "context": [
@@ -208552,7 +208848,7 @@
     "<module>"
    ],
    "lines": [
-    75
+    78
    ],
    "count": 1,
    "context": [
@@ -208582,7 +208878,7 @@
     "<module>"
    ],
    "lines": [
-    76
+    79
    ],
    "count": 1,
    "context": [
@@ -208612,7 +208908,7 @@
     "<module>"
    ],
    "lines": [
-    77
+    80
    ],
    "count": 1,
    "context": [
@@ -208642,7 +208938,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1276
+    1292
    ],
    "count": 1,
    "context": [
@@ -208703,9 +208999,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    1046,
-    1049,
-    1111
+    1062,
+    1065,
+    1127
    ],
    "count": 3,
    "context": [
@@ -208737,7 +209033,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1061
+    1077
    ],
    "count": 1,
    "context": [
@@ -208767,7 +209063,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1053
+    1069
    ],
    "count": 1,
    "context": [
@@ -208797,7 +209093,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1070
+    1086
    ],
    "count": 1,
    "context": [
@@ -208827,7 +209123,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1274
+    1290
    ],
    "count": 1,
    "context": [
@@ -208857,7 +209153,7 @@
     "<module>"
    ],
    "lines": [
-    72
+    75
    ],
    "count": 1,
    "context": [
@@ -208887,7 +209183,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1062
+    1078
    ],
    "count": 1,
    "context": [
@@ -208917,7 +209213,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1270
+    1286
    ],
    "count": 1,
    "context": [
@@ -208947,7 +209243,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1272
+    1288
    ],
    "count": 1,
    "context": [
@@ -208977,7 +209273,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    599
+    602
    ],
    "count": 1,
    "context": [
@@ -209007,7 +209303,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1272
+    1288
    ],
    "count": 1,
    "context": [
@@ -209037,7 +209333,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1270
+    1286
    ],
    "count": 1,
    "context": [
@@ -209067,7 +209363,7 @@
     "_ready"
    ],
    "lines": [
-    167
+    170
    ],
    "count": 1,
    "context": [
@@ -209097,7 +209393,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    600
+    603
    ],
    "count": 1,
    "context": [
@@ -209127,7 +209423,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    600
+    603
    ],
    "count": 1,
    "context": [
@@ -209157,7 +209453,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1270
+    1286
    ],
    "count": 1,
    "context": [
@@ -209187,7 +209483,7 @@
     "player_agenda_place"
    ],
    "lines": [
-    1270
+    1286
    ],
    "count": 1,
    "context": [
@@ -209217,7 +209513,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    599
+    602
    ],
    "count": 1,
    "context": [
@@ -209247,7 +209543,7 @@
     "<module>"
    ],
    "lines": [
-    78
+    81
    ],
    "count": 1,
    "context": [
@@ -209277,9 +209573,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1129,
-    1133,
-    1136
+    1145,
+    1149,
+    1152
    ],
    "count": 3,
    "context": [
@@ -209311,7 +209607,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    394
+    397
    ],
    "count": 1,
    "context": [
@@ -209341,7 +209637,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    394
+    397
    ],
    "count": 1,
    "context": [
@@ -209371,7 +209667,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    393
+    396
    ],
    "count": 1,
    "context": [
@@ -209401,7 +209697,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    393
+    396
    ],
    "count": 1,
    "context": [
@@ -209431,7 +209727,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1037
+    1053
    ],
    "count": 1,
    "context": [
@@ -209461,7 +209757,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    1038
+    1054
    ],
    "count": 1,
    "context": [
@@ -209491,7 +209787,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    394
+    397
    ],
    "count": 1,
    "context": [
@@ -209521,7 +209817,7 @@
     "<module>"
    ],
    "lines": [
-    73
+    76
    ],
    "count": 1,
    "context": [
@@ -209551,7 +209847,7 @@
     "<module>"
    ],
    "lines": [
-    74
+    77
    ],
    "count": 1,
    "context": [
@@ -209581,7 +209877,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    942
+    958
    ],
    "count": 1,
    "context": [
@@ -209611,7 +209907,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    441
+    444
    ],
    "count": 1,
    "context": [
@@ -209642,8 +209938,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    822,
-    927
+    838,
+    943
    ],
    "count": 2,
    "context": [
@@ -209674,7 +209970,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    928
+    944
    ],
    "count": 1,
    "context": [
@@ -209704,7 +210000,7 @@
     "<module>"
    ],
    "lines": [
-    75
+    78
    ],
    "count": 1,
    "context": [
@@ -209734,7 +210030,7 @@
     "<module>"
    ],
    "lines": [
-    76
+    79
    ],
    "count": 1,
    "context": [
@@ -209764,7 +210060,7 @@
     "<module>"
    ],
    "lines": [
-    77
+    80
    ],
    "count": 1,
    "context": [
@@ -209794,7 +210090,7 @@
     "_ready"
    ],
    "lines": [
-    217
+    220
    ],
    "count": 1,
    "context": [
@@ -209824,7 +210120,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1095
+    1111
    ],
    "count": 1,
    "context": [
@@ -209854,7 +210150,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1096
+    1112
    ],
    "count": 1,
    "context": [
@@ -209884,7 +210180,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1097
+    1113
    ],
    "count": 1,
    "context": [
@@ -209914,7 +210210,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1094
+    1110
    ],
    "count": 1,
    "context": [
@@ -209944,7 +210240,7 @@
     "<module>"
    ],
    "lines": [
-    72
+    75
    ],
    "count": 1,
    "context": [
@@ -209975,7 +210271,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    433
+    436
    ],
    "count": 1,
    "context": [
@@ -210007,8 +210303,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1030,
-    1095
+    1046,
+    1111
    ],
    "count": 2,
    "context": [
@@ -210041,8 +210337,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1033,
-    1096
+    1049,
+    1112
    ],
    "count": 2,
    "context": [
@@ -210075,8 +210371,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1036,
-    1097
+    1052,
+    1113
    ],
    "count": 2,
    "context": [
@@ -210109,8 +210405,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1027,
-    1094
+    1043,
+    1110
    ],
    "count": 2,
    "context": [
@@ -210142,7 +210438,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    431
+    434
    ],
    "count": 1,
    "context": [
@@ -210173,7 +210469,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    312
+    315
    ],
    "count": 1,
    "context": [
@@ -210205,8 +210501,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    212,
-    317
+    215,
+    320
    ],
    "count": 2,
    "context": [
@@ -210238,7 +210534,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    438
+    441
    ],
    "count": 1,
    "context": [
@@ -210269,7 +210565,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    320
+    323
    ],
    "count": 1,
    "context": [
@@ -210301,8 +210597,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    431,
-    1135
+    434,
+    1151
    ],
    "count": 2,
    "context": [
@@ -210333,7 +210629,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    994
+    1010
    ],
    "count": 1,
    "context": [
@@ -210363,7 +210659,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    995
+    1011
    ],
    "count": 1,
    "context": [
@@ -215224,131 +215520,17 @@
    "target_exists": null
   },
   {
-   "key": "20fdfc3d819163ab",
-   "kind": "id_reference",
-   "token": "F02_A_BATH_DOOR",
-   "file": "game/scripts/characters/orison_v2_mina_routine.gd",
-   "tier": "production",
-   "subsystem": "characters",
-   "symbols": [
-    "setup"
-   ],
-   "lines": [
-    70
-   ],
-   "count": 1,
-   "context": [
-    "for identity in [\"F02_DOOR_02\", \"F02_A_HALL_DOOR\", \"F02_A_BATH_DOOR\", \"F02_A_BED_DOOR\"]:"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "7ce4dae1c5893f29",
-   "kind": "id_reference",
-   "token": "F02_A_BED_DOOR",
-   "file": "game/scripts/characters/orison_v2_mina_routine.gd",
-   "tier": "production",
-   "subsystem": "characters",
-   "symbols": [
-    "setup"
-   ],
-   "lines": [
-    70
-   ],
-   "count": 1,
-   "context": [
-    "for identity in [\"F02_DOOR_02\", \"F02_A_HALL_DOOR\", \"F02_A_BATH_DOOR\", \"F02_A_BED_DOOR\"]:"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "a5f7c370f8899632",
-   "kind": "id_reference",
-   "token": "F02_A_HALL_DOOR",
-   "file": "game/scripts/characters/orison_v2_mina_routine.gd",
-   "tier": "production",
-   "subsystem": "characters",
-   "symbols": [
-    "setup"
-   ],
-   "lines": [
-    70
-   ],
-   "count": 1,
-   "context": [
-    "for identity in [\"F02_DOOR_02\", \"F02_A_HALL_DOOR\", \"F02_A_BATH_DOOR\", \"F02_A_BED_DOOR\"]:"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "68b3fe0184671341",
-   "kind": "id_reference",
-   "token": "F02_DOOR_02",
-   "file": "game/scripts/characters/orison_v2_mina_routine.gd",
-   "tier": "production",
-   "subsystem": "characters",
-   "symbols": [
-    "setup"
-   ],
-   "lines": [
-    70
-   ],
-   "count": 1,
-   "context": [
-    "for identity in [\"F02_DOOR_02\", \"F02_A_HALL_DOOR\", \"F02_A_BATH_DOOR\", \"F02_A_BED_DOOR\"]:"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "F02/marker+v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "5409b5f851e4fc9d",
+   "key": "be5093124c2e2286",
    "kind": "node_path",
    "token": "B1_LAUNDRY_DOOR_Leaf",
-   "file": "game/scripts/characters/orison_v2_mina_routine.gd",
+   "file": "game/scripts/characters/orison_v2_resident_route.gd",
    "tier": "production",
    "subsystem": "characters",
    "symbols": [
     "setup"
    ],
    "lines": [
-    66
+    80
    ],
    "count": 1,
    "context": [
@@ -215368,17 +215550,47 @@
    "target_exists": null
   },
   {
-   "key": "577c06a53784ce7d",
+   "key": "1608e8bd854d2275",
    "kind": "node_path",
-   "token": "F01_WATCH_MAIL_DOOR_Leaf",
-   "file": "game/scripts/characters/orison_v2_mina_routine.gd",
+   "token": "F01_DOOR_06_Leaf",
+   "file": "game/scripts/characters/orison_v2_resident_route.gd",
    "tier": "production",
    "subsystem": "characters",
    "symbols": [
     "setup"
    ],
    "lines": [
-    67
+    86
+   ],
+   "count": 1,
+   "context": [
+    "var front_door := world.find_child(\"F01_DOOR_06_Leaf\",true,false) as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "9ac0350d835eea43",
+   "kind": "node_path",
+   "token": "F01_WATCH_MAIL_DOOR_Leaf",
+   "file": "game/scripts/characters/orison_v2_resident_route.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "setup"
+   ],
+   "lines": [
+    81
    ],
    "count": 1,
    "context": [
@@ -215398,17 +215610,17 @@
    "target_exists": null
   },
   {
-   "key": "7d37b3fcddf2d18d",
+   "key": "d2357f54c75db2c8",
    "kind": "runtime_id",
    "token": "LobbyMailBank",
-   "file": "game/scripts/characters/orison_v2_mina_routine.gd",
+   "file": "game/scripts/characters/orison_v2_resident_route.gd",
    "tier": "production",
    "subsystem": "characters",
    "symbols": [
     "setup"
    ],
    "lines": [
-    53
+    67
    ],
    "count": 1,
    "context": [
@@ -215425,38 +215637,6 @@
    "confidence": "HIGH",
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
-   "target_exists": true
-  },
-  {
-   "key": "70260856a254c52a",
-   "kind": "unit_reference",
-   "token": "2A",
-   "file": "game/scripts/characters/orison_v2_mina_routine.gd",
-   "tier": "production",
-   "subsystem": "characters",
-   "symbols": [
-    "setup"
-   ],
-   "lines": [
-    72,
-    82
-   ],
-   "count": 2,
-   "context": [
-    "if door == null or door.unit != \"2A\": return false",
-    "actor.setup(\"Mina Vale\",\"mina_vale\",\"2A\",\"res://assets/characters/mina_vale/mina_vale.gltf\")"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "unit",
    "target_exists": true
   },
   {
@@ -274199,6 +274379,66 @@
    "target_exists": true
   },
   {
+   "key": "0ac29448752acd2a",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/orison_v2_lena_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    42
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "871489042b5838e7",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/tests/orison_v2_lena_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    65,
+    74
+   ],
+   "count": 2,
+   "context": [
+    "_check(\"her own four doors are hers\", _route._doors.filter(func(d): return d.unit == \"2B\").size() == 4)",
+    "if is_instance_valid(door) and door.unit == \"2B\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "aedccd67fc0ec151",
    "kind": "floor_reference",
    "token": "B1",
@@ -279812,7 +280052,7 @@
     "_ready"
    ],
    "lines": [
-    72
+    75
    ],
    "count": 1,
    "context": [
@@ -279840,7 +280080,7 @@
     "_ready"
    ],
    "lines": [
-    68
+    71
    ],
    "count": 1,
    "context": [
@@ -279868,7 +280108,7 @@
     "_ready"
    ],
    "lines": [
-    68
+    71
    ],
    "count": 1,
    "context": [
@@ -279896,7 +280136,7 @@
     "_ready"
    ],
    "lines": [
-    68
+    71
    ],
    "count": 1,
    "context": [
@@ -279924,9 +280164,9 @@
     "_off_map_round"
    ],
    "lines": [
-    138,
-    145,
-    153
+    141,
+    148,
+    156
    ],
    "count": 3,
    "context": [
@@ -288345,6 +288585,120 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "6a61220a59491a30",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/orison_v2_route_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    20
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ea43c4d39ed63fdb",
+   "kind": "id_reference",
+   "token": "B1_LAUNDRY_DOOR",
+   "file": "game/tests/orison_v2_route_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in source.doors + [\"F01_DOOR_06\", \"F01_WATCH_MAIL_DOOR\", \"B1_LAUNDRY_DOOR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "69f9ac38aaa6b222",
+   "kind": "id_reference",
+   "token": "F01_DOOR_06",
+   "file": "game/tests/orison_v2_route_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in source.doors + [\"F01_DOOR_06\", \"F01_WATCH_MAIL_DOOR\", \"B1_LAUNDRY_DOOR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "dc0404746474d4f2",
+   "kind": "id_reference",
+   "token": "F01_WATCH_MAIL_DOOR",
+   "file": "game/tests/orison_v2_route_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in source.doors + [\"F01_DOOR_06\", \"F01_WATCH_MAIL_DOOR\", \"B1_LAUNDRY_DOOR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   },
   {
    "key": "1b3e9006cde14543",

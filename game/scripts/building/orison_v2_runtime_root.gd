@@ -64,6 +64,9 @@ var resident_agenda: ResidentAgenda
 var _iceboxes: Array[Node] = []
 var _pantries: Dictionary = {}
 var mina_routine: Node3D
+const ResidentRoute := preload("res://scripts/characters/orison_v2_resident_route.gd")
+## The other walking residents' route owners, by resident id.
+var resident_routes: Dictionary = {}
 var campaign_clock: CampaignClock
 var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
@@ -673,6 +676,19 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: Mina route composition refused")
 		return
+	# Other residents with a walking body (design/ORISON_RESIDENT_BODIES_2026-10-25.md).
+	# A refused route leaves that resident simulated, not the building broken.
+	for resident: String in ResidentRoute.ROUTES:
+		var route := ResidentRoute.new()
+		route.name = resident.to_pascal_case() + "Routine"
+		route.resident = resident
+		route.source_path = ResidentRoute.ROUTES[resident]
+		add_child(route)
+		if route.setup(self):
+			resident_routes[resident] = route
+		else:
+			push_warning("ORISON V2 RUNTIME: %s's route refused; simulated only" % resident)
+			route.queue_free()
 	if not preload("res://scripts/building/orison_v2_case_one_placement.gd").new().mount_captions(adapter,mina_routine.actor):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: case caption subjects missing")
