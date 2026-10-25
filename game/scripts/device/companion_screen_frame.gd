@@ -62,6 +62,18 @@ func setup(owner_carrier: Node3D, source_camera: Camera3D) -> void:
 	_environment.ambient_light_energy = .8
 	view_camera.environment = _environment
 	view.add_child(view_camera)
+	# One shadowless photographic fill makes manufactured metal readable even
+	# when the room is dark. It illuminates only the instrument layer, owns no
+	# gameplay lamp state and cannot light scenery or become a second sun.
+	var fill := OmniLight3D.new()
+	fill.name = "InstrumentFill"
+	fill.light_cull_mask = DEVICE_MASK
+	fill.light_color = Color(.88, .94, .88)
+	fill.light_energy = 1.1
+	fill.omni_range = 1.8
+	fill.shadow_enabled = false
+	fill.position = Vector3(-.12, .25, .08)
+	view_camera.add_child(fill)
 	layer = CanvasLayer.new(); layer.name = "CompanionFraming"; layer.layer = 7
 	add_child(layer)
 	image = TextureRect.new(); image.name = "PhysicalCompanion"

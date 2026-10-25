@@ -114,6 +114,7 @@ func exercise() -> void:
 	check(carrier.session._edit.text == "who are you", "resumed native editor retains exact draft")
 	var enter_was_down: bool = await joy(JOY_BUTTON_A, "ENTER")
 	check(enter_was_down, "actual submission depresses native Enter key")
+	check(not player._grab.active(), "editor-owned controller submission does not grab the world target behind the console")
 	check(carrier.session.draft.is_empty() and not player.call_locked, "submission clears accepted draft and returns player input")
 	check(carrier.session.dialogue.memory.history.back().intent == "identity", "physical submission reaches offline conversation")
 	check(carrier.device.printed_count == reports + 1 and carrier.device.teletype.printing, "accepted reply uses original animated printer")
@@ -281,6 +282,7 @@ func exercise_screen_framing() -> void:
 	var old_size := get_window().size
 	var resize_clear := true; var resize_rays := true
 	for window_size: Vector2i in [Vector2i(1280, 720), Vector2i(1024, 768), Vector2i(960, 540)]:
+		print("COMPANION FRAMING RESIZE: ", window_size, " ticks=", Time.get_ticks_msec())
 		get_window().size = window_size
 		await frames(4)
 		await RenderingServer.frame_post_draw
@@ -301,14 +303,15 @@ func exercise_screen_framing() -> void:
 	await capture("framed_travel.png")
 	FileAccess.open(directory.path_join("screen_framing.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":"Native mouse turning, staged pitch/velocity, cropped projection and centre keepout. Not a walked world route or human readability acceptance.", "maximum_projection_error_px":largest_error, "stock_bounds":str(frame.stock_bounds), "query_count":carrier.motion.query_count, "reserved_rect":str(frame.safe_rect), "pass_size":str(frame.view.size)}, "\t"))
 
-func measure_foreground_cost() -> void:
+func measure_foreground_cost(allow_switching := true) -> void:
 	var rows: Array = []
 	var frame: Node = carrier.screen_frame
 	var old_cap := Engine.max_fps
 	Engine.max_fps = 0
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(), true)
 	RenderingServer.viewport_set_measure_render_time(frame.view.get_viewport_rid(), true)
-	for enabled: bool in [true, false, false, true]:
+	for enabled: bool in ([true, false, false, true] if allow_switching else [true]):
+		print("COMPANION RENDER DIAGNOSTIC: path=", enabled, " switching=", allow_switching, " ticks=", Time.get_ticks_msec())
 		frame.composite_enabled = enabled
 		await frames(24)
 		var before := Time.get_ticks_usec()
@@ -325,7 +328,7 @@ func measure_foreground_cost() -> void:
 	Engine.max_fps = old_cap
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(), false)
 	RenderingServer.viewport_set_measure_render_time(frame.view.get_viewport_rid(), false)
-	FileAccess.open(directory.path_join("foreground_cost.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":"Same-world ABBA render-path diagnostic with fixed native rig pose; warm-up24 and90 sampled intervals per leg. Uncapped render-loop diagnostic, not an FPS gain or full route proof; viewport monitors overlap and are not additive.", "rows":rows}, "\t"))
+	FileAccess.open(directory.path_join("foreground_cost.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":("Same-world ABBA render-path diagnostic with fixed native rig pose; warm-up24 and90 sampled intervals per leg. Render-loop diagnostic, not an FPS gain or full route proof; viewport monitors overlap and are not additive." if allow_switching else "Production foreground cost only; no camera-mask or render-path switching. Warm-up24 and90 intervals; no before/after gain or route qualification; monitors overlap."), "render_path_switching":allow_switching, "vsync_mode":DisplayServer.window_get_vsync_mode(), "rows":rows}, "\t"))
 
 func projected_bounds(draw: MeshInstance3D) -> Rect2:
 	return projected_aabb(draw, draw.mesh.get_aabb())

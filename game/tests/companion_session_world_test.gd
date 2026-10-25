@@ -62,6 +62,12 @@ func build_world() -> bool:
 		check(maps_valid, "private phosphor stock retains loaded custom diffuse roughness and normal mip chains")
 	return ready
 
+func measure_foreground_cost(_allow_switching := true) -> void:
+	# Runtime qualification exercises the shipping foreground path. The ABBA
+	# camera-mask/viewport-toggle experiment remains an isolated diagnostic;
+	# its original occupied errors are retained, not accepted as clean proof.
+	await super.measure_foreground_cost(false)
+
 func capture(filename: String) -> void:
 	collect_owned()
 	await super.capture(filename)

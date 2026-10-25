@@ -161,6 +161,12 @@ func _editor_input(event: InputEvent) -> void:
 
 func _input(event: InputEvent) -> void:
 	if not (typing or opening): return
+	# The player polls Interact as well as receiving events. Controller A can
+	# submit this editor and release its lease before that poll runs. Consuming
+	# the event alone leaves just_pressed set and grabs whatever is behind the
+	# console. Retire only this editor-owned action; the next physical press is
+	# still an ordinary world interaction, including touchscreen polling.
+	if event.is_action_pressed("interact"): Input.action_release("interact")
 	if typing and event is InputEventKey and event.pressed:
 		var code: int = event.physical_keycode if event.physical_keycode else event.keycode
 		if code == KEY_BACKSPACE: _carrier.rig.pulse_key("BACKSPACE")
