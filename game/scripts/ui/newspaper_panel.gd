@@ -117,11 +117,20 @@ func _show(paper: String, issue_date: String) -> void:
 	for child in _page.get_children():
 		_page.remove_child(child)
 		child.queue_free()
+	if not catalog.published_now(paper, issue_date):
+		_label("This edition has not been published.", 20, INK)
+		return
 	var meta := catalog.paper(paper)
 	var page := catalog.issue(paper, issue_date)
 	if page.is_empty():
 		_label("No such issue.", 20, INK)
 		return
+	# The reading surface supplies the exact edition actually shown. Merely
+	# owning/looking up an issue grants the companion no reading witness.
+	if is_instance_valid(_player) and is_instance_valid(_player.get("carried_device")):
+		var carrier: Node = _player.carried_device
+		if carrier.get("witness") != null:
+			carrier.witness.paper_shown(catalog, paper, issue_date)
 	var red: bool = str(meta.get("ink", "black")) == "red"
 	# Masthead.
 	_label(str(meta.get("name", paper)).to_upper(), 44, RED if red else INK, _bold,

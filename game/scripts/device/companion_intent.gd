@@ -15,6 +15,20 @@ static func contains_phrase(text: String, phrase: String) -> bool:
 static func parse(raw: String) -> Dictionary:
 	var text := normalize(raw)
 	if text.is_empty(): return {"intent":"empty", "text":text}
+	# Exact conversational requests cannot swallow physical commands or article nouns.
+	var direct := {
+		"i don t know":"hesitate", "i can t decide":"hesitate", "i need a moment":"hesitate",
+		"your printer is jammed":"jam", "the paper is stuck":"jam",
+		"xyzzy":"magic", "plugh":"magic", "abracadabra":"magic",
+		"undo":"undo", "undo that":"undo", "sing":"sing", "sing me a song":"sing",
+		"tell me a joke":"joke", "another joke":"joke", "wait":"wait", "wait here":"wait",
+		"can we be quiet":"silence", "do we have to talk":"silence",
+		"fuck off":"leave", "go fuck yourself":"rude",
+		"newspaper":"newspaper", "newspapers":"newspaper", "today s paper":"newspaper",
+		"the news":"newspaper", "comment on the newspaper":"newspaper",
+		"what s in the newspaper":"newspaper"
+	}
+	if direct.has(text): return {"intent":str(direct[text]), "text":text}
 	var groups := {
 		"leave":["goodbye", "bye", "stop talking", "leave me alone", "quiet please"],
 		"inventory":["inventory", "what am i carrying", "what do i have", "check my bag"],

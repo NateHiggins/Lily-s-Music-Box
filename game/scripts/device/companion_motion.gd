@@ -9,7 +9,7 @@ const Mechanism := preload("res://scripts/device/companion_mechanism.gd")
 @export var preferred_distance := 1.25
 @export var distance_band := Vector2(.85, 1.85)
 @export var lateral_offset := .72
-@export var reading_distance := .48
+@export var reading_distance := .44
 @export var maximum_speed := 8.0
 @export var acceleration := 9.0
 @export var deceleration := 13.0
@@ -225,6 +225,9 @@ func _candidate_position(index: int) -> Vector3:
 	if behavior in READING:
 		basis = _reading_basis
 		offsets = [Vector3(0, -.08, -reading_distance), Vector3(.15, -.08, -reading_distance-.1), Vector3(-.15, -.08, -reading_distance-.1), Vector3(.3, -.08, -.7), Vector3(-.3, -.08, -.7), Vector3(0, -.08, -.85), Vector3(.4, .05, -.9), Vector3(-.4, .05, -.9)]
+		# Reading and typing share a desk-height pose: submitting a reply must
+		# not drop the paper away from the reader as the keyboard retracts.
+		for at in offsets.size(): offsets[at].y += .115
 		prediction = Vector3.ZERO
 	elif behavior == &"sleep":
 		offsets[index] += Vector3(0, -.2, .3)

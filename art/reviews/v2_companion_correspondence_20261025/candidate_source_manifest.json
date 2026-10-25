@@ -1,0 +1,146 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Exact inputs before final candidate verification; no prospective pass claim.",
+  "files": [
+    {
+      "path": "game/assets/props/service_companion_v2.glb",
+      "sha256": "b7684ddd2e35a76e1156da3e41b8546d941c972042782b681b071e08bf0a36a6"
+    },
+    {
+      "path": "game/data/device/service_companion_v2.json",
+      "sha256": "d6f564b74743916613c28f16dfbce75726cabbad0e89b12ac915a3d8eeb81635"
+    },
+    {
+      "path": "game/data/dialogue/companion.json",
+      "sha256": "7503b64389995694688c4e0c3afa4870599e8a43e011f3137ea3df9a5466db3c"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_runtime_root.gd",
+      "sha256": "2a2a5f9b20b068802f61204bb7a836bda3269ee8a1b5a78975d1fb66e2296ba7"
+    },
+    {
+      "path": "game/scripts/device/companion_calendar_context.gd",
+      "sha256": "d15118659c4d799219c22822242c471f45db98ebcb73b648951ca26d3e985635"
+    },
+    {
+      "path": "game/scripts/device/companion_campaign_state.gd",
+      "sha256": "07ae07a4fa23ca6e68c48c19e5fa2ef5d57137b65520e839f9147a5d0d169514"
+    },
+    {
+      "path": "game/scripts/device/companion_conversation.gd",
+      "sha256": "af341f70ae5d476e3457bf17a4dd66986e98ddf2694300b492ce69ac6efeeb1a"
+    },
+    {
+      "path": "game/scripts/device/companion_intent.gd",
+      "sha256": "de1cd7239acc6f1e14713b3ea676fcf211c2c4dcdb720ea597fca936e254a072"
+    },
+    {
+      "path": "game/scripts/device/companion_mechanism.gd",
+      "sha256": "cb5b52bba69aa1aedc61af588a702b9b98cfb098bf7aafe152fccccfbfd4b9c6"
+    },
+    {
+      "path": "game/scripts/device/companion_memory.gd",
+      "sha256": "1d3471d69dc8c353dff8562b5e031dfea7f1c4f441640677580de97332f94752"
+    },
+    {
+      "path": "game/scripts/device/companion_motion.gd",
+      "sha256": "7a8957aac150a7bb8b014a08c621e1d27087a0ab818fd6da96e11165741b3758"
+    },
+    {
+      "path": "game/scripts/device/companion_session.gd",
+      "sha256": "f56fa6f6808bf76bb1a00253423ab8654380ca4b3bec35263495c796cadc6e9a"
+    },
+    {
+      "path": "game/scripts/device/companion_witness.gd",
+      "sha256": "5ca37adbb829395240f3bc2dcbb4f4402aa2b2526697d84a224cb916d4b78f78"
+    },
+    {
+      "path": "game/scripts/device/companion_world_carrier.gd",
+      "sha256": "48b8079210e082484440e7b6a4d3ace30e07ebf0a9b5e27c48c5af79fc82b60b"
+    },
+    {
+      "path": "game/scripts/device/mechanical_teletype.gd",
+      "sha256": "3d27369dcf81e0b3538bb7b7d16160be5ef18e199d7ef20b8c12737184046529"
+    },
+    {
+      "path": "game/scripts/device/service_set_prop.gd",
+      "sha256": "ca3e43fa726b9acd4dd4b44fdc627ab3be87686b83b4b8b065c2169e10c3b2ac"
+    },
+    {
+      "path": "game/scripts/game/reality_save_document.gd",
+      "sha256": "cc5588c3e646b5b1adf2dcfe0ffe6ea29db6c84332899ab59a3dcaf23ca65511"
+    },
+    {
+      "path": "game/scripts/game_boot.gd",
+      "sha256": "b197b92fc03020fe82fe5df16c9dca738c716d44c3ca99df8ce953808e433bb8"
+    },
+    {
+      "path": "game/scripts/player/player_controller.gd",
+      "sha256": "2365141541c5185712ac592a56382d50210d65a265e6c14dce26b0c1797453f9"
+    },
+    {
+      "path": "game/scripts/ui/newspaper_panel.gd",
+      "sha256": "5780c379a137dfed5d1db0eb4a1c5650cf586103ab533cc6cce18ee7f9166a35"
+    },
+    {
+      "path": "game/scripts/ui/objective_tracker.gd",
+      "sha256": "b63600bede97e25df27f299fda45486d650da3c596ac939de200e7a88c24f999"
+    },
+    {
+      "path": "game/scripts/ui/touch_controls.gd",
+      "sha256": "ef584ae48b51ee6051a2c6f2a455085b0f3c95fc2a4c52a35df3c2020d98ac9e"
+    },
+    {
+      "path": "game/tests/CompanionCalendarTest.tscn",
+      "sha256": "37d29c7e86506484c0d0de179d285aec63f81e993b32ece30712940abf38c3ba"
+    },
+    {
+      "path": "game/tests/CompanionSessionBench.tscn",
+      "sha256": "a8b6baab9b713f048c497fd59b5da4726cbc96c413473b91ac3f71ae448c810b"
+    },
+    {
+      "path": "game/tests/CompanionSessionOwnershipBench.tscn",
+      "sha256": "e36250820287cdf51d9bf51e245e4ef766e4f44cc46bcaac26fb79caa11e9ce2"
+    },
+    {
+      "path": "game/tests/CompanionSessionWorldTest.tscn",
+      "sha256": "3fbd1736700e4716dd8804c62605906b769b2d7ca97c30494291a4a8d4a0e883"
+    },
+    {
+      "path": "game/tests/companion_calendar_test.gd",
+      "sha256": "94ffe03ddf59e690e1d8f59cd34c8311d334ed08ba2d6be291199793c04fe502"
+    },
+    {
+      "path": "game/tests/companion_conversation_test.gd",
+      "sha256": "71c926436d288da45d66a83f43f037fd12640e7897e5e39c4f5669d8877ae2c2"
+    },
+    {
+      "path": "game/tests/companion_mechanism_bench.gd",
+      "sha256": "32b16f6131a4b095a6234c5e0104e821d7c5b89eb5a9df68a026edfd4e91e06d"
+    },
+    {
+      "path": "game/tests/companion_session_bench.gd",
+      "sha256": "4cda077a0eb211d9aa35a542b4bcff22abac16c7ff3bbafae96ca69526ccc71d"
+    },
+    {
+      "path": "game/tests/companion_session_ownership_bench.gd",
+      "sha256": "5a9dec8e5019bab028eb8c3a2b0574889f20eef32d0b061da29b02b2027a5461"
+    },
+    {
+      "path": "game/tests/companion_session_world_test.gd",
+      "sha256": "248bf10f9f7974384e4180aff7b4936aa72d55921c40853e1d1c28a974e0e51d"
+    },
+    {
+      "path": "game/tests/companion_world_hand_bench.gd",
+      "sha256": "3a86f402129fc4febf7a010cd4a5785194a37c04ea28aa37f7ff41b027efbc42"
+    },
+    {
+      "path": "game/tests/newspaper_test.gd",
+      "sha256": "78c58a5c259f28e30e0e73980f1fb53d8639eefbd4f648f89f641c71caae73d1"
+    },
+    {
+      "path": "game/tests/service_set_hand_test.gd",
+      "sha256": "1a880bcdb0b40f7ea4ebf413e9b6896fc8e0215f8b3bb0ff232aff44f141f19a"
+    }
+  ]
+}

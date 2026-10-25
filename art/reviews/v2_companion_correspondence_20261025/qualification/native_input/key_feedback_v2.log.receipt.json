@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 25.22,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T19:21:13Z",
+  "started_utc": "2026-10-25T19:20:48Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/pr42/key_feedback_v2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2integration24/pr42/key_feedback_v2.log",
+  "stdout_sha256": "a62b0dab7a487e8317232a764d745671628b95aa0a5ed409bf2b4068184d41e5"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/CompanionSessionOwnershipBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/v2integration24/pr42/key_feedback_v2",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "564ea46bdb636d485896980454369d21721a1450",
+  "repository_tree": "9c49670880cfe83a83e2f04f3b1c4df071c1ee1c",
+  "runtime_inputs_sha256": "d4c167ff7e23587d95bb422a142580150ca58ff51c574dd899c52b813dc0bde5",
+  "test_path": "game/tests/companion_session_ownership_bench.gd",
+  "test_sha256": "5a9dec8e5019bab028eb8c3a2b0574889f20eef32d0b061da29b02b2027a5461"
+ },
+ "windowed": true
+}

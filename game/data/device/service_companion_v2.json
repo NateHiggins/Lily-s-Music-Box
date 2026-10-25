@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "asset": "res://assets/props/service_companion_v2.glb",
-  "asset_sha256": "295fa5f96fa961a5206c75e1ad25ae8540f75efdcd461956440290023380c87e",
+  "asset_sha256": "b7684ddd2e35a76e1156da3e41b8546d941c972042782b681b071e08bf0a36a6",
   "base_data_sha256": "270b1e23788f2c4346a6c29f83c98e230bc5709b31dca02b9db6933aba586b9e",
   "finishes": {
     "CompanionSteel": {
@@ -801,5 +801,6 @@
     -0.101,
     0.11
   ],
-  "keyboard_open_degrees": 90
+  "keyboard_open_degrees": 90,
+  "keyboard_retraction_m": 0.045
 }

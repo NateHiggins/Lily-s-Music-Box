@@ -1,6 +1,6 @@
 extends ServiceSetCarrier
 ## World presentation adapter. Existing ServiceSetProp remains the sole radio,
-## lamp, print and WorkOrders owner. Explicit candidate opt-in until qualified.
+## lamp, print and WorkOrders owner. Explicit ORISON_COMPANION_WORLD=0 rollback.
 const Motion := preload("res://scripts/device/companion_motion.gd")
 const Mechanism := preload("res://scripts/device/companion_mechanism.gd")
 var motion: Motion
@@ -11,11 +11,14 @@ var _inspection_hold := false
 var _reading_previous := false
 var _lamp_face_state := true
 var _call_face_presented := false
+var session: Node
+var witness: Node
+var _pick_layers := {}
 
 func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) -> void:
 	_player = player
 	player.get_parent().add_child(self)
-	reading_distance = .48
+	reading_distance = .44
 	motion = Motion.new()
 	motion.name = "CompanionFlight"
 	add_child(motion)
@@ -35,6 +38,8 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	# room reflection probes and this instrument's own real lamp. No new light.
 	var hand_started := Time.get_ticks_usec()
 	_hand = preload("res://scripts/device/service_set_hand.gd").new(self, true)
+	for area: Area3D in find_children("*", "Area3D", true, false):
+		_pick_layers[area.get_instance_id()] = {"ref":weakref(area), "layer":area.collision_layer}
 	setup_records.append({"stage":"target_shapes", "start_usec":hand_started, "end_usec":Time.get_ticks_usec()})
 	player.set_physical_display_enabled(true)
 	if player.telegram_hud != null:
@@ -48,15 +53,32 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	_lamp_face_state = device.lamp_enabled
 	motion.behavior_changed.connect(_on_companion_behavior)
 	world_ready = true
+	session = preload("res://scripts/device/companion_session.gd").new()
+	add_child(session)
+	session.setup(self, player)
+	witness = preload("res://scripts/device/companion_witness.gd").new()
+	add_child(witness)
+	witness.setup(session, player, player.get_parent())
 	beam_valid = true # Publish the native aperture before the first player update.
 	set_process(true)
 
 func reading_limits() -> Vector2:
-	return Vector2(.42, .72)
+	return Vector2(.44, .72)
 
 func adjust_reading_distance(amount: float) -> void:
 	super.adjust_reading_distance(amount)
 	if motion != null: motion.reading_distance = reading_distance
+
+func request_correspondence() -> void:
+	if session == null or session.retired: return
+	if session.typing or session.opening:
+		session.close()
+		return
+	if not session.available(): return
+	if reading: session.begin()
+	else:
+		reading = true
+		motion.recall()
 
 func hand_camera() -> Camera3D:
 	return _player.camera if is_instance_valid(_player) else null
@@ -84,8 +106,13 @@ func apply_look(_relative: Vector2) -> void:
 	pass # Flight observes real gaze and velocity; no camera-mounted sway.
 
 func set_capture_hidden(hidden: bool) -> void:
+	if session != null and session.retired: hidden = true
 	_capture_hidden = hidden
 	if rig != null: rig.visible = not hidden
+	# Hidden review stock must not leave invisible query-only obstructions.
+	for entry: Dictionary in _pick_layers.values():
+		var area: Area3D = entry.ref.get_ref()
+		if area != null: area.collision_layer = 0 if hidden else int(entry.layer)
 
 func world_lamp_transform() -> Transform3D:
 	# The original native optical aperture, not an offset at the player's eye.
@@ -94,6 +121,8 @@ func world_lamp_transform() -> Transform3D:
 
 func _advance_presentation(_delta: float) -> void:
 	if not world_ready: return
+	device.teletype.set_reading_illumination(reading and device.radio_powered and not _capture_hidden)
+	if witness != null: witness.observe(_delta)
 	beam_valid = true
 	if device.lamp_enabled != _lamp_face_state:
 		_lamp_face_state = device.lamp_enabled
@@ -119,16 +148,28 @@ func _advance_presentation(_delta: float) -> void:
 	# and take an unobtrusive observing pose. Never acquire somebody else's focus.
 	if _sleep_onset > .8:
 		motion.request_behavior(&"sleep")
-	elif _player.call_locked or (_player.inspecting() and _player.inspect_owner != self):
+	elif session != null and (session.typing or session.opening):
+		motion.request_behavior(&"type")
+	elif _player.call_locked or device.incoming_call or session._foreign_editor_active() or (_player.inspecting() and _player.inspect_owner != self):
 		rig.request_keyboard(false)
 		motion.request_behavior(&"observe")
-	elif reading: motion.request_behavior(&"present")
-	else: motion.request_behavior(&"accompany")
+	elif reading:
+		motion.request_behavior(&"present")
+		# Reply reading is still computer use. The closed face covers the lower
+		# copy window, so latch it only when the reader dismisses the apparatus.
+		rig.request_keyboard(motion.steady_for_input())
+	else:
+		rig.request_keyboard(false)
+		motion.request_behavior(&"accompany")
 
 func _unhandled_input(event: InputEvent) -> void:
+	if session != null and session.retired: return
 	if not world_ready or event.is_echo() or _player.call_locked or _player.mouse_released or get_tree().paused: return
 	if not _player.camera.is_current(): return
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not _player.inspecting(): return
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not _player.inspecting() and not _player.touch_input: return
+	if reading and not _player.inspecting() and event.is_action_pressed("companion_type"):
+		if session.begin(): get_viewport().set_input_as_handled()
+		return
 	if event.is_action_pressed("teletype_read"):
 		if _player.inspecting() and _player.inspect_owner == self: _player.end_inspection()
 		reading = not reading

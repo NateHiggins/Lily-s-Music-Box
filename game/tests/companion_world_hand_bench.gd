@@ -52,15 +52,35 @@ func _run() -> void:
 	await exercise()
 	await _tap_switch(KEY_R)
 	check(carrier.radio_is_powered(), "actual radio contact powers face reactions")
-	await _tap_switch(KEY_L)
 	var native_rig: Node = carrier.get("rig")
+	# Returning from physical controls now folds a real deployed tray. Let the
+	# powered printer finish and the face become exposed before asking it to
+	# emote; reading/printing intentionally takes priority over an optional cue.
+	for index in 900:
+		if native_rig.keyboard_open <= .01 and not carrier.device.teletype.printing: break
+		await get_tree().physics_frame
+	check(native_rig.keyboard_open <= .01 and not carrier.device.teletype.printing, "original powered printer finishes and folded tray exposes the face")
+	await _tap_switch(KEY_L)
+	# Observe the actual L edge through the original power owner.
+	for index in 120:
+		if native_rig.reaction_player.current == "lamp_trim": break
+		await get_tree().physics_frame
 	check(player.lamp_is_enabled() and native_rig.reaction_player.current == "lamp_trim", "actual L starts the physical lamp reaction from the original power state")
 	for index in 360:
 		await get_tree().physics_frame
 		if native_rig.reaction_player.current.is_empty(): break
 	check(native_rig.reaction_player.current.is_empty(), "real lamp reaction completes without locking input")
+	var last_wink: float = float(native_rig.reaction_player._last.get("vaudeville_wink", -1.0))
 	await key(KEY_E)
-	check(carrier.reading and native_rig.reaction_player.current == "vaudeville_wink", "actual recall starts a courteous physical wink")
+	# key() also waits for arrival and keyboard presentation. That presentation
+	# correctly takes the face away; verify the actual accepted start timestamp,
+	# rather than requiring an interrupted animation to remain current forever.
+	check(carrier.reading and float(native_rig.reaction_player._last.get("vaudeville_wink", -1.0)) > last_wink, "actual recall starts a courteous physical wink")
+	var former_pin: Vector3 = native_rig._keyboard_home
+	var query := PhysicsRayQueryParameters3D.create(native_rig.model.to_global(former_pin + Vector3(0, 0, .03)), native_rig.model.to_global(former_pin - Vector3(0, 0, .01)), 1)
+	query.collide_with_areas = true; query.collide_with_bodies = false
+	var vacated: Dictionary = player.get_world_3d().direct_space_state.intersect_ray(query)
+	check(vacated.is_empty(), "retracted hinge leaves no stale fixed pick blocker at its vacated pin seat")
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(directory.path_join("actual_recall_face.png"))
 	await key(KEY_E)

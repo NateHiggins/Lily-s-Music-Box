@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 10.73,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T19:50:15Z",
+  "started_utc": "2026-10-25T19:50:04Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "SERVICE HAND: PASS"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/pr42/candidate_runtime_564e/CompanionWorldHandBench.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2integration24/pr42/candidate_runtime_564e/CompanionWorldHandBench.log",
+  "stdout_sha256": "32029f846253097ec99d5781582701581a37b316aebfe39a8848e32444a7e7dd"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/CompanionWorldHandBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\pr42\\candidate_runtime_564e\\CompanionWorldHandBench",
+ "source": {
+  "dirty_paths": 611,
+  "dirty_sample": [
+   "?? game/native/hose_math/hose_math.gdextension.uid",
+   "?? game/scripts/building/WeatherManager.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_heating.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_topology.gd.uid",
+   "?? game/scripts/building/orison_v2_arcade_fabric.gd.uid",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_c_stove_stack.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_cage_light_apertures.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_city_horizon.gd.uid"
+  ],
+  "repository_head": "564ea46bdb636d485896980454369d21721a1450",
+  "repository_tree": "9c49670880cfe83a83e2f04f3b1c4df071c1ee1c",
+  "runtime_inputs_sha256": "d4c167ff7e23587d95bb422a142580150ca58ff51c574dd899c52b813dc0bde5",
+  "test_path": "game/tests/companion_world_hand_bench.gd",
+  "test_sha256": "3a86f402129fc4febf7a010cd4a5785194a37c04ea28aa37f7ff41b027efbc42"
+ },
+ "windowed": true
+}

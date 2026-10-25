@@ -6,6 +6,9 @@ const DATA := "res://data/device/service_companion_v2.json"
 var device: ServiceSetProp
 var model: Node3D
 var keyboard: Node3D
+var keyboard_carriage: Node3D
+var _keyboard_home := Vector3.ZERO
+var _keyboard_retraction := 0.0
 var latch: Node3D
 var keys: MultiMeshInstance3D
 var key_legends: Node3D
@@ -61,6 +64,11 @@ func build() -> bool:
 	if keyboard.position.distance_to(Vector3(hinge[0], hinge[1], hinge[2])) > .00001:
 		return _fail("Companion hinge datum differs from native source")
 	_opening_degrees = float(data.keyboard_open_degrees)
+	_keyboard_home = keyboard.position
+	_keyboard_retraction = float(data.get("keyboard_retraction_m", 0.0))
+	keyboard_carriage = model.find_child("CompanionKeyboardCarriage", true, false)
+	if keyboard_carriage == null or not is_equal_approx(_keyboard_retraction, .045):
+		return _fail("Retracting keyboard carriage datum missing")
 	if not is_equal_approx(_opening_degrees, 90.0): return _fail("Unsupported keyboard stop")
 	var blank := model.find_child("CompanionKeyBlank__CompanionKeys", true, false) as MeshInstance3D
 	if blank == null or blank.mesh == null: return _fail("Reusable native keycap missing")
@@ -193,7 +201,8 @@ func play_reaction(id: String) -> bool:
 
 func pulse_key(character: String) -> void:
 	if not typing_ready(): return
-	var index := _key_names.find(character.to_upper())
+	var key_name := "SPACE" if character == " " else character.to_upper()
+	var index := _key_names.find(key_name)
 	if index < 0: return
 	_depressions[index] = 1.0
 	if not _key_sound.playing: _key_sound.play()
@@ -249,6 +258,11 @@ func _set_key_transform(index: int, pose: Transform3D) -> void:
 func _apply_keyboard() -> void:
 	var ease := smoothstep(0.0, 1.0, keyboard_open)
 	keyboard.rotation.x = deg_to_rad(_opening_degrees) * ease
+	# Clear the closed case before pulling the pin/knuckles along their bearers.
+	# Reversal extends the carriage before folding the keyboard against its latch.
+	var retraction := _keyboard_retraction * smoothstep(.65, 1.0, keyboard_open)
+	keyboard.position = _keyboard_home - Vector3(0, 0, retraction)
+	keyboard_carriage.position.z = -retraction
 	key_legends.visible = keyboard_open > .55
 	latch.rotation.z = -.65 * smoothstep(0.0, .12, keyboard_open)
 	var latched := keyboard_open < .01

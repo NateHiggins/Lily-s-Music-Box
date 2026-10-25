@@ -615,3 +615,74 @@ full-world navigation/save/mirror proof, broad performance attribution or human
 acceptance. Current reader/spatial/authority checks add no defects; all17 protected
 paths match main parent **bde30c08**, but final management verification is pending.
 The next owner request is researched, original low-resolution face reactions.
+
+
+### Companion voice and calendar domain candidate — October 25
+
+The focused voice/calendar pass is recorded in
+**design/V2_COMPANION_VOICE_AND_CALENDAR_2026-10-25.md**. It preserves68 original
+lines verbatim, revises10 and adds71 for149 total, retaining all original IDs
+and six branches and adding two branches. Exact followups and topic closure
+prevent old conversations from swallowing fresh commands. Explicit witnessed
+event families exhaust into silence; no autonomous chatter timer is installed.
+
+The new read-only calendar witness and **respond_calendar** entry point use the
+existing CampaignClock, weather source and NewspaperCatalog publication gate.
+Comments distinguish observations, issued forecasts, current selected editions
+and dated archive pages. They add no clock, network, inventory/quest consequence
+or save owner. Only an active reading witness may supply a newspaper selection.
+
+JSON/reference/placeholder checks and the report lint pass locally. All31
+original diagnostic checks are retained;19 more conversation checks and15
+calendar checks are authored but unexecuted. Godot/PowerShell and the full
+checkout are unavailable in this workspace. No engine parse/pass, runtime
+contract, world integration, save persistence, keyboard input, candidate-verifier
+or performance qualification is claimed. World event/typing/reading producers
+and validated campaign memory wiring remain outstanding. The patch is an
+independent draft review branch based on main, not a production default change.
+
+
+### Companion correspondence and close reading integration — October25
+
+The continuation of PR42 is recorded in
+**design/V2_COMPANION_INTEGRATION_2026-10-25.md**. It connects the offline parser
+and bounded campaign memory to the real autonomous printer and folding keyboard.
+Protected input, actual controller/touch/native typing, exact drafts, quiet
+preference, publication times, historical editions, disk recovery and overlapping
+owners are exercised. Other inventory, work-order, relationship and case owners
+remain authoritative. The source is reconciled with main **ecce6e8c**.
+
+The native guided carriage retracts45mm after opening. The44cm /40-degree reading
+pose holds the paper steady above the open tray; actual occupied-world frames
+were reviewed against bright windows. The failed42cm recall was retained and
+repaired; the repeat motion diagnostic passes55 checks. Native mechanism2210,
+physical hand84 and occupied correspondence75 pass at the recorded source;
+a further vacated-pin probe passes in85-check hand diagnostics. The occupied
+schema2 receipt admits against **fdcf473d**, reconstructs a fresh world and
+retires435 nodes,52 owned resources and3 observed playbacks to zero retained.
+
+The final draft datum and settled long-page additions await the final candidate
+run. Historical receipts are preserved, never repinned. Main's surface/ledger
+debt, existing V1 ServiceSet failures and broader V2 route/performance/human
+acceptance remain open. This entry requests no ledger promotion and does not
+mark the whole companion or V2 complete.
+
+The final keyboard audit also adds native SPACE, Backspace and Enter feedback.
+Its first Enter assertion sampled after the stroke; the diagnostic now observes
+actual key travel across the delivered input frames. A waiting candidate run was
+cancelled before engine startup for this addition; no verdict is claimed for it.
+
+
+Final code **564ea46b** now passes the clean in-place static verifier (zero gate
+regressions,17/17 protected, V2 selector, no gate changes). Engine qualification
+uses the separate cooperative repository broker on that same frozen commit:
+two imports, physical hand85 and occupied correspondence80 all pass. Test wrapper
+receipts bind; the test-written schema2 contract admits with zero errors. Native
+input/ownership64 passes, including actual Space/Backspace/Enter key travel.
+Long weather/newspaper pages were rendered after delivery feed and reviewed.
+The final contract reconstructs a fresh world, preserves all eight measured
+authority maps and retires435 nodes,52 owned resources and3 observed playbacks
+to zero retained. Raw provenance and final frames are in the correspondence
+review packet. The earlier pending/cancelled entries above remain historical.
+No runtime inputs change in the final evidence checkpoint. No broad V2, surface,
+frame-time improvement, complete witness-route or human acceptance is promoted.

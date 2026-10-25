@@ -10,6 +10,8 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return {"ok": false, "code": "future_save_read_only", "version": int(version)}
 	if candidate.has("lamp_optics") and not preload("res://scripts/lamp/lamp_optical_snapshot.gd").valid(candidate.lamp_optics):
 		return _invalid_shape("lamp_optics")
+	if candidate.has("companion") and not preload("res://scripts/device/companion_campaign_state.gd").valid(candidate.companion):
+		return _invalid_shape("companion")
 	if candidate.has("caretaker_economy") and not preload("res://scripts/game/caretaker_economy.gd").valid(candidate.caretaker_economy):
 		return _invalid_shape("caretaker_economy")
 	if candidate.has("door_keys") and not preload("res://scripts/game/door_keyring.gd").valid(candidate.door_keys):
