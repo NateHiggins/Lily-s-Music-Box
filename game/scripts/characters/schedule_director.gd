@@ -55,6 +55,10 @@ const ANCHORS := {
 	"hand_laundry": {"passage": true, "exterior": true},
 	"news_cigars": {"passage": true, "exterior": true},
 	"photo_supplies": {"passage": true, "exterior": true},
+	# The druggist and the hardware counter: where the household kitchens buy
+	# spices, soda, soap and matches (design/ORISON_KITCHENS_2026-10-24.md).
+	"otis_son": {"passage": true, "exterior": true},
+	"hardware_paint": {"passage": true, "exterior": true},
 }
 ## Corridor ring fallback for corridor / stairs / half_landing / doorway
 ## targets, resolved on the resident's own floor.

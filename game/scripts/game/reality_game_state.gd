@@ -260,6 +260,8 @@ func _validate_document(candidate: Dictionary) -> Dictionary:
 		return _invalid_shape("caretaker_economy")
 	if candidate.has("door_keys") and not preload("res://scripts/game/door_keyring.gd").valid(candidate.door_keys):
 		return _invalid_shape("door_keys")
+	if candidate.has("household_larders") and not preload("res://scripts/game/kitchen_larder.gd").valid(candidate.household_larders):
+		return _invalid_shape("household_larders")
 	for key in ["cases", "building_personality", "work_orders", "maintenance_jobs",
 			"maintenance_items", "open_shift_situations", "shop_buckets", "exterior_semantics",
 			"organism_incidents", "core_loop", "first_shift", "dream", "sleep_pressure", "waking_residues",
