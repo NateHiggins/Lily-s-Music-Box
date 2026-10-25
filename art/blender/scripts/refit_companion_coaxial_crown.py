@@ -5,7 +5,8 @@ import bpy,bmesh
 from mathutils import Matrix,Vector
 ROOT=Path(__file__).resolve().parents[3]
 parser=argparse.ArgumentParser()
-parser.add_argument('--source',required=True,help='Precompact Blender source from c1f8b8f2; never the installed compact asset')
+parser.add_argument('--source',required=True,help='Precompact native from c1f8b8f2')
+parser.add_argument('--source-data',required=True,help='Matching precompact JSON from c1f8b8f2')
 parser.add_argument('--out',required=True)
 args=parser.parse_args(sys.argv[sys.argv.index('--')+1:])
 OUT=Path(args.out).resolve()
@@ -14,10 +15,15 @@ from fabrication_native_batch import partition,export,material
 for d in ['art/blender','game/assets/props','review']:(OUT/d).mkdir(parents=True,exist_ok=True)
 bpy.ops.wm.open_mainfile(filepath=str(Path(args.source).resolve()))
 bpy.context.preferences.filepaths.save_version=0
+files={p.name:p for p in (ROOT/'game/assets').rglob('*') if p.is_file()}
 for im in bpy.data.images:
- if im.source=='FILE':im.filepath=bpy.path.abspath(im.filepath)
+ if im.source=='FILE':
+  name=Path(im.filepath).name
+  assert name in files,(im.name,name)
+  im.filepath=str(files[name])
 exports=bpy.data.collections['ServiceRadiophoneV2'];stocks=bpy.data.collections['EditableIndividualStock']
-data=json.loads((ROOT/'game/data/device/service_companion_v2.json').read_text())
+data=json.loads(Path(args.source_data).read_text())
+assert abs(data['keys'][0]['size'][0]-.013)<1e-8, 'Requires original precompact source data'
 catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']
 # Retire exact editable wing stocks from their fixed material partitions.
 prefixes=['Cradle strap','Bearer tie','Chassis through-bolt washer','Chassis bolt','Rolled guard','Guard stay','Bored motor barrel','Upper journal','Rotor shaft']
@@ -36,7 +42,15 @@ for o in list(exports.objects):
 # formed margins shrink continuously; external controls translate as assemblies.
 K=.76
 protected=['Paper','Fixed__Paper','Platen','Carriage','Type_hammer','TypeSelector','OrderJewel','NetJewel','CallJewel','ServiceCover','ShellStudy__ShellGlass','ShellStudy__ShellRubber']
-def margin(x):return math.copysign(.0685+(abs(x)-.0685)*.365,x) if abs(x)>.0685 else x
+def margin(x):
+ a=abs(x)
+ # Preserve circular seats around the four outer through-bolts. The formed
+ # margin compresses between seats; neither bore nor fastener becomes oval.
+ if a<=.0685:return x
+ if a<.0985:v=.0685+(a-.0685)*(.07691-.0685)/.030
+ elif a<=.1065:v=.08091+(a-.1025)
+ else:v=.08491+(a-.1065)*.365
+ return math.copysign(v,x)
 def category(o):
  n=o.name
  if n.startswith('FlipTile'):return 'tile'
@@ -150,7 +164,7 @@ for y in [.134,.229]:ring('Crown safety hoop',(0,y,-.012),.083,.081,.0025,'Compa
 for a in [math.pi/2,math.pi*7/6,math.pi*11/6]:
  x=.082*math.cos(a);z=-.012+.082*math.sin(a)
  rod('Crown guard upright',(x,.134,z),(x,.229,z),.001,'CompanionSteel',count=8)
- rod('Crown guard foot',(x,.134,z),(x*.55,.104,z*.55),.0018,'CompanionSteel',count=8)
+ rod('Crown guard foot',(x,.134,z),(x*.2,.104,-.012+(z+.012)*.2),.0018,'CompanionSteel',count=8)
 for (group,surface),objs in groups.items():
  spec=data['finishes'][surface];mat=bpy.data.materials[surface]
  for o in objs:o.data.materials.append(mat)

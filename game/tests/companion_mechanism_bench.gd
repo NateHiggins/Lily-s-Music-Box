@@ -68,7 +68,7 @@ func _run() -> void:
 				required = ["steel_albedo", "steel_roughness", "steel_normal", "type_plate"]
 			for map: String in required: check(row.maps.has(map), "loaded registered PBR map " + str(draw.name) + "/" + map)
 			if material is StandardMaterial3D: check(material.normal_enabled and not material.uv1_triplanar, "native normals use authored UVs " + str(draw.name))
-	check(partitions == 61, "all retained, formed-shell and sliding-carriage material primitives are present")
+	check(partitions == 63, "all retained, formed-shell and sliding-carriage material primitives are present")
 	var glass := rig.glazing.get_active_material(0) as StandardMaterial3D
 	check(glass != null and glass.refraction_enabled and is_equal_approx(glass.refraction_scale, .004), "reading glass retains restrained authored refraction")
 	for label: Label3D in [rig.device.teletype.ink, rig.device.teletype.heading, rig.device.teletype.footer]:
@@ -224,8 +224,8 @@ func _fit_contacts(rig: Node3D) -> void:
 		for sy in [-1.0, 1.0]:
 			for point: Vector2 in [Vector2(sx * .1025, sy * .066), Vector2(sx * .063, sy * .093)]:
 				for offset: Vector2 in [Vector2(.002, 0), Vector2(-.002, 0), Vector2(0, .002), Vector2(0, -.002)]:
-					var at := point + offset
-					at.x = signf(at.x) * (.0685 + (absf(at.x) - .0685) * .365) if absf(at.x) > .0685 else at.x
+					var center := Vector2(sx * .08091, point.y) if absf(point.x) > .09 else point
+					var at := center + offset
 					var pan: Variant = _contact_z(steel, rig.model, at, true)
 					var guard: Variant = _contact_z(brass, rig.model, at, false)
 					check(pan != null and guard != null, "conditioned imported fastening faces exist " + str(at))
