@@ -77,8 +77,22 @@ func _run() -> void:
 	# rather than requiring an interrupted animation to remain current forever.
 	check(carrier.reading and float(native_rig.reaction_player._last.get("vaudeville_wink", -1.0)) > last_wink, "actual recall starts a courteous physical wink")
 	var former_pin: Vector3 = native_rig._keyboard_home
-	var query := PhysicsRayQueryParameters3D.create(native_rig.model.to_global(former_pin + Vector3(0, 0, .03)), native_rig.model.to_global(former_pin - Vector3(0, 0, .01)), 1)
+	var query := PhysicsRayQueryParameters3D.create(native_rig.model.to_global(former_pin + Vector3(0, 0, .03)), native_rig.model.to_global(former_pin - Vector3(0, 0, .01)), carrier._hand.occlusion.collision_layer)
 	query.collide_with_areas = true; query.collide_with_bodies = false
+	# Positive control proves the changed private pick layer is actually being
+	# queried; an empty retired-pin ray alone could pass with the wrong mask.
+	var fixed_area: Area3D = carrier._hand.occlusion
+	var triangles: PackedVector3Array = fixed_area.get_child(0).shape.get_faces()
+	var fixed_hit := false
+	for triangle in range(0, mini(triangles.size(), 180), 3):
+		var center := (triangles[triangle] + triangles[triangle+1] + triangles[triangle+2]) / 3.0
+		var normal := (triangles[triangle+1]-triangles[triangle]).cross(triangles[triangle+2]-triangles[triangle]).normalized()
+		if normal.length_squared() < .5: continue
+		var probe := PhysicsRayQueryParameters3D.create(fixed_area.to_global(center + normal * .5), fixed_area.to_global(center - normal * .5), fixed_area.collision_layer)
+		probe.collide_with_areas = true; probe.collide_with_bodies = false
+		var hit := player.get_world_3d().direct_space_state.intersect_ray(probe)
+		if hit.get("collider") == fixed_area: fixed_hit = true; break
+	check(fixed_hit, "positive control reaches actual fixed stock through the private pick layer")
 	var vacated: Dictionary = player.get_world_3d().direct_space_state.intersect_ray(query)
 	check(vacated.is_empty(), "retracted hinge leaves no stale fixed pick blocker at its vacated pin seat")
 	await RenderingServer.frame_post_draw

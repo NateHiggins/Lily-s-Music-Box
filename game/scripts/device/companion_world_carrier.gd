@@ -143,8 +143,8 @@ func _advance_presentation(_delta: float) -> void:
 	if not device.incoming_call: _call_face_presented = false
 	elif not _call_face_presented and rig.play_reaction("wireless_call"): _call_face_presented = true
 	# Reuse the ordinary hand's last authoritative world hit. No second target
-	# scan. The whole lamp-bearing shell turns toward the viewed work; the
-	# optical aperture and real light retain their manufactured relationship.
+	# scan. Foreground framing faces the shell toward the reader; optical
+	# output converges on the viewed work from the native lens aperture.
 	motion.light_target_valid = device.lamp_enabled
 	motion.light_target = _player.camera.global_position - _player.camera.global_basis.z * 7.5
 	var hit: Dictionary = _player._grab.last_hit
