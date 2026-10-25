@@ -1,0 +1,43 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 17.39,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T21:45:33Z",
+  "started_utc": "2026-10-25T21:45:15Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "HOT TYPE REVIEW: PASS checks=51"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2phosphor25/legacy_writer.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2phosphor25/legacy_writer.log",
+  "stdout_sha256": "a70705260d5900001b56c8050e4ac24c747f55707f69929bdd358103971d7fa2"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/HotTypeWriterReview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/v2phosphor25/legacy_writer",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "964ac99c006dda8281d7577e4725b4df41e86a71",
+  "repository_tree": "36613c5ec3d5971c42aef1fa477ecabf56e0740f",
+  "runtime_inputs_sha256": "952b7a9e612122ca9d84736c0b24a8942a16345937927273fbc6b1b87d2bb431",
+  "test_path": "game/tests/hot_type_writer_review.gd",
+  "test_sha256": "c9c7a3e75135b1712f853136faa11939ac40476aca863d449f8ca3157e448393"
+ },
+ "windowed": true
+}

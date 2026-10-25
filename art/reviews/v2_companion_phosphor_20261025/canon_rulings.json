@@ -1,0 +1,144 @@
+{
+ "errors": [],
+ "warnings": [],
+ "citations": {
+  "RUL-010": [
+   "AGENTS.md",
+   "design/V2_ENVIRONMENT_DOSSIER_FOLLOWUPS_REPORT_2026-10-10.md",
+   "tools/m11c1_floor01_owner_first/source_ownership.py"
+  ],
+  "RUL-009": [
+   "AGENTS.md",
+   "tools/tests/test_check_rulings.py"
+  ],
+  "RUL-008": [
+   "AGENTS.md",
+   "art/blender/scripts/build_v2_entry_vestibule.py",
+   "art/reviews/v2_environment_design_20261008/change_register.json",
+   "art/reviews/v2_environment_design_20261008/content/status.py",
+   "art/reviews/v2_fire_case_coatings_20261019/sources/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_closed4/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_closed5/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_fire1/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_fire2/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_fire3/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_fire4/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_fire5/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_fire6/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_fire_hand_integration_20261019/sources/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_glazing_20261018/service_only_stage/source_snapshot/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_native_fit_jobs_20261023/original_fitter.gd",
+   "art/reviews/v2_qualification_20261020/failed_surface1/test_source.gd",
+   "art/reviews/v2_radiator_cutover_20261017/room_reflection_install/failed_surface_sources/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_seating_polish_20261017/sources/game/tests/orison_v2_surface_inventory.gd",
+   "art/reviews/v2_shop_door_repair_20261021/before_streaming_meshcopy.gd",
+   "art/reviews/v2_shop_door_repair_20261021/pre_lf_orison_v2_surface_inventory.gd",
+   "art/reviews/v2_shop_door_repair_20261021/rejected_final_slot_upload/orison_v2_shop_seating.gd",
+   "art/reviews/v2_shop_door_repair_20261021/surface_final_v5/executed_surface_inventory.gd",
+   "design/ORISON_DRAPERY_2026-10-24.md",
+   "design/V2_ENTRY_VESTIBULE_2026-10-24.md",
+   "design/V2_ENVIRONMENT_DOSSIER_MERGE_REPORT_2026-10-10.md",
+   "design/V2_PERIOD_TRAFFIC_2026-10-24.md",
+   "design/V2_STREET_LAMPS_2026-10-24.md",
+   "design/V2_SURFACE_REQUIREMENTS_2026-10-11.md",
+   "game/scripts/building/orison_v2_entry_vestibule.gd",
+   "game/scripts/building/orison_v2_shop_seating.gd",
+   "game/tests/orison_v2_surface_inventory.gd"
+  ],
+  "RUL-002": [
+   "AGENTS.md",
+   "design/next_session_plan.md",
+   "tools/tests/test_check_rulings.py"
+  ],
+  "RUL-003": [
+   "AGENTS.md",
+   "design/ORISON_V2_M10_RUNWAY_REPORT_2026-08-28.md",
+   "design/V2_ENVIRONMENT_DOSSIER_FOLLOWUPS_REPORT_2026-10-10.md",
+   "design/V2_ENVIRONMENT_DOSSIER_MERGE_ERRATA_2026-10-10.md",
+   "design/V2_ENVIRONMENT_DOSSIER_MERGE_REPORT_2026-10-10.md",
+   "design/next_session_plan.md",
+   "tools/tests/test_check_rulings.py"
+  ],
+  "RUL-004": [
+   "AGENTS.md",
+   "art/reviews/v2_environment_design_20261008/change_register.json",
+   "art/reviews/v2_environment_design_20261008/content/status.py",
+   "design/V2_ENVIRONMENT_DOSSIER_MERGE_REPORT_2026-10-10.md"
+  ],
+  "RUL-012": [
+   "AGENTS.md",
+   "art/blender/v2_batch_workflow.md",
+   "art/reviews/v2_fire_case_coatings_20261019/sources/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_closed4/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_closed5/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_fire2/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_fire3/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_fire4/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_fire5/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_fire_floor_hand_20261019/sources/stage19_fire6/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_fire_fold_connection_20261019/source_snapshot/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_fire_hand_integration_20261019/sources/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_fire_hose_rack_20261019/source_snapshot/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_fire_nozzle_contact_20261019/sources/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/props/cookbook_prop.gd",
+   "art/reviews/v2_radiator_cutover_20261017/room_reflection_install/failed_surface_sources/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_radiator_cutover_20261017/room_reflection_install/sources/tools/tests/test_v2_surface_requirements.py",
+   "art/reviews/v2_receipt_renewal_20261024/README.md",
+   "design/V2_ENTRY_VESTIBULE_2026-10-24.md",
+   "design/V2_PERIOD_TRAFFIC_2026-10-24.md",
+   "design/V2_STREET_LAMPS_2026-10-24.md",
+   "design/V2_SURFACE_PASS_2026-10-11.md",
+   "design/V2_SURFACE_REQUIREMENTS_2026-10-11.md",
+   "design/V2_UV_APPLICATION_2026-10-12.md",
+   "game/scripts/props/cookbook_prop.gd",
+   "tools/PIPELINE_TOOLS.md",
+   "tools/tests/test_v2_surface_requirements.py"
+  ],
+  "RUL-013": [
+   "AGENTS.md",
+   "design/DIRECT_MANIPULATION_2026-10-12.md",
+   "design/DIRECT_MANIPULATION_PROGRESS_2026-10-12.md",
+   "design/ORISON_BIBLE.md",
+   "design/ORISON_EDITORIAL_PASS_2026-10-22.md",
+   "design/V2_BATHROOM_TILES_2026-10-12.md",
+   "design/V2_ENTRY_VESTIBULE_2026-10-24.md",
+   "game/scripts/props/orison_v2_gas_fitting.gd",
+   "game/scripts/props/orison_v2_mantle_carton.gd",
+   "game/tests/orison_v2_bodega_receiving_route_test.gd",
+   "game/tests/orison_v2_connected_exterior_route_test.gd",
+   "game/tests/orison_v2_domestic_route_test.gd",
+   "game/tests/orison_v2_gas_cock_test.gd",
+   "game/tests/orison_v2_gas_mantle_test.gd"
+  ],
+  "RUL-011": [
+   "AGENTS.md"
+  ],
+  "RUL-007": [
+   "AGENTS.md",
+   "design/DREAM_BIOLOGY_REFERENCE_DOSSIER_2026-09-19.md",
+   "tools/tests/test_check_rulings.py"
+  ],
+  "RUL-006": [
+   "AGENTS.md",
+   "design/V2_ENTRY_VESTIBULE_2026-10-24.md",
+   "design/V2_PERIOD_TRAFFIC_2026-10-24.md",
+   "design/V2_STREET_LAMPS_2026-10-24.md",
+   "design/next_session_plan.md",
+   "tools/PIPELINE_TOOLS.md",
+   "tools/check_rulings.py",
+   "tools/prop_reference/README.md",
+   "tools/prop_reference/review.py"
+  ],
+  "RUL-014": [
+   "design/ORISON_BIBLE.md",
+   "design/V2_COMPANION_INTEGRATION_2026-10-25.md"
+  ],
+  "RUL-001": [
+   "design/next_session_plan.md",
+   "docs/manual/REF_TEMPLATES.md",
+   "tools/check_rulings.py",
+   "tools/tests/test_check_rulings.py"
+  ]
+ },
+ "superseded_by": {}
+}

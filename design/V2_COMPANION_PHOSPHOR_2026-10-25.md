@@ -116,3 +116,17 @@ ledger requirements/statuses. That mode executes no engine; the separate batch
 above supplies engine evidence. Subsequent changes are documentation/evidence,
 including the dated owner amendment adjacent to Bible §VIII.5.k. Final document
 checks and candidate reconciliation follow; broad V2 completion remains unproven.
+
+## Final pre-reconciliation checks
+
+Candidate **964ac99c006dda8281d7577e4725b4df41e86a71** also returns
+MERGE-CANDIDATE: zero regressions, zero exceptions, protected17/17, selectorV2
+and no changed requirements. The separate windowed HotTypeWriterReview passes51
+checks with empty stderr, retaining the historical thermal mode and its bank
+strokes/rest state. This isolated regression is not V2 direct-input qualification.
+Bible/report lint is clean, the rulings check has no errors or warnings, and the
+period audit passes with19 classified findings. Raw outputs are retained.
+
+Main subsequently gained the resident walking-body changes at **20b7fee5**.
+Reconciliation and renewed runtime qualification are required before integration;
+the earlier receipts remain exact historical records, not repinned proof.
