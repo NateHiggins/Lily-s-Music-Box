@@ -144,9 +144,11 @@ Nothing below is blocked on effort; it is blocked on someone choosing.
   and the dream-voxel worktree's uncommitted work is now safe on
   backup/main-checkout-wip-2026-09-19 and backup/dream-voxel-s2-wip-2026-09-19,
   but it is still not integrated anywhere. The agent that owns each should
-  commit it properly; then delete the backup branches. Also open: whether the
-  "Developer" session and its golden-shift worktree can be archived.
-  `design/REPO_HOUSEKEEPING_2026-09-19.md` §7.
+  commit it properly; then delete the backup branches. Both still exist on
+  the remote as of 2026-10-25. The golden-shift half of this row is answered:
+  the owner approved that cleanup on 2026-09-19, its branch is tagged
+  `archive/2026-09-19/claude/golden-shift-v2-verify-c72c73` and its worktree is
+  gone. `design/REPO_HOUSEKEEPING_2026-09-19.md` §7.
 
 ## A — Arcade / the signal parlour
 
@@ -3782,3 +3784,17 @@ proved at `art/renders/maintenance_service_round_m1/README.md`.
   ownership must run windowed (headless Godot never captures the mouse, so
   those assertions pass vacuously). See
   `design/REPO_HOUSEKEEPING_2026-09-19.md` section 10.
+- **H25** **Capture receipts still conflate lane-busy and timeout.**
+  (Found 2026-09-19, re-verified 2026-10-25.) The serial runner returns 73 for
+  lane busy, 124 for a ceiling kill and 78 for could-not-run, but
+  `tools/run_godot_capture.ps1` maps only 73, to `BUSY_OR_TIMEOUT`; a 124 kill
+  is recorded as `FAIL`, and 73 can no longer mean a timeout. Split the receipt
+  status into BUSY, TIMEOUT and FAIL and retire the combined label. It changes
+  capture-receipt vocabulary, so whoever owns that schema makes the call; the
+  comment in that script now states the real behaviour rather than the old one.
+- **H26** **GoldenLoopTest cannot run under explicit v2.**
+  (Found 2026-09-19, re-verified 2026-10-25.) `game/tests/golden_loop_test.gd`
+  still loads `res://scenes/building/orison_root.tscn` literally instead of
+  asking **BuildingRootSelector**, so the only end-to-end eleven-beat harness
+  is v1-world evidence whatever the selector says. Route it through the
+  selector, or retire it in favour of a schema-2 runtime-contract suite.

@@ -135,3 +135,34 @@ Three actual Blender views of the leaf, pull and floor gap were reviewed.
 The source preflight now passes. Current Godot import and loaded qualification
 remain pending. Original assets, failed preflight, comparisons and renders are
 preserved in **art/reviews/v2_passage_leaf_renewal_20261025**.
+
+### Subsequent main reconciliation
+
+The repair checkpoint **d64a3000** adds reviewed cast passage pulls and sharper
+registered oak, with the reproduced held-angle and signed-save repairs reported
+in **design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md**. Its focused diagnostics do
+not renew the full-world surface contract.
+
+Main advances through **f2925ff7**, including the accepted kitchen heritages,
+gas-mantle carton replenishment through the existing mail authority, and the
+UTF-8 PowerShell release-contract correction. These are reconciled in the
+owned integration checkout. The canonical acoustic checkout is untouched.
+The sole conflict is the generated dependency manifest: both sides' shared
+record classifications agree. A key union retains 315 repair-only and four
+main-only records before checking the actual sources. The one obsolete
+**mount_records** generated-name record is retired by the owning live scanner;
+the resulting scan is clean with all drift categories empty. No native asset,
+material catalogue or protected source is replaced to resolve that conflict.
+
+A clean static baseline at **f2925ff7** has **99 PASS / 10 FAIL / 1 INCOMPLETE**
+and zero dirty paths. The merged candidate has **106 PASS / 6 FAIL / 1
+INCOMPLETE**. Their comparison remains **REGRESSED** solely for the previously
+reported extra surface-test binding defect: two findings describe one extra
+defect, **2 -> 3**. Reader unread fields improve **1106 -> 1102**, four native
+tool suites turn green, and three new gates pass. Requirement statuses do not
+change. The manifest retains its parent's CRLF serialization after a proven
+JSON-equivalent newline conversion; this avoids an unrelated whole-file diff.
+Current full-world surface/runtime qualification and the owner's incoming
+acoustic merge remain open. No merged performance gain or new human acceptance
+is claimed. The source integration is a checkpoint; the V2 PR remains draft
+until qualification is renewed.
