@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 1203.61,
+  "elapsed_s": 1172.59,
   "exit_code": 0,
-  "finished_utc": "2026-10-25T05:28:48Z",
-  "started_utc": "2026-10-25T05:08:43Z",
+  "finished_utc": "2026-10-25T08:37:39Z",
+  "started_utc": "2026-10-25T08:18:07Z",
   "timed_out": false
  },
  "log": {
@@ -19,19 +19,19 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/fx/tmp/r/upper/suite_run.log.stderr",
+  "stderr": "C:/ov/rn/tmp/r/upper/suite_run.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/ov/fx/tmp/r/upper/suite_run.log",
-  "stdout_sha256": "ea94faba1674f16f467c279fe68073a2605eb633e782f5f0d60762a6f616e294"
+  "stdout": "C:/ov/rn/tmp/r/upper/suite_run.log",
+  "stdout_sha256": "c5ab3e5347328add526c5e522b1f9bbc36b4d191406bc68c84c8d05e442f5c0f"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2UpperAccessCohort.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/fx/tmp/r/upper",
+ "shot_dir": "C:/ov/rn/tmp/r/upper",
  "source": {
-  "dirty_paths": 2037,
+  "dirty_paths": 2044,
   "dirty_sample": [
    "M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
    " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
@@ -54,9 +54,9 @@
    " M game/assets/audio/music/covers/no_subject_line.webp.import",
    " M game/assets/audio/music/covers/paper_sleep.webp.import"
   ],
-  "repository_head": "e6092ee66ad3c5adc92ad83a5a9dcbc694812b77",
-  "repository_tree": "8e1152801aabd82d71479dfc438f828191b297d1",
-  "runtime_inputs_sha256": "dddc404d7a0cbc7f5f82dd8f4ddcaa5421c9b751e0164c7efce9488e8398925a",
+  "repository_head": "e5c0c3d1de95d4d1ada0086c06633556b170f6df",
+  "repository_tree": "783c9bf82bbf37c462549628280ac99b4d76be61",
+  "runtime_inputs_sha256": "e1133d73113fb772e84768986e8de5e90d3ce09725ab7e331b5433fbca2081f5",
   "test_path": "game/tests/v2_spatial_access_cohort.gd",
   "test_sha256": "0ce5d41e36b037a28c64f2b3f5d5ef77dbb81e3fb6727a8a30fa99b1160badb9"
  },
