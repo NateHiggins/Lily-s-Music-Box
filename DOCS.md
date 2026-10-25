@@ -36,6 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to knowâ€¦ | Read |
 | Cast passage pulls, sharper oak and lossless fixed mouse travel | `design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md` |
 | Companion reply autosaves, paired occupied-world frame tails and queue/reload checks | `design/V2_COMPANION_REPLY_AUTOSAVE_2026-10-25.md` |
+| Charcoal phosphor companion, handheld retirement and rejected fitting schedule | `design/V2_COMPANION_PHOSPHOR_2026-10-25.md` |
 | Companion correspondence, protected typing ownership and dated reading witnesses | `design/V2_COMPANION_INTEGRATION_2026-10-25.md` |
 | Companion mechanical face reactions and period animation references | `design/V2_COMPANION_FACE_REACTIONS_2026-10-25.md` |
 | Occupied companion costs, first-render stalls and rejected MSAA change | `design/V2_COMPANION_RENDER_ATTRIBUTION_2026-10-25.md` |

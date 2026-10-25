@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 14.84,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T21:32:07Z",
+  "started_utc": "2026-10-25T21:31:52Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2phosphor25/qualification/mechanism.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2phosphor25/qualification/mechanism.log",
+  "stdout_sha256": "dda5e01fdbf255d0e48dd55fa8ab2893373072721fd03bac45867686af3e370e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/CompanionMechanismBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/v2phosphor25/qualification/mechanism",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "6d4578079971643d62550f0cdaaf1cbc4d2db37d",
+  "repository_tree": "5ca87376370873b62743ea57f14bb7c63849d7cc",
+  "runtime_inputs_sha256": "952b7a9e612122ca9d84736c0b24a8942a16345937927273fbc6b1b87d2bb431",
+  "test_path": "game/tests/companion_mechanism_bench.gd",
+  "test_sha256": "32b16f6131a4b095a6234c5e0104e821d7c5b89eb5a9df68a026edfd4e91e06d"
+ },
+ "windowed": true
+}

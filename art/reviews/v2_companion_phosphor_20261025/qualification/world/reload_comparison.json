@@ -1,0 +1,73 @@
+{
+	"after": {
+		"branch": "",
+		"counts": {
+			"identity": 1,
+			"newspaper": 1,
+			"weather": 1
+		},
+		"history": [
+			{
+				"input": "who are you",
+				"intent": "identity",
+				"line_id": "identity",
+				"output": "A Vantry maintenance service set. Radio, inspection lamp, field printer. The rest of me appears to be an amendment."
+			},
+			{
+				"input": "weather",
+				"intent": "weather",
+				"line_id": "weather_report",
+				"output": "10 November 1928, 6 P.M. E.S.T.: fair intervals; 39 degrees F.; wind W.N.W. 5 miles per hour; glass 30.21 inches.\nIssued 10 November 1928, 5 P.M. E.S.T.\nForecast: Tomorrow: Cloudy; light variable wind. The low sky holds the chimney smoke. Expected high about 41 degrees.\nValid 11 November 1928, 6 A.M. to 11 November 1928, 6 P.M. E.S.T.\nCold enough to make every draught a personal communication from the landlord."
+			},
+			{
+				"input": "newspaper",
+				"intent": "newspaper",
+				"line_id": "newspaper_report",
+				"output": "The Borough Record / Saturday 10 November 1928\nCount of Tuesday's returns still in dispute in four counties\nWire tally and paper tally differ by 1,912 votes; Hoover's margin unaffected, Board says\nCounting people twice is a curious way of failing to hear them once. That is a comment on the report, not a second tally."
+			}
+		],
+		"last_object": "",
+		"seen": {
+			"news_comment_votes": true,
+			"weather_comment_cold": true
+		},
+		"trust": 0,
+		"version": 1
+	},
+	"before": {
+		"branch": "",
+		"counts": {
+			"identity": 1,
+			"newspaper": 1,
+			"weather": 1
+		},
+		"history": [
+			{
+				"input": "who are you",
+				"intent": "identity",
+				"line_id": "identity",
+				"output": "A Vantry maintenance service set. Radio, inspection lamp, field printer. The rest of me appears to be an amendment."
+			},
+			{
+				"input": "weather",
+				"intent": "weather",
+				"line_id": "weather_report",
+				"output": "10 November 1928, 6 P.M. E.S.T.: fair intervals; 39 degrees F.; wind W.N.W. 5 miles per hour; glass 30.21 inches.\nIssued 10 November 1928, 5 P.M. E.S.T.\nForecast: Tomorrow: Cloudy; light variable wind. The low sky holds the chimney smoke. Expected high about 41 degrees.\nValid 11 November 1928, 6 A.M. to 11 November 1928, 6 P.M. E.S.T.\nCold enough to make every draught a personal communication from the landlord."
+			},
+			{
+				"input": "newspaper",
+				"intent": "newspaper",
+				"line_id": "newspaper_report",
+				"output": "The Borough Record / Saturday 10 November 1928\nCount of Tuesday's returns still in dispute in four counties\nWire tally and paper tally differ by 1,912 votes; Hoover's margin unaffected, Board says\nCounting people twice is a curious way of failing to hear them once. That is a comment on the report, not a second tally."
+			}
+		],
+		"last_object": "",
+		"seen": {
+			"news_comment_votes": true,
+			"weather_comment_cold": true
+		},
+		"trust": 0,
+		"version": 1
+	},
+	"draft": "help"
+}
