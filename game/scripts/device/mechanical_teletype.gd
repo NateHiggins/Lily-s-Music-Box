@@ -233,7 +233,9 @@ func show_draft(text: String, caret: int) -> void:
 	_draft_text = marked
 	var rows: Array[String] = []
 	for start in range(0, marked.length(), COLUMNS): rows.append(marked.substr(start, COLUMNS))
-	_draft_ink.position = ink.position + Vector3(0, 0, .0001)
+	# Editing uses the settled copy datum even if the previous received page
+	# is still completing its short delivery feed. The typed viewport stays put.
+	_draft_ink.position = _ink_home + Vector3.UP * DELIVERY_FEED + Vector3(0, 0, .0001)
 	var caret_row := clampi(caret, 0, text.length()) / COLUMNS
 	var first_row := maxi(0, caret_row-ROWS+1)
 	_draft_ink.text = "\n".join(rows.slice(first_row, mini(rows.size(), first_row+ROWS)))

@@ -76,6 +76,11 @@ func _run() -> void:
 	# correctly takes the face away; verify the actual accepted start timestamp,
 	# rather than requiring an interrupted animation to remain current forever.
 	check(carrier.reading and float(native_rig.reaction_player._last.get("vaudeville_wink", -1.0)) > last_wink, "actual recall starts a courteous physical wink")
+	var former_pin: Vector3 = native_rig._keyboard_home
+	var query := PhysicsRayQueryParameters3D.create(native_rig.model.to_global(former_pin + Vector3(0, 0, .03)), native_rig.model.to_global(former_pin - Vector3(0, 0, .01)), 1)
+	query.collide_with_areas = true; query.collide_with_bodies = false
+	var vacated: Dictionary = player.get_world_3d().direct_space_state.intersect_ray(query)
+	check(vacated.is_empty(), "retracted hinge leaves no stale fixed pick blocker at its vacated pin seat")
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(directory.path_join("actual_recall_face.png"))
 	await key(KEY_E)

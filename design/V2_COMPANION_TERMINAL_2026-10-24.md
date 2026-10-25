@@ -640,3 +640,29 @@ contract, world integration, save persistence, keyboard input, candidate-verifie
 or performance qualification is claimed. World event/typing/reading producers
 and validated campaign memory wiring remain outstanding. The patch is an
 independent draft review branch based on main, not a production default change.
+
+
+### Companion correspondence and close reading integration — October25
+
+The continuation of PR42 is recorded in
+**design/V2_COMPANION_INTEGRATION_2026-10-25.md**. It connects the offline parser
+and bounded campaign memory to the real autonomous printer and folding keyboard.
+Protected input, actual controller/touch/native typing, exact drafts, quiet
+preference, publication times, historical editions, disk recovery and overlapping
+owners are exercised. Other inventory, work-order, relationship and case owners
+remain authoritative. The source is reconciled with main **ecce6e8c**.
+
+The native guided carriage retracts45mm after opening. The44cm /40-degree reading
+pose holds the paper steady above the open tray; actual occupied-world frames
+were reviewed against bright windows. The failed42cm recall was retained and
+repaired; the repeat motion diagnostic passes55 checks. Native mechanism2210,
+physical hand84 and occupied correspondence75 pass at the recorded source;
+a further vacated-pin probe passes in85-check hand diagnostics. The occupied
+schema2 receipt admits against **fdcf473d**, reconstructs a fresh world and
+retires435 nodes,52 owned resources and3 observed playbacks to zero retained.
+
+The final draft datum and settled long-page additions await the final candidate
+run. Historical receipts are preserved, never repinned. Main's surface/ledger
+debt, existing V1 ServiceSet failures and broader V2 route/performance/human
+acceptance remain open. This entry requests no ledger promotion and does not
+mark the whole companion or V2 complete.

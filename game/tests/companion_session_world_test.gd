@@ -106,6 +106,9 @@ func ask_actual(text: String) -> Dictionary:
 	await type_text(text)
 	await key(KEY_ENTER)
 	if not check(await wait_for(func(): return not carrier.device.teletype.printing), "physical reply finishes for " + text): return {}
+	await get_tree().create_timer(.5).timeout
+	var ink: Label3D = carrier.device.teletype.ink
+	check(projected_bounds(carrier.rig.glazing).grow(2.0).encloses(projected_aabb(ink, ink.get_aabb())), "settled calendar page fits inside reading glass for " + text)
 	return carrier.session.dialogue.memory.history.back().duplicate(true) if not carrier.session.dialogue.memory.history.is_empty() else {}
 
 func finish() -> void:
