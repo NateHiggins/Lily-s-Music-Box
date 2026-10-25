@@ -100,18 +100,20 @@ conversation action, not an automatic focus grab when the player merely looks.
 | Location / reproduction | Severity / evidence | Repair | Verification |
 |---|---|---|---|
 | Current device follows camera rigidly | High; carrier reparents to camera and overwrites pose every frame | Autonomous world placement pending | Not implemented or measured |
-| No companion parser / memory | High; old PhoneOS is archived and inappropriate | New isolated offline modules and authored library | Syntax only; queued domain diagnostic |
-| Keyboard / propulsion absent | High; native printer is an existing working mechanism, not a flying companion | Separate Blender candidate with guarded rotors, cradled motors and folding keyboard | Native v5 rendered; not imported or installed |
+| Conversation interpretation and memory | High; old PhoneOS is archived and inappropriate | Isolated offline modules, bounded memory and78 authored lines | Offline31 checks passed; no world context, focus or save integration |
+| Device square corner joints | Medium; old box-strip construction | Single formed pan, continuous leather jacket, velvet lining, pierced screw-fastened brass guards | Native v11 reviewed; imported fastening observations failed33 checks, diagnosis pending |
+| Keyboard and propulsion | High; previous installed device has neither | Separate native candidate, folding keyboard, guarded rotors, two-color32-by-12 tile display | v6 mechanism diagnostic failed as a whole; candidate remains uninstalled |
+| Glazed paper reading bed | High; v6 dry/wet captures hide carbon lettering | Opaque masked companion glyphs with ordinary depth testing; typed moisture initialization | v4 shader-default abort retained; v7 rendered rerun queued |
 | Context / campaign persistence | High; no adapter yet | Add read-only witnesses and validated save field | Not installed |
-| Conversation domain first run | Medium; three failed checks in **offline_v1** | Specific names outrank generic aliases; new commands interrupt clarification; expanded branch test expects the next stage | **offline_v2** queued, not passed |
-| Portable candidate native source | Medium; separate reopen reported25 missing texture paths | Disable the second automatic relative-path remap after explicitly rebasing images | Corrected native reopen checks all25 paths and renders six flip-display views |
+| Existing carrier controls after outward lid repair | High; preserve circuit owners and actual manipulation | Consistent outward native cover travel | Current original-carrier world route: separately scoped71-check schema-2 contract, captured-input scope only |
+| Portable candidate native source | Medium; initial reopen reported25 missing texture paths | Avoid second relative-path remap after explicit image rebasing | Corrected native reopen resolves all paths; original failure retained |
 
-A: audit and source map established; runtime integration remains. B: native
-candidate construction is in progress. C–G remain open. Do not describe the isolated conversation
-modules as a completed companion, normal V2 feature or performance improvement.
-Before enabling world placement, record repeatable exploration/turning/doorway/
-inspection/typing routes against the unchanged carrier, then compare distributions
-under the same settings. Existing curtain measurements are not this baseline.
+A: audit and source map established; runtime integration remains. B: formed-shell
+candidate built, imported verification incomplete. C–G remain open. The isolated
+conversation modules are not a completed companion or normal V2 feature.
+The original-carrier baseline records first-use spikes and frame-time tails;
+independent movement will need a matched route with doors, inspection and typing.
+Existing curtain measurements do not qualify this replacement.
 
 ## Native candidate review
 
@@ -408,3 +410,12 @@ latched manipulation, limits, circuit owners and interruption. Its source
 digest remained unchanged throughout the run. This contract applies to those
 captured inputs and that existing carrier, not to the new companion or later
 candidate glyph changes. The companion remains uninstalled and unqualified.
+
+### Exported fastening diagnosis while the imported probe waits
+
+A float64, two-sided barycentric query of the unchanged exported GLB finds both
+bearing surfaces at all32 points. Maximum absolute gap is1.862645149e-9 metres;
+the steel front datum ranges0.027499999851 to0.027500001714 metres. This source
+calculation supports neither an imported-geometry pass nor a physics diagnosis.
+The imported comparison is still needed; the33 original failures remain open.
+The source SHA and all32 observations are retained in **export_contact_diagnostic.json**.

@@ -1,0 +1,165 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Read-only source classification; no occupied-world or visual acceptance. Previous shared-trim frame attribution is contradicted by current source.",
+  "inputs": {
+    "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+    "game/assets/building/floor_01_cells/shop_bar.gltf": "cdf5febdda279dd8c0abd82924052aa2a47892ca2b5886e95376153e43ce1f76",
+    "game/assets/building/floor_01_cells/shop_bar.bin": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f",
+    "game/scripts/building/orison_v2_bar_region.gd": "f7a20b2d5eefb934aaf63be860bf291c11699055fb79df4e6decdb9791eb565d",
+    "game/scripts/props/door_prop.gd": "8b0fcd743f9c10441b08fea4dd1ab10d3fcc12dc2f3b0b51065f494845df8baf",
+    "art/blender/scripts/build_bodega_frontage.py": "1bdd7f8278e33b43f66171a9411acb85799f6a0e2c358c64a51bed637cc473d9"
+  },
+  "bar_doors": [
+    {
+      "kind": "door",
+      "id": "F01_BAR_WC_DOOR",
+      "pos": [
+        -10.85,
+        -36.17,
+        -2.8
+      ],
+      "yaw_deg": 0,
+      "w": 0.7,
+      "h": 2.0,
+      "leaf": "closed",
+      "exterior": true,
+      "subtype": "exterior_service",
+      "finish_variant": 2
+    },
+    {
+      "kind": "door",
+      "id": "F01_BAR_DOOR",
+      "pos": [
+        5.9,
+        -28.42,
+        0.0
+      ],
+      "yaw_deg": 180,
+      "w": 0.9,
+      "h": 2.1,
+      "leaf": "open",
+      "exterior": true,
+      "subtype": "storefront",
+      "finish_variant": 2
+    },
+    {
+      "kind": "door",
+      "id": "F01_BAR_RED_DOOR",
+      "pos": [
+        4.15,
+        -33.95,
+        -2.8
+      ],
+      "yaw_deg": 90,
+      "w": 0.9,
+      "h": 2.05,
+      "leaf": "closed",
+      "swing": "out",
+      "finish_variant": 1,
+      "exterior": true,
+      "subtype": "exterior_service"
+    }
+  ],
+  "shared_trim": {
+    "owner": "F01_OWN_SHOP_BAR_furnish_trim",
+    "triangles": 648,
+    "low": [
+      -11.3013,
+      -2.8,
+      34.63
+    ],
+    "high": [
+      -0.93,
+      -2.115,
+      37.568
+    ],
+    "conclusion": "Entire draw below all three door heads; not the presumed source of doorway head/jamb joints. Preserve it."
+  },
+  "bar_opening_stock": [
+    {
+      "id": "retail_bar_shaft_e",
+      "rect": [
+        5.9,
+        -35.8,
+        6.2,
+        -28.32
+      ],
+      "z0": -2.9,
+      "h": 5.45,
+      "mat": "stairwell_teal"
+    },
+    {
+      "id": "retail_bar_wall_e_n",
+      "rect": [
+        4.0,
+        -33.95,
+        4.3,
+        -28.32
+      ],
+      "z0": -2.9,
+      "h": 5.45,
+      "mat": "stairwell_teal"
+    },
+    {
+      "id": "retail_bar_wall_e_s",
+      "rect": [
+        4.0,
+        -35.8,
+        4.3,
+        -34.9
+      ],
+      "z0": -2.9,
+      "h": 5.45,
+      "mat": "stairwell_teal"
+    },
+    {
+      "id": "retail_bar_wall_e_lint",
+      "rect": [
+        4.0,
+        -34.9,
+        4.3,
+        -33.95
+      ],
+      "z0": -0.77,
+      "h": 2.32,
+      "mat": "stairwell_teal"
+    },
+    {
+      "id": "retail_bar_wc_wall_n_w",
+      "rect": [
+        -11.5,
+        -36.25,
+        -10.85,
+        -36.1
+      ],
+      "z0": -2.8,
+      "h": 2.6,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_wc_wall_n_e",
+      "rect": [
+        -10.15,
+        -36.25,
+        -9.65,
+        -36.1
+      ],
+      "z0": -2.8,
+      "h": 2.6,
+      "mat": "bar_wall_red"
+    },
+    {
+      "id": "retail_bar_wc_lintel",
+      "rect": [
+        -10.85,
+        -36.25,
+        -10.15,
+        -36.1
+      ],
+      "z0": -0.75,
+      "h": 0.55,
+      "mat": "bar_wall_red"
+    }
+  ],
+  "bodega": "ContinuousHeader spans the whole frontage above the upper lights; DoorTransomRail/Head terminate between continuous door jambs. These are structural/transom members, not a three-piece architrave. Native detail review remains necessary before declaring the doorway finish complete."
+}

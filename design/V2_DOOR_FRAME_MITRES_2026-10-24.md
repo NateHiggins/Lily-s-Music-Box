@@ -127,3 +127,22 @@ Mechanical, collision, access, panel/interlock and save owners are retained.
 Open findings: listed above. Decision needed from owner: none.
 
 BLOCKED merge qualification: occupied-world frame/access/save checks and remaining source surrounds are open.
+
+## Remaining-source attribution correction
+
+A read-only follow-up contradicts the earlier attribution of three bar door
+surrounds to the retained shared trim. **F01_OWN_SHOP_BAR_furnish_trim** has648
+triangles and a top atY=-2.115m, below every bar door head. It must not be
+retired as doorway stock. The three actual door actors construct leaves and
+hinge hardware; their region does not add casing proxies. The retained room
+walls and lintels form the apertures. Proper attachment/lining and surrounding
+finish still need an occupied native-detail review and any required repair.
+This corrects the source attribution; it does not close the bar-frame issue.
+
+The Bodega builder's **ContinuousHeader** spans the frontage above the upper
+lights; its independent transom rails end between continuous jambs. They are
+structural/transom members, not a three-piece architrave to cut indiscriminately.
+Its actual doorway finish remains subject to native-detail review. Source hashes,
+three door records, named wall records and trim bounds are retained in
+**remaining_source_classification.json**. No rendering input was changed by
+this audit and no world acceptance is inferred from source classification.
