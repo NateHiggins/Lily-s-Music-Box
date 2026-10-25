@@ -1,0 +1,66 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 20.95,
+  "exit_code": 1,
+  "finished_utc": "2026-10-25T14:17:15Z",
+  "started_utc": "2026-10-25T14:16:53Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "ERROR: Native fixture source preflight failed before world composition: [\"orison_bodega_frontage.json: FAIL\\r\\n  stale fixture dependency: game/scripts/props/door_prop.gd\\r\\norison_city_closure.json: PASS\\r\\norison_city_elevations.json: PASS\\r\\norison_city_ground_apron.json: PASS\\r\\norison_city_horizon.json: PASS\\r\\norison_front_pavement_construction.json: PASS\\r\\norison_front_pavement_review.json: PASS\\r\\norison_street_paving_details.json: PASS\\r\\npassage_shop_leaves.json: PASS\\r\\n0 scripts; 9 fixtures; 1 failed; source preflight only\\r\\n\"]"
+  ],
+  "pass_count": 1,
+  "pass_lines": [
+   "ERROR: Native fixture source preflight failed before world composition: [\"orison_bodega_frontage.json: FAIL\\r\\n  stale fixture dependency: game/scripts/props/door_prop.gd\\r\\norison_city_closure.json: PASS\\r\\norison_city_elevations.json: PASS\\r\\norison_city_ground_apron.json: PASS\\r\\norison_city_horizon.json: PASS\\r\\norison_front_pavement_construction.json: PASS\\r\\norison_front_pavement_review.json: PASS\\r\\norison_street_paving_details.json: PASS\\r\\npassage_shop_leaves.json: PASS\\r\\n0 scripts; 9 fixtures; 1 failed; source preflight only\\r\\n\"]"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/merge_f292_qualification/surface_v1.log.stderr",
+  "stderr_sha256": "9941e84460753807add8732febcb2b4079d5b650d67ce36276553a177c31d5c2",
+  "stdout": "C:/ov/reports/v2integration24/merge_f292_qualification/surface_v1.log",
+  "stdout_sha256": "105c8475a495681189d35bb4aa1ace2a76165bdd46c5469ef9c1a04acaa199c3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\merge_f292_qualification\\surface_v1",
+ "source": {
+  "dirty_paths": 610,
+  "dirty_sample": [
+   "?? game/native/hose_math/hose_math.gdextension.uid",
+   "?? game/scripts/building/WeatherManager.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_heating.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_topology.gd.uid",
+   "?? game/scripts/building/orison_v2_arcade_fabric.gd.uid",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_c_stove_stack.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_cage_light_apertures.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_city_horizon.gd.uid"
+  ],
+  "repository_head": "e688d2baa1cd88406d4fa600f20cc93dde3e4725",
+  "repository_tree": "a615707bbc3833f326bf4756c2ed23b158afa7ac",
+  "runtime_inputs_sha256": "1890d59024413619fff3476439d033db1591c21080820ba8c5e715ca43e41dde",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "078cfe05437294b86ca97273f6590c4dc5acfc40b77a2bf5565db273c323c54f"
+ },
+ "windowed": true
+}

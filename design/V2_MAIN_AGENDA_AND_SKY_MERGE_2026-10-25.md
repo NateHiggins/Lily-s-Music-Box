@@ -135,3 +135,53 @@ Three actual Blender views of the leaf, pull and floor gap were reviewed.
 The source preflight now passes. Current Godot import and loaded qualification
 remain pending. Original assets, failed preflight, comparisons and renders are
 preserved in **art/reviews/v2_passage_leaf_renewal_20261025**.
+
+### Subsequent main reconciliation
+
+The repair checkpoint **d64a3000** adds reviewed cast passage pulls and sharper
+registered oak, with the reproduced held-angle and signed-save repairs reported
+in **design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md**. Its focused diagnostics do
+not renew the full-world surface contract.
+
+Main advances through **f2925ff7**, including the accepted kitchen heritages,
+gas-mantle carton replenishment through the existing mail authority, and the
+UTF-8 PowerShell release-contract correction. These are reconciled in the
+owned integration checkout. The canonical acoustic checkout is untouched.
+The sole conflict is the generated dependency manifest: both sides' shared
+record classifications agree. A key union retains 315 repair-only and four
+main-only records before checking the actual sources. The one obsolete
+**mount_records** generated-name record is retired by the owning live scanner;
+the resulting scan is clean with all drift categories empty. No native asset,
+material catalogue or protected source is replaced to resolve that conflict.
+
+A clean static baseline at **f2925ff7** has **99 PASS / 10 FAIL / 1 INCOMPLETE**
+and zero dirty paths. The merged candidate has **106 PASS / 6 FAIL / 1
+INCOMPLETE**. Their comparison remains **REGRESSED** solely for the previously
+reported extra surface-test binding defect: two findings describe one extra
+defect, **2 -> 3**. Reader unread fields improve **1106 -> 1102**, four native
+tool suites turn green, and three new gates pass. Requirement statuses do not
+change. The manifest retains its parent's CRLF serialization after a proven
+JSON-equivalent newline conversion; this avoids an unrelated whole-file diff.
+Current full-world surface/runtime qualification and the owner's incoming
+acoustic merge remain open. No merged performance gain or new human acceptance
+is claimed. The source integration is a checkpoint; the V2 PR remains draft
+until qualification is renewed.
+
+The next windowed surface attempt stops at native preflight, before composing
+a world: the bodega fixture binds DoorProp's earlier source, while the other
+eight native fixtures pass. Its 20.95-second exit-1 wrapper receipt and raw
+stderr are retained. Neither cost route starts and no runtime contract is
+produced by this attempt.
+
+The owning bodega Blender builder is rerun against the actual held-door repair.
+Its text I/O is made explicitly UTF-8, including the catalogue read; a final
+repeat executes the complete current builder. The shipping GLB remains
+byte-identical at **a780cffaed39caf71a51e0ad2cb985256060455f6e75464d59dadc40692d140a**.
+All construction and fixture fields remain equal except the source-binding
+dictionary, whose only changed path is **game/scripts/props/door_prop.gd**.
+The native source is saved coherently and original files/build logs are kept
+in **art/reviews/v2_bodega_door_binding_20261025**. Existing geometric review is
+reused because the actual runtime asset is exact; no new visual acceptance is
+inferred from the source rebuild. Native preflight now passes. The full
+surface and paired route programme is resumed without reimporting unchanged
+assets.
