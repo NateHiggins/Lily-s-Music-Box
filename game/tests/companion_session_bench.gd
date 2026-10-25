@@ -7,6 +7,10 @@ var checks: Array[Dictionary] = []
 var directory := ""
 var finished := false
 var saved_campaign := false
+var late_camera_stress := false
+
+func _process(_delta: float) -> void:
+	if late_camera_stress and is_instance_valid(player): player.camera.rotation.y += .02
 
 func check(ok: bool, label: String) -> bool:
 	checks.append({"name":label, "passed":ok})
@@ -227,6 +231,9 @@ func physical_key_down(character: String) -> bool:
 func exercise_screen_framing() -> void:
 	var frame: Node = carrier.screen_frame
 	check(frame != null and carrier.motion.screen_framed, "production companion uses foreground flight framing")
+	var old_priority := process_priority
+	process_priority = 2000
+	late_camera_stress = true
 	var was_physics := player.is_physics_processing()
 	player.set_physics_process(false)
 	var saved_rotation := player.rotation
@@ -246,6 +253,7 @@ func exercise_screen_framing() -> void:
 			player.camera.rotation.x = pitch
 			player.velocity = Vector3(8.0, 0.0, -8.0)
 			await frames(3)
+			await RenderingServer.frame_post_draw
 			var size := get_viewport().get_visible_rect().size
 			var bounds := projected_bounds(carrier.device.teletype._paper)
 			all_inside = all_inside and Rect2(Vector2.ZERO, size).encloses(bounds)
@@ -257,13 +265,14 @@ func exercise_screen_framing() -> void:
 			rays_match = rays_match and largest_error < 2.0
 	check(all_inside, "framed paper stays on screen through abrupt turns and pitch extremes at 30 60 144 fps")
 	check(center_clear, "foreground rectangle never covers the centre reticle during travel")
-	check(rays_match, "cropped foreground projection agrees with authoritative physical targeting within two pixels")
+	check(rays_match, "rendered foreground projection agrees within two pixels after late camera updates")
 	check(carrier.motion.query_count == 0 and carrier.motion.collision_mask == 0, "screen flight performs no environment sweep or pursuit queries")
 	var old_size := get_window().size
 	var resize_clear := true; var resize_rays := true
 	for window_size: Vector2i in [Vector2i(1280, 720), Vector2i(1024, 768), Vector2i(960, 540)]:
 		get_window().size = window_size
 		await frames(4)
+		await RenderingServer.frame_post_draw
 		var size := get_viewport().get_visible_rect().size
 		resize_clear = resize_clear and not frame.image.get_rect().has_point(size * .5)
 		var paper: MeshInstance3D = carrier.device.teletype._paper
@@ -272,6 +281,8 @@ func exercise_screen_framing() -> void:
 		resize_rays = resize_rays and projected.distance_to(player.camera.unproject_position(point)) < 2.0
 	get_window().size = old_size
 	check(resize_clear and resize_rays, "resize and 4:3 framing preserve centre clearance and authoritative rays")
+	late_camera_stress = false
+	process_priority = old_priority
 	player.rotation = saved_rotation; player.camera.rotation = saved_camera_rotation
 	player.velocity = saved_velocity; player.camera.fov = saved_fov; Engine.max_fps = saved_fps
 	player.set_physics_process(was_physics)

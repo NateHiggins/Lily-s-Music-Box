@@ -12,6 +12,7 @@ var stock_bounds := AABB()
 var safe_rect := Rect2()
 var reading_bounds := AABB()
 var composite_enabled := true
+var present_reading := false
 var _has_reading_bounds := false
 var _main_mask := 0
 var _last_basis := Basis.IDENTITY
@@ -70,6 +71,10 @@ func setup(owner_carrier: Node3D, source_camera: Camera3D) -> void:
 	image.stretch_mode = TextureRect.STRETCH_SCALE
 	layer.add_child(image)
 	advance(0.0, false)
+	RenderingServer.frame_pre_draw.connect(_before_draw)
+
+func _before_draw() -> void:
+	advance(get_process_delta_time(), present_reading)
 
 func advance(delta: float, reading: bool) -> void:
 	if not is_instance_valid(camera) or not is_instance_valid(carrier): return
@@ -136,4 +141,5 @@ func advance(delta: float, reading: bool) -> void:
 	carrier.beam_valid = true
 
 func _exit_tree() -> void:
+	if RenderingServer.frame_pre_draw.is_connected(_before_draw): RenderingServer.frame_pre_draw.disconnect(_before_draw)
 	if is_instance_valid(camera): camera.cull_mask = (camera.cull_mask & ~DEVICE_MASK) | (_main_mask & DEVICE_MASK)

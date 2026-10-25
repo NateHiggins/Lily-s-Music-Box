@@ -174,7 +174,7 @@ func _advance_presentation(_delta: float) -> void:
 	else:
 		rig.request_keyboard(false)
 		motion.request_behavior(&"accompany")
-	screen_frame.advance(_delta, reading and not _player.protected_input_active() and not session._foreign_editor_active())
+	screen_frame.present_reading = reading and not _player.protected_input_active() and not session._foreign_editor_active()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if session != null and session.retired: return
