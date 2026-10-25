@@ -19,9 +19,10 @@ every dish is a signal one: receipts dictated to cylinders, broadcast by the
 Kitchen Hour, timed by a recorded sound, tuned by ear. Nothing about the food
 itself is futuristic.
 
-Queens in 1928 ate the food of whoever lived on the block. The canon names
-no heritage for any resident, so the households' origins below are
-**proposed**, chosen to fit each surname, profession and wound in
+Queens in 1928 ate the food of whoever lived on the block. The canon named
+no heritage for any resident, so the households' origins below were
+proposed to fit each surname, profession and wound, and are **ruled canon by
+the owner on 2026-10-25** ("i accept your heritage proposal"). They were chosen to fit
 `design/ORISON_ARCHETYPE_SCHEDULES.md` and the neighbourhoods a Queens walk-up
 drew from: New England Yankees, Azorean and Minho Portuguese out of Fall
 River, Salonika Sephardim, Astoria's Bohemians, Scots, Welsh, Washington
@@ -148,4 +149,6 @@ production V2 root:
 - The player's own kitchen in 4B keeps no larder.
 - The shop counters' own stock does not fall when residents buy. The bodega's
   bucket counts timetable visits only.
-- The proposed heritages and brands await the owner's ruling.
+- The households' heritages are canon (owner ruling 2026-10-25). The invented
+  family firms that came with them (Kessler's of Stuyvesant Street, Quell and
+  Sons, Bell Bros. of Washington Street) were part of the accepted proposal.
