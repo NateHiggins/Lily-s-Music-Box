@@ -1359,7 +1359,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair0_-1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "vinyl_oxblood",
-      "volume_m3": 0.0007712127000511174
+      "volume_m3": 0.0007712127000481622
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair0_-1_Lace0",
@@ -1431,7 +1431,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair1_-1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "shoe_dark",
-      "volume_m3": 0.0007712126595358742
+      "volume_m3": 0.0007712126595358743
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair1_-1_Lace0",
@@ -1467,7 +1467,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair1_1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "shoe_dark",
-      "volume_m3": 0.0007712138354281916
+      "volume_m3": 0.0007712138354311469
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair1_1_Lace0",
@@ -1503,7 +1503,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair2_-1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "shoe_dark",
-      "volume_m3": 0.0007712128753807582
+      "volume_m3": 0.000771212875390786
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair2_-1_Lace0",
@@ -1791,7 +1791,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair6_-1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "vinyl_oxblood",
-      "volume_m3": 0.00077121368945552
+      "volume_m3": 0.0007712136894555199
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair6_-1_Lace0",
@@ -1827,7 +1827,7 @@
       "name": "storm_shop_shoe_rebuilding_rack0_Pair6_1_Upper",
       "assembly": "storm_shop_shoe_rebuilding_rack0",
       "key": "vinyl_oxblood",
-      "volume_m3": 0.0007712131105321126
+      "volume_m3": 0.0007712131105321127
     },
     {
       "name": "storm_shop_shoe_rebuilding_rack0_Pair6_1_Lace0",
@@ -5333,14 +5333,14 @@
       }
     ]
   },
-  "asset_sha256": "936477766785005f50fe21ad8cd64d32128c240d9e742a75ce28fd617e45a64c",
+  "asset_sha256": "ec616dcd807600dfe3a67b144540405db376797fea18a189c921936b372dab97",
   "source_bindings": {
     "art/data/cobbler_fittings/source_plan.json": "bda7644f9b62725e397c49470527e31578e98f240253625397e26d4d58174b54",
-    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "art/blender/scripts/build_cobbler_fittings.py": "e022ec57fee201fb566f130ad143094957f982d28c48bd9948c62544de4dcc81",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
-    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
-    "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",
+    "game/data/runtime_material_sets.json": "bc4353df11035c333f23094b06c50ea005363770003146a17d548b5c46449360",
+    "game/scripts/generated/material_sets.gd": "c1a6628ded038fa048142ff33510b72fb2a550a0b81300fa1880e95bc7f1d351",
     "game/assets/props/cobbler_fittings.glb.import": "03b64705767989dbaa6f84ed017bb305f4ecf8c1796752f04d3a27253cea7cd7",
     "art/textures/ai_materials/wood_dark_b/material.json": "ba630389c5d6ce95be9664cbdd0499b2d0c20729709bcf5641a6d3d3bcd202d7",
     "art/textures/ai_materials/plywood_b/material.json": "f6f8a51ee4d71783b341a7f0656f1609a480343e830b159294b347cb00a3c7ca",
@@ -5383,9 +5383,9 @@
     "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
     "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
     "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
-    "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
-    "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
-    "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
+    "art/data/material_catalog.json": "def35ead2a26c269d8664d93282d5026feae1759f280602dce5f10f7a3b440f0",
+    "art/textures/catalog_mapping.json": "73c8465ba69c2f56cd11f78e6d37fb523ce966763475d9a82641341a8d803bdb",
+    "art/tools/generate_runtime_materials.py": "c6c73b316d7fac1ef1758eef67f0469a48cf6588a1b716ab9c406b312bd0179d",
     "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
     "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
     "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",

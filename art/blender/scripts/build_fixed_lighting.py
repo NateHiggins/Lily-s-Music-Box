@@ -318,7 +318,7 @@ for path in sorted((ROOT/'game/assets/building/floor_01_cells').glob('*.gltf'))+
  bindings.append(path)
  data=json.loads(path.read_text(encoding='utf-8'))
  for buffer in data.get('buffers',[]):
-  if 'uri' in buffer and not buffer['uri'].startswith('data:'):bindings.append(path.parent/buffer['uri'])
+  if 'uri' in buffer and not buffer['uri'].startswith('data:'):bindings.append((path.parent/buffer['uri']).resolve())
 bindings.extend([ROOT/'art/blender/bar_ceiling_finish.blend',ROOT/'art/data/orison_v2/completion_interiors_source.json'])
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'source_record':a['members'][0]['id']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'retained_stock':retained_stock,'construction_groups':construction_groups,'placement':plan['placement'],'open_work':plan['open_work']}
 for name in ['art/blender/fixed_lighting_construction.json','game/tests/fixtures/orison_fixed_lighting.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
