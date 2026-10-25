@@ -64,6 +64,38 @@ func _ready() -> void:
 	check(not Provider.new().available(), "offline system has no network dependency")
 	var ids: Array[String] = ["alive", "alive_follow"]
 	check(Provider.valid_selection("alive", ids) and not Provider.valid_selection("invented_unlock", ids), "provider restricted to approved authored IDs")
+
+	# Preserve every original check above; exercise the added topic/priority paths.
+	var personality := Conversation.new()
+	personality.respond("are you alive", {})
+	check(personality.respond("stop talking", {}).end_conversation and personality.memory.branch.is_empty(), "leave closes an active branch")
+	check(personality.respond("yes", {}).line_id != "alive_follow", "yes cannot resurrect a closed branch")
+	personality.respond("are you alive", {})
+	check(personality.respond("inventory", {}).line_id == "inventory_empty" and personality.memory.branch.is_empty(), "authoritative new topic closes old branch")
+	personality.respond("are you alive", {})
+	check(personality.respond("open hot valve does it matter", context).line_id == "action_boundary", "followup phrase inside physical command cannot hijack authority")
+	check(personality.respond("i need a moment", {}).line_id == "hesitate", "hesitation opens authored branch")
+	check(personality.respond("tell me more", {}).line_id == "hesitate_more", "hesitation develops without diagnosing the player")
+	check(personality.respond("do we have to talk", {}).line_id == "hesitate_quiet", "quiet choice remains a specific branch fork")
+	check(personality.respond("help", context).text == context.objective, "help always preserves supplied objective")
+	check(personality.respond("xyzzy", {}).line_id == "magic_word", "classic command has bounded response")
+	check(personality.respond("undo", {}).line_id == "undo_request", "undo cannot change world state")
+	check(personality.respond("tell me a joke", {}).line_id == "joke_request" and personality.respond("another joke", {}).line_id == "joke_again", "repeated joke is acknowledged rather than replayed")
+	check(personality.respond("your printer is jammed", {}).line_id == "jam", "player can discuss a reported jam without asserting a repair")
+	check(personality.respond("is it my fault", {}).line_id == "jam_fault", "mechanical fault has an authored humane fork")
+	var events := Conversation.new()
+	var event_ids: Array[String] = []
+	for index in 3: event_ids.append(str(events.event("hesitation").line_id))
+	check(event_ids.size() == 3 and event_ids[0] != event_ids[1] and events.event("hesitation").is_empty(), "hesitation repertoire exhausts into silence")
+	var reloaded := Conversation.new()
+	check(reloaded.memory.restore(events.memory.snapshot()) and reloaded.event("hesitation").is_empty(), "event exhaustion survives memory roundtrip")
+	var dated := {"weather_report":"Observed cold; issued forecast unchanged.", "weather_comment_id":"weather_comment_cold"}
+	var dated_original := dated.duplicate(true)
+	var first_weather: String = personality.respond("weather", dated).text
+	check(first_weather.begins_with(dated.weather_report) and first_weather.contains("draught") and dated == dated_original, "dated comment appends without altering factual report or context")
+	check(personality.respond("weather", dated).text == dated.weather_report, "weather facts repeat on request while comment stays quiet")
+	check(personality.respond("newspaper", {}).line_id == "newspaper_unavailable", "no supplied page means no invented newspaper")
+	check(personality.respond("newspaper", {"newspaper_report":"Dated headline", "newspaper_comment_id":"alive"}).text == "Dated headline", "calendar witness cannot select unrelated personality prose")
 	var failures := 0
 	for record: Dictionary in checks:
 		if not record.passed: failures += 1
