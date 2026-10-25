@@ -89,6 +89,57 @@ Each fitting is an **OrisonV2GasFitting**
 - **Saved.** The cock's opening is a `mechanism` record in the household
   save (`orison_v2_household_state.gd`). No new save owner exists.
 
+### The house gas service (2026-10-24, owner: "continue the things missing")
+
+**OrisonV2GasService** (`game/scripts/building/orison_v2_gas_service.gd`),
+semantic name **F01_GAS_METER**, owns the supply. Its geometry is the frame
+stock `gas_service_workroom`, generated from
+`game/data/orison_v2/gas_service.json`.
+
+- **Where.** The service enters through the street wall of
+  **F01_FRONT_WORKROOM**, the maintenance tenant's own front workroom, on the
+  solid pier east of its window. It rises past the gas company's plug cock
+  to a painted steel-plate dry meter on an oak shelf. The house outlet drops
+  back into the floor. The run under the floor to the vestibule riser and the
+  lantern's wall plate is concealed: the basement does not reach under the
+  front of the building.
+- **The company cock is sealed.** Its lock wings are wired together and
+  lead-sealed, and a second seal hangs on the meter's inlet union. In 1928
+  the meter cock belonged to the gas company, so the player cannot shut the
+  house gas, and no pilot is ever put out by the house.
+- **The meter reads the burn.** Every fitting reports its own consumption:
+  3.0 cubic feet an hour for the bracket and 3.5 for the lantern at a full
+  jet, plus 0.15 for each pilot. The meter integrates that through campaign
+  time. Its five-dial index (one test dial at one turn per cubic foot, three
+  register dials) turns, with adjacent dials turning opposite ways as the
+  gearing does. Shut every cock and the test dial still creeps on the two
+  pilots. The cumulative index (starting at 48,217 cubic feet) is the
+  household save's `mechanism` record. Dial labels are Label3D.
+- **Mains pressure follows the day.** The works deliver less at the evening
+  peak (0.80 of nominal at 18:00 to 20:00) and a little more in the small
+  hours (1.06). A saturated mantle still dims with the pressure, so every
+  gas light in the building browns down at supper time.
+- **Residents operate the vestibule gas, on their own timetables.** On her
+  morning rounds in the lobby (08:30), **evelyn_marsh** turns the bracket
+  down to its pilot once it is daylight. On his evening pass (18:00),
+  **cam_ortiz** turns it back up once it is dark. Each acts only while their
+  timetable (`resident_schedules.json`) puts them in the lobby, at most once
+  a day, never while the player is within 7 m, and never while the player
+  holds the key. The turn goes into the household save like the player's.
+  Nothing here authors resident knowledge or observations.
+
+Research, in addition to §1:
+
+- Domestic dry meters of the 1920s were light steel plate, painted, with a
+  row of small circular dials, among them a one-foot test dial in hundredths,
+  and carried two seals ([Science Museum Group, Glover 1926](https://collection.sciencemuseumgroup.org.uk/objects/co11693/dry-gas-meter);
+  [Glover 1927](https://collection.sciencemuseumgroup.org.uk/objects/co11558/dry-gas-meter);
+  [South Metropolitan 1933](https://collection.sciencemuseumgroup.org.uk/objects/co11694/dry-gas-meter)).
+- Works stored gas in holders and boosted the mains because peak use
+  outran production. Pressure fell with heavy demand, and consumers
+  complained of dim light ([Gasworks Museum, distribution](https://www.gasworksmuseum.org.nz/distribution-of-gas);
+  [Manawatu Herald, 1917](https://dynamic-rsnz.natlib.govt.nz/newspapers/MH19170515.2.5)).
+
 ### Research
 
 - Inverted burners came in about 1905. They threw light downward, and the
@@ -190,10 +241,11 @@ corner.
 
 ## 5. Not done, and follow-ups
 
-- There is no gas meter, supply pressure or main. The fittings assume the
-  house gas is always on, and the pipe run is not traced to a basement meter.
-- The lighting director and residents do not see the gas lights; no one
-  else turns them up or down.
+- The run from the workroom meter to the vestibule riser and the lantern is
+  concealed under the floor and in the masonry, not modelled.
+- Residents act as timetable facts: there is no visible body turning the
+  key. That stays out of the player's sight by construction.
+- Mantles do not wear or break, and there is no spare-mantle stock.
 - The radiator is not on the heating graph and cannot knock or be bled.
 - The directory board and notices are not inspectable.
 - Any merged script or data change expires the V2 runtime, access and
@@ -207,6 +259,11 @@ corner.
   through the player's latched grab and mouse input: shut to the pilot, half,
   full open. It checks the household save and the lantern's clock at noon and
   after dusk.
+- Godot, windowed: **res://tests/OrisonV2GasServiceTest.tscn** checks that
+  the meter reads an hour's burn, that the evening peak dims a full mantle,
+  that the company cock is not operable, and that each resident acts only
+  out of sight, on their timetable and light condition, and is saved. It
+  captures the meter.
 - Godot, windowed: **res://tests/OrisonV2EntryVestibuleShot.tscn**, 0
   failures. It checks the leafless doorway, its casings and butts, the dress
   and the gas supply. It counts every light within 6 m of the street door

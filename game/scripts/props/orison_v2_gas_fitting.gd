@@ -13,6 +13,10 @@ extends Node3D
 ## A fitting on a clockwork controller (the street lantern) burns only between
 ## its dusk and dawn, by the same table as the city's street lamps.
 ##
+## Supply pressure comes from the house gas service (OrisonV2GasService): the
+## evening peak draws the mains down and every mantle dims with it. The
+## service's meter reads gas_rate() from every fitting.
+##
 ## State is the cock's opening alone; the household save owns it through
 ## mechanism_snapshot(), under this node's semantic name.
 
@@ -25,6 +29,11 @@ const MANTLE_FULL := 0.55
 const CLOCK_PERIOD := 4.0
 
 var opening := 1.0
+## Relative mains pressure from the gas service; 1.0 is the works' nominal.
+var pressure := 1.0
+## Cubic feet an hour at a full jet, and the bypass pilot's own small burn.
+var full_rate := 3.0
+var pilot_rate := 0.15
 var clock := false
 var dusk: Array = []
 var dawn: Array = []
@@ -71,8 +80,28 @@ func flow() -> float:
 	return clampf((opening - JET_OPENS) / (1.0 - JET_OPENS), 0.0, 1.0) * _clock_factor
 
 
+## How incandescent the mantle is, 0..1, before the mains pressure.
 func mantle() -> float:
 	return clampf(flow() / MANTLE_FULL, 0.0, 1.0)
+
+
+## Light actually given: the mantle as the mains pressure lets it burn.
+func brightness() -> float:
+	return mantle() * clampf(pressure, 0.0, 1.1)
+
+
+## Gas through this fitting's meter, in cubic feet an hour.
+func gas_rate() -> float:
+	return full_rate * flow() + pilot_rate
+
+
+func held() -> bool:
+	return _held
+
+
+func set_pressure(value: float) -> void:
+	pressure = value
+	_apply()
 
 
 func set_opening(value: float) -> void:
@@ -132,13 +161,13 @@ func _process(delta: float) -> void:
 	var t := Time.get_ticks_msec() * 0.001
 	var phase := float(get_instance_id() % 97) * 0.13
 	var breath := 0.03 * sin(t * 0.9 + phase) + 0.015 * sin(t * 6.7 + phase * 1.7)
-	light.light_energy = _base_energy * mantle() * (1.0 + breath)
+	light.light_energy = _base_energy * brightness() * (1.0 + breath)
 
 
 func _apply() -> void:
 	if key != null:
 		key.rotation.y = opening * PI * 0.5
-	var lit := mantle()
+	var lit := brightness()
 	if light != null:
 		light.visible = lit > 0.01
 		light.light_energy = _base_energy * lit

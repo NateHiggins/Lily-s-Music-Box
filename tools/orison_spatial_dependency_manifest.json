@@ -117231,6 +117231,64 @@
    "target_exists": true
   },
   {
+   "key": "5852c648153c3b4a",
+   "kind": "id_candidate",
+   "token": "F01_GAS_METER",
+   "file": "game/data/orison_v2/gas_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/meter/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "70fa4d63bf32b27d",
+   "kind": "id_candidate",
+   "token": "F01_VESTIBULE_GAS_BRACKET",
+   "file": "game/data/orison_v2/gas_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/residents[0]/fitting",
+    "/residents[1]/fitting"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "9a564f0479c3abb4",
    "kind": "id_reference",
    "token": "storm_shop_hardware_paint_paddle",
@@ -198115,7 +198173,7 @@
     "_directory"
    ],
    "lines": [
-    151
+    159
    ],
    "count": 1,
    "context": [
@@ -198895,6 +198953,36 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "F04/furniture",
    "target_exists": true
+  },
+  {
+   "key": "4b9c942455820be7",
+   "kind": "generated_name",
+   "token": "compose",
+   "file": "game/scripts/building/orison_v2_gas_service.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "compose"
+   ],
+   "lines": [
+    79
+   ],
+   "count": 1,
+   "context": [
+    "\"Hand%d\" % int(dial.unit)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "75fd7d0046fa2b89",
@@ -264243,6 +264331,109 @@
     "for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-9.85)]:",
     "if not await _walk(Vector3(0.45,0,-13.2)):return",
     "if not await _walk(Vector3(-0.55,0,-12.55)):return"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "36e9b7acd6fabb63",
+   "kind": "id_candidate",
+   "token": "F01_GAS_METER",
+   "file": "game/tests/orison_v2_gas_service_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    11,
+    15
+   ],
+   "count": 2,
+   "context": [
+    "var service:=world.adapter.resolve(\"F01_GAS_METER\") as OrisonV2GasService",
+    "if world.household_state.snapshot().records.get(\"F01_GAS_METER\",{}).get(\"kind\")!=\"mechanism\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "45d53d8e21c62bb9",
+   "kind": "id_candidate",
+   "token": "F01_VESTIBULE_GAS_BRACKET",
+   "file": "game/tests/orison_v2_gas_service_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const BRACKET := \"F01_VESTIBULE_GAS_BRACKET\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "1dff661f5ed81ae8",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_gas_service_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    41,
+    42,
+    63,
+    63,
+    64,
+    64,
+    65,
+    65
+   ],
+   "count": 8,
+   "context": [
+    "var far: Vector3=world.adapter.root.to_global(Vector3(2.0,0,1.5))",
+    "var near: Vector3=world.adapter.root.to_global(Vector3(0,0,-8.6))",
+    "await _meter_view(\"gas_meter_workroom\",Vector3(7.0,1.55,-11.0),Vector3(7.95,1.15,-12.2))",
+    "await _meter_view(\"gas_meter_index\",Vector3(7.92,1.25,-11.62),Vector3(7.92,1.2,-12.05))"
    ],
    "gameplay_binding": true,
    "authority": [

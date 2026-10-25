@@ -159,6 +159,42 @@
    ]
   },
   {
+   "id": "meter_paint",
+   "catalog_key": "door_paint",
+   "tint": [
+    0.36,
+    0.14,
+    0.1,
+    1
+   ],
+   "normal": 0.7,
+   "roughness": 1.0
+  },
+  {
+   "id": "dial_face",
+   "catalog_key": "porcelain",
+   "tint": [
+    0.95,
+    0.93,
+    0.86,
+    1
+   ],
+   "normal": 0.3,
+   "roughness": 1.0
+  },
+  {
+   "id": "lead",
+   "catalog_key": "iron_neutral",
+   "tint": [
+    0.55,
+    0.56,
+    0.58,
+    1
+   ],
+   "normal": 0.6,
+   "roughness": 1.0
+  },
+  {
    "id": "pilot_lit",
    "catalog_key": "milk_glass",
    "tint": [
@@ -203,8 +239,10 @@
   "gas_bracket",
   "gas_cock_key",
   "gas_lantern",
+  "gas_meter_hand",
   "gas_pilot",
   "gas_pipe_vestibule",
+  "gas_service_workroom",
   "notice_frame",
   "radiator",
   "signal_point"

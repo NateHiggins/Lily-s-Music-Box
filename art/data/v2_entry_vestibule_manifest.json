@@ -4,8 +4,8 @@
  "design": "design/V2_ENTRY_VESTIBULE_2026-10-24.md",
  "runtime_table": "game/data/orison_v2/entry_vestibule_stock.json",
  "export_proof": {
-  "primitives": 26,
-  "triangles": 11656,
+  "primitives": 34,
+  "triangles": 15964,
   "minimum_tangent_agreement": 0.9999999599844206,
   "status": "PASS"
  },
@@ -66,9 +66,19 @@
    "period": "Bypass pilot flame of an inverted burner."
   },
   {
+   "id": "gas_meter_hand",
+   "signal": false,
+   "period": "Blackened index hand of a dry gas meter dial."
+  },
+  {
    "id": "gas_pipe_vestibule",
    "signal": false,
    "period": "Surface-run half-inch black iron gas supply, floor flange, plug cock and straps."
+  },
+  {
+   "id": "gas_service_workroom",
+   "signal": false,
+   "period": "House gas service: sealed company cock, painted steel-plate dry meter with a small-dial index on an oak shelf, outlet to the floor."
   }
  ],
  "triangles": {
@@ -83,6 +93,8 @@
   "gas_lantern": 932,
   "gas_cock_key": 72,
   "gas_pilot": 80,
-  "gas_pipe_vestibule": 708
+  "gas_meter_hand": 80,
+  "gas_pipe_vestibule": 708,
+  "gas_service_workroom": 4228
  }
 }

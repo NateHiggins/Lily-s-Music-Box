@@ -48,6 +48,9 @@ FINISHES = {
     # greenish white; the etched shade and the lantern glass glow round it.
     "mantle_lit": {"catalog_key": "milk_glass", "tint": [1, 1, .92, 1], "normal": .3, "roughness": 1., "emission": [1.0, 0.96, 0.80, 3.0]},
     "shade_lit": {"catalog_key": "milk_glass", "tint": [.96, .93, .86, 1], "normal": .5, "roughness": 1., "emission": [1.0, 0.86, 0.62, 0.55]},
+    "meter_paint": {"catalog_key": "door_paint", "tint": [0.36, 0.14, 0.10, 1], "normal": .7, "roughness": 1.},
+    "dial_face": {"catalog_key": "porcelain", "tint": [0.95, 0.93, 0.86, 1], "normal": .3, "roughness": 1.},
+    "lead": {"catalog_key": "iron_neutral", "tint": [0.55, 0.56, 0.58, 1], "normal": .6, "roughness": 1.},
     # The bypass pilot: a bead of blue flame that never goes out.
     "pilot_lit": {"catalog_key": "milk_glass", "tint": [.40, .60, 1, 1], "normal": .2, "roughness": 1., "emission": [0.35, 0.6, 1.0, 2.5]},
     "pane_lit": {"catalog_key": "milk_glass", "tint": [.90, .86, .74, 1], "normal": .5, "roughness": 1., "emission": [1.0, 0.82, 0.55, 0.7]},
@@ -377,20 +380,29 @@ PIPE_R = 0.0107       # half-inch black iron gas pipe, 21.3 mm outside
 PIPE_OFF = 0.022      # pipe centreline off the wall face, on its straps
 
 
-def gas_pipe(points):
-    """Surface-run black iron supply in the blockout frame (Godot x, y, z),
-    from a floor flange: malleable elbows at each bend, a plug cock low on
-    the riser, straps to the wall about every 0.8 m."""
-    b = [(x, -z, y) for x, y, z in points]
-    p = {}
+def blender(point):
+    """Godot blockout-frame (x, y, z) to Blender (x, -z, y)."""
+    x, y, z = point
+    return (x, -z, y)
+
+
+def gas_pipe(points, p=None, floor_flange="start", cock=True):
+    """Surface-run black iron supply in the blockout frame (Godot x, y, z):
+    malleable elbows at each bend, a floor flange where it leaves the floor,
+    a plug cock low on the riser, straps to the wall about every 0.8 m."""
+    b = [blender(q) for q in points]
+    p = {} if p is None else p
     add(p, "iron", tube(b, PIPE_R, 10))
     for q in b[1:-1]:
         add(p, "iron", sphere(q, PIPE_R * 1.55, (1, 1, 1), 10, 6))
-    x, y, z = b[0]
-    add(p, "iron", cyl((x, y, z + 0.004), 0.034, 0.008, "Z", 14),
-            cyl((x, y, z + 0.03), PIPE_R * 1.45, 0.04, "Z", 10))
-    add(p, "brass", cyl((x, y, z + 0.9), PIPE_R * 1.7, 0.05, "Z", 10),
-            box((x, y, z + 0.9), (0.016, 0.05, 0.016), 0.002))
+    if floor_flange:
+        x, y, z = b[0] if floor_flange == "start" else b[-1]
+        add(p, "iron", cyl((x, y, z + 0.004), 0.034, 0.008, "Z", 14),
+                cyl((x, y, z + 0.03), PIPE_R * 1.45, 0.04, "Z", 10))
+    if cock:
+        x, y, z = b[0]
+        add(p, "brass", cyl((x, y, z + 0.9), PIPE_R * 1.7, 0.05, "Z", 10),
+                box((x, y, z + 0.9), (0.016, 0.05, 0.016), 0.002))
     wall_n = Vector((0, 0, 0))
     for a, c in zip(b, b[1:]):
         a, c = Vector(a), Vector(c)
@@ -399,6 +411,79 @@ def gas_pipe(points):
             q = a + (c - a) * ((i + 0.5) / n)
             d = (c - a).normalized()
             add(p, "iron", box(q, (0.012 if abs(d.x) < .5 else 0.03, 0.012, 0.03 if abs(d.z) < .5 else 0.012), 0.002))
+    return p
+
+
+def gas_meter_hand():
+    """One index hand: a blackened needle on a brass boss, authored pointing
+    up the dial (Blender +Z), pivot at the origin, standing off the face."""
+    p = {}
+    add(p, "iron", box((0, -0.004, 0.009), (0.0026, 0.0012, 0.024), 0.0004))
+    add(p, "brass", cyl((0, -0.0035, 0), 0.0035, 0.003, "Y", 10))
+    return p
+
+
+def gas_service(service):
+    """The house gas service in the front workroom, in the blockout frame,
+    from game/data/orison_v2/gas_service.json: the service through the
+    street wall with the gas company's plug cock, its lock wings wired and
+    sealed with lead; a painted steel-plate dry meter on an oak shelf, its
+    index of small dials and its sealed inlet union; and the house outlet
+    down into the floor."""
+    m = service["meter"]
+    wall, cx, sy = m["wall_face_z"], m["centre_x"], m["shelf_y"]
+    p = {}
+    # Shelf and its two iron brackets.
+    add(p, "oak", box(blender((cx, sy + 0.0125, wall + 0.13)), (0.42, 0.26, 0.025), 0.003))
+    for dx in (-0.15, 0.15):
+        add(p, "iron", box(blender((cx + dx, sy - 0.07, wall + 0.006)), (0.03, 0.012, 0.14), 0.002),
+                box(blender((cx + dx, sy - 0.006, wall + 0.11)), (0.03, 0.2, 0.012), 0.002),
+                tube([blender((cx + dx, sy - 0.13, wall + 0.012)), blender((cx + dx, sy - 0.012, wall + 0.19))], 0.005, 6))
+    # The meter case: steel plate, rolled top rim, side seams.
+    top = sy + 0.425
+    add(p, "meter_paint", box(blender((cx, sy + 0.225, wall + 0.13)), (0.34, 0.20, 0.40), 0.008),
+            box(blender((cx, top - 0.008, wall + 0.13)), (0.355, 0.215, 0.016), 0.004))
+    for dx in (-0.171, 0.171):
+        add(p, "meter_paint", box(blender((cx + dx, sy + 0.225, wall + 0.13)), (0.006, 0.18, 0.38), 0.002))
+    # Index: a brass bezel round the dial plate, each dial's face and ticks.
+    face = wall + 0.23
+    add(p, "brass", box(blender((cx, sy + 0.19, face + 0.002)), (0.27, 0.004, 0.25), 0.002))
+    add(p, "meter_paint", box(blender((cx, sy + 0.19, face + 0.004)), (0.25, 0.003, 0.23), 0.001))
+    for dial in m["dials"]:
+        dx, dy = dial["offset"]
+        r = dial["radius"]
+        c = blender((cx + dx, sy + dy, face + 0.0065))
+        add(p, "dial_face", cyl(c, r, 0.002, "Y", 24))
+        add(p, "brass", torus(c, r + 0.002, 0.0015, "Y", 24, 5))
+        for k in range(10):
+            a = 2 * math.pi * k / 10
+            t = (c[0] + math.sin(a) * r * 0.82, c[1] - 0.0012, c[2] + math.cos(a) * r * 0.82)
+            add(p, "iron", box(t, (0.0012, 0.0006, r * (0.3 if k == 0 else 0.2))))
+    # Blank brass nameplate; no lettering in any surface.
+    add(p, "brass", box(blender((cx, sy + 0.36, face + 0.002)), (0.12, 0.003, 0.03), 0.001))
+    # Unions on top, inlet and outlet.
+    for q in (service["service"][-1], service["outlet"][0]):
+        add(p, "brass", cyl(blender((q[0], top + 0.012, q[2])), 0.02, 0.024, "Z", 6),
+                cyl(blender((q[0], top + 0.03, q[2])), 0.016, 0.014, "Z", 6))
+    # Service and outlet runs; the service cock is the company's, sealed.
+    gas_pipe(service["service"], p, floor_flange=None, cock=False)
+    gas_pipe(service["outlet"], p, floor_flange="end", cock=False)
+    wx, wy, _ = service["service"][0]
+    add(p, "iron", cyl(blender((wx, wy, wall - 0.003)), 0.035, 0.008, "Y", 14))
+    rx, _, rz = service["service"][2]
+    cy = service["company_cock_y"]
+    add(p, "brass", cyl(blender((rx, cy, rz)), PIPE_R * 1.8, 0.06, "Z", 10),
+            cyl(blender((rx, cy, rz + 0.026)), 0.006, 0.02, "Y", 8),
+            box(blender((rx, cy, rz + 0.04)), (0.012, 0.004, 0.03), 0.001))
+    # Lock wing on the plug and its twin on the body, wired and lead-sealed.
+    add(p, "brass", box(blender((rx + 0.024, cy + 0.012, rz + 0.012)), (0.018, 0.003, 0.012), 0.001),
+            box(blender((rx + 0.024, cy - 0.012, rz + 0.012)), (0.018, 0.003, 0.012), 0.001))
+    add(p, "iron", tube([blender((rx + 0.03, cy + 0.012, rz + 0.012)), blender((rx + 0.036, cy, rz + 0.016)),
+            blender((rx + 0.03, cy - 0.012, rz + 0.012)), blender((rx + 0.04, cy - 0.03, rz + 0.016))], 0.0008, 4))
+    add(p, "lead", cyl(blender((rx + 0.04, cy - 0.038, rz + 0.016)), 0.008, 0.004, "Y", 12))
+    ix, _, iz = service["service"][-1]
+    add(p, "iron", tube([blender((ix + 0.02, top + 0.02, iz)), blender((ix + 0.03, top - 0.01, iz + 0.11))], 0.0008, 4))
+    add(p, "lead", cyl(blender((ix + 0.03, top - 0.018, iz + 0.112)), 0.007, 0.004, "Y", 12))
     return p
 
 
@@ -414,6 +499,7 @@ STOCKS = {
     "gas_lantern": gas_lantern,
     "gas_cock_key": gas_cock_key,
     "gas_pilot": gas_pilot,
+    "gas_meter_hand": gas_meter_hand,
 }
 
 PERIOD = {
@@ -428,6 +514,8 @@ PERIOD = {
     "gas_lantern": "Wall-bracket gas lantern with a tapered four-light frame and an inverted mantle.",
     "gas_cock_key": "Flat brass key of a quarter-turn plug cock.",
     "gas_pilot": "Bypass pilot flame of an inverted burner.",
+    "gas_meter_hand": "Blackened index hand of a dry gas meter dial.",
+    "gas_service_workroom": "House gas service: sealed company cock, painted steel-plate dry meter with a small-dial index on an oak shelf, outlet to the floor.",
     "gas_pipe_vestibule": "Surface-run half-inch black iron gas supply, floor flange, plug cock and straps.",
 }
 
@@ -462,6 +550,8 @@ def main():
         x, y = row["along"], row["height"] + 0.055
         route = [(rx, 0.0, z), (rx, top, z), (x, top, z), (x, y, z)]
         stocks["gas_pipe_vestibule"] = lambda route=route: gas_pipe(route)
+    service = json.loads((ROOT / "game/data/orison_v2/gas_service.json").read_text(encoding="utf-8"))
+    stocks["gas_service_workroom"] = lambda: gas_service(service)
     triangles = {}
     for name, build in stocks.items():
         parts = build()

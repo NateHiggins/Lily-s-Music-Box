@@ -80,3 +80,26 @@ n = bpy.data.objects.new("ReviewNorth", north); scene.collection.objects.link(n)
 sun.location = (0.5, y + 3.0, 2.5); sun.rotation_euler = (math.radians(-50), 0, 0)
 shot("blender_gas_run.png", (0.9, y + 3.6, 1.5), (1.1, y, 1.5), 28)
 shot("blender_gas_rosette.png", (0.45, y + 0.8, 2.25), (0.0, y, 2.45), 45)
+
+# The house gas service in the front workroom, with index hands on the dials.
+service = json.loads((ROOT / "game/data/orison_v2/gas_service.json").read_text(encoding="utf-8"))
+m = service["meter"]
+wall_y = -m["wall_face_z"]
+hand = next(o for o in scene.objects if o.name.startswith("gas_meter_hand__iron"))
+boss = next(o for o in scene.objects if o.name.startswith("gas_meter_hand__brass"))
+for obj in scene.objects:
+    if obj.type == "MESH" and not obj.name.startswith("Review"):
+        obj.hide_render = obj.name.split("__")[0] != "gas_service_workroom"
+n.hide_render = True
+south = bpy.data.meshes.new("south")
+south.from_pydata([(7.2, wall_y + 0.001, 0), (8.6, wall_y + 0.001, 0), (8.6, wall_y + 0.001, 2.6), (7.2, wall_y + 0.001, 2.6)], [], [(0, 1, 2, 3)])
+sw = bpy.data.objects.new("ReviewSouth", south); scene.collection.objects.link(sw); sw.data.materials.append(grey)
+for i, dial in enumerate(m["dials"]):
+    dx, dy = dial["offset"]
+    for part in (hand, boss):
+        copy = part.copy(); scene.collection.objects.link(copy); copy.hide_render = False
+        copy.location = (m["centre_x"] + dx, wall_y - 0.23 - 0.0085, m["shelf_y"] + dy)
+        copy.rotation_euler = (0, math.radians(37 + 71 * i), 0)
+sun.location = (7.6, wall_y - 3.0, 2.4); sun.rotation_euler = (math.radians(55), 0, 0)
+shot("blender_gas_meter.png", (7.45, wall_y - 1.25, 1.45), (7.95, wall_y - 0.1, 1.05), 38)
+shot("blender_gas_index.png", (7.92, wall_y - 0.62, 1.2), (7.92, wall_y - 0.23, 1.2), 50)
