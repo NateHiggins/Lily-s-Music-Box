@@ -12,7 +12,7 @@ static func apply(model: Node3D) -> Dictionary:
 	assert(FileAccess.get_sha256(str(base.asset)) == str(base.asset_sha256), "original printer export changed")
 	var specs: Dictionary = base.finishes.duplicate(true)
 	var accessory_names: Array[String] = ["CompanionSteel", "CompanionBrass", "CompanionKeys", "CompanionTileIvory",
-		"ShellSteel", "ShellLeather", "ShellBrass", "ShellRubber", "ShellGlass", "StudyVelvet", "KeyboardShellBrass"]
+		"ShellSteel", "ShellLeather", "ShellBrass", "ShellRubber", "ShellGlass", "StudyVelvet", "KeyboardShellBrass", "RotorCanvas"]
 	assert(data.finishes.size() == accessory_names.size(), "companion finish ABI")
 	for key: String in accessory_names:
 		assert(data.finishes.has(key), "missing companion finish")

@@ -15,6 +15,16 @@ func _process(_delta: float) -> void:
 func check(ok: bool, label: String) -> bool:
 	checks.append({"name":label, "passed":ok})
 	print("COMPANION SESSION: ", label, " = ", ok)
+	if not ok and is_instance_valid(carrier) and carrier.session != null:
+		var state := {"label":label, "ticks":Time.get_ticks_msec(), "available":carrier.session.available(),
+			"reading":carrier.reading, "opening":carrier.session.opening, "typing":carrier.session.typing,
+			"printing":carrier.device.teletype.printing, "powered":carrier.device.radio_powered, "incoming_call":carrier.device.incoming_call,
+			"protected_input":player.protected_input_active(), "input_owner":str(player.text_input_owner), "mouse_mode":Input.mouse_mode,
+			"mouse_released":player.mouse_released, "paused":get_tree().paused, "sleep":carrier._sleep_onset,
+			"foreign_editor":carrier.session._foreign_editor_active(), "focus":str(get_viewport().gui_get_focus_owner()),
+			"camera_current":player.camera.is_current(), "hidden":carrier.is_capture_hidden(), "inspecting":player.inspecting(),
+			"grab_active":player._grab.active(), "hud_conversation":player.telegram_hud != null and player.telegram_hud._conversation_active}
+		FileAccess.open(directory.path_join("failure_state_%02d.json" % checks.size()), FileAccess.WRITE).store_string(JSON.stringify(state, "\t"))
 	return ok
 
 func _ready() -> void:

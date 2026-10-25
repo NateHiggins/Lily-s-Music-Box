@@ -146,8 +146,9 @@ func _ready() -> void:
 	plate.text="VANTRY / TYPE 28-R"
 	plate.modulate=Color("d9c69b")
 	plate.reparent(service_cover,true)
-	for spec in [[-.094,"L"],[.094,"R"]]:
-		var legend := _label(Vector3(spec[0],-.089,.042),.00010)
+	for spec in [[lamp_switch,"L"],[radio_switch,"R"]]:
+		var control: Node3D = spec[0]
+		var legend := _label(Vector3(model.to_local(control.global_position).x,-.089,.042),.00010)
 		legend.text=spec[1]; legend.modulate=Color("d9c69b")
 	for spec in [["tick",-23.0],["pop",-24.0]]:
 		var sound := AudioStreamPlayer.new(); add_child(sound)

@@ -40,6 +40,14 @@ func _run() -> void:
 	check(key_batches.size() == 4, "all forty-three textured keys use four unscaled native geometry batches")
 	check(rig._key_labels.size() == 43 and not rig.key_legends.visible, "physical key legends are present and hidden while closed")
 	check(rig.keys.layers == 2, "keys share the original instrument visibility layer")
+	var pane := rig.model.find_child("ShellStudy__ShellGlass", true, false) as MeshInstance3D
+	var tray := rig.model.find_child("CompanionKeyboard__CompanionSteel", true, false) as MeshInstance3D
+	check(absf(pane.mesh.get_aabb().size.x - .137) < .00001, "compact case preserves full original reading window width")
+	check(tray.mesh.get_aabb().size.x < .157, "compact keyboard is approximately display width")
+	check(rig._rotors.size() == 2 and absf(rig._rotors[0].position.x) < .00001 and absf(rig._rotors[1].position.x) < .00001
+		and rig._rotors[0].position.y > rig._rotors[1].position.y + .04, "two native helical rotors share one vertically separated coaxial crown")
+	rig._advance_mechanism(.016)
+	check(rig._rotors[0].rotation.y * rig._rotors[1].rotation.y < 0.0, "coaxial upper and lower screw assemblies actually counter rotate")
 	var inspector: Node = preload("res://tests/orison_v2_surface_inventory.gd").new()
 	var metrics: Node = preload("res://tests/orison_v2_roof_bulkhead_caps_test.gd").new()
 	var meshes: Dictionary = {}
@@ -217,6 +225,7 @@ func _fit_contacts(rig: Node3D) -> void:
 			for point: Vector2 in [Vector2(sx * .1025, sy * .066), Vector2(sx * .063, sy * .093)]:
 				for offset: Vector2 in [Vector2(.002, 0), Vector2(-.002, 0), Vector2(0, .002), Vector2(0, -.002)]:
 					var at := point + offset
+					at.x = signf(at.x) * (.0685 + (absf(at.x) - .0685) * .365) if absf(at.x) > .0685 else at.x
 					var pan: Variant = _contact_z(steel, rig.model, at, true)
 					var guard: Variant = _contact_z(brass, rig.model, at, false)
 					check(pan != null and guard != null, "conditioned imported fastening faces exist " + str(at))

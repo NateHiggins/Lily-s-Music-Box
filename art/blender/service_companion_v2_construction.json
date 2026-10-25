@@ -1966,5 +1966,718 @@
       "status": "PASS"
     },
     "sequence": "Unlatch, rotate clear, retract along paired chassis bearers; reverse before closing"
+  },
+  "compact_coaxial_crown": {
+    "retired_fixed_vertices": {
+      "CompanionSteel": 584,
+      "CompanionBrass": 768
+    },
+    "export": {
+      "asset": "C:\\ov\\reports\\v2phosphor25\\compact_candidate\\game\\assets\\props\\service_companion_v2.glb",
+      "primitives": 63,
+      "triangles": 46564,
+      "minimum_tangent_agreement": 0.999948054673973,
+      "status": "PASS"
+    },
+    "stock_checks": [
+      {
+        "name": "Crown mounting foot",
+        "volume_m3": 2.6999971646818123e-06
+      },
+      {
+        "name": "Crown foot washer",
+        "volume_m3": 7.9260620617257e-08
+      },
+      {
+        "name": "Crown foot through bolt",
+        "volume_m3": 7.523662112884761e-08
+      },
+      {
+        "name": "Crown triangulated bearer",
+        "volume_m3": 9.940950842858915e-07
+      },
+      {
+        "name": "Crown mounting foot",
+        "volume_m3": 2.69999716468181e-06
+      },
+      {
+        "name": "Crown foot washer",
+        "volume_m3": 7.926062061725592e-08
+      },
+      {
+        "name": "Crown foot through bolt",
+        "volume_m3": 7.523662112884798e-08
+      },
+      {
+        "name": "Crown triangulated bearer",
+        "volume_m3": 9.940950842858915e-07
+      },
+      {
+        "name": "Crown motor case",
+        "volume_m3": 1.817929231921423e-05
+      },
+      {
+        "name": "Motor end flange",
+        "volume_m3": 2.9872216158185656e-06
+      },
+      {
+        "name": "Motor end flange",
+        "volume_m3": 2.9872290346671024e-06
+      },
+      {
+        "name": "Inner drive spindle",
+        "volume_m3": 3.4441507733962806e-06
+      },
+      {
+        "name": "Counter shaft sleeve",
+        "volume_m3": 5.901074697685667e-06
+      },
+      {
+        "name": "Separate rotor hub",
+        "volume_m3": 2.5281448211633057e-06
+      },
+      {
+        "name": "Journal thrust shoulder",
+        "volume_m3": 1.4564191681000547e-06
+      },
+      {
+        "name": "Rotor sail root tube",
+        "volume_m3": 1.1181263711794623e-05
+      },
+      {
+        "name": "Taut spiral linen membrane",
+        "volume_m3": 8.82588319279829e-06
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487389537528656e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487386927423607e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.348738348067863e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487386927423533e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487389537528794e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.34873880351905e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487382766979406e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487388035190522e-07
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369532616721364e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695340332806568e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369544326197458e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695318139856856e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369532473941917e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.36953301772263e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369545198918413e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695330151542275e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369533015985299e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695452176073215e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695330017349757e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695324215077056e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369543660175253e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369532920933406e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695340332807494e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695448994297313e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695326167211655e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695349552365667e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695421645042344e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369534397476197e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369532706713215e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695479876074867e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695309706155867e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695328703731357e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695447540908684e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695309868430704e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695356054024075e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369544203891128e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369534354444713e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369531698777783e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695349552368446e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.36954489942948e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639882994461864e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639908791255154e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639931802273018e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639876626870507e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639884927171773e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639866378751968e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639914136560858e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639885364190058e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639885364190164e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639914136561335e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639866378752286e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639884927171456e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639874679583583e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639930733071958e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639908791255366e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639885225913835e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639883850909211e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639909206939326e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639950165827036e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639877299208203e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639884927171668e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639940564811917e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639904649638536e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.463988536419027e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639887751679951e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639904649638695e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639939495615992e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639885996378233e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639877299207832e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639949096624017e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639909206939749e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639885311509162e-08
+      },
+      {
+        "name": "Separate rotor hub",
+        "volume_m3": 2.5281401121274075e-06
+      },
+      {
+        "name": "Journal thrust shoulder",
+        "volume_m3": 1.4564119340024475e-06
+      },
+      {
+        "name": "Rotor sail root tube",
+        "volume_m3": 1.1181263711794623e-05
+      },
+      {
+        "name": "Taut spiral linen membrane",
+        "volume_m3": 8.825871204356247e-06
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487389537528794e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487388035190586e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487382766979554e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487388035190607e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487389537528815e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487386927423512e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.3487383480678747e-07
+      },
+      {
+        "name": "Sail radial rib",
+        "volume_m3": 1.348738692742364e-07
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695326167212846e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695460690791846e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369531698777889e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369534345177749e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369544059590701e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695356877173737e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369531132169638e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695447430031674e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369532862027254e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695311483972806e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695356578063904e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695441120247934e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369534302146252e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.36953169877773e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695460690791317e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695326167213376e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695326167212185e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369545864293101e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695330299401273e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695319122160965e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369544740525093e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695330896511722e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695331949047304e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695445672153097e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695330247533078e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695331973659963e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369545067293212e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695325133723066e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695319814646795e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369544490828105e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.369533653311219e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 2.3695326167212317e-09
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.46398836875975e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.463991352551436e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639949096624547e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639893774653783e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639885996378816e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639940334080354e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639906989231204e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.463988788339151e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639885659967822e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.463990698923131e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.463994033408046e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639885996378922e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639893774653995e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639949096624335e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639913525514255e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639883687597818e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639882953633817e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639911793754865e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.46399307330718e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639869124063253e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639885996379133e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639867217211777e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639911702680506e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639887883391722e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639885659967928e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639911702680612e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639868286377527e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639884927171456e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639869124063042e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639931802272912e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639910432228917e-08
+      },
+      {
+        "name": "Sail tension edge",
+        "volume_m3": 1.4639882953634028e-08
+      },
+      {
+        "name": "Crown safety hoop",
+        "volume_m3": 2.5687535309651623e-06
+      },
+      {
+        "name": "Crown safety hoop",
+        "volume_m3": 2.5687535309652013e-06
+      },
+      {
+        "name": "Crown guard upright",
+        "volume_m3": 2.6870047610969045e-07
+      },
+      {
+        "name": "Crown guard foot",
+        "volume_m3": 3.986386670523466e-07
+      },
+      {
+        "name": "Crown guard upright",
+        "volume_m3": 2.687005732882035e-07
+      },
+      {
+        "name": "Crown guard foot",
+        "volume_m3": 4.572912657226502e-07
+      },
+      {
+        "name": "Crown guard upright",
+        "volume_m3": 2.6870057328820416e-07
+      },
+      {
+        "name": "Crown guard foot",
+        "volume_m3": 4.5729122127096676e-07
+      }
+    ],
+    "keyboard_width_scale": 0.76,
+    "display_width_m": 0.137,
+    "case_width_m": 0.174,
+    "sail_radius_m": 0.076,
+    "radial_guard_clearance_m": 0.005,
+    "source_revision": "c1f8b8f2ad496d70f47036ccca690505624f0159"
   }
 }

@@ -155,3 +155,31 @@ https://docs.godotengine.org/en/4.7/classes/class_camera3d.html#class-camera3d-m
 Projection agreement, resize, actual mouse turns, typing, interruption, physical
 control input, rendering cost and occupied-world reconstruction still require
 executed qualification. No new completion claim is made from these source edits.
+
+## Compact crown continuation — qualification pending
+
+The owner requested a case approximately as wide as the display and a single
+Leonardo-style coaxial screw crown. The Blender candidate preserves the 137 mm
+reading pane, narrows the keyboard by 24 percent and retires both outboard rotor
+assemblies. Two independent helical linen sails, nested shafts, bored hubs,
+thrust collars, bolted motor feet, triangulated bearers and a stationary guard
+replace them. The miniature flight remains the companion's fictional advance;
+these references establish form, not historically viable propulsion:
+[Museo Leonardiano aerial screw](https://museoleonardiano.it/en/opera/aerial-screw/).
+
+The reviewed native export has 63 primitives and 46,564 triangles, compared with
+61 and 42,920 previously. This is a geometry cost, not a performance improvement.
+The publisher preserves the original radiophone asset and printer datums; native
+PBR charts and tangents are regenerated for resized stock. The square face tiles
+retain square proportions and their two-MultiMesh runtime implementation.
+
+The pre-framing control on **7c442119** completes the occupied correspondence
+route with 88 passing checks, two reconstructed worlds and empty stderr. Its
+wrapper is **preframe_main20_control.log.receipt.json** and its test-written
+contract is **preframe_main20_control/companion_correspondence_contract.json**.
+This control does not qualify foreground framing or the compact model. The
+previous framing run on **c1f8b8f2** retains a failed next-exchange check, its
+consequent incomplete two-world teardown check and 44 renderer material errors.
+The new fixture records eligibility state at failures without weakening any
+protected-input gate. Compact-model and current framing qualification remain
+pending. No V2 completeness status changes are claimed.
