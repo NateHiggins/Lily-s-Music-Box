@@ -1,0 +1,15 @@
+{
+  "material": "resident_evelyn_marsh",
+  "source": "existing approved V1 character; original UV atlas and rig retained",
+  "generator": "art/tools/register_v2_resident_finishes.py",
+  "meters_per_tile": 1.0,
+  "projection": "unique whole-character atlas; normalized UVs, no repetition",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "source_sha256": {
+    "game/assets/characters/evelyn_marsh/texture_0.jpg": "910c54ae9cb250c84154985612b485123e999a49a9f74c704baf0fe816a28365"
+  }
+}

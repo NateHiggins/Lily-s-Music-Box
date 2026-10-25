@@ -1,0 +1,15 @@
+{
+  "material": "resident_malcolm_reed",
+  "source": "existing approved V1 character; original UV atlas and rig retained",
+  "generator": "art/tools/register_v2_resident_finishes.py",
+  "meters_per_tile": 1.0,
+  "projection": "unique whole-character atlas; normalized UVs, no repetition",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "source_sha256": {
+    "game/assets/characters/malcolm_reed/texture_0.png": "7fa9c2a6e39ce15521f1ecf86c3c1f90957c46c42b4ce411a6a44209f71084dc"
+  }
+}

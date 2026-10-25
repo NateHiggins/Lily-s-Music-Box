@@ -1,0 +1,15 @@
+ERROR: Bar cafe seating: complete source multiset differs: missing=2576 extra=2576 sample=-761371,-232200,3539328|-761371,-236000,3539328|-763500,-236000,3530000 pose=[X: (1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (0.0, 0.0, 1.0), O: (0.0, 0.0, 0.0)]
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _reject (res://scripts/building/orison_v2_bar_cafe_seating.gd:138)
+       [1] _matches_complete_draw (res://scripts/building/orison_v2_bar_cafe_seating.gd:134)
+       [2] mount (res://scripts/building/orison_v2_bar_cafe_seating.gd:56)
+       [3] run (res://tests/v2_bar_resident_review.gd:54)
+       [4] run (res://tests/v2_resident_cast_bench.gd:103)
+ERROR: Bar cafe seating: guard 56
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _reject (res://scripts/building/orison_v2_bar_cafe_seating.gd:138)
+       [1] mount (res://scripts/building/orison_v2_bar_cafe_seating.gd:56)
+       [2] run (res://tests/v2_bar_resident_review.gd:54)
+       [3] run (res://tests/v2_resident_cast_bench.gd:103)

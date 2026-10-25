@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "frame": "retained_bar_source_blender",
+  "purpose": "Authored preferred places only; the existing campaign timetable controls attendance. No simultaneous attendance forced in production.",
+  "places": [
+    {
+      "resident": "evelyn_marsh",
+      "furniture": "retail_bar_ch0_1",
+      "reason": "The west table: a view of the room and space to straighten a folded paper."
+    },
+    {
+      "resident": "lena_ortiz",
+      "furniture": "retail_bar_ch0_2",
+      "reason": "The other side of Evelyn's table, with good light for an unfinished mend."
+    },
+    {
+      "resident": "mae_kessler",
+      "furniture": "retail_bar_ch0_0",
+      "reason": "The third west-table chair, where she can set a small box down."
+    },
+    {
+      "resident": "cam_ortiz",
+      "furniture": "retail_bar_ch1_0",
+      "reason": "The central table, near the route back to the stairs."
+    },
+    {
+      "resident": "sacha_reed",
+      "furniture": "retail_bar_ch1_1",
+      "reason": "Opposite Cam, able to watch the pool table without blocking a cue."
+    },
+    {
+      "resident": "rhea_sato",
+      "furniture": "retail_bar_ch2_0",
+      "reason": "The front table, facing the stage rather than sitting on it."
+    },
+    {
+      "resident": "iris_bell",
+      "furniture": "retail_bar_ch2_1",
+      "reason": "The stage-side table: a view across the changing colours of the room."
+    },
+    {
+      "resident": "jonah_price",
+      "furniture": "retail_bar_ch2_2",
+      "reason": "The third front-table chair, near enough to listen without performing."
+    },
+    {
+      "resident": "juno_kells",
+      "furniture": "retail_bar_stool0_seat",
+      "reason": "The west counter end, listening across the room."
+    },
+    {
+      "resident": "cal_dwyer",
+      "furniture": "retail_bar_stool1_seat",
+      "reason": "The second counter stool; the room's hum arrives from both sides."
+    },
+    {
+      "resident": "omar_bell",
+      "furniture": "retail_bar_stool2_seat",
+      "reason": "The central counter stool, with a clear service aisle behind the bar."
+    },
+    {
+      "resident": "noel_price",
+      "furniture": "retail_bar_stool3_seat",
+      "reason": "The fourth counter stool, close to the lounge conversation."
+    },
+    {
+      "resident": "teresa_vale",
+      "furniture": "retail_bar_stool4_seat",
+      "reason": "The counter end nearest the entrance, keeping the stairs in sight."
+    },
+    {
+      "resident": "mina_vale",
+      "furniture": "resident_alcove_north",
+      "reason": "The quiet alcove ledge: Mina can stand and annotate beside her chair without borrowing a foreign seated animation."
+    },
+    {
+      "resident": "nadia_quell",
+      "furniture": "retail_bar_banq1",
+      "reason": "The north lounge seat, looking across the whole room."
+    },
+    {
+      "resident": "peter_wren",
+      "furniture": "retail_bar_banq2",
+      "reason": "The lounge seat facing Mina and Nadia rather than an empty wall."
+    },
+    {
+      "resident": "malcolm_reed",
+      "furniture": "retail_bar_banq0",
+      "reason": "The south lounge seat, where he can watch the room from the raised deck."
+    },
+    {
+      "resident": "transient_guests",
+      "furniture": "resident_alcove_south",
+      "reason": "The second alcove chair: a place for the night-visible guest, not a new permanent tenant."
+    }
+  ],
+  "alcove": [
+    {
+      "id": "resident_alcove_north",
+      "at": [
+        3.45,
+        -35.55,
+        -2.62
+      ],
+      "yaw": 90
+    },
+    {
+      "id": "resident_alcove_south",
+      "at": [
+        3.45,
+        -36.65,
+        -2.62
+      ],
+      "yaw": 90
+    }
+  ]
+}

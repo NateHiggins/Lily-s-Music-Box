@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 48.81,
+  "exit_code": 0,
+  "finished_utc": "2026-10-24T23:39:05Z",
+  "started_utc": "2026-10-24T23:38:16Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/npc_bar_20261024/loaded_v1/import1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2integration24/npc_bar_20261024/loaded_v1/import1.log",
+  "stdout_sha256": "e0cf8237cde0d943996e1bdfbbc27c08b622171a2bffc6ace169942f831322b8"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 2346,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/bath_water_closet_construction.json",
+   " M art/blender/case_calibrator_construction.json",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_ground_apron_construction.json",
+   " M art/blender/city_horizon_construction.json",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/fire_fold_stock_construction.json",
+   " M art/blender/fire_hose_stock_construction.json",
+   " M art/blender/fixed_lighting_construction.json",
+   " M art/blender/house_switchboard_construction.json",
+   " M art/blender/nook_readable_books_construction.json",
+   " M art/blender/readable_library_construction.json",
+   " M art/blender/reading_nook_construction.json",
+   " M art/blender/roof_public_weathering_construction.json",
+   " M art/blender/street_paving_details_construction.json",
+   " M art/blender/surface_stock_construction.json",
+   " M art/data/gen_layout.py"
+  ],
+  "repository_head": "9fdb5d7c1d043bed383ab4551360f56293290fac",
+  "repository_tree": "1c9d55c464de0d12bb049783591cadad88e5f1e9",
+  "runtime_inputs_sha256": "3437116c6a6333aa29d9ffa69ffe8774eab3004e5954065a48d15b16c3e0cc8d",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

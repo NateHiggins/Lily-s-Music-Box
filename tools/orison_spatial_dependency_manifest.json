@@ -314798,6 +314798,995 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "0471457366441ff7",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch1_0"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 4,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_cafe_seating.json",
+   "gameplay_binding": false,
+   "key": "056dc8c2294946ba",
+   "kind": "id_reference",
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/chairs[*]/id",
+    "/chairs[*]/source/id",
+    "/retirement[*]/resident_furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch2_0"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "061fae5ccf9e4a3b",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_stool4_seat"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 4,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_cafe_seating.json",
+   "gameplay_binding": false,
+   "key": "06953970744f37e6",
+   "kind": "id_reference",
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/chairs[*]/id",
+    "/chairs[*]/source/id",
+    "/retirement[*]/resident_furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch1_1"
+  },
+  {
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "confidence": "MEDIUM",
+   "context": [
+    "if floor.id == \"F01\":"
+   ],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/scripts/building/orison_v2_bar_resident_places.gd",
+   "gameplay_binding": false,
+   "key": "0baca5ade72c305d",
+   "kind": "floor_reference",
+   "lines": [
+    17
+   ],
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "subsystem": "building",
+   "symbols": [
+    "setup"
+   ],
+   "target_exists": true,
+   "tier": "production",
+   "token": "F01"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 4,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_cafe_seating.json",
+   "gameplay_binding": false,
+   "key": "1826dd6f855aa2ca",
+   "kind": "id_reference",
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/chairs[*]/id",
+    "/chairs[*]/source/id",
+    "/retirement[*]/resident_furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch2_1"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "1e53c3ab18fb2d43",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_banq0"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "1e55c3db9120cbaa",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch2_1"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "26412fd3f6753632",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[1]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch0_2"
+  },
+  {
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "confidence": "MEDIUM",
+   "context": [
+    "if floor.id == \"F01\":"
+   ],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/scripts/building/orison_v2_bar_cafe_seating.gd",
+   "gameplay_binding": false,
+   "key": "3b37c59e17efac55",
+   "kind": "floor_reference",
+   "lines": [
+    16
+   ],
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "target_exists": true,
+   "tier": "production",
+   "token": "F01"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "41e211ba45517696",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_stool1_seat"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 4,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_cafe_seating.json",
+   "gameplay_binding": false,
+   "key": "4d645659df386a4e",
+   "kind": "id_reference",
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/chairs[*]/id",
+    "/chairs[*]/source/id",
+    "/retirement[*]/resident_furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch1_0"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 4,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_cafe_seating.json",
+   "gameplay_binding": false,
+   "key": "503e0b3e6a239733",
+   "kind": "id_reference",
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/chairs[0]/id",
+    "/chairs[0]/source/id",
+    "/retirement[0]/resident_furniture",
+    "/retirement[1]/resident_furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch0_0"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "517ec5a206a92e7c",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch2_2"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "527778f98b209289",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch1_1"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "603714d6e0e0c756",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_banq2"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "6592afb1994bf6b1",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_stool0_seat"
+  },
+  {
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [
+    "\"F01_retail_bar_native_alcove_\" + str(part.name)"
+   ],
+   "count": 1,
+   "disposition": "REGENERATE_CONSUMER",
+   "file": "game/scripts/building/orison_v2_bar_resident_places.gd",
+   "gameplay_binding": false,
+   "key": "66b41ac54c23e316",
+   "kind": "generated_name",
+   "lines": [
+    101
+   ],
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "building",
+   "symbols": [
+    "_mount_native"
+   ],
+   "target_exists": null,
+   "tier": "production",
+   "token": "_mount_native"
+  },
+  {
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [
+    "\"Preferred_\" + identity"
+   ],
+   "count": 1,
+   "disposition": "REGENERATE_CONSUMER",
+   "file": "game/scripts/building/orison_v2_bar_resident_places.gd",
+   "gameplay_binding": false,
+   "key": "6c4429a08cbbc528",
+   "kind": "generated_name",
+   "lines": [
+    53
+   ],
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "building",
+   "symbols": [
+    "setup"
+   ],
+   "target_exists": null,
+   "tier": "production",
+   "token": "setup"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 4,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_cafe_seating.json",
+   "gameplay_binding": false,
+   "key": "6f5616bcd454b45c",
+   "kind": "id_reference",
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/chairs[1]/id",
+    "/chairs[1]/source/id",
+    "/retirement[2]/resident_furniture",
+    "/retirement[*]/resident_furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch0_1"
+  },
+  {
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [
+    "\"F01_retail_bar_native_cafe_\" + str(part.name)"
+   ],
+   "count": 1,
+   "disposition": "REGENERATE_CONSUMER",
+   "file": "game/scripts/building/orison_v2_bar_cafe_seating.gd",
+   "gameplay_binding": false,
+   "key": "763d4419faf6db80",
+   "kind": "generated_name",
+   "lines": [
+    83
+   ],
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "target_exists": null,
+   "tier": "production",
+   "token": "mount"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "8dd202d37c557015",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_stool2_seat"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "94322513a30e4237",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_stool3_seat"
+  },
+  {
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "confidence": "MEDIUM",
+   "context": [
+    "if not rows.has(\"retail_bar_floor\"): return false",
+    "var floor_source: Dictionary = rows[\"retail_bar_floor\"]"
+   ],
+   "count": 2,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/scripts/building/orison_v2_bar_resident_places.gd",
+   "gameplay_binding": false,
+   "key": "b229a79c68f06f36",
+   "kind": "id_reference",
+   "lines": [
+    19,
+    20
+   ],
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "building",
+   "symbols": [
+    "setup"
+   ],
+   "target_exists": true,
+   "tier": "production",
+   "token": "retail_bar_floor"
+  },
+  {
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "confidence": "MEDIUM",
+   "context": [
+    "camera.position = Vector3(3.8, 5, 17); camera.look_at(Vector3(3.8, .8, 4))"
+   ],
+   "count": 1,
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "file": "game/tests/v2_resident_cast_bench.gd",
+   "gameplay_binding": true,
+   "key": "b2a7fc155ff1a1a5",
+   "kind": "vector3_coordinate",
+   "lines": [
+    73
+   ],
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "target_exists": null,
+   "tier": "test",
+   "token": "run"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "bef63bcc50686d94",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[2]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch0_0"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 4,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_cafe_seating.json",
+   "gameplay_binding": false,
+   "key": "c8d50faf6348752b",
+   "kind": "id_reference",
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/chairs[2]/id",
+    "/chairs[2]/source/id",
+    "/retirement[*]/resident_furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch0_2"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 4,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_cafe_seating.json",
+   "gameplay_binding": false,
+   "key": "ca73eb9ff0774da9",
+   "kind": "id_reference",
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/chairs[*]/id",
+    "/chairs[*]/source/id",
+    "/retirement[*]/resident_furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch2_2"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "d1c96216c7a61303",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_banq1"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "ed6eb821f12b78eb",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[0]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch0_1"
+  },
+  {
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "confidence": "MEDIUM",
+   "context": [],
+   "count": 1,
+   "disposition": "PRESERVE_OR_ALIAS",
+   "file": "game/data/orison_v2/bar_resident_places.json",
+   "gameplay_binding": false,
+   "key": "f195f48004ad60a8",
+   "kind": "id_reference",
+   "lines": [
+    0
+   ],
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "subsystem": "data",
+   "symbols": [
+    "/places[*]/furniture"
+   ],
+   "target_exists": true,
+   "tier": "data",
+   "token": "retail_bar_ch2_0"
+  },
+  {
+   "key": "a1c12cb2f1e2924d",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/v2_bar_resident_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "alcove_contacts",
+    "run"
+   ],
+   "lines": [
+    21,
+    160
+   ],
+   "count": 2,
+   "context": [
+    "if floor.id == \"F01\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1f6e3c56a862eea0",
+   "kind": "id_reference",
+   "token": "retail_bar_deck_s",
+   "file": "game/tests/v2_bar_resident_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    162
+   ],
+   "count": 1,
+   "context": [
+    "if item.id == \"retail_bar_deck_s\": deck = item"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
   }
  ]
 }

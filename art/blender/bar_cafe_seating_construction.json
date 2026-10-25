@@ -1,0 +1,184 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Source-bound native 90-degree placement repair. Original 16 floor-shadow triangles retained. No source-cell rewrite or runtime acceptance.",
+  "chairs": [
+    {
+      "id": "retail_bar_ch0_0",
+      "source": {
+        "id": "retail_bar_ch0_0",
+        "asm": "chair",
+        "at": [
+          -7.419999999999999,
+          -35.3
+        ],
+        "yaw": 180,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "matches": {
+        "oak_quartered": 336,
+        "hull": 12,
+        "fx_shadow": 2
+      }
+    },
+    {
+      "id": "retail_bar_ch0_1",
+      "source": {
+        "id": "retail_bar_ch0_1",
+        "asm": "chair",
+        "at": [
+          -8.59,
+          -34.624500185048134
+        ],
+        "yaw": 300,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "matches": {
+        "oak_quartered": 336,
+        "hull": 12,
+        "fx_shadow": 2
+      }
+    },
+    {
+      "id": "retail_bar_ch0_2",
+      "source": {
+        "id": "retail_bar_ch0_2",
+        "asm": "chair",
+        "at": [
+          -8.59,
+          -35.97549981495186
+        ],
+        "yaw": 60,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "matches": {
+        "oak_quartered": 336,
+        "hull": 12,
+        "fx_shadow": 2
+      }
+    },
+    {
+      "id": "retail_bar_ch1_0",
+      "source": {
+        "id": "retail_bar_ch1_0",
+        "asm": "chair",
+        "at": [
+          -4.611326527426238,
+          -34.7882739573874
+        ],
+        "yaw": 221,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "matches": {
+        "oak_quartered": 336,
+        "hull": 12,
+        "fx_shadow": 2
+      }
+    },
+    {
+      "id": "retail_bar_ch1_1",
+      "source": {
+        "id": "retail_bar_ch1_1",
+        "asm": "chair",
+        "at": [
+          -5.7886734725737625,
+          -35.81172604261259
+        ],
+        "yaw": 41,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "matches": {
+        "oak_quartered": 336,
+        "hull": 12,
+        "fx_shadow": 2
+      }
+    },
+    {
+      "id": "retail_bar_ch2_0",
+      "source": {
+        "id": "retail_bar_ch2_0",
+        "asm": "chair",
+        "at": [
+          -1.0914449812511489,
+          -34.12759090638157
+        ],
+        "yaw": 262,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "matches": {
+        "oak_quartered": 336,
+        "hull": 12,
+        "fx_shadow": 2
+      }
+    },
+    {
+      "id": "retail_bar_ch2_1",
+      "source": {
+        "id": "retail_bar_ch2_1",
+        "asm": "chair",
+        "at": [
+          -1.9232034065620942,
+          -35.19219314286441
+        ],
+        "yaw": 22,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "matches": {
+        "oak_quartered": 336,
+        "hull": 12,
+        "fx_shadow": 2
+      }
+    },
+    {
+      "id": "retail_bar_ch2_2",
+      "source": {
+        "id": "retail_bar_ch2_2",
+        "asm": "chair",
+        "at": [
+          -0.5853516121867568,
+          -35.380215950754014
+        ],
+        "yaw": 142,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "matches": {
+        "oak_quartered": 336,
+        "hull": 12,
+        "fx_shadow": 2
+      }
+    }
+  ],
+  "retired_counts": {
+    "oak_quartered": 2688,
+    "hull": 96
+  },
+  "exported": {
+    "asset": "C:\\ov\\v2merge24\\game\\assets\\props\\bar_cafe_seating.glb",
+    "primitives": 2,
+    "triangles": 2784,
+    "minimum_tangent_agreement": 0.9999999596389407,
+    "status": "PASS"
+  },
+  "asset_sha256": "884546fd31f45908b63ab287213ea423dcd2e131da8c3da0fd577f70135a8171",
+  "source_bindings": {
+    "art/blender/scripts/build_bar_cafe_seating.py": "98e0140572a711f0874957175fa4551359adf99ec89eec200ada4aef60b6edae",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+    "game/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+    "art/data/material_catalog.json": "153538df6eb5f3284fb4dd961597803b1b96de2184ae4c4739440953bb1fd5ca",
+    "art/textures/catalog_mapping.json": "1fde8f0d1d9980d292e4a99b7af1e3b7274299a68451214fe2efbe6c518f36d8",
+    "game/assets/building/floor_01_cells/shop_bar.gltf": "cdf5febdda279dd8c0abd82924052aa2a47892ca2b5886e95376153e43ce1f76",
+    "game/assets/building/floor_01_cells/shop_bar.bin": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f",
+    "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "material": "resident_mina_vale",
+  "source": "existing approved V1 character; original UV atlas and rig retained",
+  "generator": "art/tools/register_v2_resident_finishes.py",
+  "meters_per_tile": 1.0,
+  "projection": "unique whole-character atlas; normalized UVs, no repetition",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "source_sha256": {
+    "game/assets/characters/mina_vale/texture_0.png": "6c08276afaa38cf05ec099249ca8a39733a168f1471696e0ec8d31dc00a7ee0d",
+    "game/assets/characters/mina_vale/texture_0_normal.png": "985c6c2d7dbd1d52a0e4e3efbb56c9fac78bafbaf641398205b8daf5a0453483",
+    "game/assets/characters/mina_vale/texture_0_metallic-texture_0_roughness.png": "08f75a405945e6a15d0fafde17567b633f1ce9b8d14db9425acf6ed5cd749b2b"
+  }
+}

@@ -1,0 +1,21 @@
+[LANE] busy; waiting up to 240 min for 'res://tests/V2ResidentCastBench.tscn'
+lane: BUSY
+  mutex: held
+  holder: pid 124156 (long) scene '' since 2026-10-25T01:19:28Z from C:\ov\sky
+  godot: pid 16360 Godot_v4.7.1-stable_win64 since 2026-10-25T01:19:28Z
+         C:\Users\nate_\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.7.1-stable_win64.exe --headless --path C:\ov\sky\game --import
+  godot: pid 216920 Godot_v4.7.1-stable_win64_console since 2026-10-25T01:19:28Z
+         "C:\Users\nate_\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.7.1-stable_win64_console.exe" --headless --path C:\ov\sky\game --import
+  waiting: pid 111032 for 'res://tests/V2BathroomFinishingReview.tscn' since 2026-10-24T13:31:36Z [STALE]
+  waiting: pid 113100 for '6 runs' since 2026-10-24T18:54:15Z [STALE]
+  waiting: pid 133616 for '2 runs' since 2026-10-24T12:55:22Z [STALE]
+  waiting: pid 14848 for '5 runs' since 2026-10-24T11:24:59Z [STALE]
+  waiting: pid 154128 for 'res://tests/V2ResidentCastBench.tscn' since 2026-10-25T01:20:58Z
+  waiting: pid 178304 for '7 runs' since 2026-10-24T15:57:50Z [STALE]
+  waiting: pid 180344 for '5 runs' since 2026-10-24T22:12:38Z [STALE]
+  waiting: pid 192480 for '5 runs' since 2026-10-24T18:43:59Z [STALE]
+  waiting: pid 41732 for 'res://tests/ResidentAgendaTest.tscn' since 2026-10-25T01:21:00Z
+  waiting: pid 46528 for 'res://tests/WalkTest.tscn' since 2026-10-10T20:22:23Z [STALE]
+[LONG RUNNER] scene=res://tests/V2ResidentCastBench.tscn exit=1 elapsed_s=16 ceiling_s=180
+[RUN RECEIPT] C:\ov\reports\v2integration24\npc_bar_20261024\loaded_v6\cast.log.receipt.json exit=1 completed=True pass_lines=199 fail_lines=11
+[LANE] res://tests/V2ResidentCastBench.tscn exit=1

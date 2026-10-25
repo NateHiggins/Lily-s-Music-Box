@@ -1,0 +1,404 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Generated local V2 atlases. Original character models unchanged; no runtime qualification.",
+  "residents": [
+    {
+      "resident": "evelyn_marsh",
+      "original_size": [
+        8192,
+        8192
+      ],
+      "atlas_size": [
+        2048,
+        2048
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "18b085ab881cc28c877431dd90b7ea31926c49bfe684294e1a13bf72eff1f281",
+      "sources": {
+        "game/assets/characters/evelyn_marsh/texture_0.jpg": "910c54ae9cb250c84154985612b485123e999a49a9f74c704baf0fe816a28365"
+      },
+      "outputs": {
+        "albedo.png": "358d7f574d7eade8b19009195384c699370abff444cc64095c3e22f66394981e",
+        "normal.png": "9330e96da30ca3f2aeaccae9aa54bb793b991a9171a3fc8477f0814affd31cff",
+        "roughness.png": "9d8fbb3dc66708d37314e6ce6ee65374242ba3823d1e9c6b79d1236a05b980b6"
+      }
+    },
+    {
+      "resident": "teresa_vale",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "8596b78e7ca224149ca2daa41c993f0be756f20b025074507183ea067bc374c2",
+      "sources": {
+        "game/assets/characters/teresa_vale/texture_0.png": "610de6a7543fa9b9c246721c3408153573e724c9bba92f0cd2c449f93467fef5"
+      },
+      "outputs": {
+        "albedo.png": "610de6a7543fa9b9c246721c3408153573e724c9bba92f0cd2c449f93467fef5",
+        "normal.png": "616efd4bd2c8fed56ec73bfa13082c4923089345a2a800b23be39ce65c6e8d43",
+        "roughness.png": "8f247de75c811d5beeee1026075fb70d14f3fa5dc5528156101a58472bd93651"
+      }
+    },
+    {
+      "resident": "mina_vale",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "retained source",
+      "metallic": 0,
+      "model_unchanged_sha256": "4499f10a6ac8b93b1dd7306274244cd8b07b37c9c78952d69fc1d3d72267e5bd",
+      "sources": {
+        "game/assets/characters/mina_vale/texture_0.png": "6c08276afaa38cf05ec099249ca8a39733a168f1471696e0ec8d31dc00a7ee0d",
+        "game/assets/characters/mina_vale/texture_0_normal.png": "985c6c2d7dbd1d52a0e4e3efbb56c9fac78bafbaf641398205b8daf5a0453483",
+        "game/assets/characters/mina_vale/texture_0_metallic-texture_0_roughness.png": "08f75a405945e6a15d0fafde17567b633f1ce9b8d14db9425acf6ed5cd749b2b"
+      },
+      "outputs": {
+        "albedo.png": "011fdefa2bf3aed02b285816a088940e850d20becc18042c81fc6a4bdc1838a1",
+        "normal.png": "bae63d9e9a02f9043c8edd1393dfcd37b6b5667d73a7a0e10fc1504d5e60aa84",
+        "roughness.png": "9b3c8b59e800ccb807ab3b6c2e7cd29c621b3f91f6e6c14e321bd8512474e7c1"
+      }
+    },
+    {
+      "resident": "lena_ortiz",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "642913eb805b04132854054e145e839a6122440b03675e2cdb7f47a1ba467274",
+      "sources": {
+        "game/assets/characters/lena_ortiz/texture_0.png": "e619b0dad32253744c390abef6ab3ab677a71a8304d601fef69a39a392ce80f9"
+      },
+      "outputs": {
+        "albedo.png": "e619b0dad32253744c390abef6ab3ab677a71a8304d601fef69a39a392ce80f9",
+        "normal.png": "78119e855e737eaca88085ff356402120d10e8b8083ba5186edc9ddd778f93bb",
+        "roughness.png": "cbd7abea907a18f33815c424e89abe42ff5c0b08e9cdac57fc6e8b70ddcf5100"
+      }
+    },
+    {
+      "resident": "juno_kells",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "f9adc86d88b87cb0e516b5c632fd4e845e9916dcf0bc951a75968c211d8eacd1",
+      "sources": {
+        "game/assets/characters/juno_kells/texture_0.png": "ff974a6722d2d4d0e27cefce90d100c4e2148fe33af57345426becb9248b66f6"
+      },
+      "outputs": {
+        "albedo.png": "ff974a6722d2d4d0e27cefce90d100c4e2148fe33af57345426becb9248b66f6",
+        "normal.png": "db01648154603643212130d663f7f06b202774faf5bd9343b8824c5cfe1a2c4b",
+        "roughness.png": "e7dbd968747cb48fd174d5428ecb8abe0c1b32238cb76d7b58702ce1c9337a24"
+      }
+    },
+    {
+      "resident": "malcolm_reed",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "b9823c31b3ff74492b266bc71b90d60dc5f461bde2a7f80dfea2042afd8ca7ed",
+      "sources": {
+        "game/assets/characters/malcolm_reed/texture_0.png": "7fa9c2a6e39ce15521f1ecf86c3c1f90957c46c42b4ce411a6a44209f71084dc"
+      },
+      "outputs": {
+        "albedo.png": "7fa9c2a6e39ce15521f1ecf86c3c1f90957c46c42b4ce411a6a44209f71084dc",
+        "normal.png": "15ce95b102fbf46ea1f599e5ff411b9a55e511ea2f3918de1434842b4322723a",
+        "roughness.png": "24fe5b069cd2e519e53097e4fec8e4b00e8afeb9f1a74d5f1c03d55b3840e135"
+      }
+    },
+    {
+      "resident": "omar_bell",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "671c0da5b9d42ae5592b4f258419aaad458c07de61f6a74c75c9efd2e8eaa2af",
+      "sources": {
+        "game/assets/characters/omar_bell/texture_0.png": "08a1d6d4d3cc40abc726373f8eb30763352cc66c34193947fae05281b1a14d07"
+      },
+      "outputs": {
+        "albedo.png": "08a1d6d4d3cc40abc726373f8eb30763352cc66c34193947fae05281b1a14d07",
+        "normal.png": "55103c8d73eff045f1cd62530e75602af831d417672bc3120005fffc9c168484",
+        "roughness.png": "1a04128e94119f7882c6ee136f65c7e1956fa75d64eec71e4cb6e2a0a177c6ec"
+      }
+    },
+    {
+      "resident": "rhea_sato",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "b5e312fa01d8df320852f9adb61a040a5d07c719f9a29f800fbf5f50f8a17ad9",
+      "sources": {
+        "game/assets/characters/rhea_sato/texture_0.png": "72ff52ecbd929da18e212f1de2d4145c21712d88070e680ef0e90ca4cfb501c4"
+      },
+      "outputs": {
+        "albedo.png": "72ff52ecbd929da18e212f1de2d4145c21712d88070e680ef0e90ca4cfb501c4",
+        "normal.png": "08b0379adb92727b21530cfdbf4a651a90930812103744beed08c4a17b9c70ff",
+        "roughness.png": "444045009451b16ad968eb44d20babf91085ce0902abf17ae5113f2c78d1d21d"
+      }
+    },
+    {
+      "resident": "peter_wren",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "d42e66d9e4c563de6785982f67d3821070020775453a8e2a95faaa5d6e71f411",
+      "sources": {
+        "game/assets/characters/peter_wren/texture_0.png": "6fc509dba7e3315ac2fe5692cdff8bc76fac338087bf95919b8c55df2686970e"
+      },
+      "outputs": {
+        "albedo.png": "6fc509dba7e3315ac2fe5692cdff8bc76fac338087bf95919b8c55df2686970e",
+        "normal.png": "9a3a292513bde4f02bf771c94e5db998ba30d82eb09e5a5d4cb078c8cbc9fe60",
+        "roughness.png": "7184a4080670d26ffa62978917f389bf9d01211673390d84722625858168af8e"
+      }
+    },
+    {
+      "resident": "cam_ortiz",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "102ff87f163afea4c6d9afdba83cda6ba8e5463e26d530fae017312517714d1b",
+      "sources": {
+        "game/assets/characters/cam_ortiz/texture_0.png": "5c1a92613af61344cd5dd1211b5610c45c1fa56f7f8b5e9810be2ca6afc2d664"
+      },
+      "outputs": {
+        "albedo.png": "5c1a92613af61344cd5dd1211b5610c45c1fa56f7f8b5e9810be2ca6afc2d664",
+        "normal.png": "7a2b55820848f921b11bcbeef63ced5bfdb80d8b7149578d895e166df467ab74",
+        "roughness.png": "e8a82d616f3c08a8552783b0c88143fd695077cff7bcb79bea954b99206bf58f"
+      }
+    },
+    {
+      "resident": "noel_price",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "5c7b09af9f99231e2d2407f02e388fc3cbbbf749da921eb2ca644ae2165fcd80",
+      "sources": {
+        "game/assets/characters/noel_price/texture_0.png": "eafe141089aad7327c4cd179262e53d526c1f36bcc212ca77f6d2d8d30f9b044"
+      },
+      "outputs": {
+        "albedo.png": "eafe141089aad7327c4cd179262e53d526c1f36bcc212ca77f6d2d8d30f9b044",
+        "normal.png": "58ac33bb63fae15eace22aab6ef65e80cf2e1d7f31a5a61336d8ac3f18ed77e6",
+        "roughness.png": "e38b6bd9d72461b854fd03377f06ba9bde41e968f76060a3a16b836da79dc7e4"
+      }
+    },
+    {
+      "resident": "transient_guests",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "cb3ecc63c95fe58bdbab92a32edc50bd5effe7164819bb45223f9ef8e5a66b22",
+      "sources": {
+        "game/assets/characters/transient_guests/texture_0.png": "7fee76bb14ad2d3680a2203710ef43d50a29714c3f5f4a131f571292a1183459"
+      },
+      "outputs": {
+        "albedo.png": "7fee76bb14ad2d3680a2203710ef43d50a29714c3f5f4a131f571292a1183459",
+        "normal.png": "75a8b517307fe09280c4c2ff938df3529f35dc54c30985aca5794da4ac2787cd",
+        "roughness.png": "407547a9bce19f7205a16be9622310a9d90d683aa1139d4f3301fa3aed50d617"
+      }
+    },
+    {
+      "resident": "nadia_quell",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "82233191bd56834a73edaf08d8d28a229526cb9a5851dc41551e09bd40b9b5ed",
+      "sources": {
+        "game/assets/characters/nadia_quell/texture_0.png": "996689973e96aba0af3bfcdaf621a85dab946842f9f440826edddd2a99e019ab"
+      },
+      "outputs": {
+        "albedo.png": "996689973e96aba0af3bfcdaf621a85dab946842f9f440826edddd2a99e019ab",
+        "normal.png": "b1f72c4aee488a5cd9490e40ed081a05de877f5551267dc3b962eafbbf2c1634",
+        "roughness.png": "f6143b73238184db5eaba1fe888820f1e7cab5ba732df25facfda58c91a1d8f6"
+      }
+    },
+    {
+      "resident": "cal_dwyer",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "48e4f04d4a83964a043d930dba78e503e2c5b85d3b6dc399df08875e929c2622",
+      "sources": {
+        "game/assets/characters/cal_dwyer/texture_0.png": "073a1dbc0aa20d4fbf2b9c19993108d54ed686cb359ba0ca829b6a5948b03ff6"
+      },
+      "outputs": {
+        "albedo.png": "073a1dbc0aa20d4fbf2b9c19993108d54ed686cb359ba0ca829b6a5948b03ff6",
+        "normal.png": "b7fd01edf6711b618a90a9b0b6946860ac7dc9ef26c6f68176ecdfa91664e0db",
+        "roughness.png": "5d90e03789a4cd72bd0af6e2f0b1f71c87bc8fdba125963e2bf5b6ee25811e46"
+      }
+    },
+    {
+      "resident": "iris_bell",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "5c649308dea9efa6ae1f4f1723edf49622cb2bad7e8266e0f50b416f9270bb33",
+      "sources": {
+        "game/assets/characters/iris_bell/texture_0.png": "75fa0bc39bf0f1496e5568650880fd4e8c9ca5d600fb901f8c9e1f29d896dcf4"
+      },
+      "outputs": {
+        "albedo.png": "75fa0bc39bf0f1496e5568650880fd4e8c9ca5d600fb901f8c9e1f29d896dcf4",
+        "normal.png": "5babf545ff459ffa3af4152a122f63f44821994ce3dc0274886e46cb0dac54ee",
+        "roughness.png": "51da139fd6e39c53d3581674a1649b6a40edfc93bc230945aa4d9a394d47127f"
+      }
+    },
+    {
+      "resident": "sacha_reed",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "409ff64a454131bb54239fe5ca02bf668ef2a0492bb2b7b3bd2bd6ee8b385b73",
+      "sources": {
+        "game/assets/characters/sacha_reed/texture_0.png": "26e7359b0e49430b01c0098acc8d20972f2c28be6cf948e1dddd22db00778de6"
+      },
+      "outputs": {
+        "albedo.png": "26e7359b0e49430b01c0098acc8d20972f2c28be6cf948e1dddd22db00778de6",
+        "normal.png": "99da5af1d6925b732773e48e518c77b164361907f6456c4f26185e5aa8f5feab",
+        "roughness.png": "36cfd9814c228f38aca784f48243e0186c7dcea982762200c2bc769ce247b054"
+      }
+    },
+    {
+      "resident": "jonah_price",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "ad3a6af9ce965d8b2b313eb3057e174b2e26c12e10ae86e67807f047e9ae28f9",
+      "sources": {
+        "game/assets/characters/jonah_price/texture_0.png": "64283cd25d54dca9674b8d0282de5241e06f91ff74c7b7e7e7c7b95d236b608f"
+      },
+      "outputs": {
+        "albedo.png": "64283cd25d54dca9674b8d0282de5241e06f91ff74c7b7e7e7c7b95d236b608f",
+        "normal.png": "908a4f8338712b9765df45e4ff436be8f2b9cb28f0dfc84091539594dcf81ea4",
+        "roughness.png": "2acdbff5ba6c8038b2df2cfa13f436f8841c5c00dc6f182a3d822afd0e688362"
+      }
+    },
+    {
+      "resident": "mae_kessler",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "atlas_size": [
+        1024,
+        1024
+      ],
+      "normal": "subtle high-pass atlas relief, no geometric displacement",
+      "metallic": 0,
+      "model_unchanged_sha256": "d389b779bf64bc5a7fa044c93340a15004ab15fa8655e48e636f2a5b9db76ee4",
+      "sources": {
+        "game/assets/characters/mae_kessler/texture_0.png": "e0a5c8209b49d95cc1e634652cd45ea71375f1d946fcfa6d3b8e7c99f18b07b4"
+      },
+      "outputs": {
+        "albedo.png": "e0a5c8209b49d95cc1e634652cd45ea71375f1d946fcfa6d3b8e7c99f18b07b4",
+        "normal.png": "583fd382d4c658b5939844198dd55e0880a099dcccf05649e2401f0930a0bba2",
+        "roughness.png": "4930818b540444ef81c0080bca8fb4900ce9a0fbe00663f6f82abffa85f63995"
+      }
+    }
+  ]
+}

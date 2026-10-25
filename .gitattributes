@@ -3235,3 +3235,28 @@ art/reviews/v2_curtain_skin_20261024/** -text -whitespace
 tools/analyze_curtain_profile.py -text
 
 art/reviews/v2_main55_merge_20261024/** -text -whitespace
+
+# V2 cast atlases and source-bound bar places.
+art/tools/register_v2_resident_finishes.py -text
+art/textures/library/resident_*/** -text
+art/reviews/v2_resident_cast_20261024/** -text -whitespace
+art/data/bar_resident_places/** -text
+art/blender/scripts/build_bar_resident_alcove.py -text
+art/blender/scripts/build_bar_cafe_seating.py -text
+art/blender/bar_resident_alcove* -text
+art/blender/bar_cafe_seating* -text
+game/assets/props/bar_resident_alcove.glb* -text
+game/assets/props/bar_cafe_seating.glb* -text
+game/data/orison_v2/bar_resident_places.json -text
+game/data/orison_v2/bar_cafe_seating.json -text
+game/scripts/characters/orison_v2_resident_presentation.gd* -text
+game/scripts/building/orison_v2_bar_resident_places.gd* -text
+game/scripts/building/orison_v2_bar_cafe_seating.gd* -text
+game/tests/V2ResidentCastBench.tscn -text
+game/tests/v2_resident_cast_bench.gd* -text
+game/tests/v2_bar_resident_review.gd* -text
+game/tests/fixtures/v2_bar_resident_alcove.json -text
+
+art/blender/scripts/repair_resident_atlas_uv.py -text
+art/blender/resident_atlas_uv_repair.blend -text
+game/data/orison_v2/resident_atlas_uv_repair.json -text

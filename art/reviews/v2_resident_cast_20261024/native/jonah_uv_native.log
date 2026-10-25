@@ -1,0 +1,31 @@
+20:29:52 | INFO: Data are loaded, start creating Blender stuff
+20:29:52 | INFO: Blender create Mesh node char1
+20:29:52 | INFO: glTF import finished in 0.16s
+Info: Saved as "resident_atlas_uv_repair.blend"
+{
+  "schema_version": 1,
+  "resident": "jonah_price",
+  "source_sha256": "ad3a6af9ce965d8b2b313eb3057e174b2e26c12e10ae86e67807f047e9ae28f9",
+  "source": "res://assets/characters/jonah_price/jonah_price.gltf",
+  "repairs": [
+    {
+      "position": [
+        0.465380996465683,
+        0.8504875898361206,
+        0.0690699964761734
+      ],
+      "before": [
+        0.9972739815711975,
+        0.9170380234718323
+      ],
+      "after": [
+        0.9973139762878418,
+        0.9170380234718323
+      ],
+      "native_loops": 1
+    }
+  ]
+}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

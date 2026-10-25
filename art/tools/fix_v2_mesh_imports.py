@@ -9,6 +9,8 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/bar_cafe_seating.glb", # loaded_v6: imported oak metre charts stretch 1.481% under default compression.
+    "props/bar_resident_alcove.glb", # loaded_v6: small cloth/oak/brass charts stretch 0.586-6.293% under default compression.
     "props/door_casing_mitres.glb", # mitre_stock_v1: small native casing charts stretch1.177% under default compression, beyond the retained0.5% metric gate.
     "props/service_alley.glb", # Rebuilt bored boundary and worked coping now use authored metric charts, including millimetre arrises.
     "props/c_stove_stack.glb", # Same thin mortar, bored collar and worked arris charts as the fitted flue family; source precision preflight retained.

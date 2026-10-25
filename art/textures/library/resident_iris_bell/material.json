@@ -1,0 +1,15 @@
+{
+  "material": "resident_iris_bell",
+  "source": "existing approved V1 character; original UV atlas and rig retained",
+  "generator": "art/tools/register_v2_resident_finishes.py",
+  "meters_per_tile": 1.0,
+  "projection": "unique whole-character atlas; normalized UVs, no repetition",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "source_sha256": {
+    "game/assets/characters/iris_bell/texture_0.png": "75fa0bc39bf0f1496e5568650880fd4e8c9ca5d600fb901f8c9e1f29d896dcf4"
+  }
+}

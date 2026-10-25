@@ -1,0 +1,15 @@
+{
+  "material": "resident_omar_bell",
+  "source": "existing approved V1 character; original UV atlas and rig retained",
+  "generator": "art/tools/register_v2_resident_finishes.py",
+  "meters_per_tile": 1.0,
+  "projection": "unique whole-character atlas; normalized UVs, no repetition",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "source_sha256": {
+    "game/assets/characters/omar_bell/texture_0.png": "08a1d6d4d3cc40abc726373f8eb30763352cc66c34193947fae05281b1a14d07"
+  }
+}

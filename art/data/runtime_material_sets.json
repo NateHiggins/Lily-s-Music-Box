@@ -882,6 +882,20 @@
       "roughness_multiplier": 0.45,
       "visual_lock": false
     },
+    "monks_cloth": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.3,
+      "catalog_mapping": "procedural/monks_cloth",
+      "files": [
+        "T_ai_materials_monks_cloth_albedo.png",
+        "T_ai_materials_monks_cloth_rough.png",
+        "T_ai_materials_monks_cloth_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.3,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "nickel_plated": {
       "alpha": false,
       "canonical_meters_per_tile": 0.32,
@@ -894,6 +908,20 @@
       "metallic": 0.7,
       "meters_per_tile": 0.32,
       "roughness_multiplier": 0.82,
+      "visual_lock": false
+    },
+    "ninon": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.12,
+      "catalog_mapping": "procedural/ninon",
+      "files": [
+        "T_ai_materials_ninon_albedo.png",
+        "T_ai_materials_ninon_rough.png",
+        "T_ai_materials_ninon_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.12,
+      "roughness_multiplier": 1.0,
       "visual_lock": false
     },
     "nook_woven_wool": {
@@ -1061,6 +1089,258 @@
       ],
       "metallic": 0.92,
       "meters_per_tile": 0.04,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_cal_dwyer": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_cal_dwyer",
+      "files": [
+        "T_library_resident_cal_dwyer_albedo.png",
+        "T_library_resident_cal_dwyer_rough.png",
+        "T_library_resident_cal_dwyer_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_cam_ortiz": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_cam_ortiz",
+      "files": [
+        "T_library_resident_cam_ortiz_albedo.png",
+        "T_library_resident_cam_ortiz_rough.png",
+        "T_library_resident_cam_ortiz_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_evelyn_marsh": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_evelyn_marsh",
+      "files": [
+        "T_library_resident_evelyn_marsh_albedo.png",
+        "T_library_resident_evelyn_marsh_rough.png",
+        "T_library_resident_evelyn_marsh_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_iris_bell": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_iris_bell",
+      "files": [
+        "T_library_resident_iris_bell_albedo.png",
+        "T_library_resident_iris_bell_rough.png",
+        "T_library_resident_iris_bell_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_jonah_price": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_jonah_price",
+      "files": [
+        "T_library_resident_jonah_price_albedo.png",
+        "T_library_resident_jonah_price_rough.png",
+        "T_library_resident_jonah_price_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_juno_kells": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_juno_kells",
+      "files": [
+        "T_library_resident_juno_kells_albedo.png",
+        "T_library_resident_juno_kells_rough.png",
+        "T_library_resident_juno_kells_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_lena_ortiz": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_lena_ortiz",
+      "files": [
+        "T_library_resident_lena_ortiz_albedo.png",
+        "T_library_resident_lena_ortiz_rough.png",
+        "T_library_resident_lena_ortiz_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_mae_kessler": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_mae_kessler",
+      "files": [
+        "T_library_resident_mae_kessler_albedo.png",
+        "T_library_resident_mae_kessler_rough.png",
+        "T_library_resident_mae_kessler_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_malcolm_reed": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_malcolm_reed",
+      "files": [
+        "T_library_resident_malcolm_reed_albedo.png",
+        "T_library_resident_malcolm_reed_rough.png",
+        "T_library_resident_malcolm_reed_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_mina_vale": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_mina_vale",
+      "files": [
+        "T_library_resident_mina_vale_albedo.png",
+        "T_library_resident_mina_vale_rough.png",
+        "T_library_resident_mina_vale_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_nadia_quell": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_nadia_quell",
+      "files": [
+        "T_library_resident_nadia_quell_albedo.png",
+        "T_library_resident_nadia_quell_rough.png",
+        "T_library_resident_nadia_quell_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_noel_price": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_noel_price",
+      "files": [
+        "T_library_resident_noel_price_albedo.png",
+        "T_library_resident_noel_price_rough.png",
+        "T_library_resident_noel_price_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_omar_bell": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_omar_bell",
+      "files": [
+        "T_library_resident_omar_bell_albedo.png",
+        "T_library_resident_omar_bell_rough.png",
+        "T_library_resident_omar_bell_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_peter_wren": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_peter_wren",
+      "files": [
+        "T_library_resident_peter_wren_albedo.png",
+        "T_library_resident_peter_wren_rough.png",
+        "T_library_resident_peter_wren_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_rhea_sato": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_rhea_sato",
+      "files": [
+        "T_library_resident_rhea_sato_albedo.png",
+        "T_library_resident_rhea_sato_rough.png",
+        "T_library_resident_rhea_sato_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_sacha_reed": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_sacha_reed",
+      "files": [
+        "T_library_resident_sacha_reed_albedo.png",
+        "T_library_resident_sacha_reed_rough.png",
+        "T_library_resident_sacha_reed_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_teresa_vale": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_teresa_vale",
+      "files": [
+        "T_library_resident_teresa_vale_albedo.png",
+        "T_library_resident_teresa_vale_rough.png",
+        "T_library_resident_teresa_vale_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "resident_transient_guests": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.0,
+      "catalog_mapping": "library/resident_transient_guests",
+      "files": [
+        "T_library_resident_transient_guests_albedo.png",
+        "T_library_resident_transient_guests_rough.png",
+        "T_library_resident_transient_guests_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.0,
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
@@ -1330,6 +1610,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": true
     },
+    "velour": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.4,
+      "catalog_mapping": "procedural/velour",
+      "files": [
+        "T_ai_materials_velour_albedo.png",
+        "T_ai_materials_velour_rough.png",
+        "T_ai_materials_velour_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.4,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "washer_brass": {
       "alpha": false,
       "canonical_meters_per_tile": 0.08,
@@ -1439,48 +1733,6 @@
       ],
       "metallic": 0.82,
       "meters_per_tile": 0.6,
-      "roughness_multiplier": 1.0,
-      "visual_lock": false
-    },
-    "monks_cloth": {
-      "alpha": false,
-      "canonical_meters_per_tile": 0.3,
-      "catalog_mapping": "procedural/monks_cloth",
-      "files": [
-        "T_ai_materials_monks_cloth_albedo.png",
-        "T_ai_materials_monks_cloth_rough.png",
-        "T_ai_materials_monks_cloth_normal.png"
-      ],
-      "metallic": 0.0,
-      "meters_per_tile": 0.3,
-      "roughness_multiplier": 1.0,
-      "visual_lock": false
-    },
-    "ninon": {
-      "alpha": false,
-      "canonical_meters_per_tile": 0.12,
-      "catalog_mapping": "procedural/ninon",
-      "files": [
-        "T_ai_materials_ninon_albedo.png",
-        "T_ai_materials_ninon_rough.png",
-        "T_ai_materials_ninon_normal.png"
-      ],
-      "metallic": 0.0,
-      "meters_per_tile": 0.12,
-      "roughness_multiplier": 1.0,
-      "visual_lock": false
-    },
-    "velour": {
-      "alpha": false,
-      "canonical_meters_per_tile": 0.4,
-      "catalog_mapping": "procedural/velour",
-      "files": [
-        "T_ai_materials_velour_albedo.png",
-        "T_ai_materials_velour_rough.png",
-        "T_ai_materials_velour_normal.png"
-      ],
-      "metallic": 0.0,
-      "meters_per_tile": 0.4,
       "roughness_multiplier": 1.0,
       "visual_lock": false
     }

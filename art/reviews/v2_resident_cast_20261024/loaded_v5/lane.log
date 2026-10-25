@@ -1,0 +1,21 @@
+[LANE] busy; waiting up to 240 min for 'res://tests/V2ResidentCastBench.tscn'
+lane: BUSY
+  mutex: held
+  holder: pid 37980 (long) scene 'res://tests/OrisonV2GasServiceTest.tscn' since 2026-10-25T00:52:49Z from C:\ov\vestibule
+  godot: pid 99504 Godot_v4.7.1-stable_win64 'Please Stay on the Line (DEBUG)' since 2026-10-25T00:52:49Z
+         C:\Users\nate_\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.7.1-stable_win64.exe --path C:\ov\vestibule\game res://tests/OrisonV2GasServiceTest.tscn
+  godot: pid 218744 Godot_v4.7.1-stable_win64_console since 2026-10-25T00:52:49Z
+         "C:\Users\nate_\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.7.1-stable_win64_console.exe" --path C:\ov\vestibule\game res://tests/OrisonV2GasServiceTest.tscn
+  waiting: pid 111032 for 'res://tests/V2BathroomFinishingReview.tscn' since 2026-10-24T13:31:36Z [STALE]
+  waiting: pid 113100 for '6 runs' since 2026-10-24T18:54:15Z [STALE]
+  waiting: pid 133616 for '2 runs' since 2026-10-24T12:55:22Z [STALE]
+  waiting: pid 145964 for 'res://tests/OrisonV2KitchenTest.tscn' since 2026-10-25T00:52:32Z
+  waiting: pid 14848 for '5 runs' since 2026-10-24T11:24:59Z [STALE]
+  waiting: pid 1612 for 'res://tests/V2ResidentCastBench.tscn' since 2026-10-25T00:53:35Z
+  waiting: pid 178304 for '7 runs' since 2026-10-24T15:57:50Z [STALE]
+  waiting: pid 180344 for '5 runs' since 2026-10-24T22:12:38Z [STALE]
+  waiting: pid 192480 for '5 runs' since 2026-10-24T18:43:59Z [STALE]
+  waiting: pid 46528 for 'res://tests/WalkTest.tscn' since 2026-10-10T20:22:23Z [STALE]
+[LONG RUNNER] scene=res://tests/V2ResidentCastBench.tscn exit=1 elapsed_s=12 ceiling_s=180
+[RUN RECEIPT] C:\ov\reports\v2integration24\npc_bar_20261024\loaded_v5\cast.log.receipt.json exit=1 completed=True pass_lines=199 fail_lines=1
+[LANE] res://tests/V2ResidentCastBench.tscn exit=1

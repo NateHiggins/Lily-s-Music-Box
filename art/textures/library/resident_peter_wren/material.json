@@ -1,0 +1,15 @@
+{
+  "material": "resident_peter_wren",
+  "source": "existing approved V1 character; original UV atlas and rig retained",
+  "generator": "art/tools/register_v2_resident_finishes.py",
+  "meters_per_tile": 1.0,
+  "projection": "unique whole-character atlas; normalized UVs, no repetition",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "source_sha256": {
+    "game/assets/characters/peter_wren/texture_0.png": "6fc509dba7e3315ac2fe5692cdff8bc76fac338087bf95919b8c55df2686970e"
+  }
+}

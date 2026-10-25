@@ -1,0 +1,15 @@
+{
+  "material": "resident_cam_ortiz",
+  "source": "existing approved V1 character; original UV atlas and rig retained",
+  "generator": "art/tools/register_v2_resident_finishes.py",
+  "meters_per_tile": 1.0,
+  "projection": "unique whole-character atlas; normalized UVs, no repetition",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "source_sha256": {
+    "game/assets/characters/cam_ortiz/texture_0.png": "5c1a92613af61344cd5dd1211b5610c45c1fa56f7f8b5e9810be2ca6afc2d664"
+  }
+}

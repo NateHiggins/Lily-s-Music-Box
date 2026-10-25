@@ -1,0 +1,15 @@
+{
+  "material": "resident_mae_kessler",
+  "source": "existing approved V1 character; original UV atlas and rig retained",
+  "generator": "art/tools/register_v2_resident_finishes.py",
+  "meters_per_tile": 1.0,
+  "projection": "unique whole-character atlas; normalized UVs, no repetition",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "source_sha256": {
+    "game/assets/characters/mae_kessler/texture_0.png": "e0a5c8209b49d95cc1e634652cd45ea71375f1d946fcfa6d3b8e7c99f18b07b4"
+  }
+}

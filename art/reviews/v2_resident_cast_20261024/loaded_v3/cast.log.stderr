@@ -1,0 +1,8 @@
+ERROR: Bar furniture: ambiguous triangle F01_OWN_SHOP_BAR_furnish_oak_quartered candidate=98 prior=28
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _fail (res://scripts/building/orison_v2_bar_furniture.gd:160)
+       [1] _without_source_triangles (res://scripts/building/orison_v2_bar_furniture.gd:123)
+       [2] mount (res://scripts/building/orison_v2_bar_cafe_seating.gd:56)
+       [3] run (res://tests/v2_bar_resident_review.gd:54)
+       [4] run (res://tests/v2_resident_cast_bench.gd:103)

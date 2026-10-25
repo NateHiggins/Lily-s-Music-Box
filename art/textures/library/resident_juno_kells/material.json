@@ -1,0 +1,15 @@
+{
+  "material": "resident_juno_kells",
+  "source": "existing approved V1 character; original UV atlas and rig retained",
+  "generator": "art/tools/register_v2_resident_finishes.py",
+  "meters_per_tile": 1.0,
+  "projection": "unique whole-character atlas; normalized UVs, no repetition",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "source_sha256": {
+    "game/assets/characters/juno_kells/texture_0.png": "ff974a6722d2d4d0e27cefce90d100c4e2148fe33af57345426becb9248b66f6"
+  }
+}

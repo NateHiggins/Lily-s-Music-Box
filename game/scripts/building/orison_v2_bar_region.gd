@@ -24,6 +24,7 @@ var actors: Node3D
 var source_layout: Dictionary
 var surface_pass: RefCounted
 var hours: HarukiyaStateDirector
+var resident_places: Node3D
 var _acoustic_originals: Dictionary = {}
 
 func _ready() -> void:
@@ -83,6 +84,10 @@ func _ready() -> void:
 		geometry.free()
 		_fail("native receiving cases differ from their source cases and shared hull")
 		return
+	if not preload("res://scripts/building/orison_v2_bar_cafe_seating.gd").mount(geometry, source_layout):
+		geometry.free()
+		_fail("cafe chairs do not match their original geometry and shared hull")
+		return
 	add_child(geometry)
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})
@@ -115,6 +120,12 @@ func _ready() -> void:
 	for child in actors.get_children():
 		if child is Node3D and child not in before and child != hands:
 			child.position = child.global_position
+	resident_places = preload("res://scripts/building/orison_v2_bar_resident_places.gd").new()
+	resident_places.name = "ResidentPlaces"
+	add_child(resident_places)
+	if not resident_places.setup(self):
+		_fail("resident places do not match their physical furniture")
+		return
 	if not preload("res://scripts/building/orison_v2_bar_gallery.gd").fit_inspections(geometry,actors):
 		_fail("native gallery lost an original picture inspection target")
 		return

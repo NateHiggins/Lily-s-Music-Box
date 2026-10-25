@@ -1,0 +1,836 @@
+{
+	"bar_review": {
+		"evidence_class": "INERT",
+		"failures": [],
+		"full_size_player_aisle_preflight": {
+			"height": 1.524,
+			"limit": "Static family access preflight only; actual controller input and composed-world access still require testing.",
+			"radius": 0.33,
+			"source_points": [
+				[
+					2.15499997138977,
+					-35.3499984741211,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-35.4274978637695,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-35.504997253418,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-35.5825004577637,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-35.6599998474121,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-35.7374992370605,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-35.8150024414063,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-35.8925018310547,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-35.9700012207031,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-36.0475006103516,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-36.125,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-36.2025032043457,
+					-2.62
+				],
+				[
+					2.15499997138977,
+					-36.2800025939941,
+					-2.62
+				],
+				[
+					2.22571420669556,
+					-36.2800025939941,
+					-2.62
+				],
+				[
+					2.29642868041992,
+					-36.2800025939941,
+					-2.62
+				],
+				[
+					2.36714291572571,
+					-36.2800025939941,
+					-2.62
+				],
+				[
+					2.43785715103149,
+					-36.2800025939941,
+					-2.62
+				],
+				[
+					2.50857162475586,
+					-36.2800025939941,
+					-2.62
+				],
+				[
+					2.57928586006165,
+					-36.2800025939941,
+					-2.62
+				],
+				[
+					2.65000009536743,
+					-36.2800025939941,
+					-2.62
+				],
+				[
+					2.65000009536743,
+					-36.35400390625,
+					-2.62
+				],
+				[
+					2.65000009536743,
+					-36.4280014038086,
+					-2.62
+				],
+				[
+					2.65000009536743,
+					-36.5020027160645,
+					-2.62
+				],
+				[
+					2.65000009536743,
+					-36.576000213623,
+					-2.62
+				],
+				[
+					2.65000009536743,
+					-36.6500015258789,
+					-2.62
+				]
+			]
+		},
+		"native_bearings": [
+			{
+				"assembly": "resident_alcove_north",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (3.69, -2.62, 25.995), \"normal\": (0.0, 1.0, 0.0), \"face_index\": 230, \"collider_id\": 248286023787, \"collider\": StaticBody3D:<StaticBody3D#248286023787>, \"shape\": 0, \"rid\": RID(21148418965548) }",
+				"kind": "floor_contacts",
+				"source_point": [
+					3.69000002741814,
+					-35.7899992465973,
+					-2.61999988555908
+				]
+			},
+			{
+				"assembly": "resident_alcove_north",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (3.21, -2.62, 25.995), \"normal\": (0.0, 1.0, 0.0), \"face_index\": 231, \"collider_id\": 248286023787, \"collider\": StaticBody3D:<StaticBody3D#248286023787>, \"shape\": 0, \"rid\": RID(21148418965548) }",
+				"kind": "floor_contacts",
+				"source_point": [
+					3.21000003814697,
+					-35.789999216795,
+					-2.61999988555908
+				]
+			},
+			{
+				"assembly": "resident_alcove_north",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (3.69, -2.62, 25.515), \"normal\": (0.0, 1.0, 0.0), \"face_index\": 231, \"collider_id\": 248286023787, \"collider\": StaticBody3D:<StaticBody3D#248286023787>, \"shape\": 0, \"rid\": RID(21148418965548) }",
+				"kind": "floor_contacts",
+				"source_point": [
+					3.69000005722046,
+					-35.3099992573261,
+					-2.61999988555908
+				]
+			},
+			{
+				"assembly": "resident_alcove_north",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (3.21, -2.62, 25.515), \"normal\": (0.0, 1.0, 0.0), \"face_index\": 231, \"collider_id\": 248286023787, \"collider\": StaticBody3D:<StaticBody3D#248286023787>, \"shape\": 0, \"rid\": RID(21148418965548) }",
+				"kind": "floor_contacts",
+				"source_point": [
+					3.2100000679493,
+					-35.3099992275238,
+					-2.61999988555908
+				]
+			},
+			{
+				"assembly": "resident_alcove_south",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (3.69, -2.62, 27.095), \"normal\": (0.0, 1.0, 0.0), \"face_index\": 230, \"collider_id\": 248286023787, \"collider\": StaticBody3D:<StaticBody3D#248286023787>, \"shape\": 0, \"rid\": RID(21148418965548) }",
+				"kind": "floor_contacts",
+				"source_point": [
+					3.69000002741814,
+					-36.8900015354156,
+					-2.61999988555908
+				]
+			},
+			{
+				"assembly": "resident_alcove_south",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (3.21, -2.62, 27.095), \"normal\": (0.0, 1.0, 0.0), \"face_index\": 230, \"collider_id\": 248286023787, \"collider\": StaticBody3D:<StaticBody3D#248286023787>, \"shape\": 0, \"rid\": RID(21148418965548) }",
+				"kind": "floor_contacts",
+				"source_point": [
+					3.21000003814697,
+					-36.8900015056133,
+					-2.61999988555908
+				]
+			},
+			{
+				"assembly": "resident_alcove_south",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (3.69, -2.62, 26.615), \"normal\": (0.0, 1.0, 0.0), \"face_index\": 230, \"collider_id\": 248286023787, \"collider\": StaticBody3D:<StaticBody3D#248286023787>, \"shape\": 0, \"rid\": RID(21148418965548) }",
+				"kind": "floor_contacts",
+				"source_point": [
+					3.69000005722046,
+					-36.4100015461445,
+					-2.61999988555908
+				]
+			},
+			{
+				"assembly": "resident_alcove_south",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (3.21, -2.62, 26.615), \"normal\": (0.0, 1.0, 0.0), \"face_index\": 230, \"collider_id\": 248286023787, \"collider\": StaticBody3D:<StaticBody3D#248286023787>, \"shape\": 0, \"rid\": RID(21148418965548) }",
+				"kind": "floor_contacts",
+				"source_point": [
+					3.2100000679493,
+					-36.4100015163422,
+					-2.61999988555908
+				]
+			},
+			{
+				"assembly": "ResidentAlcoveShelf",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (4.0, -1.99, 26.955), \"normal\": (-1.0, 0.0, 0.0), \"face_index\": 10, \"collider_id\": 247229059079, \"collider\": StaticBody3D:<StaticBody3D#247229059079>, \"shape\": 0, \"rid\": RID(20968030339095) }",
+				"kind": "shelf_wall_contacts",
+				"source_point": [
+					4.00000011175871,
+					-36.7499984502792,
+					-1.98999988555908
+				]
+			},
+			{
+				"assembly": "ResidentAlcoveShelf",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (4.0, -1.9, 26.955), \"normal\": (-1.0, 0.0, 0.0), \"face_index\": 10, \"collider_id\": 247229059079, \"collider\": StaticBody3D:<StaticBody3D#247229059079>, \"shape\": 0, \"rid\": RID(20968030339095) }",
+				"kind": "shelf_wall_contacts",
+				"source_point": [
+					4.00000011175871,
+					-36.7499984502792,
+					-1.89999988555908
+				]
+			},
+			{
+				"assembly": "ResidentAlcoveShelf",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (4.0, -1.99, 25.655), \"normal\": (-1.0, 0.0, 0.0), \"face_index\": 46, \"collider_id\": 248437018749, \"collider\": StaticBody3D:<StaticBody3D#248437018749>, \"shape\": 0, \"rid\": RID(21174188769327) }",
+				"kind": "shelf_wall_contacts",
+				"source_point": [
+					4.00000011175871,
+					-35.449998497963,
+					-1.98999988555908
+				]
+			},
+			{
+				"assembly": "ResidentAlcoveShelf",
+				"gap_m": 0.0,
+				"hit": "{ \"position\": (4.0, -1.9, 25.655), \"normal\": (-1.0, 0.0, 0.0), \"face_index\": 46, \"collider_id\": 248437018749, \"collider\": StaticBody3D:<StaticBody3D#248437018749>, \"shape\": 0, \"rid\": RID(21174188769327) }",
+				"kind": "shelf_wall_contacts",
+				"source_point": [
+					4.00000011175871,
+					-35.449998497963,
+					-1.89999988555908
+				]
+			}
+		],
+		"native_import_metrics": [
+			{
+				"degenerate": 0,
+				"draw": "F01_retail_bar_native_cafe_BarCafeChairs__oak_quartered",
+				"key": "oak_quartered",
+				"maximum_edge_stretch": 0.00000829840167249074,
+				"metre_chart_area_ratio_max": 1.00000810070107,
+				"metre_chart_area_ratio_min": 0.99999106883504,
+				"surface_layered": true,
+				"triangles": 2688
+			},
+			{
+				"degenerate": 0,
+				"draw": "F01_retail_bar_native_alcove_resident_alcove_north__cloth",
+				"key": "velour",
+				"maximum_edge_stretch": 0.00000858334129749672,
+				"metre_chart_area_ratio_max": 1.00001097128573,
+				"metre_chart_area_ratio_min": 0.999988589867847,
+				"surface_layered": true,
+				"triangles": 216
+			},
+			{
+				"degenerate": 0,
+				"draw": "F01_retail_bar_native_alcove_resident_alcove_north__hardware",
+				"key": "door_brass",
+				"maximum_edge_stretch": 0.0000236141652306676,
+				"metre_chart_area_ratio_max": 1.00005562895749,
+				"metre_chart_area_ratio_min": 0.999962852046395,
+				"surface_layered": true,
+				"triangles": 176
+			},
+			{
+				"degenerate": 0,
+				"draw": "F01_retail_bar_native_alcove_resident_alcove_north__oak",
+				"key": "wood_dark",
+				"maximum_edge_stretch": 0.000105498874198307,
+				"metre_chart_area_ratio_max": 1.00009590624147,
+				"metre_chart_area_ratio_min": 0.999872496635602,
+				"surface_layered": true,
+				"triangles": 1840
+			},
+			{
+				"degenerate": 0,
+				"draw": "F01_retail_bar_native_alcove_resident_alcove_south__cloth",
+				"key": "velour",
+				"maximum_edge_stretch": 0.00000858334129749672,
+				"metre_chart_area_ratio_max": 1.00001097128573,
+				"metre_chart_area_ratio_min": 0.999988589867847,
+				"surface_layered": true,
+				"triangles": 216
+			},
+			{
+				"degenerate": 0,
+				"draw": "F01_retail_bar_native_alcove_resident_alcove_south__hardware",
+				"key": "door_brass",
+				"maximum_edge_stretch": 0.0000236141652306676,
+				"metre_chart_area_ratio_max": 1.00005562895749,
+				"metre_chart_area_ratio_min": 0.999962852046395,
+				"surface_layered": true,
+				"triangles": 176
+			},
+			{
+				"degenerate": 0,
+				"draw": "F01_retail_bar_native_alcove_resident_alcove_south__oak",
+				"key": "wood_dark",
+				"maximum_edge_stretch": 0.000105498874198307,
+				"metre_chart_area_ratio_max": 1.00009590624147,
+				"metre_chart_area_ratio_min": 0.999872496635602,
+				"surface_layered": true,
+				"triangles": 1840
+			},
+			{
+				"degenerate": 0,
+				"draw": "F01_retail_bar_native_alcove_ResidentAlcoveShelf__hardware",
+				"key": "door_brass",
+				"maximum_edge_stretch": 0.000102711270068667,
+				"metre_chart_area_ratio_max": 1.00013028265782,
+				"metre_chart_area_ratio_min": 0.999891759864879,
+				"surface_layered": true,
+				"triangles": 696
+			},
+			{
+				"degenerate": 0,
+				"draw": "F01_retail_bar_native_alcove_ResidentAlcoveShelf__oak",
+				"key": "wood_dark",
+				"maximum_edge_stretch": 0.000028190729144062,
+				"metre_chart_area_ratio_max": 1.00001777392359,
+				"metre_chart_area_ratio_min": 0.999972097024654,
+				"surface_layered": true,
+				"triangles": 108
+			}
+		],
+		"original_buffers_and_mesh_owners_preserved": true,
+		"original_draw_count": 71,
+		"poses": [
+			{
+				"actor": "[X: (0.866025, 0.0, -0.5), Y: (0.0, 1.0, 0.0), Z: (0.5, 0.0, 0.866025), O: (-8.59, -2.8, 24.8295)]",
+				"furniture": "retail_bar_ch0_1",
+				"reason": "The west table: a view of the room and space to straighten a folded paper.",
+				"resident": "evelyn_marsh",
+				"seat": "[X: (0.866025, 0.0, -0.5), Y: (0.0, 1.0, 0.0), Z: (0.5, 0.0, 0.866025), O: (-8.59, -2.322, 24.8295)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (-0.0, 0.0, -1.0), O: (0.4, -2.518, 21.055)]",
+				"furniture": "retail_bar_stool4_seat",
+				"reason": "The counter end nearest the entrance, keeping the stairs in sight.",
+				"resident": "teresa_vale",
+				"seat": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (-0.0, 0.0, -1.0), O: (0.4, -2.04, 21.055)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, 0.0), O: (2.85, -2.62, 25.755)]",
+				"furniture": "resident_alcove_north",
+				"reason": "The quiet alcove ledge: Mina can stand and annotate beside her chair without borrowing a foreign seated animation.",
+				"resident": "mina_vale",
+				"seat": "[X: (0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, 0.0), O: (3.45, -2.13, 25.755)]",
+				"standing": true
+			},
+			{
+				"actor": "[X: (-0.866025, 0.0, -0.5), Y: (0.0, 1.0, 0.0), Z: (0.5, 0.0, -0.866025), O: (-8.59, -2.8, 26.1805)]",
+				"furniture": "retail_bar_ch0_2",
+				"reason": "The other side of Evelyn's table, with good light for an unfinished mend.",
+				"resident": "lena_ortiz",
+				"seat": "[X: (-0.866025, 0.0, -0.5), Y: (0.0, 1.0, 0.0), Z: (0.5, 0.0, -0.866025), O: (-8.59, -2.322, 26.1805)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (-0.0, 0.0, -1.0), O: (-3.8, -2.518, 21.055)]",
+				"furniture": "retail_bar_stool0_seat",
+				"reason": "The west counter end, listening across the room.",
+				"resident": "juno_kells",
+				"seat": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (-0.0, 0.0, -1.0), O: (-3.8, -2.04, 21.055)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, 0.0), O: (3.58, -2.623, 23.505)]",
+				"furniture": "retail_bar_banq0",
+				"reason": "The south lounge seat, where he can watch the room from the raised deck.",
+				"resident": "malcolm_reed",
+				"seat": "[X: (0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, 0.0), O: (3.58, -2.145, 23.505)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (-0.0, 0.0, -1.0), O: (-1.7, -2.518, 21.055)]",
+				"furniture": "retail_bar_stool2_seat",
+				"reason": "The central counter stool, with a clear service aisle behind the bar.",
+				"resident": "omar_bell",
+				"seat": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (-0.0, 0.0, -1.0), O: (-1.7, -2.04, 21.055)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (0.990268, 0.0, 0.139173), Y: (0.0, 1.0, 0.0), Z: (-0.139173, 0.0, 0.990268), O: (-1.091445, -2.8, 24.33259)]",
+				"furniture": "retail_bar_ch2_0",
+				"reason": "The front table, facing the stage rather than sitting on it.",
+				"resident": "rhea_sato",
+				"seat": "[X: (0.990268, 0.0, 0.139173), Y: (0.0, 1.0, 0.0), Z: (-0.139173, 0.0, 0.990268), O: (-1.091445, -2.322, 24.33259)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (2.3, -2.623, 22.955)]",
+				"furniture": "retail_bar_banq2",
+				"reason": "The lounge seat facing Mina and Nadia rather than an empty wall.",
+				"resident": "peter_wren",
+				"seat": "[X: (-0.0, 0.0, -1.0), Y: (0.0, 1.0, 0.0), Z: (1.0, 0.0, -0.0), O: (2.3, -2.145, 22.955)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (0.656059, 0.0, 0.75471), Y: (0.0, 1.0, 0.0), Z: (-0.75471, 0.0, 0.656059), O: (-4.611327, -2.8, 24.99327)]",
+				"furniture": "retail_bar_ch1_0",
+				"reason": "The central table, near the route back to the stairs.",
+				"resident": "cam_ortiz",
+				"seat": "[X: (0.656059, 0.0, 0.75471), Y: (0.0, 1.0, 0.0), Z: (-0.75471, 0.0, 0.656059), O: (-4.611327, -2.322, 24.99327)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (-0.0, 0.0, -1.0), O: (-0.65, -2.518, 21.055)]",
+				"furniture": "retail_bar_stool3_seat",
+				"reason": "The fourth counter stool, close to the lounge conversation.",
+				"resident": "noel_price",
+				"seat": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (-0.0, 0.0, -1.0), O: (-0.65, -2.04, 21.055)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, 0.0), O: (3.45, -2.608, 26.855)]",
+				"furniture": "resident_alcove_south",
+				"reason": "The second alcove chair: a place for the night-visible guest, not a new permanent tenant.",
+				"resident": "transient_guests",
+				"seat": "[X: (0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, 0.0), O: (3.45, -2.13, 26.855)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, 0.0), O: (3.58, -2.623, 22.405)]",
+				"furniture": "retail_bar_banq1",
+				"reason": "The north lounge seat, looking across the whole room.",
+				"resident": "nadia_quell",
+				"seat": "[X: (0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, 0.0), O: (3.58, -2.145, 22.405)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (-0.0, 0.0, -1.0), O: (-2.75, -2.518, 21.055)]",
+				"furniture": "retail_bar_stool1_seat",
+				"reason": "The second counter stool; the room's hum arrives from both sides.",
+				"resident": "cal_dwyer",
+				"seat": "[X: (-1.0, 0.0, 0.0), Y: (0.0, 1.0, 0.0), Z: (-0.0, 0.0, -1.0), O: (-2.75, -2.04, 21.055)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (-0.374607, 0.0, -0.927184), Y: (0.0, 1.0, 0.0), Z: (0.927184, 0.0, -0.374607), O: (-1.923203, -2.8, 25.39719)]",
+				"furniture": "retail_bar_ch2_1",
+				"reason": "The stage-side table: a view across the changing colours of the room.",
+				"resident": "iris_bell",
+				"seat": "[X: (-0.374607, 0.0, -0.927184), Y: (0.0, 1.0, 0.0), Z: (0.927184, 0.0, -0.374607), O: (-1.923203, -2.322, 25.39719)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (-0.656059, 0.0, -0.75471), Y: (0.0, 1.0, 0.0), Z: (0.75471, 0.0, -0.656059), O: (-5.788673, -2.8, 26.01673)]",
+				"furniture": "retail_bar_ch1_1",
+				"reason": "Opposite Cam, able to watch the pool table without blocking a cue.",
+				"resident": "sacha_reed",
+				"seat": "[X: (-0.656059, 0.0, -0.75471), Y: (0.0, 1.0, 0.0), Z: (0.75471, 0.0, -0.656059), O: (-5.788673, -2.322, 26.01673)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (-0.615662, 0.0, 0.788011), Y: (0.0, 1.0, 0.0), Z: (-0.788011, 0.0, -0.615662), O: (-0.585352, -2.8, 25.58521)]",
+				"furniture": "retail_bar_ch2_2",
+				"reason": "The third front-table chair, near enough to listen without performing.",
+				"resident": "jonah_price",
+				"seat": "[X: (-0.615662, 0.0, 0.788011), Y: (0.0, 1.0, 0.0), Z: (-0.788011, 0.0, -0.615662), O: (-0.585352, -2.322, 25.58521)]",
+				"standing": false
+			},
+			{
+				"actor": "[X: (0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, 0.0), O: (-7.42, -2.8, 25.505)]",
+				"furniture": "retail_bar_ch0_0",
+				"reason": "The third west-table chair, where she can set a small box down.",
+				"resident": "mae_kessler",
+				"seat": "[X: (0.0, 0.0, 1.0), Y: (0.0, 1.0, 0.0), Z: (-1.0, 0.0, 0.0), O: (-7.42, -2.322, 25.505)]",
+				"standing": false
+			}
+		],
+		"scope": "Loaded native bar and eighteen-actor crowd; no arrivals, schedules, saves, played access or world performance qualification."
+	},
+	"evidence_class": "INERT",
+	"failures": [],
+	"full_cast_frame_ms": [
+		19.715,
+		20.187,
+		19.943,
+		20.071,
+		20.26,
+		19.805,
+		19.93,
+		20.167,
+		20.241,
+		19.772,
+		19.906,
+		20.103,
+		19.845,
+		20.116,
+		19.928,
+		20.065,
+		20.028,
+		20.08,
+		21.01,
+		19.081,
+		19.967,
+		20.02,
+		19.953,
+		19.96,
+		19.89,
+		20.115,
+		19.739,
+		20.52,
+		19.844,
+		20.073,
+		19.913,
+		19.747,
+		20.225,
+		19.928,
+		20.075,
+		19.648,
+		20.589,
+		19.921,
+		19.988,
+		19.771,
+		20.216,
+		19.768,
+		20.314,
+		19.8,
+		19.783,
+		20.159,
+		20.533,
+		19.813,
+		20.127,
+		20.049,
+		19.844,
+		19.728,
+		20.226,
+		19.866,
+		20.201,
+		19.97,
+		20.312,
+		19.728,
+		20.131,
+		19.877,
+		19.99,
+		20.045,
+		19.776,
+		16.391,
+		20.006,
+		19.999,
+		24.884,
+		24.749,
+		16.427,
+		23.328,
+		20.064,
+		20.105,
+		13.632,
+		26.248,
+		13.811,
+		26.227,
+		20.112,
+		13.77,
+		19.993,
+		26.395,
+		13.736,
+		19.948,
+		22.374,
+		24.32,
+		20.053,
+		19.947,
+		19.573,
+		19.878,
+		13.731,
+		24.854,
+		15.128,
+		27.11,
+		12.881,
+		25.88,
+		14.153,
+		25.913,
+		20.352,
+		20.021,
+		20.008,
+		13.717,
+		20.05,
+		20.133,
+		26.358,
+		13.749,
+		19.954,
+		20.474,
+		19.95,
+		20.041,
+		20.041,
+		20.102,
+		19.656,
+		20.167,
+		19.817,
+		20.228,
+		19.537,
+		20.46,
+		19.55,
+		20.668,
+		20.331,
+		19.532,
+		19.746,
+		20.276,
+		19.763,
+		20.108,
+		20.113,
+		19.733,
+		20.207,
+		19.855,
+		21.047,
+		20.089,
+		19.909,
+		20.087,
+		19.82,
+		20.152,
+		19.953,
+		20.019,
+		19.983,
+		20.038,
+		19.921,
+		20.279,
+		19.79,
+		19.954,
+		20.233,
+		19.78,
+		20.008,
+		19.953,
+		19.732,
+		20.2,
+		20.055,
+		19.223,
+		20.178,
+		19.733,
+		19.955,
+		19.998,
+		19.766,
+		20.297,
+		20.268,
+		19.731,
+		20.22,
+		19.725,
+		20.298,
+		19.785,
+		20.217,
+		19.806,
+		19.782,
+		20.214,
+		20.204,
+		19.782,
+		20.269,
+		20.679,
+		19.482,
+		16.063,
+		20.019,
+		24.208,
+		19.555,
+		19.845,
+		20.214,
+		18.08,
+		20.271,
+		21.807
+	],
+	"memory_limit": "Original PackedScenes still reference their source atlases; active-map reduction alone establishes no memory saving.",
+	"residents": [
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_01",
+			"missing_tangent_surfaces": 0,
+			"resident": "evelyn_marsh",
+			"triangles": 45204
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_02",
+			"missing_tangent_surfaces": 0,
+			"resident": "teresa_vale",
+			"triangles": 40000
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "mina_idle_calm",
+			"missing_tangent_surfaces": 0,
+			"resident": "mina_vale",
+			"triangles": 39986
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_07",
+			"missing_tangent_surfaces": 0,
+			"resident": "lena_ortiz",
+			"triangles": 40000
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_05",
+			"missing_tangent_surfaces": 0,
+			"resident": "juno_kells",
+			"triangles": 39999
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_04",
+			"missing_tangent_surfaces": 0,
+			"resident": "malcolm_reed",
+			"triangles": 40000
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_03",
+			"missing_tangent_surfaces": 0,
+			"resident": "omar_bell",
+			"triangles": 39999
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_05",
+			"missing_tangent_surfaces": 0,
+			"resident": "rhea_sato",
+			"triangles": 39997
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_02",
+			"missing_tangent_surfaces": 0,
+			"resident": "peter_wren",
+			"triangles": 40000
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_05",
+			"missing_tangent_surfaces": 0,
+			"resident": "cam_ortiz",
+			"triangles": 39999
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_03",
+			"missing_tangent_surfaces": 0,
+			"resident": "noel_price",
+			"triangles": 39999
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_03",
+			"missing_tangent_surfaces": 0,
+			"resident": "transient_guests",
+			"triangles": 39999
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_01",
+			"missing_tangent_surfaces": 0,
+			"resident": "nadia_quell",
+			"triangles": 39999
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_05",
+			"missing_tangent_surfaces": 0,
+			"resident": "cal_dwyer",
+			"triangles": 39999
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_04",
+			"missing_tangent_surfaces": 0,
+			"resident": "iris_bell",
+			"triangles": 39998
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_05",
+			"missing_tangent_surfaces": 0,
+			"resident": "sacha_reed",
+			"triangles": 39999
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_02",
+			"missing_tangent_surfaces": 0,
+			"resident": "jonah_price",
+			"triangles": 39999
+		},
+		{
+			"degenerate_uv_triangles": 0,
+			"idle": "clip_03",
+			"missing_tangent_surfaces": 0,
+			"resident": "mae_kessler",
+			"triangles": 40000
+		}
+	],
+	"scope": "Loaded family bench; no playable-world performance, arrival, schedule, save or human acceptance claims",
+	"settings": {
+		"cast_camera": "orthographic size 5.5; fixed family environment and key light",
+		"max_fps": 0,
+		"msaa_3d": 3,
+		"viewport": "(1280.0, 720.0)",
+		"vsync": 1
+	},
+	"texture_bytes": 294412288.0,
+	"video_bytes": 485211344.0
+}

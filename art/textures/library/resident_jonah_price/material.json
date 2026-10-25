@@ -1,0 +1,15 @@
+{
+  "material": "resident_jonah_price",
+  "source": "existing approved V1 character; original UV atlas and rig retained",
+  "generator": "art/tools/register_v2_resident_finishes.py",
+  "meters_per_tile": 1.0,
+  "projection": "unique whole-character atlas; normalized UVs, no repetition",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "source_sha256": {
+    "game/assets/characters/jonah_price/texture_0.png": "64283cd25d54dca9674b8d0282de5241e06f91ff74c7b7e7e7c7b95d236b608f"
+  }
+}

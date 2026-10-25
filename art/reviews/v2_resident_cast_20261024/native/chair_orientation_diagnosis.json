@@ -1,0 +1,215 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Source-frame diagnosis; native/runtime repair not yet applied or qualified. Frame and asm_chair explicitly use front +Y.",
+  "source_builder_sha256": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+  "chairs": [
+    {
+      "id": "retail_bar_ch0_0",
+      "source": {
+        "id": "retail_bar_ch0_0",
+        "asm": "chair",
+        "at": [
+          -7.419999999999999,
+          -35.3
+        ],
+        "yaw": 180,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "table": "retail_bar_tab0",
+      "actual_source_forward_xy": [
+        -1.2246467991473532e-16,
+        -1.0
+      ],
+      "direction_to_table_xy": [
+        -1.0,
+        0.0
+      ],
+      "cosine_alignment": 1.2246467991473532e-16,
+      "candidate_yaw": 90.0,
+      "correction_degrees": -90.0
+    },
+    {
+      "id": "retail_bar_ch0_1",
+      "source": {
+        "id": "retail_bar_ch0_1",
+        "asm": "chair",
+        "at": [
+          -8.59,
+          -34.624500185048134
+        ],
+        "yaw": 300,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "table": "retail_bar_tab0",
+      "actual_source_forward_xy": [
+        0.8660254037844386,
+        0.5000000000000001
+      ],
+      "direction_to_table_xy": [
+        0.5000000000000002,
+        -0.8660254037844385
+      ],
+      "cosine_alignment": 1.1102230246251565e-16,
+      "candidate_yaw": 210.00000000000003,
+      "correction_degrees": -89.99999999999997
+    },
+    {
+      "id": "retail_bar_ch0_2",
+      "source": {
+        "id": "retail_bar_ch0_2",
+        "asm": "chair",
+        "at": [
+          -8.59,
+          -35.97549981495186
+        ],
+        "yaw": 60,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "table": "retail_bar_tab0",
+      "actual_source_forward_xy": [
+        -0.8660254037844386,
+        0.5000000000000001
+      ],
+      "direction_to_table_xy": [
+        0.5000000000000002,
+        0.8660254037844385
+      ],
+      "cosine_alignment": -1.1102230246251565e-16,
+      "candidate_yaw": 330.0,
+      "correction_degrees": -90.0
+    },
+    {
+      "id": "retail_bar_ch1_0",
+      "source": {
+        "id": "retail_bar_ch1_0",
+        "asm": "chair",
+        "at": [
+          -4.611326527426238,
+          -34.7882739573874
+        ],
+        "yaw": 221,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "table": "retail_bar_tab1",
+      "actual_source_forward_xy": [
+        0.656059028990507,
+        -0.7547095802227721
+      ],
+      "direction_to_table_xy": [
+        -0.7547095802227732,
+        -0.6560590289905058
+      ],
+      "cosine_alignment": -1.6653345369377348e-15,
+      "candidate_yaw": 130.9999999999999,
+      "correction_degrees": -90.00000000000011
+    },
+    {
+      "id": "retail_bar_ch1_1",
+      "source": {
+        "id": "retail_bar_ch1_1",
+        "asm": "chair",
+        "at": [
+          -5.7886734725737625,
+          -35.81172604261259
+        ],
+        "yaw": 41,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "table": "retail_bar_tab1",
+      "actual_source_forward_xy": [
+        -0.6560590289905073,
+        0.754709580222772
+      ],
+      "direction_to_table_xy": [
+        0.7547095802227732,
+        0.6560590289905058
+      ],
+      "cosine_alignment": -1.887379141862766e-15,
+      "candidate_yaw": 310.9999999999999,
+      "correction_degrees": -90.00000000000011
+    },
+    {
+      "id": "retail_bar_ch2_0",
+      "source": {
+        "id": "retail_bar_ch2_0",
+        "asm": "chair",
+        "at": [
+          -1.0914449812511489,
+          -34.12759090638157
+        ],
+        "yaw": 262,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "table": "retail_bar_tab2",
+      "actual_source_forward_xy": [
+        0.9902680687415703,
+        -0.13917310096006583
+      ],
+      "direction_to_table_xy": [
+        -0.1391731009600649,
+        -0.9902680687415704
+      ],
+      "cosine_alignment": 9.159339953157541e-16,
+      "candidate_yaw": 172.00000000000003,
+      "correction_degrees": -89.99999999999997
+    },
+    {
+      "id": "retail_bar_ch2_1",
+      "source": {
+        "id": "retail_bar_ch2_1",
+        "asm": "chair",
+        "at": [
+          -1.9232034065620942,
+          -35.19219314286441
+        ],
+        "yaw": 22,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "table": "retail_bar_tab2",
+      "actual_source_forward_xy": [
+        -0.374606593415912,
+        0.9271838545667874
+      ],
+      "direction_to_table_xy": [
+        0.9271838545667866,
+        0.3746065934159136
+      ],
+      "cosine_alignment": 1.7763568394002505e-15,
+      "candidate_yaw": 292.0000000000001,
+      "correction_degrees": -89.99999999999989
+    },
+    {
+      "id": "retail_bar_ch2_2",
+      "source": {
+        "id": "retail_bar_ch2_2",
+        "asm": "chair",
+        "at": [
+          -0.5853516121867568,
+          -35.380215950754014
+        ],
+        "yaw": 142,
+        "exterior": true,
+        "z0": -2.8
+      },
+      "table": "retail_bar_tab2",
+      "actual_source_forward_xy": [
+        -0.6156614753256584,
+        -0.7880107536067219
+      ],
+      "direction_to_table_xy": [
+        -0.7880107536067209,
+        0.6156614753256598
+      ],
+      "cosine_alignment": -1.7763568394002505e-15,
+      "candidate_yaw": 51.99999999999989,
+      "correction_degrees": -90.00000000000011
+    }
+  ]
+}

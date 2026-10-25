@@ -1,0 +1,34 @@
+[
+  {
+    "scene": "",
+    "runner": "long",
+    "timeout": 600,
+    "extra_args": [
+      "--headless",
+      "--editor",
+      "--import",
+      "--quit"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\npc_bar_20261024\\loaded_v2\\import1.log"
+  },
+  {
+    "scene": "",
+    "runner": "long",
+    "timeout": 600,
+    "extra_args": [
+      "--headless",
+      "--editor",
+      "--import",
+      "--quit"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\npc_bar_20261024\\loaded_v2\\import2.log"
+  },
+  {
+    "scene": "res://tests/V2ResidentCastBench.tscn",
+    "runner": "long",
+    "timeout": 180,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\npc_bar_20261024\\loaded_v2\\cast.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\npc_bar_20261024\\loaded_v2\\cast"
+  }
+]
