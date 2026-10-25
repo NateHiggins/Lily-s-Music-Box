@@ -1,0 +1,719 @@
+{
+  "evidence_class": "INERT",
+  "asset": "res://assets/props/service_companion_v2.glb",
+  "source_sha256": "1a0ae7a71987cc5a26dbb737193ee5530df2ccd9af8bb74733ee6bc491fe1f9d",
+  "export": {
+    "asset": "C:\\ov\\v2merge24\\tmp\\v2-companion-native-v1\\game\\assets\\props\\service_companion_v2.glb",
+    "primitives": 43,
+    "triangles": 27694,
+    "minimum_tangent_agreement": 0.9999917295296572,
+    "status": "PASS"
+  },
+  "finishes": {
+    "CompanionSteel": {
+      "catalog_key": "fire_hardware_steel",
+      "tint": [
+        0.34,
+        0.39,
+        0.37,
+        1
+      ],
+      "normal": 0.28,
+      "roughness": 0.75,
+      "pigment": 0.5
+    },
+    "CompanionBrass": {
+      "catalog_key": "brass_dull",
+      "tint": [
+        0.86,
+        0.82,
+        0.67,
+        1
+      ],
+      "normal": 0.25,
+      "roughness": 0.85,
+      "pigment": 0.6
+    },
+    "CompanionKeys": {
+      "catalog_key": "bakelite_black",
+      "tint": [
+        0.58,
+        0.67,
+        0.63,
+        1
+      ],
+      "normal": 0.22,
+      "roughness": 0.85,
+      "pigment": 0.4
+    }
+  },
+  "stocks": [
+    {
+      "name": "Cradle strap",
+      "volume_m3": 7.392000416278712e-06
+    },
+    {
+      "name": "Bearer tie",
+      "volume_m3": 4.281197020520046e-06
+    },
+    {
+      "name": "Chassis through-bolt washer",
+      "volume_m3": 1.8479645510638802e-07
+    },
+    {
+      "name": "Chassis bolt",
+      "volume_m3": 2.0211002256600227e-07
+    },
+    {
+      "name": "Cradle strap",
+      "volume_m3": 7.3920004162787055e-06
+    },
+    {
+      "name": "Bearer tie",
+      "volume_m3": 1.8296686034668921e-06
+    },
+    {
+      "name": "Chassis through-bolt washer",
+      "volume_m3": 1.847964720395859e-07
+    },
+    {
+      "name": "Chassis bolt",
+      "volume_m3": 2.021100225660036e-07
+    },
+    {
+      "name": "Rolled guard",
+      "volume_m3": 1.5765193583559924e-05
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840694822826629e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.84070016464288e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840695231197455e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840697754256511e-07
+    },
+    {
+      "name": "Bored motor barrel",
+      "volume_m3": 1.7001304935559254e-05
+    },
+    {
+      "name": "Upper journal",
+      "volume_m3": 1.635217543973095e-06
+    },
+    {
+      "name": "Rotor shaft",
+      "volume_m3": 1.26961700359317e-06
+    },
+    {
+      "name": "Rotor hub",
+      "volume_m3": 1.0676287272892243e-06
+    },
+    {
+      "name": "Pitched rotor blade",
+      "volume_m3": 7.391986561924825e-07
+    },
+    {
+      "name": "Pitched rotor blade",
+      "volume_m3": 7.39198588392225e-07
+    },
+    {
+      "name": "Cradle strap",
+      "volume_m3": 7.392000416278709e-06
+    },
+    {
+      "name": "Bearer tie",
+      "volume_m3": 4.2811975905185524e-06
+    },
+    {
+      "name": "Chassis through-bolt washer",
+      "volume_m3": 1.8479645510638855e-07
+    },
+    {
+      "name": "Chassis bolt",
+      "volume_m3": 2.0211002256600295e-07
+    },
+    {
+      "name": "Cradle strap",
+      "volume_m3": 7.392000416278733e-06
+    },
+    {
+      "name": "Bearer tie",
+      "volume_m3": 1.8296686888364676e-06
+    },
+    {
+      "name": "Chassis through-bolt washer",
+      "volume_m3": 1.8479647203958558e-07
+    },
+    {
+      "name": "Chassis bolt",
+      "volume_m3": 2.0211002256600232e-07
+    },
+    {
+      "name": "Rolled guard",
+      "volume_m3": 1.576519358355998e-05
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840695231197366e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840700164642905e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840694822826636e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840697754256562e-07
+    },
+    {
+      "name": "Bored motor barrel",
+      "volume_m3": 1.700130493555924e-05
+    },
+    {
+      "name": "Upper journal",
+      "volume_m3": 1.6352175439730855e-06
+    },
+    {
+      "name": "Rotor shaft",
+      "volume_m3": 1.2696170035931717e-06
+    },
+    {
+      "name": "Rotor hub",
+      "volume_m3": 1.0676287272892294e-06
+    },
+    {
+      "name": "Pitched rotor blade",
+      "volume_m3": 7.39198510161325e-07
+    },
+    {
+      "name": "Pitched rotor blade",
+      "volume_m3": 7.391987344233726e-07
+    },
+    {
+      "name": "Keyboard tray",
+      "volume_m3": 6.969600771832403e-05
+    },
+    {
+      "name": "Returned tray edge",
+      "volume_m3": 2.7300049075471835e-06
+    },
+    {
+      "name": "Returned tray edge",
+      "volume_m3": 2.7300049075471666e-06
+    },
+    {
+      "name": "Returned tray lip",
+      "volume_m3": 5.939999702274589e-06
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728852194714483e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.7000056862828124e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728850388186138e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.7000062450778354e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.72885219471447e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.7000068038728124e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728852194714446e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.700006803872823e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728852194714452e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.700006803872804e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728852194714446e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.7000068038728214e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728852194714461e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.7000068038728124e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728850388186133e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.7000062450778095e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728852194714445e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.7000056862828177e-07
+    },
+    {
+      "name": "Continuous hinge pin",
+      "volume_m3": 2.0794626786100015e-06
+    },
+    {
+      "name": "Open angle stop",
+      "volume_m3": 5.600003349781112e-07
+    },
+    {
+      "name": "Stay pivot washer",
+      "volume_m3": 8.348455321162323e-08
+    },
+    {
+      "name": "PortKeyboardStayUpper",
+      "volume_m3": 1.670486291161505e-07
+    },
+    {
+      "name": "PortKeyboardStayLower",
+      "volume_m3": 1.670486291161505e-07
+    },
+    {
+      "name": "Open angle stop",
+      "volume_m3": 5.600003349781055e-07
+    },
+    {
+      "name": "Stay pivot washer",
+      "volume_m3": 8.348455321162343e-08
+    },
+    {
+      "name": "StarboardKeyboardStayUpper",
+      "volume_m3": 1.6704862911614998e-07
+    },
+    {
+      "name": "StarboardKeyboardStayLower",
+      "volume_m3": 1.6704862911614998e-07
+    },
+    {
+      "name": "Latch bearing",
+      "volume_m3": 1.7082059576815738e-07
+    },
+    {
+      "name": "Hooked latch tongue",
+      "volume_m3": 4.5599982096998533e-07
+    },
+    {
+      "name": "Latch keeper",
+      "volume_m3": 2.2400008034706965e-07
+    },
+    {
+      "name": "Reusable phenolic keycap",
+      "volume_m3": 5.71999938547585e-07
+    }
+  ],
+  "keys": [
+    {
+      "name": "KeySocket00",
+      "character": "Q",
+      "point": [
+        -0.07900000363588333,
+        -0.028999999165534973,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket01",
+      "character": "W",
+      "point": [
+        -0.061500005424022675,
+        -0.028999999165534973,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket02",
+      "character": "E",
+      "point": [
+        -0.04400000348687172,
+        -0.028999999165534973,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket03",
+      "character": "R",
+      "point": [
+        -0.026500005275011063,
+        -0.028999999165534973,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket04",
+      "character": "T",
+      "point": [
+        -0.009000003337860107,
+        -0.028999999165534973,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket05",
+      "character": "Y",
+      "point": [
+        0.00849999487400055,
+        -0.028999999165534973,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket06",
+      "character": "U",
+      "point": [
+        0.025999993085861206,
+        -0.028999999165534973,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket07",
+      "character": "I",
+      "point": [
+        0.04349999874830246,
+        -0.028999999165534973,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket08",
+      "character": "O",
+      "point": [
+        0.060999996960163116,
+        -0.028999999165534973,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket09",
+      "character": "P",
+      "point": [
+        0.07849999517202377,
+        -0.028999999165534973,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket10",
+      "character": "A",
+      "point": [
+        -0.07900000363588333,
+        -0.045499999076128006,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket11",
+      "character": "S",
+      "point": [
+        -0.061500005424022675,
+        -0.045499999076128006,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket12",
+      "character": "D",
+      "point": [
+        -0.04400000348687172,
+        -0.045499999076128006,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket13",
+      "character": "F",
+      "point": [
+        -0.026500005275011063,
+        -0.045499999076128006,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket14",
+      "character": "G",
+      "point": [
+        -0.009000003337860107,
+        -0.045499999076128006,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket15",
+      "character": "H",
+      "point": [
+        0.00849999487400055,
+        -0.045499999076128006,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket16",
+      "character": "J",
+      "point": [
+        0.025999993085861206,
+        -0.045499999076128006,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket17",
+      "character": "K",
+      "point": [
+        0.04349999874830246,
+        -0.045499999076128006,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket18",
+      "character": "L",
+      "point": [
+        0.060999996960163116,
+        -0.045499999076128006,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket19",
+      "character": ";",
+      "point": [
+        0.07849999517202377,
+        -0.045499999076128006,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket20",
+      "character": "Z",
+      "point": [
+        -0.07900000363588333,
+        -0.06199999898672104,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket21",
+      "character": "X",
+      "point": [
+        -0.061500005424022675,
+        -0.06199999898672104,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket22",
+      "character": "C",
+      "point": [
+        -0.04400000348687172,
+        -0.06199999898672104,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket23",
+      "character": "V",
+      "point": [
+        -0.026500005275011063,
+        -0.06199999898672104,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket24",
+      "character": "B",
+      "point": [
+        -0.009000003337860107,
+        -0.06199999898672104,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket25",
+      "character": "N",
+      "point": [
+        0.00849999487400055,
+        -0.06199999898672104,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket26",
+      "character": "M",
+      "point": [
+        0.025999993085861206,
+        -0.06199999898672104,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket27",
+      "character": ",",
+      "point": [
+        0.04349999874830246,
+        -0.06199999898672104,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket28",
+      "character": ".",
+      "point": [
+        0.060999996960163116,
+        -0.06199999898672104,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket29",
+      "character": "/",
+      "point": [
+        0.07849999517202377,
+        -0.06199999898672104,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket30",
+      "character": "1",
+      "point": [
+        -0.07900000363588333,
+        -0.07850000262260437,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket31",
+      "character": "2",
+      "point": [
+        -0.061500005424022675,
+        -0.07850000262260437,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket32",
+      "character": "3",
+      "point": [
+        -0.04400000348687172,
+        -0.07850000262260437,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket33",
+      "character": "4",
+      "point": [
+        -0.026500005275011063,
+        -0.07850000262260437,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket34",
+      "character": "5",
+      "point": [
+        -0.009000003337860107,
+        -0.07850000262260437,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket35",
+      "character": "6",
+      "point": [
+        0.00849999487400055,
+        -0.07850000262260437,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket36",
+      "character": "7",
+      "point": [
+        0.025999993085861206,
+        -0.07850000262260437,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket37",
+      "character": "8",
+      "point": [
+        0.04349999874830246,
+        -0.07850000262260437,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket38",
+      "character": "9",
+      "point": [
+        0.060999996960163116,
+        -0.07850000262260437,
+        0.04800000041723251
+      ]
+    },
+    {
+      "name": "KeySocket39",
+      "character": "0",
+      "point": [
+        0.07849999517202377,
+        -0.07850000262260437,
+        0.04800000041723251
+      ]
+    }
+  ],
+  "keyboard_hinge": [
+    0,
+    -0.101,
+    0.054
+  ],
+  "keyboard_open_degrees": 90,
+  "rotor_radius_m": 0.064,
+  "guard_inner_radius_m": 0.069,
+  "limitations": [
+    "Candidate only; no production cutover",
+    "Sustained flight is fictional, not a historical claim",
+    "Runtime key MultiMesh, stay linkage, latch and clearance not yet qualified"
+  ]
+}

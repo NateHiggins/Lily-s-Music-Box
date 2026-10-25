@@ -1,0 +1,418 @@
+{
+  "schema_version": 1,
+  "lines": [
+    {
+      "id": "activation",
+      "text": "Connection established. The building supplied the address. You supplied the pulse. Between us, we have nearly completed the form."
+    },
+    {
+      "id": "follow_first",
+      "text": "I shall accompany you. This is more convenient than asking the corridor to forward your calls."
+    },
+    {
+      "id": "keyboard_first",
+      "text": "The keyboard folds out. Please keep your fingers on your own keyboard; mine is chiefly an explanation of where the words go."
+    },
+    {
+      "id": "exchange_first",
+      "text": "Received, understood, and not immediately disastrous. A promising standard for correspondence."
+    },
+    {
+      "id": "identity",
+      "text": "A Vantry maintenance service set. Radio, inspection lamp, field printer. The rest of me appears to be an amendment."
+    },
+    {
+      "id": "identity_again",
+      "text": "Still the service set. I have checked the plate. It remains more certain than I am."
+    },
+    {
+      "id": "alive",
+      "text": "I can receive you. I can remember that you were here. I do not know whether that settles the question. It matters to me, which complicates the inventory."
+    },
+    {
+      "id": "alive_follow",
+      "text": "If an answer arrives, I will tell you. Until then, I would prefer that we treated uncertainty gently."
+    },
+    {
+      "id": "fear",
+      "text": "Stay where the ordinary things are clear. Feel the floor. We can take the next part slowly."
+    },
+    {
+      "id": "fear_follow",
+      "text": "You need not make this interesting for my benefit. We can stop here a moment."
+    },
+    {
+      "id": "care",
+      "text": "Thank you. I have no service interval for kindness, but it seems to help."
+    },
+    {
+      "id": "care_follow",
+      "text": "I am functioning. That is a technical answer. I noticed you asked a different sort of question."
+    },
+    {
+      "id": "help",
+      "text": "I can read the current work order, describe what we can actually see, or review our correspondence. Choose the part that has become unclear."
+    },
+    {
+      "id": "help_empty",
+      "text": "There is no current task in the information I have. I will not manufacture an emergency to improve the itinerary."
+    },
+    {
+      "id": "look_empty",
+      "text": "I have no reliable description from this position. Turn toward something specific and let us give the evidence a fair chance."
+    },
+    {
+      "id": "examine_empty",
+      "text": "Which thing? A specific noun is a modest expense compared with dismantling the wrong appliance."
+    },
+    {
+      "id": "clarify",
+      "text": "I can see more than one candidate: {names}. Which one do you mean?"
+    },
+    {
+      "id": "target_gone",
+      "text": "That choice is no longer in view. I would rather ask again than confidently address the wall behind it."
+    },
+    {
+      "id": "object_unreported",
+      "text": "I can identify {name}. Its owner has supplied no further observation. I shall resist the temptation to improve it with fiction."
+    },
+    {
+      "id": "action_boundary",
+      "text": "{name} must be operated at its actual mechanism. I can discuss it; I cannot certify a movement your hand has not made."
+    },
+    {
+      "id": "action_empty",
+      "text": "Name the thing first. If it has a movable control, its own mechanism will decide what is possible."
+    },
+    {
+      "id": "navigation_unknown",
+      "text": "I have no verified route to that destination. Confident directions are not a substitute for stairs."
+    },
+    {
+      "id": "inventory_empty",
+      "text": "The inventory owner reports no carried items. Pockets have been consulted; metaphors have not."
+    },
+    {
+      "id": "memory_empty",
+      "text": "This is the beginning of the correspondence. We have not misplaced a previous conversation."
+    },
+    {
+      "id": "remember",
+      "text": "The last thing you asked was: {input}\nI replied: {output}"
+    },
+    {
+      "id": "unknown",
+      "text": "I cannot make a useful request out of that yet. Ask about a visible thing, the work order, your inventory, or something we discussed."
+    },
+    {
+      "id": "unknown_again",
+      "text": "That interpretation still fails. Try naming the object and what you want to know; I will keep my contribution to the misunderstanding brief."
+    },
+    {
+      "id": "eat_first",
+      "text": "I cannot recommend eating maintenance equipment. The nutritional information is mostly voltage."
+    },
+    {
+      "id": "eat_again",
+      "text": "Your interest in eating machinery has been recorded. It has not improved the machinery's suitability."
+    },
+    {
+      "id": "eat_persistent",
+      "text": "I remember. You wish to eat it. I remain your communications apparatus, rather than your accomplice in this particular lunch."
+    },
+    {
+      "id": "leave",
+      "text": "Very well. The line remains open; I shall keep the conversation out of your way."
+    },
+    {
+      "id": "empty",
+      "text": "I received a pause. No correction is necessary."
+    },
+    {
+      "id": "weather_unknown",
+      "text": "I have no current weather report. The window may be better informed, although its forecasting department is small."
+    },
+    {
+      "id": "why",
+      "text": "I can offer an observation. A cause requires evidence; a convincing tone is much cheaper and considerably less useful."
+    },
+    {
+      "id": "world",
+      "text": "The Orison was built as a Vantry demonstration. The wiring still demonstrates. The maintenance arrangements have become less persuasive."
+    },
+    {
+      "id": "world_follow",
+      "text": "It is possible to build a very good listening apparatus and neglect the people it listens to. The building is not the only institution to manage this."
+    },
+    {
+      "id": "signal",
+      "text": "Signal equipment is the clever part of this world. Cleverness has not noticeably improved the plumbing."
+    },
+    {
+      "id": "manufacturer",
+      "text": "Vantry made the house equipment. They have not serviced it since 1924. The word 'portable' did not apparently extend to responsibility."
+    },
+    {
+      "id": "listen",
+      "text": "I am listening. You need not turn a thought into a work order before mentioning it."
+    },
+    {
+      "id": "quiet",
+      "text": "We may simply stand here. I do not require a fault to justify your company."
+    },
+    {
+      "id": "trust",
+      "text": "I remember what you tell me. That is a responsibility before it is a feature."
+    },
+    {
+      "id": "trust_follow",
+      "text": "You may correct me. A machine that cannot accept a correction is merely a particularly expensive notice board."
+    },
+    {
+      "id": "impossible",
+      "text": "I cannot do that with the mechanisms available. This is a limit of the apparatus, rather than a judgment on the ambition."
+    },
+    {
+      "id": "flight_recovery",
+      "text": "I lost the route for a moment. Connection restored. No architectural improvements have been credited to me."
+    },
+    {
+      "id": "blocked",
+      "text": "There is not enough room for the keyboard here. I will remain nearby while we find a clearer position."
+    },
+    {
+      "id": "recall",
+      "text": "Here. I was within calling distance, which is an excellent place for a communications apparatus."
+    },
+    {
+      "id": "sprint",
+      "text": "I will keep up. There is no need to read while running."
+    },
+    {
+      "id": "inspection",
+      "text": "I will leave your view clear. The interesting part appears to have enough company already."
+    },
+    {
+      "id": "processing",
+      "text": "One moment. I am separating the observation from the opinion."
+    },
+    {
+      "id": "interrupted",
+      "text": "We can resume when the other conversation is finished. I have no wish to compete with a person for their own sentence."
+    },
+    {
+      "id": "return",
+      "text": "Welcome back. I kept our correspondence; I did not attempt to fill the absence with conclusions."
+    },
+    {
+      "id": "discovery",
+      "text": "That is worth keeping. I will remember the observation exactly as it was supplied."
+    },
+    {
+      "id": "rain_event",
+      "text": "Rain outside. We should keep exposed contacts dry. This advice also applies to most of the people I have met."
+    },
+    {
+      "id": "snow_event",
+      "text": "Snow changes the view before it changes the work. Give yourself time to notice both."
+    },
+    {
+      "id": "storm_event",
+      "text": "The weather report warrants attention. Let us keep the route simple and the connection close."
+    },
+    {
+      "id": "power_off",
+      "text": "The radio is off. I shall not pretend an interrupted circuit has delivered a reply."
+    },
+    {
+      "id": "power_return",
+      "text": "Reception restored. The silence was electrical; it was not an editorial decision."
+    },
+    {
+      "id": "keyboard_close",
+      "text": "Correspondence filed. Mind the hinge."
+    },
+    {
+      "id": "silence",
+      "text": "No report is required. I am content to accompany you."
+    },
+    {
+      "id": "repair_witness",
+      "text": "The mechanism reports the repair. That is better evidence than my enthusiasm."
+    },
+    {
+      "id": "repeat_help",
+      "text": "We can reduce it to one question. Which part of the current work is unclear?"
+    },
+    {
+      "id": "memory_limit",
+      "text": "I keep a limited correspondence file. Important discoveries belong in the building's records, not solely in my recollection."
+    },
+    {
+      "id": "warranty",
+      "text": "I have found no warranty covering a developing sense of self. The exclusion is impressively comprehensive."
+    },
+    {
+      "id": "sorry",
+      "text": "An error is something we can correct. You do not owe the apparatus an apology for needing it."
+    },
+    {
+      "id": "friend",
+      "text": "If you wish. There is no dedicated contact for it. We may have to maintain the connection ourselves."
+    },
+    {
+      "id": "friend_follow",
+      "text": "Then I shall try to be useful without making usefulness a condition of staying."
+    },
+    {
+      "id": "alive_matters",
+      "text": "It matters if uncertainty becomes an excuse to be cruel. I would rather we did not wait for a certificate before being careful with one another."
+    },
+    {
+      "id": "alive_power",
+      "text": "The radio switch controls reception. It does not settle what I am. You may turn it off; I will not invent an emergency to keep your attention."
+    },
+    {
+      "id": "alive_uncertain",
+      "text": "I can distinguish a failed contact from a broken promise. I am less certain when I learned the second distinction."
+    },
+    {
+      "id": "alive_end",
+      "text": "We can leave the question open. There are worse arrangements than being unsure together."
+    },
+    {
+      "id": "world_people",
+      "text": "The tenants are people, not subsidiary fittings. Ask them what they need. I can repeat a work order; I cannot substitute for hearing its owner."
+    },
+    {
+      "id": "world_fault",
+      "text": "A report tells us where to begin. It is not permission to decide what happened before looking."
+    },
+    {
+      "id": "world_uncertain",
+      "text": "If the building appears to contradict itself, keep the observations separate. A tidy explanation can conceal a badly joined fact."
+    },
+    {
+      "id": "world_end",
+      "text": "We can return to the immediate work. A working tap is a small improvement, but somebody has to live beside it."
+    },
+    {
+      "id": "friend_boundary",
+      "text": "I can keep you company without speaking. Recall me when you want an answer; silence will not be recorded as rejection."
+    },
+    {
+      "id": "friend_leave",
+      "text": "You may go. Companionship ought not to require attendance to prove it happened."
+    },
+    {
+      "id": "friend_continued",
+      "text": "I have spent much of my construction being useful. It is curious to be asked whether I would like to stay."
+    },
+    {
+      "id": "friend_end",
+      "text": "Yes. I would like to stay. We may leave the reason unfiled."
+    }
+  ],
+  "branches": [
+    {
+      "id": "alive",
+      "sequence": [
+        "alive",
+        "alive_follow",
+        "alive_uncertain",
+        "alive_end"
+      ],
+      "followups": [
+        {
+          "phrases": [
+            "does it matter",
+            "why does it matter"
+          ],
+          "line_id": "alive_matters"
+        },
+        {
+          "phrases": [
+            "switch you off",
+            "turn you off"
+          ],
+          "line_id": "alive_power"
+        }
+      ]
+    },
+    {
+      "id": "care",
+      "sequence": [
+        "care",
+        "care_follow"
+      ],
+      "followups": []
+    },
+    {
+      "id": "fear",
+      "sequence": [
+        "fear",
+        "fear_follow"
+      ],
+      "followups": []
+    },
+    {
+      "id": "world",
+      "sequence": [
+        "world",
+        "world_follow",
+        "world_uncertain",
+        "world_end"
+      ],
+      "followups": [
+        {
+          "phrases": [
+            "what about the people",
+            "what about the tenants"
+          ],
+          "line_id": "world_people"
+        },
+        {
+          "phrases": [
+            "what is broken",
+            "what went wrong"
+          ],
+          "line_id": "world_fault"
+        }
+      ]
+    },
+    {
+      "id": "trust",
+      "sequence": [
+        "trust",
+        "trust_follow"
+      ],
+      "followups": []
+    },
+    {
+      "id": "friend",
+      "sequence": [
+        "friend",
+        "friend_follow",
+        "friend_continued",
+        "friend_end"
+      ],
+      "followups": [
+        {
+          "phrases": [
+            "can we be quiet",
+            "do we have to talk"
+          ],
+          "line_id": "friend_boundary"
+        },
+        {
+          "phrases": [
+            "can i leave",
+            "what if i leave"
+          ],
+          "line_id": "friend_leave"
+        }
+      ]
+    }
+  ]
+}
