@@ -31,7 +31,7 @@ static func mount(world: Node3D) -> bool:
             var info: Dictionary=world.campaign_clock.day_info()
             var sleeping := false
             for resident: String in profile.resident_ids:
-                var block: Dictionary=world.resident_presence.resolve(resident,str(info.day),world.campaign_clock.minute_of_day(),int(info.doy),bool(info.first_sat))
+                var block: Dictionary=world.resident_whereabouts(resident) if world.has_method("resident_whereabouts") else world.resident_presence.resolve(resident,str(info.day),world.campaign_clock.minute_of_day(),int(info.doy),bool(info.first_sat))
                 if str(block.get("activity",""))=="sleeping":sleeping=true
             if sleeping and ("BED" in str(record.space) or "ALCOVE" in str(record.space) or str(profile.sleep_schedule)=="days"):
                 actor.raised=0;actor.tilt_degrees=75;actor.curtain_open=0

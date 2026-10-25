@@ -198321,11 +198321,11 @@
     "_build_contents"
    ],
    "lines": [
-    8
+    11
    ],
    "count": 1,
    "context": [
-    "var items: Array = LARDER.get(unit, LARDER.get(\"4B\", []))"
+    "var items: Array = larder_items if larder_bound else LARDER.get(unit, LARDER.get(\"4B\", []))"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -203477,7 +203477,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    962
+    1001
    ],
    "count": 1,
    "context": [
@@ -203507,8 +203507,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    1042,
-    1045
+    1081,
+    1084
    ],
    "count": 2,
    "context": [
@@ -203539,7 +203539,7 @@
     "<module>"
    ],
    "lines": [
-    69
+    76
    ],
    "count": 1,
    "context": [
@@ -203569,7 +203569,7 @@
     "<module>"
    ],
    "lines": [
-    64
+    71
    ],
    "count": 1,
    "context": [
@@ -203599,7 +203599,7 @@
     "<module>"
    ],
    "lines": [
-    65
+    72
    ],
    "count": 1,
    "context": [
@@ -203629,7 +203629,7 @@
     "<module>"
    ],
    "lines": [
-    66
+    73
    ],
    "count": 1,
    "context": [
@@ -203659,7 +203659,7 @@
     "<module>"
    ],
    "lines": [
-    67
+    74
    ],
    "count": 1,
    "context": [
@@ -203689,11 +203689,41 @@
     "<module>"
    ],
    "lines": [
-    68
+    75
    ],
    "count": 1,
    "context": [
     "\"F06_WATCH_STATION\": \"F06_STATION_CORE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "13d3f879f93e6011",
+   "kind": "id_candidate",
+   "token": "ROOF_DECK",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "player_agenda_place"
+   ],
+   "lines": [
+    1223
+   ],
+   "count": 1,
+   "context": [
+    "if room.begins_with(\"ROOF_DECK\"):"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -203750,9 +203780,9 @@
     "_compose_hot_water"
    ],
    "lines": [
-    956,
-    959,
-    1021
+    995,
+    998,
+    1060
    ],
    "count": 3,
    "context": [
@@ -203784,7 +203814,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    971
+    1010
    ],
    "count": 1,
    "context": [
@@ -203814,7 +203844,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    963
+    1002
    ],
    "count": 1,
    "context": [
@@ -203844,7 +203874,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    980
+    1019
    ],
    "count": 1,
    "context": [
@@ -203864,6 +203894,36 @@
    "target_exists": true
   },
   {
+   "key": "9152a87fe8acbec0",
+   "kind": "id_reference",
+   "token": "B1_LAUNDRY",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "player_agenda_place"
+   ],
+   "lines": [
+    1221
+   ],
+   "count": 1,
+   "context": [
+    "if room == \"B1_LAUNDRY\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "B1/room+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "c8abfe97763e60c8",
    "kind": "id_reference",
    "token": "B1_WATCH_STATION",
@@ -203874,7 +203934,7 @@
     "<module>"
    ],
    "lines": [
-    63
+    70
    ],
    "count": 1,
    "context": [
@@ -203904,11 +203964,71 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    972
+    1011
    ],
    "count": 1,
    "context": [
     "_retire_blockout_fixture(\"B1_WATER_COLUMN_MASS\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0f35b08df846f889",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "player_agenda_place"
+   ],
+   "lines": [
+    1217
+   ],
+   "count": 1,
+   "context": [
+    "if room in [\"F01_LOBBY\", \"F01_VESTIBULE\", \"F01_PUBLIC_CORE\", \"F01_WATCH\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "61928f6b845a5690",
+   "kind": "id_reference",
+   "token": "F01_MAIL_TELEPHONE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "player_agenda_place"
+   ],
+   "lines": [
+    1219
+   ],
+   "count": 1,
+   "context": [
+    "if room in [\"F01_MAIL_TELEPHONE\", \"F01_PACKAGE\"]:"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -203934,11 +204054,71 @@
     "_compose_authorities"
    ],
    "lines": [
-    553
+    560
    ],
    "count": 1,
    "context": [
     "for identity in [\"F01_WATCHMAN_DETECTOR_BODY\",\"F01_NIGHT_REGISTER_BODY\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fa4fa119cd766703",
+   "kind": "id_reference",
+   "token": "F01_PACKAGE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "player_agenda_place"
+   ],
+   "lines": [
+    1219
+   ],
+   "count": 1,
+   "context": [
+    "if room in [\"F01_MAIL_TELEPHONE\", \"F01_PACKAGE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "796a0f93ac0c1225",
+   "kind": "id_reference",
+   "token": "F01_PUBLIC_CORE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "player_agenda_place"
+   ],
+   "lines": [
+    1217
+   ],
+   "count": 1,
+   "context": [
+    "if room in [\"F01_LOBBY\", \"F01_VESTIBULE\", \"F01_PUBLIC_CORE\", \"F01_WATCH\"]:"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -203964,7 +204144,7 @@
     "_ready"
    ],
    "lines": [
-    156
+    163
    ],
    "count": 1,
    "context": [
@@ -203994,7 +204174,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    554
+    561
    ],
    "count": 1,
    "context": [
@@ -204024,11 +204204,71 @@
     "_compose_authorities"
    ],
    "lines": [
-    554
+    561
    ],
    "count": 1,
    "context": [
     "\"F01_SIGNAL_REGISTER_BODY\",\"F01_TOUR_KEY_GUARD_BODY\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "87627a1323ee1fdb",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "player_agenda_place"
+   ],
+   "lines": [
+    1217
+   ],
+   "count": 1,
+   "context": [
+    "if room in [\"F01_LOBBY\", \"F01_VESTIBULE\", \"F01_PUBLIC_CORE\", \"F01_WATCH\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8faed68374417670",
+   "kind": "id_reference",
+   "token": "F01_WATCH",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "player_agenda_place"
+   ],
+   "lines": [
+    1217
+   ],
+   "count": 1,
+   "context": [
+    "if room in [\"F01_LOBBY\", \"F01_VESTIBULE\", \"F01_PUBLIC_CORE\", \"F01_WATCH\"]:"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -204054,7 +204294,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    553
+    560
    ],
    "count": 1,
    "context": [
@@ -204084,7 +204324,7 @@
     "<module>"
    ],
    "lines": [
-    69
+    76
    ],
    "count": 1,
    "context": [
@@ -204114,9 +204354,9 @@
     "_compose_vantry"
    ],
    "lines": [
-    1039,
-    1043,
-    1046
+    1078,
+    1082,
+    1085
    ],
    "count": 3,
    "context": [
@@ -204148,7 +204388,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    370
+    377
    ],
    "count": 1,
    "context": [
@@ -204178,7 +204418,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    370
+    377
    ],
    "count": 1,
    "context": [
@@ -204208,7 +204448,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    369
+    376
    ],
    "count": 1,
    "context": [
@@ -204238,7 +204478,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    369
+    376
    ],
    "count": 1,
    "context": [
@@ -204268,7 +204508,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    947
+    986
    ],
    "count": 1,
    "context": [
@@ -204298,7 +204538,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    948
+    987
    ],
    "count": 1,
    "context": [
@@ -204328,7 +204568,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    370
+    377
    ],
    "count": 1,
    "context": [
@@ -204358,7 +204598,7 @@
     "<module>"
    ],
    "lines": [
-    64
+    71
    ],
    "count": 1,
    "context": [
@@ -204388,7 +204628,7 @@
     "<module>"
    ],
    "lines": [
-    65
+    72
    ],
    "count": 1,
    "context": [
@@ -204418,7 +204658,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    868
+    891
    ],
    "count": 1,
    "context": [
@@ -204448,7 +204688,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    417
+    424
    ],
    "count": 1,
    "context": [
@@ -204479,8 +204719,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    748,
-    853
+    771,
+    876
    ],
    "count": 2,
    "context": [
@@ -204511,7 +204751,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    854
+    877
    ],
    "count": 1,
    "context": [
@@ -204541,7 +204781,7 @@
     "<module>"
    ],
    "lines": [
-    66
+    73
    ],
    "count": 1,
    "context": [
@@ -204571,7 +204811,7 @@
     "<module>"
    ],
    "lines": [
-    67
+    74
    ],
    "count": 1,
    "context": [
@@ -204601,7 +204841,7 @@
     "<module>"
    ],
    "lines": [
-    68
+    75
    ],
    "count": 1,
    "context": [
@@ -204631,7 +204871,7 @@
     "_ready"
    ],
    "lines": [
-    206
+    213
    ],
    "count": 1,
    "context": [
@@ -204661,7 +204901,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1005
+    1044
    ],
    "count": 1,
    "context": [
@@ -204691,7 +204931,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1006
+    1045
    ],
    "count": 1,
    "context": [
@@ -204721,7 +204961,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1007
+    1046
    ],
    "count": 1,
    "context": [
@@ -204751,7 +204991,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    1004
+    1043
    ],
    "count": 1,
    "context": [
@@ -204781,7 +205021,7 @@
     "<module>"
    ],
    "lines": [
-    63
+    70
    ],
    "count": 1,
    "context": [
@@ -204812,7 +205052,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    409
+    416
    ],
    "count": 1,
    "context": [
@@ -204844,8 +205084,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    940,
-    1005
+    979,
+    1044
    ],
    "count": 2,
    "context": [
@@ -204878,8 +205118,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    943,
-    1006
+    982,
+    1045
    ],
    "count": 2,
    "context": [
@@ -204912,8 +205152,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    946,
-    1007
+    985,
+    1046
    ],
    "count": 2,
    "context": [
@@ -204946,8 +205186,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    937,
-    1004
+    976,
+    1043
    ],
    "count": 2,
    "context": [
@@ -204979,7 +205219,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    407
+    414
    ],
    "count": 1,
    "context": [
@@ -205010,7 +205250,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    292
+    299
    ],
    "count": 1,
    "context": [
@@ -205042,8 +205282,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    201,
-    297
+    208,
+    304
    ],
    "count": 2,
    "context": [
@@ -205075,7 +205315,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    414
+    421
    ],
    "count": 1,
    "context": [
@@ -205106,7 +205346,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    300
+    307
    ],
    "count": 1,
    "context": [
@@ -205138,8 +205378,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    407,
-    1045
+    414,
+    1084
    ],
    "count": 2,
    "context": [
@@ -205170,7 +205410,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    906
+    943
    ],
    "count": 1,
    "context": [
@@ -205200,7 +205440,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    907
+    944
    ],
    "count": 1,
    "context": [
@@ -210126,7 +210366,7 @@
    ],
    "lines": [
     72,
-    80
+    82
    ],
    "count": 2,
    "context": [
@@ -210277,7 +210517,7 @@
     "_index_passage_anchors"
    ],
    "lines": [
-    121
+    123
    ],
    "count": 1,
    "context": [
@@ -210307,7 +210547,7 @@
     "_build_floor"
    ],
    "lines": [
-    183
+    185
    ],
    "count": 1,
    "context": [
@@ -210324,6 +210564,36 @@
    "confidence": "MEDIUM",
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a980d78d18fe8753",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+   "file": "game/scripts/characters/resident_nav.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    45
+   ],
+   "count": 1,
+   "context": [
+    "\"hardware_paint\": \"SITE_SHOP_DOOR_HARDWARE_PAINT\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker",
    "target_exists": true
   },
   {
@@ -210417,6 +210687,36 @@
    "target_exists": true
   },
   {
+   "key": "28f62c141c59e9a3",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_OTIS___SON",
+   "file": "game/scripts/characters/resident_nav.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    44
+   ],
+   "count": 1,
+   "context": [
+    "\"otis_son\": \"SITE_SHOP_DOOR_OTIS___SON\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
    "key": "039ec14d7c4a99cb",
    "kind": "id_reference",
    "token": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
@@ -210482,9 +210782,9 @@
     "passage_route"
    ],
    "lines": [
-    149,
-    150,
-    151
+    151,
+    152,
+    153
    ],
    "count": 3,
    "context": [
@@ -210870,8 +211170,8 @@
     37,
     38,
     41,
-    342,
-    353
+    346,
+    357
    ],
    "count": 6,
    "context": [
@@ -216388,7 +216688,7 @@
    "lines": [
     59,
     126,
-    478
+    485
    ],
    "count": 3,
    "context": [
@@ -216542,7 +216842,7 @@
    ],
    "lines": [
     75,
-    479
+    486
    ],
    "count": 2,
    "context": [
@@ -216667,13 +216967,13 @@
    "lines": [
     84,
     124,
-    401
+    408
    ],
    "count": 3,
    "context": [
     "\"4B\": [[\"MERIDIAN MILK\", Color(0.92, 0.91, 0.86), 0.09, 0.24, 2],",
     "\"properties\": {\"unit\": \"4B\", \"monitor_top\": false}},",
-    "var items: Array = LARDER.get(unit, LARDER.get(\"4B\", []))"
+    "var items: Array = larder_items if larder_bound else LARDER.get(unit, LARDER.get(\"4B\", []))"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -216791,7 +217091,7 @@
    ],
    "lines": [
     94,
-    480
+    487
    ],
    "count": 2,
    "context": [
@@ -216914,7 +217214,7 @@
    ],
    "lines": [
     106,
-    481
+    488
    ],
    "count": 2,
    "context": [
@@ -219096,6 +219396,36 @@
    "disposition": "REGENERATE_CONSUMER",
    "confidence": "HIGH",
    "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7d6949768400cf15",
+   "kind": "generated_name",
+   "token": "show_rows",
+   "file": "game/scripts/props/pantry_display.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "show_rows"
+   ],
+   "lines": [
+    43
+   ],
+   "count": 1,
+   "context": [
+    "\"Pantry_\" + str(row[0]).validate_node_name()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
   },
@@ -267359,6 +267689,230 @@
     "if point.is_equal_approx(Vector3(0, 0, -5)): return \"f01_threshold_lobby\"",
     "if point.is_equal_approx(Vector3(1.925, 3.2, -3.45)): return \"primary_stair_f01_f02\"",
     "if point.is_equal_approx(Vector3(-1.8, 3.2, 0)): return \"f02_landing\""
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f5f28b34c54f838d",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/tests/orison_v2_kitchen_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    84,
+    89
+   ],
+   "count": 2,
+   "context": [
+    "if await _stand_before(icebox, \"F02\", 0.9, \"2B\"):",
+    "if await _stand_before(pantry.get_parent() as Node3D, \"F02\", 1.0, \"2B\"):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "36588963d467ed0e",
+   "kind": "floor_reference",
+   "token": "F04",
+   "file": "game/tests/orison_v2_kitchen_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [
+    "if not await _stand_before(book, \"F04\", 0.9, \"4B\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "027f620a732eca09",
+   "kind": "node_path",
+   "token": "KitchenPrep_2B/Pantry",
+   "file": "game/tests/orison_v2_kitchen_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    73
+   ],
+   "count": 1,
+   "context": [
+    "var pantry := world.adapter.root.get_node_or_null(\"KitchenPrep_2B/Pantry\") as PantryDisplay"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "9ccff997e24c1f16",
+   "kind": "node_path",
+   "token": "KitchenPrep_4B/Cookbook",
+   "file": "game/tests/orison_v2_kitchen_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "var book := world.adapter.root.get_node_or_null(\"KitchenPrep_4B/Cookbook\") as CookbookProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6b3a5a200ed68a75",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/tests/orison_v2_kitchen_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    54,
+    63,
+    75,
+    84,
+    89
+   ],
+   "count": 5,
+   "context": [
+    "if node is FridgeProp and str((node as FridgeProp).unit) == \"2B\":",
+    "var rows := larder.icebox_rows(\"2B\")",
+    "var wanted := larder.pantry_rows(\"2B\")",
+    "if await _stand_before(icebox, \"F02\", 0.9, \"2B\"):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "b5eed50cb73dc169",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/orison_v2_kitchen_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [
+    "if not await _stand_before(book, \"F04\", 0.9, \"4B\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "5495e2a2fda78627",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_kitchen_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    85,
+    86
+   ],
+   "count": 2,
+   "context": [
+    "await _shot(\"kitchen_icebox_2B\", icebox.to_global(Vector3(0.0, 0.55, 0.0)))",
+    "await _shot(\"kitchen_2B_wide\", icebox.to_global(Vector3(0.0, 0.9, 0.0)), 2.6)"
    ],
    "gameplay_binding": true,
    "authority": [
