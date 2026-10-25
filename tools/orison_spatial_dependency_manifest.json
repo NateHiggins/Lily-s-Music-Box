@@ -315789,36 +315789,274 @@
    "target_exists": true
   },
   {
-   "key": "a5c834c6f6b0b626",
-   "kind": "generated_name",
-   "token": "build",
-   "file": "game/scripts/device/companion_mechanism.gd",
+   "key": "c48c52c705742e7e",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/characters/orison_v2_resident_navigation.gd",
    "tier": "production",
-   "subsystem": "device",
+   "subsystem": "characters",
    "symbols": [
-    "build"
+    "mount_bar"
    ],
    "lines": [
-    93,
-    103
+    168
    ],
-   "count": 2,
+   "count": 1,
    "context": [
-    "str(record.character) + \"Key\"",
-    "\"KeyLegend%02d\" % _key_labels.size()"
+    "if floor.id == \"F01\":"
    ],
    "gameplay_binding": false,
    "authority": [
-    "GENERATED_IDENTITY"
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "41b2fee16ab12db4",
+   "kind": "id_reference",
+   "token": "F01_BAR_DOOR",
+   "file": "game/scripts/characters/orison_v2_resident_navigation.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "mount_bar"
+   ],
+   "lines": [
+    171,
+    181
+   ],
+   "count": 2,
+   "context": [
+    "var top: DoorProp = region.doors.get(\"F01_BAR_DOOR\")",
+    "previous = add_world_point(\"bar_entry\", hinge_middle, \"\", \"F01_BAR_DOOR\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
    ],
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
-   "disposition": "REGENERATE_CONSUMER",
+   "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
-   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
-   "resolved_target": null,
-   "target_exists": null
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "d6c65cfc31e614aa",
+   "kind": "id_reference",
+   "token": "F01_BAR_RED_DOOR",
+   "file": "game/scripts/characters/orison_v2_resident_navigation.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "mount_bar"
+   ],
+   "lines": [
+    172,
+    193
+   ],
+   "count": 2,
+   "context": [
+    "var lower: DoorProp = region.doors.get(\"F01_BAR_RED_DOOR\")",
+    "var threshold := add_world_point(\"bar_red_threshold\",lower.to_global(Vector3(lower.width*.5,0,0)),\"\",\"F01_BAR_RED_DOOR\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "777e4d2283fad19f",
+   "kind": "id_reference",
+   "token": "F01_STREET_APRON",
+   "file": "game/scripts/characters/orison_v2_resident_navigation.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "mount_bar"
+   ],
+   "lines": [
+    174
+   ],
+   "count": 1,
+   "context": [
+    "var apron := choose_stance(\"F01_STREET_APRON\", top.global_position)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f633f9139730f8b5",
+   "kind": "id_reference",
+   "token": "retail_bar_floor",
+   "file": "game/scripts/characters/orison_v2_resident_navigation.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "mount_bar"
+   ],
+   "lines": [
+    200,
+    201
+   ],
+   "count": 2,
+   "context": [
+    "if not furniture.has(\"retail_bar_floor\"): return false",
+    "var floor_source: Dictionary = furniture[\"retail_bar_floor\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "d8e28b564de6996d",
+   "kind": "id_reference",
+   "token": "B1_LAUNDRY",
+   "file": "game/scripts/characters/orison_v2_resident_routines.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "_room_for"
+   ],
+   "lines": [
+    83
+   ],
+   "count": 1,
+   "context": [
+    "if place == \"laundry\": return \"B1_LAUNDRY\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "B1/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c93bbfa6d7c056e7",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/scripts/characters/orison_v2_resident_routines.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "_room_for"
+   ],
+   "lines": [
+    82
+   ],
+   "count": 1,
+   "context": [
+    "if place in [\"lobby\",\"mail_bank\"]: return \"F01_LOBBY\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "329d83a13c7790f8",
+   "kind": "id_reference",
+   "token": "F01_STREET_APRON",
+   "file": "game/scripts/characters/orison_v2_resident_routines.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "_room_for"
+   ],
+   "lines": [
+    81
+   ],
+   "count": 1,
+   "context": [
+    "if place in [\"out\",\"bodega\",\"luncheonette\",\"hand_laundry\",\"news_cigars\",\"photo_supplies\"]: return \"F01_STREET_APRON\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ed684850ce8d336e",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_CORE",
+   "file": "game/scripts/characters/orison_v2_resident_routines.gd",
+   "tier": "production",
+   "subsystem": "characters",
+   "symbols": [
+    "_room_for"
+   ],
+   "lines": [
+    84
+   ],
+   "count": 1,
+   "context": [
+    "if place == \"roof\": return \"ROOF_PUBLIC_CORE\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   },
   {
    "key": "17a8fa8c46d83d45",
@@ -319657,6 +319895,38 @@
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F01/furniture",
    "target_exists": true
+  },
+  {
+   "key": "a5c834c6f6b0b626",
+   "kind": "generated_name",
+   "token": "build",
+   "file": "game/scripts/device/companion_mechanism.gd",
+   "tier": "production",
+   "subsystem": "device",
+   "symbols": [
+    "build"
+   ],
+   "lines": [
+    93,
+    103
+   ],
+   "count": 2,
+   "context": [
+    "str(record.character) + \"Key\"",
+    "\"KeyLegend%02d\" % _key_labels.size()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "aa9fb73776b0120d",

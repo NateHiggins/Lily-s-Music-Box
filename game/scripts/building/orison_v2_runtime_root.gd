@@ -57,6 +57,7 @@ var open_shift_ecosystem: Node
 var observation_ledger: NpcObservationLedger
 var resident_presence: ScheduleDirector
 var mina_routine: Node3D
+var resident_routines: Node3D
 var campaign_clock: CampaignClock
 var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
@@ -193,7 +194,7 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: acoustic binding failed: "+str(acoustic_topology.errors))
 		return
-	_compose_authorities()
+	await _compose_authorities()
 	if startup_failed:
 		return
 	elevator = preload("res://scripts/building/orison_v2_elevator.gd").new().mount(adapter, layout)
@@ -661,6 +662,17 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: Mina route composition refused")
 		return
+	# The cast review switch exists only for matched before/after diagnostics.
+	# Keep the world on its current behavior until the new route owner has
+	# passed its loaded-world gate; enable the normal default at that point.
+	if OS.get_environment("ORISON_V2_RESIDENTS") == "1":
+		resident_routines = preload("res://scripts/characters/orison_v2_resident_routines.gd").new()
+		resident_routines.name = "ResidentRoutinesV2"
+		add_child(resident_routines)
+		if not await resident_routines.setup(self):
+			startup_failed = true
+			push_error("ORISON V2 RUNTIME: resident route composition refused: %s" % [resident_routines.errors])
+			return
 	if not preload("res://scripts/building/orison_v2_case_one_placement.gd").new().mount_captions(adapter,mina_routine.actor):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: case caption subjects missing")

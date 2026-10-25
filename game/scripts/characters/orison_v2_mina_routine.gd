@@ -76,7 +76,7 @@ func setup(root: Node3D) -> bool:
 	_select_destination()
 	if desired_id < 0: return false
 	current_id = desired_id
-	actor = AnimatedResident.new()
+	actor = preload("res://scripts/characters/orison_v2_resident_presentation.gd").new()
 	actor.setup("Mina Vale","mina_vale","2A","res://assets/characters/mina_vale/mina_vale.gltf")
 	actor.externally_driven = true
 	actor.face_interacting_player = true
