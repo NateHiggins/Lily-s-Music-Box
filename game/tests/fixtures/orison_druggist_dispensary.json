@@ -3399,11 +3399,11 @@
   "asset_sha256": "4ddd7a7c68db66a4704ca5a163b25324630f72df9b12110b2e98768488ec2546",
   "source_bindings": {
     "art/data/druggist_dispensary/source_plan.json": "b1b80dd27868338b4210bd00b7b28a70f580c733aa263caeb13320b430ac6c92",
-    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "art/blender/scripts/build_druggist_dispensary.py": "acf5f18fb7ddf85877b0e4c13be77357690026c6a7c0bde49f72772b326abf78",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
-    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
-    "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",
+    "game/data/runtime_material_sets.json": "bc4353df11035c333f23094b06c50ea005363770003146a17d548b5c46449360",
+    "game/scripts/generated/material_sets.gd": "c1a6628ded038fa048142ff33510b72fb2a550a0b81300fa1880e95bc7f1d351",
     "game/assets/props/druggist_dispensary.glb.import": "33f7e2908aee97f0251ad84de2b53d0224e6ff3e95c6c800588b06083d51dbb6",
     "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
     "art/textures/ai_materials/countertop/material.json": "e7dd2b2c3ef5cec58cbdec8ecff588adfdb49bd24214babe40361e7dbe7699ab",
@@ -3429,9 +3429,9 @@
     "game/assets/building/textures/T_library_furniture_porcelain_rough.png": "9c0c46ffaca87f8aa08c408000d2bf16c722e775b030ff0b5832bf434a1f51cc",
     "game/assets/building/textures/T_library_furniture_porcelain_normal.png": "800359566e5913a649d47b0d243cd872d6810b9c75f7311611965bf422092559",
     "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
-    "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
-    "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
-    "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
+    "art/data/material_catalog.json": "def35ead2a26c269d8664d93282d5026feae1759f280602dce5f10f7a3b440f0",
+    "art/textures/catalog_mapping.json": "73c8465ba69c2f56cd11f78e6d37fb523ce966763475d9a82641341a8d803bdb",
+    "art/tools/generate_runtime_materials.py": "c6c73b316d7fac1ef1758eef67f0469a48cf6588a1b716ab9c406b312bd0179d",
     "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
     "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
     "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
@@ -3441,8 +3441,8 @@
     "art/blender/scripts/inspect_druggist_dispensary.py": "00b6e6a3f4d1bf1265063dde0b962727540aae4b62842f156499a2762cead012",
     "game/assets/props/druggist_mortar.glb": "0c69f1f4d3514453dec6720ea2880676eff9a8db309f1d09134ca50b4204baae",
     "game/data/orison_v2/druggist_mortar.json": "0b6ab6f193b09987fbed6488eb0031f51e13b69811a443132e93f899dcd694a3",
-    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
-    "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2"
+    "game/scripts/building/orison_v2_architectural_materials.gd": "058c790a463f807066bde1ccfde6d2cc2110ad0cf9a428af43b411835754167f",
+    "game/shaders/lamp_glass_surface.gdshader": "b17cfda6b765fd72c3509eacda38bce4ed33ac3f3a588bdbfaa012931b3c24c8"
   },
   "open_work": [
     "The original work-top datum stays at 1.16m. A bounded front-corner notch clears the retained poison cupboard with 10mm plan separation; the remaining counter face, supports and screened rear edge are fabricated inside the original plan.",
