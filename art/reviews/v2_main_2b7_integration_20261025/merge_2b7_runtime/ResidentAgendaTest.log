@@ -1,0 +1,49 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.357 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+[SCHEDULE] director live: 18 residents on the clock
+[AGENDA] motives from design/ORISON_RESIDENT_AGENDA_2026-10-24.md; characters from design/ORISON_ARCHETYPE_SCHEDULES.md
+RESIDENT AGENDA: the agenda reads its motives and every resident is on the timetable = true
+RESIDENT AGENDA: all eighteen residents have motives = true
+  full-day plan: 402.3 ms per resident-day
+RESIDENT AGENDA: every resident's day runs midnight to midnight without a gap = true
+RESIDENT AGENDA: every place and activity is in the timetable grammar = true
+RESIDENT AGENDA: hard blocks (sleep, work, transit, ritual) always hold = true
+  minutes out of doors by choice: sleet 650, spring 1160
+RESIDENT AGENDA: residents go out of doors by choice in fair weather = true
+RESIDENT AGENDA: sleet keeps them in: fewer chosen minutes out of doors = true
+  sleet: 0 minutes sought warmth by choice
+  hot Saturday: 180 minutes on the roof or in the light court by choice
+RESIDENT AGENDA: a hot clear day draws residents up for air = true
+  compulsion minutes before 80, after 0; changed minutes after 1660
+RESIDENT AGENDA: unresolved residents act on their compulsions = true
+RESIDENT AGENDA: resolution retires every compulsion = true
+RESIDENT AGENDA: resolved residents do something new = true
+RESIDENT AGENDA: Teresa, her beat resolved, lets an hour go undefended = true
+RESIDENT AGENDA: Lena, who trusts the night man, comes down to the lobby where he is = true
+  Evelyn's timetable at 18:10 says mail_bank
+RESIDENT AGENDA: Evelyn, who distrusts the night man, skips the mail bank while he is at it = true
+  friendly visits across the four days: 12
+RESIDENT AGENDA: friends call on each other = true
+RESIDENT AGENDA: residents who avoid each other never choose the same shared room = true
+  reconstructing six hours for the building: 125 ms
+RESIDENT AGENDA: the same campaign minute gives the same answer = true
+RESIDENT AGENDA: every answer says why = true
+RESIDENT AGENDA: a load reconstructs the building in under a second = true
+RESIDENT AGENDA: the cookbook and groceries load, a dish for every resident, every ingredient sold = true
+RESIDENT AGENDA: eighteen dishes in the house cookbook = true
+RESIDENT AGENDA: every household is seeded = true
+  kitchen events over four days (280): { "shopped": 63, "unpacked": 60, "cooked": 33, "ate": 97, "washed up": 17, "spoiled": 10 }
+  dishes cooked by: ["jonah_price", "transient_guests", "sacha_reed", "evelyn_marsh", "rhea_sato", "mina_vale", "mae_kessler", "nadia_quell", "iris_bell", "juno_kells", "teresa_vale", "cal_dwyer", "omar_bell", "lena_ortiz", "noel_price", "malcolm_reed", "cam_ortiz", "peter_wren"]
+  shops visited: ["bodega", "luncheonette", "otis_son", "news_cigars", "hardware_paint"]
+RESIDENT AGENDA: nothing in any larder goes below nothing = true
+RESIDENT AGENDA: what is bought is carried home and unpacked = true
+  still carried home at the end: 1 bags
+RESIDENT AGENDA: every resident still carries their own key = true
+RESIDENT AGENDA: residents shop, cook, eat and wash up = true
+RESIDENT AGENDA: at least twelve residents cook their own dish in four days = true
+RESIDENT AGENDA: the bodega and at least two Arcade shops are shopped at = true
+RESIDENT AGENDA: iceboxes show what is in them, on real shelves = true
+RESIDENT AGENDA: the larder state survives a save = true
+RESIDENT AGENDA TEST: 0 failures

@@ -1,0 +1,21 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.357 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+  [ok] the schedule loads with no validation errors
+  [ok] 41 phenomena fill the 41 sky slots
+  [ok] every phenomenon is dated at least once
+  [ok] every dated event agrees with the weather both papers printed
+  [ok] every event is reported in the next morning's papers
+  [ok] rolled rarities reproduce exactly from the campaign seed (21 rolled)
+  [ok] every rolled rarity is in season and inside its sun window
+  [ok] rolled rarities stay rare (no phenomenon on more than 12 days)
+  [ok] a different campaign seed rolls a different year
+  [ok] an event fades in over its fade minutes, not as a step (0.16)
+  [ok] a date outside the year and an unknown forcing are refused
+  [ok] the dated tornado is active at its scheduled minute
+  [ok] its storm is forced on the presentation (thunderstorm, rain)
+  [ok] the conditions published to residents name the phenomenon
+  [ok] the sky shader receives the tornado slot
+  [ok] a forced phenomenon joins the active set
+SKY PHENOMENA SCHEDULE: PASS

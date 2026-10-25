@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "source": "design/ORISON_RESIDENT_AGENDA_2026-10-24.md; characters from design/ORISON_ARCHETYPE_SCHEDULES.md",
+  "step_minutes": 10,
+  "needs": {
+    "rest": {"start": 0.55, "decay": 0.05},
+    "food": {"start": 0.55, "decay": 0.09},
+    "hygiene": {"start": 0.6, "decay": 0.035},
+    "company": {"start": 0.6, "decay": 0.045},
+    "purpose": {"start": 0.6, "decay": 0.05},
+    "air": {"start": 0.6, "decay": 0.03},
+    "warmth": {"start": 1.0, "decay": 0.0}
+  },
+  "activities": {
+    "sleeping": {"rest": 0.2},
+    "rest": {"rest": 0.12},
+    "wind_down": {"rest": 0.08},
+    "waking": {"rest": 0.02},
+    "tv": {"rest": 0.05, "company": 0.04},
+    "radio": {"rest": 0.05, "company": 0.03},
+    "eating": {"food": 1.2},
+    "cooking": {"food": 0.4, "purpose": 0.1},
+    "shower": {"hygiene": 2.0},
+    "dressing": {"hygiene": 0.6},
+    "errand": {"purpose": 0.15},
+    "work": {"purpose": 0.3},
+    "hobby": {"purpose": 0.25},
+    "socializing": {"company": 0.6},
+    "chores": {"purpose": 0.15, "hygiene": 0.1},
+    "patrol": {"purpose": 0.2},
+    "rounds": {"purpose": 0.2, "company": 0.1},
+    "ritual": {"purpose": 0.2},
+    "transit": {"air": 0.1},
+    "shopping": {"purpose": 0.15},
+    "dishes": {"purpose": 0.1, "hygiene": 0.05}
+  },
+  "hard_activities": ["sleeping", "work", "transit", "ritual"],
+  "places": {
+    "unit": {"warmth": 0.5},
+    "lobby": {"company": 0.15, "warmth": 0.3},
+    "mail_bank": {"company": 0.1, "warmth": 0.3},
+    "corridor": {"warmth": 0.3},
+    "stairs": {"warmth": 0.3},
+    "half_landing": {"warmth": 0.3},
+    "laundry": {"warmth": 0.6, "hygiene": 0.3},
+    "roof": {"air": 1.0, "exposed": true},
+    "light_court": {"air": 0.6, "exposed": true},
+    "bodega": {"food": 0.6, "company": 0.15, "air": 0.2, "exposed": true},
+    "harukiya_bar": {"company": 0.5, "rest": 0.05, "exposed": true},
+    "luncheonette": {"food": 1.0, "company": 0.4, "air": 0.1, "exposed": true},
+    "hand_laundry": {"hygiene": 0.4, "air": 0.1, "exposed": true},
+    "news_cigars": {"purpose": 0.1, "company": 0.15, "air": 0.1, "exposed": true},
+    "photo_supplies": {"purpose": 0.2, "air": 0.1, "exposed": true},
+    "otis_son": {"purpose": 0.1, "air": 0.1, "exposed": true},
+    "hardware_paint": {"purpose": 0.1, "air": 0.1, "exposed": true},
+    "out": {"air": 0.6, "purpose": 0.1, "exposed": true},
+  "visit": {"company": 0.8, "warmth": 0.4}
+  },
+  "options": [
+    {"id": "cook", "place": "unit:kitchen", "activity": "cooking", "hours": [360, 1380], "minutes": 40, "why": "hungry; cooks something"},
+    {"id": "eat_bodega", "place": "bodega", "activity": "eating", "hours": [0, 1440], "minutes": 30, "why": "hungry; across to the bodega counter"},
+    {"id": "luncheonette", "place": "luncheonette", "activity": "eating", "hours": [420, 1200], "minutes": 50, "why": "a plate and company at the luncheonette"},
+    {"id": "nap", "place": "unit:bedroom", "activity": "rest", "hours": [0, 1440], "minutes": 60, "why": "worn out; lies down"},
+    {"id": "wash", "place": "unit:bathroom", "activity": "shower", "hours": [300, 1380], "minutes": 20, "why": "washes"},
+    {"id": "lobby_chat", "place": "lobby", "activity": "socializing", "hours": [480, 1290], "minutes": 30, "why": "lonely; lingers in the lobby for whoever comes through"},
+    {"id": "roof_air", "place": "roof", "activity": "rest", "hours": [0, 1440], "minutes": 40, "daylight": true, "why": "needs air; up to the roof"},
+    {"id": "court_air", "place": "light_court", "activity": "rest", "hours": [420, 1260], "minutes": 20, "daylight": true, "why": "a breath in the light court"},
+    {"id": "walk", "place": "out", "activity": "errand", "hours": [420, 1260], "minutes": 60, "why": "a walk round the block"},
+    {"id": "bar", "place": "harukiya_bar", "activity": "socializing", "hours": [1020, 1440], "minutes": 60, "why": "company downstairs at the Harukiya"},
+    {"id": "warm_laundry", "place": "laundry", "activity": "chores", "hours": [420, 1320], "minutes": 40, "why": "cold; the laundry room is the warmest room in the house"},
+    {"id": "hobby_home", "place": "unit", "activity": "hobby", "hours": [480, 1380], "minutes": 60, "why": "restless; turns to their own work"}
+  ],
+  "kitchen": {"shop_minutes": 20, "shop_bonus": 0.45, "shop_hours": [420, 1260], "cook_hours": [600, 1290], "cook_minutes_cap": 90, "cook_bonus": 0.5, "eat_minutes": 30, "eat_bonus": 0.1, "wash_minutes": 20, "wash_bonus": 0.2},
+  "visit": {"hours": [570, 1260], "minutes": 40, "why": "calls on a friend"},
+  "player": {"seek_trust": 2, "avoid_trust": -1, "seek_why": "comes to find the night man", "avoid_why": "keeps out of the night man's way"},
+  "residents": {
+    "evelyn_marsh": {
+      "traits": {"routine": 0.9, "sociable": 0.5, "homebody": 0.55, "hardy": 0.45, "night": 0.0},
+      "friends": ["peter_wren", "teresa_vale", "lena_ortiz"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "lobby", "activity": "rounds", "hours": [510, 1020], "minutes": 30, "needs": {"purpose": 0.5}, "why": "red-pencils the noticeboard and the posted notices"}],
+      "growth": [{"place": "mail_bank", "activity": "errand", "hours": [540, 1020], "minutes": 20, "needs": {"purpose": 0.4, "company": 0.2}, "why": "posts a letter with a mistake still in it"}]
+    },
+    "teresa_vale": {
+      "traits": {"routine": 0.85, "sociable": 0.3, "homebody": 0.4, "hardy": 0.85, "night": 1.0},
+      "friends": ["evelyn_marsh"],
+      "avoid_people": ["mina_vale"],
+      "avoid_places": [],
+      "shadow": [{"place": "corridor", "activity": "patrol", "hours": [0, 1440], "minutes": 30, "needs": {"purpose": 0.6}, "why": "patrols for an alarm nobody raised: the boiler knock, the loose tread"}],
+      "growth": [{"place": "unit:bedroom", "activity": "rest", "hours": [0, 1440], "minutes": 60, "needs": {"rest": 0.3}, "why": "lets an hour go undefended and rests"}]
+    },
+    "mina_vale": {
+      "traits": {"routine": 0.9, "sociable": 0.25, "homebody": 0.8, "hardy": 0.5, "night": 1.0},
+      "friends": [],
+      "avoid_people": ["teresa_vale"],
+      "avoid_places": [],
+      "shadow": [{"place": "unit:desk", "activity": "work", "hours": [0, 1440], "minutes": 40, "needs": {"purpose": 0.5}, "why": "re-checks the day's captions against the record"}],
+      "growth": [{"place": "mail_bank", "activity": "rest", "hours": [0, 1440], "minutes": 20, "needs": {"air": 0.2, "rest": 0.2}, "why": "sits by the mail bank and lets a silence go unannotated"}]
+    },
+    "lena_ortiz": {
+      "traits": {"routine": 0.8, "sociable": 0.8, "homebody": 0.5, "hardy": 0.6, "night": 0.3},
+      "friends": ["cam_ortiz", "evelyn_marsh", "omar_bell"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "corridor", "activity": "chores", "hours": [480, 1200], "minutes": 30, "needs": {"purpose": 0.4, "company": 0.3}, "why": "delivers mending nobody asked for and lingers at the door"}],
+      "growth": [{"place": "unit", "activity": "hobby", "hours": [480, 1260], "minutes": 60, "needs": {"purpose": 0.4}, "why": "mends her own hem, the patch left showing"}]
+    },
+    "juno_kells": {
+      "traits": {"routine": 0.55, "sociable": 0.35, "homebody": 0.3, "hardy": 0.8, "night": 1.0},
+      "friends": ["teresa_vale"],
+      "avoid_people": ["rhea_sato"],
+      "avoid_places": [],
+      "shadow": [{"place": "roof", "activity": "hobby", "hours": [0, 1440], "minutes": 50, "needs": {"purpose": 0.5}, "why": "records the city from the roof without asking"}],
+      "growth": [{"place": "lobby", "activity": "socializing", "hours": [600, 1320], "minutes": 30, "needs": {"company": 0.5}, "why": "leaves a channel open: talks to whoever is in the lobby"}]
+    },
+    "malcolm_reed": {
+      "traits": {"routine": 0.85, "sociable": 0.45, "homebody": 0.45, "hardy": 0.7, "night": 0.2},
+      "friends": ["sacha_reed", "lena_ortiz"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "unit", "activity": "ritual", "hours": [300, 1320], "minutes": 30, "needs": {"purpose": 0.4}, "why": "sits with the kept cutting"}],
+      "growth": [{"place": "roof", "activity": "chores", "hours": [360, 1200], "minutes": 40, "daylight": true, "needs": {"purpose": 0.5}, "why": "puts his own prunings in the compost"}]
+    },
+    "omar_bell": {
+      "traits": {"routine": 0.8, "sociable": 0.4, "homebody": 0.35, "hardy": 0.75, "night": 0.4},
+      "friends": ["lena_ortiz", "cal_dwyer"],
+      "avoid_people": ["iris_bell"],
+      "avoid_places": [],
+      "shadow": [{"place": "laundry", "activity": "work", "hours": [420, 1320], "minutes": 40, "needs": {"purpose": 0.6}, "why": "finds something else in the building to fix"}],
+      "growth": [{"place": "visit:5C", "activity": "socializing", "hours": [1080, 1260], "minutes": 40, "needs": {"company": 0.7}, "why": "calls on Iris without a work order"}]
+    },
+    "rhea_sato": {
+      "traits": {"routine": 0.9, "sociable": 0.5, "homebody": 0.6, "hardy": 0.4, "night": 0.8},
+      "friends": ["iris_bell"],
+      "avoid_people": ["juno_kells"],
+      "avoid_places": [],
+      "shadow": [{"place": "unit", "activity": "hobby", "hours": [0, 1440], "minutes": 50, "needs": {"purpose": 0.5}, "why": "sings the piece again and stops at the first waver"}],
+      "growth": [{"place": "harukiya_bar", "activity": "socializing", "hours": [1200, 1440], "minutes": 60, "needs": {"company": 0.6}, "why": "sings a rough take at the Harukiya on purpose"}]
+    },
+    "peter_wren": {
+      "traits": {"routine": 0.98, "sociable": 0.3, "homebody": 0.7, "hardy": 0.3, "night": 0.3},
+      "friends": ["evelyn_marsh"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "unit:desk", "activity": "chores", "hours": [0, 1440], "minutes": 40, "needs": {"purpose": 0.4}, "why": "checks photocopies against originals and decides nothing"}],
+      "growth": [{"place": "news_cigars", "activity": "errand", "hours": [480, 1140], "minutes": 20, "needs": {"purpose": 0.3, "company": 0.2}, "why": "buys a paper he has not chosen in advance"}]
+    },
+    "cam_ortiz": {
+      "traits": {"routine": 0.6, "sociable": 0.5, "homebody": 0.1, "hardy": 0.95, "night": 0.9},
+      "friends": ["lena_ortiz", "jonah_price"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "out", "activity": "transit", "hours": [0, 1440], "minutes": 60, "needs": {"purpose": 0.3, "air": 0.5}, "why": "rides the bridge circuit to nowhere rather than sit"}],
+      "growth": [{"place": "visit:2B", "activity": "socializing", "hours": [1020, 1260], "minutes": 40, "needs": {"company": 0.7, "rest": 0.2}, "why": "sits down at Lena's past the twelfth minute"}]
+    },
+    "noel_price": {
+      "traits": {"routine": 0.95, "sociable": 0.2, "homebody": 0.85, "hardy": 0.35, "night": 0.4},
+      "friends": [],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "unit", "activity": "chores", "hours": [0, 1440], "minutes": 30, "needs": {"purpose": 0.4}, "why": "returns the father's chair to its chalk mark"}],
+      "growth": [{"place": "unit:kitchen", "activity": "eating", "hours": [1020, 1260], "minutes": 50, "needs": {"food": 0.6, "company": 0.2}, "why": "eats off the family service"}]
+    },
+    "transient_guests": {
+      "traits": {"routine": 0.7, "sociable": 0.2, "homebody": 0.6, "hardy": 0.5, "night": 0.8},
+      "friends": [],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "lobby", "activity": "rest", "hours": [420, 1200], "minutes": 40, "needs": {"purpose": 0.2}, "why": "waits in the lobby for a car that does not come"}],
+      "growth": [{"place": "out", "activity": "transit", "hours": [480, 1200], "minutes": 60, "needs": {"purpose": 0.5}, "why": "chooses a departure and goes"}]
+    },
+    "nadia_quell": {
+      "traits": {"routine": 0.85, "sociable": 0.35, "homebody": 0.4, "hardy": 0.65, "night": 0.7},
+      "friends": ["iris_bell"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "mail_bank", "activity": "ritual", "hours": [0, 360], "minutes": 20, "needs": {"purpose": 0.5}, "why": "posts an unsigned memo at the mail bank"}],
+      "growth": [{"place": "lobby", "activity": "work", "hours": [540, 1080], "minutes": 30, "needs": {"purpose": 0.5, "company": 0.2}, "why": "posts a violation notice over her own name"}]
+    },
+    "cal_dwyer": {
+      "traits": {"routine": 0.85, "sociable": 0.3, "homebody": 0.85, "hardy": 0.4, "night": 1.0},
+      "friends": ["omar_bell"],
+      "avoid_people": [],
+      "avoid_places": ["laundry"],
+      "shadow": [{"place": "unit", "activity": "radio", "hours": [0, 1440], "minutes": 50, "needs": {"purpose": 0.4}, "why": "pulls distant stations out of the air and stops every reel short"}],
+      "growth": [{"place": "laundry", "activity": "chores", "hours": [480, 1260], "minutes": 40, "needs": {"hygiene": 0.4, "purpose": 0.2}, "why": "goes down to B1 for the first time since 1999"}]
+    },
+    "iris_bell": {
+      "traits": {"routine": 0.7, "sociable": 0.5, "homebody": 0.55, "hardy": 0.5, "night": 0.8},
+      "friends": ["rhea_sato", "nadia_quell"],
+      "avoid_people": ["omar_bell"],
+      "avoid_places": [],
+      "shadow": [{"place": "unit", "activity": "hobby", "hours": [0, 1440], "minutes": 50, "needs": {"purpose": 0.4}, "why": "re-hangs the studio wall for viewers who are not coming"}],
+      "growth": [{"place": "roof", "activity": "hobby", "hours": [480, 1140], "minutes": 60, "daylight": true, "needs": {"purpose": 0.5, "air": 0.3}, "why": "paints something bad on the roof for nobody"}]
+    },
+    "sacha_reed": {
+      "traits": {"routine": 0.65, "sociable": 0.45, "homebody": 0.35, "hardy": 0.7, "night": 0.9},
+      "friends": ["malcolm_reed", "jonah_price"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "corridor", "activity": "work", "hours": [0, 360], "minutes": 40, "needs": {"purpose": 0.5}, "why": "photographs the empty building"}],
+      "growth": [{"place": "roof", "activity": "rest", "hours": [0, 1440], "minutes": 40, "needs": {"air": 0.4, "rest": 0.2}, "why": "watches the city with the camera left downstairs"}]
+    },
+    "jonah_price": {
+      "traits": {"routine": 0.4, "sociable": 0.6, "homebody": 0.5, "hardy": 0.6, "night": 1.0},
+      "friends": ["cam_ortiz", "sacha_reed"],
+      "avoid_people": ["noel_price"],
+      "avoid_places": [],
+      "shadow": [{"place": "unit:desk", "activity": "hobby", "hours": [0, 1440], "minutes": 60, "needs": {"purpose": 0.4}, "why": "starts the book again"}],
+      "growth": [{"place": "visit:4C", "activity": "socializing", "hours": [600, 1200], "minutes": 40, "needs": {"company": 0.7}, "why": "knocks on Noel's door at last"}]
+    },
+    "mae_kessler": {
+      "traits": {"routine": 0.95, "sociable": 0.35, "homebody": 0.75, "hardy": 0.35, "night": 0.2},
+      "friends": ["evelyn_marsh"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "unit", "activity": "chores", "hours": [960, 1380], "minutes": 40, "needs": {"purpose": 0.4}, "why": "returns every object to its chalk mark"}],
+      "growth": [{"place": "unit", "activity": "hobby", "hours": [600, 1260], "minutes": 40, "needs": {"purpose": 0.5}, "why": "opens the Estate ledger and appraises it"}]
+    }
+  }
+}

@@ -1,0 +1,75 @@
+5fdc099b40e61ca1f29c6d804492ab03b5e45314
+100644 9c133b987811de22b059f56da6b1968c83491be2 1	.gitattributes
+100644 af9a13e358a8b7a835061692a08b73fb1ce767e4 2	.gitattributes
+100644 97d22579381b171a01113b06f43068dde81c256b 3	.gitattributes
+100644 28f3c6cfab82dd773875b2183fd2b1e1c046a1c9 1	art/blender/city_horizon_construction.json
+100644 853d4e5467285c03a1aee7e61b34119272eb7d24 2	art/blender/city_horizon_construction.json
+100644 8b29d078db3f469984a5da06a302d47eb0956e45 3	art/blender/city_horizon_construction.json
+100644 7fd9e2ee47ed514a21a07dece1152f8cdc807ead 1	art/blender/city_horizon_far.blend
+100644 e4296b82a54b02216ecb7a343832b3e360ea6b48 2	art/blender/city_horizon_far.blend
+100644 4b2e81528b148ab35a296fbcd4d216612457f511 3	art/blender/city_horizon_far.blend
+100644 46e8b3ee48c745f08aede8755a3e6f5aa0719c4a 1	art/blender/city_horizon_near.blend
+100644 c10bbb5dff62db62beda0de0ac4ea867512c2194 2	art/blender/city_horizon_near.blend
+100644 56c31bdabe4d577d35235032ff6b66c7af7e1641 3	art/blender/city_horizon_near.blend
+100644 a09346232be4a9dc711653bca6a38b51e88008ca 1	game/scripts/building/WeatherManager.gd
+100644 53af60fc97f65f52342fb7bd361ee00187cb3917 2	game/scripts/building/WeatherManager.gd
+100644 8d39916cd46b4b8e599af74648f1d4460fb95d2a 3	game/scripts/building/WeatherManager.gd
+100644 503aeb50f2c44a593fcf5800508c98fb2ab3d5cb 1	game/scripts/building/orison_v2_lamp_atmosphere.gd
+100644 588fb370a28d80ca99e700c834b0cd8935ebce0b 2	game/scripts/building/orison_v2_lamp_atmosphere.gd
+100644 b46731cb256b6c11bbec73d75b523e351c4a7343 3	game/scripts/building/orison_v2_lamp_atmosphere.gd
+100644 6ad26312db0a6a7cb28f256d18bfbd8220262e92 1	game/scripts/building/v2_city_day_night_director.gd
+100644 8d39b8b20f58e3fcde2d8ca7fe3072ba3679f0fe 2	game/scripts/building/v2_city_day_night_director.gd
+100644 0c266b5e2e7db6593ef733dc681ec29028103dc4 3	game/scripts/building/v2_city_day_night_director.gd
+100644 5623fdb159f487999f3d1d1074b8de03c6e5cae4 1	game/scripts/building/v2_weather_fx.gd
+100644 a9a773be90bd8387c263c54a5a0c9fdc082edd0e 2	game/scripts/building/v2_weather_fx.gd
+100644 81685bb66faa68032c76f4b9ee1e9d3ecf1df97b 3	game/scripts/building/v2_weather_fx.gd
+100644 3545cfe274784e154c1a8f3e8b71465f8253f51a 1	game/scripts/building/weather_fx.gd
+100644 944cd5160342e50c65ff7a15dce80e2f55688e49 2	game/scripts/building/weather_fx.gd
+100644 7026eab37236feaef9a901251a2565f917414474 3	game/scripts/building/weather_fx.gd
+100644 8d4267896e8224619b19f0c7a3179ca7cff5a5c6 1	game/scripts/game/newspaper_catalog.gd
+100644 d063d78870f2b5e32380fafab44399ffa0a7c42e 2	game/scripts/game/newspaper_catalog.gd
+100644 3fe2c8c0738fe42bc74c749da12be28f8909fdb4 3	game/scripts/game/newspaper_catalog.gd
+100644 640419e8411ecd1ec5aee4403f530d877f7d1b73 1	game/scripts/game/reality_game_state.gd
+100644 b141081053b36f016d868d4a11e2b0df118bda79 2	game/scripts/game/reality_game_state.gd
+100644 da5f71f413e2700b5211d712931204965ce43779 3	game/scripts/game/reality_game_state.gd
+100644 28f3c6cfab82dd773875b2183fd2b1e1c046a1c9 1	game/tests/fixtures/orison_city_horizon.json
+100644 853d4e5467285c03a1aee7e61b34119272eb7d24 2	game/tests/fixtures/orison_city_horizon.json
+100644 8b29d078db3f469984a5da06a302d47eb0956e45 3	game/tests/fixtures/orison_city_horizon.json
+100644 24b4c75dd47b76fc88b11786544ec7e6cbe83b05 1	tools/orison_spatial_dependency_manifest.json
+100644 52e0b711ab777160a6bd10c5922890d82e9182b2 2	tools/orison_spatial_dependency_manifest.json
+100644 9ea0d72e5b2ce697ffefe21ee0dec7d976fffc51 3	tools/orison_spatial_dependency_manifest.json
+
+Auto-merging .gitattributes
+CONFLICT (content): Merge conflict in .gitattributes
+Auto-merging art/blender/city_horizon_construction.json
+CONFLICT (content): Merge conflict in art/blender/city_horizon_construction.json
+warning: Cannot merge binary files: art/blender/city_horizon_far.blend (HEAD vs. origin/main)
+Auto-merging art/blender/city_horizon_far.blend
+CONFLICT (content): Merge conflict in art/blender/city_horizon_far.blend
+warning: Cannot merge binary files: art/blender/city_horizon_near.blend (HEAD vs. origin/main)
+Auto-merging art/blender/city_horizon_near.blend
+CONFLICT (content): Merge conflict in art/blender/city_horizon_near.blend
+Auto-merging game/scripts/building/WeatherManager.gd
+CONFLICT (content): Merge conflict in game/scripts/building/WeatherManager.gd
+Auto-merging game/scripts/building/orison_v2_lamp_atmosphere.gd
+CONFLICT (content): Merge conflict in game/scripts/building/orison_v2_lamp_atmosphere.gd
+Auto-merging game/scripts/building/orison_v2_runtime_root.gd
+Auto-merging game/scripts/building/v2_city_day_night_director.gd
+CONFLICT (content): Merge conflict in game/scripts/building/v2_city_day_night_director.gd
+Auto-merging game/scripts/building/v2_weather_fx.gd
+CONFLICT (content): Merge conflict in game/scripts/building/v2_weather_fx.gd
+Auto-merging game/scripts/building/weather_fx.gd
+CONFLICT (content): Merge conflict in game/scripts/building/weather_fx.gd
+Auto-merging game/scripts/characters/orison_v2_mina_routine.gd
+Auto-merging game/scripts/game/newspaper_catalog.gd
+CONFLICT (content): Merge conflict in game/scripts/game/newspaper_catalog.gd
+Auto-merging game/scripts/game/reality_game_state.gd
+CONFLICT (content): Merge conflict in game/scripts/game/reality_game_state.gd
+Auto-merging game/scripts/ui/newspaper_panel.gd
+Auto-merging game/tests/fixtures/orison_city_horizon.json
+CONFLICT (content): Merge conflict in game/tests/fixtures/orison_city_horizon.json
+Auto-merging tools/audit_data_consumption.py
+Auto-merging tools/audit_period_dates.py
+Auto-merging tools/orison_spatial_dependency_manifest.json
+CONFLICT (content): Merge conflict in tools/orison_spatial_dependency_manifest.json
+Auto-merging tools/tests/test_v2_surface_requirements.py

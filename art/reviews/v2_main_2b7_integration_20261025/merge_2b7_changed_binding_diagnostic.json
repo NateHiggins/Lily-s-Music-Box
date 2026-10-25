@@ -1,0 +1,10 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Declared bindings to incoming-changed sources only; binary hashes raw, json/py/gd LF; supersedes invalid all-binary-normalized first diagnostic",
+  "wrong": [
+    {
+      "recipe": "art/blender/household_fridges_construction.json",
+      "source": "game/scripts/props/fridge_prop.gd"
+    }
+  ]
+}

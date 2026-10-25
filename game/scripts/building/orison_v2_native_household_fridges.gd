@@ -47,8 +47,15 @@ func install_on(prop: FridgeProp) -> bool:
 		draw.set_meta("native_fridge_part", part.name)
 		draw.set_meta("material_key", part.key)
 		owner.add_child(draw)
+	if not install_foods(prop): return false
+	prop.set_meta("v2_native_fridge_variant", variant)
+	return true
+
+## Dress every plain larder item on the prop in its native food stock. Items
+## already dressed are left alone, so a restock dresses only the new rows.
+func install_foods(prop: FridgeProp) -> bool:
 	for child: Node in prop.get_children():
-		if not child.has_meta("source_larder_item"): continue
+		if not child.has_meta("source_larder_item") or child.has_meta("native_larder_variant"): continue
 		var item := child as MeshInstance3D
 		var source: Array = item.get_meta("source_larder_item")
 		var matches := _foods.filter(func(row): return row.source_id == source[0] and is_equal_approx(float(row.width),float(source[2])) and is_equal_approx(float(row.height),float(source[3])))
@@ -86,5 +93,4 @@ func install_on(prop: FridgeProp) -> bool:
 			label.rotation.y = PI
 			item.add_child(label)
 		item.set_meta("native_larder_variant", prototype.id)
-	prop.set_meta("v2_native_fridge_variant", variant)
 	return true

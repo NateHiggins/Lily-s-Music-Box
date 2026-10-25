@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 82.88,
+  "exit_code": -1,
+  "finished_utc": "2026-10-25T12:08:15Z",
+  "started_utc": "2026-10-25T12:06:52Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Trying to assign value of type 'Nil' to a variable of type 'Dictionary'."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/merge_2b7_runtime/V2SaveUtf8Probe.log.stderr",
+  "stderr_sha256": "2b01051ffa2ee43e1327fd42b297b87b01a197ae6c2c8a4882248d898934ce6e",
+  "stdout": "C:/ov/reports/v2integration24/merge_2b7_runtime/V2SaveUtf8Probe.log",
+  "stdout_sha256": "105c8475a495681189d35bb4aa1ace2a76165bdd46c5469ef9c1a04acaa199c3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2SaveUtf8Probe.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\V2SaveUtf8Probe",
+ "source": {
+  "dirty_paths": 2370,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  art/blender/city_horizon_construction.json",
+   "M  art/blender/city_horizon_far.blend",
+   "M  art/blender/city_horizon_near.blend",
+   " M art/blender/household_fridges.blend",
+   " M art/blender/household_fridges_construction.json",
+   " M art/data/household_fridges/source_plan.json",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/3A_F03_A_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/3A_F03_A_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/3B_F03_B_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/3B_F03_B_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/4A_F04_A_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/4A_F04_A_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5A_F05_A_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5A_F05_A_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5B_F05_B_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5B_F05_B_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5C_F05_C_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5C_F05_C_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/6A_F06_A_BATH.png"
+  ],
+  "repository_head": "93f1b733122cd694623f81e3ac9028bbc356323e",
+  "repository_tree": "b4c298c198e9b7a174f1531c308eb5c232afd169",
+  "runtime_inputs_sha256": "39a1716cdecabc94ab7ec15296596706fc4c45dccf6b2ad501416effec2ebb2e",
+  "test_path": "game/tests/v2_save_utf8_probe.gd",
+  "test_sha256": "0adaa64d2f69ca98974b60b5fa325993dee769d3d42ecb089283d74a14ed0b5d"
+ },
+ "windowed": true
+}

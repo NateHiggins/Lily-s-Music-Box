@@ -192,12 +192,12 @@ static func gpu_precipitation(parent_camera: Camera3D,motion: Shader,draw_shader
 		result.append(emitter)
 	return result
 
-func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,outdoors: bool) -> void:
+func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,outdoors: bool,wind_gain := 1.0) -> void:
 	# Called by existing WeatherFX. Reuse its roof/ceiling exposure authority.
 	for kind in mini(emitters.size(),4):
 		var emitter := emitters[kind]
-		emitter.global_transform=Transform3D(Basis.IDENTITY,camera_position_m+Vector3.UP*8.0-wind_mps*0.30)
+		emitter.global_transform=Transform3D(Basis.IDENTITY,camera_position_m+Vector3.UP*8.0-wind_mps*wind_gain*0.30)
 		emitter.amount_ratio=clampf(weights[kind],0.0,1.0)
 		emitter.emitting=outdoors and weights[kind]>0.005
 		emitter.visible=outdoors
-		(emitter.process_material as ShaderMaterial).set_shader_parameter("wind_mps",wind_mps)
+		(emitter.process_material as ShaderMaterial).set_shader_parameter("wind_mps",wind_mps*wind_gain)

@@ -171,6 +171,7 @@ float soft_union(float a,float b,float k) {
     float h=clamp(.5+.5*(b-a)/k,0.0,1.0);
     return mix(b,a,h)-k*h*(1.0-h);
 }
+#include "res://shaders/sky_spectacle.gdshaderinc"
 float cloud_object(vec3 p) {
     // Soft SDFs. Noise breaks the contour before it contributes to density.
     if (shape_kind==1) {
@@ -195,13 +196,15 @@ float cloud_object(vec3 p) {
     }
     return ship;
 }
-float density(vec3 p) {
+float density_tagged(vec3 p,out float fire) {
+    fire=0.0;
     float base=wx_cloud_base();
     float thickness=mix(0.60,3.0,season_weights.z);
     vec3 advected=wx_cyclone_warp(p-wind_offset);
     float bottom=base;
     if(wx_formation==1) bottom=mix(base,wx_asperitas_bottom(advected,base),wx_formation_strength);
     vec3 q=advected;
+    if(spectacle[S_ASPERITAS]>0.0) q.y-=asperitas_shift(p)*spectacle[S_ASPERITAS];
     if(wx_formation==2) q=mix(q,wx_fluctus_warp(q,base,base+thickness),wx_formation_strength);
     float h=(q.y-bottom)/thickness;
     float deck=smoothstep(0.0,0.12,h)*(1.0-smoothstep(0.72,1.0,h));
@@ -211,12 +214,24 @@ float density(vec3 p) {
         vec2 n=textureLod(cloud_noise,q*scale,0.0).rg;
         float erosion=textureLod(cloud_noise,q*scale*4.3,0.0).g;
         float cover=max(cloud_coverage,0.96*max(vortex_intensity,wx_cyclone));
+        cover=max(cover,0.82*spectacle[S_ASPERITAS]);
         if(wx_formation==1) cover=max(cover,0.96*wx_formation_strength);
         float shape=clamp((n.r-mix(0.70,0.34,cover))/0.14,0.0,1.0);
         float sheet=max(season_weights.x,max(wx_hail,max(wx_cyclone,vortex_intensity)));
         if(wx_formation==1) sheet=max(sheet,wx_formation_strength);
         shape=mix(shape,0.94,smoothstep(0.65,0.95,cover)*sheet);
         result=max(0.0,shape-(1.0-erosion)*mix(0.55,0.07,sheet))*deck;
+    }
+    if(spectacle[S_FALLSTREAK]>0.0) {
+        float streak;
+        float hole=fallstreak(p,streak);
+        result=max(mix(result,result*hole,spectacle[S_FALLSTREAK]),streak*.5*spectacle[S_FALLSTREAK]);
+    }
+    if(spectacle[S_VIRGA]>0.0) result=max(result,virga(p)*spectacle[S_VIRGA]);
+    if(spectacle[S_MAMMATUS]>0.0 && p.y<1.42 && p.y>.85) {
+        float pouches=mammatus(p)*spectacle[S_MAMMATUS];
+        fire=pouches/max(max(result,pouches),.001);
+        result=max(result,pouches);
     }
     if(wx_formation==3) result=max(result,wx_lenticular_density(p)*wx_formation_strength);
     if(wx_formation==2) result=max(result,wx_fluctus_density(p)*wx_formation_strength);
@@ -229,9 +244,15 @@ float density(vec3 p) {
     result*=mix(0.85,1.5,max(season_weights.x,max(storm_strength,wx_hail)));
     return max(result,wx_vortex_density(p,base));
 }
-vec4 volumetric_clouds(vec3 direction,vec2 screen_uv) {
+float density(vec3 p) {
+    float fire;
+    return density_tagged(p,fire);
+}
+vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     vec3 ro=wx_camera_km;
     float base=wx_cloud_base();
+    if(spectacle[S_MAMMATUS]>0.0) base=min(base,.88);
+    if(spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]>0.0) base=min(base,.40);
     float ceiling=base+mix(0.60,3.0,season_weights.z);
     if(shape_kind>0 && shape_opacity>0.0) ceiling=max(ceiling,3.15);
     if(wx_formation==3) ceiling=max(ceiling,wx_lens_center.y+0.55);
@@ -286,7 +307,8 @@ vec4 volumetric_clouds(vec3 direction,vec2 screen_uv) {
         ds=min(ds,finish-t);
         if(ds<0.000001) { t+=0.000001; continue; }
         vec3 p=ro+direction*(t+ds*(0.25+0.50*jitter));
-        float d=density(p);
+        float fire;
+        float d=density_tagged(p,fire);
         if(d>0.002) {
             // Every light tap calls the same density, including funnel and lenses.
             float tau_sun=6.0*(density(p+source*0.12)*0.12+density(p+source*0.35)*0.23);
@@ -299,12 +321,26 @@ vec4 volumetric_clouds(vec3 direction,vec2 screen_uv) {
             float alpha=1.0-exp(-6.0*d*ds);
             float h=clamp((p.y-base)/max(ceiling-base,0.1),0.0,1.0);
             vec3 lit=wx_powder_light(d,tau_sun,dot(direction,source),h,celestial_color*day,ambient,source);
+            float gold=smoothstep(.24,0.0,source.y)*smoothstep(-.10,.01,source.y);
+            lit=mix(lit,mix(ambient*.30,vec3(1.0,.40,.14)*(.35+.8*exp(-tau_sun)),gold),fire*.9);
+            lit*=1.0-.9*noctilucent_light()*spectacle[S_NOCTILUCENT];
+            lit*=mix(vec3(1.0),vec3(.80,.60,.38),spectacle[S_HABOOB]);
             sum+=transmittance*alpha*lit;
             transmittance*=1.0-alpha;
         }
         t+=ds;
     }
     return vec4(sum,1.0-transmittance); // Already premultiplied: do not multiply alpha twice.
+}
+vec4 volumetric_clouds(vec3 direction,vec2 screen_uv) {
+    vec4 deck=wx_volumetric_clouds(direction,screen_uv);
+    if(direction.y<.005) return deck;
+    float jitter=fract(sin(dot(screen_uv*vec2(1280.0,720.0),vec2(12.9898,78.233))+temporal_phase*13.17)*43758.5453);
+    float near_t;
+    vec4 objects=spectacle_objects(direction,jitter,near_t)*smoothstep(.005,.03,direction.y);
+    float start=wx_cloud_base()/max(direction.y,.035);
+    if(near_t<start) return vec4(objects.rgb+deck.rgb*(1.0-objects.a),objects.a+deck.a*(1.0-objects.a));
+    return vec4(deck.rgb+objects.rgb*(1.0-deck.a),deck.a+objects.a*(1.0-deck.a));
 }
 void sky() {
     if (AT_CUBEMAP_PASS) {
@@ -324,7 +360,9 @@ void sky() {
         vec3 cirrus_color=fog_horizon_color*1.4+celestial_color*.12;
         if(wx_formation==4) cirrus_color*=wx_nacreous(EYEDIR,normalize(sun_direction),texture(cirrus_tex,uv).r);
         base=mix(base,cirrus_color,cirrus);
+        base=spectacle_behind(EYEDIR,base);
         vec3 combined=base*(1.0-HALF_RES_COLOR.a)+HALF_RES_COLOR.rgb;
+        combined=spectacle_front(EYEDIR,combined,HALF_RES_COLOR.a);
         float rho=mix(0.00035,0.045,wx_whiteout);
         float tau=wx_height_tau(wx_camera_km.y*1000.0,max(EYEDIR.y,0.0),3000.0,rho,140.0);
         COLOR=mix(combined,wx_haze_color(normalize(sun_direction)),1.0-exp(-tau));

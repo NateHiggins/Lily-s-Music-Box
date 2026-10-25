@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 563.27,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T12:04:50Z",
+  "started_utc": "2026-10-25T11:55:27Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/merge_2b7_runtime/import1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2integration24/merge_2b7_runtime/import1.log",
+  "stdout_sha256": "01c4de0142e22bf29387bb2ff1368928f5263923355c5fddae2d13e5e44b01df"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 2370,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  art/blender/city_horizon_construction.json",
+   "M  art/blender/city_horizon_far.blend",
+   "M  art/blender/city_horizon_near.blend",
+   " M art/blender/household_fridges.blend",
+   " M art/blender/household_fridges_construction.json",
+   " M art/data/household_fridges/source_plan.json",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/3A_F03_A_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/3A_F03_A_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/3B_F03_B_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/3B_F03_B_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/4A_F04_A_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/4A_F04_A_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5A_F05_A_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5A_F05_A_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5B_F05_B_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5B_F05_B_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5C_F05_C_BATH.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/5C_F05_C_MAIN.png",
+   "M  art/renders/orison_v2/access_upper_cohort_20261018/6A_F06_A_BATH.png"
+  ],
+  "repository_head": "93f1b733122cd694623f81e3ac9028bbc356323e",
+  "repository_tree": "b4c298c198e9b7a174f1531c308eb5c232afd169",
+  "runtime_inputs_sha256": "39a1716cdecabc94ab7ec15296596706fc4c45dccf6b2ad501416effec2ebb2e",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

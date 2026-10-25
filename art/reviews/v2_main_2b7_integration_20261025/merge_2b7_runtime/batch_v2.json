@@ -1,0 +1,26 @@
+[
+  {
+    "scene": "res://tests/RealitySaveCompatTest.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\RealitySaveCompatTest.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\RealitySaveCompatTest"
+  },
+  {
+    "scene": "res://tests/RealityBackgroundSaveTest.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\RealityBackgroundSaveTest.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\RealityBackgroundSaveTest"
+  },
+  {
+    "scene": "res://tests/ResidentKeysTest.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\ResidentKeysTest.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\ResidentKeysTest"
+  }
+]

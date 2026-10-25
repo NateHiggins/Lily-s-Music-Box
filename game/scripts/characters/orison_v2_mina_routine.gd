@@ -73,6 +73,8 @@ func setup(root: Node3D) -> bool:
 		_doors.append(door)
 	_capsule.radius = .28
 	_capsule.height = 1.40 # 25 cm step clearance, 1.65 m total standing height.
+	# The agenda may bend her timetable, but only to places her route reaches.
+	if world.get("resident_agenda") != null: world.resident_agenda.restrict("mina_vale",places.keys())
 	_select_destination()
 	if desired_id < 0: return false
 	current_id = desired_id
@@ -95,8 +97,10 @@ func _point(identity: String, point: Vector3) -> int:
 func _select_destination() -> void:
 	var info: Dictionary = world.campaign_clock.day_info()
 	if not info.get("valid",false): return
-	var block: Dictionary = world.resident_presence.resolve("mina_vale",str(info.day),
-			world.campaign_clock.minute_of_day(),int(info.doy),bool(info.first_sat))
+	var block: Dictionary = world.resident_whereabouts("mina_vale") if world.has_method("resident_whereabouts") else {}
+	if block.is_empty():
+		block = world.resident_presence.resolve("mina_vale",str(info.day),
+				world.campaign_clock.minute_of_day(),int(info.doy),bool(info.first_sat))
 	destination = str(block.get("place","unit"))
 	desired_id = int(identities.get(places.get(destination,""),-1))
 	route_speed = 1.42 if destination == "bodega" and world.campaign_clock.minute_of_day() >= 1420 else 1.05

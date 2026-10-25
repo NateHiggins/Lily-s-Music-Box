@@ -74,6 +74,15 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "maintenance_activities.json": frozenset({"activities"}),
     # OrisonV2UpperFloorDoors: source.doors[identity].
     "orison_v2/upper_floor_programs.json": frozenset({"doors"}),
+    # ResidentAgenda: needs/activities/places/residents keyed by need,
+    # activity, place and resident; each value's fields are read by name.
+    "resident_motives.json": frozenset({"needs", "activities", "activities[]", "places", "places[]",
+                                        "residents", "residents[].shadow[].needs",
+                                        "residents[].growth[].needs"}),
+    # KitchenLarder/CookbookPanel: shops, ingredients and icebox looks keyed
+    # by id; household recipes keyed by ingredient. Record fields read by name.
+    "kitchen/groceries.json": frozenset({"shops", "ingredients", "icebox_looks", "pantry_looks", "pantry_shapes", "household.lighting",
+                                         "household.washing_up", "household.plain_supper"}),
     # OrisonV2MinaRoutine: places.get(destination).
     "orison_v2/mina_routine.json": frozenset({"places"}),
     # ResidentConversations/CaseDialoguePanel: nodes[node_id] by authored id;

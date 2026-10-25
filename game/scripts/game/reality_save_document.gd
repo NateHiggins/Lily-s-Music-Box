@@ -14,6 +14,13 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("caretaker_economy")
 	if candidate.has("door_keys") and not preload("res://scripts/game/door_keyring.gd").valid(candidate.door_keys):
 		return _invalid_shape("door_keys")
+	if candidate.has("household_larders") and not preload("res://scripts/game/kitchen_larder.gd").valid(candidate.household_larders):
+		return _invalid_shape("household_larders")
+	if candidate.has("inventories") and not preload("res://scripts/game/person_inventory.gd").valid(candidate.inventories):
+		return _invalid_shape("inventories")
+	if candidate.has("inventories") and candidate.has("door_keys") and int(candidate.door_keys.get("version", 0)) == 2 \
+			and not preload("res://scripts/game/person_inventory.gd").consistent(candidate.inventories, candidate.door_keys):
+		return _invalid_shape("inventories spare")
 	for key in ["cases", "building_personality", "work_orders", "maintenance_jobs",
 			"maintenance_items", "open_shift_situations", "shop_buckets", "exterior_semantics",
 			"organism_incidents", "core_loop", "first_shift", "dream", "sleep_pressure", "waking_residues",

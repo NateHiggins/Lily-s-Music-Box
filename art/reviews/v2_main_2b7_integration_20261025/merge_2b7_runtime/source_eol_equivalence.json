@@ -1,0 +1,90 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Post-diagnostic LF-only normalization for hash-bound source; no arithmetic or logic changes. Existing executed snapshots retain original bytes. Not runtime qualification.",
+  "files": [
+    {
+      "path": "game/scripts/game/reality_save_document.gd",
+      "changed_eol_only": true,
+      "before_sha256": "ed9cd9d0207c1f78a8e1c0a834221b9c686bd69f0e51ddcd4664b0525f05235a",
+      "after_sha256": "449d2a188df8167cf4b7da9bc66e723dd9ba1a274cf55f54c28bf78aba256bff",
+      "lf_sha256": "449d2a188df8167cf4b7da9bc66e723dd9ba1a274cf55f54c28bf78aba256bff"
+    },
+    {
+      "path": "game/shaders/sky_spectacle.gdshaderinc",
+      "changed_eol_only": true,
+      "before_sha256": "966056a07b1eb0843ae38c2d2e2c2d41e8f0a1303c02d12466daee18904d227b",
+      "after_sha256": "838900d88282f2425ff6a42e0936bb186e915b681c2ed0ea970a82cc585a4518",
+      "lf_sha256": "838900d88282f2425ff6a42e0936bb186e915b681c2ed0ea970a82cc585a4518"
+    },
+    {
+      "path": "game/shaders/queens_weather_sky.gdshader",
+      "changed_eol_only": true,
+      "before_sha256": "e0a271f650885b20547fdede2b7601d4c1e46c0a0b384b24941d53c5b9089bc2",
+      "after_sha256": "86d08254580ee3929eb36e230c2642963760ca3b95fdccd61493b6a8d0919a05",
+      "lf_sha256": "86d08254580ee3929eb36e230c2642963760ca3b95fdccd61493b6a8d0919a05"
+    },
+    {
+      "path": "game/shaders/queens_weather_air.gdshader",
+      "changed_eol_only": true,
+      "before_sha256": "b8eb8ea62fd722609d26407593d4650cc080326b53377f28161763ad1b9dea5f",
+      "after_sha256": "df37fc139dad1a9f01738a1adbb75da22b4ae7536ef4acd6aeac99b286a53985",
+      "lf_sha256": "df37fc139dad1a9f01738a1adbb75da22b4ae7536ef4acd6aeac99b286a53985"
+    },
+    {
+      "path": "game/shaders/v2_seasonal_sky.gdshader",
+      "changed_eol_only": true,
+      "before_sha256": "39596c88d6377aa110fa576db1de11b11451fb169d66fec1de091cbda7479037",
+      "after_sha256": "aa78f6dc3be02cd92149ffdf9d614358c00337d22a7c70ba6ae60b1bf70c8cc9",
+      "lf_sha256": "aa78f6dc3be02cd92149ffdf9d614358c00337d22a7c70ba6ae60b1bf70c8cc9"
+    },
+    {
+      "path": "game/scripts/building/WeatherManager.gd",
+      "changed_eol_only": true,
+      "before_sha256": "234505da27ed92efcf0e6b79a4220de877ae666b2085b1d8e105b018d557e920",
+      "after_sha256": "92a337e5e0e414fdbe887ac596e899e0f60d8cd2b6a6662fd97cdddb485f7d24",
+      "lf_sha256": "92a337e5e0e414fdbe887ac596e899e0f60d8cd2b6a6662fd97cdddb485f7d24"
+    },
+    {
+      "path": "game/scripts/building/orison_v2_lamp_atmosphere.gd",
+      "changed_eol_only": true,
+      "before_sha256": "a627b53e848605a54113f2b50f2778e1c84a3d0b74323b511c294551bed9b18d",
+      "after_sha256": "b1c872e9f6b891ee522559df216ec405ccd331268f4f73e9fd22bdb7923ab266",
+      "lf_sha256": "b1c872e9f6b891ee522559df216ec405ccd331268f4f73e9fd22bdb7923ab266"
+    },
+    {
+      "path": "game/scripts/building/v2_city_day_night_director.gd",
+      "changed_eol_only": true,
+      "before_sha256": "85577361f63b8f8bb256d403580f982dc6df497d34ccc6b5acbd42d54115f33c",
+      "after_sha256": "93e2e8fe21274f63da710e288b236d592a95f23fe87c0877ed1273a6c6151235",
+      "lf_sha256": "93e2e8fe21274f63da710e288b236d592a95f23fe87c0877ed1273a6c6151235"
+    },
+    {
+      "path": "game/scripts/building/v2_weather_fx.gd",
+      "changed_eol_only": true,
+      "before_sha256": "070bf4641805f60cefbe80ffbaf393154b16a6c01a8102542b71f362f233bb41",
+      "after_sha256": "d9e095f62ffad805ec34d76b986df91b4ab6fc477935d6b99b87c8133de70c02",
+      "lf_sha256": "d9e095f62ffad805ec34d76b986df91b4ab6fc477935d6b99b87c8133de70c02"
+    },
+    {
+      "path": "game/scripts/building/weather_fx.gd",
+      "changed_eol_only": true,
+      "before_sha256": "27cd550560e8230a8b5af2b7d75efe8e7e37d78755a580aedf410937aaefa19e",
+      "after_sha256": "00339823a0dbe1b20c934fd53272c5b4659867b348509a6937d6d2c71374b637",
+      "lf_sha256": "00339823a0dbe1b20c934fd53272c5b4659867b348509a6937d6d2c71374b637"
+    },
+    {
+      "path": "game/scripts/game/newspaper_catalog.gd",
+      "changed_eol_only": true,
+      "before_sha256": "04f1e22fa0ea5af64822b983fd0cf8b8ae0b7dab90408944bb94c9871712e4d6",
+      "after_sha256": "b46a22713a9c79782e475795148b904cb4a51e1c221f7da7d3735e774569bc92",
+      "lf_sha256": "b46a22713a9c79782e475795148b904cb4a51e1c221f7da7d3735e774569bc92"
+    },
+    {
+      "path": "game/scripts/game/reality_game_state.gd",
+      "changed_eol_only": true,
+      "before_sha256": "646b65e21830ef168354deb0b16a065fd74312d4b080337e4a987f3fc5b6a266",
+      "after_sha256": "a909992241dab8ce23ca505e993ecf46f59855bc2d23b5fb353b121e5137fb11",
+      "lf_sha256": "a909992241dab8ce23ca505e993ecf46f59855bc2d23b5fb353b121e5137fb11"
+    }
+  ]
+}

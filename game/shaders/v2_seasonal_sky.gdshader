@@ -42,8 +42,6 @@ uniform vec3 wind_offset = vec3(0.0);
 uniform int shape_kind = 0;
 uniform float shape_opacity = 0.0;
 uniform float temporal_phase = 0.0;
-
-
 vec3 celestial_base(vec3 direction) {
 	float u = atan(direction.z, direction.x) / (2.0 * PI) + 0.5;
 	// Half-dome source: top edge is zenith; bottom edge is horizon.
@@ -170,6 +168,7 @@ float soft_union(float a,float b,float k) {
     float h=clamp(.5+.5*(b-a)/k,0.0,1.0);
     return mix(b,a,h)-k*h*(1.0-h);
 }
+#include "res://shaders/sky_spectacle.gdshaderinc"
 float cloud_object(vec3 p) {
     // Soft SDFs. Noise breaks the contour before it contributes to density.
     if (shape_kind==1) {
@@ -194,21 +193,36 @@ float cloud_object(vec3 p) {
     }
     return ship;
 }
-float density(vec3 p) {
+float density_tagged(vec3 p,out float fire) {
+    fire=0.0;
     float summer=season_weights.z;
     float winter=season_weights.x;
-    float height=clamp((p.y-1.25)/mix(.60,3.0,summer),0.0,1.0);
+    vec3 pd=p;
+    if (spectacle[S_ASPERITAS]>0.0) pd.y-=asperitas_shift(p)*spectacle[S_ASPERITAS];
+    float height=clamp((pd.y-1.25)/mix(.60,3.0,summer),0.0,1.0);
     float deck=smoothstep(0.0,.12,height)*(1.0-smoothstep(.72,1.0,height));
     vec3 advected=p-wind_offset;
     float scale=mix(.30,.16,summer);
     vec2 n=textureLod(cloud_noise,advected*scale,0.0).rg;
     float erosion=textureLod(cloud_noise,advected*scale*4.3,0.0).g;
     float cover=clamp(cloud_coverage,0.0,1.0);
+    if (spectacle[S_ASPERITAS]>0.0) cover=max(cover,.82*spectacle[S_ASPERITAS]);
     float threshold=mix(.70,.34,cover);
     float shape=clamp((n.r-threshold)/.14,0.0,1.0);
     // Winter flattens the deck; summer's tall envelope and coarse base form towers.
     float stratus=mix(shape,.9,smoothstep(.65,.95,cover)*winter);
     float result=max(0.0,stratus-(1.0-erosion)*mix(.55,.07,winter))*deck;
+    if (spectacle[S_FALLSTREAK]>0.0) {
+        float streak;
+        float hole=fallstreak(p,streak);
+        result=max(mix(result,result*hole,spectacle[S_FALLSTREAK]),streak*.5*spectacle[S_FALLSTREAK]);
+    }
+    if (spectacle[S_VIRGA]>0.0) result=max(result,virga(p)*spectacle[S_VIRGA]);
+    if (spectacle[S_MAMMATUS]>0.0 && p.y<1.42 && p.y>.85) {
+        float pouches=mammatus(p)*spectacle[S_MAMMATUS];
+        fire=pouches/max(max(result,pouches),.001);
+        result=max(result,pouches);
+    }
     if (shape_kind>0 && shape_opacity>0.0) {
         vec3 q=advected-vec3(1.6,2.3,-2.6);
         float sdf=cloud_object(q);
@@ -218,38 +232,67 @@ float density(vec3 p) {
     }
     return result*mix(.85,1.4,max(winter,storm_strength));
 }
+float density(vec3 p) {
+    float fire;
+    return density_tagged(p,fire);
+}
 vec4 volumetric_clouds(vec3 direction,vec2 screen_uv) {
-    if (direction.y<.035) return vec4(0.0);
-    float start=1.25/direction.y;
-    float ceiling=1.85+3.0*season_weights.z;
-    if (shape_kind>0 && shape_opacity>0.0) ceiling=max(ceiling,3.15);
-    float finish=min(18.0,ceiling/direction.y);
-    int steps=(shape_kind>0 && shape_opacity>0.0) ? 64 : 40;
-    float step_size=(finish-start)/float(steps);
+    if (direction.y<.005) return vec4(0.0);
     // Stratified per-pixel jitter removes slab bands. The engine's TAA owns
     // camera reprojection/history; this shader does not fabricate a history buffer.
     float jitter=fract(sin(dot(screen_uv*vec2(1280.0,720.0),vec2(12.9898,78.233))
         +temporal_phase*13.17)*43758.5453);
-    vec3 sum=vec3(0.0); float transmittance=1.0;
-    vec3 source=normalize(sun_direction);
-    float day=smoothstep(-.12,.1,source.y);
-    vec3 diffuse=mix(fog_horizon_color*.95,vec3(.61,.68,.80),day);
-    for (int i=0;i<64;i++) {
-        if (i>=steps) break;
-        vec3 p=direction*(start+(float(i)+jitter)*step_size);
-        float d=density(p);
-        if (d>.005) {
-            float shadow=exp(-density(p+source*.12)*2.5-density(p+source*.35)*1.4);
-            float alpha=1.0-exp(-d*step_size*5.0);
-            vec3 lit=diffuse*.38+celestial_color*day*shadow*.80;
-            lit+=vec3(.34,.18,.075)*urban_horizon_gain*.12;
-            sum+=lit*alpha*transmittance;
-            transmittance*=1.0-alpha;
-            if (transmittance<.005) break;
+    // Pouches and fallstreaks hang below the deck: start the march lower.
+    float base_low=1.25;
+    if (spectacle[S_MAMMATUS]>0.0) base_low=.88;
+    if (spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]>0.0) base_low=.40;
+    float start=base_low/max(direction.y,.035);
+    vec4 deck=vec4(0.0);
+    if (direction.y>=.035) {
+        float ceiling=1.85+3.0*season_weights.z;
+        if (shape_kind>0 && shape_opacity>0.0) ceiling=max(ceiling,3.15);
+        float finish=min(18.0,ceiling/direction.y);
+        int steps=(shape_kind>0 && shape_opacity>0.0) || base_low<1.25 ? 64 : 40;
+        float step_size=(finish-start)/float(steps);
+        vec3 sum=vec3(0.0); float transmittance=1.0;
+        vec3 source=normalize(sun_direction);
+        float day=smoothstep(-.12,.1,source.y);
+        vec3 diffuse=mix(fog_horizon_color*.95,vec3(.61,.68,.80),day);
+        // Noctilucent twilight leaves the lower clouds black against the glow; an
+        // ash wall browns them; a low sun sets mammatus pouches alight from below.
+        float spectacle_dark=1.0-.9*noctilucent_light()*spectacle[S_NOCTILUCENT];
+        vec3 dust_tint=mix(vec3(1.0),vec3(.80,.60,.38),spectacle[S_HABOOB]);
+        float gold=smoothstep(.24,0.0,source.y)*smoothstep(-.10,.01,source.y);
+        for (int i=0;i<64;i++) {
+            if (i>=steps) break;
+            vec3 p=direction*(start+(float(i)+jitter)*step_size);
+            float fire;
+            float d=density_tagged(p,fire);
+            if (d>.005) {
+                float shadow=exp(-density(p+source*.12)*2.5-density(p+source*.35)*1.4);
+                float alpha=1.0-exp(-d*step_size*5.0);
+                vec3 lit=diffuse*.38+celestial_color*day*shadow*.80;
+                lit+=vec3(.34,.18,.075)*urban_horizon_gain*.12;
+                // Pouches are lit from below by a low sun, dark slate otherwise.
+                lit=mix(lit,mix(diffuse*.30,vec3(1.0,.40,.14)*(.35+.8*shadow),gold),fire*.9);
+                lit*=spectacle_dark*dust_tint*mix(vec3(1.0),vec3(.20,.23,.29),smoothstep(.05,.55,storm_strength));
+                // Asperitas: troughs of the rough sea fall into shadow, crests catch light.
+                if (spectacle[S_ASPERITAS]>0.0) lit*=1.0+asperitas_shift(p)*1.8*spectacle[S_ASPERITAS];
+                sum+=lit*alpha*transmittance;
+                transmittance*=1.0-alpha;
+                if (transmittance<.005) break;
+            }
         }
+        float horizon_fade=smoothstep(.025,.10,direction.y);
+        deck=vec4(sum*horizon_fade,(1.0-transmittance)*horizon_fade);
     }
-    float horizon_fade=smoothstep(.025,.10,direction.y);
-    return vec4(sum*horizon_fade,(1.0-transmittance)*horizon_fade);
+    if (any_objects()) {
+        float near_t;
+        vec4 objects=spectacle_objects(direction,jitter,near_t)*smoothstep(.005,.03,direction.y);
+        if (near_t<start) deck=vec4(objects.rgb+deck.rgb*(1.0-objects.a),objects.a+deck.a*(1.0-objects.a));
+        else deck=vec4(deck.rgb+objects.rgb*(1.0-deck.a),deck.a+objects.a*(1.0-deck.a));
+    }
+    return deck;
 }
 void sky() {
     if (AT_CUBEMAP_PASS) {
@@ -266,6 +309,9 @@ void sky() {
         float cirrus=texture(cirrus_tex,uv).r*high_cloud_strength*mix(.16,.45,season_weights.w);
         cirrus*=smoothstep(.04,.18,EYEDIR.y);
         base=mix(base,fog_horizon_color*1.4+celestial_color*.12,cirrus);
+        base=spectacle_behind(EYEDIR,base);
+        base*=mix(vec3(1.0),vec3(.42,.45,.52),smoothstep(.05,.55,storm_strength));
         COLOR=base*(1.0-HALF_RES_COLOR.a)+HALF_RES_COLOR.rgb;
+        COLOR=spectacle_front(EYEDIR,COLOR,HALF_RES_COLOR.a);
     }
 }

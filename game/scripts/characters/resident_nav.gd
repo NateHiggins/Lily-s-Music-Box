@@ -41,6 +41,8 @@ const PASSAGE_PLACES := {
 	"luncheonette": "SITE_SHOP_DOOR_LUNCHEONETTE",
 	"news_cigars": "SITE_SHOP_DOOR_NEWS_CIGARS",
 	"photo_supplies": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+	"otis_son": "SITE_SHOP_DOOR_OTIS___SON",
+	"hardware_paint": "SITE_SHOP_DOOR_HARDWARE_PAINT",
 }
 
 var floors := {}      # floor_id -> {astar: AStar3D, nodes: [...], z: float}

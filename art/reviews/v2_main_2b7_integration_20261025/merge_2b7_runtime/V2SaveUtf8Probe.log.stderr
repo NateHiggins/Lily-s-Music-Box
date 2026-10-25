@@ -1,0 +1,8 @@
+ERROR: Parse JSON failed. Error at line 0: Unknown error getting token
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tests/v2_save_utf8_probe.gd:7)
+SCRIPT ERROR: Trying to assign value of type 'Nil' to a variable of type 'Dictionary'.
+   at: _ready (res://tests/v2_save_utf8_probe.gd:7)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tests/v2_save_utf8_probe.gd:7)

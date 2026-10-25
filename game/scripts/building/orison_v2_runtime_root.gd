@@ -47,6 +47,8 @@ var newspapers: NewspaperCatalog
 ## anchor), at a reachable shelf height above its base.
 const PLAYER_SHELF_ANCHOR := "4B_shelf"
 const SHELF_PAPERS_HEIGHT := 1.0
+const COOKBOOK_TABLE := "KitchenPrep_4B"
+const COOKBOOK_AT := Vector3(0.33, 0.9, -0.13)
 var boiler_tend: BoilerTend
 var heat_balance: HeatBalance
 var mirror_renderer: PlanarMirrorRenderer
@@ -56,6 +58,11 @@ var wayfinding: Wayfinding
 var open_shift_ecosystem: Node
 var observation_ledger: NpcObservationLedger
 var resident_presence: ScheduleDirector
+## Where residents actually go and why: the timetable bent by needs, weather,
+## story and the player (design/ORISON_RESIDENT_AGENDA_2026-10-24.md).
+var resident_agenda: ResidentAgenda
+var _iceboxes: Array[Node] = []
+var _pantries: Dictionary = {}
 var mina_routine: Node3D
 var campaign_clock: CampaignClock
 var corruption_lineages: CorruptionLineageRegistry
@@ -694,6 +701,22 @@ func _compose_authorities() -> void:
 	var kitchen_prep:=preload("res://scripts/building/orison_v2_kitchen_prep.gd").new()
 	if not kitchen_prep.mount(self):
 		startup_failed=true;push_error("V2 kitchen preparation refused: %s" % [kitchen_prep.errors]);return
+	# The house cookbook lies shut on 4B's work table beside the bowl.
+	var prep_4b := adapter.root.get_node_or_null(COOKBOOK_TABLE) as Node3D
+	if prep_4b != null and resident_agenda != null and resident_agenda.larder != null:
+		var cookbook := CookbookProp.new()
+		cookbook.name = "Cookbook"
+		cookbook.setup(resident_agenda.larder)
+		prep_4b.add_child(cookbook)
+		cookbook.position = COOKBOOK_AT
+		cookbook.rotation.y = 0.12
+	else:
+		push_warning("ORISON V2 RUNTIME: no cookbook; %s or the larders are missing" % COOKBOOK_TABLE)
+	if resident_agenda != null and resident_agenda.larder != null:
+		_mount_pantries(kitchen_prep.source)
+		resident_agenda.larder.changed.connect(_restock_icebox)
+		for unit: String in resident_agenda.larder.state.units:
+			_restock_icebox(unit)
 	var kitchen_plumbing:=preload("res://scripts/building/orison_v2_kitchen_plumbing.gd").new()
 	if not kitchen_plumbing.mount(self):
 		startup_failed=true;push_error("V2 kitchen plumbing refused: %s" % [kitchen_plumbing.errors]);return
@@ -946,6 +969,20 @@ func _compose_observation_ledger() -> void:
 	resident_presence.name = "ResidentPresenceTimetable"
 	add_child(resident_presence)
 	resident_presence.setup(null, layout)
+	resident_agenda = ResidentAgenda.new()
+	resident_agenda.name = "ResidentAgenda"
+	add_child(resident_agenda)
+	if not resident_agenda.setup(resident_presence, Callable(self, "weather_conditions"),
+			Callable(self, "player_agenda_place"), RealityState.has_knowledge,
+			RealityState.resident_trust):
+		push_warning("ORISON V2 RUNTIME: resident agenda unavailable; residents keep the bare timetable")
+	else:
+		# Every household's pantry and icebox, kept on the campaign save.
+		var kitchens := KitchenLarder.new()
+		if kitchens.load_data(resident_agenda.homes()) and kitchens.bind(RealityState.data, RealityState.commit):
+			resident_agenda.larder = kitchens
+		else:
+			push_warning("ORISON V2 RUNTIME: household larders unavailable: %s" % [kitchens.errors])
 	observation_ledger = NpcObservationLedger.new()
 	observation_ledger.name = "ObservationLedger"
 	add_child(observation_ledger)
@@ -974,7 +1011,9 @@ func resident_is_home(npc: String) -> bool:
 	var info := campaign_clock.day_info()
 	if not bool(info.get("valid", false)):
 		return true
-	var block := resident_presence.resolve(npc, str(info.day),
+	var block := resident_whereabouts(npc)
+	if block.is_empty():
+		block = resident_presence.resolve(npc, str(info.day),
 			campaign_clock.minute_of_day(), int(info.doy),
 			bool(info.first_sat))
 	var place := str(block.get("place", "unit"))
@@ -1158,6 +1197,88 @@ func _exit_tree() -> void:
 	if acoustic_topology!=null: acoustic_topology.release();acoustic_topology=null
 
 	_contact_precision.release()
+
+## Where a resident is now and why: the agenda when it runs, else the bare
+## timetable. Empty when the clock or timetable is unavailable.
+func resident_whereabouts(npc: String) -> Dictionary:
+	if resident_presence == null or campaign_clock == null:
+		return {}
+	var info := campaign_clock.day_info()
+	if not bool(info.get("valid", false)):
+		return {}
+	var minute := campaign_clock.minute_of_day()
+	if resident_agenda != null and resident_agenda.enabled:
+		return resident_agenda.decide(npc, str(info.day), minute, int(info.doy), bool(info.first_sat))
+	return resident_presence.resolve(npc, str(info.day), minute, int(info.doy), bool(info.first_sat))
+
+
+## Every household with a kitchen work table keeps its dry goods along the
+## table's back edge, behind the breadboard and clear of the bowl.
+func _mount_pantries(prep: Dictionary) -> void:
+	var templates := {}
+	for template: Dictionary in prep.get("templates", []):
+		templates[str(template.id)] = template
+	for row: Dictionary in prep.get("stations", []):
+		var unit := str(row.unit)
+		var station := adapter.root.get_node_or_null(str(row.id)) as Node3D
+		if station == null or not templates.has(str(row.template)) \
+				or not resident_agenda.larder.state.units.has(unit):
+			continue
+		var size: Dictionary = templates[str(row.template)]
+		var width := float(size.width)
+		var pantry := PantryDisplay.new()
+		pantry.name = "Pantry"
+		pantry.setup(resident_agenda.larder.groceries.pantry_looks,
+				Vector2(-width * 0.5 + 0.06, width * 0.5 - 0.06),
+				Vector2(width * 0.30 - 0.14, width * 0.30 + 0.14) if bool(row.bowl) else Vector2(INF, INF))
+		station.add_child(pantry)
+		pantry.position = Vector3(0.0, 0.9, float(size.depth) * 0.5 - 0.07)
+		_pantries[unit] = pantry
+
+
+## A household's icebox and pantry show what its larder holds.
+func _restock_icebox(unit: String) -> void:
+	if resident_agenda == null or resident_agenda.larder == null:
+		return
+	if _pantries.has(unit) and is_instance_valid(_pantries[unit]):
+		(_pantries[unit] as PantryDisplay).show_rows(resident_agenda.larder.pantry_rows(unit))
+	if _iceboxes.is_empty():
+		for node: Node in adapter.root.find_children("*", "Node3D", true, false):
+			if node is FridgeProp and node.has_method("show_larder"):
+				_iceboxes.append(node)
+	for node: Node in _iceboxes:
+		if is_instance_valid(node) and str((node as FridgeProp).unit) == unit:
+			node.show_larder(resident_agenda.larder.icebox_rows(unit))
+
+
+## The waking weather as the residents feel it: the atmosphere's live
+## conditions, or nothing (the agenda then uses the seasonal norm).
+func weather_conditions() -> Dictionary:
+	var air := get_node_or_null("WakingAtmosphere")
+	if air == null or air.get("weather_manager") == null:
+		return {}
+	return air.weather_manager.current
+
+
+## The player's whereabouts in the agenda's place grammar, for residents who
+## seek or avoid the night man. "" inside flats, shops and the street.
+func player_agenda_place() -> String:
+	if player == null or not is_instance_valid(player):
+		return ""
+	var room := room_at_world(player.global_position)
+	if room in ["F01_LOBBY", "F01_VESTIBULE", "F01_PUBLIC_CORE", "F01_WATCH"]:
+		return "lobby"
+	if room in ["F01_MAIL_TELEPHONE", "F01_PACKAGE"]:
+		return "mail_bank"
+	if room == "B1_LAUNDRY":
+		return "laundry"
+	if room.begins_with("ROOF_DECK"):
+		return "roof"
+	if unit_of_room(room) == "" and room.begins_with("F0") \
+			and (room.contains("HALL") or room.contains("LANDING") or room.contains("PUBLIC_CORE") or room.contains("GALLERY")):
+		return "corridor:" + room.left(3)
+	return ""
+
 
 ## The apartment the player is standing in, by the same room-id grammar the
 ## keyring uses (F0X_A_* belongs to unit XA); "" in corridors and shops.

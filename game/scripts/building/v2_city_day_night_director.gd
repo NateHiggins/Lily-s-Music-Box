@@ -37,3 +37,10 @@ func _resolve_fog_profile(profile: Dictionary) -> void:
 		profile.fog=fog.lerp(Color(.17,.20,.24),storm*.70).lerp(Color(.78,.83,.88),whiteout)
 		profile.fog_begin=lerpf(float(profile.fog_begin),2.0,whiteout)
 		profile.fog_end=lerpf(float(profile.fog_end),24.0,whiteout)
+	# The Corona ash wall closes the street in sepia, the coal smog's own colour.
+	var dust := clampf(float(_live_conditions.get("dust", 0.0)), 0.0, 1.0)
+	if dust > 0.0:
+		profile.fog = (profile.fog as Color).lerp(Color(.46, .33, .19), dust * .85)
+		profile.fog_begin = lerpf(profile.fog_begin, 4.0, dust)
+		profile.fog_end = lerpf(profile.fog_end, 45.0, dust)
+		profile.key_e *= 1.0 - dust * .7

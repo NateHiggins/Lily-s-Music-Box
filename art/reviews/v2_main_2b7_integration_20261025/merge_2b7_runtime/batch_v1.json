@@ -1,0 +1,62 @@
+[
+  {
+    "scene": "",
+    "runner": "long",
+    "timeout": 600,
+    "extra_args": [
+      "--import"
+    ],
+    "windowed": false,
+    "log": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\import1.log"
+  },
+  {
+    "scene": "",
+    "runner": "long",
+    "timeout": 600,
+    "extra_args": [
+      "--import"
+    ],
+    "windowed": false,
+    "log": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\import2.log"
+  },
+  {
+    "scene": "res://tests/CampaignWeatherTest.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\CampaignWeatherTest.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\CampaignWeatherTest"
+  },
+  {
+    "scene": "res://tests/SkyPhenomenaScheduleTest.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\SkyPhenomenaScheduleTest.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\SkyPhenomenaScheduleTest"
+  },
+  {
+    "scene": "res://tests/ResidentAgendaTest.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\ResidentAgendaTest.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\ResidentAgendaTest"
+  },
+  {
+    "scene": "res://tests/V2SaveUtf8Probe.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\V2SaveUtf8Probe.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\V2SaveUtf8Probe"
+  },
+  {
+    "scene": "res://tests/V2QueensSpectacleBench.tscn",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\queens_spectacle.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\merge_2b7_runtime\\queens_spectacle"
+  }
+]

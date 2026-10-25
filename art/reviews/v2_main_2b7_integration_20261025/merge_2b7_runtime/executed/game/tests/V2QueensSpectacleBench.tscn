@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/v2_sky_spectacle_bench.gd" id="1"]
+
+[node name="V2QueensSpectacleBench" type="Node3D"]
+script = ExtResource("1")
+queens_renderer = true

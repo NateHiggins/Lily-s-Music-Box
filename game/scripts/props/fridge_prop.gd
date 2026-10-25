@@ -397,8 +397,15 @@ func _build_wire_shelf(parent: Node3D, y: float, w: float, d: float,
 const LINER_HALF := {true: 0.277, false: 0.259}   # keyed by monitor_top
 
 
+## What is actually on the shelves when a household larder says so
+## (KitchenLarder.icebox_rows). Until a larder is bound the authored LARDER
+## still life stands; once bound, an empty larder is an empty icebox.
+var larder_items: Array = []
+var larder_bound := false
+
+
 func _build_contents(half_w: float, shelves: Array[float]) -> void:
-	var items: Array = LARDER.get(unit, LARDER.get("4B", []))
+	var items: Array = larder_items if larder_bound else LARDER.get(unit, LARDER.get("4B", []))
 	var local_rng := RandomNumberGenerator.new()
 	local_rng.seed = hash(unit) if unit != "" else 4
 	var inner: float = LINER_HALF[monitor_top]

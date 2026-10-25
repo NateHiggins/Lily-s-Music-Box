@@ -45,12 +45,15 @@ const RACK_DAYS := 4
 const MONTH_NAMES := ["January", "February", "March", "April", "May", "June", "July",
 		"August", "September", "October", "November", "December"]
 const STATE_KEY := "newspapers_collected"
+## The sky the papers noticed: phenomena.json press lines, printed the next morning.
+const SkyPhenomena := preload("res://scripts/building/sky_phenomena.gd")
 
 var papers: Dictionary = {}
 var issues: Dictionary = {}   # "YYYY-MM-DD" -> issue dictionary (record, speaker, weekday)
 var dates: Array[String] = []
 var errors: Array[String] = []
 var _clock: CampaignClock
+var _sky := SkyPhenomena.new()
 
 
 func _ready() -> void:
@@ -63,6 +66,8 @@ func load_all() -> void:
 	errors.clear()
 	_load_papers()
 	_load_slices()
+	if not _sky.load_schedule():
+		for problem in _sky.errors: errors.append("sky phenomena: %s" % problem)
 
 
 ## --- reading ----------------------------------------------------------------
@@ -139,6 +144,9 @@ func published_now(paper_id: String, date: String) -> bool:
 	var current_date:=CampaignWeather.date_key(local)
 	if date!=current_date: return date<current_date
 	return int(local.hour)*60+int(local.minute)>=(360 if paper_id=="record" else 1020)
+## What the sky did yesterday, as this issue reports it: {headline, record, speaker}.
+func sky_notices(date: String) -> Array[Dictionary]:
+	return _sky.press_for_issue(date)
 
 
 ## --- the collection ----------------------------------------------------------

@@ -1,0 +1,765 @@
+{
+  "evidence_class": "INERT",
+  "parents": [
+    "93f1b733",
+    "2b7bf3db"
+  ],
+  "scope": "Merge/source checks and42optical captures. Original failed UTF8 fixture and native guard attempts retained; first all-binary-LF hash survey INVALID and superseded. Staticboard106/6/1 stillregresses surface-test receiptbinding. No current fullworld qualification, performance gain or humanacceptance.",
+  "files": [
+    {
+      "path": "main_2b7_city_authoring.log",
+      "sha256": "5da5c73f3a9bb1fc5a0d54d6d214835df669dbd835b7247bafc4bda5c5ecbabb",
+      "bytes": 71300
+    },
+    {
+      "path": "main_2b7_fridges_authoring.log",
+      "sha256": "af54ad5693aa5c4e40feb19997e136c0862a907e52a5dbebe521583c6ac4f457",
+      "bytes": 577
+    },
+    {
+      "path": "main_2b7_fridges_authoring_v2.log",
+      "sha256": "af54ad5693aa5c4e40feb19997e136c0862a907e52a5dbebe521583c6ac4f457",
+      "bytes": 577
+    },
+    {
+      "path": "main_2b7_fridges_authoring_v3.log",
+      "sha256": "716443c4480d4c91575c1163d58bcc9cdaa086df03edc6d8b02ff32b91704bed",
+      "bytes": 9256
+    },
+    {
+      "path": "main_2b7bf3db_clean_board/board.json",
+      "sha256": "1453be73b01b3b5c119d76d03c6b04970a99b4a7f6674fdca49de59826c723e0",
+      "bytes": 132719
+    },
+    {
+      "path": "main_2b7bf3db_clean_board/board.md",
+      "sha256": "36cb7aedd11cd86bd948b3c88af139f4623ca9e098fa0826623d84aa167410db",
+      "bytes": 8130
+    },
+    {
+      "path": "main_2b7bf3db_clean_board_console.log",
+      "sha256": "44ab52830978055b680e11134b9c8c4b719b005eda7268ac123ba1c654742602",
+      "bytes": 8251
+    },
+    {
+      "path": "merge_2b7_binding_diagnostic.json",
+      "sha256": "2b2fa88c127e2ea4a897f63365809015d82ad882b22a32e40f29d2fbce3f9ef8",
+      "bytes": 463557
+    },
+    {
+      "path": "merge_2b7_candidate_board/board.json",
+      "sha256": "69d9151a5c134154d60f08a87e71af604f99e747578422cd3d0c6cf0306a35fc",
+      "bytes": 181860
+    },
+    {
+      "path": "merge_2b7_candidate_board/board.md",
+      "sha256": "4defd6180750172ad87a544c18d07b2f0e326ca8712b5a22d2a8e99427ae06df",
+      "bytes": 10385
+    },
+    {
+      "path": "merge_2b7_candidate_board_console.log",
+      "sha256": "86b9c8d22159c339d84ccb57ab6a765362f6f3fbec155497175aed58b8c85804",
+      "bytes": 10550
+    },
+    {
+      "path": "merge_2b7_changed_binding_diagnostic.json",
+      "sha256": "29a235abaaa7082a96ce7513e1ab2fd3d391c5e1d77eb77bbbfb27616f76ccca",
+      "bytes": 349
+    },
+    {
+      "path": "merge_2b7_recipe.json",
+      "sha256": "b25b2b8cd75740fb6eb08e9790cf92733224dec9507bbc1513482071d86882e9",
+      "bytes": 922
+    },
+    {
+      "path": "merge_2b7_runtime/batch_v1.json",
+      "sha256": "ee4cdc4b3c026a012b6029067c217eb9fc30ba67d4a3fd58d5f774aa978775d1",
+      "bytes": 2036
+    },
+    {
+      "path": "merge_2b7_runtime/batch_v2.json",
+      "sha256": "3831ffae2b32b479f60994fb1c77446830f08e360c6fe72aaeaf00bbc9ee23c9",
+      "bytes": 974
+    },
+    {
+      "path": "merge_2b7_runtime/CampaignWeatherTest/calendar_test.json",
+      "sha256": "495f4b5532ef33617e26be3089da5f956dfba8db07d5fa80b3690804ad220830",
+      "bytes": 270
+    },
+    {
+      "path": "merge_2b7_runtime/CampaignWeatherTest/weather_report.png",
+      "sha256": "9c160d6fb96fcd1f6bbfac4386904b8ec8177a87ff1988adfc85bf9628308528",
+      "bytes": 1520329
+    },
+    {
+      "path": "merge_2b7_runtime/CampaignWeatherTest.log",
+      "sha256": "9fee3fdf432e168a2a1dcc007a0959bde0fd6503c52283cf2ae433280341d53a",
+      "bytes": 32297
+    },
+    {
+      "path": "merge_2b7_runtime/CampaignWeatherTest.log.receipt.json",
+      "sha256": "c7bc8652bffea76293be4f456e12459912229235771bf1b9054c37a9c6d9caae",
+      "bytes": 6573
+    },
+    {
+      "path": "merge_2b7_runtime/CampaignWeatherTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "merge_2b7_runtime/eol_restore_paths.z",
+      "sha256": "a9f8cf0ba3754f696ddc5e1e4b5a39e2801fc64dc4d69947fbbf3c08ff385cc5",
+      "bytes": 113015
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/orison_v2_city_horizon.gd",
+      "sha256": "eb36be46d16e1de096b6df396ade75cd4f3c04b6b14ca669f495268bcb30e4f0",
+      "bytes": 2614
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/orison_v2_city_tanks.gd",
+      "sha256": "6ab5ed175a35bc9efe91da87a7d3de0e8cabbd172e36d81edad75dfcc1614c0b",
+      "bytes": 1462
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/orison_v2_fridge.gd",
+      "sha256": "e35bfd48ed84d67a8a117de8ec297230a805da4c868b7ebfa97e4289ea837114",
+      "bytes": 1531
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/orison_v2_house_tank.gd",
+      "sha256": "3317f3ec9c572e143819af5f44ea0574cb3d09aa803ccb2a89769868c7312169",
+      "bytes": 2456
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/orison_v2_lamp_atmosphere.gd",
+      "sha256": "a627b53e848605a54113f2b50f2778e1c84a3d0b74323b511c294551bed9b18d",
+      "bytes": 9577
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/orison_v2_native_household_fridges.gd",
+      "sha256": "0f3980e2f1c93218c61865928684c800a4456db82b6e45f01fd5c6e9dbd7edb1",
+      "bytes": 4392
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/orison_v2_runtime_root.gd",
+      "sha256": "8f85fc3101523cc94b1edec77861d7f51c2d69cc953ee788df7d77fc15e73b41",
+      "bytes": 61808
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/orison_v2_st_elmo.gd",
+      "sha256": "d5db276eaa536754bdddb4389527d9f77534e51f2f0e8e24f91084c6c0ed17a1",
+      "bytes": 2036
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/orison_v2_window_treatments.gd",
+      "sha256": "c7416732811f8675151d7e550f2d8dcad74fd06bbd7360770ad293fa6b4e163d",
+      "bytes": 4468
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/queens_weather_extension.gd",
+      "sha256": "844baa8ade10164326f47440b56cfc5a398bb16228019ac975b0983e926bfad5",
+      "bytes": 11306
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/sky_phenomena.gd",
+      "sha256": "435bd7d75b069ba10fefe63b08dc111cd9e4b5de4074485b58e2d3a75f75b5c9",
+      "bytes": 13944
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/v2_city_day_night_director.gd",
+      "sha256": "85577361f63b8f8bb256d403580f982dc6df497d34ccc6b5acbd42d54115f33c",
+      "bytes": 2832
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/v2_weather_fx.gd",
+      "sha256": "070bf4641805f60cefbe80ffbaf393154b16a6c01a8102542b71f362f233bb41",
+      "bytes": 5937
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/weather_fx.gd",
+      "sha256": "27cd550560e8230a8b5af2b7d75efe8e7e37d78755a580aedf410937aaefa19e",
+      "bytes": 22087
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/building/WeatherManager.gd",
+      "sha256": "234505da27ed92efcf0e6b79a4220de877ae666b2085b1d8e105b018d557e920",
+      "bytes": 18488
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/characters/orison_v2_mina_routine.gd",
+      "sha256": "bec02f11b1a95a78816cbbd2c52bdfed44853caca2e8ae04613039bbdcdd1241",
+      "bytes": 17305
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/characters/resident_agenda.gd",
+      "sha256": "93997c36cf4985ce4d8882d5f90c84846d7d0716afb031e9fe4c5143aceb2f36",
+      "bytes": 25810
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/characters/resident_nav.gd",
+      "sha256": "fff163dbd27ecffa13c07ecfbb202722c1ccc6acbd3d46a10f33d1b9d8cad2a0",
+      "bytes": 43810
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/characters/schedule_director.gd",
+      "sha256": "4a16e51a0d6efc338730f8a1eb6fead08d089259c5a0f5beed31f97ed736906e",
+      "bytes": 17673
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/game/door_keyring.gd",
+      "sha256": "831f8ece18d5342af6a379997d2752cad5f5a79e38249247e8ed70b6ea0ebc1a",
+      "bytes": 8015
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/game/kitchen_larder.gd",
+      "sha256": "7a3c5e232ee91926def762ac42840c9f7defca817b930a39f87df2b78e66047d",
+      "bytes": 16952
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/game/newspaper_catalog.gd",
+      "sha256": "04f1e22fa0ea5af64822b983fd0cf8b8ae0b7dab90408944bb94c9871712e4d6",
+      "bytes": 10492
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/game/person_inventory.gd",
+      "sha256": "85a374b7cd8584272dee3c59100592fb852fba285bcb302fb0f79d98bf42bbd1",
+      "bytes": 8021
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/game/reality_game_state.gd",
+      "sha256": "646b65e21830ef168354deb0b16a065fd74312d4b080337e4a987f3fc5b6a266",
+      "bytes": 19837
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/game/reality_save_document.gd",
+      "sha256": "ed9cd9d0207c1f78a8e1c0a834221b9c686bd69f0e51ddcd4664b0525f05235a",
+      "bytes": 4628
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/props/cookbook_prop.gd",
+      "sha256": "4b5acb522ea56e874541fc6730ae1a184321ef4c808e5a61434bc8b33a123971",
+      "bytes": 3271
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/props/fridge_prop.gd",
+      "sha256": "b2cfbd138c80f00852f929a5931354dbf9f274d50eb518506f5f610ef5993149",
+      "bytes": 28479
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/props/pantry_display.gd",
+      "sha256": "33fa1f1db45fb198cce510d0a7d56dc2a13a94041aeb06f009464a1a31a71b2d",
+      "bytes": 3031
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/ui/cookbook_panel.gd",
+      "sha256": "1a69fc3a62ab5d4aef63ed9c4e7313286f103817b0ae24f4d027aa2db6c15e5d",
+      "bytes": 7964
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/scripts/ui/newspaper_panel.gd",
+      "sha256": "622815114d5b4ae4b3607ad3dbb85b2b162d853ff1288e42c8189144b6ddd310",
+      "bytes": 9866
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/shaders/queens_weather_air.gdshader",
+      "sha256": "b8eb8ea62fd722609d26407593d4650cc080326b53377f28161763ad1b9dea5f",
+      "bytes": 1781
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/shaders/queens_weather_sky.gdshader",
+      "sha256": "e0a271f650885b20547fdede2b7601d4c1e46c0a0b384b24941d53c5b9089bc2",
+      "bytes": 18972
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/shaders/sky_spectacle.gdshaderinc",
+      "sha256": "966056a07b1eb0843ae38c2d2e2c2d41e8f0a1303c02d12466daee18904d227b",
+      "bytes": 38769
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/shaders/v2_seasonal_sky.gdshader",
+      "sha256": "39596c88d6377aa110fa576db1de11b11451fb169d66fec1de091cbda7479037",
+      "bytes": 15911
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/shaders/v2_st_elmo_corona.gdshader",
+      "sha256": "b8a1c9d274747cfbb58b9c0cbace42f387bb72c5b3feee0a8034466b1d8f9484",
+      "bytes": 1664
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/shaders/v2_weather_air.gdshader",
+      "sha256": "7e8891c787f1bc905c6686161d702d80c66d2c3e83bec855cbf31a25508accd9",
+      "bytes": 1113
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/fixtures/orison_city_horizon.json",
+      "sha256": "3845248e0dc00ac8eb01693ab0162fed57c0f5e2a62761640ae72e63c638c29f",
+      "bytes": 3732589
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/fixtures/orison_household_fridges.json",
+      "sha256": "b3c6aa479e59e6de0cfbd3d14db4fa55ffa9e6f6afdd615e65f09b70d7b91413",
+      "bytes": 214459
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/orison_v2_kitchen_test.gd",
+      "sha256": "8ca38f8aead62b801a83cd4e0f99a238219d832dfade582e86babb423bea5f75",
+      "bytes": 7412
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/orison_v2_mina_routine_test.gd",
+      "sha256": "27d90c0b8f97b28bc13d8ed1eb462f6bca092713e08fe92c3e9ffeaf827c7281",
+      "bytes": 8106
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/OrisonV2KitchenTest.tscn",
+      "sha256": "b9801a7adeb6960d7938ec67afa2181bf3dd9a01f05c6b29ee6cd9978f6ecfdd",
+      "bytes": 194
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/resident_agenda_test.gd",
+      "sha256": "6cc79133dc687d4665e71d34c53a75796df525427a36f74a18a52eb43a4eb373",
+      "bytes": 15797
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/resident_keys_test.gd",
+      "sha256": "f173ab97444c7fee4ed7e3eae644c726b2bca34bf5ee9aacb14c37be67869a14",
+      "bytes": 9953
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/ResidentAgendaTest.tscn",
+      "sha256": "63b602a71197ed9d4b5c9d5a7b672c4f99a3807f912618d8bf3a355534669e80",
+      "bytes": 191
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/sky_phenomena_schedule_test.gd",
+      "sha256": "18e1e8c2a1eb35fb30ac3892a5ad43cf9a5ec4f6926b39f2adcb302bac59ee07",
+      "bytes": 7872
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/SkyPhenomenaScheduleTest.tscn",
+      "sha256": "294272e312b707a019c82743a2bf15bfbd22b356a2b4ef2bd7326b4c9f4f86ff",
+      "bytes": 206
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/v2_sky_spectacle_bench.gd",
+      "sha256": "e4de3947f55539ea6d62f1677f79d49c87404a590a65ec180c23526b7695e4e1",
+      "bytes": 9163
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/V2QueensSpectacleBench.tscn",
+      "sha256": "37321d6061a33c668edbc3c38a229f38469f1b56ddcc046e7d46ab3f17593a9b",
+      "bytes": 216
+    },
+    {
+      "path": "merge_2b7_runtime/executed/game/tests/V2SkySpectacleBench.tscn",
+      "sha256": "f47b039b192cb5d207574324f11141f9903a98591c4cb5d8b38688958593766a",
+      "bytes": 196
+    },
+    {
+      "path": "merge_2b7_runtime/import1.log",
+      "sha256": "01c4de0142e22bf29387bb2ff1368928f5263923355c5fddae2d13e5e44b01df",
+      "bytes": 390815
+    },
+    {
+      "path": "merge_2b7_runtime/import1.log.receipt.json",
+      "sha256": "d79863ae3f7d030fba213e537b231b34981523d4720952c3763cf48ddd36b599",
+      "bytes": 2757
+    },
+    {
+      "path": "merge_2b7_runtime/import1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "merge_2b7_runtime/import2.log",
+      "sha256": "3a3879012f946d1834e6dc7119e2c81653ec0dcdbaa06138a9ec5cdef1096d48",
+      "bytes": 1405
+    },
+    {
+      "path": "merge_2b7_runtime/import2.log.receipt.json",
+      "sha256": "5c275dd39fac0550a83ffe74277b52becbc85b81c1e37d3fd51852b769fc788f",
+      "bytes": 2755
+    },
+    {
+      "path": "merge_2b7_runtime/import2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "merge_2b7_runtime/import_cleanup.json",
+      "sha256": "5bea601ebd1964b6584d570dbf7cfb31747d251078d70d067db2c9609fcdf534",
+      "bytes": 125671
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/00_mammatus.png",
+      "sha256": "2012333730fddc9c907aa9be43325371964aca47ad23159e259f1237859a19b2",
+      "bytes": 666001
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/01_shelf_cloud.png",
+      "sha256": "e2508290fb4b4c4a1379a08fb116b3fdbca89a45730045e473bd9c6e1f8357b6",
+      "bytes": 338378
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/02_wall_cloud.png",
+      "sha256": "903bf6e1b62adb9860ac2235fe13b3c9ef10f05c895d5aff91426b1505b09da5",
+      "bytes": 280170
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/03_lenticular.png",
+      "sha256": "b5d977f1ed91a726d2e2e51ae1e8e47e2d7dc0f9b5329fe62bb27e731ba127fc",
+      "bytes": 410503
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/04_morning_glory.png",
+      "sha256": "8821e9733726640b230e0a0dd7f516a8e500c982fe96f444fe4c6d66cde7581e",
+      "bytes": 469480
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/05_virga.png",
+      "sha256": "9efee87d51055648f68f033c5f5065159447a3b977df3b9857fb73e6e6a8b2f2",
+      "bytes": 436845
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/06_microburst.png",
+      "sha256": "30589b613cdef5a1261784e26bb3230d40539c08bf5ba23df2427c987e03fc48",
+      "bytes": 250279
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/07_haboob.png",
+      "sha256": "48b96e1945a5c8a68731fda12cf76b9ea774e86f9cc67ce1fc874c3eba84c14d",
+      "bytes": 104131
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/07_haboob_approach.png",
+      "sha256": "2866dc114f36621a71ca4136d4099f3c7d859c2b972e247b92ce4d9d7a717678",
+      "bytes": 287964
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/08_asperitas.png",
+      "sha256": "cbf6375c12edc81b9c158949efc1de88a8ee8b673cf1072542e9e85a18f060ef",
+      "bytes": 323201
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/09_kelvin_helmholtz.png",
+      "sha256": "e1b2a3f80ab7ab7af0b08521885c30396f89dafdcdd6e9788e8fd77e912cd7cb",
+      "bytes": 481141
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/10_fallstreak_hole.png",
+      "sha256": "dd5091e4ea5e7a271ee599c7aa8546e0b7d386a38508fadb411b0287d78936f6",
+      "bytes": 237344
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/11_striated_supercell.png",
+      "sha256": "c16fb601f9caf77bc658414f819eea6a97b370b6a6e52610376a43a6aec08840",
+      "bytes": 310649
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/12_anvil_cumulonimbus.png",
+      "sha256": "22d9bc47932729cc9da76eafb9c9ac31c07be0cade88d020c91b7c787f0ec23e",
+      "bytes": 460376
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/13_overshooting_top.png",
+      "sha256": "e349d43e11365797bab3d1b7e120df1b78364808a401bea3f982d8ac22ef9d71",
+      "bytes": 543890
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/14_pileus.png",
+      "sha256": "40d0d57440d69acd99af2787d13ee9f3a1f3dbc4659bd9319963e18842800491",
+      "bytes": 423826
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/15_pyrocumulonimbus.png",
+      "sha256": "dab26e6fa0fb3702b141ddd69f5bf04f69af6cee1a270ade1cc93786d4fb0025",
+      "bytes": 479872
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/16_tornado.png",
+      "sha256": "d4ad98ac4fbde1bec22b43a795e56abd94d58c96f34437cdff441edf63cf4d30",
+      "bytes": 268800
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/17_waterspout.png",
+      "sha256": "7ab0cbbed578a2852a97d80179b165167e30c778d22801f89adaea6c391494c1",
+      "bytes": 398913
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/18_nacreous.png",
+      "sha256": "7311b3b9c06f4965b005af4ed70d7b9ddb59380c6a66631df49a85c3fdcecbc1",
+      "bytes": 531493
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/19_noctilucent.png",
+      "sha256": "6ba58d633484a5c0226f607bd988ef76c39428b7292ea9a347efeb48d203094d",
+      "bytes": 800651
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/20_aurora.png",
+      "sha256": "96f631781760fdcfa4a7b6c7e93bc189f3aadb266fc7650516971941659115ce",
+      "bytes": 700900
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/21_steve.png",
+      "sha256": "65b6d0f8e06c9c0c87436523232c8a8192b72966d41f864cc26d0c7833da9d1f",
+      "bytes": 1175620
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/22_spider_lightning.png",
+      "sha256": "7c1f70f5ee2b7647a44c379559f9a782d28823770bafe641cecba3624a40afdf",
+      "bytes": 477726
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/23_red_sprite.png",
+      "sha256": "05ec68b73e2ac2de2aeae6616a6dc9a24374a58134d809794f360f8b6bd1e3c9",
+      "bytes": 429872
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/24_blue_jet.png",
+      "sha256": "4897ac3edc54fac3614bec5f342e6104acc0f7b325e35f3647fa54db5f239f5b",
+      "bytes": 380878
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/25_gigantic_jet.png",
+      "sha256": "ccc9c3d7a63f129ccbdfbdf820d7484f24dd067c12eb03cb0eb1f653c76b2746",
+      "bytes": 494692
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/26_elves.png",
+      "sha256": "9aacb1e4dee9ec2dc87bfc1799ddfc3974732494349b1560c20f71d93f6a14dc",
+      "bytes": 577688
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/27_st_elmos_fire.png",
+      "sha256": "16a22e3ee4c6421e37fc4fe961776984c7476101a9dd43715611550b6277fa71",
+      "bytes": 79593
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/28_volcanic_lightning.png",
+      "sha256": "5a2e409275dfe93b52e32b0fb13f10fe430c4a9c2373158dbc519abd9790cce2",
+      "bytes": 653937
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/29_rainbow.png",
+      "sha256": "fcce871d59842669d2e7baeb453dada94f5ecd384b97c06a9f514056414ec04a",
+      "bytes": 458872
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/30_halo_22.png",
+      "sha256": "4f85bdefaee26c898a76f239bd067c93f0069af924682175334b0f15d30ae2ca",
+      "bytes": 421007
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/31_sun_dogs.png",
+      "sha256": "3b9e60ac079658ae0d34849ef3aed88858fb85a8088b91c53c56caea8d9eb350",
+      "bytes": 381561
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/32_circumhorizontal_arc.png",
+      "sha256": "1a6f470f3d356d971ea6d471a4ac8c40ac95612286e7464138afa0d7adf6b5c2",
+      "bytes": 420630
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/33_circumzenithal_arc.png",
+      "sha256": "1f02c33b1d6f8f694892e3d5c176a9e4f15e8219eecf9ab2de9346fc8a606f98",
+      "bytes": 280291
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/34_light_pillars.png",
+      "sha256": "2e82aef57ae9e9e6ee5eb2c84c5d67e14bd97b9cd3521a0e6c4b4e242f039021",
+      "bytes": 366540
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/35_crepuscular_rays.png",
+      "sha256": "6e4d388507886a0c18e9778786fad9acb61f65a8a704615eb2bbe298458852d2",
+      "bytes": 343935
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/36_anticrepuscular_rays.png",
+      "sha256": "6668d3de0ae618da99331a6f4984a63fbbcff17633e0e15b05d11f6bfb4bb452",
+      "bytes": 374248
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/37_glory.png",
+      "sha256": "310b9442e44de7f5f77a525291311430ed644b18daef20e0511cc88e26d75d20",
+      "bytes": 261782
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/38_iridescence.png",
+      "sha256": "cf4c3df49a267dafd732cf4c5ebb9d2205943b30dbac2c4cbec9fa7f7e9fa4ea",
+      "bytes": 307553
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/39_green_flash.png",
+      "sha256": "4c95b81a51e5dc03e93eafc0ed071084d008713e7b539ef947b7b976318afad8",
+      "bytes": 211274
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/40_fata_morgana.png",
+      "sha256": "d24ce06bf4defdcf6020d1a4704865eb7c447a3990e2a695c3112b22818786cb",
+      "bytes": 259714
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/contact_1.jpg",
+      "sha256": "e9c50f64e119331a6b487ac72fa9989838b736b74eeccaf17bff2759006bf3c5",
+      "bytes": 103146
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/contact_2.jpg",
+      "sha256": "ce4ccbff192d72240adc2ded21b9e302e4297839a77a0958793ffb7afd0a673a",
+      "bytes": 129590
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/contact_3.jpg",
+      "sha256": "6b7bbd0854e19b0628397723cedbc34a18b6025896ac460b9bcfa4bd119d63e7",
+      "bytes": 107089
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle/contact_4.jpg",
+      "sha256": "ab8b0daba3af90307d8cd785da1980ed22ed84e1d1f5570f50596aefbf70b212",
+      "bytes": 55341
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle.log",
+      "sha256": "561bbee24dc626cb9516f3dbbc97ca93facde37a4358f4d31ded550f751e3448",
+      "bytes": 4759
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle.log.receipt.json",
+      "sha256": "09836cabbf9333608487626bf0b336689605f140f766ae326ea8c1fb33a8a8f2",
+      "bytes": 2975
+    },
+    {
+      "path": "merge_2b7_runtime/queens_spectacle.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "merge_2b7_runtime/RealityBackgroundSaveTest/checks.json",
+      "sha256": "04beb1ee569cd603fd545627493ca4d2afba1cca201fa6b70f8d0b12c3dab802",
+      "bytes": 17035
+    },
+    {
+      "path": "merge_2b7_runtime/RealityBackgroundSaveTest/exit_path.json",
+      "sha256": "8fa31b443c69688745d2b1f2ce67b1e353014e4904da65d92a1010d5cb42c38b",
+      "bytes": 267
+    },
+    {
+      "path": "merge_2b7_runtime/RealityBackgroundSaveTest.log",
+      "sha256": "61000c50438fa67ab6bd0b7bf5f5c1d996dace5906373beb07375da09cdde05a",
+      "bytes": 1849
+    },
+    {
+      "path": "merge_2b7_runtime/RealityBackgroundSaveTest.log.receipt.json",
+      "sha256": "00884a7debbd7b6ea41f5333cf75b28dfef1c249045bea8427c034d7ae4a0015",
+      "bytes": 3052
+    },
+    {
+      "path": "merge_2b7_runtime/RealityBackgroundSaveTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "merge_2b7_runtime/RealitySaveCompatTest.log",
+      "sha256": "e6b19e92d8176350e855a77dd84c03ee70672b762b5f19db93ce0fb70d097a85",
+      "bytes": 891
+    },
+    {
+      "path": "merge_2b7_runtime/RealitySaveCompatTest.log.receipt.json",
+      "sha256": "325c0907e184a87330ea3f958d3e1a35c715e37aee9ce3bfe3a782b75f74c8c6",
+      "bytes": 3750
+    },
+    {
+      "path": "merge_2b7_runtime/RealitySaveCompatTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "merge_2b7_runtime/ResidentAgendaTest.log",
+      "sha256": "78ad59280c402d3f9b12b0e6b61e12c4b5b70777857c9a8f5d9e278550787f9f",
+      "bytes": 3573
+    },
+    {
+      "path": "merge_2b7_runtime/ResidentAgendaTest.log.receipt.json",
+      "sha256": "b74f11caad8c2deac8dbeac32e81f7bc06591ac6418dbf05c95f626aeee32491",
+      "bytes": 2977
+    },
+    {
+      "path": "merge_2b7_runtime/ResidentAgendaTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "merge_2b7_runtime/ResidentKeysTest.log",
+      "sha256": "b13aaee2084097f9d3c89ca3ecf6c2a47e4f9668f42dee0c730dea86df5a31b2",
+      "bytes": 222
+    },
+    {
+      "path": "merge_2b7_runtime/ResidentKeysTest.log.receipt.json",
+      "sha256": "8d8fdc161dcd3742df85835a7a1e68d1892c3da220d6e1aa352c5ceca0d734b1",
+      "bytes": 2967
+    },
+    {
+      "path": "merge_2b7_runtime/ResidentKeysTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "merge_2b7_runtime/SkyPhenomenaScheduleTest.log",
+      "sha256": "137454983b8c1d70888bf6d4662bbb56f0da0629a6126cc6b2099ad4e4b51ac7",
+      "bytes": 1190
+    },
+    {
+      "path": "merge_2b7_runtime/SkyPhenomenaScheduleTest.log.receipt.json",
+      "sha256": "5952c75f093b15b02fd169f7c5e8113dfc0b4575d9b5b271ce8d2c213b3c1ee3",
+      "bytes": 3044
+    },
+    {
+      "path": "merge_2b7_runtime/SkyPhenomenaScheduleTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "merge_2b7_runtime/source_eol_equivalence.json",
+      "sha256": "8528bb09a019acaf8fb3a3f17701efa6ae623a37b5c061fbd826e37ecd1ce8d4",
+      "bytes": 4771
+    },
+    {
+      "path": "merge_2b7_runtime/utf8_aborted.json",
+      "sha256": "967a47c8417271e2ff240650974e89ad60ae22328f96c28b99eb69efb54d2224",
+      "bytes": 549
+    },
+    {
+      "path": "merge_2b7_runtime/V2SaveUtf8Probe.log",
+      "sha256": "105c8475a495681189d35bb4aa1ace2a76165bdd46c5469ef9c1a04acaa199c3",
+      "bytes": 183
+    },
+    {
+      "path": "merge_2b7_runtime/V2SaveUtf8Probe.log.receipt.json",
+      "sha256": "7651a97ae11a30ee8d6aff4863c5c658a795cb279e371aca380ccaaf47c7f514",
+      "bytes": 3059
+    },
+    {
+      "path": "merge_2b7_runtime/V2SaveUtf8Probe.log.stderr",
+      "sha256": "2b01051ffa2ee43e1327fd42b297b87b01a197ae6c2c8a4882248d898934ce6e",
+      "bytes": 469
+    },
+    {
+      "path": "merge_2b7_spatial_renewal.log",
+      "sha256": "bd5af32e7f1f020802816db99307eb902d954c029199ccdc6873211bc445d9c0",
+      "bytes": 863
+    },
+    {
+      "path": "merge_2b7_tree.txt",
+      "sha256": "d796e206c6e7f25a66394c1a9c6ab359f94807abe053ec8e42a88fdf553d636c",
+      "bytes": 5744
+    },
+    {
+      "path": "spatial_merge_classification_conflicts.json",
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "bytes": 4
+    }
+  ]
+}
