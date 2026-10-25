@@ -30,8 +30,14 @@ func _route() -> void:
 		await get_tree().physics_frame
 		if not door._key_turning:break
 	if not _require(door.leaf_state=="locked" and DoorKeyring.book().locks.get("F01_DOOR_06",false),"real house-service key input saves the entrance bolt"):return
-	if not await _use(door,door._body.to_global(Vector3(door.width*.5,1.1,door._hinge_offset)),"locked_rattle"):return
-	if not _require(not door.open and not door._moving,"locked entrance refuses ordinary E motion"):return
+	# The hand takes the bolted leaf and drags it; it must not move.
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var moved: bool = await hand.operate(door._body.to_global(Vector3(door.width*.5,1.1,door._hinge_offset)), door.motion_target_angle(true)*.86, door)
+	hand.free()
+	if not _require(not moved and not door.open and not door._moving,"locked entrance refuses the hand's motion"):return
 	door=await _save_rebuild()
 	if door==null:return
 	player.face_world_point(door._body.to_global(Vector3(door.width*.5,1.1,door._hinge_offset)))

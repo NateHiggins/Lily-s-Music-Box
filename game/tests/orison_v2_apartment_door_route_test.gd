@@ -77,5 +77,6 @@ func _route() -> void:
 				if not _require(hit.get("collider") == door.get_node("HingedLeaf"),
 						"closed apartment entry restores its barrier: " + str(step.close)): return
 	_require(kitchen_visited,"Mina cooking approach and independent water controls exercised")
-	_require(not player.noclip and player.collision_mask == 1 and player.is_physics_processing(),
+	# The player's mask is the world layer plus its native contact layers.
+	_require(not player.noclip and (player.collision_mask & 1) == 1 and player.is_physics_processing(),
 			"ordinary collision preserved through both apartments: noclip=%s mask=%s physics=%s" % [player.noclip, player.collision_mask, player.is_physics_processing()])
