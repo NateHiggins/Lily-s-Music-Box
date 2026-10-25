@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 470.34,
+  "elapsed_s": 466.27,
   "exit_code": 0,
-  "finished_utc": "2026-10-24T23:57:27Z",
-  "started_utc": "2026-10-24T23:49:36Z",
+  "finished_utc": "2026-10-25T04:02:16Z",
+  "started_utc": "2026-10-25T03:54:29Z",
   "timed_out": false
  },
  "log": {
@@ -58,19 +58,19 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/rcpt/tmp/r/first3/suite_run.log.stderr",
+  "stderr": "C:/ov/fx/tmp/r/first/suite_run.log.stderr",
   "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
-  "stdout": "C:/ov/rcpt/tmp/r/first3/suite_run.log",
-  "stdout_sha256": "864471242dc5c15860f9e0ef7e3dab7c8cd121f9033f8f8480a442aae27e4467"
+  "stdout": "C:/ov/fx/tmp/r/first/suite_run.log",
+  "stdout_sha256": "c878e441924295b8ad2aa68452cce5d31d5cb8914c334efe36439c7594f77390"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/orison_v2_first_slice_contract_test.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/rcpt/tmp/r/first3",
+ "shot_dir": "C:/ov/fx/tmp/r/first",
  "source": {
-  "dirty_paths": 2035,
+  "dirty_paths": 2037,
   "dirty_sample": [
    "M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
    " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
@@ -93,9 +93,9 @@
    " M game/assets/audio/music/covers/no_subject_line.webp.import",
    " M game/assets/audio/music/covers/paper_sleep.webp.import"
   ],
-  "repository_head": "96f2db0255a1c996b9085d44891d5e0a2e6d0147",
-  "repository_tree": "b053603587c51db3669bb4698e948ed6fc73cb61",
-  "runtime_inputs_sha256": "eefecce13f1b450c257d6c3bdf45b6596a43ee960f9a5ec18ae14cf974278edf",
+  "repository_head": "e6092ee66ad3c5adc92ad83a5a9dcbc694812b77",
+  "repository_tree": "8e1152801aabd82d71479dfc438f828191b297d1",
+  "runtime_inputs_sha256": "dddc404d7a0cbc7f5f82dd8f4ddcaa5421c9b751e0164c7efce9488e8398925a",
   "test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
   "test_sha256": "c9a6c7b60f53b317d6728ddb9cdf882efec3e1f5d285eb248f9920644590a5c7"
  },
