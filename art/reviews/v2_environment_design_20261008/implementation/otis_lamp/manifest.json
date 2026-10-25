@@ -1,0 +1,36 @@
+{
+ "evidence_class": "INERT",
+ "note": "CITY_SHOP_OTIS_SON-001 at e326950a (on main 3fcd7fc2): four tinted spot lamps, one inside each carboy fill, aimed out through the shopfront onto the aisle terrazzo, and an emissive override on each fill. OrisonV2DruggistCarboysTest: 470 checks, 0 failures, including the 19 new show-globe checks; main 3fcd7fc2 itself: 451 checks, 0 failures (receipt base_carboys). images/pavement_through_glass is the row's acceptance station, hand lamp off. Run receipts and captures; not runtime proof.",
+ "files": [
+  {
+   "path": "images/display_bay_shop_light.jpg",
+   "sha256": "f98f29f91efe06d2654938e7b2a9a6ebd78383620744403d5a2d880232865207",
+   "bytes": 114293
+  },
+  {
+   "path": "images/pavement_through_glass.jpg",
+   "sha256": "8ede2accd5710fe1f0ec2d6592a91ddcec0ce1de5271447eb6df3e6bef3447e2",
+   "bytes": 164403
+  },
+  {
+   "path": "receipts/base_carboys.log.receipt.json",
+   "sha256": "1c3b0a54d63cb850387aa557aa137be2727a417db588fbb74dd390e4ed22666a",
+   "bytes": 2984
+  },
+  {
+   "path": "receipts/lamp_carboys.log.receipt.json",
+   "sha256": "59461a6bd46c07634ab75546d7f7d10e40a44aa77f9669866aacfdc60909ee1b",
+   "bytes": 2984
+  },
+  {
+   "path": "receipts/lamp_import1.log.receipt.json",
+   "sha256": "1858f10af3e9981762b9cd1b81e0b5d66dd4ef8a03a50d68bd1f7982b64b5f67",
+   "bytes": 2907
+  },
+  {
+   "path": "receipts/lamp_import2.log.receipt.json",
+   "sha256": "bcd01c8d3714bd24916b3a4e38f9045f232efe5b7c9d7689a7ccd1d34dee6e75",
+   "bytes": 2906
+  }
+ ]
+}
