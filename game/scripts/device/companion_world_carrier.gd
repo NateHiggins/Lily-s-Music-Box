@@ -18,7 +18,7 @@ var _pick_layers := {}
 func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) -> void:
 	_player = player
 	player.get_parent().add_child(self)
-	reading_distance = .42
+	reading_distance = .44
 	motion = Motion.new()
 	motion.name = "CompanionFlight"
 	add_child(motion)
@@ -63,7 +63,7 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	set_process(true)
 
 func reading_limits() -> Vector2:
-	return Vector2(.42, .72)
+	return Vector2(.44, .72)
 
 func adjust_reading_distance(amount: float) -> void:
 	super.adjust_reading_distance(amount)
