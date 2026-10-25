@@ -51,6 +51,9 @@ const AJAR_UNITS := ["1D", "5B"]
 const AJAR_ANGLE := 0.16
 
 var deliveries: Array = []
+## Parts a delivery carries go to the maintenance inventory, the single-use
+## authority for parts; a part a delivery waits on is read from it too.
+var inventory: MaintenanceInventory
 var door_open := false
 var _hinge: Node3D
 var _panel: CaseDialoguePanel
@@ -470,6 +473,10 @@ func pending() -> Array:
 func _due(when: Dictionary) -> bool:
 	if int(when.get("min_conversations", 0)) > conversations_total():
 		return false
+	# A part delivery waits until the named part has been taken from stock.
+	var part_taken := str(when.get("part_taken", ""))
+	if part_taken != "":
+		return inventory != null and not inventory.item_state(part_taken).is_empty()
 	if when.get("always", false):
 		return true
 	var case_id := str(when.get("case", ""))
@@ -527,6 +534,9 @@ func _take(item: Dictionary,physical := false) -> void:
 	var knowledge := str(item.get("knowledge", ""))
 	if knowledge != "":
 		RealityState.grant_knowledge(knowledge)
+	var part := str(item.get("part", ""))
+	if part != "" and inventory != null:
+		inventory.grant(part, "mail_box_" + PLAYER_UNIT.to_lower())
 	var upgrade := str(item.get("upgrade", ""))
 	if upgrade != "":
 		var upgrades: Array = RealityState.data.get("upgrades", [])

@@ -116,6 +116,7 @@ func _mount_carton(meshes: Dictionary) -> bool:
 	carton.prefix = str(spec.item_prefix)
 	carton.count = int(spec.mantles)
 	carton.takes_at = float(spec.lid_takes_at)
+	carton.refill_item = str(spec.refill_item)
 	carton.inventory = world.get("maintenance_inventory")
 	add_child(carton)
 	var box := MeshInstance3D.new()
