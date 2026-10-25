@@ -1,5 +1,6 @@
 class_name ServiceSetProp
 extends Node3D
+signal power_changed(powered: bool)
 ## Native Vantry 28-R. Existing radio, WorkOrders and message authorities;
 ## one physical instrument, with no duplicate procedural body behind it.
 
@@ -96,6 +97,7 @@ func set_radio_powered(on: bool, animate := true) -> void:
 	radio_powered = on
 	if teletype != null: teletype.powered=on
 	_apply_state(animate)
+	power_changed.emit(on)
 
 
 func toggle_radio_power() -> void:

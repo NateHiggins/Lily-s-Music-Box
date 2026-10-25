@@ -76,6 +76,9 @@ func _run() -> void:
 			and str(NewsRackProp.offers_for(catalog, "1928-11-12")[1].label).ends_with("(kept)"))
 
 	# --- the panel ------------------------------------------------------------------------
+	# This programme renders the evening edition; its release is17:00.
+	# The earlier09:00 catalogue checks do not authorize displaying it yet.
+	CampaignClock.new().configure_date(1928, 11, 10, 17 * 60)
 	var panel := NewspaperPanel.new()
 	add_child(panel)
 	panel.open(null, catalog, "speaker", "1928-11-10")

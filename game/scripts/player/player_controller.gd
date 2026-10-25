@@ -71,7 +71,25 @@ var noclip := false
 var crouched := false
 ## True while seated at the support desk: movement and look are frozen and
 ## the mouse belongs to the call interface.
-var call_locked := false
+var _protected_call_locked := false
+var text_input_owner: Node
+var call_locked: bool:
+	get: return _protected_call_locked or is_instance_valid(text_input_owner)
+	set(value): _protected_call_locked = value
+
+## A text surface owns only its lease. Releasing it cannot unlock a resident,
+## telephone, newspaper or seated interaction that has since taken over.
+func protected_input_active() -> bool:
+	return _protected_call_locked
+
+func acquire_text_input(owner: Node) -> bool:
+	if not is_instance_valid(owner) or call_locked or inspecting() or mouse_released: return false
+	if _grab != null and _grab.active(): return false
+	text_input_owner = owner
+	return true
+
+func release_text_input(owner: Node) -> void:
+	if text_input_owner == owner: text_input_owner = null
 ## Test hook: when non-zero, drives movement instead of player input.
 var autopilot := Vector3.ZERO
 var _stride_travel := 0.0
@@ -394,10 +412,11 @@ func _process(_delta: float) -> void:
 			and (not call_locked or is_instance_valid(seated_interaction)):
 		use_primary_interaction()
 	# These are physical switches in the hand, not modal UI. They remain usable
-	# while seated or in a protected conversation.
-	if Input.is_action_just_pressed("lamp_toggle"):
+	# while seated or in a protected conversation. A native text editor owns
+	# letters while typing, including the polled L/R actions.
+	if Input.is_action_just_pressed("lamp_toggle") and not is_instance_valid(text_input_owner):
 		toggle_lamp()
-	if Input.is_action_just_pressed("radio_toggle") \
+	if Input.is_action_just_pressed("radio_toggle") and not is_instance_valid(text_input_owner) \
 			and carried_device and carried_device.has_method("toggle_radio_power"):
 		carried_device.toggle_radio_power()
 	if call_locked:

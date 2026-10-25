@@ -461,9 +461,10 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: exterior composition failed")
 		return
 	vantry_points.bind_player(player)
-	service_set_carrier = preload("res://scripts/device/companion_world_carrier.gd").new() if OS.get_environment("ORISON_COMPANION_WORLD") == "1" else ServiceSetCarrier.new()
+	var companion_enabled := OS.get_environment("ORISON_COMPANION_WORLD") != "0"
+	service_set_carrier = preload("res://scripts/device/companion_world_carrier.gd").new() if companion_enabled else ServiceSetCarrier.new()
 	service_set_carrier.name = "ServiceSetCarrier"
-	if OS.get_environment("ORISON_COMPANION_WORLD") == "1":
+	if companion_enabled:
 		await service_set_carrier.setup(player, player.camera, work_orders)
 		if not bool(service_set_carrier.get("world_ready")):
 			startup_failed = true
@@ -770,6 +771,9 @@ func _compose_debug_controls() -> void:
 	add_child(touch)
 	touch.look_delta.connect(player.apply_look)
 	touch.enable_care_actions()
+	if service_set_carrier.has_method("request_correspondence"):
+		touch.enable_companion_actions()
+		touch.companion_action_requested.connect(Callable(service_set_carrier, "request_correspondence"))
 	touch.care_action_requested.connect(func(action: StringName):
 		if get_node("CaretakerNotebook").request_action(action): touch._release_all())
 	player.touch_input = touch.enabled
@@ -1165,6 +1169,9 @@ func authority_count(type_name: String) -> int:
 	return find_children("*", type_name, true, false).size()
 
 func shutdown_for_tests() -> void:
+	# Stop borrowers before adapter restoration frees their radiator/fixture
+	# nodes. queue_free() alone still permits callbacks later in this frame.
+	process_mode = Node.PROCESS_MODE_DISABLED
 	if is_instance_valid(bathroom_moisture):bathroom_moisture.shutdown()
 	if public_landings!=null:public_landings.teardown()
 	if is_instance_valid(household_state): household_state.shutdown()

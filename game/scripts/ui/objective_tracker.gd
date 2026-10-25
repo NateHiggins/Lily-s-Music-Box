@@ -6,6 +6,8 @@ var _panel: PanelContainer
 var _title: Label
 var _objective: Label
 var presentation_enabled := true
+var supplied_heading := ""
+var supplied_body := ""
 
 
 func _ready() -> void:
@@ -33,8 +35,10 @@ func _ready() -> void:
 ## "WORK ORDER /" prefix here both stuttered and mis-titled non-work-order
 ## headings. Casing stays a presentation choice, as in TelegramHud.
 func show_objective(title_text: String, objective_text: String) -> void:
+	supplied_heading = title_text
+	supplied_body = objective_text
 	if not presentation_enabled:
-		clear()
+		if _panel: _panel.visible = false
 		return
 	_title.text = title_text.to_upper()
 	_objective.text = objective_text
@@ -42,5 +46,7 @@ func show_objective(title_text: String, objective_text: String) -> void:
 
 
 func clear() -> void:
+	supplied_heading = ""
+	supplied_body = ""
 	if _panel:
 		_panel.visible = false

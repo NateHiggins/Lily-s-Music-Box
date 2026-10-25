@@ -1,0 +1,291 @@
+extends Node3D
+## Actual native-input/save diagnostic. Occupied-world qualification is separate.
+const Campaign = preload("res://scripts/device/companion_campaign_state.gd")
+var player: PlayerController
+var carrier: Node
+var checks: Array[Dictionary] = []
+var directory := ""
+var finished := false
+var saved_campaign := false
+
+func check(ok: bool, label: String) -> bool:
+	checks.append({"name":label, "passed":ok})
+	print("COMPANION SESSION: ", label, " = ", ok)
+	return ok
+
+func _ready() -> void:
+	_run.call_deferred()
+	get_tree().create_timer(145.0).timeout.connect(func():
+		if not finished: check(false, "diagnostic deadline"); finish())
+
+func _run() -> void:
+	directory = OS.get_environment("SHOT_DIR")
+	if directory.is_empty(): get_tree().quit(1); return
+	DirAccess.make_dir_recursive_absolute(directory)
+	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
+	for driver: CampaignClockDriver in get_tree().get_nodes_in_group("campaign_time_owner"): driver.set_frozen_for_tests(true)
+	Engine.max_fps = 120
+	var floor_body := StaticBody3D.new()
+	add_child(floor_body)
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new(); box.size = Vector3(12, .2, 12)
+	shape.shape = box; shape.position.y = -.1
+	floor_body.add_child(shape)
+	var visual := MeshInstance3D.new()
+	var mesh := BoxMesh.new(); mesh.size = box.size
+	visual.mesh = mesh; visual.position = shape.position
+	floor_body.add_child(visual)
+	var light := DirectionalLight3D.new()
+	light.rotation_degrees = Vector3(-40, -25, 0); add_child(light)
+	player = PlayerController.new(); add_child(player)
+	player.set_physics_process(false)
+	player.camera.make_current(); Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	carrier = preload("res://scripts/device/companion_world_carrier.gd").new()
+	await carrier.setup(player, player.camera, null)
+	player.carried_device = carrier
+	if not check(carrier.world_ready, "native companion and session initialize"): finish(); return
+	await exercise()
+
+func exercise() -> void:
+	await joy(JOY_BUTTON_DPAD_DOWN)
+	if not check(await wait_for(func(): return carrier.motion.steady_for_input() and not carrier.device.teletype.printing), "recall and existing paper finish before input"):
+		finish(); return
+	var reports: int = carrier.device.printed_count
+	await joy(JOY_BUTTON_A)
+	if not check(await wait_for(func(): return carrier.session.typing), "controller recall and accept deploy and settle physical keyboard"):
+		finish(); return
+	check(player.text_input_owner == carrier.session and player.call_locked and not player.protected_input_active(), "typing acquires a separate movement/input lease")
+	await type_text("who are you")
+	check(carrier.device.radio_powered, "typed R remains text rather than toggling radio")
+	check(carrier.session.draft == "who are you", "native key input reaches preserved draft")
+	check(carrier.rig.typing_ready() and carrier.device.teletype._draft_ink.text.contains("who are you"), "native keyboard and physical paper present typed text")
+	check(carrier.device.printed_count == reports, "draft editing does not mint received reports")
+	await capture("typing.png")
+	var paper := carrier.device.teletype._paper as MeshInstance3D
+	var tray := carrier.rig.model.find_child("CompanionKeyboard__CompanionSteel", true, false) as MeshInstance3D
+	var paper_rect := projected_bounds(paper)
+	var keyboard_rect := projected_bounds(tray)
+	FileAccess.open(directory.path_join("framing.json"), FileAccess.WRITE).store_string(JSON.stringify({"paper":str(paper_rect), "keyboard":str(keyboard_rect), "paper_height_fraction":paper_rect.size.y/get_viewport().get_visible_rect().size.y, "keyboard_to_paper_width":keyboard_rect.size.x/paper_rect.size.x, "reading_distance":carrier.reading_distance, "fov":player.camera.fov}, "\t"))
+	check(keyboard_rect.size.x < paper_rect.size.x * 2.0, "retracted keyboard no longer dominates the reading surface in perspective")
+	check(get_viewport().get_visible_rect().encloses(paper_rect) and get_viewport().get_visible_rect().encloses(keyboard_rect), "physical reading surface and keyboard fit within viewport")
+	var foreign := LineEdit.new(); add_child(foreign)
+	foreign.grab_focus()
+	await frames(3)
+	check(not carrier.session.typing and carrier.session.draft == "who are you", "foreign native editor suspends typing without discarding draft")
+	check(foreign.has_focus() and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE, "suspension preserves another editor's focus and pointer")
+	foreign.release_focus(); foreign.queue_free()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	await key(KEY_ENTER)
+	if not check(await wait_for(func(): return carrier.session.typing), "explicit input resumes after foreign editor leaves"):
+		finish(); return
+	player.call_locked = true
+	await frames(3)
+	check(not carrier.session.typing and carrier.session.draft == "who are you", "protected conversation interrupts without losing draft")
+	check(player.call_locked and player.protected_input_active() and player.text_input_owner == null, "interruption releases only companion lease")
+	await key(KEY_ENTER)
+	check(not carrier.session.opening and not carrier.session.typing, "protected owner refuses new typing")
+	player.call_locked = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	await key(KEY_ENTER)
+	if not check(await wait_for(func(): return carrier.session.typing), "explicit input resumes after protected owner leaves"):
+		finish(); return
+	check(carrier.session._edit.text == "who are you", "resumed native editor retains exact draft")
+	await joy(JOY_BUTTON_A)
+	check(carrier.session.draft.is_empty() and not player.call_locked, "submission clears accepted draft and returns player input")
+	check(carrier.session.dialogue.memory.history.back().intent == "identity", "physical submission reaches offline conversation")
+	check(carrier.device.printed_count == reports + 1 and carrier.device.teletype.printing, "accepted reply uses original animated printer")
+	if not check(await wait_for(func(): return not carrier.device.teletype.printing), "reply physically finishes printing"):
+		finish(); return
+	await capture("reply.png")
+	await key(KEY_ENTER)
+	if not check(await wait_for(func(): return carrier.session.typing), "next exchange deploys keyboard"):
+		finish(); return
+	await type_text("help")
+	carrier.device.set_radio_powered(false)
+	await frames(2)
+	check(not carrier.session.typing and carrier.session.draft == "help" and not player.call_locked, "power interruption retains draft and relinquishes focus")
+	await key(KEY_ENTER)
+	check(not carrier.session.typing and not carrier.session.opening, "unpowered radio cannot accept correspondence")
+	carrier.device.set_radio_powered(true)
+	await key(KEY_ENTER)
+	if not check(await wait_for(func(): return carrier.session.typing), "powered keyboard explicitly resumes"):
+		finish(); return
+	carrier.device.set_incoming_call(true)
+	await frames(2)
+	check(not carrier.session.typing and carrier.session.draft == "help", "real incoming-call print preempts editing")
+	check(carrier.device.teletype.pages[0].contains("L. ORTIZ"), "protected incoming-call paper retains original facts")
+	carrier.device.set_incoming_call(false)
+	await wait_for(func(): return not carrier.device.teletype.printing)
+	await key(KEY_ENTER)
+	await wait_for(func(): return carrier.session.typing)
+	get_tree().paused = true
+	await frames(2)
+	check(not carrier.session.typing and carrier.session.draft == "help" and player.text_input_owner == null, "pause suspends focus and preserves exact draft")
+	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	var clock := CampaignClock.new(); clock.configure_date(1928, 11, 10, 1080)
+	await publication_pass(clock)
+	clock.configure_date(1928, 11, 10, 1080)
+	await touch_pass()
+	await additional_checks()
+	var path := "user://tests/companion_session_bench.json"
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("user://tests"))
+	RealityState.save_path = path
+	RealityState.persistence_enabled = true
+	var before: Dictionary = carrier.session.dialogue.memory.snapshot()
+	var expected_chatter: bool = carrier.session.chatter_enabled
+	saved_campaign = RealityState.save_game()
+	check(saved_campaign, "existing campaign storage saves companion domain")
+	carrier.session.dialogue.respond("eat it", {})
+	carrier.session.draft = "unsaved change"
+	carrier.witness.last_read = {"paper":"record", "date":"1928-11-10"}
+	carrier.session.queue_event("story_discovery")
+	RealityState.load_game()
+	FileAccess.open(directory.path_join("reload_comparison.json"), FileAccess.WRITE).store_string(JSON.stringify({"before":before, "after":carrier.session.dialogue.memory.snapshot(), "draft":carrier.session.draft}, "\t"))
+	check(carrier.session.dialogue.memory.snapshot() == before and carrier.session.draft == "help", "validated disk reload restores correspondence and draft")
+	check(carrier.session.chatter_enabled == expected_chatter, "reload preserves the most recent explicit quiet preference")
+	check(carrier.witness.last_read.is_empty() and carrier.session._events.is_empty(), "reload retires stale paper witnesses and queued discoveries")
+	var invalid := Campaign.fresh(); invalid.memory.extra = "x".repeat(10000)
+	check(not Campaign.valid(invalid), "unbounded hidden memory fields are rejected")
+	invalid = Campaign.fresh(); invalid.draft = "x".repeat(513)
+	check(not Campaign.valid(invalid), "oversized drafts are rejected")
+	var corrupt := RealityState.data.duplicate(true); corrupt.companion = invalid
+	check(not RealityState._validate_document(corrupt).ok, "campaign validator refuses corrupt companion before adoption")
+	var legacy := RealityState.data.duplicate(true); legacy.erase("companion")
+	check(RealityState._validate_document(legacy).ok, "existing campaigns without companion domain remain compatible")
+	check(RealityState.save_game(), "second validated generation prepares real recovery control")
+	var malformed: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+	malformed.companion.draft = "x".repeat(513)
+	var malformed_bytes := JSON.stringify(malformed, "\t")
+	FileAccess.open(directory.path_join("malformed_companion.json"), FileAccess.WRITE).store_string(malformed_bytes)
+	var damaged := FileAccess.open(path, FileAccess.WRITE)
+	damaged.store_string(malformed_bytes); damaged = null
+	RealityState.load_game()
+	check(RealityState.load_status().status == "recovered" and carrier.session.draft == "help", "real storage rejects malformed companion and recovers validated previous generation")
+	check(Campaign.valid(RealityState.data.companion), "recovery never adopts corrupt correspondence fields")
+	finish()
+
+func publication_pass(clock: CampaignClock) -> void:
+	var catalog := reading_catalog()
+	clock.configure_date(1928, 11, 10, 359)
+	carrier.witness.last_read.clear()
+	var panel := NewspaperPanel.new(); add_child(panel)
+	panel.open(player, catalog, "record", "1928-11-10")
+	await frames(2)
+	check(carrier.witness.last_read.is_empty(), "actual reading owner withholds unpublished morning edition")
+	check(panel._page.get_child(0).text == "This edition has not been published.", "future edition is not drawn by reading panel")
+	panel.close(); await frames(2)
+	clock.configure_date(1928, 11, 10, 360)
+	panel = NewspaperPanel.new(); add_child(panel)
+	panel.open(player, catalog, "record", "1928-11-10")
+	await frames(2)
+	check(carrier.witness.last_read == {"paper":"record", "date":"1928-11-10"}, "actual published reading surface supplies exact witnessed edition")
+	var calendar: Dictionary = carrier.witness.calendar()
+	var context := preload("res://scripts/device/companion_calendar_context.gd").enrich({}, clock, str(calendar.source), calendar.conditions, calendar.catalog, calendar.read_issue)
+	check(str(context.get("newspaper_report", "")).contains("Count of Tuesday"), "reading-owner context retains literal published lead")
+	panel.close(); await frames(2)
+	clock.configure_date(1928, 11, 12, 360)
+	panel = NewspaperPanel.new(); add_child(panel)
+	panel.open(player, catalog, "record", "1928-11-10")
+	calendar = carrier.witness.calendar()
+	context = preload("res://scripts/device/companion_calendar_context.gd").enrich({}, clock, str(calendar.source), calendar.conditions, calendar.catalog, calendar.read_issue)
+	check(context.get("newspaper_comment_id") == "news_comment_old" and str(context.get("newspaper_report", "")).contains(catalog.long_date("1928-11-10")), "archive reading remains explicitly dated and historically framed")
+	panel.close(); await frames(2)
+	if catalog.get_parent() == self: catalog.queue_free()
+
+func reading_catalog() -> NewspaperCatalog:
+	var catalog := NewspaperCatalog.new(); add_child(catalog)
+	return catalog
+
+func additional_checks() -> void:
+	pass
+
+func projected_bounds(draw: MeshInstance3D) -> Rect2:
+	var box := draw.mesh.get_aabb()
+	var rect := Rect2(player.camera.unproject_position(draw.to_global(box.position)), Vector2.ZERO)
+	for i in 8:
+		var point := box.position + box.size * Vector3(float(i & 1), float((i >> 1) & 1), float((i >> 2) & 1))
+		rect = rect.expand(player.camera.unproject_position(draw.to_global(point)))
+	return rect
+
+func touch_pass() -> void:
+	var controls := player.get_parent().get_node_or_null("TouchControls") as TouchControls
+	var created := controls == null
+	if created:
+		controls = TouchControls.new(); add_child(controls)
+		controls.enable_companion_actions()
+		controls.companion_action_requested.connect(carrier.request_correspondence)
+	var was_enabled := controls.enabled
+	var was_touch := player.touch_input
+	controls.set_enabled(true); player.touch_input = true
+	carrier.reading = false
+	await frames(3)
+	await touch_wire(controls)
+	check(carrier.reading, "real touchscreen WIRE request recalls companion")
+	await wait_for(func(): return carrier.motion.steady_for_input() and not carrier.device.teletype.printing)
+	await touch_wire(controls)
+	check(await wait_for(func(): return carrier.session.typing), "real touchscreen WIRE request deploys native text entry")
+	await touch_wire(controls)
+	check(not carrier.session.typing and carrier.session.draft == "help" and player.text_input_owner == null, "touchscreen cancellation keeps draft and returns focus")
+	controls.set_enabled(was_enabled); player.touch_input = was_touch
+	if created: controls.queue_free()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	await frames(3)
+
+func touch_wire(controls: TouchControls) -> void:
+	for button: Dictionary in controls._buttons:
+		if button.action != "companion": continue
+		for pressed in [true, false]:
+			var event := InputEventScreenTouch.new()
+			event.index = 4; event.position = button.centre; event.pressed = pressed
+			Input.parse_input_event(event)
+			await frames(3)
+		return
+
+func joy(button: JoyButton) -> void:
+	for pressed in [true, false]:
+		var event := InputEventJoypadButton.new()
+		event.button_index = button; event.pressed = pressed
+		Input.parse_input_event(event)
+		await frames(3)
+
+func select_all() -> void:
+	for pressed in [true, false]:
+		var event := InputEventKey.new()
+		event.keycode = KEY_A; event.physical_keycode = KEY_A; event.ctrl_pressed = true; event.pressed = pressed
+		Input.parse_input_event(event)
+		await frames(2)
+
+func wait_for(predicate: Callable, seconds := 18.0) -> bool:
+	var end := Time.get_ticks_msec() + int(seconds * 1000.0)
+	while Time.get_ticks_msec() < end:
+		if predicate.call(): return true
+		await get_tree().process_frame
+	return false
+
+func frames(count: int) -> void:
+	for index in count: await get_tree().process_frame
+
+func key(code: Key, unicode := 0) -> void:
+	for pressed in [true, false]:
+		var event := InputEventKey.new()
+		event.keycode = code; event.physical_keycode = code; event.unicode = unicode if pressed else 0; event.pressed = pressed
+		Input.parse_input_event(event)
+		await frames(2)
+
+func type_text(text: String) -> void:
+	for character in text:
+		await key(character.to_upper().unicode_at(0), character.unicode_at(0))
+
+func capture(filename: String) -> void:
+	await RenderingServer.frame_post_draw
+	get_viewport().get_texture().get_image().save_png(directory.path_join(filename))
+
+func finish() -> void:
+	if finished: return
+	finished = true
+	RealityState.persistence_enabled = false
+	var failed := checks.filter(func(record: Dictionary): return not record.passed)
+	FileAccess.open(directory.path_join("session.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "checks":checks, "failures":failed}, "\t"))
+	get_tree().quit(0 if failed.is_empty() else 1)

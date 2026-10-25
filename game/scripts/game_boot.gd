@@ -16,6 +16,7 @@ const ACTIONS := {
 	"intro": KEY_F2,
 	"release_mouse": KEY_QUOTELEFT,
 	"teletype_read": KEY_E, "teletype_next": KEY_BRACKETRIGHT, "teletype_previous": KEY_BRACKETLEFT,
+	"companion_type": KEY_ENTER,
 	"teletype_closer": KEY_EQUAL, "teletype_farther": KEY_MINUS, "teletype_service": KEY_Y,
 	"inspect_care": KEY_I, "pocket_ledger": KEY_P,
 }
@@ -30,6 +31,8 @@ const JOYPAD_ACTIONS := {
 	"crouch": JOY_BUTTON_LEFT_STICK,
 	"lamp_toggle": JOY_BUTTON_LEFT_SHOULDER,
 	"radio_toggle": JOY_BUTTON_RIGHT_SHOULDER,
+	"teletype_read": JOY_BUTTON_DPAD_DOWN,
+	"companion_type": JOY_BUTTON_A,
 	"activity_adjust_left": JOY_BUTTON_DPAD_LEFT,
 	"activity_adjust_right": JOY_BUTTON_DPAD_RIGHT,
 	"activity_commit": JOY_BUTTON_A,

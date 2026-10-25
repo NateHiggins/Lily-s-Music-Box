@@ -1951,5 +1951,20 @@
         }
       ]
     }
+  },
+  "keyboard_carriage": {
+    "travel_m": 0.045,
+    "fixed_stock_vertices_transferred": {
+      "CompanionSteel": 36,
+      "CompanionBrass": 360
+    },
+    "export": {
+      "asset": "res://assets/props/service_companion_v2.glb",
+      "primitives": 61,
+      "triangles": 42920,
+      "minimum_tangent_agreement": 0.9999917295296572,
+      "status": "PASS"
+    },
+    "sequence": "Unlatch, rotate clear, retract along paired chassis bearers; reverse before closing"
   }
 }

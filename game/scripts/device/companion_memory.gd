@@ -27,6 +27,7 @@ func snapshot() -> Dictionary:
 func restore(value: Dictionary) -> bool:
 	# Reject malformed or unbounded state atomically; never partly adopt it.
 	if value.get("version") != 1: return false
+	if value.size() != 7: return false
 	if value.get("history") is not Array or value.history.size() > LIMIT: return false
 	if value.get("counts") is not Dictionary or value.counts.size() > 64: return false
 	if value.get("seen") is not Dictionary or value.seen.size() > 128: return false
@@ -36,8 +37,10 @@ func restore(value: Dictionary) -> bool:
 	if not is_finite(float(value.trust)) or value.trust != int(value.trust) or abs(value.trust) > 100: return false
 	for record_value: Variant in value.history:
 		if record_value is not Dictionary: return false
+		if record_value.size() != 4: return false
 		for key: String in ["input", "intent", "line_id", "output"]:
-			if record_value.get(key) is not String or record_value[key].length() > 2048: return false
+			var limit := 512 if key == "input" else 2048 if key == "output" else 80
+			if record_value.get(key) is not String or record_value[key].length() > limit: return false
 	for key: Variant in value.counts:
 		if key is not String or key.length() > 80: return false
 		var count: Variant = value.counts[key]
@@ -46,7 +49,8 @@ func restore(value: Dictionary) -> bool:
 	for key: Variant in value.seen:
 		if key is not String or key.length() > 160 or value.seen[key] is not bool: return false
 	history.assign(value.history.duplicate(true))
-	counts = value.counts.duplicate(true)
+	counts = {}
+	for key: String in value.counts: counts[key] = int(value.counts[key])
 	seen = value.seen.duplicate(true)
 	last_object = value.last_object
 	branch = value.branch

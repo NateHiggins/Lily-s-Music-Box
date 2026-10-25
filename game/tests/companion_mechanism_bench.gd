@@ -60,7 +60,7 @@ func _run() -> void:
 				required = ["steel_albedo", "steel_roughness", "steel_normal", "type_plate"]
 			for map: String in required: check(row.maps.has(map), "loaded registered PBR map " + str(draw.name) + "/" + map)
 			if material is StandardMaterial3D: check(material.normal_enabled and not material.uv1_triplanar, "native normals use authored UVs " + str(draw.name))
-	check(partitions == 59, "all fifty-nine retained and formed-shell material primitives are present")
+	check(partitions == 61, "all retained, formed-shell and sliding-carriage material primitives are present")
 	var glass := rig.glazing.get_active_material(0) as StandardMaterial3D
 	check(glass != null and glass.refraction_enabled and is_equal_approx(glass.refraction_scale, .004), "reading glass retains restrained authored refraction")
 	for label: Label3D in [rig.device.teletype.ink, rig.device.teletype.heading, rig.device.teletype.footer]:
@@ -85,6 +85,7 @@ func _run() -> void:
 		rig.request_keyboard(true)
 		for tick in int(ceil(.26 * rate)): rig._process(1.0 / rate)
 		check(rig.typing_ready() and is_equal_approx(rig.keyboard.rotation.x, PI * .5), "keyboard reaches exact open stop at " + str(rate) + "Hz")
+		check(is_equal_approx(rig.keyboard.position.z, .065) and is_equal_approx(rig.keyboard_carriage.position.z, -.045), "keyboard and hinge carriage retract together by forty-five millimetres at " + str(rate) + "Hz")
 		check(rig.key_legends.visible, "physical legends are visible on the open keyboard " + str(rate))
 		pose_records.append({"hz":rate, "angle":rig.keyboard.rotation.x, "stays":_stays(rig)})
 		for label: String in ["Port", "Starboard"]:

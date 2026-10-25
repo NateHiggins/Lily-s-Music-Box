@@ -89,6 +89,13 @@ func exercise() -> void:
 		var child: MeshInstance3D=part.find_children("*","MeshInstance3D",true,false)[0] if name.begins_with("feed") else null
 		var child_basis: Basis=child.basis if child!=null else Basis.IDENTITY
 		await drag(Vector2(0,-20 if name.begins_with("feed") else 20))
+		if name.begins_with("feed"):
+			# Real window input may coalesce a small pointer correction with the
+			# requested motion. Continue the actual gesture through the detent;
+			# twenty nominal pixels alone do not establish a completed quarter turn.
+			for step in 6:
+				if carrier.device.teletype.page != old_page: break
+				await drag(Vector2(0,-4))
 		var partial: float=carrier._hand.read(name)
 		check(not is_equal_approx(partial,acquired),"actual mouse produces partial "+name+" travel")
 		if name.begins_with("feed"):

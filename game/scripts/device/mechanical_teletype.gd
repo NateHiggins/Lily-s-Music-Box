@@ -1,4 +1,5 @@
 extends Node3D
+signal card_presenting(card: Dictionary, serial: int)
 ## Physical paper and mechanism only. Gameplay supplies the complete message.
 const MODEL := preload("res://assets/props/service_radiophone_v2.glb")
 var model_scene: PackedScene = MODEL
@@ -61,6 +62,10 @@ var _carriage_left := -.05832
 var _character_pitch := .003888
 var _ink_home := Vector3.ZERO
 var _line_pitch := .007
+var _draft_ink: Label3D
+var _draft_heading := ""
+var _draft_text := ""
+var _reading_lit := false
 const DELIVERY_FEED := .020
 
 func _ready() -> void:
@@ -100,6 +105,12 @@ func _ready() -> void:
 	var stock := (_paper as MeshInstance3D).get_active_material(0).duplicate() as StandardMaterial3D
 	stock.albedo_texture=TelegramStyle.PAPER
 	stock.albedo_color=Color.WHITE
+	# A gentle reflected reading-light floor, retaining the physical stock's
+	# custom roughness/normal response. No additional light or shadow pass.
+	stock.emission_texture=TelegramStyle.PAPER
+	stock.emission=Color(.72,.65,.49)
+	stock.emission_energy_multiplier=.34
+	stock.emission_enabled=false
 	(_paper as MeshInstance3D).set_surface_override_material(0,stock)
 	carriage=model.find_child("Carriage",true,false)
 	hammer=model.find_child("Type_hammer",true,false)
@@ -153,6 +164,8 @@ func _label(at: Vector3, pixel: float) -> Label3D:
 	return label
 
 func present(card: Dictionary, serial: int) -> void:
+	card_presenting.emit(card, serial)
+	hide_draft()
 	var text := str(card.get("title","FIELD COPY"))+"\n\n"+str(card.get("body",""))
 	var condition := str(card.get("condition",""))
 	if not condition.is_empty(): text+="\n\n"+condition
@@ -199,7 +212,44 @@ func _show_copy() -> void:
 	_update_footer()
 
 func _update_footer() -> void:
+	if _draft_ink != null and _draft_ink.visible: return
 	footer.text=_action_hint+"\nPAGE %d/%d  FILE %d/%d" % [page+1,pages.size(),maxi(1,report_index+1),maxi(1,reports.size())]
+
+## A reversible editing copy on the actual paper, separate from received
+## reports and their print cursor. Editing never inserts synthetic reports.
+func show_draft(text: String, caret: int) -> void:
+	if _draft_ink == null:
+		_draft_ink = ink.duplicate() as Label3D
+		ink.get_parent().add_child(_draft_ink)
+		_draft_ink.position.z += .0001
+		_draft_ink.visible = false
+	if not _draft_ink.visible:
+		_draft_heading = heading.text
+		_draft_ink.visible = true
+		ink.visible = false
+		heading.text = "CORRESPONDENCE / DRAFT"
+	var marked := text.insert(clampi(caret, 0, text.length()), "_")
+	if _draft_text == marked: return
+	_draft_text = marked
+	var rows: Array[String] = []
+	for start in range(0, marked.length(), COLUMNS): rows.append(marked.substr(start, COLUMNS))
+	_draft_ink.position = ink.position + Vector3(0, 0, .0001)
+	var caret_row := clampi(caret, 0, text.length()) / COLUMNS
+	var first_row := maxi(0, caret_row-ROWS+1)
+	_draft_ink.text = "\n".join(rows.slice(first_row, mini(rows.size(), first_row+ROWS)))
+	footer.text = "CORRESPONDENCE / UNSENT"
+
+func hide_draft() -> void:
+	if _draft_ink == null or not _draft_ink.visible: return
+	_draft_ink.visible = false; _draft_text = ""
+	ink.visible = true
+	heading.text = _draft_heading
+	_update_footer()
+
+func set_reading_illumination(enabled: bool) -> void:
+	if enabled == _reading_lit: return
+	_reading_lit = enabled
+	(_paper as MeshInstance3D).get_active_material(0).emission_enabled = enabled
 
 func set_action_hint(value: String) -> void:
 	if value==_action_hint: return
