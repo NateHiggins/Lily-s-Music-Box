@@ -312,6 +312,14 @@ func _kitchens() -> Array:
 			print("  %s never cooked; still short of %s" % [slug, larder.missing(slug).keys()])
 	print("  shops visited: %s" % [shops.keys()])
 	_check("nothing in any larder goes below nothing", negative == 0)
+	_check("what is bought is carried home and unpacked", int(counts.get("unpacked", 0)) > 0)
+	var bags := 0
+	for slug in agenda.order:
+		for id: String in PersonInventory.items(slug):
+			if id.begins_with("grocery:"):
+				bags += 1
+	print("  still carried home at the end: %d bags" % bags)
+	_check("every resident still carries their own key", PersonInventory.valid(PersonInventory.book()))
 	_check("residents shop, cook, eat and wash up", int(counts.get("shopped", 0)) > 0 and int(counts.get("cooked", 0)) > 0
 			and int(counts.get("ate", 0)) > 0 and int(counts.get("washed up", 0)) > 0)
 	_check("at least twelve residents cook their own dish in four days", cooked.size() >= 12)

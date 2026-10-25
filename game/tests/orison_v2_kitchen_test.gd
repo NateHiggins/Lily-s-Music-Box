@@ -22,6 +22,12 @@ func _route() -> void:
 	if not _require(agenda != null and agenda.enabled, "the residents' agenda runs in the V2 root"): return
 	var larder: KitchenLarder = agenda.larder
 	if not _require(larder != null and larder.state.units.size() == 17, "all seventeen households keep a larder"): return
+	# What everybody carries (design/ORISON_INVENTORIES_2026-10-25.md).
+	var pocket := DoorKeyring.pocket_lines()
+	_require(not pocket.is_empty() and pocket[0].begins_with("KEY RING: house service / 4B"),
+			"the pocket page lists the player's key ring: %s" % [pocket])
+	_require(PersonInventory.has_key("lena_ortiz", "2B") and not PersonInventory.has_key(PersonInventory.PLAYER, "2B"),
+			"Lena carries her own key; the player has none for 2B")
 	var whereabouts: Dictionary = world.resident_whereabouts("lena_ortiz")
 	_require(str(whereabouts.get("why", "")) != "" and whereabouts.has("source"),
 			"a resident's whereabouts say why: %s" % [whereabouts])
@@ -57,7 +63,11 @@ func _route() -> void:
 	var stamp := floorf(world.campaign_clock.elapsed_minutes())
 	for shop: String in larder.groceries.shops:
 		larder.shop("lena_ortiz", shop, stamp)
-	_require(larder.can_cook("lena_ortiz"), "Lena's shopping covers her dish")
+	_require(not larder.can_cook("lena_ortiz") and PersonInventory.carried("lena_ortiz", "beef_chuck") > 0.0,
+			"Lena carries the beef home in her bag; it is not in the larder yet")
+	larder.unpack("lena_ortiz", stamp)
+	_require(PersonInventory.carried("lena_ortiz", "beef_chuck") == 0.0 and larder.can_cook("lena_ortiz"),
+			"unpacked at home, her shopping covers her dish")
 	_require(larder.cook("lena_ortiz", stamp + 1.0) == "dish", "Lena cooks the fijones")
 	await get_tree().process_frame
 	var rows := larder.icebox_rows("2B")

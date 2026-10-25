@@ -466,6 +466,9 @@ func _kitchen_candidates(slug: String, state: Dictionary, minute: int, traits: D
 ## timetable's own meals and chores cook, eat and wash up too.
 func _kitchen_event(slug: String, pick: Dictionary, stamp: float, minute: int) -> void:
 	var at_home := str(pick.place).begins_with("unit")
+	# Whatever was bought on the way comes out of the bag at the door.
+	if at_home:
+		larder.unpack(slug, stamp)
 	match str(pick.activity):
 		"shopping", "errand":
 			# The timetable's own errand to a counter buys what is short there too.
