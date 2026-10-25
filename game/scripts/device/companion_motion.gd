@@ -225,10 +225,9 @@ func _candidate_position(index: int) -> Vector3:
 	if behavior in READING:
 		basis = _reading_basis
 		offsets = [Vector3(0, -.08, -reading_distance), Vector3(.15, -.08, -reading_distance-.1), Vector3(-.15, -.08, -reading_distance-.1), Vector3(.3, -.08, -.7), Vector3(-.3, -.08, -.7), Vector3(0, -.08, -.85), Vector3(.4, .05, -.9), Vector3(-.4, .05, -.9)]
-		if behavior == &"type":
-			# Lift the whole, still-clearanced apparatus to leave room for its
-			# deployed keyboard inside the closer physical reading view.
-			for at in offsets.size(): offsets[at].y += .115
+		# Reading and typing share a desk-height pose: submitting a reply must
+		# not drop the paper away from the reader as the keyboard retracts.
+		for at in offsets.size(): offsets[at].y += .115
 		prediction = Vector3.ZERO
 	elif behavior == &"sleep":
 		offsets[index] += Vector3(0, -.2, .3)

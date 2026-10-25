@@ -150,11 +150,17 @@ func _advance_presentation(_delta: float) -> void:
 		motion.request_behavior(&"sleep")
 	elif session != null and (session.typing or session.opening):
 		motion.request_behavior(&"type")
-	elif _player.call_locked or (_player.inspecting() and _player.inspect_owner != self):
+	elif _player.call_locked or device.incoming_call or session._foreign_editor_active() or (_player.inspecting() and _player.inspect_owner != self):
 		rig.request_keyboard(false)
 		motion.request_behavior(&"observe")
-	elif reading: motion.request_behavior(&"present")
-	else: motion.request_behavior(&"accompany")
+	elif reading:
+		motion.request_behavior(&"present")
+		# Reply reading is still computer use. The closed face covers the lower
+		# copy window, so latch it only when the reader dismisses the apparatus.
+		rig.request_keyboard(motion.steady_for_input())
+	else:
+		rig.request_keyboard(false)
+		motion.request_behavior(&"accompany")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if session != null and session.retired: return

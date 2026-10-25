@@ -97,11 +97,23 @@ func exercise() -> void:
 	check(carrier.device.printed_count == reports + 1 and carrier.device.teletype.printing, "accepted reply uses original animated printer")
 	if not check(await wait_for(func(): return not carrier.device.teletype.printing), "reply physically finishes printing"):
 		finish(); return
+	await get_tree().create_timer(.5).timeout
+	var ink: Label3D = carrier.device.teletype.ink
+	var ink_rect := projected_aabb(ink, ink.get_aabb())
+	var glass_rect := projected_bounds(carrier.rig.glazing)
+	FileAccess.open(directory.path_join("reply_layout.json"), FileAccess.WRITE).store_string(JSON.stringify({"ink":str(ink_rect), "glass":str(glass_rect), "ink_local":str(ink.position), "text":ink.text}, "\t"))
+	check(glass_rect.grow(2.0).encloses(ink_rect), "delivered physical copy fits within the reading glass after feed settles")
+	check(carrier.rig.keyboard_open > .99, "reply reading keeps the keyboard beneath the copy rather than folding its face across it")
 	await capture("reply.png")
 	await key(KEY_ENTER)
 	if not check(await wait_for(func(): return carrier.session.typing), "next exchange deploys keyboard"):
 		finish(); return
 	await type_text("help")
+	await joy(JOY_BUTTON_B)
+	check(not carrier.session.typing and carrier.session.draft == "help" and player.text_input_owner == null, "controller cancel keeps draft and relinquishes only its lease")
+	await key(KEY_ENTER)
+	if not check(await wait_for(func(): return carrier.session.typing), "controller-cancelled draft explicitly resumes"):
+		finish(); return
 	carrier.device.set_radio_powered(false)
 	await frames(2)
 	check(not carrier.session.typing and carrier.session.draft == "help" and not player.call_locked, "power interruption retains draft and relinquishes focus")
@@ -202,7 +214,9 @@ func additional_checks() -> void:
 	pass
 
 func projected_bounds(draw: MeshInstance3D) -> Rect2:
-	var box := draw.mesh.get_aabb()
+	return projected_aabb(draw, draw.mesh.get_aabb())
+
+func projected_aabb(draw: Node3D, box: AABB) -> Rect2:
 	var rect := Rect2(player.camera.unproject_position(draw.to_global(box.position)), Vector2.ZERO)
 	for i in 8:
 		var point := box.position + box.size * Vector3(float(i & 1), float((i >> 1) & 1), float((i >> 2) & 1))

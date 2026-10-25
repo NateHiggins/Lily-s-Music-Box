@@ -33,6 +33,7 @@ const JOYPAD_ACTIONS := {
 	"radio_toggle": JOY_BUTTON_RIGHT_SHOULDER,
 	"teletype_read": JOY_BUTTON_DPAD_DOWN,
 	"companion_type": JOY_BUTTON_A,
+	"companion_cancel": JOY_BUTTON_B,
 	"activity_adjust_left": JOY_BUTTON_DPAD_LEFT,
 	"activity_adjust_right": JOY_BUTTON_DPAD_RIGHT,
 	"activity_commit": JOY_BUTTON_A,

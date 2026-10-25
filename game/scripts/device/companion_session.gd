@@ -124,6 +124,8 @@ func _process(delta: float) -> void:
 func _update_reading_view() -> void:
 	var allowed: bool = _carrier.reading and not _player.protected_input_active() \
 		and not get_tree().paused and not _carrier.is_capture_hidden() and _player.camera.is_current() \
+		and not _carrier.device.incoming_call and _carrier._sleep_onset <= .8 \
+		and (_player.telegram_hud == null or not _player.telegram_hud._conversation_active) \
 		and (not _player.inspecting() or _player.inspect_owner == _carrier)
 	allowed = allowed and not _foreign_editor_active()
 	if allowed and not _zoom_applied:
@@ -162,7 +164,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton and event.is_action_pressed("companion_type"):
 		if typing: submit(_edit.text)
 		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("ui_cancel"):
+	elif event.is_action_pressed("ui_cancel") or event.is_action_pressed("companion_cancel"):
 		close()
 		get_viewport().set_input_as_handled()
 	elif event.is_action_pressed("pause_services"):
@@ -180,7 +182,7 @@ func submit(value: String) -> void:
 	var reply: Dictionary = dialogue.respond_calendar(value, context, calendar.get("clock"),
 		str(calendar.get("source", "")), calendar.get("conditions", {}),
 		calendar.get("catalog"), calendar.get("read_issue", {}))
-	close()
+	close(true)
 	if not _print(reply):
 		dialogue.memory.restore(before)
 		draft = value.left(512)
@@ -194,13 +196,13 @@ func submit(value: String) -> void:
 	_snapshot()
 	RealityState.commit()
 
-func close() -> void:
+func close(keep_keyboard_open := false) -> void:
 	if not typing and not opening: return
 	var owned_focus := _edit.has_focus()
 	typing = false; opening = false
 	_edit.release_focus()
 	_player.release_text_input(self)
-	_carrier.rig.request_keyboard(false)
+	_carrier.rig.request_keyboard(keep_keyboard_open and _carrier.reading)
 	_carrier.motion.hold_for_hand(false)
 	_carrier.device.teletype.hide_draft()
 	if owned_focus and not _player.protected_input_active() and not get_tree().paused \

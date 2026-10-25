@@ -102,11 +102,13 @@ func _state_changed() -> void:
 		_known = RealityState.data.get("knowledge_flags", []).duplicate()
 		last_read.clear(); _catalog = null
 		_room = ""; _candidate_room = ""; _target = null; _hesitation = 0.0
+		_room_dwell = 0.0; _sample_left = 0.0; _blocked = false
 		return
 	var current: Array = RealityState.data.get("knowledge_flags", [])
 	for flag: Variant in current:
 		if flag not in _known:
 			# A newly granted player knowledge fact, not loading old discoveries.
-			session.queue_event("story_discovery")
+			if not session.retired and session.get_parent().device.radio_powered:
+				session.queue_event("story_discovery")
 			break
 	_known = current.duplicate()
