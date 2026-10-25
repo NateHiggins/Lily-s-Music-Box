@@ -128,6 +128,35 @@ stock `gas_service_workroom`, generated from
   holds the key. The turn goes into the household save like the player's.
   Nothing here authors resident knowledge or observations.
 
+### Mantles wear and are renewed by hand (2026-10-25, owner: "keep going")
+
+- **Wear.** Each fitting counts burning hours at incandescence toward its
+  mantle's life. The gas service's clock drives this, the same clock the
+  meter uses. Lives fall between 450 and 900 hours, seeded by fitting and
+  mantle count so a reload never rerolls one. The vestibule bracket starts
+  at 640 of 700 hours, so it fails within a few nights; the lantern starts
+  at 150 of 820.
+- **Breaking.** A spent mantle breaks and leaves its collar and a few
+  shreds of ash. The burner then burns a naked flame: a sixth of the light,
+  yellower, guttering hard, and louder than the mantle's hiss.
+- **Renewal.** The carton of a dozen spare mantles, **F01_GAS_MANTLE_CARTON**,
+  stands on its own oak shelf on the workroom's east wall. Each mantle is a
+  single-use MaintenanceInventory id, `gas_mantle_01` to `gas_mantle_12`.
+  The inventory alone records which are taken and spent; the packets left in
+  the carton are read back from it. Lift the lid with no spare in hand and
+  the next one is yours, one at a time.
+- **The access is physical** (RUL-013). The bracket's etched shade slides
+  straight down off its gallery. The lantern's street-facing light is an
+  iron-framed door hung on its left post, and it swings out. Opening either
+  one past its reach point crumbles a broken mantle's brittle ash, as spent
+  Welsbach ash does. Closing it again with a spare in hand hangs the new
+  mantle and consumes the spare; closing it without one leaves the burner
+  bare. A new mantle burns off with a brief flare.
+- **Saved.** The fitting's household record now holds the cock, the mantle
+  condition, hours, life, mantle count and access position. A save from
+  before mantles wore (cock only) still loads. The carton's record is its
+  lid alone.
+
 Research, in addition to §1:
 
 - Domestic dry meters of the 1920s were light steel plate, painted, with a
@@ -245,7 +274,10 @@ corner.
   concealed under the floor and in the masonry, not modelled.
 - Residents act as timetable facts: there is no visible body turning the
   key. That stays out of the player's sight by construction.
-- Mantles do not wear or break, and there is no spare-mantle stock.
+- When the dozen spare mantles are gone, nothing restocks the carton. The
+  hardware counter could sell more; that is a follow-up.
+- The carried spare is an inventory fact with no pocket line on the
+  handheld or the caretaker notebook yet.
 - The radiator is not on the heating graph and cannot knock or be bled.
 - The directory board and notices are not inspectable.
 - Any merged script or data change expires the V2 runtime, access and
@@ -259,6 +291,11 @@ corner.
   through the player's latched grab and mouse input: shut to the pilot, half,
   full open. It checks the household save and the lantern's clock at noon and
   after dusk.
+- Godot, windowed: **res://tests/OrisonV2GasMantleTest.tscn** breaks the
+  bracket's worn mantle, then by the player's own grab and mouse lifts the
+  carton lid for one spare, slides the shade down (the ash crumbles) and up
+  (a new mantle is hung, the spare consumed, the flare burns). It checks the
+  household save, then swings the lantern's door out and shut with no spare.
 - Godot, windowed: **res://tests/OrisonV2GasServiceTest.tscn** checks that
   the meter reads an hour's burn, that the evening peak dims a full mantle,
   that the company cock is not operable, and that each resident acts only

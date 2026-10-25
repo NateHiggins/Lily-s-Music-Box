@@ -103,3 +103,40 @@ for i, dial in enumerate(m["dials"]):
 sun.location = (7.6, wall_y - 3.0, 2.4); sun.rotation_euler = (math.radians(55), 0, 0)
 shot("blender_gas_meter.png", (7.45, wall_y - 1.25, 1.45), (7.95, wall_y - 0.1, 1.05), 38)
 shot("blender_gas_index.png", (7.92, wall_y - 0.62, 1.2), (7.92, wall_y - 0.23, 1.2), 50)
+
+# Mantles, shade, lantern door and carton (renewal stock), assembled.
+from mathutils import Matrix as _M
+for obj in scene.objects:
+    if obj.type == "MESH" and not obj.name.startswith("Review"):
+        obj.hide_render = True
+sw.hide_render = True
+bench = bpy.data.meshes.new("bench")
+bench.from_pydata([(-1, 0.4, 0), (3, 0.4, 0), (3, 0.4, 2.6), (-1, 0.4, 2.6)], [], [(0, 1, 2, 3)])
+bw = bpy.data.objects.new("ReviewBench", bench); scene.collection.objects.link(bw); bw.data.materials.append(grey)
+def show(stock, at, rot=None):
+    for obj in list(scene.objects):
+        if obj.type == "MESH" and obj.name.split("__")[0] == stock and not obj.name.startswith("Review"):
+            copy = obj.copy(); scene.collection.objects.link(copy); copy.hide_render = False
+            copy.matrix_world = _M.Translation(at) @ (rot if rot is not None else _M.Identity(4))
+# Bracket with its shade lowered 8 cm and a fresh mantle on the burner.
+show("gas_bracket", (0, 0.4, 1.4)); show("gas_cock_key", (0, 0.4 - 0.11, 1.4))
+show("gas_bracket_shade", (0, 0.4 - 0.21, 1.4 - 0.068 - 0.08)); show("gas_mantle", (0, 0.4 - 0.21, 1.4 - 0.132))
+# The three mantle states side by side.
+show("gas_mantle", (0.5, 0.2, 1.3)); show("gas_mantle_broken", (0.6, 0.2, 1.3)); show("gas_naked_flame", (0.7, 0.2, 1.3))
+# Lantern with its door swung 60 degrees about the hinge post.
+lc = (1.4, 0.4, 1.6)
+show("gas_lantern", lc)
+ht, hb, cy, top, bottom = 0.081, 0.060, -0.33, -0.05, -0.35
+hinge = Vector((-ht, cy - ht, top)); axis = (Vector((-hb, cy - hb, bottom)) - hinge).normalized()
+show("gas_lantern_door", Vector(lc) + hinge, _M.Rotation(math.radians(-60), 4, axis))
+show("gas_mantle", Vector(lc) + Vector((0, cy, -0.185)))
+# Carton with lid open and a dozen packets less one.
+cc = Vector((2.3, 0.2, 1.2))
+show("mantle_carton", cc); show("mantle_carton_lid", cc + Vector((0, 0.08, 0.07)), _M.Rotation(math.radians(-100), 4, "X"))
+for i in range(11):
+    show("mantle_packet", cc + Vector((-0.084 + 0.056 * (i % 4), -0.045 + 0.045 * (i // 4), 0.003)))
+sun.location = (1.2, -2.5, 2.6); sun.rotation_euler = (math.radians(55), 0, 0)
+shot("blender_renewal_sheet.png", (1.15, -1.9, 1.5), (1.15, 0.3, 1.35), 32)
+shot("blender_lantern_door.png", (1.0, -0.55, 1.45), (1.4, 0.07, 1.45), 45)
+shot("blender_mantles.png", (0.6, -0.25, 1.3), (0.6, 0.2, 1.29), 60)
+shot("blender_carton.png", (2.3, -0.5, 1.6), (2.3, 0.2, 1.23), 45)

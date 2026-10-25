@@ -87,6 +87,18 @@ func compose(root: Node3D) -> bool:
 	return gas_service.compose(world, meshes, lamps)
 
 
+## Each fitting's mantle, shade or panes glow with its own flame, so every
+## lit finish on this draw gets a material of its own.
+func _own_glow(fitting: OrisonV2GasFitting, draw: MeshInstance3D) -> void:
+	for surface in draw.mesh.get_surface_count():
+		var shared := draw.mesh.surface_get_material(surface)
+		for finish: String in ["mantle_lit", "shade_lit", "pane_lit", "flame_lit"]:
+			if shared == materials.get(finish):
+				var own := shared.duplicate() as StandardMaterial3D
+				draw.set_surface_override_material(surface, own)
+				fitting.glow[own] = own.emission_energy_multiplier
+
+
 func _draw(parent: Node3D, stock: String) -> MeshInstance3D:
 	var draw := MeshInstance3D.new()
 	draw.name = "Stock"
@@ -240,14 +252,29 @@ func _lamps(root: Node3D) -> bool:
 		# shadow out of its own light on the wall behind it.
 		var body := _draw(fitting, str(row.stock))
 		body.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		# Each fitting's mantle, shade or panes glow with its own flame.
-		for surface in body.mesh.get_surface_count():
-			var shared := body.mesh.surface_get_material(surface)
-			for finish: String in ["mantle_lit", "shade_lit", "pane_lit"]:
-				if shared == materials.get(finish):
-					var own := shared.duplicate() as StandardMaterial3D
-					body.set_surface_override_material(surface, own)
-					fitting.glow[own] = own.emission_energy_multiplier
+		_own_glow(fitting, body)
+		# The mantle on the burner, what a broken one leaves, and the naked
+		# flame of a burner without one; the fitting shows the one that is so.
+		var hung: Array = row.mantle
+		var at := Vector3(float(hung[0]), float(hung[1]), float(hung[2]))
+		var states := {}
+		for state: String in ["intact", "broken", "flame"]:
+			var draw := _draw(fitting, {"intact": "gas_mantle", "broken": "gas_mantle_broken", "flame": "gas_naked_flame"}[state])
+			draw.name = "Mantle_" + state
+			draw.position = at
+			draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			_own_glow(fitting, draw)
+			states[state] = draw
+		# The access to the burner: the bracket's sliding shade, the lantern's door.
+		var spec: Dictionary = row.access
+		var opening_at: Array = spec.origin
+		var access := Node3D.new()
+		access.name = "Access"
+		access.position = Vector3(float(opening_at[0]), float(opening_at[1]), float(opening_at[2]))
+		fitting.add_child(access)
+		var part := _draw(access, str(spec.stock))
+		part.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		_own_glow(fitting, part)
 		var pivot: Array = row.cock
 		var key := Node3D.new()
 		key.name = "CockKey"
@@ -278,6 +305,11 @@ func _lamps(root: Node3D) -> bool:
 		fitting.dusk = lamp_table.dusk
 		fitting.dawn = lamp_table.dawn
 		fitting.configure(light, key)
+		fitting.mantle_hours = float(row.mantle_hours)
+		fitting.mantle_life = float(row.mantle_life)
+		var hinge: Array = spec.get("axis", [0.0, -1.0, 0.0])
+		fitting.configure_mantle(states, str(spec.kind), float(spec.travel), float(spec.open_at),
+				Vector3(float(hinge[0]), float(hinge[1]), float(hinge[2])), access)
 		fitting.refresh_clock()
 		lamps.append(fitting)
 	return true

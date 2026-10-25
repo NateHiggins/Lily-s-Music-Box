@@ -51,6 +51,10 @@ FINISHES = {
     "meter_paint": {"catalog_key": "door_paint", "tint": [0.36, 0.14, 0.10, 1], "normal": .7, "roughness": 1.},
     "dial_face": {"catalog_key": "porcelain", "tint": [0.95, 0.93, 0.86, 1], "normal": .3, "roughness": 1.},
     "lead": {"catalog_key": "iron_neutral", "tint": [0.55, 0.56, 0.58, 1], "normal": .6, "roughness": 1.},
+    "card": {"catalog_key": "paper", "tint": [0.60, 0.48, 0.32, 1], "normal": .6, "roughness": 1.},
+    "ash": {"catalog_key": "porcelain", "tint": [0.80, 0.79, 0.76, 1], "normal": .4, "roughness": 1.},
+    # A burner with no mantle: a ragged yellow flame on a blue root.
+    "flame_lit": {"catalog_key": "milk_glass", "tint": [1, .78, .40, 1], "normal": .2, "roughness": 1., "emission": [1.0, 0.62, 0.24, 3.2]},
     # The bypass pilot: a bead of blue flame that never goes out.
     "pilot_lit": {"catalog_key": "milk_glass", "tint": [.40, .60, 1, 1], "normal": .2, "roughness": 1., "emission": [0.35, 0.6, 1.0, 2.5]},
     "pane_lit": {"catalog_key": "milk_glass", "tint": [.90, .86, .74, 1], "normal": .5, "roughness": 1., "emission": [1.0, 0.82, 0.55, 0.7]},
@@ -320,11 +324,51 @@ def gas_bracket():
     for k in range(3):
         a = 2 * math.pi * k / 3
         add(p, "brass", tube([(0, -0.21, -0.065), (0.042 * math.cos(a), -0.21 + 0.042 * math.sin(a), -0.07)], 0.0025, 5))
-    # A 5.5 inch etched bell, open below so the mantle shows from underneath.
-    bell = [(0.022, -0.068), (0.042, -0.077), (0.060, -0.108), (0.068, -0.145), (0.071, -0.165),
-            (0.066, -0.165), (0.063, -0.146), (0.055, -0.111), (0.039, -0.082), (0.022, -0.074)]
-    add(p, "shade_lit", lathe(bell, (0, -0.21, 0), "Z", 24))
-    add(p, "mantle_lit", sphere((0, -0.21, -0.132), 0.02, (1, 1, 1.45), 12, 8))
+    # The bell shade (gas_bracket_shade) slides off this gallery; the mantle
+    # (gas_mantle) hangs from the burner's lower end.
+    return p
+
+
+def gas_bracket_shade():
+    """A 5.5 inch etched bell, open below so the mantle shows from
+    underneath. Origin at the top of the bell, where it sits in the gallery;
+    it slides straight down off the burner to reach the mantle."""
+    p = {}
+    bell = [(0.022, 0.0), (0.042, -0.009), (0.060, -0.040), (0.068, -0.077), (0.071, -0.097),
+            (0.066, -0.097), (0.063, -0.078), (0.055, -0.043), (0.039, -0.014), (0.022, -0.006)]
+    add(p, "shade_lit", lathe(bell, (0, 0, 0), "Z", 24))
+    return p
+
+
+def gas_mantle():
+    """An inverted Welsbach mantle: a sock of rare-earth gauze on a ceramic
+    collar, centred on its origin."""
+    p = {}
+    add(p, "ash", cyl((0, 0, 0.026), 0.012, 0.008, "Z", 12))
+    add(p, "mantle_lit", sphere((0, 0, 0), 0.02, (1, 1, 1.45), 12, 8))
+    return p
+
+
+def gas_mantle_broken():
+    """What a spent mantle leaves: the collar, a torn cup and a few shreds of
+    brittle ash, which crumble at a touch."""
+    p = {}
+    add(p, "ash", cyl((0, 0, 0.026), 0.012, 0.008, "Z", 12),
+            lathe([(0.012, 0.022), (0.018, 0.014), (0.019, 0.004), (0.0175, 0.004), (0.0165, 0.013), (0.011, 0.02)], (0, 0, 0), "Z", 12))
+    for k, drop in enumerate((0.022, 0.012, 0.028, 0.016)):
+        a = 2 * math.pi * k / 4 + 0.4
+        x, y = 0.0175 * math.cos(a), 0.0175 * math.sin(a)
+        shred = box((x, y, 0.004 - drop / 2), (0.006, 0.0012, drop))
+        shred.data.transform(Matrix.Translation((x, y, 0)) @ Matrix.Rotation(a + math.pi / 2, 4, "Z") @ Matrix.Translation((-x, -y, 0)))
+        add(p, "ash", shred)
+    return p
+
+
+def gas_naked_flame():
+    """A bare burner's flame: ragged yellow over a blue root, roaring."""
+    p = {}
+    add(p, "flame_lit", sphere((0, 0, -0.016), 0.011, (1, 1, 2.3), 10, 8))
+    add(p, "pilot_lit", sphere((0, 0, 0.012), 0.007, (1, 1, 1.2), 8, 6))
     return p
 
 
@@ -347,15 +391,111 @@ def gas_lantern():
     cap.data.transform(Matrix.Translation((0, cy, 0)) @ Matrix.Rotation(math.pi / 4, 4, "Z") @ Matrix.Translation((0, -cy, 0)))
     add(p, "iron", cap, cyl((0, cy, top + 0.085), 0.025, 0.03, "Z", 10),
             cyl((0, cy, top + 0.105), 0.035, 0.008, "Z", 12))
-    glass = cyl((0, cy, (top + bottom) / 2), 0.115, top - bottom, "Z", 4, 0.085)
-    glass.data.transform(Matrix.Translation((0, cy, 0)) @ Matrix.Rotation(math.pi / 4, 4, "Z") @ Matrix.Translation((0, -cy, 0)))
-    add(p, "pane_lit", glass)
+    # Three fixed lights; the fourth, facing the street, is gas_lantern_door.
+    for side in ("left", "right", "back"):
+        add(p, "pane_lit", lantern_pane(side))
+    add(p, "brass", tube([(0, cy, top + 0.02), (0, cy, -0.13)], 0.005, 8),
+            cyl((0, cy, -0.145), 0.012, 0.03, "Z", 12))
     for sx in (-1, 1):
         for sy in (-1, 1):
             add(p, "iron", tube([(sx * 0.083, cy + sy * 0.083, top), (sx * 0.062, cy + sy * 0.062, bottom)], 0.006, 6))
     base = cyl((0, cy, bottom - 0.012), 0.09, 0.024, "Z", 4, 0.06)
     base.data.transform(Matrix.Translation((0, cy, 0)) @ Matrix.Rotation(math.pi / 4, 4, "Z") @ Matrix.Translation((0, -cy, 0)))
     add(p, "iron", base, sphere((0, cy, bottom - 0.04), 0.012, (1, 1, 1), 8, 5))
+    return p
+
+
+LANTERN_CY, LANTERN_TOP, LANTERN_BOTTOM = -0.33, -0.05, -0.35
+LANTERN_HALF_TOP, LANTERN_HALF_BOTTOM = 0.081, 0.060
+
+
+def _slab(corners, thickness):
+    """A thin glazed light from four corners, thickened along its normal."""
+    bm = bmesh.new()
+    a = [Vector(c) for c in corners]
+    n = (a[1] - a[0]).cross(a[3] - a[0]).normalized() * (thickness / 2)
+    front = [bm.verts.new(v + n) for v in a]
+    back = [bm.verts.new(v - n) for v in a]
+    bm.faces.new(front)
+    bm.faces.new(back[::-1])
+    for i in range(4):
+        j = (i + 1) % 4
+        bm.faces.new((front[i], back[i], back[j], front[j]))
+    return _obj(bm, "slab")
+
+
+def _pane_corners(side):
+    cy, t, b = LANTERN_CY, LANTERN_TOP, LANTERN_BOTTOM
+    ht, hb = LANTERN_HALF_TOP, LANTERN_HALF_BOTTOM
+    if side == "front":
+        return [(-ht, cy - ht, t), (ht, cy - ht, t), (hb, cy - hb, b), (-hb, cy - hb, b)]
+    if side == "back":
+        return [(ht, cy + ht, t), (-ht, cy + ht, t), (-hb, cy + hb, b), (hb, cy + hb, b)]
+    if side == "left":
+        return [(-ht, cy + ht, t), (-ht, cy - ht, t), (-hb, cy - hb, b), (-hb, cy + hb, b)]
+    return [(ht, cy - ht, t), (ht, cy + ht, t), (hb, cy + hb, b), (hb, cy - hb, b)]
+
+
+def lantern_pane(side):
+    return _slab(_pane_corners(side), 0.003)
+
+
+def gas_lantern_door():
+    """The lantern's street-facing light, framed in iron, hung on its left
+    post so it swings out to reach the mantle. Origin at the top of the hinge
+    post; the hinge axis runs down the post to its foot."""
+    p = {}
+    c = _pane_corners("front")
+    o = Vector(c[0])
+    corners = [tuple(Vector(v) - o) for v in c]
+    add(p, "pane_lit", _slab(corners, 0.003))
+    tl, tr, br, bl = [Vector(v) for v in corners]
+    add(p, "iron", tube([tuple(tl), tuple(tr)], 0.004, 6), tube([tuple(bl), tuple(br)], 0.004, 6),
+            tube([tuple(tr), tuple(br)], 0.004, 6))
+    mid = (tr + br) / 2 + Vector((-0.012, -0.004, 0))
+    add(p, "brass", sphere(tuple(mid), 0.005, (1, 1, 1), 8, 5))
+    return p
+
+
+def mantle_carton():
+    """A card carton of a dozen mantles, open-topped under its lid. Origin
+    at the middle of its bottom; its back (+Y) goes to the wall."""
+    p = {}
+    w, d, h, t = 0.24, 0.16, 0.07, 0.003
+    add(p, "card", box((0, 0, t / 2), (w, d, t)),
+            box((0, -d / 2 + t / 2, h / 2), (w, t, h)), box((0, d / 2 - t / 2, h / 2), (w, t, h)),
+            box((-w / 2 + t / 2, 0, h / 2), (t, d, h)), box((w / 2 - t / 2, 0, h / 2), (t, d, h)))
+    return p
+
+
+def mantle_carton_lid():
+    """The carton's lid with its front tuck flap; origin on the hinge, the
+    carton's top back edge, the lid lying forward along -Y."""
+    p = {}
+    add(p, "card", box((0, -0.082, 0.002), (0.244, 0.164, 0.004)),
+            box((0, -0.164, -0.008), (0.244, 0.004, 0.02)))
+    return p
+
+
+def mantle_packet():
+    """One mantle in its tissue and paper sleeve, standing on its origin."""
+    p = {}
+    add(p, "paper", box((0, 0, 0.03), (0.045, 0.03, 0.06), 0.002))
+    add(p, "card", box((0, 0, 0.0605), (0.046, 0.031, 0.004), 0.001))
+    return p
+
+
+def gas_mantle_shelf(service):
+    """A short oak shelf for the mantle carton on the workroom's east wall,
+    in the blockout frame, from gas_service.json's carton entry."""
+    c = service["carton"]
+    wall, z, y = c["wall_face_x"], c["along_z"], c["shelf_y"]
+    p = {}
+    add(p, "oak", box(blender((wall - 0.1, y + 0.0125, z)), (0.2, 0.34, 0.025), 0.003))
+    for dz in (-0.12, 0.12):
+        add(p, "iron", box(blender((wall - 0.006, y - 0.06, z + dz)), (0.012, 0.03, 0.12), 0.002),
+                box(blender((wall - 0.09, y - 0.006, z + dz)), (0.17, 0.03, 0.012), 0.002),
+                tube([blender((wall - 0.012, y - 0.11, z + dz)), blender((wall - 0.15, y - 0.012, z + dz))], 0.005, 6))
     return p
 
 
@@ -500,6 +640,14 @@ STOCKS = {
     "gas_cock_key": gas_cock_key,
     "gas_pilot": gas_pilot,
     "gas_meter_hand": gas_meter_hand,
+    "gas_bracket_shade": gas_bracket_shade,
+    "gas_mantle": gas_mantle,
+    "gas_mantle_broken": gas_mantle_broken,
+    "gas_naked_flame": gas_naked_flame,
+    "gas_lantern_door": gas_lantern_door,
+    "mantle_carton": mantle_carton,
+    "mantle_carton_lid": mantle_carton_lid,
+    "mantle_packet": mantle_packet,
 }
 
 PERIOD = {
@@ -515,6 +663,15 @@ PERIOD = {
     "gas_cock_key": "Flat brass key of a quarter-turn plug cock.",
     "gas_pilot": "Bypass pilot flame of an inverted burner.",
     "gas_meter_hand": "Blackened index hand of a dry gas meter dial.",
+    "gas_bracket_shade": "Etched glass bell shade that slides off the bracket's gallery.",
+    "gas_mantle": "Inverted Welsbach mantle on its ceramic collar.",
+    "gas_mantle_broken": "A spent mantle's collar, torn cup and brittle ash shreds.",
+    "gas_naked_flame": "The ragged yellow flame of a burner with no mantle.",
+    "gas_lantern_door": "The lantern's iron-framed street light, hung on its left post.",
+    "mantle_carton": "Card carton for a dozen spare mantles.",
+    "mantle_carton_lid": "The carton's lid and tuck flap.",
+    "mantle_packet": "One spare mantle in its tissue and paper sleeve.",
+    "gas_mantle_shelf": "Short oak shelf for the mantle carton, on the workroom wall.",
     "gas_service_workroom": "House gas service: sealed company cock, painted steel-plate dry meter with a small-dial index on an oak shelf, outlet to the floor.",
     "gas_pipe_vestibule": "Surface-run half-inch black iron gas supply, floor flange, plug cock and straps.",
 }
@@ -552,6 +709,7 @@ def main():
         stocks["gas_pipe_vestibule"] = lambda route=route: gas_pipe(route)
     service = json.loads((ROOT / "game/data/orison_v2/gas_service.json").read_text(encoding="utf-8"))
     stocks["gas_service_workroom"] = lambda: gas_service(service)
+    stocks["gas_mantle_shelf"] = lambda: gas_mantle_shelf(service)
     triangles = {}
     for name, build in stocks.items():
         parts = build()
