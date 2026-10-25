@@ -2,6 +2,7 @@ extends Node3D
 ## Native/import/mechanism diagnostic. Does not qualify gameplay input/navigation.
 var checks: Array[Dictionary] = []
 var failures: Array[String] = []
+var _finished := false
 
 func check(ok: bool, name: String) -> void:
 	checks.append({"name":name, "passed":ok})
@@ -10,7 +11,17 @@ func check(ok: bool, name: String) -> void:
 		push_error(name)
 
 func _ready() -> void:
+	get_tree().create_timer(90.0).timeout.connect(_diagnostic_deadline)
 	_run.call_deferred()
+
+func _diagnostic_deadline() -> void:
+	if _finished: return
+	check(false, "mechanism diagnostic did not finish within ninety seconds")
+	var out := OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(out)
+	FileAccess.open(out.path_join("mechanism_diagnostic.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":"Aborted mechanism diagnostic; partial observations are not qualification", "checks":checks, "failures":failures}, "\t"))
+	print("COMPANION MECHANISM: aborted diagnostic; ", failures.size(), " failures")
+	get_tree().quit(1)
 
 func _run() -> void:
 	RealityState.persistence_enabled = false
@@ -51,6 +62,8 @@ func _run() -> void:
 	check(partitions == 59, "all fifty-nine retained and formed-shell material primitives are present")
 	var glass := rig.glazing.get_active_material(0) as StandardMaterial3D
 	check(glass != null and glass.refraction_enabled and is_equal_approx(glass.refraction_scale, .004), "reading glass retains restrained authored refraction")
+	for label: Label3D in [rig.device.teletype.ink, rig.device.teletype.heading, rig.device.teletype.footer]:
+		check(label.alpha_cut == Label3D.ALPHA_CUT_DISCARD and not label.no_depth_test, "physical carbon glyphs enter the refracted opaque scene with depth testing")
 	var film: Dictionary = inspector._material(rig.glazing_film)
 	for map: String in ["albedo_tex", "rough_tex", "normal_tex"]:
 		check(film.maps.has(map), "glass film uses loaded registered map " + map)
@@ -186,6 +199,7 @@ func _run() -> void:
 	metrics.free()
 	inspector.free()
 	print("COMPANION MECHANISM: ", checks.size(), " checks; ", failures.size(), " failures")
+	_finished = true
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _fit_contacts(rig: Node3D) -> void:

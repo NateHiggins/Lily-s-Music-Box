@@ -1,0 +1,18 @@
+[
+  {
+    "scene": "res://tests/CompanionMechanismBench.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\companion_20261024\\mechanism_v5.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\companion_20261024\\mechanism_v5"
+  },
+  {
+    "scene": "res://tests/ServiceTeletypeTest.tscn",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\companion_20261024\\printer_seam_regression_v4.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\companion_20261024\\printer_seam_regression_v4"
+  }
+]

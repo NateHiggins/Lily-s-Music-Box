@@ -1,0 +1,21 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Source diagnosis of historical ServiceTeletypeTest assumptions; not a runtime failure or qualification",
+  "asset": "game/assets/props/service_radiophone_v2.glb",
+  "expected_legacy_nodes": [
+    "SupplySpool",
+    "TakeupSpool"
+  ],
+  "present": {
+    "SupplySpool": false,
+    "TakeupSpool": false
+  },
+  "feed_gear_nodes": [],
+  "retained_current_nodes": [
+    "TypeSelector",
+    "Type_hammer",
+    "Carriage",
+    "FocusWheel",
+    "ServiceCover"
+  ]
+}

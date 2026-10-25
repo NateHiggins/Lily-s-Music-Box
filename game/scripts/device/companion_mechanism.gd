@@ -12,6 +12,8 @@ var key_legends: Node3D
 var display: Node3D
 var glazing: MeshInstance3D
 var glazing_film: ShaderMaterial
+var _glass_inside := 0.0
+var _glass_outside := 0.0
 var failures: Array[String] = []
 var keyboard_requested := false
 var keyboard_open := 0.0
@@ -42,6 +44,11 @@ func build() -> bool:
 	add_child(device)
 	if not device.presentation_ready: return _fail("Original radio/printer presentation failed to bind")
 	model = device.teletype.model
+	# Carbon marks are opaque ink, so put their masked glyphs into the opaque
+	# scene before the reading glass samples it. Keep ordinary depth testing.
+	for label: Label3D in [device.teletype.ink, device.teletype.heading, device.teletype.footer]:
+		label.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+		label.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	keyboard = model.find_child("CompanionKeyboard", true, false)
 	latch = model.find_child("CompanionKeyboardLatch", true, false)
 	if keyboard == null or latch == null: return _fail("Companion keyboard pivots missing")
@@ -145,6 +152,8 @@ func build() -> bool:
 	glazing_film.set_shader_parameter("glass_size", Vector2(.137, .096))
 	glazing_film.set_shader_parameter("pane_center", glazing.mesh.get_aabb().get_center())
 	glazing_film.set_shader_parameter("edge_wear", .025)
+	glazing_film.set_shader_parameter("inside_wet", 0.0)
+	glazing_film.set_shader_parameter("outside_wet", 0.0)
 	glazing.material_overlay = glazing_film
 	_apply_keyboard()
 	set_process(true)
@@ -156,10 +165,12 @@ func set_glass_moisture(inside: float, outside: float) -> void:
 	if glazing_film == null or not is_finite(inside) or not is_finite(outside): return
 	inside = clampf(inside, 0.0, 1.0)
 	outside = clampf(outside, 0.0, 1.0)
-	if float(glazing_film.get_shader_parameter("inside_wet")) != inside:
+	if _glass_inside != inside:
 		glazing_film.set_shader_parameter("inside_wet", inside)
-	if float(glazing_film.get_shader_parameter("outside_wet")) != outside:
+	if _glass_outside != outside:
 		glazing_film.set_shader_parameter("outside_wet", outside)
+	_glass_inside = inside
+	_glass_outside = outside
 
 func request_keyboard(open: bool) -> void:
 	if keyboard_requested == open: return

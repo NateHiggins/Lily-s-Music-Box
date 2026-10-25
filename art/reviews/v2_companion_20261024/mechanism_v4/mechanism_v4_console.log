@@ -1,0 +1,48 @@
+[LANE] busy; waiting up to 120 min for '5 runs'
+lane: BUSY
+  mutex: held
+  holder: pid 66864 (long) scene 'res://tests/OrisonV2SurfaceInventory.tscn' since 2026-10-25T04:48:44Z from C:\ov\fx
+  godot: pid 58404 Godot_v4.7.1-stable_win64 'Please Stay on the Line (DEBUG)' since 2026-10-25T04:48:45Z
+         C:\Users\nate_\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.7.1-stable_win64.exe --path C:\ov\fx\game res://tests/OrisonV2SurfaceInventory.tscn
+  godot: pid 150020 Godot_v4.7.1-stable_win64_console since 2026-10-25T04:48:45Z
+         "C:\Users\nate_\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.7.1-stable_win64_console.exe" --path C:\ov\fx\game res://tests/OrisonV2SurfaceInventory.tscn
+  waiting: pid 111032 for 'res://tests/V2BathroomFinishingReview.tscn' since 2026-10-24T13:31:36Z [STALE]
+  waiting: pid 113100 for '6 runs' since 2026-10-24T18:54:15Z [STALE]
+  waiting: pid 133616 for '2 runs' since 2026-10-24T12:55:22Z [STALE]
+  waiting: pid 14848 for '5 runs' since 2026-10-24T11:24:59Z [STALE]
+  waiting: pid 152196 for '2 runs' since 2026-10-25T04:48:49Z
+  waiting: pid 178304 for '7 runs' since 2026-10-24T15:57:50Z [STALE]
+  waiting: pid 180344 for '5 runs' since 2026-10-24T22:12:38Z [STALE]
+  waiting: pid 191212 for '5 runs' since 2026-10-25T04:56:02Z [STALE]
+  waiting: pid 192480 for '5 runs' since 2026-10-24T18:43:59Z [STALE]
+  waiting: pid 199804 for '6 runs' since 2026-10-25T04:27:03Z
+  waiting: pid 26700 for '4 runs' since 2026-10-25T03:51:42Z [STALE]
+  waiting: pid 39968 for 'res://tests/OrisonV2KitchenTest.tscn' since 2026-10-25T02:37:00Z
+  waiting: pid 46528 for 'res://tests/WalkTest.tscn' since 2026-10-10T20:22:23Z [STALE]
+  waiting: pid 67524 for '5 runs' since 2026-10-25T04:59:46Z
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_20261024\mechanism_v4_import1.log.receipt.json exit=0 completed=True pass_lines=0 fail_lines=0
+[LANE]  exit=0
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_20261024\mechanism_v4_import2.log.receipt.json exit=0 completed=True pass_lines=0 fail_lines=0
+[LANE]  exit=0
+Exception: C:\ov\v2merge24\tools\lane.ps1:206
+Line |
+ 206 |      & $script @params | Out-Host
+     |      ~~~~~~~~~~~~~~~~~
+     | TIMEOUT: 'res://tests/CompanionMechanismBench.tscn' was still running at the 170-second ceiling and was
+     | terminated by the runner. The ceiling ended this run, not the suite - it reported no verdict. Re-run with a
+     | higher -TimeoutSeconds if the suite is legitimately this expensive, or diagnose a hang. Partial log:
+     | C:\ov\reports\v2integration24\companion_20261024\mechanism_v4.log
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_20261024\mechanism_v4.log.receipt.json exit=None completed=False pass_lines=0 fail_lines=0
+[LANE] res://tests/CompanionMechanismBench.tscn exit=124
+Exception: C:\ov\v2merge24\tools\lane.ps1:206
+Line |
+ 206 |      & $script @params | Out-Host
+     |      ~~~~~~~~~~~~~~~~~
+     | TIMEOUT: 'res://tests/ServiceTeletypeTest.tscn' was still running at the 120-second ceiling and was terminated
+     | by the runner. The ceiling ended this run, not the suite - it reported no verdict. Re-run with a higher
+     | -TimeoutSeconds if the suite is legitimately this expensive, or diagnose a hang. Partial log:
+     | C:\ov\reports\v2integration24\companion_20261024\printer_seam_regression_v3.log
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_20261024\printer_seam_regression_v3.log.receipt.json exit=None completed=False pass_lines=0 fail_lines=0
+[LANE] res://tests/ServiceTeletypeTest.tscn exit=124
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_20261024\service_hand_regression_v2.log.receipt.json exit=0 completed=True pass_lines=1 fail_lines=0
+[LANE] res://tests/ServiceSetHandTest.tscn exit=0

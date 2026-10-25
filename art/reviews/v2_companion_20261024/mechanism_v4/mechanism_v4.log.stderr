@@ -1,0 +1,9 @@
+SCRIPT ERROR: Invalid call. Nonexistent 'float' constructor.
+   at: set_glass_moisture (res://scripts/device/companion_mechanism.gd:159)
+   GDScript backtrace (most recent call first):
+       [0] set_glass_moisture (res://scripts/device/companion_mechanism.gd:159)
+       [1] _run (res://tests/companion_mechanism_bench.gd:57)
+SCRIPT ERROR: Invalid call. Nonexistent 'float' constructor.
+   at: _run (res://tests/companion_mechanism_bench.gd:58)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/companion_mechanism_bench.gd:58)

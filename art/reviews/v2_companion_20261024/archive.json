@@ -1,6 +1,6 @@
 {
   "evidence_class": "INERT",
-  "scope": "INERT native/static review, offline diagnostics, failed imported mechanism v1, original-carrier world baseline; combined formed mechanism v4 pending",
+  "scope": "INERT native/static/offline diagnostics and original-carrier world records; v4 aborted, v6 mechanism failed, companion uninstalled. Separately scoped original-carrier world contract retained.",
   "files": [
     {
       "path": "flip_native_v1/blender.log",
@@ -71,6 +71,18 @@
       "sha256": "03d1c543bd2c4f31ae184397724874538759b20eda9a45c0c3e5ead235a2ce7c"
     },
     {
+      "path": "legacy_printer_fixture_diagnosis.json",
+      "sha256": "f61081dc98d621f7693b63590278b65074c351002658320dfa0255b2f97f5cbd"
+    },
+    {
+      "path": "mechanism_batch_v5.json",
+      "sha256": "1d4301de55f74b97ddecd2f5dca8e5adaf2eeb2b96d30d7f7406f768332dcfd0"
+    },
+    {
+      "path": "mechanism_batch_v6.json",
+      "sha256": "7e5f078984fbddd93da6fb9046442405663ea405151f1eb5a25f3f0ccf6e7b82"
+    },
+    {
       "path": "mechanism_v1/illustration.png",
       "sha256": "b431817d43f9f4adc484df98d030b0385b0c7a36b3163e9f084d852b4be25226"
     },
@@ -105,6 +117,126 @@
     {
       "path": "mechanism_v1/typing.png",
       "sha256": "323e2ebfee6a69cda070fbfcc3ace17bdeeacdb73b7d06cc081ce0eb47677b7c"
+    },
+    {
+      "path": "mechanism_v4/archive.json",
+      "sha256": "862c718629ba979f1db1036c560df4e5510388b9379ebbe894dd871c9dd7fd50"
+    },
+    {
+      "path": "mechanism_v4/mechanism_v4.log",
+      "sha256": "bdfcc370d4516eda2383b791ba98595f2b0720282823db7707e6869a00038497"
+    },
+    {
+      "path": "mechanism_v4/mechanism_v4.log.receipt.json",
+      "sha256": "6ca2c847f43a07a3df8a5743b3a1a675abe990c449d79e7b9642cc0124629e6d"
+    },
+    {
+      "path": "mechanism_v4/mechanism_v4.log.stderr",
+      "sha256": "6eea8f024ecb388c2a151e0c1870704295493b081bc644f01c549c5c71bc2501"
+    },
+    {
+      "path": "mechanism_v4/mechanism_v4_console.log",
+      "sha256": "3da4618bd732976283dfe9f47c1083fcd1b68a994b78c7f6f24444e130cb1fd0"
+    },
+    {
+      "path": "mechanism_v4/mechanism_v4_import1.log",
+      "sha256": "98dd603f5d438abcae963d416dfeeea1c8dd9f411646c4e604ef38b0b5a3c43b"
+    },
+    {
+      "path": "mechanism_v4/mechanism_v4_import1.log.receipt.json",
+      "sha256": "1981c73f7a5a1d12b2e2abdfbd346f618f5ac1fae1265d70a0804ee838c465e9"
+    },
+    {
+      "path": "mechanism_v4/mechanism_v4_import1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "mechanism_v4/mechanism_v4_import2.log",
+      "sha256": "4a397ad49c566a05e88a229bea747004907400e6f2367a980d2512fb29bfdaa7"
+    },
+    {
+      "path": "mechanism_v4/mechanism_v4_import2.log.receipt.json",
+      "sha256": "4c9c02cce20dadad41773f75c223be9cba5dc6ea92ead5d44aca96e11da73dcc"
+    },
+    {
+      "path": "mechanism_v4/mechanism_v4_import2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "mechanism_v4/printer_seam_regression_v3.log",
+      "sha256": "55569a804c2fd2a201a20dc9b365a8f46548c14554df33dc26ee4ee2b22320e0"
+    },
+    {
+      "path": "mechanism_v4/printer_seam_regression_v3.log.receipt.json",
+      "sha256": "64232a658bc778eeb617a919ecd8d667f49ba75c6cd70d3ac950f6d7fa169080"
+    },
+    {
+      "path": "mechanism_v4/printer_seam_regression_v3.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "mechanism_v4/service_hand_regression_v2/observations.json",
+      "sha256": "6e073b66a9f2df38128ee2907571f2d6c79e3a8cf1005824e57c25c6391343c0"
+    },
+    {
+      "path": "mechanism_v4/service_hand_regression_v2/physical_controls.png",
+      "sha256": "c5b4189175decf5a9bb67bbd8f6240474970641607c91a3f105fe82fa6389507"
+    },
+    {
+      "path": "mechanism_v4/service_hand_regression_v2.log",
+      "sha256": "2098aea647e7403690d0d8cf5a4bed8607aff9df86fca46f73d6572e786eddd2"
+    },
+    {
+      "path": "mechanism_v4/service_hand_regression_v2.log.receipt.json",
+      "sha256": "58a9f705f4467a2a7b5b4c8db2b9504e6a0550085f79b7d2c1e5627fb8d58e50"
+    },
+    {
+      "path": "mechanism_v4/service_hand_regression_v2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "mechanism_v5_cancelled.json",
+      "sha256": "9ff6c1daa9e297019c751e923e699f2bea370e6a08688308168c3fcb811bacd1"
+    },
+    {
+      "path": "mechanism_v6/glass_reading.png",
+      "sha256": "2ec24481ca9551dad880de7cf5cf260e0053554779eed00dc42fd4334845222a"
+    },
+    {
+      "path": "mechanism_v6/glass_wet.png",
+      "sha256": "55a8f33afd327212ace2a89c1ecb7994726d57d79c8cd8c12da14d872ff1640d"
+    },
+    {
+      "path": "mechanism_v6/illustration.png",
+      "sha256": "010fad3855dc3db8b3bd70dcd84526f866a1e26b729213f39e91e3c94f61090d"
+    },
+    {
+      "path": "mechanism_v6/mechanism_diagnostic.json",
+      "sha256": "87472b6ac49f9ce5518c0c5635854f488682f400e66c717951f6479d7d9fd1c7"
+    },
+    {
+      "path": "mechanism_v6/mechanism_v6.log",
+      "sha256": "46682f1a00d4b68ea5f57efec385fd8ea2e3c8ddb147c6d6ba0f995738b177b3"
+    },
+    {
+      "path": "mechanism_v6/mechanism_v6.log.receipt.json",
+      "sha256": "8c79e10ac47f0cd8c1f17f6ee67f3e528fc22fe50f0bb5e3b7f764dd9477c2e3"
+    },
+    {
+      "path": "mechanism_v6/mechanism_v6.log.stderr",
+      "sha256": "2620f28d78c22c25aa864bcd3748e3291a8176ff13e839fc0dbe6280f46c60c0"
+    },
+    {
+      "path": "mechanism_v6/mouth_open.png",
+      "sha256": "81b7d627e1efae36ab8e38a54724ce32060edba47fb77b000c31b8b096c3150d"
+    },
+    {
+      "path": "mechanism_v6/travel.png",
+      "sha256": "946b9262abffd3bf02019815310c72e9df757f1c1826d26bcae2d2af8aa7ffb3"
+    },
+    {
+      "path": "mechanism_v6/typing.png",
+      "sha256": "392d8d1bdfecb22a367eb51a71ed3c014452da229ae244e43b45e04744a447d1"
     },
     {
       "path": "native_paths_repair.log",
@@ -365,6 +497,58 @@
     {
       "path": "reader_v9.log",
       "sha256": "e588792ad309cb2b6b96c38d538cfbc0c2de6792e15feacb3e73a13713190f1d"
+    },
+    {
+      "path": "service_hand_world_v1/carried_controls_runtime_contract.json",
+      "sha256": "1e50a1b647bf0fa574c904edb8c904a7a543882060572fd874a51b69c5c941d1"
+    },
+    {
+      "path": "service_hand_world_v1/first_print.png",
+      "sha256": "cd45efe83188b04db0139efb062d7918e64b2e5b6ae10973daf8184a6bd4ee17"
+    },
+    {
+      "path": "service_hand_world_v1/held_idle.png",
+      "sha256": "05e8cee012e79f944a995edc33030148a44f1c02d3274149963969ade8d7a8a2"
+    },
+    {
+      "path": "service_hand_world_v1/lowered.png",
+      "sha256": "549934f44243a2ec11ce42330e8d334ad2d049cb0ed80ec4b72182aaad3dc592"
+    },
+    {
+      "path": "service_hand_world_v1/physical_controls.png",
+      "sha256": "390d4b4d1e36facdb4d79ee652b74010d061b144abca20950c436bd9724b80d9"
+    },
+    {
+      "path": "service_hand_world_v1/profile.json",
+      "sha256": "286f69ad4d0f3cca398e6b64a07f119a9c25ee4692cdfde02fcaa77711b0a750"
+    },
+    {
+      "path": "service_hand_world_v1/runtime_contract.json",
+      "sha256": "cd6044c6cc408610e90faed02b165b1669e606f0f5976d5328902c6b9bb165b4"
+    },
+    {
+      "path": "service_hand_world_v1/service_hand_world_v1.log",
+      "sha256": "c48ed71f68025e518407a5c4ab38346cfd925d09512e69933181be0603676d6e"
+    },
+    {
+      "path": "service_hand_world_v1/service_hand_world_v1.log.receipt.json",
+      "sha256": "9d030a465207eb04133af404feb9d56b38fa5dfa73d5110f1270225b8a2c4afc"
+    },
+    {
+      "path": "service_hand_world_v1/service_hand_world_v1.log.stderr",
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "path": "service_hand_world_v1/steady_print.png",
+      "sha256": "ae3de569b5921c1e180017e9dea18d1a0666ed5330e31ebaea5f89740ab46bf2"
+    },
+    {
+      "path": "service_hand_world_v1/vantry_ceiling.png",
+      "sha256": "5727cd2541dda5c267e56e7cf21c812bce36892fb741774b78f5c7882619d1e6"
+    },
+    {
+      "path": "service_hand_world_v1/vantry_inspection.png",
+      "sha256": "56550d863b415996ab1011aa377355554ff70945afb640a884e1e9c826aa758e"
     },
     {
       "path": "shell_hood_travel_v1/closed.png",

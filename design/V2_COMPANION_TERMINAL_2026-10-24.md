@@ -340,3 +340,71 @@ integration, personality integration and repeated world performance comparison.
 Decision needed from owner: none.
 
 BLOCKED merge qualification: construction preparation awaits the combined runtime checks.
+
+### First formed-shell run: initialization failure, original records retained
+
+The **mechanism_v4** run reached the moisture checks, then emitted two script
+errors when **float** received an unset shader parameter. Its coroutine did
+not finish, and the wrapper killed it at170 seconds. There is no suite verdict
+or imported qualification from that run. The fix explicitly initializes both
+face uniforms and keeps typed presentation caches, avoiding reads of unset
+renderer defaults and redundant uniform writes. A diagnostic deadline now
+writes partial failure observations and exits if the bench aborts unexpectedly;
+it cannot turn partial observations into a pass. Syntax checks pass; the rerun
+is pending.
+
+The separate historical **ServiceTeletypeTest** hit its120-second ceiling while
+composing the full world, with no verdict and no script errors. Source diagnosis
+also establishes obsolete assumptions: the unchanged original heated-type model
+has neither **SupplySpool** nor **TakeupSpool**, and no **FeedGear** nodes, while
+the old test indexes both spools and expects four gears. The original test is
+left unchanged as legacy fixture debt. No fake reels are added to satisfy it.
+Its original timeout and source diagnosis are preserved.
+
+The separately scoped **ServiceSetHandTest** diagnostic completed70 actual-input
+checks in5.91 seconds with no failures or script errors; its capture shows the
+outward-open lid. Its test-written observations are INERT, not a schema-2 world
+contract. The failed batch is not promoted to runtime qualification from that
+leg. **mechanism_v6** reran the corrected small mechanism
+bench and **V2ServiceSetHandWorldTest** on the long runner with600 seconds for
+the actual composed-world E/Space/grab/motion/release route. The unchanged
+standalone diagnostic is reused rather than repeated. v5 was cancelled before
+acquisition to replace the known retired-reel fixture with this current route.
+
+All v4 stdout/stderr, wrapper receipts and separately written observations are
+under **art/reviews/v2_companion_20261024/mechanism_v4/**. The original model,
+carrier, call/radio/lamp/WorkOrders and save owners retain their authority.
+No companion navigation, typing or save qualification is claimed.
+
+### v6 outcome: script recovery, contact failures and unreadable glass
+
+The corrected small bench completed in19.44 seconds, with2,145 checks,33 failed
+contact checks and zero script errors. It is failed as a whole. The original
+moisture-default exception no longer aborts it, but no successful sub-checks
+are promoted to qualification. Original receipts, all test-written diagnostics
+and dry/wet/travel/typing captures are retained.
+
+The captures expose an actual presentation defect: the refractive window
+replaces the transparent Label3D carbon lettering with the opaque scene copy,
+leaving the pane blank. The proposed repair makes only the companion's paper
+glyphs opaque masked ink with ordinary depth testing and no cast shadows.
+It adds no viewport and preserves the glass effect. This still needs a rendered
+rerun. Godot's [3D-text documentation](https://docs.godotengine.org/en/4.4/tutorials/3d/3d_text.html)
+describes the transparency/sorting limits; the retained captures establish the
+failure here, rather than code inspection alone.
+
+The33 failures are imported temporary physics-ray contact observations. They
+are not waived from the native measurements. **CompanionContactProbe** is
+queued to compare those same imported faces through physics, direct geometry
+and numerically conditioned geometry calculations. It records diagnostics only
+and does not declare a pass. Geometry, game collision protection and the
+50-micrometre imported seat tolerance remain unchanged pending diagnosis.
+
+The separate composed **V2ServiceSetHandWorldTest** run completed in186 seconds
+with zero script errors. Its test-written, separately scoped schema-2
+**carried_controls_runtime_contract.json** records71 successful checks and five
+executed contracts for the original installed instrument's specific targets,
+latched manipulation, limits, circuit owners and interruption. Its source
+digest remained unchanged throughout the run. This contract applies to those
+captured inputs and that existing carrier, not to the new companion or later
+candidate glyph changes. The companion remains uninstalled and unqualified.

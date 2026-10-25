@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 9.0,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T05:28:58Z",
+  "started_utc": "2026-10-25T05:28:49Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/companion_20261024/mechanism_v4_import1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2integration24/companion_20261024/mechanism_v4_import1.log",
+  "stdout_sha256": "98dd603f5d438abcae963d416dfeeea1c8dd9f411646c4e604ef38b0b5a3c43b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 2213,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/front_facade.blend",
+   " M art/blender/front_facade_inventory.json",
+   " M art/blender/scripts/build_front_facade.py",
+   " M art/blender/scripts/build_shop_joinery.py",
+   " M art/blender/scripts/inspect_front_facade.py",
+   " M art/blender/scripts/inspect_shop_joinery.py",
+   " M art/blender/scripts/shop_joinery_geometry.py",
+   " M art/blender/shop_joinery.blend",
+   " M art/blender/shop_joinery_construction.json",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/data/front_facade/source_fit.json",
+   " M art/data/shop_joinery/source_plan.json",
+   " M art/tools/fix_v2_mesh_imports.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import"
+  ],
+  "repository_head": "819e20b7ba02bdfdfd864f8f67640b0de0d56421",
+  "repository_tree": "03a8f1bb610383b430cd3d061ad17dce54ccbbd2",
+  "runtime_inputs_sha256": "662a8a1de7f13ba10bb088acd3c69fa475d47bdb8ebace68d0a30f8513dfb277",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}
