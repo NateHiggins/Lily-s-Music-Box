@@ -86,7 +86,9 @@ func _run() -> void:
 	var memory: Dictionary = carrier.session.dialogue.memory.snapshot()
 	var started := Time.get_ticks_usec()
 	check(RealityState.save_game(), "explicit save settlement succeeds")
-	events.append({"kind":"save_barrier","phase":phase,"elapsed_usec":Time.get_ticks_usec()-started})
+	# This monotonic duration belongs only to the diagnostic, never campaign data.
+	var barrier_elapsed_usec := Time.get_ticks_usec()-started
+	events.append({"kind":"save_barrier","phase":phase,"elapsed_usec":barrier_elapsed_usec})
 	RealityState.load_game()
 	check(Campaign.valid(RealityState.data.get("companion")), "saved companion domain validates")
 	check(domain_value(RealityState.data.companion.memory) == domain_value(memory), "last exchange survives actual disk reload")
