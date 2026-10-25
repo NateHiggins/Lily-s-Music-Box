@@ -666,3 +666,8 @@ run. Historical receipts are preserved, never repinned. Main's surface/ledger
 debt, existing V1 ServiceSet failures and broader V2 route/performance/human
 acceptance remain open. This entry requests no ledger promotion and does not
 mark the whole companion or V2 complete.
+
+The final keyboard audit also adds native SPACE, Backspace and Enter feedback.
+Its first Enter assertion sampled after the stroke; the diagnostic now observes
+actual key travel across the delivered input frames. A waiting candidate run was
+cancelled before engine startup for this addition; no verdict is claimed for it.

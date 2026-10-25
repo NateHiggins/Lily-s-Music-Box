@@ -119,7 +119,9 @@ against **fdcf473d**. It includes production composition, actual key/controller/
 touch input, real published reading, as-of weather, malformed-domain recovery,
 fresh-world reconstruction and unchanged eight authority maps. Measured teardown
 retires435 nodes,52 owned resources and3 observed active audio playbacks to zero.
-Shared native/catalogue/font/sound resources are explicitly excluded.
+Shared native/catalogue/font/sound resources are explicitly excluded. During
+date-boundary fixtures, the existing agenda owner is paused to isolate
+correspondence; the production NPC presentation remains composed.
 
 The final small draft-anchor refinement and settled long-page checks are covered
 by the forthcoming candidate run rather than claiming the prior receipt matches
@@ -127,6 +129,14 @@ changed source. Historical failures, source, logs, stderr and test-written recei
 are byte-preserved in **art/reviews/v2_companion_correspondence_20261025/history.zip**.
 Its manifest distinguishes historical scope. Wrapper receipts are suite_run records,
 not runtime contracts. The interrupted misquoted import has no suite verdict.
+
+The last keyboard audit added explicit SPACE mapping and Backspace/Enter key
+motion from real input. The first64-check run passes Space/Backspace and all
+functional checks but observes Enter after its short motion has finished. The
+fixture now observes the actual key transform across input frames. The prior
+candidate verifier was stopped while waiting for its first engine run to add
+these checks; it has no completed candidate or engine verdict. Both the failed
+diagnostic and explicit cancellation note remain in the history packet.
 
 Main's complete clean board is **static/main_ecce_board.json** in that packet.
 It retains three pre-existing surface defects and an incomplete ledger. Reader

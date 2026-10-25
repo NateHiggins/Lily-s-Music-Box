@@ -57,6 +57,10 @@ func exercise() -> void:
 		finish(); return
 	check(player.text_input_owner == carrier.session and player.call_locked and not player.protected_input_active(), "typing acquires a separate movement/input lease")
 	await type_text("who are you")
+	var space_was_down: bool = await key(KEY_SPACE, 32, "SPACE")
+	check(space_was_down, "actual text space depresses native spacebar")
+	var backspace_was_down: bool = await key(KEY_BACKSPACE, 0, "BACKSPACE")
+	check(backspace_was_down and carrier.session.draft == "who are you", "actual Backspace depresses its key and edits the native draft")
 	check(carrier.device.radio_powered, "typed R remains text rather than toggling radio")
 	check(carrier.session.draft == "who are you", "native key input reaches preserved draft")
 	check(carrier.rig.typing_ready() and carrier.device.teletype._draft_ink.text.contains("who are you"), "native keyboard and physical paper present typed text")
@@ -91,7 +95,8 @@ func exercise() -> void:
 	if not check(await wait_for(func(): return carrier.session.typing), "explicit input resumes after protected owner leaves"):
 		finish(); return
 	check(carrier.session._edit.text == "who are you", "resumed native editor retains exact draft")
-	await joy(JOY_BUTTON_A)
+	var enter_was_down: bool = await joy(JOY_BUTTON_A, "ENTER")
+	check(enter_was_down, "actual submission depresses native Enter key")
 	check(carrier.session.draft.is_empty() and not player.call_locked, "submission clears accepted draft and returns player input")
 	check(carrier.session.dialogue.memory.history.back().intent == "identity", "physical submission reaches offline conversation")
 	check(carrier.device.printed_count == reports + 1 and carrier.device.teletype.printing, "accepted reply uses original animated printer")
@@ -213,6 +218,10 @@ func reading_catalog() -> NewspaperCatalog:
 func additional_checks() -> void:
 	pass
 
+func physical_key_down(character: String) -> bool:
+	var index: int = carrier.rig._key_names.find(character)
+	return index >= 0 and carrier.rig.key_transform(index).origin.z > carrier.rig._key_homes[index].origin.z + .0001
+
 func projected_bounds(draw: MeshInstance3D) -> Rect2:
 	return projected_aabb(draw, draw.mesh.get_aabb())
 
@@ -257,12 +266,16 @@ func touch_wire(controls: TouchControls) -> void:
 			await frames(3)
 		return
 
-func joy(button: JoyButton) -> void:
+func joy(button: JoyButton, observe_character := "") -> bool:
+	var observed := false
 	for pressed in [true, false]:
 		var event := InputEventJoypadButton.new()
 		event.button_index = button; event.pressed = pressed
 		Input.parse_input_event(event)
-		await frames(3)
+		for tick in 3:
+			await frames(1)
+			if not observe_character.is_empty(): observed = observed or physical_key_down(observe_character)
+	return observed
 
 func select_all() -> void:
 	for pressed in [true, false]:
@@ -281,12 +294,16 @@ func wait_for(predicate: Callable, seconds := 18.0) -> bool:
 func frames(count: int) -> void:
 	for index in count: await get_tree().process_frame
 
-func key(code: Key, unicode := 0) -> void:
+func key(code: Key, unicode := 0, observe_character := "") -> bool:
+	var observed := false
 	for pressed in [true, false]:
 		var event := InputEventKey.new()
 		event.keycode = code; event.physical_keycode = code; event.unicode = unicode if pressed else 0; event.pressed = pressed
 		Input.parse_input_event(event)
-		await frames(2)
+		for tick in 2:
+			await frames(1)
+			if not observe_character.is_empty(): observed = observed or physical_key_down(observe_character)
+	return observed
 
 func type_text(text: String) -> void:
 	for character in text:

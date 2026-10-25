@@ -201,7 +201,8 @@ func play_reaction(id: String) -> bool:
 
 func pulse_key(character: String) -> void:
 	if not typing_ready(): return
-	var index := _key_names.find(character.to_upper())
+	var key_name := "SPACE" if character == " " else character.to_upper()
+	var index := _key_names.find(key_name)
 	if index < 0: return
 	_depressions[index] = 1.0
 	if not _key_sound.playing: _key_sound.play()

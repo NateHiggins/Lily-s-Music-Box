@@ -161,6 +161,9 @@ func _editor_input(event: InputEvent) -> void:
 
 func _input(event: InputEvent) -> void:
 	if not (typing or opening): return
+	if typing and event is InputEventKey and event.pressed:
+		var code: int = event.physical_keycode if event.physical_keycode else event.keycode
+		if code == KEY_BACKSPACE: _carrier.rig.pulse_key("BACKSPACE")
 	if event is InputEventJoypadButton and event.is_action_pressed("companion_type"):
 		if typing: submit(_edit.text)
 		get_viewport().set_input_as_handled()
@@ -175,6 +178,7 @@ func _input(event: InputEvent) -> void:
 
 func submit(value: String) -> void:
 	if not typing or not available() or not _carrier.rig.typing_ready(): return
+	_carrier.rig.pulse_key("ENTER")
 	if value.strip_edges().is_empty(): return
 	var before := dialogue.memory.snapshot()
 	var context: Dictionary = context_provider.call() if context_provider.is_valid() else {}
