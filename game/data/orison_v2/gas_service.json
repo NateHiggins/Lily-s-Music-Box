@@ -147,5 +147,14 @@
    "opening": 1.0,
    "when": "night"
   }
- ]
+ ],
+ "carton": {
+  "id": "F01_GAS_MANTLE_CARTON",
+  "wall_face_x": 8.23,
+  "along_z": -11.25,
+  "shelf_y": 1.05,
+  "item_prefix": "gas_mantle_",
+  "mantles": 12,
+  "lid_takes_at": 1.0
+ }
 }

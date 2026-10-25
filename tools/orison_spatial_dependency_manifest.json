@@ -117231,6 +117231,34 @@
    "target_exists": true
   },
   {
+   "key": "79e17deecebdd55e",
+   "kind": "id_candidate",
+   "token": "F01_GAS_MANTLE_CARTON",
+   "file": "game/data/orison_v2/gas_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/carton/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "5852c648153c3b4a",
    "kind": "id_candidate",
    "token": "F01_GAS_METER",
@@ -198173,11 +198201,41 @@
     "_directory"
    ],
    "lines": [
-    159
+    171
    ],
    "count": 1,
    "context": [
     "\"Unit\" + str(order[i])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "3acc6db8622d2797",
+   "kind": "generated_name",
+   "token": "_lamps",
+   "file": "game/scripts/building/orison_v2_entry_vestibule.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_lamps"
+   ],
+   "lines": [
+    263
+   ],
+   "count": 1,
+   "context": [
+    "\"Mantle_\" + state"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -198955,6 +199013,36 @@
    "target_exists": true
   },
   {
+   "key": "6efa5aa6c8468424",
+   "kind": "generated_name",
+   "token": "_mount_carton",
+   "file": "game/scripts/building/orison_v2_gas_service.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_mount_carton"
+   ],
+   "lines": [
+    135
+   ],
+   "count": 1,
+   "context": [
+    "\"Mantle%02d\" % (i + 1)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "4b9c942455820be7",
    "kind": "generated_name",
    "token": "compose",
@@ -198965,7 +199053,7 @@
     "compose"
    ],
    "lines": [
-    79
+    85
    ],
    "count": 1,
    "context": [
@@ -261914,7 +262002,7 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    694
+    696
    ],
    "count": 1,
    "context": [
@@ -261942,7 +262030,7 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    699
+    701
    ],
    "count": 1,
    "context": [
@@ -262026,7 +262114,7 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    661
+    663
    ],
    "count": 1,
    "context": [
@@ -262229,7 +262317,7 @@
     "<module>"
    ],
    "lines": [
-    229
+    231
    ],
    "count": 1,
    "context": [],
@@ -262321,7 +262409,7 @@
    ],
    "lines": [
     139,
-    393
+    395
    ],
    "count": 2,
    "context": [
@@ -262355,7 +262443,7 @@
    ],
    "lines": [
     140,
-    394
+    396
    ],
    "count": 2,
    "context": [
@@ -262516,7 +262604,7 @@
     63,
     81,
     138,
-    273
+    275
    ],
    "count": 4,
    "context": [
@@ -262556,8 +262644,8 @@
     64,
     82,
     139,
-    334,
-    393
+    336,
+    395
    ],
    "count": 5,
    "context": [
@@ -262598,9 +262686,9 @@
     64,
     82,
     140,
-    274,
-    333,
-    394
+    276,
+    335,
+    396
    ],
    "count": 6,
    "context": [
@@ -262639,7 +262727,7 @@
     63,
     81,
     137,
-    272
+    274
    ],
    "count": 4,
    "context": [
@@ -262738,26 +262826,26 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    660,
-    660,
     662,
     662,
-    662,
-    662,
-    686,
-    686,
-    686,
-    686,
-    686,
-    686,
-    686,
-    707,
-    707,
-    707,
-    707,
-    707,
-    707,
-    723
+    664,
+    664,
+    664,
+    664,
+    688,
+    688,
+    688,
+    688,
+    688,
+    688,
+    688,
+    709,
+    709,
+    709,
+    709,
+    709,
+    709,
+    725
    ],
    "count": 20,
    "context": [
@@ -264320,17 +264408,103 @@
     "_route"
    ],
    "lines": [
-    29,
-    29,
-    29,
-    50,
-    52
+    30,
+    30,
+    30,
+    30,
+    47,
+    52,
+    54
    ],
-   "count": 5,
+   "count": 7,
    "context": [
-    "for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-9.85)]:",
+    "for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-9.85),Vector3(0.95,0,-9.72)]:",
+    "if not await _walk(Vector3(0,0,-9.85)):return",
     "if not await _walk(Vector3(0.45,0,-13.2)):return",
     "if not await _walk(Vector3(-0.55,0,-12.55)):return"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "210372970a022cc7",
+   "kind": "id_candidate",
+   "token": "F01_GAS_MANTLE_CARTON",
+   "file": "game/tests/orison_v2_gas_mantle_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "var carton:=world.adapter.resolve(\"F01_GAS_MANTLE_CARTON\") as OrisonV2MantleCarton"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "974918e7b6dc8454",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_gas_mantle_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    29,
+    29,
+    29,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    37,
+    41,
+    45,
+    45,
+    45,
+    45,
+    45,
+    45,
+    47,
+    74,
+    76
+   ],
+   "count": 21,
+   "context": [
+    "for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.6),Vector3(0,0,-9.85)]:",
+    "for point in [Vector3(0,0,-8.6),Vector3(4.85,0,-8.6),Vector3(4.85,0,-9.9),Vector3(4.6,0,-10.7),Vector3(6.4,0,-10.7),Vector3(7.55,0,-11.25)]:",
+    "if not await _grab_to(carton.lid_part,carton.to_global(Vector3(0,0.075,0.07)),1.5):return",
+    "if not await _grab_to(carton.lid_part,carton.lid_part.to_global(Vector3(0,0.004,0.15)),0.0):return"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -264419,14 +264593,14 @@
     "_route"
    ],
    "lines": [
-    41,
     42,
-    63,
-    63,
-    64,
-    64,
+    43,
     65,
-    65
+    65,
+    66,
+    66,
+    67,
+    67
    ],
    "count": 8,
    "context": [

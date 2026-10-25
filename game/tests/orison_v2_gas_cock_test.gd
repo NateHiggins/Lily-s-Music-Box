@@ -26,7 +26,8 @@ func _route() -> void:
 	if not is_equal_approx(lantern.mantle(),1.0):
 		failures.append("street lantern dark after dusk");return
 	# The vestibule bracket, from the vestibule floor under it.
-	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-9.85)]:
+	# Stand beside the bracket: from straight below, the shade is in the way.
+	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-9.85),Vector3(0.95,0,-9.72)]:
 		if not await _walk(point):return
 	if not await _turn(bracket,0.0):return
 	if bracket.mantle()>0.0 or bracket.light.visible or not bracket.get_node("Pilot").is_visible_in_tree():
@@ -43,6 +44,7 @@ func _route() -> void:
 	if not is_equal_approx(bracket.mantle(),1.0):
 		failures.append("full cock does not bring the mantle up");return
 	await _capture("bracket_open")
+	if not await _walk(Vector3(0,0,-9.85)):return
 	# The lantern's cock from the pavement.
 	# The open street leaf folds back against the lantern's pier: shut it
 	# from the pavement first, as anyone reaching the lantern would.

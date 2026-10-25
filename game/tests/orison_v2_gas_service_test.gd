@@ -14,7 +14,8 @@ func _route() -> void:
 		failures.append("gas meter or bracket is not uniquely resolvable");return
 	if world.household_state.snapshot().records.get("F01_GAS_METER",{}).get("kind")!="mechanism":
 		failures.append("meter index is not in the household save");return
-	if service.find_children("ManipulationTarget","",true,false).size()>0 or service.has_method("manipulation_target"):
+	var operable:=service.find_children("ManipulationTarget","",true,false).filter(func(n: Node): return not service.carton.is_ancestor_of(n))
+	if operable.size()>0 or service.has_method("manipulation_target"):
 		failures.append("the company's sealed cock must not be operable");return
 	# The meter reads an hour of what the fittings actually burn.
 	var info:={"valid":true,"month":11,"day":"tue","doy":325,"first_sat":false,"minute_of_day":1260.0,"absolute_minutes":500000.0}

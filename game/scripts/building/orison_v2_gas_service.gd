@@ -15,7 +15,12 @@ extends Node3D
 ##
 ## The meter reads every fitting's gas_rate() through campaign time. Its
 ## cumulative index is the household save's mechanism record under this
-## node's semantic name; it only ever counts up.
+## node's semantic name; it only ever counts up. The same clock wears every
+## fitting's mantle (OrisonV2GasFitting.burn).
+##
+## The carton of spare mantles (OrisonV2MantleCarton) stands on its own shelf
+## on the workroom's east wall; this owner mounts it and hands each fitting
+## the maintenance inventory and the carton's word on which spare is carried.
 ##
 ## A resident acts only when their own timetable puts them at the place, the
 ## light condition holds, and the player is out of sight range. Nothing here
@@ -33,6 +38,7 @@ var data: Dictionary = {}
 var cubic_feet := 0.0
 var pressure := 1.0
 var fittings: Array[OrisonV2GasFitting] = []
+var carton: OrisonV2MantleCarton
 var hands: Array[Node3D] = []
 var hand_units: Array[float] = []
 var world: Node
@@ -93,7 +99,49 @@ func compose(owner_world: Node, meshes: Dictionary, lamps: Array[OrisonV2GasFitt
 		label.position = Vector3(at.x, at.y - float(dial.radius) - 0.009, face + 0.0068)
 		add_child(label)
 	_show_index()
-	return true
+	return _mount_carton(meshes)
+
+
+func _mount_carton(meshes: Dictionary) -> bool:
+	var spec: Dictionary = data.carton
+	var shelf := MeshInstance3D.new()
+	shelf.name = "MantleShelf"
+	shelf.mesh = meshes["gas_mantle_shelf"]
+	add_child(shelf)
+	carton = OrisonV2MantleCarton.new()
+	carton.name = str(spec.id)
+	carton.position = Vector3(float(spec.wall_face_x) - 0.1, float(spec.shelf_y) + 0.025, float(spec.along_z))
+	# The carton's back goes to the east wall; its front faces the room.
+	carton.rotation.y = -PI * 0.5
+	carton.prefix = str(spec.item_prefix)
+	carton.count = int(spec.mantles)
+	carton.takes_at = float(spec.lid_takes_at)
+	carton.inventory = world.get("maintenance_inventory")
+	add_child(carton)
+	var box := MeshInstance3D.new()
+	box.name = "Carton"
+	box.mesh = meshes["mantle_carton"]
+	carton.add_child(box)
+	var lid := Node3D.new()
+	lid.name = "Lid"
+	lid.position = Vector3(0.0, 0.07, -0.08)
+	carton.add_child(lid)
+	var lid_draw := MeshInstance3D.new()
+	lid_draw.mesh = meshes["mantle_carton_lid"]
+	lid.add_child(lid_draw)
+	var packets: Array[Node3D] = []
+	for i in carton.count:
+		var packet := MeshInstance3D.new()
+		packet.name = "Mantle%02d" % (i + 1)
+		packet.mesh = meshes["mantle_packet"]
+		packet.position = Vector3(-0.084 + 0.056 * (i % 4), 0.003, 0.045 - 0.045 * (i / 4))
+		carton.add_child(packet)
+		packets.append(packet)
+	carton.configure(lid, packets)
+	for fitting in fittings:
+		fitting.inventory = carton.inventory
+		fitting.mantle_source = carton.carried
+	return carton.inventory != null
 
 
 ## The index: the test dial turns once a cubic foot; each register dial once
@@ -128,6 +176,7 @@ func _process(delta: float) -> void:
 			var rate := 0.0
 			for fitting in fittings:
 				rate += fitting.gas_rate()
+				fitting.burn(step)
 			cubic_feet += rate * step / 60.0
 			_show_index()
 		_last_minutes = minutes
