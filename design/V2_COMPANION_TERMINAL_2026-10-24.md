@@ -615,3 +615,28 @@ full-world navigation/save/mirror proof, broad performance attribution or human
 acceptance. Current reader/spatial/authority checks add no defects; all17 protected
 paths match main parent **bde30c08**, but final management verification is pending.
 The next owner request is researched, original low-resolution face reactions.
+
+
+### Companion voice and calendar domain candidate — October 25
+
+The focused voice/calendar pass is recorded in
+**design/V2_COMPANION_VOICE_AND_CALENDAR_2026-10-25.md**. It preserves68 original
+lines verbatim, revises10 and adds71 for149 total, retaining all original IDs
+and six branches and adding two branches. Exact followups and topic closure
+prevent old conversations from swallowing fresh commands. Explicit witnessed
+event families exhaust into silence; no autonomous chatter timer is installed.
+
+The new read-only calendar witness and **respond_calendar** entry point use the
+existing CampaignClock, weather source and NewspaperCatalog publication gate.
+Comments distinguish observations, issued forecasts, current selected editions
+and dated archive pages. They add no clock, network, inventory/quest consequence
+or save owner. Only an active reading witness may supply a newspaper selection.
+
+JSON/reference/placeholder checks and the report lint pass locally. All31
+original diagnostic checks are retained;19 more conversation checks and15
+calendar checks are authored but unexecuted. Godot/PowerShell and the full
+checkout are unavailable in this workspace. No engine parse/pass, runtime
+contract, world integration, save persistence, keyboard input, candidate-verifier
+or performance qualification is claimed. World event/typing/reading producers
+and validated campaign memory wiring remain outstanding. The patch is an
+independent draft review branch based on main, not a production default change.
