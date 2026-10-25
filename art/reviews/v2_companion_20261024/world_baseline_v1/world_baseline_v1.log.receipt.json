@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 258.67,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T04:30:43Z",
+  "started_utc": "2026-10-25T04:26:23Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "HANDHELD PROFILE: PASS samples=811"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/companion_20261024/world_baseline_v1.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/ov/reports/v2integration24/companion_20261024/world_baseline_v1.log",
+  "stdout_sha256": "d12568fb40acb266e76e2799938a102b45b214c2945cfb269a8ee145d3bb8db9"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2HandheldProfile.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/v2integration24/companion_20261024/world_baseline_v1",
+ "source": {
+  "dirty_paths": 2255,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/front_facade.blend",
+   " M art/blender/front_facade_inventory.json",
+   " M art/blender/scripts/build_front_facade.py",
+   " M art/blender/scripts/build_service_companion.py",
+   " M art/blender/scripts/build_shop_joinery.py",
+   " M art/blender/scripts/inspect_front_facade.py",
+   " M art/blender/scripts/inspect_shop_joinery.py",
+   " M art/blender/scripts/shop_joinery_geometry.py",
+   " M art/blender/shop_joinery.blend",
+   " M art/blender/shop_joinery_construction.json",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/data/front_facade/source_fit.json",
+   " M art/data/shop_joinery/source_plan.json",
+   " M art/reviews/v2_companion_20261024/archive.json",
+   " M art/tools/fix_v2_mesh_imports.py",
+   " M design/V2_COMPANION_TERMINAL_2026-10-24.md",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import"
+  ],
+  "repository_head": "14cae0e4d51ec80c133cd4d4ff831e1664f68fa2",
+  "repository_tree": "795878711e94cb83acb4427c3df39d63fa654660",
+  "runtime_inputs_sha256": "32520f54aaba97b12bcb3b18c94a1fe1aa8509379cbca15be640ba4475098ffe",
+  "test_path": "game/tests/v2_handheld_profile.gd",
+  "test_sha256": "b0d7c7335c8cfa6bc1d30c6621ba3580f11a1828353d5707f7709bac1f9a5ec6"
+ },
+ "windowed": true
+}

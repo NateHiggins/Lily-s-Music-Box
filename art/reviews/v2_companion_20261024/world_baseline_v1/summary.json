@@ -1,0 +1,231 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Current carrier short occupied-world input profile, not a before-after result",
+  "rows": [
+    {
+      "phase": "first_print",
+      "frames": 173,
+      "median_ms": 26.201,
+      "p95_ms": 33.9182,
+      "p99_ms": 157.17220000000026,
+      "max_ms": 338.5,
+      "over_33_3": 12,
+      "over_50": 4,
+      "over_100": 2,
+      "process_ms": {
+        "median": 31.181,
+        "max": 7250.94
+      },
+      "physics_ms": {
+        "median": 4.706,
+        "max": 376.257
+      },
+      "main_render_cpu_ms": {
+        "median": 11.5979995727539,
+        "max": 20.9160003662109
+      },
+      "main_render_gpu_ms": {
+        "median": 7.9539999961853,
+        "max": 155.526000976563
+      },
+      "held_render_cpu_ms": {
+        "median": 0.175999999046326,
+        "max": 0.908999979496002
+      },
+      "held_render_gpu_ms": {
+        "median": 0.0839999988675117,
+        "max": 1.11500000953674
+      },
+      "draw_calls": {
+        "median": 12845.0,
+        "max": 17785.0
+      },
+      "pipeline_delta": {
+        "pipeline_draw": 9.0,
+        "pipeline_surface": 81.0,
+        "pipeline_specialization": 117.0
+      }
+    },
+    {
+      "phase": "steady_print",
+      "frames": 208,
+      "median_ms": 22.907,
+      "p95_ms": 27.14835,
+      "p99_ms": 29.039280000000005,
+      "max_ms": 33.461,
+      "over_33_3": 1,
+      "over_50": 0,
+      "over_100": 0,
+      "process_ms": {
+        "median": 24.594,
+        "max": 228.798
+      },
+      "physics_ms": {
+        "median": 3.505,
+        "max": 3.824
+      },
+      "main_render_cpu_ms": {
+        "median": 10.7079997062683,
+        "max": 13.0080003738403
+      },
+      "main_render_gpu_ms": {
+        "median": 7.436999797821045,
+        "max": 9.45800018310547
+      },
+      "held_render_cpu_ms": {
+        "median": 0.150999993085861,
+        "max": 0.625
+      },
+      "held_render_gpu_ms": {
+        "median": 0.0790000036358833,
+        "max": 0.0879999995231628
+      },
+      "draw_calls": {
+        "median": 14627.5,
+        "max": 19235.0
+      },
+      "pipeline_delta": {
+        "pipeline_draw": 0.0,
+        "pipeline_surface": 0.0,
+        "pipeline_specialization": 0.0
+      }
+    },
+    {
+      "phase": "held_idle",
+      "frames": 216,
+      "median_ms": 22.928,
+      "p95_ms": 26.0715,
+      "p99_ms": 27.388049999999996,
+      "max_ms": 28.11,
+      "over_33_3": 0,
+      "over_50": 0,
+      "over_100": 0,
+      "process_ms": {
+        "median": 23.877,
+        "max": 24.481
+      },
+      "physics_ms": {
+        "median": 3.399,
+        "max": 3.62
+      },
+      "main_render_cpu_ms": {
+        "median": 10.67850017547605,
+        "max": 12.581000328064
+      },
+      "main_render_gpu_ms": {
+        "median": 7.563500165939335,
+        "max": 9.19400024414063
+      },
+      "held_render_cpu_ms": {
+        "median": 0.125,
+        "max": 0.202999994158745
+      },
+      "held_render_gpu_ms": {
+        "median": 0.0719999969005585,
+        "max": 0.0769999995827675
+      },
+      "draw_calls": {
+        "median": 12788.0,
+        "max": 19309.0
+      },
+      "pipeline_delta": {
+        "pipeline_draw": 1.0,
+        "pipeline_surface": 0.0,
+        "pipeline_specialization": 6.0
+      }
+    },
+    {
+      "phase": "lowered",
+      "frames": 214,
+      "median_ms": 23.14,
+      "p95_ms": 26.200699999999998,
+      "p99_ms": 28.44489,
+      "max_ms": 33.933,
+      "over_33_3": 1,
+      "over_50": 0,
+      "over_100": 0,
+      "process_ms": {
+        "median": 24.208,
+        "max": 217.134
+      },
+      "physics_ms": {
+        "median": 3.348,
+        "max": 3.61
+      },
+      "main_render_cpu_ms": {
+        "median": 10.7975001335144,
+        "max": 12.581000328064
+      },
+      "main_render_gpu_ms": {
+        "median": 7.61199998855591,
+        "max": 9.31400012969971
+      },
+      "held_render_cpu_ms": {
+        "median": 0.125,
+        "max": 0.263000011444092
+      },
+      "held_render_gpu_ms": {
+        "median": 0.0640000030398369,
+        "max": 0.0750000029802322
+      },
+      "draw_calls": {
+        "median": 12902.0,
+        "max": 19354.0
+      },
+      "pipeline_delta": {
+        "pipeline_draw": 0.0,
+        "pipeline_surface": 0.0,
+        "pipeline_specialization": 0.0
+      }
+    }
+  ],
+  "limitations": "Process/physics and render monitors overlap and lag; asset/streaming costs not independently instrumented. First field report is in an initialized world, not a cleared driver cache.",
+  "full_interval_rows": [
+    {
+      "phase": "first_print",
+      "frames": 172,
+      "median_ms": 26.2375,
+      "p95_ms": 33.91935,
+      "p99_ms": 159.37909999999823,
+      "max_ms": 338.5,
+      "over_100": 2,
+      "over_50": 4,
+      "partial_sample_excluded": 4.196
+    },
+    {
+      "phase": "steady_print",
+      "frames": 207,
+      "median_ms": 22.912,
+      "p95_ms": 27.150299999999998,
+      "p99_ms": 29.044240000000002,
+      "max_ms": 33.461,
+      "over_100": 0,
+      "over_50": 0,
+      "partial_sample_excluded": 13.296
+    },
+    {
+      "phase": "held_idle",
+      "frames": 215,
+      "median_ms": 22.949,
+      "p95_ms": 26.080799999999996,
+      "p99_ms": 27.391779999999994,
+      "max_ms": 28.11,
+      "over_100": 0,
+      "over_50": 0,
+      "partial_sample_excluded": 19.49
+    },
+    {
+      "phase": "lowered",
+      "frames": 213,
+      "median_ms": 23.144,
+      "p95_ms": 26.208799999999997,
+      "p99_ms": 28.44736,
+      "max_ms": 33.933,
+      "over_100": 0,
+      "over_50": 0,
+      "partial_sample_excluded": 0.191
+    }
+  ],
+  "method": "Linear interpolated percentile at (n-1)*p. rows retains all 811 samples; full_interval_rows omits exactly the first partial wall interval of each phase, retaining both >300ms spikes. Raw samples are unchanged.",
+  "background_load": "The last sampled phase screenshot was written04:30:24Z; shell-study-v8 Blender command log was created04:30:29Z. No native render overlapped sampled phases."
+}
