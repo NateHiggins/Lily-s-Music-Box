@@ -1,0 +1,13 @@
+{
+  "evidence_class": "INERT",
+  "attempts": [
+    {
+      "tool": "audit_orison_spatial_dependencies.py --check",
+      "result": "invalid flag, no audit verdict; corrected default invocation passes"
+    },
+    {
+      "tool": "audit_systemic_situation_authority.py --baseline",
+      "result": "missing baseline argument, no audit verdict; corrected default invocation passes"
+    }
+  ]
+}

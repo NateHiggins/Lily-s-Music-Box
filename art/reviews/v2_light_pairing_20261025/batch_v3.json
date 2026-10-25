@@ -1,0 +1,58 @@
+[
+  {
+    "scene": "res://tests/V2LightPairing0Probe.tscn",
+    "runner": "serial",
+    "timeout": 45,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\unchanged_v3.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\unchanged_v3"
+  },
+  {
+    "scene": "res://tests/V2LightPairing1Probe.tscn",
+    "runner": "serial",
+    "timeout": 45,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\mesh_layer_v3.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\mesh_layer_v3"
+  },
+  {
+    "scene": "res://tests/V2LightPairing2Probe.tscn",
+    "runner": "serial",
+    "timeout": 45,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\multimesh_layer_v3.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\multimesh_layer_v3"
+  },
+  {
+    "scene": "res://tests/V2LightPairing3Probe.tscn",
+    "runner": "serial",
+    "timeout": 45,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\light_mask_v3.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\light_mask_v3"
+  },
+  {
+    "scene": "res://tests/V2LightPairing4Probe.tscn",
+    "runner": "serial",
+    "timeout": 45,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\hidden_layer_v3.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\hidden_layer_v3"
+  },
+  {
+    "scene": "res://tests/V2LightPairing5Probe.tscn",
+    "runner": "serial",
+    "timeout": 45,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\preconfigured_layer_v3.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\preconfigured_layer_v3"
+  },
+  {
+    "scene": "res://tests/V2LightPairing6Probe.tscn",
+    "runner": "serial",
+    "timeout": 45,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\native_world_carrier_v3.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\native_world_carrier_v3"
+  }
+]

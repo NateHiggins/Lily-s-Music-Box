@@ -1,0 +1,40 @@
+{
+	"cases": [
+		{
+			"geometry_layer": 1,
+			"light_mask": 1,
+			"name": "unchanged"
+		},
+		{
+			"geometry_layer": 2,
+			"light_mask": 1,
+			"name": "mesh_layer"
+		},
+		{
+			"geometry_layer": 2,
+			"light_mask": 1,
+			"name": "multimesh_layer"
+		},
+		{
+			"geometry_layer": 1,
+			"light_mask": 2,
+			"name": "light_mask"
+		},
+		{
+			"geometry_layer": 2,
+			"light_mask": 1,
+			"name": "hidden_layer"
+		},
+		{
+			"geometry_layer": 2,
+			"light_mask": 1,
+			"name": "preconfigured_layer"
+		},
+		{
+			"name": "native_world_carrier",
+			"ready": true
+		}
+	],
+	"evidence_class": "INERT",
+	"note": "Inspect original stderr between console phase markers; no clean renderer or runtime-contract verdict from these observations alone."
+}

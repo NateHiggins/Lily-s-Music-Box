@@ -50,6 +50,7 @@ var teletype: Node3D
 
 func _ready() -> void:
 	teletype = preload("res://scripts/device/mechanical_teletype.gd").new()
+	teletype.render_layers = 1 << (DEVICE_LAYER - 1)
 	if model_scene != null: teletype.model_scene = model_scene
 	if stock_applier.is_valid(): teletype.stock_applier = stock_applier
 	teletype.name = "MechanicalTeletype"

@@ -2,6 +2,7 @@ extends Node3D
 ## Physical paper and mechanism only. Gameplay supplies the complete message.
 const MODEL := preload("res://assets/props/service_radiophone_v2.glb")
 var model_scene: PackedScene = MODEL
+var render_layers := 1
 var stock_applier: Callable = preload("res://scripts/device/service_radiophone_stock.gd").apply
 var model: Node3D
 var model_ready := false
@@ -69,6 +70,11 @@ func _ready() -> void:
 		push_error("Native printer stock provider refused its paper datum")
 		return
 	var paper: Dictionary = supplied
+	# Establish the final light/camera domain before renderer registration.
+	# Changing a visible, already-paired mesh's layer can leave stale light
+	# pairs in the current Forward+ renderer. The stock and print owners stay.
+	for draw: GeometryInstance3D in model.find_children("*", "GeometryInstance3D", true, false):
+		draw.layers = render_layers
 	add_child(model)
 	_aerial=model.find_child("Aerial",true,false)
 	if model.find_child("TypeSelector",true,false)!=null:
@@ -137,7 +143,9 @@ func _ready() -> void:
 	model_ready = true
 
 func _label(at: Vector3, pixel: float) -> Label3D:
-	var label := Label3D.new(); add_child(label)
+	var label := Label3D.new()
+	label.layers = render_layers
+	add_child(label)
 	label.font=TelegramStyle.BODY_FONT; label.font_size=48
 	label.pixel_size=pixel; label.position=at
 	label.modulate=TelegramStyle.CARBON; label.outline_size=0

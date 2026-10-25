@@ -1,0 +1,86 @@
+[
+  {
+    "scene": "res://tests/V2LightPairingProbe.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\unchanged_v2.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\unchanged_v2",
+    "extra_args": [
+      "--",
+      "--pairing-case=unchanged"
+    ]
+  },
+  {
+    "scene": "res://tests/V2LightPairingProbe.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\mesh_layer_v2.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\mesh_layer_v2",
+    "extra_args": [
+      "--",
+      "--pairing-case=mesh_layer"
+    ]
+  },
+  {
+    "scene": "res://tests/V2LightPairingProbe.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\multimesh_layer_v2.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\multimesh_layer_v2",
+    "extra_args": [
+      "--",
+      "--pairing-case=multimesh_layer"
+    ]
+  },
+  {
+    "scene": "res://tests/V2LightPairingProbe.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\light_mask_v2.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\light_mask_v2",
+    "extra_args": [
+      "--",
+      "--pairing-case=light_mask"
+    ]
+  },
+  {
+    "scene": "res://tests/V2LightPairingProbe.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\hidden_layer_v2.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\hidden_layer_v2",
+    "extra_args": [
+      "--",
+      "--pairing-case=hidden_layer"
+    ]
+  },
+  {
+    "scene": "res://tests/V2LightPairingProbe.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\preconfigured_layer_v2.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\preconfigured_layer_v2",
+    "extra_args": [
+      "--",
+      "--pairing-case=preconfigured_layer"
+    ]
+  },
+  {
+    "scene": "res://tests/V2LightPairingProbe.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\native_world_carrier_v2.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\native_world_carrier_v2",
+    "extra_args": [
+      "--",
+      "--pairing-case=native_world_carrier"
+    ]
+  }
+]

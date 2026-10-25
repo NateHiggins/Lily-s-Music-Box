@@ -112,3 +112,8 @@ Ledger status changes: none. Final management verifier and current-source
 surface/global runtime renewal remain pending. Two renderer teardown errors,
 the initial-render stall and the full companion C–G/V2 scope remain open.
 Decision needed from owner: none. This is a draft integration checkpoint.
+
+Follow-up: **V2_DEVICE_LIGHT_PAIRING_2026-10-25.md** records a pre-tree render-
+layer initialization repair and a clean-stderr occupied-world rerun. The
+original two errors above remain part of this unchanged failed-lifetime
+observation. The initial-render stall remains unresolved in the follow-up.

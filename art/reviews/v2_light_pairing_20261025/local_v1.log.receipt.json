@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 5.83,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T11:26:50Z",
+  "started_utc": "2026-10-25T11:26:43Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/light_pairing_20261025/local_v1.log.stderr",
+  "stderr_sha256": "1dc9fcc34ce8c29123550137948608d378cb9329332efae179a0211be4ce9627",
+  "stdout": "C:/ov/reports/v2integration24/light_pairing_20261025/local_v1.log",
+  "stdout_sha256": "a10ddec01a33895a5bf29c1360f2ea2367b396c994a0872a0c0cf2d2ee576be6"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2LightPairingProbe.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/v2integration24/light_pairing_20261025/local_v1",
+ "source": {
+  "dirty_paths": 598,
+  "dirty_sample": [
+   "?? game/native/hose_math/hose_math.gdextension.uid",
+   "?? game/scripts/building/WeatherManager.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_heating.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_topology.gd.uid",
+   "?? game/scripts/building/orison_v2_arcade_fabric.gd.uid",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
+   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
+   "?? game/scripts/building/orison_v2_c_stove_stack.gd.uid",
+   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
+   "?? game/scripts/building/orison_v2_cage_light_apertures.gd.uid",
+   "?? game/scripts/building/orison_v2_caretaking.gd.uid",
+   "?? game/scripts/building/orison_v2_case_one_placement.gd.uid",
+   "?? game/scripts/building/orison_v2_city_horizon.gd.uid"
+  ],
+  "repository_head": "7770040bcca67207e5c20b4da79adfb00322c105",
+  "repository_tree": "a3d4444ccaa3cad7b9f58181a453b8496c6a32a8",
+  "runtime_inputs_sha256": "c1d85ebad1c54304e527cdd0ab9a969056dc8549e4f6f05baaf0f44252baf91d",
+  "test_path": "game/tests/v2_light_pairing_probe.gd",
+  "test_sha256": "4b3d2bfcb1cd665ce86ef31006387b341dce2466d303a38d13f1e64e1c9f36c1"
+ },
+ "windowed": true
+}

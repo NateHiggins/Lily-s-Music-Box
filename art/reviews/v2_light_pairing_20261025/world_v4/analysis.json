@@ -1,0 +1,283 @@
+{
+  "evidence_class": "INERT",
+  "companion": true,
+  "failures": [],
+  "construction_wall_ms": 103872.872,
+  "playable_all_intervals": {
+    "count": 1479,
+    "p50_ms": 30.972,
+    "p95_ms": 36.8581,
+    "p99_ms": 49.022040000000025,
+    "max_ms": 5304.446,
+    "over_100_ms": 3
+  },
+  "phases_full_intervals_only": {
+    "initial_settle": {
+      "count": 82,
+      "p50_ms": 32.0415,
+      "p95_ms": 51.06810000000002,
+      "p99_ms": 1100.5265599999882,
+      "max_ms": 5304.446,
+      "over_100_ms": 3
+    },
+    "idle_live": {
+      "count": 60,
+      "p50_ms": 32.43,
+      "p95_ms": 35.42665,
+      "p99_ms": 36.37318,
+      "max_ms": 36.549,
+      "over_100_ms": 0
+    },
+    "walk_forward_0": {
+      "count": 11,
+      "p50_ms": 33.698,
+      "p95_ms": 34.995,
+      "p99_ms": 35.150999999999996,
+      "max_ms": 35.19,
+      "over_100_ms": 0
+    },
+    "walk_back_0": {
+      "count": 11,
+      "p50_ms": 35.937,
+      "p95_ms": 38.795500000000004,
+      "p99_ms": 39.8367,
+      "max_ms": 40.097,
+      "over_100_ms": 0
+    },
+    "turns_0": {
+      "count": 20,
+      "p50_ms": 34.743,
+      "p95_ms": 41.99115000000002,
+      "p99_ms": 62.574229999999964,
+      "max_ms": 67.72,
+      "over_100_ms": 0
+    },
+    "route_settle_0": {
+      "count": 58,
+      "p50_ms": 33.787,
+      "p95_ms": 36.82465,
+      "p99_ms": 37.79152,
+      "max_ms": 38.512,
+      "over_100_ms": 0
+    },
+    "walk_forward_1": {
+      "count": 11,
+      "p50_ms": 32.205,
+      "p95_ms": 33.8855,
+      "p99_ms": 34.3331,
+      "max_ms": 34.445,
+      "over_100_ms": 0
+    },
+    "walk_back_1": {
+      "count": 12,
+      "p50_ms": 32.6725,
+      "p95_ms": 33.4215,
+      "p99_ms": 33.505100000000006,
+      "max_ms": 33.526,
+      "over_100_ms": 0
+    },
+    "turns_1": {
+      "count": 22,
+      "p50_ms": 34.6235,
+      "p95_ms": 37.47605,
+      "p99_ms": 39.08458,
+      "max_ms": 39.505,
+      "over_100_ms": 0
+    },
+    "route_settle_1": {
+      "count": 61,
+      "p50_ms": 31.534,
+      "p95_ms": 36.858,
+      "p99_ms": 44.77759999999998,
+      "max_ms": 56.441,
+      "over_100_ms": 0
+    },
+    "hidden_presentation": {
+      "count": 68,
+      "p50_ms": 29.319499999999998,
+      "p95_ms": 32.17425,
+      "p99_ms": 32.961819999999996,
+      "max_ms": 33.668,
+      "over_100_ms": 0
+    },
+    "presentation_restored": {
+      "count": 66,
+      "p50_ms": 29.445,
+      "p95_ms": 32.81675,
+      "p99_ms": 43.66509999999984,
+      "max_ms": 61.323,
+      "over_100_ms": 0
+    },
+    "idle_motion_control": {
+      "count": 53,
+      "p50_ms": 36.02,
+      "p95_ms": 50.8686,
+      "p99_ms": 53.61007999999999,
+      "max_ms": 54.973,
+      "over_100_ms": 0
+    },
+    "lamp_off": {
+      "count": 66,
+      "p50_ms": 30.924,
+      "p95_ms": 35.82425,
+      "p99_ms": 36.9133,
+      "max_ms": 36.938,
+      "over_100_ms": 0
+    },
+    "lamp_recovery": {
+      "count": 135,
+      "p50_ms": 29.371,
+      "p95_ms": 34.263,
+      "p99_ms": 35.94181999999999,
+      "max_ms": 41.463,
+      "over_100_ms": 0
+    },
+    "reading_settle": {
+      "count": 95,
+      "p50_ms": 31.514,
+      "p95_ms": 35.0612,
+      "p99_ms": 36.28358,
+      "max_ms": 36.794,
+      "over_100_ms": 0
+    },
+    "target_acquisition": {
+      "count": 0
+    },
+    "grab_lamp": {
+      "count": 1,
+      "p50_ms": 34.245,
+      "p95_ms": 34.245,
+      "p99_ms": 34.245,
+      "max_ms": 34.245,
+      "over_100_ms": 0
+    },
+    "drag_lamp": {
+      "count": 17,
+      "p50_ms": 30.693,
+      "p95_ms": 33.2548,
+      "p99_ms": 34.159760000000006,
+      "max_ms": 34.386,
+      "over_100_ms": 0
+    },
+    "inspection_idle": {
+      "count": 67,
+      "p50_ms": 30.492,
+      "p95_ms": 35.6198,
+      "p99_ms": 41.62732000000002,
+      "max_ms": 44.992,
+      "over_100_ms": 0
+    },
+    "final_idle": {
+      "count": 58,
+      "p50_ms": 32.732,
+      "p95_ms": 37.82835,
+      "p99_ms": 40.48233,
+      "max_ms": 42.381,
+      "over_100_ms": 0
+    },
+    "msaa8_before": {
+      "count": 97,
+      "p50_ms": 30.158,
+      "p95_ms": 33.8114,
+      "p99_ms": 37.677759999999964,
+      "max_ms": 41.92,
+      "over_100_ms": 0
+    },
+    "msaa4_transition": {
+      "count": 96,
+      "p50_ms": 29.860500000000002,
+      "p95_ms": 33.81075,
+      "p99_ms": 37.58469999999987,
+      "max_ms": 82.78,
+      "over_100_ms": 0
+    },
+    "msaa4_warmed": {
+      "count": 96,
+      "p50_ms": 30.2135,
+      "p95_ms": 34.39875,
+      "p99_ms": 36.899049999999995,
+      "max_ms": 37.356,
+      "over_100_ms": 0
+    },
+    "msaa8_transition": {
+      "count": 96,
+      "p50_ms": 30.1065,
+      "p95_ms": 34.55,
+      "p99_ms": 37.9457,
+      "max_ms": 38.13,
+      "over_100_ms": 0
+    },
+    "msaa8_return": {
+      "count": 97,
+      "p50_ms": 30.353,
+      "p95_ms": 34.188599999999994,
+      "p99_ms": 37.74475999999999,
+      "max_ms": 38.675,
+      "over_100_ms": 0
+    }
+  },
+  "largest_playable_interval": {
+    "full_interval": true,
+    "held_cpu_ms": null,
+    "held_gpu_ms": null,
+    "load_cycles": 0,
+    "main_cpu_ms": 0.0,
+    "main_gpu_ms": 0.0,
+    "msaa": 3,
+    "nodes": 81643.0,
+    "observer_query_usec": 2,
+    "phase": "initial_settle",
+    "physics_frame": 16,
+    "physics_monitor_ms": 55969.832,
+    "pipeline_draw": 42.0,
+    "pipeline_specialization": 153.0,
+    "pipeline_surface": 256.0,
+    "player": [
+      0.0,
+      0.000176861882209778,
+      1.5
+    ],
+    "previous_phase": "initial_settle",
+    "process_frame": 1,
+    "process_monitor_ms": 5886.515,
+    "reflection_probes": 0,
+    "reflection_refreshes": 0,
+    "resources": 25149.0,
+    "start_usec": 120227501,
+    "streaming_state": "RESIDENT",
+    "unload_cycles": 0,
+    "wall_ms": 5304.446
+  },
+  "largest_interval_callback_overlap": {
+    "carrier_callbacks": {
+      "count": 1,
+      "inclusive_overlap_usec": 18,
+      "max_callback_usec": 18
+    },
+    "motion_callbacks": {
+      "count": 8,
+      "inclusive_overlap_usec": 450,
+      "max_callback_usec": 103
+    },
+    "mechanism_callbacks": {
+      "count": 1,
+      "inclusive_overlap_usec": 142,
+      "max_callback_usec": 142
+    }
+  },
+  "render_boundary_spans": {
+    "count": 1482,
+    "p50_ms": 22.4165,
+    "p95_ms": 26.2394,
+    "p99_ms": 33.025130000000026,
+    "max_ms": 5146.929,
+    "over_100_ms": 1
+  },
+  "observer_query_max_usec": 6,
+  "callback_max_usec": {
+    "carrier_callbacks": 41,
+    "motion_callbacks": 183,
+    "mechanism_callbacks": 181
+  },
+  "limitations": "Phase boundaries retained in all-interval distribution. Callback spans are inclusive and must not be summed with nested query/move/pose timing. Renderer/physics/process monitors overlap and lag. No GPU completion, driver attribution, human input latency or runtime qualification."
+}

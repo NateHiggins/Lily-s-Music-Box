@@ -1,0 +1,26 @@
+[
+  {
+    "scene": "res://tests/ServiceSetHandTest.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\old_hand_v4.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\old_hand_v4"
+  },
+  {
+    "scene": "res://tests/CompanionWorldHandBench.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\new_hand_v4.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\new_hand_v4"
+  },
+  {
+    "scene": "res://tests/V2CompanionCostProbe.tscn",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\world_v4.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\light_pairing_20261025\\world_v4"
+  }
+]
