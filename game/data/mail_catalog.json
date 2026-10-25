@@ -44,6 +44,14 @@
       "body": "A printed card, one side, from the Orison Community Service Frequency. Programme for the week: the hour of announcements, the hour of music by request, the hour of silence kept on purpose. At the foot, in smaller type and older ink: ON THE NIGHT THE STATION WENT QUIET NO PROGRAMME WAS MISSED. THE PROGRAMME WAS THE QUIET. Listeners are asked not to write in about it.",
       "knowledge": "station_went_quiet",
       "when": {"min_conversations": 2}
+    },
+    {
+      "id": "pkg_gas_mantles",
+      "kind": "package",
+      "title": "FROM THE MANAGEMENT OFFICE — SPARE MANTLES",
+      "body": "A second dozen gas mantles for the workroom carton, since the first are spent. The hardware counter has no more of this pattern, and neither has the company. Make these last. — Management",
+      "part": "gas_mantle_carton_2",
+      "when": {"part_taken": "gas_mantle_12"}
     }
   ]
 }

@@ -152,6 +152,15 @@ stock `gas_service_workroom`, generated from
   Welsbach ash does. Closing it again with a spare in hand hangs the new
   mantle and consumes the spare; closing it without one leaves the burner
   bare. A new mantle burns off with a brief flare.
+- **Restock.** When the twelfth mantle has been taken, Management posts a
+  second carton to box 4B: the mail delivery **pkg_gas_mantles** carries the
+  single-use part `gas_mantle_carton_2`, which the mail bank grants to the
+  maintenance inventory. While carried it shows on the notebook's POCKET
+  page (PersonInventory lists unused parts). Lifting the empty carton's lid
+  with it in hand spends it into the carton: `gas_mantle_13` to
+  `gas_mantle_24`. There is no third, and the letter says so. Two fittings
+  at about twelve burning hours a night use some fourteen mantles a year,
+  so the second dozen sees the campaign year out.
 - **Saved.** The fitting's household record now holds the cock, the mantle
   condition, hours, life, mantle count and access position. A save from
   before mantles wore (cock only) still loads. The carton's record is its
@@ -274,10 +283,8 @@ corner.
   concealed under the floor and in the masonry, not modelled.
 - Residents act as timetable facts: there is no visible body turning the
   key. That stays out of the player's sight by construction.
-- When the dozen spare mantles are gone, nothing restocks the carton. The
-  hardware counter could sell more; that is a follow-up.
-- The carried spare is an inventory fact with no pocket line on the
-  handheld or the caretaker notebook yet.
+- The restock is a one-time delivery. A player who burns through all
+  twenty-four mantles is left with bare burners.
 - The radiator is not on the heating graph and cannot knock or be bled.
 - The directory board and notices are not inspectable.
 - Any merged script or data change expires the V2 runtime, access and
@@ -296,6 +303,9 @@ corner.
   carton lid for one spare, slides the shade down (the ash crumbles) and up
   (a new mantle is hung, the spare consumed, the flare burns). It checks the
   household save, then swings the lantern's door out and shut with no spare.
+- Godot, windowed: **res://tests/OrisonV2GasMantleRestockTest.tscn** spends
+  the first dozen, checks that Management's parcel becomes due, takes it into
+  the pocket, and refills the carton by the player's grab.
 - Godot, windowed: **res://tests/OrisonV2GasServiceTest.tscn** checks that
   the meter reads an hour's burn, that the evening peak dims a full mantle,
   that the company cock is not operable, and that each resident acts only
