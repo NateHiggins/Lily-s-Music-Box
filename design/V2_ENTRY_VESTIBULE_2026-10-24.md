@@ -61,6 +61,114 @@ supply pressure. Both lights cast shadows; the fittings themselves do not,
 because an etched shade diffuses rather than cutting a cone out of its own
 light.
 
+### Operating the gas (finished 2026-10-24, owner: "finish the gas lights")
+
+Each fitting is an **OrisonV2GasFitting**
+(`game/scripts/props/orison_v2_gas_fitting.gd`) under a semantic name:
+**F01_VESTIBULE_GAS_BRACKET** and **F01_ENTRANCE_GAS_LANTERN**.
+
+- **The cock is the control** (RUL-013). Grab the flat brass key, turn it a
+  quarter turn about the plug, release. Across the pipe is shut; in line is
+  open. There is no toggle and no prompt. The bracket's cock is on its arm;
+  the lantern's is on its arm by the wall plate, within reach from the
+  pavement.
+- **Partial opening is real.** The main jet opens past 12% of the turn. The
+  mantle reaches full incandescence at 55% of the jet, as a Welsbach mantle
+  saturates. The light, the mantle, the shade and the lantern panes follow
+  the flame.
+- **The bypass pilot never goes out.** A bead of blue flame stays at the
+  burner with the cock shut, and the mantle relights from it when the cock
+  opens. No matches are needed, which is why period inverted burners had a
+  bypass.
+- **The lantern is on a clockwork controller.** It opens the gas from dusk
+  to dawn by the street lamps' month-by-month table
+  (`game/data/orison_v2/exterior/street_lamps.json`), so the lantern is dark
+  by day with its cock open. The player's cock still governs it at night.
+- **Sound.** Each fitting hisses: a whisper from the pilot that opens into
+  the jet as the cock turns.
+- **Saved.** The cock's opening is a `mechanism` record in the household
+  save (`orison_v2_household_state.gd`). No new save owner exists.
+
+### The house gas service (2026-10-24, owner: "continue the things missing")
+
+**OrisonV2GasService** (`game/scripts/building/orison_v2_gas_service.gd`),
+semantic name **F01_GAS_METER**, owns the supply. Its geometry is the frame
+stock `gas_service_workroom`, generated from
+`game/data/orison_v2/gas_service.json`.
+
+- **Where.** The service enters through the street wall of
+  **F01_FRONT_WORKROOM**, the maintenance tenant's own front workroom, on the
+  solid pier east of its window. It rises past the gas company's plug cock
+  to a painted steel-plate dry meter on an oak shelf. The house outlet drops
+  back into the floor. The run under the floor to the vestibule riser and the
+  lantern's wall plate is concealed: the basement does not reach under the
+  front of the building.
+- **The company cock is sealed.** Its lock wings are wired together and
+  lead-sealed, and a second seal hangs on the meter's inlet union. In 1928
+  the meter cock belonged to the gas company, so the player cannot shut the
+  house gas, and no pilot is ever put out by the house.
+- **The meter reads the burn.** Every fitting reports its own consumption:
+  3.0 cubic feet an hour for the bracket and 3.5 for the lantern at a full
+  jet, plus 0.15 for each pilot. The meter integrates that through campaign
+  time. Its five-dial index (one test dial at one turn per cubic foot, three
+  register dials) turns, with adjacent dials turning opposite ways as the
+  gearing does. Shut every cock and the test dial still creeps on the two
+  pilots. The cumulative index (starting at 48,217 cubic feet) is the
+  household save's `mechanism` record. Dial labels are Label3D.
+- **Mains pressure follows the day.** The works deliver less at the evening
+  peak (0.80 of nominal at 18:00 to 20:00) and a little more in the small
+  hours (1.06). A saturated mantle still dims with the pressure, so every
+  gas light in the building browns down at supper time.
+- **Residents operate the vestibule gas, on their own timetables.** On her
+  morning rounds in the lobby (08:30), **evelyn_marsh** turns the bracket
+  down to its pilot once it is daylight. On his evening pass (18:00),
+  **cam_ortiz** turns it back up once it is dark. Each acts only while their
+  timetable (`resident_schedules.json`) puts them in the lobby, at most once
+  a day, never while the player is within 7 m, and never while the player
+  holds the key. The turn goes into the household save like the player's.
+  Nothing here authors resident knowledge or observations.
+
+### Mantles wear and are renewed by hand (2026-10-25, owner: "keep going")
+
+- **Wear.** Each fitting counts burning hours at incandescence toward its
+  mantle's life. The gas service's clock drives this, the same clock the
+  meter uses. Lives fall between 450 and 900 hours, seeded by fitting and
+  mantle count so a reload never rerolls one. The vestibule bracket starts
+  at 640 of 700 hours, so it fails within a few nights; the lantern starts
+  at 150 of 820.
+- **Breaking.** A spent mantle breaks and leaves its collar and a few
+  shreds of ash. The burner then burns a naked flame: a sixth of the light,
+  yellower, guttering hard, and louder than the mantle's hiss.
+- **Renewal.** The carton of a dozen spare mantles, **F01_GAS_MANTLE_CARTON**,
+  stands on its own oak shelf on the workroom's east wall. Each mantle is a
+  single-use MaintenanceInventory id, `gas_mantle_01` to `gas_mantle_12`.
+  The inventory alone records which are taken and spent; the packets left in
+  the carton are read back from it. Lift the lid with no spare in hand and
+  the next one is yours, one at a time.
+- **The access is physical** (RUL-013). The bracket's etched shade slides
+  straight down off its gallery. The lantern's street-facing light is an
+  iron-framed door hung on its left post, and it swings out. Opening either
+  one past its reach point crumbles a broken mantle's brittle ash, as spent
+  Welsbach ash does. Closing it again with a spare in hand hangs the new
+  mantle and consumes the spare; closing it without one leaves the burner
+  bare. A new mantle burns off with a brief flare.
+- **Saved.** The fitting's household record now holds the cock, the mantle
+  condition, hours, life, mantle count and access position. A save from
+  before mantles wore (cock only) still loads. The carton's record is its
+  lid alone.
+
+Research, in addition to §1:
+
+- Domestic dry meters of the 1920s were light steel plate, painted, with a
+  row of small circular dials, among them a one-foot test dial in hundredths,
+  and carried two seals ([Science Museum Group, Glover 1926](https://collection.sciencemuseumgroup.org.uk/objects/co11693/dry-gas-meter);
+  [Glover 1927](https://collection.sciencemuseumgroup.org.uk/objects/co11558/dry-gas-meter);
+  [South Metropolitan 1933](https://collection.sciencemuseumgroup.org.uk/objects/co11694/dry-gas-meter)).
+- Works stored gas in holders and boosted the mains because peak use
+  outran production. Pressure fell with heavy demand, and consumers
+  complained of dim light ([Gasworks Museum, distribution](https://www.gasworksmuseum.org.nz/distribution-of-gas);
+  [Manawatu Herald, 1917](https://dynamic-rsnz.natlib.govt.nz/newspapers/MH19170515.2.5)).
+
 ### Research
 
 - Inverted burners came in about 1905. They threw light downward, and the
@@ -162,10 +270,14 @@ corner.
 
 ## 5. Not done, and follow-ups
 
-- The gas lights are always lit. They have no supply, meter or cock state,
-  are not on the lighting director, and the cocks cannot be turned. A gas
-  service owner (meter in the basement, pressure, a cock the player can
-  grab under RUL-013) is a natural follow-up.
+- The run from the workroom meter to the vestibule riser and the lantern is
+  concealed under the floor and in the masonry, not modelled.
+- Residents act as timetable facts: there is no visible body turning the
+  key. That stays out of the player's sight by construction.
+- When the dozen spare mantles are gone, nothing restocks the carton. The
+  hardware counter could sell more; that is a follow-up.
+- The carried spare is an inventory fact with no pocket line on the
+  handheld or the caretaker notebook yet.
 - The radiator is not on the heating graph and cannot knock or be bled.
 - The directory board and notices are not inspectable.
 - Any merged script or data change expires the V2 runtime, access and
@@ -175,6 +287,20 @@ corner.
 
 - Blender review, before Godot, including the gas run landing on the
   bracket's inlet boss: **art/reviews/v2_entry_vestibule_20261024/**.
+- Godot, windowed: **res://tests/OrisonV2GasCockTest.tscn** turns both cocks
+  through the player's latched grab and mouse input: shut to the pilot, half,
+  full open. It checks the household save and the lantern's clock at noon and
+  after dusk.
+- Godot, windowed: **res://tests/OrisonV2GasMantleTest.tscn** breaks the
+  bracket's worn mantle, then by the player's own grab and mouse lifts the
+  carton lid for one spare, slides the shade down (the ash crumbles) and up
+  (a new mantle is hung, the spare consumed, the flare burns). It checks the
+  household save, then swings the lantern's door out and shut with no spare.
+- Godot, windowed: **res://tests/OrisonV2GasServiceTest.tscn** checks that
+  the meter reads an hour's burn, that the evening peak dims a full mantle,
+  that the company cock is not operable, and that each resident acts only
+  out of sight, on their timetable and light condition, and is saved. It
+  captures the meter.
 - Godot, windowed: **res://tests/OrisonV2EntryVestibuleShot.tscn**, 0
   failures. It checks the leafless doorway, its casings and butts, the dress
   and the gas supply. It counts every light within 6 m of the street door

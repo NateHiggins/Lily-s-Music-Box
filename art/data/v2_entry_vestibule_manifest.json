@@ -4,8 +4,8 @@
  "design": "design/V2_ENTRY_VESTIBULE_2026-10-24.md",
  "runtime_table": "game/data/orison_v2/entry_vestibule_stock.json",
  "export_proof": {
-  "primitives": 23,
-  "triangles": 11504,
+  "primitives": 47,
+  "triangles": 17128,
   "minimum_tangent_agreement": 0.9999999599844206,
   "status": "PASS"
  },
@@ -56,9 +56,74 @@
    "period": "Wall-bracket gas lantern with a tapered four-light frame and an inverted mantle."
   },
   {
+   "id": "gas_cock_key",
+   "signal": false,
+   "period": "Flat brass key of a quarter-turn plug cock."
+  },
+  {
+   "id": "gas_pilot",
+   "signal": false,
+   "period": "Bypass pilot flame of an inverted burner."
+  },
+  {
+   "id": "gas_meter_hand",
+   "signal": false,
+   "period": "Blackened index hand of a dry gas meter dial."
+  },
+  {
+   "id": "gas_bracket_shade",
+   "signal": false,
+   "period": "Etched glass bell shade that slides off the bracket's gallery."
+  },
+  {
+   "id": "gas_mantle",
+   "signal": false,
+   "period": "Inverted Welsbach mantle on its ceramic collar."
+  },
+  {
+   "id": "gas_mantle_broken",
+   "signal": false,
+   "period": "A spent mantle's collar, torn cup and brittle ash shreds."
+  },
+  {
+   "id": "gas_naked_flame",
+   "signal": false,
+   "period": "The ragged yellow flame of a burner with no mantle."
+  },
+  {
+   "id": "gas_lantern_door",
+   "signal": false,
+   "period": "The lantern's iron-framed street light, hung on its left post."
+  },
+  {
+   "id": "mantle_carton",
+   "signal": false,
+   "period": "Card carton for a dozen spare mantles."
+  },
+  {
+   "id": "mantle_carton_lid",
+   "signal": false,
+   "period": "The carton's lid and tuck flap."
+  },
+  {
+   "id": "mantle_packet",
+   "signal": false,
+   "period": "One spare mantle in its tissue and paper sleeve."
+  },
+  {
    "id": "gas_pipe_vestibule",
    "signal": false,
    "period": "Surface-run half-inch black iron gas supply, floor flange, plug cock and straps."
+  },
+  {
+   "id": "gas_service_workroom",
+   "signal": false,
+   "period": "House gas service: sealed company cock, painted steel-plate dry meter with a small-dial index on an oak shelf, outlet to the floor."
+  },
+  {
+   "id": "gas_mantle_shelf",
+   "signal": false,
+   "period": "Short oak shelf for the mantle carton, on the workroom wall."
   }
  ],
  "triangles": {
@@ -69,8 +134,21 @@
   "radiator": 5444,
   "door_mat": 44,
   "coat_hooks": 976,
-  "gas_bracket": 1544,
-  "gas_lantern": 888,
-  "gas_pipe_vestibule": 708
+  "gas_bracket": 852,
+  "gas_lantern": 1028,
+  "gas_cock_key": 72,
+  "gas_pilot": 80,
+  "gas_meter_hand": 80,
+  "gas_bracket_shade": 480,
+  "gas_mantle": 212,
+  "gas_mantle_broken": 236,
+  "gas_naked_flame": 220,
+  "gas_lantern_door": 136,
+  "mantle_carton": 60,
+  "mantle_carton_lid": 24,
+  "mantle_packet": 88,
+  "gas_pipe_vestibule": 708,
+  "gas_service_workroom": 4228,
+  "gas_mantle_shelf": 260
  }
 }

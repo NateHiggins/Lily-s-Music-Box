@@ -172,6 +172,16 @@ func _show(paper: String, issue_date: String) -> void:
 		columns.add_child(box)
 		_label_into(box, str(column.get("headline", "")).to_upper(), 16, INK, _bold)
 		_label_into(box, str(column.get("body", "")), 15, INK)
+	# The editor's weekly column, boxed under the columns on the days it runs.
+	var editorial: Dictionary = page.get("editorial", {})
+	if not editorial.is_empty():
+		var chair: Dictionary = meta.get("editorial", {})
+		_rule(2)
+		_label(str(chair.get("title", "Editorial")).to_upper(), 15, RED if red else INK, _bold,
+				HORIZONTAL_ALIGNMENT_CENTER)
+		_label(str(editorial.get("headline", "")), 22, INK, _bold, HORIZONTAL_ALIGNMENT_CENTER)
+		_label(str(editorial.get("body", "")), 16, INK)
+		_label(str(chair.get("byline", "")), 14, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_RIGHT)
 	_rule(1)
 	_label(str(page.get("wire", "")), 14, INK_SOFT, _italic)
 	_label("ESC closes the paper", 12, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_RIGHT)

@@ -159,6 +159,102 @@
    ]
   },
   {
+   "id": "meter_paint",
+   "catalog_key": "door_paint",
+   "tint": [
+    0.36,
+    0.14,
+    0.1,
+    1
+   ],
+   "normal": 0.7,
+   "roughness": 1.0
+  },
+  {
+   "id": "dial_face",
+   "catalog_key": "porcelain",
+   "tint": [
+    0.95,
+    0.93,
+    0.86,
+    1
+   ],
+   "normal": 0.3,
+   "roughness": 1.0
+  },
+  {
+   "id": "lead",
+   "catalog_key": "iron_neutral",
+   "tint": [
+    0.55,
+    0.56,
+    0.58,
+    1
+   ],
+   "normal": 0.6,
+   "roughness": 1.0
+  },
+  {
+   "id": "card",
+   "catalog_key": "paper",
+   "tint": [
+    0.6,
+    0.48,
+    0.32,
+    1
+   ],
+   "normal": 0.6,
+   "roughness": 1.0
+  },
+  {
+   "id": "ash",
+   "catalog_key": "porcelain",
+   "tint": [
+    0.8,
+    0.79,
+    0.76,
+    1
+   ],
+   "normal": 0.4,
+   "roughness": 1.0
+  },
+  {
+   "id": "flame_lit",
+   "catalog_key": "milk_glass",
+   "tint": [
+    1,
+    0.78,
+    0.4,
+    1
+   ],
+   "normal": 0.2,
+   "roughness": 1.0,
+   "emission": [
+    1.0,
+    0.62,
+    0.24,
+    3.2
+   ]
+  },
+  {
+   "id": "pilot_lit",
+   "catalog_key": "milk_glass",
+   "tint": [
+    0.4,
+    0.6,
+    1,
+    1
+   ],
+   "normal": 0.2,
+   "roughness": 1.0,
+   "emission": [
+    0.35,
+    0.6,
+    1.0,
+    2.5
+   ]
+  },
+  {
    "id": "pane_lit",
    "catalog_key": "milk_glass",
    "tint": [
@@ -183,8 +279,21 @@
   "directory_board",
   "door_mat",
   "gas_bracket",
+  "gas_bracket_shade",
+  "gas_cock_key",
   "gas_lantern",
+  "gas_lantern_door",
+  "gas_mantle",
+  "gas_mantle_broken",
+  "gas_mantle_shelf",
+  "gas_meter_hand",
+  "gas_naked_flame",
+  "gas_pilot",
   "gas_pipe_vestibule",
+  "gas_service_workroom",
+  "mantle_carton",
+  "mantle_carton_lid",
+  "mantle_packet",
   "notice_frame",
   "radiator",
   "signal_point"

@@ -21,13 +21,17 @@ const WALL_YAW := {"west": PI * 0.5, "east": -PI * 0.5, "north": PI}
 
 var data: Dictionary = {}
 var meshes: Dictionary = {}
-var lamps: Array[OmniLight3D] = []
+var lamps: Array[OrisonV2GasFitting] = []
+var gas_service: OrisonV2GasService
+var world: Node
+var materials: Dictionary = {}
 
 
 static func mount(world: Node) -> OrisonV2EntryVestibule:
 	var vestibule := OrisonV2EntryVestibule.new()
 	vestibule.name = "EntryVestibule"
 	var root: Node3D = world.adapter.root
+	vestibule.world = world
 	root.add_child(vestibule)
 	if not vestibule.compose(root):
 		root.remove_child(vestibule)
@@ -43,7 +47,6 @@ func compose(root: Node3D) -> bool:
 			or stock.get("schema") != "orison.v2.entry-vestibule-stock.v1":
 		push_error("ENTRY VESTIBULE: unknown data schema")
 		return false
-	var materials := {}
 	for finish: Dictionary in stock.finishes:
 		# Catalogue stock with its relief, roughness, tint and any glow.
 		if not MatLib.SETS.has(str(finish.catalog_key)) or float(finish.normal) <= 0.0 				or float(finish.roughness) <= 0.0 or (finish.tint as Array).size() != 4 				or (finish.has("emission") and (finish.emission as Array).size() != 4):
@@ -76,7 +79,24 @@ func compose(root: Node3D) -> bool:
 	for notice: Dictionary in data.notices:
 		_notice(get_node(str(notice.fitting)) as Node3D, notice)
 	_radiator_body(get_node("Radiator") as Node3D)
-	return _lamps(root)
+	if not _lamps(root):
+		return false
+	# The house service in the front workroom: meter, pressure, residents.
+	gas_service = OrisonV2GasService.new()
+	add_child(gas_service)
+	return gas_service.compose(world, meshes, lamps)
+
+
+## Each fitting's mantle, shade or panes glow with its own flame, so every
+## lit finish on this draw gets a material of its own.
+func _own_glow(fitting: OrisonV2GasFitting, draw: MeshInstance3D) -> void:
+	for surface in draw.mesh.get_surface_count():
+		var shared := draw.mesh.surface_get_material(surface)
+		for finish: String in ["mantle_lit", "shade_lit", "pane_lit", "flame_lit"]:
+			if shared == materials.get(finish):
+				var own := shared.duplicate() as StandardMaterial3D
+				draw.set_surface_override_material(surface, own)
+				fitting.glow[own] = own.emission_energy_multiplier
 
 
 func _draw(parent: Node3D, stock: String) -> MeshInstance3D:
@@ -188,8 +208,9 @@ func _radiator_body(radiator: Node3D) -> void:
 
 ## Gas, not electric: light carries no signal, so it never advanced (Bible
 ## VIII.2). An iron lantern on the west pier outside, under the dark marquee,
-## and an inverted-mantle bracket over the vestibule's inner doorway, fed by
-## the surface-run supply. Its light reaches the street through the door glass.
+## on the street lamps' dusk-to-dawn clock; and an inverted-mantle bracket over
+## the vestibule's inner doorway, fed by the surface-run supply. Each is an
+## OrisonV2GasFitting with its own cock, lit surfaces and pilot.
 func _lamps(root: Node3D) -> bool:
 	var facade := root.get_node_or_null("FrontFacade") as Node3D
 	if facade == null:
@@ -211,20 +232,61 @@ func _lamps(root: Node3D) -> bool:
 		run.name = "GasSupply"
 		add_child(run)
 		_draw(run, stock)
+	# The lantern's controller keeps the city's own lamp hours.
+	var lamp_table := preload("res://scripts/building/orison_v2_street_lamps.gd").load_table()
+	if lamp_table.is_empty():
+		push_error("ENTRY VESTIBULE: no street lamp hours for the lantern's clock")
+		return false
 	for row: Dictionary in data.lamps.fittings:
-		var mount_point := Node3D.new()
-		mount_point.name = str(row.id)
-		add_child(mount_point)
+		var fitting := OrisonV2GasFitting.new()
+		fitting.name = str(row.id)
+		add_child(fitting)
 		if row.has("facade_point"):
 			var at: Array = row.facade_point
-			mount_point.global_transform = facade.global_transform * Transform3D(Basis.IDENTITY,
+			fitting.global_transform = facade.global_transform * Transform3D(Basis.IDENTITY,
 					Vector3(float(at[0]), float(at[1]), float(at[2])))
 		else:
-			mount_point.position = Vector3(float(row.along), float(row.height), float(data.wall_faces[row.wall]))
-			mount_point.rotation.y = WALL_YAW[str(row.wall)]
+			fitting.position = Vector3(float(row.along), float(row.height), float(data.wall_faces[row.wall]))
+			fitting.rotation.y = WALL_YAW[str(row.wall)]
 		# Etched glass diffuses; the fitting must not cut a hard cone of
 		# shadow out of its own light on the wall behind it.
-		_draw(mount_point, str(row.stock)).cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		var body := _draw(fitting, str(row.stock))
+		body.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		_own_glow(fitting, body)
+		# The mantle on the burner, what a broken one leaves, and the naked
+		# flame of a burner without one; the fitting shows the one that is so.
+		var hung: Array = row.mantle
+		var at := Vector3(float(hung[0]), float(hung[1]), float(hung[2]))
+		var states := {}
+		for state: String in ["intact", "broken", "flame"]:
+			var draw := _draw(fitting, {"intact": "gas_mantle", "broken": "gas_mantle_broken", "flame": "gas_naked_flame"}[state])
+			draw.name = "Mantle_" + state
+			draw.position = at
+			draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			_own_glow(fitting, draw)
+			states[state] = draw
+		# The access to the burner: the bracket's sliding shade, the lantern's door.
+		var spec: Dictionary = row.access
+		var opening_at: Array = spec.origin
+		var access := Node3D.new()
+		access.name = "Access"
+		access.position = Vector3(float(opening_at[0]), float(opening_at[1]), float(opening_at[2]))
+		fitting.add_child(access)
+		var part := _draw(access, str(spec.stock))
+		part.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		_own_glow(fitting, part)
+		var pivot: Array = row.cock
+		var key := Node3D.new()
+		key.name = "CockKey"
+		key.position = Vector3(float(pivot[0]), float(pivot[1]), float(pivot[2]))
+		fitting.add_child(key)
+		_draw(key, "gas_cock_key")
+		if row.has("pilot"):
+			var bead: Array = row.pilot
+			var pilot := _draw(fitting, "gas_pilot")
+			pilot.name = "Pilot"
+			pilot.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			pilot.position = Vector3(float(bead[0]), float(bead[1]), float(bead[2]))
 		var glow: Dictionary = row.light
 		var flame: Array = row.flame
 		var light := OmniLight3D.new()
@@ -235,17 +297,19 @@ func _lamps(root: Node3D) -> bool:
 		light.omni_range = float(glow.range)
 		light.omni_attenuation = float(glow.attenuation)
 		light.shadow_enabled = true
-		light.set_meta("base_energy", light.light_energy)
-		mount_point.add_child(light)
-		lamps.append(light)
+		fitting.add_child(light)
+		fitting.pilot_glow = float(row.pilot_glow)
+		fitting.full_rate = float(row.rate)
+		fitting.pilot_rate = float(row.pilot_rate)
+		fitting.clock = bool(row.clock)
+		fitting.dusk = lamp_table.dusk
+		fitting.dawn = lamp_table.dawn
+		fitting.configure(light, key)
+		fitting.mantle_hours = float(row.mantle_hours)
+		fitting.mantle_life = float(row.mantle_life)
+		var hinge: Array = spec.get("axis", [0.0, -1.0, 0.0])
+		fitting.configure_mantle(states, str(spec.kind), float(spec.travel), float(spec.open_at),
+				Vector3(float(hinge[0]), float(hinge[1]), float(hinge[2])), access)
+		fitting.refresh_clock()
+		lamps.append(fitting)
 	return true
-
-
-## A mantle on house gas never quite holds still: a slow breathing with the
-## supply pressure and a faint quick waver, a few percent either way.
-func _process(_delta: float) -> void:
-	var t := Time.get_ticks_msec() * 0.001
-	for i in lamps.size():
-		var phase := i * 2.3
-		var breath := 0.03 * sin(t * 0.9 + phase) + 0.015 * sin(t * 6.7 + phase * 1.7)
-		lamps[i].light_energy = float(lamps[i].get_meta("base_energy")) * (1.0 + breath)

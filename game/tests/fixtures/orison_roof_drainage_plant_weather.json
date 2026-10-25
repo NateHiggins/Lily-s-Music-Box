@@ -2,12 +2,12 @@
   "evidence_class": "INERT",
   "classification": "ADAPTATION",
   "status": "SOURCE-GENERATED CONSTRUCTION; INDEPENDENT VALIDATION REQUIRED",
-  "native_sha256": "9db13bf07e5e375607934d335007e5ac6e0533689deeeffed802c03183da0e3a",
-  "asset_sha256": "064808b9c7b701a0c577b04d51586b8946519da21de6fc0bef611743db468019",
+  "native_sha256": "2a535038b649f468f015e7b85541a5da2846f46ca9075e4bac18401fd896e9d2",
+  "asset_sha256": "878db397dc694462ed8c0e9a593c54125a04edb45c27ae6b8a6e5af2ea5d2e76",
   "source_bindings": {
-    "game/data/orison_v2_blockout.json": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab",
-    "art/blender/house_tank.blend": "a392275a884fe2e74fb6aa00286dc71e78b58a190756ee178cbbda1b888a85ed",
-    "art/blender/roof_drainage_falls_construction.json": "338752581c4bb9e8ba9c86eb646461bddf94cdb1df85d57dd75fc29d30e34809",
+    "game/data/orison_v2_blockout.json": "6f9d033f2f1a0dd849d6afb50f9c5799a3dc2c93587d23db826006e2547d0955",
+    "art/blender/house_tank.blend": "0a93e872efa97a2fc7c41df6c38a380ffe79ee043a30591a1b8ba5a254d5c2c0",
+    "art/blender/roof_drainage_falls_construction.json": "4ecbb749eab6c9fc787ab07356a2ec6804eee4c255ee6e022eb95c1fd7c14553",
     "art/blender/scripts/build_roof_drainage_plant_weather.py": "e43703da906427a395605377458225053a3bb91b7a7abd519c9e19198f54917c",
     "art/blender/scripts/roof_drainage_field.py": "ac4cd59fba7a472421af76ebc112ab6d683151d5fc2a3676d727764453f4430e"
   },
@@ -135,7 +135,7 @@
       "name": "ROOF_VENT_FAN_D__WeatherBoot",
       "owner": "ROOF_VENT_FAN_D",
       "material": "galvanized_roof",
-      "volume_m3": 0.0008607402596624338,
+      "volume_m3": 0.0008607337620473568,
       "native_closed": true
     },
     {
@@ -760,7 +760,7 @@
       "owner": "ROOF_VENT_FAN_D",
       "point": [
         15.099999999999998,
-        19.252950000000002,
+        19.25295,
         -11.249999999999998
       ]
     },

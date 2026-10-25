@@ -90,7 +90,7 @@
  "lamps": {
   "fittings": [
    {
-    "id": "EntranceLamp",
+    "id": "F01_ENTRANCE_GAS_LANTERN",
     "facade_point": [
      0.79,
      2.45,
@@ -111,10 +111,42 @@
      0.0,
      -0.2,
      0.33
-    ]
+    ],
+    "cock": [
+     0.0,
+     0.04,
+     0.075
+    ],
+    "clock": true,
+    "pilot_glow": 0.03,
+    "rate": 3.5,
+    "pilot_rate": 0.15,
+    "mantle": [
+     0.0,
+     -0.185,
+     0.33
+    ],
+    "mantle_hours": 150.0,
+    "mantle_life": 820.0,
+    "access": {
+     "stock": "gas_lantern_door",
+     "kind": "door",
+     "origin": [
+      -0.081,
+      -0.05,
+      0.411
+     ],
+     "axis": [
+      0.021,
+      -0.3,
+      -0.021
+     ],
+     "travel": 1.2,
+     "open_at": 0.9
+    }
    },
    {
-    "id": "VestibuleLamp",
+    "id": "F01_VESTIBULE_GAS_BRACKET",
     "wall": "north",
     "along": 0.0,
     "height": 2.45,
@@ -133,7 +165,39 @@
      0.0,
      -0.132,
      0.21
-    ]
+    ],
+    "cock": [
+     0.0,
+     0.0,
+     0.11
+    ],
+    "pilot": [
+     0.0,
+     -0.155,
+     0.21
+    ],
+    "clock": false,
+    "pilot_glow": 0.0,
+    "rate": 3.0,
+    "pilot_rate": 0.15,
+    "mantle": [
+     0.0,
+     -0.132,
+     0.21
+    ],
+    "mantle_hours": 640.0,
+    "mantle_life": 700.0,
+    "access": {
+     "stock": "gas_bracket_shade",
+     "kind": "shade",
+     "origin": [
+      0.0,
+      -0.068,
+      0.21
+     ],
+     "travel": 0.085,
+     "open_at": 0.06
+    }
    }
   ]
  },

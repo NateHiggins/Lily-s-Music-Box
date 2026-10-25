@@ -226,8 +226,10 @@ func _ready() -> void:
 	RealityState.persistence_enabled = saved_persistence
 	RealityState.reset_campaign_for_tests()
 	Selector.reset_for_tests()
-	_check(FileAccess.get_sha256("res://data/building_layout.json")
-			== "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+	# Pinned to the owner-directed layout (3fd37e0d unlocked News & Cigars),
+	# hashed LF-normalized so CRLF and LF checkouts bind the same bytes.
+	_check(FileAccess.get_file_as_string("res://data/building_layout.json").replace("\r\n", "\n").sha256_text()
+			== "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
 			"production layout remains byte-stable")
 	_check(Selector.DEFAULT_ID == "v2", "committed selector is v2")
 	_finish_contract()

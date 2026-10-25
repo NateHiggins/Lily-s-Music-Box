@@ -190,6 +190,10 @@ func _load_papers() -> void:
 		for field in ["name", "masthead_line", "edition", "price", "ink"]:
 			if str(record.get(field, "")) == "":
 				errors.append("papers.json: %s.%s is empty" % [paper_id, field])
+		var chair: Variant = record.get("editorial", null)
+		if chair != null and (chair is not Dictionary or str(chair.get("title", "")) == ""
+				or str(chair.get("byline", "")) == ""):
+			errors.append("papers.json: %s.editorial needs a title and byline" % paper_id)
 		papers[str(paper_id)] = record
 	for paper_id in PAPER_IDS:
 		if not papers.has(paper_id):
@@ -254,5 +258,11 @@ func _valid_page(page: Variant, where: String) -> bool:
 				ok = false
 	if not str(page.get("wire", "")).begins_with("LATE WIRE:"):
 		errors.append("%s: wire must begin LATE WIRE:" % where)
+		ok = false
+	# The Speaker's Saturday editorial (design/ORISON_LILITH_2026-10-24.md).
+	var editorial: Variant = page.get("editorial", null)
+	if editorial != null and (editorial is not Dictionary or str(editorial.get("headline", "")) == ""
+			or str(editorial.get("body", "")) == ""):
+		errors.append("%s: an editorial needs headline and body" % where)
 		ok = false
 	return ok

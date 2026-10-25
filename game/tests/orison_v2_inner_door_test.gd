@@ -18,7 +18,7 @@ func _route() -> void:
 	if not contacts.is_empty():
 		failures.append("vestibule aperture is obstructed by "+str(contacts[0].collider.get_path()));return
 	var vestibule: Node=world.adapter.root.get_node_or_null("EntryVestibule")
-	for part in ["Directory","EstablishedPlaque","NoticeHum","NoticeHouse","SignalPoint","Radiator","CoatHooks","DoorMat","EntranceLamp","VestibuleLamp","GasSupply"]:
+	for part in ["Directory","EstablishedPlaque","NoticeHum","NoticeHouse","SignalPoint","Radiator","CoatHooks","DoorMat","F01_ENTRANCE_GAS_LANTERN","F01_VESTIBULE_GAS_BRACKET","GasSupply"]:
 		if vestibule==null or vestibule.get_node_or_null(part)==null:
 			failures.append("entry vestibule lacks "+part);return
 	for side: float in [1.0,-1.0]:

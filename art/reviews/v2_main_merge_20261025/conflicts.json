@@ -1,0 +1,223 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Merge conflict resolution, not runtime qualification. Builder regeneration and source-bound checks remain required.",
+  "parents": [
+    "7f0b7f39",
+    "bde30c08"
+  ],
+  "merge_base": "55e60195",
+  "conflicts": [
+    {
+      "path": "art/blender/bodega_frontage.blend",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "06de397e44270f4e42bf4064b42e12434cdea61c3d3ef1c6292c73cad1f07734",
+      "main_sha256": "478cbbc28fe317529679aeb7eee172eb1b0c50ee7d32ae79089fb6e3deb907df"
+    },
+    {
+      "path": "art/blender/bodega_frontage_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "65656b40a40362787e3416ae3968978f5815f3335e9c142b923f7d98773cdf07",
+      "main_sha256": "fdd413417b7b1f22d053b96127bd25c8991dc8af6dfe2f4b98d391c1ffbdeabf"
+    },
+    {
+      "path": "art/blender/city_closure.blend",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "88b4043f181c5ad54ad937e8b6bd553fb3368ed10cc05bc07267f372378977cf",
+      "main_sha256": "92bd1b5b0185c06e7f8cbeae13a9e79a3cb4fe5d027c66e4c3e548e2d5ac3dcb"
+    },
+    {
+      "path": "art/blender/city_closure_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "e4bf9009665c83438567f55468619997ccd7c47df047ed3d61e90456cc97a7e3",
+      "main_sha256": "0c495dc60f013079d5c52251aa546af1dafb11ad0bb26e7317ab9320a56efee7"
+    },
+    {
+      "path": "art/blender/city_elevations.blend",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "b6eb561de38bc4f98201bf3aa06bbc8cb9c4f676d057507a0c76aeb26fd0bf86",
+      "main_sha256": "5273b288236bf11dd886eace9b796747a803dcfde5e619b5500f1d27819050d6"
+    },
+    {
+      "path": "art/blender/city_elevations_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "3da7595665da97f32e1e47bd7681f3f4fb731350db94c905e34d55a0ecfe254e",
+      "main_sha256": "1f44070db8433d60231af195f2715a244148d67de02f0d6e653d6cf727b7fedf"
+    },
+    {
+      "path": "art/blender/city_ground_apron_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "9fb1beefddf3dcc8a08575e27bddef6b6f8c3acbbf0a3f8991a962b62ecd380c",
+      "main_sha256": "3f425d537f0f6b81a3f50ba755a251d284fee2561454b1d96fe9b42aef924916"
+    },
+    {
+      "path": "art/blender/city_horizon_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "cf866313d4150a39f8c2137328d6e4efa6b78201173d1c7521316fc1e52c078b",
+      "main_sha256": "085ee06f5eefc7e5593531aa925e89d546bb35cefcd709f3a2f25b48daf13eeb"
+    },
+    {
+      "path": "art/blender/domestic_objects_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "5dd73b3f8dcd59690690944a1064212e3db550cec8bde740b8dbcf43cecf2c5a",
+      "main_sha256": "478b22f95160b584422cb67489c96ce7cbcacae4bd521a13d1d1563cea9bdce5"
+    },
+    {
+      "path": "art/blender/domestic_storage_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "c9d0188f586a83078fb9d2eaf1b7d31ae3c35c7d77d6ff7a649af63fc81b39ab",
+      "main_sha256": "7f19912017d644f9212df0e84493015569e011a8c79341971474ab976f09753e"
+    },
+    {
+      "path": "art/blender/fixed_lighting.blend",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "c3a41705313f11d46f6cb50a9fa6c5c3a2a0dc0a2be19b3f35863b57bdec0b1d",
+      "main_sha256": "0e31475c821bd354a14c75f33d962fa9a40aa8c2f86a165bcc7fcd1cd63bd950"
+    },
+    {
+      "path": "art/blender/fixed_lighting_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "f3980f8c85349c49684a7b739df4f9abf5a1308e6a026d2f55a65a8f58addc27",
+      "main_sha256": "5fc3ae4cdc47e7992ea7eb04c61fcd687023b1fea0bfbefa4cbad9f258d952c1"
+    },
+    {
+      "path": "art/blender/reading_nook.blend",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "af98578dca4a6c807139cebe5188d4fbdc5098c8a7235397b9495e82245b3315",
+      "main_sha256": "0ff27e6eb6ee80d572bc83c602ca58d3a9237580d21a898d4fba70c21d0dca5c"
+    },
+    {
+      "path": "art/blender/reading_nook_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "046c2a382cad300d226f5de033c42099c8e6cb931767b0504d5e2ac57f9d7531",
+      "main_sha256": "4d40cc4a733dd0fbb9afb5163717a93439ffb572f15e217c97b65bd5a29b1b69"
+    },
+    {
+      "path": "art/blender/roof_public_weathering_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "dcaa1cada2f0cad5f5ac81d3546c05464b15c7a4d3957cf7af852a0c703975cd",
+      "main_sha256": "bbdb9da432117d08c98ac9a05dfed357e4a93b3fdf3b2e80f62104870c0ea713"
+    },
+    {
+      "path": "art/blender/shop_joinery.blend",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "7d9539e5a0b7856141a9729cd4ff36416da4ed29a1b1de205d78e88da3091860",
+      "main_sha256": "2e354bd86104afade13567ff0824b5cc2d4d5d7630d2847e06783489a01b8337"
+    },
+    {
+      "path": "art/blender/shop_joinery_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "dc7bd9d0b5b7442e1b75d1e9d99c8ce4a91bec69394f22d8639c6ef22a63e4e4",
+      "main_sha256": "fdc296542ec0aad635c566ba98441a70788e90fa33936ef6483c9ccec530ac20"
+    },
+    {
+      "path": "art/blender/street_paving_details.blend",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "5b393773a86cb0d76db4d265ff53e13c4845babf32e61f3fa857bf19359bc6cb",
+      "main_sha256": "ef9cae9ab151d2a4e9e8a682740362abc99cb7313eb023c4bfce1821d57cc132"
+    },
+    {
+      "path": "art/blender/street_paving_details_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "9b4678d2bd9faf5a1455f8e67173a975b7b1d46f246dda4182addd6f2346822d",
+      "main_sha256": "db9ddfaff885566c2bb1828f57e2d3f774e31c7cc8f63641bb458c04257ed911"
+    },
+    {
+      "path": "art/blender/surface_stock_construction.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "ea8bcf21477be046fd814e0e72f1aea1bd54585a1ec6bb9201488a6f50f52e0c",
+      "main_sha256": "049f357eb00fa3842453462ab32614e8c393f45ef20cc236d74a2d9bae755414"
+    },
+    {
+      "path": "art/data/fixed_lighting/source_plan.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "6d1c02b7c32eb4b3a1da3eb94302ce29547889cb6b0fb226274a9ccedd9cce71",
+      "main_sha256": "01b906c91121eba6b490bfa77a981b6f3c2799126869d3efe1cd3dc26ea1730a"
+    },
+    {
+      "path": "game/tests/fixtures/orison_bodega_frontage.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "65656b40a40362787e3416ae3968978f5815f3335e9c142b923f7d98773cdf07",
+      "main_sha256": "fdd413417b7b1f22d053b96127bd25c8991dc8af6dfe2f4b98d391c1ffbdeabf"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_closure.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "e4bf9009665c83438567f55468619997ccd7c47df047ed3d61e90456cc97a7e3",
+      "main_sha256": "0c495dc60f013079d5c52251aa546af1dafb11ad0bb26e7317ab9320a56efee7"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_elevations.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "3da7595665da97f32e1e47bd7681f3f4fb731350db94c905e34d55a0ecfe254e",
+      "main_sha256": "1f44070db8433d60231af195f2715a244148d67de02f0d6e653d6cf727b7fedf"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_ground_apron.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "9fb1beefddf3dcc8a08575e27bddef6b6f8c3acbbf0a3f8991a962b62ecd380c",
+      "main_sha256": "3f425d537f0f6b81a3f50ba755a251d284fee2561454b1d96fe9b42aef924916"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_horizon.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "cf866313d4150a39f8c2137328d6e4efa6b78201173d1c7521316fc1e52c078b",
+      "main_sha256": "085ee06f5eefc7e5593531aa925e89d546bb35cefcd709f3a2f25b48daf13eeb"
+    },
+    {
+      "path": "game/tests/fixtures/orison_domestic_objects.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "5dd73b3f8dcd59690690944a1064212e3db550cec8bde740b8dbcf43cecf2c5a",
+      "main_sha256": "478b22f95160b584422cb67489c96ce7cbcacae4bd521a13d1d1563cea9bdce5"
+    },
+    {
+      "path": "game/tests/fixtures/orison_domestic_storage.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "c9d0188f586a83078fb9d2eaf1b7d31ae3c35c7d77d6ff7a649af63fc81b39ab",
+      "main_sha256": "7f19912017d644f9212df0e84493015569e011a8c79341971474ab976f09753e"
+    },
+    {
+      "path": "game/tests/fixtures/orison_fixed_lighting.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "f3980f8c85349c49684a7b739df4f9abf5a1308e6a026d2f55a65a8f58addc27",
+      "main_sha256": "5fc3ae4cdc47e7992ea7eb04c61fcd687023b1fea0bfbefa4cbad9f258d952c1"
+    },
+    {
+      "path": "game/tests/fixtures/orison_reading_nook.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "046c2a382cad300d226f5de033c42099c8e6cb931767b0504d5e2ac57f9d7531",
+      "main_sha256": "4d40cc4a733dd0fbb9afb5163717a93439ffb572f15e217c97b65bd5a29b1b69"
+    },
+    {
+      "path": "game/tests/fixtures/orison_roof_public_weathering.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "dcaa1cada2f0cad5f5ac81d3546c05464b15c7a4d3957cf7af852a0c703975cd",
+      "main_sha256": "bbdb9da432117d08c98ac9a05dfed357e4a93b3fdf3b2e80f62104870c0ea713"
+    },
+    {
+      "path": "game/tests/fixtures/orison_shop_joinery.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "dc7bd9d0b5b7442e1b75d1e9d99c8ce4a91bec69394f22d8639c6ef22a63e4e4",
+      "main_sha256": "fdc296542ec0aad635c566ba98441a70788e90fa33936ef6483c9ccec530ac20"
+    },
+    {
+      "path": "game/tests/fixtures/orison_street_paving_details.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "9b4678d2bd9faf5a1455f8e67173a975b7b1d46f246dda4182addd6f2346822d",
+      "main_sha256": "db9ddfaff885566c2bb1828f57e2d3f774e31c7cc8f63641bb458c04257ed911"
+    },
+    {
+      "path": "game/tests/fixtures/orison_surface_stock.json",
+      "resolution": "Retain repaired branch native construction/geometry or its original bindings pending authoring-builder renewal; main binary saves have no corresponding exported-asset delta. No source hash is patched to manufacture a pass.",
+      "ours_sha256": "ea8bcf21477be046fd814e0e72f1aea1bd54585a1ec6bb9201488a6f50f52e0c",
+      "main_sha256": "049f357eb00fa3842453462ab32614e8c393f45ef20cc236d74a2d9bae755414"
+    },
+    {
+      "path": "tools/orison_spatial_dependency_manifest.json",
+      "resolution": "Keyed three-way union. No existing record removed; no conflicting double changes. Equal top-level universe counts.",
+      "base_records": 10584,
+      "ours_records": 10905,
+      "main_records": 10604,
+      "merged_records": 10925
+    }
+  ]
+}

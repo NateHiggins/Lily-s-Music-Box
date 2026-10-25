@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 199.67,
+  "exit_code": 0,
+  "finished_utc": "2026-10-24T21:27:19Z",
+  "started_utc": "2026-10-24T21:23:58Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/vestibule_logs/gas/cock2.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/ov/vestibule_logs/gas/cock2.log",
+  "stdout_sha256": "33016cbe559d8a3a90ff2da414d75b3dc113fc44e16471b21ee00169d5cba026"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2GasCockTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/vestibule_logs/gas/cock2",
+ "source": {
+  "dirty_paths": 2056,
+  "dirty_sample": [
+   "M art/blender/scripts/build_v2_entry_vestibule.py",
+   " M art/blender/scripts/review_v2_entry_vestibule.py",
+   " M art/blender/v2_entry_vestibule.blend",
+   " M art/data/v2_entry_vestibule_manifest.json",
+   " M art/reviews/v2_entry_vestibule_20261024/blender_directory.png",
+   " M art/reviews/v2_entry_vestibule_20261024/blender_gas_fittings.png",
+   " M art/reviews/v2_entry_vestibule_20261024/blender_gas_rosette.png",
+   " M art/reviews/v2_entry_vestibule_20261024/blender_gas_run.png",
+   " M art/reviews/v2_entry_vestibule_20261024/blender_lamp_hooks.png",
+   " M art/reviews/v2_entry_vestibule_20261024/blender_radiator_point.png",
+   " M art/reviews/v2_entry_vestibule_20261024/blender_sheet.png",
+   " M design/V2_ENTRY_VESTIBULE_2026-10-24.md",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import"
+  ],
+  "repository_head": "55e60195c8149bba09f73cf149462a94619ea0c4",
+  "repository_tree": "c9d5aca5b269e8b103bc2a77cd7cc9b715c60e54",
+  "runtime_inputs_sha256": "eefecce13f1b450c257d6c3bdf45b6596a43ee960f9a5ec18ae14cf974278edf",
+  "test_path": "game/tests/orison_v2_gas_cock_test.gd",
+  "test_sha256": "2a30d4103de7fa06b4dd0a814b9507f44bc17321f09ff44ebb26773aaea6c175"
+ },
+ "windowed": true
+}

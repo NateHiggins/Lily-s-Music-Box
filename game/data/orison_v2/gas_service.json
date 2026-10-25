@@ -1,0 +1,160 @@
+{
+ "schema": "orison.v2.gas-service.v1",
+ "meter": {
+  "id": "F01_GAS_METER",
+  "wall_face_z": -12.28,
+  "centre_x": 7.92,
+  "shelf_y": 1.0,
+  "initial_cubic_feet": 48217.0,
+  "dials": [
+   {
+    "unit": 1,
+    "offset": [
+     0.0,
+     0.105
+    ],
+    "radius": 0.034,
+    "label": "ONE FOOT"
+   },
+   {
+    "unit": 100,
+    "offset": [
+     -0.09,
+     0.27
+    ],
+    "radius": 0.024,
+    "label": "HUNDRED"
+   },
+   {
+    "unit": 1000,
+    "offset": [
+     0.0,
+     0.27
+    ],
+    "radius": 0.024,
+    "label": "THOUSAND"
+   },
+   {
+    "unit": 10000,
+    "offset": [
+     0.09,
+     0.27
+    ],
+    "radius": 0.024,
+    "label": "TEN THOUSAND"
+   }
+  ]
+ },
+ "service": [
+  [
+   7.71,
+   0.3,
+   -12.34
+  ],
+  [
+   7.71,
+   0.3,
+   -12.235
+  ],
+  [
+   7.71,
+   1.52,
+   -12.235
+  ],
+  [
+   7.83,
+   1.52,
+   -12.235
+  ],
+  [
+   7.83,
+   1.52,
+   -12.15
+  ],
+  [
+   7.83,
+   1.41,
+   -12.15
+  ]
+ ],
+ "company_cock_y": 0.5,
+ "outlet": [
+  [
+   8.01,
+   1.41,
+   -12.15
+  ],
+  [
+   8.01,
+   1.52,
+   -12.15
+  ],
+  [
+   8.01,
+   1.52,
+   -12.235
+  ],
+  [
+   8.16,
+   1.52,
+   -12.235
+  ],
+  [
+   8.16,
+   0.0,
+   -12.235
+  ]
+ ],
+ "pressure_by_hour": [
+  1.05,
+  1.06,
+  1.06,
+  1.06,
+  1.05,
+  1.02,
+  0.95,
+  0.93,
+  0.97,
+  1.0,
+  1.0,
+  0.98,
+  0.97,
+  1.0,
+  1.0,
+  0.99,
+  0.94,
+  0.86,
+  0.8,
+  0.8,
+  0.83,
+  0.88,
+  0.95,
+  1.01
+ ],
+ "player_clearance_m": 7.0,
+ "residents": [
+  {
+   "resident": "evelyn_marsh",
+   "place": "lobby",
+   "fitting": "F01_VESTIBULE_GAS_BRACKET",
+   "opening": 0.0,
+   "when": "day"
+  },
+  {
+   "resident": "cam_ortiz",
+   "place": "lobby",
+   "fitting": "F01_VESTIBULE_GAS_BRACKET",
+   "opening": 1.0,
+   "when": "night"
+  }
+ ],
+ "carton": {
+  "id": "F01_GAS_MANTLE_CARTON",
+  "wall_face_x": 8.23,
+  "along_z": -11.25,
+  "shelf_y": 1.05,
+  "item_prefix": "gas_mantle_",
+  "mantles": 12,
+  "lid_takes_at": 1.0
+ }
+}
