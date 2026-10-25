@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "resident": "lena_ortiz",
+  "name": "Lena Ortiz",
+  "unit": "2B",
+  "frame": "orison_v2_blockout",
+  "doors": ["F02_B_ENTRY_DOOR", "F02_B_KITCHEN_DOOR", "F02_B_BED_DOOR", "F02_B_BATH_DOOR"],
+  "away": "stair_top",
+  "paths": [
+    [["chair",13.4,3.2,-2.2],["main_mid",12.6,3.2,-2.5],["main_opening",11.9,3.2,-2.5],["vestibule",11.0,3.2,-2.5],["entry_line",11.0,3.2,-3.25],["entry_in",10.8,3.2,-3.25],["entry_out",8.9,3.2,-3.25],["east_hall",6.85,3.2,-3.25],["core_east",5.0,3.2,-3.25],["stair_top_clear",4.06,3.2,-3.2],["stair_top",3.975,3.2,-2.4],["half_east",3.975,1.6,1.3],["half_west",1.925,1.6,1.3],["stair_bottom",1.925,0,-3.5],["lower_approach",1.925,0,-6.5],["lobby",0,0,-8.5],["vestibule_out",0,0,-10.2],["street",0,0,-12.2]],
+    [["main_mid",12.6,3.2,-2.5],["main_hall_in",14.2,3.2,-3.6],["hall_mid",14.2,3.2,-5.0],["kitchen_approach",13.4,3.2,-6.2],["kitchen_in",12.2,3.2,-6.2],["kitchen",11.4,3.2,-6.2]],
+    [["hall_mid",14.2,3.2,-5.0],["hall_south",14.2,3.2,-7.9],["bed_approach",13.4,3.2,-8.85],["bed_in",12.0,3.2,-8.78],["bedroom",10.9,3.2,-8.78]],
+    [["hall_south",14.2,3.2,-7.9],["bath_approach",14.2,3.2,-8.8],["bath_in",14.2,3.2,-9.9],["bathroom",14.2,3.2,-10.8]],
+    [["stair_bottom",1.925,0,-3.5],["mail_core_approach",0,0,-3.35],["mail_core",-0.55,0,-3.3],["watch_entry",-1.8,0,-3.3],["watch_turn",-1.8,0,-1.5],["watch_bypass",-4.6,0,-1.5],["watch",-4.9,0,-2.4],["mail_door",-6.2,0,-2.4],["mail_approach",-7.1,0,-2.4]],
+    [["stair_bottom",1.925,0,-3.5],["basement_stair_top_clear",4.06,0,-3.2],["basement_stair_top",3.975,0,-2.4],["basement_half_east",3.975,-1.6,1.3],["basement_half_west",1.925,-1.6,1.3],["basement_stair_bottom",2.06,-3.2,-3.44],["basement_core_approach",-1.75,-3.2,-3.4],["basement_core",-1.75,-3.2,-1.5],["laundry_entry",-3,-3.2,-1.5],["laundry_approach",-7,-3.2,-1.5],["laundry",-7,-3.2,0.25]]
+  ],
+  "places": {"unit": "chair", "unit:kitchen": "kitchen", "unit:bedroom": "bedroom", "unit:bathroom": "bathroom", "corridor": "east_hall", "lobby": "lobby", "mail_bank": "mail", "laundry": "laundry", "bodega": "bodega", "out": "street"}
+}

@@ -85,6 +85,8 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
                                          "household.washing_up", "household.plain_supper"}),
     # OrisonV2MinaRoutine: places.get(destination).
     "orison_v2/mina_routine.json": frozenset({"places"}),
+    # OrisonV2ResidentRoute: the same route schema for each walking resident.
+    "orison_v2/lena_routine.json": frozenset({"places"}),
     # ResidentConversations/CaseDialoguePanel: nodes[node_id] by authored id;
     # every record field (line, role, choices, silence_goto, flag...) is read by name.
     # Field notes are keyed by note id; the director reads each note's fields.
