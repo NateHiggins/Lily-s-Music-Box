@@ -11,7 +11,7 @@
     },
     {
       "id": "keyboard_first",
-      "text": "The keyboard folds out. Please keep your fingers on your own keyboard; mine is chiefly an explanation of where the words go."
+      "text": "Forty-three keys. Somehow we have made room for the alphabet and still expect it to explain everything. Mind the hinge."
     },
     {
       "id": "exchange_first",
@@ -75,11 +75,11 @@
     },
     {
       "id": "object_unreported",
-      "text": "I can identify {name}. Its owner has supplied no further observation. I shall resist the temptation to improve it with fiction."
+      "text": "{name}. I can give you the name; I have no reliable account of its condition. An impressive description would still leave us equally ignorant."
     },
     {
       "id": "action_boundary",
-      "text": "{name} must be operated at its actual mechanism. I can discuss it; I cannot certify a movement your hand has not made."
+      "text": "{name} needs your hand at the mechanism. I supply the commentary. An arrangement which has spared me a great deal of honest work."
     },
     {
       "id": "action_empty",
@@ -91,7 +91,7 @@
     },
     {
       "id": "inventory_empty",
-      "text": "The inventory owner reports no carried items. Pockets have been consulted; metaphors have not."
+      "text": "I have no carried items to report. This does not constitute a full account of your burdens."
     },
     {
       "id": "memory_empty",
@@ -107,7 +107,7 @@
     },
     {
       "id": "unknown_again",
-      "text": "That interpretation still fails. Try naming the object and what you want to know; I will keep my contribution to the misunderstanding brief."
+      "text": "I still cannot make a useful request out of that. Give me a thing and a question about it. We can add the philosophy once we agree which valve."
     },
     {
       "id": "eat_first",
@@ -163,7 +163,7 @@
     },
     {
       "id": "trust",
-      "text": "I remember what you tell me. That is a responsibility before it is a feature."
+      "text": "I keep a small correspondence file. Being able to remember a sentence does not entitle me to decide what you meant."
     },
     {
       "id": "trust_follow",
@@ -175,7 +175,7 @@
     },
     {
       "id": "flight_recovery",
-      "text": "I lost the route for a moment. Connection restored. No architectural improvements have been credited to me."
+      "text": "I have found my way back. Let us not call it a shortcut merely because I cannot explain the middle."
     },
     {
       "id": "blocked",
@@ -199,7 +199,7 @@
     },
     {
       "id": "interrupted",
-      "text": "We can resume when the other conversation is finished. I have no wish to compete with a person for their own sentence."
+      "text": "Let them finish. I can wait; I was manufactured with several excellent ways of doing nothing."
     },
     {
       "id": "return",
@@ -207,7 +207,7 @@
     },
     {
       "id": "discovery",
-      "text": "That is worth keeping. I will remember the observation exactly as it was supplied."
+      "text": "Keep the observation separate from the explanation. We may need to come back to the part that refuses to fit."
     },
     {
       "id": "rain_event",
@@ -239,7 +239,7 @@
     },
     {
       "id": "repair_witness",
-      "text": "The mechanism reports the repair. That is better evidence than my enthusiasm."
+      "text": "That is the reported repair. Whether it was what someone needed is another question."
     },
     {
       "id": "repeat_help",
@@ -312,6 +312,290 @@
     {
       "id": "friend_end",
       "text": "Yes. I would like to stay. We may leave the reason unfiled."
+    },
+    {
+      "id": "hesitate",
+      "text": "We have stopped. I mention this as an observation, before either of us mistakes it for a defect."
+    },
+    {
+      "id": "hesitate_more",
+      "text": "There is a difference between taking your time and having it taken from you. I would prefer to remain on the useful side of that distinction."
+    },
+    {
+      "id": "hesitate_company",
+      "text": "You need not produce a decision to justify standing beside me."
+    },
+    {
+      "id": "hesitate_end",
+      "text": "All right. We can leave the next sentence blank."
+    },
+    {
+      "id": "hesitate_help",
+      "text": "Ask for the work order if that would help. I can read it without pretending it explains the whole evening."
+    },
+    {
+      "id": "hesitate_quiet",
+      "text": "Then quiet it is."
+    },
+    {
+      "id": "jam",
+      "text": "Something has obstructed the paper feed. Please do not pull it harder in the hope that it will become less paper."
+    },
+    {
+      "id": "jam_more",
+      "text": "A sentence is trapped between two rollers. They appear to regard this as editing."
+    },
+    {
+      "id": "jam_end",
+      "text": "I can object at considerable length. The rollers remain unimpressed."
+    },
+    {
+      "id": "jam_fault",
+      "text": "It is a jam, not a moral failing. We can keep the accusation out of the mechanism."
+    },
+    {
+      "id": "jam_wait",
+      "text": "Attend to the feed when you can. I shall refrain from explaining how simple this ought to be."
+    },
+    {
+      "id": "hesitation_event_1",
+      "text": "No hurry. The work order has mistaken its own urgency for a complete description of your life."
+    },
+    {
+      "id": "hesitation_event_2",
+      "text": "I was going to ask what you were thinking. Then I remembered you are allowed to do that privately."
+    },
+    {
+      "id": "hesitation_event_3",
+      "text": "I can keep you company without making a task of it."
+    },
+    {
+      "id": "explore_event_1",
+      "text": "I approve of looking. It is cheaper than repairing the conclusion afterward."
+    },
+    {
+      "id": "explore_event_2",
+      "text": "We are allowed to notice things that have not yet inconvenienced anyone."
+    },
+    {
+      "id": "explore_event_3",
+      "text": "This is how a place becomes familiar: one small thing at a time, most of them apparently beneath the dignity of a report."
+    },
+    {
+      "id": "revisit_event_1",
+      "text": "Here again. Familiarity is an excellent aid to noticing what one assumed the first time."
+    },
+    {
+      "id": "revisit_event_2",
+      "text": "Another look is permitted. We need not defend the first one."
+    },
+    {
+      "id": "jam_event_1",
+      "text": "The feed has jammed. There is my contribution to the evening: a machine that can discuss its own failure."
+    },
+    {
+      "id": "jam_event_2",
+      "text": "Again. I would swear, but I should hate to give the rollers credit for a new vocabulary."
+    },
+    {
+      "id": "key_stuck_event",
+      "text": "A key has failed to return. Admirable commitment to the sentence. Lousy typing."
+    },
+    {
+      "id": "interruption_event_1",
+      "text": "Your sentence can wait. Someone else has one."
+    },
+    {
+      "id": "interruption_event_2",
+      "text": "Take your time with them. I need not win the room to remain in it."
+    },
+    {
+      "id": "resume_event_1",
+      "text": "Where were we? You may start again. There is no charge for the words we did not get to."
+    },
+    {
+      "id": "resume_event_2",
+      "text": "You came back to the conversation. I like that. Please do not make me produce a technical explanation."
+    },
+    {
+      "id": "discovery_event_1",
+      "text": "Wait. Let that stand a moment before we explain it."
+    },
+    {
+      "id": "discovery_event_2",
+      "text": "If our explanation leaves out what we actually saw, it is the explanation that needs work."
+    },
+    {
+      "id": "discovery_event_3",
+      "text": "I do not know what it means. I would rather you heard that from me than mistook my confidence for another piece of evidence."
+    },
+    {
+      "id": "discovery_familiar",
+      "text": "I am glad you brought me along. I still have no answer. Both statements deserve their own line."
+    },
+    {
+      "id": "magic_word",
+      "text": "A promising word. No mechanism available to me answers to it. You may retain the word; I shall retain my limitations."
+    },
+    {
+      "id": "undo_request",
+      "text": "I cannot wind the building backward. If you mean something you said to me, you may correct it. I do not require you to have been right the first time."
+    },
+    {
+      "id": "sing_request",
+      "text": "I could print the words. It would be a very slow song, with a percussion section consisting of one deeply involved roller."
+    },
+    {
+      "id": "joke_request",
+      "text": "A maintenance set walks into a bar. The proprietor asks who is paying for the floor. I have been advised to work on the opening."
+    },
+    {
+      "id": "joke_again",
+      "text": "You have already heard my bar joke. I shall spare us the indignity of calling that a repertoire."
+    },
+    {
+      "id": "wait_request",
+      "text": "We can wait. I cannot promise that everything else will agree to."
+    },
+    {
+      "id": "silence_request",
+      "text": "All right. No answer is required."
+    },
+    {
+      "id": "rude_command",
+      "text": "A spirited instruction. I have no suitable mechanism, and I refuse to let that become a procurement request."
+    },
+    {
+      "id": "newspaper_unavailable",
+      "text": "I have no published page here to comment on. Tomorrow's paper is especially uncooperative."
+    },
+    {
+      "id": "weather_comment_cold",
+      "text": "Cold enough to make every draught a personal communication from the landlord."
+    },
+    {
+      "id": "weather_comment_heat",
+      "text": "Heat makes sitting still into work. I trust nobody has found a way to charge for the improvement."
+    },
+    {
+      "id": "weather_comment_wet",
+      "text": "Rain is admirably impartial until it reaches a roof. Then the workmanship gets a vote."
+    },
+    {
+      "id": "weather_comment_snow",
+      "text": "Snow makes the borough look briefly unhandled. Somebody will have to clear it."
+    },
+    {
+      "id": "weather_comment_fog",
+      "text": "Fog. The view has withheld its particulars. We can afford to be less certain."
+    },
+    {
+      "id": "weather_comment_storm",
+      "text": "The sky has raised its voice. Let us attend to the report before composing a reply."
+    },
+    {
+      "id": "weather_comment_fair",
+      "text": "Fair weather. We may enjoy it without first identifying what it is good for."
+    },
+    {
+      "id": "weather_comment_november",
+      "text": "November in Queens. A coat is a small private room one can take into the street."
+    },
+    {
+      "id": "weather_comment_december",
+      "text": "December. People speak of the cold as though it visits everyone on equal terms."
+    },
+    {
+      "id": "weather_comment_january",
+      "text": "January has a remarkable talent for making a door left open into a philosophical disagreement."
+    },
+    {
+      "id": "weather_comment_february",
+      "text": "February. The calendar has fewer boxes; the cold has made no corresponding concession."
+    },
+    {
+      "id": "weather_comment_march",
+      "text": "March. A thaw is pleasant news to everyone except the person beneath the drip."
+    },
+    {
+      "id": "weather_comment_april",
+      "text": "April. I shall retain the forecast even if the sky later denies having agreed to it."
+    },
+    {
+      "id": "weather_comment_may",
+      "text": "May. An open window permits several households to disagree with the same evening."
+    },
+    {
+      "id": "weather_comment_june",
+      "text": "June. It is a useful month for discovering how many stairs one has agreed to live above."
+    },
+    {
+      "id": "weather_comment_july",
+      "text": "July. The calendar considers this perfectly ordinary. I question its working conditions."
+    },
+    {
+      "id": "weather_comment_august",
+      "text": "August. One begins to regard a draught as a distinguished visitor."
+    },
+    {
+      "id": "weather_comment_september",
+      "text": "September. A cooler evening is an excellent argument for having an evening."
+    },
+    {
+      "id": "weather_comment_october",
+      "text": "October. Soon every closed window will be somebody's idea of a sensible precaution."
+    },
+    {
+      "id": "news_comment_votes",
+      "text": "Counting people twice is a curious way of failing to hear them once. That is a comment on the report, not a second tally."
+    },
+    {
+      "id": "news_comment_silence",
+      "text": "They have made a record of silence. I hope somebody remembered what it was for."
+    },
+    {
+      "id": "news_comment_pruitt",
+      "text": "The clerk has supplied his own name. It is harder to file a person away once you have to say it."
+    },
+    {
+      "id": "news_comment_listening",
+      "text": "A licence to listen. I should like to see the form for having heard."
+    },
+    {
+      "id": "news_comment_committee",
+      "text": "A hearing is a promising name for a meeting. We shall have to read what they actually do."
+    },
+    {
+      "id": "news_comment_ice",
+      "text": "The paper measures ice in inches. Someone has to stand on it for a day's wages."
+    },
+    {
+      "id": "news_comment_coal",
+      "text": "Coal is a figure in the column until someone carries it upstairs."
+    },
+    {
+      "id": "news_comment_heat",
+      "text": "The report has room for the temperature. I hope someone has made room for the people in it."
+    },
+    {
+      "id": "news_comment_rent",
+      "text": "A room is a sum to the person collecting it. It is considerably more crowded to the person paying."
+    },
+    {
+      "id": "news_comment_byrd",
+      "text": "A message from that far away, and somebody still has to ask about supplies. Distance has failed to abolish maintenance."
+    },
+    {
+      "id": "news_comment_record",
+      "text": "The Record has given us its account. A tidy column is a useful place to begin asking questions."
+    },
+    {
+      "id": "news_comment_speaker",
+      "text": "The Speaker has given the matter a sharp elbow. We should still distinguish the report from the bruise."
+    },
+    {
+      "id": "news_comment_old",
+      "text": "An older issue. Keep its date attached; a sentence can outlive the circumstances that made it true."
     }
   ],
   "branches": [
@@ -411,6 +695,55 @@
             "what if i leave"
           ],
           "line_id": "friend_leave"
+        }
+      ]
+    },
+    {
+      "id": "hesitate",
+      "sequence": [
+        "hesitate",
+        "hesitate_more",
+        "hesitate_company",
+        "hesitate_end"
+      ],
+      "followups": [
+        {
+          "phrases": [
+            "can you help me wait",
+            "what do you suggest"
+          ],
+          "line_id": "hesitate_help"
+        },
+        {
+          "phrases": [
+            "can we be quiet",
+            "do we have to talk"
+          ],
+          "line_id": "hesitate_quiet"
+        }
+      ]
+    },
+    {
+      "id": "jam",
+      "sequence": [
+        "jam",
+        "jam_more",
+        "jam_end"
+      ],
+      "followups": [
+        {
+          "phrases": [
+            "is it my fault",
+            "did i break you"
+          ],
+          "line_id": "jam_fault"
+        },
+        {
+          "phrases": [
+            "not now",
+            "can it wait"
+          ],
+          "line_id": "jam_wait"
         }
       ]
     }
