@@ -125,7 +125,7 @@ func _frames(count: int, label: String) -> void:
 	for tick in count:
 		await get_tree().physics_frame
 		if is_instance_valid(motion) and motion.initialized:
-			samples.append({"rate":rate, "phase":phase, "player":_point(player.global_position), "companion":_point(motion.global_position), "velocity":_point(motion.velocity), "behavior":str(motion.behavior), "routing":motion._routing, "queries":motion.query_count})
+			samples.append({"rate":rate, "phase":phase, "player":_point(player.global_position), "eye":_point(player.camera.global_position), "goal":_point(motion._target), "avoidance_waypoint":motion._eye_waypoint_active, "companion":_point(motion.global_position), "velocity":_point(motion.velocity), "behavior":str(motion.behavior), "routing":motion._routing, "queries":motion.query_count})
 
 func _key(code: Key, pressed: bool) -> void:
 	var event := InputEventKey.new()

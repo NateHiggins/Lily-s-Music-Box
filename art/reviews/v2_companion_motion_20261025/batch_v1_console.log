@@ -1,0 +1,35 @@
+[LANE] busy; waiting up to 120 min for '3 runs'
+lane: BUSY
+  mutex: held
+  holder: pid 93032 (long) scene 'res://tests/OrisonV2SurfaceInventory.tscn' since 2026-10-25T08:01:22Z from C:\ov\rn
+  godot: pid 223644 Godot_v4.7.1-stable_win64 'Please Stay on the Line (DEBUG)' since 2026-10-25T08:01:22Z
+         C:\Users\nate_\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.7.1-stable_win64.exe --path C:\ov\rn\game res://tests/OrisonV2SurfaceInventory.tscn
+  godot: pid 19652 Godot_v4.7.1-stable_win64_console since 2026-10-25T08:01:22Z
+         "C:\Users\nate_\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.7.1-stable_win64_console.exe" --path C:\ov\rn\game res://tests/OrisonV2SurfaceInventory.tscn
+  waiting: pid 111032 for 'res://tests/V2BathroomFinishingReview.tscn' since 2026-10-24T13:31:36Z [STALE]
+  waiting: pid 113100 for '6 runs' since 2026-10-24T18:54:15Z [STALE]
+  waiting: pid 133616 for '2 runs' since 2026-10-24T12:55:22Z [STALE]
+  waiting: pid 14848 for '5 runs' since 2026-10-24T11:24:59Z [STALE]
+  waiting: pid 177248 for '3 runs' since 2026-10-25T08:16:41Z
+  waiting: pid 178304 for '7 runs' since 2026-10-24T15:57:50Z [STALE]
+  waiting: pid 180344 for '5 runs' since 2026-10-24T22:12:38Z [STALE]
+  waiting: pid 191212 for '5 runs' since 2026-10-25T04:56:02Z [STALE]
+  waiting: pid 192480 for '5 runs' since 2026-10-24T18:43:59Z [STALE]
+  waiting: pid 227324 for '2 runs' since 2026-10-25T05:37:32Z [STALE]
+  waiting: pid 26700 for '4 runs' since 2026-10-25T03:51:42Z [STALE]
+  waiting: pid 46528 for 'res://tests/WalkTest.tscn' since 2026-10-10T20:22:23Z [STALE]
+  waiting: pid 51236 for 'res://tests/OrisonV2MinaLaundryRoutineTest.tscn' since 2026-10-25T07:46:47Z
+Exception: C:\ov\v2merge24\tools\lane.ps1:206
+Line |
+ 206 |      & $script @params | Out-Host
+     |      ~~~~~~~~~~~~~~~~~
+     | TIMEOUT: 'the project's main scene' was still running at the 180-second ceiling and was terminated by the
+     | runner. The ceiling ended this run, not the suite - it reported no verdict. Re-run with a higher -TimeoutSeconds
+     | if the suite is legitimately this expensive, or diagnose a hang. Partial log:
+     | C:\ov\reports\v2integration24\companion_motion_20261025\import1.log
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_motion_20261025\import1.log.receipt.json exit=None completed=False pass_lines=0 fail_lines=0
+[LANE]  exit=124
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_motion_20261025\import2.log.receipt.json exit=0 completed=True pass_lines=0 fail_lines=0
+[LANE]  exit=0
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_motion_20261025\motion_v1.log.receipt.json exit=1 completed=True pass_lines=0 fail_lines=0
+[LANE] res://tests/CompanionMotionBench.tscn exit=1

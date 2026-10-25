@@ -1,0 +1,18 @@
+ERROR: explicit public recall presents a stable readable pose at 30
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_motion_bench.gd:21)
+       [1] _run (res://tests/companion_motion_bench.gd:113)
+       [2] _frames (res://tests/companion_motion_bench.gd:128)
+ERROR: explicit public recall presents a stable readable pose at 60
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_motion_bench.gd:21)
+       [1] _run (res://tests/companion_motion_bench.gd:113)
+       [2] _frames (res://tests/companion_motion_bench.gd:128)
+ERROR: explicit public recall presents a stable readable pose at 144
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_motion_bench.gd:21)
+       [1] _run (res://tests/companion_motion_bench.gd:113)
+       [2] _frames (res://tests/companion_motion_bench.gd:128)

@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 180.14,
+  "exit_code": null,
+  "finished_utc": "2026-10-25T08:40:41Z",
+  "started_utc": "2026-10-25T08:37:40Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/companion_motion_20261025/import1.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2integration24/companion_motion_20261025/import1.log",
+  "stdout_sha256": "494af4beef4490fb99d98f458d520c853e44b38d533f7cbc4d8d2dd34aefab10"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 1835,
+  "dirty_sample": [
+   "M art/blender/bar_fixture_mounts.blend",
+   " M art/blender/bar_fixture_mounts_construction.json",
+   " M art/blender/bar_pipe_supports.blend",
+   " M art/blender/bar_pipe_supports_construction.json",
+   " M art/blender/boiler_window.blend",
+   " M art/blender/boiler_window_construction.json",
+   " M art/blender/city_aerials.blend",
+   " M art/blender/city_aerials_construction.json",
+   " M art/blender/city_beacons.blend",
+   " M art/blender/city_beacons_construction.json",
+   " M art/blender/city_closure.blend",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations.blend",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/city_masts.blend",
+   " M art/blender/city_masts_construction.json",
+   " M art/blender/city_tanks.blend",
+   " M art/blender/city_tanks_construction.json",
+   " M art/blender/domestic_objects.blend",
+   " M art/blender/domestic_objects_construction.json"
+  ],
+  "repository_head": "eea83ebdbe4f7de0d6ec2ac832a8def29dd863bb",
+  "repository_tree": "cc80118fc9118fd4bfea718d17f144ee006a0188",
+  "runtime_inputs_sha256": "a6328ee3306218bc5ec7bba3187470f7796d3d7a5fd33675ab4e0b981420802b",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

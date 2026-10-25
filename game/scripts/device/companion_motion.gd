@@ -55,6 +55,8 @@ var _last_player := Vector3.ZERO
 var _breadcrumbs: Array[Vector3] = []
 var _route_cursor := 0
 var _eye_avoid_side := 0.0
+var _eye_waypoint := Vector3.ZERO
+var _eye_waypoint_active := false
 
 func _ready() -> void:
 	set_physics_process(false)
@@ -110,6 +112,7 @@ func request_behavior(value: StringName) -> bool:
 func recall() -> void:
 	request_behavior(&"present")
 	if is_instance_valid(_camera): _reading_basis = _camera.global_basis
+	_eye_waypoint_active = false; _eye_avoid_side = 0.0
 	_candidate = 0; _accepted_candidate = -1; _probe_left = 0.0
 
 func release_attention() -> void:
@@ -235,8 +238,8 @@ func _route_goal() -> Vector3:
 	return _breadcrumbs[_route_cursor]
 
 func _avoid_eye(goal: Vector3) -> Vector3:
-	# No extra collider enters the world's targeting or NPC sight queries.
-	# Steer around a protected eye volume; never push or teleport the player.
+	# Fixed camera-relative waypoints: chasing a freshly rotated tangent every
+	# tick creates a permanent orbit instead of a route around the eye.
 	var eye := _camera.global_position
 	var away := global_position - eye
 	var radius := hull_radius + clearance + .08
@@ -248,15 +251,24 @@ func _avoid_eye(goal: Vector3) -> Vector3:
 	if segment.length_squared() < .000001: return goal
 	var along := clampf((eye - global_position).dot(segment) / segment.length_squared(), 0.0, 1.0)
 	if (global_position + segment * along).distance_to(eye) >= radius + .015:
-		_eye_avoid_side = 0.0
+		_eye_avoid_side = 0.0; _eye_waypoint_active = false
 		return goal
-	var tangent := normal.cross(Vector3.UP)
-	if tangent.length_squared() < .001: tangent = normal.cross(Vector3.RIGHT)
-	tangent = tangent.normalized()
-	if is_zero_approx(_eye_avoid_side):
-		var preference := tangent.dot(destination)
-		_eye_avoid_side = signf(preference) if absf(preference) > .02 else 1.0
-	return eye + (normal + tangent * _eye_avoid_side).normalized() * (radius + .12)
+	if _eye_waypoint_active:
+		var held := eye + _eye_waypoint
+		if global_position.distance_to(held) > .045: return held
+		_eye_waypoint_active = false
+	if away.length() < radius + .06:
+		_eye_waypoint = normal * (radius + .14)
+	else:
+		var tangent := normal.cross(Vector3.UP)
+		if tangent.length_squared() < .001: tangent = normal.cross(Vector3.RIGHT)
+		tangent = tangent.normalized()
+		if is_zero_approx(_eye_avoid_side):
+			var preference := tangent.dot(destination)
+			_eye_avoid_side = signf(preference) if absf(preference) > .02 else 1.0
+		_eye_waypoint = (normal + tangent * _eye_avoid_side).normalized() * (radius + .14)
+	_eye_waypoint_active = true
+	return eye + _eye_waypoint
 
 func _clear(point: Vector3) -> bool:
 	_probe.transform = Transform3D(Basis.IDENTITY, point)
@@ -297,6 +309,7 @@ func recover_unobserved(point: Vector3, observable: Callable) -> bool:
 	if not _clear(point): return false
 	global_position = point; velocity = Vector3.ZERO; _target = point
 	_breadcrumbs.clear(); _route_cursor = 0; _lost = 0.0; _stalled = 0.0; _routing = false; _direct_clear = true
+	_eye_waypoint_active = false; _eye_avoid_side = 0.0; _accepted_candidate = -1; _candidate = 0; _probe_left = 0.0
 	recovery_count += 1
 	reset_physics_interpolation()
 	return true

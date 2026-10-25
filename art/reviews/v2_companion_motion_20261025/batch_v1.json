@@ -1,0 +1,28 @@
+[
+  {
+    "scene": "",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\companion_motion_20261025\\import1.log"
+  },
+  {
+    "scene": "",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\companion_motion_20261025\\import2.log"
+  },
+  {
+    "scene": "res://tests/CompanionMotionBench.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\companion_motion_20261025\\motion_v1.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\companion_motion_20261025\\motion_v1"
+  }
+]

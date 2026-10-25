@@ -504,3 +504,44 @@ mirror-aware visibility authority, diegetic text focus and keyboard input,
 context/save integration, dialogue personality and full world/performance
 qualification remain required. The full V2 goal and prior repair coverage are
 unchanged; this candidate does not close those requirements.
+
+### First independent-motion run: actual recall orbit, original records retained
+
+The first serial import reaches its180-second ceiling with no verdict; the
+original partial log and incomplete wrapper receipt are retained. The second
+import completes. **motion_v1** then completes55 checks in55.96 seconds, with
+three failed recall checks and zero script errors. It is failed as a whole.
+The three failures occur at30,60 and144 render caps; the55-check diagnostic is
+not promoted to world/navigation or performance qualification.
+
+Its3,057 trajectory samples reveal a continuous recall orbit at about1.7m/s.
+A newly rotated tangent waypoint every tick creates a target the machine can
+chase forever. The corrected candidate holds a camera-relative avoidance
+waypoint until reached, then selects the next arc step or returns to the actual
+reading target. The settling thresholds and150-tick recall observation remain
+unchanged. Recall/recovery also clear obsolete avoidance state. The proposed
+repair is queued for a confirming import and **motion_v2**; no pass is claimed.
+
+The local body does cross the diagnostic doorway/corner under actual W/mouse
+input, folds the keyboard during actual sprint input, recognizes sustained gaze
+and releases it after looking away. These are observations within the failed
+local diagnostic, not a passing aggregate or occupied-V2 contract. Reading and
+recall captures were inspected; the orbit is visibly a real control bug. All
+six frames, raw samples, original sources and receipts are retained.
+
+### Recall correction confirmed in the local fixture
+
+Windowed **motion_v2** completes all55 checks with zero failures and zero
+script errors in54.43 seconds. The fixed avoidance waypoint stops the orbit
+and settles public recall at30/60/144 render caps using the original150-tick
+observation and unchanged speed/distance limits. All six reading/recall frames
+were viewed. The test still uses actual PlayerController key/mouse movement,
+a narrow doorway, a corner, sprint retraction and attention hysteresis.
+
+The complete failed first run, incomplete first import and executed pre-repair
+sources remain archived alongside the successful correction and raw samples.
+This is explicitly INERT local-fixture evidence. It does not qualify occupied
+V2 navigation, normal world targeting, campaign persistence, mirror-aware
+recovery, typing, conversation integration or a performance improvement. The
+original carrier remains the installed gameplay default; milestones C–G remain
+open. There is no current owned Godot process.

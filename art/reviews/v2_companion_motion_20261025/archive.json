@@ -1,7 +1,23 @@
 {
   "evidence_class": "INERT",
-  "scope": "Candidate source bounds and static checks only. Windowed import/input diagnostic queued; no engine or world movement qualification.",
+  "scope": "Source/static review, failed motion_v1 retained, corrected motion_v2 local actual-input diagnostic55checks0fail0script. No occupied-world or performance qualification.",
   "files": [
+    {
+      "path": "batch_v1.json",
+      "sha256": "926b092f641ca42382f3039332bde5cffee7a57f37670dcd9072950e08765901"
+    },
+    {
+      "path": "batch_v1_console.log",
+      "sha256": "84466238bfe143f40b8505e03695162b699861cecd78d0fc1d5a3db35174121e"
+    },
+    {
+      "path": "batch_v2.json",
+      "sha256": "e186236f9b0f060daad3af28657f6fc1e29679fe2dc79eb5b17c6144e1790d8d"
+    },
+    {
+      "path": "batch_v2_console.log",
+      "sha256": "41d07dc1885403ef988355194a46479872db69030f695931041a05941be4f8af"
+    },
     {
       "path": "companion_motion_reader_v1.log",
       "sha256": "e588792ad309cb2b6b96c38d538cfbc0c2de6792e15feacb3e73a13713190f1d"
@@ -17,6 +33,138 @@
     {
       "path": "companion_motion_systemic_v2.json",
       "sha256": "fbb9c47f2fb6b06915deb7e7d9923dfcadadf362ada4866325d676c8757a94fd"
+    },
+    {
+      "path": "import1.log",
+      "sha256": "494af4beef4490fb99d98f458d520c853e44b38d533f7cbc4d8d2dd34aefab10"
+    },
+    {
+      "path": "import1.log.receipt.json",
+      "sha256": "faa5baece35704a69d97d8b8a15689ae2b7efce7e1d53aa0260e91a0ce073127"
+    },
+    {
+      "path": "import1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "import2.log",
+      "sha256": "264a9f663cf305310c4ec01d61aca920d1e9f533b69243af3b2c8a1913ca5e6e"
+    },
+    {
+      "path": "import2.log.receipt.json",
+      "sha256": "e5f1e221f93f3708efb67bb560e4d1fdcecd4f051a8490d302805d65ad2862e5"
+    },
+    {
+      "path": "import2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "import3.log",
+      "sha256": "19e4d2e3dcb70c393135891070678ab0c0932d658bb65571e8d16de37238f096"
+    },
+    {
+      "path": "import3.log.receipt.json",
+      "sha256": "8b21077e8834c76841b9bc18225e7f846d721aba77d77dc7eb82d7b2308e2ff6"
+    },
+    {
+      "path": "import3.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "motion_v1/executed_companion_motion.gd",
+      "sha256": "4b154c1134e32272d8b3f6defd41a0ca1b41f91f1f893d3905e046d7626c52e9"
+    },
+    {
+      "path": "motion_v1/executed_companion_motion_bench.gd",
+      "sha256": "4c93a7eda2d9a1d1e3bc1840f70aa24c2bc9fd50fbdc2737596eb6ca9c824da1"
+    },
+    {
+      "path": "motion_v1/motion_diagnostic.json",
+      "sha256": "7fa3bfd0c773c1d975b2af95edca167eeb4475575d85a93ac7dbb1ad4634e4f4"
+    },
+    {
+      "path": "motion_v1/reading_144.png",
+      "sha256": "01b580bb19c002709a3e3a4ffa59a312f8f980fd8e6ac797a09bbf762be9c98f"
+    },
+    {
+      "path": "motion_v1/reading_30.png",
+      "sha256": "9f8742f7d184de636e137f692847f47043b1c79de1862922512ef9d21d358bb5"
+    },
+    {
+      "path": "motion_v1/reading_60.png",
+      "sha256": "3e8fa70dc1a71687423298c3ddfcc6bed6ee8de6a6716f04e1b79a57f989be85"
+    },
+    {
+      "path": "motion_v1/recall_144.png",
+      "sha256": "dd784f684a11ccfc151fe68d6bfa71a9244b928bdca34bbc95af89effdd73f2b"
+    },
+    {
+      "path": "motion_v1/recall_30.png",
+      "sha256": "f537d6f45c6b43f3ceeff663488036e3f44c78721ca9b9ded87829554805d914"
+    },
+    {
+      "path": "motion_v1/recall_60.png",
+      "sha256": "8a7ea6b1ba2a394b365b6da434903623f107a5d06baa641d6cf8f957dce5948d"
+    },
+    {
+      "path": "motion_v1.log",
+      "sha256": "6f98e60b73787162b302ffe06bffe78e4d3e6d0225468b4b1336053316b404ba"
+    },
+    {
+      "path": "motion_v1.log.receipt.json",
+      "sha256": "105a6af3c7099659218e96d286f53bce7f1340b938c70f1bc152cc2de9048116"
+    },
+    {
+      "path": "motion_v1.log.stderr",
+      "sha256": "23b244e29f2d1db4e7c49f35c36448e5878d31b5961f5f680e97333fc248db88"
+    },
+    {
+      "path": "motion_v2/motion_diagnostic.json",
+      "sha256": "78813e569edca7dc45c5b1aaf00ce43b45e9d9f7e7a5645b8dd9bf27a349e233"
+    },
+    {
+      "path": "motion_v2/reading_144.png",
+      "sha256": "9aedb3929c324d6d78c894256d44bda138073cb568d57da3bf390af637ecb97f"
+    },
+    {
+      "path": "motion_v2/reading_30.png",
+      "sha256": "d39bf60581e95551183a34549ecc191aee4d2faea4ccc3f13aa86d9183571e58"
+    },
+    {
+      "path": "motion_v2/reading_60.png",
+      "sha256": "543198b8535078f46ba0f74ba191dc78d570d5f5cc25cb188621bfd2f17be1ef"
+    },
+    {
+      "path": "motion_v2/recall_144.png",
+      "sha256": "b5d8977c18ca3f52b35ea88915429c36c53ffc18f3e7a3fbd711057d073957c8"
+    },
+    {
+      "path": "motion_v2/recall_30.png",
+      "sha256": "bb39f491a622d427d5c0eaddb99117149f031843faf28dfda22d8ca1c10346cb"
+    },
+    {
+      "path": "motion_v2/recall_60.png",
+      "sha256": "eb6d2a406227e9dd022ef201232753f62a64ac2e4c9053caf467606c7820ecc5"
+    },
+    {
+      "path": "motion_v2.log",
+      "sha256": "bc627d88868195fa6740bccd672ec58c531628584ac304b3408592cdc844b78b"
+    },
+    {
+      "path": "motion_v2.log.receipt.json",
+      "sha256": "20dca36dab0b328af335802cd05951b32168b54ddd4b582551815638c7f97f1f"
+    },
+    {
+      "path": "motion_v2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "motion_v2_companion_motion.gd",
+      "sha256": "81124871536b6e4fa39054aa8fa17c27a079cbe0490c6b67e4d701b169ed5e7e"
+    },
+    {
+      "path": "motion_v2_companion_motion_bench.gd",
+      "sha256": "35bcdaf3da200cb84948cb0b99f28e90add365eafc5c2146271be1543444c85f"
     }
   ]
 }
