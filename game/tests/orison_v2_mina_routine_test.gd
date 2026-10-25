@@ -51,6 +51,9 @@ func _ready() -> void:
 	else:
 		var routine: Node3D = world.mina_routine
 		_observed_routine = routine
+		# The player arrives by the front door; a resident rightly will not
+		# swing a leaf through them. Keep the arrival body out of the sweep.
+		world.player.visible = false
 		var transitions := [[7,"unit"]] if return_home else [[1,"bodega"]]
 		if domestic: transitions = [[510,"unit:bedroom"],[930,"unit:bathroom"],[975,"unit:kitchen"],[1065,"unit"]]
 		if mail_round: transitions = [[1,"mail_bank"],[21,"unit"]]
@@ -128,7 +131,7 @@ func _travel(routine: Node3D, expected: String) -> void:
 			failures.append("resident blocked at %v; next=%s; %s"%[at,routine.path,routine.blocked_reason])
 			break
 		if routine.destination == expected and routine.current_id == routine.desired_id: break
-	if routine.current_id != routine.desired_id: failures.append("scheduled destination not reached")
+	if routine.current_id != routine.desired_id: failures.append("scheduled destination not reached; last held by: " + routine.blocked_reason)
 	if routine.destination != expected: failures.append("wrong authored timetable block")
 	print("MINA DESTINATION: ",expected," time=",elapsed," failures=",failures)
 

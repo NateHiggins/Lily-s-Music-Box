@@ -80,14 +80,30 @@ func schedule() -> void:
 	remaining=DELAY_SECONDS;closing=false;door.set_physics_process(true)
 
 func _in_passage() -> bool:
+	if door.open and _resident_in_sweep():return true
 	if not is_instance_valid(_excepted):return false
 	var at: Vector3=door.to_local(_excepted.global_position)
 	return at.x>-.40 and at.x<door.width+.40 and absf(at.z)<.50 and at.y>-.2 and at.y<door.height+.2
+
+## A resident has no collision exception with the leaf: never swing it shut
+## while one stands anywhere it could reach, on either side.
+func _resident_in_sweep() -> bool:
+	for node: Node in door.get_tree().get_nodes_in_group("animated_residents"):
+		var body := node as Node3D
+		if body == null or not body.visible: continue
+		var at: Vector3=door.to_local(body.global_position)
+		if at.y<-.2 or at.y>door.height+.2: continue
+		if Vector2(at.x,at.z).length()<door.width+.45: return true
+	return false
 
 func update(delta: float) -> void:
 	if not is_instance_valid(_excepted):prepare_motion()
 	if is_instance_valid(_excepted):_refresh_held_stock(_excepted)
 	if door._hand_gripped or door._key_turning or door._moving:return
+	# Passage first: a resident stepping into a leaf already easing shut gets
+	# it swung back open, never a leaf frozen halfway across the way.
+	if closing and door.open and _resident_in_sweep():
+		closing=false;door.open=false;door.interact(null);return
 	if _in_passage():remaining=maxf(remaining,.75);return
 	if remaining>0:
 		remaining=maxf(0,remaining-delta);return
