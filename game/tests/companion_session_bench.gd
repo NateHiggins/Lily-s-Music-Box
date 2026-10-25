@@ -7,6 +7,7 @@ var checks: Array[Dictionary] = []
 var directory := ""
 var finished := false
 var saved_campaign := false
+var accept_trace: Array[Dictionary] = []
 var late_camera_stress := false
 
 func _process(_delta: float) -> void:
@@ -399,6 +400,12 @@ func frames(count: int) -> void:
 	for index in count: await get_tree().process_frame
 
 func key(code: Key, unicode := 0, observe_character := "") -> bool:
+	if code == KEY_ENTER and is_instance_valid(carrier) and carrier.session != null:
+		accept_trace.append({"ticks":Time.get_ticks_msec(), "available":carrier.session.available(), "reading":carrier.reading,
+			"printing":carrier.device.teletype.printing, "opening":carrier.session.opening, "typing":carrier.session.typing,
+			"protected":player.protected_input_active(), "mouse_mode":Input.mouse_mode, "focus":str(get_viewport().gui_get_focus_owner())})
+		if accept_trace.size() > 64: accept_trace.pop_front()
+		FileAccess.open(directory.path_join("accept_trace.json"), FileAccess.WRITE).store_string(JSON.stringify(accept_trace, "\t"))
 	var observed := false
 	for pressed in [true, false]:
 		var event := InputEventKey.new()

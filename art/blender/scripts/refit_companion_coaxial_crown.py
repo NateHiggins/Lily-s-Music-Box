@@ -105,6 +105,10 @@ for o in original:
   for child in o.children:
    if child.type=='MESH':child.data.transform(Matrix.Translation((-delta,0,0)))
   o.location.x+=delta
+# Splay the short aerial outboard: its measured upright crown clearance
+# was negative by 0.63 mm. The native pivot keeps its seated root and the
+# existing radio owner still retracts along the aerial's own axis.
+bpy.data.objects['Aerial'].rotation_euler.y += math.atan2(.006,.044)
 # Key sockets live below the keyboard; match the narrowed tray exactly.
 for o in original:
  if o.name.startswith('KeySocket'):o.location.x*=K
@@ -136,7 +140,7 @@ for name,y,hand in [('LiftRotorPort',.187,1),('LiftRotorStarboard',.140,-1)]:
  ring('Separate rotor hub',(0,y,-.012),.012,.0065,.008,group=name,count=24)
  ring('Journal thrust shoulder',(0,y-.007,-.012),.014,.0063,.003,count=24)
  ring('Rotor sail root tube',(0,y+.0175,-.012),.0116,.0065,.039,'CompanionBrass',group=name,count=24)
- # Closed thin linen membrane: one helical turn, 64 angular x 6 radial cells.
+ # Closed thin linen membrane: one helical turn, 32 angular x 3 radial cells.
  verts=[];N=32;R=3;rise=.035;radius=.076
  for layer in [-.00025,.00025]:
   for i in range(N+1):
@@ -183,7 +187,7 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'art/blender/service_companion_v2.b
 # Native review only; no staging camera/light is exported.
 for o in bpy.data.objects:o.hide_render=o.name not in exports.objects
 for o in exports.objects:
- if o.name.startswith(('CompanionKey','FlipTile')) and o.type=='MESH':o.hide_render=True
+ if o.name.startswith(('CompanionKeyBlank','CompanionKeySpace','CompanionKeyEnter','CompanionKeyBackspace','FlipTile')) and o.type=='MESH':o.hide_render=True
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=24
 scene.render.resolution_x=1100;scene.render.resolution_y=1400;scene.render.resolution_percentage=100
 camera_data=bpy.data.cameras.new('CompactReviewCamera');camera=bpy.data.objects.new('CompactReviewCamera',camera_data);scene.collection.objects.link(camera)
