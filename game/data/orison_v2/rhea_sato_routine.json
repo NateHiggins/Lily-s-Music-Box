@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "resident": "rhea_sato",
+  "name": "Rhea Sato",
+  "unit": "3D",
+  "frame": "orison_v2_blockout",
+  "doors": ["F03_D_BED_STORAGE_DOOR", "F03_D_ENTRY_DOOR", "F03_D_MAIN_BED_DOOR", "F03_D_MAIN_KITCHEN_DOOR", "F03_D_PRIVATE_HALL_BATH_DOOR", "F03_D_VESTIBULE_MAIN_DOOR", "F03_D_VESTIBULE_PRIVATE_HALL_DOOR"],
+  "away": "f03_stair_top",
+  "paths": [
+    [["vestibule",-6.9,6.4,-5.2],["f03_d_vestibule_main_door_a",-7.5,6.4,-5.1],["f03_d_vestibule_main_door_b",-8.9,6.4,-5.1],["main",-11.925,6.4,-5.525]],
+    [["vestibule",-6.9,6.4,-5.2],["f03_d_vestibule_private_hall_door_a",-6.8,6.4,-5.85],["f03_d_vestibule_private_hall_door_b",-6.8,6.4,-7.25],["private_hall",-6.9,6.4,-8.1]],
+    [["main",-11.925,6.4,-5.525],["f03_d_main_kitchen_door_a",-9.6,6.4,-6.5],["f03_d_main_kitchen_door_b",-9.6,6.4,-7.9],["kitchen",-9.75,6.4,-8.425]],
+    [["main",-11.925,6.4,-5.525],["f03_d_main_bed_door_a",-13.5,6.4,-6.5],["f03_d_main_bed_door_b",-13.5,6.4,-7.9],["bed",-13.475,6.4,-9.775]],
+    [["private_hall",-6.9,6.4,-8.1],["f03_d_private_hall_bath_door_a",-6.8,6.4,-8.95],["f03_d_private_hall_bath_door_b",-6.8,6.4,-10.35],["bath",-6.9,6.4,-11.0]],
+    [["bed",-13.475,6.4,-9.775],["f03_d_bed_storage_door_a",-12.0,6.4,-10.8],["f03_d_bed_storage_door_b",-10.6,6.4,-10.8],["study",-9.75,6.4,-11.0]],
+    [["kitchen",-9.75,6.4,-8.425],["f03_d_kitchen_hall_opening_a",-8.9,6.4,-8.4],["f03_d_kitchen_hall_opening_b",-7.5,6.4,-8.4],["private_hall",-6.9,6.4,-8.1]],
+    [["vestibule",-6.9,6.4,-5.2],["entry_in",-6.3,6.4,-5.1],["entry_out",-4.9,6.4,-5.1]],
+    [["entry_out",-4.9,6.4,-5.1],["f03_southwest_hall_opening_a",-4.6,6.4,-1.3],["f03_southwest_hall_opening_b",-4.6,6.4,0.1],["f03_core_west_opening_a",-2.9,6.4,0.0],["f03_core_west_opening_b",-1.5,6.4,0.0],["f03_core_lane",-1.75,6.4,0.0],["f03_core_south",-1.75,6.4,-3.4],["f03_stair_clear",4.06,6.4,-3.2]],
+    [["f03_stair_clear",4.06,6.4,-3.2],["f03_stair_top",3.975,6.4,-2.4],["f03_half_east",3.975,4.8,1.3],["f03_half_west",1.925,4.8,1.3],["f02_stair_foot",1.925,3.2,-3.5],["stair_top_clear",4.06,3.2,-3.2]],
+    [["stair_top_clear",4.06,3.2,-3.2],["stair_top",3.975,3.2,-2.4],["half_east",3.975,1.6,1.3],["half_west",1.925,1.6,1.3],["stair_bottom",1.925,0,-3.5],["lower_approach",1.925,0,-6.5],["lobby",0,0,-8.5],["vestibule_out",0,0,-10.2],["street",0,0,-12.2]],
+    [["stair_bottom",1.925,0,-3.5],["mail_core_approach",0,0,-3.35],["mail_core",-0.55,0,-3.3],["watch_entry",-1.8,0,-3.3],["watch_turn",-1.8,0,-1.5],["watch_bypass",-4.6,0,-1.5],["watch",-4.9,0,-2.4],["mail_door",-6.2,0,-2.4],["mail_approach",-7.1,0,-2.4]],
+    [["stair_bottom",1.925,0,-3.5],["basement_stair_top_clear",4.06,0,-3.2],["basement_stair_top",3.975,0,-2.4],["basement_half_east",3.975,-1.6,1.3],["basement_half_west",1.925,-1.6,1.3],["basement_stair_bottom",2.06,-3.2,-3.44],["basement_core_approach",-1.75,-3.2,-3.4],["basement_core",-1.75,-3.2,-1.5],["laundry_entry",-3,-3.2,-1.5],["laundry_approach",-7,-3.2,-1.5],["laundry",-7,-3.2,0.25]]
+  ],
+  "places": {"unit":"main","unit:vestibule":"vestibule","unit:main":"main","unit:private_hall":"private_hall","unit:bath":"bath","unit:kitchen":"kitchen","unit:bed":"bed","unit:study":"study","unit:bedroom":"bed","unit:bathroom":"bath","corridor":"entry_out","lobby":"lobby","mail_bank":"mail","laundry":"laundry","bodega":"bodega","out":"street"}
+}

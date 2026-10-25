@@ -1,43 +1,55 @@
 extends Node
-## Authoring probe for a resident route file: in the production V2 root, every
+## Authoring probe for resident route files: in the production V2 root, every
 ## node and every 10 cm along every edge must have floor support and room for
 ## the resident's capsule. Blocked nodes get the nearest clear spot suggested
-## in route coordinates. ROUTE_FILE picks the file (default Lena's).
+## in route coordinates (tools/apply_route_probe.py moves them there).
+## ROUTE_FILE picks the files, comma-separated (default Lena's); each finding
+## is printed with its file.
 
 const CAPSULE_RADIUS := .28
 const CAPSULE_HEIGHT := 1.40
+const SHARED_DOORS := ["F01_DOOR_06", "F01_WATCH_MAIL_DOOR", "B1_LAUNDRY_DOOR"]
 var failures: Array[String] = []
 var _open_doors := false
+var _file := ""
 
 
 func _ready() -> void:
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928, 11, 10, 600)
-	var file := OS.get_environment("ROUTE_FILE")
-	if file == "":
-		file = "res://data/orison_v2/lena_routine.json"
+	var files := OS.get_environment("ROUTE_FILE")
+	if files == "":
+		files = "res://data/orison_v2/lena_routine.json"
 	var world: OrisonV2RuntimeRoot = load("res://scenes/building/orison_v2_runtime.tscn").instantiate()
 	add_child(world)
 	await get_tree().create_timer(.5).timeout
 	if world.startup_failed:
 		failures.append("startup")
 	else:
-		var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(file))
-		_probe(world, source)
-		# Then with every door on the route standing open: a leaf swung into
-		# the walking line blocks as surely as furniture.
-		for identity: String in source.doors + ["F01_DOOR_06", "F01_WATCH_MAIL_DOOR", "B1_LAUNDRY_DOOR"]:
-			var door := world.find_child(identity + "_Leaf", true, false) as DoorProp
-			if door != null:
-				door.npc_set_open(true, str(source.resident))
-		await get_tree().create_timer(2.5).timeout
-		_open_doors = true
-		_probe(world, source)
+		for file: String in files.split(","):
+			_file = file.get_file()
+			var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(file))
+			_open_doors = false
+			_probe(world, source)
+			# Then with every door on the route standing open: a leaf swung into
+			# the walking line blocks as surely as furniture.
+			await _set_doors(world, source, true)
+			_open_doors = true
+			_probe(world, source)
+			await _set_doors(world, source, false)
 	for line in failures:
 		print("ROUTE PROBE FAIL: ", line)
 	print("ROUTE PROBE: %d failures" % failures.size())
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+
+func _set_doors(world: OrisonV2RuntimeRoot, source: Dictionary, open: bool) -> void:
+	for identity: String in source.doors + SHARED_DOORS:
+		var door := world.find_child(identity + "_Leaf", true, false) as DoorProp
+		if door != null:
+			door.npc_set_open(open, str(source.resident))
+	await get_tree().create_timer(2.5).timeout
 
 
 func _probe(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
@@ -59,7 +71,7 @@ func _probe(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
 						break
 					var why := _blocked(world, space, at)
 					if why != "":
-						failures.append("edge %s -> %s at %d%%: %s" % [previous[0], record[0], i * 100 / steps, why])
+						failures.append("[%s] edge %s -> %s at %d%%: %s" % [_file, previous[0], record[0], i * 100 / steps, why])
 						break
 			previous = record
 	for id: String in nodes:
@@ -78,7 +90,7 @@ func _probe(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
 					break
 			if hint != "":
 				break
-		failures.append("node %s: %s; %s" % [id, why, hint if hint != "" else "no clear spot within 0.8 m"])
+		failures.append("[%s] node %s: %s; %s" % [_file, id, why, hint if hint != "" else "no clear spot within 0.8 m"])
 
 
 func _blocked(world: OrisonV2RuntimeRoot, space: PhysicsDirectSpaceState3D, at: Vector3) -> String:
