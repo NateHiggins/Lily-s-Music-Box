@@ -156,22 +156,28 @@ func qty(unit: String, item: String) -> float:
 
 
 ## What this resident's household lacks to cook their dish once and keep the
-## kitchen going: item -> amount short.
+## kitchen going: item -> amount short. What the resident is already carrying
+## home counts as had, so nobody goes back for it.
 func missing(resident: String) -> Dictionary:
+	return _short(resident, true)
+
+
+func _short(resident: String, count_carried: bool) -> Dictionary:
 	var unit := unit_of(resident)
 	var out := {}
 	if not _dishes.has(resident) or not state.get("units", {}).has(unit):
 		return out
+	var needs := {}
 	for row: Array in _dishes[resident].ingredients:
-		var short := float(row[1]) - qty(unit, str(row[0]))
-		if short > 0.0001:
-			out[str(row[0])] = short
+		needs[str(row[0])] = float(needs.get(str(row[0]), 0.0)) + float(row[1])
 	for item: String in groceries.household.lighting:
-		if qty(unit, item) < float(groceries.household.lighting[item]):
-			out[item] = float(groceries.household.lighting[item])
+		needs[item] = maxf(float(needs.get(item, 0.0)), float(groceries.household.lighting[item]))
 	for item: String in groceries.household.washing_up:
-		if qty(unit, item) < float(groceries.household.washing_up[item]):
-			out[item] = float(groceries.household.washing_up[item])
+		needs[item] = maxf(float(needs.get(item, 0.0)), float(groceries.household.washing_up[item]))
+	for item: String in needs:
+		var had := qty(unit, item) + (PersonInventory.carried(resident, item) if count_carried else 0.0)
+		if float(needs[item]) - had > 0.0001:
+			out[item] = float(needs[item]) - had
 	return out
 
 
@@ -194,8 +200,9 @@ func open_at(shop: String, minute: int) -> bool:
 	return closed.is_empty() or minute < int(closed[0]) or minute >= int(closed[1])
 
 
+## Everything for the dish is in the larder itself, not still in the bag.
 func can_cook(resident: String) -> bool:
-	return _dishes.has(resident) and missing(resident).is_empty()
+	return _dishes.has(resident) and _short(resident, false).is_empty()
 
 
 func portions(unit: String) -> int:
@@ -266,6 +273,8 @@ func pantry_rows(unit: String, limit := 8) -> Array:
 
 ## ---- events ----------------------------------------------------------
 
+## Buys whole packs of what is short at this counter; they go into the
+## shopper's bag (PersonInventory), not the larder, until they get home.
 func shop(resident: String, shop_id: String, stamp: float) -> Array[String]:
 	var unit := unit_of(resident)
 	var bought: Array[String] = []
@@ -275,17 +284,35 @@ func shop(resident: String, shop_id: String, stamp: float) -> Array[String]:
 		var record: Dictionary = groceries.ingredients[item]
 		if str(record.shop) != shop_id:
 			continue
-		var batch: Dictionary = state.units[unit].stock.get(item, {"qty": 0.0, "bought": stamp})
-		var wanted := float(batch.qty) + float(short[item])
-		while float(batch.qty) < wanted - 0.0001:
-			batch.qty = float(batch.qty) + float(record.pack)
+		var packs := 0.0
+		while packs < float(short[item]) - 0.0001:
+			packs += float(record.pack)
 			cents += int(record.cents)
-		batch.bought = stamp
-		state.units[unit].stock[item] = batch
+		PersonInventory.carry(resident, item, packs)
 		bought.append(item)
 	if not bought.is_empty():
 		_log(stamp, unit, resident, "shopped", "%s at %s, %d cents" % [", ".join(bought), groceries.shops[shop_id].name, cents])
 	return bought
+
+
+## Home again: everything in the resident's bag goes into the household's
+## pantry and icebox, stamped as bought now.
+func unpack(resident: String, stamp: float) -> Array[String]:
+	var unit := unit_of(resident)
+	var put: Array[String] = []
+	if not state.get("units", {}).has(unit):
+		return put
+	var bag := PersonInventory.unpack(resident)
+	for item: String in bag:
+		var batch: Dictionary = state.units[unit].stock.get(item, {"qty": 0.0, "bought": stamp})
+		batch.qty = float(batch.qty) + float(bag[item])
+		batch.bought = stamp
+		state.units[unit].stock[item] = batch
+		put.append(item)
+	if not put.is_empty():
+		put.sort()
+		_log(stamp, unit, resident, "unpacked", ", ".join(put))
+	return put
 
 
 ## Cooks the resident's dish if everything is in; otherwise a plain supper

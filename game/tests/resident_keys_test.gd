@@ -57,8 +57,7 @@ func _run() -> void:
 		_check(DoorKeyring.book().originals==originals,"resident retains original after copying")
 		# A shared apartment already has one spare; remove that fixture spare so
 		# the second co-resident still independently exercises authorization.
-		DoorKeyring.book().copies.erase(unit)
-		DoorKeyring.book().permissions.erase(unit)
+		DoorKeyring.revoke_copy(unit)
 		door.free()
 		resident.free()
 	var factory := DoorProp.new()
@@ -113,20 +112,27 @@ func _run() -> void:
 	DoorKeyring.make_copy("2A")
 	var snapshot := RealityState.data.duplicate(true)
 	_check(RealityState._validate_document(snapshot).ok,"key domain validates in existing save")
-	for version in [null,true,"1",2,[],{}]:
+	for version in [null,true,"1",3,[],{}]:
 		var invalid_version := snapshot.duplicate(true)
 		invalid_version.door_keys.version = version
 		_check(not RealityState._validate_document(invalid_version).ok,"invalid key-domain version protected")
-	for field in ["originals","permissions","copies","locks"]:
+	for field in ["permissions","locks"]:
 		var malformed := snapshot.duplicate(true)
 		malformed.door_keys[field] = []
 		_check(not RealityState._validate_document(malformed).ok,"malformed field protected: "+field)
+	# Keys are carried things now (PersonInventory): a spare nobody permitted,
+	# or a resident without their own original, is a forged save.
 	var malformed := snapshot.duplicate(true)
-	malformed.door_keys.copies["6D"] = "mina_vale"
+	malformed.inventories.holders.player["key:6D:spare"] = {"kind":"key","unit":"6D","cut":"spare","from":"mina_vale"}
 	_check(not RealityState._validate_document(malformed).ok,"forged apartment spare protected")
 	malformed = snapshot.duplicate(true)
-	malformed.door_keys.originals.erase("mina_vale")
+	malformed.inventories.holders.mina_vale.erase("key:2A")
 	_check(not RealityState._validate_document(malformed).ok,"lost original protected")
+	var old := snapshot.duplicate(true)
+	old.erase("inventories")
+	old.door_keys = {"version":1,"originals":DoorKeyring.residents().duplicate(),"permissions":{"2A":"mina_vale"},
+			"copies":{"2A":"mina_vale"},"locks":{}}
+	_check(RealityState._validate_document(old).ok,"a save from before carried keys still loads")
 	var legacy := snapshot.duplicate(true)
 	legacy.erase("door_keys")
 	_check(RealityState._validate_document(legacy).ok,"compatible old save may omit key domain")
@@ -145,9 +151,19 @@ func _run() -> void:
 	RealityState.data = {}
 	RealityState.load_game()
 	var restored := DoorKeyring.book()
-	for field in ["originals","permissions","copies","locks"]:
+	for field in ["permissions","locks"]:
 		_check(restored.get(field)==snapshot.door_keys[field],"actual storage reload retains "+field)
-	_check(int(restored.get("version",0))==1 and int(RealityState.data.version)==RealityState.SAVE_VERSION,"compatible key save version retained")
+	# The save stores numbers as floats; compare what each person holds.
+	var same: bool = RealityState.data.inventories.holders.keys().size() == snapshot.inventories.holders.keys().size()
+	for holder: String in snapshot.inventories.holders:
+		var before: Array = snapshot.inventories.holders[holder].keys()
+		var after: Array = RealityState.data.inventories.holders.get(holder, {}).keys()
+		before.sort()
+		after.sort()
+		same = same and before == after
+	_check(same,"actual storage reload retains who carries which key")
+	_check(restored.copies.get("2A") == "mina_vale" and restored.originals.size() == 18,"the spare and every original come back")
+	_check(int(restored.get("version",0))==2 and int(RealityState.data.version)==RealityState.SAVE_VERSION,"compatible key save version retained")
 	RealityState.persistence_enabled = false
 	RealityState.save_path = previous_path
 	for suffix in ["",".bak",".txn",".tmp"]:
