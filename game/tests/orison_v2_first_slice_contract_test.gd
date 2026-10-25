@@ -12,11 +12,21 @@ class PatrolHand extends Node3D:
 		player._unhandled_input(event)
 
 	func move_to(goal: float) -> bool:
+		var stalled := 0
+		var last := INF
 		for i in 640:
 			if not player._grab.active(): return false
 			var target: Dictionary=player._grab.target
 			var value: float=target.read.call()
 			if absf(goal-value)<.000001: return true
+			stalled = stalled + 1 if absf(value-last) < .000001 else 0
+			last = value
+			if stalled == 30:
+				# Say why the hand stopped turning, once per stall.
+				var at: Vector3=target.part.to_global(player._grab.contact)
+				print("[PATROL POINTER] stalled at ",value," wanted=",goal," range=[",target.get("minimum"),", ",target.get("maximum"),"] contact=",at,
+						" behind=",player.camera.is_position_behind(at)," camera=",player.camera.global_position,
+						" reach=",player.camera.global_position.distance_to(at)," feedback=",player._grab.motion_feedback)
 			var point: Vector3=target.part.to_global(player._grab.contact)
 			var local_axis: Vector3=target.axis.call() if target.axis is Callable else target.axis
 			var axis: Vector3=target.frame.global_basis*local_axis
@@ -30,6 +40,15 @@ class PatrolHand extends Node3D:
 			if depth_gesture: screen=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
 			var event := InputEventMouseMotion.new()
 			event.relative=screen*clampf(goal-value,-.12 if target.kind=="hinge" else -.02,.12 if target.kind=="hinge" else .02)/float(target.get("motion_scale",1.0))
+			# A fixed gesture (architectural doors since 276e2ff4) keeps the screen
+			# direction the hand took at the grab: drag along that, so many pixels
+			# for the whole range, however far the leaf has turned past the camera.
+			var gesture_px := float(target.get("gesture_travel_px", 0.0))
+			var held: Vector2 = player._grab._gesture_axis
+			if gesture_px > 0.0 and not held.is_zero_approx():
+				depth_gesture = true
+				var span := float(target.maximum) - float(target.minimum)
+				event.relative = held * clampf((goal - value) / span * gesture_px, -24.0, 24.0)
 			var before_screen: Vector2=player.camera.unproject_position(point)
 			player._unhandled_input(event)
 			await get_tree().physics_frame
