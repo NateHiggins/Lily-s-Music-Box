@@ -21,24 +21,30 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	add_child(motion)
 	rig = Mechanism.new()
 	motion.add_child(rig)
+	var asset_started := Time.get_ticks_usec()
 	if not rig.build():
 		failure = "Native companion presentation refused"
 		push_error(failure)
 		return
+	setup_records.append({"stage":"asset_and_presentation_bind", "start_usec":asset_started, "end_usec":Time.get_ticks_usec()})
 	device = rig.device
 	var lens: MeshInstance3D = device.teletype.torch_lens
 	motion.light_aperture = rig.to_local(lens.to_global(lens.mesh.get_aabb().get_center()))
 	device.bind_work_orders(work_orders)
 	# Render layer2 remains visible to the main/planar cameras, excluded from
 	# room reflection probes and this instrument's own real lamp. No new light.
+	var hand_started := Time.get_ticks_usec()
 	_hand = preload("res://scripts/device/service_set_hand.gd").new(self, true)
+	setup_records.append({"stage":"target_shapes", "start_usec":hand_started, "end_usec":Time.get_ticks_usec()})
 	player.set_physical_display_enabled(true)
 	if player.telegram_hud != null:
 		player.telegram_hud.card_presented.connect(func(_serial: int, card: Dictionary): print_telegram_card(card))
+	var placement_started := Time.get_ticks_usec()
 	if not await motion.setup(player, camera, rig):
 		failure = "No clear native companion starting position"
 		push_error(failure)
 		return
+	setup_records.append({"stage":"flight_initialization_including_two_physics_waits", "start_usec":placement_started, "end_usec":Time.get_ticks_usec()})
 	_lamp_face_state = device.lamp_enabled
 	motion.behavior_changed.connect(_on_companion_behavior)
 	world_ready = true
@@ -86,7 +92,7 @@ func world_lamp_transform() -> Transform3D:
 	var lens: MeshInstance3D = device.teletype.torch_lens
 	return Transform3D(lens.global_basis.orthonormalized(), lens.to_global(lens.mesh.get_aabb().get_center()))
 
-func _process(_delta: float) -> void:
+func _advance_presentation(_delta: float) -> void:
 	if not world_ready: return
 	beam_valid = true
 	if device.lamp_enabled != _lamp_face_state:

@@ -37,6 +37,9 @@ var _sleep_onset := 0.0
 var _service_round: Node
 var _pass_reading := false
 var _hand: RefCounted
+var profile_callbacks := false
+var callback_records: Array[Dictionary] = []
+var setup_records: Array[Dictionary] = []
 
 
 func setup(player: PlayerController, camera: Camera3D,
@@ -46,8 +49,12 @@ func setup(player: PlayerController, camera: Camera3D,
 	device = ServiceSetProp.new()
 	device.name = "VantryServiceSet"
 	device.bind_work_orders(work_orders)
+	var asset_started := Time.get_ticks_usec()
 	_build_overlay_pass(camera)
+	setup_records.append({"stage":"asset_and_presentation_bind", "start_usec":asset_started, "end_usec":Time.get_ticks_usec()})
+	var hand_started := Time.get_ticks_usec()
 	_hand=preload("res://scripts/device/service_set_hand.gd").new(self)
+	setup_records.append({"stage":"target_shapes", "start_usec":hand_started, "end_usec":Time.get_ticks_usec()})
 	player.set_physical_display_enabled(true)
 	if player.telegram_hud != null:
 		player.telegram_hud.card_presented.connect(func(_serial: int, card: Dictionary):
@@ -277,6 +284,13 @@ func find_manipulation_target() -> Dictionary:
 	return _hand.find_target() if _hand!=null else {}
 
 func _process(delta: float) -> void:
+	var started := Time.get_ticks_usec() if profile_callbacks else 0
+	_advance_presentation(delta)
+	if profile_callbacks:
+		callback_records.append({"process_frame":Engine.get_process_frames(), "start_usec":started, "end_usec":Time.get_ticks_usec()})
+		if callback_records.size() > 4096: callback_records.pop_front()
+
+func _advance_presentation(delta: float) -> void:
 	if device == null:
 		return
 	if _pass_reading!=reading:_resize_pass()

@@ -1,0 +1,65 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 273.23,
+  "exit_code": -1,
+  "finished_utc": "2026-10-25T11:04:45Z",
+  "started_utc": "2026-10-25T11:00:12Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 2,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"before\" variable because the value doesn't have a set type.",
+   "ERROR: Failed to load script \"res://tests/v2_carrier_cost_probe.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/carrier_cost_20261025/companion_v2.log.stderr",
+  "stderr_sha256": "22332a44e4f63b22ccb3f9dca49613fa35fc1370e21750f5e91c6a005466b2a2",
+  "stdout": "C:/ov/reports/v2integration24/carrier_cost_20261025/companion_v2.log",
+  "stdout_sha256": "105c8475a495681189d35bb4aa1ace2a76165bdd46c5469ef9c1a04acaa199c3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2CompanionCostProbe.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\carrier_cost_20261025\\companion_v2",
+ "source": {
+  "dirty_paths": 2177,
+  "dirty_sample": [
+   "M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
+   " M game/assets/audio/music/covers/living_with_the_motor.webp.import",
+   " M game/assets/audio/music/covers/mina_s_midday_quest.webp.import",
+   " M game/assets/audio/music/covers/no_subject_line.webp.import",
+   " M game/assets/audio/music/covers/paper_sleep.webp.import"
+  ],
+  "repository_head": "5fbca089d63fc2254ddd37f96ec77634e13124b2",
+  "repository_tree": "9142c0a92fe6a435e25429177f76556a89962786",
+  "runtime_inputs_sha256": "c1d85ebad1c54304e527cdd0ab9a969056dc8549e4f6f05baaf0f44252baf91d",
+  "test_path": "game/tests/v2_carrier_cost_probe.gd",
+  "test_sha256": "f4bf031d2bca68754a977e638b026e4a24567643a84238e887044977deeceb7d"
+ },
+ "windowed": true
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "scene": "",
+    "runner": "long",
+    "timeout": 600,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\carrier_cost_20261025\\import1.log"
+  },
+  {
+    "scene": "res://tests/V2OriginalCarrierCostProbe.tscn",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\carrier_cost_20261025\\original_v1.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\carrier_cost_20261025\\original_v1"
+  },
+  {
+    "scene": "res://tests/V2CompanionCostProbe.tscn",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\carrier_cost_20261025\\companion_v1.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\carrier_cost_20261025\\companion_v1"
+  }
+]

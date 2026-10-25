@@ -34,6 +34,8 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Companion mechanical face reactions and period animation references | `design/V2_COMPANION_FACE_REACTIONS_2026-10-25.md` |
+| Occupied companion costs, first-render stalls and rejected MSAA change | `design/V2_COMPANION_RENDER_ATTRIBUTION_2026-10-25.md` |
 | Authored campaign-year weather, dated forecasts and local resident remarks | `design/V2_WEATHER_CALENDAR_2026-10-24.md` |
 | Shower moisture, side-correct wet glass and native wall-mounted toilet paper | `design/V2_BATHROOM_MOISTURE_AND_PAPER_2026-10-24.md` |
 | Varied nook shelves, reused keepsakes and correction of stale binding debt | `design/V2_NOOK_SHELF_DRESSING_2026-10-24.md` |

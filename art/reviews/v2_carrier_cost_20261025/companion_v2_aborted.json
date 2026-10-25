@@ -1,0 +1,9 @@
+{
+  "scene": "res://tests/V2CompanionCostProbe.tscn",
+  "evidence_class": "INERT",
+  "runtime_verdict": "No world or timing verdict",
+  "broker_pid": 195996,
+  "engine_pid": 76460,
+  "action": "Stop owned engine after explicit fixture parse failure, before world startup",
+  "reason": "Cannot infer before from untyped RefCounted active return"
+}

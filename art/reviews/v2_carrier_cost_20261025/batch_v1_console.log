@@ -1,0 +1,9 @@
+[LONG RUNNER] scene= exit=0 elapsed_s=275 ceiling_s=600
+[RUN RECEIPT] C:\ov\reports\v2integration24\carrier_cost_20261025\import1.log.receipt.json exit=0 completed=True pass_lines=0 fail_lines=0
+[LANE]  exit=0
+[LONG RUNNER] scene=res://tests/V2OriginalCarrierCostProbe.tscn exit=0 elapsed_s=167 ceiling_s=600
+[RUN RECEIPT] C:\ov\reports\v2integration24\carrier_cost_20261025\original_v1.log.receipt.json exit=0 completed=True pass_lines=0 fail_lines=0
+[LANE] res://tests/V2OriginalCarrierCostProbe.tscn exit=0
+[LONG RUNNER] scene=res://tests/V2CompanionCostProbe.tscn exit=1 elapsed_s=152 ceiling_s=600
+[RUN RECEIPT] C:\ov\reports\v2integration24\carrier_cost_20261025\companion_v1.log.receipt.json exit=1 completed=True pass_lines=0 fail_lines=0
+[LANE] res://tests/V2CompanionCostProbe.tscn exit=1

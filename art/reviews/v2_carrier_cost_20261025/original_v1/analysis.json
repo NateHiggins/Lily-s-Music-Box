@@ -1,0 +1,247 @@
+{
+  "evidence_class": "INERT",
+  "companion": false,
+  "failures": [],
+  "construction_wall_ms": 104711.773,
+  "playable_all_intervals": {
+    "count": 937,
+    "p50_ms": 33.762,
+    "p95_ms": 38.7468,
+    "p99_ms": 47.81687999999998,
+    "max_ms": 5875.285,
+    "over_100_ms": 1
+  },
+  "phases_full_intervals_only": {
+    "initial_settle": {
+      "count": 77,
+      "p50_ms": 33.221,
+      "p95_ms": 49.48420000000001,
+      "p99_ms": 1471.8191599999702,
+      "max_ms": 5875.285,
+      "over_100_ms": 1
+    },
+    "idle_live": {
+      "count": 58,
+      "p50_ms": 33.6345,
+      "p95_ms": 37.7208,
+      "p99_ms": 38.46149,
+      "max_ms": 38.771,
+      "over_100_ms": 0
+    },
+    "walk_forward_0": {
+      "count": 10,
+      "p50_ms": 36.069,
+      "p95_ms": 40.33865,
+      "p99_ms": 41.13173,
+      "max_ms": 41.33,
+      "over_100_ms": 0
+    },
+    "walk_back_0": {
+      "count": 10,
+      "p50_ms": 36.1685,
+      "p95_ms": 42.837599999999995,
+      "p99_ms": 45.239520000000006,
+      "max_ms": 45.84,
+      "over_100_ms": 0
+    },
+    "turns_0": {
+      "count": 19,
+      "p50_ms": 36.596,
+      "p95_ms": 41.1783,
+      "p99_ms": 42.274860000000004,
+      "max_ms": 42.549,
+      "over_100_ms": 0
+    },
+    "route_settle_0": {
+      "count": 58,
+      "p50_ms": 34.2155,
+      "p95_ms": 38.144299999999994,
+      "p99_ms": 38.87036,
+      "max_ms": 39.299,
+      "over_100_ms": 0
+    },
+    "walk_forward_1": {
+      "count": 10,
+      "p50_ms": 36.7035,
+      "p95_ms": 37.3887,
+      "p99_ms": 37.41534,
+      "max_ms": 37.422,
+      "over_100_ms": 0
+    },
+    "walk_back_1": {
+      "count": 10,
+      "p50_ms": 37.191500000000005,
+      "p95_ms": 40.336949999999995,
+      "p99_ms": 41.18979,
+      "max_ms": 41.403,
+      "over_100_ms": 0
+    },
+    "turns_1": {
+      "count": 20,
+      "p50_ms": 37.69799999999999,
+      "p95_ms": 39.9461,
+      "p99_ms": 40.06922,
+      "max_ms": 40.1,
+      "over_100_ms": 0
+    },
+    "route_settle_1": {
+      "count": 58,
+      "p50_ms": 33.790499999999994,
+      "p95_ms": 36.6789,
+      "p99_ms": 37.27653,
+      "max_ms": 37.887,
+      "over_100_ms": 0
+    },
+    "hidden_presentation": {
+      "count": 58,
+      "p50_ms": 33.4045,
+      "p95_ms": 36.3626,
+      "p99_ms": 38.02237,
+      "max_ms": 39.367,
+      "over_100_ms": 0
+    },
+    "presentation_restored": {
+      "count": 57,
+      "p50_ms": 34.657,
+      "p95_ms": 38.151199999999996,
+      "p99_ms": 38.507839999999995,
+      "max_ms": 38.556,
+      "over_100_ms": 0
+    },
+    "idle_motion_control": {
+      "count": 59,
+      "p50_ms": 34.394,
+      "p95_ms": 42.485199999999985,
+      "p99_ms": 53.259240000000005,
+      "max_ms": 55.07,
+      "over_100_ms": 0
+    },
+    "lamp_off": {
+      "count": 63,
+      "p50_ms": 32.091,
+      "p95_ms": 36.1852,
+      "p99_ms": 37.13926,
+      "max_ms": 37.342,
+      "over_100_ms": 0
+    },
+    "lamp_recovery": {
+      "count": 119,
+      "p50_ms": 33.366,
+      "p95_ms": 37.848299999999995,
+      "p99_ms": 38.691359999999996,
+      "max_ms": 50.661,
+      "over_100_ms": 0
+    },
+    "reading_settle": {
+      "count": 89,
+      "p50_ms": 33.637,
+      "p95_ms": 37.2724,
+      "p99_ms": 40.653400000000005,
+      "max_ms": 41.441,
+      "over_100_ms": 0
+    },
+    "target_acquisition": {
+      "count": 6,
+      "p50_ms": 34.932500000000005,
+      "p95_ms": 36.6805,
+      "p99_ms": 36.6897,
+      "max_ms": 36.692,
+      "over_100_ms": 0
+    },
+    "grab_lamp": {
+      "count": 1,
+      "p50_ms": 36.201,
+      "p95_ms": 36.201,
+      "p99_ms": 36.201,
+      "max_ms": 36.201,
+      "over_100_ms": 0
+    },
+    "drag_lamp": {
+      "count": 14,
+      "p50_ms": 33.161,
+      "p95_ms": 36.3537,
+      "p99_ms": 36.396339999999995,
+      "max_ms": 36.407,
+      "over_100_ms": 0
+    },
+    "inspection_idle": {
+      "count": 65,
+      "p50_ms": 32.577,
+      "p95_ms": 36.596,
+      "p99_ms": 37.53456,
+      "max_ms": 37.788,
+      "over_100_ms": 0
+    },
+    "final_idle": {
+      "count": 56,
+      "p50_ms": 33.974500000000006,
+      "p95_ms": 39.5245,
+      "p99_ms": 45.9943,
+      "max_ms": 46.926,
+      "over_100_ms": 0
+    }
+  },
+  "largest_playable_interval": {
+    "full_interval": true,
+    "held_cpu_ms": 0.0,
+    "held_gpu_ms": 0.0,
+    "load_cycles": 0,
+    "main_cpu_ms": 0.0,
+    "main_gpu_ms": 0.0,
+    "nodes": 81551.0,
+    "observer_query_usec": 2,
+    "phase": "initial_settle",
+    "physics_frame": 16,
+    "physics_monitor_ms": 108923.634,
+    "pipeline_draw": 42.0,
+    "pipeline_specialization": 160.0,
+    "pipeline_surface": 250.0,
+    "player": [
+      0.0,
+      0.000176861882209778,
+      1.5
+    ],
+    "previous_phase": "initial_settle",
+    "process_frame": 1,
+    "process_monitor_ms": 6498.037,
+    "reflection_probes": 0,
+    "reflection_refreshes": 0,
+    "resources": 25013.0,
+    "start_usec": 127051102,
+    "streaming_state": "RESIDENT",
+    "unload_cycles": 0,
+    "wall_ms": 5875.285
+  },
+  "largest_interval_callback_overlap": {
+    "carrier_callbacks": {
+      "count": 1,
+      "inclusive_overlap_usec": 70,
+      "max_callback_usec": 70
+    },
+    "motion_callbacks": {
+      "count": 0,
+      "inclusive_overlap_usec": 0,
+      "max_callback_usec": null
+    },
+    "mechanism_callbacks": {
+      "count": 0,
+      "inclusive_overlap_usec": 0,
+      "max_callback_usec": null
+    }
+  },
+  "render_boundary_spans": {
+    "count": 938,
+    "p50_ms": 24.8215,
+    "p95_ms": 28.2263,
+    "p99_ms": 30.81456,
+    "max_ms": 5768.283,
+    "over_100_ms": 1
+  },
+  "observer_query_max_usec": 33,
+  "callback_max_usec": {
+    "carrier_callbacks": 638,
+    "motion_callbacks": null,
+    "mechanism_callbacks": null
+  },
+  "limitations": "Phase boundaries retained in all-interval distribution. Callback spans are inclusive and must not be summed with nested query/move/pose timing. Renderer/physics/process monitors overlap and lag. No GPU completion, driver attribution, human input latency or runtime qualification."
+}

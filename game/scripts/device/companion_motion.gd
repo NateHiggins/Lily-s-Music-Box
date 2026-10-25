@@ -29,6 +29,11 @@ var stationary_for_hand := false
 var light_target := Vector3.ZERO
 var light_target_valid := false
 var light_aperture := Vector3.ZERO
+var profile_callbacks := false
+var callback_records: Array[Dictionary] = []
+var _query_usec := 0
+var _move_usec := 0
+var _pose_usec := 0
 var query_count := 0
 var recovery_count := 0
 var _player: CharacterBody3D
@@ -134,6 +139,15 @@ func hold_for_hand(held: bool) -> bool:
 	return true
 
 func _physics_process(delta: float) -> void:
+	var started := Time.get_ticks_usec() if profile_callbacks else 0
+	var before_queries := query_count
+	_query_usec = 0; _move_usec = 0; _pose_usec = 0
+	_advance_motion(delta)
+	if profile_callbacks:
+		callback_records.append({"physics_frame":Engine.get_physics_frames(), "process_frame":Engine.get_process_frames(), "start_usec":started, "end_usec":Time.get_ticks_usec(), "queries":query_count-before_queries, "query_usec":_query_usec, "move_usec":_move_usec, "pose_usec":_pose_usec})
+		if callback_records.size() > 4096: callback_records.pop_front()
+
+func _advance_motion(delta: float) -> void:
 	if not initialized or not is_instance_valid(_player) or not is_instance_valid(_camera): return
 	if stationary_for_hand:
 		velocity = Vector3.ZERO
@@ -190,7 +204,9 @@ func _physics_process(delta: float) -> void:
 	wanted = wanted.limit_length(maximum_speed)
 	var slowing := wanted.length_squared() < velocity.length_squared()
 	velocity = velocity.move_toward(wanted, (deceleration if slowing else acceleration) * delta)
+	var slide_started := Time.get_ticks_usec() if profile_callbacks else 0
 	move_and_slide()
+	if profile_callbacks: _move_usec += Time.get_ticks_usec() - slide_started
 	var actual := get_position_delta().length() / maxf(delta, .000001)
 	_stalled = _stalled + delta if wanted.length() > .2 and actual < .04 else 0.0
 	_lost = _lost + delta if global_position.distance_to(_camera.global_position) > 8.0 else 0.0
@@ -288,23 +304,36 @@ func _clear(point: Vector3) -> bool:
 	_probe.transform = Transform3D(Basis.IDENTITY, point)
 	_probe.motion = Vector3.ZERO
 	query_count += 1
-	return _space.intersect_shape(_probe, 1).is_empty()
+	var started := Time.get_ticks_usec() if profile_callbacks else 0
+	var clear := _space.intersect_shape(_probe, 1).is_empty()
+	if profile_callbacks: _query_usec += Time.get_ticks_usec() - started
+	return clear
 
 func _path_clear(point: Vector3) -> bool:
 	_probe.transform = Transform3D(Basis.IDENTITY, global_position)
 	_probe.motion = point - global_position
 	if _probe.motion.length_squared() < .000001: return true
 	query_count += 1
+	var started := Time.get_ticks_usec() if profile_callbacks else 0
 	var progress := _space.cast_motion(_probe)
+	if profile_callbacks: _query_usec += Time.get_ticks_usec() - started
 	_probe.motion = Vector3.ZERO
 	return progress.size() == 2 and progress[0] > .99999
 
 func _visible_from_player(point: Vector3) -> bool:
 	_ray.from = _camera.global_position; _ray.to = point
 	query_count += 1
-	return _space.intersect_ray(_ray).is_empty()
+	var started := Time.get_ticks_usec() if profile_callbacks else 0
+	var clear := _space.intersect_ray(_ray).is_empty()
+	if profile_callbacks: _query_usec += Time.get_ticks_usec() - started
+	return clear
 
 func _update_pose(delta: float, speed: float) -> void:
+	var started := Time.get_ticks_usec() if profile_callbacks else 0
+	_apply_pose(delta, speed)
+	if profile_callbacks: _pose_usec += Time.get_ticks_usec() - started
+
+func _apply_pose(delta: float, speed: float) -> void:
 	var direction := _camera.global_position - global_position
 	if light_target_valid: direction = global_position - light_target
 	if direction.length_squared() > .001 and absf(direction.normalized().dot(Vector3.UP)) < .98:

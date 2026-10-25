@@ -36,6 +36,8 @@ var _rotor_angle := 0.0
 var _display_clock := 0.0
 var reaction_player: Node
 var _reaction_clock := 0.0
+var profile_callbacks := false
+var callback_records: Array[Dictionary] = []
 
 func build() -> bool:
 	var packed := load("res://assets/props/service_companion_v2.glb") as PackedScene
@@ -197,6 +199,13 @@ func pulse_key(character: String) -> void:
 	if not _key_sound.playing: _key_sound.play()
 
 func _process(delta: float) -> void:
+	var started := Time.get_ticks_usec() if profile_callbacks else 0
+	_advance_mechanism(delta)
+	if profile_callbacks:
+		callback_records.append({"process_frame":Engine.get_process_frames(), "start_usec":started, "end_usec":Time.get_ticks_usec()})
+		if callback_records.size() > 4096: callback_records.pop_front()
+
+func _advance_mechanism(delta: float) -> void:
 	if keyboard == null or not failures.is_empty(): return
 	_reaction_clock += maxf(0.0, delta)
 	if reaction_player != null and not reaction_player.current.is_empty() and (not device.radio_powered or device.teletype.printing or keyboard_requested):
