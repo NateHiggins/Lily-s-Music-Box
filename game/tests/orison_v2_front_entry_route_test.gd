@@ -75,7 +75,7 @@ func _operate_entry(door: DoorProp,want_open: bool,label: String) -> bool:
 	return _require(door.open==want_open,"landmark E motion settles: "+label)
 func _turn_key() -> bool:
 	await get_tree().physics_frame;player._update_prompt()
-	if not _require(player._prompt.text.contains("[K]"),"existing keyboard key prompt reaches the landmark"):return false
+	if not _require(player._prompt.text.contains("[K]"),"existing keyboard key prompt reaches the landmark: %s" % player._prompt.text):return false
 	var event:=InputEventKey.new();event.keycode=KEY_K;event.physical_keycode=KEY_K;event.pressed=true
 	Input.parse_input_event(event);await get_tree().process_frame;await get_tree().process_frame
 	event.pressed=false;Input.parse_input_event(event);await get_tree().process_frame

@@ -181,6 +181,11 @@ func _move_front_entrance(identity: String,want_open: bool) -> bool:
 			if screen.length()<24.0 and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5:
 				screen=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
 			var motion:=InputEventMouseMotion.new();motion.relative=screen*clampf(goal-angle,-.12,.12)
+			# A fixed gesture keeps the screen direction taken at the grab.
+			var held: Vector2=player._grab._gesture_axis
+			if float(player._grab.target.get("gesture_travel_px",0.0))>0.0 and not held.is_zero_approx():
+				var span: float=float(player._grab.target.maximum)-float(player._grab.target.minimum)
+				motion.relative=held*clampf((goal-angle)/span*float(player._grab.target.gesture_travel_px),-24.0,24.0)
 			player._unhandled_input(motion)
 			await get_tree().physics_frame
 		if player._grab.active():player._unhandled_input(click)
