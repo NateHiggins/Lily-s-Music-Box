@@ -1,0 +1,19 @@
+[
+  {
+    "scene": "",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\companion_faces_20261025\\import3.log"
+  },
+  {
+    "scene": "res://tests/CompanionWorldHandBench.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\companion_faces_20261025\\world_events_v2.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\companion_faces_20261025\\world_events_v2"
+  }
+]

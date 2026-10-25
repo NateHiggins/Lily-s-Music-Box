@@ -1,0 +1,390 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Actual production V2 opt-in companion flashlight diagnostic;18checks0fail234samples. Two renderer teardown errors remain. No default cutover, performance comparison, broad navigation/save qualification or human acceptance. First4failed attempts intact.",
+  "files": [
+    {
+      "path": "authority_v4.log",
+      "sha256": "0cf92a651c51a798b024935ed2cd16e9e310f28db2e6f0e62c8b1de2183fff0d"
+    },
+    {
+      "path": "batch_v1.json",
+      "sha256": "8347af3dea33d0bd4b9a3591b2263cfb78f5520dc9b0317e48f34b578f72f5b5"
+    },
+    {
+      "path": "batch_v1_console.log",
+      "sha256": "45f8ebef31ed7c455b80130b1eef999b6e875cea91ab51a9d4c12586e8423ede"
+    },
+    {
+      "path": "batch_v2.json",
+      "sha256": "7beef01625194831fd129bda9201b0765f5773c47f1f810b2b30713f01dc69b6"
+    },
+    {
+      "path": "batch_v2_console.log",
+      "sha256": "c373aea4fba27d12eb861459d9a05bc768dfb0cb12cef77a0fb26597d4b45ee8"
+    },
+    {
+      "path": "batch_v3.json",
+      "sha256": "ec6f7c5a8aae92207334e485f6eb55475cad8e8f5f82c77dd08283a8d2e9532f"
+    },
+    {
+      "path": "batch_v3_console.log",
+      "sha256": "28bf220e32ff9bdc4558f8190630fb61a21a4cb04a0337e9f629ca4979141cbc"
+    },
+    {
+      "path": "batch_v4.json",
+      "sha256": "6ad7d0dd105f7e6af7b3271ec77a1d8f1ff0da158df576fd12fa4cbe85e2259b"
+    },
+    {
+      "path": "batch_v4_console.log",
+      "sha256": "0348194b0361e91c9f80f87d172c9aa4b3f947f9968ed61e97f489a4f13fc72e"
+    },
+    {
+      "path": "batch_v5.json",
+      "sha256": "2a6399db883bd9b655109d29e9b73d408fc9fc748ac8b8edc400ab36eceb507a"
+    },
+    {
+      "path": "batch_v5_console.log",
+      "sha256": "abe82734acd80bc00e59d74565a85fc56e3e667261ef1002d33902635bc3c960"
+    },
+    {
+      "path": "executed_v1/game/scripts/building/orison_v2_runtime_root.gd",
+      "sha256": "b5152638884355a48a6e382ff8a50dd4e551833e8aaf2745de1e7bc546c2ec64"
+    },
+    {
+      "path": "executed_v1/game/scripts/device/companion_motion.gd",
+      "sha256": "cd8ebbcb741ee246b90500e4d36fc2a30214e0c322c6cd75123ee85495c38ccb"
+    },
+    {
+      "path": "executed_v1/game/scripts/device/companion_world_carrier.gd",
+      "sha256": "326a07af5fbf339f48572147d8845cb6e83617e6722472b406b03dbde30c7b19"
+    },
+    {
+      "path": "executed_v1/game/scripts/player/player_controller.gd",
+      "sha256": "01c45d3b2571d0f4488170bfc57bfbf5aafb025cccf7ecc3a208aa01694db651"
+    },
+    {
+      "path": "executed_v1/game/tests/companion_flashlight_world_test.gd",
+      "sha256": "0acb75dd33bfcff34812b60baed811683d718ffaced6bbc2dc263e92da65cb36"
+    },
+    {
+      "path": "executed_v2/game/scripts/building/orison_v2_runtime_root.gd",
+      "sha256": "a854494d2f3a8105b0d40da2221582b66e9f38c6dcd3dbba4d8e2cee6024f734"
+    },
+    {
+      "path": "executed_v2/game/scripts/device/companion_motion.gd",
+      "sha256": "97cb035f4e782459080db3a74acd157f63489fa094026f0945c599afe241e04e"
+    },
+    {
+      "path": "executed_v2/game/scripts/device/companion_world_carrier.gd",
+      "sha256": "355792988d9cfc7f8e9aa5f4b396ad3e6cd065926e552b881a90bcc2bc017d8f"
+    },
+    {
+      "path": "executed_v2/game/scripts/player/player_controller.gd",
+      "sha256": "01c45d3b2571d0f4488170bfc57bfbf5aafb025cccf7ecc3a208aa01694db651"
+    },
+    {
+      "path": "executed_v2/game/tests/companion_flashlight_world_test.gd",
+      "sha256": "fa46d8dcba852108b5ef48f5cc394bee9e4956a146d4ecd2b3dae8c7fd2f3bd9"
+    },
+    {
+      "path": "executed_v2/game/tests/companion_world_hand_bench.gd",
+      "sha256": "29b277d5fb4dbb0467d83f7eb7b7f8fac04c4631ae6fd925712f352c2daee916"
+    },
+    {
+      "path": "executed_v3/game/scripts/building/orison_v2_runtime_root.gd",
+      "sha256": "a854494d2f3a8105b0d40da2221582b66e9f38c6dcd3dbba4d8e2cee6024f734"
+    },
+    {
+      "path": "executed_v3/game/scripts/device/companion_motion.gd",
+      "sha256": "97cb035f4e782459080db3a74acd157f63489fa094026f0945c599afe241e04e"
+    },
+    {
+      "path": "executed_v3/game/scripts/device/companion_world_carrier.gd",
+      "sha256": "355792988d9cfc7f8e9aa5f4b396ad3e6cd065926e552b881a90bcc2bc017d8f"
+    },
+    {
+      "path": "executed_v3/game/scripts/player/player_controller.gd",
+      "sha256": "01c45d3b2571d0f4488170bfc57bfbf5aafb025cccf7ecc3a208aa01694db651"
+    },
+    {
+      "path": "executed_v3/game/tests/companion_flashlight_world_test.gd",
+      "sha256": "4e4440dd32a24db9db58b15e159dc2da365597b8530f27630a83827422109474"
+    },
+    {
+      "path": "executed_v3/game/tests/companion_world_hand_bench.gd",
+      "sha256": "504359a4d1e0490d24c416effa61f92e510aa6831833299da6a4c970a3f3d9ac"
+    },
+    {
+      "path": "executed_v4/game/scripts/building/orison_v2_runtime_root.gd",
+      "sha256": "a854494d2f3a8105b0d40da2221582b66e9f38c6dcd3dbba4d8e2cee6024f734"
+    },
+    {
+      "path": "executed_v4/game/scripts/device/companion_motion.gd",
+      "sha256": "97cb035f4e782459080db3a74acd157f63489fa094026f0945c599afe241e04e"
+    },
+    {
+      "path": "executed_v4/game/scripts/device/companion_world_carrier.gd",
+      "sha256": "48a817775b2e108453c12f399f053115294a737c8a9bd5cc7c6ae9f30a6212d3"
+    },
+    {
+      "path": "executed_v4/game/scripts/player/player_controller.gd",
+      "sha256": "d73b5bb239ca722c1c8d3a9d7c0601af8ebe710eea1c31387bdb51a1d0d8f8c5"
+    },
+    {
+      "path": "executed_v4/game/tests/companion_flashlight_world_test.gd",
+      "sha256": "a447841eeee5065f753dbfbc597891204a3c6888d840a32614cac387b737b654"
+    },
+    {
+      "path": "executed_v4/game/tests/companion_world_hand_bench.gd",
+      "sha256": "504359a4d1e0490d24c416effa61f92e510aa6831833299da6a4c970a3f3d9ac"
+    },
+    {
+      "path": "executed_v5/game/scripts/building/orison_v2_runtime_root.gd",
+      "sha256": "a854494d2f3a8105b0d40da2221582b66e9f38c6dcd3dbba4d8e2cee6024f734"
+    },
+    {
+      "path": "executed_v5/game/scripts/device/companion_motion.gd",
+      "sha256": "e1b8a24d9c4edea7335ee1d67c0e617561ba058d85e6a4cfeecc191324b74965"
+    },
+    {
+      "path": "executed_v5/game/scripts/device/companion_world_carrier.gd",
+      "sha256": "01999625337870f7cbe447a559ecd387ff759fe0be059c5cfb6aa1be2113df52"
+    },
+    {
+      "path": "executed_v5/game/scripts/device/service_set_carrier.gd",
+      "sha256": "22ba290180bae9b800c001028c9ea691f2f4c0abdbe26fa30806a1bb0721e4c3"
+    },
+    {
+      "path": "executed_v5/game/scripts/device/service_set_hand.gd",
+      "sha256": "895532c1ba4ec0f67d1a08814a07df80a138d1322837652c724e3c633465b0b8"
+    },
+    {
+      "path": "executed_v5/game/scripts/player/player_controller.gd",
+      "sha256": "d73b5bb239ca722c1c8d3a9d7c0601af8ebe710eea1c31387bdb51a1d0d8f8c5"
+    },
+    {
+      "path": "executed_v5/game/tests/companion_flashlight_world_test.gd",
+      "sha256": "c6a90afb4ca957df915d4dc630a0b17fbf37e01d7e62622141e03f88edd5d996"
+    },
+    {
+      "path": "executed_v5/game/tests/companion_world_hand_bench.gd",
+      "sha256": "504359a4d1e0490d24c416effa61f92e510aa6831833299da6a4c970a3f3d9ac"
+    },
+    {
+      "path": "import1.log",
+      "sha256": "19e4d2e3dcb70c393135891070678ab0c0932d658bb65571e8d16de37238f096"
+    },
+    {
+      "path": "import1.log.receipt.json",
+      "sha256": "680d085a67b024e7306ba3504acb9222ba046aac6153d771edeedbb6e3c596fc"
+    },
+    {
+      "path": "import1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "import2.log",
+      "sha256": "9fa597df893d783e3e3fab5002f84ea1f3753fbeb3e06090f59eb0e344f7cf8f"
+    },
+    {
+      "path": "import2.log.receipt.json",
+      "sha256": "edaeb16a28c43742710948155eec778b0ceba9aa60a43ce9508b0bbd1ae6c722"
+    },
+    {
+      "path": "import2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "import3.log",
+      "sha256": "19e4d2e3dcb70c393135891070678ab0c0932d658bb65571e8d16de37238f096"
+    },
+    {
+      "path": "import3.log.receipt.json",
+      "sha256": "22dc051e61501da56cdab224a6da774dc8ab3155fc284d7a8cf959f1cca9097a"
+    },
+    {
+      "path": "import3.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "import4.log",
+      "sha256": "eb08cae00424da22304a11db2af7331a639e898e5350e9ba3b6e4210ae980feb"
+    },
+    {
+      "path": "import4.log.receipt.json",
+      "sha256": "3a1fe97b8e8d4b167ee2ac491c0c592a3a2ab059abdf9f7256bf5ae3be58e3db"
+    },
+    {
+      "path": "import4.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "import5.log",
+      "sha256": "d712aeba1f822d4e2082c13d937086fd9c1cc4f4c3ffc7ebedade82e251b15c7"
+    },
+    {
+      "path": "import5.log.receipt.json",
+      "sha256": "425ed6f3a772ab14ebda4ea89f28b6791b38c3d72bad6054ddac55eee06a7aa6"
+    },
+    {
+      "path": "import5.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reader_v4.log",
+      "sha256": "e588792ad309cb2b6b96c38d538cfbc0c2de6792e15feacb3e73a13713190f1d"
+    },
+    {
+      "path": "spatial_v4.log",
+      "sha256": "d7be641006f78389d946c452fdd191511db5e568d67ad8e09faa3d93be5f0aad"
+    },
+    {
+      "path": "summary.json",
+      "sha256": "d0f4a85e99ea829accbae3cb14df6df568f70feb5d0e8b993cc05033734e40f4"
+    },
+    {
+      "path": "world_v1/flashlight_diagnostic.json",
+      "sha256": "155565df4ecadd5f85c2d830b22af4f514204615a951dd42bd57f77e3d55ef8b"
+    },
+    {
+      "path": "world_v1.log",
+      "sha256": "03e5b5f3a396496a67e1b20797708b736f4940f0b5adc49cc9bdbd8fc4c8f253"
+    },
+    {
+      "path": "world_v1.log.receipt.json",
+      "sha256": "c8c8094de8562da4c8514a612ede1482ff7e926fb0c5f5f507c9615d64211721"
+    },
+    {
+      "path": "world_v1.log.stderr",
+      "sha256": "4a76660146e3321ef2adca974933da4dc91a70e3e0144c1ec809704c623790f8"
+    },
+    {
+      "path": "world_v2/flashlight_diagnostic.json",
+      "sha256": "f70697b1bf79f064a50cda76abef6acb421c357438b73f2d01aa158f331c5160"
+    },
+    {
+      "path": "world_v2/native_source_lit.png",
+      "sha256": "b9126c4cf33e84611729e39854714b940f1216d7785dc3519a315307f5548e36"
+    },
+    {
+      "path": "world_v2/native_source_off.png",
+      "sha256": "ee5a738a687d550c571ff3365b1d57762b35cdb2cd8a0a4f631ee3e300f99371"
+    },
+    {
+      "path": "world_v2/occupied_controls.png",
+      "sha256": "6a435babd3099787dffcc20d1d1d9fcafccb2bb320efdd3555aa0c2bab2a4ce3"
+    },
+    {
+      "path": "world_v2/physical_controls.png",
+      "sha256": "3cfc3813b024d47556099bf3af37c6b044c7af171778837db51ac90540e9a8aa"
+    },
+    {
+      "path": "world_v2.log",
+      "sha256": "fd4fdd6b5747763c1897a896bba35cea8da5c6bfbc6ebb769f7094077c843d4f"
+    },
+    {
+      "path": "world_v2.log.receipt.json",
+      "sha256": "1b030b2dc17eb592008ec4d91dbfd6b6c833971e69e20160ab435f8a4bd93d80"
+    },
+    {
+      "path": "world_v2.log.stderr",
+      "sha256": "97155718727e47a6d887f61b3b76afb4c8317528197edc7ad9b0c37f379eec19"
+    },
+    {
+      "path": "world_v3/flashlight_diagnostic.json",
+      "sha256": "4a428c8d25db375a655c61c85d995f72d542ca1f16a58e992ae890c7c8d3c60b"
+    },
+    {
+      "path": "world_v3/native_source_lit.png",
+      "sha256": "a87d11b397808e166ccdae57828832ab0188136859e708672b608a59d8d00365"
+    },
+    {
+      "path": "world_v3/native_source_off.png",
+      "sha256": "5d3e85f325df532182abfce68c8bb5665bb43365fd7cd8d68b64933d427f83c4"
+    },
+    {
+      "path": "world_v3/occupied_controls.png",
+      "sha256": "45e530ffd9f22cddf9a8c3b743f2e0c7b890a0375e46f079914245c30962f120"
+    },
+    {
+      "path": "world_v3/physical_controls.png",
+      "sha256": "8ab458dcfa3a94311dd0ab987255fbad7dc3e777acf3ce1070be9959310ef2f6"
+    },
+    {
+      "path": "world_v3.log",
+      "sha256": "b64618dc381eece714b32feadb93c26a3178ef1b57bcd53eb650a21bcea4970e"
+    },
+    {
+      "path": "world_v3.log.receipt.json",
+      "sha256": "d88034e5d574aa1448f67446fda658760918d351820ebb29c13d09a92372c09a"
+    },
+    {
+      "path": "world_v3.log.stderr",
+      "sha256": "f31d675ab1fc26d808fea157e937e31b7cb9cee985841dbc5b4111243afeb1fe"
+    },
+    {
+      "path": "world_v4/flashlight_diagnostic.json",
+      "sha256": "c162019b13a20af8f93e3a333c3a254efc0c043a61dcd67530bacc8b623ca13b"
+    },
+    {
+      "path": "world_v4/native_source_lit.png",
+      "sha256": "aa232d649d7e2bd58144ae49e5c1460ecfcc5fc6c50fc984e79478b537471ec1"
+    },
+    {
+      "path": "world_v4/native_source_off.png",
+      "sha256": "67e6ae9a755c44d129d8a94cc461b61e99517ac8e5a7bb23894743ced3689223"
+    },
+    {
+      "path": "world_v4/occupied_controls.png",
+      "sha256": "2ea1734e5492855bedf47cbd10a795828200edd7149b2018dc22707fe5d9ca2f"
+    },
+    {
+      "path": "world_v4/physical_controls.png",
+      "sha256": "360defaa437604db60f53e763e85ec1f1955381af935a76cbf36b74fd1738edd"
+    },
+    {
+      "path": "world_v4.log",
+      "sha256": "bbe2401bfdfae0ab5126dd361662ec42256db9c8437d6c467cf87e2e497df648"
+    },
+    {
+      "path": "world_v4.log.receipt.json",
+      "sha256": "c6a5bed37e9cb6eff066cf9d5660d846a56ce6817f792964b307a6e1f7c9c7dd"
+    },
+    {
+      "path": "world_v4.log.stderr",
+      "sha256": "b5a9f8b497277772db29f7cd9cfe9d1ed0f2ffd68aac3a5929f2ed2ed506e043"
+    },
+    {
+      "path": "world_v5/flashlight_diagnostic.json",
+      "sha256": "b72ef0e209e547783f080660e2443ae08e30f44cb7ee9aa582caf0e1bd32f809"
+    },
+    {
+      "path": "world_v5/native_source_lit.png",
+      "sha256": "17d2520bae8e162a3860441f2eaecbaa8241e64f471545717499ceb681f85e9c"
+    },
+    {
+      "path": "world_v5/native_source_off.png",
+      "sha256": "353dd1a474248afe06dc404cb88926e2500ee37d5ad6f2cc048373358d4e4b27"
+    },
+    {
+      "path": "world_v5/occupied_controls.png",
+      "sha256": "07c8ad7b2d544ce0e0df38bb5a13c8599227274609bc378c1cce8d8f6fd6211f"
+    },
+    {
+      "path": "world_v5/physical_controls.png",
+      "sha256": "324d791b6f0685dad5c531e53d73f16f8e10c3b3c6136e5dbfffb2b6eca14fe9"
+    },
+    {
+      "path": "world_v5.log",
+      "sha256": "2f2533cb524c86058ac42b6c2a7bc868ef6e14005fe438a3aea1ec9bdb8e42c1"
+    },
+    {
+      "path": "world_v5.log.receipt.json",
+      "sha256": "2b2476a1adb9ecb683a4a9a3c550a464bc3bf0bd67754dac1f597d390f990b03"
+    },
+    {
+      "path": "world_v5.log.stderr",
+      "sha256": "fba09cab6b46fd656428d9e51dbad30b433011f3f19e76d6ab362f254b787e39"
+    }
+  ]
+}

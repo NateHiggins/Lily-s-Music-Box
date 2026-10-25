@@ -1,0 +1,83 @@
+{
+  "evidence_class": "INERT",
+  "checks": 18,
+  "failures": [],
+  "samples": 234,
+  "max_source_gap_m": 2.45756240246919e-07,
+  "max_source_direction_vector_error": 1.20137002568299e-07,
+  "limitations": [
+    "candidate opt-in only; default carrier unchanged",
+    "No matched performance comparison or broad navigation/save qualification",
+    "Two renderer-internal light unpair errors on teardown; zero script errors",
+    "All earlier failed aggregates preserved",
+    "Actual-turn wall intervals are partial because the fixture resets its phase clock per one-tick call; do not interpret their 5ms median as frame time. Initial settle contains retained5371.793ms spike; cause not isolated."
+  ],
+  "phases": {
+    "actual_turns": {
+      "full_intervals": 22,
+      "median_ms": 5.23,
+      "p95_ms": 6.20145,
+      "p99_ms": 7.0923799999999995,
+      "maximum_ms": 7.328,
+      "over_100ms": 0,
+      "valid_frame_distribution": false,
+      "limitation": "Each one-tick turn invocation reset the timer; these are partial intervals, not full frame times. Raw original retained; exclude phase from performance conclusions."
+    },
+    "idle_lit": {
+      "full_intervals": 56,
+      "median_ms": 34.6485,
+      "p95_ms": 39.516,
+      "p99_ms": 41.1477,
+      "maximum_ms": 42.053,
+      "over_100ms": 0
+    },
+    "lamp_off": {
+      "full_intervals": 29,
+      "median_ms": 32.012,
+      "p95_ms": 34.0036,
+      "p99_ms": 34.30416,
+      "maximum_ms": 34.396,
+      "over_100ms": 0
+    },
+    "lamp_on_radio_off": {
+      "full_intervals": 44,
+      "median_ms": 32.8305,
+      "p95_ms": 36.25485,
+      "p99_ms": 38.2665,
+      "maximum_ms": 39.148,
+      "over_100ms": 0
+    },
+    "settle": {
+      "full_intervals": 33,
+      "median_ms": 32.175,
+      "p95_ms": 100.33139999999997,
+      "p99_ms": 3689.0323599999983,
+      "maximum_ms": 5371.793,
+      "over_100ms": 2
+    },
+    "turn_settle": {
+      "full_intervals": 28,
+      "median_ms": 34.323499999999996,
+      "p95_ms": 36.7559,
+      "p99_ms": 37.0318,
+      "maximum_ms": 37.102,
+      "over_100ms": 0
+    },
+    "walk_back": {
+      "full_intervals": 8,
+      "median_ms": 37.903,
+      "p95_ms": 70.01134999999998,
+      "p99_ms": 78.73026999999999,
+      "maximum_ms": 80.91,
+      "over_100ms": 0
+    },
+    "walk_forward": {
+      "full_intervals": 6,
+      "median_ms": 38.3425,
+      "p95_ms": 39.167500000000004,
+      "p99_ms": 39.1959,
+      "maximum_ms": 39.203,
+      "over_100ms": 0
+    }
+  }
+}

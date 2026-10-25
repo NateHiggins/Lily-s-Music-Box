@@ -1,0 +1,19 @@
+[
+  {
+    "scene": "",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\companion_flashlight_20261025\\import5.log"
+  },
+  {
+    "scene": "res://tests/CompanionFlashlightWorldTest.tscn",
+    "runner": "long",
+    "timeout": 600,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\companion_flashlight_20261025\\world_v5.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\companion_flashlight_20261025\\world_v5"
+  }
+]

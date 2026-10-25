@@ -247,9 +247,25 @@ func _aspect_shift() -> float:
 	return (size.x / size.y) / REF_ASPECT
 
 
+func reading_limits() -> Vector2:
+	return Vector2(READING_NEAR, READING_FAR)
+
+func hand_is_enabled() -> bool:
+	return is_instance_valid(_player) and _player.inspecting() and _player.inspect_owner == self and reading and not _capture_hidden
+
+func hand_camera() -> Camera3D:
+	return _pass_cam
+
+func hand_begin() -> bool:
+	return true
+
+func hand_end() -> void:
+	pass
+
 func adjust_reading_distance(amount: float) -> void:
-	reading_distance=clampf(reading_distance+amount,READING_NEAR,READING_FAR)
-	device.teletype.set_focus_position(inverse_lerp(READING_FAR,READING_NEAR,reading_distance))
+	var limits := reading_limits()
+	reading_distance = clampf(reading_distance + amount, limits.x, limits.y)
+	device.teletype.set_focus_position(inverse_lerp(limits.y, limits.x, reading_distance))
 
 func can_inspect_controls() -> bool:
 	return reading and not _capture_hidden and _proof_pose==0

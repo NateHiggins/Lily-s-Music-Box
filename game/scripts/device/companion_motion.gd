@@ -25,6 +25,10 @@ const READING: Array[StringName] = [&"present", &"listen", &"think", &"speak", &
 const ROUTE_LIMIT := 64
 var behavior: StringName = &"accompany"
 var initialized := false
+var stationary_for_hand := false
+var light_target := Vector3.ZERO
+var light_target_valid := false
+var light_aperture := Vector3.ZERO
 var query_count := 0
 var recovery_count := 0
 var _player: CharacterBody3D
@@ -122,8 +126,18 @@ func release_attention() -> void:
 func steady_for_input() -> bool:
 	return initialized and not _routing and _accepted_candidate >= 0 and behavior in READING and _current_visible and velocity.length() < .12 and global_position.distance_to(_target) < .06
 
+func hold_for_hand(held: bool) -> bool:
+	if held and not steady_for_input(): return false
+	stationary_for_hand = held
+	if held: velocity = Vector3.ZERO
+	else: _probe_left = 0.0
+	return true
+
 func _physics_process(delta: float) -> void:
 	if not initialized or not is_instance_valid(_player) or not is_instance_valid(_camera): return
+	if stationary_for_hand:
+		velocity = Vector3.ZERO
+		return
 	var flat_velocity := Vector3(_player.velocity.x, 0, _player.velocity.z)
 	if flat_velocity.length() > .25:
 		var desired_yaw := atan2(-flat_velocity.x, -flat_velocity.z)
@@ -292,11 +306,19 @@ func _visible_from_player(point: Vector3) -> bool:
 
 func _update_pose(delta: float, speed: float) -> void:
 	var direction := _camera.global_position - global_position
+	if light_target_valid: direction = global_position - light_target
 	if direction.length_squared() > .001 and absf(direction.normalized().dot(Vector3.UP)) < .98:
 		var goal := Basis.looking_at(direction, Vector3.UP, true)
-		var lean := -.09 * clampf(speed / maximum_speed, 0, 1) * motion_intensity if behavior not in READING else 0.0
+		if light_target_valid:
+			# Converge from the native off-centre aperture, retaining its rigid
+			# shell mounting. Three bounded rigid-frame refinements; no ray scan.
+			for index in 3:
+				var outward := global_position + goal * light_aperture - light_target
+				if outward.length_squared() > .0001 and absf(outward.normalized().dot(Vector3.UP)) < .98:
+					goal = Basis.looking_at(outward, Vector3.UP, true)
+		var lean := -.09 * clampf(speed / maximum_speed, 0, 1) * motion_intensity if behavior not in READING and not light_target_valid else 0.0
 		goal *= Basis.from_euler(Vector3(lean, 0, 0))
-		_rig.basis = _rig.basis.orthonormalized().slerp(goal, 1.0 - exp(-delta * 8.0))
+		_rig.basis = _rig.basis.orthonormalized().slerp(goal, 1.0 - exp(-delta * (16.0 if light_target_valid else 8.0)))
 	_rig.propulsion = clampf(.42 + speed * .15 + _stalled * .05, .28, 1.8)
 
 func recover_unobserved(point: Vector3, observable: Callable) -> bool:

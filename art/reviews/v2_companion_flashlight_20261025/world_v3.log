@@ -1,0 +1,102 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.357 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 226 spaces / 111 doors / 1491 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 408 surfaces layered (269 materials)
+[PASSAGE HOURS] AFTER_HOURS; 10 grilles drawn
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[CAFE SOURCE] complete shipping triangle multiplicities match; max vertex error=0.00008013276238 bound=0.00016009476845
+[SURFACE] 198 surfaces layered (100 materials)
+[HARUKIYA] 9 interactables placed
+[SURFACE] 206 surfaces layered (108 materials)
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[LIGHTING] 267 sources active in system; 267 full personalities; profiles steady/breathe/mains/beat/dropout=[59, 56, 58, 49, 45]
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2515
+[ORISON V2 RUNTIME] ready startup_ms=101001.336
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[HARUKIYA] OPEN, 18 fixtures
+SERVICE HAND: recall settles before actual control inspection = true
+E STATE: reading=true inspecting=false pointer=2
+SERVICE HAND: E raises physical UI without entering inspection = true
+SERVICE HAND: Space explicitly frees pointer for carried mechanisms = true
+SERVICE HAND: free cursor targets specific lamp = true
+SERVICE HAND: primary click acquires lamp = true
+SERVICE HAND: acquire does not move lamp = true
+SERVICE HAND: actual mouse produces partial lamp travel = true
+SERVICE HAND: next click releases lamp = true
+SERVICE HAND: release retains lamp position = true
+SERVICE HAND: operating lamp does not create a received report = true
+SERVICE HAND: free cursor targets specific radio = true
+SERVICE HAND: primary click acquires radio = true
+SERVICE HAND: acquire does not move radio = true
+SERVICE HAND: actual mouse produces partial radio travel = true
+SERVICE HAND: next click releases radio = true
+SERVICE HAND: release retains radio position = true
+SERVICE HAND: operating radio does not create a received report = true
+SERVICE HAND: free cursor targets specific cover = true
+SERVICE HAND: primary click acquires cover = true
+SERVICE HAND: acquire does not move cover = true
+SERVICE HAND: actual mouse produces partial cover travel = true
+SERVICE HAND: next click releases cover = true
+SERVICE HAND: release retains cover position = true
+SERVICE HAND: operating cover does not create a received report = true
+SERVICE HAND: free cursor targets specific focus = true
+SERVICE HAND: primary click acquires focus = true
+SERVICE HAND: acquire does not move focus = true
+SERVICE HAND: actual mouse produces partial focus travel = true
+SERVICE HAND: next click releases focus = true
+SERVICE HAND: release retains focus position = true
+SERVICE HAND: operating focus does not create a received report = true
+SERVICE HAND: free cursor targets specific feed0 = true
+SERVICE HAND: primary click acquires feed0 = true
+SERVICE HAND: acquire does not move feed0 = true
+SERVICE HAND: actual mouse produces partial feed0 travel = true
+SERVICE HAND: feed detent reviews next complete page without reprinting = true
+SERVICE HAND: feed rotates pivot once without rotating its material child again = true
+SERVICE HAND: next click releases feed0 = true
+SERVICE HAND: release retains feed0 position = true
+SERVICE HAND: operating feed0 does not create a received report = true
+SERVICE HAND: free cursor targets specific feed1 = true
+SERVICE HAND: primary click acquires feed1 = true
+SERVICE HAND: acquire does not move feed1 = true
+SERVICE HAND: actual mouse produces partial feed1 travel = true
+SERVICE HAND: feed detent reviews next complete page without reprinting = true
+SERVICE HAND: feed rotates pivot once without rotating its material child again = true
+SERVICE HAND: next click releases feed1 = true
+SERVICE HAND: release retains feed1 position = true
+SERVICE HAND: operating feed1 does not create a received report = true
+SERVICE HAND: reacquire lamp for full travel = true
+SERVICE HAND: lamp stops at physical maximum = true
+SERVICE HAND: lamp shared reticle reports travel limit = true
+SERVICE HAND: lamp contact reaches original player power authority = true
+SERVICE HAND: full travel releases lamp = true
+SERVICE HAND: reacquire radio for full travel = true
+SERVICE HAND: radio stops at physical maximum = true
+SERVICE HAND: radio shared reticle reports travel limit = true
+SERVICE HAND: radio contact gates original printer authority = true
+SERVICE HAND: full travel releases radio = true
+SERVICE HAND: reacquire cover for full travel = true
+SERVICE HAND: cover stops at physical maximum = true
+SERVICE HAND: cover shared reticle reports travel limit = true
+SERVICE HAND: full travel releases cover = true
+SERVICE HAND: reacquire focus for full travel = true
+SERVICE HAND: focus stops at physical maximum = true
+SERVICE HAND: focus shared reticle reports travel limit = true
+SERVICE HAND: full travel releases focus = true
+SERVICE HAND: all device gestures retain world camera = true
+SERVICE HAND: Space restores walking pointer = true
+SERVICE HAND: Escape releases grabbed control and restores world = true
+SERVICE HAND: E collapses device and exits its inspection = true
+COMPANION WORLD LIGHT: 19 checks; 1 failures; 238 samples

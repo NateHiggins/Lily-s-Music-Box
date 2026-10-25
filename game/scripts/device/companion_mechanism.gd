@@ -34,6 +34,8 @@ var _settled := true
 var _last_latched := true
 var _rotor_angle := 0.0
 var _display_clock := 0.0
+var reaction_player: Node
+var _reaction_clock := 0.0
 
 func build() -> bool:
 	var packed := load("res://assets/props/service_companion_v2.glb") as PackedScene
@@ -138,6 +140,9 @@ func build() -> bool:
 	keyboard.add_child(display)
 	if not display.build(model): return _fail("Flip-tile display could not bind")
 	display.set_expression("content", 0.0, true)
+	reaction_player = preload("res://scripts/device/companion_face_player.gd").new()
+	add_child(reaction_player)
+	if not reaction_player.configure(display, func() -> float: return _reaction_clock): return _fail("Face reaction library refused")
 	glazing = model.find_child("ShellStudy__ShellGlass", true, false) as MeshInstance3D
 	if glazing == null: return _fail("Formed reading glass missing")
 	var water := MatLib.get_mat("water_clear") as StandardMaterial3D
@@ -180,6 +185,10 @@ func request_keyboard(open: bool) -> void:
 func typing_ready() -> bool:
 	return keyboard_requested and keyboard_open >= .999 and failures.is_empty()
 
+func play_reaction(id: String) -> bool:
+	if reaction_player == null or not device.radio_powered or device.teletype.printing or keyboard_open > .05: return false
+	return reaction_player.request(id)
+
 func pulse_key(character: String) -> void:
 	if not typing_ready(): return
 	var index := _key_names.find(character.to_upper())
@@ -189,6 +198,9 @@ func pulse_key(character: String) -> void:
 
 func _process(delta: float) -> void:
 	if keyboard == null or not failures.is_empty(): return
+	_reaction_clock += maxf(0.0, delta)
+	if reaction_player != null and not reaction_player.current.is_empty() and (not device.radio_powered or device.teletype.printing or keyboard_requested):
+		reaction_player.cancel(device.radio_powered and not keyboard_requested)
 	var target := 1.0 if keyboard_requested else 0.0
 	var previous := keyboard_open
 	keyboard_open = move_toward(keyboard_open, target, delta / .24)
@@ -201,7 +213,7 @@ func _process(delta: float) -> void:
 	for index in _rotors.size():
 		_rotors[index].rotation.y = _rotor_angle * (-1.0 if index == 0 else 1.0)
 	_display_clock += delta
-	if _display_clock >= .12 and device.radio_powered and not display.illustration_active:
+	if _display_clock >= .12 and device.radio_powered and not keyboard_requested and keyboard_open <= .05 and not display.illustration_active:
 		_display_clock = fmod(_display_clock, .12)
 		if device.teletype.printing:
 			var cadence: Array[float] = [.1, .7, .3, 1.0, .45, .15]

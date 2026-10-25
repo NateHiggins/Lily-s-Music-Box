@@ -6,8 +6,11 @@ var controls: Dictionary={}
 var _feed_angle:=0.
 var _feed_detent:=0
 var last_hit: Dictionary={}
+var world_space := false
+var occlusion: Area3D
 
-func _init(owner: ServiceSetCarrier) -> void:
+func _init(owner: ServiceSetCarrier, use_world_space := false) -> void:
+	world_space = use_world_space
 	carrier=owner;printer=carrier.device.teletype
 	controls={"lamp":printer.lamp_switch,"radio":printer.radio_switch,
 		"cover":printer.service_cover,"focus":printer.focus_wheel}
@@ -17,6 +20,9 @@ func _init(owner: ServiceSetCarrier) -> void:
 	for key: String in controls:
 		var part: Node3D=controls[key]
 		preload("res://scripts/props/manipulation_area.gd").install(part,descriptor.bind(key))
+	if world_space:
+		_install_world_occlusion()
+		return
 	for draw: MeshInstance3D in printer.find_children("*","MeshInstance3D",true,false):
 		var movable:=false
 		for part: Node3D in controls.values():
@@ -27,10 +33,11 @@ func _init(owner: ServiceSetCarrier) -> void:
 		draw.add_child(body);body.add_child(collision)
 
 func enabled() -> bool:
-	return is_instance_valid(carrier._player) and carrier._player.inspecting() and carrier._player.inspect_owner==carrier and carrier.reading and not carrier._capture_hidden
+	return carrier.hand_is_enabled()
 
 func find_target() -> Dictionary:
 	if not enabled():return {}
+	if world_space: return _find_world_target()
 	var rect:=carrier._device_rect.get_global_rect()
 	var pixel:=carrier.get_viewport().get_mouse_position()
 	if not rect.has_point(pixel):return {}
@@ -47,19 +54,22 @@ func find_target() -> Dictionary:
 	return target
 
 func descriptor(key: String) -> Dictionary:
+	if world_space and not enabled(): return {}
 	var part: Node3D=controls[key]
 	var low:=0.;var high:=1.85;var axis:=Vector3.RIGHT;var gesture:=Vector2.DOWN
 	if key in ["lamp","radio"]:low=-.4;high=.4;axis=Vector3.BACK
-	elif key=="focus":low=carrier.READING_NEAR;high=carrier.READING_FAR;axis=Vector3.RIGHT
+	elif key=="focus":
+		var limits := carrier.reading_limits()
+		low=limits.x;high=limits.y;axis=Vector3.RIGHT
 	elif key.begins_with("feed"):low=-TAU;high=TAU;axis=Vector3.RIGHT;gesture=Vector2.UP
 	return {"owner":carrier,"part":part,"frame":part.get_parent(),"kind":"hinge",
 		"axis":axis,"minimum":low,"maximum":high,"gesture_travel_px":160.,"gesture_screen_axis":gesture,
-		"view_camera":carrier._pass_cam,"unobstructed_hold":true,"interaction_valid":enabled,
+		"view_camera":carrier.hand_camera(),"unobstructed_hold":true,"interaction_valid":enabled,
 		"read":read.bind(key),"write":write.bind(key),"begin":begin.bind(key),"end":end,
 		"change_origin":func()->Vector3:return carrier._player.global_position}
 
 func begin(key: String) -> bool:
-	if not enabled() or printer.hand_control!=null:return false
+	if not enabled() or printer.hand_control!=null or not carrier.hand_begin():return false
 	printer.hand_control=controls[key]
 	if printer._controls_motion:
 		printer._controls_motion.kill()
@@ -72,6 +82,7 @@ func begin(key: String) -> bool:
 
 func end() -> void:
 	printer.hand_control=null
+	carrier.hand_end()
 
 func read(key: String) -> float:
 	if key in ["lamp","radio"]:return controls[key].rotation.z
@@ -94,7 +105,8 @@ func write(value: float,key: String) -> void:
 		printer.service_cover.rotation.x=value;printer.service_open=value>.9
 	elif key=="focus":
 		carrier.reading_distance=value
-		printer.focus_wheel.rotation.x=inverse_lerp(carrier.READING_FAR,carrier.READING_NEAR,value)*TAU
+		var limits := carrier.reading_limits()
+		printer.focus_wheel.rotation.x=inverse_lerp(limits.y,limits.x,value)*TAU
 	else:
 		var delta:=value-_feed_angle;_feed_angle=value
 		if not printer._reviewing:
@@ -106,3 +118,49 @@ func write(value: float,key: String) -> void:
 		var detent:=int(value/(PI*.5))
 		if detent!=_feed_detent:
 			printer.turn_page(signi(detent-_feed_detent));_feed_detent=detent
+
+func _find_world_target() -> Dictionary:
+	# Only the explicit inspection provider uses this query. Ordinary hover
+	# and click already share ConstrainedGrab's single authoritative world ray.
+	var camera := carrier.hand_camera()
+	var cursor := carrier.get_viewport().get_mouse_position()
+	var origin := camera.project_ray_origin(cursor)
+	var query := PhysicsRayQueryParameters3D.create(origin, origin + camera.project_ray_normal(cursor) * 2.1)
+	query.collide_with_areas = true
+	query.exclude = [carrier._player.get_rid()]
+	last_hit = carrier.get_world_3d().direct_space_state.intersect_ray(query)
+	if last_hit.is_empty() or not last_hit.collider.has_method("manipulation_target"): return {}
+	var result: Dictionary = last_hit.collider.manipulation_target(last_hit)
+	if result.is_empty() or result.get("owner") != carrier: return {}
+	result.hit_position = last_hit.position
+	return result
+
+func _install_world_occlusion() -> void:
+	# One query-only triangle owner, built once from imported stock. No moving
+	# concave rigid bodies, world response, per-frame rebuild or duplicate scan.
+	var faces := PackedVector3Array()
+	var model: Node3D = printer.model
+	for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
+		if draw.mesh == null or not draw.is_visible_in_tree(): continue
+		var moving := false
+		for part: Node3D in controls.values():
+			if part == draw or part.is_ancestor_of(draw): moving = true; break
+		var ancestor: Node = draw
+		while ancestor != model and ancestor != null:
+			if str(ancestor.name) in ["CompanionKeyboard", "LiftRotorPort", "LiftRotorStarboard", "Carriage", "TypeSelector", "Type_hammer", "Type hammer", "Platen", "Aerial"]: moving = true; break
+			ancestor = ancestor.get_parent()
+		if moving: continue
+		var into_model := model.global_transform.affine_inverse() * draw.global_transform
+		for point: Vector3 in draw.mesh.get_faces(): faces.append(into_model * point)
+	if faces.is_empty(): return
+	occlusion = Area3D.new()
+	occlusion.name = "FixedInstrumentPickOcclusion"
+	occlusion.collision_layer = 1; occlusion.collision_mask = 0
+	occlusion.monitoring = false; occlusion.monitorable = false
+	model.add_child(occlusion)
+	var shape := ConcavePolygonShape3D.new()
+	shape.backface_collision = true
+	shape.set_faces(faces)
+	var collision := CollisionShape3D.new()
+	collision.shape = shape
+	occlusion.add_child(collision)

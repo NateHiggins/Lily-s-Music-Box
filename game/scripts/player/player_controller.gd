@@ -508,6 +508,12 @@ func _input(event: InputEvent) -> void:
 func _carry_service_light(delta: float) -> void:
 	if _hand == null:
 		return
+	if is_instance_valid(carried_device) and bool(carried_device.get("beam_valid")) and carried_device.has_method("world_lamp_transform"):
+		var physical: Transform3D = carried_device.world_lamp_transform()
+		if physical.is_finite():
+			_hand.global_transform = physical
+			_update_throw(delta)
+			return
 	_sway_clock += delta * (2.6 if velocity.length() > 0.5 else 1.0)
 	# The carrier publishes a held-light origin. Close-work convergence and a
 	# swept aperture keep this offset source out of nearby walls and fittings.

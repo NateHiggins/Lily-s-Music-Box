@@ -1,0 +1,26 @@
+systemic situation-authority audit
+  findings: 81
+  by_class: ABSTRACT_JUDGMENT_FACT=1, AUTONOMY_DEPENDS_ON_PROXIMITY=15, DIRECT_NPC_KNOWLEDGE_WRITE=7, DUPLICATE_CUSTODY=7, DYNAMIC_UNRESOLVED=16, HOST_CLOCK_MUTATES_WORLD=8, OBJECTIVE_UI_LEAK=3, TEST_AUTHORITY_SHORTCUT=1, TIMER_IMPERSONATES_ACTOR=23
+  by_confidence: HEURISTIC=53, STRONG=12, UNKNOWN=16
+  by_domain: custody=7, host-clock=8, judgment=1, npc-knowledge=7, objective-ui=3, proximity=15, test-proof=1, timer=39
+  by_tier: production=37, test=44
+  by_disposition: ADD_PUBLIC_PROOF=1, BASELINE_DEBT=3, DELEGATE_TO_OWNER=2, FIX=1, REVIEW=74
+NEW actionable (FAIL): 0
+baseline policy violations (FAIL): 0
+new review-only: 23
+  - AUTONOMY_DEPENDS_ON_PROXIMITY game/scripts/building/orison_v2_runtime_root.gd:player_unit [HEURISTIC]
+  - TIMER_IMPERSONATES_ACTOR game/scripts/building/orison_v2_runtime_root.gd:_compose_authorities [HEURISTIC]
+  - AUTONOMY_DEPENDS_ON_PROXIMITY game/scripts/game/open_shift_radiator_ecosystem.gd:_process [HEURISTIC]
+  - DUPLICATE_CUSTODY game/scripts/props/radiator_prop.gd:apply_maintenance_result [HEURISTIC]
+  - DUPLICATE_CUSTODY game/scripts/props/radiator_prop.gd:bind_inventory [HEURISTIC]
+  - TIMER_IMPERSONATES_ACTOR game/tests/night_register_test.gd:_signing [HEURISTIC]
+  - TIMER_IMPERSONATES_ACTOR game/tests/open_shift_authority_test.gd:_delayed_offscreen_is_deterministic [HEURISTIC]
+  - TIMER_IMPERSONATES_ACTOR game/tests/open_shift_ignore_test.gd:_ready [HEURISTIC]
+  ... 15 more (--verbose)
+vanished baseline entries (cleanup): 6
+  - HOST_CLOCK_MUTATES_WORLD game/scripts/game/work_orders.gd:adopt_job [STRONG]
+  - HOST_CLOCK_MUTATES_WORLD game/scripts/game/maintenance_inventory.gd:grant [STRONG]
+  - HOST_CLOCK_MUTATES_WORLD game/scripts/game/maintenance_inventory.gd:consume [STRONG]
+  - HOST_CLOCK_MUTATES_WORLD game/scripts/game/work_orders.gd:issue [STRONG]
+  - HOST_CLOCK_MUTATES_WORLD game/scripts/game/work_orders.gd:issue_job [STRONG]
+  - FOREIGN_PHYSICAL_MUTATION game/scripts/lamp/lamp_optical_state.gd:write_output [HEURISTIC]

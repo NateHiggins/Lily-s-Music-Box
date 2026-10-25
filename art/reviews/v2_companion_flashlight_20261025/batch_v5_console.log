@@ -1,0 +1,25 @@
+[LANE] busy; waiting up to 120 min for '2 runs'
+lane: BUSY
+  mutex: held
+  holder: pid 184544 (serial) scene 'res://tests/ResidentKeysTest.tscn' since 2026-10-25T10:01:49Z from C:\ov\agenda
+  godot: pid 87036 Godot_v4.7.1-stable_win64 since 2026-10-25T10:01:49Z
+         C:\Users\nate_\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.7.1-stable_win64.exe --headless --path C:\ov\agenda\game res://tests/ResidentKeysTest.tscn
+  godot: pid 237004 Godot_v4.7.1-stable_win64_console since 2026-10-25T10:01:49Z
+         "C:\Users\nate_\AppData\Local\Microsoft\WinGet\Packages\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\Godot_v4.7.1-stable_win64_console.exe" --headless --path C:\ov\agenda\game res://tests/ResidentKeysTest.tscn
+  waiting: pid 111032 for 'res://tests/V2BathroomFinishingReview.tscn' since 2026-10-24T13:31:36Z [STALE]
+  waiting: pid 113100 for '6 runs' since 2026-10-24T18:54:15Z [STALE]
+  waiting: pid 133616 for '2 runs' since 2026-10-24T12:55:22Z [STALE]
+  waiting: pid 14848 for '5 runs' since 2026-10-24T11:24:59Z [STALE]
+  waiting: pid 177072 for '2 runs' since 2026-10-25T10:04:07Z
+  waiting: pid 178304 for '7 runs' since 2026-10-24T15:57:50Z [STALE]
+  waiting: pid 180344 for '5 runs' since 2026-10-24T22:12:38Z [STALE]
+  waiting: pid 191212 for '5 runs' since 2026-10-25T04:56:02Z [STALE]
+  waiting: pid 192480 for '5 runs' since 2026-10-24T18:43:59Z [STALE]
+  waiting: pid 227324 for '2 runs' since 2026-10-25T05:37:32Z [STALE]
+  waiting: pid 26700 for '4 runs' since 2026-10-25T03:51:42Z [STALE]
+  waiting: pid 46528 for 'res://tests/WalkTest.tscn' since 2026-10-10T20:22:23Z [STALE]
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_flashlight_20261025\import5.log.receipt.json exit=0 completed=True pass_lines=0 fail_lines=0
+[LANE]  exit=0
+[LONG RUNNER] scene=res://tests/CompanionFlashlightWorldTest.tscn exit=0 elapsed_s=149 ceiling_s=600
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_flashlight_20261025\world_v5.log.receipt.json exit=0 completed=True pass_lines=0 fail_lines=0
+[LANE] res://tests/CompanionFlashlightWorldTest.tscn exit=0

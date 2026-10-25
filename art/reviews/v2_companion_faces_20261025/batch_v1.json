@@ -1,0 +1,35 @@
+[
+  {
+    "scene": "",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\companion_faces_20261025\\import1.log"
+  },
+  {
+    "scene": "res://tests/CompanionFaceBench.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\companion_faces_20261025\\face_v1.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\companion_faces_20261025\\face_v1"
+  },
+  {
+    "scene": "res://tests/ServiceSetHandTest.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\companion_faces_20261025\\old_hand_v1.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\companion_faces_20261025\\old_hand_v1"
+  },
+  {
+    "scene": "res://tests/CompanionWorldHandBench.tscn",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "log": "C:\\ov\\reports\\v2integration24\\companion_faces_20261025\\world_hand_v1.log",
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\companion_faces_20261025\\world_hand_v1"
+  }
+]

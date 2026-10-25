@@ -193,7 +193,7 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: acoustic binding failed: "+str(acoustic_topology.errors))
 		return
-	_compose_authorities()
+	await _compose_authorities()
 	if startup_failed:
 		return
 	elevator = preload("res://scripts/building/orison_v2_elevator.gd").new().mount(adapter, layout)
@@ -453,9 +453,16 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: exterior composition failed")
 		return
 	vantry_points.bind_player(player)
-	service_set_carrier = ServiceSetCarrier.new()
+	service_set_carrier = preload("res://scripts/device/companion_world_carrier.gd").new() if OS.get_environment("ORISON_COMPANION_WORLD") == "1" else ServiceSetCarrier.new()
 	service_set_carrier.name = "ServiceSetCarrier"
-	service_set_carrier.setup(player, player.camera, work_orders)
+	if OS.get_environment("ORISON_COMPANION_WORLD") == "1":
+		await service_set_carrier.setup(player, player.camera, work_orders)
+		if not bool(service_set_carrier.get("world_ready")):
+			startup_failed = true
+			startup_failure_reason = str(service_set_carrier.get("failure"))
+			return
+	else:
+		service_set_carrier.setup(player, player.camera, work_orders)
 	player.carried_device = service_set_carrier
 	player.set_lamp_enabled(true)
 	call_interface = CallInterface.new()

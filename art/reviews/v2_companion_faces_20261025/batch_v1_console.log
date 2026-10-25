@@ -1,0 +1,8 @@
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_faces_20261025\import1.log.receipt.json exit=0 completed=True pass_lines=0 fail_lines=0
+[LANE]  exit=0
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_faces_20261025\face_v1.log.receipt.json exit=1 completed=True pass_lines=0 fail_lines=0
+[LANE] res://tests/CompanionFaceBench.tscn exit=1
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_faces_20261025\old_hand_v1.log.receipt.json exit=0 completed=True pass_lines=1 fail_lines=0
+[LANE] res://tests/ServiceSetHandTest.tscn exit=0
+[RUN RECEIPT] C:\ov\reports\v2integration24\companion_faces_20261025\world_hand_v1.log.receipt.json exit=0 completed=True pass_lines=1 fail_lines=0
+[LANE] res://tests/CompanionWorldHandBench.tscn exit=0

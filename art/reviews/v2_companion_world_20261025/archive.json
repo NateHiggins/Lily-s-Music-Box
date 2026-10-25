@@ -1,0 +1,122 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Local old/new hand actual-input diagnostics, original70checks and world-space76checks, zero failures/script errors. Not occupied V2 or performance qualification.",
+  "files": [
+    {
+      "path": "authority_v1.log",
+      "sha256": "d26d5b5a4a370392c2e909b12db555a9718ac7b3f3eabac4839346b137d31310"
+    },
+    {
+      "path": "authority_v2.log",
+      "sha256": "0cf92a651c51a798b024935ed2cd16e9e310f28db2e6f0e62c8b1de2183fff0d"
+    },
+    {
+      "path": "batch_usage_error.log",
+      "sha256": "6cfe21f7060fbddd8d1d80f3bb9142ca6fb83015b0e49aef1151918fe83440f8"
+    },
+    {
+      "path": "batch_v1.json",
+      "sha256": "58ce777f32a96ab6aab713fbfda38c12bf848728735f8aaa84d6de3b0ef90d88"
+    },
+    {
+      "path": "batch_v1_console.log",
+      "sha256": "262713a887dfc76d0490e4d1e3e59f455895487d43bbd88d89e3c6f04069851d"
+    },
+    {
+      "path": "executed_sources/game/scripts/building/orison_v2_runtime_root.gd",
+      "sha256": "b5152638884355a48a6e382ff8a50dd4e551833e8aaf2745de1e7bc546c2ec64"
+    },
+    {
+      "path": "executed_sources/game/scripts/device/companion_motion.gd",
+      "sha256": "cd8ebbcb741ee246b90500e4d36fc2a30214e0c322c6cd75123ee85495c38ccb"
+    },
+    {
+      "path": "executed_sources/game/scripts/device/companion_world_carrier.gd",
+      "sha256": "326a07af5fbf339f48572147d8845cb6e83617e6722472b406b03dbde30c7b19"
+    },
+    {
+      "path": "executed_sources/game/scripts/device/service_set_carrier.gd",
+      "sha256": "22ba290180bae9b800c001028c9ea691f2f4c0abdbe26fa30806a1bb0721e4c3"
+    },
+    {
+      "path": "executed_sources/game/scripts/device/service_set_hand.gd",
+      "sha256": "895532c1ba4ec0f67d1a08814a07df80a138d1322837652c724e3c633465b0b8"
+    },
+    {
+      "path": "executed_sources/game/scripts/player/player_controller.gd",
+      "sha256": "01c45d3b2571d0f4488170bfc57bfbf5aafb025cccf7ecc3a208aa01694db651"
+    },
+    {
+      "path": "executed_sources/game/tests/companion_world_hand_bench.gd",
+      "sha256": "570a7c4cc0582508f78e5459d8177df3e42c720ca007b3a144eca62313aa0d96"
+    },
+    {
+      "path": "executed_sources/game/tests/CompanionWorldHandBench.tscn",
+      "sha256": "a309faa5529543d8170c87dca6b6b2a92bb3a6692dffb363fded43fbe6c73a7e"
+    },
+    {
+      "path": "import1.log",
+      "sha256": "d5db075637715685c09703bc8472fcb6e963e7c43a48166682e80ccc3976e025"
+    },
+    {
+      "path": "import1.log.receipt.json",
+      "sha256": "096f5afe152c3f2c44a7ff48db35419cc1a1d34685c0bae62a54b34d9529b556"
+    },
+    {
+      "path": "import1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "legacy_hand_v1/observations.json",
+      "sha256": "1c5dda8740044f3bb92802e5bb74c0b6c6c57313a1df9ca087cd4089078ff939"
+    },
+    {
+      "path": "legacy_hand_v1/physical_controls.png",
+      "sha256": "70c24dbb5f53f6494c84d2a2917dc77960d6e78db2f01f5a66939a67dc4b52cb"
+    },
+    {
+      "path": "legacy_hand_v1.log",
+      "sha256": "2098aea647e7403690d0d8cf5a4bed8607aff9df86fca46f73d6572e786eddd2"
+    },
+    {
+      "path": "legacy_hand_v1.log.receipt.json",
+      "sha256": "3de9b332a2c1a8485b6a7c6c65b1184a62f7b037bb0c5db6548150dcfdacea7d"
+    },
+    {
+      "path": "legacy_hand_v1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reader_v1.log",
+      "sha256": "e588792ad309cb2b6b96c38d538cfbc0c2de6792e15feacb3e73a13713190f1d"
+    },
+    {
+      "path": "spatial_v1.log",
+      "sha256": "645387efa642cbc3156cd5bc36287bb04314946fa6ae3491c74deeae24251a25"
+    },
+    {
+      "path": "spatial_v2.log",
+      "sha256": "b8f5d693a338568abdadc8ec689ac5f56875e49a6aec818e0d98dd70ed973eae"
+    },
+    {
+      "path": "world_hand_v1/observations.json",
+      "sha256": "e46572746e415370fcd2686fdea2a196120c9acdbe62fb2ddbbec2c046616a4e"
+    },
+    {
+      "path": "world_hand_v1/physical_controls.png",
+      "sha256": "3d3c1c4a6303e6e61748582179355522896fb6559167ac9a56f2209c8f6b3e36"
+    },
+    {
+      "path": "world_hand_v1.log",
+      "sha256": "449ffc8febbae9db849c1660130e2648bb9a124dec2d700307a0fbf09acbd789"
+    },
+    {
+      "path": "world_hand_v1.log.receipt.json",
+      "sha256": "affc4adb187c83c54897ecdd89ed0dfe6d78d942e90610ac02005743204ae029"
+    },
+    {
+      "path": "world_hand_v1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

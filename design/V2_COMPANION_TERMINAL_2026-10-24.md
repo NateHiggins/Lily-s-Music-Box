@@ -545,3 +545,73 @@ V2 navigation, normal world targeting, campaign persistence, mirror-aware
 recovery, typing, conversation integration or a performance improvement. The
 original carrier remains the installed gameplay default; milestones C–G remain
 open. There is no current owned Godot process.
+
+### World-space adapter: first actual-input family check
+
+The candidate world carrier preserves ServiceSetProp for radio, lamp, printer,
+calls and WorkOrders, with no private viewport or overlay. Its world-space hand
+uses the same authoritative descriptors and ConstrainedGrab interaction path;
+one query-only fixed-stock mesh occludes controls, without one moving rigid
+concave body per draw. One nonblocking flight sphere handles environment contact.
+The player-only fire-door replacement remains player-only: companion queries use
+the retained original layer1 contacts rather than borrowing its specialized proxy.
+
+Native controls stabilize the flight frame while grabbed or inspected. Focus
+limits are0.42–0.72m for the world hull; the existing private carrier retains its
+original0.26–0.39m range. The actual player-owned lamp uses the native lens
+transform for this carrier, retaining the original circuit/optical authorities.
+No extra light or camera-mounted replacement emitter is created. Render layer2
+stays visible to main/planar cameras while existing room probes exclude the
+moving device. Recovery without an observation authority remains forbidden.
+
+A266.78-second import completes with zero script errors. Windowed original
+**ServiceSetHandTest** passes70 checks in5.11 seconds; candidate
+**CompanionWorldHandBench** passes76 checks in6.07 seconds. Both execute actual
+key/click/mouse events for six controls, partial travel, stops, shared reticle,
+lamp/radio ownership and inspection/Escape interruption. The candidate additionally
+checks the single body, no private pass, one occlusion owner and real lamp origin.
+The candidate frame was viewed. These are INERT local-family checks, not occupied
+V2, save or performance qualification. The production default remains unchanged;
+**ORISON_COMPANION_WORLD=1** enables the candidate for controlled integration runs.
+
+Reader audit has zero NEW fields; spatial audit is clean with the same nine
+cleanup records; authority audit retains23 existing review-only findings and no
+new actionable/policy failures. Early misspelled audit/runner invocations are
+retained as tooling diagnostics, not engine runs or passes. Full-world profiling,
+mirror-aware recovery, contextual typing/save/dialogue and milestones C–G remain
+open. The initial optional candidate may refuse startup if no clear physical
+starting position exists; this is not a fallback or a qualified general spawn.
+
+### Companion flashlight in occupied V2
+
+**world_v5** completes18 top-level checks and234 frame observations in149
+seconds, with zero functional failures and zero script errors. The existing
+player flashlight tracks the manufactured lens within0.245757 micrometres;
+maximum direction-vector separation is0.000000120137. Whole-shell orientation
+converges from the actual off-centre lens on the authoritative viewed point.
+Three bounded rigid-frame refinements add no physics scans. Original L/R
+power owners, radio-off lamp use, shadow policy and absent projector are checked.
+The real six-control programme and grabbed-control Escape are executed. All four
+captures were viewed. Default production remains the old carrier; the candidate
+is selected with **ORISON_COMPANION_WORLD=1** until remaining integration closes.
+
+| Location / reproduction | Severity | Evidence | Repair / verification |
+|---|---|---|---|
+| Startup, candidate awaiting physical placement | High | v1 reaches missing porter binding before authority setup finishes | Root now awaits the complete existing authority composition; later world starts |
+| Frame-sampling/input fixture | Diagnostic error | v2 reads before player update and checks a polled L too early | Sample after the player; hold real key through a rendered frame; preserve failed aggregate |
+| First rendered source handoff | Visible lighting defect | v3 first frame0.970m from native lens; later frames track | Publish valid native aperture synchronously at setup completion; v4/v5 first frame passes |
+| Side-mounted light, close viewed work | Usability | v4 parallel-camera comparison fails to account for parallax; native offset also omitted | Aim the entire shell from its actual lens at the viewed point, including reading; v5 retained2-degree convergence check passes |
+| Test teardown | Open renderer defect | Two engine-internal unpair errors, v5 stderr | No resource-lifetime qualification; hiding lights/retiring simulation does not remove them |
+
+All four failed attempts, raw samples, original executed sources and wrapper
+receipts remain intact. **summary.json** reports frame distributions for this
+short exterior route, omitting the first partial interval of each phase. The
+actual-turn phase resets the clock per one-tick call, so its wall intervals are
+partial and explicitly invalid for frame-time conclusions. The initial settle
+contains a retained5,371.793ms spike; its cause is not isolated.
+There is no matched baseline for this route and no performance improvement claim.
+These explicitly INERT observations do not replace a schema2 runtime contract,
+full-world navigation/save/mirror proof, broad performance attribution or human
+acceptance. Current reader/spatial/authority checks add no defects; all17 protected
+paths match main parent **bde30c08**, but final management verification is pending.
+The next owner request is researched, original low-resolution face reactions.

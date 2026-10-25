@@ -1,0 +1,22 @@
+{
+	"checks": [
+		{
+			"name": "production V2 starts with the native autonomous companion",
+			"passed": false
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [
+		"production V2 starts with the native autonomous companion"
+	],
+	"samples": [],
+	"scope": "Actual occupied production V2 candidate; native light source tracking, power/radio independence and six native hand controls. Not full navigation, saves, mirrors, performance comparison or human acceptance.",
+	"settings": {
+		"clock": "1928-11-10T20:00 frozen",
+		"fps_cap": 0,
+		"physics_hz": 60,
+		"viewport": "(1280, 720)",
+		"vsync": "off"
+	},
+	"source_before": "a9ffdf4b95d55e51420f86c489396bf4fd1392e1a3deae7b98110cd667f4cbe6"
+}

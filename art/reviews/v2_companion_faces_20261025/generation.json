@@ -1,0 +1,92 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original code-authored bit planes and derived GIF preview; not renderer verification",
+  "reactions": [
+    {
+      "id": "vaudeville_wink",
+      "frames": 5,
+      "minimum_duration_ms": 1900,
+      "maximum_transition_tiles": 4,
+      "changed_tiles": [
+        0,
+        4,
+        4,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "clockwork_thought",
+      "frames": 7,
+      "minimum_duration_ms": 2750,
+      "maximum_transition_tiles": 42,
+      "changed_tiles": [
+        0,
+        42,
+        32,
+        32,
+        32,
+        32,
+        42
+      ]
+    },
+    {
+      "id": "wireless_call",
+      "frames": 9,
+      "minimum_duration_ms": 3200,
+      "maximum_transition_tiles": 32,
+      "changed_tiles": [
+        0,
+        8,
+        32,
+        32,
+        8,
+        8,
+        32,
+        32,
+        8
+      ]
+    },
+    {
+      "id": "lamp_trim",
+      "frames": 6,
+      "minimum_duration_ms": 2350,
+      "maximum_transition_tiles": 60,
+      "changed_tiles": [
+        0,
+        54,
+        6,
+        6,
+        6,
+        60
+      ]
+    },
+    {
+      "id": "rain_hat",
+      "frames": 6,
+      "minimum_duration_ms": 2350,
+      "maximum_transition_tiles": 28,
+      "changed_tiles": [
+        0,
+        28,
+        16,
+        16,
+        16,
+        28
+      ]
+    },
+    {
+      "id": "catnap",
+      "frames": 5,
+      "minimum_duration_ms": 2300,
+      "maximum_transition_tiles": 22,
+      "changed_tiles": [
+        0,
+        18,
+        22,
+        0,
+        4
+      ]
+    }
+  ]
+}

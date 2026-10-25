@@ -1,0 +1,138 @@
+{
+	"checks": [
+		{
+			"name": "six authored reaction strips are loaded",
+			"passed": true
+		},
+		{
+			"name": "reaction player sleeps before a request",
+			"passed": true
+		},
+		{
+			"name": "unknown reaction refuses without changing state",
+			"passed": true
+		},
+		{
+			"name": "native reaction starts: vaudeville_wink/30",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: clockwork_thought/30",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: wireless_call/30",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: lamp_trim/30",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: rain_hat/30",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: catnap/30",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: vaudeville_wink/60",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: clockwork_thought/60",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: wireless_call/60",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: lamp_trim/60",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: rain_hat/60",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: catnap/60",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: vaudeville_wink/144",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: clockwork_thought/144",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: wireless_call/144",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: lamp_trim/144",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: rain_hat/144",
+			"passed": false
+		},
+		{
+			"name": "native reaction starts: catnap/144",
+			"passed": false
+		},
+		{
+			"name": "all reactions retain32 active flips and64 transform writes per rendered step",
+			"passed": true
+		},
+		{
+			"name": "all six shorts reuse the existing mesh batches",
+			"passed": true
+		},
+		{
+			"name": "new eligible reaction starts for keyboard interruption",
+			"passed": false
+		},
+		{
+			"name": "keyboard opening interrupts the hidden face",
+			"passed": true
+		},
+		{
+			"name": "unpowered radio refuses new face movement",
+			"passed": true
+		},
+		{
+			"name": "power restoration returns ownership to normal mouth animation",
+			"passed": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [
+		"native reaction starts: vaudeville_wink/30",
+		"native reaction starts: clockwork_thought/30",
+		"native reaction starts: wireless_call/30",
+		"native reaction starts: lamp_trim/30",
+		"native reaction starts: rain_hat/30",
+		"native reaction starts: catnap/30",
+		"native reaction starts: vaudeville_wink/60",
+		"native reaction starts: clockwork_thought/60",
+		"native reaction starts: wireless_call/60",
+		"native reaction starts: lamp_trim/60",
+		"native reaction starts: rain_hat/60",
+		"native reaction starts: catnap/60",
+		"native reaction starts: vaudeville_wink/144",
+		"native reaction starts: clockwork_thought/144",
+		"native reaction starts: wireless_call/144",
+		"native reaction starts: lamp_trim/144",
+		"native reaction starts: rain_hat/144",
+		"native reaction starts: catnap/144",
+		"new eligible reaction starts for keyboard interruption"
+	],
+	"observations": [],
+	"peak_active": 32,
+	"peak_transform_writes": 64,
+	"scope": "Rendered native tile animations at30/60/144 caps; no world dialogue, current full runtime, navigation, saves or performance qualification"
+}

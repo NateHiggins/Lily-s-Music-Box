@@ -1,0 +1,10 @@
+ERROR: native lamp turns toward the viewed work after actual mouse input
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_flashlight_world_test.gd:20)
+       [1] _run (res://tests/companion_flashlight_world_test.gd:77)
+       [2] _frames (res://tests/companion_flashlight_world_test.gd:120)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_scenario (servers/rendering/renderer_scene_cull.cpp:844)
+ERROR: BUG, indexing did not unpair geometries from light.
+   at: instance_set_base (servers/rendering/renderer_scene_cull.cpp:616)
