@@ -37,7 +37,8 @@ for row in fixture['parts']:
     obj=bpy.data.objects[row['name']];obj.data.calc_loop_triangles();assert len(obj.data.loop_triangles)==row['triangles']
 leaf=bpy.data.objects['EntryLeaf'];leaf.location=(fixture['door']['width']/2,-.035,0);leaf.rotation_euler.z=math.pi
 # Temporary read-only fabric from the production discovery, never resaved.
-fabric=json.loads((ROOT/'tmp/v2-facade/fabric-before.json').read_bytes())
+stock_only=os.environ.get('FACADE_NATIVE_STOCK_ONLY')=='1'
+fabric={'draws':[]} if stock_only else json.loads((ROOT/'tmp/v2-facade/fabric-before.json').read_bytes())
 stone=bpy.data.materials.new('ReadOnlyRetainedBrick');stone.diffuse_color=(.18,.065,.035,1)
 front=fixture['facade_root_z']
 for row in fabric['draws']:
@@ -53,8 +54,8 @@ for location,power,size in [((2,-5,6),1000,4),((-4,-3,4),600,3),((0,-.8,3.30),35
     obj=bpy.data.objects.new(data.name,data);scene.collection.objects.link(obj);obj.location=location;obj.rotation_euler=(Vector((0,-.3,1.6))-obj.location).to_track_quat('-Z','Y').to_euler()
 data=bpy.data.cameras.new('NativeInspectionCamera');camera=bpy.data.objects.new('NativeInspectionCamera',data);scene.collection.objects.link(camera);scene.camera=camera
 out=ROOT/'tmp/v2-facade/native';out.mkdir(parents=True,exist_ok=True)
-for name,at,target,lens in [('entrance',(3,-6,2.2),(0,-.2,1.9),45),('canopy',(2,-3,2.1),(0,-.8,3.25),44),('leaf',(.7,-1.6,1.6),(0,-.04,1.1),48)]:
+for name,at,target,lens in [('entrance',(3,-6,2.2),(0,-.2,1.9),45),('canopy',(2,-3,2.1),(0,-.8,3.25),44),('leaf',(.7,-1.6,1.6),(0,-.04,1.1),48),('oak_mitre',(-.95,-.85,2.42),(-.60,0,2.18),65)]:
     camera.location=at;camera.rotation_euler=(Vector(target)-camera.location).to_track_quat('-Z','Y').to_euler();data.lens=lens
     scene.render.filepath=str(out/(name+'.png'));bpy.ops.render.render(write_still=True)
-(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','closed_positive_stocks':len(checks),'keyway_rays':keyway_checks,'triangles':fixture['triangles'],'renders':3,'source_file_sha256':hashlib.sha256((ROOT/'art/blender/front_facade.blend').read_bytes()).hexdigest()},indent=2)+'\n')
-print('NATIVE FRONT FACADE INSPECTION:',len(checks),'positive closed stocks; all bounds, volumes, maps and bindings checked; three renders')
+(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','scope':'Native stock only; original world fabric is absent' if stock_only else 'Native stock with retained read-only world fabric; not runtime qualification','closed_positive_stocks':len(checks),'keyway_rays':keyway_checks,'triangles':fixture['triangles'],'renders':4,'source_file_sha256':hashlib.sha256((ROOT/'art/blender/front_facade.blend').read_bytes()).hexdigest()},indent=2)+'\n')
+print('NATIVE FRONT FACADE INSPECTION:',len(checks),'positive closed stocks; all bounds, volumes, maps and bindings checked; four renders; stock_only=',stock_only)

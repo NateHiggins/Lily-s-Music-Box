@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 14.88,
+  "exit_code": 1,
+  "finished_utc": "2026-10-25T03:15:04Z",
+  "started_utc": "2026-10-25T03:14:49Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/door_mitres_20261024/loaded_v3.log.stderr",
+  "stderr_sha256": "458b7aa81b511a803ee91f1f5d2fa909ef59972a17c6aa6109a07e6e7a4ee3a7",
+  "stdout": "C:/ov/reports/v2integration24/door_mitres_20261024/loaded_v3.log",
+  "stdout_sha256": "2a6c8b524d0cd96553dd89ede864968909efa0f01f1c8b718eae3c3ff0e92d8c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2CasingMitreBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\door_mitres_20261024\\loaded_v3",
+ "source": {
+  "dirty_paths": 2213,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/front_facade.blend",
+   " M art/blender/front_facade_inventory.json",
+   " M art/blender/scripts/build_front_facade.py",
+   " M art/blender/scripts/build_shop_joinery.py",
+   " M art/blender/scripts/inspect_front_facade.py",
+   " M art/blender/scripts/inspect_shop_joinery.py",
+   " M art/blender/scripts/shop_joinery_geometry.py",
+   " M art/blender/shop_joinery.blend",
+   " M art/blender/shop_joinery_construction.json",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/data/front_facade/source_fit.json",
+   " M art/data/shop_joinery/source_plan.json",
+   " M art/tools/fix_v2_mesh_imports.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import"
+  ],
+  "repository_head": "f3d634709c8eaae8c12dbc2c287ec45dbb415872",
+  "repository_tree": "5fcfe568679e7b4e64abc99ac2c2563f004e830c",
+  "runtime_inputs_sha256": "4b6ddea4d659053738c23af69f94f27b35bf894ef7c6950f83c35604d0dbdd1c",
+  "test_path": "game/tests/v2_casing_mitre_bench.gd",
+  "test_sha256": "7f83f8e44ce5d65047e9e413a9d43bcd59b38fd0f69028e09baffe61d956f57b"
+ },
+ "windowed": true
+}

@@ -272,6 +272,7 @@ bindings.extend(ROOT/f'game/assets/building/floor_01_cells/{identity}.{suffix}' 
 bindings.extend(OUT/name for name in ['art/blender/scripts/inspect_shop_joinery.py','game/scripts/building/orison_v2_shop_joinery.gd','game/scripts/building/orison_v2_architectural_materials.gd','game/shaders/lamp_glass_surface.gdshader'])
 bindings.extend(ROOT/f'game/assets/building/floor_01_cells/passage.{suffix}' for suffix in ['gltf','bin'])
 bindings.append(ROOT/'art/blender/scripts/shop_joinery_geometry.py')
+bindings.append(ROOT/'art/blender/scripts/frame_mitre_geometry.py')
 for dependency in plan.get('context_families',[]):
  bindings.extend(ROOT/name for name in [f'art/blender/{dependency}.blend',f'game/assets/props/{dependency}.glb',f'game/tests/fixtures/orison_{dependency}.json',f'game/data/orison_v2/{dependency}.json'])
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor'],**({'knob_height_offset_m':plan['knob_height_offsets_m'][a['cell']]} if a['cell'] in plan.get('knob_height_offsets_m',{}) else {})} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}

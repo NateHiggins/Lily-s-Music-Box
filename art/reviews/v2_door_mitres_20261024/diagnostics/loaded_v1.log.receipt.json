@@ -1,0 +1,70 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 23.11,
+  "exit_code": 1,
+  "finished_utc": "2026-10-25T01:43:12Z",
+  "started_utc": "2026-10-25T01:42:49Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 7,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"away\" variable because the value doesn't have a set type.",
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"gap\" variable because the value doesn't have a set type.",
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"direction\" variable because the value doesn't have a set type.",
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"at\" variable because the value doesn't have a set type.",
+   "SCRIPT ERROR: Parse Error: The variable type is being inferred from a Variant value, so it will be typed as Variant. (Warning treated as error.)",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://scripts/building/orison_v2_runtime_root.gd\" with error \"Compilation failed\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/door_mitres_20261024/loaded_v1.log.stderr",
+  "stderr_sha256": "9ae6874214a110471fe5b687310008bf108bf9e14c5efed9fc6000d2805b5f32",
+  "stdout": "C:/ov/reports/v2integration24/door_mitres_20261024/loaded_v1.log",
+  "stdout_sha256": "ca91b431071d27295e4ed331c07e1e54cf140e3e0bd4ffd2c2a6b0b0411bdbfc"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2CasingMitreBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\door_mitres_20261024\\loaded_v1",
+ "source": {
+  "dirty_paths": 2465,
+  "dirty_sample": [
+   "MM .gitattributes",
+   "A  art/blender/bar_cafe_seating.blend",
+   "A  art/blender/bar_cafe_seating_construction.json",
+   "A  art/blender/bar_resident_alcove.blend",
+   "A  art/blender/bar_resident_alcove_construction.json",
+   "M  art/blender/bath_water_closet_construction.json",
+   "M  art/blender/case_calibrator_construction.json",
+   "M  art/blender/city_closure_construction.json",
+   "M  art/blender/city_elevations_construction.json",
+   "M  art/blender/city_ground_apron_construction.json",
+   "M  art/blender/city_horizon_construction.json",
+   "M  art/blender/domestic_objects_construction.json",
+   "M  art/blender/domestic_storage_construction.json",
+   "M  art/blender/fire_fold_stock_construction.json",
+   "M  art/blender/fire_hose_stock_construction.json",
+   "M  art/blender/fixed_lighting_construction.json",
+   "M  art/blender/house_switchboard_construction.json",
+   "M  art/blender/nook_readable_books_construction.json",
+   "M  art/blender/readable_library_construction.json",
+   "M  art/blender/reading_nook_construction.json"
+  ],
+  "repository_head": "f42e04de6ead079376f5ea062ab4d1446e137240",
+  "repository_tree": "b9b2f25ae7890fdc01346947503b4210592a02a2",
+  "runtime_inputs_sha256": "46e234a06f50a1654a21f360810033e54804c0785e2a05833a0c5956aebe9df5",
+  "test_path": "game/tests/v2_casing_mitre_bench.gd",
+  "test_sha256": "f41b115621bfff9eb1b328a718318f1920c84e5fb58eae16e0eac7f9818e5394"
+ },
+ "windowed": true
+}

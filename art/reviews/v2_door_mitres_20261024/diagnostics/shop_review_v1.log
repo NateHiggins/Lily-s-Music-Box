@@ -1,0 +1,11 @@
+00:01.656  blend            | Read blend: "C:\ov\v2merge24\art\blender\shop_joinery.blend"
+Traceback (most recent call last):
+  File "C:\ov\v2merge24\art\blender\scripts\inspect_shop_joinery.py", line 41, in <module>
+    assert len(seen)==len(stocks),(a['id'],'disconnected',sorted(set(adj)-seen))
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('storm_shop_funeral_parlour_boh_door', 'disconnected', ['storm_shop_funeral_parlour_boh_door_Head'])
+
+Error: script failed, file: 'art/blender/scripts/inspect_shop_joinery.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

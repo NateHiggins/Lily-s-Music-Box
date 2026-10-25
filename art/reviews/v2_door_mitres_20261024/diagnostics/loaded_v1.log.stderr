@@ -1,0 +1,21 @@
+SCRIPT ERROR: Parse Error: Cannot infer the type of "away" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/characters/orison_v2_resident_routines.gd:216)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "gap" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/characters/orison_v2_resident_routines.gd:219)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "direction" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/characters/orison_v2_resident_routines.gd:224)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "at" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/characters/orison_v2_resident_routines.gd:225)
+SCRIPT ERROR: Parse Error: The variable type is being inferred from a Variant value, so it will be typed as Variant. (Warning treated as error.)
+   at: GDScript::reload (res://scripts/characters/orison_v2_resident_routines.gd:74)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/building/orison_v2_runtime_root.gd:0)
+ERROR: Failed to load script "res://scripts/building/orison_v2_runtime_root.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/v2_casing_mitre_bench.gd:30)

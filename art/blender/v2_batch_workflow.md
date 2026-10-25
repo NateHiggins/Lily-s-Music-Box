@@ -1,6 +1,16 @@
 # V2 geometry and texture batch workflow
 
 Evidence class: **INERT**. Procedure, not acceptance evidence.
+
+Door-frame construction: head-to-jamb interfaces use matching 45-degree
+mitres through the full stock depth. Check both the visible architrave and
+the deep reveal lining; a mitred front does not repair square-ended stock
+behind it. Reuse `scripts/frame_mitre_geometry.py` for plain rectangular
+stock, retain independent closed members in Blender, and verify shared cap
+vertices after Godot import. Preserve clear opening dimensions and the
+existing door, collision, access and save authorities. Continuous structural
+lintels and transom rails remain separate members; do not mistake a structural
+beam for a three-piece door surround.
 Owner direction, 2026-10-07: minimize Godot launches, tokens and elapsed time
 while continuing the full V1-to-V2 geometry and texture pass.
 

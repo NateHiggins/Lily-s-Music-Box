@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/lift_frame_mitres.glb",
+  "width": 0.91,
+  "height": 2.14,
+  "depth": 0.2,
+  "jamb_width": 0.09,
+  "head_width": 0.14,
+  "catalog_key": "brass",
+  "parts": [
+    {
+      "name": "Landing_west",
+      "member": "west",
+      "triangles": 60
+    },
+    {
+      "name": "Landing_east",
+      "member": "east",
+      "triangles": 60
+    },
+    {
+      "name": "Landing_head",
+      "member": "head",
+      "triangles": 68
+    }
+  ]
+}

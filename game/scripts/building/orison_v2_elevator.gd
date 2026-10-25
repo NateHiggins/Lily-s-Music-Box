@@ -25,7 +25,8 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 	# the final parent transform before those bodies cache their transforms.
 	lift.setup({"shaft":[center_x-1.2,-center_z-1.1,center_x+1.2,-center_z+1.1], "cabin":[1.55,2.2],
 		"stops":stops, "door_w":.91})
-	_refine_landing_frames(lift)
+	if not _refine_landing_frames(lift):
+		lift.queue_free();return null
 	_refine_landing_panels(lift)
 	_refine_cab_handrails(lift)
 	_refine_cab_joinery(lift)
@@ -108,30 +109,40 @@ func _refine_landing_panels(lift: OrisonElevator) -> void:
 			glass.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 
 
-func _refine_landing_frames(lift: OrisonElevator) -> void:
-	var library := (preload("res://assets/props/millwork_profile.glb") as PackedScene).instantiate()
-	var profile := (library.find_child("LiftReveal",true,false) as MeshInstance3D).mesh
-	library.free()
+func _refine_landing_frames(lift: OrisonElevator) -> bool:
+	var decoded: Variant=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/lift_frame_mitres.json"))
+	if decoded is not Dictionary or decoded.get("schema_version")!=1:return false
+	var data: Dictionary=decoded
+	if float(data.jamb_width)!=.09 or float(data.head_width)!=.14 or str(data.catalog_key)!="brass":return false
+	var library: PackedScene=load(str(data.asset)) as PackedScene
+	if library==null:return false
+	var model:=library.instantiate()
+	var meshes: Dictionary={}
+	for row: Dictionary in data.parts:
+		var draw:=model.find_child(str(row.name),true,false) as MeshInstance3D
+		if draw==null or draw.mesh==null or draw.mesh.get_faces().size()!=int(row.triangles)*3 or meshes.has(str(row.member)):
+			model.free();return false
+		meshes[str(row.member)]=draw.mesh
+	model.free()
+	if meshes.size()!=3 or not meshes.has("west") or not meshes.has("east") or not meshes.has("head"):return false
+	# Validate every original opening before replacing any visual. Moving
+	# panels and shaft interlocks retain their original owners and collision.
 	for level: String in lift.stop_order:
-		var header := lift._landing_frames[level]["head"] as MeshInstance3D
-		var head_size := (header.mesh as BoxMesh).size
-		var joint_y := header.position.y-head_size.y*.5
-		# The V2 structural opening is 1.0 x 2.23 m. Cover its edges with
-		# 45 mm side laps and a 50 mm head lap, keeping the clear aperture.
-		head_size.y = .14
-		header.position.y = joint_y+head_size.y*.5
-		header.mesh = profile
-		header.scale = head_size
-		for side: String in ["west","east"]:
-			var jamb := lift._landing_frames[level][side] as MeshInstance3D
-			var size := (jamb.mesh as BoxMesh).size
-			var inner_x := absf(jamb.position.x)-size.x*.5
-			size.x = .09
-			jamb.position.x = signf(jamb.position.x)*(inner_x+size.x*.5)
-			# End the upright at the underside of the header: the original
-			# boxes overlapped 20 mm, including their coplanar front faces.
-			size.y = joint_y-float(lift.stops[level])
-			jamb.position.y = float(lift.stops[level])+size.y*.5
-			jamb.mesh = profile
-			jamb.rotation.z = PI*.5
-			jamb.scale = Vector3(size.y,size.x,size.z)
+		var head:=lift._landing_frames[level]["head"] as MeshInstance3D
+		var size: Vector3=(head.mesh as BoxMesh).size
+		var clear_height: float=head.position.y-size.y*.5-float(lift.stops[level])
+		if not is_equal_approx(size.x-.18,float(data.width)) or not is_equal_approx(clear_height,float(data.height)) or not is_equal_approx(size.z,float(data.depth)):return false
+	var material:=MatLib.get_mat(str(data.catalog_key),Color(.62,.52,.28)).duplicate() as StandardMaterial3D
+	material.uv1_triplanar=false
+	material.uv1_scale=Vector3.ONE/float(MatLib.SETS[str(data.catalog_key)][3])
+	material.normal_enabled=true
+	material.normal_scale=.35
+	for level: String in lift.stop_order:
+		for member: String in ["west","east","head"]:
+			var frame:=lift._landing_frames[level][member] as MeshInstance3D
+			frame.mesh=meshes[member];frame.scale=Vector3.ONE;frame.rotation=Vector3.ZERO
+			frame.position=Vector3(0,float(lift.stops[level]),OrisonElevator.FRONT_Z)
+			frame.material_override=material
+			frame.set_meta("native_lift_mitre_member",member)
+	lift.set_meta("v2_lift_frame_mitre_stock",meshes)
+	return true

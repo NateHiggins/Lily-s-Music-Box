@@ -1,0 +1,35 @@
+[
+  {
+    "scene": "",
+    "log": "C:\\ov\\reports\\v2integration24\\door_mitres_20261024\\precision_v4_import1.log",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--import"
+    ]
+  },
+  {
+    "scene": "",
+    "log": "C:\\ov\\reports\\v2integration24\\door_mitres_20261024\\precision_v4_import2.log",
+    "runner": "serial",
+    "timeout": 180,
+    "extra_args": [
+      "--import"
+    ]
+  },
+  {
+    "scene": "res://tests/V2CasingMitreBench.tscn",
+    "log": "C:\\ov\\reports\\v2integration24\\door_mitres_20261024\\loaded_v4.log",
+    "runner": "serial",
+    "timeout": 170,
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\door_mitres_20261024\\loaded_v4"
+  },
+  {
+    "scene": "res://tests/CompanionConversationTest.tscn",
+    "log": "C:\\ov\\reports\\v2integration24\\companion_20261024\\offline_v2.log",
+    "runner": "serial",
+    "timeout": 60,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\companion_20261024\\offline_v2"
+  }
+]

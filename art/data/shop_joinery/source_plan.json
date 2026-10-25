@@ -1,7 +1,7 @@
 {
   "evidence_class": "INERT",
   "classification": "ADAPTATION",
-  "original_records": 24,
+  "original_records": 57,
   "groups": [
     {
       "kind": "closed_door",
@@ -86,18 +86,114 @@
         "storm_shop_funeral_parlour_window_plinth",
         "storm_shop_funeral_parlour_window_back"
       ]
+    },
+    {
+      "kind": "storefront_frame",
+      "sources": [
+        "storm_sf_model_laundry_jamb_w",
+        "storm_sf_model_laundry_jamb_e",
+        "storm_sf_model_laundry_doorhead"
+      ]
+    },
+    {
+      "kind": "storefront_frame",
+      "sources": [
+        "storm_sf_shoe_rebuilding_jamb_w",
+        "storm_sf_shoe_rebuilding_jamb_e",
+        "storm_sf_shoe_rebuilding_doorhead"
+      ]
+    },
+    {
+      "kind": "storefront_frame",
+      "sources": [
+        "storm_sf_keys_cut_jamb_w",
+        "storm_sf_keys_cut_jamb_e",
+        "storm_sf_keys_cut_doorhead"
+      ]
+    },
+    {
+      "kind": "storefront_frame",
+      "sources": [
+        "storm_sf_hardware_paint_jamb_w",
+        "storm_sf_hardware_paint_jamb_e",
+        "storm_sf_hardware_paint_doorhead"
+      ]
+    },
+    {
+      "kind": "storefront_frame",
+      "sources": [
+        "storm_sf_funeral_parlour_jamb_w",
+        "storm_sf_funeral_parlour_jamb_e",
+        "storm_sf_funeral_parlour_doorhead"
+      ]
+    },
+    {
+      "kind": "storefront_frame",
+      "sources": [
+        "storm_sf_photo_supplies_jamb_w",
+        "storm_sf_photo_supplies_jamb_e",
+        "storm_sf_photo_supplies_doorhead"
+      ]
+    },
+    {
+      "kind": "storefront_frame",
+      "sources": [
+        "storm_sf_radio_service_jamb_w",
+        "storm_sf_radio_service_jamb_e",
+        "storm_sf_radio_service_doorhead"
+      ]
+    },
+    {
+      "kind": "storefront_frame",
+      "sources": [
+        "storm_sf_pawnbroker_jamb_w",
+        "storm_sf_pawnbroker_jamb_e",
+        "storm_sf_pawnbroker_doorhead"
+      ]
+    },
+    {
+      "kind": "storefront_frame",
+      "sources": [
+        "storm_sf_news_cigars_jamb_w",
+        "storm_sf_news_cigars_jamb_e",
+        "storm_sf_news_cigars_doorhead"
+      ]
+    },
+    {
+      "kind": "storefront_frame",
+      "sources": [
+        "storm_sf_otis___son_jamb_w",
+        "storm_sf_otis___son_jamb_e",
+        "storm_sf_otis___son_doorhead"
+      ]
+    },
+    {
+      "kind": "storefront_frame",
+      "sources": [
+        "storm_sf_luncheonette_jamb_w",
+        "storm_sf_luncheonette_jamb_e",
+        "storm_sf_luncheonette_doorhead"
+      ]
     }
   ],
   "runtime_keys": [
     "wood_dark",
     "brass_dull",
     "iron_blackened",
-    "plywood"
+    "plywood",
+    "plaster_stained",
+    "common_brick",
+    "limestone",
+    "chrome"
   ],
   "catalog_variants": {
     "wood_dark": "wood_dark",
     "brass_dull": "brass",
-    "iron_blackened": "iron_blackened"
+    "iron_blackened": "iron_blackened",
+    "plaster_stained": "plaster_stained",
+    "common_brick": "brick",
+    "limestone": "limestone",
+    "chrome": "chrome"
   },
   "material_aliases": {},
   "material_tints": {},
@@ -107,7 +203,8 @@
     "Original door widths, upper datum and knob centres remain. Frames reach 55mm in front of the retained wainscot, 30mm beyond the original flat leaf; the turned knob reaches 102mm in front of that wall, 47mm beyond its source box. No hidden wall intersection is accepted. A threshold fills the original 40mm floor gap.",
     "The funeral parlour original empty window plinth gains six floor feet, inset lower panels and a framed plywood back; its top datum and deliberately empty display remain.",
     "All non-visual owners and original source records remain. Clerestories, architecture, shop operation, routes and independent services remain separate.",
-    "Corrected linked-context checks require the Radio Service knob and its lock rail 50mm higher than the original decorative knob, clearing the retained bench surface. Ten other knob centres remain. The door stays closed and noninteractive; no opening or access is implied."
+    "Corrected linked-context checks require the Radio Service knob and its lock rail 50mm higher than the original decorative knob, clearing the retained bench surface. Ten other knob centres remain. The door stays closed and noninteractive; no opening or access is implied.",
+    "Eleven existing storefront jamb/head surrounds receive full-depth45-degree joints. Native feet are cut to the existing passage floor and border levels. Preserve every original aperture and DoorProp owner; no new shop or passage is introduced."
   ],
   "context_families": [
     "cobbler_fittings",

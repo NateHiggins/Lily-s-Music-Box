@@ -152,6 +152,30 @@
       "owner": "F01_FRONT_WORKROOM",
       "level": "F01",
       "x0": 5.4,
+      "x1": 7.1,
+      "front_z": -12.629999999999999,
+      "y": 0.0
+    },
+    {
+      "owner": "F01_FRONT_WORKROOM",
+      "level": "F01",
+      "x0": 7.1,
+      "x1": 7.449999999999999,
+      "front_z": -12.629999999999999,
+      "y": 0.0
+    },
+    {
+      "owner": "F01_FRONT_WORKROOM",
+      "level": "F01",
+      "x0": 7.449999999999999,
+      "x1": 8.03,
+      "front_z": -12.629999999999999,
+      "y": 0.0
+    },
+    {
+      "owner": "F01_FRONT_WORKROOM",
+      "level": "F01",
+      "x0": 8.03,
       "x1": 8.3,
       "front_z": -12.629999999999999,
       "y": 0.0
@@ -432,6 +456,22 @@
       "owner": "F02_FRONT_GALLERY",
       "level": "F02",
       "x0": 7.1,
+      "x1": 7.449999999999999,
+      "front_z": -12.629999999999999,
+      "y": 3.2
+    },
+    {
+      "owner": "F02_FRONT_GALLERY",
+      "level": "F02",
+      "x0": 7.449999999999999,
+      "x1": 8.03,
+      "front_z": -12.629999999999999,
+      "y": 3.2
+    },
+    {
+      "owner": "F02_FRONT_GALLERY",
+      "level": "F02",
+      "x0": 8.03,
       "x1": 8.3,
       "front_z": -12.629999999999999,
       "y": 3.2
@@ -664,6 +704,22 @@
       "owner": "F03_FRONT_GALLERY",
       "level": "F03",
       "x0": 7.1,
+      "x1": 7.449999999999999,
+      "front_z": -12.629999999999999,
+      "y": 6.4
+    },
+    {
+      "owner": "F03_FRONT_GALLERY",
+      "level": "F03",
+      "x0": 7.449999999999999,
+      "x1": 8.03,
+      "front_z": -12.629999999999999,
+      "y": 6.4
+    },
+    {
+      "owner": "F03_FRONT_GALLERY",
+      "level": "F03",
+      "x0": 8.03,
       "x1": 8.3,
       "front_z": -12.629999999999999,
       "y": 6.4
@@ -928,6 +984,22 @@
       "owner": "F04_FRONT_GALLERY",
       "level": "F04",
       "x0": 7.1,
+      "x1": 7.449999999999999,
+      "front_z": -12.629999999999999,
+      "y": 9.6
+    },
+    {
+      "owner": "F04_FRONT_GALLERY",
+      "level": "F04",
+      "x0": 7.449999999999999,
+      "x1": 8.03,
+      "front_z": -12.629999999999999,
+      "y": 9.6
+    },
+    {
+      "owner": "F04_FRONT_GALLERY",
+      "level": "F04",
+      "x0": 8.03,
       "x1": 8.3,
       "front_z": -12.629999999999999,
       "y": 9.6
@@ -1200,6 +1272,22 @@
       "owner": "F05_FRONT_GALLERY",
       "level": "F05",
       "x0": 7.1,
+      "x1": 7.449999999999999,
+      "front_z": -12.629999999999999,
+      "y": 12.8
+    },
+    {
+      "owner": "F05_FRONT_GALLERY",
+      "level": "F05",
+      "x0": 7.449999999999999,
+      "x1": 8.03,
+      "front_z": -12.629999999999999,
+      "y": 12.8
+    },
+    {
+      "owner": "F05_FRONT_GALLERY",
+      "level": "F05",
+      "x0": 8.03,
       "x1": 8.3,
       "front_z": -12.629999999999999,
       "y": 12.8
@@ -1440,6 +1528,22 @@
       "owner": "F06_FRONT_GALLERY",
       "level": "F06",
       "x0": 7.1,
+      "x1": 7.449999999999999,
+      "front_z": -12.629999999999999,
+      "y": 16.0
+    },
+    {
+      "owner": "F06_FRONT_GALLERY",
+      "level": "F06",
+      "x0": 7.449999999999999,
+      "x1": 8.03,
+      "front_z": -12.629999999999999,
+      "y": 16.0
+    },
+    {
+      "owner": "F06_FRONT_GALLERY",
+      "level": "F06",
+      "x0": 8.03,
       "x1": 8.3,
       "front_z": -12.629999999999999,
       "y": 16.0
@@ -2301,16 +2405,16 @@
     }
   ],
   "bindings": {
-    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/data/gen_layout.py": "9b1c29fed2e926ba8dc11fa6acf83470aa8234a7fc01fb43b0cc11e88e04edfd",
+    "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+    "art/data/gen_layout.py": "3d2e20d2c3bf30c2bf46a86bc90cb82604efa399762b64e25fe808e5c1b0ba3f",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2_blockout.json": "fa1c7f4da13a6ebf8748291071af5518883b6a673d0b02d6acf49d676addf2d0",
+    "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
     "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
-    "game/scripts/props/landmark_entry_door.gd": "639daf2a1dd2573cd72de9c82efe0c925314f2de8d7bc92d9e1d22b81a106ec9",
+    "game/scripts/props/landmark_entry_door.gd": "6505dc9ea4d51aa4f7ea21d570cd6d2e7fab53718239457d627f2e7821eea75b",
     "game/scripts/props/entrance_marquee_dress.gd": "090dee3113973e5069f81f52af3847d885802531c66f983716edc1544dbf0351",
     "game/assets/building/floor_01.gltf": "46756641f389b29f287731bb88b31af13972b098b483d92d66d077112909bd89",
-    "art/data/material_catalog.json": "ce2540f1b6dc14e5d58c12c4ef55103217e89e49485864b94b4afddd6c0d418c",
-    "art/textures/catalog_mapping.json": "312105490ec50af40587bf483869fe778c1158f660d87199066d842eb7d4ee88",
-    "game/data/runtime_material_sets.json": "4a98389bf283864854c3cbfe8f324482665c9cc0a252d94fc73d3d833f8ab5e6"
+    "art/data/material_catalog.json": "153538df6eb5f3284fb4dd961597803b1b96de2184ae4c4739440953bb1fd5ca",
+    "art/textures/catalog_mapping.json": "1fde8f0d1d9980d292e4a99b7af1e3b7274299a68451214fe2efbe6c518f36d8",
+    "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916"
   }
 }

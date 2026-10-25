@@ -1,0 +1,8 @@
+00:01.515  blend            | Read blend: "C:\ov\v2merge24\art\blender\door_lining_mitres.blend"
+00:04.281  render           | Saved: 'C:\ov\reports\v2integration24\door_mitres_20261024\native_lining_corner_pbr.png'
+C:\ov\reports\v2integration24\door_mitres_20261024\review_native.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  part=bpy.data.objects[row['id']+'_'+name];part.hide_render=False;part.data=part.data.copy();mat=bpy.data.materials.new('Diagnostic '+name);mat.diffuse_color=color;mat.use_nodes=True;mat.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=color;mat.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.7;part.data.materials.clear();part.data.materials.append(mat)
+00:06.828  render           | Saved: 'C:\ov\reports\v2integration24\door_mitres_20261024\native_lining_corner_members.png'
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

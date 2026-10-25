@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 7.19,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T04:19:40Z",
+  "started_utc": "2026-10-25T04:19:33Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/door_mitres_20261024/precision_v4_import2.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/reports/v2integration24/door_mitres_20261024/precision_v4_import2.log",
+  "stdout_sha256": "4a397ad49c566a05e88a229bea747004907400e6f2367a980d2512fb29bfdaa7"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 2253,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/front_facade.blend",
+   " M art/blender/front_facade_inventory.json",
+   " M art/blender/scripts/build_front_facade.py",
+   " M art/blender/scripts/build_service_companion.py",
+   " M art/blender/scripts/build_shop_joinery.py",
+   " M art/blender/scripts/inspect_front_facade.py",
+   " M art/blender/scripts/inspect_shop_joinery.py",
+   " M art/blender/scripts/shop_joinery_geometry.py",
+   " M art/blender/shop_joinery.blend",
+   " M art/blender/shop_joinery_construction.json",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/data/front_facade/source_fit.json",
+   " M art/data/shop_joinery/source_plan.json",
+   " M art/reviews/v2_companion_20261024/archive.json",
+   " M art/tools/fix_v2_mesh_imports.py",
+   " M design/V2_COMPANION_TERMINAL_2026-10-24.md",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import"
+  ],
+  "repository_head": "f3d634709c8eaae8c12dbc2c287ec45dbb415872",
+  "repository_tree": "5fcfe568679e7b4e64abc99ac2c2563f004e830c",
+  "runtime_inputs_sha256": "32520f54aaba97b12bcb3b18c94a1fe1aa8509379cbca15be640ba4475098ffe",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

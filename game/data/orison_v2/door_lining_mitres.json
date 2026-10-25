@@ -1,0 +1,939 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/door_lining_mitres.glb",
+  "board_width": 0.09,
+  "variants": [
+    {
+      "id": "L0760_2130_0140",
+      "width": 0.76,
+      "height": 2.13,
+      "depth": 0.14
+    },
+    {
+      "id": "L0810_2130_0140",
+      "width": 0.81,
+      "height": 2.13,
+      "depth": 0.14
+    },
+    {
+      "id": "L0910_2130_0140",
+      "width": 0.91,
+      "height": 2.13,
+      "depth": 0.14
+    },
+    {
+      "id": "L0910_2130_0350",
+      "width": 0.91,
+      "height": 2.13,
+      "depth": 0.35000000000000003
+    },
+    {
+      "id": "L1050_2130_0140",
+      "width": 1.05,
+      "height": 2.13,
+      "depth": 0.14
+    },
+    {
+      "id": "L1100_2130_0140",
+      "width": 1.1,
+      "height": 2.13,
+      "depth": 0.14
+    },
+    {
+      "id": "L1100_2130_0350",
+      "width": 1.1,
+      "height": 2.13,
+      "depth": 0.35000000000000003
+    }
+  ],
+  "doors": [
+    {
+      "id": "B1_LAUNDRY_DOOR",
+      "variant": "L1100_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_DOOR_06",
+      "variant": "L1100_2130_0350",
+      "span": [
+        -0.28,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_INNER_DOOR",
+      "variant": "L1100_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_DOOR_02",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_DOOR_03",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_WATCH_MAIL_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_MAIL_PACKAGE_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_WATCH_CORE_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_PACKAGE_COMMON_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_REAR_SERVICE_DOOR",
+      "variant": "L0910_2130_0350",
+      "span": [
+        -0.07,
+        0.28
+      ]
+    },
+    {
+      "id": "F01_SERVICE_CORE_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_A_HALL_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_A_BATH_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_A_BED_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_B_HALL_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_B_BATH_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_B_CLOSET_DOOR",
+      "variant": "L0760_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "B1_BOILER_FIRE_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_B_ENTRY_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_B_BED_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_B_BATH_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_B_KITCHEN_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_DOOR_03",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_SERVICE_CORE_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_B_SERVICE_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_B_ALCOVE_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_B_BATH_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_DOOR_02",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_A_HALL_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_A_BATH_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_A_BED_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_DOOR_02",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_A_BED_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_A_BATH_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_A_KITCHEN_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_DOOR_02",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_A_MAIN_BED_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_A_PRIVATE_HALL_BATH_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_A_PRIVATE_HALL_KITCHEN_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_A_KITCHEN_STUDY_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_DOOR_03",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_B_VESTIBULE_BATH_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_B_PRIVATE_HALL_ALCOVE_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_B_PRIVATE_HALL_KITCHEN_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_DOOR_06",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_C_PRIVATE_HALL_BATH_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_C_PRIVATE_HALL_KITCHEN_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_C_PRIVATE_HALL_BED1_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_C_PRIVATE_HALL_BED2_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F05_DOOR_05",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_DOOR_02",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_A_MAIN_BED_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_A_PRIVATE_HALL_BATH_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_A_PRIVATE_HALL_KITCHEN_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_A_KITCHEN_STUDY_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_DOOR_03",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_B_VESTIBULE_BATH_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_B_PRIVATE_HALL_ALCOVE_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_B_PRIVATE_HALL_KITCHEN_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_DOOR_06",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_C_PRIVATE_HALL_BATH_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_C_PRIVATE_HALL_KITCHEN_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_C_PRIVATE_HALL_BED1_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_C_PRIVATE_HALL_BED2_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F06_DOOR_05",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "ROOF_PUBLIC_DOOR",
+      "variant": "L1100_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "ROOF_SERVICE_DOOR",
+      "variant": "L1100_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_C_ENTRY_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_BATH_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_BED1_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_BED2_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_C_ENTRY_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_BATH_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_BED1_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_BED2_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_D_ENTRY_DOOR",
+      "variant": "L0910_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_D_BED_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_D_BATH_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_D_KITCHEN_DOOR",
+      "variant": "L0810_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_A_ENTRY_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_A_VESTIBULE_MAIN_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_A_MAIN_KITCHEN_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_A_MAIN_BED_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_A_PRIVATE_HALL_BATH_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_D_ENTRY_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_D_VESTIBULE_MAIN_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_D_MAIN_KITCHEN_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_D_MAIN_BED_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_D_PRIVATE_HALL_BATH_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_D_ENTRY_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_D_VESTIBULE_MAIN_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_D_MAIN_KITCHEN_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_D_MAIN_BED_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_D_PRIVATE_HALL_BATH_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F02_D_ENTRY_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_C_ENTRY_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_STAFF_RESTROOM_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F01_A_BED_STORAGE_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F03_D_BED_STORAGE_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "F04_D_BED_STORAGE_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "B1_ELECTRICAL_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "B1_SHOP_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "B1_COAL_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "B1_STORAGE_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "B1_BOILER_STAIR_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    },
+    {
+      "id": "B1_SHOP_STAIR_DOOR",
+      "variant": "L1050_2130_0140",
+      "span": [
+        -0.07,
+        0.07
+      ]
+    }
+  ]
+}

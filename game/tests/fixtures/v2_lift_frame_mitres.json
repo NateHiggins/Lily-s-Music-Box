@@ -1,0 +1,210 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Native lift reveal stock; not installed or runtime-qualified.",
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/lift_frame_mitres.glb",
+    "width": 0.91,
+    "height": 2.14,
+    "depth": 0.2,
+    "jamb_width": 0.09,
+    "head_width": 0.14,
+    "catalog_key": "brass",
+    "parts": [
+      {
+        "name": "Landing_west",
+        "member": "west",
+        "triangles": 60
+      },
+      {
+        "name": "Landing_east",
+        "member": "east",
+        "triangles": 60
+      },
+      {
+        "name": "Landing_head",
+        "member": "head",
+        "triangles": 68
+      }
+    ]
+  },
+  "interfaces_godot": {
+    "west": [
+      [
+        -0.455,
+        2.14,
+        -0.1
+      ],
+      [
+        -0.455,
+        2.14,
+        0.094
+      ],
+      [
+        -0.4577,
+        2.1427,
+        0.098
+      ],
+      [
+        -0.4613,
+        2.1463,
+        0.1
+      ],
+      [
+        -0.4712,
+        2.1562,
+        0.1
+      ],
+      [
+        -0.473,
+        2.158,
+        0.097
+      ],
+      [
+        -0.4775,
+        2.1625,
+        0.097
+      ],
+      [
+        -0.4793,
+        2.1643,
+        0.1
+      ],
+      [
+        -0.5207,
+        2.2057,
+        0.1
+      ],
+      [
+        -0.5225,
+        2.2075,
+        0.097
+      ],
+      [
+        -0.527,
+        2.212,
+        0.097
+      ],
+      [
+        -0.5288,
+        2.2138,
+        0.1
+      ],
+      [
+        -0.5387,
+        2.2237,
+        0.1
+      ],
+      [
+        -0.5423,
+        2.2273,
+        0.098
+      ],
+      [
+        -0.545,
+        2.23,
+        0.094
+      ],
+      [
+        -0.545,
+        2.23,
+        -0.1
+      ]
+    ],
+    "east": [
+      [
+        0.455,
+        2.14,
+        -0.1
+      ],
+      [
+        0.455,
+        2.14,
+        0.094
+      ],
+      [
+        0.4577,
+        2.1427,
+        0.098
+      ],
+      [
+        0.4613,
+        2.1463,
+        0.1
+      ],
+      [
+        0.4712,
+        2.1562,
+        0.1
+      ],
+      [
+        0.473,
+        2.158,
+        0.097
+      ],
+      [
+        0.4775,
+        2.1625,
+        0.097
+      ],
+      [
+        0.4793,
+        2.1643,
+        0.1
+      ],
+      [
+        0.5207,
+        2.2057,
+        0.1
+      ],
+      [
+        0.5225,
+        2.2075,
+        0.097
+      ],
+      [
+        0.527,
+        2.212,
+        0.097
+      ],
+      [
+        0.5288,
+        2.2138,
+        0.1
+      ],
+      [
+        0.5387,
+        2.2237,
+        0.1
+      ],
+      [
+        0.5423,
+        2.2273,
+        0.098
+      ],
+      [
+        0.545,
+        2.23,
+        0.094
+      ],
+      [
+        0.545,
+        2.23,
+        -0.1
+      ]
+    ]
+  },
+  "exported": {
+    "asset": "C:\\ov\\v2merge24\\game\\assets\\props\\lift_frame_mitres.glb",
+    "primitives": 3,
+    "triangles": 188,
+    "minimum_tangent_agreement": 0.999974851677609,
+    "status": "PASS"
+  },
+  "asset_sha256": "e63374c8483544a233d13270858b20a700baa2a68279808af9df3779bd942ae0",
+  "source_bindings": {
+    "art/blender/scripts/build_lift_frame_mitres.py": "2cc1b3a4c37539d8973d762f0cc5092db7a849d04bad3eeb731d12b0bf738aa9",
+    "art/blender/scripts/build_millwork_profile.py": "b9e90c7078579576f32b875baafc0a168a3179085791080691d346a4ca95e271",
+    "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916"
+  }
+}

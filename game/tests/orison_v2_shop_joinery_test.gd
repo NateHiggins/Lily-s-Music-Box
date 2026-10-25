@@ -37,6 +37,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	check(FileAccess.get_sha256("res://assets/props/shop_joinery.glb")==fixture.asset_sha256,"installed mesh binds the native composed furnishing export")
 	var owner_rows: Array=passage.source_layout.floors.filter(func(floor):return floor.id=="F01")[0].furniture
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
+	var visual_supports:=0
 	for record: Dictionary in fixture.runtime.cells:
 		var cell: Node3D=passage.cell_nodes[record.id];var model: Node3D=cell.get_node("ShopJoinery")
 		var originals: Dictionary=model.get_meta("original_meshes");var counts: Dictionary=model.get_meta("removed_triangles")
@@ -83,6 +84,11 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		for contact: Dictionary in fixture.contacts:
 			if not record.parts.any(func(part):return str(part.name).begins_with(str(contact.assembly)+"__")):continue
 			var at:=_v(contact.point);var direction:=_v(contact.direction);var exclude: Array[RID]=[world.player.get_rid()]
+			if bool(contact.get("visual_only",false)):
+				var owner: Dictionary=owner_rows.filter(func(row):return row.id==contact.owner)[0]
+				check(bool(owner.get("nocol",false)),"visual bearing adaptation is declared by the original noncolliding finish owner")
+				check(_visible_finish_bearing(world,at,direction,str(owner.mat)),"actual visible decorative floor/border face meets the native jamb: "+str(contact.label))
+				supports+=1;visual_supports+=1;continue
 			for body: CollisionObject3D in model.find_children("*","CollisionObject3D",true,false):
 				var draw:=body.get_parent() as MeshInstance3D
 				if draw!=null and str(draw.get_meta("shop_joinery_part")).begins_with(str(contact.assembly)+"__"):
@@ -99,7 +105,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	_check_joinery_details(world,fixture)
 	await _joinery_views(world,fixture)
 	var directory:=OS.get_environment("SHOT_DIR")
-	FileAccess.open(directory.path_join("joinery.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
+	FileAccess.open(directory.path_join("joinery.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"visual_supports":visual_supports,"bearing_scope":"Declared nocol finishes use actual visible face checks; all other supports retain physics rays. This is not player input or human acceptance.","failures":failures},"\t"))
 	print("SHOP JOINERY: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
 	return {"checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures.duplicate()}
 
@@ -153,10 +159,69 @@ func _check_joinery_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 			var expected_depth:=.102-sqrt(.003*.003+.002*.002)*(.002/.009)
 			var hit:=_isolated_ray(world,model,str(assembly.id)+"__brass_dull",cell.to_global(probe+outward*2.),cell.to_global(probe-outward*2.))
 			check(not hit.is_empty() and absf((cell.to_local(hit.position)-knob_at).dot(outward)-expected_depth)<.00003,"actual knob face near the tip has its lathed physical profile: "+str(assembly.cell))
+		elif assembly.kind=="storefront_frame":
+			var source_head: Dictionary=fixture.original_records.filter(func(row):return row.get("batch")==source.batch and str(row.id).ends_with("_doorhead"))[0]
+			var q: Array=source_head.rect
+			var axis:=0 if float(q[2])-float(q[0])>float(q[3])-float(q[1]) else 1
+			var width: float=float(q[axis+2])-float(q[axis])
+			var depth: float=float(q[3-axis])-float(q[1-axis])
+			var thickness: float=float(r[axis+2])-float(r[axis])
+			var centre:=Vector2((float(q[0])+float(q[2]))*.5,(float(q[1])+float(q[3]))*.5)
+			var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("shop_joinery_part",""))==str(assembly.id)+"__"+str(source.mat))
+			check(targets.size()==1,"one exact native storefront frame owner")
+			if targets.size()!=1:continue
+			for side: float in [-1.0,1.0]:
+				var normal:=Vector3(-side,1,0).normalized() if axis==0 else Vector3(0,1,side).normalized()
+				for extra: float in [0.0,thickness]:
+					for across: float in [-depth*.5,depth*.5]:
+						var along: float=side*(width*.5+extra)
+						var point:=Vector3(centre.x+(along if axis==0 else across),float(source_head.z0)+extra,-centre.y-(across if axis==0 else along))
+						check(_opposing_mitre_corner(targets[0],point,normal),"both imported storefront members share the actual full-depth45-degree cap corner")
 		else:
 			var centre:=Vector3((float(r[0])+float(r[2]))*.5,0.,-(float(r[1])+float(r[3]))*.5)
 			var hit:=_isolated_ray(world,model,str(assembly.id)+"__wood_dark",cell.to_global(centre+Vector3.UP*.8),cell.to_global(centre+Vector3.UP*.15))
 			check(not hit.is_empty() and absf(cell.to_local(hit.position).y-(float(source.z0)+float(source.h)))<.00003,"empty funeral window stand retains its original display datum")
+
+func _visible_finish_bearing(world: OrisonV2RuntimeRoot,point: Vector3,direction: Vector3,key: String) -> bool:
+	var passage: Node3D=world.passage_region.cell_nodes.passage
+	for draw: MeshInstance3D in passage.find_children("*","MeshInstance3D",true,false):
+		if not draw.is_visible_in_tree() or not str(draw.name).trim_suffix("-col").ends_with("_"+key):continue
+		for surface in draw.mesh.get_surface_count():
+			var arrays:=draw.mesh.surface_get_arrays(surface)
+			var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
+			var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
+			var indices: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
+			if indices.is_empty():
+				for index in vertices.size():indices.append(index)
+			for face in range(0,indices.size(),3):
+				var a: Vector3=draw.transform*vertices[indices[face]]
+				var u: Vector3=draw.basis*(vertices[indices[face+1]]-vertices[indices[face]])
+				var v: Vector3=draw.basis*(vertices[indices[face+2]]-vertices[indices[face]])
+				var normal: Vector3=(draw.basis.inverse().transposed()*normals[indices[face]]).normalized()
+				if normal.dot(direction)<.99 or absf((point-a).dot(normal))>.00003:continue
+				var uu:=u.dot(u);var uv:=u.dot(v);var vv:=v.dot(v)
+				var denominator:=uu*vv-uv*uv
+				if denominator<=1e-12:continue
+				var r:=point-a
+				var x: float=(r.dot(u)*vv-r.dot(v)*uv)/denominator
+				var y: float=(r.dot(v)*uu-r.dot(u)*uv)/denominator
+				if x>=-.0000001 and y>=-.0000001 and x+y<=1.0000001:return true
+	return false
+
+func _opposing_mitre_corner(draw: MeshInstance3D,point: Vector3,normal: Vector3) -> bool:
+	var positive:=Vector3.INF;var negative:=Vector3.INF
+	var normal_basis:=draw.basis.inverse().transposed()
+	for surface in draw.mesh.get_surface_count():
+		var arrays:=draw.mesh.surface_get_arrays(surface)
+		var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
+		var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
+		for i in vertices.size():
+			var actual: Vector3=draw.transform*vertices[i]
+			if actual.distance_to(point)>.0001:continue
+			var facing: float=(normal_basis*normals[i]).normalized().dot(normal)
+			if facing>.999:positive=actual
+			if facing<-.999:negative=actual
+	return positive.is_finite() and negative.is_finite() and positive.distance_to(negative)<.00001
 
 func _joinery_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var observations: Array=[]
@@ -168,6 +233,12 @@ func _joinery_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 		var direction:=1.0 if (float(r[1])+float(r[3]))<(float(floor_r[1])+float(floor_r[3])) else -1.0
 		var preferred:=Vector3(target.x,.03,target.z-direction*2.0)
 		if assembly.kind=="window":preferred=Vector3(target.x+1.8,.03,target.z);target.y=.8
+		if assembly.kind=="storefront_frame":
+			var source_head: Dictionary=fixture.original_records.filter(func(row):return row.get("batch")==source.batch and str(row.id).ends_with("_doorhead"))[0]
+			var q: Array=source_head.rect
+			target=Vector3((float(q[0])+float(q[2]))*.5,1.25,-(float(q[1])+float(q[3]))*.5)
+			var outward:=1.0 if target.x>(float(floor_r[0])+float(floor_r[2]))*.5 else -1.0
+			preferred=target+Vector3(outward*1.4,0,0);preferred.y=.03
 		else:
 			preferred.x=clampf(preferred.x,float(floor_r[0])+.30,float(floor_r[2])-.30)
 			preferred.z=clampf(preferred.z,-float(floor_r[3])+.30,-float(floor_r[1])-.30)

@@ -1,0 +1,3368 @@
+{
+	"checks": 253,
+	"evidence_class": "INERT",
+	"failures": [],
+	"materials": {
+		"D0760_2130": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"D0810_2130": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"D0910_2130": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"D1050_2130": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"D1100_2130": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"L0760_2130_0140": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"L0810_2130_0140": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"L0910_2130_0140": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"L0910_2130_0350": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"L1050_2130_0140": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"L1100_2130_0140": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"L1100_2130_0350": {
+			"has_normal_tex": true,
+			"has_rough_tex": true,
+			"maps": {
+				"albedo_tex": "res://assets/building/textures/T_ai_materials_door_paint_albedo.png",
+				"normal_tex": "res://assets/building/textures/T_ai_materials_door_paint_normal.png",
+				"rough_tex": "res://assets/building/textures/T_ai_materials_door_paint_rough.png"
+			},
+			"mesh_uv_selector": true,
+			"mip_filters": {
+				"albedo_tex": true,
+				"detail_albedo": true,
+				"detail_normal": true,
+				"emission_tex": true,
+				"height_tex": true,
+				"mask2_tex": true,
+				"mask_tex": true,
+				"normal_tex": true,
+				"plate_a_albedo": true,
+				"plate_a_normal": true,
+				"plate_b_albedo": true,
+				"plate_c_albedo": true,
+				"plate_c_normal": true,
+				"rough_tex": true
+			},
+			"name": "",
+			"shader": "res://shaders/orison_surface.gdshader",
+			"shader_unshaded": false,
+			"source": "",
+			"type": "ShaderMaterial",
+			"uv_mode": 0
+		},
+		"Lift_east": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				0.620000004768372,
+				0.519999980926514,
+				0.280000001192093,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_metals_aged_brass_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_metals_aged_brass_rough.png"
+			},
+			"metallic": 0.850000023841858,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"Lift_head": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				0.620000004768372,
+				0.519999980926514,
+				0.280000001192093,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_metals_aged_brass_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_metals_aged_brass_rough.png"
+			},
+			"metallic": 0.850000023841858,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"Lift_west": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				0.620000004768372,
+				0.519999980926514,
+				0.280000001192093,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_metals_aged_brass_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_metals_aged_brass_rough.png"
+			},
+			"metallic": 0.850000023841858,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"S0760_2130": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				0.239999994635582,
+				0.25,
+				0.230000004172325,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_ai_materials_cast_iron_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_ai_materials_cast_iron_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_ai_materials_cast_iron_rough.png"
+			},
+			"metallic": 0.349999994039536,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 0.600000023841858,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"S0810_2130": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				0.239999994635582,
+				0.25,
+				0.230000004172325,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_ai_materials_cast_iron_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_ai_materials_cast_iron_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_ai_materials_cast_iron_rough.png"
+			},
+			"metallic": 0.349999994039536,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 0.600000023841858,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"S0910_2130": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				0.239999994635582,
+				0.25,
+				0.230000004172325,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_ai_materials_cast_iron_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_ai_materials_cast_iron_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_ai_materials_cast_iron_rough.png"
+			},
+			"metallic": 0.349999994039536,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 0.600000023841858,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"S1050_2130": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				0.239999994635582,
+				0.25,
+				0.230000004172325,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_ai_materials_cast_iron_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_ai_materials_cast_iron_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_ai_materials_cast_iron_rough.png"
+			},
+			"metallic": 0.349999994039536,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 0.600000023841858,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"S1100_2130": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				0.239999994635582,
+				0.25,
+				0.230000004172325,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_ai_materials_cast_iron_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_ai_materials_cast_iron_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_ai_materials_cast_iron_rough.png"
+			},
+			"metallic": 0.349999994039536,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 0.600000023841858,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"ShopFinish_brick": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_ai_materials_brick_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_ai_materials_brick_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_ai_materials_brick_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"ShopFinish_chrome": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_appliances_brushed_steel_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_appliances_brushed_steel_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_appliances_brushed_steel_rough.png"
+			},
+			"metallic": 1.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"ShopFinish_limestone": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_ai_materials_limestone_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_ai_materials_limestone_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_ai_materials_limestone_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"ShopFinish_plaster_stained": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_ai_materials_plaster_stained_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_ai_materials_plaster_stained_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_ai_materials_plaster_stained_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		},
+		"ShopFinish_wood_dark": {
+			"additive": false,
+			"billboard": false,
+			"color": [
+				1.0,
+				1.0,
+				1.0,
+				1.0
+			],
+			"emissive": false,
+			"filter": 3,
+			"maps": {
+				"albedo_texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+				"normal_texture": "res://assets/building/textures/T_library_furniture_walnut_normal.png",
+				"roughness_texture": "res://assets/building/textures/T_library_furniture_walnut_rough.png"
+			},
+			"metallic": 0.0,
+			"name": "",
+			"normal_enabled": true,
+			"roughness": 1.0,
+			"source": "",
+			"stock_recipe": "",
+			"transparency": 0,
+			"triplanar": false,
+			"type": "StandardMaterial3D",
+			"unshaded": false
+		}
+	},
+	"meshes": {
+		"D0760_2130": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_w3f6v",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 228,
+					"vertices": 494
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D0760_2130/FrameHead": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_leyk6",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 184
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D0760_2130/FrameLeft": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_w81ts",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 155
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D0760_2130/FrameRight": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_h4uwb",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 155
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D0810_2130": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_frj7a",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 228,
+					"vertices": 498
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D0810_2130/FrameHead": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_8wt8x",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 184
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D0810_2130/FrameLeft": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_52i7w",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 157
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D0810_2130/FrameRight": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_ncsup",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 157
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D0910_2130": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_oxync",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 228,
+					"vertices": 498
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D0910_2130/FrameHead": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_dgasn",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 184
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D0910_2130/FrameLeft": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_0rxd4",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 157
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D0910_2130/FrameRight": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_wn7id",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 157
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D1050_2130": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_u74xm",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 228,
+					"vertices": 497
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D1050_2130/FrameHead": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_wfu35",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 184
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D1050_2130/FrameLeft": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_o4fvq",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 157
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D1050_2130/FrameRight": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_aqhrm",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 156
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D1100_2130": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_kagei",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 228,
+					"vertices": 503
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D1100_2130/FrameHead": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_jheah",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 186
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D1100_2130/FrameLeft": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_qp3yb",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 159
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"D1100_2130/FrameRight": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_qvtic",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 158
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0760_2130_0140": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_7fojs",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 72
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0760_2130_0140/head": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_6ydvw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0760_2130_0140/left": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_48cb5",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0760_2130_0140/right": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_sn2cp",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0810_2130_0140": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_rvx7p",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 72
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0810_2130_0140/head": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_55kru",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0810_2130_0140/left": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_a1h0n",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0810_2130_0140/right": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_edqtd",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0910_2130_0140": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_mhqxm",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 72
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0910_2130_0140/head": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_7f0un",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0910_2130_0140/left": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_rt4kx",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0910_2130_0140/right": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_hb18x",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0910_2130_0350": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_8lgkc",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 72
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0910_2130_0350/head": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_rt4bs",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0910_2130_0350/left": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_iy3uo",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L0910_2130_0350/right": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_mk8v1",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1050_2130_0140": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_go4yn",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 72
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1050_2130_0140/head": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_pi3j2",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1050_2130_0140/left": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_531kq",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1050_2130_0140/right": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_k4kym",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1100_2130_0140": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_xg8xy",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 72
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1100_2130_0140/head": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_as2tq",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1100_2130_0140/left": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_npa7w",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1100_2130_0140/right": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_1lqnj",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1100_2130_0350": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_5ylq6",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 72
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1100_2130_0350/head": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_6eqec",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1100_2130_0350/left": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_8tsjp",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"L1100_2130_0350/right": {
+			"source": "res://assets/props/door_lining_mitres.glb::ArrayMesh_31xha",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 24
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0760_2130": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_xpwmg",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 108,
+					"vertices": 240
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0760_2130/FrameHead": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_g087c",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 88
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0760_2130/FrameLeft": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_lghls",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 76
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0760_2130/FrameRight": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_hgelf",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 76
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0810_2130": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_ukuxk",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 108,
+					"vertices": 244
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0810_2130/FrameHead": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_3s2hl",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 88
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0810_2130/FrameLeft": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_hltuy",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 78
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0810_2130/FrameRight": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_vfmry",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 78
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0910_2130": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_4dhyv",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 108,
+					"vertices": 240
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0910_2130/FrameHead": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_oueas",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 88
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0910_2130/FrameLeft": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_s456b",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 76
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S0910_2130/FrameRight": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_f5vws",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 76
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S1050_2130": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_ggsi3",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 108,
+					"vertices": 244
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S1050_2130/FrameHead": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_q8dqy",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 88
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S1050_2130/FrameLeft": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_14x52",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 78
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S1050_2130/FrameRight": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_srffs",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 78
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S1100_2130": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_w4c4t",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 108,
+					"vertices": 240
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S1100_2130/FrameHead": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_uvhav",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 88
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S1100_2130/FrameLeft": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_4egoc",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 76
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"S1100_2130/FrameRight": {
+			"source": "res://assets/props/door_casing_mitres.glb::ArrayMesh_76oc3",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 36,
+					"vertices": 76
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/EntryLeaf__cast_iron__0_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_6c7ie",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1092,
+					"vertices": 3276
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/EntryLeaf__cast_iron__0_0_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_nmgij",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1092,
+					"vertices": 3276
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/EntryLeaf__door_brass__0_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_bfx54",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 6608,
+					"vertices": 19824
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/EntryLeaf__door_brass__0_0_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_k8mhx",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 6608,
+					"vertices": 19824
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/EntryLeaf__door_oak__0_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_hnfrl",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 6660,
+					"vertices": 19980
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/EntryLeaf__door_oak__0_0_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_4pi24",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 6667,
+					"vertices": 20001
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/EntryLeaf__glass__0_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_3nr3t",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 28,
+					"vertices": 84
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/EntryLeaf__glass__0_0_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_nsfcl",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 28,
+					"vertices": 84
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__brass__-1_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_kn2ud",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 926,
+					"vertices": 2778
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__brass__0_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_usuxr",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 922,
+					"vertices": 2766
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__cast_iron__-1_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_54rg1",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 168,
+					"vertices": 504
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__cast_iron__0_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_jyo63",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 168,
+					"vertices": 504
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__door_oak__-1_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_dgwwb",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 363,
+					"vertices": 1089
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__door_oak__-1_0_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_2pigd",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 239,
+					"vertices": 717
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__door_oak__0_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_rm5i1",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 363,
+					"vertices": 1089
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__door_oak__0_0_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_uyb2g",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 239,
+					"vertices": 717
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__glass__-1_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_gvts7",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 180
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__glass__0_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_jf5y3",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 180
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-1_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_yvhf7",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 118,
+					"vertices": 354
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-1_-1_1": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_lo4yp",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 28,
+					"vertices": 84
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-1_-1_2": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_7ngmp",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 52,
+					"vertices": 156
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-1_-1_3": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_js4ws",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 52,
+					"vertices": 156
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-1_-1_4": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_tnul6",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 52,
+					"vertices": 156
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-1_0_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_l0xbw",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 26,
+					"vertices": 78
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-2_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_48oka",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 152,
+					"vertices": 456
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-2_-1_1": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_aakqf",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 228
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-2_-1_2": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_p70hb",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 228
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-2_-1_3": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_4glnv",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 228
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-2_-1_4": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_lbulk",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 228
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-3_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_235r5",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 408,
+					"vertices": 1224
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-3_-1_1": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_tycmt",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 239,
+					"vertices": 717
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-3_-1_2": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_t1psr",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 239,
+					"vertices": 717
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-3_-1_3": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_hnjcr",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 188,
+					"vertices": 564
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-3_-1_4": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_wilio",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 148,
+					"vertices": 444
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-4_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_fnonc",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 124,
+					"vertices": 372
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-4_-1_1": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_t3hy1",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 89,
+					"vertices": 267
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-4_-1_2": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_lmfap",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 89,
+					"vertices": 267
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-4_-1_3": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_c7oew",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 50,
+					"vertices": 150
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__-4_-1_4": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_oi2v8",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 50,
+					"vertices": 150
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__0_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_kolcy",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 104,
+					"vertices": 312
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__0_-1_1": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_bjcgn",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 40,
+					"vertices": 120
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__0_-1_2": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_8yhrh",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 40,
+					"vertices": 120
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__0_-1_3": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_lvqpj",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 40,
+					"vertices": 120
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__0_-1_4": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_wiqch",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 40,
+					"vertices": 120
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__0_0_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_rcck2",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 24,
+					"vertices": 72
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__1_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_i3ste",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 116,
+					"vertices": 348
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__1_-1_1": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_250i1",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 64,
+					"vertices": 192
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__1_-1_2": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_nqhti",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 64,
+					"vertices": 192
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__1_-1_3": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_uluv1",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 112,
+					"vertices": 336
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__1_-1_4": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_h4u04",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 112,
+					"vertices": 336
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__2_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_ganhn",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 140,
+					"vertices": 420
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__2_-1_1": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_x3sxy",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 104,
+					"vertices": 312
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__2_-1_2": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_e517a",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 156,
+					"vertices": 468
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__2_-1_3": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_qyi2d",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 140,
+					"vertices": 420
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__2_-1_4": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_ibbln",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 100,
+					"vertices": 300
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__3_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_e3stx",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 76,
+					"vertices": 228
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__3_-1_1": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_nd1ke",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 54,
+					"vertices": 162
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__3_-1_2": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_ryef8",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 94,
+					"vertices": 282
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__3_-1_3": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_cmqq2",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 102,
+					"vertices": 306
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__limestone_b__3_-1_4": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_masl5",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 62,
+					"vertices": 186
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__metal__-1_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_cof3p",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 282,
+					"vertices": 846
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__metal__-1_0_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_vn4y0",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 192,
+					"vertices": 576
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__metal__0_-1_-1": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_5gapa",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 80,
+					"vertices": 240
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__metal__0_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_63j2p",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 418,
+					"vertices": 1254
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__metal__0_0_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_lovna",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 192,
+					"vertices": 576
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__plywood__-1_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_3h51g",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 12,
+					"vertices": 36
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__soot__-1_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_7weos",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 14,
+					"vertices": 42
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"facade/FixedFacade__soot__0_-1_0": {
+			"source": "res://assets/props/front_facade.glb::ArrayMesh_wyxsh",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 14,
+					"vertices": 42
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"lift/east": {
+			"source": "res://assets/props/lift_frame_mitres.glb::ArrayMesh_63rum",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 128
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"lift/head": {
+			"source": "res://assets/props/lift_frame_mitres.glb::ArrayMesh_65btl",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 68,
+					"vertices": 166
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"lift/west": {
+			"source": "res://assets/props/lift_frame_mitres.glb::ArrayMesh_enctv",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 128
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_sf_funeral_parlour_jamb_w__limestone": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_2pqx1",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 108
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_sf_hardware_paint_jamb_w__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_46s2l",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 154
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_sf_keys_cut_jamb_w__common_brick": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_5rmej",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 110
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_sf_luncheonette_jamb_w__chrome": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_6stdu",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 112
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_sf_model_laundry_jamb_w__plaster_stained": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_slptf",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 108
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_sf_news_cigars_jamb_w__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_ye8mv",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 154
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_sf_otis___son_jamb_w__limestone": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_h7vy1",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 110
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_sf_pawnbroker_jamb_w__common_brick": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_rjr2w",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 110
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_sf_photo_supplies_jamb_w__plaster_stained": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_27x6y",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 112
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_sf_radio_service_jamb_w__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_gec3f",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 156
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_sf_shoe_rebuilding_jamb_w__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_3d8kq",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 60,
+					"vertices": 154
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_funeral_parlour_boh_door__brass_dull": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_0b1ia",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1472,
+					"vertices": 4135
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_funeral_parlour_boh_door__iron_blackened": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_6mga6",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 624,
+					"vertices": 1495
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_funeral_parlour_boh_door__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_dyv8a",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 7932,
+					"vertices": 21904
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_funeral_parlour_window_plinth__plywood": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_uhphf",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 188,
+					"vertices": 528
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_funeral_parlour_window_plinth__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_rdgew",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 4136,
+					"vertices": 11156
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_hardware_paint_boh_door__brass_dull": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_wp4ti",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1472,
+					"vertices": 4151
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_hardware_paint_boh_door__iron_blackened": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_704mv",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 624,
+					"vertices": 1502
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_hardware_paint_boh_door__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_dxg31",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 7932,
+					"vertices": 21850
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_keys_cut_boh_door__brass_dull": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_1q57a",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1472,
+					"vertices": 4135
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_keys_cut_boh_door__iron_blackened": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_xhhj1",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 624,
+					"vertices": 1495
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_keys_cut_boh_door__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_b72ll",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 7932,
+					"vertices": 21854
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_luncheonette_boh_door__brass_dull": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_cgtjj",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1472,
+					"vertices": 4151
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_luncheonette_boh_door__iron_blackened": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_w4bdi",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 624,
+					"vertices": 1478
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_luncheonette_boh_door__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_x343a",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 7932,
+					"vertices": 21764
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_model_laundry_boh_door__brass_dull": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_o73mj",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1472,
+					"vertices": 4151
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_model_laundry_boh_door__iron_blackened": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_vh78a",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 624,
+					"vertices": 1477
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_model_laundry_boh_door__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_yaoau",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 7932,
+					"vertices": 21880
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_news_cigars_boh_door__brass_dull": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_22eas",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1472,
+					"vertices": 4151
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_news_cigars_boh_door__iron_blackened": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_n6bol",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 624,
+					"vertices": 1478
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_news_cigars_boh_door__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_81hq3",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 7932,
+					"vertices": 21794
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_otis___son_boh_door__brass_dull": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_45i11",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1472,
+					"vertices": 4149
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_otis___son_boh_door__iron_blackened": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_i2ks8",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 624,
+					"vertices": 1490
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_otis___son_boh_door__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_qmpkr",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 7932,
+					"vertices": 21838
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_pawnbroker_boh_door__brass_dull": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_ewsqx",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1472,
+					"vertices": 4135
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_pawnbroker_boh_door__iron_blackened": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_lbasp",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 624,
+					"vertices": 1506
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_pawnbroker_boh_door__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_8dpua",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 7932,
+					"vertices": 21814
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_photo_supplies_boh_door__brass_dull": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_i0x0s",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1472,
+					"vertices": 4135
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_photo_supplies_boh_door__iron_blackened": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_enq78",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 624,
+					"vertices": 1491
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_photo_supplies_boh_door__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_r36yc",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 7932,
+					"vertices": 21824
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_radio_service_boh_door__brass_dull": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_t5nse",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1472,
+					"vertices": 4155
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_radio_service_boh_door__iron_blackened": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_mvkbq",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 624,
+					"vertices": 1474
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_radio_service_boh_door__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_nd41e",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 7932,
+					"vertices": 21890
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_shoe_rebuilding_boh_door__brass_dull": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_7umbp",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 1472,
+					"vertices": 4151
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_shoe_rebuilding_boh_door__iron_blackened": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_yax43",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 624,
+					"vertices": 1487
+				}
+			],
+			"type": "ArrayMesh"
+		},
+		"shop/storm_shop_shoe_rebuilding_boh_door__wood_dark": {
+			"source": "res://assets/props/shop_joinery.glb::ArrayMesh_2tnvb",
+			"surfaces": [
+				{
+					"degenerate_uv_triangles": 0,
+					"missing_uv": false,
+					"nonfinite_uv": 0,
+					"triangles": 7932,
+					"vertices": 21862
+				}
+			],
+			"type": "ArrayMesh"
+		}
+	},
+	"scope": "Imported native casing stock only; no occupied-world/input/runtime qualification",
+	"textures": {
+		"res://assets/building/textures/T_ai_materials_brick_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 690,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 690
+		},
+		"res://assets/building/textures/T_ai_materials_brick_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 690,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 690
+		},
+		"res://assets/building/textures/T_ai_materials_brick_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_cast_iron_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_cast_iron_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_cast_iron_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_door_paint_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_door_paint_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_door_paint_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_limestone_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_limestone_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_limestone_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_ai_materials_plaster_stained_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_plaster_stained_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_ai_materials_plaster_stained_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 512,
+			"mip_levels": 9,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 512
+		},
+		"res://assets/building/textures/T_library_appliances_brushed_steel_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_appliances_brushed_steel_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_appliances_brushed_steel_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_furniture_walnut_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_furniture_walnut_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_furniture_walnut_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_metals_aged_brass_albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_metals_aged_brass_normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		},
+		"res://assets/building/textures/T_library_metals_aged_brass_rough.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 1024,
+			"mip_levels": 10,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 1024
+		}
+	}
+}

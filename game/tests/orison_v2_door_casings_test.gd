@@ -39,10 +39,29 @@ func inspect_world(world: Node3D) -> void:
 	var captured_types: Array[String] = []
 	var half_depth := float(world.layout.dimensions.partition_wall)*.5
 	var stock: RefCounted=world.adapter.root.get_meta("v2_casing_mitre_stock")
+	var lining_stock: RefCounted=world.adapter.root.get_meta("v2_lining_mitre_stock")
+	var lining_count:=0
 	check(stock!=null,"native stock cache is installed")
+	check(lining_stock!=null,"full-depth native lining cache is installed")
 	for record: Dictionary in world.layout.doors:
 		var anchor := world.adapter.resolve(str(record.id)) as Node3D
+		check(anchor!=null,str(record.id)+" opening exists for lining coverage")
 		if anchor==null: continue
+		var lining := anchor.get_node_or_null("DoorLinings") as MultiMeshInstance3D
+		check(lining!=null,str(record.id)+" has a native full-depth mitred lining")
+		if lining!=null and lining_stock!=null:
+			lining_count+=1
+			var expected_lining: Dictionary=lining_stock.frame_for(str(record.id))
+			check(not expected_lining.is_empty() and lining.multimesh.mesh==expected_lining.mesh,str(record.id)+" uses its exact native lining dimensions")
+			check(lining.multimesh.instance_count==1 and lining.multimesh.mesh.get_faces().size()==108,"one unscaled 36-triangle mitred lining replaces three square-ended boxes")
+			check(lining.multimesh.get_instance_transform(0).basis.is_equal_approx(Basis.IDENTITY),"native lining retains authored metre dimensions")
+			var joint_review:=preload("res://tests/v2_casing_mitre_bench.gd").new()
+			joint_review._check_lining_joints(expected_lining,str(record.id))
+			for failure: String in joint_review.failures:check(false,failure)
+			joint_review.free()
+			for member: String in ["FrameLeft","FrameHead","FrameRight"]:
+				var proxy:=anchor.get_node(member) as MeshInstance3D
+				check(not proxy.visible and proxy.mesh is BoxMesh,"original frame dimensions retained without duplicate square-ended rendering")
 		var leaf := anchor.get_node_or_null(str(record.id)+"_Leaf") as DoorProp
 		var kind := leaf.door_kind if leaf!=null else str(anchor.get_meta("unhung_door_kind",""))
 		if kind not in ["apartment_entry","apartment_interior","service"]: continue
@@ -58,10 +77,9 @@ func inspect_world(world: Node3D) -> void:
 			capture_ids.append(str(record.id)); captured_types.append(category)
 		openings+=1
 		var casing := anchor.get_node_or_null("DoorCasings") as MultiMeshInstance3D
-		var lining := anchor.get_node_or_null("DoorLinings") as MultiMeshInstance3D
 		check(casing!=null and lining!=null,str(record.id)+" has its molded surround")
 		if casing==null or lining==null: continue
-		check(casing.multimesh.instance_count==2 and lining.multimesh.instance_count==3,"two-sided casing and three reveal liners")
+		check(casing.multimesh.instance_count==2 and lining.multimesh.instance_count==1,"two-sided casing and one native three-member mitred lining")
 		check(casing.multimesh.mesh is ArrayMesh and casing.multimesh.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX].size()>8,"Blender section is imported")
 		check(casing.get_child_count()==0 and lining.get_child_count()==0,"joinery adds no collision owners")
 		if leaf!=null:
@@ -129,6 +147,7 @@ func inspect_world(world: Node3D) -> void:
 			var hit: Dictionary = world.get_world_3d().direct_space_state.intersect_ray(ray)
 			check(not hit.is_empty() and absf(anchor.to_local(hit.position).z-side*half_depth)<.003,str(record.id)+" "+part+" casing has actual wall backing")
 			contacts+=1
+	check(lining_count==world.layout.doors.size() and lining_count==111,"all 111 building openings receive full-depth 45 degree joints")
 	check(openings>=40,"casing batch covers occupied homes")
 	check(service_openings>=6 and fasteners==service_openings*16,"service entrances receive complete metal surrounds")
 	check(capture_ids.size()==4,"detail stations cover multiple floors and door types")

@@ -7,6 +7,7 @@ from mathutils.bvhtree import BVHTree
 from bpy_extras.object_utils import world_to_camera_view
 r=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file());out=r/'tmp/v2-finish-review/shop-joinery-native';out.mkdir(parents=True,exist_ok=True)
 import os
+review_kind=os.environ.get('SHOP_JOINERY_REVIEW_KIND','')
 source=Path(os.environ.get('SHOP_JOINERY_OUT',str(r)));asset=source/'art/blender/shop_joinery.blend';bpy.ops.wm.open_mainfile(filepath=str(asset))
 f=json.loads((source/'art/blender/shop_joinery_construction.json').read_text(encoding='utf-8'));assert f==json.loads((source/'game/tests/fixtures/orison_shop_joinery.json').read_text(encoding='utf-8'))
 for rel,h in f['source_bindings'].items():
@@ -29,12 +30,27 @@ for o in bpy.data.collections['ClosedConstruction'].objects:
  volume=bm.calc_volume(signed=True);expected=next(x['volume_m3'] for x in f['closed_stocks'] if x['name']==o.name);assert abs(volume-expected)<1e-10
  volumes.append({'name':o.name,'volume_m3':volume});bm.free()
  trees[o.name]=BVHTree.FromPolygons([o.matrix_world@v.co for v in o.data.vertices],[list(p.vertices) for p in o.data.polygons],epsilon=.00002)
+def shared_mitre_cap(left, right):
+ # BVH overlap omits exactly coplanar face contacts. Measure the actual
+ # opposing four-corner caps instead; no owner-name exemption or gap waiver.
+ a=bpy.data.objects[left];b=bpy.data.objects[right]
+ for face in a.data.polygons:
+  n=(a.matrix_world.to_3x3()@face.normal).normalized()
+  if abs((n.x*n.x+n.y*n.y)**.5-2**-.5)>.0001 or abs(abs(n.z)-2**-.5)>.0001:continue
+  points=[a.matrix_world@a.data.vertices[i].co for i in face.vertices]
+  if len(points)!=4:continue
+  for other in b.data.polygons:
+   normal=(b.matrix_world.to_3x3()@other.normal).normalized()
+   corners=[b.matrix_world@b.data.vertices[i].co for i in other.vertices]
+   if len(corners)==4 and n.dot(normal)<-.9999 and all(min((p-q).length for q in corners)<.00002 for p in points):return True
+ return False
+
 joins=[]
 for a in f['assemblies']:
  stocks=[row['name'] for row in f['closed_stocks'] if row['assembly']==a['id']];adj={name:set() for name in stocks};edges=[]
  for i,left in enumerate(stocks):
   for right in stocks[i+1:]:
-   if trees[left].overlap(trees[right]):adj[left].add(right);adj[right].add(left);edges.append([left,right])
+   if trees[left].overlap(trees[right]) or shared_mitre_cap(left,right):adj[left].add(right);adj[right].add(left);edges.append([left,right])
  seen={stocks[0]};pending=list(seen)
  while pending:
   for neighbour in adj[pending.pop()]-seen:seen.add(neighbour);pending.append(neighbour)
@@ -100,7 +116,13 @@ for cell in f['runtime']['cells']:
  identity=cell['id'];floor=next(a['floor'] for a in f['assemblies'] if a['cell']==identity);ground=floor['z0']+floor['h'];q=floor['rect']
  local_draws=[obj for obj in draws if any(part['name']==obj.name for part in cell['parts'])]
  for obj in local_draws:
-  assert all(q[0]-.00003<=(obj.matrix_world@v.co).x<=q[2]+.00003 and q[1]-.00003<=(obj.matrix_world@v.co).y<=q[3]+.00003 and ground-.00003<=(obj.matrix_world@v.co).z<=3.3 for v in obj.data.vertices),('shop envelope',obj.name)
+  assembly=next(a for a in f['assemblies'] if obj.name.startswith(a['id']+'__'))
+  envelope=q
+  if assembly['kind']=='storefront_frame':
+   group=next(g for g in plan['groups'] if g['sources'][0]==assembly['id'])
+   originals=[rows[k]['rect'] for k in group['sources']]
+   envelope=[min(p[0] for p in originals),min(p[1] for p in originals),max(p[2] for p in originals),max(p[3] for p in originals)]
+  assert all(envelope[0]-.00003<=(obj.matrix_world@v.co).x<=envelope[2]+.00003 and envelope[1]-.00003<=(obj.matrix_world@v.co).y<=envelope[3]+.00003 and ground-.00003<=(obj.matrix_world@v.co).z<=3.3 for v in obj.data.vertices),('source-owned envelope',obj.name)
  before=set(bpy.context.scene.objects);bpy.ops.import_scene.gltf(filepath=str(r/f'game/assets/building/floor_01_cells/{identity}.gltf'))
  context=[o for o in bpy.context.scene.objects if o not in before and o.type=='MESH'];accepted=[]
  retirements={row['id']:row for row in f['original_records'] if row['batch']==floor['batch']}
@@ -127,7 +149,7 @@ for cell in f['runtime']['cells']:
  contacts=[c for c in f['contacts'] if any(part['name'].startswith(c['assembly']+'__') for part in cell['parts'])]
  for c in contacts:
   point=Vector((c['point'][0],-c['point'][2],c['point'][1]));direction=Vector((c['direction'][0],-c['direction'][2],c['direction'][1]))
-  owners=[obj for obj in context if obj.name.removesuffix('-col').endswith('_'+rows[c['owner']]['mat']) and obj in actual]
+  owners=[obj for obj in context+passage if obj.name.removesuffix('-col').endswith('_'+rows[c['owner']]['mat']) and obj in actual]
   stocks=[obj for obj in local_draws if obj.name.startswith(c['assembly']+'__')]
   for objects,sign,label in [(owners,1,'owner'),(stocks,-1,'stock')]:
    hits=[]
@@ -144,7 +166,7 @@ for cell in f['runtime']['cells']:
     a=[obj.matrix_world@obj.data.vertices[k].co for k in obj.data.polygons[li].vertices];b=[other.matrix_world@other.data.vertices[k].co for k in other.data.polygons[ri].vertices]
     ok=False
     for c in contacts:
-     if not obj.name.startswith(c['assembly']+'__') or other not in context or not other.name.removesuffix('-col').endswith('_'+rows[c['owner']]['mat']):continue
+     if not obj.name.startswith(c['assembly']+'__') or other not in context+passage or not other.name.removesuffix('-col').endswith('_'+rows[c['owner']]['mat']):continue
      point=Vector((c['point'][0],-c['point'][2],c['point'][1]));direction=Vector((c['direction'][0],-c['direction'][2],c['direction'][1]))
      # Native points remain wholly outside the owner; overlap is their seating plane.
      if min((p-point).dot(direction) for p in a)>=-.00003 and max((p-point).dot(direction) for p in b)<=.00003:ok=True;break
@@ -155,6 +177,7 @@ for cell in f['runtime']['cells']:
  all_allowed.extend(allowed);contexts.append({'cell':identity,'accepted_parts':len(accepted),'retired_source_records':len(counts),'unresolved_intersections':len({tuple(x) for x in errors})})
  bpy.ops.object.light_add(type='AREA',location=((q[0]+q[2])/2,(q[1]+q[3])/2,3.15));light=bpy.context.object;light.data.energy=650;light.data.shape='DISK';light.data.size=4
  for assembly in [a for a in f['assemblies'] if a['cell']==identity and not errors]:
+  if review_kind and assembly['kind']!=review_kind:continue
   row=rows[assembly['id']];rect=row['rect'];cx=(rect[0]+rect[2])/2;cy=(rect[1]+rect[3])/2
   if assembly['kind']=='closed_door':
    sign=1 if cy<(q[1]+q[3])/2 else -1
@@ -162,6 +185,11 @@ for cell in f['runtime']['cells']:
    inward_x=1 if cx<(q[0]+q[2])/2 else -1
    eye=(18.20,-50.10,1.70) if identity=='shop_news_cigars' else (cx+inward_x*1.40,cy+sign*2.65,1.65)
    render(identity+'_context',eye,(cx,cy,1.15),room=True)
+  elif assembly['kind']=='storefront_frame':
+   source_head=next(r for r in f['original_records'] if r.get('batch')==row['batch'] and r['id'].endswith('_doorhead'))
+   h=source_head['rect'];cx=(h[0]+h[2])*.5;cy=(h[1]+h[3])*.5
+   direction=1 if cx>(q[0]+q[2])*.5 else -1
+   render(identity+'_storefront_frame',(cx+direction*2.4,cy+.6,1.7),(cx,cy,1.3),assembly['id'])
   else:
    render(identity+'_window_back',(cx-2.,cy-1.2,1.6),(cx,cy,.80),assembly['id'])
    render(identity+'_empty_window',(cx+2.,cy-1.2,1.6),(cx,cy,.70),assembly['id'])
@@ -170,5 +198,5 @@ for cell in f['runtime']['cells']:
  for obj in passage:obj.hide_render=True
 
 assert not all_errors,all_errors
-(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','closed_stocks':len(volumes),'assemblies':joins,'contacts':all_contacts,'uv':uv_metrics,'source_triangle_retirement':all_counts,'assembled_retirements':assembled_retirements,'allowed_contact_pairs':sorted({tuple(x) for x in all_allowed}),'contexts':contexts,'views':views,'scope':'Closed door/frame and empty window display geometry only; backs remain unmodelled and non-interactive. Accepted receivers are included as conservative restoration context; production cabinet presence retains its existing owner.'},indent=2)+'\n',encoding='utf-8')
+(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','closed_stocks':len(volumes),'assemblies':joins,'contacts':all_contacts,'uv':uv_metrics,'source_triangle_retirement':all_counts,'assembled_retirements':assembled_retirements,'allowed_contact_pairs':sorted({tuple(x) for x in all_allowed}),'contexts':contexts,'views':views,'rendered_kind_filter':review_kind,'scope':'Passive closed backs, existing storefront frames and empty window stand geometry only. A render-kind filter limits captures, not the native geometry/contact/intersection checks. Production cabinet presence retains its existing owner.'},indent=2)+'\n',encoding='utf-8')
 print('SHOP JOINERY NATIVE:',len(volumes),'closed stocks;',len(joins),'joined assemblies;',len(all_contacts),'bearings;',len(views),'views')

@@ -1,0 +1,46 @@
+00:01.516  blend            | Read blend: "C:\ov\v2merge24\art\blender\shop_joinery.blend"
+C:\ov\v2merge24\art\blender\scripts\inspect_shop_joinery.py:71: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True
+22:25:17 | INFO: Data are loaded, start creating Blender stuff
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_bakelite_black-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_brass_dull
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_cast_iron
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_cast_iron-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_common_brick-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_concrete-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_glassish-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_limestone-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_metal
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_milk_glass-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_paper-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_plaster-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_plaster_stained-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_soot-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_terrazzo
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_terrazzo_dark
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_trim-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_wood_dark-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_funeral_parlour_limestone-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_hardware_paint_wood_dark-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_keys_cut_common_brick-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_luncheonette_chrome-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_model_laundry_plaster_stained-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_news_cigars_wood_dark-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_otis___son_limestone-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_pawnbroker_common_brick-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_photo_supplies_plaster_stained-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_radio_service_wood_dark-col
+22:25:17 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_shoe_rebuilding_wood_dark-col
+22:25:17 | INFO: glTF import finished in 0.21s
+Traceback (most recent call last):
+  File "C:\ov\v2merge24\art\blender\scripts\inspect_shop_joinery.py", line 119, in <module>
+    assert all(q[0]-.00003<=(obj.matrix_world@v.co).x<=q[2]+.00003 and q[1]-.00003<=(obj.matrix_world@v.co).y<=q[3]+.00003 and ground-.00003<=(obj.matrix_world@v.co).z<=3.3 for v in obj.data.vertices),('shop envelope',obj.name)
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('shop envelope', 'storm_sf_funeral_parlour_jamb_w__limestone')
+
+Error: script failed, file: 'art/blender/scripts/inspect_shop_joinery.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

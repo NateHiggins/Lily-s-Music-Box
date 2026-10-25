@@ -10,6 +10,8 @@ from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
     "props/service_companion_v2.glb", # mechanism_v1: small worked charts stretch 1-4% and tangent derivatives fail under default compression; original native charts pass.
+    "props/lift_frame_mitres.glb", # loaded_v3: grooved landing head metre chart stretches 0.618%, beyond the unchanged 0.5% limit.
+    "props/door_lining_mitres.glb", # lining loaded_v1: a complete frame's imported metre chart exceeds its edge by 51.23 micrometres, past the retained 50 micrometre bound.
     "props/bar_cafe_seating.glb", # loaded_v6: imported oak metre charts stretch 1.481% under default compression.
     "props/bar_resident_alcove.glb", # loaded_v6: small cloth/oak/brass charts stretch 0.586-6.293% under default compression.
     "props/door_casing_mitres.glb", # mitre_stock_v1: small native casing charts stretch1.177% under default compression, beyond the retained0.5% metric gate.

@@ -1,0 +1,12 @@
+C:\ov\v2merge24\art\blender\scripts\build_lift_frame_mitres.py:20: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material=bpy.data.materials.new('brass_dull');material.use_nodes=True
+Traceback (most recent call last):
+  File "C:\ov\v2merge24\art\blender\scripts\build_lift_frame_mitres.py", line 69, in <module>
+    assert cap_points['east'][16:]==cap_points['head'][16:]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+Error: script failed, file: 'art/blender/scripts/build_lift_frame_mitres.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

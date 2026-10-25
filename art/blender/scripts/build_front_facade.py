@@ -117,9 +117,15 @@ for row in plan['original_entrance']:
     raw_box(row['id'],'limestone',(x0,y0+10,z),(x1,y1+10,z+h))
 # Fitted quartered-oak linings stay outside the semantic 1.10 m opening.
 w=plan['door']['width'];height=plan['door']['height']
-for sx in [-1,1]:
-    x=sx*(w/2+.05);box('OakJamb','door_oak',[x-.05,0,-.35],[x+.05,height+.12,.025])
-box('OakHead','door_oak',[-w/2-.10,height,-.35],[w/2+.10,height+.12,.025],grain=0)
+from frame_mitre_geometry import frame_parts, interface_points
+entrance_frame=frame_parts(w,height,.10,.375,head_width=.12)
+interface_points(entrance_frame)
+for member in ['left','right','head']:
+    part=entrance_frame[member]
+    buffer=original.MeshBuf('OakHead' if member=='head' else 'OakJamb','door_oak')
+    buffer.verts=[(x,y+.1625,z) for x,y,z in part['vertices']]
+    buffer.faces=part['faces']
+    stock('OakHead' if member=='head' else 'OakJamb',buffer,'door_oak',grain=0 if member=='head' else 2)
 box('SteppedOakHead','door_oak',[-w/2-.17,height+.12,0],[w/2+.17,height+.19,.055],grain=0)
 # Native door carcass: real openings around two wired glass panes.
 branch='EntryLeaf';th=.032
@@ -236,7 +242,7 @@ import io_scene_gltf2;io_scene_gltf2.glTF2ExportUserExtension=ExportDerivatives
 asset=ROOT/'game/assets/props/front_facade.glb';bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_tangents=True,export_materials='NONE')
 from check_exported_tangents import validate
 print('EXPORTED DERIVATIVES:',validate(asset))
-bindings=[plan_path,Path(__file__),derivatives,ROOT/'art/blender/scripts/prepare_front_facade.py',ROOT/'art/blender/scripts/fabrication_uvs.py']
+bindings=[plan_path,Path(__file__),derivatives,ROOT/'art/blender/scripts/prepare_front_facade.py',ROOT/'art/blender/scripts/fabrication_uvs.py',ROOT/'art/blender/scripts/frame_mitre_geometry.py']
 fixture={'evidence_class':'INERT','asset_sha256':digest(asset),'parts':parts,'stocks':stocks,'contacts':contacts,'door':plan['door'],'facade_root_z':front,'blade_root_position':plan['blade_root_position'],'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'retained_bindings':plan['bindings'],'uv_fallbacks':fallbacks,'zero_area_tessellation_helpers':zero_area_triangles,'triangles':sum(p['triangles'] for p in parts)}
 for rel in ['art/blender/front_facade_inventory.json','game/tests/fixtures/orison_front_facade.json']:(ROOT/rel).write_text(json.dumps(fixture,indent=2)+'\n',newline='\n')
 print('FRONT FACADE:',len(stocks),'closed positive stocks;',len(parts),'bounded draws;',fixture['triangles'],'triangles;',fallbacks,'local UV fallbacks')

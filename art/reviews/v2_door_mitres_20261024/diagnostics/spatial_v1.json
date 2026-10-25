@@ -1,0 +1,3272 @@
+{
+ "mode": "check",
+ "summary": {
+  "records": 10870,
+  "by_tier": {
+   "data": 6680,
+   "production": 1181,
+   "scene": 5,
+   "test": 3004
+  },
+  "by_kind": {
+   "asset_path": 393,
+   "floor_reference": 460,
+   "generated_name": 150,
+   "id_candidate": 277,
+   "id_reference": 7448,
+   "layout_load": 39,
+   "manual_contract": 13,
+   "node_path": 311,
+   "plan_coordinate": 74,
+   "runtime_id": 327,
+   "unit_reference": 1041,
+   "vector3_coordinate": 337
+  },
+  "by_authority": {
+   "DATA_FOREIGN_KEY": 6680,
+   "DEBUG_ONLY": 12,
+   "GENERATED_IDENTITY": 478,
+   "RUNTIME_LOOKUP": 984,
+   "SAVE_CONTRACT": 16,
+   "SCENE_NODE_PATH": 311,
+   "TEST_CONTRACT": 3004
+  },
+  "by_spatial": {
+   "ASSET_PATH": 393,
+   "CAMERA_STATION": 364,
+   "CONTAINMENT_ASSUMPTION": 10,
+   "DERIVED_LAYOUT_LOOKUP": 39,
+   "DISTANCE_THRESHOLD": 11,
+   "FLOOR_MEMBERSHIP": 471,
+   "RAW_GODOT_COORDINATE": 338,
+   "RAW_PLAN_COORDINATE": 77,
+   "ROOM_MEMBERSHIP": 842,
+   "SEMANTIC_ANCHOR": 6089,
+   "UNKNOWN_DYNAMIC": 278
+  },
+  "by_disposition": {
+   "MUST_PRESERVE_ID": 131,
+   "OWNER_DECISION": 1,
+   "PRESERVE_OR_ALIAS": 7350,
+   "REGENERATE_CONSUMER": 192,
+   "REPLACE_WITH_NAMED_ANCHOR": 54,
+   "SAFE_TO_CHANGE": 5,
+   "UNRESOLVED": 277,
+   "UPDATE_TEST_FIXTURE": 2860
+  },
+  "by_confidence": {
+   "HIGH": 461,
+   "LOW": 277,
+   "MEDIUM": 10132
+  }
+ },
+ "stats": {
+  "files_scanned": 2103,
+  "vector3_total": 5755,
+  "vector3_stats_only": 4276,
+  "b2g_derived": 356,
+  "gd_strings_seen": 126815
+ },
+ "drift": {
+  "new_failing": [
+   {
+    "key": "17a8fa8c46d83d45",
+    "kind": "id_reference",
+    "token": "B1_BOILER_FIRE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f6e7060d6ab4f4bc",
+    "kind": "id_reference",
+    "token": "B1_BOILER_STAIR_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "c02626d7acd78509",
+    "kind": "id_reference",
+    "token": "B1_COAL_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "39c6dbf435429a41",
+    "kind": "id_reference",
+    "token": "B1_ELECTRICAL_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "fc72806cf058fe50",
+    "kind": "id_reference",
+    "token": "B1_LAUNDRY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[0]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "024647a0bf8b650c",
+    "kind": "id_reference",
+    "token": "B1_SHOP_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "2acc72344dd85500",
+    "kind": "id_reference",
+    "token": "B1_SHOP_STAIR_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "7b4c37860a9e704c",
+    "kind": "id_reference",
+    "token": "B1_STORAGE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "93233333e22bf2b4",
+    "kind": "id_reference",
+    "token": "F01_A_BED_STORAGE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "7d217d99dbbd2f84",
+    "kind": "id_reference",
+    "token": "F01_A_ENTRY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "73b7c89788552427",
+    "kind": "id_reference",
+    "token": "F01_A_MAIN_BED_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "a84f8945061ef201",
+    "kind": "id_reference",
+    "token": "F01_A_MAIN_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "89602824bb8ff041",
+    "kind": "id_reference",
+    "token": "F01_A_PRIVATE_HALL_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "e313a3e7e49f01ba",
+    "kind": "id_reference",
+    "token": "F01_A_VESTIBULE_MAIN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "9fc53b9f5e4f2770",
+    "kind": "id_reference",
+    "token": "F01_A_VESTIBULE_PRIVATE_HALL_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "8ba8199c47bfa0d3",
+    "kind": "id_reference",
+    "token": "F01_DOOR_06",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[1]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F01/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f47db013e2d9fe95",
+    "kind": "id_reference",
+    "token": "F01_D_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "ad1bbe60d3923343",
+    "kind": "id_reference",
+    "token": "F01_D_BED_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "feed402eb2ece835",
+    "kind": "id_reference",
+    "token": "F01_D_ENTRY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "4d8040694351fc9a",
+    "kind": "id_reference",
+    "token": "F01_D_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "07306b03038cb500",
+    "kind": "id_reference",
+    "token": "F01_INNER_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[2]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f7ab1501815578e6",
+    "kind": "id_reference",
+    "token": "F01_MAIL_PACKAGE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f3e7e2b21749e266",
+    "kind": "id_reference",
+    "token": "F01_PACKAGE_COMMON_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "3b8a9e6985792f7d",
+    "kind": "id_reference",
+    "token": "F01_REAR_SERVICE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f683656830d9727f",
+    "kind": "id_reference",
+    "token": "F01_SERVICE_CORE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "d8e9229759c10df3",
+    "kind": "id_reference",
+    "token": "F01_STAFF_RESTROOM_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "b2db62e43bcacd7a",
+    "kind": "id_reference",
+    "token": "F01_WATCH_CORE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "9b5753d54424ab12",
+    "kind": "id_reference",
+    "token": "F01_WATCH_MAIL_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f59d068b0bfa88b0",
+    "kind": "id_reference",
+    "token": "F02_A_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "24007e9145bcd968",
+    "kind": "id_reference",
+    "token": "F02_A_BED_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "ba942152e4108420",
+    "kind": "id_reference",
+    "token": "F02_A_HALL_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "9f8ae153700b68be",
+    "kind": "id_reference",
+    "token": "F02_B_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "9badcf628e0140ba",
+    "kind": "id_reference",
+    "token": "F02_B_BED_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "801d2b709bdec4ee",
+    "kind": "id_reference",
+    "token": "F02_B_ENTRY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "7b4912e5be7068fd",
+    "kind": "id_reference",
+    "token": "F02_B_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "9ff3e15529b091e5",
+    "kind": "id_reference",
+    "token": "F02_C_ENTRY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "deee433140273ccb",
+    "kind": "id_reference",
+    "token": "F02_C_PRIVATE_HALL_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "ee823a9a6c510627",
+    "kind": "id_reference",
+    "token": "F02_C_PRIVATE_HALL_BED1_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "c71de71b172e1584",
+    "kind": "id_reference",
+    "token": "F02_C_PRIVATE_HALL_BED2_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f53b5efcb5ef1ff4",
+    "kind": "id_reference",
+    "token": "F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "e86aff0994c6abfa",
+    "kind": "id_reference",
+    "token": "F02_DOOR_02",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F02/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "9841011697355b19",
+    "kind": "id_reference",
+    "token": "F02_D_ENTRY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "dcfa72bd31ca8fbd",
+    "kind": "id_reference",
+    "token": "F03_A_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "07ba3ce11780121b",
+    "kind": "id_reference",
+    "token": "F03_A_BED_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "3546fa1529108e62",
+    "kind": "id_reference",
+    "token": "F03_A_HALL_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "9508c47fd29cb778",
+    "kind": "id_reference",
+    "token": "F03_B_ALCOVE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "4c75951ebbc50341",
+    "kind": "id_reference",
+    "token": "F03_B_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "4b7f556d18034288",
+    "kind": "id_reference",
+    "token": "F03_B_SERVICE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "0b4578452403a302",
+    "kind": "id_reference",
+    "token": "F03_C_ENTRY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "d2ca7af17fa9a7aa",
+    "kind": "id_reference",
+    "token": "F03_DOOR_02",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F03/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f212775e75278fec",
+    "kind": "id_reference",
+    "token": "F03_DOOR_03",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F03/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "a559d91e1cfecf75",
+    "kind": "id_reference",
+    "token": "F03_D_BED_STORAGE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "d94ae119cce3d2c5",
+    "kind": "id_reference",
+    "token": "F03_D_ENTRY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "a8ee9e693cd12969",
+    "kind": "id_reference",
+    "token": "F03_D_MAIN_BED_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "6225fa6bf85b493e",
+    "kind": "id_reference",
+    "token": "F03_D_MAIN_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "1d874e793b57e293",
+    "kind": "id_reference",
+    "token": "F03_D_PRIVATE_HALL_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "82cef82f638e4dba",
+    "kind": "id_reference",
+    "token": "F03_D_VESTIBULE_MAIN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "bbbad1b6f0466057",
+    "kind": "id_reference",
+    "token": "F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "95d8de3dc9684f01",
+    "kind": "id_reference",
+    "token": "F03_SERVICE_CORE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "789dc7ee0f32e0df",
+    "kind": "id_reference",
+    "token": "F04_A_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "0a3e5a42b88ab6db",
+    "kind": "id_reference",
+    "token": "F04_A_BED_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "85dade12732d3be9",
+    "kind": "id_reference",
+    "token": "F04_A_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "b3c52f06b168b520",
+    "kind": "id_reference",
+    "token": "F04_B_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "d9014519c71050bc",
+    "kind": "id_reference",
+    "token": "F04_B_CLOSET_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "41968cd7a0b45806",
+    "kind": "id_reference",
+    "token": "F04_B_HALL_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "fcb653313634209b",
+    "kind": "id_reference",
+    "token": "F04_C_ENTRY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "7aa2a8878de52162",
+    "kind": "id_reference",
+    "token": "F04_C_PRIVATE_HALL_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "b3e0cced34ef1e5d",
+    "kind": "id_reference",
+    "token": "F04_C_PRIVATE_HALL_BED1_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "70ab4d91096dae9b",
+    "kind": "id_reference",
+    "token": "F04_C_PRIVATE_HALL_BED2_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "fe005e4b08019c13",
+    "kind": "id_reference",
+    "token": "F04_C_PRIVATE_HALL_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "ff9bf8a591d6259b",
+    "kind": "id_reference",
+    "token": "F04_DOOR_02",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F04/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "ae4279e12adde089",
+    "kind": "id_reference",
+    "token": "F04_DOOR_03",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F04/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "6632b18b24a6f7f2",
+    "kind": "id_reference",
+    "token": "F04_D_BED_STORAGE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "a6d9890e64131766",
+    "kind": "id_reference",
+    "token": "F04_D_ENTRY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "231982db60fa781b",
+    "kind": "id_reference",
+    "token": "F04_D_MAIN_BED_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "34539e084ac9ddc6",
+    "kind": "id_reference",
+    "token": "F04_D_MAIN_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "117aad51258e104f",
+    "kind": "id_reference",
+    "token": "F04_D_PRIVATE_HALL_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "ace7493c49bb8c35",
+    "kind": "id_reference",
+    "token": "F04_D_VESTIBULE_MAIN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "141091f19f215201",
+    "kind": "id_reference",
+    "token": "F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "671bbdd4ef360213",
+    "kind": "id_reference",
+    "token": "F05_A_KITCHEN_STUDY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "048650abc092e824",
+    "kind": "id_reference",
+    "token": "F05_A_MAIN_BED_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "b434263921cfe3c3",
+    "kind": "id_reference",
+    "token": "F05_A_PRIVATE_HALL_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "0394ceda6f66fd7b",
+    "kind": "id_reference",
+    "token": "F05_A_PRIVATE_HALL_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "162bb8828e00d596",
+    "kind": "id_reference",
+    "token": "F05_B_PRIVATE_HALL_ALCOVE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "493044b3ebd89103",
+    "kind": "id_reference",
+    "token": "F05_B_PRIVATE_HALL_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "bd4bd2349ca38afa",
+    "kind": "id_reference",
+    "token": "F05_B_VESTIBULE_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "caa4f67fb39cabf9",
+    "kind": "id_reference",
+    "token": "F05_C_PRIVATE_HALL_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f3b61fe581d7630a",
+    "kind": "id_reference",
+    "token": "F05_C_PRIVATE_HALL_BED1_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "1759a9b7b89aa29c",
+    "kind": "id_reference",
+    "token": "F05_C_PRIVATE_HALL_BED2_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "dfedbeeb59191ae7",
+    "kind": "id_reference",
+    "token": "F05_C_PRIVATE_HALL_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "479082dfe988630c",
+    "kind": "id_reference",
+    "token": "F05_DOOR_02",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F05/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "98883ad81824f934",
+    "kind": "id_reference",
+    "token": "F05_DOOR_03",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F05/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "5217715c82b57aea",
+    "kind": "id_reference",
+    "token": "F05_DOOR_05",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F05/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "2d2033a2bc071bf4",
+    "kind": "id_reference",
+    "token": "F05_DOOR_06",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F05/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "90b6d573bc3fed04",
+    "kind": "id_reference",
+    "token": "F06_A_KITCHEN_STUDY_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "22d15d1bc34a20df",
+    "kind": "id_reference",
+    "token": "F06_A_MAIN_BED_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "8fa66221f6b42d44",
+    "kind": "id_reference",
+    "token": "F06_A_PRIVATE_HALL_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "ae808bac097e4be9",
+    "kind": "id_reference",
+    "token": "F06_A_PRIVATE_HALL_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f8715fd3704a4338",
+    "kind": "id_reference",
+    "token": "F06_B_PRIVATE_HALL_ALCOVE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "9ff19de5d83bac0d",
+    "kind": "id_reference",
+    "token": "F06_B_PRIVATE_HALL_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "c1255633e4dc4610",
+    "kind": "id_reference",
+    "token": "F06_B_VESTIBULE_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "0cbb4a07ffc13451",
+    "kind": "id_reference",
+    "token": "F06_C_PRIVATE_HALL_BATH_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "153e4f07541aeb4c",
+    "kind": "id_reference",
+    "token": "F06_C_PRIVATE_HALL_BED1_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "baf4d365ba2ea6d7",
+    "kind": "id_reference",
+    "token": "F06_C_PRIVATE_HALL_BED2_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "5ce7d23b5dda8e84",
+    "kind": "id_reference",
+    "token": "F06_C_PRIVATE_HALL_KITCHEN_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "821882369bfdab5f",
+    "kind": "id_reference",
+    "token": "F06_DOOR_02",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F06/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "6eb7d1b0f08e172f",
+    "kind": "id_reference",
+    "token": "F06_DOOR_03",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F06/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "a7ebf7a3de797a27",
+    "kind": "id_reference",
+    "token": "F06_DOOR_05",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F06/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "812ed276551b36bd",
+    "kind": "id_reference",
+    "token": "F06_DOOR_06",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "F06/marker+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "8718a0efaab2ffec",
+    "kind": "id_reference",
+    "token": "ROOF_PUBLIC_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "681e59b2ee9408d1",
+    "kind": "id_reference",
+    "token": "ROOF_SERVICE_DOOR",
+    "file": "game/data/orison_v2/door_lining_mitres.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/doors[*]/id"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   }
+  ],
+  "new_reported": [],
+  "stale_preserved": [],
+  "cleanup_opportunities": [
+   {
+    "key": "9af1923d5f84683b",
+    "kind": "generated_name",
+    "token": "mount_records",
+    "file": "game/scripts/building/orison_v2_shop_seating.gd",
+    "tier": "production",
+    "subsystem": "building",
+    "symbols": [
+     "mount_records"
+    ],
+    "lines": [
+     273
+    ],
+    "count": 1,
+    "context": [
+     "\"Words_\"+str(label.get(\"id\",\"label\"))"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "MEDIUM",
+    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "1ceb03402eae395f",
+    "kind": "generated_name",
+    "token": "_make_lift_door",
+    "file": "game/scripts/building/orison_v2_bookshelf.gd",
+    "tier": "production",
+    "subsystem": "building",
+    "symbols": [
+     "_make_lift_door"
+    ],
+    "lines": [
+     24
+    ],
+    "count": 1,
+    "context": [
+     "\"LiftDoor%d\" % _doors.size()"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "MEDIUM",
+    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "9b9b476e51b114d4",
+    "kind": "id_reference",
+    "token": "F06_6C_BOOKSHELF_01",
+    "file": "game/tests/orison_v2_bookshelves_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "exercise"
+    ],
+    "lines": [
+     98
+    ],
+    "count": 1,
+    "context": [
+     "var last := world.adapter.resolve(\"F06_6C_BOOKSHELF_01\") as BookshelfProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "F06/marker+bookshelf+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "3cd540c2abad9e79",
+    "kind": "vector3_coordinate",
+    "token": "exercise",
+    "file": "game/tests/orison_v2_bookshelves_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "exercise"
+    ],
+    "lines": [
+     57,
+     63
+    ],
+    "count": 2,
+    "context": [
+     "player.camera.look_at(shelf.to_global(Vector3(0,1.03,0)))",
+     "var ray := PhysicsRayQueryParameters3D.create(player.camera.global_position,shelf.to_global(Vector3(0,1.03,0)))"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "48811c585f5e0f1d",
+    "kind": "vector3_coordinate",
+    "token": "_run",
+    "file": "game/tests/orison_v2_city_foundations_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     174,
+     174
+    ],
+    "count": 2,
+    "context": [
+     "[\"east_maint_route\",Vector3(14,1.524,10.8),Vector3(8.5,0,11)],"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "bdd63ad84996a819",
+    "kind": "vector3_coordinate",
+    "token": "_run",
+    "file": "game/tests/v2_fire_nozzle_coupling_bench.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     42
+    ],
+    "count": 1,
+    "context": [
+     "floor.position=Vector3(-13.35,-3.2,-7.87)"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "210b97a5166d700b",
+    "kind": "id_reference",
+    "token": "F02_A_MAIN_VANTRY_POINT",
+    "file": "game/tests/v2_acoustic_ventilation_contract.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     24
+    ],
+    "count": 1,
+    "context": [
+     "_check(not world.adapter._acoustic_originals.has(\"F02_A_MAIN_VANTRY_POINT\") \\"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "F02/vantry+acoustic_node+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "b467dfbd11428c20",
+    "kind": "id_reference",
+    "token": "F02_A_MONITOR_01",
+    "file": "game/tests/v2_acoustic_ventilation_contract.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     25
+    ],
+    "count": 1,
+    "context": [
+     "and not world.adapter._acoustic_originals.has(\"F02_A_MONITOR_01\") \\"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "9f1e75dfd2453952",
+    "kind": "id_reference",
+    "token": "F04_B_MONITOR_01",
+    "file": "game/tests/v2_acoustic_ventilation_contract.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     26
+    ],
+    "count": 1,
+    "context": [
+     "and not world.adapter._acoustic_originals.has(\"F04_B_MONITOR_01\"),\"initial monitor/Vantry positions are owned by the topology lease\")"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "F04/marker+acoustic_node+v2_blockout",
+    "target_exists": true
+   }
+  ],
+  "class_changes": [],
+  "target_vanished": [],
+  "save_unresolved": []
+ },
+ "result": "fail"
+}

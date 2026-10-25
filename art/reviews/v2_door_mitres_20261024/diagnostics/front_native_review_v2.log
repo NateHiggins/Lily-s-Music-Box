@@ -1,0 +1,11 @@
+00:01.485  blend            | Read blend: "C:\ov\v2merge24\art\blender\front_facade.blend"
+C:\ov\v2merge24\art\blender\scripts\inspect_front_facade.py:51: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('NativeInspectionWorld');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs['Color'].default_value=(.15,.18,.24,1);scene.world.node_tree.nodes['Background'].inputs['Strength'].default_value=.45
+00:07.219  render           | Saved: 'C:\ov\v2merge24\tmp\v2-facade\native\entrance.png'
+00:12.532  render           | Saved: 'C:\ov\v2merge24\tmp\v2-facade\native\canopy.png'
+00:19.829  render           | Saved: 'C:\ov\v2merge24\tmp\v2-facade\native\leaf.png'
+00:26.797  render           | Saved: 'C:\ov\v2merge24\tmp\v2-facade\native\oak_mitre.png'
+NATIVE FRONT FACADE INSPECTION: 563 positive closed stocks; all bounds, volumes, maps and bindings checked; four renders; stock_only= True
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

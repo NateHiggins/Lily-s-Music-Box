@@ -51,6 +51,10 @@ static func mount(world: Node3D) -> bool:
 			draw.add_child(body);body.add_child(collision)
 	var placeholder:=anchor.get_node("Hinge");anchor.remove_child(placeholder);placeholder.free()
 	for part: String in ["FrameLeft","FrameRight","FrameHead"]:anchor.get_node(part).hide()
+	# The facade's native oak return owns this full-depth joint. The common
+	# semantic lining remains available to diagnostics, without overlapping it.
+	var lining:=anchor.get_node_or_null("DoorLinings") as MultiMeshInstance3D
+	if lining!=null:lining.hide()
 	var door:=EntryDoor.new();door.name="F01_DOOR_06_Leaf";door.native_leaf=movable
 	door.width=float(record.width);door.height=float(record.height);door.door_kind=str(markers.F01_DOOR_06.subtype)
 	door.leaf_state=str(markers.F01_DOOR_06.leaf);door.swing_out=false

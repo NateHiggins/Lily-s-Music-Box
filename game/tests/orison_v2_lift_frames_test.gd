@@ -24,9 +24,10 @@ func _run() -> void:
 	world.add_child(fill)
 	fill.light_energy = .4; fill.omni_range = 4
 	var contacts := 0
-	var library := (load("res://assets/props/millwork_profile.glb") as PackedScene).instantiate()
-	var expected := (library.find_child("LiftReveal",true,false) as MeshInstance3D).mesh
-	library.free()
+	var expected: Dictionary=lift.get_meta("v2_lift_frame_mitre_stock",{})
+	check(expected.size()==3,"three native grooved mitred landing members are installed")
+	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/v2_lift_frame_mitres.json"))
+	var joint_review:=preload("res://tests/v2_casing_mitre_bench.gd").new()
 	check(lift.stop_order.size()==7,"all seven landings are inspected")
 	for level: String in lift.stop_order:
 		var head := lift._landing_frames[level]["head"] as MeshInstance3D
@@ -34,12 +35,16 @@ func _run() -> void:
 		for suffix: String in ["west","east","head"]:
 			var frame := lift._landing_frames[level][suffix] as MeshInstance3D
 			var bounds := frame.transform*frame.get_aabb()
-			check(frame.mesh==expected,"landing uses the imported Blender reveal")
+			check(frame.mesh==expected.get(suffix),"landing uses its exact native grooved miter member")
+			check(frame.scale.is_equal_approx(Vector3.ONE) and frame.rotation.is_zero_approx(),"landing stock retains authored metre dimensions")
 			check(frame.get_child_count()==0,"frame adds no collision or input owner")
 			check(frame.material_override.metallic>.7,"existing brass material retained")
 			check(absf(bounds.position.z-(OrisonElevator.FRONT_Z-.1))<.0001 and absf(bounds.end.z-(OrisonElevator.FRONT_Z+.1))<.0001,"reveal retains its original depth envelope")
 			if frame!=head:
-				check(absf(bounds.end.y-head_bounds.position.y)<.0001,"upright meets header without overlapping coplanar faces")
+				check(absf(bounds.end.y-head_bounds.position.y-.09)<.0001,"upright extends through the matching 90mm diagonal head cap")
+				for corner: Array in fixture.interfaces_godot[suffix]:
+					var point:=Vector3(corner[0],corner[1],corner[2])
+					check(joint_review._has_vertex(frame.mesh,point) and joint_review._has_vertex(head.mesh,point),"installed grooved cap vertices meet at45 degrees through the full depth")
 				check(absf(bounds.position.y-float(lift.stops[level]))<.0001,"upright rests at the landing floor")
 				check(bounds.end.x<=-.455+.0001 or bounds.position.x>=.455-.0001,"full clear opening remains")
 			var at := bounds.get_center()
@@ -76,5 +81,6 @@ func _run() -> void:
 	fill.light_energy = .12; fill.omni_range = 2
 	await shot("lift_reveal_joint")
 	print("LIFT FRAMES: stops=%d wall_contacts=%d failures=%d" % [lift.stop_order.size(),contacts,failures.size()])
+	joint_review.free()
 	world.shutdown_for_tests(); world.free()
 	get_tree().quit(0 if failures.is_empty() else 1)
