@@ -1,0 +1,157 @@
+00:01.531  blend            | Read blend: "C:\ov\v2merge24\art\blender\service_companion_v2.blend"
+Info: Saved as "service_companion_formed_shell.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+00:19:31 | INFO: Starting glTF 2.0 export
+00:19:31 | INFO: Extracting primitive: Aerial__Brass
+00:19:31 | WARNING: Image '<bpy_struct, Image("T_ai_materials_brass_dull_rough.png") at 0x0000029A659FAB20>' has no size and cannot be exported.
+00:19:31 | INFO: Primitives created: 1
+00:19:31 | INFO: Extracting primitive: Carriage__Brass
+00:19:31 | INFO: Primitives created: 1
+00:19:31 | INFO: Extracting primitive: Carriage__Steel
+00:19:31 | WARNING: Image '<bpy_struct, Image("T_ai_materials_fire_hardware_steel_rough.png") at 0x0000029A659F9620>' has no size and cannot be exported.
+00:19:31 | INFO: Primitives created: 1
+00:19:31 | INFO: Extracting primitive: Type_hammer__Brass
+00:19:31 | INFO: Primitives created: 1
+00:19:31 | INFO: Extracting primitive: Type_hammer__Steel
+00:19:31 | INFO: Primitives created: 1
+00:19:31 | INFO: Extracting primitive: TypeSelector__Steel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: TypeSelector__TypeEmboss
+00:19:32 | WARNING: Image '<bpy_struct, Image("reversed_type_emboss.png") at 0x0000029A659FD620>' has no size and cannot be exported.
+00:19:32 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_fire_hardware_steel_rough.png") at 0x0000029A659F9620>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: CompanionFixed__CompanionBrass
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_brass_dull_rough.png") at 0x0000029A659FAB20>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: CompanionFixed__CompanionSteel
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_fire_hardware_steel_rough.png") at 0x0000029A659F9620>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: CompanionKeyBackspace__CompanionKeys
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_bakelite_black_rough.png") at 0x0000029A659FC120>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: CompanionKeyBlank__CompanionKeys
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: CompanionKeyboard__CompanionBrass.001
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: CompanionKeyboard__CompanionSteel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: ShellStudy__KeyboardShellBrass
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_brass_dull_rough.png") at 0x0000029A659FAB20>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: CompanionKeyboardLatch__CompanionBrass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: CompanionKeyEnter__CompanionKeys
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: CompanionKeySpace__CompanionKeys
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: FeedWheel0__Brass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: FeedWheel0__Steel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: FeedWheel1__Brass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: FeedWheel1__Steel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: Fixed__Brass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: Fixed__Case.001
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_bakelite_black_rough.png") at 0x0000029A659FC120>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: Fixed__Leather
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_leather_worn_rough.png") at 0x0000029A659F8120>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: Fixed__Paper
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_library_furniture_aged_paper_rough.png") at 0x0000029A659E6B20>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: Fixed__Porcelain
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_porcelain_fixture_rough.png") at 0x0000029A659F1620>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: Fixed__Rubber
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_washer_rubber_rough.png") at 0x0000029A659F0120>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: Fixed__Steel.001
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: FlipTile__CompanionKeys
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: FlipTile__CompanionTileIvory
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_porcelain_fixture_rough.png") at 0x0000029A659F1620>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: FocusWheel__Brass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: LampJewel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: LampSwitch__Steel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: LiftRotorPort__CompanionBrass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: LiftRotorPort__CompanionSteel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: LiftRotorStarboard__CompanionBrass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: LiftRotorStarboard__CompanionSteel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: NetJewel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: OrderJewel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: Paper
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: Platen__Rubber
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: PortKeyboardStayLower__CompanionBrass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: PortKeyboardStayLower__CompanionSteel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: PortKeyboardStayUpper__CompanionBrass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: PortKeyboardStayUpper__CompanionSteel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: RadioSwitch__Steel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: ServiceCover__Brass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: ServiceCover__Case
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: ShellStudy__ShellBrass
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_brass_dull_rough.png") at 0x0000029A659FAB20>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: ShellStudy__ShellGlass
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_glass_drawn_expressive_rough.png") at 0x0000029A68E71608>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: ShellStudy__ShellLeather
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_leather_worn_rough.png") at 0x0000029A659F8120>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: ShellStudy__ShellRubber
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_washer_rubber_rough.png") at 0x0000029A659F0120>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: ShellStudy__ShellSteel
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_fire_hardware_steel_rough.png") at 0x0000029A659F9620>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: ShellStudy__StudyVelvet
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_velour_rough.png") at 0x0000029A68EFF908>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: StarboardKeyboardStayLower__CompanionBrass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: StarboardKeyboardStayLower__CompanionSteel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: StarboardKeyboardStayUpper__CompanionBrass
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: StarboardKeyboardStayUpper__CompanionSteel
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Extracting primitive: TorchLens
+00:19:32 | WARNING: Image '<bpy_struct, Image("T_ai_materials_milk_glass_rough.png") at 0x0000029A659F2B20>' has no size and cannot be exported.
+00:19:32 | INFO: Primitives created: 1
+00:19:32 | INFO: Finished glTF 2.0 export in 0.27968358993530273 s
+Traceback (most recent call last):
+  File "C:\ov\v2merge24\art\blender\scripts\build_companion_formed_shell_study.py", line 208, in <module>
+    if image.source=='FILE':assert Path(bpy.path.abspath(image.filepath)).is_file(),('missing native image',image.name)
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+AssertionError: ('missing native image', 'reversed_type_emboss.png')
+
+
+Error: script failed, file: 'art/blender/scripts/build_companion_formed_shell_study.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

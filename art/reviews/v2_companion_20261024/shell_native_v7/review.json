@@ -1,0 +1,232 @@
+{
+  "evidence_class": "INERT",
+  "source_sha256": "e3bbd9b4bd54d3c9f6496bd8499c9c69efa085fcec88326cb4e0251a915fd8bb",
+  "export": {
+    "asset": "C:\\ov\\v2merge24\\tmp\\companion_shell_study\\v7\\game\\assets\\props\\service_companion_formed_shell.glb",
+    "primitives": 59,
+    "triangles": 40358,
+    "minimum_tangent_agreement": 0.9999917295296572,
+    "status": "PASS"
+  },
+  "finishes": {
+    "ShellSteel": {
+      "catalog_key": "fire_hardware_steel",
+      "tint": [
+        0.3,
+        0.35,
+        0.34,
+        1
+      ],
+      "normal": 0.25,
+      "roughness": 0.8,
+      "pigment": 0.5
+    },
+    "ShellLeather": {
+      "catalog_key": "leather_worn",
+      "tint": [
+        0.38,
+        0.2,
+        0.11,
+        1
+      ],
+      "normal": 0.45,
+      "roughness": 0.9,
+      "pigment": 0.6
+    },
+    "ShellBrass": {
+      "catalog_key": "brass_dull",
+      "tint": [
+        0.82,
+        0.67,
+        0.39,
+        1
+      ],
+      "normal": 0.2,
+      "roughness": 0.65,
+      "pigment": 0.45
+    },
+    "ShellRubber": {
+      "catalog_key": "washer_rubber",
+      "tint": [
+        0.2,
+        0.17,
+        0.13,
+        1
+      ],
+      "normal": 0.2,
+      "roughness": 1.0,
+      "pigment": 0.5
+    },
+    "ShellGlass": {
+      "catalog_key": "glass_drawn_expressive",
+      "tint": [
+        0.9,
+        0.98,
+        0.96,
+        0.15
+      ],
+      "normal": 0.15,
+      "roughness": 0.3,
+      "pigment": 0.2
+    },
+    "StudyVelvet": {
+      "catalog_key": "velour",
+      "tint": [
+        0.28,
+        0.06,
+        0.1,
+        1
+      ],
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 0.65
+    },
+    "KeyboardShellBrass": {
+      "catalog_key": "brass_dull",
+      "tint": [
+        0.82,
+        0.67,
+        0.39,
+        1
+      ],
+      "normal": 0.2,
+      "roughness": 0.65,
+      "pigment": 0.45
+    }
+  },
+  "retired_stock": [
+    "Stock__Case side",
+    "Stock__Case side.001",
+    "Stock__Case end",
+    "Stock__Case end.001",
+    "Stock__Rear pan",
+    "Stock__Returned tray edge",
+    "Stock__Returned tray edge.001",
+    "Stock__Returned tray lip"
+  ],
+  "removed_triangles": 840,
+  "finished_stocks": [
+    {
+      "name": "Stock__Continuous pressed structural pan",
+      "volume_m3": 0.00020781938335152905
+    },
+    {
+      "name": "Stock__Guard screw shank",
+      "volume_m3": 3.630004665638564e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.001",
+      "volume_m3": 3.6300031657459517e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.002",
+      "volume_m3": 3.630004665638592e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.003",
+      "volume_m3": 3.630003165746185e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.004",
+      "volume_m3": 3.6300046656387776e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.005",
+      "volume_m3": 3.6300031657367514e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.006",
+      "volume_m3": 3.630004665639042e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.007",
+      "volume_m3": 3.6300031657367276e-08
+    },
+    {
+      "name": "Stock__One piece moulded leather jacket",
+      "volume_m3": 8.538213770836929e-05
+    },
+    {
+      "name": "Stock__Soft fitted liner return",
+      "volume_m3": 4.357073060087799e-05
+    },
+    {
+      "name": "Stock__Continuous rolled brass edge",
+      "volume_m3": 3.404715306417744e-06
+    },
+    {
+      "name": "Stock__Continuous rolled brass edge.001",
+      "volume_m3": 3.4047153064177283e-06
+    },
+    {
+      "name": "Stock__Pierced corner fastening guard",
+      "volume_m3": 1.5389540885686027e-06
+    },
+    {
+      "name": "Stock__Slotted guard screw",
+      "volume_m3": 3.2515952817999374e-08
+    },
+    {
+      "name": "Stock__Slotted guard screw.001",
+      "volume_m3": 3.2515965252384144e-08
+    },
+    {
+      "name": "Stock__Pierced corner fastening guard.001",
+      "volume_m3": 1.5389540881561013e-06
+    },
+    {
+      "name": "Stock__Slotted guard screw.002",
+      "volume_m3": 3.251595281799983e-08
+    },
+    {
+      "name": "Stock__Slotted guard screw.003",
+      "volume_m3": 3.25159652523848e-08
+    },
+    {
+      "name": "Stock__Pierced corner fastening guard.002",
+      "volume_m3": 1.5389540885686002e-06
+    },
+    {
+      "name": "Stock__Slotted guard screw.004",
+      "volume_m3": 3.2515952817999665e-08
+    },
+    {
+      "name": "Stock__Slotted guard screw.005",
+      "volume_m3": 3.2515965252383456e-08
+    },
+    {
+      "name": "Stock__Pierced corner fastening guard.003",
+      "volume_m3": 1.5389540885686042e-06
+    },
+    {
+      "name": "Stock__Slotted guard screw.006",
+      "volume_m3": 3.2515952817999566e-08
+    },
+    {
+      "name": "Stock__Slotted guard screw.007",
+      "volume_m3": 3.2515965252384243e-08
+    },
+    {
+      "name": "Stock__Reading glass retaining frame",
+      "volume_m3": 4.569301424620137e-06
+    },
+    {
+      "name": "Stock__One piece rounded keyboard perimeter",
+      "volume_m3": 2.0741689219623326e-05
+    },
+    {
+      "name": "Stock__1.2 millimetre reading glass",
+      "volume_m3": 1.508713310332922e-05
+    },
+    {
+      "name": "Stock__Glazing gasket",
+      "volume_m3": 2.722812041301673e-06
+    }
+  ],
+  "scope": "Isolated native form study; not installed or Godot qualified",
+  "limitations": [
+    "Lining uses existing registered cotton-pile velour; native sheen is a form review",
+    "Glass requires production wet/smudge shader binding and readability review",
+    "Attachment bores and fastener seating need dimensional verification"
+  ]
+}

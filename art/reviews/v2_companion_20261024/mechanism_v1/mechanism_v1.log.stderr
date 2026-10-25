@@ -1,0 +1,1587 @@
+SCRIPT ERROR: Assertion failed: unknown companion native finish
+   at: apply (res://scripts/device/companion_stock.gd:39)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/device/companion_stock.gd:39)
+       [1] _ready (res://scripts/device/mechanical_teletype.gd:66)
+       [2] _ready (res://scripts/device/service_set_prop.gd:55)
+       [3] build (res://scripts/device/companion_mechanism.gd:38)
+       [4] _run (res://tests/companion_mechanism_bench.gd:22)
+SCRIPT ERROR: Invalid access to property or key 'center' on a base object of type 'Dictionary'.
+   at: _ready (res://scripts/device/mechanical_teletype.gd:101)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/device/mechanical_teletype.gd:101)
+       [1] _ready (res://scripts/device/service_set_prop.gd:55)
+       [2] build (res://scripts/device/companion_mechanism.gd:38)
+       [3] _run (res://tests/companion_mechanism_bench.gd:22)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map TypeSelector__TypeEmboss/albedo_tex
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map TypeSelector__TypeEmboss/rough_tex
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map TypeSelector__TypeEmboss/normal_tex
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map CompanionKeyBackspace__CompanionKeys/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyBackspace__CompanionKeys/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyBackspace__CompanionKeys/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs CompanionKeyBackspace__CompanionKeys
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map CompanionKeyBlank__CompanionKeys/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyBlank__CompanionKeys/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyBlank__CompanionKeys/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs CompanionKeyBlank__CompanionKeys
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map CompanionKeyboard__CompanionBrass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyboard__CompanionBrass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyboard__CompanionBrass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs CompanionKeyboard__CompanionBrass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map CompanionKeyboard__CompanionSteel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyboard__CompanionSteel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyboard__CompanionSteel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs CompanionKeyboard__CompanionSteel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: loaded registered PBR map CompanionKeyboardLatch__CompanionBrass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyboardLatch__CompanionBrass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyboardLatch__CompanionBrass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs CompanionKeyboardLatch__CompanionBrass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map CompanionKeyEnter__CompanionKeys/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyEnter__CompanionKeys/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeyEnter__CompanionKeys/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs CompanionKeyEnter__CompanionKeys
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map CompanionKeySpace__CompanionKeys/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeySpace__CompanionKeys/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map CompanionKeySpace__CompanionKeys/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs CompanionKeySpace__CompanionKeys
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map FeedWheel0__Brass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FeedWheel0__Brass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FeedWheel0__Brass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs FeedWheel0__Brass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map FeedWheel0__Steel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FeedWheel0__Steel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FeedWheel0__Steel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs FeedWheel0__Steel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map FeedWheel1__Brass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FeedWheel1__Brass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FeedWheel1__Brass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs FeedWheel1__Brass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map FeedWheel1__Steel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FeedWheel1__Steel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FeedWheel1__Steel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs FeedWheel1__Steel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map Fixed__Brass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Brass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Brass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs Fixed__Brass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map Fixed__Case/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Case/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Case/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs Fixed__Case
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map Fixed__Leather/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Leather/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Leather/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs Fixed__Leather
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map Fixed__Paper/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Paper/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Paper/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs Fixed__Paper
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map Fixed__Porcelain/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Porcelain/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Porcelain/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs Fixed__Porcelain
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map Fixed__Rubber/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Rubber/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Rubber/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs Fixed__Rubber
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map Fixed__Steel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Steel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Fixed__Steel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs Fixed__Steel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map FlipTile__CompanionKeys/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FlipTile__CompanionKeys/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FlipTile__CompanionKeys/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs FlipTile__CompanionKeys
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map FlipTile__CompanionTileIvory/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FlipTile__CompanionTileIvory/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FlipTile__CompanionTileIvory/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs FlipTile__CompanionTileIvory
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map FocusWheel__Brass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FocusWheel__Brass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map FocusWheel__Brass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs FocusWheel__Brass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map LampJewel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LampJewel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LampJewel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs LampJewel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map LampSwitch__Steel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LampSwitch__Steel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LampSwitch__Steel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs LampSwitch__Steel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map LiftRotorPort__CompanionBrass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LiftRotorPort__CompanionBrass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LiftRotorPort__CompanionBrass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs LiftRotorPort__CompanionBrass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: loaded registered PBR map LiftRotorPort__CompanionSteel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LiftRotorPort__CompanionSteel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LiftRotorPort__CompanionSteel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs LiftRotorPort__CompanionSteel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map LiftRotorStarboard__CompanionBrass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LiftRotorStarboard__CompanionBrass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LiftRotorStarboard__CompanionBrass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs LiftRotorStarboard__CompanionBrass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: loaded registered PBR map LiftRotorStarboard__CompanionSteel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LiftRotorStarboard__CompanionSteel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map LiftRotorStarboard__CompanionSteel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs LiftRotorStarboard__CompanionSteel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map NetJewel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map NetJewel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map NetJewel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs NetJewel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map OrderJewel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map OrderJewel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map OrderJewel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs OrderJewel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: loaded registered PBR map Paper/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Paper/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs Paper
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map Platen__Rubber/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Platen__Rubber/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map Platen__Rubber/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs Platen__Rubber
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map PortKeyboardStayLower__CompanionBrass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map PortKeyboardStayLower__CompanionBrass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map PortKeyboardStayLower__CompanionBrass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs PortKeyboardStayLower__CompanionBrass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map PortKeyboardStayLower__CompanionSteel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map PortKeyboardStayLower__CompanionSteel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map PortKeyboardStayLower__CompanionSteel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs PortKeyboardStayLower__CompanionSteel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map PortKeyboardStayUpper__CompanionBrass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map PortKeyboardStayUpper__CompanionBrass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map PortKeyboardStayUpper__CompanionBrass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs PortKeyboardStayUpper__CompanionBrass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map PortKeyboardStayUpper__CompanionSteel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map PortKeyboardStayUpper__CompanionSteel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map PortKeyboardStayUpper__CompanionSteel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs PortKeyboardStayUpper__CompanionSteel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map RadioSwitch__Steel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map RadioSwitch__Steel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map RadioSwitch__Steel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs RadioSwitch__Steel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map ServiceCover__Brass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map ServiceCover__Brass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map ServiceCover__Brass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs ServiceCover__Brass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map ServiceCover__Case/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map ServiceCover__Case/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map ServiceCover__Case/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs ServiceCover__Case
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map StarboardKeyboardStayLower__CompanionBrass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map StarboardKeyboardStayLower__CompanionBrass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map StarboardKeyboardStayLower__CompanionBrass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs StarboardKeyboardStayLower__CompanionBrass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map StarboardKeyboardStayLower__CompanionSteel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map StarboardKeyboardStayLower__CompanionSteel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map StarboardKeyboardStayLower__CompanionSteel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs StarboardKeyboardStayLower__CompanionSteel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map StarboardKeyboardStayUpper__CompanionBrass/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map StarboardKeyboardStayUpper__CompanionBrass/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map StarboardKeyboardStayUpper__CompanionBrass/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs StarboardKeyboardStayUpper__CompanionBrass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:8)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] _run (res://tests/companion_mechanism_bench.gd:38)
+ERROR: loaded registered PBR map StarboardKeyboardStayUpper__CompanionSteel/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map StarboardKeyboardStayUpper__CompanionSteel/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map StarboardKeyboardStayUpper__CompanionSteel/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs StarboardKeyboardStayUpper__CompanionSteel
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: loaded registered PBR map TorchLens/albedo_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map TorchLens/roughness_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: loaded registered PBR map TorchLens/normal_texture
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:45)
+ERROR: native normals use authored UVs TorchLens
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:46)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/companion_mechanism_bench.gd:10)
+       [1] _run (res://tests/companion_mechanism_bench.gd:48)
+SCRIPT ERROR: Invalid assignment of property or key 'text' with value of type 'String' on a base object of type 'Nil'.
+   at: present (res://scripts/device/mechanical_teletype.gd:161)
+   GDScript backtrace (most recent call first):
+       [0] present (res://scripts/device/mechanical_teletype.gd:161)
+       [1] print_telegram_card (res://scripts/device/service_set_prop.gd:113)
+       [2] _run (res://tests/companion_mechanism_bench.gd:85)

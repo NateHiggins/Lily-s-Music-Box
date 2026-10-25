@@ -1,0 +1,10 @@
+data consumption audit
+  DURABLE_NUMERIC_MONOTONIC_ONLY: 2
+  FIELD_UNREAD: 1102
+  FILE_UNREAD: 8
+  known (in baseline): 1103
+  resolved since baseline: 205
+  NEW: 3
+  - FIELD_UNREAD game/data/device/service_companion_v2.json:CompanionBrass (zero production token readers)
+  - FIELD_UNREAD game/data/device/service_companion_v2.json:CompanionKeys (zero production token readers)
+  - FIELD_UNREAD game/data/device/service_companion_v2.json:CompanionSteel (zero production token readers)

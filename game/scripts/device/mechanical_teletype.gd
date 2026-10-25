@@ -1,6 +1,10 @@
 extends Node3D
 ## Physical paper and mechanism only. Gameplay supplies the complete message.
 const MODEL := preload("res://assets/props/service_radiophone_v2.glb")
+var model_scene: PackedScene = MODEL
+var stock_applier: Callable = preload("res://scripts/device/service_radiophone_stock.gd").apply
+var model: Node3D
+var model_ready := false
 const COLUMNS := 30
 const ROWS := 10
 const HISTORY_LIMIT := 24
@@ -59,8 +63,12 @@ var _line_pitch := .007
 const DELIVERY_FEED := .020
 
 func _ready() -> void:
-	var model := MODEL.instantiate()
-	var paper: Dictionary=preload("res://scripts/device/service_radiophone_stock.gd").apply(model)
+	model = model_scene.instantiate()
+	var supplied: Variant = stock_applier.call(model)
+	if supplied is not Dictionary or supplied.is_empty():
+		push_error("Native printer stock provider refused its paper datum")
+		return
+	var paper: Dictionary = supplied
 	add_child(model)
 	_aerial=model.find_child("Aerial",true,false)
 	if model.find_child("TypeSelector",true,false)!=null:
@@ -125,6 +133,8 @@ func _ready() -> void:
 		if spec[0]=="tick": _tick=sound
 		else: _feed=sound
 	present({"title":"ORISON SERVICE WIRE","body":"THE LINE IS CLEAR.\n\nA hinge remembers its arc.\nA hand can pause there.\n\n o----)   (----o\n   [ ] -> [___]\n\nThere is more under the lid."},0)
+
+	model_ready = true
 
 func _label(at: Vector3, pixel: float) -> Label3D:
 	var label := Label3D.new(); add_child(label)
@@ -231,7 +241,7 @@ func toggle_service_cover() -> void:
 	service_open=not service_open
 	if _cover_motion: _cover_motion.kill()
 	_cover_motion=create_tween()
-	_cover_motion.tween_property(service_cover,"rotation:x",-1.85 if service_open else 0.0,.3).set_trans(Tween.TRANS_CUBIC)
+	_cover_motion.tween_property(service_cover,"rotation:x",1.85 if service_open else 0.0,.3).set_trans(Tween.TRANS_CUBIC)
 
 func turn_page(direction: int) -> void:
 	if pages.is_empty() or (not powered and not _reviewing): return

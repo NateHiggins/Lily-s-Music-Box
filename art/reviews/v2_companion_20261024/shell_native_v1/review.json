@@ -1,0 +1,17 @@
+{
+  "evidence_class": "INERT",
+  "retired_stock": [
+    "Stock__Case side",
+    "Stock__Case side.001",
+    "Stock__Case end",
+    "Stock__Case end.001",
+    "Stock__Rear pan"
+  ],
+  "removed_triangles": 804,
+  "scope": "Isolated native form study; not installed or Godot qualified",
+  "limitations": [
+    "Velvet uses a cloth study material; needs its own registered PBR finish",
+    "Glass requires production wet/smudge shader binding and readability review",
+    "Attachment bores and fastener seating need dimensional verification"
+  ]
+}

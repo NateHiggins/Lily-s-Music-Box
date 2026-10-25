@@ -315787,6 +315787,38 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F01/furniture",
    "target_exists": true
+  },
+  {
+   "key": "a5c834c6f6b0b626",
+   "kind": "generated_name",
+   "token": "build",
+   "file": "game/scripts/device/companion_mechanism.gd",
+   "tier": "production",
+   "subsystem": "device",
+   "symbols": [
+    "build"
+   ],
+   "lines": [
+    93,
+    103
+   ],
+   "count": 2,
+   "context": [
+    "str(record.character) + \"Key\"",
+    "\"KeyLegend%02d\" % _key_labels.size()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

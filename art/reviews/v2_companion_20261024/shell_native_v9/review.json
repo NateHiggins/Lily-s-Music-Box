@@ -1,0 +1,538 @@
+{
+  "evidence_class": "INERT",
+  "source_sha256": "e3bbd9b4bd54d3c9f6496bd8499c9c69efa085fcec88326cb4e0251a915fd8bb",
+  "export": {
+    "asset": "C:\\ov\\v2merge24\\tmp\\companion_shell_study\\v9\\game\\assets\\props\\service_companion_formed_shell.glb",
+    "primitives": 59,
+    "triangles": 42496,
+    "minimum_tangent_agreement": 0.9999917295296572,
+    "status": "PASS"
+  },
+  "finishes": {
+    "ShellSteel": {
+      "catalog_key": "fire_hardware_steel",
+      "tint": [
+        0.3,
+        0.35,
+        0.34,
+        1
+      ],
+      "normal": 0.25,
+      "roughness": 0.8,
+      "pigment": 0.5
+    },
+    "ShellLeather": {
+      "catalog_key": "leather_worn",
+      "tint": [
+        0.38,
+        0.2,
+        0.11,
+        1
+      ],
+      "normal": 0.45,
+      "roughness": 0.9,
+      "pigment": 0.6
+    },
+    "ShellBrass": {
+      "catalog_key": "brass_dull",
+      "tint": [
+        0.82,
+        0.67,
+        0.39,
+        1
+      ],
+      "normal": 0.2,
+      "roughness": 0.65,
+      "pigment": 0.45
+    },
+    "ShellRubber": {
+      "catalog_key": "washer_rubber",
+      "tint": [
+        0.2,
+        0.17,
+        0.13,
+        1
+      ],
+      "normal": 0.2,
+      "roughness": 1.0,
+      "pigment": 0.5
+    },
+    "ShellGlass": {
+      "catalog_key": "glass_drawn_expressive",
+      "tint": [
+        0.9,
+        0.98,
+        0.96,
+        0.15
+      ],
+      "normal": 0.15,
+      "roughness": 0.3,
+      "pigment": 0.2
+    },
+    "StudyVelvet": {
+      "catalog_key": "velour",
+      "tint": [
+        0.28,
+        0.06,
+        0.1,
+        1
+      ],
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 0.65
+    },
+    "KeyboardShellBrass": {
+      "catalog_key": "brass_dull",
+      "tint": [
+        0.82,
+        0.67,
+        0.39,
+        1
+      ],
+      "normal": 0.2,
+      "roughness": 0.65,
+      "pigment": 0.45
+    }
+  },
+  "retired_stock": [
+    "Stock__Case side",
+    "Stock__Case side.001",
+    "Stock__Case end",
+    "Stock__Case end.001",
+    "Stock__Rear pan",
+    "Stock__Returned tray edge",
+    "Stock__Returned tray edge.001",
+    "Stock__Returned tray lip"
+  ],
+  "removed_triangles": 840,
+  "finished_stocks": [
+    {
+      "name": "Stock__Continuous pressed structural pan",
+      "volume_m3": 0.00020745345482060993
+    },
+    {
+      "name": "Stock__Guard screw shank",
+      "volume_m3": 3.630004665638564e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.001",
+      "volume_m3": 3.6300031657459517e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.002",
+      "volume_m3": 3.630004665638592e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.003",
+      "volume_m3": 3.630003165746185e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.004",
+      "volume_m3": 3.6300046656387776e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.005",
+      "volume_m3": 3.6300031657367514e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.006",
+      "volume_m3": 3.630004665639042e-08
+    },
+    {
+      "name": "Stock__Guard screw shank.007",
+      "volume_m3": 3.6300031657367276e-08
+    },
+    {
+      "name": "Stock__Reading frame clamp screw",
+      "volume_m3": 5.062486818425991e-09
+    },
+    {
+      "name": "Stock__Reading frame clamp screw.001",
+      "volume_m3": 5.062488642614689e-09
+    },
+    {
+      "name": "Stock__Reading frame clamp screw.002",
+      "volume_m3": 5.062486818425667e-09
+    },
+    {
+      "name": "Stock__Reading frame clamp screw.003",
+      "volume_m3": 5.0624886426147275e-09
+    },
+    {
+      "name": "Stock__One piece moulded leather jacket",
+      "volume_m3": 8.523746991472197e-05
+    },
+    {
+      "name": "Stock__Stepped bored reading shaft bearing",
+      "volume_m3": 1.1127002551121959e-07
+    },
+    {
+      "name": "Stock__Continuous rolled brass edge",
+      "volume_m3": 3.404715306417744e-06
+    },
+    {
+      "name": "Stock__Continuous rolled brass edge.001",
+      "volume_m3": 3.4047153064177283e-06
+    },
+    {
+      "name": "Stock__Pierced corner fastening guard",
+      "volume_m3": 1.5389540885686027e-06
+    },
+    {
+      "name": "Stock__Slotted guard screw",
+      "volume_m3": 3.2515952817999374e-08
+    },
+    {
+      "name": "Stock__Slotted guard screw.001",
+      "volume_m3": 3.2515965252384144e-08
+    },
+    {
+      "name": "Stock__Pierced corner fastening guard.001",
+      "volume_m3": 1.5389540881561013e-06
+    },
+    {
+      "name": "Stock__Slotted guard screw.002",
+      "volume_m3": 3.251595281799983e-08
+    },
+    {
+      "name": "Stock__Slotted guard screw.003",
+      "volume_m3": 3.25159652523848e-08
+    },
+    {
+      "name": "Stock__Pierced corner fastening guard.002",
+      "volume_m3": 1.5389540885686002e-06
+    },
+    {
+      "name": "Stock__Slotted guard screw.004",
+      "volume_m3": 3.2515952817999665e-08
+    },
+    {
+      "name": "Stock__Slotted guard screw.005",
+      "volume_m3": 3.2515965252383456e-08
+    },
+    {
+      "name": "Stock__Pierced corner fastening guard.003",
+      "volume_m3": 1.5389540885686042e-06
+    },
+    {
+      "name": "Stock__Slotted guard screw.006",
+      "volume_m3": 3.2515952817999566e-08
+    },
+    {
+      "name": "Stock__Slotted guard screw.007",
+      "volume_m3": 3.2515965252384243e-08
+    },
+    {
+      "name": "Stock__Reading glass retaining frame",
+      "volume_m3": 5.4158918731902594e-06
+    },
+    {
+      "name": "Stock__Reading frame clamp screw head",
+      "volume_m3": 1.1434496318771791e-08
+    },
+    {
+      "name": "Stock__Reading frame clamp screw head.001",
+      "volume_m3": 1.1434485758068462e-08
+    },
+    {
+      "name": "Stock__Reading frame clamp screw head.002",
+      "volume_m3": 1.143449631877207e-08
+    },
+    {
+      "name": "Stock__Reading frame clamp screw head.003",
+      "volume_m3": 1.1434485758068363e-08
+    },
+    {
+      "name": "Stock__Soft fitted liner return",
+      "volume_m3": 4.357073060087799e-05
+    },
+    {
+      "name": "Stock__One piece rounded keyboard perimeter",
+      "volume_m3": 2.0741689219623326e-05
+    },
+    {
+      "name": "Stock__1.2 millimetre reading glass",
+      "volume_m3": 1.508713310332922e-05
+    },
+    {
+      "name": "Stock__Glazing rear bearing flange",
+      "volume_m3": 2.0209935713626727e-06
+    },
+    {
+      "name": "Stock__Glazing side gasket",
+      "volume_m3": 1.3660975378867272e-06
+    }
+  ],
+  "fastener_bearing_rays": [
+    {
+      "point": [
+        -0.10049999999999999,
+        -0.066
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.1045,
+        -0.066
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.1025,
+        -0.064
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.1025,
+        -0.068
+      ],
+      "seat_m": 0.027500001713633537,
+      "gap_m": -1.862645149230957e-09
+    },
+    {
+      "point": [
+        -0.061,
+        -0.093
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.065,
+        -0.093
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.063,
+        -0.091
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.063,
+        -0.095
+      ],
+      "seat_m": 0.027500001713633537,
+      "gap_m": -1.862645149230957e-09
+    },
+    {
+      "point": [
+        -0.10049999999999999,
+        0.066
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.1045,
+        0.066
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.1025,
+        0.068
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.1025,
+        0.064
+      ],
+      "seat_m": 0.027500001713633537,
+      "gap_m": -1.862645149230957e-09
+    },
+    {
+      "point": [
+        -0.061,
+        0.093
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.065,
+        0.093
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.063,
+        0.095
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        -0.063,
+        0.091
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.1045,
+        -0.066
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.10049999999999999,
+        -0.066
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.1025,
+        -0.064
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.1025,
+        -0.068
+      ],
+      "seat_m": 0.027500001713633537,
+      "gap_m": -1.862645149230957e-09
+    },
+    {
+      "point": [
+        0.065,
+        -0.093
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.061,
+        -0.093
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.063,
+        -0.091
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.063,
+        -0.095
+      ],
+      "seat_m": 0.027500001713633537,
+      "gap_m": -1.862645149230957e-09
+    },
+    {
+      "point": [
+        0.1045,
+        0.066
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.10049999999999999,
+        0.066
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.1025,
+        0.068
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.1025,
+        0.064
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.065,
+        0.093
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.061,
+        0.093
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.063,
+        0.095
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    },
+    {
+      "point": [
+        0.063,
+        0.091
+      ],
+      "seat_m": 0.027499999850988388,
+      "gap_m": 0.0
+    }
+  ],
+  "clear_axial_bores": 16,
+  "glazing_seats": {
+    "glass_back": 0.0573,
+    "glass_front": 0.0585,
+    "gasket_rear_flange_front": 0.0573,
+    "side_gasket_inner_width": 0.137,
+    "retainer_back": 0.0585
+  },
+  "scope": "Isolated native form study; not installed or Godot qualified",
+  "limitations": [
+    "Lining uses existing registered cotton-pile velour; native sheen is a form review",
+    "Glass requires production wet/smudge shader binding and readability review",
+    "Clamp contact and moving assembly clearance need imported verification"
+  ]
+}

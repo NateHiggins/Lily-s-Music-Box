@@ -1,0 +1,18 @@
+00:01.828  blend            | Read blend: "C:\ov\v2merge24\art\blender\service_companion_v2.blend"
+Traceback (most recent call last):
+  File "C:\ov\v2merge24\tmp\companion_shell_study\build.py", line 163, in <module>
+    draw=partition(exports,'ShellStudy__'+surface,objects,spec,mat,Matrix.Identity(4),catalog)
+  File "C:\ov\v2merge24\art\blender\scripts\fabrication_native_batch.py", line 51, in partition
+    ns,us,charts,_=triangle_charts(coords[indices],np.zeros(3),1.,rotations,grain)
+                   ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ov\v2merge24\art\blender\scripts\fabrication_chart_batch.py", line 31, in triangle_charts
+    n[i],u[i],values[i],_=chart_for_triangle(points[i],origins[i],tile,bool(long_grain[i]) if long_grain is not None else False)
+                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ov\v2merge24\art\blender\scripts\fabrication_uvs.py", line 36, in chart_for_triangle
+    raise AssertionError(('no representable metre chart',points.tolist()))
+AssertionError: ('no representable metre chart', [[-0.057999998331069946, -0.027899999171495438, -0.09149999916553497], [-0.057999998331069946, -0.027899999171495438, -0.10050000250339508], [-0.058000002056360245, -0.027899999171495438, -0.09600000083446503]])
+
+Error: script failed, file: 'tmp/companion_shell_study/build.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

@@ -1,0 +1,11 @@
+00:01.391  blend            | Read blend: "C:\ov\v2merge24\tmp\companion_shell_study\v11\art\blender\service_companion_formed_shell.blend"
+Traceback (most recent call last):
+  File "C:\ov\v2merge24\art\blender\scripts\publish_companion_formed_shell.py", line 29, in <module>
+    elbow=(a+attachment)*.5+Vector((0,-delta.z,delta.y)).normalized()*math.sqrt(.05**2-delta.length_squared()*.25)
+                                                                                       ~~~~~~~~~~~~~~~~~~~~^^
+TypeError: 'float' object is not callable
+
+Error: script failed, file: 'art/blender/scripts/publish_companion_formed_shell.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

@@ -103,6 +103,8 @@ conversation action, not an automatic focus grab when the player merely looks.
 | No companion parser / memory | High; old PhoneOS is archived and inappropriate | New isolated offline modules and authored library | Syntax only; queued domain diagnostic |
 | Keyboard / propulsion absent | High; native printer is an existing working mechanism, not a flying companion | Separate Blender candidate with guarded rotors, cradled motors and folding keyboard | Native v5 rendered; not imported or installed |
 | Context / campaign persistence | High; no adapter yet | Add read-only witnesses and validated save field | Not installed |
+| Conversation domain first run | Medium; three failed checks in **offline_v1** | Specific names outrank generic aliases; new commands interrupt clarification; expanded branch test expects the next stage | **offline_v2** queued, not passed |
+| Portable candidate native source | Medium; separate reopen reported25 missing texture paths | Disable the second automatic relative-path remap after explicitly rebasing images | Corrected native reopen checks all25 paths and renders six flip-display views |
 
 A: audit and source map established; runtime integration remains. B: native
 candidate construction is in progress. C–G remain open. Do not describe the isolated conversation
@@ -143,3 +145,198 @@ Diagnostics: **art/reviews/v2_companion_20261024/**. Current editable candidate
 remains in **tmp/v2-companion-native-v5/art/blender/**, rebuilt by the committed
 builder. No candidate GLB has replaced the production radiophone. Imported
 UV/PBR/mip checks, full moving-assembly clearance and actual typing remain open.
+
+## Keyboard-back flip display — owner addition
+
+The owner requested a very low resolution physical pixel image and an animated
+cartoon mouth on the keyboard's backside. Native v7 adds a32×12 field of384
+square, two-color tiles. Dark phenolic bodies carry thin ivory faces. Actual
+spindle bores and32 column shafts support rotation; a continuous open bezel,
+backing and four standoffs keep the array clear of the keyboard's moving posts.
+The display faces the player when the keyboard is closed and turns under the
+keyboard as it opens. No emissive LCD, screen viewport or generated lettering.
+
+**companion_tile_display.gd** binds two native MultiMeshes. Image changes queue
+only affected tiles, limit active rotations to32 and start at a240-tiles/second
+budget. A settled image disables processing and performs no resting transform
+writes. Batched quiet mechanical ticks accompany actual flips. It accepts32×12
+two-color illustrations and has content, listening, worried, sleeping and
+mouth-aperture images. The mechanism adapter derives speaking animation from
+the original printer's real printing/character state. Explicit illustrations
+remain visible until cleared rather than being overwritten by the idle face.
+These are written runtime behaviors, not yet verified Godot operation.
+
+The key construction also now has real guide bores and molded posts. Regular
+keys share one40-instance MultiMesh; space, return and backspace use three
+independently authored sizes, preserving metre UVs instead of scaling one
+textured cap. The expanded candidate exports52 material primitives and32,518
+triangles with134 closed positive-volume added stocks. Exported tangents pass.
+Source counts exclude runtime text and are not measured frame-time results.
+
+Native flip-review v1 exposed a portable-source path failure despite Blender's
+zero process exit; its warnings and images are retained as a failed diagnostic.
+After correcting the save remap, flip-review v2 reopens the saved source, checks
+all image paths before rendering and produces smile, half-flipped, open-mouth,
+return and umbrella views. The midpoint exposes actual edge-on tiles and shafts.
+These native renders establish construction/appearance only.
+
+An optional model/stock-applier seam on the existing physical printer preserves
+the original installed model by default. The companion mechanism uses that seam
+for its separate candidate. The original carrier is still installed; navigation,
+typing focus, authoritative context/save wiring and occupied-world comparison
+remain open. **CompanionMechanismBench** is queued windowed with imports and
+checks imported surfaces, hardware poses, key travel, power gating, tile images,
+bounded updates, resting writes and captures. It is explicitly an INERT domain/
+mechanism diagnostic, not proof of actual player input or whole-V2 acceptance.
+
+First imported mechanism run **mechanism_v1** completed in14.27s with232 failed
+checks out of2,010 and three script errors. Blender had generated suffixed
+material names outside the declared finish ABI; the refused stock provider then
+left an invalid paper datum. Default mesh compression also distorted small metre
+charts and tangent derivatives. The hot-type shader check incorrectly requested
+generic sampler names instead of its real four-map ABI. The run is failed as a
+whole; its successful motion observations are not promoted to qualification.
+
+Native v8 reuses materials by name and checks13 declared finish names. The
+optional presentation seam now refuses an invalid provider before downstream
+paper setup. A narrow measured precision policy covers this companion asset;
+no UV/tangent threshold was loosened. The shader check requires the existing
+**steel_albedo**, **steel_roughness**, **steel_normal** and **type_plate** maps.
+The full **mechanism_v2** rerun and original-printer regression remain queued.
+Reader audit reports zero NEW fields; import precision policy has zero missing
+or wrong sidecars. No occupied-world performance result is available yet.
+
+## Formed carrying-case shell — owner addition, October 25
+
+The owner rejected the remaining square-ended housing corners and requested a
+single formed shell, structural ornamental guards, leather/velvet and real glass.
+**build_companion_formed_shell_study.py** constructs a separate native candidate
+without overwriting the inputs frozen for the queued mechanism test. Eight old
+stocks—the four housing strips, rear pan and three keyboard edge strips—are
+retired by exact native triangle matching. The printer, controls, guide plate,
+keys, hinge, latch, stays and tile module remain.
+
+The replacement is one continuous rounded structural pan with integral bored
+fastening bosses. A continuous moulded leather jacket includes the back, with
+matching speaker and mouthpiece ports. Registered **velour** supplies the fitted
+cotton-pile lining. Continuous rolled brass edge guards and pierced foliate
+corner plates protect the case; actual slotted screws seat on integral bosses
+in the plates and enter the structural pan. The keyboard perimeter is also one
+rounded piece. A 1.2 mm rounded glass pane sits above the reading bed in a gasket
+and retaining frame, leaving the moving printer below it uncovered.
+
+Final isolated **shell_native_v7** exports 59 primitives and 40,358 triangles;
+its 29 added stocks are closed, connected and positive-volume. Native metre UVs
+and tangents pass with minimum tangent agreement 0.9999917. All native image
+paths resolve. Front, corner, rear and typing views were rendered and reviewed.
+Compared with the preceding candidate this adds seven primitives and 7,840
+triangles; no performance improvement is claimed. Draw consolidation and the
+actual-world before/after route remain necessary before installing the device.
+
+The original v3 Boolean sliver/UV failure and v6 texture-path relocation failure
+are retained in **shell_native_logs/**. Native cleanup is volume-bounded, and
+the output blend location is established before making texture paths relative.
+These are construction diagnostics, not imported/runtime qualification.
+
+The candidate remains in **tmp/companion_shell_study/v7/**. Runtime glass
+refraction/condensation binding, imported UV/PBR/mipmap checks, readable text
+through the glass and mechanism clearances remain open. No production carrier
+or asset was replaced by this study. The earlier **offline_v2** domain rerun
+passed all 31 checks and was separately committed as **14cae0e4**; the original
+printer regression and imported mechanism checks remain pending.
+
+### Formed candidate published for combined mechanism checking
+
+Native **shell_native_v11** adds a properly rebated gasket, a retaining frame
+with four integral clamp arms, and a stepped reading-shaft bearing. Twenty
+native bearing samples place the clamps exactly against the original cartridge
+frames. Three more measured contacts verify the shaft-bearing flange and both
+glass seats; the shaft has 0.25 mm radial clearance through its bearing and
+clear openings through steel, leather and lining. The measured pane is 1.2 mm
+thick. Its lower clear opening leaves 4 mm beyond the retained delivered-ink
+baseline. These are native fit measurements, not imported or readability proof.
+
+The candidate exports 59 primitives, 42,824 triangles and 20 exact material
+names. Native UV/tangent checks pass; all image paths resolve. Front, corner,
+rear and typing renders were reviewed. The publisher resets the native keyboard
+to its closed pose, preserves the original printer/control data, and updates
+the separate companion asset/hash and accessory finish declarations. Rebuild
+the pristine companion first, then the formed study, native fit inspector and
+publisher. It deliberately refuses to apply the shell twice.
+
+| Location / reproduction | Severity | Evidence | Repair / verification |
+|---|---|---|---|
+| Housing and keyboard perimeter corners | Medium visual construction defect | Four box strips and three square keyboard edge strips in original native stock | Continuous formed pan, jacket and keyboard frame; native renders reviewed, import pending |
+| Glazed reading bed attachment | Medium mechanical presentation defect | Initial study had a frame without attachment to printer | Four integral clamp arms; 20 native bearing samples, zero measured gap |
+| Reading-wheel shaft through case | Medium mechanical presentation defect | Shaft entered solid case/lining | Bored steel/leather/lining and stepped brass bearing; 0.25 mm measured radial clearance |
+| Service lid at full opening | Medium mechanical presentation defect | Existing negative rotation intersects pan in 38/107 sampled poses; paired cutaway renders retained | Outward rotation has zero intersections in 107 samples; coupled tween/read/write/axis repair written, actual-input regression queued |
+
+Runtime presentation now has restrained refraction on the reading pane and the
+existing side-specific moisture shader as an overlay. Moisture values are
+supplied explicitly; this presentation does not invent weather or scan rooms.
+Connecting the eventual world companion to the authoritative humidity/rain
+owner remains open. Physical Label3D key legends follow cap depression and hide
+with the closed keyboard. No generated lettering textures or pixel viewports.
+
+The original **mechanism_v1** failure is preserved. The v2 and v3 brokers were
+cancelled before lane acquisition to combine the measured lid repair and key
+legends with the first formed-shell import check. Neither ran Godot or produced
+a test result. **mechanism_v4** is queued with two imports, the expanded native/
+glass/mechanism bench, original-printer regression, and actual grab/motion/
+release on the existing physical controls. It still does not qualify companion
+navigation, typed conversation, save integration or whole-world performance.
+
+The current-original-carrier 811-frame world baseline is separately recorded
+in **V2_COMPANION_WORLD_BASELINE_2026-10-25.md**, committed as **61ae5c70**.
+The lid-direction repair was written after that baseline; the baseline's timed
+phases do not operate the lid. Future comparisons must disclose source changes.
+No companion runtime qualification or shipping cutover is claimed here.
+
+### Construction preparation report
+
+REPORT - companion-formed-construction-preparation - 2026-10-25
+
+Branch / starting HEAD / local origin/main / merge-base:
+**codex/v2-main-integration-20261024 / 61ae5c70 / 862e54a2 / 55e60195**.
+Worktree clean at end: no; unrelated owned door, disabled resident-world drafts
+and import churn remain. This source checkpoint stages named companion files
+only, with the companion-only import-policy and spatial additions. It is not
+a merge candidate or an installed autonomous companion.
+
+Protected 17/17: not recertified by this preparation report. Selector: V2,
+with the existing V1 rollback retained. Ledger: no promotion claimed; the
+dirty-tree comparison against the earlier clean main board has 128 regression
+lines, including expired runtime/surface proof. Those remain merge blockers;
+this report does not rebaseline them or claim semantic regressions are excluded.
+
+Gates: complete dirty-tree preflight **static_v1_board** has 103 PASS, nine FAIL
+and one INCOMPLETE. Its original results are preserved. Physical-import failures
+include the three then-untracked new model/import pairs; the named companion
+pair is included in this checkpoint. Other pairs belong to the pending door
+work. The 34 failing spatial changes were reviewed: 33 existing storefront
+anchors and the companion's generated key-name template. One additional test
+name template was report-only. All prior 10,879 manifest records were preserved;
+the targeted follow-up audit is clean. Only the companion record is staged with
+this family. Reader reports zero NEW fields; mesh precision policy reports zero
+missing/wrong sidecars. GDScript syntax and document lint pass. The combined
+windowed Godot batch remains pending; no imported or input pass is claimed.
+
+Numbers requested: 42,824 native triangles in 59 primitives; 20 exact finish
+names; 23 native clamp/shaft/glass contacts, 32 guard-bearing samples, 16 clear
+axial-bore checks and a 1.2 mm glass pane. Native figures exclude runtime key
+legend draws and do not establish frame-time cost. The world baseline and its
+first-use spikes remain separately reported in **61ae5c70**.
+
+Changes outside the expected new-device boundary: the original printer gains
+an optional presentation seam with failure guards, and its service-lid tween
+and authoritative hand read/write/axis consistently open outward. The old model
+and carrier remain the default. The native clipping diagnostic motivated the
+pose correction; actual-input regression is queued. WorkOrders, radio, lamp,
+paper history, call and save authorities retain their existing owners.
+
+Open: imported geometry/finish/contact checks, dry/wet text readability, input
+regressions, independent movement, typing focus, authoritative context/save
+integration, personality integration and repeated world performance comparison.
+Decision needed from owner: none.
+
+BLOCKED merge qualification: construction preparation awaits the combined runtime checks.

@@ -6,7 +6,7 @@ keycaps export once, with mounting sockets for a runtime MultiMesh.
 Blender --background --python-exit-code 1 --python THIS -- --out tmp/companion
 """
 from pathlib import Path
-import argparse, collections, hashlib, json, math, sys
+import argparse, collections, hashlib, json, math, sys, shutil
 import bpy, bmesh
 from mathutils import Matrix, Vector
 
@@ -16,6 +16,7 @@ from fabrication_native_batch import material, partition, export
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--out', required=True)
+parser.add_argument('--publish', action='store_true', help='Publish separate candidate files; never replaces the installed radiophone')
 args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:])
 OUT = (ROOT / args.out).resolve()
 assert OUT.is_relative_to((ROOT / 'tmp').resolve()), 'Candidate remains outside production'
@@ -25,6 +26,7 @@ SOURCE = ROOT / 'art/blender/service_radiophone_v2.blend'
 bpy.ops.wm.open_mainfile(filepath=str(SOURCE))
 bpy.context.preferences.filepaths.save_version = 0
 stocks = bpy.data.collections['EditableIndividualStock']
+stocks.hide_viewport=False
 exports = bpy.data.collections['ServiceRadiophoneV2']
 review = bpy.data.collections['ReviewOnlyLetteringAndStage']
 catalog = json.loads((ROOT / 'game/data/runtime_material_sets.json').read_text())['materials']
@@ -124,7 +126,7 @@ for side in [-1,1]:
 # knuckles share a real pin. Stop shoulders and folding stays carry open load.
 hinge=(0,-.101,.110)
 keyboard=pivot('CompanionKeyboard',hinge)
-box('Keyboard tray', (0,-.057,.110),(.198,.088,.004),'CompanionSteel','CompanionKeyboard')
+tray=box('Keyboard tray', (0,-.057,.110),(.198,.088,.004),'CompanionSteel','CompanionKeyboard')
 for x in [-.100,.100]:
     box('Returned tray edge',(x,-.057,.108),(.003,.091,.010),'CompanionBrass','CompanionKeyboard')
 box('Returned tray lip',(0,-.012,.108),(.198,.003,.010),'CompanionBrass','CompanionKeyboard')
@@ -156,7 +158,6 @@ box('Latch keeper',(.100,-.081,.112),(.006,.006,.004),'CompanionSteel','Companio
 # One key mesh, 43 socket transforms. Source review duplicates share its mesh;
 # production uses a single MultiMesh and updates only pressed key transforms.
 key_home=Vector((-.079,-.029,.104))
-key=box('Reusable phenolic keycap',key_home,(.013,.011,.004),'CompanionKeys','CompanionKeyBlank')
 sockets=[]
 rows=['QWERTYUIOP','ASDFGHJKL;', 'ZXCVBNM,./','1234567890']
 for row,letters in enumerate(rows):
@@ -164,22 +165,58 @@ for row,letters in enumerate(rows):
         point=key_home+Vector((column*.0175,-row*.0165,0))
         node=pivot('KeySocket%02d'%(row*10+column),point)
         node['character']=letter
-        sockets.append(dict(name=node.name,character=letter,point=list(point),scale=[1,1,1]))
+        sockets.append(dict(name=node.name,character=letter,point=list(point),size=[.013,.011,.004],template='CompanionKeyBlank'))
 for index,letter,x,width in [(40,'SPACE',0,.090),(41,'ENTER',.079,.023),(42,'BACKSPACE',-.079,.028)]:
     point=(x,-.092,.104);node=pivot('KeySocket%02d'%index,point)
     node['character']=letter
-    sockets.append(dict(name=node.name,character=letter,point=list(point),scale=[width/.013,.010/.011,1]))
+    sockets.append(dict(name=node.name,character=letter,point=list(point),size=[width,.010,.004],template='CompanionKey'+letter.title()))
+
+# Size-specific native caps retain metre UVs; never stretch a textured regular
+# cap into the spacebar. Each cap has a molded post through a real tray bore.
+key_origins={};key_templates={};bores=[]
+for record in sockets:
+    point=Vector(record['point']);group=record['template']
+    bores.append((point.x,point.y))
+    if record['character']=='SPACE': bores.extend([(point.x-.032,point.y),(point.x+.032,point.y)])
+    if group in key_origins:continue
+    key_origins[group]=point
+    box('Phenolic keycap '+group,point,record['size'],'CompanionKeys',group)
+    offsets=[0] if record['character']!='SPACE' else [-.032,0,.032]
+    for offset in offsets:
+        rod('Molded key post',(point.x+offset,point.y,.106),(point.x+offset,point.y,.114),.0012,'CompanionKeys',group,count=12)
+
+def bore_tray():
+    vertices=[];faces=[];n=12
+    for x,y in bores:
+        start=len(vertices)
+        for z in [.105,.115]:
+            vertices.extend(coords((x+.0015*math.cos(i*math.tau/n),y+.0015*math.sin(i*math.tau/n),z)) for i in range(n))
+        faces.extend([tuple(start+i for i in reversed(range(n))),tuple(start+n+i for i in range(n))])
+        faces.extend((start+i,start+(i+1)%n,start+n+(i+1)%n,start+n+i) for i in range(n))
+    mesh=bpy.data.meshes.new('Key guide cutters');mesh.from_pydata(vertices,[],faces);mesh.update()
+    bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(mesh);bm.free()
+    cutter=bpy.data.objects.new('Key guide cutters',mesh);stocks.objects.link(cutter)
+    bpy.context.view_layer.objects.active=tray
+    mod=tray.modifiers.new('Machined key guides','BOOLEAN');mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cutter
+    bpy.ops.object.modifier_apply(modifier=mod.name);bpy.data.objects.remove(cutter,do_unlink=True)
+    bm=bmesh.new();bm.from_mesh(tray.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces))
+    assert all(edge.is_manifold for edge in bm.edges),'open key guide plate'
+    volume=bm.calc_volume(signed=True);assert volume>0
+    bm.to_mesh(tray.data);bm.free()
+    next(row for row in checks if row['name']=='Keyboard tray')['volume_m3']=volume
+bore_tray()
+from companion_flip_tiles import build as build_flip_tiles
+display=build_flip_tiles(globals())
 
 for (group,surface),objects in groups.items():
-    spec=specs[surface];mat=material(ROOT,surface,spec,catalog)
+    spec=specs[surface];mat=bpy.data.materials.get(surface) or material(ROOT,surface,spec,catalog)
     for obj in objects:obj.data.materials.append(mat)
     obj=partition(exports,group+'__'+surface,objects,spec,mat,Matrix.Identity(4),catalog)
     if group in pivots:
         parent=pivots[group];obj.data.transform(Matrix.Translation(-parent.location));obj.parent=parent;obj.location=(0,0,0)
-    if group=='CompanionKeyBlank':
-        obj.data.transform(Matrix.Translation(-coords(key_home)))
-        obj.location=coords(key_home)
-        key_template=obj
+    if group in key_origins:
+        obj.data.transform(Matrix.Translation(-coords(key_origins[group])))
+        obj.location=coords(key_origins[group]);key_templates[group]=obj
 bpy.context.view_layer.update()
 for record in sockets:
     node=pivots[record['name']];world=node.matrix_world.copy();node.parent=keyboard;node.matrix_world=world
@@ -216,9 +253,9 @@ for sample in range(91):
     angle=sample*math.pi/180
     fronts=[]
     for record in sockets:
-        x,y,z=record['point'];sx,sy,sz=record['scale']
-        for yy in [y-.0055*sy,y+.0055*sy]:
-            for zz in [z-.002*sz,z+.002*sz]:
+        x,y,z=record['point'];width,height,depth=record['size']
+        for yy in [y-height*.5,y+height*.5]:
+            for zz in [z-depth*.5,z+depth*.5]:
                 fronts.append(hinge[2]+math.sin(angle)*(yy-hinge[1])+math.cos(angle)*(zz-hinge[2]))
     gap=min(fronts)-printer_front;deployment_gaps.append(gap)
 assert min(deployment_gaps)>.005,('deployment/printer overlap',min(deployment_gaps))
@@ -228,7 +265,7 @@ assert proof['triangles']<50000,proof
 assert sum(obj.type=='MESH' for obj in exports.objects)<64
 metadata=dict(evidence_class='INERT',asset='res://assets/props/service_companion_v2.glb',
     source_sha256=hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
-    export=proof,finishes=specs,stocks=checks,keys=sockets,keyboard_hinge=list(hinge),
+    export=proof,finishes=specs,stocks=checks,keys=sockets,flip_display=display,keyboard_hinge=list(hinge),
     keyboard_open_degrees=90,rotor_radius_m=.064,guard_inner_radius_m=.069,
     closed_keyboard_printer_gap_m=key_inner_front-printer_front,
     deployment_samples=91,minimum_deployment_printer_gap_m=min(deployment_gaps),
@@ -237,11 +274,12 @@ metadata=dict(evidence_class='INERT',asset='res://assets/props/service_companion
 (OUT/'review/construction.json').write_text(json.dumps(metadata,indent=2)+'\n',newline='\n')
 
 # Review instances are not exported. No letters baked into generated textures.
-key_template.hide_render=True
+for template in key_templates.values():template.hide_render=True
 for record in sockets:
-    draw=bpy.data.objects.new('ReviewKey'+record['character'],key_template.data);review.objects.link(draw)
+    draw=bpy.data.objects.new('ReviewKey'+record['character'],key_templates[record['template']].data);review.objects.link(draw)
     draw.parent=pivots[record['name']];draw.location=(0,0,0)
-    scale=record['scale'];draw.scale=(scale[0],scale[2],scale[1])
+from companion_flip_tiles import review_instances as review_flip_tiles
+review_flip_tiles(globals(),display)
 font=bpy.data.fonts.load(str(ROOT/'game/assets/fonts/courier_prime/CourierPrime-Regular.ttf'))
 def review_text(body,point,size,parent=None,key=False):
     curve=bpy.data.curves.new('Review lettering','FONT');curve.body=body;curve.size=size;curve.font=font
@@ -289,4 +327,25 @@ for image in bpy.data.images:
         assert resolved.is_file(),('missing native texture',image.name,str(resolved))
         images.append(dict(name=image.name,path=image.filepath))
 (OUT/'review/native_images.json').write_text(json.dumps(dict(evidence_class='INERT',images=images),indent=2)+'\n',newline='\n')
+if args.publish:
+    # Resolve before changing the .blend location; keep a portable native source.
+    for image in bpy.data.images:
+        if image.source=='FILE':
+            absolute=bpy.path.abspath(image.filepath)
+            image.filepath=bpy.path.relpath(absolute,start=str(ROOT/'art/blender'))
+    source_out=ROOT/'art/blender/service_companion_v2.blend'
+    bpy.ops.wm.save_as_mainfile(filepath=str(source_out),relative_remap=False)
+    for image in bpy.data.images:
+        if image.source=='FILE':assert Path(bpy.path.abspath(image.filepath)).is_file(),('published native texture missing',image.name,image.filepath)
+    target=ROOT/'game/assets/props/service_companion_v2.glb'
+    shutil.copy2(OUT/'game/assets/props/service_companion_v2.glb',target)
+    base_path=ROOT/'game/data/device/service_radiophone_v2.json'
+    base=json.loads(base_path.read_text())
+    runtime=dict(schema_version=1,asset='res://assets/props/service_companion_v2.glb',
+        asset_sha256=hashlib.sha256(target.read_bytes()).hexdigest(),
+        base_data_sha256=hashlib.sha256(base_path.read_bytes().replace(b'\r\n',b'\n')).hexdigest(),
+        finishes=specs,
+        keys=sockets,flip_display=display,keyboard_hinge=list(hinge),keyboard_open_degrees=90)
+    (ROOT/'game/data/device/service_companion_v2.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
+    (ROOT/'art/blender/service_companion_v2_construction.json').write_text(json.dumps(metadata,indent=2)+'\n',newline='\n')
 print('COMPANION NATIVE CANDIDATE',proof['triangles'],'triangles',len(checks),'closed additions',len(sockets),'key sockets')

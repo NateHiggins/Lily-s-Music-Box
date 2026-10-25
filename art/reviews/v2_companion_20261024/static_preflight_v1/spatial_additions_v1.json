@@ -1,0 +1,996 @@
+{
+  "evidence_class": "INERT",
+  "preserved_records": 10879,
+  "old_sha256": "7be88ba0af81a331367b5b6e362da3e153268f6cbfbb6080cd07e3c157c0eac6",
+  "additions": [
+    {
+      "key": "887e32f361bb690a",
+      "kind": "id_reference",
+      "token": "storm_sf_funeral_parlour_doorhead",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[0]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "c6a50941d3344828",
+      "kind": "id_reference",
+      "token": "storm_sf_funeral_parlour_jamb_e",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[0]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "2049214a32502fa2",
+      "kind": "id_reference",
+      "token": "storm_sf_funeral_parlour_jamb_w",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[0]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "c35109e9f7e9ed96",
+      "kind": "id_reference",
+      "token": "storm_sf_hardware_paint_doorhead",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[1]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "18e8faf76e3aabce",
+      "kind": "id_reference",
+      "token": "storm_sf_hardware_paint_jamb_e",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[1]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "afa9b5c35db01c20",
+      "kind": "id_reference",
+      "token": "storm_sf_hardware_paint_jamb_w",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[1]/replace[2]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "23b2b3760c364937",
+      "kind": "id_reference",
+      "token": "storm_sf_keys_cut_doorhead",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[2]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "f5269439c9b4be90",
+      "kind": "id_reference",
+      "token": "storm_sf_keys_cut_jamb_e",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[2]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "d8de617547cd59d2",
+      "kind": "id_reference",
+      "token": "storm_sf_keys_cut_jamb_w",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[2]/replace[2]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "94b702a5d3bedde4",
+      "kind": "id_reference",
+      "token": "storm_sf_luncheonette_doorhead",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "92f53339590b0f33",
+      "kind": "id_reference",
+      "token": "storm_sf_luncheonette_jamb_e",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "eb7cc0d95635769d",
+      "kind": "id_reference",
+      "token": "storm_sf_luncheonette_jamb_w",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[2]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "80880d6bde0a4a52",
+      "kind": "id_reference",
+      "token": "storm_sf_model_laundry_doorhead",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "5f305dadb7d04e42",
+      "kind": "id_reference",
+      "token": "storm_sf_model_laundry_jamb_e",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "5ccc3101331f4962",
+      "kind": "id_reference",
+      "token": "storm_sf_model_laundry_jamb_w",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[2]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "23cf3eb5433fd609",
+      "kind": "id_reference",
+      "token": "storm_sf_news_cigars_doorhead",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "566ce57df9a1b0e2",
+      "kind": "id_reference",
+      "token": "storm_sf_news_cigars_jamb_e",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "28c2b364f482a35b",
+      "kind": "id_reference",
+      "token": "storm_sf_news_cigars_jamb_w",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[2]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "b1eb849aeb802753",
+      "kind": "id_reference",
+      "token": "storm_sf_otis___son_doorhead",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "bea9b6467035598b",
+      "kind": "id_reference",
+      "token": "storm_sf_otis___son_jamb_e",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "114724f018dcf115",
+      "kind": "id_reference",
+      "token": "storm_sf_otis___son_jamb_w",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[2]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "43ef11ffeae0a674",
+      "kind": "id_reference",
+      "token": "storm_sf_pawnbroker_doorhead",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "1ad42da6c1906b5d",
+      "kind": "id_reference",
+      "token": "storm_sf_pawnbroker_jamb_e",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "fb3bc503f3b87a74",
+      "kind": "id_reference",
+      "token": "storm_sf_pawnbroker_jamb_w",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[2]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "e4c835494b48901d",
+      "kind": "id_reference",
+      "token": "storm_sf_photo_supplies_doorhead",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "1dfa4d5369fbd896",
+      "kind": "id_reference",
+      "token": "storm_sf_photo_supplies_jamb_e",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "93d0899bac9b8c4a",
+      "kind": "id_reference",
+      "token": "storm_sf_photo_supplies_jamb_w",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[2]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "74a9324112d1f8bf",
+      "kind": "id_reference",
+      "token": "storm_sf_radio_service_doorhead",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "4968735902d8547a",
+      "kind": "id_reference",
+      "token": "storm_sf_radio_service_jamb_e",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "8682b411f70465d6",
+      "kind": "id_reference",
+      "token": "storm_sf_radio_service_jamb_w",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[2]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "14714b77868d62d8",
+      "kind": "id_reference",
+      "token": "storm_sf_shoe_rebuilding_doorhead",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "70937947e795462a",
+      "kind": "id_reference",
+      "token": "storm_sf_shoe_rebuilding_jamb_e",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[*]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "0d8e970b693b147c",
+      "kind": "id_reference",
+      "token": "storm_sf_shoe_rebuilding_jamb_w",
+      "file": "game/data/orison_v2/shop_joinery.json",
+      "tier": "data",
+      "subsystem": "data",
+      "symbols": [
+        "/cells[*]/replace[2]/id"
+      ],
+      "lines": [
+        0
+      ],
+      "count": 1,
+      "context": [],
+      "gameplay_binding": false,
+      "authority": [
+        "DATA_FOREIGN_KEY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "PRESERVE_OR_ALIAS",
+      "confidence": "MEDIUM",
+      "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+      "resolved_target": "F01/furniture",
+      "target_exists": true
+    },
+    {
+      "key": "a5c834c6f6b0b626",
+      "kind": "generated_name",
+      "token": "build",
+      "file": "game/scripts/device/companion_mechanism.gd",
+      "tier": "production",
+      "subsystem": "device",
+      "symbols": [
+        "build"
+      ],
+      "lines": [
+        93,
+        103
+      ],
+      "count": 2,
+      "context": [
+        "str(record.character) + \"Key\"",
+        "\"KeyLegend%02d\" % _key_labels.size()"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "GENERATED_IDENTITY"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "REGENERATE_CONSUMER",
+      "confidence": "MEDIUM",
+      "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+      "resolved_target": null,
+      "target_exists": null
+    },
+    {
+      "key": "aa9fb73776b0120d",
+      "kind": "generated_name",
+      "token": "_run",
+      "file": "game/tests/v2_casing_mitre_bench.gd",
+      "tier": "test",
+      "subsystem": "tests",
+      "symbols": [
+        "_run"
+      ],
+      "lines": [
+        41,
+        85
+      ],
+      "count": 2,
+      "context": [
+        "\"Lift_\"+str(row.member);draw.mesh=source_draw.mesh",
+        "\"ShopFinish_\"+key;draw.mesh=source_draw.mesh"
+      ],
+      "gameplay_binding": false,
+      "authority": [
+        "GENERATED_IDENTITY",
+        "TEST_CONTRACT"
+      ],
+      "spatial": [
+        "SEMANTIC_ANCHOR"
+      ],
+      "disposition": "REGENERATE_CONSUMER",
+      "confidence": "MEDIUM",
+      "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+      "resolved_target": null,
+      "target_exists": null
+    }
+  ]
+}

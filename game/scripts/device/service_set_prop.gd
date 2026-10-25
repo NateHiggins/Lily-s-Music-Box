@@ -27,6 +27,10 @@ var _optical_color := Color.WHITE
 var _optical_emission := 0.0
 var order_open := false
 var incoming_call := false
+## Presentation substitution only. Null defaults preserve the installed set.
+var model_scene: PackedScene
+var stock_applier: Callable
+var presentation_ready := false
 
 var _work_orders: WorkOrders
 var _aerial: Node3D
@@ -46,8 +50,13 @@ var teletype: Node3D
 
 func _ready() -> void:
 	teletype = preload("res://scripts/device/mechanical_teletype.gd").new()
+	if model_scene != null: teletype.model_scene = model_scene
+	if stock_applier.is_valid(): teletype.stock_applier = stock_applier
 	teletype.name = "MechanicalTeletype"
 	add_child(teletype)
+	if not teletype.model_ready:
+		push_error("Native service instrument presentation refused")
+		return
 	_receipt_root = teletype
 	_receipt_label = teletype.ink
 	# Keep existing optical/report seams bound to the actual native parts.
@@ -59,6 +68,7 @@ func _ready() -> void:
 	_printer_tick=teletype._tick;_printer_feed=teletype._feed
 	_isolate_meshes(self)
 	_apply_state(false)
+	presentation_ready = true
 
 
 func bind_work_orders(orders: WorkOrders) -> void:

@@ -48,7 +48,7 @@ func find_target() -> Dictionary:
 
 func descriptor(key: String) -> Dictionary:
 	var part: Node3D=controls[key]
-	var low:=0.;var high:=1.85;var axis:=Vector3.LEFT;var gesture:=Vector2.DOWN
+	var low:=0.;var high:=1.85;var axis:=Vector3.RIGHT;var gesture:=Vector2.DOWN
 	if key in ["lamp","radio"]:low=-.4;high=.4;axis=Vector3.BACK
 	elif key=="focus":low=carrier.READING_NEAR;high=carrier.READING_FAR;axis=Vector3.RIGHT
 	elif key.begins_with("feed"):low=-TAU;high=TAU;axis=Vector3.RIGHT;gesture=Vector2.UP
@@ -75,7 +75,7 @@ func end() -> void:
 
 func read(key: String) -> float:
 	if key in ["lamp","radio"]:return controls[key].rotation.z
-	if key=="cover":return -printer.service_cover.rotation.x
+	if key=="cover":return printer.service_cover.rotation.x
 	if key=="focus":return carrier.reading_distance
 	return _feed_angle
 
@@ -91,7 +91,7 @@ func write(value: float,key: String) -> void:
 			# The service-round owner remains the only answer authority.
 			if value<-.35 and is_instance_valid(carrier._service_round) and carrier._service_round.has_method("has_incoming_call") and carrier._service_round.has_incoming_call():carrier._service_round.answer_incoming_call()
 	elif key=="cover":
-		printer.service_cover.rotation.x=-value;printer.service_open=value>.9
+		printer.service_cover.rotation.x=value;printer.service_open=value>.9
 	elif key=="focus":
 		carrier.reading_distance=value
 		printer.focus_wheel.rotation.x=inverse_lerp(carrier.READING_FAR,carrier.READING_NEAR,value)*TAU

@@ -1,0 +1,1955 @@
+{
+  "evidence_class": "INERT",
+  "asset": "res://assets/props/service_companion_v2.glb",
+  "source_sha256": "1a0ae7a71987cc5a26dbb737193ee5530df2ccd9af8bb74733ee6bc491fe1f9d",
+  "export": {
+    "asset": "res://assets/props/service_companion_v2.glb",
+    "primitives": 59,
+    "triangles": 42824,
+    "minimum_tangent_agreement": 0.9999917295296572,
+    "status": "PASS"
+  },
+  "finishes": {
+    "CompanionSteel": {
+      "catalog_key": "fire_hardware_steel",
+      "tint": [
+        0.34,
+        0.39,
+        0.37,
+        1
+      ],
+      "normal": 0.28,
+      "roughness": 0.75,
+      "pigment": 0.5
+    },
+    "CompanionBrass": {
+      "catalog_key": "brass_dull",
+      "tint": [
+        0.86,
+        0.82,
+        0.67,
+        1
+      ],
+      "normal": 0.25,
+      "roughness": 0.85,
+      "pigment": 0.6
+    },
+    "CompanionKeys": {
+      "catalog_key": "bakelite_black",
+      "tint": [
+        0.58,
+        0.67,
+        0.63,
+        1
+      ],
+      "normal": 0.22,
+      "roughness": 0.85,
+      "pigment": 0.4
+    },
+    "CompanionTileIvory": {
+      "catalog_key": "porcelain_fixture",
+      "tint": [
+        0.92,
+        0.86,
+        0.67,
+        1
+      ],
+      "normal": 0.12,
+      "roughness": 0.8,
+      "pigment": 0.4
+    }
+  },
+  "stocks": [
+    {
+      "name": "Cradle strap",
+      "volume_m3": 7.392000416278712e-06
+    },
+    {
+      "name": "Bearer tie",
+      "volume_m3": 4.281197020520046e-06
+    },
+    {
+      "name": "Chassis through-bolt washer",
+      "volume_m3": 1.8479645510638802e-07
+    },
+    {
+      "name": "Chassis bolt",
+      "volume_m3": 2.0211002256600227e-07
+    },
+    {
+      "name": "Cradle strap",
+      "volume_m3": 7.3920004162787055e-06
+    },
+    {
+      "name": "Bearer tie",
+      "volume_m3": 1.8296686034668921e-06
+    },
+    {
+      "name": "Chassis through-bolt washer",
+      "volume_m3": 1.847964720395859e-07
+    },
+    {
+      "name": "Chassis bolt",
+      "volume_m3": 2.021100225660036e-07
+    },
+    {
+      "name": "Rolled guard",
+      "volume_m3": 1.5765193583559924e-05
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840694822826629e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.84070016464288e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840695231197455e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840697754256511e-07
+    },
+    {
+      "name": "Bored motor barrel",
+      "volume_m3": 1.7001304935559254e-05
+    },
+    {
+      "name": "Upper journal",
+      "volume_m3": 1.635217543973095e-06
+    },
+    {
+      "name": "Rotor shaft",
+      "volume_m3": 1.26961700359317e-06
+    },
+    {
+      "name": "Rotor hub",
+      "volume_m3": 1.0676287272892243e-06
+    },
+    {
+      "name": "Pitched rotor blade",
+      "volume_m3": 7.391986561924825e-07
+    },
+    {
+      "name": "Pitched rotor blade",
+      "volume_m3": 7.39198588392225e-07
+    },
+    {
+      "name": "Cradle strap",
+      "volume_m3": 7.392000416278709e-06
+    },
+    {
+      "name": "Bearer tie",
+      "volume_m3": 4.2811975905185524e-06
+    },
+    {
+      "name": "Chassis through-bolt washer",
+      "volume_m3": 1.8479645510638855e-07
+    },
+    {
+      "name": "Chassis bolt",
+      "volume_m3": 2.0211002256600295e-07
+    },
+    {
+      "name": "Cradle strap",
+      "volume_m3": 7.392000416278733e-06
+    },
+    {
+      "name": "Bearer tie",
+      "volume_m3": 1.8296686888364676e-06
+    },
+    {
+      "name": "Chassis through-bolt washer",
+      "volume_m3": 1.8479647203958558e-07
+    },
+    {
+      "name": "Chassis bolt",
+      "volume_m3": 2.0211002256600232e-07
+    },
+    {
+      "name": "Rolled guard",
+      "volume_m3": 1.576519358355998e-05
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840695231197366e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840700164642905e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840694822826636e-07
+    },
+    {
+      "name": "Guard stay",
+      "volume_m3": 6.840697754256562e-07
+    },
+    {
+      "name": "Bored motor barrel",
+      "volume_m3": 1.700130493555924e-05
+    },
+    {
+      "name": "Upper journal",
+      "volume_m3": 1.6352175439730855e-06
+    },
+    {
+      "name": "Rotor shaft",
+      "volume_m3": 1.2696170035931717e-06
+    },
+    {
+      "name": "Rotor hub",
+      "volume_m3": 1.0676287272892294e-06
+    },
+    {
+      "name": "Pitched rotor blade",
+      "volume_m3": 7.39198510161325e-07
+    },
+    {
+      "name": "Pitched rotor blade",
+      "volume_m3": 7.391987344233726e-07
+    },
+    {
+      "name": "Keyboard tray",
+      "volume_m3": 6.848087942588e-05
+    },
+    {
+      "name": "Returned tray edge",
+      "volume_m3": 2.7300069415597225e-06
+    },
+    {
+      "name": "Returned tray edge",
+      "volume_m3": 2.7300069415597903e-06
+    },
+    {
+      "name": "Returned tray lip",
+      "volume_m3": 5.940004127920185e-06
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728854425542368e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.6999922752367866e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728852619013614e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.6999928340289853e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728854425542374e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.6999933928211575e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728854425542373e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.69999339282115e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728854425542379e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.6999933928211803e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728854425542375e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.6999933928211443e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728854425542368e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.6999933928211745e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728852619013637e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.6999928340289715e-07
+    },
+    {
+      "name": "Interleaved hinge knuckle",
+      "volume_m3": 8.728854425542381e-07
+    },
+    {
+      "name": "Hinge leaf",
+      "volume_m3": 2.6999922752367305e-07
+    },
+    {
+      "name": "Continuous hinge pin",
+      "volume_m3": 2.079462678609994e-06
+    },
+    {
+      "name": "Hinge bearer",
+      "volume_m3": 5.320001878439925e-06
+    },
+    {
+      "name": "Open angle stop",
+      "volume_m3": 5.600003349781112e-07
+    },
+    {
+      "name": "Stay pivot washer",
+      "volume_m3": 8.348455321162323e-08
+    },
+    {
+      "name": "PortKeyboardStayUpper",
+      "volume_m3": 2.419325010404213e-07
+    },
+    {
+      "name": "Stay eye",
+      "volume_m3": 7.50001817638928e-08
+    },
+    {
+      "name": "Stay eye",
+      "volume_m3": 7.500017611027994e-08
+    },
+    {
+      "name": "PortKeyboardStayLower",
+      "volume_m3": 2.419325010404213e-07
+    },
+    {
+      "name": "Stay eye",
+      "volume_m3": 7.50001817638928e-08
+    },
+    {
+      "name": "Stay eye",
+      "volume_m3": 7.500017611027994e-08
+    },
+    {
+      "name": "Hinge bearer",
+      "volume_m3": 5.320001878439905e-06
+    },
+    {
+      "name": "Open angle stop",
+      "volume_m3": 5.600003349781065e-07
+    },
+    {
+      "name": "Stay pivot washer",
+      "volume_m3": 8.348455321162343e-08
+    },
+    {
+      "name": "StarboardKeyboardStayUpper",
+      "volume_m3": 2.4193250104042207e-07
+    },
+    {
+      "name": "Stay eye",
+      "volume_m3": 7.500018176389307e-08
+    },
+    {
+      "name": "Stay eye",
+      "volume_m3": 7.500017611027959e-08
+    },
+    {
+      "name": "StarboardKeyboardStayLower",
+      "volume_m3": 2.4193250104042207e-07
+    },
+    {
+      "name": "Stay eye",
+      "volume_m3": 7.500018176389307e-08
+    },
+    {
+      "name": "Stay eye",
+      "volume_m3": 7.500017611027959e-08
+    },
+    {
+      "name": "Latch supporting ear",
+      "volume_m3": 3.887999497889864e-06
+    },
+    {
+      "name": "Latch bearing",
+      "volume_m3": 1.7082027203398545e-07
+    },
+    {
+      "name": "Latch spring",
+      "volume_m3": 1.440001006121712e-07
+    },
+    {
+      "name": "Latch hook",
+      "volume_m3": 2.0799923801501487e-07
+    },
+    {
+      "name": "Latch keeper",
+      "volume_m3": 1.439996237757379e-07
+    },
+    {
+      "name": "Phenolic keycap CompanionKeyBlank",
+      "volume_m3": 5.719988731148467e-07
+    },
+    {
+      "name": "Molded key post",
+      "volume_m3": 3.456001117199364e-08
+    },
+    {
+      "name": "Phenolic keycap CompanionKeySpace",
+      "volume_m3": 3.599995958801634e-06
+    },
+    {
+      "name": "Molded key post",
+      "volume_m3": 3.455998674575009e-08
+    },
+    {
+      "name": "Molded key post",
+      "volume_m3": 3.455999396983479e-08
+    },
+    {
+      "name": "Molded key post",
+      "volume_m3": 3.455998674575098e-08
+    },
+    {
+      "name": "Phenolic keycap CompanionKeyEnter",
+      "volume_m3": 9.199990069856792e-07
+    },
+    {
+      "name": "Molded key post",
+      "volume_m3": 3.455998020031873e-08
+    },
+    {
+      "name": "Phenolic keycap CompanionKeyBackspace",
+      "volume_m3": 1.1199985837927336e-06
+    },
+    {
+      "name": "Molded key post",
+      "volume_m3": 3.455998020031777e-08
+    },
+    {
+      "name": "Flip display backing",
+      "volume_m3": 1.383802800157636e-05
+    },
+    {
+      "name": "Display standoff",
+      "volume_m3": 4.387501891533403e-08
+    },
+    {
+      "name": "Display standoff",
+      "volume_m3": 4.387500075478197e-08
+    },
+    {
+      "name": "Display standoff",
+      "volume_m3": 4.387501891533218e-08
+    },
+    {
+      "name": "Display standoff",
+      "volume_m3": 4.387500075478226e-08
+    },
+    {
+      "name": "Continuous flip display bezel",
+      "volume_m3": 4.99799756081414e-06
+    },
+    {
+      "name": "Bistable square tile",
+      "volume_m3": 2.47807506140819e-08
+    },
+    {
+      "name": "Light tile face",
+      "volume_m3": 1.6200004089530112e-09
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020879855380123e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020879855380123e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020879855380335e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020879855380017e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020879855379911e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831524e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831418e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831206e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831312e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831206e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831312e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831206e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.20208427608311e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020852034468409e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020852034468409e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.202084739764986e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.202084739764986e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020852034468515e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020852034468568e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831418e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831471e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831471e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831365e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831153e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831524e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831524e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020842760831789e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020879855380017e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020879855380176e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020879855380282e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020879855379964e-08
+    },
+    {
+      "name": "Column spindle",
+      "volume_m3": 1.2020879855380388e-08
+    }
+  ],
+  "keys": [
+    {
+      "name": "KeySocket00",
+      "character": "Q",
+      "point": [
+        -0.07900000363588333,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket01",
+      "character": "W",
+      "point": [
+        -0.061500005424022675,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket02",
+      "character": "E",
+      "point": [
+        -0.04400000348687172,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket03",
+      "character": "R",
+      "point": [
+        -0.026500005275011063,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket04",
+      "character": "T",
+      "point": [
+        -0.009000003337860107,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket05",
+      "character": "Y",
+      "point": [
+        0.00849999487400055,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket06",
+      "character": "U",
+      "point": [
+        0.025999993085861206,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket07",
+      "character": "I",
+      "point": [
+        0.04349999874830246,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket08",
+      "character": "O",
+      "point": [
+        0.060999996960163116,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket09",
+      "character": "P",
+      "point": [
+        0.07849999517202377,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket10",
+      "character": "A",
+      "point": [
+        -0.07900000363588333,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket11",
+      "character": "S",
+      "point": [
+        -0.061500005424022675,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket12",
+      "character": "D",
+      "point": [
+        -0.04400000348687172,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket13",
+      "character": "F",
+      "point": [
+        -0.026500005275011063,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket14",
+      "character": "G",
+      "point": [
+        -0.009000003337860107,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket15",
+      "character": "H",
+      "point": [
+        0.00849999487400055,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket16",
+      "character": "J",
+      "point": [
+        0.025999993085861206,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket17",
+      "character": "K",
+      "point": [
+        0.04349999874830246,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket18",
+      "character": "L",
+      "point": [
+        0.060999996960163116,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket19",
+      "character": ";",
+      "point": [
+        0.07849999517202377,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket20",
+      "character": "Z",
+      "point": [
+        -0.07900000363588333,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket21",
+      "character": "X",
+      "point": [
+        -0.061500005424022675,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket22",
+      "character": "C",
+      "point": [
+        -0.04400000348687172,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket23",
+      "character": "V",
+      "point": [
+        -0.026500005275011063,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket24",
+      "character": "B",
+      "point": [
+        -0.009000003337860107,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket25",
+      "character": "N",
+      "point": [
+        0.00849999487400055,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket26",
+      "character": "M",
+      "point": [
+        0.025999993085861206,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket27",
+      "character": ",",
+      "point": [
+        0.04349999874830246,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket28",
+      "character": ".",
+      "point": [
+        0.060999996960163116,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket29",
+      "character": "/",
+      "point": [
+        0.07849999517202377,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket30",
+      "character": "1",
+      "point": [
+        -0.07900000363588333,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket31",
+      "character": "2",
+      "point": [
+        -0.061500005424022675,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket32",
+      "character": "3",
+      "point": [
+        -0.04400000348687172,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket33",
+      "character": "4",
+      "point": [
+        -0.026500005275011063,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket34",
+      "character": "5",
+      "point": [
+        -0.009000003337860107,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket35",
+      "character": "6",
+      "point": [
+        0.00849999487400055,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket36",
+      "character": "7",
+      "point": [
+        0.025999993085861206,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket37",
+      "character": "8",
+      "point": [
+        0.04349999874830246,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket38",
+      "character": "9",
+      "point": [
+        0.060999996960163116,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket39",
+      "character": "0",
+      "point": [
+        0.07849999517202377,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket40",
+      "character": "SPACE",
+      "point": [
+        0,
+        -0.092,
+        0.104
+      ],
+      "size": [
+        0.09,
+        0.01,
+        0.004
+      ],
+      "template": "CompanionKeySpace"
+    },
+    {
+      "name": "KeySocket41",
+      "character": "ENTER",
+      "point": [
+        0.079,
+        -0.092,
+        0.104
+      ],
+      "size": [
+        0.023,
+        0.01,
+        0.004
+      ],
+      "template": "CompanionKeyEnter"
+    },
+    {
+      "name": "KeySocket42",
+      "character": "BACKSPACE",
+      "point": [
+        -0.079,
+        -0.092,
+        0.104
+      ],
+      "size": [
+        0.028,
+        0.01,
+        0.004
+      ],
+      "template": "CompanionKeyBackspace"
+    }
+  ],
+  "flip_display": {
+    "columns": 32,
+    "rows": 12,
+    "pitch": 0.0055,
+    "center": [
+      0,
+      -0.057,
+      0.123
+    ],
+    "dark_mesh": "FlipTile__CompanionKeys",
+    "light_mesh": "FlipTile__CompanionTileIvory"
+  },
+  "keyboard_hinge": [
+    0,
+    -0.101,
+    0.11
+  ],
+  "keyboard_open_degrees": 90,
+  "rotor_radius_m": 0.064,
+  "guard_inner_radius_m": 0.069,
+  "closed_keyboard_printer_gap_m": 0.019871395409107206,
+  "deployment_samples": 91,
+  "minimum_deployment_printer_gap_m": 0.01987139326333999,
+  "limitations": [
+    "Uninstalled companion candidate; requires imported/mechanical and actual-input checks",
+    "No autonomous movement, typing or world-performance qualification yet"
+  ],
+  "formed_shell": {
+    "evidence_class": "INERT",
+    "source_sha256": "e3bbd9b4bd54d3c9f6496bd8499c9c69efa085fcec88326cb4e0251a915fd8bb",
+    "export": {
+      "asset": "C:\\ov\\v2merge24\\tmp\\companion_shell_study\\v11\\game\\assets\\props\\service_companion_formed_shell.glb",
+      "primitives": 59,
+      "triangles": 42824,
+      "minimum_tangent_agreement": 0.9999917295296572,
+      "status": "PASS"
+    },
+    "finishes": {
+      "ShellSteel": {
+        "catalog_key": "fire_hardware_steel",
+        "tint": [
+          0.3,
+          0.35,
+          0.34,
+          1
+        ],
+        "normal": 0.25,
+        "roughness": 0.8,
+        "pigment": 0.5
+      },
+      "ShellLeather": {
+        "catalog_key": "leather_worn",
+        "tint": [
+          0.38,
+          0.2,
+          0.11,
+          1
+        ],
+        "normal": 0.45,
+        "roughness": 0.9,
+        "pigment": 0.6
+      },
+      "ShellBrass": {
+        "catalog_key": "brass_dull",
+        "tint": [
+          0.82,
+          0.67,
+          0.39,
+          1
+        ],
+        "normal": 0.2,
+        "roughness": 0.65,
+        "pigment": 0.45
+      },
+      "ShellRubber": {
+        "catalog_key": "washer_rubber",
+        "tint": [
+          0.2,
+          0.17,
+          0.13,
+          1
+        ],
+        "normal": 0.2,
+        "roughness": 1.0,
+        "pigment": 0.5
+      },
+      "ShellGlass": {
+        "catalog_key": "glass_drawn_expressive",
+        "tint": [
+          0.9,
+          0.98,
+          0.96,
+          0.15
+        ],
+        "normal": 0.15,
+        "roughness": 0.3,
+        "pigment": 0.2
+      },
+      "StudyVelvet": {
+        "catalog_key": "velour",
+        "tint": [
+          0.28,
+          0.06,
+          0.1,
+          1
+        ],
+        "normal": 0.35,
+        "roughness": 1.0,
+        "pigment": 0.65
+      },
+      "KeyboardShellBrass": {
+        "catalog_key": "brass_dull",
+        "tint": [
+          0.82,
+          0.67,
+          0.39,
+          1
+        ],
+        "normal": 0.2,
+        "roughness": 0.65,
+        "pigment": 0.45
+      }
+    },
+    "retired_stock": [
+      "Stock__Case side",
+      "Stock__Case side.001",
+      "Stock__Case end",
+      "Stock__Case end.001",
+      "Stock__Rear pan",
+      "Stock__Returned tray edge",
+      "Stock__Returned tray edge.001",
+      "Stock__Returned tray lip"
+    ],
+    "removed_triangles": 840,
+    "finished_stocks": [
+      {
+        "name": "Stock__Continuous pressed structural pan",
+        "volume_m3": 0.00020745345482060993
+      },
+      {
+        "name": "Stock__Guard screw shank",
+        "volume_m3": 3.630004665638564e-08
+      },
+      {
+        "name": "Stock__Guard screw shank.001",
+        "volume_m3": 3.6300031657459517e-08
+      },
+      {
+        "name": "Stock__Guard screw shank.002",
+        "volume_m3": 3.630004665638592e-08
+      },
+      {
+        "name": "Stock__Guard screw shank.003",
+        "volume_m3": 3.630003165746185e-08
+      },
+      {
+        "name": "Stock__Guard screw shank.004",
+        "volume_m3": 3.6300046656387776e-08
+      },
+      {
+        "name": "Stock__Guard screw shank.005",
+        "volume_m3": 3.6300031657367514e-08
+      },
+      {
+        "name": "Stock__Guard screw shank.006",
+        "volume_m3": 3.630004665639042e-08
+      },
+      {
+        "name": "Stock__Guard screw shank.007",
+        "volume_m3": 3.6300031657367276e-08
+      },
+      {
+        "name": "Stock__Reading frame clamp screw",
+        "volume_m3": 5.062486818425991e-09
+      },
+      {
+        "name": "Stock__Reading frame clamp screw.001",
+        "volume_m3": 5.062488642614689e-09
+      },
+      {
+        "name": "Stock__Reading frame clamp screw.002",
+        "volume_m3": 5.062486818425667e-09
+      },
+      {
+        "name": "Stock__Reading frame clamp screw.003",
+        "volume_m3": 5.0624886426147275e-09
+      },
+      {
+        "name": "Stock__One piece moulded leather jacket",
+        "volume_m3": 8.523746991472197e-05
+      },
+      {
+        "name": "Stock__Stepped bored reading shaft bearing",
+        "volume_m3": 1.1127002551121959e-07
+      },
+      {
+        "name": "Stock__Continuous rolled brass edge",
+        "volume_m3": 3.404715306417744e-06
+      },
+      {
+        "name": "Stock__Continuous rolled brass edge.001",
+        "volume_m3": 3.4047153064177283e-06
+      },
+      {
+        "name": "Stock__Pierced corner fastening guard",
+        "volume_m3": 1.5389540885686027e-06
+      },
+      {
+        "name": "Stock__Slotted guard screw",
+        "volume_m3": 3.2515952817999374e-08
+      },
+      {
+        "name": "Stock__Slotted guard screw.001",
+        "volume_m3": 3.2515965252384144e-08
+      },
+      {
+        "name": "Stock__Pierced corner fastening guard.001",
+        "volume_m3": 1.5389540881561013e-06
+      },
+      {
+        "name": "Stock__Slotted guard screw.002",
+        "volume_m3": 3.251595281799983e-08
+      },
+      {
+        "name": "Stock__Slotted guard screw.003",
+        "volume_m3": 3.25159652523848e-08
+      },
+      {
+        "name": "Stock__Pierced corner fastening guard.002",
+        "volume_m3": 1.5389540885686002e-06
+      },
+      {
+        "name": "Stock__Slotted guard screw.004",
+        "volume_m3": 3.2515952817999665e-08
+      },
+      {
+        "name": "Stock__Slotted guard screw.005",
+        "volume_m3": 3.2515965252383456e-08
+      },
+      {
+        "name": "Stock__Pierced corner fastening guard.003",
+        "volume_m3": 1.5389540885686042e-06
+      },
+      {
+        "name": "Stock__Slotted guard screw.006",
+        "volume_m3": 3.2515952817999566e-08
+      },
+      {
+        "name": "Stock__Slotted guard screw.007",
+        "volume_m3": 3.2515965252384243e-08
+      },
+      {
+        "name": "Stock__Reading glass retaining frame",
+        "volume_m3": 5.4957685249571436e-06
+      },
+      {
+        "name": "Stock__Reading frame clamp screw head",
+        "volume_m3": 1.1056506273200426e-08
+      },
+      {
+        "name": "Stock__Reading frame clamp screw head.001",
+        "volume_m3": 1.1056499300356272e-08
+      },
+      {
+        "name": "Stock__Reading frame clamp screw head.002",
+        "volume_m3": 1.1056506273200851e-08
+      },
+      {
+        "name": "Stock__Reading frame clamp screw head.003",
+        "volume_m3": 1.1056499300356537e-08
+      },
+      {
+        "name": "Stock__Soft fitted liner return",
+        "volume_m3": 4.340671561190422e-05
+      },
+      {
+        "name": "Stock__One piece rounded keyboard perimeter",
+        "volume_m3": 2.0741689219623326e-05
+      },
+      {
+        "name": "Stock__1.2 millimetre reading glass",
+        "volume_m3": 1.5744731920472815e-05
+      },
+      {
+        "name": "Stock__Glazing rear bearing flange",
+        "volume_m3": 2.056993599882534e-06
+      },
+      {
+        "name": "Stock__Glazing side gasket",
+        "volume_m3": 1.3900975453968408e-06
+      }
+    ],
+    "fastener_bearing_rays": [
+      {
+        "point": [
+          -0.10049999999999999,
+          -0.066
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.1045,
+          -0.066
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.1025,
+          -0.064
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.1025,
+          -0.068
+        ],
+        "seat_m": 0.027500001713633537,
+        "gap_m": -1.862645149230957e-09
+      },
+      {
+        "point": [
+          -0.061,
+          -0.093
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.065,
+          -0.093
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.063,
+          -0.091
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.063,
+          -0.095
+        ],
+        "seat_m": 0.027500001713633537,
+        "gap_m": -1.862645149230957e-09
+      },
+      {
+        "point": [
+          -0.10049999999999999,
+          0.066
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.1045,
+          0.066
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.1025,
+          0.068
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.1025,
+          0.064
+        ],
+        "seat_m": 0.027500001713633537,
+        "gap_m": -1.862645149230957e-09
+      },
+      {
+        "point": [
+          -0.061,
+          0.093
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.065,
+          0.093
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.063,
+          0.095
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          -0.063,
+          0.091
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.1045,
+          -0.066
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.10049999999999999,
+          -0.066
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.1025,
+          -0.064
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.1025,
+          -0.068
+        ],
+        "seat_m": 0.027500001713633537,
+        "gap_m": -1.862645149230957e-09
+      },
+      {
+        "point": [
+          0.065,
+          -0.093
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.061,
+          -0.093
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.063,
+          -0.091
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.063,
+          -0.095
+        ],
+        "seat_m": 0.027500001713633537,
+        "gap_m": -1.862645149230957e-09
+      },
+      {
+        "point": [
+          0.1045,
+          0.066
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.10049999999999999,
+          0.066
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.1025,
+          0.068
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.1025,
+          0.064
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.065,
+          0.093
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.061,
+          0.093
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.063,
+          0.095
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      },
+      {
+        "point": [
+          0.063,
+          0.091
+        ],
+        "seat_m": 0.027499999850988388,
+        "gap_m": 0.0
+      }
+    ],
+    "clear_axial_bores": 16,
+    "glazing_seats": {
+      "glass_back": 0.0573,
+      "glass_front": 0.0585,
+      "gasket_rear_flange_front": 0.0573,
+      "side_gasket_inner_width": 0.137,
+      "retainer_back": 0.0585
+    },
+    "scope": "Isolated native form study; not installed or Godot qualified",
+    "limitations": [
+      "Lining uses existing registered cotton-pile velour; native sheen is a form review",
+      "Glass requires production wet/smudge shader binding and readability review",
+      "Clamp contact and moving assembly clearance need imported verification"
+    ],
+    "contacts": {
+      "evidence_class": "INERT",
+      "scope": "Native fit of four reading-window clamps, original cartridge frames, reading-shaft bearing and glass seats; no imported qualification",
+      "checks": 23,
+      "maximum_gap_m": 0.0,
+      "reading_shaft_radial_clearance_m": 0.0002500005066394806,
+      "reading_shaft_clear_stock_layers": 3,
+      "glass_thickness_m": 0.0011999979615211487,
+      "records": [
+        {
+          "side": -1,
+          "y": 0.0,
+          "face": "outer",
+          "gap_m": 0.0
+        },
+        {
+          "side": -1,
+          "y": 0.0,
+          "face": "inner",
+          "gap_m": 0.0
+        },
+        {
+          "side": -1,
+          "y": 0.0,
+          "face": "outer",
+          "gap_m": 0.0
+        },
+        {
+          "side": -1,
+          "y": 0.0,
+          "face": "inner",
+          "gap_m": 0.0
+        },
+        {
+          "side": -1,
+          "y": 0.0,
+          "face": "top",
+          "gap_m": 0.0
+        },
+        {
+          "side": -1,
+          "y": 0.076,
+          "face": "outer",
+          "gap_m": 0.0
+        },
+        {
+          "side": -1,
+          "y": 0.076,
+          "face": "inner",
+          "gap_m": 0.0
+        },
+        {
+          "side": -1,
+          "y": 0.076,
+          "face": "outer",
+          "gap_m": 0.0
+        },
+        {
+          "side": -1,
+          "y": 0.076,
+          "face": "inner",
+          "gap_m": 0.0
+        },
+        {
+          "side": -1,
+          "y": 0.076,
+          "face": "top",
+          "gap_m": 0.0
+        },
+        {
+          "side": 1,
+          "y": 0.0,
+          "face": "outer",
+          "gap_m": 0.0
+        },
+        {
+          "side": 1,
+          "y": 0.0,
+          "face": "inner",
+          "gap_m": 0.0
+        },
+        {
+          "side": 1,
+          "y": 0.0,
+          "face": "outer",
+          "gap_m": 0.0
+        },
+        {
+          "side": 1,
+          "y": 0.0,
+          "face": "inner",
+          "gap_m": 0.0
+        },
+        {
+          "side": 1,
+          "y": 0.0,
+          "face": "top",
+          "gap_m": 0.0
+        },
+        {
+          "side": 1,
+          "y": 0.076,
+          "face": "outer",
+          "gap_m": 0.0
+        },
+        {
+          "side": 1,
+          "y": 0.076,
+          "face": "inner",
+          "gap_m": 0.0
+        },
+        {
+          "side": 1,
+          "y": 0.076,
+          "face": "outer",
+          "gap_m": 0.0
+        },
+        {
+          "side": 1,
+          "y": 0.076,
+          "face": "inner",
+          "gap_m": 0.0
+        },
+        {
+          "side": 1,
+          "y": 0.076,
+          "face": "top",
+          "gap_m": 0.0
+        },
+        {
+          "face": "reading_bearing_flange",
+          "gap_m": 0.0
+        },
+        {
+          "face": "glass_gasket",
+          "gap_m": 0.0
+        },
+        {
+          "face": "glass_retainer",
+          "gap_m": 0.0
+        }
+      ]
+    }
+  }
+}

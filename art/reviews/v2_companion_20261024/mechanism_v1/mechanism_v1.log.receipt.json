@@ -1,0 +1,66 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 14.27,
+  "exit_code": 1,
+  "finished_utc": "2026-10-25T03:46:02Z",
+  "started_utc": "2026-10-25T03:45:47Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 3,
+  "script_error_lines": [
+   "SCRIPT ERROR: Assertion failed: unknown companion native finish",
+   "SCRIPT ERROR: Invalid access to property or key 'center' on a base object of type 'Dictionary'.",
+   "SCRIPT ERROR: Invalid assignment of property or key 'text' with value of type 'String' on a base object of type 'Nil'."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/companion_20261024/mechanism_v1.log.stderr",
+  "stderr_sha256": "fa1897b63d821be166bb018dba530e85e87217aea37ea728be9e078074d93075",
+  "stdout": "C:/ov/reports/v2integration24/companion_20261024/mechanism_v1.log",
+  "stdout_sha256": "5eed56e2847fd880cbf4df4c6fe4249230321f90d46cd2f290856655705f323f"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/CompanionMechanismBench.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\reports\\v2integration24\\companion_20261024\\mechanism_v1",
+ "source": {
+  "dirty_paths": 2235,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/front_facade.blend",
+   " M art/blender/front_facade_inventory.json",
+   " M art/blender/scripts/build_front_facade.py",
+   " M art/blender/scripts/build_service_companion.py",
+   " M art/blender/scripts/build_shop_joinery.py",
+   " M art/blender/scripts/inspect_front_facade.py",
+   " M art/blender/scripts/inspect_shop_joinery.py",
+   " M art/blender/scripts/shop_joinery_geometry.py",
+   " M art/blender/shop_joinery.blend",
+   " M art/blender/shop_joinery_construction.json",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/data/front_facade/source_fit.json",
+   " M art/data/shop_joinery/source_plan.json",
+   " M art/tools/fix_v2_mesh_imports.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import"
+  ],
+  "repository_head": "f3d634709c8eaae8c12dbc2c287ec45dbb415872",
+  "repository_tree": "5fcfe568679e7b4e64abc99ac2c2563f004e830c",
+  "runtime_inputs_sha256": "0f551f50cb378b0229a8e0e5b621fa04d615deff6f741c3986c48cd0890371c4",
+  "test_path": "game/tests/companion_mechanism_bench.gd",
+  "test_sha256": "41ce3c999b370e75ba2142334fef4e817c3f06b8d1287953b5ae8917c7992ee2"
+ },
+ "windowed": true
+}

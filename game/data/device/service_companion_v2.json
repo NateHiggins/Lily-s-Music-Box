@@ -1,0 +1,805 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/service_companion_v2.glb",
+  "asset_sha256": "295fa5f96fa961a5206c75e1ad25ae8540f75efdcd461956440290023380c87e",
+  "base_data_sha256": "270b1e23788f2c4346a6c29f83c98e230bc5709b31dca02b9db6933aba586b9e",
+  "finishes": {
+    "CompanionSteel": {
+      "catalog_key": "fire_hardware_steel",
+      "tint": [
+        0.34,
+        0.39,
+        0.37,
+        1
+      ],
+      "normal": 0.28,
+      "roughness": 0.75,
+      "pigment": 0.5
+    },
+    "CompanionBrass": {
+      "catalog_key": "brass_dull",
+      "tint": [
+        0.86,
+        0.82,
+        0.67,
+        1
+      ],
+      "normal": 0.25,
+      "roughness": 0.85,
+      "pigment": 0.6
+    },
+    "CompanionKeys": {
+      "catalog_key": "bakelite_black",
+      "tint": [
+        0.58,
+        0.67,
+        0.63,
+        1
+      ],
+      "normal": 0.22,
+      "roughness": 0.85,
+      "pigment": 0.4
+    },
+    "CompanionTileIvory": {
+      "catalog_key": "porcelain_fixture",
+      "tint": [
+        0.92,
+        0.86,
+        0.67,
+        1
+      ],
+      "normal": 0.12,
+      "roughness": 0.8,
+      "pigment": 0.4
+    },
+    "ShellSteel": {
+      "catalog_key": "fire_hardware_steel",
+      "tint": [
+        0.3,
+        0.35,
+        0.34,
+        1
+      ],
+      "normal": 0.25,
+      "roughness": 0.8,
+      "pigment": 0.5
+    },
+    "ShellLeather": {
+      "catalog_key": "leather_worn",
+      "tint": [
+        0.38,
+        0.2,
+        0.11,
+        1
+      ],
+      "normal": 0.45,
+      "roughness": 0.9,
+      "pigment": 0.6
+    },
+    "ShellBrass": {
+      "catalog_key": "brass_dull",
+      "tint": [
+        0.82,
+        0.67,
+        0.39,
+        1
+      ],
+      "normal": 0.2,
+      "roughness": 0.65,
+      "pigment": 0.45
+    },
+    "ShellRubber": {
+      "catalog_key": "washer_rubber",
+      "tint": [
+        0.2,
+        0.17,
+        0.13,
+        1
+      ],
+      "normal": 0.2,
+      "roughness": 1.0,
+      "pigment": 0.5
+    },
+    "ShellGlass": {
+      "catalog_key": "glass_drawn_expressive",
+      "tint": [
+        0.9,
+        0.98,
+        0.96,
+        0.15
+      ],
+      "normal": 0.15,
+      "roughness": 0.3,
+      "pigment": 0.2
+    },
+    "StudyVelvet": {
+      "catalog_key": "velour",
+      "tint": [
+        0.28,
+        0.06,
+        0.1,
+        1
+      ],
+      "normal": 0.35,
+      "roughness": 1.0,
+      "pigment": 0.65
+    },
+    "KeyboardShellBrass": {
+      "catalog_key": "brass_dull",
+      "tint": [
+        0.82,
+        0.67,
+        0.39,
+        1
+      ],
+      "normal": 0.2,
+      "roughness": 0.65,
+      "pigment": 0.45
+    }
+  },
+  "keys": [
+    {
+      "name": "KeySocket00",
+      "character": "Q",
+      "point": [
+        -0.07900000363588333,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket01",
+      "character": "W",
+      "point": [
+        -0.061500005424022675,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket02",
+      "character": "E",
+      "point": [
+        -0.04400000348687172,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket03",
+      "character": "R",
+      "point": [
+        -0.026500005275011063,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket04",
+      "character": "T",
+      "point": [
+        -0.009000003337860107,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket05",
+      "character": "Y",
+      "point": [
+        0.00849999487400055,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket06",
+      "character": "U",
+      "point": [
+        0.025999993085861206,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket07",
+      "character": "I",
+      "point": [
+        0.04349999874830246,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket08",
+      "character": "O",
+      "point": [
+        0.060999996960163116,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket09",
+      "character": "P",
+      "point": [
+        0.07849999517202377,
+        -0.028999999165534973,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket10",
+      "character": "A",
+      "point": [
+        -0.07900000363588333,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket11",
+      "character": "S",
+      "point": [
+        -0.061500005424022675,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket12",
+      "character": "D",
+      "point": [
+        -0.04400000348687172,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket13",
+      "character": "F",
+      "point": [
+        -0.026500005275011063,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket14",
+      "character": "G",
+      "point": [
+        -0.009000003337860107,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket15",
+      "character": "H",
+      "point": [
+        0.00849999487400055,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket16",
+      "character": "J",
+      "point": [
+        0.025999993085861206,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket17",
+      "character": "K",
+      "point": [
+        0.04349999874830246,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket18",
+      "character": "L",
+      "point": [
+        0.060999996960163116,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket19",
+      "character": ";",
+      "point": [
+        0.07849999517202377,
+        -0.045499999076128006,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket20",
+      "character": "Z",
+      "point": [
+        -0.07900000363588333,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket21",
+      "character": "X",
+      "point": [
+        -0.061500005424022675,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket22",
+      "character": "C",
+      "point": [
+        -0.04400000348687172,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket23",
+      "character": "V",
+      "point": [
+        -0.026500005275011063,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket24",
+      "character": "B",
+      "point": [
+        -0.009000003337860107,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket25",
+      "character": "N",
+      "point": [
+        0.00849999487400055,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket26",
+      "character": "M",
+      "point": [
+        0.025999993085861206,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket27",
+      "character": ",",
+      "point": [
+        0.04349999874830246,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket28",
+      "character": ".",
+      "point": [
+        0.060999996960163116,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket29",
+      "character": "/",
+      "point": [
+        0.07849999517202377,
+        -0.06199999898672104,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket30",
+      "character": "1",
+      "point": [
+        -0.07900000363588333,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket31",
+      "character": "2",
+      "point": [
+        -0.061500005424022675,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket32",
+      "character": "3",
+      "point": [
+        -0.04400000348687172,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket33",
+      "character": "4",
+      "point": [
+        -0.026500005275011063,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket34",
+      "character": "5",
+      "point": [
+        -0.009000003337860107,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket35",
+      "character": "6",
+      "point": [
+        0.00849999487400055,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket36",
+      "character": "7",
+      "point": [
+        0.025999993085861206,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket37",
+      "character": "8",
+      "point": [
+        0.04349999874830246,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket38",
+      "character": "9",
+      "point": [
+        0.060999996960163116,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket39",
+      "character": "0",
+      "point": [
+        0.07849999517202377,
+        -0.07850000262260437,
+        0.10400000214576721
+      ],
+      "size": [
+        0.013,
+        0.011,
+        0.004
+      ],
+      "template": "CompanionKeyBlank"
+    },
+    {
+      "name": "KeySocket40",
+      "character": "SPACE",
+      "point": [
+        0,
+        -0.092,
+        0.104
+      ],
+      "size": [
+        0.09,
+        0.01,
+        0.004
+      ],
+      "template": "CompanionKeySpace"
+    },
+    {
+      "name": "KeySocket41",
+      "character": "ENTER",
+      "point": [
+        0.079,
+        -0.092,
+        0.104
+      ],
+      "size": [
+        0.023,
+        0.01,
+        0.004
+      ],
+      "template": "CompanionKeyEnter"
+    },
+    {
+      "name": "KeySocket42",
+      "character": "BACKSPACE",
+      "point": [
+        -0.079,
+        -0.092,
+        0.104
+      ],
+      "size": [
+        0.028,
+        0.01,
+        0.004
+      ],
+      "template": "CompanionKeyBackspace"
+    }
+  ],
+  "flip_display": {
+    "columns": 32,
+    "rows": 12,
+    "pitch": 0.0055,
+    "center": [
+      0,
+      -0.057,
+      0.123
+    ],
+    "dark_mesh": "FlipTile__CompanionKeys",
+    "light_mesh": "FlipTile__CompanionTileIvory"
+  },
+  "keyboard_hinge": [
+    0,
+    -0.101,
+    0.11
+  ],
+  "keyboard_open_degrees": 90
+}

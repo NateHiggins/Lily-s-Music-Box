@@ -1,0 +1,13 @@
+data consumption audit
+  DURABLE_NUMERIC_MONOTONIC_ONLY: 2
+  FIELD_UNREAD: 1105
+  FILE_UNREAD: 8
+  known (in baseline): 1103
+  resolved since baseline: 205
+  NEW: 6
+  - FIELD_UNREAD game/data/device/service_companion_v2.json:center (zero production token readers)
+  - FIELD_UNREAD game/data/device/service_companion_v2.json:columns (zero production token readers)
+  - FIELD_UNREAD game/data/device/service_companion_v2.json:dark_mesh (zero production token readers)
+  - FIELD_UNREAD game/data/device/service_companion_v2.json:light_mesh (zero production token readers)
+  - FIELD_UNREAD game/data/device/service_companion_v2.json:pitch (zero production token readers)
+  - FIELD_UNREAD game/data/device/service_companion_v2.json:rows (zero production token readers)
