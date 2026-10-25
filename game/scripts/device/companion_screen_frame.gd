@@ -93,7 +93,10 @@ func advance(delta: float, reading: bool) -> void:
 	var visible_now: bool = not carrier.is_capture_hidden() and camera.is_current()
 	layer.visible = visible_now and composite_enabled
 	view.render_target_update_mode = SubViewport.UPDATE_ALWAYS if visible_now and composite_enabled else SubViewport.UPDATE_DISABLED
-	camera.cull_mask = camera.cull_mask & ~DEVICE_MASK if composite_enabled else camera.cull_mask | DEVICE_MASK
+	# The diagnostic may hide this pass, but must never transfer a live
+	# refractive/Label3D rig between cameras with different environments.
+	# There is one shipping presentation owner, including while hidden.
+	camera.cull_mask &= ~DEVICE_MASK
 	if not visible_now: return
 	var size := camera.get_viewport().get_visible_rect().size
 	if size.x < 2.0 or size.y < 2.0: return

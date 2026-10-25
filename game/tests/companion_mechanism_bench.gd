@@ -105,6 +105,7 @@ func _run() -> void:
 	check(is_equal_approx(float(rig.glazing_film.get_shader_parameter("outside_wet")), .8), "nonfinite glass input preserves the previous presentation")
 	rig.set_glass_moisture(0.0, 0.0)
 	await _fit_contacts(rig)
+	_focus_bearing_gap(rig)
 	for failure: String in metrics.failures: check(false, failure)
 	for path: String in inspector.texture_rows:
 		var texture: Dictionary = inspector.texture_rows[path]
@@ -262,6 +263,34 @@ func _fit_contacts(rig: Node3D) -> void:
 						check(absf(float(detached) - float(pan) - .003) < .00005, "negative control measures the actual introduced gap " + str(at))
 					_contact_observations.append({"point":[at.x, at.y], "pan_z":pan, "guard_z":guard, "detached_guard_z":detached})
 	await get_tree().process_frame
+
+func _focus_bearing_gap(rig: Node3D) -> void:
+	var wheel := rig.model.find_child("FocusWheel__Brass", true, false) as MeshInstance3D
+	var fixed := rig.model.find_child("ShellStudy__ShellBrass", true, false) as MeshInstance3D
+	var bearing: Variant = _contact_x(fixed, rig.model, .14, .07)
+	var knob: Variant = _contact_x(wheel, rig.model, .07, .14)
+	check(bearing != null and knob != null, "imported reading knob and bored bearing expose their actual axial faces")
+	if bearing == null or knob == null: return
+	check(absf(float(knob)-float(bearing)-.001) < .00005, "reading knob retains its original one-millimetre running clearance after case narrowing")
+	var pivot: Node3D = wheel.get_parent()
+	var home := pivot.position
+	pivot.position.x -= .003
+	var penetrated: Variant = _contact_x(wheel, rig.model, .07, .14)
+	pivot.position = home
+	check(penetrated != null and float(penetrated)-float(bearing) < -.0019, "axial clearance negative control detects a knob driven three millimetres into its bearing")
+
+func _contact_x(draw: MeshInstance3D, model: Node3D, from_x: float, to_x: float) -> Variant:
+	var start := draw.to_local(model.to_global(Vector3(from_x, .0414, 0))) * 1000.0
+	var end := draw.to_local(model.to_global(Vector3(to_x, .0414, 0))) * 1000.0
+	var faces := draw.mesh.get_faces()
+	var nearest := INF
+	var result: Variant = null
+	for index in range(0, faces.size(), 3):
+		var hit: Variant = Geometry3D.segment_intersects_triangle(start, end, faces[index]*1000.0, faces[index+1]*1000.0, faces[index+2]*1000.0)
+		if hit is Vector3 and start.distance_squared_to(hit) < nearest:
+			nearest = start.distance_squared_to(hit)
+			result = model.to_local(draw.to_global(hit/1000.0)).x
+	return result
 
 func _seated(pan: Variant, guard: Variant) -> bool:
 	return pan != null and guard != null and absf(float(pan) - .0275) < .00005 and absf(float(guard) - float(pan)) < .00005

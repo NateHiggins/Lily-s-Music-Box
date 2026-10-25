@@ -49,7 +49,7 @@ def margin(x):
  if a<=.0685:return x
  if a<.0985:v=.0685+(a-.0685)*(.07691-.0685)/.030
  elif a<=.1065:v=.08091+(a-.1025)
- else:v=.08491+(a-.1065)*.365
+ else:v=.08491+(a-.1065)
  return math.copysign(v,x)
 def category(o):
  n=o.name
@@ -180,7 +180,7 @@ proof=export(OUT,'service_companion_v2',exports,material_names_only=True,staged_
 data['keyboard_stay_half_span_m']=.094*K
 data['asset_sha256']=hashlib.sha256((OUT/'game/assets/props/service_companion_v2.glb').read_bytes()).hexdigest()
 (OUT/'service_companion_v2.json').write_text(json.dumps(data,indent=2)+'\n')
-(OUT/'construction.json').write_text(json.dumps(dict(retired_fixed_vertices=removed,export=proof,stock_checks=checks,keyboard_width_scale=K,display_width_m=.137,case_width_m=.174,sail_radius_m=.076,radial_guard_clearance_m=.005),indent=2)+'\n')
+(OUT/'construction.json').write_text(json.dumps(dict(retired_fixed_vertices=removed,export=proof,stock_checks=checks,keyboard_width_scale=K,display_width_m=.137,formed_case_width_m=.17082,protected_case_width_m=.17782,overall_width_m=.19682,sail_radius_m=.076,radial_guard_clearance_m=.0043),indent=2)+'\n')
 for im in bpy.data.images:
  if im.name in image_paths:im.filepath=image_paths[im.name]
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'art/blender/service_companion_v2.blend'),relative_remap=False)
