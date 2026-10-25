@@ -25,6 +25,9 @@ PAPERS = ("record", "speaker")
 LEAD_WORDS = (50, 100)
 COLUMN_WORDS = (22, 62)
 COLUMNS = 3
+# The Speaker's Saturday editorial, The Editor's Chair: Barnaby Grail on the
+# woman who calls herself Lilith (design/ORISON_LILITH_2026-10-24.md).
+EDITORIAL_WORDS = (100, 140)
 FORBIDDEN = [
     "email", "e-mail", "computer", "online", "internet", "television", "televis",
     "app ", "antibiotic", "penicillin", "nazi", "hitler", "world war ii",
@@ -98,6 +101,16 @@ def check_page(page: object, where: str, failures: list[str]) -> None:
                 failures.append(f"{where}: column {i} body {n} words (want {COLUMN_WORDS[0]}-{COLUMN_WORDS[1]})")
             if str(column["headline"]).isupper() and len(str(column["headline"])) > 8:
                 failures.append(f"{where}: column {i} headline shouted in capitals")
+    editorial = page.get("editorial")
+    if editorial is not None:
+        if not isinstance(editorial, dict) or not str(editorial.get("headline", "")).strip()                 or not str(editorial.get("body", "")).strip():
+            failures.append(f"{where}: editorial needs headline and body")
+        else:
+            if len(str(editorial["headline"])) >= 80:
+                failures.append(f"{where}: editorial headline {len(str(editorial['headline']))} characters (want under 80)")
+            n = words(str(editorial["body"]))
+            if not EDITORIAL_WORDS[0] <= n <= EDITORIAL_WORDS[1]:
+                failures.append(f"{where}: editorial body {n} words (want {EDITORIAL_WORDS[0]}-{EDITORIAL_WORDS[1]})")
     wire = str(page.get("wire", ""))
     if not wire.startswith("LATE WIRE:") or "\n" in wire:
         failures.append(f"{where}: wire must be one line beginning 'LATE WIRE:'")
@@ -159,6 +172,9 @@ def audit(only: str | None) -> tuple[list[str], dict]:
                     failures.append(f"{where}: missing the {paper}")
                     continue
                 check_page(issue[paper], f"{where} {paper}", failures)
+                weekly = paper == "speaker" and weekday == "Saturday"
+                if isinstance(issue[paper], dict) and ("editorial" in issue[paper]) != weekly:
+                    failures.append(f"{where} {paper}: the editorial runs in the Speaker on Saturdays only")
             stats["issues"] += 1
         for missing in sorted(expected):
             failures.append(f"{key}.json: no issue for {missing}")

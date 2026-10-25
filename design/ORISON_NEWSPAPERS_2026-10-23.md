@@ -128,7 +128,10 @@ second file is absent and the first ends on the 9th). Each file:
 ```
 
 A lead body is 60–90 words; a column body 30–50; the ear one line; the
-wire one line beginning `LATE WIRE:`. Headlines are set in capitals by
+wire one line beginning `LATE WIRE:`. Every Saturday the Speaker also
+carries `editorial` (`headline`, `body` of 100–140 words): The Editor's
+Chair, Barnaby Grail on the woman who calls herself Lilith
+(`design/ORISON_LILITH_2026-10-24.md`). Headlines are set in capitals by
 the panel, so they are authored in sentence case. Prices and the
 masthead lines come from `papers.json`, never from an issue.
 

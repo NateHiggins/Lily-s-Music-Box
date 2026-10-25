@@ -28,6 +28,21 @@ func _ready() -> void:
 		ok = ok and error == OK
 		panel.close()
 		await get_tree().process_frame
+	# The Editor's Chair, the last of the year, scrolled into view.
+	var chair := NewspaperPanel.new()
+	add_child(chair)
+	chair.open(null, catalog, "speaker", "1929-11-09")
+	for _frame in 12:
+		await get_tree().process_frame
+	(chair.find_child("Scroll", true, false) as ScrollContainer).scroll_vertical = 100000
+	for _frame in 6:
+		await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	var chair_path := out_dir.path_join("newspaper_editors_chair.png")
+	ok = ok and get_viewport().get_texture().get_image().save_png(chair_path) == OK
+	print("[NEWSPAPER SHOT] saved %s" % chair_path)
+	chair.close()
+	await get_tree().process_frame
 	catalog.collect("record", "1928-11-10")
 	catalog.collect("speaker", "1928-11-10")
 	catalog.collect("speaker", "1928-11-12")
