@@ -227,6 +227,8 @@ func physical_key_down(character: String) -> bool:
 func exercise_screen_framing() -> void:
 	var frame: Node = carrier.screen_frame
 	check(frame != null and carrier.motion.screen_framed, "production companion uses foreground flight framing")
+	var was_physics := player.is_physics_processing()
+	player.set_physics_process(false)
 	var saved_rotation := player.rotation
 	var saved_camera_rotation := player.camera.rotation
 	var saved_velocity := player.velocity
@@ -272,6 +274,7 @@ func exercise_screen_framing() -> void:
 	check(resize_clear and resize_rays, "resize and 4:3 framing preserve centre clearance and authoritative rays")
 	player.rotation = saved_rotation; player.camera.rotation = saved_camera_rotation
 	player.velocity = saved_velocity; player.camera.fov = saved_fov; Engine.max_fps = saved_fps
+	player.set_physics_process(was_physics)
 	await frames(3)
 	await capture("framed_travel.png")
 	FileAccess.open(directory.path_join("screen_framing.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":"Native mouse turning, staged pitch/velocity, cropped projection and centre keepout. Not a walked world route or human readability acceptance.", "maximum_projection_error_px":largest_error, "stock_bounds":str(frame.stock_bounds), "query_count":carrier.motion.query_count, "reserved_rect":str(frame.safe_rect), "pass_size":str(frame.view.size)}, "\t"))

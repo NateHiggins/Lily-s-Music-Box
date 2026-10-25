@@ -108,14 +108,18 @@ func advance(delta: float, reading: bool) -> void:
 	if reading or carrier.motion.stationary_for_hand: desired = Vector3.ZERO
 	_lean = _lean.lerp(desired * carrier.motion.motion_intensity, 1.0 - exp(-maxf(delta, 0.0) * 14.0))
 	if reading: _lean = Vector3.ZERO
-	var relative_basis := Basis.from_euler(_lean)
+	var slope := half_height / camera.near
+	var toward_reader := Vector3(-(center.x * 2.0 - 1.0) * slope * aspect,
+		-(1.0 - center.y * 2.0) * slope, 1.0)
+	var relative_basis := Basis.looking_at(toward_reader, Vector3.UP, true) * Basis.from_euler(_lean)
 	# Pad the fitted manufactured hull to contain the bounded flight lean.
 	# Reading frames the useful paper and tray; projecting every rotor and
 	# corner protector would shrink the copy to an unreadable postage stamp.
 	# Peripheral machinery may leave the cropped frame, never enter the view.
 	var fitted := reading_bounds if reading and _has_reading_bounds else stock_bounds
-	var extents := fitted.size * (1.025 if reading else 1.14)
-	var slope := half_height / camera.near
+	var rotated := AABB(relative_basis * fitted.get_endpoint(0), Vector3.ZERO)
+	for corner in range(1, 8): rotated = rotated.expand(relative_basis * fitted.get_endpoint(corner))
+	var extents := rotated.size * (1.025 if reading else 1.14)
 	var depth := maxf(extents.y / (2.0 * slope * safe_rect.size.y),
 		extents.x / (2.0 * slope * aspect * safe_rect.size.x)) + extents.z * .5
 	depth = maxf(depth, .44)

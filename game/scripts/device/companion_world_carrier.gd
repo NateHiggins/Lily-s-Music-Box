@@ -123,7 +123,14 @@ func set_capture_hidden(hidden: bool) -> void:
 func world_lamp_transform() -> Transform3D:
 	# The original native optical aperture, not an offset at the player's eye.
 	var lens: MeshInstance3D = device.teletype.torch_lens
-	return Transform3D(lens.global_basis.orthonormalized(), lens.to_global(lens.mesh.get_aabb().get_center()))
+	var aperture := lens.to_global(lens.mesh.get_aabb().get_center())
+	var aim := lens.global_basis.orthonormalized()
+	# Foreground flight keeps the paper square to the reader. Converge the
+	# optical output on the authoritative viewed work without turning it away;
+	# the original lamp owner and manufactured emitting aperture remain shared.
+	if screen_frame != null and motion.light_target_valid and aperture.distance_squared_to(motion.light_target) > .0001:
+		aim = Basis.looking_at(motion.light_target - aperture, _player.camera.global_basis.y)
+	return Transform3D(aim, aperture)
 
 func _advance_presentation(_delta: float) -> void:
 	if not world_ready: return

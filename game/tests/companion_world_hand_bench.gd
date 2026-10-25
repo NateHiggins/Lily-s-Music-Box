@@ -88,6 +88,9 @@ func _run() -> void:
 	player._carry_service_light(.016)
 	check(player._hand.global_position.distance_to(lens.to_global(lens.mesh.get_aabb().get_center())) < .00001, "real lamp originates at native lens instead of the player's eye")
 	check(player.flashlight.get_parent() == player._hand, "original player lamp remains the only light owner")
+	var output: Transform3D = carrier.world_lamp_transform()
+	check((-output.basis.z).dot((carrier.motion.light_target-output.origin).normalized()) > .9999,
+		"framed companion lamp converges from its native aperture on the authoritative reticle target")
 	finish()
 
 func key(code: Key) -> void:
