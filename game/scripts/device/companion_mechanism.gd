@@ -48,10 +48,11 @@ func build() -> bool:
 	device = ServiceSetProp.new()
 	device.model_scene = packed
 	device.stock_applier = preload("res://scripts/device/companion_stock.gd").apply
+	device.phosphor_stock = true
 	add_child(device)
 	if not device.presentation_ready: return _fail("Original radio/printer presentation failed to bind")
 	model = device.teletype.model
-	# Carbon marks are opaque ink, so put their masked glyphs into the opaque
+	# Excited phosphor marks are opaque, so put their masked glyphs into the opaque
 	# scene before the reading glass samples it. Keep ordinary depth testing.
 	for label: Label3D in [device.teletype.ink, device.teletype.heading, device.teletype.footer]:
 		label.alpha_cut = Label3D.ALPHA_CUT_DISCARD

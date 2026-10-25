@@ -5,6 +5,9 @@ const MODEL := preload("res://assets/props/service_radiophone_v2.glb")
 var model_scene: PackedScene = MODEL
 var render_layers := 1
 var stock_applier: Callable = preload("res://scripts/device/service_radiophone_stock.gd").apply
+var phosphor_stock := false
+const PHOSPHOR_GREEN := Color(.36, 1.15, .50, 1.0)
+const PHOSPHOR_STOCK_COLOR := Color(.006, .009, .007)
 var model: Node3D
 var model_ready := false
 const COLUMNS := 30
@@ -75,6 +78,7 @@ func _ready() -> void:
 		push_error("Native printer stock provider refused its paper datum")
 		return
 	var paper: Dictionary = supplied
+	if phosphor_stock: _apply_phosphor_stock()
 	# Establish the final light/camera domain before renderer registration.
 	# Changing a visible, already-paired mesh's layer can leave stale light
 	# pairs in the current Forward+ renderer. The stock and print owners stay.
@@ -84,6 +88,7 @@ func _ready() -> void:
 	_aerial=model.find_child("Aerial",true,false)
 	if model.find_child("TypeSelector",true,false)!=null:
 		_hot_writer=preload("res://scripts/device/hot_type_writer.gd").new();add_child(_hot_writer)
+		_hot_writer.phosphor_stock = phosphor_stock
 		if not _hot_writer.bind_model(model):_hot_writer.queue_free();_hot_writer=null
 	service_cover=model.find_child("ServiceCover",true,false)
 	focus_wheel=model.find_child("FocusWheel",true,false)
@@ -104,7 +109,7 @@ func _ready() -> void:
 	_paper_home=_paper.position
 	var stock := (_paper as MeshInstance3D).get_active_material(0).duplicate() as StandardMaterial3D
 	stock.albedo_texture=TelegramStyle.PAPER
-	stock.albedo_color=Color.WHITE
+	stock.albedo_color=PHOSPHOR_STOCK_COLOR if phosphor_stock else Color.WHITE
 	# A gentle reflected reading-light floor, retaining the physical stock's
 	# custom roughness/normal response. No additional light or shadow pass.
 	stock.emission_texture=TelegramStyle.PAPER
@@ -153,13 +158,33 @@ func _ready() -> void:
 
 	model_ready = true
 
+func _apply_phosphor_stock() -> void:
+	# Adapt this printer's complete consumable strip and its smoked reading
+	# pane before renderer registration. Catalogue/native source stock stays
+	# untouched, including all UVs, roughness, normals, alpha and refraction.
+	var local_finishes := {}
+	for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
+		for surface in draw.mesh.get_surface_count():
+			var source: Material = draw.mesh.surface_get_material(surface)
+			if source.resource_name not in ["Paper", "ShellGlass"]: continue
+			var key := str(source.resource_name)
+			if not local_finishes.has(key):
+				var material := draw.get_active_material(surface).duplicate() as BaseMaterial3D
+				if key == "Paper": material.albedo_color = PHOSPHOR_STOCK_COLOR
+				else:
+					var tint := material.albedo_color
+					material.albedo_color = Color(tint.r*.12,tint.g*.12,tint.b*.12,tint.a)
+				local_finishes[key] = material
+			draw.set_surface_override_material(surface, local_finishes[key])
+
 func _label(at: Vector3, pixel: float) -> Label3D:
 	var label := Label3D.new()
 	label.layers = render_layers
 	add_child(label)
 	label.font=TelegramStyle.BODY_FONT; label.font_size=48
 	label.pixel_size=pixel; label.position=at
-	label.modulate=TelegramStyle.CARBON; label.outline_size=0
+	label.modulate=PHOSPHOR_GREEN if phosphor_stock else TelegramStyle.CARBON
+	label.outline_size=0
 	label.no_depth_test=false; label.shaded=false
 	return label
 
@@ -251,7 +276,8 @@ func hide_draft() -> void:
 func set_reading_illumination(enabled: bool) -> void:
 	if enabled == _reading_lit: return
 	_reading_lit = enabled
-	(_paper as MeshInstance3D).get_active_material(0).emission_enabled = enabled
+	# Only the exposed glyphs glow. Unexposed charcoal stock stays dark.
+	(_paper as MeshInstance3D).get_active_material(0).emission_enabled = enabled and not phosphor_stock
 
 func set_action_hint(value: String) -> void:
 	if value==_action_hint: return

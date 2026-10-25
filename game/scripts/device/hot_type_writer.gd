@@ -6,12 +6,13 @@ const TYPE_SHADER := preload("res://scripts/device/writer_type_decal.gdshader")
 const PLATE := preload("res://assets/device/writer_type/reversed_type_emboss.png")
 var selector: Node3D
 var _face: ShaderMaterial
-var _heat := 0.0
+var phosphor_stock := false
+var _excitation := 0.0
 var _blur := 0.0
 var _stroke_age := 1.0
 var _sync_frame := -1
 var _stamp_enabled := false
-var _pending_puff := false
+var _pending_contact := false
 var _cooldown := 0.0
 var _sound_left := 0.0
 var _target_angle := 0.0
@@ -33,6 +34,8 @@ func bind_model(model: Node3D) -> bool:
 		if part is MeshInstance3D and part.find_blend_shape_by_name("LowerSeat")>=0:_rows.append(part)
 	_face=ShaderMaterial.new();_face.shader=TYPE_SHADER
 	_face.set_shader_parameter("type_plate",PLATE)
+	_face.set_shader_parameter("radiance_color",Color(.24,1.0,.40) if phosphor_stock else Color(.85,.12,.012))
+	_face.set_shader_parameter("idle_excitation",.08 if phosphor_stock else 0.)
 	var steel:=MatLib.get_mat("fire_hardware_steel")
 	_face.set_shader_parameter("steel_albedo",steel.albedo_texture)
 	_face.set_shader_parameter("steel_roughness",steel.roughness_texture)
@@ -41,6 +44,12 @@ func bind_model(model: Node3D) -> bool:
 	decal.set_surface_override_material(0,_face)
 	_sound=AudioStreamPlayer.new();add_child(_sound);_sound.bus="UI"
 	_sound.stream=PropAudio.get_stream("cellular_relay");_sound.volume_db=-34.;_sound.pitch_scale=1.8
+	# Companion type exposes phosphorescent stock; no thermal plume is created.
+	if not phosphor_stock: _build_legacy_smoke()
+	set_process(false)
+	return true
+
+func _build_legacy_smoke() -> void:
 	_puff=GPUParticles3D.new();add_child(_puff)
 	_puff.amount=3;_puff.lifetime=.20;_puff.one_shot=true;_puff.explosiveness=1.;_puff.emitting=false
 	_puff.layers=2
@@ -54,8 +63,6 @@ func bind_model(model: Node3D) -> bool:
 	var quad:=QuadMesh.new();quad.size=Vector2(.006,.006)
 	var smoke:=ShaderMaterial.new();smoke.shader=preload("res://scripts/device/writer_smoke.gdshader")
 	quad.material=smoke;_puff.draw_pass_1=quad
-	set_process(false)
-	return true
 
 func strike(character: String) -> void:
 	_stamp_enabled=not character.strip_edges().is_empty()
@@ -66,18 +73,18 @@ func strike(character: String) -> void:
 	_bank=floori(float(index)/16.)-1
 	selector.position.y=-float(_bank)*.0045
 	_face.set_shader_parameter("selected_cell",float(index))
-	_heat=.85;_blur=1.;_stroke_age=0.
-	_pending_puff=true
+	_excitation=.85;_blur=1.;_stroke_age=0.
+	_pending_contact=true
 	set_process(true)
 
 func sync_phase(age: float) -> void:
 	_stroke_age=age;_sync_frame=Engine.get_process_frames()
 
 func stop() -> void:
-	_blur=0.;_heat=0.;_stroke_age=1.;_cooldown=0.;_sound_left=0.;set_process(false)
-	_stamp_enabled=false;_pending_puff=false
+	_blur=0.;_excitation=0.;_stroke_age=1.;_cooldown=0.;_sound_left=0.;set_process(false)
+	_stamp_enabled=false;_pending_contact=false
 	if _face:
-		_face.set_shader_parameter("heat",0.);_face.set_shader_parameter("spin_blur",0.)
+		_face.set_shader_parameter("excitation",0.);_face.set_shader_parameter("spin_blur",0.)
 	if _sound:_sound.stop()
 	if _puff:_puff.emitting=false;_puff.visible=false
 	if _hammer:_hammer.position=_hammer_home
@@ -87,7 +94,7 @@ func stop() -> void:
 		row.set_blend_shape_value(row.find_blend_shape_by_name("UpperSeat"),0.)
 
 func _process(delta: float) -> void:
-	_heat=move_toward(_heat,0.,delta*5.5);_cooldown=maxf(0.,_cooldown-delta)
+	_excitation=move_toward(_excitation,0.,delta*5.5);_cooldown=maxf(0.,_cooldown-delta)
 	# Parent printer supplies residual character time after catch-up. Do not
 	# advance it by an entire frame a second time in this child's callback.
 	if _sync_frame!=Engine.get_process_frames():_stroke_age+=delta
@@ -96,22 +103,23 @@ func _process(delta: float) -> void:
 	# in for sub-frame motion at print rates above the display's frame rate.
 	selector.rotation.y=_target_angle+_blur*TAU*2.
 	# Complete selection and impression inside the printer's 20.83ms character
-	# interval. Cooling may continue, but cannot delay the next impression.
+	# interval. Afterglow may continue, but cannot delay the next impression.
 	var seating: float=smoothstep(.006,.009,_stroke_age)*(1.-smoothstep(.012,.020,_stroke_age))
 	if not _stamp_enabled:seating=0.
-	if _pending_puff and seating>.5:
-		_pending_puff=false
+	if _pending_contact and seating>.5:
+		_pending_contact=false
 		if _cooldown<=0.:
-			_puff.position=to_local(_hammer.to_global(Vector3(0,0,-.014)))
-			_puff.visible=true
-			_puff.restart();_puff.emitting=true
+			if _puff:
+				_puff.position=to_local(_hammer.to_global(Vector3(0,0,-.014)))
+				_puff.visible=true
+				_puff.restart();_puff.emitting=true
 			_sound.play();_sound_left=.045;_cooldown=.10
 	_hammer.position=_hammer_home-Vector3(0,0,.00155*seating)
 	if _flexure:_flexure.set_blend_shape_value(_flexure.find_blend_shape_by_name("Impression"),seating)
 	for row in _rows:
 		row.set_blend_shape_value(row.find_blend_shape_by_name("LowerSeat"),seating if _bank==-1 else 0.)
 		row.set_blend_shape_value(row.find_blend_shape_by_name("UpperSeat"),seating if _bank==1 else 0.)
-	_face.set_shader_parameter("heat",_heat);_face.set_shader_parameter("spin_blur",_blur)
+	_face.set_shader_parameter("excitation",_excitation);_face.set_shader_parameter("spin_blur",_blur)
 	_sound_left=maxf(0.,_sound_left-delta)
 	if _sound_left==0. and _sound.playing:_sound.stop()
-	if _heat<=0. and _cooldown<=0. and not _puff.emitting:set_process(false)
+	if _excitation<=0. and _cooldown<=0. and (_puff==null or not _puff.emitting):set_process(false)

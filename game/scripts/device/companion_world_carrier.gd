@@ -1,6 +1,6 @@
 extends ServiceSetCarrier
 ## World presentation adapter. Existing ServiceSetProp remains the sole radio,
-## lamp, print and WorkOrders owner. Explicit ORISON_COMPANION_WORLD=0 rollback.
+## lamp, print and WorkOrders owner. V2 always presents this autonomous bot.
 const Motion := preload("res://scripts/device/companion_motion.gd")
 const Mechanism := preload("res://scripts/device/companion_mechanism.gd")
 var motion: Motion
