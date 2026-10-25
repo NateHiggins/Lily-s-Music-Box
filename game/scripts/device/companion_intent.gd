@@ -23,7 +23,10 @@ static func parse(raw: String) -> Dictionary:
 		"undo":"undo", "undo that":"undo", "sing":"sing", "sing me a song":"sing",
 		"tell me a joke":"joke", "another joke":"joke", "wait":"wait", "wait here":"wait",
 		"can we be quiet":"silence", "do we have to talk":"silence",
-		"fuck off":"leave", "go fuck yourself":"rude"
+		"fuck off":"leave", "go fuck yourself":"rude",
+		"newspaper":"newspaper", "newspapers":"newspaper", "today s paper":"newspaper",
+		"the news":"newspaper", "comment on the newspaper":"newspaper",
+		"what s in the newspaper":"newspaper"
 	}
 	if direct.has(text): return {"intent":str(direct[text]), "text":text}
 	var groups := {
@@ -35,7 +38,6 @@ static func parse(raw: String) -> Dictionary:
 		"alive":["are you alive", "are you real", "conscious", "sentient"],
 		"fear":["are you afraid", "i am afraid", "i m scared", "i am scared"],
 		"care":["thank you", "thanks", "are you okay", "are you all right", "how are you", "how do you feel"],
-		"newspaper":["newspaper", "newspapers", "today s paper", "the news"],
 		"weather":["weather", "forecast", "rain", "snow", "storm"],
 		"eat":["eat", "swallow", "lick", "taste"],
 		"look":["look around", "look", "what is here", "where am i", "where are we"],
