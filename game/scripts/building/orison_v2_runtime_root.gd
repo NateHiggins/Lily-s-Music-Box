@@ -296,6 +296,7 @@ func _compose_authorities() -> void:
 	_compose_vantry()
 	var mail_bank := MailBankProp.new()
 	mail_bank.set_meta("v2_mail_bank_visuals", true)
+	mail_bank.inventory = maintenance_inventory
 	_mount("LobbyMailBank", mail_bank)
 	if not mail_bank.get_meta("v2_native_mail_bank", false):
 		startup_failed = true

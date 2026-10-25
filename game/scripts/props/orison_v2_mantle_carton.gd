@@ -7,7 +7,12 @@ extends Node3D
 ## `gas_mantle_12`); the inventory alone holds which are taken and which are
 ## spent, and the packets left in the carton are read back from it. Lift the
 ## lid (RUL-013: grab it, raise it, release) with no spare already in hand,
-## and the next mantle is yours. One in hand at a time; a dozen in all.
+## and the next mantle is yours. One in hand at a time.
+##
+## When the dozen is gone, Management posts a second carton to box 4B (a mail
+## delivery carrying the single-use part `gas_mantle_carton_2`). Lift the
+## empty carton's lid with it in hand and it refills: `gas_mantle_13` to
+## `gas_mantle_24`. There is no third.
 ##
 ## State is the lid's angle alone, the household save's mechanism record
 ## under this node's semantic name.
@@ -19,7 +24,9 @@ const LID_TRAVEL := 1.9
 
 var inventory: Node
 var prefix := "gas_mantle_"
+## Mantles to a carton; the refill doubles the run once.
 var count := 12
+var refill_item := ""
 ## Lid angle, radians, at which a hand can reach in for a mantle.
 var takes_at := 1.0
 var lid := 0.0
@@ -35,11 +42,18 @@ func configure(lid_node: Node3D, packet_nodes: Array[Node3D]) -> void:
 	_show()
 
 
+## Every mantle id this carton can ever hold: the first dozen, and the
+## second once its refill has been spent into it.
 func ids() -> Array[String]:
 	var result: Array[String] = []
-	for i in count:
+	var total := count * (2 if refilled() else 1)
+	for i in total:
 		result.append("%s%02d" % [prefix, i + 1])
 	return result
+
+
+func refilled() -> bool:
+	return inventory != null and not refill_item.is_empty() and inventory.is_consumed(refill_item)
 
 
 ## The spare the player carries, or "".
@@ -86,6 +100,9 @@ func set_lid(angle: float) -> void:
 func _take() -> void:
 	if inventory == null or not carried().is_empty():
 		return
+	# The empty carton takes the posted refill first.
+	if remaining() == 0 and not refill_item.is_empty() and inventory.has_item(refill_item):
+		inventory.consume(refill_item)
 	for id in ids():
 		if inventory.item_state(id).is_empty():
 			inventory.grant(id, SHOP_ID)
