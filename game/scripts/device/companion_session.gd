@@ -198,7 +198,10 @@ func submit(value: String) -> void:
 		else: chatter_enabled = true
 		if bool(reply.get("end_conversation", false)): _carrier.reading = false
 	_snapshot()
-	RealityState.commit()
+	# Correspondence is autosaved through the same validated transaction as
+	# household changes. Snapshot bytes are frozen before returning input;
+	# explicit Save, Load and exit still settle every queued generation.
+	RealityState.commit_background()
 
 func close(keep_keyboard_open := false) -> void:
 	if not typing and not opening: return

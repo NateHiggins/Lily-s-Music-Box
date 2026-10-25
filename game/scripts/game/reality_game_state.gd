@@ -63,7 +63,7 @@ func _exit_tree() -> void:
 	flush_background_saves()
 
 
-## Household autosave only. Explicit saves/ordinary commits remain barriers.
+## Noncritical autosave. Explicit saves/ordinary commits remain barriers.
 ## The returned world notification does not assert that pending bytes are durable.
 func commit_background() -> void:
 	if _preparing_state:return
