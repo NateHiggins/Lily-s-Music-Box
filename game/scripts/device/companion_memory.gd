@@ -10,9 +10,15 @@ var branch := ""
 var trust := 0
 
 func record(input: String, intent: String, line_id: String, output: String) -> void:
-	counts[intent] = mini(999, int(counts.get(intent, 0)) + 1)
+	increment(intent)
 	history.append({"input":input.left(512), "intent":intent, "line_id":line_id, "output":output.left(2048)})
 	while history.size() > LIMIT: history.pop_front()
+
+func increment(key: String) -> int:
+	var previous := int(counts.get(key, 0))
+	if not counts.has(key) and counts.size() >= 64: return previous
+	counts[key] = mini(999, previous + 1)
+	return int(counts[key])
 
 func snapshot() -> Dictionary:
 	return {"version":1, "history":history.duplicate(true), "counts":counts.duplicate(true),

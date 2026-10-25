@@ -1,0 +1,130 @@
+{
+	"checks": [
+		{
+			"name": "structured library loads at least fifty distinct lines",
+			"passed": true
+		},
+		{
+			"name": "case punctuation and spacing normalize",
+			"passed": true
+		},
+		{
+			"name": "specific look-at phrase outranks look",
+			"passed": true
+		},
+		{
+			"name": "natural inventory phrase",
+			"passed": true
+		},
+		{
+			"name": "request recognized without executing it",
+			"passed": true
+		},
+		{
+			"name": "verb fragments do not match inside words",
+			"passed": true
+		},
+		{
+			"name": "help uses current objective verbatim",
+			"passed": true
+		},
+		{
+			"name": "inventory reads supplied items",
+			"passed": true
+		},
+		{
+			"name": "inventory does not retain stale world facts",
+			"passed": true
+		},
+		{
+			"name": "weather uses dated report supplied by owner",
+			"passed": true
+		},
+		{
+			"name": "ambiguous specific parts request clarification",
+			"passed": true
+		},
+		{
+			"name": "clarification resolves against current visible IDs",
+			"passed": true
+		},
+		{
+			"name": "pronoun resolves last seen object",
+			"passed": true
+		},
+		{
+			"name": "specific part name outranks shared generic alias",
+			"passed": true
+		},
+		{
+			"name": "explicit new command interrupts pending clarification",
+			"passed": true
+		},
+		{
+			"name": "vanished clarification cannot leak an observation",
+			"passed": true
+		},
+		{
+			"name": "action requests leave all authoritative state unchanged",
+			"passed": true
+		},
+		{
+			"name": "no invented route",
+			"passed": true
+		},
+		{
+			"name": "long branch starts",
+			"passed": true
+		},
+		{
+			"name": "branch follows natural continuation",
+			"passed": true
+		},
+		{
+			"name": "JSON roundtrip restores bounded memory",
+			"passed": true
+		},
+		{
+			"name": "longer branch resumes its next stage through reload",
+			"passed": true
+		},
+		{
+			"name": "specific follow-up takes authored conversational fork",
+			"passed": true
+		},
+		{
+			"name": "persistent impossible request acknowledged",
+			"passed": true
+		},
+		{
+			"name": "event lines are once per memory",
+			"passed": true
+		},
+		{
+			"name": "history stays bounded",
+			"passed": true
+		},
+		{
+			"name": "corrupt memory rejection is atomic",
+			"passed": true
+		},
+		{
+			"name": "nonfinite counters rejected",
+			"passed": true
+		},
+		{
+			"name": "full counter table stays bounded without losing correspondence",
+			"passed": true
+		},
+		{
+			"name": "offline system has no network dependency",
+			"passed": true
+		},
+		{
+			"name": "provider restricted to approved authored IDs",
+			"passed": true
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": 0
+}

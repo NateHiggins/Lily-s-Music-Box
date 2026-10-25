@@ -30,6 +30,9 @@ func _ready() -> void:
 	check(dialogue.respond("examine valve", context).line_id == "clarify", "ambiguous specific parts request clarification")
 	check(dialogue.respond("hot", context).text == "The hot valve is open.", "clarification resolves against current visible IDs")
 	check(dialogue.respond("inspect it", context).text == "The hot valve is open.", "pronoun resolves last seen object")
+	check(Intent.candidates("open hot valve", context.visible).size() == 1, "specific part name outranks shared generic alias")
+	dialogue.respond("examine valve", context)
+	check(dialogue.respond("where is the vault", context).line_id == "navigation_unknown", "explicit new command interrupts pending clarification")
 	dialogue.respond("examine valve", context)
 	check(dialogue.respond("hot", {}).line_id == "target_gone", "vanished clarification cannot leak an observation")
 	var boundary: Dictionary = dialogue.respond("open hot valve", context)
@@ -40,7 +43,7 @@ func _ready() -> void:
 	var snapshot: Dictionary = dialogue.memory.snapshot()
 	var restored := Conversation.new()
 	check(restored.memory.restore(JSON.parse_string(JSON.stringify(snapshot))), "JSON roundtrip restores bounded memory")
-	check(restored.respond("are you alive", {}).line_id == "alive_follow", "branch behavior persists through reload")
+	check(restored.respond("are you alive", {}).line_id == "alive_uncertain", "longer branch resumes its next stage through reload")
 	check(restored.respond("Does it matter?", {}).line_id == "alive_matters", "specific follow-up takes authored conversational fork")
 	for index in 5: restored.respond("eat the machine", {})
 	check(restored.respond("eat it", {}).line_id == "eat_persistent", "persistent impossible request acknowledged")
@@ -54,6 +57,10 @@ func _ready() -> void:
 	invalid = before.duplicate(true)
 	invalid.counts.bad = INF
 	check(not restored.memory.restore(invalid), "nonfinite counters rejected")
+	var full := Memory.new()
+	for index in 64: full.counts["old:" + str(index)] = 1
+	full.record("new question", "new_intent", "unknown", "Reply")
+	check(full.counts.size() == 64 and full.history.size() == 1, "full counter table stays bounded without losing correspondence")
 	check(not Provider.new().available(), "offline system has no network dependency")
 	var ids: Array[String] = ["alive", "alive_follow"]
 	check(Provider.valid_selection("alive", ids) and not Provider.valid_selection("invented_unlock", ids), "provider restricted to approved authored IDs")

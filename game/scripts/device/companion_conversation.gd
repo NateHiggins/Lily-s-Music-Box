@@ -59,6 +59,9 @@ func respond(raw: String, context: Dictionary) -> Dictionary:
 	var values: Dictionary = {}
 	var visible: Array = context.get("visible", [])
 	var matches: Array[Dictionary] = Intent.candidates(text, visible)
+	# A fresh command replaces the clarification request. A bare target noun
+	# still resolves it against the current visible IDs.
+	if intent != "unknown": memory.pending_ids.clear()
 	var following := text in ["tell me more", "go on", "why is that", "what do you mean", "and then", "yes"]
 	var branch_reply := ""
 	for reply: Dictionary in followups.get(memory.branch, []):
@@ -173,7 +176,7 @@ func _branch_line(id: String) -> String:
 	var sequence: Array = branches.get(id, [])
 	if sequence.is_empty(): return "unknown"
 	var count := int(memory.counts.get("branch:" + id, 0))
-	memory.counts["branch:" + id] = mini(999, count + 1)
+	memory.increment("branch:" + id)
 	return str(sequence[mini(count, sequence.size() - 1)])
 
 func _observation(object: Dictionary) -> String:

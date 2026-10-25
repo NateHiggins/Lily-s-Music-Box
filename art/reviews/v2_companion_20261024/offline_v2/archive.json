@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Offline domain diagnostic; not gameplay/input/save qualification",
+  "files": [
+    {
+      "path": "conversation_diagnostic.json",
+      "sha256": "923c52e72351bc28bfa4ffd332adeb4919742c1c5db1b72d9d0b5f6893fff2a4"
+    },
+    {
+      "path": "offline_v2.log",
+      "sha256": "ba8ceb2c4c05bf08905bce73255ab2732623c1e1c7950adb382cac7291d4c29c"
+    },
+    {
+      "path": "offline_v2.log.receipt.json",
+      "sha256": "c3fcf8b5187f78ffa1415d8d4edcdc0d8f29f6ffe4118d131d402e9ab2cb01ef"
+    },
+    {
+      "path": "offline_v2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

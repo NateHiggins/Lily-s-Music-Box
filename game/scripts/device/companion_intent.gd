@@ -41,15 +41,20 @@ static func parse(raw: String) -> Dictionary:
 
 static func candidates(text: String, visible: Array) -> Array[Dictionary]:
 	var found: Array[Dictionary] = []
+	var best_score := 0
 	for value: Variant in visible:
 		if value is not Dictionary: continue
 		var object: Dictionary = value
 		if str(object.get("id", "")).is_empty(): continue
 		var aliases: Array = object.get("aliases", []).duplicate()
 		aliases.append(str(object.get("name", "")))
+		var score := 0
 		for alias: Variant in aliases:
 			var key := normalize(str(alias))
 			if not key.is_empty() and contains_phrase(text, key):
-				found.append(object)
-				break
+				score = maxi(score, key.length())
+		if score > best_score:
+			found.clear()
+			best_score = score
+		if score > 0 and score == best_score: found.append(object)
 	return found
