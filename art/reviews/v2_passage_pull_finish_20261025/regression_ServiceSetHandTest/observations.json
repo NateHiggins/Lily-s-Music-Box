@@ -1,0 +1,39 @@
+{
+	"checks": 70,
+	"evidence_class": "INERT",
+	"failures": [
+		"acquire does not move radio"
+	],
+	"observations": [
+		{
+			"before": -0.400000005960464,
+			"part": "lamp",
+			"partial": -0.300000011920929
+		},
+		{
+			"before": -0.400000005960464,
+			"part": "radio",
+			"partial": -0.275000005960464
+		},
+		{
+			"before": 0.0,
+			"part": "cover",
+			"partial": 0.444000005722046
+		},
+		{
+			"before": 0.305,
+			"part": "focus",
+			"partial": 0.321249999403954
+		},
+		{
+			"before": 0.0,
+			"part": "feed0",
+			"partial": -1.4451326206513
+		},
+		{
+			"before": -1.4451326206513,
+			"part": "feed1",
+			"partial": 1.5707963267949
+		}
+	]
+}

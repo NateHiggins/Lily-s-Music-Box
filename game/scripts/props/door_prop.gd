@@ -449,6 +449,11 @@ func _take_leaf() -> bool:
 	_configure_easy_motion()
 	_easy.stop()
 	if _leaf_motion!=null and _leaf_motion.is_valid():_leaf_motion.kill()
+	# Pointer events arrive between physics ticks. Sync-to-physics can discard
+	# the first incremental angle before the next tick, shortening a fixed
+	# gesture by one event. Publish hand motion immediately while held; the
+	# existing closer/NPC physics synchronisation resumes on release.
+	_body.sync_to_physics=false
 	_hand_gripped = true
 	_moving = true
 	motion_revision += 1
@@ -471,6 +476,8 @@ func _move_by_hand(angle: float) -> void:
 		set_meta("hand_motion_sound",true)
 
 func _release_leaf() -> void:
+	_body.force_update_transform()
+	_body.sync_to_physics=true
 	_hand_gripped = false
 	remove_meta("hand_motion_sound")
 	_settled()

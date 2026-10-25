@@ -1,0 +1,26 @@
+[
+  {
+    "scene": "res://tests/V2EasyDoorBench.tscn",
+    "runner": "long",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\fancy_shop_pull\\regression_V2EasyDoorBench",
+    "log": "C:\\ov\\reports\\v2integration24\\fancy_shop_pull\\regression_V2EasyDoorBench.log"
+  },
+  {
+    "scene": "res://tests/ServiceSetHandTest.tscn",
+    "runner": "long",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\fancy_shop_pull\\regression_ServiceSetHandTest",
+    "log": "C:\\ov\\reports\\v2integration24\\fancy_shop_pull\\regression_ServiceSetHandTest.log"
+  },
+  {
+    "scene": "res://tests/CompanionWorldHandBench.tscn",
+    "runner": "long",
+    "timeout": 180,
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\fancy_shop_pull\\regression_CompanionWorldHandBench",
+    "log": "C:\\ov\\reports\\v2integration24\\fancy_shop_pull\\regression_CompanionWorldHandBench.log"
+  }
+]

@@ -13,7 +13,7 @@ func _build_storefront() -> void:
 			_meshes[str(draw.name)]=draw.mesh
 		source.free()
 	if _materials.is_empty():
-		_materials.wood=MatLib.get_mat("oak_quartered",Color(.42,.30,.20),.8).duplicate()
+		_materials.wood=MatLib.get_mat("door_oak").duplicate()
 		_materials.brass=MatLib.get_mat("door_brass").duplicate()
 		_materials.glass=Glass.make("glass_drawn_expressive")
 		for key: String in ["wood","brass"]: _materials[key].uv1_triplanar=false
@@ -40,4 +40,5 @@ func valid_mechanism(value: Variant) -> bool:
 	# Accept historical 100-degree saves. The inherited restore clamps them to
 	# this leaf's current physical stop, rather than rejecting the complete save.
 	return value is Dictionary and value.size()==1 and typeof(value.get("angle")) in [TYPE_FLOAT,TYPE_INT] \
-		and is_finite(float(value.angle)) and float(value.angle)>=-.000001 and float(value.angle)<=deg_to_rad(100.0)+.000001
+		and is_finite(float(value.angle)) and float(value.angle)>=minf(0,deg_to_rad(-100.0 if swing_out else 100.0))-.000001 \
+		and float(value.angle)<=maxf(0,deg_to_rad(-100.0 if swing_out else 100.0))+.000001

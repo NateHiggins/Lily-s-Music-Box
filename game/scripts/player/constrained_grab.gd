@@ -371,17 +371,21 @@ func move(relative: Vector2) -> void:
 		if tangent.length() < float(target.get("minimum_lever",.025)):
 			tangent = axis.cross(camera.global_basis.x)*.06
 			if tangent.length() < .01: tangent = axis.cross(camera.global_basis.y)*.06
-	if camera.is_position_behind(point):
-		release()
-		return
-	var screen_axis := (camera.unproject_position(point+tangent*.01)-camera.unproject_position(point))/.01
-	# A closed leaf viewed face-on initially moves into/out of the screen.
-	# Pulling down/pushing up supplies that otherwise invisible depth component.
-	if screen_axis.length() < 24.0 and absf(tangent.dot(camera.global_basis.z)) > tangent.length()*.5:
-		screen_axis = Vector2(0,tangent.dot(camera.global_basis.z)*180.0)
+	var gesture_pixels: float=float(target.get("gesture_travel_px",0.))
+	var screen_axis := _gesture_axis
+	# Explicit fixed gestures already have a screen direction. A wide door can
+	# pass the camera during its swing without ending the latched hand. Keep
+	# reach, ownership and focus checks in validate(); project only when needed.
+	if gesture_pixels<=0. or screen_axis.is_zero_approx():
+		if camera.is_position_behind(point):
+			release()
+			return
+		screen_axis=(camera.unproject_position(point+tangent*.01)-camera.unproject_position(point))/.01
+		# A closed leaf viewed face-on initially moves into/out of the screen.
+		if screen_axis.length()<24.0 and absf(tangent.dot(camera.global_basis.z))>tangent.length()*.5:
+			screen_axis=Vector2(0,tangent.dot(camera.global_basis.z)*180.0)
 	if screen_axis.length_squared() < .01: return
 	var step := relative.dot(screen_axis)/screen_axis.length_squared()
-	var gesture_pixels: float=float(target.get("gesture_travel_px",0.))
 	var gesture_range: float=float(target.maximum)-float(target.minimum)
 	if gesture_pixels>0.:
 		if not is_finite(gesture_pixels) or gesture_pixels<1. or not is_finite(gesture_range) or gesture_range<=0.:return

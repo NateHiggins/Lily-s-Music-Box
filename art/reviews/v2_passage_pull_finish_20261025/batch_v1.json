@@ -1,0 +1,19 @@
+[
+  {
+    "scene": "",
+    "runner": "long",
+    "timeout": 900,
+    "extra_args": [
+      "--import"
+    ],
+    "log": "C:\\ov\\reports\\v2integration24\\fancy_shop_pull\\import_v1.log"
+  },
+  {
+    "scene": "res://tests/V2PassagePullFinishReview.tscn",
+    "runner": "long",
+    "timeout": 240,
+    "windowed": true,
+    "shot_dir": "C:\\ov\\reports\\v2integration24\\fancy_shop_pull\\godot_v2",
+    "log": "C:\\ov\\reports\\v2integration24\\fancy_shop_pull\\godot_v2.log"
+  }
+]

@@ -10,6 +10,10 @@ func click() -> void:
 	var e:=InputEventMouseButton.new();e.button_index=MOUSE_BUTTON_LEFT;e.pressed=true;player._unhandled_input(e)
 func drag(x: float) -> void:
 	var e:=InputEventMouseMotion.new();e.relative=Vector2(x,0);player._unhandled_input(e)
+func make_door() -> DoorProp:
+	return preload('res://scripts/building/orison_v2_fitted_door.gd').new()
+func inspect_door(_door: DoorProp,_swing: bool) -> void:
+	pass
 func _ready() -> void:_run.call_deferred()
 func _run() -> void:
 	RealityState.persistence_enabled=false
@@ -19,10 +23,11 @@ func _run() -> void:
 	var sun:=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-40,-30,0);add_child(sun)
 	Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	for swing: bool in [false,true]:
-		var door:=preload('res://scripts/building/orison_v2_fitted_door.gd').new();door.swing_out=swing;door.position.x=4.0 if swing else 0.0;add_child(door)
+		var door:=make_door();door.swing_out=swing;door.position.x=4.0 if swing else 0.0;add_child(door)
 		player.position=door.position+Vector3(.40,0,.55 if swing else -.55);player.velocity=Vector3.ZERO;player.rotation.y=0.0 if swing else PI
 		for frame in 3:await get_tree().physics_frame
 		player.camera.look_at(door.to_global(Vector3(door.width-.085,1.0,0)))
+		await inspect_door(door,swing)
 		var before:=player.position
 		click();check(player._grab.active(),'actual part acquires')
 		check(is_zero_approx(door._body.rotation.y),'grab leaves angle unchanged')

@@ -10,14 +10,12 @@ sets=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text(encoding
 source=Path(__file__).with_name('inspect_domestic_door_leaves.py')
 tree=ast.parse(source.read_text(encoding='utf8'))
 exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='material'],type_ignores=[]),str(source),'exec'))
-mats={'oak_quartered':material('oak_quartered',(.42,.30,.20)),
+mats={'door_oak':material('door_oak',(1,1,1)),
       'door_brass':material('door_brass',(1,1,1)),
       'glass_drawn_expressive':material('glass_drawn_expressive',(1,1,1))}
 glass=mats['glass_drawn_expressive'].node_tree.nodes['Principled BSDF']
 glass.inputs['Transmission Weight'].default_value=1
 glass.inputs['IOR'].default_value=1.52
-for node in mats['oak_quartered'].node_tree.nodes:
- if node.type=='VECT_MATH' and node.operation=='SCALE':node.inputs['Scale'].default_value=1/(sets['oak_quartered']['meters_per_tile']*.8)
 for node in mats['glass_drawn_expressive'].node_tree.nodes:
  if node.type=='NORMAL_MAP':node.inputs['Strength'].default_value=1.0
 for obj in list(bpy.context.scene.objects): obj.data.materials.append(mats[obj['material_key']])

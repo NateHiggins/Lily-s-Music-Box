@@ -1,0 +1,54 @@
+[
+  {
+    "scene": "V2PassagePullFinishReview",
+    "execution": {
+      "completed": true,
+      "elapsed_s": 75.34,
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T13:39:46Z",
+      "started_utc": "2026-10-25T13:38:29Z",
+      "timed_out": false
+    },
+    "stderr_bytes": 0,
+    "test_sha256": "e9d375f7530073569bf1883c620aacda52f25260839c840aca8303328484bd75"
+  },
+  {
+    "scene": "V2EasyDoorBench",
+    "execution": {
+      "completed": true,
+      "elapsed_s": 38.98,
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T13:40:32Z",
+      "started_utc": "2026-10-25T13:39:50Z",
+      "timed_out": false
+    },
+    "stderr_bytes": 0,
+    "test_sha256": "cb74eb16db58197068fd14b3f3f6c91d7ccd72ba7e93196f59a5fb1288310c89"
+  },
+  {
+    "scene": "ServiceSetHandTest",
+    "execution": {
+      "completed": true,
+      "elapsed_s": 18.24,
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T13:40:59Z",
+      "started_utc": "2026-10-25T13:40:40Z",
+      "timed_out": false
+    },
+    "stderr_bytes": 0,
+    "test_sha256": "a070fd0e86d3c35a984be149cf44e42fc1bc2649e3eba4be2249e9fd58f2f5da"
+  },
+  {
+    "scene": "CompanionWorldHandBench",
+    "execution": {
+      "completed": true,
+      "elapsed_s": 12.9,
+      "exit_code": 0,
+      "finished_utc": "2026-10-25T13:41:14Z",
+      "started_utc": "2026-10-25T13:41:01Z",
+      "timed_out": false
+    },
+    "stderr_bytes": 0,
+    "test_sha256": "d64123bff664ffc2aa0b5ef38e6fee3184bb183bed73f7619473bd9ccbd4704d"
+  }
+]

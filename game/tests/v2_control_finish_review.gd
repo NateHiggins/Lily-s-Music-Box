@@ -12,6 +12,14 @@ func validate_material_contract(suite: Node) -> void:
 		suite.check(stock.transparency==(BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS if spec.alpha else BaseMaterial3D.TRANSPARENCY_DISABLED),"normal calibration preserves optical alpha: "+key)
 		var expected_normal := .35
 		if key=="bakelite":expected_normal=float(resin_recipe.normal_strength)
+		elif key.begins_with("resident_"):
+			# Retained source normals keep the glTF-authored calibration. Residents
+			# without a source normal use the restrained generated atlas relief.
+			# Read the independent original asset, not the generated runtime policy.
+			var slug:=key.trim_prefix("resident_")
+			var character: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/characters/"+slug+"/"+slug+".gltf"))
+			var original: Dictionary=character.materials[0]
+			if original.has("normalTexture"):expected_normal=float(original.normalTexture.get("scale",1.0))
 		elif key.begins_with("site_softwood") or key.begins_with("arcade_"):
 			var recipe: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(source_root.path_join("art/textures/procedural/"+key+"/material.json")))
 			expected_normal=float(recipe.normal_strength)

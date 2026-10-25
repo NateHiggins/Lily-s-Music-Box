@@ -1,0 +1,65 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 93.91,
+  "exit_code": -1,
+  "finished_utc": "2026-10-25T13:46:35Z",
+  "started_utc": "2026-10-25T13:45:00Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 2,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot find member \"REFLECTED_SOURCE_SKY\" in base \"Environment\".",
+   "ERROR: Failed to load script \"res://tests/v2_passage_pull_finish_review.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/reports/v2integration24/fancy_shop_pull/final_v2_finish.log.stderr",
+  "stderr_sha256": "80914e5ae4e050ee2ac751c40e8f105b3ab43f905318e837f84f597fd981273d",
+  "stdout": "C:/ov/reports/v2integration24/fancy_shop_pull/final_v2_finish.log",
+  "stdout_sha256": "105c8475a495681189d35bb4aa1ace2a76165bdd46c5469ef9c1a04acaa199c3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2PassagePullFinishReview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/reports/v2integration24/fancy_shop_pull/final_v2_finish",
+ "source": {
+  "dirty_paths": 2197,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  art/blender/passage_shop_leaves.blend",
+   "M  art/blender/scripts/build_passage_shop_leaves.py",
+   "M  art/blender/scripts/inspect_passage_shop_leaves.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import"
+  ],
+  "repository_head": "3bd90284702eb236dcf1a4b9a81bd77b32c2d22b",
+  "repository_tree": "d33ab0aa9a7029b8565cd622a81859b8a5f589fc",
+  "runtime_inputs_sha256": "aae668e412564423a6901a4a2240012e1ec10b3d2b7f14d445b4c1e0677e523d",
+  "test_path": "game/tests/v2_passage_pull_finish_review.gd",
+  "test_sha256": "50c97733a58579aa1fbb92a55a1039a67e5eb31d9c4e2ab7f0678cd301996a56"
+ },
+ "windowed": true
+}
