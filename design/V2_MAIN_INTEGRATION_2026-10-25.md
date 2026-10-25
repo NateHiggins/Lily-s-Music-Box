@@ -122,3 +122,15 @@ Open: remaining native/source closure, current-source occupied routes/save/surfa
 renewal and final verification. Companion movement, typing, context/memory-save,
 personality and matched world performance remain open. No all-V2 or merged-tree
 runtime completion is claimed from this native/static preparation.
+
+### Mina presentation split from the disabled routing draft
+
+The single established Mina presentation hook is restored separately from the
+known-defective seventeen-resident routing draft. It instantiates the already
+prepared **orison_v2_resident_presentation.gd** subclass; Mina keeps her existing
+routine, case actor, supplied animations and interaction owner. This same hook
+was present during the retained811-frame baseline and original-carrier71-check
+world route. Those captured-input runs are not fresh merged-tree qualification.
+The other residents and new routing owner remain disabled and preserved on their
+separate branch. Source parsing passes; the forthcoming current-source world
+checks still need to cover the merged presentation and case behavior.
