@@ -15,6 +15,17 @@ static func contains_phrase(text: String, phrase: String) -> bool:
 static func parse(raw: String) -> Dictionary:
 	var text := normalize(raw)
 	if text.is_empty(): return {"intent":"empty", "text":text}
+	# Exact conversational requests cannot swallow physical commands or article nouns.
+	var direct := {
+		"i don t know":"hesitate", "i can t decide":"hesitate", "i need a moment":"hesitate",
+		"your printer is jammed":"jam", "the paper is stuck":"jam",
+		"xyzzy":"magic", "plugh":"magic", "abracadabra":"magic",
+		"undo":"undo", "undo that":"undo", "sing":"sing", "sing me a song":"sing",
+		"tell me a joke":"joke", "another joke":"joke", "wait":"wait", "wait here":"wait",
+		"can we be quiet":"silence", "do we have to talk":"silence",
+		"fuck off":"leave", "go fuck yourself":"rude"
+	}
+	if direct.has(text): return {"intent":str(direct[text]), "text":text}
 	var groups := {
 		"leave":["goodbye", "bye", "stop talking", "leave me alone", "quiet please"],
 		"inventory":["inventory", "what am i carrying", "what do i have", "check my bag"],
@@ -24,6 +35,7 @@ static func parse(raw: String) -> Dictionary:
 		"alive":["are you alive", "are you real", "conscious", "sentient"],
 		"fear":["are you afraid", "i am afraid", "i m scared", "i am scared"],
 		"care":["thank you", "thanks", "are you okay", "are you all right", "how are you", "how do you feel"],
+		"newspaper":["newspaper", "newspapers", "today s paper", "the news"],
 		"weather":["weather", "forecast", "rain", "snow", "storm"],
 		"eat":["eat", "swallow", "lick", "taste"],
 		"look":["look around", "look", "what is here", "where am i", "where are we"],
