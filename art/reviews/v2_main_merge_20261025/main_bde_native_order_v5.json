@@ -1,0 +1,612 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Read-only declared-source dirty-family dependency closure; not acceptance",
+  "initial": [
+    "bar_fixture_mounts",
+    "boiler_window",
+    "city_aerials",
+    "city_beacons",
+    "city_masts",
+    "city_tanks",
+    "domestic_seating",
+    "domestic_tables",
+    "druggist_carboys",
+    "druggist_cupboard",
+    "druggist_dispensary",
+    "household_fridges",
+    "household_radios",
+    "household_stoves",
+    "household_toasters",
+    "household_wardrobes",
+    "laundry_trade",
+    "medicine_cabinets",
+    "pawn_display",
+    "pawn_fittings",
+    "photo_glazing",
+    "photo_portraits",
+    "photo_radio_fittings",
+    "prep_cabinets",
+    "roof_base_flashings",
+    "roof_drainage_falls",
+    "roof_drainage_plant_weather",
+    "roof_service_weathering",
+    "signal_terminal",
+    "task_lamp_supply",
+    "task_lamps",
+    "work_tables"
+  ],
+  "unavailable": [
+    "heating_distribution"
+  ],
+  "order": [
+    "bar_fixture_mounts",
+    "boiler_window",
+    "city_aerials",
+    "city_masts",
+    "druggist_dispensary",
+    "laundry_trade",
+    "pawn_display",
+    "photo_glazing",
+    "photo_portraits",
+    "roof_base_flashings",
+    "roof_drainage_falls",
+    "task_lamps",
+    "bar_pipe_supports",
+    "city_beacons",
+    "city_tanks",
+    "druggist_cupboard",
+    "pawn_fittings",
+    "photo_receiving",
+    "reading_nook",
+    "roof_drainage_door_weather",
+    "roof_drainage_plant_weather",
+    "roof_membrane",
+    "roof_public_weathering",
+    "roof_service_weathering",
+    "task_lamp_supply",
+    "work_tables",
+    "city_closure",
+    "druggist_carboys",
+    "signal_terminal",
+    "surface_stock",
+    "city_elevations",
+    "domestic_seating",
+    "domestic_storage",
+    "domestic_tables",
+    "druggist_fountain",
+    "prep_cabinets",
+    "shop_joinery",
+    "household_wardrobes",
+    "shop_clerestories",
+    "domestic_objects",
+    "photo_radio_fittings",
+    "household_fridges",
+    "household_radios",
+    "household_toasters",
+    "medicine_cabinets",
+    "household_stoves"
+  ],
+  "cycle": [],
+  "dependencies": {
+    "bar_ceiling_finish": [],
+    "bar_fixture_mounts": [],
+    "bar_furniture": [],
+    "bar_gallery": [],
+    "bar_instruments": [],
+    "bar_pipe_supports": [
+      "bar_fixture_mounts"
+    ],
+    "bar_pool": [],
+    "bar_receiving": [
+      "diner_receiving",
+      "news_receiving"
+    ],
+    "bar_stage": [],
+    "basement_airer": [],
+    "bodega_frontage": [],
+    "boiler_window": [],
+    "city_aerials": [],
+    "city_beacons": [
+      "city_masts"
+    ],
+    "city_closure": [
+      "city_aerials",
+      "city_masts",
+      "city_tanks"
+    ],
+    "city_elevations": [
+      "city_aerials",
+      "city_closure",
+      "city_masts",
+      "city_tanks"
+    ],
+    "city_ground_apron": [],
+    "city_horizon": [
+      "city_ground_apron"
+    ],
+    "city_masts": [],
+    "city_tanks": [
+      "city_aerials",
+      "city_masts"
+    ],
+    "cobbler_fittings": [],
+    "diner_apparatus": [
+      "diner_backbar",
+      "diner_counter",
+      "diner_receiving",
+      "diner_till",
+      "diner_urns",
+      "shop_seating"
+    ],
+    "diner_backbar": [
+      "diner_counter",
+      "diner_receiving",
+      "diner_till",
+      "shop_seating"
+    ],
+    "diner_counter": [
+      "diner_receiving",
+      "shop_seating"
+    ],
+    "diner_overhead": [
+      "diner_apparatus",
+      "diner_backbar",
+      "diner_counter",
+      "diner_receiving",
+      "diner_till",
+      "diner_urns",
+      "shop_seating"
+    ],
+    "diner_receiving": [
+      "shop_seating"
+    ],
+    "diner_till": [
+      "diner_counter",
+      "diner_receiving",
+      "shop_seating"
+    ],
+    "diner_urns": [
+      "diner_backbar",
+      "diner_counter",
+      "diner_receiving",
+      "diner_till",
+      "shop_seating"
+    ],
+    "domestic_objects": [
+      "domestic_seating",
+      "domestic_storage",
+      "domestic_tables",
+      "household_wardrobes",
+      "prep_cabinets",
+      "surface_stock",
+      "work_tables"
+    ],
+    "domestic_seating": [
+      "surface_stock",
+      "work_tables"
+    ],
+    "domestic_storage": [
+      "surface_stock",
+      "work_tables"
+    ],
+    "domestic_tables": [
+      "surface_stock",
+      "work_tables"
+    ],
+    "druggist_carboys": [
+      "druggist_cupboard"
+    ],
+    "druggist_counter": [
+      "druggist_drawers"
+    ],
+    "druggist_cupboard": [
+      "druggist_dispensary"
+    ],
+    "druggist_dispensary": [
+      "druggist_mortar"
+    ],
+    "druggist_drawers": [],
+    "druggist_fountain": [
+      "druggist_carboys"
+    ],
+    "druggist_mortar": [],
+    "fixed_lighting": [
+      "bar_ceiling_finish"
+    ],
+    "front_court_roof": [],
+    "front_facade": [],
+    "front_pavement_construction": [],
+    "funeral_drapes": [
+      "funeral_fittings",
+      "shop_seating"
+    ],
+    "funeral_fittings": [
+      "shop_seating"
+    ],
+    "funeral_foliage": [
+      "funeral_drapes",
+      "funeral_fittings",
+      "shop_seating"
+    ],
+    "hardware_apparatus": [],
+    "hardware_drawers": [],
+    "hardware_stock": [],
+    "hardware_tools": [
+      "hardware_stock"
+    ],
+    "heating_distribution": [],
+    "household_fridges": [
+      "domestic_objects",
+      "domestic_seating",
+      "domestic_storage",
+      "domestic_tables",
+      "household_wardrobes",
+      "prep_cabinets",
+      "work_tables"
+    ],
+    "household_radios": [
+      "domestic_objects",
+      "domestic_seating",
+      "domestic_storage",
+      "domestic_tables",
+      "household_wardrobes",
+      "prep_cabinets",
+      "surface_stock",
+      "work_tables"
+    ],
+    "household_stoves": [
+      "domestic_objects",
+      "domestic_seating",
+      "domestic_storage",
+      "domestic_tables",
+      "household_fridges",
+      "household_radios",
+      "household_wardrobes",
+      "prep_cabinets",
+      "work_tables"
+    ],
+    "household_toasters": [
+      "domestic_objects",
+      "domestic_seating",
+      "domestic_storage",
+      "domestic_tables",
+      "household_wardrobes",
+      "prep_cabinets",
+      "surface_stock",
+      "work_tables"
+    ],
+    "household_wardrobes": [
+      "domestic_storage",
+      "prep_cabinets",
+      "surface_stock",
+      "work_tables"
+    ],
+    "kitchen_plumbing": [],
+    "kitchen_prep_stations": [],
+    "laundry_apparatus": [],
+    "laundry_fittings": [],
+    "laundry_receiving": [
+      "laundry_apparatus",
+      "laundry_fittings",
+      "shop_seating"
+    ],
+    "laundry_trade": [
+      "laundry_apparatus",
+      "laundry_fittings",
+      "laundry_receiving",
+      "shop_seating"
+    ],
+    "locksmith_fittings": [],
+    "medicine_cabinets": [
+      "domestic_objects",
+      "domestic_seating",
+      "domestic_storage",
+      "domestic_tables",
+      "household_wardrobes",
+      "prep_cabinets",
+      "surface_stock",
+      "work_tables"
+    ],
+    "news_fittings": [],
+    "news_receiving": [
+      "news_fittings",
+      "shop_seating"
+    ],
+    "pawn_clocks": [
+      "pawn_receiving"
+    ],
+    "pawn_display": [
+      "pawn_clocks",
+      "pawn_receiving"
+    ],
+    "pawn_fittings": [
+      "pawn_clocks",
+      "pawn_display",
+      "pawn_receiving"
+    ],
+    "pawn_receiving": [],
+    "photo_cameras": [],
+    "photo_counter": [],
+    "photo_enlargers": [],
+    "photo_glazing": [],
+    "photo_portraits": [],
+    "photo_process": [],
+    "photo_radio_fittings": [
+      "photo_cameras",
+      "photo_counter",
+      "photo_enlargers",
+      "photo_glazing",
+      "photo_portraits",
+      "photo_process",
+      "photo_receiving",
+      "photo_stock",
+      "radio_apparatus",
+      "radio_battery",
+      "radio_bench",
+      "radio_display",
+      "radio_receiving",
+      "radio_stock",
+      "radio_wire",
+      "shop_clerestories",
+      "shop_joinery",
+      "shop_seating"
+    ],
+    "photo_receiving": [
+      "photo_cameras",
+      "photo_counter",
+      "photo_enlargers",
+      "photo_glazing",
+      "photo_portraits",
+      "photo_process",
+      "photo_stock",
+      "shop_seating"
+    ],
+    "photo_stock": [],
+    "prep_cabinets": [
+      "domestic_storage",
+      "surface_stock",
+      "work_tables"
+    ],
+    "radio_apparatus": [
+      "radio_bench",
+      "shop_seating"
+    ],
+    "radio_battery": [
+      "radio_apparatus",
+      "radio_bench",
+      "radio_stock",
+      "shop_seating"
+    ],
+    "radio_bench": [
+      "shop_seating"
+    ],
+    "radio_display": [
+      "radio_apparatus",
+      "radio_battery",
+      "radio_bench",
+      "radio_stock",
+      "radio_wire",
+      "shop_seating"
+    ],
+    "radio_receiving": [
+      "radio_apparatus",
+      "radio_battery",
+      "radio_bench",
+      "radio_display",
+      "radio_stock",
+      "radio_wire",
+      "shop_seating"
+    ],
+    "radio_stock": [
+      "radio_apparatus",
+      "radio_bench",
+      "shop_seating"
+    ],
+    "radio_wire": [
+      "radio_apparatus",
+      "radio_battery",
+      "radio_bench",
+      "radio_stock",
+      "shop_seating"
+    ],
+    "reading_nook": [
+      "task_lamps"
+    ],
+    "roof_base_flashings": [],
+    "roof_drainage_door_weather": [
+      "roof_drainage_falls"
+    ],
+    "roof_drainage_falls": [],
+    "roof_drainage_leaders": [
+      "roof_drainage_ports"
+    ],
+    "roof_drainage_plant_weather": [
+      "roof_drainage_falls"
+    ],
+    "roof_drainage_ports": [],
+    "roof_drainage_receivers": [],
+    "roof_membrane": [
+      "roof_drainage_falls"
+    ],
+    "roof_public_weathering": [
+      "roof_drainage_falls"
+    ],
+    "roof_service_weathering": [
+      "roof_drainage_falls"
+    ],
+    "service_instruments": [],
+    "shop_clerestories": [
+      "cobbler_fittings",
+      "diner_apparatus",
+      "diner_backbar",
+      "diner_counter",
+      "diner_overhead",
+      "diner_receiving",
+      "diner_till",
+      "diner_urns",
+      "druggist_carboys",
+      "druggist_counter",
+      "druggist_cupboard",
+      "druggist_dispensary",
+      "druggist_drawers",
+      "druggist_fountain",
+      "druggist_mortar",
+      "funeral_drapes",
+      "funeral_fittings",
+      "funeral_foliage",
+      "hardware_apparatus",
+      "hardware_drawers",
+      "hardware_stock",
+      "hardware_tools",
+      "laundry_apparatus",
+      "laundry_fittings",
+      "laundry_receiving",
+      "laundry_trade",
+      "locksmith_fittings",
+      "news_fittings",
+      "news_receiving",
+      "pawn_clocks",
+      "pawn_display",
+      "pawn_fittings",
+      "pawn_receiving",
+      "photo_cameras",
+      "photo_counter",
+      "photo_enlargers",
+      "photo_glazing",
+      "photo_portraits",
+      "photo_process",
+      "photo_receiving",
+      "photo_stock",
+      "radio_apparatus",
+      "radio_battery",
+      "radio_bench",
+      "radio_display",
+      "radio_receiving",
+      "radio_stock",
+      "radio_wire",
+      "shop_joinery",
+      "shop_seating"
+    ],
+    "shop_joinery": [
+      "cobbler_fittings",
+      "diner_apparatus",
+      "diner_backbar",
+      "diner_counter",
+      "diner_overhead",
+      "diner_receiving",
+      "diner_till",
+      "diner_urns",
+      "druggist_carboys",
+      "druggist_counter",
+      "druggist_cupboard",
+      "druggist_dispensary",
+      "druggist_drawers",
+      "druggist_fountain",
+      "druggist_mortar",
+      "funeral_drapes",
+      "funeral_fittings",
+      "funeral_foliage",
+      "hardware_apparatus",
+      "hardware_drawers",
+      "hardware_stock",
+      "hardware_tools",
+      "laundry_apparatus",
+      "laundry_fittings",
+      "laundry_receiving",
+      "laundry_trade",
+      "locksmith_fittings",
+      "news_fittings",
+      "news_receiving",
+      "pawn_clocks",
+      "pawn_display",
+      "pawn_fittings",
+      "pawn_receiving",
+      "photo_cameras",
+      "photo_counter",
+      "photo_enlargers",
+      "photo_glazing",
+      "photo_portraits",
+      "photo_process",
+      "photo_receiving",
+      "photo_stock",
+      "radio_apparatus",
+      "radio_battery",
+      "radio_bench",
+      "radio_display",
+      "radio_receiving",
+      "radio_stock",
+      "radio_wire",
+      "shop_seating"
+    ],
+    "shop_seating": [],
+    "signage": [
+      "bodega_frontage"
+    ],
+    "signal_terminal": [
+      "task_lamps",
+      "work_tables"
+    ],
+    "street_paving_details": [
+      "front_pavement_construction"
+    ],
+    "surface_stock": [
+      "task_lamps",
+      "work_tables"
+    ],
+    "task_lamp_supply": [
+      "task_lamps"
+    ],
+    "task_lamps": [],
+    "work_tables": [
+      "task_lamps"
+    ]
+  },
+  "builders": {
+    "boiler_window": "art/blender/scripts/build_boiler_window.py",
+    "work_tables": "art/blender/scripts/build_work_tables.py",
+    "domestic_seating": "art/blender/scripts/build_domestic_seating.py",
+    "roof_drainage_door_weather": "art/blender/scripts/build_roof_drainage_door_weather.py",
+    "roof_membrane": "art/blender/scripts/build_roof_membrane.py",
+    "photo_glazing": "art/blender/scripts/build_photo_glazing.py",
+    "household_wardrobes": "art/blender/scripts/build_household_wardrobes.py",
+    "household_toasters": "art/blender/scripts/build_household_toasters.py",
+    "roof_drainage_plant_weather": "art/blender/scripts/build_roof_drainage_plant_weather.py",
+    "bar_fixture_mounts": "art/blender/scripts/build_bar_fixture_mounts.py",
+    "roof_public_weathering": "art/blender/scripts/build_roof_public_weathering.py",
+    "city_aerials": "art/blender/scripts/build_city_aerials.py",
+    "household_fridges": "art/blender/scripts/build_household_fridges.py",
+    "task_lamps": "art/blender/scripts/build_task_lamps.py",
+    "photo_receiving": "art/blender/scripts/build_photo_receiving.py",
+    "task_lamp_supply": "art/blender/scripts/build_task_lamp_supply.py",
+    "household_stoves": "art/blender/scripts/build_household_stoves.py",
+    "city_tanks": "art/blender/scripts/build_city_tanks.py",
+    "reading_nook": "art/blender/scripts/build_reading_nook.py",
+    "household_radios": "art/blender/scripts/build_household_radios.py",
+    "prep_cabinets": "art/blender/scripts/build_prep_cabinets.py",
+    "domestic_objects": "art/blender/scripts/build_domestic_objects.py",
+    "bar_pipe_supports": "art/blender/scripts/build_bar_pipe_supports.py",
+    "city_masts": "art/blender/scripts/build_city_masts.py",
+    "shop_joinery": "art/blender/scripts/build_shop_joinery.py",
+    "roof_drainage_falls": "art/blender/scripts/build_roof_drainage_falls.py",
+    "shop_clerestories": "art/blender/scripts/build_shop_clerestories.py",
+    "domestic_tables": "art/blender/scripts/build_domestic_tables.py",
+    "druggist_fountain": "art/blender/scripts/build_druggist_fountain.py",
+    "surface_stock": "art/blender/scripts/build_surface_stock.py",
+    "pawn_display": "art/blender/scripts/build_pawn_display.py",
+    "signal_terminal": "art/blender/scripts/build_signal_terminal.py",
+    "pawn_fittings": "art/blender/scripts/build_pawn_fittings.py",
+    "druggist_carboys": "art/blender/scripts/build_druggist_carboys.py",
+    "photo_portraits": "art/blender/scripts/build_photo_portraits.py",
+    "city_closure": "art/blender/scripts/build_city_closure.py",
+    "roof_service_weathering": "art/blender/scripts/build_roof_service_weathering.py",
+    "medicine_cabinets": "art/blender/scripts/build_medicine_cabinets.py",
+    "city_elevations": "art/blender/scripts/build_city_elevations.py",
+    "druggist_dispensary": "art/blender/scripts/build_druggist_dispensary.py",
+    "druggist_cupboard": "art/blender/scripts/build_druggist_cupboard.py",
+    "city_beacons": "art/blender/scripts/build_city_beacons.py",
+    "domestic_storage": "art/blender/scripts/build_domestic_storage.py",
+    "roof_base_flashings": "art/blender/scripts/build_roof_base_flashings.py",
+    "laundry_trade": "art/blender/scripts/build_laundry_trade.py",
+    "photo_radio_fittings": "art/blender/scripts/build_photo_radio_fittings.py"
+  }
+}

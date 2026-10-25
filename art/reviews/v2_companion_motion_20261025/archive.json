@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Candidate source bounds and static checks only. Windowed import/input diagnostic queued; no engine or world movement qualification.",
+  "files": [
+    {
+      "path": "companion_motion_reader_v1.log",
+      "sha256": "e588792ad309cb2b6b96c38d538cfbc0c2de6792e15feacb3e73a13713190f1d"
+    },
+    {
+      "path": "companion_motion_source_bounds.json",
+      "sha256": "1a15353a9a22e881f8aadae58069a7761413cbdbfb21691a9425f2e54ed1fa33"
+    },
+    {
+      "path": "companion_motion_spatial_v2.json",
+      "sha256": "6cbdc48226698b26d7f0b2436401eb4ac447009d49e5ccc90c137a45e84af863"
+    },
+    {
+      "path": "companion_motion_systemic_v2.json",
+      "sha256": "fbb9c47f2fb6b06915deb7e7d9923dfcadadf362ada4866325d676c8757a94fd"
+    }
+  ]
+}

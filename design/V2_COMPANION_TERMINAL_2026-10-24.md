@@ -478,3 +478,29 @@ negative-control test and verifies rejection plus unchanged real memory. Only
 those exact expressions are documented in the authority baseline, with every
 existing entry preserved. This is ownership review, not a campaign save hook,
 new runtime contract or completion of the companion conversation milestone.
+
+### Independent motion candidate — not yet engine qualified
+
+**companion_motion.gd** introduces a separate CharacterBody3D flight owner,
+with a non-blocking layer and a player collision exception. Bounded shape/ray
+queries select nearby positions; the body uses physical sweeps for travel.
+Actual player route breadcrumbs guide pursuit around occlusion. Acceleration,
+braking, preferred distance bands, attention hysteresis, a fixed reading-pose
+orientation, sprint retraction and analytic eye clearance are implemented.
+Recovery requires a valid observer callback covering the main view and mirrors;
+missing, nonboolean or observed results forbid repositioning.
+
+**CompanionMotionBench** drives the actual PlayerController with key and mouse
+input at30/60/144 render caps in a local diagnostic doorway/corner fixture. It
+checks pursuit, keyboard safety, attention release, public recall, query budgets,
+manufactured hull bounds and refused recoveries. Its results are explicitly
+INERT: it is neither occupied V2, normal companion integration nor a frame-time
+comparison. Syntax parsing and focused spatial/authority/reader checks pass;
+the first windowed engine run, preceded by two imports, is queued. No movement
+pass is claimed. The production carrier remains unchanged.
+
+C remains in progress. World-carrier wiring, existing mechanism targeting,
+mirror-aware visibility authority, diegetic text focus and keyboard input,
+context/save integration, dialogue personality and full world/performance
+qualification remain required. The full V2 goal and prior repair coverage are
+unchanged; this candidate does not close those requirements.

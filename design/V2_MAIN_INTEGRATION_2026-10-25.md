@@ -134,3 +134,19 @@ world route. Those captured-input runs are not fresh merged-tree qualification.
 The other residents and new routing owner remain disabled and preserved on their
 separate branch. Source parsing passes; the forthcoming current-source world
 checks still need to cover the merged presentation and case behavior.
+
+### Remaining native dependency batch
+
+All46 stages in the dependency-ordered follow-up complete without a builder
+failure. The construction-only nook-book consumer is refreshed afterward.
+Every production prop GLB remains byte-identical to **eea83ebd**, so these source
+renewals reuse the existing unchanged geometry views rather than claiming new
+visual or runtime acceptance. All stage records and original output are retained.
+
+The109-family inventory now reports three drifts: its obsolete single-file
+horizon assumption, the historical heating-distribution gap, and a retained
+roof-drainage blockout binding. Eight older construction-only fire/arcade records
+also remain declared stale; the additive guard preserved them rather than
+promoting old evidence. These are still open proof/source tasks, not a legacy
+exemption from the surface requirements. No new gameplay consequence or
+performance result is inferred from the authoring batch.

@@ -1,0 +1,60 @@
+{
+  "evidence_class": "INERT",
+  "records": [
+    {
+      "path": "art/blender/arcade_throat_construction.json",
+      "stale": [
+        "art/data/building_layout.json",
+        "game/data/runtime_material_sets.json"
+      ]
+    },
+    {
+      "path": "art/blender/fire_floor_enamel_construction.json",
+      "stale": [
+        "game/data/runtime_material_sets.json"
+      ]
+    },
+    {
+      "path": "art/blender/fire_hose_rack_construction.json",
+      "stale": [
+        "game/data/runtime_material_sets.json"
+      ]
+    },
+    {
+      "path": "art/blender/fire_joint_stock_construction.json",
+      "stale": [
+        "game/data/runtime_material_sets.json"
+      ]
+    },
+    {
+      "path": "art/blender/fire_nozzle_collision_construction.json",
+      "stale": [
+        "game/data/orison_v2/fire_nozzle_joint.json"
+      ]
+    },
+    {
+      "path": "art/blender/fire_nozzle_detail_construction.json",
+      "stale": [
+        "game/data/runtime_material_sets.json"
+      ]
+    },
+    {
+      "path": "art/blender/fire_nozzle_hose_construction.json",
+      "stale": [
+        "game/data/runtime_material_sets.json"
+      ]
+    },
+    {
+      "path": "art/blender/fire_nozzle_joint_construction.json",
+      "stale": [
+        "game/data/runtime_material_sets.json"
+      ]
+    },
+    {
+      "path": "art/blender/nook_readable_books_construction.json",
+      "stale": [
+        "art/blender/reading_nook_construction.json"
+      ]
+    }
+  ]
+}

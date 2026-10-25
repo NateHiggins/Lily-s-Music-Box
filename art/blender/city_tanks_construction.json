@@ -2240,39 +2240,39 @@
     "site_back_e__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        16.864400977740146,
-        -14.895791963569701
+        16.864400977740193,
+        -14.895791963569678
       ],
       "cavity_vertices_checked": 1337
     },
     "site_far_e__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        11.42831551455004,
-        -9.9288803481431
+        11.428315514550023,
+        -9.928880348143103
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_n__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        18.95623479710156,
-        -16.899669185692993
+        18.956234797101562,
+        -16.899669185693032
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_ne__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        -8.01716562073857,
-        9.341797805979072
+        9.341797805979033,
+        -8.017165620738563
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_nw__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        17.502802929649114,
+        17.50280292964925,
         -15.546956568294428
       ],
       "cavity_vertices_checked": 1341
@@ -2280,72 +2280,72 @@
     "site_far_s__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        20.41122741154336,
-        -18.25637819274192
+        20.41122741154324,
+        -18.256378192741984
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_se__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        11.584204217637307,
-        -10.072168902623977
+        11.584204217637277,
+        -10.072168902623968
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_sw__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        17.82669890589922,
-        -15.848181475650692
+        -15.848181475650698,
+        17.82669890589923
       ],
       "cavity_vertices_checked": 1341
     },
     "site_far_w__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        13.798003269744918,
-        -12.112642021010233
+        13.798003269744832,
+        -12.112642021010242
       ],
       "cavity_vertices_checked": 1341
     },
     "site_ne2__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        -8.373698011485878,
-        9.731940944840819
+        -8.373698011485903,
+        9.731940944840774
       ],
       "cavity_vertices_checked": 1341
     },
     "site_ne4__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        21.26730347723748,
-        -19.033564707520053
+        -19.03356470752008,
+        21.26730347723757
       ],
       "cavity_vertices_checked": 1341
     },
     "site_nw3__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        10.446656308747565,
-        -9.02799061710856
+        10.446656308747501,
+        -9.027990617108578
       ],
       "cavity_vertices_checked": 1341
     },
     "site_se2__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        10.47883836536512,
-        -9.159998350440985
+        10.47883836536513,
+        -9.15999835044101
       ],
       "cavity_vertices_checked": 1339
     },
     "site_sw3__Tank": {
       "surface_components": 2,
       "signed_boundary_volumes_m3": [
-        17.616155792953705,
-        -15.652358327329022
+        17.616155792953553,
+        -15.652358327329026
       ],
       "cavity_vertices_checked": 1339
     }
@@ -8698,17 +8698,17 @@
   "source_bindings": {
     "art/data/city_tanks/source_plan.json": "b1e59102311beee79ff2b6b73085623dd50e4d10050a5dbd5bbbec248a418a30",
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
-    "art/blender/city_shells_registration.json": "759bd68702f864db06dbeac6880348a1da0b9407d30764067e8eb96a59acadf1",
-    "art/blender/city_shells.blend": "0684a06f079d51c1cbb8158b36f7ab11e29157b9f8022860dd7f1dcb5c9b8a94",
-    "game/data/orison_v2_blockout.json": "6f9d033f2f1a0dd849d6afb50f9c5799a3dc2c93587d23db826006e2547d0955",
+    "art/blender/city_shells_registration.json": "56414b30fcdfd606271f34053a308505acb319505c9d9577b4d9f94c4f879dab",
+    "art/blender/city_shells.blend": "9cce9515ab131fc5c45709171aebcb994dcf949de5ef3eead65c21710891994c",
+    "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
     "art/blender/scripts/build_city_tanks.py": "c4eaaf9dcf5712b627ebb49d1f05bffbd5e20ff45c5fed43a4c4cc61ebe586ba",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/city_registration.py": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
     "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916",
     "art/tools/build_tank_staves.py": "8667b8eb11768f7a7f605b8298fcc988fcdf4f7486482997877715888555e3c5",
     "art/textures/procedural/tank_staves/material.json": "2805d241bff5c43de380d87533f40e90a0b1fd0eab4d2395fa52ab66939767d6",
-    "art/blender/city_masts.blend": "9afdda1b70d1e6601dd9c6c14481ab1b10937e2c15a53c2681aca76f22c35acb",
-    "art/blender/city_aerials.blend": "59867eee72ea771e977dcc508f90f1c56a81bfe00a47d778afd95bb970a3788a",
+    "art/blender/city_masts.blend": "60a3f93aebc50882984deae948ad78dd2cd127c4a7dc4fb2dc88581be82ce3f9",
+    "art/blender/city_aerials.blend": "2f499e71575b23a6193461cd9ef390d6adb89c3ad857571bf37d5e9cb435ef2a",
     "art/textures/procedural/tank_staves/albedo.png": "1b7939b22a61b51b015ea061a655c293e6ff035f6ba395a39173bd8e8d6cc8bf",
     "art/textures/procedural/tank_staves/roughness.png": "35c4bf990aeac4f41297dabc40f553770a1ccc1d75445cc63b345d8f3dce4fde",
     "art/textures/procedural/tank_staves/height.png": "ecccd957681d9f3d392c88bdcae9cbc7d6758621d5e99847022a67bf50f40108",
