@@ -90,6 +90,10 @@ func _ready() -> void:
 	provider.weather_updated.connect(receive_snapshot)
 	provider.weather_failed.connect(_fallback)
 	add_child(provider)
+	# First subscribers must receive the same complete dated presentation as
+	# a rebuilt world, even before this owner's first process frame.
+	_update_phenomena(0.0)
+	_push_spectacle()
 	_publish()
 
 func _exit_tree() -> void:

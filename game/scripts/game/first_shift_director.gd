@@ -421,4 +421,14 @@ func _place_at_arrival() -> void:
 	player.camera.rotation = Vector3.ZERO
 	flat_direction.y = 0.0
 	player.rotation.y = atan2(-flat_direction.x, -flat_direction.z)
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if arrival_owns_input():
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+## An inactive child world may restore its placement, but it does not own the
+## global pointer. Active standalone and CampaignShell worlds keep normal input.
+func arrival_owns_input() -> bool:
+	if not is_inside_tree() or not is_instance_valid(building) or get_tree().paused: return false
+	if get_tree().current_scene==building: return true
+	var shell:=get_tree().get_first_node_in_group("campaign_shell") as CampaignShell
+	return shell!=null and shell.active_world==building

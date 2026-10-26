@@ -842,3 +842,145 @@ Still required: full native manipulation and matched movement/turning/cell/
 furnishing/grab/inspection performance routes, validated weather disk save and
 rebuild/denial, owned teardown, preview retirement, broader cloud art and the
 remaining V2 scope. **PR 57 remains draft and unmerged.**
+
+## October 26 — background input ownership and first weather publication (WIP)
+
+The earlier draft status above is historical: PR 57 was merged as **4dec20aa**.
+This continuation starts from that exact main in the isolated short worktree;
+the canonical acoustic-topology contributor's dirty tree is untouched.
+
+| Location / reproduction | Severity and evidence | Repair | Verification |
+|---|---|---|---|
+| Arrival restoration in an inactive child world with an arrived save | Input ownership defect: placement unconditionally requested global cursor capture | Require the actual standalone scene or CampaignShell active world, and refuse while paused; retain placement, facing and collision work | Actual V2 arrived-save worlds retain the initial pointer mode. Ritual owner assertions pass. Active captured-input startup remains outside mouse-safe qualification |
+| First WeatherManager publication before its first process callback | Presentation consistency defect: actual disk/rebuild comparison differs by missing **dust** and **phenomena** keys; fractional clock, transport, storm uniforms and issued timeline already match | Resolve the existing schedule and publish its existing shader arrays before the first conditions publication; no additional per-frame scan | Actual two-world runs **world_v5** and **world_v6** compare weather exactly, including wetness. Their overall contracts fail on the fixture's raw numeric-type comparison and are not promoted |
+| Nonempty campaign authority fixture | Test defect: Godot Dictionary equality treats original integer counters and JSON-loaded floating counters as different | Compare exact full-precision persisted JSON values; keep all fields, flags, arrays and numerical values | **world_v6** records saved, loaded and rebuilt snapshots. Independent comparison proves all three JSON records equal. Corrected **world_v7** and original regressions are queued; no final lifecycle PASS yet |
+
+The complete 113-check static board in **weather_lifecycle27/gates_final**
+reports zero regressions against clean main **4dec20aa**, zero NEW unread
+fields and unchanged ledger counts **7 / 8 / 110 / 42 / 134 / 136**. The latest
+change to the test's numeric comparison still requires candidate verification.
+No space, runtime or human-acceptance status is promoted.
+
+Keep the failures: **world_v1** wrongly assumed V2 installed V1's ambient
+soundscape; **world_v2** attempted an editor-only global-uniform getter and was
+explicitly stopped after that diagnostic aborted. Neither is qualification.
+**world_v3** isolates the incomplete first publication; **world_v5/v6** retain
+the exact raw numeric-type mismatch. Their failing contracts remain unchanged.
+The earlier ritual/custody Dummy-audio runs also retain their exit resource
+warnings (six/four ObjectDB instances and two resources); a later verbose ritual
+passes with empty stderr, which does not explain or close that discrepancy.
+
+The partial teardown observations count **36 weather nodes and 50 resources**
+across two actual worlds, with zero tracked survivors. Four camera-owned GPU
+emitters are included per world; exact process noise/catalogue material IDs and
+imported resources are separately borrowed. There are no observed audio
+playbacks in these weather subtrees; V2 does not install V1's roof ambience bed.
+This is not whole-game audio teardown, RenderingServer allocation accounting,
+or a successful complete runtime contract while an assertion still fails.
+
+The existing archive now contains **622 hash-verified members, 26,640,694 bytes**;
+all previous 563 member bytes remain exact. Original logs, wrapper and test-written
+receipts, raw cursor observations, failed snapshots, source and clean-main board
+are retained without adding repository files. External originals and the live
+qualification queue are under **C:/ov/reports/weather_lifecycle27**. Never rerun
+the WIP packing script against the extended archive unchanged.
+
+Current status: **not merge-qualified**. Final windowed lifecycle, opening and
+weather regressions, candidate verification and rendered comparison remain
+pending. Native grabs/inspection, roof-preview capture/retirement, matched
+movement performance, broader sky art and the rest of V2 remain open. The
+private desktop is window isolation only; capture, confinement and cursor-warp
+scenes stay held. Decision needed from owner: none for the queued reversible work.
+
+## October 26 — scoped lifecycle PASS; original regression batch pending
+
+This supersedes the pending lifecycle status in the earlier WIP entry. The
+actual **world_v7** run executes all **41 checks** successfully, with empty
+stderr. Its own schema-2 **runtime_contract** passes the repository validator;
+the separate wrapper receipt binds to the tested sources. Test elapsed time
+is **256.547 s**; wrapper elapsed time is **274.45 s**. Execution HEAD is
+**836b1431**. This is a scoped weather contract, not whole-V2 qualification.
+
+The validated campaign save contains a real gasket inventory record, authored
+Mina job and active case, trust/visit history and a historical collected edition.
+These are explicitly public-owner fixtures, not claims of played acquisitions
+or conversations. Saved, loaded and rebuilt persisted values remain exact.
+Fractional **0.75-second** clock time, precise cloud transport, storm shader
+uniforms, wetness and the issued forecast timeline reconstruct identically.
+Invalid extreme-event input is refused without mutation. The actual roof
+before/after PNGs have been inspected; particle positions may differ naturally.
+
+Both worlds release the tracked **36 nodes and 50 resources**, including all
+four camera-owned GPU emitters per world, and restore the prior viewport TAA
+setting. Zero weather-subtree audio playbacks are observed. Imported resources,
+the exact process-owned weather-noise texture and catalogue plant material are
+borrowed separately; no RenderingServer byte-allocation or whole-game teardown
+claim is made. All **107 shader sources** match the clean tested candidate tree
+and the post-run sample; this supplements the test's own sky-shader binding.
+
+The raw mouse monitor retains **24 prelaunch cursor-clip changes** while the
+run waited for the lane. It records **no clip or input-desktop change during
+our actual execution interval, 20:15:19–20:19:54 UTC**. Do not misreport its
+whole-lifetime clip-change flag as false. Sampling remains 200 ms, with
+second-resolution wrapper boundaries. Native capture/warp tests remain held.
+
+Candidate static verification for **836b1431** completes with all **113 gates**,
+zero regressions, **17/17 protected files unchanged**, selector V2, zero lint
+errors and unchanged completeness counts. This verifier explicitly uses
+**--no-godot**; actual lifecycle evidence above is separate. The existing
+custody assertions pass again, retaining the earlier four-ObjectDB/two-resource
+exit warnings. Their verbose diagnostic is queued; the warning is not closed.
+
+The archive now holds **645 hash-verified members, 27,534,758 bytes**. All prior
+622 members remain byte-identical. It includes the actual isolated save,
+test-written contract, both original renders, source bindings, raw monitor,
+wrapper receipts and the static verifier result. No repository files are added.
+
+**PR 59 remains draft.** The six original windowed regressions are batched in
+one shared-lane acquisition and remain queued behind other live work. Final
+candidate verification and merge remain pending. The full goal, native input,
+preview retirement, matched movement/interaction performance, broader sky art
+and other outstanding V2 work remain open; no ledger status is promoted.
+
+## October 26 — original regressions renewed and fixture defects repaired
+
+The queued original batch is now executed. All six windowed suites pass:
+**FirstShiftOpeningLiveTest 25 checks**, **CampaignWeatherTest 427**,
+**SkyPhenomenaScheduleTest 22**, **WeatherFlashAccessibilityTest 2/2**,
+**NewspaperTest 33**, and **WeatherSkyTest 56**. Their wrapper receipts all
+bind to the current sources. Opening/legacy-world stderr retains the known
+**cam_noel_witches** placement warning; the other four stderr files are empty.
+The actual April 16, 1929 newspaper PNG was inspected: the WEATHER DESK,
+issued observation, current prediction and previous dispatch are readable.
+These owner/legacy-control regressions do not prove RUL-013 hand interaction.
+
+| Location / reproduction | Severity / evidence | Repair | Verification |
+|---|---|---|---|
+| Opening-world objective checks | Diagnostic defect: four assertions read a disabled HUD Label while the objective owner deliberately supplies messages through **supplied_body** | Retain the exact authored clauses and compare the public message supplied to the companion, without re-enabling the old HUD | Original four failures preserved; renewed actual-world 25-check suite passes. Explicit world retirement also preserves the initial pointer mode |
+| Custody fixture ending immediately after clock-out audio | Diagnostic lifetime defect: **appliance_pop.ogg** remains in a queued Vorbis playback at exit | Retire only the actual fixture owners while AudioPolicy is alive; settle two physics ticks, track the real stream with a weak reference | All 11 custody checks pass; the stream exists before retirement and is gone afterward; final stderr is empty. No global cache clearing or audio-authority change |
+| Broader ritual fixture | Remaining diagnostic limitation: six ObjectDB / two resource warnings identify two queued Vorbis playbacks of the same recording | Explicit fixture retirement retained, without claiming it fixes this wider decoder case | 26 logic checks pass, but warnings remain. The exact original main fixture is also executed externally through the shared lane with unchanged audio code and reproduces the same six/two warnings. This is a scoped diagnostic comparison, not fresh whole-main runtime qualification |
+
+The first renewed opening batch's original **exit 4** failure, the verbose
+resource traces, the original-main fixture/provenance, and the repaired runs
+are all retained. No failed receipt has been rewritten into a pass. AudioPolicy
+and the canonical acoustic-topology contributor's work are unchanged.
+
+The renewed full static board again completes **113 checks with zero
+regressions**, reader NEW=0 and unchanged ledger counts. The original V2
+41-check disk lifecycle contract still binds: only these existing test fixtures
+and evidence files changed after that actual-world execution. No additional
+V2 startup was repeated for report or test-only changes.
+
+The single-acquisition regression batch records no clip/input-desktop change
+within its own **20:55:30–20:56:59 UTC** execution interval. Prelaunch changes
+remain in the raw monitor; the whole-lifetime flag is not relabelled. This
+continues to be audited noncapturing execution, not general mouse isolation.
+
+The existing archive now holds **700 hash-verified members, 29,286,329 bytes**;
+all prior 645 members remain byte-identical. Original and renewed logs,
+receipts, the report PNG, fixture sources before/after, baseline diagnostic and
+full board are included. No repository files are added. Final candidate
+verification and integration are recorded on PR 59 after this checkpoint.
+The full goal, broader weather art, safe preview retirement, native input and
+matched movement/interaction performance remain open. No ledger promotion or
+human acceptance is claimed.
