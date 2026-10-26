@@ -313,7 +313,7 @@ Production and rendering inputs were frozen at **c03361a7** throughout the final
 four-run lane batch. The world receipt records runtime-input digest
 **c1ff079d2ad18e4f49ecccad35b748ade099984bcf3cae5531cb2bec47b6cfb8**;
 the archive additionally binds both shader sources explicitly. The world run
-finishes in 319 seconds, with all six contracts passing and zero retained owned
+finishes in 319 seconds, with all five contracts passing and zero retained owned
 nodes, resources or observed audio playbacks. This is scoped runtime evidence,
 not full-world acceptance. The native count differs from the former 2,230
 because the shared shader finish removes one duplicate paper material/map check;
