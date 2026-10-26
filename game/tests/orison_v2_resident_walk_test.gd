@@ -12,6 +12,8 @@ var failures: Array[String] = []
 var _route: Node3D
 var _metres := 0.0
 var _resident := ""
+var _last_walk_time := -1.0
+var _walk_clip_advanced := false
 
 
 func _check(label: String, ok: bool) -> void:
@@ -21,7 +23,7 @@ func _check(label: String, ok: bool) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if not is_instance_valid(_route) or _route.actor == null:
+	if not is_instance_valid(_route) or _route.actor == null or not _route.actor.visible:
 		return
 	var query := PhysicsShapeQueryParameters3D.new()
 	query.shape = _route._capsule
@@ -70,16 +72,33 @@ func _run(world: OrisonV2RuntimeRoot) -> void:
 		return
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(_route.source_path))
 	var unit := str(source.unit)
+	if _route.outside:
+		# An off-map resident must not pop into the arrival camera's view.
+		# Exercise that guard, then actually look away instead of disabling it
+		# or forcing a resident transform to make a tour start.
+		_route.force_destination = "unit"
+		if _route._observed():
+			await get_tree().create_timer(.75).timeout
+			_check("observed off-map return remains hidden", _route.outside and not _route.actor.visible)
+		var away: Vector3 = world.player.camera.global_position - _route.actor.global_position
+		away.y = 0.0
+		world.player.camera.look_at(world.player.camera.global_position + away.normalized())
+		_check("player looks away before an unseen return", not _route._observed())
 	for place: String in source.places:
 		if place == "unit":
 			continue
 		_route.force_destination = place
-		await _walk(place)
+		if not await _walk(place):
+			await _capture_body(world)
+			return
 		_route.force_destination = "unit"
-		await _walk("unit")
+		if not await _walk("unit"):
+			await _capture_body(world)
+			return
 	for door: DoorProp in _route._doors:
 		if is_instance_valid(door) and door.unit == unit:
 			_check("%s left closed behind them" % door.name, not door.open)
+	_check("native walking animation advances during visible travel", _walk_clip_advanced)
 	await _capture_body(world)
 	_route.force_destination = ""
 
@@ -110,7 +129,7 @@ func _capture_body(world: OrisonV2RuntimeRoot) -> void:
 	review.queue_free()
 
 
-func _walk(place: String) -> void:
+func _walk(place: String) -> bool:
 	var actor: AnimatedResident = _route.actor
 	var previous := actor.global_position
 	var elapsed := 0.0
@@ -118,13 +137,57 @@ func _walk(place: String) -> void:
 		await get_tree().create_timer(.5).timeout
 		elapsed += .5
 		var at := actor.global_position
+		var animation: AnimationPlayer = actor._animation_player
+		if actor.visible and at.distance_to(previous) > .01 and animation != null \
+				and animation.is_playing() and "walk" in animation.current_animation.to_lower():
+			var clip_time: float = animation.current_animation_position
+			if _last_walk_time >= 0.0 and absf(clip_time - _last_walk_time) > .01:
+				_walk_clip_advanced = true
+			_last_walk_time = clip_time
 		if at.distance_to(previous) > .8 and actor.visible:
 			failures.append("teleported on the way to " + place)
 		_metres += at.distance_to(previous) if actor.visible else 0.0
 		previous = at
 		if _route.blocked_seconds > 3.0:
 			failures.append("blocked on the way to %s at %v: %s" % [place, at, _route.blocked_reason])
-			return
-		if _route.current_id == _route.desired_id and _route.path.is_empty():
+			_report_stall(place, elapsed)
+			return false
+		if _route.destination == place and _route.current_id == _route.desired_id and _route.path.is_empty():
 			break
-	_check("reaches %s (%.0f s)" % [place, elapsed], _route.current_id == _route.desired_id and _route.desired_id >= 0)
+	var arrived: bool = _route.destination == place and _route.current_id == _route.desired_id \
+			and _route.desired_id >= 0 and _route.path.is_empty()
+	_check("reaches %s (%.0f s)" % [place, elapsed], arrived)
+	if not arrived: _report_stall(place, elapsed)
+	return arrived
+
+
+## One bounded failure record, before another forced destination can destroy
+## the stalled route. Observes the production owners without changing them.
+func _report_stall(place: String, elapsed: float) -> void:
+	var names := {}
+	for identity: String in _route.identities:
+		names[int(_route.identities[identity])] = identity
+	var remaining: Array[String] = []
+	for index in _route.path:
+		if remaining.size() >= 32: break
+		remaining.append(str(names.get(index, index)))
+	var doors: Array[Dictionary] = []
+	for door: DoorProp in _route._doors:
+		if not is_instance_valid(door) or door.global_position.distance_to(_route.actor.global_position) > 2.5: continue
+		doors.append({"name": str(door.name), "open": door.open, "moving": door._moving,
+			"state": door.leaf_state, "ready": door.is_ready_for_passage(),
+			"opening_clear": _route._door_motion_clear(door, true),
+			"local_actor": str(door.to_local(_route.actor.global_position))})
+	var animation: Node = _route.actor.mina_animation
+	print("RESIDENT WALK STALL: ", JSON.stringify({"resident": _resident, "requested": place,
+		"elapsed": elapsed, "position": str(_route.actor.global_position), "visible": _route.actor.visible,
+		"destination": _route.destination, "current": names.get(_route.current_id, _route.current_id),
+		"desired": names.get(_route.desired_id, _route.desired_id),
+		"planned": names.get(_route.planned_id, _route.planned_id), "remaining": remaining,
+		"outside": _route.outside, "blocked_seconds": _route.blocked_seconds,
+		"observed": _route._observed(),
+		"blocked_reason": _route.blocked_reason, "floor": _route.last_floor,
+		"call_locked": _route.world.player.call_locked, "talking": _route._talking(),
+		"paused": get_tree().paused, "route_animation_busy": animation != null and animation.route_busy,
+		"closing_door": str(_route._closing_door.name) if is_instance_valid(_route._closing_door) else "",
+		"closing_phase": _route._closing_phase, "nearby_doors": doors}))

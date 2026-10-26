@@ -10,7 +10,9 @@ const MINA_ROUTE := "res://data/orison_v2/mina_routine.json"
 ## Residents besides Mina who walk in V2: resident id -> route file.
 const ROUTES := {"lena_ortiz": "res://data/orison_v2/lena_routine.json",
 		"sacha_reed": "res://data/orison_v2/sacha_reed_routine.json",
-		"evelyn_marsh": "res://data/orison_v2/evelyn_marsh_routine.json"}
+		"evelyn_marsh": "res://data/orison_v2/evelyn_marsh_routine.json",
+		"rhea_sato": "res://data/orison_v2/rhea_sato_routine.json",
+		"transient_guests": "res://data/orison_v2/transient_guests_routine.json"}
 var source_path := ""
 var resident := ""
 ## Route tests walk a fixed tour; empty follows the resident's agenda.

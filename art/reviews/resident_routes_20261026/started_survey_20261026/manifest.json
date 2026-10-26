@@ -1,0 +1,488 @@
+{
+  "schema": "orison.started-work-survey.v1",
+  "evidence_class": "INERT",
+  "status": "incomplete_actual_tour_unmerged",
+  "candidate": "63bdb5fa",
+  "notes": [
+    "Original wrapper receipts are suite_run, not runtime_contract. No acceptance or merge grant.",
+    "The threshold v3 tour ended normally but incompletely; it is preserved without claiming a full-tour pass.",
+    "Front door, approach and front captures visually reviewed; other captures retained without an acceptance claim.",
+    "Existing Rhea proof predates the changed endpoint and stricter tour. Renew actual tours and regressions.",
+    "Actual endpoint-only v2 fails at the front leaf; near-threshold v3 is a subsequent unqualified candidate. No failure is removed."
+  ],
+  "runs": {
+    "front": {
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 145.66,
+        "exit_code": 0,
+        "finished_utc": "2026-10-26T11:00:49Z",
+        "started_utc": "2026-10-26T10:58:23Z",
+        "timed_out": false
+      },
+      "log": {
+        "fail_count": 0,
+        "fail_lines": [],
+        "pass_count": 0,
+        "pass_lines": [],
+        "script_error_count": 0,
+        "script_error_lines": [],
+        "stale_cache_lines": [],
+        "stale_cache_suspect": false,
+        "stderr": "C:/ov/reports/started_survey26/front.log.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "C:/ov/reports/started_survey26/front.log",
+        "stdout_sha256": "1f25d3d9b2b9d158b529f534a57d10f62cbb00c5ab5350d0427faf6d70476233"
+      },
+      "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+      "runner": "long",
+      "scene": "res://tests/OrisonV2FrontFacadeTest.tscn",
+      "schema": "orison.run-receipt.v1",
+      "schema_version": 1,
+      "shot_dir": "C:/ov/reports/started_survey26/front",
+      "source": {
+        "dirty_paths": 0,
+        "dirty_sample": [],
+        "repository_head": "6392205e074b2abe9411bdbdb5aca656bbfda467",
+        "repository_tree": "c978347cf4354b28bf12d82d20e6f03f61170220",
+        "runtime_inputs_sha256": "6008046dc4c81510cce5d4aa2b09dab93594813d77a9cb5116381e648b2054b5",
+        "test_path": "game/tests/orison_v2_front_facade_test.gd",
+        "test_sha256": "1c070c7a25803f5652657daba53e0054e74274da2fd32ee23d2e387780ba3319"
+      },
+      "windowed": true
+    },
+    "guests_diagnostic": {
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 293.26,
+        "exit_code": 1,
+        "finished_utc": "2026-10-26T11:10:38Z",
+        "started_utc": "2026-10-26T11:05:44Z",
+        "timed_out": false
+      },
+      "log": {
+        "fail_count": 0,
+        "fail_lines": [],
+        "pass_count": 0,
+        "pass_lines": [],
+        "script_error_count": 0,
+        "script_error_lines": [],
+        "stale_cache_lines": [],
+        "stale_cache_suspect": false,
+        "stderr": "C:/ov/reports/started_survey26/guests_diagnostic.log.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "C:/ov/reports/started_survey26/guests_diagnostic.log",
+        "stdout_sha256": "0ea3da0f4606f43466e802cd4995e16559f1a85c9ee608bc1712c5d75065bd81"
+      },
+      "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+      "runner": "long",
+      "scene": "res://tests/OrisonV2ResidentWalkTest.tscn",
+      "schema": "orison.run-receipt.v1",
+      "schema_version": 1,
+      "shot_dir": "C:/ov/reports/started_survey26/guests_diagnostic",
+      "source": {
+        "dirty_paths": 2,
+        "dirty_sample": [
+          "M design/V2_STARTED_WORK_CLOSURE_2026-10-23.md",
+          " M game/tests/orison_v2_resident_walk_test.gd"
+        ],
+        "repository_head": "6392205e074b2abe9411bdbdb5aca656bbfda467",
+        "repository_tree": "c978347cf4354b28bf12d82d20e6f03f61170220",
+        "runtime_inputs_sha256": "6008046dc4c81510cce5d4aa2b09dab93594813d77a9cb5116381e648b2054b5",
+        "test_path": "game/tests/orison_v2_resident_walk_test.gd",
+        "test_sha256": "4c42b5e5f41eac955b4dc7be27e4ae1b4ad358b6a8c0f010eb280202369b938a"
+      },
+      "windowed": true
+    },
+    "guests_return_v2": {
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 165.43,
+        "exit_code": 1,
+        "finished_utc": "2026-10-26T11:19:31Z",
+        "started_utc": "2026-10-26T11:16:45Z",
+        "timed_out": false
+      },
+      "log": {
+        "fail_count": 0,
+        "fail_lines": [],
+        "pass_count": 0,
+        "pass_lines": [],
+        "script_error_count": 0,
+        "script_error_lines": [],
+        "stale_cache_lines": [],
+        "stale_cache_suspect": false,
+        "stderr": "C:/ov/reports/started_survey26/guests_return_v2.log.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "C:/ov/reports/started_survey26/guests_return_v2.log",
+        "stdout_sha256": "464ada74f265d7e4912114604a6a131c1a2a7c8af9bc2184cdfa59a5ccaff557"
+      },
+      "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+      "runner": "long",
+      "scene": "res://tests/OrisonV2ResidentWalkTest.tscn",
+      "schema": "orison.run-receipt.v1",
+      "schema_version": 1,
+      "shot_dir": "C:/ov/reports/started_survey26/guests_return_v2",
+      "source": {
+        "dirty_paths": 1,
+        "dirty_sample": [
+          "?? art/reviews/resident_routes_20261026/started_survey_20261026/"
+        ],
+        "repository_head": "d6eeebdaf6f56bb42954058776a2b0401743c982",
+        "repository_tree": "5464c7a0c8ab08570a19c1a038ec1bced79d7fe2",
+        "runtime_inputs_sha256": "f8d15c29c4e1df2e1e27029c6b5a5342daf49c2322b9ac8817411c83e94e41d8",
+        "test_path": "game/tests/orison_v2_resident_walk_test.gd",
+        "test_sha256": "dbab938498979ba37c86d3da99c98d4fec558d19a2417191bc9cb8b739ea981e"
+      },
+      "windowed": true
+    },
+    "street_return_probe": {
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 145.65,
+        "exit_code": 0,
+        "finished_utc": "2026-10-26T11:16:07Z",
+        "started_utc": "2026-10-26T11:13:41Z",
+        "timed_out": false
+      },
+      "log": {
+        "fail_count": 0,
+        "fail_lines": [],
+        "pass_count": 0,
+        "pass_lines": [],
+        "script_error_count": 0,
+        "script_error_lines": [],
+        "stale_cache_lines": [],
+        "stale_cache_suspect": false,
+        "stderr": "C:/ov/reports/started_survey26/street_return_probe.log.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "C:/ov/reports/started_survey26/street_return_probe.log",
+        "stdout_sha256": "49f898b65a52416e53e7b2a32828e5d53f84e91b8184ac81d3e76296afc8c60b"
+      },
+      "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+      "runner": "long",
+      "scene": "res://tests/OrisonV2RouteProbe.tscn",
+      "schema": "orison.run-receipt.v1",
+      "schema_version": 1,
+      "shot_dir": null,
+      "source": {
+        "dirty_paths": 5,
+        "dirty_sample": [
+          "M design/V2_RESIDENT_AND_FRONT_DOOR_HANDOFF_2026-10-26.md",
+          " M design/V2_STARTED_WORK_CLOSURE_2026-10-23.md",
+          " M game/data/orison_v2/rhea_sato_routine.json",
+          " M game/data/orison_v2/transient_guests_routine.json",
+          " M game/tests/orison_v2_resident_walk_test.gd"
+        ],
+        "repository_head": "6392205e074b2abe9411bdbdb5aca656bbfda467",
+        "repository_tree": "c978347cf4354b28bf12d82d20e6f03f61170220",
+        "runtime_inputs_sha256": "f8d15c29c4e1df2e1e27029c6b5a5342daf49c2322b9ac8817411c83e94e41d8",
+        "test_path": "game/tests/orison_v2_route_probe.gd",
+        "test_sha256": "f2b1fdf25f4a864a1562d9fa3c51f454eef23c4117af6d1722caab9597b00244"
+      },
+      "windowed": true
+    },
+    "threshold_probe_v3": {
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 150.77,
+        "exit_code": 0,
+        "finished_utc": "2026-10-26T11:24:31Z",
+        "started_utc": "2026-10-26T11:22:00Z",
+        "timed_out": false
+      },
+      "log": {
+        "fail_count": 0,
+        "fail_lines": [],
+        "pass_count": 0,
+        "pass_lines": [],
+        "script_error_count": 0,
+        "script_error_lines": [],
+        "stale_cache_lines": [],
+        "stale_cache_suspect": false,
+        "stderr": "C:/ov/reports/started_survey26/threshold_probe_v3.log.stderr",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout": "C:/ov/reports/started_survey26/threshold_probe_v3.log",
+        "stdout_sha256": "2a6df830d2ad18a8e2e9ff1ae9890354cd704b458f959b2c09925766e38a7ede"
+      },
+      "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+      "runner": "long",
+      "scene": "res://tests/OrisonV2RouteProbe.tscn",
+      "schema": "orison.run-receipt.v1",
+      "schema_version": 1,
+      "shot_dir": null,
+      "source": {
+        "dirty_paths": 4,
+        "dirty_sample": [
+          "M design/V2_RESIDENT_AND_FRONT_DOOR_HANDOFF_2026-10-26.md",
+          " M game/data/orison_v2/rhea_sato_routine.json",
+          " M game/data/orison_v2/transient_guests_routine.json",
+          "?? art/reviews/resident_routes_20261026/started_survey_20261026/"
+        ],
+        "repository_head": "d6eeebdaf6f56bb42954058776a2b0401743c982",
+        "repository_tree": "5464c7a0c8ab08570a19c1a038ec1bced79d7fe2",
+        "runtime_inputs_sha256": "637347b3b7e3f97491b14573968cce562d9113f05b12914a9695dd973a15e5fe",
+        "test_path": "game/tests/orison_v2_route_probe.gd",
+        "test_sha256": "f2b1fdf25f4a864a1562d9fa3c51f454eef23c4117af6d1722caab9597b00244"
+      },
+      "windowed": true
+    },
+    "guests_threshold_v3": {
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 745.47,
+        "exit_code": 0,
+        "finished_utc": "2026-10-26T11:37:41Z",
+        "started_utc": "2026-10-26T11:25:15Z",
+        "timed_out": false
+      },
+      "log": {
+        "fail_count": 0,
+        "fail_lines": [],
+        "pass_count": 0,
+        "pass_lines": [],
+        "script_error_count": 0,
+        "script_error_lines": [],
+        "stale_cache_lines": [],
+        "stale_cache_suspect": false,
+        "stderr": "C:/ov/reports/started_survey26/guests_threshold_v3.log.stderr",
+        "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+        "stdout": "C:/ov/reports/started_survey26/guests_threshold_v3.log",
+        "stdout_sha256": "646f2951124792f39424eb170d716843bbf227259cb2785f4879ee22e005b0c4"
+      },
+      "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+      "runner": "long",
+      "scene": "res://tests/OrisonV2ResidentWalkTest.tscn",
+      "schema": "orison.run-receipt.v1",
+      "schema_version": 1,
+      "shot_dir": "C:/ov/reports/started_survey26/guests_threshold_v3",
+      "source": {
+        "dirty_paths": 0,
+        "dirty_sample": [],
+        "repository_head": "63bdb5fad7f0c4b2cc8e7ff7006ef3146221f0b7",
+        "repository_tree": "c7362166b314c73be73e8974ce1397d47330d45d",
+        "runtime_inputs_sha256": "637347b3b7e3f97491b14573968cce562d9113f05b12914a9695dd973a15e5fe",
+        "test_path": "game/tests/orison_v2_resident_walk_test.gd",
+        "test_sha256": "dbab938498979ba37c86d3da99c98d4fec558d19a2417191bc9cb8b739ea981e"
+      },
+      "windowed": true
+    }
+  },
+  "archive_sha256": "345953af167702b4ca33210c45d655674c29d76e05b166b7f45370f74a5c9810",
+  "members": [
+    {
+      "path": "front/approach.png",
+      "bytes": 897050,
+      "sha256": "fac3872bd6ed11ab18214e7f5ecc6b53dfe9df4285f8a601ff0392a2821eb196"
+    },
+    {
+      "path": "front/blade.png",
+      "bytes": 1194301,
+      "sha256": "d7510698d91581f25b8890222e168a8272bb63407b50c88a8e87ff361ce3f98f"
+    },
+    {
+      "path": "front/canopy.png",
+      "bytes": 912182,
+      "sha256": "dedc1f6b212d009a7bdae6fd094b387c0a84c7ea046ef099a16d138bb2dfc0a9"
+    },
+    {
+      "path": "front/door.png",
+      "bytes": 935247,
+      "sha256": "dcaefc65c7b6b0f4306ac7cf4dac841a46742163b3a37a6cdffc67312ecd98d4"
+    },
+    {
+      "path": "front/front.png",
+      "bytes": 768034,
+      "sha256": "a84c5ecdcc1ac821c42f83d64f35cc8bd87d3e07bbdc5d9cc1d836235be2a16a"
+    },
+    {
+      "path": "front/front_wide.png",
+      "bytes": 814867,
+      "sha256": "5e4af68e8a35ce1ef4fa3f8de77c19079b3bb28cdd7f9875749f8b59a67ab3d8"
+    },
+    {
+      "path": "gates/board_d6eeebda.json",
+      "bytes": 132360,
+      "sha256": "3f9d85c51bf2c96441b6a353a69b40dd16ec19f9599faea1728956ecef1b8a22"
+    },
+    {
+      "path": "gates/spatial_threshold_v3.json",
+      "bytes": 1771,
+      "sha256": "f821d790ccd6cd231ef52089982c8f32e9a6bb0d762e2d6556b9e0721a393f36"
+    },
+    {
+      "path": "guests_return_v2/transient_guests.png",
+      "bytes": 620544,
+      "sha256": "f8be948570ae98574003ff574fb7b9f4d08161ef3424a1b0d1f92b5f2523627c"
+    },
+    {
+      "path": "runs/front.log",
+      "bytes": 15371,
+      "sha256": "1f25d3d9b2b9d158b529f534a57d10f62cbb00c5ab5350d0427faf6d70476233"
+    },
+    {
+      "path": "runs/front.log.receipt.json",
+      "bytes": 1554,
+      "sha256": "7614f3e0a67f55cdefdc647d9b4d29f122d1b07de01268738f77632a8529863f"
+    },
+    {
+      "path": "runs/front.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/guests_diagnostic.log",
+      "bytes": 3051,
+      "sha256": "0ea3da0f4606f43466e802cd4995e16559f1a85c9ee608bc1712c5d75065bd81"
+    },
+    {
+      "path": "runs/guests_diagnostic.log.receipt.json",
+      "bytes": 1699,
+      "sha256": "31a32868f9e76a7799db15f927859408dc9d0b77dc96af9efdd4b9ff7ff65957"
+    },
+    {
+      "path": "runs/guests_diagnostic.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/guests_return_v2.log",
+      "bytes": 4152,
+      "sha256": "464ada74f265d7e4912114604a6a131c1a2a7c8af9bc2184cdfa59a5ccaff557"
+    },
+    {
+      "path": "runs/guests_return_v2.log.receipt.json",
+      "bytes": 1662,
+      "sha256": "e78a62d2c71928ebc4132cce3877be94bfe042e11279f566563d37f62fb64609"
+    },
+    {
+      "path": "runs/guests_return_v2.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/guests_threshold_v3.log",
+      "bytes": 3469,
+      "sha256": "646f2951124792f39424eb170d716843bbf227259cb2785f4879ee22e005b0c4"
+    },
+    {
+      "path": "runs/guests_threshold_v3.log.receipt.json",
+      "bytes": 1598,
+      "sha256": "84f50008ed4446d21d2eb56338bd276e34ea7c11d2d74161cc2efa8bf7b90ec6"
+    },
+    {
+      "path": "runs/guests_threshold_v3.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "path": "runs/street_return_probe.log",
+      "bytes": 2205,
+      "sha256": "49f898b65a52416e53e7b2a32828e5d53f84e91b8184ac81d3e76296afc8c60b"
+    },
+    {
+      "path": "runs/street_return_probe.log.receipt.json",
+      "bytes": 1820,
+      "sha256": "c48b88730775c53219376eb9070e541c0a6b4563cf391bb13a713008e321bd79"
+    },
+    {
+      "path": "runs/street_return_probe.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/threshold_probe_v3.log",
+      "bytes": 2205,
+      "sha256": "2a6df830d2ad18a8e2e9ff1ae9890354cd704b458f959b2c09925766e38a7ede"
+    },
+    {
+      "path": "runs/threshold_probe_v3.log.receipt.json",
+      "bytes": 1783,
+      "sha256": "31d8aa6ddd6110f40b72c731a6885b8c58dc0f819e68ea0b50a5157091fd9454"
+    },
+    {
+      "path": "runs/threshold_probe_v3.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "source/failed_diagnostic_executed_test.gd",
+      "bytes": 8225,
+      "sha256": "4c42b5e5f41eac955b4dc7be27e4ae1b4ad358b6a8c0f010eb280202369b938a"
+    },
+    {
+      "path": "source/original/rhea_sato_routine.json",
+      "bytes": 3514,
+      "sha256": "2390653decbc397540547348061af031d0e4f2d484d70b6592db8f04d8f8134f"
+    },
+    {
+      "path": "source/original/transient_guests_routine.json",
+      "bytes": 3734,
+      "sha256": "f62fbb7557ae887111a13afbdd2079ee0793f2cbca725fa6650a1eefa033786b"
+    },
+    {
+      "path": "source/proposed/orison_v2_front_facade_test.gd",
+      "bytes": 10349,
+      "sha256": "1c070c7a25803f5652657daba53e0054e74274da2fd32ee23d2e387780ba3319"
+    },
+    {
+      "path": "source/proposed/orison_v2_resident_walk_test.gd",
+      "bytes": 8993,
+      "sha256": "dbab938498979ba37c86d3da99c98d4fec558d19a2417191bc9cb8b739ea981e"
+    },
+    {
+      "path": "source/proposed/orison_v2_route_probe.gd",
+      "bytes": 5722,
+      "sha256": "f2b1fdf25f4a864a1562d9fa3c51f454eef23c4117af6d1722caab9597b00244"
+    },
+    {
+      "path": "source/proposed/rhea_sato_routine.json",
+      "bytes": 3514,
+      "sha256": "4bc63b8f8d2ebc22d456a4cb42532545adf3fbd3a98e536bfb6f3356397408fa"
+    },
+    {
+      "path": "source/proposed/transient_guests_routine.json",
+      "bytes": 3734,
+      "sha256": "535350b3653c31790396cbfc29613fd3714a950067d4a2349cd5dcec7c29e95e"
+    },
+    {
+      "path": "source/threshold_v3/orison_v2_resident_walk_test.gd",
+      "bytes": 8993,
+      "sha256": "dbab938498979ba37c86d3da99c98d4fec558d19a2417191bc9cb8b739ea981e"
+    },
+    {
+      "path": "source/threshold_v3/rhea_sato_routine.json",
+      "bytes": 3550,
+      "sha256": "4bd83532378d5fc9278da77fd919f9a9b27270d8db8078e5cc1f11ecf72dbfc4"
+    },
+    {
+      "path": "source/threshold_v3/transient_guests_routine.json",
+      "bytes": 3770,
+      "sha256": "70ae46906fa95d017f7f75406f48c7c6bc4a3a49d659094b6fc4212c9b2694cb"
+    },
+    {
+      "path": "spatial.json",
+      "bytes": 1771,
+      "sha256": "f821d790ccd6cd231ef52089982c8f32e9a6bb0d762e2d6556b9e0721a393f36"
+    }
+  ],
+  "guest_threshold_verdict": {
+    "result": "INCOMPLETE",
+    "reason": "No terminal RESIDENT WALK transient_guests summary; output ends at laundry arrival. Wrapper exit zero does not establish success.",
+    "printed_check_lines": 27,
+    "remaining": [
+      "laundry return",
+      "bodega round trip",
+      "street round trip",
+      "final doors",
+      "native gait assertion",
+      "portrait"
+    ]
+  }
+}
