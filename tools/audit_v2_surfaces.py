@@ -8,7 +8,8 @@ from pathlib import Path
 
 TRIPLETS = [('albedo_texture','roughness_texture','normal_texture'),
             ('albedo_tex','rough_tex','normal_tex'),
-            ('albedo_map','roughness_map','normal_map')]
+            ('albedo_map','roughness_map','normal_map'),
+            ('steel_albedo','steel_roughness','steel_normal')]
 MICROSCOPY_SHADERS = {'res://shaders/tardigrade_'+part+'.gdshader'
                       for part in ('interior','membrane','vacuole')}
 MICROSCOPY_CHANNELS = tuple('micro_'+stock+'_'+channel
@@ -47,6 +48,9 @@ def evaluate(data):
             # Explicit external effects only. Unshaded, transparent or flat
             # materials do not automatically become exempt physical stock.
             shader=material.get('shader','')
+            if (shader=='res://scripts/device/writer_smoke.gdshader' and
+                draw.get('owner_script')=='res://scripts/device/hot_type_writer.gd'):
+                effects.append({'id':identity,'class':'hot_type_smoke'});continue
             microscopy=(shader in MICROSCOPY_SHADERS and
                         draw.get('owner_script')=='res://scripts/dream/critters/dream_critter_controller.gd')
             # Exact-index vertex pose data is not a sampled physical surface.

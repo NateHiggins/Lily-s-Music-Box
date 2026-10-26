@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 948.04,
+  "exit_code": 0,
+  "finished_utc": "2026-10-21T20:36:23Z",
+  "started_utc": "2026-10-21T20:20:35Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SURFACE QUALIFICATION: PASS; 40140 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/renewal/surface.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/renewal/surface.log",
+  "stdout_sha256": "d27809163aedf4399a3b020aa7228b688b6907bc8ab71fff4b1ca5df7fe0524c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/art/reviews/v2_case_calibrator_20261021/renewal/surface",
+ "source": {
+  "dirty_paths": 1242,
+  "dirty_sample": [
+   "M DOCS.md",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
+   " M game/assets/audio/music/covers/living_with_the_motor.webp.import",
+   " M game/assets/audio/music/covers/mina_s_midday_quest.webp.import",
+   " M game/assets/audio/music/covers/no_subject_line.webp.import"
+  ],
+  "repository_head": "7f88c9237e8525db0ed3433d0ee86e7f89c58350",
+  "repository_tree": "bbf9022263949c7c00e948abcbd98b46213e43be",
+  "runtime_inputs_sha256": "f0464f9e465bc50a69712f0d37edbd7ed68e526e664644be8cf7f6036b65b7ec",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "7e4bd4fa4ffbdd13aeabac781db71c4e6fed4c35236e59bce9ffad38114975f2"
+ },
+ "windowed": true
+}

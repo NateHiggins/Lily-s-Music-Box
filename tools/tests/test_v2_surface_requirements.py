@@ -7,6 +7,28 @@ from audit_v2_surfaces import evaluate
 spec=importlib.util.spec_from_file_location('surface_imports',ROOT/'art/tools/fix_runtime_texture_imports.py');imports=importlib.util.module_from_spec(spec);spec.loader.exec_module(imports)
 
 class Requirements(unittest.TestCase):
+    def test_typewriter_steel_keeps_required_maps_and_mips(self):
+        data=self.inventory(); material=data['materials']['material']
+        material.update(type='ShaderMaterial',shader='res://scripts/device/writer_type_decal.gdshader',
+                        maps={'steel_albedo':'albedo','steel_roughness':'rough','steel_normal':'normal'},
+                        mip_filters={key:True for key in ('steel_albedo','steel_roughness','steel_normal')})
+        self.assertEqual(evaluate(data)['findings'],[])
+        data['textures']['normal']['mips']=False
+        self.assertIn('missing_loaded_mips:normal',evaluate(data)['findings'][0]['reasons'])
+        del material['maps']['steel_normal']
+        self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+
+    def test_writer_smoke_requires_exact_shader_and_owner(self):
+        data=self.inventory(); material=data['materials']['material']
+        material.update(type='ShaderMaterial',shader='res://scripts/device/writer_smoke.gdshader',maps={})
+        data['draws'][0]['owner_script']='res://scripts/device/hot_type_writer.gd'
+        self.assertEqual(evaluate(data)['findings'],[])
+        data['draws'][0]['owner_script']='res://scripts/props/physical_stock.gd'
+        self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+        data['draws'][0]['owner_script']='res://scripts/device/hot_type_writer.gd'
+        material['shader']='res://scripts/device/writer_type_decal.gdshader'
+        self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+
     def test_new_unstaged_physical_image_is_covered_before_first_import(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory)

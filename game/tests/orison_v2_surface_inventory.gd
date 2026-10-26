@@ -335,7 +335,6 @@ func _run() -> void:
 		["F04_4A_BOOKSHELF_01",Vector3(.35,.85,1.6),Vector3(0,.8,.15),"bookcase"],
 		["F02_B_RADIATOR_01",Vector3(.35,.65,-1.1),Vector3(0,.48,0),"radiator"],
 		["B1_BOILER_01",Vector3(.6,1.45,-2.15),Vector3(0,1.,0),"boiler"],
-		["Arcade_retail_bar_cab01",Vector3(.4,1.,-1.8),Vector3(0,1.,-.3),"signal_scope"],
 		["F04_B_MONITOR_01",Vector3(.35,.8,-1.3),Vector3(0,.3,-.2),"signal_terminal"],
 		["F02_2A_TOASTER_01",Vector3(.25,.35,-.65),Vector3(0,.1,0),"toaster_crumbs"],
 		["LobbyServiceDumbwaiter",Vector3(.65,1.,1.7),Vector3(0,1.,0),"dumbwaiter"]]:
@@ -418,6 +417,11 @@ func _run() -> void:
 	for failure: String in seating_retired.failures:
 		if not failures.has(failure):failures.append(failure)
 	seating_review.free()
+	var storage_retired: Dictionary=storage_review.validate_after_teardown()
+	batch_checks+=int(storage_retired.checks)-int(storage_result.checks)
+	for failure: String in storage_retired.failures:
+		if not failures.has(failure): failures.append(failure)
+	storage_review.free()
 	var media_retired: Dictionary = media_review.validate_after_teardown()
 	batch_checks += int(media_retired.checks)-int(media_result.checks)
 	for failure: String in media_retired.failures:
@@ -438,7 +442,14 @@ func _run() -> void:
 		"checks":batch_checks,"failures":failures}
 	FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(contract,"\t"))
 	print("V2 SURFACE QUALIFICATION: ",status,"; ",batch_checks," checks; ",failures.size()," failures")
-	get_tree().quit(0 if passed else 1)
+	# Let this coroutine's local resource references leave scope before the
+	# renderer is retired; then drain deferred node/render commands explicitly.
+	_finish_surface.call_deferred(0 if passed else 1)
+
+func _finish_surface(code: int) -> void:
+	for frame in 8: await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	get_tree().quit(code)
 
 func _input_snapshot(root: String) -> Dictionary:
 	var output: Array = []

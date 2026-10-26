@@ -1,0 +1,13 @@
+{
+  "material_key": "glassish",
+  "scope": "literal-alpha retained panes only; clear dielectric shader unchanged",
+  "tile_m": 1.6,
+  "albedo": "T_glass_film_albedo.png",
+  "roughness": "T_glass_rough.png",
+  "normal": "T_glass_normal.png",
+  "normal_convention": "OpenGL",
+  "tint_and_alpha": "retained from native material",
+  "film_attenuation_max": 0.018,
+  "source": "art/tools/build_literal_glass_film.py",
+  "reference_pixels": false
+}

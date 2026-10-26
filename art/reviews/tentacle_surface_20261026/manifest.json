@@ -1,0 +1,123 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Executed changed-source snapshots and corroborating logs; canonical qualification and reviewed frames are in art/renders/orison_v2/surface_requirements_20261011.",
+  "surface_inputs_sha256": "3b203600f65a1f86fe88a290ff518c035a85359aa7da8fda617ceb0eb1441d6a",
+  "files": {
+    "executed_sources/game/scripts/building/v2_legacy_material_stock.gd.gz": {
+      "original_sha256": "b4752a6a215a080c12e1c54a3eb9b95e2e1fdd23d2a8d241cfb7fafb44efa797",
+      "original_bytes": 13106
+    },
+    "executed_sources/game/scripts/building/orison_v2_bathroom_finishes.gd.gz": {
+      "original_sha256": "70ad527eb47c22f8c623b5d5aa3a205ef7e2edcc3ca160c64acac6c27f6793fd",
+      "original_bytes": 15252
+    },
+    "executed_sources/game/scripts/building/orison_v2_medicine_cabinet.gd.gz": {
+      "original_sha256": "0810717579b980f386baf0d3a6e197747f342b2936d8b3b24b60553ee03d67b4",
+      "original_bytes": 2311
+    },
+    "executed_sources/game/tests/orison_v2_surface_inventory.gd.gz": {
+      "original_sha256": "d63893a88d87e5b5943e30730e0745adce1357489739605ec596a99d4e4a3af5",
+      "original_bytes": 35298
+    },
+    "executed_sources/game/tests/orison_v2_vertical_route_test.gd.gz": {
+      "original_sha256": "b5ff70e09ee6e7ef8417b82ad7eb0bbdef91d339585cda86270b49119cc5b7d4",
+      "original_bytes": 10432
+    },
+    "executed_sources/game/tests/public_region_walk_probe.gd.gz": {
+      "original_sha256": "8163ffb1e491d5011aa41f89117d0588dbf5856b3358554cd18572ff404ad3eb",
+      "original_bytes": 6369
+    },
+    "executed_sources/game/tests/v2_front_restoration_review.gd.gz": {
+      "original_sha256": "7d2f5f0eb371f737a2c8ccf0a9617ce2edd593cc55d3dd36bb0e1bcd47b3f902",
+      "original_bytes": 4247
+    },
+    "executed_sources/game/tests/v2_millwork_weather_review.gd.gz": {
+      "original_sha256": "7e4a80de6e2090626589e5bbb0a5b572a67a1910680caae3088180fe4083ff03",
+      "original_bytes": 9091
+    },
+    "executed_sources/game/tests/v2_bathroom_tile_review.gd.gz": {
+      "original_sha256": "11126dd1132c295bda29d92fc61a8910442903d586b3a8f10fa10b15548de85c",
+      "original_bytes": 5212
+    },
+    "executed_sources/game/tests/v2_fire_service_review.gd.gz": {
+      "original_sha256": "b646062dfcbff89314fa5c21b20b90ef7e019582b78291215e13de79aabfc61c",
+      "original_bytes": 14476
+    },
+    "executed_sources/tools/audit_v2_surfaces.py.gz": {
+      "original_sha256": "6c45787920179bce959302be1c955d792b0db31f4b2e03e18b663765b9ff6b84",
+      "original_bytes": 11970
+    },
+    "executed_sources/tools/v2_surface_evidence.py.gz": {
+      "original_sha256": "bf4720e10d5a94be3296243479adec0005341ca29a0794572c8198b69552393f",
+      "original_bytes": 22163
+    },
+    "executed_sources/tools/tests/test_v2_surface_requirements.py.gz": {
+      "original_sha256": "58eaff24abb462ea6dd6550241289e272eb08852e3a661b40ecbc0357501a8a7",
+      "original_bytes": 28364
+    },
+    "executed_sources/art/tools/build_literal_glass_film.py.gz": {
+      "original_sha256": "87bdda1353c010d9727be9e4f4064bd3b73c2c5bd957b5b1fa85e1c093743825",
+      "original_bytes": 1203
+    },
+    "executed_sources/art/textures/generated/glass/film_recipe.json.gz": {
+      "original_sha256": "8f88a99d39a258824d00dcef766a58a7081ddde9e1ddf35d4a1fb298d3ea5148",
+      "original_bytes": 456
+    },
+    "executed_sources/game/assets/building/textures/T_glass_film_albedo.png.gz": {
+      "original_sha256": "b30fa135e9e23f98c67fe3186df434a1f955986aced0cd88c1e809232e5bb744",
+      "original_bytes": 9094
+    },
+    "executed_sources/game/assets/building/textures/T_glass_film_albedo.png.import.gz": {
+      "original_sha256": "3385cfcdb0e605f7e65f8c6a1c59d4ab8e46cce20ddf4157f1c3f77b49f9bf8f",
+      "original_bytes": 1239
+    },
+    "executed_sources/game/tests/orison_v2_street_crossing_test.gd.gz": {
+      "original_sha256": "904b09e14585b1c872524574d326f6cb78064b2c72acb9856028e8f62f22977f",
+      "original_bytes": 1703
+    },
+    "qualified/runtime_contract.json.gz": {
+      "original_sha256": "f8b3e1ffa3197c821bed0dec7fc9218fa173753806f913014f02931d64c46d8f",
+      "original_bytes": 1230
+    },
+    "qualified/surface-inventory.json.gz": {
+      "original_sha256": "e4d756706e74312bb039d9fdb6b5630b986563e5fdc7ba85fcbca0962ca93106",
+      "original_bytes": 21145077
+    },
+    "qualified/visual_review.json.gz": {
+      "original_sha256": "3549f26c675600fa19907665c85b464c69a065370b6cc3b66fda34ceb105eb25",
+      "original_bytes": 4694
+    },
+    "qualified/suite_run.receipt.json.gz": {
+      "original_sha256": "893d3b873b962f5367890cfd3d37ffaa843d6398b63e036a395b94c86e1c21e4",
+      "original_bytes": 2622
+    },
+    "focused/street_return.log.gz": {
+      "original_sha256": "25609d4fa840bf7d2f938595d79fba7dfc2e9b337611fe0232c47744d5768736",
+      "original_bytes": 2412
+    },
+    "focused/street_return.log.stderr.gz": {
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0
+    },
+    "focused/street_return.log.receipt.json.gz": {
+      "original_sha256": "9823a1ea4155f7d7a927386fa110ce773f4c7aa89acf991609b50d4deb1b7704",
+      "original_bytes": 2603
+    },
+    "focused/tile_final.log.gz": {
+      "original_sha256": "af40cd40a7573bf92f2a5db27b96ce66acdc4f90b1a6d177e0a7a628a157a69c",
+      "original_bytes": 1582
+    },
+    "focused/tile_final.log.stderr.gz": {
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0
+    },
+    "focused/tile_final.log.receipt.json.gz": {
+      "original_sha256": "276a556be051fe4a9d824683d4d6e47d9e01583c9cf1c72cbacdda9462eda650",
+      "original_bytes": 2584
+    },
+    "focused/reader_final.log.gz": {
+      "original_sha256": "656c98de94aa6d703d5fd8eae22c70cd1b1b65b8ffe8a4960ebab05edc4d513d",
+      "original_bytes": 172
+    }
+  }
+}

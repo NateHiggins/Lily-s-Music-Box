@@ -3,6 +3,8 @@ extends RefCounted
 const InputFixture=preload("res://tests/v2_fire_nozzle_coupling_bench.gd")
 const InputHand=preload("res://tests/orison_v2_first_slice_contract_test.gd")
 const StockProbe=preload("res://tests/v2_fire_rack_bench.gd")
+class StockReader extends StockProbe:
+	func _ready() -> void: pass
 var retired: Array[WeakRef]=[]
 var failures: Array[String]=[]
 var checks:=0
@@ -81,7 +83,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	var mouse_mode: Input.MouseMode=Input.mouse_mode
 	var helper: Node=InputFixture.new();helper.set_meta("shared_world_validation",true);helper.player=player;world.add_child(helper)
 	var hand: Node=InputHand.PatrolHand.new();hand.player=player;world.add_child(hand)
-	var probe: Node=StockProbe.new()
+	var probe: Node=StockReader.new();world.add_child(probe)
 	player.carried_device.set_capture_hidden(true);player.set_lamp_enabled(true)
 	for identity: String in native.stations:
 		var actor: Node3D=native.stations[identity].get_ref()
@@ -133,7 +135,8 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 			var leaf_hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(leaf_query)
 			var door_body: Node3D=actor._bodies.door
 			var disabled: Array=[]
-			for shape: CollisionShape3D in door_body.get_children():disabled.append(shape.disabled)
+			for child: Node in door_body.get_children():
+				if child is CollisionShape3D:disabled.append(child.disabled)
 			print("COMPOSED DOOR PHYSICS: ",identity," leaf=",actor._door_pivot.global_transform," body=",door_body.global_transform," server=",PhysicsServer3D.body_get_state(door_body.get_rid(),PhysicsServer3D.BODY_STATE_TRANSFORM)," layer=",door_body.collision_layer," disabled=",disabled," hit=",leaf_hit.collider.get_path() if not leaf_hit.is_empty() else "none"," at=",leaf_hit.get("position"))
 			check(suite,not leaf_hit.is_empty() and leaf_hit.collider==actor._bodies.door,identity+" actual closed moving leaf collision at its exposed operable face")
 		if identity in ["F01_FIRE_LINE_STAIR","ROOF_FIRE_LINE_STAIR"] and failures.is_empty():

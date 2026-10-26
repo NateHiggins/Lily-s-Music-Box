@@ -84,6 +84,7 @@ def inputs(root=ROOT):
                  'game/tests/OrisonV2SurfaceInventory.tscn','tools/audit_v2_surfaces.py',
                  'tools/v2_surface_evidence.py','art/tools/fix_runtime_texture_imports.py',
                  'art/tools/build_tentacle_gang_maps.py','art/tools/build_tentacle_residue_maps.py',
+                 'art/tools/build_literal_glass_film.py','art/textures/generated/glass/film_recipe.json',
                  'art/tools/fix_v2_mesh_imports.py','art/tools/generate_runtime_materials.py',
                  'art/tools/ingest_material_sources.py','art/tools/build_clear_water_maps.py',
                  'art/data/gen_layout.py','art/data/material_catalog.json','art/textures/catalog_mapping.json'])
