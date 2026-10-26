@@ -438,3 +438,100 @@ acceptance remain unproven.
 
 MERGE-CANDIDATE **b05a9d3f** — coastal cloud coordinate repair and annual review;
 candidate verification remains required before integration.
+
+## Cirrus brush repair and noncapturing review — October 26
+
+REPORT - V2-LIVING-SKY-CIRRUS - 2026-10-26
+
+Branch **codex/v2-cirrus-brush-20261026**, implementation **c16619a2**, based on
+merged main **d0c18f36**. This section remains **INERT**. The main checkout's
+unrelated acoustic WIP is untouched. This is a bounded cloud-brush repair,
+not the weather-production or whole-V2 completion report.
+
+The annual gallery's dense, repeated tapered marks were isolated with the
+existing city-horizon bench. Its new **SKY_BRUSH_REVIEW=1** mode renders full
+composition, low/middle strata and high stratum separately on four real calendar
+dates, using the same source, camera and seed. It creates no player controller
+or mouse-capture request. Lower and high masks are diagnostic overrides, never
+saved weather or newly authored conditions. The high-only September image
+reproduces the unwanted pattern: cirrus alone generates the repeated flecks.
+
+The cirrus noise footprint now spans larger, wind-aligned fibres. Its already
+sampled second texture channel softens the interior opacity. No extra texture
+lookup, noise volume or march step is introduced. The first broad-footprint
+iteration still had thick silhouettes; a lower-threshold experiment filled too
+much of the sky and was rejected. The final version retains the original
+coverage threshold and broadens/softens the existing silhouettes. Small-cloud
+and continuous-sheet formulas are unchanged. Cc/Cs dated control renders are
+pixel-identical; masked lower-layer Ci-date renders differ by at most one
+8-bit colour level after temporal settling. That last result is not an exact
+zero-history guarantee.
+
+The final matched **before_dummy** and **final_dummy** runs each complete
+**12 views, zero failures**, with empty stderr and LF-normalized shader hashes
+recorded by the test. Sources are checked again before the test exits. Both use
+1280×720, 85-degree field of view, TAA, the same four solar-noon dates, 48 settling
+frames and 64 measured render frames per view. Dummy audio is explicit in both
+wrapper receipts. An earlier **after_v3** run reported WASAPI buffer/device
+invalidation while retaining its optical result; that error is preserved and
+does not become a clean-run claim. The later quiet matched pair supersedes it
+for this comparison, without changing the game's audio defaults.
+
+These are **viewport GPU** distributions for the two cirrus dates' full
+composites, in milliseconds. Percentiles use sorted samples at
+floor(p×(n−1)), n=64. They include the bench's horizon and rendering effects;
+they are neither exclusive cloud costs nor playable-world wall times.
+
+| Date | Before p50 / p95 / p99 / max | Final p50 / p95 / p99 / max |
+|---|---|---|
+| June 8, 1929 |7.943 /8.058 /8.159 /8.941|7.947 /8.044 /8.052 /8.075|
+| September 6, 1929 |7.826 /7.914 /7.960 /7.971|7.827 /7.909 /7.938 /7.956|
+
+No speed improvement is claimed: sample windows are short, and an unchanged
+non-cirrus control's median shifted by about 0.8 ms between runs. The occupied
+movement, turning, cell transitions, detailed furnishings, grabs and inspection
+tails still need their own matched route. No script, physics, streaming or
+pipeline-compilation attribution can be derived from this optical bench.
+
+Headless original regressions finish through the shared lane with empty stderr:
+**CampaignWeatherTest 405 checks**, **SkyPhenomenaScheduleTest PASS** and
+**WeatherFlashAccessibilityTest PASS 2/2**. The calendar suite intentionally skips
+its newspaper render check headless; the previous 406-check windowed result is
+not renewed by this run. Full windowed/input regression and occupied-world
+qualification remain unexecuted for this candidate. Static candidate verification
+uses the clean **weather_lifecycle26/baseline/board.json** and is recorded on the
+draft checkpoint PR; it must not be presented as those missing runtime gates.
+
+The owner requested that tests stop interfering with their mouse. Headless checks
+continue; captured-input tests are held. A private Windows desktop on the same
+window station was measured to change the active cursor clip rectangle during
+a capture probe, so it is not an isolation solution. A separate window station
+was denied by Windows. No such launcher is added to the repository. The
+noncapturing optical runs used a scene-restricted external window-isolation
+helper around the existing lane; their monitors report unchanged input desktop
+and cursor clip rectangle. These observations do not authorize running captured
+input tests with that helper. The standing preference is recorded in
+**tools/PIPELINE_TOOLS.md**; headless results cannot replace RUL-013 evidence.
+
+| Location / reproduction | Severity / evidence | Repair / verification |
+|---|---|---|
+| High cirrus layer on ordinary dated skies | Art defect: isolated high-only September view repeats hundreds of small tapered marks | Broaden wind-aligned footprint and reuse sampled erosion for translucency; final matched renders reviewed, no added texture tap |
+| Softer-threshold experiment | Rejected art tradeoff: excessive high-cloud veil | Restore original threshold; retain intermediate images and logs |
+| Automated windowed capture during owner activity | Workflow defect: private desktop still changes cursor confinement | Stop captured-input runs; retain failed experiment findings; use only audited noncapturing reviews/headless checks |
+
+The existing **annual_cyclone_review.zip** and manifest are extended to
+**204 hash-verified members, 11,856,527 bytes**; no repository evidence file is
+added. Original matched cirrus PNGs, explicit JPEG derivatives, logs, shader
+snapshots and test-written source hashes are retained. Earlier annual/cyclone
+members remain byte-identical; the previous archive hash/size is recorded in
+the manifest. Intermediate images remain diagnostics, not final acceptance.
+
+Ledger remains **7/8/110/42/134/136**, requirements_changed **[]**. Remaining
+work includes cloud-family silhouettes, lighting/depth and negative-space art
+polish; weather save/reconstruction/denial/owned teardown; fractional-time
+motion; the preview shutdown warning; occupied-world/native-input regression;
+and renewed matched performance routes. Safe repair work can continue without
+the owner's mouse. This checkpoint is pushed as a draft pending runtime gates.
+
+BLOCKED **c16619a2** integration: full windowed/input qualification is held under
+the owner's mouse constraint; this does not block continued safe V2 work.
