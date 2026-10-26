@@ -4,8 +4,9 @@ Reads a probe log, finds every "[<file>] node <name>: ...; clear at [x, y, z]"
 line and rewrites that point's coordinates in game/data/orison_v2/<file>,
 keeping the file's one-route-per-line layout. When a point is reported twice
 (closed doors, then open doors) the later suggestion wins: it clears the open
-leaves as well as the furniture. Edges reported without a node are printed for
-a hand fix; so are nodes with no clear spot within 0.8 m.
+leaves as well as the furniture. A blocked edge reported with "detour at" gains
+a <a>_via_<b> waypoint there. Findings with no clear spot within 0.8 m are
+printed for a hand fix.
 
     python tools/apply_route_probe.py <probe.log> [--dry-run]
 """
@@ -17,6 +18,8 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "game/data/orison_v2"
 NODE = re.compile(r"ROUTE PROBE FAIL: \[(?P<file>[^\]]+)\] node (?P<name>\S+): .*clear at \[(?P<x>-?[\d.]+), (?P<y>-?[\d.]+), (?P<z>-?[\d.]+)\]")
+EDGE = re.compile(r"ROUTE PROBE FAIL: \[(?P<file>[^\]]+)\] edge (?P<a>\S+) -> (?P<b>\S+) at .*detour at \[(?P<x>-?[\d.]+), (?P<y>-?[\d.]+), (?P<z>-?[\d.]+)\]")
+POINT = r'\["%s",-?[\d.]+,-?[\d.]+,-?[\d.]+\]'
 OTHER = re.compile(r"ROUTE PROBE FAIL: (.*)")
 
 
@@ -26,21 +29,32 @@ def main():
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     moves = {}
+    detours = {}
     unresolved = []
     for line in Path(args.log).read_text(encoding="utf-8", errors="replace").splitlines():
         found = NODE.search(line)
+        edge = EDGE.search(line)
         if found:
             moves.setdefault(found["file"], {})[found["name"]] = [float(found[a]) for a in "xyz"]
+        elif edge:
+            detours.setdefault(edge["file"], {})[(edge["a"], edge["b"])] = [float(edge[a]) for a in "xyz"]
         elif OTHER.search(line):
             unresolved.append(OTHER.search(line).group(1))
-    for file, points in sorted(moves.items()):
+    for file in sorted(set(moves) | set(detours)):
         path = DATA / file
         text = path.read_text(encoding="utf-8")
-        for name, (x, y, z) in points.items():
-            pattern = re.compile(r'\["%s",-?[\d.]+,-?[\d.]+,-?[\d.]+\]' % re.escape(name))
+        for name, (x, y, z) in moves.get(file, {}).items():
+            pattern = re.compile(POINT % re.escape(name))
             replacement = json.dumps([name, round(x, 2), round(y, 2), round(z, 2)], separators=(",", ":"))
             text, count = pattern.subn(replacement, text)
             print("%s: %s -> [%.2f, %.2f, %.2f] (%d)" % (file, name, x, y, z, count))
+        # A blocked edge gains a waypoint at the probe's clear spot, inserted
+        # wherever that edge is walked in that direction.
+        for (a, b), (x, y, z) in detours.get(file, {}).items():
+            pattern = re.compile("(%s)(,)(%s)" % (POINT % re.escape(a), POINT % re.escape(b)))
+            via = json.dumps(["%s_via_%s" % (a, b), round(x, 2), round(y, 2), round(z, 2)], separators=(",", ":"))
+            text, count = pattern.subn(lambda m: m.group(1) + "," + via + "," + m.group(3), text)
+            print("%s: %s -> %s via [%.2f, %.2f, %.2f] (%d)" % (file, a, b, x, y, z, count))
         json.loads(text)
         if not args.dry_run:
             path.write_text(text, encoding="utf-8", newline="")

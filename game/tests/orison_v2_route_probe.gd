@@ -70,8 +70,16 @@ func _probe(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
 					if absf(b.y - a.y) > .05:
 						break
 					var why := _blocked(world, space, at)
+					# A threshold gap under the wall is bridged by the capsule
+					# when floor carries on 15 cm either side along the edge.
+					var along := (b - a).normalized() * .15
+					if why == "no floor" and _blocked(world, space, at - along) != "no floor" \
+							and _blocked(world, space, at + along) != "no floor":
+						continue
 					if why != "":
-						failures.append("[%s] edge %s -> %s at %d%%: %s" % [_file, previous[0], record[0], i * 100 / steps, why])
+						var hint := _clear_near(world, space, root, at)
+						failures.append("[%s] edge %s -> %s at %d%%: %s; %s" % [_file, previous[0], record[0], i * 100 / steps, why,
+								hint.replace("clear at", "detour at") if hint != "" else "no clear spot within 0.8 m"])
 						break
 			previous = record
 	for id: String in nodes:
@@ -80,17 +88,20 @@ func _probe(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
 		var why := _blocked(world, space, at)
 		if why == "":
 			continue
-		var hint := ""
-		for radius: float in [.15, .3, .45, .6, .8]:
-			for k in 16:
-				var offset := Vector3(cos(TAU * k / 16.0), 0, sin(TAU * k / 16.0)) * radius
-				if _blocked(world, space, at + offset) == "":
-					var local := root.to_local(at + offset)
-					hint = "clear at [%.2f, %.2f, %.2f]" % [local.x, local.y, local.z]
-					break
-			if hint != "":
-				break
+		var hint := _clear_near(world, space, root, at)
 		failures.append("[%s] node %s: %s; %s" % [_file, id, why, hint if hint != "" else "no clear spot within 0.8 m"])
+
+
+## The nearest spot within 0.8 m where the capsule stands clear, in route
+## coordinates, or "" when there is none.
+func _clear_near(world: OrisonV2RuntimeRoot, space: PhysicsDirectSpaceState3D, root: Node3D, at: Vector3) -> String:
+	for radius: float in [.15, .3, .45, .6, .8]:
+		for k in 16:
+			var offset := Vector3(cos(TAU * k / 16.0), 0, sin(TAU * k / 16.0)) * radius
+			if _blocked(world, space, at + offset) == "":
+				var local := root.to_local(at + offset)
+				return "clear at [%.2f, %.2f, %.2f]" % [local.x, local.y, local.z]
+	return ""
 
 
 func _blocked(world: OrisonV2RuntimeRoot, space: PhysicsDirectSpaceState3D, at: Vector3) -> String:
