@@ -150,3 +150,23 @@ No console/world qualification is implied. No owned Godot process or lane waiter
 remains after this batch. Generated untracked UIDs are archived externally and
 removed only from the owned checkout; nine import sidecars have only line-ending
 churn and are restored to their committed content. Canonical WIP is untouched.
+
+## Other open Codex chats audited for the owner
+
+The owner's subsequent request was to inspect other open Codex chats for relevant
+unmerged work and archive those without it. The available local listing exposed
+three other Codex chats. Its remote **durable** host reported unavailable; that
+host was not audited. Unrelated ChatGPT conversations were not changed.
+
+| Exact chat title | Repository evidence | Action and remaining work |
+|---|---|---|
+| Build tentacle gang maintenance deal | **codex/tentacle-gang-20261025**, **4facb1e5** implementation and **3a01ac1d** handoff; both absent from main | Kept open. Read **design/TENTACLE_GANG_ACCEPTANCE_FOLLOWUP_2026-10-25.md**. First-use hitch was reported reduced from 793 to 22 ms with 381 checks passing; RID verification, full surface qualification and the newer colorful goo/char/purple-smoke retreat remain pending. Integrate this work separately from the old acoustic branch's divergence. |
+| Add Vorticella guide-bell trail | **codex/vorticella-guide-bells-checkpoint-20261025** is three commits ahead of **f18d87c8**: **4fd63138**, **5a83747c**, **e8874736** | Kept open. Includes palette-preserving tardigrade/Euplotes mottling, guide-bell implementation/tests and LF-stable tissue metadata. The latest chat reports one failing building stair-route test. Preserve its original failure and inspect committed tests/reports before integration. |
+| Lamp | Original **10e3d0b** is unmerged historical work, superseded by main's **63f89f30**, **b9593d1f**, **710a12bb** and **120c8fc9**; all four replacements verified ancestors of main | Chat archived with the app's thread-archive tool. No branch or worktree removed. Its previous audit explicitly advises against merging the obsolete optical branch. Newer tentacle/guide-bell briefs are preserved in the respective implementation chats and repository briefs. |
+
+At this audit the canonical checkout had advanced to **3a01ac1d** on
+**codex/v2-acoustic-topology**, with substantial remaining WIP. Do not assume it
+still has the earlier 7a548239 HEAD. This audit performed no repository merge,
+worktree deletion or shared-WIP staging. Tardi lunch branch **f18d87c8** matches
+main; the tentacle and guide-bell checkpoints do not. The companion PR remains
+draft with the blockers documented above. Recheck all refs before integration.
