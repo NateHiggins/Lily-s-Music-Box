@@ -4,6 +4,7 @@ extends RefCounted
 ## Unlisted stock remains a surface-gate failure; there is no generic fallback.
 const PALETTES := {
 	"exterior_detail_pass": [[Color(1.,.32,.055),"milk_glass"]],
+	"v2_street_end_details": [[Color(1.,.32,.055),"milk_glass"]],
 	"fuse_panel_prop": [
 		[Color(0.26,0.25,0.24),"iron_neutral"],
 		[Color(0.48,0.38,0.2),"brass_dull"],

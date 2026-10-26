@@ -71,7 +71,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 				check(source!=null and source!=mat and source.albedo_texture==mat.albedo_texture and source.roughness_texture==mat.roughness_texture and source.normal_texture==mat.normal_texture,"original timber, glass, bakelite and other shipping materials retain their original shipping maps")
 				check(source!=null and source.metallic==mat.metallic and source.roughness==mat.roughness and source.normal_scale==mat.normal_scale,"source finish retains its metallic, roughness and normal strength")
 				if str(runtime_part.key)=="glassish":
-					check(source!=null and source.albedo_texture==null and mat.albedo_texture==null and source.albedo_color.is_equal_approx(mat.albedo_color) and source.cull_mode==mat.cull_mode,"drawn glass keeps exact original tint, alpha and culling")
+					check(source!=null and source.albedo_texture!=null and source.albedo_texture==mat.albedo_texture and source.albedo_color.is_equal_approx(mat.albedo_color) and source.cull_mode==mat.cull_mode,"drawn glass keeps shared film maps and exact original tint, alpha and culling")
 					check(bool(runtime_part.get("plain_alpha",false)) and mat.transparency==BaseMaterial3D.TRANSPARENCY_ALPHA and source.transparency==BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS,"closed stock containers use local plain-alpha blending while source windows retain their depth-prepass material")
 			if runtime_part.has("tint"):
 				var tint: Array=runtime_part.tint

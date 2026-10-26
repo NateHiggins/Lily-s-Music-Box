@@ -63,6 +63,11 @@ def evaluate(data):
                 draw['path'].split('/')[-1] in ('DrivingRainSpatter','LiveSnow','LiveHail','DrivingRainMiddle','RoadwayMist') and
                 (material.get('unshaded') or material.get('shader_unshaded'))):
                 effects.append({'id':identity,'class':'weather_optics'});continue
+            if (draw.get('surface_role')=='weather_optics' and
+                draw.get('owner_script')=='res://scripts/player/player_controller.gd' and
+                draw['path'].split('/')[-1] in ('GPUWeatherRain','GPUWeatherSleet','GPUWeatherSnow','GPUWeatherHail') and
+                shader=='res://shaders/queens_precipitation_draw.gdshader' and material.get('shader_unshaded')):
+                effects.append({'id':identity,'class':'weather_optics'});continue
             if (draw.get('surface_role')=='electric_corona' and
                 draw.get('owner_script')=='res://scripts/building/orison_v2_st_elmo.gd' and
                 shader=='res://shaders/v2_st_elmo_corona.gdshader' and
