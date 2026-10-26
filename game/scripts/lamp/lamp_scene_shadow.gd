@@ -45,7 +45,10 @@ func _process(_delta: float) -> void:
 	camera.fov = lamp.spot_angle*2.0
 	# Layer 15 is the player's private tardigrade percept. Its fluid transport
 	# owns internal attenuation; it must never become an opaque world blocker.
-	camera.cull_mask = lamp.shadow_caster_mask & ~excluded_light_layers & ~(1 << 14)
+	# Layer 2 is the separately composited handheld instrument, not world
+	# geometry. Including it here lets its housing black out the optical field
+	# even though the player/world camera deliberately cannot see that layer.
+	camera.cull_mask = lamp.shadow_caster_mask & ~excluded_light_layers & ~((1 << 14) | (1 << 1))
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if field.enabled else SubViewport.UPDATE_DISABLED
 func _exit_tree() -> void:
 	if effect != null: effect.dispose()

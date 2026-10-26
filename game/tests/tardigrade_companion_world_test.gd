@@ -75,12 +75,13 @@ func _run() -> void:
 						if absf(a.r-b.r)+absf(a.g-b.g)+absf(a.b-b.b)>.10: visibility_pixels+=1
 				_check(visibility_pixels>32,"installed lamp-revealed companion has visible image contribution")
 				body.visible = true
+
 				lamp_driver = null
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
 		DirAccess.make_dir_recursive_absolute(directory)
 		var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-			"scope":"Production V2 companion composition, sole waking optical field binding and read-only work targeting; not full navigation or save reconstruction proof.",
+			"scope":"Production V2 companion composition, visible installed lamp response, sole waking optical field binding and read-only work targeting; not full navigation or save reconstruction proof.",
 			"execution":{"completed":true,"exit_code":0 if failures.is_empty() else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},
 			"source":{"test_path":"game/tests/tardigrade_companion_world_test.gd","test_sha256":get_script().source_code.replace("\r\n","\n").sha256_text()},
 			"contracts":{"companion_composition":{"executed":true,"status":"PASS" if failures.is_empty() else "FAIL"}},"checks":checks,"visibility_pixels":visibility_pixels,"failures":failures}

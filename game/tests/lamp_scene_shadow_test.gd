@@ -11,6 +11,7 @@ func _run() -> void:
 	DirAccess.make_dir_recursive_absolute(directory)
 	var camera := Camera3D.new()
 	camera.position = Vector3(.8,0,0)
+	camera.cull_mask &= ~(1 << 1)
 	add_child(camera)
 	camera.look_at(Vector3(0,0,-2))
 	camera.make_current()
@@ -49,6 +50,19 @@ func _run() -> void:
 	add_child(shadow_owner)
 	shadow_owner.setup(field,lamp)
 	var clear := await _sample("clear")
+	# A separate instrument presentation may surround the lamp, but must not
+	# obstruct its world field. The following world-layer blocker still must.
+	var device := MeshInstance3D.new()
+	device.layers = 1 << 1
+	var device_box := BoxMesh.new()
+	device_box.size = Vector3(.8,.8,.08)
+	device.mesh = device_box
+	device.position.z = -.5
+	add_child(device)
+	var device_clear := await _sample("device_layer")
+	_check(absf(device_clear-clear)<.03,"separate instrument layer does not occlude world field")
+	device.queue_free()
+	await get_tree().process_frame
 	var blocker := MeshInstance3D.new()
 	var box := BoxMesh.new()
 	box.size = Vector3(.35,.8,.08)
@@ -98,7 +112,13 @@ func _run() -> void:
 	for i in 12: await RenderingServer.frame_post_draw
 	_check(retained[0].get_ref()==null and retained[1].get_ref()==null,"shadow owner and effect release")
 	FileAccess.open(directory.path_join("measurements.json"),FileAccess.WRITE).store_string(JSON.stringify(values,"\t"))
-	print("SCENE SHADOW: 9 checks; %d failures"%failures)
+	var receipt := {"schema_version":2,"evidence_kind":"runtime_contract",
+		"scope":"Lamp depth occlusion: excluded instrument presentation, actual moving/deformed world blockers, near cascade, power-off and teardown.",
+		"execution":{"completed":true,"exit_code":0 if failures==0 else 1,"timed_out":false},
+		"source":{"test_path":"game/tests/lamp_scene_shadow_test.gd","test_sha256":get_script().source_code.replace("\r\n","\n").sha256_text()},
+		"contracts":{"scene_shadow":{"executed":true,"status":"PASS" if failures==0 else "FAIL"}},"checks":10,"failures":failures,"measurements":values}
+	FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t"))
+	print("SCENE SHADOW: 10 checks; %d failures"%failures)
 	get_tree().quit(0 if failures==0 else 1)
 func _sample(label: String) -> float:
 	for i in 20:
