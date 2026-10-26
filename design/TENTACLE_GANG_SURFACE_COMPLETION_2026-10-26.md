@@ -3,6 +3,10 @@
 Evidence class: **INERT**. Implementation and verification report; the linked
 test-written runtime contract supplies the scoped runtime evidence.
 
+This is the historical shared-checkout closure. Its packet is archived; the
+[clean main-integration report](CREATURE_MAIN_INTEGRATION_2026-10-26.md) records
+the subsequent integration repairs and current qualification.
+
 The remaining composed-world surface qualification is complete. The final
 windowed run passed **39,699 checks with zero failures**. Its exhaustive
 inventory covers **27,586 draws, 16,923 meshes, 6,350 materials and 505 textures**;

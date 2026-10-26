@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Creature acceptance, installed Tardi visibility and acoustic-branch integration to main (INERT) | `design/CREATURE_MAIN_INTEGRATION_2026-10-26.md` |
 | Vorticella maintenance guide-bell requirements, implementation checkpoint and route-distance lifecycle | `design/VORTICELLA_GUIDE_BELLS_BRIEF_2026-10-25.md`, `design/VORTICELLA_GUIDE_BELLS_IMPLEMENTATION_2026-10-25.md` and `game/docs/maintenance_guide_bells.md` |
 | Tardi lunch priority, Euplotes microscopy and comic pursuit | `design/V2_TARDIGRADE_LUNCH_2026-10-25.md` |
 | Tardigrade nested tissue, shared lamp optics and isolated review limits | `design/V2_TARDIGRADE_MICROSCOPY_2026-10-25.md` |
