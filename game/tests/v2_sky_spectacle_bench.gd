@@ -91,6 +91,9 @@ func _ready() -> void:
 	camera.global_position = EYE
 	get_viewport().use_taa = true
 	await get_tree().process_frame
+	if OS.get_environment("SKY_MOTION_REVIEW")=="1":
+		await _motion_review()
+		return
 	if OS.get_environment("SKY_BRUSH_REVIEW")=="1":
 		await _brush_review()
 		return
@@ -149,6 +152,37 @@ func _library_viewer() -> void:
 		label.text="%s | %s | %s\nDay / hour — development preview"%[clock.datetime_string(),manager.atmosphere_state.regime,manager.atmosphere_state.scenario_label]
 	day.value_changed.connect(update);hour.value_changed.connect(update);seed_control.value_changed.connect(update)
 	update.call(0.0)
+
+## Real production weather publication at fractional campaign time, stationary
+## camera and fixed jitter. Counts are uploaded states, not wall-time FPS.
+func _motion_review() -> void:
+	manager.set_process(false);director.set_process(false)
+	var directory:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
+	var rows: Array[Dictionary]=[];var failures: Array[String]=[]
+	for day_index: int in [0,210,300,362]:
+		_library_date(day_index,12.0)
+		var frames: Array=[];var previous:=Time.get_ticks_usec()
+		for frame in 360:
+			clock.advance_seconds(1.0/60.0)
+			var before:=Time.get_ticks_usec();manager._process(1.0/60.0)
+			var publication_ms:=(Time.get_ticks_usec()-before)/1000.0
+			sky_material.set_shader_parameter("temporal_phase",0.0)
+			await RenderingServer.frame_post_draw
+			var now:=Time.get_ticks_usec()
+			var motion: Vector4=sky_material.get_shader_parameter("living_motion_0")
+			var wind: Vector3=sky_material.get_shader_parameter("wind_offset")
+			var phase:=PackedFloat32Array([float(sky_material.get_shader_parameter("wx_phase"))])[0]
+			frames.append([clock.absolute_minutes(),(now-previous)/1000.0,publication_ms,motion.x,motion.y,motion.z,wind.x,wind.z,phase])
+			previous=now
+			if frame in [0,359]:
+				var name:="motion_day_%03d_%03d.png"%[day_index,frame]
+				if get_viewport().get_texture().get_image().save_png(directory.path_join(name))!=OK:failures.append("capture "+name)
+		rows.append({"date":clock.datetime_string(),"day":day_index,"samples":frames})
+	FileAccess.open(directory.path_join("motion_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"stationary production weather bench, 360 fractional-clock frames at each of four dates; uploaded-state cadence, not occupied-world or input qualification",
+		"columns":["absolute_minutes","wall_ms","publication_ms","low_motion_x","low_motion_y","low_evolution","wind_x","wind_z","phase_float32"],"dates":rows,"failures":failures},"\t"))
+	print("CLOUD MOTION REVIEW: %d dates, %d failures"%[rows.size(),failures.size()])
+	get_tree().quit(0 if failures.is_empty() else 1)
 
 ## Date-owned composition with diagnostic stratum masks. No player or mouse
 ## capture is instantiated here; this is optical review, not gameplay proof.

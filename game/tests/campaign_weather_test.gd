@@ -17,6 +17,7 @@ func _ready() -> void:
 	OS.set_environment("WEATHER_SIMULATE","")
 	check(CampaignWeather.load_calendar(),"authored calendar loads: "+CampaignWeather.error)
 	_living_year()
+	_motion_precision()
 	var start:=Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")
 	var profiles: Dictionary={}
 	for offset in 365:
@@ -129,6 +130,36 @@ func _ready() -> void:
 	manager.queue_free();director.free();catalog.queue_free();conversations.queue_free()
 	await get_tree().process_frame
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _motion_precision() -> void:
+	var clock:=CampaignClock.new();clock.configure_date(1929,9,6,720)
+	var stamp:=CampaignWeather.clock_seconds(clock)
+	clock.advance_seconds(.25)
+	check(absf(CampaignWeather.clock_seconds(clock)-stamp-.25)<.00002,"weather motion reads fractional seconds from the authoritative campaign clock")
+	var before: Dictionary=RealityState.data.duplicate(true)
+	var a:=CampaignWeather.cloud_transport_at(stamp+.25)
+	var b:=CampaignWeather.cloud_transport_at(stamp+.75)
+	var distance:=sqrt(pow(b[0]-a[0],2)+pow(b[1]-a[1],2))
+	check(distance>.0001 and distance<.02,"late-year transport retains subsecond physical movement before GPU conversion")
+	check(CampaignWeather.cloud_transport_at(NAN).is_empty() and CampaignWeather.cloud_transport_at(INF).is_empty(),"non-finite transport timestamps are refused")
+	check(RealityState.data==before,"transport projections never advance or mutate campaign/save authorities")
+	var date:=clock.local_datetime()
+	var library:=preload("res://scripts/building/living_sky.gd")
+	var state: Dictionary=library.sample(date,Service.presentation(CampaignWeather.snapshot(date)),1928)
+	var material:=ShaderMaterial.new();material.shader=preload("res://shaders/queens_weather_sky.gdshader")
+	var observed: Dictionary={};var bounded:=true
+	for frame in 60:
+		var at:=stamp+float(frame)/60.0
+		library.move_fields(state,date,Vector2.ZERO,CampaignWeather.cloud_transport_at(at),at-float(Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")))
+		library.publish(material,state)
+		var motion: Vector4=material.get_shader_parameter("living_motion_0")
+		observed[Vector2(motion.x,motion.y)]=true
+		bounded=bounded and motion.x>=0 and motion.x<1 and motion.y>=0 and motion.y<1 and motion.z>=0 and motion.z<1
+	check(observed.size()>=55,"late-year ordinary GPU phase preserves frame-scale motion rather than metre-sized coordinate plateaus")
+	check(bounded,"ordinary texture coordinates are reduced per noise frequency before float32 upload")
+	var original:=CampaignWeather.cloud_transport_at(stamp+.25)
+	CampaignWeather.cloud_transport_at(stamp-200*86400.0)
+	check(CampaignWeather.cloud_transport_at(stamp+.25)==original,"fractional transport reconstructs identically after reverse-date visitation")
 
 func _living_year() -> void:
 	var library:=preload("res://scripts/building/living_sky.gd")

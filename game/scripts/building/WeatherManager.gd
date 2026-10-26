@@ -189,11 +189,15 @@ func _process(delta: float) -> void:
 			var camera:=get_viewport().get_camera_3d()
 			extreme_weather.publish(sky,camera.global_position if camera!=null else effects._player.global_position,effects.get("air_material"))
 	if RenderingServer.get_current_rendering_method()=="forward_plus" and animate:
+		var precise:=PackedFloat64Array()
+		var simulation_seconds:=INF
 		if source=="campaign-calendar":
-			var transport:=Calendar.cloud_transport(date)
-			_wind_offset=Vector3(transport.x,0,transport.y)
+			var stamp:=Calendar.clock_seconds(clock)
+			precise=Calendar.cloud_transport_at(stamp)
+			if precise.size()==2:_wind_offset=Vector3(precise[0],0,precise[1])
+			simulation_seconds=stamp-float(Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00"))
 		if extreme_weather!=null:
-			LivingSky.move_fields(atmosphere_state,date,Vector2(_wind_offset.x,_wind_offset.z))
+			LivingSky.move_fields(atmosphere_state,date,Vector2(_wind_offset.x,_wind_offset.z),precise,simulation_seconds)
 			LivingSky.publish(sky,atmosphere_state)
 		_frame=(_frame+1)%128
 		sky.set_shader_parameter("temporal_phase",float(_frame) if get_viewport().use_taa else 0.0)
@@ -211,6 +215,10 @@ func _publish() -> void:
 	var weights := season_weights(int(date.get("month",11)),int(date.get("day",date.get("day_of_month",15))))
 	current["season_weights"]=weights
 	atmosphere_state=LivingSky.sample(date,current,_seed_value(),Vector2(INF,INF) if source=="campaign-calendar" else Vector2(_wind_offset.x,_wind_offset.z))
+	if source=="campaign-calendar":
+		var stamp:=Calendar.clock_seconds(clock)
+		var precise:=Calendar.cloud_transport_at(stamp)
+		LivingSky.move_fields(atmosphere_state,date,Vector2(_wind_offset.x,_wind_offset.z),precise,stamp-float(Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")))
 	if not atmosphere_state.is_empty():atmosphere_state.mode="curated-year" if source=="campaign-calendar" else "observed-or-seasonal"
 	if extreme_weather!=null: LivingSky.publish(sky,atmosphere_state)
 	if extreme_weather!=null:

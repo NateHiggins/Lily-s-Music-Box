@@ -23,25 +23,28 @@ uniform vec4 living_layer_2 = vec4(0.0,8.0,0.3,0.0);
 uniform vec4 living_motion_0;
 uniform vec4 living_motion_1;
 uniform vec4 living_motion_2;
+uniform vec4 living_drift_0;
+uniform vec4 living_drift_1;
+uniform vec4 living_drift_2;
 uniform vec4 living_brush_0 = vec4(2.0,.9,1.0,0.0);
 uniform vec4 living_brush_1 = vec4(1.2,.65,1.0,0.0);
 uniform vec4 living_brush_2 = vec4(3.8,.22,9.0,0.0);
 
-float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush) {
+float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift) {
 	float coverage=layer.x;
 	if(coverage<=0.0001 || p.y<layer.y || p.y>layer.y+layer.z) return 0.0;
 	float h=(p.y-layer.y)/layer.z;
 	float wind_c=cos(brush.w), wind_s=sin(brush.w);
 	// Rotate around the observer's regional origin, not the year's accumulated
 	// travel. A small wind turn must not rotate thousands of kilometres of UV.
-	vec2 q=(mat2(vec2(wind_c,-wind_s),vec2(wind_s,wind_c))*p.xz-motion.xy)/max(brush.x,.1);
+	vec2 q=(mat2(vec2(wind_c,-wind_s),vec2(wind_s,wind_c))*p.xz)/max(brush.x,.1);
 	q+=vec2(mod(motion.w,127.0),mod(motion.w,71.0));
 	int genus=int(layer.w);
 	float body=0.0;
 	float texture_detail=.6;
 	bool sheet=(genus==2 || genus==4 || genus==5 || genus==7);
 	if(sheet) {
-		vec2 sheet_noise=textureLod(cloud_noise,vec3(q*.125,motion.z*.003),1.0).rg;
+		vec2 sheet_noise=textureLod(cloud_noise,vec3(q*.125+motion.xy,motion.z*3.0),1.0).rg;
 		float broad=sheet_noise.r;
 		texture_detail=sheet_noise.g;
 		body=smoothstep(1.0-coverage-.10,1.0-coverage+.10,broad);
@@ -52,8 +55,8 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush) {
 		// The high plane spans tens of kilometres near the horizon. Broad,
 		// wind-aligned fibres need a much larger footprint than small cloudlets;
 		// otherwise this one texture tap repeats as hundreds of identical flecks.
-		vec2 uv=vec2(q.x*.035,q.y*.11+sin(q.x*.22)*.035);
-		vec2 ice_noise=textureLod(cloud_noise,vec3(uv,.17+motion.z*.001),1.0).rg;
+		vec2 uv=vec2(q.x*.035,q.y*.11+sin(q.x*.22+drift.z)*.035)+motion.xy;
+		vec2 ice_noise=textureLod(cloud_noise,vec3(uv,.17+motion.z),1.0).rg;
 		float fibre=ice_noise.r;
 		texture_detail=ice_noise.g;
 		// Thin ice has a translucent feathered interior, not an opaque stretched
@@ -63,17 +66,17 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush) {
 	} else {
 		// Continuous warped masses avoid a visible grid of identical ellipsoids.
 		// Reuse the existing two-channel volume; no new texture or march steps.
-		vec2 warp=textureLod(cloud_noise,vec3(q*.043,motion.z*.001),1.0).rg-.5;
+		vec2 warp=textureLod(cloud_noise,vec3(q*.043+drift.xy,motion.z),1.0).rg-.5;
 		vec2 marks=q+warp*3.0;
 		if(int(brush.z)==4 || int(brush.z)==9) marks.y*=.32;
 		float mark_scale=genus==1 ? .025 : .065;
-		vec2 field=textureLod(cloud_noise,vec3(marks*mark_scale,h*.15+motion.z*.002),1.0).rg;
+		vec2 field=textureLod(cloud_noise,vec3(marks*mark_scale+motion.xy,h*.15+motion.z*2.0),1.0).rg;
 		texture_detail=field.y;
 		float mass=field.x; // Worley is erosion, never a second field of tiny bodies.
 		float upper=(genus==1 || genus==3 || genus==6) ? .43 : .78;
 		mass-=pow(max(h-.12,0.0)/upper,2.0)*.18;
-		if(int(brush.z)==5) mass+=sin(q.y*2.2+warp.x*4.0)*.08;
-		if(int(brush.z)==6) mass+=sin(q.x*.16)*.10;
+		if(int(brush.z)==5) mass+=sin(q.y*2.2+drift.z+warp.x*4.0)*.08;
+		if(int(brush.z)==6) mass+=sin(q.x*.16+drift.w)*.10;
 		if(int(brush.z)==8) mass-=.07*(1.0-field.y);
 		body=smoothstep(.70-.40*sqrt(coverage),.79-.40*sqrt(coverage),mass);
 		body=mix(body,.7+.3*field.x,smoothstep(.88,1.0,coverage));
