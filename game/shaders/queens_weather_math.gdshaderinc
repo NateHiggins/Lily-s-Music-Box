@@ -49,11 +49,17 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush) {
 		body*=.65+.35*broad;
 	} else if(genus==0) {
 		// High ice fibres: anisotropic stretched marks, not scaled cumulus.
-		vec2 uv=vec2(q.x*.32,q.y*.85+sin(q.x*.7)*.32);
+		// The high plane spans tens of kilometres near the horizon. Broad,
+		// wind-aligned fibres need a much larger footprint than small cloudlets;
+		// otherwise this one texture tap repeats as hundreds of identical flecks.
+		vec2 uv=vec2(q.x*.035,q.y*.11+sin(q.x*.22)*.035);
 		vec2 ice_noise=textureLod(cloud_noise,vec3(uv,.17+motion.z*.001),1.0).rg;
 		float fibre=ice_noise.r;
 		texture_detail=ice_noise.g;
-		body=smoothstep(.64-coverage*.36,.74-coverage*.36,fibre);
+		// Thin ice has a translucent feathered interior, not an opaque stretched
+		// cumulus silhouette. The already sampled G channel breaks up its fibres.
+		body=smoothstep(.64-coverage*.36,.74-coverage*.36,fibre)
+			*mix(.25,.70,smoothstep(.18,.78,ice_noise.g));
 	} else {
 		// Continuous warped masses avoid a visible grid of identical ellipsoids.
 		// Reuse the existing two-channel volume; no new texture or march steps.
