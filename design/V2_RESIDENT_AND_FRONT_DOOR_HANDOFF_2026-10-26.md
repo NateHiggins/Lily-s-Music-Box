@@ -34,10 +34,32 @@ The changed two-route authoring probe finishes in145.65s with zero findings and
 empty stderr. This covers closed/open-door support and capsule samples, not
 actual movement or return visibility. Both actual tours still require renewal.
 
+The first changed actual tour fails after165.43s: looking away permits return,
+then the visible body walks1.9m and meets the closed front leaf. At the failure
+the inner endpoint is farther from the hinge than the approaching actor;
+the route owner's step-away predicate skips opening a crossing edge. A proposed
+near-threshold inner node at local **(0,0,-11.2)** splits that long edge in the
+two new routes. The earlier exterior node remains **(0,0,-14.2)**. Door collision,
+permissions, sweep protection and opening owners are unchanged. Probe and actual
+tour renewal are required again. Other registered routes still carry the earlier
+street datum; inspect their ingress/egress explicitly rather than extrapolating
+the old outward tours into evidence of return from beyond the entrance.
+The threshold-node probe completes in150.77s, zero findings, empty stderr.
+This is still authoring evidence only. The renewed actual tour must pass.
+
+The complete113-entry static board on **d6eeebda** compares with clean main
+**85f95fb8** with zero regressions and reader NEW=0. Its sole dirty path is the
+new diagnostic evidence packet. Known surface/tools/ledger debt remains. This
+is not final candidate verification and predates the extra threshold node.
+
 Original fresh-run root: **C:/ov/reports/started_survey26**. The failed diagnostic's
 exact executed test is preserved and SHA-256 matched to its original wrapper
 receipt. No old receipt or source digest is repinned. PR53 remains draft;
 regressions/final candidate verification and full V2 coverage remain outstanding.
+The two-file packet at
+**art/reviews/resident_routes_20261026/started_survey_20261026** preserves the
+fresh entrance views, both failed actual tours, both authoring probes, source
+variants and complete static board. It grants no runtime or human acceptance.
 
 ## Start here
 
