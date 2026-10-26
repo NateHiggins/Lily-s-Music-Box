@@ -1,0 +1,303 @@
+{
+  "evidence_class": "INERT",
+  "source_commit": "c03361a7295a0240e5ae961cf4dd6478bd61a209",
+  "originals_preserved": true,
+  "renderer_stderr_identical_to_merged_pr46": true,
+  "runtime_contract": "runs/world/companion_correspondence_contract.json",
+  "limits": "95 world checks pass, but unchanged 44 renderer null-material errors and 7 Texture RID warnings remain. Diagnostics are not human acceptance or a paired shader performance improvement. Initial before/before_control fixtures are invalid; before_open is the valid old-shader idle-green failure.",
+  "render_loop_diagnostic": {
+    "True": {
+      "wall_ms": {
+        "p50": 49.202,
+        "p95": 55.341,
+        "p99": 77.048,
+        "max": 84.934,
+        "n": 180
+      },
+      "foreground_cpu_ms": {
+        "p50": 0.24600000679493,
+        "p95": 0.28600001335144,
+        "p99": 0.368000000715256,
+        "max": 0.38400000333786,
+        "n": 180
+      },
+      "foreground_gpu_ms": {
+        "p50": 0.100000001490116,
+        "p95": 0.111000001430511,
+        "p99": 0.11599999666214,
+        "max": 0.119000002741814,
+        "n": 180
+      }
+    },
+    "False": {
+      "wall_ms": {
+        "p50": 48.96,
+        "p95": 56.283,
+        "p99": 68.705,
+        "max": 70.688,
+        "n": 180
+      },
+      "foreground_cpu_ms": {
+        "p50": 0.252999991178513,
+        "p95": 0.252999991178513,
+        "p99": 0.252999991178513,
+        "max": 0.252999991178513,
+        "n": 180
+      },
+      "foreground_gpu_ms": {
+        "p50": 0.0989999994635582,
+        "p95": 0.0989999994635582,
+        "p99": 0.0989999994635582,
+        "max": 0.0989999994635582,
+        "n": 180
+      }
+    }
+  },
+  "files": {
+    "baseline/pr46m_world.log.stderr": {
+      "bytes": 6392,
+      "sha256": "7150ce280a0dcd7c669da70ad428acb5517f22873c485313b0e9056975907027"
+    },
+    "runs/after.log": {
+      "bytes": 12528,
+      "sha256": "c571059e9a0d53bb2b86a42a36db638a82341bed6e73b2d263a791c40630c9c4"
+    },
+    "runs/after.log.receipt.json": {
+      "bytes": 1584,
+      "sha256": "b7387a57c7c9614519e4a9733f2494f579f35989ca9ba22dcf4a71bca459a56c"
+    },
+    "runs/after.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/after/04_companion_idle_green.png": {
+      "bytes": 261950,
+      "sha256": "94e7e9fff6a749213fd32481e8e33e1d4d77e84146a1d0f8b0c0a0d95500209c"
+    },
+    "runs/after/05_companion_idle_control.png": {
+      "bytes": 257973,
+      "sha256": "6013d6db12d4f996fed2234b9a70937ccfd98c565f605637c05a140449859bb8"
+    },
+    "runs/after/06_companion_print_green.png": {
+      "bytes": 260596,
+      "sha256": "e99569cab9f1910fc47c76e0e18dbd1f13ee101e7de349e385771939ac6b20d0"
+    },
+    "runs/after/review.json": {
+      "bytes": 2456,
+      "sha256": "b8d3b115ee9c86524de84b7f2458d6a0116010fa60f0f10208bae3276f0eeed2"
+    },
+    "runs/before.log": {
+      "bytes": 11767,
+      "sha256": "4d277d46fa2c4bf8afb3d1d3733783f41f2b6faea7bcb7fe7df06df6e2bad128"
+    },
+    "runs/before.log.receipt.json": {
+      "bytes": 1698,
+      "sha256": "2f25cd22d507fc37fabaa40b999be82dc1404457f0da8e1804e291c67fa51746"
+    },
+    "runs/before.log.stderr": {
+      "bytes": 381,
+      "sha256": "7caa943432ebe712d82632d146590c1d07f8b8d4ec00622c7e798b117e27846d"
+    },
+    "runs/before/review.json": {
+      "bytes": 2283,
+      "sha256": "9d5469ec0d8c5e1c2d28f820ad328b07aab53a6e6ada21565c93fcdb6e9caa84"
+    },
+    "runs/before_control.log": {
+      "bytes": 12450,
+      "sha256": "f56f8b1e30c73edb4b4c86d7b7d696100948ca2b62b7562da5b6e48b34620b5a"
+    },
+    "runs/before_control.log.receipt.json": {
+      "bytes": 1654,
+      "sha256": "938be8043c60ea5fb424c38939f94b4abc47a0b8deb4a6bf408897d7a2bf268e"
+    },
+    "runs/before_control.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/before_control/review.json": {
+      "bytes": 2509,
+      "sha256": "b8f621ec7af7f9c40077cdd9ed7bcbe872b6d961f16a93903db24c5da7899cc8"
+    },
+    "runs/before_open.log": {
+      "bytes": 12529,
+      "sha256": "b8dd618c44be388197d3bd72dfd39357f445fa5a7bcf158a7b127c6a183b8478"
+    },
+    "runs/before_open.log.receipt.json": {
+      "bytes": 1644,
+      "sha256": "8d9421e3047eb5aff6682ba454f8acb59a001ea924b973e057a816f4dab72ba1"
+    },
+    "runs/before_open.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/before_open/04_companion_idle_green.png": {
+      "bytes": 267053,
+      "sha256": "33046ea5a72fb7b29f0603f5c6b33712c320ac276b8b0cb5a25529cfc9320683"
+    },
+    "runs/before_open/review.json": {
+      "bytes": 2509,
+      "sha256": "fcc6fc4f030d28dc6985952f8953651b6a41695ac00837908a3da0d0cd63aeeb"
+    },
+    "runs/native.log": {
+      "bytes": 15086,
+      "sha256": "8de33b45b3b683d51ee14892a4b452f5c5cc14fe78c38c8a5625cd2116f968f4"
+    },
+    "runs/native.log.receipt.json": {
+      "bytes": 1554,
+      "sha256": "bb59ab0d6e2c492d43f84c55c3f7e88faf38663a6ae5b575b226bc52d113d58d"
+    },
+    "runs/native.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/native/mechanism_diagnostic.json": {
+      "bytes": 279606,
+      "sha256": "9e5ee3255ade2ae3ba5712a914b40878ba258dd395e3b46ade003ce5171ff7e4"
+    },
+    "runs/session.log": {
+      "bytes": 5678,
+      "sha256": "e3e055b601dad5a3f72a78e4d04d37ceecc4cc812019f6df797b55e241bf2da8"
+    },
+    "runs/session.log.receipt.json": {
+      "bytes": 1553,
+      "sha256": "dbba2a162478ae742c8ae44bb88023543d9b3b96712cdc465b20b97e46a3fe9f"
+    },
+    "runs/session.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/session/accept_trace.json": {
+      "bytes": 1547,
+      "sha256": "049590d23b7b4192ea82fd10b16f7a2a5d71200a347247eedc959f6c207b5b6f"
+    },
+    "runs/session/foreground_cost.json": {
+      "bytes": 78232,
+      "sha256": "a21de0df7aadea2692426a353cc1128f161f78e25b1bf4735eb47637ed5a463e"
+    },
+    "runs/session/framing.json": {
+      "bytes": 265,
+      "sha256": "5577761d8fdaba86b2ac13f4fd3182759aa91bc5a2d118f38144cd30b187e557"
+    },
+    "runs/session/malformed_companion.json": {
+      "bytes": 4275,
+      "sha256": "aa8f3bb4025e99d30fe2b9c613d4aea59345f587bbd0429ce0d6e40532192974"
+    },
+    "runs/session/reload_comparison.json": {
+      "bytes": 771,
+      "sha256": "38da46c1582fd7e36bdab19f7da651a79fd56bbd716e7f6322380410e311deb4"
+    },
+    "runs/session/reply_layout.json": {
+      "bytes": 320,
+      "sha256": "31409f43581ecfdfe2ae799c4fb202908a926961d261b49e162dfb29380decaf"
+    },
+    "runs/session/screen_framing.json": {
+      "bytes": 427,
+      "sha256": "62ef6d29f62051f4bf665498560c8b73a62f3c1d9d414df2a5a312b4b6ba52d4"
+    },
+    "runs/session/session.json": {
+      "bytes": 6010,
+      "sha256": "fc7b5418a8e784f22cea90d066d5799132877b57cfa72a8261c76cea11a89aed"
+    },
+    "runs/verify_batch.json": {
+      "bytes": 1021,
+      "sha256": "c54388bf61ce735e0712a93cee8af7c61d680a062b54ac6e9d9174cbf45e751c"
+    },
+    "runs/world.log": {
+      "bytes": 12304,
+      "sha256": "e7a36a8ac4b655f045513c131e79dbcb10341fd0f5c580a053785d2174b9d283"
+    },
+    "runs/world.log.receipt.json": {
+      "bytes": 1555,
+      "sha256": "fcb1ce1759b8e6a1c9abd524c87dc3a1787cdd36ba0a13f088b4e8c8e5520429"
+    },
+    "runs/world.log.stderr": {
+      "bytes": 6392,
+      "sha256": "7150ce280a0dcd7c669da70ad428acb5517f22873c485313b0e9056975907027"
+    },
+    "runs/world/accept_trace.json": {
+      "bytes": 2593,
+      "sha256": "5d138e967ee81d038e9647952b6104ccf4dd42ed45b62d27149aca8cf80c981f"
+    },
+    "runs/world/authority_comparison.json": {
+      "bytes": 5112,
+      "sha256": "90878dd1af0617bc808ea577a4322e36c500dd75e002ded359a699068f8cb9be"
+    },
+    "runs/world/calendar_correspondence.png.pixels.json": {
+      "bytes": 256,
+      "sha256": "beb82699113f3f4fd22028fad49e506e2f9f5bd9ab23bff3334a2578ff52fbdc"
+    },
+    "runs/world/companion_correspondence_contract.json": {
+      "bytes": 11359,
+      "sha256": "d20c46bad214db76f1cbbaf956404bd038a7f81f0d7926570ee6fe52b1246beb"
+    },
+    "runs/world/foreground_cost.json": {
+      "bytes": 77932,
+      "sha256": "49c18168e3e4a96fb56115db0539e3a2f93076e34e666ec4b3392bbf7b8a2101"
+    },
+    "runs/world/framing.json": {
+      "bytes": 264,
+      "sha256": "83452958fbe198b2b445e555fcc65c26897a7d3e47f984de1727c49105b98442"
+    },
+    "runs/world/malformed_companion.json": {
+      "bytes": 287008,
+      "sha256": "69ad50ae848daf9a6bf0674fabedfb9eb6cafb0a34a1de5600a33af78fe9bba2"
+    },
+    "runs/world/reconstructed_companion.png": {
+      "bytes": 1113519,
+      "sha256": "defa3502fab31f4ebfe42249bae014612634b83d37c2671f024c6678c1b7b14b"
+    },
+    "runs/world/reload_comparison.json": {
+      "bytes": 2905,
+      "sha256": "a779853aaaf818fdfd80530f90d133e9ad50348c29e815035eced9c205ad0620"
+    },
+    "runs/world/reply.png": {
+      "bytes": 905875,
+      "sha256": "e6569ddb4d83fcfcf17ee0b51682537a9cbae4edaffef339d6dff24cb6e04bde"
+    },
+    "runs/world/reply.png.pixels.json": {
+      "bytes": 255,
+      "sha256": "2d2da8930054cc351fc1d4c984f92b08d278da2943fe86cfcdf37b79131b7919"
+    },
+    "runs/world/reply_layout.json": {
+      "bytes": 320,
+      "sha256": "1d33e8468420f927dcf15959d401175e56616123ac14cd2a869c2c80c1559c2b"
+    },
+    "runs/world/screen_framing.json": {
+      "bytes": 427,
+      "sha256": "62ef6d29f62051f4bf665498560c8b73a62f3c1d9d414df2a5a312b4b6ba52d4"
+    },
+    "runs/world/typing.png": {
+      "bytes": 892373,
+      "sha256": "5a0c0e6007f0dc033ca18ec834e6ceba3b03523c3a95913055487f0d20cabf71"
+    },
+    "runs/world/typing.png.pixels.json": {
+      "bytes": 255,
+      "sha256": "c7b389f2713eb40bfc81e8576bc601efa6b0227a87a37a9e263b6018a4ff5e52"
+    },
+    "sources/game/scripts/device/mechanical_teletype.gd": {
+      "bytes": 18355,
+      "sha256": "685b1b09f176d0197110d24bd830d4d078c19653af6052fadbc3beeb5e5393ee"
+    },
+    "sources/game/scripts/device/night_stock.gdshader": {
+      "bytes": 1584,
+      "sha256": "53e4086e8406491f91ae3dd7dcd25047c138507aad193e551bdc0d6e460ca772"
+    },
+    "sources/game/scripts/device/writer_type_decal.gdshader": {
+      "bytes": 2130,
+      "sha256": "dfb9a035d8d50b8f56f59e7d711b5c99d98843a9f22003780971cf731ade7f99"
+    },
+    "sources/game/tests/companion_mechanism_bench.gd": {
+      "bytes": 20967,
+      "sha256": "ab31fa3f6055ac6801d8a59233b74522002610e265b9a120b2b0c70c41b49777"
+    },
+    "sources/game/tests/companion_session_world_test.gd": {
+      "bytes": 13672,
+      "sha256": "39ba0c4f1041c057c56d109ecce5a2d37daed8eea4067bc5b118a7d55254348e"
+    },
+    "sources/game/tests/hot_type_writer_review.gd": {
+      "bytes": 7697,
+      "sha256": "ad01ecfda79a85c460d8998bc3e19476ff48fdd6d25600ead62825d10b906002"
+    }
+  },
+  "archive_sha256": "8761b2f3ab62fb6e6bf7a58a9868a3545cdaa17e6d0060e91018b272c9cbe4f4"
+}
