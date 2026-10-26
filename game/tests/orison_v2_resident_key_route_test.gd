@@ -138,7 +138,9 @@ func _route() -> void:
 	outward.reverse()
 	for point: Vector3 in outward:
 		if not await _walk_world(point): return
-	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
+	# The entrance has closed itself since the walk out; open it again by hand.
+	if not await _enter_front_entrance(): return
+	for point in [Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
 		if not await _walk(point): return
 	# Finish at the private threshold. The spare now controls the resident's
 	# real leaf, after a continuous return from its actual copying counter.
