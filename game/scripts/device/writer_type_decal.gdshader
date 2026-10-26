@@ -29,6 +29,9 @@ void fragment() {
     NORMAL_MAP=normalize(vec3((plate.rg*2.0-1.0)+micro.xy*.2,1.0))*.5+.5;NORMAL_MAP_DEPTH=1.0;
     ALPHA=mask;
     float index=(5.0-cell.y)*8.0+cell.x;
-    float exposed=(1.0-step(.25,abs(index-selected_cell)))*max(excitation,idle_excitation);
+    // The whole radioactive alphabet remains faintly luminous, even before
+    // its first selection. Only the active stamp receives the writing pulse.
+    float selected=1.0-step(.25,abs(index-selected_cell));
+    float exposed=max(idle_excitation,selected*excitation);
     EMISSION=radiance_color*exposed*.65;
 }

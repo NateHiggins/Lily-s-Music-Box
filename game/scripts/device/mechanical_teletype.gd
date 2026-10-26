@@ -8,6 +8,7 @@ var stock_applier: Callable = preload("res://scripts/device/service_radiophone_s
 var phosphor_stock := false
 const PHOSPHOR_GREEN := Color(.36, 1.15, .50, 1.0)
 const PHOSPHOR_STOCK_COLOR := Color(.006, .009, .007)
+const NIGHT_STOCK := preload("res://scripts/device/night_stock.gdshader")
 var model: Node3D
 var model_ready := false
 const COLUMNS := 30
@@ -107,16 +108,16 @@ func _ready() -> void:
 		_jewels.append(jewel)
 	_paper=model.find_child("Paper",true,false)
 	_paper_home=_paper.position
-	var stock := (_paper as MeshInstance3D).get_active_material(0).duplicate() as StandardMaterial3D
-	stock.albedo_texture=TelegramStyle.PAPER
-	stock.albedo_color=PHOSPHOR_STOCK_COLOR if phosphor_stock else Color.WHITE
-	# A gentle reflected reading-light floor, retaining the physical stock's
-	# custom roughness/normal response. No additional light or shadow pass.
-	stock.emission_texture=TelegramStyle.PAPER
-	stock.emission=Color(.72,.65,.49)
-	stock.emission_energy_multiplier=.34
-	stock.emission_enabled=false
-	(_paper as MeshInstance3D).set_surface_override_material(0,stock)
+	if not phosphor_stock:
+		var stock := (_paper as MeshInstance3D).get_active_material(0).duplicate() as StandardMaterial3D
+		stock.albedo_texture=TelegramStyle.PAPER
+		stock.albedo_color=Color.WHITE
+		# Original carried printer's gentle reflected reading-light floor.
+		stock.emission_texture=TelegramStyle.PAPER
+		stock.emission=Color(.72,.65,.49)
+		stock.emission_energy_multiplier=.34
+		stock.emission_enabled=false
+		(_paper as MeshInstance3D).set_surface_override_material(0,stock)
 	carriage=model.find_child("Carriage",true,false)
 	hammer=model.find_child("Type_hammer",true,false)
 	if hammer==null: hammer=model.find_child("Type hammer",true,false)
@@ -170,13 +171,31 @@ func _apply_phosphor_stock() -> void:
 			if source.resource_name not in ["Paper", "ShellGlass"]: continue
 			var key := str(source.resource_name)
 			if not local_finishes.has(key):
-				var material := draw.get_active_material(surface).duplicate() as BaseMaterial3D
-				if key == "Paper": material.albedo_color = PHOSPHOR_STOCK_COLOR
+				var material: Material
+				if key == "Paper":
+					material = _night_stock(draw.get_active_material(surface) as StandardMaterial3D)
 				else:
-					var tint := material.albedo_color
-					material.albedo_color = Color(tint.r*.12,tint.g*.12,tint.b*.12,tint.a)
+					var pane := draw.get_active_material(surface).duplicate() as BaseMaterial3D
+					var tint := pane.albedo_color
+					pane.albedo_color = Color(tint.r*.12,tint.g*.12,tint.b*.12,tint.a)
+					material = pane
 				local_finishes[key] = material
 			draw.set_surface_override_material(surface, local_finishes[key])
+
+func _night_stock(source: StandardMaterial3D) -> ShaderMaterial:
+	# One private finish across the whole moving strip. Borrow the catalogue's
+	# loaded maps and physical scale; never tint or replace its shared owner.
+	var stock := ShaderMaterial.new()
+	stock.shader = NIGHT_STOCK
+	stock.resource_name = "Vantry Night Stock"
+	stock.set_shader_parameter("albedo_tex",source.albedo_texture)
+	stock.set_shader_parameter("rough_tex",source.roughness_texture)
+	stock.set_shader_parameter("normal_tex",source.normal_texture)
+	stock.set_shader_parameter("uv_scale",Vector2(source.uv1_scale.x,source.uv1_scale.y))
+	stock.set_shader_parameter("normal_strength",source.normal_scale)
+	stock.set_shader_parameter("stock_color",PHOSPHOR_STOCK_COLOR)
+	stock.set_shader_parameter("grain_strength",.7)
+	return stock
 
 func _label(at: Vector3, pixel: float) -> Label3D:
 	var label := Label3D.new()
@@ -278,7 +297,8 @@ func set_reading_illumination(enabled: bool) -> void:
 	if enabled == _reading_lit: return
 	_reading_lit = enabled
 	# Only the exposed glyphs glow. Unexposed charcoal stock stays dark.
-	(_paper as MeshInstance3D).get_active_material(0).emission_enabled = enabled and not phosphor_stock
+	if not phosphor_stock:
+		(_paper as MeshInstance3D).get_active_material(0).emission_enabled = enabled
 
 func set_action_hint(value: String) -> void:
 	if value==_action_hint: return

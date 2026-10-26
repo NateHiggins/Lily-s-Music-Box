@@ -289,3 +289,55 @@ readable paper/keyboard and lamp in the playable world, then complete the clean
 candidate comparison and protected-path checks. The richer Night Stock shader,
 whole-world performance repair and full V2 coverage remain open. No requirement
 promotion or human acceptance is claimed by this checkpoint.
+
+## Night Stock and radioactive type repair — 2026-10-26
+
+Evidence class: **INERT**. This continuation supersedes the proposal-only surface
+status above. PR 46 has since merged; this work starts at main **b3012ea7** and
+preserves its newer companion, resident and door work. The shared canonical
+checkout's unrelated changes remain untouched.
+
+| Location | Reproduction / severity | Evidence | Repair | Verification |
+|---|---|---|---|---|
+| Companion type head | Idle alphabet remains dark when no cell is selected; visual defect | Valid original **before_open** review fails only idle-green rendering; earlier two fixtures were invalid and retained | Apply the existing faint green excitation to every exposed letter, with the selected printing cell brightening independently | Final **after** review passes 64 checks, empty stderr; same-camera idle-off control finds 4,022 green-dominant changed pixels; captures visually inspected |
+| Whole paper strip | Flat charcoal tint lacks the requested physical stock character; visual defect | Existing printer and custom paper maps retained | Private **night_stock.gdshader** borrows the catalogue paper's diffuse, roughness and normal maps; stable fibre variation, restrained mineral flecks, derivative-filtered grain and matte charcoal reflectance | Native imported review passes 2,229 checks; loaded mip chains, UVs and physical paper preserved; occupied typing/reply captures inspected |
+| Paper/input lifecycle | Material replacement must not break text ownership, drafts or reconstruction; regression risk | Test-written schema-2 **world/companion_correspondence_contract.json**, not the wrapper receipt | Install stock before renderer registration; retain legacy V1 paper illumination path and all printer/input/save owners | Isolated session 62 checks; occupied world 95 checks; both pass, including actual keys/controller/touch, protected interruptions, publication boundaries, disk recovery and fresh-world reconstruction |
+
+The unexposed paper does not emit; physical green glyphs remain independently
+readable. The entire strip uses one private opaque finish. No new texture,
+catalogue key, lamp, smoke, animation callback, screen read or additional pass
+was introduced. V1 keeps its thermal writer and original paper behaviour.
+The final head retains its faint glow with idle processing disabled.
+
+Production and rendering inputs were frozen at **c03361a7** throughout the final
+four-run lane batch. The world receipt records runtime-input digest
+**c1ff079d2ad18e4f49ecccad35b748ade099984bcf3cae5531cb2bec47b6cfb8**;
+the archive additionally binds both shader sources explicitly. The world run
+finishes in 319 seconds, with all five contracts passing and zero retained owned
+nodes, resources or observed audio playbacks. This is scoped runtime evidence,
+not full-world acceptance. The native count differs from the former 2,230
+because the shared shader finish removes one duplicate paper material/map check;
+the three-map shader ABI and imported geometry checks remain enforced.
+
+The occupied stderr is **byte-for-byte identical** to merged PR 46's original
+**pr46m/world.log.stderr**: 44 null-material renderer errors plus seven leaked
+Texture RID warnings. These remain unresolved baseline defects; functional
+contract PASS is not an error-free renderer claim. Smaller head, native and
+isolated session runs have empty stderr. Original failures and test receipts
+remain unmodified in the compact evidence archive. No runtime receipt is repinned.
+
+The same-world fixed-pose visible/hidden ABBA diagnostic records 180 intervals
+per condition: visible wall p50/p95/p99/max **49.202/55.341/77.048/84.934 ms**;
+hidden **48.960/56.283/68.705/70.688 ms**. Visible foreground GPU monitor
+p50/p95/p99/max is **0.100/0.111/0.116/0.119 ms**, CPU
+**0.246/0.286/0.368/0.384 ms**. Hidden viewport monitors retain stale last values
+and are not zero-cost measurements. These overlapping monitors, VSync setting
+and baseline renderer errors prevent a shader speedup claim; this is neither a
+paired old/new material route nor evidence that world stutter is solved.
+
+**art/reviews/v2_companion_phosphor_20261025/night_stock_20261026** contains a
+two-file packet: hashed manifest and compressed original logs, test contracts,
+selected before/after head and world paper captures, plus LF source snapshots.
+Redundant bitmap copies remain external rather than multiplying repository files.
+The full static candidate comparison follows separately. Human acceptance,
+remaining resident routes and broader V2 coverage are still pending.

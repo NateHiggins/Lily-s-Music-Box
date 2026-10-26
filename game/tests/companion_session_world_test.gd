@@ -54,11 +54,14 @@ func build_world() -> bool:
 		var printer: Node = carrier.device.teletype
 		check(carrier.device.phosphor_stock and printer.phosphor_stock, "V2 always installs the autonomous phosphor companion despite the retired handheld flag")
 		check(printer._hot_writer.phosphor_stock and printer._hot_writer._puff == null, "radioactive companion type creates no thermal smoke emitter")
-		var stock: StandardMaterial3D = printer._paper.get_active_material(0)
-		check(stock.albedo_color.get_luminance() < .04 and not stock.emission_enabled and not printer.ink.shaded and printer.ink.modulate.g > printer.ink.modulate.r * 2., "charcoal stock and unshaded green glyphs keep independent illumination")
-		var maps_valid := true
-		for texture: Texture2D in [stock.albedo_texture, stock.roughness_texture, stock.normal_texture]:
-			maps_valid = maps_valid and texture != null and texture.get_image().has_mipmaps()
+		var stock := printer._paper.get_active_material(0) as ShaderMaterial
+		var tint: Color = stock.get_shader_parameter("stock_color") if stock != null else Color.WHITE
+		check(stock != null and stock.shader == printer.NIGHT_STOCK and tint.get_luminance() < .04 and not printer.ink.shaded and printer.ink.modulate.g > printer.ink.modulate.r * 2., "charcoal stock and unshaded green glyphs keep independent illumination")
+		var maps_valid := stock != null
+		if stock != null:
+			for key: String in ["albedo_tex", "rough_tex", "normal_tex"]:
+				var texture := stock.get_shader_parameter(key) as Texture2D
+				maps_valid = maps_valid and texture != null and texture.get_image().has_mipmaps()
 		check(maps_valid, "private phosphor stock retains loaded custom diffuse roughness and normal mip chains")
 	return ready
 
