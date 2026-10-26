@@ -1,6 +1,6 @@
 {
   "evidence_class": "INERT",
-  "scope": "INERT annual, cirrus, ordinary/storm motion, funnel ownership and root optics diagnostics; not occupied-world, teardown, native input or human acceptance.",
+  "scope": "INERT annual sky, motion, funnel, pointer restoration and occupied-calendar optical diagnostics; no native manipulation, weather disk-save/teardown or human acceptance.",
   "members": [
     {
       "name": "annual/annual_gallery.json",
@@ -3395,12 +3395,388 @@
       "name": "vortex_relative/notes.json",
       "sha256": "286baece2eb94a028aa85ac1cf757ba01165674844800bf7c07e0a8f0594bef7",
       "bytes": 1162
+    },
+    {
+      "name": "world_pointer/logs/newspaper_headless.log",
+      "sha256": "125d10f596c0f954ac2fb8edf2d2ac2a5a227b6ca5c6b05f4025c2804e6b1e95",
+      "bytes": 2240,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_headless.log"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_headless.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_headless.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_headless.log.receipt.json",
+      "sha256": "a4b2ef26fbc34cb86e075357b0e5edcd8cc6bdf66e796acd094256b4ee0dd62e",
+      "bytes": 1651,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_headless.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_windowed.log",
+      "sha256": "9e25c35dccd1f407f842155c7cc39a1eafb1b2accfbbf3a3ea010daf4746b406",
+      "bytes": 2399,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_windowed.log"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_windowed.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_windowed.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_windowed.log.receipt.json",
+      "sha256": "c36bb3700421fb259414b6b8645a98a94ae42bfd668c1d8736397edb2a28d0ce",
+      "bytes": 1694,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_windowed.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_windowed.log.isolated.json",
+      "sha256": "4424b79c8279ea0365e019085a1cc5675d89774ded41f3d659194326fbb0c2dc",
+      "bytes": 454,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_windowed.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_windowed.log.isolated.log",
+      "sha256": "6b7a57069d986521aad66548826e1fbf6201b180b776483bb96143ce7a4f4020",
+      "bytes": 2116,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_windowed.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_final.log",
+      "sha256": "9e25c35dccd1f407f842155c7cc39a1eafb1b2accfbbf3a3ea010daf4746b406",
+      "bytes": 2399,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_final.log"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_final.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_final.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_final.log.receipt.json",
+      "sha256": "20146a4b5ec75d5abd2e8b6b1ccb4b6cea8898bb791dc34ea671a167942c60a9",
+      "bytes": 1686,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_final.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_final.log.isolated.json",
+      "sha256": "5b49a1bf56d580ed85b87109672d7d505dd8212ad68028c13acca3f73131d564",
+      "bytes": 1210,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_final.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_final.log.isolated.log",
+      "sha256": "0f7336325812b10c519e5620b086d9ed01c16c8148f47b6e4c6100ed04c93ae1",
+      "bytes": 46,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_final.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/logs/calendar_windowed.log",
+      "sha256": "95b1f8b47d2a56edbda91d9a23248ba6e7bc49f7fd56fd8325734d46971e9a17",
+      "bytes": 35499,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed.log"
+    },
+    {
+      "name": "world_pointer/logs/calendar_windowed.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/calendar_windowed.log.receipt.json",
+      "sha256": "19c9d282513f9491f7950b76f32ebc61191cb6c8c4e5db00fa38050f187af085",
+      "bytes": 5318,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/calendar_windowed.log.isolated.json",
+      "sha256": "f2103f5dc288d2c05e0cac659de1ee36e14d5f409697148201964801916300e1",
+      "bytes": 1210,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/calendar_windowed.log.isolated.log",
+      "sha256": "4538c1a107a580f9895025733099596a263d106bff8a7a9c0b281a8045a8484e",
+      "bytes": 2679,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/calendar_windowed/calendar_test.json",
+      "sha256": "58640a5a3dbe2dd2236d22de05b8ae2acf3957efad3630ed37b5c57814e74c46",
+      "bytes": 270,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed\\calendar_test.json",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/calendar_windowed/living_year.json",
+      "sha256": "4b92314c33630e0a50ab5d8544a00eede4dbaefd1d75d1a62ca99a0551356b39",
+      "bytes": 959,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed\\living_year.json",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/calendar_windowed/weather_report.png",
+      "sha256": "9c160d6fb96fcd1f6bbfac4386904b8ec8177a87ff1988adfc85bf9628308528",
+      "bytes": 1520329,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed\\weather_report.png",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/logs/legacy_world.log",
+      "sha256": "f3558227d95a3eb19a91e50c355dc4a3d43e0856d1f9753cfbc2ebcb1342dfbf",
+      "bytes": 12560,
+      "source": "C:\\ov\\reports\\weather_world26\\legacy_world.log"
+    },
+    {
+      "name": "world_pointer/logs/legacy_world.log.stderr",
+      "sha256": "12661b8c6eb0b3a028c37ca938e69c3b36dcdb2068129101585a53fe2e91506d",
+      "bytes": 428,
+      "source": "C:\\ov\\reports\\weather_world26\\legacy_world.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/legacy_world.log.receipt.json",
+      "sha256": "be4abad803a1dc33664be4468ea54b851d0c572c4e9f6ba3e19d7369d1057815",
+      "bytes": 1732,
+      "source": "C:\\ov\\reports\\weather_world26\\legacy_world.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/legacy_world.log.isolated.json",
+      "sha256": "e7653cb01fa6a91891e049d401bea9baed690c382c91e399891a404c9f15f944",
+      "bytes": 1021,
+      "source": "C:\\ov\\reports\\weather_world26\\legacy_world.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/legacy_world.log.isolated.log",
+      "sha256": "1d9936e14c88ea2b2744a7dc0189a97fef110d3a73a5c07242f0f8d87ad81872",
+      "bytes": 47,
+      "source": "C:\\ov\\reports\\weather_world26\\legacy_world.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/logs/occupied_final.log",
+      "sha256": "9adec93c505f6305eab7dcadf564288e2bf6714cccf8f385cacfb03994b22d20",
+      "bytes": 2004,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final.log"
+    },
+    {
+      "name": "world_pointer/logs/occupied_final.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/occupied_final.log.receipt.json",
+      "sha256": "b4a5ca47788371bff6c876190155342ea21480592ba460d0238501ed27e95190",
+      "bytes": 1711,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/occupied_final.log.isolated.json",
+      "sha256": "39e2b4d1f00f38b3cf74064eb0f873687a88bf5a00ca9e1eb7bb12ac5983426d",
+      "bytes": 1022,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/occupied_final.log.isolated.log",
+      "sha256": "5a73b9172a0adb8e13200721ba5f714929584aba0a15e6eb94416bcfda730150",
+      "bytes": 59,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/occupied_final/august_hail.png",
+      "sha256": "06dbd5196b29d53c1718d18a021ad95038efe142f843206ee636120e1253bb21",
+      "bytes": 198491,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final\\august_hail.png",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/occupied_final/calendar_world_review.json",
+      "sha256": "b1ff2378ffcbfd35d351fb574acec7f48b1f7d58215d8d6d7875abc7bf3903e0",
+      "bytes": 3565,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final\\calendar_world_review.json",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/occupied_final/christmas_snow.png",
+      "sha256": "04f6184f76ccb1205fde52686b47686a13f47451a3c9f099b0fd272b9c155d78",
+      "bytes": 232730,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final\\christmas_snow.png",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/occupied_final/november_coastal_storm.png",
+      "sha256": "e65563f6c2befa1e87de9e4b7ea1a47c130599fb9470ef4c19281731dc53aa8f",
+      "bytes": 370358,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final\\november_coastal_storm.png",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/occupied_final/september_cloud.png",
+      "sha256": "5d4395752927f0e4894907b32ae3ab9d9e1bcedaff0b3d665515922ed1d200e1",
+      "bytes": 468249,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final\\september_cloud.png",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/logs/schedule_windowed.log",
+      "sha256": "47775d973f3f01f55f4d74c0ef0bd1f24509305916595d769a15f2c5ad144bf0",
+      "bytes": 1697,
+      "source": "C:\\ov\\reports\\weather_world26\\schedule_windowed.log"
+    },
+    {
+      "name": "world_pointer/logs/schedule_windowed.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\schedule_windowed.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/schedule_windowed.log.receipt.json",
+      "sha256": "a399258c36702c97a13afbed13042680e926910e751c118591833a1e3b1554c7",
+      "bytes": 1752,
+      "source": "C:\\ov\\reports\\weather_world26\\schedule_windowed.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/schedule_windowed.log.isolated.json",
+      "sha256": "30061c17e43f0b51b8266d99319bb58d026a1017b2050d5fc3a41299b88f4918",
+      "bytes": 1395,
+      "source": "C:\\ov\\reports\\weather_world26\\schedule_windowed.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/schedule_windowed.log.isolated.log",
+      "sha256": "47fbf626df344b438e001ccb852280a1182e69c9b8409bb27e238186abba1cca",
+      "bytes": 2692,
+      "source": "C:\\ov\\reports\\weather_world26\\schedule_windowed.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/logs/flash_windowed.log",
+      "sha256": "d81078d858719f026e4bdbc06b46e26681b4190c0315248a6febdb341286857b",
+      "bytes": 224,
+      "source": "C:\\ov\\reports\\weather_world26\\flash_windowed.log"
+    },
+    {
+      "name": "world_pointer/logs/flash_windowed.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\flash_windowed.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/flash_windowed.log.receipt.json",
+      "sha256": "6cdbc80330f85618fcba794f882f786b86cf326babf1d9e266da0dd9579251ae",
+      "bytes": 1765,
+      "source": "C:\\ov\\reports\\weather_world26\\flash_windowed.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/flash_windowed.log.isolated.json",
+      "sha256": "83878979fdc39b8caadb6ae0b86769491966cbef493e9ee3312c2f00f949999e",
+      "bytes": 1020,
+      "source": "C:\\ov\\reports\\weather_world26\\flash_windowed.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/flash_windowed.log.isolated.log",
+      "sha256": "e5a8c0bfda29c7d2248f2d19f6be79ea1f0e10086ca57e711660db63730a44d5",
+      "bytes": 62,
+      "source": "C:\\ov\\reports\\weather_world26\\flash_windowed.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/audit/noncapturing_audit.json",
+      "sha256": "26bce276e3349b41e40cc343ba7eed256750f9182cf40e71c50626b17b8ac645",
+      "bytes": 2025,
+      "scope": "external diagnostic audit/guard, not a shipped generic capture-isolation tool"
+    },
+    {
+      "name": "world_pointer/audit/noncapturing_sources.json",
+      "sha256": "6fd00f1a6c7a33b3b5cfd9e4fd7fd00d06ce98341d64c09bf2ca9cbc9cbbc4ff",
+      "bytes": 347448,
+      "scope": "external diagnostic audit/guard, not a shipped generic capture-isolation tool"
+    },
+    {
+      "name": "world_pointer/audit/execution_summary.json",
+      "sha256": "1085134157af87c324b22f5fde28f160cc5dbec65f7c8300c2855fc6893bbd84",
+      "bytes": 4987,
+      "scope": "external diagnostic audit/guard, not a shipped generic capture-isolation tool"
+    },
+    {
+      "name": "world_pointer/audit/run_noncapturing_world_weather.ps1",
+      "sha256": "4f4578c300c86e76d7af822153f9aa73b7bc6fe4c45c4728b795b5ad1f84f669",
+      "bytes": 11270,
+      "scope": "external diagnostic audit/guard, not a shipped generic capture-isolation tool"
+    },
+    {
+      "name": "world_pointer/audit/check_noncapturing_sources.py",
+      "sha256": "c53944833f85992bc863417aa8fb340f4ebe272695606d96a75dbe71b0bbfe35",
+      "bytes": 559,
+      "scope": "external diagnostic audit/guard, not a shipped generic capture-isolation tool"
+    },
+    {
+      "name": "world_pointer/baseline6f/board.json",
+      "sha256": "d5d17171d928b583cac75fe3a603969d34e480a1b6bfb173c136d54d158a63a2",
+      "bytes": 132049,
+      "scope": "complete board captured from clean detached origin/main 6f7172d9 before merging"
+    },
+    {
+      "name": "world_pointer/source/final/game/scripts/ui/newspaper_panel.gd",
+      "sha256": "dfe6828fca03f9762e31c5b0187df17f5f3b9966949b110f17f0020978ac1f52",
+      "bytes": 11394,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "world_pointer/source/before_7294bd39/game/scripts/ui/newspaper_panel.gd",
+      "sha256": "0b8cd6b47dd7abbe1310f74a903f3814c49068eb029a4b3e4df1918628eda192",
+      "bytes": 10105,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "world_pointer/source/final/game/tests/newspaper_test.gd",
+      "sha256": "67728ee9313a3c415d18122a05122863be926a5cf49dc31abd1c88a462add2ff",
+      "bytes": 8936,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "world_pointer/source/before_7294bd39/game/tests/newspaper_test.gd",
+      "sha256": "2efc6f1ad9ab52d5b951322ba5fa6f4b16b6e569b9e568854c3db305a1fecd73",
+      "bytes": 6537,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "world_pointer/source/final/game/tests/campaign_weather_test.gd",
+      "sha256": "6b925a5ccccf371aaec9b21694d6d912ea3f53b305787864380b9f04ed756d2d",
+      "bytes": 21066,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "world_pointer/source/before_7294bd39/game/tests/campaign_weather_test.gd",
+      "sha256": "2b4bcce6f7b2287dd679254d428d8957e54fc5a51e19234c9f588fb1fee446db",
+      "bytes": 20539,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "world_pointer/source/unchanged/game/tests/weather_sky_test.gd",
+      "sha256": "270073ca10df8ee862a6d5e62d2c000e49f1301d5cc2d0a333734398304ec066",
+      "bytes": 17525
+    },
+    {
+      "name": "world_pointer/source/unchanged/game/tests/campaign_weather_world_review.gd",
+      "sha256": "c53ad487c0243a810a93ebdbd65390b72e234c6ab70e2f7d6cfb79bc4c6158f6",
+      "bytes": 3569
+    },
+    {
+      "name": "world_pointer/source/unchanged/game/tests/v2_dramatic_sky_review.gd",
+      "sha256": "25fc1afd1fa62f1eaae22fd07d0d89310fc4ce108a3adb56703558040e6eb538",
+      "bytes": 6282
+    },
+    {
+      "name": "world_pointer/limitations.json",
+      "sha256": "506f31303260cb144453336fc94f39665c67e0bf3b569099afc21fc44daae393",
+      "bytes": 1764
     }
   ],
-  "archive_sha256": "cdaf921dbc5baa4b10beb23e1afe63905599dacd2e3f4ce5f86af0b40294a201",
-  "archive_bytes": 22695933,
-  "previous_checkpoint_archive_sha256": "02bd2b2e670df81bedae48fb3590f35d70045adb27f27573eca7b792ef3e8c7d",
-  "previous_checkpoint_archive_bytes": 20324677,
+  "archive_sha256": "633b517f3f27aae408bbb37cfe0a2a82ebb50119f1a2f734a33138a8aab2e2f2",
+  "archive_bytes": 25721547,
+  "previous_checkpoint_archive_sha256": "cdaf921dbc5baa4b10beb23e1afe63905599dacd2e3f4ce5f86af0b40294a201",
+  "previous_checkpoint_archive_bytes": 22695933,
   "archive_history": [
     {
       "sha256": "2a1147d57b71fed3e04dc5a19453be9298e87c55431ea309af3299628d987387",
@@ -3421,6 +3797,10 @@
     {
       "sha256": "02bd2b2e670df81bedae48fb3590f35d70045adb27f27573eca7b792ef3e8c7d",
       "bytes": 20324677
+    },
+    {
+      "sha256": "cdaf921dbc5baa4b10beb23e1afe63905599dacd2e3f4ce5f86af0b40294a201",
+      "bytes": 22695933
     }
   ]
 }

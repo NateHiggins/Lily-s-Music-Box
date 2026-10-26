@@ -119,12 +119,17 @@ func _ready() -> void:
 	if out_dir.is_empty(): out_dir="user://campaign_weather_test"
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	if DisplayServer.get_name()!="headless":
+		clock.configure_date(1929,4,16,360) # The morning edition must actually be issued.
+		var pointer_before:=Input.mouse_mode
 		var panel:=NewspaperPanel.new();add_child(panel)
 		panel.open(null,catalog,"record","1929-04-16")
 		for frame in 8: await get_tree().process_frame
 		await RenderingServer.frame_post_draw
+		var labels:=panel.find_children("*","Label",true,false)
+		check(labels.any(func(node):return node.text.begins_with("WEATHER DESK /")) and not labels.any(func(node):return node.text=="This edition has not been published."),"the issued weather report is actually present on the reading surface")
 		check(get_viewport().get_texture().get_image().save_png(out_dir.path_join("weather_report.png"))==OK,"render weather reporting on the actual newspaper surface")
 		panel.close()
+		check(Input.mouse_mode==pointer_before,"closing the weather edition restores its caller's pointer mode")
 	var result:={"evidence_class":"INERT","scope":"calendar, forecast as-of, manager, newspaper and dialogue diagnostic; no full-world runtime qualification",
 		"checks":checks,"failures":failures,"calendar_sha256":FileAccess.get_sha256(CampaignWeather.PATH)}
 	FileAccess.open(out_dir.path_join("calendar_test.json"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))

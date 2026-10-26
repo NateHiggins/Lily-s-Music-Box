@@ -780,3 +780,65 @@ contracts remain unchanged. Remaining limits include broader cloud shape/detail
 and lighting polish, actual campaign disk save/reconstruction/denial and owned
 teardown, preview retirement, native interaction and matched occupied-world
 performance qualification. **PR 57 remains draft and unmerged.**
+
+
+## PR 57 pointer ownership and renewed world checks — 2026-10-26
+
+Evidence class remains **INERT**. No full V2, native manipulation, owned
+teardown, performance improvement or human acceptance is granted here.
+
+Main advanced to **6f7172d9** with guide-bell review assets and documentation.
+A complete clean-main board was captured before merging that work into this
+branch as **7294bd39**. No runtime files changed in that merge. The runtime
+input digest before the UI repair matches the prior paired review exactly:
+**fbc4b7292a385cb395bbf657aebd860cb1a7dcbf7acc0c0861c767ed5f7a19cf**.
+Existing evidence for unchanged rendering inputs is reused, not rewritten.
+
+| Location / reproduction | Severity / evidence | Repair | Verification |
+|---|---|---|---|
+| Newspaper close after opening from a visible pointer | Input ownership defect: old close unconditionally requested capture and cleared the player lock | Restore the caller's prior mode/protected flag; keep text leases distinct; do not seize input during pause or from another active text owner. Make close idempotent and release on retirement | **NewspaperTest 33 checks windowed**, including eight new ownership cases: pointer return, duplicate callback, protected lock, text lease/nonsticky unlock, retired owner, pause and external retirement. No captured-mode before-run was launched |
+| Calendar weather-report capture | Diagnostic coverage defect: the requested April edition was not yet issued at the fixture's earlier clock; production correctly displayed the denial | Set the fixture to April 16 at its 06:00 issue and assert the actual WEATHER DESK content before capturing | **CampaignWeatherTest 427 checks windowed**, including the rendered issued report and cursor restoration. The inspected image shows issue time, observation, prediction and previous dispatch. No future-news permission or production rule changed |
+| Blanket hold on world-weather checks | Capture risk needed a call-path audit rather than an assumption about PlayerController | Audit fresh-campaign child-world startup, inactive onboarding/intro, guarded companion input, UI and teardown paths; freeze 2,908 script/scene/project inputs for explicit scene-only launches | Existing **WeatherSkyTest** and actual **CampaignWeatherWorldReview** execute windowed on a never-activated desktop through shared wrappers. Native-input/preview scenes remain outside this audit |
+
+Executed original windowed regressions now include **WeatherSkyTest 56 checks**,
+**CampaignWeatherTest 427**, **SkyPhenomenaScheduleTest 22**, and
+**WeatherFlashAccessibilityTest 2/2**. All pass. The legacy world suite retains
+its known **cam_noel_witches** wall-placement warning; it is not silently
+suppressed or called empty stderr. Other final listed stderr files are empty.
+The earlier headless newspaper run covers the initial seven-case version only;
+the final windowed newspaper run covers all eight added cases.
+
+The actual occupied V2 review completes in **156.27 seconds**, with empty stderr,
+zero reported failures and four captured authored dates: August 6 hail,
+September 19 cloud, November 7 coastal storm and December 24 snow. Every capture
+uses **campaign-calendar**; the coastal-storm fixture has cyclone **0.45**.
+These use a static cinematic camera and accelerated effect settling. They do
+not measure a played route, input latency, disk reconstruction or complete GPU
+resource ownership. Cloud shape/detail and night-snow readability still need
+art review; a successful capture is not production acceptance.
+
+The external launcher now records timed cursor/desktop observations and binds
+an audited source guard. The occupied V2, legacy world and flash runs show no
+observed desktop or cursor-clip change over their entire monitored lifetimes.
+The newspaper/calendar/schedule records retain prelaunch clip changes while
+other work held the lane; none occurs within their recorded own execution
+intervals. The earliest newspaper monitor has no event timestamps, so its
+isolation result is **inconclusive**, not retroactively passed. Polling is
+200 ms and wrapper times have second precision. A private desktop remains
+window isolation only: never use it as generic permission for capture,
+confinement, warping, native grabs or the roof preview's explicit capture.
+
+External evidence is under **C:/ov/reports/weather_world26**. The existing review
+packet now holds **563 hash-verified members, 25,721,547 bytes**; all previous
+501 members remain byte-identical. It preserves source/audit guards, raw
+observations, original and final logs/receipts, the actual report PNG, four
+original occupied-world PNGs, test-written diagnostics and the new clean-main
+board without adding repository evidence files. The full comparison at
+**weather_world26/gates/board.json** completes 113 checks with zero regressions
+against clean **6f7172d9**, zero new unread fields and unchanged ledger counts.
+Candidate verification is recorded on the draft PR; no ledger status is promoted.
+
+Still required: full native manipulation and matched movement/turning/cell/
+furnishing/grab/inspection performance routes, validated weather disk save and
+rebuild/denial, owned teardown, preview retirement, broader cloud art and the
+remaining V2 scope. **PR 57 remains draft and unmerged.**
