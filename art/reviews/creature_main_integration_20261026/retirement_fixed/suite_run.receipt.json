@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 149.03,
+  "exit_code": 0,
+  "finished_utc": "2026-10-26T22:38:34Z",
+  "started_utc": "2026-10-26T22:36:04Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/tentacle-main/tmp/tentacle_integration/retirement_fixed.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/tentacle-main/tmp/tentacle_integration/retirement_fixed.log",
+  "stdout_sha256": "39c4e29c65b11a96a0d53369ad6c342cb11c30deefb475747ca52d6fb977bccc"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/V2ArcadeRetirementReview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\tentacle-main\\tmp\\tentacle_integration\\retirement_fixed",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "0221ad944d142f44c072532a3004935f1705e88e",
+  "repository_tree": "bcd352625060bfc4a6aeb49d0165f37ac6177107",
+  "runtime_inputs_sha256": "ecae45419b4dffa3a7a5b6c51be6cc1e36cb20fcabf104454ee80d1fe1dea824",
+  "test_path": "game/tests/v2_arcade_retirement_review.gd",
+  "test_sha256": "924780122bf952c1df1c1c32b5c252380cf0d75817fb97d0580c8b1ef00bdea4"
+ },
+ "windowed": true
+}

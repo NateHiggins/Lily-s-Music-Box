@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 175.55,
+  "exit_code": 0,
+  "finished_utc": "2026-10-26T22:17:23Z",
+  "started_utc": "2026-10-26T22:14:27Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/tentacle-main/tmp/tentacle_integration/street_final.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/tentacle-main/tmp/tentacle_integration/street_final.log",
+  "stdout_sha256": "0c9926d928bc4670415b9075ded81bd4c0f64280ffaafe38001b26ff12d8cc16"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2StreetCrossingTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\tentacle-main\\tmp\\tentacle_integration\\street_final",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "d1b78e18e5b5fa4e10099476b863845a9b0b8e66",
+  "repository_tree": "b5b3a10ede062ddd762659e16029cddbe86bce41",
+  "runtime_inputs_sha256": "fdf21136d049e5b70d2eb63485eca39f479b7cccb808858932d73014e7d1d4ec",
+  "test_path": "game/tests/orison_v2_street_crossing_test.gd",
+  "test_sha256": "5bf1f9a56b4c617f4607c23c6005c40c7e8500a810be254de028421a50fc897b"
+ },
+ "windowed": true
+}
