@@ -370,6 +370,11 @@ func _push_spectacle() -> void:
 		_spectacle_bearings[slot]=float(entry.bearing)
 		if slot==ST_ELMO_SLOT: corona=float(entry.level)
 		if slot==MICROBURST_SLOT: burst=float(entry.level)
+		if slot==16 and extreme_weather!=null:
+			# One funnel, one density/light owner. Match the scheduled bearing.
+			extreme_weather.vortex=maxf(extreme_weather.vortex,float(entry.level))
+			sky.set_shader_parameter("vortex_intensity",extreme_weather.vortex)
+			sky.set_shader_parameter("wx_vortex_center",Vector2(sin(float(entry.bearing)),-cos(float(entry.bearing)))*3.6)
 	if _tle_frames>0: _tle_frames-=1
 	if RenderingServer.get_current_rendering_method()=="forward_plus":
 		sky.set_shader_parameter("spectacle",_spectacle_levels)
