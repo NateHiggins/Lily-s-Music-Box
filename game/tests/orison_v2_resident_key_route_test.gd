@@ -240,16 +240,19 @@ func _key(owner_node: Node3D, target: Vector3, label: String, family := &"keyboa
 	player._update_prompt()
 	# A grabbable leaf shows the target indicator, not a text prompt
 	# (design/DIRECT_MANIPULATION_2026-10-12.md); the key ray below proves the aim.
+	# The same ray as PlayerController.use_key_interaction: every layer, areas
+	# included, and the first ancestor with interact_key or interact wins.
 	var query := PhysicsRayQueryParameters3D.create(player.camera.global_position,
-		player.camera.global_position-player.camera.global_basis.z*2.1,1,[player.get_rid()])
+		player.camera.global_position-player.camera.global_basis.z*2.1)
+	query.exclude = [player.get_rid()]
 	query.collide_with_areas = true
 	var hit := world.get_world_3d().direct_space_state.intersect_ray(query)
 	var node: Node = hit.get("collider")
-	var matched := false
-	while node:
-		matched = matched or node==owner_node
+	var answering: Node = null
+	while node and answering == null:
+		if node.has_method("interact_key") or node.has_method("interact"): answering = node
 		node = node.get_parent()
-	if not _require(matched,"real key ray reaches "+label): return false
+	if not _require(answering==owner_node,"real key ray reaches "+label+": "+(str(answering.get_path()) if answering else str(hit.get("collider")))): return false
 	var before := owner_node.leaf_state as String if owner_node is DoorProp else ""
 	var key_event := InputEventKey.new()
 	var joy_event := InputEventJoypadButton.new()
