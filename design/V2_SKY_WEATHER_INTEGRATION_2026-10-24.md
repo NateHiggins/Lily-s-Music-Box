@@ -339,3 +339,89 @@ is still active; do not describe this checkpoint as completion of that goal.
 
 MERGE-CANDIDATE **64c51923** — bounded roof inspector and weather review fixes;
 full Living Sky production acceptance remains open.
+
+## Annual optical survey and coastal-cloud coordinate repair — October 26
+
+REPORT - V2-LIVING-SKY-ANNUAL-CYCLONE - 2026-10-26
+
+Branch **codex/v2-weather-year-qualification-20261026**; implementation
+**b05a9d3f**, based on **origin/main 2a7d21fb**. Work remains in the owned short
+checkout **C:/ov/v2merge24**; the canonical checkout's acoustic and other WIP
+is untouched. Evidence class remains **INERT**. No new campaign authority,
+calendar entry, narrative fact, material or generated asset is introduced.
+
+The annual renderer now samples dawn, morning, solar noon, afternoon, dusk
+and night for every authored date. Daylight slots come from Queens' actual
+ephemeris rather than fixed civil hours. **annual.log.receipt.json** records a
+windowed 1,219-second run with empty stderr; the test-written
+**annual_gallery.json** reports **2,190 samples, 13 reverse-date field replays,
+zero failures**. All ten cloud genera occur in declared layer states. The fixed
+upper-frame luminance descriptors have 2,185 distinct signatures, maximum
+repetition three; those signatures neither measure cloud cover nor establish
+artistic variety. Twenty-three contact sheets retain every dated sample.
+This survey precedes the cyclone repair below and must not be represented as
+a final-shader annual qualification.
+
+The source of a storm defect was the coordinate order in the cloud density
+function. The finite cyclone centre belongs to regional world space, but the
+shader tested its radius after subtracting integrated calendar wind. At the
+actual November 7, 1929 noon fixture, cyclone strength is **0.45**, while wind
+transport is **(68368.625, 35675.4765625) km**. The 18 km rotation influence
+therefore missed the visible world. Rotation now acts on world position before
+texture advection. It adds no noise taps, march steps, shader parameters or
+per-frame calendar scans. No performance improvement is inferred from that.
+
+The isolated optical diagnostic retains the actual storm strength while
+zeroing only the rotation angle in a copied shader. Both before and after runs
+finish two views with zero fixture/capture failures and empty stderr. Mean
+maximum-channel image differences against that control are **0.00589/0.00828**
+before and **0.01305/0.03287** after, for low/high views respectively. The
+nonzero baseline includes numerical/rendering differences: this is not a
+zero-noise rotation meter or an exclusive causal timing measurement. Reviewed
+production images show changed storm-deck structure; dark, dense overcast is
+retained. The first, less controlled identity-expression comparison is also
+preserved, rather than silently replaced by its improved angle control.
+
+The occupied-world review was extended to include the authored November storm
+and require nonzero cyclone strength. Earlier **cyclone_before** misleadingly
+named September 19 as its intended storm comparison; its actual captured
+conditions are fair, with no cyclone. That original run is retained and cannot
+qualify coastal rotation. Corrected **coastal_before** and **coastal_after**
+render hail, fair September weather, the November coastal storm and Christmas
+snow through the production calendar owner. Both have zero test-written
+failures, empty stderr and wrapper receipts (160/158 seconds). The actual
+coastal-storm before/after PNGs were reviewed. This is a static cinematic camera
+with accelerated effect settling, not input, save/load or performance proof.
+
+| Location / reproduction | Severity / evidence | Repair / verification |
+|---|---|---|
+| Cloud deck: visit an authored cyclone late in the year | Visual correctness: accumulated UV travel moves the radius test far outside its local centre | Rotate world coordinates before wind subtraction; dated angle-control diagnostic and matched occupied-world renders |
+| Existing weather review: use September 19 as a cyclone fixture | Diagnostic gap: test passed on fair conditions | Add actual November 7 fixture, assert nonzero cyclone, record strength on every capture; original result retained |
+| Annual cloud appearance | Remaining visual polish: repeated small tapered marks and similar compositions are visible despite different signatures | Preserve all 365 dates for further art review; no diversity or production-acceptance claim from counts alone |
+
+**art/reviews/living_sky_20261026/annual_cyclone_review.zip** and its manifest
+pack 80 hash-verified members into approximately **6.8 MB**, keeping two new
+repository files instead of individual review frames. The full annual JSON,
+all runs' logs/receipts, the exact receipt-hash-verified annual test source,
+before/after shader snapshots and original coastal-storm PNGs are retained.
+Other PNGs are explicitly identified JPEG derivatives, with external original
+paths and SHA-256 hashes; they are not pixel-exact substitutes for originals.
+
+Reader gate: **NEW 0**; whitespace checks pass. The complete clean main board
+is **C:/ov/reports/weather_year26/baseline/board.json**. Candidate verification
+and renewed original weather suites are recorded on the checkpoint PR after
+the source/evidence commits. Protected paths and the V2 selector are unchanged
+in this patch. Ledger **7/8/110/42/134/136 -> 7/8/110/42/134/136**;
+requirements_changed: **[]**. These are diagnostics, not runtime-contract
+receipts or human acceptance.
+
+Still open: ordinary cloud and extreme art polish; exact fractional-time cloud
+motion; occupied-world validated save/rebuild, denial and owned teardown; the
+interactive preview's seven Texture-RID shutdown warning; and a renewed matched
+played performance route. Prior route spikes still correlate with pipeline
+specialization changes, not proven exclusive shader, loading or script costs.
+No owner decision blocks continued repair. Whole V2 and weather production
+acceptance remain unproven.
+
+MERGE-CANDIDATE **b05a9d3f** — coastal cloud coordinate repair and annual review;
+candidate verification remains required before integration.
