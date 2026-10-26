@@ -1,0 +1,180 @@
+{
+  "evidence_class": "INERT",
+  "source_commit": "bd9bf89a7561780ab0f997335b1670c96eb87586",
+  "archive_sha256": "38c9a0a29a176ca7b7277bf468a20e9ec30236347919710ba20bf59161e9fb4e",
+  "scope": "Legacy played tour and wrapper suite_run receipts, not schema-2 runtime_contract or whole-day/save/performance/human acceptance. External probe fixture is explicitly bound here because its JSON is outside the runtime-input glob. Original timed-out probe and stopped parse-error run are failures, not qualification.",
+  "files": {
+    "baseline/board.json": {
+      "bytes": 132036,
+      "sha256": "5d9645c85452d49cb9b571ab78171dc72c62fda082463849d2bed41c0a8710a4"
+    },
+    "original_draft_probe/probe7.log": {
+      "bytes": 13526,
+      "sha256": "7e99e8313e8d665f9375c6bc99d9a7a627c402a19bcca2c37216fc5773014206"
+    },
+    "original_draft_probe/probe7.log.receipt.json": {
+      "bytes": 12106,
+      "sha256": "19bec32053376b85fc868801dd19e007821a01cb6c1021dfac563c22386f045e"
+    },
+    "original_draft_probe/probe7.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/OrisonV2LenaRouteTest.log": {
+      "bytes": 3040,
+      "sha256": "f8fc4a009065937ec62bd56b166f35f617095b0327052b48b610db3047b64a83"
+    },
+    "runs/OrisonV2LenaRouteTest.log.receipt.json": {
+      "bytes": 1596,
+      "sha256": "dcbf1dc4512eab13388f3eee3bd587c028e8ab27e2969b617627d5a95f6d1f0a"
+    },
+    "runs/OrisonV2LenaRouteTest.log.stderr": {
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    "runs/OrisonV2MinaDoorSafetyTest.log": {
+      "bytes": 5374,
+      "sha256": "394eafbdffe2955e87e2ad667b33a6260b042676114417ca112e10bf90cb69e1"
+    },
+    "runs/OrisonV2MinaDoorSafetyTest.log.receipt.json": {
+      "bytes": 4316,
+      "sha256": "54f70b99bc53ed97f1294324b4978d3d2d3e4d668ab5d2eb90d6bd5f67671ced"
+    },
+    "runs/OrisonV2MinaDoorSafetyTest.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/OrisonV2VerticalRouteTest.log": {
+      "bytes": 2129,
+      "sha256": "7ee5c2acb9e58fb43db1f476138ca16de4fc1f623f243bfe9db3eedf4ceb4eca"
+    },
+    "runs/OrisonV2VerticalRouteTest.log.receipt.json": {
+      "bytes": 1616,
+      "sha256": "4ead49b8661a52a9bcb3722d9fab7515883322baf6b430513a1a3df2f08c4062"
+    },
+    "runs/OrisonV2VerticalRouteTest.log.stderr": {
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    "runs/direct.json": {
+      "bytes": 6862,
+      "sha256": "6cf3156bed810f8e837f54961896b691f07cb7cd56b231b0b9129847a9d95c39"
+    },
+    "runs/import_1.log": {
+      "bytes": 8514,
+      "sha256": "05108ee614f37faba869617bef28f9a6a56e82ba13781a22d2b39dd85e68c963"
+    },
+    "runs/import_1.log.receipt.json": {
+      "bytes": 2837,
+      "sha256": "5c676b072031ba9bc61f454d056e843c3a148e1c1bd9e719efc0d1c4f15e3401"
+    },
+    "runs/import_1.log.stderr": {
+      "bytes": 120518,
+      "sha256": "5f674a9dace467d502173636f505dd05adb6d20b2798ea42da38ed7779a59ecf"
+    },
+    "runs/import_2.log": {
+      "bytes": 1033,
+      "sha256": "4a397ad49c566a05e88a229bea747004907400e6f2367a980d2512fb29bfdaa7"
+    },
+    "runs/import_2.log.receipt.json": {
+      "bytes": 2836,
+      "sha256": "5f6a60bd07c0b2929591aa53237fdb6fdab78d6313144a419dc87992d010b455"
+    },
+    "runs/import_2.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/north.json": {
+      "bytes": 6954,
+      "sha256": "c82f4f5d6bb83d3b3b3ad455ac520723ab38f5a8b316e32fe42d7f13dfe4636e"
+    },
+    "runs/north_dogleg.json": {
+      "bytes": 7045,
+      "sha256": "7121a6fed39c7d016b9c2376b650051ecf84c97dad669eea042a0ce35326740f"
+    },
+    "runs/north_probe.log": {
+      "bytes": 2029,
+      "sha256": "5bebd0a1c76762bb42e6a93ebbb70c3c99f876b9322d1559a425b0ba95262274"
+    },
+    "runs/north_probe.log.receipt.json": {
+      "bytes": 1554,
+      "sha256": "5a53bdc050aefeead099a6c70f040b82cf1417d0569c2137033429920723f96c"
+    },
+    "runs/north_probe.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/regressions.json": {
+      "bytes": 878,
+      "sha256": "a0c704deee499ff8432b02e4d3734fba8ace70071d516ab23ee10d6bbd31d230"
+    },
+    "runs/tip_bypass.json": {
+      "bytes": 7141,
+      "sha256": "eaac41d11406aa75a4aefb6db0daa440fcb84d9b77071b672b331be23185580d"
+    },
+    "runs/variants.json": {
+      "bytes": 368,
+      "sha256": "70eea5f4f698b633dbb1197835d23cab91d1809db8c7c931f1a95653a019b2bb"
+    },
+    "runs/variants.log": {
+      "bytes": 2200,
+      "sha256": "99a4205e4e259df2caf2abdd1c44a8caf3a15d3973611ce53e4287762ca37580"
+    },
+    "runs/variants.log.receipt.json": {
+      "bytes": 3187,
+      "sha256": "1e1d9cc9995c358ad370eb98ce6df1111401da934379f0659a8368119e922597"
+    },
+    "runs/variants.log.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "runs/walk.log": {
+      "bytes": 183,
+      "sha256": "105c8475a495681189d35bb4aa1ace2a76165bdd46c5469ef9c1a04acaa199c3"
+    },
+    "runs/walk.log.receipt.json": {
+      "bytes": 1781,
+      "sha256": "86dffcb87cbe884a773cfc6fa779e46f2aca59f3c49dda8a95d461f69acdfab1"
+    },
+    "runs/walk.log.stderr": {
+      "bytes": 354,
+      "sha256": "98ed0bb318f3d6fb44c677299af1d6ee4e13cf121919f8637d04d8cf51b613a8"
+    },
+    "runs/walk_v2.log": {
+      "bytes": 4178,
+      "sha256": "4e0977b98af39408ec905564b7bb02fcd9ad0e05503df58934f214067c4f39f2"
+    },
+    "runs/walk_v2.log.receipt.json": {
+      "bytes": 1556,
+      "sha256": "a91fe71433c2e433e12fb574b5d723df00452eefef1be32bbea34a6716f3fb28"
+    },
+    "runs/walk_v2.log.stderr": {
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    "runs/walk_v2/evelyn_marsh.png": {
+      "bytes": 648133,
+      "sha256": "f95a4ab2cb279dc9675ff2793ee879d6d06bcdc3e66a4376e1b730fddc624ca3"
+    },
+    "runs/wide_north.json": {
+      "bytes": 7045,
+      "sha256": "756ca34f68b06b53b5e7715d3466d1f19a6d0bd7342d17191c2d76288bba36e9"
+    },
+    "sources/game/data/orison_v2/evelyn_marsh_routine.json": {
+      "bytes": 3056,
+      "sha256": "441dff977ce1d524d9a4992dc463ee37718ae40b98e7df01735452ebfab95eef"
+    },
+    "sources/game/scripts/characters/orison_v2_resident_route.gd": {
+      "bytes": 19309,
+      "sha256": "c06e1a68b01f8d5ed6dbbc68e2754f438ff68820a2df2b98536beb66ed6c730b"
+    },
+    "sources/game/tests/orison_v2_resident_walk_test.gd": {
+      "bytes": 5233,
+      "sha256": "92feea6838c1cc63521b7f683b68cc5798be918f7786128e6c0aa3b53f99307b"
+    },
+    "sources/original_claude_evelyn.json": {
+      "bytes": 3283,
+      "sha256": "b5a636b14adf1714e8575b1e0c50a503cb908efd80d23c4275def9e0349619f6"
+    }
+  }
+}
