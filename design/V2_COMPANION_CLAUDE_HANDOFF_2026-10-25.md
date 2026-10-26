@@ -170,3 +170,13 @@ still has the earlier 7a548239 HEAD. This audit performed no repository merge,
 worktree deletion or shared-WIP staging. Tardi lunch branch **f18d87c8** matches
 main; the tentacle and guide-bell checkpoints do not. The companion PR remains
 draft with the blockers documented above. Recheck all refs before integration.
+
+The remote host became available on a subsequent listing. Both exposed remote
+sessions were read in full and archived through the Codex thread-archive API:
+**01a173a3-f785-76b8-a040-d21590b25039** produced companion PR 42, verified
+MERGED as **6a0b6d66**; its remaining integration work is tracked by this chat
+and PR 46. **01a173a7-5450-7224-946c-5f3e0d148028** contained advice only and
+no repository implementation. Neither session had unique relevant unmerged
+code. These remote sessions exposed UUIDs as their listing titles. No personal
+advice transcript was copied into the repository. Total archived: three Codex
+sessions, including Lamp. The two unfinished encounter chats remain open.
