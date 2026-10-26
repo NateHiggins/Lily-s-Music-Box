@@ -48,6 +48,9 @@ var background_save_profiling:=false
 var _background_requested:=0
 var _background_completed:=0
 var _background_discarded:=0
+## An isolated inspector borrows memory, never the campaign's write capability.
+var _preview_context: Dictionary={}
+var _preview_owner: WeakRef
 
 
 func _ready() -> void:
@@ -66,6 +69,8 @@ func _exit_tree() -> void:
 ## Noncritical autosave. Explicit saves/ordinary commits remain barriers.
 ## The returned world notification does not assert that pending bytes are durable.
 func commit_background() -> void:
+	if not _preview_context.is_empty():
+		commit();return
 	if _preparing_state:return
 	if not persistence_enabled or storage_operation_override.is_valid():
 		commit();return
@@ -276,6 +281,9 @@ func _storage() -> SAVE_STORAGE:
 
 
 func save_game() -> bool:
+	if not _preview_context.is_empty():
+		_last_save_result={"ok":false,"code":"preview_read_only","stage":"preview_scope"}
+		return false
 	if _preparing_state:
 		return false
 	flush_background_saves()
@@ -306,6 +314,7 @@ func _finish_save(result: Dictionary) -> bool:
 
 
 func load_game() -> void:
+	if not _preview_context.is_empty():return
 	flush_background_saves()
 	data = _fresh_data()
 	save_write_blocked = false
@@ -396,6 +405,7 @@ func _set_player_notice(code: String, title: String, message: String,
 
 
 func start_new_campaign() -> bool:
+	if not _preview_context.is_empty():return false
 	flush_background_saves()
 	# Build privately: failure must not publish fresh facts or erase protection.
 	var previous_data := data
@@ -452,6 +462,36 @@ func block_invalid_campaign_clock(reason: String) -> void:
 func _migrate() -> void:
 	data.version = SAVE_VERSION
 	save_game()
+
+
+## Exclusive, nonpersistent campaign context for a standalone world inspector.
+## The save owner retains the protection latch and notices; callers cannot
+## accidentally clear them by restoring only the old data Dictionary.
+func begin_preview_campaign(owner: Node) -> bool:
+	if not is_instance_valid(owner) or not owner.is_inside_tree() or _preparing_state or not _preview_context.is_empty():return false
+	flush_background_saves()
+	_preview_context={"data":data,"persistence":persistence_enabled,"blocked":save_write_blocked,
+		"version":incompatible_save_version,"notice":_player_notice,"load_result":_load_result,
+		"last_save":_last_save_result,"preparing":_preparing_state}
+	_preview_owner=weakref(owner)
+	persistence_enabled=false
+	reset_campaign_for_tests()
+	return true
+
+
+func end_preview_campaign(owner: Node) -> bool:
+	if not is_instance_valid(owner) or _preview_context.is_empty() or _preview_owner==null or _preview_owner.get_ref()!=owner:return false
+	# Preview writes cannot enter the background queue, even if a caller changed
+	# persistence_enabled. All real campaign writes settled before the lease.
+	var prior:=_preview_context
+	data=prior.data
+	save_write_blocked=prior.blocked;incompatible_save_version=prior.version
+	_player_notice=prior.notice;_load_result=prior.load_result;_last_save_result=prior.last_save
+	_preparing_state=prior.preparing
+	persistence_enabled=prior.persistence
+	_preview_context={};_preview_owner=null
+	_announce_loaded()
+	return true
 
 
 func reset_campaign_for_tests() -> void:

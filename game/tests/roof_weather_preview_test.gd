@@ -1,5 +1,5 @@
 extends "res://scripts/building/roof_weather_preview.gd"
-## Occupied roof + native movement input. Isolated preview diagnostic, no
+## Occupied roof + engine-dispatched movement input. Isolated preview diagnostic, no
 ## save/reload acceptance or claim that the full weather brief is finished.
 var checks: Array[Dictionary]=[]
 var captures: Array[String]=[]
@@ -7,6 +7,29 @@ var directory := ""
 var original_clock: Dictionary
 var frame_samples: Array=[]
 var previous_usec := 0
+var _original_data: Dictionary
+var _original_values := ""
+var _original_status: Dictionary
+var _original_notice: Dictionary
+var _original_last_save: Dictionary
+var _original_persistence := false
+var _original_blocked := false
+var _original_version := 0
+var _original_mode: GameBoot.LaunchMode
+var _original_settings: Dictionary
+var _original_environment: Dictionary
+
+func _ready() -> void:
+	_original_data=RealityState.data
+	_original_values=JSON.stringify(_original_data,"",true,true)
+	_original_status=RealityState.load_status();_original_notice=RealityState.player_notice()
+	_original_last_save=RealityState.last_save_result()
+	_original_persistence=RealityState.persistence_enabled
+	_original_blocked=RealityState.save_write_blocked;_original_version=RealityState.incompatible_save_version
+	_original_mode=GameBoot.launch_mode;_original_settings=GameBoot.settings.duplicate(true)
+	for key: String in PREVIEW_ENV:
+		_original_environment[key]={"exists":OS.has_environment(key),"value":OS.get_environment(key)}
+	super._ready()
 
 func _process(delta: float) -> void:
 	var before_usec:=Time.get_ticks_usec()
@@ -42,6 +65,17 @@ func _exercise() -> void:
 	check(manager.source=="campaign-calendar" and manager.extreme_weather!=null,"roof uses the installed Queens weather owner")
 	check(manager.clock==preview_clock and director._campaign_clock==preview_clock and world.campaign_clock!=preview_clock,"sky and astronomy share detached clock; campaign clock stays separate")
 	check(not RealityState.persistence_enabled,"preview disables disk writes before composing the world")
+	check(pointer and not player.is_physics_processing() and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"preview opens with a free pointer and stationary player")
+	var still_position:=player.global_position
+	var still_time:=preview_clock.position_minutes
+	await hold(KEY_W,.2)
+	check(player.global_position==still_position and preview_clock.position_minutes==still_time,"pointer mode ignores movement keys without advancing time")
+	await key(KEY_TAB,true);await key(KEY_TAB,false)
+	check(not pointer and player.is_physics_processing() and not mouse_look and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"Tab enables keyboard exploration without capturing the pointer")
+	var facing:=player.rotation.y
+	await hold(KEY_RIGHT,.2)
+	check(absf(player.rotation.y-facing)>.1 and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"arrow keys turn the view without mouse capture")
+	await hold(KEY_LEFT,.2)
 	var c:=PreviewClock.new()
 	check(c.seek(-1) and is_equal_approx(c.position_minutes,365*1440-1),"backward wrap reaches last minute of authored year")
 	check(c.seek(365*1440+12) and is_equal_approx(c.position_minutes,12),"forward wrap reaches first day of authored year")
@@ -64,28 +98,33 @@ func _exercise() -> void:
 	before=preview_clock.position_minutes
 	var origin:=player.global_position
 	await hold(KEY_W,.4)
-	check(preview_clock.position_minutes>before+60 and player.global_position.distance_to(origin)>.2,"native W walks on the real roof and advances weather")
+	check(preview_clock.position_minutes>before+60 and player.global_position.distance_to(origin)>.2,"engine-dispatched W walks on the real roof and advances weather")
 	before=preview_clock.position_minutes
 	await hold(KEY_S,.4)
-	check(preview_clock.position_minutes<before-60,"native S reverses preview time")
+	check(preview_clock.position_minutes<before-60,"engine-dispatched S reverses preview time")
 	await key(KEY_SHIFT,true);before=preview_clock.position_minutes
 	await hold(KEY_W,.3);await key(KEY_SHIFT,false)
-	check(preview_clock.position_minutes>before+800,"native running accelerates time across days")
+	check(preview_clock.position_minutes>before+800,"engine-dispatched running accelerates time across days")
 	await key(KEY_C,true);await key(KEY_C,false)
 	before=preview_clock.position_minutes
 	await hold(KEY_W,.4)
 	check(player.crouched and preview_clock.position_minutes>before and preview_clock.position_minutes<before+6,"crouched movement allows fine minute-scale scrubbing")
 	await key(KEY_P,true);await key(KEY_P,false);before=preview_clock.position_minutes
 	await hold(KEY_W,.2)
-	check(frozen and preview_clock.position_minutes==before,"native P holds weather while roof movement remains available")
+	check(frozen and preview_clock.position_minutes==before,"engine-dispatched P holds weather while roof movement remains available")
 	await key(KEY_TAB,true);await key(KEY_TAB,false)
-	check(pointer and not player.is_physics_processing() and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"native Tab releases pointer and stops walking for calendar sliders")
+	check(pointer and not player.is_physics_processing() and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"Tab stops walking for calendar sliders and leaves the pointer free")
 	year_slider.value=364;hour_slider.value=1439
 	check(int(preview_clock.position_minutes)==365*1440-1,"calendar sliders select the final authored minute")
 	await key(KEY_PAGEUP,true);await key(KEY_PAGEUP,false)
 	check(int(preview_clock.position_minutes)==1439,"next-day control wraps from final day to first day")
 	await key(KEY_TAB,true);await key(KEY_TAB,false)
-	check(not pointer and player.is_physics_processing(),"native Tab restores roof control without entering a game interface")
+	check(not pointer and player.is_physics_processing() and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"Tab restores keyboard roof control without capturing the pointer")
+	await key(KEY_ESCAPE,true);await key(KEY_ESCAPE,false)
+	check(pointer and not player.is_physics_processing() and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"Escape always returns to pointer mode")
+	await key(KEY_ESCAPE,true);await key(KEY_ESCAPE,false)
+	check(pointer and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"repeated Escape cannot acquire capture")
+	await key(KEY_TAB,true);await key(KEY_TAB,false)
 	await key(KEY_C,true);await key(KEY_C,false)
 	for sample: Array in [[0,720,"opening_day"],[44,1260,"christmas_snow"],[269,900,"summer_hail"],[120,1080,"spring_evening"]]:
 		preview_clock.seek(float(sample[0])*1440+float(sample[1]));refresh_weather()
@@ -100,9 +139,18 @@ func _exercise() -> void:
 	# Record other transient runtime writes honestly; only the clock and disk
 	# boundary are claimed here, not total authority neutrality of all actors.
 	var observations_changed:=JSON.stringify(RealityState.data)!=original_authorities
+	await retire_preview()
+	check(is_same(RealityState.data,_original_data) and JSON.stringify(RealityState.data,"",true,true)==_original_values,"closing restores the original campaign reference and every value")
+	check(RealityState.load_status()==_original_status and RealityState.player_notice()==_original_notice and RealityState.last_save_result()==_original_last_save,"closing restores load status, notices and last save result")
+	check(RealityState.persistence_enabled==_original_persistence and RealityState.save_write_blocked==_original_blocked and RealityState.incompatible_save_version==_original_version,"closing restores persistence and protected-save latches")
+	check(GameBoot.launch_mode==_original_mode and GameBoot.settings==_original_settings,"closing restores launch mode and original settings")
+	var environment_restored:=true
+	for name: String in _original_environment:
+		var saved: Dictionary=_original_environment[name]
+		environment_restored=environment_restored and OS.has_environment(name)==saved.exists and OS.get_environment(name)==saved.value
+	check(environment_restored,"closing restores environment values and absent keys")
+	check(Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"pointer remains free after world retirement")
 	var failures:=checks.filter(func(row: Dictionary):return not row.passed)
-	FileAccess.open(directory.path_join("roof_preview_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"actual roof, native forward/reverse/run/pause/pointer input, calendar wrapping and rendered weather; no campaign save reconstruction or full V2 acceptance","checks":checks,"failures":failures,"captures":captures,"other_runtime_data_changed":observations_changed,"frame_columns":["state","wall_ms","preview_update_ms","render_cpu_ms","render_gpu_ms"],"frames":frame_samples},"\t"))
+	FileAccess.open(directory.path_join("roof_preview_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"actual roof, engine-dispatched keyboard forward/reverse/run/pause/pointer input, calendar wrapping, rendered weather and original campaign restoration; no OS-native input, explicit mouse-look capture, campaign save reconstruction or full V2 acceptance","checks":checks,"failures":failures,"captures":captures,"other_runtime_data_changed":observations_changed,"frame_columns":["state","wall_ms","preview_update_ms","render_cpu_ms","render_gpu_ms"],"frames":frame_samples},"\t"))
 	print("ROOF WEATHER PREVIEW TEST: %d checks, %d failures"%[checks.size(),failures.size()])
-	ready_for_input=false
-	world.shutdown_for_tests();world.queue_free();await get_tree().process_frame;await get_tree().process_frame
 	get_tree().quit(0 if failures.is_empty() else 1)
