@@ -91,6 +91,8 @@ V2_WANT = {
 # Physical maps reached by the composed V2 world outside the building library.
 # Sky projections and UI-only images retain their own sampling authority.
 V2_EXTERNAL_MAPS = (
+    *(f"game/assets/dream/guide_bell/{family}_{channel}.png"
+      for family in ("membrane", "tissue") for channel in ("albedo", "normal", "roughness")),
     "game/assets/characters/mina_vale/texture_0.png",
     "game/assets/characters/mina_vale/texture_0_metallic-texture_0_roughness.png",
     "game/assets/characters/mina_vale/texture_0_normal.png",

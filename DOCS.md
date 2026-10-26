@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Vorticella maintenance guide-bell requirements, implementation checkpoint and route-distance lifecycle | `design/VORTICELLA_GUIDE_BELLS_BRIEF_2026-10-25.md`, `design/VORTICELLA_GUIDE_BELLS_IMPLEMENTATION_2026-10-25.md` and `game/docs/maintenance_guide_bells.md` |
 | Tardi lunch priority, Euplotes microscopy and comic pursuit | `design/V2_TARDIGRADE_LUNCH_2026-10-25.md` |
 | Tardigrade nested tissue, shared lamp optics and isolated review limits | `design/V2_TARDIGRADE_MICROSCOPY_2026-10-25.md` |
 | Cast passage pulls, sharper oak and lossless fixed mouse travel | `design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md` |
