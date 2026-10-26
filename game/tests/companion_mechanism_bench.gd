@@ -87,8 +87,12 @@ func _run() -> void:
 			materials[str(draw.name) + "/" + str(surface)] = row
 			var required: Array = ["albedo_texture", "roughness_texture", "normal_texture"] if material is StandardMaterial3D else ["albedo_tex", "rough_tex", "normal_tex"]
 			if material is ShaderMaterial:
-				check(material.shader.resource_path == "res://scripts/device/writer_type_decal.gdshader", "retained hot-type shader ABI")
-				required = ["steel_albedo", "steel_roughness", "steel_normal", "type_plate"]
+				if material.shader.resource_path == "res://scripts/device/writer_type_decal.gdshader":
+					check(true, "retained hot-type shader ABI")
+					required = ["steel_albedo", "steel_roughness", "steel_normal", "type_plate"]
+				else:
+					check(material.shader.resource_path == "res://scripts/device/night_stock.gdshader", "registered Night Stock paper shader ABI")
+					required = ["albedo_tex", "rough_tex", "normal_tex"]
 			for map: String in required: check(row.maps.has(map), "loaded registered PBR map " + str(draw.name) + "/" + map)
 			if material is StandardMaterial3D: check(material.normal_enabled and not material.uv1_triplanar, "native normals use authored UVs " + str(draw.name))
 	check(partitions == 63, "all retained, formed-shell and sliding-carriage material primitives are present")
