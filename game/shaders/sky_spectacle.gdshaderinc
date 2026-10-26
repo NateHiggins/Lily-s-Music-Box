@@ -364,7 +364,9 @@ float objects_at(vec3 p,out vec3 albedo,out vec3 glow) {
     bool smooth_shape=false;
     bool thin=false;
     float best=0.0; vec3 a=vec3(.8); float d=0.0;
+#ifndef QUEENS_CLOUD_DECK
     if (spectacle[S_TORNADO]>0.0) { d=vortex(raw,S_TORNADO,a)*1.6*spectacle[S_TORNADO]; if (d>best) { best=d; albedo=a; thin=true; } }
+#endif
     if (spectacle[S_WATERSPOUT]>0.0) { d=vortex(raw,S_WATERSPOUT,a)*1.6*spectacle[S_WATERSPOUT]; if (d>best) { best=d; albedo=a; thin=true; } }
     if (spectacle[S_WALL]>0.0) { d=wall_cloud(p,a)*min(1.0,spectacle[S_WALL]*1.5); if (d>best) { best=d; albedo=a; } }
     if (spectacle[S_SHELF]>0.0) { d=shelf_cloud(p,a)*spectacle[S_SHELF]; if (d>best) { best=d; albedo=a; } }
@@ -389,6 +391,9 @@ vec4 spectacle_objects(vec3 direction,float jitter,out float near_t) {
     float t0=1e6; float t1=0.0;
     for (int s=1;s<=17;s++) {
         if (spectacle[s]<=0.0) continue;
+#ifdef QUEENS_CLOUD_DECK
+        if (s==S_TORNADO) continue; // Queens joins its single funnel to the deck.
+#endif
         if (s==S_HABOOB || s==S_ASPERITAS || s==S_FALLSTREAK || s==S_VIRGA) continue;
         vec4 b=object_bounds(s);
         float mid=dot(direction,b.xyz);
@@ -452,8 +457,9 @@ vec3 nacreous(vec3 dir) {
     float lens=smoothstep(.40,.72,fbm2(uv*3.0+vec2(spectacle_time*.002,0.0)));
     float thickness=fbm2(uv*7.0+3.1);
     // Thin-film colours: phase grows with crystal path. Mother-of-pearl.
-    vec3 film=.55+.45*cos(6.2832*(thickness*1.7+vec3(0.0,.33,.67)));
-    return mix(vec3(.9,.86,.9),film,.78)*lens*near*band*lit*1.5;
+    vec3 film=.65+.35*cos(6.2832*(thickness*.7+vec3(0.0,.33,.67)));
+    // A bounded pearl sheen, not luminous rainbow stripes across the dome.
+    return mix(vec3(.9,.86,.9),film,.80)*lens*near*band*lit*.60;
 }
 vec3 aurora(vec3 dir) {
     if (dir.y<0.0) return vec3(0.0);

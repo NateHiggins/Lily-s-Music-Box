@@ -175,6 +175,7 @@ float soft_union(float a,float b,float k) {
     float h=clamp(.5+.5*(b-a)/k,0.0,1.0);
     return mix(b,a,h)-k*h*(1.0-h);
 }
+#define QUEENS_CLOUD_DECK
 #include "res://shaders/sky_spectacle.gdshaderinc"
 float cloud_object(vec3 p) {
     // Soft SDFs. Noise breaks the contour before it contributes to density.
@@ -242,8 +243,8 @@ float density_tagged(vec3 p,out float fire) {
         fire=pouches/max(max(result,pouches),.001);
         result=max(result,pouches);
     }
-    if(wx_formation==3) result=max(result,wx_lenticular_density(p)*wx_formation_strength);
-    if(wx_formation==2) result=max(result,wx_fluctus_density(p)*wx_formation_strength);
+    if(wx_formation==3 && spectacle[S_LENTICULAR]<=0.0) result=max(result,wx_lenticular_density(p)*wx_formation_strength);
+    if(wx_formation==2 && spectacle[S_KELVIN_HELMHOLTZ]<=0.0) result=max(result,wx_fluctus_density(p)*wx_formation_strength);
     if(shape_kind>0 && shape_opacity>0.0) {
         vec3 animal=advected-vec3(1.6,2.3,-2.6);
         float sdf=cloud_object(animal);
@@ -303,6 +304,7 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     vec3 source=normalize(sun_direction);
     float day=smoothstep(-0.12,0.10,source.y);
     vec3 ambient=mix(fog_horizon_color*0.95,vec3(0.61,0.68,0.80),day);
+    ambient*=1.0-.65*max(storm_strength,max(wx_hail,vortex_intensity));
     vec3 sum=vec3(0.0); float transmittance=1.0;
     // The fine interval prevents a 70 m funnel tip disappearing between cloud samples.
     // Extra work applies only to rays intersecting its bounded volume.
@@ -338,8 +340,9 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
             float asperitas=max(wx_formation==1 ? wx_formation_strength : 0.0,spectacle[S_ASPERITAS]);
             if(asperitas>0.0) {
                 float relief=wx_asperitas_relief(p-wind_offset,source);
-                vec3 hollow=ambient*mix(vec3(.24,.30,.52),vec3(.43,.19,.38),1.0-smoothstep(.03,.28,abs(source.y)));
-                lit=mix(lit,mix(hollow,lit,0.20+0.80*relief),asperitas);
+                vec3 hollow=ambient*mix(vec3(.06,.08,.18),vec3(.20,.05,.14),1.0-smoothstep(.03,.28,abs(source.y)));
+                // Broad skylight sees the folds even with a high midday Sun.
+                lit=mix(lit,mix(hollow,lit*1.15,relief),asperitas);
             }
             float gold=smoothstep(.24,0.0,source.y)*smoothstep(-.10,.01,source.y);
             lit=mix(lit,mix(ambient*.30,vec3(1.0,.40,.14)*(.35+.8*exp(-tau_sun)),gold),fire*.9);
@@ -389,7 +392,7 @@ void sky() {
         float cirrus=texture(cirrus_tex,uv).r*max(high_cloud_strength,wx_formation==4 ? wx_formation_strength*0.70 : 0.0)*(wx_formation==4 ? .85 : mix(.16,.45,season_weights.w));
         cirrus*=smoothstep(.04,.18,EYEDIR.y);
         if(living_enabled) cirrus=0.0; // The observed high genus owns ordinary ice cloud.
-        if(wx_formation==4) {
+        if(wx_formation==4 && spectacle[S_NACREOUS]<=0.0) {
             vec2 pearl_uv=uv*vec2(.7,1.3);
             vec2 patch=textureLod(cloud_noise,vec3(pearl_uv,.2+wx_phase*.0001),1.0).rg;
             cirrus=smoothstep(.48,.66,patch.x*.6+patch.y*.4)*wx_formation_strength*.48*smoothstep(.04,.18,EYEDIR.y);

@@ -174,6 +174,7 @@ func _shoot(id: String, entry: Dictionary, fraction: float, label: String) -> vo
 	var date := CampaignClock._date_from_ordinal(int(floor(minute / 1440.0)))
 	clock.configure_date(int(date.year), int(date.month), int(date.day_of_month), int(fposmod(minute, 1440.0)))
 	# The schedule decides; then settle the weather transition and the sky at once.
+	manager._calendar_check_left=0.0;manager._phenomena_left=0.0;manager._publish_left=0.0
 	manager._process(.016)
 	manager.origin = manager.target.duplicate(true)
 	manager.elapsed = Manager.TRANSITION_SECONDS
@@ -203,6 +204,12 @@ func _shoot(id: String, entry: Dictionary, fraction: float, label: String) -> vo
 	var directory := OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(directory)
 	get_viewport().get_texture().get_image().save_png(directory.path_join(label + ".png"))
+	var uniforms: Dictionary={}
+	for item: Dictionary in sky_material.shader.get_shader_uniform_list():
+		var value: Variant=sky_material.get_shader_parameter(str(item.name))
+		if value is Resource:continue
+		uniforms[str(item.name)]=value
+	FileAccess.open(directory.path_join(label+".json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","date":clock.datetime_string(),"atmosphere":manager.atmosphere_state,"conditions":manager.current,"uniforms":uniforms},"\t"))
 
 
 func _aim(id: String, entry: Dictionary) -> void:

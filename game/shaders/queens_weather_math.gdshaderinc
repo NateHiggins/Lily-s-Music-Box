@@ -60,9 +60,10 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush) {
 		vec2 warp=textureLod(cloud_noise,vec3(q*.043,motion.z*.001),1.0).rg-.5;
 		vec2 marks=q+warp*3.0;
 		if(int(brush.z)==4 || int(brush.z)==9) marks.y*=.32;
-		vec2 field=textureLod(cloud_noise,vec3(marks*.18,h*.15+motion.z*.002),1.0).rg;
+		float mark_scale=genus==1 ? .025 : .065;
+		vec2 field=textureLod(cloud_noise,vec3(marks*mark_scale,h*.15+motion.z*.002),1.0).rg;
 		texture_detail=field.y;
-		float mass=field.x*.65+field.y*.35;
+		float mass=field.x; // Worley is erosion, never a second field of tiny bodies.
 		float upper=(genus==1 || genus==3 || genus==6) ? .43 : .78;
 		mass-=pow(max(h-.12,0.0)/upper,2.0)*.18;
 		if(int(brush.z)==5) mass+=sin(q.y*2.2+warp.x*4.0)*.08;
@@ -70,6 +71,10 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush) {
 		if(int(brush.z)==8) mass-=.07*(1.0-field.y);
 		body=smoothstep(.70-.40*sqrt(coverage),.79-.40*sqrt(coverage),mass);
 		body=mix(body,.7+.3*field.x,smoothstep(.88,1.0,coverage));
+		// Small cells belong to broad families, with open sky between families.
+		// Reuse the existing warp tap rather than adding another noise octave.
+		float family=smoothstep(.36-.20*coverage,.60-.20*coverage,warp.x+.5);
+		body*=mix(family,1.0,smoothstep(.70,.96,coverage));
 	}
 	float envelope=smoothstep(0.0,.10,h)*(1.0-smoothstep(.72,1.0,h));
 	return max(0.0,body-(1.0-texture_detail)*.12)*envelope*brush.y;
@@ -101,21 +106,24 @@ float wx_cloud_base() {
 	return mix(1.25,0.62,max(wx_hail,wx_cyclone));
 }
 float wx_asperitas_bottom(vec3 p,float base) {
-	float waves=sin(p.x*4.3+wx_phase)*0.55
-		+sin(p.z*5.7-p.x*1.8+wx_phase*0.5)*0.45;
+	float waves=sin(p.x*1.8+wx_phase)*0.60
+		+sin(p.z*2.3-p.x*.8+wx_phase*0.5)*0.40;
 	// G is the supplied Worley channel; filter at a coarse mip for smooth pouches.
 	float voronoi=textureLod(cloud_noise,p*0.8,2.0).g;
 	float pouch=pow(1.0-smoothstep(0.18,0.85,voronoi),2.0);
-	return base+0.26*waves-0.31*pouch;
+	return base+0.48*waves-0.24*pouch;
 }
 float wx_asperitas_relief(vec3 p,vec3 to_sun) {
 	// Analytic slope of the same broad waves: no extra density/noise taps.
-	float a=p.x*4.3+wx_phase;
-	float b=p.z*5.7-p.x*1.8+wx_phase*0.5;
-	float dx=0.26*(0.55*4.3*cos(a)-0.45*1.8*cos(b));
-	float dz=0.26*0.45*5.7*cos(b);
+	float a=p.x*1.8+wx_phase;
+	float b=p.z*2.3-p.x*.8+wx_phase*0.5;
+	float dx=0.48*(0.60*1.8*cos(a)-0.40*.8*cos(b));
+	float dz=0.48*0.40*2.3*cos(b);
 	vec3 underside=normalize(vec3(dx,-1.0,dz));
-	return smoothstep(-0.32,0.30,dot(underside,to_sun));
+	vec3 sky_fill=normalize(vec3(to_sun.x,.12,to_sun.z));
+	float slope=smoothstep(-.65,.55,dot(underside,sky_fill));
+	float hollow=.5+.5*(.6*sin(a)+.4*sin(b));
+	return clamp(.15+.65*slope+.20*hollow,.0,1.0);
 }
 vec3 wx_fluctus_warp(vec3 p,float layer_bottom,float layer_top) {
 	// Finite patch and vertical gate: do not turn the entire sky into a sawtooth.
@@ -163,7 +171,7 @@ float wx_vortex_density(vec3 p,float base) {
 	// Ellipticity matters: rotating a perfectly circular SDF alone does nothing.
 	float radial=length(q*vec2(1.0,1.16))-radius;
 	float capped=max(radial,max(ground-p.y,p.y-top));
-	if(capped>0.025) return 0.0;
+	if(capped>0.5) return 0.0; // The parent collar extends outside the narrow tube.
 	vec3 twisted=vec3(q.x/(radius+0.03),h*3.0,q.y/(radius+0.03));
 	float erosion=(textureLod(cloud_noise,twisted*0.7,1.0).g-0.5)*0.018;
 	float funnel=1.0-smoothstep(-0.012,0.016,capped+erosion);

@@ -238,3 +238,104 @@ generation and the full artistic/year-scale acceptance criteria remain open.
 
 BLOCKED - full Living Sky reference-library acceptance; final candidate
 verification is pending at report assembly and will be recorded on PR54.
+
+## Roof inspection preview — 2026-10-26
+
+REPORT — weather production follow-up and owner-requested roof preview.
+Evidence class remains **INERT**. This is an inspection tool and a bounded
+rendering checkpoint, not acceptance of the complete Living Sky brief.
+
+Branch **codex/v2-weather-production-20261026**, implementation **64c51923**,
+base/main/merge-base **33e2496e**. Work continues in the already-owned
+**C:/ov/v2merge24** checkout; the canonical acoustic work and its outstanding
+changes remain untouched. Named paths only; generated import UIDs and
+line-ending-only imports are excluded. The final candidate verifier renews
+protected-path and gate-board results on the PR, rather than this report
+predicting a PASS. Selector stays V2 with the existing explicit V1 rollback.
+
+The owner requested reversible movement through a full year specifically to
+inspect the newest weather. **RoofWeatherPreview.tscn** composes the actual V2
+world and player controller at an open, collision-bearing roof station. Its
+detached CampaignClock subclass drives both the existing weather manager and
+astronomical director. It wraps November 10, 1928 through November 9, 1929 in
+both directions. It does not advance or rewind the campaign clock, residents,
+inventory, quests, newspaper reading or relationships. This is not general
+campaign time travel. The inspector starts a fresh transient world and disables
+persistence before composing it; standard project autoload validation still
+precedes scene startup. No new save domain or narrative authority is added.
+
+Run from the updated checkout through the shared lane:
+
+```powershell
+pwsh -File tools/lane.ps1 run -Scene res://scenes/building/RoofWeatherPreview.tscn -Runner long -TimeoutSeconds 1500 -Windowed -LogPath C:/ov/reports/roof_weather_interactive.log
+```
+
+W/S moves and scrubs forward/backward at six hours per second; Shift uses four
+days per second, crouch five minutes per second. A/D moves without changing
+time. P holds weather time while movement remains available. Tab/Esc releases
+the pointer and stops walking for the day/hour sliders; repeating restores
+control. PgUp/PgDn steps and wraps individual days; H hides the inspection HUD.
+The close button exits the standalone inspector. Native roof collisions remain;
+leaving the roof/stair opening recovers to its safe station. No full-screen blur
+or extra weather viewport is added. Initial full-world construction remains
+about two minutes on this machine; a loading message distinguishes it from an
+unresponsive finished preview.
+
+**roof_preview_final** completes **30 checks, zero failures**, with empty stderr.
+Actual native W/S/Shift/C/P/Tab/PgUp events exercise movement and controls.
+All 365 detached dates resolve inside the authored calendar; finite denial,
+multiple reverse wraps, final-day sliders, campaign-clock neutrality, actual
+upward/forward clearance and four rendered dates pass. Frame captures were
+visually reviewed: the final initial view faces outward across the city, with
+the close button fully visible. These checks do not prove campaign save/reload
+or whole-world teardown. Other transient world data changes during ordinary
+composition; the test records that fact instead of claiming universal state
+neutrality. Its JSON is explicitly an inert diagnostic, not a ledger receipt.
+
+Matched final 250 held-time frames in **roof_preview_v5** and
+**roof_preview_final** use the same roof/camera/weather/input sequence:
+
+| Held-time sample | wall p50 / p95 / p99 ms | preview update p95 / max ms |
+|---|---|---|
+| Re-publish unchanged date |21.191 /22.582 /23.054|1.168 /1.456|
+| Reuse unchanged publication |20.006 /23.794 /24.765|0.059 /0.109|
+
+The measured change removes redundant weather/astronomy publications while
+held. It is not an overall frame-rate improvement claim: wall p95/p99 increased
+in this pair. Fast date jumps and full-world startup are outside that held-time
+interval; the raw records include their spikes. Render CPU/GPU monitors remain
+overlapping observations, not exclusive attribution to sky work.
+
+Original regression suites pass windowed: **CampaignWeatherTest 406 checks**,
+**WeatherSkyTest zero failures**, **SkyPhenomenaScheduleTest PASS**, and
+**WeatherFlashAccessibilityTest 2/2**. WeatherSky retains the previously known
+**cam_noel_witches** placement warning. Run logs, wrapper receipts, test-written
+diagnostics, selected renders and implementation snapshots are packed into
+**art/reviews/living_sky_20261026/roof_preview_review.zip** (about 2.1 MB, 93
+members), with all member hashes verified in **roof_preview_manifest.json**.
+Final roof captures are original PNGs. Older optical-review thumbnails are
+explicit derived JPEGs with original external PNG paths and hashes, keeping the
+repository to two evidence files rather than dozens of captures.
+
+| Location / reproduction | Severity and evidence | Repair / verification |
+|---|---|---|
+| Showcase bench: jump dates in under one polling interval | Diagnostic correctness: new Sun could be combined with the preceding date's conditions | Reset the existing calendar poll before each shot; snapshot date, conditions and shader uniforms. Earlier captures remain diagnostics, not matched weather comparisons. |
+| Ordinary cloud field: dense little marks across the sky | Visual: high-frequency Worley channel also generated bodies | Use it for erosion, broaden Perlin masses and group small cloud cells into larger families without new texture taps; revised captures reviewed, full artistic qualification remains open. |
+| Scheduled Queens tornado: forked, detached-looking silhouettes | Visual: separate spectacle funnels competed with the deck | Render the scheduled Queens funnel through the main density/light owner at its authored bearing; let its collar extend outside the tube. The legacy renderer retains its existing object path. Further visual refinement remains open. |
+| Nacreous event: saturated bands overwhelmed the dome | Visual: unbounded-looking additive colour and duplicate formation path | Restrain pearl radiance and suppress the duplicate scheduled/daily overlay; dated captures retained. |
+| Roof inspector startup and framing | Two failed starts (parse and incompatible household state), then a tank-obstructed/incorrectly framed view and clipped control panel | Fresh transient composition; typed geometry pose; align view with the building frame; open-sky/forward probes; enlarged panel; final 30-check run and render review. |
+| Inspector teardown | Earlier 27-check run exited zero but stderr reported callbacks into a freed player | Stop review processing before shutdown and guard released player instances; later 30-check runs have empty stderr. Original failures remain in the packet. |
+
+Reader gate: **NEW 0**. Clean merge-base board preserves its existing six ledger
+blocker counts **7/8/110/42/134/136** and known static failures. No requirement
+is promoted by this report. Candidate verification is recorded on the PR after
+the evidence commit. No owner decision blocks this bounded preview.
+
+Open findings: ordinary cloud morphology and extreme formation art still need
+further polish; full daylight/year-scale rendered diversity, occupied weather
+save reconstruction/denial/owned teardown and a renewed matched gameplay route
+remain outside this preview's qualification. The weather-production objective
+is still active; do not describe this checkpoint as completion of that goal.
+
+MERGE-CANDIDATE **64c51923** — bounded roof inspector and weather review fixes;
+full Living Sky production acceptance remains open.
