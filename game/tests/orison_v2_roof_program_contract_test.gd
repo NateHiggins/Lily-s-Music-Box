@@ -4,7 +4,7 @@ extends Node
 const Selector := preload("res://scripts/building/building_root_selector.gd")
 const DRIVERS := [preload("res://tests/orison_v2_roof_program_route_test.gd"),preload("res://tests/orison_v2_roof_lift_program_route_test.gd")]
 const ROOMS := ["ROOF_PUBLIC_CORE", "ROOF_SERVICE_CORE", "ROOF_DECK_WEST", "ROOF_DECK_SOUTH", "ROOF_DECK_NORTH", "ROOF_DECK_MIDDLE", "ROOF_DECK_EAST", "ROOF_DECK_SOUTHEAST", "ROOF_DECK_NORTHEAST"]
-const SOURCES := ["res://tests/orison_v2_roof_lift_program_route_test.gd", "res://tests/orison_v2_roof_program_contract_test.gd", "res://tests/OrisonV2RoofProgramContractTest.tscn", "res://tests/orison_v2_roof_program_route_test.gd", "res://tests/orison_v2_roof_plant_test.gd", "res://tests/orison_v2_lift_drive_test.gd", "res://tests/orison_v2_roof_route_test.gd", "res://tests/roof_tank_hand_test.gd", "res://tests/orison_v2_4b_door_route_test.gd", "res://tests/orison_v2_connected_exterior_route_test.gd", "res://tests/orison_v2_vertical_route_test.gd"]
+const SOURCES := ["res://tests/orison_v2_first_slice_contract_test.gd", "res://tests/orison_v2_roof_lift_program_route_test.gd", "res://tests/orison_v2_roof_program_contract_test.gd", "res://tests/OrisonV2RoofProgramContractTest.tscn", "res://tests/orison_v2_roof_program_route_test.gd", "res://tests/orison_v2_roof_plant_test.gd", "res://tests/orison_v2_lift_drive_test.gd", "res://tests/orison_v2_roof_route_test.gd", "res://tests/roof_tank_hand_test.gd", "res://tests/orison_v2_4b_door_route_test.gd", "res://tests/orison_v2_connected_exterior_route_test.gd", "res://tests/orison_v2_vertical_route_test.gd"]
 var checks: Array[Dictionary] = []
 var legs: Array[Dictionary] = []
 var visited := {}

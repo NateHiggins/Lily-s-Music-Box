@@ -63,6 +63,29 @@ function Clear-OrisonLaneHolder {
     catch {}
 }
 
+function Resolve-OrisonGodot {
+    # A local, hash-pinned backport may repair renderer defects without replacing
+    # the machine's official installation or changing another checkout's engine.
+    if ($env:ORISON_GODOT_EXE) {
+        return (Get-Item -LiteralPath $env:ORISON_GODOT_EXE -ErrorAction Stop).FullName
+    }
+    $manifestPath = Join-Path (Split-Path $PSScriptRoot -Parent) '.godot-engine.json'
+    if (Test-Path -LiteralPath $manifestPath) {
+        $engine = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
+        $binary = Get-Item -LiteralPath $engine.path -ErrorAction Stop
+        if ((Get-FileHash -LiteralPath $binary.FullName -Algorithm SHA256).Hash -ne $engine.sha256) {
+            throw 'Configured Godot engine hash mismatch; rebuild or restore the pinned engine.'
+        }
+        foreach ($entry in $engine.binaries.PSObject.Properties) {
+            if ((Get-FileHash -LiteralPath $entry.Name -Algorithm SHA256).Hash -ne $entry.Value) {
+                throw "Configured Godot companion binary hash mismatch: $($entry.Name)"
+            }
+        }
+        return $binary.FullName
+    }
+    return (Get-Command Godot_v4.7.1-stable_win64_console.exe -ErrorAction Stop).Source
+}
+
 function Write-OrisonRunReceipt {
     param(
         [string]$LogPath,

@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Failed historical diagnostic: identifies leaked fire-rack helper resources; not acceptance. Sources subsequently repaired.",
+  "files": {
+    "surface_repair1.log.gz": {
+      "original_sha256": "c2456b32da10421ffd42c302d1306b657020c7c9c625866bfc2734517bcbec4f",
+      "original_bytes": 1259919
+    },
+    "surface_repair1.log.stderr.gz": {
+      "original_sha256": "b44268a167744c07ba8a33ca1bedbc48f2f8431847e637f9971438d1b993ae23",
+      "original_bytes": 16418
+    },
+    "surface_repair1.log.receipt.json.gz": {
+      "original_sha256": "e1d1a36e7eab4adff4b8452ef27ded924d6cda46da3f435e6cc2779232bfa3b2",
+      "original_bytes": 2840
+    },
+    "runtime_contract.json.gz": {
+      "original_sha256": "107dc4767ef3be847d63d3444c734f17f096f8ebf4d3cfe575ba59dceb67629d",
+      "original_bytes": 1829
+    },
+    "technical_findings.json.gz": {
+      "original_sha256": "6fbaa0b8eeeae2ccb555405c66cdd7a2e0b3f8e792db3165d76a7462b9dd4c5f",
+      "original_bytes": 69385
+    }
+  }
+}

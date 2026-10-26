@@ -75,7 +75,20 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		for draw: MeshInstance3D in original_meshes:
 			check(original_meshes[draw].get_faces().size()/3-draw.mesh.get_faces().size()/3==int(removed[draw]),"bar removes only the exact cabinet-owned triangles and keeps neighbouring scenery")
 		for shape: CollisionShape3D in hulls:
-			check(shape.shape==hulls[shape].next,"bar retains its original collision owner with only cabinet faces removed")
+			var expected: ConcavePolygonShape3D=hulls[shape].next
+			# Main replaces the eight cafe chairs AFTER retiring the cabinets.
+			# Keep the original collision node and verify the exact authored
+			# chair subtraction, rather than requiring an obsolete resource ID.
+			var cafe:=bar.get_node_or_null("BarCafeSeating")
+			if cafe!=null and cafe.get_meta("hull_owner",null)==shape:
+				check(cafe.get_meta("original_hull",null)==expected,"cafe replacement starts with the cabinet-retired hull")
+				var chair_data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(preload("res://scripts/building/orison_v2_bar_cafe_seating.gd").DATA))
+				var triangles: Array=[]
+				for row: Dictionary in chair_data.retirement:
+					if str(row.material)=="hull":triangles.append_array(row.triangles)
+				check(triangles.size()==96,"later chair replacement removes exactly its authored 96 hull triangles")
+				expected=preload("res://scripts/building/orison_v2_bar_receiving.gd")._trim_hull(expected.get_faces(),(shape.get_parent() as Node3D).transform*shape.transform,{"triangles":triangles,"count":96})
+			check(expected!=null and shape.shape is ConcavePolygonShape3D and (shape.shape as ConcavePolygonShape3D).get_faces()==expected.get_faces(),"bar keeps its collision owner and exact hull after cabinet and cafe-chair retirement")
 		check(not original_meshes.is_empty() and not hulls.is_empty(),"bar retirement includes both visual and physical source stock")
 	check(retired>=40,"retirement covers the complete installed shop cabinet row")
 	check(world.get_tree().get_nodes_in_group("arcade_cabinets").is_empty(),"normal passage prefetch cannot respawn retired cabinet actors")

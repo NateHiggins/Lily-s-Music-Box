@@ -1,0 +1,68 @@
+{
+	"checks": 20,
+	"contracts": {
+		"installed_encounter": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"diagnostics": [
+		{
+			"anchor_rejections": [
+				{
+					"detail": "(-14.15, 3.225, -8.650002)",
+					"point": [
+						-15.899998664856,
+						3.0,
+						-8.65000152587891
+					],
+					"reason": "reach_or_player"
+				},
+				{
+					"detail": "/root/MaintenanceTentacleWorldTest/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/WallEastExtension00_00/Collision, /root/MaintenanceTentacleWorldTest/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision, /root/MaintenanceTentacleWorldTest/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/WallEastExtension00_Sill01/Collision, /root/MaintenanceTentacleWorldTest/OrisonV2Runtime/OrisonV2Blockout/ExteriorMasonry/MasonryCollision",
+					"point": [
+						-15.7535524368286,
+						3.0,
+						-9.00355529785156
+					],
+					"reason": "occupied"
+				},
+				{
+					"detail": "",
+					"point": [
+						-15.399998664856,
+						4.09999990463257,
+						-9.15000152587891
+					],
+					"reason": "support"
+				},
+				{
+					"detail": "/root/MaintenanceTentacleWorldTest/OrisonV2Runtime/OrisonV2Blockout/F02_B_RADIATOR_01/WorkingAssembly/PhysicalPitchWedges/SupplyWedgeTrack/SlidingPitchWedge_timber/@StaticBody3D@4085, /root/MaintenanceTentacleWorldTest/OrisonV2Runtime/OrisonV2Blockout/F02_B_RADIATOR_01/WorkingAssembly/PitchedCastings/RigidCastingsCollision, /root/MaintenanceTentacleWorldTest/OrisonV2Runtime/OrisonV2Blockout/F02_B_RADIATOR_01/InstalledRadiatorCollision, /root/MaintenanceTentacleWorldTest/OrisonV2Runtime/OrisonV2Blockout/F02_B_RADIATOR_01/WorkingAssembly/SupplyHandwheel/ManipulationTarget",
+					"point": [
+						-15.0464448928833,
+						3.19999980926514,
+						-9.00355529785156
+					],
+					"reason": "occupied"
+				}
+			],
+			"stance": "(-14.15, 3.225, -8.650002)"
+		}
+	],
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 168.131,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Production V2 composition, installed radiator anchor, actual contact input and local cleanup. Repairable job and standing approach are explicit test preconditions; not campaign progression or full surface acceptance.",
+	"selector": "v2",
+	"source": {
+		"test_path": "game/tests/maintenance_tentacle_world_test.gd",
+		"test_sha256": "9a0218d9ae4e081b752849941272d4e7f65e5a18d95c9195c333db869a869630"
+	}
+}

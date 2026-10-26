@@ -1,0 +1,48 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 704.15,
+  "exit_code": -1,
+  "finished_utc": "2026-10-26T21:45:27Z",
+  "started_utc": "2026-10-26T21:33:43Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'motion_target_angle' in base 'Nil'."
+  ],
+  "stale_cache_lines": [
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'motion_target_angle' in base 'Nil'."
+  ],
+  "stale_cache_suspect": true,
+  "stderr": "C:/ov/tentacle-main/tmp/tentacle_integration/surface.log.stderr",
+  "stderr_sha256": "c05cb544256618646412b7a07bb1489fce2a10799de76f8131d9ee3446e21074",
+  "stdout": "C:/ov/tentacle-main/tmp/tentacle_integration/surface.log",
+  "stdout_sha256": "20bce41daa7f27d5a70552fef6a7d81f25127ee777c3cc0c5756e7bd99371983"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "tmp/tentacle_integration/surface",
+ "source": {
+  "dirty_paths": 2,
+  "dirty_sample": [
+   "M  game/tests/orison_v2_street_crossing_test.gd",
+   "M  tools/orison_spatial_dependency_manifest.json"
+  ],
+  "repository_head": "c61d794a8812b618f7b0ef06c6a6381341a910b3",
+  "repository_tree": "531fbd3358368d68927bd89d9b33e1a203b17e98",
+  "runtime_inputs_sha256": "fb7954eb6b6413c6557a77537e1490f36a39cbdd8509c023e7cd7797f66faf40",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "b2d26ec9d4cfbf95033643482a90f0a0bac8163a7f68d64ca1e33cc9c2de9dd2"
+ },
+ "windowed": true
+}

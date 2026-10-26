@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 8.49,
+  "exit_code": 0,
+  "finished_utc": "2026-10-26T22:07:35Z",
+  "started_utc": "2026-10-26T22:07:26Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/tentacle-main/tmp/tentacle_integration/shadow_fixed.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/tentacle-main/tmp/tentacle_integration/shadow_fixed.log",
+  "stdout_sha256": "c58f4a15d5657ae59562c70fa6890219e22d49252ce291f23533023368a9157f"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/LampSceneShadowTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/tentacle-main/tmp/tentacle_integration/shadow_fixed",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "9257c725ef8b84e2fb63d1e8854445851f8413fa",
+  "repository_tree": "d2516397497d93b435a8d0de5457ec39f45e189b",
+  "runtime_inputs_sha256": "88c78671d97ed50fc76c3dd105c19851cfa42ec26f879a53be058bc25ee5208c",
+  "test_path": "game/tests/lamp_scene_shadow_test.gd",
+  "test_sha256": "231ef0034661730ac071a4bf9bdfb19a458d8f79fd700c0b9d0fe2a9539c159d"
+ },
+ "windowed": true
+}

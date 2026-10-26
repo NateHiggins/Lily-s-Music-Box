@@ -1,0 +1,107 @@
+extends Node
+var failures: Array[String] = []
+var checks := 0
+var started := 0
+var lamp_driver: Node
+var visibility_pixels := 0
+
+func _process(delta: float) -> void:
+	if is_instance_valid(lamp_driver): lamp_driver.advance_frame(delta)
+
+func _ready() -> void: call_deferred("_run")
+
+func _run() -> void:
+	started = Time.get_ticks_msec()
+	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
+	RealityCases._ready()
+	RealityState.data.intro_complete = true
+	RealityState.data.first_shift = {"phase":FirstShiftDirector.PHASE_COMPLETE}
+	GameBoot.launch_mode = GameBoot.LaunchMode.CINEMATIC
+	var selector = preload("res://scripts/building/building_root_selector.gd")
+	selector.reset_for_tests("v2")
+	var packed := load(selector.scene_path()) as PackedScene
+	var world := packed.instantiate() as OrisonV2RuntimeRoot
+	add_child(world)
+	for i in 30: await get_tree().physics_frame
+	_check(not world.startup_failed,"production V2 starts")
+	var bodies := world.find_children("*","DreamCritterController",true,false)
+	var body: DreamCritterController
+	for candidate in bodies:
+		if candidate.companion != null: body = candidate
+	_check(body != null,"production mounts private companion")
+	if body != null:
+		_check(body.companion.specimen_id >= 0 and body.critters.size()==1,"one surface-seated companion")
+		var atmosphere := world.get_node("LampAtmosphere")
+		for material in body.blender_visuals.micro_materials:
+			_check(int(material.get_meta("_lamp_optical_field_owner",0))==atmosphere.field.get_instance_id(),"uses existing waking lamp field")
+		_check(body.find_children("*","CollisionObject3D",true,false).is_empty(),"no NPC physics/perception target")
+		world.work_orders.issue_job("vantry_chirp_2a","reported")
+		body.companion.refresh(1.0)
+		_check(body.companion.target != Vector3.INF,"live work resolves to production fault owner")
+		var durable: Dictionary = RealityState.data.maintenance_jobs.duplicate(true)
+		# Exercise this reader synchronously, so unrelated world authorities
+		# cannot legitimately transition the job between the two observations.
+		for i in 30:
+			body.companion.refresh(.1)
+			if not body.critters.is_empty(): body.companion.steer(body.critters[0],body,.1)
+		_check(durable == RealityState.data.maintenance_jobs,"companion leaves production job state intact")
+		if not body.critters.is_empty():
+			world.player.set_physics_process(false)
+			body.set_physics_process(false)
+			world.player.set_lamp_enabled(true)
+			# Frozen player movement must not freeze the carried lamp's optical
+			# pose before this camera turns toward the actual installed animal.
+			lamp_driver = world.player.lamp_presentation
+			world.player.camera.look_at(body.critters[0].pos)
+			body._push()
+			for i in 30: await RenderingServer.frame_post_draw
+			# Compare body visibility under the same settled filament state.
+			lamp_driver = null
+			var directory := OS.get_environment("SHOT_DIR")
+			if not directory.is_empty():
+				DirAccess.make_dir_recursive_absolute(directory)
+				var shown := get_viewport().get_texture().get_image()
+				shown.save_png(directory.path_join("production_companion.png"))
+				body.visible = false
+				for i in 3: await RenderingServer.frame_post_draw
+				var hidden := get_viewport().get_texture().get_image()
+				hidden.save_png(directory.path_join("production_companion_hidden.png"))
+				var centre := world.player.camera.unproject_position(body.critters[0].pos)
+				for y in range(maxi(0,int(centre.y)-100),mini(shown.get_height(),int(centre.y)+100)):
+					for x in range(maxi(0,int(centre.x)-100),mini(shown.get_width(),int(centre.x)+100)):
+						var a := shown.get_pixel(x,y)
+						var b := hidden.get_pixel(x,y)
+						if absf(a.r-b.r)+absf(a.g-b.g)+absf(a.b-b.b)>.10: visibility_pixels+=1
+				_check(visibility_pixels>32,"installed lamp-revealed companion has visible image contribution")
+				body.visible = true
+				if visibility_pixels<=32:
+					print("TARDI VISIBILITY: pos=",body.critters[0].pos," up=",body.critters[0].up," tall=",body.critters[0].morph.tall," eye=",world.player.camera.global_position," current=",get_viewport().get_camera_3d().get_path()," mask=",world.player.camera.cull_mask," stats=",body.blender_visuals.stats())
+					for micro in body.blender_visuals.micro_materials:
+						print("TARDI FIELD: eye=",micro.get_shader_parameter("micro_pc_eye")," shape=",micro.get_shader_parameter("lamp_volume_shape")," transform=",micro.get_shader_parameter("lamp_world_to_local"))
+					for diagnostic in [8,4,0]:
+						for micro in body.blender_visuals.micro_materials:
+							micro.set_shader_parameter("micro_pc_only",false)
+							micro.set_shader_parameter("micro_diagnostic",diagnostic)
+						for i in 3: await RenderingServer.frame_post_draw
+						get_viewport().get_texture().get_image().save_png(directory.path_join("diagnostic_%d.png" % diagnostic))
+				lamp_driver = null
+	var directory := OS.get_environment("SHOT_DIR")
+	if not directory.is_empty():
+		DirAccess.make_dir_recursive_absolute(directory)
+		var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
+			"scope":"Production V2 companion composition, sole waking optical field binding and read-only work targeting; not full navigation or save reconstruction proof.",
+			"execution":{"completed":true,"exit_code":0 if failures.is_empty() else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},
+			"source":{"test_path":"game/tests/tardigrade_companion_world_test.gd","test_sha256":get_script().source_code.replace("\r\n","\n").sha256_text()},
+			"contracts":{"companion_composition":{"executed":true,"status":"PASS" if failures.is_empty() else "FAIL"}},"checks":checks,"visibility_pixels":visibility_pixels,"failures":failures}
+		FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t"))
+	world.queue_free()
+	for i in 4: await get_tree().process_frame
+	print("TARDIGRADE WORLD: ",failures)
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _check(ok: bool, label: String) -> void:
+	checks += 1
+	if not ok:
+		failures.append(label)
+		push_error(label)
