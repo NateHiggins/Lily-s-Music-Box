@@ -12,6 +12,8 @@ var failures: Array[String] = []
 var _route: Node3D
 var _metres := 0.0
 var _resident := ""
+var _last_walk_time := -1.0
+var _walk_clip_advanced := false
 
 
 func _check(label: String, ok: bool) -> void:
@@ -80,6 +82,7 @@ func _run(world: OrisonV2RuntimeRoot) -> void:
 	for door: DoorProp in _route._doors:
 		if is_instance_valid(door) and door.unit == unit:
 			_check("%s left closed behind them" % door.name, not door.open)
+	_check("native walking animation advances during visible travel", _walk_clip_advanced)
 	await _capture_body(world)
 	_route.force_destination = ""
 
@@ -118,6 +121,13 @@ func _walk(place: String) -> void:
 		await get_tree().create_timer(.5).timeout
 		elapsed += .5
 		var at := actor.global_position
+		var animation: AnimationPlayer = actor._animation_player
+		if actor.visible and at.distance_to(previous) > .01 and animation != null \
+				and animation.is_playing() and "walk" in animation.current_animation.to_lower():
+			var clip_time: float = animation.current_animation_position
+			if _last_walk_time >= 0.0 and absf(clip_time - _last_walk_time) > .01:
+				_walk_clip_advanced = true
+			_last_walk_time = clip_time
 		if at.distance_to(previous) > .8 and actor.visible:
 			failures.append("teleported on the way to " + place)
 		_metres += at.distance_to(previous) if actor.visible else 0.0
