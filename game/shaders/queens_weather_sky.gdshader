@@ -205,7 +205,9 @@ float density_tagged(vec3 p,out float fire) {
     fire=0.0;
     float base=wx_cloud_base();
     float thickness=mix(0.60,3.0,season_weights.z);
-    vec3 advected=wx_cyclone_warp(p-wind_offset);
+    // The cyclone centre is regional/world space. Integrated calendar wind
+    // moves only the sampled texture, never the finite storm's influence area.
+    vec3 advected=wx_cyclone_warp(p)-wind_offset;
     float bottom=base;
     float asperitas=max(wx_formation==1 ? wx_formation_strength : 0.0,spectacle[S_ASPERITAS]);
     if(asperitas>0.0) bottom=mix(base,wx_asperitas_bottom(advected,base),asperitas);

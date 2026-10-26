@@ -91,6 +91,9 @@ func _ready() -> void:
 	camera.global_position = EYE
 	get_viewport().use_taa = true
 	await get_tree().process_frame
+	if OS.get_environment("SKY_CYCLONE_REVIEW")=="1":
+		await _cyclone_review()
+		return
 	if OS.get_environment("SKY_LIBRARY_VIEWER")=="1":
 		_library_viewer()
 		return
@@ -144,29 +147,136 @@ func _library_viewer() -> void:
 	day.value_changed.connect(update);hour.value_changed.connect(update);seed_control.value_changed.connect(update)
 	update.call(0.0)
 
+## Isolate the production warp from all other storm shading. The control uses
+## the same shader/parameters, with only the coordinate warp replaced by identity.
+## This is an optical diagnostic, not a substitute for an occupied-world route.
+func _cyclone_review() -> void:
+	manager.set_process(false);director.set_process(false)
+	_library_date(362,12.0) # November 7, 1929: an actual authored coastal storm.
+	manager.extreme_weather.publish(sky_material,camera.global_position)
+	sky_material.set_shader_parameter("temporal_phase",0.0)
+	var directory:=OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(directory)
+	var code: String=sky_material.shader.code
+	var math_code:=FileAccess.get_file_as_string("res://shaders/queens_weather_math.gdshaderinc")
+	var control_math:=math_code.replace("float angle=weight*","float angle=0.0*weight*")
+	var control_code:=code.replace('#include "res://shaders/queens_weather_math.gdshaderinc"',control_math)
+	var failures: Array[String]=[]
+	if control_math==math_code or control_code==code:failures.append("could not isolate cyclone coordinate warp")
+	var control:=sky_material.duplicate() as ShaderMaterial
+	var control_shader:=Shader.new();control_shader.code=control_code;control.shader=control_shader
+	for uniform: Dictionary in sky_material.shader.get_shader_uniform_list():
+		control.set_shader_parameter(str(uniform.name),sky_material.get_shader_parameter(str(uniform.name)))
+	var cyclone:=float(sky_material.get_shader_parameter("wx_cyclone"))
+	var wind: Vector3=sky_material.get_shader_parameter("wind_offset")
+	if cyclone<=.1 or wind.length()<1000.0:failures.append("fixture must have authored cyclone and accumulated year-scale wind")
+	var views: Array[Dictionary]=[]
+	for pitch: float in [.24,.75]:
+		camera.look_at(EYE+Vector3(-1,pitch,-.3))
+		var images: Array[Image]=[]
+		for material: ShaderMaterial in [control,sky_material]:
+			environment.sky.sky_material=material
+			for frame in 80:await RenderingServer.frame_post_draw
+			var capture:=get_viewport().get_texture().get_image()
+			var name:="cyclone_%s_%s.png"%[str(pitch),"production" if material==sky_material else "identity"]
+			if capture.save_png(directory.path_join(name))!=OK:failures.append("capture "+name)
+			images.append(capture)
+		var error_sum:=0.0;var changed:=0;var count:=0
+		for y in range(0,images[0].get_height()*2/3,4):
+			for x in range(0,images[0].get_width(),4):
+				var a:=images[0].get_pixel(x,y);var b:=images[1].get_pixel(x,y)
+				var difference:=maxf(absf(a.r-b.r),maxf(absf(a.g-b.g),absf(a.b-b.b)))
+				error_sum+=difference;count+=1
+				if difference>.01:changed+=1
+		views.append({"pitch":pitch,"mean_max_channel_difference":error_sum/count,"fraction_changed_over_01":float(changed)/count})
+	FileAccess.open(directory.path_join("cyclone_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"production cloud density versus identity coordinate-warp control, same authored storm and year-scale transport; no gameplay performance or runtime qualification",
+		"date":clock.datetime_string(),"cyclone":cyclone,"wind_km":[wind.x,wind.y,wind.z],"views":views,"failures":failures,
+		"shader_sha256":FileAccess.get_sha256("res://shaders/queens_weather_sky.gdshader")},"\t"))
+	print("CYCLONE OPTICAL REVIEW: %d views, %d failures"%[views.size(),failures.size()])
+	get_tree().quit(0 if failures.is_empty() else 1)
+
 func _library_year() -> void:
 	manager.set_process(false)
 	var directory:=OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(directory)
-	var atlas:=Image.create(1280,1440,false,Image.FORMAT_RGB8)
+	# One row per day, six columns in solar order. Small review thumbnails keep
+	# the full-year survey bounded; the interactive roof remains full resolution.
+	var atlas:=Image.create(960,1440,false,Image.FORMAT_RGB8)
 	var rows: Array[Dictionary]=[];var failures: Array[String]=[]
+	var diversity: Dictionary={"genera":{},"arrangements":{},"regimes":{},"coverage_bins":{},"light_and_genus":{},"signatures":{}}
+	var replay_states: Dictionary={}
+	var labels: Array[String]=["dawn","morning","solar_noon","afternoon","dusk","night"]
 	for day_index in 365:
-		_library_date(day_index,12.0)
-		for frame in 24:await RenderingServer.frame_post_draw
-		var image:=get_viewport().get_texture().get_image()
-		image.resize(320,180,Image.INTERPOLATE_LANCZOS)
-		var slot:=day_index%32
-		if slot==0:atlas.fill(Color(.025,.025,.025))
-		atlas.blit_rect(image,Rect2i(0,0,320,180),Vector2i((slot%4)*320,(slot/4)*180))
-		rows.append({"day":day_index,"date":clock.datetime_string(),"state":manager.atmosphere_state.duplicate(true),"source":manager.source})
-		if manager.source!="campaign-calendar":failures.append("non-calendar source day %d"%day_index)
-		if slot==31 or day_index==364:
-			var path:=directory.path_join("year_%02d.png"%(day_index/32))
+		var hours:=_daylight_hours(day_index)
+		var samples: Array[Dictionary]=[]
+		if day_index%16==0:atlas.fill(Color(.025,.025,.025))
+		for slot in hours.size():
+			_library_date(day_index,hours[slot])
+			sky_material.set_shader_parameter("temporal_phase",0.0)
+			for frame in 24:await RenderingServer.frame_post_draw
+			var image:=get_viewport().get_texture().get_image()
+			image.resize(160,90,Image.INTERPOLATE_LANCZOS)
+			atlas.blit_rect(image,Rect2i(0,0,160,90),Vector2i(slot*160,(day_index%16)*90))
+			var state: Dictionary=manager.atmosphere_state.duplicate(true)
+			var sun: Vector3=sky_material.get_shader_parameter("sun_direction")
+			var features:=_composition_features(image)
+			samples.append({"period":labels[slot],"date":clock.datetime_string(),"sun_elevation_degrees":rad_to_deg(asin(sun.y)),"state":state,"source":manager.source,"appearance":features})
+			if manager.source!="campaign-calendar" or state.is_empty():failures.append("missing calendar atmosphere day %d %s"%[day_index,labels[slot]])
+			if slot in [1,2,3] and sun.y<=0:failures.append("daylight sample below horizon day %d %s"%[day_index,labels[slot]])
+			if slot==5 and sun.y>=0:failures.append("night sample above horizon day %d"%day_index)
+			_tally(diversity.regimes,str(state.get("regime","")))
+			_tally(diversity.coverage_bins,str(clampi(int(float(state.get("combined_coverage",0))*5),0,4)))
+			_tally(diversity.signatures,str(features.signature))
+			for layer: Dictionary in state.get("layers",[]):
+				if float(layer.coverage)<=.03:continue
+				_tally(diversity.genera,str(layer.genus));_tally(diversity.arrangements,str(layer.arrangement))
+				_tally(diversity.light_and_genus,labels[slot]+":"+str(layer.genus))
+			if day_index%30==0 and slot==2:replay_states[day_index]=state
+		rows.append({"day":day_index,"hours":hours,"samples":samples})
+		if day_index%16==15 or day_index==364:
+			var path:=directory.path_join("year_%02d.png"%(day_index/16))
 			if atlas.save_png(path)!=OK:failures.append("capture "+path)
 			print("LIVING SKY GALLERY day %d/365"%(day_index+1))
+	# Return in reverse order. Geometry state must not depend on traversal order,
+	# scene uptime, the preceding day's weather, or how many frames were rendered.
+	var replay_days: Array=replay_states.keys();replay_days.reverse()
+	for day_index: int in replay_days:
+		_library_date(day_index,_daylight_hours(day_index)[2])
+		if manager.atmosphere_state!=replay_states[day_index]:failures.append("reverse-date field reconstruction day %d"%day_index)
 	FileAccess.open(directory.path_join("annual_gallery.json"),FileAccess.WRITE).store_string(JSON.stringify({
-		"evidence_class":"INERT","scope":"365 noon renders over production city-horizon bench; no occupied-world, full-day or human acceptance", "seed":manager._seed_value(),"calendar_sha256":FileAccess.get_sha256("res://data/weather/campaign_weather.json"),"days":rows,"failures":failures},"\t"))
+		"evidence_class":"INERT","scope":"365 days, six solar-relative periods each, production sky over city-horizon bench; appearance signatures describe fixed upper-frame luminance, not a cloud segmentation or measured cloud-cover mask. No occupied-world save/rebuild, performance or human acceptance.",
+		"seed":manager._seed_value(),"periods":labels,"samples":365*labels.size(),"reverse_date_replays":replay_days.size(),"calendar_sha256":FileAccess.get_sha256("res://data/weather/campaign_weather.json"),"diversity":diversity,"days":rows,"failures":failures},"\t"))
+	print("LIVING SKY ANNUAL REVIEW: %d samples, %d reverse-date replays, %d failures"%[365*labels.size(),replay_days.size(),failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _daylight_hours(day_index: int) -> PackedFloat64Array:
+	var civil:=Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")+day_index*86400
+	var rise:=0.0;var setting:=24.0;var peak:=-1.0;var noon:=12.0;var previous:=-1.0
+	for quarter in 97:
+		var hour:=float(quarter)*.25
+		var utc:=Time.get_datetime_dict_from_unix_time(civil+int(hour*3600)+300*60)
+		var elevation:=CelestialEphemeris.sun_direction(utc,40.75,-73.92).y
+		if quarter>0 and previous<=0 and elevation>0:rise=hour-.25+.25*(-previous)/(elevation-previous)
+		if quarter>0 and previous>0 and elevation<=0:setting=hour-.25+.25*previous/(previous-elevation)
+		if elevation>peak:peak=elevation;noon=hour
+		previous=elevation
+	var span:=setting-rise
+	return PackedFloat64Array([maxf(0,rise-.25),rise+span*.18,noon,rise+span*.82,minf(23.99,setting+.25),23.0])
+
+func _tally(table: Dictionary,key: String) -> void: table[key]=int(table.get(key,0))+1
+
+func _composition_features(image: Image) -> Dictionary:
+	var signature:=PackedByteArray();var mean:=Vector3.ZERO;var luminance:=0.0;var square:=0.0
+	# Fixed upper two thirds, sampled sparsely. This is a reproducible image
+	# descriptor; repeated overcast signatures are observations, never failures.
+	for row in 8:
+		for column in 16:
+			var color:=image.get_pixel(column*10+5,row*7+3)
+			var value:=color.get_luminance()
+			mean+=Vector3(color.r,color.g,color.b);luminance+=value;square+=value*value
+			signature.append(clampi(int(value*31),0,31))
+	return {"mean_rgb":[mean.x/128,mean.y/128,mean.z/128],"luminance_stddev":sqrt(maxf(0,square/128-pow(luminance/128,2))),"signature":signature.hex_encode().sha256_text()}
 
 
 func _shoot(id: String, entry: Dictionary, fraction: float, label: String) -> void:

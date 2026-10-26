@@ -25,6 +25,7 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(output)
 	for sample: Dictionary in [{"name":"august_hail","year":1929,"month":8,"day":6,"minute":900},
 		{"name":"september_cloud","year":1929,"month":9,"day":19,"minute":1080},
+		{"name":"november_coastal_storm","year":1929,"month":11,"day":7,"minute":720},
 		{"name":"christmas_snow","year":1928,"month":12,"day":24,"minute":1260}]:
 		world.campaign_clock.configure_date(int(sample.year),int(sample.month),int(sample.day),int(sample.minute))
 		manager._process(1.0)
@@ -35,10 +36,12 @@ func run() -> void:
 		check(manager.source=="campaign-calendar","production calendar owner: "+str(sample.name))
 		var expected:=Service.presentation(CampaignWeather.snapshot(world.campaign_clock.local_datetime()))
 		check(int(manager.current.weather_code)==int(expected.weather_code),"sky consumes the actual civil date: "+str(sample.name))
+		if sample.name=="november_coastal_storm":
+			check(manager.extreme_weather.cyclone>.1,"coastal-storm fixture has nonzero authored cyclone")
 		var path:=output.path_join(str(sample.name)+".png")
 		check(get_viewport().get_texture().get_image().save_png(path)==OK,"calendar-world capture: "+str(sample.name))
 		captures.append({"date":world.campaign_clock.datetime_string(),"source":manager.source,
-			"conditions":manager.current.duplicate(true),"file":path})
+			"conditions":manager.current.duplicate(true),"cyclone":manager.extreme_weather.cyclone,"file":path})
 	FileAccess.open(output.path_join("calendar_world_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","scope":"occupied world, production calendar weather, static cinematic camera and accelerated effect settling; no performance or played-route qualification",
 		"calendar_sha256":FileAccess.get_sha256(CampaignWeather.PATH),"captures":captures,"failures":failures},"\t"))
