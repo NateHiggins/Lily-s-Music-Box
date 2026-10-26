@@ -1,0 +1,61 @@
+{
+  "scope": "Tentacle implementation and source snapshots for the passing focused and installed runtime contracts. Shared world shutdown emits a seven-texture-RID warning; full surface acceptance is not claimed.",
+  "files": [
+    {
+      "path": "game/shaders/tentacle_gang_deform.gdshaderinc",
+      "sha256_lf": "0e7f26d7f083a7b516ba61a6446af7ca965a68bbd08de1037be7b1f24d274301"
+    },
+    {
+      "path": "game/shaders/tentacle_gang_eye.gdshader",
+      "sha256_lf": "7acc60e09eca4eb8595508fcdc34678332eac2392950faf9d9f7c621738e4673"
+    },
+    {
+      "path": "game/shaders/tentacle_gang_haze.gdshader",
+      "sha256_lf": "ab8852a684efb4f3a005635e2ec51ce26847c3871bf767efa6f30b0ed8464ca0"
+    },
+    {
+      "path": "game/shaders/tentacle_gang_medium.gdshader",
+      "sha256_lf": "4582fa70bf2e503f7d5b0e1c247cd765167aac8c6cdb80cace94694a7a2d880b"
+    },
+    {
+      "path": "game/shaders/tentacle_gang_membrane.gdshader",
+      "sha256_lf": "351144ea98f6a683f156bbe10589a96584c1097405e6e2a0609142f4bce6df93"
+    },
+    {
+      "path": "game/shaders/tentacle_gang_tissue.gdshader",
+      "sha256_lf": "37f1573b62280bb7fff838261db3612f74bca71dd6b7eb619664aa2bffe2ead1"
+    },
+    {
+      "path": "game/scripts/dream/entity/maintenance_tentacle_gang.gd",
+      "sha256_lf": "09306c7607494141c546a447c1bcf8fcb282cfdcf990613cf3217de1c06f727b"
+    },
+    {
+      "path": "game/scripts/dream/entity/maintenance_tentacle_observer.gd",
+      "sha256_lf": "71a92dc6c8bd377e8766fdb0aca8571f2d7a0bc15e15c5bb904134194534aa1d"
+    },
+    {
+      "path": "game/scripts/dream/entity/tentacle_gang_audio.gd",
+      "sha256_lf": "3d30b2b50f419f4f78a8bafef09d1fa1c8627a081a268353b85e456d72795892"
+    },
+    {
+      "path": "game/tests/maintenance_tentacle_gang_test.gd",
+      "sha256_lf": "0a8c5cd3d58dda022192dadd9c9d9525701c7bc9498790396dfed48ab4ee1da2"
+    },
+    {
+      "path": "game/tests/maintenance_tentacle_test_hand.gd",
+      "sha256_lf": "0e0f1d5e93f935328f388c40775cf5978dd8ce80c3521c0162c0e3968c49ec4d"
+    },
+    {
+      "path": "game/tests/maintenance_tentacle_world_test.gd",
+      "sha256_lf": "3f262572c20ca332e95dc2a3eb52c5cc0dcc245745486b80cbf66d288524d943"
+    },
+    {
+      "path": "art/blender/scripts/build_tentacle_gang.py",
+      "sha256_lf": "6481c8e52adcfd8a5d89f3f05b86924038c67ae35c90834cf0a32258825c3635"
+    },
+    {
+      "path": "art/tools/build_tentacle_gang_maps.py",
+      "sha256_lf": "57c4eb9d10754efc47bd65be852c9b6282551e499f8c1d0d11ffaca9ae89eb48"
+    }
+  ]
+}
