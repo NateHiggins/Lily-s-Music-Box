@@ -1,6 +1,6 @@
 {
   "evidence_class": "INERT",
-  "scope": "INERT annual sky, motion, funnel, pointer restoration and occupied-calendar optical diagnostics; no native manipulation, weather disk-save/teardown or human acceptance.",
+  "scope": "INERT annual sky and audited noncapturing lifecycle diagnostics. Includes original failures and partial observations; no complete lifecycle PASS, native input, performance or human acceptance claim.",
   "members": [
     {
       "name": "annual/annual_gallery.json",
@@ -3771,10 +3771,423 @@
       "name": "world_pointer/limitations.json",
       "sha256": "506f31303260cb144453336fc94f39665c67e0bf3b569099afc21fc44daae393",
       "bytes": 1764
+    },
+    {
+      "name": "weather_lifecycle/wip/audit/baseline4dec/board.json",
+      "sha256": "616195ea678b5533fedf3f95815964ad563f96c88fe9521fed8bbbd8c043cf80",
+      "bytes": 132030,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\baseline4dec\\board.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/audit/gates_final/board.json",
+      "sha256": "355c11f518ea706eb7b37861c37546dee612d02da255dba6cf06129910fae925",
+      "bytes": 132550,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\gates_final\\board.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/audit/noncapturing_sources.json",
+      "sha256": "d26e9a545621e7812b2a29a2e414e39806577387f8fdc2699a4f294749e07f39",
+      "bytes": 347792,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\noncapturing_sources.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/audit/run_noncapturing.ps1",
+      "sha256": "183881f9d7dcc245d64dfc03cb05479c03d76de3738c78c78841df6bd355b4dd",
+      "bytes": 11319,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\run_noncapturing.ps1",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/custody_v3.log",
+      "sha256": "4018e24c9b757e0b9b56c96366f8625e37872ea56ec448d4f570275f676d7941",
+      "bytes": 832,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\custody_v3.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/custody_v3.log.receipt.json",
+      "sha256": "535c68f4ad91bfaa537031ce6e8e0eafd32156d5ae179f3c43b648a32e8b6286",
+      "bytes": 1786,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\custody_v3.log.receipt.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/custody_v3.log.stderr",
+      "sha256": "38de8241e3b14dfa28f79d02324cef7c65fc0248e579a71e1625aba7062de49a",
+      "bytes": 249,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\custody_v3.log.stderr",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/opening_live.log.isolated.json",
+      "sha256": "9ebd6a79c4e25958eed7613b20846bf08b034049fd5be820bbf69af3e5348bc9",
+      "bytes": 1410,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\opening_live.log.isolated.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/opening_live.log.isolated.log",
+      "sha256": "da293fc2340693c4941e8164fb578d14f45077f7aac5b26249acc83d2431af93",
+      "bytes": 2804,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\opening_live.log.isolated.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual.log",
+      "sha256": "0668b98cf86f7aca7f02471518d54560f0cee61c9e5b2457ef5846600768eb81",
+      "bytes": 2038,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual.log.receipt.json",
+      "sha256": "4bffc469eace6c93c7b0fad371e283a4b0dc16ca539056e29c26a760af7fb7a8",
+      "bytes": 1851,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual.log.receipt.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual.log.stderr",
+      "sha256": "6a3a7428051b4ef7e5a7626e6b1745010ff58891827a9b66f76fb3ea9a8835fb",
+      "bytes": 242,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual.log.stderr",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual_v2.log",
+      "sha256": "0668b98cf86f7aca7f02471518d54560f0cee61c9e5b2457ef5846600768eb81",
+      "bytes": 2038,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_v2.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual_v2.log.receipt.json",
+      "sha256": "34cf68e20d89ff10728965313a54046d30c285d9afc7634cdfa5696849ae8667",
+      "bytes": 1860,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_v2.log.receipt.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual_v2.log.stderr",
+      "sha256": "df862e146917a79115befdf41e3ae7b23c1dee8bf7b687cf6ee3891f3b02f14f",
+      "bytes": 777,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_v2.log.stderr",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual_v3.log",
+      "sha256": "6e0a5b8b17c60bd85bfaf84a95bda0c3f18ebc9e793321e93e1bb7654a0cbe86",
+      "bytes": 2036,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_v3.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual_v3.log.receipt.json",
+      "sha256": "87451d6aa5da07ea69b15e9122f8376e4357c37b4df1b2db1f7d23e38ca8dff5",
+      "bytes": 1780,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_v3.log.receipt.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual_v3.log.stderr",
+      "sha256": "3afa674b902e8c5c8b711e0e33c551ea8cac0843c905eb4cb6e8d08bc29e7777",
+      "bytes": 249,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_v3.log.stderr",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual_verbose.log",
+      "sha256": "d0885aa0fcc43c5f9821800004187672045e8800aa21c37a9c33025607b6a145",
+      "bytes": 7621,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_verbose.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual_verbose.log.receipt.json",
+      "sha256": "60fdc74d66accc473adb8171d81f81a479465ce8df3d7a63dae4093c1c11bc70",
+      "bytes": 1847,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_verbose.log.receipt.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/ritual_verbose.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_verbose.log.stderr",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v1.log",
+      "sha256": "680348430577a803de2e97915e6bea5220540b2b9cf3475751f4550a95006af7",
+      "bytes": 5845,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v1.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v1.log.isolated.json",
+      "sha256": "ed86903b26440a42491885cee2185ac51dc9e8013bb3f9a816cf2fbea2171dd6",
+      "bytes": 1022,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v1.log.isolated.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v1.log.isolated.log",
+      "sha256": "b6c97f6d7d199c27be41650aa1822f942f94a398ce69de971307834b7f3a04f5",
+      "bytes": 59,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v1.log.isolated.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v1.log.receipt.json",
+      "sha256": "3bcc663c0e7b5edc7beb87bf94ee0479bb68ff0dc887e1815b4844d9499b1a76",
+      "bytes": 4078,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v1.log.receipt.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v1.log.stderr",
+      "sha256": "b87a3aa008a9a8d0ed69ed586d079c7cd5ef2881e2546951b633d5bf6e2decad",
+      "bytes": 1838,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v1.log.stderr",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v2.log",
+      "sha256": "52b13cd4435e807976bfa85855c68887e9e8efa5c8d0e05d7bd8d0bf1633c5db",
+      "bytes": 3259,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v2.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v2.log.isolated.json",
+      "sha256": "369b921918c664c098ae85dedfa8496c567715c384fa3bc4152e46aee46b6781",
+      "bytes": 1024,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v2.log.isolated.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v2.log.isolated.log",
+      "sha256": "052be3413237581587c307c5b1bf676bc68300b648419aa59e989f1cf185eda8",
+      "bytes": 60,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v2.log.isolated.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v2.log.receipt.json",
+      "sha256": "a5d76001a18b3f73a08cd4f35e93e40cb0a93325b73abc800dc1427c551efd47",
+      "bytes": 3205,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v2.log.receipt.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v2.log.stderr",
+      "sha256": "03681ae11b6f0d8df1e0fa4adad40ccf7dea62b079326bd80d3124aa4b0c6164",
+      "bytes": 591,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v2.log.stderr",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v3.log",
+      "sha256": "348fb9d2d0911a5e2a8c9182fa75bbb6b2469d2fd7a822b70d4f58621fbb15f8",
+      "bytes": 7486,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v3.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v3.log.isolated.json",
+      "sha256": "b1087f64456c41ae8602ba031d85a2f571fab69dfd765c0191c2e686396a5646",
+      "bytes": 1022,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v3.log.isolated.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v3.log.isolated.log",
+      "sha256": "b6c97f6d7d199c27be41650aa1822f942f94a398ce69de971307834b7f3a04f5",
+      "bytes": 59,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v3.log.isolated.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v3.log.receipt.json",
+      "sha256": "87adc5126eb7a6a61a8a1e8dafb5e9bf266115073d16f56425030c07270866e3",
+      "bytes": 4485,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v3.log.receipt.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v3.log.stderr",
+      "sha256": "7105abbd7e2a29a5a2c3f8898396cf637a0e87edd22a77cfad08a3906f1f74ed",
+      "bytes": 805,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v3.log.stderr",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v4.log.isolated.json",
+      "sha256": "8e8e2f6c99951fa380f0048c7c058a3f2dd3d902730ebfc65891bc7df61f43b2",
+      "bytes": 1033,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v4.log.isolated.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v4.log.isolated.log",
+      "sha256": "42cd2ce7fc017a1b1b085e896c90792c4572a6df2fa004443f49437211be5f37",
+      "bytes": 2748,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v4.log.isolated.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v5.log",
+      "sha256": "360d104a036465ce017feca51065f5653ce7f90b6212972ed330390889eb942e",
+      "bytes": 6693,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v5.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v5.log.isolated.json",
+      "sha256": "371b2ecfe76c6fff634cf5313664baffe661a61b6264c5b395213845e69fef69",
+      "bytes": 1211,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v5.log.isolated.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v5.log.isolated.log",
+      "sha256": "addded9d2a46650904d30c51c498e933bdd1bd8d12ba6f16dab20a3b923d6304",
+      "bytes": 2923,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v5.log.isolated.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v5.log.receipt.json",
+      "sha256": "1a686ebe3a33ec788957669addb7456d86744ce5b0f985b72233847c00bdc5a0",
+      "bytes": 4908,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v5.log.receipt.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v5.log.stderr",
+      "sha256": "cc19585b960dc7fde685269a446a380f413c817015e219d93854dec92fce59d7",
+      "bytes": 805,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v5.log.stderr",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v6.log",
+      "sha256": "1082a4430087b28989ca392894836da422a051cb5821ab9abb29e1786efbdd27",
+      "bytes": 8257,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v6.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v6.log.isolated.json",
+      "sha256": "5cc47180e94af3505d0c91090095fa90fbae265ec2319e26a82bdd6935dffd29",
+      "bytes": 1022,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v6.log.isolated.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v6.log.isolated.log",
+      "sha256": "b6c97f6d7d199c27be41650aa1822f942f94a398ce69de971307834b7f3a04f5",
+      "bytes": 59,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v6.log.isolated.log",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v6.log.receipt.json",
+      "sha256": "e784562241b8bcd2948b46ecc13c94cffbfd8dd2155e63674cb0c675f6517ab4",
+      "bytes": 4909,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v6.log.receipt.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/logs/world_v6.log.stderr",
+      "sha256": "4d2709d3b39f9e28365457fdb20bc4958d1d606f911677c285610ca091334423",
+      "bytes": 805,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v6.log.stderr",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/source/game/scripts/building/WeatherManager.gd",
+      "sha256": "f78148cf69430cf4d7ef23a9b4cf445506b7a70b6ae9036952a353aa8c71cafb",
+      "bytes": 21980,
+      "source": "C:\\ov\\v2merge24\\game\\scripts\\building\\WeatherManager.gd",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/source/game/scripts/game/first_shift_director.gd",
+      "sha256": "32ea3bf14a083814831df4ace0a4c2860c0f126bbfabee45f2f982df8f5a7cd6",
+      "bytes": 16520,
+      "source": "C:\\ov\\v2merge24\\game\\scripts\\game\\first_shift_director.gd",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/source/game/tests/campaign_weather_world_review.gd",
+      "sha256": "9e13c4d6f73325dca6f1b5a8860183839abe4776bfc26a28f897bd6300ff487c",
+      "bytes": 18095,
+      "source": "C:\\ov\\v2merge24\\game\\tests\\campaign_weather_world_review.gd",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/source/game/tests/first_shift_opening_live_test.gd",
+      "sha256": "eb4905c11f52daa1292d4542a8099a1654659d899cadfb6d35b4b147da3ad14b",
+      "bytes": 6820,
+      "source": "C:\\ov\\v2merge24\\game\\tests\\first_shift_opening_live_test.gd",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/source/game/tests/first_shift_ritual_test.gd",
+      "sha256": "67e33d7feb8fe046d8d33c09ef843e1e34c1c85fe47c9a7f1d800094c6099874",
+      "bytes": 6415,
+      "source": "C:\\ov\\v2merge24\\game\\tests\\first_shift_ritual_test.gd",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/world_v1/weather_lifecycle_contract.json",
+      "sha256": "5107c915108c02784b30845c74b2975a827b6e81cd513894db86c8e85e670a5f",
+      "bytes": 9896,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v1\\weather_lifecycle_contract.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/world_v3/weather_lifecycle_contract.json",
+      "sha256": "c7c318691c8bde8cd0f4b69cd6f99f2727713a1f393596027f44f840947fceb1",
+      "bytes": 14672,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v3\\weather_lifecycle_contract.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/world_v5/weather_lifecycle_contract.json",
+      "sha256": "1e7131740aee565ba32a6a1a56f1975f9f91b93afdde734d4c452baeec6a8315",
+      "bytes": 15168,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v5\\weather_lifecycle_contract.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/world_v6/lifecycle_0.png",
+      "sha256": "62615b059e426abf993ba4f5131c37c7351eaf6393bf50dae297071ee4c3c634",
+      "bytes": 323113,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v6\\lifecycle_0.png",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/world_v6/lifecycle_1.png",
+      "sha256": "aa634255ef2b9b50ad8246664aa7c560f1926a38f27063d8f9930fee55b8e555",
+      "bytes": 339290,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v6\\lifecycle_1.png",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/wip/world_v6/weather_lifecycle_contract.json",
+      "sha256": "040d7f3005604e668aa433f719cf41cca9e9f1765b14a82abd04b62d58648673",
+      "bytes": 18597,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v6\\weather_lifecycle_contract.json",
+      "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
     }
   ],
-  "archive_sha256": "633b517f3f27aae408bbb37cfe0a2a82ebb50119f1a2f734a33138a8aab2e2f2",
-  "archive_bytes": 25721547,
+  "archive_sha256": "2d1e5aeb8e3b5c20e6cecf7200b87784e28429cf1e7c6d5eef9ededb152cb661",
+  "archive_bytes": 26640694,
   "previous_checkpoint_archive_sha256": "cdaf921dbc5baa4b10beb23e1afe63905599dacd2e3f4ce5f86af0b40294a201",
   "previous_checkpoint_archive_bytes": 22695933,
   "archive_history": [
@@ -3801,6 +4214,10 @@
     {
       "sha256": "cdaf921dbc5baa4b10beb23e1afe63905599dacd2e3f4ce5f86af0b40294a201",
       "bytes": 22695933
+    },
+    {
+      "sha256": "633b517f3f27aae408bbb37cfe0a2a82ebb50119f1a2f734a33138a8aab2e2f2",
+      "bytes": 25721547
     }
   ]
 }

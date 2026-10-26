@@ -29,8 +29,10 @@ func _ready() -> void:
 	_check(root.work_orders.job_stage(JOB) == "missing"
 			and register.call("presented_job_id") == "",
 			"before clock-in neither coordinator nor register manufactures a report")
+	var pointer_before:=Input.mouse_mode
 	_check(root.first_shift_director.begin_first_shift(),
 			"the production first-shift owner commits the arrival")
+	_check(Input.mouse_mode==pointer_before,"a background production world places its player without capturing the pointer")
 	_check(root.objective_tracker._objective.text.contains("Cross to the Orison lobby")
 			and root.objective_tracker._objective.text.contains("watchman's detector"),
 			"the first production objective walks the player from curb to clock")

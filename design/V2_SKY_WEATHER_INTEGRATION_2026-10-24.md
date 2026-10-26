@@ -842,3 +842,52 @@ Still required: full native manipulation and matched movement/turning/cell/
 furnishing/grab/inspection performance routes, validated weather disk save and
 rebuild/denial, owned teardown, preview retirement, broader cloud art and the
 remaining V2 scope. **PR 57 remains draft and unmerged.**
+
+## October 26 — background input ownership and first weather publication (WIP)
+
+The earlier draft status above is historical: PR 57 was merged as **4dec20aa**.
+This continuation starts from that exact main in the isolated short worktree;
+the canonical acoustic-topology contributor's dirty tree is untouched.
+
+| Location / reproduction | Severity and evidence | Repair | Verification |
+|---|---|---|---|
+| Arrival restoration in an inactive child world with an arrived save | Input ownership defect: placement unconditionally requested global cursor capture | Require the actual standalone scene or CampaignShell active world, and refuse while paused; retain placement, facing and collision work | Actual V2 arrived-save worlds retain the initial pointer mode. Ritual owner assertions pass. Active captured-input startup remains outside mouse-safe qualification |
+| First WeatherManager publication before its first process callback | Presentation consistency defect: actual disk/rebuild comparison differs by missing **dust** and **phenomena** keys; fractional clock, transport, storm uniforms and issued timeline already match | Resolve the existing schedule and publish its existing shader arrays before the first conditions publication; no additional per-frame scan | Actual two-world runs **world_v5** and **world_v6** compare weather exactly, including wetness. Their overall contracts fail on the fixture's raw numeric-type comparison and are not promoted |
+| Nonempty campaign authority fixture | Test defect: Godot Dictionary equality treats original integer counters and JSON-loaded floating counters as different | Compare exact full-precision persisted JSON values; keep all fields, flags, arrays and numerical values | **world_v6** records saved, loaded and rebuilt snapshots. Independent comparison proves all three JSON records equal. Corrected **world_v7** and original regressions are queued; no final lifecycle PASS yet |
+
+The complete 113-check static board in **weather_lifecycle27/gates_final**
+reports zero regressions against clean main **4dec20aa**, zero NEW unread
+fields and unchanged ledger counts **7 / 8 / 110 / 42 / 134 / 136**. The latest
+change to the test's numeric comparison still requires candidate verification.
+No space, runtime or human-acceptance status is promoted.
+
+Keep the failures: **world_v1** wrongly assumed V2 installed V1's ambient
+soundscape; **world_v2** attempted an editor-only global-uniform getter and was
+explicitly stopped after that diagnostic aborted. Neither is qualification.
+**world_v3** isolates the incomplete first publication; **world_v5/v6** retain
+the exact raw numeric-type mismatch. Their failing contracts remain unchanged.
+The earlier ritual/custody Dummy-audio runs also retain their exit resource
+warnings (six/four ObjectDB instances and two resources); a later verbose ritual
+passes with empty stderr, which does not explain or close that discrepancy.
+
+The partial teardown observations count **36 weather nodes and 50 resources**
+across two actual worlds, with zero tracked survivors. Four camera-owned GPU
+emitters are included per world; exact process noise/catalogue material IDs and
+imported resources are separately borrowed. There are no observed audio
+playbacks in these weather subtrees; V2 does not install V1's roof ambience bed.
+This is not whole-game audio teardown, RenderingServer allocation accounting,
+or a successful complete runtime contract while an assertion still fails.
+
+The existing archive now contains **622 hash-verified members, 26,640,694 bytes**;
+all previous 563 member bytes remain exact. Original logs, wrapper and test-written
+receipts, raw cursor observations, failed snapshots, source and clean-main board
+are retained without adding repository files. External originals and the live
+qualification queue are under **C:/ov/reports/weather_lifecycle27**. Never rerun
+the WIP packing script against the extended archive unchanged.
+
+Current status: **not merge-qualified**. Final windowed lifecycle, opening and
+weather regressions, candidate verification and rendered comparison remain
+pending. Native grabs/inspection, roof-preview capture/retirement, matched
+movement performance, broader sky art and the rest of V2 remain open. The
+private desktop is window isolation only; capture, confinement and cursor-warp
+scenes stay held. Decision needed from owner: none for the queued reversible work.
