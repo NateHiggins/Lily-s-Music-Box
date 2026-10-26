@@ -941,3 +941,46 @@ one shared-lane acquisition and remain queued behind other live work. Final
 candidate verification and merge remain pending. The full goal, native input,
 preview retirement, matched movement/interaction performance, broader sky art
 and other outstanding V2 work remain open; no ledger status is promoted.
+
+## October 26 — original regressions renewed and fixture defects repaired
+
+The queued original batch is now executed. All six windowed suites pass:
+**FirstShiftOpeningLiveTest 25 checks**, **CampaignWeatherTest 427**,
+**SkyPhenomenaScheduleTest 22**, **WeatherFlashAccessibilityTest 2/2**,
+**NewspaperTest 33**, and **WeatherSkyTest 56**. Their wrapper receipts all
+bind to the current sources. Opening/legacy-world stderr retains the known
+**cam_noel_witches** placement warning; the other four stderr files are empty.
+The actual April 16, 1929 newspaper PNG was inspected: the WEATHER DESK,
+issued observation, current prediction and previous dispatch are readable.
+These owner/legacy-control regressions do not prove RUL-013 hand interaction.
+
+| Location / reproduction | Severity / evidence | Repair | Verification |
+|---|---|---|---|
+| Opening-world objective checks | Diagnostic defect: four assertions read a disabled HUD Label while the objective owner deliberately supplies messages through **supplied_body** | Retain the exact authored clauses and compare the public message supplied to the companion, without re-enabling the old HUD | Original four failures preserved; renewed actual-world 25-check suite passes. Explicit world retirement also preserves the initial pointer mode |
+| Custody fixture ending immediately after clock-out audio | Diagnostic lifetime defect: **appliance_pop.ogg** remains in a queued Vorbis playback at exit | Retire only the actual fixture owners while AudioPolicy is alive; settle two physics ticks, track the real stream with a weak reference | All 11 custody checks pass; the stream exists before retirement and is gone afterward; final stderr is empty. No global cache clearing or audio-authority change |
+| Broader ritual fixture | Remaining diagnostic limitation: six ObjectDB / two resource warnings identify two queued Vorbis playbacks of the same recording | Explicit fixture retirement retained, without claiming it fixes this wider decoder case | 26 logic checks pass, but warnings remain. The exact original main fixture is also executed externally through the shared lane with unchanged audio code and reproduces the same six/two warnings. This is a scoped diagnostic comparison, not fresh whole-main runtime qualification |
+
+The first renewed opening batch's original **exit 4** failure, the verbose
+resource traces, the original-main fixture/provenance, and the repaired runs
+are all retained. No failed receipt has been rewritten into a pass. AudioPolicy
+and the canonical acoustic-topology contributor's work are unchanged.
+
+The renewed full static board again completes **113 checks with zero
+regressions**, reader NEW=0 and unchanged ledger counts. The original V2
+41-check disk lifecycle contract still binds: only these existing test fixtures
+and evidence files changed after that actual-world execution. No additional
+V2 startup was repeated for report or test-only changes.
+
+The single-acquisition regression batch records no clip/input-desktop change
+within its own **20:55:30–20:56:59 UTC** execution interval. Prelaunch changes
+remain in the raw monitor; the whole-lifetime flag is not relabelled. This
+continues to be audited noncapturing execution, not general mouse isolation.
+
+The existing archive now holds **700 hash-verified members, 29,286,329 bytes**;
+all prior 645 members remain byte-identical. Original and renewed logs,
+receipts, the report PNG, fixture sources before/after, baseline diagnostic and
+full board are included. No repository files are added. Final candidate
+verification and integration are recorded on PR 59 after this checkpoint.
+The full goal, broader weather art, safe preview retirement, native input and
+matched movement/interaction performance remain open. No ledger promotion or
+human acceptance is claimed.

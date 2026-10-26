@@ -124,6 +124,10 @@ func _ready() -> void:
 	get_tree().paused=false;get_tree().current_scene=original_scene
 	director.building=null;child_world.free()
 
+	# Retire the actual fixture owners while AudioPolicy can settle queued stops.
+	detector.free();register.free();director.free();orders.free();tracker.free()
+	await get_tree().physics_frame;await get_tree().physics_frame
+
 	print("[FIRST SHIFT RITUAL] RESULT: %s (%d failures)" % [
 			"PASS" if fails == 0 else "FAIL", fails])
 	get_tree().quit(fails)

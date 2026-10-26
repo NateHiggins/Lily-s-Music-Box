@@ -33,8 +33,8 @@ func _ready() -> void:
 	_check(root.first_shift_director.begin_first_shift(),
 			"the production first-shift owner commits the arrival")
 	_check(Input.mouse_mode==pointer_before,"a background production world places its player without capturing the pointer")
-	_check(root.objective_tracker._objective.text.contains("Cross to the Orison lobby")
-			and root.objective_tracker._objective.text.contains("watchman's detector"),
+	_check(root.objective_tracker.supplied_body.contains("Cross to the Orison lobby")
+			and root.objective_tracker.supplied_body.contains("watchman's detector"),
 			"the first production objective walks the player from curb to clock")
 	var cases_before := var_to_bytes(RealityState.data.cases)
 	_check(detector.call("interact_control", "detector", root.player),
@@ -46,8 +46,8 @@ func _ready() -> void:
 	_check(var_to_bytes(RealityState.data.cases) == cases_before
 			and str(RealityState.data.current_case_id) == "",
 			"offering the paper activates no case")
-	_check(root.objective_tracker._objective.text.contains("sloping register")
-			and root.objective_tracker._objective.text.contains("spindle"),
+	_check(root.objective_tracker.supplied_body.contains("sloping register")
+			and root.objective_tracker.supplied_body.contains("spindle"),
 			"clock-in points to the physical report rather than an abstract menu")
 	_check(register.call("presented_job_id") == JOB
 			and register.call("slip_available"),
@@ -60,9 +60,9 @@ func _ready() -> void:
 			"taking the paper acknowledges its job and activates only its declared case")
 	# K2-C moved this clause into the indicative; the property under test is
 	# that the station is named and not ordered, which is what this now asks.
-	_check(root.objective_tracker._objective.text.contains("STATION 2")
-			and not root.objective_tracker._objective.text.contains("work STATION")
-			and root.objective_tracker._objective.text.contains(
+	_check(root.objective_tracker.supplied_body.contains("STATION 2")
+			and not root.objective_tracker.supplied_body.contains("work STATION")
+			and root.objective_tracker.supplied_body.contains(
 					"never permission"),
 			"Mina's objective teaches the optional station without making it a waypoint")
 	var station_network: Node = root.find_child("WatchStationNetwork", true, false)
@@ -83,8 +83,8 @@ func _ready() -> void:
 	_check(bool(root.first_shift_director.station_marks()[0].get(
 			"delivered", false)),
 			"onboarding observes the central indication, not merely the local crank")
-	_check(not root.objective_tracker._objective.text.contains("STATION 2")
-			and root.objective_tracker._objective.text.contains("Follow the chirp"),
+	_check(not root.objective_tracker.supplied_body.contains("STATION 2")
+			and root.objective_tracker.supplied_body.contains("Follow the chirp"),
 			"after the mark, the objective returns to Mina's unchanged job instruction")
 	_check(not root.first_shift_director.clock_in()
 			and RealityState.data.maintenance_jobs.size() == 1,
@@ -120,6 +120,10 @@ func _ready() -> void:
 			and root.first_shift_director.ritual_phase()
 					== FirstShiftDirector.PHASE_COMPLETE,
 			"the player removes the paper and completes the production first shift")
+
+	root.free()
+	await get_tree().physics_frame;await get_tree().physics_frame
+	_check(Input.mouse_mode==pointer_before,"retiring the background world leaves the pointer with its original owner")
 
 	print("[FIRST SHIFT OPENING LIVE] RESULT: %s (%d failures)" % [
 			"PASS" if fails == 0 else "FAIL", fails])

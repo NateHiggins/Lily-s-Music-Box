@@ -1,6 +1,6 @@
 {
   "evidence_class": "INERT",
-  "scope": "INERT annual sky and scoped noncapturing lifecycle evidence, including a test-written schema2 runtime_contract PASS. Original failures retained. Original regressions and final candidate verification pending; no native input, performance, whole-V2 or human acceptance claim.",
+  "scope": "INERT annual sky and scoped noncapturing weather lifecycle PASS evidence. Six original windowed regressions pass; custody stream retirement passes cleanly. Original failures and baseline-reproduced ritual Vorbis exit warnings are retained. Final candidate verification pending; no native manipulation, matched performance or whole-V2/human acceptance claim.",
   "members": [
     {
       "name": "annual/annual_gallery.json",
@@ -4345,10 +4345,340 @@
       "bytes": 1533,
       "source": "C:\\ov\\reports\\weather_lifecycle27\\candidate_wip_static\\verification.md",
       "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/audit/gates_owner_repaired/board.json",
+      "sha256": "c2aafc140b9a5c87611350daa8c4891e81eacc073a8f0e44d828ea67a04f9c2d",
+      "bytes": 132444,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/audit/noncapturing_sources.json",
+      "sha256": "b7c3e2fe65d3599bb0880f52a7d01b5caba7d0703cd760dea15eb5121bc69649",
+      "bytes": 347974,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/audit/owner_repaired.json",
+      "sha256": "6eac2f7c5d57e4d4baa2579db36487076e076c7e2d3fefb31399fde8413c5678",
+      "bytes": 832,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/audit/regression_validation.json",
+      "sha256": "65d019d060553ddfea104dff11ca59e9f6d19b9d239ffd7ee48c7de92518a161",
+      "bytes": 7621,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/audit/regressions_batch_v2.json",
+      "sha256": "db3ff9c73f0a7e108e44f74eb5c16f608359e7bfaf0f7953d31c68a712d2fef9",
+      "bytes": 2025,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/audit/run_noncapturing_batch.ps1",
+      "sha256": "a38a07609243f47e2d0d3d7063ca6ad55c918e416671a02ade1d00a5dca8fe61",
+      "bytes": 11651,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/baseline_fixture/FirstShiftRitualMain.tscn",
+      "sha256": "71237a6b78098f4458733a5be3a827e2c2c8b7fa5b2ebdfe1438eff13fc469ce",
+      "bytes": 235,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/baseline_fixture/first_shift_ritual_main.gd",
+      "sha256": "5f290a201c89fbecdbceb27e60b1de3be0cc82a0f834a767a8c8dc44fffae3a4",
+      "bytes": 5699,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/baseline_fixture/provenance.json",
+      "sha256": "8b5477fc8fa909004c6e683b43a4f71a29b58e0b5c594fe374b1fd9ffa51f2d1",
+      "bytes": 434,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/baseline_fixture/ritual_main.log",
+      "sha256": "ce5c815e5383c107ffec64cec8a45ecc24d63487ba8773b0748ad361d760de0f",
+      "bytes": 8722,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/baseline_fixture/ritual_main.log.receipt.json",
+      "sha256": "fafed77163d97572f636b501c18eafc557f202ef2441b1bb296d2f392b5bb158",
+      "bytes": 1712,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/baseline_fixture/ritual_main.log.stderr",
+      "sha256": "8bccc9a40c8f6d4d4a25953234c53a06277b2b1c02a7e86c76cec1488b4c0aaa",
+      "bytes": 216,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/diagnostics/custody_verbose.log",
+      "sha256": "b82ae6da7def75603568e9c0852f72a4fe3bfe22434b53cfecf3a4272a6ba45a",
+      "bytes": 7265,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/diagnostics/custody_verbose.log.receipt.json",
+      "sha256": "fecaa0a4f2e38f83277a977e7255f63b8986218975706ffe181bca514bc35fde",
+      "bytes": 1598,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/diagnostics/custody_verbose.log.stderr",
+      "sha256": "b10b931a5f28260439ab9d727c873bb85a156d332a61416ac240874bd144e7aa",
+      "bytes": 216,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/monitors/regressions_batch.log.isolated.json",
+      "sha256": "d40bc6adf63ab4c3bfd8f30e9a587a37df640d49f24d989d0307deba3f853eb6",
+      "bytes": 5359,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/monitors/regressions_batch.log.isolated.log",
+      "sha256": "57463a3d944a44653b1f5d9b669cfd34f2d420446197f82b6e80c381e4e53157",
+      "bytes": 3028,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/monitors/regressions_batch_v2.log.isolated.json",
+      "sha256": "e75048e595c54976b3f7fa1f6158b67a382d46f77f25898eb8dc4874b3d7aa23",
+      "bytes": 3474,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/monitors/regressions_batch_v2.log.isolated.log",
+      "sha256": "1ecd253048b9b9aba6bb2a191f7626c4c61b2b76fa6d2806231b330a8336264b",
+      "bytes": 3260,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/owner_repaired/FirstShiftCustodyTest.log",
+      "sha256": "31325fd0f4dc8c42ec784475831fec7f58f9c8ab6e4e008b3764fae41d03b656",
+      "bytes": 6573,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/owner_repaired/FirstShiftCustodyTest.log.receipt.json",
+      "sha256": "228f0e928774e78d9a70bcdfab49e449177603f80d07b7fd93e203f59a0f4afe",
+      "bytes": 1862,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/owner_repaired/FirstShiftCustodyTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/owner_repaired/FirstShiftRitualTest.log",
+      "sha256": "898f826642afa0dd3c200ec7bd91debba845ef2846cccda71d4ee89a1b24981c",
+      "bytes": 8634,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/owner_repaired/FirstShiftRitualTest.log.receipt.json",
+      "sha256": "d91e47b3b5d1d0d87f7f5b82de7785260fcb604eec4a65cb05a6cb17d3f3adb9",
+      "bytes": 1856,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/owner_repaired/FirstShiftRitualTest.log.stderr",
+      "sha256": "8bccc9a40c8f6d4d4a25953234c53a06277b2b1c02a7e86c76cec1488b4c0aaa",
+      "bytes": 216,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch/FirstShiftOpeningLiveTest.log",
+      "sha256": "7dbcab8533ac0041699774302ec9e33311f636cf5972d7dbf9364e51b1b5530f",
+      "bytes": 11626,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch/FirstShiftOpeningLiveTest.log.receipt.json",
+      "sha256": "e0427751df36d7529b1ff4b7d1be1f10c7bc87ebd850c146479d60b8eae1bc86",
+      "bytes": 2136,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch/FirstShiftOpeningLiveTest.log.stderr",
+      "sha256": "89d2289d01a04a2fbb141ba11f85fa17dd7d512f785935dd2c675b3c1ce41fa3",
+      "bytes": 441,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/CampaignWeatherTest.log",
+      "sha256": "95b1f8b47d2a56edbda91d9a23248ba6e7bc49f7fd56fd8325734d46971e9a17",
+      "bytes": 35499,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/CampaignWeatherTest.log.receipt.json",
+      "sha256": "c59fcc31f48c9d6a24cb2be24cccdbc0b70cfdf026bbd93fc5f34c282b4266bb",
+      "bytes": 5425,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/CampaignWeatherTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/CampaignWeatherTest/calendar_test.json",
+      "sha256": "58640a5a3dbe2dd2236d22de05b8ae2acf3957efad3630ed37b5c57814e74c46",
+      "bytes": 270,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/CampaignWeatherTest/living_year.json",
+      "sha256": "e29094b72ed1a3b8e52e29d0b5e2562a316d638393f6f89cdbaf494510cf65de",
+      "bytes": 959,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/CampaignWeatherTest/weather_report.png",
+      "sha256": "9c160d6fb96fcd1f6bbfac4386904b8ec8177a87ff1988adfc85bf9628308528",
+      "bytes": 1520329,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/FirstShiftOpeningLiveTest.log",
+      "sha256": "5b5ceb605ffb8b86f56c361be4c63e6d288832f77b3e919c80cf92ea8c90235e",
+      "bytes": 11712,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/FirstShiftOpeningLiveTest.log.receipt.json",
+      "sha256": "b32b75996f9ef60c5c43173cebd085923d7e1ad454b872b3b63f346f12317715",
+      "bytes": 1906,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/FirstShiftOpeningLiveTest.log.stderr",
+      "sha256": "89d2289d01a04a2fbb141ba11f85fa17dd7d512f785935dd2c675b3c1ce41fa3",
+      "bytes": 441,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/NewspaperTest.log",
+      "sha256": "9e25c35dccd1f407f842155c7cc39a1eafb1b2accfbbf3a3ea010daf4746b406",
+      "bytes": 2399,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/NewspaperTest.log.receipt.json",
+      "sha256": "48721d683dd1de47a515cafbe24221cdc66e63e7136843826b366c389374f1d8",
+      "bytes": 1780,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/NewspaperTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/SkyPhenomenaScheduleTest.log",
+      "sha256": "47775d973f3f01f55f4d74c0ef0bd1f24509305916595d769a15f2c5ad144bf0",
+      "bytes": 1697,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/SkyPhenomenaScheduleTest.log.receipt.json",
+      "sha256": "5762e9e3ea4f4857d757e1ebf655eac829b6b3cedbf3afb6e832232100e2db86",
+      "bytes": 1875,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/SkyPhenomenaScheduleTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/WeatherFlashAccessibilityTest.log",
+      "sha256": "d81078d858719f026e4bdbc06b46e26681b4190c0315248a6febdb341286857b",
+      "bytes": 224,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/WeatherFlashAccessibilityTest.log.receipt.json",
+      "sha256": "bb83bb1bb607f240a2a8968b00b70569bf3d7120b1ea38521cff0d29f091f121",
+      "bytes": 1911,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/WeatherFlashAccessibilityTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/WeatherSkyTest.log",
+      "sha256": "df0ca2d6a971a865f650709032a3914c38bff39ccea189a97cc30798b099a968",
+      "bytes": 12558,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/WeatherSkyTest.log.receipt.json",
+      "sha256": "40d3a7a5b478f656a7c981ddac660f1e0df31173837a08309d741043518502e6",
+      "bytes": 1841,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/regressions_batch_v2/WeatherSkyTest.log.stderr",
+      "sha256": "12661b8c6eb0b3a028c37ca938e69c3b36dcdb2068129101585a53fe2e91506d",
+      "bytes": 428,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/source/after/game/tests/first_shift_custody_test.gd",
+      "sha256": "3dc7946bdce97b50f7a720158277dbfcc1722257ccd78d178e81d3f2bad582ad",
+      "bytes": 4224,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/source/after/game/tests/first_shift_opening_live_test.gd",
+      "sha256": "8953b9996adb65ca1c61fc79738dbdd1453f30bc13735ec345528f11c9c47bfc",
+      "bytes": 7126,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/source/after/game/tests/first_shift_ritual_test.gd",
+      "sha256": "20be2fa7dd70a54c95a6ffed6c8d85c3d22855934f16acee8712f026063f70ab",
+      "bytes": 6769,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/source/before_bb0/game/tests/first_shift_custody_test.gd",
+      "sha256": "5a02b511d9fb32f2ea9b1abaf57c62f02a1870d89129f2c055810671b07da5b5",
+      "bytes": 3496,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/source/before_bb0/game/tests/first_shift_opening_live_test.gd",
+      "sha256": "eb4905c11f52daa1292d4542a8099a1654659d899cadfb6d35b4b147da3ad14b",
+      "bytes": 6820,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
+    },
+    {
+      "name": "weather_lifecycle/original_regressions/source/before_bb0/game/tests/first_shift_ritual_test.gd",
+      "sha256": "67e33d7feb8fe046d8d33c09ef843e1e34c1c85fe47c9a7f1d800094c6099874",
+      "bytes": 6415,
+      "scope": "Original/regression evidence; warnings and diagnostic versus runtime scopes are explicit in the INERT report"
     }
   ],
-  "archive_sha256": "a2338abbca78cf669f389205748534d03c5e26dfc4692be481159041f7f1277e",
-  "archive_bytes": 27534758,
+  "archive_sha256": "51ac27a2f215c1585f927c17b68bdb3d9fc880ee1e160a4a47bd3ce8693676c7",
+  "archive_bytes": 29286329,
   "previous_checkpoint_archive_sha256": "cdaf921dbc5baa4b10beb23e1afe63905599dacd2e3f4ce5f86af0b40294a201",
   "previous_checkpoint_archive_bytes": 22695933,
   "archive_history": [
@@ -4383,6 +4713,10 @@
     {
       "sha256": "2d1e5aeb8e3b5c20e6cecf7200b87784e28429cf1e7c6d5eef9ededb152cb661",
       "bytes": 26640694
+    },
+    {
+      "sha256": "a2338abbca78cf669f389205748534d03c5e26dfc4692be481159041f7f1277e",
+      "bytes": 27534758
     }
   ]
 }
