@@ -34,6 +34,8 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Tardi lunch priority, Euplotes microscopy and comic pursuit | `design/V2_TARDIGRADE_LUNCH_2026-10-25.md` |
+| Tardigrade nested tissue, shared lamp optics and isolated review limits | `design/V2_TARDIGRADE_MICROSCOPY_2026-10-25.md` |
 | Cast passage pulls, sharper oak and lossless fixed mouse travel | `design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md` |
 | Companion reply autosaves, paired occupied-world frame tails and queue/reload checks | `design/V2_COMPANION_REPLY_AUTOSAVE_2026-10-25.md` |
 | Charcoal phosphor companion, handheld retirement and rejected fitting schedule | `design/V2_COMPANION_PHOSPHOR_2026-10-25.md` |

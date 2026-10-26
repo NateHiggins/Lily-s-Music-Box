@@ -49,6 +49,7 @@ var director = null
 ## local test contract.
 var ecology_director = null
 var enabled := true
+var companion: RefCounted = null
 var critters: Array = []
 
 var material: ShaderMaterial
@@ -82,6 +83,7 @@ var _mechanical := PackedVector4Array()
 var _crab_socket := PackedVector4Array()
 var _crab_knee := PackedVector4Array()
 var _crab_foot := PackedVector4Array()
+var _meal := PackedVector4Array()
 ## §26 — per-individual material balance: x hue bias, y perfusion,
 ## z wetness, w iridescence.
 var _look := PackedVector4Array()
@@ -97,7 +99,7 @@ func setup(controller: DreamFieldController, seed_v: int) -> void:
 	field = controller
 	_rng.seed = seed_v
 	for arr in [_pos, _fwd, _up, _size, _matter, _counts, _law, _anatomy, _look, _photo,
-			_mechanical]:
+			_mechanical, _meal]:
 		arr.resize(MAX_CRITTERS)
 	for arr in [_crab_socket, _crab_knee, _crab_foot]:
 		arr.resize(MAX_CRITTERS * MAX_LIMBS)
@@ -289,16 +291,19 @@ func _append_tubes(verts: PackedVector3Array, normals: PackedVector3Array,
 
 
 func _physics_process(delta: float) -> void:
-	if not enabled or field == null or field.state == null:
+	if not enabled or (companion == null and (field == null or field.state == null)):
 		return
 	_clock += delta
+	if companion != null:
+		companion.refresh(delta)
+		_ensure_companion()
 	_spawn_clock += delta
 	_lamp_pose = {}
-	if field.player != null and field.player.has_method("lamp_pose"):
+	if field != null and field.player != null and field.player.has_method("lamp_pose"):
 		_lamp_pose = field.player.lamp_pose()
 	if _spawn_clock >= 0.9:
 		_spawn_clock = 0.0
-		if critters.size() < MAX_LIVE:
+		if field != null and critters.size() < MAX_LIVE:
 			_try_spawn()
 	_walk(delta)
 	_apply_ecology_support(delta)
@@ -307,6 +312,30 @@ func _physics_process(delta: float) -> void:
 
 ## They live where the Dream has reached, so they are born on a surface a live
 ## lobe can see — the same rule the margin uses.
+func bind_companion(world: Node, observer: Node3D) -> void:
+	companion = preload("res://scripts/dream/critters/tardigrade_companion.gd").new()
+	companion.setup(world, observer)
+	mesh_instance.layers = 1 << 14
+	if "camera" in observer and is_instance_valid(observer.camera):
+		observer.camera.cull_mask |= 1 << 14
+	if not enable_blender_visuals(): push_error(blender_error)
+
+
+func _ensure_companion() -> void:
+	if companion.specimen_id >= 0 or _space == null or not is_instance_valid(companion.player): return
+	if critters.size() >= MAX_LIVE: return
+	var at: Vector3 = companion.player.global_position + companion.player.global_basis.x * .8
+	var query := PhysicsRayQueryParameters3D.create(at + Vector3.UP, at - Vector3.UP * 2.0)
+	var hit := _space.intersect_ray(query)
+	if hit.is_empty(): return
+	var m := GeneratorScript.generate(SpeciesScript.Kind.TARDIGRADE, 240304)
+	# This player-only percept has no colony excursion record, collider, NPC
+	# stimulus or saved lifecycle. It shares the ordinary renderer and feet.
+	var c := _spawn_specimen(m, hit.position + hit.normal * float(m.tall) * .5,
+			hit.normal, INF, null, {})
+	companion.specimen_id = int(c.id)
+
+
 func _try_spawn() -> void:
 	if _space == null:
 		return
@@ -744,6 +773,7 @@ func _reseat_any(c: Dictionary, ups: Array) -> void:
 ## follows the surface. Two of the same species differ in pause length, which
 ## way they prefer to turn, and where their gait starts.
 func _walk(delta: float) -> void:
+	if companion != null: companion.lunch.advance(self,delta)
 	var i := critters.size() - 1
 	while i >= 0:
 		var c: Dictionary = critters[i]
@@ -754,7 +784,8 @@ func _walk(delta: float) -> void:
 			i -= 1
 			continue
 		var m: Dictionary = c.morph
-		c.gait += delta * float(m.speed) * 26.0
+		if companion == null or int(c.id) != companion.specimen_id or bool(c.get("moving", false)):
+			c.gait += delta * float(m.speed) * 26.0 * float(c.get("lunch_speed",1.0))
 		# Pausing is a species trait and an individual one: the listener holds
 		# still to use its resonators, and a timid crab stops more often.
 		c.pause -= delta
@@ -781,6 +812,10 @@ func _walk(delta: float) -> void:
 				c.fwd = (c.fwd as Vector3).lerp(to_it.normalized(),
 						delta * 8.0).normalized()
 			c.moving = false
+		if companion != null and int(c.id) == companion.specimen_id:
+			companion.steer(c, self, delta)
+		elif companion != null and int(c.id) == companion.lunch.prey_id:
+			companion.lunch.steer_prey(c,self,delta)
 		if not riding and bool(c.get("moving", true)):
 			var turn: float = float(m.turn_bias) * delta * 0.6
 			var up: Vector3 = c.up
@@ -790,7 +825,14 @@ func _walk(delta: float) -> void:
 			var move_bias: float = 1.0
 			if director != null:
 				move_bias = float(director.bias().get("move", 1.0))
-			var step: Vector3 = fwd * float(m.speed) * move_bias * delta
+			var step: Vector3 = fwd * float(m.speed) * move_bias * float(c.get("lunch_speed",1.0)) * delta
+			if companion != null and (int(c.id) == companion.specimen_id or int(c.id)==companion.lunch.prey_id) and _space != null:
+				var ahead := PhysicsRayQueryParameters3D.create(c.pos,
+						(c.pos as Vector3) + fwd * (step.length() + float(m.wide) * .55))
+				if not _space.intersect_ray(ahead).is_empty():
+					step = Vector3.ZERO
+					c.moving = false
+					fwd = fwd.rotated(up, delta * 2.0)
 			# Stay on the surface: cast down and re-seat, so they follow the
 			# architecture rather than sliding off it.
 			var probe: Vector3 = (c.pos as Vector3) + step + up * 0.06
@@ -814,8 +856,10 @@ func _walk(delta: float) -> void:
 			# as terrain: it IS on the margin. Letting the habitat pass run as
 			# well had appendages shoving a rider off the appendage it was
 			# standing on.
-			_use_the_margin(c, delta)
-		_consider_the_hero(c, delta)
+			if companion == null or int(c.id) != companion.specimen_id:
+				_use_the_margin(c, delta)
+		if companion == null or int(c.id) != companion.specimen_id:
+			_consider_the_hero(c, delta)
 		i -= 1
 
 
@@ -1232,6 +1276,8 @@ func _apply_law(c: Dictionary, delta: float) -> void:
 			if float(c.fold) > 0.05:
 				c.moving = false
 		SpeciesScript.Kind.TARDIGRADE:
+			if companion != null and int(c.id) == companion.specimen_id:
+				return # Startle/slow reopening comes from actual nearby people.
 			# A short tun-like contraction makes the enormous water bear's
 			# hydrostatic body legible without claiming cryptobiosis. The same
 			# cortex, organs and optical depth remain present as it compacts.
@@ -1321,6 +1367,12 @@ func _apply_law(c: Dictionary, delta: float) -> void:
 
 
 func _push() -> void:
+	if companion != null and blender_visuals != null and is_instance_valid(companion.player):
+		var observer = companion.player.get("camera") if "camera" in companion.player else null
+		if is_instance_valid(observer):
+			for micro in blender_visuals.micro_materials:
+				micro.set_shader_parameter("micro_pc_only", true)
+				micro.set_shader_parameter("micro_pc_eye", observer.global_position)
 	if blender_visuals != null: blender_visuals.begin_slots()
 	# Slots, not animals. A grazer on both sides of a wall takes two, and both
 	# carry the same identity, gait and morphology -- they are one creature.
@@ -1363,6 +1415,7 @@ func _push() -> void:
 	material.set_shader_parameter("crab_socket", _crab_socket)
 	material.set_shader_parameter("crab_knee", _crab_knee)
 	material.set_shader_parameter("crab_foot", _crab_foot)
+	material.set_shader_parameter("critter_meal", _meal)
 	material.set_shader_parameter("critter_count", n)
 	if field != null:
 		field.apply_to(material)
@@ -1375,6 +1428,7 @@ func _write_slot(i: int, c: Dictionary, as_twin: bool) -> void:
 		blender_visuals.record_slot(i, int(c.id), as_twin, int(c.morph.kind))
 	if true:
 		var m: Dictionary = c.morph
+		_meal[i] = c.get("meal",Vector4.ZERO)
 		# Kind ids are stable authored plan ids. The first four retain their
 		# original 0..3 values; the microscopy atlas occupies 4..15.
 		var plan := float(int(m.kind))
@@ -1576,9 +1630,9 @@ func census() -> Dictionary:
 	return {"live": critters.size(), "born": _next_id, "species": by_species,
 			"max": MAX_LIVE, "on_both_sides": twinned, "folding_a_leg": folding,
 			"draw_calls": (1 if mesh_instance != null and mesh_instance.visible else 0)
-					+ (int(blender_visuals.stats().get("membrane_draws",0)) if blender_visuals != null else 0),
+					+ (int(blender_visuals.stats().get("membrane_draws",0)) + int(blender_visuals.stats().get("micro_draws",0)) if blender_visuals != null else 0),
 			"mesh_surfaces": int(blender_visuals.stats().get("fixed_meshes",1)) if blender_visuals != null else 1,
-			"materials": 2 if blender_visuals != null else 1,
+			"materials": 2 + blender_visuals.micro_materials.size() if blender_visuals != null else 1,
 			"crab_manipulators_per_animal": 2,
 			"cached_crab_joint_rows": MAX_CRITTERS * MAX_LIMBS,
 			"nudged_by_a_palp": nudged, "unfolding_at_the_hero": unfolded,

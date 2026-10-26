@@ -1,6 +1,7 @@
 # Godot per-machine caches
 .godot/
 *.import
+!game/assets/dream/microscopy/**/*.png.import
 !game/assets/props/service_radiophone_v2.glb.import
 !game/assets/device/writer_type/reversed_type_emboss.png.import
 !game/assets/building/textures/**/*.import

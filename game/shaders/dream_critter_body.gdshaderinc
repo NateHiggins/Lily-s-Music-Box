@@ -19,6 +19,9 @@
 #include "res://shaders/dream_critter_voxel_optics.gdshaderinc"
 #include "res://shaders/dream_microorganism_forms.gdshaderinc"
 #include "res://shaders/dream_critter_blender_deform.gdshaderinc"
+#ifdef MICRO_TARDIGRADE
+#include "res://shaders/tardigrade_transport.gdshaderinc"
+#endif
 
 const int MAX_CRITTERS = 12;
 
@@ -46,6 +49,8 @@ uniform vec4 critter_look[12];
 uniform vec4 critter_photo[12];
 // MBIO-3: x response, y carrier/3, z seconds since reception, w direction.
 uniform vec4 critter_mechanical[12];
+// Feeding is transient presentation, never a saved ecological authority.
+uniform vec4 critter_meal[12]; // x pumping, y prey depletion, z anticipation
 // E3: CPU-planted fold-crab anatomy in the critter's local support frame.
 // w on foot is stance. Eight rows per critter keep the draw bounded.
 uniform vec4 crab_socket[96];
@@ -62,6 +67,7 @@ uniform float voxel_optics_enabled = 0.0;
 
 varying vec2 v_uv;
 varying vec3 v_world;
+#ifndef MICRO_TARDIGRADE
 varying float v_seed;
 varying float v_part;
 varying vec4 v_matter;
@@ -73,6 +79,7 @@ varying vec4 v_mechanical;
 varying float v_axial;
 varying float v_plan;
 varying vec4 v_anatomy;
+#endif
 varying vec3 v_local;
 
 vec2 critter_exposure_at(vec3 world_p) {
@@ -98,6 +105,9 @@ vec3 ring_offset(vec3 tangent, vec3 ring_n, float thick) {
 }
 
 void vertex() {
+#ifdef MICRO_TARDIGRADE
+ float v_thickness=0.0;
+#endif
 	int section = int(UV2.x + 0.5);
 	int c = blender_provider_enabled ? int(round(blender_slot_map[section])) : section;
 	bool slot_valid = c >= 0 && c < critter_count;
@@ -127,6 +137,12 @@ void vertex() {
 
 	v_blender = authored ? 1.0 : 0.0;
 	v_region = COLOR;
+#ifdef MICRO_TARDIGRADE
+ float micro_role=COLOR.r*10.0;
+ micro_side=side; micro_up=up; micro_forward=fwd;
+ micro_species=pos.w; micro_meal=critter_meal[c];
+ micro_dimensions=max(vec3(size.y,size.z,size.x),vec3(.001));
+#endif
 	float region_id = floor(COLOR.b * 255.0 + 0.5);
 	v_region.b = (region_id < 1.5 || abs(region_id - 5.0) < 0.5) ? 1.0 : 0.0;
 	v_region.a = abs(region_id - 6.0) < 0.5 ? 2.0 : (abs(region_id - 2.0) < 0.5 ? 1.0 : 0.0);
@@ -589,6 +605,52 @@ void vertex() {
 	// counts.w is 1 plus this individual's walking bob, so a moving animal
 	// rises and falls on its legs and a still one does not (§20).
 	float bob = counts.w - 1.0;
+#ifdef MICRO_TARDIGRADE
+ // View-dependent deflection through the two low-density pockets acts on
+ // the real internal geometry. It does not sample a flat painted organ map.
+ if(pos.w<3.5 && micro_role>.5 && micro_role<6.5 && abs(micro_role-2.0)>.1) {
+  vec3 dimensions=max(vec3(size.y,size.z,size.x),vec3(.001));
+  vec3 toward_eye=INV_VIEW_MATRIX[3].xyz-pos.xyz;
+  vec3 ray=normalize(vec3(dot(toward_eye,side),dot(toward_eye,up),dot(toward_eye,fwd))/dimensions-local/dimensions);
+  for(int pocket=0;pocket<2;pocket++) {
+   vec3 center=pocket==0 ? vec3(-.18,.11,.11) : vec3(.19,-.10,-.08);
+   center*=mix(vec3(1.0),vec3(1.18,1.18,.70),clamp(law.z,0.0,1.0));
+   vec3 radius=vec3(.08,.095,.11);
+   vec3 q=(local/dimensions-center)/radius,rd=ray/radius;
+   float distance_to_pocket=-dot(q,rd)/dot(rd,rd);
+   vec3 closest=q+rd*max(0.0,distance_to_pocket);
+   float lens=max(0.0,1.0-dot(closest,closest))*step(.005,distance_to_pocket);
+   vec3 deflection=closest*radius*.16*lens;
+   deflection-=ray*dot(deflection,ray);
+   local+=deflection*dimensions;
+  }
+ }
+ // A small exploratory head sweep leaves the planted limb bindings intact.
+ if(pos.w<3.5 && micro_role<.5 && CUSTOM0.y<0.0) {
+  float head=smoothstep(.20,.42,local.z/max(size.x,.001));
+  local.x+=size.y*.008*head*sin(law.x)*(1.0-law.z);
+ }
+ if(micro_role>.5 && micro_role<5.5) {
+  // Bounded secondary drift follows the same gait/contraction authority.
+  // Below one millimetre at nominal size, well inside authored containment.
+  float lag=sin(matter.w*.7+local.z*11.0-0.6)*(1.0-clamp(law.z,0.0,1.0));
+  local+=vec3(size.y*.002*lag,size.z*.001*sin(matter.w*.53),0.0);
+  // Gut transport travels along the lumen; muscles strain with the existing
+  // step cycle. Neither is a heartbeat or a cryptobiotic state transition.
+  if(micro_role>3.5 && micro_role<4.5) {
+   float wave=sin(TIME*1.3-local.z/max(size.x,.001)*18.0);
+   local.xy*=1.0+.014*wave;
+  }
+  if(micro_role>2.5 && micro_role<3.5)
+   local.y+=size.z*.002*sin(matter.w+local.z/max(size.x,.001)*9.0);
+ }
+ if(pos.w>6.5) local.y*=1.0-.8*micro_meal.y;
+ else {
+  float mouth=smoothstep(.18,.45,local.z/max(size.x,.001));
+  local.z+=size.x*.014*mouth*micro_meal.x;
+  local.y*=1.0+.025*micro_meal.x;
+ }
+#endif
 	vec3 world = pos.xyz + side * local.x + up * (local.y + bob) + fwd * local.z;
 	world = mix(pos.xyz, world, authored ? (alive > 0.0 ? 1.0 : 0.0) : (clamp(counts.w, 0.0, 1.0) > 0.0 ? alive : 0.0));
 	VERTEX = (inverse(MODEL_MATRIX) * vec4(world, 1.0)).xyz;
@@ -596,6 +658,7 @@ void vertex() {
 	NORMAL = authored ? normalize(transpose(mat3(MODEL_MATRIX)) * world_normal) : world_normal;
 	v_uv = authored ? UV : vec2(index, along);
 	v_world = world;
+#ifndef MICRO_TARDIGRADE
 	v_seed = seed;
 	v_part = part;
 	v_matter = matter;
@@ -608,10 +671,14 @@ void vertex() {
 			: local.z / max(size.x, .001);
 	v_plan = pos.w;
 	v_anatomy = anatomy;
+#endif
 	v_local = local / max(vec3(size.y, size.z, size.x), vec3(.001));
 }
 
 void fragment() {
+#ifdef MICRO_TARDIGRADE
+#include "res://shaders/tardigrade_response.gdshaderinc"
+#else
 #ifdef DREAM_CRITTER_MEMBRANE
 	// Only authored thin-window triangles enter this shared transparent pass.
 	// Their actual enclosed organs and all solid tissue already own opaque depth.
@@ -883,4 +950,5 @@ void fragment() {
 	NORMAL = normalize(NORMAL + TANGENT * (nm.x * .5 + dFdx(voxel.relief) * .20)
 			+ BINORMAL * (nm.y * .5 + dFdy(voxel.relief) * .20));
 	}
+#endif
 }

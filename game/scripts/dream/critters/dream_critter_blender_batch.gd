@@ -39,6 +39,9 @@ var _membrane_mesh: ArrayMesh
 var _uniform_names := PackedStringArray()
 var _opaque_triangles := 0
 var _membrane_triangles := 0
+var micro_instances: Array[MeshInstance3D] = []
+var micro_materials: Array[ShaderMaterial] = []
+var _synced_micro: Dictionary = {}
 var _legacy_mesh: ArrayMesh
 var _mesh: ArrayMesh
 var _legacy: Dictionary = {}
@@ -84,6 +87,23 @@ func setup(controller: DreamCritterController, legacy_mesh: ArrayMesh) -> bool:
 	# Identity child transform shares the packed world-space deformation frame
 	# and inherits the controller's existing visual visibility owner.
 	controller.mesh_instance.add_child(_membrane_instance)
+	for part in ["interior", "membrane", "vacuole"]:
+		var micro := _material.duplicate(false) as ShaderMaterial
+		micro.shader = load("res://shaders/tardigrade_" + part + ".gdshader")
+		micro.render_priority = 10 if part == "membrane" else 0
+		for substance in ["membrane", "organ", "mineral"]:
+			for channel in ["albedo", "roughness", "normal"]:
+				micro.set_shader_parameter("micro_"+substance+"_"+channel,
+					load("res://assets/dream/microscopy/tardigrade_"+substance+"/"+channel+".png"))
+		var instance := MeshInstance3D.new()
+		instance.name = "Tardigrade" + part.capitalize()
+		instance.material_override = micro
+		instance.layers = controller.mesh_instance.layers
+		instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		instance.extra_cull_margin = controller.mesh_instance.extra_cull_margin
+		controller.mesh_instance.add_child(instance)
+		micro_materials.append(micro)
+		micro_instances.append(instance)
 	slot_map.resize(CAPACITY)
 	foot_base.resize(CAPACITY)
 	cilia_base.resize(CAPACITY)
@@ -173,6 +193,8 @@ func finish_slots() -> void:
 	if _invalid_slots:
 		_material.set_shader_parameter("blender_provider_enabled", false)
 		_membrane_instance.visible = false
+		for instance in micro_instances:
+			instance.visible = false
 		var controller := _controller.get_ref() as DreamCritterController
 		if is_instance_valid(controller) and is_instance_valid(controller.mesh_instance):
 			controller.mesh_instance.mesh = _legacy_mesh
@@ -282,12 +304,16 @@ func _update_mesh(records: Array[Dictionary]) -> void:
 			_opaque_triangles = int(candidate.opaque_triangles)
 			_membrane_triangles = int(candidate.membrane_triangles)
 			_membrane_instance.mesh = _membrane_mesh
+			for i in micro_instances.size():
+				micro_instances[i].mesh = candidate.micro[i]
+				micro_instances[i].visible = candidate.micro[i] != null
 			if is_instance_valid(controller) and is_instance_valid(controller.mesh_instance):
 				controller.mesh_instance.mesh = _mesh
 		else:
 			_mesh = null
 			_membrane_mesh = null
 			_membrane_instance.mesh = null
+			for instance in micro_instances: instance.mesh = null
 			_opaque_triangles = 0
 			_membrane_triangles = 0
 			var controller := _controller.get_ref() as DreamCritterController
@@ -323,6 +349,7 @@ func _compile(ordered: Array[Dictionary]) -> Dictionary:
 	var custom := PackedFloat32Array()
 	var opaque_indices := PackedInt32Array()
 	var membrane_indices := PackedInt32Array()
+	var micro_indices: Array[PackedInt32Array] = [PackedInt32Array(), PackedInt32Array(), PackedInt32Array()]
 	for section_index in ordered.size():
 		var section: Dictionary = ordered[section_index]
 		var is_blender := int(section.lod) >= 0
@@ -362,7 +389,10 @@ func _compile(ordered: Array[Dictionary]) -> Dictionary:
 						is_membrane = true
 			for corner in 3:
 				var index := source_indices[triangle + corner] + offset
-				if is_membrane:
+				if int(section.kind) in [3, 7] and is_blender:
+					var role := int(roundf(template.colors[source_indices[triangle]].r * 10.0))
+					micro_indices[2 if role == 2 else (1 if is_membrane else 0)].append(index)
+				elif is_membrane:
 					membrane_indices.append(index)
 				else:
 					opaque_indices.append(index)
@@ -386,10 +416,13 @@ func _compile(ordered: Array[Dictionary]) -> Dictionary:
 		membrane = _make_surface(arrays, membrane_indices, "membrane")
 		if membrane == null:
 			return {}
-	if opaque == null and membrane == null:
+	var micro: Array[ArrayMesh] = []
+	for i in micro_indices.size():
+		micro.append(_make_surface(arrays, micro_indices[i], "micro") if not micro_indices[i].is_empty() else null)
+	if opaque == null and membrane == null and micro[0] == null:
 		error = "Compiled Blender batch contains no triangle indices"
 		return {}
-	return {"opaque": opaque, "membrane": membrane,
+	return {"opaque": opaque, "membrane": membrane, "micro": micro,
 		"opaque_triangles": opaque_indices.size() / 3,
 		"membrane_triangles": membrane_indices.size() / 3}
 
@@ -416,10 +449,32 @@ func sync_uniforms() -> void:
 		return
 	for uniform: String in _uniform_names:
 		_membrane_material.set_shader_parameter(uniform, _material.get_shader_parameter(uniform))
+		# Optical bindings belong exclusively to the shared field, not the source
+		# material. Copy only changed animation/ecology values to these variants.
+		if uniform.begins_with("lamp_") or uniform.begins_with("optical_"): continue
+		var value: Variant = _material.get_shader_parameter(uniform)
+		if not _synced_micro.has(uniform) or _synced_micro[uniform] != value:
+			for micro in micro_materials: micro.set_shader_parameter(uniform, value)
+			# Packed uniform arrays are mutable reference values. Retaining the
+			# same array aliases the next pose and makes a changed gait compare
+			# equal, leaving the three GPU tissue passes on an older pose.
+			if value is Array or value is Dictionary:
+				_synced_micro[uniform] = value.duplicate(true)
+			elif value is PackedVector4Array or value is PackedVector3Array \
+					or value is PackedVector2Array or value is PackedFloat32Array \
+					or value is PackedFloat64Array or value is PackedInt32Array \
+					or value is PackedInt64Array or value is PackedColorArray \
+					or value is PackedByteArray:
+				_synced_micro[uniform] = value.duplicate()
+			else:
+				_synced_micro[uniform] = value
 	var controller := _controller.get_ref() as DreamCritterController
 	if is_instance_valid(controller) and is_instance_valid(controller.mesh_instance):
 		_membrane_instance.layers = controller.mesh_instance.layers
 		_membrane_instance.extra_cull_margin = controller.mesh_instance.extra_cull_margin
+		for instance in micro_instances:
+			instance.layers = controller.mesh_instance.layers
+			instance.extra_cull_margin = controller.mesh_instance.extra_cull_margin
 	_membrane_instance.visible = _membrane_triangles > 0 \
 		and bool(_material.get_shader_parameter("blender_provider_enabled"))
 
@@ -428,6 +483,12 @@ func stats() -> Dictionary:
 	var triangles := 0
 	var blender_sections := 0
 	var section_map: Dictionary = {}
+	var micro_triangles := 0
+	var micro_draws := 0
+	for instance in micro_instances:
+		if is_instance_valid(instance) and instance.mesh != null:
+			micro_triangles += instance.mesh.surface_get_array_index_len(0) / 3
+			if instance.is_visible_in_tree(): micro_draws += 1
 	for section: Dictionary in sections:
 		triangles += _triangle_count(section)
 		blender_sections += 1 if int(section.lod) >= 0 else 0
@@ -442,9 +503,10 @@ func stats() -> Dictionary:
 		"manipulator_base": manipulator_base.duplicate(),
 		"blender_sections": blender_sections,
 		"legacy_sections": sections.size() - blender_sections, "triangles": triangles,
-		"total_triangles": _opaque_triangles + _membrane_triangles,
+		"total_triangles": _opaque_triangles + _membrane_triangles + micro_triangles,
+		"micro_triangles": micro_triangles, "micro_draws": micro_draws,
 		"opaque_triangles": _opaque_triangles, "membrane_triangles": _membrane_triangles,
-		"fixed_meshes": (1 if _mesh != null else 0) + (1 if _membrane_mesh != null else 0),
+		"fixed_meshes": (1 if _mesh != null else 0) + (1 if _membrane_mesh != null else 0) + micro_draws,
 		"membrane_draws": 1 if is_instance_valid(_membrane_instance) \
 			and _membrane_instance.is_visible_in_tree() and _membrane_triangles > 0 else 0,
 		"membrane_material_id": _membrane_material.get_instance_id() if _membrane_material != null else 0,
@@ -459,6 +521,22 @@ func stats() -> Dictionary:
 
 
 func dispose() -> void:
+	for micro in micro_materials:
+		micro.set_meta("lamp_receiver_retired",true)
+		var owner_id := int(micro.get_meta("_lamp_optical_field_owner", 0))
+		if owner_id != 0 and is_instance_id_valid(owner_id):
+			instance_from_id(owner_id).unbind_material(micro)
+		for uniform in micro.shader.get_shader_uniform_list():
+			if micro.get_shader_parameter(uniform.name) is Resource:
+				micro.set_shader_parameter(uniform.name, null)
+	for instance in micro_instances:
+		if is_instance_valid(instance):
+			instance.mesh = null
+			instance.material_override = null
+			instance.queue_free()
+	micro_instances.clear()
+	micro_materials.clear()
+	_synced_micro.clear()
 	if _controller != null:
 		var controller := _controller.get_ref() as DreamCritterController
 		if is_instance_valid(controller) and is_instance_valid(controller.mesh_instance) \

@@ -321229,21 +321229,159 @@
    "target_exists": true
   },
   {
+<<<<<<< HEAD
    "key": "ff908e862758888e",
    "kind": "vector3_coordinate",
    "token": "_run",
    "file": "game/tests/companion_lamp_aim_bench.gd",
+=======
+   "key": "dfeea3a7629043a3",
+   "kind": "generated_name",
+   "token": "setup",
+   "file": "game/scripts/dream/critters/dream_critter_blender_batch.gd",
+   "tier": "production",
+   "subsystem": "dream",
+   "symbols": [
+    "setup"
+   ],
+   "lines": [
+    99
+   ],
+   "count": 1,
+   "context": [
+    "\"Tardigrade\" + part.capitalize()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e42056e2cdc043e0",
+   "kind": "generated_name",
+   "token": "_check_companion",
+   "file": "game/tests/tardigrade_microscopy_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_companion"
+   ],
+   "lines": [
+    231
+   ],
+   "count": 1,
+   "context": [
+    "str(world.work_orders.job_library.job(\"lena_radiator_round_2b\").repair_target_id)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4040d03197fbb3e8",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/tardigrade_microscopy_review.gd",
+>>>>>>> origin/main
    "tier": "test",
    "subsystem": "tests",
    "symbols": [
     "_run"
    ],
    "lines": [
+<<<<<<< HEAD
     74
    ],
    "count": 1,
    "context": [
     "wall.position = player.camera.global_position + Vector3(0, 0, -3.5)"
+=======
+    72
+   ],
+   "count": 1,
+   "context": [
+    "player.position = Vector3(0,-20,0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7ba4fc4aef9f1351",
+   "kind": "generated_name",
+   "token": "_check_lunch",
+   "file": "game/tests/tardigrade_microscopy_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_lunch"
+   ],
+   "lines": [
+    350
+   ],
+   "count": 1,
+   "context": [
+    "str(world.work_orders.job_library.job(\"lena_radiator_round_2b\").repair_target_id)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "bd76428a2a2c35b8",
+   "kind": "vector3_coordinate",
+   "token": "_check_lunch",
+   "file": "game/tests/tardigrade_microscopy_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_lunch"
+   ],
+   "lines": [
+    411
+   ],
+   "count": 1,
+   "context": [
+    "camera.position=center+Vector3(1.1,1.4,-1.7)"
+>>>>>>> origin/main
    ],
    "gameplay_binding": true,
    "authority": [

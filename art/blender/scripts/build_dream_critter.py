@@ -21,6 +21,7 @@ import json
 import math
 import random
 import sys
+sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))
 from functools import lru_cache
 from pathlib import Path
 from types import SimpleNamespace
@@ -253,8 +254,9 @@ def skin_tardigrade():
         ring = []
         for j in range(n):
             angle = math.tau*j/n
-            x = .48 * end * fold * head * math.cos(angle)
-            y = .43 * end * fold * math.sin(angle) + .035*smooth((z-.2)/.25)
+            inflation = 1 + .045*math.sin(z*19+angle*2) + .025*math.cos(z*31-angle)
+            x = .48 * end * fold * head * math.cos(angle) * inflation
+            y = .43 * end * fold * math.sin(angle) * inflation + .035*smooth((z-.2)/.25)
             ring.append(c.vertex((x,y,z)))
         if rings:
             c.connect(rings[-1],ring)
@@ -480,15 +482,15 @@ def organs(species,col,lod,seed,skin):
         result.append(ob)
     if species=="tardigrade":
         blob("Pharynx",(.015,.025,.305),(.10,.105,.095),1)
-        steps=24 if lod==0 else 12
-        pts=[(.020*math.sin(i/(steps-1)*math.tau*.7),.025+.008*math.sin(i/(steps-1)*math.tau*1.2),-.34+i*.54/(steps-1)) for i in range(steps)]
+        steps=24 if lod==0 else 8
+        pts=[(.065*math.sin(i/(steps-1)*math.tau*1.4),.025+.025*math.sin(i/(steps-1)*math.tau*1.2),-.34+i*.54/(steps-1)) for i in range(steps)]
         gut=make_object("Gut",hollow_tube_cage(pts,[.080+.012*math.sin(i/(steps-1)*math.tau*.8)**2 for i in range(steps)],10 if lod==0 else 6),col,0,"internal_organ")
         result.append(gut)
         for side in (-1,1):
             pts=[(side*(.024+.028*math.sin(t*math.pi)),.075,.29+.13*t) for t in (0,.25,.5,.75,1)]
             tube("Stylet_L" if side<0 else "Stylet_R",pts,[.008,.009,.008,.005,.002])
         rng=random.Random(seed+719)
-        for i in range(14):
+        for i in range(4 if lod == 0 else 0):
             side=-1 if i%2 else 1
             z=-.33+(i//2)*.084+rng.uniform(-.008,.008)
             blob("StorageCell_%02d"%i,(side*rng.uniform(.185,.225),rng.uniform(-.01,.095),z),
@@ -694,6 +696,9 @@ def attributes(obj,species,leg_data,model=None):
         elif window>.35: region=REGIONS["window"]
         r=max(gold[v.index],claw[v.index]*.92)
         if obj.name.startswith("Stylet") or obj.name=="Spasmoneme": r=.8
+        if species=="tardigrade":
+            import tardigrade_microanatomy
+            r,window,region=tardigrade_microanatomy.semantics(obj,p,window)
         colors.data[v.index].color=(r,window,region/255.,1.)
     mesh.color_attributes.active_color=colors
     for loop in mesh.loops:
@@ -713,6 +718,24 @@ def attributes(obj,species,leg_data,model=None):
     bpy.ops.uv.smart_project(angle_limit=math.radians(70),island_margin=.015)
     bpy.ops.object.mode_set(mode='OBJECT')
     obj.select_set(False)
+    if species in ("tardigrade", "euplotes"):
+        # Edit-mode unwrap replaces CustomData layers; reacquire the live UV
+        # handle before writing, rather than mutating the retired layer wrapper.
+        mesh = obj.data
+        uv = mesh.uv_layers["UVMap"]
+        # Metric per-face charts at the species' nominal biological size.
+        # Actual individual variation/deformation stretches this living stock.
+        for polygon in mesh.polygons:
+            points = [gd(mesh.vertices[mesh.loops[i].vertex_index].co) for i in polygon.loop_indices]
+            scale = (.32,.30,.635) if species == "tardigrade" else (.16,.048,.23)
+            points = [Vector((p.x*scale[0],p.y*scale[1],p.z*scale[2])) for p in points]
+            origin=points[0]
+            axis=(points[1]-origin).normalized()
+            normal=(points[1]-origin).cross(points[2]-origin).normalized()
+            cross_axis=normal.cross(axis)
+            for index,p in zip(polygon.loop_indices,points):
+                delta=p-origin
+                uv.data[index].uv=(delta.dot(axis)/.04,delta.dot(cross_axis)/.04)
 
 
 def material():
@@ -834,6 +857,9 @@ def build(species,seed,out,lod):
         skin=make_object("Skin",cage,col,2 if lod==0 else 1,"continuous_skin")
         objects=[skin]+organs(species,col,lod,seed,skin)
         if species=="tardigrade": objects+=claws(skin,col,lod)
+    if species=="tardigrade":
+        import tardigrade_microanatomy
+        tardigrade_microanatomy.append(sys.modules[__name__], objects, col, lod, seed)
     mat=material()
     for obj in objects:
         obj["species_id"]=SPECIES_IDS[species]

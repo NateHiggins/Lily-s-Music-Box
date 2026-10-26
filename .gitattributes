@@ -51,6 +51,9 @@ game/assets/dream/tentacle/T_dream_hero_anatomy.png binary
 art/blender/dream_critters/** binary
 game/assets/dream/critters_blender/** -text
 art/blender/scripts/build_dream_critter.py -text
+art/blender/scripts/tardigrade_microanatomy.py -text
+art/tools/build_tardigrade_maps.py -text
+art/textures/ai_materials/tardigrade_*/material.json -text
 art/blender/scripts/check_dream_critter_anatomy.py -text
 art/blender/scripts/render_dream_critter.py -text
 art/renders/dream_critter_blender_pilots_20260919/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
