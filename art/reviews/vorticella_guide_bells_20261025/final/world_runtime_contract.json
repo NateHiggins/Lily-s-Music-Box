@@ -1,0 +1,295 @@
+{
+	"checks": [
+		{
+			"label": "production V2 starts",
+			"ok": true
+		},
+		{
+			"label": "production installs guide-bell adapter",
+			"ok": true
+		},
+		{
+			"label": "installed primary stair supplies a physically supported inter-floor route",
+			"ok": true
+		},
+		{
+			"label": "authored primary stair transition inspected",
+			"ok": true
+		},
+		{
+			"label": "no active task yields no assistance",
+			"ok": true
+		},
+		{
+			"label": "discovery-by-ear task remains unassisted",
+			"ok": true
+		},
+		{
+			"label": "single authored eligible task observed",
+			"ok": true
+		},
+		{
+			"label": "maintenance physical target loaded",
+			"ok": true
+		},
+		{
+			"label": "installed loaded architecture supports a visible maintenance trail",
+			"ok": true
+		},
+		{
+			"label": "strict monotonic route remaining distance",
+			"ok": true
+		},
+		{
+			"label": "real static attachment owner",
+			"ok": true
+		},
+		{
+			"label": "repair control kept clear",
+			"ok": true
+		},
+		{
+			"label": "trail bounded at eight cells",
+			"ok": true
+		},
+		{
+			"label": "route leg remains collision and support valid",
+			"ok": true
+		},
+		{
+			"label": "presentation leaves task authority byte-identical",
+			"ok": true
+		},
+		{
+			"label": "cancellation removes trail and route references",
+			"ok": true
+		},
+		{
+			"label": "no engine/script/shader errors in composed world",
+			"ok": true
+		}
+	],
+	"contracts": {
+		"installed_guide_bells": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"diagnostics": [
+		{
+			"legs": [],
+			"length": 11.8443186283112,
+			"points": "[(-1.924999, 0.035, -8.3), (-1.924999, 0.035, -8.55), (-1.924999, 1.635, -11.4), (-1.924999, 1.635, -12.87875), (-3.974999, 1.635, -12.87875), (-3.974999, 1.635, -12.6), (-3.974999, 3.235, -9.75), (-3.974999, 3.235, -8.5)]",
+			"stair": "PRIMARY_F01_F02"
+		},
+		{
+			"candidate": "(-14.54, 3.235, -9.000002)",
+			"focus": "(-15.34, 3.45, -9.000002)",
+			"ground": true,
+			"ground_owner": "/root/GuideBellWorldContract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision",
+			"offset": "(0.8, 0.0, 0.0)",
+			"sight_owner": "/root/GuideBellWorldContract/OrisonV2Runtime/OrisonV2Blockout/F02_B_RADIATOR_01/WorkingAssembly/PitchedCastings/RigidCastingsCollision",
+			"support": true
+		},
+		{
+			"focus": "(-15.34, 3.45, -9.000002)",
+			"ground": false,
+			"offset": "(-0.8, 0.0, 0.0)"
+		},
+		{
+			"candidate": "(-15.34, 3.235, -8.200002)",
+			"focus": "(-15.34, 3.45, -9.000002)",
+			"ground": true,
+			"ground_owner": "/root/GuideBellWorldContract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision",
+			"offset": "(0.0, 0.0, 0.8)",
+			"sight_owner": "/root/GuideBellWorldContract/OrisonV2Runtime/OrisonV2Blockout/F02_B_RADIATOR_01/WorkingAssembly/PitchedCastings/RigidCastingsCollision",
+			"support": false
+		},
+		{
+			"candidate": "(-15.34, 3.35, -9.800002)",
+			"focus": "(-15.34, 3.45, -9.000002)",
+			"ground": true,
+			"ground_owner": "/root/GuideBellWorldContract/OrisonV2Runtime/OrisonV2Blockout/2B_sewing_machine",
+			"offset": "(0.0, 0.0, -0.8)",
+			"sight_owner": "/root/GuideBellWorldContract/OrisonV2Runtime/OrisonV2Blockout/2B_sewing_machine",
+			"support": false
+		},
+		{
+			"bells": 0,
+			"route_length": 0.0,
+			"stance": "(-15.0275, 3.235, -8.125001)",
+			"supported": false
+		},
+		{
+			"bells": 0,
+			"route_length": 1.58685266971588,
+			"stance": "(-14.2, 3.235, -7.450001)",
+			"supported": true
+		},
+		{
+			"bells": 0,
+			"route_length": 0.0,
+			"stance": "(-15.2225, 3.235, -6.677501)",
+			"supported": false
+		},
+		{
+			"bells": 0,
+			"route_length": 1.1921501159668,
+			"stance": "(-13.575, 3.235, -9.700001)",
+			"supported": true
+		},
+		{
+			"bells": 0,
+			"route_length": 0.0,
+			"stance": "(-15.0275, 3.235, -11.275)",
+			"supported": false
+		},
+		{
+			"bells": 0,
+			"route_length": 0.0,
+			"stance": "(-13.2275, 3.235, -6.677501)",
+			"supported": false
+		},
+		{
+			"bells": 0,
+			"route_length": 0.0,
+			"stance": "(-12.1225, 3.235, -8.125001)",
+			"supported": false
+		},
+		{
+			"bells": 0,
+			"route_length": 0.0,
+			"stance": "(-12.305, 3.235, -6.827501)",
+			"supported": false
+		},
+		{
+			"bells": 1,
+			"route_length": 3.04369759559631,
+			"stance": "(-11.5, 3.235, -9.150001)",
+			"supported": true
+		}
+	],
+	"engine_errors": [],
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 149.819,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Installed route-query and placement observation fixtures; position fixtures are not played traversal or manipulation proof",
+	"selector": "v2",
+	"source": {
+		"test_path": "game/tests/guide_bell_world_contract.gd",
+		"test_sha256": "5fb0b7563af86b72437519efd00f989d1e90697fc8dcaf4e57059affdccec7da"
+	},
+	"trail": {
+		"after_cancel": {
+			"consumed_count": 1,
+			"crumbs": [],
+			"player_remaining_distance": null,
+			"retired": [
+				{
+					"direction_target": [
+						-14.5399980545044,
+						3.23499989509583,
+						-9.00000190734863
+					],
+					"optical_registrations": 0,
+					"reason": "target_changed",
+					"remaining_to_target_m": 1.15,
+					"route_coordinate": [
+						-13.3913955688477,
+						3.23499989509583,
+						-9.05667591094971
+					],
+					"route_revision": 3,
+					"state": "CLEARED",
+					"surface_owner": "/root/GuideBellWorldContract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision",
+					"symbiont_ownership": "breadcrumb_presentation",
+					"symbionts": 0,
+					"transitions": [
+						{
+							"age": 0.0,
+							"reason": "route_activated",
+							"state": "GERMINATING"
+						},
+						{
+							"age": 1.31684576190476,
+							"reason": "grown",
+							"state": "INDICATING"
+						},
+						{
+							"age": 1.60166876190477,
+							"reason": "player_passed",
+							"state": "PASSED_PENDING"
+						},
+						{
+							"age": 2.11544466666667,
+							"reason": "pass_confirmed",
+							"state": "WILTING"
+						},
+						{
+							"age": 2.11544466666667,
+							"reason": "target_changed",
+							"state": "CLEARED"
+						}
+					]
+				}
+			],
+			"route_length": 0.0,
+			"route_revision": 3,
+			"target_anchor": [],
+			"task_id": ""
+		},
+		"cells_before_cancel": 1,
+		"consumed_count": 0,
+		"crumbs": [
+			{
+				"direction_target": [
+					-14.5399980545044,
+					3.23499989509583,
+					-9.00000190734863
+				],
+				"optical_registrations": 7,
+				"reason": "grown",
+				"remaining_to_target_m": 1.15,
+				"route_coordinate": [
+					-13.3913955688477,
+					3.23499989509583,
+					-9.05667591094971
+				],
+				"route_revision": 3,
+				"state": "INDICATING",
+				"surface_owner": "/root/GuideBellWorldContract/OrisonV2Runtime/OrisonV2Blockout/F02_B_MAIN/Floor/Collision",
+				"symbiont_ownership": "breadcrumb_presentation",
+				"symbionts": 2,
+				"transitions": [
+					{
+						"age": 0.0,
+						"reason": "route_activated",
+						"state": "GERMINATING"
+					},
+					{
+						"age": 1.31684576190476,
+						"reason": "grown",
+						"state": "INDICATING"
+					}
+				]
+			}
+		],
+		"player_remaining_distance": 3.04369759559631,
+		"retired": [],
+		"route_length": 3.04369759559631,
+		"route_revision": 3,
+		"target_anchor": [
+			-14.5399980545044,
+			3.23499989509583,
+			-9.00000190734863
+		],
+		"task_id": "lena_radiator_round_2b"
+	}
+}
