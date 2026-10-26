@@ -119,6 +119,11 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
 
 ## Tools
 
+For Godot implementation, debugging, integration and performance work, use the
+repository skill [godot-development](.agents/skills/godot-development/SKILL.md).
+Its ethos is **deeper, not bigger**: improve execution without expanding scope;
+use a lightweight pass for small edits.
+
 `tools/PIPELINE_TOOLS.md` describes the gate board, run receipts, the
 candidate verifier, the design-doc lint, the lane broker, the lane ledger
 and the rulings checker.
