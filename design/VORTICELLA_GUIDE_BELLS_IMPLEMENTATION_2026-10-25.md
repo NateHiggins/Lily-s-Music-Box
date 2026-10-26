@@ -1,102 +1,107 @@
-# REPORT - Vorticella maintenance guide-bells - 2026-10-25
+# REPORT - Vorticella maintenance guide-bells - 2026-10-26
 
 Evidence class: **INERT**
 
-Implementation report; no completeness-ledger promotion or merge recommendation.
+The implementation and palette-preserving mottling are merged on main in
+**e774453fe977b546e058fcac0b29f7eebd93a4b2** (PR **48**). This report supersedes
+the blocked checkpoint status; it does not promote completeness-ledger claims.
 
-Branch / HEAD / origin/main / merge-base:
-**codex/v2-acoustic-topology** /
-**7a548239e3fddba395341e05fcb3be6ec583ae3e** /
-**20b7fee5f2122dd44065623e0d13b47794a56fc8** /
-**7a548239e3fddba395341e05fcb3be6ec583ae3e**.
-The existing shared checkout was reused without switching its branch. The
-checkpoint is assembled in an isolated index on **origin/main** at
-**f18d87c8da869df2e6aff6ef18e313438b737e82**, preserving other agents' staging.
+## Integration state
 
-Worktree clean at end: **no**. The checkout already contained extensive parallel
-work. This task adds guide-bell runtime, native Blender source/GLB/custom maps,
-two contract scenes, review artifacts and documentation. Shared integration
-edits are limited to the V2 runtime mount, two maintenance eligibility flags,
-their library validation, two catalogue entries, texture import policy and DOCS.
-Other agents' edits are retained.
+Implementation candidate: **84b2955d5b3a346f4288ba0ec1e74888a21cf923**.
+Its tree is identical to the merged commit's tree. The candidate verifier used
+base and merge-base **293ef013a31863bd90a2f337392219151f15cd29**.
+Final evidence preservation branch: **codex/guide-bells-complete-20261026**,
+based on **d0c18f36**. This follow-up changes documentation and review artifacts
+only. Runtime and asset sources have not changed since the verified merge.
 
-Protected 17/17: **unchanged against HEAD**; selector remains **v2** with explicit
-V1 rollback. The historical protected receipt was not edited.
+Worktree clean at start: **yes** for the temporary evidence checkout.
+The canonical shared checkout remains dirty with unrelated parallel work;
+its three task-owned route/test copies were reconciled to merged main, with
+previous copies backed up under **tmp/guide_bell/pre_reconcile**. No shared
+branch switch, bulk staging, stash, or unrelated restoration was used.
 
-Ledger before -> after: **not measured -> not measured**;
-requirements_changed: **none asserted**. Both design documents are inert.
+Protected 17/17: **unchanged against implementation merge-base**. Selector
+remains **v2**, with explicit V1 rollback. The protected receipt is unchanged.
+Ledger blockers before -> after, respectively: FIRST_SLICE_TECHNICAL **7 -> 7**,
+GOLDEN_SHIFT_V2 **8 -> 8**, FULL_BUILDING_STRUCTURAL **110 -> 110**,
+FULL_BUILDING_RUNTIME **42 -> 42**, PRODUCTION_CUTOVER **134 -> 134**,
+V1_RETIREMENT **136 -> 136**. requirements_changed: **none**.
 
-## Implementation and numbers
+## Implementation
 
-A read-only maintenance adapter constructs candidates from authored spaces,
-portals and native stair landings. Loaded collision sweeps and floor samples
-must prove every route leg; unavailable routes produce no trail. The same
-polyline supplies placements and remaining route metres. Cells attach to real
-floor/wall seams, point to the next waypoint, retain fixed holdfasts, and keep
-clear of doors and repair controls.
+The read-only adapter requests physically supported routes through authored
+rooms, portals and stairs. Capsule sweeps and continuous floor samples reject
+walls, closed doors and missing support. Placement and passing use the same
+route-distance authority. A failed query produces no trail.
 
-The window is at most eight cells, with 2.75 m placement spacing, a strict
-0.55 m passing margin and 0.4 s confirmation. Germination/wilt/retraction take
-1.3/1.6/0.85 s. Consumed positions do not regrow on backtracking. Cancellation,
-unloading and invalidation release geometry and shared lamp registrations.
-Private Euplotes presentation instances never enter the hunting authority.
+Up to eight sessile cells attach at clear architectural seams, at least 2.75 m
+apart along the route. They point along the route and keep repair controls clear.
+The strict passing margin is 0.55 m, confirmed for 0.4 s. Germination, wilting
+and retraction take 1.3, 1.6 and 0.85 s. Consumed positions do not regrow on
+backtracking. Cancellation, invalidation and unloading clear owned resources.
+Private Euplotes presentations do not join the tardigrade hunting authority.
 
-The native export has eight meshes and 21,208 triangles, with zero collapsed
-UV triangles. Six authored source maps provide custom PBR inputs. The owner's
-visual revision adds soft purple density mottling and thinner, clearer membrane
-patches while retaining the thicker rim and senescent clouding. It uses scene
-light transmission rather than uniform alpha fading or intrinsic emission.
+The native model contains eight meshes and 21,208 triangles, with zero collapsed
+UV triangles. The final export SHA-256 is
+**37a11af34f0bbe81aaf07c57a7de52f69f88036cf6a4d0769cb7736a35debdfd**.
+The independent Blender generator, custom PBR maps and loaded mipmaps are
+included. Soft multiscale membrane density and roughness variation provide the
+requested mottling; thinner patches transmit more scene light, while the rim
+stays thicker and senescence increases clouding. This is not a uniform fade.
 
-The owner's follow-up also applies the same mottling to the tardigrade/Euplotes
-shared membrane maps and the tentacle gang's membrane/tissue maps. Those
-generators modulate scalar brightness and roughness, preserving mean RGB and
-the existing species tints. Mineral and eye maps and all anatomy/behavior are
-unchanged. These additional edits are in **build_tardigrade_maps.py** and
-**build_tentacle_gang_maps.py** and their generated outputs; render checks are
-captured separately from the guide-bell integration test. Tardigrade/Euplotes
-passed **103 checks** and the tentacle gang passed **381 checks**, both with
-empty failure lists. Their schema-2 receipts and process receipts are in
-**art/reviews/cellular_mottling_20261025**. The tentacle implementation itself
-belongs to parallel work not yet on the checkpoint's base; its palette-preserving
-generator patch and four changed maps are also saved there for integration.
+The tardigrade/Euplotes shared membrane and tentacle gang membrane/tissue use
+the same mean-preserving brightness and roughness variation. Existing species
+colors, anatomy and hunting behavior remain intact. Both generators and their
+runtime maps are on main; the tentacle handoff patch is historical evidence.
+
+## Resolved checkpoint findings
+
+The original composed-world route crossed too near the rear stair guard and
+exited into the stair-head cabinet. The merged provider places its crossing
+midway inside the authored turn clearance and ends the upper approach clear
+of the cabinet. It shares those points with the world test. Collision and
+support requirements were retained; no blockers were ignored to force a route.
+
+The final independent export was imported twice and rendered in the verified
+candidate. On 2026-10-26 its front, side, back, lamp-off, wilt, retraction and
+clean frames were inspected, together with the installed radiator approach.
+The former failing world receipt remains as historical checkpoint evidence;
+use the **final** subdirectory for the successful result.
 
 ## Gates and scoped evidence
 
-- Reader baseline: **exit 0, NEW 0**.
-- Surface/data-consumption tools tests: **exit 0, 61 tests OK**.
-- Exported native UV check: **exit 0, PASS**; review artifact
-  **art/reviews/vorticella_guide_bells_20261025/native_uv.json**.
-- Brief design lint and tracked-path whitespace checks: **exit 0**.
-- Final optical/lifecycle runtime: **60 checks passed**, no engine errors,
-  **tmp/guide_bell/mottled/runtime_contract.json**; runner process receipt
-  **tmp/guide_bell/mottled.log.receipt.json** reports **exit 0**.
-  Front, side, back, lamp-off, wilt, retraction and clean frames were captured.
-- Route regression after the support fix: **60 checks passed**,
-  **tmp/guide_bell/route_regression/runtime_contract.json** and
-  **tmp/guide_bell/route_regression.log.receipt.json** (**exit 0**).
-- Composed-world run: **exit 1**, solely the primary inter-floor route assertion.
-  Placement, monotonic progress, static attachment, control clearance, route
-  legs, unchanged task authority, cancellation and engine-error checks pass.
-  **art/reviews/vorticella_guide_bells_20261025/world_runtime_contract.json**
-  and **world_suite_run.json** preserve the actual failing result.
-- Full gate board, completeness/spatial/systemic/period comparison and candidate
-  verifier: **not run**. No clean merge-base board or merge candidate is asserted.
+All final guide-bell evidence below is in
+**art/reviews/vorticella_guide_bells_20261025/final**:
 
-Changes outside the expected file boundary, and why: **none by this task**.
-The preexisting unrelated working-tree changes remain outside its scope.
+- **optical_runtime_contract.json**: 60 checks pass; no engine errors. Exercises
+  lifecycle, optics, owned symbionts, physical route negative controls, cleanup,
+  save-state preservation and actual radiator grab/motion/release input.
+- **world_runtime_contract.json**: 17 checks pass; no engine errors. Includes
+  the composed primary stair route, installed placement, monotonic distance,
+  static attachment, control clearance, cancellation and unchanged job state.
+- **optical_suite_run.json**, **world_suite_run.json**, **import1_suite_run.json**
+  and **import2_suite_run.json**: completed process runs, exit 0. These are
+  wrapper evidence, separate from the schema-2 runtime contracts.
+- Both runtime contracts' LF-normalized test-source hashes match merged main.
+- **implementation_verification.json** and **implementation_verification.md**:
+  clean fresh candidate, zero gate regressions, 17 protected paths unchanged,
+  no design lint errors, MERGE-CANDIDATE. This verifier used **--no-godot**;
+  runtime was exercised separately by the receipts above. The spatial manifest
+  was regenerated during integration and was the one changed gate file.
+- The unchanged native UV receipt is **../native_uv.json**.
+- Tardigrade/Euplotes: 103 checks pass; tentacle mottling: 381 checks pass.
+  Their review images and runtime receipts remain in
+  **art/reviews/cellular_mottling_20261025**.
 
-Open findings not fixed: the composed-world primary stair route remains rejected,
-although all seven native-shell stair legs and the complete shell route pass
-**GuideBellRouteDiagnostic**. Next inspect per-leg rejection reasons in the
-composed world, including added blockers and the bounded search. Do not relax
-collision checks to force a path. Placement now passes after using the physical
-inspection point and trying nearby clear seams. The generator was made independent
-of the changing tentacle build script and its final export passes native UV
-checks; reimport and windowed review of that final export remain to be run.
-Stair paths preserve separate ramp and landing endpoints. Moving lift
-travel is deliberately not accepted as an edge; no valid stair alternative
-means no guidance. World observation positions are fixtures, not played travel.
+Evidence limits: world observation positions are fixtures, not an end-to-end
+played traversal. Moving lifts are not accepted as route edges; when no valid
+stair alternative exists, guidance stays absent. The world run emits a texture
+RID warning at whole-world teardown; the isolated guide-bell owned-resource
+checks pass. No whole-building leak-free claim is made.
 
+Changes outside the expected file boundary: **none by this follow-up**.
+Open implementation findings from the checkpoint: **resolved**.
 Decision needed from owner: **none**.
 
-BLOCKED composed-world stair route and final independent-export review; checkpoint only
+Implementation merged; final evidence preserved and stale blocked status retired.
