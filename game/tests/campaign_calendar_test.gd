@@ -27,6 +27,7 @@ func _ready() -> void:
 	_test_save_reload()
 	_test_invalid_saved_clocks()
 	_test_protected_empty_clock()
+	_test_preview_scope()
 	_finish(old_path, old_persistence)
 
 
@@ -219,6 +220,37 @@ func _test_protected_empty_clock() -> void:
 			and samples == prior_samples and RealityState.data.campaign_clock.is_empty())
 	_check("clock refusal preserves future notice and exact file", RealityState.player_notice().code
 			== "future_save_read_only" and FileAccess.get_file_as_bytes(RealityState.save_path) == bytes)
+
+
+func _test_preview_scope() -> void:
+	var prior:=RealityState.data
+	var prior_text:=JSON.stringify(prior,"",true,true)
+	var status:=RealityState.load_status()
+	var notice:=RealityState.player_notice()
+	var last_save:=RealityState.last_save_result()
+	var blocked:=RealityState.save_write_blocked
+	var version:=RealityState.incompatible_save_version
+	var persistence:=RealityState.persistence_enabled
+	var files:=_save_bundle_evidence()
+	_check("preview borrows an exclusive detached campaign", RealityState.begin_preview_campaign(self))
+	_check("nested preview cannot replace its owner's restoration record", not RealityState.begin_preview_campaign(self))
+	var stranger:=Node.new()
+	_check("another owner cannot end the preview", not RealityState.end_preview_campaign(stranger))
+	stranger.free()
+	var clock:=CampaignClock.new()
+	_check("preview can inspect a valid calendar despite the original protected save", clock.configure_date(1929,11,7,720))
+	var preview_data:=RealityState.data
+	var preview_clock:=JSON.stringify(preview_data.campaign_clock,"",true,true)
+	RealityState.persistence_enabled=true # Even an incorrect caller cannot enable disk writes.
+	_check("forced save and replacement campaign are denied inside preview", not RealityState.save_game() and not RealityState.start_new_campaign())
+	RealityState.commit();RealityState.commit_background();RealityState.flush_background_saves()
+	RealityState.load_game()
+	_check("load cannot replace the preview domain", is_same(preview_data,RealityState.data) and JSON.stringify(RealityState.data.campaign_clock,"",true,true)==preview_clock)
+	_check("all existing save/backup/transaction bytes remain exact", _save_bundle_evidence()==files)
+	_check("preview returns ownership", RealityState.end_preview_campaign(self))
+	_check("preview restores the exact original data reference and values", is_same(prior,RealityState.data) and JSON.stringify(prior,"",true,true)==prior_text)
+	_check("preview restores protection, notices and save/load status", RealityState.save_write_blocked==blocked and RealityState.incompatible_save_version==version and RealityState.load_status()==status and RealityState.player_notice()==notice and RealityState.last_save_result()==last_save and RealityState.persistence_enabled==persistence)
+	_check("an ended or null preview lease cannot restore again", not RealityState.end_preview_campaign(self) and not RealityState.end_preview_campaign(null))
 
 
 ## Test artifacts never reuse the historical fixed save or its protected sidecars.
