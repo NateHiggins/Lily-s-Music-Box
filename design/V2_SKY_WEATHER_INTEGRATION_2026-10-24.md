@@ -400,7 +400,7 @@ with accelerated effect settling, not input, save/load or performance proof.
 | Annual cloud appearance | Remaining visual polish: repeated small tapered marks and similar compositions are visible despite different signatures | Preserve all 365 dates for further art review; no diversity or production-acceptance claim from counts alone |
 
 **art/reviews/living_sky_20261026/annual_cyclone_review.zip** and its manifest
-pack 80 hash-verified members into approximately **6.8 MB**, keeping two new
+pack 89 hash-verified members into approximately **6.8 MB**, keeping two new
 repository files instead of individual review frames. The full annual JSON,
 all runs' logs/receipts, the exact receipt-hash-verified annual test source,
 before/after shader snapshots and original coastal-storm PNGs are retained.
@@ -414,6 +414,19 @@ the source/evidence commits. Protected paths and the V2 selector are unchanged
 in this patch. Ledger **7/8/110/42/134/136 -> 7/8/110/42/134/136**;
 requirements_changed: **[]**. These are diagnostics, not runtime-contract
 receipts or human acceptance.
+
+The first candidate **1e472a7e** passes all 113 gates relative to the baseline,
+with zero regressions, 17 protected paths unchanged, V2 selected and lint clean.
+Two imports and all four original weather suites pass through the lane.
+CampaignWeather reports 406 checks; WeatherSky zero failures; the phenomena
+schedule PASS; flash accessibility 2/2. First import recreates 618 missing UIDs
+from cache; the second import has empty stderr. WeatherSky retains the existing
+**cam_noel_witches** placement warning. The flash test nevertheless reports
+three leaked ObjectDB instances and one resource at exit: its unparented test
+director was never freed. Explicitly free that fixture after both assertions.
+**flash_cleanup.log.receipt.json** then reports PASS 2/2 with empty stderr.
+Original warning/error, first verification and clean retry are retained in the
+packet. Final candidate verification is renewed on the PR after this cleanup.
 
 Still open: ordinary cloud and extreme art polish; exact fractional-time cloud
 motion; occupied-world validated save/rebuild, denial and owned teardown; the

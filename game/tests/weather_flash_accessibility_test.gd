@@ -12,6 +12,7 @@ func _ready() -> void:
 	var reduced: float = director.visible_weather_flash(0.78)
 	GameBoot.settings.reduce_flashing = prior
 	var ok := is_equal_approx(ordinary, 0.78) and is_zero_approx(reduced)
+	director.free()
 	print("[WEATHER FLASH ACCESS] RESULT: %s 2/2" % (
 			"PASS" if ok else "FAIL"))
 	get_tree().quit(0 if ok else 1)

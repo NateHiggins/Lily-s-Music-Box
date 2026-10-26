@@ -537,6 +537,54 @@
       "source": "C:\\ov\\reports\\weather_year26\\warp_after.log.receipt.json"
     },
     {
+      "name": "qualification/candidate/verification.json",
+      "sha256": "fd85158116f70ee3cf1b48666e768c4a2b47ef839467263a63f9ed319ed07195",
+      "bytes": 287397,
+      "source": "C:\\ov\\reports\\weather_year26\\candidate\\verification.json"
+    },
+    {
+      "name": "qualification/candidate/verification.md",
+      "sha256": "ba306327dfd7876893b71b0c54e517d5bab72cea77b4fc07eaf3801f167ff8c4",
+      "bytes": 1847,
+      "source": "C:\\ov\\reports\\weather_year26\\candidate\\verification.md"
+    },
+    {
+      "name": "qualification/candidate/godot/WeatherFlashAccessibilityTest_tscn_windowed.log",
+      "sha256": "d81078d858719f026e4bdbc06b46e26681b4190c0315248a6febdb341286857b",
+      "bytes": 224,
+      "source": "C:\\ov\\reports\\weather_year26\\candidate\\godot\\WeatherFlashAccessibilityTest_tscn_windowed.log"
+    },
+    {
+      "name": "qualification/candidate/godot/WeatherFlashAccessibilityTest_tscn_windowed.log.stderr",
+      "sha256": "29048e6d56b5468d8e774e121edfb6580b9ffd9bb980e15a5d28fe3744e197d9",
+      "bytes": 249,
+      "source": "C:\\ov\\reports\\weather_year26\\candidate\\godot\\WeatherFlashAccessibilityTest_tscn_windowed.log.stderr"
+    },
+    {
+      "name": "qualification/candidate/godot/WeatherFlashAccessibilityTest_tscn_windowed.log.receipt.json",
+      "sha256": "12053f78b8945e88989fe6b025180bf1adc36fe6910c0af48ceceabd57956398",
+      "bytes": 3235,
+      "source": "C:\\ov\\reports\\weather_year26\\candidate\\godot\\WeatherFlashAccessibilityTest_tscn_windowed.log.receipt.json"
+    },
+    {
+      "name": "qualification/flash_cleanup.log",
+      "sha256": "d81078d858719f026e4bdbc06b46e26681b4190c0315248a6febdb341286857b",
+      "bytes": 224,
+      "source": "C:\\ov\\reports\\weather_year26\\flash_cleanup.log"
+    },
+    {
+      "name": "qualification/flash_cleanup.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_year26\\flash_cleanup.log.stderr"
+    },
+    {
+      "name": "qualification/flash_cleanup.log.receipt.json",
+      "sha256": "e5d527b6ec8c6ed992f1c34bacaf40aab9951744144bc0893973fd804ae36218",
+      "bytes": 1648,
+      "source": "C:\\ov\\reports\\weather_year26\\flash_cleanup.log.receipt.json"
+    },
+    {
       "name": "source/after/game/tests/v2_sky_spectacle_bench.gd",
       "sha256": "4035d0a1193daaf4ac49d62544b4831115959adad22aaeb05342f8c3abd2581d",
       "bytes": 20767
@@ -545,6 +593,11 @@
       "name": "source/after/game/tests/campaign_weather_world_review.gd",
       "sha256": "c53ad487c0243a810a93ebdbd65390b72e234c6ab70e2f7d6cfb79bc4c6158f6",
       "bytes": 3569
+    },
+    {
+      "name": "source/after/game/tests/weather_flash_accessibility_test.gd",
+      "sha256": "43c6cc50627bbaefb43b3f7543bcaf93ab5b6976bd4269becb8001b528712bdb",
+      "bytes": 659
     },
     {
       "name": "source/after/game/shaders/queens_weather_sky.gdshader",
@@ -569,6 +622,6 @@
       "verified_against_run_receipt": true
     }
   ],
-  "archive_sha256": "1a6f5ac1a37f9e147e404e30d145399acbbd3b2023c57dba8443940bd7475811",
-  "archive_bytes": 6796032
+  "archive_sha256": "2a1147d57b71fed3e04dc5a19453be9298e87c55431ea309af3299628d987387",
+  "archive_bytes": 6833110
 }
