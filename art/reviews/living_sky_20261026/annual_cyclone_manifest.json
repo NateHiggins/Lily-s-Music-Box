@@ -1,6 +1,6 @@
 {
   "evidence_class": "INERT",
-  "scope": "INERT annual sky and audited noncapturing lifecycle diagnostics. Includes original failures and partial observations; no complete lifecycle PASS, native input, performance or human acceptance claim.",
+  "scope": "INERT annual sky and scoped noncapturing lifecycle evidence, including a test-written schema2 runtime_contract PASS. Original failures retained. Original regressions and final candidate verification pending; no native input, performance, whole-V2 or human acceptance claim.",
   "members": [
     {
       "name": "annual/annual_gallery.json",
@@ -4184,10 +4184,171 @@
       "bytes": 18597,
       "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v6\\weather_lifecycle_contract.json",
       "scope": "WIP diagnostic; original failed/aborted/queued runs are not qualification"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/audit/lifecycle_validation.json",
+      "sha256": "5ad59d8096fd539b66d4bdda69f6e4b200cebb14fec544990c0eebea2ce04bba",
+      "bytes": 1157,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\lifecycle_validation.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/audit/noncapturing_sources.json",
+      "sha256": "d26e9a545621e7812b2a29a2e414e39806577387f8fdc2699a4f294749e07f39",
+      "bytes": 347792,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\noncapturing_sources.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/audit/regressions_batch.json",
+      "sha256": "af925529991d7a7a690db97ac877cdde31385e0dd89861a02fddd0c10ed5e686",
+      "bytes": 1989,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\regressions_batch.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/audit/run_noncapturing_batch.ps1",
+      "sha256": "a38a07609243f47e2d0d3d7063ca6ad55c918e416671a02ade1d00a5dca8fe61",
+      "bytes": 11651,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\run_noncapturing_batch.ps1",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/audit/shaders_after_lifecycle.json",
+      "sha256": "9d56faed717d95ccb6d1b3be963c4fc979381849be024e3ef7178fc4c887a33b",
+      "bytes": 13193,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\shaders_after_lifecycle.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/audit/shaders_candidate_binding.json",
+      "sha256": "4f141f931d4fe9b63e66224b573c9d8def21bc2c8f95b8bdbbc78930e29617ba",
+      "bytes": 13160,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\shaders_candidate_binding.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/logs/world_v7.log",
+      "sha256": "a27d9ce74c63e1225264364c9552cd3df4a01fefe97406d9a4c3d41acb7228bb",
+      "bytes": 6693,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v7.log",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/logs/world_v7.log.isolated.json",
+      "sha256": "57fc039859f247fa86099d5d497617e65ad565585795b27a81c296a96af3a3c0",
+      "bytes": 5545,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v7.log.isolated.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/logs/world_v7.log.isolated.log",
+      "sha256": "79dff9e24d5d5ba5fec975d4d66710638c196fef9f73d9a2791e7f4f8147a36e",
+      "bytes": 2901,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v7.log.isolated.log",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/logs/world_v7.log.receipt.json",
+      "sha256": "413d0619ecb5c403455e573754cf3feda716c76a909f90cbca04bccd11ac35be",
+      "bytes": 4593,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v7.log.receipt.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/logs/world_v7.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v7.log.stderr",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/owner_regressions/custody_final.log",
+      "sha256": "4018e24c9b757e0b9b56c96366f8625e37872ea56ec448d4f570275f676d7941",
+      "bytes": 832,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\custody_final.log",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/owner_regressions/custody_final.log.receipt.json",
+      "sha256": "2dee770af8c544f078f707ba92ecac5813c41c7ae1be3839f28179f91d39fa56",
+      "bytes": 1594,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\custody_final.log.receipt.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/owner_regressions/custody_final.log.stderr",
+      "sha256": "38de8241e3b14dfa28f79d02324cef7c65fc0248e579a71e1625aba7062de49a",
+      "bytes": 249,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\custody_final.log.stderr",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/owner_regressions/ritual_verbose.log",
+      "sha256": "d0885aa0fcc43c5f9821800004187672045e8800aa21c37a9c33025607b6a145",
+      "bytes": 7621,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_verbose.log",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/owner_regressions/ritual_verbose.log.receipt.json",
+      "sha256": "60fdc74d66accc473adb8171d81f81a479465ce8df3d7a63dae4093c1c11bc70",
+      "bytes": 1847,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_verbose.log.receipt.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/owner_regressions/ritual_verbose.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\ritual_verbose.log.stderr",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/runtime/lifecycle_0.png",
+      "sha256": "4925ea26b0689171b9e58f78423f7c8220a7eed863ad505e183e00ed8da5aeb3",
+      "bytes": 324827,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v7\\lifecycle_0.png",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/runtime/lifecycle_1.png",
+      "sha256": "ab58433c630468c18b91cccd40ae4594c442c65b4bb1d2bce259ee1cb3239c97",
+      "bytes": 340065,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v7\\lifecycle_1.png",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/runtime/weather_lifecycle_contract.json",
+      "sha256": "b6b0d865a1ee3ed9930b9707f72d7dcc80c14d6fbf185e168570ddd0ab1258dd",
+      "bytes": 18219,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\world_v7\\weather_lifecycle_contract.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/save/campaign.json",
+      "sha256": "9eaa2e6bce07b97884992083af6713e14a591580fb7d941165bf2a7d630710c1",
+      "bytes": 286354,
+      "source": "C:\\Users\\nate_\\AppData\\Roaming\\PleaseRemainOnTheLine\\tests\\weather-lifecycle\\191912_778009839102\\campaign.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/static_836b/verification.json",
+      "sha256": "8948860ad4b896e46d07179f1a1c602ac93412d7c09b106c5a78ba2278e7706a",
+      "bytes": 284371,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\candidate_wip_static\\verification.json",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
+    },
+    {
+      "name": "weather_lifecycle/lifecycle_pass/static_836b/verification.md",
+      "sha256": "8f8edada4c078790fc28a9a8d401d251d577df99b12d4879d8f2f8da3850e198",
+      "bytes": 1533,
+      "source": "C:\\ov\\reports\\weather_lifecycle27\\candidate_wip_static\\verification.md",
+      "scope": "Scoped lifecycle evidence; owner regression stderr limitations retained; other original tests remain pending"
     }
   ],
-  "archive_sha256": "2d1e5aeb8e3b5c20e6cecf7200b87784e28429cf1e7c6d5eef9ededb152cb661",
-  "archive_bytes": 26640694,
+  "archive_sha256": "a2338abbca78cf669f389205748534d03c5e26dfc4692be481159041f7f1277e",
+  "archive_bytes": 27534758,
   "previous_checkpoint_archive_sha256": "cdaf921dbc5baa4b10beb23e1afe63905599dacd2e3f4ce5f86af0b40294a201",
   "previous_checkpoint_archive_bytes": 22695933,
   "archive_history": [
@@ -4218,6 +4379,10 @@
     {
       "sha256": "633b517f3f27aae408bbb37cfe0a2a82ebb50119f1a2f734a33138a8aab2e2f2",
       "bytes": 25721547
+    },
+    {
+      "sha256": "2d1e5aeb8e3b5c20e6cecf7200b87784e28429cf1e7c6d5eef9ededb152cb661",
+      "bytes": 26640694
     }
   ]
 }

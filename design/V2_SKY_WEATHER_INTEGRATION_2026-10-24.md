@@ -891,3 +891,53 @@ pending. Native grabs/inspection, roof-preview capture/retirement, matched
 movement performance, broader sky art and the rest of V2 remain open. The
 private desktop is window isolation only; capture, confinement and cursor-warp
 scenes stay held. Decision needed from owner: none for the queued reversible work.
+
+## October 26 — scoped lifecycle PASS; original regression batch pending
+
+This supersedes the pending lifecycle status in the earlier WIP entry. The
+actual **world_v7** run executes all **41 checks** successfully, with empty
+stderr. Its own schema-2 **runtime_contract** passes the repository validator;
+the separate wrapper receipt binds to the tested sources. Test elapsed time
+is **256.547 s**; wrapper elapsed time is **274.45 s**. Execution HEAD is
+**836b1431**. This is a scoped weather contract, not whole-V2 qualification.
+
+The validated campaign save contains a real gasket inventory record, authored
+Mina job and active case, trust/visit history and a historical collected edition.
+These are explicitly public-owner fixtures, not claims of played acquisitions
+or conversations. Saved, loaded and rebuilt persisted values remain exact.
+Fractional **0.75-second** clock time, precise cloud transport, storm shader
+uniforms, wetness and the issued forecast timeline reconstruct identically.
+Invalid extreme-event input is refused without mutation. The actual roof
+before/after PNGs have been inspected; particle positions may differ naturally.
+
+Both worlds release the tracked **36 nodes and 50 resources**, including all
+four camera-owned GPU emitters per world, and restore the prior viewport TAA
+setting. Zero weather-subtree audio playbacks are observed. Imported resources,
+the exact process-owned weather-noise texture and catalogue plant material are
+borrowed separately; no RenderingServer byte-allocation or whole-game teardown
+claim is made. All **107 shader sources** match the clean tested candidate tree
+and the post-run sample; this supplements the test's own sky-shader binding.
+
+The raw mouse monitor retains **24 prelaunch cursor-clip changes** while the
+run waited for the lane. It records **no clip or input-desktop change during
+our actual execution interval, 20:15:19–20:19:54 UTC**. Do not misreport its
+whole-lifetime clip-change flag as false. Sampling remains 200 ms, with
+second-resolution wrapper boundaries. Native capture/warp tests remain held.
+
+Candidate static verification for **836b1431** completes with all **113 gates**,
+zero regressions, **17/17 protected files unchanged**, selector V2, zero lint
+errors and unchanged completeness counts. This verifier explicitly uses
+**--no-godot**; actual lifecycle evidence above is separate. The existing
+custody assertions pass again, retaining the earlier four-ObjectDB/two-resource
+exit warnings. Their verbose diagnostic is queued; the warning is not closed.
+
+The archive now holds **645 hash-verified members, 27,534,758 bytes**. All prior
+622 members remain byte-identical. It includes the actual isolated save,
+test-written contract, both original renders, source bindings, raw monitor,
+wrapper receipts and the static verifier result. No repository files are added.
+
+**PR 59 remains draft.** The six original windowed regressions are batched in
+one shared-lane acquisition and remain queued behind other live work. Final
+candidate verification and merge remain pending. The full goal, native input,
+preview retirement, matched movement/interaction performance, broader sky art
+and other outstanding V2 work remain open; no ledger status is promoted.
