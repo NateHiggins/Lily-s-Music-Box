@@ -70,15 +70,16 @@ static func stair_points(root: Node3D,stair: Dictionary) -> Array[Vector3]:
 	var half := root.get_node_or_null(str(stair.id)+"/HalfLanding") as MeshInstance3D
 	if half==null: return points
 	var x := float(stair.origin[0]); var z := float(stair.origin[1]); var width := float(stair.width)
-	# Turn at the half landing's centre: the guards on its far edge leave the
-	# capsule no clearance at the old 0.32 m inset.
-	var turn := half.position.z+half.mesh.get_aabb().get_center().z
 	var low: float = root.level_y[str(stair.from)]
 	var high: float = root.level_y[str(stair.to)]
 	var mid := low+float(stair.rise)*int(stair.risers_per_flight)
 	var a := x+width*.5; var b := x+width*1.5+float(stair.gap)
 	var run:=float(stair.tread)*int(stair.risers_per_flight)
 	var north_start:=z+run+float(stair.landing_depth)
+	# Cross the landing in its turn clearance, midway between the return
+	# flight's inner guard (which starts at its first tread centre) and the
+	# landing's rear guard. Nearer either one leaves the capsule no room.
+	var turn := (north_start-float(stair.tread)*.5+half.position.z+half.mesh.get_aabb().end.z)*.5
 	# Keep ramp endpoints distinct from level landings: interpolating one
 	# diagonal over both makes the proposed feet sink through real treads.
 	# The head exits only 5 cm short of the stair: the fire-line cabinet sits
