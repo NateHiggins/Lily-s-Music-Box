@@ -207,11 +207,12 @@ float density_tagged(vec3 p,out float fire) {
     float thickness=mix(0.60,3.0,season_weights.z);
     // The cyclone centre is regional/world space. Integrated calendar wind
     // moves only the sampled texture, never the finite storm's influence area.
-    vec3 advected=wx_cyclone_warp(p)-wind_offset;
+    vec3 warped=wx_cyclone_warp(p);
+    vec3 advected=warped-wind_offset; // Retained only for legacy animal SDFs.
     float bottom=base;
     float asperitas=max(wx_formation==1 ? wx_formation_strength : 0.0,spectacle[S_ASPERITAS]);
-    if(asperitas>0.0) bottom=mix(base,wx_asperitas_bottom(advected,base),asperitas);
-    vec3 q=advected;
+    if(asperitas>0.0) bottom=mix(base,wx_asperitas_bottom(warped,base),asperitas);
+    vec3 q=warped;
     if(wx_formation==2) q=mix(q,wx_fluctus_warp(q,base,base+thickness),wx_formation_strength);
     float h=(q.y-bottom)/thickness;
     float deck=smoothstep(0.0,0.12,h)*(1.0-smoothstep(0.72,1.0,h));
@@ -223,8 +224,8 @@ float density_tagged(vec3 p,out float fire) {
         if(living_layer_0.x<.96) result+=living_density(p,living_layer_1,living_motion_1,living_brush_1,living_drift_1);
     } else if(deck>0.001) {
         float scale=mix(0.30,0.16,season_weights.z);
-        vec2 n=textureLod(cloud_noise,q*scale,0.0).rg;
-        float erosion=textureLod(cloud_noise,q*scale*4.3,0.0).g;
+        vec2 n=textureLod(cloud_noise,q*scale+vec3(wx_cloud_drift.x,0.0,wx_cloud_drift.y),0.0).rg;
+        float erosion=textureLod(cloud_noise,q*scale*4.3+vec3(wx_cloud_drift.z,0.0,wx_cloud_drift.w),0.0).g;
         float cover=max(cloud_coverage,0.96*max(vortex_intensity,wx_cyclone));
         cover=max(cover,0.82*spectacle[S_ASPERITAS]);
         cover=max(cover,0.96*asperitas);
@@ -341,7 +342,7 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
             vec3 lit=wx_powder_light(d,tau_sun,dot(direction,source),h,celestial_color*day,ambient,source);
             float asperitas=max(wx_formation==1 ? wx_formation_strength : 0.0,spectacle[S_ASPERITAS]);
             if(asperitas>0.0) {
-                float relief=wx_asperitas_relief(p-wind_offset,source);
+                float relief=wx_asperitas_relief(wx_cyclone_warp(p),source);
                 vec3 hollow=ambient*mix(vec3(.06,.08,.18),vec3(.20,.05,.14),1.0-smoothstep(.03,.28,abs(source.y)));
                 // Broad skylight sees the folds even with a high midday Sun.
                 lit=mix(lit,mix(hollow,lit*1.15,relief),asperitas);
@@ -390,13 +391,14 @@ void sky() {
             ice_color=mix(ice_color,vec3(1.30,.55,.32),amber*high_sun);
             base=mix(base,ice_color,ice_alpha);
         }
-        vec2 uv=EYEDIR.xz/max(.15,EYEDIR.y)*.14-wind_offset.xz*.14;
+        vec2 high_uv=EYEDIR.xz/max(.15,EYEDIR.y)*.14;
+        vec2 uv=high_uv+wx_cirrus_drift.xy;
         float cirrus=texture(cirrus_tex,uv).r*max(high_cloud_strength,wx_formation==4 ? wx_formation_strength*0.70 : 0.0)*(wx_formation==4 ? .85 : mix(.16,.45,season_weights.w));
         cirrus*=smoothstep(.04,.18,EYEDIR.y);
         if(living_enabled) cirrus=0.0; // The observed high genus owns ordinary ice cloud.
         if(wx_formation==4 && spectacle[S_NACREOUS]<=0.0) {
-            vec2 pearl_uv=uv*vec2(.7,1.3);
-            vec2 patch=textureLod(cloud_noise,vec3(pearl_uv,.2+wx_phase*.0001),1.0).rg;
+            vec2 pearl_uv=high_uv*vec2(.7,1.3)+wx_cirrus_drift.zw;
+            vec2 patch=textureLod(cloud_noise,vec3(pearl_uv,.2+wx_texture_phase),1.0).rg;
             cirrus=smoothstep(.48,.66,patch.x*.6+patch.y*.4)*wx_formation_strength*.48*smoothstep(.04,.18,EYEDIR.y);
         }
         vec3 cirrus_color=fog_horizon_color*1.4+celestial_color*.12;

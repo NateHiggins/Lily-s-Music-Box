@@ -19,6 +19,8 @@ static var _transport_wind_x := PackedFloat64Array()
 static var _transport_wind_y := PackedFloat64Array()
 static var _transport_distance_x := PackedFloat64Array()
 static var _transport_distance_y := PackedFloat64Array()
+static var _cyclone_starts := PackedFloat64Array()
+static var _cyclone_ends := PackedFloat64Array()
 
 static func load_calendar() -> bool:
 	if not _days.is_empty(): return true
@@ -54,11 +56,20 @@ static func load_calendar() -> bool:
 	_transport_times=PackedFloat64Array()
 	_transport_wind_x=PackedFloat64Array();_transport_wind_y=PackedFloat64Array()
 	_transport_distance_x=PackedFloat64Array();_transport_distance_y=PackedFloat64Array()
+	_cyclone_starts=PackedFloat64Array();_cyclone_ends=PackedFloat64Array()
 	var distance_x:=0.0;var distance_y:=0.0
+	var cyclone_active:=false
 	for key: String in dates:
 		var midnight := float(Time.get_unix_time_from_datetime_string(key+"T00:00:00"))
 		for frame: Dictionary in _days[key].frames:
 			var stamp := midnight + float(frame.minute)*60.0
+			# Strength is linearly interpolated between anchors. An episode starts
+			# at the preceding zero anchor and ends when strength returns to zero.
+			if float(frame.cyclone)>0.0 and not cyclone_active:
+				_cyclone_starts.append(_transport_times[-1] if not _transport_times.is_empty() else stamp)
+				cyclone_active=true
+			elif float(frame.cyclone)<=0.0 and cyclone_active:
+				_cyclone_ends.append(stamp);cyclone_active=false
 			var angle := deg_to_rad(float(frame.wind_direction_degrees))
 			var wind_x := -sin(angle)*float(frame.wind_speed_kmh)/3600.0
 			var wind_y := cos(angle)*float(frame.wind_speed_kmh)/3600.0
@@ -69,6 +80,8 @@ static func load_calendar() -> bool:
 			_transport_times.append(stamp)
 			_transport_wind_x.append(wind_x);_transport_wind_y.append(wind_y)
 			_transport_distance_x.append(distance_x);_transport_distance_y.append(distance_y)
+	if cyclone_active:
+		_cyclone_ends.append(float(Time.get_unix_time_from_datetime_string(dates[-1]+"T00:00:00"))+86400.0)
 	return true
 
 ## Absolute, continuous cloud transport in km. Reopening or visiting dates in
@@ -95,6 +108,13 @@ static func cloud_transport_at(stamp: float) -> PackedFloat64Array:
 	return PackedFloat64Array([
 		_transport_distance_x[i]+_transport_wind_x[i]*dt+acceleration_x*(.5*dt*dt),
 		_transport_distance_y[i]+_transport_wind_y[i]*dt+acceleration_y*(.5*dt*dt)])
+
+## Cosmetic age of the currently active authored storm. This does not publish
+## alerts, predictions or story knowledge, nor advance any campaign state.
+static func cyclone_age_at(stamp: float) -> float:
+	if not is_finite(stamp) or not load_calendar():return 0.0
+	var i:=_cyclone_starts.bsearch(stamp,true)-1
+	return maxf(0.0,stamp-_cyclone_starts[i]) if i>=0 and stamp<_cyclone_ends[i] else 0.0
 
 static func valid_day(row: Dictionary) -> bool:
 	for field: String in ["date", "chapter", "story_hook", "kind", "record_ear", "speaker_ear"]:

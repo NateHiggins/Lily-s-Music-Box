@@ -185,9 +185,6 @@ func _process(delta: float) -> void:
 		animate=extreme_weather.advance(delta,source=="campaign-calendar")
 		# Cloud geometry follows civil campaign time, not instance uptime.
 		# Keep the existing physical particle/transition owner for live weather.
-		if animate and effects!=null and is_instance_valid(effects._player):
-			var camera:=get_viewport().get_camera_3d()
-			extreme_weather.publish(sky,camera.global_position if camera!=null else effects._player.global_position,effects.get("air_material"))
 	if RenderingServer.get_current_rendering_method()=="forward_plus" and animate:
 		var precise:=PackedFloat64Array()
 		var simulation_seconds:=INF
@@ -206,6 +203,7 @@ func _process(delta: float) -> void:
 		sky.set_shader_parameter("shape_opacity",smoothstep(0,90,_shape_age)*(1.0-smoothstep(720,900,_shape_age)))
 		if effects!=null and effects.get("air_material")!=null:
 			effects.air_material.set_shader_parameter("wind_offset",_wind_offset)
+		_publish_extreme_motion(date,precise)
 	_push_spectacle()
 	_publish_left-=delta
 	if _publish_left<=0.0: _publish_left=1.0; _publish()
@@ -235,7 +233,23 @@ func _publish() -> void:
 		sky.set_shader_parameter("season_weights",weights)
 		sky.set_shader_parameter("humidity",float(current.get("relative_humidity",.5)))
 		sky.set_shader_parameter("storm_strength",float(current.get("precipitation_intensity",0)))
+		_publish_extreme_motion(date)
 	conditions_changed.emit(current.duplicate(true))
+
+func _publish_extreme_motion(date: Dictionary,precise := PackedFloat64Array()) -> void:
+	if extreme_weather==null:return
+	if source=="campaign-calendar":
+		var stamp:=Calendar.clock_seconds(clock)
+		if precise.size()!=2:precise=Calendar.cloud_transport_at(stamp)
+		extreme_weather.move_calendar_fields(stamp,precise)
+	if precise.size()!=2:precise=PackedFloat64Array([_wind_offset.x,_wind_offset.z])
+	var weights:=season_weights(int(date.get("month",11)),int(date.get("day",date.get("day_of_month",15))))
+	extreme_weather.set_transport(precise,lerpf(.30,.16,weights.z))
+	var camera:=get_viewport().get_camera_3d()
+	var prior_value: Variant=sky.get_shader_parameter("wx_camera_km")
+	var prior: Vector3=prior_value if prior_value is Vector3 else Vector3.ZERO
+	var at: Vector3=camera.global_position if camera!=null else prior*1000.0
+	extreme_weather.publish(sky,at,effects.get("air_material") if effects!=null else null)
 
 func set_extreme_event(event: Dictionary) -> bool:
 	# Authored coastal-storm/alert adapter. The existing weather owner remains

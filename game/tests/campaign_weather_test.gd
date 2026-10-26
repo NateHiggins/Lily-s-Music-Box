@@ -18,6 +18,7 @@ func _ready() -> void:
 	check(CampaignWeather.load_calendar(),"authored calendar loads: "+CampaignWeather.error)
 	_living_year()
 	_motion_precision()
+	_storm_precision()
 	var start:=Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")
 	var profiles: Dictionary={}
 	for offset in 365:
@@ -216,3 +217,51 @@ func _living_year() -> void:
 	if out_dir.is_empty():out_dir="user://campaign_weather_test"
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	FileAccess.open(out_dir.path_join("living_year.json"),FileAccess.WRITE).store_string(JSON.stringify({"scope":"1095 deterministic state samples; not a rendered annual gallery or runtime acceptance", "samples":1095,"genera":seen,"regimes":regimes,"eligible_scenarios":eligible_counts,"invalid":invalid,"elapsed_ms":(Time.get_ticks_usec()-started)/1000.0},"\t"))
+
+func _storm_precision() -> void:
+	var before: Dictionary=RealityState.data.duplicate(true)
+	var stamp:=float(Time.get_unix_time_from_datetime_string("1929-11-07T12:00:00"))
+	var onset:=float(Time.get_unix_time_from_datetime_string("1929-11-06T21:00:00"))
+	var ending:=float(Time.get_unix_time_from_datetime_string("1929-11-08T00:00:00"))
+	check(CampaignWeather.cyclone_age_at(stamp)==15*3600.0,"late-year cyclone age starts at its interpolated active episode, not campaign creation")
+	check(CampaignWeather.cyclone_age_at(onset)==0 and CampaignWeather.cyclone_age_at(onset+.25)==.25 and CampaignWeather.cyclone_age_at(ending)==0,"cyclone episode boundaries retain fractional onset and exclude expired weather")
+	check(CampaignWeather.cyclone_age_at(NAN)==0 and CampaignWeather.cyclone_age_at(INF)==0,"non-finite cyclone dates are refused")
+	var extension:=preload("res://scripts/building/queens_weather_extension.gd").new()
+	var material:=ShaderMaterial.new();material.shader=preload("res://shaders/queens_weather_sky.gdshader")
+	var observed: Dictionary={};var cyclone_states: Dictionary={};var bounded:=true
+	for frame in 60:
+		var at:=stamp+float(frame)/60.0
+		var transport:=CampaignWeather.cloud_transport_at(at)
+		extension.move_calendar_fields(at,transport);extension.set_transport(transport,.30)
+		extension.publish(material,Vector3.ZERO)
+		var motion: Vector4=material.get_shader_parameter("wx_cloud_drift")
+		observed[Vector2(motion.x,motion.y)]=true
+		cyclone_states[PackedFloat32Array([extension.cyclone_phase])[0]]=true
+		bounded=bounded and motion.x>=0 and motion.x<1 and motion.y>=0 and motion.y<1 and motion.z>=0 and motion.z<1 and motion.w>=0 and motion.w<1
+	check(observed.size()>=55 and cyclone_states.size()>=55,"late-year storm noise and active cyclone keep frame-scale GPU motion")
+	check(bounded,"storm primary and erosion coordinates are reduced independently before GPU upload")
+	var initial:=[extension.phase,extension.cyclone_phase,extension.fog_offset]
+	extension.move_calendar_fields(stamp,PackedFloat64Array([NAN,0]))
+	check(initial==[extension.phase,extension.cyclone_phase,extension.fog_offset],"invalid transport leaves storm projection intact")
+	extension.move_calendar_fields(onset,CampaignWeather.cloud_transport_at(onset))
+	extension.move_calendar_fields(stamp+59.0/60.0,CampaignWeather.cloud_transport_at(stamp+59.0/60.0))
+	check(initial==[extension.phase,extension.cyclone_phase,extension.fog_offset],"storm projection reconstructs identically after reverse-date visits")
+	for frame in 30:extension.advance(1.0/30.0,true)
+	check(initial==[extension.phase,extension.cyclone_phase,extension.fog_offset],"frozen calendar cannot advance storm motion through render updates")
+	# Each analytic frequency has its own period; a single wrapped phase would
+	# introduce a jump in the .25 saw and .0001 texture time at trig wrap.
+	var wrap:=TAU*2.0;var epsilon:=.0001
+	extension.phase=wrap-epsilon;extension.publish(material,Vector3.ZERO)
+	var phase_a:=float(material.get_shader_parameter("wx_phase"))
+	var saw_a:=float(material.get_shader_parameter("wx_fluctus_phase"))
+	var tex_a:=float(material.get_shader_parameter("wx_texture_phase"))
+	extension.phase=wrap+epsilon;extension.publish(material,Vector3.ZERO)
+	var phase_b:=float(material.get_shader_parameter("wx_phase"))
+	check(absf(sin(phase_a)-sin(phase_b))<.001 and absf(sin(phase_a*.5)-sin(phase_b*.5))<.001,"funnel and asperitas oscillations remain continuous across their shared trig period")
+	check(absf(saw_a-float(material.get_shader_parameter("wx_fluctus_phase")))<.001 and absf(tex_a-float(material.get_shader_parameter("wx_texture_phase")))<.001,"fluctus and pearl clocks do not inherit the incompatible trig wrap")
+	extension.cyclone=1.0;extension.cyclone_phase=5.0
+	extension._set_cyclone_target(0.0);extension.advance(.1)
+	var live_age:=extension.cyclone_phase
+	extension._set_cyclone_target(1.0);extension.advance(.1)
+	check(extension.cyclone_phase>live_age and live_age>5.0,"live alert interruption cannot reset an already visible cyclone")
+	check(RealityState.data==before,"storm queries and shader publication preserve campaign/save authorities")

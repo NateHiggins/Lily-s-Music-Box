@@ -9,6 +9,12 @@ uniform float wx_whiteout = 0.0;
 uniform int wx_formation = 0; // 1 asperitas, 2 fluctus, 3 lenticular, 4 iridescent
 uniform float wx_formation_strength = 0.0;
 uniform float wx_phase = 0.0;
+uniform float wx_cyclone_phase = 0.0;
+uniform float wx_texture_phase = 0.0;
+uniform float wx_fluctus_phase = 0.0;
+uniform vec4 wx_cloud_drift = vec4(0.0);
+uniform vec4 wx_asperitas_drift = vec4(0.0);
+uniform vec4 wx_cirrus_drift = vec4(0.0);
 uniform vec3 wx_camera_km = vec3(0.0);
 uniform vec2 wx_cyclone_center = vec2(5.0, -8.0);
 uniform vec2 wx_vortex_center = vec2(2.2, -3.5);
@@ -107,7 +113,10 @@ vec3 wx_cyclone_warp(vec3 p) {
 	float radius=length(r);
 	float weight=wx_cyclone*(1.0-smoothstep(2.0,18.0,radius));
 	// Differential angular velocity + logarithmic radial shear form spiral bands.
-	float angle=weight*(wx_phase/(0.4+radius*0.12)+1.8*log(1.0+radius));
+	// A persistent spiral with bounded, slow breathing shear. Accumulating
+	// angle/radius for hours crushes the density field into radial streaks.
+	float shear=1.25*sin(wx_cyclone_phase*0.15)/(0.8+radius*0.08);
+	float angle=weight*(shear+1.8*log(1.0+radius));
 	p.xz=wx_cyclone_center+wx_rotation(angle)*r;
 	return p;
 }
@@ -115,17 +124,17 @@ float wx_cloud_base() {
 	return mix(1.25,0.62,max(wx_hail,wx_cyclone));
 }
 float wx_asperitas_bottom(vec3 p,float base) {
-	float waves=sin(p.x*1.8+wx_phase)*0.60
-		+sin(p.z*2.3-p.x*.8+wx_phase*0.5)*0.40;
+	float waves=sin(p.x*1.8+wx_phase+wx_asperitas_drift.z)*0.60
+		+sin(p.z*2.3-p.x*.8+wx_phase*0.5+wx_asperitas_drift.w)*0.40;
 	// G is the supplied Worley channel; filter at a coarse mip for smooth pouches.
-	float voronoi=textureLod(cloud_noise,p*0.8,2.0).g;
+	float voronoi=textureLod(cloud_noise,p*0.8+vec3(wx_asperitas_drift.x,0.0,wx_asperitas_drift.y),2.0).g;
 	float pouch=pow(1.0-smoothstep(0.18,0.85,voronoi),2.0);
 	return base+0.48*waves-0.24*pouch;
 }
 float wx_asperitas_relief(vec3 p,vec3 to_sun) {
 	// Analytic slope of the same broad waves: no extra density/noise taps.
-	float a=p.x*1.8+wx_phase;
-	float b=p.z*2.3-p.x*.8+wx_phase*0.5;
+	float a=p.x*1.8+wx_phase+wx_asperitas_drift.z;
+	float b=p.z*2.3-p.x*.8+wx_phase*0.5+wx_asperitas_drift.w;
 	float dx=0.48*(0.60*1.8*cos(a)-0.40*.8*cos(b));
 	float dz=0.48*0.40*2.3*cos(b);
 	vec3 underside=normalize(vec3(dx,-1.0,dz));
@@ -139,7 +148,7 @@ vec3 wx_fluctus_warp(vec3 p,float layer_bottom,float layer_top) {
 	float patch=1.0-smoothstep(1.5,3.0,length(p.xz-vec2(-1.0,-4.0)));
 	float h=clamp((p.y-layer_bottom)/max(layer_top-layer_bottom,0.01),0.0,1.0);
 	float crest=smoothstep(0.35,1.0,h)*patch;
-	float phase=p.x*2.6+wx_phase*0.25;
+	float phase=p.x*2.6+wx_fluctus_phase;
 	float saw=fract(phase)-0.5;
 	// Saw shear sets the repeating row; circular top displacement curls the crest.
 	float turn=clamp(h*1.5-0.45,0.0,1.0)*PI*1.4;

@@ -159,6 +159,9 @@ func _motion_review() -> void:
 	manager.set_process(false);director.set_process(false)
 	var directory:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
 	var rows: Array[Dictionary]=[];var failures: Array[String]=[]
+	var sources: Dictionary={}
+	for path: String in ["res://shaders/queens_weather_sky.gdshader","res://shaders/queens_weather_math.gdshaderinc","res://shaders/queens_weather_air.gdshader"]:
+		sources[path]=FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
 	for day_index: int in [0,210,300,362]:
 		_library_date(day_index,12.0)
 		var frames: Array=[];var previous:=Time.get_ticks_usec()
@@ -172,15 +175,21 @@ func _motion_review() -> void:
 			var motion: Vector4=sky_material.get_shader_parameter("living_motion_0")
 			var wind: Vector3=sky_material.get_shader_parameter("wind_offset")
 			var phase:=PackedFloat32Array([float(sky_material.get_shader_parameter("wx_phase"))])[0]
-			frames.append([clock.absolute_minutes(),(now-previous)/1000.0,publication_ms,motion.x,motion.y,motion.z,wind.x,wind.z,phase])
+			var drift_value: Variant=sky_material.get_shader_parameter("wx_cloud_drift")
+			var drift: Vector4=drift_value if drift_value is Vector4 else Vector4.ZERO
+			var cycle_value: Variant=sky_material.get_shader_parameter("wx_cyclone_phase")
+			var cycle:=PackedFloat32Array([float(cycle_value) if cycle_value is float else 0.0])[0]
+			frames.append([clock.absolute_minutes(),(now-previous)/1000.0,publication_ms,motion.x,motion.y,motion.z,wind.x,wind.z,phase,drift.x,drift.y,cycle])
 			previous=now
 			if frame in [0,359]:
 				var name:="motion_day_%03d_%03d.png"%[day_index,frame]
 				if get_viewport().get_texture().get_image().save_png(directory.path_join(name))!=OK:failures.append("capture "+name)
 		rows.append({"date":clock.datetime_string(),"day":day_index,"samples":frames})
+	for path: String in sources:
+		if FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()!=sources[path]:failures.append("source changed during motion review: "+path)
 	FileAccess.open(directory.path_join("motion_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","scope":"stationary production weather bench, 360 fractional-clock frames at each of four dates; uploaded-state cadence, not occupied-world or input qualification",
-		"columns":["absolute_minutes","wall_ms","publication_ms","low_motion_x","low_motion_y","low_evolution","wind_x","wind_z","phase_float32"],"dates":rows,"failures":failures},"\t"))
+		"columns":["absolute_minutes","wall_ms","publication_ms","low_motion_x","low_motion_y","low_evolution","wind_x","wind_z","phase_float32","storm_noise_x","storm_noise_z","cyclone_phase_float32"],"dates":rows,"failures":failures,"shader_sources":sources,"test_sha256":FileAccess.get_sha256(get_script().resource_path)},"\t"))
 	print("CLOUD MOTION REVIEW: %d dates, %d failures"%[rows.size(),failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 

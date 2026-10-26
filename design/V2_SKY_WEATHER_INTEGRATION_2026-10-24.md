@@ -639,3 +639,74 @@ unmerged under the same held runtime gates. Continued safe work is authorized.
 
 BLOCKED **6c20ce0a** integration: full windowed/input qualification is held; no
 claim that the ordinary-cloud diagnostic completes the weather or V2 objective.
+
+
+## PR 57 storm-motion continuation — 2026-10-26
+
+Evidence class remains **INERT**. This supersedes the preceding open
+storm-precision item only; it grants no runtime-contract or art acceptance.
+
+| Location / reproduction | Severity and evidence | Repair | Verification / remaining limit |
+|---|---|---|---|
+| Queen sky, six fractional-clock seconds at November 10, June 8, September 6 and November 7 noon | Presentation defect: float32 storm phase changes only 6/4/4/4 times in 360 frames; longest late-year hold is 119 frames | Reduce trig, fluctus saw, pearl texture, cloud primary/erosion, asperitas, cirrus, fog and dust coordinates at their individual periods before GPU upload | Final phase and storm-noise XY each have 58 states per date, maximum identical trig run 7 frames; same existing 10 Hz owner throttle. Not an occupied-world FPS measurement |
+| November 7 cyclone, fifteen hours into its actual episode | Accumulated year age drives severe radius-dependent deformation; first repair still shows radial streaks | Precompute active intervals from the existing interpolated calendar, query episode age with binary search, and bound differential shear around a persistent spiral | Event phase has 58 states in six seconds. Original, erroring first attempt, streaked second attempt and final render retained. Cloud art is still provisional |
+| Weather publication before a current camera / shader value exists | Four script errors in the original **after_v1** run despite wrapper exit 0 | Accept missing initial shader camera parameter and fall back to zero until a camera exists | **after_v2**, **after_v3** and final spectacle stderr are empty. Original failure retained |
+| Live-provider cyclone alert briefly clears and returns | Resetting on target reactivation could visibly jump an existing decaying storm | Continue age while current or target cyclone is visible; reset only once both fade | Headless live-alert interruption check passes; not a live-network qualification |
+
+CampaignClock remains the sole clock. No weather dates, intensities, forecasts,
+newspaper publication rules, inventory, resident, quest or save schemas change.
+Calendar projections remain deterministic across reverse visits and frozen time.
+No texture lookup or raymarch step is added. The established ordinary-cloud
+repair remains in place. Legacy animal SDFs still use their existing large wind
+offset and are outside this precision repair.
+
+Matched **before** / **after_v3** publication CPU distributions, milliseconds
+(p50 / p95 / p99 / maximum), 360 raw samples per date:
+
+| Date | Before | Final |
+|---|---|---|
+| November 10 |0.176 /0.294 /1.083 /1.176|0.179 /0.311 /1.146 /1.218|
+| June 8 |0.160 /0.272 /1.030 /1.119|0.158 /0.282 /1.102 /1.187|
+| September 6 |0.171 /0.288 /1.052 /1.174|0.168 /0.293 /1.106 /1.253|
+| November 7 |0.177 /0.300 /1.083 /1.195|0.175 /0.305 /1.134 /1.299|
+
+Some tails increased. This addresses motion stepping, not measured playable-world
+stuttering or input latency. Before noise/cyclone columns default to zero because
+those new uniforms did not exist: their unique counts are not comparable with
+final encodings. Existing world-wind columns remain as an explicit control.
+
+Executed through the shared lane, with fresh output paths:
+
+- **CampaignWeatherTest**: 424 checks, zero failures and empty stderr; both
+  original final and LF-preserved-source repeat retained. New checks cover
+  cyclone onset/expiry, subsecond motion, bounded GPU coordinates, invalid
+  projection refusal, reverse visits, frozen time, distinct wrapping periods,
+  live-alert continuity and unchanged campaign authorities. Newspaper rendering
+  is skipped headless and is not renewed here.
+- **SkyPhenomenaScheduleTest** PASS and **WeatherFlashAccessibilityTest** PASS
+  2/2, empty stderr. These are headless logic checks.
+- **after_v3** motion review: four actual rendered dates, source hashes frozen,
+  no script errors. Final forced spectacle review captures asperitas, Kelvin-
+  Helmholtz, tornado and nacreous skies with empty stderr. These images reveal
+  remaining flat cloud edges and a detached-looking tornado parent collar;
+  they are not final art acceptance.
+- All windowed runs use only the audited, noncapturing sky scene on a private
+  desktop through the existing wrappers. Each isolation record confirms the
+  input desktop and cursor clip remained unchanged. This is window isolation,
+  not permission to run captured-input scenes there.
+
+Evidence lives externally under
+**C:/ov/reports/weather_storm_motion26** and in the existing compressed review
+packet, now **395 hash-verified members, 17,974,535 bytes**. All previous 297
+members remain byte-identical; archive history is retained. Source snapshots,
+original failures, raw state/timing records, original representative PNGs,
+explicit JPEG derivatives and test-written diagnostics are preserved. No new
+repository evidence files are introduced.
+
+The static board at **weather_storm_motion26/gates/board.json** completes
+113 checks with zero regressions against clean **d0c18f36** and zero new unread
+fields; known main failures and all ledger counts remain unchanged. Candidate
+verification is recorded on the draft PR. Full occupied-world/input qualification, validated disk save/rebuild/denial and owned
+teardown, preview retirement, and further cloud-family art repair remain open.
+PR 57 remains **DRAFT / UNMERGED**; no ledger promotion or production-weather
+completion claim is made from this checkpoint.
