@@ -112,6 +112,22 @@ func _ready() -> void:
 	_check(orders.job_stage(JOB) == "repaired",
 			"clocking out does not close WorkOrders behind its owner's back")
 
+	await get_tree().process_frame # Root scene setup must finish before adding a sibling.
+	var original_scene:=get_tree().current_scene
+	var child_world:=Node3D.new();get_tree().root.add_child(child_world)
+	director.building=child_world
+	_check(not director.arrival_owns_input(),"an inactive child world cannot take the global pointer")
+	get_tree().current_scene=child_world
+	_check(director.arrival_owns_input(),"the active standalone world retains arrival input ownership")
+	get_tree().paused=true
+	_check(not director.arrival_owns_input(),"arrival cannot take the pointer while another owner pauses play")
+	get_tree().paused=false;get_tree().current_scene=original_scene
+	director.building=null;child_world.free()
+
+	# Retire the actual fixture owners while AudioPolicy can settle queued stops.
+	detector.free();register.free();director.free();orders.free();tracker.free()
+	await get_tree().physics_frame;await get_tree().physics_frame
+
 	print("[FIRST SHIFT RITUAL] RESULT: %s (%d failures)" % [
 			"PASS" if fails == 0 else "FAIL", fails])
 	get_tree().quit(fails)

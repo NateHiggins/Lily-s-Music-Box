@@ -78,6 +78,15 @@ func _ready() -> void:
 			and orders.job_stage(JOB) == "repaired",
 			"completion invents neither a patrol mark nor a lifecycle transition")
 
+	# Clock-out just queued a recorded 3D voice. Verify owner retirement rather
+	# than asking engine finalization to dispose an unprocessed playback.
+	var voice:=AudioPolicy.active_voice(StringName(detector.name))
+	var stream_ref: WeakRef=weakref(voice.stream) if voice!=null and voice.stream!=null else null
+	_check(stream_ref!=null,"clock-out owns a recorded semantic voice before retirement")
+	detector.free();director.free();orders.free();tracker.free()
+	await get_tree().physics_frame;await get_tree().physics_frame
+	_check(stream_ref!=null and stream_ref.get_ref()==null,"retiring the fixture releases its queued recorded stream")
+
 	print("[FIRST SHIFT CUSTODY] RESULT: %s (%d failures)" % [
 			"PASS" if fails == 0 else "FAIL", fails])
 	get_tree().quit(fails)
