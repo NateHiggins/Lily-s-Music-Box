@@ -1,11 +1,11 @@
 {
   "schema": "orison.started-work-survey.v1",
   "evidence_class": "INERT",
-  "status": "diagnostic_only_unmerged",
-  "candidate": "d6eeebda",
+  "status": "incomplete_actual_tour_unmerged",
+  "candidate": "63bdb5fa",
   "notes": [
     "Original wrapper receipts are suite_run, not runtime_contract. No acceptance or merge grant.",
-    "The full changed guest tour is still pending and is not included as a completed result.",
+    "The threshold v3 tour ended normally but incompletely; it is preserved without claiming a full-tour pass.",
     "Front door, approach and front captures visually reviewed; other captures retained without an acceptance claim.",
     "Existing Rhea proof predates the changed endpoint and stricter tour. Renew actual tours and regressions.",
     "Actual endpoint-only v2 fails at the front leaf; near-threshold v3 is a subsequent unqualified candidate. No failure is removed."
@@ -231,9 +231,50 @@
         "test_sha256": "f2b1fdf25f4a864a1562d9fa3c51f454eef23c4117af6d1722caab9597b00244"
       },
       "windowed": true
+    },
+    "guests_threshold_v3": {
+      "evidence_kind": "suite_run",
+      "execution": {
+        "completed": true,
+        "elapsed_s": 745.47,
+        "exit_code": 0,
+        "finished_utc": "2026-10-26T11:37:41Z",
+        "started_utc": "2026-10-26T11:25:15Z",
+        "timed_out": false
+      },
+      "log": {
+        "fail_count": 0,
+        "fail_lines": [],
+        "pass_count": 0,
+        "pass_lines": [],
+        "script_error_count": 0,
+        "script_error_lines": [],
+        "stale_cache_lines": [],
+        "stale_cache_suspect": false,
+        "stderr": "C:/ov/reports/started_survey26/guests_threshold_v3.log.stderr",
+        "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+        "stdout": "C:/ov/reports/started_survey26/guests_threshold_v3.log",
+        "stdout_sha256": "646f2951124792f39424eb170d716843bbf227259cb2785f4879ee22e005b0c4"
+      },
+      "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+      "runner": "long",
+      "scene": "res://tests/OrisonV2ResidentWalkTest.tscn",
+      "schema": "orison.run-receipt.v1",
+      "schema_version": 1,
+      "shot_dir": "C:/ov/reports/started_survey26/guests_threshold_v3",
+      "source": {
+        "dirty_paths": 0,
+        "dirty_sample": [],
+        "repository_head": "63bdb5fad7f0c4b2cc8e7ff7006ef3146221f0b7",
+        "repository_tree": "c7362166b314c73be73e8974ce1397d47330d45d",
+        "runtime_inputs_sha256": "637347b3b7e3f97491b14573968cce562d9113f05b12914a9695dd973a15e5fe",
+        "test_path": "game/tests/orison_v2_resident_walk_test.gd",
+        "test_sha256": "dbab938498979ba37c86d3da99c98d4fec558d19a2417191bc9cb8b739ea981e"
+      },
+      "windowed": true
     }
   },
-  "archive_sha256": "9ddc4768d06336f48dc4939b2aeeb86af2cf244941f451bbfd6a298094d7cbd2",
+  "archive_sha256": "345953af167702b4ca33210c45d655674c29d76e05b166b7f45370f74a5c9810",
   "members": [
     {
       "path": "front/approach.png",
@@ -269,6 +310,11 @@
       "path": "gates/board_d6eeebda.json",
       "bytes": 132360,
       "sha256": "3f9d85c51bf2c96441b6a353a69b40dd16ec19f9599faea1728956ecef1b8a22"
+    },
+    {
+      "path": "gates/spatial_threshold_v3.json",
+      "bytes": 1771,
+      "sha256": "f821d790ccd6cd231ef52089982c8f32e9a6bb0d762e2d6556b9e0721a393f36"
     },
     {
       "path": "guests_return_v2/transient_guests.png",
@@ -319,6 +365,21 @@
       "path": "runs/guests_return_v2.log.stderr",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runs/guests_threshold_v3.log",
+      "bytes": 3469,
+      "sha256": "646f2951124792f39424eb170d716843bbf227259cb2785f4879ee22e005b0c4"
+    },
+    {
+      "path": "runs/guests_threshold_v3.log.receipt.json",
+      "bytes": 1598,
+      "sha256": "84f50008ed4446d21d2eb56338bd276e34ea7c11d2d74161cc2efa8bf7b90ec6"
+    },
+    {
+      "path": "runs/guests_threshold_v3.log.stderr",
+      "bytes": 111,
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
     },
     {
       "path": "runs/street_return_probe.log",
@@ -391,6 +452,11 @@
       "sha256": "535350b3653c31790396cbfc29613fd3714a950067d4a2349cd5dcec7c29e95e"
     },
     {
+      "path": "source/threshold_v3/orison_v2_resident_walk_test.gd",
+      "bytes": 8993,
+      "sha256": "dbab938498979ba37c86d3da99c98d4fec558d19a2417191bc9cb8b739ea981e"
+    },
+    {
       "path": "source/threshold_v3/rhea_sato_routine.json",
       "bytes": 3550,
       "sha256": "4bd83532378d5fc9278da77fd919f9a9b27270d8db8078e5cc1f11ecf72dbfc4"
@@ -405,5 +471,18 @@
       "bytes": 1771,
       "sha256": "f821d790ccd6cd231ef52089982c8f32e9a6bb0d762e2d6556b9e0721a393f36"
     }
-  ]
+  ],
+  "guest_threshold_verdict": {
+    "result": "INCOMPLETE",
+    "reason": "No terminal RESIDENT WALK transient_guests summary; output ends at laundry arrival. Wrapper exit zero does not establish success.",
+    "printed_check_lines": 27,
+    "remaining": [
+      "laundry return",
+      "bodega round trip",
+      "street round trip",
+      "final doors",
+      "native gait assertion",
+      "portrait"
+    ]
+  }
 }

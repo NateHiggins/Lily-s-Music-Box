@@ -4,6 +4,14 @@ Evidence class: **INERT**. Scope inventory and remaining work, not acceptance.
 
 ## Current priority survey — 2026-10-26
 
+**Latest owner steering:** finish and enable the newest weather system with
+spectacular atmospherics next. Preserve PR53's current partial traversal and
+defer further resident tours/expansion while pursuing weather. This overrides
+the numbered work order below, not its unresolved findings. The current main
+Forward+ atmosphere already selects Queens weather and includes the41 scheduled
+spectacles; finish actual activation, visual distinction, calendar correctness,
+playable-world rendering and matched performance rather than adding another sky.
+
 This section supersedes the older queue's checkout, installation and next-order
 claims below. It is a source/evidence survey, plus a fresh rendered entrance
 check; it is **not** a new tour of every V2 area. Existing failures stay open.

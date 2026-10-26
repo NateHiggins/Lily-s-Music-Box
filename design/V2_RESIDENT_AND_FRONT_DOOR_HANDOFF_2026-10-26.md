@@ -4,6 +4,22 @@ Evidence class: **INERT**. WIP continuation, not acceptance or merge qualificati
 
 ## Survey continuation
 
+**Latest owner direction:** newest weather/spectacular atmospherics next.
+After preserving this checkpoint, branch the weather repair from current main;
+do not carry the unqualified resident registrations into the weather patch.
+The prepared Rhea/Mina/Lena/player renewal batch is **not launched**.
+
+The **guests_threshold_v3** wrapper exits0 in745.47s on clean **63bdb5fa**,
+digest **637347b3b7e3f97491b14573968cce562d9113f05b12914a9695dd973a15e5fe**,
+but the stdout has **no terminal resident-tour summary**. It stops after laundry
+arrival, before the home return, bodega, final street trip, gait/door assertions
+and portrait. This is **incomplete**, not a successful full tour, despite the
+normal process exit.27 printed check lines include the previously failing
+entrance/vestibule leg65s and subsequent room, lobby and mail returns. Seven
+Texture-RID warnings remain. No cause for the premature exit is established.
+Retain it exactly; a future resume must require the actual terminal summary and
+all checks, not wrapper exit0. PR53 remains unmerged and unqualified.
+
 Current priorities are consolidated in **V2_STARTED_WORK_CLOSURE_2026-10-23.md**,
 section **Current priority survey — 2026-10-26**. No new competing roadmap.
 Fresh entrance review completed on **6392205e**: actual composed world,
