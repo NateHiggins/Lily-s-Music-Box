@@ -114,8 +114,14 @@ func _route() -> void:
 		if not await _walk_world(point): return
 	if not await _key(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_lock"): return
 	if not _require(news.leaf_state=="locked" and not news.open,"actual key input locks News Cigars"): return
-	if not await _use(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_locked_refusal"): return
-	if not _require(not news.open,"locked shop refuses normal opening"): return
+	# The hand takes the bolted leaf and drags it; it must not move.
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var moved: bool = await hand.operate(news.to_global(Vector3(news.width*.5,1.1,0)), news.motion_target_angle(true)*.86, news)
+	hand.free()
+	if not _require(not moved and not news.open and not news._moving,"locked shop refuses normal opening"): return
 	if not await _key(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_unlock"): return
 	if not await _use(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_open"): return
 	if not await _wait_for_door(news): return

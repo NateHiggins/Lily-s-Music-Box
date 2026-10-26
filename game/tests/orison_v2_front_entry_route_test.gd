@@ -50,7 +50,8 @@ func _route() -> void:
 	if not await _operate_entry(door,true,"outside_open"):return
 	if not await _walk(Vector3(0,0,-10.3)):return
 	if not await _operate_entry(door,false,"inside_close"):return
-	if not _require(not player.noclip and player.collision_mask==1 and player.is_physics_processing(),"round trip retains live gravity and collision"):return
+	# The player's mask is the world layer plus its native contact layers.
+	if not _require(not player.noclip and (player.collision_mask&1)==1 and player.is_physics_processing(),"round trip retains live gravity and collision: noclip=%s mask=%s physics=%s"%[player.noclip,player.collision_mask,player.is_physics_processing()]):return
 func _save_rebuild() -> DoorProp:
 	var previous_path:=RealityState.save_path
 	var stance:=player.global_position
