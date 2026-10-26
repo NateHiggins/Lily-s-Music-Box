@@ -91,6 +91,9 @@ func _ready() -> void:
 	camera.global_position = EYE
 	get_viewport().use_taa = true
 	await get_tree().process_frame
+	if OS.get_environment("SKY_VORTEX_REVIEW")=="1":
+		await _vortex_review()
+		return
 	if OS.get_environment("SKY_MOTION_REVIEW")=="1":
 		await _motion_review()
 		return
@@ -191,6 +194,61 @@ func _motion_review() -> void:
 		"evidence_class":"INERT","scope":"stationary production weather bench, 360 fractional-clock frames at each of four dates; uploaded-state cadence, not occupied-world or input qualification",
 		"columns":["absolute_minutes","wall_ms","publication_ms","low_motion_x","low_motion_y","low_evolution","wind_x","wind_z","phase_float32","storm_noise_x","storm_noise_z","cyclone_phase_float32"],"dates":rows,"failures":failures,"shader_sources":sources,"test_sha256":FileAccess.get_sha256(get_script().resource_path)},"\t"))
 	print("CLOUD MOTION REVIEW: %d dates, %d failures"%[rows.size(),failures.size()])
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+## Matched production funnel/root views and a no-funnel control. No input capture.
+func _vortex_review() -> void:
+	manager.set_process(false);director.set_process(false)
+	var entry: Dictionary={}
+	for candidate: Dictionary in manager.schedule.occurrences:
+		if candidate.id=="tornado":entry=candidate;break
+	var directory:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
+	var sources: Dictionary={};var failures: Array[String]=[];var rows: Array[Dictionary]=[]
+	for path: String in ["res://shaders/queens_weather_sky.gdshader","res://shaders/queens_weather_math.gdshaderinc"]:
+		sources[path]=FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
+	if entry.is_empty():push_error("missing scheduled tornado");get_tree().quit(1);return
+	await _shoot("tornado",entry,.5,"vortex_setup")
+	var original_pose:=camera.global_transform
+	var center: Vector2=sky_material.get_shader_parameter("wx_vortex_center")
+	var root:=Vector3(center.x*1000.0,1100.0,center.y*1000.0)
+	var intensity:=float(sky_material.get_shader_parameter("vortex_intensity"))
+	if intensity<.9:failures.append("scheduled funnel not fully active")
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
+	var variants: Dictionary={"production":sky_material.shader}
+	var baseline:=OS.get_environment("SKY_VORTEX_BASELINE")
+	if not baseline.is_empty():
+		var baseline_code:=FileAccess.get_file_as_string(baseline)
+		if baseline_code.is_empty():push_error("missing original geometry shader");get_tree().quit(1);return
+		sources[baseline]=baseline_code.replace("\r\n","\n").sha256_text()
+		var original:=Shader.new();original.code=baseline_code
+		variants={"baseline":original,"production":sky_material.shader}
+	var parameters: Dictionary={}
+	for uniform: Dictionary in sky_material.shader.get_shader_uniform_list():
+		var value: Variant=sky_material.get_shader_parameter(str(uniform.name))
+		if value!=null:parameters[str(uniform.name)]=value
+	for variant: String in variants:
+		sky_material.shader=variants[variant]
+		for key: String in parameters:sky_material.set_shader_parameter(key,parameters[key])
+		for view: String in ["wide","root","side","control"]:
+			camera.global_transform=original_pose;camera.fov=60.0
+			if view!="wide":
+				if view=="side":camera.global_position+=root.cross(Vector3.UP).normalized()*center.length()*200.0
+				camera.look_at(root);camera.fov=24.0
+			sky_material.set_shader_parameter("wx_camera_km",camera.global_position*.001)
+			sky_material.set_shader_parameter("vortex_intensity",0.0 if view=="control" else intensity)
+			sky_material.set_shader_parameter("temporal_phase",0.0)
+			for frame in 48:await RenderingServer.frame_post_draw
+			var times: Array=[]
+			for frame in 64:
+				await RenderingServer.frame_post_draw
+				times.append([RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid())])
+			var name:="vortex_%s_%s.png"%[variant,view]
+			if get_viewport().get_texture().get_image().save_png(directory.path_join(name))!=OK:failures.append("capture "+name)
+			rows.append({"variant":variant,"view":view,"file":name,"camera":str(camera.global_transform),"fov":camera.fov,"render_cpu_gpu_ms":times})
+	for path: String in sources:
+		if FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()!=sources[path]:failures.append("source changed: "+path)
+	FileAccess.open(directory.path_join("vortex_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"scheduled tornado optical and isolated viewport cost review, four fixed views; not occupied gameplay, input or final art acceptance","samples":rows,"failures":failures,"date":clock.datetime_string(),"shader_sources":sources,"test_sha256":FileAccess.get_sha256(get_script().resource_path)},"\t"))
+	print("VORTEX REVIEW: %d views, %d failures"%[rows.size(),failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 ## Date-owned composition with diagnostic stratum masks. No player or mouse

@@ -267,7 +267,7 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     if(spectacle[S_MAMMATUS]>0.0) base=min(base,.88);
     if(spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]>0.0) base=min(base,.40);
     float ceiling=base+mix(0.60,3.0,season_weights.z);
-    if(living_enabled) {
+    if(living_enabled && max(vortex_intensity,wx_cyclone)<.001) {
         base=min(base,living_layer_0.y);
         ceiling=max(ceiling,max(living_layer_0.y+living_layer_0.z,living_layer_1.y+living_layer_1.z));
     }
@@ -283,8 +283,8 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     vec2 funnel=vec2(100000.0,-1.0);
     if(vortex_intensity>0.001) {
         funnel=wx_ray_box(ro,direction,
-            vec3(wx_vortex_center.x-0.50,0.002,wx_vortex_center.y-0.50),
-            vec3(wx_vortex_center.x+0.50,base+0.36,wx_vortex_center.y+0.50));
+            vec3(wx_vortex_center.x-0.80,0.002,wx_vortex_center.y-0.80),
+            vec3(wx_vortex_center.x+0.80,base+0.52,wx_vortex_center.y+0.80));
         funnel.x=max(funnel.x,0.0); funnel.y=min(funnel.y,18.0);
         if(funnel.y<=funnel.x) funnel=vec2(100000.0,-1.0);
     }

@@ -180,23 +180,22 @@ float wx_fluctus_density(vec3 p) {
 }
 float wx_vortex_density(vec3 p,float base) {
 	if(vortex_intensity<=0.001) return 0.0;
-	float ground=0.005, top=base+0.22;
+	float ground=0.005, top=base+0.48;
 	float h=clamp((p.y-ground)/max(top-ground,0.1),0.0,1.0);
 	vec2 bend=vec2(sin(h*7.0+wx_phase),cos(h*5.0-wx_phase))*0.055*h;
 	vec2 q=p.xz-wx_vortex_center-bend;
 	q=wx_rotation(wx_phase*2.0+h*13.0)*q;
-	float radius=mix(0.035,0.31,pow(h,1.65));
+	// Continuous flaring root enters the opaque deck, rather than a separate
+	// ellipsoid perched on a capped tube. Its cap stays buried inside cloud.
+	float radius=0.035+0.18*pow(h,1.4)+0.48*pow(h,6.0);
 	// Ellipticity matters: rotating a perfectly circular SDF alone does nothing.
 	float radial=length(q*vec2(1.0,1.16))-radius;
 	float capped=max(radial,max(ground-p.y,p.y-top));
-	if(capped>0.5) return 0.0; // The parent collar extends outside the narrow tube.
+	if(capped>0.5) return 0.0; // Skip noise taps far outside the tube/root.
 	vec3 twisted=vec3(q.x/(radius+0.03),h*3.0,q.y/(radius+0.03));
 	float erosion=(textureLod(cloud_noise,twisted*0.7,1.0).g-0.5)*0.018;
 	float funnel=1.0-smoothstep(-0.012,0.016,capped+erosion);
-	float collar=1.0-smoothstep(-0.025,0.035,
-		wx_ellipsoid(p-vec3(wx_vortex_center.x,base+0.14,wx_vortex_center.y),vec3(0.42,0.17,0.42)));
-	// UNION density with the cloud deck, rather than subtracting an empty hole.
-	return max(funnel,collar)*vortex_intensity*1.4;
+	return funnel*vortex_intensity*1.4;
 }
 vec2 wx_ray_box(vec3 ro,vec3 rd,vec3 low,vec3 high) {
 	vec3 safe=(step(vec3(0.0),rd)*2.0-1.0)*max(abs(rd),vec3(0.000001));

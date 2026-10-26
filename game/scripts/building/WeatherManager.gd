@@ -250,6 +250,7 @@ func _publish_extreme_motion(date: Dictionary,precise := PackedFloat64Array()) -
 	var prior: Vector3=prior_value if prior_value is Vector3 else Vector3.ZERO
 	var at: Vector3=camera.global_position if camera!=null else prior*1000.0
 	extreme_weather.publish(sky,at,effects.get("air_material") if effects!=null else null)
+	_publish_vortex()
 
 func set_extreme_event(event: Dictionary) -> bool:
 	# Authored coastal-storm/alert adapter. The existing weather owner remains
@@ -392,13 +393,9 @@ func _push_spectacle() -> void:
 		_spectacle_bearings[slot]=float(entry.bearing)
 		if slot==ST_ELMO_SLOT: corona=float(entry.level)
 		if slot==MICROBURST_SLOT: burst=float(entry.level)
-		if slot==16 and extreme_weather!=null:
-			# One funnel, one density/light owner. Match the scheduled bearing.
-			extreme_weather.vortex=maxf(extreme_weather.vortex,float(entry.level))
-			sky.set_shader_parameter("vortex_intensity",extreme_weather.vortex)
-			sky.set_shader_parameter("wx_vortex_center",Vector2(sin(float(entry.bearing)),-cos(float(entry.bearing)))*3.6)
 	if _tle_frames>0: _tle_frames-=1
 	if RenderingServer.get_current_rendering_method()=="forward_plus":
+		_publish_vortex()
 		sky.set_shader_parameter("spectacle",_spectacle_levels)
 		sky.set_shader_parameter("spectacle_bearing",_spectacle_bearings)
 		sky.set_shader_parameter("spectacle_time",_spectacle_time)
@@ -406,3 +403,16 @@ func _push_spectacle() -> void:
 		_corona=corona
 		get_tree().call_group("st_elmo_corona","set_corona",corona)
 	if effects!=null and effects.has_method("set_burst"): effects.set_burst(burst)
+
+## Combine current weather and the witnessed schedule without feeding a rendered
+## maximum back into the weather state. Every publication uses this projection.
+func _vortex_level() -> float:
+	var scheduled:=float(_spectacle_levels[16]) if _spectacle_levels.size()>16 else 0.0
+	return maxf(float(extreme_weather.vortex) if extreme_weather!=null else 0.0,scheduled)
+
+func _publish_vortex() -> void:
+	if extreme_weather==null:return
+	sky.set_shader_parameter("vortex_intensity",_vortex_level())
+	if _spectacle_levels.size()>16 and _spectacle_levels[16]>0.0:
+		var bearing:=float(_spectacle_bearings[16])
+		sky.set_shader_parameter("wx_vortex_center",Vector2(sin(bearing),-cos(bearing))*3.6)

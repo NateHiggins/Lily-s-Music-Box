@@ -149,3 +149,27 @@ func _production_manager(schedule: Phenomena) -> void:
 	manager.force_phenomenon("aurora", 1.0)
 	manager._process(.1)
 	_check("a forced phenomenon joins the active set", manager.active_phenomena.any(func(e): return e.id == "aurora"))
+
+	# Headless backends do not instantiate the Forward+ extension. Exercise the
+	# same projection explicitly there; windowed optical review covers its shader.
+	manager.set_process(false)
+	if manager.extreme_weather==null:
+		manager.extreme_weather=preload("res://scripts/building/queens_weather_extension.gd").new()
+	var preserved: Dictionary=RealityState.data.duplicate(true)
+	manager._push_spectacle()
+	var scheduled:=manager._vortex_level()
+	var stable:=true
+	for frame in 120:
+		manager._process(1.0/60.0)
+		manager._publish()
+		manager._publish_vortex()
+		stable=stable and manager._vortex_level()>=scheduled-.0001 and float(material.get_shader_parameter("vortex_intensity"))>=scheduled-.0001
+	_check("scheduled funnel survives repeated weather publication without a one-frame blank",scheduled>.9 and stable)
+	_check("scheduled presentation never writes a sticky maximum into observed weather",manager.extreme_weather.vortex==0.0)
+	manager.active_phenomena.clear();manager._push_spectacle();manager._publish_vortex()
+	_check("expired scheduled funnel disappears without waiting for a weather rebuild",manager._vortex_level()==0 and float(material.get_shader_parameter("vortex_intensity"))==0)
+	manager.set_extreme_event({"tornado":.6});manager._publish();manager._publish_vortex()
+	_check("clearing a scheduled event preserves a separately authorized tornado alert",is_equal_approx(manager._vortex_level(),.6) and is_equal_approx(float(material.get_shader_parameter("vortex_intensity")),.6))
+	manager.set_extreme_event({});manager._publish();manager._publish_vortex()
+	_check("clearing the authorized alert cannot resurrect a stale scheduled funnel",manager._vortex_level()==0)
+	_check("funnel presentation preserves campaign, inventory, quest and resident authorities",RealityState.data==preserved)

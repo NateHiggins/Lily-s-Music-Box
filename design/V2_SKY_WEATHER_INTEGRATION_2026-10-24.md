@@ -710,3 +710,73 @@ verification is recorded on the draft PR. Full occupied-world/input qualificatio
 teardown, preview retirement, and further cloud-family art repair remain open.
 PR 57 remains **DRAFT / UNMERGED**; no ledger promotion or production-weather
 completion claim is made from this checkpoint.
+
+
+## PR 57 funnel publication and cloud-root repair — 2026-10-26
+
+Evidence class remains **INERT**. This is a continued optical/logic repair,
+not production-weather, occupied-world or human acceptance.
+
+| Location / reproduction | Severity / evidence | Repair | Verification |
+|---|---|---|---|
+| Scheduled July 19 tornado, weather publication at its midpoint | Regression in preceding **2e07f38c**: publication can reset shader funnel intensity to zero after the schedule sets it. New original **before** review fails its active-funnel assertion | One projection combines current observed/authorized vortex with the validated schedule slot for every publication, without feeding a rendered maximum back into weather state | Six new schedule checks exercise 120 update/publication cycles, expiry, separate authorized alerts, alert clearing and unchanged authorities. All pass headless and windowed |
+| Same funnel, wide/root/side views | The capped tube and separate ellipsoid produce a mushroom silhouette and ring-like gaps | Continuous tapered/flared SDF root buries its cap within the cloud deck; bound the fine sampling box to its full extent | Actual final renders show a continuous connection from wide and two close views. Shared density/light owner retained; no new texture tap or march-loop cap |
+| Active storm ray bounds | Inactive ordinary-cloud layers extend the storm sampling range and coarsen its steps | Use ordinary layer bounds only while their density branch is active | Final tornado and two-pitch coastal-storm/identity-warp captures render successfully. No full-world performance conclusion |
+
+The first **before** run is an original retained failure and cannot serve as an
+active-funnel timing or shape baseline: its intensity is zero. **owner_fix** is
+the valid baseline with publication repaired and original geometry unchanged.
+**root_v1** and **final** preserve subsequent actual renders. The first gate
+reported a raw side-camera coordinate; the fixture now derives its side station
+from the actual storm vector. **paired_final** renews all four poses in one
+process, using an explicit, hashed original-source shader variant and then the
+production shader. Shader hashes are
+bound LF-normalized; the final bench source keeps committed LF bytes. Every
+run uses fresh external paths under **C:/ov/reports/weather_vortex26**.
+
+Renewed same-process GPU viewport samples, 64 per view, p50 / p95 / p99 / maximum ms:
+
+| View | Original geometry, owner fixed | Final |
+|---|---|---|
+| Wide |3.222 /6.915 /7.618 /7.618|6.164 /7.280 /7.592 /7.592|
+| Root |5.448 /7.691 /13.529 /13.529|6.091 /9.283 /10.086 /10.086|
+| Side |5.653 /6.802 /10.972 /10.972|5.890 /6.028 /6.074 /6.074|
+| No-funnel control |0.623 /0.847 /0.852 /0.852|8.870 /10.995 /11.248 /11.248|
+
+The control median varies substantially and some treatment tails worsen.
+These short samples do not establish a speed gain. Control images also differ
+slightly (maximum 4/255, mean channel difference 0.0281/255; 4,906 pixels above
+1/255), so pixel identity is not claimed. Shader compilation/order and runtime
+variability remain confounders. Raw CPU/GPU arrays remain available.
+The actual playable route and input-latency measurements remain required.
+
+Executed checks: **CampaignWeatherTest 424 checks**, **SkyPhenomenaScheduleTest
+22 checks** headless and windowed, and **WeatherFlashAccessibilityTest 2/2**,
+all passing with empty stderr. Final paired optical review has eight views and zero
+failures; coastal-storm regression has two production/control pairs and zero
+failures. The schedule test was separately audited: its scene composes clock,
+light, director, catalogue and manager, with no player, reading panel or cursor
+requests. A copy of the external launcher admits only that test and the already
+audited sky bench. Completed weather-run isolation records confirm input desktop
+and cursor clip unchanged. One earlier queued attempt never launched Godot while
+a different canonical-tree test held the lane; its observer detected a clip
+change during that other test. The failed queue record is retained and excluded
+from successful isolation claims. Captured-input and whole-world scenes remain
+unsafe to launch through this method.
+
+The existing review packet now contains **501 hash-verified members,
+22,695,933 bytes**; all earlier members are byte-identical, including the first
+476-member packet. Original failure,
+valid baseline, intermediates, final raw render/timing records, representative
+original PNGs, declared derivatives, test logs/receipts, source snapshots and
+external launcher are retained without adding repository evidence files.
+
+The renewed full board at **weather_vortex26/gates_final/board.json** completes
+113 checks with zero regressions, no spatial drift, zero new unread fields and
+unchanged ledger counts against clean **d0c18f36**. The original failing board
+is retained. Candidate verification is recorded on the draft PR. Calendar,
+newspaper, inventory, relationship, work-order, quest and campaign-save
+contracts remain unchanged. Remaining limits include broader cloud shape/detail
+and lighting polish, actual campaign disk save/reconstruction/denial and owned
+teardown, preview retirement, native interaction and matched occupied-world
+performance qualification. **PR 57 remains draft and unmerged.**
