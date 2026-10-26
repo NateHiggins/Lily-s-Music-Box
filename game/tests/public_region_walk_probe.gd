@@ -64,16 +64,12 @@ func run(current: OrisonV2RuntimeRoot,suite: Node) -> void:
 	player.set_physics_process(true);player.set_lamp_enabled(false);player.carried_device.set_capture_hidden(true)
 	var first: Dictionary=programmes.route("ROUTE_STREET_TO_ARCADE").nodes[0].placement
 	player.global_position=(first.position as Vector3)+Vector3.UP*.025;player.velocity=Vector3.ZERO
-	# A preceding interior route may have retired the exterior draw cells.
-	# Let ordinary player-driven streaming rebuild them before inspecting residency.
-	var states: Array=[]
-	for frame in 120:
-		await get_tree().physics_frame
-		states=programmes.snapshot()
-		if states.size()==4 and states.all(func(state):return bool(state.resident)):break
+	# Distant streamed cells may be dormant at the street arrival. Require each
+	# physical module to become resident during the actual approach and walk.
+	var states: Array=programmes.snapshot()
+	var visited_resident: Dictionary={}
 	check(states.size()==4,"four programme regions have actual module owners")
 	for state: Dictionary in states:
-		check(bool(state.resident),"actual region geometry is resident: "+str(state.region_id))
 		check(state.owner!=null,"actual region has its retained physical owner: "+str(state.region_id))
 	var route_failed:=false
 	for identity: String in ["ROUTE_STREET_TO_ARCADE","ROUTE_ARCADE_TO_STREET","ROUTE_STREET_TO_CONSTRUCTION","ROUTE_CONSTRUCTION_TO_STREET"]:
@@ -84,7 +80,11 @@ func run(current: OrisonV2RuntimeRoot,suite: Node) -> void:
 			if not await _walk(world.adapter.root.to_local(target)):
 				route_failed=true
 				break
+			for state: Dictionary in programmes.snapshot():
+				if bool(state.resident):visited_resident[str(state.region_id)]=true
 		if route_failed:break
+	for state: Dictionary in states:
+		check(visited_resident.has(str(state.region_id)),"actual region geometry is resident during the walked programme: "+str(state.region_id))
 	player.set_physics_process(false)
 	var portal: Vector3=world._exterior_resolver.instance_world_transform("ARCADE_PORTAL_01").origin
 	var hall: Vector3=world._exterior_resolver.resolve_placement("ARCADE_HALL_01","arrival").position

@@ -61,7 +61,7 @@ try {
     }
     Write-OrisonLaneHolder -Runner "long" -Scene $Scene -Worktree (Split-Path $PSScriptRoot -Parent)
     $ProjectPath = (Resolve-Path -LiteralPath $ProjectPath).Path
-    $godot = (Get-Command Godot_v4.7.1-stable_win64_console.exe -ErrorAction Stop).Source
+    $godot = Resolve-OrisonGodot
     $logParent = Split-Path -Parent $LogPath
     if ($logParent) { New-Item -ItemType Directory -Force -Path $logParent | Out-Null }
     Remove-Item -LiteralPath "$LogPath.receipt.json" -Force -ErrorAction SilentlyContinue

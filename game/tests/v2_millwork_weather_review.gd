@@ -43,7 +43,12 @@ func coverage(shell: Node3D, world: Node3D, suite: Node) -> void:
 					var at_casing := false
 					for box: AABB in casing_boxes:
 						if box.grow(.004).has_point(shell.to_global(point)): at_casing=true;break
-					if not at_casing and not _contains_trim(room,point,height):
+					var world_point := shell.to_global(point)
+					var wall_room: Node3D = hit.collider.get_parent().get_parent() as Node3D
+					var covered := _contains_trim(room,room.to_local(world_point),height)
+					if not covered and wall_room != null and wall_room != room:
+						covered = _contains_trim(wall_room,wall_room.to_local(world_point),height)
+					if not at_casing and not covered:
 						missing.append({"room":record.id,"height":height,"point":[point.x,point.y,point.z],"wall":str(hit.collider.get_parent().get_path())})
 	suite.check(sampled>10000,"independent wall rays cover all closed V2 rooms")
 	suite.check(missing.is_empty(),"continuous baseboard/panel cap at every sampled actual wall face")
@@ -84,6 +89,24 @@ func captures(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 	camera.queue_free();world.player.camera.make_current()
 
 func _contains_trim(room: Node3D, point: Vector3, height: float) -> bool:
+	# Wet rooms replace wooden skirting with continuous ceramic wall stock.
+	# Test the actual triangles at the sampled face, not the merged AABB, which
+	# would falsely fill door apertures and gaps between separate wall patches.
+	var tile:=room.get_node_or_null("BathroomTileWainscot") as MeshInstance3D
+	if is_equal_approx(height,.07) and tile!=null and tile.mesh!=null:
+		var local:=tile.to_local(room.to_global(point))
+		var faces:=tile.mesh.get_faces()
+		for i in range(0,faces.size(),3):
+			var a:=faces[i];var ab:=faces[i+1]-a;var ac:=faces[i+2]-a
+			var normal:=ab.cross(ac).normalized()
+			if absf((local-a).dot(normal))>.001:continue
+			var p:=local-a-normal*(local-a).dot(normal)
+			var aa:=ab.dot(ab);var bb:=ac.dot(ac);var cross_dot:=ab.dot(ac)
+			var determinant:=aa*bb-cross_dot*cross_dot
+			if determinant<=0.:continue
+			var u:=(bb*p.dot(ab)-cross_dot*p.dot(ac))/determinant
+			var v:=(aa*p.dot(ac)-cross_dot*p.dot(ab))/determinant
+			if u>=0. and v>=0. and u+v<=1.:return true
 	for fitting: MeshInstance3D in room.find_children("*","MeshInstance3D",true,false):
 		if fitting.has_meta("native_front_trim_fit") and fitting.mesh!=null:
 			var local_pose: Transform3D=room.global_transform.affine_inverse()*fitting.global_transform

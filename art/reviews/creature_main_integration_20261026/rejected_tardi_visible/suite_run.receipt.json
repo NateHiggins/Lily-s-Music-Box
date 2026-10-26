@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 154.37,
+  "exit_code": 1,
+  "finished_utc": "2026-10-26T21:55:56Z",
+  "started_utc": "2026-10-26T21:53:21Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/tentacle-main/tmp/tentacle_integration/tardi_visible.log.stderr",
+  "stderr_sha256": "9772332270d7f797362436a77f17f512d422821673d2e47d1000a7c16ca5533b",
+  "stdout": "C:/ov/tentacle-main/tmp/tentacle_integration/tardi_visible.log",
+  "stdout_sha256": "d37e178db5c15b95a2ec97aedf056b12f394b24fb31ce0195c90cde2410ea818"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/TardigradeCompanionWorldTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\tentacle-main\\tmp\\tentacle_integration\\tardi_visible",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "2a332a8cd28092ef15cb452b22e03493bfdcbea7",
+  "repository_tree": "4d099a829dcb126e9fdd18dd76676486392b5af1",
+  "runtime_inputs_sha256": "fb7954eb6b6413c6557a77537e1490f36a39cbdd8509c023e7cd7797f66faf40",
+  "test_path": "game/tests/tardigrade_companion_world_test.gd",
+  "test_sha256": "c1de30cc069d16489fe5931ec9a67bf19307d2f0124d180fad08222ad19e10b9"
+ },
+ "windowed": true
+}

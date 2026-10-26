@@ -1,5 +1,24 @@
 extends Node
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
+const HandBase=preload("res://tests/orison_v2_first_slice_contract_test.gd")
+class RouteHand extends HandBase.PatrolHand:
+	func move_to(goal: float) -> bool:
+		if not player._grab.active():return false
+		var target: Dictionary=player._grab.target
+		var pixels:=float(target.get("gesture_travel_px",0.))
+		var axis: Vector2=target.get("gesture_screen_axis",Vector2.ZERO)
+		if pixels<=0. or axis.is_zero_approx():return await super.move_to(goal)
+		var span:=float(target.maximum)-float(target.minimum)
+		for frame in 160:
+			if not player._grab.active():return false
+			var before:=float(target.read.call())
+			if absf(goal-before)<.000001:return true
+			var event:=InputEventMouseMotion.new()
+			event.relative=axis.normalized()*clampf(goal-before,-span*.1,span*.1)*pixels/span/float(target.get("motion_scale",1.))
+			player._unhandled_input(event)
+			await get_tree().physics_frame
+			if (float(target.read.call())-before)*(goal-before)<-.000001:follows_cursor=false
+		return false
 var world: OrisonV2RuntimeRoot
 var player: PlayerController
 var trace: Array[Dictionary] = []
@@ -168,29 +187,14 @@ func _move_front_entrance(identity: String,want_open: bool) -> bool:
 		player.face_world_point(door._body.to_global(Vector3(door.width/3.0,1.1,door._hinge_offset)))
 		player.set_mouse_released(false)
 		await get_tree().physics_frame
-		var click:=InputEventMouseButton.new();click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
-		player._unhandled_input(click)
-		var held_contact: Vector3=player._grab.contact
-		for frame in 160:
-			if not player._grab.active() or player._grab.target.owner!=door:break
-			var angle: float=player._grab.target.read.call()
-			if absf(angle-goal)<.000001:break
-			var point:=door._body.to_global(player._grab.contact)
-			var tangent: Vector3=door.global_basis.y.cross(point-door._body.global_position)
-			var screen: Vector2=(player.camera.unproject_position(point+tangent*.01)-player.camera.unproject_position(point))/.01
-			if screen.length()<24.0 and absf(tangent.dot(player.camera.global_basis.z))>tangent.length()*.5:
-				screen=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
-			var motion:=InputEventMouseMotion.new();motion.relative=screen*clampf(goal-angle,-.12,.12)
-			# A fixed gesture keeps the screen direction taken at the grab.
-			var held: Vector2=player._grab._gesture_axis
-			if float(player._grab.target.get("gesture_travel_px",0.0))>0.0 and not held.is_zero_approx():
-				var span: float=float(player._grab.target.maximum)-float(player._grab.target.minimum)
-				motion.relative=held*clampf((goal-angle)/span*float(player._grab.target.gesture_travel_px),-24.0,24.0)
-			player._unhandled_input(motion)
-			await get_tree().physics_frame
-		if player._grab.active():player._unhandled_input(click)
+		var hand := RouteHand.new()
+		add_child(hand); hand.player=player
+		var held_contact := Vector3(door.width/3.0,1.1,door._hinge_offset)
+		var moved: bool=await hand.operate(door._body.to_global(held_contact),goal,door)
+		var follows: bool=hand.follows_cursor
+		hand.free()
 		await get_tree().physics_frame
-		if door.open!=want_open or door._moving or absf(door._body.rotation.y-goal)>.01:
+		if not moved or not follows or door.open!=want_open or door._moving or absf(door._body.rotation.y-goal)>.01:
 			var at:=door._body.to_global(held_contact)
 			var obstruction:=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(player.camera.global_position,at,1,[player.get_rid()]))
 			print("DOOR_HAND_DIAGNOSTIC ",identity," angle=",door._body.rotation.y," wanted=",goal," point=",at," camera=",player.camera.global_position," distance=",at.distance_to(player.camera.global_position)," blocker=",obstruction.get("collider"))

@@ -26,6 +26,13 @@ func restore_open_state(value: bool) -> void:
 
 func _build_visual() -> void:
 	super._build_visual()
+	# Reflection retirement restores this retained fallback. Own a UV-mapped
+	# copy rather than reintroducing the catalogue's triplanar default later.
+	var native_fallback:=_mirror_fallback.duplicate() as StandardMaterial3D
+	native_fallback.uv1_triplanar=false
+	native_fallback.uv2_triplanar=false
+	_mirror_fallback=native_fallback
+	_mirror_surface.material_override=_mirror_fallback
 	if has_meta("native_medicine_factory"):
 		native_ready = get_meta("native_medicine_factory").install_on(self)
 		remove_meta("native_medicine_factory")

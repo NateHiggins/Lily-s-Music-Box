@@ -1,86 +1,122 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "scope": "Agent-reviewed representative production-world renders plus exhaustive loaded UV/PBR/mip discovery. Technical qualification only; human appearance and gameplay acceptance remain separate.",
-  "surface_inputs_sha256": "a57ba90137e9e9b2cecb08d8459adc1cea888529d1b05f8c385553baceef3683",
+  "scope": "Agent-reviewed representative production-world captures with exhaustive loaded UV/PBR/mip qualification. Technical qualification only; owner appearance, atmosphere and full-campaign acceptance remain separate.",
+  "surface_inputs_sha256": "6442c9dabb4887e0693aa783d659433949171adf33938e606625efb06e2a0a97",
   "images": [
     {
-      "file": "street_glazing_fitted_19_5.png",
-      "sha256": "944baa258572b291da6e84e810d712ea14dd719327605382e5c26fd28a1b3ac5",
-      "observation": "Through the fitted shop glazing: white-tiled interior, dark dado and the produce crate, beside the green pilaster and the timber receiving passage with its caged pendant; one lamp highlight on the tile still clips, an open appearance issue.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
+      "file": "tentacle_installed_surfaces.png",
+      "sha256": "dedc3e9f9e93216cc19e052fe03a81707ca1356e208ffd54baaebe7bb403b87a",
+      "observation": "Dark layered limbs rise from a shared base in front of the installed radiator; rim highlights separate the folded anatomy from the floor. This dim composition complements the focused lit lifecycle captures.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
     },
     {
-      "file": "fire_F01_FIRE_LINE_STAIR_closed.png",
-      "sha256": "291197a81ca8f17476825beb43fc2f63a72355b6feaa867a184da9639fc74fbe",
-      "observation": "Closed red hose cabinet on the riser; wired glass transmits the racked hose, valve and swan neck, and the FIRE HOSE lettering reads under the carried light.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
+      "file": "tentacle_flowing_residue.png",
+      "sha256": "b99287cc12475cf4de9faaffb4b23a16d110eeb97b02562ce139b307e0cdc3e2",
+      "observation": "The same installed position shows a broad irregular rainbow pool with dark folded remains; the radiator, valve and surrounding floor stay intact.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
     },
     {
-      "file": "fire_F01_FIRE_LINE_STAIR_open.png",
-      "sha256": "00bab590e90c50fea582b6842cd3ce5db3fafb892c3aed9a150ba597d2b5007b",
-      "observation": "Opened leaf shows the cabinet lining with its stencilled rack note, the racked hose, valve, nozzle on the floor and the parts tin; the open leaf keeps its wired glass.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
-    },
-    {
-      "file": "city_street_skyline.png",
-      "sha256": "63d35a374c0e8b30f265ff94be86559a1964f403b6890fc74472743c5f31ff46",
-      "observation": "Looking up the Orison brick face to neighbouring masonry blocks under a daytime sky; recessed window stock, the canopy and a bishop's-crook street lamp and street traffic at lower left are visible; a pale glazing plane at left reads as shop glass seen at a grazing angle.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
-    },
-    {
-      "file": "bookcase.png",
-      "sha256": "8362fb92f2bc23e1b330f4e4180bfaf5d3b68505b3bf65662da72e5f9890ace5",
-      "observation": "Sectional glazed bookcase against the apartment wall with books behind the middle pane, the table, framed print, doorway and umbrella in view; the panes read as glass and the boards as figured wood.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
-    },
-    {
-      "file": "roof_tank_uv.png",
-      "sha256": "830c2097beccb58cf7e4780b5261376c6df75564a6ca215125b93fdc0c89d354",
-      "observation": "Roof water tank on its steel trestle with the cage ring, neighbouring blocks and parapets under a daytime sky; the tank body and cone read without visible stretching.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
-    },
-    {
-      "file": "kitchen_2A_hot.png",
-      "sha256": "48859d748c33db2021eb991354ba1a2bbc63a5fb51c964e113723810bf734fe9",
-      "observation": "Hot tap running into the enamel sink; the stream meets the drain, the C and H handles and the dish rack read; the tap metal now reads darker and the enamel is somewhat flat under the warm light.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
-    },
-    {
-      "file": "front_restored_entrance.png",
-      "sha256": "1f3355b268296ec6f854b2a564d8d7aa589775811697570adb8d081b1fa56c44",
-      "observation": "Restored entrance at night: THE ORISON canopy, lit doors, brick courses and string courses, lit ground-floor windows with blinds and the red vertical neon sign; window stock is recessed.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
-    },
-    {
-      "file": "radiator_joints_carried.png",
-      "sha256": "84a31b62596a72daa39ce585d509ffb87dffe0de222596867930b5170946bf82",
-      "observation": "Column radiator on its floor blocks with the wheel valve, union and branch elbow under the carried light; joints and castings resolve; the framing is diagnostic, not a tag placement proof.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
-    },
-    {
-      "file": "clearance_126_F02_2A_BOOKSHELF_01.png",
-      "sha256": "53e0d85cd1edae5a753d7ba4c31942839ba44f859394eb2db8f3c26271c66b61",
-      "observation": "Open bookshelf at 2A with books on its boards and clear floor around it under the carried light; grain runs along the uprights and floorboards.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
-    },
-    {
-      "file": "tile_F02_A_BATH_floor.png",
-      "sha256": "3cc99cca5e1a017d2516fd027d53e37a6d84a160190e74a06a7f650f0680d66f",
-      "observation": "Top-down bathroom: hexagonal floor tile, white subway wall tile, pedestal basin, ribbed radiator, the curtained tub and the toilet; grout resolves without shimmer.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
-    },
-    {
-      "file": "construction_joinery_carried.png",
-      "sha256": "c7f80399f8418c8c8ab43f57bc6d8c9953610a85c027ba834ac3c1da6ec41795",
-      "observation": "Softwood framing joint seen from below under the carried light; grain follows each member, the nail lines read and the joinery edges resolve.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
+      "file": "public_arcade_portal.png",
+      "sha256": "39b9e7e4d893f0761ab270b3c3bd11263bd6bf08df2b7cb2883f926eecd32b6d",
+      "observation": "The drawn-glass entrance transmits the hall through both leaves; brick, concrete surround and the lit interior remain distinct. A concentrated light reflection remains on the right pane.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
     },
     {
       "file": "public_arcade_hall.png",
-      "sha256": "ae83ecced49998dd9818923c0eed591781b7db690e05b41fa67b8ee30fc8f27c",
-      "observation": "Arcade hall with LUNCHEONETTE and MODEL LAUNDRY fascias, open glazed doors, shopfronts, pendant lamps, a hand cart and the skylight vault; signage is Label3D.",
-      "origin": "Original windowed composed-world capture on main 25d5902c (sky spectacle) with the horizon fixture rebind, 2026-10-25"
+      "sha256": "443747ad7acb4c3ff91babad086051fbffdf4a66c3062b23b5b36cc04f3bd147",
+      "observation": "Transparent shop fronts reveal furniture, while timber frames, brick courses, ceiling ribs and terrazzo retain distinct scales down the passage.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "tile_F02_A_BATH_corner.png",
+      "sha256": "dba99ae6acd23e0d9d10ce10005cc84232b4f8dadb58d1178df4fabb4782b43a",
+      "observation": "Subway tile courses wrap the bathroom corner beneath painted plaster, with the curtain folds, basin and door remaining readable.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "tile_F02_A_BATH_floor.png",
+      "sha256": "13873d8dc860bbfe25826485f50b8369365656da96f928c86d0d03fb4aa43c74",
+      "observation": "Small hexagonal floor tiles keep consistent scale around the basin pedestal, curtain rail base and toilet; wall tile meets the floor without wood skirting.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "tile_F04_B_BATH_corner.png",
+      "sha256": "e7114807ae60d5e70ff07f16d1a1136922b91ed7d3418ab03e9e8db1a9f30470",
+      "observation": "The other bathroom retains horizontal tile courses at the corner and its striped curtain; the dark folded curtain silhouette remains prominent under this lighting.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "tile_F05_C_BATH_floor.png",
+      "sha256": "edaab7dc143af08320457086695853fd142929b372d0597dc26eda1e7482a841",
+      "observation": "Hexagonal tiles cover the floor continuously beneath fixtures and reach the tiled wall without a wood border.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "F03_B_BATH_reflection_repair.png",
+      "sha256": "18ef0da696e11b9d638ee85a6f3685edbc009b8fdba475a59c81f8db37295372",
+      "observation": "The dim bathroom view retains separate curtain, tiled wall, plaster and toilet surfaces; no triplanar fallback substitution is visible.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "F06_B_KITCHEN_reflection_repair.png",
+      "sha256": "9610c81b4f9ab01a527a798282f47741e9facd82db6be2bc1317d6bcc8254f27",
+      "observation": "The kitchen retains cabinets, enamel sink and bright metal pipe highlights above wood flooring. The wall remains strongly mottled by this lighting; this is technical surface review, not a new lighting-art approval.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "control_finish_carried.png",
+      "sha256": "2b2c0abe7f297dd61b205daaa0e37c99c5a1ad52221d0ee26f473232e21fd6bf",
+      "observation": "The installed annunciator face, lit indicator, glazed lower mechanism and numbered controls remain distinct under the carried-light view.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "control_finish_grazing.png",
+      "sha256": "0b80582c7252f2758ecbf1f6b2ab419d0c8d22c7107cbf85f0c6fab0c0305a9b",
+      "observation": "Grazing light reveals the lower control mechanism, wood framing and surrounding wall relief without changing the displayed state.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "fire_F01_FIRE_LINE_STAIR_open.png",
+      "sha256": "51a0ffb1f5dd06d4b72b5a9c29603ce298c1f8e43dd95bea761f820697ecb462",
+      "observation": "The open cabinet retains translucent wired glass, hanging hose, valve and loose nozzle. The hardware is dim in this ambient-light framing.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "electrical_F01_ELECTRICAL_JUNCTION.png",
+      "sha256": "2ea357ddcfb12898ab9b74f19bd188eae8e7a2f508405b63c4d0b71792bef0e2",
+      "observation": "The wall-mounted metal box and two vertical conduits retain their material relief against bright plaster beside the door trim.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "entrance_front_wide.png",
+      "sha256": "54041b560a39b321bb8c14534a42b9780e350e936e56d806123db0b7b9431a09",
+      "observation": "The building entrance, brick courses, recessed windows, scaffold and vertical neon sign remain fitted and readable in the wide exterior view.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "public_construction_dogleg.png",
+      "sha256": "f1f0d322dd7d079515cd1e91df17243ed059b9a8ef0127393e167cc1746febcb",
+      "observation": "The boarded dogleg retains timber grain along posts, joists, wall planks and floor, with the hanging work light and far sign visible.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "city_weather_dry.png",
+      "sha256": "f6fa7f42be112b0f11691b08c10316497c1c818f20164f12a1b1ad9c0fc32260",
+      "observation": "The dry skyline retains window bands, rooftop tank and masts under the blue cloud field; no physical material is substituted by the weather classification.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "city_weather_storm.png",
+      "sha256": "48c4221e850b909d6752581e0fa0cf000e58653a5ecc17c952530d94279749a3",
+      "observation": "The storm view retains the same rooftop objects while distant buildings recede into fog silhouettes beneath an overcast sky. Weather appearance acceptance remains separate.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
+    },
+    {
+      "file": "street_paving.png",
+      "sha256": "7a0fe18e02041dbc2856d0c6ab3e18faa87a93d6639cc8a7d1012645ff87ab10",
+      "observation": "The street view retains paving seams, shop glazing and timber construction. Distant amber work beacons remain visible; their loaded inventory additionally confirms the existing milk-glass maps and mip filtering.",
+      "origin": "Windowed composed-world capture from clean candidate 0221ad94, pinned reflection-atlas Vulkan build, 2026-10-26"
     }
   ]
 }

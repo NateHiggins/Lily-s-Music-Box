@@ -1,0 +1,26 @@
+{
+	"checks": 10,
+	"contracts": {
+		"companion_composition": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 127.851,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Production V2 companion composition, visible installed lamp response, sole waking optical field binding and read-only work targeting; not full navigation or save reconstruction proof.",
+	"selector": "v2",
+	"source": {
+		"test_path": "game/tests/tardigrade_companion_world_test.gd",
+		"test_sha256": "a35fddfe861349d7b39699a1f8541546e362f34fb53788cd9c642142d8661609"
+	},
+	"visibility_pixels": 13726
+}

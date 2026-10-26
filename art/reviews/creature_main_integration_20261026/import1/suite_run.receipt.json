@@ -1,0 +1,73 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 379.72,
+  "exit_code": 0,
+  "finished_utc": "2026-10-26T21:23:55Z",
+  "started_utc": "2026-10-26T21:17:35Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 12,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Preload file \"res://assets/fonts/courier_prime/CourierPrime-Regular.ttf\" has no resource loaders (unrecognized file extension).",
+   "SCRIPT ERROR: Parse Error: Preload file \"res://assets/fonts/courier_prime/CourierPrime-Bold.ttf\" has no resource loaders (unrecognized file extension).",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://scripts/game_boot.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/tentacle-main/tmp/tentacle_integration/import1.log.stderr",
+  "stderr_sha256": "7f13c966fd28cbb1de0bf2a4602850f15af1132728dabba9e57b2974b5b0a430",
+  "stdout": "C:/ov/tentacle-main/tmp/tentacle_integration/import1.log",
+  "stdout_sha256": "3bc80bde8425c3cb2a55e95058458a57ddde859ef64613f62ac00a17ddb6f26f"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 2280,
+  "dirty_sample": [
+   "M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
+   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
+   " M game/assets/audio/music/covers/felt_correct.webp.import",
+   " M game/assets/audio/music/covers/glass_orchard.webp.import",
+   " M game/assets/audio/music/covers/glorious_stain.webp.import",
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
+   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
+   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
+   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
+   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
+   " M game/assets/audio/music/covers/living_with_the_motor.webp.import",
+   " M game/assets/audio/music/covers/mina_s_midday_quest.webp.import",
+   " M game/assets/audio/music/covers/no_subject_line.webp.import",
+   " M game/assets/audio/music/covers/paper_sleep.webp.import"
+  ],
+  "repository_head": "f900d20502be4c94588c283d77e5dd1b93a507d4",
+  "repository_tree": "0109b66dc0c1d1191d83ce37884de21634948f0c",
+  "runtime_inputs_sha256": "4cd9eec282ce24da604d35b1338ec2fc9af5037ef589072b8086e61741ad3bc2",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

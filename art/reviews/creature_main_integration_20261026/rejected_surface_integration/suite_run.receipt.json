@@ -1,0 +1,44 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 881.33,
+  "exit_code": 1,
+  "finished_utc": "2026-10-26T22:32:05Z",
+  "started_utc": "2026-10-26T22:17:23Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 2,
+  "fail_lines": [
+   "V2 SURFACES: FAIL 5 unresolved surfaces; {'incomplete_pbr_maps': 5, 'normal_map_disabled': 1}",
+   "V2 SURFACE QUALIFICATION: FAIL; 40795 checks; 7 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/tentacle-main/tmp/tentacle_integration/surface_final.log.stderr",
+  "stderr_sha256": "5e8e7aa5804ed3c20eecc3a0c7d126984b2690014b62b304b293899e47e7e0a8",
+  "stdout": "C:/ov/tentacle-main/tmp/tentacle_integration/surface_final.log",
+  "stdout_sha256": "5ca4fada0e2eb690e422f67783640a8254a19cad0f3f1668471d436ffb4bb537"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\tentacle-main\\tmp\\tentacle_integration\\surface_final",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "d1b78e18e5b5fa4e10099476b863845a9b0b8e66",
+  "repository_tree": "b5b3a10ede062ddd762659e16029cddbe86bce41",
+  "runtime_inputs_sha256": "fdf21136d049e5b70d2eb63485eca39f479b7cccb808858932d73014e7d1d4ec",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "b2d26ec9d4cfbf95033643482a90f0a0bac8163a7f68d64ca1e33cc9c2de9dd2"
+ },
+ "windowed": true
+}

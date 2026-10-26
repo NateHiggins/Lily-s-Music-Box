@@ -7,7 +7,7 @@ const DRIVERS := [preload("res://tests/orison_v2_apartment_door_route_test.gd"),
 const ROOMS := ["F02_A_VESTIBULE","F02_A_MAIN","F02_A_KITCHEN","F02_A_PRIVATE_HALL","F02_A_BATH","F02_A_BED",
 	"F02_B_VESTIBULE","F02_B_MAIN","F02_B_KITCHEN","F02_B_PRIVATE_HALL","F02_B_BATH","F02_B_BED",
 	"F04_B_VESTIBULE","F04_B_MAIN","F04_B_KITCHEN","F04_B_PRIVATE_HALL","F04_B_ALCOVE_APPROACH","F04_B_BATH","F04_B_CLOSET"]
-const SOURCES := ["res://tests/orison_v2_apartment_access_contract_test.gd",
+const SOURCES := ["res://tests/orison_v2_first_slice_contract_test.gd", "res://tests/orison_v2_apartment_access_contract_test.gd",
 	"res://tests/OrisonV2ApartmentAccessContractTest.tscn",
 	"res://tests/orison_v2_apartment_door_route_test.gd","res://tests/orison_v2_4b_door_route_test.gd",
 	"res://tests/orison_v2_connected_exterior_route_test.gd","res://tests/orison_v2_vertical_route_test.gd",

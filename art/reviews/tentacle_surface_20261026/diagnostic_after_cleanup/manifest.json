@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Historical failed test run: physical-surface audit and shutdown repaired, return-door and tile-specific checks still failed. Not acceptance.",
+  "files": {
+    "surface_repair2.log.gz": {
+      "original_sha256": "94d1ddab529ef359c2dc79994493b9d39f928363cf3598c82ec82e8dd7e25e1a",
+      "original_bytes": 371409
+    },
+    "surface_repair2.log.stderr.gz": {
+      "original_sha256": "f08405a4d1e42a659e9e545f2cd3f8adda3b3d44d5d6d01262af42b27ff74c2c",
+      "original_bytes": 2017
+    },
+    "surface_repair2.log.receipt.json.gz": {
+      "original_sha256": "7837407aa74d408a69bc2ecbf0ba7a8f4620fe5589d3b50f49a490cec08c5669",
+      "original_bytes": 2622
+    },
+    "runtime_contract.json.gz": {
+      "original_sha256": "6a6b18627853c5d3a3a976eae51a0c08b44849b2833bc7f9c5a00cb751ca5103",
+      "original_bytes": 1727
+    },
+    "technical_findings.json.gz": {
+      "original_sha256": "b5a8f7aab0730add7f39cf92d14b83619d761592d1c921f67c894070a68c89bc",
+      "original_bytes": 40583
+    }
+  }
+}

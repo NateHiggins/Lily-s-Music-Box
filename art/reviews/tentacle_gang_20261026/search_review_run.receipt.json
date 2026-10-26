@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 32.88,
+  "exit_code": 0,
+  "finished_utc": "2026-10-26T18:37:11Z",
+  "started_utc": "2026-10-26T18:36:38Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/tentacle_acceptance/panic_warm.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/tentacle_acceptance/panic_warm.log",
+  "stdout_sha256": "fe6189963f2ab034fcd223657d1e1bb648e3355f121b595a7a8dc7c0722118ca"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/MaintenanceTentacleGangTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/tentacle_acceptance/panic_warm",
+ "source": {
+  "dirty_paths": 1021,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M .gitignore",
+   " M DOCS.md",
+   " M art/blender/bodega_frontage.blend",
+   " M art/blender/bodega_frontage_construction.json",
+   " M art/blender/city_closure.blend",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations.blend",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/dream_critters/euplotes.blend",
+   " M art/blender/dream_critters/euplotes_lod1.blend",
+   " M art/blender/dream_critters/tardigrade.blend",
+   " M art/blender/dream_critters/tardigrade_lod1.blend",
+   " M art/blender/front_pavement.blend",
+   " M art/blender/front_pavement_construction.json",
+   " M art/blender/passage_shop_leaves.blend",
+   " M art/blender/scripts/build_bodega_frontage.py",
+   " M art/blender/scripts/build_city_closure.py",
+   " M art/blender/scripts/build_dream_critter.py",
+   " M art/blender/scripts/euplotes_model.py"
+  ],
+  "repository_head": "3a01ac1d624ea754821a5df8c8dc5773dd7a6b02",
+  "repository_tree": "54893110dde43ed2aedc39e4317f626a8a83f386",
+  "runtime_inputs_sha256": "b590d7245f686b7fb08c7311e82c9ed8b750d8dc08cff4c92496459a3cfb83cc",
+  "test_path": "game/tests/maintenance_tentacle_gang_test.gd",
+  "test_sha256": "b48c1b95ee6dad55d97229eb558eba266bc59e67c769f65e80c997d2a1f8b55e"
+ },
+ "windowed": true
+}

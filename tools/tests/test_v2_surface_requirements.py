@@ -7,6 +7,39 @@ from audit_v2_surfaces import evaluate
 spec=importlib.util.spec_from_file_location('surface_imports',ROOT/'art/tools/fix_runtime_texture_imports.py');imports=importlib.util.module_from_spec(spec);spec.loader.exec_module(imports)
 
 class Requirements(unittest.TestCase):
+    def test_camera_weather_requires_exact_shader_owner_and_role(self):
+        data=self.inventory();draw=data['draws'][0];material=data['materials']['material']
+        draw.update(path='Player/Camera3D/GPUWeatherRain',surface_role='weather_optics',owner_script='res://scripts/player/player_controller.gd')
+        material.update(type='ShaderMaterial',shader='res://shaders/queens_precipitation_draw.gdshader',shader_unshaded=True,maps={})
+        self.assertEqual(evaluate(data)['findings'],[])
+        for field,value in [('path','Player/Camera3D/LampHousing'),('surface_role','physical'),('owner_script','unrelated_owner')]:
+            invalid=copy.deepcopy(data);invalid['draws'][0][field]=value
+            self.assertIn('incomplete_pbr_maps',evaluate(invalid)['findings'][0]['reasons'])
+        material['shader']='res://shaders/physical_stock.gdshader'
+        self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+
+    def test_typewriter_steel_keeps_required_maps_and_mips(self):
+        data=self.inventory(); material=data['materials']['material']
+        material.update(type='ShaderMaterial',shader='res://scripts/device/writer_type_decal.gdshader',
+                        maps={'steel_albedo':'albedo','steel_roughness':'rough','steel_normal':'normal'},
+                        mip_filters={key:True for key in ('steel_albedo','steel_roughness','steel_normal')})
+        self.assertEqual(evaluate(data)['findings'],[])
+        data['textures']['normal']['mips']=False
+        self.assertIn('missing_loaded_mips:normal',evaluate(data)['findings'][0]['reasons'])
+        del material['maps']['steel_normal']
+        self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+
+    def test_writer_smoke_requires_exact_shader_and_owner(self):
+        data=self.inventory(); material=data['materials']['material']
+        material.update(type='ShaderMaterial',shader='res://scripts/device/writer_smoke.gdshader',maps={})
+        data['draws'][0]['owner_script']='res://scripts/device/hot_type_writer.gd'
+        self.assertEqual(evaluate(data)['findings'],[])
+        data['draws'][0]['owner_script']='res://scripts/props/physical_stock.gd'
+        self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+        data['draws'][0]['owner_script']='res://scripts/device/hot_type_writer.gd'
+        material['shader']='res://scripts/device/writer_type_decal.gdshader'
+        self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+
     def test_new_unstaged_physical_image_is_covered_before_first_import(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory)
@@ -265,6 +298,27 @@ class Requirements(unittest.TestCase):
         reasons=evaluate(data)['findings'][0]['reasons']
         self.assertIn('disabled_shader_map:has_normal_tex',reasons)
         self.assertIn('non_mipmapped_shader_sampler:normal_texture',reasons)
+
+    def test_microscopy_requires_all_stocks_but_not_mipped_pose_data(self):
+        from audit_v2_surfaces import MICROSCOPY_CHANNELS
+        data=self.inventory()
+        data['draws'][0]['owner_script']='res://scripts/dream/critters/dream_critter_controller.gd'
+        maps={channel:channel for channel in MICROSCOPY_CHANNELS}
+        maps['blender_pose_tex']='pose'
+        data['materials']['material']={'type':'ShaderMaterial',
+            'shader':'res://shaders/tardigrade_interior.gdshader','maps':maps,
+            'mip_filters':{channel:True for channel in MICROSCOPY_CHANNELS}}
+        data['textures']={channel:{'mips':True} for channel in MICROSCOPY_CHANNELS}
+        data['textures']['pose']={'mips':False}
+        self.assertFalse(evaluate(data)['findings'])
+        maps.pop('micro_organ_normal')
+        self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+        maps['micro_organ_normal']='micro_organ_normal'
+        data['textures']['micro_mineral_normal']['mips']=False
+        self.assertIn('missing_loaded_mips:micro_mineral_normal',evaluate(data)['findings'][0]['reasons'])
+        data['textures']['micro_mineral_normal']['mips']=True
+        data['draws'][0]['owner_script']='unrelated_owner'
+        self.assertIn('missing_loaded_mips:pose',evaluate(data)['findings'][0]['reasons'])
     def test_content_sharing_never_shares_different_channels_or_pixels(self):
         spec=importlib.util.spec_from_file_location('sets',ROOT/'art/tools/generate_runtime_materials.py')
         sets=importlib.util.module_from_spec(spec);spec.loader.exec_module(sets)

@@ -1,0 +1,33 @@
+{
+	"contracts": {
+		"owner_retirement": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"engine": {
+		"build": "custom_build",
+		"hash": "unknown",
+		"hex": 263937,
+		"major": 4,
+		"minor": 7,
+		"patch": 1,
+		"status": "stable",
+		"string": "4.7.1-stable (custom_build)",
+		"timestamp": 0
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"production_runtime": false,
+	"schema_version": 2,
+	"scope": "Minimal ReflectionProbe owner retirement. Renderer RID leak verdict requires the complete shutdown stderr; this receipt alone cannot certify it.",
+	"selector": "v2",
+	"source": {
+		"test_path": "game/tests/reflection_atlas_retirement_test.gd",
+		"test_sha256": "c90403b047cad1a384d2de21e2b1f92107f3da9deeb177862c5722b3bce71c96"
+	}
+}
