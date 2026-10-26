@@ -200,8 +200,8 @@ func _physics_process(delta: float) -> void:
 	var floor_hit := space.intersect_ray(ray)
 	# Ramp end caps are steeper than their walking face, but only a few
 	# centimetres high. Admit a supported step, never a jump or wall climb.
-	if floor_hit.is_empty() or floor_hit.normal.y < .45 \
-			or absf(float(floor_hit.position.y)-at.y) > .25:
+	var rise := absf(float(floor_hit.position.y)-at.y) if not floor_hit.is_empty() else INF
+	if floor_hit.is_empty() or (floor_hit.normal.y < .45 and rise > .06) or rise > .25:
 		blocked_reason = "floor support missing or too steep at %v; previous=%s; hit=%s" % [next,last_floor,floor_hit]
 		_blocked(delta)
 		return
