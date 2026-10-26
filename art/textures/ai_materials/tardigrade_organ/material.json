@@ -1,13 +1,14 @@
 {
   "material": "tardigrade_organ",
   "source": "art/tools/build_tardigrade_maps.py",
-  "source_sha256": "7ca82439e9138d9436c1331f97bf3834571470370dc2b1be17cebffdd8ba39d7",
+  "source_sha256": "30cca3a9360e9de55f42229b05ee27a0a1605d13b8c29072fa518d7ff125f7fc",
   "meters_per_tile": 0.04,
   "maps": {
     "albedo": "albedo.png",
     "roughness": "roughness.png",
     "normal": "normal.png"
   },
+  "mottling": "unchanged",
   "normal_authoring": {
     "construction": "membrane pores and reserve folds",
     "relief_m": 0.00012,
