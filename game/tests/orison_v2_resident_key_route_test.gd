@@ -280,8 +280,11 @@ func _key(owner_node: Node3D, target: Vector3, label: String, family := &"keyboa
 	player.touch_input = prior_touch
 	player._prompt_input_family = &"keyboard"
 	if owner_node is DoorProp:
-		return _require(owner_node.leaf_state==("closed" if before=="locked" else "locked"),
-				family+" input changes actual lock: "+label)
+		var door := owner_node as DoorProp
+		return _require(door.leaf_state==("closed" if before=="locked" else "locked"),
+				family+" input changes actual lock: "+label+" state=%s moving=%s turning=%s open=%s blocked=%s key=%s call_locked=%s mouse=%s"
+				% [door.leaf_state, door._moving, door._key_turning, door.open, RealityState.save_write_blocked,
+				DoorKeyring.player_has_key(door), player.call_locked, Input.mouse_mode])
 	return true
 
 func _event(keycode: Key) -> void:
