@@ -104,10 +104,46 @@ so every route on main met a leaf easing shut across it: Mina's failed at
 Both route tests hide the player's arrival body. It stands by the front
 door, and a resident rightly will not swing a leaf through it.
 
-## 5. Not done
+## 5. Sacha Reed, 6A, and the other residents (2026-10-26)
 
-- Lena opens doors with no reach-and-push gesture. Only Mina has door clips.
-- She does not walk into other flats, the roof or the Arcade. She leaves at
+`tools/build_resident_routes.py` drafts a route file for every resident
+without one (16 in all):
+- room centres, with crossings 0.7 m either side of each door or opening;
+- a public walk to the floor's stair head;
+- the shared stacked stair chain down to F02;
+- places and an `away` point.
+
+**Clearing the drafts.** The probe now suggests a detour for a blocked edge,
+as well as a clear spot for a blocked node. A sample with no floor counts as
+bridged when there is floor 15 cm ahead and behind it along the edge: the
+capsule spans a threshold gap under a wall. `tools/apply_route_probe.py`
+moves the nodes and inserts a `<a>_via_<b>` waypoint for each detour. Seven
+rounds took the 16 drafts from 195 findings to 31.
+
+**Sacha Reed** is the third body
+(`game/data/orison_v2/sacha_reed_routine.json`), the first draft to clear
+the probe. `OrisonV2ResidentWalkTest` (`RESIDENT=sacha_reed`, in the game
+window) walks a resident to every place their route file names and home
+between each. It applies Lena's checks: no teleport, no block, no leaf
+overlap, every own door closed. Sacha walks 1,215 m with 0 failures.
+
+**A rule changed in the route owner.** Sacha's first walk stuck on a sill
+edge in the F06 west hall: a near-vertical face 1.4 cm proud of the floor.
+The owner now walks over a steep face within 6 cm of the current floor
+height. The earlier comment said it should; the code refused it. Lena's
+route still passes (175 m, 0 failures).
+
+**The other 15 drafts stay on branch `claude/all-resident-bodies`.** They
+are not registered. Their 31 remaining findings need hand placement:
+- `bed1` and `main` nodes wedged by beds and dining chairs (C units, 3A,
+  4A, 1D);
+- vestibule nodes inside their own entry leaf's open swing.
+
+## 6. Not done
+
+- Lena and Sacha open doors with no reach-and-push gesture. Only Mina has
+  door clips.
+- They do not walk into other flats, the roof or the Arcade. They leave at
   the stair head.
-- No third resident yet. Adding one is a route file plus a line in
-  `ResidentRoute.ROUTES`, checked with the probe.
+- Fifteen residents still have no body. Adding one is a cleared route file,
+  a line in `ResidentRoute.ROUTES` and a reader-gate entry for its `places`.
