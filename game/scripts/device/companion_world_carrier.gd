@@ -36,8 +36,8 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	var lens: MeshInstance3D = device.teletype.torch_lens
 	motion.light_aperture = rig.to_local(lens.to_global(lens.mesh.get_aabb().get_center()))
 	device.bind_work_orders(work_orders)
-	# Render layer2 remains visible to the main/planar cameras, excluded from
-	# room reflection probes and this instrument's own real lamp. No new light.
+	# Render layer2 is composited for the player and retained for mirrors.
+	# The original inspection lamp remains the sole gameplay beam owner.
 	var hand_started := Time.get_ticks_usec()
 	_hand = preload("res://scripts/device/service_set_hand.gd").new(self, true)
 	for area: Area3D in find_children("*", "Area3D", true, false):

@@ -123,17 +123,42 @@ func key(code: Key) -> void:
 		for index in 240:
 			if carrier.can_inspect_controls(): break
 			await get_tree().physics_frame
-	await super.key(code)
+	for pressed in [true, false]:
+		var event := InputEventKey.new()
+		event.keycode = code; event.physical_keycode = code; event.pressed = pressed
+		Input.parse_input_event(event)
+		Input.flush_buffered_events()
+		await RenderingServer.frame_post_draw
+	await get_tree().physics_frame
+	await get_tree().process_frame
 	if code == KEY_E and carrier.reading:
 		for index in 240:
 			await get_tree().physics_frame
 			if carrier.can_inspect_controls(): break
 		check(carrier.can_inspect_controls(), "recall settles before actual control inspection")
 
+func click() -> void:
+	for pressed in [true, false]:
+		var event := InputEventMouseButton.new()
+		event.button_index = MOUSE_BUTTON_LEFT; event.pressed = pressed
+		event.position = get_viewport().get_mouse_position()
+		Input.parse_input_event(event)
+		# Injected events share Godot's buffered input queue. Dispatch each edge
+		# before a new aim/warp can change the authoritative free cursor.
+		Input.flush_buffered_events()
+		await RenderingServer.frame_post_draw
+	await get_tree().physics_frame
+	await get_tree().process_frame
+
 func drag(amount: Vector2) -> void:
 	Input.flush_buffered_events()
+	var event := InputEventMouseMotion.new()
+	event.relative = amount; event.position = get_viewport().get_mouse_position()
+	Input.parse_input_event(event)
+	Input.flush_buffered_events()
 	await RenderingServer.frame_post_draw
-	await super.drag(amount)
+	await get_tree().physics_frame
+	await get_tree().process_frame
 
 func aim(part: Node3D) -> bool:
 	var points: Array[Vector3] = [part.global_position]
@@ -172,4 +197,5 @@ func _tap_switch(code: Key) -> void:
 		var event := InputEventKey.new()
 		event.keycode = code; event.physical_keycode = code; event.pressed = pressed
 		Input.parse_input_event(event)
+		Input.flush_buffered_events()
 		await RenderingServer.frame_post_draw

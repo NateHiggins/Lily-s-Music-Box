@@ -73,6 +73,8 @@ func setup(owner_carrier: Node3D, source_camera: Camera3D) -> void:
 	fill.light_energy = 3.0
 	fill.omni_range = 1.8
 	fill.shadow_enabled = false
+	fill.light_indirect_energy = 0.0
+	fill.light_volumetric_fog_energy = 0.0
 	fill.position = Vector3(-.12, .25, .08)
 	view_camera.add_child(fill)
 	layer = CanvasLayer.new(); layer.name = "CompanionFraming"; layer.layer = 7

@@ -262,6 +262,7 @@ func exercise_screen_framing() -> void:
 			# a presentation stressor, not a claimed walked route.
 			var event := InputEventMouseMotion.new(); event.relative = Vector2(1500.0, pitch * 100.0)
 			Input.parse_input_event(event)
+			Input.flush_buffered_events()
 			player.camera.rotation.x = pitch
 			player.velocity = Vector3(8.0, 0.0, -8.0)
 			await frames(3)
@@ -371,6 +372,7 @@ func touch_wire(controls: TouchControls) -> void:
 			var event := InputEventScreenTouch.new()
 			event.index = 4; event.position = button.centre; event.pressed = pressed
 			Input.parse_input_event(event)
+			Input.flush_buffered_events()
 			await frames(3)
 		return
 
@@ -380,6 +382,7 @@ func joy(button: JoyButton, observe_character := "") -> bool:
 		var event := InputEventJoypadButton.new()
 		event.button_index = button; event.pressed = pressed
 		Input.parse_input_event(event)
+		Input.flush_buffered_events()
 		for tick in 3:
 			await frames(1)
 			if not observe_character.is_empty(): observed = observed or physical_key_down(observe_character)
@@ -390,6 +393,7 @@ func select_all() -> void:
 		var event := InputEventKey.new()
 		event.keycode = KEY_A; event.physical_keycode = KEY_A; event.ctrl_pressed = true; event.pressed = pressed
 		Input.parse_input_event(event)
+		Input.flush_buffered_events()
 		await frames(2)
 
 func wait_for(predicate: Callable, seconds := 18.0) -> bool:
@@ -414,6 +418,7 @@ func key(code: Key, unicode := 0, observe_character := "") -> bool:
 		var event := InputEventKey.new()
 		event.keycode = code; event.physical_keycode = code; event.unicode = unicode if pressed else 0; event.pressed = pressed
 		Input.parse_input_event(event)
+		Input.flush_buffered_events()
 		for tick in 2:
 			await frames(1)
 			if not observe_character.is_empty(): observed = observed or physical_key_down(observe_character)
