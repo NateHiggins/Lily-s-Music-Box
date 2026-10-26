@@ -180,3 +180,24 @@ no repository implementation. Neither session had unique relevant unmerged
 code. These remote sessions exposed UUIDs as their listing titles. No personal
 advice transcript was copied into the repository. Total archived: three Codex
 sessions, including Lamp. The two unfinished encounter chats remain open.
+
+## Additional owner goal: reduce repository and codebase footprint
+
+The owner explicitly added reducing file count and overall codebase size to the
+ongoing V2 goals. Pursue this alongside correctness, performance and completing
+existing work. Measure tracked file count, source-code bytes, asset/evidence
+footprint and shipped-package size separately; fewer files alone is not proof of
+less complexity or faster runtime. Prefer proven obsolete generated copies,
+exact duplicates and repeated implementation that can use an existing owner.
+Preserve behavior, editability, dynamic asset bindings, save/gameplay authorities,
+original failure evidence and receipt-bound source hashes. Do not minify code or
+combine unrelated modules merely to lower the count. No deletion is authorized
+solely by an apparent unused-reference search.
+
+Keep immediate work separate from active integration owners: begin with read-only
+inventories and a reviewed cleanup list. The current read-only integration and
+footprint notes are outside all checkouts at
+**C:/ov/reports/integration_readonly_20261026T004311Z**. Their UTC directory date
+falls on October 26; the owner's local date is still October 25. These notes do
+not qualify any runtime or authorize deleting evidence. No source cleanup or
+Godot execution was undertaken for this amendment.
