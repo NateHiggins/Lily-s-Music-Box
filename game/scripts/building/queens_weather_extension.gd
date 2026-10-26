@@ -125,8 +125,13 @@ func receive_api(raw: Dictionary,campaign_day: String,seed_value: int=1928,pheno
 	_target_formation=_daily_choice if fair else 0
 	return true
 
-func advance(delta: float) -> bool:
+func advance(delta: float,calendar_owned := false) -> bool:
 	var dt := maxf(delta,0.0)
+	if calendar_owned:
+		_publish_left-=dt
+		if _publish_left>0.0:return false
+		_publish_left=.1
+		return true
 	var blend := 1.0-exp(-dt/12.0)
 	weights=weights.lerp(_target_weights,blend)
 	threat=lerpf(threat,_target_threat,blend)
@@ -144,6 +149,28 @@ func advance(delta: float) -> bool:
 	if _publish_left>0.0:return false
 	_publish_left=0.1
 	return true # Owner publishes at <=10 Hz, not every render frame.
+
+## Reconstruct bounded wetting history from the existing saved clock/calendar.
+## No hidden instance-time history or additional save domain.
+func sample_calendar(date: Dictionary,transport_km: Vector2) -> void:
+	weights=_target_weights;threat=_target_threat;cyclone=_target_cyclone
+	vortex=_target_vortex;wind_mps=_target_wind;formation=_target_formation
+	var seconds:=int(Time.get_unix_time_from_datetime_dict(date))
+	var day_seconds:=float(posmod(seconds,86400))
+	formation_strength=(smoothstep(0,1800,day_seconds)*(1.0-smoothstep(84600,86400,day_seconds))) if formation>0 else 0.0
+	phase=float(seconds-Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00"))*.0005
+	fog_offset=Vector2(fposmod(transport_km.x*2.0,1.0),fposmod(transport_km.y*2.0,1.0))
+	var calendar:=preload("res://scripts/game/campaign_weather.gd")
+	var service:=preload("res://scripts/building/live_weather_service.gd")
+	var boundary:=int(floor(float(seconds)/900.0))*900
+	wetness=0.0
+	for step in range(-24,1):
+		var stamp:=boundary+step*900
+		var dt:=900.0 if step<0 else float(seconds-boundary)
+		var condition: Dictionary=service.presentation(calendar.snapshot(Time.get_datetime_dict_from_unix_time(stamp)))
+		var liquid:=clampf(float(condition.get("rain_intensity",0)),0,1)
+		var goal:=1.0 if liquid>.02 else 0.0
+		wetness=lerpf(goal,wetness,exp(-dt/(120.0/maxf(liquid,.05) if goal>0 else 2400.0)))
 
 func publish(sky: ShaderMaterial,camera_position_m: Vector3,air: ShaderMaterial=null) -> void:
 	RenderingServer.global_shader_parameter_set("wetness",wetness)

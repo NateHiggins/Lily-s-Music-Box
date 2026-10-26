@@ -42,7 +42,7 @@ func run() -> void:
 		check(not world.get_world_3d().direct_space_state.intersect_ray(ground).is_empty(),"retained road grade continues beyond old fog")
 	sky.set_shader_parameter("wx_vortex_center",Vector2(-3.5,.0095))
 	sky.set_shader_parameter("wx_cyclone_center",Vector2(-6,.0095))
-	sky.set_shader_parameter("wx_lens_center",Vector3(-5.5,.75,.0095))
+	sky.set_shader_parameter("wx_lens_center",Vector3(-5.5,3.0,.0095))
 	# Static cinematic review station above the existing roofs. This is a
 	# rendering composition, never evidence of player access to this height.
 	player.global_position=Vector3(0,25.0,9.5)
@@ -72,7 +72,11 @@ func run() -> void:
 		world.campaign_clock.configure_date(1928,7,31,best)
 		manager._publish()
 		extension.publish(sky,player.camera.global_position,world.get_node("WeatherFX").air_material)
-		var direction:=Vector3(-1,.32 if state in ["asperitas_amber","nacreous_twilight"] else .14,0)
+		var pitch:=.32
+		if state=="asperitas_amber":pitch=1.10
+		elif state=="lenticular_dusk":pitch=.58
+		elif state not in ["nacreous_twilight"]:pitch=.14
+		var direction:=Vector3(-1,pitch,0)
 		player.camera.look_at(player.camera.global_position+direction)
 		for frame in 120:await RenderingServer.frame_post_draw
 		var path:=output.path_join(state+".png")

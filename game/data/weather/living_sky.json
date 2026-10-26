@@ -1,0 +1,438 @@
+{
+ "schema_version": 1,
+ "climate": "Queens coastal temperate; authored 1928-1929 year, not historical observations or modern climate normals",
+ "genera": [
+  {
+   "id": "Ci",
+   "band": 2,
+   "base_km": 8.0,
+   "thickness_km": 0.3,
+   "scale_km": 3.8,
+   "optical_depth": 0.22
+  },
+  {
+   "id": "Cc",
+   "band": 2,
+   "base_km": 7.5,
+   "thickness_km": 0.35,
+   "scale_km": 0.45,
+   "optical_depth": 0.3
+  },
+  {
+   "id": "Cs",
+   "band": 2,
+   "base_km": 8.0,
+   "thickness_km": 0.5,
+   "scale_km": 4.0,
+   "optical_depth": 0.24
+  },
+  {
+   "id": "Ac",
+   "band": 1,
+   "base_km": 3.8,
+   "thickness_km": 0.65,
+   "scale_km": 1.2,
+   "optical_depth": 0.65
+  },
+  {
+   "id": "As",
+   "band": 1,
+   "base_km": 3.2,
+   "thickness_km": 0.9,
+   "scale_km": 4.0,
+   "optical_depth": 0.85
+  },
+  {
+   "id": "Ns",
+   "band": 1,
+   "base_km": 1.5,
+   "thickness_km": 2.0,
+   "scale_km": 4.5,
+   "optical_depth": 1.25
+  },
+  {
+   "id": "Sc",
+   "band": 0,
+   "base_km": 1.1,
+   "thickness_km": 0.65,
+   "scale_km": 1.8,
+   "optical_depth": 0.9
+  },
+  {
+   "id": "St",
+   "band": 0,
+   "base_km": 0.45,
+   "thickness_km": 0.35,
+   "scale_km": 4.0,
+   "optical_depth": 0.75
+  },
+  {
+   "id": "Cu",
+   "band": 0,
+   "base_km": 1.25,
+   "thickness_km": 1.6,
+   "scale_km": 2.0,
+   "optical_depth": 0.9
+  },
+  {
+   "id": "Cb",
+   "band": 0,
+   "base_km": 0.85,
+   "thickness_km": 6.0,
+   "scale_km": 3.2,
+   "optical_depth": 1.35
+  }
+ ],
+ "scenarios": [
+  {
+   "id": 1,
+   "label": "Crystal-clear sky",
+   "genus": "Ci",
+   "arrangement": "isolated",
+   "eligibility": "clear"
+  },
+  {
+   "id": 2,
+   "label": "Humid clear sky",
+   "genus": "Ci",
+   "arrangement": "isolated",
+   "eligibility": "humid"
+  },
+  {
+   "id": 3,
+   "label": "Cirrus streaks",
+   "genus": "Ci",
+   "arrangement": "wind_aligned",
+   "eligibility": "high"
+  },
+  {
+   "id": 4,
+   "label": "Cirrus veil",
+   "genus": "Ci",
+   "arrangement": "wind_aligned",
+   "eligibility": "high"
+  },
+  {
+   "id": 5,
+   "label": "Cirrocumulus patches",
+   "genus": "Cc",
+   "arrangement": "cellular",
+   "eligibility": "high"
+  },
+  {
+   "id": 6,
+   "label": "Cirrostratus canopy",
+   "genus": "Cs",
+   "arrangement": "sheet",
+   "eligibility": "high"
+  },
+  {
+   "id": 7,
+   "label": "Isolated cumulus",
+   "genus": "Cu",
+   "arrangement": "isolated",
+   "eligibility": "fair"
+  },
+  {
+   "id": 8,
+   "label": "Scattered fair-weather cumulus",
+   "genus": "Cu",
+   "arrangement": "clustered",
+   "eligibility": "fair"
+  },
+  {
+   "id": 9,
+   "label": "Cumulus cloud streets",
+   "genus": "Cu",
+   "arrangement": "streets",
+   "eligibility": "windy"
+  },
+  {
+   "id": 10,
+   "label": "Altocumulus patches",
+   "genus": "Ac",
+   "arrangement": "clustered",
+   "eligibility": "middle"
+  },
+  {
+   "id": 11,
+   "label": "Altocumulus wave bands",
+   "genus": "Ac",
+   "arrangement": "waves",
+   "eligibility": "middle"
+  },
+  {
+   "id": 12,
+   "label": "Trade-wind cumulus",
+   "genus": "Cu",
+   "arrangement": "isolated",
+   "eligibility": "ineligible"
+  },
+  {
+   "id": 13,
+   "label": "Broken stratocumulus",
+   "genus": "Sc",
+   "arrangement": "cellular",
+   "eligibility": "broken"
+  },
+  {
+   "id": 14,
+   "label": "Scattered stratocumulus",
+   "genus": "Sc",
+   "arrangement": "clustered",
+   "eligibility": "broken"
+  },
+  {
+   "id": 15,
+   "label": "Marine stratocumulus deck",
+   "genus": "Sc",
+   "arrangement": "sheet",
+   "eligibility": "overcast"
+  },
+  {
+   "id": 16,
+   "label": "Low stratus blanket",
+   "genus": "St",
+   "arrangement": "sheet",
+   "eligibility": "overcast"
+  },
+  {
+   "id": 17,
+   "label": "Lifting and breaking stratus",
+   "genus": "St",
+   "arrangement": "fragmented",
+   "eligibility": "clearing"
+  },
+  {
+   "id": 18,
+   "label": "Thin altostratus",
+   "genus": "As",
+   "arrangement": "sheet",
+   "eligibility": "middle"
+  },
+  {
+   "id": 19,
+   "label": "Opaque altostratus",
+   "genus": "As",
+   "arrangement": "sheet",
+   "eligibility": "overcast"
+  },
+  {
+   "id": 20,
+   "label": "Nimbostratus canopy",
+   "genus": "Ns",
+   "arrangement": "sheet",
+   "eligibility": "wet"
+  },
+  {
+   "id": 21,
+   "label": "Multilevel cloud sky",
+   "genus": "Ac",
+   "arrangement": "clustered",
+   "eligibility": "multilevel"
+  },
+  {
+   "id": 22,
+   "label": "Approaching warm front",
+   "genus": "Cs",
+   "arrangement": "frontal",
+   "eligibility": "approach"
+  },
+  {
+   "id": 23,
+   "label": "Passing cold front",
+   "genus": "Cb",
+   "arrangement": "frontal",
+   "eligibility": "storm"
+  },
+  {
+   "id": 24,
+   "label": "Post-frontal clearing",
+   "genus": "Sc",
+   "arrangement": "fragmented",
+   "eligibility": "clearing"
+  },
+  {
+   "id": 25,
+   "label": "Developing cumulus",
+   "genus": "Cu",
+   "arrangement": "clustered",
+   "eligibility": "convective"
+  },
+  {
+   "id": 26,
+   "label": "Towering cumulus",
+   "genus": "Cu",
+   "arrangement": "towers",
+   "eligibility": "convective"
+  },
+  {
+   "id": 27,
+   "label": "Isolated shower clouds",
+   "genus": "Cu",
+   "arrangement": "isolated",
+   "eligibility": "wet"
+  },
+  {
+   "id": 28,
+   "label": "Scattered showers",
+   "genus": "Cb",
+   "arrangement": "clustered",
+   "eligibility": "wet"
+  },
+  {
+   "id": 29,
+   "label": "Distant rain shafts",
+   "genus": "Ns",
+   "arrangement": "frontal",
+   "eligibility": "wet"
+  },
+  {
+   "id": 30,
+   "label": "Virga",
+   "genus": "Ac",
+   "arrangement": "wind_aligned",
+   "eligibility": "dry"
+  },
+  {
+   "id": 31,
+   "label": "Ordinary thunderstorms",
+   "genus": "Cb",
+   "arrangement": "towers",
+   "eligibility": "storm"
+  },
+  {
+   "id": 32,
+   "label": "Thunderstorm decay",
+   "genus": "As",
+   "arrangement": "fragmented",
+   "eligibility": "clearing"
+  },
+  {
+   "id": 33,
+   "label": "Gust-front cloud fragments",
+   "genus": "St",
+   "arrangement": "fragmented",
+   "eligibility": "storm"
+  },
+  {
+   "id": 34,
+   "label": "Wind-driven cloud bands",
+   "genus": "Sc",
+   "arrangement": "wind_aligned",
+   "eligibility": "windy"
+  },
+  {
+   "id": 35,
+   "label": "Drizzle",
+   "genus": "St",
+   "arrangement": "sheet",
+   "eligibility": "drizzle"
+  },
+  {
+   "id": 36,
+   "label": "Light rain",
+   "genus": "Ns",
+   "arrangement": "sheet",
+   "eligibility": "rain"
+  },
+  {
+   "id": 37,
+   "label": "Steady rain",
+   "genus": "Ns",
+   "arrangement": "sheet",
+   "eligibility": "rain"
+  },
+  {
+   "id": 38,
+   "label": "Heavy rain or downpour",
+   "genus": "Cb",
+   "arrangement": "towers",
+   "eligibility": "heavy"
+  },
+  {
+   "id": 39,
+   "label": "Snow flurries",
+   "genus": "Sc",
+   "arrangement": "fragmented",
+   "eligibility": "flurry"
+  },
+  {
+   "id": 40,
+   "label": "Steady snowfall",
+   "genus": "Ns",
+   "arrangement": "sheet",
+   "eligibility": "snow"
+  },
+  {
+   "id": 41,
+   "label": "Snow showers",
+   "genus": "Cb",
+   "arrangement": "towers",
+   "eligibility": "snow"
+  },
+  {
+   "id": 42,
+   "label": "Mixed precipitation or ice pellets",
+   "genus": "Ns",
+   "arrangement": "sheet",
+   "eligibility": "mixed"
+  },
+  {
+   "id": 43,
+   "label": "Freezing rain",
+   "genus": "Ns",
+   "arrangement": "sheet",
+   "eligibility": "freezing"
+  },
+  {
+   "id": 44,
+   "label": "Radiation fog",
+   "genus": "St",
+   "arrangement": "isolated",
+   "eligibility": "fog_calm"
+  },
+  {
+   "id": 45,
+   "label": "Advection fog",
+   "genus": "St",
+   "arrangement": "sheet",
+   "eligibility": "fog_wind"
+  },
+  {
+   "id": 46,
+   "label": "Mist",
+   "genus": "St",
+   "arrangement": "fragmented",
+   "eligibility": "mist"
+  },
+  {
+   "id": 47,
+   "label": "Atmospheric haze",
+   "genus": "Ci",
+   "arrangement": "isolated",
+   "eligibility": "haze"
+  },
+  {
+   "id": 48,
+   "label": "Blowing dust or sand",
+   "genus": "Sc",
+   "arrangement": "wind_aligned",
+   "eligibility": "dust"
+  },
+  {
+   "id": 49,
+   "label": "Smoke haze",
+   "genus": "Ci",
+   "arrangement": "frontal",
+   "eligibility": "smoke"
+  },
+  {
+   "id": 50,
+   "label": "Airborne wind-blown snow",
+   "genus": "Sc",
+   "arrangement": "wind_aligned",
+   "eligibility": "snow_stock"
+  }
+ ]
+}

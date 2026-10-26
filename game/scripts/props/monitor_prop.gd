@@ -84,7 +84,7 @@ func _found_screen_texture() -> Texture2D:
 	var atlas := load(FOUND_SCREEN_ATLASES[variation / 4]) as Texture2D
 	if atlas == null:
 		return null
-	var image := atlas.get_image()
+	var image := StoryDecal.editable_image(atlas)
 	if image == null or image.is_empty():
 		return atlas
 	var half := Vector2i(image.get_width() / 2, image.get_height() / 2)

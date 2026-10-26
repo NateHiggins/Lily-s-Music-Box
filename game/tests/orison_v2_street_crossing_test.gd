@@ -22,6 +22,10 @@ func _route() -> void:
 		if not await _walk(world.adapter.root.to_local(point)): return
 	# Return the shared world through actual hand operation, rather than
 	# leaving an open leaf occupying a subsequent standing capture station.
+	# The slow closer may finish during the road crossing. Reacquire the
+	# actual leaf from the exterior stance before walking across its plane.
+	if not await _walk(Vector3(0,0,-13.15)):return
+	if not await _open_front_entrance():return
 	for point in [Vector3(0,0,-10.2),Vector3(0,0,-10.6)]:
 		if not await _walk(point):return
 	if not await _close_front_entrance():return

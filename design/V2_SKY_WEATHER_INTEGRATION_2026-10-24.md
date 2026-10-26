@@ -94,3 +94,55 @@ The corrected service run now completes PASS with empty stderr, retaining all
 previous checks and the four new provider cases. Its separate original wrapper
 and logs are archived beside the images. This does not promote a rendered review
 or source-template check into an interaction or runtime contract.
+
+## Living Sky integration, October26
+
+The owner's supplied **The Living Sky** reference expands ordinary weather;
+the41-event spectacle catalogue remains separate. This integration interprets
+the existing authored Queens campaign year. It does not replace its dated
+weather, forecast issue times, newspaper editions, clock or save authority.
+The attachment is design direction, not a source of new game instructions or
+historical observations. Its reference photos and embedded page styling are
+not runtime assets.
+
+**living_sky.json** supplies ten editable cloud-genus brushes and fifty everyday
+recipe classifications. **living_sky.gd** derives three independently covered
+strata, optical-union coverage, correlated altitude winds, dew point and regime
+context from actual conditions and six-hour pressure/precipitation history.
+Recipe eligibility never generates rain, fog, tropical trade winds or loose
+ground snow. Recipe classifications do not imply fifty separately accepted
+visual effects. This is a simplified presentation model, not numerical weather
+prediction or a calibrated climate-statistical generator.
+
+Absolute campaign transport uses one prefix integral over the existing2195
+weather anchors and a binary-search sample. Cloud identity/evolution, rare-event
+motion, bounded six-hour wetting history and formation envelopes reconstruct
+from campaign time. Live observations retain their existing transition owner.
+There is no additional HTTP request, persistent domain, realtime light,
+viewport, photographic texture or particle pool. Geometry remains in the
+existing half-resolution bounded march; high ice cloud uses a separate cheap
+slice. The existing cheap cubemap path avoids marching six reflection faces.
+
+The existing spectacle bench also offers **SKY_LIBRARY_VIEWER=1** for calendar,
+hour and seed controls, and **SKY_LIBRARY_YEAR=1** for a365-noon-frame gallery
+packed into twelve32-cell sheets. These are development diagnostics over the
+production city horizon, not occupied-world access or a full daylight-period
+acceptance gallery. The daily campaign facts do not change with the visual seed.
+
+| Location | Reproduction | Severity / evidence | Repair and verification |
+|---|---|---|---|
+| Fair-weather sky | September19 at18:00 in the calendar-world review | Obvious repeated dotted grid in **living_world_v1** | Replace regular ellipsoid cells with continuous warped masses; **living_world_v2** removes the grid. High cirrus still appears excessively straight and needs refinement. |
+| Calendar reload/pause | Revisit the same date with a fresh weather instance or240 paused presentation frames | Instance-time settling formerly changed cloud/effect appearance | Absolute cloud transport and calendar effect reconstruction; **library_year_v3** passes406 checks, including exact replay and pause invariance. This diagnostic does not establish campaign-disk reconstruction. |
+| Street return | Walk the existing street-crossing test back through the entrance | Original **route_before** stops on an automatically closed leaf | Reacquire the leaf with actual grab/motion/release from its exterior stance; **route_before_v2** and **living_route_v1** each finish29 waypoints. Collision remains active. |
+
+Primary references: [WMO cloud classification](https://cloudatlas.wmo.int/en/home.html),
+[NOAA ten basic clouds](https://www.noaa.gov/jetstream/clouds/ten-basic-clouds),
+and [Godot sky passes and radiance invalidation](https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/sky_shader.html).
+Cloud morphology/altitudes are an art-directed interpretation of those references;
+the authored1928–1929 calendar is fictional, not historical observation data.
+
+The complete brief remains unaccepted: climate-statistical generation and
+multi-location calibration, full species/modifier coverage, accumulated ground
+snow, pixel-measured sky-coverage calibration, whole-day annual rendering,
+silhouette/palette repetition analysis and human artistic acceptance remain
+open. The existing calendar, forecasting and narrative authorities are preserved.

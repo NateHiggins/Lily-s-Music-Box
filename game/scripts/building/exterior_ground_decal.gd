@@ -34,7 +34,8 @@ func setup(panel: int, size: Vector2, tint := Color.WHITE) -> void:
 		if atlas == null:
 			push_warning("Exterior damage atlas missing")
 			return
-		var source := atlas.get_image()
+		var source := StoryDecal.editable_image(atlas)
+		if source==null:return
 		var half := Vector2i(source.get_width() / 2, source.get_height() / 2)
 		var inset := 4
 		var origin := Vector2i(

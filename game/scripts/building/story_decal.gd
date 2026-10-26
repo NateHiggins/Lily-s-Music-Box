@@ -4,6 +4,15 @@ extends Node3D
 
 static var _texture_cache: Dictionary = {}
 
+## Detached CPU pixels for atlas cropping; leave the imported GPU texture alone.
+static func editable_image(texture: Texture2D) -> Image:
+	if texture==null:return null
+	var image:=texture.get_image()
+	if image==null or image.is_empty():return null
+	if image.is_compressed() and image.decompress()!=OK:
+		push_error("Atlas cannot be decoded: "+texture.resource_path)
+		return null
+	return image
 
 func setup(atlas_path: String, col: int, row: int,
 		size := Vector2(0.58, 0.58)) -> void:
@@ -14,7 +23,8 @@ func setup(atlas_path: String, col: int, row: int,
 		if atlas == null:
 			push_warning("Story decal atlas missing: " + atlas_path)
 			return
-		var image := atlas.get_image()
+		var image := editable_image(atlas)
+		if image==null:return
 		var half := Vector2i(image.get_width() / 2, image.get_height() / 2)
 		var inset := maxi(5, mini(half.x, half.y) / 96)
 		var origin := Vector2i(col * half.x + inset, row * half.y + inset)

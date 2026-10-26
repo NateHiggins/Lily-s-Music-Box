@@ -123,7 +123,7 @@ func _production_manager(schedule: Phenomena) -> void:
 	clock.configure_date(int(date.year), int(date.month), int(date.day_of_month), int(fposmod(minute, 1440.0)))
 	var env := Environment.new()
 	var material := ShaderMaterial.new()
-	material.shader = preload("res://shaders/v2_seasonal_sky.gdshader")
+	material.shader = preload("res://shaders/queens_weather_sky.gdshader")
 	var key := DirectionalLight3D.new()
 	add_child(key)
 	var director := DayNightDirector.new()
