@@ -45,6 +45,7 @@ func _ready() -> void:
 				and image.get_height() == 2048
 				and image.get_format() in [Image.FORMAT_RGB8, Image.FORMAT_RGBA8])
 
+	_check_panorama_residency(director)
 	var world := root.get_node_or_null("WorldEnvironment") as WorldEnvironment
 	var environment := world.environment if world else null
 	var sky_key := root.get_node_or_null("ExteriorMoon") as DirectionalLight3D
@@ -339,3 +340,26 @@ func _stop_audio(node: Node) -> void:
 		node.stop()
 	for child in node.get_children():
 		_stop_audio(child)
+
+
+func _check_panorama_residency(director: DayNightDirector) -> void:
+	var identities := {}
+	var original_pair := director._pair_key.split(">")
+	var loaded_mips := true
+	var image_bytes := 0
+	for path: String in director._panoramas:
+		var texture: Texture2D = director._panoramas[path]
+		identities[path] = texture.get_instance_id()
+		var image := texture.get_image()
+		loaded_mips = loaded_mips and image != null and image.has_mipmaps()
+		if image != null: image_bytes += image.get_data().size()
+	_check("setup retains exactly three unique production panorama maps", identities.size() == 3)
+	var reused := true
+	for pair: Array in [["day", "evening"], ["night", "night"], ["morning", "day"], ["day", "day"], ["night", "morning"]]:
+		director._set_sky_pair(pair[0], pair[1])
+		reused = reused and director._texture_a.get_instance_id() == identities[director.SKY_PATHS[pair[0]]]
+		reused = reused and director._texture_b.get_instance_id() == identities[director.SKY_PATHS[pair[1]]]
+	_check("day/night revisits keep original texture identities and bounded residency", reused and director._panoramas.size() == 3)
+	_check("all resident panorama imports retain loaded mipmaps", loaded_mips)
+	print("PANORAMA RESIDENCY: %d maps; %d image-data bytes including loaded mips (not VRAM accounting)" % [identities.size(), image_bytes])
+	if original_pair.size() == 2: director._set_sky_pair(original_pair[0], original_pair[1])
