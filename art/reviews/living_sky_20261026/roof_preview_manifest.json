@@ -1,10 +1,10 @@
 {
   "evidence_class": "INERT",
-  "scope": "Roof preview native-input and optical diagnostics. No full-weather, campaign-save reconstruction or human acceptance.",
+  "scope": "Historical roof evidence retained plus pointer-safe engine-keyboard inspection and renewed actual campaign save/rebuild evidence. Explicit mouse capture, OS-native input, broad performance and human acceptance remain unverified. No ledger promotion.",
   "source_commit": "64c51923e68c82276226e2facd5d9346996fc0c4",
   "archive": "roof_preview_review.zip",
-  "bytes": 2086039,
-  "sha256": "2f0d3f25612a3135af70dd7b342e6b85ac2984c710bd23feac8d44238276611a",
+  "bytes": 4390415,
+  "sha256": "36b5b8809aa6a90f6da40f25a6946048e8d1756a05a3677a43015b7ecb58d69c",
   "members": [
     {
       "member": "baseline/board.json",
@@ -563,6 +563,276 @@
       "original": "C:\\ov\\v2merge24\\game\\tests\\v2_sky_spectacle_bench.gd",
       "bytes": 13368,
       "sha256": "e01c53d9172bab315f611b4f28f7e54612f6dc3c75277125235e81d623b3113e"
+    },
+    {
+      "member": "pointer_safe_20261026/audit/baseline6492_board.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 132043,
+      "sha256": "dbd31bdeeb2b71310c2872df50ef9f3416683c82ad6e824d6f5ec2d1dfb173d1"
+    },
+    {
+      "member": "pointer_safe_20261026/audit/candidate_v1/verification.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 284130,
+      "sha256": "255f6bf595e12536516e9e9226906504351af6a1d424a5d7f455a98d25fdd9f9"
+    },
+    {
+      "member": "pointer_safe_20261026/audit/candidate_v1/verification.md",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 1533,
+      "sha256": "ae685ac9f8a019e65a6373026009449135a3ddd14316adc6e8e5d51de716ec65"
+    },
+    {
+      "member": "pointer_safe_20261026/audit/noncapturing_sources.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 347738,
+      "sha256": "aa9836cfb0534ee0aa3f87aea496729ecb6df3d4949aae1bd4b0b9a959c43d74"
+    },
+    {
+      "member": "pointer_safe_20261026/audit/roof_frame_summary.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 3239,
+      "sha256": "404558d714f0046fd14f2b9a78d31035a7905a79f02d07cbaef58d768195b371"
+    },
+    {
+      "member": "pointer_safe_20261026/audit/run_noncapturing_preview.ps1",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 11691,
+      "sha256": "50095718226bdb157a4748d1b9967aa23f5126fe8f2b4ee6089b4635f9053feb"
+    },
+    {
+      "member": "pointer_safe_20261026/audit/shader_binding.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 166804,
+      "sha256": "8ab8dc377a296448bb887fd9be4760b11a891a87ab861d8c209ec29419b2f0cd"
+    },
+    {
+      "member": "pointer_safe_20261026/audit/static_board/board.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 132300,
+      "sha256": "581e9482eb9078b469e68bcbb21ab13e33bfbf10f3098d31b56f78fcab67bd6e"
+    },
+    {
+      "member": "pointer_safe_20261026/audit/static_board/board.md",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 8509,
+      "sha256": "227c5c6fe4de7f903b8164c6efab3e320dca145e71b5ec6ab9ef62863591b1ef"
+    },
+    {
+      "member": "pointer_safe_20261026/audit/validation.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 3834,
+      "sha256": "52c5bcb159f2e5286aba54bf32973598de49e5cc193aee7a6310a45c0365d2e3"
+    },
+    {
+      "member": "pointer_safe_20261026/fixtures/calendar_scope_v1.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 1187,
+      "sha256": "d30e919986c2b9107d62e2c3794ff33160e481ee99a4aaf01f1e564f96f5e36b"
+    },
+    {
+      "member": "pointer_safe_20261026/fixtures/calendar_scope_v2.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 1187,
+      "sha256": "cc04109383d2c2b5a711b055669ca6c97dd6be4cb2f1222a89d8b5457d9a9f09"
+    },
+    {
+      "member": "pointer_safe_20261026/fixtures/lifecycle_saved_campaign.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 286361,
+      "sha256": "1732c169ca8558579b39241586296ffa5aaba3c95000fa2f4eefd71b7d8903d2"
+    },
+    {
+      "member": "pointer_safe_20261026/roof_v2/christmas_snow.png",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 213156,
+      "sha256": "1d288f16c65ae5aa2879cbb17c5eb2ef14231bb3b0ca36111b0815a9ef3e2d8b"
+    },
+    {
+      "member": "pointer_safe_20261026/roof_v2/opening_day.png",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 592775,
+      "sha256": "b470f1d05435828a9f9427e3db261813717b0a7b7641a9f3101d08b5903fdff4"
+    },
+    {
+      "member": "pointer_safe_20261026/roof_v2/roof_preview_review.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 62081,
+      "sha256": "312f21d70c504004ca0571ffe7baaf895d934f1b4bb0c9f46445f55cbe3004b0"
+    },
+    {
+      "member": "pointer_safe_20261026/roof_v2/spring_evening.png",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 254116,
+      "sha256": "79ed7c67727783f93dc3aba256b91c8f3f1b5cc9c8d3247cbd0ae2a910af8793"
+    },
+    {
+      "member": "pointer_safe_20261026/roof_v2/summer_hail.png",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 260676,
+      "sha256": "2cec0af0d324973a5f919d45deed35a9588af7120faef7aa724763fac8958c9d"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/calendar_scope_v1.log",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 4367,
+      "sha256": "6a28e558409f82075577b71bb6efe7f62284af0a724a5c4a17baca60514dbfcb"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/calendar_scope_v1.log.receipt.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 4597,
+      "sha256": "237876fcd4461ed59cbb2dae356faeba86d1d4d097890d5a13e0f889dda92587"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/calendar_scope_v1.log.stderr",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/calendar_scope_v2.log",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 4367,
+      "sha256": "ed1731d6c72199355e64623c4d42bf6eefe35dd63bbdc64d4fe07c5d6c600210"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/calendar_scope_v2.log.receipt.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 4504,
+      "sha256": "a54d097a39d8de178dfbadf2c487083b202e75bd8c45828a664b14c310003963"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/calendar_scope_v2.log.stderr",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/roof_v2.log",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 5150,
+      "sha256": "0d9ce5824e9589a8de26259219d379646f3411b7273253b824c783388f036618"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/roof_v2.log.isolated.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 2529,
+      "sha256": "55ba3b4d1a60159a62ec6e051de5178e7f3740e2989328cddfe80851009b255f"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/roof_v2.log.isolated.log",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 3085,
+      "sha256": "6179a09bde4db951f74fdee120dddba4da3f7d7cf5e4c9f2238b61573988d955"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/roof_v2.log.receipt.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 4702,
+      "sha256": "71d12cba18b8d2b50e3fcf050694b010a89b304b765f88b259bfe022a7958e99"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/roof_v2.log.stderr",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/world_v8.log",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 6693,
+      "sha256": "2e0f5bd5a1461422ac85adaa23b82cc0c65c5df507cb4e9791e506d62b502609"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/world_v8.log.isolated.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 1022,
+      "sha256": "92cba734faf67b3cc9c325048104370f50418ee00a8d9669de39bb2e62f9fe2b"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/world_v8.log.isolated.log",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 3242,
+      "sha256": "7f28a4f8a9363da2efd630efe830848a454e3c485a0e9cf559b30a3b9f732d24"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/world_v8.log.receipt.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 4587,
+      "sha256": "9d82a2da4dc26513f285c43096d9beafd0726c27815923c751ba5c71e2229270"
+    },
+    {
+      "member": "pointer_safe_20261026/runs/world_v8.log.stderr",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "pointer_safe_20261026/source/before6492/game/scripts/building/roof_weather_preview.gd",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 9305,
+      "sha256": "ab8d0a88575b685208ec5b0b85825abb534f8dd4f910fc638f1b1164e4515f9d"
+    },
+    {
+      "member": "pointer_safe_20261026/source/before6492/game/scripts/game/reality_game_state.gd",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 19325,
+      "sha256": "cdc824534fd65fd821260f1767e57641cd470412f5a339a772231310fb12fd8b"
+    },
+    {
+      "member": "pointer_safe_20261026/source/before6492/game/tests/campaign_calendar_test.gd",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 14879,
+      "sha256": "60d3c349961a67054913a8adb6ae3cb5489e7a81f857ed407904211cd1ff75a2"
+    },
+    {
+      "member": "pointer_safe_20261026/source/before6492/game/tests/roof_weather_preview_test.gd",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 7602,
+      "sha256": "738c77f2faa38b6bb2719feeb66d7daa7c619de337762d40287557035a40164c"
+    },
+    {
+      "member": "pointer_safe_20261026/source/current/game/scripts/building/roof_weather_preview.gd",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 12760,
+      "sha256": "4b945843f80d5408822f72e63e83f2bc46e55905382f263627da0f8608dc7dd4"
+    },
+    {
+      "member": "pointer_safe_20261026/source/current/game/scripts/game/reality_game_state.gd",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 21231,
+      "sha256": "7e4056f8f7ca4db94a7ef599aead17ec1240d4002c66f6385633df67d9d661d6"
+    },
+    {
+      "member": "pointer_safe_20261026/source/current/game/tests/campaign_calendar_test.gd",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 17672,
+      "sha256": "8cf5095b2fb298e76aa4bf47f08db5b9644376e2fe0395111aef3aed2d57c14c"
+    },
+    {
+      "member": "pointer_safe_20261026/source/current/game/tests/roof_weather_preview_test.gd",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 11236,
+      "sha256": "935e3d16de3d6456f650d2013a5465c591ec2c733c3c1624951d4f6fd735e2c7"
+    },
+    {
+      "member": "pointer_safe_20261026/world_v8/lifecycle_0.png",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 323619,
+      "sha256": "dd2763e338956f09827346c574f7b9062dcefe6d2021ba144517ef5a8ba00cb8"
+    },
+    {
+      "member": "pointer_safe_20261026/world_v8/lifecycle_1.png",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 341582,
+      "sha256": "1b04cef49c9ce03b6d7f3f0d4c6045bbd55036a7044c85bd13382431acc71754"
+    },
+    {
+      "member": "pointer_safe_20261026/world_v8/weather_lifecycle_contract.json",
+      "original": "review evidence / exact source snapshot",
+      "bytes": 18219,
+      "sha256": "430c4538adbcc5561860ad7d3098c32acf2018800749a0a59abbff8207d07591"
     }
   ],
   "derived_previews": [
@@ -626,5 +896,13 @@
       "original_sha256": "6df67040de356df5f6ce41ea0ce8a60315813d9305b6779f157efd408bb75bde",
       "method": "JPEG quality 85 optical preview; original PNG retained externally"
     }
-  ]
+  ],
+  "previous_archives": [
+    {
+      "sha256": "2f0d3f25612a3135af70dd7b342e6b85ac2984c710bd23feac8d44238276611a",
+      "bytes": 2086039,
+      "members": 93
+    }
+  ],
+  "latest_source_commit": "261fe4bdd82e0058a312bf64355fb4bf1153355b"
 }

@@ -984,3 +984,56 @@ verification and integration are recorded on PR 59 after this checkpoint.
 The full goal, broader weather art, safe preview retirement, native input and
 matched movement/interaction performance remain open. No ledger promotion or
 human acceptance is claimed.
+
+
+## October 26 — pointer-safe roof inspection and preview save boundary
+
+The roof inspector now opens with a free pointer and a stationary player.
+Tab enables keyboard/controller exploration without confinement; arrow keys
+turn the view. Escape always returns to pointer mode. Mouse-look capture is
+an explicit separate button. The calendar panel fits the reviewed 1280x720
+viewport, and its four rendered date samples were inspected. This is the
+standalone roof inspector, not campaign time travel.
+
+| Location / reproduction | Severity / evidence | Repair | Verification |
+|---|---|---|---|
+| Roof inspector launch and Tab | High usability: unconditional capture could disturb the owner's pointer | Free-pointer startup; keyboard turning and exploration; explicit mouse-look choice; release only self-owned capture | Windowed roof test 42/42; engine-dispatched keys exercise movement, reverse/run/crouch time, repeated Escape and calendar wrapping. No OS-native input or explicit mouse-capture qualification |
+| Preview borrowing campaign state | High persistence boundary: disabling ordinary persistence did not prohibit forced saves, and restoring only data omitted protection/status | Exclusive context owned by RealityState; deny forced/background writes, loads and replacement campaigns; restore original data reference, latches, notices and status after retirement | Original headless calendar 63/63, including adversarial persistence re-enable, exact save/backup/transaction bytes and owner denial; occupied roof verifies complete in-memory restoration. Renewed current-source calendar 63/63; both original and renewed receipts retained |
+| Current campaign save owner | Regression risk outside inspector | Normal campaign retains its established validated save and actor authorities | Renewed windowed lifecycle 41/41; actual arrived campaign disk save/load, second-world reconstruction, fractional weather/transport/timeline and all populated authority maps pass. Test-written schema-2 runtime contract validates without errors |
+| Fast calendar scrubbing and storm presentation | Open performance/art findings | No speculative optimization or artistic acceptance | Roof samples include four preview-update callbacks above 100 ms, maximum 131.781 ms. Storm renders have little cloud relief. Attribute and repair measured tails and continue the sky art pass; this checkpoint does not close them |
+
+Code candidate **261fe4bd** passes the clean in-place verifier: all 113 static
+gates, zero regressions, 17/17 protected paths unchanged, selector V2 and zero
+lint errors. Reader NEW findings remain zero and completeness counts remain
+7/8/110/42/134/136. The verifier uses **--no-godot**; actual runtime results above
+are separate. All three renewed wrappers bind to this source, with empty stderr. All 730 tracked shader sources also match the tested candidate after LF normalization.
+The lifecycle test retires 36 tracked nodes and 50 tracked resources to zero;
+there are zero observed weather playbacks. Borrowed imports, process noise and
+catalogue resources remain explicitly outside that measured resource scope.
+
+The roof run lasts 182.69 seconds; the two-world lifecycle lasts 284.75 seconds.
+Raw Windows monitors retain prelaunch clipping changes while waiting for other
+lane work. Neither records a clipping or input-desktop change during our actual
+execution intervals: 21:45:32–21:48:35 and21:48:35–21:53:20 UTC. Sampling is 200 ms
+and wrapper bounds have second precision; this is observation, not general
+mouse isolation or OS-native interaction acceptance.
+
+The roof fixture records 690 intervals: wall p50 19.981 ms, p95 23.39145 ms,
+p99 165.84707 ms and maximum 7950.601 ms; 11 exceed 100 ms. It includes the initial
+startup-to-ready interval, date jumps, input exercise, synchronous screenshot
+work and idle. Preview-update p95 is 0.073 ms and maximum 131.781 ms; measured
+render CPU/GPU p95 is 5.490/8.353 ms. Static candidate checks overlapped. These
+are unpaired diagnostics with incomplete cost attribution, not a realistic
+matched movement route, a frame budget qualification or an improvement claim.
+
+Current sources, original/renewed receipts, captures, raw monitors, frame
+samples and verifier evidence are carried in the existing roof-review packet.
+This INERT report promotes no ledger status. Human acceptance, explicit
+mouse-look/native manipulation, matched playable-world performance, remaining
+weather polish and wider V2 completion remain open.
+
+The roof packet now contains **138 hash-verified members, 4,390,415 bytes**.
+All93 historical members remain byte-identical. The fresh headless calendar
+run passes63/63 with empty stderr and a current-source wrapper binding. Both
+test-written calendar fixture receipts and the actual scoped lifecycle save
+are preserved; the earlier receipt is not overwritten.
