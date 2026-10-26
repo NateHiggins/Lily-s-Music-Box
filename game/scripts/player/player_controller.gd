@@ -90,6 +90,13 @@ func acquire_text_input(owner: Node) -> bool:
 
 func release_text_input(owner: Node) -> void:
 	if text_input_owner == owner: text_input_owner = null
+
+## A text owner that consumed an Interact press (controller A submitting its
+## editor) retires that press. Input still reports a press released in the
+## same frame as just pressed, so the poll below skips it explicitly.
+var _retired_interact_frame := -2
+func retire_interact_press() -> void:
+	_retired_interact_frame = Engine.get_process_frames()
 ## Test hook: when non-zero, drives movement instead of player input.
 var autopilot := Vector3.ZERO
 var _stride_travel := 0.0
@@ -409,6 +416,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("door_key") and not call_locked:
 		use_key_interaction()
 	elif Input.is_action_just_pressed("interact") \
+			and Engine.get_process_frames() - _retired_interact_frame > 1 \
 			and (not call_locked or is_instance_valid(seated_interaction)):
 		use_primary_interaction()
 	# These are physical switches in the hand, not modal UI. They remain usable

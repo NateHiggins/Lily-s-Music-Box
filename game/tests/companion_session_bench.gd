@@ -7,10 +7,25 @@ var checks: Array[Dictionary] = []
 var directory := ""
 var finished := false
 var saved_campaign := false
+var accept_trace: Array[Dictionary] = []
+var late_camera_stress := false
+
+func _process(_delta: float) -> void:
+	if late_camera_stress and is_instance_valid(player): player.camera.rotation.y += .02
 
 func check(ok: bool, label: String) -> bool:
 	checks.append({"name":label, "passed":ok})
 	print("COMPANION SESSION: ", label, " = ", ok)
+	if not ok and is_instance_valid(carrier) and carrier.session != null:
+		var state := {"label":label, "ticks":Time.get_ticks_msec(), "available":carrier.session.available(),
+			"reading":carrier.reading, "opening":carrier.session.opening, "typing":carrier.session.typing,
+			"printing":carrier.device.teletype.printing, "powered":carrier.device.radio_powered, "incoming_call":carrier.device.incoming_call,
+			"protected_input":player.protected_input_active(), "input_owner":str(player.text_input_owner), "mouse_mode":Input.mouse_mode,
+			"mouse_released":player.mouse_released, "paused":get_tree().paused, "sleep":carrier._sleep_onset,
+			"foreign_editor":carrier.session._foreign_editor_active(), "focus":str(get_viewport().gui_get_focus_owner()),
+			"camera_current":player.camera.is_current(), "hidden":carrier.is_capture_hidden(), "inspecting":player.inspecting(),
+			"grab_active":player._grab.active(), "hud_conversation":player.telegram_hud != null and player.telegram_hud._conversation_active}
+		FileAccess.open(directory.path_join("failure_state_%02d.json" % checks.size()), FileAccess.WRITE).store_string(JSON.stringify(state, "\t"))
 	return ok
 
 func _ready() -> void:
@@ -48,6 +63,8 @@ func _run() -> void:
 	await exercise()
 
 func exercise() -> void:
+	await exercise_screen_framing()
+	await measure_foreground_cost()
 	await joy(JOY_BUTTON_DPAD_DOWN)
 	if not check(await wait_for(func(): return carrier.motion.steady_for_input() and not carrier.device.teletype.printing), "recall and existing paper finish before input"):
 		finish(); return
@@ -97,6 +114,7 @@ func exercise() -> void:
 	check(carrier.session._edit.text == "who are you", "resumed native editor retains exact draft")
 	var enter_was_down: bool = await joy(JOY_BUTTON_A, "ENTER")
 	check(enter_was_down, "actual submission depresses native Enter key")
+	check(not player._grab.active(), "editor-owned controller submission does not grab the world target behind the console")
 	check(carrier.session.draft.is_empty() and not player.call_locked, "submission clears accepted draft and returns player input")
 	check(carrier.session.dialogue.memory.history.back().intent == "identity", "physical submission reaches offline conversation")
 	check(carrier.device.printed_count == reports + 1 and carrier.device.teletype.printing, "accepted reply uses original animated printer")
@@ -222,6 +240,97 @@ func physical_key_down(character: String) -> bool:
 	var index: int = carrier.rig._key_names.find(character)
 	return index >= 0 and carrier.rig.key_transform(index).origin.z > carrier.rig._key_homes[index].origin.z + .0001
 
+func exercise_screen_framing() -> void:
+	var frame: Node = carrier.screen_frame
+	check(frame != null and carrier.motion.screen_framed, "production companion uses foreground flight framing")
+	var old_priority := process_priority
+	process_priority = 2000
+	late_camera_stress = true
+	var was_physics := player.is_physics_processing()
+	player.set_physics_process(false)
+	var saved_rotation := player.rotation
+	var saved_camera_rotation := player.camera.rotation
+	var saved_velocity := player.velocity
+	var saved_fov := player.camera.fov
+	var saved_fps := Engine.max_fps
+	var all_inside := true; var rays_match := true; var center_clear := true
+	var largest_error := 0.0
+	for cap: int in [30, 60, 144]:
+		Engine.max_fps = cap
+		for pitch: float in [-1.44, 0.0, 1.44]:
+			# Actual mouse events exercise the look path; the staged velocity is
+			# a presentation stressor, not a claimed walked route.
+			var event := InputEventMouseMotion.new(); event.relative = Vector2(1500.0, pitch * 100.0)
+			Input.parse_input_event(event)
+			Input.flush_buffered_events()
+			player.camera.rotation.x = pitch
+			player.velocity = Vector3(8.0, 0.0, -8.0)
+			await frames(3)
+			await RenderingServer.frame_post_draw
+			var size := get_viewport().get_visible_rect().size
+			var bounds := projected_bounds(carrier.device.teletype._paper)
+			all_inside = all_inside and Rect2(Vector2.ZERO, size).encloses(bounds)
+			center_clear = center_clear and not frame.image.get_rect().has_point(size * .5)
+			var paper: MeshInstance3D = carrier.device.teletype._paper
+			var point := paper.to_global(paper.mesh.get_aabb().get_center())
+			var composite: Vector2 = frame.view_camera.unproject_position(point) / Vector2(frame.view.size) * frame.image.size + frame.image.position
+			largest_error = maxf(largest_error, composite.distance_to(player.camera.unproject_position(point)))
+			rays_match = rays_match and largest_error < 2.0
+	check(all_inside, "framed paper stays on screen through abrupt turns and pitch extremes at 30 60 144 fps")
+	check(center_clear, "foreground rectangle never covers the centre reticle during travel")
+	check(rays_match, "rendered foreground projection agrees within two pixels after late camera updates")
+	check(carrier.motion.query_count == 0 and carrier.motion.collision_mask == 0, "screen flight performs no environment sweep or pursuit queries")
+	var old_size := get_window().size
+	var resize_clear := true; var resize_rays := true
+	for window_size: Vector2i in [Vector2i(1280, 720), Vector2i(1024, 768), Vector2i(960, 540)]:
+		print("COMPANION FRAMING RESIZE: ", window_size, " ticks=", Time.get_ticks_msec())
+		get_window().size = window_size
+		await frames(4)
+		await RenderingServer.frame_post_draw
+		var size := get_viewport().get_visible_rect().size
+		resize_clear = resize_clear and not frame.image.get_rect().has_point(size * .5)
+		var paper: MeshInstance3D = carrier.device.teletype._paper
+		var point := paper.to_global(paper.mesh.get_aabb().get_center())
+		var projected: Vector2 = frame.view_camera.unproject_position(point) / Vector2(frame.view.size) * frame.image.size + frame.image.position
+		resize_rays = resize_rays and projected.distance_to(player.camera.unproject_position(point)) < 2.0
+	get_window().size = old_size
+	check(resize_clear and resize_rays, "resize and 4:3 framing preserve centre clearance and authoritative rays")
+	late_camera_stress = false
+	process_priority = old_priority
+	player.rotation = saved_rotation; player.camera.rotation = saved_camera_rotation
+	player.velocity = saved_velocity; player.camera.fov = saved_fov; Engine.max_fps = saved_fps
+	player.set_physics_process(was_physics)
+	await frames(3)
+	await capture("framed_travel.png")
+	FileAccess.open(directory.path_join("screen_framing.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":"Native mouse turning, staged pitch/velocity, cropped projection and centre keepout. Not a walked world route or human readability acceptance.", "maximum_projection_error_px":largest_error, "stock_bounds":str(frame.stock_bounds), "query_count":carrier.motion.query_count, "reserved_rect":str(frame.safe_rect), "pass_size":str(frame.view.size)}, "\t"))
+
+func measure_foreground_cost(allow_switching := true) -> void:
+	var rows: Array = []
+	var frame: Node = carrier.screen_frame
+	var old_cap := Engine.max_fps
+	Engine.max_fps = 0
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(), true)
+	RenderingServer.viewport_set_measure_render_time(frame.view.get_viewport_rid(), true)
+	for enabled: bool in ([true, false, false, true] if allow_switching else [true]):
+		print("COMPANION RENDER DIAGNOSTIC: path=", enabled, " switching=", allow_switching, " ticks=", Time.get_ticks_msec())
+		frame.composite_enabled = enabled
+		await frames(24)
+		var before := Time.get_ticks_usec()
+		for index in 90:
+			await get_tree().process_frame
+			var now := Time.get_ticks_usec()
+			rows.append({"foreground":enabled, "wall_ms":float(now-before)/1000.0,
+				"render_cpu_ms":RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),
+				"render_gpu_ms":RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid()),
+				"foreground_cpu_ms":RenderingServer.viewport_get_measured_render_time_cpu(frame.view.get_viewport_rid()),
+				"foreground_gpu_ms":RenderingServer.viewport_get_measured_render_time_gpu(frame.view.get_viewport_rid())})
+			before = now
+	frame.composite_enabled = true
+	Engine.max_fps = old_cap
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(), false)
+	RenderingServer.viewport_set_measure_render_time(frame.view.get_viewport_rid(), false)
+	FileAccess.open(directory.path_join("foreground_cost.json"), FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT", "scope":("Same-world ABBA foreground-visible/hidden diagnostic with fixed native rig pose; main camera always excludes instrument stock; warm-up24 and90 sampled intervals per leg. Render-loop diagnostic, not an FPS gain or full route proof; viewport monitors overlap and are not additive." if allow_switching else "Production foreground cost only; main camera always excludes instrument stock. Warm-up24 and90 intervals; no before/after gain or route qualification; monitors overlap."), "render_path_switching":allow_switching, "vsync_mode":DisplayServer.window_get_vsync_mode(), "rows":rows}, "\t"))
+
 func projected_bounds(draw: MeshInstance3D) -> Rect2:
 	return projected_aabb(draw, draw.mesh.get_aabb())
 
@@ -263,6 +372,7 @@ func touch_wire(controls: TouchControls) -> void:
 			var event := InputEventScreenTouch.new()
 			event.index = 4; event.position = button.centre; event.pressed = pressed
 			Input.parse_input_event(event)
+			Input.flush_buffered_events()
 			await frames(3)
 		return
 
@@ -272,6 +382,7 @@ func joy(button: JoyButton, observe_character := "") -> bool:
 		var event := InputEventJoypadButton.new()
 		event.button_index = button; event.pressed = pressed
 		Input.parse_input_event(event)
+		Input.flush_buffered_events()
 		for tick in 3:
 			await frames(1)
 			if not observe_character.is_empty(): observed = observed or physical_key_down(observe_character)
@@ -282,6 +393,7 @@ func select_all() -> void:
 		var event := InputEventKey.new()
 		event.keycode = KEY_A; event.physical_keycode = KEY_A; event.ctrl_pressed = true; event.pressed = pressed
 		Input.parse_input_event(event)
+		Input.flush_buffered_events()
 		await frames(2)
 
 func wait_for(predicate: Callable, seconds := 18.0) -> bool:
@@ -295,11 +407,18 @@ func frames(count: int) -> void:
 	for index in count: await get_tree().process_frame
 
 func key(code: Key, unicode := 0, observe_character := "") -> bool:
+	if code == KEY_ENTER and is_instance_valid(carrier) and carrier.session != null:
+		accept_trace.append({"ticks":Time.get_ticks_msec(), "available":carrier.session.available(), "reading":carrier.reading,
+			"printing":carrier.device.teletype.printing, "opening":carrier.session.opening, "typing":carrier.session.typing,
+			"protected":player.protected_input_active(), "mouse_mode":Input.mouse_mode, "focus":str(get_viewport().gui_get_focus_owner())})
+		if accept_trace.size() > 64: accept_trace.pop_front()
+		FileAccess.open(directory.path_join("accept_trace.json"), FileAccess.WRITE).store_string(JSON.stringify(accept_trace, "\t"))
 	var observed := false
 	for pressed in [true, false]:
 		var event := InputEventKey.new()
 		event.keycode = code; event.physical_keycode = code; event.unicode = unicode if pressed else 0; event.pressed = pressed
 		Input.parse_input_event(event)
+		Input.flush_buffered_events()
 		for tick in 2:
 			await frames(1)
 			if not observe_character.is_empty(): observed = observed or physical_key_down(observe_character)

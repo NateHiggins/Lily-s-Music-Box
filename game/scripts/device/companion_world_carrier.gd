@@ -1,6 +1,6 @@
 extends ServiceSetCarrier
 ## World presentation adapter. Existing ServiceSetProp remains the sole radio,
-## lamp, print and WorkOrders owner. Explicit ORISON_COMPANION_WORLD=0 rollback.
+## lamp, print and WorkOrders owner. V2 always presents this autonomous bot.
 const Motion := preload("res://scripts/device/companion_motion.gd")
 const Mechanism := preload("res://scripts/device/companion_mechanism.gd")
 var motion: Motion
@@ -14,6 +14,9 @@ var _call_face_presented := false
 var session: Node
 var witness: Node
 var _pick_layers := {}
+var screen_frame: Node
+var _lamp_target_frame := -1
+var lamp_target_queries := 0
 
 func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) -> void:
 	_player = player
@@ -21,6 +24,7 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	reading_distance = .44
 	motion = Motion.new()
 	motion.name = "CompanionFlight"
+	motion.screen_framed = true
 	add_child(motion)
 	rig = Mechanism.new()
 	motion.add_child(rig)
@@ -34,11 +38,12 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	var lens: MeshInstance3D = device.teletype.torch_lens
 	motion.light_aperture = rig.to_local(lens.to_global(lens.mesh.get_aabb().get_center()))
 	device.bind_work_orders(work_orders)
-	# Render layer2 remains visible to the main/planar cameras, excluded from
-	# room reflection probes and this instrument's own real lamp. No new light.
+	# Render layer2 is composited for the player and retained for mirrors.
+	# The original inspection lamp remains the sole gameplay beam owner.
 	var hand_started := Time.get_ticks_usec()
 	_hand = preload("res://scripts/device/service_set_hand.gd").new(self, true)
 	for area: Area3D in find_children("*", "Area3D", true, false):
+		area.collision_layer = 1 << 23
 		_pick_layers[area.get_instance_id()] = {"ref":weakref(area), "layer":area.collision_layer}
 	setup_records.append({"stage":"target_shapes", "start_usec":hand_started, "end_usec":Time.get_ticks_usec()})
 	player.set_physical_display_enabled(true)
@@ -49,7 +54,10 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 		failure = "No clear native companion starting position"
 		push_error(failure)
 		return
-	setup_records.append({"stage":"flight_initialization_including_two_physics_waits", "start_usec":placement_started, "end_usec":Time.get_ticks_usec()})
+	setup_records.append({"stage":"flight_initialization", "start_usec":placement_started, "end_usec":Time.get_ticks_usec()})
+	screen_frame = preload("res://scripts/device/companion_screen_frame.gd").new()
+	add_child(screen_frame)
+	screen_frame.setup(self, camera)
 	_lamp_face_state = device.lamp_enabled
 	motion.behavior_changed.connect(_on_companion_behavior)
 	world_ready = true
@@ -115,9 +123,41 @@ func set_capture_hidden(hidden: bool) -> void:
 		if area != null: area.collision_layer = 0 if hidden else int(entry.layer)
 
 func world_lamp_transform() -> Transform3D:
+	_update_lamp_target()
 	# The original native optical aperture, not an offset at the player's eye.
 	var lens: MeshInstance3D = device.teletype.torch_lens
-	return Transform3D(lens.global_basis.orthonormalized(), lens.to_global(lens.mesh.get_aabb().get_center()))
+	var aperture := lens.to_global(lens.mesh.get_aabb().get_center())
+	var aim := lens.global_basis.orthonormalized()
+	# Foreground flight keeps the paper square to the reader. Converge the
+	# optical output on the authoritative viewed work without turning it away;
+	# the original lamp owner and manufactured emitting aperture remain shared.
+	if motion.light_target_valid and aperture.distance_squared_to(motion.light_target) > .0001:
+		var direction := (motion.light_target - aperture).normalized()
+		var up := _player.camera.global_basis.y
+		if absf(direction.dot(up)) > .999: up = _player.camera.global_basis.x
+		aim = Basis.looking_at(direction, up)
+	return Transform3D(aim, aperture)
+
+func _update_lamp_target() -> void:
+	# Optical aiming has a different range from the hand's 2.1 m reach. One
+	# body-only ray per physics tick follows the centre reticle, including while
+	# a mechanism is held or the free inspection cursor is over the instrument.
+	# Query-only control areas cannot become phantom surfaces for the beam.
+	motion.light_target_valid = device.lamp_enabled
+	if not device.lamp_enabled: return
+	var frame := Engine.get_physics_frames()
+	if frame == _lamp_target_frame: return
+	_lamp_target_frame = frame
+	var camera: Camera3D = _player.camera
+	var centre := camera.get_viewport().get_visible_rect().size * .5
+	var origin := camera.project_ray_origin(centre)
+	var reach: float = _player.flashlight.spot_range
+	var end := origin + camera.project_ray_normal(centre) * reach
+	var query := PhysicsRayQueryParameters3D.create(origin, end, 1)
+	query.exclude = [_player.get_rid()]
+	var hit := _player.get_world_3d().direct_space_state.intersect_ray(query)
+	lamp_target_queries += 1
+	motion.light_target = end if hit.is_empty() else hit.position
 
 func _advance_presentation(_delta: float) -> void:
 	if not world_ready: return
@@ -129,14 +169,7 @@ func _advance_presentation(_delta: float) -> void:
 		if _lamp_face_state: rig.play_reaction("lamp_trim")
 	if not device.incoming_call: _call_face_presented = false
 	elif not _call_face_presented and rig.play_reaction("wireless_call"): _call_face_presented = true
-	# Reuse the ordinary hand's last authoritative world hit. No second target
-	# scan. The whole lamp-bearing shell turns toward the viewed work; the
-	# optical aperture and real light retain their manufactured relationship.
-	motion.light_target_valid = device.lamp_enabled
-	motion.light_target = _player.camera.global_position - _player.camera.global_basis.z * 7.5
-	var hit: Dictionary = _player._grab.last_hit
-	if not hit.is_empty() and is_instance_valid(hit.get("collider")) and not is_ancestor_of(hit.collider):
-		motion.light_target = hit.position
+	_update_lamp_target()
 	if reading != _reading_previous:
 		_reading_previous = reading
 		if reading: motion.recall()
@@ -161,6 +194,7 @@ func _advance_presentation(_delta: float) -> void:
 	else:
 		rig.request_keyboard(false)
 		motion.request_behavior(&"accompany")
+	screen_frame.present_reading = reading and not _player.protected_input_active() and not session._foreign_editor_active()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if session != null and session.retired: return

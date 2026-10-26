@@ -127,6 +127,12 @@ func _find_world_target() -> Dictionary:
 	var origin := camera.project_ray_origin(cursor)
 	var query := PhysicsRayQueryParameters3D.create(origin, origin + camera.project_ray_normal(cursor) * 2.1)
 	query.collide_with_areas = true
+	# The framed companion is deliberately foreground presentation. Its private
+	# query layer retains fixed-stock occlusion without letting a wall hide a
+	# visible control, or making unrelated world mechanisms selectable through it.
+	if carrier.get("screen_frame") != null:
+		query.collision_mask = 1 << 23
+		query.collide_with_bodies = false
 	query.exclude = [carrier._player.get_rid()]
 	last_hit = carrier.get_world_3d().direct_space_state.intersect_ray(query)
 	if last_hit.is_empty() or not last_hit.collider.has_method("manipulation_target"): return {}

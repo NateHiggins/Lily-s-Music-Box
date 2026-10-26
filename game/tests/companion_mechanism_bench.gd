@@ -40,6 +40,37 @@ func _run() -> void:
 	check(key_batches.size() == 4, "all forty-three textured keys use four unscaled native geometry batches")
 	check(rig._key_labels.size() == 43 and not rig.key_legends.visible, "physical key legends are present and hidden while closed")
 	check(rig.keys.layers == 2, "keys share the original instrument visibility layer")
+	var pane := rig.model.find_child("ShellStudy__ShellGlass", true, false) as MeshInstance3D
+	var tray := rig.model.find_child("CompanionKeyboard__CompanionSteel", true, false) as MeshInstance3D
+	check(absf(pane.mesh.get_aabb().size.x - .137) < .00001, "compact case preserves full original reading window width")
+	check(tray.mesh.get_aabb().size.x < .157, "compact keyboard is approximately display width")
+	check(rig._rotors.size() == 2 and absf(rig._rotors[0].position.x) < .00001 and absf(rig._rotors[1].position.x) < .00001
+		and rig._rotors[0].position.y > rig._rotors[1].position.y + .04, "two native helical rotors share one vertically separated coaxial crown")
+	rig._advance_mechanism(.016)
+	check(rig._rotors[0].rotation.y * rig._rotors[1].rotation.y < 0.0, "coaxial upper and lower screw assemblies actually counter rotate")
+	var rotor_heights: Array[Vector2] = []
+	var swept_radius := 0.0
+	for rotor: Node3D in rig._rotors:
+		var heights := Vector2(INF, -INF)
+		for draw: MeshInstance3D in rotor.find_children("*", "MeshInstance3D", true, false):
+			for surface in draw.mesh.get_surface_count():
+				var vertices: PackedVector3Array = draw.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]
+				for vertex: Vector3 in vertices:
+					var point: Vector3 = rig.model.to_local(draw.to_global(vertex))
+					heights.x = minf(heights.x, point.y); heights.y = maxf(heights.y, point.y)
+					swept_radius = maxf(swept_radius, Vector2(point.x, point.z + .012).length())
+		rotor_heights.append(heights)
+	check(rotor_heights[0].x - rotor_heights[1].y > .005 and swept_radius < .0768, "imported coaxial assemblies retain axial separation and radial guard clearance throughout rotation")
+	var aerial := rig.model.find_child("Aerial", true, false) as Node3D
+	var aerial_radius := INF
+	for draw: MeshInstance3D in aerial.find_children("*", "MeshInstance3D", true, false):
+		for surface in draw.mesh.get_surface_count():
+			var vertices: PackedVector3Array = draw.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]
+			for vertex: Vector3 in vertices:
+				var point: Vector3 = rig.model.to_local(draw.to_global(vertex))
+				if point.y > .139 and point.y < .225:
+					aerial_radius = minf(aerial_radius, Vector2(point.x, point.z + .012).length())
+	check(is_finite(aerial_radius) and aerial_radius > swept_radius + .003, "deployed native aerial clears the complete screw sweep with a positive measured margin")
 	var inspector: Node = preload("res://tests/orison_v2_surface_inventory.gd").new()
 	var metrics: Node = preload("res://tests/orison_v2_roof_bulkhead_caps_test.gd").new()
 	var meshes: Dictionary = {}
@@ -60,7 +91,7 @@ func _run() -> void:
 				required = ["steel_albedo", "steel_roughness", "steel_normal", "type_plate"]
 			for map: String in required: check(row.maps.has(map), "loaded registered PBR map " + str(draw.name) + "/" + map)
 			if material is StandardMaterial3D: check(material.normal_enabled and not material.uv1_triplanar, "native normals use authored UVs " + str(draw.name))
-	check(partitions == 61, "all retained, formed-shell and sliding-carriage material primitives are present")
+	check(partitions == 63, "all retained, formed-shell and sliding-carriage material primitives are present")
 	var glass := rig.glazing.get_active_material(0) as StandardMaterial3D
 	check(glass != null and glass.refraction_enabled and is_equal_approx(glass.refraction_scale, .004), "reading glass retains restrained authored refraction")
 	for label: Label3D in [rig.device.teletype.ink, rig.device.teletype.heading, rig.device.teletype.footer]:
@@ -74,6 +105,7 @@ func _run() -> void:
 	check(is_equal_approx(float(rig.glazing_film.get_shader_parameter("outside_wet")), .8), "nonfinite glass input preserves the previous presentation")
 	rig.set_glass_moisture(0.0, 0.0)
 	await _fit_contacts(rig)
+	_focus_bearing_gap(rig)
 	for failure: String in metrics.failures: check(false, failure)
 	for path: String in inspector.texture_rows:
 		var texture: Dictionary = inspector.texture_rows[path]
@@ -216,7 +248,8 @@ func _fit_contacts(rig: Node3D) -> void:
 		for sy in [-1.0, 1.0]:
 			for point: Vector2 in [Vector2(sx * .1025, sy * .066), Vector2(sx * .063, sy * .093)]:
 				for offset: Vector2 in [Vector2(.002, 0), Vector2(-.002, 0), Vector2(0, .002), Vector2(0, -.002)]:
-					var at := point + offset
+					var center := Vector2(sx * .08091, point.y) if absf(point.x) > .09 else point
+					var at := center + offset
 					var pan: Variant = _contact_z(steel, rig.model, at, true)
 					var guard: Variant = _contact_z(brass, rig.model, at, false)
 					check(pan != null and guard != null, "conditioned imported fastening faces exist " + str(at))
@@ -230,6 +263,34 @@ func _fit_contacts(rig: Node3D) -> void:
 						check(absf(float(detached) - float(pan) - .003) < .00005, "negative control measures the actual introduced gap " + str(at))
 					_contact_observations.append({"point":[at.x, at.y], "pan_z":pan, "guard_z":guard, "detached_guard_z":detached})
 	await get_tree().process_frame
+
+func _focus_bearing_gap(rig: Node3D) -> void:
+	var wheel := rig.model.find_child("FocusWheel__Brass", true, false) as MeshInstance3D
+	var fixed := rig.model.find_child("ShellStudy__ShellBrass", true, false) as MeshInstance3D
+	var bearing: Variant = _contact_x(fixed, rig.model, .14, .07)
+	var knob: Variant = _contact_x(wheel, rig.model, .07, .14)
+	check(bearing != null and knob != null, "imported reading knob and bored bearing expose their actual axial faces")
+	if bearing == null or knob == null: return
+	check(absf(float(knob)-float(bearing)-.001) < .00005, "reading knob retains its original one-millimetre running clearance after case narrowing")
+	var pivot: Node3D = wheel.get_parent()
+	var home := pivot.position
+	pivot.position.x -= .003
+	var penetrated: Variant = _contact_x(wheel, rig.model, .07, .14)
+	pivot.position = home
+	check(penetrated != null and float(penetrated)-float(bearing) < -.0019, "axial clearance negative control detects a knob driven three millimetres into its bearing")
+
+func _contact_x(draw: MeshInstance3D, model: Node3D, from_x: float, to_x: float) -> Variant:
+	var start := draw.to_local(model.to_global(Vector3(from_x, .0414, 0))) * 1000.0
+	var end := draw.to_local(model.to_global(Vector3(to_x, .0414, 0))) * 1000.0
+	var faces := draw.mesh.get_faces()
+	var nearest := INF
+	var result: Variant = null
+	for index in range(0, faces.size(), 3):
+		var hit: Variant = Geometry3D.segment_intersects_triangle(start, end, faces[index]*1000.0, faces[index+1]*1000.0, faces[index+2]*1000.0)
+		if hit is Vector3 and start.distance_squared_to(hit) < nearest:
+			nearest = start.distance_squared_to(hit)
+			result = model.to_local(draw.to_global(hit/1000.0)).x
+	return result
 
 func _seated(pan: Variant, guard: Variant) -> bool:
 	return pan != null and guard != null and absf(float(pan) - .0275) < .00005 and absf(float(guard) - float(pan)) < .00005

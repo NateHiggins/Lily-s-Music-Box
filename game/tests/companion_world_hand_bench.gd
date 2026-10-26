@@ -3,10 +3,21 @@ extends "res://tests/service_set_hand_test.gd"
 var done := false
 var old_cap := 0
 var input_checks: Array[Dictionary] = []
+var mouse_trace: Array[Dictionary] = []
 
 func check(ok: bool, label: String) -> bool:
 	input_checks.append({"name":label, "passed":ok})
+	if not ok and is_instance_valid(player) and is_instance_valid(carrier):
+		FileAccess.open(directory.path_join("hand_failure_%02d.json" % input_checks.size()), FileAccess.WRITE).store_string(JSON.stringify({
+			"label":label, "cursor":str(get_viewport().get_mouse_position()), "enabled":carrier.hand_is_enabled(),
+			"active":player._grab.active(), "target":str(player._grab.target.get("part")), "last_hit":str(carrier._hand.last_hit),
+			"hand_control":str(carrier.device.teletype.hand_control), "events":mouse_trace}, "\t"))
 	return super.check(ok, label)
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion or event is InputEventMouseButton:
+		mouse_trace.append({"ticks":Time.get_ticks_msec(), "event":str(event), "part":str(player._grab.target.get("part")) if is_instance_valid(player) else ""})
+		if mouse_trace.size() > 48: mouse_trace.pop_front()
 
 func _ready() -> void:
 	if not standalone: return
@@ -45,8 +56,8 @@ func _run() -> void:
 	player.carried_device = carrier
 	if not check(bool(carrier.get("world_ready")), "world companion binds its native flight and existing instrument"):
 		finish(); return
-	check(carrier._pass_view == null and carrier._presentation_layer == null, "world companion adds no private viewport or overlay")
-	check(carrier.find_children("*", "PhysicsBody3D", true, false).size() == 1, "one nonblocking sphere replaces per-mesh moving physical bodies")
+	check(carrier.screen_frame.view.world_3d == get_world_3d() and carrier.screen_frame.view_camera.cull_mask == 2, "framed companion shares its single world rig and isolates only the device render layer")
+	check(carrier.find_children("*", "PhysicsBody3D", true, false).size() == 1, "one nonblocking presentation body retains world lamp and control identity")
 	check(carrier._hand.occlusion != null and carrier._hand.occlusion.get_child_count() == 1, "fixed stock shares one query-only pick mesh")
 	check(carrier._hand.descriptor("lamp").is_empty(), "world reticle and grab share refusal before the device is presented")
 	await exercise()
@@ -77,8 +88,22 @@ func _run() -> void:
 	# rather than requiring an interrupted animation to remain current forever.
 	check(carrier.reading and float(native_rig.reaction_player._last.get("vaudeville_wink", -1.0)) > last_wink, "actual recall starts a courteous physical wink")
 	var former_pin: Vector3 = native_rig._keyboard_home
-	var query := PhysicsRayQueryParameters3D.create(native_rig.model.to_global(former_pin + Vector3(0, 0, .03)), native_rig.model.to_global(former_pin - Vector3(0, 0, .01)), 1)
+	var query := PhysicsRayQueryParameters3D.create(native_rig.model.to_global(former_pin + Vector3(0, 0, .03)), native_rig.model.to_global(former_pin - Vector3(0, 0, .01)), carrier._hand.occlusion.collision_layer)
 	query.collide_with_areas = true; query.collide_with_bodies = false
+	# Positive control proves the changed private pick layer is actually being
+	# queried; an empty retired-pin ray alone could pass with the wrong mask.
+	var fixed_area: Area3D = carrier._hand.occlusion
+	var triangles: PackedVector3Array = fixed_area.get_child(0).shape.get_faces()
+	var fixed_hit := false
+	for triangle in range(0, mini(triangles.size(), 180), 3):
+		var center := (triangles[triangle] + triangles[triangle+1] + triangles[triangle+2]) / 3.0
+		var normal := (triangles[triangle+1]-triangles[triangle]).cross(triangles[triangle+2]-triangles[triangle]).normalized()
+		if normal.length_squared() < .5: continue
+		var probe := PhysicsRayQueryParameters3D.create(fixed_area.to_global(center + normal * .5), fixed_area.to_global(center - normal * .5), fixed_area.collision_layer)
+		probe.collide_with_areas = true; probe.collide_with_bodies = false
+		var hit := player.get_world_3d().direct_space_state.intersect_ray(probe)
+		if hit.get("collider") == fixed_area: fixed_hit = true; break
+	check(fixed_hit, "positive control reaches actual fixed stock through the private pick layer")
 	var vacated: Dictionary = player.get_world_3d().direct_space_state.intersect_ray(query)
 	check(vacated.is_empty(), "retracted hinge leaves no stale fixed pick blocker at its vacated pin seat")
 	await RenderingServer.frame_post_draw
@@ -88,6 +113,9 @@ func _run() -> void:
 	player._carry_service_light(.016)
 	check(player._hand.global_position.distance_to(lens.to_global(lens.mesh.get_aabb().get_center())) < .00001, "real lamp originates at native lens instead of the player's eye")
 	check(player.flashlight.get_parent() == player._hand, "original player lamp remains the only light owner")
+	var output: Transform3D = carrier.world_lamp_transform()
+	check((-output.basis.z).dot((carrier.motion.light_target-output.origin).normalized()) > .9999,
+		"framed companion lamp converges from its native aperture on the authoritative reticle target")
 	finish()
 
 func key(code: Key) -> void:
@@ -95,12 +123,42 @@ func key(code: Key) -> void:
 		for index in 240:
 			if carrier.can_inspect_controls(): break
 			await get_tree().physics_frame
-	await super.key(code)
+	for pressed in [true, false]:
+		var event := InputEventKey.new()
+		event.keycode = code; event.physical_keycode = code; event.pressed = pressed
+		Input.parse_input_event(event)
+		Input.flush_buffered_events()
+		await RenderingServer.frame_post_draw
+	await get_tree().physics_frame
+	await get_tree().process_frame
 	if code == KEY_E and carrier.reading:
 		for index in 240:
 			await get_tree().physics_frame
 			if carrier.can_inspect_controls(): break
 		check(carrier.can_inspect_controls(), "recall settles before actual control inspection")
+
+func click() -> void:
+	for pressed in [true, false]:
+		var event := InputEventMouseButton.new()
+		event.button_index = MOUSE_BUTTON_LEFT; event.pressed = pressed
+		event.position = get_viewport().get_mouse_position()
+		Input.parse_input_event(event)
+		# Injected events share Godot's buffered input queue. Dispatch each edge
+		# before a new aim/warp can change the authoritative free cursor.
+		Input.flush_buffered_events()
+		await RenderingServer.frame_post_draw
+	await get_tree().physics_frame
+	await get_tree().process_frame
+
+func drag(amount: Vector2) -> void:
+	Input.flush_buffered_events()
+	var event := InputEventMouseMotion.new()
+	event.relative = amount; event.position = get_viewport().get_mouse_position()
+	Input.parse_input_event(event)
+	Input.flush_buffered_events()
+	await RenderingServer.frame_post_draw
+	await get_tree().physics_frame
+	await get_tree().process_frame
 
 func aim(part: Node3D) -> bool:
 	var points: Array[Vector3] = [part.global_position]
@@ -117,7 +175,14 @@ func aim(part: Node3D) -> bool:
 			await get_tree().process_frame
 			await get_tree().process_frame
 			var target: Dictionary = player._grab.find_target()
-			if target.get("part") == part: return true
+			if target.get("part") == part:
+				# OS pointer warps can arrive after process_frame. Flush only before
+				# acquisition, then require the same authoritative hit in a rendered
+				# frame; never hide a blocker or fabricate the grab descriptor.
+				await RenderingServer.frame_post_draw
+				Input.flush_buffered_events()
+				await get_tree().physics_frame
+				if player._grab.find_target().get("part") == part: return true
 	print("WORLD PICK MISS ", part.name, " hit ", carrier._hand.last_hit)
 	return false
 
@@ -132,4 +197,5 @@ func _tap_switch(code: Key) -> void:
 		var event := InputEventKey.new()
 		event.keycode = code; event.physical_keycode = code; event.pressed = pressed
 		Input.parse_input_event(event)
+		Input.flush_buffered_events()
 		await RenderingServer.frame_post_draw

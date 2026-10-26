@@ -9,6 +9,7 @@ var keyboard: Node3D
 var keyboard_carriage: Node3D
 var _keyboard_home := Vector3.ZERO
 var _keyboard_retraction := 0.0
+var _stay_half_span := .094
 var latch: Node3D
 var keys: MultiMeshInstance3D
 var key_legends: Node3D
@@ -48,10 +49,11 @@ func build() -> bool:
 	device = ServiceSetProp.new()
 	device.model_scene = packed
 	device.stock_applier = preload("res://scripts/device/companion_stock.gd").apply
+	device.phosphor_stock = true
 	add_child(device)
 	if not device.presentation_ready: return _fail("Original radio/printer presentation failed to bind")
 	model = device.teletype.model
-	# Carbon marks are opaque ink, so put their masked glyphs into the opaque
+	# Excited phosphor marks are opaque, so put their masked glyphs into the opaque
 	# scene before the reading glass samples it. Keep ordinary depth testing.
 	for label: Label3D in [device.teletype.ink, device.teletype.heading, device.teletype.footer]:
 		label.alpha_cut = Label3D.ALPHA_CUT_DISCARD
@@ -66,6 +68,9 @@ func build() -> bool:
 	_opening_degrees = float(data.keyboard_open_degrees)
 	_keyboard_home = keyboard.position
 	_keyboard_retraction = float(data.get("keyboard_retraction_m", 0.0))
+	_stay_half_span = float(data.keyboard_stay_half_span_m)
+	if not is_finite(_stay_half_span) or _stay_half_span < .05 or _stay_half_span > .10:
+		return _fail("Keyboard support span is invalid")
 	keyboard_carriage = model.find_child("CompanionKeyboardCarriage", true, false)
 	if keyboard_carriage == null or not is_equal_approx(_keyboard_retraction, .045):
 		return _fail("Retracting keyboard carriage datum missing")
@@ -270,7 +275,7 @@ func _apply_keyboard() -> void:
 		_last_latched = latched
 		if _latch_sound != null: _latch_sound.play()
 	for label: String in ["Port", "Starboard"]:
-		var x := -.094 if label == "Port" else .094
+		var x := -_stay_half_span if label == "Port" else _stay_half_span
 		var anchor := Vector3(x, -.084, .042)
 		var attachment: Vector3 = keyboard.transform * Vector3(x, .016, -.006)
 		var difference := attachment - anchor

@@ -3,7 +3,9 @@ render_mode depth_prepass_alpha;
 // Relief overlay on registered steel. UV is physical metres; UV2 is the
 // font atlas. No screen read, TIME animation, shadowed light or extra pass.
 uniform sampler2D type_plate : filter_linear_mipmap_anisotropic, repeat_disable;
-uniform float heat : hint_range(0.0, 1.0) = 0.0;
+uniform float excitation : hint_range(0.0, 1.0) = 0.0;
+uniform float idle_excitation : hint_range(0.0, 1.0) = 0.0;
+uniform vec3 radiance_color : source_color = vec3(.85, .12, .012);
 uniform float selected_cell = -1.0;
 uniform float spin_blur : hint_range(0.0, 1.0) = 0.0;
 uniform vec3 steel_color : source_color = vec3(0.15, 0.17, 0.18);
@@ -27,6 +29,6 @@ void fragment() {
     NORMAL_MAP=normalize(vec3((plate.rg*2.0-1.0)+micro.xy*.2,1.0))*.5+.5;NORMAL_MAP_DEPTH=1.0;
     ALPHA=mask;
     float index=(5.0-cell.y)*8.0+cell.x;
-    float hot=(1.0-step(.25,abs(index-selected_cell)))*heat;
-    EMISSION=vec3(.85,.12,.012)*hot*.65;
+    float exposed=(1.0-step(.25,abs(index-selected_cell)))*max(excitation,idle_excitation);
+    EMISSION=radiance_color*exposed*.65;
 }

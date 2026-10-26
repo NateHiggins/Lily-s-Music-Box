@@ -922,6 +922,21 @@ system is not permitted to impersonate a person. Trivia printed by the system
 must be sourced, terse and spoiler-safe. Typography and texture can unify the
 record, but they cannot launder invented history into fact.
 
+**Owner amendment, 2026-10-25 — autonomous companion and phosphor correspondence.**
+At the owner's direction, V2 replaces the carried service gadget with the
+autonomous mechanical companion and its folding keyboard. This supersedes the
+original carried configuration's keyboard prohibition in §VIII.5.j for V2;
+the historical V1 rollback remains available. Radio, lamp, work orders and
+conversation still answer to their existing owners.
+
+The companion's writer exposes charcoal phosphorescent paper with a radioactive
+type head. The letters glow green; the stock is physical paper, not a glass
+screen. This replaces thermal scorching in the companion. Its field copies keep
+the existing typography and institutional voice. Explicit typing may acquire its
+own input lease; unsolicited printing may not take focus or cover a protected
+conversation. The richer “Night Stock” surface treatment is a proposal, not
+additional canon or a new simulation authority.
+
 **VIII.5.l — THE WORLD IS A FIDGET TOY.**
 *(Ruled 2026-10-12, at the owner's direction; RUL-013. Implementation and
 migration requirements: `design/DIRECT_MANIPULATION_2026-10-12.md`.)*

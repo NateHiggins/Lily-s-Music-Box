@@ -1,0 +1,727 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original framing attempts, failure sources, successful pre-framing occupied control and first failed compact native run; no current qualification claim.",
+  "archive_sha256": "a597b64de6366a0bf6e4fbf39b6218689bf1737771d84dab4d707bd7484db114",
+  "files": [
+    {
+      "path": "compact_build_v2.log",
+      "sha256": "7c1ac57e5f5afa3b9b11bc2391096b91a2058261516f203af7ccbb22c7957c08"
+    },
+    {
+      "path": "compact_build_v3.log",
+      "sha256": "726aa70f05c0823ecd32e03748f1f3efafdb5544896b472f5e2516322e315d4b"
+    },
+    {
+      "path": "compact_build_v4.log",
+      "sha256": "418bad381af9300752a46c54b16449e6947cad9430d1d5b3571291308de3c46b"
+    },
+    {
+      "path": "compact_build_v5.log",
+      "sha256": "3033115d6d9d27e00a4005c288b2adb327bacf5711c737f4bf0261fba310dee6"
+    },
+    {
+      "path": "compact_build_v6.log",
+      "sha256": "1acb02faf8f24ffcc42597685fbe1db6010e62bc5b0373f830701fdeb54ed2c2"
+    },
+    {
+      "path": "compact_build_v7.log",
+      "sha256": "a53fdfbb3fc52d356f49c779358fa6d9e258658f9c0933e0604c86d718bdd378"
+    },
+    {
+      "path": "compact_import_1.log",
+      "sha256": "76f176f0e4f6bca3901c2522549c8ac80239545da78e1b363724d6048d1d93bb"
+    },
+    {
+      "path": "compact_import_1.log.receipt.json",
+      "sha256": "7edf22298048ae27459100d4eaef83fb5a905f1c95698c4bb30329fba203f7c8"
+    },
+    {
+      "path": "compact_import_1.log.stderr",
+      "sha256": "85d705b8908e7df4125a3473e13eff4bc8b7f1a968e61bd2bfad4693a9f6b3a5"
+    },
+    {
+      "path": "compact_import_2.log",
+      "sha256": "4a397ad49c566a05e88a229bea747004907400e6f2367a980d2512fb29bfdaa7"
+    },
+    {
+      "path": "compact_import_2.log.receipt.json",
+      "sha256": "2496ee29ea2b9e5de99945e2875760e90b1f2cd1aa86d636487cb460f47c8f16"
+    },
+    {
+      "path": "compact_import_2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "compact_mechanism_v1/glass_reading.png",
+      "sha256": "ad9f8afa4977a3b848c34791f4762450fc2bac1f8be75d74e84f762e336006f0"
+    },
+    {
+      "path": "compact_mechanism_v1/glass_wet.png",
+      "sha256": "89e2241c487fbdc95c69fff4b79a16629eb88d606a8869870d374e4c21ce74e7"
+    },
+    {
+      "path": "compact_mechanism_v1/illustration.png",
+      "sha256": "258627ac274d56f158844d9656776591413b9502799046aea5cffcc86ebcf049"
+    },
+    {
+      "path": "compact_mechanism_v1/mechanism_diagnostic.json",
+      "sha256": "3b61589ad907e71724874151ecdbfd946f5e78402caa2661579be066dd320ec8"
+    },
+    {
+      "path": "compact_mechanism_v1/mouth_open.png",
+      "sha256": "0fa7525691ecc68dd761f9a572f8f9821c90525c3b3596b55aa55ce9ea8b43ec"
+    },
+    {
+      "path": "compact_mechanism_v1/travel.png",
+      "sha256": "fbae931de7a665f3f58aaeb833be7a5130f12596d121d844447029f207541eef"
+    },
+    {
+      "path": "compact_mechanism_v1/typing.png",
+      "sha256": "a195928ef410986ab0f2524eae6c29b85158f36f0c00786abc445eef517a11ac"
+    },
+    {
+      "path": "compact_mechanism_v1.log",
+      "sha256": "cc4b0cca1f1b29b3a08007eb526d99f7032efefa68fc3de7cafbafe9ff27794b"
+    },
+    {
+      "path": "compact_mechanism_v1.log.receipt.json",
+      "sha256": "c095880d0121d984539cd87147288066d3ea675ef676debe9b60013e0dd7f47e"
+    },
+    {
+      "path": "compact_mechanism_v1.log.stderr",
+      "sha256": "f0ba55ae07bc1deacf814219673ec0f7b11c5245a2aaa4af0c0b87f830e3de3c"
+    },
+    {
+      "path": "compact_review_v4.log",
+      "sha256": "7e977f5a33576493d0ad96a1b3526593e9f34e5190056b069c47004dd7f45667"
+    },
+    {
+      "path": "compact_review_v6.log",
+      "sha256": "9ad2f59c1e83cd04b785569d6b35a6bf7fc3cce94334c536d39c6df842056d35"
+    },
+    {
+      "path": "compact_review_v7.log",
+      "sha256": "5a839eece0aa3da5fc9220fdf6bdbcd46a4d9387f34407c210367d60a0a25f3a"
+    },
+    {
+      "path": "compact_review_v8.log",
+      "sha256": "6c2f9d10185367de7d1e86990e9ab70ee2d02e5542796fd9c630c8f02eae15fe"
+    },
+    {
+      "path": "framing_compile_failure_source/game/scripts/device/companion_motion.gd",
+      "sha256": "ade276dd249f0313766a0e391988bdf266aadd1ce2f039fabd2633cf5c0072a6"
+    },
+    {
+      "path": "framing_compile_failure_source/game/scripts/device/companion_screen_frame.gd",
+      "sha256": "8653f41cf05a4d8a684cb8c5dc2b654ff603ecbe940cd3ab9c503a2acf439875"
+    },
+    {
+      "path": "framing_compile_failure_source/game/scripts/device/companion_world_carrier.gd",
+      "sha256": "d3baef06ae844f3c3eb0c6dad067b983b61788941fc773ae7fc21323c88d6915"
+    },
+    {
+      "path": "framing_compile_failure_source/game/scripts/device/service_set_hand.gd",
+      "sha256": "4367ce4394541d39550d3f24a982a7c53a294fd4a30dea70b01f7216fde00174"
+    },
+    {
+      "path": "framing_compile_failure_source/game/tests/companion_session_bench.gd",
+      "sha256": "6a3f9407a11d98d8ff14811c698e80bb91eaf9c4b81e1bd22ae2044d929bd630"
+    },
+    {
+      "path": "framing_compile_failure_source/game/tests/companion_world_hand_bench.gd",
+      "sha256": "364a4b6e4f6f65f706d0d4824d170da085078283bd37bb1c71d3c7e80fb7e9c7"
+    },
+    {
+      "path": "framing_final_batch.json",
+      "sha256": "22b0aa66163e0b3652e53d421582ce6fb605bf66cbaa90e4a2823045a86160ab"
+    },
+    {
+      "path": "framing_focus_failure_source/game/scripts/device/companion_screen_frame.gd",
+      "sha256": "472fbb756d365abc265f5826fc21ddcda486431208d30dfbc080edb6a1130379"
+    },
+    {
+      "path": "framing_focus_failure_source/game/scripts/device/companion_world_carrier.gd",
+      "sha256": "56c79fa6742f9f3d551f71121cab679a334781c6a5c1674e2924b1c7f99f4828"
+    },
+    {
+      "path": "framing_focus_failure_source/game/tests/companion_world_hand_bench.gd",
+      "sha256": "364a4b6e4f6f65f706d0d4824d170da085078283bd37bb1c71d3c7e80fb7e9c7"
+    },
+    {
+      "path": "framing_hand/actual_recall_face.png",
+      "sha256": "554cfed29e22d773df1662285385c8bda0dcc1e4fe374c60cacfdc8dd8607124"
+    },
+    {
+      "path": "framing_hand/observations.json",
+      "sha256": "639edc5b5ac9ba67b161c32461b4a45a32b993349d65d52ce69bcff633540b5d"
+    },
+    {
+      "path": "framing_hand/physical_controls.png",
+      "sha256": "69e82b7196b0be1c4f516b05900a1b573611739c943f0fe94927199fb70730d0"
+    },
+    {
+      "path": "framing_hand.log",
+      "sha256": "a5a4300d53e3fdc45b9328a1c4b193b6713ba33c2f4d8da05a14a8e662c59acc"
+    },
+    {
+      "path": "framing_hand.log.receipt.json",
+      "sha256": "70479b06484a79d5b1b2559dbfb054479ab8e96f3cdf40c953e34fd24111a14e"
+    },
+    {
+      "path": "framing_hand.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "framing_hand_v2/actual_recall_face.png",
+      "sha256": "05adcf6e72418051189655a1d62aa8c6a8a298337cfb4c4a847ee4afe6c257fe"
+    },
+    {
+      "path": "framing_hand_v2/observations.json",
+      "sha256": "12efb7f0376a17bf3c7df626956dc6a13c1512ad861e96b3e3d45d8eeb178753"
+    },
+    {
+      "path": "framing_hand_v2/physical_controls.png",
+      "sha256": "9d5ac3c07b05937ac79d887fc891e3f6d5404b7bebf7a067ae290cc5cf9d2144"
+    },
+    {
+      "path": "framing_hand_v2.log",
+      "sha256": "8646197d20448d324652441d25e9ce08114f3c3f355a8ba081db07cfccd7d80f"
+    },
+    {
+      "path": "framing_hand_v2.log.receipt.json",
+      "sha256": "603704c45ce8179d6a4daf738a52ee5eef377f607e4ae14564f4dfb0194b6ffe"
+    },
+    {
+      "path": "framing_hand_v2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "framing_hand_v2_v4/actual_recall_face.png",
+      "sha256": "bd62165e56f04f2ac826ee0277877ee6f05ae0d11b9f5c9954e13769eb7cb8c2"
+    },
+    {
+      "path": "framing_hand_v2_v4/observations.json",
+      "sha256": "f01aaffd5fdce5b30deb9bab15cf05c067aa778ffa378458374e2a99f48dbc0e"
+    },
+    {
+      "path": "framing_hand_v2_v4/physical_controls.png",
+      "sha256": "37fdcd14d50279a1e04ed774e2016bc5686f73a43fb4dce163c0fd3b04a56074"
+    },
+    {
+      "path": "framing_hand_v2_v4.log",
+      "sha256": "8646197d20448d324652441d25e9ce08114f3c3f355a8ba081db07cfccd7d80f"
+    },
+    {
+      "path": "framing_hand_v2_v4.log.receipt.json",
+      "sha256": "d1b204d5f55d2c011e4cfcba380700342064149b5926045f8fc587bd20d51069"
+    },
+    {
+      "path": "framing_hand_v2_v4.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "framing_import_1.log",
+      "sha256": "71f81d392a917310135d36417de0c286fddb997d4c8fa3da73eb632276c7d3fc"
+    },
+    {
+      "path": "framing_import_1.log.receipt.json",
+      "sha256": "f74e2ba02aacd09e833ef0e702f1c18d53caa56b97b4902cec4198e6eccb5026"
+    },
+    {
+      "path": "framing_import_1.log.stderr",
+      "sha256": "8c2f37401bdf1cf01b65ea9a9ac97e032895eb2b3a157021a36db776ae4bf21f"
+    },
+    {
+      "path": "framing_import_2.log",
+      "sha256": "4a397ad49c566a05e88a229bea747004907400e6f2367a980d2512fb29bfdaa7"
+    },
+    {
+      "path": "framing_import_2.log.receipt.json",
+      "sha256": "0407a370a61a706b7e8856ba9cef6dda46bcc7d22fff9d485c6c229373624699"
+    },
+    {
+      "path": "framing_import_2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "framing_order_failure_source/game/scripts/device/companion_screen_frame.gd",
+      "sha256": "fbbcfdf874c3d03b481c71c6b9e8c622f20b55e884dc5ee05ffd7b29f61ad06b"
+    },
+    {
+      "path": "framing_order_failure_source/game/scripts/device/companion_world_carrier.gd",
+      "sha256": "ad217822f2cc8e4a2388b1f61d9f139c68839cad3899c16e09ab1ec996813c06"
+    },
+    {
+      "path": "framing_order_failure_source/game/tests/companion_session_bench.gd",
+      "sha256": "b5062c37e433f865d7ea1475ae30b4614d830c54739244f7fba62276431d62e4"
+    },
+    {
+      "path": "framing_ownership_v2/foreground_cost.json",
+      "sha256": "8e509f3a131b2d6ceca8617f2edcc7322b124b2c59a58d00cfa9b8388d52f5dc"
+    },
+    {
+      "path": "framing_ownership_v2/framed_travel.png",
+      "sha256": "78def1e5f8e1dd66d361570b0f9409866811feac79ad5dc0f551fe82d37fda70"
+    },
+    {
+      "path": "framing_ownership_v2/framing.json",
+      "sha256": "70d35b06fed2a61394a70df1889c0762f66a63d4d7cc55933c8cf74e97dddfbd"
+    },
+    {
+      "path": "framing_ownership_v2/malformed_companion.json",
+      "sha256": "3a0e91517126294665383ff7fa098cf1bc6ce7c2b54f6fd3bcf36ef64fea6f9c"
+    },
+    {
+      "path": "framing_ownership_v2/reload_comparison.json",
+      "sha256": "50edc5e37d13669d55f81851beab7ccd9529fbae5099d0e5d1c2ecd65a6588a5"
+    },
+    {
+      "path": "framing_ownership_v2/reply.png",
+      "sha256": "f1fd8a6827bbd7eb7578ef3940ae8e78797e608109680666fd0ce05f5eb9ced4"
+    },
+    {
+      "path": "framing_ownership_v2/reply_layout.json",
+      "sha256": "603f2dfd90aed59f8478e975c14f3b2a6f33fe6a983962aefdfa130445b612d7"
+    },
+    {
+      "path": "framing_ownership_v2/screen_framing.json",
+      "sha256": "07cf09f19c00a5ed7648f826abb1591e0815b7533e4bb55111c67c087f3d7804"
+    },
+    {
+      "path": "framing_ownership_v2/session.json",
+      "sha256": "34f4ab8cfad2510d271ad1f3c7537380e2df996ac1e343f55f5530b3a8fdf4c8"
+    },
+    {
+      "path": "framing_ownership_v2/typing.png",
+      "sha256": "e1bb3b235499adc9c1b2487388b48e419ec4c60f55fad8554b917930c73defaa"
+    },
+    {
+      "path": "framing_ownership_v2.log",
+      "sha256": "e6d48d161a2a8cfbb8540a5b7d31add20be0661b87c3545d504532b027b8aeb1"
+    },
+    {
+      "path": "framing_ownership_v2.log.receipt.json",
+      "sha256": "ffa8cdc99840c77e435d044f7ea30d0a3fd0410d64fe236ac09face7017c34f8"
+    },
+    {
+      "path": "framing_ownership_v2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "framing_ownership_v2_v4/foreground_cost.json",
+      "sha256": "2210a43c256a54ea0e571d0ea6ed58609ba73254f841305e6aca14a556cbd179"
+    },
+    {
+      "path": "framing_ownership_v2_v4/framed_travel.png",
+      "sha256": "5a560f9764d4e280a542b714821412b6ce91f83472cee4ec2bf6ab437b07f22c"
+    },
+    {
+      "path": "framing_ownership_v2_v4/framing.json",
+      "sha256": "9fce3993bf07a4df75e6992801834540b5f498f0a17a3c49440b26c7b1ef36e3"
+    },
+    {
+      "path": "framing_ownership_v2_v4/malformed_companion.json",
+      "sha256": "f3d86667b0fafbca31b43793a1941737971adf82e796704ccc3565a4b0ec51dc"
+    },
+    {
+      "path": "framing_ownership_v2_v4/reload_comparison.json",
+      "sha256": "50edc5e37d13669d55f81851beab7ccd9529fbae5099d0e5d1c2ecd65a6588a5"
+    },
+    {
+      "path": "framing_ownership_v2_v4/reply.png",
+      "sha256": "537df34251d0f28fb4d7be506c11077a84b465981e723fcae24b9bfb0d3304e9"
+    },
+    {
+      "path": "framing_ownership_v2_v4/reply_layout.json",
+      "sha256": "e55841ea122013b2555a81f8f72b4bdb87c13000f687157da48ddf4cf669a15d"
+    },
+    {
+      "path": "framing_ownership_v2_v4/screen_framing.json",
+      "sha256": "6770af9db7e31ea07ea7ddc2b9fbc82d6f39a2982fdcd4a9d4172d37bb28b224"
+    },
+    {
+      "path": "framing_ownership_v2_v4/session.json",
+      "sha256": "8e216ab9e7660ffc38feaab4f90b07742b72ff944001d3fee8c301e23258a548"
+    },
+    {
+      "path": "framing_ownership_v2_v4/typing.png",
+      "sha256": "7d401991473a92c2759ba127a224b11b855e9fc0e2a0a2a91079f1260bce7060"
+    },
+    {
+      "path": "framing_ownership_v2_v4.log",
+      "sha256": "3c02ff2bc21b651fabeeda8812143db8aeb49b34373397097dff7668239a74d4"
+    },
+    {
+      "path": "framing_ownership_v2_v4.log.receipt.json",
+      "sha256": "b2f7595c6c96ab8d94542dfac5f410eb10c04dbca095c1116f47bc4ee0b941ac"
+    },
+    {
+      "path": "framing_ownership_v2_v4.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "framing_preview_batch.json",
+      "sha256": "dc5622ac6f9bf445124a10174b75c2c1365cab3239062da5e7e47e36aabe2926"
+    },
+    {
+      "path": "framing_preview_cost_summary.json",
+      "sha256": "d2259e7b45cae5caf0a78d6dabf3e2e63f69d827b23bd850c4a5314c4e6a743e"
+    },
+    {
+      "path": "framing_preview_v1/session.json",
+      "sha256": "fbe858c1b56ad7b437f50d060416354d04fe6b0a25edd93091bfe509021f3db8"
+    },
+    {
+      "path": "framing_preview_v1.log",
+      "sha256": "bef46618b4907a261e1b2effa91d2b9ab2f8e64c5702cb86b6cb9888b0d722c1"
+    },
+    {
+      "path": "framing_preview_v1.log.receipt.json",
+      "sha256": "2295e1d61d9681a97c9cf8fad579b26f1d8935995a5fba51c8d71f02d10fa5de"
+    },
+    {
+      "path": "framing_preview_v1.log.stderr",
+      "sha256": "87d43c78ad888b6368895eea9f6761d757f792a6e7cc6b53c28be7888b78cf16"
+    },
+    {
+      "path": "framing_preview_v2/foreground_cost.json",
+      "sha256": "13fbce99ec03156c9941ddefd4423e6dc745bf90e9b269a847c934b109f5680e"
+    },
+    {
+      "path": "framing_preview_v2/framed_travel.png",
+      "sha256": "d98d3741ebaaf59a9e49856d912371324a802500c5fea5a02ef81079b4674f15"
+    },
+    {
+      "path": "framing_preview_v2/framing.json",
+      "sha256": "9fa7c31452caa7eb0256d1cbf13dfa5671a59f0a9d9771e53c5e93890098acb8"
+    },
+    {
+      "path": "framing_preview_v2/malformed_companion.json",
+      "sha256": "672dfa10a7b4253e692dfb41086ab0d18220fd7c54dfcae0cba606ef22230ecc"
+    },
+    {
+      "path": "framing_preview_v2/reload_comparison.json",
+      "sha256": "38da46c1582fd7e36bdab19f7da651a79fd56bbd716e7f6322380410e311deb4"
+    },
+    {
+      "path": "framing_preview_v2/reply.png",
+      "sha256": "456328d817468e721c3452d873aa7df8a71a66c6b24c9bc7e43c088d41df492a"
+    },
+    {
+      "path": "framing_preview_v2/reply_layout.json",
+      "sha256": "613730401b66b2b8cd7a6368ad0e2e5a2e078bbb3d311465fcab6bce7a283288"
+    },
+    {
+      "path": "framing_preview_v2/screen_framing.json",
+      "sha256": "eb229a97b28f473be6e7bf54d9a4b1d57c1e64333bfce6ef1d34375ad3862d86"
+    },
+    {
+      "path": "framing_preview_v2/session.json",
+      "sha256": "17d399b6134a5b7d43576ccea80c36a9ab8ac38486cb2baf126fcf941bf35d72"
+    },
+    {
+      "path": "framing_preview_v2/typing.png",
+      "sha256": "a1313eb12e0107214fbf337ba24907d45c5db300fc4ff545fe758bd0ef0c43f6"
+    },
+    {
+      "path": "framing_preview_v2.log",
+      "sha256": "1e56236d95b1b03e8acd2ee14e37eace6897311e01c320f46a5a6d57dac22a8f"
+    },
+    {
+      "path": "framing_preview_v2.log.receipt.json",
+      "sha256": "f74b7b849090c68e6a3c13f4c47432368f28a36ccb7857571d38a3686f626795"
+    },
+    {
+      "path": "framing_preview_v2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "framing_preview_v3/foreground_cost.json",
+      "sha256": "31faeddae26ded41c5a21268d60fe73eb85efb364aaa61c56952de76865df233"
+    },
+    {
+      "path": "framing_preview_v3/framed_travel.png",
+      "sha256": "e38e84d3fe972982ca2d6f5ee722406c4ffd9b51249d92fc2c50d891e3e33e14"
+    },
+    {
+      "path": "framing_preview_v3/framing.json",
+      "sha256": "9fce3993bf07a4df75e6992801834540b5f498f0a17a3c49440b26c7b1ef36e3"
+    },
+    {
+      "path": "framing_preview_v3/malformed_companion.json",
+      "sha256": "be874300c02f9d3691f479ea964610d3cf3810d01007583fdb5946f5f1da7afa"
+    },
+    {
+      "path": "framing_preview_v3/reload_comparison.json",
+      "sha256": "38da46c1582fd7e36bdab19f7da651a79fd56bbd716e7f6322380410e311deb4"
+    },
+    {
+      "path": "framing_preview_v3/reply.png",
+      "sha256": "eb791af9a255109758232c6df0c6ad1dff9566a421113850061da7f292db6b5c"
+    },
+    {
+      "path": "framing_preview_v3/reply_layout.json",
+      "sha256": "e55841ea122013b2555a81f8f72b4bdb87c13000f687157da48ddf4cf669a15d"
+    },
+    {
+      "path": "framing_preview_v3/screen_framing.json",
+      "sha256": "874211271e8e594aa6edb643b6af370c27de6c0c2148b48d4bf0184dcc71143a"
+    },
+    {
+      "path": "framing_preview_v3/session.json",
+      "sha256": "17d399b6134a5b7d43576ccea80c36a9ab8ac38486cb2baf126fcf941bf35d72"
+    },
+    {
+      "path": "framing_preview_v3/typing.png",
+      "sha256": "7f30ce23a7780de33b1123614914ac7c06d25bac0a7217fc15748b36530859b8"
+    },
+    {
+      "path": "framing_preview_v3.log",
+      "sha256": "1e56236d95b1b03e8acd2ee14e37eace6897311e01c320f46a5a6d57dac22a8f"
+    },
+    {
+      "path": "framing_preview_v3.log.receipt.json",
+      "sha256": "8bb5faf6ce0aaabfe19196b81731f742247bfbf81cbd2a09b8e10f5cca25c7c8"
+    },
+    {
+      "path": "framing_preview_v3.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "framing_preview_v3_v4/foreground_cost.json",
+      "sha256": "87f7be5211de8bbf6b487b1d852b0c837afa6eac27cf749ec522430eeba5d80f"
+    },
+    {
+      "path": "framing_preview_v3_v4/framed_travel.png",
+      "sha256": "403e69cd96e08c2cf0ab9bd5955f3a313206c8f556b4a43a536800f8acbbd0c8"
+    },
+    {
+      "path": "framing_preview_v3_v4/framing.json",
+      "sha256": "b88bb1781a75a151ea39e88b724103d8d8c945ddc70c4316276fd8d15fdd995d"
+    },
+    {
+      "path": "framing_preview_v3_v4/malformed_companion.json",
+      "sha256": "61cb2e87b6090d90b6e7670009e842a51efbbf0f2bcfba26602a0f47af45dec5"
+    },
+    {
+      "path": "framing_preview_v3_v4/reload_comparison.json",
+      "sha256": "38da46c1582fd7e36bdab19f7da651a79fd56bbd716e7f6322380410e311deb4"
+    },
+    {
+      "path": "framing_preview_v3_v4/reply.png",
+      "sha256": "0b8b356ad4fdb95f2f20d048da130cf57d37e285e4ee56d5b231c087335d89ed"
+    },
+    {
+      "path": "framing_preview_v3_v4/reply_layout.json",
+      "sha256": "4c91cba919023031969b0223f03aaf0395c0c4209c92bd0d8a785ba0838d4119"
+    },
+    {
+      "path": "framing_preview_v3_v4/screen_framing.json",
+      "sha256": "42976d6faad908dfdb5e39669ded26cca2396469787be7f668526a30f854e78c"
+    },
+    {
+      "path": "framing_preview_v3_v4/session.json",
+      "sha256": "767f63eb7444b1d29e2f44fea71670eb5cec64c3f0a11b1b36e0ab9e098ebd28"
+    },
+    {
+      "path": "framing_preview_v3_v4/typing.png",
+      "sha256": "74e34140270a9b04310ddd1088b2207d430e6edb0815a910b22a3f9ce4b412db"
+    },
+    {
+      "path": "framing_preview_v3_v4.log",
+      "sha256": "0899ebb8ca7731c560e0a435a040d66a187c5c482b6251077cc66b4317940c13"
+    },
+    {
+      "path": "framing_preview_v3_v4.log.receipt.json",
+      "sha256": "da7973adc47a4c2c858f640c20fc5c5a581748fffc02fc0021bcdb77e36bc9a7"
+    },
+    {
+      "path": "framing_preview_v3_v4.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "framing_qualification_batch.json",
+      "sha256": "157157cde019d063b26884a3c0e60d995726ad4b0c371cc8dfb2fc71c6e70a00"
+    },
+    {
+      "path": "framing_quick/board.json",
+      "sha256": "b58db987060877484b58fb144de01b449b9f50f6a166ed4c1a1b2ec7c634c416"
+    },
+    {
+      "path": "framing_quick/board.md",
+      "sha256": "bd70e729f0dbb4ce788a028409453bc9e861a79e82c22b493ad437b9a66b87f1"
+    },
+    {
+      "path": "framing_quick_corrected/board.json",
+      "sha256": "d909b5cfef2228d922e883db5d7ffce38654cb9a84ed7d508ed2cabe5efad75d"
+    },
+    {
+      "path": "framing_quick_corrected/board.md",
+      "sha256": "cc658a7b190b2fae6e776696babe89368ace6c3c113cae3308902f302c3c7b52"
+    },
+    {
+      "path": "framing_static_v1/verification.json",
+      "sha256": "20b365b847b2c2a72b03962b6c7da216c4b1a0f9e4f4c0c8ca350e79815b9232"
+    },
+    {
+      "path": "framing_static_v1/verification.md",
+      "sha256": "f10a0f4daa428f716a50ae06a63bf54afc41a6759341a8e9b697db83d86bb15d"
+    },
+    {
+      "path": "framing_static_v2/verification.json",
+      "sha256": "c24bb7fa43b73e2ebacd6c065c2475cebc651f388ffebe38784bbad401110277"
+    },
+    {
+      "path": "framing_static_v2/verification.md",
+      "sha256": "1a9d8182fdb76a4a24eab316f4f2045b19d634ae9bad72d37c1d2a9aa001c23c"
+    },
+    {
+      "path": "framing_v1_source/game/scripts/device/companion_motion.gd",
+      "sha256": "ade276dd249f0313766a0e391988bdf266aadd1ce2f039fabd2633cf5c0072a6"
+    },
+    {
+      "path": "framing_v1_source/game/scripts/device/companion_screen_frame.gd",
+      "sha256": "8000fc0c450635a11abddedea8f47c8307602729f69d3daeb010f89ed49a4318"
+    },
+    {
+      "path": "framing_v1_source/game/scripts/device/companion_world_carrier.gd",
+      "sha256": "d3baef06ae844f3c3eb0c6dad067b983b61788941fc773ae7fc21323c88d6915"
+    },
+    {
+      "path": "framing_v1_source/game/scripts/device/service_set_hand.gd",
+      "sha256": "4367ce4394541d39550d3f24a982a7c53a294fd4a30dea70b01f7216fde00174"
+    },
+    {
+      "path": "framing_v1_source/game/tests/companion_session_bench.gd",
+      "sha256": "58b1e0c19488898f3e3c227714755cf63af27eee5ece4fef599959bda720b27f"
+    },
+    {
+      "path": "framing_v1_source/index.json",
+      "sha256": "3b8c838dd8847383e262f47e06ccd6c762214e2f23b917e7f75ba2d4bd31d291"
+    },
+    {
+      "path": "framing_v1_source/tracked.patch",
+      "sha256": "2386e366724fb52865c36cd960fe7fb7b2775df9345c9cbe2c77fdcf48f7d55d"
+    },
+    {
+      "path": "framing_v4_batch.json",
+      "sha256": "8503ceda9164791e37055b98e6e5bb6402ca85425d312a4fcdb643725a1e1bc0"
+    },
+    {
+      "path": "framing_world_v2_v4/companion_correspondence_contract.json",
+      "sha256": "a91b67d223d0d7591cbfa5657a56216680f7933d4be95d3e5b0bfc642dc90b6e"
+    },
+    {
+      "path": "framing_world_v2_v4/foreground_cost.json",
+      "sha256": "da1e0bb6228d8224e6725e77b719a16b3947412a606be96ef2f7dc6aa6207b05"
+    },
+    {
+      "path": "framing_world_v2_v4/framed_travel.png",
+      "sha256": "e9ff436390d6993eee927a8ebbc618d4b62c6e65a8d5251a75858b861de79475"
+    },
+    {
+      "path": "framing_world_v2_v4/framing.json",
+      "sha256": "9fce3993bf07a4df75e6992801834540b5f498f0a17a3c49440b26c7b1ef36e3"
+    },
+    {
+      "path": "framing_world_v2_v4/reply.png",
+      "sha256": "f093d5577476111b9ff5a026507ce63659ef4af5d531fc954b4734873aad7588"
+    },
+    {
+      "path": "framing_world_v2_v4/reply.png.pixels.json",
+      "sha256": "1123b3b8f39b5e97ca301506522ffa284554b734f0339034f86de7fd5ca63a21"
+    },
+    {
+      "path": "framing_world_v2_v4/reply_layout.json",
+      "sha256": "c53c6387e91aaa661bb15c6468c48557228434039c20d85275998606cfc9f398"
+    },
+    {
+      "path": "framing_world_v2_v4/screen_framing.json",
+      "sha256": "a3e3ea9abef3277db33426d6f752462d9acf04092deb7cd70dca8772c42110e3"
+    },
+    {
+      "path": "framing_world_v2_v4/typing.png",
+      "sha256": "e0b4e5de9dd4a4d7230530f75accec7a3ed3eb4c39e4d81c5c2443a1e037f85d"
+    },
+    {
+      "path": "framing_world_v2_v4/typing.png.pixels.json",
+      "sha256": "526606af2b26010bbe4b18724d9d136a30bf1c143aa50120b685f9d07b4f87d6"
+    },
+    {
+      "path": "framing_world_v2_v4.log",
+      "sha256": "60c8ea37f3dc0873566b83e79150ff45df8daaffaa6f3447ad11fb9e5f67dce0"
+    },
+    {
+      "path": "framing_world_v2_v4.log.receipt.json",
+      "sha256": "74b364ee74a5b08db59793bf3db0ae0d91174e8a74f286b890e23f721d705c00"
+    },
+    {
+      "path": "framing_world_v2_v4.log.stderr",
+      "sha256": "7150ce280a0dcd7c669da70ad428acb5517f22873c485313b0e9056975907027"
+    },
+    {
+      "path": "preframe_main20_control/authority_comparison.json",
+      "sha256": "90878dd1af0617bc808ea577a4322e36c500dd75e002ded359a699068f8cb9be"
+    },
+    {
+      "path": "preframe_main20_control/calendar_correspondence.png",
+      "sha256": "3b098f14ae2f97f88f8496c22221b4bf522f8f193a1d84a5b0e832869fbdf4a3"
+    },
+    {
+      "path": "preframe_main20_control/calendar_correspondence.png.pixels.json",
+      "sha256": "00062847effb1673ff8da4beda7ccd00974e42854ff900dfdf920f5bbf482144"
+    },
+    {
+      "path": "preframe_main20_control/companion_correspondence_contract.json",
+      "sha256": "c30f7f1b3512b87580fe971ef0239d7ac1955be00bb74527adbb036c329db656"
+    },
+    {
+      "path": "preframe_main20_control/framing.json",
+      "sha256": "e706ac9ed099c802aad5edac6486108882f8874601e9067b3c7f23ef88b4699c"
+    },
+    {
+      "path": "preframe_main20_control/malformed_companion.json",
+      "sha256": "f2623cf02faa30e90b8a2886d47144a56c7d96ec7465f0dd17dccb7d06fe1811"
+    },
+    {
+      "path": "preframe_main20_control/reconstructed_companion.png",
+      "sha256": "5218648ff01de6f402c3e301cba3f3c4043467708b9db8482db070986a7bc70c"
+    },
+    {
+      "path": "preframe_main20_control/reload_comparison.json",
+      "sha256": "a779853aaaf818fdfd80530f90d133e9ad50348c29e815035eced9c205ad0620"
+    },
+    {
+      "path": "preframe_main20_control/reply.png",
+      "sha256": "70b3f1414c0a1698c16a7f91a192fb2c76a83ca75066eaac617496b37ef81949"
+    },
+    {
+      "path": "preframe_main20_control/reply.png.pixels.json",
+      "sha256": "14a6b52339707ed9bcaae3e8d5dd2fe52d28541823db56d019c34ff73a54e6e6"
+    },
+    {
+      "path": "preframe_main20_control/reply_layout.json",
+      "sha256": "a4ed6e69ba579c58fb0caca89ba43a08097a99cebfd7c2155bd6ff9df7a99a9e"
+    },
+    {
+      "path": "preframe_main20_control/typing.png",
+      "sha256": "77e0dce31db6ffa82b5001318c17d9882a4e57233cb0d8f53594379277a70149"
+    },
+    {
+      "path": "preframe_main20_control/typing.png.pixels.json",
+      "sha256": "0fb5261de03b0fc7c712a2933fe2c254ab4faefad0a3642910bfbdc986a8b6a3"
+    },
+    {
+      "path": "preframe_main20_control.log",
+      "sha256": "d31cbb17207da0a1a3439e1d8c9180cfe739fca782e70369d2382dfdf417ac20"
+    },
+    {
+      "path": "preframe_main20_control.log.receipt.json",
+      "sha256": "381cd480f33d8951cd734a1d86137345ff920244d3bbfb1c4492431fcff3192a"
+    },
+    {
+      "path": "preframe_main20_control.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

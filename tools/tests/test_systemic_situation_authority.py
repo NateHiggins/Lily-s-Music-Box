@@ -393,6 +393,12 @@ class DetectionTests(unittest.TestCase):
         self.assertFalse(any("relief_stage" in f for f in files))
         self.assertEqual(hits[0]["confidence"], "HEURISTIC")
 
+    def test_companion_presentation_path_is_not_player_proximity(self):
+        self.assertIsNone(audit.PROXIMITY_RE.search(
+            'screen_frame = preload("res://scripts/device/companion_screen_frame.gd").new()'))
+        self.assertIsNotNone(audit.PROXIMITY_RE.search('if on_screen: advance_world()'))
+        self.assertIsNotNone(audit.PROXIMITY_RE.search('if _on_screen: advance_world()'))
+
     def test_scene_local_autonomy_risk(self):
         hits = of_class(self.findings,
                         "AUTONOMY_DEPENDS_ON_PROXIMITY")

@@ -25,7 +25,8 @@ func _run() -> void:
 	RealityState.reset_campaign_for_tests()
 	GameBoot.launch_mode = GameBoot.LaunchMode.CINEMATIC
 	GameBoot.settings["weather_network_enabled"] = false
-	OS.set_environment("ORISON_COMPANION_WORLD", "") # Qualify the production default.
+	# The retired V2 handheld switch must no longer select the old gadget.
+	OS.set_environment("ORISON_COMPANION_WORLD", "0")
 	OS.set_environment("CAMPAIGN_TIME_FREEZE", "1")
 	Engine.max_fps = 120
 	if not await build_world(): finish(); return
@@ -50,11 +51,32 @@ func build_world() -> bool:
 	if ready:
 		worlds_ready += 1
 		collect_owned()
+		var printer: Node = carrier.device.teletype
+		check(carrier.device.phosphor_stock and printer.phosphor_stock, "V2 always installs the autonomous phosphor companion despite the retired handheld flag")
+		check(printer._hot_writer.phosphor_stock and printer._hot_writer._puff == null, "radioactive companion type creates no thermal smoke emitter")
+		var stock: StandardMaterial3D = printer._paper.get_active_material(0)
+		check(stock.albedo_color.get_luminance() < .04 and not stock.emission_enabled and not printer.ink.shaded and printer.ink.modulate.g > printer.ink.modulate.r * 2., "charcoal stock and unshaded green glyphs keep independent illumination")
+		var maps_valid := true
+		for texture: Texture2D in [stock.albedo_texture, stock.roughness_texture, stock.normal_texture]:
+			maps_valid = maps_valid and texture != null and texture.get_image().has_mipmaps()
+		check(maps_valid, "private phosphor stock retains loaded custom diffuse roughness and normal mip chains")
 	return ready
 
 func capture(filename: String) -> void:
 	collect_owned()
 	await super.capture(filename)
+	if filename in ["typing.png", "reply.png", "calendar_correspondence.png"]:
+		var rendered := Image.load_from_file(directory.path_join(filename))
+		var region := projected_bounds(carrier.device.teletype._paper).grow(-8.0).intersection(Rect2(Vector2.ZERO, Vector2(rendered.get_size())))
+		var green := 0; var dark := 0; var count := 0
+		for y in range(ceili(region.position.y), floori(region.end.y)):
+			for x in range(ceili(region.position.x), floori(region.end.x)):
+				var color := rendered.get_pixel(x,y)
+				green += int(color.g > .18 and color.g > color.r * 1.3 and color.g > color.b * 1.15)
+				dark += int(maxf(color.r,maxf(color.g,color.b)) < .20)
+				count += 1
+		var measurement := {"evidence_class":"INERT", "region":str(region), "pixels":count, "green_pixels":green, "dark_fraction":float(dark)/maxi(1,count), "scope":"Rendered colour/framing diagnostic, not human readability acceptance."}
+		FileAccess.open(directory.path_join(filename+".pixels.json"),FileAccess.WRITE).store_string(JSON.stringify(measurement,"\t"))
 
 func remember(table: Dictionary, value: Object) -> void:
 	if is_instance_valid(value): table[value.get_instance_id()] = weakref(value)
@@ -67,7 +89,8 @@ func collect_owned() -> void:
 		if node is AudioStreamPlayer or node is AudioStreamPlayer2D or node is AudioStreamPlayer3D:
 			if node.playing: remember(owned_playbacks, node.call("get_stream_playback"))
 	for resource: RefCounted in [carrier._hand, carrier.session.dialogue, carrier.session.dialogue.memory,
-			carrier.motion._probe, carrier.motion._ray, carrier.rig.glazing_film]: remember(owned_resources, resource)
+			carrier.motion._probe, carrier.motion._ray, carrier.rig.glazing_film,
+			carrier.screen_frame._environment, carrier.screen_frame.image.texture]: remember(owned_resources, resource)
 	var printer: Node = carrier.device.teletype
 	remember(owned_resources, printer.torch_lens.get_active_material(0))
 	remember(owned_resources, printer._paper.get_active_material(0))
