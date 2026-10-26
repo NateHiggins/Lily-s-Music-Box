@@ -14,6 +14,9 @@ const NUMERIC := ["temperature_c", "relative_humidity", "cloud_total", "cloud_lo
 static var _days: Dictionary = {}
 static var _dates: Array[String] = []
 static var error := ""
+static var _transport_times := PackedFloat64Array()
+static var _transport_winds := PackedVector2Array()
+static var _transport_integrals := PackedVector2Array()
 
 static func load_calendar() -> bool:
 	if not _days.is_empty(): return true
@@ -44,7 +47,32 @@ static func load_calendar() -> bool:
 		previous=stamp
 		has_previous=true
 	_days = candidate; _dates = dates; error = ""
+	# One small prefix integral alongside the existing validated calendar.
+	# No per-frame year scan, new forecast, random weather or save domain.
+	var distance := Vector2.ZERO
+	for key: String in dates:
+		var midnight := float(Time.get_unix_time_from_datetime_string(key+"T00:00:00"))
+		for frame: Dictionary in _days[key].frames:
+			var stamp := midnight + float(frame.minute)*60.0
+			var angle := deg_to_rad(float(frame.wind_direction_degrees))
+			var wind := Vector2(-sin(angle),cos(angle))*float(frame.wind_speed_kmh)/3600.0
+			if not _transport_times.is_empty():
+				distance += (_transport_winds[-1]+wind)*.5*(stamp-_transport_times[-1])
+			_transport_times.append(stamp); _transport_winds.append(wind); _transport_integrals.append(distance)
 	return true
+
+## Absolute, continuous cloud transport in km. Reopening or visiting dates in
+## reverse order gives the same field. Surface weather still owns the wind.
+static func cloud_transport(date: Dictionary) -> Vector2:
+	if not load_calendar() or _transport_times.is_empty(): return Vector2.ZERO
+	var stamp := float(Time.get_unix_time_from_datetime_dict(date))
+	var i := clampi(_transport_times.bsearch(stamp)-1,0,_transport_times.size()-1)
+	var dt := maxf(0.0,stamp-_transport_times[i])
+	var velocity := _transport_winds[i]
+	var acceleration := Vector2.ZERO
+	if i+1<_transport_times.size():
+		acceleration=(_transport_winds[i+1]-velocity)/(_transport_times[i+1]-_transport_times[i])
+	return _transport_integrals[i]+velocity*dt+acceleration*(.5*dt*dt)
 
 static func valid_day(row: Dictionary) -> bool:
 	for field: String in ["date", "chapter", "story_hook", "kind", "record_ear", "speaker_ear"]:

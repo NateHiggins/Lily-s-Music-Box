@@ -87,7 +87,11 @@ vec3 celestial_base(vec3 direction) {
 	vec3 atmosphere = blue*rayleigh*(0.65+direction.y*.65);
 	atmosphere += wx_mie_color(vec3(1.0,.82,.57),normalize(sun_direction))*mie*humidity*.045;
 	atmosphere = mix(atmosphere,vec3(.84,.19,.16)*rayleigh+vec3(.65,.08,.45)*(1.0-mu)*.25,twilight*horizon*.82);
-	color = mix(color,atmosphere,daylight);
+	// Preserve the approved night/stars, but do not paint the panorama's
+	// fixed clouds back over a procedurally clear twilight.
+	float atmospheric_day=smoothstep(-.18,-.035,sun_direction.y);
+	atmosphere*=mix(.09,1.0,smoothstep(-.14,.08,sun_direction.y));
+	color = mix(color,atmosphere,atmospheric_day);
 	float source_angle = acos(clamp(dot(direction,
 			normalize(celestial_direction)), -1.0, 1.0));
 	float halo = 1.0 - smoothstep(celestial_core_radius,
@@ -202,23 +206,28 @@ float density_tagged(vec3 p,out float fire) {
     float thickness=mix(0.60,3.0,season_weights.z);
     vec3 advected=wx_cyclone_warp(p-wind_offset);
     float bottom=base;
-    if(wx_formation==1) bottom=mix(base,wx_asperitas_bottom(advected,base),wx_formation_strength);
+    float asperitas=max(wx_formation==1 ? wx_formation_strength : 0.0,spectacle[S_ASPERITAS]);
+    if(asperitas>0.0) bottom=mix(base,wx_asperitas_bottom(advected,base),asperitas);
     vec3 q=advected;
-    if(spectacle[S_ASPERITAS]>0.0) q.y-=asperitas_shift(p)*spectacle[S_ASPERITAS];
     if(wx_formation==2) q=mix(q,wx_fluctus_warp(q,base,base+thickness),wx_formation_strength);
     float h=(q.y-bottom)/thickness;
     float deck=smoothstep(0.0,0.12,h)*(1.0-smoothstep(0.72,1.0,h));
     float result=0.0;
-    if(deck>0.001) {
+    if(living_enabled && asperitas<=0.001 && max(vortex_intensity,wx_cyclone)<.001) {
+        result=living_density(p,living_layer_0,living_motion_0,living_brush_0);
+        // An opaque lower ceiling hides the middle stratum. Keep its observed
+        // state, but spend no density/light taps on an invisible second deck.
+        if(living_layer_0.x<.96) result+=living_density(p,living_layer_1,living_motion_1,living_brush_1);
+    } else if(deck>0.001) {
         float scale=mix(0.30,0.16,season_weights.z);
         vec2 n=textureLod(cloud_noise,q*scale,0.0).rg;
         float erosion=textureLod(cloud_noise,q*scale*4.3,0.0).g;
         float cover=max(cloud_coverage,0.96*max(vortex_intensity,wx_cyclone));
         cover=max(cover,0.82*spectacle[S_ASPERITAS]);
-        if(wx_formation==1) cover=max(cover,0.96*wx_formation_strength);
+        cover=max(cover,0.96*asperitas);
         float shape=clamp((n.r-mix(0.70,0.34,cover))/0.14,0.0,1.0);
         float sheet=max(season_weights.x,max(wx_hail,max(wx_cyclone,vortex_intensity)));
-        if(wx_formation==1) sheet=max(sheet,wx_formation_strength);
+        sheet=max(sheet,asperitas);
         shape=mix(shape,0.94,smoothstep(0.65,0.95,cover)*sheet);
         result=max(0.0,shape-(1.0-erosion)*mix(0.55,0.07,sheet))*deck;
     }
@@ -254,12 +263,17 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     if(spectacle[S_MAMMATUS]>0.0) base=min(base,.88);
     if(spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]>0.0) base=min(base,.40);
     float ceiling=base+mix(0.60,3.0,season_weights.z);
+    if(living_enabled) {
+        base=min(base,living_layer_0.y);
+        ceiling=max(ceiling,max(living_layer_0.y+living_layer_0.z,living_layer_1.y+living_layer_1.z));
+    }
     if(shape_kind>0 && shape_opacity>0.0) ceiling=max(ceiling,3.15);
     if(wx_formation==3) ceiling=max(ceiling,wx_lens_center.y+0.55);
     if(wx_formation==2) ceiling=max(ceiling,2.80);
     vec2 deck=vec2(100000.0,-1.0);
     if(direction.y>0.0001) {
-        deck=vec2(max(0.0,(base-0.50-ro.y)/direction.y),min(18.0,(ceiling-ro.y)/direction.y));
+        float underside=(wx_formation==1 || spectacle[S_ASPERITAS]>0.0) ? 0.75 : 0.50;
+        deck=vec2(max(0.0,(base-underside-ro.y)/direction.y),min(18.0,(ceiling-ro.y)/direction.y));
         if(deck.y<=deck.x) deck=vec2(100000.0,-1.0);
     }
     vec2 funnel=vec2(100000.0,-1.0);
@@ -321,6 +335,12 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
             float alpha=1.0-exp(-6.0*d*ds);
             float h=clamp((p.y-base)/max(ceiling-base,0.1),0.0,1.0);
             vec3 lit=wx_powder_light(d,tau_sun,dot(direction,source),h,celestial_color*day,ambient,source);
+            float asperitas=max(wx_formation==1 ? wx_formation_strength : 0.0,spectacle[S_ASPERITAS]);
+            if(asperitas>0.0) {
+                float relief=wx_asperitas_relief(p-wind_offset,source);
+                vec3 hollow=ambient*mix(vec3(.24,.30,.52),vec3(.43,.19,.38),1.0-smoothstep(.03,.28,abs(source.y)));
+                lit=mix(lit,mix(hollow,lit,0.20+0.80*relief),asperitas);
+            }
             float gold=smoothstep(.24,0.0,source.y)*smoothstep(-.10,.01,source.y);
             lit=mix(lit,mix(ambient*.30,vec3(1.0,.40,.14)*(.35+.8*exp(-tau_sun)),gold),fire*.9);
             lit*=1.0-.9*noctilucent_light()*spectacle[S_NOCTILUCENT];
@@ -354,16 +374,36 @@ void sky() {
         COLOR=clouds.rgb; ALPHA=clouds.a;
     } else {
         vec3 base=celestial_base(EYEDIR);
+        if(living_enabled && living_layer_2.x>.0001 && EYEDIR.y>.015) {
+            vec3 high_p=wx_camera_km+EYEDIR*((living_layer_2.y+living_layer_2.z*.3-wx_camera_km.y)/EYEDIR.y);
+            float ice=living_density(high_p,living_layer_2,living_motion_2,living_brush_2);
+            float ice_alpha=1.0-exp(-ice*living_layer_2.z*3.0/max(.12,EYEDIR.y));
+            ice_alpha*=smoothstep(.04,.18,EYEDIR.y)*(1.0-(wx_formation==4 ? wx_formation_strength*.8 : 0.0));
+            float high_sun=smoothstep(-.065,-.025,sun_direction.y);
+            vec3 ice_color=mix(fog_horizon_color*.7,vec3(.70,.80,.95),high_sun);
+            float amber=1.0-smoothstep(.015,.24,abs(sun_direction.y));
+            ice_color=mix(ice_color,vec3(1.30,.55,.32),amber*high_sun);
+            base=mix(base,ice_color,ice_alpha);
+        }
         vec2 uv=EYEDIR.xz/max(.15,EYEDIR.y)*.14-wind_offset.xz*.14;
         float cirrus=texture(cirrus_tex,uv).r*max(high_cloud_strength,wx_formation==4 ? wx_formation_strength*0.70 : 0.0)*(wx_formation==4 ? .85 : mix(.16,.45,season_weights.w));
         cirrus*=smoothstep(.04,.18,EYEDIR.y);
+        if(living_enabled) cirrus=0.0; // The observed high genus owns ordinary ice cloud.
+        if(wx_formation==4) {
+            vec2 pearl_uv=uv*vec2(.7,1.3);
+            vec2 patch=textureLod(cloud_noise,vec3(pearl_uv,.2+wx_phase*.0001),1.0).rg;
+            cirrus=smoothstep(.48,.66,patch.x*.6+patch.y*.4)*wx_formation_strength*.48*smoothstep(.04,.18,EYEDIR.y);
+        }
         vec3 cirrus_color=fog_horizon_color*1.4+celestial_color*.12;
-        if(wx_formation==4) cirrus_color*=wx_nacreous(EYEDIR,normalize(sun_direction),texture(cirrus_tex,uv).r);
+        if(wx_formation==4) {
+            vec3 pearl=wx_nacreous(EYEDIR,normalize(sun_direction),texture(cirrus_tex,uv).r);
+            cirrus_color=mix(cirrus_color,pearl*.35+vec3(.03,.025,.045),wx_nacreous_gate(normalize(sun_direction)));
+        }
         base=mix(base,cirrus_color,cirrus);
         base=spectacle_behind(EYEDIR,base);
         vec3 combined=base*(1.0-HALF_RES_COLOR.a)+HALF_RES_COLOR.rgb;
         combined=spectacle_front(EYEDIR,combined,HALF_RES_COLOR.a);
-        float rho=mix(0.00035,0.045,wx_whiteout);
+        float rho=mix(living_enabled ? mix(.00015,.00055,living_aerosol/.4) : .00035,0.045,wx_whiteout);
         float tau=wx_height_tau(wx_camera_km.y*1000.0,max(EYEDIR.y,0.0),3000.0,rho,140.0);
         COLOR=mix(combined,wx_haze_color(normalize(sun_direction)),1.0-exp(-tau));
     }

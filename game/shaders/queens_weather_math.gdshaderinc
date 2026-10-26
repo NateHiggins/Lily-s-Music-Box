@@ -14,6 +14,66 @@ uniform vec2 wx_cyclone_center = vec2(5.0, -8.0);
 uniform vec2 wx_vortex_center = vec2(2.2, -3.5);
 uniform vec3 wx_lens_center = vec3(-2.0, 3.0, -4.0);
 uniform sampler2D wx_iridescence_ramp : source_color, filter_linear, repeat_enable;
+// Three observed strata in the existing bounded march; no additional viewport.
+uniform bool living_enabled = false;
+uniform float living_aerosol = .2;
+uniform vec4 living_layer_0 = vec4(0.0,1.25,1.6,8.0);
+uniform vec4 living_layer_1 = vec4(0.0,3.8,0.65,3.0);
+uniform vec4 living_layer_2 = vec4(0.0,8.0,0.3,0.0);
+uniform vec4 living_motion_0;
+uniform vec4 living_motion_1;
+uniform vec4 living_motion_2;
+uniform vec4 living_brush_0 = vec4(2.0,.9,1.0,0.0);
+uniform vec4 living_brush_1 = vec4(1.2,.65,1.0,0.0);
+uniform vec4 living_brush_2 = vec4(3.8,.22,9.0,0.0);
+
+float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush) {
+	float coverage=layer.x;
+	if(coverage<=0.0001 || p.y<layer.y || p.y>layer.y+layer.z) return 0.0;
+	float h=(p.y-layer.y)/layer.z;
+	float wind_c=cos(brush.w), wind_s=sin(brush.w);
+	// Rotate around the observer's regional origin, not the year's accumulated
+	// travel. A small wind turn must not rotate thousands of kilometres of UV.
+	vec2 q=(mat2(vec2(wind_c,-wind_s),vec2(wind_s,wind_c))*p.xz-motion.xy)/max(brush.x,.1);
+	q+=vec2(mod(motion.w,127.0),mod(motion.w,71.0));
+	int genus=int(layer.w);
+	float body=0.0;
+	float texture_detail=.6;
+	bool sheet=(genus==2 || genus==4 || genus==5 || genus==7);
+	if(sheet) {
+		vec2 sheet_noise=textureLod(cloud_noise,vec3(q*.125,motion.z*.003),1.0).rg;
+		float broad=sheet_noise.r;
+		texture_detail=sheet_noise.g;
+		body=smoothstep(1.0-coverage-.10,1.0-coverage+.10,broad);
+		if(coverage>.94) body=mix(body,1.0,smoothstep(.94,1.0,coverage));
+		body*=.65+.35*broad;
+	} else if(genus==0) {
+		// High ice fibres: anisotropic stretched marks, not scaled cumulus.
+		vec2 uv=vec2(q.x*.32,q.y*.85+sin(q.x*.7)*.32);
+		vec2 ice_noise=textureLod(cloud_noise,vec3(uv,.17+motion.z*.001),1.0).rg;
+		float fibre=ice_noise.r;
+		texture_detail=ice_noise.g;
+		body=smoothstep(.64-coverage*.36,.74-coverage*.36,fibre);
+	} else {
+		// Continuous warped masses avoid a visible grid of identical ellipsoids.
+		// Reuse the existing two-channel volume; no new texture or march steps.
+		vec2 warp=textureLod(cloud_noise,vec3(q*.043,motion.z*.001),1.0).rg-.5;
+		vec2 marks=q+warp*3.0;
+		if(int(brush.z)==4 || int(brush.z)==9) marks.y*=.32;
+		vec2 field=textureLod(cloud_noise,vec3(marks*.18,h*.15+motion.z*.002),1.0).rg;
+		texture_detail=field.y;
+		float mass=field.x*.65+field.y*.35;
+		float upper=(genus==1 || genus==3 || genus==6) ? .43 : .78;
+		mass-=pow(max(h-.12,0.0)/upper,2.0)*.18;
+		if(int(brush.z)==5) mass+=sin(q.y*2.2+warp.x*4.0)*.08;
+		if(int(brush.z)==6) mass+=sin(q.x*.16)*.10;
+		if(int(brush.z)==8) mass-=.07*(1.0-field.y);
+		body=smoothstep(.70-.40*sqrt(coverage),.79-.40*sqrt(coverage),mass);
+		body=mix(body,.7+.3*field.x,smoothstep(.88,1.0,coverage));
+	}
+	float envelope=smoothstep(0.0,.10,h)*(1.0-smoothstep(.72,1.0,h));
+	return max(0.0,body-(1.0-texture_detail)*.12)*envelope*brush.y;
+}
 
 mat2 wx_rotation(float a) {
 	float s=sin(a), c=cos(a);
@@ -41,12 +101,21 @@ float wx_cloud_base() {
 	return mix(1.25,0.62,max(wx_hail,wx_cyclone));
 }
 float wx_asperitas_bottom(vec3 p,float base) {
-	float waves=sin(p.x*1.35+wx_phase)*0.55
-		+sin(p.z*1.75-p.x*0.60+wx_phase*0.5)*0.45;
+	float waves=sin(p.x*4.3+wx_phase)*0.55
+		+sin(p.z*5.7-p.x*1.8+wx_phase*0.5)*0.45;
 	// G is the supplied Worley channel; filter at a coarse mip for smooth pouches.
-	float voronoi=textureLod(cloud_noise,p*0.22,2.0).g;
+	float voronoi=textureLod(cloud_noise,p*0.8,2.0).g;
 	float pouch=pow(1.0-smoothstep(0.18,0.85,voronoi),2.0);
-	return base+0.17*waves-0.26*pouch;
+	return base+0.26*waves-0.31*pouch;
+}
+float wx_asperitas_relief(vec3 p,vec3 to_sun) {
+	// Analytic slope of the same broad waves: no extra density/noise taps.
+	float a=p.x*4.3+wx_phase;
+	float b=p.z*5.7-p.x*1.8+wx_phase*0.5;
+	float dx=0.26*(0.55*4.3*cos(a)-0.45*1.8*cos(b));
+	float dz=0.26*0.45*5.7*cos(b);
+	vec3 underside=normalize(vec3(dx,-1.0,dz));
+	return smoothstep(-0.32,0.30,dot(underside,to_sun));
 }
 vec3 wx_fluctus_warp(vec3 p,float layer_bottom,float layer_top) {
 	// Finite patch and vertical gate: do not turn the entire sky into a sawtooth.
@@ -128,12 +197,18 @@ vec3 wx_powder_light(float density_value,float sun_tau,float mu,float height01,
 	sun=wx_mie_color(sun,to_sun);
 	vec3 cold=vec3(0.19,0.24,0.31);
 	ambient=mix(ambient,cold,wx_cyclone*0.88);
+	// Dense ice/water cores absorb the exaggerated forward lobe. Thin sunlit
+	// edges retain the powder bloom instead of washing the entire deck white.
+	float core_transmission=exp(-1.4*density_value*density_value);
 	return ambient*(0.28+0.32*powder)
-		+sun*sun_T*(phase*6.283185)*(1.0+1.6*powder)*(1.0-0.98*wx_cyclone);
+		+sun*sun_T*core_transmission*(min(phase*3.141593,1.2))*(1.0+.65*powder)*(1.0-0.98*wx_cyclone);
+}
+float wx_nacreous_gate(vec3 to_sun) {
+	return smoothstep(-0.14,-0.055,to_sun.y)
+		*(1.0-smoothstep(-0.015,0.025,to_sun.y));
 }
 vec3 wx_nacreous(vec3 view_dir,vec3 to_sun,float wisp_noise) {
-	float twilight=smoothstep(-0.14,-0.055,to_sun.y)
-		*(1.0-smoothstep(-0.015,0.025,to_sun.y));
+	float twilight=wx_nacreous_gate(to_sun);
 	float angle=acos(clamp(dot(normalize(view_dir),normalize(to_sun)),-1.0,1.0));
 	float ramp_u=fract(angle*2.8+wisp_noise*0.18);
 	vec3 pearl=textureLod(wx_iridescence_ramp,vec2(ramp_u,0.5),0.0).rgb;

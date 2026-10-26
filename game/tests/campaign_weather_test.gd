@@ -16,6 +16,7 @@ func _ready() -> void:
 	GameBoot.settings.weather_network_enabled=false
 	OS.set_environment("WEATHER_SIMULATE","")
 	check(CampaignWeather.load_calendar(),"authored calendar loads: "+CampaignWeather.error)
+	_living_year()
 	var start:=Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")
 	var profiles: Dictionary={}
 	for offset in 365:
@@ -128,3 +129,59 @@ func _ready() -> void:
 	manager.queue_free();director.free();catalog.queue_free();conversations.queue_free()
 	await get_tree().process_frame
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _living_year() -> void:
+	var library:=preload("res://scripts/building/living_sky.gd")
+	check(library.load_library(),"ten-genus and fifty-scenario library validates")
+	var start:=Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")
+	var seen: Dictionary={};var regimes: Dictionary={};var eligible_counts: Dictionary={}
+	var invalid: Array[String]=[];var replay: Array[String]=[]
+	var started:=Time.get_ticks_usec()
+	for day_index in 365:
+		for hour in [6,12,18]:
+			var date:=Time.get_datetime_dict_from_unix_time(start+day_index*86400+hour*3600)
+			var conditions:=Service.presentation(CampaignWeather.snapshot(date))
+			var state: Dictionary=library.sample(date,conditions,1928)
+			if state.is_empty():invalid.append(str(date));continue
+			regimes[state.regime]=true
+			for layer: Dictionary in state.layers:
+				if not (layer.offset_km as Vector2).is_finite() or not (layer.wind as Vector2).is_finite() or float(layer.coverage)<0 or float(layer.coverage)>1: invalid.append(str(date))
+				if float(layer.coverage)>.03:seen[layer.genus]=int(seen.get(layer.genus,0))+1
+			for id: int in state.eligible_scenarios:eligible_counts[str(id)]=int(eligible_counts.get(str(id),0))+1
+			if absf(float(state.combined_coverage)-float(conditions.cloud_total))>.0002:invalid.append("coverage union "+str(date))
+			if float(state.dew_point_c)>float(conditions.temperature_c)+.001:invalid.append("dew point "+str(date))
+			if day_index%31==0:replay.append(JSON.stringify(state))
+	check(invalid.is_empty(),"all1095 annual daylight/shoulder samples retain finite layers, optical coverage and dew point bounds: "+str(invalid.slice(0,3)))
+	check(seen.size()==10,"all ten genera actually have eligible nonzero annual layers: "+str(seen.keys()))
+	check(regimes.size()>=6,"annual calendar retains multiple coherent regimes: "+str(regimes.keys()))
+	var second: Array[String]=[]
+	for day_index in range(364,-1,-1):
+		if day_index%31!=0:continue
+		for hour in [18,12,6]:
+			var date:=Time.get_datetime_dict_from_unix_time(start+day_index*86400+hour*3600)
+			second.push_front(JSON.stringify(library.sample(date,Service.presentation(CampaignWeather.snapshot(date)),1928)))
+	check(replay==second,"reverse date visits and fresh interpretation reproduce exact cloud identity, advection and evolution")
+	var date:=Time.get_datetime_dict_from_unix_time(start+60*86400+86399)
+	var a:=CampaignWeather.cloud_transport(date)
+	var b:=CampaignWeather.cloud_transport(Time.get_datetime_dict_from_unix_time(start+61*86400))
+	check(a.distance_to(b)<.04,"cloud transport remains continuous across midnight")
+	var clear:=Service.presentation(Service.simulated_snapshot("clear"))
+	var zero: Dictionary=library.sample(date,clear,1928)
+	check(zero.layers.all(func(layer):return float(layer.coverage)==0.0),"literal clear weather has no ordinary cloud layer")
+	check(not library.eligible("snow_stock",clear,12,0),"wind cannot invent loose ground snow")
+	check(not library.eligible("ineligible",clear,12),"Queens does not select tropical trade-wind recipes")
+	var extension:=preload("res://scripts/building/queens_weather_extension.gd").new()
+	var conditions:=Service.presentation(CampaignWeather.snapshot(date))
+	extension.receive_conditions(conditions,CampaignWeather.date_key(date),1928,CampaignWeather.events(CampaignWeather.snapshot(date)))
+	extension.sample_calendar(date,CampaignWeather.cloud_transport(date))
+	var frozen:=[extension.weights,extension.wetness,extension.phase,extension.fog_offset,extension.formation_strength]
+	for frame in 240:extension.advance(1.0/30.0,true)
+	check(frozen==[extension.weights,extension.wetness,extension.phase,extension.fog_offset,extension.formation_strength],"paused campaign leaves precipitation, wetness, morphology and motion unchanged across render frames")
+	var reconstructed:=preload("res://scripts/building/queens_weather_extension.gd").new()
+	reconstructed.receive_conditions(conditions,CampaignWeather.date_key(date),1928,CampaignWeather.events(CampaignWeather.snapshot(date)))
+	reconstructed.sample_calendar(date,CampaignWeather.cloud_transport(date))
+	check(frozen==[reconstructed.weights,reconstructed.wetness,reconstructed.phase,reconstructed.fog_offset,reconstructed.formation_strength],"fresh weather instance reconstructs the same calendar state without hidden save history")
+	var out_dir:=OS.get_environment("SHOT_DIR")
+	if out_dir.is_empty():out_dir="user://campaign_weather_test"
+	DirAccess.make_dir_recursive_absolute(out_dir)
+	FileAccess.open(out_dir.path_join("living_year.json"),FileAccess.WRITE).store_string(JSON.stringify({"scope":"1095 deterministic state samples; not a rendered annual gallery or runtime acceptance", "samples":1095,"genera":seen,"regimes":regimes,"eligible_scenarios":eligible_counts,"invalid":invalid,"elapsed_ms":(Time.get_ticks_usec()-started)/1000.0},"\t"))

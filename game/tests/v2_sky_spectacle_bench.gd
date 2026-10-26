@@ -11,7 +11,7 @@ extends Node3D
 const Manager := preload("res://scripts/building/WeatherManager.gd")
 const Phenomena := preload("res://scripts/building/sky_phenomena.gd")
 const EYE := Vector3(0.0, 22.0, 0.0)
-@export var queens_renderer := false
+@export var queens_renderer := true
 ## id -> [aim, pitch degrees, fov, yaw offset]. aim: bearing | sun | sun_az | anti | anti_az | tip
 const SHOTS := {
 	"mammatus": ["bearing", 28.0, 80.0, 0.0], "shelf_cloud": ["bearing", 6.0, 85.0, 0.0],
@@ -91,6 +91,12 @@ func _ready() -> void:
 	camera.global_position = EYE
 	get_viewport().use_taa = true
 	await get_tree().process_frame
+	if OS.get_environment("SKY_LIBRARY_VIEWER")=="1":
+		_library_viewer()
+		return
+	if OS.get_environment("SKY_LIBRARY_YEAR")=="1":
+		await _library_year()
+		return
 	var only := OS.get_environment("SPECTACLE_ONLY").split(",", false)
 	var saved := 0
 	for slot in Phenomena.SLOTS:
@@ -107,6 +113,60 @@ func _ready() -> void:
 		saved += 1
 	print("V2 SKY SPECTACLE BENCH: %d frames" % saved)
 	get_tree().quit(0)
+
+
+## Development-only calendar viewer and compact annual gallery. Uses the same
+## production manager/shader and real city horizon, not the full occupied world.
+func _library_date(day_index: int,hour: float) -> void:
+	var start:=Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")
+	var date:=Time.get_datetime_dict_from_unix_time(start+day_index*86400)
+	clock.configure_date(int(date.year),int(date.month),int(date.day),int(hour*60))
+	manager._calendar_check_left=0.0;manager._phenomena_left=0.0;manager._publish_left=0.0
+	manager._process(1.0);manager._publish()
+	if manager.extreme_weather!=null:manager.extreme_weather.publish(sky_material,camera.global_position)
+	director._apply(clock.minute_of_day())
+	camera.fov=85
+	camera.look_at(EYE+Vector3(-1,.42,-.3))
+
+func _library_viewer() -> void:
+	manager.set_process(false)
+	var panel:=VBoxContainer.new();panel.position=Vector2(18,18);panel.custom_minimum_size=Vector2(430,0)
+	add_child(panel)
+	var label:=Label.new();panel.add_child(label)
+	var day:=HSlider.new();day.max_value=364;day.step=1;panel.add_child(day)
+	var hour:=HSlider.new();hour.max_value=23.99;hour.step=.05;hour.value=12;panel.add_child(hour)
+	var seed_label:=Label.new();seed_label.text="Layout seed (same calendar weather)";panel.add_child(seed_label)
+	var seed_control:=SpinBox.new();seed_control.max_value=65520;seed_control.value=manager._seed_value();panel.add_child(seed_control)
+	var update:=func(_value: float):
+		OS.set_environment("WEATHER_SEED",str(int(seed_control.value)))
+		_library_date(int(day.value),hour.value)
+		label.text="%s | %s | %s\nDay / hour — development preview"%[clock.datetime_string(),manager.atmosphere_state.regime,manager.atmosphere_state.scenario_label]
+	day.value_changed.connect(update);hour.value_changed.connect(update);seed_control.value_changed.connect(update)
+	update.call(0.0)
+
+func _library_year() -> void:
+	manager.set_process(false)
+	var directory:=OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(directory)
+	var atlas:=Image.create(1280,1440,false,Image.FORMAT_RGB8)
+	var rows: Array[Dictionary]=[];var failures: Array[String]=[]
+	for day_index in 365:
+		_library_date(day_index,12.0)
+		for frame in 24:await RenderingServer.frame_post_draw
+		var image:=get_viewport().get_texture().get_image()
+		image.resize(320,180,Image.INTERPOLATE_LANCZOS)
+		var slot:=day_index%32
+		if slot==0:atlas.fill(Color(.025,.025,.025))
+		atlas.blit_rect(image,Rect2i(0,0,320,180),Vector2i((slot%4)*320,(slot/4)*180))
+		rows.append({"day":day_index,"date":clock.datetime_string(),"state":manager.atmosphere_state.duplicate(true),"source":manager.source})
+		if manager.source!="campaign-calendar":failures.append("non-calendar source day %d"%day_index)
+		if slot==31 or day_index==364:
+			var path:=directory.path_join("year_%02d.png"%(day_index/32))
+			if atlas.save_png(path)!=OK:failures.append("capture "+path)
+			print("LIVING SKY GALLERY day %d/365"%(day_index+1))
+	FileAccess.open(directory.path_join("annual_gallery.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"365 noon renders over production city-horizon bench; no occupied-world, full-day or human acceptance", "seed":manager._seed_value(),"calendar_sha256":FileAccess.get_sha256("res://data/weather/campaign_weather.json"),"days":rows,"failures":failures},"\t"))
+	get_tree().quit(0 if failures.is_empty() else 1)
 
 
 func _shoot(id: String, entry: Dictionary, fraction: float, label: String) -> void:

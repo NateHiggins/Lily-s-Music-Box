@@ -107,7 +107,11 @@ func _ready() -> void:
 			and environment.fog_density >= 0.78
 			and environment.fog_density <= 1.0)
 	var directional := _descendants(root).filter(
-			func(node): return node is DirectionalLight3D)
+			func(node): return node is DirectionalLight3D and node.get_world_3d()==root.get_world_3d())
+	print("WEATHER EXTERIOR KEYS: ",directional.map(func(node):return str(node.get_path())))
+	_check("isolated story tiles retain loaded mipmaps after compressed-atlas decoding",
+			not StoryDecal._texture_cache.is_empty() and StoryDecal._texture_cache.values().all(
+			func(texture):return texture.get_width()>0 and texture.get_image().has_mipmaps()))
 	_check("the whole world owns one directional exterior key",
 			directional.size() == 1 and directional[0] == sky_key)
 	_check("WeatherFX adds no realtime lights",

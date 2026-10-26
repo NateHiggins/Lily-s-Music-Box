@@ -8,15 +8,25 @@ var _samples: Array=[]
 var _segments: Array[Dictionary]=[]
 var _monitors: Dictionary={}
 var _walk_index:=0
+var _source_before:=""
+var _calendar_mode:=false
 
 func _ready() -> void:
 	OS.set_environment("WEATHER_SKY_BASELINE","1" if baseline_mode else "0")
-	OS.set_environment("WEATHER_SIMULATE","hail_storm")
+	_calendar_mode=OS.get_environment("WEATHER_PROFILE_CALENDAR")=="1"
+	OS.set_environment("WEATHER_SIMULATE","" if _calendar_mode else "hail_storm")
 	OS.set_environment("WEATHER_SEED","1928")
 	OS.set_environment("DAYNIGHT_FORCE","evening")
 	GameBoot.settings.weather_network_enabled=false
 	route_label="V2 WEATHER BASELINE" if baseline_mode else "V2 WEATHER INTEGRATED"
+	_source_before=_runtime_digest()
 	super._ready()
+
+func _runtime_digest() -> String:
+	var result: Array=[]
+	var root:=ProjectSettings.globalize_path("res://..").simplify_path()
+	if OS.execute("python",[root.path_join("tools/run_receipt.py"),"digest","--root",root],result)!=0:return ""
+	return str(result[0]).strip_edges() if not result.is_empty() else ""
 
 func _process(_delta: float) -> void:
 	var now:=Time.get_ticks_usec()
@@ -50,11 +60,12 @@ func _route() -> void:
 			_monitors[key]=ClassDB.class_get_integer_constant("Performance",key)
 	for driver: CampaignClockDriver in get_tree().get_nodes_in_group("campaign_time_owner"):driver.set_frozen_for_tests(true)
 	var manager: Node=world.get_node("WakingAtmosphere").weather_manager
-	manager.current=manager.Service.presentation(manager.Service.simulated_snapshot("hail_storm"))
-	manager.target=manager.current.duplicate(true);manager.origin=manager.current.duplicate(true)
-	manager.elapsed=manager.TRANSITION_SECONDS;manager._publish()
-	if manager.extreme_weather!=null:
-		manager.extreme_weather.advance(120.0);manager._publish()
+	if not _calendar_mode:
+		manager.current=manager.Service.presentation(manager.Service.simulated_snapshot("hail_storm"))
+		manager.target=manager.current.duplicate(true);manager.origin=manager.current.duplicate(true)
+		manager.elapsed=manager.TRANSITION_SECONDS;manager._publish()
+		if manager.extreme_weather!=null:
+			manager.extreme_weather.advance(120.0);manager._publish()
 	var traffic: Node=world.period_traffic
 	traffic.stage([{"id":traffic.data.kinds[0].id,"x":-30.0,"lane_west":false,"speed":4.0},
 		{"id":traffic.data.kinds[1].id,"x":30.0,"lane_west":true,"speed":4.0}])
@@ -74,10 +85,24 @@ func _route() -> void:
 		"evidence_class":"INERT","scope":"Matched actual-controller street crossing, front-door grabs and outdoor mouse turning; no full V2 or statistical performance qualification",
 		"baseline_mode":baseline_mode,"resolution":str(get_viewport().get_visible_rect().size),"fov":player.camera.fov,
 		"renderer":RenderingServer.get_current_rendering_method(),"taa":get_viewport().use_taa,"msaa":get_viewport().msaa_3d,
-		"weather":"hail_storm","daynight_force":"evening","traffic_seed":1928,"traffic_frozen":traffic.frozen,
+		"weather":"campaign-calendar" if _calendar_mode else "hail_storm","weather_source":manager.source,"conditions":manager.current.duplicate(true),"atmosphere":manager.atmosphere_state,"daynight_force":"evening","traffic_seed":1928,"traffic_frozen":traffic.frozen,
 		"columns":["phase","wall_ms","script_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters"],
 		"segments":_segments,"samples":_samples,"input_costs":player._grab.profile_records,
 		"player_physics":player.physics_profile_records,"failures":failures},"\t"))
+	var source_after:=_runtime_digest()
+	if source_after.is_empty() or source_after!=_source_before:failures.append("runtime source changed during played route")
+	if trace.size()!=29 or _samples.size()<1000:failures.append("played route or measured sample interval incomplete")
+	var status:="PASS" if failures.is_empty() else "FAIL"
+	var shader_sources: Dictionary={}
+	for path: String in ["queens_weather_sky.gdshader","queens_weather_math.gdshaderinc","sky_spectacle.gdshaderinc"]:
+		shader_sources["game/shaders/"+path]=FileAccess.get_file_as_string("res://shaders/"+path).replace("\r\n","\n").sha256_text()
+	FileAccess.open(output.path_join("weather_route_contract.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
+		"scope":"Played occupied V2 street crossing, actual door grab/motion/release and outdoor mouse turns under fixed-evening weather diagnostics. No calendar save/rebuild, whole-V2 coverage, teardown qualification, performance improvement or human acceptance.",
+		"execution":{"completed":true,"exit_code":0 if failures.is_empty() else 1,"timed_out":false},
+		"source":{"test_path":"game/tests/v2_weather_route_profile.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after,"shader_sources":shader_sources},
+		"contracts":{"production_composition":{"executed":is_instance_valid(world) and not world.startup_failed,"status":status},"continuous_route":{"executed":trace.size()==29,"status":status}},
+		"checks":[{"name":"29 real-controller waypoints and bounded measurement","passed":trace.size()==29 and _samples.size()>=1000},{"name":"frozen runtime sources","passed":source_after==_source_before and not source_after.is_empty()}],"failures":failures},"\t"))
 
 func _turn_and_hold() -> void:
 	_phase="outdoor_mouse_turn"

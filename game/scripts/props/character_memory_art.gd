@@ -66,7 +66,7 @@ func _ready() -> void:
 ## Copies one panel into its own GPU texture. A small inset removes the atlas
 ## divider and prevents mip/filter sampling from ever revealing another panel.
 func _isolate_atlas_tile(source: Texture2D) -> Texture2D:
-	var image := source.get_image()
+	var image := StoryDecal.editable_image(source)
 	if image == null or image.is_empty():
 		var fallback := AtlasTexture.new()
 		var half := source.get_size() / Vector2(atlas_cols, atlas_rows)

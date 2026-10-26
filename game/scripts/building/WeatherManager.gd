@@ -5,6 +5,7 @@ const Service := preload("res://scripts/building/live_weather_service.gd")
 const CloudNoise := preload("res://scripts/building/weather_noise.gd")
 const Calendar := preload("res://scripts/game/campaign_weather.gd")
 const Phenomena := preload("res://scripts/building/sky_phenomena.gd")
+const LivingSky := preload("res://scripts/building/living_sky.gd")
 const TLE_SLOTS := [23, 24, 25, 26]
 const CRAWLER_SLOT := 22
 const PLUME_LIGHTNING_SLOT := 28
@@ -15,6 +16,7 @@ const MEAN_F := [33.7,35.9,42.8,53.7,63.2,72.0,77.5,76.1,69.2,57.9,48.0,39.1]
 const FIELDS := ["temperature_c","relative_humidity","cloud_total","cloud_low","cloud_mid","cloud_high","wind_speed_kmh","wind_gusts_kmh","precipitation_intensity","rain_intensity","snow_intensity"]
 var provider: LiveWeatherService
 var current: Dictionary = {}
+var atmosphere_state: Dictionary = {}
 var target: Dictionary = {}
 var origin: Dictionary = {}
 var elapsed := TRANSITION_SECONDS
@@ -180,11 +182,19 @@ func _process(delta: float) -> void:
 	_wind_offset+=wind_direction*float(current.get("wind_speed_kmh",0))/3600.0*delta
 	var animate:=true
 	if extreme_weather!=null:
-		animate=extreme_weather.advance(delta)
+		animate=extreme_weather.advance(delta,source=="campaign-calendar")
+		# Cloud geometry follows civil campaign time, not instance uptime.
+		# Keep the existing physical particle/transition owner for live weather.
 		if animate and effects!=null and is_instance_valid(effects._player):
 			var camera:=get_viewport().get_camera_3d()
 			extreme_weather.publish(sky,camera.global_position if camera!=null else effects._player.global_position,effects.get("air_material"))
 	if RenderingServer.get_current_rendering_method()=="forward_plus" and animate:
+		if source=="campaign-calendar":
+			var transport:=Calendar.cloud_transport(date)
+			_wind_offset=Vector3(transport.x,0,transport.y)
+		if extreme_weather!=null:
+			LivingSky.move_fields(atmosphere_state,date,Vector2(_wind_offset.x,_wind_offset.z))
+			LivingSky.publish(sky,atmosphere_state)
 		_frame=(_frame+1)%128
 		sky.set_shader_parameter("temporal_phase",float(_frame) if get_viewport().use_taa else 0.0)
 		sky.set_shader_parameter("wind_offset",_wind_offset)
@@ -200,12 +210,17 @@ func _publish() -> void:
 	var date := clock.local_datetime()
 	var weights := season_weights(int(date.get("month",11)),int(date.get("day",date.get("day_of_month",15))))
 	current["season_weights"]=weights
+	atmosphere_state=LivingSky.sample(date,current,_seed_value(),Vector2(INF,INF) if source=="campaign-calendar" else Vector2(_wind_offset.x,_wind_offset.z))
+	if not atmosphere_state.is_empty():atmosphere_state.mode="curated-year" if source=="campaign-calendar" else "observed-or-seasonal"
+	if extreme_weather!=null: LivingSky.publish(sky,atmosphere_state)
 	if extreme_weather!=null:
 		var identity:="%04d-%02d-%02d"%[date.get("year",1928),date.get("month",11),date.get("day",date.get("day_of_month",10))]
 		var seed_value:=int(OS.get_environment("WEATHER_SEED")) if OS.get_environment("WEATHER_SEED").is_valid_int() else 1928
 		var events:=_calendar_events.duplicate(true) if source=="campaign-calendar" else {}
 		events.merge(_extreme_events,true)
 		extreme_weather.receive_conditions(current,identity,seed_value,events)
+		if source=="campaign-calendar":
+			extreme_weather.sample_calendar(date,Calendar.cloud_transport(date))
 	director.set_live_conditions(current)
 	if effects != null: effects.set_live_conditions(current)
 	if RenderingServer.get_current_rendering_method()=="forward_plus":
@@ -241,6 +256,9 @@ func seasonal_mode() -> bool:
 
 func _update_phenomena(delta: float) -> void:
 	_spectacle_time+=delta
+	if source=="campaign-calendar":
+		var date:=clock.local_datetime()
+		_spectacle_time=float(Time.get_unix_time_from_datetime_dict(date))-float(Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00"))
 	_phenomena_left-=delta
 	if _phenomena_left<=0.0:
 		_phenomena_left=.25
