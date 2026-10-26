@@ -2,6 +2,11 @@ extends Node
 var failures: Array[String] = []
 var checks := 0
 var started := 0
+var lamp_driver: Node
+var visibility_pixels := 0
+
+func _process(delta: float) -> void:
+	if is_instance_valid(lamp_driver): lamp_driver.advance_frame(delta)
 
 func _ready() -> void: call_deferred("_run")
 
@@ -43,12 +48,32 @@ func _run() -> void:
 		_check(durable == RealityState.data.maintenance_jobs,"companion leaves production job state intact")
 		if not body.critters.is_empty():
 			world.player.set_physics_process(false)
+			body.set_physics_process(false)
+			world.player.set_lamp_enabled(true)
+			# Frozen player movement must not freeze the carried lamp's optical
+			# pose before this camera turns toward the actual installed animal.
+			lamp_driver = world.player.lamp_presentation
 			world.player.camera.look_at(body.critters[0].pos)
-			for i in 10: await RenderingServer.frame_post_draw
+			body._push()
+			for i in 30: await RenderingServer.frame_post_draw
 			var directory := OS.get_environment("SHOT_DIR")
 			if not directory.is_empty():
 				DirAccess.make_dir_recursive_absolute(directory)
-				get_viewport().get_texture().get_image().save_png(directory.path_join("production_companion.png"))
+				var shown := get_viewport().get_texture().get_image()
+				shown.save_png(directory.path_join("production_companion.png"))
+				body.visible = false
+				for i in 3: await RenderingServer.frame_post_draw
+				var hidden := get_viewport().get_texture().get_image()
+				hidden.save_png(directory.path_join("production_companion_hidden.png"))
+				var centre := world.player.camera.unproject_position(body.critters[0].pos)
+				for y in range(maxi(0,int(centre.y)-100),mini(shown.get_height(),int(centre.y)+100)):
+					for x in range(maxi(0,int(centre.x)-100),mini(shown.get_width(),int(centre.x)+100)):
+						var a := shown.get_pixel(x,y)
+						var b := hidden.get_pixel(x,y)
+						if absf(a.r-b.r)+absf(a.g-b.g)+absf(a.b-b.b)>.10: visibility_pixels+=1
+				_check(visibility_pixels>32,"installed lamp-revealed companion has visible image contribution")
+				body.visible = true
+				lamp_driver = null
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
 		DirAccess.make_dir_recursive_absolute(directory)
@@ -56,7 +81,7 @@ func _run() -> void:
 			"scope":"Production V2 companion composition, sole waking optical field binding and read-only work targeting; not full navigation or save reconstruction proof.",
 			"execution":{"completed":true,"exit_code":0 if failures.is_empty() else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},
 			"source":{"test_path":"game/tests/tardigrade_companion_world_test.gd","test_sha256":get_script().source_code.replace("\r\n","\n").sha256_text()},
-			"contracts":{"companion_composition":{"executed":true,"status":"PASS" if failures.is_empty() else "FAIL"}},"checks":checks,"failures":failures}
+			"contracts":{"companion_composition":{"executed":true,"status":"PASS" if failures.is_empty() else "FAIL"}},"checks":checks,"visibility_pixels":visibility_pixels,"failures":failures}
 		FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t"))
 	world.queue_free()
 	for i in 4: await get_tree().process_frame
