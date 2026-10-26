@@ -1,0 +1,41 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 17.42,
+  "exit_code": 0,
+  "finished_utc": "2026-10-26T21:30:50Z",
+  "started_utc": "2026-10-26T21:30:32Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/tentacle-main/tmp/tentacle_integration/guide.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/ov/tentacle-main/tmp/tentacle_integration/guide.log",
+  "stdout_sha256": "9c35acc95642faa022801ba0b966c5d25923c4b18e58aacad37bd9c1474d132d"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/GuideBellContract.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\ov\\tentacle-main\\tmp\\tentacle_integration\\guide",
+ "source": {
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "f900d20502be4c94588c283d77e5dd1b93a507d4",
+  "repository_tree": "0109b66dc0c1d1191d83ce37884de21634948f0c",
+  "runtime_inputs_sha256": "4cd9eec282ce24da604d35b1338ec2fc9af5037ef589072b8086e61741ad3bc2",
+  "test_path": "game/tests/guide_bell_contract.gd",
+  "test_sha256": "7d29e66c6cae2c1ce1566df81cf3e38897dee6de9a6d9579f2f2aaf2bf613584"
+ },
+ "windowed": true
+}
