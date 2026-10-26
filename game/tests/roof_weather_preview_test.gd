@@ -20,6 +20,7 @@ var _original_settings: Dictionary
 var _original_environment: Dictionary
 
 func _ready() -> void:
+	profile_refresh=OS.get_environment("WEATHER_PREVIEW_PROFILE")=="1"
 	_original_data=RealityState.data
 	_original_values=JSON.stringify(_original_data,"",true,true)
 	_original_status=RealityState.load_status();_original_notice=RealityState.player_notice()
@@ -134,6 +135,7 @@ func _exercise() -> void:
 		var name:=str(sample[2])+".png"
 		check(get_viewport().get_texture().get_image().save_png(directory.path_join(name))==OK,"rendered roof capture: "+name)
 		captures.append(name)
+	if profile_refresh:await _profile_year()
 	check(RealityState.data.campaign_clock==original_clock,"forward/reverse/year wrap never changes campaign date")
 	await get_tree().create_timer(8.0).timeout
 	# Record other transient runtime writes honestly; only the clock and disk
@@ -151,6 +153,21 @@ func _exercise() -> void:
 	check(environment_restored,"closing restores environment values and absent keys")
 	check(Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"pointer remains free after world retirement")
 	var failures:=checks.filter(func(row: Dictionary):return not row.passed)
-	FileAccess.open(directory.path_join("roof_preview_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"actual roof, engine-dispatched keyboard forward/reverse/run/pause/pointer input, calendar wrapping, rendered weather and original campaign restoration; no OS-native input, explicit mouse-look capture, campaign save reconstruction or full V2 acceptance","checks":checks,"failures":failures,"captures":captures,"other_runtime_data_changed":observations_changed,"frame_columns":["state","wall_ms","preview_update_ms","render_cpu_ms","render_gpu_ms"],"frames":frame_samples},"\t"))
+	FileAccess.open(directory.path_join("roof_preview_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"actual roof, engine-dispatched keyboard forward/reverse/run/pause/pointer input, calendar wrapping, rendered weather and original campaign restoration; no OS-native input, explicit mouse-look capture, campaign save reconstruction or full V2 acceptance","checks":checks,"failures":failures,"captures":captures,"other_runtime_data_changed":observations_changed,"frame_columns":["state","wall_ms","preview_update_ms","render_cpu_ms","render_gpu_ms"],"frames":frame_samples,"refresh_samples":refresh_samples,"profile_notes":"Optional fixed 365-noon forward/reverse route. CPU wall phases exclude pipeline-counter reads and sample append; counters may reflect prior renderer work. Frame data includes startup, input, PNG capture and instrumentation; not a matched whole-game performance claim."},"\t"))
 	print("ROOF WEATHER PREVIEW TEST: %d checks, %d failures"%[checks.size(),failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _profile_year() -> void:
+	set_exploration(false)
+	var dates_match:=true
+	for route: String in ["annual_forward","annual_reverse"]:
+		profile_tag=route
+		for index in 365:
+			var day:=index if route=="annual_forward" else 364-index
+			preview_clock.seek(float(day)*1440.0+720.0);refresh_weather()
+			var expected: Dictionary=manager.Service.presentation(CampaignWeather.snapshot(preview_clock.local_datetime()))
+			dates_match=dates_match and int(manager.target.weather_code)==int(expected.weather_code)
+			await RenderingServer.frame_post_draw
+			await RenderingServer.frame_post_draw
+	profile_tag="interaction"
+	check(dates_match,"all 365 rendered noon targets follow the calendar in both directions")

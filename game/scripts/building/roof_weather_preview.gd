@@ -50,6 +50,10 @@ var _owns_capture := false
 var _closing := false
 var _retiring := false
 var _retired := false
+## Opt-in diagnostic timings; ordinary inspection does not collect samples.
+var profile_refresh := false
+var profile_tag := "interaction"
+var refresh_samples: Array[Dictionary]=[]
 
 func _ready() -> void:
 	loading=CanvasLayer.new();loading.layer=100;add_child(loading)
@@ -116,13 +120,26 @@ func refresh_weather() -> void:
 		update_label()
 		return
 	_published_position=preview_clock.position_minutes
+	var started:=Time.get_ticks_usec() if profile_refresh else 0
 	manager._calendar_check_left=0.0;manager._phenomena_left=0.0;manager._publish_left=0.0
 	manager._process(.1)
+	var weather_done:=Time.get_ticks_usec() if profile_refresh else 0
 	if manager.extreme_weather!=null:
 		manager.extreme_weather.publish(manager.sky,player.camera.global_position,manager.effects.air_material)
+	var extreme_done:=Time.get_ticks_usec() if profile_refresh else 0
 	manager._push_spectacle()
+	var spectacle_done:=Time.get_ticks_usec() if profile_refresh else 0
 	director._apply(preview_clock.minute_of_day())
+	var astronomy_done:=Time.get_ticks_usec() if profile_refresh else 0
 	update_label()
+	if profile_refresh and refresh_samples.size()<4096:
+		var finished:=Time.get_ticks_usec()
+		refresh_samples.append({"tag":profile_tag,"position_minutes":_published_position,
+			"manager_ms":(weather_done-started)/1000.0,"extreme_ms":(extreme_done-weather_done)/1000.0,
+			"spectacle_ms":(spectacle_done-extreme_done)/1000.0,"astronomy_ms":(astronomy_done-spectacle_done)/1000.0,
+			"label_ms":(finished-astronomy_done)/1000.0,"total_ms":(finished-started)/1000.0,
+			"draw_compilations":RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_DRAW),
+			"surface_compilations":RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_SURFACE)})
 
 func _process(delta: float) -> void:
 	if not ready_for_input or not is_instance_valid(player):return
