@@ -59,7 +59,7 @@ def main():
                   'meters_per_tile':.04,'maps':{name:name+'.png' for name in maps},
                   'mottling':'guide-bell soft warped density islands; mean RGB preserved' if substance=='membrane' else 'unchanged',
                   'normal_authoring':{'construction':'membrane pores and reserve folds' if substance!='mineral' else 'longitudinal mineral draw marks','relief_m':relief,'convention':'OpenGL','strength':1.0}}
-        (output/'material.json').write_text(json.dumps(metadata,indent=2)+'\n')
+        (output/'material.json').write_text(json.dumps(metadata,indent=2)+'\n',newline='\n')
         catalog[key]={'base_color':list(color)+[1.0],'roughness':rough,'metallic':1 if substance=='mineral' else 0}
         mapping[key]='ai_materials/'+key
     for path,data in [(catalog_path,catalog),(mapping_path,mapping)]:
