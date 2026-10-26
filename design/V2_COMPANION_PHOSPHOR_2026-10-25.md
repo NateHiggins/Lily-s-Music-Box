@@ -224,3 +224,68 @@ hash begins **CEBEA37F**; main's newer asset begins **9EF70DC4**. The isolated
 companion checkout contains main's newer native leaf and its loader retires the
 old anchor hinge before attaching it. No shared-checkout files were overwritten.
 Final integration must retain that newer asset while preserving the shared WIP.
+
+## Checkpoint and lamp continuation — 2026-10-25 evening
+
+The owner requested a commit/push break point as the conversation budget ran low.
+The complete work is preserved on **codex/v2-phosphor-companion-20261025** and
+[draft PR 46](https://github.com/NateHiggins/Lily-s-Music-Box/pull/46).
+It is deliberately not merged: current foreground input and occupied-world
+qualification remain unfinished. PR 42 itself is already merged. No shared
+canonical checkout changes were staged, discarded or overwritten.
+
+The final native bearing family passes **2,230** checks with empty stderr.
+The subsequent local hand attempts retain their original results: version 5
+has 78 passing and two failing checks; version 6 has 63 passing and eight failing
+checks; version 7 has 86 passing and one failing check, **acquire does not move
+lamp**. Its event trace records mouse motion after acquisition. Earlier traces
+also exposed injected clicks reaching input dispatch after the fixture moved
+to another control. Explicit event flushing repairs that fixture ordering;
+the remaining acquisition-motion failure must not be hidden or reclassified
+as acceptance. **compact_hand_v5_v7_failures.zip** preserves all three attempts.
+Their stop-on-failure batches never launched the later preview, ownership or
+occupied-world legs. The private photographic fill's revised appearance and
+the single-owner renderer repair remain unqualified in the occupied world.
+
+The owner's lamp request exposed a separate range defect: the hand's cached
+2.1-metre hit could not steer the lamp onto more distant surfaces. The companion
+now samples a body-only centre-camera ray over the original lamp's effective
+range, independently of held mechanisms and the free inspection cursor. There
+is at most one optical query per physics tick while powered, with no aiming
+queries while switched off. This is optical surface selection, not a duplicate
+interaction scan or extended grab reach. The original lamp, power owner,
+shadows, optical injection and native lens aperture are retained. Its basis
+converges from that aperture to the viewed surface; empty sky uses a forward
+point at the existing lamp range. No additional gameplay lamp is created.
+
+The first windowed optical diagnostic passes **19** checks with empty stderr
+and its rendered wall/beam capture was inspected. It covers 0.8, 3.5 and 6-metre
+surfaces, stale hand hits, actual player-light origin and per-tick reuse. This
+is an INERT local diagnostic, not a schema-2 runtime contract, occupied-world
+qualification or a frame-time improvement claim. The expanded follow-up adds
+actual L off/on input, zero queries while off and a turned camera.
+Its first attempt exposed an untyped fixture expression and was stopped after
+the parse error; the original error and wrapper receipt are retained. The
+corrected follow-up, **lamp_surface_v3.log.receipt.json**, completes with
+**21 passing checks** and empty stderr. Actual L switches the original lamp
+off and on, disabled aiming issues no queries, and the turned view still
+converges on its surface. The final wall/beam image was visually inspected.
+This remains local optical/input evidence, with the same qualification limits.
+
+The complete static board on **681784e3** preserves a REGRESSED verdict solely
+for the new optical test's spatial camera-station record. All tools tests pass;
+reader NEW is zero and the six completeness blocker counts remain
+**7 / 8 / 110 / 42 / 134 / 136**. Only that explicit test record was added to
+the spatial manifest, preserving all existing records byte-for-byte. Its
+scoped spatial retry passes with zero drift. The retry is not a replacement
+full board or candidate-verifier result. These diagnostic boards contain
+generated untracked UID files and are not clean candidate qualification.
+
+The latest fetched main is **f18d87c8**, adding Tardi microscopy and guidance
+after the branch's **20b7fee5** reconciliation. Preserve that newer work before
+final integration. Next: settle the remaining actual-input failure, run the
+current preview/ownership and occupied correspondence/ABBA legs, inspect
+readable paper/keyboard and lamp in the playable world, then complete the clean
+candidate comparison and protected-path checks. The richer Night Stock shader,
+whole-world performance repair and full V2 coverage remain open. No requirement
+promotion or human acceptance is claimed by this checkpoint.
