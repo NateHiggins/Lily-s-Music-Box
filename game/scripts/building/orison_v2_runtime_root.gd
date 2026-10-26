@@ -781,6 +781,10 @@ func _compose_authorities() -> void:
 	add_child(companion_body)
 	companion_body.setup(null, 240304)
 	companion_body.bind_companion(self, player)
+	var guide_bells := preload("res://scripts/dream/critters/guide_bell_director.gd").new()
+	guide_bells.name = "MaintenanceGuideBells"
+	add_child(guide_bells)
+	guide_bells.setup(self,player,work_orders)
 
 func arrival_placement() -> Dictionary:
 	return (_connection.get("arrival", {}) as Dictionary).duplicate(true)

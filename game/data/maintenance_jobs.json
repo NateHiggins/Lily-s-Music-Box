@@ -19,6 +19,7 @@
 			"unit": "2A",
 			"dream_profile_id": "mina_release_print",
 			"required_item_id": "carbon_transmitter_capsule",
+			"directional_assistance": true,
 			"repair_target_id": "F02_A_MAIN_VANTRY_POINT",
 			"anchor_ids": ["F02_A_MAIN_VANTRY_POINT"],
 			"evidence_flags": [
@@ -54,6 +55,7 @@
 			"unit": "2B",
 			"dream_profile_id": "lena_visible_patch",
 			"required_item_id": "",
+			"directional_assistance": true,
 			"repair_target_id": "F02_B_RADIATOR_01",
 			"anchor_ids": [
 				"F02_B_RADIATOR_01",
