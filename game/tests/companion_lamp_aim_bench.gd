@@ -53,7 +53,7 @@ func _run() -> void:
 		player._grab.last_hit = {"position":Vector3(100, 100, 100)}
 		carrier._lamp_target_frame = -1
 		var pose: Transform3D = carrier.world_lamp_transform()
-		var expected := player.camera.global_position - player.camera.global_basis.z * (distance - .1)
+		var expected: Vector3 = player.camera.global_position - player.camera.global_basis.z * (distance - .1)
 		check(carrier.motion.light_target.distance_to(expected) < .002, "centre ray finds surface at %.1f m independently of hand reach" % distance)
 		var lens: MeshInstance3D = carrier.device.teletype.torch_lens
 		check(pose.origin.distance_to(lens.to_global(lens.mesh.get_aabb().get_center())) < .00001, "beam originates at manufactured bot lens %.1f" % distance)
