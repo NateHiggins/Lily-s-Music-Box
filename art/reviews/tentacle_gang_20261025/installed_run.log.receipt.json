@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 186.93,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T23:24:09Z",
+  "started_utc": "2026-10-25T23:21:01Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/tentacle_gang/world_complete.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/tentacle_gang/world_complete.log",
+  "stdout_sha256": "7b33a8df3035bc01817407f1387191e681cdfae89d42e6e1f344f6dc251ae36c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/MaintenanceTentacleWorldTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/tentacle_gang/world_complete",
+ "source": {
+  "dirty_paths": 978,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M .gitignore",
+   " M DOCS.md",
+   " M art/blender/dream_critters/euplotes.blend",
+   " M art/blender/dream_critters/euplotes_lod1.blend",
+   " M art/blender/dream_critters/tardigrade.blend",
+   " M art/blender/dream_critters/tardigrade_lod1.blend",
+   " M art/blender/scripts/build_dream_critter.py",
+   " M art/blender/scripts/euplotes_model.py",
+   " M art/data/gen_layout.py",
+   " M art/data/material_catalog.json",
+   " M art/textures/catalog_mapping.json",
+   " M art/tools/fix_runtime_texture_imports.py",
+   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
+   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
+   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
+   " M game/assets/audio/music/covers/am_maintenance.webp.import",
+   " M game/assets/audio/music/covers/amber_rivers.webp.import",
+   " M game/assets/audio/music/covers/ancient_angles.webp.import",
+   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import"
+  ],
+  "repository_head": "7a548239e3fddba395341e05fcb3be6ec583ae3e",
+  "repository_tree": "bdf44c4f212f591781b5bbe502dab3193169f8a1",
+  "runtime_inputs_sha256": "a87b02e1abfe195d038134c6f938d747c3b63d7a5e450891c87358e7ed0a3dac",
+  "test_path": "game/tests/maintenance_tentacle_world_test.gd",
+  "test_sha256": "3f262572c20ca332e95dc2a3eb52c5cc0dcc245745486b80cbf66d288524d943"
+ },
+ "windowed": true
+}

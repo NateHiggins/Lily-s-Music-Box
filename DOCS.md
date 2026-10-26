@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+<<<<<<< HEAD
 | Tardi lunch priority, Euplotes microscopy and comic pursuit | `design/V2_TARDIGRADE_LUNCH_2026-10-25.md` |
 | Tardigrade nested tissue, shared lamp optics and isolated review limits | `design/V2_TARDIGRADE_MICROSCOPY_2026-10-25.md` |
 | Cast passage pulls, sharper oak and lossless fixed mouse travel | `design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md` |
@@ -44,6 +45,11 @@ Knowing which kind you are reading tells you how much to trust it.
 | Instrument render-layer initialization and repaired light-pair teardown | `design/V2_DEVICE_LIGHT_PAIRING_2026-10-25.md` |
 | Main's scheduled skies, resident agendas, kitchens and inventories in the repair branch | `design/V2_MAIN_AGENDA_AND_SKY_MERGE_2026-10-25.md` |
 | Authored campaign-year weather, dated forecasts and local resident remarks | `design/V2_WEATHER_CALENDAR_2026-10-24.md` |
+=======
+| Tentacle gang hitch/teardown checkpoint and requested contact-melt follow-up (INERT) | `design/TENTACLE_GANG_ACCEPTANCE_FOLLOWUP_2026-10-25.md` |
+| Owner's maintenance-local tentacle gang anatomy, contact, optics and acceptance requirements | `design/TENTACLE_GANG_ENCOUNTER_BRIEF_2026-10-25.md` |
+| Tentacle gang implementation, runtime review and remaining qualification limits (INERT) | `design/TENTACLE_GANG_IMPLEMENTATION_REPORT_2026-10-25.md` |
+>>>>>>> 4facb1e5 (Add maintenance tentacle encounter and prepare rendering at world load)
 | Shower moisture, side-correct wet glass and native wall-mounted toilet paper | `design/V2_BATHROOM_MOISTURE_AND_PAPER_2026-10-24.md` |
 | Varied nook shelves, reused keepsakes and correction of stale binding debt | `design/V2_NOOK_SHELF_DRESSING_2026-10-24.md` |
 | Readable hose jet, inactive prepared emitters and first-spray timing | `design/V2_HOSE_SPRAY_READABILITY_2026-10-24.md` |
