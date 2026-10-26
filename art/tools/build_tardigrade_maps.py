@@ -37,6 +37,19 @@ def main():
         normal/=np.linalg.norm(normal,axis=-1)[...,None]
         maps={'albedo':np.array(color)[None,None,:]*(.94+.06*height[...,None]),
               'roughness':rough+.12*(height-.5),'normal':normal*.5+.5}
+        if substance=='membrane':
+            # Same soft, multi-scale density islands as the guide-bell, with
+            # scalar modulation only: retain warm stock and Euplotes' cool tint.
+            warp=.38*np.sin(2*np.pi*(x+2*y))
+            clouds=(np.sin(2*np.pi*(3*x+y)+warp)*np.cos(2*np.pi*(2*y-x))
+                    +.45*np.sin(2*np.pi*(7*x+4*y)+warp)
+                    +.2*np.cos(2*np.pi*(11*y-5*x)))/1.65
+            clouds-=clouds.mean()
+            original=maps['albedo']
+            mottled=original*(1+.26*clouds[...,None])
+            # Preserve mean RGB and therefore the authored overall palette.
+            maps['albedo']=mottled*(original.mean(axis=(0,1))/mottled.mean(axis=(0,1)))
+            maps['roughness']+=.065*clouds
         for name,value in maps.items():
             image=Image.fromarray(np.round(np.clip(value,0,1)*255).astype('uint8'))
             image.save(output/(name+'.png'))
@@ -44,8 +57,9 @@ def main():
         metadata={'material':key,'source':str(Path(__file__).relative_to(ROOT)).replace('\\','/'),
                   'source_sha256':hashlib.sha256(Path(__file__).read_bytes().replace(b'\r\n',b'\n')).hexdigest(),
                   'meters_per_tile':.04,'maps':{name:name+'.png' for name in maps},
+                  'mottling':'guide-bell soft warped density islands; mean RGB preserved' if substance=='membrane' else 'unchanged',
                   'normal_authoring':{'construction':'membrane pores and reserve folds' if substance!='mineral' else 'longitudinal mineral draw marks','relief_m':relief,'convention':'OpenGL','strength':1.0}}
-        (output/'material.json').write_text(json.dumps(metadata,indent=2)+'\n')
+        (output/'material.json').write_text(json.dumps(metadata,indent=2)+'\n',newline='\n')
         catalog[key]={'base_color':list(color)+[1.0],'roughness':rough,'metallic':1 if substance=='mineral' else 0}
         mapping[key]='ai_materials/'+key
     for path,data in [(catalog_path,catalog),(mapping_path,mapping)]:

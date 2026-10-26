@@ -104,6 +104,8 @@ func _validate(parsed: Dictionary) -> void:
 
 
 func _validate_job(job_id: String, record: Dictionary) -> void:
+	if record.has("directional_assistance") and record.directional_assistance is not bool:
+		errors.append("%s: directional_assistance must be boolean" % job_id)
 	for field in ["title", "summary", "repair_target_id"]:
 		if str(record.get(field, "")).is_empty():
 			errors.append("%s: %s must be a non-empty string" % [job_id, field])

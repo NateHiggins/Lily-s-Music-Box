@@ -1,13 +1,14 @@
 {
   "material": "tardigrade_mineral",
   "source": "art/tools/build_tardigrade_maps.py",
-  "source_sha256": "7ca82439e9138d9436c1331f97bf3834571470370dc2b1be17cebffdd8ba39d7",
+  "source_sha256": "d70b5dd7504287d87ee6219b337d8d4b47148752eaa2f9a96a61cdacdf21270b",
   "meters_per_tile": 0.04,
   "maps": {
     "albedo": "albedo.png",
     "roughness": "roughness.png",
     "normal": "normal.png"
   },
+  "mottling": "unchanged",
   "normal_authoring": {
     "construction": "longitudinal mineral draw marks",
     "relief_m": 4e-06,

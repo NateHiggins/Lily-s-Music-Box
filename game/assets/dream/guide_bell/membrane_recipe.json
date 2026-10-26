@@ -1,0 +1,12 @@
+{
+  "material_key": "guide_bell_membrane",
+  "source": "art/tools/build_guide_bell_maps.py",
+  "provenance": "analytic cortical fibrils and seeded cellular granules",
+  "tile_scale_m": 0.16,
+  "normal_convention": "OpenGL",
+  "maps": {
+    "albedo": "membrane_albedo.png",
+    "normal": "membrane_normal.png",
+    "roughness": "membrane_roughness.png"
+  }
+}
