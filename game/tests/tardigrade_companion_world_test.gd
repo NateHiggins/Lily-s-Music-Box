@@ -56,6 +56,8 @@ func _run() -> void:
 			world.player.camera.look_at(body.critters[0].pos)
 			body._push()
 			for i in 30: await RenderingServer.frame_post_draw
+			# Compare body visibility under the same settled filament state.
+			lamp_driver = null
 			var directory := OS.get_environment("SHOT_DIR")
 			if not directory.is_empty():
 				DirAccess.make_dir_recursive_absolute(directory)
