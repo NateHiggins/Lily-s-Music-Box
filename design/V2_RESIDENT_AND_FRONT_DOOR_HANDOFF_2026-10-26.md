@@ -2,6 +2,43 @@
 
 Evidence class: **INERT**. WIP continuation, not acceptance or merge qualification.
 
+## Survey continuation
+
+Current priorities are consolidated in **V2_STARTED_WORK_CLOSURE_2026-10-23.md**,
+section **Current priority survey — 2026-10-26**. No new competing roadmap.
+Fresh entrance review completed on **6392205e**: actual composed world,
+760 checks/zero failures, empty stderr,145.66s; door/approach/front images reviewed.
+It shows the native oak leaf and straight brass pull. The cast-bow shop upgrade
+is not on the entrance. This resolves which asset was rendered, not whether the
+owner's intended entrance handle is finished. Canonical shared WIP is untouched.
+
+The bounded guest diagnostic completes with failure in293.26s (precise original
+receipt controls). At150s: position **(-0.0,0.0,0.55)**, current **street**, desired
+**vestibule**, outside=true, visible=false, planned=-1, empty path, no block,
+call lock, pause or conversation. The hidden endpoint overlaps the front leaf.
+The production outside-return branch checks observation before planning; the
+arrival camera can keep this return hidden indefinitely. This is a distinct
+failure from the earlier kitchen detours, not evidence to remove visibility safety.
+
+The proposed continuation moves only the two new residents' street endpoints
+from local Z=-12.2 to-14.2, outside the rebuilt entrance. The generic tour now
+exercises observed-return suppression, actually looks away, and retains the
+production unseen-return rule. Hidden off-map placeholders do not undergo the
+hypothetical visible-capsule overlap assertion; reappeared bodies still do.
+Arrival must match the requested destination with an empty path, not merely
+the last selected desired ID. The first failure stops the tour and prints
+bounded path/door/input diagnostics before another command destroys that state.
+These changes require fresh probes and actual tours; the old Rhea result is
+preserved as historical execution, not qualification of the changed route/test.
+The changed two-route authoring probe finishes in145.65s with zero findings and
+empty stderr. This covers closed/open-door support and capsule samples, not
+actual movement or return visibility. Both actual tours still require renewal.
+
+Original fresh-run root: **C:/ov/reports/started_survey26**. The failed diagnostic's
+exact executed test is preserved and SHA-256 matched to its original wrapper
+receipt. No old receipt or source digest is repinned. PR53 remains draft;
+regressions/final candidate verification and full V2 coverage remain outstanding.
+
 ## Start here
 
 The owner asks why the front entrance with the better handle is not visible

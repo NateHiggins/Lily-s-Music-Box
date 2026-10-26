@@ -2,6 +2,50 @@
 
 Evidence class: **INERT**. Scope inventory and remaining work, not acceptance.
 
+## Current priority survey — 2026-10-26
+
+This section supersedes the older queue's checkout, installation and next-order
+claims below. It is a source/evidence survey, plus a fresh rendered entrance
+check; it is **not** a new tour of every V2 area. Existing failures stay open.
+Finish these started requests before unrelated additions. Performance and direct
+input remain the overarching priorities; merge readiness is a separate boundary.
+
+Fetched main is **85f95fb8**. The owned test checkout **C:/ov/v2merge24** is on
+draft PR53, **codex/v2-rhea-transient-routes-20261026**, at **6392205e** before
+this survey. Main already contains the companion Night Stock/green head and
+Evelyn checkpoints. The canonical **C:/PleaseRemainOnTheLine** checkout remains
+on older **codex/v2-acoustic-topology** with unrelated WIP: preserve it. Do not
+replace its assets or switch/reset that tree to make a test window look current.
+PR53 is the only open PR at survey time and remains deliberately unmerged.
+
+| Order / location | Reproduction and severity | Current evidence | Next repair / verification |
+|---|---|---|---|
+| 1 — front entrance presentation | Approach the building and inspect the front pull; high owner-reported mismatch | Fresh actual-world **OrisonV2FrontFacadeTest**: 760 checks, zero failures, empty stderr; door/approach/front images reviewed. The native oak leaf has a straight offset brass pull. The cast-bow upgrade is on eleven passage shops, not this leaf. Canonical and main front GLBs also differ. | Resolve entrance presentation as its own native asset task; reuse the established hardware language where suitable. Do not claim that loading the current asset satisfies the intended better handle. Render the installed front and both faces, then exercise its actual hand interaction; retain lock/save/player-accommodation owners. |
+| 2 — bathroom mirror and first-view stalls | Walk into a furnished bathroom, turn to its live mirror, operate hot water; high responsiveness | Latest moisture route reports roughly64–65ms median,71–72ms p95 and74–76ms p99 in mirror phases, first-view maximum113.878ms. Separate companion world runs still emit44 null-material errors and seven Texture-RID warnings. These are different traces, not one attributed cause. | Renew a fixed settings/clock/route baseline; separate reflected rendering, main render, scripts, physics, compilation and loading. Use measured A/B controls before changing detail, light counts, reflection settings or ownership. Preserve the doodle avatar and moisture. |
+| 3 — PR53 guest walking failure / merge blocker | Registered Guests tour cannot reach vestibule or return home in150s; high functional | Original failed run and stopped-process receipt preserved. Rhea separately walked883.6m/41 checks, but this does not qualify the Guests. Main has four walkers; candidate has six. | Capture bounded actor/path/door/input state at the first failure; fix the actual cause without raised timeouts, teleports or collision bypass. Then full guest tour, affected Rhea coverage, six-body Mina/Lena/player regressions and final candidate verification. |
+| 4 — hose complete-use loop | Buy washer/protectant, maintain, remove from rack, walk full payout, charge and aim/spray; high incomplete gameplay | All eight installed cabinets, Y/Z alignment and threaded coupling, inexpensive held/released hose, charge/spray and disk reconstruction have scoped real-input checks. Later spray-readability work supersedes the old invisible-jet finding. Full payout and purchase-to-maintenance handoff remain open. | Complete those missing legs using existing inventory/payment/work-order/save owners. Measure approaching the cabinet, first spray, motion and inspection under the same baseline. Water impact/wetting remains explicitly unfinished. No stored-hose solver. |
+| 5 — removed projectors / film tent | Inspect domestic projector supports and bar-side street; high unmet request | Current runtime still mounts **orison_v2_projectors.gd** and its three domestic units. No nickelodeon/tent runtime path was found in this checkout. Older candidate notes are not installation proof. | Reconcile preserved contributor assets, retire the requested old presentation and install the one-person tent with actual access/film/payment ownership. Keep original programmes/save facts; do not delete source assets. |
+| 6 — resident bodies and bar attendance | Follow a normal agenda to each preferred bar spot; high incomplete integration | Main has Mina/Lena/Sacha/Evelyn. PR53 adds two unqualified bodies; twelve further repaired drafts are unprobed. Eighteen bar places and claim/release API exist, but the route owner does not call them; out-of-route visits still use the away abstraction. | Finish failed routes, then remaining native bodies in verified batches. Integrate real bar arrival, ownership, seating/standing access, simultaneous occupancy, departure and clock/save reconstruction. A place marker is not attendance. |
+| 7 — whole companion experience | Explore, summon, type/cancel/resume, receive protected calls, print and reload; high continuity | PR51 merged Night Stock charcoal paper, faint green radioactive type, focused head/mechanism checks and95 occupied-world checks with test-written contracts. Earlier conversation/input/calendar work is merged. | Preserve this completed work; investigate retained renderer errors and actual reading/framing under movement, narrow rooms and varied light. Do not reopen the retired handheld or claim performance solved by dark paper. |
+| 8 — bathrooms, reticle, pickables and books | Visit every installed variant, manipulate exact parts, inspect and reload; medium/high coverage | Native toilet/fixtures, bounded steam, side-correct condensation, fitted paper, ceramic edge clearance and45-degree casing repairs exist. Curtain rebuild is already replaced: gesture medians169–185→17–27ms;144 callbacks138–147→0.23–0.27ms. Thirty titles and61 nook copies already share formats/bindings; nook plant/rug/access and varied shelves are installed. | Close missing whole-room and collection input/save routes, contact/print review and all-jamb coverage. Do not redo converted books, reintroduce curtain reconstruction or seat-impact/door-sweep tests. Shared target and constraint state remains authoritative. |
+| 9 — street, weather and radio commerce | Cross street, read dated news, seek forecasts and shop; medium/high integration | Runtime mounts period traffic, lamps, street boundaries and the calendar. Weather data contains365 days/2,195 anchors/730 bulletins; calendar tests395 checks. Existing local weather/news/companion checks do not prove a whole year or every shop. | Verify street/subway/access and removed end-fog in the actual world; finish all-shop radio transactions and resident staffing without new authorities. Exercise issue/publication/correction boundaries and save reload; no future news. |
+| 10 — other already-started encounter work | Touch the maintenance tentacle gang; medium unfinished follow-up | Current contact transitions to coordinated retreat, releases the body and makes purple haze. The requested contact-melt follow-up is not implemented by that state machine. | Preserve the existing performance/teardown work; complete its documented follow-up after the higher-impact player and integration defects. No new unrelated encounter scope. |
+| Cross-cutting — whole V2 qualification and footprint | Run current surface/input/save gates after a coherent repair; mandatory | Main's complete board retains three stale surface qualification defects plus known tools/ledger debt. Historical runtime receipts cannot be rebound to current source. Many installed systems have diagnostic-only evidence. | Obtain genuine current test-written contracts and reviewed renders, compare complete boards, reader NEW=0,17 protected paths and V2 selector. Stage named paths, merge verified checkpoints only. Reduce duplicate code and unnecessary files while retaining owner sources, historical failures, hash-bound evidence and contributor WIP. Do not delete archives blindly. |
+
+Entrance evidence: **C:/ov/reports/started_survey26/front.log.receipt.json**,
+completed in145.66s, source **6392205e**, runtime digest
+**6008046dc4c81510cce5d4aa2b09dab93594813d77a9cb5116381e648b2054b5**.
+The wrapper is **suite_run**, not schema-2 runtime qualification. The six captured
+views do not exercise opening or accept the intended handle. No surface, space
+or whole-feature completeness promotion follows from this survey.
+
+The live guest diagnostic is the immediate continuation of already-started
+work; entrance correction and measured mirror work follow without adding a new
+feature programme. Preserve original failed tours and distinguish authored
+probes, actual traversal, runtime qualification and human acceptance.
+
+## Historical scoped updates
+
 Current curtain repair: **V2_CURTAIN_SKIN_RESPONSIVENESS_2026-10-24.md**.
 Native cloth/ring skin replaces the per-motion mesh/tangent/trimesh rebuild.
 The43-check family bench and matched actual-world route pass. Gesture medians
