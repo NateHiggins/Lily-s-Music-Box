@@ -26,17 +26,21 @@ var _shelf: ItemList
 var _shelf_entries: Array[Dictionary] = []
 var _bold: FontVariation
 var _italic: FontVariation
+var _mouse_before := Input.MOUSE_MODE_VISIBLE
+var _lock_before := false
+var _owns_input := false
+var _closed := false
 
 
 func open(player: Node, source: NewspaperCatalog, paper: String, issue_date: String,
 		on_close := Callable()) -> void:
-	_begin(player, source, on_close)
+	if not _begin(player, source, on_close): return
 	_show(paper, issue_date)
 
 
 ## The desk: every kept paper, newest first, the newest open.
 func open_shelf(player: Node, source: NewspaperCatalog, on_close := Callable()) -> void:
-	_begin(player, source, on_close)
+	if not _begin(player, source, on_close): return
 	_shelf_entries = catalog.collected()
 	_shelf.clear()
 	for entry in _shelf_entries:
@@ -51,7 +55,15 @@ func open_shelf(player: Node, source: NewspaperCatalog, on_close := Callable()) 
 		_shelf.grab_focus()
 
 
-func _begin(player: Node, source: NewspaperCatalog, on_close: Callable) -> void:
+func _begin(player: Node, source: NewspaperCatalog, on_close: Callable) -> bool:
+	if _closed or (_owns_input and player != _player): return false
+	if not _owns_input:
+		_mouse_before = Input.mouse_mode
+		if is_instance_valid(player) and "call_locked" in player:
+			# The public getter also includes a companion text lease. Preserve
+			# the protected flag itself, without converting a text lease into it.
+			_lock_before = bool(player.call("protected_input_active")) if player.has_method("protected_input_active") else bool(player.call_locked)
+		_owns_input = true
 	_player = player
 	catalog = source
 	_on_close = on_close
@@ -63,9 +75,10 @@ func _begin(player: Node, source: NewspaperCatalog, on_close: Callable) -> void:
 	_italic.base_font = ITALIC
 	if _page == null:
 		_build()
-	if _player and "call_locked" in _player:
+	if is_instance_valid(_player) and "call_locked" in _player:
 		_player.call_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	return true
 
 
 func _build() -> void:
@@ -249,9 +262,26 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func close() -> void:
-	if _player and "call_locked" in _player:
-		_player.call_locked = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if _closed: return
+	_closed = true
+	_release_input()
 	if _on_close.is_valid():
 		_on_close.call()
 	queue_free()
+
+
+func _release_input() -> void:
+	if not _owns_input: return
+	_owns_input = false
+	var live_player := is_instance_valid(_player)
+	if live_player and _player.is_queued_for_deletion(): return
+	if live_player and "call_locked" in _player:
+		_player.call_locked = _lock_before
+	if get_tree() == null or get_tree().paused or Input.mouse_mode != Input.MOUSE_MODE_VISIBLE: return
+	if live_player and _player.has_method("protected_input_active") and bool(_player.call("protected_input_active")): return
+	if live_player and "text_input_owner" in _player and is_instance_valid(_player.get("text_input_owner")): return
+	Input.mouse_mode = _mouse_before
+
+
+func _exit_tree() -> void:
+	_release_input()

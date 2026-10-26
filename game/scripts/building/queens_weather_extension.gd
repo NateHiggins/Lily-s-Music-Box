@@ -10,7 +10,12 @@ var wind_mps := Vector3.ZERO
 var formation := 0
 var formation_strength := 0.0
 var phase := 0.0
+var cyclone_phase := 0.0
 var fog_offset := Vector2.ZERO
+var _cloud_drift := Vector4.ZERO
+var _asperitas_drift := Vector4.ZERO
+var _cirrus_drift := Vector4.ZERO
+var _dust_drift := Vector2.ZERO
 var _target_weights := Vector4.ZERO
 var _target_threat := 0.0
 var _target_cyclone := 0.0
@@ -32,7 +37,7 @@ func receive_conditions(conditions: Dictionary,campaign_day: String,seed_value: 
 	var hail:=maxf(strength(events.get("hail",0.0)),rain if bool(conditions.get("hailing",false)) else 0.0)
 	_target_weights=Vector4(0.0 if sleet else rain,maxf(rain,snow) if sleet else 0.0,0.0 if sleet else snow,hail)
 	_target_vortex=maxf(1.0 if provider_id==781 else 0.0,strength(events.get("tornado",0.0)))
-	_target_cyclone=strength(events.get("cyclone",0.0))
+	_set_cyclone_target(strength(events.get("cyclone",0.0)))
 	_target_threat=maxf(maxf(hail,_target_vortex),maxf(.85 if bool(conditions.get("thunderstorm",false)) else 0.0,strength(events.get("severe_storm_threat",0.0))))
 	var bearing:=deg_to_rad(number(conditions,"wind_direction_degrees",0.0))
 	var speed:=clampf(number(conditions,"wind_speed_kmh",0.0)/3.6,0.0,90.0)
@@ -109,7 +114,7 @@ func receive_api(raw: Dictionary,campaign_day: String,seed_value: int=1928,pheno
 		precip.x = maxf(precip.x,hail*0.45)
 	_target_weights=precip
 	_target_vortex=maxf(1.0 if identity==781 else 0.0,strength(phenomena.get("tornado",0.0)))
-	_target_cyclone=strength(phenomena.get("cyclone",0.0)) # hurricane OR nor'easter event
+	_set_cyclone_target(strength(phenomena.get("cyclone",0.0))) # hurricane OR nor'easter event
 	var thunder := 0.90 if identity in [202,212,232] else (0.55 if identity>=200 and identity<300 else 0.0)
 	_target_threat=maxf(maxf(thunder,hail),maxf(_target_vortex,strength(phenomena.get("severe_storm_threat",0.0))))
 	var bearing := deg_to_rad(number(wind,"deg",0.0))
@@ -143,7 +148,9 @@ func advance(delta: float,calendar_owned := false) -> bool:
 	var goal := 1.0 if formation==_target_formation and formation>0 else 0.0
 	formation_strength=move_toward(formation_strength,goal,dt/40.0)
 	if formation_strength<0.0001:formation=_target_formation
-	phase+=dt*0.08 # Do not wrap a differentially rotating cyclone: that would jump its UVs.
+	phase+=dt*0.08
+	if maxf(cyclone,_target_cyclone)>.001:cyclone_phase+=dt*.08
+	else:cyclone_phase=0.0
 	fog_offset=Vector2(fposmod(fog_offset.x+wind_mps.x*dt*0.002,1.0),fposmod(fog_offset.y+wind_mps.z*dt*0.002,1.0))
 	_publish_left-=dt
 	if _publish_left>0.0:return false
@@ -161,6 +168,7 @@ func sample_calendar(date: Dictionary,transport_km: Vector2) -> void:
 	phase=float(seconds-Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00"))*.0005
 	fog_offset=Vector2(fposmod(transport_km.x*2.0,1.0),fposmod(transport_km.y*2.0,1.0))
 	var calendar:=preload("res://scripts/game/campaign_weather.gd")
+	cyclone_phase=calendar.cyclone_age_at(float(seconds))*.0005
 	var service:=preload("res://scripts/building/live_weather_service.gd")
 	var boundary:=int(floor(float(seconds)/900.0))*900
 	wetness=0.0
@@ -172,17 +180,41 @@ func sample_calendar(date: Dictionary,transport_km: Vector2) -> void:
 		var goal:=1.0 if liquid>.02 else 0.0
 		wetness=lerpf(goal,wetness,exp(-dt/(120.0/maxf(liquid,.05) if goal>0 else 2400.0)))
 
+func _set_cyclone_target(value: float) -> void:
+	_target_cyclone=value
+
+## Fractional render motion is separate from the slower wetting-history rebuild.
+func move_calendar_fields(stamp: float,transport: PackedFloat64Array) -> void:
+	if not is_finite(stamp) or transport.size()!=2 or not is_finite(transport[0]) or not is_finite(transport[1]):return
+	phase=(stamp-float(Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")))*.0005
+	cyclone_phase=preload("res://scripts/game/campaign_weather.gd").cyclone_age_at(stamp)*.0005
+	fog_offset=Vector2(fposmod(transport[0]*2.0,1.0),fposmod(transport[1]*2.0,1.0))
+	var day_seconds:=fposmod(stamp,86400.0)
+	formation_strength=(smoothstep(0,1800,day_seconds)*(1.0-smoothstep(84600,86400,day_seconds))) if formation>0 else 0.0
+
+func set_transport(transport: PackedFloat64Array,cloud_scale: float) -> void:
+	if transport.size()!=2 or not is_finite(transport[0]) or not is_finite(transport[1]) or not is_finite(cloud_scale):return
+	var x:=-transport[0];var z:=-transport[1]
+	_cloud_drift=Vector4(fposmod(x*cloud_scale,1),fposmod(z*cloud_scale,1),fposmod(x*cloud_scale*4.3,1),fposmod(z*cloud_scale*4.3,1))
+	_asperitas_drift=Vector4(fposmod(x*.8,1),fposmod(z*.8,1),fposmod(x*1.8,TAU),fposmod(z*2.3-x*.8,TAU))
+	_cirrus_drift=Vector4(fposmod(x*.14,1),fposmod(z*.14,1),fposmod(x*.14*.7,1),fposmod(z*.14*1.3,1))
+	_dust_drift=Vector2(fposmod(x*.6,1),fposmod(z*.6,1))
+
 func publish(sky: ShaderMaterial,camera_position_m: Vector3,air: ShaderMaterial=null) -> void:
 	RenderingServer.global_shader_parameter_set("wetness",wetness)
 	var whiteout := smoothstep(0.60,1.0,weights.z)
 	var parameters := {"severe_storm_threat":threat,"vortex_intensity":vortex,"wx_cyclone":cyclone,"wx_hail":weights.w,
 		"wx_whiteout":whiteout,"wx_formation":formation,"wx_formation_strength":formation_strength,
-		"wx_phase":phase,"wx_camera_km":camera_position_m*0.001,"wx_iridescence_ramp":_ramp}
+		"wx_phase":fposmod(phase,TAU*2.0),"wx_cyclone_phase":cyclone_phase,
+		"wx_texture_phase":fposmod(phase*.0001,1.0),"wx_fluctus_phase":fposmod(phase*.25,1.0),
+		"wx_cloud_drift":_cloud_drift,"wx_asperitas_drift":_asperitas_drift,"wx_cirrus_drift":_cirrus_drift,
+		"wx_camera_km":camera_position_m*0.001,"wx_iridescence_ramp":_ramp}
 	for key: String in parameters:sky.set_shader_parameter(key,parameters[key])
 	if air!=null:
 		air.set_shader_parameter("cyclone_strength",cyclone)
 		air.set_shader_parameter("whiteout_strength",whiteout)
 		air.set_shader_parameter("fog_offset",fog_offset)
+		air.set_shader_parameter("dust_offset",_dust_drift)
 
 func lighting(base_sun: Color,base_energy: float,base_ambient: Color,base_ambient_energy: float,to_sun: Vector3,base_saturation: float=1.0) -> Dictionary:
 	# Apply these returned values at the END of the existing DayNightDirector profile.

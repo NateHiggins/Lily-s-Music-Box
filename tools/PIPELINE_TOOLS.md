@@ -38,6 +38,18 @@ room, connection and regional access only.
 
 ## Gate board
 
+Owner preference, 2026-10-26: automated checks must not interfere with the
+owner's mouse. Use headless checks where valid. A windowed scene that requests
+capture, confinement or cursor warping must wait until it can run without
+interfering, or the owner explicitly makes room for that input check. Do not
+substitute headless or noncapturing diagnostics for required windowed
+grab/motion/release evidence. A private desktop on the same Windows window
+station is insufficient: the capture probe changed the active cursor clip
+rectangle. Merely hiding, minimizing or unfocusing a window is not a capture
+isolation guarantee. Noncapturing optical benches remain usable; inspect their
+actual startup/teardown paths, since even closing a reading panel may capture
+the cursor. Keep every Godot launch inside the existing shared-lane wrappers.
+
 Before long spatial-contract runs, use
 `python tools/preflight_spatial_test_bindings.py --all`, or pass individual
 receipt-writing scripts under **game/tests**. This read-only check follows

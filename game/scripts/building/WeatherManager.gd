@@ -185,15 +185,16 @@ func _process(delta: float) -> void:
 		animate=extreme_weather.advance(delta,source=="campaign-calendar")
 		# Cloud geometry follows civil campaign time, not instance uptime.
 		# Keep the existing physical particle/transition owner for live weather.
-		if animate and effects!=null and is_instance_valid(effects._player):
-			var camera:=get_viewport().get_camera_3d()
-			extreme_weather.publish(sky,camera.global_position if camera!=null else effects._player.global_position,effects.get("air_material"))
 	if RenderingServer.get_current_rendering_method()=="forward_plus" and animate:
+		var precise:=PackedFloat64Array()
+		var simulation_seconds:=INF
 		if source=="campaign-calendar":
-			var transport:=Calendar.cloud_transport(date)
-			_wind_offset=Vector3(transport.x,0,transport.y)
+			var stamp:=Calendar.clock_seconds(clock)
+			precise=Calendar.cloud_transport_at(stamp)
+			if precise.size()==2:_wind_offset=Vector3(precise[0],0,precise[1])
+			simulation_seconds=stamp-float(Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00"))
 		if extreme_weather!=null:
-			LivingSky.move_fields(atmosphere_state,date,Vector2(_wind_offset.x,_wind_offset.z))
+			LivingSky.move_fields(atmosphere_state,date,Vector2(_wind_offset.x,_wind_offset.z),precise,simulation_seconds)
 			LivingSky.publish(sky,atmosphere_state)
 		_frame=(_frame+1)%128
 		sky.set_shader_parameter("temporal_phase",float(_frame) if get_viewport().use_taa else 0.0)
@@ -202,6 +203,7 @@ func _process(delta: float) -> void:
 		sky.set_shader_parameter("shape_opacity",smoothstep(0,90,_shape_age)*(1.0-smoothstep(720,900,_shape_age)))
 		if effects!=null and effects.get("air_material")!=null:
 			effects.air_material.set_shader_parameter("wind_offset",_wind_offset)
+		_publish_extreme_motion(date,precise)
 	_push_spectacle()
 	_publish_left-=delta
 	if _publish_left<=0.0: _publish_left=1.0; _publish()
@@ -211,6 +213,10 @@ func _publish() -> void:
 	var weights := season_weights(int(date.get("month",11)),int(date.get("day",date.get("day_of_month",15))))
 	current["season_weights"]=weights
 	atmosphere_state=LivingSky.sample(date,current,_seed_value(),Vector2(INF,INF) if source=="campaign-calendar" else Vector2(_wind_offset.x,_wind_offset.z))
+	if source=="campaign-calendar":
+		var stamp:=Calendar.clock_seconds(clock)
+		var precise:=Calendar.cloud_transport_at(stamp)
+		LivingSky.move_fields(atmosphere_state,date,Vector2(_wind_offset.x,_wind_offset.z),precise,stamp-float(Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")))
 	if not atmosphere_state.is_empty():atmosphere_state.mode="curated-year" if source=="campaign-calendar" else "observed-or-seasonal"
 	if extreme_weather!=null: LivingSky.publish(sky,atmosphere_state)
 	if extreme_weather!=null:
@@ -227,7 +233,24 @@ func _publish() -> void:
 		sky.set_shader_parameter("season_weights",weights)
 		sky.set_shader_parameter("humidity",float(current.get("relative_humidity",.5)))
 		sky.set_shader_parameter("storm_strength",float(current.get("precipitation_intensity",0)))
+		_publish_extreme_motion(date)
 	conditions_changed.emit(current.duplicate(true))
+
+func _publish_extreme_motion(date: Dictionary,precise := PackedFloat64Array()) -> void:
+	if extreme_weather==null:return
+	if source=="campaign-calendar":
+		var stamp:=Calendar.clock_seconds(clock)
+		if precise.size()!=2:precise=Calendar.cloud_transport_at(stamp)
+		extreme_weather.move_calendar_fields(stamp,precise)
+	if precise.size()!=2:precise=PackedFloat64Array([_wind_offset.x,_wind_offset.z])
+	var weights:=season_weights(int(date.get("month",11)),int(date.get("day",date.get("day_of_month",15))))
+	extreme_weather.set_transport(precise,lerpf(.30,.16,weights.z))
+	var camera:=get_viewport().get_camera_3d()
+	var prior_value: Variant=sky.get_shader_parameter("wx_camera_km")
+	var prior: Vector3=prior_value if prior_value is Vector3 else Vector3.ZERO
+	var at: Vector3=camera.global_position if camera!=null else prior*1000.0
+	extreme_weather.publish(sky,at,effects.get("air_material") if effects!=null else null)
+	_publish_vortex()
 
 func set_extreme_event(event: Dictionary) -> bool:
 	# Authored coastal-storm/alert adapter. The existing weather owner remains
@@ -370,13 +393,9 @@ func _push_spectacle() -> void:
 		_spectacle_bearings[slot]=float(entry.bearing)
 		if slot==ST_ELMO_SLOT: corona=float(entry.level)
 		if slot==MICROBURST_SLOT: burst=float(entry.level)
-		if slot==16 and extreme_weather!=null:
-			# One funnel, one density/light owner. Match the scheduled bearing.
-			extreme_weather.vortex=maxf(extreme_weather.vortex,float(entry.level))
-			sky.set_shader_parameter("vortex_intensity",extreme_weather.vortex)
-			sky.set_shader_parameter("wx_vortex_center",Vector2(sin(float(entry.bearing)),-cos(float(entry.bearing)))*3.6)
 	if _tle_frames>0: _tle_frames-=1
 	if RenderingServer.get_current_rendering_method()=="forward_plus":
+		_publish_vortex()
 		sky.set_shader_parameter("spectacle",_spectacle_levels)
 		sky.set_shader_parameter("spectacle_bearing",_spectacle_bearings)
 		sky.set_shader_parameter("spectacle_time",_spectacle_time)
@@ -384,3 +403,16 @@ func _push_spectacle() -> void:
 		_corona=corona
 		get_tree().call_group("st_elmo_corona","set_corona",corona)
 	if effects!=null and effects.has_method("set_burst"): effects.set_burst(burst)
+
+## Combine current weather and the witnessed schedule without feeding a rendered
+## maximum back into the weather state. Every publication uses this projection.
+func _vortex_level() -> float:
+	var scheduled:=float(_spectacle_levels[16]) if _spectacle_levels.size()>16 else 0.0
+	return maxf(float(extreme_weather.vortex) if extreme_weather!=null else 0.0,scheduled)
+
+func _publish_vortex() -> void:
+	if extreme_weather==null:return
+	sky.set_shader_parameter("vortex_intensity",_vortex_level())
+	if _spectacle_levels.size()>16 and _spectacle_levels[16]>0.0:
+		var bearing:=float(_spectacle_bearings[16])
+		sky.set_shader_parameter("wx_vortex_center",Vector2(sin(bearing),-cos(bearing))*3.6)

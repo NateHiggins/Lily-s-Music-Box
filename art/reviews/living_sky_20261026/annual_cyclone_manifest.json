@@ -1,6 +1,6 @@
 {
   "evidence_class": "INERT",
-  "scope": "Annual pre-repair optical survey and matched cyclone repair diagnostics. No gameplay performance, validated save reconstruction, owned teardown or human acceptance.",
+  "scope": "INERT annual sky, motion, funnel, pointer restoration and occupied-calendar optical diagnostics; no native manipulation, weather disk-save/teardown or human acceptance.",
   "members": [
     {
       "name": "annual/annual_gallery.json",
@@ -620,8 +620,3187 @@
       "bytes": 17581,
       "reconstructed_from_current": true,
       "verified_against_run_receipt": true
+    },
+    {
+      "name": "cirrus/before/brush_day_000_all.jpg",
+      "sha256": "3d2ffdd85cd4a388f765786b2661c8af4e0dc2dfb53ec720cd27b1a5c4267293",
+      "bytes": 49397,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_000_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "a171e47eb2ca18b7d2d714bd02d0b55204c44f2ef954c6df4f8d70523ea247b4"
+    },
+    {
+      "name": "cirrus/before/brush_day_000_high.jpg",
+      "sha256": "900cd076a9c4443761c76a236b7c577e04807ea6e76772575695b0270b6f2f47",
+      "bytes": 38103,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_000_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "656df7aebbab32d4222da3717f97147385afe211338d01427f66f9857abca331"
+    },
+    {
+      "name": "cirrus/before/brush_day_000_low_mid.jpg",
+      "sha256": "0abd110ae869cf65e25ccb5a95c5b6507b7ec64410cc5fa31741134d114ff8b8",
+      "bytes": 43565,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_000_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "22efbc289bc33779e2a4b6cd9cedd0e62efe7a9110fc9f73009bdba646ddee0a"
+    },
+    {
+      "name": "cirrus/before/brush_day_120_all.jpg",
+      "sha256": "de8837919eda6b44d26806de37a31f80de3ba91fa94802921e1a812248ef0b7d",
+      "bytes": 23275,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_120_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "1a4cef7efb6803286cb30550fe0a41010fe6b1890dc58db0d7ab4ef9bc281fff"
+    },
+    {
+      "name": "cirrus/before/brush_day_120_high.jpg",
+      "sha256": "1e22287f6b918617741796c7289cc70d3cf19fe855f110d676df3781ff9c8004",
+      "bytes": 21272,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_120_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "3c4908d42e2227a699aa899358c9c324fb5986deeb6014249d1551048f826f1b"
+    },
+    {
+      "name": "cirrus/before/brush_day_120_low_mid.jpg",
+      "sha256": "1b25eaf605bde794a021544533fc229c6dbc57a62800c904f18df7afa5e1db6f",
+      "bytes": 23244,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_120_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "244dae7d081d298f28e619003e365775e58fd9c9626ed5bc5b1ec77a1e313f7c"
+    },
+    {
+      "name": "cirrus/before/brush_day_210_all.jpg",
+      "sha256": "f4884164a81b19c46674417bf2f2605372040120d27b3d1b091744e69f7bb600",
+      "bytes": 57588,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_210_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "f9976780cb5a6341d6b12207183cd6e661cd675dd9b821f81b1c5e7d9d04fe58"
+    },
+    {
+      "name": "cirrus/before/brush_day_210_high.jpg",
+      "sha256": "01730264f027fc8a4cc1f392f800c2e9a539524d016dd40ea78c97e6e6646fb0",
+      "bytes": 56717,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_210_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "fe922e12e9e4f377aa9dbd1636fffb439ba1eb9df98dd1b2398c9a0c737c26f7"
+    },
+    {
+      "name": "cirrus/before/brush_day_210_low_mid.jpg",
+      "sha256": "29310f8727241988b3bd29f720a9a20c9fa3bd27dc0b59116b3415d790b01c84",
+      "bytes": 29437,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_210_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "1ec68a2a78bc6c9250f042aa10dbe2c100c6bb27973ca68203b8c63f1e7021b6"
+    },
+    {
+      "name": "cirrus/before/brush_day_300_all.jpg",
+      "sha256": "a27af1645b460538f673920b5a189ada2ee1cb61efb745fc3eee155038e0886c",
+      "bytes": 52206,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_300_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "d2cc2d25bec693f93e5e21eff1d3e9cf65cc2ec5e847ef2bd7bd4f1995e1c0a0"
+    },
+    {
+      "name": "cirrus/before/brush_day_300_high.jpg",
+      "sha256": "613fd5db2a9dcb9f2de7253cdc975e0baeb78eaabfe463d1aa799925f72ac702",
+      "bytes": 69340,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_300_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "717cd9f095c54f368291f8bfef88cdd50141579f6f95e1baf41fbb89d91548c2"
+    },
+    {
+      "name": "cirrus/before/brush_day_300_low_mid.jpg",
+      "sha256": "10d1e50a4a2f9c7ac05cd14dde7ed2096ee5ec3b8968f11d591d4615681ab938",
+      "bytes": 31976,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_day_300_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "688129e8e5de05e54e0799187be588d6880d8a011c343ee0bf371d745672cd4b"
+    },
+    {
+      "name": "cirrus/before/brush_review.json",
+      "sha256": "b8f350971fbbde3fb6e2d010256840dab294d8040dcb9ec80588d6a060e8306f",
+      "bytes": 68146,
+      "source": "C:\\ov\\reports\\weather_brush26\\before\\brush_review.json"
+    },
+    {
+      "name": "cirrus/logs/before.log",
+      "sha256": "91134688ca47eb5d4069eff4f00667dd16ca13095af8cec95cf9746522689816",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_brush26\\before.log"
+    },
+    {
+      "name": "cirrus/logs/before.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_brush26\\before.log.stderr"
+    },
+    {
+      "name": "cirrus/logs/before.log.receipt.json",
+      "sha256": "e9ade26481b79d995027fcc733c851319d79b46ab062018cbf264efda781d1cc",
+      "bytes": 1593,
+      "source": "C:\\ov\\reports\\weather_brush26\\before.log.receipt.json"
+    },
+    {
+      "name": "cirrus/logs/before.log.isolated.json",
+      "sha256": "57f3e052e3a04d98a030f34a1300690968a0ad93b97bd416c7f9986d71ad3ed5",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_brush26\\before.log.isolated.json"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_000_all.jpg",
+      "sha256": "3d2ffdd85cd4a388f765786b2661c8af4e0dc2dfb53ec720cd27b1a5c4267293",
+      "bytes": 49397,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_000_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "a171e47eb2ca18b7d2d714bd02d0b55204c44f2ef954c6df4f8d70523ea247b4"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_000_high.jpg",
+      "sha256": "900cd076a9c4443761c76a236b7c577e04807ea6e76772575695b0270b6f2f47",
+      "bytes": 38103,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_000_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "656df7aebbab32d4222da3717f97147385afe211338d01427f66f9857abca331"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_000_low_mid.jpg",
+      "sha256": "0abd110ae869cf65e25ccb5a95c5b6507b7ec64410cc5fa31741134d114ff8b8",
+      "bytes": 43565,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_000_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "22efbc289bc33779e2a4b6cd9cedd0e62efe7a9110fc9f73009bdba646ddee0a"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_120_all.jpg",
+      "sha256": "de8837919eda6b44d26806de37a31f80de3ba91fa94802921e1a812248ef0b7d",
+      "bytes": 23275,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_120_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "1a4cef7efb6803286cb30550fe0a41010fe6b1890dc58db0d7ab4ef9bc281fff"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_120_high.jpg",
+      "sha256": "1e22287f6b918617741796c7289cc70d3cf19fe855f110d676df3781ff9c8004",
+      "bytes": 21272,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_120_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "3c4908d42e2227a699aa899358c9c324fb5986deeb6014249d1551048f826f1b"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_120_low_mid.jpg",
+      "sha256": "1b25eaf605bde794a021544533fc229c6dbc57a62800c904f18df7afa5e1db6f",
+      "bytes": 23244,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_120_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "244dae7d081d298f28e619003e365775e58fd9c9626ed5bc5b1ec77a1e313f7c"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_210_all.jpg",
+      "sha256": "705671e69bc398814c6123652d8ddee008a1575ce583b5840a6506f2d90285d7",
+      "bytes": 34835,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_210_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "fcfd69af5d593afe2ba63885200cef0a51b99bb6926dba7587d0b35a3bed7267"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_210_high.jpg",
+      "sha256": "10f6660d473cd1eb3d52053111fea2e5ca343854abc5e8398f7ae3b07ca50428",
+      "bytes": 30040,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_210_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "1c1cea00aa092d4265e3fb2af91de0770aa210db120ed45547a302aeb278469d"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_210_low_mid.jpg",
+      "sha256": "e74779b7ed3034f27b6c956d3021d994f551419037551faad413fe888982e4fa",
+      "bytes": 29442,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_210_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "f8b95c00af449780a26ee2115672840d60b9d5f7965b9ffdd4109df2b5477d4f"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_300_all.jpg",
+      "sha256": "e05f0d08c34335ec1cb803a09440eda70f613f9a103f77dddb6538d595d5eed9",
+      "bytes": 34063,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_300_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "0f750d7bac275721b2e5a4fb7d4e7ca79c115c52d47ee71ac914d78b793078b4"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_300_high.jpg",
+      "sha256": "5522e80d15443f720f94dc1d7bac281f372d3f32f983e8bc43dd3c2f353a1324",
+      "bytes": 31296,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_300_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "1f5ca9fef73b7ea955d55d997a131b6b6776cccd2b2531f5058e9ff8a730ca65"
+    },
+    {
+      "name": "cirrus/after_v1/brush_day_300_low_mid.jpg",
+      "sha256": "9d12e67c9deece67d0319f40ed09f899bb0687bff6ee8853e50556a3769999b5",
+      "bytes": 31966,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_day_300_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "8c46d4346a4a77ad702ee9e2238a5f0b4b170b87360ac4e680aa2bad987a722c"
+    },
+    {
+      "name": "cirrus/after_v1/brush_review.json",
+      "sha256": "17f1f11780e19d0f47a54d2c06ca2d3d7d3d44911d4181fc7ea73f17ef59be33",
+      "bytes": 68146,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1\\brush_review.json"
+    },
+    {
+      "name": "cirrus/logs/after_v1.log",
+      "sha256": "91134688ca47eb5d4069eff4f00667dd16ca13095af8cec95cf9746522689816",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1.log"
+    },
+    {
+      "name": "cirrus/logs/after_v1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1.log.stderr"
+    },
+    {
+      "name": "cirrus/logs/after_v1.log.receipt.json",
+      "sha256": "556bcb84fd934866f5ca9f73e620d3323059dd77c9f631745c0d61d763d95456",
+      "bytes": 1653,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1.log.receipt.json"
+    },
+    {
+      "name": "cirrus/logs/after_v1.log.isolated.json",
+      "sha256": "9ebab70ce52d352db556fb11f16b98cbe71acfa57685fa1e5c391b886da32f63",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v1.log.isolated.json"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_000_all.jpg",
+      "sha256": "3d2ffdd85cd4a388f765786b2661c8af4e0dc2dfb53ec720cd27b1a5c4267293",
+      "bytes": 49397,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_000_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "a171e47eb2ca18b7d2d714bd02d0b55204c44f2ef954c6df4f8d70523ea247b4"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_000_high.jpg",
+      "sha256": "900cd076a9c4443761c76a236b7c577e04807ea6e76772575695b0270b6f2f47",
+      "bytes": 38103,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_000_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "656df7aebbab32d4222da3717f97147385afe211338d01427f66f9857abca331"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_000_low_mid.jpg",
+      "sha256": "0abd110ae869cf65e25ccb5a95c5b6507b7ec64410cc5fa31741134d114ff8b8",
+      "bytes": 43565,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_000_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "22efbc289bc33779e2a4b6cd9cedd0e62efe7a9110fc9f73009bdba646ddee0a"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_120_all.jpg",
+      "sha256": "de8837919eda6b44d26806de37a31f80de3ba91fa94802921e1a812248ef0b7d",
+      "bytes": 23275,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_120_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "1a4cef7efb6803286cb30550fe0a41010fe6b1890dc58db0d7ab4ef9bc281fff"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_120_high.jpg",
+      "sha256": "1e22287f6b918617741796c7289cc70d3cf19fe855f110d676df3781ff9c8004",
+      "bytes": 21272,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_120_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "3c4908d42e2227a699aa899358c9c324fb5986deeb6014249d1551048f826f1b"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_120_low_mid.jpg",
+      "sha256": "1b25eaf605bde794a021544533fc229c6dbc57a62800c904f18df7afa5e1db6f",
+      "bytes": 23244,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_120_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "244dae7d081d298f28e619003e365775e58fd9c9626ed5bc5b1ec77a1e313f7c"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_210_all.jpg",
+      "sha256": "38d277dc582ae1b6034a29e96e59775577f897891ed95b1c1614916406b9c0fe",
+      "bytes": 38062,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_210_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "a6ea1a18d0e158b69ea327fa89e19e6540127765ec0052c89a3e943ab3e78bf5"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_210_high.jpg",
+      "sha256": "20099bb8de207d5e5689d435d37ddbc109ec601410de11673d41c2bc35ee3504",
+      "bytes": 36836,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_210_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "ff6a667d88d49f9a9b0bb2ba3ffb24add80d970aeddcb7ac2668bd2b69f167f7"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_210_low_mid.jpg",
+      "sha256": "a00b39460dc9e3f504116f389545268a513e0db8bb7bca07600a8f83eec9de8a",
+      "bytes": 29450,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_210_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "0a15b328490de664afa2335e869a70b5e2801bb32779a8584505e382b51eca5b"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_300_all.jpg",
+      "sha256": "15102724ce6ce4830b6ac75a5b037d373f05c8ccf17e1b0e519beb00a0f3bbe3",
+      "bytes": 33969,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_300_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "ea9c2613725849b74a79ede47899a581943af66e5488d98cd02d5cebd7bf95db"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_300_high.jpg",
+      "sha256": "da29023c5ef401e4d3fb501d460a7d1bbbc87d5b1282f4453101f986fd5d9610",
+      "bytes": 35576,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_300_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "a3f7054b16ca4b7d948bb46ed08d3e6841b2c3b66f1753fb5a284d1c4d79ba4a"
+    },
+    {
+      "name": "cirrus/after_v2/brush_day_300_low_mid.jpg",
+      "sha256": "ece7bee7901ee3eaa60f8de0be3575ad88c0f51bc644fbf0d94c37ec548ad183",
+      "bytes": 32019,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_day_300_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "eecc6ec316c1a2b0f4b1e3572bc74a015fa62eb1a93e378195ac2293a61499f2"
+    },
+    {
+      "name": "cirrus/after_v2/brush_review.json",
+      "sha256": "d000e55d2d41d1d5c1f7b4bef732dbef88189c4e40501f0862710a1180d663e3",
+      "bytes": 68168,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2\\brush_review.json"
+    },
+    {
+      "name": "cirrus/logs/after_v2.log",
+      "sha256": "91134688ca47eb5d4069eff4f00667dd16ca13095af8cec95cf9746522689816",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2.log"
+    },
+    {
+      "name": "cirrus/logs/after_v2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2.log.stderr"
+    },
+    {
+      "name": "cirrus/logs/after_v2.log.receipt.json",
+      "sha256": "f47db6f618a54440f84be20b523d93013cb2a3cf95bfe83096b887bd95b09bf0",
+      "bytes": 1653,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2.log.receipt.json"
+    },
+    {
+      "name": "cirrus/logs/after_v2.log.isolated.json",
+      "sha256": "14009fd1a5d06a7024c810b8f92167644a82d525c18d5ec2fa6ffae2085bc169",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v2.log.isolated.json"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_000_all.jpg",
+      "sha256": "3d2ffdd85cd4a388f765786b2661c8af4e0dc2dfb53ec720cd27b1a5c4267293",
+      "bytes": 49397,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_000_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "a171e47eb2ca18b7d2d714bd02d0b55204c44f2ef954c6df4f8d70523ea247b4"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_000_high.jpg",
+      "sha256": "900cd076a9c4443761c76a236b7c577e04807ea6e76772575695b0270b6f2f47",
+      "bytes": 38103,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_000_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "656df7aebbab32d4222da3717f97147385afe211338d01427f66f9857abca331"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_000_low_mid.jpg",
+      "sha256": "0abd110ae869cf65e25ccb5a95c5b6507b7ec64410cc5fa31741134d114ff8b8",
+      "bytes": 43565,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_000_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "22efbc289bc33779e2a4b6cd9cedd0e62efe7a9110fc9f73009bdba646ddee0a"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_120_all.jpg",
+      "sha256": "de8837919eda6b44d26806de37a31f80de3ba91fa94802921e1a812248ef0b7d",
+      "bytes": 23275,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_120_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "1a4cef7efb6803286cb30550fe0a41010fe6b1890dc58db0d7ab4ef9bc281fff"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_120_high.jpg",
+      "sha256": "1e22287f6b918617741796c7289cc70d3cf19fe855f110d676df3781ff9c8004",
+      "bytes": 21272,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_120_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "3c4908d42e2227a699aa899358c9c324fb5986deeb6014249d1551048f826f1b"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_120_low_mid.jpg",
+      "sha256": "1b25eaf605bde794a021544533fc229c6dbc57a62800c904f18df7afa5e1db6f",
+      "bytes": 23244,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_120_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "244dae7d081d298f28e619003e365775e58fd9c9626ed5bc5b1ec77a1e313f7c"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_210_all.jpg",
+      "sha256": "d9b49cef3e7afb49a0d4e3450c0b3419c0058f487abf7fdf573fdaed4e5d64c4",
+      "bytes": 33806,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_210_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "10a526c2329682486d8f469b882b56b6648f647189f5f2063cccc8b3f40b0a42"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_210_high.jpg",
+      "sha256": "f3583274c402264ff956549bdcdcf85e675e4a6444782c6fa53ba1c1ac5339c1",
+      "bytes": 28467,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_210_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "4e5c160b4fa97abdd8551dd543239e7184bc2a927337e6d5f8b710c740701607"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_210_low_mid.jpg",
+      "sha256": "3b097dda6a4b3b322c45fbddba4c9a00649f9b1ac7ae58f31db31de5bff0ab5c",
+      "bytes": 29446,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_210_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "0bcd6f0b371daa31f0d1dd8ad3acdf269a6dcacc799eb04fc39a6199571e6655"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_300_all.jpg",
+      "sha256": "3878e2b34cd93fdc6f4027c2294c1805c5f30fd29f96150ba8e1217c0a061024",
+      "bytes": 33605,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_300_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "77372db17fa46ddbe2e192283f481cfe41f18d4d93ea6473dfbbd654d82aa4ee"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_300_high.jpg",
+      "sha256": "c70374de26c3b1a3a9af766487b3d7faaf1dda9ab6af4894557cbabebcb814cb",
+      "bytes": 29468,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_300_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "fbab29c0a0a95bc784a3775f3c7f8d7d89de47508c13821036c8f8c677b8fad4"
+    },
+    {
+      "name": "cirrus/after_v3/brush_day_300_low_mid.jpg",
+      "sha256": "5b9bf90916ded9c77be8afb332719b29f69142b198c8ab99a712e7b178e8bc33",
+      "bytes": 31951,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_day_300_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "263725c3e2a1040d3cb50a34ccd7319b9e37aff4bf16d947888d38eb6b1aeb35"
+    },
+    {
+      "name": "cirrus/after_v3/brush_review.json",
+      "sha256": "d51382665498919c47a9ca2d8bd1fc9fc0e4d7c82e16c84cca3f8914b7db09be",
+      "bytes": 68237,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3\\brush_review.json"
+    },
+    {
+      "name": "cirrus/logs/after_v3.log",
+      "sha256": "91134688ca47eb5d4069eff4f00667dd16ca13095af8cec95cf9746522689816",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3.log"
+    },
+    {
+      "name": "cirrus/logs/after_v3.log.stderr",
+      "sha256": "b1cb455fc768376bd5b7ebc738acfc1f89b465d3eeee5c18893e924a7a25e19a",
+      "bytes": 241,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3.log.stderr"
+    },
+    {
+      "name": "cirrus/logs/after_v3.log.receipt.json",
+      "sha256": "28aca144babc3da92b73c5b01d197ed7dae683675233b29d220b50965acdd680",
+      "bytes": 1653,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3.log.receipt.json"
+    },
+    {
+      "name": "cirrus/logs/after_v3.log.isolated.json",
+      "sha256": "f99bc633550518ccd81b9085656a82628ec5d7df5e7027472c2208c27ae9b321",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_brush26\\after_v3.log.isolated.json"
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_000_all.jpg",
+      "sha256": "3d2ffdd85cd4a388f765786b2661c8af4e0dc2dfb53ec720cd27b1a5c4267293",
+      "bytes": 49397,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_000_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "a171e47eb2ca18b7d2d714bd02d0b55204c44f2ef954c6df4f8d70523ea247b4"
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_000_high.jpg",
+      "sha256": "900cd076a9c4443761c76a236b7c577e04807ea6e76772575695b0270b6f2f47",
+      "bytes": 38103,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_000_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "656df7aebbab32d4222da3717f97147385afe211338d01427f66f9857abca331"
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_000_low_mid.jpg",
+      "sha256": "0abd110ae869cf65e25ccb5a95c5b6507b7ec64410cc5fa31741134d114ff8b8",
+      "bytes": 43565,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_000_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "22efbc289bc33779e2a4b6cd9cedd0e62efe7a9110fc9f73009bdba646ddee0a"
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_120_all.jpg",
+      "sha256": "de8837919eda6b44d26806de37a31f80de3ba91fa94802921e1a812248ef0b7d",
+      "bytes": 23275,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_120_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "1a4cef7efb6803286cb30550fe0a41010fe6b1890dc58db0d7ab4ef9bc281fff"
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_120_high.jpg",
+      "sha256": "1e22287f6b918617741796c7289cc70d3cf19fe855f110d676df3781ff9c8004",
+      "bytes": 21272,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_120_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "3c4908d42e2227a699aa899358c9c324fb5986deeb6014249d1551048f826f1b"
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_120_low_mid.jpg",
+      "sha256": "1b25eaf605bde794a021544533fc229c6dbc57a62800c904f18df7afa5e1db6f",
+      "bytes": 23244,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_120_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "244dae7d081d298f28e619003e365775e58fd9c9626ed5bc5b1ec77a1e313f7c"
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_210_all.png",
+      "sha256": "f9976780cb5a6341d6b12207183cd6e661cd675dd9b821f81b1c5e7d9d04fe58",
+      "bytes": 438549,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_210_all.png",
+      "derivative": false
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_210_high.png",
+      "sha256": "fe922e12e9e4f377aa9dbd1636fffb439ba1eb9df98dd1b2398c9a0c737c26f7",
+      "bytes": 385409,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_210_high.png",
+      "derivative": false
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_210_low_mid.jpg",
+      "sha256": "29310f8727241988b3bd29f720a9a20c9fa3bd27dc0b59116b3415d790b01c84",
+      "bytes": 29437,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_210_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "1ec68a2a78bc6c9250f042aa10dbe2c100c6bb27973ca68203b8c63f1e7021b6"
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_300_all.png",
+      "sha256": "d2cc2d25bec693f93e5e21eff1d3e9cf65cc2ec5e847ef2bd7bd4f1995e1c0a0",
+      "bytes": 453232,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_300_all.png",
+      "derivative": false
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_300_high.png",
+      "sha256": "717cd9f095c54f368291f8bfef88cdd50141579f6f95e1baf41fbb89d91548c2",
+      "bytes": 442201,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_300_high.png",
+      "derivative": false
+    },
+    {
+      "name": "cirrus/before_dummy/brush_day_300_low_mid.jpg",
+      "sha256": "10d1e50a4a2f9c7ac05cd14dde7ed2096ee5ec3b8968f11d591d4615681ab938",
+      "bytes": 31976,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_day_300_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "688129e8e5de05e54e0799187be588d6880d8a011c343ee0bf371d745672cd4b"
+    },
+    {
+      "name": "cirrus/before_dummy/brush_review.json",
+      "sha256": "bf8c9096c2d6c2a1ce820878a8cd6c8b6be5a926ae75a178a7724a7b85d5a14c",
+      "bytes": 68571,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy\\brush_review.json"
+    },
+    {
+      "name": "cirrus/logs/before_dummy.log",
+      "sha256": "91134688ca47eb5d4069eff4f00667dd16ca13095af8cec95cf9746522689816",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy.log"
+    },
+    {
+      "name": "cirrus/logs/before_dummy.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy.log.stderr"
+    },
+    {
+      "name": "cirrus/logs/before_dummy.log.receipt.json",
+      "sha256": "bc0b8d66b73f8471a82a78a83a4bc22a576613f27b5c044df5bcd45501e1c4d6",
+      "bytes": 1611,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy.log.receipt.json"
+    },
+    {
+      "name": "cirrus/logs/before_dummy.log.isolated.json",
+      "sha256": "2773371eacd7cfefee371755f1581ba696bba5b23fd595ca98c38c97fdc662cf",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_brush26\\before_dummy.log.isolated.json"
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_000_all.jpg",
+      "sha256": "3d2ffdd85cd4a388f765786b2661c8af4e0dc2dfb53ec720cd27b1a5c4267293",
+      "bytes": 49397,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_000_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "a171e47eb2ca18b7d2d714bd02d0b55204c44f2ef954c6df4f8d70523ea247b4"
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_000_high.jpg",
+      "sha256": "900cd076a9c4443761c76a236b7c577e04807ea6e76772575695b0270b6f2f47",
+      "bytes": 38103,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_000_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "656df7aebbab32d4222da3717f97147385afe211338d01427f66f9857abca331"
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_000_low_mid.jpg",
+      "sha256": "0abd110ae869cf65e25ccb5a95c5b6507b7ec64410cc5fa31741134d114ff8b8",
+      "bytes": 43565,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_000_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "22efbc289bc33779e2a4b6cd9cedd0e62efe7a9110fc9f73009bdba646ddee0a"
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_120_all.jpg",
+      "sha256": "de8837919eda6b44d26806de37a31f80de3ba91fa94802921e1a812248ef0b7d",
+      "bytes": 23275,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_120_all.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "1a4cef7efb6803286cb30550fe0a41010fe6b1890dc58db0d7ab4ef9bc281fff"
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_120_high.jpg",
+      "sha256": "1e22287f6b918617741796c7289cc70d3cf19fe855f110d676df3781ff9c8004",
+      "bytes": 21272,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_120_high.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "3c4908d42e2227a699aa899358c9c324fb5986deeb6014249d1551048f826f1b"
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_120_low_mid.jpg",
+      "sha256": "1b25eaf605bde794a021544533fc229c6dbc57a62800c904f18df7afa5e1db6f",
+      "bytes": 23244,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_120_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "244dae7d081d298f28e619003e365775e58fd9c9626ed5bc5b1ec77a1e313f7c"
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_210_all.png",
+      "sha256": "10a526c2329682486d8f469b882b56b6648f647189f5f2063cccc8b3f40b0a42",
+      "bytes": 318420,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_210_all.png",
+      "derivative": false
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_210_high.png",
+      "sha256": "4e5c160b4fa97abdd8551dd543239e7184bc2a927337e6d5f8b710c740701607",
+      "bytes": 253320,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_210_high.png",
+      "derivative": false
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_210_low_mid.jpg",
+      "sha256": "3b097dda6a4b3b322c45fbddba4c9a00649f9b1ac7ae58f31db31de5bff0ab5c",
+      "bytes": 29446,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_210_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "0bcd6f0b371daa31f0d1dd8ad3acdf269a6dcacc799eb04fc39a6199571e6655"
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_300_all.png",
+      "sha256": "77372db17fa46ddbe2e192283f481cfe41f18d4d93ea6473dfbbd654d82aa4ee",
+      "bytes": 349810,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_300_all.png",
+      "derivative": false
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_300_high.png",
+      "sha256": "fbab29c0a0a95bc784a3775f3c7f8d7d89de47508c13821036c8f8c677b8fad4",
+      "bytes": 250381,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_300_high.png",
+      "derivative": false
+    },
+    {
+      "name": "cirrus/final_dummy/brush_day_300_low_mid.jpg",
+      "sha256": "5b9bf90916ded9c77be8afb332719b29f69142b198c8ab99a712e7b178e8bc33",
+      "bytes": 31951,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_day_300_low_mid.png",
+      "derivative": "JPEG quality78",
+      "original_png_sha256": "263725c3e2a1040d3cb50a34ccd7319b9e37aff4bf16d947888d38eb6b1aeb35"
+    },
+    {
+      "name": "cirrus/final_dummy/brush_review.json",
+      "sha256": "6e32b681fbfa2904cc0873fb6841cea897dff9f2b507cc4724afa404c705cb3e",
+      "bytes": 68563,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy\\brush_review.json"
+    },
+    {
+      "name": "cirrus/logs/final_dummy.log",
+      "sha256": "91134688ca47eb5d4069eff4f00667dd16ca13095af8cec95cf9746522689816",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy.log"
+    },
+    {
+      "name": "cirrus/logs/final_dummy.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy.log.stderr"
+    },
+    {
+      "name": "cirrus/logs/final_dummy.log.receipt.json",
+      "sha256": "8c979e78fcf4d364411eae39dd0118669a35a229b4ef1a933d7a39fada313a4f",
+      "bytes": 1662,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy.log.receipt.json"
+    },
+    {
+      "name": "cirrus/logs/final_dummy.log.isolated.json",
+      "sha256": "3fa1a26d3d09c77288e67f5a9a5ceb8f7effb1863cab7326609b6f7b7af16f7d",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_brush26\\final_dummy.log.isolated.json"
+    },
+    {
+      "name": "cirrus/logs/calendar_headless.log",
+      "sha256": "077b4080c3aa185e421e45471ab538f2b509d5c366135704d3530428d4d40e5c",
+      "bytes": 33323,
+      "source": "C:\\ov\\reports\\weather_brush26\\calendar_headless.log"
+    },
+    {
+      "name": "cirrus/logs/calendar_headless.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_brush26\\calendar_headless.log.stderr"
+    },
+    {
+      "name": "cirrus/logs/calendar_headless.log.receipt.json",
+      "sha256": "3ec619e656cc96d97670106d7dd51d0a3d2d072e848adc36bdfaf3903e2e05e6",
+      "bytes": 5271,
+      "source": "C:\\ov\\reports\\weather_brush26\\calendar_headless.log.receipt.json"
+    },
+    {
+      "name": "cirrus/logs/schedule_headless.log",
+      "sha256": "223aed5c9af331b000268c0b04a111d716335bf16974a328f50ba58a4c550f71",
+      "bytes": 1111,
+      "source": "C:\\ov\\reports\\weather_brush26\\schedule_headless.log"
+    },
+    {
+      "name": "cirrus/logs/schedule_headless.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_brush26\\schedule_headless.log.stderr"
+    },
+    {
+      "name": "cirrus/logs/schedule_headless.log.receipt.json",
+      "sha256": "cec5a166ab1dcf62cecac4e5347d4d3eaae7eaafbdbd3f4d15f2b2f83207d211",
+      "bytes": 1682,
+      "source": "C:\\ov\\reports\\weather_brush26\\schedule_headless.log.receipt.json"
+    },
+    {
+      "name": "cirrus/logs/flash_headless.log",
+      "sha256": "d48e1c4dce7133084ba513817eaf2d7e46944519fa3621144d38b58b418d8495",
+      "bytes": 145,
+      "source": "C:\\ov\\reports\\weather_brush26\\flash_headless.log"
+    },
+    {
+      "name": "cirrus/logs/flash_headless.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_brush26\\flash_headless.log.stderr"
+    },
+    {
+      "name": "cirrus/logs/flash_headless.log.receipt.json",
+      "sha256": "4e1c1160da4a8cebb456cafe2f3e31616180c8950ffb5837aba69356061025c5",
+      "bytes": 1697,
+      "source": "C:\\ov\\reports\\weather_brush26\\flash_headless.log.receipt.json"
+    },
+    {
+      "name": "cirrus/source/final/game/shaders/queens_weather_math.gdshaderinc",
+      "sha256": "0b683c1a05576883d120bc28cb5bfdaa81836f0675c28ac8644c7c4b74b9c5c8",
+      "bytes": 11488
+    },
+    {
+      "name": "cirrus/source/main_before/game/shaders/queens_weather_math.gdshaderinc",
+      "sha256": "0eb1a56a48b4783f9fa0a1081d1d4c77a33b144cbaa832ba2425deba7c3cd39b",
+      "bytes": 11060
+    },
+    {
+      "name": "cirrus/source/final/game/tests/v2_sky_spectacle_bench.gd",
+      "sha256": "5d019424b667fb3728c922622e5bb5d5448a1c94c8ed35ca30263f9fb9f33b65",
+      "bytes": 23594
+    },
+    {
+      "name": "cirrus/source/main_before/game/tests/v2_sky_spectacle_bench.gd",
+      "sha256": "4035d0a1193daaf4ac49d62544b4831115959adad22aaeb05342f8c3abd2581d",
+      "bytes": 20767
+    },
+    {
+      "name": "motion/before/motion_day_000_000.jpg",
+      "sha256": "79004d5d21e2b223edb53bc1fd36265d36514f77906c317a747db78038f3ef38",
+      "bytes": 52677,
+      "source": "C:\\ov\\reports\\weather_motion26\\before\\motion_day_000_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "b05e1d0efccc4cf2394994cf841bc2fb1bfa9cdfc617d72f7c19040845555d1d"
+    },
+    {
+      "name": "motion/before/motion_day_000_359.jpg",
+      "sha256": "325b854f34d9bd8b6e6360a421bd116da0ea2f1b767ecf62d4dffad22ac47a91",
+      "bytes": 48405,
+      "source": "C:\\ov\\reports\\weather_motion26\\before\\motion_day_000_359.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "9f1b82fe00e1c43992bf2dd406378f2d28a8485fbf3a8d9035268372fb919ed1"
+    },
+    {
+      "name": "motion/before/motion_day_210_000.jpg",
+      "sha256": "d23086fe49c6c86238a8b4911cd1219eeb0b8736a983e2b647223bd7bd74f001",
+      "bytes": 33415,
+      "source": "C:\\ov\\reports\\weather_motion26\\before\\motion_day_210_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "4e89d0cfc352735e06a4cdae630d553b511de33d587653fbe93d6276db1fdff0"
+    },
+    {
+      "name": "motion/before/motion_day_210_359.jpg",
+      "sha256": "c08fce8e081d8402540558288e7cf95008043f4844bf0e0bdcfddd13ef367d84",
+      "bytes": 33779,
+      "source": "C:\\ov\\reports\\weather_motion26\\before\\motion_day_210_359.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "9a4d670e4b96ef2949c2d3fd1e8aa996eb288e85245349aad3d0f9f3bf4aa86d"
+    },
+    {
+      "name": "motion/before/motion_day_300_000.jpg",
+      "sha256": "8b80ff208739ddd19e1a341944b3939b8cdd06de15fde581bccbc8b48963c3a4",
+      "bytes": 33115,
+      "source": "C:\\ov\\reports\\weather_motion26\\before\\motion_day_300_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "8a1d82f7ee581da187bcd127464199b3a06ab45a9ba84d6de72cb1e4e9ea0c48"
+    },
+    {
+      "name": "motion/before/motion_day_300_359.png",
+      "sha256": "b7afd746c4505f95a8467e364d47ee0a73db5e35e292de480fc3b737287b9d91",
+      "bytes": 349124,
+      "source": "C:\\ov\\reports\\weather_motion26\\before\\motion_day_300_359.png",
+      "derivative": false
+    },
+    {
+      "name": "motion/before/motion_day_362_000.jpg",
+      "sha256": "7489ca281fa1abff3fa868e8fb899bbafb59ccd1021d1b95c6083e3433c18b67",
+      "bytes": 24521,
+      "source": "C:\\ov\\reports\\weather_motion26\\before\\motion_day_362_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "f80620466cdd95b0c4c054f839ecfdd489aeebe61dcdecbff52c0db4d773bb35"
+    },
+    {
+      "name": "motion/before/motion_day_362_359.jpg",
+      "sha256": "7d1761b7a53acb2fc0504c995a4b69ed0bbd52794dd460cc0269a42d0955b9db",
+      "bytes": 18732,
+      "source": "C:\\ov\\reports\\weather_motion26\\before\\motion_day_362_359.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "7b931957c6fe57543ebd7a7c01080e3a5cd0901d032ec0102b16465bb4d54eef"
+    },
+    {
+      "name": "motion/before/motion_review.json",
+      "sha256": "b13d6dafd4417b815988a5dd041567472bcb6ea7d5064dd8810038db77389073",
+      "bytes": 266693,
+      "source": "C:\\ov\\reports\\weather_motion26\\before\\motion_review.json"
+    },
+    {
+      "name": "motion/logs/before.log",
+      "sha256": "1119a20c066d50ba8943a41c7b95c46f1d5cd97aca410bb45db5a92203b04e12",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_motion26\\before.log"
+    },
+    {
+      "name": "motion/logs/before.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_motion26\\before.log.stderr"
+    },
+    {
+      "name": "motion/logs/before.log.receipt.json",
+      "sha256": "e57d9c4fba4f38545217a636fd6e23d045d4640644069303ca1eb721fee102a1",
+      "bytes": 1596,
+      "source": "C:\\ov\\reports\\weather_motion26\\before.log.receipt.json"
+    },
+    {
+      "name": "motion/logs/before.log.isolated.json",
+      "sha256": "f8422556054492816964bad31f1d8ea52336f5cfc549dd46c19e0f390311e17f",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_motion26\\before.log.isolated.json"
+    },
+    {
+      "name": "motion/ordinary_after_v1/motion_day_000_000.jpg",
+      "sha256": "b9f353cf6a10f3cd6c6d4d96dee254a3d197747583491e96197a2039301d59f4",
+      "bytes": 52679,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1\\motion_day_000_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "4c962aefedadb49e6e295e1297cf38e0b2150f1e415102525fcac17a12e8044a"
+    },
+    {
+      "name": "motion/ordinary_after_v1/motion_day_000_359.jpg",
+      "sha256": "25bbe450ce6037b1cfc34b2dc74b21c7a936320fa6cac9b3a2214d1f49432dc7",
+      "bytes": 48425,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1\\motion_day_000_359.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "cc87aa1618bc896add63df5dead5aec5e63c15920213b30d9097fb60e9059936"
+    },
+    {
+      "name": "motion/ordinary_after_v1/motion_day_210_000.jpg",
+      "sha256": "4c2bb339910f05f58d130ebddac413608afabd8f5039a2993a34951d6a4cb2c9",
+      "bytes": 33390,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1\\motion_day_210_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "ecc2635ca1ad84354155750a62184fde6c4bb1eabb39f57f79a9546fcbb8e476"
+    },
+    {
+      "name": "motion/ordinary_after_v1/motion_day_210_359.jpg",
+      "sha256": "bac9904bade57eb4bf371a16b6b54430e12b77330951f240ce930a4bcae0847d",
+      "bytes": 33772,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1\\motion_day_210_359.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "73c0b75bc20734ba8654a1401c9799faf29bf5c0d2dd0edb9074bd838dad9450"
+    },
+    {
+      "name": "motion/ordinary_after_v1/motion_day_300_000.jpg",
+      "sha256": "68affd2d32c79fd71a483f270cb6e1cfe726101887c654ba2448e9f52654eae3",
+      "bytes": 33095,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1\\motion_day_300_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "b9aa374d46a9a0cc2a30cb2ed3ab3d03caa0b599072d2060ec8a2a4bd3bcbf6d"
+    },
+    {
+      "name": "motion/ordinary_after_v1/motion_day_300_359.jpg",
+      "sha256": "505519cdbd48b5446c10031cbe4b4f84afba5f770682bb7a522a31559b4c1f97",
+      "bytes": 33531,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1\\motion_day_300_359.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "0dc36261f1c90574ef4c6c9a85cad6f0f191a6e71d6adab64d539b1af787742b"
+    },
+    {
+      "name": "motion/ordinary_after_v1/motion_day_362_000.jpg",
+      "sha256": "adb617dbc9be06d204c2f6292ac3e58ff58daf57a912b01c33bbbc8d9262e53c",
+      "bytes": 24567,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1\\motion_day_362_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "f3fe5f554496c2e5021a786fef28dc9a173e4ece6431a1dd23dea1238449d063"
+    },
+    {
+      "name": "motion/ordinary_after_v1/motion_day_362_359.jpg",
+      "sha256": "c9c50d7e62d5fac0b6c99dbfbb725903766f9880a0b1970260d8e8c26ebd0833",
+      "bytes": 18778,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1\\motion_day_362_359.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "3b8ca7ee5945ad24c57063424e050e1c65c0bd119fe730c1e0fa3673e4efcdb0"
+    },
+    {
+      "name": "motion/ordinary_after_v1/motion_review.json",
+      "sha256": "f4ae108f886b31d391ddbbb705f9bb21fc57dba0277130723b163a803fdb7dff",
+      "bytes": 281974,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1\\motion_review.json"
+    },
+    {
+      "name": "motion/logs/ordinary_after_v1.log",
+      "sha256": "1119a20c066d50ba8943a41c7b95c46f1d5cd97aca410bb45db5a92203b04e12",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1.log"
+    },
+    {
+      "name": "motion/logs/ordinary_after_v1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1.log.stderr"
+    },
+    {
+      "name": "motion/logs/ordinary_after_v1.log.receipt.json",
+      "sha256": "904dfaff2c1c3502d18d80184d27a2a71fe8ceea959cf54d733b005ca46b2a87",
+      "bytes": 1874,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1.log.receipt.json"
+    },
+    {
+      "name": "motion/logs/ordinary_after_v1.log.isolated.json",
+      "sha256": "8a89f97feed9b3981083dcf2fc4dacb8d44462205a81573ca0b7939391191837",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_after_v1.log.isolated.json"
+    },
+    {
+      "name": "motion/ordinary_final/motion_day_000_000.jpg",
+      "sha256": "b9f353cf6a10f3cd6c6d4d96dee254a3d197747583491e96197a2039301d59f4",
+      "bytes": 52679,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final\\motion_day_000_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "4c962aefedadb49e6e295e1297cf38e0b2150f1e415102525fcac17a12e8044a"
+    },
+    {
+      "name": "motion/ordinary_final/motion_day_000_359.jpg",
+      "sha256": "25bbe450ce6037b1cfc34b2dc74b21c7a936320fa6cac9b3a2214d1f49432dc7",
+      "bytes": 48425,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final\\motion_day_000_359.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "cc87aa1618bc896add63df5dead5aec5e63c15920213b30d9097fb60e9059936"
+    },
+    {
+      "name": "motion/ordinary_final/motion_day_210_000.jpg",
+      "sha256": "4c2bb339910f05f58d130ebddac413608afabd8f5039a2993a34951d6a4cb2c9",
+      "bytes": 33390,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final\\motion_day_210_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "ecc2635ca1ad84354155750a62184fde6c4bb1eabb39f57f79a9546fcbb8e476"
+    },
+    {
+      "name": "motion/ordinary_final/motion_day_210_359.jpg",
+      "sha256": "bac9904bade57eb4bf371a16b6b54430e12b77330951f240ce930a4bcae0847d",
+      "bytes": 33772,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final\\motion_day_210_359.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "73c0b75bc20734ba8654a1401c9799faf29bf5c0d2dd0edb9074bd838dad9450"
+    },
+    {
+      "name": "motion/ordinary_final/motion_day_300_000.jpg",
+      "sha256": "68affd2d32c79fd71a483f270cb6e1cfe726101887c654ba2448e9f52654eae3",
+      "bytes": 33095,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final\\motion_day_300_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "b9aa374d46a9a0cc2a30cb2ed3ab3d03caa0b599072d2060ec8a2a4bd3bcbf6d"
+    },
+    {
+      "name": "motion/ordinary_final/motion_day_300_359.png",
+      "sha256": "0dc36261f1c90574ef4c6c9a85cad6f0f191a6e71d6adab64d539b1af787742b",
+      "bytes": 348551,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final\\motion_day_300_359.png",
+      "derivative": false
+    },
+    {
+      "name": "motion/ordinary_final/motion_day_362_000.jpg",
+      "sha256": "95ed3c5c8ce65cde016a0dd5389799221fec34e453dcc8c0d785ca62b7aa7ace",
+      "bytes": 24628,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final\\motion_day_362_000.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "ce30cf9ebd40d6592267161299d1767185a05311d1b3f8824ce118a86af86e9c"
+    },
+    {
+      "name": "motion/ordinary_final/motion_day_362_359.jpg",
+      "sha256": "10c1380de2ea1f5781971a3de7d8b36b608462a140cf9559d0224ebc6fc60d28",
+      "bytes": 18727,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final\\motion_day_362_359.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "2a623b0d0384f2096d9a3e9ecd491e0cd717c7915adf4148c4b649e314415747"
+    },
+    {
+      "name": "motion/ordinary_final/motion_review.json",
+      "sha256": "a0b2cd8300a37b772bcee2fd1fda1195a202e057fbafdee7d643b51c8c015e41",
+      "bytes": 281964,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final\\motion_review.json"
+    },
+    {
+      "name": "motion/logs/ordinary_final.log",
+      "sha256": "1119a20c066d50ba8943a41c7b95c46f1d5cd97aca410bb45db5a92203b04e12",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final.log"
+    },
+    {
+      "name": "motion/logs/ordinary_final.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final.log.stderr"
+    },
+    {
+      "name": "motion/logs/ordinary_final.log.receipt.json",
+      "sha256": "d0218cee4bb22a6366d941ad8856053c89842e1b2fd360f7d3264645bc53bd01",
+      "bytes": 1910,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final.log.receipt.json"
+    },
+    {
+      "name": "motion/logs/ordinary_final.log.isolated.json",
+      "sha256": "d61248527481cf27ba1ca084f7d8c23e6145be1810da13c05a086888edfd3834",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_final.log.isolated.json"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_000_all.jpg",
+      "sha256": "046f590dfebde06ad63dfa3ecb47d8ccd25bd31b3382e58a6dd77579af7a9b45",
+      "bytes": 49402,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_000_all.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "32803d1c0617620ab795b428391b6f1c2e368c7548034e197bf31d47c9090bb1"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_000_high.jpg",
+      "sha256": "429694b19f1d2bac302bf1d094e56f60d2813b039c3ba0eb43e0a85354093f18",
+      "bytes": 38107,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_000_high.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "307849bf5cae3b6066703356bf9a14ad08b0d6c03ea26823961ccf973e683a80"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_000_low_mid.jpg",
+      "sha256": "14423249331774b71fff93568222dbe3afbbaa7b90f0cea5c4f8f13773f807d1",
+      "bytes": 43571,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_000_low_mid.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "1f06f8b1c73c8de0fd4717edd564595640df6240e1f66e75f9e9365d7ac69e66"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_120_all.jpg",
+      "sha256": "4e38b2b815884589e3176e679b01a11ef56397ba1cc45f93fb4e504e0bf38d19",
+      "bytes": 23292,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_120_all.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "4fa222b335b56634643607061b467fe8b29b71c5703ce75ea54ee925b8689764"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_120_high.jpg",
+      "sha256": "658129c20d6f56f525932e3be46b6acf0134f527657661a271f2d597d18aabec",
+      "bytes": 21282,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_120_high.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "1b56f267aa78153240d614dd32868a7a1c6f5b81eaf6f48f6f730699f8c8ed1f"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_120_low_mid.jpg",
+      "sha256": "d1c76116e3447457e615ec1dfe00ae33ee240b3d0525588ae8e1e8b1e01e8bcc",
+      "bytes": 23264,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_120_low_mid.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "a325462febbc8d652e1b29964b7c14bbc9d0c7daf662db0dc4405cd0a7853ca5"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_210_all.jpg",
+      "sha256": "4b36c1aabf5aeb0b1c727f6f4bb3b84d6cacbefb72ff336a59bd32207f417943",
+      "bytes": 33776,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_210_all.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "d4da10a728065420c87384fa9992421b4cec881e93f2f6504bed77ed1723a809"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_210_high.jpg",
+      "sha256": "cb4c1081032efce9c249adb844764074afe107c759df46f00d60599d847040e3",
+      "bytes": 28476,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_210_high.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "66dc4654e0327214f2e812fd6baea27321315837d20b61ae737aac6b44b5a472"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_210_low_mid.jpg",
+      "sha256": "8c9cf20d1897d2305eea15ea23ef306eb737eeab6281c0fdbfe931d8b73fc5da",
+      "bytes": 29441,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_210_low_mid.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "c0206d876f30351e4ebd81b32fe70814848d518a66e563ce8caaa6917bd7e489"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_300_all.jpg",
+      "sha256": "ec45afc607bb12a9d99ebd16abf72e928e5118798494fbe39dcd800dee926b4e",
+      "bytes": 33558,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_300_all.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "47ef38a6e53e0ad442b2af34ba97822187ef72102f23c10f9496e9bdd3edee87"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_300_high.jpg",
+      "sha256": "4d9d7006a06cfaaa7eab35b9b5bacf3e579bdd8f6e95827b1cdfd0aaaa8e77ae",
+      "bytes": 29446,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_300_high.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "d75c9ef60dea57a76466c18b1b50f1d13a89caca12185e886815252f3838431a"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_day_300_low_mid.jpg",
+      "sha256": "d6c967ce410fb58e273c9945a1782c44b5a5eddd3b613aa0df857f025d13d4f9",
+      "bytes": 31951,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_day_300_low_mid.png",
+      "derivative": "JPEG78",
+      "original_png_sha256": "83646b179b05820c71ef5e49645f9370c678f9d022092e6e48f45bc2b8f923ef"
+    },
+    {
+      "name": "motion/ordinary_brush/brush_review.json",
+      "sha256": "256a79f23c7eff990276ed364a3533e07cfce8f5792cf92ee405c0700edf4dee",
+      "bytes": 71676,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush\\brush_review.json"
+    },
+    {
+      "name": "motion/logs/ordinary_brush.log",
+      "sha256": "91134688ca47eb5d4069eff4f00667dd16ca13095af8cec95cf9746522689816",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush.log"
+    },
+    {
+      "name": "motion/logs/ordinary_brush.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush.log.stderr"
+    },
+    {
+      "name": "motion/logs/ordinary_brush.log.receipt.json",
+      "sha256": "61af710bab08ddd890180cf6991fe794982f3c1c255407bd473ec63571f81ffc",
+      "bytes": 1910,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush.log.receipt.json"
+    },
+    {
+      "name": "motion/logs/ordinary_brush.log.isolated.json",
+      "sha256": "de325e4d05362d665500ee690677d8ea07dd284988da5f29405ba054c442e64f",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_brush.log.isolated.json"
+    },
+    {
+      "name": "motion/logs/ordinary_calendar.log",
+      "sha256": "56ee055a229f03ca3a4ae256b33b9cba4d3f6b2914fd8b6dfa7342e7549395db",
+      "bytes": 34031,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_calendar.log"
+    },
+    {
+      "name": "motion/logs/ordinary_calendar.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_calendar.log.stderr"
+    },
+    {
+      "name": "motion/logs/ordinary_calendar.log.receipt.json",
+      "sha256": "d7f0a89b95280dbb35a29739bfa1203c61f934207bc241491a781a8a5ced20cc",
+      "bytes": 5510,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_calendar.log.receipt.json"
+    },
+    {
+      "name": "motion/logs/ordinary_schedule.log",
+      "sha256": "223aed5c9af331b000268c0b04a111d716335bf16974a328f50ba58a4c550f71",
+      "bytes": 1111,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_schedule.log"
+    },
+    {
+      "name": "motion/logs/ordinary_schedule.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_schedule.log.stderr"
+    },
+    {
+      "name": "motion/logs/ordinary_schedule.log.receipt.json",
+      "sha256": "11aa138611bcb61ce21a19f1395f63a45d640a11e7b15601089732baeff546bd",
+      "bytes": 1919,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_schedule.log.receipt.json"
+    },
+    {
+      "name": "motion/logs/ordinary_flash.log",
+      "sha256": "d48e1c4dce7133084ba513817eaf2d7e46944519fa3621144d38b58b418d8495",
+      "bytes": 145,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_flash.log"
+    },
+    {
+      "name": "motion/logs/ordinary_flash.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_flash.log.stderr"
+    },
+    {
+      "name": "motion/logs/ordinary_flash.log.receipt.json",
+      "sha256": "6cb982d5b75317dd1d0b8479e70f1c77c84ad5dce9bcc2ecd096cabac00a2522",
+      "bytes": 1935,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_flash.log.receipt.json"
+    },
+    {
+      "name": "motion/logs/final_calendar.log",
+      "sha256": "56ee055a229f03ca3a4ae256b33b9cba4d3f6b2914fd8b6dfa7342e7549395db",
+      "bytes": 34031,
+      "source": "C:\\ov\\reports\\weather_motion26\\final_calendar.log"
+    },
+    {
+      "name": "motion/logs/final_calendar.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_motion26\\final_calendar.log.stderr"
+    },
+    {
+      "name": "motion/logs/final_calendar.log.receipt.json",
+      "sha256": "568cbcb14e3d2f1cb33b578cd1424f0628484e635744dc387d9537ad723dbe11",
+      "bytes": 5501,
+      "source": "C:\\ov\\reports\\weather_motion26\\final_calendar.log.receipt.json"
+    },
+    {
+      "name": "motion/logs/final_schedule.log",
+      "sha256": "223aed5c9af331b000268c0b04a111d716335bf16974a328f50ba58a4c550f71",
+      "bytes": 1111,
+      "source": "C:\\ov\\reports\\weather_motion26\\final_schedule.log"
+    },
+    {
+      "name": "motion/logs/final_schedule.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_motion26\\final_schedule.log.stderr"
+    },
+    {
+      "name": "motion/logs/final_schedule.log.receipt.json",
+      "sha256": "9694fdecf54fa535f9f13f6b253997d635e16a747b0cf9f4c1130b6017f632f5",
+      "bytes": 1914,
+      "source": "C:\\ov\\reports\\weather_motion26\\final_schedule.log.receipt.json"
+    },
+    {
+      "name": "motion/logs/final_flash.log",
+      "sha256": "d48e1c4dce7133084ba513817eaf2d7e46944519fa3621144d38b58b418d8495",
+      "bytes": 145,
+      "source": "C:\\ov\\reports\\weather_motion26\\final_flash.log"
+    },
+    {
+      "name": "motion/logs/final_flash.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_motion26\\final_flash.log.stderr"
+    },
+    {
+      "name": "motion/logs/final_flash.log.receipt.json",
+      "sha256": "71ba83d06cf3a902d18bde16b5e22aeca97d3c8c7a2ebf2f059606e769163167",
+      "bytes": 1929,
+      "source": "C:\\ov\\reports\\weather_motion26\\final_flash.log.receipt.json"
+    },
+    {
+      "name": "motion/ordinary_calendar/calendar_test.json",
+      "sha256": "1f8d0a289762ba210be850d4f20662f0d07fa512847914cd45618c128d9614c6",
+      "bytes": 270,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_calendar\\calendar_test.json"
+    },
+    {
+      "name": "motion/ordinary_calendar/living_year.json",
+      "sha256": "6280849663b987909ba9204a4bfb443c8768e4c694d47ab59967b16481e4456a",
+      "bytes": 959,
+      "source": "C:\\ov\\reports\\weather_motion26\\ordinary_calendar\\living_year.json"
+    },
+    {
+      "name": "motion/final_calendar/calendar_test.json",
+      "sha256": "1f8d0a289762ba210be850d4f20662f0d07fa512847914cd45618c128d9614c6",
+      "bytes": 270,
+      "source": "C:\\ov\\reports\\weather_motion26\\final_calendar\\calendar_test.json"
+    },
+    {
+      "name": "motion/final_calendar/living_year.json",
+      "sha256": "b88d012498e2de23eead13be042ce0a105034f663e236752922f8b4004246a13",
+      "bytes": 959,
+      "source": "C:\\ov\\reports\\weather_motion26\\final_calendar\\living_year.json"
+    },
+    {
+      "name": "motion/source/final/game/scripts/game/campaign_weather.gd",
+      "sha256": "868e92a1072a32de6d51e9ff6a6e0a34f24fa404d5e5008bc212954f82c9755b",
+      "bytes": 11658,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "motion/source/before_6e5ad14e/game/scripts/game/campaign_weather.gd",
+      "sha256": "0c38eda19bc9237cb57163dae9e787590b5cf75906c99c1e87c7674dccb8ed3e",
+      "bytes": 10362,
+      "encoding": "committed LF"
+    },
+    {
+      "name": "motion/source/final/game/scripts/building/living_sky.gd",
+      "sha256": "7a1d57827d22c0f6756a1eaf383e0d1df7e2e9cd0fa75564d49c2ca2197ba001",
+      "bytes": 11781,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "motion/source/before_6e5ad14e/game/scripts/building/living_sky.gd",
+      "sha256": "80992dd877d755b53c5611987704fcfa4d69c68dda0102ce43107799e4b4cfe1",
+      "bytes": 10545,
+      "encoding": "committed LF"
+    },
+    {
+      "name": "motion/source/final/game/scripts/building/WeatherManager.gd",
+      "sha256": "6738ae38c4c8f5b27a9e4f75191296927f6cd452636d11c553c43ae86ee6a055",
+      "bytes": 20279,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "motion/source/before_6e5ad14e/game/scripts/building/WeatherManager.gd",
+      "sha256": "f8bbb126ce8636c11f79e390fd27730328f346e4f35d3129006c6f53ab93af5e",
+      "bytes": 19732,
+      "encoding": "committed LF"
+    },
+    {
+      "name": "motion/source/final/game/shaders/queens_weather_math.gdshaderinc",
+      "sha256": "4af5716b274804b5fa45e3db55cff2408839ccd1a9dda6cd1f7541c5006e5586",
+      "bytes": 11627,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "motion/source/before_6e5ad14e/game/shaders/queens_weather_math.gdshaderinc",
+      "sha256": "0b683c1a05576883d120bc28cb5bfdaa81836f0675c28ac8644c7c4b74b9c5c8",
+      "bytes": 11488,
+      "encoding": "committed LF"
+    },
+    {
+      "name": "motion/source/final/game/shaders/queens_weather_sky.gdshader",
+      "sha256": "c5534595c6ffe910947f6577e7cb661542e9140c7fe72514815687ed08f2a0f0",
+      "bytes": 21773,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "motion/source/before_6e5ad14e/game/shaders/queens_weather_sky.gdshader",
+      "sha256": "13ff7a9358c9a61b93377289febd5a1b7b9ac436d4ca0a38d7ffb16aaa3c367b",
+      "bytes": 21728,
+      "encoding": "committed LF"
+    },
+    {
+      "name": "motion/source/final/game/tests/campaign_weather_test.gd",
+      "sha256": "5a7a6def5fede49f47ef319bdd8a8b0251aef6ec6fdc51fa0af034d7a16d1ee9",
+      "bytes": 16371,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "motion/source/before_6e5ad14e/game/tests/campaign_weather_test.gd",
+      "sha256": "e0098801c6fc67aa30ec1599caaf1510327d5bed3ab9d61e2ceb0633f5976f24",
+      "bytes": 14102,
+      "encoding": "committed LF"
+    },
+    {
+      "name": "motion/source/final/game/tests/v2_sky_spectacle_bench.gd",
+      "sha256": "e384cf770627eb5b523289ab8c6c312a1820713afd1ec1aadff34712ec3f9d26",
+      "bytes": 26235,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "motion/source/before_6e5ad14e/game/tests/v2_sky_spectacle_bench.gd",
+      "sha256": "5d019424b667fb3728c922622e5bb5d5448a1c94c8ed35ca30263f9fb9f33b65",
+      "bytes": 23594,
+      "encoding": "committed LF"
+    },
+    {
+      "name": "motion/retention_notes.json",
+      "sha256": "f6ffff693ce3521530a46af072b7b7aed522d7df83271b68b2617d70c21c1199",
+      "bytes": 705
+    },
+    {
+      "name": "storm/before/motion_day_000_000.jpg",
+      "sha256": "b9f353cf6a10f3cd6c6d4d96dee254a3d197747583491e96197a2039301d59f4",
+      "bytes": 52679,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before\\motion_day_000_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "4c962aefedadb49e6e295e1297cf38e0b2150f1e415102525fcac17a12e8044a"
+    },
+    {
+      "name": "storm/before/motion_day_000_359.jpg",
+      "sha256": "25bbe450ce6037b1cfc34b2dc74b21c7a936320fa6cac9b3a2214d1f49432dc7",
+      "bytes": 48425,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before\\motion_day_000_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "cc87aa1618bc896add63df5dead5aec5e63c15920213b30d9097fb60e9059936"
+    },
+    {
+      "name": "storm/before/motion_day_210_000.jpg",
+      "sha256": "4c2bb339910f05f58d130ebddac413608afabd8f5039a2993a34951d6a4cb2c9",
+      "bytes": 33390,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before\\motion_day_210_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "ecc2635ca1ad84354155750a62184fde6c4bb1eabb39f57f79a9546fcbb8e476"
+    },
+    {
+      "name": "storm/before/motion_day_210_359.jpg",
+      "sha256": "bac9904bade57eb4bf371a16b6b54430e12b77330951f240ce930a4bcae0847d",
+      "bytes": 33772,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before\\motion_day_210_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "73c0b75bc20734ba8654a1401c9799faf29bf5c0d2dd0edb9074bd838dad9450"
+    },
+    {
+      "name": "storm/before/motion_day_300_000.jpg",
+      "sha256": "68affd2d32c79fd71a483f270cb6e1cfe726101887c654ba2448e9f52654eae3",
+      "bytes": 33095,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before\\motion_day_300_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "b9aa374d46a9a0cc2a30cb2ed3ab3d03caa0b599072d2060ec8a2a4bd3bcbf6d"
+    },
+    {
+      "name": "storm/before/motion_day_300_359.jpg",
+      "sha256": "505519cdbd48b5446c10031cbe4b4f84afba5f770682bb7a522a31559b4c1f97",
+      "bytes": 33531,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before\\motion_day_300_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "0dc36261f1c90574ef4c6c9a85cad6f0f191a6e71d6adab64d539b1af787742b"
+    },
+    {
+      "name": "storm/before/motion_day_362_000.jpg",
+      "sha256": "2032b558438fed3bfb0c56dc32faf0ac4c17682a8f7e670a635f8bcce56902ae",
+      "bytes": 24619,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before\\motion_day_362_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "507393e702da852206a1697a93f52b3bdd5bc2963b7bf3420562a5df9ffa4dc3"
+    },
+    {
+      "name": "storm/before/motion_day_362_359.png",
+      "sha256": "cf3eb666b62f4dbbab17b9f0517f888ad570faacfa1f60a7fa2fed941632e416",
+      "bytes": 414616,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before\\motion_day_362_359.png",
+      "derivative": false
+    },
+    {
+      "name": "storm/before/motion_review.json",
+      "sha256": "e8e00b3a99b8f363f2bf76205dd7f8089e31e6b82bb68dc7ea61d636fdbece77",
+      "bytes": 325661,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before\\motion_review.json"
+    },
+    {
+      "name": "storm/logs/before.log",
+      "sha256": "1119a20c066d50ba8943a41c7b95c46f1d5cd97aca410bb45db5a92203b04e12",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before.log"
+    },
+    {
+      "name": "storm/logs/before.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before.log.stderr"
+    },
+    {
+      "name": "storm/logs/before.log.receipt.json",
+      "sha256": "035fbb434307e36ea7bacbc2f03f1e2fe31cf392c5be3b949a78c107ea676647",
+      "bytes": 1614,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before.log.receipt.json"
+    },
+    {
+      "name": "storm/logs/before.log.isolated.json",
+      "sha256": "128f96c9b6746a00617e9875d51bbe77f634df8ea88aa181ca84595e8c655856",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\before.log.isolated.json"
+    },
+    {
+      "name": "storm/after_v1/motion_day_000_000.jpg",
+      "sha256": "b9f353cf6a10f3cd6c6d4d96dee254a3d197747583491e96197a2039301d59f4",
+      "bytes": 52679,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1\\motion_day_000_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "4c962aefedadb49e6e295e1297cf38e0b2150f1e415102525fcac17a12e8044a"
+    },
+    {
+      "name": "storm/after_v1/motion_day_000_359.jpg",
+      "sha256": "25bbe450ce6037b1cfc34b2dc74b21c7a936320fa6cac9b3a2214d1f49432dc7",
+      "bytes": 48425,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1\\motion_day_000_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "cc87aa1618bc896add63df5dead5aec5e63c15920213b30d9097fb60e9059936"
+    },
+    {
+      "name": "storm/after_v1/motion_day_210_000.jpg",
+      "sha256": "4c2bb339910f05f58d130ebddac413608afabd8f5039a2993a34951d6a4cb2c9",
+      "bytes": 33390,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1\\motion_day_210_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "ecc2635ca1ad84354155750a62184fde6c4bb1eabb39f57f79a9546fcbb8e476"
+    },
+    {
+      "name": "storm/after_v1/motion_day_210_359.jpg",
+      "sha256": "bac9904bade57eb4bf371a16b6b54430e12b77330951f240ce930a4bcae0847d",
+      "bytes": 33772,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1\\motion_day_210_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "73c0b75bc20734ba8654a1401c9799faf29bf5c0d2dd0edb9074bd838dad9450"
+    },
+    {
+      "name": "storm/after_v1/motion_day_300_000.jpg",
+      "sha256": "68affd2d32c79fd71a483f270cb6e1cfe726101887c654ba2448e9f52654eae3",
+      "bytes": 33095,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1\\motion_day_300_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "b9aa374d46a9a0cc2a30cb2ed3ab3d03caa0b599072d2060ec8a2a4bd3bcbf6d"
+    },
+    {
+      "name": "storm/after_v1/motion_day_300_359.jpg",
+      "sha256": "505519cdbd48b5446c10031cbe4b4f84afba5f770682bb7a522a31559b4c1f97",
+      "bytes": 33531,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1\\motion_day_300_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "0dc36261f1c90574ef4c6c9a85cad6f0f191a6e71d6adab64d539b1af787742b"
+    },
+    {
+      "name": "storm/after_v1/motion_day_362_000.jpg",
+      "sha256": "0d8996e83edf1d9c863a8c35a94c3ab431ebe6a25c0111d9984ffcfc9a5bd741",
+      "bytes": 22121,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1\\motion_day_362_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "a15d07a4e6eb7e0760802c4ea9aab251af59df780b253aece5fd7f77e43d66a1"
+    },
+    {
+      "name": "storm/after_v1/motion_day_362_359.png",
+      "sha256": "dd14ae1e01cb2f004c34b13841f36ccb33d9fd95e45a61470a5706217c956121",
+      "bytes": 345046,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1\\motion_day_362_359.png",
+      "derivative": false
+    },
+    {
+      "name": "storm/after_v1/motion_review.json",
+      "sha256": "69372fccc7c139da9e64bb81be3ca747f6adffe217399d59675e80ab5e20b866",
+      "bytes": 372209,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1\\motion_review.json"
+    },
+    {
+      "name": "storm/logs/after_v1.log",
+      "sha256": "1119a20c066d50ba8943a41c7b95c46f1d5cd97aca410bb45db5a92203b04e12",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1.log"
+    },
+    {
+      "name": "storm/logs/after_v1.log.stderr",
+      "sha256": "7b3af20952a812b6d5d4b60dab2bc4daa1d86519992261ae0b23f56b7dba516e",
+      "bytes": 2260,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1.log.stderr"
+    },
+    {
+      "name": "storm/logs/after_v1.log.receipt.json",
+      "sha256": "5ed671ea5ec1e5b643306eaf35043516bd5c7188775bf3cf5d7c80ca4bcf161b",
+      "bytes": 2290,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1.log.receipt.json"
+    },
+    {
+      "name": "storm/logs/after_v1.log.isolated.json",
+      "sha256": "a9f3ea18e6b212c8253aaf32769ac249e9ce89ddd5bb99e31a99448f0374c332",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v1.log.isolated.json"
+    },
+    {
+      "name": "storm/after_v2/motion_day_000_000.jpg",
+      "sha256": "b9f353cf6a10f3cd6c6d4d96dee254a3d197747583491e96197a2039301d59f4",
+      "bytes": 52679,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2\\motion_day_000_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "4c962aefedadb49e6e295e1297cf38e0b2150f1e415102525fcac17a12e8044a"
+    },
+    {
+      "name": "storm/after_v2/motion_day_000_359.jpg",
+      "sha256": "25bbe450ce6037b1cfc34b2dc74b21c7a936320fa6cac9b3a2214d1f49432dc7",
+      "bytes": 48425,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2\\motion_day_000_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "cc87aa1618bc896add63df5dead5aec5e63c15920213b30d9097fb60e9059936"
+    },
+    {
+      "name": "storm/after_v2/motion_day_210_000.jpg",
+      "sha256": "4c2bb339910f05f58d130ebddac413608afabd8f5039a2993a34951d6a4cb2c9",
+      "bytes": 33390,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2\\motion_day_210_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "ecc2635ca1ad84354155750a62184fde6c4bb1eabb39f57f79a9546fcbb8e476"
+    },
+    {
+      "name": "storm/after_v2/motion_day_210_359.jpg",
+      "sha256": "bac9904bade57eb4bf371a16b6b54430e12b77330951f240ce930a4bcae0847d",
+      "bytes": 33772,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2\\motion_day_210_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "73c0b75bc20734ba8654a1401c9799faf29bf5c0d2dd0edb9074bd838dad9450"
+    },
+    {
+      "name": "storm/after_v2/motion_day_300_000.jpg",
+      "sha256": "68affd2d32c79fd71a483f270cb6e1cfe726101887c654ba2448e9f52654eae3",
+      "bytes": 33095,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2\\motion_day_300_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "b9aa374d46a9a0cc2a30cb2ed3ab3d03caa0b599072d2060ec8a2a4bd3bcbf6d"
+    },
+    {
+      "name": "storm/after_v2/motion_day_300_359.jpg",
+      "sha256": "505519cdbd48b5446c10031cbe4b4f84afba5f770682bb7a522a31559b4c1f97",
+      "bytes": 33531,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2\\motion_day_300_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "0dc36261f1c90574ef4c6c9a85cad6f0f191a6e71d6adab64d539b1af787742b"
+    },
+    {
+      "name": "storm/after_v2/motion_day_362_000.jpg",
+      "sha256": "571237dc7cbd3f8170216642352252d09a2df89b9a4d3998d7df2ce4e15af299",
+      "bytes": 22189,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2\\motion_day_362_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "33adbc8feb1df8ca9cadb8bdc41f063a0a91d7649265387996a426705d270e1f"
+    },
+    {
+      "name": "storm/after_v2/motion_day_362_359.png",
+      "sha256": "592b68811213185b35d30749d6a6b42680812430d0a10cfac39a6feaf02a28a1",
+      "bytes": 344383,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2\\motion_day_362_359.png",
+      "derivative": false
+    },
+    {
+      "name": "storm/after_v2/motion_review.json",
+      "sha256": "f03c840d597788dd1003f7cccdf5668e83b047a7d4b3c1116a66d3da4c1aef61",
+      "bytes": 372203,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2\\motion_review.json"
+    },
+    {
+      "name": "storm/logs/after_v2.log",
+      "sha256": "1119a20c066d50ba8943a41c7b95c46f1d5cd97aca410bb45db5a92203b04e12",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2.log"
+    },
+    {
+      "name": "storm/logs/after_v2.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2.log.stderr"
+    },
+    {
+      "name": "storm/logs/after_v2.log.receipt.json",
+      "sha256": "6ea3cd3ae221e1f5c9bab57904793e15e334e41ab242e202b589c0fbce060b2a",
+      "bytes": 1929,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2.log.receipt.json"
+    },
+    {
+      "name": "storm/logs/after_v2.log.isolated.json",
+      "sha256": "a2800294d7b2cd4c130ba1cf1c552927c4d3782c6c25d11886b3911f63aaa3ca",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v2.log.isolated.json"
+    },
+    {
+      "name": "storm/after_v3/motion_day_000_000.jpg",
+      "sha256": "b9f353cf6a10f3cd6c6d4d96dee254a3d197747583491e96197a2039301d59f4",
+      "bytes": 52679,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3\\motion_day_000_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "4c962aefedadb49e6e295e1297cf38e0b2150f1e415102525fcac17a12e8044a"
+    },
+    {
+      "name": "storm/after_v3/motion_day_000_359.jpg",
+      "sha256": "25bbe450ce6037b1cfc34b2dc74b21c7a936320fa6cac9b3a2214d1f49432dc7",
+      "bytes": 48425,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3\\motion_day_000_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "cc87aa1618bc896add63df5dead5aec5e63c15920213b30d9097fb60e9059936"
+    },
+    {
+      "name": "storm/after_v3/motion_day_210_000.jpg",
+      "sha256": "4c2bb339910f05f58d130ebddac413608afabd8f5039a2993a34951d6a4cb2c9",
+      "bytes": 33390,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3\\motion_day_210_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "ecc2635ca1ad84354155750a62184fde6c4bb1eabb39f57f79a9546fcbb8e476"
+    },
+    {
+      "name": "storm/after_v3/motion_day_210_359.jpg",
+      "sha256": "bac9904bade57eb4bf371a16b6b54430e12b77330951f240ce930a4bcae0847d",
+      "bytes": 33772,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3\\motion_day_210_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "73c0b75bc20734ba8654a1401c9799faf29bf5c0d2dd0edb9074bd838dad9450"
+    },
+    {
+      "name": "storm/after_v3/motion_day_300_000.jpg",
+      "sha256": "68affd2d32c79fd71a483f270cb6e1cfe726101887c654ba2448e9f52654eae3",
+      "bytes": 33095,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3\\motion_day_300_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "b9aa374d46a9a0cc2a30cb2ed3ab3d03caa0b599072d2060ec8a2a4bd3bcbf6d"
+    },
+    {
+      "name": "storm/after_v3/motion_day_300_359.jpg",
+      "sha256": "505519cdbd48b5446c10031cbe4b4f84afba5f770682bb7a522a31559b4c1f97",
+      "bytes": 33531,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3\\motion_day_300_359.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "0dc36261f1c90574ef4c6c9a85cad6f0f191a6e71d6adab64d539b1af787742b"
+    },
+    {
+      "name": "storm/after_v3/motion_day_362_000.jpg",
+      "sha256": "6f2b7d2cf49603a6b2a13ea5c4d1d1df71efc4da1012c145e87ff7148b30fd76",
+      "bytes": 19648,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3\\motion_day_362_000.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "d81ae4fbeda200e267e3217466ad1d3dbdc07571c41c158e681b42fef5b62381"
+    },
+    {
+      "name": "storm/after_v3/motion_day_362_359.png",
+      "sha256": "53b3bd1dcd0e22a60b6579d8b2ce76fb97eea36f4fa0128c51dbfff220e5524a",
+      "bytes": 279345,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3\\motion_day_362_359.png",
+      "derivative": false
+    },
+    {
+      "name": "storm/after_v3/motion_review.json",
+      "sha256": "c56ac9266fc01f12133400fbe056ed6f33a9b63539c26ef11f904ba71d1eee38",
+      "bytes": 372217,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3\\motion_review.json"
+    },
+    {
+      "name": "storm/logs/after_v3.log",
+      "sha256": "1119a20c066d50ba8943a41c7b95c46f1d5cd97aca410bb45db5a92203b04e12",
+      "bytes": 225,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3.log"
+    },
+    {
+      "name": "storm/logs/after_v3.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3.log.stderr"
+    },
+    {
+      "name": "storm/logs/after_v3.log.receipt.json",
+      "sha256": "4785f5395f9042a31874cdf0a6679e6f935afa597a1f797170da4cf4a6b76d71",
+      "bytes": 1974,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3.log.receipt.json"
+    },
+    {
+      "name": "storm/logs/after_v3.log.isolated.json",
+      "sha256": "410d40192117e1f37bed9437d9c57a6063e5721bc44c35a5cb93300b13089723",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\after_v3.log.isolated.json"
+    },
+    {
+      "name": "storm/spectacle_final/08_asperitas.json",
+      "sha256": "453bd75acdfcec22d817febf33c1fad13e8866a2a49e199a59435e0741a6b269",
+      "bytes": 6488,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final\\08_asperitas.json"
+    },
+    {
+      "name": "storm/spectacle_final/08_asperitas.png",
+      "sha256": "98f3a3d9aafb99bb669234a9f357e493366b3c095a4ba58742ccaffbf7e9f932",
+      "bytes": 305291,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final\\08_asperitas.png",
+      "derivative": false
+    },
+    {
+      "name": "storm/spectacle_final/09_kelvin_helmholtz.json",
+      "sha256": "d8de0f527aa0a2ee2073236aa8bc505bcbf9c9e6062208df6f6565f07375e1d1",
+      "bytes": 6457,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final\\09_kelvin_helmholtz.json"
+    },
+    {
+      "name": "storm/spectacle_final/09_kelvin_helmholtz.png",
+      "sha256": "0eeee4777717affe777fbcf2290bf40f95bdd3a840c8ae3742e5559538ef34a9",
+      "bytes": 489133,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final\\09_kelvin_helmholtz.png",
+      "derivative": false
+    },
+    {
+      "name": "storm/spectacle_final/16_tornado.json",
+      "sha256": "b5c29ce0280eaa8ac171f05941b839260d4c17abc39b1cc5b26eb13352bde05d",
+      "bytes": 6494,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final\\16_tornado.json"
+    },
+    {
+      "name": "storm/spectacle_final/16_tornado.png",
+      "sha256": "6447caba74baf1b91ffc3331d12e4b906e2e69a157350ed779c97a966b648f52",
+      "bytes": 263557,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final\\16_tornado.png",
+      "derivative": false
+    },
+    {
+      "name": "storm/spectacle_final/18_nacreous.json",
+      "sha256": "8126efb8c4417b8d7b340e4b684f8b0184faef5de632d30041249cc2a16921d7",
+      "bytes": 6496,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final\\18_nacreous.json"
+    },
+    {
+      "name": "storm/spectacle_final/18_nacreous.png",
+      "sha256": "0da2d7ae16d6a2ea914966d0d213a6e0ff85c08e7b9bceab89f623c30645dda5",
+      "bytes": 535538,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final\\18_nacreous.png",
+      "derivative": false
+    },
+    {
+      "name": "storm/logs/spectacle_final.log",
+      "sha256": "b3fe98bfdb3b96d63cebcd1ae08f676bd6e4eacc100bd99f43bba458c301c4d8",
+      "bytes": 613,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final.log"
+    },
+    {
+      "name": "storm/logs/spectacle_final.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final.log.stderr"
+    },
+    {
+      "name": "storm/logs/spectacle_final.log.receipt.json",
+      "sha256": "dd757705b489f2d57226ca049540cf8e5f536cd67022e20a5179c65edd3e3725",
+      "bytes": 1994,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final.log.receipt.json"
+    },
+    {
+      "name": "storm/logs/spectacle_final.log.isolated.json",
+      "sha256": "464a5a08292824067d16ca6a19cfe5955b9d6877e9712783aaab41984a285170",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\spectacle_final.log.isolated.json"
+    },
+    {
+      "name": "storm/logs/final_calendar.log",
+      "sha256": "a98679e6e5358caafc7ba9f112369e4f422835008f994ab605d39dd156e94bba",
+      "bytes": 35156,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_calendar.log"
+    },
+    {
+      "name": "storm/logs/final_calendar.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_calendar.log.stderr"
+    },
+    {
+      "name": "storm/logs/final_calendar.log.receipt.json",
+      "sha256": "e6f08979153dcead1fe6a4f78b5ed547a145091cc6d0b260ce95d7dd6eda0eea",
+      "bytes": 5587,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_calendar.log.receipt.json"
+    },
+    {
+      "name": "storm/final_calendar/calendar_test.json",
+      "sha256": "19ea7cc63b1784d46abe9997f48c4293ea27ee75cde4bdae1197c57d15f73ea1",
+      "bytes": 270,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_calendar\\calendar_test.json"
+    },
+    {
+      "name": "storm/final_calendar/living_year.json",
+      "sha256": "3887669daaef111219cfc371854ff4cfd84d0aacf5b1a3719108d84863dd948a",
+      "bytes": 959,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_calendar\\living_year.json"
+    },
+    {
+      "name": "storm/logs/final_calendar_lf.log",
+      "sha256": "a98679e6e5358caafc7ba9f112369e4f422835008f994ab605d39dd156e94bba",
+      "bytes": 35156,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_calendar_lf.log"
+    },
+    {
+      "name": "storm/logs/final_calendar_lf.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_calendar_lf.log.stderr"
+    },
+    {
+      "name": "storm/logs/final_calendar_lf.log.receipt.json",
+      "sha256": "08bfc0d6c523c8d6b6f2604d8614c20606597acf5710d0c9872d5d6d8ad3d2ed",
+      "bytes": 5592,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_calendar_lf.log.receipt.json"
+    },
+    {
+      "name": "storm/final_calendar_lf/calendar_test.json",
+      "sha256": "19ea7cc63b1784d46abe9997f48c4293ea27ee75cde4bdae1197c57d15f73ea1",
+      "bytes": 270,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_calendar_lf\\calendar_test.json"
+    },
+    {
+      "name": "storm/final_calendar_lf/living_year.json",
+      "sha256": "b2c3f613b42be7e52e7c89ba6bb88e16dcd29a328b17e3e10b686490a6348764",
+      "bytes": 959,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_calendar_lf\\living_year.json"
+    },
+    {
+      "name": "storm/logs/final_schedule.log",
+      "sha256": "223aed5c9af331b000268c0b04a111d716335bf16974a328f50ba58a4c550f71",
+      "bytes": 1111,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_schedule.log"
+    },
+    {
+      "name": "storm/logs/final_schedule.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_schedule.log.stderr"
+    },
+    {
+      "name": "storm/logs/final_schedule.log.receipt.json",
+      "sha256": "db8fafd7e5243885cc0fcbcea1ab99d8019918345d65408284170c4b74c1cf96",
+      "bytes": 2043,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_schedule.log.receipt.json"
+    },
+    {
+      "name": "storm/logs/final_flash.log",
+      "sha256": "d48e1c4dce7133084ba513817eaf2d7e46944519fa3621144d38b58b418d8495",
+      "bytes": 145,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_flash.log"
+    },
+    {
+      "name": "storm/logs/final_flash.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_flash.log.stderr"
+    },
+    {
+      "name": "storm/logs/final_flash.log.receipt.json",
+      "sha256": "4a0d6fd08f9ae5bb374257c174ae12d0b812cda96f0939d2fb237518f7d440f6",
+      "bytes": 2055,
+      "source": "C:\\ov\\reports\\weather_storm_motion26\\final_flash.log.receipt.json"
+    },
+    {
+      "name": "storm/comparison.json",
+      "sha256": "e86dcc01a5a3d1738d69897e69b6ff796a7be6bfb19e47d400dbfed647f10e79",
+      "bytes": 6011
+    },
+    {
+      "name": "storm/source/final/game/scripts/game/campaign_weather.gd",
+      "sha256": "e9ab9a6ad1dfce8afcd91ad8c418a7c558f3c63c1c6f8365b043306398cc363f",
+      "bytes": 12806,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "storm/source/before_ce242b60/game/scripts/game/campaign_weather.gd",
+      "sha256": "868e92a1072a32de6d51e9ff6a6e0a34f24fa404d5e5008bc212954f82c9755b",
+      "bytes": 11658,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "storm/source/final/game/scripts/building/WeatherManager.gd",
+      "sha256": "3881e0b42afa4dee86664f809ef9a88736b4d373e3db2e1e821bed94903f3f91",
+      "bytes": 21425,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "storm/source/before_ce242b60/game/scripts/building/WeatherManager.gd",
+      "sha256": "6738ae38c4c8f5b27a9e4f75191296927f6cd452636d11c553c43ae86ee6a055",
+      "bytes": 20279,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "storm/source/final/game/scripts/building/queens_weather_extension.gd",
+      "sha256": "9acd97106be900aaabc7b7083da4140dd29bca1cd0bde22fc384c2a2105d4e27",
+      "bytes": 14828,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "storm/source/before_ce242b60/game/scripts/building/queens_weather_extension.gd",
+      "sha256": "0f55c80adb4425e4a1a0f6c7250e6309ee661f802b7cc791a6d029dc3d4db70e",
+      "bytes": 12618,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "storm/source/final/game/shaders/queens_weather_math.gdshaderinc",
+      "sha256": "ab386d7d42d0e5a8c750a6e3282a20b5845e25722932c5c7dbbd9562b16fe586",
+      "bytes": 12451,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "storm/source/before_ce242b60/game/shaders/queens_weather_math.gdshaderinc",
+      "sha256": "4af5716b274804b5fa45e3db55cff2408839ccd1a9dda6cd1f7541c5006e5586",
+      "bytes": 11627,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "storm/source/final/game/shaders/queens_weather_sky.gdshader",
+      "sha256": "bf1704d241b2aa3691835e28e8900b763d5e82f10ff53b3a88147e64424d9190",
+      "bytes": 21983,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "storm/source/before_ce242b60/game/shaders/queens_weather_sky.gdshader",
+      "sha256": "c5534595c6ffe910947f6577e7cb661542e9140c7fe72514815687ed08f2a0f0",
+      "bytes": 21773,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "storm/source/final/game/shaders/queens_weather_air.gdshader",
+      "sha256": "429c298bf7c2eb5cea968dd1824a906191a1da8c8c46711b39649b3971a360e1",
+      "bytes": 1778,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "storm/source/before_ce242b60/game/shaders/queens_weather_air.gdshader",
+      "sha256": "df37fc139dad1a9f01738a1adbb75da22b4ae7536ef4acd6aeac99b286a53985",
+      "bytes": 1746,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "storm/source/final/game/tests/campaign_weather_test.gd",
+      "sha256": "2b4bcce6f7b2287dd679254d428d8957e54fc5a51e19234c9f588fb1fee446db",
+      "bytes": 20539,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "storm/source/before_ce242b60/game/tests/campaign_weather_test.gd",
+      "sha256": "5a7a6def5fede49f47ef319bdd8a8b0251aef6ec6fdc51fa0af034d7a16d1ee9",
+      "bytes": 16371,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "storm/source/final/game/tests/v2_sky_spectacle_bench.gd",
+      "sha256": "0d106e454a8e553d833991c4611f7fbfdfc0fa7edce0a59117ee0ed526f9ae7f",
+      "bytes": 27200,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "storm/source/before_ce242b60/game/tests/v2_sky_spectacle_bench.gd",
+      "sha256": "ff34b608a29de18fa0c9f241c318e105f8637819c1928b6d8453581ca3b4cb2b",
+      "bytes": 25805,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "storm/limitations.json",
+      "sha256": "461a934a53979438da33259a8c6bc8268d3d2faf5789d2363227452d792505d2",
+      "bytes": 1008
+    },
+    {
+      "name": "vortex/before/vortex_control.jpg",
+      "sha256": "6def5e4f7c914cf9bfe4b93f205e48c79466b288a44847757df470535f643345",
+      "bytes": 8311,
+      "source": "C:\\ov\\reports\\weather_vortex26\\before\\vortex_control.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "2302b368ad484c3064c1d6d87fde778b81cbe9b70ae57e8d89e38d647dc1b0f6"
+    },
+    {
+      "name": "vortex/before/vortex_review.json",
+      "sha256": "ba81b03f3d76695cd430df18156f786e738c8c341a44a823a326be01d8439d8c",
+      "bytes": 16617,
+      "source": "C:\\ov\\reports\\weather_vortex26\\before\\vortex_review.json"
+    },
+    {
+      "name": "vortex/before/vortex_root.jpg",
+      "sha256": "fcd7e47c29bdae95fcdd633d7d7085e9c4b5c20dbe4d0a52253774c220f7db9d",
+      "bytes": 8295,
+      "source": "C:\\ov\\reports\\weather_vortex26\\before\\vortex_root.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "3b56c9b6214d15ba641cfc97718fd78bd7b8efce87414eaf08c99a4f16eb92a1"
+    },
+    {
+      "name": "vortex/before/vortex_setup.json",
+      "sha256": "05349f7fed92c083b6a25bc911b6a0c2501de4f53f7bd7c452d662da777da356",
+      "bytes": 6517,
+      "source": "C:\\ov\\reports\\weather_vortex26\\before\\vortex_setup.json"
+    },
+    {
+      "name": "vortex/before/vortex_setup.jpg",
+      "sha256": "6edb86f239e0dda0be8ba7a7835c91d37b9a7c8626c0acc9b32934b7367c64b4",
+      "bytes": 15868,
+      "source": "C:\\ov\\reports\\weather_vortex26\\before\\vortex_setup.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "9d349c96e2566ce635c63bfa310962895658b580ddc908e463b146717edc8e25"
+    },
+    {
+      "name": "vortex/before/vortex_side.jpg",
+      "sha256": "198bb55ae13bf5fd805fb4dff01f044d0bae6ace5247af169239709b5f40e036",
+      "bytes": 9067,
+      "source": "C:\\ov\\reports\\weather_vortex26\\before\\vortex_side.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "46b5227b81eebde8cd667fe9285a956d01536d504118773d5271728d3b2a6810"
+    },
+    {
+      "name": "vortex/before/vortex_wide.jpg",
+      "sha256": "7e6566d21a3c236ce9a15c6fc4d9eec8f6adc3ed2016b01a2befd4a2b0139e2b",
+      "bytes": 15831,
+      "source": "C:\\ov\\reports\\weather_vortex26\\before\\vortex_wide.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "06be685c5355d1a052cd67be2407bc2fa1c3db2e39b71d48d391b985a35512c8"
+    },
+    {
+      "name": "vortex/logs/before.log",
+      "sha256": "5e7070e3521a0a4059be57dedeb19e6344ae928658cd5d94de1038316741568c",
+      "bytes": 314,
+      "source": "C:\\ov\\reports\\weather_vortex26\\before.log"
+    },
+    {
+      "name": "vortex/logs/before.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_vortex26\\before.log.stderr"
+    },
+    {
+      "name": "vortex/logs/before.log.receipt.json",
+      "sha256": "438846456bc20b61233e5d8a0bfa60b212cf24eff0f9734115c761a10e4461fd",
+      "bytes": 1595,
+      "source": "C:\\ov\\reports\\weather_vortex26\\before.log.receipt.json"
+    },
+    {
+      "name": "vortex/logs/before.log.isolated.json",
+      "sha256": "a71d45eff56398f022e67e82bb40b9293d4cb584ebb6b6d47a9a7790dc8f23b0",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_vortex26\\before.log.isolated.json"
+    },
+    {
+      "name": "vortex/owner_fix/vortex_control.png",
+      "sha256": "0f5d56e926fd4a4ff8713bfb34c9fb0d790ca49ee2a6f2c1f33a2a2063a16234",
+      "bytes": 177966,
+      "source": "C:\\ov\\reports\\weather_vortex26\\owner_fix\\vortex_control.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex/owner_fix/vortex_review.json",
+      "sha256": "309008efadc77b3c45f4833e1e1befb9501a859da33b57e7b974c8b4988c6bdc",
+      "bytes": 16617,
+      "source": "C:\\ov\\reports\\weather_vortex26\\owner_fix\\vortex_review.json"
+    },
+    {
+      "name": "vortex/owner_fix/vortex_root.png",
+      "sha256": "dce05e300f2421f5d4dd1995111bd8caccd3b8f9e892bd0c055cfb7c2c4ac857",
+      "bytes": 430304,
+      "source": "C:\\ov\\reports\\weather_vortex26\\owner_fix\\vortex_root.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex/owner_fix/vortex_setup.json",
+      "sha256": "5ea3b845950a5f909f7b7347b25c6540e8fcb421bce8099e9de809b7cded4486",
+      "bytes": 6517,
+      "source": "C:\\ov\\reports\\weather_vortex26\\owner_fix\\vortex_setup.json"
+    },
+    {
+      "name": "vortex/owner_fix/vortex_setup.jpg",
+      "sha256": "c5b23608b03380aff48086fd79de8420dc493b098b010ce8ce8ca96c37db6c03",
+      "bytes": 21321,
+      "source": "C:\\ov\\reports\\weather_vortex26\\owner_fix\\vortex_setup.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "5d5de4fe28c70a39af48fcc03a1bdb6c9eaac6b6909fcecc4a22d839c32ecac2"
+    },
+    {
+      "name": "vortex/owner_fix/vortex_side.png",
+      "sha256": "5acf28d5ec56e1900c222c1b67a7c705ee0f820301fd14f92f76b3c079b5f8cb",
+      "bytes": 379035,
+      "source": "C:\\ov\\reports\\weather_vortex26\\owner_fix\\vortex_side.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex/owner_fix/vortex_wide.png",
+      "sha256": "f347c12d9b8809f085379a9c21c462fa1b25d633bbd2f8f21c3389c3689ba57e",
+      "bytes": 283279,
+      "source": "C:\\ov\\reports\\weather_vortex26\\owner_fix\\vortex_wide.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex/logs/owner_fix.log",
+      "sha256": "7561ada128afb999cfcef0573e9db6691087eae6c297bf7653a94532c37ffa84",
+      "bytes": 314,
+      "source": "C:\\ov\\reports\\weather_vortex26\\owner_fix.log"
+    },
+    {
+      "name": "vortex/logs/owner_fix.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_vortex26\\owner_fix.log.stderr"
+    },
+    {
+      "name": "vortex/logs/owner_fix.log.receipt.json",
+      "sha256": "12415ad7801af658758fafe21eae22bffcfcd48ca443025eca243bebe07b5ff5",
+      "bytes": 1654,
+      "source": "C:\\ov\\reports\\weather_vortex26\\owner_fix.log.receipt.json"
+    },
+    {
+      "name": "vortex/logs/owner_fix.log.isolated.json",
+      "sha256": "bb5ee94d1a9cc641283c1da58ea066cf0a45cfe1bfedc2ff3431c10ae131e8a7",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_vortex26\\owner_fix.log.isolated.json"
+    },
+    {
+      "name": "vortex/root_v1/vortex_control.jpg",
+      "sha256": "6675746092c23031bc8d97e4ff94282e05c8a89c522782748c2c6d09e3ed0ec1",
+      "bytes": 8251,
+      "source": "C:\\ov\\reports\\weather_vortex26\\root_v1\\vortex_control.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "b905961f9e481abc4f0b74eb28b7898fedc3b4cceccc94c260f2a326de0ea8c2"
+    },
+    {
+      "name": "vortex/root_v1/vortex_review.json",
+      "sha256": "e6537a1efdbe577937e55f758270cc24e8e68aa294edd891271bc68e7c62df48",
+      "bytes": 16593,
+      "source": "C:\\ov\\reports\\weather_vortex26\\root_v1\\vortex_review.json"
+    },
+    {
+      "name": "vortex/root_v1/vortex_root.jpg",
+      "sha256": "9f4cf624d843f7c1d8e74f956c3e369c9cddb6dc34505f6d9d304ef5398ad15b",
+      "bytes": 11285,
+      "source": "C:\\ov\\reports\\weather_vortex26\\root_v1\\vortex_root.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "82de37ea971a58dcbf55a93817d9d835e94cd4af4a64ca7d723ec9ef71aa6fab"
+    },
+    {
+      "name": "vortex/root_v1/vortex_setup.json",
+      "sha256": "5ea3b845950a5f909f7b7347b25c6540e8fcb421bce8099e9de809b7cded4486",
+      "bytes": 6517,
+      "source": "C:\\ov\\reports\\weather_vortex26\\root_v1\\vortex_setup.json"
+    },
+    {
+      "name": "vortex/root_v1/vortex_setup.jpg",
+      "sha256": "0750e30ad5b2c057605b1dc583043132056dc6fb98a7ec30434003c64e684bd0",
+      "bytes": 17281,
+      "source": "C:\\ov\\reports\\weather_vortex26\\root_v1\\vortex_setup.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "7fd268fccc3bd51e0d9e798cbfa3bf053535255d2bead2ba82916e851fa71664"
+    },
+    {
+      "name": "vortex/root_v1/vortex_side.jpg",
+      "sha256": "eb0a3a3c4b0130a90e265f56da1bbd813b4e0b266a819639ca9d4440a6c05a3e",
+      "bytes": 12727,
+      "source": "C:\\ov\\reports\\weather_vortex26\\root_v1\\vortex_side.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "ca94d444a831d78d8c208084cdbefab097a581850825267d527f13180a5ceba5"
+    },
+    {
+      "name": "vortex/root_v1/vortex_wide.jpg",
+      "sha256": "5f05863e23b5df9c71dc76543f9ca4c8107d93bb96f71cba5820c56ec3ea5717",
+      "bytes": 17296,
+      "source": "C:\\ov\\reports\\weather_vortex26\\root_v1\\vortex_wide.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "528bbced14e301e46275bff400a1a9ec8738228704b350bb2ba4c3160e12b3e8"
+    },
+    {
+      "name": "vortex/logs/root_v1.log",
+      "sha256": "7561ada128afb999cfcef0573e9db6691087eae6c297bf7653a94532c37ffa84",
+      "bytes": 314,
+      "source": "C:\\ov\\reports\\weather_vortex26\\root_v1.log"
+    },
+    {
+      "name": "vortex/logs/root_v1.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_vortex26\\root_v1.log.stderr"
+    },
+    {
+      "name": "vortex/logs/root_v1.log.receipt.json",
+      "sha256": "8548a89cf5bc07365a4ac4c93a8b7255a0613122eddc741511a5661d4f920384",
+      "bytes": 1752,
+      "source": "C:\\ov\\reports\\weather_vortex26\\root_v1.log.receipt.json"
+    },
+    {
+      "name": "vortex/logs/root_v1.log.isolated.json",
+      "sha256": "3b41973a3bf351aef8fa938d5777ccda0e62769e1a7cacb7f6ab503f7911bf3f",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_vortex26\\root_v1.log.isolated.json"
+    },
+    {
+      "name": "vortex/final/vortex_control.png",
+      "sha256": "9548edaa525567e79789d146f677a8845fdb85ac7ce1099308ddbb2bc37978fc",
+      "bytes": 178693,
+      "source": "C:\\ov\\reports\\weather_vortex26\\final\\vortex_control.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex/final/vortex_review.json",
+      "sha256": "85659aa1746c02ce63e45c7562f12f7e03dc40c563ea7d932810df7d72e2d69e",
+      "bytes": 16552,
+      "source": "C:\\ov\\reports\\weather_vortex26\\final\\vortex_review.json"
+    },
+    {
+      "name": "vortex/final/vortex_root.png",
+      "sha256": "a95cae384266bd4ef08d44abd8c0b1300b8aca4a933b9311716ba6d2b05b2095",
+      "bytes": 224198,
+      "source": "C:\\ov\\reports\\weather_vortex26\\final\\vortex_root.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex/final/vortex_setup.json",
+      "sha256": "5ea3b845950a5f909f7b7347b25c6540e8fcb421bce8099e9de809b7cded4486",
+      "bytes": 6517,
+      "source": "C:\\ov\\reports\\weather_vortex26\\final\\vortex_setup.json"
+    },
+    {
+      "name": "vortex/final/vortex_setup.jpg",
+      "sha256": "833a7d4a2bee859cb2be3f2f94063a4815dc84e454d150f7bf9bc8023866fe94",
+      "bytes": 17238,
+      "source": "C:\\ov\\reports\\weather_vortex26\\final\\vortex_setup.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "2ef54407ddafd1fbbdee95d102b76035ba258760f2a83250a5ea8f21812a3a81"
+    },
+    {
+      "name": "vortex/final/vortex_side.png",
+      "sha256": "6bf481b7c0a3ae6d8b35a0234b3921131effe8b5b7a6d952de42f11fa94fbb49",
+      "bytes": 202041,
+      "source": "C:\\ov\\reports\\weather_vortex26\\final\\vortex_side.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex/final/vortex_wide.png",
+      "sha256": "c8f4cc1916f955a14a5831e7c7b37d89122f3e18b63532ccee2e817a707c5c96",
+      "bytes": 160998,
+      "source": "C:\\ov\\reports\\weather_vortex26\\final\\vortex_wide.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex/logs/final.log",
+      "sha256": "7561ada128afb999cfcef0573e9db6691087eae6c297bf7653a94532c37ffa84",
+      "bytes": 314,
+      "source": "C:\\ov\\reports\\weather_vortex26\\final.log"
+    },
+    {
+      "name": "vortex/logs/final.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_vortex26\\final.log.stderr"
+    },
+    {
+      "name": "vortex/logs/final.log.receipt.json",
+      "sha256": "e7e1a1502abca6289d862eb88d6a5860a966fb297f57f2f36d595a5801122fb1",
+      "bytes": 1797,
+      "source": "C:\\ov\\reports\\weather_vortex26\\final.log.receipt.json"
+    },
+    {
+      "name": "vortex/logs/final.log.isolated.json",
+      "sha256": "dba05b73eda7e6aee14593669b371fc5e69617f73ec363c5b00cfddb038d792b",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_vortex26\\final.log.isolated.json"
+    },
+    {
+      "name": "vortex/cyclone_regression/cyclone_0.24_identity.jpg",
+      "sha256": "296e69b9e7a2792b6936d0606707c3a56d9ccc28dcf7466e8911b3e05e7f29d0",
+      "bytes": 16578,
+      "source": "C:\\ov\\reports\\weather_vortex26\\cyclone_regression\\cyclone_0.24_identity.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "a7787e00bbf9d2e56e30a62154276cecb46efb0becc88463521e25940e0fd2e1"
+    },
+    {
+      "name": "vortex/cyclone_regression/cyclone_0.24_production.jpg",
+      "sha256": "b2aa9a27550c39052f43294986df9760fd6197432b17c8788af20f5b028b9a13",
+      "bytes": 18310,
+      "source": "C:\\ov\\reports\\weather_vortex26\\cyclone_regression\\cyclone_0.24_production.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "73d50d424a0eabf6fdeb536c4dfdef84f16ab4be02a760c3a42a28c54199fdd0"
+    },
+    {
+      "name": "vortex/cyclone_regression/cyclone_0.75_identity.jpg",
+      "sha256": "37704bd0dcf1b52fb199768790fdbd91d47f55df23beb355ecaddc76e2e37e8d",
+      "bytes": 17759,
+      "source": "C:\\ov\\reports\\weather_vortex26\\cyclone_regression\\cyclone_0.75_identity.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "8e85b29fe478f546467fc7d9a18d8d49b081e8d6e1b26d26347cbc49bfd83f7c"
+    },
+    {
+      "name": "vortex/cyclone_regression/cyclone_0.75_production.jpg",
+      "sha256": "8ea26751a9dfcde81fbcf0babe9a0839e963eca4888f20e4f14d3613cc77d618",
+      "bytes": 17603,
+      "source": "C:\\ov\\reports\\weather_vortex26\\cyclone_regression\\cyclone_0.75_production.png",
+      "derivative": "JPEG78; not pixel-exact evidence",
+      "original_png_sha256": "cc4df31382e469a1035bd8e448a7312e3ffbf1eafe5a5ebb314567a1481db70c"
+    },
+    {
+      "name": "vortex/cyclone_regression/cyclone_review.json",
+      "sha256": "92972a9accbdfc82f54daff8f1feac71c29536576d64ddb44136fe1f1c42080c",
+      "bytes": 682,
+      "source": "C:\\ov\\reports\\weather_vortex26\\cyclone_regression\\cyclone_review.json"
+    },
+    {
+      "name": "vortex/logs/cyclone_regression.log",
+      "sha256": "4ea9253b0ad339c7eb8408f7bc279e4c7d2ae0f5d47be843945377a2f91238fa",
+      "bytes": 228,
+      "source": "C:\\ov\\reports\\weather_vortex26\\cyclone_regression.log"
+    },
+    {
+      "name": "vortex/logs/cyclone_regression.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_vortex26\\cyclone_regression.log.stderr"
+    },
+    {
+      "name": "vortex/logs/cyclone_regression.log.receipt.json",
+      "sha256": "d927b3ce171979c0b56b30e00e88d186006b65ff588edc9069b738a911b049bf",
+      "bytes": 1836,
+      "source": "C:\\ov\\reports\\weather_vortex26\\cyclone_regression.log.receipt.json"
+    },
+    {
+      "name": "vortex/logs/cyclone_regression.log.isolated.json",
+      "sha256": "d14ea00f7899c6533c913a90936e8d8adc1dac764bba45c21bc2e76097f691e8",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_vortex26\\cyclone_regression.log.isolated.json"
+    },
+    {
+      "name": "vortex/logs/calendar.log",
+      "sha256": "a98679e6e5358caafc7ba9f112369e4f422835008f994ab605d39dd156e94bba",
+      "bytes": 35156,
+      "source": "C:\\ov\\reports\\weather_vortex26\\calendar.log"
+    },
+    {
+      "name": "vortex/logs/calendar.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_vortex26\\calendar.log.stderr"
+    },
+    {
+      "name": "vortex/logs/calendar.log.receipt.json",
+      "sha256": "90b8c92a4c44fdb5792c48edd61d0b51ea4585935d1ee534ea50a4ac79dad7d3",
+      "bytes": 5401,
+      "source": "C:\\ov\\reports\\weather_vortex26\\calendar.log.receipt.json"
+    },
+    {
+      "name": "vortex/calendar/calendar_test.json",
+      "sha256": "19ea7cc63b1784d46abe9997f48c4293ea27ee75cde4bdae1197c57d15f73ea1",
+      "bytes": 270,
+      "source": "C:\\ov\\reports\\weather_vortex26\\calendar\\calendar_test.json"
+    },
+    {
+      "name": "vortex/calendar/living_year.json",
+      "sha256": "3922e15113d37c45b0867df7ee02e89a5bb603b82d56994cf33b8224fc7374da",
+      "bytes": 959,
+      "source": "C:\\ov\\reports\\weather_vortex26\\calendar\\living_year.json"
+    },
+    {
+      "name": "vortex/logs/schedule.log",
+      "sha256": "84b58f956281b1dae19383eef543bbe1bdc1616b18424fec6008c4378bb19b98",
+      "bytes": 1618,
+      "source": "C:\\ov\\reports\\weather_vortex26\\schedule.log"
+    },
+    {
+      "name": "vortex/logs/schedule.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_vortex26\\schedule.log.stderr"
+    },
+    {
+      "name": "vortex/logs/schedule.log.receipt.json",
+      "sha256": "49dd9cc84bbfe901c9f7fd615ee9bd71caef7d03894bc613be8998b0eca66151",
+      "bytes": 1857,
+      "source": "C:\\ov\\reports\\weather_vortex26\\schedule.log.receipt.json"
+    },
+    {
+      "name": "vortex/logs/flash.log",
+      "sha256": "d48e1c4dce7133084ba513817eaf2d7e46944519fa3621144d38b58b418d8495",
+      "bytes": 145,
+      "source": "C:\\ov\\reports\\weather_vortex26\\flash.log"
+    },
+    {
+      "name": "vortex/logs/flash.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_vortex26\\flash.log.stderr"
+    },
+    {
+      "name": "vortex/logs/flash.log.receipt.json",
+      "sha256": "ad42c0177852bb8ae5be57917421761e652ce290618bcbe5b423d051bc69ed80",
+      "bytes": 1869,
+      "source": "C:\\ov\\reports\\weather_vortex26\\flash.log.receipt.json"
+    },
+    {
+      "name": "vortex/logs/schedule_windowed.log",
+      "sha256": "47775d973f3f01f55f4d74c0ef0bd1f24509305916595d769a15f2c5ad144bf0",
+      "bytes": 1697,
+      "source": "C:\\ov\\reports\\weather_vortex26\\schedule_windowed.log"
+    },
+    {
+      "name": "vortex/logs/schedule_windowed.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_vortex26\\schedule_windowed.log.stderr"
+    },
+    {
+      "name": "vortex/logs/schedule_windowed.log.receipt.json",
+      "sha256": "4542c6e39a611d29daaf87fe3744604c1292284ba1e0d1b053d953ddf0b940cd",
+      "bytes": 1879,
+      "source": "C:\\ov\\reports\\weather_vortex26\\schedule_windowed.log.receipt.json"
+    },
+    {
+      "name": "vortex/logs/schedule_windowed.log.isolated.json",
+      "sha256": "0ab577c7dc9ee56d326ee283f4bfcbc0368a60542ba6ee5f094b9f0c93808494",
+      "bytes": 455
+    },
+    {
+      "name": "vortex/comparison.json",
+      "sha256": "6539fed5df09ea9c62fec483bf923d85639b70773ead6ada85f517811e525e1f",
+      "bytes": 5113
+    },
+    {
+      "name": "vortex/noncapturing_weather_launcher.ps1",
+      "sha256": "ba79eb47282669750e370e74adc04e282f5f5a369ce1de4a83729c879d986418",
+      "bytes": 9822,
+      "scope": "external diagnostic launcher; not a generic capture isolation method or a shipped repository tool"
+    },
+    {
+      "name": "vortex/source/final/game/scripts/building/WeatherManager.gd",
+      "sha256": "d6c8e77b98780be72cdf81c479d969274826d9147353de344d8005c7610cac0a",
+      "bytes": 21793,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "vortex/source/before_2e07f38c/game/scripts/building/WeatherManager.gd",
+      "sha256": "f46efcd16a6633faa1962289828f2b4233f1fce49385897f9b6d8d6d1a023518",
+      "bytes": 21017,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "vortex/source/final/game/shaders/queens_weather_math.gdshaderinc",
+      "sha256": "aeab63647894d097f2128c75866fdb7ca0a78e49c77d006fd64f5a24c1369983",
+      "bytes": 12374,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "vortex/source/before_2e07f38c/game/shaders/queens_weather_math.gdshaderinc",
+      "sha256": "8b295b30b423c53122cdac6305d77af7d6dd42f7a60113ed24d544fa08fee5b5",
+      "bytes": 12198,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "vortex/source/final/game/shaders/queens_weather_sky.gdshader",
+      "sha256": "fcb335df78335e73b7c4b088aa6396ad6479a50d7aebaf7bee51c2b623ab3385",
+      "bytes": 22024,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "vortex/source/before_2e07f38c/game/shaders/queens_weather_sky.gdshader",
+      "sha256": "bf1704d241b2aa3691835e28e8900b763d5e82f10ff53b3a88147e64424d9190",
+      "bytes": 21983,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "vortex/source/final/game/tests/sky_phenomena_schedule_test.gd",
+      "sha256": "76cab988eeb2935f30af4243a63b757561463006d9bce09ce3ad883971744fe8",
+      "bytes": 9528,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "vortex/source/before_2e07f38c/game/tests/sky_phenomena_schedule_test.gd",
+      "sha256": "d665f4c625e833783dd1866748345f695ea34283e0f6d24c885944bad44e9d7a",
+      "bytes": 7724,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "vortex/source/final/game/tests/v2_sky_spectacle_bench.gd",
+      "sha256": "50f06a23565b478903be5f22f8408e97dc4d196fac8454692bdcd800cfc579ce",
+      "bytes": 29891,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "vortex/source/before_2e07f38c/game/tests/v2_sky_spectacle_bench.gd",
+      "sha256": "df4d3af6dc37382299a720b6fdef4d83b4c51098fe1859e5c3c0d5f84744dfa8",
+      "bytes": 26761,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "vortex/limitations.json",
+      "sha256": "4429c50b401a538d1482821d73a3bee70171f1e38a2e43770369c28a03b0dbaf",
+      "bytes": 1229
+    },
+    {
+      "name": "vortex_relative/paired/vortex_baseline_control.png",
+      "sha256": "b7ce7555c90259699329a684a360d429e24b61886c332694da1592cc406d73c7",
+      "bytes": 178397,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_final\\vortex_baseline_control.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex_relative/paired/vortex_baseline_root.png",
+      "sha256": "b4de3a3c934f0c618dbf2e5f2920a3ad64db0959c10e63cdd4a236abfdf8c803",
+      "bytes": 430026,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_final\\vortex_baseline_root.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex_relative/paired/vortex_baseline_side.png",
+      "sha256": "06183b17ac9579f6fd35af622a8b4e200c26458abc3c6a8a2feb9d73605f0c60",
+      "bytes": 455871,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_final\\vortex_baseline_side.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex_relative/paired/vortex_baseline_wide.png",
+      "sha256": "91d3b5b36f0c741b2f191fcfd473f7d94c8b1accef2242356a4d5aaeca93489b",
+      "bytes": 286937,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_final\\vortex_baseline_wide.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex_relative/paired/vortex_production_control.png",
+      "sha256": "f43a07d7038336223a7717705a2bded6b2849471b8dcdb3279cbf72f98382b26",
+      "bytes": 179057,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_final\\vortex_production_control.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex_relative/paired/vortex_production_root.png",
+      "sha256": "b5fc8c30137e3483a0e1f03c8f8e490b9809b4e9f067886a3dfee4113f1714c3",
+      "bytes": 223686,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_final\\vortex_production_root.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex_relative/paired/vortex_production_side.png",
+      "sha256": "9b921a13eba5854ab503149a53dfe8e66a9666579b8fdfc1264810df53063c49",
+      "bytes": 238321,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_final\\vortex_production_side.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex_relative/paired/vortex_production_wide.png",
+      "sha256": "b5a8055980c5db1ed123c0a082b63bc615d0b8333eba85560a9f24767f88517e",
+      "bytes": 165983,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_final\\vortex_production_wide.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex_relative/paired/vortex_review.json",
+      "sha256": "e0e36324faa8deee31f4f0046fbcc9864b36c540b66981f907a06aab3c365fe2",
+      "bytes": 33081,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_final\\vortex_review.json",
+      "derivative": false
+    },
+    {
+      "name": "vortex_relative/paired/vortex_setup.json",
+      "sha256": "5ea3b845950a5f909f7b7347b25c6540e8fcb421bce8099e9de809b7cded4486",
+      "bytes": 6517,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_final\\vortex_setup.json",
+      "derivative": false
+    },
+    {
+      "name": "vortex_relative/paired/vortex_setup.png",
+      "sha256": "b1d07c3f30d66cb4fa61ea9f1d8a00273866668d6e7e29d1c4008d02a11adbdd",
+      "bytes": 156042,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_final\\vortex_setup.png",
+      "derivative": false
+    },
+    {
+      "name": "vortex_relative/logs/paired_final.log",
+      "sha256": "58b69762fc0e875293d73a3fd8f50ebd21eb17b6e8363871254708510580fa11",
+      "bytes": 314
+    },
+    {
+      "name": "vortex_relative/logs/paired_final.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "name": "vortex_relative/logs/paired_final.log.receipt.json",
+      "sha256": "065f66cc16bf997783a22d71d3830f15126fe24ba01c1b89a497551a3cc025d6",
+      "bytes": 2012
+    },
+    {
+      "name": "vortex_relative/logs/paired_final.log.isolated.json",
+      "sha256": "4c7da880e8f9212f48d1cc2d7a5be6ff7dbf485888335d59faaaedb538a42857",
+      "bytes": 455
+    },
+    {
+      "name": "vortex_relative/paired_comparison.json",
+      "sha256": "8ba8e9e21dec3c7341866297ac8765f1f8b99ba2429ae943cd9eb8db8b71005b",
+      "bytes": 2110,
+      "source": "C:\\ov\\reports\\weather_vortex26\\paired_comparison.json"
+    },
+    {
+      "name": "vortex_relative/original_geometry.gdshader",
+      "sha256": "4d1d3ddff1073320b899b52f6a919a3813761e95dd0fd978386abb333915dc11",
+      "bytes": 34125,
+      "source": "C:\\ov\\reports\\weather_vortex26\\original_geometry.gdshader"
+    },
+    {
+      "name": "vortex_relative/matched_before.log.isolated.json",
+      "sha256": "bb76227d952eb19affc1cbff4528cd2429d6398214d096fd920e320be70ed75f",
+      "bytes": 455,
+      "source": "C:\\ov\\reports\\weather_vortex26\\matched_before.log.isolated.json"
+    },
+    {
+      "name": "vortex_relative/matched_before.log.isolated.log",
+      "sha256": "3a7ccaa12191e11494022f4666e9500a0acab97915684c525d6db2381efd1a1f",
+      "bytes": 2763,
+      "source": "C:\\ov\\reports\\weather_vortex26\\matched_before.log.isolated.log"
+    },
+    {
+      "name": "vortex_relative/spatial_diagnostic.json",
+      "sha256": "76a320783c392acc6461bb21111e17c27b3c0273ccc7b711ce6e758b34e33595",
+      "bytes": 2529,
+      "source": "C:\\ov\\reports\\weather_vortex26\\spatial_diagnostic.json"
+    },
+    {
+      "name": "vortex_relative/spatial_relative_fixture.json",
+      "sha256": "8c95f338ac5550c55c2ad95ef807ceea9731a6c1f0bff0facb0a3d06a4f91797",
+      "bytes": 1771,
+      "source": "C:\\ov\\reports\\weather_vortex26\\spatial_relative_fixture.json"
+    },
+    {
+      "name": "vortex_relative/first_gate_failure/board.json",
+      "sha256": "ef5ca4664e1eb216bc9cf71fe184941d8fc06bc06407afa3c2bf313aaeba6bda",
+      "bytes": 132862
+    },
+    {
+      "name": "vortex_relative/first_gate_failure/board.md",
+      "sha256": "6258570b6cd420a1b34de54f902a6bb8aa3ca1b98ee203c3f82613e52a2c227d",
+      "bytes": 8576
+    },
+    {
+      "name": "vortex_relative/source/final/v2_sky_spectacle_bench.gd",
+      "sha256": "43f8b76933b724a872e9c9187136067a26da3caa59764f4d87bfaaa862dc6df3",
+      "bytes": 30874
+    },
+    {
+      "name": "vortex_relative/notes.json",
+      "sha256": "286baece2eb94a028aa85ac1cf757ba01165674844800bf7c07e0a8f0594bef7",
+      "bytes": 1162
+    },
+    {
+      "name": "world_pointer/logs/newspaper_headless.log",
+      "sha256": "125d10f596c0f954ac2fb8edf2d2ac2a5a227b6ca5c6b05f4025c2804e6b1e95",
+      "bytes": 2240,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_headless.log"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_headless.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_headless.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_headless.log.receipt.json",
+      "sha256": "a4b2ef26fbc34cb86e075357b0e5edcd8cc6bdf66e796acd094256b4ee0dd62e",
+      "bytes": 1651,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_headless.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_windowed.log",
+      "sha256": "9e25c35dccd1f407f842155c7cc39a1eafb1b2accfbbf3a3ea010daf4746b406",
+      "bytes": 2399,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_windowed.log"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_windowed.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_windowed.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_windowed.log.receipt.json",
+      "sha256": "c36bb3700421fb259414b6b8645a98a94ae42bfd668c1d8736397edb2a28d0ce",
+      "bytes": 1694,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_windowed.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_windowed.log.isolated.json",
+      "sha256": "4424b79c8279ea0365e019085a1cc5675d89774ded41f3d659194326fbb0c2dc",
+      "bytes": 454,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_windowed.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_windowed.log.isolated.log",
+      "sha256": "6b7a57069d986521aad66548826e1fbf6201b180b776483bb96143ce7a4f4020",
+      "bytes": 2116,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_windowed.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_final.log",
+      "sha256": "9e25c35dccd1f407f842155c7cc39a1eafb1b2accfbbf3a3ea010daf4746b406",
+      "bytes": 2399,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_final.log"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_final.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_final.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_final.log.receipt.json",
+      "sha256": "20146a4b5ec75d5abd2e8b6b1ccb4b6cea8898bb791dc34ea671a167942c60a9",
+      "bytes": 1686,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_final.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_final.log.isolated.json",
+      "sha256": "5b49a1bf56d580ed85b87109672d7d505dd8212ad68028c13acca3f73131d564",
+      "bytes": 1210,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_final.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/newspaper_final.log.isolated.log",
+      "sha256": "0f7336325812b10c519e5620b086d9ed01c16c8148f47b6e4c6100ed04c93ae1",
+      "bytes": 46,
+      "source": "C:\\ov\\reports\\weather_world26\\newspaper_final.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/logs/calendar_windowed.log",
+      "sha256": "95b1f8b47d2a56edbda91d9a23248ba6e7bc49f7fd56fd8325734d46971e9a17",
+      "bytes": 35499,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed.log"
+    },
+    {
+      "name": "world_pointer/logs/calendar_windowed.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/calendar_windowed.log.receipt.json",
+      "sha256": "19c9d282513f9491f7950b76f32ebc61191cb6c8c4e5db00fa38050f187af085",
+      "bytes": 5318,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/calendar_windowed.log.isolated.json",
+      "sha256": "f2103f5dc288d2c05e0cac659de1ee36e14d5f409697148201964801916300e1",
+      "bytes": 1210,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/calendar_windowed.log.isolated.log",
+      "sha256": "4538c1a107a580f9895025733099596a263d106bff8a7a9c0b281a8045a8484e",
+      "bytes": 2679,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/calendar_windowed/calendar_test.json",
+      "sha256": "58640a5a3dbe2dd2236d22de05b8ae2acf3957efad3630ed37b5c57814e74c46",
+      "bytes": 270,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed\\calendar_test.json",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/calendar_windowed/living_year.json",
+      "sha256": "4b92314c33630e0a50ab5d8544a00eede4dbaefd1d75d1a62ca99a0551356b39",
+      "bytes": 959,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed\\living_year.json",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/calendar_windowed/weather_report.png",
+      "sha256": "9c160d6fb96fcd1f6bbfac4386904b8ec8177a87ff1988adfc85bf9628308528",
+      "bytes": 1520329,
+      "source": "C:\\ov\\reports\\weather_world26\\calendar_windowed\\weather_report.png",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/logs/legacy_world.log",
+      "sha256": "f3558227d95a3eb19a91e50c355dc4a3d43e0856d1f9753cfbc2ebcb1342dfbf",
+      "bytes": 12560,
+      "source": "C:\\ov\\reports\\weather_world26\\legacy_world.log"
+    },
+    {
+      "name": "world_pointer/logs/legacy_world.log.stderr",
+      "sha256": "12661b8c6eb0b3a028c37ca938e69c3b36dcdb2068129101585a53fe2e91506d",
+      "bytes": 428,
+      "source": "C:\\ov\\reports\\weather_world26\\legacy_world.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/legacy_world.log.receipt.json",
+      "sha256": "be4abad803a1dc33664be4468ea54b851d0c572c4e9f6ba3e19d7369d1057815",
+      "bytes": 1732,
+      "source": "C:\\ov\\reports\\weather_world26\\legacy_world.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/legacy_world.log.isolated.json",
+      "sha256": "e7653cb01fa6a91891e049d401bea9baed690c382c91e399891a404c9f15f944",
+      "bytes": 1021,
+      "source": "C:\\ov\\reports\\weather_world26\\legacy_world.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/legacy_world.log.isolated.log",
+      "sha256": "1d9936e14c88ea2b2744a7dc0189a97fef110d3a73a5c07242f0f8d87ad81872",
+      "bytes": 47,
+      "source": "C:\\ov\\reports\\weather_world26\\legacy_world.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/logs/occupied_final.log",
+      "sha256": "9adec93c505f6305eab7dcadf564288e2bf6714cccf8f385cacfb03994b22d20",
+      "bytes": 2004,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final.log"
+    },
+    {
+      "name": "world_pointer/logs/occupied_final.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/occupied_final.log.receipt.json",
+      "sha256": "b4a5ca47788371bff6c876190155342ea21480592ba460d0238501ed27e95190",
+      "bytes": 1711,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/occupied_final.log.isolated.json",
+      "sha256": "39e2b4d1f00f38b3cf74064eb0f873687a88bf5a00ca9e1eb7bb12ac5983426d",
+      "bytes": 1022,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/occupied_final.log.isolated.log",
+      "sha256": "5a73b9172a0adb8e13200721ba5f714929584aba0a15e6eb94416bcfda730150",
+      "bytes": 59,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/occupied_final/august_hail.png",
+      "sha256": "06dbd5196b29d53c1718d18a021ad95038efe142f843206ee636120e1253bb21",
+      "bytes": 198491,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final\\august_hail.png",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/occupied_final/calendar_world_review.json",
+      "sha256": "b1ff2378ffcbfd35d351fb574acec7f48b1f7d58215d8d6d7875abc7bf3903e0",
+      "bytes": 3565,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final\\calendar_world_review.json",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/occupied_final/christmas_snow.png",
+      "sha256": "04f6184f76ccb1205fde52686b47686a13f47451a3c9f099b0fd272b9c155d78",
+      "bytes": 232730,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final\\christmas_snow.png",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/occupied_final/november_coastal_storm.png",
+      "sha256": "e65563f6c2befa1e87de9e4b7ea1a47c130599fb9470ef4c19281731dc53aa8f",
+      "bytes": 370358,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final\\november_coastal_storm.png",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/occupied_final/september_cloud.png",
+      "sha256": "5d4395752927f0e4894907b32ae3ab9d9e1bcedaff0b3d665515922ed1d200e1",
+      "bytes": 468249,
+      "source": "C:\\ov\\reports\\weather_world26\\occupied_final\\september_cloud.png",
+      "derivative": false
+    },
+    {
+      "name": "world_pointer/logs/schedule_windowed.log",
+      "sha256": "47775d973f3f01f55f4d74c0ef0bd1f24509305916595d769a15f2c5ad144bf0",
+      "bytes": 1697,
+      "source": "C:\\ov\\reports\\weather_world26\\schedule_windowed.log"
+    },
+    {
+      "name": "world_pointer/logs/schedule_windowed.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\schedule_windowed.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/schedule_windowed.log.receipt.json",
+      "sha256": "a399258c36702c97a13afbed13042680e926910e751c118591833a1e3b1554c7",
+      "bytes": 1752,
+      "source": "C:\\ov\\reports\\weather_world26\\schedule_windowed.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/schedule_windowed.log.isolated.json",
+      "sha256": "30061c17e43f0b51b8266d99319bb58d026a1017b2050d5fc3a41299b88f4918",
+      "bytes": 1395,
+      "source": "C:\\ov\\reports\\weather_world26\\schedule_windowed.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/schedule_windowed.log.isolated.log",
+      "sha256": "47fbf626df344b438e001ccb852280a1182e69c9b8409bb27e238186abba1cca",
+      "bytes": 2692,
+      "source": "C:\\ov\\reports\\weather_world26\\schedule_windowed.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/logs/flash_windowed.log",
+      "sha256": "d81078d858719f026e4bdbc06b46e26681b4190c0315248a6febdb341286857b",
+      "bytes": 224,
+      "source": "C:\\ov\\reports\\weather_world26\\flash_windowed.log"
+    },
+    {
+      "name": "world_pointer/logs/flash_windowed.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source": "C:\\ov\\reports\\weather_world26\\flash_windowed.log.stderr"
+    },
+    {
+      "name": "world_pointer/logs/flash_windowed.log.receipt.json",
+      "sha256": "6cdbc80330f85618fcba794f882f786b86cf326babf1d9e266da0dd9579251ae",
+      "bytes": 1765,
+      "source": "C:\\ov\\reports\\weather_world26\\flash_windowed.log.receipt.json"
+    },
+    {
+      "name": "world_pointer/logs/flash_windowed.log.isolated.json",
+      "sha256": "83878979fdc39b8caadb6ae0b86769491966cbef493e9ee3312c2f00f949999e",
+      "bytes": 1020,
+      "source": "C:\\ov\\reports\\weather_world26\\flash_windowed.log.isolated.json"
+    },
+    {
+      "name": "world_pointer/logs/flash_windowed.log.isolated.log",
+      "sha256": "e5a8c0bfda29c7d2248f2d19f6be79ea1f0e10086ca57e711660db63730a44d5",
+      "bytes": 62,
+      "source": "C:\\ov\\reports\\weather_world26\\flash_windowed.log.isolated.log"
+    },
+    {
+      "name": "world_pointer/audit/noncapturing_audit.json",
+      "sha256": "26bce276e3349b41e40cc343ba7eed256750f9182cf40e71c50626b17b8ac645",
+      "bytes": 2025,
+      "scope": "external diagnostic audit/guard, not a shipped generic capture-isolation tool"
+    },
+    {
+      "name": "world_pointer/audit/noncapturing_sources.json",
+      "sha256": "6fd00f1a6c7a33b3b5cfd9e4fd7fd00d06ce98341d64c09bf2ca9cbc9cbbc4ff",
+      "bytes": 347448,
+      "scope": "external diagnostic audit/guard, not a shipped generic capture-isolation tool"
+    },
+    {
+      "name": "world_pointer/audit/execution_summary.json",
+      "sha256": "1085134157af87c324b22f5fde28f160cc5dbec65f7c8300c2855fc6893bbd84",
+      "bytes": 4987,
+      "scope": "external diagnostic audit/guard, not a shipped generic capture-isolation tool"
+    },
+    {
+      "name": "world_pointer/audit/run_noncapturing_world_weather.ps1",
+      "sha256": "4f4578c300c86e76d7af822153f9aa73b7bc6fe4c45c4728b795b5ad1f84f669",
+      "bytes": 11270,
+      "scope": "external diagnostic audit/guard, not a shipped generic capture-isolation tool"
+    },
+    {
+      "name": "world_pointer/audit/check_noncapturing_sources.py",
+      "sha256": "c53944833f85992bc863417aa8fb340f4ebe272695606d96a75dbe71b0bbfe35",
+      "bytes": 559,
+      "scope": "external diagnostic audit/guard, not a shipped generic capture-isolation tool"
+    },
+    {
+      "name": "world_pointer/baseline6f/board.json",
+      "sha256": "d5d17171d928b583cac75fe3a603969d34e480a1b6bfb173c136d54d158a63a2",
+      "bytes": 132049,
+      "scope": "complete board captured from clean detached origin/main 6f7172d9 before merging"
+    },
+    {
+      "name": "world_pointer/source/final/game/scripts/ui/newspaper_panel.gd",
+      "sha256": "dfe6828fca03f9762e31c5b0187df17f5f3b9966949b110f17f0020978ac1f52",
+      "bytes": 11394,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "world_pointer/source/before_7294bd39/game/scripts/ui/newspaper_panel.gd",
+      "sha256": "0b8cd6b47dd7abbe1310f74a903f3814c49068eb029a4b3e4df1918628eda192",
+      "bytes": 10105,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "world_pointer/source/final/game/tests/newspaper_test.gd",
+      "sha256": "67728ee9313a3c415d18122a05122863be926a5cf49dc31abd1c88a462add2ff",
+      "bytes": 8936,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "world_pointer/source/before_7294bd39/game/tests/newspaper_test.gd",
+      "sha256": "2efc6f1ad9ab52d5b951322ba5fa6f4b16b6e569b9e568854c3db305a1fecd73",
+      "bytes": 6537,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "world_pointer/source/final/game/tests/campaign_weather_test.gd",
+      "sha256": "6b925a5ccccf371aaec9b21694d6d912ea3f53b305787864380b9f04ed756d2d",
+      "bytes": 21066,
+      "encoding": "original working bytes"
+    },
+    {
+      "name": "world_pointer/source/before_7294bd39/game/tests/campaign_weather_test.gd",
+      "sha256": "2b4bcce6f7b2287dd679254d428d8957e54fc5a51e19234c9f588fb1fee446db",
+      "bytes": 20539,
+      "encoding": "committed bytes"
+    },
+    {
+      "name": "world_pointer/source/unchanged/game/tests/weather_sky_test.gd",
+      "sha256": "270073ca10df8ee862a6d5e62d2c000e49f1301d5cc2d0a333734398304ec066",
+      "bytes": 17525
+    },
+    {
+      "name": "world_pointer/source/unchanged/game/tests/campaign_weather_world_review.gd",
+      "sha256": "c53ad487c0243a810a93ebdbd65390b72e234c6ab70e2f7d6cfb79bc4c6158f6",
+      "bytes": 3569
+    },
+    {
+      "name": "world_pointer/source/unchanged/game/tests/v2_dramatic_sky_review.gd",
+      "sha256": "25fc1afd1fa62f1eaae22fd07d0d89310fc4ce108a3adb56703558040e6eb538",
+      "bytes": 6282
+    },
+    {
+      "name": "world_pointer/limitations.json",
+      "sha256": "506f31303260cb144453336fc94f39665c67e0bf3b569099afc21fc44daae393",
+      "bytes": 1764
     }
   ],
-  "archive_sha256": "2a1147d57b71fed3e04dc5a19453be9298e87c55431ea309af3299628d987387",
-  "archive_bytes": 6833110
+  "archive_sha256": "633b517f3f27aae408bbb37cfe0a2a82ebb50119f1a2f734a33138a8aab2e2f2",
+  "archive_bytes": 25721547,
+  "previous_checkpoint_archive_sha256": "cdaf921dbc5baa4b10beb23e1afe63905599dacd2e3f4ce5f86af0b40294a201",
+  "previous_checkpoint_archive_bytes": 22695933,
+  "archive_history": [
+    {
+      "sha256": "2a1147d57b71fed3e04dc5a19453be9298e87c55431ea309af3299628d987387",
+      "bytes": 6833110
+    },
+    {
+      "sha256": "31a5dce3eb539c94df44d82bdf569732001560aa880b5837446caba3d4a81a9d",
+      "bytes": 11856527
+    },
+    {
+      "sha256": "f3e919ea41a1bb2abdbafb022d862e267055150da39ae35a22557f46fe8c9bea",
+      "bytes": 13803255
+    },
+    {
+      "sha256": "da60d2467ebd11e0ee1ddaba0d099f362208cf6b3f3ad4351be141cc050e938a",
+      "bytes": 17974535
+    },
+    {
+      "sha256": "02bd2b2e670df81bedae48fb3590f35d70045adb27f27573eca7b792ef3e8c7d",
+      "bytes": 20324677
+    },
+    {
+      "sha256": "cdaf921dbc5baa4b10beb23e1afe63905599dacd2e3f4ce5f86af0b40294a201",
+      "bytes": 22695933
+    }
+  ]
 }

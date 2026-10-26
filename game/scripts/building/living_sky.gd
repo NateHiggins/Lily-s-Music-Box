@@ -102,7 +102,8 @@ static func sample(date: Dictionary,c: Dictionary,seed_value := 1928,transport_o
 		var gain := -log(maxf(.0001,1.0-cover))/tau
 		for i in 3: fractions[i]=1.0-pow(maxf(.0001,1.0-clampf(fractions[i],0,.9999)),gain)
 	if cover<=.0001: fractions=Vector3.ZERO
-	var transport := Calendar.cloud_transport(date) if not transport_override.is_finite() else transport_override
+	var precise:=Calendar.cloud_transport_at(seconds) if not transport_override.is_finite() else PackedFloat64Array([transport_override.x,transport_override.y])
+	var transport:=Vector2(precise[0],precise[1]) if precise.size()==2 else Vector2.ZERO
 	var bearing := deg_to_rad(float(c.get("wind_direction_degrees",0)))
 	var surface := Vector2(-sin(bearing),cos(bearing))*wind/3.6
 	var layers: Array[Dictionary] = []
@@ -115,7 +116,6 @@ static func sample(date: Dictionary,c: Dictionary,seed_value := 1928,transport_o
 		var shear: float = [0.0,.31,-.44][band]
 		var speed: float = [1.0,1.45,2.1][band]
 		var jet: Vector2=[Vector2.ZERO,Vector2(1.8,-.6),Vector2(5,2)][band]
-		var offset: Vector2 = transport.rotated(shear)*speed+jet*(elapsed/3600.0)
 		var velocity: Vector2 = surface.rotated(shear)*speed+jet/3.6
 		var thickness := float(brush.thickness_km)
 		if genera[band]=="Cu": thickness=lerpf(.45,2.1,smoothstep(8,27,temp)*maxf(.1,sin((hour-6)/12*PI)))
@@ -127,8 +127,7 @@ static func sample(date: Dictionary,c: Dictionary,seed_value := 1928,transport_o
 		layers.append({"id":"cloud_%d"%band,"genus":genera[band],"coverage":fractions[band],
 			"base_km":base,"thickness_km":thickness,"scale_km":float(brush.scale_km),
 			"optical_depth":float(brush.optical_depth),"arrangement":pattern,"wind":velocity,
-			"offset_km":offset,"shape_seed":layout+band*179,
-			"evolution":elapsed/2400.0+float(band)*7.31})
+			"shape_seed":layout+band*179})
 	var candidates: Array[int] = []
 	var selected: Dictionary = {}
 	for row: Dictionary in scenarios:
@@ -137,24 +136,30 @@ static func sample(date: Dictionary,c: Dictionary,seed_value := 1928,transport_o
 			# Classify the weather-derived composition, never reroll its geometry
 			# at midnight to satisfy a recipe or annual diversity quota.
 			if row.genus in genera and (selected.is_empty() or str(row.arrangement)==str(layers[genera.find(row.genus)].arrangement)): selected=row
-	return {"mode":"curated-year","climate":climate_label,"regime":regime,"simulation_seconds":elapsed,"layers":layers,
+	var result: Dictionary={"mode":"curated-year","climate":climate_label,"regime":regime,"simulation_seconds":elapsed,"layers":layers,
 		"pressure_tendency_hpa_6h":pressure_tendency,
 		"combined_coverage":1.0-(1.0-fractions.x)*(1.0-fractions.y)*(1.0-fractions.z),
 		"dew_point_c":dew_point,"surface_wind":surface,
 		"aerosol_density":clampf(.12+rh*.14-float(c.get("rain_intensity",0))*.08,.05,.4),
 		"eligible_scenarios":candidates,"scenario_id":int(selected.get("id",0)),"scenario_label":str(selected.get("label","Clear atmosphere"))}
+	move_fields(result,date,transport,precise)
+	return result
 
 ## Cheap continuous motion between one-second morphology publications.
-static func move_fields(state: Dictionary,date: Dictionary,transport: Vector2) -> void:
+static func move_fields(state: Dictionary,date: Dictionary,transport: Vector2,precise := PackedFloat64Array(),elapsed_override := INF) -> void:
 	if state.is_empty(): return
-	var elapsed := float(Time.get_unix_time_from_datetime_dict(date))-float(Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00"))
+	var elapsed: float=elapsed_override if is_finite(elapsed_override) else float(Time.get_unix_time_from_datetime_dict(date))-float(Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00"))
+	var x: float=precise[0] if precise.size()==2 else transport.x
+	var y: float=precise[1] if precise.size()==2 else transport.y
 	state.simulation_seconds=elapsed
 	for band in 3:
 		var shear: float=[0.0,.31,-.44][band]
 		var speed: float=[1.0,1.45,2.1][band]
 		var jet: Vector2=[Vector2.ZERO,Vector2(1.8,-.6),Vector2(5,2)][band]
-		var offset: Vector2=transport.rotated(shear)*speed+jet*(elapsed/3600.0)
-		state.layers[band].offset_km=offset
+		var dx:=(x*cos(shear)-y*sin(shear))*speed+float(jet.x)*(elapsed/3600.0)
+		var dy:=(x*sin(shear)+y*cos(shear))*speed+float(jet.y)*(elapsed/3600.0)
+		state.layers[band].offset_km=Vector2(dx,dy)
+		state.layers[band].offset_precise=PackedFloat64Array([dx,dy])
 		state.layers[band].evolution=elapsed/2400.0+float(band)*7.31
 
 static func publish(material: ShaderMaterial,state: Dictionary) -> void:
@@ -162,8 +167,17 @@ static func publish(material: ShaderMaterial,state: Dictionary) -> void:
 	for i in 3:
 		var layer: Dictionary=state.layers[i]
 		var kind: int=["Ci","Cc","Cs","Ac","As","Ns","Sc","St","Cu","Cb"].find(layer.genus)
+		var detailed: PackedFloat64Array=layer.get("offset_precise",PackedFloat64Array([layer.offset_km.x,layer.offset_km.y]))
+		var x:=-detailed[0]/maxf(float(layer.scale_km),.1)
+		var y:=-detailed[1]/maxf(float(layer.scale_km),.1)
+		var arrangement:=ARRANGEMENTS.find(layer.arrangement)
+		var sx:=.035 if kind==0 else (.125 if kind in [2,4,5,7] else (.025 if kind==1 else .065))
+		var sy:=.11 if kind==0 else sx*(.32 if arrangement in [4,9] and kind not in [2,4,5,7] else 1.0)
 		material.set_shader_parameter("living_layer_%d"%i,Vector4(layer.coverage,layer.base_km,layer.thickness_km,kind))
-		material.set_shader_parameter("living_motion_%d"%i,Vector4(layer.offset_km.x,layer.offset_km.y,layer.evolution,layer.shape_seed))
-		material.set_shader_parameter("living_brush_%d"%i,Vector4(layer.scale_km,layer.optical_depth,ARRANGEMENTS.find(layer.arrangement),(layer.wind as Vector2).angle()))
+		# Each periodic coordinate is reduced in double precision BEFORE upload.
+		# Reducing the whole world offset would jump unrelated noise frequencies.
+		material.set_shader_parameter("living_motion_%d"%i,Vector4(fposmod(x*sx,1.0),fposmod(y*sy,1.0),fposmod(float(layer.evolution)*.001,1.0),layer.shape_seed))
+		material.set_shader_parameter("living_drift_%d"%i,Vector4(fposmod(x*.043,1.0),fposmod(y*.043,1.0),fposmod(x*.22 if kind==0 else y*2.2,TAU),fposmod(x*.16,TAU)))
+		material.set_shader_parameter("living_brush_%d"%i,Vector4(layer.scale_km,layer.optical_depth,arrangement,(layer.wind as Vector2).angle()))
 	material.set_shader_parameter("living_enabled",true)
 	material.set_shader_parameter("living_aerosol",float(state.aerosol_density))

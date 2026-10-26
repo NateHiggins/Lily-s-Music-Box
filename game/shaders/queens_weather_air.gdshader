@@ -12,6 +12,7 @@ uniform vec3 coal_color : source_color = vec3(0.32,0.24,0.16);
 uniform vec3 storm_color : source_color = vec3(0.19,0.24,0.31);
 uniform sampler3D cloud_noise : filter_linear_mipmap, repeat_enable;
 uniform vec3 wind_offset = vec3(0.0);
+uniform vec2 dust_offset = vec2(0.0);
 uniform float dust_gain = 0.0;
 uniform vec2 dust_direction = vec2(1.0,0.0);
 uniform float dust_front = -1000.0;
@@ -26,7 +27,7 @@ void fog() {
 	ALBEDO=mix(mix(coal_color,storm_color,cyclone_strength),vec3(0.82,0.87,0.92),whiteout_strength);
     if(dust_gain>0.0) {
         vec2 ground=WORLD_POSITION.xz;
-        float billow=textureLod(cloud_noise,vec3(ground*.02-wind_offset.xz*.6,height*.04),1.0).r;
+        float billow=textureLod(cloud_noise,vec3(ground*.02+dust_offset,height*.04),1.0).r;
         float behind=1.0-smoothstep(dust_front-6.0,dust_front+8.0,dot(ground,dust_direction)-8.0*billow);
         float dust=dust_gain*behind*(.4+billow)*clamp(-SDF*1.2,0.0,1.0);
         ALBEDO=mix(ALBEDO,vec3(.62,.45,.26),clamp(dust/(DENSITY+dust+1e-5),0.0,1.0));

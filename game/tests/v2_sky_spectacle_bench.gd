@@ -91,6 +91,15 @@ func _ready() -> void:
 	camera.global_position = EYE
 	get_viewport().use_taa = true
 	await get_tree().process_frame
+	if OS.get_environment("SKY_VORTEX_REVIEW")=="1":
+		await _vortex_review()
+		return
+	if OS.get_environment("SKY_MOTION_REVIEW")=="1":
+		await _motion_review()
+		return
+	if OS.get_environment("SKY_BRUSH_REVIEW")=="1":
+		await _brush_review()
+		return
 	if OS.get_environment("SKY_CYCLONE_REVIEW")=="1":
 		await _cyclone_review()
 		return
@@ -146,6 +155,139 @@ func _library_viewer() -> void:
 		label.text="%s | %s | %s\nDay / hour — development preview"%[clock.datetime_string(),manager.atmosphere_state.regime,manager.atmosphere_state.scenario_label]
 	day.value_changed.connect(update);hour.value_changed.connect(update);seed_control.value_changed.connect(update)
 	update.call(0.0)
+
+## Real production weather publication at fractional campaign time, stationary
+## camera and fixed jitter. Counts are uploaded states, not wall-time FPS.
+func _motion_review() -> void:
+	manager.set_process(false);director.set_process(false)
+	var directory:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
+	var rows: Array[Dictionary]=[];var failures: Array[String]=[]
+	var sources: Dictionary={}
+	for path: String in ["res://shaders/queens_weather_sky.gdshader","res://shaders/queens_weather_math.gdshaderinc","res://shaders/queens_weather_air.gdshader"]:
+		sources[path]=FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
+	for day_index: int in [0,210,300,362]:
+		_library_date(day_index,12.0)
+		var frames: Array=[];var previous:=Time.get_ticks_usec()
+		for frame in 360:
+			clock.advance_seconds(1.0/60.0)
+			var before:=Time.get_ticks_usec();manager._process(1.0/60.0)
+			var publication_ms:=(Time.get_ticks_usec()-before)/1000.0
+			sky_material.set_shader_parameter("temporal_phase",0.0)
+			await RenderingServer.frame_post_draw
+			var now:=Time.get_ticks_usec()
+			var motion: Vector4=sky_material.get_shader_parameter("living_motion_0")
+			var wind: Vector3=sky_material.get_shader_parameter("wind_offset")
+			var phase:=PackedFloat32Array([float(sky_material.get_shader_parameter("wx_phase"))])[0]
+			var drift_value: Variant=sky_material.get_shader_parameter("wx_cloud_drift")
+			var drift: Vector4=drift_value if drift_value is Vector4 else Vector4.ZERO
+			var cycle_value: Variant=sky_material.get_shader_parameter("wx_cyclone_phase")
+			var cycle:=PackedFloat32Array([float(cycle_value) if cycle_value is float else 0.0])[0]
+			frames.append([clock.absolute_minutes(),(now-previous)/1000.0,publication_ms,motion.x,motion.y,motion.z,wind.x,wind.z,phase,drift.x,drift.y,cycle])
+			previous=now
+			if frame in [0,359]:
+				var name:="motion_day_%03d_%03d.png"%[day_index,frame]
+				if get_viewport().get_texture().get_image().save_png(directory.path_join(name))!=OK:failures.append("capture "+name)
+		rows.append({"date":clock.datetime_string(),"day":day_index,"samples":frames})
+	for path: String in sources:
+		if FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()!=sources[path]:failures.append("source changed during motion review: "+path)
+	FileAccess.open(directory.path_join("motion_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"stationary production weather bench, 360 fractional-clock frames at each of four dates; uploaded-state cadence, not occupied-world or input qualification",
+		"columns":["absolute_minutes","wall_ms","publication_ms","low_motion_x","low_motion_y","low_evolution","wind_x","wind_z","phase_float32","storm_noise_x","storm_noise_z","cyclone_phase_float32"],"dates":rows,"failures":failures,"shader_sources":sources,"test_sha256":FileAccess.get_sha256(get_script().resource_path)},"\t"))
+	print("CLOUD MOTION REVIEW: %d dates, %d failures"%[rows.size(),failures.size()])
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+## Matched production funnel/root views and a no-funnel control. No input capture.
+func _vortex_review() -> void:
+	manager.set_process(false);director.set_process(false)
+	var entry: Dictionary={}
+	for candidate: Dictionary in manager.schedule.occurrences:
+		if candidate.id=="tornado":entry=candidate;break
+	var directory:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
+	var sources: Dictionary={};var failures: Array[String]=[];var rows: Array[Dictionary]=[]
+	for path: String in ["res://shaders/queens_weather_sky.gdshader","res://shaders/queens_weather_math.gdshaderinc"]:
+		sources[path]=FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
+	if entry.is_empty():push_error("missing scheduled tornado");get_tree().quit(1);return
+	await _shoot("tornado",entry,.5,"vortex_setup")
+	var original_pose:=camera.global_transform
+	var center: Vector2=sky_material.get_shader_parameter("wx_vortex_center")
+	var root:=Vector3(center.x*1000.0,1100.0,center.y*1000.0)
+	var intensity:=float(sky_material.get_shader_parameter("vortex_intensity"))
+	if intensity<.9:failures.append("scheduled funnel not fully active")
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
+	var variants: Dictionary={"production":sky_material.shader}
+	var baseline:=OS.get_environment("SKY_VORTEX_BASELINE")
+	if not baseline.is_empty():
+		var baseline_code:=FileAccess.get_file_as_string(baseline)
+		if baseline_code.is_empty():push_error("missing original geometry shader");get_tree().quit(1);return
+		sources[baseline]=baseline_code.replace("\r\n","\n").sha256_text()
+		var original:=Shader.new();original.code=baseline_code
+		variants={"baseline":original,"production":sky_material.shader}
+	var parameters: Dictionary={}
+	for uniform: Dictionary in sky_material.shader.get_shader_uniform_list():
+		var value: Variant=sky_material.get_shader_parameter(str(uniform.name))
+		if value!=null:parameters[str(uniform.name)]=value
+	for variant: String in variants:
+		sky_material.shader=variants[variant]
+		for key: String in parameters:sky_material.set_shader_parameter(key,parameters[key])
+		for view: String in ["wide","root","side","control"]:
+			camera.global_transform=original_pose;camera.fov=60.0
+			if view!="wide":
+				if view=="side":camera.global_position+=root.cross(Vector3.UP).normalized()*center.length()*200.0
+				camera.look_at(root);camera.fov=24.0
+			sky_material.set_shader_parameter("wx_camera_km",camera.global_position*.001)
+			sky_material.set_shader_parameter("vortex_intensity",0.0 if view=="control" else intensity)
+			sky_material.set_shader_parameter("temporal_phase",0.0)
+			for frame in 48:await RenderingServer.frame_post_draw
+			var times: Array=[]
+			for frame in 64:
+				await RenderingServer.frame_post_draw
+				times.append([RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid())])
+			var name:="vortex_%s_%s.png"%[variant,view]
+			if get_viewport().get_texture().get_image().save_png(directory.path_join(name))!=OK:failures.append("capture "+name)
+			rows.append({"variant":variant,"view":view,"file":name,"camera":str(camera.global_transform),"fov":camera.fov,"render_cpu_gpu_ms":times})
+	for path: String in sources:
+		if FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()!=sources[path]:failures.append("source changed: "+path)
+	FileAccess.open(directory.path_join("vortex_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"scheduled tornado optical and isolated viewport cost review, four fixed views; not occupied gameplay, input or final art acceptance","samples":rows,"failures":failures,"date":clock.datetime_string(),"shader_sources":sources,"test_sha256":FileAccess.get_sha256(get_script().resource_path)},"\t"))
+	print("VORTEX REVIEW: %d views, %d failures"%[rows.size(),failures.size()])
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+## Date-owned composition with diagnostic stratum masks. No player or mouse
+## capture is instantiated here; this is optical review, not gameplay proof.
+func _brush_review() -> void:
+	manager.set_process(false);director.set_process(false)
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
+	var directory:=OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(directory)
+	var rows: Array[Dictionary]=[];var failures: Array[String]=[]
+	var sources: Dictionary={}
+	for path: String in ["res://shaders/queens_weather_sky.gdshader","res://shaders/queens_weather_math.gdshaderinc"]:
+		sources[path]=FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
+	for day_index: int in [0,120,210,300]:
+		_library_date(day_index,_daylight_hours(day_index)[2])
+		sky_material.set_shader_parameter("temporal_phase",0.0)
+		var layers: Array[Vector4]=[]
+		for band in 3:layers.append(sky_material.get_shader_parameter("living_layer_%d"%band))
+		for mask: String in ["all","low_mid","high"]:
+			DisplayServer.window_set_title("Cloud brush review: day %d/365 · %s"%[day_index+1,mask])
+			for band in 3:
+				var layer: Vector4=layers[band]
+				if (mask=="high" and band<2) or (mask=="low_mid" and band==2):layer.x=0.0
+				sky_material.set_shader_parameter("living_layer_%d"%band,layer)
+			for frame in 48:await RenderingServer.frame_post_draw
+			var times: Array=[]
+			for frame in 64:
+				await RenderingServer.frame_post_draw
+				times.append([RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid())])
+			var name:="brush_day_%03d_%s.png"%[day_index,mask]
+			if get_viewport().get_texture().get_image().save_png(directory.path_join(name))!=OK:failures.append("capture "+name)
+			rows.append({"date":clock.datetime_string(),"mask":mask,"state":manager.atmosphere_state.duplicate(true),"file":name,"render_cpu_gpu_ms":times})
+	for path: String in sources:
+		if FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()!=sources[path]:failures.append("source changed during review: "+path)
+	FileAccess.open(directory.path_join("brush_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"calendar-owned city-horizon optical bench, diagnostic layer masks and 64 settled render samples per view; no occupied-world performance or input qualification",
+		"samples":rows,"failures":failures,"shader_sources":sources,"test_sha256":FileAccess.get_sha256(get_script().resource_path)},"\t"))
+	print("CLOUD BRUSH REVIEW: %d views, %d failures"%[rows.size(),failures.size()])
+	get_tree().quit(0 if failures.is_empty() else 1)
 
 ## Isolate the production warp from all other storm shading. The control uses
 ## the same shader/parameters, with only the coordinate warp replaced by identity.

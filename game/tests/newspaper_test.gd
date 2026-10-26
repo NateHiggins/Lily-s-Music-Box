@@ -125,6 +125,8 @@ func _run() -> void:
 	_check("an unknown control answers nothing", rack.control_prompt("knock") == ""
 			and (rack.interact_control("knock", null) as Dictionary).is_empty())
 
+	await _input_ownership(catalog)
+
 
 static func _texts(node: Node) -> Array:
 	var out: Array = []
@@ -133,3 +135,47 @@ static func _texts(node: Node) -> Array:
 			out.append((child as Label).text)
 		out.append_array(_texts(child))
 	return out
+
+
+func _input_ownership(catalog: NewspaperCatalog) -> void:
+	var before := Input.mouse_mode
+	var callbacks := [0]
+	var on_closed := func():callbacks[0]+=1
+	var panel := NewspaperPanel.new();add_child(panel)
+	panel.open(null,catalog,"speaker","1928-11-10",on_closed)
+	# Refreshing the same reader keeps the original input lease.
+	panel.open(null,catalog,"speaker","1928-11-10",on_closed)
+	panel.close();panel.close()
+	_check("a pointer-mode reader returns its original cursor without capture",Input.mouse_mode==before)
+	_check("duplicate close cannot repeat the reading callback",callbacks[0]==1)
+	await get_tree().process_frame
+	var reader := PlayerController.new()
+	reader.call_locked=true
+	panel=NewspaperPanel.new();add_child(panel);panel.open(reader,catalog,"speaker","1928-11-10");panel.close()
+	_check("closing a reader preserves an existing protected conversation",reader.protected_input_active())
+	reader.free()
+	await get_tree().process_frame
+	reader=PlayerController.new()
+	var text_owner:=Node.new();reader.text_input_owner=text_owner
+	panel=NewspaperPanel.new();add_child(panel);panel.open(reader,catalog,"speaker","1928-11-10");panel.close()
+	_check("a companion text lease does not become a sticky protected lock",reader.call_locked and not reader.protected_input_active())
+	text_owner.free();reader.text_input_owner=null
+	_check("ending the original text lease leaves no newspaper lock",not reader.call_locked)
+	reader.free()
+	await get_tree().process_frame
+	reader=PlayerController.new()
+	panel=NewspaperPanel.new();add_child(panel);panel.open(reader,catalog,"speaker","1928-11-10")
+	reader.free();panel.close()
+	_check("a retired reading owner can close without taking the pointer",Input.mouse_mode==before)
+	await get_tree().process_frame
+	panel=NewspaperPanel.new();add_child(panel);panel.open(null,catalog,"speaker","1928-11-10")
+	get_tree().paused=true;panel.close()
+	_check("closing during pause leaves the pointer available",Input.mouse_mode==Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused=false
+	await get_tree().process_frame
+
+	reader=PlayerController.new()
+	panel=NewspaperPanel.new();add_child(panel);panel.open(reader,catalog,"speaker","1928-11-10")
+	panel.queue_free();await get_tree().process_frame
+	_check("external reader retirement releases only its own input lock",not reader.call_locked and Input.mouse_mode==before)
+	reader.free()
