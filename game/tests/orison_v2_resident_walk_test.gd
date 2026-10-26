@@ -87,7 +87,7 @@ func _run(world: OrisonV2RuntimeRoot) -> void:
 func _capture_body(world: OrisonV2RuntimeRoot) -> void:
 	var output := OS.get_environment("SHOT_DIR")
 	if output.is_empty() or not _route.actor.visible: return
-	var target := _route.actor.global_position + Vector3.UP * .95
+	var target: Vector3 = _route.actor.global_position + Vector3.UP * .95
 	var eye := Vector3.ZERO
 	var clear := false
 	for side: Vector3 in [Vector3(2, .3, 0), Vector3(-2, .3, 0), Vector3(0, .3, 2), Vector3(0, .3, -2)]:
