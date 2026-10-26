@@ -6,14 +6,20 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 	var walls := 0
 	var vertices := 0
 	var max_error := 0.0
+	var max_basis_error := 0.0
+	var cardinal_basis_valid := true
+	var floor_rooms: Dictionary={}
+	var wall_rooms: Dictionary={}
 	var worst := ""
 	var textures_checked := {}
 	world.player.carried_device.set_capture_hidden(true)
 	for draw: MeshInstance3D in shell.find_children("*","MeshInstance3D",true,false):
 		var key := str(draw.get_meta("v2_material_key",""))
 		if key not in ["bath_wall_tile","bath_floor_tile"]: continue
-		if key == "bath_floor_tile": floors += 1
-		else: walls += 1
+		if key == "bath_floor_tile":
+			floors += 1;floor_rooms[str(draw.get_parent().name)]=true
+		else:
+			walls += 1;wall_rooms[str(draw.get_parent().name)]=true
 		var material := draw.get_active_material(0) as ShaderMaterial
 		suite.check(material != null,"bath tile uses layered PBR: "+str(draw.get_path()))
 		if material == null: continue
@@ -37,6 +43,14 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 				var p := shell.to_local(draw.to_global(points[i]))
 				var u := Vector3(tangents[i*4],tangents[i*4+1],tangents[i*4+2])
 				var v := normals[i].cross(u)*tangents[i*4+3]
+				# Godot stores directions as 16-bit octahedral coordinates.
+				# The merged wall builder authors UVs before that packing; the
+				# floor's v2_metre_box_uv builder uses already-decoded directions.
+				# Check each source frame without widening the metric tolerance.
+				var chart_u:=u.snapped(Vector3.ONE);var chart_v:=v.snapped(Vector3.ONE)
+				max_basis_error=maxf(max_basis_error,maxf(u.distance_to(chart_u),v.distance_to(chart_v)))
+				cardinal_basis_valid=cardinal_basis_valid and chart_u.length_squared()==1. and chart_v.length_squared()==1. and chart_u.dot(chart_v)==0.
+				if key=="bath_wall_tile":u=chart_u;v=chart_v
 				var error := uv[i].distance_to(Vector2(p.dot(u),p.dot(v)))
 				if error>max_error:
 					max_error=error
@@ -44,9 +58,12 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 				vertices += 1
 	var expected := 0
 	for room: Dictionary in world.layout.spaces:
-		if room.get("class","")=="wet" and not room.get("no_floor",false): expected += 1
-	suite.check(floors==expected and walls>expected,"all authored wet floors and room-facing walls use the new tile sets")
-	suite.check(vertices>0 and max_error<.00002,"installed UVs align across cut walls, far skins and floors; max metre error="+str(max_error)+" "+worst)
+		if room.get("class","")=="wet" and not room.get("no_floor",false):
+			expected += 1
+			suite.check(floor_rooms.has(str(room.id)) and wall_rooms.has(str(room.id)),"authored wet room owns both tiled floor and merged wall stock: "+str(room.id))
+	suite.check(floors==expected and walls>=expected,"all authored wet floors and room-facing walls use the new tile sets: floors=%d expected=%d walls=%d" % [floors,expected,walls])
+	suite.check(cardinal_basis_valid and max_basis_error<.0001,"packed tile directions retain orthogonal architectural chart axes; max direction error="+str(max_basis_error))
+	suite.check(vertices>0 and max_error<.00002,"installed UVs match source metre charts across walls and floors; max metre error="+str(max_error)+" "+worst)
 	var camera := Camera3D.new()
 	camera.fov=65
 	world.add_child(camera)

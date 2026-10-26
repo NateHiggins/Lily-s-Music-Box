@@ -201,6 +201,11 @@ static func apply(root: Node) -> int:
 			# Clear source glass deliberately carries literal tint/alpha, without
 			# a diffuse map. Supplying missing PBR must not milk over that glass.
 			var literal_glass: bool=stock.resource_name=="M_glassish" and stock.transparency in [BaseMaterial3D.TRANSPARENCY_ALPHA,BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS] and stock.albedo_color.a>0.0 and stock.albedo_color.a<1.0
+			if literal_glass and stock.albedo_texture == null:
+				# Near-neutral surface-film albedo preserves native tint/alpha and
+				# the drawn-glass normal/roughness instead of substituting milk glass.
+				stock.albedo_texture = load("res://assets/building/textures/T_glass_film_albedo.png")
+				stock.set_meta("v2_surface_stock","glassish")
 			if (stock.albedo_texture != null or literal_glass) and stock.roughness_texture != null and stock.normal_texture != null and stock.normal_enabled: continue
 			for recipe: Array in recipes:
 				if not stock.albedo_color.is_equal_approx(recipe[0]): continue

@@ -47,6 +47,8 @@ Knowing which kind you are reading tells you how much to trust it.
 | Main's scheduled skies, resident agendas, kitchens and inventories in the repair branch | `design/V2_MAIN_AGENDA_AND_SKY_MERGE_2026-10-25.md` |
 | Authored campaign-year weather, dated forecasts and local resident remarks | `design/V2_WEATHER_CALENDAR_2026-10-24.md` |
 | Living Sky integration, performance evidence and the roof-only full-year time-scrubbing preview | `design/V2_SKY_WEATHER_INTEGRATION_2026-10-24.md` |
+| Completed tentacle encounter surface qualification and clean teardown (INERT) | `design/TENTACLE_GANG_SURFACE_COMPLETION_2026-10-26.md` |
+| Tentacle searching, recoil and contact melt (INERT) | `design/TENTACLE_GANG_COMPLETION_2026-10-26.md` |
 | Tentacle gang hitch/teardown checkpoint and requested contact-melt follow-up (INERT) | `design/TENTACLE_GANG_ACCEPTANCE_FOLLOWUP_2026-10-25.md` |
 | Owner's maintenance-local tentacle gang anatomy, contact, optics and acceptance requirements | `design/TENTACLE_GANG_ENCOUNTER_BRIEF_2026-10-25.md` |
 | Tentacle gang implementation, runtime review and remaining qualification limits (INERT) | `design/TENTACLE_GANG_IMPLEMENTATION_REPORT_2026-10-25.md` |

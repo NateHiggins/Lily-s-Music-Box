@@ -113,7 +113,7 @@ try {
         $ProjectPath = Join-Path (Split-Path $PSScriptRoot -Parent) "game"
     }
     $ProjectPath = (Resolve-Path -LiteralPath $ProjectPath).Path
-    $godot = (Get-Command Godot_v4.7.1-stable_win64_console.exe -ErrorAction Stop).Source
+    $godot = Resolve-OrisonGodot
     $arguments = @()
     if (-not $Windowed) {
         $arguments += "--headless"

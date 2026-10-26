@@ -10630,6 +10630,7 @@ MATERIAL_CATALOG = {
     'resident_mina_vale': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'resident_teresa_vale': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'resident_evelyn_marsh': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    "tentacle_gang_residue": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
     "tentacle_gang_membrane": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
     "tentacle_gang_tissue": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
     "tentacle_gang_eye": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},

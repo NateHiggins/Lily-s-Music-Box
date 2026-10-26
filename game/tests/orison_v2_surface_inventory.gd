@@ -228,6 +228,11 @@ func _run() -> void:
 	world.player.camera.make_current()
 	for frame in 3:await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(directory.path_join("tentacle_installed_surfaces.png"))
+	surface_gang._make_haze()
+	surface_gang._set_phase(surface_gang.Phase.COORDINATED_RETREAT)
+	surface_gang._process(2.0)
+	for frame in 3:await RenderingServer.frame_post_draw
+	get_viewport().get_texture().get_image().save_png(directory.path_join("tentacle_flowing_residue.png"))
 	world.player.camera.global_transform=gang_camera_pose
 	for node: Node in world.find_children("*", "GeometryInstance3D", true, false):
 		if node is Label3D: continue # Separately authored lettering, RUL-008.
@@ -415,6 +420,11 @@ func _run() -> void:
 	for failure: String in seating_retired.failures:
 		if not failures.has(failure):failures.append(failure)
 	seating_review.free()
+	var storage_retired: Dictionary=storage_review.validate_after_teardown()
+	batch_checks+=int(storage_retired.checks)-int(storage_result.checks)
+	for failure: String in storage_retired.failures:
+		if not failures.has(failure): failures.append(failure)
+	storage_review.free()
 	var media_retired: Dictionary = media_review.validate_after_teardown()
 	batch_checks += int(media_retired.checks)-int(media_result.checks)
 	for failure: String in media_retired.failures:
@@ -435,7 +445,14 @@ func _run() -> void:
 		"checks":batch_checks,"failures":failures}
 	FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(contract,"\t"))
 	print("V2 SURFACE QUALIFICATION: ",status,"; ",batch_checks," checks; ",failures.size()," failures")
-	get_tree().quit(0 if passed else 1)
+	# Let this coroutine's local resource references leave scope before the
+	# renderer is retired; then drain deferred node/render commands explicitly.
+	_finish_surface.call_deferred(0 if passed else 1)
+
+func _finish_surface(code: int) -> void:
+	for frame in 8: await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	get_tree().quit(code)
 
 func _input_snapshot(root: String) -> Dictionary:
 	var output: Array = []
@@ -541,13 +558,21 @@ func _material(material: Material) -> Dictionary:
 	if material.next_pass != null: row.next_pass = _material(material.next_pass)
 	return row
 
+func _expanded_shader_source(code: String, visited: Dictionary) -> String:
+	var include := RegEx.new()
+	include.compile('#include\\s+"(res://[^"]+)"')
+	var expanded := code
+	for match in include.search_all(code):
+		var path := match.get_string(1)
+		if visited.has(path): continue
+		visited[path] = true
+		expanded += "\n" + _expanded_shader_source(FileAccess.get_file_as_string(path), visited)
+	return expanded
+
 func _shader_filters(shader: Shader) -> Dictionary:
 	var identity := shader.get_instance_id()
 	if shader_filter_cache.has(identity): return shader_filter_cache[identity]
-	var code := shader.code
-	var include := RegEx.new()
-	include.compile('#include\\s+"(res://[^"]+)"')
-	for match in include.search_all(code): code += "\n"+FileAccess.get_file_as_string(match.get_string(1))
+	var code := _expanded_shader_source(shader.code, {})
 	var sampler := RegEx.new()
 	sampler.compile("uniform\\s+sampler2D\\s+(\\w+)\\s*([^;]*);")
 	var filters := {}

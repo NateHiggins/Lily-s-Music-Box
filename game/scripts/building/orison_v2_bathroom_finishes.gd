@@ -158,6 +158,7 @@ static func _emit(room: Node3D,label: String,surface: SurfaceTool,material: Mate
 	if records.is_empty():return
 	surface.index()
 	var draw:=MeshInstance3D.new();draw.name=label;draw.mesh=surface.commit();draw.material_override=material
+	if label=="BathroomTileWainscot":draw.set_meta("v2_material_key","bath_wall_tile")
 	# This millimetre-scale ceramic lip receives room light and keeps its real
 	# rounded specular silhouette. Its low-resolution point-light shadow caused
 	# a conspicuous jagged line on the field tile; no other caster is changed.

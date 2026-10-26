@@ -1,0 +1,144 @@
+{
+	"apparatus_contact_events": 63,
+	"build_profile": {
+		"build_ms": 3.688,
+		"load_ms": 1.214,
+		"materials": 66
+	},
+	"checks": 402,
+	"contact_diagnostics": [
+		{
+			"limb": 1,
+			"reason": "approaching",
+			"remaining": 0.0
+		},
+		{
+			"distance": 0.259452879428864,
+			"limb": 4,
+			"reason": "beyond_extension"
+		},
+		{
+			"distance": 0.220437481999397,
+			"limb": 6,
+			"reason": "beyond_extension"
+		}
+	],
+	"contracts": {
+		"lifecycle": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"engine_errors": [],
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 30.093,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"frame_ms_p95": 22.569,
+	"history": [
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7
+	],
+	"neighbour_visits": 520,
+	"optical_roi_luminance": {
+		"01_emergence": 0.005140603914816,
+		"02_front": 0.227751022261737,
+		"02a_contact_and_anchor_clearance": 0.234136486427109,
+		"02b_side": 0.130110436827674,
+		"02c_back": 0.0080951598819661,
+		"02d_stable": 0.220852671815176,
+		"02e_unstable": 0.174030791037616,
+		"02f_occluder": 0.00527172760631947,
+		"03_lamp_off": 0.00316445701779522,
+		"04_contact": 0.0824103137407047,
+		"04b_alarm": 0.160485493839491,
+		"05_retreat": 0.225689144430748,
+		"06_root_withdrawal": 0.258153310781109,
+		"06b_floor_drain": 0.281416463285018,
+		"07_haze": 0.155391525099739,
+		"07b_hidden_haze_control": 0.239862376086554,
+		"07c_haze_lamp_off": 0.227748523790028,
+		"08_haze_late": 0.241541426600455,
+		"09_clean": 0.288423465746503,
+		"search_00": 0.226040555468776,
+		"search_01": 0.220065686227193,
+		"search_02": 0.219521085205697,
+		"search_03": 0.222268045021407,
+		"search_04": 0.222483480045014,
+		"search_05": 0.220618434697666,
+		"search_06": 0.223908211417232,
+		"search_07": 0.224041363458008,
+		"search_08": 0.224188575970284,
+		"search_09": 0.223625774918582,
+		"search_10": 0.227222372627809,
+		"search_11": 0.225180189524009,
+		"search_12": 0.22292086054713,
+		"search_13": 0.217720798640204,
+		"search_14": 0.217847242322452,
+		"search_15": 0.214002512269892
+	},
+	"performance_by_phase": {
+		"1": {
+			"frames": 51,
+			"max_ms": 29.323,
+			"median_ms": 20.037,
+			"p95_ms": 24.274
+		},
+		"3": {
+			"frames": 531,
+			"max_ms": 27.974,
+			"median_ms": 19.914,
+			"p95_ms": 22.379
+		},
+		"4": {
+			"frames": 13,
+			"max_ms": 21.289,
+			"median_ms": 18.769,
+			"p95_ms": 21.289
+		},
+		"5": {
+			"frames": 163,
+			"max_ms": 21.964,
+			"median_ms": 19.999,
+			"p95_ms": 21.584
+		},
+		"6": {
+			"frames": 161,
+			"max_ms": 23.124,
+			"median_ms": 19.976,
+			"p95_ms": 22.479
+		},
+		"7": {
+			"frames": 42,
+			"max_ms": 26.73,
+			"median_ms": 19.973,
+			"p95_ms": 23.246
+		},
+		"baseline": {
+			"frames": 39,
+			"max_ms": 22.639,
+			"median_ms": 20.028,
+			"p95_ms": 21.891
+		}
+	},
+	"production_runtime": false,
+	"recoil_distance": 12.8991613276373,
+	"schema_version": 2,
+	"scope": "Isolated production gang, native radiator, shared lamp and actual grab/motion/release. Does not prove composed-world eligibility or visual acceptance.",
+	"search_distance": 19.2456596277966,
+	"selector": "v2",
+	"source": {
+		"test_path": "game/tests/maintenance_tentacle_gang_test.gd",
+		"test_sha256": "b48c1b95ee6dad55d97229eb558eba266bc59e67c769f65e80c997d2a1f8b55e"
+	}
+}
