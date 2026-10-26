@@ -145,7 +145,7 @@ are not registered. Their 31 remaining findings need hand placement:
   door clips.
 - They do not walk into other flats, the roof or the Arcade. They leave at
   the stair head.
-- Fifteen residents still have no body. Adding one is a cleared route file,
+- Fourteen residents still have no walking body. Adding one is a cleared route file,
   a line in `ResidentRoute.ROUTES` and a reader-gate entry for its `places`.
 
 ## 7. Sacha integration continuation (2026-10-26)
@@ -193,3 +193,59 @@ This report grants no exemption for a regression. The changed reader-gate line
 only registers the new resident's existing shared `places` consumer; spatial
 records name the new authored test/route coordinates. Neither changes an
 acceptance threshold.
+
+## 8. Evelyn Marsh, 1A — interrupted-work continuation (2026-10-26)
+
+Evidence class: **INERT**. Scoped played checks and authoring diagnostics,
+not schema-2 runtime-contract proof, surface acceptance or V2 completion.
+This work starts at merged main **a806a21e**, preserving the companion Night
+Stock repair and Sacha's integration. The shared canonical checkout is untouched.
+
+Evelyn is now the fourth registered walking resident. Her original V1 model,
+local atlas finish, personal animation handling and existing agenda/conversation
+owners remain in use. No texture, mesh, inventory, relationship, quest, case,
+household save schema, collision rule or door permission was changed.
+
+| Location / reproduction | Severity and evidence | Repair | Verification |
+|---|---|---|---|
+| 1A main-to-kitchen approach | Blocker: original draft probe hits the open **F01_A_MAIN_KITCHEN_DOOR** leaf; repeated automatic detours circle back into it | Replace that recursive chain with one north-side approach at adapter-local **(-9.6, 0, -5.45)** before the original crossing | Windowed closed/open-door probe completes with zero findings and empty stderr; live kitchen visit and return pass in the full tour |
+| Resident capture helper | Test defect: first walking attempt cannot infer the dynamic actor target's type | Explicit Vector3 target; stop only the failed owned instance and retain its original receipt | Corrected tour completes; captured Evelyn in 1A visually inspected |
+| Shared world after fourth registration | Regression risk: another resident uses public routes and doors | Keep existing route and door owners; test actual walking with the new composition | Mina door safety: 81 checks; Lena: 174.5 metres; player vertical route: 124 waypoints; all zero failures |
+
+The final Evelyn tour walks **430.8 metres**, with **40 passing checks**,
+reaching every named place and returning home between visits. It reports no
+sampled teleport, block or tested capsule/leaf overlap. All seven flat doors
+are closed afterward. The model capture uses a ray-cleared camera stance after
+the tour; it does not move the resident or substitute for the walking checks.
+
+The first combined variant probe hit its serial ceiling and remains timed out;
+it qualifies nothing. A later single-fixture probe completes in **161.90 s**.
+The corrected registered-body tour completes in **603.72 s** (rounded runner
+summary: 604 s). The actual receipt is authoritative for precise timing.
+Evelyn, Lena and the player route each report the pre-existing seven Texture RID
+shutdown warnings; Mina's door test and the successful probe have empty stderr.
+No error-free renderer or frame-time improvement is claimed.
+
+The played candidate is **bd9bf89a**, with clean-source runtime-input digest
+**4f54cbb208caa7799076c2e02f211ba81f8fbae6f9e5aac8c2050f9f4c901616**
+shared by the four successful runs. Original logs, wrapper receipts, the prior
+draft failure, timed-out attempt, stopped parse error, external probe fixtures,
+LF source snapshots and the actual portrait are preserved without repinning in
+**art/reviews/resident_routes_20261026/evelyn**. The packet uses two repository
+files rather than a loose screenshot/log directory. Its source snapshots are
+Git LF bytes; original receipts retain their checkout-specific raw test hashes.
+
+The full clean-main baseline is
+**C:/ov/reports/evelyn_route26/main_a806a21e/board.json**. Nine new spatial
+records are appended without rewriting existing records. The reader change
+registers only the existing shared **places** consumer; NEW unread fields is
+zero. Final candidate/protected-path comparison is reported separately on the
+integration PR. No threshold or completeness requirement is relaxed.
+
+Fourteen draft residents remain on **claude/all-resident-bodies**. Door gestures
+outside Mina, off-route visits, a full ordinary agenda day, resident save/time
+reconstruction, bar access and human acceptance remain outside this forced tour.
+Two matching kitchen-approach authoring candidates for Rhea and the transient
+guests are prepared externally under
+**C:/ov/reports/evelyn_route26/next_drafts**; neither is registered or qualified
+by Evelyn's result. Continue those through their own probes and played tours.

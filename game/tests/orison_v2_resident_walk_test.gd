@@ -77,10 +77,37 @@ func _run(world: OrisonV2RuntimeRoot) -> void:
 		await _walk(place)
 		_route.force_destination = "unit"
 		await _walk("unit")
-	_route.force_destination = ""
 	for door: DoorProp in _route._doors:
 		if is_instance_valid(door) and door.unit == unit:
 			_check("%s left closed behind them" % door.name, not door.open)
+	await _capture_body(world)
+	_route.force_destination = ""
+
+
+func _capture_body(world: OrisonV2RuntimeRoot) -> void:
+	var output := OS.get_environment("SHOT_DIR")
+	if output.is_empty() or not _route.actor.visible: return
+	var target: Vector3 = _route.actor.global_position + Vector3.UP * .95
+	var eye := Vector3.ZERO
+	var clear := false
+	for side: Vector3 in [Vector3(2, .3, 0), Vector3(-2, .3, 0), Vector3(0, .3, 2), Vector3(0, .3, -2)]:
+		var ray := PhysicsRayQueryParameters3D.create(target, target + side, 1)
+		if world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty():
+			eye = target + side; clear = true; break
+	_check("render review has an unobstructed camera stance", clear)
+	if not clear: return
+	var review := Camera3D.new()
+	world.add_child(review)
+	review.fov = 55.
+	review.look_at_from_position(eye, target)
+	review.make_current()
+	for frame in 4: await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	DirAccess.make_dir_recursive_absolute(output)
+	var image := get_viewport().get_texture().get_image()
+	_check("resident render capture writes successfully", image.save_png(output.path_join(_resident + ".png")) == OK)
+	world.player.camera.make_current()
+	review.queue_free()
 
 
 func _walk(place: String) -> void:
