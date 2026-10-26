@@ -76,7 +76,10 @@ func _save_rebuild() -> DoorProp:
 		if FileAccess.file_exists(ENTRY_SAVE+suffix):DirAccess.remove_absolute(ENTRY_SAVE+suffix)
 	return door if _require(restored,"fresh native leaf restores the saved bolt and existing keys") else null
 func _operate_entry(door: DoorProp,want_open: bool,label: String) -> bool:
-	if not await _use(door,door._body.to_global(Vector3(door.width*.5,1.1,door._hinge_offset)),label):return false
+	# An outswung free edge travels out of arm reach: grab the hinge-side third
+	# to close it, without changing the real reach constraint.
+	var along: float=door.width*(.5 if want_open else 1.0/3.0)
+	if not await _use(door,door._body.to_global(Vector3(along,1.1,door._hinge_offset)),label):return false
 	if not await _wait_for_door(door):return false
 	return _require(door.open==want_open,"landmark E motion settles: "+label)
 func _turn_key() -> bool:

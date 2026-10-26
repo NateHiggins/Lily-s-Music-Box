@@ -232,8 +232,8 @@ func _key(owner_node: Node3D, target: Vector3, label: String, family := &"keyboa
 	var prior_touch := player.touch_input
 	player.touch_input = family==&"touch"
 	player._update_prompt()
-	var carrier := "[D-PAD UP]" if family==&"controller" else "[KEY]" if family==&"touch" else "[K]"
-	if not _require(player._prompt.text.contains(carrier),"actual key prompt: "+label): return false
+	# A grabbable leaf shows the target indicator, not a text prompt
+	# (design/DIRECT_MANIPULATION_2026-10-12.md); the key ray below proves the aim.
 	var query := PhysicsRayQueryParameters3D.create(player.camera.global_position,
 		player.camera.global_position-player.camera.global_basis.z*2.1,1,[player.get_rid()])
 	query.collide_with_areas = true
