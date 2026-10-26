@@ -26,7 +26,9 @@ class PatrolHand extends Node3D:
 				var at: Vector3=target.part.to_global(player._grab.contact)
 				print("[PATROL POINTER] stalled at ",value," wanted=",goal," range=[",target.get("minimum"),", ",target.get("maximum"),"] contact=",at,
 						" behind=",player.camera.is_position_behind(at)," camera=",player.camera.global_position,
-						" reach=",player.camera.global_position.distance_to(at)," feedback=",player._grab.motion_feedback)
+						" reach=",player.camera.global_position.distance_to(at)," feedback=",player._grab.motion_feedback,
+						" gesture_px=",target.get("gesture_travel_px",0.0)," held_axis=",player._grab._gesture_axis,
+						" locked=",target.owner.get("leaf_state")," part=",target.part.name)
 			var point: Vector3=target.part.to_global(player._grab.contact)
 			var local_axis: Vector3=target.axis.call() if target.axis is Callable else target.axis
 			var axis: Vector3=target.frame.global_basis*local_axis
