@@ -25,7 +25,7 @@ restricted to the places the route reaches.
 
 Every resident on a route shares the same building doors and the same
 public network. The doors are the mail room's, the laundry's, the bodega's,
-and the front door (`F01_DOOR_06`, added after the entrance rebuild). The
+and the front door (**F01_DOOR_06**, added after the entrance rebuild). The
 network runs down the stairs to the lobby, the mail bank, the laundry, the
 street and the bodega.
 
@@ -62,7 +62,7 @@ door on the route open, because a swung leaf blocks like furniture. For
 anything blocked it suggests the nearest clear spot.
 
 The probe found the cause of the Mina route failures already on main. The
-fire-line stair cabinet (`F02_FIRE_LINE_STAIR` and the same stack on every
+fire-line stair cabinet (**F02_FIRE_LINE_STAIR** and the same stack on every
 floor) stands where the shared stair points were. The owner chose to keep
 the cabinet where it is, rather than edit the hash-bound blockout. The
 shared points move about 15 cm clear in both route files:
@@ -84,7 +84,7 @@ sweep used to deadlock: she waited for a leaf that would not swing into her.
 0.2 rad/s, 3.5 s after opening. Before closing they looked only for the
 player, who has a collision exception with the leaf. A resident has none,
 so every route on main met a leaf easing shut across it: Mina's failed at
-`F02_DOOR_02`. Now:
+**F02_DOOR_02**. Now:
 - a door holds its self-close while any resident stands within reach of
   its leaf;
 - a resident stepping into a leaf already easing shut gets it swung back
@@ -104,10 +104,92 @@ so every route on main met a leaf easing shut across it: Mina's failed at
 Both route tests hide the player's arrival body. It stands by the front
 door, and a resident rightly will not swing a leaf through it.
 
-## 5. Not done
+## 5. Sacha Reed, 6A, and the other residents (2026-10-26)
 
-- Lena opens doors with no reach-and-push gesture. Only Mina has door clips.
-- She does not walk into other flats, the roof or the Arcade. She leaves at
+`tools/build_resident_routes.py` drafts a route file for every resident
+without one (16 in all):
+- room centres, with crossings 0.7 m either side of each door or opening;
+- a public walk to the floor's stair head;
+- the shared stacked stair chain down to F02;
+- places and an `away` point.
+
+**Clearing the drafts.** The probe now suggests a detour for a blocked edge,
+as well as a clear spot for a blocked node. A sample with no floor counts as
+bridged when there is floor 15 cm ahead and behind it along the edge: the
+capsule spans a threshold gap under a wall. `tools/apply_route_probe.py`
+moves the nodes and inserts a `<a>_via_<b>` waypoint for each detour. Seven
+rounds took the 16 drafts from 195 findings to 31.
+
+**Sacha Reed** is the third body
+(`game/data/orison_v2/sacha_reed_routine.json`), the first draft to clear
+the probe. `OrisonV2ResidentWalkTest` (`RESIDENT=sacha_reed`, in the game
+window) walks a resident to every place their route file names and home
+between each. It applies Lena's checks: no teleport, no block, no leaf
+overlap, every own door closed. Sacha walks 1,215 m with 0 failures.
+
+**A rule changed in the route owner.** Sacha's first walk stuck on a sill
+edge in the F06 west hall: a near-vertical face 1.4 cm proud of the floor.
+The owner now walks over a steep face within 6 cm of the current floor
+height. The earlier comment said it should; the code refused it. Lena's
+route still passes (175 m, 0 failures).
+
+**The other 15 drafts stay on branch `claude/all-resident-bodies`.** They
+are not registered. Their 31 remaining findings need hand placement:
+- `bed1` and `main` nodes wedged by beds and dining chairs (C units, 3A,
+  4A, 1D);
+- vestibule nodes inside their own entry leaf's open swing.
+
+## 6. Not done
+
+- Lena and Sacha open doors with no reach-and-push gesture. Only Mina has
+  door clips.
+- They do not walk into other flats, the roof or the Arcade. They leave at
   the stair head.
-- No third resident yet. Adding one is a route file plus a line in
-  `ResidentRoute.ROUTES`, checked with the probe.
+- Fifteen residents still have no body. Adding one is a cleared route file,
+  a line in `ResidentRoute.ROUTES` and a reader-gate entry for its `places`.
+
+## 7. Sacha integration continuation (2026-10-26)
+
+The paused verification batch completed on **e548aef1**. Its original wrapper
+receipts and logs are preserved without modification in
+**art/reviews/resident_routes_20261026/original_verification.zip**:
+
+| Played check | Actual result | Limitations |
+|---|---|---|
+| Sacha, generic resident tour | 1,216.2 metres, 36 checks, zero failures; empty stderr | Forced destinations exercise the registered route; not an ordinary full-day agenda or save/reload test |
+| Lena route regression | 174.7 metres, zero failures | Shutdown reports seven Texture RIDs; retained as an unresolved finding |
+| Mina door safety | 81 checks, zero failures; empty stderr | Door-owner regression, not a new player-interaction qualification |
+| Player vertical route | 124 waypoints, zero failures | Shutdown reports the same seven Texture RIDs; no clean teardown claim |
+
+The first failed Sacha walk and the original headless trim refusal are retained
+alongside the successful runs. The latter is the known headless MultiMesh pose
+readback limitation; composed source-pose surveys must run windowed. Neither
+failure is overwritten by the later successful logs.
+
+The integration branch starts from current main **0e615f91**. Its Sacha code/data
+tree is byte-identical in Git to Claude's **6152df98** tree. Every original run
+matches runtime-input digest
+**f353d2cb2801414dc23c1dc6c0af48f7c1ac6c7f2012d20d396bd45dd8f17260**.
+The original checkout's raw test hashes were checked against their receipts;
+tests in the integration checkout match after LF normalization (the generic
+walk test has checkout-only CRLF conversion). Full source equivalence and
+comparisons are recorded inside the archive. No receipt is repinned, and no new
+execution is asserted by that comparison. Unchanged long routes are reused
+under the batch workflow rather than rerun for this report.
+
+These are legacy played checks and wrapper **suite_run** receipts, not schema-2
+ledger **runtime_contract** proof. This INERT note does not promote any space,
+grant human acceptance, establish save continuity or claim V2 complete. The
+fifteen drafts remain preserved remotely on **claude/all-resident-bodies** and
+remain unregistered.
+
+A complete clean-main static board is captured under
+**C:/ov/reports/sacha_integration26/main_0e615f91**. It retains the existing three
+surface-qualification defects and six blocker counts **7 / 8 / 110 / 42 / 134 /
+136**. Final candidate comparison, protected 17-path checks, V2 selector/V1
+rollback, changed gate review and reader NEW verification are recorded by the
+candidate verifier under the same external report root and summarized on the PR.
+This report grants no exemption for a regression. The changed reader-gate line
+only registers the new resident's existing shared `places` consumer; spatial
+records name the new authored test/route coordinates. Neither changes an
+acceptance threshold.

@@ -1,0 +1,136 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Original authoring failures and legacy played-route checks, retained without repinning; wrapper receipts are suite_run, not ledger runtime_contract proof",
+  "archive": "original_verification.zip",
+  "sha256": "e5f8b249b066f0c456de8d9c9148930351d8b0fd6d0556c866ddbd831e194ed8",
+  "files": [
+    {
+      "path": "routes/probe1.log",
+      "sha256": "d36f2aa2f7867f3f077e2d23094a62c5d0df0294198948f81b698377e539bce7"
+    },
+    {
+      "path": "routes/probe1.log.receipt.json",
+      "sha256": "1ebcdffde9d41125a1d1c1802352f3ff7288e829957f80be2459b0d0cff85d15"
+    },
+    {
+      "path": "routes/probe1.log.stderr",
+      "sha256": "c70bfd6f7d122c57c3cb7998f70363f785b8ded5f12f182f7b20810a9d8ab5fe"
+    },
+    {
+      "path": "routes/probe7.log",
+      "sha256": "7e99e8313e8d665f9375c6bc99d9a7a627c402a19bcca2c37216fc5773014206"
+    },
+    {
+      "path": "routes/probe7.log.receipt.json",
+      "sha256": "19bec32053376b85fc868801dd19e007821a01cb6c1021dfac563c22386f045e"
+    },
+    {
+      "path": "routes/probe7.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "routes/walk_sacha.log",
+      "sha256": "f08a476d548db114f3f04d28e652c14512d82f09002c729e63fc411a79926393"
+    },
+    {
+      "path": "routes/walk_sacha.log.receipt.json",
+      "sha256": "5d659913e033cf84435794ec61241de5fb8b1117e0a8176775454997cb5e92a9"
+    },
+    {
+      "path": "routes/walk_sacha.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sacha/batch.out",
+      "sha256": "0f3b39bc5b31d0817c3edd09f5720faa48f1fdbbb77d493082b26555c6711fef"
+    },
+    {
+      "path": "sacha/import.log",
+      "sha256": "d712aeba1f822d4e2082c13d937086fd9c1cc4f4c3ffc7ebedade82e251b15c7"
+    },
+    {
+      "path": "sacha/import.log.receipt.json",
+      "sha256": "f972d989539899669468864f5b41784736d3c93936dc8ed7168fe83e040cbebf"
+    },
+    {
+      "path": "sacha/import.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sacha/OrisonV2LenaRouteTest/lena_corridor.png",
+      "sha256": "2c9cecf73581e0267d579bf974fe8c29217679eaabe18aa4918b067f363ab7b9"
+    },
+    {
+      "path": "sacha/OrisonV2LenaRouteTest/lena_lobby.png",
+      "sha256": "30a40e584414e49c2503c5e474203c72dbc7203d29536f0e6b9fd11b48fa45af"
+    },
+    {
+      "path": "sacha/OrisonV2LenaRouteTest/lena_unit_kitchen.png",
+      "sha256": "654f313594dd9daad82510a8cfd451d6fb17f183c56beed9340ce72a04849d16"
+    },
+    {
+      "path": "sacha/OrisonV2LenaRouteTest.log",
+      "sha256": "d45fd181dbe37f376d1ff5903ebb05318adb7d74ed2102ae0a8d9633fea370f2"
+    },
+    {
+      "path": "sacha/OrisonV2LenaRouteTest.log.receipt.json",
+      "sha256": "d8bcd0a02394ac361b34294ba41ecf9adc286f2a8dd042d1f88779c0221f050a"
+    },
+    {
+      "path": "sacha/OrisonV2LenaRouteTest.log.stderr",
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "path": "sacha/OrisonV2MinaDoorSafetyTest.log",
+      "sha256": "394eafbdffe2955e87e2ad667b33a6260b042676114417ca112e10bf90cb69e1"
+    },
+    {
+      "path": "sacha/OrisonV2MinaDoorSafetyTest.log.receipt.json",
+      "sha256": "0e6c55f26d678e121c41a3f40b818a914d96ac65ed0a4582cb4a54bf35299067"
+    },
+    {
+      "path": "sacha/OrisonV2MinaDoorSafetyTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sacha/OrisonV2ResidentWalkTest.log",
+      "sha256": "80128586fe599350fdd389e742dd946919da24dc9cd31262ba51d2f3ef81f730"
+    },
+    {
+      "path": "sacha/OrisonV2ResidentWalkTest.log.receipt.json",
+      "sha256": "de773e69808e4e5f035c9f954fc7e5073e716d3380720d6d4b84035e472bc862"
+    },
+    {
+      "path": "sacha/OrisonV2ResidentWalkTest.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sacha/OrisonV2VerticalRouteTest/last_position.png",
+      "sha256": "5b19ac7218ef2e56386ab11e0f6ecfa25ba3fb192fa545b73316f27ccfd43490"
+    },
+    {
+      "path": "sacha/OrisonV2VerticalRouteTest/route.json",
+      "sha256": "00f6838e31b9c4107f36568722fd4ad117a510788212c45b74b290a12f125dbf"
+    },
+    {
+      "path": "sacha/OrisonV2VerticalRouteTest.log",
+      "sha256": "a6365f0f23a778a88f5b116c4e6a72c550f8680ec2967a9a6d4dd155348682c3"
+    },
+    {
+      "path": "sacha/OrisonV2VerticalRouteTest.log.receipt.json",
+      "sha256": "fc43221fdf39380c3946ef770b8b9d36d8420e754122a0d4c6ff845545f94f93"
+    },
+    {
+      "path": "sacha/OrisonV2VerticalRouteTest.log.stderr",
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "path": "sacha/runs.json",
+      "sha256": "94753c9479090e07dfa98e9470547ca6d4363367e4b7f9fa0a81bdb7116d9ab8"
+    },
+    {
+      "path": "reused_bindings.json",
+      "sha256": "5b96084d8c489df89b01a5a46ec711d34b107de75bc505d20590646c6a30784e"
+    }
+  ]
+}

@@ -162705,6 +162705,198 @@
    "target_exists": true
   },
   {
+   "key": "52335337842fc5aa",
+   "kind": "id_reference",
+   "token": "F06_A_KITCHEN_STUDY_DOOR",
+   "file": "game/data/orison_v2/sacha_reed_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[0]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ae6265e4fac171a6",
+   "kind": "id_reference",
+   "token": "F06_A_MAIN_BED_DOOR",
+   "file": "game/data/orison_v2/sacha_reed_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[1]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c29dd9d8c8ebc6e8",
+   "kind": "id_reference",
+   "token": "F06_A_PRIVATE_HALL_BATH_DOOR",
+   "file": "game/data/orison_v2/sacha_reed_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[2]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c3950f5c8bbe7109",
+   "kind": "id_reference",
+   "token": "F06_A_PRIVATE_HALL_KITCHEN_DOOR",
+   "file": "game/data/orison_v2/sacha_reed_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5b095ff07e2f78fe",
+   "kind": "id_reference",
+   "token": "F06_DOOR_02",
+   "file": "game/data/orison_v2/sacha_reed_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "87d1a81a24a954f5",
+   "kind": "id_reference",
+   "token": "bed",
+   "file": "game/data/orison_v2/sacha_reed_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/paths[0][*][0]",
+    "/places/unit:bed",
+    "/places/unit:bedroom"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6106547b459e2587",
+   "kind": "unit_reference",
+   "token": "6A",
+   "file": "game/data/orison_v2/sacha_reed_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "35e94135c6cb063d",
    "kind": "id_reference",
    "token": "B1_FUSE_PANEL",
@@ -215530,7 +215722,7 @@
     "setup"
    ],
    "lines": [
-    80
+    81
    ],
    "count": 1,
    "context": [
@@ -215560,7 +215752,7 @@
     "setup"
    ],
    "lines": [
-    86
+    87
    ],
    "count": 1,
    "context": [
@@ -215590,7 +215782,7 @@
     "setup"
    ],
    "lines": [
-    81
+    82
    ],
    "count": 1,
    "context": [
@@ -215620,7 +215812,7 @@
     "setup"
    ],
    "lines": [
-    67
+    68
    ],
    "count": 1,
    "context": [
@@ -251909,8 +252101,8 @@
     "_use_shower"
    ],
    "lines": [
-    101,
-    105
+    105,
+    109
    ],
    "count": 2,
    "context": [
@@ -267796,7 +267988,7 @@
     "operate"
    ],
    "lines": [
-    78
+    99
    ],
    "count": 1,
    "context": [
@@ -267826,7 +268018,7 @@
     "operate"
    ],
    "lines": [
-    73
+    94
    ],
    "count": 1,
    "context": [
@@ -267856,7 +268048,7 @@
     "operate"
    ],
    "lines": [
-    74
+    95
    ],
    "count": 1,
    "context": [
@@ -267886,7 +268078,7 @@
     "operate"
    ],
    "lines": [
-    75
+    96
    ],
    "count": 1,
    "context": [
@@ -267916,7 +268108,7 @@
     "operate"
    ],
    "lines": [
-    76
+    97
    ],
    "count": 1,
    "context": [
@@ -267946,7 +268138,7 @@
     "operate"
    ],
    "lines": [
-    77
+    98
    ],
    "count": 1,
    "context": [
@@ -267977,9 +268169,9 @@
     "_ready"
    ],
    "lines": [
-    65,
-    83,
-    143
+    86,
+    104,
+    164
    ],
    "count": 3,
    "context": [
@@ -268011,7 +268203,7 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    696
+    717
    ],
    "count": 1,
    "context": [
@@ -268039,7 +268231,7 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    701
+    722
    ],
    "count": 1,
    "context": [
@@ -268067,7 +268259,7 @@
     "operate"
    ],
    "lines": [
-    72
+    93
    ],
    "count": 1,
    "context": [
@@ -268095,7 +268287,7 @@
     "operate"
    ],
    "lines": [
-    78
+    99
    ],
    "count": 1,
    "context": [
@@ -268123,7 +268315,7 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    663
+    684
    ],
    "count": 1,
    "context": [
@@ -268152,9 +268344,9 @@
     "_ready"
    ],
    "lines": [
-    65,
-    82,
-    141
+    86,
+    103,
+    162
    ],
    "count": 3,
    "context": [
@@ -268186,7 +268378,7 @@
     "operate"
    ],
    "lines": [
-    73
+    94
    ],
    "count": 1,
    "context": [
@@ -268214,7 +268406,7 @@
     "operate"
    ],
    "lines": [
-    74
+    95
    ],
    "count": 1,
    "context": [
@@ -268242,7 +268434,7 @@
     "operate"
    ],
    "lines": [
-    75
+    96
    ],
    "count": 1,
    "context": [
@@ -268270,7 +268462,7 @@
     "operate"
    ],
    "lines": [
-    76
+    97
    ],
    "count": 1,
    "context": [
@@ -268298,7 +268490,7 @@
     "operate"
    ],
    "lines": [
-    77
+    98
    ],
    "count": 1,
    "context": [
@@ -268326,7 +268518,7 @@
     "<module>"
    ],
    "lines": [
-    231
+    252
    ],
    "count": 1,
    "context": [],
@@ -268354,7 +268546,7 @@
     "_ready"
    ],
    "lines": [
-    143
+    164
    ],
    "count": 1,
    "context": [
@@ -268385,7 +268577,7 @@
     "_ready"
    ],
    "lines": [
-    138
+    159
    ],
    "count": 1,
    "context": [
@@ -268417,8 +268609,8 @@
     "_run_patrol"
    ],
    "lines": [
-    139,
-    395
+    160,
+    416
    ],
    "count": 2,
    "context": [
@@ -268451,8 +268643,8 @@
     "_run_patrol"
    ],
    "lines": [
-    140,
-    396
+    161,
+    417
    ],
    "count": 2,
    "context": [
@@ -268484,7 +268676,7 @@
     "_ready"
    ],
    "lines": [
-    137
+    158
    ],
    "count": 1,
    "context": [
@@ -268515,7 +268707,7 @@
     "_ready"
    ],
    "lines": [
-    141
+    162
    ],
    "count": 1,
    "context": [
@@ -268546,7 +268738,7 @@
     "_ready"
    ],
    "lines": [
-    142
+    163
    ],
    "count": 1,
    "context": [
@@ -268577,7 +268769,7 @@
     "operate"
    ],
    "lines": [
-    72
+    93
    ],
    "count": 1,
    "context": [
@@ -268610,10 +268802,10 @@
     "_exercise_ritual"
    ],
    "lines": [
-    63,
-    81,
-    138,
-    275
+    84,
+    102,
+    159,
+    296
    ],
    "count": 4,
    "context": [
@@ -268650,11 +268842,11 @@
     "_run_patrol"
    ],
    "lines": [
-    64,
-    82,
-    139,
-    336,
-    395
+    85,
+    103,
+    160,
+    357,
+    416
    ],
    "count": 5,
    "context": [
@@ -268692,12 +268884,12 @@
     "_run_patrol"
    ],
    "lines": [
-    64,
-    82,
-    140,
-    276,
-    335,
-    396
+    85,
+    103,
+    161,
+    297,
+    356,
+    417
    ],
    "count": 6,
    "context": [
@@ -268733,10 +268925,10 @@
     "_exercise_ritual"
    ],
    "lines": [
-    63,
-    81,
-    137,
-    274
+    84,
+    102,
+    158,
+    295
    ],
    "count": 4,
    "context": [
@@ -268770,7 +268962,7 @@
     "_ready"
    ],
    "lines": [
-    205
+    226
    ],
    "count": 1,
    "context": [
@@ -268802,8 +268994,8 @@
     "_ready"
    ],
    "lines": [
-    83,
-    142
+    104,
+    163
    ],
    "count": 2,
    "context": [
@@ -268835,26 +269027,26 @@
     "_exercise_physical_round"
    ],
    "lines": [
-    662,
-    662,
-    664,
-    664,
-    664,
-    664,
-    688,
-    688,
-    688,
-    688,
-    688,
-    688,
-    688,
+    683,
+    683,
+    685,
+    685,
+    685,
+    685,
     709,
     709,
     709,
     709,
     709,
     709,
-    725
+    709,
+    730,
+    730,
+    730,
+    730,
+    730,
+    730,
+    746
    ],
    "count": 20,
    "context": [
@@ -269656,8 +269848,8 @@
    "lines": [
     10,
     32,
-    43,
-    66
+    49,
+    73
    ],
    "count": 4,
    "context": [
@@ -269692,7 +269884,7 @@
    ],
    "lines": [
     11,
-    66
+    73
    ],
    "count": 2,
    "context": [
@@ -269726,7 +269918,7 @@
    "lines": [
     22,
     24,
-    45
+    51
    ],
    "count": 3,
    "context": [
@@ -287324,9 +287516,9 @@
     "_write_contract"
    ],
    "lines": [
-    142,
-    179,
-    209
+    152,
+    189,
+    219
    ],
    "count": 3,
    "context": [
@@ -287359,7 +287551,7 @@
    ],
    "lines": [
     73,
-    209
+    219
    ],
    "count": 2,
    "context": [
@@ -287392,7 +287584,7 @@
    ],
    "lines": [
     110,
-    209
+    219
    ],
    "count": 2,
    "context": [
@@ -287424,8 +287616,8 @@
     "_save_rebuild"
    ],
    "lines": [
-    143,
-    180
+    153,
+    190
    ],
    "count": 2,
    "context": [
@@ -287511,11 +287703,11 @@
     68,
     69,
     69,
-    130,
-    135,
-    135
+    136,
+    143,
+    143
    ],
-   "count": 30,
+   "count": 29,
    "context": [
     "for point in [Vector3(0,0,-8.5),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:",
     "for point in [Vector3(-10.5,3.2,2.5),Vector3(-13.4,3.2,2.5),Vector3(-13.4,3.2,1.95)]:",
@@ -287533,6 +287725,65 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "09c94b757d23dc0a",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/orison_v2_resident_walk_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    43
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "47413abe97bc1639",
+   "kind": "generated_name",
+   "token": "_run",
+   "file": "game/tests/orison_v2_resident_walk_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    60
+   ],
+   "count": 1,
+   "context": [
+    "_resident.to_pascal_case() + \"Routine\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
   },
@@ -288839,7 +289090,7 @@
     "_ready"
    ],
    "lines": [
-    20
+    24
    ],
    "count": 1,
    "context": [],
@@ -288864,14 +289115,14 @@
    "tier": "test",
    "subsystem": "tests",
    "symbols": [
-    "_ready"
+    "<module>"
    ],
    "lines": [
-    30
+    11
    ],
    "count": 1,
    "context": [
-    "for identity: String in source.doors + [\"F01_DOOR_06\", \"F01_WATCH_MAIL_DOOR\", \"B1_LAUNDRY_DOOR\"]:"
+    "const SHARED_DOORS := [\"F01_DOOR_06\", \"F01_WATCH_MAIL_DOOR\", \"B1_LAUNDRY_DOOR\"]"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -288892,14 +289143,14 @@
    "tier": "test",
    "subsystem": "tests",
    "symbols": [
-    "_ready"
+    "<module>"
    ],
    "lines": [
-    30
+    11
    ],
    "count": 1,
    "context": [
-    "for identity: String in source.doors + [\"F01_DOOR_06\", \"F01_WATCH_MAIL_DOOR\", \"B1_LAUNDRY_DOOR\"]:"
+    "const SHARED_DOORS := [\"F01_DOOR_06\", \"F01_WATCH_MAIL_DOOR\", \"B1_LAUNDRY_DOOR\"]"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -288922,14 +289173,14 @@
    "tier": "test",
    "subsystem": "tests",
    "symbols": [
-    "_ready"
+    "<module>"
    ],
    "lines": [
-    30
+    11
    ],
    "count": 1,
    "context": [
-    "for identity: String in source.doors + [\"F01_DOOR_06\", \"F01_WATCH_MAIL_DOOR\", \"B1_LAUNDRY_DOOR\"]:"
+    "const SHARED_DOORS := [\"F01_DOOR_06\", \"F01_WATCH_MAIL_DOOR\", \"B1_LAUNDRY_DOOR\"]"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -320424,8 +320675,8 @@
     "_run"
    ],
    "lines": [
-    102,
-    102
+    111,
+    111
    ],
    "count": 2,
    "context": [
