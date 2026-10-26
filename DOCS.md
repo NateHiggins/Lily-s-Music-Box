@@ -34,6 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Completed tentacle encounter surface qualification and clean teardown (INERT) | `design/TENTACLE_GANG_SURFACE_COMPLETION_2026-10-26.md` |
 | Tentacle searching, recoil and contact melt (INERT) | `design/TENTACLE_GANG_COMPLETION_2026-10-26.md` |
 | Tentacle gang hitch/teardown checkpoint and requested contact-melt follow-up (INERT) | `design/TENTACLE_GANG_ACCEPTANCE_FOLLOWUP_2026-10-25.md` |
 | Owner's maintenance-local tentacle gang anatomy, contact, optics and acceptance requirements | `design/TENTACLE_GANG_ENCOUNTER_BRIEF_2026-10-25.md` |

@@ -2,6 +2,9 @@
 
 Evidence class: **INERT**. Scoped implementation report, not global acceptance.
 
+The remaining surface and full-world teardown findings recorded here are closed by
+[the subsequent surface qualification](TENTACLE_GANG_SURFACE_COMPLETION_2026-10-26.md).
+
 ## Result
 
 Independent dart/hold/hover cycles, neighbouring-tip approaches and coherent
@@ -55,9 +58,9 @@ reproducible build and local hash-pinned selection are in
 build disables unavailable D3D12, WinRT and AccessKit dependencies; fresh
 checkouts must build/configure it explicitly.
 
-## Remaining acceptance
+## Acceptance remaining at this checkpoint
 
-The composed-world surface run remains FAIL: **67 unresolved surfaces and
+At this checkpoint the composed-world surface run remained FAIL: **67 unresolved surfaces and
 19 contract failures**. Three creature findings concern the corrected nested
 sampler observation and pose-data classification. Passage/bar/device material
 findings and composition/traversal/capture failures remain. Shutdown reports
@@ -80,4 +83,5 @@ Shared canonical checkout: **codex/v2-acoustic-topology**, based on **3a01ac1d**
 Other owners' changes remain present. No clean merge-base candidate verification
 or merge of unrelated branch history is claimed. This work changes no selector,
 campaign authority or protected path. This INERT report promotes no ledger
-requirement. Global surface and whole-world retirement remain unfinished.
+requirement. Global surface and whole-world retirement were unfinished at this checkpoint;
+the linked closure report records their subsequent completion.
