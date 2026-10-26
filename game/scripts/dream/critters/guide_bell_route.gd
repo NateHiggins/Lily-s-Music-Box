@@ -40,20 +40,10 @@ func setup(root: Node3D, observer: CollisionObject3D) -> void:
 		for i in ids.size():
 			for j in range(i+1,ids.size()): _edge(ids[i],ids[j])
 	for stair: Dictionary in world.layout.get("stairs", []):
-		var half := world.adapter.root.get_node_or_null(str(stair.id)+"/HalfLanding") as MeshInstance3D
-		if half==null: continue
-		var x := float(stair.origin[0]); var z := float(stair.origin[1]); var width := float(stair.width)
-		var turn := half.position.z+half.mesh.get_aabb().end.z-.32
-		var low: float = world.adapter.root.level_y[str(stair.from)]
-		var high: float = world.adapter.root.level_y[str(stair.to)]
-		var mid := low+float(stair.rise)*int(stair.risers_per_flight)
-		var a := x+width*.5; var b := x+width*1.5+float(stair.gap)
-		var run:=float(stair.tread)*int(stair.risers_per_flight)
-		var north_start:=z+run+float(stair.landing_depth)
+		var points := stair_points(world.adapter.root,stair)
+		if points.is_empty(): continue
 		var ids: Array[int] = []
-		# Keep ramp endpoints distinct from level landings: interpolating one
-		# diagonal over both makes the proposed feet sink through real treads.
-		for p in [Vector3(a,low,z-.25),Vector3(a,low,z),Vector3(a,mid,z+run),Vector3(a,mid,turn),Vector3(b,mid,turn),Vector3(b,mid,north_start),Vector3(b,high,z+float(stair.landing_depth)),Vector3(b,high,z-.25)]: ids.append(_point(p))
+		for p in points: ids.append(_point(p))
 		for i in range(ids.size()-1): _edge(ids[i],ids[i+1])
 		for end in [ids[0],ids[-1]]:
 			for id in graph.get_point_ids():
@@ -72,6 +62,29 @@ func setup(root: Node3D, observer: CollisionObject3D) -> void:
 					if p.distance_to(graph.get_point_position(other))<3: _edge(id,other)
 		if not buckets.has(key): buckets[key]=[]
 		buckets[key].append(id)
+
+## Authored U-stair centreline in blockout-local space, foot to head. Empty
+## when the stair has no half landing.
+static func stair_points(root: Node3D,stair: Dictionary) -> Array[Vector3]:
+	var points: Array[Vector3] = []
+	var half := root.get_node_or_null(str(stair.id)+"/HalfLanding") as MeshInstance3D
+	if half==null: return points
+	var x := float(stair.origin[0]); var z := float(stair.origin[1]); var width := float(stair.width)
+	# Turn at the half landing's centre: the guards on its far edge leave the
+	# capsule no clearance at the old 0.32 m inset.
+	var turn := half.position.z+half.mesh.get_aabb().get_center().z
+	var low: float = root.level_y[str(stair.from)]
+	var high: float = root.level_y[str(stair.to)]
+	var mid := low+float(stair.rise)*int(stair.risers_per_flight)
+	var a := x+width*.5; var b := x+width*1.5+float(stair.gap)
+	var run:=float(stair.tread)*int(stair.risers_per_flight)
+	var north_start:=z+run+float(stair.landing_depth)
+	# Keep ramp endpoints distinct from level landings: interpolating one
+	# diagonal over both makes the proposed feet sink through real treads.
+	# The head exits only 5 cm short of the stair: the fire-line cabinet sits
+	# beside the stair head on every floor.
+	points.assign([Vector3(a,low,z-.25),Vector3(a,low,z),Vector3(a,mid,z+run),Vector3(a,mid,turn),Vector3(b,mid,turn),Vector3(b,mid,north_start),Vector3(b,high,z+float(stair.landing_depth)),Vector3(b,high,z-.05)])
+	return points
 
 func _point(local: Vector3) -> int:
 	var id := graph.get_point_count()
