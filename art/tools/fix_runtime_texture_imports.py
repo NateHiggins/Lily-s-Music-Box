@@ -97,7 +97,7 @@ V2_EXTERNAL_MAPS = (
     "game/assets/ui/telegram/telegram_paper_stock_v1.png",
     "game/assets/environment/weather/cirrus.png",
     *(f"game/assets/dream/tentacle_gang/{family}_{channel}.png"
-      for family in ("membrane", "tissue", "eye")
+      for family in ("membrane", "tissue", "eye", "residue")
       for channel in ("albedo", "normal", "roughness")),
 )
 

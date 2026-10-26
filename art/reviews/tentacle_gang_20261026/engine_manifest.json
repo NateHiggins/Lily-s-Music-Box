@@ -1,0 +1,15 @@
+{
+  "path": "C:\\devkit\\tentacle-engine-fix\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe",
+  "sha256": "c163c37cc5fead1bc9ddf186c90ba0e23e102d93124a2e421063655a8c14aadc",
+  "binaries": {
+    "C:\\devkit\\tentacle-engine-fix\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.console.exe": "c163c37cc5fead1bc9ddf186c90ba0e23e102d93124a2e421063655a8c14aadc",
+    "C:\\devkit\\tentacle-engine-fix\\godot-4.7.1-stable\\bin\\godot.windows.editor.x86_64.llvm.exe": "e130d0253a9c863cc3df59b010a366734a25fc415b479e3d163f02941fb27b62"
+  },
+  "base": "4.7.1-stable",
+  "upstream_fix": "https://github.com/godotengine/godot/pull/124743",
+  "source_archives": {
+    "godot-4.7.1-stable.zip": "3d82fe7a78db5827a21382689919595734559270648dd5f44d3e829d5a2472e6",
+    "llvm-mingw.zip": "fd5462b7f5d93b2ff981fcd3f9c7e427e47f3203c64ea91c27bcc444eebd74cd"
+  },
+  "build_options": "Vulkan, LLVM MinGW; D3D12/WinRT/AccessKit disabled; remaining default editor features"
+}

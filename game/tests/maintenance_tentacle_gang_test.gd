@@ -195,16 +195,16 @@ func _run() -> void:
 	observer.set_physics_process(false)
 	var prepared_ids := {}
 	var prepared_resources: Array[WeakRef] = []
-	for draw: MeshInstance3D in observer.preparation.root.find_children("*","MeshInstance3D",true,false):
+	for draw: MeshInstance3D in observer.preparation.find_children("*","MeshInstance3D",true,false):
 		prepared_ids[draw.mesh.get_instance_id()] = true
 		prepared_resources.append(weakref(draw.mesh))
-	for material in observer.preparation.materials:
+	for material in observer.preparation.materials+[observer.preparation.pool_material]:
 		for channel in ["albedo","normal","roughness"]:
 			var texture: Texture2D = material.get_shader_parameter(channel+"_map")
 			prepared_ids[texture.get_instance_id()] = true
 			prepared_resources.append(weakref(texture))
 	check(observer.preparation.contacts.is_empty() and observer.preparation.sounds.is_empty() and not observer.preparation.visible,"loading preparation has no contacts sounds or visible encounter")
-	for frame in 3: await RenderingServer.frame_post_draw
+	while not observer.preparation_ready: await RenderingServer.frame_post_draw
 	observer.frequency_divisor = 1
 	var prior_jobs: Dictionary = RealityState.data.get("maintenance_jobs",{}).duplicate(true)
 	RealityState.data.maintenance_jobs = {}
@@ -257,6 +257,11 @@ func _run() -> void:
 	check(await operate_supply(radiator,mechanism),"player restores valve while gang remains")
 	await aim_lamp(player.camera.global_position)
 	await capture("02_front")
+	for frame in 16:
+		await wait_seconds(.125)
+		await capture("search_%02d" % frame)
+	check(gang.search_distance>.15,"independent searches travel through bounded physical space")
+	for offset in gang.reach_offsets: check(offset.length()<=.1801,"search and neighbour reach remain within extension limit")
 	await capture_clearances()
 	await aim_lamp(Vector3(-1,.55,0))
 	await capture("02b_side")
@@ -316,14 +321,21 @@ func _run() -> void:
 	check(not player._grab.active(),"second click releases pad")
 	await wait_seconds(.18)
 	await capture("04b_alarm")
+	check(gang.recoil_distance>.015,"touch causes fast physical recoil away from contact")
 	await wait_phase(Gang.Phase.COORDINATED_RETREAT,2.0)
 	await wait_seconds(.9)
 	await capture("05_retreat")
+	check(gang.pool != null and gang.pool.visible and gang.root.scale.y<.95,"contact starts visible flowing residue and coherent body collapse")
+	retained.append(weakref(gang.pool_material))
+	retained.append(weakref(gang.haze_material))
 	check(gang.phase==Gang.Phase.COORDINATED_RETREAT,"alarm leads to coordinated retreat")
 	await wait_seconds(1.15)
 	await capture("06_root_withdrawal")
-	await wait_phase(Gang.Phase.PURPLE_HAZE,2.0)
-	await wait_seconds(.15)
+	await wait_seconds(1.0)
+	await capture("06b_floor_drain")
+	await wait_phase(Gang.Phase.PURPLE_HAZE,3.0)
+	await wait_seconds(.55)
+	check(not gang.pool.visible and gang.root==null,"liquid sinks below floor before final volumetric puff")
 	check(gang.phase==Gang.Phase.PURPLE_HAZE,"body releases into bounded haze")
 	await capture("07_haze")
 	gang.haze.visible = false
@@ -339,7 +351,7 @@ func _run() -> void:
 	await capture("08_haze_late")
 	await wait_phase(Gang.Phase.CLEARED,10.0)
 	check(gang.phase==Gang.Phase.CLEARED,"haze ends")
-	check(gang.get_child_count()==0 and gang.materials.is_empty() and gang.haze_material==null,"body and haze references released")
+	check(gang.get_child_count()==0 and gang.materials.is_empty() and gang.haze_material==null and gang.pool==null and gang.pool_material==null,"body pool and haze references released")
 	for reference in retained: check(reference.get_ref()==null,"new body/material allocation released")
 	if atmosphere.field != null: check(atmosphere.field._materials.size()==original_bindings,"shared optical receiver census restored")
 	check(gang.contact_count==1,"retreat remains latched")
@@ -365,12 +377,15 @@ func _run() -> void:
 		var samples: Array = phase_times[label]
 		samples.sort()
 		performance[label] = {"frames":samples.size(),"median_ms":samples[samples.size()/2],"p95_ms":samples[int(samples.size()*.95)],"max_ms":samples[-1]}
+	for measured_phase in [Gang.Phase.EMERGING,Gang.Phase.COORDINATED_RETREAT,Gang.Phase.PURPLE_HAZE]:
+		check(float(performance[str(measured_phase)].max_ms)<100.0,"prepared first-use phase has no 100 ms frame stall: "+str(measured_phase))
+	check(float(gang.build_profile.load_ms)+float(gang.build_profile.build_ms)<50.0,"prepared encounter construction stays below 50 ms")
 	var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2",
 		"production_runtime":false,"scope":"Isolated production gang, native radiator, shared lamp and actual grab/motion/release. Does not prove composed-world eligibility or visual acceptance.",
 		"execution":{"completed":true,"exit_code":0 if failures.is_empty() else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},"build_profile":gang.build_profile,
 		"source":{"test_path":"game/tests/maintenance_tentacle_gang_test.gd","test_sha256":get_script().source_code.replace("\r\n","\n").sha256_text()},
 		"contracts":{"lifecycle":{"executed":true,"status":"PASS" if failures.is_empty() else "FAIL"}},
-		"checks":checks,"failures":failures,"engine_errors":logger.errors,"history":gang.history,"apparatus_contact_events":gang.apparatus_contact_events,"contact_diagnostics":gang.contact_diagnostics,"performance_by_phase":performance,"optical_roi_luminance":optical_measurements,"frame_ms_p95":times[int(times.size()*.95)] if not times.is_empty() else 0}
+		"checks":checks,"failures":failures,"engine_errors":logger.errors,"history":gang.history,"apparatus_contact_events":gang.apparatus_contact_events,"contact_diagnostics":gang.contact_diagnostics,"search_distance":gang.search_distance,"neighbour_visits":gang.neighbour_visits,"recoil_distance":gang.recoil_distance,"performance_by_phase":performance,"optical_roi_luminance":optical_measurements,"frame_ms_p95":times[int(times.size()*.95)] if not times.is_empty() else 0}
 	FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t"))
 	OS.remove_logger(logger)
 	get_tree().quit(0 if failures.is_empty() else 1)

@@ -13,6 +13,40 @@ var _doors: Array[WeakRef] = []
 var _doors_scanned := false
 var anchor_diagnostics: Array[Dictionary] = []
 var preparation: Node3D
+var preparation_ready := false
+
+func _warm_rendering() -> void:
+	# Render actual material/mesh combinations in a private world. Invisible
+	# main-world instances can leave pipelines cold until the first encounter.
+	var viewport := SubViewport.new()
+	viewport.name = "TentaclePipelinePreparation"
+	viewport.size = Vector2i(128,128)
+	viewport.own_world_3d = true
+	viewport.msaa_3d = get_viewport().msaa_3d
+	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	add_child(viewport)
+	var environment := WorldEnvironment.new()
+	var source := player.get_world_3d().environment
+	if source != null: environment.environment = source.duplicate()
+	viewport.add_child(environment)
+	var camera := Camera3D.new()
+	viewport.add_child(camera)
+	camera.position = Vector3(0,.45,1.4)
+	camera.look_at(Vector3(0,.35,0))
+	camera.current = true
+	viewport.add_child(preparation.root.duplicate())
+	viewport.add_child(preparation.pool.duplicate())
+	viewport.add_child(preparation.haze.duplicate())
+	var light := SpotLight3D.new()
+	viewport.add_child(light)
+	light.position = camera.position
+	light.look_at(Vector3(0,.35,0))
+	light.shadow_enabled = true
+	light.light_cull_mask = 1 << 17
+	for frame in 8: await RenderingServer.frame_post_draw
+	viewport.queue_free()
+	await get_tree().process_frame
+	preparation_ready = true
 
 func _reject_anchor(reason: String, point: Vector3, detail := "") -> void:
 	anchor_diagnostics.append({"reason":reason,"point":[point.x,point.y,point.z],"detail":detail})
@@ -25,6 +59,7 @@ func setup(world: Node, observer: Node3D, authority: WorkOrders) -> void:
 	preparation.name = "PreparedTentacleResources"
 	add_child(preparation)
 	preparation.prepare_render_resources()
+	_warm_rendering.call_deferred()
 	building.get_tree().node_added.connect(_observe_door)
 
 func _observe_door(node: Node) -> void:
@@ -44,6 +79,7 @@ func _door_sweeps_clear(at: Vector3) -> bool:
 	return true
 
 func _physics_process(delta: float) -> void:
+	if not preparation_ready: return
 	_due -= delta
 	if _due > 0: return
 	_due = .4

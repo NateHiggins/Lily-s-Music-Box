@@ -19,9 +19,10 @@ visit. Removing the task or unloading the physical target cleans up immediately;
 finishing a repair does not substitute for physical contact.
 
 The encounter follows dormant, emerging, observing, interfering, contact alarm,
-coordinated retreat, purple haze and cleared. Dormant owns no visual resources.
+melting retreat, purple haze and cleared. A dormant encounter owns no visuals;
+the world observer separately owns an invisible, inactive preparation instance.
 Emergence lasts 2.2 seconds, observation 1.4 seconds, alarm 0.42 seconds,
-withdrawal 2.4 seconds and haze 5.5 seconds. Interference waits for contact without
+melting 4.2 seconds and the final volumetric puff 5.5 seconds. Interference waits for contact without
 a timeout. There is no health, damage, pursuit or repair-state writer.
 
 The distal pad exposes the existing constrained-grab descriptor. A primary click
@@ -34,8 +35,13 @@ claim hand-collider or held-object contact routes.
 All anatomy shares one local deformation function. Muscles have three radial
 depth bands; there are separate nerves, cross-links, ganglia, pressure chambers,
 gold inclusions, cilia, ocelli, connective septa and vascular/digestive channels.
-Retreat advances from distal tissue toward a shared buried root; dense organs
-withdraw ahead of membrane. The accepted lamp field supplies shader observation,
+On contact the whole anatomy collapses coherently into a spreading liquid pool,
+then its remaining dense organs withdraw into the fluid. A UV-mapped native
+residue mesh carries advecting rainbow pigment, metallic wet stock and broad
+rough char patches. Dark wisps accompany the collapse. The pool sinks through
+the support plane without changing the floor or collisions, then disappears
+into a bounded purple volumetric puff. Phase ID 5 keeps the existing
+COORDINATED_RETREAT enum for compatibility but now runs this melting sequence. The accepted lamp field supplies shader observation,
 including the local light-avoidance deformation. The encounter neither constructs
 a lamp field nor reads ecological exposure as illumination.
 
@@ -48,14 +54,24 @@ within an 18 cm extension limit, rejecting other solid obstructions.
 
 Mesh receivers use the existing registry and lamp layer. Haze and finite
 droplets bind to the same field, with the existing dust shader supplying droplet
-scattering. Cleanup unbinds owned materials and removes body, fog, droplets and
+scattering. Cleanup unbinds owned materials and removes body, liquid pool, fog, droplets and
 finite positional audio. The underlying task and support geometry are untouched.
+
+Searching limbs use independent dart/hold/hover cycles and bounded approaches
+to neighbouring tips; one manipulator keeps attending to the apparatus. Tip
+movement is swept against actual solids within the 18 cm reach. Neighbour
+samples measure proximity, not distinct contact events. Shared mid-body waves
+preserve anatomical alignment and distal endpoints. Holding freezes searching.
+Touch starts fast directional recoil and staggered curling/spasms, continuing
+through collapse and diminishing as the anatomy sinks.
 
 ## Reproduce and inspect
 
 `art/blender/scripts/build_tentacle_gang.py` reads the existing hero's asymmetric
 profile and creates editable hero, normal, remnant and shared-root Blender files,
-then exports glTF. Do not edit those exports. The normal model is the initial
+then exports glTF. **build_tentacle_gang_residue.py** authors the closed lobed
+pool; **art/tools/build_tentacle_residue_maps.py** authors its measured fluid
+relief. All anatomy and pool charts use 0.08 metres per tile. Do not edit exports. The normal model is the initial
 runtime tier; hero/remnant exports are available but automatic tier switching
 has not been qualified. `art/tools/build_tentacle_gang_maps.py` authors the three
 deterministic PBR map families without photographic inputs. Their catalogue keys
@@ -77,11 +93,28 @@ the shared optical field and native visible light retain their existing owners.
 The review packet lives at **art/reviews/tentacle_gang_20261025/README.md**.
 It includes quantitative optical comparisons, collision/anchor overlays,
 test-written lifecycle receipts, resource checks and measured frame timings.
-The implementation report records installed-world results and shared-tree gate
-limits. Full visual approval of anatomy and retreat, audio listening review,
-global surface qualification and first-use hitch optimization remain separate
-from a successful source build or wrapper receipt.
+The original reports preserve their historical acceptance limits. Current
+results belong to **design/TENTACLE_GANG_COMPLETION_2026-10-26.md**.
 
-The acceptance follow-up is **design/TENTACLE_GANG_ACCEPTANCE_FOLLOWUP_2026-10-25.md**.
-It records the verified loading preparation and the owner-requested goo/melt
-sequence, which remains a separate implementation step at this checkpoint.
+The reviewed external rendering proposal and additional visual review criteria
+are in **design/ENCOUNTER_RENDERING_PROPOSAL_REVIEW_2026-10-26.md**. Use its
+exploration/contact/melt/puff sequence when reviewing the existing captures.
+It preserves shared lighting, actual contact, native anatomy and resource
+ownership; it does not require Alembic playback or a second-camera smoke portal.
+
+World loading prepares actual mesh/material combinations and shaders without
+contacts, sounds, gameplay mutation, or optical receiver bindings. The focused
+test checks resource retirement at both encounter and preparation boundaries,
+and rejects 100 ms first-use stalls in emergence, melting and smoke.
+Preparation renders shared anatomy/pool/fog resources for eight frames in a
+private SubViewport. Hidden loading alone left a 197 ms first-use stall after
+a shader revision. The temporary viewport retires before encounter admission.
+A fresh user pipeline-cache control passes; project shader and driver caches
+were retained in that control.
+
+The seven historical Texture RID warnings came from Godot 4.7.1's reflection
+atlas, reproduced by **ReflectionAtlasRetirementTest.tscn** without the gang.
+**tools/build_godot_reflection_fix.py** builds and pins the upstream backport for
+this checkout's native lane; see **tools/engine_patches/README.md**. A fresh
+checkout needs that build/configuration to use the fix. The official engine
+remains installed and can still be selected explicitly as a diagnostic control.

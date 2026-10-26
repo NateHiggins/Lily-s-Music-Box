@@ -3,6 +3,9 @@ extends Node3D
 signal phase_changed(phase: int)
 enum Phase { DORMANT, EMERGING, OBSERVING, INTERFERING, CONTACT_ALARM, COORDINATED_RETREAT, PURPLE_HAZE, CLEARED }
 const MODEL = "res://assets/dream/tentacle_gang/gang_normal.glb"
+const MELT_SECONDS = 4.2
+const RESIDUE_SHADER = preload("res://shaders/tentacle_residue.gdshader")
+const SMOKE_SHADER = preload("res://shaders/tentacle_residue_smoke.gdshader")
 const Area = preload("res://scripts/props/manipulation_area.gd")
 const TissueAudio = preload("res://scripts/dream/entity/tentacle_gang_audio.gd")
 # Compile the finite shader family with the observer's script during world
@@ -44,6 +47,73 @@ var contact_diagnostics: Array[Dictionary] = []
 var _contact_due := 0.0
 var _sound_mask := 0
 var build_profile: Dictionary = {}
+var pool: Node3D
+var pool_material: ShaderMaterial
+var search_distance := 0.0
+var neighbour_visits := 0
+var recoil_distance := 0.0
+
+func _search_phase(index: int) -> float:
+	return fposmod(age*(.29+index*.017)+index*.271,1.0)
+
+func _searching(index: int) -> bool:
+	# One manipulator keeps attending to the apparatus while the others forage.
+	return index != 1 and (index == 0 or _search_phase(index)<.78)
+
+func _move_tip(index: int, wanted: Vector3, speed: float, delta: float) -> float:
+	wanted.y = 0.0
+	wanted = wanted.limit_length(.18)
+	var next := reach_offsets[index].move_toward(wanted,speed*delta)
+	var shape := contacts[index].get_child(0) as CollisionShape3D
+	var shift := limbs[index].global_basis*(next-reach_offsets[index])
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = shape.shape
+	query.transform = shape.global_transform
+	query.motion = shift
+	var travel := get_world_3d().direct_space_state.cast_motion(query)
+	if travel.size()==2: next=reach_offsets[index].lerp(next,travel[0])
+	query.transform = shape.global_transform.translated(limbs[index].global_basis*(next-reach_offsets[index]))
+	query.motion = Vector3.ZERO
+	if not get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(): return 0.0
+	var distance := next.distance_to(reach_offsets[index])
+	reach_offsets[index] = next
+	var pad := contacts[index].get_parent() as Node3D
+	pad.position.x = next.x
+	pad.position.z = next.z
+	for material: ShaderMaterial in limb_materials[index]:
+		if not bool(material.get_meta("gang_pad",false)): material.set_shader_parameter("reach_offset",next)
+	return distance
+
+func _animate_search(delta: float) -> void:
+	for index in contacts.size():
+		if not _searching(index): continue
+		var beat := _search_phase(index)
+		var direction := age*(1.7+index*.23)+index*2.4
+		var wanted := Vector3(cos(direction),0,sin(direction*1.31))*.145
+		var speed := .65 if beat<.22 or beat>.67 else .12
+		if index>1 and beat>.38 and beat<.67:
+			var shape := contacts[index].get_child(0) as CollisionShape3D
+			var neighbour := contacts[index-1].get_child(0) as CollisionShape3D
+			var separation := shape.global_position-neighbour.global_position
+			var stand_off := .045
+			var destination := neighbour.global_position+separation.normalized()*stand_off
+			wanted=reach_offsets[index]+limbs[index].global_basis.inverse()*(destination-shape.global_position)
+			if separation.length()<.10: neighbour_visits+=1
+		# Brief arrest followed by a dart, rather than a synchronized sine sway.
+		if beat>.22 and beat<.30: speed=0.0
+		search_distance+=_move_tip(index,wanted,speed,delta)
+
+func _animate_recoil(delta: float) -> void:
+	for index in contacts.size():
+		var shape := contacts[index].get_child(0) as CollisionShape3D
+		var away := shape.global_position-contact_point
+		away.y=0.0
+		if away.length()<.01: away=global_position-player.global_position; away.y=0.0
+		var local_away := limbs[index].global_basis.inverse()*away.normalized()
+		var panic_age := elapsed + (.42 if phase==Phase.COORDINATED_RETREAT else 0.0)
+		var spasm := sin(panic_age*19.0-index*1.7)*.045
+		var wanted := local_away*.17+Vector3(-local_away.z,0,local_away.x)*spasm
+		recoil_distance+=_move_tip(index,wanted,1.4 if panic_age<.25 else .55,delta)
 
 func prepare_render_resources() -> void:
 	# World-owned preparation, never an encounter: no contacts, sounds, target,
@@ -164,6 +234,11 @@ func _dress(body: Node3D, angle: float) -> Array[ShaderMaterial]:
 	return dressed
 
 func _physics_process(delta: float) -> void:
+	if phase in [Phase.CONTACT_ALARM,Phase.COORDINATED_RETREAT]:
+		_animate_recoil(delta)
+		return
+	if phase in [Phase.OBSERVING,Phase.INTERFERING] and _held == -1:
+		_animate_search(delta)
 	if phase != Phase.INTERFERING or _held != -1 or not is_instance_valid(target): return
 	_contact_due -= delta
 	if _contact_due > 0: return
@@ -172,6 +247,7 @@ func _physics_process(delta: float) -> void:
 	contact_diagnostics.clear()
 	var space := get_world_3d().direct_space_state
 	for index in range(1,contacts.size()):
+		if _searching(index): continue
 		var limb := limbs[index]
 		var shape := contacts[index].get_child(0) as CollisionShape3D
 		var tip := shape.global_position
@@ -264,17 +340,21 @@ func _process(delta: float) -> void:
 				_held = -1
 				for area in contacts: area.collision_layer = 0
 				_tissue_sound(TissueAudio.Motif.SUCTION,global_position)
+				_make_haze()
 				_set_phase(Phase.COORDINATED_RETREAT)
 		Phase.COORDINATED_RETREAT:
-			if elapsed >= 2.4:
+			if is_instance_valid(root):
+				var collapse := smoothstep(0.0,2.8,elapsed)
+				root.scale = Vector3(1.0+collapse*.25,maxf(.025,1.0-collapse),1.0+collapse*.25)
+			if elapsed >= MELT_SECONDS:
 				_release_body()
-				_make_haze()
+				pool.visible = false
 				_set_phase(Phase.PURPLE_HAZE)
 		Phase.PURPLE_HAZE:
 			if elapsed >= 5.5: cleanup()
 	if phase == Phase.CLEARED: return
 	var growth := clampf(elapsed/2.2,0,1) if phase == Phase.EMERGING else 1.0
-	var retreat := clampf(elapsed/2.4,0,1) if phase == Phase.COORDINATED_RETREAT else 0.0
+	var retreat := smoothstep(1.6,MELT_SECONDS,elapsed) if phase == Phase.COORDINATED_RETREAT else 0.0
 	var lamp_rate := 0.0
 	var presentation: Node = player.get("lamp_presentation")
 	if is_instance_valid(presentation): lamp_rate = float(presentation.state.intensity_rate)
@@ -297,17 +377,34 @@ func _process(delta: float) -> void:
 		material.set_shader_parameter("retreat",retreat)
 		material.set_shader_parameter("alarm",elapsed/.42 if phase == Phase.CONTACT_ALARM else -1.0)
 		material.set_shader_parameter("lamp_rate",lamp_rate)
+		material.set_shader_parameter("search_drive",1.0 if phase in [Phase.OBSERVING,Phase.INTERFERING] and _held == -1 else 0.0)
+		material.set_shader_parameter("panic_age",elapsed+(.42 if phase==Phase.COORDINATED_RETREAT else 0.0) if phase in [Phase.CONTACT_ALARM,Phase.COORDINATED_RETREAT] else -1.0)
 	if haze_material != null:
-		haze_material.set_shader_parameter("haze_age",elapsed)
+		var melt_age := elapsed+MELT_SECONDS if phase == Phase.PURPLE_HAZE else elapsed
+		haze_material.set_shader_parameter("melt_age",melt_age)
 		haze_material.set_shader_parameter("lamp_rate",lamp_rate)
+		pool_material.set_shader_parameter("melt_age",melt_age)
 
 func _make_haze() -> void:
+	pool = (load("res://assets/dream/tentacle_gang/gang_residue.glb") as PackedScene).instantiate()
+	pool.name = "FlowingMetallicResidue"
+	pool_material = ShaderMaterial.new()
+	pool_material.shader = RESIDUE_SHADER
+	pool_material.set_shader_parameter("floor_height",global_position.y)
+	for channel in ["albedo","normal","roughness"]:
+		pool_material.set_shader_parameter(channel+"_map",load("res://assets/dream/tentacle_gang/residue_%s.png" % channel))
+	for draw: MeshInstance3D in pool.find_children("*","MeshInstance3D",true,false):
+		draw.material_override = pool_material
+		draw.layers = 1 << 17
+		draw.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(pool)
+	if optical_field != null: optical_field.bind_material(pool_material)
 	haze = FogVolume.new()
 	haze.name = "TemporarySeamExhalation"
-	haze.size = Vector3(.9,.65,.9)
-	haze.position.y = .24
+	haze.size = Vector3(1.05,.9,1.05)
+	haze.position.y = .35
 	haze_material = ShaderMaterial.new()
-	haze_material.shader = SHADERS.haze
+	haze_material.shader = SMOKE_SHADER
 	haze.material = haze_material
 	if optical_field != null: optical_field.bind_material(haze_material)
 	add_child(haze)
@@ -363,6 +460,12 @@ func cleanup() -> void:
 			sound.queue_free()
 	sounds.clear()
 	_release_body()
+	if pool_material != null and optical_field != null: optical_field.unbind_material(pool_material)
+	if is_instance_valid(pool):
+		remove_child(pool)
+		pool.queue_free()
+	pool = null
+	pool_material = null
 	if haze_material != null and optical_field != null: optical_field.unbind_material(haze_material)
 	if droplet_material != null and optical_field != null: optical_field.unbind_material(droplet_material)
 	if is_instance_valid(droplets):

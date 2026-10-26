@@ -9,6 +9,11 @@ from pathlib import Path
 TRIPLETS = [('albedo_texture','roughness_texture','normal_texture'),
             ('albedo_tex','rough_tex','normal_tex'),
             ('albedo_map','roughness_map','normal_map')]
+MICROSCOPY_SHADERS = {'res://shaders/tardigrade_'+part+'.gdshader'
+                      for part in ('interior','membrane','vacuole')}
+MICROSCOPY_CHANNELS = tuple('micro_'+stock+'_'+channel
+                           for stock in ('membrane','organ','mineral')
+                           for channel in ('albedo','roughness','normal'))
 
 def evaluate(data):
     if data.get('schema')!='orison.v2-surface-inventory.v1':raise ValueError('unknown inventory schema')
@@ -42,6 +47,13 @@ def evaluate(data):
             # Explicit external effects only. Unshaded, transparent or flat
             # materials do not automatically become exempt physical stock.
             shader=material.get('shader','')
+            microscopy=(shader in MICROSCOPY_SHADERS and
+                        draw.get('owner_script')=='res://scripts/dream/critters/dream_critter_controller.gd')
+            # Exact-index vertex pose data is not a sampled physical surface.
+            # Preserve its inventory record, but never mip/filter joint positions.
+            if microscopy and 'blender_pose_tex' in maps:
+                effects.append({'id':identity,'class':'vertex_pose_data','texture':maps['blender_pose_tex']})
+                maps={key:value for key,value in maps.items() if key!='blender_pose_tex'}
             if (draw.get('surface_role')=='weather_optics' and
                 draw.get('owner_script')=='res://scripts/building/v2_weather_fx.gd' and
                 draw['path'].split('/')[-1] in ('DrivingRainSpatter','LiveSnow','LiveHail','DrivingRainMiddle','RoadwayMist') and
@@ -99,7 +111,9 @@ def evaluate(data):
             if halo: effects.append({'id':identity,'class':'optical_halo'})
             if steam: effects.append({'id':identity,'class':'steam_volume'})
             if flame: effects.append({'id':identity,'class':'gas_flame'})
-            if not optical_effect and not clear_glass and not any(all(maps.get(channel) for channel in triplet) for triplet in TRIPLETS):
+            complete_maps=(all(maps.get(channel) for channel in MICROSCOPY_CHANNELS) if microscopy
+                           else any(all(maps.get(channel) for channel in triplet) for triplet in TRIPLETS))
+            if not optical_effect and not clear_glass and not complete_maps:
                 reasons.append('incomplete_pbr_maps')
             if not optical_effect and material.get('type')=='StandardMaterial3D':
                 if 'triplanar' not in material: reasons.append('uv_application_unobserved')

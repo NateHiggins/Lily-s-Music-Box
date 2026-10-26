@@ -228,3 +228,6 @@ game/assets/props/washer_controls_T_*.png
 # Godot editor hot-reload copies; the original native binaries stay tracked.
 game/native/hose_math/bin/~*.dll
 game/native/hose_math/bin/~*.pdb
+
+# Checkout-local hash-pinned Godot backport (rebuild with tools/build_godot_reflection_fix.py).
+/.godot-engine.json

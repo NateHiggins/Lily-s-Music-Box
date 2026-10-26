@@ -1,0 +1,62 @@
+{
+	"checks": 38048,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"surface_requirements": {
+			"executed": true,
+			"status": "FAIL"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"status": "FAIL"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 492.465,
+		"exit_code": 1,
+		"timed_out": false
+	},
+	"failures": [
+		"restored front volume is walkable at (6.8, 3.2, -4.6) actual=(6.8, 3.2, -4.562232) contacts=[]",
+		"restored front volume is walkable at (6.8, 6.4, -4.6) actual=(6.8, 6.399903, -4.562232) contacts=[]",
+		"restored front volume is walkable at (6.8, 9.6, -4.6) actual=(6.8, 9.599902, -4.562232) contacts=[]",
+		"restored front volume is walkable at (6.8, 12.8, -4.6) actual=(6.8, 12.8, -4.562232) contacts=[]",
+		"restored front volume is walkable at (6.8, 16.0, -4.6) actual=(6.8, 15.9999, -4.562232) contacts=[]",
+		"restored front volume is walkable at (-4.85, 0.0, -9.8) actual=(-4.85, -0.000098, -9.762228) contacts=[]",
+		"restored front volume is walkable at (4.85, 0.0, -9.8) actual=(4.85, 0.0, -9.762229) contacts=[]",
+		"original input/physics street crossing and return completes",
+		"street route: F01_INNER_DOOR did not reach its requested stop through player input: 0.0 / 1.5707963267949",
+		"actual region geometry is resident: REGION_ARCADE_PORTAL",
+		"actual region geometry is resident: REGION_ARCADE_THROAT",
+		"actual region geometry is resident: REGION_ARCADE_HALL",
+		"restored front volume is walkable at (-0.0, 0.04, -12.23) actual=(-0.0, 0.000156, -12.3263) contacts=[\"/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F01_DOOR_06/F01_DOOR_06_Leaf/CenturyOakLeaf\"]",
+		"restored front volume is walkable at (-21.5, 0.0, -14.65) actual=(-21.46222, 0.0, -14.65) contacts=[\"/root/OrisonV2SurfaceInventory/OrisonV2Runtime/OrisonV2Blockout/F01_DOOR_06/F01_DOOR_06_Leaf/CenturyOakLeaf\"]",
+		"restored front volume is walkable at (-24.0, 0.0, -11.65) actual=(-23.98302, 0.00094, -11.68615) contacts=[\"/root/OrisonV2SurfaceInventory/OrisonV2Runtime/StreetBoundaries/ShedInnerStreetHoarding\", \"/root/OrisonV2SurfaceInventory/OrisonV2Runtime/StreetBoundaries/ShedTurnPost0_0\"]",
+		"all authored wet floors and room-facing walls use the new tile sets",
+		"continuous baseboard/panel cap at every sampled actual wall face",
+		"all loaded surfaces satisfy UV/PBR/mip/filter requirements",
+		"capture station exists: Arcade_retail_bar_cab01"
+	],
+	"inventory_sha256": "6ffca894e71e668cd654e89a6cad35f9b4bc862aa1bfeec655e5ccf8995e0b64",
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
+	"selector": "v2",
+	"source": {
+		"repository_head": "3a01ac1d624ea754821a5df8c8dc5773dd7a6b02",
+		"runtime_inputs_sha256": "0f112b60e9f337b007c4fedd2e4991175720432cded15b7bd046e81e33f697c4",
+		"test_path": "game/tests/orison_v2_surface_inventory.gd",
+		"test_sha256": "ffc1ed76ba209bdeb171b80422ea61591167ff1b30be39f17fac68c19b3d07fd"
+	},
+	"surface_inputs_sha256": "9854b03cc6c447dce61c2b128eb413e757a70e6a2a2b0bfb6bc705bd05a1543c"
+}

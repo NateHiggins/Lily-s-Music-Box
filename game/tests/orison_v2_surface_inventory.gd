@@ -223,6 +223,11 @@ func _run() -> void:
 	world.player.camera.make_current()
 	for frame in 3:await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(directory.path_join("tentacle_installed_surfaces.png"))
+	surface_gang._make_haze()
+	surface_gang._set_phase(surface_gang.Phase.COORDINATED_RETREAT)
+	surface_gang._process(2.0)
+	for frame in 3:await RenderingServer.frame_post_draw
+	get_viewport().get_texture().get_image().save_png(directory.path_join("tentacle_flowing_residue.png"))
 	world.player.camera.global_transform=gang_camera_pose
 	for node: Node in world.find_children("*", "GeometryInstance3D", true, false):
 		if node is Label3D: continue # Separately authored lettering, RUL-008.
@@ -539,13 +544,21 @@ func _material(material: Material) -> Dictionary:
 	if material.next_pass != null: row.next_pass = _material(material.next_pass)
 	return row
 
+func _expanded_shader_source(code: String, visited: Dictionary) -> String:
+	var include := RegEx.new()
+	include.compile('#include\\s+"(res://[^"]+)"')
+	var expanded := code
+	for match in include.search_all(code):
+		var path := match.get_string(1)
+		if visited.has(path): continue
+		visited[path] = true
+		expanded += "\n" + _expanded_shader_source(FileAccess.get_file_as_string(path), visited)
+	return expanded
+
 func _shader_filters(shader: Shader) -> Dictionary:
 	var identity := shader.get_instance_id()
 	if shader_filter_cache.has(identity): return shader_filter_cache[identity]
-	var code := shader.code
-	var include := RegEx.new()
-	include.compile('#include\\s+"(res://[^"]+)"')
-	for match in include.search_all(code): code += "\n"+FileAccess.get_file_as_string(match.get_string(1))
+	var code := _expanded_shader_source(shader.code, {})
 	var sampler := RegEx.new()
 	sampler.compile("uniform\\s+sampler2D\\s+(\\w+)\\s*([^;]*);")
 	var filters := {}

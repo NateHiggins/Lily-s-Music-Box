@@ -51,6 +51,13 @@ func _run() -> void:
 		return
 	observer.set_physics_process(false)
 	observer.frequency_divisor = 1
+	var warm_deadline := Time.get_ticks_msec()+15000
+	while not observer.preparation_ready and Time.get_ticks_msec()<warm_deadline:
+		await RenderingServer.frame_post_draw
+	check(observer.preparation_ready,"installed rendering preparation completes before admission")
+	if not observer.preparation_ready:
+		_finish(world)
+		return
 	var radiator := world.find_child(ServiceRoundDirector.RADIATOR_ID,true,false) as RadiatorProp
 	check(radiator != null,"authored maintenance target exists")
 	if radiator == null:

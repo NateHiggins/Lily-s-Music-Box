@@ -10609,6 +10609,7 @@ PROP_CATALOG = {
 }
 
 MATERIAL_CATALOG = {
+    "tentacle_gang_residue": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
     "tentacle_gang_membrane": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
     "tentacle_gang_tissue": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
     "tentacle_gang_eye": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},

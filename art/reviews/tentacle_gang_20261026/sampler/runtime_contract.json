@@ -1,0 +1,201 @@
+{
+	"checks": 57,
+	"contracts": {
+		"loaded_samplers": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"materials": {
+		"interior": {
+			"maps": {
+				"micro_membrane_albedo": "res://assets/dream/microscopy/tardigrade_membrane/albedo.png",
+				"micro_membrane_normal": "res://assets/dream/microscopy/tardigrade_membrane/normal.png",
+				"micro_membrane_roughness": "res://assets/dream/microscopy/tardigrade_membrane/roughness.png",
+				"micro_mineral_albedo": "res://assets/dream/microscopy/tardigrade_mineral/albedo.png",
+				"micro_mineral_normal": "res://assets/dream/microscopy/tardigrade_mineral/normal.png",
+				"micro_mineral_roughness": "res://assets/dream/microscopy/tardigrade_mineral/roughness.png",
+				"micro_organ_albedo": "res://assets/dream/microscopy/tardigrade_organ/albedo.png",
+				"micro_organ_normal": "res://assets/dream/microscopy/tardigrade_organ/normal.png",
+				"micro_organ_roughness": "res://assets/dream/microscopy/tardigrade_organ/roughness.png"
+			},
+			"mesh_uv_selector": false,
+			"mip_filters": {
+				"blender_pose_tex": false,
+				"micro_membrane_albedo": true,
+				"micro_membrane_normal": true,
+				"micro_membrane_roughness": true,
+				"micro_mineral_albedo": true,
+				"micro_mineral_normal": true,
+				"micro_mineral_roughness": true,
+				"micro_organ_albedo": true,
+				"micro_organ_normal": true,
+				"micro_organ_roughness": true,
+				"micro_scene_depth": false
+			},
+			"name": "",
+			"shader": "res://shaders/tardigrade_interior.gdshader",
+			"shader_unshaded": true,
+			"source": "",
+			"type": "ShaderMaterial"
+		},
+		"membrane": {
+			"maps": {
+				"micro_membrane_albedo": "res://assets/dream/microscopy/tardigrade_membrane/albedo.png",
+				"micro_membrane_normal": "res://assets/dream/microscopy/tardigrade_membrane/normal.png",
+				"micro_membrane_roughness": "res://assets/dream/microscopy/tardigrade_membrane/roughness.png",
+				"micro_mineral_albedo": "res://assets/dream/microscopy/tardigrade_mineral/albedo.png",
+				"micro_mineral_normal": "res://assets/dream/microscopy/tardigrade_mineral/normal.png",
+				"micro_mineral_roughness": "res://assets/dream/microscopy/tardigrade_mineral/roughness.png",
+				"micro_organ_albedo": "res://assets/dream/microscopy/tardigrade_organ/albedo.png",
+				"micro_organ_normal": "res://assets/dream/microscopy/tardigrade_organ/normal.png",
+				"micro_organ_roughness": "res://assets/dream/microscopy/tardigrade_organ/roughness.png"
+			},
+			"mesh_uv_selector": false,
+			"mip_filters": {
+				"blender_pose_tex": false,
+				"micro_membrane_albedo": true,
+				"micro_membrane_normal": true,
+				"micro_membrane_roughness": true,
+				"micro_mineral_albedo": true,
+				"micro_mineral_normal": true,
+				"micro_mineral_roughness": true,
+				"micro_organ_albedo": true,
+				"micro_organ_normal": true,
+				"micro_organ_roughness": true,
+				"micro_scene_depth": false
+			},
+			"name": "",
+			"shader": "res://shaders/tardigrade_membrane.gdshader",
+			"shader_unshaded": true,
+			"source": "",
+			"type": "ShaderMaterial"
+		},
+		"vacuole": {
+			"maps": {
+				"micro_membrane_albedo": "res://assets/dream/microscopy/tardigrade_membrane/albedo.png",
+				"micro_membrane_normal": "res://assets/dream/microscopy/tardigrade_membrane/normal.png",
+				"micro_membrane_roughness": "res://assets/dream/microscopy/tardigrade_membrane/roughness.png",
+				"micro_mineral_albedo": "res://assets/dream/microscopy/tardigrade_mineral/albedo.png",
+				"micro_mineral_normal": "res://assets/dream/microscopy/tardigrade_mineral/normal.png",
+				"micro_mineral_roughness": "res://assets/dream/microscopy/tardigrade_mineral/roughness.png",
+				"micro_organ_albedo": "res://assets/dream/microscopy/tardigrade_organ/albedo.png",
+				"micro_organ_normal": "res://assets/dream/microscopy/tardigrade_organ/normal.png",
+				"micro_organ_roughness": "res://assets/dream/microscopy/tardigrade_organ/roughness.png"
+			},
+			"mesh_uv_selector": false,
+			"mip_filters": {
+				"blender_pose_tex": false,
+				"micro_membrane_albedo": true,
+				"micro_membrane_normal": true,
+				"micro_membrane_roughness": true,
+				"micro_mineral_albedo": true,
+				"micro_mineral_normal": true,
+				"micro_mineral_roughness": true,
+				"micro_organ_albedo": true,
+				"micro_organ_normal": true,
+				"micro_organ_roughness": true,
+				"micro_scene_depth": false
+			},
+			"name": "",
+			"shader": "res://shaders/tardigrade_vacuole.gdshader",
+			"shader_unshaded": true,
+			"source": "",
+			"type": "ShaderMaterial"
+		}
+	},
+	"production_runtime": false,
+	"schema_version": 2,
+	"scope": "Loaded microscopy PBR maps and nested shader sampler observation; no composition or visual acceptance",
+	"selector": "v2",
+	"textures": {
+		"res://assets/dream/microscopy/tardigrade_membrane/albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 128,
+			"mip_levels": 7,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 128
+		},
+		"res://assets/dream/microscopy/tardigrade_membrane/normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 128,
+			"mip_levels": 7,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 128
+		},
+		"res://assets/dream/microscopy/tardigrade_membrane/roughness.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 128,
+			"mip_levels": 7,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 128
+		},
+		"res://assets/dream/microscopy/tardigrade_mineral/albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 128,
+			"mip_levels": 7,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 128
+		},
+		"res://assets/dream/microscopy/tardigrade_mineral/normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 128,
+			"mip_levels": 7,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 128
+		},
+		"res://assets/dream/microscopy/tardigrade_mineral/roughness.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 128,
+			"mip_levels": 7,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 128
+		},
+		"res://assets/dream/microscopy/tardigrade_organ/albedo.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 128,
+			"mip_levels": 7,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 128
+		},
+		"res://assets/dream/microscopy/tardigrade_organ/normal.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 128,
+			"mip_levels": 7,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 128
+		},
+		"res://assets/dream/microscopy/tardigrade_organ/roughness.png": {
+			"compressed": true,
+			"format": 22,
+			"height": 128,
+			"mip_levels": 7,
+			"mips": true,
+			"type": "CompressedTexture2D",
+			"width": 128
+		}
+	}
+}
