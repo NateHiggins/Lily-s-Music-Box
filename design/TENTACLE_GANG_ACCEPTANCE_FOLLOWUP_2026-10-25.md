@@ -4,9 +4,14 @@ Evidence class: **INERT**
 
 ## Branch / HEAD / origin/main / merge-base
 
-Canonical **C:/PleaseRemainOnTheLine**, **main**. This is the owner-requested
-checkpoint of encounter implementation and first-use preparation. It is not
-full surface acceptance or a clean-baseline candidate verification.
+Canonical **C:/PleaseRemainOnTheLine** was found on
+**codex/v2-acoustic-topology**, not main. Checkpoint commit **4facb1e5** contains
+only the named tentacle paths and selected shared-file additions. A preserved
+branch **codex/tentacle-gang-20261025** names this work. At inspection, main and
+the checkpoint diverged by 64 and 68 commits respectively. No merge of that
+unrelated history, push, full surface acceptance or clean-baseline candidate
+verification is claimed. Integrate the tentacle commit separately after the
+remaining acceptance work.
 
 ## Worktree clean at end
 
