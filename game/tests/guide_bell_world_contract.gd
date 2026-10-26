@@ -41,8 +41,23 @@ func _run() -> void:
 		var start: Vector3=world.adapter.root.to_global(Vector3(x+width*.5,low+.035,z-.25))
 		var end: Vector3=world.adapter.root.to_global(Vector3(x+width*1.5+float(stair.gap),high+.035,z-.25))
 		var stair_path: PackedVector3Array=director.provider.request(start,end)
+		var legs: Array=[]
+		if stair_path.size()<4:
+			# Name each authored leg's rejection and blocker in the composed world.
+			var half:=world.adapter.root.get_node(str(stair.id)+"/HalfLanding") as MeshInstance3D
+			var mid:=low+float(stair.rise)*int(stair.risers_per_flight)
+			var run:=float(stair.tread)*int(stair.risers_per_flight)
+			var turn:=half.position.z+half.mesh.get_aabb().end.z-.32
+			var a:=x+width*.5; var b:=x+width*1.5+float(stair.gap)
+			var points: Array[Vector3]=[Vector3(a,low,z-.25),Vector3(a,low,z),Vector3(a,mid,z+run),Vector3(a,mid,turn),Vector3(b,mid,turn),Vector3(b,mid,z+run+float(stair.landing_depth)),Vector3(b,high,z+float(stair.landing_depth)),Vector3(b,high,z-.25)]
+			for i in range(points.size()-1):
+				var from_point: Vector3=world.adapter.root.to_global(points[i])+Vector3.UP*.035
+				var to_point: Vector3=world.adapter.root.to_global(points[i+1])+Vector3.UP*.035
+				var okay: bool=director.provider.supported(from_point,to_point)
+				legs.append({"leg":i,"local_from":points[i],"local_to":points[i+1],"ok":okay,"failure":director.provider.last_rejection.duplicate()})
+			print("GUIDE WORLD STAIR LEGS ",JSON.stringify(legs))
 		check(stair_path.size()>=4,"installed primary stair supplies a physically supported inter-floor route")
-		diagnostics.append({"stair":stair.id,"points":stair_path,"length":Route.length(stair_path)})
+		diagnostics.append({"stair":stair.id,"points":stair_path,"length":Route.length(stair_path),"legs":legs})
 		stair_checked=true; break
 	check(stair_checked,"authored primary stair transition inspected")
 	check(director.active_task().is_empty(),"no active task yields no assistance")
