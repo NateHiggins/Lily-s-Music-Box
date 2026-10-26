@@ -535,3 +535,107 @@ the owner's mouse. This checkpoint is pushed as a draft pending runtime gates.
 
 BLOCKED **c16619a2** integration: full windowed/input qualification is held under
 the owner's mouse constraint; this does not block continued safe V2 work.
+
+## Fractional ordinary-cloud motion — October 26
+
+REPORT - V2-LIVING-SKY-MOTION - 2026-10-26
+
+The same draft branch now includes implementation **6c20ce0a**, based on
+**d0c18f36** main plus the cirrus repair. Evidence remains **INERT**. Full
+windowed/input qualification and whole V2 remain incomplete. No campaign clock,
+inventory, resident, work-order, quest or save schema is replaced.
+
+The noncapturing production-manager bench now has **SKY_MOTION_REVIEW=1**.
+It advances the existing clock by 1/60 second for 360 frames at each of four
+dates, holds the camera and jitter fixed, and records uploaded motion values,
+wall intervals and the measured weather-publication call. This revealed a real
+presentation cadence defect: 360 fractional clock values produced only seven
+ordinary cloud-position states. Late-year evolution and the shader's storm
+phase sometimes remained unchanged for nearly two seconds. This measurement
+does not attribute the previously reported 200–300 ms gameplay frame spikes.
+
+Civil-date dictionaries discard fractional seconds; unbounded Vector2/Vector4
+transport also loses small movements after months of travel. The weather owner
+now reads precise time from the existing clock for ordinary field motion. The
+existing prefix integral stores its components in double arrays, retaining its
+binary search and avoiding a per-frame calendar scan. The public date-based
+transport method remains available. Invalid non-finite timestamps are refused.
+The new helper is a projection, not an additional time writer or save domain.
+
+Each ordinary noise lookup and analytic wave gets a separately reduced phase
+before float32 GPU upload. Reducing the entire world offset at one arbitrary
+distance would jump noise layers with different frequencies; this repair keeps
+their periodic coordinates independent. Three extra small drift uniforms are
+published, with no extra noise lookup or raymarch step. Redundant initial field
+calculations were removed. Observed coverage, cloud classification, wind and
+narrative dates still come from the existing owners. Corrected double integration
+can slightly shift historical cloud geometry relative to its former rounded
+prefix; it does not change authored meteorological observations or news.
+
+Both **before** and **ordinary_final** motion diagnostics finish four dates with
+zero fixture/capture failures and empty stderr. The final ordinary-brush review
+also finishes all 12 masked views with empty stderr; rendered shapes were
+inspected. All these windowed scenes request no mouse capture. Their desktop and
+cursor-clip observations remain unchanged. This remains an isolated rendering
+diagnostic, not occupied-world runtime qualification.
+
+| Day in preview year | Before ordinary position states / longest identical run | Final states / longest identical run |
+|---|---|---|
+| 0 |7 /60 frames|58 /7 frames|
+| 210 |7 /60 frames|58 /7 frames|
+| 300 |7 /60 frames|58 /7 frames|
+| 362 |7 /60 frames|58 /7 frames|
+
+There are 360 samples per row, six seconds of explicit simulation time. The
+existing approximately 0.1-second publication cadence is retained. Before XY
+columns store kilometre offsets; final XY columns store bounded texture phases.
+The count compares update cadence, not displacement magnitude or FPS. Direct
+projection checks also retain at least 55 distinct phases in 60 frame-scale
+late-year samples. Noise-evolution movement is extremely slow and remains
+limited by float32 subpixel precision; no universal per-frame update claim is
+made. **Storm wind and phase are explicitly still unfixed**: the late-year
+storm-wind vector changes only eight times and storm phase four times in the
+final six-second sample.
+
+Publication-call distributions, in milliseconds, use 360 samples per date and
+floor(p×(n−1)) percentiles. They include the existing manager's interpolation,
+polling/publication work and call scheduling; they do not split exclusive script,
+physics, rendering, streaming or compilation costs.
+
+| Date | Before p50 / p95 / p99 / max | Final p50 / p95 / p99 / max |
+|---|---|---|
+| June 8 |0.156 /0.264 /0.969 /1.076|0.154 /0.260 /1.018 /1.111|
+| September 6 |0.166 /0.279 /0.991 /1.111|0.168 /0.295 /1.042 /1.170|
+
+No overall speed improvement is claimed; some publication tails increased.
+The repair addresses ordinary-cloud presentation stepping. The actual occupied
+movement/turning/transition/furnishing/grab/inspection route remains required for
+playable-world frame-time and input-latency conclusions.
+
+Headless **CampaignWeatherTest now passes 412 checks**, including fractional
+clock reading, retained subsecond late-year movement, non-finite denial, unchanged
+campaign/save authorities, bounded GPU phases and reverse-date reconstruction.
+The original schedule and flash suites pass with empty stderr. This does not
+renew the skipped newspaper render or held native-input/windowed regressions.
+Fresh output paths are used for **ordinary_calendar** and **final_calendar**.
+An initial retry reused the preceding external headless paths: its older
+405-check diagnostic JSON was overwritten, while the original raw stdout and
+wrapper receipt were already retained byte-identically in the review archive.
+That retention gap is recorded explicitly; no reconstructed JSON is offered as
+an original receipt. No original failure or runtime-contract receipt was erased.
+
+The existing review packet is extended to **297 hash-verified members,
+13,803,255 bytes**, without adding repository evidence files. All previous
+members remain unchanged; the manifest records archive history. Original motion
+records, representative PNGs, declared derivatives, intermediate runs, final
+test-written JSON and source snapshots are retained. Static verification for the
+updated draft is recorded on PR #57. Reader and ledger results are reported
+there; this report promotes no requirement.
+
+Still open: storm/cyclone/funnel phase and transport precision; room/world weather
+save-reconstruction, denial and owned teardown; preview retirement; cloud-family
+art polish; and the full matched playable performance route. The draft remains
+unmerged under the same held runtime gates. Continued safe work is authorized.
+
+BLOCKED **6c20ce0a** integration: full windowed/input qualification is held; no
+claim that the ordinary-cloud diagnostic completes the weather or V2 objective.
