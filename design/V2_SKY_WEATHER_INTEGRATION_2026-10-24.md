@@ -1037,3 +1037,45 @@ All93 historical members remain byte-identical. The fresh headless calendar
 run passes63/63 with empty stderr and a current-source wrapper binding. Both
 test-written calendar fixture receipts and the actual scoped lifecycle save
 are preserved; the earlier receipt is not overwritten.
+
+
+## October 26 — measured panorama transition repair, qualification in progress
+
+Opt-in timings in the existing roof inspector separate weather updates,
+extreme publication, spectacle and astronomy/lighting. The unchanged roof
+fixture now requests all 365 authored noons forward and backward, with two
+rendered frames per request. The shared endpoint does not republish: there
+are 365 forward and 364 reverse timing rows, but 730 target/date checks.
+The actual pre-repair and cache-only runs each pass 43 checks with empty stderr.
+
+| Location / reproduction | Severity / evidence | Repair / current verification |
+|---|---|---|
+| Roof day/night changes while scrubbing | High responsiveness: astronomy callbacks reach 122–248 ms; each large callback coincides with a panorama-pair change. Weather update maximum stays below 4 ms | DayNightDirector prepares and retains the existing three unique panorama maps during setup. State changes reuse the same resource identities; no source image, resolution, shader or weather authority is replaced. Cache-only comparison below passes; final mipmap combination remains pending |
+| Resident panorama imports | Existing quality defect: actual WeatherSkyTest fails exactly its new loaded-mipmap check. All three GST 2 images have zero extra mip levels and tracked sidecars declare generation false | Enable generation in only those three existing sidecars, preserving their UIDs and compression settings. Shared-lane reimport is queued. Original failure and 75,497,472-byte decoded image-data observation remain preserved; this is not VRAM accounting |
+| Remaining sky presentation | Open art findings | Cache-only roof captures were inspected. Storm cloud relief remains weak; near-camera precipitation can span much of the image. Neither is declared repaired here |
+
+The fixed forward route uses the same 365 dates, roof-test source, project,
+engine and unchanged settings-file fingerprint. Godot 4.7.1 Forward+ runs on the
+RTX 4080. Total update p50 is 1.289→1.290 ms, p95 is 1.5292→1.5666 ms and p99 is
+2.65032→2.59452 ms: typical costs remain broadly unchanged. Maximum falls from
+**123.287 to 3.788 ms**, with updates above 100 ms falling from **one to zero**.
+The astronomy portion's maximum falls from 122.111 to 0.153 ms. The reverse route
+already has no long callbacks; its maximum changes from 1.574 to 1.382 ms.
+
+The held-input diagnostic has 25 samples per run, with maximum 248.977→1.397 ms
+and eight→zero callbacks above 100 ms. Its actual sampled dates differ because
+input holds use elapsed real time, so it is not a matched equal-length movement
+route. The fixed annual request lists are checked identical. Frame-wide data
+also includes startup, screenshots and instrumentation, and is not used for an
+average-FPS improvement claim. Draw-compilation counters remain zero; surface
+counters report 0/461 around startup and remain 461 through the large callbacks.
+Those delayed renderer observations do not independently attribute native
+upload, driver, physics or shader work.
+
+The counter meanings were checked in the matching
+[Godot 4.7 RenderingServer documentation](https://docs.godotengine.org/en/4.7/classes/class_renderingserver.html#enum-renderingserver-renderinginfo).
+Counter reads occur after the timed CPU phases. Original logs, test source,
+imports and frame samples are retained externally pending the final packet.
+No final candidate, memory budget, Android device, whole-weather, native-input,
+matched whole-world performance or human acceptance is claimed by this interim
+section. The full goal and unqualified V 2 coverage remain open.
