@@ -46,6 +46,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Instrument render-layer initialization and repaired light-pair teardown | `design/V2_DEVICE_LIGHT_PAIRING_2026-10-25.md` |
 | Main's scheduled skies, resident agendas, kitchens and inventories in the repair branch | `design/V2_MAIN_AGENDA_AND_SKY_MERGE_2026-10-25.md` |
 | Authored campaign-year weather, dated forecasts and local resident remarks | `design/V2_WEATHER_CALENDAR_2026-10-24.md` |
+| Living Sky integration, performance evidence and the roof-only full-year time-scrubbing preview | `design/V2_SKY_WEATHER_INTEGRATION_2026-10-24.md` |
 | Tentacle gang hitch/teardown checkpoint and requested contact-melt follow-up (INERT) | `design/TENTACLE_GANG_ACCEPTANCE_FOLLOWUP_2026-10-25.md` |
 | Owner's maintenance-local tentacle gang anatomy, contact, optics and acceptance requirements | `design/TENTACLE_GANG_ENCOUNTER_BRIEF_2026-10-25.md` |
 | Tentacle gang implementation, runtime review and remaining qualification limits (INERT) | `design/TENTACLE_GANG_IMPLEMENTATION_REPORT_2026-10-25.md` |
