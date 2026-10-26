@@ -664,6 +664,10 @@ func _compose_authorities() -> void:
 			ServiceRoundDirector.RADIATOR_ID) as RadiatorProp
 	if open_shift_radiator:
 		open_shift_radiator.bind_inventory(maintenance_inventory)
+	var tentacle_observer := preload("res://scripts/dream/entity/maintenance_tentacle_observer.gd").new()
+	tentacle_observer.name = "MaintenanceTentacleObserver"
+	add_child(tentacle_observer)
+	tentacle_observer.setup(self,player,work_orders)
 	_compose_observation_ledger()
 	preload("res://scripts/building/orison_v2_furnishing_clearance.gd").apply(self)
 	if not wayfinding.fit_to_finishes(_blockout):
