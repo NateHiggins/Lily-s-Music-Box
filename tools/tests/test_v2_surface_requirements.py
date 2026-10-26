@@ -132,6 +132,16 @@ class Requirements(unittest.TestCase):
     def test_transparent_physical_surface_cannot_hide_missing_maps(self):
         data=self.inventory();data['materials']['material'].update(transparency=1,maps={})
         self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+    def test_anatomy_sampler_names_keep_normal_and_mip_requirements(self):
+        data=self.inventory(); material=data['materials']['material']
+        material.update(type='ShaderMaterial',shader='res://shaders/tentacle_gang_tissue.gdshader',
+                        maps={'albedo_map':'albedo','roughness_map':'rough','normal_map':'normal'},
+                        mip_filters={'albedo_map':True,'roughness_map':True,'normal_map':True})
+        self.assertEqual(evaluate(data)['findings'],[])
+        material['mip_filters']['normal_map']=False
+        self.assertIn('non_mipmapped_shader_sampler:normal_map',evaluate(data)['findings'][0]['reasons'])
+        del material['maps']['normal_map']
+        self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
     def native_union_vapor(self):
         data=self.inventory()
         data['draws'][0].update(owner='radiator/WorkingAssembly',
@@ -206,6 +216,16 @@ class Requirements(unittest.TestCase):
     def test_hidden_closed_stock_still_requires_uvs(self):
         data=self.inventory();data['draws'][0]['visible']=False;data['meshes']['mesh']['surfaces'][0]['missing_uv']=True
         self.assertIn('missing_uv',evaluate(data)['findings'][0]['reasons'])
+    def test_tentacle_scattering_does_not_exempt_physical_anatomy(self):
+        data=self.inventory()
+        data['draws'][0].update(path='Gang/FiniteSeamDroplets',owner_script='res://scripts/dream/entity/maintenance_tentacle_gang.gd')
+        data['materials']['material'].update(type='ShaderMaterial',shader='res://shaders/lamp_optical_dust.gdshader',maps={})
+        self.assertFalse(evaluate(data)['findings'])
+        data['draws'][0]['path']='Gang/MEMBRANE'
+        self.assertTrue(evaluate(data)['findings'])
+        data['draws'][0]['path']='Gang/FiniteSeamDroplets'
+        data['draws'][0]['owner_script']='res://scripts/props/radiator_prop.gd'
+        self.assertTrue(evaluate(data)['findings'])
     def test_loaded_mips_required_even_when_import_settings_look_correct(self):
         data=self.inventory();data['textures']['normal']['mips']=False
         self.assertIn('missing_loaded_mips:normal',evaluate(data)['findings'][0]['reasons'])

@@ -7,7 +7,8 @@ import argparse,collections,json,copy,math
 from pathlib import Path
 
 TRIPLETS = [('albedo_texture','roughness_texture','normal_texture'),
-            ('albedo_tex','rough_tex','normal_tex')]
+            ('albedo_tex','rough_tex','normal_tex'),
+            ('albedo_map','roughness_map','normal_map')]
 
 def evaluate(data):
     if data.get('schema')!='orison.v2-surface-inventory.v1':raise ValueError('unknown inventory schema')
@@ -53,6 +54,10 @@ def evaluate(data):
             if (shader=='res://shaders/lamp_optical_dust.gdshader' and
                 draw.get('owner_script')=='res://scripts/building/orison_v2_lamp_atmosphere.gd'):
                 effects.append({'id':identity,'class':'light_scattering_dust'});continue
+            if (shader=='res://shaders/lamp_optical_dust.gdshader' and
+                draw.get('owner_script')=='res://scripts/dream/entity/maintenance_tentacle_gang.gd' and
+                draw['path'].split('/')[-1]=='FiniteSeamDroplets'):
+                effects.append({'id':identity,'class':'finite_seam_scattering'});continue
             halo=(draw.get('surface_role')=='optical_halo' and
                   draw.get('owner_script')=='res://scripts/props/light_fixture_prop.gd' and
                   all(material.get(flag) for flag in ('unshaded','additive','billboard')))

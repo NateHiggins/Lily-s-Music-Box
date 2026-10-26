@@ -10609,6 +10609,9 @@ PROP_CATALOG = {
 }
 
 MATERIAL_CATALOG = {
+    "tentacle_gang_membrane": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
+    "tentacle_gang_tissue": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
+    "tentacle_gang_eye": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
     'player_doodle': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     "nook_woven_wool": {"base_color": [1.0, 1.0, 1.0, 1.0], "roughness": 1.0, "metallic": 0.0},
     'limewash_plaster': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},

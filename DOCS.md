@@ -34,6 +34,9 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Tentacle gang hitch/teardown checkpoint and requested contact-melt follow-up (INERT) | `design/TENTACLE_GANG_ACCEPTANCE_FOLLOWUP_2026-10-25.md` |
+| Owner's maintenance-local tentacle gang anatomy, contact, optics and acceptance requirements | `design/TENTACLE_GANG_ENCOUNTER_BRIEF_2026-10-25.md` |
+| Tentacle gang implementation, runtime review and remaining qualification limits (INERT) | `design/TENTACLE_GANG_IMPLEMENTATION_REPORT_2026-10-25.md` |
 | Shower moisture, side-correct wet glass and native wall-mounted toilet paper | `design/V2_BATHROOM_MOISTURE_AND_PAPER_2026-10-24.md` |
 | Varied nook shelves, reused keepsakes and correction of stale binding debt | `design/V2_NOOK_SHELF_DRESSING_2026-10-24.md` |
 | Readable hose jet, inactive prepared emitters and first-spray timing | `design/V2_HOSE_SPRAY_READABILITY_2026-10-24.md` |

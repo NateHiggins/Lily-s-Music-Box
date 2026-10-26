@@ -206,6 +206,24 @@ func _run() -> void:
 		cabinet.set_process(false); cabinet._boot()
 		check(cabinet.machine.is_booted(),"embedded source world boots for surface review")
 	await get_tree().process_frame; await get_tree().process_frame
+	# The encounter is normally dormant. Qualify its actual loaded physical
+	# anatomy in this composed world rather than silently omitting it.
+	var gang_target := world.find_child(ServiceRoundDirector.RADIATOR_ID,true,false) as RadiatorProp
+	check(gang_target != null,"tentacle surface fixture resolves installed radiator")
+	var surface_gang := preload("res://scripts/dream/entity/maintenance_tentacle_gang.gd").new()
+	world.add_child(surface_gang)
+	var gang_at := gang_target.to_global(Vector3(0,-gang_target.installation_drop,-.5))
+	check(surface_gang.start(gang_target,world.player,Transform3D(Basis.IDENTITY,gang_at),34,world.get_node("LampAtmosphere").field),"seven-limb physical surface scope starts")
+	surface_gang.phase=surface_gang.Phase.INTERFERING
+	surface_gang._process(0)
+	surface_gang.set_process(false);surface_gang.set_physics_process(false)
+	var gang_camera_pose := world.player.camera.global_transform
+	world.player.camera.global_position=gang_target.to_global(Vector3(0,.35,-1.6))
+	world.player.camera.look_at(gang_at+Vector3.UP*.35)
+	world.player.camera.make_current()
+	for frame in 3:await RenderingServer.frame_post_draw
+	get_viewport().get_texture().get_image().save_png(directory.path_join("tentacle_installed_surfaces.png"))
+	world.player.camera.global_transform=gang_camera_pose
 	for node: Node in world.find_children("*", "GeometryInstance3D", true, false):
 		if node is Label3D: continue # Separately authored lettering, RUL-008.
 		if not node is MeshInstance3D and not node is MultiMeshInstance3D and not node is GPUParticles3D and not node is CPUParticles3D:
@@ -269,6 +287,7 @@ func _run() -> void:
 	for line in audit_output: print(str(line).strip_edges())
 	_validate_native_controls(world)
 	print("SURFACE INVENTORY: draws=", draws.size(), " meshes=",mesh_rows.size()," materials=",material_rows.size()," textures=",texture_rows.size())
+	surface_gang.cleanup();surface_gang.queue_free()
 	# Reuse this composed world for representative appearance checks.
 	for child in world.player.carried_device.get_children():
 		if child is CanvasLayer: child.hide()
