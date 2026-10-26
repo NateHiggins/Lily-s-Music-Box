@@ -30,8 +30,14 @@ func _route() -> void:
 		await get_tree().physics_frame
 		if not door._key_turning:break
 	if not _require(door.leaf_state=="locked" and DoorKeyring.book().locks.get("F01_DOOR_06",false),"real house-service key input saves the entrance bolt"):return
-	if not await _use(door,door._body.to_global(Vector3(door.width*.5,1.1,door._hinge_offset)),"locked_rattle"):return
-	if not _require(not door.open and not door._moving,"locked entrance refuses ordinary E motion"):return
+	# The hand takes the bolted leaf and drags it; it must not move.
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var moved: bool = await hand.operate(door._body.to_global(Vector3(door.width*.5,1.1,door._hinge_offset)), door.motion_target_angle(true)*.86, door)
+	hand.free()
+	if not _require(not moved and not door.open and not door._moving,"locked entrance refuses the hand's motion"):return
 	door=await _save_rebuild()
 	if door==null:return
 	player.face_world_point(door._body.to_global(Vector3(door.width*.5,1.1,door._hinge_offset)))
@@ -44,7 +50,8 @@ func _route() -> void:
 	if not await _operate_entry(door,true,"outside_open"):return
 	if not await _walk(Vector3(0,0,-10.3)):return
 	if not await _operate_entry(door,false,"inside_close"):return
-	if not _require(not player.noclip and player.collision_mask==1 and player.is_physics_processing(),"round trip retains live gravity and collision"):return
+	# The player's mask is the world layer plus its native contact layers.
+	if not _require(not player.noclip and (player.collision_mask&1)==1 and player.is_physics_processing(),"round trip retains live gravity and collision: noclip=%s mask=%s physics=%s"%[player.noclip,player.collision_mask,player.is_physics_processing()]):return
 func _save_rebuild() -> DoorProp:
 	var previous_path:=RealityState.save_path
 	var stance:=player.global_position
@@ -70,12 +77,18 @@ func _save_rebuild() -> DoorProp:
 		if FileAccess.file_exists(ENTRY_SAVE+suffix):DirAccess.remove_absolute(ENTRY_SAVE+suffix)
 	return door if _require(restored,"fresh native leaf restores the saved bolt and existing keys") else null
 func _operate_entry(door: DoorProp,want_open: bool,label: String) -> bool:
-	if not await _use(door,door._body.to_global(Vector3(door.width*.5,1.1,door._hinge_offset)),label):return false
+	# An outswung free edge travels out of arm reach: grab the hinge-side third
+	# to close it, without changing the real reach constraint.
+	var along: float=door.width*(.5 if want_open else 1.0/3.0)
+	if not await _use(door,door._body.to_global(Vector3(along,1.1,door._hinge_offset)),label):return false
 	if not await _wait_for_door(door):return false
 	return _require(door.open==want_open,"landmark E motion settles: "+label)
 func _turn_key() -> bool:
+	# Under the direct-manipulation ruling (design/DIRECT_MANIPULATION_2026-10-12.md)
+	# a grabbable leaf shows the target indicator, not a text prompt. The key is
+	# still the keyboard's K at the aimed door; the bolt checks that follow prove it.
 	await get_tree().physics_frame;player._update_prompt()
-	if not _require(player._prompt.text.contains("[K]"),"existing keyboard key prompt reaches the landmark"):return false
+	if not _require(player._grab.find_target().get("owner") is DoorProp,"the player aims at the landmark leaf"):return false
 	var event:=InputEventKey.new();event.keycode=KEY_K;event.physical_keycode=KEY_K;event.pressed=true
 	Input.parse_input_event(event);await get_tree().process_frame;await get_tree().process_frame
 	event.pressed=false;Input.parse_input_event(event);await get_tree().process_frame

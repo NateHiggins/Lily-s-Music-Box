@@ -83,6 +83,10 @@ func _open_door(identity: String) -> bool:
 			"leaf starts closed and usable: " + identity): return false
 	if not await _drag_part(door, door.to_global(Vector3(door.width * .5, 1.1, 0)), door.motion_target_angle(true), identity): return false
 	await get_tree().create_timer(.6).timeout
+	# This route closes its doors by hand later. Prop the leaf against the slow
+	# self-close a settled door now schedules (V2EasyDoorBench proves that).
+	if door._easy != null:
+		door._easy.stop()
 	var body := door.get_node_or_null("HingedLeaf") as AnimatableBody3D
 	return _require(door.open and body != null
 			and absf(body.rotation.y - door.motion_target_angle(true)) < .01,

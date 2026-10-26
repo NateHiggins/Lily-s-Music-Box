@@ -129,7 +129,7 @@ func _prepare_procurement() -> bool:
 
 func _enter_2a() -> bool:
 	for point in [Vector3(1.925,1.6,1.3),Vector3(3.975,1.6,1.3),Vector3(3.975,3.2,-2.4),
-			Vector3(3.975,3.2,-3.4),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),
+			Vector3(4.0,3.2,-3.1),Vector3(3.55,3.2,-3.45),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),
 			Vector3(-4.65,3.2,0),Vector3(-6.4,3.2,0),Vector3(-8.5,3.2,0),Vector3(-9.2,3.2,1.4)]:
 		if not await _walk(point): return false
 		if point.is_equal_approx(Vector3(-4.65,3.2,0)):
@@ -138,7 +138,7 @@ func _enter_2a() -> bool:
 
 func _return_core() -> bool:
 	for point in [Vector3(-8.5,3.2,0),Vector3(-6.4,3.2,0),Vector3(-3.2,3.2,0),Vector3(-1.75,3.2,0),
-			Vector3(-1.75,3.2,-3.4),Vector3(3.975,3.2,-3.4),Vector3(3.975,3.2,-2.4),Vector3(3.975,1.6,1.3),
+			Vector3(-1.75,3.2,-3.4),Vector3(3.55,3.2,-3.45),Vector3(4.0,3.2,-3.1),Vector3(3.975,3.2,-2.4),Vector3(3.975,1.6,1.3),
 			Vector3(1.925,1.6,1.3),Vector3(1.925,0,-3.5)]:
 		if not await _walk(point): return false
 	return true

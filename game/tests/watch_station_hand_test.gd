@@ -71,6 +71,15 @@ func move_to(goal: float) -> bool:
 		if depth_gesture: screen=Vector2(0,tangent.dot(player.camera.global_basis.z)*180.0)
 		var event := InputEventMouseMotion.new()
 		event.relative=screen*clampf(goal-value,-.15 if target.kind=="hinge" else -.04,.15 if target.kind=="hinge" else .04)
+		# A fixed gesture (architectural doors since 276e2ff4) keeps the screen
+		# direction the hand took at the grab: drag along that, so many pixels
+		# for the whole range, however far the leaf has turned past the camera.
+		var gesture_px := float(target.get("gesture_travel_px", 0.0))
+		var held: Vector2 = player._grab._gesture_axis
+		if gesture_px > 0.0 and not held.is_zero_approx():
+			depth_gesture = true
+			var span := float(target.maximum) - float(target.minimum)
+			event.relative = held * clampf((goal - value) / span * gesture_px, -24.0, 24.0)
 		var before_screen: Vector2=player.camera.unproject_position(point)
 		player._unhandled_input(event)
 		var dispatched_value: float=target.read.call()

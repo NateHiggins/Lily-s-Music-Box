@@ -8,10 +8,10 @@ func _route() -> void:
 		var anchor := world.adapter.resolve(identity) as Node3D
 		var door := anchor.get_node_or_null(identity+"_Leaf") as DoorProp
 		if door==null:
-			failures.append(identity+" missing production leaf")
+			_fail(identity+" missing production leaf")
 			return
 		if anchor.has_node("Hinge"):
-			failures.append(identity+" retains placeholder collision")
+			_fail(identity+" retains placeholder collision")
 			return
 		for side in [-1.0,1.0]:
 			# The watch desk stands opposite this threshold: its legal landing
@@ -35,7 +35,7 @@ func _route() -> void:
 					if player.get_slide_collision(index).get_collider()==door._body: contacted=true
 			Input.action_release("move_forward")
 			if not contacted or anchor.to_local(player.global_position).z*side<=0:
-				failures.append(identity+" closed leaf did not block traversal")
+				_fail(identity+" closed leaf did not block traversal")
 				return
 			# Back off before the moving leaf swings toward the operator.
 			if not await _walk(world.adapter.root.to_local(anchor.to_global(Vector3(0,0,side*near_distance)))): return
@@ -77,7 +77,7 @@ func _use(door: DoorProp, want_open: bool) -> bool:
 		standing.collision_mask=player.collision_mask;standing.exclude=[player.get_rid()]
 		var occupied: Array=world.get_world_3d().direct_space_state.intersect_shape(standing,4)
 		if not occupied.is_empty():
-			failures.append(str(door.name)+" operator stance is occupied: "+str(occupied))
+			_fail(str(door.name)+" operator stance is occupied: "+str(occupied))
 			return false
 		if not await _walk(world.adapter.root.to_local(operator)): return false
 	player.face_world_point(door._body.to_global(Vector3(door.width*.5,door.height*.5,0)))
@@ -87,7 +87,7 @@ func _use(door: DoorProp, want_open: bool) -> bool:
 	hand.player=player;add_child(hand)
 	hand.click()
 	if not player._grab.active() or player._grab.target.get("owner")!=door:
-		failures.append(str(door.name)+" actual click did not grab the physical leaf")
+		_fail(str(door.name)+" actual click did not grab the physical leaf")
 		if player._grab.active():hand.click()
 		hand.free();return false
 	var picked: Dictionary=player._grab.target
@@ -110,7 +110,7 @@ func _use(door: DoorProp, want_open: bool) -> bool:
 	var follows: bool=hand.follows_cursor
 	hand.free()
 	if not moved or not released or not settled or not follows:
-		failures.append(str(door.name)+" physical leaf input failed; want_open="+str(want_open)+" moved="+str(moved)+" released="+str(released)+" angle="+str(picked.read.call())+" goal="+str(goal))
+		_fail(str(door.name)+" physical leaf input failed; want_open="+str(want_open)+" moved="+str(moved)+" released="+str(released)+" angle="+str(picked.read.call())+" goal="+str(goal))
 		return false
 	await _capture(str(door.name)+("_opened_by_hand" if want_open else "_closed_by_hand"))
 	if sidestep and not await _walk(world.adapter.root.to_local(approach)): return false
@@ -122,3 +122,9 @@ func _capture(label: String) -> void:
 	DirAccess.make_dir_recursive_absolute(directory)
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png"))
+
+
+## Record a failure and say it, so the log carries the reason.
+func _fail(reason: String) -> void:
+	print("PUBLIC DOORS FAIL: ", reason)
+	failures.append(reason)

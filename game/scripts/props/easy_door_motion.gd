@@ -83,7 +83,11 @@ func _in_passage() -> bool:
 	if door.open and _resident_in_sweep():return true
 	if not is_instance_valid(_excepted):return false
 	var at: Vector3=door.to_local(_excepted.global_position)
-	return at.x>-.40 and at.x<door.width+.40 and absf(at.z)<.50 and at.y>-.2 and at.y<door.height+.2
+	# A shut leaf keeps the player's pass only while they actually overlap it
+	# (body radius plus the leaf's half thickness); standing in the doorway
+	# beside a closed door is not a way through it.
+	var depth := .50 if door.open else .34
+	return at.x>-.40 and at.x<door.width+.40 and absf(at.z)<depth and at.y>-.2 and at.y<door.height+.2
 
 ## A resident has no collision exception with the leaf: never swing it shut
 ## while one stands anywhere it could reach, on either side.

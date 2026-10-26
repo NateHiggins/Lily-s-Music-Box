@@ -114,8 +114,14 @@ func _route() -> void:
 		if not await _walk_world(point): return
 	if not await _key(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_lock"): return
 	if not _require(news.leaf_state=="locked" and not news.open,"actual key input locks News Cigars"): return
-	if not await _use(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_locked_refusal"): return
-	if not _require(not news.open,"locked shop refuses normal opening"): return
+	# The hand takes the bolted leaf and drags it; it must not move.
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var moved: bool = await hand.operate(news.to_global(Vector3(news.width*.5,1.1,0)), news.motion_target_angle(true)*.86, news)
+	hand.free()
+	if not _require(not moved and not news.open and not news._moving,"locked shop refuses normal opening"): return
 	if not await _key(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_unlock"): return
 	if not await _use(news,news.to_global(Vector3(news.width*.5,1.1,0)),"news_open"): return
 	if not await _wait_for_door(news): return
@@ -132,12 +138,16 @@ func _route() -> void:
 	outward.reverse()
 	for point: Vector3 in outward:
 		if not await _walk_world(point): return
-	for point in [Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
+	# The entrance has closed itself since the walk out; open it again by hand.
+	if not await _enter_front_entrance(): return
+	for point in [Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
 		if not await _walk(point): return
 	# Finish at the private threshold. The spare now controls the resident's
 	# real leaf, after a continuous return from its actual copying counter.
+	# The stair head stands clear of the fire-line cabinet, which stays where it
+	# is (owner choice 2026-10-25; design/ORISON_RESIDENT_BODIES_2026-10-25.md).
 	for point in [Vector3(1.925,1.6,1.3),Vector3(3.975,1.6,1.3),Vector3(3.975,3.2,-2.4),
-		Vector3(3.975,3.2,-3.4),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),Vector3(-4.65,3.2,0)]:
+		Vector3(4.0,3.2,-3.1),Vector3(3.55,3.2,-3.45),Vector3(-1.75,3.2,-3.4),Vector3(-1.75,3.2,0),Vector3(-3.2,3.2,0),Vector3(-4.65,3.2,0)]:
 		if not await _walk(point): return
 	var opening := world.adapter.resolve("F02_DOOR_02") as Node3D
 	var apartment := opening.get_node("F02_DOOR_02_Leaf") as DoorProp
@@ -230,18 +240,21 @@ func _key(owner_node: Node3D, target: Vector3, label: String, family := &"keyboa
 	var prior_touch := player.touch_input
 	player.touch_input = family==&"touch"
 	player._update_prompt()
-	var carrier := "[D-PAD UP]" if family==&"controller" else "[KEY]" if family==&"touch" else "[K]"
-	if not _require(player._prompt.text.contains(carrier),"actual key prompt: "+label): return false
+	# A grabbable leaf shows the target indicator, not a text prompt
+	# (design/DIRECT_MANIPULATION_2026-10-12.md); the key ray below proves the aim.
+	# The same ray as PlayerController.use_key_interaction: every layer, areas
+	# included, and the first ancestor with interact_key or interact wins.
 	var query := PhysicsRayQueryParameters3D.create(player.camera.global_position,
-		player.camera.global_position-player.camera.global_basis.z*2.1,1,[player.get_rid()])
+		player.camera.global_position-player.camera.global_basis.z*2.1)
+	query.exclude = [player.get_rid()]
 	query.collide_with_areas = true
 	var hit := world.get_world_3d().direct_space_state.intersect_ray(query)
 	var node: Node = hit.get("collider")
-	var matched := false
-	while node:
-		matched = matched or node==owner_node
+	var answering: Node = null
+	while node and answering == null:
+		if node.has_method("interact_key") or node.has_method("interact"): answering = node
 		node = node.get_parent()
-	if not _require(matched,"real key ray reaches "+label): return false
+	if not _require(answering==owner_node,"real key ray reaches "+label+": "+(str(answering.get_path()) if answering else str(hit.get("collider")))): return false
 	var before := owner_node.leaf_state as String if owner_node is DoorProp else ""
 	var key_event := InputEventKey.new()
 	var joy_event := InputEventJoypadButton.new()
@@ -269,8 +282,11 @@ func _key(owner_node: Node3D, target: Vector3, label: String, family := &"keyboa
 	player.touch_input = prior_touch
 	player._prompt_input_family = &"keyboard"
 	if owner_node is DoorProp:
-		return _require(owner_node.leaf_state==("closed" if before=="locked" else "locked"),
-				family+" input changes actual lock: "+label)
+		var door := owner_node as DoorProp
+		return _require(door.leaf_state==("closed" if before=="locked" else "locked"),
+				family+" input changes actual lock: "+label+" state=%s moving=%s turning=%s open=%s blocked=%s key=%s call_locked=%s mouse=%s"
+				% [door.leaf_state, door._moving, door._key_turning, door.open, RealityState.save_write_blocked,
+				DoorKeyring.player_has_key(door), player.call_locked, Input.mouse_mode])
 	return true
 
 func _event(keycode: Key) -> void:
