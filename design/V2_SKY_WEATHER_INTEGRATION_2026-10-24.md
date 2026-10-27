@@ -2001,9 +2001,18 @@ to its recorded sources; the new nightly sweep does not replace those hours.
 
 The existing archive now also retains both raw final runs, the unchanged
 runtime contract, precipitation arrays, native per-date metadata, sampling
-plan, all 11 contact pages, assessment/summary and six selected actual-world
-captures. Full 730 colour/mask PNGs remain in the external native gallery;
+plan, all 11 contact pages, assessment/summary and a contact page plus exact external hashes for six
+selected actual-world captures. Full 730 colour/mask PNGs remain in the external native gallery;
 only hashes/measurements and review pages enter Git to avoid duplicating the
 large annual image collection. Technical checks are not human artistic
 acceptance. First-view/activation hitch attribution, the final full regression
 comparison and merge-candidate verification remain open.
+
+The latest archive was then compacted from **63,121,320** to **50,396,658**
+bytes: only the six newly added, redundant full-resolution weather PNG members
+were replaced with a review contact and exact external hashes. Their original
+files remain untouched externally, and the pre-compaction archive is also
+preserved externally and by Git history. Every remaining/new archive member
+hash was reverified. Original failure logs, wrapper receipts, test-written
+contracts, arrays and all annual contact pages remain intact. This reduces the
+current archive by about 12.7 MB without replacing runtime evidence.
