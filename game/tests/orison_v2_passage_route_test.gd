@@ -13,6 +13,8 @@ func _route() -> void:
 			and world.shop_service.work_orders == world.work_orders
 			and not world.shop_service.stock_record("carbon_transmitter_capsule").is_empty(),
 			"hardware stock uses initialized shared authorities"): return
+	# This route explicitly qualifies a reconstruction, not a brief core transit.
+	await get_tree().create_timer(passage.residency.DORMANCY_GRACE_SECONDS+.1).timeout
 	if not await _leave_front_entrance():return
 	var outward := [Vector3(0, 0, 3), Vector3(14, 0, 3), Vector3(14, 0, 4.2),
 		Vector3(14, -0.1, 8), Vector3(14, -0.1, 13.6), Vector3(14, 0, 15),
@@ -55,9 +57,11 @@ func _route() -> void:
 			and world.shop_service.pending_item("hardware_paint").is_empty(),
 			"physical counter grants the part exactly once"): return
 	var saved_items := var_to_bytes(RealityState.data.maintenance_items)
-	if not await _use(counter, counter_target, "hardware_counter_repeat"): return
+	if not _require(not world.shop_service.acquire("carbon_transmitter_capsule", "hardware_paint")
+			and world.fire_maintenance_counter.terminals.carbon_transmitter_capsule.grip().is_empty(),
+			"settled requisition refuses duplicates and retires the exact lever target"):return
 	if not _require(var_to_bytes(RealityState.data.maintenance_items) == saved_items,
-			"repeated counter input cannot duplicate the part"): return
+			"duplicate refusal preserves the exact acquired inventory"): return
 	for point in [Vector3(9.7, 0, door_center.z)]:
 		if not await _walk_world(point): return
 	if not await _use(door, door._body.to_global(Vector3(door.width*0.5, 1.15, 0)), "hardware_door_exit"): return
@@ -67,6 +71,10 @@ func _route() -> void:
 	outward.reverse()
 	for point: Vector3 in outward:
 		if not await _walk_world(point): return
+	# The slow closer can finish while the customer visits the hardware shop.
+	# Reopen the real front leaf from its exterior stance before returning.
+	if not await _walk(Vector3(0,0,-13.15)):return
+	if not await _open_front_entrance():return
 	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(1.925, 0, -6.5)]:
 		if not await _walk(point): return
 	_require(var_to_bytes(RealityState.data.maintenance_items) == saved_items,
@@ -88,6 +96,22 @@ func _prepare_procurement() -> bool:
 			"maintenance job awaits authored capsule")
 
 func _use(owner_node: Node3D,target: Vector3,label: String) -> bool:
+	if owner_node is MaintenanceShopCounter:
+		# V2 retains this semantic owner with collision disabled. The native
+		# radio terminal lever owns actual input and delegates settlement.
+		var terminal: Node3D=world.fire_maintenance_counter.terminals.carbon_transmitter_capsule
+		if not world.service_set_carrier.radio_is_powered():
+			Input.action_press("radio_toggle")
+			await get_tree().physics_frame;await get_tree().physics_frame
+			Input.action_release("radio_toggle")
+			await get_tree().physics_frame
+		if not _require(world.service_set_carrier.radio_is_powered(),"actual radio input powers the requisition carrier"):return false
+		var hand:=RouteHand.new()
+		add_child(hand);hand.player=player;player.set_mouse_released(false)
+		var moved: bool=await hand.operate(terminal.lever.to_global(Vector3(0,.094,-.025)),terminal.TRAVEL,terminal)
+		var follows: bool=hand.follows_cursor
+		hand.free()
+		return _require(moved and follows,"actual grab, mouse motion and release settle the native requisition lever: "+label)
 	if owner_node is DoorProp:
 		var door:=owner_node as DoorProp
 		# Use the exposed original hinge stile from both sides of the native leaf.

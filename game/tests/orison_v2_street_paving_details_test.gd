@@ -103,6 +103,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			for original: MeshInstance3D in originals.values():original.hide()
 			model.show()
 	var walker:=StreetWalker.new();walker.world=world;walker.player=world.player;add_child(walker)
+	var residency_before: Dictionary=world.passage_region.residency.snapshot()
 	world.player.set_physics_process(true);world.player.set_process_unhandled_input(true)
 	world.player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	walker._prepare_player_start();await get_tree().process_frame;await get_tree().process_frame
@@ -112,4 +113,4 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	for failure: String in walker.failures:failures.append("street route: "+failure)
 	var trace:=walker.trace.duplicate(true);walker.free();world.player.set_physics_process(false)
 	validation_completed=true
-	return {"checks":checks,"failures":failures,"parts":parts,"triangles":triangles,"support_samples":support_samples,"route":trace,"captures":discovery}
+	return {"checks":checks,"failures":failures,"parts":parts,"triangles":triangles,"support_samples":support_samples,"route":trace,"captures":discovery,"residency_before_route":residency_before,"residency_after_route":world.passage_region.residency.snapshot()}

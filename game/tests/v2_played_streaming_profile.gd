@@ -101,6 +101,7 @@ func _play_route() -> void:
 		if not failures.is_empty() or not await _enter_front_entrance():break
 		if not await _walk(Vector3(1.925,0,-3.5)):break
 		for frame in 4:await get_tree().process_frame
+		await get_tree().create_timer(world.passage_region.residency.DORMANCY_GRACE_SECONDS+.1).timeout
 		var returned: Dictionary=world.passage_region.residency.snapshot()
 		_require(returned.state=="DORMANT" and returned.pending_requests==0 and returned.retired_geometry_roots_alive==0 and returned.retired_mesh_resources_alive==0,"return retires imported passage roots and meshes cycle "+str(cycle))
 		cycles.append({"cycle":cycle,"start_usec":started,"end_usec":Time.get_ticks_usec(),"before":before,"at_gateway":arrival,"returned":returned})

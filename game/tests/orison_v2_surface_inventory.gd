@@ -59,13 +59,14 @@ func _run() -> void:
 	# Validate the changed hand/stock family in this same production world
 	# alongside the remaining surface programmes.
 	var fire_review := preload("res://tests/v2_fire_service_review.gd").new()
-	await fire_review.run(world,self)
+	var fire_interactions := OS.get_environment("ORISON_SURFACE_SKIP_FIRE_INTERACTION")!="1"
+	if fire_interactions:await fire_review.run(world,self)
 	# Retain every fire failure, but collect the remaining world surfaces in
 	# this same run. A failed fitting must not suppress the defect inventory.
-	if OS.get_environment("ORISON_SURFACE_FIRE_ONLY")=="1":
+	if OS.get_environment("ORISON_SURFACE_FIRE_ONLY")=="1" and fire_interactions:
 		world.shutdown_for_tests();world.free()
 		for frame in 4:await RenderingServer.frame_post_draw
-		fire_review.after_teardown(self)
+		if fire_interactions:fire_review.after_teardown(self)
 		print("V2 FIRE PREFLIGHT: ","PASS" if failures.is_empty() else "FAIL"," checks=",batch_checks," failures=",failures.size(),"; fire-only scope, not full surface acceptance")
 		get_tree().quit(0 if failures.is_empty() else 1);return
 	await preload("res://tests/v2_city_elevation_review.gd").new().run(world,self)
@@ -409,7 +410,7 @@ func _run() -> void:
 	for failure: String in instrument_post.failures:
 		if not failure in failures: failures.append(failure)
 	instruments.free()
-	fire_review.after_teardown(self)
+	if fire_interactions:fire_review.after_teardown(self)
 	electrical_review.after_teardown(self)
 	connections_review.after_teardown(self)
 	var domestic_retired: Dictionary=domestic_review.validate_after_teardown()
@@ -442,6 +443,7 @@ func _run() -> void:
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
 		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(path),"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":str(digest[0]).strip_edges() if not digest.is_empty() else ""},
 		"surface_inputs_sha256":after.get("sha256",""),"inventory_sha256":FileAccess.get_sha256(directory.path_join("surface-inventory.json")),
+		"interaction_programmes":{"fire_service":{"executed":fire_interactions,"scope":"separate interaction programme; physical draws remain in the inventory"}},
 		"contracts":{"production_composition":{"executed":true,"status":status},"surface_requirements":{"executed":true,"status":status},"save_reconstruction":{"executed":false,"status":"NOT_EXECUTED"},"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned"}},
 		"checks":batch_checks,"failures":failures}
 	FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(contract,"\t"))

@@ -21,6 +21,11 @@ class Requirements(unittest.TestCase):
         draw.update(path='Player/Camera3D/GPUWeatherRain',surface_role='weather_optics',owner_script='res://scripts/player/player_controller.gd')
         material.update(type='ShaderMaterial',shader='res://shaders/queens_precipitation_draw.gdshader',shader_unshaded=True,maps={})
         self.assertEqual(evaluate(data)['findings'],[])
+        draw['path']='Player/Camera3D/GPUWeatherSplash'
+        self.assertEqual(evaluate(data)['findings'],[])
+        draw['path']='Player/Camera3D/GPUWeatherFrogs/draw_pass_1'
+        self.assertIn('incomplete_pbr_maps',evaluate(data)['findings'][0]['reasons'])
+        draw['path']='Player/Camera3D/GPUWeatherSplash'
         for field,value in [('path','Player/Camera3D/LampHousing'),('surface_role','physical'),('owner_script','unrelated_owner')]:
             invalid=copy.deepcopy(data);invalid['draws'][0][field]=value
             self.assertIn('incomplete_pbr_maps',evaluate(invalid)['findings'][0]['reasons'])

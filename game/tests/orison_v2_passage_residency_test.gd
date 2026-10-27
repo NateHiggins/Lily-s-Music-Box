@@ -29,7 +29,34 @@ func _capture(identity: String, target: Vector3) -> void:
 			"ordinary input physically moves the handcart")
 	await _walk_world(Vector3(14, 0, 32))
 
+var _collect_frames := false
+var _last_frame_usec := 0
+var _residency_frames: Array = []
+
+func _process(_delta: float) -> void:
+	var now := Time.get_ticks_usec()
+	if _collect_frames and _last_frame_usec > 0:
+		_residency_frames.append([(now-_last_frame_usec)/1000.0,
+			Performance.get_monitor(Performance.TIME_PROCESS)*1000.0,
+			Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.0,
+			world.passage_region.residency.state])
+	_last_frame_usec = now
+
 func _route() -> void:
+	_collect_frames = true
+	await _exercise_route()
+	_collect_frames = false
+	var output := OS.get_environment("SHOT_DIR")
+	if not output.is_empty():
+		DirAccess.make_dir_recursive_absolute(output)
+		FileAccess.open(output.path_join("residency_frames.json"), FileAccess.WRITE).store_string(JSON.stringify({
+			"evidence_class":"INERT", "columns":["wall_ms","process_ms","physics_ms","state"],
+			"fit_budget_usec":world.passage_region.residency.FIT_BUDGET_USEC,
+			"viewport":str(get_viewport().get_visible_rect().size),
+			"samples":_residency_frames,"residency":world.passage_region.residency.snapshot(),
+			"failures":failures}, "\t"))
+
+func _exercise_route() -> void:
 	await super._route()
 	if not failures.is_empty(): return
 	var passage := world.passage_region
@@ -39,7 +66,15 @@ func _route() -> void:
 	var door_id := door.get_instance_id()
 	var door_open := door.open
 	var inventory := var_to_bytes(RealityState.data.maintenance_items)
+	var original_unloads: int=passage.residency.unload_cycles
 	if not await _walk(Vector3(1.925, 0, -3.5)): return
+	if not _require(passage.residency.state=="RESIDENT" and passage.residency.unload_cycles==original_unloads,"brief core arrival retains already-fitted passage geometry"):return
+	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.5)]:
+		if not await _walk(point):return
+	if not _require(passage.residency.state=="RESIDENT" and passage.residency.unload_cycles==original_unloads,"actual walking return through vestibule cancels pending retirement"):return
+	for point in [Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
+		if not await _walk(point):return
+	await get_tree().create_timer(passage.residency.DORMANCY_GRACE_SECONDS+.1).timeout
 	await get_tree().process_frame
 	await get_tree().physics_frame
 	await get_tree().process_frame

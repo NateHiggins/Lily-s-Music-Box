@@ -107,7 +107,7 @@ func _street_route() -> void:
 	if not await _enter_front_entrance():return
 	for point in [Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
 		if not await _walk(point):return
-	for frame in 120:await get_tree().physics_frame
+	await get_tree().create_timer(world.passage_region.residency.DORMANCY_GRACE_SECONDS+.1).timeout
 	var residency: Dictionary=world.passage_region.residency.snapshot()
 	_require(residency.state=="DORMANT","actual departure retires shop geometry")
 	_require(counter.mechanism_snapshot()==before,"dormant stock retains original physical save pose")

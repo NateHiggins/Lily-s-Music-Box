@@ -4,8 +4,8 @@
   "scope": "Living Sky implementation, failures, bounded runtime contracts, annual-noon gallery and matched route diagnostics. No full reference-library, full-day annual, full-V2 or human acceptance.",
   "implementation_commit": "860219b005d6606ddca9ce7eb7f7d03f32703dc0",
   "archive": "living_sky_review.zip",
-  "archive_bytes": 43700558,
-  "archive_sha256": "7d957b52e6959bb597a275c5009644044bcd86ed7f23f969e00b27a0d9a97723",
+  "archive_bytes": 44686462,
+  "archive_sha256": "8ad181768932dcb558a3734da9dbffdd7c769ad06eabeafee3cd4f8d4fc4b331",
   "members": [
     {
       "path": "runs/annual_final/annual_gallery.json",
@@ -2434,6 +2434,356 @@
       "sha256": "6649bddf21fcad5f1b1282373e30e8db77a4294d4a74efa0fa2bcb64fbb169ef",
       "original_path": "C:\\ov\\reports\\lightning32\\surface_fallout.log.receipt.json",
       "original_sha256": "6649bddf21fcad5f1b1282373e30e8db77a4294d4a74efa0fa2bcb64fbb169ef"
+    },
+    {
+      "path": "qualification_20261027/surface_fallout_final.log",
+      "bytes": 372884,
+      "sha256": "53bab8863520ce93f435b4c0d0a238daf56cf3e7fcc4456901b37690fecefdb2",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_fallout_final.log",
+      "original_sha256": "53bab8863520ce93f435b4c0d0a238daf56cf3e7fcc4456901b37690fecefdb2"
+    },
+    {
+      "path": "qualification_20261027/surface_fallout_final.log.stderr",
+      "bytes": 1117,
+      "sha256": "da7761543095310544288105ef359d1e5ed204a7b2feef5ecdf254d831516085",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_fallout_final.log.stderr",
+      "original_sha256": "da7761543095310544288105ef359d1e5ed204a7b2feef5ecdf254d831516085"
+    },
+    {
+      "path": "qualification_20261027/surface_fallout_final.log.receipt.json",
+      "bytes": 1731,
+      "sha256": "863cae5093f77eb50a000e9c3b6aa1f976774600a735f594ef714e52a9fba062",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_fallout_final.log.receipt.json",
+      "original_sha256": "863cae5093f77eb50a000e9c3b6aa1f976774600a735f594ef714e52a9fba062"
+    },
+    {
+      "path": "qualification_20261027/surface_street_prefix.log",
+      "bytes": 85693,
+      "sha256": "6b9d35bcd52eef3e1736127f55eb68bd9379add5e6587b3abcefc678a8357806",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_street_prefix.log",
+      "original_sha256": "6b9d35bcd52eef3e1736127f55eb68bd9379add5e6587b3abcefc678a8357806"
+    },
+    {
+      "path": "qualification_20261027/surface_street_prefix.log.stderr",
+      "bytes": 810,
+      "sha256": "67ddebbc1dd884fe34b40e4079158302abdafa3bc42eddad42dc9c238a463d07",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_street_prefix.log.stderr",
+      "original_sha256": "67ddebbc1dd884fe34b40e4079158302abdafa3bc42eddad42dc9c238a463d07"
+    },
+    {
+      "path": "qualification_20261027/surface_street_prefix.log.receipt.json",
+      "bytes": 1894,
+      "sha256": "05e0d36c2689352539902c9b6e90ff14179fb22374faffc3c62afcf53c1eb6e6",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_street_prefix.log.receipt.json",
+      "original_sha256": "05e0d36c2689352539902c9b6e90ff14179fb22374faffc3c62afcf53c1eb6e6"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace.log",
+      "bytes": 372540,
+      "sha256": "e00fe151b9ae031e47f9c59d08173bf9876126c482c75a8f6ddfae59d5bd347b",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace.log",
+      "original_sha256": "e00fe151b9ae031e47f9c59d08173bf9876126c482c75a8f6ddfae59d5bd347b"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace.log.receipt.json",
+      "bytes": 2691,
+      "sha256": "0ce590da430de840719d98a07e64a193ed58e6bc18edab1e0db272c33548ca8e",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace.log.receipt.json",
+      "original_sha256": "0ce590da430de840719d98a07e64a193ed58e6bc18edab1e0db272c33548ca8e"
+    },
+    {
+      "path": "qualification_20261027/passage_retirement_grace.log",
+      "bytes": 20842,
+      "sha256": "fda0327566ef81a201e85c8fc609c943d1c83aa0ebc08f07a2525dd4265fa325",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_retirement_grace.log",
+      "original_sha256": "fda0327566ef81a201e85c8fc609c943d1c83aa0ebc08f07a2525dd4265fa325"
+    },
+    {
+      "path": "qualification_20261027/passage_retirement_grace.log.stderr",
+      "bytes": 271,
+      "sha256": "874682dcf1b1be8b88d30ca97b323bf4f43f3e2aa56962dff46ac1f12cee14e7",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_retirement_grace.log.stderr",
+      "original_sha256": "874682dcf1b1be8b88d30ca97b323bf4f43f3e2aa56962dff46ac1f12cee14e7"
+    },
+    {
+      "path": "qualification_20261027/passage_retirement_grace.log.receipt.json",
+      "bytes": 2421,
+      "sha256": "aeab483937d72d2c046a1f7df9b756d0d9ec1bdbb6ec673efaccaa017c1fa9d9",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_retirement_grace.log.receipt.json",
+      "original_sha256": "aeab483937d72d2c046a1f7df9b756d0d9ec1bdbb6ec673efaccaa017c1fa9d9"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000.log",
+      "bytes": 20879,
+      "sha256": "900545cdcea845e05953a360c3480821cb3897bde08202d925d209cc9ea8ec61",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000.log",
+      "original_sha256": "900545cdcea845e05953a360c3480821cb3897bde08202d925d209cc9ea8ec61"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000.log.stderr",
+      "bytes": 271,
+      "sha256": "874682dcf1b1be8b88d30ca97b323bf4f43f3e2aa56962dff46ac1f12cee14e7",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000.log.stderr",
+      "original_sha256": "874682dcf1b1be8b88d30ca97b323bf4f43f3e2aa56962dff46ac1f12cee14e7"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000.log.receipt.json",
+      "bytes": 2437,
+      "sha256": "f0ecca7a7d25d47c247c83beb39d2d8cc28146c6288f31a58feb6614ed3ea569",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000.log.receipt.json",
+      "original_sha256": "f0ecca7a7d25d47c247c83beb39d2d8cc28146c6288f31a58feb6614ed3ea569"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000.log",
+      "bytes": 154787,
+      "sha256": "25d813476ab8ac58dfeef11e6ca976bb5d79046df376b25aa65dac296c8150ec",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000.log",
+      "original_sha256": "25d813476ab8ac58dfeef11e6ca976bb5d79046df376b25aa65dac296c8150ec"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000.log.stderr",
+      "bytes": 270,
+      "sha256": "4794c0d64d109582b3101808663af466e1b170e971942fca09b6ecd6f2630ff0",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000.log.stderr",
+      "original_sha256": "4794c0d64d109582b3101808663af466e1b170e971942fca09b6ecd6f2630ff0"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000.log.receipt.json",
+      "bytes": 2399,
+      "sha256": "7e393be49ad2b0dc10e354e4bff8e80067bb5402bc2f378d4f8c8e9ef68caf7c",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000.log.receipt.json",
+      "original_sha256": "7e393be49ad2b0dc10e354e4bff8e80067bb5402bc2f378d4f8c8e9ef68caf7c"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_return_fix.log",
+      "bytes": 174358,
+      "sha256": "4ddc7d56db6af9d1167701aa16bccd3f962fef8acaa9124efba2f6bcc5714ef8",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_return_fix.log",
+      "original_sha256": "4ddc7d56db6af9d1167701aa16bccd3f962fef8acaa9124efba2f6bcc5714ef8"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_return_fix.log.stderr",
+      "bytes": 540,
+      "sha256": "9f33d5c2903c90de16ca3770e355ee5e980a2f3f6fb6246456593664a20f054e",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_return_fix.log.stderr",
+      "original_sha256": "9f33d5c2903c90de16ca3770e355ee5e980a2f3f6fb6246456593664a20f054e"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_return_fix.log.receipt.json",
+      "bytes": 2432,
+      "sha256": "bed2ad23a500d545feeaaf40164db301c08c529925d4b5551b6022802f869fc4",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_return_fix.log.receipt.json",
+      "original_sha256": "bed2ad23a500d545feeaaf40164db301c08c529925d4b5551b6022802f869fc4"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000.log",
+      "bytes": 290081,
+      "sha256": "bf0b487f9fc28e11c09e3b27594b065b3e0f4e0fed91ba44802c295a58000f85",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000.log",
+      "original_sha256": "bf0b487f9fc28e11c09e3b27594b065b3e0f4e0fed91ba44802c295a58000f85"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000.log.receipt.json",
+      "bytes": 2398,
+      "sha256": "a3b2cc69a9c7c13a5ac8b2380f19d71923cca1f5b373830479ffd4bf7402793d",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000.log.receipt.json",
+      "original_sha256": "a3b2cc69a9c7c13a5ac8b2380f19d71923cca1f5b373830479ffd4bf7402793d"
+    },
+    {
+      "path": "qualification_20261027/route_fallout_barrier_probe.log",
+      "bytes": 2869,
+      "sha256": "862314c23bdc54924b9c97ae2f26f82f7bdb7dff6c658a62095cd68691b2205a",
+      "original_path": "C:\\ov\\reports\\lightning32\\route_fallout_barrier_probe.log",
+      "original_sha256": "862314c23bdc54924b9c97ae2f26f82f7bdb7dff6c658a62095cd68691b2205a"
+    },
+    {
+      "path": "qualification_20261027/route_fallout_barrier_probe.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\route_fallout_barrier_probe.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification_20261027/route_fallout_barrier_probe.log.receipt.json",
+      "bytes": 1747,
+      "sha256": "e617f9eb6437412715ae991cb4cfc60a2660fccfe7d549fc7f1a677800825728",
+      "original_path": "C:\\ov\\reports\\lightning32\\route_fallout_barrier_probe.log.receipt.json",
+      "original_sha256": "e617f9eb6437412715ae991cb4cfc60a2660fccfe7d549fc7f1a677800825728"
+    },
+    {
+      "path": "qualification_20261027/roof_fallout_barrier_probe.log",
+      "bytes": 5190,
+      "sha256": "7fca983685123c96f6924b5c701ebf40e5834090133fcbceca3e45be4f728f9e",
+      "original_path": "C:\\ov\\reports\\lightning32\\roof_fallout_barrier_probe.log",
+      "original_sha256": "7fca983685123c96f6924b5c701ebf40e5834090133fcbceca3e45be4f728f9e"
+    },
+    {
+      "path": "qualification_20261027/roof_fallout_barrier_probe.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\roof_fallout_barrier_probe.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification_20261027/roof_fallout_barrier_probe.log.receipt.json",
+      "bytes": 4888,
+      "sha256": "88b7bfb7f300a6fbad1cf64fdc606eb602e1ff5e1be9d1880617faeed496d222",
+      "original_path": "C:\\ov\\reports\\lightning32\\roof_fallout_barrier_probe.log.receipt.json",
+      "original_sha256": "88b7bfb7f300a6fbad1cf64fdc606eb602e1ff5e1be9d1880617faeed496d222"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace/runtime_contract.json",
+      "bytes": 1230,
+      "sha256": "ea3af7269fbc0042d0a1365915fabbf88980ca0ae55f1cd068fa6e5731e1e802",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace\\runtime_contract.json",
+      "original_sha256": "ea3af7269fbc0042d0a1365915fabbf88980ca0ae55f1cd068fa6e5731e1e802"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace/technical_findings.json",
+      "bytes": 39949,
+      "sha256": "7e4c165da703d5ed411758aeb0e7df5691c56bd5966e7d2956e65804c5a99042",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace\\technical_findings.json",
+      "original_sha256": "7e4c165da703d5ed411758aeb0e7df5691c56bd5966e7d2956e65804c5a99042"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace/surface-inventory.json",
+      "bytes": 21284947,
+      "sha256": "70fbd73f4c654987466d8cafb6a578f4596e7603336259180fa678213d130333",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace\\surface-inventory.json",
+      "original_sha256": "70fbd73f4c654987466d8cafb6a578f4596e7603336259180fa678213d130333"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace/fire_service_contract.json",
+      "bytes": 1015,
+      "sha256": "184498a4f6982d2f577cb6919899e5e7113dcadfc230e5ac5d8d114b818d5ddb",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace\\fire_service_contract.json",
+      "original_sha256": "184498a4f6982d2f577cb6919899e5e7113dcadfc230e5ac5d8d114b818d5ddb"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000/residency_frames.json",
+      "bytes": 69534,
+      "sha256": "917ee2c43276b2cb30c3a0a08f524da2448b5139cf39d422dce6748ce9b956c0",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000\\residency_frames.json",
+      "original_sha256": "917ee2c43276b2cb30c3a0a08f524da2448b5139cf39d422dce6748ce9b956c0"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000/route.json",
+      "bytes": 3313,
+      "sha256": "6fe44bdc43bb6838440ac6fd71b55e427f8ec0a76495e00ab51c82f471d613a3",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000\\route.json",
+      "original_sha256": "6fe44bdc43bb6838440ac6fd71b55e427f8ec0a76495e00ab51c82f471d613a3"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000/residency_source.gd",
+      "bytes": 24139,
+      "sha256": "6901b5f61eae7d2e2284c6fe2ef161c69d2f019046f252990c011cac8899ce89",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000\\residency_source.gd",
+      "original_sha256": "6901b5f61eae7d2e2284c6fe2ef161c69d2f019046f252990c011cac8899ce89"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_counter_failure/residency_frames.json",
+      "bytes": 97672,
+      "sha256": "f7d26ce47891ae0075fb3a452083c502a9cbb78e058d23d4c872183e2b22f871",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_counter_failure\\residency_frames.json",
+      "original_sha256": "f7d26ce47891ae0075fb3a452083c502a9cbb78e058d23d4c872183e2b22f871"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_counter_failure/route.json",
+      "bytes": 5466,
+      "sha256": "66061638870d5958d8d54ea9a229a6fa6bdf2fccace85cc5bdfd36cff5fec346",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_counter_failure\\route.json",
+      "original_sha256": "66061638870d5958d8d54ea9a229a6fa6bdf2fccace85cc5bdfd36cff5fec346"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_counter_failure/provenance_limitation.json",
+      "bytes": 491,
+      "sha256": "28f164e12bd18f71f9a40fe8ada4d55e86f4dc46daf50562f46d8555bed8a5a4",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_counter_failure\\provenance_limitation.json",
+      "original_sha256": "28f164e12bd18f71f9a40fe8ada4d55e86f4dc46daf50562f46d8555bed8a5a4"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000/residency_frames.json",
+      "bytes": 141464,
+      "sha256": "56851f138b6b7190e137a62c75b24ac3bfb3d21564a4647012e707d33ae9078d",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000\\residency_frames.json",
+      "original_sha256": "56851f138b6b7190e137a62c75b24ac3bfb3d21564a4647012e707d33ae9078d"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000/route.json",
+      "bytes": 9511,
+      "sha256": "40e8285516902bc8778dec7f850078a33d7c9c315590adc45dd2dbd8c2f17523",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000\\route.json",
+      "original_sha256": "40e8285516902bc8778dec7f850078a33d7c9c315590adc45dd2dbd8c2f17523"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_return_fix/residency_frames.json",
+      "bytes": 178621,
+      "sha256": "f63a66a9126c16c97f8bd10eab239cf304cad12048683350b4f5dfdfe30cd47b",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_return_fix\\residency_frames.json",
+      "original_sha256": "f63a66a9126c16c97f8bd10eab239cf304cad12048683350b4f5dfdfe30cd47b"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_return_fix/route.json",
+      "bytes": 14889,
+      "sha256": "c4b9da776d0c64cdfd10a932a780ab7c80c05e1eec8ea7f8bfc04c0bf566baf2",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_return_fix\\route.json",
+      "original_sha256": "c4b9da776d0c64cdfd10a932a780ab7c80c05e1eec8ea7f8bfc04c0bf566baf2"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000/residency_frames.json",
+      "bytes": 176930,
+      "sha256": "54cbee8f56c6872e743e0a68eb28a7cf6ac7186a0734963575432d13830370cc",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000\\residency_frames.json",
+      "original_sha256": "54cbee8f56c6872e743e0a68eb28a7cf6ac7186a0734963575432d13830370cc"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000/route.json",
+      "bytes": 14794,
+      "sha256": "556dcecbfd69b61731c13a2a0538e5392cdcc682679fd06924b9c8fceed3a714",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000\\route.json",
+      "original_sha256": "556dcecbfd69b61731c13a2a0538e5392cdcc682679fd06924b9c8fceed3a714"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000/orison_v2_passage_residency.gd",
+      "bytes": 24139,
+      "sha256": "2c05fc66bd962f6c4e71da65608e37ddf8e91d3584d1a0b2cd3910cd96042011",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000\\orison_v2_passage_residency.gd",
+      "original_sha256": "2c05fc66bd962f6c4e71da65608e37ddf8e91d3584d1a0b2cd3910cd96042011"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000/orison_v2_passage_route_test.gd",
+      "bytes": 7644,
+      "sha256": "cef04b0c62c43b958b6746a85fa518d2c8ee05234c9d100d04dc01d00ceaa5bd",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000\\orison_v2_passage_route_test.gd",
+      "original_sha256": "cef04b0c62c43b958b6746a85fa518d2c8ee05234c9d100d04dc01d00ceaa5bd"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000/orison_v2_passage_residency_test.gd",
+      "bytes": 28419,
+      "sha256": "1dde43aecb106dff325a541f4cea78ef5c171dedf5d2f99a07f1ef3a7c283d10",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000\\orison_v2_passage_residency_test.gd",
+      "original_sha256": "1dde43aecb106dff325a541f4cea78ef5c171dedf5d2f99a07f1ef3a7c283d10"
+    },
+    {
+      "path": "qualification_20261027/residency_budget_comparison.json",
+      "bytes": 2979,
+      "sha256": "82ec98e5cff3964194e0aa1566be8d47831551045d4d66f705753b0a7def27bd",
+      "original_path": "C:\\ov\\reports\\lightning32\\residency_budget_comparison.json",
+      "original_sha256": "82ec98e5cff3964194e0aa1566be8d47831551045d4d66f705753b0a7def27bd"
     }
   ],
   "continuations": [

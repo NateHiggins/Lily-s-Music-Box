@@ -1788,3 +1788,136 @@ source dependency remain exact. Nine required fixture preflights now pass.
 This is source closure, not a render or runtime acceptance. The archive retains
 original records, source-only comparisons and the original failed run; the full
 composed surface run must be repeated under a new output path.
+
+
+### Qualification failures and focused follow-through — 2026-10-27
+
+| Location / reproduction | Severity and observed evidence | Repair and verification status |
+| --- | --- | --- |
+| Optical splash in full composed inventory | Qualification defect: **surface_fallout_final.log.receipt.json** completed in 962 seconds with three failures; only one surface finding, the unshaded camera-owned splash | Exact owner/shader/role/name admission now includes **GPUWeatherSplash**. The focused negative-control test passes and still rejects physical frogs without PBR maps. The subsequent **surface_retirement_grace** run passes all **40,803** composed checks, with zero unresolved surfaces and empty stderr. Packet publication remains pending source/review closure. |
+| Shared-world street approach after a brief core transit | High responsiveness defect: prefix diagnostic reproduces the failure in 526 seconds. Passage starts RESIDENT with 13 cells, then the brief core placement starts a second unload/reload. After six seconds against the real guard it is still LOADING, fitting druggist stock; no physics or input lock was bypassed | Three-second retirement grace retains a fully fitted passage during a brief core transit. Settled indoor stays still retire it, and actual incomplete loads still retain their guard. Existing reconstruction tests explicitly dwell for retirement; added actual walking checks exercise cancellation of pending retirement. Full composed verification passes; the focused settled-stay route still reaches the guard before reconstruction completes. This is separate from brief-transit churn and remains open. |
+| Repeated unchanged hose checks while repairing weather | Avoidable workflow cost: the full inventory bundle includes 1,637 composed fire-service checks; the owner called out the repetition | Reuse unchanged hose evidence. The already-running qualification finished successfully; subsequent repairs use focused weather/residency checks. Repeating unchanged hose checks is not a default final step. No new hose defect is claimed. |
+
+The standalone **route_fallout_barrier_probe.log.receipt.json** passes all
+**29** actual controller waypoints in **189.93 seconds**, empty stderr. It
+includes door grabs and outdoor mouse turns, not only API toggles. The matched
+3440-by-1440 Forward+ / TAA / MSAA-3 fixed-evening hail route changes wall-frame
+p50/p95/p99/max from **26.719/51.627/62.027/1247.753 ms** to
+**28.186/56.659/65.496/1241.805 ms**, using floor-index quantiles of the retained
+samples. Both retain four frames above 100 ms. This single later run suggests
+extra steady cost; it is not a controlled improvement claim. Its largest stall
+remains walk 13 with resident passage geometry and 18 additional specialization
+pipelines (22 in the earlier run). Correlation does not assign function cost.
+The first-view finding remains open. Lens-disabled controls are prepared.
+
+Older route JSON labels **Performance.TIME_PROCESS** as **script_ms**. That
+counter is process time, not isolated script-function execution. The diagnostic
+column is corrected to **process_ms**; old raw numbers are retained unchanged.
+A separate documented 4.7 script/GPU-profiler run is prepared for attribution;
+its overhead will not be presented as an uninstrumented comparison.
+
+**roof_fallout_barrier_probe.log.receipt.json** passes **42** roof-preview
+checks with empty stderr, including year wrapping, Escape, pointer ownership,
+restored launch/settings/environment state and native dated captures. Neither
+this nor the passing street route promotes the failed full surface contract.
+The original full and prefix failures remain at their separate report paths.
+
+### Focused reconstruction measurements — 2026-10-27
+
+The terminal **surface_retirement_grace.log.receipt.json** records 972 seconds,
+**40,803 checks / 0 failures**, no unresolved surfaces and empty stderr. Its
+original wrapper retains one failure-token line from a nonterminal cursor-warp
+candidate; the immediately following authoritative unthreading assertion passes.
+The raw wrapper, logs and test-written contracts are not edited. Qualification
+policy/source closure and rendered review remain outstanding; this report does
+not promote the packet or rebind it to newer sources.
+
+**passage_retirement_grace.log.receipt.json** then fails at the real loading
+barrier after a settled indoor stay, with 12 waypoints and one failure. An
+instrumented focused repeat, **passage_budget3000.log.receipt.json**, reproduces
+the same barrier contact and incomplete reconstruction. It records all 871
+route frame intervals in **residency_frames.json**. Among 727 LOADING samples,
+floor-index p50/p95/p99/max are **21.278/43.704/50.200/106.605 ms**, with one
+interval above 100 ms. Peak measured fitting stage is **39.857 ms** despite the
+3 ms cooperative budget: indivisible resource/renderer operations can overrun
+it. Process time is not isolated script time. This is native 3440-by-1440
+actual controller input, with no guard, collision or reach bypass. A 6 ms
+budget control is being measured on the same route; no improvement is claimed
+before its results. No hose programme is involved in either focused run.
+
+The 6 ms control completes its first reconstruction in **11,915.5 ms** of
+LOADING samples, versus the baseline's still-incomplete **18,471.0 ms** at
+failure. Its 367 loading intervals have p50/p95/p99/max
+**30.976/48.723/55.573/86.520 ms**, with none above 100 ms. This is a throughput
+tradeoff: p95 increases about 5 ms, while arrival no longer stalls against the
+barrier. It is not a blanket frame-time improvement. Resident-frame maxima in
+this harness include synchronous test-only mesh/signature assertions and are
+not presented as ordinary gameplay stalls.
+
+That first control then exposes an obsolete counter test: V2 deliberately
+sets the semantic counter's collision layer to zero, and its radio terminal
+lever owns input. The route now operates the actual capsule settlement lever
+with grab, mouse travel and release, powers its radio through actual input,
+and checks the authoritative inventory/work order and duplicate refusal.
+The next run passes these interactions but encounters the front leaf on return:
+the slow closer has closed it during shopping. The route now reacquires the
+real leaf from the exterior stance; it does not disable closing or collision.
+The full round-trip retry is pending.
+
+Evidence limitation: the first **passage_budget6000** control's stdout,
+stderr and wrapper were accidentally overwritten by reusing its output path.
+Its original **residency_frames.json**, **route.json** and captures were copied
+byte-exact before the retry ended to **passage_budget6000_counter_failure/**,
+with a provenance note. They remain diagnostics, not a reconstructed wrapper or
+passing receipt. The original 3 ms failure and subsequent distinct failures
+retain their real receipts and raw logs.
+
+For further weather-only surface qualification,
+**ORISON_SURFACE_SKIP_FIRE_INTERACTION=1** omits the independent fire-service
+interaction programme and its teardown assertions. Its execution flag is
+written explicitly in the new test contract. Every physical draw, including
+the hose, remains subject to the unchanged full UV/PBR/mipmap inventory. The
+original passing fire-service contract remains separate evidence; no skipped
+programme is reported as newly passed. The attempted cursor-log special-case
+qualifier was removed instead of weakening publication requirements. Packet
+publication still requires an actually clean, source-bound run and reviewed
+renders.
+
+### Verified reconstruction checkpoint
+
+**passage_budget6000_return_fix.log.receipt.json** finishes in 225 seconds
+with a genuine second-reconstruction failure: after 14.633 seconds of ordinary
+approach, the last Diner cell is still fitting. No wait allowance or physical
+guard is weakened. **passage_budget8000.log.receipt.json** then passes all
+**57 waypoints / 0 failures** in 228 seconds with empty stderr, including both
+reconstructions, real settlement lever input, duplicate refusal, brief-core
+retention/cancellation, retirement of imported meshes and the reflection owner,
+and retained cart/door/inventory state. The fixed cooperative fitting budget is
+8 ms. Individual resource/renderer operations can still exceed it.
+
+| Loading interval | Samples | Elapsed | p50 | p95 | p99 | Maximum | Above 100 ms |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Original 3 ms, incomplete at barrier | 727 | 18.471 s | 21.278 ms | 43.704 ms | 50.200 ms | 106.605 ms | 1 |
+| 8 ms, first complete reconstruction | 308 | 11.015 s | 34.023 ms | 50.538 ms | 61.141 ms | 89.145 ms | 0 |
+| 8 ms, second complete reconstruction | 358 | 13.801 s | 38.966 ms | 54.448 ms | 61.946 ms | 95.495 ms | 0 |
+
+These are same-scene, native 3440-by-1440 Vulkan Forward+ controls on the
+RTX 4080, with floor-index quantiles from every retained LOADING interval.
+The original control fails before completing its first reconstruction; it
+cannot support a full-cycle speedup percentage. More fitting per frame raises
+typical loading frame time while making geometry ready before the second
+approach reaches the protected gateway. Peak fitting stage is 41.359 ms and
+activation 16.754 ms in the passing run. This is not a claim that rendering,
+shader-compilation, first-view hitches, annual artistic acceptance or the whole
+game's performance is solved. The full sampled arrays and comparison remain
+with the raw run evidence. No hose interaction programme was rerun.
+
+Checkpoint validation: all **40** surface-policy Python tests pass in
+**181.478 seconds**; the reader audit reports **NEW: 0**. The expanded review
+archive verifies all **393** unique member hashes (44,686,462 bytes), including
+available original failed/passing wrappers, raw logs, contracts and frame
+arrays. No new standalone evidence framework or qualifier exception is added.
+The other dwell-adjusted route harnesses, the new surface-only execution mode,
+current-source rendered packet publication, final annual night refresh and
+candidate regression board remain pending; the checkpoint is not merge-ready
+weather-production acceptance.
