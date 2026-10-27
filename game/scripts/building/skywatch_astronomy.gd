@@ -11,10 +11,21 @@ static func configure_starfield(material: ShaderMaterial) -> void:
 	material.set_shader_parameter("star_properties",load("res://assets/environment/stars/bsc5_properties.res"))
 	material.set_shader_parameter("skywatch_stars_enabled",true)
 
-static func publish_star_frame(material: ShaderMaterial,camera: Camera3D,clock: CampaignClock) -> void:
+static func precise_utc(clock: CampaignClock) -> Dictionary:
+	var utc := clock.utc_datetime()
+	utc.second=float(utc.get("second",0))+fposmod(clock.absolute_minutes()*60.,1.)
+	return utc
+
+static func publish_star_frame(material: ShaderMaterial,camera: Camera3D,clock: CampaignClock,observer := Vector2(40.75,-73.92)) -> void:
 	if material==null or camera==null or clock==null or not bool(material.get_meta("analytical_stars",false)):return
 	# Campaign fractions preserve deterministic forward/backward/reload sampling.
 	material.set_shader_parameter("star_animation_seconds",fposmod(clock.absolute_minutes()*60.,4096.))
+	# The retained lighting cadence is eight seconds. At 0.1 degrees that
+	# would jump hundreds of pixels: publish presentation geometry separately.
+	var jd := Ephemeris.julian_day(precise_utc(clock))
+	material.set_shader_parameter("equatorial_axis_x",horizon(Vector3.RIGHT,jd,observer.x,observer.y))
+	material.set_shader_parameter("equatorial_axis_y",horizon(Vector3.UP,jd,observer.x,observer.y))
+	material.set_shader_parameter("equatorial_axis_z",horizon(Vector3.BACK,jd,observer.x,observer.y))
 	var projection := camera.get_camera_projection()
 	var field := 2.*atan(1./absf(projection.y.y))
 	if not is_equal_approx(float(material.get_meta("stellar_camera_field",0.)),field):

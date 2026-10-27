@@ -266,9 +266,17 @@
     "part9/original_diagnostics/stars_native_ceiling.json": "677a2439af3b916016c1d490d2b9aa56849e9307d46424537fd18b54ed802e5e",
     "part9/original_diagnostics/stars_final.json": "9b8e98fa1a3f54a1fef55260003727eecc4120154db1c7f36d48b93c971dfafc",
     "part9/original_diagnostics/stars_stable_phase.json": "5abf01516be37d0ac33d61c4b67e56b8d0017cd03341a22f000214c822004420",
-    "part9/original_diagnostics/stars_settled_phase.json": "ce07be0c17d25341faffd9fb2ed9572d550eacb9107703a9d9958d3d2d55e4fc"
+    "part9/original_diagnostics/stars_settled_phase.json": "ce07be0c17d25341faffd9fb2ed9572d550eacb9107703a9d9958d3d2d55e4fc",
+    "fractional_clock/tested_source/game/scripts/building/skywatch_astronomy.gd": "316b5de75cfdc55fa3a4a8a53aeb19f306ceb589e412ce180f92c723ab9c4b3c",
+    "fractional_clock/tested_source/game/scripts/building/v2_city_day_night_director.gd": "5e94c968a015f1fb98b04d58fd53c90b4ffac9f2403774b36fe0e182638f6d2e",
+    "fractional_clock/tested_source/game/scripts/building/WeatherManager.gd": "e2a757905a963c0f2c184d6550ee63492f470c762052bc2fa372d498636a85af",
+    "fractional_clock/tested_source/game/tests/skywatch_optical_review.gd": "4a5e8d8fb1fc46e564b5ba18b34679d8f5e70c1b0c489d3455019bb371294bf7",
+    "fractional_clock/stars_fractional_clock.log": "2cfd3e74f8cd08a4c88c88ad3e09326818a8566a8d02843651bb77a2f3991a07",
+    "fractional_clock/stars_fractional_clock.log.receipt.json": "8b831f1426669f14e663ff1b47a3eb554b52e0c152e3805cd2fcf4fc23c5eeeb",
+    "fractional_clock/stars_fractional_clock.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fractional_clock/star_review.json": "dce17c4c600501da9f3b11856132524d967437db3218dc3fe21d7fd5e31f3173"
   },
-  "archive_sha256": "e4f55cd24a8a72f6a7cf2a789cadd0cbe49be6d4476044ae327d30941a928dfb",
+  "archive_sha256": "c3e0fca5be8125cdd9c3418b4c93c82906bd95d39c63de882d63869351aba25a",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -422,5 +430,35 @@
       "size": 29256
     }
   },
-  "optical_contact_sha256": "b01cdf8e53214293c44b82081f384656e2fa5aef984e75710e3983c5f8e213bd"
+  "optical_contact_sha256": "b01cdf8e53214293c44b82081f384656e2fa5aef984e75710e3983c5f8e213bd",
+  "fractional_clock_source_lf_sha256": {
+    "game/scripts/building/skywatch_astronomy.gd": "316b5de75cfdc55fa3a4a8a53aeb19f306ceb589e412ce180f92c723ab9c4b3c",
+    "game/scripts/building/v2_city_day_night_director.gd": "5e94c968a015f1fb98b04d58fd53c90b4ffac9f2403774b36fe0e182638f6d2e",
+    "game/scripts/building/WeatherManager.gd": "0a44da7e38196cd9a543427878df22eb6da0100dfeaa868b043695de85d3f9bd",
+    "game/tests/skywatch_optical_review.gd": "4a5e8d8fb1fc46e564b5ba18b34679d8f5e70c1b0c489d3455019bb371294bf7"
+  },
+  "fractional_clock_capture_sha256": {
+    "occlusion_clear_off.png": "1d39a2484b0f5a3c513e2d4ba1ada7d9f3693eb211f632cb48bcaa7ad3f46c7e",
+    "occlusion_clear_on.png": "437fb20e9fae8e277bd40eb3c531eb2ff7236ec648fa09cb1cfdb69f4555b0a8",
+    "occlusion_cloud_off.png": "ced12f14a31f4f506070b415e94d51bc60caf3a7ac98437038c3b4494bafbc74",
+    "occlusion_cloud_on.png": "9517581214be1c3abccb94819a7b7de1f923359e46bd767f1b787e7c39f738ee",
+    "occlusion_world_off.png": "98b8cc3f8e82e8b08625f5dc27feb752cdccba3a8ef4b739b0374d2e53b2a3f9",
+    "occlusion_world_on.png": "98b8cc3f8e82e8b08625f5dc27feb752cdccba3a8ef4b739b0374d2e53b2a3f9",
+    "scintillation_wrap_after.png": "476c1792e2ac825ac5989ffa3c3296b245cdcdd6be72b6948741f0bfb44e6f9c",
+    "scintillation_wrap_before.png": "fe16516953e016f456d7c2a6f858b70012c0551d92850aac0410672e46d4c2aa",
+    "sirius_0.1_degrees.png": "8d26b84d21d85552a27551167538cf2c5b3e93c82bd4c199c22c6a4a74c62073",
+    "sirius_1.0_degrees.png": "565f411ad492e15c904df60f3150dc28a12ffaffb1fb5197c6d3cb01fc839572",
+    "sirius_78.0_degrees.png": "70ea415d84b016dd2645714f5fca7462a65e34347b2a84fcddf074775988d430",
+    "sirius_reference.png": "796cd3f9a8e4cc8e2c63f36fef38925cf36af012b4737f3e42a8f0d3638f02bb",
+    "sirius_scintillation_control.png": "b7841642832b54ecbc7583397aae9f68ff4980db2b47ab11b1e87e44bea74bff",
+    "stellar_drift_00.png": "3859e8ad71c88bd7898e021b14d884876740ee02e0e74868fc3cecb3dc8f9136",
+    "stellar_drift_01.png": "a9ed2a357f25626b717fee21c4ec3d88cafb515df270940b2e1b228bc9d99fb9",
+    "stellar_drift_02.png": "1241e292aef81609761d86fca050a35f4f303dedb48b1d9e4072c1684e4bd7a0",
+    "stellar_drift_03.png": "1f88d03d96ee16cf8e1cac5043ab729c7435b0150951dac26a0c78bd47a74ffa",
+    "stellar_drift_04.png": "2a5efb7b2ce941cd875be5435fa2b6b9976ef8168023bddc43d8abf44f01130f",
+    "stellar_drift_05.png": "2a95717c9b37ac24982c4d0de93acdf742386ef70dfb1b5710e353c7ac216b2f",
+    "stellar_drift_06.png": "1554927aa162d9a62725543713a32a7dae72e84e5ba9b1a264f19a0a117d59f4",
+    "stellar_drift_07.png": "435b925cd553fd29be0da40c3b2f1fcdc994b11b68d9989065b402d467852ae2",
+    "stellar_drift_08.png": "8502bd49a7aedc0cdbcb9054832cf8aa6b866050d4a6ffafc53973bfd26f25c4"
+  }
 }

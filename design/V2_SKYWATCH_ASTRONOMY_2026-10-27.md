@@ -287,3 +287,27 @@ hardware and source context when comparing later results.
 This work does not change campaign, inventory, work-order, resident, quest,
 reading or save authorities. Club flavour must preserve the established alien
 premise without inventing communication, decoded clues or story revelations.
+
+### Fractional-clock telescope correction
+
+The retained director updates world lighting every eight seconds. A frozen
+optical bench concealed the resulting jump at extreme magnification. V2 now
+publishes stellar orientation from the existing campaign clock's fractional
+seconds every frame. Narrow telescope fields also refresh orbital projection;
+the whole lighting/fog/weather pipeline retains its existing cadence. The
+temporary shared WeatherManager hook is removed: that file again matches main.
+
+**stars_fractional_clock.log.receipt.json** completed fullscreen 3440x1440
+with ten assertions passing (eleven PASS lines including the result), empty
+stderr. Nine rendered Sirius centroids over 0.4 campaign seconds advance
+continuously by about 22.8 pixels, with each 0.05-second increment moving
+approximately 2.7–2.9 pixels. The narrow-field director calls took 247–376
+microseconds in this diagnostic, not an occupied-world CPU budget. Cloud and
+world controls still extinguish the measured star signal; wrap-integrated
+displayed light changes by 0.109%. Raw samples, logs and tested source are
+appended to the diagnostic archive, preserving earlier failures.
+
+The initial complete static board at **bd2d307a** found only the expected
+surface-qualification invalidation: rendering inputs changed and the old
+rendered review is stale. These are two open defects, not waived passes.
+The other gates did not regress against the unchanged merged weather tree.

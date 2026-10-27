@@ -229,6 +229,30 @@ func star_review(bench: Node3D) -> void:
 			var sample := await measure(bench,field,false)
 			sample["star_mode"]=mode;frames.append(sample)
 	bench.sky_material.set_shader_parameter("star_animation_seconds",0.)
+	# A stationary clock hid the retained eight-second director cadence. Track
+	# the rendered star as the real campaign clock advances within one second.
+	set_field(bench,.1)
+	var drift: Array[Dictionary]=[]
+	for step in range(9):
+		if step>0:bench.clock.advance_seconds(.05)
+		var started := Time.get_ticks_usec()
+		bench.director._process(.000001)
+		var cpu_us := Time.get_ticks_usec()-started
+		var axis: Vector3=bench.sky_material.get_shader_parameter("equatorial_axis_x")
+		await capture(bench,out+"/stellar_drift_%02d.png" % step,0.)
+		var centroid := image_centroid(bench.get_viewport().get_texture().get_image())
+		drift.append({"elapsed_seconds":float(step)*.05,"centroid": [centroid.x,centroid.y],"axis":[axis.x,axis.y,axis.z],"director_cpu_us":cpu_us})
+	var start_center := Vector2(drift[0].centroid[0],drift[0].centroid[1])
+	var end_center := Vector2(drift[-1].centroid[0],drift[-1].centroid[1])
+	var travel := end_center-start_center
+	var continuous := travel.length()>5.
+	var previous := start_center
+	for step in range(1,drift.size()):
+		var current := Vector2(drift[step].centroid[0],drift[step].centroid[1])
+		continuous=continuous and (current-previous).dot(travel.normalized())>.2 and current.distance_to(previous)<travel.length()*.3
+		previous=current
+	check(continuous,"campaign sub-second rotation moves the rendered telescope star continuously before the lighting tick")
+	check(Vector3(drift[0].axis[0],drift[0].axis[1],drift[0].axis[2]).distance_to(Vector3(drift[-1].axis[0],drift[-1].axis[1],drift[-1].axis[2]))>.00001,"V2 director publishes fractional-clock celestial axes")
 	await capture(bench,out+"/sirius_reference.png")
 	var baseline_phase := float(bench.sky_material.get_shader_parameter("star_animation_seconds"))
 	await capture(bench,out+"/sirius_scintillation_control.png",baseline_phase+.073)
@@ -279,7 +303,7 @@ func star_review(bench: Node3D) -> void:
 	var world_signal := image_signal(world_on,world_off)
 	check(world_signal<.002,"a real opaque world mesh blocks the analytical starfield")
 	blocker.queue_free();await bench.get_tree().process_frame
-	var result := {"evidence_class":"INERT","scope":"native analytical-star optical/performance diagnostics; not telescope gameplay acceptance","failures":failures,"sirius_altitude_degrees":Ephemeris.altitude_degrees(direction),"frame_times":frames,"clear_signal":clear_signal,"cloud_signal":cloud_signal,"world_signal":world_signal,"wrap_peak_signal":wrap_signal,"wrap_relative_flux_change":wrap_flux_change}
+	var result := {"evidence_class":"INERT","scope":"native analytical-star optical/performance diagnostics; not telescope gameplay acceptance","failures":failures,"sirius_altitude_degrees":Ephemeris.altitude_degrees(direction),"frame_times":frames,"stellar_drift":drift,"clear_signal":clear_signal,"cloud_signal":cloud_signal,"world_signal":world_signal,"wrap_peak_signal":wrap_signal,"wrap_relative_flux_change":wrap_flux_change}
 	var file := FileAccess.open(out+"/star_review.json",FileAccess.WRITE);file.store_string(JSON.stringify(result,"\t")+"\n");file.close()
 	print("SKYWATCH STAR RESULT: ","PASS" if failures.is_empty() else "FAIL")
 	bench.get_tree().quit(0 if failures.is_empty() else 1)
@@ -301,6 +325,17 @@ func image_flux(a: Image) -> float:
 		for x in range(center.x-40,center.x+41):
 			sum+=maxf(0.,a.get_pixel(x,y).srgb_to_linear().get_luminance()-background)
 	return sum
+
+func image_centroid(image: Image) -> Vector2:
+	var center := image.get_size()/2
+	var background := image.get_pixel(center.x-80,center.y-80).srgb_to_linear().get_luminance()
+	var weighted := Vector2.ZERO
+	var energy := 0.
+	for y in range(center.y-80,center.y+81):
+		for x in range(center.x-80,center.x+81):
+			var value := maxf(0.,image.get_pixel(x,y).srgb_to_linear().get_luminance()-background)
+			weighted+=Vector2(x,y)*value;energy+=value
+	return weighted/maxf(energy,.000001)
 
 func catalogue_review(bench: Node3D) -> void:
 	var baker := preload("res://scripts/building/skywatch_catalogue.gd")

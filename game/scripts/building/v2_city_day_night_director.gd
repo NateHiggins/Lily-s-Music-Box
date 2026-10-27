@@ -7,6 +7,25 @@ var _astronomy_observer := Vector2(INF,INF)
 var _eclipse_transmission := 1.0
 var _stellar_axes := PackedVector3Array()
 
+func _process(delta: float) -> void:
+	super._process(delta)
+	if _sky==null or _campaign_clock==null or not is_finite(_astronomy_observer.x):return
+	if OS.get_environment("DAYNIGHT")=="0" or not OS.get_environment("DAYNIGHT_FORCE").is_empty():return
+	var camera := get_viewport().get_camera_3d()
+	SkywatchAstronomy.publish_star_frame(_sky,camera,_campaign_clock,_astronomy_observer)
+	if camera==null or not bool(_sky.get_meta("analytical_stars",false)):return
+	# Only telescope fields need sub-second orbital motion. Do not republish
+	# ambient lighting, fog, weather, neighbours or residency here.
+	if float(_sky.get_meta("stellar_camera_field",PI))<deg_to_rad(2.):
+		var utc := SkywatchAstronomy.precise_utc(_campaign_clock)
+		var sun := SkywatchAstronomy.Ephemeris.sun_direction(utc,_astronomy_observer.x,_astronomy_observer.y)
+		var moon := SkywatchAstronomy.Ephemeris.moon_direction(utc,_astronomy_observer.x,_astronomy_observer.y)
+		_publish_astronomy({"observer":_astronomy_observer})
+		_sky.set_shader_parameter("sun_direction",sun)
+		_sky.set_shader_parameter("celestial_direction",sun if sun.y>-.035 else moon)
+		_sky.set_shader_parameter("moon_illumination",clampf((1.-sun.dot(moon))*.5,0.,1.))
+		_sky.set_shader_parameter("moon_phase_enabled",sun.y<=-.035)
+
 func _state_texture(state: String) -> Texture2D:
 	if state!="night" or _sky==null or _sky.shader.resource_path!="res://shaders/queens_weather_sky.gdshader":
 		return super._state_texture(state)
@@ -30,8 +49,8 @@ func _publish_astronomy(profile: Dictionary) -> void:
 		_sky.set_shader_parameter("moon_eclipse_shadow",Vector4.ZERO)
 		_astronomy_second=-INF
 		return
-	var utc := _campaign_clock.utc_datetime()
-	var second := floorf(SkywatchAstronomy.Ephemeris.julian_day(utc)*86400.)
+	var utc := SkywatchAstronomy.precise_utc(_campaign_clock)
+	var second := SkywatchAstronomy.Ephemeris.julian_day(utc)*86400.
 	var observer: Vector2 = profile.observer
 	if second == _astronomy_second and observer==_astronomy_observer:
 		profile["equatorial_axes"]=_stellar_axes
