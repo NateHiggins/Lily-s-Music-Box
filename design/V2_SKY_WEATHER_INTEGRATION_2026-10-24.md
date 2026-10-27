@@ -1117,3 +1117,13 @@ The cursor path uses the documented
 pipeline. Engine-dispatched test input is not native OS input or human acceptance.
 Full-world surface qualification and current-main weather regressions remain
 pending; this combined hose bench does not substitute for them.
+
+The existing roof-review archive now carries **249 hash-verified members,
+16,382,360 bytes**, preserving all 138 preceding members exactly. It includes
+the original matched-run logs and samples, missing-mipmap failure, source
+snapshots, failed isolation/host probes, successful combined hose run and
+its renders. No separate review directory or evidence promotion is introduced.
+The preliminary 114-gate board reports only the stale surface qualification
+and rendered review as regressions against clean main 2fb02d84. Reader NEW
+remains zero and the completeness ledger remains unchanged. Final candidate
+verification is pending the new runtime evidence and actual rendered review.
