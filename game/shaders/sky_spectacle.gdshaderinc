@@ -100,15 +100,16 @@ vec3 object_frame(vec3 p,int s,float distance_km) {
 
 // --- Deck sculpting (inside the existing cloud slab) ---------------------------
 float mammatus(vec3 p) {
-    // A grid of smooth spheres hung under the storm base, smooth-min blended
-    // into an inverted-noise underside: pouches, not a lumpy floor.
+    // Warp the pouch lattice with the already sampled underside noise so it
+    // does not read as straight rows of ceiling tiles at a grazing angle.
+    vec2 field=textureLod(cloud_noise,(p-wind_offset)*.75,0.0).rg;
     float cell_size=.30;
-    vec2 g=(p.xz-wind_offset.xz*.4)/cell_size;
+    vec2 g=(p.xz-wind_offset.xz*.4)/cell_size+(field-.5)*.8;
     vec2 cell=floor(g); vec2 f=fract(g)-.5;
     float j=hash12(cell);
     vec3 q=vec3(f.x*cell_size,p.y-(1.18-.05*j),f.y*cell_size);
     float pouch=length(q*vec3(1.0,.82,1.0))-.125*(.78+.44*j);
-    float n=textureLod(cloud_noise,(p-wind_offset)*.75,0.0).r;
+    float n=field.r;
     float underside=(1.30-(1.0-n)*.16)-p.y;
     float sdf=soft_union(pouch,underside,.07);
     return 1.0-smoothstep(-.035,.03,sdf);
@@ -280,18 +281,21 @@ float anvil_tower(vec3 p,inout vec3 albedo) {
     int s=spectacle[S_ANVIL]>0.0?S_ANVIL:S_OVERSHOOT;
     vec3 q=object_frame(p,s,12.0);
     float n=textureLod(cloud_noise,q*.45,0.0).r;
-    float h=clamp((q.y-1.0)/7.0,0.0,1.0);
-    float tower=(1.0-smoothstep(1.2+.5*h,1.6+.5*h+.4*n,length(q.xz)))*smoothstep(.95,1.2,q.y)*(1.0-smoothstep(7.4,7.8,q.y));
-    // The anvil spreads downwind under the tropopause lid.
-    vec2 a=vec2((q.x-2.2)/6.5,q.z/3.5);
-    float anvil=(1.0-smoothstep(.8,1.05,length(a)+(n-.5)*.25))*smoothstep(6.8,7.1,q.y)*(1.0-smoothstep(7.5+.3*n,7.9,q.y));
-    float dome=0.0;
+    // Fused, offset updraft lobes rather than a capped cylinder under a disc.
+    // All remain within the original bounded march; no new density taps.
+    float tower=ellipsoid(q-vec3(-.15,2.0,.10),vec3(1.20,1.30,1.10));
+    tower=soft_union(tower,ellipsoid(q-vec3(.22,3.65,-.18),vec3(1.50,1.65,1.35)),.65);
+    tower=soft_union(tower,ellipsoid(q-vec3(-.12,5.20,.15),vec3(1.90,1.65,1.55)),.65);
+    tower=soft_union(tower,ellipsoid(q-vec3(.40,6.50,-.12),vec3(2.10,1.30,1.85)),.65);
+    float anvil=ellipsoid(q-vec3(2.0,7.20,0.0),vec3(5.5,.60,3.0));
+    float cloud=soft_union(tower,anvil,.65);
     if (spectacle[S_OVERSHOOT]>0.0) {
         // Overshooting top: the updraft's dome punching through the lid.
-        dome=(1.0-smoothstep(-.04,.06,ellipsoid(q-vec3(0.0,7.75,0.0),vec3(1.1,.75,1.1))+(n-.5)*.15))*spectacle[S_OVERSHOOT];
+        float dome=ellipsoid(q-vec3(0.0,7.75,0.0),vec3(1.1,.75,1.1));
+        cloud=mix(cloud,soft_union(cloud,dome,.35),spectacle[S_OVERSHOOT]);
     }
     albedo=vec3(.87,.87,.87);
-    return max(max(tower*(.6+.5*n),anvil),dome);
+    return 1.0-smoothstep(-.16,.16,cloud+(n-.5)*.45);
 }
 float pileus(vec3 p,inout vec3 albedo) {
     vec3 q=object_frame(p,S_PILEUS,6.0);
@@ -416,9 +420,16 @@ vec4 spectacle_objects(vec3 direction,float jitter,out float near_t) {
         float d=objects_at(p,albedo,glow);
         if (d>.01) {
             vec3 a2; vec3 g2;
-            float shade=exp(-objects_at(p+source*.18,a2,g2)*2.2);
+            float light_density=objects_at(p+source*.18,a2,g2);
+            float shade=exp(-light_density*2.2);
             float alpha=1.0-exp(-d*dt*4.5);
             vec3 lit=albedo*(ambient*.45+celestial_color*day*shade*.85)*mix(vec3(1.0),vec3(.30,.33,.39),smoothstep(.05,.55,storm_strength))+glow;
+#ifdef QUEENS_CLOUD_DECK
+            // Share the installed deck's powder, twilight and green-storm
+            // response instead of illuminating rare formations as white props.
+            lit=albedo*wx_powder_light(d,light_density*2.2,dot(direction,source),
+                clamp(p.y/8.0,0.0,1.0),celestial_color*day,ambient,source)+glow;
+#endif
             lit+=celestial_color*weather_flash*.6;
             sum+=lit*alpha*transmittance;
             transmittance*=1.0-alpha;

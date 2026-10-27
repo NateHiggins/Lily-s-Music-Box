@@ -26,19 +26,6 @@ func key(code: Key) -> void:
 func aim(point: Vector3) -> void:
 	player.camera.look_at(point);await get_tree().physics_frame;await get_tree().physics_frame;player.camera.look_at(point)
 func cursor_to(pixel: Vector2) -> bool:
-	var viewport := get_viewport()
-	if viewport is SubViewport and viewport.has_meta("isolated_input_host_sha256"):
-		# Preserve the actual viewport ray/part checks on stations where Windows
-		# deliberately denies native cursor access. No production target override.
-		var host := "res://tests/isolated_input_host.gd"
-		if str(viewport.get_meta("isolated_input_host_sha256")) != FileAccess.get_sha256(host):
-			return false
-		var event := InputEventMouseMotion.new()
-		event.position = pixel.round()
-		event.global_position = event.position
-		viewport.push_input(event, true)
-		await get_tree().process_frame
-		return viewport.get_mouse_position().distance_to(event.position) <= .5
 	# Input-mode changes and the inspection's initial centering can still be
 	# queued at the native window. Publish a rendered frame before requesting
 	# the pick position, and retry only until its real viewport delivery.
