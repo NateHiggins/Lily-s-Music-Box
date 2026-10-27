@@ -13,6 +13,7 @@ var _calendar_mode:=false
 var _mirage_profile_mode:=false
 var _cloud_profile_mode:=false
 var _phase_prefix:=""
+var _release_doors: Array[DoorProp]=[]
 
 func _ready() -> void:
 	# GPU readback and PNG encoding must not contaminate measured route frames.
@@ -57,9 +58,22 @@ func _walk(target: Vector3) -> bool:
 
 func _move_front_entrance(identity: String,want_open: bool) -> bool:
 	_phase=_phase_prefix+("door_grab_open" if want_open else "door_grab_close")
+	if OS.get_environment("V2_PROFILE_RELEASES")=="1":
+		var anchor := world.adapter.resolve(identity) as Node3D
+		var door := anchor.get_node(identity+"_Leaf") as DoorProp
+		door.profile_release=true
+		if not _release_doors.has(door):_release_doors.append(door)
 	return await super._move_front_entrance(identity,want_open)
 
+func _release_attribution() -> Dictionary:
+	var rows: Array[Dictionary]=[]
+	for door: DoorProp in _release_doors:
+		if is_instance_valid(door):rows.append({"owner":str(door.get_path()),"samples":door.release_profile_records})
+	return {"scope":"Opt-in synchronous stage timings; household callback profiling adds separately recorded probe overhead. No scheduling or persistence change.",
+		"doors":rows,"household":world.household_state.profile_records,"commit_causes":world.household_state.profile_causes}
+
 func _route() -> void:
+	if OS.get_environment("V2_PROFILE_RELEASES")=="1":world.household_state.profiling=true
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED);Engine.max_fps=0
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 	for key: String in ClassDB.class_get_integer_constant_list("Performance"):
@@ -101,7 +115,7 @@ func _route() -> void:
 		"weather":"campaign-calendar" if _calendar_mode else "hail_storm","weather_source":manager.source,"conditions":manager.current.duplicate(true),"atmosphere":manager.atmosphere_state,"daynight_force":"evening","traffic_seed":1928,"traffic_frozen":traffic.frozen,
 		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters"],
 		"segments":_segments,"samples":_samples,"input_costs":player._grab.profile_records,
-		"player_physics":player.physics_profile_records,"failures":failures},"\t"))
+		"player_physics":player.physics_profile_records,"release_attribution":_release_attribution(),"failures":failures},"\t"))
 	var source_after:=_runtime_digest()
 	if source_after.is_empty() or source_after!=_source_before:failures.append("runtime source changed during played route")
 	if trace.size()!=29 or _samples.size()<1000:failures.append("played route or measured sample interval incomplete")
@@ -193,7 +207,7 @@ func _profile_mirage_route(manager: Node) -> void:
 		"source_before":_source_before,"source_after":source_after,"blocks":blocks,"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,
 		"conditions":manager.current,"calendar":clock.local_datetime(),"weather_source":manager.source,"mirage_parameters":mirage.last_projection_parameters,
 		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters"],"samples":_samples,"segments":_segments,
-		"input_costs":player._grab.profile_records,"player_physics":player.physics_profile_records,"failures":failures},"\t"))
+		"input_costs":player._grab.profile_records,"player_physics":player.physics_profile_records,"release_attribution":_release_attribution(),"failures":failures},"\t"))
 
 func _sky_source_bindings() -> Dictionary:
 	var result: Dictionary={}

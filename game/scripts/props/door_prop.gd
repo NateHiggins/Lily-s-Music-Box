@@ -38,6 +38,9 @@ var _hand_gripped := false
 signal manipulation_changed
 var _leaf_motion: Tween
 var _easy: RefCounted
+## Opt-in attribution only; ordinary play performs no timer reads or recording.
+var profile_release := false
+var release_profile_records: Array[Dictionary] = []
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -476,12 +479,24 @@ func _move_by_hand(angle: float) -> void:
 		set_meta("hand_motion_sound",true)
 
 func _release_leaf() -> void:
+	var started := Time.get_ticks_usec() if profile_release else 0
 	_body.force_update_transform()
+	var published := Time.get_ticks_usec() if profile_release else 0
 	_body.sync_to_physics=true
+	var synced := Time.get_ticks_usec() if profile_release else 0
 	_hand_gripped = false
 	remove_meta("hand_motion_sound")
 	_settled()
+	var settled := Time.get_ticks_usec() if profile_release else 0
 	manipulation_changed.emit()
+	if profile_release:
+		var finished := Time.get_ticks_usec()
+		release_profile_records.append({"start_usec":started,"end_usec":finished,
+			"process_frame":Engine.get_process_frames(),"physics_frame":Engine.get_physics_frames(),
+			"publish_usec":published-started,"sync_usec":synced-published,
+			"settle_usec":settled-synced,"callbacks_usec":finished-settled,
+			"angle":_body.rotation.y,"open":open})
+		if release_profile_records.size()>128:release_profile_records.pop_front()
 
 func mechanism_snapshot() -> Dictionary:
 	# Normalize float32 transform endpoints before entering the durable record.

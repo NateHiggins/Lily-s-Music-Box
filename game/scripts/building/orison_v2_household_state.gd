@@ -159,6 +159,10 @@ func _saved_value() -> Variant:
 	return RealityState.data[KEY] if RealityState.data.has(KEY) else {"schema_version":1, "records":{}}
 
 func validate(value: Variant, kinds: Dictionary) -> bool:
+	# Public/load validation always checks the complete payload.
+	return _validate(value,kinds,{})
+
+func _validate(value: Variant, kinds: Dictionary, trusted_records: Dictionary) -> bool:
 	var profile_started:=_profile_start()
 	errors.clear()
 	if value is not Dictionary or value.size() != 2 \
@@ -179,6 +183,10 @@ func validate(value: Variant, kinds: Dictionary) -> bool:
 			errors.append("unknown or malformed household save identity")
 			continue
 		var setting: Variant = record.get("value")
+		# capture_now alone supplies the owner's previous validated deep copy.
+		# Compare the complete record, including kind and nested values. Related
+		# identities are checked below even when an individual record is reused.
+		if trusted_records.has(identity) and trusted_records[identity]==record:continue
 		if record.kind == "mechanism":
 			if not _subjects.has(identity) or not _subjects[identity].valid_mechanism(setting): errors.append("invalid saved mechanism position")
 		elif record.kind in SERVICE_KINDS.values() and setting is Dictionary:
@@ -340,10 +348,12 @@ func capture_now() -> bool:
 		return false
 	var current := snapshot()
 	# A fresh snapshot equal to the same validated saved payload needs no
-	# second validation. Changed live positions still pass the full validator.
+	# second validation. Changed records still pass their complete validators;
+	# every related-record constraint runs against the complete fresh snapshot.
 	if reuse_unchanged_validation and not current.is_empty() and current == saved:
 		errors.clear();_profile_end("capture_cached",profile_started);return false
-	if current.is_empty() or not validate(current, _kinds) or current == saved:
+	var trusted: Dictionary=_last_saved.get("records",{}) if reuse_unchanged_validation else {}
+	if current.is_empty() or not _validate(current, _kinds, trusted) or current == saved:
 		_profile_end("capture_unchanged_or_invalid",profile_started);return false
 	RealityState.data[KEY] = current
 	_last_saved = current.duplicate(true)
