@@ -264,16 +264,36 @@ float density(vec3 p) {
 vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     vec3 ro=wx_camera_km;
     float base=wx_cloud_base();
-    if(spectacle[S_MAMMATUS]>0.0) base=min(base,.88);
-    if(spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]>0.0) base=min(base,.40);
     float ceiling=base+mix(0.60,3.0,season_weights.z);
-    if(living_enabled && max(vortex_intensity,wx_cyclone)<.001) {
-        base=min(base,living_layer_0.y);
-        ceiling=max(ceiling,max(living_layer_0.y+living_layer_0.z,living_layer_1.y+living_layer_1.z));
+    float asperitas=max(wx_formation==1 ? wx_formation_strength : 0.0,spectacle[S_ASPERITAS]);
+    if(living_enabled && asperitas<=.001 && max(vortex_intensity,wx_cyclone)<.001) {
+        // Match density_tagged's active strata exactly. The old bounds marched
+        // empty air beneath middle cloud and an invisible middle deck above an
+        // opaque ceiling. High ice is handled by its separate analytic plane.
+        base=100000.0; ceiling=-1.0;
+        if(living_layer_0.x>.0001) {
+            base=living_layer_0.y;
+            ceiling=living_layer_0.y+living_layer_0.z;
+        }
+        if(living_layer_0.x<.96 && living_layer_1.x>.0001) {
+            base=min(base,living_layer_1.y);
+            ceiling=max(ceiling,living_layer_1.y+living_layer_1.z);
+        }
     }
-    if(shape_kind>0 && shape_opacity>0.0) ceiling=max(ceiling,3.15);
+    if(spectacle[S_MAMMATUS]>0.0) { base=min(base,.88); ceiling=max(ceiling,1.6); }
+    if(spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]>0.0) { base=min(base,.40); ceiling=max(ceiling,2.0); }
+    if(shape_kind>0 && shape_opacity>0.0) { base=min(base,1.0); ceiling=max(ceiling,3.15); }
     if(wx_formation==3) ceiling=max(ceiling,wx_lens_center.y+0.55);
     if(wx_formation==2) ceiling=max(ceiling,2.80);
+    float lighting_base=base<10000.0 ? base : wx_cloud_base();
+    vec2 empty_gap=vec2(100000.0,-1.0);
+    if(living_enabled && asperitas<=.001 && max(vortex_intensity,wx_cyclone)<.001
+        && living_layer_0.x>.0001 && living_layer_0.x<.96 && living_layer_1.x>.0001
+        && living_layer_1.y>living_layer_0.y+living_layer_0.z && direction.y>.0001
+        && spectacle[S_MAMMATUS]+spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]+shape_opacity<.001) {
+        empty_gap=vec2((living_layer_0.y+living_layer_0.z-ro.y)/direction.y,
+            (living_layer_1.y-ro.y)/direction.y);
+    }
     vec2 deck=vec2(100000.0,-1.0);
     if(direction.y>0.0001) {
         float underside=(wx_formation==1 || spectacle[S_ASPERITAS]>0.0) ? 0.75 : 0.50;
@@ -315,12 +335,14 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
         if(t>=finish || transmittance<0.005) break;
         bool in_deck=t>=deck.x && t<deck.y;
         bool in_funnel=t>=funnel.x && t<funnel.y;
+        if(!in_funnel && t>=empty_gap.x && t<empty_gap.y) { t=empty_gap.y; continue; }
         if(!in_deck && !in_funnel) {
             float next_t=min(t<deck.x ? deck.x : 100000.0,t<funnel.x ? funnel.x : 100000.0);
             t=next_t;
             continue;
         }
         float ds=in_funnel ? min(coarse,fine) : coarse;
+        if(!in_funnel && t<empty_gap.x) ds=min(ds,empty_gap.x-t);
         if(t<funnel.x) ds=min(ds,funnel.x-t);
         if(t<deck.x) ds=min(ds,deck.x-t);
         ds=min(ds,finish-t);
@@ -330,7 +352,14 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
         float d=density_tagged(p,fire);
         if(d>0.002) {
             // Every light tap calls the same density, including funnel and lenses.
-            float tau_sun=6.0*(density(p+source*0.12)*0.12+density(p+source*0.35)*0.23);
+            float near_density=density(p+source*0.12);
+            // Sparse fair-weather wisps are optically thin: extend the nearby
+            // extinction estimate instead of resampling a second whole stratum.
+            // Dense ceilings and every severe/rare formation keep both taps.
+            bool thin_fair=living_enabled && cloud_coverage<.60 && wx_formation==0
+                && max(storm_strength,max(wx_hail,max(wx_cyclone,vortex_intensity)))<.001;
+            float far_density=thin_fair ? near_density : density(p+source*0.35);
+            float tau_sun=6.0*(near_density*0.12+far_density*0.23);
             if(vortex_intensity>0.001 && length(p.xz-wx_vortex_center)<0.50) {
                 // Deck-scale taps skip a narrow funnel. Resolve its own core
                 // at shorter distances so it cannot become a luminous rope.
@@ -338,7 +367,7 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
                 tau_sun+=d*1.3;
             }
             float alpha=1.0-exp(-6.0*d*ds);
-            float h=clamp((p.y-base)/max(ceiling-base,0.1),0.0,1.0);
+            float h=clamp((p.y-lighting_base)/max(ceiling-lighting_base,0.1),0.0,1.0);
             vec3 lit=wx_powder_light(d,tau_sun,dot(direction,source),h,celestial_color*day,ambient,source);
             float asperitas=max(wx_formation==1 ? wx_formation_strength : 0.0,spectacle[S_ASPERITAS]);
             if(asperitas>0.0) {

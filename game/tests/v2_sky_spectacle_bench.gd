@@ -260,27 +260,44 @@ func _brush_review() -> void:
 	DirAccess.make_dir_recursive_absolute(directory)
 	var rows: Array[Dictionary]=[];var failures: Array[String]=[]
 	var sources: Dictionary={}
-	for path: String in ["res://shaders/queens_weather_sky.gdshader","res://shaders/queens_weather_math.gdshaderinc"]:
+	for path: String in ["res://shaders/queens_weather_sky.gdshader","res://shaders/queens_weather_math.gdshaderinc","res://shaders/sky_spectacle.gdshaderinc"]:
 		sources[path]=FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
+	# Optional paired optical/performance control, same calendar, camera,
+	# textures, resolution and settled frame counts. No gameplay qualification.
+	var variants: Dictionary={"production":sky_material.shader}
+	var baseline_path:=OS.get_environment("SKY_BRUSH_BASELINE")
+	if not baseline_path.is_empty():
+		var code:=FileAccess.get_file_as_string(baseline_path)
+		if code.is_empty():push_error("Missing original cloud shader");get_tree().quit(1);return
+		var original:=Shader.new();original.code=code
+		variants={"baseline":original,"production":sky_material.shader}
+		sources[baseline_path]=code.replace("\r\n","\n").sha256_text()
+	var parameters: Dictionary={}
+	for uniform: Dictionary in sky_material.shader.get_shader_uniform_list():
+		var value: Variant=sky_material.get_shader_parameter(str(uniform.name))
+		if value!=null:parameters[str(uniform.name)]=value
 	for day_index: int in [0,120,210,300]:
-		_library_date(day_index,_daylight_hours(day_index)[2])
-		sky_material.set_shader_parameter("temporal_phase",0.0)
-		var layers: Array[Vector4]=[]
-		for band in 3:layers.append(sky_material.get_shader_parameter("living_layer_%d"%band))
-		for mask: String in ["all","low_mid","high"]:
-			DisplayServer.window_set_title("Cloud brush review: day %d/365 · %s"%[day_index+1,mask])
-			for band in 3:
-				var layer: Vector4=layers[band]
-				if (mask=="high" and band<2) or (mask=="low_mid" and band==2):layer.x=0.0
-				sky_material.set_shader_parameter("living_layer_%d"%band,layer)
-			for frame in 48:await RenderingServer.frame_post_draw
-			var times: Array=[]
-			for frame in 64:
-				await RenderingServer.frame_post_draw
-				times.append([RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid())])
-			var name:="brush_day_%03d_%s.png"%[day_index,mask]
-			if get_viewport().get_texture().get_image().save_png(directory.path_join(name))!=OK:failures.append("capture "+name)
-			rows.append({"date":clock.datetime_string(),"mask":mask,"state":manager.atmosphere_state.duplicate(true),"file":name,"render_cpu_gpu_ms":times})
+		for variant: String in variants:
+			sky_material.shader=variants[variant]
+			for key: String in parameters:sky_material.set_shader_parameter(key,parameters[key])
+			_library_date(day_index,_daylight_hours(day_index)[2])
+			sky_material.set_shader_parameter("temporal_phase",0.0)
+			var layers: Array[Vector4]=[]
+			for band in 3:layers.append(sky_material.get_shader_parameter("living_layer_%d"%band))
+			for mask: String in (["all"] if not baseline_path.is_empty() else ["all","low_mid","high"]):
+				DisplayServer.window_set_title("Cloud brush review: day %d/365 · %s"%[day_index+1,mask])
+				for band in 3:
+					var layer: Vector4=layers[band]
+					if (mask=="high" and band<2) or (mask=="low_mid" and band==2):layer.x=0.0
+					sky_material.set_shader_parameter("living_layer_%d"%band,layer)
+				for frame in (128 if not baseline_path.is_empty() else 48):await RenderingServer.frame_post_draw
+				var times: Array=[]
+				for frame in (256 if not baseline_path.is_empty() else 64):
+					await RenderingServer.frame_post_draw
+					times.append([RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid())])
+				var name:="brush_%s_day_%03d_%s.png"%[variant,day_index,mask]
+				if get_viewport().get_texture().get_image().save_png(directory.path_join(name))!=OK:failures.append("capture "+name)
+				rows.append({"variant":variant,"date":clock.datetime_string(),"mask":mask,"state":manager.atmosphere_state.duplicate(true),"file":name,"render_cpu_gpu_ms":times})
 	for path: String in sources:
 		if FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()!=sources[path]:failures.append("source changed during review: "+path)
 	FileAccess.open(directory.path_join("brush_review.json"),FileAccess.WRITE).store_string(JSON.stringify({

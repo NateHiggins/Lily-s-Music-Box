@@ -56,6 +56,9 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift) {
 		body=smoothstep(1.0-coverage-.10,1.0-coverage+.10,broad);
 		if(coverage>.94) body=mix(body,1.0,smoothstep(.94,1.0,coverage));
 		body*=.65+.35*broad;
+		// A continuous ceiling still has a relief underside. Reuse this tap;
+		// coverage must not flatten its bottom into a horizontal card.
+		h-=(1.0-broad)*.22*(1.0-smoothstep(.20,.75,h));
 	} else if(genus==0) {
 		// High ice fibres: anisotropic stretched marks, not scaled cumulus.
 		// The high plane spans tens of kilometres near the horizon. Broad,
@@ -75,9 +78,13 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift) {
 		vec2 warp=textureLod(cloud_noise,vec3(q*.043+drift.xy,motion.z),1.0).rg-.5;
 		vec2 marks=q+warp*3.0;
 		if(int(brush.z)==4 || int(brush.z)==9) marks.y*=.32;
-		float mark_scale=genus==1 ? .025 : .065;
-		vec2 field=textureLod(cloud_noise,vec3(marks*mark_scale+motion.xy,h*.15+motion.z*2.0),1.0).rg;
+		float mark_scale=genus==1 ? .025 : .18;
+		vec2 field=textureLod(cloud_noise,vec3(marks*mark_scale+motion.xy,h*.55+motion.z*2.0),1.0).rg;
 		texture_detail=field.y;
+		// Sculpt both bearings with the existing volume sample. The former
+		// shallow Z slice extruded flat islands through the whole cloud depth.
+		h-=(1.0-field.x)*.35*(1.0-smoothstep(.20,.80,h));
+		h+=(1.0-field.x)*.18*smoothstep(.40,.90,h);
 		float mass=field.x; // Worley is erosion, never a second field of tiny bodies.
 		float upper=(genus==1 || genus==3 || genus==6) ? .43 : .78;
 		mass-=pow(max(h-.12,0.0)/upper,2.0)*.18;

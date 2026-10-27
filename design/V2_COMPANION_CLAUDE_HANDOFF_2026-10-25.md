@@ -322,3 +322,48 @@ out of production main. Raw-byte recovery, original index and all new run logs
 remain at **C:/ov/reports/canonical_reconcile_20261026** and
 **C:/ov/reports/weather_profile29**. The Godot lane was free after all owned jobs
 finished. This chat was not archived.
+
+### Weather production recovery — 2026-10-26
+
+The preceding unqualified-weather status is historical. PR **#65** recovers the
+weather tag onto accepted main **53d8eb06**, preserving newer Tardi optics and
+the hash-pinned Vulkan engine. Native fullscreen **3440×1440** is now exercised
+with the owner's explicit permission to capture the mouse while away; this is
+not a claim of pointer isolation. The obsolete SubViewport host is removed.
+
+Runtime source **a535b380** passes the original full surface programme:
+**40,797 checks, zero failures, empty shutdown stderr**. Its first attempt's
+two F03 nozzle failures are retained; native cursor-warp motion arrived after
+the test's grab. Waiting for native frame delivery repairs the harness without
+changing physical constraints. All eight stations pass **1,637** observations.
+
+The installed roof passes43; sky59; actual two-world disk reconstruction41;
+calendar424; schedule and flash checks pass. The played route passes29 waypoints.
+There are42 phenomenon renders and2,190 annual samples, with13 reverse-date
+replays and no annual failures. Full results, source-bound surface publication,
+frame distributions and limitations are in
+**design/V2_SKY_WEATHER_INTEGRATION_2026-10-24.md**. The compact review archive
+preserves all299 earlier members and adds raw failures, test-written contracts,
+native showcases and explicitly identified image derivatives.
+
+Clean candidate **666335c3** passes the114-gate comparison with zero regressions,
+17/17 protected paths unchanged, selectorV2 and no ledger promotions. Its verifier
+is archived. The closing documentation/archive checkpoint gets a final static
+verification before integration. Check PR **#65** and current Git state for the
+actual merge SHA; do not assume an old recovery branch is the current main.
+
+Remaining limits are explicit: the matched native route's p95 is about51–52 ms,
+and its roughly1.25-second first-view hitch coincides with22 new pipeline
+specializations. This is not a closed whole-game performance issue. The legacy
+V1 sky fixture retains portrait-cache and found-art warnings; the V2 surface,
+roof and reconstruction runs have empty stderr. Owner atmosphere/feel acceptance
+and whole-V2 completion are separate from these technical results.
+
+Next owner-directed V2 work: simplify loose nozzle/service parts to authored
+release positions without free simulation, then build the rooftop Skywatcher
+Club, relief Moon with accurate phases/shadows, usable telescope and barbecue
+hangout. The new snap direction supersedes the old no-snap/support-fall tests;
+update those contracts before claiming the new behavior is tested. Preserve
+thread, repair, water and save authorities. The Year You Died, its exact opening
+scene, and the alien/Signal Pro connection are recorded in
+**design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md** and the shared task queue.
