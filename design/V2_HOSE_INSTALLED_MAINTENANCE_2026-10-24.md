@@ -123,3 +123,54 @@ all-station maintenance, certification, performance tails and the broader
 book/nook/device/bath/street/avatar closure queue.
 
 MERGE-CANDIDATE this diagnostic checkpoint; broad V2 work remains active
+
+## Authored release placement — 2026-10-27
+
+Evidence class remains **INERT**. Owner-directed simplification, not a claim
+that the following component diagnostics qualify the whole installed world.
+Weather was independently qualified and merged through PR **#65**, main
+**e27606315052d157bc56eddf0abd49f7d25642ca**, before this work began.
+
+The owner directs: “Just snap the nozzle and things like that to positions when
+released, it doesn't need simulation.” This supersedes the previous loose-part
+gravity, support-search and no-snap requirements. Direct primary grab, mouse
+motion/rotation and the next-click release remain. The nozzle, washer and loose
+union use authored rest/mating poses; no free gravity or contact solve runs at
+rest. The nozzle and washer retain ordinary FPS hand-follow while carried.
+
+The nozzle snaps into the brass pilot or its cabinet rest; placement does not
+engage the helix or claim a sealed nozzle. Nut motion still follows the existing
+native pitch and stops. The washer snaps to storage or an accessible mating
+seat and aligns itself. Seating does not tighten the union or mark inspection.
+The loose hose end parks or returns to its receiving axis, retaining the hose's
+authored reach limit and separate thread grip. Existing maintenance facts,
+inventory, dressing, water charge/lever and household validators remain owners.
+Validated legacy loose poses restore exactly and remain stable; new releases
+choose the authored positions. External disconnected/missing-part fixtures also
+park promptly instead of depending on a later gravity tick.
+
+| Issue | Evidence / reproduction | Repair / verification |
+|---|---|---|
+| Excess loose-part simulation | Nozzle, washer and union each maintained gravity/contact code for tiny service parts | Remove those loops and placement sweeps. About400 runtime lines removed. Native nozzle and full hand diagnostics pass actual translation, rotation, release placement and thread operations. |
+| Carry regression in first snap variant | A socket-relative0.65 m cap leaves the FPS nozzle **0.9195 m** behind the hand during actual movement | Remove arbitrary socket/storage-distance caps for detached pickups, retaining the existing finite save-coordinate bounds. The identical native FPS walk reports **0.0 m** hand error and passes second-click release. Original failed log/receipt retained. |
+| Unchanged release / save ownership | A placed part must not request saves on every idle tick or unchanged click | Fitting commits through the existing release snapshot comparison. Original save-owner regression passes **11 checks**, including unchanged release, changed release and inspection ownership. |
+| Obsolete impact diagnostic | Old **V2FireNozzleSupportProbe** tests falling, support displacement and micrometre collision skins | Retire its scene/script under the new owner contract. Refresh the generated spatial dependency manifest: two records removed, zero classifications changed among retained records; audit clean. Do not present this retirement as fixing its old physical tests. |
+
+Native fullscreen component runs, pinned Vulkan4.7.1, **3440×1440**, shared lane:
+**nozzle_snap_final.log**, **unchanged_snap_final.log**, and
+**service_hand_final.log** all complete with exit0 and empty stderr. The nozzle
+programme includes the exact installed F03 frame, generous imprecise placement,
+two-axis right-drag rotation, actual FPS movement, native screw pitch, malformed
+save denial and stable reload. The full hand programme includes union/washer
+operations and missing-washer restoration. Actual nozzle and cabinet/gasket
+renders were inspected. Raw evidence is under
+**C:/ov/reports/service_snap_skywatch31/**, including the failed capped variant.
+
+Current branch: **codex/v2-service-snap-skywatch-20261026**. Clean main's complete
+114-gate baseline is **C:/ov/reports/service_snap_skywatch31/baseline_main/**.
+Current surface evidence is intentionally stale after these runtime changes;
+it must be renewed by the full original native programme before integration.
+Installed deployment/charge/spray/save regressions, source-bound publication and
+clean candidate verification remain pending. No owner decision is needed.
+
+BLOCKED — installed-world qualification and candidate verification pending.

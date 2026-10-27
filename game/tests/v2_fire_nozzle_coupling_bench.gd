@@ -92,7 +92,7 @@ func _run() -> void:
 	actor.restore_mechanism(initial_mechanism)
 	var facts: Dictionary=actor.maintenance_snapshot();facts.door_open=true;actor.restore_maintenance_snapshot(facts)
 	for frame in range(15):await get_tree().physics_frame
-	check(joint.loose and not actor.nozzle_coupled and joint.body.position.y<joint.receiver.origin.y-.01,"unthreaded original nozzle falls onto actual cabinet support")
+	check(joint.loose and not actor.nozzle_coupled and joint.body.position.y<joint.receiver.origin.y-.01,"unthreaded original nozzle starts at its authored rest pose")
 	player=PlayerController.new();player.position=Vector3(-.1,.025,1.15);add_child(player);player.set_lamp_enabled(false);player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	if OS.get_environment("ORISON_NOZZLE_WORLD_POSE")=="1":player.global_position=actor.to_global(Vector3(-.1,-1.175,1.15))
 	await get_tree().physics_frame;await get_tree().physics_frame
@@ -101,6 +101,8 @@ func _run() -> void:
 	# closure, after entering its supported inspection camera.
 	OS.set_environment("ORISON_NOZZLE_CLOSED_VALVE","1")
 	await exercise_nozzle(actor,hand)
+	if not failures.is_empty():get_tree().quit(1);return
+	await exercise_fps_carry(actor)
 	if not failures.is_empty():get_tree().quit(1);return
 	player.set_lamp_enabled(false)
 	env.environment.sky=Sky.new();env.environment.sky.sky_material=ProceduralSkyMaterial.new();env.environment.reflected_light_source=Environment.REFLECTION_SOURCE_SKY
@@ -122,6 +124,28 @@ func _run() -> void:
 	# every retained cabinet/washer/door/valve input path.
 	var folds: Node3D=load("res://tests/v2_fire_fold_bench.gd").new();add_child(folds)
 
+func exercise_fps_carry(actor: Node3D) -> void:
+	var joint: Node3D=actor._nozzle_joint
+	var saved_player: Transform3D=player.global_transform
+	var saved_camera: Transform3D=player.camera.transform
+	await aim(actor._play_pipe.to_global(Vector3(0,.155,.014)));click()
+	if not check(player._grab.active() and player._grab.holding_pickup(),"primary FPS click holds the detached nozzle in hand"):return
+	for frame in 30:await get_tree().physics_frame
+	var start: Vector3=player.global_position
+	Input.action_press("move_right")
+	for frame in 30:await get_tree().physics_frame
+	Input.action_release("move_right")
+	for frame in 30:await get_tree().physics_frame
+	check(player.global_position.distance_to(start)>.75,"actual movement carries the player away from the cabinet")
+	var held: bool=player._grab.active()
+	var distance: float=INF
+	if held:distance=actor._play_pipe.to_global(player._grab.contact).distance_to(player.camera.to_global(Vector3(.17,-.16,-.48)))
+	print("FPS NOZZLE FOLLOW: held=",held," hand_error=",distance," player=",player.global_position)
+	check(held and distance<.03,"loose nozzle follows the FPS hand while walking instead of remaining tethered to its socket")
+	if held:click()
+	check(joint.body.transform.is_equal_approx(joint.rest_pose()) and not actor.nozzle_coupled,"second FPS click returns the loose part to its authored rest without repairing it")
+	player.global_transform=saved_player;player.camera.transform=saved_camera;player.velocity=Vector3.ZERO
+
 func exercise_nozzle(actor: Node3D,hand: Node) -> void:
 	var joint: Node3D=actor._nozzle_joint
 	var original: Dictionary=actor.mechanism_snapshot()
@@ -130,90 +154,59 @@ func exercise_nozzle(actor: Node3D,hand: Node) -> void:
 	if OS.get_environment("ORISON_VISIBLE_UNION_PROBE")=="1":await surface_pick_controls(actor._joint_nut)
 	if OS.get_environment("ORISON_NOZZLE_CLOSED_VALVE")=="1":
 		if not check(await inspect_operate(hand,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),0.),"actual input closes nozzle valve before carrying review"):return
-	if OS.get_environment("ORISON_NOZZLE_VALVE_ROUNDTRIP")=="1":
-		check(await inspect_operate(hand,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),-.4),"actual input opens a partial valve before carrying review")
-		check(await inspect_operate(hand,actor._lever,actor._lever.to_global(Vector3(.07,0,0)),0.),"actual input closes the moved valve before carrying review")
-	print("NOZZLE CARRY INITIAL: frame=",actor.global_transform," nozzle=",joint.snapshot()," support=",joint._support.get_ref().get_path() if joint._support!=null and joint._support.get_ref()!=null else "none"," lever=",actor._lever.transform)
 	var eye: Transform3D=player.camera.global_transform
-	# The forged lever now correctly occupies the old barrel pick ray. Grab
-	# the exposed outlet collar, rather than selecting through that lever.
 	var point: Vector3=actor._play_pipe.to_global(Vector3(0,.155,.014))
-	var goal: Vector3=joint.body.position+Vector3(0,.060,.060)
-	# Withdraw the loose spigot from the recessed receiving nut before
-	# lifting across its rim; keep the actual collision and hand path.
-	# Lift from the actual bearing before withdrawing across the rim. A
-	# horizontal waypoint at the old contact height fights floor recovery.
-	# Keep the original final goal, reach tolerance and all collision checks.
-	var lifted: Vector3=joint.body.position+Vector3.UP*.001
-	var clear: Vector3=lifted+joint.receiver.basis.y*.012
-	check(await carry_path(actor,actor._play_pipe,point,[lifted,clear,goal+joint.receiver.basis.y*.012,goal],.0001),"actual grab and depth wheel carry the separate original nozzle")
-	check(joint.loose and not actor.nozzle_coupled and player.camera.global_transform.is_equal_approx(eye),"loose carrying leaves repair facts false and inspection camera static")
+	check(await carry_part(actor,actor._play_pipe,point,joint.body.position+Vector3(.08,.06,.08),.0001),"actual grab and depth wheel move the separate nozzle")
+	check(joint.body.transform.is_equal_approx(joint.rest_pose()) and joint.loose and not actor.nozzle_coupled,"release parks the loose nozzle without sealing the joint")
+	if await acquire_surface(actor._play_pipe,actor._play_pipe.to_global(Vector3(0,.155,.014))):
+		click()
+		var before: Basis=joint.body.basis
+		var rotate:=InputEventMouseButton.new();rotate.button_index=MOUSE_BUTTON_RIGHT;rotate.pressed=true;player._unhandled_input(rotate)
+		var motion:=InputEventMouseMotion.new();motion.relative=Vector2(18,-12);player._unhandled_input(motion)
+		rotate.pressed=false;player._unhandled_input(rotate)
+		check(player._grab.active() and not joint.body.basis.is_equal_approx(before),"actual right-drag rotates the grabbed nozzle in two directions")
+		if player._grab.active():click()
+		check(joint.body.transform.is_equal_approx(joint.rest_pose()),"release restores the authored resting orientation")
+	else:check(false,"rotation acquires the actual nozzle surface")
 	var inlet: Transform3D=joint.seat.global_transform
-	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),1.1),"empty captured nut turns freely through actual mouse input")
-	check(absf(joint.spin-1.1)<.000001 and joint.loose and joint.seat.global_transform.is_equal_approx(inlet),"empty nut rotation neither twists its hose seat nor joins the nozzle")
+	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),1.1),"empty captured nut turns through actual mouse input")
+	check(joint.loose and not actor.nozzle_coupled and joint.seat.global_transform.is_equal_approx(inlet),"empty nut movement leaves the fixed inlet and repair authority alone")
 	point=actor._play_pipe.to_global(Vector3(0,.155,.014))
-	var push: Vector3=joint.thread_pose(joint.stock.maximum_angle()).origin-joint.receiver.basis.y*.004
-	# Deliberately approach off-centre, within the measured flared mouth.
-	# This is wider than the old hidden100um datum.
-	var approach: Vector3=joint.thread_pose(joint.stock.maximum_angle()).origin+joint.receiver.basis.y*.006+Vector3(0,.0005,.0006)
-	var contact_stop:=func():
-		var local: Vector3=joint.receiver.affine_inverse()*joint.body.position
-		return joint._on_pilot() and absf(local.y-joint.stock.pilot_min)<.00001
-	if not check(await carry_path(actor,actor._play_pipe,point,[approach,push],.00009,contact_stop),"actual mouse inserts spigot into native-certified entry guide; release does not snap or catch"):return
-	check(joint.loose and not actor.nozzle_coupled and joint.clocking==0.,"contact and release leave original body clocking and coupling facts unchanged")
+	var approach: Vector3=joint.guide_pose().origin+Vector3(.003,.004,.003)
+	if not check(await carry_part(actor,actor._play_pipe,point,approach,.00009),"actual mouse reaches an intentionally imprecise fitting approach"):return
+	check(joint.body.transform.is_equal_approx(joint.guide_pose()) and joint._on_pilot(),"release snaps and aligns the spigot at its receiving brass fitting")
+	check(joint.loose and not actor.nozzle_coupled,"snapped placement does not engage the thread or certify repair")
 	var piloted: Dictionary=actor.mechanism_snapshot()
-	check(actor.valid_mechanism(piloted),"unthreaded guided pose remains a valid household record")
+	check(actor.valid_mechanism(piloted),"snapped loose pose passes the existing household schema")
 	actor.restore_mechanism(piloted)
-	for frame in 3:await get_tree().physics_frame
-	check(actor.mechanism_snapshot()==piloted,"restored entry guide derives its constraint from the saved physical pose")
-	var piloted_pose: Transform3D=joint.body.transform
-	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),joint.spin+.4),"actual loosening gesture turns inserted nut without forced pickup")
-	check(joint.loose and not actor.nozzle_coupled and joint.body.transform==piloted_pose,"wrong direction and release neither tighten nor move the guided nozzle")
-	point=actor._play_pipe.to_global(Vector3(0,.155,.014))
-	check(await carry_part(actor,actor._play_pipe,point,approach,.00009),"actual outward carry withdraws unthreaded spigot from guide")
-	check(joint.loose and not joint._on_pilot() and not actor.nozzle_coupled,"withdrawal frees guide without fabricating a coupled fact")
-	point=actor._play_pipe.to_global(Vector3(0,.155,.014))
-	if not check(await carry_path(actor,actor._play_pipe,point,[approach,push],.00009,contact_stop),"actual mouse reinserts withdrawn original nozzle"):return
-	if not check(await pickup_with_mouse(joint),"actual tightening gesture picks up native helix; releasing nut retains partial thread without snap"):return
-	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),0.),"actual mouse screws whole nozzle along its native thread to the seal")
-	check(actor.nozzle_coupled and not actor.gasket_seen and not actor.tag_signed,"only completed nozzle travel changes its coupling fact")
-	check(joint.seat.global_transform.is_equal_approx(inlet),"screwing the nozzle preserves its actual fixed hose inlet")
+	for frame in 30:await get_tree().physics_frame
+	check(actor.mechanism_snapshot()==piloted,"snapped saved pose stays exact without a simulation pass")
+	if not check(await pickup_with_mouse(joint),"actual tightening gesture engages the original thread after snapped placement"):return
+	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),0.),"actual mouse screws the nozzle along the native pitch to the seal")
+	check(actor.nozzle_coupled and not actor.tag_signed,"completed thread travel alone changes the nozzle coupling fact")
+	check(joint.seat.global_transform.is_equal_approx(inlet),"thread travel preserves the fixed hose inlet")
 	var saved: Dictionary=actor.mechanism_snapshot()
-	check(actor.valid_mechanism(saved) and saved.size()==8+int(saved.has("hose")) and saved.has_all(["door","lever","joint","loose","gasket","facts","nozzle","rubber_dressed"]),"household mechanism includes nozzle pose and existing rubber dressing state")
-	var bad: Dictionary=saved.duplicate(true);bad.nozzle.angle=joint.stock.maximum_angle()+1.
-	check(not actor.valid_mechanism(bad),"saved overtravel cannot replace actual thread state")
-	bad=saved.duplicate(true);bad.facts.nozzle_coupled=false
-	check(not actor.valid_mechanism(bad),"saved nozzle fact cannot contradict actual sealing travel")
-	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),3.2),"actual mouse leaves a partial nozzle thread setting")
-	check(not actor.nozzle_coupled and absf(joint.body.position.distance_to(joint.thread_pose(0.).origin)-float(joint.stock.data.dimensions.pitch_m)*3.2/TAU)<.000001,"partial physical withdrawal follows measured pitch")
+	check(actor.valid_mechanism(saved),"coupled pose and existing fields pass save validation")
+	var fault: Dictionary=actor.maintenance_snapshot().duplicate(true)
+	fault.nozzle_coupled=false;actor.restore_maintenance_snapshot(fault)
+	check(joint.loose and joint.body.transform.is_equal_approx(joint.rest_pose()),"restored disconnected fact parks the nozzle immediately without simulation")
 	actor.restore_mechanism(saved)
-	check(actor.mechanism_snapshot()==saved,"actual physical nozzle and all existing mechanism fields restore exactly")
-	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),joint.stock.maximum_angle()),"actual mouse clears the complete threaded stroke")
-	check(joint.loose and not actor.nozzle_coupled,"releasing fully cleared thread frees the original nozzle")
-	for frame in range(30):await get_tree().physics_frame
-	var resting: Dictionary=actor.mechanism_snapshot()
-	check(actor.valid_mechanism(resting),"resting loose nozzle retains a valid physical household record")
-	actor.restore_mechanism(resting)
-	await get_tree().physics_frame;await get_tree().physics_frame
-	check(actor.mechanism_snapshot()==resting,"restored supported loose nozzle retains its exact saved pose")
-	if check(joint._support!=null and joint._support.get_ref()!=null,"restored nozzle identifies its actual physical support"):
-		var support: Node3D=joint._support.get_ref().get_parent_node_3d()
-		var initial: Vector3=support.position
-		var before: float=joint.body.position.y
-		check(str(support.get_meta("native_fire_part",""))=="F011","loose nozzle rests on retained structural floor under cosmetic enamel")
-		support.position.y-=.03
-		for frame in range(30):await get_tree().physics_frame
-		check(absf((before-joint.body.position.y)-.03)<.0002 and joint._support!=null and joint._support.get_ref()==support.get_child(0),"moving actual saved support wakes gravity and nozzle lands on displaced floor within200um")
-		support.position=initial
-		# This negative control moves an actual StaticBody. Let its restored
-		# floor reach the physics space before testing a different saved pose.
-		await RenderingServer.frame_post_draw
-		await get_tree().physics_frame;await get_tree().physics_frame
-		actor.restore_mechanism(resting)
-	if OS.get_environment("ORISON_NOZZLE_VALVE_ROUNDTRIP")=="1":
-		actor.restore_mechanism(original)
-		await RenderingServer.frame_post_draw
-		for frame in 3:await get_tree().physics_frame
-		print("ORIGINAL NOZZLE RESTORE: expected=",original.nozzle," actual=",joint.snapshot()," support=",joint._support)
-		check(actor.mechanism_snapshot()==original,"original pre-valve loose pose and all original facts restore after rendered physics")
+	check(actor.mechanism_snapshot()==saved,"original coupled record restores after the disconnected fixture")
+	var bad: Dictionary=saved.duplicate(true);bad.nozzle.angle=joint.stock.maximum_angle()+1.
+	check(not actor.valid_mechanism(bad),"saved overtravel remains invalid")
+	bad=saved.duplicate(true);bad.facts.nozzle_coupled=false
+	check(not actor.valid_mechanism(bad),"saved repair facts cannot contradict the actual seal")
+	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),3.2),"actual mouse leaves a partial thread")
+	check(not actor.nozzle_coupled and absf(joint.body.position.distance_to(joint.thread_pose(0.).origin)-float(joint.stock.data.dimensions.pitch_m)*3.2/TAU)<.000001,"partial withdrawal retains measured thread pitch")
+	actor.restore_mechanism(saved)
+	check(actor.mechanism_snapshot()==saved,"coupled pose and original mechanism fields restore exactly")
+	check(await inspect_operate(hand,joint.nut,joint.nut.to_global(Vector3(0,.020,.027)),joint.stock.maximum_angle()),"actual input fully unthreads the nozzle")
+	point=actor._play_pipe.to_global(Vector3(0,.155,.014))
+	check(await carry_part(actor,actor._play_pipe,point,joint.rest_pose().origin+Vector3(.005,-.004,.005),.00009),"actual grab removes and parks the same nozzle")
+	var parked: Dictionary=actor.mechanism_snapshot()
+	actor.restore_mechanism(parked)
+	for frame in 30:await get_tree().physics_frame
+	check(joint.loose and joint.body.transform.is_equal_approx(joint.rest_pose()) and actor.mechanism_snapshot()==parked,"restored parked nozzle stays fixed without gravity or support searches")
+	check(player.camera.global_transform.is_equal_approx(eye),"all translation, rotation and snapping preserve the inspection camera")
+	actor.restore_mechanism(original)
 	key(KEY_ESCAPE)

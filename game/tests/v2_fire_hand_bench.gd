@@ -136,7 +136,7 @@ func carry_union(actor: Node3D,goal: Vector3) -> bool:
 	return await carry_part(actor,actor._joint_nut,actor._coupling.to_global(Vector3(0,-.012,.032)),goal,.00001)
 func carry_part(actor: Node3D,part: Node3D,point: Vector3,goal: Vector3,tolerance: float) -> bool:
 	return await carry_path(actor,part,point,[goal],tolerance)
-func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance: float,contact_stop: Callable=Callable()) -> bool:
+func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance: float) -> bool:
 	if not await acquire_surface(part,point):
 		print("CARRY PICK FAILURE: wanted=",part," actual=",player._grab.find_target().get("part")," point=",point," mouse=",get_viewport().get_mouse_position()," wanted_pixel=",player.camera.unproject_position(point)," target=",player._grab.find_target())
 		return false
@@ -151,12 +151,7 @@ func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance
 			if not player._grab.active():break
 			var before: Vector3=player._grab.target.read.call()
 			if before.distance_to(goal)<tolerance:arrived=true;break
-			# Wheel and screen motions are separate physical events. For the
-			# nozzle's narrow entry, millimetre waypoints keep the intermediate
-			# path out of its rim. Retain longer carrying gestures elsewhere.
 			var step_goal: Vector3=goal
-			if part==actor._play_pipe:step_goal=before+(goal-before).limit_length(.001)
-			elif part==actor._gasket_body:step_goal=before+(goal-before).limit_length(.004)
 			point=part.to_global(player._grab.contact)
 			var delta: Vector3=actor.global_basis*(step_goal-before)
 			var depth: float=delta.dot((point-player.camera.global_position).normalized())
@@ -166,20 +161,13 @@ func carry_path(actor: Node3D,part: Node3D,point: Vector3,goals: Array,tolerance
 			delta=actor.global_basis*(step_goal-player._grab.target.read.call())
 			var motion:=InputEventMouseMotion.new();motion.relative=(player.camera.unproject_position(point+delta)-player.camera.unproject_position(point)).limit_length(30.)
 			player._unhandled_input(motion);await get_tree().physics_frame
-			if contact_stop.is_valid() and contact_stop.call():arrived=true;break
 			stagnant=stagnant+1 if before.distance_to(player._grab.target.read.call())<.0000001 else 0
 			if stagnant>8:break
 		if not arrived:reached=false;break
-	var before_release: Transform3D=part.global_transform
 	if not reached:
-		var at: Variant=player._grab.target.read.call() if player._grab.active() else null
-		var joint: Node3D=actor._nozzle_joint
-		print("CARRY STOP: actor=",actor.name," part=",part.name," at=",at," goals=",goals," contact=",joint._last_contact.get_path() if part==actor._play_pipe and is_instance_valid(joint._last_contact) else "none")
-		if part==actor._gasket_body:print("GASKET CARRY CONTACT: ",part._last_contact.get_path() if is_instance_valid(part._last_contact) else "none")
-		if part==actor._play_pipe and is_instance_valid(joint._last_contact):print("CARRY STOCK: ",joint._last_contact.get_parent().get_meta("native_fire_part","none"))
-	if contact_stop.is_valid():print("GUIDED CARRY RESULT: reached=",reached," body=",player._grab.target.read.call() if player._grab.active() else Vector3.INF," global=",before_release)
+		print("CARRY STOP: actor=",actor.name," part=",part.name," at=",player._grab.target.read.call() if player._grab.active() else null," goals=",goals)
 	if player._grab.active():click()
-	return reached and (not contact_stop.is_valid() or part.global_transform==before_release)
+	return reached
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	var ground:=StaticBody3D.new();add_child(ground)
@@ -301,9 +289,9 @@ func _run() -> void:
 	check(await inspect_operate(hand,actor._joint_nut,actor._coupling.to_global(Vector3(0,-.012,.032)),actor._maximum("joint")),"actual mouse follows the full native threaded withdrawal stroke")
 	check(absf(actor._coupling.position.y-.505)<.000001 and not actor.coupling_made_up and not actor.gasket_seen,"full screw travel clears the male tip without inventing an inspection")
 	check(actor._loose_union.active and actor._grip("joint").kind=="free","releasing the fully unthreaded union exposes constrained loose-part movement")
-	var loose_goal: Vector3=actor._loose_union.receiving()+Vector3(0,-.015,.015)
+	var loose_goal: Vector3=actor._loose_union.resting()+Vector3(0,.005,.004)
 	check(await carry_union(actor,loose_goal),"actual mouse and depth wheel carry the loose union away from the male outlet")
-	check(actor._loose_union.location.distance_to(loose_goal)<.00001 and not actor.coupling_made_up and not actor.gasket_seen,"carrying the hose end does not invent a sealed or inspected joint")
+	check(actor._loose_union.location.distance_to(actor._loose_union.resting())<.00001 and not actor.coupling_made_up and not actor.gasket_seen,"release parks the hose end without inventing a sealed or inspected joint")
 	var loose_saved: Dictionary=actor.mechanism_snapshot()
 	check(actor.valid_mechanism(loose_saved),"loose union position survives the household mechanism schema")
 	var overreach: Dictionary=loose_saved.duplicate(true);overreach.loose.position=[2.,2.,2.]
@@ -396,31 +384,13 @@ func exercise_gasket(actor: Node3D,hand: Node) -> void:
 	print("GASKET DIAGNOSTIC: ring=",gasket.position," seat=",actor._coupling.position," target=",seat_target.get("part")," seen=",actor.gasket_seen," sampled_pixels=",visited.size())
 	check(actor.gasket_seen,"actual inspection cursor observes the exposed receiving annulus")
 	var seat: Vector3=gasket.seat_position()
-	var settling_probe: bool=OS.get_environment("ORISON_GASKET_SETTLING_PROBE")=="1"
-	var obstruction_probe: bool=OS.get_environment("ORISON_GASKET_OBSTRUCTION_PROBE")=="1"
-	var obstruction: StaticBody3D
-	if obstruction_probe:
-		obstruction=StaticBody3D.new();obstruction.name="WasherSeatObstruction";actor.add_child(obstruction)
-		obstruction.position=seat+Vector3.UP*.0005
-		var barrier:=CollisionShape3D.new();var solid:=BoxShape3D.new();solid.size=Vector3(.060,.0002,.060)
-		barrier.shape=solid;obstruction.add_child(barrier)
-		await RenderingServer.frame_post_draw;await get_tree().physics_frame
-	var release_height: float=.003 if obstruction_probe else (.00018 if settling_probe else .00007)
-	var carry_tolerance: float=.00002 if settling_probe else .00009
-	var path: Array=[Vector3(gasket.position.x,seat.y+.050,gasket.position.z),seat+Vector3.UP*.050,seat+Vector3.UP*release_height]
+	var path: Array=[seat+Vector3(.008,.006,.005)]
 	ring_point=await pick_washer(gasket)
-	check(ring_point.is_finite() and await carry_path(actor,gasket,ring_point,path,carry_tolerance),"actual continuous grab carries the washer into the receiving seat")
-	print("GASKET RELEASE: actor=",actor.name," offset=",gasket.position-seat," seated=",actor.gasket_seated)
-	if settling_probe:check(not actor.gasket_seated and not gasket.seatable(),"above-tolerance release cannot counterfeit immediate fitting")
-	# A real release above the100um fit band settles through actual gravity.
-	# physics_frame fires before body processing; allow two completed ticks.
-	for frame in 3:await get_tree().physics_frame
-	print("GASKET SETTLED: actor=",actor.name," offset=",gasket.position-seat," seated=",actor.gasket_seated)
-	if obstruction_probe:
-		check(not actor.gasket_seated and not actor.coupling_made_up,"a real solid above the seat prevents fitting and tightening")
-		check(gasket._last_contact==obstruction or (gasket._support!=null and gasket._support.get_ref()==obstruction),"blocked washer actually contacts the introduced solid")
-		obstruction.queue_free();key(KEY_ESCAPE);return
-	check(actor.gasket_seated and not actor.coupling_made_up,"releasing the physically fitted washer seats it without tightening the nut")
+	check(ring_point.is_finite() and await carry_path(actor,gasket,ring_point,path,.00009),"actual grab carries the washer into the generous release zone")
+	var seated_pose: Transform3D=gasket.transform
+	for frame in 30:await get_tree().physics_frame
+	check(gasket.transform==seated_pose,"released washer stays at its authored pose without settling")
+	check(actor.gasket_seated and not actor.coupling_made_up,"release snaps and aligns the washer without tightening the nut")
 	var exclusions: Array[RID]=[]
 	for body: PhysicsBody3D in get_tree().root.find_children("*","PhysicsBody3D",true,false):
 		if body!=gasket:exclusions.append(body.get_rid())
@@ -447,6 +417,12 @@ func exercise_gasket(actor: Node3D,hand: Node) -> void:
 		check(not actor.gasket_seated and not actor.coupling_made_up,"physical washer removal restores the gasket fault without changing inspection history")
 		actor.restore_mechanism(seated_saved)
 		check(actor.gasket_seated and actor.coupling_made_up and gasket.position.distance_to(gasket.seat_position())<.000001,"actual seated washer pose and union stop restore together")
+		var missing: Dictionary=actor.maintenance_snapshot().duplicate(true)
+		missing.gasket_seated=false;missing.coupling_made_up=false
+		actor.restore_maintenance_snapshot(missing)
+		check(not actor.gasket_seated and gasket.position.is_equal_approx(gasket.home_position),"restored missing-washer fixture parks the part without waiting for gravity")
+		check(actor.valid_mechanism(actor.mechanism_snapshot()),"missing-washer fixture retains consistent thread and household fields")
+		actor.restore_mechanism(seated_saved)
 	var directory: String=OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
 		DirAccess.make_dir_recursive_absolute(directory)
