@@ -271,3 +271,54 @@ work has been merged or safely retained. Never remove unrelated worktrees.
 Native-resolution fullscreen is the owner's preferred future debug mode only
 where it does not interfere with their mouse/display; this preference is not yet
 qualified. Existing timed comparisons retain their matched original settings.
+
+
+### Reconciliation closeout — 2026-10-26, 21:15 Eastern
+
+PR #64 merged the safe handoff update at **8e722838**. Its documentation-only
+candidate **d61c8f67** passed in-place verification against the complete clean
+**2fb02d84** baseline: **114 gates, zero regressions, 17/17 protected paths
+unchanged**, selector V2, clean lint and no ledger promotions. No Godot run was
+repeated for that unchanged runtime. The verifier is retained in the weather
+recovery archive; this final paragraph is a subsequent documentation-only update.
+
+The weather candidate was preserved, not merged. The pushed annotated tag
+**recovery/weather-panorama-unqualified-20261026** resolves to
+**d447b2fd709d724f1774a41182a85f54ce037650**. It retains the entire panorama cache /
+mipmap patch, test-only host, original failures, measurements, current reports
+and the **299-member, 20,500,193-byte** roof-review archive. All 249 previous
+members were verified unchanged. PR #62 is **closed without merge**. Both local
+and remote **codex/v2-weather-preview-profile-20261026** branches and the exact
+**C:/ov/v2merge24** worktree were removed after checking the remote recovery tag,
+clean worktree and terminal jobs. The temporary PR #64 branch is also removed.
+Other contributors' worktrees were left intact. The canonical checkout remains
+on main; both checkout and origin equality are checked again after this update.
+
+Final focused results on the pinned custom Vulkan engine: roof **43 checks /
+207.64 seconds**, sky **59 / 40.35 seconds**, actual saved-world reconstruction
+**41 / 264.30 seconds**, all passing. Roof and reconstruction stderr are empty;
+sky retains the known cam_noel_witches placement warning. The reconstruction
+owns a schema-2 runtime contract for its actual two-world disk save/load and
+tracked teardown, not CampaignShell, native manipulation, performance routes
+or whole-game acceptance. The second full surface survey still times out at
+**1,500.52 seconds** after five gallery movement failures, without a final runtime
+contract. These focused passes therefore do not qualify the weather merge.
+The storm captures still need visual polish. Do not call weather or V2 complete.
+
+Both isolation monitors retain the active input desktop, but record a brief
+cursor-clip change during the surface run, before the noncapturing weather batch
+starts Godot. Attribution is unproven; do not claim zero observed interference.
+No native-resolution fullscreen run was performed. The owner's fullscreen
+preference applies only where it does not interfere, and remains unqualified.
+
+Continuation: inspect current main and the two recovery tags before editing.
+Reproduce the gallery timeout in a suitable pointer-safe rendered environment;
+resolve its cause without weakening movement deadlines or collisions. Recover
+only reviewed named weather changes from the weather tag, renew actual surface
+qualification and rendered review, then verify a clean candidate. Never replay
+the canonical recovery snapshot wholesale: it includes older variants that
+would undo accepted Tardi optics, plus generated metadata intentionally kept
+out of production main. Raw-byte recovery, original index and all new run logs
+remain at **C:/ov/reports/canonical_reconcile_20261026** and
+**C:/ov/reports/weather_profile29**. The Godot lane was free after all owned jobs
+finished. This chat was not archived.
