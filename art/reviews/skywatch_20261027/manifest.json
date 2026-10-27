@@ -296,9 +296,92 @@
     "rooftop_authoring/route.json": "dfd3e751903238283a251f8e5e91a45dc6b7c782caabc22ebd98af4f97fc82cd",
     "rooftop_authoring/render_telescope_repaired.py": "874de9ff5ce5cab34424de66126379ad94925ad2ca1ab7776a34c2a45aa27e4c",
     "rooftop_authoring/plot_survey.py": "92816eec4ef6c11e823a5190c14f3f7793dbb100f9d8d43b200d82064b6be19e",
-    "rooftop_authoring/roof_survey_batch.json": "c4b0fb8ca5c1d638b6d70b99df549ddac5623878b7c6d06ceae3adfa37f2d53a"
+    "rooftop_authoring/roof_survey_batch.json": "c4b0fb8ca5c1d638b6d70b99df549ddac5623878b7c6d06ceae3adfa37f2d53a",
+    "part10_optics_and_liner/tested_source/game/scripts/building/orison_v2_street_lamps.gd": "e754024df1b116f66a57de68b36dd9b404b4062b9a87bbe9b52521fa2ee406a1",
+    "part10_optics_and_liner/tested_source/game/scripts/building/v2_city_day_night_director.gd": "1f38788d92bba431d4c88787eff8135bc6d23dd96d06d81d8b76e4b961ef75fb",
+    "part10_optics_and_liner/tested_source/game/scripts/building/skyward_traffic.gd": "d8ada7b6cc99a79c4c21195ff62cc371e826a28c036a9b45e3a0375b8b24faf8",
+    "part10_optics_and_liner/tested_source/game/shaders/queens_weather_sky.gdshader": "2cb4b62d70c90865e2ce9cf91c32e40cc3d7a9f3ccd2730e6dd5595be41798e1",
+    "part10_optics_and_liner/tested_source/game/shaders/sky_spectacle.gdshaderinc": "d85629f9909be7ca532770523e119319fe86a755ad6a29b7a8fd0f7deb8ee1e2",
+    "part10_optics_and_liner/tested_source/game/shaders/street_ice_pillar.gdshader": "22bf4e45fb3ac979eaab144fb59ce1447bf97895e735cf65cf2aac7259b0166f",
+    "part10_optics_and_liner/tested_source/game/tests/skywatch_optical_review.gd": "59eeca546c61a4a72c99654a818a44ddb34afbc28690e15b0b83c4a12ce90a60",
+    "part10_optics_and_liner/tested_source/art/blender/scripts/build_skyward_stock.py": "2f829e1addeae3d40cd556fc6dd267cddead067af2f6aeff9ea2a6c842ed5019",
+    "part10_optics_and_liner/tested_source/art/blender/skyward_liner_construction.json": "4d8e367ab84a6384d46dfeb06c97f5385cfaf2fffe4964d3feab10a44406657e",
+    "part10_optics_and_liner/tested_source/game/data/orison_v2/exterior/skyward_liner.json": "d4e7f49c5ec4adadde2849772b0a3a73b2b4dbea5b5f6c6e9a3f80b51052faf3",
+    "part10_optics_and_liner/tested_source/game/assets/props/skyward_liner.glb.import": "11309f640b35b83b3e4db56b4cc22fab19f468cd007fd615647f71a7d7942388",
+    "part10_optics_and_liner/tested_source/game/assets/props/skywatch_telescope.glb.import": "4d32361f6722247d9b376ec900156365541d7ddd30e1fc4384b7442cfb97348b",
+    "part10_optics_and_liner/logs/airship_final.log": "f5b7d2716268ca58f67d220ba9e2a54630d76240418216bcb94e112a9b83994d",
+    "part10_optics_and_liner/logs/airship_final.log.receipt.json": "9c0a80265c261a33a705dbff147c5ac9e02d437d4c0bc8d5dd307263e1578ab5",
+    "part10_optics_and_liner/logs/airship_final.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/airship_import_1.log": "baa7d6600aaf898c3e07f573400090ac9b646c16f1ff414e995350f6d941b768",
+    "part10_optics_and_liner/logs/airship_import_1.log.receipt.json": "40d83060469a6886390bbd74378bc2392e7f92aeacaa88868f242da3a5c69f16",
+    "part10_optics_and_liner/logs/airship_import_1.log.stderr": "c73373236ab0f9899bffbeb10cb3ff001b4299df2863067b8146a27cde83bae7",
+    "part10_optics_and_liner/logs/airship_import_2.log": "a142e971b86df3df806cf057f50490ebc91ea360ef284e9f18856e843795a379",
+    "part10_optics_and_liner/logs/airship_import_2.log.receipt.json": "a92277322495dbbc06cf000c1c22ed934a97d4b670351bb53d09e9b175dd681b",
+    "part10_optics_and_liner/logs/airship_import_2.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/airship_native.log": "f2bb0df5b501d5f6ec55ddbbd95d408dadfd4798481a2029ca0a861cc6900c65",
+    "part10_optics_and_liner/logs/airship_native_fixed.log": "b8d31906fddddc02049ffbc7abad14e4b973b9bc41cb9e8432eeaa864f39ef5d",
+    "part10_optics_and_liner/logs/airship_native_table.log": "0aaefcfecb2d06ed114a656bbe101b951104eb929b4f4df3db4300d198a04f4b",
+    "part10_optics_and_liner/logs/airship_optical.log": "98552acc7a3605d7115015e594ec92d2224a821f89629d37dfa43f787c293045",
+    "part10_optics_and_liner/logs/airship_optical.log.receipt.json": "a1b28e328e8928116a2bcf7d077ade92f6f57594441ccb6228e9007a1eac9d93",
+    "part10_optics_and_liner/logs/airship_optical.log.stderr": "f8f8240a02ae2795764956b09259b890a0491b40952662777083998ee50f7816",
+    "part10_optics_and_liner/logs/airship_optical_fixed.log": "7c8844e7d320c16b396fabe4ef566517a471648e132ea219405bc0fc7a4ba790",
+    "part10_optics_and_liner/logs/airship_optical_fixed.log.receipt.json": "6f840ed1733fa49c77b68070ce476f5630fb0f970a6810def03278dfb54ed15b",
+    "part10_optics_and_liner/logs/airship_optical_fixed.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/airship_optical_scoped.log": "f5b7d2716268ca58f67d220ba9e2a54630d76240418216bcb94e112a9b83994d",
+    "part10_optics_and_liner/logs/airship_optical_scoped.log.receipt.json": "f4cae8f1ab15695081ae782335667b5782f8d18bac2629681b03755ae3febf72",
+    "part10_optics_and_liner/logs/airship_optical_scoped.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/airship_precision.log": "f5b7d2716268ca58f67d220ba9e2a54630d76240418216bcb94e112a9b83994d",
+    "part10_optics_and_liner/logs/airship_precision.log.receipt.json": "c03b80468f3436f22f60e72f07096e73547b3317e65597c60c85496933039d9d",
+    "part10_optics_and_liner/logs/airship_precision.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/airship_refresh_import.log": "4a92ef5788e5ff2ad0ac021c624700f0a319c7d15630991f08b4824b741ae35a",
+    "part10_optics_and_liner/logs/airship_refresh_import.log.receipt.json": "2f5506b457523515dd257e0a23583596fbceaccc860b18aea6cbac3cac0ecddb",
+    "part10_optics_and_liner/logs/airship_refresh_import.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/airship_refreshed.log": "f5b7d2716268ca58f67d220ba9e2a54630d76240418216bcb94e112a9b83994d",
+    "part10_optics_and_liner/logs/airship_refreshed.log.receipt.json": "a1bda7d38b47e0292e03c4e46f77aa6b5d02a81e9c1a09f2a5eb8e9b379d3811",
+    "part10_optics_and_liner/logs/airship_refreshed.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/airship_studio.log": "00d69894e395eb2d0d4195f9ccb7032b114b846560bf437630903c82e0da7de0",
+    "part10_optics_and_liner/logs/airship_studio_mounted.log": "e4c7f852c7e449bccfbeafa9aef203de828acf901dc6eb94337d52c9fac1d25f",
+    "part10_optics_and_liner/logs/atmosphere_final.log": "5b58dea72a175982c2caf493deb66fbd3bf8a5c9857b8fb84fb16c87b55f7ece",
+    "part10_optics_and_liner/logs/atmosphere_final.log.receipt.json": "af91247cab9b6a84d2fc759c8dfcf0249dfbb0f28e8c142ab8ed5693f59db10c",
+    "part10_optics_and_liner/logs/atmosphere_final.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/atmosphere_gated.log": "6bb957bee8e23b7843862fddaf55145a6da1e17ace8e303e0ee3a15896d02d07",
+    "part10_optics_and_liner/logs/atmosphere_gated.log.receipt.json": "9e8fd46379f74e56f87f7e85f3e31f8bc12cb4fd4c9ed35aad9a16edcc0a7d46",
+    "part10_optics_and_liner/logs/atmosphere_gated.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/atmosphere_initial.log": "6bb957bee8e23b7843862fddaf55145a6da1e17ace8e303e0ee3a15896d02d07",
+    "part10_optics_and_liner/logs/atmosphere_initial.log.receipt.json": "7032eb8f7ee107adba224fa101e7b4ce83fe83ba4c2ea8c5d8350b391af0b64c",
+    "part10_optics_and_liner/logs/atmosphere_initial.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/atmosphere_sources.log": "410ef7f2352d2919b99168d4de61cbe990e64b174cf8b50da0e6b3232f8973a3",
+    "part10_optics_and_liner/logs/atmosphere_sources.log.receipt.json": "999fdc1798872a3fc7e792cce9f7918ab175033f04c499813ff3851ee1ab4ecd",
+    "part10_optics_and_liner/logs/atmosphere_sources.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/atmosphere_sources_fixed.log": "5b58dea72a175982c2caf493deb66fbd3bf8a5c9857b8fb84fb16c87b55f7ece",
+    "part10_optics_and_liner/logs/atmosphere_sources_fixed.log.receipt.json": "53bf39c9581da62effa8d7c24cdf4238a8b4373ee3fbf5ab7d2f2fe99f77d5ce",
+    "part10_optics_and_liner/logs/atmosphere_sources_fixed.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part10_optics_and_liner/logs/precision_import.log": "44546570d75301ad3f684b1509952688ff2e1bf2aef5a71b2308bb50ae0c4f08",
+    "part10_optics_and_liner/logs/precision_import.log.receipt.json": "f42cb45cfa149e17ff652e8b9a95e5ee909c6e1a6c7418f0f1118de38624b0d9",
+    "part10_optics_and_liner/logs/precision_import.log.stderr": "c73373236ab0f9899bffbeb10cb3ff001b4299df2863067b8146a27cde83bae7",
+    "part10_optics_and_liner/atmosphere_initial/atmosphere_review.json": "88be01b27aa16f77536b0bfd079cf70536e7427582cd4914974415888b300af5",
+    "part10_optics_and_liner/atmosphere_gated/atmosphere_review.json": "db12d54cf606d04a6fe48649ab3bf5c8f43b89fac178fd99d7505942f2b468e9",
+    "part10_optics_and_liner/atmosphere_sources/atmosphere_review.json": "496d0e9c70f57d9447c5c926d747f6ea89ced17ea1c77fb01cd8e8e1c7aa6150",
+    "part10_optics_and_liner/atmosphere_sources_fixed/atmosphere_review.json": "e7e70a85ec96894b6544e650dd6c4e324cacf89f8796ce4a411525a13ac2854e",
+    "part10_optics_and_liner/atmosphere_final/atmosphere_review.json": "72fac1aa6cb2c522e017053f1fe5e4f5805bc441ab4bd4bf9457c08080ed6e37",
+    "part10_optics_and_liner/airship_optical_fixed/traffic_review.json": "f987606285b20cb5f8ac97c4f89b391ee687e47f1bd29d45031cd6b20ede04a4",
+    "part10_optics_and_liner/airship_optical_scoped/traffic_review.json": "d3825735b4d5212162fa1134c6575950ba1b34ac1091b1acc54e1809bc3643be",
+    "part10_optics_and_liner/airship_final/traffic_review.json": "d3825735b4d5212162fa1134c6575950ba1b34ac1091b1acc54e1809bc3643be",
+    "part10_optics_and_liner/airship_refreshed/traffic_review.json": "d3825735b4d5212162fa1134c6575950ba1b34ac1091b1acc54e1809bc3643be",
+    "part10_optics_and_liner/airship_precision/traffic_review.json": "d3825735b4d5212162fa1134c6575950ba1b34ac1091b1acc54e1809bc3643be",
+    "part10_optics_and_liner/part10_initial_board/board.json": "5d2aa932789062006c8c70786889d4118e0667c95877a016b59c865555164c11",
+    "part10_optics_and_liner/part10_initial_board/board.md": "33c4cfa758b472dc8d085ca405d21e6680d59dead448f24296be2805d74db739",
+    "part10_optics_and_liner/part10_scoped_board/board.json": "48d443a4d958914a86e3e4431a2d37d9918b2c281e63a128111b4dfe5398e620",
+    "part10_optics_and_liner/part10_scoped_board/board.md": "2bb400fa1d7a21d1ae8a03e9c0dbc2416d1ba10df138978ea838d6de26d74879",
+    "part10_optics_and_liner/render_airship.py": "45179927220863df38bbd43d25abaaca847822e68c7b3e8b586cfc9ef8688047",
+    "part10_optics_and_liner/clean_import_churn.py": "6b3c00d2b5d73f6bcf66c0fa35c244f237a4f4e38b3892c65b3a4f251d6b742a",
+    "part10_optics_and_liner/generated_uid_cleanup_extra.json": "369ff60df088fc2049e7e8583b711bdaaea3474216c415fe065cca8a25b6ad3f",
+    "part10_optics_and_liner/airship_batch.json": "3d64b157e85a98bf6616bed76894e077dd2a77ea7f8b64282fbc5e5443cc9d90",
+    "part10_optics_and_liner/precision_batch.json": "49600ce02b671cc7d9d6f8dd0b687fc821bddec2715e82dcdfe0a82894b94e1f",
+    "part10_optics_and_liner/part10_spatial.json": "33e9c8cf0a68f3cdd40f4441163cbfb708c278c5e5177ac60400d4f99b371434",
+    "part10_optics_and_liner/spatial_reviewed.json": "d4fe8d0a61285d45cadb35e3fbf4714bd0e5c835fc520034351eead89679d151"
   },
-  "archive_sha256": "94e509615663590b20b3d65c2dd8128e81d03706913594d89471f3cf4c2de333",
+  "archive_sha256": "34627e001c3eb962c9c910e86ca699d5fa78092ede8bb158e26b6eb6d3321813",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -527,5 +610,65 @@
     },
     "asset_sha256": "ef5546d7fda503ec38a285d34d8f6d1c2a4269b25cd343ec937941a09f2a8097",
     "contact_sha256": "d7f2380c9d82db061713a80f241e66bdc3a13b8f5dae2f8b13671ea758395016"
+  },
+  "part10_optics_and_liner": {
+    "scope": "native optical/source diagnostics and period-informed stock; not occupied-world or annual artistic qualification",
+    "source_lf_sha256": {
+      "game/scripts/building/orison_v2_street_lamps.gd": "9ed77b45f8c69a0d29e120a1428fb5a5af296bd55a38828ba495b1ab724a9043",
+      "game/scripts/building/v2_city_day_night_director.gd": "1f38788d92bba431d4c88787eff8135bc6d23dd96d06d81d8b76e4b961ef75fb",
+      "game/scripts/building/skyward_traffic.gd": "d8ada7b6cc99a79c4c21195ff62cc371e826a28c036a9b45e3a0375b8b24faf8",
+      "game/shaders/queens_weather_sky.gdshader": "2cb4b62d70c90865e2ce9cf91c32e40cc3d7a9f3ccd2730e6dd5595be41798e1",
+      "game/shaders/sky_spectacle.gdshaderinc": "d85629f9909be7ca532770523e119319fe86a755ad6a29b7a8fd0f7deb8ee1e2",
+      "game/shaders/street_ice_pillar.gdshader": "22bf4e45fb3ac979eaab144fb59ce1447bf97895e735cf65cf2aac7259b0166f",
+      "game/tests/skywatch_optical_review.gd": "12f05f595342b91231cc975ea971db0b3b81ec004e07a768168a128c2edbde0a",
+      "art/blender/scripts/build_skyward_stock.py": "2f829e1addeae3d40cd556fc6dd267cddead067af2f6aeff9ea2a6c842ed5019",
+      "art/blender/skyward_liner_construction.json": "4d8e367ab84a6384d46dfeb06c97f5385cfaf2fffe4964d3feab10a44406657e",
+      "game/data/orison_v2/exterior/skyward_liner.json": "d4e7f49c5ec4adadde2849772b0a3a73b2b4dbea5b5f6c6e9a3f80b51052faf3",
+      "game/assets/props/skyward_liner.glb.import": "11309f640b35b83b3e4db56b4cc22fab19f468cd007fd615647f71a7d7942388",
+      "game/assets/props/skywatch_telescope.glb.import": "4d32361f6722247d9b376ec900156365541d7ddd30e1fc4384b7442cfb97348b"
+    },
+    "asset_sha256": {
+      "art/blender/skyward_liner.blend": "66eb6391a598e8ac5de8b891b12397cc222a7fa560793fa16f2b8ee546d3faf4",
+      "game/assets/props/skyward_liner.glb": "a65ce55cb0e77a8d5f3dd2701872950cbeade6d164c2a31b357dffbf2fed0bd3"
+    },
+    "captures": {
+      "C:\\ov\\reports\\skywatch34\\atmosphere_final\\solar_ice.png": {
+        "sha256": "555437ea45855a74a1dd89df42454a1f272825cf81f60cdd80fab4040ea6bce1",
+        "size": 1027609
+      },
+      "C:\\ov\\reports\\skywatch34\\atmosphere_final\\lunar_ice.png": {
+        "sha256": "12f369a4dd26fa2cc0e0b6ed1993c6fdb6b70702abf81aaa7782a757613b6b4c",
+        "size": 1260375
+      },
+      "C:\\ov\\reports\\skywatch34\\atmosphere_final\\twilight_belt.png": {
+        "sha256": "367970889884531304a69a969458dbbf2765cbc3b536efe35aa4de92eb7453e1",
+        "size": 652012
+      },
+      "C:\\ov\\reports\\skywatch34\\atmosphere_final\\night_airglow.png": {
+        "sha256": "44d6e5919b96bb125edd0cb53cce7a7f592da974eb53b2c95107fb319649c313",
+        "size": 919042
+      },
+      "C:\\ov\\reports\\skywatch34\\atmosphere_final\\urban_pillar.png": {
+        "sha256": "a06193b66768b47c277feec0302c5ecd4be04b4baff0d20d3038c88f654456ab",
+        "size": 764462
+      },
+      "C:\\ov\\reports\\skywatch34\\airship_native_review\\whole.png": {
+        "sha256": "6b52b28b54c86f5ad349d84c534dcf1303978ee2afb7922903210cb8e5c66828",
+        "size": 1419307
+      },
+      "C:\\ov\\reports\\skywatch34\\airship_native_review\\below.png": {
+        "sha256": "602839132e3b28c40fd7188bb109e7577808c509b48ee1adea85273fe974ed90",
+        "size": 1601976
+      },
+      "C:\\ov\\reports\\skywatch34\\airship_native_review\\gondola.png": {
+        "sha256": "0500d6c73ebb250fc472bedf45c2f09c0dc54544aff5ce7052ac52eaa14d14f0",
+        "size": 1855154
+      },
+      "C:\\ov\\reports\\skywatch34\\airship_precision\\liner_over_queens.png": {
+        "sha256": "9b7bd80f0dc0a81de0728056e2f6eaa6de71debdf56c897b51bacc865ae5fef1",
+        "size": 835103
+      }
+    },
+    "contact_sha256": "4104a2aff871c0527cd0afcf0af040107add0a0bcef6573844ace10ba97ab023"
   }
 }

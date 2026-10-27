@@ -322216,6 +322216,77 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "6efe92f59ac20344",
+   "kind": "vector3_coordinate",
+   "token": "atmosphere_review",
+   "file": "game/tests/skywatch_optical_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "atmosphere_review"
+   ],
+   "lines": [
+    402,
+    421
+   ],
+   "count": 2,
+   "context": [
+    "light.position=bench.camera.position+Vector3(0,-5,-25)",
+    "blocker.global_position=light.global_position+Vector3(0,10,10)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f5ae045727817f7a",
+   "kind": "vector3_coordinate",
+   "token": "_survey_skywatch_roof",
+   "file": "game/tests/v2_roof_clearance_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_survey_skywatch_roof"
+   ],
+   "lines": [
+    161,
+    161,
+    161,
+    161,
+    161,
+    161,
+    161,
+    161
+   ],
+   "count": 8,
+   "context": [
+    "for pose: Dictionary in [{\"name\":\"roof_overhead\",\"eye\":Vector3(0,50,0),\"target\":Vector3(0,19.2,0),\"ortho\":true},{\"name\":\"roof_southwest\",\"eye\":Vector3(-13,20.85"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

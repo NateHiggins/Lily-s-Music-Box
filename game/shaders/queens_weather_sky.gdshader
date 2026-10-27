@@ -463,6 +463,7 @@ void sky() {
     } else {
         vec3 point_stars;
         vec3 base=celestial_base(EYEDIR,point_stars);
+        if(skywatch_extended_optics)base=skywatch_twilight_geometry(EYEDIR,base)+skywatch_night_dust(EYEDIR);
         if(living_enabled && living_layer_2.x>.0001 && EYEDIR.y>.015) {
             vec3 high_p=wx_camera_km+EYEDIR*((living_layer_2.y+living_layer_2.z*.3-wx_camera_km.y)/EYEDIR.y);
             float ice=living_density(high_p,living_layer_2,living_motion_2,living_brush_2,living_drift_2);

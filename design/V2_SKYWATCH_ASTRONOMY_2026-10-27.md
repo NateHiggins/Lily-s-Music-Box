@@ -377,3 +377,123 @@ qualified** at this authoring checkpoint. Exact foot contact, runtime materials,
 moving part ownership, 0.1-degree eyepiece input, controller/cancel ownership,
 save policy, party fittings and occupied-world costs remain open. Main's old
 surface receipt does not qualify these new assets.
+
+### Part 10: painterly ice, twilight and growing airship trade
+
+The owner adds ice-halo complexes, urban light pillars, twilight geometry,
+mirages, aviation/industry and deep-night dust to this same V2 work. The owner
+explicitly authorizes growing airship traffic as alternate history: atmosphere
+and the rule of cool take priority over an exact historical traffic timetable.
+This does not change the campaign clock, newspaper publication times or story
+authorities. The historical October 15, 1928 Graf Zeppelin arrival precedes the
+November 10 campaign start; it must not silently become a recurring historical
+arrival during the playable year. The
+[Smithsonian's transport exhibition](https://www.americanhistory.si.edu/explore/exhibitions/america-on-the-move/online/connected-city)
+places the start of commercial transatlantic passenger service in October 1928;
+the [FAI account](https://www.fai.org/news/ninety-years-first-round-world-airship-flight)
+describes the external flight-deck/passenger gondola. Our liner is a fictional
+168 m adaptation, not an exact Graf Zeppelin model or a sourced Queens 4 PM track.
+
+The existing **41-slot** scheduled-phenomena ABI and authored weather calendar
+remain intact. The V2 director derives ordinary cirrus ice and freezing-fog
+strength from its existing live conditions. The retained seasonal renderer keeps
+its old presentation. Extended V2 optics add a dispersed **46-degree** halo to
+the existing 22-degree ring, select the Moon at night with phase-dependent gain,
+give the dogs an outer blue fringe, and restrict source pillars to low elevations.
+The antisolar civil-twilight pass adds a blue-violet Earth-shadow band and pink
+Belt of Venus. Night radiance adds restrained green airglow, an equatorial-axis
+ecliptic dust cone and Gegenschein, suppressed by daylight and an above-horizon
+bright Moon. Existing cloud compositing and horizon haze still occlude these.
+These are painterly approximations, not precision radiative-transfer solutions.
+
+Actual native 3440x1440 paired controls are under **skywatch34/**.
+**atmosphere_gated.log.receipt.json** completed with eight component assertions
+passing and empty stderr. Enabled/disabled frame distributions for its one
+clear solar optical scene were p50 **1.976/1.749 ms**, p95 **2.149/1.911 ms**,
+p99 **2.164/1.929 ms**, maximum **2.205/1.935 ms**. These are uncapped RTX 4080
+bench frames, not whole-world movement, shader-compilation attribution or an
+annual performance budget. Earlier ungated and initial-source runs are retained.
+
+The four installed street lamps' existing clock owner now attaches a slim
+additive, depth-tested optical quad to each actual globe. No new light,
+collider, shadow map or gameplay state is created. Freezing humidity enables
+the effect; the existing dusk/dawn owner controls its colour and illumination.
+V2 stops drawing the old hash-generated city-pillar bearings. The older renderer
+retains them for rollback. The first blocker assertion erroneously sampled
+unrelated twinkling stars outside its occluder. The actual covered beam footprint
+had zero displayed difference. The corrected source-family diagnostic,
+**atmosphere_sources_fixed.log.receipt.json**, passes twelve assertions with
+empty stderr: actual signal, weather binding, daylight extinction and real
+foreground depth protection included. This is not yet installed-street or
+full-world surface qualification. The original failure remains archived.
+
+The Blender liner has stitched envelope panels, ring stations, four fins with
+separate control leaves, an external windowed gondola, five braced engine cars
+and shared wooden propeller stock. Its 203 closed construction pieces export
+as five material primitives and **24,860 triangles**; UV/tangent validation
+passes at minimum tangent agreement **0.99999996**. Actual studio renders
+include the assembled propellers. The first empty unused-material partition
+failure is retained. Runtime materials reuse registered catalogue stock.
+
+The V2 director installs the passive aircraft presentation. Four daily route
+windows have deterministic date-keyed offsets; position, heading and propeller
+angle derive directly from fractional campaign minutes. An out-of-order date
+return reconstructs the same pose. Strong wind or substantial precipitation
+holds the fictional service. Ordinary world depth and the existing celestial
+light/shadow system apply; there is no depth-disabled aircraft or second sun.
+The native optical bench proves visibility, continuity, pause, weather hold and
+out-of-order reconstruction, not disk save/load or an occupied-world shadow.
+The initial script type-inference failure required stopping only this owned
+diagnostic process; its negative-exit receipt and stderr are retained. Its
+wrapper's stale-cache suspicion was not the cause. A subsequent full-frame
+occlusion check also included unrelated weather/sky pixels; the corrected
+clear-scene check uses the actual projected stock bounds.
+
+**airship_precision.log.receipt.json** completes with eight assertions passing,
+empty stderr, after reimport with mesh compression disabled for metric/native
+precision. The cached import's source MD5 matches the final GLB. Both new native
+imports are source-retained; the physical-import-source gate now passes. The
+final combined-source atmosphere run, **atmosphere_final.log.receipt.json**,
+also passes twelve assertions with empty stderr. These remain component optics
+diagnostics. The earlier post-rebuild captures using an older imported model
+are preserved and do not qualify the refreshed source.
+
+The initial full static board ran 114 gates against the previous clean weather
+baseline. It found unretained imports, four cross-helper finish-reader findings,
+two new test-camera spatial references, and the expected stale surface packet.
+The imports are now retained, the finish schema is validated before delegation
+to the existing material binder, and the reader audit reports **zero NEW**.
+Only the two reviewed test/capture spatial records are appended to the spatial
+manifest; its current drift is empty. The source-frozen occupied-world surface
+renewal remains necessary. No old receipt is repinned or treated as a waiver.
+The focused rerun, **part10_scoped_board/board.json**, passes the nine affected
+static gates with zero regressions against that baseline. It deliberately omits
+the other 105 gates and is not a complete candidate verification. The compact
+Part 10 contact sheet and appended diagnostic archive preserve tested source,
+original failures, wrapper receipts, numeric samples and raw capture hashes.
+
+#### Part 10 work still required
+
+- Inspect installed-world halos and lamp pillars in actual scheduled winter fog;
+  qualify loaded materials, updated surfaces and occupied-world costs. Broad
+  component image differences do not prove accurate ring angles or artistic merit.
+- Finish depth/river-sector-limited Fata Morgana distortion of **real distant
+  geometry**. The current scheduled shader still paints an invented far shore;
+  it does not meet that requirement. Protect nearby objects, UI and indoor views.
+- Finish convincing cloud-gap crepuscular/anticrepuscular rays and a genuinely
+  brief horizon-rim green flash. Existing versions are authored approximations.
+  Inspect the scheduled circumzenithal arc alongside the new ice complex.
+- Build and inspect bounded period airfield searchlight fixtures/beams, drifting
+  biplane skywriting and wind-responsive industrial coal plumes. Avoid calling
+  the later modern Astoria generating units a 1928 plant; generic period works
+  or a researched early site are appropriate. Do not invent an early Holmes
+  Airport opening without a source. Fictional airfield traffic is authorized.
+- Verify the liner's lit silhouette, ordinary cast shadow, horizon/weather
+  integration, distant culling, actual loaded mips and frame tails in the occupied
+  world. Add no playable air-travel system merely to support an ambient crossing.
+- Preserve a separate historical/retrospective treatment of October 15 rather
+  than moving the campaign start. The actual Graf replica and dated shadow event
+  are not implemented by the fictional liner.
+- Inspect night dust orientation, airglow restraint and changing lunar wash with
+  real scheduled clouds and telescope fields. Annual artistic acceptance remains
+  open. None of this closes the roof club/telescope interaction work above.

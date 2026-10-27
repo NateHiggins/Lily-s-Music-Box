@@ -1,0 +1,95 @@
+{
+  "schema": "orison.skyward-liner.v1",
+  "classification": "FICTIONAL_PERIOD_ADAPTATION",
+  "stock": "res://assets/props/skyward_liner.glb",
+  "length_m": 168.0,
+  "propeller_mounts": [
+    [
+      -15.8,
+      -10.2,
+      12.8
+    ],
+    [
+      23.2,
+      -10.2,
+      12.8
+    ],
+    [
+      -15.8,
+      -10.2,
+      -12.8
+    ],
+    [
+      23.2,
+      -10.2,
+      -12.8
+    ],
+    [
+      -48.8,
+      -14.6,
+      -0.0
+    ]
+  ],
+  "finishes": [
+    {
+      "id": "linen",
+      "catalog_key": "linen",
+      "tint": [
+        0.83,
+        0.84,
+        0.79,
+        1.0
+      ],
+      "normal": 0.22,
+      "roughness": 0.9
+    },
+    {
+      "id": "frame",
+      "catalog_key": "nickel_plated",
+      "tint": [
+        0.68,
+        0.71,
+        0.7,
+        1.0
+      ],
+      "normal": 0.3,
+      "roughness": 0.8
+    },
+    {
+      "id": "iron",
+      "catalog_key": "iron_blackened",
+      "tint": [
+        0.6,
+        0.63,
+        0.65,
+        1.0
+      ],
+      "normal": 0.5,
+      "roughness": 1.0
+    },
+    {
+      "id": "window",
+      "catalog_key": "mirror_aged",
+      "tint": [
+        0.14,
+        0.22,
+        0.25,
+        1.0
+      ],
+      "normal": 0.12,
+      "roughness": 0.55
+    },
+    {
+      "id": "timber",
+      "catalog_key": "wood_dark",
+      "tint": [
+        0.9,
+        0.8,
+        0.7,
+        1.0
+      ],
+      "normal": 0.4,
+      "roughness": 1.0
+    }
+  ]
+}

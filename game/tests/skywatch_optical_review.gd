@@ -13,6 +13,12 @@ func check(ok: bool,label: String) -> void:
 	if not ok: failures.append(label)
 
 func run(bench: Node3D) -> void:
+	if OS.get_environment("SKYWATCH_TRAFFIC_REVIEW")=="1":
+		await traffic_review(bench)
+		return
+	if OS.get_environment("SKYWATCH_ATMOSPHERE_REVIEW")=="1":
+		await atmosphere_review(bench)
+		return
 	if OS.get_environment("SKYWATCH_CATALOGUE_BAKE")=="1":
 		catalogue_review(bench)
 		return
@@ -336,6 +342,162 @@ func image_centroid(image: Image) -> Vector2:
 			var value := maxf(0.,image.get_pixel(x,y).srgb_to_linear().get_luminance()-background)
 			weighted+=Vector2(x,y)*value;energy+=value
 	return weighted/maxf(energy,.000001)
+
+func atmosphere_review(bench: Node3D) -> void:
+	bench.manager.set_process(false);bench.director.set_process(false)
+	Engine.max_fps=0;DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+	var out := OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(out)
+	var records: Array[Dictionary]=[]
+	for sample: Dictionary in [{"name":"solar_ice","year":1929,"month":1,"day":15,"minute":600,"anti":false},{"name":"lunar_ice","year":1928,"month":11,"day":27,"minute":90,"anti":false},{"name":"twilight_belt","year":1929,"month":3,"day":20,"minute":1080,"anti":true},{"name":"night_airglow","year":1929,"month":3,"day":10,"minute":1320,"anti":true}]:
+		var minute: int=sample.minute
+		if sample.name=="twilight_belt":
+			var closest := INF
+			for i in range(900,1260):
+				bench.clock.configure_date(sample.year,sample.month,sample.day,i)
+				var candidate := Ephemeris.sun_direction(bench.clock.utc_datetime(),40.75,-73.92)
+				var gap := absf(Ephemeris.altitude_degrees(candidate)+3.)
+				if gap<closest:closest=gap;minute=i
+		bench.clock.configure_date(sample.year,sample.month,sample.day,minute)
+		bench.director._live_conditions={"cloud_high":.6,"temperature_c":-8.,"precipitation_intensity":0.,"relative_humidity":.98}
+		bench.director._astronomy_second=-INF;bench.director._apply(float(minute))
+		clear_optics(bench)
+		for effect: Node in bench.get_children():
+			if effect is WeatherFX:effect.process_mode=Node.PROCESS_MODE_DISABLED;(effect as Node3D).hide()
+		var sun := Ephemeris.sun_direction(bench.clock.utc_datetime(),40.75,-73.92)
+		var moon := Ephemeris.moon_direction(bench.clock.utc_datetime(),40.75,-73.92)
+		var source: Vector3=bench.sky_material.get_shader_parameter("celestial_direction")
+		var aim := source
+		if sample.anti:aim=Vector3(-sun.x,.15,-sun.z).normalized()
+		bench.camera.look_at(bench.camera.global_position+aim,Vector3.UP);set_field(bench,100.)
+		var ice: Vector3=bench.sky_material.get_shader_parameter("skywatch_ice_complex")
+		check(ice.x>0.2 and ice.y>0.1 and ice.z>0.1,"existing weather owner derives cold ice optics: "+str(sample.name))
+		bench.sky_material.set_shader_parameter("skywatch_extended_optics",false)
+		bench.sky_material.set_shader_parameter("skywatch_ice_complex",Vector3.ZERO)
+		await capture(bench,out+"/"+str(sample.name)+"_control.png")
+		var control := bench.get_viewport().get_texture().get_image()
+		bench.sky_material.set_shader_parameter("skywatch_extended_optics",true)
+		bench.sky_material.set_shader_parameter("skywatch_ice_complex",ice if not sample.anti else Vector3.ZERO)
+		await capture(bench,out+"/"+str(sample.name)+".png")
+		var shown := bench.get_viewport().get_texture().get_image()
+		var delta_sum := 0.;var peak := 0.
+		for y in range(20,shown.get_height()-20,16):
+			for x in range(20,shown.get_width()-20,16):
+				var change := (shown.get_pixel(x,y)-control.get_pixel(x,y))
+				var strength := absf(change.r)+absf(change.g)+absf(change.b)
+				delta_sum+=strength;peak=maxf(peak,strength)
+		check(peak>.005,"actual optical render differs from disabled control: "+str(sample.name))
+		var row := {"id":sample.name,"local_minute":minute,"utc":bench.clock.utc_datetime(),"sun_altitude":Ephemeris.altitude_degrees(sun),"moon_altitude":Ephemeris.altitude_degrees(moon),"peak_displayed_rgb_change":peak,"sampled_displayed_rgb_change":delta_sum}
+		if sample.name=="solar_ice":
+			row["frames_enabled"]=await measure(bench,100.,false)
+			bench.sky_material.set_shader_parameter("skywatch_extended_optics",false);bench.sky_material.set_shader_parameter("skywatch_ice_complex",Vector3.ZERO)
+			row["frames_disabled"]=await measure(bench,100.,false)
+		records.append(row)
+	# The production lamp owner, with diagnostic source lights rather than a
+	# fabricated sky bearing. Ordinary world depth must still hide the beam.
+	var lamps := preload("res://scripts/building/orison_v2_street_lamps.gd")
+	var owner := lamps.LampClock.new()
+	owner.dusk=lamps.load_table().dusk;owner.dawn=lamps.load_table().dawn
+	owner.clock_override={"month":1,"minute_of_day":1320.}
+	var light := OmniLight3D.new();bench.add_child(light)
+	light.position=bench.camera.position+Vector3(0,-5,-25)
+	owner.lights.append(light);bench.add_child(owner);owner.set_process(false)
+	bench.camera.look_at(light.global_position+Vector3.UP*10.,Vector3.UP);set_field(bench,70.)
+	bench.director._live_conditions={"temperature_c":-8.,"relative_humidity":.98}
+	bench.director._publish_ice_optics()
+	check(owner.ice_level>.9 and owner.pillars.size()==1,"production freezing-fog publisher binds a pillar to the actual clocked globe")
+	await capture(bench,out+"/urban_pillar.png")
+	var pillar_on := bench.get_viewport().get_texture().get_image()
+	owner.set_ice_level(0.)
+	await capture(bench,out+"/urban_pillar_control.png")
+	var pillar_off := bench.get_viewport().get_texture().get_image()
+	var beam_region := Rect2i(pillar_on.get_width()/2-40,20,80,pillar_on.get_height()-40)
+	check(display_peak(pillar_on,pillar_off,beam_region)>.02,"world-space lamp pillar produces measured optical signal")
+	owner.set_ice_level(1.)
+	owner.clock_override.minute_of_day=720.;owner.refresh()
+	check(not light.visible and owner.lit==0.,"lamp clock extinguishes its pillar during the day")
+	owner.clock_override.minute_of_day=1320.;owner.refresh()
+	var blocker := MeshInstance3D.new();var block := BoxMesh.new();block.size=Vector3(15,40,1)
+	blocker.mesh=block;bench.add_child(blocker)
+	blocker.global_position=light.global_position+Vector3(0,10,10)
+	var matte := StandardMaterial3D.new();matte.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED;matte.albedo_color=Color(.02,.02,.02);blocker.material_override=matte
+	await capture(bench,out+"/urban_pillar_blocked.png")
+	var blocked_on := bench.get_viewport().get_texture().get_image()
+	owner.set_ice_level(0.)
+	await capture(bench,out+"/urban_pillar_blocked_control.png")
+	# Restrict to the beam's fully covered central footprint. Unrelated
+	# asynchronously scintillating stars outside the blocker are not its signal.
+	var covered := Rect2i(blocked_on.get_width()/2-40,20,80,blocked_on.get_height()-40)
+	check(display_peak(blocked_on,bench.get_viewport().get_texture().get_image(),covered)<.01,"real foreground world geometry blocks the urban optical beam")
+	blocker.queue_free();owner.queue_free();light.queue_free();await bench.get_tree().process_frame
+	var result := {"evidence_class":"INERT","scope":"clear optical component controls, not annual artistic acceptance or world qualification","failures":failures,"samples":records}
+	FileAccess.open(out+"/atmosphere_review.json",FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
+	print("SKYWATCH ATMOSPHERE RESULT: ","PASS" if failures.is_empty() else "FAIL")
+	bench.get_tree().quit(0 if failures.is_empty() else 1)
+
+func display_peak(a: Image,b: Image,region := Rect2i()) -> float:
+	var peak := 0.
+	if region.size==Vector2i.ZERO:region=Rect2i(20,20,a.get_width()-40,a.get_height()-40)
+	for y in range(region.position.y,region.end.y,8):
+		for x in range(region.position.x,region.end.x,8):
+			var d := a.get_pixel(x,y)-b.get_pixel(x,y)
+			peak=maxf(peak,absf(d.r)+absf(d.g)+absf(d.b))
+	return peak
+
+func traffic_review(bench: Node3D) -> void:
+	bench.manager.set_process(false);bench.director.set_process(false)
+	for effect: Node in bench.get_children():
+		if effect is WeatherFX:effect.process_mode=Node.PROCESS_MODE_DISABLED;(effect as Node3D).hide()
+	var out := OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(out)
+	var traffic: Node3D=bench.director._skyward
+	check(traffic!=null and traffic.propellers.size()==5,"production V2 director installs native liner and five driven propellers")
+	var minute := -1
+	for i in range(700,760):
+		bench.clock.configure_date(1929,5,12,i)
+		var state: Dictionary=traffic.sample(bench.clock.absolute_minutes(),{})
+		if bool(state.active) and absf(float(state.phase)-.5)<.04:minute=i;break
+	check(minute>=0,"calendar-derived midday overflight can be reconstructed without a random stream")
+	bench.clock.configure_date(1929,5,12,minute)
+	bench.director._live_conditions={"temperature_c":16.,"cloud_high":0.,"precipitation_intensity":0.,"wind_speed_kmh":12.}
+	bench.director._astronomy_second=-INF;bench.director._apply(float(minute));clear_optics(bench)
+	traffic.update(bench.clock,bench.director._live_conditions)
+	var first: Dictionary=traffic.last_sample.duplicate(true)
+	var stamp: float=bench.clock.absolute_minutes()
+	var next: Dictionary=traffic.sample(stamp+.001,bench.director._live_conditions)
+	check((first.pose as Transform3D).origin.distance_to((next.pose as Transform3D).origin)<.15,"fractional calendar movement is continuous instead of eight-second lighting jumps")
+	bench.camera.look_at(traffic.hull.global_position,Vector3.UP);set_field(bench,100.)
+	var projected := Rect2(bench.camera.unproject_position(traffic.hull.global_position),Vector2.ZERO)
+	var bounds: AABB=traffic.hull.mesh.get_aabb()
+	for corner in range(8):projected=projected.expand(bench.camera.unproject_position(traffic.hull.global_transform*bounds.get_endpoint(corner)))
+	var craft_region := Rect2i(projected.grow(8.)).intersection(Rect2i(Vector2i.ZERO,bench.get_viewport().get_visible_rect().size))
+	await capture(bench,out+"/liner_over_queens.png")
+	var shown := bench.get_viewport().get_texture().get_image()
+	traffic.hide();await capture(bench,out+"/liner_control.png")
+	var hidden := bench.get_viewport().get_texture().get_image()
+	check(display_peak(shown,hidden,craft_region)>.05,"native passenger liner is optically visible over the actual V2 city horizon")
+	bench.clock.configure_date(1929,1,3,60);traffic.update(bench.clock,{})
+	bench.clock.configure_date(1929,5,12,minute);traffic.update(bench.clock,bench.director._live_conditions)
+	check(first==traffic.last_sample,"returning out of order restores exact route, phase, pose and propeller angle")
+	var steady := traffic.global_transform
+	traffic.update(bench.clock,bench.director._live_conditions)
+	check(traffic.last_sample==first and steady==traffic.global_transform,"paused campaign time cannot advance the craft")
+	traffic.update(bench.clock,{"wind_speed_kmh":65.})
+	check(not traffic.visible and bool(traffic.last_sample.weather_hold),"real severe-weather conditions hold fictional passenger traffic")
+	traffic.update(bench.clock,bench.director._live_conditions)
+	# Cover the complete projected craft, then compare with it hidden. No depth
+	# override is allowed to put aircraft in front of nearby walls or ceilings.
+	var blocker := MeshInstance3D.new();var block := BoxMesh.new();block.size=Vector3(180,100,2.)
+	blocker.mesh=block;bench.add_child(blocker)
+	blocker.global_position=bench.camera.global_position.lerp(traffic.hull.global_position,.4)
+	blocker.look_at(bench.camera.global_position,Vector3.UP)
+	var matte := StandardMaterial3D.new();matte.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED;matte.albedo_color=Color(.02,.02,.02);blocker.material_override=matte
+	await capture(bench,out+"/liner_world_blocked.png");var covered := bench.get_viewport().get_texture().get_image()
+	traffic.hide();await capture(bench,out+"/liner_world_blocked_control.png")
+	check(display_peak(covered,bench.get_viewport().get_texture().get_image(),craft_region)<.01,"ordinary foreground geometry fully occludes aircraft")
+	blocker.queue_free()
+	var result := {"evidence_class":"INERT","scope":"native liner calendar, rendering and depth diagnostics; not occupied-world travel, shadow, surface or artistic qualification","failures":failures,"local_minute":minute,"stamp":stamp,"phase":first.get("phase"),"source_triangles":24860}
+	FileAccess.open(out+"/traffic_review.json",FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
+	print("SKYWATCH TRAFFIC RESULT: ","PASS" if failures.is_empty() else "FAIL")
+	bench.get_tree().quit(0 if failures.is_empty() else 1)
 
 func catalogue_review(bench: Node3D) -> void:
 	var baker := preload("res://scripts/building/skywatch_catalogue.gd")
