@@ -14,6 +14,92 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 
+def analyze_detail(directory: Path, out: Path) -> dict:
+    """Summarize native colour/alpha pairs without turning art judgments into gates."""
+    source = directory / "native_detail.json"
+    data = json.loads(source.read_text(encoding="utf-8"))
+    if data.get("failures") or not data.get("rows"):
+        raise ValueError("Native review is incomplete or contains failures")
+    out.mkdir(parents=True, exist_ok=True)
+    rows, thumbnails, identities = [], [], set()
+    seed_groups = defaultdict(list)
+    for item in data["rows"]:
+        identity = (item["date"], item["period"], item["seed"])
+        if identity in identities:
+            raise ValueError("Native review repeats a date/period/seed")
+        identities.add(identity)
+        colour = Image.open(directory/item["colour"]).convert("RGB")
+        mask = Image.open(directory/item["mask"]).convert("L")
+        if colour.size != mask.size:
+            raise ValueError("Native colour and alpha camera sizes disagree")
+        height = colour.height*2//3
+        small_mask = mask.crop((0, 0, mask.width, height)).resize((320, 120), Image.Resampling.BOX)
+        small_colour = colour.crop((0, 0, colour.width, height)).resize((320, 120), Image.Resampling.BOX)
+        rgb = np.asarray(small_colour, dtype=np.float32)/255
+        alpha = np.asarray(small_mask, dtype=np.float32)/255
+        alpha = np.where(alpha <= .04045, alpha/12.92, ((alpha+.055)/1.055)**2.4)
+        luminance = rgb @ np.array([.2126, .7152, .0722])
+        cloudy = alpha > .5
+        row = {k: item[k] for k in ("date", "period", "seed", "declared_coverage", "mean_alpha_upper_frame",
+                                    "fraction_alpha_above_point_one", "moon_illumination")}
+        row.update(mean_rgb=rgb.mean(axis=(0, 1)).tolist(), upper_luminance_std=float(luminance.std()),
+                   cloud_luminance_std=float(luminance[cloudy].std()) if cloudy.any() else None,
+                   cloud_luminance_mean=float(luminance[cloudy].mean()) if cloudy.any() else None,
+                   colour_sha256=hashlib.sha256((directory/item["colour"]).read_bytes()).hexdigest(),
+                   mask_sha256=hashlib.sha256((directory/item["mask"]).read_bytes()).hexdigest())
+        rows.append(row)
+        thumbnails.append(colour.resize((320, 134), Image.Resampling.LANCZOS))
+        seed_groups[(item["date"], item["period"])].append(alpha)
+    seed_differences = []
+    for (civil, period), masks in seed_groups.items():
+        if len(masks) > 1:
+            seed_differences.append({"date": civil, "period": period,
+                                     "mean_absolute_alpha_difference_from_first": [float(abs(a-masks[0]).mean()) for a in masks[1:]]})
+    for page in range((len(rows)+35)//36):
+        contact = Image.new("RGB", (1920, 6*166), "#171820")
+        pen = ImageDraw.Draw(contact)
+        for n, i in enumerate(range(page*36, min(len(rows), (page+1)*36))):
+            x, y = n%6*320, n//6*166
+            contact.paste(thumbnails[i], (x, y))
+            pen.text((x+2,y+136), f"{rows[i]['date']} s{rows[i]['seed']}", fill="white")
+            pen.text((x+2,y+151), f"alpha {rows[i]['mean_alpha_upper_frame']:.2f} cover>.1 {rows[i]['fraction_alpha_above_point_one']:.2f}", fill="white")
+        contact.save(out/f"native_detail_{page:02d}.jpg", quality=92, subsampling=0)
+    report = {"evidence_class": "INERT", "samples": len(rows), "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+              "scope": "Native colour/alpha pairs. Cloudy means alpha>.5 on a 320x120 reduction; colour statistics are display-space. Declared optical union and angular pixel coverage are different quantities. No artistic acceptance.",
+              "rows": rows, "seed_alpha_differences": seed_differences}
+    (out/"native_assessment.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8")
+    return report
+
+
+def compare_detail(directory: Path, baseline: Path, out: Path, unchanged_clouds: bool) -> dict:
+    current = json.loads((directory/"native_detail.json").read_text(encoding="utf-8"))
+    previous = json.loads((baseline/"native_detail.json").read_text(encoding="utf-8"))
+    key = lambda row: (row["date"], row["period"], row["seed"])
+    old = {key(row): row for row in previous["rows"]}
+    new = {key(row): row for row in current["rows"]}
+    if previous["failures"] or current["failures"] or set(old) != set(new):
+        raise ValueError("Failed or unmatched native comparison")
+    if unchanged_clouds and (previous["scope"] != current["scope"] or "WeatherFX and TAA disabled only for mask" not in current["scope"]):
+        raise ValueError("Cloud regression requires the same uncontaminated mask controls")
+    rows, failures = [], []
+    for identity, row in new.items():
+        before = old[identity]
+        state_equal = before["state"] == row["state"]
+        a = np.asarray(Image.open(baseline/before["mask"]).convert("RGB"))
+        b = np.asarray(Image.open(directory/row["mask"]).convert("RGB"))
+        mask_equal = a.shape == b.shape and np.array_equal(a, b)
+        rows.append({"date": identity[0], "period": identity[1], "seed": identity[2],
+                     "weather_state_identical": state_equal, "mask_pixels_identical": mask_equal})
+        if not state_equal or (unchanged_clouds and not mask_equal):
+            failures.append(list(identity))
+    report = {"evidence_class": "INERT", "scope": "Matched weather-state and optional exact cloud-mask regression; no artistic or gameplay acceptance.",
+              "expect_unchanged_clouds": unchanged_clouds, "rows": rows, "failures": failures}
+    (out/"native_comparison.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8")
+    if failures:
+        raise ValueError(f"Native weather regression in {len(failures)} matched samples")
+    return report
+
+
 def analyze(gallery: Path, out: Path) -> dict:
     manifest = gallery / "annual_gallery.json"
     data = json.loads(manifest.read_text(encoding="utf-8"))
@@ -183,9 +269,19 @@ def analyze(gallery: Path, out: Path) -> dict:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--gallery", type=Path, required=True)
+    sources = parser.add_mutually_exclusive_group(required=True)
+    sources.add_argument("--gallery", type=Path)
+    sources.add_argument("--detail", type=Path, help="completed native colour/cloud-alpha review")
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--baseline-detail", type=Path, help="matched native review for state/mask comparison")
+    parser.add_argument("--expect-unchanged-clouds", action="store_true", help="lighting-only change: require identical pure cloud-mask pixels")
     args = parser.parse_args()
+    if args.detail:
+        result = analyze_detail(args.detail, args.out)
+        if args.baseline_detail:
+            compare_detail(args.detail, args.baseline_detail, args.out, args.expect_unchanged_clouds)
+        print(json.dumps({"samples": result["samples"], "seed_groups": len(result["seed_alpha_differences"])}))
+        raise SystemExit(0)
     result = analyze(args.gallery, args.out)
     print(json.dumps({"samples": result["samples"], "genera": result["genera"],
                       "selected_scenarios": len(result["selected_scenarios"]),

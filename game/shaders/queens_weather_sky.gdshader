@@ -327,9 +327,19 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     float coarse=max(0.02,(deck.y-deck.x)/base_steps);
     float fine=max(0.0125,(funnel.y-funnel.x)/80.0);
     float jitter=fract(sin(dot(screen_uv*vec2(1280.0,720.0),vec2(12.9898,78.233))+temporal_phase*13.17)*43758.5453);
-    vec3 source=normalize(sun_direction);
-    float day=smoothstep(-0.12,0.10,source.y);
-    vec3 ambient=mix(fog_horizon_color*0.95,vec3(0.61,0.68,0.80),day);
+    vec3 to_sun=normalize(sun_direction);
+    float day=smoothstep(-0.12,0.10,to_sun.y);
+    float night=1.0-smoothstep(-.18,-.07,to_sun.y);
+    vec3 moon=normalize(celestial_direction);
+    float moonlight=moon_phase_enabled ? night*moon_illumination*smoothstep(-.02,.15,moon.y) : 0.0;
+    // Reuse the same two density taps. Below the horizon the Moon supplies
+    // no direct light; upper-hemisphere skylight still reveals the cloud form.
+    vec3 night_source=moon.y>.01 ? moon : vec3(0.0,1.0,0.0);
+    vec3 light_axis=mix(to_sun,night_source,night);
+    vec3 source=length(light_axis)>.001 ? normalize(light_axis) : vec3(0.0,1.0,0.0);
+    vec3 night_air=fog_horizon_color*.25+vec3(.06,.09,.17);
+    vec3 ambient=mix(fog_horizon_color*.95,night_air,night);
+    ambient=mix(ambient,vec3(.61,.68,.80),day);
     ambient*=1.0-.65*max(storm_strength,max(wx_hail,vortex_intensity));
     vec3 sum=vec3(0.0); float transmittance=1.0;
     // The fine interval prevents a 70 m funnel tip disappearing between cloud samples.
@@ -371,15 +381,17 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
             }
             float alpha=1.0-exp(-6.0*d*ds);
             float h=clamp((p.y-lighting_base)/max(ceiling-lighting_base,0.1),0.0,1.0);
-            vec3 lit=wx_powder_light(d,tau_sun,dot(direction,source),h,celestial_color*day,ambient,source);
+            vec3 cloud_ambient=ambient*mix(1.0,.55+.45*exp(-tau_sun*.2),night);
+            vec3 lit=wx_powder_light(d,tau_sun,dot(direction,source),h,
+                celestial_color*(day+moonlight*.35),cloud_ambient,to_sun);
             float asperitas=max(wx_formation==1 ? wx_formation_strength : 0.0,spectacle[S_ASPERITAS]);
             if(asperitas>0.0) {
                 float relief=wx_asperitas_relief(wx_cyclone_warp(p),source);
-                vec3 hollow=ambient*mix(vec3(.06,.08,.18),vec3(.20,.05,.14),1.0-smoothstep(.03,.28,abs(source.y)));
+                vec3 hollow=ambient*mix(vec3(.06,.08,.18),vec3(.20,.05,.14),1.0-smoothstep(.03,.28,abs(to_sun.y)));
                 // Broad skylight sees the folds even with a high midday Sun.
                 lit=mix(lit,mix(hollow,lit*1.15,relief),asperitas);
             }
-            float gold=smoothstep(.24,0.0,source.y)*smoothstep(-.10,.01,source.y);
+            float gold=smoothstep(.24,0.0,to_sun.y)*smoothstep(-.10,.01,to_sun.y);
             lit=mix(lit,mix(ambient*.30,vec3(1.0,.40,.14)*(.35+.8*exp(-tau_sun)),gold),fire*.9);
             lit*=1.0-.9*noctilucent_light()*spectacle[S_NOCTILUCENT];
             lit*=mix(vec3(1.0),vec3(.80,.60,.38),spectacle[S_HABOOB]);
@@ -425,7 +437,10 @@ void sky() {
             float ice_alpha=1.0-exp(-ice*living_layer_2.z*3.0/max(.12,EYEDIR.y));
             ice_alpha*=smoothstep(.04,.18,EYEDIR.y)*(1.0-(wx_formation==4 ? wx_formation_strength*.8 : 0.0));
             float high_sun=smoothstep(-.065,-.025,sun_direction.y);
-            vec3 ice_color=mix(fog_horizon_color*.7,vec3(.70,.80,.95),high_sun);
+            float high_night=1.0-smoothstep(-.18,-.07,sun_direction.y);
+            float high_moon=moon_phase_enabled ? moon_illumination*smoothstep(-.02,.15,celestial_direction.y) : 0.0;
+            vec3 ice_night=mix(vec3(.035,.055,.10),vec3(.15,.19,.28),high_moon);
+            vec3 ice_color=mix(mix(fog_horizon_color*.7,ice_night,high_night),vec3(.70,.80,.95),high_sun);
             float amber=1.0-smoothstep(.015,.24,abs(sun_direction.y));
             ice_color=mix(ice_color,vec3(1.30,.55,.32),amber*high_sun);
             base=mix(base,ice_color,ice_alpha);

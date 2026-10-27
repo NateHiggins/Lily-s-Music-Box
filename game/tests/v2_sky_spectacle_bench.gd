@@ -61,6 +61,12 @@ func _ready() -> void:
 	environment.volumetric_fog_length = 24.0
 	sky_material = ShaderMaterial.new()
 	sky_material.shader = preload("res://shaders/queens_weather_sky.gdshader") if queens_renderer else preload("res://shaders/v2_seasonal_sky.gdshader")
+	var review_source:=OS.get_environment("SKY_REVIEW_SHADER_SOURCE")
+	if not review_source.is_empty() and not OS.get_environment("SKY_NATIVE_SAMPLING_PLAN").is_empty():
+		var control:=Shader.new();control.code=FileAccess.get_file_as_string(review_source)
+		if not control.code.contains("shader_type sky;"):
+			push_error("Unreadable sky source control");get_tree().quit(2);return
+		sky_material.shader=control
 	sky_material.set_shader_parameter("moon_surface", load("res://assets/environment/lroc_color_poles_1k.jpg"))
 	environment.sky = Sky.new()
 	environment.sky.sky_material = sky_material
@@ -92,6 +98,9 @@ func _ready() -> void:
 	camera.global_position = EYE
 	get_viewport().use_taa = true
 	await get_tree().process_frame
+	if not OS.get_environment("SKY_NATIVE_SAMPLING_PLAN").is_empty():
+		await _library_detail()
+		return
 	if OS.get_environment("SKY_LIGHTNING_REVIEW")=="1":
 		await _lightning_review()
 		return
@@ -411,6 +420,78 @@ func _library_year() -> void:
 		"evidence_class":"INERT","scope":"365 days, six solar-relative periods each, production sky over city-horizon bench; appearance signatures describe fixed upper-frame luminance, not a cloud segmentation or measured cloud-cover mask. No occupied-world save/rebuild, performance or human acceptance.",
 		"seed":manager._seed_value(),"periods":labels,"samples":365*labels.size(),"reverse_date_replays":replay_days.size(),"calendar_sha256":FileAccess.get_sha256("res://data/weather/campaign_weather.json"),"diversity":diversity,"days":rows,"failures":failures},"\t"))
 	print("LIVING SKY ANNUAL REVIEW: %d samples, %d reverse-date replays, %d failures"%[365*labels.size(),replay_days.size(),failures.size()])
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _library_detail() -> void:
+	# Read-only optical review over the same dated production owner. A cloned
+	# shader exposes the alpha it actually composites, not coverage metadata.
+	manager.set_process(false);director.set_process(false)
+	var path:=OS.get_environment("SKY_NATIVE_SAMPLING_PLAN")
+	var plan: Variant=JSON.parse_string(FileAccess.get_file_as_string(path))
+	if plan is not Dictionary or plan.get("captures") is not Array:
+		push_error("Invalid native sky sampling plan");get_tree().quit(2);return
+	if str(plan.get("calendar_sha256",""))!=FileAccess.get_sha256(CampaignWeather.PATH):
+		push_error("Native sampling plan has a different calendar");get_tree().quit(2);return
+	var directory:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
+	var code:=sky_material.shader.code.replace("\r\n","\n")
+	var boundary:="        if(living_enabled && living_layer_2.x>.0001 && EYEDIR.y>.015) {"
+	var output:="        COLOR=mix(combined,wx_haze_color(normalize(sun_direction)),1.0-exp(-tau));"
+	if not code.contains(boundary) or not code.contains(output):
+		push_error("Cloud mask instrumentation no longer matches production");get_tree().quit(2);return
+	code=code.replace(boundary,"        float observed_ice_alpha=0.0;\n"+boundary)
+	code=code.replace("            base=mix(base,ice_color,ice_alpha);","            observed_ice_alpha=ice_alpha;\n            base=mix(base,ice_color,ice_alpha);")
+	code=code.replace(output,"        COLOR=vec3(1.0-(1.0-HALF_RES_COLOR.a)*(1.0-observed_ice_alpha)*(1.0-cirrus));")
+	var mask_shader:=Shader.new();mask_shader.code=code
+	var mask_material:=ShaderMaterial.new();mask_material.shader=mask_shader
+	var rows: Array=[];var failures: Array[String]=[]
+	var requests: Array=plan.captures.duplicate(true)
+	for triplet: Dictionary in plan.get("transition_triplets",[]):
+		for date_text: String in triplet.dates:requests.append({"date":date_text,"period":"transition_"+str(triplet.period),"seeds":[triplet.seed]})
+	var normal_tonemap:=environment.tonemap_mode;var normal_exposure:=environment.tonemap_exposure
+	var normal_glow:=environment.glow_enabled;var normal_fog:=environment.volumetric_fog_enabled
+	var first:=Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")
+	for request: Dictionary in requests:
+		var stamp:=Time.get_unix_time_from_datetime_string(str(request.date))
+		for layout_seed: int in request.seeds:
+			OS.set_environment("WEATHER_SEED",str(layout_seed))
+			environment.sky.sky_material=sky_material;horizon.show();manager.effects.show()
+			get_viewport().use_taa=true
+			environment.tonemap_mode=normal_tonemap;environment.tonemap_exposure=normal_exposure
+			environment.glow_enabled=normal_glow;environment.volumetric_fog_enabled=normal_fog
+			_library_date(int(floor(float(stamp-first)/86400.0)),float(posmod(stamp,86400))/3600.0)
+			sky_material.set_shader_parameter("temporal_phase",0.0)
+			for frame in 24:await RenderingServer.frame_post_draw
+			var prefix:="%03d_%s_%d"%[rows.size(),str(request.period),layout_seed]
+			var color_path:=directory.path_join(prefix+"_colour.png")
+			if get_viewport().get_texture().get_image().save_png(color_path)!=OK:failures.append("colour capture "+prefix)
+			for uniform: Dictionary in sky_material.shader.get_shader_uniform_list():
+				var value: Variant=sky_material.get_shader_parameter(str(uniform.name))
+				if value!=null:mask_material.set_shader_parameter(str(uniform.name),value)
+			environment.sky.sky_material=mask_material;horizon.hide();manager.effects.hide()
+			get_viewport().use_taa=false
+			environment.tonemap_mode=Environment.TONE_MAPPER_LINEAR;environment.tonemap_exposure=1.0
+			environment.glow_enabled=false;environment.volumetric_fog_enabled=false
+			for frame in 16:await RenderingServer.frame_post_draw
+			var image:=get_viewport().get_texture().get_image()
+			var alpha_sum:=0.0;var covered:=0;var count:=0
+			for y in range(0,int(image.get_height()*2/3),4):
+				for x in range(0,image.get_width(),4):
+					var alpha:=image.get_pixel(x,y).srgb_to_linear().r
+					alpha_sum+=alpha;count+=1
+					if alpha>.1:covered+=1
+			var mask_path:=directory.path_join(prefix+"_mask.png")
+			if image.save_png(mask_path)!=OK:failures.append("mask capture "+prefix)
+			rows.append({"date":clock.datetime_string(),"period":request.period,"seed":layout_seed,
+				"declared_coverage":manager.atmosphere_state.get("combined_coverage",0),"mean_alpha_upper_frame":alpha_sum/maxi(1,count),
+				"fraction_alpha_above_point_one":float(covered)/maxi(1,count),"colour":color_path.get_file(),"mask":mask_path.get_file(),
+				"sun":str(sky_material.get_shader_parameter("sun_direction")),"moon":str(sky_material.get_shader_parameter("celestial_direction")),
+				"moon_illumination":sky_material.get_shader_parameter("moon_illumination"),"state":manager.atmosphere_state.duplicate(true)})
+			print("NATIVE SKY DETAIL ",rows.size()," ",clock.datetime_string()," seed=",layout_seed)
+	FileAccess.open(directory.path_join("native_detail.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"Native colour and instrumented production cloud alpha over dated city-horizon bench; upper two-thirds every fourth pixel. Linear mask decoded from sRGB; world geometry, WeatherFX and TAA disabled only for mask. Excludes front optical phenomena and is not an artistic, occupied-world or performance acceptance.",
+		"plan_sha256":FileAccess.get_sha256(path),"loaded_shader_source_sha256_lf":sky_material.shader.code.replace("\r\n","\n").sha256_text(),
+		"review_source_control":OS.get_environment("SKY_REVIEW_SHADER_SOURCE"),"rows":rows,"failures":failures},"\t"))
+	print("NATIVE SKY DETAIL REVIEW: ",rows.size()," samples, ",failures.size()," failures")
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _daylight_hours(day_index: int) -> PackedFloat64Array:

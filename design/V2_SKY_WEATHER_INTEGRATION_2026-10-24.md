@@ -1556,3 +1556,72 @@ policy, and the catalogue-persistence check passes. The frog is **not yet
 emitted in the game**; loaded native material qualification, impact deformation,
 calendar fallout, blood coating and lens moisture remain outstanding. No
 calendar frames, forecasts, newspaper publications or save facts changed here.
+
+### Native annual follow-through and night-cloud repair — 2026-10-27
+
+The generated plan was executed at native **3440×1440**: 141 seeded views plus
+24 transition views, **165 samples**, not another claim of 365 fully accepted
+days. **native_detail_before.log.receipt.json** and
+**native_detail_moonlit.log.receipt.json** complete in 269/279 seconds with
+empty stderr. All 165 before/after weather-state dictionaries remain identical.
+The first masks still included fallback precipitation; retain them as optical
+proxies and exclude them from cloud-only coverage conclusions.
+
+The corrected **native_detail_cloud_only.log.receipt.json** completes all 165
+samples in 271 seconds with empty stderr. Its mask pass hides world geometry
+and WeatherFX, disables fog/glow/TAA, uses linear tonemapping/exposure one,
+and outputs the composited low/mid volume, high ice and cirrus alpha union.
+Measurements decode sRGB and sample every fourth pixel in the upper two-thirds.
+Mean alpha ranges **.04661–.98506**; angular pixel coverage at alpha>.1 ranges
+**.11706–1.0**. These differ legitimately from declared layer-union coverage.
+The front optical phenomena are excluded; there is no cloud-genus segmentation.
+
+All five before and corrected contact sheets were inspected. Broad wet ceilings
+remain comparatively uniform; that observation is not permission to replace the
+authored overcast year with invented fair weather. Three-seed sampling shows
+real silhouette differences in broken-cloud regimes and much smaller changes
+in dense overcast. Rare formations still require their separate authored views.
+
+The specific night repair reuses the ephemeris's Moon position and illuminated
+fraction for direct cloud light while the Moon is above the horizon. Moonless
+clouds receive cool upper-hemisphere ambient relief; lower smog retains its
+sepia influence. Existing two-tap shadow sampling, ray steps, density geometry,
+daylight/twilight colour rules and campaign authorities remain in place. No
+additional shadow march, weather authority or calendar data was added.
+
+**lighting_control_before** renders the actual previous shader from commit
+**1b3d63b8**. **lighting_control_after** renders the new shader over the same
+eight cases in reverse date order: four night phases and dawn/noon/afternoon/
+dusk. Both runs have empty stderr. All eight pure cloud-mask images are
+**pixel-identical**, and weather state is identical. Upper-frame display-space
+colour MAE is **.000080–.000431** in the four daylight/transition controls and
+**.09870–.13710** in the four night controls. Those colour changes quantify the
+repair's reach, not an artistic quality score. No occupied-world performance
+claim follows from this optical bench. A deliberately altered mask pixel is
+rejected by the regression comparison; failed/incomplete reviews are rejected.
+
+Reproduce a native plan from the annual analyzer, set
+**SKY_NATIVE_SAMPLING_PLAN** to its generated JSON, and run
+**V2QueensSpectacleBench.tscn** through the lane with the native debug launcher.
+For a prior-source control, **SKY_REVIEW_SHADER_SOURCE** accepts a saved shader
+only in this review path; its actually loaded LF-normalized hash is recorded.
+Normal gameplay never reads it. Analyze and compare the resulting directories:
+
+```powershell
+python tools/analyze_weather_gallery.py --detail C:/ov/reports/lightning32/native_detail_cloud_only --out C:/ov/reports/lightning32/native_detail_cloud_only_assessment
+python tools/analyze_weather_gallery.py --detail C:/ov/reports/lightning32/lighting_control_after --baseline-detail C:/ov/reports/lightning32/lighting_control_before --expect-unchanged-clouds --out C:/ov/reports/lightning32/lighting_control_assessment
+```
+
+The existing **annual_cyclone_review.zip** preserves all original 700 members
+and adds **native_cloud_review_20261027/** with 71 unique artifacts. Every member
+hash was checked after packing. It contains the complete diagnostic JSON and
+contact sheets, all eight native before/after regression pairs, receipts and
+the original control shader. Full 165-view native sets remain at their external
+report paths with recorded image hashes; they are not duplicated into Git.
+
+Remaining: refresh the annual night gallery after final source freeze, inspect
+the previously selected rare electrical views after their selector correction,
+finish anomalous fallout and moisture, measure moving/turning routes including
+heightfield recentering, and renew lifecycle/save/surface/candidate qualification.
+The Moon is still the existing analytical textured disc; this cloud-lighting
+repair does not build the queued relief Moon, telescope or Skywatcher Club.
