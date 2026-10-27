@@ -544,16 +544,33 @@ vec3 transient_luminous(vec3 dir) {
         // Gigantic jet: a tree of light from the cloud top to the ionosphere.
         float x=degrees(wrap_pi(azimuth_of(dir)-spectacle_bearing[S_GIGANTIC_JET]));
         float h=clamp((e-3.0)/14.0,0.0,1.0);
-        float trunk=exp(-pow((x+.6*sin(e*.7))/(.2+1.6*h*h),2.0))*step(3.0,e)*(1.0-smoothstep(15.0,18.0,e));
-        float branches=smoothstep(.55,.8,vnoise(vec2(x*2.0,e*1.5)))*smoothstep(10.0,14.0,e)
-            *(1.0-smoothstep(16.0,18.5,e))*exp(-pow(x/4.0,2.0));
+        float axis=-.6*sin(e*.7);
+        float trunk=exp(-pow((x-axis)/(.16+.28*h),2.0))*step(3.0,e)*(1.0-smoothstep(15.0,18.0,e));
+        float branches=0.0;
+        // Connected leaders grow out of the trunk, rather than thresholded
+        // noise islands floating above it. All coordinates remain bounded.
+        for(int i=0;i<8;i++) {
+            float fi=float(i);
+            float start=6.5+hash12(vec2(seed,fi+11.0))*3.0;
+            float end=14.0+hash12(vec2(seed,fi+29.0))*4.5;
+            float u=clamp((e-start)/(end-start),0.0,1.0);
+            float side=mod(fi,2.0)<1.0 ? -1.0 : 1.0;
+            float spread=1.4+hash12(vec2(seed,fi+47.0))*2.5;
+            float path=-.6*sin(start*.7)+side*spread*pow(u,1.15)+sin(u*15.0+fi)*u*.16;
+            float width=mix(.11,.035,u);
+            branches+=exp(-pow((x-path)/width,2.0))*smoothstep(start,start+.5,e)*(1.0-smoothstep(end-.6,end,e));
+        }
         total+=(mix(vec3(.35,.5,1.0),vec3(1.0,.25,.35),h)*trunk*1.8+vec3(1.0,.3,.4)*branches)*spectacle[S_GIGANTIC_JET];
     }
     if (spectacle[S_ELVES]>0.0) {
         // ELVES: a red ring expanding at the foot of the ionosphere.
-        vec3 centre=normalize(bearing_axis(S_ELVES)+vec3(0.0,.12,0.0));
-        float radius=radians(6.0+10.0*hash12(vec2(seed,9.0)));
-        float ring=exp(-pow((angle_between(dir,centre)-radius)/radians(1.6),2.0))*smoothstep(.02,.08,dir.y);
+        float x=degrees(wrap_pi(azimuth_of(dir)-spectacle_bearing[S_ELVES]));
+        float expansion=smoothstep(.035,.30,electrical_age);
+        float radius=mix(5.0,16.0,expansion);
+        // A horizontal ionospheric ring seen obliquely from a rooftop. A
+        // great-circle outline incorrectly produced two vertical red pillars.
+        float ellipse=length(vec2(x/radius,(e-24.0)/(radius*.13)));
+        float ring=exp(-pow((ellipse-1.0)/.12,2.0))*smoothstep(.02,.08,dir.y);
         total+=vec3(1.0,.22,.18)*ring*1.4*spectacle[S_ELVES];
     }
     return total;

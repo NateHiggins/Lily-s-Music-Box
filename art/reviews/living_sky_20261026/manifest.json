@@ -4,8 +4,8 @@
   "scope": "Living Sky implementation, failures, bounded runtime contracts, annual-noon gallery and matched route diagnostics. No full reference-library, full-day annual, full-V2 or human acceptance.",
   "implementation_commit": "860219b005d6606ddca9ce7eb7f7d03f32703dc0",
   "archive": "living_sky_review.zip",
-  "archive_bytes": 10760256,
-  "archive_sha256": "c311d299256ff5cdb10f9479064773c027d1e43bb63dd6168d1bd7851ad2064e",
+  "archive_bytes": 35166199,
+  "archive_sha256": "0f6e6b1fddfbe6b95a483f1da4fc92cf3857cda27d9c927f852e11a59aa1c6b0",
   "members": [
     {
       "path": "runs/annual_final/annual_gallery.json",
@@ -1790,6 +1790,280 @@
       "sha256": "270073ca10df8ee862a6d5e62d2c000e49f1301d5cc2d0a333734398304ec066",
       "original_path": "C:\\ov\\v2merge24\\game\\tests\\weather_sky_test.gd",
       "original_sha256": "270073ca10df8ee862a6d5e62d2c000e49f1301d5cc2d0a333734398304ec066"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current.log",
+      "bytes": 931,
+      "sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current.log",
+      "original_sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current.log.receipt.json",
+      "bytes": 1586,
+      "sha256": "265bcb8d58cb0487cf3d985706780e6d6f28d1ca4d89f043fe3ead9b5a7ed38f",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current.log.receipt.json",
+      "original_sha256": "265bcb8d58cb0487cf3d985706780e6d6f28d1ca4d89f043fe3ead9b5a7ed38f"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_shape_repair.log",
+      "bytes": 931,
+      "sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_shape_repair.log",
+      "original_sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_shape_repair.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_shape_repair.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_shape_repair.log.receipt.json",
+      "bytes": 1623,
+      "sha256": "797bb65963bbe7e12ba8c41045867c12d59ae1b4e7fc0616c4cd45248fb8075a",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_shape_repair.log.receipt.json",
+      "original_sha256": "797bb65963bbe7e12ba8c41045867c12d59ae1b4e7fc0616c4cd45248fb8075a"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes.log",
+      "bytes": 931,
+      "sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes.log",
+      "original_sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes.log.receipt.json",
+      "bytes": 1669,
+      "sha256": "42e5c184bd46d245453a923ad5226eb7e1dc1f7d2b9a9c78d1c67e7b760df9d0",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes.log.receipt.json",
+      "original_sha256": "42e5c184bd46d245453a923ad5226eb7e1dc1f7d2b9a9c78d1c67e7b760df9d0"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/22_spider_lightning.json",
+      "bytes": 6636,
+      "sha256": "bc0b77fc47ec6be624ba26b4717988ad81589e7240d031de78c1dfe34e6e8ef4",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\22_spider_lightning.json",
+      "original_sha256": "bc0b77fc47ec6be624ba26b4717988ad81589e7240d031de78c1dfe34e6e8ef4"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/22_spider_lightning.png",
+      "bytes": 1728701,
+      "sha256": "931adbc40b63303b7b90978758fefdc702cd14d7372be6ceab1d1982696e69d7",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\22_spider_lightning.png",
+      "original_sha256": "931adbc40b63303b7b90978758fefdc702cd14d7372be6ceab1d1982696e69d7"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/23_red_sprite.json",
+      "bytes": 6707,
+      "sha256": "e361cfca59a33ac32373878bc1d8520427261b4ff11592da405f2621d0944261",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\23_red_sprite.json",
+      "original_sha256": "e361cfca59a33ac32373878bc1d8520427261b4ff11592da405f2621d0944261"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/23_red_sprite.png",
+      "bytes": 1120572,
+      "sha256": "2394518bd4a31aed72078278bb53f880e56b87af395fad48d4fab917b579f041",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\23_red_sprite.png",
+      "original_sha256": "2394518bd4a31aed72078278bb53f880e56b87af395fad48d4fab917b579f041"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/24_blue_jet.json",
+      "bytes": 6869,
+      "sha256": "3c44cfaa43d4b19bf539eded8d44a73a8d0cdf00e7042a5fc8fefce168a0cd9b",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\24_blue_jet.json",
+      "original_sha256": "3c44cfaa43d4b19bf539eded8d44a73a8d0cdf00e7042a5fc8fefce168a0cd9b"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/24_blue_jet.png",
+      "bytes": 1090577,
+      "sha256": "eaa823e5016a71a277ebe58dcd65f5e850a259921c23351bba05117eac4ad303",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\24_blue_jet.png",
+      "original_sha256": "eaa823e5016a71a277ebe58dcd65f5e850a259921c23351bba05117eac4ad303"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/25_gigantic_jet.json",
+      "bytes": 6690,
+      "sha256": "90f150acc954fb982c2c6b03df9461cca4626576753b3e2570f3abd3602845c2",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\25_gigantic_jet.json",
+      "original_sha256": "90f150acc954fb982c2c6b03df9461cca4626576753b3e2570f3abd3602845c2"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/25_gigantic_jet.png",
+      "bytes": 1810803,
+      "sha256": "51f5c6cdb944b0ede7e30f3da97f137a9933d0f22a562c1d9b399a408f1d2434",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\25_gigantic_jet.png",
+      "original_sha256": "51f5c6cdb944b0ede7e30f3da97f137a9933d0f22a562c1d9b399a408f1d2434"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/26_elves.json",
+      "bytes": 6657,
+      "sha256": "d12ffcef3115df2a54b677bd05f73a05c0da71d00e5ebc2631e8f80398f6e1c3",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\26_elves.json",
+      "original_sha256": "d12ffcef3115df2a54b677bd05f73a05c0da71d00e5ebc2631e8f80398f6e1c3"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/26_elves.png",
+      "bytes": 1491458,
+      "sha256": "ec9d851497805eaf804828643eb973a2345445288904c03d5af68f76b043ebc2",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\26_elves.png",
+      "original_sha256": "ec9d851497805eaf804828643eb973a2345445288904c03d5af68f76b043ebc2"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/28_volcanic_lightning.json",
+      "bytes": 7120,
+      "sha256": "f13cacddf28587e0176aa2cea009ed34ef1dcaba5d8dc5a785cfb46e0b30ea3d",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\28_volcanic_lightning.json",
+      "original_sha256": "f13cacddf28587e0176aa2cea009ed34ef1dcaba5d8dc5a785cfb46e0b30ea3d"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/28_volcanic_lightning.png",
+      "bytes": 1966825,
+      "sha256": "bb331cb92dbbc97de4da22da2504a7d269cc66f16054ccce10bd8b35aaa7be0b",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\28_volcanic_lightning.png",
+      "original_sha256": "bb331cb92dbbc97de4da22da2504a7d269cc66f16054ccce10bd8b35aaa7be0b"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/22_spider_lightning.json",
+      "bytes": 6636,
+      "sha256": "bc0b77fc47ec6be624ba26b4717988ad81589e7240d031de78c1dfe34e6e8ef4",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\22_spider_lightning.json",
+      "original_sha256": "bc0b77fc47ec6be624ba26b4717988ad81589e7240d031de78c1dfe34e6e8ef4"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/22_spider_lightning.png",
+      "bytes": 1728715,
+      "sha256": "7bc28f0923980c1545037341b9985001c0221dc837da514340c720c8f89546a7",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\22_spider_lightning.png",
+      "original_sha256": "7bc28f0923980c1545037341b9985001c0221dc837da514340c720c8f89546a7"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/23_red_sprite.json",
+      "bytes": 6707,
+      "sha256": "e361cfca59a33ac32373878bc1d8520427261b4ff11592da405f2621d0944261",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\23_red_sprite.json",
+      "original_sha256": "e361cfca59a33ac32373878bc1d8520427261b4ff11592da405f2621d0944261"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/23_red_sprite.png",
+      "bytes": 1120528,
+      "sha256": "fedf217e03229d1bdea5a9732db24f3c95bc9aec693b780f92930f58b4e9f896",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\23_red_sprite.png",
+      "original_sha256": "fedf217e03229d1bdea5a9732db24f3c95bc9aec693b780f92930f58b4e9f896"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/24_blue_jet.json",
+      "bytes": 6869,
+      "sha256": "3c44cfaa43d4b19bf539eded8d44a73a8d0cdf00e7042a5fc8fefce168a0cd9b",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\24_blue_jet.json",
+      "original_sha256": "3c44cfaa43d4b19bf539eded8d44a73a8d0cdf00e7042a5fc8fefce168a0cd9b"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/24_blue_jet.png",
+      "bytes": 1090538,
+      "sha256": "cf38c28ca4d2a0a0603d4f0513995236d623018c29ee61584d73ae0d2831631b",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\24_blue_jet.png",
+      "original_sha256": "cf38c28ca4d2a0a0603d4f0513995236d623018c29ee61584d73ae0d2831631b"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/25_gigantic_jet.json",
+      "bytes": 6690,
+      "sha256": "90f150acc954fb982c2c6b03df9461cca4626576753b3e2570f3abd3602845c2",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\25_gigantic_jet.json",
+      "original_sha256": "90f150acc954fb982c2c6b03df9461cca4626576753b3e2570f3abd3602845c2"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/25_gigantic_jet.png",
+      "bytes": 1806871,
+      "sha256": "79e3eac1fca9abdf603a92886552a6c0a879e1cca09143e810d51b9b134713c3",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\25_gigantic_jet.png",
+      "original_sha256": "79e3eac1fca9abdf603a92886552a6c0a879e1cca09143e810d51b9b134713c3"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/26_elves.json",
+      "bytes": 6657,
+      "sha256": "d12ffcef3115df2a54b677bd05f73a05c0da71d00e5ebc2631e8f80398f6e1c3",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\26_elves.json",
+      "original_sha256": "d12ffcef3115df2a54b677bd05f73a05c0da71d00e5ebc2631e8f80398f6e1c3"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/26_elves.png",
+      "bytes": 1460873,
+      "sha256": "0bce165c729b01f2a4edccc0af9787ec3dc626cde5a483d744a359bca1f97985",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\26_elves.png",
+      "original_sha256": "0bce165c729b01f2a4edccc0af9787ec3dc626cde5a483d744a359bca1f97985"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/28_volcanic_lightning.json",
+      "bytes": 7120,
+      "sha256": "f13cacddf28587e0176aa2cea009ed34ef1dcaba5d8dc5a785cfb46e0b30ea3d",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\28_volcanic_lightning.json",
+      "original_sha256": "f13cacddf28587e0176aa2cea009ed34ef1dcaba5d8dc5a785cfb46e0b30ea3d"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/28_volcanic_lightning.png",
+      "bytes": 1972527,
+      "sha256": "d253d892328b17e0db3bd101a483f38c884088f88901759c5db366c30a10bddc",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\28_volcanic_lightning.png",
+      "original_sha256": "d253d892328b17e0db3bd101a483f38c884088f88901759c5db366c30a10bddc"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/elves_growth.json",
+      "bytes": 446,
+      "sha256": "6cd8746f1abd9f2fa2deedd41ee2c1b501cd6c785a814f121cbaeca9c242a45d",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\elves_growth.json",
+      "original_sha256": "6cd8746f1abd9f2fa2deedd41ee2c1b501cd6c785a814f121cbaeca9c242a45d"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/elves_growth_060.png",
+      "bytes": 1513613,
+      "sha256": "3cf33c878cb061c193e54beddb4511947e08e8c50ce23c6bccce55b9386371ee",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\elves_growth_060.png",
+      "original_sha256": "3cf33c878cb061c193e54beddb4511947e08e8c50ce23c6bccce55b9386371ee"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/elves_growth_150.png",
+      "bytes": 1518493,
+      "sha256": "6964745d54518653c887665f550bfcb7b9e7d1c2e31e264158135fa007716a6e",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\elves_growth_150.png",
+      "original_sha256": "6964745d54518653c887665f550bfcb7b9e7d1c2e31e264158135fa007716a6e"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/elves_growth_280.png",
+      "bytes": 1532415,
+      "sha256": "a47eef21586ae38edb4453721ab16b4bddaa02ffa74fe88c90644675b4f2a0ae",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\elves_growth_280.png",
+      "original_sha256": "a47eef21586ae38edb4453721ab16b4bddaa02ffa74fe88c90644675b4f2a0ae"
+    },
+    {
+      "path": "electrical_shapes_20261027/occluded_ring_control.png",
+      "bytes": 1451863,
+      "sha256": "9e3850f2329c89d5cb985f7d174d08ea3cecd28023b85ba27bf1b7af4b1b0f09",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_shape_repair\\26_elves.png",
+      "original_sha256": "9e3850f2329c89d5cb985f7d174d08ea3cecd28023b85ba27bf1b7af4b1b0f09"
+    }
+  ],
+  "continuations": [
+    {
+      "section": "electrical_shapes_20261027",
+      "prior_archive_sha256": "c311d299256ff5cdb10f9479064773c027d1e43bb63dd6168d1bd7851ad2064e",
+      "members_added": 38,
+      "scope": "Original visual defects, six forced electrical controls, revised jet/ring and three frozen-age optical growth measurements. Not natural occurrence timing, performance, gameplay or human acceptance."
     }
   ]
 }

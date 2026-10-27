@@ -568,6 +568,25 @@ func _shoot(id: String, entry: Dictionary, fraction: float, label: String) -> vo
 		if value is Resource:continue
 		uniforms[str(item.name)]=value
 	FileAccess.open(directory.path_join(label+".json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","date":clock.datetime_string(),"atmosphere":manager.atmosphere_state,"conditions":manager.current,"uniforms":uniforms},"\t"))
+	if id=="elves":
+		var growth: Array=[]
+		for age: float in [.06,.15,.28]:
+			sky_material.set_shader_parameter("electrical_age",age)
+			for frame in 24:await RenderingServer.frame_post_draw
+			var image:=get_viewport().get_texture().get_image()
+			var left:=image.get_width();var right:=0;var count:=0
+			for y in range(0,image.get_height()*2/3,2):
+				for x in range(0,image.get_width(),2):
+					var pixel:=image.get_pixel(x,y)
+					if pixel.r>.15 and pixel.r>pixel.g*1.5 and pixel.r>pixel.b*1.3:
+						left=mini(left,x);right=maxi(right,x);count+=1
+			var width:=maxi(0,right-left)
+			growth.append({"age":age,"red_pixels_quarter_grid":count,"width_pixels":width})
+			image.save_png(directory.path_join("elves_growth_%03d.png"%int(age*1000)))
+		if int(growth[0].red_pixels_quarter_grid)<16 or int(growth[2].width_pixels)<int(growth[0].width_pixels)*2:
+			optical_failures.append("ELVES expanding ring is missing or fails to grow")
+		FileAccess.open(directory.path_join("elves_growth.json"),FileAccess.WRITE).store_string(JSON.stringify({
+			"evidence_class":"INERT","scope":"Forced frozen strike ages on the authored ELVES date; actual optical growth measurement, not natural strike timing or human acceptance","samples":growth},"\t"))
 
 
 func _aim(id: String, entry: Dictionary) -> void:

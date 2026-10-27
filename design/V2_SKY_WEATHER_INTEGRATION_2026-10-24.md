@@ -1625,3 +1625,36 @@ finish anomalous fallout and moisture, measure moving/turning routes including
 heightfield recentering, and renew lifecycle/save/surface/candidate qualification.
 The Moon is still the existing analytical textured disc; this cloud-lighting
 repair does not build the queued relief Moon, telescope or Skywatcher Club.
+
+### Electrical shape review — 2026-10-27
+
+The corrected requested-effect selector was exercised over all six electrical
+showcase dates at native resolution. The renders exposed two visual defects:
+ELVES projected as a great-circle outline produced vertical red patches, and
+the gigantic jet's thresholded noise crown produced disconnected islands.
+The repaired jet uses eight connected, tapered leaders. ELVES uses an oblique
+horizontal ellipse whose radius follows bounded strike age. A first lower
+projection was wholly cloud-occluded; its image is retained. The final apparent
+elevation/width makes the ring readable without reducing cloud occlusion.
+This is a painterly projection, not a claim of physically reconstructed distance.
+
+Form reference: NASA's [upper-atmosphere phenomenon summary](https://www.nasa.gov/image-article/upper-atmosphere-phenomena-caused-by-thunderstorms/)
+distinguishes upward jets from rapidly expanding ionospheric rings. No reference
+image was stored, projected or baked into the game.
+
+**rare_final_shapes.log.receipt.json** completes six native frames with empty
+stderr and zero bench failures. The requested slot is actually nonzero in each
+capture. Three frozen ELVES strike ages **.06/.15/.28 seconds** produce red-ring
+widths **152/458/784 pixels**, with **313/1662/5239** detected red pixels on the
+quarter-resolution sampling grid. The growth check fails if the first ring is
+missing or the final width does not at least double. These are forced optical
+diagnostics, not evidence that a natural strike occurred at those displayed
+ages or that its timing/appearance received human acceptance. Existing natural
+stroke/TLE delay checks remain separate.
+
+**living_sky_review.zip** retains its original 251 members and adds 38 artifacts
+under **electrical_shapes_20261027/**, including original defects, the occluded
+control, six final frames, uniform records, frozen-age views and terminal receipts.
+The source changes affect active jet/ring optics; ordinary cloud density and
+calendar/forecast data are unchanged. Final occupied-route, lifecycle and
+candidate qualification remain pending.
