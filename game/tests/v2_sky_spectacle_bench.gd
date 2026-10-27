@@ -44,6 +44,7 @@ var camera: Camera3D
 var horizon: Node3D
 var environment: Environment
 var flashing := false
+var optical_failures: Array[String]=[]
 
 
 func _ready() -> void:
@@ -126,8 +127,8 @@ func _ready() -> void:
 			saved += 1
 		await _shoot(id, entry, .5, "%02d_%s" % [slot, id])
 		saved += 1
-	print("V2 SKY SPECTACLE BENCH: %d frames" % saved)
-	get_tree().quit(0)
+	print("V2 SKY SPECTACLE BENCH: %d frames; %d failures" % [saved,optical_failures.size()])
+	get_tree().quit(0 if optical_failures.is_empty() else 1)
 
 
 ## Development-only calendar viewer and compact annual gallery. Uses the same
@@ -457,11 +458,15 @@ func _shoot(id: String, entry: Dictionary, fraction: float, label: String) -> vo
 	var row: Dictionary = manager.schedule.phenomena[id]
 	flashing = bool(row.get("flash", false))
 	_aim(id, entry)
+	manager.set_process(false) # Freeze production time while this explicit review forces flashes.
 	for frame in 40:
-		if flashing: manager.trigger_flash()
+		if flashing: manager.trigger_flash(3,int(row.slot))
+		manager._push_spectacle()
 		sky_material.set_shader_parameter("temporal_phase", float(frame))
 		await get_tree().process_frame
 	await RenderingServer.frame_post_draw
+	if flashing and float(manager._spectacle_levels[int(row.slot)])<=0.0:
+		optical_failures.append("requested electrical effect missing: "+id);push_error(optical_failures[-1])
 	var active: Array = manager.active_phenomena.map(func(e): return e.id)
 	print("  %s at %s %s, sun %.1f deg, active %s, levels %s, dust %.2f" % [label, entry.date,
 			"%02d:%02d" % [int(fposmod(minute, 1440.0)) / 60, int(fposmod(minute, 60.0))],
@@ -534,6 +539,8 @@ func _lightning_review() -> void:
 				var stamp:=minute+offset*60.0
 				if int(calendar.snapshot(Time.get_datetime_dict_from_unix_time(int(stamp))).get("weather_code",0)) not in [95,96,99]:continue
 				var rows: Array[Dictionary]=module.minute_strokes(stamp)
+				for i in range(1,rows.size()):
+					if float(rows[i].time)-float(rows[i-1].time)<.6999:failures.append("overlapping strokes exceed the fixed presentation pool")
 				if rows!=module.minute_strokes(stamp):failures.append("minute replay changed")
 				for row: Dictionary in rows:
 					if not selected.has(int(row.kind)):selected[int(row.kind)]=row
@@ -561,7 +568,9 @@ func _lightning_review() -> void:
 		if float(state.level)<=0.0:failures.append("missing active stroke "+str(kind))
 		if kind==module.GROUND and (not electrical._bolt.visible or electrical._bolt.mesh.get_faces().size()>800):failures.append("ground bolt missing or unbounded")
 		if kind==module.CRAWLER and float(state.crawler)<=0.0:failures.append("crawler missing")
-		manager._crawler=state.crawler;manager._push_spectacle()
+		sky_material.set_shader_parameter("electrical_seed",float(state.seed));sky_material.set_shader_parameter("electrical_age",float(state.age))
+		manager._crawler=state.crawler;manager._electrical_bearing=state.crawler_bearing;manager._push_spectacle()
+		if kind==module.CRAWLER and manager._spectacle_levels[22]<=0.0:failures.append("ordinary crawler did not reach the actual shader")
 		await get_tree().process_frame;await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(directory+"/lightning_%d.png"%kind)
 		var arrival: float=float(row.time)+module.thunder_delay(row.ground,camera.global_position)

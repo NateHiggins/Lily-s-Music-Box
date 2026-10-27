@@ -25,7 +25,7 @@ func _idle_controls() -> void:
 		ok=_check(await hands.inspect_operate(hand,actor._joint_nut,actor._coupling.to_global(Vector3(0,-.012,.032)),actor._maximum("joint")),"actual installed union follows the full retained screw travel")
 	if ok:
 		profile_phase="installed_union_yz_carry"
-		var goal: Vector3=actor._loose_union.receiving()+Vector3(0,-.015,.015)
+		var goal: Vector3=actor._loose_union.resting() # Deliberately outside the release-to-fitting radius.
 		ok=_check(await hands.carry_union(actor,goal),"actual mouse and depth input move the installed loose hose end on Y and Z")
 		result.loose=actor.mechanism_snapshot()
 		_check(not actor.coupling_made_up and not actor.gasket_seated and actor.valid_mechanism(result.loose),"loose installed union preserves maintenance faults and a valid saved pose")

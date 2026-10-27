@@ -11,6 +11,9 @@ var strokes: Array[Dictionary] = []
 var last_strike: Dictionary = {}
 var thunder_count := 0
 var _minute := -INF
+var _forced_storm := false
+var _tle_bearing := 0.0
+var _tle_seed := 0
 var _previous := INF
 var _heard: Dictionary = {}
 var _pending: Dictionary = {}
@@ -32,17 +35,34 @@ static func minute_strokes(stamp: float) -> Array[Dictionary]:
 	var rng := RandomNumberGenerator.new()
 	rng.seed=key.hash()
 	var result: Array[Dictionary] = []
-	for i in rng.randi_range(0,12):
+	var count := rng.randi_range(0,12)
+	for i in count:
+		# At least 700ms between strokes, including across minute boundaries.
+		# Every scheduled bolt fits the single light/mesh pool without being dropped.
+		var start_ms := int(float(i)*60000.0/float(count))
+		var window_ms := int(float(i+1)*60000.0/float(count))-start_ms-700
 		var kind := rng.randf()
 		var angle := rng.randf_range(-PI,PI)
 		var radius := rng.randf_range(90.0,1600.0)
 		var at := Vector3(sin(angle)*radius,0,cos(angle)*radius)
-		result.append({"id":key+":"+str(i),"time":float(minute)+float(rng.randi_range(0,59999))*.001,
+		result.append({"id":key+":"+str(i),"time":float(minute)+float(start_ms+rng.randi_range(0,window_ms))*.001,
 			"kind":SHEET if kind<.62 else (GROUND if kind<.90 else CRAWLER),
 			"ground":at,"cloud":at+Vector3(rng.randf_range(-150,150),rng.randf_range(700,1200),0),
 			"strength":rng.randf_range(.45,1.0),"positive":rng.randf()<.12,"seed":rng.randi()})
 	result.sort_custom(func(a: Dictionary,b: Dictionary) -> bool: return a.time<b.time)
 	return result
+
+static func precipitation_gain(stamp: float) -> float:
+	# A separate channel of the same minute hash: adding precipitation must
+	# never reorder lightning. Smooth, continuous knots; zero rain stays zero.
+	var minute:=int(floor(stamp/60.0))*60
+	var knots:=PackedFloat64Array()
+	for at: int in [minute,minute+60]:
+		var date:=Time.get_datetime_dict_from_unix_time(at)
+		var key:="%04d-%02d-%02dT%02d:%02d"%[date.year,date.month,date.day,date.hour,date.minute]
+		var rng:=RandomNumberGenerator.new();rng.seed=(key+":precipitation").hash()
+		knots.append(rng.randf_range(.84,1.16))
+	return lerpf(knots[0],knots[1],smoothstep(0.0,1.0,fposmod(stamp,60.0)/60.0))
 
 static func envelope(age: float) -> float:
 	if age<0.0 or age>.65:return 0.0
@@ -58,6 +78,8 @@ func _ready() -> void:
 	_material.disable_fog=true
 	_material.emission_energy_multiplier=15.0
 	_material.cull_mode=BaseMaterial3D.CULL_DISABLED
+	_bolt.name="GroundDischarge"
+	_light.name="GroundFlash"
 	_bolt.material_override=_material
 	_bolt.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_bolt.set_meta("surface_role","weather_optics")
@@ -74,7 +96,8 @@ func _ready() -> void:
 		add_child(voice);_voices.append(voice)
 	for i in 3:_sounds.append(_thunder(i+1928))
 
-func _storm_minute(minute: float,fallback: Dictionary) -> bool:
+func _storm_minute(minute: float,fallback: Dictionary,forced: bool) -> bool:
+	if forced:return true
 	var dated := Calendar.snapshot(Time.get_datetime_dict_from_unix_time(int(minute)))
 	if not dated.is_empty():return int(dated.get("weather_code",0)) in [95,96,99]
 	return bool(fallback.get("thunderstorm",false))
@@ -83,18 +106,27 @@ func sample(stamp: float,conditions: Dictionary,phenomena: Array) -> Dictionary:
 	var camera := get_viewport().get_camera_3d()
 	var eye := camera.global_position if camera!=null else Vector3.ZERO
 	var minute: float = floor(stamp/60.0)*60.0
-	if minute!=_minute:
+	var forced_storm:=false;var plume_enabled:=false
+	for entry: Dictionary in phenomena:
+		forced_storm=forced_storm or (float(entry.get("level",1.0))>.35 and bool(entry.get("weather",{}).get("thunderstorm",false)))
+		plume_enabled=plume_enabled or int(entry.slot)==28
+	if minute!=_minute or forced_storm!=_forced_storm:
+		_forced_storm=forced_storm
 		_minute=minute;strokes.clear()
 		for offset in [-60.0,0.0]:
 			var at: float=minute+offset
 			if not _cache.has(at):_cache[at]=minute_strokes(at)
-			if _storm_minute(at,conditions):strokes.append_array(_cache[at])
+			if _storm_minute(at,conditions,forced_storm):strokes.append_array(_cache[at])
 		for key: float in _cache.keys():
 			if absf(key-minute)>60.0:_cache.erase(key)
 	var seek := not is_finite(_previous) or stamp<_previous or stamp-_previous>1.0
 	if seek:
 		_heard.clear();_pending.clear();_tle_age=-1;_tle_id=""
 		for voice: AudioStreamPlayer3D in _voices:voice.stop()
+	var plume:=0.0
+	if plume_enabled:
+		for offset in [-60.0,0.0]:
+			for stroke: Dictionary in _cache[minute+offset]:plume=maxf(plume,envelope(stamp-float(stroke.time))*float(stroke.strength))
 	var active: Dictionary={};var strongest:=0.0
 	for stroke: Dictionary in strokes:
 		var age := stamp-float(stroke.time)
@@ -105,6 +137,7 @@ func sample(stamp: float,conditions: Dictionary,phenomena: Array) -> Dictionary:
 			_pending[stroke.id]={"due":float(stroke.time)+thunder_delay(stroke.ground,eye),"stroke":stroke}
 		if age>=0.0 and age<.65 and int(stroke.kind)==GROUND and bool(stroke.positive) and float(stroke.strength)>.85 and _tle_id!=str(stroke.id):
 			_tle_id=str(stroke.id);_tle_age=0;_tle_slot=-1
+			_tle_bearing=atan2(float(stroke.cloud.x),-float(stroke.cloud.z));_tle_seed=int(stroke.seed)%4093
 			var allowed: Array[int]=[]
 			for entry: Dictionary in phenomena:
 				if int(entry.slot) in [23,24,25,26]:allowed.append(int(entry.slot))
@@ -144,7 +177,7 @@ func sample(stamp: float,conditions: Dictionary,phenomena: Array) -> Dictionary:
 	if director!=null:director.set_weather_flash(strongest*.45)
 	var tle := _tle_slot if _tle_age>=2 and _tle_age<5 and not suppressed else -1
 	if _tle_age>=0:_tle_age+=1
-	return {"crawler":crawler,"tle":tle,"level":strongest}
+	return {"crawler":crawler,"crawler_bearing":atan2(float(active.cloud.x),-float(active.cloud.z)) if not active.is_empty() else 0.0,"tle":tle,"tle_bearing":_tle_bearing,"plume":0.0 if suppressed else plume,"seed":int(active.seed)%4093 if not active.is_empty() else _tle_seed,"age":stamp-float(active.time) if not active.is_empty() else .15,"level":strongest}
 
 func _bolt_mesh(stroke: Dictionary) -> ArrayMesh:
 	var rng := RandomNumberGenerator.new();rng.seed=int(stroke.seed)

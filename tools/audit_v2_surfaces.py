@@ -59,6 +59,10 @@ def evaluate(data):
                 effects.append({'id':identity,'class':'vertex_pose_data','texture':maps['blender_pose_tex']})
                 maps={key:value for key,value in maps.items() if key!='blender_pose_tex'}
             if (draw.get('surface_role')=='weather_optics' and
+                draw.get('owner_script')=='res://scripts/building/deterministic_lightning_manager.gd' and
+                draw['path'].split('/')[-1]=='GroundDischarge' and material.get('unshaded')):
+                effects.append({'id':identity,'class':'lightning_emission'});continue
+            if (draw.get('surface_role')=='weather_optics' and
                 draw.get('owner_script')=='res://scripts/building/v2_weather_fx.gd' and
                 draw['path'].split('/')[-1] in ('DrivingRainSpatter','LiveSnow','LiveHail','DrivingRainMiddle','RoadwayMist') and
                 (material.get('unshaded') or material.get('shader_unshaded'))):

@@ -313442,6 +313442,39 @@
    "target_exists": null
   },
   {
+   "key": "71495e9d4c07b545",
+   "kind": "plan_coordinate",
+   "token": "_lightning_review",
+   "file": "game/tests/v2_sky_spectacle_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_lightning_review"
+   ],
+   "lines": [
+    536,
+    540
+   ],
+   "count": 2,
+   "context": [
+    "if int(frame.weather_code) not in [95,96,99]:continue",
+    "if int(calendar.snapshot(Time.get_datetime_dict_from_unix_time(int(stamp))).get(\"weather_code\",0)) not in [95,96,99]:continue"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture plan-space coordinate; restation when the geometry moves.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "1742c0ca1e6c40d9",
    "kind": "vector3_coordinate",
    "token": "<module>",
@@ -313473,6 +313506,37 @@
    "target_exists": null
   },
   {
+   "key": "d2c46cfbc498137b",
+   "kind": "vector3_coordinate",
+   "token": "_lightning_review",
+   "file": "game/tests/v2_sky_spectacle_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_lightning_review"
+   ],
+   "lines": [
+    604
+   ],
+   "count": 1,
+   "context": [
+    "if not is_equal_approx(module.thunder_delay(Vector3(343,0,0),Vector3.ZERO),1.0):failures.append(\"sound travel math\")"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "10680e337d576056",
    "kind": "vector3_coordinate",
    "token": "_ready",
@@ -313483,7 +313547,7 @@
     "_ready"
    ],
    "lines": [
-    80
+    81
    ],
    "count": 1,
    "context": [

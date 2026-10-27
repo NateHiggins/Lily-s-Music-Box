@@ -1,3 +1,6 @@
+// Bounded stroke coordinates avoid float precision loss late in the campaign.
+uniform float electrical_seed = 0.0;
+uniform float electrical_age = 0.0;
 // Shared scheduled phenomena; extracted without arithmetic changes from main2b7bf3db.
 // Spectacle (data/weather/phenomena.json via WeatherManager): one intensity
 // and one bearing per phenomenon slot. Zero costs a uniform branch, no node.
@@ -517,7 +520,7 @@ vec3 steve(vec3 dir) {
 vec3 transient_luminous(vec3 dir) {
     vec3 total=vec3(0.0);
     float e=elevation_degrees(dir);
-    float seed=floor(spectacle_time*7.0);
+    float seed=electrical_seed;
     if (spectacle[S_SPRITE]>0.0) {
         // Red sprite: a crown high over the storm with blue-violet tendrils.
         float x=degrees(wrap_pi(azimuth_of(dir)-spectacle_bearing[S_SPRITE]))-(hash12(vec2(seed,1.0))-.5)*10.0;
@@ -708,12 +711,12 @@ vec3 anvil_crawler(vec3 dir,float alpha) {
     // stroke: domain-warped cellular edges with a harsh step, finer twigs.
     vec2 uv=dir.xz*(1.25/dir.y);
     vec2 origin=bearing_axis(S_CRAWLER).xz*4.0;
-    float seed=floor(spectacle_time*.5);
+    float seed=electrical_seed;
     vec2 w=uv+vec2(fbm2(uv*1.3+seed),fbm2(uv*1.3-seed))*.9;
     float trunk=voronoi_edge(w*.9+seed*3.7);
     float twig=voronoi_edge(w*3.1+seed*1.3);
     float flash=spectacle[S_CRAWLER];
-    float reach=1.0-smoothstep(1.5,7.0+5.0*(1.0-flash),length(uv-origin));
+    float reach=1.0-smoothstep(1.5,mix(1.5,12.0,smoothstep(0.0,.20,electrical_age)),length(uv-origin));
     float lines=(1.0-smoothstep(0.0,.035,trunk))+(1.0-smoothstep(0.0,.02,twig))*.55*smoothstep(0.0,.15,.15-trunk);
     float glow=exp(-length(uv-origin)*.3)*.25;
     return vec3(.86,.84,1.0)*(lines*reach+glow)*flash*smoothstep(.15,.5,alpha)*2.0;

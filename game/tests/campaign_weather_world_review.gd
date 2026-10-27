@@ -35,6 +35,11 @@ func run() -> void:
 	var manager: Node=world.get_node("WakingAtmosphere").weather_manager
 	var output:=OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(output)
+	if OS.get_environment("WEATHER_PRECIP_REVIEW")=="1":
+		await precipitation_review(world,manager,output)
+		world.shutdown_for_tests();world.free();await get_tree().process_frame
+		print("PLAYABLE PRECIPITATION REVIEW: ","PASS" if failures.is_empty() else "FAIL")
+		get_tree().quit(0 if failures.is_empty() else 1);return
 	for sample: Dictionary in [{"name":"august_hail","year":1929,"month":8,"day":6,"minute":900},
 		{"name":"september_cloud","year":1929,"month":9,"day":19,"minute":1080},
 		{"name":"november_coastal_storm","year":1929,"month":11,"day":7,"minute":720},
@@ -306,3 +311,48 @@ func lightning_world_review(world: Node,output: String) -> void:
 	manager._calendar_check_left=0.0;manager._phenomena_left=0.0;manager._process(0.0)
 	manager.set_process(true)
 	prepare_world(world)
+
+
+func precipitation_review(world: Node,manager: Node,output: String) -> void:
+	prepare_world(world);manager.set_process(false)
+	var camera: Camera3D=world.player.camera
+	camera.look_at(camera.global_position+Vector3(-1,.12,.08))
+	var original_authority:=authority_state()
+	var samples: Array[Dictionary]=[]
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
+	for fixture: Dictionary in [{"name":"rain","year":1929,"month":1,"day":30,"minute":720},
+		{"name":"snow","year":1928,"month":12,"day":12,"minute":720},
+		{"name":"deluge_hail","year":1929,"month":8,"day":6,"minute":900}]:
+		world.campaign_clock.configure_date(int(fixture.year),int(fixture.month),int(fixture.day),int(fixture.minute))
+		manager._calendar_check_left=0.0;manager._phenomena_left=0.0
+		manager._process(1.0);manager._publish()
+		var frames: Array=[];var previous:=Time.get_ticks_usec()
+		for frame in 480:
+			await RenderingServer.frame_post_draw
+			var now:=Time.get_ticks_usec()
+			if frame>=360:frames.append([(now-previous)/1000.0,RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid())])
+			previous=now
+		var emitters: Array=world.get_node("WeatherFX").gpu_emitters
+		var emitter_states: Array=[];var visible: Array[bool]=[]
+		for emitter: GPUParticles3D in emitters:
+			emitter_states.append({"name":emitter.name,"emitting":emitter.emitting,"amount":emitter.amount,"ratio":emitter.amount_ratio})
+			visible.append(emitter.visible);emitter.speed_scale=0.0
+		check(emitters.size()>=4 and world.get_node("WeatherFX")._outdoor,"actual FPS camera uses exposed GPU precipitation: "+str(fixture.name))
+		var fx: Node=world.get_node("WeatherFX");var was_processing:=fx.is_processing();fx.set_process(false)
+		var taa:=get_viewport().use_taa;get_viewport().use_taa=false
+		sky_parameter(manager,"temporal_phase",0.0)
+		for emitter: GPUParticles3D in emitters:emitter.visible=false
+		await RenderingServer.frame_post_draw;await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(output.path_join(str(fixture.name)+"_off.png"))
+		for i in emitters.size():emitters[i].visible=visible[i]
+		await RenderingServer.frame_post_draw;await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(output.path_join(str(fixture.name)+"_on.png"))
+		get_viewport().use_taa=taa;fx.set_process(was_processing)
+		for emitter: GPUParticles3D in emitters:emitter.speed_scale=1.0
+		samples.append({"date":world.campaign_clock.datetime_string(),"name":fixture.name,"conditions":manager.current.duplicate(true),"weights":str(manager.extreme_weather.weights),"emitters":emitter_states,"frames":frames})
+	check(authority_state()==original_authority,"precipitation presentation preserves gameplay authorities")
+	FileAccess.open(output.path_join("precipitation_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"actual occupied V2 with FPS-owned GPU emitters; native static rooftop camera; 360 warmup and 120 timed frames per authored date; off/on particles frozen for screen occupancy diagnostic; no movement route or human acceptance", "samples":samples,"failures":failures},"  "))
+
+func sky_parameter(manager: Node,key: String,value: Variant) -> void:
+	manager.sky.set_shader_parameter(key,value)

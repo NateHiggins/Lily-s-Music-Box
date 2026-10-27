@@ -159,10 +159,14 @@ func advance(delta: float,calendar_owned := false) -> bool:
 
 ## Reconstruct bounded wetting history from the existing saved clock/calendar.
 ## No hidden instance-time history or additional save domain.
-func sample_calendar(date: Dictionary,transport_km: Vector2) -> void:
+func sample_calendar(date: Dictionary,transport_km: Vector2,precise_seconds := INF) -> void:
 	weights=_target_weights;threat=_target_threat;cyclone=_target_cyclone
 	vortex=_target_vortex;wind_mps=_target_wind;formation=_target_formation
 	var seconds:=int(Time.get_unix_time_from_datetime_dict(date))
+	var lightning:=preload("res://scripts/building/deterministic_lightning_manager.gd")
+	var intensity_clock: float=precise_seconds if is_finite(precise_seconds) else float(seconds)
+	weights*=lightning.precipitation_gain(intensity_clock)
+	for i in 4:weights[i]=clampf(weights[i],0.0,1.0)
 	var day_seconds:=float(posmod(seconds,86400))
 	formation_strength=(smoothstep(0,1800,day_seconds)*(1.0-smoothstep(84600,86400,day_seconds))) if formation>0 else 0.0
 	phase=float(seconds-Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00"))*.0005
@@ -176,7 +180,7 @@ func sample_calendar(date: Dictionary,transport_km: Vector2) -> void:
 		var stamp:=boundary+step*900
 		var dt:=900.0 if step<0 else float(seconds-boundary)
 		var condition: Dictionary=service.presentation(calendar.snapshot(Time.get_datetime_dict_from_unix_time(stamp)))
-		var liquid:=clampf(float(condition.get("rain_intensity",0)),0,1)
+		var liquid:=clampf(float(condition.get("rain_intensity",0))*lightning.precipitation_gain(float(stamp)),0,1)
 		var goal:=1.0 if liquid>.02 else 0.0
 		wetness=lerpf(goal,wetness,exp(-dt/(120.0/maxf(liquid,.05) if goal>0 else 2400.0)))
 
@@ -229,8 +233,8 @@ func lighting(base_sun: Color,base_energy: float,base_ambient: Color,base_ambien
 static func gpu_precipitation(parent_camera: Camera3D,motion: Shader,draw_shader: Shader) -> Array[GPUParticles3D]:
 	# Call ONCE during preparation, then reuse these four emitters.
 	var result: Array[GPUParticles3D]=[]
-	var counts := [1800,600,480,220]
-	var sizes := [Vector2(0.008,0.48),Vector2(0.016,0.12),Vector2(0.045,0.045),Vector2(0.028,0.028)]
+	var counts := [1800,600,1200,220]
+	var sizes := [Vector2(0.018,0.60),Vector2(0.020,0.16),Vector2(0.065,0.065),Vector2(0.028,0.028)]
 	for kind in 4:
 		var process := ShaderMaterial.new();process.shader=motion
 		process.set_shader_parameter("kind",kind)
@@ -251,12 +255,26 @@ static func gpu_precipitation(parent_camera: Camera3D,motion: Shader,draw_shader
 		result.append(emitter)
 	return result
 
-func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,outdoors: bool,wind_gain := 1.0) -> void:
+func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,outdoors: bool,wind_gain := 1.0,view_camera: Camera3D=null) -> void:
 	# Called by existing WeatherFX. Reuse its roof/ceiling exposure authority.
+	var forward: Vector3=-view_camera.global_basis.z if view_camera!=null else Vector3.FORWARD
+	var right: Vector3=view_camera.global_basis.x if view_camera!=null else Vector3.RIGHT
+	var half_fov:=tan(deg_to_rad(view_camera.fov if view_camera!=null else 72.0)*.5)
+	var aspect:=float(view_camera.get_viewport().get_visible_rect().size.x)/maxf(1.0,float(view_camera.get_viewport().get_visible_rect().size.y)) if view_camera!=null else 1.78
+	var pixel_angle:=half_fov*2.0/float(view_camera.get_viewport().get_visible_rect().size.y) if view_camera!=null else .001
 	for kind in mini(emitters.size(),4):
 		var emitter := emitters[kind]
-		emitter.global_transform=Transform3D(Basis.IDENTITY,camera_position_m+Vector3.UP*8.0-wind_mps*wind_gain*0.30)
-		emitter.amount_ratio=clampf(weights[kind],0.0,1.0)
+		emitter.global_transform=Transform3D(Basis.IDENTITY,camera_position_m+Vector3.UP*3.0-wind_mps*wind_gain*0.12)
+		emitter.amount_ratio=sqrt(clampf(weights[kind],0.0,1.0))
 		emitter.emitting=outdoors and weights[kind]>0.005
 		emitter.visible=outdoors
-		(emitter.process_material as ShaderMaterial).set_shader_parameter("wind_mps",wind_mps*wind_gain)
+		var process:=emitter.process_material as ShaderMaterial
+		process.set_shader_parameter("wind_mps",wind_mps*wind_gain)
+		process.set_shader_parameter("intensity",weights[kind])
+		process.set_shader_parameter("camera_forward",forward);process.set_shader_parameter("camera_right",right)
+		process.set_shader_parameter("camera_y",camera_position_m.y)
+		process.set_shader_parameter("horizontal_tangent",half_fov*aspect)
+		if view_camera!=null:process.set_shader_parameter("view_projection",view_camera.get_camera_projection()*Projection(view_camera.get_camera_transform().affine_inverse()))
+		var visual:=emitter.draw_pass_1.material as ShaderMaterial
+		visual.set_shader_parameter("wind_mps",wind_mps*wind_gain)
+		visual.set_shader_parameter("intensity",weights[kind]);visual.set_shader_parameter("pixel_angle",pixel_angle)

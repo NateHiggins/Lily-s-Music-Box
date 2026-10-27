@@ -22,6 +22,7 @@ EXPECTED_CONSUMERS = {
     "game/scripts/audio/music_director.gd": "player_readable_catalogue",
     "game/scripts/building/celestial_ephemeris.gd": "astronomy_calculation_only",
     "game/scripts/building/WeatherManager.gd": "campaign_season_and_deterministic_cloud_shape",
+    "game/scripts/building/deterministic_lightning_manager.gd": "campaign_minute_keyed_electrical_presentation",
     # Authored Gregorian calendar; host hour/minute may be sampled once.
     "game/scripts/game/campaign_clock.gd": "authored_campaign_calendar",
     # Pure dated projection of CampaignClock, with as-of press dispatches.

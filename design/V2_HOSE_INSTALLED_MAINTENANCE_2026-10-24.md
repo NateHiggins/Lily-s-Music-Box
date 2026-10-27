@@ -20,7 +20,7 @@ are unchanged in this batch. The previous goal turn made verified progress.
 | Installed nozzle sequence | Missing occupied-world input coverage | Native programme's exact eight-key assertion describes a cabinet without a deployed-hose owner | Admit exactly one additional hose record when present, while retaining the authoritative mechanism validator |33 installed nozzle checks pass; no physical or authority check is removed |
 
 **before_v1** reaches the cabinet through five ordinary standing/stair
-waypoints. At the fixed view, each treatment has24 warmup and120 measured
+waypoints. At the fixed view, each treatment has24 warmup and 120 measured
 post-render intervals, with VSync off and the inherited1280×720 settings.
 NPCs, lighting and the rest of the world continue, so the restored original
 also exposes drift. Direct calls are sampled separately and excluded from
@@ -174,3 +174,30 @@ Installed deployment/charge/spray/save regressions, source-bound publication and
 clean candidate verification remain pending. No owner decision is needed.
 
 BLOCKED — installed-world qualification and candidate verification pending.
+
+
+### Installed release follow-through — 2026-10-27
+
+The native full-world inventory at **f5c301dd** completed **40,797 checks,
+zero failures**, with empty stderr, all eight station input reviews and actual
+loaded UV/PBR/mip qualification. The new cabinet close-up was inspected. Its
+unaltered schema-2 surface contract and wrapper/logs were published through the
+existing publisher; subsequent weather code requires the final rendering-input
+refresh before candidate acceptance.
+
+The installed union/extraction/spray/disk route initially failed because its
+old gesture released 21mm from the receiver, inside the new 45mm placement
+radius, then attempted to grab a part already returned to its threaded grip.
+The diagnostic now deliberately parks at the existing authored resting pose
+before returning it to the fitting; assertions and household authority remain.
+The same original run exposed a pending eight-frame creature warmup coroutine
+resuming after its observer had been freed during fast world reconstruction.
+That warmup now uses a Node-bound render signal, which retires with its owner;
+the retained creature shaders, material preparation, light and eight warmup
+frames are unchanged.
+
+Repeat: **C:/ov/reports/lightning32/installed_hose_repair.log** completes **ten
+waypoints, zero failures**, empty stderr, actual union release/return, extraction,
+charging, remote carrying, controllable spray and validated charged-hose disk
+rebuild. Its JSON is explicitly a diagnostic, not a fabricated runtime_contract.
+The original failed log and receipts remain under **installed_hose.log**.

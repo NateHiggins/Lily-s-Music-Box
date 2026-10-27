@@ -1397,3 +1397,107 @@ then assess annual visual diversity across hours, seasons, genera, regimes and
 seeds using the existing six-times-daily **2,190-frame** gallery plus targeted
 renders. The earlier noon-only gallery is historical. Classifications and
 image signatures are not fifty accepted formations or artistic approval.
+
+
+## Annual visual-coverage audit — 2026-10-27, baseline assessment
+
+This assessment reads the already rendered **2,190 samples** from
+**C:/ov/reports/weather_recovery30/annual_final/**: 365 dates, solar-relative
+dawn/morning/noon/afternoon/dusk and 23:00, seed **1928**, one fixed bearing.
+It supersedes the historical noon-only survey's coverage description; it does
+not supply a continuous daily cycle, multiple-seed acceptance or FPS-precipitation
+qualification. The annual bench uses a non-player observer and therefore the
+fallback precipitation path. Its pictures cannot validate camera GPU rain/snow.
+
+Reproduce the read-only atlas analysis with:
+
+```powershell
+python tools/analyze_weather_gallery.py --gallery C:/ov/reports/weather_recovery30/annual_final --out C:/ov/reports/lightning32/annual_assessment
+```
+
+The tool validates all dates/period slots and reads actual **160×90** review
+tiles. It measures RGB/contrast in their upper **160×60** region and compares
+brightness-normalized **32×12** fields at the same period, at least fourteen
+days apart. Candidate similarity is correlation **>.985**, mean-RGB distance
+**<.08**, and contrast **>.015**. These are diagnostic thresholds, not artistic
+pass/fail gates or cloud segmentation. The JSON records source hash, per-period,
+season/regime and genus coverage; the contact sheets retain the source images.
+
+| Period | Samples | Low-contrast fields below .015 | Median contrast | Median nearest nonadjacent correlation |
+| --- | ---: | ---: | ---: | ---: |
+| Dawn | 365 | 0 | .0474 | .7572 |
+| Morning | 365 | 22 | .0654 | .4879 |
+| Solar noon | 365 | 6 | .0792 | .6763 |
+| Afternoon | 365 | 1 | .1040 | .8074 |
+| Dusk | 365 | 0 | .0760 | .7904 |
+| Night | 365 | 0 | .0751 | .9763 |
+
+There are **63 candidate pairs: 57 night, five dawn, one noon**. Inspection of
+the repetition contact sheet shows repeatedly similar sepia night fields;
+inspection of the low-contrast sheet shows broad, weakly shaded rainy ceilings.
+Overcast similarity is natural; neither count alone proves a defect. The
+current march nevertheless shades clouds with the Sun direction at night and
+multiplies direct light by daylight, a specific candidate for a bounded
+moonlight/ambient correction. Test it at matched lunar phases and dated weather
+before adopting it; do not manufacture annual diversity with random palettes.
+
+All ten genera occur in declared visible layers. Counts are **Ac1451, Cu1108,
+Ci984, Sc949, Cc738, Cs468, Ns269, As216, Cb7, St3**; these are layer counts,
+not segmented image observations. **42 of fifty** recipe classes are eligible
+somewhere in the samples; only **14 nonzero classifications plus unclassified
+zero** are selected. The unsampled eligibility labels are crystal-clear sky,
+trade-wind cumulus, approaching warm front, mixed precipitation, freezing rain,
+advection fog, blowing dust and wind-blown snow. Some do not belong in this
+Queens year; rarity is not authorization to rewrite the weather calendar.
+
+Remaining verification targets: rendered cloud-alpha masks for pixel coverage;
+full-resolution examination of weak rainy ceilings; moonlit and moonless night
+pairs; sunrise/dusk transition sequences; weather/lighting/genus strata and
+three deterministic layout seeds; original rare-phenomenon renders, including
+natural versus explicitly forced electrical captures. The owner specifically
+prioritizes visibly weak playable rain/snow. These are outstanding targets,
+not claims that every annual sky is an accepted atmospheric painting.
+
+
+### First playable precipitation correction — 2026-10-27
+
+The baseline and first correction use **CampaignWeatherWorldReview** with
+**WEATHER_PRECIP_REVIEW=1**, native **3440×1440**, actual FPS GPU emitters and
+three unchanged authored dates: **1929-01-30 12:00 rain**, **1928-12-12 12:00
+snow**, **1929-08-06 15:00 deluge/hail**. Each date has 360 warmup and 120 timed
+frames. Particle speed and the FX publisher are paused for off/on captures;
+TAA is disabled only for those captures, then restored. An earlier off/on
+control mistakenly left the publisher active, which immediately restored
+visibility; those first pictures are retained but excluded from pixel metrics.
+
+The correction weights births into the camera frustum and recycles stock below
+the street/outside the view, gives rain a pixel-resolved width and wind-aligned
+streaks, varies falling speed/opacity with intensity, and raises the bounded snow
+pool from 480 to 1200 (rain remains 1800). The existing weather extension samples a
+smooth, separate channel of the lightning minute hash; dry observations remain
+dry, and neither authored frames nor forecast/newspaper data change.
+
+| Fixture | Upper-frame pixel-change proxy, before → after | GPU p95 ms, before → after | Wall p95 ms, before → after |
+| --- | --- | --- | --- |
+| Rain | .6556% →1.7839% | 8.014 →8.231 | 20.178 →20.335 |
+| Snow | .0707% →.4696% | 8.156 →8.186 | 20.553 →20.092 |
+| Deluge/hail | .3185% →2.9265% | 7.980 →8.156 | 20.243 →20.073 |
+
+Raw frames and images: **C:/ov/reports/lightning32/precip_baseline/** and
+**precip_legible/**. Both programmes complete with empty stderr. Corrected
+native rain/snow images were inspected. Pixel change means max-channel
+on/off difference>.02 in the upper 66% of one frozen capture; it is a visibility
+proxy, not an exact alpha mask, volumetric precipitation rate or population
+statistic. Timing is a stationary-camera pair, not movement/turn qualification
+or an improvement to the outstanding first-view hitch. Ground collision,
+fallout, lens moisture and the annual lighting/mask follow-through remain open.
+
+Late-calendar electrical review additionally exposed float precision loss in
+crawler noise coordinates. Bounded stroke seeds/ages replace year-scale float
+noise addresses for crawlers and TLEs; native branching-channel pictures now
+replace the original blocky patches. Ordinary crawlers reach the actual shader
+without requiring a rare-schedule flag. Strokes have at least 700ms separation
+so the single bolt/light pool can display every generated event. The original
+rare-effect review also exposed overlap in its forced-flash selector; the bench
+now explicitly selects the requested effect and asserts that its shader level
+is nonzero. Forced review captures remain separate from natural event timing.

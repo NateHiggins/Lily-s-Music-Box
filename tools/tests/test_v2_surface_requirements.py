@@ -7,6 +7,15 @@ from audit_v2_surfaces import evaluate
 spec=importlib.util.spec_from_file_location('surface_imports',ROOT/'art/tools/fix_runtime_texture_imports.py');imports=importlib.util.module_from_spec(spec);spec.loader.exec_module(imports)
 
 class Requirements(unittest.TestCase):
+    def test_lightning_emission_requires_exact_owner_part_and_optical_role(self):
+        data=self.inventory();draw=data['draws'][0];material=data['materials']['material']
+        draw.update(path='WakingAtmosphere/DeterministicLightningManager/GroundDischarge',surface_role='weather_optics',owner_script='res://scripts/building/deterministic_lightning_manager.gd')
+        material.update(type='StandardMaterial3D',unshaded=True,maps={})
+        self.assertEqual(evaluate(data)['findings'],[])
+        for field,value in [('path','WakingAtmosphere/Cabinet'),('surface_role','physical'),('owner_script','unrelated_owner')]:
+            invalid=copy.deepcopy(data);invalid['draws'][0][field]=value
+            self.assertIn('incomplete_pbr_maps',evaluate(invalid)['findings'][0]['reasons'])
+
     def test_camera_weather_requires_exact_shader_owner_and_role(self):
         data=self.inventory();draw=data['draws'][0];material=data['materials']['material']
         draw.update(path='Player/Camera3D/GPUWeatherRain',surface_role='weather_optics',owner_script='res://scripts/player/player_controller.gd')

@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 	var camera:=get_viewport().get_camera_3d()
 	var at: Vector3=camera.global_position if camera!=null else _player.global_position
 	if extreme_weather!=null:
-		extreme_weather.update_emitters(gpu_emitters,at,_outdoor and OS.get_environment("WEATHER_RAIN")!="0",wind_gain)
+		extreme_weather.update_emitters(gpu_emitters,at,_outdoor and OS.get_environment("WEATHER_RAIN")!="0",wind_gain,camera)
 	_leaves.emitting=_outdoor and bool(_live_conditions.get("thunderstorm",false))
 	_leaves.global_position=_player.global_position+Vector3.UP*LEAF_HEIGHT
 	_leaves.gravity=Vector3(wind.x*.85,-1.5,wind.z*.85)
