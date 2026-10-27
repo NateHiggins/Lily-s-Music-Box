@@ -10,6 +10,9 @@ var lifecycle_states: Array[Dictionary]=[]
 var lifecycle_logger: Logger
 
 func run() -> void:
+	if OS.get_environment("WEATHER_RESOURCE_SCOPE_CONTROL")=="1":
+		resource_scope_control()
+		return
 	if OS.get_environment("WEATHER_LIFECYCLE_REVIEW")=="1":
 		await run_lifecycle()
 		return
@@ -76,6 +79,32 @@ func remaining(refs: Array[WeakRef]) -> int:
 		if ref.get_ref()!=null:count+=1
 	return count
 
+func borrow_process_noise() -> void:
+	var source:=preload("res://scripts/building/weather_noise.gd")
+	if source.cached!=null:lifecycle_borrowed[source.cached.get_instance_id()]="process weather noise cache"
+	# Exact resources owned by the production static cache, not every 3D texture.
+	for key: String in ["base","curl"]:
+		var volume:=source.fluid.get(key) as ImageTexture3D
+		if volume==null:continue
+		lifecycle_borrowed[volume.get_instance_id()]="process cloud-fluid noise cache: "+key
+
+func resource_scope_control() -> void:
+	var source:=preload("res://scripts/building/weather_noise.gd")
+	source.load_volume();source.load_fluid();borrow_process_noise()
+	track_resource(source.cached);track_resource(source.fluid)
+	lifecycle_check(lifecycle_resources.is_empty() and lifecycle_borrowed.size()==3,"only the three exact production noise cache resources are borrowed")
+	var owned:=ImageTexture3D.new()
+	var slices: Array[Image]=[Image.create_empty(1,1,false,Image.FORMAT_R8)]
+	lifecycle_check(owned.create(Image.FORMAT_R8,1,1,1,false,slices)==OK,"non-cache volume fixture uploads")
+	track_resource(owned)
+	lifecycle_check(remaining(lifecycle_resources)==1 and not lifecycle_borrowed.has(owned.get_instance_id()),"an unpathed volume outside the cache remains runtime-owned")
+	owned=null
+	lifecycle_check(remaining(lifecycle_resources)==0,"runtime-owned negative control retires when its owner releases it")
+	var directory:=OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(directory)
+	FileAccess.open(directory.path_join("resource_scope.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":lifecycle_observations,"failures":failures,"borrowed":lifecycle_borrowed},"\t"))
+	get_tree().quit(0 if failures.is_empty() else 1)
+
 func track_resource(value: Variant) -> void:
 	if value is Array:
 		for item: Variant in value:track_resource(item)
@@ -101,8 +130,7 @@ func track_weather_node(node: Node) -> void:
 	for child: Node in node.get_children():track_weather_node(child)
 
 func track_world_weather(world: Node) -> void:
-	var noise: Resource=preload("res://scripts/building/weather_noise.gd").load_volume()
-	lifecycle_borrowed[noise.get_instance_id()]="process weather noise cache"
+	borrow_process_noise()
 	var plant: Resource=MatLib.get_mat("plant")
 	lifecycle_borrowed[plant.get_instance_id()]="process material catalogue plant"
 	track_weather_node(world.get_node("WakingAtmosphere"))
@@ -273,7 +301,7 @@ func run_lifecycle() -> void:
 		"contracts":{"production_composition":{"executed":not before.is_empty(),"status":status,"identities":["WakingAtmosphere/WeatherManager","WeatherFX","CampaignClock"]},"save_reconstruction":{"executed":reconstructed,"status":status},"premature_action_denial":{"executed":denial,"status":status},
 			"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned","retained_nodes":remaining(lifecycle_nodes),"retained_resources":remaining(lifecycle_resources),"retained_playbacks":remaining(lifecycle_playbacks),
 			"tracked_nodes":lifecycle_nodes.size(),"tracked_resources":lifecycle_resources.size(),"tracked_playbacks":lifecycle_playbacks.size(),"borrowed":lifecycle_borrowed,
-			"resource_scope":"Atmosphere/FX subtree stored unpathed resources, six camera GPU emitters including native frog stock, contact heightfield, lens canvas/material, extension/ramp, schedule and world clock; any audio playback in those subtrees. V2 installs no V1 AmbientSoundscape. Imported resources, process noise and catalogue plant are borrowed. Not RenderingServer allocation accounting."}},
+			"resource_scope":"Atmosphere/FX subtree stored unpathed resources, six camera GPU emitters including native frog stock, contact heightfield, lens canvas/material, extension/ramp, schedule and world clock; any audio playback in those subtrees. V2 installs no V1 AmbientSoundscape. Imported resources, exact process noise-cache identities (64-cube and fluid base/curl) and catalogue plant are borrowed. Not RenderingServer allocation accounting."}},
 		"checks":lifecycle_observations,"failures":failures,"engine_errors":lifecycle_logger.get("errors"),"states":lifecycle_states,"authorities":authority_stages,"save_path":RealityState.save_path}
 	FileAccess.open(output.path_join("weather_lifecycle_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t"))
 	RealityState.save_path=old_path

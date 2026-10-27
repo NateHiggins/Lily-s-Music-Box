@@ -102,6 +102,8 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   references can keep retired materials/textures alive. Prove imported/source
   signatures before reuse; timestamps alone are not content identity. See
   [material lifetime evidence](../../../design/V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md).
+  Lifetime fixtures identify process caches by exact owner/resource identities;
+  retain a same-type owned negative control rather than exempting a whole class.
 - **Native import:** for Blender work use
   [blender-asset-development](../blender-asset-development/SKILL.md). Test imported
   UV precision, normal/tangent derivatives and loaded maps in a small family
@@ -124,6 +126,11 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   the sum of private viewports. Residency labels and compilation counters show
   correlation, not function attribution. Separate asset load, script, physics,
   shader compilation and render costs before assigning a cause or a speedup.
+  Check counter semantics in the pinned engine: its process/physics monitors
+  publish one-second peaks, not independent per-frame script/physics times.
+  The local `--profiling` script debugger samples a frame once per second and
+  prints accumulated totals at shutdown; separate startup and account for its
+  overhead. See [release attribution](../../../design/V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md).
 - **Evidence pitfalls:** runtime-composing MultiMesh tests need the windowed
   backend here; headless identity readback is not proof of corrupt source poses.
   Use the pinned patched Vulkan engine and lane receipts. A graceful exit can

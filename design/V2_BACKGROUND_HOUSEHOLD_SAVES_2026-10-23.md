@@ -195,3 +195,78 @@ current-source surface renewal and clean candidate comparison remain required
 before merging. No firehose interaction was repeated. The authored service-part
 snap code was already merged in **7b978be0**; its stale queue entry does not
 justify repeating the completed nozzle programme.
+
+### Final source and qualification follow-through
+
+The temporary DoorProp timers served the attribution and are preserved in the
+archived source variants. They are removed from the final runtime: DoorProp is
+byte-for-byte unchanged from main after LF normalization. The existing grab
+profiler and opt-in household trace remain available. The measured before/after
+pair includes the identical temporary timers in both variants; no final-source
+FPS replay is claimed after their removal. Household validation itself remains
+the measured implementation.
+
+The first lifecycle run, **skywatch43/reload.log.receipt.json**, fails after
+256 seconds with two retained resources; its original full contract stays FAIL.
+The newer cloud renderer's static **weather_noise.fluid** cache owns two volumes
+that the old fixture did not identify as borrowed. The fixture now borrows only
+the exact **base** and **curl** identities, alongside the previously recognized
+64-cube cache. **noise_scope_exact.log.receipt.json** passes four controls: exact
+cache recognition, a real uploaded non-cache volume, continued ownership of that
+same-class negative control, and its eventual release. No production cleanup,
+broad texture-class exemption or old runtime receipt was changed.
+
+The intermediate **reload_exact_cache** passes 43 checks but still includes the
+temporary door timers. The final-source **reload_final.log.receipt.json** passes
+all **43 checks** in **255 seconds**, empty stderr. Its test-written schema-2
+contract records actual isolated disk save/load and two world generations,
+fractional weather/calendar reconstruction, authority preservation and zero
+retained runtime-owned weather nodes/resources/playbacks. It does not establish
+CampaignShell behavior, a new performance distribution or human acceptance.
+
+**surface.log.receipt.json** preserves a separate ten-second preflight failure:
+the diagnostic DoorProp edit changed a hash-bound bodega fixture dependency.
+Restoring the original door source restores that fixture's original binding;
+no geometry, fixture hashes or authoring receipts were repinned. The fresh full
+surface run is **surface_final**, with fire interaction explicitly skipped.
+It completes in **786 seconds**, **39,169 checks / zero failures**, empty stderr:
+**27,820 draws**, **17,006 meshes**, **6,309 materials**, **527 textures**. The
+test-written schema-2 contract records production composition, loaded surface
+requirements and runtime-owned teardown as PASS. Its separate save-reconstruction
+scope is NOT_EXECUTED; the final lifecycle contract above supplies its own disk
+evidence. Seven actual native captures were inspected, including bathroom tile,
+entrance, gallery, arcade, paving and two skies. Dark street exposure, strong
+ceiling highlights and the low-contrast storm deck remain artistic limitations.
+
+The existing publisher installs the fresh packet with **zero defects**, preserving
+the preceding packet under **skywatch43/publication_backup**. Original failed and
+passing contracts/receipts remain separate. The diagnostic archive adds
+**door_release_final_qualification/** with source snapshots, exact-identity negative
+controls, original lifecycle/preflight failures, fresh results, counter semantics,
+clean-main board and publication provenance. Candidate comparison is still pending;
+no whole-game or owner artistic acceptance follows from these scoped results.
+
+The stale service-snap queue entry is removed as already implemented and merged:
+the four nozzle/washer/union/cabinet controllers have no changes from **7b978be0**
+to the current merge-base. Their original actual-input and installed follow-through
+evidence remains in **V2_HOSE_INSTALLED_MAINTENANCE_2026-10-24.md**. This is reuse
+of that unchanged mechanical scope, not another hose execution or a new full-fire
+acceptance claim. The broader stutter task stays open with the new measurements.
+
+Final component receipts **record_cache_canonical** (**18 checks**) and
+**noise_scope_final** (**four checks**) bind to the final tree. The cache fixture
+is explicitly **-text** in Git and uses LF bytes: the earlier normal checkout
+had changed only its line endings, invalidating its raw wrapper test hash.
+Original intermediate receipts are preserved as stale where appropriate; no
+old receipt was rehashed. The canonical fixture and both final world receipts
+are checked against current source again before candidate verification.
+
+Pinned-engine inspection also clarifies the old route columns **process_ms** and
+**physics_ms**: **main/main.cpp:5132–5137** publishes maxima from an approximately
+one-second interval, then resets them. These are repeated peak-monitor samples,
+not per-frame script/physics distributions or additive CPU budgets. **TIME_PROCESS**
+includes rendering-server draw. Preserve the raw values but do not use their
+median as script cost. **counter_semantics.json** records exact engine-source
+hashes. The built-in local **--profiling** debugger is a next attribution option,
+not an executed profile in this checkpoint; its once-per-second latest-frame
+prints and accumulated shutdown totals also need startup/overhead qualification.

@@ -13,7 +13,6 @@ var _calendar_mode:=false
 var _mirage_profile_mode:=false
 var _cloud_profile_mode:=false
 var _phase_prefix:=""
-var _release_doors: Array[DoorProp]=[]
 
 func _ready() -> void:
 	# GPU readback and PNG encoding must not contaminate measured route frames.
@@ -58,19 +57,11 @@ func _walk(target: Vector3) -> bool:
 
 func _move_front_entrance(identity: String,want_open: bool) -> bool:
 	_phase=_phase_prefix+("door_grab_open" if want_open else "door_grab_close")
-	if OS.get_environment("V2_PROFILE_RELEASES")=="1":
-		var anchor := world.adapter.resolve(identity) as Node3D
-		var door := anchor.get_node(identity+"_Leaf") as DoorProp
-		door.profile_release=true
-		if not _release_doors.has(door):_release_doors.append(door)
 	return await super._move_front_entrance(identity,want_open)
 
 func _release_attribution() -> Dictionary:
-	var rows: Array[Dictionary]=[]
-	for door: DoorProp in _release_doors:
-		if is_instance_valid(door):rows.append({"owner":str(door.get_path()),"samples":door.release_profile_records})
-	return {"scope":"Opt-in synchronous stage timings; household callback profiling adds separately recorded probe overhead. No scheduling or persistence change.",
-		"doors":rows,"household":world.household_state.profile_records,"commit_causes":world.household_state.profile_causes}
+	return {"scope":"Existing grab end timings plus household stages; changed-ID/stack probe overhead recorded separately. No scheduling or persistence change.",
+		"household":world.household_state.profile_records,"commit_causes":world.household_state.profile_causes}
 
 func _route() -> void:
 	if OS.get_environment("V2_PROFILE_RELEASES")=="1":world.household_state.profiling=true
