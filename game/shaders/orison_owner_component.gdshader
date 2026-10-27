@@ -1,6 +1,8 @@
 shader_type spatial;
 render_mode cull_back, depth_draw_opaque, diffuse_burley, specular_schlick_ggx;
 #include "res://shaders/orison_surface.gdshaderinc"
+#include "res://shaders/queens_surface_wetness.gdshaderinc"
+uniform float weather_exposure : hint_range(0.0,1.0) = 0.0;
 
 // Source-component coordinates keep wear attached to a travelling lift cab.
 // These bounded optical marks neither displace stock nor simulate drainage.
@@ -40,6 +42,9 @@ void fragment() {
 	ALBEDO=s.albedo*bond*component_tone*(1.0-mark*.28);
 	ROUGHNESS=clamp(s.rough+(component_polish ? -.18 : .14)*mark,0.05,1.0);
 	NORMAL=s.normal;METALLIC=s.metal;AO=s.ao;AO_LIGHT_AFFECT=ao_light_affect;
+	float wet_specular=.5;
+	wx_apply_wetness(ALBEDO,ROUGHNESS,wet_specular,weather_exposure,smoothstep(.3,.9,normalize(v_wnormal).y));
+	SPECULAR=wet_specular;
 	EMISSION=s.emission;BACKLIGHT=s.backlight;
 	CLEARCOAT=clearcoat;CLEARCOAT_ROUGHNESS=clearcoat_roughness;ANISOTROPY=anisotropy;
 }

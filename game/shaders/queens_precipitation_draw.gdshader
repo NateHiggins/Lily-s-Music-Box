@@ -2,6 +2,7 @@ shader_type spatial;
 render_mode unshaded,cull_disabled,depth_draw_never;
 uniform int kind = 0;
 uniform float intensity = .4;
+uniform float blood_amount = 0.0;
 uniform vec3 wind_mps = vec3(0.0);
 uniform float pixel_angle = .001;
 uniform vec3 precipitation_light : source_color = vec3(0.55,0.62,0.70);
@@ -36,5 +37,7 @@ void fragment() {
 	if(kind==2) {mask=1.0-smoothstep(0.25,1.0,length(q));opacity=0.84;}
 	if(kind==3) {mask=1.0;opacity=1.0;}
 	ALBEDO=(kind>=2 ? vec3(0.95) : vec3(0.64,0.73,0.82))*precipitation_light;
+	ALBEDO=mix(ALBEDO,vec3(.38,.008,.018),blood_amount);
+	opacity=mix(opacity,.94,blood_amount);
 	ALPHA=mask*opacity*COLOR.a;
 }

@@ -4,8 +4,8 @@
   "scope": "Living Sky implementation, failures, bounded runtime contracts, annual-noon gallery and matched route diagnostics. No full reference-library, full-day annual, full-V2 or human acceptance.",
   "implementation_commit": "860219b005d6606ddca9ce7eb7f7d03f32703dc0",
   "archive": "living_sky_review.zip",
-  "archive_bytes": 35166199,
-  "archive_sha256": "0f6e6b1fddfbe6b95a483f1da4fc92cf3857cda27d9c927f852e11a59aa1c6b0",
+  "archive_bytes": 43326625,
+  "archive_sha256": "5b0eba274b563139e3374ef86442a6b2b2bc27b34c8b7ff25e2594278f39d75c",
   "members": [
     {
       "path": "runs/annual_final/annual_gallery.json",
@@ -2056,6 +2056,251 @@
       "sha256": "9e3850f2329c89d5cb985f7d174d08ea3cecd28023b85ba27bf1b7af4b1b0f09",
       "original_path": "C:\\ov\\reports\\lightning32\\rare_shape_repair\\26_elves.png",
       "original_sha256": "9e3850f2329c89d5cb985f7d174d08ea3cecd28023b85ba27bf1b7af4b1b0f09"
+    },
+    {
+      "path": "fallout_20261027/fallout_data_preservation.json",
+      "bytes": 490,
+      "sha256": "248205054fb53fa52d478df5cd170f9086bf06aabced6f792452aac8fdf1259d",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_data_preservation.json",
+      "original_sha256": "248205054fb53fa52d478df5cd170f9086bf06aabced6f792452aac8fdf1259d"
+    },
+    {
+      "path": "fallout_20261027/frog_contact_first.log",
+      "bytes": 484,
+      "sha256": "486de661346b0f7f59fa4cdfec38baf143c4a0e8bfd1ccc2f9e24925c6d7e7fe",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_contact_first.log",
+      "original_sha256": "486de661346b0f7f59fa4cdfec38baf143c4a0e8bfd1ccc2f9e24925c6d7e7fe"
+    },
+    {
+      "path": "fallout_20261027/frog_contact_first.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_contact_first.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/frog_contact_first.log.receipt.json",
+      "bytes": 2184,
+      "sha256": "defcdda6f142f398f598e0d4230ec9bd0d52f57018514558635b38912543ca72",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_contact_first.log.receipt.json",
+      "original_sha256": "defcdda6f142f398f598e0d4230ec9bd0d52f57018514558635b38912543ca72"
+    },
+    {
+      "path": "fallout_20261027/frog_impact.log",
+      "bytes": 485,
+      "sha256": "e26e3b84e9157ff400120c5ea9525acd805d81f9043afc5aa785506da13e3769",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_impact.log",
+      "original_sha256": "e26e3b84e9157ff400120c5ea9525acd805d81f9043afc5aa785506da13e3769"
+    },
+    {
+      "path": "fallout_20261027/frog_impact.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_impact.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/frog_impact.log.receipt.json",
+      "bytes": 2163,
+      "sha256": "e3ce0102f1b1e2a10d82622430ed3f368f4de468cbc80977412a483c54120a46",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_impact.log.receipt.json",
+      "original_sha256": "e3ce0102f1b1e2a10d82622430ed3f368f4de468cbc80977412a483c54120a46"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload.log",
+      "bytes": 6976,
+      "sha256": "61d51cc21616454d9db7f692b7838c4cf3966d301a8e55403f9125159764be24",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload.log",
+      "original_sha256": "61d51cc21616454d9db7f692b7838c4cf3966d301a8e55403f9125159764be24"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload.log.receipt.json",
+      "bytes": 5775,
+      "sha256": "8994c792257e9b5006340b3b06a25695a3fbc15961bc750129c7d1e3197f9a5d",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload.log.receipt.json",
+      "original_sha256": "8994c792257e9b5006340b3b06a25695a3fbc15961bc750129c7d1e3197f9a5d"
+    },
+    {
+      "path": "fallout_20261027/fallout_final_calendar.log",
+      "bytes": 36827,
+      "sha256": "c1f3f58cc0eee572e1c5e5d1e6cb1c65de48ea7265133ac03c42ce65ced07b88",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_final_calendar.log",
+      "original_sha256": "c1f3f58cc0eee572e1c5e5d1e6cb1c65de48ea7265133ac03c42ce65ced07b88"
+    },
+    {
+      "path": "fallout_20261027/fallout_final_calendar.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_final_calendar.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/fallout_final_calendar.log.receipt.json",
+      "bytes": 6221,
+      "sha256": "949b76020350c8f467820f2a84c3e053c763390285229a9a4386a4de133befaf",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_final_calendar.log.receipt.json",
+      "original_sha256": "949b76020350c8f467820f2a84c3e053c763390285229a9a4386a4de133befaf"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation.log",
+      "bytes": 2081,
+      "sha256": "1dbe852dd8a89640ab297b39e7677c3af8c633f980aa85a54a726bd1d248829f",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation.log",
+      "original_sha256": "1dbe852dd8a89640ab297b39e7677c3af8c633f980aa85a54a726bd1d248829f"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation.log.receipt.json",
+      "bytes": 2637,
+      "sha256": "50545c0ecf3444f4bcd5867f74cd6a9980996ff0092bdf97a97a8e0c68346eb2",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation.log.receipt.json",
+      "original_sha256": "50545c0ecf3444f4bcd5867f74cd6a9980996ff0092bdf97a97a8e0c68346eb2"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation_uncontended.log",
+      "bytes": 2081,
+      "sha256": "6b44644ab36ed8971deb4b2235172e2dbf3b6fa357e4814dbbe1f8872f2ec5ee",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation_uncontended.log",
+      "original_sha256": "6b44644ab36ed8971deb4b2235172e2dbf3b6fa357e4814dbbe1f8872f2ec5ee"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation_uncontended.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation_uncontended.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation_uncontended.log.receipt.json",
+      "bytes": 2673,
+      "sha256": "6bd379fb4d07a0a14bf666e71f34651a54256542283cd17455fcafbd14fb71bb",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation_uncontended.log.receipt.json",
+      "original_sha256": "6bd379fb4d07a0a14bf666e71f34651a54256542283cd17455fcafbd14fb71bb"
+    },
+    {
+      "path": "fallout_20261027/frog_contact_first/frog_loaded_stock.json",
+      "bytes": 4585,
+      "sha256": "6c5c4727415bea7ba172a52fdb0bb3b0c7001501c4f67fdb1c6c134d8dbe6207",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_contact_first\\frog_loaded_stock.json",
+      "original_sha256": "6c5c4727415bea7ba172a52fdb0bb3b0c7001501c4f67fdb1c6c134d8dbe6207"
+    },
+    {
+      "path": "fallout_20261027/frog_contact_first/native_frog_fall.png",
+      "bytes": 122182,
+      "sha256": "54210d33074d61fada52bbf8c83b89b3182e71892d6f1cacafa12dcb9d73a330",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_contact_first\\native_frog_fall.png",
+      "original_sha256": "54210d33074d61fada52bbf8c83b89b3182e71892d6f1cacafa12dcb9d73a330"
+    },
+    {
+      "path": "fallout_20261027/frog_impact/native_frog_impact.png",
+      "bytes": 117515,
+      "sha256": "f0590c87199fa048d3c7914c294d5f886d37931c717a239592c4fbc3616a3b89",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_impact\\native_frog_impact.png",
+      "original_sha256": "f0590c87199fa048d3c7914c294d5f886d37931c717a239592c4fbc3616a3b89"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/weather_lifecycle_contract.json",
+      "bytes": 23140,
+      "sha256": "ccdd5a8748745fbc40805dee6fc1aa4a768a3946bc5e4f3c44983e72ed939d37",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\weather_lifecycle_contract.json",
+      "original_sha256": "ccdd5a8748745fbc40805dee6fc1aa4a768a3946bc5e4f3c44983e72ed939d37"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/precipitation_review.json",
+      "bytes": 66335,
+      "sha256": "d02691ae4472ff815454f27a0b22387f21917c2f640ada970e6253ac17e2fddb",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\precipitation_review.json",
+      "original_sha256": "d02691ae4472ff815454f27a0b22387f21917c2f640ada970e6253ac17e2fddb"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/companion_lens_true.png",
+      "bytes": 2445927,
+      "sha256": "ecb94765f01ee81eabe745029cbc7a776d83a04b52fc4fbf14acd7af9c644e51",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\companion_lens_true.png",
+      "original_sha256": "ecb94765f01ee81eabe745029cbc7a776d83a04b52fc4fbf14acd7af9c644e51"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/companion_lens_false.png",
+      "bytes": 2373815,
+      "sha256": "ab05b99b8e08a7e70cc32a7339d3c59849fd802ec2eb0fe05d4e0d88e72e387d",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\companion_lens_false.png",
+      "original_sha256": "ab05b99b8e08a7e70cc32a7339d3c59849fd802ec2eb0fe05d4e0d88e72e387d"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/blood_roof_contact.png",
+      "bytes": 960294,
+      "sha256": "4c71f5066acddae54b105a06b298670dfd9277646156b605a18cd7f663df3413",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\blood_roof_contact.png",
+      "original_sha256": "4c71f5066acddae54b105a06b298670dfd9277646156b605a18cd7f663df3413"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/frogs_roof_contact.png",
+      "bytes": 1985547,
+      "sha256": "0d5baa7ffd9e0b81a46b60428182da16fd66ce594688c16e77f7f3ab71568311",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\frogs_roof_contact.png",
+      "original_sha256": "0d5baa7ffd9e0b81a46b60428182da16fd66ce594688c16e77f7f3ab71568311"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation/precipitation_review.json",
+      "bytes": 1118677,
+      "sha256": "3315983b624afc7f7a28e15f6bb51451d471bf607bd1cf472a4ef863eaa4f10c",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation\\precipitation_review.json",
+      "original_sha256": "3315983b624afc7f7a28e15f6bb51451d471bf607bd1cf472a4ef863eaa4f10c"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation_uncontended/precipitation_review.json",
+      "bytes": 1118246,
+      "sha256": "4fa46a4b2762d2be73bdd4227977010b9a7c2807f99fd8ecb242aa9c06954bcc",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation_uncontended\\precipitation_review.json",
+      "original_sha256": "4fa46a4b2762d2be73bdd4227977010b9a7c2807f99fd8ecb242aa9c06954bcc"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation_summary.json",
+      "bytes": 5441,
+      "sha256": "4a23ff90958257cbf95e9bafe59ab3e62ad4434d1a1a185fded54b1b374c51b8",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation_summary.json",
+      "original_sha256": "4a23ff90958257cbf95e9bafe59ab3e62ad4434d1a1a185fded54b1b374c51b8"
+    },
+    {
+      "path": "fallout_20261027/frog_scoped_construction_renewal/previous_runtime_material_sets.json",
+      "bytes": 54505,
+      "sha256": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_scoped_construction_renewal\\previous_runtime_material_sets.json",
+      "original_sha256": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916"
+    },
+    {
+      "path": "fallout_20261027/frog_scoped_construction_renewal/renewal.json",
+      "bytes": 1174,
+      "sha256": "bc5b6b036b15c69fe75e2c78a957301f837f6a4bbc504d6e5c6ebc4348d91d66",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_scoped_construction_renewal\\renewal.json",
+      "original_sha256": "bc5b6b036b15c69fe75e2c78a957301f837f6a4bbc504d6e5c6ebc4348d91d66"
+    },
+    {
+      "path": "fallout_20261027/frog_scoped_construction_renewal/art/blender/house_switchboard_construction.json.gz",
+      "bytes": 2185,
+      "sha256": "80448dbaefdac2d7b04312c03eac9fdc6886fc3239df4662f39dc1d987d8b256",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_scoped_construction_renewal\\art\\blender\\house_switchboard_construction.json.gz",
+      "original_sha256": "80448dbaefdac2d7b04312c03eac9fdc6886fc3239df4662f39dc1d987d8b256"
+    },
+    {
+      "path": "fallout_20261027/frog_scoped_construction_renewal/art/blender/readable_library_construction.json.gz",
+      "bytes": 26467,
+      "sha256": "8a44bdd0eb4040ec15b84946a69faffb64a419bc45fdd3d575e48bae60ddfc99",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_scoped_construction_renewal\\art\\blender\\readable_library_construction.json.gz",
+      "original_sha256": "8a44bdd0eb4040ec15b84946a69faffb64a419bc45fdd3d575e48bae60ddfc99"
     }
   ],
   "continuations": [
@@ -2064,6 +2309,18 @@
       "prior_archive_sha256": "c311d299256ff5cdb10f9479064773c027d1e43bb63dd6168d1bd7851ad2064e",
       "members_added": 38,
       "scope": "Original visual defects, six forced electrical controls, revised jet/ring and three frozen-age optical growth measurements. Not natural occurrence timing, performance, gameplay or human acceptance."
+    },
+    {
+      "section": "fallout_20261027",
+      "prior_archive_sha256": "0f6e6b1fddfbe6b95a483f1da4fc92cf3857cda27d9c927f852e11a59aa1c6b0",
+      "members_added": 31,
+      "scope": "Five-date occupied V2 precipitation, real GPU frog contact, native companion input, source-bound two-world disk reconstruction and full activation frame records. Initial activation run had concurrent static work and is retained as a control; uncontended repeat is identified. No moving-route, cold-cache, whole-game or human acceptance."
+    },
+    {
+      "section": "fallout_20261027/frog_scoped_construction_renewal",
+      "prior_archive_sha256": "07cb4129b1e2aac92f63ad28cdf69723275fbfab1d2d8de3a09b34c91cde57e9",
+      "members_added": 4,
+      "scope": "Strictly additive catalogue provenance for two named native construction records; all 124 old materials, other sources and native outputs validated unchanged. Original records preserved; no renewed runtime or visual acceptance."
     }
   ]
 }

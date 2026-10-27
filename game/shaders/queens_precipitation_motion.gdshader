@@ -1,6 +1,6 @@
 shader_type particles;
 render_mode disable_force, disable_velocity;
-uniform int kind = 0; // rain, sleet, snow, hail
+uniform int kind = 0; // rain, sleet, snow, hail, impact splash, native frog
 uniform vec3 wind_mps = vec3(0.0);
 uniform float intensity = .4;
 uniform vec3 camera_forward = vec3(0.0,0.0,-1.0);
@@ -8,7 +8,10 @@ uniform vec3 camera_right = vec3(1.0,0.0,0.0);
 uniform float camera_y = 0.0;
 uniform float horizontal_tangent = 1.3;
 uniform mat4 view_projection = mat4(1.0);
-float random_value(float n) { return fract(sin(n*127.1+311.7)*43758.5453); }
+float random_value(float n) {
+	uint x=uint(n);x^=x>>16u;x*=0x7feb352du;x^=x>>15u;x*=0x846ca68bu;x^=x>>16u;
+	return float(x&0x00ffffffu)/16777216.0;
+}
 vec3 spawn_offset(float seed) {
 	float depth=mix(1.5,20.0,random_value(seed));
 	float width=min(24.0,depth*horizontal_tangent);
@@ -20,11 +23,18 @@ void start() {
 		// Keep the position and velocity supplied by the parent impact.
 		CUSTOM=vec4(0.0);
 	} else {
-	float seed=float(NUMBER)+float(RANDOM_SEED%uint(65521));
+	float seed=float((NUMBER^RANDOM_SEED)%uint(65521));
 	TRANSFORM=EMISSION_TRANSFORM;
 	TRANSFORM[3].xyz+=spawn_offset(seed);
 	CUSTOM=vec4(random_value(seed+3.0)*6.283185,0.0,random_value(seed+4.0),0.0);
 	COLOR=vec4(1.0);
+	if(kind==5) {
+		float yaw=CUSTOM.x;float scale=mix(.8,1.25,CUSTOM.z);
+		TRANSFORM[0].xyz=vec3(cos(yaw),0.0,-sin(yaw))*scale;
+		TRANSFORM[1].xyz=vec3(0.0,scale,0.0);
+		TRANSFORM[2].xyz=vec3(sin(yaw),0.0,cos(yaw))*scale;
+		VELOCITY=wind_mps*.4+vec3(0.0,-8.0,0.0);
+	}
 	}
 }
 void process() {
@@ -44,7 +54,12 @@ void process() {
 		flutter=vec2(sin(age*2.2+CUSTOM.x),cos(age*1.6+CUSTOM.x))*0.65;
 	}
 	if(kind==3) fall=min(38.0,mix(16.0,22.0,CUSTOM.z)+age*12.0);
-	if(kind==3 && CUSTOM.w>0.0) {
+	if(kind==5) {
+		if(COLOR.a>.9) VELOCITY.y=max(-26.0,VELOCITY.y-18.0*DELTA);
+		else VELOCITY=vec3(0.0); // No ongoing rest simulation or rigid bodies.
+		CUSTOM.w*=exp(-10.0*DELTA);
+		if(age>=6.0) ACTIVE=false;
+	} else if(kind==3 && CUSTOM.w>0.0) {
 		VELOCITY.y-=9.8*DELTA;
 		CUSTOM.w=max(.001,CUSTOM.w-DELTA);
 	} else {
@@ -55,7 +70,10 @@ void process() {
 		// both point into the floor; orient the response toward the open sky.
 		vec3 contact_normal=COLLISION_NORMAL.y<0.0 ? -COLLISION_NORMAL : COLLISION_NORMAL;
 		TRANSFORM[3].xyz+=contact_normal*(abs(COLLISION_DEPTH)+.001);
-		if(kind==3) {
+		if(kind==5) {
+			CUSTOM.w=max(CUSTOM.w,clamp(-dot(VELOCITY,contact_normal)/14.0,0.0,1.0));
+			VELOCITY=vec3(0.0);COLOR.a=.5;
+		} else if(kind==3) {
 			if(dot(VELOCITY,contact_normal)<0.0) VELOCITY=reflect(VELOCITY,contact_normal)*.48;
 			CUSTOM.w=.6;
 		} else {
@@ -63,7 +81,7 @@ void process() {
 				vec3 splash_velocity=contact_normal*mix(.5,1.1,CUSTOM.z)+vec3(sin(CUSTOM.x),0.0,cos(CUSTOM.x))*.45;
 				emit_subparticle(TRANSFORM,splash_velocity,COLOR,vec4(0.0),FLAG_EMIT_POSITION|FLAG_EMIT_VELOCITY|FLAG_EMIT_COLOR);
 			}
-			TRANSFORM[3].xyz=EMISSION_TRANSFORM[3].xyz+spawn_offset(float(NUMBER)+floor(age*7.0));
+			TRANSFORM[3].xyz=EMISSION_TRANSFORM[3].xyz+spawn_offset(float(NUMBER%uint(65521))+floor(age*7.0));
 		}
 	}
 	TRANSFORM[3].xyz+=VELOCITY*DELTA;
@@ -71,7 +89,9 @@ void process() {
 	// its lifetime below the street. Wind remains world-space when looking around.
 	vec4 clip=view_projection*vec4(TRANSFORM[3].xyz,1.0);
 	if(TRANSFORM[3].y<camera_y-3.0 || clip.w<=0.0 || abs(clip.x)>clip.w || abs(clip.y)>clip.w) {
-		TRANSFORM[3].xyz=EMISSION_TRANSFORM[3].xyz+spawn_offset(float(NUMBER)+floor(age*7.0));
+		TRANSFORM[3].xyz=EMISSION_TRANSFORM[3].xyz+spawn_offset(float(NUMBER%uint(65521))+floor(age*7.0));
+		CUSTOM.w=0.0;
+		if(kind==5) {CUSTOM.y=0.0;COLOR.a=1.0;VELOCITY=wind_mps*.4+vec3(0.0,-8.0,0.0);}
 	}
 	}
 }

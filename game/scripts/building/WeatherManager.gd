@@ -99,7 +99,9 @@ func _ready() -> void:
 	_publish()
 
 func _exit_tree() -> void:
-	if extreme_weather!=null:RenderingServer.global_shader_parameter_set("wetness",0.0)
+	if extreme_weather!=null:
+		RenderingServer.global_shader_parameter_set("wetness",0.0)
+		RenderingServer.global_shader_parameter_set("weather_blood",0.0)
 	if _owns_taa and is_instance_valid(get_viewport()): get_viewport().use_taa=_before_taa
 
 static func seasonal_snapshot(date: Dictionary) -> Dictionary:
@@ -236,7 +238,7 @@ func _publish() -> void:
 		events.merge(_extreme_events,true)
 		extreme_weather.receive_conditions(current,identity,seed_value,events)
 		if source=="campaign-calendar":
-			extreme_weather.sample_calendar(date,Calendar.cloud_transport(date),Calendar.clock_seconds(clock))
+			extreme_weather.sample_calendar(date,Calendar.cloud_transport(date),Calendar.clock_seconds(clock),seed_value)
 	director.set_live_conditions(current)
 	if effects != null: effects.set_live_conditions(current)
 	if RenderingServer.get_current_rendering_method()=="forward_plus":

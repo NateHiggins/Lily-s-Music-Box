@@ -56,10 +56,10 @@ def renew(root, previous_path, archive, replaced_keys=(), families=FAMILIES):
     added=[] if replaced else additions(previous,current)
     old_hash=digest(previous_raw);new_hash=digest(current_raw)
     records={};assets={}
-    if not families or any(f not in (*FAMILIES,'house_switchboard') for f in families):
+    if not families or any(f not in (*FAMILIES,'house_switchboard','readable_library') for f in families):
         raise ValueError('Unknown or empty scoped family selection')
     for family in families:
-        names=(f'art/blender/{family}_construction.json',) if family=='house_switchboard' else (
+        names=(f'art/blender/{family}_construction.json',) if family in ('house_switchboard','readable_library') else (
             f'art/blender/{family}_construction.json',f'game/tests/fixtures/orison_{family}.json')
         for name in names:
             data=json.loads((root/name).read_text(encoding='utf8'))
@@ -78,6 +78,8 @@ def renew(root, previous_path, archive, replaced_keys=(), families=FAMILIES):
                     raise ValueError('Other native source changed: '+reference)
             if family=='house_switchboard':
                 outputs={'game/assets/props/house_switchboard.glb':data['export']['sha256']}
+            elif family=='readable_library':
+                outputs=data['outputs']
             elif 'asset_sha256' in data:
                 asset_family='city_shells' if family=='city_closure' else family
                 outputs={f'game/assets/props/{asset_family}.glb':data['asset_sha256']}
@@ -130,7 +132,7 @@ if __name__=='__main__':
     parser.add_argument('--previous-manifest',type=Path,required=True)
     parser.add_argument('--archive',type=Path,required=True)
     parser.add_argument('--unused-replacement',action='append',default=[],help='Exact changed key, absent from every scoped native construction record; repeat per key')
-    parser.add_argument('--family',choices=[*FAMILIES,'house_switchboard'],action='append',help='Explicit known family; defaults to the five city families')
+    parser.add_argument('--family',choices=[*FAMILIES,'house_switchboard','readable_library'],action='append',help='Explicit known family; defaults to the five city families')
     args=parser.parse_args()
     report=renew(args.root,args.previous_manifest,args.archive,args.unused_replacement,args.family or FAMILIES)
     print(json.dumps({k:report[k] for k in ('unchanged_materials','added_keys','renewed_records')},indent=2))

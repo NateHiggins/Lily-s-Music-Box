@@ -5,6 +5,7 @@ const Finishes = preload("res://scripts/building/orison_v2_owner_finishes.gd")
 const Component = preload("res://shaders/orison_owner_component.gdshader")
 var finish: RefCounted
 var tank_bands := {}
+var weather_materials := {}
 
 func apply(world: Node) -> void:
 	finish=Finishes.new()
@@ -14,20 +15,20 @@ func apply(world: Node) -> void:
 	var root: Node3D=world.adapter.root
 	for name: String in ["FrontFacade","RoofMembrane","RoofBaseFlashings","RoofBulkheadCaps","FittedRoofCoping"]:
 		var model:=root.get_node_or_null(name) as Node3D
-		if model!=null: _apply(model,"facade" if name=="FrontFacade" else "roof",model)
+		if model!=null: _apply(model,"facade" if name=="FrontFacade" else "roof",model,true)
 	var door: Node3D=world.adapter.resolve("F01_DOOR_06").get_node("F01_DOOR_06_Leaf")
 	_apply(door.native_leaf,"facade",door.native_leaf)
 	for name: String in ["RooftopTanks","RooftopAerials"]:
 		var model:=world.get_node("CityShells").get_node(name) as Node3D
-		_apply(model,"skyline",model)
+		_apply(model,"skyline",model,true)
 	for fan: Node in root.find_children("*","Node3D",true,false):
-		if fan is ExhaustFanProp: _apply(fan,"roof",fan)
+		if fan is ExhaustFanProp: _apply(fan,"roof",fan,true)
 	var lift: OrisonElevator=world.elevator
 	# Cab wall fields, joinery, original gate and controls stay on the car.
 	# Transparent, emissive and already-specialized optical owners are skipped.
 	_apply(lift._cabin,"lift",lift._cabin)
 
-func _apply(owner: Node3D,group: String,frame: Node3D) -> void:
+func _apply(owner: Node3D,group: String,frame: Node3D,exposed := false) -> void:
 	var count:=0
 	for draw: Node in owner.find_children("*","GeometryInstance3D",true,false):
 		if not draw.is_visible_in_tree(): continue
@@ -76,7 +77,10 @@ func _apply(owner: Node3D,group: String,frame: Node3D) -> void:
 			shaded.set_shader_parameter("component_polish",group=="lift")
 			if key=="tank_staves": shaded.set_shader_parameter("component_tone",.98+float(str(draw.name).get_slice("__",0).hash()%5)*.01)
 			shaded.set_meta("v2_owner_finish",tag)
+			if exposed:shaded.set_shader_parameter("weather_exposure",1.0)
 			tuned=shaded
+		elif exposed:
+			tuned=SurfacePass.weather_surface(tuned,weather_materials)
 		draw.material_override=tuned
 		draw.set_meta("v2_building_finish",group)
 		count+=1

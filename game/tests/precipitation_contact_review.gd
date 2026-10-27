@@ -67,6 +67,52 @@ func run() -> void:
 			var a:=splash_images[0].get_pixel(x,y);var b:=splash_images[1].get_pixel(x,y)
 			if maxf(absf(a.r-b.r),maxf(absf(a.g-b.g),absf(a.b-b.b)))>.02:splash_changed+=1
 	if splash_changed<32:failures.append("ongoing impact splashes disappear after bounded pool fills")
+	var frogs:=emitters[5]
+	var probe:=preload("res://tests/orison_v2_surface_inventory.gd").new()
+	var native_surfaces: Array=[];var triangle_count:=0
+	for pass_index in frogs.draw_passes:
+		var mesh:=frogs.get_draw_pass_mesh(pass_index)
+		var geometry: Dictionary=probe._mesh(mesh)
+		for surface: Dictionary in geometry.surfaces:
+			triangle_count+=int(surface.triangles)
+			if bool(surface.missing_uv) or int(surface.nonfinite_uv)>0 or int(surface.degenerate_uv_triangles)>0:failures.append("native frog UV charts")
+		var finish: Dictionary=probe._material(mesh.surface_get_material(0))
+		if int(finish.get("uv_mode",-1))!=0 or not bool(finish.get("has_normal_tex",false)) or not bool(finish.get("has_rough_tex",false)):failures.append("native frog mapped PBR binding")
+		if finish.maps.size()<3:failures.append("native frog PBR maps missing")
+		native_surfaces.append({"geometry":geometry,"material":finish})
+	for texture: Dictionary in probe.texture_rows.values():
+		if not bool(texture.mips) or int(texture.mip_levels)<7:failures.append("native frog loaded mip chain")
+	if triangle_count<=0 or triangle_count>600:failures.append("native frog triangle budget")
+	extension.weights=Vector4.ZERO;extension.frog_fall=1.0;contact.cull_mask=1<<18
+	for frame in 420:
+		extension.update_emitters(emitters,camera.global_position,true,1.0,camera)
+		await RenderingServer.frame_post_draw
+	get_viewport().get_texture().get_image().save_png(directory.path_join("native_frog_fall.png"))
+	# Record the genuine GPU collision impulse, without replacing the motion
+	# shader or injecting an impact. Only the diagnostic material colours it.
+	var diagnostic_frog:=Shader.new()
+	diagnostic_frog.code=preload("res://shaders/orison_weather_frog.gdshader").code \
+		.replace("void vertex() {","varying float recorded_impact;\nvoid vertex() {") \
+		.replace("float impact=clamp(INSTANCE_CUSTOM.w,0.0,1.0);","float impact=clamp(INSTANCE_CUSTOM.w,0.0,1.0); recorded_impact=impact;") \
+		.replace("ALBEDO=s.albedo;","ALBEDO=mix(s.albedo,vec3(1.0,0.0,0.0),step(.3,recorded_impact));")
+	for pass_index in frogs.draw_passes:
+		(frogs.get_draw_pass_mesh(pass_index).surface_get_material(0) as ShaderMaterial).shader=diagnostic_frog
+	var impact_pixels:=0
+	for frame in 60:
+		extension.update_emitters(emitters,camera.global_position,true,1.0,camera)
+		await RenderingServer.frame_post_draw
+		if frame%4!=0:continue
+		var image:=get_viewport().get_texture().get_image();var count:=0
+		for y in range(0,image.get_height(),4):
+			for x in range(0,image.get_width(),4):
+				var pixel:=image.get_pixel(x,y)
+				if pixel.r>.08 and pixel.r>pixel.g*2.0 and pixel.r>pixel.b*2.0:count+=1
+		if count>impact_pixels:
+			impact_pixels=count;image.save_png(directory.path_join("native_frog_impact.png"))
+	if impact_pixels<4:failures.append("native frog shader never receives a real GPU impact")
+	FileAccess.open(directory.path_join("frog_loaded_stock.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"Small native family UV/PBR/loaded-mip and GPU impact diagnostic; diagnostic red only after a real collision; no composed-world or human acceptance","surfaces":native_surfaces,"textures":probe.texture_rows,"triangles":triangle_count,"impact_pixels_sixteenth_grid_peak":impact_pixels},"\t"))
+	probe.free()
 	FileAccess.open(directory.path_join("contact_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","scope":"production GPU motion with diagnostic post-contact colour on a known floor; contact/no-contact optical controls and isolated splash draws; no gameplay, performance or human acceptance","captures":rows,"splash_changed_pixels_quarter_grid":splash_changed,"failures":failures},"  "))
 	print("PRECIPITATION CONTACT REVIEW: ","PASS" if failures.is_empty() else "FAIL", " ",failures)

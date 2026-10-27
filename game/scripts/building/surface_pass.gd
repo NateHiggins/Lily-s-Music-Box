@@ -527,6 +527,26 @@ static func catalog_key(original: BaseMaterial3D) -> String:
 		key = key.substr(2)
 	return key
 
+## Explicit exterior-owner adapter. Reuses maps/UVs in one opaque draw and
+## never changes a catalogue material or a dry interior sharing its stock.
+static func weather_surface(original: Material,cache: Dictionary) -> Material:
+	if original==null:return null
+	var identity:=original.get_instance_id()
+	if cache.has(identity):return cache[identity]
+	var result: ShaderMaterial
+	if original is ShaderMaterial:
+		if original.shader==null or original.shader.resource_path not in ["res://shaders/orison_surface.gdshader","res://shaders/orison_owner_component.gdshader"]:return original
+		result=original.duplicate() as ShaderMaterial
+	elif original is StandardMaterial3D and _eligible(original):
+		var stock:=original.duplicate() as StandardMaterial3D
+		stock.uv1_triplanar=false
+		result=surface_for(stock,{"uv_mode":0,"relief_mul":0.0})
+	else:return original
+	result.set_shader_parameter("weather_exposure",1.0)
+	result.set_meta("v2_weather_source",original)
+	cache[identity]=result
+	return result
+
 
 ## A family variant (`face_brick_c`) shares its base key's relief and tile
 ## size; its own height map ships under the full key.

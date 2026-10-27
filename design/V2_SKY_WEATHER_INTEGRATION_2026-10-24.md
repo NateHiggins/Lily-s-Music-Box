@@ -1658,3 +1658,119 @@ control, six final frames, uniform records, frozen-age views and terminal receip
 The source changes affect active jet/ring optics; ordinary cloud density and
 calendar/forecast data are unchanged. Final occupied-route, lifecycle and
 candidate qualification remain pending.
+
+
+### Calendar fallout, physical contact and moisture — 2026-10-27
+
+This remains an **INERT** implementation and verification record. It does not
+close annual artistic acceptance, first-view hitch debt or candidate gates.
+
+| Location / reproduction | Severity and evidence | Repair | Verification |
+| --- | --- | --- | --- |
+| Same civil date, change weather seed | Medium: daily formation cache keyed only by date could retain the previous seed's selection | Cache includes seed for normalized observations and opt-in provider input | **fallout_final_calendar.log.receipt.json**: 442 checks, including reused versus fresh instances across 256 seeds; empty stderr |
+| Exposed asphalt and exterior finishes in rain | High presentation defect: global wetness did not reach the real StandardMaterial asphalt draws | Explicit exterior-owner adapter preserves maps/native UVs in one opaque draw, duplicates owned material, leaves shared catalogue and interiors alone; upward stock gains slickness and bounded ripple normals | Occupied-world renders and clean lifecycle run; composed surface renewal and dedicated wet/dry optical comparison remain pending |
+| Authored fallout windows | Missing requested behavior: prepared frog stock was not emitted | Existing campaign weather owns bounded episodes and 0.1-percent seeded daily opportunities, with no additional clock/save domain; blood rain has crimson particles, bruised cloud light and drying deposits | Actual five-date world review; **frog_impact.log.receipt.json** records real GPU contact-driven squash, with 436 impact-marker pixels on the 1/16 grid; physical stock has 456 triangles, native UVs and three loaded 128-square PBR maps with seven mip levels |
+| Camera moisture during physical typing | Risk of obscuring the companion or consuming input | Input-transparent lens layer below the separately composited companion; integrated droplet travel prevents viscosity-transition jumps; bounded periodic coordinates | Actual controller recall/deployment, native text input, physical paper inspection and Escape cancellation preserve draft/input ownership; paired native captures |
+
+The authored additions are **1929-01-30 12:05–12:25** blood rain and
+**1929-09-12 11:25–11:35** frog fallout during the existing waterspout.
+Every pre-existing calendar root value, all 365 days, and all press entries
+remain semantically exact; **fallout_data_preservation.json** records this
+comparison. The extra root data changes the whole-file calendar hash, so old
+sampling plans must be explicitly reconciled with that preservation comparison,
+not silently accepted by weakening the bench's source guard. No new bulletin,
+resident knowledge, inventory item or story fact is asserted by these optics.
+Deposition reconstructs only elapsed precipitation and dries after the event;
+reverse seeks and reloads do not retain a previous date's frogs or blood.
+
+**fallout_world_reload.log.receipt.json** completed in **328.95 seconds** with
+43 passed checks and empty shutdown stderr. Its test-written
+**fallout_world_reload/weather_lifecycle_contract.json** is schema-2
+**runtime_contract** evidence for the source digest recorded inside it. Two
+actual V2 worlds exercise an isolated validated disk save/load, fractional time,
+cloud transport, active crimson state, no stale frogs, issued-only timeline,
+inventory, work orders, resident/case/reading authorities, weather-node/resource
+retirement and viewport restoration. The subsequent seed-cache repair has its
+separate focused check; this earlier contract is not rebound to newer inputs.
+
+In that run, stationary warm wall-frame p50/p95/p99/max (milliseconds) were:
+
+| Effect | p50 | p95 | p99 | max | GPU p95 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Rain | 20.010 | 21.670 | 22.904 | 23.739 | 7.563 |
+| Snow | 20.004 | 20.085 | 20.470 | 21.035 | 8.228 |
+| Hail | 20.008 | 20.116 | 20.158 | 20.942 | 8.172 |
+| Blood rain | 20.007 | 20.070 | 20.113 | 21.064 | 8.338 |
+| Frogs | 20.003 | 20.129 | 20.517 | 20.986 | 7.537 |
+
+These are native **3440×1440**, Vulkan RTX 4080 observations of the final 120
+frames after 360 settling frames per date, with one heightfield placement in
+each stationary sample. They do not measure cold shader compilation, movement,
+field recentering or target hardware beyond this machine. First-use collection
+now retains all 480 frames, synchronous publication time, process/physics times,
+pipeline-counter deltas and passage residency; results remain pending here.
+The original GPU-contact failures and earlier render controls are retained.
+
+Reader audit: **zero NEW fields**. Runtime texture import policy: **1465/1465**
+correct, zero repairs needed. Existing annual daylight evidence remains useful
+for unchanged density inputs; final night refresh, moving/turning routes,
+exposure controls, composed surfaces and candidate comparison remain open.
+
+
+**Activation follow-through.** **fallout_activation_uncontended.log.receipt.json**
+completed in **213 seconds**, with empty stderr and a passing actual-world
+precipitation/input review. The first instrumented run overlapped an accidentally
+started static gate board; that board was stopped, its run is not treated as a
+clean performance comparison, and the native capture was repeated without
+competing checks. Both raw records remain available.
+
+The uncontended all-480-frame wall p50/p95/p99/max in milliseconds is:
+
+| Effect | p50 | p95 | p99 | max | Synchronous date/publication |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Rain / initial world view | 20.008 | 20.331 | 30.871 | 6719.562 | 3.814 |
+| Snow | 20.008 | 20.123 | 21.260 | 629.420 | 4.041 |
+| Hail | 20.007 | 20.135 | 23.459 | 665.784 | 4.183 |
+| Blood rain | 20.008 | 20.117 | 20.574 | 613.665 | 3.884 |
+| Frogs | 20.004 | 20.084 | 20.303 | 622.287 | 3.950 |
+
+The initial world view adds **472 surface, 96 specialization and one canvas**
+pipeline compilation. It is not an isolated rain-shader cost. Subsequent snow
+and blood samples add **zero** pipelines; hail adds three specializations and
+frogs two. All samples retain **RESIDENT** passage state and one contact-field
+placement. The blood maximum occurs at frame 14, not the synchronous publication.
+GPU and process counters are asynchronous observations; they cannot alone assign
+these wall stalls to a particular function. First-use world rendering and
+roughly 0.6-second switch-associated stalls remain a measured open finding.
+Warm p95 around 20 ms does not close it. Moving-field costs and the original
+walk-13 first-view stall require their own repeated-route attribution.
+
+**living_sky_review.zip** adds **fallout_20261027/** with 31 unique artifacts,
+preserving all original members and verifying every member hash. It contains
+the test-written reload contract, empty-stderr wrapper receipts, both activation
+records, physical frog stock/contact controls, native blood/frog views and the
+paired readable companion/lens captures. The archive is **43,292,361 bytes**;
+full redundant native frame sets remain external with their original receipts.
+
+
+**Preflight repairs.** The 114-gate preflight retained its original failures.
+A targeted rerun now passes physical import ownership, byte-stable calendar
+regeneration, switchboard stock, readable stock and seven additive-binding
+controls. The frog import settings are explicitly tracked. Calendar repair
+only normalizes indentation in the appended episodes; all earlier bytes remain
+exact. Additive renewal is scoped to **house_switchboard_construction.json**
+and **readable_library_construction.json**, preserving all **124** original
+material records, other source bindings and declared native output hashes.
+Original construction records and the renewal comparison are archived; no
+historical runtime receipt is repinned. A general dry run would have touched
+195 records and was not applied. The scoped helper now checks every readable
+output and refuses changed native stock before writing anything.
+
+The full surface scanner now enumerates every GPU particle draw pass, rather
+than rejecting or silently omitting a multipass family. Single-pass identities
+stay the same; multipass body/eye records receive distinct paths. This needs the
+full composed surface run before qualification. The four additive-renewal
+artifacts extend the archived fallout section to **35** artifacts; the complete
+archive has **324** unique, hash-verified members and **43,326,625 bytes**.
+Surface-packet renewal and final zero-regression candidate verification remain
+pending. No whole-game or weather-production completion is claimed.

@@ -18,8 +18,9 @@ func _ready() -> void:
 	asphalt.roughness=float(recipe.roughness)
 	var soil:=MatLib.get_mat("soil").duplicate() as StandardMaterial3D
 	asphalt.uv1_triplanar=false;soil.uv1_triplanar=false
+	var exposed_asphalt:=SurfacePass.weather_surface(asphalt,{})
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		draw.material_override=asphalt if str(draw.name).contains("asphalt") else soil
+		draw.material_override=exposed_asphalt if str(draw.name).contains("asphalt") else soil
 		if str(draw.name).contains("asphalt"):draw.set_meta("v2_ground_source",original_asphalt)
 		var body:=StaticBody3D.new();body.name="GroundCollision";draw.add_child(body)
 		var collision:=CollisionShape3D.new()

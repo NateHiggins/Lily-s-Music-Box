@@ -107,7 +107,7 @@ func track_world_weather(world: Node) -> void:
 	lifecycle_borrowed[plant.get_instance_id()]="process material catalogue plant"
 	track_weather_node(world.get_node("WakingAtmosphere"))
 	track_weather_node(world.get_node("WeatherFX"))
-	lifecycle_check(world.get_node("WeatherFX").gpu_emitters.size()==5,"all camera precipitation and contact-splash emitters are tracked")
+	lifecycle_check(world.get_node("WeatherFX").gpu_emitters.size()==6,"all camera precipitation, contact-splash and physical frog emitters are tracked")
 	track_weather_node(world.get_node("WeatherFX").precipitation_contact)
 	for emitter: Node in world.get_node("WeatherFX").gpu_emitters:track_weather_node(emitter)
 	var manager: Node=world.get_node("WakingAtmosphere").weather_manager
@@ -123,10 +123,11 @@ func weather_state(world: Node) -> Dictionary:
 	manager._publish_extreme_motion(world.campaign_clock.local_datetime())
 	var state: Dictionary={"source":manager.source,"conditions":manager.current.duplicate(true),
 		"wetness":manager.extreme_weather.wetness,
+		"blood_rain":manager.extreme_weather.blood_rain,"frog_fall":manager.extreme_weather.frog_fall,"blood_deposit":manager.extreme_weather.blood_deposit,
 		"seconds":CampaignWeather.clock_seconds(world.campaign_clock),
 		"transport":Array(CampaignWeather.cloud_transport_at(CampaignWeather.clock_seconds(world.campaign_clock))),
 		"timeline":CampaignWeather.timeline(world.campaign_clock.datetime_string()),"uniforms":{}}
-	for key: String in ["wx_phase","wx_cyclone_phase","wx_texture_phase","wx_fluctus_phase","wx_cloud_drift","wx_asperitas_drift","wx_cirrus_drift","wx_cyclone","wx_hail","wx_whiteout"]:
+	for key: String in ["wx_phase","wx_cyclone_phase","wx_texture_phase","wx_fluctus_phase","wx_cloud_drift","wx_asperitas_drift","wx_cirrus_drift","wx_cyclone","wx_hail","wx_whiteout","wx_blood_rain"]:
 		state.uniforms[key]=manager.sky.get_shader_parameter(key)
 	state["lightning_schedule"]=preload("res://scripts/building/deterministic_lightning_manager.gd").minute_strokes(float(state.seconds))
 	return state
@@ -186,7 +187,8 @@ func run_lifecycle() -> void:
 	for driver: CampaignClockDriver in get_tree().get_nodes_in_group("campaign_time_owner"):driver.set_frozen_for_tests(true)
 	GameBoot.settings.weather_network_enabled=false
 	for key: String in ["WEATHER_SIMULATE","WEATHER_FORMATION","WEATHER_SKY_BASELINE","WEATHER_PHENOMENON"]:OS.set_environment(key,"")
-	lifecycle_check(CampaignClock.new().configure_date(1929,11,7,720),"set authored coastal-storm date")
+	var fallout_reload:=OS.get_environment("WEATHER_FALLOUT_RELOAD")=="1"
+	lifecycle_check(CampaignClock.new().configure_date(1929,1,30,735) if fallout_reload else CampaignClock.new().configure_date(1929,11,7,720),"set authored weather save date")
 	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
 	var before: Dictionary={}
 	var authority: Dictionary={}
@@ -210,10 +212,19 @@ func run_lifecycle() -> void:
 			RealityState.record_conversation_visit("mina_vale")
 			lifecycle_check(world.newspapers.collect("record","1928-11-10"),"seed a historical edition through collection owner")
 		if generation==0 and OS.get_environment("SKY_LIGHTNING_WORLD")=="1":await lightning_world_review(world,output)
+		if generation==0 and OS.get_environment("WEATHER_PRECIP_REVIEW")=="1":
+			var saved_date: Dictionary=world.campaign_clock.local_datetime()
+			var saved_seconds:=CampaignWeather.clock_seconds(world.campaign_clock)
+			await precipitation_review(world,world.get_node("WakingAtmosphere").weather_manager,output)
+			world.campaign_clock.configure_date(int(saved_date.year),int(saved_date.month),int(saved_date.day),int(saved_date.hour)*60+int(saved_date.minute))
+			world.campaign_clock.advance_seconds(fposmod(saved_seconds,60.0));prepare_world(world)
+			var restored_manager: Node=world.get_node("WakingAtmosphere").weather_manager
+			restored_manager._calendar_check_left=0.0;restored_manager._phenomena_left=0.0;restored_manager._process(0.0)
 		var state:=weather_state(world)
 		lifecycle_states.append(state.duplicate(true))
 		lifecycle_check(state.source=="campaign-calendar","actual campaign weather owner generation %d"%generation)
 		lifecycle_check(float(state.uniforms.wx_cyclone)>.1,"active authored cyclone generation %d"%generation)
+		if fallout_reload:lifecycle_check(float(state.blood_rain)>.99 and float(state.blood_deposit)>.9 and float(state.frog_fall)==0.0,"active crimson state reconstructs without stale frogs generation %d"%generation)
 		lifecycle_check(Input.mouse_mode==pointer,"inactive saved world leaves pointer unchanged generation %d"%generation)
 		for frame in 30:await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(output.path_join("lifecycle_%d.png"%generation))
@@ -262,7 +273,7 @@ func run_lifecycle() -> void:
 		"contracts":{"production_composition":{"executed":not before.is_empty(),"status":status,"identities":["WakingAtmosphere/WeatherManager","WeatherFX","CampaignClock"]},"save_reconstruction":{"executed":reconstructed,"status":status},"premature_action_denial":{"executed":denial,"status":status},
 			"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned","retained_nodes":remaining(lifecycle_nodes),"retained_resources":remaining(lifecycle_resources),"retained_playbacks":remaining(lifecycle_playbacks),
 			"tracked_nodes":lifecycle_nodes.size(),"tracked_resources":lifecycle_resources.size(),"tracked_playbacks":lifecycle_playbacks.size(),"borrowed":lifecycle_borrowed,
-			"resource_scope":"Atmosphere/FX subtree stored unpathed resources, four camera GPU emitters, extension/ramp, schedule and world clock; any audio playback in those subtrees. V2 installs no V1 AmbientSoundscape. Imported resources, process noise and catalogue plant are borrowed. Not RenderingServer allocation accounting."}},
+			"resource_scope":"Atmosphere/FX subtree stored unpathed resources, six camera GPU emitters including native frog stock, contact heightfield, lens canvas/material, extension/ramp, schedule and world clock; any audio playback in those subtrees. V2 installs no V1 AmbientSoundscape. Imported resources, process noise and catalogue plant are borrowed. Not RenderingServer allocation accounting."}},
 		"checks":lifecycle_observations,"failures":failures,"engine_errors":lifecycle_logger.get("errors"),"states":lifecycle_states,"authorities":authority_stages,"save_path":RealityState.save_path}
 	FileAccess.open(output.path_join("weather_lifecycle_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t"))
 	RealityState.save_path=old_path
@@ -316,22 +327,40 @@ func lightning_world_review(world: Node,output: String) -> void:
 
 func precipitation_review(world: Node,manager: Node,output: String) -> void:
 	prepare_world(world);manager.set_process(false)
+	var fx: Node=world.get_node("WeatherFX")
+	fx.lens.get_parent().show()
 	var camera: Camera3D=world.player.camera
 	camera.look_at(camera.global_position+Vector3(-1,.12,.08))
 	var original_authority:=authority_state()
 	var samples: Array[Dictionary]=[]
+	var pipeline_monitors: Dictionary={}
+	for key: String in ClassDB.class_get_integer_constant_list("Performance"):
+		if key.begins_with("PIPELINE_COMPILATIONS_"):
+			pipeline_monitors[key]=ClassDB.class_get_integer_constant("Performance",key)
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 	for fixture: Dictionary in [{"name":"rain","year":1929,"month":1,"day":30,"minute":720},
 		{"name":"snow","year":1928,"month":12,"day":12,"minute":720},
-		{"name":"deluge_hail","year":1929,"month":8,"day":6,"minute":900}]:
+		{"name":"deluge_hail","year":1929,"month":8,"day":6,"minute":900},
+		{"name":"blood","year":1929,"month":1,"day":30,"minute":735},
+		{"name":"frogs","year":1929,"month":9,"day":12,"minute":690}]:
+		var switch_started:=Time.get_ticks_usec()
+		var pipeline_before: Dictionary={}
+		for key: String in pipeline_monitors:pipeline_before[key]=Performance.get_monitor(pipeline_monitors[key])
 		world.campaign_clock.configure_date(int(fixture.year),int(fixture.month),int(fixture.day),int(fixture.minute))
 		manager._calendar_check_left=0.0;manager._phenomena_left=0.0
 		manager._process(1.0);manager._publish()
-		var frames: Array=[];var previous:=Time.get_ticks_usec()
+		var publication_ms: float=(Time.get_ticks_usec()-switch_started)/1000.0
+		if fixture.name=="blood":check(float(manager.extreme_weather.blood_rain)>.99 and float(manager.extreme_weather.blood_deposit)>.9,"crimson weather derives from its actual elapsed calendar window")
+		if fixture.name=="frogs":check(float(manager.extreme_weather.frog_fall)>.99,"physical frog fallout derives from the authored waterspout window")
+		var frames: Array=[];var activation_frames: Array=[];var previous:=switch_started
 		for frame in 480:
 			await RenderingServer.frame_post_draw
 			var now:=Time.get_ticks_usec()
-			if frame>=360:frames.append([(now-previous)/1000.0,RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid())])
+			var timing: Array=[(now-previous)/1000.0,RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid())]
+			if frame>=360:frames.append(timing)
+			var pipelines: Dictionary={}
+			for key: String in pipeline_monitors:pipelines[key]=Performance.get_monitor(pipeline_monitors[key])-float(pipeline_before[key])
+			activation_frames.append(timing+[Performance.get_monitor(Performance.TIME_PROCESS)*1000.0,Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.0,pipelines,fx.contact_updates,world.passage_region.residency.state])
 			previous=now
 		var emitters: Array=world.get_node("WeatherFX").gpu_emitters
 		var emitter_states: Array=[];var visible: Array[bool]=[]
@@ -339,7 +368,8 @@ func precipitation_review(world: Node,manager: Node,output: String) -> void:
 			emitter_states.append({"name":emitter.name,"emitting":emitter.emitting,"amount":emitter.amount,"ratio":emitter.amount_ratio})
 			visible.append(emitter.visible);emitter.speed_scale=0.0
 		check(emitters.size()>=4 and world.get_node("WeatherFX")._outdoor,"actual FPS camera uses exposed GPU precipitation: "+str(fixture.name))
-		var fx: Node=world.get_node("WeatherFX");var was_processing:=fx.is_processing();fx.set_process(false)
+		var was_processing:=fx.is_processing();fx.set_process(false)
+		var lens_visible: bool=fx.lens.visible;fx.lens.hide()
 		var taa:=get_viewport().use_taa;get_viewport().use_taa=false
 		sky_parameter(manager,"temporal_phase",0.0)
 		for emitter: GPUParticles3D in emitters:emitter.visible=false
@@ -348,7 +378,7 @@ func precipitation_review(world: Node,manager: Node,output: String) -> void:
 		for i in emitters.size():emitters[i].visible=visible[i]
 		await RenderingServer.frame_post_draw;await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(output.path_join(str(fixture.name)+"_on.png"))
-		get_viewport().use_taa=taa;fx.set_process(was_processing)
+		get_viewport().use_taa=taa;fx.lens.visible=lens_visible;fx.set_process(was_processing)
 		for emitter: GPUParticles3D in emitters:emitter.speed_scale=1.0
 		var field_updates: int=fx.contact_updates
 		if fixture.name!="snow":
@@ -360,10 +390,51 @@ func precipitation_review(world: Node,manager: Node,output: String) -> void:
 			get_viewport().get_texture().get_image().save_png(output.path_join(str(fixture.name)+"_roof_contact.png"))
 			check(fx._outdoor and fx.contact_updates>0,"actual roof contact field is active: "+str(fixture.name))
 			world.player.global_transform=saved_player;camera.global_transform=saved_camera
-		samples.append({"date":world.campaign_clock.datetime_string(),"name":fixture.name,"conditions":manager.current.duplicate(true),"weights":str(manager.extreme_weather.weights),"emitters":emitter_states,"frames":frames,"contact_field_updates_after_timing":field_updates})
+		samples.append({"date":world.campaign_clock.datetime_string(),"name":fixture.name,"conditions":manager.current.duplicate(true),"weights":str(manager.extreme_weather.weights),"blood":manager.extreme_weather.blood_rain,"frogs":manager.extreme_weather.frog_fall,"deposit":manager.extreme_weather.blood_deposit,"emitters":emitter_states,"frames":frames,"publication_ms":publication_ms,"activation_frames":activation_frames,"contact_field_updates_after_timing":field_updates,"lens_level":fx._lens_level})
+	await precipitation_companion(world,manager,output)
 	check(authority_state()==original_authority,"precipitation presentation preserves gameplay authorities")
 	FileAccess.open(output.path_join("precipitation_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
-		"evidence_class":"INERT","scope":"actual occupied V2 with FPS-owned GPU emitters; native static rooftop camera; 360 warmup and 120 timed frames per authored date; off/on particles frozen for screen occupancy diagnostic; no movement route or human acceptance", "samples":samples,"failures":failures},"  "))
+		"evidence_class":"INERT","scope":"actual occupied V2 with FPS-owned GPU emitters; native static rooftop camera; all 480 activation frames retained, final 120 also reported separately; existing on-disk shader cache retained, not a cold-cache qualification; off/on particles frozen for screen occupancy diagnostic; no movement route or human acceptance", "activation_columns":["wall_ms_including_publication_on_first_frame","render_cpu_ms","render_gpu_ms","process_ms","physics_ms","pipeline_deltas_since_switch","contact_field_updates","passage_residency"],"samples":samples,"failures":failures},"  "))
+
+func precipitation_companion(world: Node,manager: Node,output: String) -> void:
+	world.campaign_clock.configure_date(1929,1,30,735)
+	manager._calendar_check_left=0.0;manager._phenomena_left=0.0;manager._process(1.0);manager._publish()
+	var player: Node=world.player;var carrier: Node=world.service_set_carrier
+	var fx: Node=world.get_node("WeatherFX")
+	carrier.set_capture_hidden(false);carrier.screen_frame.layer.show()
+	var pointer:=Input.mouse_mode;Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	for pressed in [true,false]:
+		var event:=InputEventJoypadButton.new();event.button_index=JOY_BUTTON_DPAD_DOWN;event.pressed=pressed
+		Input.parse_input_event(event);Input.flush_buffered_events()
+		for frame in 3:await get_tree().process_frame
+	var deadline:=Time.get_ticks_msec()+18000
+	while Time.get_ticks_msec()<deadline and (not carrier.motion.steady_for_input() or carrier.device.teletype.printing):await get_tree().process_frame
+	for pressed in [true,false]:
+		var event:=InputEventJoypadButton.new();event.button_index=JOY_BUTTON_A;event.pressed=pressed
+		Input.parse_input_event(event);Input.flush_buffered_events()
+		for frame in 3:await get_tree().process_frame
+	deadline=Time.get_ticks_msec()+18000
+	while Time.get_ticks_msec()<deadline and not carrier.session.typing:await get_tree().process_frame
+	check(carrier.session.typing,"native controller recall/accept opens physical keyboard during crimson rain")
+	if carrier.session.typing:
+		for character in "weather":
+			for pressed in [true,false]:
+				var event:=InputEventKey.new();event.keycode=character.to_upper().unicode_at(0);event.physical_keycode=event.keycode;event.unicode=character.unicode_at(0);event.pressed=pressed
+				Input.parse_input_event(event);Input.flush_buffered_events();await get_tree().process_frame
+		check(carrier.session.draft.ends_with("weather") and carrier.device.teletype._draft_ink.text.contains("weather"),"native typed draft reaches physical paper with lens moisture active")
+		for frame in 60:await RenderingServer.frame_post_draw
+		check(fx.lens.mouse_filter==Control.MOUSE_FILTER_IGNORE and fx.lens.get_parent().layer<carrier.screen_frame.layer.layer,"weather lens cannot own input or composite over companion paper")
+		fx.set_process(false)
+		for enabled in [false,true]:
+			fx.lens.visible=enabled
+			await RenderingServer.frame_post_draw;await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(output.path_join("companion_lens_%s.png"%str(enabled)))
+		fx.set_process(true)
+		var cancel:=InputEventKey.new();cancel.keycode=KEY_ESCAPE;cancel.physical_keycode=KEY_ESCAPE;cancel.pressed=true
+		Input.parse_input_event(cancel);Input.flush_buffered_events();await get_tree().process_frame
+		check(not carrier.session.typing and carrier.session.draft.ends_with("weather") and player.text_input_owner==null,"native cancel preserves draft and releases only the companion input lease")
+		cancel.pressed=false;Input.parse_input_event(cancel);Input.flush_buffered_events();await get_tree().process_frame
+	Input.mouse_mode=pointer
 
 func sky_parameter(manager: Node,key: String,value: Variant) -> void:
 	manager.sky.set_shader_parameter(key,value)

@@ -6,6 +6,7 @@ uniform float vortex_intensity = 0.0;
 uniform float wx_cyclone = 0.0;
 uniform float wx_hail = 0.0;
 uniform float wx_whiteout = 0.0;
+uniform float wx_blood_rain = 0.0;
 uniform int wx_formation = 0; // 1 asperitas, 2 fluctus, 3 lenticular, 4 iridescent
 uniform float wx_formation_strength = 0.0;
 uniform float wx_phase = 0.0;
@@ -223,10 +224,12 @@ vec3 wx_powder_light(float density_value,float sun_tau,float mu,float height01,
 	vec3 low_air=ordinary_ambient*vec3(1.18,0.80,0.52);
 	vec3 high_air=ordinary_ambient*vec3(0.78,0.89,1.12);
 	vec3 ambient=mix(low_air,high_air,height01)*(1.0-0.12*wetness);
+	ambient=mix(ambient,ambient*vec3(1.25,.35,.85),wx_blood_rain*.75);
 	vec3 shadow_tint=mix(vec3(0.075,0.045,0.24),vec3(0.43,0.055,0.24),1.0-height01);
 	ambient=mix(ambient,shadow_tint,twilight*(1.0-sun_T)*0.85);
 	vec3 sun=mix(ordinary_sun,vec3(3.0,1.35,0.24),twilight);
 	sun=wx_mie_color(sun,to_sun);
+	sun=mix(sun,sun*vec3(1.1,.25,.65),wx_blood_rain*.7);
 	vec3 cold=vec3(0.19,0.24,0.31);
 	ambient=mix(ambient,cold,wx_cyclone*0.88);
 	// Dense ice/water cores absorb the exaggerated forward lobe. Thin sunlit
@@ -250,7 +253,7 @@ vec3 wx_haze_color(vec3 to_sun) {
 	float gold=(1.0-smoothstep(0.06,0.35,abs(to_sun.y)))*smoothstep(-0.12,0.03,to_sun.y);
 	vec3 sepia=mix(vec3(0.24,0.19,0.14),vec3(0.92,0.39,0.095),gold);
 	sepia=mix(sepia,vec3(0.17,0.20,0.24),max(wx_cyclone,severe_storm_threat)*0.88);
-	return mix(sepia,vec3(0.78,0.83,0.88),wx_whiteout);
+	return mix(mix(sepia,vec3(0.78,0.83,0.88),wx_whiteout),vec3(.28,.065,.17),wx_blood_rain*.8);
 }
 float wx_height_tau(float camera_y_m,float ray_y,float distance_m,float density_m_inv,float scale_height_m) {
 	float a=ray_y*distance_m/max(scale_height_m,0.1);

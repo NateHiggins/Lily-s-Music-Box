@@ -239,43 +239,44 @@ func _run() -> void:
 		if not node is MeshInstance3D and not node is MultiMeshInstance3D and not node is GPUParticles3D and not node is CPUParticles3D:
 			unhandled_geometry.append({"path":str(world.get_path_to(node)),"type":node.get_class()})
 			continue
-		var mesh: Mesh
+		var meshes: Array[Mesh]=[]
 		var instances := 1
-		if node is MeshInstance3D: mesh = node.mesh
+		if node is MeshInstance3D: meshes.append(node.mesh)
 		elif node is CPUParticles3D:
-			mesh = node.mesh
+			meshes.append(node.mesh)
 			instances = node.amount
 		elif node is GPUParticles3D:
-			if node.draw_passes != 1:
-				unhandled_geometry.append({"path":str(world.get_path_to(node)),"type":"unscanned particle draw passes"})
-				continue
-			mesh = node.draw_pass_1
+			for draw_pass in node.draw_passes:meshes.append(node.get_draw_pass_mesh(draw_pass))
 			instances = node.amount
 		elif node is MultiMeshInstance3D and node.multimesh != null:
-			mesh = node.multimesh.mesh
+			meshes.append(node.multimesh.mesh)
 			instances = node.multimesh.instance_count
-		if mesh == null: continue
-		var mesh_id := str(mesh.get_instance_id())
-		if not mesh_rows.has(mesh_id): mesh_rows[mesh_id] = _mesh(mesh)
-		var slots: Array = []
-		for surface in mesh.get_surface_count():
-			var material: Material = node.material_override
-			if material == null and node is MeshInstance3D: material = node.get_active_material(surface)
-			if material == null: material = mesh.surface_get_material(surface)
-			var material_id := "none" if material == null else str(material.get_instance_id())
-			if material != null and not material_rows.has(material_id): material_rows[material_id] = _material(material)
-			slots.append(material_id)
-		var owner: Node = node
-		while owner != world and owner.get_script() == null: owner = owner.get_parent()
-		draws.append({"path":str(world.get_path_to(node)), "owner":str(world.get_path_to(owner)), "owner_script":owner.get_script().resource_path if owner.get_script() != null else "", "visible":node.is_visible_in_tree(), "mesh":mesh_id, "materials":slots, "instances":instances, "surface_role":str(node.get_meta("surface_role", "physical")), "retired_surface":str(node.get_meta("retired_surface", "")), "geometry_transparency":node.transparency})
-		if node.material_overlay != null:
-			var overlay_key := str(node.material_overlay.get_instance_id())
-			if not material_rows.has(overlay_key): material_rows[overlay_key] = _material(node.material_overlay)
-			var overlay_draw: Dictionary = draws.back().duplicate()
-			overlay_draw.path += "/material_overlay"
-			overlay_draw.materials = []
-			for index in mesh.get_surface_count(): overlay_draw.materials.append(overlay_key)
-			draws.append(overlay_draw)
+		for draw_pass in meshes.size():
+			var mesh: Mesh=meshes[draw_pass]
+			if mesh == null: continue
+			var draw_path:=str(world.get_path_to(node))
+			if meshes.size()>1:draw_path+="/draw_pass_%d"%(draw_pass+1)
+			var mesh_id := str(mesh.get_instance_id())
+			if not mesh_rows.has(mesh_id): mesh_rows[mesh_id] = _mesh(mesh)
+			var slots: Array = []
+			for surface in mesh.get_surface_count():
+				var material: Material = node.material_override
+				if material == null and node is MeshInstance3D: material = node.get_active_material(surface)
+				if material == null: material = mesh.surface_get_material(surface)
+				var material_id := "none" if material == null else str(material.get_instance_id())
+				if material != null and not material_rows.has(material_id): material_rows[material_id] = _material(material)
+				slots.append(material_id)
+			var owner: Node = node
+			while owner != world and owner.get_script() == null: owner = owner.get_parent()
+			draws.append({"path":draw_path, "owner":str(world.get_path_to(owner)), "owner_script":owner.get_script().resource_path if owner.get_script() != null else "", "visible":node.is_visible_in_tree(), "mesh":mesh_id, "materials":slots, "instances":instances, "surface_role":str(node.get_meta("surface_role", "physical")), "retired_surface":str(node.get_meta("retired_surface", "")), "geometry_transparency":node.transparency})
+			if node.material_overlay != null:
+				var overlay_key := str(node.material_overlay.get_instance_id())
+				if not material_rows.has(overlay_key): material_rows[overlay_key] = _material(node.material_overlay)
+				var overlay_draw: Dictionary = draws.back().duplicate()
+				overlay_draw.path += "/material_overlay"
+				overlay_draw.materials = []
+				for index in mesh.get_surface_count(): overlay_draw.materials.append(overlay_key)
+				draws.append(overlay_draw)
 	if directory.is_empty() or DirAccess.make_dir_recursive_absolute(directory) != OK:
 		push_error("Surface inventory requires a writable SHOT_DIR")
 		world.shutdown_for_tests()
