@@ -85,3 +85,55 @@ independent work and name the precise limitation. Never claim a playtest from
 static inspection or headless checks. Technical checks establish functionality;
 the owner's judgment and actual playtesting establish humor, atmosphere,
 readability, and feel.
+
+## Reuse demonstrated project lessons
+
+Choose only the lessons relevant to the current task; do not turn every repair
+into a whole-world test campaign. Read linked evidence for its date and limits.
+
+- **Installed ownership:** trace the selector, inherited entry script and actual
+  loader. Editing an unused candidate does not update the game. Native visual
+  replacement consumes existing mechanical/state owners; visual, simulated and
+  player-operable are distinct capabilities. Assert nonzero expected part/owner
+  counts so retired arrays cannot produce an empty passing loop.
+- **Shared resources and lifecycle:** duplicate only when local ownership needs
+  it; preserve catalogue defaults, optical tint/alpha/culling and teardown
+  restoration. Cache lifetime must follow the actual owner. Strong restoration
+  references can keep retired materials/textures alive. Prove imported/source
+  signatures before reuse; timestamps alone are not content identity. See
+  [material lifetime evidence](../../../design/V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md).
+- **Native import:** for Blender work use
+  [blender-asset-development](../blender-asset-development/SKILL.md). Test imported
+  UV precision, normal/tangent derivatives and loaded maps in a small family
+  bench before a full world. Reuse the actual loader and preserve shared
+  material ownership; a source GLB pass does not establish its imported result.
+- **Input:** exercise the first mouse increment, continued hold, travel stops,
+  release and cancellation with the real controller. Toggle tests do not prove
+  direct manipulation. Preserve draft/focus and pause/input ownership. Do not
+  repair a blocked stance by shrinking the player capsule or excluding real
+  gameplay blockers. See the [pull/input repair](../../../design/V2_PASSAGE_PULL_AND_OAK_2026-10-25.md).
+- **Time and visibility:** derive reversible sky presentation from authoritative
+  fractional campaign time, not scene uptime or an independent clock. Check
+  pause and out-of-order return with rendered comparisons as well as uniforms.
+  Keep future news hidden behind its reading/publication owners. A readable
+  composited companion must still leave world blockers authoritative for its
+  lamp; protect both positive visibility and negative occlusion controls.
+- **Performance:** keep screenshot readback/PNG encoding outside measured input
+  routes. Retain cold and warmed distributions, source-frozen paired routes and
+  actual settings. CPU counters can lag/overlap; main-viewport GPU timing is not
+  the sum of private viewports. Residency labels and compilation counters show
+  correlation, not function attribution. Separate asset load, script, physics,
+  shader compilation and render costs before assigning a cause or a speedup.
+- **Evidence pitfalls:** runtime-composing MultiMesh tests need the windowed
+  backend here; headless identity readback is not proof of corrupt source poses.
+  Use the pinned patched Vulkan engine and lane receipts. A graceful exit can
+  precede test completion: require the test's complete output/contract. Freeze
+  rendering inputs during source-bound runs; renew stale qualification rather
+  than waiving or repinning it. See the [batch workflow](../../../art/blender/v2_batch_workflow.md).
+
+[Astra's material-binding notes](../../../design/astra/work/apartment_material_binding/README.md)
+preserve original fixture/runner failures and distinguish preparation from an
+executed verdict. [Claude's lived-in pass](../../../design/CLAUDE_APARTMENT_LIVED_IN_PASS.md)
+separates gameplay, simulated and visual function while limiting actor/draw cost.
+Their historical baselines are not current acceptance. Preserve authoring/debug
+stimuli as diagnostics rather than silently turning them into gameplay features.
