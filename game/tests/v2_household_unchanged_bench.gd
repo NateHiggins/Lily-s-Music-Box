@@ -62,6 +62,17 @@ func run() -> void:
 	check(not owner.capture_now() and subject.validations>calls,"original-order unchanged capture still validates as a paired control")
 	owner.reuse_unchanged_validation=true;subject.angle=2.;calls=subject.validations
 	check(not owner.capture_now() and subject.validations>calls and RealityState.data[Owner.KEY].records.SUBJECT.value.angle==.61,"invalid new live state cannot reuse cached validation or overwrite saved state")
+	# One changed control must not revalidate an unrelated, exactly equal record.
+	subject.related=false;subject.angle=.62
+	calls=subject.validations;var unrelated_calls: int=related.validations
+	check(owner.capture_now() and subject.validations==calls+1 and related.validations==unrelated_calls,"changed capture validates the edited record and reuses the exact unchanged record")
+	subject.related=true;subject.angle=.63;calls=related.validations
+	check(not owner.capture_now() and related.validations==calls and RealityState.data[Owner.KEY].records.SUBJECT.value.angle==.62,"cross-record disagreement blocks even when the related record reuses individual validation")
+	subject.related=false;subject.angle=.64;owner.reuse_unchanged_validation=false
+	calls=related.validations
+	check(owner.capture_now() and related.validations>calls,"disabled reuse validates every record on a changed capture")
+	owner.reuse_unchanged_validation=true;calls=related.validations
+	check(owner.validate(owner._last_saved,owner._kinds) and related.validations>calls,"public validation never trusts unchanged records implicitly")
 	owner._bound=false;calls=subject.validations;owner._on_state_changed()
 	check(subject.validations==calls,"unbound owner does not process campaign events")
 	var out:=OS.get_environment("SHOT_DIR")
