@@ -984,3 +984,84 @@ qualification, annual visual diversity, performance and owner acceptance remain
 separate claims. Next: refresh the 365-date/six-period gallery on merged source,
 inspect weak/repetitive skies and continue the existing weather/roof work.
 
+
+### Refreshed annual coverage and exact native sampling
+
+On merged source **5e59345a**, **skywatch41/annual.log.receipt.json** completed
+in **1,109 s**, native fullscreen **3440x1440**, empty stderr. The retained
+calendar covers **365 dates, November 10, 1928 through November 9, 1929**,
+with six solar-relative moments per date: **2,190 views**, plus **13 reverse-date
+replays**, zero reported failures. This is six samples per day, not continuous
+coverage of every hour. Source/runtime signatures before and after agree;
+**annual_source_binding.json** binds the completed 23 optical atlases.
+
+The existing analyzer, **tools/analyze_weather_gallery.py**, generated the
+assessment, review contacts and native sampling plan. Layer metadata includes
+all ten genera; **St appears only three times and Cb seven times**. Those counts
+are layer observations, not accepted visible formations. Fifteen scenario
+classifications are selected (including zero), while 42 are eligible. Do not
+rewrite the authored calendar merely to fill metadata bins.
+
+| Measurement | Result | Interpretation / remaining work |
+| --- | --- | --- |
+| Nonadjacent repetition candidates | 11 pairs | Mostly opaque wet/winter nights and frontal dawns; correlation is a review flag, not a defect verdict. |
+| Low-contrast daylight candidates | 28 | Inspect at native resolution; thumbnails cannot establish cloud relief. |
+| Native follow-up | 162 views / 212 s / zero failures | 46 dated cases across three deterministic seeds, plus 24 seasonal dawn/dusk transition views. |
+| Native exact timestamps | 162/162 | Test checks the actual campaign clock against each requested ISO timestamp. |
+| Source-bound lighting controls | Six dates, four variants / 24 views | Current, half/zero shadow-filter footprint and no analytical haze; production shader unchanged. |
+
+Native follow-up uses **skywatch41/native_coverage.log.receipt.json** and
+**native_source_binding.json**. The annual observer uses fallback precipitation,
+not the playable FPS GPU path. Native colour images, analytical alpha masks and
+seed comparisons are actual renders; neither the atlas nor these bench images
+qualify occupied-world precipitation, performance, installed telescope interaction
+or the owner's artistic acceptance. Measured alpha is for the sampled view,
+not an annual hemispherical cloud-cover average.
+
+The review exposed a real diagnostic error: converting requested **08:29** to
+fractional hours and truncating back to minutes could render **08:28**. Native
+requests now pass integer minutes directly and fail on a mismatched timestamp.
+The original four paired controls and their metadata remain archived rather
+than being relabeled; their old PASS did not check requested-time equality.
+Four corrected controls and the 162-view follow-up pass the new check. The
+annual gallery used the unchanged original annual path; do not attribute the
+native helper repair retroactively to that older run.
+
+An optional **particle_control** request now holds the fallback effects owner
+and CPU simulation, captures the baseline, hides six named optical draws and
+captures a paired image, then restores processing/visibility/speed. Fog remains
+present and TAA is disabled for both paired images. This is a diagnostic switch,
+not a new production weather authority. A suspected dark atlas wedge on November
+11 and 24 did not recur in those native controls. No production particle repair
+is justified by that unconfirmed observation.
+
+The controlled January 30 and February 25 frontal decks remain unchanged when
+shadow filtering is halved or removed. Removing analytical haze increases their
+upper-frame display luminance standard deviation from **0.00794 to 0.02076** and
+**0.00961 to 0.02114**, respectively; winter-night variation instead falls from
+**0.0471 to 0.00566**. These display-space statistics include framing and are not
+physical flux. Actual contact review shows more daytime contrast but loses the
+layered amber/blue night atmosphere. Retain the current shader: weakening the
+noise repair does not solve these flat decks, and a global haze removal is a
+poor trade. Frontal relief, repeated radial folds, night palette variety and
+playable rain/snow density remain targeted artistic/interaction follow-ups.
+
+Reproduce with the archived **annual_batch.json**, **native_coverage_batch.json**,
+**native_sampling_plan.json** and existing analyzer commands (**--gallery** or
+**--detail**, with **--out**). Set **SKY_LIBRARY_YEAR** for the annual mode or
+**SKY_NATIVE_SAMPLING_PLAN** to the native plan, not both. Use the shared lane,
+pinned engine and native fullscreen argument array. External controls additionally
+use **SKY_REVIEW_SHADER_SOURCE**; clear it for production-source reviews. Keep
+calendar, shader/helper/noise hashes, settings, bearing and seed fixed across
+comparisons. Retain original failures and compare exact requested timestamps,
+alpha and native-pixel crops before accepting a visual change.
+
+The existing diagnostic archive adds **annual_native_review_5e59345a/** with
+plans, raw metadata/receipts, scripts, source snapshots, review contacts and
+external native-frame hashes. Raw native PNGs stay under **C:/ov/reports/** to
+avoid hundreds of additional repository files. Contacts are review aids, not
+pixel-noise proof. The clean main board at **skywatch41/main_baseline/board.json**
+is the comparison baseline. This helper-only change does not invalidate the
+unchanged production surface qualification or warrant another firehose run.
+The queued Queens Plaza/Jackson Avenue city revamp remains after open tasks in
+**K-V2-CITY-REVAMP**, with the existing city reference brief as its owner.
