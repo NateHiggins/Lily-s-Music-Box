@@ -1177,3 +1177,40 @@ The canonical checkout was preserved using named-path recovery commits
 **2fb02d84**. Its old acoustic branch was removed only after verifying ancestry
 and durable recovery. Main's Tardi visibility fix and pinned Vulkan configuration
 remain intact. Historical local variants are not merged over newer accepted work.
+
+### Final recovery checkpoint, not weather production qualification
+
+The second full-world survey reproduces five front-gallery movement failures
+and reaches the lane ceiling at **1,500.52 seconds**. Its 1,637 passing fire
+observations remain a partial diagnostic section; no final runtime contract
+exists. It does not renew the stale surface gate or establish a production
+movement diagnosis. No failure threshold, deadline or physical constraint was
+weakened, and the weather candidate is not merged over accepted main.
+
+The separately audited noncapturing desktop batch finishes on the pinned custom
+Vulkan engine: roof **43 checks, 207.64 seconds**; sky **59 checks, 40.35 seconds**;
+and actual saved-world rebuild **41 checks, 264.30 seconds**. Roof and rebuild
+stderr are empty; sky retains the known cam_noel_witches wall warning. The rebuild
+test writes a schema-2 runtime contract with passing composition, save/load,
+premature-action denial and tracked owner teardown. Its scope excludes
+CampaignShell, native manipulation, whole-game performance and human acceptance.
+These new runs are functional/regression evidence, not matched frame-time
+comparisons with the historical official-engine timing route.
+
+Actual current roof and reconstruction images were inspected. Twilight is
+readable and coloured, while the hail view remains flat sepia haze. Dramatic sky
+polish remains open. Both desktop monitors retain the active input desktop, but
+record a brief cursor-clip change during the surface run, before the weather
+batch starts Godot. Attribution is not established; these monitors do not prove
+zero interference. Native fullscreen remains an unqualified future preference.
+
+The existing roof archive now has **299 individually hash-verified members**, all
+249 prior members unchanged, with raw original failures, terminal wrapper
+receipts, test-written reconstruction contract, selected diagnostic renders,
+actual image notes and the documentation-only canonical reconciliation verifier.
+No evidence is promoted to whole-game or human acceptance. The complete weather
+patch and evidence are retained under
+**recovery/weather-panorama-unqualified-20261026** for future continuation. PR #64
+merges only the safe reconciliation handoff at **8e722838**, preserving the
+accepted creature/optical baseline. PR #62 must not be treated as merged or
+production-qualified merely because the focused weather checks pass.

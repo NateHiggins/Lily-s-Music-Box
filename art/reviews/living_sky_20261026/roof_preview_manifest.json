@@ -1,10 +1,10 @@
 {
   "evidence_class": "INERT",
-  "scope": "Historical roof evidence retained plus pointer-safe engine-keyboard inspection and renewed actual campaign save/rebuild evidence. Explicit mouse capture, OS-native input, broad performance and human acceptance remain unverified. No ledger promotion. Historical matched panorama transition/mipmap measurements and preserved failures on the official engine; current-main isolated-viewport combined hose checks376 pass with empty stderr. Full current-main weather and surface renewal are pending; no completion or human acceptance claim.",
+  "scope": "Historical roof evidence retained plus pointer-safe engine-keyboard inspection and renewed actual campaign save/rebuild evidence. Explicit mouse capture, OS-native input, broad performance and human acceptance remain unverified. No ledger promotion. Historical matched panorama transition/mipmap measurements and preserved failures on the official engine; current-main isolated-viewport combined hose checks376 pass with empty stderr. Full current-main weather and surface renewal are pending; no completion or human acceptance claim. Current patched-engine roof43 and sky59 pass; actual world rebuild result is recorded in the included original logs and test-written contract. Surface v2 remains NOT_QUALIFIED: five movement failures and1500.52-second timeout. Canonical reconciliation verification is documentation-only,114gates/zero regressions; it does not qualify this weather patch. All previous249 members are preserved exactly.",
   "source_commit": "64c51923e68c82276226e2facd5d9346996fc0c4",
   "archive": "roof_preview_review.zip",
-  "bytes": 16382360,
-  "sha256": "002bfea39a03a8f31b3f231257da807dde494503f71e072314d9ebca1d5bacfe",
+  "bytes": 20500193,
+  "sha256": "61817e04fb5209618bd286d622a9a4f52b03241383346adf37732859b2d448f3",
   "members": [
     {
       "member": "baseline/board.json",
@@ -1499,6 +1499,306 @@
       "original": "C:\\ov\\v2merge24\\game\\tests\\v2_fire_hand_bench.gd",
       "bytes": 38683,
       "sha256": "bfd7323e23486ec98b8262f87b63b4a31f6f04f40827edbe9c1cfedb0eff2fdd"
+    },
+    {
+      "member": "integration_reconciliation/integrated_surface_v1.log",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_surface_v1.log",
+      "bytes": 72612,
+      "sha256": "1e5c4a9661d4c5edbbdbf5736e463b5d9aadd08144c3321777ee5bfe081b75e2"
+    },
+    {
+      "member": "integration_reconciliation/integrated_surface_v1.log.stderr",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_surface_v1.log.stderr",
+      "bytes": 1772,
+      "sha256": "77de4bf41d4e42c2f1d8cd752c10df44dd38be40fb95fb28fe8384118529ff7e"
+    },
+    {
+      "member": "integration_reconciliation/integrated_surface_v1.log.receipt.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_surface_v1.log.receipt.json",
+      "bytes": 1610,
+      "sha256": "b5c88f785f088c46aeb4251c67946bd9cd4cb9606d0d6b7e86a1f92377585d13"
+    },
+    {
+      "member": "integration_reconciliation/integrated_surface_v2.log",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_surface_v2.log",
+      "bytes": 68631,
+      "sha256": "b929a58004496f3146e77855a5f23ba92b384f07918652bf70485b37252ba763"
+    },
+    {
+      "member": "integration_reconciliation/integrated_surface_v2.log.stderr",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_surface_v2.log.stderr",
+      "bytes": 1770,
+      "sha256": "934f7bc6982b61d2ebebe39a559f7da0183ade8a9e9866687f30669f626897db"
+    },
+    {
+      "member": "integration_reconciliation/integrated_surface_v2.log.receipt.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_surface_v2.log.receipt.json",
+      "bytes": 1614,
+      "sha256": "b215bb802e55c3f0bada0fef4e0d5109a2d58500cea5642e974484569d7e2842"
+    },
+    {
+      "member": "integration_reconciliation/host_render_settings_v2.log",
+      "original": "C:\\ov\\reports\\weather_profile29\\host_render_settings_v2.log",
+      "bytes": 2046,
+      "sha256": "133977d9bc9eb170b00e0652050a35f94f34f4ed7a3297e6b785f93e7d790862"
+    },
+    {
+      "member": "integration_reconciliation/host_render_settings_v2.log.stderr",
+      "original": "C:\\ov\\reports\\weather_profile29\\host_render_settings_v2.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "integration_reconciliation/host_render_settings_v2.log.receipt.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\host_render_settings_v2.log.receipt.json",
+      "bytes": 1708,
+      "sha256": "9ac33eabab398bb13ef6070806532bb0ad1077565abd4183099c10c77f055906"
+    },
+    {
+      "member": "integration_reconciliation/integrated_roof_v1.log",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_roof_v1.log",
+      "bytes": 4566,
+      "sha256": "3d2c6236d34ef17e71af624d869c4351c36f9e15b6eb4a49d7522b984f864c32"
+    },
+    {
+      "member": "integration_reconciliation/integrated_roof_v1.log.stderr",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_roof_v1.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "integration_reconciliation/integrated_roof_v1.log.receipt.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_roof_v1.log.receipt.json",
+      "bytes": 4447,
+      "sha256": "a3c2b4777dff0300e918d19811e179ef398ee6f94f9443dc74888aacd50aa004"
+    },
+    {
+      "member": "integration_reconciliation/integrated_roof_fast_v2.log",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_roof_fast_v2.log",
+      "bytes": 5234,
+      "sha256": "c531b4ec2d8247998feb42324a777644e00c41cfb05a8c1c515ab6828e098250"
+    },
+    {
+      "member": "integration_reconciliation/integrated_roof_fast_v2.log.stderr",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_roof_fast_v2.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "integration_reconciliation/integrated_roof_fast_v2.log.receipt.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_roof_fast_v2.log.receipt.json",
+      "bytes": 4767,
+      "sha256": "5504d41238f9153c7b9e72c8c6808cfba526a71ae1742965cad58b3e942f2e26"
+    },
+    {
+      "member": "integration_reconciliation/integrated_sky_fast_v2.log",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_sky_fast_v2.log",
+      "bytes": 12861,
+      "sha256": "ca4ec998142f841d1738b6dc67c2b9c73054e61a8b1cf83e9e0d7dc2e1ede90c"
+    },
+    {
+      "member": "integration_reconciliation/integrated_sky_fast_v2.log.stderr",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_sky_fast_v2.log.stderr",
+      "bytes": 428,
+      "sha256": "4d6c6d08b7aab5763b3660bd9d32de51d0054ec59cf69b0ca7ebc6cbcc0eada1"
+    },
+    {
+      "member": "integration_reconciliation/integrated_sky_fast_v2.log.receipt.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_sky_fast_v2.log.receipt.json",
+      "bytes": 1646,
+      "sha256": "87ba02ca5d02e61b79a57e2b30982e040fe300f6b7b2c563e4ad4933fe9e6966"
+    },
+    {
+      "member": "integration_reconciliation/integrated_world_fast_v2.log",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_world_fast_v2.log",
+      "bytes": 6687,
+      "sha256": "ff3b5828f12e07e9b6a62fe3778550439aa52c31fbccd79f268d4a374785f2b1"
+    },
+    {
+      "member": "integration_reconciliation/integrated_world_fast_v2.log.stderr",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_world_fast_v2.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "integration_reconciliation/integrated_world_fast_v2.log.receipt.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_world_fast_v2.log.receipt.json",
+      "bytes": 4638,
+      "sha256": "828be4b8eefc9e7b067a84b6e818ed2f1f18f5fe4f059bf55b5dd9b3f30bd68f"
+    },
+    {
+      "member": "integration_reconciliation/surface_v1_failure_diagnosis.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\surface_v1_failure_diagnosis.json",
+      "bytes": 1476,
+      "sha256": "7420fa3476d2991843b7f63958f824f8f166a37a81c5878aa129df4cafd786e2"
+    },
+    {
+      "member": "integration_reconciliation/surface_v2_failure_diagnosis.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\surface_v2_failure_diagnosis.json",
+      "bytes": 1770,
+      "sha256": "7762eb23aabc479e1ef9193de1394e9d32687019b8d95ad30f6208c465f5e88d"
+    },
+    {
+      "member": "integration_reconciliation/integrated_surface_v2_visual_notes.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_surface_v2_visual_notes.json",
+      "bytes": 1469,
+      "sha256": "652a9b54254247fd87cfb3ad8ea34f2c40ac8cca91711f3a3f0854b3d3fcf4b6"
+    },
+    {
+      "member": "integration_reconciliation/isolated_viewport_image_comparison.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\isolated_viewport_image_comparison.json",
+      "bytes": 2300,
+      "sha256": "b6389cda1c37daf990a4427ae58bc304148161400317d021e630b55d21bea4cd"
+    },
+    {
+      "member": "integration_reconciliation/roof_service_station_activity.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\roof_service_station_activity.json",
+      "bytes": 5975,
+      "sha256": "1c0179cff23b0819a50727427f521dc1866daedaa9a8351e0f2372383bc0f6d5"
+    },
+    {
+      "member": "integration_reconciliation/reconciliation_run_index.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\reconciliation_run_index.json",
+      "bytes": 3091,
+      "sha256": "03ae81c3a43f354a95d8cb411d4f278d12539703d3cf6663356ffd8cb12de9fc"
+    },
+    {
+      "member": "integration_reconciliation/integrated_weather_fast_v2_supervisor.log.isolated.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_weather_fast_v2_supervisor.log.isolated.json",
+      "bytes": 1207,
+      "sha256": "7f4876d025e10a69e365ede8981e6684c2ec53466e91f38212e8190ff150bb8f"
+    },
+    {
+      "member": "integration_reconciliation/integrated_weather_fast_v2_supervisor.log.isolated.log",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_weather_fast_v2_supervisor.log.isolated.log",
+      "bytes": 3269,
+      "sha256": "f432785444f01a7db71319dcffa3db6771542a630386bcf17435fbc7778b97c1"
+    },
+    {
+      "member": "integration_reconciliation/surface_batch_v2.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\surface_batch_v2.json",
+      "bytes": 771,
+      "sha256": "f9712bbb1290f9450d73d02b1a55dd7552fdbb4d680e1e7124b71b53fd69e162"
+    },
+    {
+      "member": "integration_reconciliation/integrated_weather_batch_fast_v2.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_weather_batch_fast_v2.json",
+      "bytes": 880,
+      "sha256": "5f6dbff7c2ce6df03c724f429c4a7dd7a600fdc4e868c4f27e8819f4d99c08a4"
+    },
+    {
+      "member": "integration_reconciliation/host_render_settings_v2/03_lenticular.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\host_render_settings_v2\\03_lenticular.json",
+      "bytes": 6439,
+      "sha256": "72af536553629aedbfa300dafdbe4a7fe21e087df2697a439265735ac598720f"
+    },
+    {
+      "member": "integration_reconciliation/host_render_settings_v2/03_lenticular.png",
+      "original": "C:\\ov\\reports\\weather_profile29\\host_render_settings_v2\\03_lenticular.png",
+      "bytes": 403305,
+      "sha256": "14c560d634a127ba7346ad7d464a3d6c9ffa8fe3bb376e1fd648b2ec1d566110"
+    },
+    {
+      "member": "integration_reconciliation/integrated_roof_fast_v2/christmas_snow.png",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_roof_fast_v2\\christmas_snow.png",
+      "bytes": 207302,
+      "sha256": "a2958c04167d6a14ac3af894b2aa92b523af3bbbbac2fd91cfeccd3dba4cc641"
+    },
+    {
+      "member": "integration_reconciliation/integrated_roof_fast_v2/opening_day.png",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_roof_fast_v2\\opening_day.png",
+      "bytes": 592046,
+      "sha256": "087f33a00eec39f65805faad40f876247c95c6c79880f56afff8e7a21aa81639"
+    },
+    {
+      "member": "integration_reconciliation/integrated_roof_fast_v2/roof_preview_review.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_roof_fast_v2\\roof_preview_review.json",
+      "bytes": 389991,
+      "sha256": "d854adf15e1f3fad71d7b3c23766fa659ece00372a8c77b8b72420ca00e6cc5a"
+    },
+    {
+      "member": "integration_reconciliation/integrated_roof_fast_v2/spring_evening.png",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_roof_fast_v2\\spring_evening.png",
+      "bytes": 253454,
+      "sha256": "723783976a9de11100333e5cb5147d551d6fbaf0ab3e7b7c74afaca9a16f39b0"
+    },
+    {
+      "member": "integration_reconciliation/integrated_roof_fast_v2/summer_hail.png",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_roof_fast_v2\\summer_hail.png",
+      "bytes": 261616,
+      "sha256": "d064f2374f26803fddc265fa049ae0d294bcf3672ba7ab38d20b43eb660a9cfc"
+    },
+    {
+      "member": "integration_reconciliation/integrated_world_fast_v2/lifecycle_0.png",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_world_fast_v2\\lifecycle_0.png",
+      "bytes": 323797,
+      "sha256": "1120f8e16d98f86d6324f27a0c62be2d22f6f8f7b403396d43bce00ed5048e35"
+    },
+    {
+      "member": "integration_reconciliation/integrated_world_fast_v2/lifecycle_1.png",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_world_fast_v2\\lifecycle_1.png",
+      "bytes": 340285,
+      "sha256": "561ee75dde14a6dde6f0927c14f08d0d31de35ca4e27f52e95b9177f70a20125"
+    },
+    {
+      "member": "integration_reconciliation/integrated_world_fast_v2/weather_lifecycle_contract.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_world_fast_v2\\weather_lifecycle_contract.json",
+      "bytes": 18219,
+      "sha256": "5fdef672cd8141797efc2012d497a76b08119e6da49c71a77d5ea8d24436f9cc"
+    },
+    {
+      "member": "integration_reconciliation/integrated_surface_v2/physical_gasket_work.png",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_surface_v2\\physical_gasket_work.png",
+      "bytes": 385257,
+      "sha256": "556670d8f3e7de4079204ebb8c6ae017c8aa7bcd4becbede60112a4d6d93d7aa"
+    },
+    {
+      "member": "integration_reconciliation/integrated_surface_v2/city_street_skyline.png",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_surface_v2\\city_street_skyline.png",
+      "bytes": 738700,
+      "sha256": "85f372acde31736ee434a183083ed383ee346ddfd21e739b01ebd7f2f0b88565"
+    },
+    {
+      "member": "integration_reconciliation/integrated_surface_v2/city_weather_storm.png",
+      "original": "C:\\ov\\reports\\weather_profile29\\integrated_surface_v2\\city_weather_storm.png",
+      "bytes": 328172,
+      "sha256": "f992f026e8cbb4da68a53e6471e5977b145fd96a186e732fd66a51da946ed919"
+    },
+    {
+      "member": "integration_reconciliation/canonical/inventory_before.json",
+      "original": "C:\\ov\\reports\\canonical_reconcile_20261026\\inventory_before.json",
+      "bytes": 525137,
+      "sha256": "41ec7feaa6122f1ac94b93d072f825098d7855c25e47c50272b07ad627d5d196"
+    },
+    {
+      "member": "integration_reconciliation/canonical/working_bytes_manifest.json",
+      "original": "C:\\ov\\reports\\canonical_reconcile_20261026\\working_bytes_manifest.json",
+      "bytes": 192244,
+      "sha256": "7ad65b0cf881b3a60b9a5ef99f8d85a1381799646b49b834e663b7e4e7e97a66"
+    },
+    {
+      "member": "integration_reconciliation/canonical/verification/verification.md",
+      "original": "C:\\ov\\reports\\canonical_reconcile_20261026\\verification\\verification.md",
+      "bytes": 1533,
+      "sha256": "058215ba1cefb5420d33f254650d37ee1b324ae272879436a6e2ea5ac5538e9c"
+    },
+    {
+      "member": "integration_reconciliation/canonical/verification/verification.json",
+      "original": "C:\\ov\\reports\\canonical_reconcile_20261026\\verification\\verification.json",
+      "bytes": 284210,
+      "sha256": "6cbbbf0cbac74a230741d5827f49f1846d0409b6c13b5a124480400e2e7e2851"
+    },
+    {
+      "member": "integration_reconciliation/surface_batch_v2_supervisor.log.isolated.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\surface_batch_v2_supervisor.log.isolated.json",
+      "bytes": 1219,
+      "sha256": "b415dab3adccbbd383cbd77443414ab57de71e2d85e454f9e4fe21c0ef13f7ef"
+    },
+    {
+      "member": "integration_reconciliation/reconciliation_review_notes.json",
+      "original": "C:\\ov\\reports\\weather_profile29\\reconciliation_review_notes.json",
+      "bytes": 1474,
+      "sha256": "d101da64dcf912cbb79cb5378826455f0fd361ae8eee40ab1723fbe750ffea96"
     }
   ],
   "derived_previews": [
