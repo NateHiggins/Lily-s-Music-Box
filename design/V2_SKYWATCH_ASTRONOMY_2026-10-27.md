@@ -629,3 +629,41 @@ The currently built fictional rigid liner covers part of the aviation request;
 airmail planes, advertising blimps, beacons, coronae and flocks remain unbuilt.
 These additions do not supersede cloud quality, the rooftop club, its telescope,
 barbecue access or the outstanding occupied-world and surface qualification.
+
+### Queued presentation experiment: early-film cadence
+
+Owner's October 27 film brief is queued after weather/cloud integration and
+baseline responsiveness diagnosis. It authorizes an optional Graphics setting:
+Smooth (default), Cinematic 24, Early Film 18. This is a future implementation,
+not an enabled frame cap or a claim of 60+ FPS on the current world.
+
+- Keep the camera, actual grab/drag state, held mechanisms and text presentation
+  on the ordinary responsive path. Step only eligible visual animation poses
+  and decorative shader time; retain continuous authoritative transforms,
+  collision, navigation, animation events and attachments. Inspect owner scripts
+  before moving any AnimationMixer into manual advancement. Stepping must not
+  replay/skip gameplay method tracks or double-advance animation owners.
+- Reject a low-frequency whole-world SubViewport as the general solution: its
+  captured view would still update the camera image at 18 Hz. Preserve the
+  current separate companion compositing, lamp visibility and real occlusion.
+  The companion is physical paper and machinery, not a replaceable text overlay;
+  protect the existing display's readability rather than flattening it into HUD.
+- Cadence reduction alone does not create over-speed. Explore visual pose holds
+  and snappier transitions while keeping authoritative travel and mechanisms
+  unchanged. Never alter Engine time scale or assume the campaign runs at one
+  in-game second per real second. Preserve its current clock rate in every mode.
+- Gate weave, exposure flicker and orthochromatic/sepia grading are independent,
+  optional and restrained. Exclude readable companion surfaces, UI and input
+  framing from displacement/flicker. Provide a motion/flicker-free choice.
+  Temporal AA and motion-vector behavior need real rendered evaluation; FXAA
+  is spatial and does not itself interpolate animation time. Do not globally
+  disable the existing AA setting merely to imitate a shutter.
+- First profile Smooth. Then compare identical routes in all three modes:
+  frame-time distributions, input-to-visible-motion, typing/cancel/release,
+  clock/save continuity, event ordering and held-object alignment. Visual
+  stepping cannot repair or conceal late engine frames. Native-refresh camera
+  presentation is a target bounded by hardware performance, not a guarantee.
+
+A true 24 FPS engine cap may be a clearly labeled temporary comparison only,
+never the normal mode. Do not add another viewport or post-process dependency
+before measuring whether the existing presentation path can support the effect.
