@@ -3,8 +3,8 @@
   "scope": "Recovered Living Sky on accepted main; native 3440x1440 surface40797, roof43, sky59, saved-world41 and calendar424 checks, original failures, matched occupied route, 42-frame phenomenon review and 2190-sample annual review. Technical integration only; legacy V1 cache warnings, the retained pipeline-specialization hitch and owner appearance/game-feel acceptance remain explicit limitations. No whole-V2 completion claim.",
   "source_commit": "a535b38005bcf97380ff2e75bfd2fcf4ed804501",
   "archive": "roof_preview_review.zip",
-  "bytes": 52110563,
-  "sha256": "46f201f0afa0f8fbc22c78185ca45b3fbcd0848ae431fabdab415c79c945eebf",
+  "bytes": 52144627,
+  "sha256": "b7ffeb50df09669a61f00f2b083b8dabf2bf77fabcc654c342cbf853f1c07321",
   "members": [
     {
       "member": "baseline/board.json",
@@ -3887,6 +3887,18 @@
       "original": "C:\\ov\\reports\\weather_recovery30\\traced_settled_fire_hand.gd",
       "bytes": 38833,
       "sha256": "54d9ab0a1e668331c3e47390de57d16f9a202c4812025e4898d43164c1370794"
+    },
+    {
+      "member": "production_recovery/candidate_666335c3/verification.json",
+      "original": "C:\\ov\\reports\\weather_recovery30\\candidate_666335c3\\verification.json",
+      "bytes": 288985,
+      "sha256": "195e8ffa43980b22f1e1b333639e3cf6559c36f552066147b21e3cfb79083409"
+    },
+    {
+      "member": "production_recovery/candidate_666335c3/verification.md",
+      "original": "C:\\ov\\reports\\weather_recovery30\\candidate_666335c3\\verification.md",
+      "bytes": 1533,
+      "sha256": "562c1f1ef0a56d24c8b7e500265fd915302a31710163dd8d4854d43f44ec253e"
     }
   ],
   "derived_previews": [
@@ -3970,5 +3982,15 @@
     "sha256": "61817e04fb5209618bd286d622a9a4f52b03241383346adf37732859b2d448f3",
     "bytes": 20500193,
     "members": 299
+  },
+  "candidate_verification": {
+    "candidate": "666335c35a3b1df9f529fc9978ec9b9f00cb269d",
+    "base": "53d8eb068ce3b864d81d9e33ecc7480ad219ef2d",
+    "last_line": "MERGE-CANDIDATE 666335c35a3b1df9f529fc9978ec9b9f00cb269d",
+    "gates": 114,
+    "regressions": 0,
+    "protected_unchanged": 17,
+    "selector": "v2",
+    "scope": "Clean in-place static candidate verification; separately archived Godot runtime contracts and native renders cover the unchanged runtime source."
   }
 }

@@ -1296,7 +1296,7 @@ This preserves a visible quality tradeoff and does not claim every sky is faster
 
 #### Evidence, scope and integration status
 
-The consolidated archive has **647 hash-verified members, 52,110,563 bytes**;
+The consolidated archive has **649 hash-verified members, 52,144,627 bytes**;
 all 299 preceding members remain byte-exact. It keeps raw failure/pass logs,
 test-written contracts and original source controls. Four new native-resolution
 phenomenon PNGs are retained, with explicitly mapped JPEG review derivatives for
@@ -1318,10 +1318,18 @@ not that newly requested simplification. The Year You Died and its verbatim
 opening scene remain the post-V2 goal; alien/Signal Pro direction is recorded
 without introducing premature story facts into the current campaign.
 
-Final candidate verification and clean integration remain mandatory after this
-evidence checkpoint. The prequalification board ran all114 gates and found only
-the then-stale surface packet; reader NEW0 and ledger requirements unchanged.
-The independent publisher now validates the renewed packet. No owner decision
-is needed; routine verification and merge are authorized.
+Clean in-place candidate verification of **666335c35a3b1df9f529fc9978ec9b9f00cb269d**
+passes all114 gate comparisons: **zero regressions**, **17/17 protected paths
+unchanged**, selector **v2**, zero design-lint errors and no changed gates.
+Reader NEW0; ledger counts stay **7 / 8 / 110 / 42 / 134 / 136**, with no
+requirements changed. The complete verifier JSON and report are archived under
+**production_recovery/candidate_666335c3/**. Its checkout was clean.
 
-BLOCKED — final clean candidate verification and merge pending.
+The verifier uses **--no-godot** because the separately archived native runtime
+programmes already ran on the unchanged qualified sources. It does not claim
+fresh-checkout/autocrlf qualification or repeat those scenes. This subsequent
+documentation/archive checkpoint requires its own final static check before
+merge; runtime sources and their surface binding remain unchanged. No owner
+decision is needed; routine verification and merge are authorized.
+
+MERGE-CANDIDATE 666335c35a3b1df9f529fc9978ec9b9f00cb269d
