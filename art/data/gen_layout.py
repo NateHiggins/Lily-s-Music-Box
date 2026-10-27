@@ -10609,7 +10609,12 @@ PROP_CATALOG = {
 }
 
 MATERIAL_CATALOG = {
+    'guide_bell_membrane': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
+    'guide_bell_tissue': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
     "tentacle_gang_residue": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
+    "tardigrade_membrane": {"base_color": [.78,.76,.66,1.], "roughness": .28, "metallic": 0},
+    "tardigrade_organ": {"base_color": [.55,.43,.32,1.], "roughness": .64, "metallic": 0},
+    "tardigrade_mineral": {"base_color": [.83,.54,.18,1.], "roughness": .22, "metallic": 1},
     "tentacle_gang_membrane": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
     "tentacle_gang_tissue": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},
     "tentacle_gang_eye": {"base_color": [1,1,1,1], "roughness": 1.0, "metallic": 0},

@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 31.46,
+  "exit_code": 0,
+  "finished_utc": "2026-10-26T00:04:13Z",
+  "started_utc": "2026-10-26T00:03:41Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/guide_bell/prey_mottled.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/guide_bell/prey_mottled.log",
+  "stdout_sha256": "6218f054a0c4724cf4fb522fedd6aefdcd2cdae52f1b8b589606a0ac3d698577"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/TardigradeMicroscopyReview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/guide_bell/prey_mottled",
+ "source": {
+  "dirty_paths": 1038,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M .gitignore",
+   " M DOCS.md",
+   " M art/blender/bodega_frontage.blend",
+   " M art/blender/bodega_frontage_construction.json",
+   " M art/blender/city_closure.blend",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations.blend",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/dream_critters/euplotes.blend",
+   " M art/blender/dream_critters/euplotes_lod1.blend",
+   " M art/blender/dream_critters/tardigrade.blend",
+   " M art/blender/dream_critters/tardigrade_lod1.blend",
+   " M art/blender/front_pavement.blend",
+   " M art/blender/front_pavement_construction.json",
+   " M art/blender/passage_shop_leaves.blend",
+   " M art/blender/scripts/build_bodega_frontage.py",
+   " M art/blender/scripts/build_city_closure.py",
+   " M art/blender/scripts/build_dream_critter.py",
+   " M art/blender/scripts/euplotes_model.py"
+  ],
+  "repository_head": "7a548239e3fddba395341e05fcb3be6ec583ae3e",
+  "repository_tree": "bdf44c4f212f591781b5bbe502dab3193169f8a1",
+  "runtime_inputs_sha256": "97326c914a3321c7ba6710849498a6103d627c45ddce87bcef63288a0debd010",
+  "test_path": "game/tests/tardigrade_microscopy_review.gd",
+  "test_sha256": "6c93266a7dbc40b2164a0b056f0dfb068e4d192a9bbde32587bb9b2e145dc4fc"
+ },
+ "windowed": true
+}

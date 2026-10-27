@@ -1,0 +1,19 @@
+--- a/art/tools/build_tentacle_gang_maps.py
++++ b/art/tools/build_tentacle_gang_maps.py
+@@ -27,6 +27,16 @@
+     pigment=.72+.22*height+.06*np.sin(x*20+y*31)
+     albedo=np.clip(pigment[:,:,None]*np.array(color)[None,None,:]*255,0,255)
+     rough=np.clip((.28+.3*height+.13*(pores>.94))*255,0,255)
++    if family in ('membrane','tissue'):
++        # Soft guide-bell-style density islands; preserve this family's hue.
++        warp=.38*np.sin(2*np.pi*(x+2*y))
++        clouds=(np.sin(2*np.pi*(3*x+y)+warp)*np.cos(2*np.pi*(2*y-x))
++                +.45*np.sin(2*np.pi*(7*x+4*y)+warp)
++                +.2*np.cos(2*np.pi*(11*y-5*x)))/1.65
++        clouds-=clouds.mean()
++        mottled=albedo*(1+(.26 if family=='membrane' else .14)*clouds[:,:,None])
++        albedo=mottled*(albedo.mean(axis=(0,1))/mottled.mean(axis=(0,1)))
++        rough=np.clip(rough+255*.065*clouds,0,255)
+     for suffix, pixels in [('albedo',albedo),('normal',normal),('roughness',rough)]:
+         Image.fromarray(pixels.astype('uint8')).save(OUT/f'{family}_{suffix}.png')
+     # Additive catalogue registration preserves other in-flight edits.

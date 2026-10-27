@@ -40,4 +40,23 @@ class PhysicalImportSourcesTests(unittest.TestCase):
             root,_=self.setup_repo(folder);(root/'.gitattributes').write_text('*.import -text\n',encoding='utf8')
             self.assertEqual(evaluate(root)['wrong'],['game/assets/props/test.glb: hash-bound physical source requires -text'])
 
+    def test_large_inventory_does_not_use_a_windows_sized_argument_list(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root,template=self.setup_repo(folder)
+            paths=[]
+            for index in range(200):
+                name=f"game/assets/props/{index:03d}_"+'long physical source '*4+'.glb'
+                asset=root/name
+                asset.write_bytes(b'fixture source')
+                metadata=Path(str(asset)+'.import')
+                metadata.write_text(template.read_text().replace('game/assets/','').replace(
+                    'props/test.glb',name.removeprefix('game/assets/')),encoding='utf8')
+                paths.extend([name,name+'.import'])
+            for begin in range(0,len(paths),32):
+                subprocess.run(['git','add','--',*paths[begin:begin+32]],cwd=root,check=True,capture_output=True)
+            result=evaluate(root)
+            self.assertEqual(result['referenced'],201)
+            self.assertEqual(result['missing'],[])
+            self.assertEqual(result['wrong'],[])
+
 if __name__=='__main__':unittest.main()

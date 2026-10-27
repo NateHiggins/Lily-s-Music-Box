@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 20.99,
+  "exit_code": 0,
+  "finished_utc": "2026-10-25T23:51:48Z",
+  "started_utc": "2026-10-25T23:51:27Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/guide_bell/mottled.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/guide_bell/mottled.log",
+  "stdout_sha256": "0f04c9a2369a22c0d8f7a68fe1d3f5584bb6f9f7bf65b27566959b54771f69da"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/GuideBellContract.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/guide_bell/mottled",
+ "source": {
+  "dirty_paths": 1031,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M .gitignore",
+   " M DOCS.md",
+   " M art/blender/bodega_frontage.blend",
+   " M art/blender/bodega_frontage_construction.json",
+   " M art/blender/city_closure.blend",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/dream_critters/euplotes.blend",
+   " M art/blender/dream_critters/euplotes_lod1.blend",
+   " M art/blender/dream_critters/tardigrade.blend",
+   " M art/blender/dream_critters/tardigrade_lod1.blend",
+   " M art/blender/front_pavement.blend",
+   " M art/blender/front_pavement_construction.json",
+   " M art/blender/passage_shop_leaves.blend",
+   " M art/blender/scripts/build_bodega_frontage.py",
+   " M art/blender/scripts/build_city_closure.py",
+   " M art/blender/scripts/build_dream_critter.py",
+   " M art/blender/scripts/euplotes_model.py",
+   " M art/blender/street_paving_details.blend",
+   " M art/blender/street_paving_details_construction.json"
+  ],
+  "repository_head": "7a548239e3fddba395341e05fcb3be6ec583ae3e",
+  "repository_tree": "bdf44c4f212f591781b5bbe502dab3193169f8a1",
+  "runtime_inputs_sha256": "f9dc0ee344bff43eab2dd9843e6996b8390aa743c4f4e516c91174218a94c469",
+  "test_path": "game/tests/guide_bell_contract.gd",
+  "test_sha256": "69f27145be2adf4c622c5ad3b7672db08c70703417e13d1dbf0496a4dfd68ff5"
+ },
+ "windowed": true
+}

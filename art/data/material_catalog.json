@@ -1453,6 +1453,36 @@
   "roughness": 1.0,
   "metallic": 0.0
  },
+ "tardigrade_membrane": {
+  "base_color": [
+   0.78,
+   0.76,
+   0.66,
+   1.0
+  ],
+  "roughness": 0.28,
+  "metallic": 0
+ },
+ "tardigrade_organ": {
+  "base_color": [
+   0.55,
+   0.43,
+   0.32,
+   1.0
+  ],
+  "roughness": 0.64,
+  "metallic": 0
+ },
+ "tardigrade_mineral": {
+  "base_color": [
+   0.83,
+   0.54,
+   0.18,
+   1.0
+  ],
+  "roughness": 0.22,
+  "metallic": 1
+ },
  "tentacle_gang_membrane": {
   "base_color": [
    1,
@@ -1474,6 +1504,26 @@
   "metallic": 0
  },
  "tentacle_gang_eye": {
+  "base_color": [
+   1,
+   1,
+   1,
+   1
+  ],
+  "roughness": 1.0,
+  "metallic": 0
+ },
+ "guide_bell_membrane": {
+  "base_color": [
+   1,
+   1,
+   1,
+   1
+  ],
+  "roughness": 1.0,
+  "metallic": 0
+ },
+ "guide_bell_tissue": {
   "base_color": [
    1,
    1,

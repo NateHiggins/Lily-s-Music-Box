@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 172.43,
+  "exit_code": 1,
+  "finished_utc": "2026-10-26T00:07:26Z",
+  "started_utc": "2026-10-26T00:04:34Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/guide_bell/world_supported.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/guide_bell/world_supported.log",
+  "stdout_sha256": "d9999bfeedb8067e6ccb5ea29ae2a0637f5f1e145fc0dd1730d99f74e9bd4583"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/GuideBellWorldContract.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/guide_bell/world_supported",
+ "source": {
+  "dirty_paths": 971,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M .gitignore",
+   " M DOCS.md",
+   " M art/blender/bodega_frontage.blend",
+   " M art/blender/bodega_frontage_construction.json",
+   " M art/blender/city_closure.blend",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_elevations.blend",
+   " M art/blender/city_elevations_construction.json",
+   " M art/blender/dream_critters/euplotes.blend",
+   " M art/blender/dream_critters/euplotes_lod1.blend",
+   " M art/blender/dream_critters/tardigrade.blend",
+   " M art/blender/dream_critters/tardigrade_lod1.blend",
+   " M art/blender/front_pavement.blend",
+   " M art/blender/front_pavement_construction.json",
+   " M art/blender/passage_shop_leaves.blend",
+   " M art/blender/scripts/build_bodega_frontage.py",
+   " M art/blender/scripts/build_city_closure.py",
+   " M art/blender/scripts/build_dream_critter.py",
+   " M art/blender/scripts/euplotes_model.py"
+  ],
+  "repository_head": "3a01ac1d624ea754821a5df8c8dc5773dd7a6b02",
+  "repository_tree": "54893110dde43ed2aedc39e4317f626a8a83f386",
+  "runtime_inputs_sha256": "97326c914a3321c7ba6710849498a6103d627c45ddce87bcef63288a0debd010",
+  "test_path": "game/tests/guide_bell_world_contract.gd",
+  "test_sha256": "5c121c8748049c97b5e1160ea64693898ccccb600bf457c216db9b479caff202"
+ },
+ "windowed": true
+}

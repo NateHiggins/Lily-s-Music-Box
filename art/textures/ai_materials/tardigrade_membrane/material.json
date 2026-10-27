@@ -1,0 +1,18 @@
+{
+  "material": "tardigrade_membrane",
+  "source": "art/tools/build_tardigrade_maps.py",
+  "source_sha256": "d70b5dd7504287d87ee6219b337d8d4b47148752eaa2f9a96a61cdacdf21270b",
+  "meters_per_tile": 0.04,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png"
+  },
+  "mottling": "guide-bell soft warped density islands; mean RGB preserved",
+  "normal_authoring": {
+    "construction": "membrane pores and reserve folds",
+    "relief_m": 0.00025,
+    "convention": "OpenGL",
+    "strength": 1.0
+  }
+}

@@ -185,7 +185,7 @@ for (identity,key),objects in sorted(batches.items()):
   for j,loop in enumerate(face.loop_indices):chart.data[loop].uv=tuple(values[j]);guides.data[loop].vector=(float(u[0]),float(u[2]),float(-u[1]));normals[loop]=tuple(n)
  mesh.normals_split_custom_set(normals);obj=bpy.data.objects.new(name,mesh);bpy.context.scene.collection.objects.link(obj);obj.location=origin;draws.append(obj)
  mesh.calc_loop_triangles();triangles=len(mesh.loop_triangles);total_triangles+=triangles;inventory.append({'name':name,'group':identity,'key':key,'triangles':triangles})
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/city_closure.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/city_closure.blend'),relative_remap=False)
 bpy.ops.object.select_all(action='DESELECT')
 for obj in draws:obj.select_set(True)
 class ExportUVHandedness:

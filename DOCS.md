@@ -34,12 +34,15 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
+| Vorticella maintenance guide-bell requirements, route-distance lifecycle and bounded symbiosis | `design/VORTICELLA_GUIDE_BELLS_BRIEF_2026-10-25.md` and `game/docs/maintenance_guide_bells.md` |
 | Completed tentacle encounter surface qualification and clean teardown (INERT) | `design/TENTACLE_GANG_SURFACE_COMPLETION_2026-10-26.md` |
 | Tentacle searching, recoil and contact melt (INERT) | `design/TENTACLE_GANG_COMPLETION_2026-10-26.md` |
 | Tentacle gang hitch/teardown checkpoint and requested contact-melt follow-up (INERT) | `design/TENTACLE_GANG_ACCEPTANCE_FOLLOWUP_2026-10-25.md` |
 | Owner's maintenance-local tentacle gang anatomy, contact, optics and acceptance requirements | `design/TENTACLE_GANG_ENCOUNTER_BRIEF_2026-10-25.md` |
 | Tentacle gang implementation, runtime review and remaining qualification limits (INERT) | `design/TENTACLE_GANG_IMPLEMENTATION_REPORT_2026-10-25.md` |
 | Shower moisture, side-correct wet glass and native wall-mounted toilet paper | `design/V2_BATHROOM_MOISTURE_AND_PAPER_2026-10-24.md` |
+| Tardi lunch priority, Euplotes microscopy and comic pursuit | `design/V2_TARDIGRADE_LUNCH_2026-10-25.md` |
+| Tardigrade nested tissue, shared lamp optics and isolated review limits | `design/V2_TARDIGRADE_MICROSCOPY_2026-10-25.md` |
 | Varied nook shelves, reused keepsakes and correction of stale binding debt | `design/V2_NOOK_SHELF_DRESSING_2026-10-24.md` |
 | Readable hose jet, inactive prepared emitters and first-spray timing | `design/V2_HOSE_SPRAY_READABILITY_2026-10-24.md` |
 | Installed hose maintenance input, connected charge/save route and idle negative control | `design/V2_HOSE_INSTALLED_MAINTENANCE_2026-10-24.md` |

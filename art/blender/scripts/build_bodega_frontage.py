@@ -223,7 +223,7 @@ leaf_draw=bpy.data.objects.new('LeafPanel__'+plan['wood_key'],native_panel.data.
 leaf_draw.location=origin;leaf_draw.parent=leaf_parent;draws.append(leaf_draw)
 leaf_draw.data.calc_loop_triangles();leaf_triangles=len(leaf_draw.data.loop_triangles);triangles+=leaf_triangles
 inventory.append({'name':leaf_draw.name,'key':plan['wood_key'],'triangles':leaf_triangles,'owner':'original_hinged_leaf'})
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/bodega_frontage.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/bodega_frontage.blend'),relative_remap=False)
 bpy.ops.object.select_all(action='DESELECT')
 for obj in draws:obj.select_set(True)
 leaf_parent.select_set(True)

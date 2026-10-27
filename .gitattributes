@@ -51,6 +51,9 @@ game/assets/dream/tentacle/T_dream_hero_anatomy.png binary
 art/blender/dream_critters/** binary
 game/assets/dream/critters_blender/** -text
 art/blender/scripts/build_dream_critter.py -text
+art/blender/scripts/tardigrade_microanatomy.py -text
+art/tools/build_tardigrade_maps.py -text
+art/textures/ai_materials/tardigrade_*/material.json -text
 art/blender/scripts/check_dream_critter_anatomy.py -text
 art/blender/scripts/render_dream_critter.py -text
 art/renders/dream_critter_blender_pilots_20260919/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
@@ -643,6 +646,9 @@ game/data/orison_v2/photo_portraits.json -text
 game/tests/fixtures/orison_photo_portraits.json -text
 game/scripts/building/orison_v2_photo_portraits.gd -text
 game/tests/orison_v2_photo_portraits_test.gd -text
+art/reviews/tentacle_gang_20261025/** -text -whitespace
+game/assets/dream/tentacle_gang/** -text whitespace=cr-at-eol
+art/blender/tentacle_gang_*.blend -text
 game/assets/props/photo_portraits.glb.import -text
 game/assets/props/photo_portraits/portrait_atlas.png.import -text
 art/renders/orison_v2/photo_portraits_20261005/** -text
@@ -3191,9 +3197,6 @@ game/tests/V2ArcadeRetirementReview.tscn -text
 art/reviews/v2_shop_finish_ownership_20261024/** -text -whitespace
 game/tests/orison_v2_photo_portraits_test.gd -text
 
-art/reviews/tentacle_gang_20261025/** -text -whitespace
-game/assets/dream/tentacle_gang/** -text whitespace=cr-at-eol
-art/blender/tentacle_gang_*.blend -text
-
 tools/engine_patches/*.patch -text -whitespace
+
 art/reviews/tentacle_gang_20261026/** -text -whitespace
