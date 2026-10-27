@@ -1774,3 +1774,17 @@ artifacts extend the archived fallout section to **35** artifacts; the complete
 archive has **324** unique, hash-verified members and **43,326,625 bytes**.
 Surface-packet renewal and final zero-regression candidate verification remain
 pending. No whole-game or weather-production completion is claimed.
+
+
+**Surface source-preflight continuation.** The first full attempt
+**surface_fallout.log.receipt.json** stopped before composing the world: six
+fixtures still bound the pre-frog catalogue, and the ground fixture also bound
+the pre-wetness ground consumer. Its terminal failure is preserved. Eleven
+explicit city/leaf construction and fixture records now reconcile only those
+source bindings and their dependent construction hashes. All non-binding
+payloads stay exact. The ground consumer is verified as precisely the two-line
+exterior material adaptation; all 124 old catalogue materials and every other
+source dependency remain exact. Nine required fixture preflights now pass.
+This is source closure, not a render or runtime acceptance. The archive retains
+original records, source-only comparisons and the original failed run; the full
+composed surface run must be repeated under a new output path.
