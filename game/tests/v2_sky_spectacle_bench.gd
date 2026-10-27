@@ -91,6 +91,9 @@ func _ready() -> void:
 	camera.global_position = EYE
 	get_viewport().use_taa = true
 	await get_tree().process_frame
+	if OS.get_environment("SKY_LIGHTNING_REVIEW")=="1":
+		await _lightning_review()
+		return
 	if OS.get_environment("SKY_VORTEX_REVIEW")=="1":
 		await _vortex_review()
 		return
@@ -512,3 +515,87 @@ func _nearest_corona_tip() -> Vector3:
 			best = tip
 			best_distance = distance
 	return best
+
+
+## Deterministic electrical presentation review over the production city sky.
+func _lightning_review() -> void:
+	manager.set_process(false);director.set_process(false)
+	var module := preload("res://scripts/building/deterministic_lightning_manager.gd")
+	var calendar := preload("res://scripts/game/campaign_weather.gd")
+	calendar.load_calendar()
+	var failures: Array[String]=[]
+	var selected: Dictionary={}
+	var positive: Dictionary={}
+	for key: String in calendar._dates:
+		for frame: Dictionary in calendar._days[key].frames:
+			if int(frame.weather_code) not in [95,96,99]:continue
+			var minute:=float(Time.get_unix_time_from_datetime_string(key+"T00:00:00"))+float(frame.minute)*60.0
+			for offset in 30:
+				var stamp:=minute+offset*60.0
+				if int(calendar.snapshot(Time.get_datetime_dict_from_unix_time(int(stamp))).get("weather_code",0)) not in [95,96,99]:continue
+				var rows: Array[Dictionary]=module.minute_strokes(stamp)
+				if rows!=module.minute_strokes(stamp):failures.append("minute replay changed")
+				for row: Dictionary in rows:
+					if not selected.has(int(row.kind)):selected[int(row.kind)]=row
+					if int(row.kind)==module.GROUND and bool(row.positive) and float(row.strength)>.85:positive=row
+					if float(row.time)<stamp or float(row.time)>=stamp+60:failures.append("out-of-minute timestamp")
+			if selected.size()==3 and not positive.is_empty():break
+		if selected.size()==3 and not positive.is_empty():break
+	if selected.size()!=3 or positive.is_empty():
+		push_error("LIGHTNING REVIEW missing calendar cases");get_tree().quit(1);return
+	var directory:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
+	var records: Array[Dictionary]=[]
+	var prior_suppressed:=bool(GameBoot.settings.get("reduce_flashing",false))
+	GameBoot.settings.reduce_flashing=false
+	for kind: int in [module.SHEET,module.GROUND,module.CRAWLER]:
+		var row: Dictionary=selected[kind]
+		var date:=Time.get_datetime_dict_from_unix_time(int(row.time))
+		clock.configure_date(int(date.year),int(date.month),int(date.day),int(date.hour)*60+int(date.minute))
+		clock.advance_seconds(fposmod(float(row.time),60.0)+.045)
+		manager._calendar_check_left=0.0;manager._phenomena_left=0.0
+		manager._process(0.0);manager._publish()
+		director._apply(clock.minute_of_day())
+		camera.fov=75.0;camera.look_at(Vector3(row.cloud)*.65)
+		var electrical: Node3D=manager.lightning
+		var state: Dictionary=electrical.sample(float(row.time)+.045,manager.current,[])
+		if float(state.level)<=0.0:failures.append("missing active stroke "+str(kind))
+		if kind==module.GROUND and (not electrical._bolt.visible or electrical._bolt.mesh.get_faces().size()>800):failures.append("ground bolt missing or unbounded")
+		if kind==module.CRAWLER and float(state.crawler)<=0.0:failures.append("crawler missing")
+		manager._crawler=state.crawler;manager._push_spectacle()
+		await get_tree().process_frame;await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(directory+"/lightning_%d.png"%kind)
+		var arrival: float=float(row.time)+module.thunder_delay(row.ground,camera.global_position)
+		electrical.sample(float(row.time)-2.0,manager.current,[])
+		electrical.sample(float(row.time)-.01,manager.current,[])
+		electrical.sample(float(row.time)+.01,manager.current,[])
+		if not electrical._pending.has(row.id):failures.append("thunder was not queued")
+		var cursor:=float(row.time)+.01
+		while cursor<arrival+.01:
+			cursor=minf(cursor+.25,arrival+.01)
+			electrical.sample(cursor,manager.current,[])
+		if not electrical._heard.has(row.id):failures.append("missing delayed thunder "+str(kind))
+		var after: int=electrical.thunder_count
+		electrical.sample(cursor,manager.current,[])
+		if electrical.thunder_count!=after:failures.append("duplicate thunder")
+		electrical.sample(float(row.time)-1.0,manager.current,[])
+		var replay: Dictionary=electrical.sample(float(row.time)+.045,manager.current,[])
+		if not is_equal_approx(float(state.level),float(replay.level)):failures.append("reverse/reload projection mismatch")
+		GameBoot.settings.reduce_flashing=true
+		var reduced: Dictionary=electrical.sample(float(row.time)+.045,manager.current,[])
+		if float(reduced.level)!=0.0 or electrical._bolt.visible or electrical._light.visible:failures.append("flash suppression failed")
+		GameBoot.settings.reduce_flashing=false
+		records.append({"type":kind,"id":row.id,"time":row.time,"ground":[row.ground.x,row.ground.y,row.ground.z],"delay_seconds":module.thunder_delay(row.ground,camera.global_position)})
+	var electrical: Node3D=manager.lightning
+	var t:=float(positive.time)+.045
+	var allowed: Array[Dictionary]=[{"slot":23}]
+	electrical.sample(t-2.0,manager.current,allowed)
+	var slots: Array[int]=[]
+	for frame in 6:slots.append(int(electrical.sample(t,manager.current,allowed).tle))
+	if slots!=[-1,-1,23,23,23,-1]:failures.append("TLE frame timing "+str(slots))
+	if not is_equal_approx(module.thunder_delay(Vector3(343,0,0),Vector3.ZERO),1.0):failures.append("sound travel math")
+	GameBoot.settings.reduce_flashing=prior_suppressed
+	var report:={"scope":"rendered production sky diagnostic; not occupied-world qualification","records":records,"tle_frames":slots,"failures":failures}
+	var file:=FileAccess.open(directory+"/lightning_review.json",FileAccess.WRITE);file.store_string(JSON.stringify(report,"  "));file.close()
+	for failure: String in failures:push_error(failure)
+	print("DETERMINISTIC LIGHTNING REVIEW: ","PASS" if failures.is_empty() else "FAIL", " ",JSON.stringify(report))
+	get_tree().quit(0 if failures.is_empty() else 1)

@@ -55,6 +55,7 @@ var _plume_flash := 0.0
 var _plume_wait := 3.0
 var _corona := -1.0
 var _flash_rng := RandomNumberGenerator.new()
+var lightning: Node3D
 
 func configure(owner_clock: CampaignClock, owner_director: DayNightDirector,
 		material: ShaderMaterial, owner_effects: WeatherFX = null) -> void:
@@ -74,6 +75,7 @@ func configure(owner_clock: CampaignClock, owner_director: DayNightDirector,
 	_flash_rng.seed=hash("spectacle-flash:"+str(_seed_value()))
 	if effects!=null and effects.has_signal("ground_strike"):
 		effects.ground_strike.connect(_on_ground_strike)
+		effects.set_meta("calendar_lightning",true)
 	var forced_id := OS.get_environment("WEATHER_PHENOMENON")
 	if schedule.phenomena.has(forced_id): force_phenomenon(forced_id,1.0)
 
@@ -86,6 +88,9 @@ func _ready() -> void:
 		_before_taa=get_viewport().use_taa
 		if bool(GameBoot.settings.get("weather_taa_enabled",true)):
 			get_viewport().use_taa=true; _owns_taa=true
+	lightning=preload("res://scripts/building/deterministic_lightning_manager.gd").new()
+	lightning.sky=sky;lightning.director=director
+	add_child(lightning)
 	provider=Service.new(); provider.name="LiveWeatherService"
 	provider.weather_updated.connect(receive_snapshot)
 	provider.weather_failed.connect(_fallback)
@@ -208,6 +213,8 @@ func _process(delta: float) -> void:
 		if effects!=null and effects.get("air_material")!=null:
 			effects.air_material.set_shader_parameter("wind_offset",_wind_offset)
 		_publish_extreme_motion(date,precise)
+	var electrical: Dictionary=lightning.sample(Calendar.clock_seconds(clock),current,active_phenomena)
+	_crawler=float(electrical.crawler);_plume_flash=float(electrical.level);_tle_slot=int(electrical.tle);_tle_frames=1 if _tle_slot>=0 else 0
 	_push_spectacle()
 	_publish_left-=delta
 	if _publish_left<=0.0: _publish_left=1.0; _publish()
@@ -367,6 +374,7 @@ func trigger_flash(frames := 3) -> void:
 	_plume_flash=1.0
 
 func _update_flashes(delta: float) -> void:
+	if lightning!=null:return # Calendar sequencer owns production flashes.
 	var crawling := false; var plume := false
 	for entry: Dictionary in active_phenomena:
 		crawling=crawling or int(entry.slot)==CRAWLER_SLOT

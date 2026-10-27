@@ -564,6 +564,7 @@ func _process(delta: float) -> void:
 
 
 func _update_lightning(delta: float) -> void:
+	if bool(get_meta("calendar_lightning",false)):return
 	if not _lightning_enabled:
 		weather_flash_changed.emit(0.0)
 		return

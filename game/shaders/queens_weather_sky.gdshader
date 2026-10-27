@@ -30,6 +30,9 @@ uniform float cloud_phase = 0.0;
 uniform vec3 cloud_wind_direction = vec3(1.0, 0.0, 0.0);
 uniform float cloud_wind_speed = 8.0;
 uniform float weather_flash = 0.0;
+uniform vec3 strike_position = vec3(0.0); // kilometres, same frame as wx_camera_km
+uniform float flash_intensity = 0.0;
+uniform vec3 lightning_tint = vec3(.72,.48,1.0);
 uniform vec3 bright_stars[12];
 uniform float star_strength = 0.0;
 uniform float urban_horizon_gain = 0.0;
@@ -380,6 +383,13 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
             lit=mix(lit,mix(ambient*.30,vec3(1.0,.40,.14)*(.35+.8*exp(-tau_sun)),gold),fire*.9);
             lit*=1.0-.9*noctilucent_light()*spectacle[S_NOCTILUCENT];
             lit*=mix(vec3(1.0),vec3(.80,.60,.38),spectacle[S_HABOOB]);
+            // Local sheet discharge: density scatters a soft emissive sphere.
+            // Existing Beer extinction handles occlusion; no additional noise taps.
+            if(flash_intensity>0.001) {
+                vec3 offset=p-strike_position;
+                float sphere=exp(-dot(offset,offset)/.30);
+                lit+=lightning_tint*flash_intensity*sphere*(1.0-exp(-d*4.0))*12.0;
+            }
             sum+=transmittance*alpha*lit;
             transmittance*=1.0-alpha;
         }

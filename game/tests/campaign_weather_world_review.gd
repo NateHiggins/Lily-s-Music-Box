@@ -122,6 +122,7 @@ func weather_state(world: Node) -> Dictionary:
 		"timeline":CampaignWeather.timeline(world.campaign_clock.datetime_string()),"uniforms":{}}
 	for key: String in ["wx_phase","wx_cyclone_phase","wx_texture_phase","wx_fluctus_phase","wx_cloud_drift","wx_asperitas_drift","wx_cirrus_drift","wx_cyclone","wx_hail","wx_whiteout"]:
 		state.uniforms[key]=manager.sky.get_shader_parameter(key)
+	state["lightning_schedule"]=preload("res://scripts/building/deterministic_lightning_manager.gd").minute_strokes(float(state.seconds))
 	return state
 
 func authority_state() -> Dictionary:
@@ -202,6 +203,7 @@ func run_lifecycle() -> void:
 			RealityState.add_resident_trust("mina_vale",2)
 			RealityState.record_conversation_visit("mina_vale")
 			lifecycle_check(world.newspapers.collect("record","1928-11-10"),"seed a historical edition through collection owner")
+		if generation==0 and OS.get_environment("SKY_LIGHTNING_WORLD")=="1":await lightning_world_review(world,output)
 		var state:=weather_state(world)
 		lifecycle_states.append(state.duplicate(true))
 		lifecycle_check(state.source=="campaign-calendar","actual campaign weather owner generation %d"%generation)
@@ -260,3 +262,47 @@ func run_lifecycle() -> void:
 	RealityState.save_path=old_path
 	OS.remove_logger(lifecycle_logger)
 	get_tree().quit(0 if status=="PASS" else 1)
+
+
+func lightning_world_review(world: Node,output: String) -> void:
+	var manager: Node=world.get_node("WakingAtmosphere").weather_manager
+	var module:=preload("res://scripts/building/deterministic_lightning_manager.gd")
+	var original: Dictionary=world.campaign_clock.local_datetime()
+	var original_seconds:=CampaignWeather.clock_seconds(world.campaign_clock)
+	var before:=authority_state()
+	var row: Dictionary={}
+	for candidate: Dictionary in module.minute_strokes(float(Time.get_unix_time_from_datetime_string("1929-06-25T18:01:00"))):
+		if int(candidate.kind)==module.GROUND:row=candidate;break
+	lifecycle_check(not row.is_empty(),"dated lightning fixture exists")
+	if row.is_empty():return
+	world.campaign_clock.configure_date(1929,6,25,18*60+1)
+	world.campaign_clock.advance_seconds(fposmod(float(row.time),60.0)+.045)
+	manager.set_process(false)
+	manager._calendar_check_left=0.0;manager._phenomena_left=0.0
+	manager._process(0.0);manager._publish()
+	var camera: Camera3D=world.player.camera
+	camera.look_at(Vector3(row.ground)+Vector3.UP*200.0)
+	var weather: Dictionary=manager.current
+	lifecycle_check(bool(weather.get("thunderstorm",false)),"installed weather resolves the dated thunderstorm")
+	var samples: Dictionary={}
+	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
+	for phase: String in ["quiet","stroke"]:
+		manager.lightning.sample(float(row.time)-1.0 if phase=="quiet" else float(row.time)+.045,weather,[])
+		var frames: Array=[]
+		var previous:=Time.get_ticks_usec()
+		for frame in 180:
+			await RenderingServer.frame_post_draw
+			var now:=Time.get_ticks_usec()
+			if frame>=60:frames.append([(now-previous)/1000.0,RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid())])
+			previous=now
+		samples[phase]=frames
+		get_viewport().get_texture().get_image().save_png(output.path_join("lightning_world_"+phase+".png"))
+	lifecycle_check(manager.lightning._bolt.visible and manager.lightning._light.visible,"native occupied world renders a ground bolt and one fog light")
+	lifecycle_check(authority_state()==before,"lightning cannot mutate inventory, work, residents, cases or reading owners")
+	var file:=FileAccess.open(output.path_join("lightning_world_frames.json"),FileAccess.WRITE)
+	file.store_string(JSON.stringify({"scope":"stationary occupied-world stress pair; 60 warmup +120 sampled frames each, held peak strike; not a movement route","columns":["wall_ms","render_cpu_ms","render_gpu_ms"],"frames":samples},"  "));file.close()
+	world.campaign_clock.configure_date(int(original.year),int(original.month),int(original.day),int(original.hour)*60+int(original.minute))
+	world.campaign_clock.advance_seconds(fposmod(original_seconds,60.0))
+	manager._calendar_check_left=0.0;manager._phenomena_left=0.0;manager._process(0.0)
+	manager.set_process(true)
+	prepare_world(world)

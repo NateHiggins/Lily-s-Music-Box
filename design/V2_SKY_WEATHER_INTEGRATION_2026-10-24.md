@@ -1333,3 +1333,67 @@ merge; runtime sources and their surface binding remain unchanged. No owner
 decision is needed; routine verification and merge are authorized.
 
 MERGE-CANDIDATE 666335c35a3b1df9f529fc9978ec9b9f00cb269d
+
+
+## Calendar-keyed lightning — 2026-10-27
+
+Implementation checkpoint, not whole-year artistic acceptance. The installed
+WeatherManager now owns a DeterministicLightningManager presentation child.
+A civil year/month/day/hour/minute hash produces 0–12 millisecond strokes per
+minute, their types, strengths, polarity, positions and branch seeds. Only
+authored thunderstorm minutes enable ordinary strokes. Two minute schedules
+are reconstructed on entry/revisit; seeks discard pending audio. No new clock,
+save domain, inventory, work, resident, case or newspaper authority was added.
+
+Sheet discharges inject a density-scattered emissive sphere into the existing
+cloud march, in its kilometre/world frame, without new noise taps. Ground
+strokes use bounded crossed-ribbon branches, one reusable shadowed world-only
+OmniLight and high volumetric energy. The optical bolt bypasses distance fog
+so it cannot become a dark silhouette against its own flash. Existing anvil
+crawler and upper-atmosphere shaders are reused. Authored eligible sprites/jets
+appear two rendered frames after a strong positive ground stroke and last
+three frames. This deliberately reuses the sky compositor instead of adding
+large billboard meshes. Violet flashes shift green-yellow in hail. Flash
+suppression covers bolts, local cloud emission, point light, crawlers and TLEs.
+
+Two spatial thunder voices use three small deterministic generated PCM rumbles.
+Distance/343 is latched when a strike is witnessed, not recomputed while the
+player walks. Paused dates do not repeat sound; seeking cancels pending sound.
+This is functional synthesized audio, not an authored/sample-library sound
+acceptance claim. The old uptime-driven flashes are disabled under this owner;
+V1's standalone weather fallback remains available.
+
+Evidence root: **C:/ov/reports/lightning32/**. Original interrupted parser/type
+failures and the audio-test mismatch are retained. **latched_audio.log** passes
+the native production-sky diagnostic: all three ordinary types, exact minute
+replay/reverse projection, delayed/non-repeated thunder, suppression and TLE
+frame sequence **[-1,-1,23,23,23,-1]**. The original dark-bolt render was inspected
+and repaired; the corrected native render was inspected too. These are
+presentation diagnostics, not occupied-world qualification by themselves.
+
+**world_second.log** and the test-written schema-2
+**world_second/weather_lifecycle_contract.json** pass **45 checks**: actual V2
+composition, a dated ground stroke rendered over the occupied roof, validated
+isolated disk save/load and world reconstruction, identical derived lightning
+schedule, protected gameplay authorities and measured retirement of **46 nodes,
+53 resources, zero retained nodes/resources/playbacks**. Shutdown stderr is empty.
+The native **3440×1440 Forward+** roof inspector regression passes **42 checks**;
+flash-accessibility regression passes **2/2**. The occupied lightning render was
+inspected; this is not human artistic acceptance.
+
+A stationary occupied-roof stress pair holds the peak stroke, with **60 warmup
+and 120 measured frames** in each phase. Quiet → peak wall p50/p95/p99/max:
+**20.022/23.676/25.178/25.977 → 19.988/24.183/25.512/32.256 ms**; render GPU:
+**6.359/6.959/7.140/7.175 → 7.193/7.535/7.614/7.706 ms**. This prices the added
+flash/bolt/light, not a movement-route speedup or first-use compilation cure.
+Raw samples: **world_second/lightning_world_frames.json**. Different camera
+routes, transient shadow quality and the full annual electrical experience
+still require broader visual review.
+
+Next owner-directed weather work: improve visibly weak rain/snow; extend the
+existing GPU/exposure/wetness owners with deterministic intensity, ground
+splashes/hail collision, rare blood/frog fallout and restrained lens moisture;
+then assess annual visual diversity across hours, seasons, genera, regimes and
+seeds using the existing six-times-daily **2,190-frame** gallery plus targeted
+renders. The earlier noon-only gallery is historical. Classifications and
+image signatures are not fifty accepted formations or artistic approval.
