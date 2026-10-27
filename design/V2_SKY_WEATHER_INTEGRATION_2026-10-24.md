@@ -1037,3 +1037,180 @@ All93 historical members remain byte-identical. The fresh headless calendar
 run passes63/63 with empty stderr and a current-source wrapper binding. Both
 test-written calendar fixture receipts and the actual scoped lifecycle save
 are preserved; the earlier receipt is not overwritten.
+
+
+## October 26 — measured panorama transition repair, qualification in progress
+
+Opt-in timings in the existing roof inspector separate weather updates,
+extreme publication, spectacle and astronomy/lighting. The unchanged roof
+fixture now requests all 365 authored noons forward and backward, with two
+rendered frames per request. The shared endpoint does not republish: there
+are 365 forward and 364 reverse timing rows, but 730 target/date checks.
+The actual pre-repair and cache-only runs each pass 43 checks with empty stderr.
+
+| Location / reproduction | Severity / evidence | Repair / current verification |
+|---|---|---|
+| Roof day/night changes while scrubbing | High responsiveness: astronomy callbacks reach 122–248 ms; each large callback coincides with a panorama-pair change. Weather update maximum stays below 4 ms | DayNightDirector prepares and retains the existing three unique panorama maps during setup. State changes reuse the same resource identities; no source image, resolution, shader or weather authority is replaced. Cache-only comparison below passes; final mipmap combination remains pending |
+| Resident panorama imports | Existing quality defect: actual WeatherSkyTest fails exactly its new loaded-mipmap check. All three GST 2 images have zero extra mip levels and tracked sidecars declare generation false | Enable generation in only those three existing sidecars, preserving their UIDs and compression settings. Shared-lane reimport is queued. Original failure and 75,497,472-byte decoded image-data observation remain preserved; this is not VRAM accounting |
+| Remaining sky presentation | Open art findings | Cache-only roof captures were inspected. Storm cloud relief remains weak; near-camera precipitation can span much of the image. Neither is declared repaired here |
+
+The fixed forward route uses the same 365 dates, roof-test source, project,
+engine and unchanged settings-file fingerprint. Godot 4.7.1 Forward+ runs on the
+RTX 4080. Total update p50 is 1.289→1.290 ms, p95 is 1.5292→1.5666 ms and p99 is
+2.65032→2.59452 ms: typical costs remain broadly unchanged. Maximum falls from
+**123.287 to 3.788 ms**, with updates above 100 ms falling from **one to zero**.
+The astronomy portion's maximum falls from 122.111 to 0.153 ms. The reverse route
+already has no long callbacks; its maximum changes from 1.574 to 1.382 ms.
+
+The held-input diagnostic has 25 samples per run, with maximum 248.977→1.397 ms
+and eight→zero callbacks above 100 ms. Its actual sampled dates differ because
+input holds use elapsed real time, so it is not a matched equal-length movement
+route. The fixed annual request lists are checked identical. Frame-wide data
+also includes startup, screenshots and instrumentation, and is not used for an
+average-FPS improvement claim. Draw-compilation counters remain zero; surface
+counters report 0/461 around startup and remain 461 through the large callbacks.
+Those delayed renderer observations do not independently attribute native
+upload, driver, physics or shader work.
+
+The counter meanings were checked in the matching
+[Godot 4.7 RenderingServer documentation](https://docs.godotengine.org/en/4.7/classes/class_renderingserver.html#enum-renderingserver-renderinginfo).
+Counter reads occur after the timed CPU phases. Original logs, test source,
+imports and frame samples are retained externally pending the final packet.
+No final candidate, memory budget, Android device, whole-weather, native-input,
+matched whole-world performance or human acceptance is claimed by this interim
+section. The full goal and unqualified V 2 coverage remain open.
+
+### Original-base final combination and current-main renewal
+
+The later cache-plus-mipmap run on base bde444d6 passes the roof's 43 checks,
+WeatherSkyTest's 59 checks and the actual two-world campaign reconstruction's
+41 checks. The fixed forward route's maximum update is **3.890 ms**, versus
+123.287 ms before the repair; callbacks above 100 ms remain one to zero.
+All three resident panorama images have loaded mipmaps. Their reported image
+data totals **100,663,299 bytes**, compared with 75,497,472 bytes without mips;
+these are decoded image-data observations, not VRAM measurements. The original
+missing-mipmap failure remains preserved. The lifecycle contract records
+36 nodes and 50 scoped resources retiring to zero; imported shared resources
+are borrowed. Roof and reconstruction stderr are empty. WeatherSkyTest retains
+the existing cam_noel_witches wall warning.
+
+Those results used the official engine and are historical, matched-comparison
+evidence. Main's later creature, material and pinned reflection-atlas engine
+changes are merged into this branch. They require fresh integration evidence;
+the old comparison does not establish current-engine frame budgets. The current
+surface gate correctly rejects the stale full-world survey and visual review.
+
+To respect the owner's mouse restriction, a noninteractive Windows station was
+tested first. It renders through Vulkan without observed input-desktop or
+cursor-clip changes, but Windows native cursor reads fail there. The original
+failed cursor probe is retained. A test-only SubViewport host uses Godot's
+viewport input delivery while retaining the original production ray, reach,
+grab, motion, collision and release checks. Its first run exposed incorrect
+bootstrap sizing; the corrected host uses the project viewport dimensions.
+The combined nozzle regression then reached the serial runner's 180-second
+ceiling: that overall run is incomplete, despite passing sections. The unchanged
+suite then passes **376 checks in 202.51 seconds** through the long runner,
+with empty stderr and a current-source wrapper receipt. The station monitor
+observes no cursor-clip or active-input-desktop changes during that run.
+The cursor path uses the documented
+[Viewport.push_input](https://docs.godotengine.org/en/4.7/classes/class_viewport.html#class-viewport-method-push-input)
+pipeline. Engine-dispatched test input is not native OS input or human acceptance.
+Full-world surface qualification and current-main weather regressions remain
+pending; this combined hose bench does not substitute for them.
+
+The existing roof-review archive now carries **249 hash-verified members,
+16,382,360 bytes**, preserving all 138 preceding members exactly. It includes
+the original matched-run logs and samples, missing-mipmap failure, source
+snapshots, failed isolation/host probes, successful combined hose run and
+its renders. No separate review directory or evidence promotion is introduced.
+The preliminary 114-gate board reports only the stale surface qualification
+and rendered review as regressions against clean main 2fb02d84. Reader NEW
+remains zero and the completeness ledger remains unchanged. Final candidate
+verification is pending the new runtime evidence and actual rendered review.
+
+### Current-main survey failure retained; viewport settings correction pending
+
+The first isolated full-world survey does **not** qualify this candidate.
+It reaches all eight installed hose stations with 1,637 passing fire-service
+observations, then reports front-gallery movement timeouts without recorded
+wall contacts. The runner kills the incomplete overall run at 1,500.41 seconds.
+Its wrapper receipt, stderr, partial renders and original failures are retained;
+the passing fire section is diagnostic evidence, not a replacement contract.
+
+Inspection finds a test-host defect: the SubViewport retained its default
+disabled occlusion culling while the project enables it on the root. The host
+now copies and checks 26 root rendering properties, including culling, LOD,
+shadow-atlas quadrants, texture filtering and 2D pixel settings, before deferred
+test programmes. This corrects a known settings mismatch; runtime confirmation
+and the unchanged full movement checks remain pending. No collision rule,
+movement deadline, production renderer or interaction authority is weakened.
+Queued ordinary-Window weather tests do not load the host and remain unchanged.
+
+Actual composed-image review also retains two open presentation findings.
+The dry skyline's stippled cloud field and the storm's flat haze are visible in
+both baseline and current captures. The F01 open-cabinet images closely match,
+but the earlier closed-cabinet capture contains a flashlight footprint absent
+from the new one. The hidden companion's framing path returns before updating
+its world aperture; framed motion also returns. This is a source-traced
+hypothesis requiring a focused runtime reproduction, not a confirmed new host
+defect or a completed lamp repair. Generic gasket captures are overwritten per
+landing and must be reinspected after the run if their reviewed hashes change.
+
+### Root-render-settings probe and canonical recovery
+
+The corrected host renders the existing lenticular diagnostic in **25.21 seconds**
+with empty stderr. Its log records all 26 root properties twice, including enabled
+occlusion culling, MSAA3, anisotropic4, the 16384 shadow atlas and quadrant settings.
+This establishes the copied settings in that diagnostic; it does not establish
+full-world movement qualification. The unchanged full surface survey is running.
+
+The first ordinary-Window weather run on the noninteractive service station also
+times out at **700.17 seconds**. Its roof programme does not finish, and the batch
+never starts sky or reconstruction. These original failures remain intact. A
+separately audited, noncapturing private desktop run is queued with both optional
+profiling and lifecycle-review flags. Its environment differs from the historical
+matched measurements; no new performance improvement is inferred from that change.
+
+The canonical checkout was preserved using named-path recovery commits
+**22b714cc** and **8a9be624**, with pushed tag
+**recovery/canonical-pre-reconcile-20261026**, then switched to clean accepted main
+**2fb02d84**. Its old acoustic branch was removed only after verifying ancestry
+and durable recovery. Main's Tardi visibility fix and pinned Vulkan configuration
+remain intact. Historical local variants are not merged over newer accepted work.
+
+### Final recovery checkpoint, not weather production qualification
+
+The second full-world survey reproduces five front-gallery movement failures
+and reaches the lane ceiling at **1,500.52 seconds**. Its 1,637 passing fire
+observations remain a partial diagnostic section; no final runtime contract
+exists. It does not renew the stale surface gate or establish a production
+movement diagnosis. No failure threshold, deadline or physical constraint was
+weakened, and the weather candidate is not merged over accepted main.
+
+The separately audited noncapturing desktop batch finishes on the pinned custom
+Vulkan engine: roof **43 checks, 207.64 seconds**; sky **59 checks, 40.35 seconds**;
+and actual saved-world rebuild **41 checks, 264.30 seconds**. Roof and rebuild
+stderr are empty; sky retains the known cam_noel_witches wall warning. The rebuild
+test writes a schema-2 runtime contract with passing composition, save/load,
+premature-action denial and tracked owner teardown. Its scope excludes
+CampaignShell, native manipulation, whole-game performance and human acceptance.
+These new runs are functional/regression evidence, not matched frame-time
+comparisons with the historical official-engine timing route.
+
+Actual current roof and reconstruction images were inspected. Twilight is
+readable and coloured, while the hail view remains flat sepia haze. Dramatic sky
+polish remains open. Both desktop monitors retain the active input desktop, but
+record a brief cursor-clip change during the surface run, before the weather
+batch starts Godot. Attribution is not established; these monitors do not prove
+zero interference. Native fullscreen remains an unqualified future preference.
+
+The existing roof archive now has **299 individually hash-verified members**, all
+249 prior members unchanged, with raw original failures, terminal wrapper
+receipts, test-written reconstruction contract, selected diagnostic renders,
+actual image notes and the documentation-only canonical reconciliation verifier.
+No evidence is promoted to whole-game or human acceptance. The complete weather
+patch and evidence are retained under
+**recovery/weather-panorama-unqualified-20261026** for future continuation. PR #64
+merges only the safe reconciliation handoff at **8e722838**, preserving the
+accepted creature/optical baseline. PR #62 must not be treated as merged or
+production-qualified merely because the focused weather checks pass.

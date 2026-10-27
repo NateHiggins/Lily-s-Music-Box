@@ -146,6 +146,9 @@ var _sky_key_gain := 1.0
 var _pair_key := ""
 var _texture_a: Texture2D
 var _texture_b: Texture2D
+## Three unique authored plates, retained by this director, not a process cache.
+## Dropping an inactive plate made the next day/night change reload it in play.
+var _panoramas: Dictionary = {}
 var _last_profile: Dictionary = {}
 var _live_conditions: Dictionary = {}
 var _campaign_clock: CampaignClock
@@ -162,6 +165,9 @@ func setup(root: Node3D, env: Environment, sky_key: DirectionalLight3D,
 	_campaign_clock.bind_state()
 	_env.set_meta("absolute_writer", "DayNightDirector")
 	_sky_key.set_meta("absolute_writer", "DayNightDirector")
+	# Prepare while the world is being built; state changes only select resources.
+	for state: String in SKY_PATHS:
+		_state_texture(state)
 	_apply(_minute_now())
 
 
@@ -504,13 +510,20 @@ func _span_at(minute: float) -> Dictionary:
 		"t": 0.0 if width <= 0.0 else (minute - float(a.minute)) / width}
 
 
+func _state_texture(state: String) -> Texture2D:
+	var path: String = SKY_PATHS[state]
+	if not _panoramas.has(path):
+		_panoramas[path] = load(path) as Texture2D
+	return _panoramas[path]
+
+
 func _set_sky_pair(state_a: String, state_b: String) -> void:
 	var key := state_a + ">" + state_b
 	if key == _pair_key:
 		return
 	_pair_key = key
-	_texture_a = load(SKY_PATHS[state_a]) as Texture2D
-	_texture_b = load(SKY_PATHS[state_b]) as Texture2D
+	_texture_a = _state_texture(state_a)
+	_texture_b = _state_texture(state_b)
 	_sky.set_shader_parameter("panorama_a", _texture_a)
 	_sky.set_shader_parameter("panorama_b", _texture_b)
 	_sky.set_shader_parameter("panorama_a_celestial", state_a == "night")
