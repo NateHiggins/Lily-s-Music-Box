@@ -1127,3 +1127,53 @@ The preliminary 114-gate board reports only the stale surface qualification
 and rendered review as regressions against clean main 2fb02d84. Reader NEW
 remains zero and the completeness ledger remains unchanged. Final candidate
 verification is pending the new runtime evidence and actual rendered review.
+
+### Current-main survey failure retained; viewport settings correction pending
+
+The first isolated full-world survey does **not** qualify this candidate.
+It reaches all eight installed hose stations with 1,637 passing fire-service
+observations, then reports front-gallery movement timeouts without recorded
+wall contacts. The runner kills the incomplete overall run at 1,500.41 seconds.
+Its wrapper receipt, stderr, partial renders and original failures are retained;
+the passing fire section is diagnostic evidence, not a replacement contract.
+
+Inspection finds a test-host defect: the SubViewport retained its default
+disabled occlusion culling while the project enables it on the root. The host
+now copies and checks 26 root rendering properties, including culling, LOD,
+shadow-atlas quadrants, texture filtering and 2D pixel settings, before deferred
+test programmes. This corrects a known settings mismatch; runtime confirmation
+and the unchanged full movement checks remain pending. No collision rule,
+movement deadline, production renderer or interaction authority is weakened.
+Queued ordinary-Window weather tests do not load the host and remain unchanged.
+
+Actual composed-image review also retains two open presentation findings.
+The dry skyline's stippled cloud field and the storm's flat haze are visible in
+both baseline and current captures. The F01 open-cabinet images closely match,
+but the earlier closed-cabinet capture contains a flashlight footprint absent
+from the new one. The hidden companion's framing path returns before updating
+its world aperture; framed motion also returns. This is a source-traced
+hypothesis requiring a focused runtime reproduction, not a confirmed new host
+defect or a completed lamp repair. Generic gasket captures are overwritten per
+landing and must be reinspected after the run if their reviewed hashes change.
+
+### Root-render-settings probe and canonical recovery
+
+The corrected host renders the existing lenticular diagnostic in **25.21 seconds**
+with empty stderr. Its log records all 26 root properties twice, including enabled
+occlusion culling, MSAA3, anisotropic4, the 16384 shadow atlas and quadrant settings.
+This establishes the copied settings in that diagnostic; it does not establish
+full-world movement qualification. The unchanged full surface survey is running.
+
+The first ordinary-Window weather run on the noninteractive service station also
+times out at **700.17 seconds**. Its roof programme does not finish, and the batch
+never starts sky or reconstruction. These original failures remain intact. A
+separately audited, noncapturing private desktop run is queued with both optional
+profiling and lifecycle-review flags. Its environment differs from the historical
+matched measurements; no new performance improvement is inferred from that change.
+
+The canonical checkout was preserved using named-path recovery commits
+**22b714cc** and **8a9be624**, with pushed tag
+**recovery/canonical-pre-reconcile-20261026**, then switched to clean accepted main
+**2fb02d84**. Its old acoustic branch was removed only after verifying ancestry
+and durable recovery. Main's Tardi visibility fix and pinned Vulkan configuration
+remain intact. Historical local variants are not merged over newer accepted work.

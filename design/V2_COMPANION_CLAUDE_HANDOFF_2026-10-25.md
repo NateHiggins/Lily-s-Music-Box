@@ -201,3 +201,73 @@ footprint notes are outside all checkouts at
 falls on October 26; the owner's local date is still October 25. These notes do
 not qualify any runtime or authorize deleting evidence. No source cleanup or
 Godot execution was undertaken for this amendment.
+
+
+## Owner amendment and checkout reconciliation — 2026-10-26
+
+**Preserve the acceptance baseline.** PR #63 merged at **2fb02d84**. Start with
+**design/CREATURE_MAIN_INTEGRATION_2026-10-26.md**; it records completed work,
+evidence, and remaining limits. Inspect current Git state before changing anything.
+
+**Keep the patched Vulkan engine configured.** Read
+**tools/engine_patches/README.md** and verify **.godot-engine.json**. An official-engine
+fallback can reintroduce the seven Texture RID leaks. Run Godot only through the
+repository lane wrappers.
+
+**Protect the installed Tardi visibility fix.** The lamp shadow camera must exclude
+the separately composited device layer while retaining world occlusion. Preserve
+the regression coverage for both visibility and real blockers.
+
+**Continue from the intended creature behavior:** frantic, independent tentacle
+searching and mutual contact; apparatus caressing; strong directional recoil and
+sustained struggle during dissolution; flowing rainbow metallic goo, char, floor
+sinking, and purple smoke. Preserve the owner's shader refinements.
+
+**Reconcile the dirty checkout before new development.** Preserve staged assets and
+outstanding edits using named-path commits. Compare against main before deciding
+what is redundant. Never bulk discard or overwrite another agent's work.
+
+**Distinguish accepted work from remaining debt.** Creature and surface qualification
+passed; unrelated whole-game gates remain red. Reuse existing evidence for unchanged
+code, and render affected behavior after changes. Do not call the whole game
+production-ready based on these receipts.
+
+### Reconciliation actually performed
+
+The canonical checkout is now clean **main**, at **2fb02d84**, with its patched
+engine configuration retained. The old acoustic branch was already an ancestor
+of main. Its staged assets were preserved in **22b714cc**, then the explicitly
+named remaining paths in **8a9be624**. The annotated recovery tag
+**recovery/canonical-pre-reconcile-20261026** is pushed to origin. The obsolete
+local and remote **codex/v2-acoustic-topology** branches were removed after checking
+remote ancestry and tag durability. This is a recovery checkpoint, not a merge
+of all historical variants over newer main.
+
+The raw-byte backup and original index are retained outside the repository in
+**C:/ov/reports/canonical_reconcile_20261026**: 1,055 files, 108,647,722 bytes,
+verified individually against the backup archive. The prior audit identified
+416 main-exact files, 18 LF-equivalent files, 48 nonidentical variants, and 573
+main-absent files (569 generated UIDs plus two anatomy review images and two
+sampler diagnostic files). No conflicting main UID was committed. Older lamp
+and Tardi test variants omit the accepted visibility repair; main's versions
+were deliberately retained. Unintegrated variants remain recoverable from the
+tag and must not be replayed wholesale. A three-hour-old empty index lock had no
+live Git owner; it was moved into the external recovery directory before commit.
+
+PR #62 remains the separate weather-panorama candidate, based on **2fb02d84**.
+Its historical matched roof profiling shows a worst callback reduction from
+123.287 to 3.890 ms, not a whole-game frame-budget claim. The current test-only
+input host now copies and checks 26 rendering settings; its 25.21-second rendered
+probe passes with empty stderr. Current full-world qualification is still pending.
+The first integrated surface survey timed out at 1,500.41 seconds with five
+movement failures and no final runtime contract. The first service-station roof
+run timed out at 700.17 seconds; its batch stopped before sky and reconstruction.
+Original failures remain in **C:/ov/reports/weather_profile29**. No deadline,
+collision authority or production rendering setting was weakened.
+
+The owner withdrew the request to archive this chat. Continue reconciliation and
+remove the weather worktree only after its live jobs finish and its outstanding
+work has been merged or safely retained. Never remove unrelated worktrees.
+Native-resolution fullscreen is the owner's preferred future debug mode only
+where it does not interfere with their mouse/display; this preference is not yet
+qualified. Existing timed comparisons retain their matched original settings.

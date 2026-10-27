@@ -3,6 +3,18 @@ extends SceneTree
 ## Launch through the shared lane with --script and the original test scene.
 ## This does not isolate native input itself: the launcher must do that first.
 const SOURCE := "res://tests/isolated_input_host.gd"
+const RENDER_PROPERTIES: Array[StringName] = [
+	&"msaa_2d", &"msaa_3d", &"use_taa", &"use_debanding", &"screen_space_aa",
+	&"scaling_3d_scale", &"scaling_3d_mode", &"fsr_sharpness",
+	&"texture_mipmap_bias", &"anisotropic_filtering_level",
+	&"use_occlusion_culling", &"mesh_lod_threshold", &"use_hdr_2d",
+	&"snap_2d_transforms_to_pixel", &"snap_2d_vertices_to_pixel",
+	&"canvas_item_default_texture_filter", &"canvas_item_default_texture_repeat",
+	&"positional_shadow_atlas_size", &"positional_shadow_atlas_16_bits",
+	&"positional_shadow_atlas_quad_0", &"positional_shadow_atlas_quad_1",
+	&"positional_shadow_atlas_quad_2", &"positional_shadow_atlas_quad_3",
+	&"vrs_mode", &"vrs_update_mode", &"vrs_texture",
+]
 
 class InputRelay extends Node:
 	var destination: SubViewport
@@ -26,10 +38,10 @@ func _initialize() -> void:
 	viewport.handle_input_locally = true
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	viewport.audio_listener_enable_3d = true
-	for property: StringName in [&"msaa_2d", &"msaa_3d", &"use_taa", &"use_debanding",
-			&"screen_space_aa", &"scaling_3d_scale", &"scaling_3d_mode",
-			&"positional_shadow_atlas_size", &"positional_shadow_atlas_16_bits"]:
-		viewport.set(property, root.get(property))
+	_copy_render_settings(viewport)
+	# Autoloads can apply user settings in _ready. The supported fixtures defer
+	# their programmes, so synchronize again before those programmes start.
+	scene.ready.connect(_copy_render_settings.bind(viewport), CONNECT_ONE_SHOT)
 	viewport.set_meta("isolated_input_host_sha256", FileAccess.get_sha256(SOURCE))
 	root.add_child(viewport)
 	# MainLoop initialization precedes the root entering the tree. Reparent now,
@@ -48,3 +60,16 @@ func _initialize() -> void:
 	print("ISOLATED INPUT HOST: scene=", scene.scene_file_path,
 		" size=", viewport.size, " sha256=", FileAccess.get_sha256(SOURCE),
 		" evidence=engine-dispatched input, not native OS input or human acceptance")
+
+
+func _copy_render_settings(viewport: SubViewport) -> void:
+	var snapshot := {}
+	for property: StringName in RENDER_PROPERTIES:
+		var expected: Variant = root.get(property)
+		viewport.set(property, expected)
+		if viewport.get(property) != expected:
+			push_error("Isolated viewport failed to retain root setting: " + str(property))
+			quit(1)
+			return
+		snapshot[str(property)] = expected
+	print("ISOLATED VIEWPORT ROOT SETTINGS: ", JSON.stringify(snapshot))
