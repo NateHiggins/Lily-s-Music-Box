@@ -4,8 +4,8 @@
   "scope": "Living Sky implementation, failures, bounded runtime contracts, annual-noon gallery and matched route diagnostics. No full reference-library, full-day annual, full-V2 or human acceptance.",
   "implementation_commit": "860219b005d6606ddca9ce7eb7f7d03f32703dc0",
   "archive": "living_sky_review.zip",
-  "archive_bytes": 10760256,
-  "archive_sha256": "c311d299256ff5cdb10f9479064773c027d1e43bb63dd6168d1bd7851ad2064e",
+  "archive_bytes": 50521412,
+  "archive_sha256": "e501e8d29a23e8888ea7beb8eccb1eb7fa9a77062b0658e43bcefffa49b9187c",
   "members": [
     {
       "path": "runs/annual_final/annual_gallery.json",
@@ -1790,6 +1790,1355 @@
       "sha256": "270073ca10df8ee862a6d5e62d2c000e49f1301d5cc2d0a333734398304ec066",
       "original_path": "C:\\ov\\v2merge24\\game\\tests\\weather_sky_test.gd",
       "original_sha256": "270073ca10df8ee862a6d5e62d2c000e49f1301d5cc2d0a333734398304ec066"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current.log",
+      "bytes": 931,
+      "sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current.log",
+      "original_sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current.log.receipt.json",
+      "bytes": 1586,
+      "sha256": "265bcb8d58cb0487cf3d985706780e6d6f28d1ca4d89f043fe3ead9b5a7ed38f",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current.log.receipt.json",
+      "original_sha256": "265bcb8d58cb0487cf3d985706780e6d6f28d1ca4d89f043fe3ead9b5a7ed38f"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_shape_repair.log",
+      "bytes": 931,
+      "sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_shape_repair.log",
+      "original_sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_shape_repair.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_shape_repair.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_shape_repair.log.receipt.json",
+      "bytes": 1623,
+      "sha256": "797bb65963bbe7e12ba8c41045867c12d59ae1b4e7fc0616c4cd45248fb8075a",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_shape_repair.log.receipt.json",
+      "original_sha256": "797bb65963bbe7e12ba8c41045867c12d59ae1b4e7fc0616c4cd45248fb8075a"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes.log",
+      "bytes": 931,
+      "sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes.log",
+      "original_sha256": "7c3e61a4fca45840d80ff86b50015f5cb7aff005fc9d45211b52eeba08d5f9a1"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes.log.receipt.json",
+      "bytes": 1669,
+      "sha256": "42e5c184bd46d245453a923ad5226eb7e1dc1f7d2b9a9c78d1c67e7b760df9d0",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes.log.receipt.json",
+      "original_sha256": "42e5c184bd46d245453a923ad5226eb7e1dc1f7d2b9a9c78d1c67e7b760df9d0"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/22_spider_lightning.json",
+      "bytes": 6636,
+      "sha256": "bc0b77fc47ec6be624ba26b4717988ad81589e7240d031de78c1dfe34e6e8ef4",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\22_spider_lightning.json",
+      "original_sha256": "bc0b77fc47ec6be624ba26b4717988ad81589e7240d031de78c1dfe34e6e8ef4"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/22_spider_lightning.png",
+      "bytes": 1728701,
+      "sha256": "931adbc40b63303b7b90978758fefdc702cd14d7372be6ceab1d1982696e69d7",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\22_spider_lightning.png",
+      "original_sha256": "931adbc40b63303b7b90978758fefdc702cd14d7372be6ceab1d1982696e69d7"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/23_red_sprite.json",
+      "bytes": 6707,
+      "sha256": "e361cfca59a33ac32373878bc1d8520427261b4ff11592da405f2621d0944261",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\23_red_sprite.json",
+      "original_sha256": "e361cfca59a33ac32373878bc1d8520427261b4ff11592da405f2621d0944261"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/23_red_sprite.png",
+      "bytes": 1120572,
+      "sha256": "2394518bd4a31aed72078278bb53f880e56b87af395fad48d4fab917b579f041",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\23_red_sprite.png",
+      "original_sha256": "2394518bd4a31aed72078278bb53f880e56b87af395fad48d4fab917b579f041"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/24_blue_jet.json",
+      "bytes": 6869,
+      "sha256": "3c44cfaa43d4b19bf539eded8d44a73a8d0cdf00e7042a5fc8fefce168a0cd9b",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\24_blue_jet.json",
+      "original_sha256": "3c44cfaa43d4b19bf539eded8d44a73a8d0cdf00e7042a5fc8fefce168a0cd9b"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/24_blue_jet.png",
+      "bytes": 1090577,
+      "sha256": "eaa823e5016a71a277ebe58dcd65f5e850a259921c23351bba05117eac4ad303",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\24_blue_jet.png",
+      "original_sha256": "eaa823e5016a71a277ebe58dcd65f5e850a259921c23351bba05117eac4ad303"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/25_gigantic_jet.json",
+      "bytes": 6690,
+      "sha256": "90f150acc954fb982c2c6b03df9461cca4626576753b3e2570f3abd3602845c2",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\25_gigantic_jet.json",
+      "original_sha256": "90f150acc954fb982c2c6b03df9461cca4626576753b3e2570f3abd3602845c2"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/25_gigantic_jet.png",
+      "bytes": 1810803,
+      "sha256": "51f5c6cdb944b0ede7e30f3da97f137a9933d0f22a562c1d9b399a408f1d2434",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\25_gigantic_jet.png",
+      "original_sha256": "51f5c6cdb944b0ede7e30f3da97f137a9933d0f22a562c1d9b399a408f1d2434"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/26_elves.json",
+      "bytes": 6657,
+      "sha256": "d12ffcef3115df2a54b677bd05f73a05c0da71d00e5ebc2631e8f80398f6e1c3",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\26_elves.json",
+      "original_sha256": "d12ffcef3115df2a54b677bd05f73a05c0da71d00e5ebc2631e8f80398f6e1c3"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/26_elves.png",
+      "bytes": 1491458,
+      "sha256": "ec9d851497805eaf804828643eb973a2345445288904c03d5af68f76b043ebc2",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\26_elves.png",
+      "original_sha256": "ec9d851497805eaf804828643eb973a2345445288904c03d5af68f76b043ebc2"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/28_volcanic_lightning.json",
+      "bytes": 7120,
+      "sha256": "f13cacddf28587e0176aa2cea009ed34ef1dcaba5d8dc5a785cfb46e0b30ea3d",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\28_volcanic_lightning.json",
+      "original_sha256": "f13cacddf28587e0176aa2cea009ed34ef1dcaba5d8dc5a785cfb46e0b30ea3d"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_selector_current/28_volcanic_lightning.png",
+      "bytes": 1966825,
+      "sha256": "bb331cb92dbbc97de4da22da2504a7d269cc66f16054ccce10bd8b35aaa7be0b",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_selector_current\\28_volcanic_lightning.png",
+      "original_sha256": "bb331cb92dbbc97de4da22da2504a7d269cc66f16054ccce10bd8b35aaa7be0b"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/22_spider_lightning.json",
+      "bytes": 6636,
+      "sha256": "bc0b77fc47ec6be624ba26b4717988ad81589e7240d031de78c1dfe34e6e8ef4",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\22_spider_lightning.json",
+      "original_sha256": "bc0b77fc47ec6be624ba26b4717988ad81589e7240d031de78c1dfe34e6e8ef4"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/22_spider_lightning.png",
+      "bytes": 1728715,
+      "sha256": "7bc28f0923980c1545037341b9985001c0221dc837da514340c720c8f89546a7",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\22_spider_lightning.png",
+      "original_sha256": "7bc28f0923980c1545037341b9985001c0221dc837da514340c720c8f89546a7"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/23_red_sprite.json",
+      "bytes": 6707,
+      "sha256": "e361cfca59a33ac32373878bc1d8520427261b4ff11592da405f2621d0944261",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\23_red_sprite.json",
+      "original_sha256": "e361cfca59a33ac32373878bc1d8520427261b4ff11592da405f2621d0944261"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/23_red_sprite.png",
+      "bytes": 1120528,
+      "sha256": "fedf217e03229d1bdea5a9732db24f3c95bc9aec693b780f92930f58b4e9f896",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\23_red_sprite.png",
+      "original_sha256": "fedf217e03229d1bdea5a9732db24f3c95bc9aec693b780f92930f58b4e9f896"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/24_blue_jet.json",
+      "bytes": 6869,
+      "sha256": "3c44cfaa43d4b19bf539eded8d44a73a8d0cdf00e7042a5fc8fefce168a0cd9b",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\24_blue_jet.json",
+      "original_sha256": "3c44cfaa43d4b19bf539eded8d44a73a8d0cdf00e7042a5fc8fefce168a0cd9b"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/24_blue_jet.png",
+      "bytes": 1090538,
+      "sha256": "cf38c28ca4d2a0a0603d4f0513995236d623018c29ee61584d73ae0d2831631b",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\24_blue_jet.png",
+      "original_sha256": "cf38c28ca4d2a0a0603d4f0513995236d623018c29ee61584d73ae0d2831631b"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/25_gigantic_jet.json",
+      "bytes": 6690,
+      "sha256": "90f150acc954fb982c2c6b03df9461cca4626576753b3e2570f3abd3602845c2",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\25_gigantic_jet.json",
+      "original_sha256": "90f150acc954fb982c2c6b03df9461cca4626576753b3e2570f3abd3602845c2"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/25_gigantic_jet.png",
+      "bytes": 1806871,
+      "sha256": "79e3eac1fca9abdf603a92886552a6c0a879e1cca09143e810d51b9b134713c3",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\25_gigantic_jet.png",
+      "original_sha256": "79e3eac1fca9abdf603a92886552a6c0a879e1cca09143e810d51b9b134713c3"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/26_elves.json",
+      "bytes": 6657,
+      "sha256": "d12ffcef3115df2a54b677bd05f73a05c0da71d00e5ebc2631e8f80398f6e1c3",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\26_elves.json",
+      "original_sha256": "d12ffcef3115df2a54b677bd05f73a05c0da71d00e5ebc2631e8f80398f6e1c3"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/26_elves.png",
+      "bytes": 1460873,
+      "sha256": "0bce165c729b01f2a4edccc0af9787ec3dc626cde5a483d744a359bca1f97985",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\26_elves.png",
+      "original_sha256": "0bce165c729b01f2a4edccc0af9787ec3dc626cde5a483d744a359bca1f97985"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/28_volcanic_lightning.json",
+      "bytes": 7120,
+      "sha256": "f13cacddf28587e0176aa2cea009ed34ef1dcaba5d8dc5a785cfb46e0b30ea3d",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\28_volcanic_lightning.json",
+      "original_sha256": "f13cacddf28587e0176aa2cea009ed34ef1dcaba5d8dc5a785cfb46e0b30ea3d"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/28_volcanic_lightning.png",
+      "bytes": 1972527,
+      "sha256": "d253d892328b17e0db3bd101a483f38c884088f88901759c5db366c30a10bddc",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\28_volcanic_lightning.png",
+      "original_sha256": "d253d892328b17e0db3bd101a483f38c884088f88901759c5db366c30a10bddc"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/elves_growth.json",
+      "bytes": 446,
+      "sha256": "6cd8746f1abd9f2fa2deedd41ee2c1b501cd6c785a814f121cbaeca9c242a45d",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\elves_growth.json",
+      "original_sha256": "6cd8746f1abd9f2fa2deedd41ee2c1b501cd6c785a814f121cbaeca9c242a45d"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/elves_growth_060.png",
+      "bytes": 1513613,
+      "sha256": "3cf33c878cb061c193e54beddb4511947e08e8c50ce23c6bccce55b9386371ee",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\elves_growth_060.png",
+      "original_sha256": "3cf33c878cb061c193e54beddb4511947e08e8c50ce23c6bccce55b9386371ee"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/elves_growth_150.png",
+      "bytes": 1518493,
+      "sha256": "6964745d54518653c887665f550bfcb7b9e7d1c2e31e264158135fa007716a6e",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\elves_growth_150.png",
+      "original_sha256": "6964745d54518653c887665f550bfcb7b9e7d1c2e31e264158135fa007716a6e"
+    },
+    {
+      "path": "electrical_shapes_20261027/rare_final_shapes/elves_growth_280.png",
+      "bytes": 1532415,
+      "sha256": "a47eef21586ae38edb4453721ab16b4bddaa02ffa74fe88c90644675b4f2a0ae",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_final_shapes\\elves_growth_280.png",
+      "original_sha256": "a47eef21586ae38edb4453721ab16b4bddaa02ffa74fe88c90644675b4f2a0ae"
+    },
+    {
+      "path": "electrical_shapes_20261027/occluded_ring_control.png",
+      "bytes": 1451863,
+      "sha256": "9e3850f2329c89d5cb985f7d174d08ea3cecd28023b85ba27bf1b7af4b1b0f09",
+      "original_path": "C:\\ov\\reports\\lightning32\\rare_shape_repair\\26_elves.png",
+      "original_sha256": "9e3850f2329c89d5cb985f7d174d08ea3cecd28023b85ba27bf1b7af4b1b0f09"
+    },
+    {
+      "path": "fallout_20261027/fallout_data_preservation.json",
+      "bytes": 490,
+      "sha256": "248205054fb53fa52d478df5cd170f9086bf06aabced6f792452aac8fdf1259d",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_data_preservation.json",
+      "original_sha256": "248205054fb53fa52d478df5cd170f9086bf06aabced6f792452aac8fdf1259d"
+    },
+    {
+      "path": "fallout_20261027/frog_contact_first.log",
+      "bytes": 484,
+      "sha256": "486de661346b0f7f59fa4cdfec38baf143c4a0e8bfd1ccc2f9e24925c6d7e7fe",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_contact_first.log",
+      "original_sha256": "486de661346b0f7f59fa4cdfec38baf143c4a0e8bfd1ccc2f9e24925c6d7e7fe"
+    },
+    {
+      "path": "fallout_20261027/frog_contact_first.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_contact_first.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/frog_contact_first.log.receipt.json",
+      "bytes": 2184,
+      "sha256": "defcdda6f142f398f598e0d4230ec9bd0d52f57018514558635b38912543ca72",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_contact_first.log.receipt.json",
+      "original_sha256": "defcdda6f142f398f598e0d4230ec9bd0d52f57018514558635b38912543ca72"
+    },
+    {
+      "path": "fallout_20261027/frog_impact.log",
+      "bytes": 485,
+      "sha256": "e26e3b84e9157ff400120c5ea9525acd805d81f9043afc5aa785506da13e3769",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_impact.log",
+      "original_sha256": "e26e3b84e9157ff400120c5ea9525acd805d81f9043afc5aa785506da13e3769"
+    },
+    {
+      "path": "fallout_20261027/frog_impact.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_impact.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/frog_impact.log.receipt.json",
+      "bytes": 2163,
+      "sha256": "e3ce0102f1b1e2a10d82622430ed3f368f4de468cbc80977412a483c54120a46",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_impact.log.receipt.json",
+      "original_sha256": "e3ce0102f1b1e2a10d82622430ed3f368f4de468cbc80977412a483c54120a46"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload.log",
+      "bytes": 6976,
+      "sha256": "61d51cc21616454d9db7f692b7838c4cf3966d301a8e55403f9125159764be24",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload.log",
+      "original_sha256": "61d51cc21616454d9db7f692b7838c4cf3966d301a8e55403f9125159764be24"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload.log.receipt.json",
+      "bytes": 5775,
+      "sha256": "8994c792257e9b5006340b3b06a25695a3fbc15961bc750129c7d1e3197f9a5d",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload.log.receipt.json",
+      "original_sha256": "8994c792257e9b5006340b3b06a25695a3fbc15961bc750129c7d1e3197f9a5d"
+    },
+    {
+      "path": "fallout_20261027/fallout_final_calendar.log",
+      "bytes": 36827,
+      "sha256": "c1f3f58cc0eee572e1c5e5d1e6cb1c65de48ea7265133ac03c42ce65ced07b88",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_final_calendar.log",
+      "original_sha256": "c1f3f58cc0eee572e1c5e5d1e6cb1c65de48ea7265133ac03c42ce65ced07b88"
+    },
+    {
+      "path": "fallout_20261027/fallout_final_calendar.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_final_calendar.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/fallout_final_calendar.log.receipt.json",
+      "bytes": 6221,
+      "sha256": "949b76020350c8f467820f2a84c3e053c763390285229a9a4386a4de133befaf",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_final_calendar.log.receipt.json",
+      "original_sha256": "949b76020350c8f467820f2a84c3e053c763390285229a9a4386a4de133befaf"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation.log",
+      "bytes": 2081,
+      "sha256": "1dbe852dd8a89640ab297b39e7677c3af8c633f980aa85a54a726bd1d248829f",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation.log",
+      "original_sha256": "1dbe852dd8a89640ab297b39e7677c3af8c633f980aa85a54a726bd1d248829f"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation.log.receipt.json",
+      "bytes": 2637,
+      "sha256": "50545c0ecf3444f4bcd5867f74cd6a9980996ff0092bdf97a97a8e0c68346eb2",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation.log.receipt.json",
+      "original_sha256": "50545c0ecf3444f4bcd5867f74cd6a9980996ff0092bdf97a97a8e0c68346eb2"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation_uncontended.log",
+      "bytes": 2081,
+      "sha256": "6b44644ab36ed8971deb4b2235172e2dbf3b6fa357e4814dbbe1f8872f2ec5ee",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation_uncontended.log",
+      "original_sha256": "6b44644ab36ed8971deb4b2235172e2dbf3b6fa357e4814dbbe1f8872f2ec5ee"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation_uncontended.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation_uncontended.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation_uncontended.log.receipt.json",
+      "bytes": 2673,
+      "sha256": "6bd379fb4d07a0a14bf666e71f34651a54256542283cd17455fcafbd14fb71bb",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation_uncontended.log.receipt.json",
+      "original_sha256": "6bd379fb4d07a0a14bf666e71f34651a54256542283cd17455fcafbd14fb71bb"
+    },
+    {
+      "path": "fallout_20261027/frog_contact_first/frog_loaded_stock.json",
+      "bytes": 4585,
+      "sha256": "6c5c4727415bea7ba172a52fdb0bb3b0c7001501c4f67fdb1c6c134d8dbe6207",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_contact_first\\frog_loaded_stock.json",
+      "original_sha256": "6c5c4727415bea7ba172a52fdb0bb3b0c7001501c4f67fdb1c6c134d8dbe6207"
+    },
+    {
+      "path": "fallout_20261027/frog_contact_first/native_frog_fall.png",
+      "bytes": 122182,
+      "sha256": "54210d33074d61fada52bbf8c83b89b3182e71892d6f1cacafa12dcb9d73a330",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_contact_first\\native_frog_fall.png",
+      "original_sha256": "54210d33074d61fada52bbf8c83b89b3182e71892d6f1cacafa12dcb9d73a330"
+    },
+    {
+      "path": "fallout_20261027/frog_impact/native_frog_impact.png",
+      "bytes": 117515,
+      "sha256": "f0590c87199fa048d3c7914c294d5f886d37931c717a239592c4fbc3616a3b89",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_impact\\native_frog_impact.png",
+      "original_sha256": "f0590c87199fa048d3c7914c294d5f886d37931c717a239592c4fbc3616a3b89"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/weather_lifecycle_contract.json",
+      "bytes": 23140,
+      "sha256": "ccdd5a8748745fbc40805dee6fc1aa4a768a3946bc5e4f3c44983e72ed939d37",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\weather_lifecycle_contract.json",
+      "original_sha256": "ccdd5a8748745fbc40805dee6fc1aa4a768a3946bc5e4f3c44983e72ed939d37"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/precipitation_review.json",
+      "bytes": 66335,
+      "sha256": "d02691ae4472ff815454f27a0b22387f21917c2f640ada970e6253ac17e2fddb",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\precipitation_review.json",
+      "original_sha256": "d02691ae4472ff815454f27a0b22387f21917c2f640ada970e6253ac17e2fddb"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/companion_lens_true.png",
+      "bytes": 2445927,
+      "sha256": "ecb94765f01ee81eabe745029cbc7a776d83a04b52fc4fbf14acd7af9c644e51",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\companion_lens_true.png",
+      "original_sha256": "ecb94765f01ee81eabe745029cbc7a776d83a04b52fc4fbf14acd7af9c644e51"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/companion_lens_false.png",
+      "bytes": 2373815,
+      "sha256": "ab05b99b8e08a7e70cc32a7339d3c59849fd802ec2eb0fe05d4e0d88e72e387d",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\companion_lens_false.png",
+      "original_sha256": "ab05b99b8e08a7e70cc32a7339d3c59849fd802ec2eb0fe05d4e0d88e72e387d"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/blood_roof_contact.png",
+      "bytes": 960294,
+      "sha256": "4c71f5066acddae54b105a06b298670dfd9277646156b605a18cd7f663df3413",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\blood_roof_contact.png",
+      "original_sha256": "4c71f5066acddae54b105a06b298670dfd9277646156b605a18cd7f663df3413"
+    },
+    {
+      "path": "fallout_20261027/fallout_world_reload/frogs_roof_contact.png",
+      "bytes": 1985547,
+      "sha256": "0d5baa7ffd9e0b81a46b60428182da16fd66ce594688c16e77f7f3ab71568311",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_world_reload\\frogs_roof_contact.png",
+      "original_sha256": "0d5baa7ffd9e0b81a46b60428182da16fd66ce594688c16e77f7f3ab71568311"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation/precipitation_review.json",
+      "bytes": 1118677,
+      "sha256": "3315983b624afc7f7a28e15f6bb51451d471bf607bd1cf472a4ef863eaa4f10c",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation\\precipitation_review.json",
+      "original_sha256": "3315983b624afc7f7a28e15f6bb51451d471bf607bd1cf472a4ef863eaa4f10c"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation_uncontended/precipitation_review.json",
+      "bytes": 1118246,
+      "sha256": "4fa46a4b2762d2be73bdd4227977010b9a7c2807f99fd8ecb242aa9c06954bcc",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation_uncontended\\precipitation_review.json",
+      "original_sha256": "4fa46a4b2762d2be73bdd4227977010b9a7c2807f99fd8ecb242aa9c06954bcc"
+    },
+    {
+      "path": "fallout_20261027/fallout_activation_summary.json",
+      "bytes": 5441,
+      "sha256": "4a23ff90958257cbf95e9bafe59ab3e62ad4434d1a1a185fded54b1b374c51b8",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_activation_summary.json",
+      "original_sha256": "4a23ff90958257cbf95e9bafe59ab3e62ad4434d1a1a185fded54b1b374c51b8"
+    },
+    {
+      "path": "fallout_20261027/frog_scoped_construction_renewal/previous_runtime_material_sets.json",
+      "bytes": 54505,
+      "sha256": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_scoped_construction_renewal\\previous_runtime_material_sets.json",
+      "original_sha256": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916"
+    },
+    {
+      "path": "fallout_20261027/frog_scoped_construction_renewal/renewal.json",
+      "bytes": 1174,
+      "sha256": "bc5b6b036b15c69fe75e2c78a957301f837f6a4bbc504d6e5c6ebc4348d91d66",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_scoped_construction_renewal\\renewal.json",
+      "original_sha256": "bc5b6b036b15c69fe75e2c78a957301f837f6a4bbc504d6e5c6ebc4348d91d66"
+    },
+    {
+      "path": "fallout_20261027/frog_scoped_construction_renewal/art/blender/house_switchboard_construction.json.gz",
+      "bytes": 2185,
+      "sha256": "80448dbaefdac2d7b04312c03eac9fdc6886fc3239df4662f39dc1d987d8b256",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_scoped_construction_renewal\\art\\blender\\house_switchboard_construction.json.gz",
+      "original_sha256": "80448dbaefdac2d7b04312c03eac9fdc6886fc3239df4662f39dc1d987d8b256"
+    },
+    {
+      "path": "fallout_20261027/frog_scoped_construction_renewal/art/blender/readable_library_construction.json.gz",
+      "bytes": 26467,
+      "sha256": "8a44bdd0eb4040ec15b84946a69faffb64a419bc45fdd3d575e48bae60ddfc99",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_scoped_construction_renewal\\art\\blender\\readable_library_construction.json.gz",
+      "original_sha256": "8a44bdd0eb4040ec15b84946a69faffb64a419bc45fdd3d575e48bae60ddfc99"
+    },
+    {
+      "path": "fallout_20261027/frog_fixture_context_renewal/city_ground_apron_construction.json.original.gz",
+      "bytes": 1583,
+      "sha256": "f54dfbc377011ed99c555216a31af3c89d6ef02bd4331ea8d82086f8b7140b6c",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_fixture_context_renewal\\city_ground_apron_construction.json.original.gz",
+      "original_sha256": "f54dfbc377011ed99c555216a31af3c89d6ef02bd4331ea8d82086f8b7140b6c"
+    },
+    {
+      "path": "fallout_20261027/frog_fixture_context_renewal/context_renewal.json",
+      "bytes": 2023,
+      "sha256": "300a4b3d235a154658a9d83150d2312c0a49894a32c487f099859331abab75d9",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_fixture_context_renewal\\context_renewal.json",
+      "original_sha256": "300a4b3d235a154658a9d83150d2312c0a49894a32c487f099859331abab75d9"
+    },
+    {
+      "path": "fallout_20261027/frog_fixture_context_renewal/orison_city_ground_apron.json.original.gz",
+      "bytes": 1583,
+      "sha256": "f54dfbc377011ed99c555216a31af3c89d6ef02bd4331ea8d82086f8b7140b6c",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_fixture_context_renewal\\orison_city_ground_apron.json.original.gz",
+      "original_sha256": "f54dfbc377011ed99c555216a31af3c89d6ef02bd4331ea8d82086f8b7140b6c"
+    },
+    {
+      "path": "fallout_20261027/frog_fixture_context_renewal/passage_shop_leaves.json.original.gz",
+      "bytes": 2134,
+      "sha256": "8a07f475d3422105dc661702f5d8dc4348f33fdbe056d682ee19c1c8a25a3f9e",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_fixture_context_renewal\\passage_shop_leaves.json.original.gz",
+      "original_sha256": "8a07f475d3422105dc661702f5d8dc4348f33fdbe056d682ee19c1c8a25a3f9e"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/renewal.json",
+      "bytes": 4418,
+      "sha256": "58ab464274c3b4f11afd5ff732dcd80cf3fc38808915b0f5a2d69e646e0a66ce",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\renewal.json",
+      "original_sha256": "58ab464274c3b4f11afd5ff732dcd80cf3fc38808915b0f5a2d69e646e0a66ce"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/art/blender/city_closure_construction.json.gz",
+      "bytes": 18083,
+      "sha256": "2cf473131bc51e6a63a6eb7d6f0f827f2d2db9ed79e0b2490e7396787a7def88",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\art\\blender\\city_closure_construction.json.gz",
+      "original_sha256": "2cf473131bc51e6a63a6eb7d6f0f827f2d2db9ed79e0b2490e7396787a7def88"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/art/blender/city_elevations_construction.json.gz",
+      "bytes": 69315,
+      "sha256": "aed9919b7d6175e75bcb62a85617c19106fa005baadbef649494dd0793d5cd0d",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\art\\blender\\city_elevations_construction.json.gz",
+      "original_sha256": "aed9919b7d6175e75bcb62a85617c19106fa005baadbef649494dd0793d5cd0d"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/art/blender/city_ground_apron_construction.json.gz",
+      "bytes": 1583,
+      "sha256": "247bdfcdfb1f7c687e535f21c305066d3eeb2750fca4599fe9980229065e8ebb",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\art\\blender\\city_ground_apron_construction.json.gz",
+      "original_sha256": "247bdfcdfb1f7c687e535f21c305066d3eeb2750fca4599fe9980229065e8ebb"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/art/blender/city_horizon_construction.json.gz",
+      "bytes": 99878,
+      "sha256": "cce71a25d5ce6dd3a371f4bcaf02c6679a20338b73bc517fa8fb4e36dc03466d",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\art\\blender\\city_horizon_construction.json.gz",
+      "original_sha256": "cce71a25d5ce6dd3a371f4bcaf02c6679a20338b73bc517fa8fb4e36dc03466d"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/art/blender/street_paving_details_construction.json.gz",
+      "bytes": 4330,
+      "sha256": "09d293ea60bf5ad1083d302ac7172733961b222c12c8e8ec2a55dbf488483507",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\art\\blender\\street_paving_details_construction.json.gz",
+      "original_sha256": "09d293ea60bf5ad1083d302ac7172733961b222c12c8e8ec2a55dbf488483507"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/game/tests/fixtures/orison_city_closure.json.gz",
+      "bytes": 18083,
+      "sha256": "2cf473131bc51e6a63a6eb7d6f0f827f2d2db9ed79e0b2490e7396787a7def88",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\game\\tests\\fixtures\\orison_city_closure.json.gz",
+      "original_sha256": "2cf473131bc51e6a63a6eb7d6f0f827f2d2db9ed79e0b2490e7396787a7def88"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/game/tests/fixtures/orison_city_elevations.json.gz",
+      "bytes": 69315,
+      "sha256": "aed9919b7d6175e75bcb62a85617c19106fa005baadbef649494dd0793d5cd0d",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\game\\tests\\fixtures\\orison_city_elevations.json.gz",
+      "original_sha256": "aed9919b7d6175e75bcb62a85617c19106fa005baadbef649494dd0793d5cd0d"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/game/tests/fixtures/orison_city_ground_apron.json.gz",
+      "bytes": 1583,
+      "sha256": "247bdfcdfb1f7c687e535f21c305066d3eeb2750fca4599fe9980229065e8ebb",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\game\\tests\\fixtures\\orison_city_ground_apron.json.gz",
+      "original_sha256": "247bdfcdfb1f7c687e535f21c305066d3eeb2750fca4599fe9980229065e8ebb"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/game/tests/fixtures/orison_city_horizon.json.gz",
+      "bytes": 99878,
+      "sha256": "cce71a25d5ce6dd3a371f4bcaf02c6679a20338b73bc517fa8fb4e36dc03466d",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\game\\tests\\fixtures\\orison_city_horizon.json.gz",
+      "original_sha256": "cce71a25d5ce6dd3a371f4bcaf02c6679a20338b73bc517fa8fb4e36dc03466d"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/game/tests/fixtures/orison_street_paving_details.json.gz",
+      "bytes": 4330,
+      "sha256": "09d293ea60bf5ad1083d302ac7172733961b222c12c8e8ec2a55dbf488483507",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\game\\tests\\fixtures\\orison_street_paving_details.json.gz",
+      "original_sha256": "09d293ea60bf5ad1083d302ac7172733961b222c12c8e8ec2a55dbf488483507"
+    },
+    {
+      "path": "fallout_20261027/frog_native_fixture_renewal/game/tests/fixtures/passage_shop_leaves.json.gz",
+      "bytes": 2132,
+      "sha256": "9a691b18234c82e7f249f0051e1655996f0fa59528f7e633fa640d0249551bb0",
+      "original_path": "C:\\ov\\reports\\lightning32\\frog_native_fixture_renewal\\game\\tests\\fixtures\\passage_shop_leaves.json.gz",
+      "original_sha256": "9a691b18234c82e7f249f0051e1655996f0fa59528f7e633fa640d0249551bb0"
+    },
+    {
+      "path": "fallout_20261027/surface_fallout.log",
+      "bytes": 177,
+      "sha256": "5be560a7058d3407d1d4d92891903ad63f1db17e06fbddd511ccecee4b358b22",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_fallout.log",
+      "original_sha256": "5be560a7058d3407d1d4d92891903ad63f1db17e06fbddd511ccecee4b358b22"
+    },
+    {
+      "path": "fallout_20261027/surface_fallout.log.stderr",
+      "bytes": 1140,
+      "sha256": "85d19712505e6ce2ae0b6c484ec1fdca442ba13db69ce57e8c866dace26fb802",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_fallout.log.stderr",
+      "original_sha256": "85d19712505e6ce2ae0b6c484ec1fdca442ba13db69ce57e8c866dace26fb802"
+    },
+    {
+      "path": "fallout_20261027/surface_fallout.log.receipt.json",
+      "bytes": 3593,
+      "sha256": "6649bddf21fcad5f1b1282373e30e8db77a4294d4a74efa0fa2bcb64fbb169ef",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_fallout.log.receipt.json",
+      "original_sha256": "6649bddf21fcad5f1b1282373e30e8db77a4294d4a74efa0fa2bcb64fbb169ef"
+    },
+    {
+      "path": "qualification_20261027/surface_fallout_final.log",
+      "bytes": 372884,
+      "sha256": "53bab8863520ce93f435b4c0d0a238daf56cf3e7fcc4456901b37690fecefdb2",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_fallout_final.log",
+      "original_sha256": "53bab8863520ce93f435b4c0d0a238daf56cf3e7fcc4456901b37690fecefdb2"
+    },
+    {
+      "path": "qualification_20261027/surface_fallout_final.log.stderr",
+      "bytes": 1117,
+      "sha256": "da7761543095310544288105ef359d1e5ed204a7b2feef5ecdf254d831516085",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_fallout_final.log.stderr",
+      "original_sha256": "da7761543095310544288105ef359d1e5ed204a7b2feef5ecdf254d831516085"
+    },
+    {
+      "path": "qualification_20261027/surface_fallout_final.log.receipt.json",
+      "bytes": 1731,
+      "sha256": "863cae5093f77eb50a000e9c3b6aa1f976774600a735f594ef714e52a9fba062",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_fallout_final.log.receipt.json",
+      "original_sha256": "863cae5093f77eb50a000e9c3b6aa1f976774600a735f594ef714e52a9fba062"
+    },
+    {
+      "path": "qualification_20261027/surface_street_prefix.log",
+      "bytes": 85693,
+      "sha256": "6b9d35bcd52eef3e1736127f55eb68bd9379add5e6587b3abcefc678a8357806",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_street_prefix.log",
+      "original_sha256": "6b9d35bcd52eef3e1736127f55eb68bd9379add5e6587b3abcefc678a8357806"
+    },
+    {
+      "path": "qualification_20261027/surface_street_prefix.log.stderr",
+      "bytes": 810,
+      "sha256": "67ddebbc1dd884fe34b40e4079158302abdafa3bc42eddad42dc9c238a463d07",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_street_prefix.log.stderr",
+      "original_sha256": "67ddebbc1dd884fe34b40e4079158302abdafa3bc42eddad42dc9c238a463d07"
+    },
+    {
+      "path": "qualification_20261027/surface_street_prefix.log.receipt.json",
+      "bytes": 1894,
+      "sha256": "05e0d36c2689352539902c9b6e90ff14179fb22374faffc3c62afcf53c1eb6e6",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_street_prefix.log.receipt.json",
+      "original_sha256": "05e0d36c2689352539902c9b6e90ff14179fb22374faffc3c62afcf53c1eb6e6"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace.log",
+      "bytes": 372540,
+      "sha256": "e00fe151b9ae031e47f9c59d08173bf9876126c482c75a8f6ddfae59d5bd347b",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace.log",
+      "original_sha256": "e00fe151b9ae031e47f9c59d08173bf9876126c482c75a8f6ddfae59d5bd347b"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace.log.receipt.json",
+      "bytes": 2691,
+      "sha256": "0ce590da430de840719d98a07e64a193ed58e6bc18edab1e0db272c33548ca8e",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace.log.receipt.json",
+      "original_sha256": "0ce590da430de840719d98a07e64a193ed58e6bc18edab1e0db272c33548ca8e"
+    },
+    {
+      "path": "qualification_20261027/passage_retirement_grace.log",
+      "bytes": 20842,
+      "sha256": "fda0327566ef81a201e85c8fc609c943d1c83aa0ebc08f07a2525dd4265fa325",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_retirement_grace.log",
+      "original_sha256": "fda0327566ef81a201e85c8fc609c943d1c83aa0ebc08f07a2525dd4265fa325"
+    },
+    {
+      "path": "qualification_20261027/passage_retirement_grace.log.stderr",
+      "bytes": 271,
+      "sha256": "874682dcf1b1be8b88d30ca97b323bf4f43f3e2aa56962dff46ac1f12cee14e7",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_retirement_grace.log.stderr",
+      "original_sha256": "874682dcf1b1be8b88d30ca97b323bf4f43f3e2aa56962dff46ac1f12cee14e7"
+    },
+    {
+      "path": "qualification_20261027/passage_retirement_grace.log.receipt.json",
+      "bytes": 2421,
+      "sha256": "aeab483937d72d2c046a1f7df9b756d0d9ec1bdbb6ec673efaccaa017c1fa9d9",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_retirement_grace.log.receipt.json",
+      "original_sha256": "aeab483937d72d2c046a1f7df9b756d0d9ec1bdbb6ec673efaccaa017c1fa9d9"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000.log",
+      "bytes": 20879,
+      "sha256": "900545cdcea845e05953a360c3480821cb3897bde08202d925d209cc9ea8ec61",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000.log",
+      "original_sha256": "900545cdcea845e05953a360c3480821cb3897bde08202d925d209cc9ea8ec61"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000.log.stderr",
+      "bytes": 271,
+      "sha256": "874682dcf1b1be8b88d30ca97b323bf4f43f3e2aa56962dff46ac1f12cee14e7",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000.log.stderr",
+      "original_sha256": "874682dcf1b1be8b88d30ca97b323bf4f43f3e2aa56962dff46ac1f12cee14e7"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000.log.receipt.json",
+      "bytes": 2437,
+      "sha256": "f0ecca7a7d25d47c247c83beb39d2d8cc28146c6288f31a58feb6614ed3ea569",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000.log.receipt.json",
+      "original_sha256": "f0ecca7a7d25d47c247c83beb39d2d8cc28146c6288f31a58feb6614ed3ea569"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000.log",
+      "bytes": 154787,
+      "sha256": "25d813476ab8ac58dfeef11e6ca976bb5d79046df376b25aa65dac296c8150ec",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000.log",
+      "original_sha256": "25d813476ab8ac58dfeef11e6ca976bb5d79046df376b25aa65dac296c8150ec"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000.log.stderr",
+      "bytes": 270,
+      "sha256": "4794c0d64d109582b3101808663af466e1b170e971942fca09b6ecd6f2630ff0",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000.log.stderr",
+      "original_sha256": "4794c0d64d109582b3101808663af466e1b170e971942fca09b6ecd6f2630ff0"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000.log.receipt.json",
+      "bytes": 2399,
+      "sha256": "7e393be49ad2b0dc10e354e4bff8e80067bb5402bc2f378d4f8c8e9ef68caf7c",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000.log.receipt.json",
+      "original_sha256": "7e393be49ad2b0dc10e354e4bff8e80067bb5402bc2f378d4f8c8e9ef68caf7c"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_return_fix.log",
+      "bytes": 174358,
+      "sha256": "4ddc7d56db6af9d1167701aa16bccd3f962fef8acaa9124efba2f6bcc5714ef8",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_return_fix.log",
+      "original_sha256": "4ddc7d56db6af9d1167701aa16bccd3f962fef8acaa9124efba2f6bcc5714ef8"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_return_fix.log.stderr",
+      "bytes": 540,
+      "sha256": "9f33d5c2903c90de16ca3770e355ee5e980a2f3f6fb6246456593664a20f054e",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_return_fix.log.stderr",
+      "original_sha256": "9f33d5c2903c90de16ca3770e355ee5e980a2f3f6fb6246456593664a20f054e"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_return_fix.log.receipt.json",
+      "bytes": 2432,
+      "sha256": "bed2ad23a500d545feeaaf40164db301c08c529925d4b5551b6022802f869fc4",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_return_fix.log.receipt.json",
+      "original_sha256": "bed2ad23a500d545feeaaf40164db301c08c529925d4b5551b6022802f869fc4"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000.log",
+      "bytes": 290081,
+      "sha256": "bf0b487f9fc28e11c09e3b27594b065b3e0f4e0fed91ba44802c295a58000f85",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000.log",
+      "original_sha256": "bf0b487f9fc28e11c09e3b27594b065b3e0f4e0fed91ba44802c295a58000f85"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000.log.receipt.json",
+      "bytes": 2398,
+      "sha256": "a3b2cc69a9c7c13a5ac8b2380f19d71923cca1f5b373830479ffd4bf7402793d",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000.log.receipt.json",
+      "original_sha256": "a3b2cc69a9c7c13a5ac8b2380f19d71923cca1f5b373830479ffd4bf7402793d"
+    },
+    {
+      "path": "qualification_20261027/route_fallout_barrier_probe.log",
+      "bytes": 2869,
+      "sha256": "862314c23bdc54924b9c97ae2f26f82f7bdb7dff6c658a62095cd68691b2205a",
+      "original_path": "C:\\ov\\reports\\lightning32\\route_fallout_barrier_probe.log",
+      "original_sha256": "862314c23bdc54924b9c97ae2f26f82f7bdb7dff6c658a62095cd68691b2205a"
+    },
+    {
+      "path": "qualification_20261027/route_fallout_barrier_probe.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\route_fallout_barrier_probe.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification_20261027/route_fallout_barrier_probe.log.receipt.json",
+      "bytes": 1747,
+      "sha256": "e617f9eb6437412715ae991cb4cfc60a2660fccfe7d549fc7f1a677800825728",
+      "original_path": "C:\\ov\\reports\\lightning32\\route_fallout_barrier_probe.log.receipt.json",
+      "original_sha256": "e617f9eb6437412715ae991cb4cfc60a2660fccfe7d549fc7f1a677800825728"
+    },
+    {
+      "path": "qualification_20261027/roof_fallout_barrier_probe.log",
+      "bytes": 5190,
+      "sha256": "7fca983685123c96f6924b5c701ebf40e5834090133fcbceca3e45be4f728f9e",
+      "original_path": "C:\\ov\\reports\\lightning32\\roof_fallout_barrier_probe.log",
+      "original_sha256": "7fca983685123c96f6924b5c701ebf40e5834090133fcbceca3e45be4f728f9e"
+    },
+    {
+      "path": "qualification_20261027/roof_fallout_barrier_probe.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\roof_fallout_barrier_probe.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification_20261027/roof_fallout_barrier_probe.log.receipt.json",
+      "bytes": 4888,
+      "sha256": "88b7bfb7f300a6fbad1cf64fdc606eb602e1ff5e1be9d1880617faeed496d222",
+      "original_path": "C:\\ov\\reports\\lightning32\\roof_fallout_barrier_probe.log.receipt.json",
+      "original_sha256": "88b7bfb7f300a6fbad1cf64fdc606eb602e1ff5e1be9d1880617faeed496d222"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace/runtime_contract.json",
+      "bytes": 1230,
+      "sha256": "ea3af7269fbc0042d0a1365915fabbf88980ca0ae55f1cd068fa6e5731e1e802",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace\\runtime_contract.json",
+      "original_sha256": "ea3af7269fbc0042d0a1365915fabbf88980ca0ae55f1cd068fa6e5731e1e802"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace/technical_findings.json",
+      "bytes": 39949,
+      "sha256": "7e4c165da703d5ed411758aeb0e7df5691c56bd5966e7d2956e65804c5a99042",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace\\technical_findings.json",
+      "original_sha256": "7e4c165da703d5ed411758aeb0e7df5691c56bd5966e7d2956e65804c5a99042"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace/surface-inventory.json",
+      "bytes": 21284947,
+      "sha256": "70fbd73f4c654987466d8cafb6a578f4596e7603336259180fa678213d130333",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace\\surface-inventory.json",
+      "original_sha256": "70fbd73f4c654987466d8cafb6a578f4596e7603336259180fa678213d130333"
+    },
+    {
+      "path": "qualification_20261027/surface_retirement_grace/fire_service_contract.json",
+      "bytes": 1015,
+      "sha256": "184498a4f6982d2f577cb6919899e5e7113dcadfc230e5ac5d8d114b818d5ddb",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_retirement_grace\\fire_service_contract.json",
+      "original_sha256": "184498a4f6982d2f577cb6919899e5e7113dcadfc230e5ac5d8d114b818d5ddb"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000/residency_frames.json",
+      "bytes": 69534,
+      "sha256": "917ee2c43276b2cb30c3a0a08f524da2448b5139cf39d422dce6748ce9b956c0",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000\\residency_frames.json",
+      "original_sha256": "917ee2c43276b2cb30c3a0a08f524da2448b5139cf39d422dce6748ce9b956c0"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000/route.json",
+      "bytes": 3313,
+      "sha256": "6fe44bdc43bb6838440ac6fd71b55e427f8ec0a76495e00ab51c82f471d613a3",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000\\route.json",
+      "original_sha256": "6fe44bdc43bb6838440ac6fd71b55e427f8ec0a76495e00ab51c82f471d613a3"
+    },
+    {
+      "path": "qualification_20261027/passage_budget3000/residency_source.gd",
+      "bytes": 24139,
+      "sha256": "6901b5f61eae7d2e2284c6fe2ef161c69d2f019046f252990c011cac8899ce89",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget3000\\residency_source.gd",
+      "original_sha256": "6901b5f61eae7d2e2284c6fe2ef161c69d2f019046f252990c011cac8899ce89"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_counter_failure/residency_frames.json",
+      "bytes": 97672,
+      "sha256": "f7d26ce47891ae0075fb3a452083c502a9cbb78e058d23d4c872183e2b22f871",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_counter_failure\\residency_frames.json",
+      "original_sha256": "f7d26ce47891ae0075fb3a452083c502a9cbb78e058d23d4c872183e2b22f871"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_counter_failure/route.json",
+      "bytes": 5466,
+      "sha256": "66061638870d5958d8d54ea9a229a6fa6bdf2fccace85cc5bdfd36cff5fec346",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_counter_failure\\route.json",
+      "original_sha256": "66061638870d5958d8d54ea9a229a6fa6bdf2fccace85cc5bdfd36cff5fec346"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_counter_failure/provenance_limitation.json",
+      "bytes": 491,
+      "sha256": "28f164e12bd18f71f9a40fe8ada4d55e86f4dc46daf50562f46d8555bed8a5a4",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_counter_failure\\provenance_limitation.json",
+      "original_sha256": "28f164e12bd18f71f9a40fe8ada4d55e86f4dc46daf50562f46d8555bed8a5a4"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000/residency_frames.json",
+      "bytes": 141464,
+      "sha256": "56851f138b6b7190e137a62c75b24ac3bfb3d21564a4647012e707d33ae9078d",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000\\residency_frames.json",
+      "original_sha256": "56851f138b6b7190e137a62c75b24ac3bfb3d21564a4647012e707d33ae9078d"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000/route.json",
+      "bytes": 9511,
+      "sha256": "40e8285516902bc8778dec7f850078a33d7c9c315590adc45dd2dbd8c2f17523",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000\\route.json",
+      "original_sha256": "40e8285516902bc8778dec7f850078a33d7c9c315590adc45dd2dbd8c2f17523"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_return_fix/residency_frames.json",
+      "bytes": 178621,
+      "sha256": "f63a66a9126c16c97f8bd10eab239cf304cad12048683350b4f5dfdfe30cd47b",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_return_fix\\residency_frames.json",
+      "original_sha256": "f63a66a9126c16c97f8bd10eab239cf304cad12048683350b4f5dfdfe30cd47b"
+    },
+    {
+      "path": "qualification_20261027/passage_budget6000_return_fix/route.json",
+      "bytes": 14889,
+      "sha256": "c4b9da776d0c64cdfd10a932a780ab7c80c05e1eec8ea7f8bfc04c0bf566baf2",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget6000_return_fix\\route.json",
+      "original_sha256": "c4b9da776d0c64cdfd10a932a780ab7c80c05e1eec8ea7f8bfc04c0bf566baf2"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000/residency_frames.json",
+      "bytes": 176930,
+      "sha256": "54cbee8f56c6872e743e0a68eb28a7cf6ac7186a0734963575432d13830370cc",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000\\residency_frames.json",
+      "original_sha256": "54cbee8f56c6872e743e0a68eb28a7cf6ac7186a0734963575432d13830370cc"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000/route.json",
+      "bytes": 14794,
+      "sha256": "556dcecbfd69b61731c13a2a0538e5392cdcc682679fd06924b9c8fceed3a714",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000\\route.json",
+      "original_sha256": "556dcecbfd69b61731c13a2a0538e5392cdcc682679fd06924b9c8fceed3a714"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000/orison_v2_passage_residency.gd",
+      "bytes": 24139,
+      "sha256": "2c05fc66bd962f6c4e71da65608e37ddf8e91d3584d1a0b2cd3910cd96042011",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000\\orison_v2_passage_residency.gd",
+      "original_sha256": "2c05fc66bd962f6c4e71da65608e37ddf8e91d3584d1a0b2cd3910cd96042011"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000/orison_v2_passage_route_test.gd",
+      "bytes": 7644,
+      "sha256": "cef04b0c62c43b958b6746a85fa518d2c8ee05234c9d100d04dc01d00ceaa5bd",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000\\orison_v2_passage_route_test.gd",
+      "original_sha256": "cef04b0c62c43b958b6746a85fa518d2c8ee05234c9d100d04dc01d00ceaa5bd"
+    },
+    {
+      "path": "qualification_20261027/passage_budget8000/orison_v2_passage_residency_test.gd",
+      "bytes": 28419,
+      "sha256": "1dde43aecb106dff325a541f4cea78ef5c171dedf5d2f99a07f1ef3a7c283d10",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_budget8000\\orison_v2_passage_residency_test.gd",
+      "original_sha256": "1dde43aecb106dff325a541f4cea78ef5c171dedf5d2f99a07f1ef3a7c283d10"
+    },
+    {
+      "path": "qualification_20261027/residency_budget_comparison.json",
+      "bytes": 2979,
+      "sha256": "82ec98e5cff3964194e0aa1566be8d47831551045d4d66f705753b0a7def27bd",
+      "original_path": "C:\\ov\\reports\\lightning32\\residency_budget_comparison.json",
+      "original_sha256": "82ec98e5cff3964194e0aa1566be8d47831551045d4d66f705753b0a7def27bd"
+    },
+    {
+      "path": "qualification_20261027/surface_weather_no_hose_final.log",
+      "bytes": 318895,
+      "sha256": "a25ea7b317f651c3806f913e9069c2dca2aa4d3a4ec1cd68b4393453c318b0a1",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_weather_no_hose_final.log",
+      "original_sha256": "a25ea7b317f651c3806f913e9069c2dca2aa4d3a4ec1cd68b4393453c318b0a1"
+    },
+    {
+      "path": "qualification_20261027/surface_weather_no_hose_final.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_weather_no_hose_final.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "qualification_20261027/surface_weather_no_hose_final.log.receipt.json",
+      "bytes": 1677,
+      "sha256": "d9d8bc2a689f133c436adf782ad53766a05a62240031ad0643ad3061da4eaa31",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_weather_no_hose_final.log.receipt.json",
+      "original_sha256": "d9d8bc2a689f133c436adf782ad53766a05a62240031ad0643ad3061da4eaa31"
+    },
+    {
+      "path": "qualification_20261027/surface_weather_packet_qualification.json",
+      "bytes": 160,
+      "sha256": "8bed588f96d85dfff7322fc95301b4e2b8213bb00dd8b0dccd1f10c8a3886e31",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_weather_packet_qualification.json",
+      "original_sha256": "8bed588f96d85dfff7322fc95301b4e2b8213bb00dd8b0dccd1f10c8a3886e31"
+    },
+    {
+      "path": "qualification_20261027/surface_weather_no_hose_final/runtime_contract.json",
+      "bytes": 1394,
+      "sha256": "6d485758612724954bc13815bc67b3b1627820e9bda2d5d3c14e6e4d088e38d7",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_weather_no_hose_final\\runtime_contract.json",
+      "original_sha256": "6d485758612724954bc13815bc67b3b1627820e9bda2d5d3c14e6e4d088e38d7"
+    },
+    {
+      "path": "qualification_20261027/surface_weather_no_hose_final/technical_findings.json",
+      "bytes": 39949,
+      "sha256": "52a023ec1ab463171067c0a9da6fc9191c238fd774619e1b7fdfc6b0c7009712",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_weather_no_hose_final\\technical_findings.json",
+      "original_sha256": "52a023ec1ab463171067c0a9da6fc9191c238fd774619e1b7fdfc6b0c7009712"
+    },
+    {
+      "path": "qualification_20261027/surface_weather_no_hose_final/surface-inventory.json",
+      "bytes": 21284948,
+      "sha256": "c01c47abf38bc59dd443225e9f3ad303bf500405b1f7dddad8b58e9e799c6ef6",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_weather_no_hose_final\\surface-inventory.json",
+      "original_sha256": "c01c47abf38bc59dd443225e9f3ad303bf500405b1f7dddad8b58e9e799c6ef6"
+    },
+    {
+      "path": "qualification_20261027/surface_weather_no_hose_final/visual_review.json",
+      "bytes": 3375,
+      "sha256": "62a7ccde540d07961f2656b2ac62b078d00f11ff179b7863f7fd90d05249d209",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_weather_no_hose_final\\visual_review.json",
+      "original_sha256": "62a7ccde540d07961f2656b2ac62b078d00f11ff179b7863f7fd90d05249d209"
+    },
+    {
+      "path": "calendar_weather_final_20261027/fallout_lifecycle_final.log",
+      "bytes": 6976,
+      "sha256": "91126c434d6764a95a499d055d98f64a3cd7884fd34d14ae3be0e0f22410343a",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_lifecycle_final.log",
+      "original_sha256": "91126c434d6764a95a499d055d98f64a3cd7884fd34d14ae3be0e0f22410343a"
+    },
+    {
+      "path": "calendar_weather_final_20261027/fallout_lifecycle_final.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_lifecycle_final.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "calendar_weather_final_20261027/fallout_lifecycle_final.log.receipt.json",
+      "bytes": 4760,
+      "sha256": "3246a8515035e6dfeb4a8fdb31d3608393dd0da70de997392379cb233477f3aa",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_lifecycle_final.log.receipt.json",
+      "original_sha256": "3246a8515035e6dfeb4a8fdb31d3608393dd0da70de997392379cb233477f3aa"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_final.log",
+      "bytes": 19511,
+      "sha256": "7e661564796cf1247333db2b8a7488a58cc5cb0b599ece2d6df1a7f3c70c0efc",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_final.log",
+      "original_sha256": "7e661564796cf1247333db2b8a7488a58cc5cb0b599ece2d6df1a7f3c70c0efc"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_final.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_final.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_final.log.receipt.json",
+      "bytes": 1578,
+      "sha256": "6ff8139972a40eb044501847f521f423e0ed3cbb09851cfa5b26d1743eeda7fc",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_final.log.receipt.json",
+      "original_sha256": "6ff8139972a40eb044501847f521f423e0ed3cbb09851cfa5b26d1743eeda7fc"
+    },
+    {
+      "path": "calendar_weather_final_20261027/fallout_lifecycle_final/weather_lifecycle_contract.json",
+      "bytes": 23141,
+      "sha256": "39b90dee2d95ed602890ed3fe547e77a39f9845623415e6637f21670e62bcff3",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_lifecycle_final\\weather_lifecycle_contract.json",
+      "original_sha256": "39b90dee2d95ed602890ed3fe547e77a39f9845623415e6637f21670e62bcff3"
+    },
+    {
+      "path": "calendar_weather_final_20261027/fallout_lifecycle_final/precipitation_review.json",
+      "bytes": 1118433,
+      "sha256": "622b1747054b11b2fe579b9024961d1a8e0acbfde1de2b546a6ddc92014c69d2",
+      "original_path": "C:\\ov\\reports\\lightning32\\fallout_lifecycle_final\\precipitation_review.json",
+      "original_sha256": "622b1747054b11b2fe579b9024961d1a8e0acbfde1de2b546a6ddc92014c69d2"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_final/native_detail.json",
+      "bytes": 897401,
+      "sha256": "821bb33d1fdf5783c9df556e01f5c8842a204380705662b34b8d83bc8b2315e8",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_final\\native_detail.json",
+      "original_sha256": "821bb33d1fdf5783c9df556e01f5c8842a204380705662b34b8d83bc8b2315e8"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_night_plan_current.json",
+      "bytes": 44621,
+      "sha256": "e60e8ca00afddd6e4cc92c26fbc66b32489a70845dc606958991364fd8be2992",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_night_plan_current.json",
+      "original_sha256": "e60e8ca00afddd6e4cc92c26fbc66b32489a70845dc606958991364fd8be2992"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_assessment.json",
+      "bytes": 277286,
+      "sha256": "683b4e08127c16d3480a10e4704ff14dd43ab94ce7714b7925bb2e782c005ec4",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_assessment.json",
+      "original_sha256": "683b4e08127c16d3480a10e4704ff14dd43ab94ce7714b7925bb2e782c005ec4"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_detail_00.jpg",
+      "bytes": 487603,
+      "sha256": "2d563f0bddd3fd6aa155ff978dba5ce289f96760582f815fa9c0c5ddf368df4d",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_detail_00.jpg",
+      "original_sha256": "2d563f0bddd3fd6aa155ff978dba5ce289f96760582f815fa9c0c5ddf368df4d"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_detail_01.jpg",
+      "bytes": 473177,
+      "sha256": "395ac889d443779626bf23647dba81068db58249b40e940770af0e473b3e7621",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_detail_01.jpg",
+      "original_sha256": "395ac889d443779626bf23647dba81068db58249b40e940770af0e473b3e7621"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_detail_02.jpg",
+      "bytes": 483675,
+      "sha256": "b2c4fc793a2d7f633820c37747be468baa44c3ef7fb62e2dd1cb20cc01926990",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_detail_02.jpg",
+      "original_sha256": "b2c4fc793a2d7f633820c37747be468baa44c3ef7fb62e2dd1cb20cc01926990"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_detail_03.jpg",
+      "bytes": 474366,
+      "sha256": "e03309257eb2d151502b924b386cf81db6a2d7b92358f4468f806f06081f7ebb",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_detail_03.jpg",
+      "original_sha256": "e03309257eb2d151502b924b386cf81db6a2d7b92358f4468f806f06081f7ebb"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_detail_04.jpg",
+      "bytes": 472543,
+      "sha256": "8e067825d26e4453a405121040b9a3724a7a08973d08a0ff71a081bb4f5a721e",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_detail_04.jpg",
+      "original_sha256": "8e067825d26e4453a405121040b9a3724a7a08973d08a0ff71a081bb4f5a721e"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_detail_05.jpg",
+      "bytes": 474048,
+      "sha256": "d2a931e07a2e18d7b94a890694b42070b2cd32369347e3403be2c5bf4462dd2d",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_detail_05.jpg",
+      "original_sha256": "d2a931e07a2e18d7b94a890694b42070b2cd32369347e3403be2c5bf4462dd2d"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_detail_06.jpg",
+      "bytes": 491741,
+      "sha256": "332c98eb769c7bf210068882a5234854cdd08b02ca72183d68d6b6e429d5c60d",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_detail_06.jpg",
+      "original_sha256": "332c98eb769c7bf210068882a5234854cdd08b02ca72183d68d6b6e429d5c60d"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_detail_07.jpg",
+      "bytes": 507261,
+      "sha256": "bc4e43ec3d2d87d2865ca83090dfb0c27233e45a0f3897932830212ff569e439",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_detail_07.jpg",
+      "original_sha256": "bc4e43ec3d2d87d2865ca83090dfb0c27233e45a0f3897932830212ff569e439"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_detail_08.jpg",
+      "bytes": 540473,
+      "sha256": "ee4f14c7ab5d0c21fc863211be913793a73e332dc181cbec98e450c1f1b8566f",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_detail_08.jpg",
+      "original_sha256": "ee4f14c7ab5d0c21fc863211be913793a73e332dc181cbec98e450c1f1b8566f"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_detail_09.jpg",
+      "bytes": 501993,
+      "sha256": "fc928c3620195a47b95c5a497ba1e9b9ebc8500a851bff67782092e45d944950",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_detail_09.jpg",
+      "original_sha256": "fc928c3620195a47b95c5a497ba1e9b9ebc8500a851bff67782092e45d944950"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/native_detail_10.jpg",
+      "bytes": 112152,
+      "sha256": "21426acef1ae81002541c01db2590775a356c76afb0b11f7f426137ca527fad1",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\native_detail_10.jpg",
+      "original_sha256": "21426acef1ae81002541c01db2590775a356c76afb0b11f7f426137ca527fad1"
+    },
+    {
+      "path": "calendar_weather_final_20261027/annual_nights_assessment/night_coverage_summary.json",
+      "bytes": 3112,
+      "sha256": "af47fcdb39023c37f58dcc91417ed26008cb0403329311082206d64d8649637f",
+      "original_path": "C:\\ov\\reports\\lightning32\\annual_nights_assessment\\night_coverage_summary.json",
+      "original_sha256": "af47fcdb39023c37f58dcc91417ed26008cb0403329311082206d64d8649637f"
+    },
+    {
+      "path": "calendar_weather_final_20261027/current_weather_contact.jpg",
+      "bytes": 167166,
+      "sha256": "50fbae531374e31705433fe1921a5502692480670144c7c34e72074cb5e2c231",
+      "original_path": "C:\\ov\\reports\\lightning32\\current_weather_contact.jpg",
+      "original_sha256": "50fbae531374e31705433fe1921a5502692480670144c7c34e72074cb5e2c231"
+    },
+    {
+      "path": "calendar_weather_final_20261027/current_weather_external_capture_hashes.json",
+      "bytes": 1780,
+      "sha256": "400624b8cb6a59dc5b44ebb02725a113a52121979d68b6dc337561263ed6bbda",
+      "original_path": "C:\\ov\\reports\\lightning32\\current_weather_external_capture_hashes.json",
+      "original_sha256": "400624b8cb6a59dc5b44ebb02725a113a52121979d68b6dc337561263ed6bbda"
+    },
+    {
+      "path": "candidate_repairs_20261027/candidate_a1d8aa46/verification.json",
+      "bytes": 298853,
+      "sha256": "4387ae24ee78ae05e51865b2249e01b141ce081f2687de337eed52994a26c6d9",
+      "original_path": "C:\\ov\\reports\\lightning32\\candidate_a1d8aa46\\verification.json",
+      "original_sha256": "4387ae24ee78ae05e51865b2249e01b141ce081f2687de337eed52994a26c6d9"
+    },
+    {
+      "path": "candidate_repairs_20261027/candidate_a1d8aa46/verification.md",
+      "bytes": 3034,
+      "sha256": "90031ee93813b5550cb0df340a146df4cde9a0ac6951e4ef716a47127b32d3e0",
+      "original_path": "C:\\ov\\reports\\lightning32\\candidate_a1d8aa46\\verification.md",
+      "original_sha256": "90031ee93813b5550cb0df340a146df4cde9a0ac6951e4ef716a47127b32d3e0"
+    },
+    {
+      "path": "candidate_repairs_20261027/candidate_spatial_a1d8.json",
+      "bytes": 3915,
+      "sha256": "38a38edce9a48482089a07b8e833c3ae7858404abee59853a7ab267035ae16fe",
+      "original_path": "C:\\ov\\reports\\lightning32\\candidate_spatial_a1d8.json",
+      "original_sha256": "38a38edce9a48482089a07b8e833c3ae7858404abee59853a7ab267035ae16fe"
+    },
+    {
+      "path": "candidate_repairs_20261027/candidate_systemic_a1d8.json",
+      "bytes": 128051,
+      "sha256": "119b5eebf455f95cc35d0552d1f5f13cf285c49822cab6bf7fd886f63ea606ab",
+      "original_path": "C:\\ov\\reports\\lightning32\\candidate_systemic_a1d8.json",
+      "original_sha256": "119b5eebf455f95cc35d0552d1f5f13cf285c49822cab6bf7fd886f63ea606ab"
+    },
+    {
+      "path": "candidate_repairs_20261027/candidate_spatial_scope_restored.json",
+      "bytes": 1771,
+      "sha256": "b45955316e672fee5f0d256496543a97019e2de7b85ebcda6cb0575003ab9d30",
+      "original_path": "C:\\ov\\reports\\lightning32\\candidate_spatial_scope_restored.json",
+      "original_sha256": "b45955316e672fee5f0d256496543a97019e2de7b85ebcda6cb0575003ab9d30"
+    },
+    {
+      "path": "candidate_repairs_20261027/candidate_systemic_denial_scoped_final.json",
+      "bytes": 124849,
+      "sha256": "6c0b6a553b0cb21e5f006aae33bbcc5776ee9067f156928afda22815a948b1ef",
+      "original_path": "C:\\ov\\reports\\lightning32\\candidate_systemic_denial_scoped_final.json",
+      "original_sha256": "6c0b6a553b0cb21e5f006aae33bbcc5776ee9067f156928afda22815a948b1ef"
+    },
+    {
+      "path": "candidate_repairs_20261027/surface_after_gate_repairs.json",
+      "bytes": 160,
+      "sha256": "8bed588f96d85dfff7322fc95301b4e2b8213bb00dd8b0dccd1f10c8a3886e31",
+      "original_path": "C:\\ov\\reports\\lightning32\\surface_after_gate_repairs.json",
+      "original_sha256": "8bed588f96d85dfff7322fc95301b4e2b8213bb00dd8b0dccd1f10c8a3886e31"
+    },
+    {
+      "path": "candidate_repairs_20261027/passage_gate_repair_final.log",
+      "bytes": 290182,
+      "sha256": "b32c55cb090b1c6a5faf8040db47ee9a88e13fb24f4e6d0a6415fb4a936cd291",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_gate_repair_final.log",
+      "original_sha256": "b32c55cb090b1c6a5faf8040db47ee9a88e13fb24f4e6d0a6415fb4a936cd291"
+    },
+    {
+      "path": "candidate_repairs_20261027/passage_gate_repair_final.log.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_gate_repair_final.log.stderr",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "candidate_repairs_20261027/passage_gate_repair_final.log.receipt.json",
+      "bytes": 1777,
+      "sha256": "84978d718f849e08e260d74ad75ea755a171d9dc8841c16b840a6fb5c25343de",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_gate_repair_final.log.receipt.json",
+      "original_sha256": "84978d718f849e08e260d74ad75ea755a171d9dc8841c16b840a6fb5c25343de"
+    },
+    {
+      "path": "candidate_repairs_20261027/nook_binding_closure/comparison.json",
+      "bytes": 562,
+      "sha256": "78f655c35fdb365a8dbc09db78a3e3e65db8b1cc989e25642ccecd8094e8e80c",
+      "original_path": "C:\\ov\\reports\\lightning32\\nook_binding_closure\\comparison.json",
+      "original_sha256": "78f655c35fdb365a8dbc09db78a3e3e65db8b1cc989e25642ccecd8094e8e80c"
+    },
+    {
+      "path": "candidate_repairs_20261027/nook_binding_closure/original_nook_readable_books_construction.json",
+      "bytes": 191649,
+      "sha256": "e59bd3ee1f084114fe508479e2250cceb05e0e972f5857ddcb80429900082ce5",
+      "original_path": "C:\\ov\\reports\\lightning32\\nook_binding_closure\\original_nook_readable_books_construction.json",
+      "original_sha256": "e59bd3ee1f084114fe508479e2250cceb05e0e972f5857ddcb80429900082ce5"
+    },
+    {
+      "path": "candidate_repairs_20261027/nook_binding_closure/previous_readable_library_construction.json",
+      "bytes": 294079,
+      "sha256": "d3b24bc66e3b82b73b55e34f183b5175542b94d7561bbd65927341d55eea54ca",
+      "original_path": "C:\\ov\\reports\\lightning32\\nook_binding_closure\\previous_readable_library_construction.json",
+      "original_sha256": "d3b24bc66e3b82b73b55e34f183b5175542b94d7561bbd65927341d55eea54ca"
+    },
+    {
+      "path": "candidate_repairs_20261027/passage_gate_repair_final/route.json",
+      "bytes": 14801,
+      "sha256": "47ba3bc81904f75c4d0fcd49ee7f1a9f03eeafc2f39662240d4be64950045a01",
+      "original_path": "C:\\ov\\reports\\lightning32\\passage_gate_repair_final\\route.json",
+      "original_sha256": "47ba3bc81904f75c4d0fcd49ee7f1a9f03eeafc2f39662240d4be64950045a01"
+    }
+  ],
+  "continuations": [
+    {
+      "section": "electrical_shapes_20261027",
+      "prior_archive_sha256": "c311d299256ff5cdb10f9479064773c027d1e43bb63dd6168d1bd7851ad2064e",
+      "members_added": 38,
+      "scope": "Original visual defects, six forced electrical controls, revised jet/ring and three frozen-age optical growth measurements. Not natural occurrence timing, performance, gameplay or human acceptance."
+    },
+    {
+      "section": "fallout_20261027",
+      "prior_archive_sha256": "0f6e6b1fddfbe6b95a483f1da4fc92cf3857cda27d9c927f852e11a59aa1c6b0",
+      "members_added": 31,
+      "scope": "Five-date occupied V2 precipitation, real GPU frog contact, native companion input, source-bound two-world disk reconstruction and full activation frame records. Initial activation run had concurrent static work and is retained as a control; uncontended repeat is identified. No moving-route, cold-cache, whole-game or human acceptance."
+    },
+    {
+      "section": "fallout_20261027/frog_scoped_construction_renewal",
+      "prior_archive_sha256": "07cb4129b1e2aac92f63ad28cdf69723275fbfab1d2d8de3a09b34c91cde57e9",
+      "members_added": 4,
+      "scope": "Strictly additive catalogue provenance for two named native construction records; all 124 old materials, other sources and native outputs validated unchanged. Original records preserved; no renewed runtime or visual acceptance."
+    },
+    {
+      "section": "fallout_20261027/native_fixture_source_reconciliation",
+      "prior_archive_sha256": "5b0eba274b563139e3374ef86442a6b2b2bc27b34c8b7ff25e2594278f39d75c",
+      "members_added": 19,
+      "scope": "Original failed source preflight and scoped eleven-record source-only reconciliation; preserved original records and unmodified non-binding payloads. No runtime or human acceptance."
     }
   ]
 }

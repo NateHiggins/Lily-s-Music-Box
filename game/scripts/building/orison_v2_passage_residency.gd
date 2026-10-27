@@ -9,6 +9,8 @@ var _dormant_box: AABB
 var _prefetch_box: AABB
 var state := "RESIDENT"
 var _wanted := true
+const DORMANCY_GRACE_SECONDS := 3.0
+var _unwanted_seconds := 0.0
 var _pending: Dictionary = {}
 var _staging: Node3D
 var _staged_cells: Dictionary = {}
@@ -37,7 +39,7 @@ var _collision_cache := preload("res://scripts/building/orison_v2_fitting_collis
 # Single mesh/renderer calls can still exceed this cooperative budget.
 var cooperative_fitting := true
 var _fit_job: RefCounted
-const FIT_BUDGET_USEC := 3000
+const FIT_BUDGET_USEC := 8000
 var _fit_operations: Array = []
 var _fit_identity := ""
 var _fit_fetch_ms := 0.0
@@ -128,10 +130,14 @@ func _update_wanted(world_position: Vector3) -> void:
 	elif _prefetch_box.has_point(local) or section_frame.to_local(world_position).z > 0.0:
 		_wanted = true
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if _stopped or not is_instance_valid(player): return
 	var stock_wants: bool=region.geometry_required_by_stock()
-	if state == "RESIDENT" and not _wanted and not stock_wants:
+	# A brief lobby crossing must not throw away a completely fitted region.
+	# Residency still retires after a settled indoor stay; the loading guard
+	# remains authoritative throughout any actual reconstruction.
+	_unwanted_seconds=_unwanted_seconds+maxf(delta,0.0) if state=="RESIDENT" and not _wanted and not stock_wants else 0.0
+	if state == "RESIDENT" and not _wanted and not stock_wants and _unwanted_seconds>=DORMANCY_GRACE_SECONDS:
 		_retired_meshes.clear()
 		for identity: String in region.CELLS:
 			var cell: Node3D = region.cell_nodes[identity]
@@ -379,7 +385,7 @@ func snapshot() -> Dictionary:
 		if reference.get_ref() != null: retained_roots += 1
 	for reference: WeakRef in _retired_meshes:
 		if reference.get_ref() != null: retained_meshes += 1
-	return {"portrait_atlas_cache":region.portrait_atlas_cache.snapshot(),"kept_shader_materials":1 if _canopy_shader_material!=null else 0,"state": state, "pending_requests": _pending.size()+_height_pending.size()+_native_pending.size(), "load_cycles": load_cycles,
+	return {"dormancy_grace_seconds":DORMANCY_GRACE_SECONDS,"unwanted_seconds":_unwanted_seconds,"portrait_atlas_cache":region.portrait_atlas_cache.snapshot(),"kept_shader_materials":1 if _canopy_shader_material!=null else 0,"state": state, "pending_requests": _pending.size()+_height_pending.size()+_native_pending.size(), "load_cycles": load_cycles,
 		"unload_cycles": unload_cycles, "retired_geometry_roots_alive": retained_roots,
 		"retired_mesh_resources_alive": retained_meshes, "peak_stage_ms": peak_stage_ms,
 		"peak_activation_ms": peak_activation_ms, "stage_records": stage_records.duplicate(true), "fit_records":fit_records.duplicate(true),

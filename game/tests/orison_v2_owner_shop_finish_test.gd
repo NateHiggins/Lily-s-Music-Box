@@ -83,6 +83,7 @@ func _receiver_reload(world: OrisonV2RuntimeRoot, original_owners: int) -> void:
 		for model: Node in cell.get_children():
 			if model.has_meta("v2_owner_finish_group"):old_models.append(weakref(model))
 	world.player.global_position=world.adapter.root.to_global(Vector3(1.925,.03,-3.5))
+	await get_tree().create_timer(passage.residency.DORMANCY_GRACE_SECONDS+.1).timeout
 	for frame in 120:
 		await get_tree().physics_frame
 		if passage.residency.state=="DORMANT":break

@@ -60,6 +60,9 @@ func _route() -> void:
 			_monitors[key]=ClassDB.class_get_integer_constant("Performance",key)
 	for driver: CampaignClockDriver in get_tree().get_nodes_in_group("campaign_time_owner"):driver.set_frozen_for_tests(true)
 	var manager: Node=world.get_node("WakingAtmosphere").weather_manager
+	var lens_draw_enabled:=OS.get_environment("WEATHER_PROFILE_LENS")!="0"
+	if not lens_draw_enabled and world.get_node("WeatherFX").lens!=null:
+		world.get_node("WeatherFX").lens.get_parent().hide()
 	if not _calendar_mode:
 		manager.current=manager.Service.presentation(manager.Service.simulated_snapshot("hail_storm"))
 		manager.target=manager.current.duplicate(true);manager.origin=manager.current.duplicate(true)
@@ -71,7 +74,7 @@ func _route() -> void:
 		{"id":traffic.data.kinds[1].id,"x":30.0,"lane_west":true,"speed":4.0}])
 	traffic._rng.seed=1928;traffic._spawn_accum=3.0;traffic.frozen=false
 	player.profile_physics=true;player._grab.profiling=true
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(maxf(3.0,world.passage_region.residency.DORMANCY_GRACE_SECONDS+.2)).timeout
 	_collect=true;_previous_usec=0
 	await super._route()
 	if failures.is_empty():
@@ -83,10 +86,10 @@ func _route() -> void:
 	DirAccess.make_dir_recursive_absolute(output)
 	FileAccess.open(output.path_join("weather_frames.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","scope":"Matched actual-controller street crossing, front-door grabs and outdoor mouse turning; no full V2 or statistical performance qualification",
-		"baseline_mode":baseline_mode,"resolution":str(get_viewport().get_visible_rect().size),"fov":player.camera.fov,
+		"baseline_mode":baseline_mode,"lens_draw_enabled":lens_draw_enabled,"resolution":str(get_viewport().get_visible_rect().size),"fov":player.camera.fov,
 		"renderer":RenderingServer.get_current_rendering_method(),"taa":get_viewport().use_taa,"msaa":get_viewport().msaa_3d,
 		"weather":"campaign-calendar" if _calendar_mode else "hail_storm","weather_source":manager.source,"conditions":manager.current.duplicate(true),"atmosphere":manager.atmosphere_state,"daynight_force":"evening","traffic_seed":1928,"traffic_frozen":traffic.frozen,
-		"columns":["phase","wall_ms","script_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters"],
+		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters"],
 		"segments":_segments,"samples":_samples,"input_costs":player._grab.profile_records,
 		"player_physics":player.physics_profile_records,"failures":failures},"\t"))
 	var source_after:=_runtime_digest()

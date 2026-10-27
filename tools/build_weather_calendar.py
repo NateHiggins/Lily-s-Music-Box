@@ -9,6 +9,12 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUT = ROOT / "game/data/weather/campaign_weather.json"
 START, END = dt.date(1928, 11, 10), dt.date(1929, 11, 9)
 MEAN_HIGH = [39, 41, 49, 61, 71, 80, 85, 83, 76, 65, 54, 44]
+# Additional rare presentation windows; existing observations and issued press
+# remain unchanged. Seeded extras roll at 0.1 percent per eligible day.
+FALLOUT = [
+    {"date": "1929-01-30", "start_minute": 725, "end_minute": 745, "kind": "blood"},
+    {"date": "1929-09-12", "start_minute": 685, "end_minute": 695, "kind": "frogs"},
+]
 # Authored chapter labels, not objectives or claims of historical weather.
 CHAPTERS = [
     ("1928-11-10", "The first coal", "Cold windows, extra coal, and an exchange listening to a borough settling indoors."),
@@ -172,7 +178,7 @@ def generate():
     OUT.parent.mkdir(parents=True,exist_ok=True)
     OUT.write_text(json.dumps({"schema_version":1,"first_date":START.isoformat(),"last_date":END.isoformat(),
         "authorship":"Fictional alternate-history weather, aligned with the existing campaign papers; not a reconstruction of observed 1928-29 weather.",
-        "days":days},indent=1)+"\n",encoding="utf-8",newline="\n")
+        "days":days,"fallout_events":FALLOUT},indent=1)+"\n",encoding="utf-8",newline="\n")
     print(f"Authored {len(days)} days, {sum(len(d['frames']) for d in days)} anchors and {sum(len(d['bulletins']) for d in days)} bulletins: {OUT}")
 
 

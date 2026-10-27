@@ -24,7 +24,13 @@ void fragment() {
 	NORMAL = s.normal;
 	ROUGHNESS = s.rough;
 	float wet_specular=0.5;
-	wx_apply_wetness(ALBEDO,ROUGHNESS,wet_specular,weather_exposure);
+	float upward=smoothstep(.3,.9,normalize(v_wnormal).y);
+	wx_apply_wetness(ALBEDO,ROUGHNESS,wet_specular,weather_exposure,upward);
+	float ripple=wetness*weather_exposure*upward;
+	if(ripple>.001) {
+		vec3 perturb=vec3(sin(v_world.x*19.0+v_world.z*7.0+TIME*.8),0.0,cos(v_world.z*23.0-v_world.x*5.0+TIME*.65))*.045*ripple;
+		NORMAL=normalize(NORMAL+(VIEW_MATRIX*vec4(perturb,0.0)).xyz);
+	}
 	SPECULAR=wet_specular;
 	METALLIC = s.metal;
 	AO = s.ao;

@@ -60,6 +60,7 @@ func _route() -> void:
 	await get_tree().process_frame
 	await get_tree().physics_frame
 	await get_tree().process_frame
+	await get_tree().create_timer(passage.residency.DORMANCY_GRACE_SECONDS+.1).timeout
 	var dormant: Dictionary = passage.residency.snapshot()
 	if not _require(dormant.state == "DORMANT" and dormant.unload_cycles >= 2
 			and dormant.retired_geometry_roots_alive == 0, "continuous return releases arcade geometry"): return

@@ -1,0 +1,290 @@
+"""Read-only annual Living Sky image audit. No calendar or game state writes.
+
+python tools/analyze_weather_gallery.py --gallery <annual_final> --out <review>
+Requires the project's existing Pillow and NumPy art-tool dependencies.
+"""
+import argparse
+from collections import Counter, defaultdict
+from datetime import date, datetime, timedelta
+import hashlib
+import json
+from pathlib import Path
+
+import numpy as np
+from PIL import Image, ImageDraw
+
+
+def analyze_detail(directory: Path, out: Path) -> dict:
+    """Summarize native colour/alpha pairs without turning art judgments into gates."""
+    source = directory / "native_detail.json"
+    data = json.loads(source.read_text(encoding="utf-8"))
+    if data.get("failures") or not data.get("rows"):
+        raise ValueError("Native review is incomplete or contains failures")
+    out.mkdir(parents=True, exist_ok=True)
+    rows, thumbnails, identities = [], [], set()
+    seed_groups = defaultdict(list)
+    for item in data["rows"]:
+        identity = (item["date"], item["period"], item["seed"])
+        if identity in identities:
+            raise ValueError("Native review repeats a date/period/seed")
+        identities.add(identity)
+        colour = Image.open(directory/item["colour"]).convert("RGB")
+        mask = Image.open(directory/item["mask"]).convert("L")
+        if colour.size != mask.size:
+            raise ValueError("Native colour and alpha camera sizes disagree")
+        height = colour.height*2//3
+        small_mask = mask.crop((0, 0, mask.width, height)).resize((320, 120), Image.Resampling.BOX)
+        small_colour = colour.crop((0, 0, colour.width, height)).resize((320, 120), Image.Resampling.BOX)
+        rgb = np.asarray(small_colour, dtype=np.float32)/255
+        alpha = np.asarray(small_mask, dtype=np.float32)/255
+        alpha = np.where(alpha <= .04045, alpha/12.92, ((alpha+.055)/1.055)**2.4)
+        luminance = rgb @ np.array([.2126, .7152, .0722])
+        cloudy = alpha > .5
+        row = {k: item[k] for k in ("date", "period", "seed", "declared_coverage", "mean_alpha_upper_frame",
+                                    "fraction_alpha_above_point_one", "moon_illumination")}
+        row.update(mean_rgb=rgb.mean(axis=(0, 1)).tolist(), upper_luminance_std=float(luminance.std()),
+                   cloud_luminance_std=float(luminance[cloudy].std()) if cloudy.any() else None,
+                   cloud_luminance_mean=float(luminance[cloudy].mean()) if cloudy.any() else None,
+                   colour_sha256=hashlib.sha256((directory/item["colour"]).read_bytes()).hexdigest(),
+                   mask_sha256=hashlib.sha256((directory/item["mask"]).read_bytes()).hexdigest())
+        rows.append(row)
+        thumbnails.append(colour.resize((320, 134), Image.Resampling.LANCZOS))
+        seed_groups[(item["date"], item["period"])].append(alpha)
+    seed_differences = []
+    for (civil, period), masks in seed_groups.items():
+        if len(masks) > 1:
+            seed_differences.append({"date": civil, "period": period,
+                                     "mean_absolute_alpha_difference_from_first": [float(abs(a-masks[0]).mean()) for a in masks[1:]]})
+    for page in range((len(rows)+35)//36):
+        contact = Image.new("RGB", (1920, 6*166), "#171820")
+        pen = ImageDraw.Draw(contact)
+        for n, i in enumerate(range(page*36, min(len(rows), (page+1)*36))):
+            x, y = n%6*320, n//6*166
+            contact.paste(thumbnails[i], (x, y))
+            pen.text((x+2,y+136), f"{rows[i]['date']} s{rows[i]['seed']}", fill="white")
+            pen.text((x+2,y+151), f"alpha {rows[i]['mean_alpha_upper_frame']:.2f} cover>.1 {rows[i]['fraction_alpha_above_point_one']:.2f}", fill="white")
+        contact.save(out/f"native_detail_{page:02d}.jpg", quality=92, subsampling=0)
+    report = {"evidence_class": "INERT", "samples": len(rows), "source_sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+              "scope": "Native colour/alpha pairs. Cloudy means alpha>.5 on a 320x120 reduction; colour statistics are display-space. Declared optical union and angular pixel coverage are different quantities. No artistic acceptance.",
+              "rows": rows, "seed_alpha_differences": seed_differences}
+    (out/"native_assessment.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8")
+    return report
+
+
+def compare_detail(directory: Path, baseline: Path, out: Path, unchanged_clouds: bool) -> dict:
+    current = json.loads((directory/"native_detail.json").read_text(encoding="utf-8"))
+    previous = json.loads((baseline/"native_detail.json").read_text(encoding="utf-8"))
+    key = lambda row: (row["date"], row["period"], row["seed"])
+    old = {key(row): row for row in previous["rows"]}
+    new = {key(row): row for row in current["rows"]}
+    if previous["failures"] or current["failures"] or set(old) != set(new):
+        raise ValueError("Failed or unmatched native comparison")
+    if unchanged_clouds and (previous["scope"] != current["scope"] or "WeatherFX and TAA disabled only for mask" not in current["scope"]):
+        raise ValueError("Cloud regression requires the same uncontaminated mask controls")
+    rows, failures = [], []
+    for identity, row in new.items():
+        before = old[identity]
+        state_equal = before["state"] == row["state"]
+        a = np.asarray(Image.open(baseline/before["mask"]).convert("RGB"))
+        b = np.asarray(Image.open(directory/row["mask"]).convert("RGB"))
+        mask_equal = a.shape == b.shape and np.array_equal(a, b)
+        rows.append({"date": identity[0], "period": identity[1], "seed": identity[2],
+                     "weather_state_identical": state_equal, "mask_pixels_identical": mask_equal})
+        if not state_equal or (unchanged_clouds and not mask_equal):
+            failures.append(list(identity))
+    report = {"evidence_class": "INERT", "scope": "Matched weather-state and optional exact cloud-mask regression; no artistic or gameplay acceptance.",
+              "expect_unchanged_clouds": unchanged_clouds, "rows": rows, "failures": failures}
+    (out/"native_comparison.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8")
+    if failures:
+        raise ValueError(f"Native weather regression in {len(failures)} matched samples")
+    return report
+
+
+def analyze(gallery: Path, out: Path) -> dict:
+    manifest = gallery / "annual_gallery.json"
+    data = json.loads(manifest.read_text(encoding="utf-8"))
+    if data.get("samples") != 2190 or len(data.get("days", [])) != 365:
+        raise ValueError("Expected the complete six-period, 365-day gallery")
+    expected_periods = ["dawn", "morning", "solar_noon", "afternoon", "dusk", "night"]
+    if data.get("periods") != expected_periods:
+        raise ValueError("Missing or reordered solar periods")
+    out.mkdir(parents=True, exist_ok=True)
+    pages = {}
+    pictures, rows, features, colours = [], [], [], []
+    genera, arrangements, regimes, scenarios = Counter(), Counter(), Counter(), Counter()
+    seasons = defaultdict(Counter)
+    eligible, crosses = Counter(), defaultdict(Counter)
+    sampling_tags = []
+    for expected_day, day in enumerate(data["days"]):
+        number = int(day["day"])
+        if number != expected_day:
+            raise ValueError("Repeated, missing or reordered annual day")
+        page_number = number // 16
+        if page_number not in pages:
+            pages[page_number] = Image.open(gallery / f"year_{page_number:02d}.png").convert("RGB")
+            if pages[page_number].size != (960, 1440):
+                raise ValueError("Unexpected gallery atlas dimensions")
+        if len(day["samples"]) != 6:
+            raise ValueError(f"Missing period on day {number}")
+        for column, sample in enumerate(day["samples"]):
+            expected_date = (date(1928, 11, 10)+timedelta(days=number)).isoformat()
+            if str(sample.get("date", ""))[:10] != expected_date or sample.get("period") != expected_periods[column]:
+                raise ValueError("Annual sample date/period disagrees with its tile")
+            tile = pages[page_number].crop((column*160, number % 16*90, (column+1)*160, number % 16*90+90))
+            upper = tile.crop((0, 0, 160, 60))
+            pixels = np.asarray(upper, dtype=np.float32) / 255
+            mean = pixels.mean(axis=(0, 1))
+            gray = np.asarray(upper.convert("L").resize((32, 12), Image.Resampling.BOX), dtype=np.float32)/255
+            contrast = float(gray.std())
+            centered = gray.flatten()-gray.mean()
+            centered /= max(float(np.linalg.norm(centered)), 1e-6)
+            features.append(centered)
+            colours.append(mean)
+            pictures.append(tile)
+            state = sample["state"]
+            period = str(sample["period"])
+            row = {"date": sample["date"], "day": number, "period": period,
+                   "regime": state["regime"], "scenario": state["scenario_label"],
+                   "scenario_id": state["scenario_id"],
+                   "declared_coverage": state["combined_coverage"],
+                   "mean_rgb": mean.tolist(), "upper_contrast": contrast,
+                   "pixel_sha256": hashlib.sha256(upper.tobytes()).hexdigest()}
+            rows.append(row)
+            regimes[state["regime"]] += 1
+            month = int(sample["date"][5:7])
+            season = "winter" if month in (12,1,2) else "spring" if month in (3,4,5) else "summer" if month in (6,7,8) else "autumn"
+            tags = {f"season-period:{season}:{period}", f"season-regime:{season}:{state['regime']}",
+                    f"classification:{state['scenario_id']}"}
+            seasons[season][period+":"+state["regime"]] += 1
+            scenarios[str(state["scenario_id"])] += 1
+            eligible.update(map(str, state["eligible_scenarios"]))
+            for layer in state["layers"]:
+                if float(layer["coverage"]) <= .03:
+                    continue
+                genus = str(layer["genus"])
+                genera[genus] += 1
+                arrangements[str(layer["arrangement"])] += 1
+                crosses[period][genus] += 1
+                tags.add(f"genus-period:{genus}:{period}")
+            sampling_tags.append(tags)
+
+    matrix, rgb = np.stack(features), np.stack(colours)
+    correlation = matrix @ matrix.T
+    pairs, by_period = [], {}
+    for period in data["periods"]:
+        indices = [i for i, r in enumerate(rows) if r["period"] == period]
+        nearest = []
+        for i in indices:
+            candidates = [j for j in indices if abs(rows[j]["day"]-rows[i]["day"]) >= 14]
+            j = max(candidates, key=lambda k: float(correlation[i, k]))
+            score = float(correlation[i, j])
+            distance = float(np.linalg.norm(rgb[i]-rgb[j]))
+            nearest.append(score)
+            # Low-contrast night/overcast similarity is expected, not automatically a defect.
+            if i < j and score > .985 and distance < .08 and min(rows[i]["upper_contrast"], rows[j]["upper_contrast"]) > .015:
+                pairs.append({"a": i, "b": j, "correlation": score, "palette_distance": distance})
+        contrast = [rows[i]["upper_contrast"] for i in indices]
+        by_period[period] = {"count": len(indices), "contrast_p10_p50_p90": np.percentile(contrast, [10, 50, 90]).tolist(),
+                             "low_contrast_below_0015": sum(x < .015 for x in contrast),
+                             "nonadjacent_nearest_correlation_p50_p90": np.percentile(nearest, [50, 90]).tolist(),
+                             "mean_rgb": rgb[indices].mean(axis=0).tolist(), "visible_genera": dict(crosses[period])}
+    pairs.sort(key=lambda p: p["correlation"], reverse=True)
+    # Deterministic set cover limits the next native pass while retaining every
+    # observed season/period, season/regime, classification and genus/period.
+    # It selects existing dates; it never repairs a gap by inventing weather.
+    unseen = set().union(*sampling_tags)
+    selected = set()
+    while unseen:
+        index = max(range(len(rows)), key=lambda i: (len(sampling_tags[i] & unseen), -i))
+        selected.add(index)
+        unseen -= sampling_tags[index]
+    selected.update(sorted(range(len(rows)), key=lambda i: rows[i]["upper_contrast"])
+                    [:6])
+    for pair in pairs[:6]:
+        selected.update((pair["a"], pair["b"]))
+    requests = [{"date": rows[i]["date"], "period": rows[i]["period"],
+                 "seeds": [1928, 3791, 8437], "tags": sorted(sampling_tags[i])}
+                for i in sorted(selected)]
+    # Transition triplets in each season retain the actual solar-relative date.
+    transitions = []
+    for month in (12, 3, 6, 9):
+        for period in ("dawn", "dusk"):
+            sample = next(r for r in rows if int(r["date"][5:7]) == month and r["period"] == period)
+            centre = datetime.fromisoformat(sample["date"])
+            transitions.append({"period": period, "seed": 1928,
+                                "dates": [(centre+timedelta(minutes=m)).isoformat() for m in (-20, 0, 20)]})
+    plan = {"evidence_class": "INERT", "scope": "Reproducible next-pass requests, not executed qualification or artistic acceptance.",
+            "calendar_sha256": data["calendar_sha256"], "source_gallery_sha256": hashlib.sha256(manifest.read_bytes()).hexdigest(),
+            "coverage_tags": sorted(set().union(*sampling_tags)), "captures": requests,
+            "transition_triplets": transitions,
+            "required_observations": ["Native optical colour and actual cloud-alpha mask at the same camera and settings.",
+                                      "Repeat selected dates in reverse order; preserve authored calendar and publication owners.",
+                                      "Review rare phenomena separately at their authored occurrences and disclose forced flashes.",
+                                      "Playable FPS precipitation, moving collision-field costs and input require separate world routes."]}
+    (out / "native_sampling_plan.json").write_text(json.dumps(plan, indent=2)+"\n", encoding="utf-8")
+    sheet = Image.new("RGB", (1280, max(1, min(12, len(pairs)))*186), "#16181e")
+    draw = ImageDraw.Draw(sheet)
+    for line, pair in enumerate(pairs[:12]):
+        for side, key in enumerate(["a", "b"]):
+            index = pair[key]
+            sheet.paste(pictures[index].resize((320, 180)), (side*640, line*186))
+            draw.text((side*640+324, line*186+4), rows[index]["date"], fill="white")
+            draw.text((side*640+324, line*186+22), rows[index]["regime"], fill="white")
+            draw.text((side*640+324, line*186+40), f"r={pair['correlation']:.4f}", fill="white")
+    sheet.save(out / "repetition_candidates.png")
+    # Explicitly inspect flat fields; a small standard deviation does not prove bad cloud relief.
+    flat = sorted(range(len(rows)), key=lambda i: rows[i]["upper_contrast"])
+    daylight = [i for i in flat if rows[i]["period"] in ("morning", "solar_noon", "afternoon")][:24]
+    sheet = Image.new("RGB", (960, 6*120), "#16181e")
+    draw = ImageDraw.Draw(sheet)
+    for n, i in enumerate(daylight):
+        x, y = (n % 4)*240, (n//4)*120
+        sheet.paste(pictures[i], (x, y))
+        draw.text((x, y+91), rows[i]["date"], fill="white")
+        draw.text((x, y+105), f"std={rows[i]['upper_contrast']:.4f} {rows[i]['regime']}", fill="white")
+    sheet.save(out / "low_contrast_daylight.png")
+    for period in data["periods"]:
+        indices = [i for i, row in enumerate(rows) if row["period"] == period]
+        panel = Image.new("RGB", (18*160, 21*104), "#16181e")
+        pen = ImageDraw.Draw(panel)
+        for n, i in enumerate(indices):
+            x, y = n % 18*160, n//18*104
+            panel.paste(pictures[i], (x, y))
+            pen.text((x+2, y+91), rows[i]["date"][:10], fill="white")
+        panel.save(out / ("annual_"+period+".jpg"), quality=90, subsampling=0)
+    report = {"evidence_class": "INERT", "samples": len(rows), "seed": data["seed"],
+              "source_sha256": hashlib.sha256(manifest.read_bytes()).hexdigest(),
+              "calendar_sha256": data["calendar_sha256"],
+              "scope": "Actual 160x90 atlas thumbnails; upper 160x60 RGB/contrast and brightness-normalized 32x12 similarity. No cloud segmentation, full-resolution relief proof, precipitation qualification or human acceptance.",
+              "limitations": ["One bearing and seed; six moments per date, not continuous daily weather.",
+                              "Camera/lighting/palette affect correlations. Candidate pairs require visual judgment.",
+                              "Declared coverage is authored optical union, not measured cloud pixel coverage.",
+                              "Annual bench observer uses fallback precipitation, not the playable FPS GPU path."],
+              "genera": dict(genera), "arrangements": dict(arrangements), "regimes": dict(regimes),
+              "selected_scenarios": dict(scenarios), "eligible_scenarios": dict(eligible),
+              "by_season_period_regime": dict(seasons), "by_period": by_period, "repetition_candidates": pairs, "rows": rows}
+    (out / "annual_assessment.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8")
+    return report
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    sources = parser.add_mutually_exclusive_group(required=True)
+    sources.add_argument("--gallery", type=Path)
+    sources.add_argument("--detail", type=Path, help="completed native colour/cloud-alpha review")
+    parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--baseline-detail", type=Path, help="matched native review for state/mask comparison")
+    parser.add_argument("--expect-unchanged-clouds", action="store_true", help="lighting-only change: require identical pure cloud-mask pixels")
+    args = parser.parse_args()
+    if args.detail:
+        result = analyze_detail(args.detail, args.out)
+        if args.baseline_detail:
+            compare_detail(args.detail, args.baseline_detail, args.out, args.expect_unchanged_clouds)
+        print(json.dumps({"samples": result["samples"], "seed_groups": len(result["seed_alpha_differences"])}))
+        raise SystemExit(0)
+    result = analyze(args.gallery, args.out)
+    print(json.dumps({"samples": result["samples"], "genera": result["genera"],
+                      "selected_scenarios": len(result["selected_scenarios"]),
+                      "eligible_scenarios": len(result["eligible_scenarios"]),
+                      "repetition_candidates": len(result["repetition_candidates"]),
+                      "low_contrast_daylight": sum(v["low_contrast_below_0015"] for k,v in result["by_period"].items() if k in ("morning","solar_noon","afternoon"))}, indent=2))

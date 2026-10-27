@@ -30,12 +30,12 @@ func _run() -> void:
 	RealityState.data[Owner.KEY]=saved.duplicate(true)
 	check(owner.validate(saved,owner._kinds),"real household validator accepts native controls and running clock fixture")
 	owner._restore(saved);owner._bound=true
-	# Restoring a loose washer legitimately resumes its final support search.
-	# Isolate unchanged grips only AFTER that physical motion has settled.
+	# Restored loose parts have no gravity or support simulation.
+	# Keep a real idle interval before the unchanged-grip save assertions.
 	for frame in 60:await get_tree().physics_frame
 	var rest: Transform3D=actor._gasket_body.transform
 	await get_tree().physics_frame;await get_tree().physics_frame
-	check(actor._gasket_body._support!=null and actor._gasket_body.transform==rest,"loose washer settles on real support before input assertions")
+	check(actor._gasket_body.freeze and actor._gasket_body.transform==rest,"loose washer stays frozen at its restored pose before input assertions")
 	owner.capture_now();owner.profiling=true
 	actor.manipulation_changed.connect(func():
 		changes+=1

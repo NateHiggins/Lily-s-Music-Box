@@ -152,7 +152,8 @@ func _walk(local_target: Vector3) -> bool:
 		var label := "target %s actual %s" % [local_target, actual]
 		failures.append(label)
 		push_error(route_label + ": " + label)
-		print("ROUTE_COLLISION_DIAGNOSTIC ", JSON.stringify({"contacts":contacts,"frames":frames,"elapsed_ms":Time.get_ticks_msec()-started,"call_locked":player.call_locked,"inspecting":player.inspecting(),"physics":player.is_physics_processing(),"velocity":str(player.velocity)}))
+		var residency: Dictionary=world.passage_region.residency.snapshot() if world.passage_region!=null and world.passage_region.residency!=null else {}
+		print("ROUTE_COLLISION_DIAGNOSTIC ", JSON.stringify({"contacts":contacts,"frames":frames,"elapsed_ms":Time.get_ticks_msec()-started,"call_locked":player.call_locked,"inspecting":player.inspecting(),"physics":player.is_physics_processing(),"velocity":str(player.velocity),"passage_residency":residency}))
 	return ok
 
 ## Every street round now passes the same closed production landmark leaf.

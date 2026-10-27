@@ -21,6 +21,7 @@ static var _transport_distance_x := PackedFloat64Array()
 static var _transport_distance_y := PackedFloat64Array()
 static var _cyclone_starts := PackedFloat64Array()
 static var _cyclone_ends := PackedFloat64Array()
+static var _fallout: Array[Dictionary] = []
 
 static func load_calendar() -> bool:
 	if not _days.is_empty(): return true
@@ -50,7 +51,27 @@ static func load_calendar() -> bool:
 			error="Campaign weather calendar has a civil-date gap"; return false
 		previous=stamp
 		has_previous=true
-	_days = candidate; _dates = dates; error = ""
+	var fallout: Array[Dictionary]=[]
+	var authored: Variant=parsed.get("fallout_events",[])
+	if authored is not Array or authored.size()>8:
+		error="Campaign weather has invalid fallout episodes";return false
+	for episode: Variant in authored:
+		if episode is not Dictionary or not candidate.has(str(episode.get("date",""))) or episode.get("kind") not in ["blood","frogs"]:
+			error="Campaign weather has an invalid fallout date/type";return false
+		var start_value: Variant=episode.get("start_minute")
+		var end_value: Variant=episode.get("end_minute")
+		if not (start_value is int or start_value is float) or not (end_value is int or end_value is float):
+			error="Campaign weather fallout times must be numeric";return false
+		var begin:=float(start_value);var finish:=float(end_value)
+		if not is_finite(begin) or not is_finite(finish) or floor(begin)!=begin or floor(finish)!=finish or begin<0 or finish>1440 or finish-begin<2 or finish-begin>120:
+			error="Campaign weather fallout window is invalid";return false
+		var midnight:=float(Time.get_unix_time_from_datetime_string(str(episode.date)+"T00:00:00"))
+		fallout.append({"date":str(episode.date),"kind":str(episode.kind),"start":midnight+begin*60.0,"end":midnight+finish*60.0})
+	fallout.sort_custom(func(a: Dictionary,b: Dictionary) -> bool:return a.start<b.start)
+	for i in range(1,fallout.size()):
+		if float(fallout[i].start)<float(fallout[i-1].end):
+			error="Campaign weather fallout episodes overlap";return false
+	_days = candidate; _dates = dates; _fallout=fallout; error = ""
 	# One small prefix integral alongside the existing validated calendar.
 	# No per-frame year scan, new forecast, random weather or save domain.
 	_transport_times=PackedFloat64Array()
@@ -83,6 +104,47 @@ static func load_calendar() -> bool:
 	if cyclone_active:
 		_cyclone_ends.append(float(Time.get_unix_time_from_datetime_string(dates[-1]+"T00:00:00"))+86400.0)
 	return true
+
+## Presentation-only anomalies share the calendar; no forecast, newspaper,
+## inventory or save facts are granted. A day rolls once, never every frame.
+static func _rolled_fallout(midnight: int,seed_value: int) -> Dictionary:
+	var key:=Time.get_datetime_string_from_unix_time(midnight).left(10)
+	if not _days.has(key):return {}
+	for episode: Dictionary in _fallout:
+		if episode.date==key:return {} # Authored windows own their day.
+	var rng:=RandomNumberGenerator.new();rng.seed=(key+":fallout-v1:"+str(seed_value)).hash()
+	if rng.randf()>=.001:return {}
+	var begin:=float(midnight+rng.randi_range(660,1080)*60)
+	return {"kind":"blood" if rng.randf()<.5 else "frogs","start":begin,"end":begin+600.0}
+
+static func fallout_at(stamp: float,seed_value: int=1928) -> Dictionary:
+	var result:={"blood":0.0,"frogs":0.0,"deposit":0.0}
+	if not is_finite(stamp) or not load_calendar():return result
+	var midnight:=int(floor(stamp/86400.0))*86400
+	var key:=Time.get_datetime_string_from_unix_time(midnight).left(10)
+	if not _days.has(key):return result
+	var episodes: Array[Dictionary]=_fallout.duplicate()
+	for day_offset: int in [-1,0]:
+		var rolled:=_rolled_fallout(midnight+day_offset*86400,seed_value)
+		if not rolled.is_empty():episodes.append(rolled)
+	for episode: Dictionary in episodes:
+		var begin:=float(episode.start);var finish:=float(episode.end)
+		if stamp<begin or stamp-finish>21600.0:continue
+		var level:=smoothstep(begin,begin+60.0,stamp)*(1.0-smoothstep(finish-60.0,finish,stamp))
+		if episode.kind=="blood" and level>0.0:
+			var present:=Service.presentation(snapshot(Time.get_datetime_dict_from_unix_time(int(floor(stamp)))))
+			if float(present.get("rain_intensity",0.0))<=.005:level=0.0
+		result[str(episode.kind)]=maxf(float(result[str(episode.kind)]),level)
+		if episode.kind=="blood":
+			# Reconstruct deposition only from already elapsed rain. A dry seeded
+			# date cannot paint surfaces red, and a seek never replays a history.
+			var sample_time:=minf(stamp,(begin+finish)*.5)
+			var observed:=Service.presentation(snapshot(Time.get_datetime_dict_from_unix_time(int(floor(sample_time)))))
+			var rain:=float(observed.get("rain_intensity",0.0))
+			if rain>.005:
+				var deposited:=clampf((minf(stamp,finish)-begin)/300.0,0.0,1.0)
+				result.deposit=maxf(float(result.deposit),deposited*exp(-maxf(0.0,stamp-finish)/1800.0))
+	return result
 
 ## Absolute, continuous cloud transport in km. Reopening or visiting dates in
 ## reverse order gives the same field. Surface weather still owns the wind.

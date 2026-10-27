@@ -336,7 +336,6 @@ func _apply_nozzle_pose() -> void:
 func _physics_process(delta: float) -> void:
 	if not _hands_ready: return
 	_door_motion.tick(delta)
-	_loose_union.tick(delta)
 	# Neither transient wire swing nor locked-spindle play is a saved setting.
 	if _hand!="tag" and (_tag_angle>0.0 or absf(_tag_velocity)>.00001):
 		_tag_velocity += (-9.81/_tag_arm_length*sin(_tag_angle)-5.0*_tag_velocity)*delta
@@ -449,7 +448,7 @@ func restore_mechanism(value: Dictionary) -> void:
 	_loose_union.active=bool(value.get("loose",{}).get("active",false))
 	if _loose_union.active:
 		var at: Array=value.loose.position
-		_loose_union.location=Vector3(at[0],at[1],at[2]);_loose_union._velocity=0.
+		_loose_union.location=Vector3(at[0],at[1],at[2])
 	_observed_coupled=coupling_made_up
 	_observed_open = door_open; _observed_shut = nozzle_shut; _apply_hand_pose()
 	if value.has("gasket"):_gasket_body.restore(value.gasket)

@@ -59,13 +59,14 @@ func _run() -> void:
 	# Validate the changed hand/stock family in this same production world
 	# alongside the remaining surface programmes.
 	var fire_review := preload("res://tests/v2_fire_service_review.gd").new()
-	await fire_review.run(world,self)
+	var fire_interactions := OS.get_environment("ORISON_SURFACE_SKIP_FIRE_INTERACTION")!="1"
+	if fire_interactions:await fire_review.run(world,self)
 	# Retain every fire failure, but collect the remaining world surfaces in
 	# this same run. A failed fitting must not suppress the defect inventory.
-	if OS.get_environment("ORISON_SURFACE_FIRE_ONLY")=="1":
+	if OS.get_environment("ORISON_SURFACE_FIRE_ONLY")=="1" and fire_interactions:
 		world.shutdown_for_tests();world.free()
 		for frame in 4:await RenderingServer.frame_post_draw
-		fire_review.after_teardown(self)
+		if fire_interactions:fire_review.after_teardown(self)
 		print("V2 FIRE PREFLIGHT: ","PASS" if failures.is_empty() else "FAIL"," checks=",batch_checks," failures=",failures.size(),"; fire-only scope, not full surface acceptance")
 		get_tree().quit(0 if failures.is_empty() else 1);return
 	await preload("res://tests/v2_city_elevation_review.gd").new().run(world,self)
@@ -239,43 +240,44 @@ func _run() -> void:
 		if not node is MeshInstance3D and not node is MultiMeshInstance3D and not node is GPUParticles3D and not node is CPUParticles3D:
 			unhandled_geometry.append({"path":str(world.get_path_to(node)),"type":node.get_class()})
 			continue
-		var mesh: Mesh
+		var meshes: Array[Mesh]=[]
 		var instances := 1
-		if node is MeshInstance3D: mesh = node.mesh
+		if node is MeshInstance3D: meshes.append(node.mesh)
 		elif node is CPUParticles3D:
-			mesh = node.mesh
+			meshes.append(node.mesh)
 			instances = node.amount
 		elif node is GPUParticles3D:
-			if node.draw_passes != 1:
-				unhandled_geometry.append({"path":str(world.get_path_to(node)),"type":"unscanned particle draw passes"})
-				continue
-			mesh = node.draw_pass_1
+			for draw_pass in node.draw_passes:meshes.append(node.get_draw_pass_mesh(draw_pass))
 			instances = node.amount
 		elif node is MultiMeshInstance3D and node.multimesh != null:
-			mesh = node.multimesh.mesh
+			meshes.append(node.multimesh.mesh)
 			instances = node.multimesh.instance_count
-		if mesh == null: continue
-		var mesh_id := str(mesh.get_instance_id())
-		if not mesh_rows.has(mesh_id): mesh_rows[mesh_id] = _mesh(mesh)
-		var slots: Array = []
-		for surface in mesh.get_surface_count():
-			var material: Material = node.material_override
-			if material == null and node is MeshInstance3D: material = node.get_active_material(surface)
-			if material == null: material = mesh.surface_get_material(surface)
-			var material_id := "none" if material == null else str(material.get_instance_id())
-			if material != null and not material_rows.has(material_id): material_rows[material_id] = _material(material)
-			slots.append(material_id)
-		var owner: Node = node
-		while owner != world and owner.get_script() == null: owner = owner.get_parent()
-		draws.append({"path":str(world.get_path_to(node)), "owner":str(world.get_path_to(owner)), "owner_script":owner.get_script().resource_path if owner.get_script() != null else "", "visible":node.is_visible_in_tree(), "mesh":mesh_id, "materials":slots, "instances":instances, "surface_role":str(node.get_meta("surface_role", "physical")), "retired_surface":str(node.get_meta("retired_surface", "")), "geometry_transparency":node.transparency})
-		if node.material_overlay != null:
-			var overlay_key := str(node.material_overlay.get_instance_id())
-			if not material_rows.has(overlay_key): material_rows[overlay_key] = _material(node.material_overlay)
-			var overlay_draw: Dictionary = draws.back().duplicate()
-			overlay_draw.path += "/material_overlay"
-			overlay_draw.materials = []
-			for index in mesh.get_surface_count(): overlay_draw.materials.append(overlay_key)
-			draws.append(overlay_draw)
+		for draw_pass in meshes.size():
+			var mesh: Mesh=meshes[draw_pass]
+			if mesh == null: continue
+			var draw_path:=str(world.get_path_to(node))
+			if meshes.size()>1:draw_path+="/draw_pass_%d"%(draw_pass+1)
+			var mesh_id := str(mesh.get_instance_id())
+			if not mesh_rows.has(mesh_id): mesh_rows[mesh_id] = _mesh(mesh)
+			var slots: Array = []
+			for surface in mesh.get_surface_count():
+				var material: Material = node.material_override
+				if material == null and node is MeshInstance3D: material = node.get_active_material(surface)
+				if material == null: material = mesh.surface_get_material(surface)
+				var material_id := "none" if material == null else str(material.get_instance_id())
+				if material != null and not material_rows.has(material_id): material_rows[material_id] = _material(material)
+				slots.append(material_id)
+			var owner: Node = node
+			while owner != world and owner.get_script() == null: owner = owner.get_parent()
+			draws.append({"path":draw_path, "owner":str(world.get_path_to(owner)), "owner_script":owner.get_script().resource_path if owner.get_script() != null else "", "visible":node.is_visible_in_tree(), "mesh":mesh_id, "materials":slots, "instances":instances, "surface_role":str(node.get_meta("surface_role", "physical")), "retired_surface":str(node.get_meta("retired_surface", "")), "geometry_transparency":node.transparency})
+			if node.material_overlay != null:
+				var overlay_key := str(node.material_overlay.get_instance_id())
+				if not material_rows.has(overlay_key): material_rows[overlay_key] = _material(node.material_overlay)
+				var overlay_draw: Dictionary = draws.back().duplicate()
+				overlay_draw.path += "/material_overlay"
+				overlay_draw.materials = []
+				for index in mesh.get_surface_count(): overlay_draw.materials.append(overlay_key)
+				draws.append(overlay_draw)
 	if directory.is_empty() or DirAccess.make_dir_recursive_absolute(directory) != OK:
 		push_error("Surface inventory requires a writable SHOT_DIR")
 		world.shutdown_for_tests()
@@ -408,7 +410,7 @@ func _run() -> void:
 	for failure: String in instrument_post.failures:
 		if not failure in failures: failures.append(failure)
 	instruments.free()
-	fire_review.after_teardown(self)
+	if fire_interactions:fire_review.after_teardown(self)
 	electrical_review.after_teardown(self)
 	connections_review.after_teardown(self)
 	var domestic_retired: Dictionary=domestic_review.validate_after_teardown()
@@ -441,6 +443,7 @@ func _run() -> void:
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
 		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(path),"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":str(digest[0]).strip_edges() if not digest.is_empty() else ""},
 		"surface_inputs_sha256":after.get("sha256",""),"inventory_sha256":FileAccess.get_sha256(directory.path_join("surface-inventory.json")),
+		"interaction_programmes":{"fire_service":{"executed":fire_interactions,"scope":"separate interaction programme; physical draws remain in the inventory"}},
 		"contracts":{"production_composition":{"executed":true,"status":status},"surface_requirements":{"executed":true,"status":status},"save_reconstruction":{"executed":false,"status":"NOT_EXECUTED"},"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned"}},
 		"checks":batch_checks,"failures":failures}
 	FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(contract,"\t"))

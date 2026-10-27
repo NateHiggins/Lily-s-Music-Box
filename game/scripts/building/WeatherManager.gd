@@ -50,11 +50,11 @@ var _spectacle_time := 0.0
 var _tle_frames := 0
 var _tle_slot := -1
 var _crawler := 0.0
-var _crawler_wait := 4.0
 var _plume_flash := 0.0
-var _plume_wait := 3.0
 var _corona := -1.0
-var _flash_rng := RandomNumberGenerator.new()
+var lightning: Node3D
+var _electrical_bearing := NAN
+var _electrical_tle_bearing := NAN
 
 func configure(owner_clock: CampaignClock, owner_director: DayNightDirector,
 		material: ShaderMaterial, owner_effects: WeatherFX = null) -> void:
@@ -71,9 +71,8 @@ func configure(owner_clock: CampaignClock, owner_director: DayNightDirector,
 	_spectacle_levels.resize(Phenomena.SLOTS); _spectacle_bearings.resize(Phenomena.SLOTS)
 	if not schedule.load_schedule(Phenomena.PATH, Callable(self,"_seasonal_for_date")):
 		for problem in schedule.errors: push_error("sky phenomena: "+problem)
-	_flash_rng.seed=hash("spectacle-flash:"+str(_seed_value()))
 	if effects!=null and effects.has_signal("ground_strike"):
-		effects.ground_strike.connect(_on_ground_strike)
+		effects.set_meta("calendar_lightning",true)
 	var forced_id := OS.get_environment("WEATHER_PHENOMENON")
 	if schedule.phenomena.has(forced_id): force_phenomenon(forced_id,1.0)
 
@@ -86,6 +85,9 @@ func _ready() -> void:
 		_before_taa=get_viewport().use_taa
 		if bool(GameBoot.settings.get("weather_taa_enabled",true)):
 			get_viewport().use_taa=true; _owns_taa=true
+	lightning=preload("res://scripts/building/deterministic_lightning_manager.gd").new()
+	lightning.sky=sky;lightning.director=director
+	add_child(lightning)
 	provider=Service.new(); provider.name="LiveWeatherService"
 	provider.weather_updated.connect(receive_snapshot)
 	provider.weather_failed.connect(_fallback)
@@ -97,7 +99,9 @@ func _ready() -> void:
 	_publish()
 
 func _exit_tree() -> void:
-	if extreme_weather!=null:RenderingServer.global_shader_parameter_set("wetness",0.0)
+	if extreme_weather!=null:
+		RenderingServer.global_shader_parameter_set("wetness",0.0)
+		RenderingServer.global_shader_parameter_set("weather_blood",0.0)
 	if _owns_taa and is_instance_valid(get_viewport()): get_viewport().use_taa=_before_taa
 
 static func seasonal_snapshot(date: Dictionary) -> Dictionary:
@@ -208,6 +212,10 @@ func _process(delta: float) -> void:
 		if effects!=null and effects.get("air_material")!=null:
 			effects.air_material.set_shader_parameter("wind_offset",_wind_offset)
 		_publish_extreme_motion(date,precise)
+	var electrical: Dictionary=lightning.sample(Calendar.clock_seconds(clock),current,active_phenomena)
+	_crawler=float(electrical.crawler);_plume_flash=float(electrical.plume);_tle_slot=int(electrical.tle);_tle_frames=1 if _tle_slot>=0 else 0
+	sky.set_shader_parameter("electrical_seed",float(electrical.seed));sky.set_shader_parameter("electrical_age",float(electrical.age))
+	_electrical_bearing=float(electrical.crawler_bearing);_electrical_tle_bearing=float(electrical.tle_bearing)
 	_push_spectacle()
 	_publish_left-=delta
 	if _publish_left<=0.0: _publish_left=1.0; _publish()
@@ -230,7 +238,7 @@ func _publish() -> void:
 		events.merge(_extreme_events,true)
 		extreme_weather.receive_conditions(current,identity,seed_value,events)
 		if source=="campaign-calendar":
-			extreme_weather.sample_calendar(date,Calendar.cloud_transport(date))
+			extreme_weather.sample_calendar(date,Calendar.cloud_transport(date),Calendar.clock_seconds(clock),seed_value)
 	director.set_live_conditions(current)
 	if effects != null: effects.set_live_conditions(current)
 	if RenderingServer.get_current_rendering_method()=="forward_plus":
@@ -303,7 +311,6 @@ func _update_phenomena(delta: float) -> void:
 		listed.append({"id":entry.id,"label":entry.label,"family":entry.family,
 			"level":entry.level,"bearing_degrees":rad_to_deg(entry.bearing)})
 	current["phenomena"]=listed
-	_update_flashes(delta)
 
 func _resolve_active() -> Array[Dictionary]:
 	var found: Array[Dictionary] = []
@@ -349,37 +356,18 @@ func _force_weather(entry: Dictionary) -> void:
 		else:
 			current[key]=lerpf(float(current.get(key,0.0)),float(value),weight)
 
-func _on_ground_strike(strength: float) -> void:
-	# Transient luminous events ride the big ground strokes, one to three frames.
-	var candidates: Array = []
+## Explicit rendered-review hook; production timing belongs to the calendar child.
+func trigger_flash(frames := 3,requested_slot := -1) -> void:
+	_tle_slot=-1;_crawler=0.0;_plume_flash=0.0
 	for entry: Dictionary in active_phenomena:
-		if int(entry.slot) in TLE_SLOTS: candidates.append(int(entry.slot))
-		if int(entry.slot)==CRAWLER_SLOT: _crawler=maxf(_crawler,strength)
-	if not candidates.is_empty() and strength>.5:
-		_tle_slot=candidates[_flash_rng.randi_range(0,candidates.size()-1)]
-		_tle_frames=_flash_rng.randi_range(1,3)
-
-## Benches: fire every flash phenomenon now, as a big ground stroke would.
-func trigger_flash(frames := 3) -> void:
-	_on_ground_strike(1.0)
+		var slot:=int(entry.slot)
+		if requested_slot>=0 and slot!=requested_slot:continue
+		if slot==CRAWLER_SLOT:_crawler=1.0
+		if slot==PLUME_LIGHTNING_SLOT:_plume_flash=1.0
+		if slot in TLE_SLOTS and _tle_slot<0:_tle_slot=slot
 	_tle_frames=frames
-	_crawler=1.0
-	_plume_flash=1.0
-
-func _update_flashes(delta: float) -> void:
-	var crawling := false; var plume := false
-	for entry: Dictionary in active_phenomena:
-		crawling=crawling or int(entry.slot)==CRAWLER_SLOT
-		plume=plume or int(entry.slot)==PLUME_LIGHTNING_SLOT
-	# Anvil crawlers also run on their own between ground strokes.
-	if crawling:
-		_crawler_wait-=delta
-		if _crawler_wait<=0.0: _crawler_wait=_flash_rng.randf_range(3.0,9.0); _crawler=1.0
-	if plume:
-		_plume_wait-=delta
-		if _plume_wait<=0.0: _plume_wait=_flash_rng.randf_range(2.0,6.0); _plume_flash=1.0
-	_crawler*=exp(-delta/.35)
-	_plume_flash*=exp(-delta/.18)
+	_electrical_bearing=NAN;_electrical_tle_bearing=NAN
+	sky.set_shader_parameter("electrical_seed",float(posmod(int(Calendar.clock_seconds(clock)),4093)));sky.set_shader_parameter("electrical_age",.15)
 
 func _flash_for(slot: int) -> float:
 	if slot==CRAWLER_SLOT: return _crawler
@@ -397,6 +385,9 @@ func _push_spectacle() -> void:
 		_spectacle_bearings[slot]=float(entry.bearing)
 		if slot==ST_ELMO_SLOT: corona=float(entry.level)
 		if slot==MICROBURST_SLOT: burst=float(entry.level)
+	_spectacle_levels[CRAWLER_SLOT]=maxf(_spectacle_levels[CRAWLER_SLOT],_crawler)
+	if _crawler>0.0 and is_finite(_electrical_bearing):_spectacle_bearings[CRAWLER_SLOT]=_electrical_bearing
+	if _tle_slot>=0 and is_finite(_electrical_tle_bearing):_spectacle_bearings[_tle_slot]=_electrical_tle_bearing
 	if _tle_frames>0: _tle_frames-=1
 	if RenderingServer.get_current_rendering_method()=="forward_plus":
 		_publish_vortex()

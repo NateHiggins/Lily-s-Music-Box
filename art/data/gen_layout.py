@@ -10607,6 +10607,7 @@ PROP_CATALOG = {
 }
 
 MATERIAL_CATALOG = {
+    "weather_frog_skin": {"base_color": [1.0,1.0,1.0,1.0], "roughness": 1.0, "metallic": 0.0},
     "tardigrade_membrane": {"base_color": [.78,.76,.66,1.], "roughness": .28, "metallic": 0},
     "tardigrade_organ": {"base_color": [.55,.43,.32,1.], "roughness": .64, "metallic": 0},
     "tardigrade_mineral": {"base_color": [.83,.54,.18,1.], "roughness": .22, "metallic": 1},

@@ -16,6 +16,8 @@ func _ready() -> void:
 	GameBoot.settings.weather_network_enabled=false
 	OS.set_environment("WEATHER_SIMULATE","")
 	check(CampaignWeather.load_calendar(),"authored calendar loads: "+CampaignWeather.error)
+	_fallout_calendar()
+	_formation_seed_revisit()
 	_living_year()
 	_motion_precision()
 	_storm_precision()
@@ -223,6 +225,29 @@ func _living_year() -> void:
 	DirAccess.make_dir_recursive_absolute(out_dir)
 	FileAccess.open(out_dir.path_join("living_year.json"),FileAccess.WRITE).store_string(JSON.stringify({"scope":"1095 deterministic state samples; not a rendered annual gallery or runtime acceptance", "samples":1095,"genera":seen,"regimes":regimes,"eligible_scenarios":eligible_counts,"invalid":invalid,"elapsed_ms":(Time.get_ticks_usec()-started)/1000.0},"\t"))
 
+func _formation_seed_revisit() -> void:
+	var extension:=preload("res://scripts/building/queens_weather_extension.gd").new()
+	var date:="1929-05-20"
+	var fair:={"pressure_hpa":1030.0,"wind_speed_kmh":0.0}
+	var api:={"weather":[{"id":800}],"main":{"pressure":1030.0}}
+	var distinct: Dictionary={}
+	var conditions_match:=true
+	var api_match:=true
+	# Reuse one instance and civil date: a date-only cache would retain the
+	# first seed's formation even though fresh reconstruction selects another.
+	for seed_value in 256:
+		var fresh:=preload("res://scripts/building/queens_weather_extension.gd").new()
+		fresh.receive_conditions(fair,date,seed_value)
+		extension.receive_conditions(fair,date,seed_value)
+		conditions_match=conditions_match and extension._target_formation==fresh._target_formation
+		distinct[fresh._target_formation]=true
+		extension.receive_api(api,date,seed_value+1)
+		fresh.receive_api(api,date,seed_value+1)
+		api_match=api_match and extension._target_formation==fresh._target_formation
+	check(conditions_match,"same-day conditions seed changes agree with fresh reconstruction across 256 seeds")
+	check(api_match,"same-day provider seed changes agree with fresh reconstruction across 256 seeds")
+	check(distinct.size()>1,"seed cache regression exercises different visible formation choices")
+
 func _storm_precision() -> void:
 	var before: Dictionary=RealityState.data.duplicate(true)
 	var stamp:=float(Time.get_unix_time_from_datetime_string("1929-11-07T12:00:00"))
@@ -270,3 +295,31 @@ func _storm_precision() -> void:
 	extension._set_cyclone_target(1.0);extension.advance(.1)
 	check(extension.cyclone_phase>live_age and live_age>5.0,"live alert interruption cannot reset an already visible cyclone")
 	check(RealityState.data==before,"storm queries and shader publication preserve campaign/save authorities")
+
+func _fallout_calendar() -> void:
+	var authority:=RealityState.data.duplicate(true)
+	var start:=float(Time.get_unix_time_from_datetime_string("1929-01-30T12:05:00"))
+	var before:=CampaignWeather.fallout_at(start-1.0)
+	check(before=={"blood":0.0,"frogs":0.0,"deposit":0.0},"future fallout creates no current rain or residue")
+	var peak:=CampaignWeather.fallout_at(start+600.0)
+	check(float(peak.blood)==1.0 and float(peak.frogs)==0.0 and float(peak.deposit)>0.9,"authored crimson window uses actual campaign rain and accumulated deposition")
+	check(peak==CampaignWeather.fallout_at(start+600.0,8437),"layout seeds preserve authored fallout windows")
+	var ended:=CampaignWeather.fallout_at(start+1260.0)
+	var later:=CampaignWeather.fallout_at(start+4800.0)
+	check(float(ended.blood)==0.0 and float(ended.deposit)>float(later.deposit),"crimson fall ends separately from deterministic residue drying")
+	var frog_time:=float(Time.get_unix_time_from_datetime_string("1929-09-12T11:30:00"))
+	var frogs:=CampaignWeather.fallout_at(frog_time)
+	check(float(frogs.frogs)==1.0 and float(frogs.blood)==0.0,"frog window is independently keyed to the authored waterspout date")
+	CampaignWeather.fallout_at(frog_time+86400.0)
+	CampaignWeather.fallout_at(start-86400.0)
+	check(peak==CampaignWeather.fallout_at(start+600.0),"reverse visits reconstruct fallout and deposition without replaying state")
+	for invalid: float in [NAN,INF,float(Time.get_unix_time_from_datetime_string("1930-01-01T00:00:00"))]:
+		check(CampaignWeather.fallout_at(invalid)=={"blood":0.0,"frogs":0.0,"deposit":0.0},"invalid or out-of-campaign fallout is empty")
+	var day:=int(Time.get_unix_time_from_datetime_string("1929-07-11T00:00:00"))
+	var found: Dictionary={};var selected:=0
+	for seed_value in range(1,10000):
+		found=CampaignWeather._rolled_fallout(day,seed_value)
+		if not found.is_empty():selected=seed_value;break
+	check(not found.is_empty() and found==CampaignWeather._rolled_fallout(day,selected),"rare daily roll is stable for the same civil date and seed")
+	check(CampaignWeather._rolled_fallout(int(start)-725*60,selected).is_empty(),"authored anomaly day never receives a competing daily roll")
+	check(RealityState.data==authority,"fallout queries preserve all campaign/save authorities")

@@ -1694,6 +1694,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "weather_frog_skin": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.12,
+      "catalog_mapping": "procedural/weather_frog_skin",
+      "files": [
+        "T_ai_materials_weather_frog_skin_albedo.png",
+        "T_ai_materials_weather_frog_skin_rough.png",
+        "T_ai_materials_weather_frog_skin_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.12,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "wood_dark": {
       "alpha": false,
       "canonical_meters_per_tile": 0.6,

@@ -684,6 +684,8 @@ func _build_box(parent: Node3D, body: StaticBody3D,
 	mesh_node.set_meta("presentation_role", presentation_role)
 	mesh_node.mesh = _box_mesh(size,position)
 	mesh_node.material_override = _material(str(record.get("material_id", "")))
+	if str(record.get("material_id",""))=="asphalt":
+		mesh_node.material_override=SurfacePass.weather_surface(mesh_node.material_override,{})
 	mesh_node.position = position
 	mesh_node.rotation_degrees.y = yaw
 	mesh_node.visible = bool(record.get("visible", true))

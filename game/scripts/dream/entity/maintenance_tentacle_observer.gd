@@ -14,6 +14,8 @@ var _doors_scanned := false
 var anchor_diagnostics: Array[Dictionary] = []
 var preparation: Node3D
 var preparation_ready := false
+var _warm_viewport: SubViewport
+var _warm_frames := 0
 
 func _warm_rendering() -> void:
 	# Render actual material/mesh combinations in a private world. Invisible
@@ -43,10 +45,17 @@ func _warm_rendering() -> void:
 	light.look_at(Vector3(0,.35,0))
 	light.shadow_enabled = true
 	light.light_cull_mask = 1 << 17
-	for frame in 8: await RenderingServer.frame_post_draw
-	viewport.queue_free()
-	await get_tree().process_frame
-	preparation_ready = true
+	_warm_viewport=viewport;_warm_frames=8
+	RenderingServer.frame_post_draw.connect(_warm_frame)
+
+func _warm_frame() -> void:
+	# A Node-bound signal disconnects when this observer retires. A suspended
+	# coroutine could resume after a fast world rebuild had already freed it.
+	_warm_frames-=1
+	if _warm_frames>0:return
+	RenderingServer.frame_post_draw.disconnect(_warm_frame)
+	_warm_viewport.queue_free();_warm_viewport=null
+	preparation_ready=true
 
 func _reject_anchor(reason: String, point: Vector3, detail := "") -> void:
 	anchor_diagnostics.append({"reason":reason,"point":[point.x,point.y,point.z],"detail":detail})

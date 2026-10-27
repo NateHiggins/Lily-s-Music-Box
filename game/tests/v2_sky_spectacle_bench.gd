@@ -44,6 +44,7 @@ var camera: Camera3D
 var horizon: Node3D
 var environment: Environment
 var flashing := false
+var optical_failures: Array[String]=[]
 
 
 func _ready() -> void:
@@ -60,6 +61,12 @@ func _ready() -> void:
 	environment.volumetric_fog_length = 24.0
 	sky_material = ShaderMaterial.new()
 	sky_material.shader = preload("res://shaders/queens_weather_sky.gdshader") if queens_renderer else preload("res://shaders/v2_seasonal_sky.gdshader")
+	var review_source:=OS.get_environment("SKY_REVIEW_SHADER_SOURCE")
+	if not review_source.is_empty() and not OS.get_environment("SKY_NATIVE_SAMPLING_PLAN").is_empty():
+		var control:=Shader.new();control.code=FileAccess.get_file_as_string(review_source)
+		if not control.code.contains("shader_type sky;"):
+			push_error("Unreadable sky source control");get_tree().quit(2);return
+		sky_material.shader=control
 	sky_material.set_shader_parameter("moon_surface", load("res://assets/environment/lroc_color_poles_1k.jpg"))
 	environment.sky = Sky.new()
 	environment.sky.sky_material = sky_material
@@ -91,6 +98,12 @@ func _ready() -> void:
 	camera.global_position = EYE
 	get_viewport().use_taa = true
 	await get_tree().process_frame
+	if not OS.get_environment("SKY_NATIVE_SAMPLING_PLAN").is_empty():
+		await _library_detail()
+		return
+	if OS.get_environment("SKY_LIGHTNING_REVIEW")=="1":
+		await _lightning_review()
+		return
 	if OS.get_environment("SKY_VORTEX_REVIEW")=="1":
 		await _vortex_review()
 		return
@@ -123,8 +136,8 @@ func _ready() -> void:
 			saved += 1
 		await _shoot(id, entry, .5, "%02d_%s" % [slot, id])
 		saved += 1
-	print("V2 SKY SPECTACLE BENCH: %d frames" % saved)
-	get_tree().quit(0)
+	print("V2 SKY SPECTACLE BENCH: %d frames; %d failures" % [saved,optical_failures.size()])
+	get_tree().quit(0 if optical_failures.is_empty() else 1)
 
 
 ## Development-only calendar viewer and compact annual gallery. Uses the same
@@ -409,6 +422,78 @@ func _library_year() -> void:
 	print("LIVING SKY ANNUAL REVIEW: %d samples, %d reverse-date replays, %d failures"%[365*labels.size(),replay_days.size(),failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
+func _library_detail() -> void:
+	# Read-only optical review over the same dated production owner. A cloned
+	# shader exposes the alpha it actually composites, not coverage metadata.
+	manager.set_process(false);director.set_process(false)
+	var path:=OS.get_environment("SKY_NATIVE_SAMPLING_PLAN")
+	var plan: Variant=JSON.parse_string(FileAccess.get_file_as_string(path))
+	if plan is not Dictionary or plan.get("captures") is not Array:
+		push_error("Invalid native sky sampling plan");get_tree().quit(2);return
+	if str(plan.get("calendar_sha256",""))!=FileAccess.get_sha256(CampaignWeather.PATH):
+		push_error("Native sampling plan has a different calendar");get_tree().quit(2);return
+	var directory:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
+	var code:=sky_material.shader.code.replace("\r\n","\n")
+	var boundary:="        if(living_enabled && living_layer_2.x>.0001 && EYEDIR.y>.015) {"
+	var output:="        COLOR=mix(combined,wx_haze_color(normalize(sun_direction)),1.0-exp(-tau));"
+	if not code.contains(boundary) or not code.contains(output):
+		push_error("Cloud mask instrumentation no longer matches production");get_tree().quit(2);return
+	code=code.replace(boundary,"        float observed_ice_alpha=0.0;\n"+boundary)
+	code=code.replace("            base=mix(base,ice_color,ice_alpha);","            observed_ice_alpha=ice_alpha;\n            base=mix(base,ice_color,ice_alpha);")
+	code=code.replace(output,"        COLOR=vec3(1.0-(1.0-HALF_RES_COLOR.a)*(1.0-observed_ice_alpha)*(1.0-cirrus));")
+	var mask_shader:=Shader.new();mask_shader.code=code
+	var mask_material:=ShaderMaterial.new();mask_material.shader=mask_shader
+	var rows: Array=[];var failures: Array[String]=[]
+	var requests: Array=plan.captures.duplicate(true)
+	for triplet: Dictionary in plan.get("transition_triplets",[]):
+		for date_text: String in triplet.dates:requests.append({"date":date_text,"period":"transition_"+str(triplet.period),"seeds":[triplet.seed]})
+	var normal_tonemap:=environment.tonemap_mode;var normal_exposure:=environment.tonemap_exposure
+	var normal_glow:=environment.glow_enabled;var normal_fog:=environment.volumetric_fog_enabled
+	var first:=Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")
+	for request: Dictionary in requests:
+		var stamp:=Time.get_unix_time_from_datetime_string(str(request.date))
+		for layout_seed: int in request.seeds:
+			OS.set_environment("WEATHER_SEED",str(layout_seed))
+			environment.sky.sky_material=sky_material;horizon.show();manager.effects.show()
+			get_viewport().use_taa=true
+			environment.tonemap_mode=normal_tonemap;environment.tonemap_exposure=normal_exposure
+			environment.glow_enabled=normal_glow;environment.volumetric_fog_enabled=normal_fog
+			_library_date(int(floor(float(stamp-first)/86400.0)),float(posmod(stamp,86400))/3600.0)
+			sky_material.set_shader_parameter("temporal_phase",0.0)
+			for frame in 24:await RenderingServer.frame_post_draw
+			var prefix:="%03d_%s_%d"%[rows.size(),str(request.period),layout_seed]
+			var color_path:=directory.path_join(prefix+"_colour.png")
+			if get_viewport().get_texture().get_image().save_png(color_path)!=OK:failures.append("colour capture "+prefix)
+			for uniform: Dictionary in sky_material.shader.get_shader_uniform_list():
+				var value: Variant=sky_material.get_shader_parameter(str(uniform.name))
+				if value!=null:mask_material.set_shader_parameter(str(uniform.name),value)
+			environment.sky.sky_material=mask_material;horizon.hide();manager.effects.hide()
+			get_viewport().use_taa=false
+			environment.tonemap_mode=Environment.TONE_MAPPER_LINEAR;environment.tonemap_exposure=1.0
+			environment.glow_enabled=false;environment.volumetric_fog_enabled=false
+			for frame in 16:await RenderingServer.frame_post_draw
+			var image:=get_viewport().get_texture().get_image()
+			var alpha_sum:=0.0;var covered:=0;var count:=0
+			for y in range(0,int(image.get_height()*2/3),4):
+				for x in range(0,image.get_width(),4):
+					var alpha:=image.get_pixel(x,y).srgb_to_linear().r
+					alpha_sum+=alpha;count+=1
+					if alpha>.1:covered+=1
+			var mask_path:=directory.path_join(prefix+"_mask.png")
+			if image.save_png(mask_path)!=OK:failures.append("mask capture "+prefix)
+			rows.append({"date":clock.datetime_string(),"period":request.period,"seed":layout_seed,
+				"declared_coverage":manager.atmosphere_state.get("combined_coverage",0),"mean_alpha_upper_frame":alpha_sum/maxi(1,count),
+				"fraction_alpha_above_point_one":float(covered)/maxi(1,count),"colour":color_path.get_file(),"mask":mask_path.get_file(),
+				"sun":str(sky_material.get_shader_parameter("sun_direction")),"moon":str(sky_material.get_shader_parameter("celestial_direction")),
+				"moon_illumination":sky_material.get_shader_parameter("moon_illumination"),"state":manager.atmosphere_state.duplicate(true)})
+			print("NATIVE SKY DETAIL ",rows.size()," ",clock.datetime_string()," seed=",layout_seed)
+	FileAccess.open(directory.path_join("native_detail.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"Native colour and instrumented production cloud alpha over dated city-horizon bench; upper two-thirds every fourth pixel. Linear mask decoded from sRGB; world geometry, WeatherFX and TAA disabled only for mask. Excludes front optical phenomena and is not an artistic, occupied-world or performance acceptance.",
+		"plan_sha256":FileAccess.get_sha256(path),"loaded_shader_source_sha256_lf":sky_material.shader.code.replace("\r\n","\n").sha256_text(),
+		"review_source_control":OS.get_environment("SKY_REVIEW_SHADER_SOURCE"),"rows":rows,"failures":failures},"\t"))
+	print("NATIVE SKY DETAIL REVIEW: ",rows.size()," samples, ",failures.size()," failures")
+	get_tree().quit(0 if failures.is_empty() else 1)
+
 func _daylight_hours(day_index: int) -> PackedFloat64Array:
 	var civil:=Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")+day_index*86400
 	var rise:=0.0;var setting:=24.0;var peak:=-1.0;var noon:=12.0;var previous:=-1.0
@@ -454,11 +539,15 @@ func _shoot(id: String, entry: Dictionary, fraction: float, label: String) -> vo
 	var row: Dictionary = manager.schedule.phenomena[id]
 	flashing = bool(row.get("flash", false))
 	_aim(id, entry)
+	manager.set_process(false) # Freeze production time while this explicit review forces flashes.
 	for frame in 40:
-		if flashing: manager.trigger_flash()
+		if flashing: manager.trigger_flash(3,int(row.slot))
+		manager._push_spectacle()
 		sky_material.set_shader_parameter("temporal_phase", float(frame))
 		await get_tree().process_frame
 	await RenderingServer.frame_post_draw
+	if flashing and float(manager._spectacle_levels[int(row.slot)])<=0.0:
+		optical_failures.append("requested electrical effect missing: "+id);push_error(optical_failures[-1])
 	var active: Array = manager.active_phenomena.map(func(e): return e.id)
 	print("  %s at %s %s, sun %.1f deg, active %s, levels %s, dust %.2f" % [label, entry.date,
 			"%02d:%02d" % [int(fposmod(minute, 1440.0)) / 60, int(fposmod(minute, 60.0))],
@@ -479,6 +568,25 @@ func _shoot(id: String, entry: Dictionary, fraction: float, label: String) -> vo
 		if value is Resource:continue
 		uniforms[str(item.name)]=value
 	FileAccess.open(directory.path_join(label+".json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","date":clock.datetime_string(),"atmosphere":manager.atmosphere_state,"conditions":manager.current,"uniforms":uniforms},"\t"))
+	if id=="elves":
+		var growth: Array=[]
+		for age: float in [.06,.15,.28]:
+			sky_material.set_shader_parameter("electrical_age",age)
+			for frame in 24:await RenderingServer.frame_post_draw
+			var image:=get_viewport().get_texture().get_image()
+			var left:=image.get_width();var right:=0;var count:=0
+			for y in range(0,image.get_height()*2/3,2):
+				for x in range(0,image.get_width(),2):
+					var pixel:=image.get_pixel(x,y)
+					if pixel.r>.15 and pixel.r>pixel.g*1.5 and pixel.r>pixel.b*1.3:
+						left=mini(left,x);right=maxi(right,x);count+=1
+			var width:=maxi(0,right-left)
+			growth.append({"age":age,"red_pixels_quarter_grid":count,"width_pixels":width})
+			image.save_png(directory.path_join("elves_growth_%03d.png"%int(age*1000)))
+		if int(growth[0].red_pixels_quarter_grid)<16 or int(growth[2].width_pixels)<int(growth[0].width_pixels)*2:
+			optical_failures.append("ELVES expanding ring is missing or fails to grow")
+		FileAccess.open(directory.path_join("elves_growth.json"),FileAccess.WRITE).store_string(JSON.stringify({
+			"evidence_class":"INERT","scope":"Forced frozen strike ages on the authored ELVES date; actual optical growth measurement, not natural strike timing or human acceptance","samples":growth},"\t"))
 
 
 func _aim(id: String, entry: Dictionary) -> void:
@@ -512,3 +620,91 @@ func _nearest_corona_tip() -> Vector3:
 			best = tip
 			best_distance = distance
 	return best
+
+
+## Deterministic electrical presentation review over the production city sky.
+func _lightning_review() -> void:
+	manager.set_process(false);director.set_process(false)
+	var module := preload("res://scripts/building/deterministic_lightning_manager.gd")
+	var calendar := preload("res://scripts/game/campaign_weather.gd")
+	calendar.load_calendar()
+	var failures: Array[String]=[]
+	var selected: Dictionary={}
+	var positive: Dictionary={}
+	for key: String in calendar._dates:
+		for frame: Dictionary in calendar._days[key].frames:
+			if int(frame.weather_code) not in [95,96,99]:continue
+			var minute:=float(Time.get_unix_time_from_datetime_string(key+"T00:00:00"))+float(frame.minute)*60.0
+			for offset in 30:
+				var stamp:=minute+offset*60.0
+				if int(calendar.snapshot(Time.get_datetime_dict_from_unix_time(int(stamp))).get("weather_code",0)) not in [95,96,99]:continue
+				var rows: Array[Dictionary]=module.minute_strokes(stamp)
+				for i in range(1,rows.size()):
+					if float(rows[i].time)-float(rows[i-1].time)<.6999:failures.append("overlapping strokes exceed the fixed presentation pool")
+				if rows!=module.minute_strokes(stamp):failures.append("minute replay changed")
+				for row: Dictionary in rows:
+					if not selected.has(int(row.kind)):selected[int(row.kind)]=row
+					if int(row.kind)==module.GROUND and bool(row.positive) and float(row.strength)>.85:positive=row
+					if float(row.time)<stamp or float(row.time)>=stamp+60:failures.append("out-of-minute timestamp")
+			if selected.size()==3 and not positive.is_empty():break
+		if selected.size()==3 and not positive.is_empty():break
+	if selected.size()!=3 or positive.is_empty():
+		push_error("LIGHTNING REVIEW missing calendar cases");get_tree().quit(1);return
+	var directory:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
+	var records: Array[Dictionary]=[]
+	var prior_suppressed:=bool(GameBoot.settings.get("reduce_flashing",false))
+	GameBoot.settings.reduce_flashing=false
+	for kind: int in [module.SHEET,module.GROUND,module.CRAWLER]:
+		var row: Dictionary=selected[kind]
+		var date:=Time.get_datetime_dict_from_unix_time(int(row.time))
+		clock.configure_date(int(date.year),int(date.month),int(date.day),int(date.hour)*60+int(date.minute))
+		clock.advance_seconds(fposmod(float(row.time),60.0)+.045)
+		manager._calendar_check_left=0.0;manager._phenomena_left=0.0
+		manager._process(0.0);manager._publish()
+		director._apply(clock.minute_of_day())
+		camera.fov=75.0;camera.look_at(Vector3(row.cloud)*.65)
+		var electrical: Node3D=manager.lightning
+		var state: Dictionary=electrical.sample(float(row.time)+.045,manager.current,[])
+		if float(state.level)<=0.0:failures.append("missing active stroke "+str(kind))
+		if kind==module.GROUND and (not electrical._bolt.visible or electrical._bolt.mesh.get_faces().size()>800):failures.append("ground bolt missing or unbounded")
+		if kind==module.CRAWLER and float(state.crawler)<=0.0:failures.append("crawler missing")
+		sky_material.set_shader_parameter("electrical_seed",float(state.seed));sky_material.set_shader_parameter("electrical_age",float(state.age))
+		manager._crawler=state.crawler;manager._electrical_bearing=state.crawler_bearing;manager._push_spectacle()
+		if kind==module.CRAWLER and manager._spectacle_levels[22]<=0.0:failures.append("ordinary crawler did not reach the actual shader")
+		await get_tree().process_frame;await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(directory+"/lightning_%d.png"%kind)
+		var arrival: float=float(row.time)+module.thunder_delay(row.ground,camera.global_position)
+		electrical.sample(float(row.time)-2.0,manager.current,[])
+		electrical.sample(float(row.time)-.01,manager.current,[])
+		electrical.sample(float(row.time)+.01,manager.current,[])
+		if not electrical._pending.has(row.id):failures.append("thunder was not queued")
+		var cursor:=float(row.time)+.01
+		while cursor<arrival+.01:
+			cursor=minf(cursor+.25,arrival+.01)
+			electrical.sample(cursor,manager.current,[])
+		if not electrical._heard.has(row.id):failures.append("missing delayed thunder "+str(kind))
+		var after: int=electrical.thunder_count
+		electrical.sample(cursor,manager.current,[])
+		if electrical.thunder_count!=after:failures.append("duplicate thunder")
+		electrical.sample(float(row.time)-1.0,manager.current,[])
+		var replay: Dictionary=electrical.sample(float(row.time)+.045,manager.current,[])
+		if not is_equal_approx(float(state.level),float(replay.level)):failures.append("reverse/reload projection mismatch")
+		GameBoot.settings.reduce_flashing=true
+		var reduced: Dictionary=electrical.sample(float(row.time)+.045,manager.current,[])
+		if float(reduced.level)!=0.0 or electrical._bolt.visible or electrical._light.visible:failures.append("flash suppression failed")
+		GameBoot.settings.reduce_flashing=false
+		records.append({"type":kind,"id":row.id,"time":row.time,"ground":[row.ground.x,row.ground.y,row.ground.z],"delay_seconds":module.thunder_delay(row.ground,camera.global_position)})
+	var electrical: Node3D=manager.lightning
+	var t:=float(positive.time)+.045
+	var allowed: Array[Dictionary]=[{"slot":23}]
+	electrical.sample(t-2.0,manager.current,allowed)
+	var slots: Array[int]=[]
+	for frame in 6:slots.append(int(electrical.sample(t,manager.current,allowed).tle))
+	if slots!=[-1,-1,23,23,23,-1]:failures.append("TLE frame timing "+str(slots))
+	if not is_equal_approx(module.thunder_delay(Vector3(343,0,0),Vector3.ZERO),1.0):failures.append("sound travel math")
+	GameBoot.settings.reduce_flashing=prior_suppressed
+	var report:={"scope":"rendered production sky diagnostic; not occupied-world qualification","records":records,"tle_frames":slots,"failures":failures}
+	var file:=FileAccess.open(directory+"/lightning_review.json",FileAccess.WRITE);file.store_string(JSON.stringify(report,"  "));file.close()
+	for failure: String in failures:push_error(failure)
+	print("DETERMINISTIC LIGHTNING REVIEW: ","PASS" if failures.is_empty() else "FAIL", " ",JSON.stringify(report))
+	get_tree().quit(0 if failures.is_empty() else 1)

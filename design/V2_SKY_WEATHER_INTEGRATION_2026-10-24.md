@@ -1333,3 +1333,721 @@ merge; runtime sources and their surface binding remain unchanged. No owner
 decision is needed; routine verification and merge are authorized.
 
 MERGE-CANDIDATE 666335c35a3b1df9f529fc9978ec9b9f00cb269d
+
+
+## Calendar-keyed lightning — 2026-10-27
+
+Implementation checkpoint, not whole-year artistic acceptance. The installed
+WeatherManager now owns a DeterministicLightningManager presentation child.
+A civil year/month/day/hour/minute hash produces 0–12 millisecond strokes per
+minute, their types, strengths, polarity, positions and branch seeds. Only
+authored thunderstorm minutes enable ordinary strokes. Two minute schedules
+are reconstructed on entry/revisit; seeks discard pending audio. No new clock,
+save domain, inventory, work, resident, case or newspaper authority was added.
+
+Sheet discharges inject a density-scattered emissive sphere into the existing
+cloud march, in its kilometre/world frame, without new noise taps. Ground
+strokes use bounded crossed-ribbon branches, one reusable shadowed world-only
+OmniLight and high volumetric energy. The optical bolt bypasses distance fog
+so it cannot become a dark silhouette against its own flash. Existing anvil
+crawler and upper-atmosphere shaders are reused. Authored eligible sprites/jets
+appear two rendered frames after a strong positive ground stroke and last
+three frames. This deliberately reuses the sky compositor instead of adding
+large billboard meshes. Violet flashes shift green-yellow in hail. Flash
+suppression covers bolts, local cloud emission, point light, crawlers and TLEs.
+
+Two spatial thunder voices use three small deterministic generated PCM rumbles.
+Distance/343 is latched when a strike is witnessed, not recomputed while the
+player walks. Paused dates do not repeat sound; seeking cancels pending sound.
+This is functional synthesized audio, not an authored/sample-library sound
+acceptance claim. The old uptime-driven flashes are disabled under this owner;
+V1's standalone weather fallback remains available.
+
+Evidence root: **C:/ov/reports/lightning32/**. Original interrupted parser/type
+failures and the audio-test mismatch are retained. **latched_audio.log** passes
+the native production-sky diagnostic: all three ordinary types, exact minute
+replay/reverse projection, delayed/non-repeated thunder, suppression and TLE
+frame sequence **[-1,-1,23,23,23,-1]**. The original dark-bolt render was inspected
+and repaired; the corrected native render was inspected too. These are
+presentation diagnostics, not occupied-world qualification by themselves.
+
+**world_second.log** and the test-written schema-2
+**world_second/weather_lifecycle_contract.json** pass **45 checks**: actual V2
+composition, a dated ground stroke rendered over the occupied roof, validated
+isolated disk save/load and world reconstruction, identical derived lightning
+schedule, protected gameplay authorities and measured retirement of **46 nodes,
+53 resources, zero retained nodes/resources/playbacks**. Shutdown stderr is empty.
+The native **3440×1440 Forward+** roof inspector regression passes **42 checks**;
+flash-accessibility regression passes **2/2**. The occupied lightning render was
+inspected; this is not human artistic acceptance.
+
+A stationary occupied-roof stress pair holds the peak stroke, with **60 warmup
+and 120 measured frames** in each phase. Quiet → peak wall p50/p95/p99/max:
+**20.022/23.676/25.178/25.977 → 19.988/24.183/25.512/32.256 ms**; render GPU:
+**6.359/6.959/7.140/7.175 → 7.193/7.535/7.614/7.706 ms**. This prices the added
+flash/bolt/light, not a movement-route speedup or first-use compilation cure.
+Raw samples: **world_second/lightning_world_frames.json**. Different camera
+routes, transient shadow quality and the full annual electrical experience
+still require broader visual review.
+
+Next owner-directed weather work: improve visibly weak rain/snow; extend the
+existing GPU/exposure/wetness owners with deterministic intensity, ground
+splashes/hail collision, rare blood/frog fallout and restrained lens moisture;
+then assess annual visual diversity across hours, seasons, genera, regimes and
+seeds using the existing six-times-daily **2,190-frame** gallery plus targeted
+renders. The earlier noon-only gallery is historical. Classifications and
+image signatures are not fifty accepted formations or artistic approval.
+
+
+## Annual visual-coverage audit — 2026-10-27, baseline assessment
+
+This assessment reads the already rendered **2,190 samples** from
+**C:/ov/reports/weather_recovery30/annual_final/**: 365 dates, solar-relative
+dawn/morning/noon/afternoon/dusk and 23:00, seed **1928**, one fixed bearing.
+It supersedes the historical noon-only survey's coverage description; it does
+not supply a continuous daily cycle, multiple-seed acceptance or FPS-precipitation
+qualification. The annual bench uses a non-player observer and therefore the
+fallback precipitation path. Its pictures cannot validate camera GPU rain/snow.
+
+Reproduce the read-only atlas analysis with:
+
+```powershell
+python tools/analyze_weather_gallery.py --gallery C:/ov/reports/weather_recovery30/annual_final --out C:/ov/reports/lightning32/annual_assessment
+```
+
+The tool validates all dates/period slots and reads actual **160×90** review
+tiles. It measures RGB/contrast in their upper **160×60** region and compares
+brightness-normalized **32×12** fields at the same period, at least fourteen
+days apart. Candidate similarity is correlation **>.985**, mean-RGB distance
+**<.08**, and contrast **>.015**. These are diagnostic thresholds, not artistic
+pass/fail gates or cloud segmentation. The JSON records source hash, per-period,
+season/regime and genus coverage; the contact sheets retain the source images.
+
+| Period | Samples | Low-contrast fields below .015 | Median contrast | Median nearest nonadjacent correlation |
+| --- | ---: | ---: | ---: | ---: |
+| Dawn | 365 | 0 | .0474 | .7572 |
+| Morning | 365 | 22 | .0654 | .4879 |
+| Solar noon | 365 | 6 | .0792 | .6763 |
+| Afternoon | 365 | 1 | .1040 | .8074 |
+| Dusk | 365 | 0 | .0760 | .7904 |
+| Night | 365 | 0 | .0751 | .9763 |
+
+There are **63 candidate pairs: 57 night, five dawn, one noon**. Inspection of
+the repetition contact sheet shows repeatedly similar sepia night fields;
+inspection of the low-contrast sheet shows broad, weakly shaded rainy ceilings.
+Overcast similarity is natural; neither count alone proves a defect. The
+current march nevertheless shades clouds with the Sun direction at night and
+multiplies direct light by daylight, a specific candidate for a bounded
+moonlight/ambient correction. Test it at matched lunar phases and dated weather
+before adopting it; do not manufacture annual diversity with random palettes.
+
+All ten genera occur in declared visible layers. Counts are **Ac1451, Cu1108,
+Ci984, Sc949, Cc738, Cs468, Ns269, As216, Cb7, St3**; these are layer counts,
+not segmented image observations. **42 of fifty** recipe classes are eligible
+somewhere in the samples; only **14 nonzero classifications plus unclassified
+zero** are selected. The unsampled eligibility labels are crystal-clear sky,
+trade-wind cumulus, approaching warm front, mixed precipitation, freezing rain,
+advection fog, blowing dust and wind-blown snow. Some do not belong in this
+Queens year; rarity is not authorization to rewrite the weather calendar.
+
+Remaining verification targets: rendered cloud-alpha masks for pixel coverage;
+full-resolution examination of weak rainy ceilings; moonlit and moonless night
+pairs; sunrise/dusk transition sequences; weather/lighting/genus strata and
+three deterministic layout seeds; original rare-phenomenon renders, including
+natural versus explicitly forced electrical captures. The owner specifically
+prioritizes visibly weak playable rain/snow. These are outstanding targets,
+not claims that every annual sky is an accepted atmospheric painting.
+
+
+### First playable precipitation correction — 2026-10-27
+
+The baseline and first correction use **CampaignWeatherWorldReview** with
+**WEATHER_PRECIP_REVIEW=1**, native **3440×1440**, actual FPS GPU emitters and
+three unchanged authored dates: **1929-01-30 12:00 rain**, **1928-12-12 12:00
+snow**, **1929-08-06 15:00 deluge/hail**. Each date has 360 warmup and 120 timed
+frames. Particle speed and the FX publisher are paused for off/on captures;
+TAA is disabled only for those captures, then restored. An earlier off/on
+control mistakenly left the publisher active, which immediately restored
+visibility; those first pictures are retained but excluded from pixel metrics.
+
+The correction weights births into the camera frustum and recycles stock below
+the street/outside the view, gives rain a pixel-resolved width and wind-aligned
+streaks, varies falling speed/opacity with intensity, and raises the bounded snow
+pool from 480 to 1200 (rain remains 1800). The existing weather extension samples a
+smooth, separate channel of the lightning minute hash; dry observations remain
+dry, and neither authored frames nor forecast/newspaper data change.
+
+| Fixture | Upper-frame pixel-change proxy, before → after | GPU p95 ms, before → after | Wall p95 ms, before → after |
+| --- | --- | --- | --- |
+| Rain | .6556% →1.7839% | 8.014 →8.231 | 20.178 →20.335 |
+| Snow | .0707% →.4696% | 8.156 →8.186 | 20.553 →20.092 |
+| Deluge/hail | .3185% →2.9265% | 7.980 →8.156 | 20.243 →20.073 |
+
+Raw frames and images: **C:/ov/reports/lightning32/precip_baseline/** and
+**precip_legible/**. Both programmes complete with empty stderr. Corrected
+native rain/snow images were inspected. Pixel change means max-channel
+on/off difference>.02 in the upper 66% of one frozen capture; it is a visibility
+proxy, not an exact alpha mask, volumetric precipitation rate or population
+statistic. Timing is a stationary-camera pair, not movement/turn qualification
+or an improvement to the outstanding first-view hitch. Ground collision,
+fallout, lens moisture and the annual lighting/mask follow-through remain open.
+
+Late-calendar electrical review additionally exposed float precision loss in
+crawler noise coordinates. Bounded stroke seeds/ages replace year-scale float
+noise addresses for crawlers and TLEs; native branching-channel pictures now
+replace the original blocky patches. Ordinary crawlers reach the actual shader
+without requiring a rare-schedule flag. Strokes have at least 700ms separation
+so the single bolt/light pool can display every generated event. The original
+rare-effect review also exposed overlap in its forced-flash selector; the bench
+now explicitly selects the requested effect and asserts that its shader level
+is nonzero. Forced review captures remain separate from natural event timing.
+
+### Contact and fallout preparation — 2026-10-27
+
+The annual analyzer now also emits **native_sampling_plan.json**: 47 actual
+dated states at three fixed layout seeds (141 requests), covering all 109
+observed season/period, season/regime, classification and genus/period tags.
+Eight dawn/dusk triplets add samples twenty minutes before and after the
+solar-relative centre, across four seasons. The plan is reproducible from the
+same gallery command above. Its generated requests are **not executed renders**;
+coverage of those data tags does not prove corresponding visual distinctions.
+
+| Location / reproduction | Severity | Evidence | Repair / verification |
+| --- | --- | --- | --- |
+| GPU precipitation: falling stock passes through roofs and street | Medium visual | Existing custom motion had no contact response | Added one 256-square top-down heightfield, world-only mask, 64 m footprint; centre advances on an 8 m band, not every camera frame. Actual moving-world cost remains to be measured. |
+| Contact splash pool after several seconds of rain | Medium visual | Native component capture and GPU bounds showed all slots surviving far below the floor | Explicit retirement at .35 seconds recycles the 256-slot subemitter. Original failed captures retained. |
+| Heightfield impact response | Medium visual | Native contact-colour control detected hits, but hail failed to rebound and splash velocity pointed into the floor | Orient the signed heightfield normal/depth toward open sky before launch/reflection. Contact-enabled native captures show upward splash and rebound; disabled controls remove the contact colours. |
+| First contact implementation | Development failure | **precip_contact.log** records illegal early return in a particle processor; that run was stopped | Replaced processor returns with conditional branches. **contact_plane_final.log.receipt.json** records successful fullscreen component review with empty stderr and optical negative controls. This is diagnostic evidence, not occupied-world qualification. |
+
+Component evidence is under **C:/ov/reports/lightning32/contact_plane_final/**.
+The small fixture reuses production shaders and adds diagnostic colour only
+after a real GPU contact; an isolated splash draw detects pool exhaustion.
+It deliberately does not promote gameplay or surface acceptance. The occupied
+three-date review is being repeated after these changes, with additional views
+from the actual roof stance. Hail now uses a bounded eight-sided sphere rather
+than a screen-facing diamond. Rain/sleet/snow counts retain the previous limits.
+
+That occupied review subsequently passed in **173 seconds**, native
+**3440×1440**, with empty stderr (**precip_contact_fixed.log.receipt.json**).
+The actual roof rain/hail images were inspected. These stationary samples
+retain 360 warmup and 120 measured frames per unchanged date:
+
+| Fixture | Previous → contact wall p50 / p95 / p99 / max ms | Previous → contact GPU p95 ms |
+| --- | --- | --- |
+| Rain | 19.994 / 20.335 / 20.935 / 44.085 → 20.014 / 20.273 / 20.991 / 42.573 | 8.231 → 8.093 |
+| Snow | 20.007 / 20.092 / 20.429 / 21.046 → 20.005 / 20.068 / 20.116 / 21.288 | 8.186 → 8.220 |
+| Deluge/hail | 20.012 / 20.073 / 23.419 / 32.658 → 20.006 / 20.525 / 20.619 / 20.625 | 8.156 → 8.156 |
+
+Each stationary sample used one initial field update. This does not measure
+field-recentring spikes during movement, prove that all contacts read well,
+or resolve the retained first-view pipeline hitch. Small timing differences
+are not claimed as a performance improvement. The original 649 members of
+**art/reviews/living_sky_20261026/roof_preview_review.zip** remain intact;
+the **precipitation_contact_20261027/** section appends forty source-hashed
+artifacts, including the failed run, terminal receipts, optical controls,
+occupied captures/raw frames, Blender reviews and annual diagnostic plan.
+
+The anomalous-fallout stock has a reproducible Blender source at
+**art/blender/scripts/build_weather_frog.py**: 456 triangles, three primitives,
+metric UVs, checked exported tangents and a registered original mottled-skin
+PBR recipe. Three Blender views were inspected after reducing review exposure
+and darkening the eyes. Runtime texture imports pass the V2 mip/compression
+policy, and the catalogue-persistence check passes. The frog is **not yet
+emitted in the game**; loaded native material qualification, impact deformation,
+calendar fallout, blood coating and lens moisture remain outstanding. No
+calendar frames, forecasts, newspaper publications or save facts changed here.
+
+### Native annual follow-through and night-cloud repair — 2026-10-27
+
+The generated plan was executed at native **3440×1440**: 141 seeded views plus
+24 transition views, **165 samples**, not another claim of 365 fully accepted
+days. **native_detail_before.log.receipt.json** and
+**native_detail_moonlit.log.receipt.json** complete in 269/279 seconds with
+empty stderr. All 165 before/after weather-state dictionaries remain identical.
+The first masks still included fallback precipitation; retain them as optical
+proxies and exclude them from cloud-only coverage conclusions.
+
+The corrected **native_detail_cloud_only.log.receipt.json** completes all 165
+samples in 271 seconds with empty stderr. Its mask pass hides world geometry
+and WeatherFX, disables fog/glow/TAA, uses linear tonemapping/exposure one,
+and outputs the composited low/mid volume, high ice and cirrus alpha union.
+Measurements decode sRGB and sample every fourth pixel in the upper two-thirds.
+Mean alpha ranges **.04661–.98506**; angular pixel coverage at alpha>.1 ranges
+**.11706–1.0**. These differ legitimately from declared layer-union coverage.
+The front optical phenomena are excluded; there is no cloud-genus segmentation.
+
+All five before and corrected contact sheets were inspected. Broad wet ceilings
+remain comparatively uniform; that observation is not permission to replace the
+authored overcast year with invented fair weather. Three-seed sampling shows
+real silhouette differences in broken-cloud regimes and much smaller changes
+in dense overcast. Rare formations still require their separate authored views.
+
+The specific night repair reuses the ephemeris's Moon position and illuminated
+fraction for direct cloud light while the Moon is above the horizon. Moonless
+clouds receive cool upper-hemisphere ambient relief; lower smog retains its
+sepia influence. Existing two-tap shadow sampling, ray steps, density geometry,
+daylight/twilight colour rules and campaign authorities remain in place. No
+additional shadow march, weather authority or calendar data was added.
+
+**lighting_control_before** renders the actual previous shader from commit
+**1b3d63b8**. **lighting_control_after** renders the new shader over the same
+eight cases in reverse date order: four night phases and dawn/noon/afternoon/
+dusk. Both runs have empty stderr. All eight pure cloud-mask images are
+**pixel-identical**, and weather state is identical. Upper-frame display-space
+colour MAE is **.000080–.000431** in the four daylight/transition controls and
+**.09870–.13710** in the four night controls. Those colour changes quantify the
+repair's reach, not an artistic quality score. No occupied-world performance
+claim follows from this optical bench. A deliberately altered mask pixel is
+rejected by the regression comparison; failed/incomplete reviews are rejected.
+
+Reproduce a native plan from the annual analyzer, set
+**SKY_NATIVE_SAMPLING_PLAN** to its generated JSON, and run
+**V2QueensSpectacleBench.tscn** through the lane with the native debug launcher.
+For a prior-source control, **SKY_REVIEW_SHADER_SOURCE** accepts a saved shader
+only in this review path; its actually loaded LF-normalized hash is recorded.
+Normal gameplay never reads it. Analyze and compare the resulting directories:
+
+```powershell
+python tools/analyze_weather_gallery.py --detail C:/ov/reports/lightning32/native_detail_cloud_only --out C:/ov/reports/lightning32/native_detail_cloud_only_assessment
+python tools/analyze_weather_gallery.py --detail C:/ov/reports/lightning32/lighting_control_after --baseline-detail C:/ov/reports/lightning32/lighting_control_before --expect-unchanged-clouds --out C:/ov/reports/lightning32/lighting_control_assessment
+```
+
+The existing **annual_cyclone_review.zip** preserves all original 700 members
+and adds **native_cloud_review_20261027/** with 71 unique artifacts. Every member
+hash was checked after packing. It contains the complete diagnostic JSON and
+contact sheets, all eight native before/after regression pairs, receipts and
+the original control shader. Full 165-view native sets remain at their external
+report paths with recorded image hashes; they are not duplicated into Git.
+
+Remaining: refresh the annual night gallery after final source freeze, inspect
+the previously selected rare electrical views after their selector correction,
+finish anomalous fallout and moisture, measure moving/turning routes including
+heightfield recentering, and renew lifecycle/save/surface/candidate qualification.
+The Moon is still the existing analytical textured disc; this cloud-lighting
+repair does not build the queued relief Moon, telescope or Skywatcher Club.
+
+### Electrical shape review — 2026-10-27
+
+The corrected requested-effect selector was exercised over all six electrical
+showcase dates at native resolution. The renders exposed two visual defects:
+ELVES projected as a great-circle outline produced vertical red patches, and
+the gigantic jet's thresholded noise crown produced disconnected islands.
+The repaired jet uses eight connected, tapered leaders. ELVES uses an oblique
+horizontal ellipse whose radius follows bounded strike age. A first lower
+projection was wholly cloud-occluded; its image is retained. The final apparent
+elevation/width makes the ring readable without reducing cloud occlusion.
+This is a painterly projection, not a claim of physically reconstructed distance.
+
+Form reference: NASA's [upper-atmosphere phenomenon summary](https://www.nasa.gov/image-article/upper-atmosphere-phenomena-caused-by-thunderstorms/)
+distinguishes upward jets from rapidly expanding ionospheric rings. No reference
+image was stored, projected or baked into the game.
+
+**rare_final_shapes.log.receipt.json** completes six native frames with empty
+stderr and zero bench failures. The requested slot is actually nonzero in each
+capture. Three frozen ELVES strike ages **.06/.15/.28 seconds** produce red-ring
+widths **152/458/784 pixels**, with **313/1662/5239** detected red pixels on the
+quarter-resolution sampling grid. The growth check fails if the first ring is
+missing or the final width does not at least double. These are forced optical
+diagnostics, not evidence that a natural strike occurred at those displayed
+ages or that its timing/appearance received human acceptance. Existing natural
+stroke/TLE delay checks remain separate.
+
+**living_sky_review.zip** retains its original 251 members and adds 38 artifacts
+under **electrical_shapes_20261027/**, including original defects, the occluded
+control, six final frames, uniform records, frozen-age views and terminal receipts.
+The source changes affect active jet/ring optics; ordinary cloud density and
+calendar/forecast data are unchanged. Final occupied-route, lifecycle and
+candidate qualification remain pending.
+
+
+### Calendar fallout, physical contact and moisture — 2026-10-27
+
+This remains an **INERT** implementation and verification record. It does not
+close annual artistic acceptance, first-view hitch debt or candidate gates.
+
+| Location / reproduction | Severity and evidence | Repair | Verification |
+| --- | --- | --- | --- |
+| Same civil date, change weather seed | Medium: daily formation cache keyed only by date could retain the previous seed's selection | Cache includes seed for normalized observations and opt-in provider input | **fallout_final_calendar.log.receipt.json**: 442 checks, including reused versus fresh instances across 256 seeds; empty stderr |
+| Exposed asphalt and exterior finishes in rain | High presentation defect: global wetness did not reach the real StandardMaterial asphalt draws | Explicit exterior-owner adapter preserves maps/native UVs in one opaque draw, duplicates owned material, leaves shared catalogue and interiors alone; upward stock gains slickness and bounded ripple normals | Occupied-world renders and clean lifecycle run; composed surface renewal and dedicated wet/dry optical comparison remain pending |
+| Authored fallout windows | Missing requested behavior: prepared frog stock was not emitted | Existing campaign weather owns bounded episodes and 0.1-percent seeded daily opportunities, with no additional clock/save domain; blood rain has crimson particles, bruised cloud light and drying deposits | Actual five-date world review; **frog_impact.log.receipt.json** records real GPU contact-driven squash, with 436 impact-marker pixels on the 1/16 grid; physical stock has 456 triangles, native UVs and three loaded 128-square PBR maps with seven mip levels |
+| Camera moisture during physical typing | Risk of obscuring the companion or consuming input | Input-transparent lens layer below the separately composited companion; integrated droplet travel prevents viscosity-transition jumps; bounded periodic coordinates | Actual controller recall/deployment, native text input, physical paper inspection and Escape cancellation preserve draft/input ownership; paired native captures |
+
+The authored additions are **1929-01-30 12:05–12:25** blood rain and
+**1929-09-12 11:25–11:35** frog fallout during the existing waterspout.
+Every pre-existing calendar root value, all 365 days, and all press entries
+remain semantically exact; **fallout_data_preservation.json** records this
+comparison. The extra root data changes the whole-file calendar hash, so old
+sampling plans must be explicitly reconciled with that preservation comparison,
+not silently accepted by weakening the bench's source guard. No new bulletin,
+resident knowledge, inventory item or story fact is asserted by these optics.
+Deposition reconstructs only elapsed precipitation and dries after the event;
+reverse seeks and reloads do not retain a previous date's frogs or blood.
+
+**fallout_world_reload.log.receipt.json** completed in **328.95 seconds** with
+43 passed checks and empty shutdown stderr. Its test-written
+**fallout_world_reload/weather_lifecycle_contract.json** is schema-2
+**runtime_contract** evidence for the source digest recorded inside it. Two
+actual V2 worlds exercise an isolated validated disk save/load, fractional time,
+cloud transport, active crimson state, no stale frogs, issued-only timeline,
+inventory, work orders, resident/case/reading authorities, weather-node/resource
+retirement and viewport restoration. The subsequent seed-cache repair has its
+separate focused check; this earlier contract is not rebound to newer inputs.
+
+In that run, stationary warm wall-frame p50/p95/p99/max (milliseconds) were:
+
+| Effect | p50 | p95 | p99 | max | GPU p95 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Rain | 20.010 | 21.670 | 22.904 | 23.739 | 7.563 |
+| Snow | 20.004 | 20.085 | 20.470 | 21.035 | 8.228 |
+| Hail | 20.008 | 20.116 | 20.158 | 20.942 | 8.172 |
+| Blood rain | 20.007 | 20.070 | 20.113 | 21.064 | 8.338 |
+| Frogs | 20.003 | 20.129 | 20.517 | 20.986 | 7.537 |
+
+These are native **3440×1440**, Vulkan RTX 4080 observations of the final 120
+frames after 360 settling frames per date, with one heightfield placement in
+each stationary sample. They do not measure cold shader compilation, movement,
+field recentering or target hardware beyond this machine. First-use collection
+now retains all 480 frames, synchronous publication time, process/physics times,
+pipeline-counter deltas and passage residency; results remain pending here.
+The original GPU-contact failures and earlier render controls are retained.
+
+Reader audit: **zero NEW fields**. Runtime texture import policy: **1465/1465**
+correct, zero repairs needed. Existing annual daylight evidence remains useful
+for unchanged density inputs; final night refresh, moving/turning routes,
+exposure controls, composed surfaces and candidate comparison remain open.
+
+
+**Activation follow-through.** **fallout_activation_uncontended.log.receipt.json**
+completed in **213 seconds**, with empty stderr and a passing actual-world
+precipitation/input review. The first instrumented run overlapped an accidentally
+started static gate board; that board was stopped, its run is not treated as a
+clean performance comparison, and the native capture was repeated without
+competing checks. Both raw records remain available.
+
+The uncontended all-480-frame wall p50/p95/p99/max in milliseconds is:
+
+| Effect | p50 | p95 | p99 | max | Synchronous date/publication |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Rain / initial world view | 20.008 | 20.331 | 30.871 | 6719.562 | 3.814 |
+| Snow | 20.008 | 20.123 | 21.260 | 629.420 | 4.041 |
+| Hail | 20.007 | 20.135 | 23.459 | 665.784 | 4.183 |
+| Blood rain | 20.008 | 20.117 | 20.574 | 613.665 | 3.884 |
+| Frogs | 20.004 | 20.084 | 20.303 | 622.287 | 3.950 |
+
+The initial world view adds **472 surface, 96 specialization and one canvas**
+pipeline compilation. It is not an isolated rain-shader cost. Subsequent snow
+and blood samples add **zero** pipelines; hail adds three specializations and
+frogs two. All samples retain **RESIDENT** passage state and one contact-field
+placement. The blood maximum occurs at frame 14, not the synchronous publication.
+GPU and process counters are asynchronous observations; they cannot alone assign
+these wall stalls to a particular function. First-use world rendering and
+roughly 0.6-second switch-associated stalls remain a measured open finding.
+Warm p95 around 20 ms does not close it. Moving-field costs and the original
+walk-13 first-view stall require their own repeated-route attribution.
+
+**living_sky_review.zip** adds **fallout_20261027/** with 31 unique artifacts,
+preserving all original members and verifying every member hash. It contains
+the test-written reload contract, empty-stderr wrapper receipts, both activation
+records, physical frog stock/contact controls, native blood/frog views and the
+paired readable companion/lens captures. The archive is **43,292,361 bytes**;
+full redundant native frame sets remain external with their original receipts.
+
+
+**Preflight repairs.** The 114-gate preflight retained its original failures.
+A targeted rerun now passes physical import ownership, byte-stable calendar
+regeneration, switchboard stock, readable stock and seven additive-binding
+controls. The frog import settings are explicitly tracked. Calendar repair
+only normalizes indentation in the appended episodes; all earlier bytes remain
+exact. Additive renewal is scoped to **house_switchboard_construction.json**
+and **readable_library_construction.json**, preserving all **124** original
+material records, other source bindings and declared native output hashes.
+Original construction records and the renewal comparison are archived; no
+historical runtime receipt is repinned. A general dry run would have touched
+195 records and was not applied. The scoped helper now checks every readable
+output and refuses changed native stock before writing anything.
+
+The full surface scanner now enumerates every GPU particle draw pass, rather
+than rejecting or silently omitting a multipass family. Single-pass identities
+stay the same; multipass body/eye records receive distinct paths. This needs the
+full composed surface run before qualification. The four additive-renewal
+artifacts extend the archived fallout section to **35** artifacts; the complete
+archive has **324** unique, hash-verified members and **43,326,625 bytes**.
+Surface-packet renewal and final zero-regression candidate verification remain
+pending. No whole-game or weather-production completion is claimed.
+
+
+**Surface source-preflight continuation.** The first full attempt
+**surface_fallout.log.receipt.json** stopped before composing the world: six
+fixtures still bound the pre-frog catalogue, and the ground fixture also bound
+the pre-wetness ground consumer. Its terminal failure is preserved. Eleven
+explicit city/leaf construction and fixture records now reconcile only those
+source bindings and their dependent construction hashes. All non-binding
+payloads stay exact. The ground consumer is verified as precisely the two-line
+exterior material adaptation; all 124 old catalogue materials and every other
+source dependency remain exact. Nine required fixture preflights now pass.
+This is source closure, not a render or runtime acceptance. The archive retains
+original records, source-only comparisons and the original failed run; the full
+composed surface run must be repeated under a new output path.
+
+
+### Qualification failures and focused follow-through — 2026-10-27
+
+| Location / reproduction | Severity and observed evidence | Repair and verification status |
+| --- | --- | --- |
+| Optical splash in full composed inventory | Qualification defect: **surface_fallout_final.log.receipt.json** completed in 962 seconds with three failures; only one surface finding, the unshaded camera-owned splash | Exact owner/shader/role/name admission now includes **GPUWeatherSplash**. The focused negative-control test passes and still rejects physical frogs without PBR maps. The subsequent **surface_retirement_grace** run passes all **40,803** composed checks, with zero unresolved surfaces and empty stderr. Packet publication remains pending source/review closure. |
+| Shared-world street approach after a brief core transit | High responsiveness defect: prefix diagnostic reproduces the failure in 526 seconds. Passage starts RESIDENT with 13 cells, then the brief core placement starts a second unload/reload. After six seconds against the real guard it is still LOADING, fitting druggist stock; no physics or input lock was bypassed | Three-second retirement grace retains a fully fitted passage during a brief core transit. Settled indoor stays still retire it, and actual incomplete loads still retain their guard. Existing reconstruction tests explicitly dwell for retirement; added actual walking checks exercise cancellation of pending retirement. Full composed verification passes; the focused settled-stay route still reaches the guard before reconstruction completes. This is separate from brief-transit churn and remains open. |
+| Repeated unchanged hose checks while repairing weather | Avoidable workflow cost: the full inventory bundle includes 1,637 composed fire-service checks; the owner called out the repetition | Reuse unchanged hose evidence. The already-running qualification finished successfully; subsequent repairs use focused weather/residency checks. Repeating unchanged hose checks is not a default final step. No new hose defect is claimed. |
+
+The standalone **route_fallout_barrier_probe.log.receipt.json** passes all
+**29** actual controller waypoints in **189.93 seconds**, empty stderr. It
+includes door grabs and outdoor mouse turns, not only API toggles. The matched
+3440-by-1440 Forward+ / TAA / MSAA-3 fixed-evening hail route changes wall-frame
+p50/p95/p99/max from **26.719/51.627/62.027/1247.753 ms** to
+**28.186/56.659/65.496/1241.805 ms**, using floor-index quantiles of the retained
+samples. Both retain four frames above 100 ms. This single later run suggests
+extra steady cost; it is not a controlled improvement claim. Its largest stall
+remains walk 13 with resident passage geometry and 18 additional specialization
+pipelines (22 in the earlier run). Correlation does not assign function cost.
+The first-view finding remains open. Lens-disabled controls are prepared.
+
+Older route JSON labels **Performance.TIME_PROCESS** as **script_ms**. That
+counter is process time, not isolated script-function execution. The diagnostic
+column is corrected to **process_ms**; old raw numbers are retained unchanged.
+A separate documented 4.7 script/GPU-profiler run is prepared for attribution;
+its overhead will not be presented as an uninstrumented comparison.
+
+**roof_fallout_barrier_probe.log.receipt.json** passes **42** roof-preview
+checks with empty stderr, including year wrapping, Escape, pointer ownership,
+restored launch/settings/environment state and native dated captures. Neither
+this nor the passing street route promotes the failed full surface contract.
+The original full and prefix failures remain at their separate report paths.
+
+### Focused reconstruction measurements — 2026-10-27
+
+The terminal **surface_retirement_grace.log.receipt.json** records 972 seconds,
+**40,803 checks / 0 failures**, no unresolved surfaces and empty stderr. Its
+original wrapper retains one failure-token line from a nonterminal cursor-warp
+candidate; the immediately following authoritative unthreading assertion passes.
+The raw wrapper, logs and test-written contracts are not edited. Qualification
+policy/source closure and rendered review remain outstanding; this report does
+not promote the packet or rebind it to newer sources.
+
+**passage_retirement_grace.log.receipt.json** then fails at the real loading
+barrier after a settled indoor stay, with 12 waypoints and one failure. An
+instrumented focused repeat, **passage_budget3000.log.receipt.json**, reproduces
+the same barrier contact and incomplete reconstruction. It records all 871
+route frame intervals in **residency_frames.json**. Among 727 LOADING samples,
+floor-index p50/p95/p99/max are **21.278/43.704/50.200/106.605 ms**, with one
+interval above 100 ms. Peak measured fitting stage is **39.857 ms** despite the
+3 ms cooperative budget: indivisible resource/renderer operations can overrun
+it. Process time is not isolated script time. This is native 3440-by-1440
+actual controller input, with no guard, collision or reach bypass. A 6 ms
+budget control is being measured on the same route; no improvement is claimed
+before its results. No hose programme is involved in either focused run.
+
+The 6 ms control completes its first reconstruction in **11,915.5 ms** of
+LOADING samples, versus the baseline's still-incomplete **18,471.0 ms** at
+failure. Its 367 loading intervals have p50/p95/p99/max
+**30.976/48.723/55.573/86.520 ms**, with none above 100 ms. This is a throughput
+tradeoff: p95 increases about 5 ms, while arrival no longer stalls against the
+barrier. It is not a blanket frame-time improvement. Resident-frame maxima in
+this harness include synchronous test-only mesh/signature assertions and are
+not presented as ordinary gameplay stalls.
+
+That first control then exposes an obsolete counter test: V2 deliberately
+sets the semantic counter's collision layer to zero, and its radio terminal
+lever owns input. The route now operates the actual capsule settlement lever
+with grab, mouse travel and release, powers its radio through actual input,
+and checks the authoritative inventory/work order and duplicate refusal.
+The next run passes these interactions but encounters the front leaf on return:
+the slow closer has closed it during shopping. The route now reacquires the
+real leaf from the exterior stance; it does not disable closing or collision.
+The full round-trip retry is pending.
+
+Evidence limitation: the first **passage_budget6000** control's stdout,
+stderr and wrapper were accidentally overwritten by reusing its output path.
+Its original **residency_frames.json**, **route.json** and captures were copied
+byte-exact before the retry ended to **passage_budget6000_counter_failure/**,
+with a provenance note. They remain diagnostics, not a reconstructed wrapper or
+passing receipt. The original 3 ms failure and subsequent distinct failures
+retain their real receipts and raw logs.
+
+For further weather-only surface qualification,
+**ORISON_SURFACE_SKIP_FIRE_INTERACTION=1** omits the independent fire-service
+interaction programme and its teardown assertions. Its execution flag is
+written explicitly in the new test contract. Every physical draw, including
+the hose, remains subject to the unchanged full UV/PBR/mipmap inventory. The
+original passing fire-service contract remains separate evidence; no skipped
+programme is reported as newly passed. The attempted cursor-log special-case
+qualifier was removed instead of weakening publication requirements. Packet
+publication still requires an actually clean, source-bound run and reviewed
+renders.
+
+### Verified reconstruction checkpoint
+
+**passage_budget6000_return_fix.log.receipt.json** finishes in 225 seconds
+with a genuine second-reconstruction failure: after 14.633 seconds of ordinary
+approach, the last Diner cell is still fitting. No wait allowance or physical
+guard is weakened. **passage_budget8000.log.receipt.json** then passes all
+**57 waypoints / 0 failures** in 228 seconds with empty stderr, including both
+reconstructions, real settlement lever input, duplicate refusal, brief-core
+retention/cancellation, retirement of imported meshes and the reflection owner,
+and retained cart/door/inventory state. The fixed cooperative fitting budget is
+8 ms. Individual resource/renderer operations can still exceed it.
+
+| Loading interval | Samples | Elapsed | p50 | p95 | p99 | Maximum | Above 100 ms |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Original 3 ms, incomplete at barrier | 727 | 18.471 s | 21.278 ms | 43.704 ms | 50.200 ms | 106.605 ms | 1 |
+| 8 ms, first complete reconstruction | 308 | 11.015 s | 34.023 ms | 50.538 ms | 61.141 ms | 89.145 ms | 0 |
+| 8 ms, second complete reconstruction | 358 | 13.801 s | 38.966 ms | 54.448 ms | 61.946 ms | 95.495 ms | 0 |
+
+These are same-scene, native 3440-by-1440 Vulkan Forward+ controls on the
+RTX 4080, with floor-index quantiles from every retained LOADING interval.
+The original control fails before completing its first reconstruction; it
+cannot support a full-cycle speedup percentage. More fitting per frame raises
+typical loading frame time while making geometry ready before the second
+approach reaches the protected gateway. Peak fitting stage is 41.359 ms and
+activation 16.754 ms in the passing run. This is not a claim that rendering,
+shader-compilation, first-view hitches, annual artistic acceptance or the whole
+game's performance is solved. The full sampled arrays and comparison remain
+with the raw run evidence. No hose interaction programme was rerun.
+
+Checkpoint validation: all **40** surface-policy Python tests pass in
+**181.478 seconds**; the reader audit reports **NEW: 0**. The expanded review
+archive verifies all **393** unique member hashes (44,686,462 bytes), including
+available original failed/passing wrappers, raw logs, contracts and frame
+arrays. No new standalone evidence framework or qualifier exception is added.
+The other dwell-adjusted route harnesses, the new surface-only execution mode,
+current-source rendered packet publication, final annual night refresh and
+candidate regression board remain pending; the checkpoint is not merge-ready
+weather-production acceptance.
+
+### Current-source surface packet renewal
+
+**surface_weather_no_hose_final.log.receipt.json** passes in **790 seconds**:
+**39,165 checks / 0 failures**, empty stderr and zero failure-token lines.
+All **27,810 draws**, **17,000 meshes**, **6,303 materials** and **528 textures**
+remain covered. The test-written contract explicitly records the independent
+fire-service interaction programme as **executed: false**; its physical draws
+remain in the full inventory. The earlier passing fire contract is reused
+within its recorded source/scope, not rewritten or counted as a new execution.
+
+Six actual native captures were inspected: street skyline, front gallery,
+curbside paving, passage glazing/furniture, bathroom tile/door cap and a small
+bookcase. The observations distinguish surface visibility from annual sky,
+open-book interaction and human artistic acceptance. Book spines are dark at
+the captured oblique light angle; this image does not qualify their editorial
+readability. Source/log/image hashes and the independent complete inventory
+all pass the existing strict qualifier, with **zero defects**. The packet is
+published through **tools/publish_v2_surface_packet.py**, preserving original
+runtime-contract bytes and the preceding packet in the external publication
+archive. No failure classifier exception, source repinning or fabricated child
+receipt is used. The durable review archive preserves the raw run and
+qualification artifacts. Current-source disk reconstruction, annual night
+review and the final full regression/candidate comparison remain outstanding.
+
+### Current-source reload and complete nightly sweep
+
+**fallout_lifecycle_final.log.receipt.json** passes **43 checks** in
+**328 seconds**, empty stderr, against source **61f8a38a**. Its original
+schema-2 **weather_lifecycle_contract.json** records production composition,
+validated isolated disk save/load reconstruction, invalid-event denial and
+teardown as executed/PASS. Both world generations retire all tracked weather
+nodes, resources and playbacks (zero retained). Fractional clock/weather
+transport, active blood state without stale frogs, inventory, work orders,
+residents, cases and reading authorities survive the real disk load. Timeline
+queries still exclude future issues. The integrated precipitation review has
+no failures; actual rooftop rain/snow and the blood-rain companion typing view
+were inspected. Streaks/flakes are plainly visible and the physical green text
+is unobscured. This does not close the recorded activation-frame stalls.
+
+**annual_nights_final.log.receipt.json** passes in **710 seconds**, empty
+stderr: **365 dates / zero capture failures**, November 10, 1928 through
+November 9, 1929 at **23:00**, seed **1928**, native **3440 by 1440**. This
+fills the current-source annual night gap; it is not a whole-day or multi-seed
+artistic qualification. **native_detail.json** carries each date's actual
+production cloud-alpha sample, illumination, presentation state and loaded
+shader/plan hashes. The analyser produces 11 contact pages and hashes every
+colour/mask pair. Both wrapper receipts bind to the current runtime sources.
+
+| Season | Nights | Median measured cloud alpha | Median angular fraction with alpha above 0.1 | Median cloud-region display luminance standard deviation |
+| --- | ---: | ---: | ---: | ---: |
+| Winter | 90 | 0.412 | 0.653 | 0.0446 |
+| Spring | 92 | 0.482 | 0.784 | 0.0482 |
+| Summer | 92 | 0.293 | 0.585 | 0.0548 |
+| Autumn | 91 | 0.286 | 0.589 | 0.0504 |
+
+There are **365 distinct colour hashes and 365 distinct mask hashes**. That
+rules out exact duplicate captures, not similar silhouettes or palettes.
+Inspected November/December, May/June and September/October contact pages show
+varying cloud breaks, dense decks and the dated aurora, but a recurring
+blue/sepia night palette and common cloud families remain apparent. The bright
+catalogue stars deliberately use enlarged discs in the inherited renderer;
+this is retained, not silently reclassified as a new weather failure. The
+benchmark skyline lacks occupied-rooftop ground context. The requested relief
+Moon/telescope/Skywatcher work remains separate and unimplemented here.
+
+Reproduction: extract **annual_night_plan_current.json** from the durable
+review archive, set **SKY_NATIVE_SAMPLING_PLAN** to it and run
+**res://tests/V2QueensSpectacleBench.tscn** with the shared lane wrapper,
+**-Windowed**, native fullscreen arguments and a fresh log/output path. The
+bench refuses a calendar hash mismatch. Then run
+**python tools/analyze_weather_gallery.py --detail OUTPUT --out REVIEW**.
+Its instrumented mask disables geometry/WeatherFX/TAA only for the mask and
+samples the upper two thirds every fourth pixel; declared weather coverage is
+not the same measurement as angular opacity. Single-seed results have no
+cross-seed groups. Earlier 165-view multi-seed/twilight evidence remains scoped
+to its recorded sources; the new nightly sweep does not replace those hours.
+
+The existing archive now also retains both raw final runs, the unchanged
+runtime contract, precipitation arrays, native per-date metadata, sampling
+plan, all 11 contact pages, assessment/summary and a contact page plus exact external hashes for six
+selected actual-world captures. Full 730 colour/mask PNGs remain in the external native gallery;
+only hashes/measurements and review pages enter Git to avoid duplicating the
+large annual image collection. Technical checks are not human artistic
+acceptance. First-view/activation hitch attribution, the final full regression
+comparison and merge-candidate verification remain open.
+
+The latest archive was then compacted from **63,121,320** to **50,396,658**
+bytes: only the six newly added, redundant full-resolution weather PNG members
+were replaced with a review contact and exact external hashes. Their original
+files remain untouched externally, and the pre-compaction archive is also
+preserved externally and by Git history. Every remaining/new archive member
+hash was reverified. Original failure logs, wrapper receipts, test-written
+contracts, arrays and all annual contact pages remain intact. This reduces the
+current archive by about 12.7 MB without replacing runtime evidence.
+
+### Candidate regressions repaired without regrading runtime proof
+
+The complete **candidate_a1d8aa46/verification.json** records **8 regression
+entries**, no waivers: one spatial test-scope report, two timer/authority
+review findings and one failed manufactured-book source test (the comparison
+also reports their count/status changes). Protected paths pass **17/17**,
+selector remains **V2**, and design lint has zero errors. The original failed
+candidate result is archived unchanged; it is not a passing candidate.
+
+The temporary frame profiler had renamed the residency route to a new scope,
+creating spatial identity drift. It is now removed after its measurements,
+restoring the original route identity and reducing retained test code. Its
+raw frame arrays and tested sources remain archived. Negative duplicate-
+acquisition checks are separated from timed traversal into a timer-free
+assertion helper; successful acquisition still requires real lever input.
+Spatial drift is now **zero** and systemic review count returns to main's
+**29**, with no new actionable finding, policy exception or baseline update.
+
+The nook construction record retained one old hash of the readable-library
+construction record. Its only upstream delta is the already-reviewed additive
+**weather_frog_skin** catalogue binding: all **124** previous materials,
+every other construction field/dependency and every exported asset remain
+exact. That single transitive hash is renewed byte-for-byte in place; original
+records and the complete comparison are archived. All **4** nook source tests
+pass. No book geometry, texture, layout, dimensions or narrative data changes.
+
+**passage_gate_repair_final.log.receipt.json** passes **57 waypoints**, zero
+failures and empty stderr in **234 seconds**, exercising the cleaned route,
+native settlement lever, duplicate refusal after remount and both actual
+reconstructions. The original strict surface qualifier still returns **PASS /
+zero defects** after these repairs; its rendering inputs are unchanged, so the
+39,165-check surface evidence is reused without another world scan or hose
+programme. No original test-written receipt is edited. A fresh complete
+candidate comparison is still required before merge.

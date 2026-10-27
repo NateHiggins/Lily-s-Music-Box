@@ -6,6 +6,28 @@ from renew_additive_material_bindings import additions, renew, unused_replacemen
 
 
 class AdditiveBindingsTests(unittest.TestCase):
+    def test_readable_family_checks_every_export_and_preserves_other_families(self):
+        for changed in [False,True]:
+            with self.subTest(changed=changed),tempfile.TemporaryDirectory() as directory:
+                root=Path(directory);previous,_=self.fixture(root)
+                city=root/'art/blender/city_closure_construction.json';untouched=city.read_bytes()
+                source=json.loads(untouched);source.pop('asset_sha256')
+                source['outputs']={}
+                for name in ['book.glb','book.blend']:
+                    path=root/name;path.write_bytes(b'original stock')
+                    source['outputs'][name]=hashlib.sha256(path.read_bytes()).hexdigest()
+                record=root/'art/blender/readable_library_construction.json'
+                record.write_text(json.dumps(source));original=record.read_bytes()
+                if changed:
+                    (root/'book.blend').write_bytes(b'changed native source')
+                    with self.assertRaises(ValueError):renew(root,previous,root/'archive',families=['readable_library'])
+                    self.assertEqual(record.read_bytes(),original)
+                    self.assertFalse((root/'archive').exists())
+                else:
+                    report=renew(root,previous,root/'archive',families=['readable_library'])
+                    self.assertEqual(list(report['renewed_records']),['art/blender/readable_library_construction.json'])
+                self.assertEqual(city.read_bytes(),untouched)
+
     def test_named_switchboard_checks_its_export_before_renewing(self):
         for changed in [False,True]:
             with self.subTest(changed=changed),tempfile.TemporaryDirectory() as directory:

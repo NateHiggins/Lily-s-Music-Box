@@ -8,6 +8,12 @@ var _exposure_due:=0.0
 var _outdoor:=false
 var weather_environment: Environment
 var outdoor_air_frame:=Transform3D.IDENTITY
+var precipitation_contact: GPUParticlesCollisionHeightField3D
+var contact_updates:=0
+var lens: ColorRect
+var lens_material: ShaderMaterial
+var _lens_level:=0.0
+var _lens_scroll:=0.0
 
 func _build_precipitation() -> void:
 	if RenderingServer.get_current_rendering_method()!="forward_plus" or OS.get_environment("WEATHER_SKY_BASELINE")=="1" or not _player is PlayerController:
@@ -15,11 +21,26 @@ func _build_precipitation() -> void:
 	_leaves=_make_leaves();_leaves.emitting=false;add_child(_leaves)
 	gpu_emitters=preload("res://scripts/building/queens_weather_extension.gd").gpu_precipitation(_player.camera,
 		preload("res://shaders/queens_precipitation_motion.gdshader"),preload("res://shaders/queens_precipitation_draw.gdshader"))
+	precipitation_contact=GPUParticlesCollisionHeightField3D.new()
+	precipitation_contact.name="WeatherContactField"
+	precipitation_contact.size=Vector3(64,48,64)
+	precipitation_contact.resolution=GPUParticlesCollisionHeightField3D.RESOLUTION_256
+	precipitation_contact.heightfield_mask=1 # world; exclude device, avatar and weather
+	precipitation_contact.cull_mask=1<<18
+	precipitation_contact.follow_camera_enabled=false
+	precipitation_contact.update_mode=GPUParticlesCollisionHeightField3D.UPDATE_MODE_WHEN_MOVED
+	add_child(precipitation_contact)
 func _ready() -> void:
 	super._ready()
 	_leaves.material_override=MatLib.get_mat("plant")
 	for node: Node in [_splash,_snow,_hail,_middle_rain,_road_mist]:
 		if node!=null:node.set_meta("surface_role","weather_optics")
+	if not gpu_emitters.is_empty():
+		var layer:=CanvasLayer.new();layer.name="WeatherLens";layer.layer=-1;add_child(layer)
+		lens=ColorRect.new();lens.name="Moisture";lens.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		lens_material=ShaderMaterial.new();lens_material.shader=preload("res://shaders/weather_lens.gdshader")
+		lens.material=lens_material;layer.add_child(lens)
+		lens.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);lens.hide()
 	if RenderingServer.get_current_rendering_method()=="forward_plus" and RenderingServer.get_rendering_device()!=null:
 		air=FogVolume.new();air.name="SeasonalOutdoorAir";air.size=Vector3(120,28,9.144)
 		air_material=ShaderMaterial.new();air_material.shader=preload("res://shaders/queens_weather_air.gdshader")
@@ -55,7 +76,25 @@ func _process(delta: float) -> void:
 	var camera:=get_viewport().get_camera_3d()
 	var at: Vector3=camera.global_position if camera!=null else _player.global_position
 	if extreme_weather!=null:
-		extreme_weather.update_emitters(gpu_emitters,at,_outdoor and OS.get_environment("WEATHER_RAIN")!="0",wind_gain)
+		extreme_weather.update_emitters(gpu_emitters,at,_outdoor and OS.get_environment("WEATHER_RAIN")!="0",wind_gain,camera)
+		# A 64 m field retains 20 m of visible precipitation while its centre
+		# moves only after leaving the inner 8 m band. No per-frame redraw.
+		if precipitation_contact!=null and _outdoor and (extreme_weather.weights.length_squared()>.0001 or extreme_weather.frog_fall>.005):
+			var offset: Vector3=at-precipitation_contact.global_position
+			if contact_updates==0 or absf(offset.x)>8.0 or absf(offset.z)>8.0 or absf(offset.y)>8.0:
+				precipitation_contact.global_position=Vector3(snappedf(at.x,8.0),snappedf(at.y,8.0),snappedf(at.z,8.0))
+				contact_updates+=1
+		if lens!=null:
+			var target:=clampf(float(extreme_weather.weights.x)+float(extreme_weather.weights.y)+float(extreme_weather.weights.w)*.4,0.0,1.0) if _outdoor else 0.0
+			_lens_level=move_toward(_lens_level,target,delta*.5)
+			lens.visible=_lens_level>.002
+			var crimson:=maxf(float(extreme_weather.blood_rain),float(extreme_weather.blood_deposit))
+			# Integrate speed; multiplying absolute TIME by a changing viscosity
+			# makes droplets jump during the beginning/end of a crimson episode.
+			_lens_scroll=fposmod(_lens_scroll+delta*lerpf(.16,.08,crimson),64.0)
+			lens_material.set_shader_parameter("lens_amount",_lens_level)
+			lens_material.set_shader_parameter("blood_amount",crimson)
+			lens_material.set_shader_parameter("lens_scroll",_lens_scroll)
 	_leaves.emitting=_outdoor and bool(_live_conditions.get("thunderstorm",false))
 	_leaves.global_position=_player.global_position+Vector3.UP*LEAF_HEIGHT
 	_leaves.gravity=Vector3(wind.x*.85,-1.5,wind.z*.85)
@@ -86,8 +125,8 @@ func _apply_dust() -> void:
 func apply_profile(profile: Dictionary) -> void:
 	super.apply_profile(profile)
 	var color: Color=profile.get("rain",Color(.55,.62,.70))
-	for emitter: GPUParticles3D in gpu_emitters:
-		(emitter.draw_pass_1.material as ShaderMaterial).set_shader_parameter("precipitation_light",Vector3(color.r,color.g,color.b))
+	for i in mini(gpu_emitters.size(),5):
+		(gpu_emitters[i].draw_pass_1.material as ShaderMaterial).set_shader_parameter("precipitation_light",Vector3(color.r,color.g,color.b))
 	if air_material!=null:
 		var fog: Color=profile.get("fog",Color(.32,.24,.16))
 		air_material.set_shader_parameter("coal_color",Vector3(fog.r,fog.g,fog.b))

@@ -1,0 +1,37 @@
+{
+  "material": "weather_frog_skin",
+  "status": "QUALIFICATION_PENDING",
+  "meters_per_tile": 0.12,
+  "generator": "art/blender/scripts/build_weather_frog.py",
+  "generator_sha256_lf": "06927a04f9e94de1d897e6e7b7eed0b84296266d1756470f91772037c92fcac0",
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "height_storage_bits": 16,
+  "normal_convention": "OpenGL",
+  "normal_strength": 1.0,
+  "normal_authoring": {
+    "construction": "smooth periodic skin undulation, independent of oval pigmentation; unresolved pores belong to roughness",
+    "height_units": "metres",
+    "normal_convention": "OpenGL",
+    "normal_strength": 1.0,
+    "physical_tile_m": 0.12,
+    "height_min_m": -3.3625180867321145e-05,
+    "height_max_m": 3.3625180867321145e-05,
+    "pigment_is_not_height": true
+  },
+  "references": [
+    "https://www.fws.gov/species/northern-leopard-frog-lithobates-pipiens",
+    "https://dec.ny.gov/sites/default/files/2024-01/amphguide.pdf"
+  ],
+  "reference_policy": "Form information only. No reference image was baked, projected or stored.",
+  "map_sha256": {
+    "albedo": "def5283d7d3c7d02d417f67959776cff1eba3bb54a77c561f623d9221405d8e9",
+    "roughness": "193b035d2037dde7041e3a46ff0e640bfa2ef99d5ca09ee0f573bd918c6c8be6",
+    "normal": "96fe8aaad49c8723ed0712ff20fc7a4ad66818d619f4cccd441eba6dcf92d4aa",
+    "height": "b52c6394fb2cfb8fab6bb4576fb3f80d0a0d5ab9053ef9f84bbab15cdb3162f7"
+  }
+}

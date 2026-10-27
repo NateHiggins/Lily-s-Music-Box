@@ -3,6 +3,9 @@ extends RefCounted
 ## Called by the existing V2 WeatherManager; no independent network, clock or light owner.
 var weights := Vector4.ZERO # rain, sleet, snow, hail
 var wetness := 0.0
+var blood_rain := 0.0
+var frog_fall := 0.0
+var blood_deposit := 0.0
 var threat := 0.0
 var cyclone := 0.0
 var vortex := 0.0
@@ -24,10 +27,14 @@ var _target_wind := Vector3.ZERO
 var _target_formation := 0
 var _day := ""
 var _daily_choice := 0
+var _choice_seed := 1928
+var _presentation_seed := 1928
 var _publish_left := 0.0
 var _ramp: GradientTexture1D
 
 func receive_conditions(conditions: Dictionary,campaign_day: String,seed_value: int=1928,events: Dictionary={}) -> void:
+	blood_rain=0.0;frog_fall=0.0;blood_deposit=0.0
+	_presentation_seed=seed_value
 	# Use the existing normalized, interpolated observation. No synthetic rain
 	# is invented merely because an API condition mentions precipitation.
 	var rain:=clampf(number(conditions,"rain_intensity",0.0),0.0,1.0)
@@ -42,8 +49,8 @@ func receive_conditions(conditions: Dictionary,campaign_day: String,seed_value: 
 	var bearing:=deg_to_rad(number(conditions,"wind_direction_degrees",0.0))
 	var speed:=clampf(number(conditions,"wind_speed_kmh",0.0)/3.6,0.0,90.0)
 	_target_wind=Vector3(-sin(bearing),0.0,cos(bearing))*speed
-	if campaign_day!=_day:
-		_day=campaign_day;_daily_choice=_daily_formation(campaign_day,seed_value)
+	if campaign_day!=_day or seed_value!=_choice_seed:
+		_day=campaign_day;_choice_seed=seed_value;_daily_choice=_daily_formation(campaign_day,seed_value)
 	var fair:=number(conditions,"pressure_hpa",1013.0)>=1020.0 and speed<7.0 \
 		and _target_weights.length_squared()<.001 and _target_threat<.05 and _target_cyclone<.05
 	_target_formation=_daily_choice if fair else 0
@@ -96,6 +103,7 @@ func receive_api(raw: Dictionary,campaign_day: String,seed_value: int=1928,pheno
 	var rain_data: Variant=raw.get("rain",{})
 	var snow_data: Variant=raw.get("snow",{})
 	if rain_data is not Dictionary or snow_data is not Dictionary:return false
+	blood_rain=0.0;frog_fall=0.0;blood_deposit=0.0;_presentation_seed=seed_value
 	var rain_rate := maxf(0.0,number(rain_data,"1h",0.0))
 	var snow_rate := maxf(0.0,number(snow_data,"1h",0.0))
 	var precip := Vector4.ZERO
@@ -121,8 +129,9 @@ func receive_api(raw: Dictionary,campaign_day: String,seed_value: int=1928,pheno
 	var speed := clampf(number(wind,"speed",0.0),0.0,90.0)
 	# Provider bearing is FROM north clockwise. Godot north is -Z in this adapter.
 	_target_wind=Vector3(-sin(bearing),0.0,cos(bearing))*speed
-	if campaign_day!=_day:
+	if campaign_day!=_day or seed_value!=_choice_seed:
 		_day=campaign_day
+		_choice_seed=seed_value
 		_daily_choice=_daily_formation(campaign_day,seed_value)
 	var pressure := number(main,"sea_level",number(main,"pressure",1013.0))
 	var fair := pressure>=1020.0 and speed<7.0 and precip.length_squared()<0.001 \
@@ -159,15 +168,22 @@ func advance(delta: float,calendar_owned := false) -> bool:
 
 ## Reconstruct bounded wetting history from the existing saved clock/calendar.
 ## No hidden instance-time history or additional save domain.
-func sample_calendar(date: Dictionary,transport_km: Vector2) -> void:
+func sample_calendar(date: Dictionary,transport_km: Vector2,precise_seconds := INF,seed_value: int=1928) -> void:
 	weights=_target_weights;threat=_target_threat;cyclone=_target_cyclone
 	vortex=_target_vortex;wind_mps=_target_wind;formation=_target_formation
 	var seconds:=int(Time.get_unix_time_from_datetime_dict(date))
+	var lightning:=preload("res://scripts/building/deterministic_lightning_manager.gd")
+	var intensity_clock: float=precise_seconds if is_finite(precise_seconds) else float(seconds)
+	weights*=lightning.precipitation_gain(intensity_clock)
+	for i in 4:weights[i]=clampf(weights[i],0.0,1.0)
 	var day_seconds:=float(posmod(seconds,86400))
 	formation_strength=(smoothstep(0,1800,day_seconds)*(1.0-smoothstep(84600,86400,day_seconds))) if formation>0 else 0.0
 	phase=float(seconds-Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00"))*.0005
 	fog_offset=Vector2(fposmod(transport_km.x*2.0,1.0),fposmod(transport_km.y*2.0,1.0))
 	var calendar:=preload("res://scripts/game/campaign_weather.gd")
+	var fallout: Dictionary=calendar.fallout_at(intensity_clock,seed_value)
+	blood_rain=float(fallout.blood) if weights.x>.005 else 0.0
+	frog_fall=float(fallout.frogs);blood_deposit=float(fallout.deposit)
 	cyclone_phase=calendar.cyclone_age_at(float(seconds))*.0005
 	var service:=preload("res://scripts/building/live_weather_service.gd")
 	var boundary:=int(floor(float(seconds)/900.0))*900
@@ -176,7 +192,7 @@ func sample_calendar(date: Dictionary,transport_km: Vector2) -> void:
 		var stamp:=boundary+step*900
 		var dt:=900.0 if step<0 else float(seconds-boundary)
 		var condition: Dictionary=service.presentation(calendar.snapshot(Time.get_datetime_dict_from_unix_time(stamp)))
-		var liquid:=clampf(float(condition.get("rain_intensity",0)),0,1)
+		var liquid:=clampf(float(condition.get("rain_intensity",0))*lightning.precipitation_gain(float(stamp)),0,1)
 		var goal:=1.0 if liquid>.02 else 0.0
 		wetness=lerpf(goal,wetness,exp(-dt/(120.0/maxf(liquid,.05) if goal>0 else 2400.0)))
 
@@ -202,8 +218,9 @@ func set_transport(transport: PackedFloat64Array,cloud_scale: float) -> void:
 
 func publish(sky: ShaderMaterial,camera_position_m: Vector3,air: ShaderMaterial=null) -> void:
 	RenderingServer.global_shader_parameter_set("wetness",wetness)
+	RenderingServer.global_shader_parameter_set("weather_blood",blood_deposit)
 	var whiteout := smoothstep(0.60,1.0,weights.z)
-	var parameters := {"severe_storm_threat":threat,"vortex_intensity":vortex,"wx_cyclone":cyclone,"wx_hail":weights.w,
+	var parameters := {"severe_storm_threat":threat,"vortex_intensity":vortex,"wx_cyclone":cyclone,"wx_hail":weights.w,"wx_blood_rain":blood_rain,
 		"wx_whiteout":whiteout,"wx_formation":formation,"wx_formation_strength":formation_strength,
 		"wx_phase":fposmod(phase,TAU*2.0),"wx_cyclone_phase":cyclone_phase,
 		"wx_texture_phase":fposmod(phase*.0001,1.0),"wx_fluctus_phase":fposmod(phase*.25,1.0),
@@ -220,28 +237,36 @@ func lighting(base_sun: Color,base_energy: float,base_ambient: Color,base_ambien
 	# Apply these returned values at the END of the existing DayNightDirector profile.
 	# Do not run another Node that fights its DirectionalLight3D every frame.
 	var green := threat*smoothstep(0.005,0.045,to_sun.y)*(1.0-smoothstep(0.20,0.42,to_sun.y))
-	return {"sun_color":base_sun.lerp(Color(0.48,0.82,0.20),green),
+	return {"sun_color":base_sun.lerp(Color(0.48,0.82,0.20),green).lerp(Color(.58,.16,.29),blood_rain*.65),
 		"sun_energy":base_energy*lerpf(1.0,0.02,cyclone)*lerpf(1.0,0.45,threat),
-		"ambient_color":base_ambient.lerp(Color(0.19,0.24,0.31),cyclone*0.88),
+		"ambient_color":base_ambient.lerp(Color(0.19,0.24,0.31),cyclone*0.88).lerp(Color(.30,.10,.22),blood_rain*.65),
 		"ambient_energy":base_ambient_energy*(1.0-0.12*wetness)*lerpf(1.0,0.72,cyclone),
 		"saturation":lerpf(base_saturation,base_saturation*0.25,cyclone)}
 
 static func gpu_precipitation(parent_camera: Camera3D,motion: Shader,draw_shader: Shader) -> Array[GPUParticles3D]:
-	# Call ONCE during preparation, then reuse these four emitters.
+	# Call ONCE during preparation. Splash emission comes from actual rain contact.
 	var result: Array[GPUParticles3D]=[]
-	var counts := [1800,600,480,220]
-	var sizes := [Vector2(0.008,0.48),Vector2(0.016,0.12),Vector2(0.045,0.045),Vector2(0.028,0.028)]
+	var counts := [1800,600,1200,220]
+	var sizes := [Vector2(0.018,0.60),Vector2(0.020,0.16),Vector2(0.065,0.065),Vector2(0.028,0.028)]
 	for kind in 4:
 		var process := ShaderMaterial.new();process.shader=motion
 		process.set_shader_parameter("kind",kind)
 		var visual := ShaderMaterial.new();visual.shader=draw_shader
 		visual.set_shader_parameter("kind",kind)
-		var quad := QuadMesh.new();quad.size=sizes[kind];quad.material=visual
+		var quad: Mesh
+		if kind==3:
+			var ice:=SphereMesh.new();ice.radius=.014;ice.height=.028;ice.radial_segments=8;ice.rings=4
+			quad=ice
+		else:
+			var sprite:=QuadMesh.new();sprite.size=sizes[kind];quad=sprite
+		quad.material=visual
 		var emitter := GPUParticles3D.new()
 		emitter.name=["GPUWeatherRain","GPUWeatherSleet","GPUWeatherSnow","GPUWeatherHail"][kind]
 		emitter.amount=counts[kind];emitter.amount_ratio=0.0
 		emitter.lifetime=9.0 if kind==2 else 2.0
 		emitter.local_coords=false;emitter.fixed_fps=60
+		emitter.use_fixed_seed=true;emitter.seed=1928+kind
+		emitter.layers=1<<18;emitter.collision_base_size=.014
 		emitter.visibility_aabb=AABB(Vector3(-25,-20,-25),Vector3(50,40,50))
 		emitter.process_material=process;emitter.draw_pass_1=quad
 		emitter.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -249,14 +274,89 @@ static func gpu_precipitation(parent_camera: Camera3D,motion: Shader,draw_shader
 		emitter.emitting=false
 		parent_camera.add_child(emitter);emitter.top_level=true
 		result.append(emitter)
+	var splash:=GPUParticles3D.new();splash.name="GPUWeatherSplash"
+	splash.amount=256;splash.lifetime=.35;splash.local_coords=false;splash.fixed_fps=60
+	splash.layers=1<<18;splash.emitting=false;splash.use_fixed_seed=true;splash.seed=1932
+	splash.visibility_aabb=AABB(Vector3(-25,-20,-25),Vector3(50,40,50))
+	splash.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	splash.set_meta("surface_role","weather_optics")
+	var splash_process:=ShaderMaterial.new();splash_process.shader=motion;splash_process.set_shader_parameter("kind",4)
+	var splash_draw:=ShaderMaterial.new();splash_draw.shader=draw_shader;splash_draw.set_shader_parameter("kind",4)
+	var splash_mesh:=QuadMesh.new();splash_mesh.size=Vector2(.045,.07);splash_mesh.material=splash_draw
+	splash.process_material=splash_process;splash.draw_pass_1=splash_mesh
+	parent_camera.add_child(splash);splash.top_level=true;result.append(splash)
+	result[0].sub_emitter=result[0].get_path_to(splash)
+	var frogs:=GPUParticles3D.new();frogs.name="GPUWeatherFrogs"
+	frogs.amount=240;frogs.amount_ratio=0.0;frogs.lifetime=6.0
+	frogs.local_coords=false;frogs.fixed_fps=60;frogs.layers=1<<18
+	frogs.use_fixed_seed=true;frogs.seed=1933;frogs.emitting=false
+	frogs.collision_base_size=.001
+	frogs.visibility_aabb=AABB(Vector3(-25,-20,-25),Vector3(50,40,50))
+	frogs.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	# These are physical native stock, never an optical/PBR exemption.
+	frogs.set_meta("surface_role","physical_stock")
+	var frog_process:=ShaderMaterial.new();frog_process.shader=motion;frog_process.set_shader_parameter("kind",5)
+	frogs.process_material=frog_process
+	var scene:=load("res://assets/props/weather_frog.glb") as PackedScene
+	var stock:=scene.instantiate() as Node3D
+	var meshes:=stock.find_children("*","MeshInstance3D",true,false)
+	assert(meshes.size()==3,"Weather frog stock must retain body and both eyes")
+	frogs.draw_passes=3
+	for i in meshes.size():
+		var draw:=meshes[i] as MeshInstance3D
+		assert(draw.transform.is_equal_approx(Transform3D.IDENTITY),"Weather frog stock must have baked identity frames")
+		var eye:=str(draw.name).contains("Eye")
+		var base:=MatLib.get_mat("weather_frog_skin").duplicate() as StandardMaterial3D
+		base.resource_name="M_weather_frog_skin";base.uv1_triplanar=false
+		if eye:base.albedo_color=Color(.025,.030,.018);base.roughness=.22
+		var finish:=SurfacePass.surface_for(base,{"uv_mode":0,"tile_m":float(MatLib.SETS.weather_frog_skin[3])})
+		finish.shader=preload("res://shaders/orison_weather_frog.gdshader")
+		var mesh:=draw.mesh.duplicate() as Mesh
+		for surface in mesh.get_surface_count():mesh.surface_set_material(surface,finish)
+		frogs.set_draw_pass_mesh(i,mesh)
+	stock.free()
+	parent_camera.add_child(frogs);frogs.top_level=true;result.append(frogs)
 	return result
 
-func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,outdoors: bool,wind_gain := 1.0) -> void:
+func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,outdoors: bool,wind_gain := 1.0,view_camera: Camera3D=null) -> void:
 	# Called by existing WeatherFX. Reuse its roof/ceiling exposure authority.
+	var forward: Vector3=-view_camera.global_basis.z if view_camera!=null else Vector3.FORWARD
+	var right: Vector3=view_camera.global_basis.x if view_camera!=null else Vector3.RIGHT
+	var half_fov:=tan(deg_to_rad(view_camera.fov if view_camera!=null else 72.0)*.5)
+	var aspect:=float(view_camera.get_viewport().get_visible_rect().size.x)/maxf(1.0,float(view_camera.get_viewport().get_visible_rect().size.y)) if view_camera!=null else 1.78
+	var pixel_angle:=half_fov*2.0/float(view_camera.get_viewport().get_visible_rect().size.y) if view_camera!=null else .001
+	if emitters.size()>4:
+		emitters[4].global_position=camera_position_m
+		emitters[4].visible=outdoors and weights.x>.005
+		(emitters[4].draw_pass_1.material as ShaderMaterial).set_shader_parameter("blood_amount",blood_rain)
 	for kind in mini(emitters.size(),4):
 		var emitter := emitters[kind]
-		emitter.global_transform=Transform3D(Basis.IDENTITY,camera_position_m+Vector3.UP*8.0-wind_mps*wind_gain*0.30)
-		emitter.amount_ratio=clampf(weights[kind],0.0,1.0)
+		emitter.global_transform=Transform3D(Basis.IDENTITY,camera_position_m+Vector3.UP*3.0-wind_mps*wind_gain*0.12)
+		emitter.amount_ratio=sqrt(clampf(weights[kind],0.0,1.0))
 		emitter.emitting=outdoors and weights[kind]>0.005
-		emitter.visible=outdoors
-		(emitter.process_material as ShaderMaterial).set_shader_parameter("wind_mps",wind_mps*wind_gain)
+		emitter.visible=emitter.emitting
+		var process:=emitter.process_material as ShaderMaterial
+		process.set_shader_parameter("wind_mps",wind_mps*wind_gain)
+		process.set_shader_parameter("intensity",weights[kind])
+		process.set_shader_parameter("camera_forward",forward);process.set_shader_parameter("camera_right",right)
+		process.set_shader_parameter("camera_y",camera_position_m.y)
+		process.set_shader_parameter("horizontal_tangent",half_fov*aspect)
+		if view_camera!=null:process.set_shader_parameter("view_projection",view_camera.get_camera_projection()*Projection(view_camera.get_camera_transform().affine_inverse()))
+		var visual:=emitter.draw_pass_1.material as ShaderMaterial
+		visual.set_shader_parameter("wind_mps",wind_mps*wind_gain)
+		visual.set_shader_parameter("intensity",weights[kind]);visual.set_shader_parameter("pixel_angle",pixel_angle)
+		visual.set_shader_parameter("blood_amount",blood_rain if kind==0 else 0.0)
+	if emitters.size()>5:
+		var frogs:=emitters[5]
+		frogs.global_transform=Transform3D(Basis.IDENTITY,camera_position_m+Vector3.UP*3.0-wind_mps*wind_gain*.12)
+		var enabled:=outdoors and frog_fall>.005
+		frogs.amount_ratio=clampf(frog_fall,0.0,1.0)
+		if enabled and not frogs.emitting:
+			frogs.seed=posmod((_day+":frog-fall:"+str(_presentation_seed)).hash(),2147483647)
+			frogs.restart(true)
+		frogs.emitting=enabled;frogs.visible=enabled
+		var process:=frogs.process_material as ShaderMaterial
+		process.set_shader_parameter("wind_mps",wind_mps*wind_gain)
+		process.set_shader_parameter("camera_forward",forward);process.set_shader_parameter("camera_right",right)
+		process.set_shader_parameter("camera_y",camera_position_m.y);process.set_shader_parameter("horizontal_tangent",half_fov*aspect)
+		if view_camera!=null:process.set_shader_parameter("view_projection",view_camera.get_camera_projection()*Projection(view_camera.get_camera_transform().affine_inverse()))

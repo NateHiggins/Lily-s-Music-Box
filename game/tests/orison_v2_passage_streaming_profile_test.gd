@@ -20,6 +20,7 @@ func _route() -> void:
 		await get_tree().physics_frame
 		await get_tree().process_frame
 		await get_tree().process_frame
+		await get_tree().create_timer(world.passage_region.residency.DORMANCY_GRACE_SECONDS+.1).timeout
 		var report: Dictionary = world.passage_region.residency.snapshot()
 		print("STREAMING_PROFILE ", JSON.stringify(report))
 		if report.state != "DORMANT" or report.retired_geometry_roots_alive != 0 or report.retired_mesh_resources_alive != 0:

@@ -39,7 +39,15 @@ func _route() -> void:
 	var door_id := door.get_instance_id()
 	var door_open := door.open
 	var inventory := var_to_bytes(RealityState.data.maintenance_items)
+	var original_unloads: int=passage.residency.unload_cycles
 	if not await _walk(Vector3(1.925, 0, -3.5)): return
+	if not _require(passage.residency.state=="RESIDENT" and passage.residency.unload_cycles==original_unloads,"brief core arrival retains already-fitted passage geometry"):return
+	for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.5)]:
+		if not await _walk(point):return
+	if not _require(passage.residency.state=="RESIDENT" and passage.residency.unload_cycles==original_unloads,"actual walking return through vestibule cancels pending retirement"):return
+	for point in [Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:
+		if not await _walk(point):return
+	await get_tree().create_timer(passage.residency.DORMANCY_GRACE_SECONDS+.1).timeout
 	await get_tree().process_frame
 	await get_tree().physics_frame
 	await get_tree().process_frame
@@ -87,9 +95,9 @@ func _route() -> void:
 			and _moved_cart.global_position.distance_to(_initial_cart_position) > 0.05,
 			"open leaf and physically moved cart survive residency unchanged")
 	_require(world.shop_service.counter("hardware_paint") != null
-			and var_to_bytes(RealityState.data.maintenance_items) == inventory
-			and not world.shop_service.acquire("carbon_transmitter_capsule", "hardware_paint"),
-			"counter remount preserves acquisition and duplicate protection")
+			and var_to_bytes(RealityState.data.maintenance_items) == inventory,
+			"counter remount preserves acquisition and inventory")
+	_check_requisition_duplicate_refusal()
 	_require(not _surface_signature.is_empty() and _surface_values() == _surface_signature,
 			"all shader values and texture paths survive geometry reconstruction")
 	_check_ceiling_detail()
