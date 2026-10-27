@@ -947,3 +947,40 @@ No failed receipt was edited or promoted. Full candidate comparison against the
 clean **6ff8922f** main baseline is the next integration gate; the broader
 weather/roof and responsiveness limitations above remain open.
 
+### Candidate verification and main integration
+
+[PR 68](https://github.com/NateHiggins/Lily-s-Music-Box/pull/68) merged at
+**900789b82677831d8bd3c6118844a65996ae3fdf**. Canonical main was fast-forwarded
+and its complete Git tree compared equal to tested candidate
+**67c614b04561035d86e164f1fefd5d9f269e40f7**. This following ledger/archive update
+changes no runtime, test, material or geometry input.
+
+**skywatch40/candidate_qualified/verification.json** reports MERGE-CANDIDATE:
+all **114 gates**, **zero regressions**, **zero waivers**, **17/17 protected
+paths unchanged**, selector V2, zero design-lint errors and no changed
+requirement status. Known whole-game baseline failures remain; this does not
+make main universally green. Both brokered imports and the pure-data
+CampaignWeatherTest pass, with its suite receipt binding to the candidate.
+Native optical/interaction and composed surface evidence above remains scoped
+to its actual execution; the headless data suite is not a visual playtest.
+
+The four changed gate files were reviewed: a descriptive retired-shape period
+label; exact optical-pillar recognition plus physical-stock negative controls;
+three test-only spatial-coordinate groups; and stronger raw-noise mutation
+coverage. No production spatial authority was reassigned. The in-place run
+supplies no fresh-checkout/autocrlf qualification or human artistic acceptance.
+
+The import stage generated **627 untracked UID sidecars** and **14 line-ending-only
+import changes**, from an initially clean checkout. UID creation times fall
+within that import window; all bytes were backed up externally before removal.
+The sidecars were restored only after exact LF-normalized equality to HEAD.
+An empty orphan index lock from the same window was preserved and removed only
+after no Git process and a successful exclusive-open check. Authored/shared work
+was not discarded. Post-import surface verification still reports zero defects.
+
+The existing archive preserves raw candidate verification, import/suite logs,
+receipts and churn provenance under **candidate_67c614b0_main_merge/**. Runtime
+qualification, annual visual diversity, performance and owner acceptance remain
+separate claims. Next: refresh the 365-date/six-period gallery on merged source,
+inspect weak/repetitive skies and continue the existing weather/roof work.
+

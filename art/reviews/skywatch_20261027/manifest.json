@@ -915,9 +915,27 @@
     "urban_pillar_surface_qualification/surface_classified/visual_review.json": "6a4c9605ae845e7d19ab2026cb62f86d5fbec7df6494053e538d5a77659e02f6",
     "urban_pillar_surface_qualification/surface_classified/window-settings.json": "3e16415262a1ebcae0af60fe4568069323f0449e14bf94cf12c01a3ad4082df8",
     "urban_pillar_surface_qualification/final_cloud_optical_analysis/native_assessment.json": "3299b7ff55f827426a11823d4ce1442d9a7c5d21b2138e9057020668e09e29ff",
-    "urban_pillar_surface_qualification/surface_classified_contact.jpg": "782e5f2a7278dc9128e861a2ee150608339c5b120df5709e0111af33217bed69"
+    "urban_pillar_surface_qualification/surface_classified_contact.jpg": "782e5f2a7278dc9128e861a2ee150608339c5b120df5709e0111af33217bed69",
+    "candidate_67c614b0_main_merge/candidate_qualified/godot/CampaignWeatherTest_tscn.log": "f4b4c6963888b40873cc72b6b07849ba19ffb9a0402b1d78221da309b4d758ea",
+    "candidate_67c614b0_main_merge/candidate_qualified/godot/CampaignWeatherTest_tscn.log.receipt.json": "b9f847743d1ead2e0133cee209712bf758363aac20dde46306d930fc92b587f3",
+    "candidate_67c614b0_main_merge/candidate_qualified/godot/CampaignWeatherTest_tscn.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "candidate_67c614b0_main_merge/candidate_qualified/godot/CampaignWeatherTest_tscn_shots/calendar_test.json": "403c334f18188b18d69c9a5b8dd6e6570c7d88ebd70a22c9b21fd48df4a103bf",
+    "candidate_67c614b0_main_merge/candidate_qualified/godot/CampaignWeatherTest_tscn_shots/living_year.json": "657280b6fc9a12efaa117629374895c0bb2314c85305602a42553b9d917c241f",
+    "candidate_67c614b0_main_merge/candidate_qualified/godot/import1.log": "acb6df79db199c542afe5993328ff9a0df488a1cce0b7995bf9d00d58c2e1fab",
+    "candidate_67c614b0_main_merge/candidate_qualified/godot/import1.log.receipt.json": "03b5f5c25675e1b727ca5a389ede23c1b4c237014d07b96f446577657863d7b0",
+    "candidate_67c614b0_main_merge/candidate_qualified/godot/import1.log.stderr": "a201a2aa67ee7b1835a39dfa76ba87f68434d8e3379b4ae01efd851879688d65",
+    "candidate_67c614b0_main_merge/candidate_qualified/godot/import2.log": "a142e971b86df3df806cf057f50490ebc91ea360ef284e9f18856e843795a379",
+    "candidate_67c614b0_main_merge/candidate_qualified/godot/import2.log.receipt.json": "0341f32700019b33d8ecd173cb901dc154579a5532c359a65abd355f569fe4ed",
+    "candidate_67c614b0_main_merge/candidate_qualified/godot/import2.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "candidate_67c614b0_main_merge/candidate_qualified/verification.json": "fd18d776aa69e8eebe393d530c376bd4b8bf76af2bda59bfcbfe5377e45a3291",
+    "candidate_67c614b0_main_merge/candidate_qualified/verification.md": "2e9bc9c7624d56891a705958217eac97b32ba621b27e9ac26fecd4f514ef2f74",
+    "candidate_67c614b0_main_merge/post_import_surface_check.json": "27bf637ab56a640ad6b01b8d4610da9aefd48f5a7eff4e0935d1e3c3dafdb162",
+    "candidate_67c614b0_main_merge/inspect_import_churn.py": "3716095ac34ffebe51ab3f1fcbd3bc32eca49bead61bd1bc143c5c6771217ff0",
+    "candidate_67c614b0_main_merge/preserve_import_churn.py": "296265638c27fe643f44ffa89201f3b939991a70f106b174c7597ee1a6f80bf1",
+    "candidate_67c614b0_main_merge/import_uid_churn/manifest.json": "9599272eeba7708230b6422f19ffbcf46d3e70d7f6393f17939d375df335b1d2",
+    "candidate_67c614b0_main_merge/import_uid_churn/orphan_index_lock.json": "3d491b679d4f4be27374efb4b1e91e90fa59144444c0b5c647e005ba2592e2c1"
   },
-  "archive_sha256": "22735e5539b33550496b2430de188d85838677bb45fc2939866a67cfbf33887e",
+  "archive_sha256": "7003dff25e5008e25b8ffccff549755b02cfb44d387ebb10f52c9ca1b5a889a2",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -2552,5 +2570,15 @@
       "C:\\ov\\reports\\skywatch40\\surface_classified\\window_4B.png": "97d293e9e7c761744fe862515ed6fdb4b5aff54978d6d0f48b12860a1301d9e6",
       "C:\\ov\\reports\\skywatch40\\surface_classified\\window_4C.png": "ee9fbba321082cb0794d8f03476e48b6f7cc70b6935ca5e8d01d75cbd924e236"
     }
+  },
+  "candidate_67c614b0_main_merge": {
+    "evidence_class": "INERT",
+    "tested_candidate": "67c614b04561035d86e164f1fefd5d9f269e40f7",
+    "merge_commit": "900789b82677831d8bd3c6118844a65996ae3fdf",
+    "merged_tree_identical_to_tested_candidate": true,
+    "comparison_regressions": 0,
+    "protected_unchanged": 17,
+    "verification_scope": "Complete clean-canonical in-place comparison and brokered imports/pure calendar regression; no fresh-checkout/autocrlf or annual artistic acceptance",
+    "original_import_churn_external": "C:/ov/reports/skywatch40/import_uid_churn/"
   }
 }
