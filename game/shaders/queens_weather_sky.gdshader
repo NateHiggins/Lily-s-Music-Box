@@ -42,8 +42,6 @@ uniform vec4 season_weights = vec4(0.0,0.0,0.0,1.0);
 uniform float humidity = 0.52;
 uniform float storm_strength = 0.0;
 uniform vec3 wind_offset = vec3(0.0);
-uniform int shape_kind = 0;
-uniform float shape_opacity = 0.0;
 uniform float temporal_phase = 0.0;
 #include "res://shaders/queens_weather_math.gdshaderinc"
 #include "res://shaders/skywatch_planets.gdshaderinc"
@@ -211,31 +209,7 @@ float soft_union(float a,float b,float k) {
 }
 #define QUEENS_CLOUD_DECK
 #include "res://shaders/sky_spectacle.gdshaderinc"
-float cloud_object(vec3 p) {
-    // Soft SDFs. Noise breaks the contour before it contributes to density.
-    if (shape_kind==1) {
-        float body=ellipsoid(p,vec3(.48,.30,.30));
-        float head=ellipsoid(p-vec3(.29,.38,0),vec3(.21,.23,.21));
-        float bill=ellipsoid(p-vec3(.49,.33,0),vec3(.20,.055,.12));
-        float neck=ellipsoid(p-vec3(.23,.22,0),vec3(.16,.24,.17));
-        return soft_union(soft_union(soft_union(body,neck,.10),head,.10),bill,.06);
-    }
-    if (shape_kind==2) {
-        float body=ellipsoid(p,vec3(.75,.25,.29));
-        float fin=ellipsoid(p-vec3(.0,-.18,.18),vec3(.25,.16,.06));
-        float tail=ellipsoid(p-vec3(-.69,.10,0),vec3(.15,.15,.36));
-        return soft_union(soft_union(body,fin,.08),tail,.08);
-    }
-    float ship=ellipsoid(p+vec3(0,.24,0),vec3(.75,.20,.23));
-    for (int mast_index=0;mast_index<3;mast_index++) {
-        float x=(float(mast_index)-1.0)*.36;
-        float mast=ellipsoid(p-vec3(x,.10,0),vec3(.032,.46,.04));
-        float sail=ellipsoid(p-vec3(x+.04,.22,0),vec3(.16,.25,.07));
-        ship=soft_union(ship,soft_union(mast,sail,.035),.035);
-    }
-    return ship;
-}
-float density_tagged(vec3 p,out float fire) {
+float density_tagged(vec3 p,out float fire,vec3 footprint) {
     fire=0.0;
     float base=wx_cloud_base();
     float thickness=mix(0.60,3.0,season_weights.z);
@@ -252,13 +226,20 @@ float density_tagged(vec3 p,out float fire) {
     float deck=smoothstep(0.0,0.12,h)*(1.0-smoothstep(0.72,1.0,h));
     float result=0.0;
     if(living_enabled && asperitas<=0.001 && max(vortex_intensity,wx_cyclone)<.001) {
-        result=living_density(p,living_layer_0,living_motion_0,living_brush_0,living_drift_0);
+        result=living_density(p,living_layer_0,living_motion_0,living_brush_0,living_drift_0,living_flow_0,footprint);
         // An opaque lower ceiling hides the middle stratum. Keep its observed
         // state, but spend no density/light taps on an invisible second deck.
-        if(living_layer_0.x<.96) result+=living_density(p,living_layer_1,living_motion_1,living_brush_1,living_drift_1);
+        if(living_layer_0.x<.96) result+=living_density(p,living_layer_1,living_motion_1,living_brush_1,living_drift_1,living_flow_1,footprint);
     } else if(deck>0.001) {
         float scale=mix(0.30,0.16,season_weights.z);
-        vec2 n=textureLod(cloud_noise,q*scale+vec3(wx_cloud_drift.x,0.0,wx_cloud_drift.y),0.0).rg;
+        vec3 cloud_lookup=q*scale+vec3(wx_cloud_drift.x,0.0,wx_cloud_drift.y);
+        if(living_fluid_enabled) {
+            vec3 flow=curl_noise3d(vec3(cloud_lookup.xz,h*.30+wx_texture_phase));
+            cloud_lookup+=flow*.12;
+            cloud_lookup.xz-=cloud_wind_direction.xz*h*h*min(cloud_wind_speed/15.0,2.0)*.05;
+        }
+        vec2 n=textureLod(cloud_noise,cloud_lookup,0.0).rg;
+        if(living_fluid_enabled)n.r=textureLod(cloud_macro,cloud_lookup,1.0).r;
         float erosion=textureLod(cloud_noise,q*scale*4.3+vec3(wx_cloud_drift.z,0.0,wx_cloud_drift.w),0.0).g;
         float cover=max(cloud_coverage,0.96*max(vortex_intensity,wx_cyclone));
         cover=max(cover,0.82*spectacle[S_ASPERITAS]);
@@ -267,7 +248,7 @@ float density_tagged(vec3 p,out float fire) {
         float sheet=max(season_weights.x,max(wx_hail,max(wx_cyclone,vortex_intensity)));
         sheet=max(sheet,asperitas);
         shape=mix(shape,0.94,smoothstep(0.65,0.95,cover)*sheet);
-        result=max(0.0,shape-(1.0-erosion)*mix(0.55,0.07,sheet))*deck;
+        result=(living_fluid_enabled ? wx_height_erosion(shape,erosion,h,mix(1.0,.35,sheet)) : max(0.0,shape-(1.0-erosion)*mix(0.55,0.07,sheet)))*deck;
     }
     if(spectacle[S_FALLSTREAK]>0.0) {
         float streak;
@@ -282,18 +263,12 @@ float density_tagged(vec3 p,out float fire) {
     }
     if(wx_formation==3 && spectacle[S_LENTICULAR]<=0.0) result=max(result,wx_lenticular_density(p)*wx_formation_strength);
     if(wx_formation==2 && spectacle[S_KELVIN_HELMHOLTZ]<=0.0) result=max(result,wx_fluctus_density(p)*wx_formation_strength);
-    if(shape_kind>0 && shape_opacity>0.0) {
-        vec3 animal=advected-vec3(1.6,2.3,-2.6);
-        float sdf=cloud_object(animal);
-        float erosion=textureLod(cloud_noise,animal*1.8,0.0).g;
-        result=max(result,(1.0-smoothstep(-0.045,0.045,sdf+(erosion-0.5)*0.10))*0.60*shape_opacity);
-    }
     result*=mix(0.85,1.5,max(season_weights.x,max(storm_strength,wx_hail)));
     return max(result,wx_vortex_density(p,base));
 }
-float density(vec3 p) {
+float density(vec3 p,vec3 footprint) {
     float fire;
-    return density_tagged(p,fire);
+    return density_tagged(p,fire,footprint);
 }
 vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     vec3 ro=wx_camera_km;
@@ -316,7 +291,6 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     }
     if(spectacle[S_MAMMATUS]>0.0) { base=min(base,.88); ceiling=max(ceiling,1.6); }
     if(spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]>0.0) { base=min(base,.40); ceiling=max(ceiling,2.0); }
-    if(shape_kind>0 && shape_opacity>0.0) { base=min(base,1.0); ceiling=max(ceiling,3.15); }
     if(wx_formation==3) ceiling=max(ceiling,wx_lens_center.y+0.55);
     if(wx_formation==2) ceiling=max(ceiling,2.80);
     float lighting_base=base<10000.0 ? base : wx_cloud_base();
@@ -324,7 +298,7 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     if(living_enabled && asperitas<=.001 && max(vortex_intensity,wx_cyclone)<.001
         && living_layer_0.x>.0001 && living_layer_0.x<.96 && living_layer_1.x>.0001
         && living_layer_1.y>living_layer_0.y+living_layer_0.z && direction.y>.0001
-        && spectacle[S_MAMMATUS]+spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]+shape_opacity<.001) {
+        && spectacle[S_MAMMATUS]+spectacle[S_VIRGA]+spectacle[S_FALLSTREAK]<.001) {
         empty_gap=vec2((living_layer_0.y+living_layer_0.z-ro.y)/direction.y,
             (living_layer_1.y-ro.y)/direction.y);
     }
@@ -354,10 +328,13 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     }
     float t=min(deck.x,funnel.x), finish=max(deck.y,funnel.y);
     if(t>=finish) return vec4(0.0);
-    float base_steps=(shape_kind>0 && shape_opacity>0.0) ? 64.0 : 40.0;
+    float base_steps=40.0;
     float coarse=max(0.02,(deck.y-deck.x)/base_steps);
     float fine=max(0.0125,(funnel.y-funnel.x)/80.0);
-    float jitter=fract(sin(dot(screen_uv*vec2(1280.0,720.0),vec2(12.9898,78.233))+temporal_phase*13.17)*43758.5453);
+    // Spatially coherent midpoint quadrature. Random ray-start offsets made
+    // structured erosion/self-shadowing sparkle in the half-resolution pass;
+    // camera TAA did not reliably integrate that independently changing field.
+    float jitter=0.5;
     vec3 to_sun=normalize(sun_direction);
     float day=smoothstep(-0.12,0.10,to_sun.y);
     float night=1.0-smoothstep(-.18,-.07,to_sun.y);
@@ -393,21 +370,22 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
         if(ds<0.000001) { t+=0.000001; continue; }
         vec3 p=ro+direction*(t+ds*(0.25+0.50*jitter));
         float fire;
-        float d=density_tagged(p,fire);
+        float d=density_tagged(p,fire,vec3(0.0));
         if(d>0.002) {
             // Every light tap calls the same density, including funnel and lenses.
-            float near_density=density(p+source*0.12);
+            vec3 footprint=abs(direction)*ds;
+            float near_density=density(p+source*0.12,footprint);
             // Sparse fair-weather wisps are optically thin: extend the nearby
             // extinction estimate instead of resampling a second whole stratum.
             // Dense ceilings and every severe/rare formation keep both taps.
             bool thin_fair=living_enabled && cloud_coverage<.60 && wx_formation==0
                 && max(storm_strength,max(wx_hail,max(wx_cyclone,vortex_intensity)))<.001;
-            float far_density=thin_fair ? near_density : density(p+source*0.35);
+            float far_density=thin_fair ? near_density : density(p+source*0.35,footprint);
             float tau_sun=6.0*(near_density*0.12+far_density*0.23);
             if(vortex_intensity>0.001 && length(p.xz-wx_vortex_center)<0.50) {
                 // Deck-scale taps skip a narrow funnel. Resolve its own core
                 // at shorter distances so it cannot become a luminous rope.
-                tau_sun+=6.0*(density(p+source*0.012)*0.012+density(p+source*0.035)*0.023);
+                tau_sun+=6.0*(density(p+source*0.012,footprint)*0.012+density(p+source*0.035,footprint)*0.023);
                 tau_sun+=d*1.3;
             }
             float alpha=1.0-exp(-6.0*d*ds);
@@ -443,7 +421,7 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
 vec4 volumetric_clouds(vec3 direction,vec2 screen_uv) {
     vec4 deck=wx_volumetric_clouds(direction,screen_uv);
     if(direction.y<.005) return deck;
-    float jitter=fract(sin(dot(screen_uv*vec2(1280.0,720.0),vec2(12.9898,78.233))+temporal_phase*13.17)*43758.5453);
+    float jitter=0.5; // Match the deck's stable sample phase for rare formations.
     float near_t;
     vec4 objects=spectacle_objects(direction,jitter,near_t)*smoothstep(.005,.03,direction.y);
     float start=wx_cloud_base()/max(direction.y,.035);
@@ -463,9 +441,10 @@ void sky() {
     } else {
         vec3 point_stars;
         vec3 base=celestial_base(EYEDIR,point_stars);
+        if(skywatch_extended_optics)base=skywatch_twilight_geometry(EYEDIR,base)+skywatch_night_dust(EYEDIR);
         if(living_enabled && living_layer_2.x>.0001 && EYEDIR.y>.015) {
             vec3 high_p=wx_camera_km+EYEDIR*((living_layer_2.y+living_layer_2.z*.3-wx_camera_km.y)/EYEDIR.y);
-            float ice=living_density(high_p,living_layer_2,living_motion_2,living_brush_2,living_drift_2);
+            float ice=living_density(high_p,living_layer_2,living_motion_2,living_brush_2,living_drift_2,living_flow_2,vec3(0.0));
             float ice_alpha=1.0-exp(-ice*living_layer_2.z*3.0/max(.12,EYEDIR.y));
             ice_alpha*=smoothstep(.04,.18,EYEDIR.y)*(1.0-(wx_formation==4 ? wx_formation_strength*.8 : 0.0));
             float high_sun=smoothstep(-.065,-.025,sun_direction.y);

@@ -93,20 +93,17 @@ a cheap cloud-color approximation and a 128-pixel incremental cubemap, avoiding
 six additional volumetric marches. These are bounded costs, not an FPS promise.
 
 The viewport's Forward+ TAA supplies camera reprojection and temporal history;
-the cloud shader adds stratified ray jitter. This implementation does not claim
+the current Queens cloud shader uses coherent midpoint sampling. This implementation does not claim
 a separate cloud motion-vector/history buffer. `weather_taa_enabled=false`
 retains the user's viewport setting. Compatibility retains the inexpensive
 spatial sky and weather presentation; volumetric clouds, local fog and TAA
 require Forward+. See [Godot sky shader passes](https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/sky_shader.html)
 and [ImageTexture3D](https://docs.godotengine.org/en/stable/classes/class_imagetexture3d.html).
 
-One deterministic 1% eligibility draw is made per campaign date and seed. Duck,
-whale and three-masted ship SDFs contribute translucent density, with noise
-modulating their contours. They share cloud wind advection, fade in over 90
-seconds and retire by 900 seconds. Reloads retain the same daily eligibility;
-they do not multiply the random chance. Debug `WEATHER_CLOUD_SHAPE=duck|whale|ship`
-forces an example. Existing `WEATHER_SIMULATE`, `WEATHER_SEED`, `DAYNIGHT_FORCE`,
-and reduced-flash settings remain available.
+The experimental duck, whale and ship cloud silhouettes were retired at the
+owner's request on 2026-10-27. Ordinary and meteorological rare formations remain.
+Existing `WEATHER_SIMULATE`, `WEATHER_SEED`, `DAYNIGHT_FORCE`, and reduced-flash
+settings remain available.
 
 Run lightweight `V2MillworkWeatherTest.tscn` and `V2SkyReview.tscn` through the
 Godot lane before the expensive production composition. Render the native

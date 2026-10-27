@@ -7,6 +7,10 @@ uniform float electrical_age = 0.0;
 uniform float spectacle[41];
 uniform float spectacle_bearing[41];
 uniform float spectacle_time = 0.0;
+// V2 derives these from the existing weather/observer owner. The retained
+// seasonal renderer keeps its original presentation when this switch is off.
+uniform bool skywatch_extended_optics = false;
+uniform vec3 skywatch_ice_complex = vec3(0.0); // ring, dogs, pillar
 const int S_MAMMATUS = 0;
 const int S_SHELF = 1;
 const int S_WALL = 2;
@@ -578,20 +582,30 @@ vec3 transient_luminous(vec3 dir) {
 
 // --- Optics ------------------------------------------------------------------------
 vec3 ice_optics(vec3 dir) {
-    vec3 sun=normalize(sun_direction);
+    bool lunar=skywatch_extended_optics && moon_phase_enabled;
+    vec3 sun=normalize(lunar ? celestial_direction : sun_direction);
     float theta=degrees(angle_between(dir,sun));
-    float es=sun_elevation_degrees();
+    float es=elevation_degrees(sun);
     float e=elevation_degrees(dir);
     float daz=wrap_pi(azimuth_of(dir)-azimuth_of(sun));
     float veil=.55+.45*texture(cirrus_tex,dir.xz/max(dir.y,.1)*.2-wind_offset.xz*.14).r;
     vec3 total=vec3(0.0);
-    if (spectacle[S_HALO]>0.0) {
+    float moon_gain=lunar ? .42*sqrt(max(moon_illumination,0.0))*smoothstep(0.0,8.0,es) : 1.0;
+    float ring_level=max(spectacle[S_HALO],skywatch_ice_complex.x)*moon_gain;
+    float dog_level=max(spectacle[S_SUN_DOGS],skywatch_ice_complex.y)*moon_gain;
+    float pillar_level=max(spectacle[S_PILLARS],skywatch_ice_complex.z)*moon_gain;
+    if (ring_level>0.0) {
         // 22 degree halo: a sharp red inner rim fading white-blue outward.
         float ring=smoothstep(21.4,22.2,theta)*exp(-max(theta-22.2,0.0)/1.1);
         vec3 c=mix(vec3(1.0,.45,.25),vec3(.85,.9,1.0),smoothstep(22.0,24.5,theta));
-        total+=c*ring*.6*spectacle[S_HALO]*veil;
+        total+=c*ring*.6*ring_level*veil;
+        if(skywatch_extended_optics) {
+            float outer=smoothstep(45.4,46.0,theta)*exp(-max(theta-46.0,0.0)/1.4);
+            vec3 dispersion=mix(vec3(1.0,.30,.16),vec3(.42,.65,1.0),smoothstep(45.8,48.0,theta));
+            total+=dispersion*outer*.16*ring_level*veil;
+        }
     }
-    if (spectacle[S_SUN_DOGS]>0.0) {
+    if (dog_level>0.0) {
         // Parhelia at the sun's altitude, pushed outward as the sun climbs.
         float er=radians(es); float sep=radians(22.0+es*.12);
         float offset=acos(clamp((cos(sep)-sin(er)*sin(er))/max(cos(er)*cos(er),.01),-1.0,1.0));
@@ -601,7 +615,8 @@ vec3 ice_optics(vec3 dir) {
             float spot=exp(-pow(x/.9,2.0)-pow(de/1.6,2.0));
             float tail=step(0.0,x)*exp(-x/5.0)*exp(-pow(de/.7,2.0))*.35;
             vec3 c=mix(vec3(1.0,.35,.2),vec3(1.0,.95,.85),smoothstep(-1.0,1.2,x));
-            total+=(c*spot*1.4+vec3(1.0)*tail)*spectacle[S_SUN_DOGS];
+            if(skywatch_extended_optics)c=mix(c,vec3(.36,.60,1.0),smoothstep(.4,2.0,x));
+            total+=(c*spot*1.4+vec3(1.0)*tail)*dog_level;
         }
     }
     if (spectacle[S_CHA]>0.0) {
@@ -618,19 +633,55 @@ vec3 ice_optics(vec3 dir) {
         float inside=smoothstep(-2.2,-1.4,band)*(1.0-smoothstep(1.4,2.2,band));
         total+=spectral(1.0-clamp((band+1.8)/3.6,0.0,1.0))*inside*span*1.6*spectacle[S_CZA];
     }
-    if (spectacle[S_PILLARS]>0.0) {
+    if (pillar_level>0.0) {
         // A sun pillar standing on the low sun, and at night pillars over the
         // city lamps, raised by plate crystals settling in still frost.
         float x=degrees(daz);
         float column=exp(-pow(x/.55,2.0))*smoothstep(es-1.0,es+.5,e)*exp(-max(e-es,0.0)/9.0)*smoothstep(-6.0,-1.0,es);
-        total+=vec3(1.0,.62,.32)*column*1.6*spectacle[S_PILLARS];
-        float night=1.0-smoothstep(-8.0,-3.0,es);
+        if(skywatch_extended_optics)column=exp(-pow(x/.55,2.0))*exp(-abs(e-es)/9.0)*smoothstep(-.5,1.0,e)*smoothstep(-6.0,-1.0,es)*(1.0-smoothstep(20.0,35.0,es));
+        total+=mix(vec3(1.0,.62,.32),vec3(.63,.77,1.0),lunar ? 1.0 : 0.0)*column*1.6*pillar_level;
+        float night=1.0-smoothstep(-8.0,-3.0,sun_elevation_degrees());
         float lamp_az=degrees(azimuth_of(dir))*.8;
         float cell=floor(lamp_az); float j=hash12(vec2(cell,4.0));
         float lamp=step(.82,j)*exp(-pow((fract(lamp_az)-.5)/.07,2.0))*smoothstep(1.0,2.0,e)*exp(-max(e-2.0,0.0)/(4.0+6.0*j));
-        total+=mix(vec3(1.0,.78,.5),vec3(.85,.9,1.0),hash12(vec2(cell,7.0)))*lamp*night*1.2*spectacle[S_PILLARS];
+        // V2's actual street-lamp owner now carries the urban pillars. Keep
+        // these old synthetic bearings only for the retained seasonal shader.
+        if(!skywatch_extended_optics)total+=mix(vec3(1.0,.78,.5),vec3(.85,.9,1.0),hash12(vec2(cell,7.0)))*lamp*night*1.2*spectacle[S_PILLARS];
     }
     return total;
+}
+
+vec3 skywatch_twilight_geometry(vec3 dir,vec3 colour) {
+    float es=sun_elevation_degrees();
+    float civil=smoothstep(-8.0,-6.0,es)*(1.0-smoothstep(-1.0,0.0,es));
+    if(civil<.0001)return colour;
+    vec2 anti=-sun_direction.xz/max(length(sun_direction.xz),.0001);
+    float antisolar=smoothstep(.0,.85,dot(dir.xz/max(length(dir.xz),.0001),anti));
+    float elevation=elevation_degrees(dir);
+    float edge=clamp(-es*.75,.8,6.0);
+    float shadow=(1.0-smoothstep(edge-1.2,edge+1.2,elevation))*smoothstep(-.5,1.0,elevation);
+    float belt=exp(-pow((elevation-edge-3.0)/2.6,2.0));
+    colour=mix(colour,vec3(.045,.055,.15),shadow*antisolar*civil*.65);
+    colour+=vec3(.24,.075,.16)*belt*antisolar*civil;
+    return colour;
+}
+
+vec3 skywatch_night_dust(vec3 dir) {
+    float night=1.0-smoothstep(-15.0,-9.0,sun_elevation_degrees());
+    if(night<.0001)return vec3(0.0);
+    float moon_wash=moon_phase_enabled ? 1.0-.8*sqrt(max(moon_illumination,0.0))*smoothstep(0.0,.2,celestial_direction.y) : 1.0;
+    float above=smoothstep(.015,.15,dir.y);
+    // Airglow and interplanetary dust are broad ray-space radiance, not stars
+    // or emissive geometry attached to the camera. Existing clouds occlude it.
+    float airglow=exp(-pow((elevation_degrees(dir)-22.0)/13.0,2.0));
+    vec3 eq=vec3(dot(dir,equatorial_axis_x),dot(dir,equatorial_axis_y),dot(dir,equatorial_axis_z));
+    float latitude=asin(clamp(-.397777*eq.y+.917482*eq.z,-1.0,1.0));
+    float separation=angle_between(dir,normalize(sun_direction));
+    float plane=exp(-abs(latitude)/.075);
+    float cone=exp(-separation/.48)*smoothstep(.12,.30,separation)*plane;
+    float gegenschein=exp(-pow((PI-separation)/.18,2.0))*plane;
+    vec3 dust=vec3(1.0,.83,.65)*(cone*.08+gegenschein*.006);
+    return (vec3(.0015,.0035,.0022)*airglow+dust)*night*moon_wash*above;
 }
 vec3 sun_beams(vec3 dir) {
     vec3 sun=normalize(sun_direction);
@@ -760,11 +811,11 @@ vec3 spectacle_behind(vec3 dir,vec3 colour) {
     if (spectacle[S_STEVE]>0.0) colour+=steve(dir)*spectacle[S_STEVE];
     if (spectacle[S_SPRITE]+spectacle[S_BLUE_JET]+spectacle[S_GIGANTIC_JET]+spectacle[S_ELVES]>0.0)
         colour+=transient_luminous(dir);
-    if (spectacle[S_HALO]+spectacle[S_SUN_DOGS]+spectacle[S_CHA]+spectacle[S_CZA]+spectacle[S_PILLARS]>0.0)
+    if (spectacle[S_HALO]+spectacle[S_SUN_DOGS]+spectacle[S_CHA]+spectacle[S_CZA]+spectacle[S_PILLARS]+dot(skywatch_ice_complex,vec3(1.0))>0.0)
         colour+=ice_optics(dir);
     if (spectacle[S_CREPUSCULAR]+spectacle[S_ANTICREPUSCULAR]>0.0) colour+=sun_beams(dir);
     if (spectacle[S_GREEN_FLASH]>0.0) colour+=green_flash(dir);
-    if (spectacle[S_FATA_MORGANA]>0.0) colour=fata_morgana(dir,colour);
+    if (spectacle[S_FATA_MORGANA]>0.0 && !skywatch_extended_optics) colour=fata_morgana(dir,colour);
     if (spectacle[S_GLORY]>0.0) colour+=glory(dir);
     return colour;
 }

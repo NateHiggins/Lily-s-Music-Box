@@ -28,8 +28,6 @@ var sky: ShaderMaterial
 var effects: WeatherFX
 var _publish_left := 0.0
 var _day := ""
-var _shape_age := 900.0
-var _shape := 0
 var _wind_offset := Vector3.ZERO
 var _before_taa := false
 var _owns_taa := false
@@ -81,6 +79,14 @@ func _ready() -> void:
 	add_to_group("weather_manager")
 	if RenderingServer.get_current_rendering_method() == "forward_plus":
 		sky.set_shader_parameter("cloud_noise",CloudNoise.load_volume())
+		for uniform: Dictionary in sky.shader.get_shader_uniform_list():
+			if uniform.name!="living_fluid_enabled":continue
+			var fluid := CloudNoise.load_fluid()
+			if not fluid.is_empty():
+				sky.set_shader_parameter("cloud_macro",fluid.base)
+				sky.set_shader_parameter("cloud_curl",fluid.curl)
+			else:sky.set_shader_parameter("living_fluid_enabled",false)
+			break
 		sky.set_shader_parameter("cirrus_tex",load("res://assets/environment/weather/cirrus.png"))
 		_before_taa=get_viewport().use_taa
 		if bool(GameBoot.settings.get("weather_taa_enabled",true)):
@@ -153,11 +159,6 @@ func _seasonal_for_date(date: String) -> Dictionary:
 func _seed_value() -> int:
 	return int(OS.get_environment("WEATHER_SEED")) if OS.get_environment("WEATHER_SEED").is_valid_int() else 1928
 
-static func shape_for_day(identity: String, seed_value: int) -> int:
-	var rng := RandomNumberGenerator.new()
-	rng.seed=hash(identity+":"+str(seed_value))
-	return rng.randi_range(1,3) if rng.randf()<.01 else 0
-
 func _process(delta: float) -> void:
 	elapsed=minf(TRANSITION_SECONDS,elapsed+delta)
 	current=interpolate(origin,target,elapsed/TRANSITION_SECONDS)
@@ -179,10 +180,6 @@ func _process(delta: float) -> void:
 		_day=identity
 		if source.begins_with("nyc-seasonal") or source=="seasonal-fallback":
 			receive_snapshot(seasonal_snapshot(date))
-		_shape=shape_for_day(identity,_seed_value()); _shape_age=0.0
-		var forced := OS.get_environment("WEATHER_CLOUD_SHAPE")
-		if forced in ["duck","whale","ship"]: _shape=["duck","whale","ship"].find(forced)+1
-	_shape_age+=delta
 	_update_phenomena(delta)
 	var bearing := deg_to_rad(float(current.get("wind_direction_degrees",0)))
 	var wind_direction := Vector3(-sin(bearing),0,cos(bearing))
@@ -207,8 +204,6 @@ func _process(delta: float) -> void:
 		_frame=(_frame+1)%128
 		sky.set_shader_parameter("temporal_phase",float(_frame) if get_viewport().use_taa else 0.0)
 		sky.set_shader_parameter("wind_offset",_wind_offset)
-		sky.set_shader_parameter("shape_kind",_shape)
-		sky.set_shader_parameter("shape_opacity",smoothstep(0,90,_shape_age)*(1.0-smoothstep(720,900,_shape_age)))
 		if effects!=null and effects.get("air_material")!=null:
 			effects.air_material.set_shader_parameter("wind_offset",_wind_offset)
 		_publish_extreme_motion(date,precise)
@@ -394,6 +389,13 @@ func _push_spectacle() -> void:
 		sky.set_shader_parameter("spectacle",_spectacle_levels)
 		sky.set_shader_parameter("spectacle_bearing",_spectacle_bearings)
 		sky.set_shader_parameter("spectacle_time",_spectacle_time)
+		if director.has_method("set_mirage_spectacle"):
+			# The existing schedule is second-granular; optical shimmer must follow
+			# the same clock continuously, including pause and reverse travel.
+			var mirage_time := _spectacle_time
+			if source=="campaign-calendar":
+				mirage_time+=fposmod(Calendar.clock_seconds(clock),1.0)
+			director.call("set_mirage_spectacle",float(_spectacle_levels[40]),float(_spectacle_bearings[40]),mirage_time)
 	if absf(corona-_corona)>.01 and is_inside_tree():
 		_corona=corona
 		get_tree().call_group("st_elmo_corona","set_corona",corona)

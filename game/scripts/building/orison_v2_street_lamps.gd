@@ -23,6 +23,33 @@ class LampClock extends Node:
 	var clock_override: Dictionary = {}
 	var lit := -1.0
 	var _accum := INF
+	var ice_level := 0.0
+	var pillars: Array[MeshInstance3D] = []
+	var pillar_material: ShaderMaterial
+
+	func _ready() -> void:
+		add_to_group("v2_street_lamp_clocks")
+		pillar_material=ShaderMaterial.new()
+		pillar_material.shader=preload("res://shaders/street_ice_pillar.gdshader")
+		# Reuse the actual globe transforms and clocked colour/visibility. These
+		# optical quads add no lights, shadows, collision or weather authority.
+		for light in lights:
+			var beam := MeshInstance3D.new()
+			beam.name="IcePillar"
+			var quad := QuadMesh.new();quad.size=Vector2(.8,32.)
+			beam.mesh=quad;beam.position.y=16.
+			beam.hide()
+			beam.material_override=pillar_material
+			beam.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			beam.set_meta("surface_role","weather_optics")
+			light.add_child(beam);pillars.append(beam)
+		refresh()
+
+	func set_ice_level(level: float) -> void:
+		ice_level=clampf(level,0.,1.)
+		if pillar_material!=null:
+			pillar_material.set_shader_parameter("ice_level",ice_level)
+		for beam in pillars:beam.visible=ice_level>.001
 
 	func _process(delta: float) -> void:
 		_accum += delta
@@ -41,6 +68,9 @@ class LampClock extends Node:
 		for light in lights:
 			light.visible = lit > 0.01
 			light.light_energy = energy * lit
+		if pillar_material!=null and not lights.is_empty():
+			pillar_material.set_shader_parameter("lamp_colour",lights[0].light_color)
+			pillar_material.set_shader_parameter("lamp_level",lit)
 		if globe != null:
 			globe.emission_energy_multiplier = float(globe.get_meta("lamp_energy", 1.0)) * lit
 

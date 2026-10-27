@@ -1,5 +1,6 @@
 extends "res://tests/orison_v2_vertical_route_test.gd"
 ## Continuous production-controller crossing of the authored full-width road.
+var capture_street_line := true
 
 func _init() -> void:
 	route_label = "V2 STREET CROSSING"
@@ -12,7 +13,7 @@ func _route() -> void:
 	for point: Vector3 in crossing:
 		if not await _walk(world.adapter.root.to_local(point)): return
 	var output := OS.get_environment("SHOT_DIR")
-	if not output.is_empty():
+	if capture_street_line and not output.is_empty():
 		DirAccess.make_dir_recursive_absolute(output)
 		player.camera.look_at(Vector3(0, 1.5, 0))
 		await RenderingServer.frame_post_draw

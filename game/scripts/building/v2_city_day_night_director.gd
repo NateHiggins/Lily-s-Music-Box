@@ -6,9 +6,27 @@ var _astronomy_second := -INF
 var _astronomy_observer := Vector2(INF,INF)
 var _eclipse_transmission := 1.0
 var _stellar_axes := PackedVector3Array()
+var _skyward: Node3D
+var _mirage: CompositorEffect
+
+func setup(root: Node3D,env: Environment,sky_key: DirectionalLight3D,sky_mat: ShaderMaterial) -> void:
+	super.setup(root,env,sky_key,sky_mat)
+	if _sky!=null and _sky.shader!=null and _sky.shader.resource_path=="res://shaders/queens_weather_sky.gdshader" and OS.get_environment("WEATHER_SKY_BASELINE")!="1":
+		_skyward=preload("res://scripts/building/skyward_traffic.gd").new()
+		_skyward.name="SkywardTraffic";add_child(_skyward)
+		_skyward.configure(root.global_transform)
+		_mirage=preload("res://scripts/building/skywatch_mirage.gd").new()
+
+func set_mirage_spectacle(level: float,bearing: float,seconds: float) -> void:
+	if _mirage!=null:_mirage.publish(level,bearing,seconds)
+
+func _exit_tree() -> void:
+	if _mirage!=null:_mirage.dispose();_mirage=null
 
 func _process(delta: float) -> void:
 	super._process(delta)
+	if _skyward!=null and _campaign_clock!=null:_skyward.update(_campaign_clock,_live_conditions)
+	if _mirage!=null:_mirage.bind_camera(get_viewport().get_camera_3d())
 	if _sky==null or _campaign_clock==null or not is_finite(_astronomy_observer.x):return
 	if OS.get_environment("DAYNIGHT")=="0" or not OS.get_environment("DAYNIGHT_FORCE").is_empty():return
 	var camera := get_viewport().get_camera_3d()
@@ -37,6 +55,18 @@ func _state_texture(state: String) -> Texture2D:
 		image.fill(Color(.001,.002,.004));image.generate_mipmaps()
 		_panoramas[key]=ImageTexture.create_from_image(image)
 	return _panoramas[key]
+
+func _publish_ice_optics() -> void:
+	if _sky==null or _sky.shader==null or _sky.shader.resource_path!="res://shaders/queens_weather_sky.gdshader":return
+	_sky.set_shader_parameter("skywatch_extended_optics",true)
+	var high := float(_live_conditions.get("cloud_high",0.0))
+	var rain := float(_live_conditions.get("precipitation_intensity",0.0))
+	var cold := 1.0-smoothstep(-4.0,2.0,float(_live_conditions.get("temperature_c",10.0)))
+	var thin_ice := smoothstep(.18,.65,high)*(1.0-smoothstep(.88,1.0,high))*(1.0-smoothstep(.05,.4,rain))
+	var frost := cold*smoothstep(.86,.98,float(_live_conditions.get("relative_humidity",.5)))
+	_sky.set_shader_parameter("skywatch_ice_complex",Vector3(thin_ice*.35,thin_ice*cold*.24,frost*.45))
+	for owner: Node in get_tree().get_nodes_in_group("v2_street_lamp_clocks"):
+		owner.set_ice_level(frost)
 
 func _publish_astronomy(profile: Dictionary) -> void:
 	if _sky == null:
@@ -99,6 +129,7 @@ static func city_visibility(conditions: Dictionary) -> Vector2:
 
 
 func _resolve_fog_profile(profile: Dictionary) -> void:
+	_publish_ice_optics()
 	_publish_astronomy(profile)
 	var distances := city_visibility(_live_conditions)
 	profile.fog_begin = distances.x

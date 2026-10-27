@@ -1,0 +1,82 @@
+#version 450
+layout(local_size_x=8,local_size_y=8,local_size_z=1) in;
+layout(rgba16f,set=0,binding=0) uniform restrict writeonly image2D output_image;
+layout(set=0,binding=1) uniform sampler2D source_image;
+#ifdef COPY_IMAGE
+void main() {
+    ivec2 pixel=ivec2(gl_GlobalInvocationID.xy),size=imageSize(output_image);
+    if(any(greaterThanEqual(pixel,size)))return;
+    imageStore(output_image,pixel,texelFetch(source_image,pixel,0));
+}
+#else
+layout(set=0,binding=2) uniform sampler2D scene_depth;
+layout(set=0,binding=3) uniform sampler2D opaque_image;
+layout(push_constant,std430) uniform Parameters {
+    mat4 inverse_projection;
+    vec4 right;
+    vec4 up;
+    vec4 back;
+    vec4 weather; // intensity, bearing, bounded calendar phase, minimum distance
+} p;
+
+vec3 view_point(vec2 uv,float depth) {
+    vec4 v=p.inverse_projection*vec4(uv*2.0-1.0,depth,1.0);
+    return v.xyz/v.w;
+}
+float distance_at(vec2 uv) {
+    float z=textureLod(scene_depth,uv,0.0).r;
+    if(z<.000001)return 1e10; // reversed-Z sky
+    return length(view_point(uv,z));
+}
+bool transparent_at(vec2 uv) {
+    vec3 delta=abs(textureLod(source_image,uv,0.0).rgb-textureLod(opaque_image,uv,0.0).rgb);
+    return max(delta.r,max(delta.g,delta.b))>.001;
+}
+void main() {
+    ivec2 pixel=ivec2(gl_GlobalInvocationID.xy),size=imageSize(output_image);
+    if(any(greaterThanEqual(pixel,size)))return;
+    vec2 uv=(vec2(pixel)+.5)/vec2(size);
+    vec3 view=normalize(view_point(uv,1.0));
+    mat3 frame=mat3(p.right.xyz,p.up.xyz,p.back.xyz);
+    vec3 ray=frame*view;
+    float elevation=asin(clamp(ray.y,-1.0,1.0));
+    float azimuth=atan(ray.x,-ray.z);
+    float angle=atan(sin(azimuth-p.weather.y),cos(azimuth-p.weather.y));
+    float band=smoothstep(-.008,.012,elevation)*(1.0-smoothstep(.085,.11,elevation));
+    float sector=1.0-smoothstep(.35,.56,abs(angle));
+    float gain=band*sector*p.weather.x;
+    // An untouched pixel is never rewritten. Nearby objects and their edges
+    // remain the original opaque scene, including when surrounded by sky.
+    if(gain<.0001 || distance_at(uv)<p.weather.w || transparent_at(uv))return;
+    float shimmer=sin(p.weather.z*(6.28318530718/8.0)+azimuth*45.0)*.0007
+                 +sin(p.weather.z*(6.28318530718/16.0)+azimuth*93.0)*.0004;
+    // A folded ray duct: stretch the lower image, then invert its upper copy.
+    // This samples real architecture/ships, not a generated skyline silhouette.
+    float duct=.045;
+    float refracted=.012-abs(elevation-duct)*.90+shimmer;
+    float target=refracted;
+    vec3 world=vec3(sin(azimuth)*cos(target),sin(target),-cos(azimuth)*cos(target));
+    vec3 sample_view=transpose(frame)*world;
+    if(sample_view.z>=-.001)return;
+    // Recover the actual off-axis frustum slopes from its inverse projection;
+    // no per-pixel matrix inversion or guessed camera FOV.
+    vec3 center=view_point(vec2(.5),1.0);
+    vec3 corner=view_point(vec2(1.0),1.0);
+    vec2 origin=center.xy/-center.z;
+    vec2 span=corner.xy/-corner.z-origin;
+    vec2 sample_uv=((sample_view.xy/-sample_view.z-origin)/span+1.0)*.5;
+    if(any(lessThan(sample_uv,vec2(.001))) || any(greaterThan(sample_uv,vec2(.999))))return;
+    vec2 texel=1.0/vec2(size);
+    // Protect all four bilinear taps from pulling nearby foreground into a
+    // distant ray. Destination depth alone cannot protect this boundary.
+    for(int y=0;y<2;y++)for(int x=0;x<2;x++) {
+        vec2 tap=(floor(sample_uv*vec2(size)-.5)+vec2(x,y)+.5)*texel;
+        if(distance_at(tap)<p.weather.w || transparent_at(tap))return;
+    }
+    // Mirage images lose contrast in the inversion's long, hazy optical path.
+    // Fade radiance at the sector/band edges, rather than bending progressively
+    // back to the original ray and producing hard, stretched horizontal tails.
+    vec4 original=texelFetch(source_image,pixel,0);
+    imageStore(output_image,pixel,mix(original,textureLod(source_image,sample_uv,0.0),gain*.65));
+}
+#endif

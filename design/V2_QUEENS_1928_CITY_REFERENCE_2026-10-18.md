@@ -138,3 +138,85 @@ stocks and separate cornices. The source owner remains
 **art/blender/scripts/build_city_horizon.py**. Further geometry changes require
 native review and composed views under the normal batch workflow. References
 remain external form research; no archive photograph is a game texture.
+
+## Queued city revamp: Queens Plaza / Jackson Avenue, owner brief October 27
+
+**After current open work**, develop this location as the preferred composition
+reference: the Jackson Avenue / 41st Avenue / Queens Plaza South area of Long
+Island City, near elevated transit and the Queensboro Bridge approach. This is
+a queued fictional-site study, not a surveyed parcel assignment or an immediate
+change to the Bible, existing street coordinates, bar or transit access.
+
+Compose the six-story Orison, its ground-floor glass-and-iron arcade, grocery
+corner and bar against a legible hierarchy of landmarks:
+
+- A western bridge/Manhattan sightline, with Queensboro Bridge trusses framing
+  the distant skyline and dramatic seasonal sunsets. Confirm bearings and solar
+  azimuths; the sun will not sit behind a chosen tower throughout the year.
+- A substantial multi-level elevated station and steel viaduct, with visibly
+  supported stair gantries landing on the sidewalk without obstructing the
+  arcade, bar, tent theater or ordinary walking route.
+- Occasional neo-Gothic/commercial height accents, including the documented
+  1927 Bank of the Manhattan Company clock-tower vocabulary, amid lower brick
+  domestic and industrial stock. Do not substitute modern towers or repeat
+  the landmark crown on every block.
+- An eastern industrial/rail-yard opening with steam locomotives and wind-bent
+  plumes catching twilight, where the actual sightline supports it. Sunnyside
+  Yard is a composition reference, not a license for open scenery backs.
+
+The owner proposes tapestry brick, a rusticated pale-stone base, terracotta
+cornices and a deep light court; a vaulted through-arcade linking streets with
+cobbler, tobacconist, haberdasher and soda-fountain frontage; a prominent grocery
+corner; and a sub-grade Prohibition-style bar with iron stairs and an awning.
+Reconcile these with existing residents, shop/settlement owners, access routes
+and the working Harukiya before any relocation. A short bar stair or direct
+station connection is a design option requiring access/clearance review, not an
+instruction to overwrite the current topology. Do not claim this particular
+fictional plan follows every 1928 building-code requirement without research.
+
+Historical clarification: the elevated reference is **Queensboro Plaza**, not
+the later underground Queens Plaza station; see the sources above. The
+[LPC designation report](https://s-media.nyc.gov/agencies/lpc/lp/2570.pdf)
+identifies the Bank of the Manhattan Company and its May 1927 opening. Verify
+the brief's exact parcel, street names, story counts, period tenancy, stair
+construction and transit arrangements against dated maps before modeling.
+Deliberate alternate-universe departures remain available, clearly distinguished
+from researched claims. Modern OSM/GIS geometry is only a spatial starting point;
+it does not supply an exact 1928 grid or building census. Prefer dated archive
+plans for historical reconciliation, with source/licence provenance.
+
+### Proposed background pipeline, to measure rather than assume
+
+Reuse the installed horizon source plan, builder, stock and catalogue first.
+The brief's OSM/GIS → modular facade generation → atlas/trim allocation →
+block-based glTF/culling chain is an authoring option, not a requirement for new
+add-ons or a replacement world generator. Preserve editable footprints and
+deterministic seeds. Array/instance facade bays and scatter supported water
+tanks, chimneys, fire escapes and aerials with varied, intentional distributions;
+do not let a Poisson scatter put heavy machinery on openings or unsupported roofs.
+The proposed **3.0 × 3.5 m** bay is a trial module, not a floor-height override.
+
+Consider full near-field stock, simpler middle-distance blocks and distant
+clusters/impostors with weather-aware transitions. The suggested **0–50 / 50–200 /
+200+ m** bands and **300+ m** skyline card are starting points; rooftop views
+and the 0.1-degree telescope can invalidate an ordinary FPS distance-only LOD.
+Preserve depth/parallax, silhouette and landmark detail through that viewing path.
+Any horizon card is an original Blender render, never a reference-photo bake.
+
+Treat one **2048-square** brick/stone/metal/window atlas and **1,500 draws** as
+unmeasured example targets, not guarantees. Allocate texture space by projected
+detail and actual physical scale; retain distinct registered substance recipes,
+correct PBR channels, UVs, normal mapping and loaded mipmaps. Measure draw calls,
+transparent overlap, shader cost, memory, shadow work and frame-time tails.
+Interior mapping/POM is optional where it reads convincingly and costs less
+than existing geometry; it is not free. Avoid a costly per-pixel treatment on
+every distant window by default.
+
+Evaluate block-sized exports, measured HLOD/culling and shadow simplification
+without arbitrary global cutoffs. Lightmaps or baked illumination must retain
+the campaign's changing sun, night, storms and weather response; do not bake a
+permanent noon into a year-long atmosphere. Use the existing coal-smog/weather
+owner to blend distance, not fog to conceal broken playable geometry or disable
+visibility arbitrarily. Review near/far overlap, dusk/night, storm/clear, rooftop
+and telescope views, then compare repeated occupied approach routes before
+accepting a replacement. Existing visual/spatial/save authorities remain intact.

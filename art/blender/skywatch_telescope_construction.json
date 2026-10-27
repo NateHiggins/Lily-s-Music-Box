@@ -1,0 +1,1195 @@
+{
+  "evidence_class": "INERT",
+  "scope": "native telescope stock, not installed interaction or surface qualification",
+  "asset_sha256": "ef5546d7fda503ec38a285d34d8f6d1c2a4269b25cd343ec937941a09f2a8097",
+  "partitions": [
+    {
+      "mesh": "TripodWoodAndBraces",
+      "materials": [
+        "brass",
+        "wood_dark"
+      ],
+      "parent": "root",
+      "pivot": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mesh": "TripodHardware",
+      "materials": [
+        "brass",
+        "cast_iron",
+        "rubber_aged"
+      ],
+      "parent": "root",
+      "pivot": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mesh": "AzimuthFork",
+      "materials": [
+        "brass",
+        "cast_iron"
+      ],
+      "parent": "azimuth",
+      "pivot": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mesh": "AltitudeSaddle",
+      "materials": [
+        "brass",
+        "rubber_aged"
+      ],
+      "parent": "altitude",
+      "pivot": [
+        0,
+        1.4300000000000002,
+        0
+      ]
+    },
+    {
+      "mesh": "OpticalTubeAssembly",
+      "materials": [
+        "bakelite",
+        "brass",
+        "brass_bright"
+      ],
+      "parent": "altitude",
+      "pivot": [
+        0,
+        1.4300000000000002,
+        0
+      ]
+    },
+    {
+      "mesh": "OpticalGlass",
+      "materials": [
+        "glassish"
+      ],
+      "parent": "altitude",
+      "pivot": [
+        0,
+        1.4300000000000002,
+        0
+      ]
+    },
+    {
+      "mesh": "AltitudeGear",
+      "materials": [
+        "brass",
+        "brass_bright"
+      ],
+      "parent": "altitude",
+      "pivot": [
+        0,
+        1.4300000000000002,
+        0
+      ]
+    },
+    {
+      "mesh": "AzimuthGear",
+      "materials": [
+        "brass"
+      ],
+      "parent": "azimuth",
+      "pivot": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mesh": "AltitudeSlowMotion",
+      "materials": [
+        "brass",
+        "brass_bright",
+        "cast_iron"
+      ],
+      "parent": "azimuth",
+      "pivot": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mesh": "AzimuthSlowMotion",
+      "materials": [
+        "brass",
+        "brass_bright",
+        "cast_iron"
+      ],
+      "parent": "root",
+      "pivot": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "Skywatch__Mahogany leg rail",
+      "volume_m3": 0.0011174390280111238
+    },
+    {
+      "name": "Skywatch__Mahogany leg rail.001",
+      "volume_m3": 0.0011174390280111238
+    },
+    {
+      "name": "Skywatch__Leg lower bridge",
+      "volume_m3": 8.478733918922156e-05
+    },
+    {
+      "name": "Skywatch__Spread restraint",
+      "volume_m3": 6.0296379252052783e-05
+    },
+    {
+      "name": "Skywatch__Mahogany leg rail.002",
+      "volume_m3": 0.0011174390280111238
+    },
+    {
+      "name": "Skywatch__Mahogany leg rail.003",
+      "volume_m3": 0.0011174390280111238
+    },
+    {
+      "name": "Skywatch__Leg lower bridge.001",
+      "volume_m3": 8.478734504910345e-05
+    },
+    {
+      "name": "Skywatch__Spread restraint.001",
+      "volume_m3": 6.029638348398262e-05
+    },
+    {
+      "name": "Skywatch__Mahogany leg rail.004",
+      "volume_m3": 0.0011174390280111238
+    },
+    {
+      "name": "Skywatch__Mahogany leg rail.005",
+      "volume_m3": 0.0011174390280111238
+    },
+    {
+      "name": "Skywatch__Leg lower bridge.002",
+      "volume_m3": 8.478735090898535e-05
+    },
+    {
+      "name": "Skywatch__Spread restraint.002",
+      "volume_m3": 6.029638771591245e-05
+    },
+    {
+      "name": "Skywatch__Tripod crown",
+      "volume_m3": 0.00245014632881265
+    },
+    {
+      "name": "Skywatch__Azimuth spindle",
+      "volume_m3": 0.0004957249848433877
+    },
+    {
+      "name": "Skywatch__Spreader central hub",
+      "volume_m3": 0.00011577602294543576
+    },
+    {
+      "name": "Skywatch__Shoe backing",
+      "volume_m3": 0.0004480829760381128
+    },
+    {
+      "name": "Skywatch__Levelling screw",
+      "volume_m3": 1.2967598733154237e-05
+    },
+    {
+      "name": "Skywatch__Broad roof pad",
+      "volume_m3": 6.916197205897163e-05
+    },
+    {
+      "name": "Skywatch__Crown hinge tongue",
+      "volume_m3": 9.770522386048347e-05
+    },
+    {
+      "name": "Skywatch__Crown hinge bolt",
+      "volume_m3": 3.729409214037326e-05
+    },
+    {
+      "name": "Skywatch__Shoe backing.001",
+      "volume_m3": 0.00044808296771331967
+    },
+    {
+      "name": "Skywatch__Levelling screw.001",
+      "volume_m3": 1.2967598733154237e-05
+    },
+    {
+      "name": "Skywatch__Broad roof pad.001",
+      "volume_m3": 6.916197205897163e-05
+    },
+    {
+      "name": "Skywatch__Crown hinge tongue.001",
+      "volume_m3": 9.770521364637196e-05
+    },
+    {
+      "name": "Skywatch__Crown hinge bolt.001",
+      "volume_m3": 3.729409214037326e-05
+    },
+    {
+      "name": "Skywatch__Shoe backing.002",
+      "volume_m3": 0.0004480822552340982
+    },
+    {
+      "name": "Skywatch__Levelling screw.002",
+      "volume_m3": 1.2967598733154237e-05
+    },
+    {
+      "name": "Skywatch__Broad roof pad.002",
+      "volume_m3": 6.916197205897163e-05
+    },
+    {
+      "name": "Skywatch__Crown hinge tongue.002",
+      "volume_m3": 9.770522386048358e-05
+    },
+    {
+      "name": "Skywatch__Crown hinge bolt.002",
+      "volume_m3": 3.729409214037326e-05
+    },
+    {
+      "name": "Skywatch__Rotating azimuth cup",
+      "volume_m3": 0.0010930195354525824
+    },
+    {
+      "name": "Skywatch__Fork crosshead",
+      "volume_m3": 0.0005885820676485364
+    },
+    {
+      "name": "Skywatch__Fork cheek",
+      "volume_m3": 0.0002851576196285165
+    },
+    {
+      "name": "Skywatch__Bushed altitude journal",
+      "volume_m3": 6.989076755232448e-05
+    },
+    {
+      "name": "Skywatch__Captive axle nut",
+      "volume_m3": 1.2417589414563452e-05
+    },
+    {
+      "name": "Skywatch__Fork cheek.001",
+      "volume_m3": 0.000285157619628516
+    },
+    {
+      "name": "Skywatch__Bushed altitude journal.001",
+      "volume_m3": 6.989076755232448e-05
+    },
+    {
+      "name": "Skywatch__Captive axle nut.001",
+      "volume_m3": 1.2417589414563452e-05
+    },
+    {
+      "name": "Skywatch__Altitude trunnion",
+      "volume_m3": 0.0001100979377060538
+    },
+    {
+      "name": "Skywatch__Tube saddle bridge",
+      "volume_m3": 0.0008435361053386157
+    },
+    {
+      "name": "Skywatch__Split saddle strap",
+      "volume_m3": 3.640366478558435e-05
+    },
+    {
+      "name": "Skywatch__Saddle packing liner",
+      "volume_m3": 6.528637445717931e-06
+    },
+    {
+      "name": "Skywatch__Strap clamp ear",
+      "volume_m3": 1.052136502865488e-05
+    },
+    {
+      "name": "Skywatch__Clamp screw",
+      "volume_m3": 2.3846700792891226e-06
+    },
+    {
+      "name": "Skywatch__Strap clamp ear.001",
+      "volume_m3": 1.0521365028654826e-05
+    },
+    {
+      "name": "Skywatch__Clamp screw.001",
+      "volume_m3": 2.3846700792891226e-06
+    },
+    {
+      "name": "Skywatch__Split saddle strap.001",
+      "volume_m3": 3.640366478558435e-05
+    },
+    {
+      "name": "Skywatch__Saddle packing liner.001",
+      "volume_m3": 6.528637445717931e-06
+    },
+    {
+      "name": "Skywatch__Strap clamp ear.002",
+      "volume_m3": 1.0521365028655058e-05
+    },
+    {
+      "name": "Skywatch__Clamp screw.002",
+      "volume_m3": 2.3846700792891226e-06
+    },
+    {
+      "name": "Skywatch__Strap clamp ear.003",
+      "volume_m3": 1.0521365028655004e-05
+    },
+    {
+      "name": "Skywatch__Clamp screw.003",
+      "volume_m3": 2.3846700792891226e-06
+    },
+    {
+      "name": "Skywatch__Continuous optical tube",
+      "volume_m3": 0.0007454754949666592
+    },
+    {
+      "name": "Skywatch__Objective threaded cell",
+      "volume_m3": 0.00017435159094546013
+    },
+    {
+      "name": "Skywatch__Dew shield",
+      "volume_m3": 0.00013550295765852663
+    },
+    {
+      "name": "Skywatch__Turned tube shoulder",
+      "volume_m3": 1.0024368691036061e-05
+    },
+    {
+      "name": "Skywatch__Turned tube shoulder.001",
+      "volume_m3": 1.0024368691036061e-05
+    },
+    {
+      "name": "Skywatch__Turned tube shoulder.002",
+      "volume_m3": 1.0024368691036061e-05
+    },
+    {
+      "name": "Skywatch__Rear stepped reducer",
+      "volume_m3": 0.00019108172836140947
+    },
+    {
+      "name": "Skywatch__Sliding eyepiece drawtube",
+      "volume_m3": 7.618100661811413e-05
+    },
+    {
+      "name": "Skywatch__Eyepiece retaining collar",
+      "volume_m3": 5.1062600840538225e-05
+    },
+    {
+      "name": "Skywatch__Eye cup",
+      "volume_m3": 3.652407319495025e-05
+    },
+    {
+      "name": "Skywatch__Pinion bearing housing",
+      "volume_m3": 7.742964702009181e-05
+    },
+    {
+      "name": "Skywatch__Drawtube rack",
+      "volume_m3": 9.531547549643661e-06
+    },
+    {
+      "name": "Skywatch__Focus shaft",
+      "volume_m3": 8.732467954039996e-06
+    },
+    {
+      "name": "Skywatch__Milled focus knob",
+      "volume_m3": 1.749796728451023e-05
+    },
+    {
+      "name": "Skywatch__Knob knurl",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.001",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.002",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.003",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.004",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.005",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.006",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.007",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.008",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.009",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.010",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.011",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Milled focus knob.001",
+      "volume_m3": 1.749796728451023e-05
+    },
+    {
+      "name": "Skywatch__Knob knurl.012",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.013",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.014",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.015",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.016",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.017",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.018",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.019",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.020",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.021",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.022",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Knob knurl.023",
+      "volume_m3": 5.635541306250803e-08
+    },
+    {
+      "name": "Skywatch__Finder shoe",
+      "volume_m3": 1.6631452283193777e-05
+    },
+    {
+      "name": "Skywatch__Finder bracket",
+      "volume_m3": 1.7029274386866007e-05
+    },
+    {
+      "name": "Skywatch__Finder retaining ring",
+      "volume_m3": 4.225516522757152e-06
+    },
+    {
+      "name": "Skywatch__Finder shoe.001",
+      "volume_m3": 1.663144473318256e-05
+    },
+    {
+      "name": "Skywatch__Finder bracket.001",
+      "volume_m3": 1.7029274386866007e-05
+    },
+    {
+      "name": "Skywatch__Finder retaining ring.001",
+      "volume_m3": 4.225516522757152e-06
+    },
+    {
+      "name": "Skywatch__Finder optical tube",
+      "volume_m3": 6.54692570098916e-05
+    },
+    {
+      "name": "Skywatch__Finder eyecup",
+      "volume_m3": 1.0413306290053001e-05
+    },
+    {
+      "name": "Skywatch__Objective optical glass",
+      "volume_m3": 1.7527333162121697e-05
+    },
+    {
+      "name": "Skywatch__Eyepiece optical glass",
+      "volume_m3": 1.4632479759211292e-06
+    },
+    {
+      "name": "Skywatch__Finder glass",
+      "volume_m3": 3.9898409322406077e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel web",
+      "volume_m3": 0.00011475695021718873
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.001",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.002",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.003",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.004",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.005",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.006",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.007",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.008",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.009",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.010",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.011",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.012",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.013",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.014",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.015",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.016",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.017",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.018",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.019",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.020",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.021",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.022",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.023",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.024",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.025",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.026",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.027",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.028",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.029",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.030",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.031",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.032",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.033",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.034",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.035",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.036",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.037",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.038",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.039",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.040",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.041",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.042",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.043",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.044",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.045",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.046",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude wheel tooth.047",
+      "volume_m3": 2.4411359614522396e-07
+    },
+    {
+      "name": "Skywatch__Altitude keyed boss",
+      "volume_m3": 7.235877610105639e-05
+    },
+    {
+      "name": "Skywatch__Altitude retaining nut",
+      "volume_m3": 1.0463250392634013e-05
+    },
+    {
+      "name": "Skywatch__Azimuth wheel web",
+      "volume_m3": 0.0002771481757583695
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.001",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.002",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.003",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.004",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.005",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.006",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.007",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.008",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.009",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.010",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.011",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.012",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.013",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.014",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.015",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.016",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.017",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.018",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.019",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.020",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.021",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.022",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.023",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.024",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.025",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.026",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.027",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.028",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.029",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.030",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.031",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.032",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.033",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.034",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.035",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.036",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.037",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.038",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.039",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.040",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.041",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.042",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.043",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.044",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.045",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.046",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.047",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.048",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.049",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.050",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.051",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.052",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.053",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.054",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.055",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.056",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.057",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.058",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.059",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.060",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.061",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.062",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Azimuth wheel tooth.063",
+      "volume_m3": 2.7472073116525853e-07
+    },
+    {
+      "name": "Skywatch__Altitude threaded worm",
+      "volume_m3": 1.4082701660665085e-06
+    },
+    {
+      "name": "Skywatch__Altitude spindle",
+      "volume_m3": 5.541867288007979e-06
+    },
+    {
+      "name": "Skywatch__Altitude bearing housing",
+      "volume_m3": 1.3216718856504979e-05
+    },
+    {
+      "name": "Skywatch__Altitude bearing bush",
+      "volume_m3": 4.537554633938647e-06
+    },
+    {
+      "name": "Skywatch__Altitude bearing housing.001",
+      "volume_m3": 1.3216718856504987e-05
+    },
+    {
+      "name": "Skywatch__Altitude bearing bush.001",
+      "volume_m3": 4.537554633938647e-06
+    },
+    {
+      "name": "Skywatch__Upper bearing carrier",
+      "volume_m3": 2.725666050832796e-05
+    },
+    {
+      "name": "Skywatch__Fork carrier attachment",
+      "volume_m3": 2.6355924276998302e-05
+    },
+    {
+      "name": "Skywatch__Altitude handwheel",
+      "volume_m3": 3.186491502589633e-05
+    },
+    {
+      "name": "Skywatch__Altitude wheel hub",
+      "volume_m3": 7.781483703625475e-06
+    },
+    {
+      "name": "Skywatch__Azimuth threaded worm",
+      "volume_m3": 1.4082715488363591e-06
+    },
+    {
+      "name": "Skywatch__Azimuth spindle.001",
+      "volume_m3": 5.541867288007979e-06
+    },
+    {
+      "name": "Skywatch__Azimuth bearing housing",
+      "volume_m3": 1.321672009826332e-05
+    },
+    {
+      "name": "Skywatch__Azimuth bearing bush",
+      "volume_m3": 4.537554633938647e-06
+    },
+    {
+      "name": "Skywatch__Azimuth bearing housing.001",
+      "volume_m3": 1.321672009826332e-05
+    },
+    {
+      "name": "Skywatch__Azimuth bearing bush.001",
+      "volume_m3": 4.537554633938647e-06
+    },
+    {
+      "name": "Skywatch__Lower bearing carrier",
+      "volume_m3": 2.725664824961406e-05
+    },
+    {
+      "name": "Skywatch__Crown carrier attachment",
+      "volume_m3": 5.8894194515821645e-05
+    },
+    {
+      "name": "Skywatch__Azimuth handwheel",
+      "volume_m3": 3.186491502589633e-05
+    },
+    {
+      "name": "Skywatch__Azimuth wheel hub",
+      "volume_m3": 7.781483703625475e-06
+    }
+  ],
+  "export_validation": {
+    "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\skywatch_telescope.glb",
+    "primitives": 22,
+    "triangles": 42436,
+    "minimum_tangent_agreement": 0.9999997550730866,
+    "status": "PASS"
+  },
+  "axis_height": 1.4300000000000002,
+  "materials": {
+    "glassish": {
+      "registered_clear_finish": "res://scripts/building/v2_clear_glass_finish.gd",
+      "optical_role": "refractor lens; no diffuse painted image"
+    },
+    "wood_dark": {
+      "catalog": "wood_dark",
+      "tile": 1.2,
+      "normal": 0.12,
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "brass": {
+      "catalog": "brass",
+      "tile": 0.5,
+      "normal": 0.25,
+      "roughness": 1.0,
+      "metallic": 0.85,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "cast_iron": {
+      "catalog": "cast_iron",
+      "tile": 0.4,
+      "normal": 0.12,
+      "roughness": 0.6,
+      "metallic": 0.0,
+      "tint": [
+        0.3,
+        0.28,
+        0.25,
+        1.0
+      ]
+    },
+    "rubber_aged": {
+      "catalog": "rubber_aged",
+      "tile": 0.26,
+      "normal": 0.25,
+      "roughness": 0.82,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "brass_bright": {
+      "catalog": "brass_bright",
+      "tile": 0.35,
+      "normal": 0.25,
+      "roughness": 1.0,
+      "metallic": 0.85,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "bakelite": {
+      "catalog": "bakelite",
+      "tile": 0.04,
+      "normal": 1.0,
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "source_bindings": {
+    "art/data/skywatch/source_plan.json": "dfdd5c62896304d65507bfd2575ce779ca33930ed3bd0ac49b7ce9c30fb552f0",
+    "art/blender/scripts/build_skywatch_stock.py": "f5456431426927ec51b233892dfd56864b19544282b87f4cd949cb08161b8f65",
+    "art/blender/scripts/build_service_instruments.py": "23d8bc5fb4deb787a7a87c67c517c0dc19b1014b2b263c5b97cb88ee6c7416be",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "game/data/runtime_material_sets.json": "13dd9a0e229d6170871c7bc68f9344391215dc5eb8a237ad603ce1410e7f559d"
+  }
+}

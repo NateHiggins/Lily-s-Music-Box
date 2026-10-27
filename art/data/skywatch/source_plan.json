@@ -1,0 +1,24 @@
+{
+  "schema": "orison.skywatch-stock.v1",
+  "classification": "ADAPTATION",
+  "evidence_class": "INERT",
+  "references": {
+    "telescope": "https://www.rmg.co.uk/collections/objects/rmgc-object-11096",
+    "camp_stove": "https://patents.google.com/patent/US1438345A/en"
+  },
+  "telescope": {
+    "aperture_m": 0.075,
+    "tube_length_m": 1.14,
+    "axis_height_m": 1.34,
+    "tripod_radius_m": 0.64,
+    "candidate_roof_xz": [-11.0, 6.0],
+    "survey_floor_y_at_centre": 19.2702503204346
+  },
+  "gathering": {
+    "table_candidate_roof_xz": [-7.5, 9.0],
+    "table_length_m": 3.2,
+    "grill_candidate_roof_xz": [-3.5, 9.5],
+    "reserved": ["ROOF_TANK_SERVICE_STANCE", "ROOF_DECK_WEST_STANCE", "ROOF_DECK_NORTH_STANCE", "ROOF_DECK_SOUTH_STANCE", "ROOF_DECK_EAST_STANCE", "ROOF_PUBLIC_DOOR", "ROOF_SERVICE_DOOR", "roof weather inspector at (3,-9)"]
+  },
+  "scope": "Native stock and measured authoring candidates. Final installed footprints, contact, circulation, direct manipulation and telescope input are not yet qualified. No historical replica, fire-capacity or structural rating is claimed."
+}

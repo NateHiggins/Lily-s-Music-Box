@@ -6,6 +6,8 @@ box-filtered across all three axes. Cirrus is a cheap tileable high cloud mask.
 from pathlib import Path
 import numpy as np
 from PIL import Image
+import argparse
+import json
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'game/assets/environment/weather'
@@ -58,4 +60,46 @@ def build():
     Image.fromarray(np.rint(mask*255).astype(np.uint8)).save(OUT/'cirrus.png')
     print('Weather noise:',len(b''.join(chunks)),'bytes; seven 3D levels; cirrus256')
 
-if __name__=='__main__':build()
+def mip_bytes(volume):
+    chunks=[]
+    while True:
+        chunks.append(np.rint(np.clip(volume,0,1)*255).astype(np.uint8).tobytes())
+        if len(volume)==1:break
+        n=len(volume)//2
+        volume=volume.reshape(n,2,n,2,n,2,volume.shape[-1]).mean(axis=(1,3,5))
+    return b''.join(chunks)
+
+def build_fluid(output):
+    """Offline curl of a periodic vector potential; one runtime flow lookup.
+
+    Central derivatives commute on this periodic grid. A single global scale
+    preserves that discrete identity; per-voxel normalization would not.
+    Quantization/interpolation and finite coordinate warps are approximations,
+    not a mass-conserving cloud simulation. Axes are image Z,Y,X.
+    """
+    output.mkdir(parents=True,exist_ok=True)
+    potential=np.stack([perlin(32,3,1940+i)*.75+perlin(32,6,1950+i)*.25
+                        for i in range(3)],axis=-1)
+    def derivative(a,axis):return (np.roll(a,-1,axis)-np.roll(a,1,axis))*.5
+    curl=np.stack((derivative(potential[...,2],1)-derivative(potential[...,1],0),
+                   derivative(potential[...,0],0)-derivative(potential[...,2],2),
+                   derivative(potential[...,1],2)-derivative(potential[...,0],1)),axis=-1)
+    curl/=max(float(np.max(np.abs(curl))),1e-8)
+    divergence=derivative(curl[...,0],2)+derivative(curl[...,1],1)+derivative(curl[...,2],0)
+    assert np.max(np.abs(divergence))<1e-5
+    flow=mip_bytes(curl*.5+.5)
+    p=perlin(128,4,1928)*.65+perlin(128,8,1929)*.25+perlin(128,16,1930)*.10
+    base=mip_bytes(np.clip(p*.72+worley(128,8,1931)*.28,0,1)[...,None])
+    (output/'perlin_worley_128.r8').write_bytes(base)
+    (output/'cloud_curl_32.rgb8').write_bytes(flow)
+    result={'base_bytes':len(base),'flow_bytes':len(flow),
+            'unquantized_discrete_divergence_max':float(np.max(np.abs(divergence))),
+            'method':'periodic central-difference curl of three seeded scalar potentials; full 3D mip chains'}
+    print(json.dumps(result,indent=2))
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--fluid-output',type=Path,help='Bake new base/flow stock only; preserve legacy assets')
+    args=parser.parse_args()
+    if args.fluid_output:build_fluid(args.fluid_output)
+    else:build()

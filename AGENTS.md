@@ -119,6 +119,11 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
 
 ## Tools
 
+For Blender modeling, repair, UV/PBR authoring and export, use
+[blender-asset-development](.agents/skills/blender-asset-development/SKILL.md).
+It routes to the shared batch workflow and existing fabrication helpers; example
+briefs supply starting points rather than replacing measured project constraints.
+
 For Godot implementation, debugging, integration and performance work, use the
 repository skill [godot-development](.agents/skills/godot-development/SKILL.md).
 Its ethos is **deeper, not bigger**: improve execution without expanding scope;

@@ -22,7 +22,7 @@ class PreviewClock extends CampaignClock:
 
 const Selector := preload("res://scripts/building/building_root_selector.gd")
 const ROOF_STANCE := Vector3(3.0,19.25,-9.0)
-const PREVIEW_ENV := ["WEATHER_SIMULATE","WEATHER_FORMATION","WEATHER_PHENOMENON","WEATHER_CLOUD_SHAPE","WEATHER_SKY_BASELINE","DAYNIGHT_FORCE","CAMPAIGN_TIME_FREEZE","DAYNIGHT"]
+const PREVIEW_ENV := ["WEATHER_SIMULATE","WEATHER_FORMATION","WEATHER_PHENOMENON","WEATHER_SKY_BASELINE","DAYNIGHT_FORCE","CAMPAIGN_TIME_FREEZE","DAYNIGHT"]
 signal preview_retired
 var world: OrisonV2RuntimeRoot
 var player: PlayerController
@@ -79,7 +79,7 @@ func _build() -> void:
 	CampaignClock.new().configure_date(1928,11,10,720)
 	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
 	GameBoot.settings.weather_network_enabled=false
-	for key: String in ["WEATHER_SIMULATE","WEATHER_FORMATION","WEATHER_PHENOMENON","WEATHER_CLOUD_SHAPE","WEATHER_SKY_BASELINE","DAYNIGHT_FORCE"]: OS.set_environment(key,"")
+	for key: String in ["WEATHER_SIMULATE","WEATHER_FORMATION","WEATHER_PHENOMENON","WEATHER_SKY_BASELINE","DAYNIGHT_FORCE"]: OS.set_environment(key,"")
 	OS.set_environment("CAMPAIGN_TIME_FREEZE","1")
 	OS.set_environment("DAYNIGHT","1")
 	world=load(Selector.scene_path()).instantiate()
