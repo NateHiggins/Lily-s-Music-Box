@@ -330,3 +330,50 @@ inventory. Earlier fire-service evidence is retained; this run grants no new
 hose-input, save/load or astronomical telescope interaction qualification.
 The earlier stale board, all raw diagnostics and prior packet are preserved.
 No annual artistic acceptance or whole-game completion follows from this pass.
+
+### Roof discovery and native instrument authoring after PR #67
+
+PR #67 merged the qualified astronomy foundation at **6ff8922f**. A new
+roof survey mode reuses the existing clearance probe; it deliberately records
+posed authoring data rather than admitting a played route. Patched Vulkan,
+fullscreen 3440x1440 **roof_survey.log.receipt.json** completed in 145 seconds
+with empty stderr. It records **2,961** half-metre standing-capsule samples,
+**2,386 clear**, **2,857 supported**, and **911** bounded mesh records.
+Coordinates are in the installed roof's actual rotated frame.
+
+The northwestern telescope candidate at **(-11,6)** has a 3 m square of
+49/49 clear samples. Its measured centre floor height is **19.2702503 m**;
+nearby sloping floor heights vary and the tripod feet still require exact
+installed fitting. The long table candidate is **(-7.5,9)**, the camp cooker
+candidate **(-3.5,9.5)**. These are authoring placements, not accepted stock
+footprints. Tank service, ventilators, bulkhead doors and the weather inspector
+at **(3,-9)** remain reserved.
+
+The native refractor is informed by the museum's
+[Cooke instrument, 1897–1922](https://www.rmg.co.uk/collections/objects/rmgc-object-11096):
+75 mm aperture, a long brass tube, wooden tripod, focusing wheel and supporting
+brackets. The planned camp cooker is informed by the
+[1922 folding camp-stove patent](https://patents.google.com/patent/US1438345A/en),
+not a later suburban kettle grill. Both are adaptations; no replica or precise
+historical ownership is asserted.
+
+Blender now contains the telescope's hollow tube/cells, finder, drawtube,
+packed saddle straps, fork journals, retaining boss, braced tripod and visible
+two-axis worm drives. Actual rendered review exposed a faceted brass texture
+mosaic. Continuous developed cylinder charts and the registered aged-brass
+finish repair that defect. Submillimetre bevels use one segment. The initial
+unguided stock was 70,728 triangles; the chart/bevel revision was 25,936, and
+the subsequent real gear/hub details bring the current instrument to **42,436
+triangles**, **238 closed construction pieces**, **10 runtime partitions** and
+**22 material primitives**. This is a geometry count, not a measured runtime
+speedup. Final exported UV/tangent validation passes, minimum tangent agreement
+**0.99999975**. The initial missing-glass-recipe and studio-world failures remain
+in the authoring logs. The clear dielectric reuses its existing registered finish.
+
+Actual Blender whole/objective/mount renders and roof captures are indexed in
+the compact rooftop contact/review archive. Raw evidence lives under
+**C:/ov/reports/skywatch34/**. The telescope is **not installed or gameplay
+qualified** at this authoring checkpoint. Exact foot contact, runtime materials,
+moving part ownership, 0.1-degree eyepiece input, controller/cancel ownership,
+save policy, party fittings and occupied-world costs remain open. Main's old
+surface receipt does not qualify these new assets.

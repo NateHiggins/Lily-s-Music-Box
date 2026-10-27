@@ -9,6 +9,9 @@ const CORNER:=Vector2(3.4,-4.2)
 func _init() -> void: route_label="ROOF CLEARANCE DIAGNOSTIC"
 
 func _route() -> void:
+	if OS.get_environment("SKYWATCH_ROOF_SURVEY")=="1":
+		await _survey_skywatch_roof()
+		return
 	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR"))
 	for point: Vector3 in [Vector3(1.925,17.6,1.3),Vector3(3.975,17.6,1.3),Vector3(3.975,19.2,-3.4)]:
 		if not await _walk(point):return
@@ -109,3 +112,58 @@ func _lamp_measurement() -> Dictionary:
 		"player_determinant":player.global_basis.determinant(),"focus_distance":player._carried_light_pose.last_focus,
 		"focus_alignment":(-actual.z).normalized().dot((focus-player._hand.global_position).normalized())}
 	player._hand.transform=original;return data
+
+func _survey_skywatch_roof() -> void:
+	# Authoring survey only: initial diagnostic placement and posed cameras.
+	# This mode does not execute or qualify the inherited roof route.
+	var directory := OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(directory)
+	player.set_physics_process(false)
+	player.global_position=world.adapter.root.to_global(Vector3(3.,19.25,-9.))
+	player.velocity=Vector3.ZERO
+	CampaignTime.set_frozen_for_tests(true)
+	world.campaign_clock.configure_date(1928,11,10,720)
+	world.day_night_director._apply(720.)
+	standing=CapsuleShape3D.new()
+	standing.radius=PlayerController.BODY_RADIUS;standing.height=PlayerController.STANDING_HEIGHT
+	var rows: Array[Dictionary]=[]
+	var root: Node3D=world.adapter.root
+	var space := world.get_world_3d().direct_space_state
+	for x in range(63):
+		for z in range(47):
+			var at := Vector3(-15.5+float(x)*.5,19.2,-12.+float(z)*.5)
+			var ray := PhysicsRayQueryParameters3D.create(root.to_global(at+Vector3.UP*.45),root.to_global(at-Vector3.UP*.25),1,[player.get_rid()])
+			var floor_hit := space.intersect_ray(ray)
+			var row := {"xz":[at.x,at.z],"clear":false,"floor":"","colliders":[]}
+			if not floor_hit.is_empty():
+				var foot: Vector3=root.to_local(floor_hit.position)
+				row["floor"]=str(root.get_path_to(floor_hit.collider));row["floor_y"]=foot.y
+				if floor_hit.normal.dot(Vector3.UP)>.9:
+					var query := PhysicsShapeQueryParameters3D.new()
+					query.shape=standing;query.collision_mask=player.collision_mask;query.margin=0.;query.exclude=[player.get_rid()]
+					query.transform=Transform3D(root.global_basis.orthonormalized(),root.to_global(foot)+Vector3.UP*(standing.height*.5+player.safe_margin))
+					var hits := space.intersect_shape(query,16)
+					for hit: Dictionary in hits:row.colliders.append(str(root.get_path_to(hit.collider)))
+					row.clear=hits.is_empty()
+			rows.append(row)
+		await get_tree().physics_frame
+	var geometry: Array[Dictionary]=[]
+	for draw: MeshInstance3D in root.find_children("*","MeshInstance3D",true,false):
+		if draw.mesh==null:continue
+		var bounds := draw.get_aabb()
+		var local := AABB(root.to_local(draw.to_global(bounds.position)),Vector3.ZERO)
+		for corner in range(8):local=local.expand(root.to_local(draw.to_global(bounds.get_endpoint(corner))))
+		if local.end.y<19.05 or local.position.y>25. or local.end.x< -15.7 or local.position.x>15.7 or local.end.z< -12.4 or local.position.z>11.7:continue
+		geometry.append({"node":str(root.get_path_to(draw)),"minimum":[local.position.x,local.position.y,local.position.z],"maximum":[local.end.x,local.end.y,local.end.z],"visible":draw.is_visible_in_tree(),"mesh":draw.mesh.resource_path})
+	var survey := {"evidence_class":"INERT","scope":"posed authoring survey, not played access or runtime qualification","root_transform":str(root.global_transform),"standing_radius":standing.radius,"standing_height":standing.height,"collision_mask":player.collision_mask,"grid_pitch":.5,"standing_samples":rows,"geometry":geometry,"script_sha256":FileAccess.get_sha256(get_script().resource_path)}
+	FileAccess.open(directory.path_join("skywatch_roof_survey.json"),FileAccess.WRITE).store_string(JSON.stringify(survey,"\t")+"\n")
+	var camera := Camera3D.new();world.add_child(camera);camera.make_current()
+	for pose: Dictionary in [{"name":"roof_overhead","eye":Vector3(0,50,0),"target":Vector3(0,19.2,0),"ortho":true},{"name":"roof_southwest","eye":Vector3(-13,20.85,-10),"target":Vector3(2,20.5,2),"ortho":false},{"name":"roof_northwest","eye":Vector3(-13,20.85,9),"target":Vector3(1,20.5,-4),"ortho":false},{"name":"roof_south","eye":Vector3(3,20.85,-9),"target":Vector3(-6,20.5,-4),"ortho":false}]:
+		camera.global_position=root.to_global(pose.eye)
+		camera.look_at(root.to_global(pose.target),root.global_basis.z if pose.ortho else Vector3.UP)
+		if pose.ortho:camera.set_orthogonal(40.,.05,100.)
+		else:camera.set_perspective(78.,.05,2000.)
+		for frame in range(20):await RenderingServer.frame_post_draw
+		get_viewport().get_texture().get_image().save_png(directory.path_join(str(pose.name)+".png"))
+	camera.queue_free()
+	print("SKYWATCH ROOF SURVEY: ",rows.size()," standing samples; ",geometry.size()," bounded mesh records; posed diagnostic only")

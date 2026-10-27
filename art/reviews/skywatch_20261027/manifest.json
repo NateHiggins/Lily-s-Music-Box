@@ -274,9 +274,31 @@
     "fractional_clock/stars_fractional_clock.log": "2cfd3e74f8cd08a4c88c88ad3e09326818a8566a8d02843651bb77a2f3991a07",
     "fractional_clock/stars_fractional_clock.log.receipt.json": "8b831f1426669f14e663ff1b47a3eb554b52e0c152e3805cd2fcf4fc23c5eeeb",
     "fractional_clock/stars_fractional_clock.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "fractional_clock/star_review.json": "dce17c4c600501da9f3b11856132524d967437db3218dc3fe21d7fd5e31f3173"
+    "fractional_clock/star_review.json": "dce17c4c600501da9f3b11856132524d967437db3218dc3fe21d7fd5e31f3173",
+    "rooftop_authoring/tested_source/game/tests/v2_roof_clearance_probe.gd": "3557c20c233017e0837252ac3c4b9091946c2d9c205f06279c2fb7d2034142ef",
+    "rooftop_authoring/tested_source/art/data/skywatch/source_plan.json": "dfdd5c62896304d65507bfd2575ce779ca33930ed3bd0ac49b7ce9c30fb552f0",
+    "rooftop_authoring/tested_source/art/blender/scripts/build_skywatch_stock.py": "98fcf57ad5f632d6e151a73667cea2e67a764a93d770e48e1082da98efff1390",
+    "rooftop_authoring/tested_source/art/blender/skywatch_telescope_construction.json": "413e420d9bb626e895220e39b1a8ea7d10618e67a306b25dac9f76eace748ff7",
+    "rooftop_authoring/logs/native_boss_render.log": "423f457d66f5775168258096f7d71edf7853a87f5a566bb4f969bac18ae7d494",
+    "rooftop_authoring/logs/native_boss_repair.log": "01138343cafabb3956407e9f839922d38fb198b5a9034d724162b716aab9ebbc",
+    "rooftop_authoring/logs/native_build.log": "9b958513fdb78f1050270a218fa772343de9b032d46d09b2c050b87770fa9614",
+    "rooftop_authoring/logs/native_build_glass_repair.log": "01301b1afe6347963a834918cc442e6e52cdbedbbe2db645ec53bcf309a294ec",
+    "rooftop_authoring/logs/native_continuous_charts.log": "39b08b15405dd8fc0e155718c54df76c9bbacab339ecdcdc395f251d5c8a817d",
+    "rooftop_authoring/logs/native_continuous_render.log": "049e736efd4350d9603146f441f38ff1a9c8583c37616f90e47c65cbb7dbdc1a",
+    "rooftop_authoring/logs/native_gearing.log": "0c76d1fa071a515d09ff2217faf4fd7d8312929798d2490581dacf936732b107",
+    "rooftop_authoring/logs/native_gearing_render.log": "dcbccd60b80157a03da026d09f5304d337a82d825b508c4a6f8e1c48195f6fbb",
+    "rooftop_authoring/logs/native_render.log": "149d1986625bc84b73cc85e3edad4e2b79ef10c1a77a2bce38f057a899fcd1d0",
+    "rooftop_authoring/logs/native_render_repaired.log": "6ddf365fdc96358465fcf2542fd31929dacf2bb5aa2a019814f418e1d0bfc0ed",
+    "rooftop_authoring/logs/roof_survey.log": "c10fa08350f1c5fdafcc6b87851d2a85517e25dfe7d6eae881d49cb4aa43dd56",
+    "rooftop_authoring/logs/roof_survey.log.receipt.json": "ff1e9da411e984cfc9cd00ffcda8720280194e9949446e5fcbdd47b8df4c2bb2",
+    "rooftop_authoring/logs/roof_survey.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rooftop_authoring/skywatch_roof_survey.json": "e46235ddef8165e8dc35d1ac756e2475da21cc74bf1295a9cf6cb5bf6fe62d5b",
+    "rooftop_authoring/route.json": "dfd3e751903238283a251f8e5e91a45dc6b7c782caabc22ebd98af4f97fc82cd",
+    "rooftop_authoring/render_telescope_repaired.py": "874de9ff5ce5cab34424de66126379ad94925ad2ca1ab7776a34c2a45aa27e4c",
+    "rooftop_authoring/plot_survey.py": "92816eec4ef6c11e823a5190c14f3f7793dbb100f9d8d43b200d82064b6be19e",
+    "rooftop_authoring/roof_survey_batch.json": "c4b0fb8ca5c1d638b6d70b99df549ddac5623878b7c6d06ceae3adfa37f2d53a"
   },
-  "archive_sha256": "c3e0fca5be8125cdd9c3418b4c93c82906bd95d39c63de882d63869351aba25a",
+  "archive_sha256": "94e509615663590b20b3d65c2dd8128e81d03706913594d89471f3cf4c2de333",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -460,5 +482,50 @@
     "stellar_drift_06.png": "1554927aa162d9a62725543713a32a7dae72e84e5ba9b1a264f19a0a117d59f4",
     "stellar_drift_07.png": "435b925cd553fd29be0da40c3b2f1fcdc994b11b68d9989065b402d467852ae2",
     "stellar_drift_08.png": "8502bd49a7aedc0cdbcb9054832cf8aa6b866050d4a6ffafc53973bfd26f25c4"
+  },
+  "rooftop_authoring": {
+    "scope": "posed roof discovery and Blender authoring, not installed telescope input or runtime qualification",
+    "source_lf_sha256": {
+      "game/tests/v2_roof_clearance_probe.gd": "3557c20c233017e0837252ac3c4b9091946c2d9c205f06279c2fb7d2034142ef",
+      "art/data/skywatch/source_plan.json": "dfdd5c62896304d65507bfd2575ce779ca33930ed3bd0ac49b7ce9c30fb552f0",
+      "art/blender/scripts/build_skywatch_stock.py": "f5456431426927ec51b233892dfd56864b19544282b87f4cd949cb08161b8f65",
+      "art/blender/skywatch_telescope_construction.json": "413e420d9bb626e895220e39b1a8ea7d10618e67a306b25dac9f76eace748ff7"
+    },
+    "captures": {
+      "C:\\ov\\reports\\skywatch34\\roof_survey\\roof_northwest.png": {
+        "sha256": "ebb8322f470d29421bf9481a6429b00c164f69b61f75c51e31ffb6a12d1cbca4",
+        "size": 2679638
+      },
+      "C:\\ov\\reports\\skywatch34\\roof_survey\\roof_overhead.png": {
+        "sha256": "2882d401b7c56605b97f2765531bb9d808e03c418d729beba01d0e9aa10d6c0d",
+        "size": 2488805
+      },
+      "C:\\ov\\reports\\skywatch34\\roof_survey\\roof_south.png": {
+        "sha256": "050582cbea212a16394c8b61e837c0d7b3dc858534c65b0f290666b40ec810d0",
+        "size": 2207207
+      },
+      "C:\\ov\\reports\\skywatch34\\roof_survey\\roof_southwest.png": {
+        "sha256": "98327eabe44458c5b1612ae17bd613da33aa62d6a92df7b81f4a28668f35b33e",
+        "size": 2354051
+      },
+      "C:\\ov\\reports\\skywatch34\\native_review\\mount.png": {
+        "sha256": "d46e15ae83a3e32a0cf42d094c9971ddda6c6b4308ae002dfddfeeabe32d84d6",
+        "size": 1768611
+      },
+      "C:\\ov\\reports\\skywatch34\\native_review\\objective.png": {
+        "sha256": "19d4eeba044ee0b6f48f1baf5ca6a65d66311890a5072365d8eecc197f17816d",
+        "size": 1544952
+      },
+      "C:\\ov\\reports\\skywatch34\\native_review\\whole.png": {
+        "sha256": "d2b1daa0e77b68996c94be8bb5b8a65d5ffc209313c45b08f614904750037cba",
+        "size": 1436138
+      },
+      "C:\\ov\\reports\\skywatch34\\roof_survey\\standing_map.png": {
+        "sha256": "fd9d8e07d823b06d46babc16db5fc450165d53a00bd13b339b7dc0c7a6db08cf",
+        "size": 26436
+      }
+    },
+    "asset_sha256": "ef5546d7fda503ec38a285d34d8f6d1c2a4269b25cd343ec937941a09f2a8097",
+    "contact_sha256": "d7f2380c9d82db061713a80f241e66bdc3a13b8f5dae2f8b13671ea758395016"
   }
 }
