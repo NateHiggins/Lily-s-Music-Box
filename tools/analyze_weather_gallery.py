@@ -5,7 +5,7 @@ Requires the project's existing Pillow and NumPy art-tool dependencies.
 """
 import argparse
 from collections import Counter, defaultdict
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 import hashlib
 import json
 from pathlib import Path
@@ -28,6 +28,7 @@ def analyze(gallery: Path, out: Path) -> dict:
     genera, arrangements, regimes, scenarios = Counter(), Counter(), Counter(), Counter()
     seasons = defaultdict(Counter)
     eligible, crosses = Counter(), defaultdict(Counter)
+    sampling_tags = []
     for expected_day, day in enumerate(data["days"]):
         number = int(day["day"])
         if number != expected_day:
@@ -66,6 +67,8 @@ def analyze(gallery: Path, out: Path) -> dict:
             regimes[state["regime"]] += 1
             month = int(sample["date"][5:7])
             season = "winter" if month in (12,1,2) else "spring" if month in (3,4,5) else "summer" if month in (6,7,8) else "autumn"
+            tags = {f"season-period:{season}:{period}", f"season-regime:{season}:{state['regime']}",
+                    f"classification:{state['scenario_id']}"}
             seasons[season][period+":"+state["regime"]] += 1
             scenarios[str(state["scenario_id"])] += 1
             eligible.update(map(str, state["eligible_scenarios"]))
@@ -76,6 +79,8 @@ def analyze(gallery: Path, out: Path) -> dict:
                 genera[genus] += 1
                 arrangements[str(layer["arrangement"])] += 1
                 crosses[period][genus] += 1
+                tags.add(f"genus-period:{genus}:{period}")
+            sampling_tags.append(tags)
 
     matrix, rgb = np.stack(features), np.stack(colours)
     correlation = matrix @ matrix.T
@@ -98,6 +103,39 @@ def analyze(gallery: Path, out: Path) -> dict:
                              "nonadjacent_nearest_correlation_p50_p90": np.percentile(nearest, [50, 90]).tolist(),
                              "mean_rgb": rgb[indices].mean(axis=0).tolist(), "visible_genera": dict(crosses[period])}
     pairs.sort(key=lambda p: p["correlation"], reverse=True)
+    # Deterministic set cover limits the next native pass while retaining every
+    # observed season/period, season/regime, classification and genus/period.
+    # It selects existing dates; it never repairs a gap by inventing weather.
+    unseen = set().union(*sampling_tags)
+    selected = set()
+    while unseen:
+        index = max(range(len(rows)), key=lambda i: (len(sampling_tags[i] & unseen), -i))
+        selected.add(index)
+        unseen -= sampling_tags[index]
+    selected.update(sorted(range(len(rows)), key=lambda i: rows[i]["upper_contrast"])
+                    [:6])
+    for pair in pairs[:6]:
+        selected.update((pair["a"], pair["b"]))
+    requests = [{"date": rows[i]["date"], "period": rows[i]["period"],
+                 "seeds": [1928, 3791, 8437], "tags": sorted(sampling_tags[i])}
+                for i in sorted(selected)]
+    # Transition triplets in each season retain the actual solar-relative date.
+    transitions = []
+    for month in (12, 3, 6, 9):
+        for period in ("dawn", "dusk"):
+            sample = next(r for r in rows if int(r["date"][5:7]) == month and r["period"] == period)
+            centre = datetime.fromisoformat(sample["date"])
+            transitions.append({"period": period, "seed": 1928,
+                                "dates": [(centre+timedelta(minutes=m)).isoformat() for m in (-20, 0, 20)]})
+    plan = {"evidence_class": "INERT", "scope": "Reproducible next-pass requests, not executed qualification or artistic acceptance.",
+            "calendar_sha256": data["calendar_sha256"], "source_gallery_sha256": hashlib.sha256(manifest.read_bytes()).hexdigest(),
+            "coverage_tags": sorted(set().union(*sampling_tags)), "captures": requests,
+            "transition_triplets": transitions,
+            "required_observations": ["Native optical colour and actual cloud-alpha mask at the same camera and settings.",
+                                      "Repeat selected dates in reverse order; preserve authored calendar and publication owners.",
+                                      "Review rare phenomena separately at their authored occurrences and disclose forced flashes.",
+                                      "Playable FPS precipitation, moving collision-field costs and input require separate world routes."]}
+    (out / "native_sampling_plan.json").write_text(json.dumps(plan, indent=2)+"\n", encoding="utf-8")
     sheet = Image.new("RGB", (1280, max(1, min(12, len(pairs)))*186), "#16181e")
     draw = ImageDraw.Draw(sheet)
     for line, pair in enumerate(pairs[:12]):

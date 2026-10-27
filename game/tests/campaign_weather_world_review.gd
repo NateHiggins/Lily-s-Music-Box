@@ -107,7 +107,8 @@ func track_world_weather(world: Node) -> void:
 	lifecycle_borrowed[plant.get_instance_id()]="process material catalogue plant"
 	track_weather_node(world.get_node("WakingAtmosphere"))
 	track_weather_node(world.get_node("WeatherFX"))
-	lifecycle_check(world.get_node("WeatherFX").gpu_emitters.size()==4,"all four camera precipitation emitters are tracked")
+	lifecycle_check(world.get_node("WeatherFX").gpu_emitters.size()==5,"all camera precipitation and contact-splash emitters are tracked")
+	track_weather_node(world.get_node("WeatherFX").precipitation_contact)
 	for emitter: Node in world.get_node("WeatherFX").gpu_emitters:track_weather_node(emitter)
 	var manager: Node=world.get_node("WakingAtmosphere").weather_manager
 	# Non-Resource RefCounteds are explicit; never retain the actual owners here.
@@ -349,7 +350,17 @@ func precipitation_review(world: Node,manager: Node,output: String) -> void:
 		get_viewport().get_texture().get_image().save_png(output.path_join(str(fixture.name)+"_on.png"))
 		get_viewport().use_taa=taa;fx.set_process(was_processing)
 		for emitter: GPUParticles3D in emitters:emitter.speed_scale=1.0
-		samples.append({"date":world.campaign_clock.datetime_string(),"name":fixture.name,"conditions":manager.current.duplicate(true),"weights":str(manager.extreme_weather.weights),"emitters":emitter_states,"frames":frames})
+		var field_updates: int=fx.contact_updates
+		if fixture.name!="snow":
+			var saved_player: Transform3D=world.player.global_transform
+			var saved_camera: Transform3D=camera.global_transform
+			world.player.global_position=world.adapter.root.to_global(Vector3(3.0,19.25,-9.0))
+			camera.look_at(camera.global_position+Vector3(-1,-.55,.08))
+			for frame in 180:await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(output.path_join(str(fixture.name)+"_roof_contact.png"))
+			check(fx._outdoor and fx.contact_updates>0,"actual roof contact field is active: "+str(fixture.name))
+			world.player.global_transform=saved_player;camera.global_transform=saved_camera
+		samples.append({"date":world.campaign_clock.datetime_string(),"name":fixture.name,"conditions":manager.current.duplicate(true),"weights":str(manager.extreme_weather.weights),"emitters":emitter_states,"frames":frames,"contact_field_updates_after_timing":field_updates})
 	check(authority_state()==original_authority,"precipitation presentation preserves gameplay authorities")
 	FileAccess.open(output.path_join("precipitation_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","scope":"actual occupied V2 with FPS-owned GPU emitters; native static rooftop camera; 360 warmup and 120 timed frames per authored date; off/on particles frozen for screen occupancy diagnostic; no movement route or human acceptance", "samples":samples,"failures":failures},"  "))

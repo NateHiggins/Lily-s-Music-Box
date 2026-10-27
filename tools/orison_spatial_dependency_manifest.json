@@ -230047,6 +230047,37 @@
    "target_exists": null
   },
   {
+   "key": "b1e0f2b88e0aaa9d",
+   "kind": "vector3_coordinate",
+   "token": "precipitation_review",
+   "file": "game/tests/campaign_weather_world_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "precipitation_review"
+   ],
+   "lines": [
+    357
+   ],
+   "count": 1,
+   "context": [
+    "world.player.global_position=world.adapter.root.to_global(Vector3(3.0,19.25,-9.0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "4b8119d3dc21a265",
    "kind": "vector3_coordinate",
    "token": "run",
@@ -297058,6 +297089,37 @@
    "context": [
     "camera.position = Vector3(0.04, 1.505, -0.92)",
     "camera.look_at(Vector3(0, 1.505, 0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "91f29cdcf93d07c2",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/precipitation_contact_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "var camera:=Camera3D.new();add_child(camera);camera.position=Vector3(0,1.7,4)"
    ],
    "gameplay_binding": true,
    "authority": [

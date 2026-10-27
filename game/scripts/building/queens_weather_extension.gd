@@ -231,7 +231,7 @@ func lighting(base_sun: Color,base_energy: float,base_ambient: Color,base_ambien
 		"saturation":lerpf(base_saturation,base_saturation*0.25,cyclone)}
 
 static func gpu_precipitation(parent_camera: Camera3D,motion: Shader,draw_shader: Shader) -> Array[GPUParticles3D]:
-	# Call ONCE during preparation, then reuse these four emitters.
+	# Call ONCE during preparation. Splash emission comes from actual rain contact.
 	var result: Array[GPUParticles3D]=[]
 	var counts := [1800,600,1200,220]
 	var sizes := [Vector2(0.018,0.60),Vector2(0.020,0.16),Vector2(0.065,0.065),Vector2(0.028,0.028)]
@@ -240,12 +240,20 @@ static func gpu_precipitation(parent_camera: Camera3D,motion: Shader,draw_shader
 		process.set_shader_parameter("kind",kind)
 		var visual := ShaderMaterial.new();visual.shader=draw_shader
 		visual.set_shader_parameter("kind",kind)
-		var quad := QuadMesh.new();quad.size=sizes[kind];quad.material=visual
+		var quad: Mesh
+		if kind==3:
+			var ice:=SphereMesh.new();ice.radius=.014;ice.height=.028;ice.radial_segments=8;ice.rings=4
+			quad=ice
+		else:
+			var sprite:=QuadMesh.new();sprite.size=sizes[kind];quad=sprite
+		quad.material=visual
 		var emitter := GPUParticles3D.new()
 		emitter.name=["GPUWeatherRain","GPUWeatherSleet","GPUWeatherSnow","GPUWeatherHail"][kind]
 		emitter.amount=counts[kind];emitter.amount_ratio=0.0
 		emitter.lifetime=9.0 if kind==2 else 2.0
 		emitter.local_coords=false;emitter.fixed_fps=60
+		emitter.use_fixed_seed=true;emitter.seed=1928+kind
+		emitter.layers=1<<18;emitter.collision_base_size=.014
 		emitter.visibility_aabb=AABB(Vector3(-25,-20,-25),Vector3(50,40,50))
 		emitter.process_material=process;emitter.draw_pass_1=quad
 		emitter.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -253,6 +261,18 @@ static func gpu_precipitation(parent_camera: Camera3D,motion: Shader,draw_shader
 		emitter.emitting=false
 		parent_camera.add_child(emitter);emitter.top_level=true
 		result.append(emitter)
+	var splash:=GPUParticles3D.new();splash.name="GPUWeatherSplash"
+	splash.amount=256;splash.lifetime=.35;splash.local_coords=false;splash.fixed_fps=60
+	splash.layers=1<<18;splash.emitting=false;splash.use_fixed_seed=true;splash.seed=1932
+	splash.visibility_aabb=AABB(Vector3(-25,-20,-25),Vector3(50,40,50))
+	splash.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	splash.set_meta("surface_role","weather_optics")
+	var splash_process:=ShaderMaterial.new();splash_process.shader=motion;splash_process.set_shader_parameter("kind",4)
+	var splash_draw:=ShaderMaterial.new();splash_draw.shader=draw_shader;splash_draw.set_shader_parameter("kind",4)
+	var splash_mesh:=QuadMesh.new();splash_mesh.size=Vector2(.045,.07);splash_mesh.material=splash_draw
+	splash.process_material=splash_process;splash.draw_pass_1=splash_mesh
+	parent_camera.add_child(splash);splash.top_level=true;result.append(splash)
+	result[0].sub_emitter=result[0].get_path_to(splash)
 	return result
 
 func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,outdoors: bool,wind_gain := 1.0,view_camera: Camera3D=null) -> void:
@@ -262,6 +282,9 @@ func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,
 	var half_fov:=tan(deg_to_rad(view_camera.fov if view_camera!=null else 72.0)*.5)
 	var aspect:=float(view_camera.get_viewport().get_visible_rect().size.x)/maxf(1.0,float(view_camera.get_viewport().get_visible_rect().size.y)) if view_camera!=null else 1.78
 	var pixel_angle:=half_fov*2.0/float(view_camera.get_viewport().get_visible_rect().size.y) if view_camera!=null else .001
+	if emitters.size()>4:
+		emitters[4].global_position=camera_position_m
+		emitters[4].visible=outdoors
 	for kind in mini(emitters.size(),4):
 		var emitter := emitters[kind]
 		emitter.global_transform=Transform3D(Basis.IDENTITY,camera_position_m+Vector3.UP*3.0-wind_mps*wind_gain*0.12)

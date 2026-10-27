@@ -1501,3 +1501,58 @@ so the single bolt/light pool can display every generated event. The original
 rare-effect review also exposed overlap in its forced-flash selector; the bench
 now explicitly selects the requested effect and asserts that its shader level
 is nonzero. Forced review captures remain separate from natural event timing.
+
+### Contact and fallout preparation — 2026-10-27
+
+The annual analyzer now also emits **native_sampling_plan.json**: 47 actual
+dated states at three fixed layout seeds (141 requests), covering all 109
+observed season/period, season/regime, classification and genus/period tags.
+Eight dawn/dusk triplets add samples twenty minutes before and after the
+solar-relative centre, across four seasons. The plan is reproducible from the
+same gallery command above. Its generated requests are **not executed renders**;
+coverage of those data tags does not prove corresponding visual distinctions.
+
+| Location / reproduction | Severity | Evidence | Repair / verification |
+| --- | --- | --- | --- |
+| GPU precipitation: falling stock passes through roofs and street | Medium visual | Existing custom motion had no contact response | Added one 256-square top-down heightfield, world-only mask, 64 m footprint; centre advances on an 8 m band, not every camera frame. Actual moving-world cost remains to be measured. |
+| Contact splash pool after several seconds of rain | Medium visual | Native component capture and GPU bounds showed all slots surviving far below the floor | Explicit retirement at .35 seconds recycles the 256-slot subemitter. Original failed captures retained. |
+| Heightfield impact response | Medium visual | Native contact-colour control detected hits, but hail failed to rebound and splash velocity pointed into the floor | Orient the signed heightfield normal/depth toward open sky before launch/reflection. Contact-enabled native captures show upward splash and rebound; disabled controls remove the contact colours. |
+| First contact implementation | Development failure | **precip_contact.log** records illegal early return in a particle processor; that run was stopped | Replaced processor returns with conditional branches. **contact_plane_final.log.receipt.json** records successful fullscreen component review with empty stderr and optical negative controls. This is diagnostic evidence, not occupied-world qualification. |
+
+Component evidence is under **C:/ov/reports/lightning32/contact_plane_final/**.
+The small fixture reuses production shaders and adds diagnostic colour only
+after a real GPU contact; an isolated splash draw detects pool exhaustion.
+It deliberately does not promote gameplay or surface acceptance. The occupied
+three-date review is being repeated after these changes, with additional views
+from the actual roof stance. Hail now uses a bounded eight-sided sphere rather
+than a screen-facing diamond. Rain/sleet/snow counts retain the previous limits.
+
+That occupied review subsequently passed in **173 seconds**, native
+**3440×1440**, with empty stderr (**precip_contact_fixed.log.receipt.json**).
+The actual roof rain/hail images were inspected. These stationary samples
+retain 360 warmup and 120 measured frames per unchanged date:
+
+| Fixture | Previous → contact wall p50 / p95 / p99 / max ms | Previous → contact GPU p95 ms |
+| --- | --- | --- |
+| Rain | 19.994 / 20.335 / 20.935 / 44.085 → 20.014 / 20.273 / 20.991 / 42.573 | 8.231 → 8.093 |
+| Snow | 20.007 / 20.092 / 20.429 / 21.046 → 20.005 / 20.068 / 20.116 / 21.288 | 8.186 → 8.220 |
+| Deluge/hail | 20.012 / 20.073 / 23.419 / 32.658 → 20.006 / 20.525 / 20.619 / 20.625 | 8.156 → 8.156 |
+
+Each stationary sample used one initial field update. This does not measure
+field-recentring spikes during movement, prove that all contacts read well,
+or resolve the retained first-view pipeline hitch. Small timing differences
+are not claimed as a performance improvement. The original 649 members of
+**art/reviews/living_sky_20261026/roof_preview_review.zip** remain intact;
+the **precipitation_contact_20261027/** section appends forty source-hashed
+artifacts, including the failed run, terminal receipts, optical controls,
+occupied captures/raw frames, Blender reviews and annual diagnostic plan.
+
+The anomalous-fallout stock has a reproducible Blender source at
+**art/blender/scripts/build_weather_frog.py**: 456 triangles, three primitives,
+metric UVs, checked exported tangents and a registered original mottled-skin
+PBR recipe. Three Blender views were inspected after reducing review exposure
+and darkening the eyes. Runtime texture imports pass the V2 mip/compression
+policy, and the catalogue-persistence check passes. The frog is **not yet
+emitted in the game**; loaded native material qualification, impact deformation,
+calendar fallout, blood coating and lens moisture remain outstanding. No
+calendar frames, forecasts, newspaper publications or save facts changed here.

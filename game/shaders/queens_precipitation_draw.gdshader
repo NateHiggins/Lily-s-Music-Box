@@ -16,7 +16,7 @@ void vertex() {
 		fall=length(fall)>.001 ? normalize(fall) : vec2(0.0,-1.0);
 		vec2 across=vec2(-fall.y,fall.x);
 		MODELVIEW_MATRIX=mat4(vec4(across*scale.x,0.0,0.0),vec4(-fall*scale.y,0.0,0.0),vec4(0.0,0.0,scale.z,0.0),VIEW_MATRIX*MODEL_MATRIX[3]);
-	} else {
+	} else if(kind!=3) {
 		if(kind==2) scale*=mix(.75,1.35,INSTANCE_CUSTOM.z);
 	MODELVIEW_MATRIX=VIEW_MATRIX*mat4(
 		vec4(INV_VIEW_MATRIX[0].xyz*scale.x,0.0),
@@ -34,7 +34,7 @@ void fragment() {
 		opacity=0.78;
 	}
 	if(kind==2) {mask=1.0-smoothstep(0.25,1.0,length(q));opacity=0.84;}
-	if(kind==3) {mask=1.0-smoothstep(0.65,1.0,abs(q.x)+abs(q.y));opacity=0.94;}
+	if(kind==3) {mask=1.0;opacity=1.0;}
 	ALBEDO=(kind>=2 ? vec3(0.95) : vec3(0.64,0.73,0.82))*precipitation_light;
-	ALPHA=mask*opacity;
+	ALPHA=mask*opacity*COLOR.a;
 }
