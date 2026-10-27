@@ -1079,3 +1079,41 @@ imports and frame samples are retained externally pending the final packet.
 No final candidate, memory budget, Android device, whole-weather, native-input,
 matched whole-world performance or human acceptance is claimed by this interim
 section. The full goal and unqualified V 2 coverage remain open.
+
+### Original-base final combination and current-main renewal
+
+The later cache-plus-mipmap run on base bde444d6 passes the roof's 43 checks,
+WeatherSkyTest's 59 checks and the actual two-world campaign reconstruction's
+41 checks. The fixed forward route's maximum update is **3.890 ms**, versus
+123.287 ms before the repair; callbacks above 100 ms remain one to zero.
+All three resident panorama images have loaded mipmaps. Their reported image
+data totals **100,663,299 bytes**, compared with 75,497,472 bytes without mips;
+these are decoded image-data observations, not VRAM measurements. The original
+missing-mipmap failure remains preserved. The lifecycle contract records
+36 nodes and 50 scoped resources retiring to zero; imported shared resources
+are borrowed. Roof and reconstruction stderr are empty. WeatherSkyTest retains
+the existing cam_noel_witches wall warning.
+
+Those results used the official engine and are historical, matched-comparison
+evidence. Main's later creature, material and pinned reflection-atlas engine
+changes are merged into this branch. They require fresh integration evidence;
+the old comparison does not establish current-engine frame budgets. The current
+surface gate correctly rejects the stale full-world survey and visual review.
+
+To respect the owner's mouse restriction, a noninteractive Windows station was
+tested first. It renders through Vulkan without observed input-desktop or
+cursor-clip changes, but Windows native cursor reads fail there. The original
+failed cursor probe is retained. A test-only SubViewport host uses Godot's
+viewport input delivery while retaining the original production ray, reach,
+grab, motion, collision and release checks. Its first run exposed incorrect
+bootstrap sizing; the corrected host uses the project viewport dimensions.
+The combined nozzle regression then reached the serial runner's 180-second
+ceiling: that overall run is incomplete, despite passing sections. The unchanged
+suite then passes **376 checks in 202.51 seconds** through the long runner,
+with empty stderr and a current-source wrapper receipt. The station monitor
+observes no cursor-clip or active-input-desktop changes during that run.
+The cursor path uses the documented
+[Viewport.push_input](https://docs.godotengine.org/en/4.7/classes/class_viewport.html#class-viewport-method-push-input)
+pipeline. Engine-dispatched test input is not native OS input or human acceptance.
+Full-world surface qualification and current-main weather regressions remain
+pending; this combined hose bench does not substitute for them.
