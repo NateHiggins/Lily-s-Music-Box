@@ -77,6 +77,12 @@ def evaluate(data):
                 shader=='res://shaders/v2_st_elmo_corona.gdshader' and
                 material.get('shader_unshaded')):
                 effects.append({'id':identity,'class':'electric_corona'});continue
+            if (draw.get('surface_role')=='weather_optics' and
+                draw.get('owner_script')=='res://scripts/building/orison_v2_exterior_cell.gd' and
+                draw['path'].startswith('StreetAndBodega/ExteriorInstances/STREET_ORISON_01/') and
+                draw['path'].split('/')[-1]=='IcePillar' and
+                shader=='res://shaders/street_ice_pillar.gdshader' and material.get('shader_unshaded')):
+                effects.append({'id':identity,'class':'urban_ice_light_pillar'});continue
             if (draw.get('surface_role')=='storm_volume' and
                 draw.get('owner_script')=='res://scripts/building/exterior_detail_pass.gd' and
                 material.get('name')=='V2_storm_volume' and material.get('shader_unshaded')):

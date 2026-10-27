@@ -878,3 +878,46 @@ The 41 Python surface-requirement tests pass (195.762 s), including mutation
 checks for both raw cloud fields. Reader audit reports zero NEW fields.
 These checks do not renew the stale runtime surface packet.
 
+### Existing route costs: narrowed follow-up, not a new speedup
+
+Read-only aggregation of the retained **skywatch39/published_V2WeatherRouteProfile**
+arrays is in **skywatch40/phase_attribution_limits.json**. Pooled walking has
+3,482 samples, wall p50/p95 **35.591/69.216 ms**; outdoor turning has 636,
+**24.486/39.670 ms**; the fixed sky bearing has 623, **51.063/57.304 ms**.
+Different bearings, residency and visible stock prevent causal comparisons
+between these phases. Main-viewport GPU medians are respectively **14.654**,
+**11.041** and **20.502 ms**; private viewport costs are not summed.
+
+The bounded final 256 input records contain 197 constrained-motion calls,
+median **0.011 ms**, maximum **0.038 ms**, but 20 release/end calls at median
+**13.390 ms**, maximum **14.502 ms**. The separately timed world-modified signal
+is at most **0.011 ms**. Three thresholded slow player-physics records show
+landing slide calls around **5.3 ms**; they are not a complete physics distribution.
+Static tracing puts transform publication, physics synchronization, settling
+and the manipulation-changed/save notification inside the release interval.
+The next release investigation must separate those costs before changing any
+save or collision owner. This evidence narrows the target; it does not identify
+a responsible function or explain the 100+ ms frames. No firehose run was used.
+
+### Surface classification failure retained before renewed qualification
+
+**skywatch40/surface_clouds.log.receipt.json** completes with exit 1 in **783 s**,
+**39,169 checks**, one assertion failure. Its inventory has **27,820 draws**,
+**17,006 meshes**, **6,309 materials**, **527 textures**. All four technical
+findings are the actual street lamps' **IcePillar** optical quads. The lamp
+owner already labels these **weather_optics**; the audit did not recognize the
+new shader/owner combination. There is no missing physical-lamp material repair.
+
+The audit now classifies only the exact unshaded **street_ice_pillar.gdshader**,
+weather-optics role, exterior-cell owner, installed street subtree and terminal
+IcePillar part as an urban ice light effect. A focused unit regression passes
+with negative controls for housing/foreign paths, physical role, wrong owner,
+wrong shader and shaded material. This follows the existing separate optical
+inventory rule; it is not an exemption for physical stock.
+
+Re-evaluation of the unchanged failed-run inventory reports zero unresolved
+surfaces in **reclassified_diagnostic.json**. That is a diagnostic only: the
+original test-written failed runtime contract and stderr remain untouched.
+The checker is a bound input, so a fresh complete surface run remains required.
+The failed packet is not published, repinned or described as partial acceptance.
+

@@ -7,6 +7,22 @@ from audit_v2_surfaces import evaluate
 spec=importlib.util.spec_from_file_location('surface_imports',ROOT/'art/tools/fix_runtime_texture_imports.py');imports=importlib.util.module_from_spec(spec);spec.loader.exec_module(imports)
 
 class Requirements(unittest.TestCase):
+    def test_urban_ice_pillars_require_exact_optical_shader_owner_and_role(self):
+        data=self.inventory();draw=data['draws'][0];material=data['materials']['material']
+        draw.update(path='StreetAndBodega/ExteriorInstances/STREET_ORISON_01/StreetLamps/LampPool/IcePillar',
+                    surface_role='weather_optics',owner_script='res://scripts/building/orison_v2_exterior_cell.gd')
+        material.update(type='ShaderMaterial',shader='res://shaders/street_ice_pillar.gdshader',shader_unshaded=True,maps={})
+        result=evaluate(data)
+        self.assertEqual(result['findings'],[])
+        self.assertEqual(result['separate_effects'][0]['class'],'urban_ice_light_pillar')
+        for field,value in [('path','StreetAndBodega/ExteriorInstances/STREET_ORISON_01/StreetLamps/LampHousing'),
+                            ('path','Unrelated/IcePillar'),('surface_role','physical'),('owner_script','unrelated_owner')]:
+            invalid=copy.deepcopy(data);invalid['draws'][0][field]=value
+            self.assertIn('incomplete_pbr_maps',evaluate(invalid)['findings'][0]['reasons'])
+        for field,value in [('shader','res://shaders/physical_stock.gdshader'),('shader_unshaded',False)]:
+            invalid=copy.deepcopy(data);invalid['materials']['material'][field]=value
+            self.assertIn('incomplete_pbr_maps',evaluate(invalid)['findings'][0]['reasons'])
+
     def test_lightning_emission_requires_exact_owner_part_and_optical_role(self):
         data=self.inventory();draw=data['draws'][0];material=data['materials']['material']
         draw.update(path='WakingAtmosphere/DeterministicLightningManager/GroundDischarge',surface_role='weather_optics',owner_script='res://scripts/building/deterministic_lightning_manager.gd')
