@@ -44,8 +44,10 @@ func _run() -> void:
 		var source: Dictionary=connection.read_object("res://data/orison_v2_blockout.json")
 		var resolved: Dictionary=connection.prepare(source,connection.read_object("res://data/orison_v2/exterior/exterior_geometry.json"),preload("res://scripts/building/orison_v2_exterior_spatial_resolver.gd").load_default(),connection.read_object(connection.CONFIG_PATH))
 		if not check(not resolved.is_empty(),"production world connection resolves for translated contact bench"):get_tree().quit(1);return
-		var anchor: Dictionary=connection.unique_record(source.anchors,"B1_FIRE_LINE_STAIR")
-		var level: Dictionary=connection.unique_record(source.levels,"B1")
+		var station: String=OS.get_environment("ORISON_NOZZLE_STATION")
+		if station.is_empty():station="B1_FIRE_LINE_STAIR"
+		var anchor: Dictionary=connection.unique_record(source.anchors,station)
+		var level: Dictionary=connection.unique_record(source.levels,station.get_slice("_",0))
 		var at:=Vector3(anchor.position[0],anchor.position[1]+level.y,anchor.position[2])
 		var installed: Transform3D=resolved.interior_transform*Transform3D(Basis.IDENTITY,at)
 		adapter.root.transform=Transform3D(installed.basis,installed.origin-installed.basis*Vector3(0,1.2,0))

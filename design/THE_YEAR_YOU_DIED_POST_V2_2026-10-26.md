@@ -33,6 +33,29 @@ have not been supplied. Do not invent them as established facts. The illustrativ
 January-to-November room examples do not replace the installed November 10,
 1928 campaign start or its authored 1928–1929 weather year.
 
+## Owner's opening scene and stage setting
+
+The flying machine introduces the premise with these owner-authored lines,
+preserved verbatim, including the emotional contrast:
+
+> "sorry you died 😭 but it if it makes you feel better I can help you solve your murder 😁"
+
+The flying machine continues:
+
+> "First we need to solve a bigger mystery 👀"
+
+It pauses dramatically.
+
+> " Who were you? 🤔"
+
+This is the opening scene for the post-V2 game, not incidental chatter. Preserve
+the pause and the pivot from solving the murder to discovering the player's
+identity. Stage it through the embodied companion and its established physical
+display; determine the precise presentation during implementation without
+rewriting these lines or inventing the answer. This records future creative
+direction only; it does not replace the current campaign opening during weather
+qualification.
+
 ## The investigation
 
 Discoveries can supply **where, when and why**. The player may find an object

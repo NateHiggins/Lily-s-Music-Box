@@ -40,6 +40,12 @@ func cursor_to(pixel: Vector2) -> bool:
 		await RenderingServer.frame_post_draw
 		Input.warp_mouse(pixel)
 		await get_tree().process_frame
+		# The viewport position changes before Windows delivers the warp's
+		# MouseMotion. Let that event traverse a rendered native-window frame
+		# while no part is grabbed; otherwise it becomes an unintended drag
+		# after our synthetic click. Position alone is not delivery evidence.
+		await RenderingServer.frame_post_draw
+		await get_tree().process_frame
 		if get_viewport().get_mouse_position().distance_to(pixel)<=.5:
 			if frame>0 or not initial_focus:
 				print("INSPECTION CURSOR READY: frames=",frame+1," focused=",DisplayServer.window_is_focused(window_id)," initial_focus=",initial_focus," mode=",Input.mouse_mode," initial_mode=",initial_mode)
