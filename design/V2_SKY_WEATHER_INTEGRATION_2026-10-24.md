@@ -1921,3 +1921,27 @@ The other dwell-adjusted route harnesses, the new surface-only execution mode,
 current-source rendered packet publication, final annual night refresh and
 candidate regression board remain pending; the checkpoint is not merge-ready
 weather-production acceptance.
+
+### Current-source surface packet renewal
+
+**surface_weather_no_hose_final.log.receipt.json** passes in **790 seconds**:
+**39,165 checks / 0 failures**, empty stderr and zero failure-token lines.
+All **27,810 draws**, **17,000 meshes**, **6,303 materials** and **528 textures**
+remain covered. The test-written contract explicitly records the independent
+fire-service interaction programme as **executed: false**; its physical draws
+remain in the full inventory. The earlier passing fire contract is reused
+within its recorded source/scope, not rewritten or counted as a new execution.
+
+Six actual native captures were inspected: street skyline, front gallery,
+curbside paving, passage glazing/furniture, bathroom tile/door cap and a small
+bookcase. The observations distinguish surface visibility from annual sky,
+open-book interaction and human artistic acceptance. Book spines are dark at
+the captured oblique light angle; this image does not qualify their editorial
+readability. Source/log/image hashes and the independent complete inventory
+all pass the existing strict qualifier, with **zero defects**. The packet is
+published through **tools/publish_v2_surface_packet.py**, preserving original
+runtime-contract bytes and the preceding packet in the external publication
+archive. No failure classifier exception, source repinning or fabricated child
+receipt is used. The durable review archive preserves the raw run and
+qualification artifacts. Current-source disk reconstruction, annual night
+review and the final full regression/candidate comparison remain outstanding.

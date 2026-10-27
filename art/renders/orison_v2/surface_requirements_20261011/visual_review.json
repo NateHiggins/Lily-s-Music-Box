@@ -1,122 +1,44 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "scope": "Agent-reviewed native 3440x1440 representative contact sheet and full fire-cabinet close-up; exhaustive loaded UV/PBR/mip qualification. No full weather/annual artistic or human acceptance.",
-  "surface_inputs_sha256": "114dc504df614600e42fda462c1fa76a4c030dc93739693b6fc998db0a729cec",
   "images": [
     {
-      "file": "tentacle_installed_surfaces.png",
-      "sha256": "c9bc04a4c2aba957c86d9c2058ffa0f11f9ff707daf593d3288c1fbc3b68a534",
-      "observation": "Dark layered limbs are distinct against the installed radiator and floor; this is a dim anatomy view, not a new creature lighting approval.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
+      "file": "city_street_skyline.png",
+      "sha256": "80e40e0f7e6fe7e40aee62ec9f42525ae6a08708d069fab6f934aad4eae00507",
+      "observation": "Native street view: brick courses, pale window/door trim and glazed blind slats remain distinct; fair cloud bands are visible above the block. Representative surface observation, not annual weather acceptance.",
+      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
     },
     {
-      "file": "tentacle_flowing_residue.png",
-      "sha256": "c305ab3752de29dfdb78b0967a4365e1dfea4aeb9b8c2b52db00e9c792f1d34a",
-      "observation": "The retained encounter produces a rainbow pool with dark folded remains at the same radiator; surrounding fittings stay intact.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "public_arcade_portal.png",
-      "sha256": "1d068b5f773b08e6a313e8995e46731cb7a251bc95865754f2a3bfae16a39fde",
-      "observation": "The glazed arcade entrance transmits the lit hall through its leaves; brick, stone surround and glazing remain distinct.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "public_arcade_hall.png",
-      "sha256": "a35495056ebad4f826467f93346c84d037f3658c17c6b621576d09894ed2caac",
-      "observation": "Glass shop fronts reveal their furniture, with consistent timber frames, ceiling ribs, brick courses and terrazzo along the passage.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "tile_F02_A_BATH_corner.png",
-      "sha256": "8b874296d24242bcfbc0f1f38d279343c70110b1bc2834af3dc50daf6eb34c5e",
-      "observation": "Horizontal wall tiles meet painted plaster below the ceiling; basin, curtain, door frame and finishing edges remain distinct.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "tile_F02_A_BATH_floor.png",
-      "sha256": "230e2042a3837a67121c4df57941636cf3c61b25779b8c62c96294694da3ea6f",
-      "observation": "Small hexagonal tiles maintain scale beneath the basin and beside the toilet and curtain; no timber skirting crosses the tile.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "tile_F04_B_BATH_corner.png",
-      "sha256": "bfe6958c2479bbfb8a4a557a227523e35a5ae300557b78156eb6b19e5d50fd3f",
-      "observation": "Wall courses wrap the corner under painted plaster; the striped and gathered curtain remain readable in this lighting.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "tile_F05_C_BATH_floor.png",
-      "sha256": "f86ff5b90ca9678fb821dc255906053ab459c24f342a6be886a16900beb36a12",
-      "observation": "Hexagonal floor tiles remain continuous between the toilet, basin pedestal, curtain and tiled walls.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "bd8685ca434d54597fed7cc981812ce28d8160911392ecb874dd8b998e1afb63",
-      "observation": "The dim room retains separate tile, plaster, curtain and toilet surfaces, with no visible projection fallback.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "F06_B_KITCHEN_reflection_repair.png",
-      "sha256": "b91d2ab8ac21e35ce8a6e2fc9ffed63ed963c8b18ef1c8f8d13f3161a48944ea",
-      "observation": "Cabinets, enamel sink and metal pipe highlights remain separate above timber flooring. Strong mottled wall lighting is retained, not newly art-approved.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "control_finish_carried.png",
-      "sha256": "a06f335784560e39fc45d16fd41ab7db8585728553f40a6778e9ffcea346834b",
-      "observation": "The installed annunciator retains its dark metal frame, bright indicator, linkages, lettering and separate fittings against the wall.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "control_finish_grazing.png",
-      "sha256": "9410a6fdc3994a13a428b824b9bcad374b449f1c49f599d13ca08b29d8fc8973",
-      "observation": "The close grazing view separates the annunciator frame, wire linkages, buttons and metal surfaces; the wall catches the light beside it.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "fire_F01_FIRE_LINE_STAIR_open.png",
-      "sha256": "2a5bc2b11a7be6dbee9affb586de9677603a170141e698c0df89b9f5e45a98ef",
-      "observation": "Full native close-up inspected: loose brass nozzle parks on the cabinet floor, receiver remains distinct above; retained hose and wired glass remain visible. Actual grab/motion/release checks ran at all eight stations.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "electrical_F01_ELECTRICAL_JUNCTION.png",
-      "sha256": "a02df5dedf5e1fff3ab755d15823dc7391d88c8d8f1fd9681a76473019c9e6df",
-      "observation": "The conduit and small junction enclosure remain mounted on the bright plaster wall; this exposure does not establish every metal finish by eye.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "entrance_front_wide.png",
-      "sha256": "7dc24531941931122ce30019d1a52956be087d120479e685275eb096e4b61e32",
-      "observation": "The native entrance and landmark hardware sit below the brick facade, glazed marquee and projecting blade, without replacing their authored materials.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "public_construction_dogleg.png",
-      "sha256": "b115e3bcf42bbc660ce93fddce143256b681f8b3dbf8fdffc6c5c808edc508cf",
-      "observation": "Timber construction panels, overhead members and warm practical lighting frame a clear dogleg passage.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "city_weather_dry.png",
-      "sha256": "5f4bb4d20fe24e83d973d3d362fd3aac3efad5919b33f418acc5777001625703",
-      "observation": "Open blue sky, separate cloud families, translucent high fibres and warm horizon haze are visible above brick roofs. The style remains painterly rather than photographic.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
-    },
-    {
-      "file": "city_weather_storm.png",
-      "sha256": "4d90cc2a5641c71ad5a39d7ead066edd6697b7945faaae77fdcf653fa02a8564",
-      "observation": "Dense grey-sepia weather haze obscures the distant skyline. This deliberately low-contrast overcast frame is not evidence for the separately reviewed rare storm formations.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
+      "file": "front_gallery_05.png",
+      "sha256": "d201a82c4ba879c03aad1f56a29368724de4b7c21f55a7e9fbea3e2c4503383b",
+      "observation": "Native gallery view: plaster over timber wainscot, stone-like floor, window curtains/blinds and benches remain visually separate. Ceiling fixture highlights are strong; this is not a lighting-art approval.",
+      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
     },
     {
       "file": "street_paving.png",
-      "sha256": "ea2dd08221aeef5ba741c6f708db299ea56d6084c4cdbb8f995e5343a02c1522",
-      "observation": "Paving, curb, road and facade remain separate beneath the street lights; dark daylight street exposure is retained as a presentation limitation.",
-      "origin": "Native composed V2, 3440x1440, f5c301dd, pinned Vulkan; current contact sheet and unchanged stock review, 2026-10-27"
+      "sha256": "d8337ade8878bd2eaaf88dd9a51562e1c3faea2b201ad2fa21f80f883c33e1ab",
+      "observation": "Native curbside view: kerb, pavement joints, road surface and brick wall retain separate scales and continuous visible ground. This frame does not establish wet/dry optical equivalence.",
+      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
+    },
+    {
+      "file": "public_arcade_hall.png",
+      "sha256": "0149cb72df9fd01a06d5aed6d039d8a04b3a7741743effaf56aed8aa2182e0f4",
+      "observation": "Native passage view: shop glazing transmits the counter/furniture interiors, with distinct brick, trim, canopy ribs and continuous aisle paving. This is a surface observation, not clearance acceptance for every shop door.",
+      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
+    },
+    {
+      "file": "tile_F02_A_BATH_corner.png",
+      "sha256": "e8fa6807c6eabbf548bc47acbcfbcb61909a8e1366229a92ced3ae1e09b7ef32",
+      "observation": "Native bathroom view: wall tile ends below painted plaster, the finishing cap stops at the door surround, floor hexagons have a separate scale, and the curtain/rod/rings remain distinct. No new shower or plumbing interaction claim.",
+      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
+    },
+    {
+      "file": "clearance_126_F02_2A_BOOKSHELF_01.png",
+      "sha256": "fa82d71e81cbe88b4e07d9f3204d18e5cd7c5886be35b1aa24aa4badcbc5ede7",
+      "observation": "Native occupied-room view: shelf timber, books and small keepsakes remain separate and the companion remains visible. Book spines are dark at this oblique light angle; this frame does not establish editorial readability or open-book interaction acceptance.",
+      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
     }
-  ]
+  ],
+  "surface_inputs_sha256": "6a5e133e3ebef0dc2ff76522b2e3cf77b69ac92c8e2d0803c08047fb4416d2b0",
+  "scope": "Agent-reviewed native 3440x1440 representative surfaces plus exhaustive loaded UV/PBR/mipmap inventory. Separate fire-service interaction programme not executed. No annual-weather, open-book, full-V2 or human artistic acceptance."
 }
