@@ -921,3 +921,29 @@ original test-written failed runtime contract and stderr remain untouched.
 The checker is a bound input, so a fresh complete surface run remains required.
 The failed packet is not published, repinned or described as partial acceptance.
 
+### Fresh surface result and publication
+
+**skywatch40/surface_classified.log.receipt.json** completes successfully in
+**784 s**, native fullscreen **3440x1440**, patched Vulkan, empty stderr:
+**39,169 checks / zero failures**. Its schema-2 runtime contract records PASS
+for production composition, loaded surface requirements and runtime-owned
+teardown. Inventory: **27,820 draws**, **17,006 meshes**, **6,309 materials**,
+**527 textures**. Fire-service interaction was explicitly skipped; its physical
+draws remain inventoried. Save reconstruction is **NOT_EXECUTED**, not a pass.
+
+Seven actual current captures were reviewed: street skyline, storm skyline,
+front gallery, paving, entrance, public arcade and bathroom corner. Native
+source PNGs and their hashes are in the published packet. The storm ceiling
+is still low contrast and the street exposure remains dark; this surface review
+does not grant annual atmospheric or lighting artistic acceptance. The new
+cloud optics have their separate native-pixel controlled comparisons above.
+
+The existing surface publisher validates and installs the new test-written
+contract, raw inventory, corroborating logs and review, with zero defects.
+The previous packet is preserved externally in **skywatch40/publication_backup**;
+the failed original run, classifier source/control and fresh result are retained
+under **urban_pillar_surface_qualification/** in the existing diagnostic archive.
+No failed receipt was edited or promoted. Full candidate comparison against the
+clean **6ff8922f** main baseline is the next integration gate; the broader
+weather/roof and responsiveness limitations above remain open.
+

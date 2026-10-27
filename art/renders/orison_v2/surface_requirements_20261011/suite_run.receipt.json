@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 843.39,
+  "elapsed_s": 783.74,
   "exit_code": 0,
-  "finished_utc": "2026-10-27T16:17:53Z",
-  "started_utc": "2026-10-27T16:03:49Z",
+  "finished_utc": "2026-10-27T20:52:55Z",
+  "started_utc": "2026-10-27T20:39:50Z",
   "timed_out": false
  },
  "log": {
@@ -13,29 +13,29 @@
   "fail_lines": [],
   "pass_count": 1,
   "pass_lines": [
-   "V2 SURFACE QUALIFICATION: PASS; 39165 checks; 0 failures"
+   "V2 SURFACE QUALIFICATION: PASS; 39169 checks; 0 failures"
   ],
   "script_error_count": 0,
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/skywatch33/surface_astronomy.log.stderr",
+  "stderr": "C:/ov/reports/skywatch40/surface_classified.log.stderr",
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout": "C:/ov/reports/skywatch33/surface_astronomy.log",
-  "stdout_sha256": "19dd8931e49b74035a7fb6dcc726beb2c7733e294d355b7935b5923dc99c4f98"
+  "stdout": "C:/ov/reports/skywatch40/surface_classified.log",
+  "stdout_sha256": "0ea2a8501772f001688dc47b351c85e2bc929d7e5b756c611264c4e847b8070b"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/skywatch33/surface_astronomy",
+ "shot_dir": "C:/ov/reports/skywatch40/surface_classified",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "1b0b59977870416676b614a27624ba17a7d96340",
-  "repository_tree": "6add72d3829c694dd3b88ca2228fed40fcb627c9",
-  "runtime_inputs_sha256": "9b4d2a3301ffcafe535815cac02a07d06218bfe21a33b468764c64edf8af2497",
+  "repository_head": "824a7effbbf4121f9c3afa06cfe8c2ffecae2c20",
+  "repository_tree": "ee0186b1b850fdf62fcb98968bbb39ff2bbcf09c",
+  "runtime_inputs_sha256": "6cfea4df1693789895112f4dd2d184480e50ed9ecc2cb1bef5d5b12c275fff22",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "3720368e95c4932b107613161955d3680784b5bc4d3298aecfd454c021d2a2b6"
  },
