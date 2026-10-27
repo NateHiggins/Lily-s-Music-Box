@@ -3,6 +3,23 @@ extends RefCounted
 ## and lighting. No wall clock, random stream, save state or gameplay actions.
 const Ephemeris := preload("res://scripts/building/celestial_ephemeris.gd")
 const PLANETS := ["mercury", "venus", "mars", "jupiter", "saturn"]
+
+static func configure_starfield(material: ShaderMaterial) -> void:
+	material.set_meta("analytical_stars",true)
+	material.set_shader_parameter("star_headers",load("res://assets/environment/stars/bsc5_headers.res"))
+	material.set_shader_parameter("star_points",load("res://assets/environment/stars/bsc5_points.res"))
+	material.set_shader_parameter("star_properties",load("res://assets/environment/stars/bsc5_properties.res"))
+	material.set_shader_parameter("skywatch_stars_enabled",true)
+
+static func publish_star_frame(material: ShaderMaterial,camera: Camera3D,clock: CampaignClock) -> void:
+	if material==null or camera==null or clock==null or not bool(material.get_meta("analytical_stars",false)):return
+	# Campaign fractions preserve deterministic forward/backward/reload sampling.
+	material.set_shader_parameter("star_animation_seconds",fposmod(clock.absolute_minutes()*60.,4096.))
+	var projection := camera.get_camera_projection()
+	var field := 2.*atan(1./absf(projection.y.y))
+	if not is_equal_approx(float(material.get_meta("stellar_camera_field",0.)),field):
+		material.set_meta("stellar_camera_field",field)
+		material.set_shader_parameter("camera_fov",field)
 # JPL SSD Table 1, fitted 1800–2050; each row is a,e,I,L,perihelion,node,
 # followed by their rates per Julian century. Angles are degrees, lengths AU.
 # https://ssd.jpl.nasa.gov/planets/approx_pos.html

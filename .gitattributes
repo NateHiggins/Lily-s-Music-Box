@@ -3232,3 +3232,6 @@ tools/engine_patches/*.patch -text -whitespace
 art/reviews/tentacle_gang_20261026/** -text -whitespace
 art/reviews/creature_main_integration_20261026/** -text -whitespace
 art/reviews/skywatch_20261027/** -text -whitespace
+art/data/astronomy/*.gz -text
+art/data/astronomy/bsc5_source.json -text
+game/assets/environment/stars/*.res -text

@@ -5,6 +5,19 @@ const SkywatchAstronomy := preload("res://scripts/building/skywatch_astronomy.gd
 var _astronomy_second := -INF
 var _astronomy_observer := Vector2(INF,INF)
 var _eclipse_transmission := 1.0
+var _stellar_axes := PackedVector3Array()
+
+func _state_texture(state: String) -> Texture2D:
+	if state!="night" or _sky==null or _sky.shader.resource_path!="res://shaders/queens_weather_sky.gdshader":
+		return super._state_texture(state)
+	# Keep the existing pair/residency owner, without loading a photograph whose
+	# stars must no longer be sampled. Explicit baseline/Compatibility keep V1.
+	var key: String=SKY_PATHS[state]
+	if not _panoramas.has(key):
+		var image := Image.create_empty(2,2,false,Image.FORMAT_RGB8)
+		image.fill(Color(.001,.002,.004));image.generate_mipmaps()
+		_panoramas[key]=ImageTexture.create_from_image(image)
+	return _panoramas[key]
 
 func _publish_astronomy(profile: Dictionary) -> void:
 	if _sky == null:
@@ -21,10 +34,19 @@ func _publish_astronomy(profile: Dictionary) -> void:
 	var second := floorf(SkywatchAstronomy.Ephemeris.julian_day(utc)*86400.)
 	var observer: Vector2 = profile.observer
 	if second == _astronomy_second and observer==_astronomy_observer:
+		profile["equatorial_axes"]=_stellar_axes
 		if bool(profile.get("moon_phase_enabled",false)): profile.key_e *= _eclipse_transmission
 		return
 	_astronomy_second = second
 	_astronomy_observer = observer
+	var jd := SkywatchAstronomy.Ephemeris.julian_day(utc)
+	_stellar_axes=PackedVector3Array([
+		SkywatchAstronomy.horizon(Vector3.RIGHT,jd,observer.x,observer.y),
+		SkywatchAstronomy.horizon(Vector3.UP,jd,observer.x,observer.y),
+		SkywatchAstronomy.horizon(Vector3.BACK,jd,observer.x,observer.y)])
+	profile["equatorial_axes"]=_stellar_axes
+	_sky.set_shader_parameter("star_epoch_years",(jd-2425612.5)/365.25)
+	_sky.set_shader_parameter("star_turbulence",clampf(float(_live_conditions.get("wind_speed_kmh",8.))/60.+.15,0.,1.))
 	var eclipse := SkywatchAstronomy.lunar_eclipse(utc,observer.x,observer.y)
 	_eclipse_transmission = float(eclipse.light_transmission)
 	_sky.set_shader_parameter("moon_eclipse_shadow",eclipse.shadow)

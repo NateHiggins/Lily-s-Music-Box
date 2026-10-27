@@ -159,6 +159,7 @@ static func shape_for_day(identity: String, seed_value: int) -> int:
 	return rng.randi_range(1,3) if rng.randf()<.01 else 0
 
 func _process(delta: float) -> void:
+	preload("res://scripts/building/skywatch_astronomy.gd").publish_star_frame(sky,get_viewport().get_camera_3d(),clock)
 	elapsed=minf(TRANSITION_SECONDS,elapsed+delta)
 	current=interpolate(origin,target,elapsed/TRANSITION_SECONDS)
 	var date := clock.local_datetime()

@@ -13,6 +13,12 @@ func check(ok: bool,label: String) -> void:
 	if not ok: failures.append(label)
 
 func run(bench: Node3D) -> void:
+	if OS.get_environment("SKYWATCH_CATALOGUE_BAKE")=="1":
+		catalogue_review(bench)
+		return
+	if OS.get_environment("SKYWATCH_STAR_REVIEW")=="1":
+		await star_review(bench)
+		return
 	var out := OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(out)
 	var reference: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/skywatch_planet_reference.json"))
@@ -171,6 +177,7 @@ func clear_optics(bench: Node3D) -> void:
 	bench.sky_material.set_shader_parameter("spectacle",empty)
 
 func measure(bench: Node3D,field: float,relief: bool) -> Dictionary:
+	Astronomy.publish_star_frame(bench.sky_material,bench.camera,bench.clock)
 	for frame in range(30): await bench.get_tree().process_frame
 	var frames: Array[float]=[]
 	var last := Time.get_ticks_usec()
@@ -181,7 +188,164 @@ func measure(bench: Node3D,field: float,relief: bool) -> Dictionary:
 	var ordered := frames.duplicate();ordered.sort()
 	return {"vertical_field_degrees":field,"relief":relief,"raw_frame_ms":frames,"p50":ordered[60],"p95":ordered[114],"p99":ordered[118],"max":ordered[-1],"scope":"clear optical bench, not occupied-world route or isolated GPU attribution"}
 
-func capture(bench: Node3D,path: String) -> void:
-	for frame in range(20): await bench.get_tree().process_frame
+func capture(bench: Node3D,path: String,phase_override := INF,settle_frames := 20) -> void:
+	Astronomy.publish_star_frame(bench.sky_material,bench.camera,bench.clock)
+	if is_finite(phase_override):bench.sky_material.set_shader_parameter("star_animation_seconds",phase_override)
+	for frame in range(settle_frames): await bench.get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	bench.get_viewport().get_texture().get_image().save_png(path)
+
+func star_review(bench: Node3D) -> void:
+	bench.manager.set_process(false);bench.director.set_process(false)
+	Engine.max_fps=0;DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+	bench.clock.configure_date(1929,1,15,22*60)
+	bench.director._astronomy_second=-INF;bench.director._apply(1320.)
+	check(bench.director._panoramas[bench.director.SKY_PATHS.night].get_width()==2,"V2 no longer loads the photographic star panorama")
+	clear_optics(bench)
+	for effect: Node in bench.get_children():
+		if effect is WeatherFX:
+			effect.process_mode=Node.PROCESS_MODE_DISABLED;(effect as Node3D).hide()
+	bench.camera.near=.01
+	var baker := preload("res://scripts/building/skywatch_catalogue.gd")
+	var data := FileAccess.get_file_as_bytes(ProjectSettings.globalize_path("res://../art/data/astronomy/bsc5_catalog.dat.gz"))
+	var parsed := baker.parse_catalogue(data.decompress_dynamic(5000000,FileAccess.COMPRESSION_GZIP).get_string_from_ascii())
+	var sirius: Dictionary={}
+	for row: Dictionary in parsed.rows:
+		if int(row.hr)==2491:sirius=row;break
+	check(not sirius.is_empty(),"Sirius is identified by stable BSC HR number")
+	var utc: Dictionary = bench.clock.utc_datetime()
+	var jd := Ephemeris.julian_day(utc)
+	var direction := Astronomy.horizon(baker.direction(sirius,jd),jd,40.75,-73.92)
+	bench.camera.look_at(bench.camera.global_position+direction,Vector3.UP)
+	var out := OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(out)
+	var frames: Array[Dictionary]=[]
+	for field: float in [78.,1.,.1]:
+		set_field(bench,field)
+		await capture(bench,out+"/sirius_%.1f_degrees.png" % field)
+		check(absf(float(bench.sky_material.get_shader_parameter("camera_fov"))-deg_to_rad(field))<.00001,"physical frustum field published %.1f degrees" % field)
+		for mode in range(3):
+			bench.sky_material.set_shader_parameter("skywatch_stars_enabled",mode>0)
+			bench.sky_material.set_shader_parameter("skywatch_faint_stars",mode==2)
+			var sample := await measure(bench,field,false)
+			sample["star_mode"]=mode;frames.append(sample)
+	bench.sky_material.set_shader_parameter("star_animation_seconds",0.)
+	await capture(bench,out+"/sirius_reference.png")
+	var baseline_phase := float(bench.sky_material.get_shader_parameter("star_animation_seconds"))
+	await capture(bench,out+"/sirius_scintillation_control.png",baseline_phase+.073)
+	# Let TAA settle after jumping from an unrelated phase to this endpoint;
+	# otherwise its prior phase history contaminates the continuity comparison.
+	await capture(bench,out+"/scintillation_wrap_before.png",4095.999,120)
+	var wrap_before := bench.get_viewport().get_texture().get_image()
+	await capture(bench,out+"/scintillation_wrap_after.png",.001,120)
+	var wrap_after := bench.get_viewport().get_texture().get_image()
+	var wrap_signal := image_signal(wrap_before,wrap_after)
+	var flux_before := image_flux(wrap_before);var flux_after := image_flux(wrap_after)
+	var wrap_flux_change := absf(flux_before-flux_after)/maxf(flux_before,flux_after)
+	check(wrap_flux_change<.03,"bounded animation-clock wrap preserves integrated stellar light within three percent")
+	# Compare the star contribution itself, so bright cloud lighting cannot be
+	# mistaken for a star shining through its occluder.
+	bench.sky_material.set_shader_parameter("skywatch_stars_enabled",true)
+	await capture(bench,out+"/occlusion_clear_on.png")
+	var clear_on := bench.get_viewport().get_texture().get_image()
+	bench.sky_material.set_shader_parameter("skywatch_stars_enabled",false)
+	await capture(bench,out+"/occlusion_clear_off.png")
+	var clear_off := bench.get_viewport().get_texture().get_image()
+	# Publish a complete production nimbostratus brush, not a coverage-only
+	# hybrid retaining another genus's density/motion from the clear setup.
+	var library := preload("res://scripts/building/living_sky.gd")
+	var weather := {"cloud_total":1.,"cloud_low":0.,"cloud_mid":1.,"cloud_high":0.,"rain_intensity":.9,"snow_intensity":0.,"relative_humidity":.95,"temperature_c":2.,"wind_speed_kmh":20.,"pressure_hpa":990.}
+	var ceiling := library.sample(bench.clock.local_datetime(),weather,1928,Vector2.ZERO)
+	library.publish(bench.sky_material,ceiling)
+	bench.sky_material.set_shader_parameter("skywatch_stars_enabled",true)
+	await capture(bench,out+"/occlusion_cloud_on.png")
+	var cloud_on := bench.get_viewport().get_texture().get_image()
+	bench.sky_material.set_shader_parameter("skywatch_stars_enabled",false)
+	await capture(bench,out+"/occlusion_cloud_off.png")
+	var cloud_off := bench.get_viewport().get_texture().get_image()
+	var clear_signal := image_signal(clear_on,clear_off)
+	var cloud_signal := image_signal(cloud_on,cloud_off)
+	check(clear_signal>.1 and cloud_signal<clear_signal*.1,"production cloud composite extinguishes at least 90 percent of the measured star signal")
+	clear_optics(bench)
+	var blocker := MeshInstance3D.new();var box := BoxMesh.new();box.size=Vector3(.2,.2,.2)
+	blocker.mesh=box;bench.add_child(blocker);blocker.global_position=bench.camera.global_position+direction*3.
+	var opaque := StandardMaterial3D.new();opaque.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED;opaque.albedo_color=Color(.02,.02,.02)
+	blocker.material_override=opaque
+	bench.sky_material.set_shader_parameter("skywatch_stars_enabled",true)
+	await capture(bench,out+"/occlusion_world_on.png")
+	var world_on := bench.get_viewport().get_texture().get_image()
+	bench.sky_material.set_shader_parameter("skywatch_stars_enabled",false)
+	await capture(bench,out+"/occlusion_world_off.png")
+	var world_off := bench.get_viewport().get_texture().get_image()
+	var world_signal := image_signal(world_on,world_off)
+	check(world_signal<.002,"a real opaque world mesh blocks the analytical starfield")
+	blocker.queue_free();await bench.get_tree().process_frame
+	var result := {"evidence_class":"INERT","scope":"native analytical-star optical/performance diagnostics; not telescope gameplay acceptance","failures":failures,"sirius_altitude_degrees":Ephemeris.altitude_degrees(direction),"frame_times":frames,"clear_signal":clear_signal,"cloud_signal":cloud_signal,"world_signal":world_signal,"wrap_peak_signal":wrap_signal,"wrap_relative_flux_change":wrap_flux_change}
+	var file := FileAccess.open(out+"/star_review.json",FileAccess.WRITE);file.store_string(JSON.stringify(result,"\t")+"\n");file.close()
+	print("SKYWATCH STAR RESULT: ","PASS" if failures.is_empty() else "FAIL")
+	bench.get_tree().quit(0 if failures.is_empty() else 1)
+
+func image_signal(a: Image,b: Image) -> float:
+	var peak := 0.
+	var center := a.get_size()/2
+	for y in range(center.y-40,center.y+41):
+		for x in range(center.x-40,center.x+41):
+			var difference := a.get_pixel(x,y)-b.get_pixel(x,y)
+			peak=maxf(peak,maxf(absf(difference.r),maxf(absf(difference.g),absf(difference.b))))
+	return peak
+
+func image_flux(a: Image) -> float:
+	var center := a.get_size()/2
+	var background := a.get_pixel(center.x-40,center.y-40).srgb_to_linear().get_luminance()
+	var sum := 0.
+	for y in range(center.y-40,center.y+41):
+		for x in range(center.x-40,center.x+41):
+			sum+=maxf(0.,a.get_pixel(x,y).srgb_to_linear().get_luminance()-background)
+	return sum
+
+func catalogue_review(bench: Node3D) -> void:
+	var baker := preload("res://scripts/building/skywatch_catalogue.gd")
+	var raw := FileAccess.get_file_as_bytes(ProjectSettings.globalize_path("res://../art/data/astronomy/bsc5_catalog.dat.gz"))
+	var text := raw.decompress_dynamic(5000000,FileAccess.COMPRESSION_GZIP).get_string_from_ascii()
+	var parsed := baker.parse_catalogue(text)
+	var rows: Array[Dictionary]=parsed.rows
+	check(rows.size()==9096 and int(parsed.non_stellar)==14,"BSC5 retains 9096 stars and skips 14 non-stellar records")
+	check(parsed.malformed.is_empty(),"every fixed-width stellar record parses without corruption")
+	var prefixed_colour := false
+	for row: Dictionary in rows:
+		if int(row.hr)==2632:prefixed_colour=is_equal_approx(float(row.bv),1.15)
+	check(prefixed_colour,"missing photometry uses K colour after the historical giant prefix gK1")
+	var full := baker.pack_radec_texture(rows).get_image()
+	var half := baker.pack_radec_texture(rows,true).get_image()
+	var max_full := 0.;var max_half := 0.
+	for i in range(rows.size()):
+		var a := full.get_pixel(i%baker.WIDTH,i/baker.WIDTH)
+		var b := half.get_pixel(i%baker.WIDTH,i/baker.WIDTH)
+		max_full=maxf(max_full,absf(float(rows[i].ra)-a.r))
+		max_half=maxf(max_half,absf(float(rows[i].ra)-b.r))
+	check(rad_to_deg(max_full)*3600.<.1,"RGBAF raw RA retains sub-arcsecond precision")
+	check(rad_to_deg(max_half)*3600.>100.,"raw RGBAH RA cannot meet telescope precision; measured rather than assumed")
+	var stock := baker.bake(rows)
+	check(int(stock.count)==9096,"spatial bake preserves every stellar record")
+	var headers: Image=stock.headers.get_image()
+	var points: Image=stock.points.get_image()
+	var cursor := 0;var consistent := true
+	for y in range(headers.get_height()):
+		for x in range(headers.get_width()):
+			var header := headers.get_pixel(x,y)
+			consistent=consistent and int(header.r)==cursor
+			for offset in range(int(header.g)):
+				var p := points.get_pixel(cursor%baker.WIDTH,cursor/baker.WIDTH)
+				var cell := baker.cube_cell(Vector3(p.r,p.g,p.b))
+				consistent=consistent and cell==Vector3i(x,y%baker.CELLS,y/baker.CELLS)
+				cursor+=1
+	check(consistent and cursor==9096,"bucket headers own contiguous complete non-overlapping star ranges")
+	check(int(stock.max_bucket)<32,"shader traversal can be bounded below 32 records per direction bucket")
+	var folder := "res://assets/environment/stars"
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
+	for key: String in ["headers","points","properties"]:
+		check(ResourceSaver.save(stock[key],folder+"/bsc5_"+key+".res")==OK,"save baked native data texture "+key)
+	var result := {"evidence_class":"INERT","scope":"offline BSC5 parser/data-texture bake, not rendered starfield acceptance", "stars":rows.size(),"non_stellar":parsed.non_stellar,"missing_colour":parsed.missing_colour,"max_bucket":stock.max_bucket,"ra_full_max_error_arcsec":rad_to_deg(max_full)*3600.,"ra_half_max_error_arcsec":rad_to_deg(max_half)*3600.,"failures":failures}
+	var out := OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(out)
+	var file := FileAccess.open(out+"/catalogue_bake.json",FileAccess.WRITE);file.store_string(JSON.stringify(result,"\t")+"\n");file.close()
+	print("SKYWATCH CATALOGUE RESULT: ","PASS" if failures.is_empty() else "FAIL", " ",JSON.stringify(result))
+	bench.get_tree().quit(0 if failures.is_empty() else 1)

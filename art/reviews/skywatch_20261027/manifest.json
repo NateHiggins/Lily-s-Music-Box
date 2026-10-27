@@ -147,7 +147,280 @@
     "references/horizons_venus_annual.json": "6ae2c5263ac44be64c4556f7bf54d7c35a844a06a8f120c7284baf80ade76c93",
     "skywatch_review.json": "b470edebe8603007be29110fa7c96670200570f38c4730b0362880146001bb38",
     "weather_candidate/verification.json": "edf5c6784101a15127e9bfbdcf3177ec3c0f8d68ef561b0671b2897b63be61c7",
-    "weather_candidate/verification.md": "85c8a6d509ecd28f8ca3473b5a5422f1b40dafcb036329b803007fad425586e0"
+    "weather_candidate/verification.md": "85c8a6d509ecd28f8ca3473b5a5422f1b40dafcb036329b803007fad425586e0",
+    "part9/tested_source/game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
+    "part9/tested_source/game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
+    "part9/tested_source/game/scripts/building/v2_city_day_night_director.gd": "6e54e898173f9f185cdd390fb4ee5bf0e5d4b4af6f696a712f7087288ba21422",
+    "part9/tested_source/game/scripts/building/orison_v2_atmosphere.gd": "f56275afb2c5ad16a668045407f7914410326097e7701b509cace5867d3f19be",
+    "part9/tested_source/game/scripts/building/WeatherManager.gd": "bf32dec7280ba066d4ae9bf0a125bbeb33d069a61081af739ad3b7afcfba0d57",
+    "part9/tested_source/game/shaders/queens_weather_sky.gdshader": "02559bd1bdccef62878810e8a2f6f65e4d02c36584c7350a070507c0732ee5e4",
+    "part9/tested_source/game/shaders/skywatch_moon.gdshaderinc": "e926a1a0da31561f01fd7c20b9e8bdad5b5033a92be051134fe2456085fd5adf",
+    "part9/tested_source/game/shaders/skywatch_planets.gdshaderinc": "65cd2d8cae1fc904d0d7d4f7aa1dbe96c95709bca3816979451a83457106ca3f",
+    "part9/tested_source/game/shaders/skywatch_stars.gdshaderinc": "8d261fc3600430510d26dcbe3d000b76af9a9d4ff43016d25bc071e28a197ad0",
+    "part9/tested_source/game/tests/skywatch_optical_review.gd": "2e373b19f4a5816ba70e802520b04bb18c3b793509812320b9cfba649c1b85ac",
+    "part9/tested_source/game/tests/v2_sky_spectacle_bench.gd": "91494efd53bf037d1d6fecb2ede236068dceb3f62e5de9b8b40dca2bc707b390",
+    "part9/tested_source/game/tests/fixtures/skywatch_planet_reference.json": "11e34e45ba14701e5387dc8dd9db307fa029da2122e68dfb0d7fae605e6919b2",
+    "part9/receipts_and_logs/astronomy_with_analytical_stars.log": "98f4ccd6b14038ef4b2ded6f28569fb25129e38448f6744eedb3a85978afbd16",
+    "part9/receipts_and_logs/astronomy_with_analytical_stars.log.receipt.json": "6f88759b5dc6606b58cc499e75e79e62c743718c645ef7a17cc0a6577042eb0e",
+    "part9/receipts_and_logs/astronomy_with_analytical_stars.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/catalogue_bake.log": "088fb2327fcd24ec561ea16604b9643f2f7c7e74650e1e15cde41b52f0106f19",
+    "part9/receipts_and_logs/catalogue_bake.log.receipt.json": "aa675907169413db025068c6f1402d4e96ff1ff35d39fb6a1e0585816ca80df5",
+    "part9/receipts_and_logs/catalogue_bake.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/catalogue_prefix_repair.log": "09279a6e4602c4e6eb54235564aa8d1ac76ad6d7f643382fb8ccaeafce855163",
+    "part9/receipts_and_logs/catalogue_prefix_repair.log.receipt.json": "14a97415d5fcd38d30798b1da2c7550185b27880a56f802adbb724302f8f6c6a",
+    "part9/receipts_and_logs/catalogue_prefix_repair.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/ephemeris_regression.log": "e1cc5b6ce99eb5ce9f44881ad6bcbbec29125c8c3443ab60cfb4ecae257959e3",
+    "part9/receipts_and_logs/ephemeris_regression.log.receipt.json": "05eaecbbccdecdb79675efcf4dc5df7b2c3057d18f6607f1f859b2782b3f8046",
+    "part9/receipts_and_logs/ephemeris_regression.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/ephemeris_star_shared_regression.log": "e1cc5b6ce99eb5ce9f44881ad6bcbbec29125c8c3443ab60cfb4ecae257959e3",
+    "part9/receipts_and_logs/ephemeris_star_shared_regression.log.receipt.json": "cf9db1ce5e82ebe88e858307c603a6912a5bac1744a93cba2d09eaa1d1a674bc",
+    "part9/receipts_and_logs/ephemeris_star_shared_regression.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/import.log": "dbb3490de9206ec025dc9a6311c5886e5eb32eb4a5fac5219e3d5b9e14ef583c",
+    "part9/receipts_and_logs/import.log.receipt.json": "5766bab25a4a2b8b4d21541b1ba2c972ed44cdf2caca91e451fc48f9bf124dfe",
+    "part9/receipts_and_logs/import.log.stderr": "c43668c7f766a39cee7dd73b2cf4bb73a95ebd032bf27bc68ac5abddb290fe3e",
+    "part9/receipts_and_logs/optical_clear.log": "186efdef9f3d8e664428cbf3e2b1913976bd6ea58a5d43bb36e4d13b96ce5439",
+    "part9/receipts_and_logs/optical_clear.log.receipt.json": "034c48a021509b44297e263c9c090353d5bd70c8c5b2b4a26d9f663fce730ac4",
+    "part9/receipts_and_logs/optical_clear.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_contrast.log": "05f58a799502d11e61e3ccdd7bf4d6f7121417190f3a640e93a46be31d55f75c",
+    "part9/receipts_and_logs/optical_contrast.log.receipt.json": "453f0b076d2875610f583800a4f01278075de49a757e076bf7911c32781f9210",
+    "part9/receipts_and_logs/optical_contrast.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_eclipses.log": "bfc64da4aee49c31d0f479552fb8ebf9274ab2a669e6a650d8554d95b10d74cb",
+    "part9/receipts_and_logs/optical_eclipses.log.receipt.json": "ca317f7a27de6450855414473c9f26e17fb0b19fff4ca9266eb0c402c8f2a6c7",
+    "part9/receipts_and_logs/optical_eclipses.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_empty_strata.log": "05f58a799502d11e61e3ccdd7bf4d6f7121417190f3a640e93a46be31d55f75c",
+    "part9/receipts_and_logs/optical_empty_strata.log.receipt.json": "6b5529249c75c25fb9af23109b1b24a4a556a09c5b1c01a43f8df843469e4b4f",
+    "part9/receipts_and_logs/optical_empty_strata.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_final.log": "65fa55cf86adb40d6a673c3d0eff504e5c0c4c49ef4dd7ae4de82ec995e1cb67",
+    "part9/receipts_and_logs/optical_final.log.receipt.json": "f99a8743e817b319241f08135199315257d6fe57232c54c55948fb05ef6811fe",
+    "part9/receipts_and_logs/optical_final.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_grazing.log": "53c02295607b790c91ce110334d1ef329cfff31206b26fe602a7bc30e31f6a50",
+    "part9/receipts_and_logs/optical_grazing.log.receipt.json": "48567700bec71fb921b6d96ba5feb17b62d9d9de88ef4e11354241bb5a346ddc",
+    "part9/receipts_and_logs/optical_grazing.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_horizon.log": "05f58a799502d11e61e3ccdd7bf4d6f7121417190f3a640e93a46be31d55f75c",
+    "part9/receipts_and_logs/optical_horizon.log.receipt.json": "dafd5c6a4bc210400351109d7112a62181c7ffcd4b4440300f7ff4e517c0be89",
+    "part9/receipts_and_logs/optical_horizon.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_initial.log": "362fe0e68b784a98180917d7ebbe2254506197b5e59a345093ae7145bca4d1e8",
+    "part9/receipts_and_logs/optical_initial.log.receipt.json": "dfc3ca70513b7936b8a79c017b956945e81078f70d2d690bfabcbe2a88331b49",
+    "part9/receipts_and_logs/optical_initial.log.stderr": "635635417300feb2f47359268ed135193058959571d880f01ab2c2ce55daed9f",
+    "part9/receipts_and_logs/optical_isolated.log": "186efdef9f3d8e664428cbf3e2b1913976bd6ea58a5d43bb36e4d13b96ce5439",
+    "part9/receipts_and_logs/optical_isolated.log.receipt.json": "0103c56ed2396cd1b923e4b3f25755bd95386a386217231eaaa009fa64f2b3d5",
+    "part9/receipts_and_logs/optical_isolated.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_phase_repair.log": "06c91cab1fdde6ae4704423fada967df06202ebfc42207f112d6657e56ea289f",
+    "part9/receipts_and_logs/optical_phase_repair.log.receipt.json": "831acfab7b9252a7a84d3c180ec3821c8d60fece662935ba3eb72e4c8b86c63f",
+    "part9/receipts_and_logs/optical_phase_repair.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_planets.log": "65fa55cf86adb40d6a673c3d0eff504e5c0c4c49ef4dd7ae4de82ec995e1cb67",
+    "part9/receipts_and_logs/optical_planets.log.receipt.json": "244c414314c67b29318bc8b38ac90170f103f8017938cacb128d7f784ed000fd",
+    "part9/receipts_and_logs/optical_planets.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_qualified_diagnostic.log": "98f4ccd6b14038ef4b2ded6f28569fb25129e38448f6744eedb3a85978afbd16",
+    "part9/receipts_and_logs/optical_qualified_diagnostic.log.receipt.json": "75832734d9f77a3d1084a6093a20e157c6bc4a8787dcd0dc3b9e23aebb55e83f",
+    "part9/receipts_and_logs/optical_qualified_diagnostic.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_second.log": "186efdef9f3d8e664428cbf3e2b1913976bd6ea58a5d43bb36e4d13b96ce5439",
+    "part9/receipts_and_logs/optical_second.log.receipt.json": "23628f46247455b8d1309ff671a9bcced3ca8f417d4f8f0e34cbcfda4ad2b83d",
+    "part9/receipts_and_logs/optical_second.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/optical_terrain.log": "05f58a799502d11e61e3ccdd7bf4d6f7121417190f3a640e93a46be31d55f75c",
+    "part9/receipts_and_logs/optical_terrain.log.receipt.json": "3919523e916aad0d8c93edb96bcc489c342ab8463441a3338e305277b7815776",
+    "part9/receipts_and_logs/optical_terrain.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/stars_final.log": "cd2bdf95733386ff9833b680a1608f854631f8950d16658364d39ff87a8bced1",
+    "part9/receipts_and_logs/stars_final.log.receipt.json": "ca11286c409a47ab1053de0415e80cc633cc80e104bdd30dd1427d326154655b",
+    "part9/receipts_and_logs/stars_final.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/stars_final_source.log": "6a960626dd6bdf86c6db799534b333cf6a2ad467c5849998ee78683e58e82384",
+    "part9/receipts_and_logs/stars_final_source.log.receipt.json": "d6daf8a6166ea42c1716379960cef2101d73c0e95ef15e6799c3bf5a3d6765a9",
+    "part9/receipts_and_logs/stars_final_source.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/stars_flux_verified.log": "6a960626dd6bdf86c6db799534b333cf6a2ad467c5849998ee78683e58e82384",
+    "part9/receipts_and_logs/stars_flux_verified.log.receipt.json": "6452f273c6770c00a9582de4999584e7496a06400cf8263f7735f3eb1ea314b1",
+    "part9/receipts_and_logs/stars_flux_verified.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/stars_initial.log": "98552acc7a3605d7115015e594ec92d2224a821f89629d37dfa43f787c293045",
+    "part9/receipts_and_logs/stars_initial.log.receipt.json": "f1dc30c2511a22724417d4886aca12a2867c13263909e0ead59e987e8488ffa9",
+    "part9/receipts_and_logs/stars_initial.log.stderr": "7eb1a298ceb44f2f7d1397143f687d54902d2df8c9159a0bc6f3b83a35f98038",
+    "part9/receipts_and_logs/stars_native_ceiling.log": "a6a3c90854039031678df26bea9c12e7ef0ea47da6dd704b780abfcfb406b1f8",
+    "part9/receipts_and_logs/stars_native_ceiling.log.receipt.json": "b89aab93ce5830d9f0bd180b965ea792aef07e9028f4e410574a9c86e9fd3de9",
+    "part9/receipts_and_logs/stars_native_ceiling.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/stars_occlusion.log": "a6a3c90854039031678df26bea9c12e7ef0ea47da6dd704b780abfcfb406b1f8",
+    "part9/receipts_and_logs/stars_occlusion.log.receipt.json": "dadf5ec71c0c82d602088028d0ad79f44d74665da64c6569911f6589b36383dc",
+    "part9/receipts_and_logs/stars_occlusion.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/stars_occlusion_repaired.log": "a4d95c4b3682e2095896f0fcb04498e0c6094e56483e541b625a0edcc1672630",
+    "part9/receipts_and_logs/stars_occlusion_repaired.log.receipt.json": "bb3f677f97065d84391a2c7c8542c341d4499abf01b9e3fe38620b950a9d2fed",
+    "part9/receipts_and_logs/stars_occlusion_repaired.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/stars_partitioned.log": "4a10d1a11d01bdf53bfdafe9879de27c94d99315ebeedb7b7f4ea0ad63070489",
+    "part9/receipts_and_logs/stars_partitioned.log.receipt.json": "119baddac681a75cf7a93ba3e78ed3e22c68a71a28eaf535f74183e1d448c698",
+    "part9/receipts_and_logs/stars_partitioned.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/stars_second.log": "a00baaec1805521e60c86f09d616c3709d976ea5b04eae8e24e284f6704ae296",
+    "part9/receipts_and_logs/stars_second.log.receipt.json": "930eb700a70526f0702fb6f9d324e0b29d7a47a2dfa801344a1bbd98cfb61615",
+    "part9/receipts_and_logs/stars_second.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/stars_settled_phase.log": "cd2bdf95733386ff9833b680a1608f854631f8950d16658364d39ff87a8bced1",
+    "part9/receipts_and_logs/stars_settled_phase.log.receipt.json": "9f598eb38b213afb3cc4a75828cbc35bb2f273060a32bd447eed305ff2aa17d4",
+    "part9/receipts_and_logs/stars_settled_phase.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/stars_stable_phase.log": "cd2bdf95733386ff9833b680a1608f854631f8950d16658364d39ff87a8bced1",
+    "part9/receipts_and_logs/stars_stable_phase.log.receipt.json": "b5e7b37c40c3d72f382c8acb02bcbc8fcf8da968f4a51281aa0a73f6e1fd725f",
+    "part9/receipts_and_logs/stars_stable_phase.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "part9/receipts_and_logs/weather_sky_regression.log": "c734edc7ee2fdb599ab8bac38ae1cea6dec7506bb2355090b99fc625abe327fe",
+    "part9/receipts_and_logs/weather_sky_regression.log.receipt.json": "73784c11b6321ebafb897c488331fc0659d85c1b1d5fbaaadd5eef3a66106757",
+    "part9/receipts_and_logs/weather_sky_regression.log.stderr": "7a38c85a125a37d743a37d43184042af78157f914321c90a10bcfa9bba36b903",
+    "part9/receipts_and_logs/weather_sky_star_shared_regression.log": "1a0cef8af05032ff235623dbe5c476d9999e01db66ead3e4da7bbf3c727b267e",
+    "part9/receipts_and_logs/weather_sky_star_shared_regression.log.receipt.json": "a6b79d317e2a33bb0393275982732de762ed90ab96cba63cdefa1716fb18fa99",
+    "part9/receipts_and_logs/weather_sky_star_shared_regression.log.stderr": "7a38c85a125a37d743a37d43184042af78157f914321c90a10bcfa9bba36b903",
+    "part9/catalogue_prefix_repair/catalogue_bake.json": "08429577ef9905d7a003a3bed22464a6a21e028fb3622f209e2022e14f554ce3",
+    "part9/stars_final_source/star_review.json": "789a42d28db2a3f14ca6107a8502801fdb1248802b899882c9199d206cd3136b",
+    "part9/astronomy_with_analytical_stars/skywatch_review.json": "87bc466ce5f65d1f35c8073e5c68a6f78d9c4e7ba216e259a121354f4d248306",
+    "part9/original_diagnostics/stars_occlusion.json": "ac8b6e03dc7f868883af0c64a19cefdf46680369bc475c64400ee8ac34fc0e86",
+    "part9/original_diagnostics/stars_native_ceiling.json": "677a2439af3b916016c1d490d2b9aa56849e9307d46424537fd18b54ed802e5e",
+    "part9/original_diagnostics/stars_final.json": "9b8e98fa1a3f54a1fef55260003727eecc4120154db1c7f36d48b93c971dfafc",
+    "part9/original_diagnostics/stars_stable_phase.json": "5abf01516be37d0ac33d61c4b67e56b8d0017cd03341a22f000214c822004420",
+    "part9/original_diagnostics/stars_settled_phase.json": "ce07be0c17d25341faffd9fb2ed9572d550eacb9107703a9d9958d3d2d55e4fc"
   },
-  "archive_sha256": "35035dc177ed3ca058e12469e0ff77dc81e1016170dbdd551cc84ce2f90aadbb"
+  "archive_sha256": "e4f55cd24a8a72f6a7cf2a789cadd0cbe49be6d4476044ae327d30941a928dfb",
+  "part9_source_lf_sha256": {
+    "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
+    "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
+    "game/scripts/building/v2_city_day_night_director.gd": "6e54e898173f9f185cdd390fb4ee5bf0e5d4b4af6f696a712f7087288ba21422",
+    "game/scripts/building/orison_v2_atmosphere.gd": "7104a4e2ce0ff200a91b04b6f1c92c7c477e81fc8b2921abf20624fa032aec76",
+    "game/scripts/building/WeatherManager.gd": "a085b83074ed0bb0fad7bc7a22f94b0cad6019b5a61560face3a7e4f30c61855",
+    "game/shaders/queens_weather_sky.gdshader": "02559bd1bdccef62878810e8a2f6f65e4d02c36584c7350a070507c0732ee5e4",
+    "game/shaders/skywatch_moon.gdshaderinc": "e926a1a0da31561f01fd7c20b9e8bdad5b5033a92be051134fe2456085fd5adf",
+    "game/shaders/skywatch_planets.gdshaderinc": "65cd2d8cae1fc904d0d7d4f7aa1dbe96c95709bca3816979451a83457106ca3f",
+    "game/shaders/skywatch_stars.gdshaderinc": "8d261fc3600430510d26dcbe3d000b76af9a9d4ff43016d25bc071e28a197ad0",
+    "game/tests/skywatch_optical_review.gd": "2e373b19f4a5816ba70e802520b04bb18c3b793509812320b9cfba649c1b85ac",
+    "game/tests/v2_sky_spectacle_bench.gd": "9a5adc149f41776f83bc5a76a4d6ef3e2c027effad7a1a88d7b81740cf9f8235",
+    "game/tests/fixtures/skywatch_planet_reference.json": "38b436ec8cd42a25bcfbbc6d5eb113553f9a41304d919c938bb4476290f96225"
+  },
+  "part9_data_sha256": {
+    "art/data/astronomy/bsc5_catalog.dat.gz": "3dc44b1e90be8fbe5bcc7656032560f51275f985c7e3f783c9028e1838ec7bed",
+    "art/data/astronomy/bsc5_source.json": "fb586703202e24e2fb9cbe57b20c7c50a26c682e2090d92d8066cd5e6e678276",
+    "game/assets/environment/stars/bsc5_headers.res": "af9d4141eecd03cdc79d98bc80ecde27087aa24823566a9b4b9367d3ad5b5f07",
+    "game/assets/environment/stars/bsc5_points.res": "4c8d03f95b1ba785c695c4e126405c52939a852289cbd2116ca4336d723cb910",
+    "game/assets/environment/stars/bsc5_properties.res": "1b2ecc7efeb13fc38434c342e0a170c07a48c4934c764cb8a1867c39ef24614b"
+  },
+  "part9_capture_sha256": {
+    "astronomy_with_analytical_stars/copernicus_01deg_shadow.png": {
+      "sha256": "51cdc7416321a12bcc663b0cf147fc18c22dea356c5acca04b15a9ef334662b3",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\copernicus_01deg_shadow.png",
+      "size": 1698596
+    },
+    "astronomy_with_analytical_stars/copernicus_01deg_unshadowed_control.png": {
+      "sha256": "2635821a8be6e1aaa3b01ca4610108d19608ed1274ff88e6478cc86b1cd6a6ba",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\copernicus_01deg_unshadowed_control.png",
+      "size": 1700636
+    },
+    "astronomy_with_analytical_stars/moon_19_relief.png": {
+      "sha256": "2e358651e8b9727c6a4df5023277b926602eb91290baf87651d6f2cb5aebe03c",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\moon_19_relief.png",
+      "size": 576861
+    },
+    "astronomy_with_analytical_stars/moon_19_smooth_control.png": {
+      "sha256": "629af29355d823d2e22f9bef5068fe570d101891659502dbe9540763a3e61e29",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\moon_19_smooth_control.png",
+      "size": 499293
+    },
+    "astronomy_with_analytical_stars/moon_22_relief.png": {
+      "sha256": "4df38c3b4dc26de1691a9f6c86b142eb4afefec4d2457a7ab01d5f6076be6074",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\moon_22_relief.png",
+      "size": 727223
+    },
+    "astronomy_with_analytical_stars/moon_27_relief.png": {
+      "sha256": "2b90d4f4d3a6de34f0e813056e6ec5d7d6a190ef7bf316ad798f525a33503c9f",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\moon_27_relief.png",
+      "size": 861373
+    },
+    "astronomy_with_analytical_stars/planet_jupiter.png": {
+      "sha256": "6925a18585e9494a3f27055a28cdffce831c460ef43db34f673e14bfccb93a66",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\planet_jupiter.png",
+      "size": 269056
+    },
+    "astronomy_with_analytical_stars/planet_mars.png": {
+      "sha256": "f13eef9c5284cc79548997b492daf728177c5d45c8c7d969b62feeaae992bb07",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\planet_mars.png",
+      "size": 108086
+    },
+    "astronomy_with_analytical_stars/planet_mercury.png": {
+      "sha256": "58c3d2733e47d08ee5c2f0819f0df18a9f9e83f1d217cf43d977604982fac14e",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\planet_mercury.png",
+      "size": 49066
+    },
+    "astronomy_with_analytical_stars/planet_saturn.png": {
+      "sha256": "700d4f6d5ab975902a3d50a14bb98a8004f3a489c401e314e1d4f2bc87283ff9",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\planet_saturn.png",
+      "size": 170695
+    },
+    "astronomy_with_analytical_stars/planet_venus.png": {
+      "sha256": "d32a4706081a065ed0bacd61a43eb79b7cab73f3ee87b61a5bab1e7da3eca222",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\planet_venus.png",
+      "size": 180784
+    },
+    "astronomy_with_analytical_stars/total_eclipse_19281127.png": {
+      "sha256": "d735f73fa720f406b47976091f58cfe1c2fb767283b89ab78c75628e7fc42ddd",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\total_eclipse_19281127.png",
+      "size": 511322
+    },
+    "astronomy_with_analytical_stars/total_eclipse_unshadowed_control.png": {
+      "sha256": "3bcf0e0ec3d4ea1a84d6c1d9db0310c3b5db6d64d57a671543d220fce1df4f7c",
+      "external_path": "C:\\ov\\reports\\skywatch33\\astronomy_with_analytical_stars\\total_eclipse_unshadowed_control.png",
+      "size": 865167
+    },
+    "stars_final_source/occlusion_clear_off.png": {
+      "sha256": "09a17fedf7b0b9468ae5fe24d05fc2cc81aae20fb209f72221ae842a03c32088",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\occlusion_clear_off.png",
+      "size": 480587
+    },
+    "stars_final_source/occlusion_clear_on.png": {
+      "sha256": "f1cd122bba4b774ac35138ca7ed961be27f22a019bf312f758dd800252eae10d",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\occlusion_clear_on.png",
+      "size": 29159
+    },
+    "stars_final_source/occlusion_cloud_off.png": {
+      "sha256": "3fd9f4a3d66a677835b5349f42919c63efd79faf35947af0e7b6c048b73540b0",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\occlusion_cloud_off.png",
+      "size": 62284
+    },
+    "stars_final_source/occlusion_cloud_on.png": {
+      "sha256": "9517581214be1c3abccb94819a7b7de1f923359e46bd767f1b787e7c39f738ee",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\occlusion_cloud_on.png",
+      "size": 17529
+    },
+    "stars_final_source/occlusion_world_off.png": {
+      "sha256": "98b8cc3f8e82e8b08625f5dc27feb752cdccba3a8ef4b739b0374d2e53b2a3f9",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\occlusion_world_off.png",
+      "size": 17137
+    },
+    "stars_final_source/occlusion_world_on.png": {
+      "sha256": "98b8cc3f8e82e8b08625f5dc27feb752cdccba3a8ef4b739b0374d2e53b2a3f9",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\occlusion_world_on.png",
+      "size": 17137
+    },
+    "stars_final_source/scintillation_wrap_after.png": {
+      "sha256": "26032e0843c256659e36a4fdb3d8e2da093b3ba4f58cfd544812cb223813303c",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\scintillation_wrap_after.png",
+      "size": 29159
+    },
+    "stars_final_source/scintillation_wrap_before.png": {
+      "sha256": "7f3212b84275437c2da2dfee088a5475acb5c54e5e10ac3f1bdf3dc02f154466",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\scintillation_wrap_before.png",
+      "size": 29224
+    },
+    "stars_final_source/sirius_0.1_degrees.png": {
+      "sha256": "8d26b84d21d85552a27551167538cf2c5b3e93c82bd4c199c22c6a4a74c62073",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\sirius_0.1_degrees.png",
+      "size": 28839
+    },
+    "stars_final_source/sirius_1.0_degrees.png": {
+      "sha256": "565f411ad492e15c904df60f3150dc28a12ffaffb1fb5197c6d3cb01fc839572",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\sirius_1.0_degrees.png",
+      "size": 28717
+    },
+    "stars_final_source/sirius_78.0_degrees.png": {
+      "sha256": "8147326be92c9e95af68dd473b694ac4cf0deea29df6ffccf626b8490250dd70",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\sirius_78.0_degrees.png",
+      "size": 1036570
+    },
+    "stars_final_source/sirius_reference.png": {
+      "sha256": "3dbdbcad056a1b8578fbb9444bc0495a9aa429ca4f0d1c2ae87ca5d437cd24a9",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\sirius_reference.png",
+      "size": 29160
+    },
+    "stars_final_source/sirius_scintillation_control.png": {
+      "sha256": "dbb16f35be5f627ad0512fb87c359af6ff15808e0d01486c6bacec2cea3dc450",
+      "external_path": "C:\\ov\\reports\\skywatch33\\stars_final_source\\sirius_scintillation_control.png",
+      "size": 29256
+    }
+  },
+  "optical_contact_sha256": "b01cdf8e53214293c44b82081f384656e2fa5aef984e75710e3983c5f8e213bd"
 }

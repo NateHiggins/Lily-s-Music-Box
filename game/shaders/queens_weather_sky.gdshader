@@ -48,9 +48,11 @@ uniform float temporal_phase = 0.0;
 #include "res://shaders/queens_weather_math.gdshaderinc"
 #include "res://shaders/skywatch_planets.gdshaderinc"
 #include "res://shaders/skywatch_moon.gdshaderinc"
+#include "res://shaders/skywatch_stars.gdshaderinc"
 
 
-vec3 celestial_base(vec3 direction) {
+vec3 celestial_base(vec3 direction,out vec3 point_stars) {
+	point_stars=vec3(0.0);
 	float u = atan(direction.z, direction.x) / (2.0 * PI) + 0.5;
 	// Half-dome source: top edge is zenith; bottom edge is horizon.
 	// Views below the horizon hold on that final skyline texel instead of
@@ -76,6 +78,11 @@ vec3 celestial_base(vec3 direction) {
 	vec4 authored_b = texture(panorama_b,
 			panorama_b_celestial ? galactic_uv : vec2(u, v));
 	vec4 authored = mix(authored_a, authored_b, sky_blend);
+	if(skywatch_stars_enabled) {
+		if(panorama_a_celestial) authored_a=vec4(.001,.002,.004,1.0);
+		if(panorama_b_celestial) authored_b=vec4(.001,.002,.004,1.0);
+		authored=mix(authored_a,authored_b,sky_blend);
+	}
 	float high_opacity = 0.0;
 	float thickness = 0.0;
 	vec3 color = authored.rgb * exposure;
@@ -150,11 +157,16 @@ vec3 celestial_base(vec3 direction) {
 			* (1.0 - high_opacity * 0.78);
 	float star_field = 0.0;
 	for (int i = 0; i < 12; i++) {
+		if(skywatch_stars_enabled) break;
 		float star_dot = dot(direction, normalize(bright_stars[i]));
 		star_field = max(star_field, smoothstep(0.99991, 0.99998, star_dot));
 	}
 	// The unlit hemisphere still blocks stars and planets behind the Moon.
 	color *= 1.0-lunar_occlusion;
+	if(skywatch_stars_enabled && star_strength>.0001) {
+		vec3 observer_up=vec3(equatorial_axis_x.y,equatorial_axis_y.y,equatorial_axis_z.y);
+		point_stars=stellar_light(equatorial,observer_up,galactic.z)*star_strength*(1.0-lunar_occlusion);
+	}
 	color += vec3(0.76, 0.82, 1.0) * star_field * star_strength * obscured*(1.0-lunar_occlusion);
 	color += skywatch_planet_light(direction,normalize(sun_direction))*(1.0-lunar_occlusion);
 	color += celestial_color * celestial_strength * halo * 0.42 * obscured;
@@ -169,6 +181,7 @@ vec3 celestial_base(vec3 direction) {
 	// keeps any equirectangular pole stretch out of the playable horizon.
 	float horizon_haze = smoothstep(0.60, 0.96, v);
 	color = mix(color, fog_horizon_color, horizon_haze * 0.82);
+	point_stars *= 1.0-horizon_haze*.82;
 	// Queens never owns a coal-black horizon. Keep the glow shallow so the
 	// measured Milky Way survives overhead while distant building feet belong
 	// to the same atmosphere as their silhouettes.
@@ -448,7 +461,8 @@ void sky() {
         vec4 clouds=volumetric_clouds(EYEDIR,SCREEN_UV);
         COLOR=clouds.rgb; ALPHA=clouds.a;
     } else {
-        vec3 base=celestial_base(EYEDIR);
+        vec3 point_stars;
+        vec3 base=celestial_base(EYEDIR,point_stars);
         if(living_enabled && living_layer_2.x>.0001 && EYEDIR.y>.015) {
             vec3 high_p=wx_camera_km+EYEDIR*((living_layer_2.y+living_layer_2.z*.3-wx_camera_km.y)/EYEDIR.y);
             float ice=living_density(high_p,living_layer_2,living_motion_2,living_brush_2,living_drift_2);
@@ -462,6 +476,7 @@ void sky() {
             float amber=1.0-smoothstep(.015,.24,abs(sun_direction.y));
             ice_color=mix(ice_color,vec3(1.30,.55,.32),amber*high_sun);
             base=mix(base,ice_color,ice_alpha);
+            point_stars*=1.0-ice_alpha;
         }
         vec2 high_uv=EYEDIR.xz/max(.15,EYEDIR.y)*.14;
         vec2 uv=high_uv+wx_cirrus_drift.xy;
@@ -479,8 +494,15 @@ void sky() {
             cirrus_color=mix(cirrus_color,pearl*.35+vec3(.03,.025,.045),wx_nacreous_gate(normalize(sun_direction)));
         }
         base=mix(base,cirrus_color,cirrus);
+        point_stars*=1.0-cirrus;
         base=spectacle_behind(EYEDIR,base);
         vec3 combined=base*(1.0-HALF_RES_COLOR.a)+HALF_RES_COLOR.rgb;
+        // The march's early-opacity termination leaves residual transmission.
+        // HDR stellar points must not turn that numerical remainder into stars
+        // shining through an opaque ceiling. Reuse the existing cloud alpha.
+        float point_transmission=1.0-HALF_RES_COLOR.a;
+        point_transmission*=smoothstep(.015,.08,point_transmission);
+        combined+=point_stars*point_transmission;
         combined=spectacle_front(EYEDIR,combined,HALF_RES_COLOR.a);
         float rho=mix(living_enabled ? mix(.00015,.00055,living_aerosol/.4) : .00035,0.045,wx_whiteout);
         float tau=wx_height_tau(wx_camera_km.y*1000.0,max(EYEDIR.y,0.0),3000.0,rho,140.0);

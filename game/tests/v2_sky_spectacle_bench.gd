@@ -68,6 +68,8 @@ func _ready() -> void:
 			push_error("Unreadable sky source control");get_tree().quit(2);return
 		sky_material.shader=control
 	sky_material.set_shader_parameter("moon_surface", load("res://assets/environment/lroc_color_poles_1k.jpg"))
+	if queens_renderer and OS.get_environment("WEATHER_SKY_BASELINE")!="1":
+		preload("res://scripts/building/skywatch_astronomy.gd").configure_starfield(sky_material)
 	environment.sky = Sky.new()
 	environment.sky.sky_material = sky_material
 	environment.sky.radiance_size = Sky.RADIANCE_SIZE_128
@@ -98,7 +100,7 @@ func _ready() -> void:
 	camera.global_position = EYE
 	get_viewport().use_taa = true
 	await get_tree().process_frame
-	if OS.get_environment("SKYWATCH_OPTICAL_REVIEW")=="1":
+	if OS.get_environment("SKYWATCH_OPTICAL_REVIEW")=="1" or OS.get_environment("SKYWATCH_CATALOGUE_BAKE")=="1" or OS.get_environment("SKYWATCH_STAR_REVIEW")=="1":
 		await preload("res://tests/skywatch_optical_review.gd").new().run(self)
 		return
 	if not OS.get_environment("SKY_NATIVE_SAMPLING_PLAN").is_empty():

@@ -5,7 +5,7 @@ not runtime qualification or artistic acceptance.
 
 ## Order and preserved baseline
 
-The owner requests Parts 6–8 of the astronomical brief next, integrated with
+The owner requests Parts 6–9 of the astronomical brief next, integrated with
 the previously requested relief Moon and rooftop Skywatcher Club. This belongs
 in V2 after weather, as recorded in
 [the larger game goal](THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md).
@@ -52,6 +52,11 @@ of first-view stalls. Those limitations survive this merge.
 - Historically located eclipse events and a moving soft penumbral shadow,
   without a red lunar-eclipse disc. No naked-eye comets invented for this year.
   Newspaper and dialogue access remain with existing dated reading owners.
+- Part 9: replace V2's photographic stellar points with analytical catalogue
+  points and faint fixed celestial hash cells; spectral colour, magnitude HDR,
+  independent weather/airmass scintillation, sharp 0.1-degree optics and Airy
+  rings. Bake BSC5 offline, preserve proper motion and precession, avoid a
+  per-pixel whole-catalogue scan, and keep weather/building occlusion.
 
 The supplied attachment is Part 8, the telescopic optics brief; it supplements
 the inline Parts 6 and 7. It is recorded here so its extra requirements are not
@@ -179,6 +184,105 @@ terrain, relief geometry and orientation; Galilean ephemerides/transits and
 historical ring orientation; the Leonid renderer and fireballs; magnified
 planet optics and weather seeing; occupied-world occlusion/performance and
 runtime qualification; full candidate gates and human artistic judgment.
+
+## Part 9: analytical stellar presentation
+
+The new V2 sky replaces enlarged photographic star texels and the twelve old
+expanded catalogue markers with analytical point-spread functions. Celestial
+cells remain fixed when zoom changes; pixel derivatives control the footprint.
+The actual camera projection supplies its vertical field, including frustum
+fields below Camera3D's one-degree perspective limit. Bright telescopic sources
+use a circular-aperture Airy profile based on the
+[Bessel series](https://dlmf.nist.gov/10.2.E2) and
+[asymptotic expansion](https://dlmf.nist.gov/10.17.E3).
+The weak four-point spikes are the owner's artistic addition; a clean circular
+refractor aperture does not inherently produce four diffraction spikes.
+
+The [CDS/VizieR BSC5 ReadMe](https://vizier.cfa.harvard.edu/vizier/ftp/cats/v/50/ReadMe)
+defines the fixed-width input, missing records and projected RA proper motion.
+Credit Hoffleit and Warren (1991), NASA NSSDC/ADC and CDS/VizieR V/50. The
+authoring source and retrieval hash are in **art/data/astronomy/**. Runtime
+loads three compact native data textures; it performs no download or text
+parsing. All 9,096 stellar records survive; fourteen retained non-stellar
+records are skipped. For 310 missing B–V measurements, spectral class supplies
+an explicitly approximate colour, including historical luminosity prefixes.
+
+Raw global RA in RGBAH lost up to **805.66 arcseconds**, exceeding the entire
+0.1-degree field. The authoritative packing therefore uses RGBAF coordinates
+and RGBAH photometry/proper-motion metadata. Measured extra RA quantization in
+RGBAF is at most **0.04918 arcsecond**. This is encoding error, not total
+astrometric accuracy: catalogue precision, linear proper-motion propagation,
+precession and omitted parallax/nutation have their own limitations. The
+provided GDScript also exposes raw RA/Dec/magnitude/B–V texture packing, with
+the half-float variant retained to demonstrate its precision failure.
+
+GPU lookup uses 64-by-64 cells on six celestial cube faces. Each direction
+looks up its bucket and nearby boundary buckets, with duplicate removal at
+face seams. The actual maximum is **11 records per bucket**, not a scan of
+9,096 entries at each pixel. The sparse 3D hash background uses fixed celestial
+cells and a Galactic latitude weighting; these faint illustrative stars are
+not asserted to be measured BSC records. Neither type can create story evidence.
+The V2 director rotates the J2000 basis with date precession and observer
+sidereal geometry. V1/Compatibility retain their original presentation.
+
+Magnitude maps through **10^(-0.4*(m-1))** into HDR radiance; spectral colour is
+an artistic B–V ramp. Scintillation combines per-star phases/frequencies,
+brightness, colour, horizon airmass and weather turbulence. Its bounded clock
+comes from CampaignClock fractions, not shader TIME or a second simulation.
+Integer cycle counts and modular phase arithmetic preserve continuity at the
+4096-second precision wrap. Pause/reload/rewind use that same time source;
+installed-world pause/reload qualification is still required.
+
+The cloud test exposed a real bright-point leak through the raymarch's early
+opacity termination. The repair separates stellar radiance until compositing
+and smoothly suppresses its tiny residual transmission near an opaque ceiling,
+using the existing cloud alpha. No second cloud scan or render pass was added.
+High ice, cirrus, the Moon, foreground geometry and height haze keep their
+occlusion roles. Source-bound original failed runs are retained.
+
+An initial wrap test compared maximum pixel differences in Airy rings. Even
+after settling TAA, a roughly **0.016-pixel centroid shift** produced a larger
+peak difference while the measured integrated, linearized displayed light
+changed only **0.074%** across the two-millisecond boundary. The corrected
+continuity test measures integrated light; it also records peak differences.
+The original failed criterion, captures and logs remain diagnostics, not passes.
+
+The catalogue bake passed eleven assertions (twelve PASS log lines including
+its result) through the lane, including all bucket ranges, the half-float
+precision control, a historical-prefix colour regression and native saving.
+Native wide/one-degree/0.1-degree optical controls show sharp Sirius and its
+rings, changing scintillation and disappearance behind the production
+nimbostratus brush and an opaque world mesh. These are optical diagnostics,
+not a completed rooftop telescope interaction or human acceptance.
+
+Current-source lane receipts:
+
+- **catalogue_prefix_repair.log.receipt.json**: eleven bake assertions pass.
+- **astronomy_with_analytical_stars.log.receipt.json**: all 42 original
+  astronomy/optical assertions still pass, empty stderr.
+- **stars_final_source.log.receipt.json**: eight optical assertions pass,
+  empty stderr; native 3440x1440 fullscreen. Clear-star peak contribution
+  **0.83137** in displayed RGB; the complete production nimbostratus and
+  opaque-world controls both reduce the measured contribution to **zero**.
+  Integrated displayed-light change at the wrap is **0.0691%** in this run;
+  the separately retained peak-pixel difference is **0.04314**.
+- **ephemeris_star_shared_regression.log.receipt.json** and
+  **weather_sky_star_shared_regression.log.receipt.json**: original suites
+  pass after the shared WeatherManager presentation hook. The V1 test retains
+  its legacy wall-placement stderr warnings; it is not new V2 acceptance.
+
+These receipts and full-resolution images live under
+**C:/ov/reports/skywatch33/**. Compact durable copies, tested source, hashes,
+raw distributions and contact views extend the existing review archive.
+The first shader/parser failures, failed cloud controls and failed peak-pixel
+wrap controls remain available with their original results.
+
+Uncapped native controls record all 120 frame times per setting. In the
+observed 78-degree clear bench, catalogue plus faint stars add approximately
+**0.4–0.5 ms median** over the current cheap no-catalogue underlay. That control
+is not a matched comparison against the former photographic sky or an occupied
+route, and does not resolve the known whole-world stutter. Retain distribution,
+hardware and source context when comparing later results.
 
 This work does not change campaign, inventory, work-order, resident, quest,
 reading or save authorities. Club flavour must preserve the established alien
