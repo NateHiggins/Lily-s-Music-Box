@@ -739,3 +739,74 @@ Inspect the affected severe/funnel renders, resolve measured costs and remaining
 visual limits, then renew source-bound qualification after the batch settles.
 Do not rerun firehose interaction as part of this sky checkpoint. Continue the
 cloud/rooftop work before the newly queued optional film presentation experiment.
+
+### Resumed qualification and owner-reported cloud pixelation
+
+The clean pushed **8d065ec6** checkpoint was resumed with main still at
+**6ff8922f**, no unrelated changes and the patched Vulkan lane free. No firehose
+interaction test ran. The previously interrupted cloud comparison was rerun,
+not relabeled as passing: **skywatch37/cloud_world.log.receipt.json** completes
+in 358 s, empty stderr, four measured 29-waypoint blocks and 4,843 frames;
+the complete controller trace includes 124 waypoints with restoration.
+All runtime and explicit shader/noise-stock before/after bindings match.
+
+Its native 3440x1440, 8x MSAA, TAA-on heavy-rain medians were off/on/on/off
+**35.742/35.374/37.540/36.645 ms**; GPU medians
+**14.900/15.114/15.190/15.020 ms**. The 138 ms largest active frame coincides
+with LOADING, with a much smaller measured main-viewport GPU interval. This is
+correlation, not function-level CPU/streaming attribution. Severe/funnel review
+also produced eight matched pre-flow/current views with empty stderr; these
+capture checks did not establish artistic acceptance. The owner then correctly
+identified objectionable pixel noise in the new cloud renders.
+
+| Location / reproduction | Severity / evidence | Repair / verification |
+| --- | --- | --- |
+| June 25 storm, luminous cloud underside at native resolution | High visual defect: conspicuous bright square clusters; **skywatch38/current** preserves the original optical control | Replace randomized ray-start offsets with coherent midpoint sampling in both deck and rare-object marches. Same step counts, density fields, self-shadow taps and resolution; no blur pass |
+| Previous held-image diagnostic | Its paused-image tolerance did not reject spatial grain; functional PASS was insufficient picture-quality evidence | Keep the old logs and add a rendered fixed-clock/changed-legacy-phase regression; the retained old shader fails this one assertion, and production passes |
+| Ordinary walking in heavy rain | Responsiveness remains incomplete: roughly 28 FPS and substantial spikes after the visual repair | Preserve the complete new ABBA arrays; investigate existing world costs separately. Do not hide stalls behind the queued film cadence |
+
+Three controlled shaders differ only in the two ray-start expressions:
+original random offsets, midpoint and reduced-amplitude random offsets. The
+existing native colour/alpha bench renders identical dated Cu and Cb conditions,
+seed 1928, with repeated samples. At the explicitly recorded storm crop
+**(1000,100)-(2600,800)**, displayed RGB high-pass RMS (2-pixel Gaussian
+residual, including rain) changes **0.004379 -> 0.000764**, about **83% lower**;
+the small-jitter alternative is **0.001149**. This is an image measurement,
+not a perceptual acceptance score or a claim that all renderer variation is gone.
+Actual native images were inspected: the bright square clusters disappear
+without blurring the broader folds. Storm mean alpha remains **0.9555**, with
+**0.9783** of sampled upper-frame pixels above alpha 0.1 in both controls.
+Cu mean alpha changes **0.4616 -> 0.4632**; its thresholded coverage changes
+**0.8630 -> 0.8416**, so exact pixel/coverage identity is not claimed.
+
+**skywatch38/midpoint_production.log.receipt.json** passes nine assertions plus
+the final result, empty stderr, 14 s. The rendered legacy-phase regression is
+exercised against the retained noisy source in **negative_old_jitter.log**:
+one assertion fails as intended (two FAIL lines including the result). This is
+an expected negative control, not a production failure or an altered receipt.
+**vortex_midpoint.log.receipt.json** completes eight matched views in 27 s,
+empty stderr; the single SDF funnel and its parent cloud remain joined.
+
+The repaired production shader also completes the occupied ABBA in
+**skywatch38/midpoint_world.log.receipt.json**, 353 s, empty stderr,
+**4,965 measured frames**, 124 total waypoints, zero failures and unchanged
+source bindings. The measured blocks each contain the same 29 route waypoints.
+
+| Block | Wall p50 / p95 / p99 / max, ms | Main-viewport GPU p50, ms |
+| --- | --- | --- |
+| Cold flow off | 34.863 / 67.316 / 79.759 / 190.920 | 14.989 |
+| Warm flow on | 35.074 / 63.429 / 71.827 / 100.158 | 14.770 |
+| Warm flow on | 35.685 / 65.064 / 75.985 / 99.684 | 14.871 |
+| Warm flow off | 36.223 / 66.462 / 79.425 / 106.084 | 15.018 |
+
+The first cold spike remains in the record. Live NPC/traffic variation, driver
+cache and process order remain limits; do not attribute differing medians or
+maxima solely to midpoint sampling. CPU/physics monitors lag and overlap, and
+main-viewport GPU timing excludes any claim of a complete per-view GPU sum.
+The nine affected static gates pass with no regressions against the prior
+scoped board; reader has zero NEW fields and spatial drift is zero. This is
+not full candidate verification, renewed surface qualification, annual visual
+acceptance or a statement that V2/the weather module is complete. The retained
+animal-cloud envelope's instance-age behavior and the wider frame spikes remain
+open. The ornate front-entrance references and optional film modes are queued
+in TASKS; neither displaced this repair or changed the installed door.

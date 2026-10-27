@@ -364,7 +364,10 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
     float base_steps=(shape_kind>0 && shape_opacity>0.0) ? 64.0 : 40.0;
     float coarse=max(0.02,(deck.y-deck.x)/base_steps);
     float fine=max(0.0125,(funnel.y-funnel.x)/80.0);
-    float jitter=fract(sin(dot(screen_uv*vec2(1280.0,720.0),vec2(12.9898,78.233))+temporal_phase*13.17)*43758.5453);
+    // Spatially coherent midpoint quadrature. Random ray-start offsets made
+    // structured erosion/self-shadowing sparkle in the half-resolution pass;
+    // camera TAA did not reliably integrate that independently changing field.
+    float jitter=0.5;
     vec3 to_sun=normalize(sun_direction);
     float day=smoothstep(-0.12,0.10,to_sun.y);
     float night=1.0-smoothstep(-.18,-.07,to_sun.y);
@@ -450,7 +453,7 @@ vec4 wx_volumetric_clouds(vec3 direction,vec2 screen_uv) {
 vec4 volumetric_clouds(vec3 direction,vec2 screen_uv) {
     vec4 deck=wx_volumetric_clouds(direction,screen_uv);
     if(direction.y<.005) return deck;
-    float jitter=fract(sin(dot(screen_uv*vec2(1280.0,720.0),vec2(12.9898,78.233))+temporal_phase*13.17)*43758.5453);
+    float jitter=0.5; // Match the deck's stable sample phase for rare formations.
     float near_t;
     vec4 objects=spectacle_objects(direction,jitter,near_t)*smoothstep(.005,.03,direction.y);
     float start=wx_cloud_base()/max(direction.y,.035);
