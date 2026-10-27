@@ -26,12 +26,6 @@ func _ready() -> void:
 		mat.set_shader_parameter("season_weights",conditions.season_weights);mat.set_shader_parameter("humidity",conditions.relative_humidity)
 		camera.look_at(Vector3(0,12,-30),Vector3.UP)
 		await capture("season_%02d" % month)
-	mat.set_shader_parameter("cloud_coverage",.08)
-	for shape in [1,2,3]:
-		mat.set_shader_parameter("shape_kind",shape);mat.set_shader_parameter("shape_opacity",1.0)
-		camera.look_at(Vector3(1.6,2.3,-2.6),Vector3.UP)
-		await capture("shape_%d" % shape)
-	mat.set_shader_parameter("shape_kind",0)
 	clock.configure_date(1928,7,15,1140);director._apply(1140)
 	camera.look_at(Vector3(0,4,-30),Vector3.UP)
 	await capture("summer_twilight")

@@ -11,7 +11,7 @@ from audit_v2_surfaces import evaluate
 ROOT=Path(__file__).resolve().parents[1]
 PACKET=ROOT/'art/renders/orison_v2/surface_requirements_20261011'
 TEXT={'.gd','.tscn','.tres','.godot','.json','.py','.gdshader','.gdshaderinc','.gltf','.import','.cpp','.h','.hpp','.gdextension','.txt'}
-ASSETS={'.glb','.gltf','.bin','.rg8','.png','.jpg','.jpeg','.webp','.tres','.tscn'}
+ASSETS={'.glb','.gltf','.bin','.rg8','.r8','.rgb8','.png','.jpg','.jpeg','.webp','.tres','.tscn'}
 
 def test_dependency_paths(root,seeds):
     """Bind transitive test helpers/assets as well as the selected root tests."""

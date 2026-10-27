@@ -79,12 +79,6 @@ func captures(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 		atmosphere.sky_material.set_shader_parameter("humidity",conditions.relative_humidity)
 		await suite.get_tree().create_timer(.5).timeout
 		await suite.shot("weather_season_%02d" % month)
-	for shape in [1,2,3]:
-		atmosphere.sky_material.set_shader_parameter("shape_kind",shape)
-		atmosphere.sky_material.set_shader_parameter("shape_opacity",1.0)
-		atmosphere.sky_material.set_shader_parameter("cloud_coverage",.12)
-		camera.look_at(camera.global_position+Vector3(1.6,2.3,-2.6)*20,Vector3.UP)
-		await suite.shot("cloud_shape_%d" % shape)
 	manager.set_process(true);manager._publish()
 	camera.queue_free();world.player.camera.make_current()
 

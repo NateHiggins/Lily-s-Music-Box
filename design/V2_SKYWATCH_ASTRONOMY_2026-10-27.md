@@ -810,3 +810,71 @@ acceptance or a statement that V2/the weather module is complete. The retained
 animal-cloud envelope's instance-age behavior and the wider frame spikes remain
 open. The ornate front-entrance references and optional film modes are queued
 in TASKS; neither displaced this repair or changed the installed door.
+
+### Cloud self-shadow filtering and retirement of novelty silhouettes
+
+Evidence class remains **INERT**. This section records diagnostics, not annual
+artistic acceptance or production qualification.
+
+| Location / reproduction | Severity / evidence | Repair / verification |
+| --- | --- | --- |
+| January 8 noon Cu, native close crop after midpoint repair | High visual defect: coherent but coarse bright blocks remained even after random grain was removed | Integrate only self-shadow sample footprints using existing loaded noise mips and a filtered height ramp. Primary density, silhouettes, analytic high ice, sample counts and textures remain unchanged |
+| Full-density filtering control | Unacceptable tradeoff: Cu mean alpha fell from 0.4632 to 0.3812 | Rejected; the retained source-controlled trials isolate height, macro and shadow-only filtering |
+| Duck/whale/ship cloud experiment | Owner retired the experiment on October 27 | Remove daily eligibility, scene-age state, debug forcing, SDFs, march branches and obsolete review controls from current and fallback skies. Keep natural rare formations and their existing calendar owners |
+| Raw cloud texture evidence | Qualification input discovery did not include the new R8/RGB8 stock | Bind both raw extensions; mutation regression requires either field to expire prior proof |
+
+Native final colour/alpha captures in **skywatch39/final_detail** show Cu mean
+alpha **0.463172 -> 0.462696**, thresholded coverage **0.841579 -> 0.840688**;
+Cb remains **0.955471 / 0.978251**. Small repeat variation remains. Actual
+native-pixel crops were inspected: the coarse bright Cu blocks are suppressed,
+with broad folds retained; no full-screen blur was added. The retained
+**cloud_lighting_contact.png** shows the midpoint control beside final source.
+These two dates are specific regression evidence, not proof of annual diversity.
+
+Before the owner's retirement request, a calendar-age repair passed its new
+pause/rewind checks, after an original failure exposed pending 10 Hz publication.
+Both the failed **final_V2SkySpectacleBench** log and passing **published** log
+are retained. That repair and its tests were then removed along with the whole
+experiment; no new civil-noon appearance schedule ships.
+
+The lighting version completed **published_V2WeatherRouteProfile**, 345 s,
+124 controller waypoints, 4,821 measured frames, empty stderr and unchanged
+before/after source bindings. This precedes novelty retirement; the subsequent
+optical review verifies that removal. No speedup is attributed to either change.
+
+| Block | Wall p50 / p95 / p99 / max, ms | Main-viewport GPU p50, ms |
+| --- | --- | --- |
+| Cold flow off | 35.646 / 65.699 / 78.663 / 139.884 | 14.710 |
+| Warm flow on | 37.327 / 64.512 / 76.931 / 118.878 | 15.158 |
+| Warm flow on | 36.329 / 65.792 / 74.396 / 103.543 | 15.066 |
+| Warm flow off | 37.640 / 66.257 / 77.435 / 104.175 | 15.381 |
+
+Live NPC/traffic variance, cold traversal and overlapping/lagged CPU monitors
+limit attribution. The worst frame is a walk with residency DORMANT; a residency
+label alone does not identify a responsible function. Responsiveness debt remains.
+
+After retirement, **retired_cloud.log.receipt.json** passes eight assertions plus
+the final result, 15 s, empty stderr: five actual dated genera, fractional motion,
+pause, legacy-phase noise control and out-of-order visual/uniform reconstruction.
+**final_detail.log.receipt.json** completes four native colour/alpha samples in
+13 s, zero failures. **final_vortex.log.receipt.json** completes four production
+severe/funnel views in 17 s. These are optical diagnostics, not runtime contracts.
+
+A clean 114-gate main baseline is retained at **skywatch38/main_baseline/board.json**,
+main **6ff8922f**, tree **a5e533fb538e7608e8eb9a445c99c793e96aeb27**.
+The original **candidate_ad9302f8/verification.json** correctly fails on stale
+rendered-review/surface qualification, with no other gate regressions, all 17
+protected paths unchanged, selector V2 and no ledger promotion. No waiver or
+repinning was applied. Renew actual source-bound surface evidence after rendering
+inputs settle, then repeat candidate verification against that clean baseline.
+No whole-game production or human acceptance is claimed.
+
+
+The fallback **retired_millwork.log.receipt.json** passes 35 checks, empty stderr;
+its retired-shape assertions and captures were deleted rather than retained as
+claims about removed behavior. The historical period audit also passes.
+
+The 41 Python surface-requirement tests pass (195.762 s), including mutation
+checks for both raw cloud fields. Reader audit reports zero NEW fields.
+These checks do not renew the stale runtime surface packet.
+

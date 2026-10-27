@@ -21,12 +21,6 @@ func _ready() -> void:
 	check(is_equal_approx(mid.cloud_total,.5) and minf(mid.wind_direction_degrees,360-mid.wind_direction_degrees)<.01,"five-minute interpolation uses shortest wind-bearing arc")
 	check(Manager.interpolate(a,b,0).cloud_total==0 and Manager.interpolate(a,b,1).cloud_total==1,"transition reaches exact endpoints")
 	check(Manager.seasonal_snapshot({"month":1}).temperature_c<2.0 and Manager.seasonal_snapshot({"month":7}).temperature_c>24,"verified NYC monthly temperature baseline")
-	var shapes := 0
-	for day in 10000:
-		var one := Manager.shape_for_day(str(day),1928)
-		check(one==Manager.shape_for_day(str(day),1928),"deterministic shape seed") if day==0 else null
-		if one>0: shapes+=1
-	check(shapes>50 and shapes<160,"rare shape draw stays approximately one percent per campaign day")
 	# Independently described shared/cut room stock, including a real door gap.
 	var stock: Array[Dictionary] = [{"owner":"neighbor","source":"shared","label":"WallSouth","along_x":true,"bounds":AABB(Vector3(0,0,-.06),Vector3(4,3,.12))},
 		{"owner":"room","source":"cut","label":"WallNorth","along_x":true,"bounds":AABB(Vector3(0,0,3.94),Vector3(1,3,.12))},

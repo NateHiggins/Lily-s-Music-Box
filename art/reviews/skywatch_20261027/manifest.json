@@ -706,9 +706,137 @@
     "cloud_sampling_pixel_noise_repair/skywatch38/vortex_midpoint.log": "5870c299b1aa32a6d036f2ff7651948c531921d3bcaebff115aebd9a017dc912",
     "cloud_sampling_pixel_noise_repair/skywatch38/vortex_midpoint.log.receipt.json": "a76a253443cd8d134a5a89abfeeb95888a81d2be6e670571579d02948151c8c7",
     "cloud_sampling_pixel_noise_repair/skywatch38/vortex_midpoint.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "cloud_sampling_pixel_noise_repair/skywatch38/vortex_midpoint_batch.json": "9e4524c868d75994554ce8e785d5cd591bc189c35fc3d95d12cbc1fa1b5b6014"
+    "cloud_sampling_pixel_noise_repair/skywatch38/vortex_midpoint_batch.json": "9e4524c868d75994554ce8e785d5cd591bc189c35fc3d95d12cbc1fa1b5b6014",
+    "cloud_self_shadow_and_novelty_retirement/final_source/game/scripts/building/WeatherManager.gd": "7499d8dcc8ddf9878c03eed2df3914e3529e90fd549896eb48d8a95433b88529",
+    "cloud_self_shadow_and_novelty_retirement/final_source/game/scripts/building/roof_weather_preview.gd": "12d61d708f9615b383ce47263cc189c48e0e7bdb34e883806714cdcf01714542",
+    "cloud_self_shadow_and_novelty_retirement/final_source/game/shaders/queens_weather_math.gdshaderinc": "4b04d015792ad99e93ecefeaa15caa1e172fbe98b87e68e8f37b7c918073f4c7",
+    "cloud_self_shadow_and_novelty_retirement/final_source/game/shaders/queens_weather_sky.gdshader": "29404fd4409dcad37176d7e496c4ed769b5fbf0f8dc585b1c7d29ad939956963",
+    "cloud_self_shadow_and_novelty_retirement/final_source/game/shaders/v2_seasonal_sky.gdshader": "c83d449d5d61eddc6705515b2c4f54eddcd50d28550b38111d2a86cf92198758",
+    "cloud_self_shadow_and_novelty_retirement/final_source/game/tests/skywatch_optical_review.gd": "a77dcd9d881cd6424fb602c1b2448efda8def69c48234592bc104e1be617b971",
+    "cloud_self_shadow_and_novelty_retirement/final_source/game/tests/v2_millwork_weather_review.gd": "8e2a098eb068cedc33ae35ffcf195cc27005f760d6d11de97911fdc69eee1360",
+    "cloud_self_shadow_and_novelty_retirement/final_source/game/tests/v2_millwork_weather_test.gd": "7f954099a964001cbe2fff53156860a7d76ccc5bc2584e404b26e5b488415e05",
+    "cloud_self_shadow_and_novelty_retirement/final_source/game/tests/v2_sky_review.gd": "5c91c6461d31e50cff08aeb59f65b757beec419449265183559bbdb6b8ee64a3",
+    "cloud_self_shadow_and_novelty_retirement/final_source/tools/v2_surface_evidence.py": "25ca979a1ed4154e8a7a6d0584b6f805467d8d4e43afb18e12e7a4da2b080e68",
+    "cloud_self_shadow_and_novelty_retirement/final_source/tools/tests/test_v2_surface_requirements.py": "0ba4ddbf19eb3e6be1a50d84656edc0aedfbf205df6c210016eb8832e3eb0877",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/analyze_world.py": "dc478c845e87a628e8f07435513d57a328d4f9ef34c114fcd235a10b14bac8d2",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/cloud_world_summary.json": "02e7223d457889278870f1f1fd90dbdb7f75e4c6c498f3bb2f05748cfb432853",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/compare_final.py": "09528014ea1bc8cec11325c313fe81bc05090cf0e35ba5dda0af2d47ea97b903",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/correct_doc.py": "c11ffc4f866a052cb4a378ff3958208964a770c2885d7aeb491e4bfe1e1d6401",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered/native_detail.json": "1f26c0bde868ca97280cad61d9e8315cb49b0c2c1f9b6639b0e7388edcdb4ba1",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered.gdshader": "cf4bb2ba4f09012d2a6609be045a979a7992b89a13c06d83cd202882aaea7ccc",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered.log": "50ff477b8424f08aa7ec746c3ed8295918eebdc661c62630d8b912bce6d56ac7",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered.log.receipt.json": "42fd26a30a51932367eba6358fdb108d834a48b4094cb5db744dc5343d0a3acb",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered_batch.json": "3c9790f65e5a9d5775e8e894f5be15bdba7eca2d7903b399cde7bffd921103db",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered_cost/cloud_review.json": "faf8c13fd7bb6c923c77901bc582df43df61926973a0a2df15df5ea94bf3e9c9",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered_cost/return_camera.json": "0e5492d0b276cd828e1ff81fb707ef71766b0992243830f9f53da941a0798cff",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered_cost/return_uniform_changes.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered_cost.log": "b722146dd338172ed9600095d71fd92e519804cb65b3b976865540177cd31ae7",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered_cost.log.receipt.json": "ef0c91a1f39e86856b5c3b47e5c94f8888aefb666b32be4ab032e191e1d01830",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered_cost.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/filtered_cost_batch.json": "161927052f14d67625ecd9e673ec850a984d29827fd98039a3fb23491e4a2947",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_batch.json": "44d604d84eea97e1e6b49ee3ef33737c25584fe26b88b764227252b471a7a350",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_detail/native_detail.json": "330f95fd5a6d94b5ecc98058952e7cdc79678c3317e243a02d28dbbcc76d25ab",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_detail.log": "50ff477b8424f08aa7ec746c3ed8295918eebdc661c62630d8b912bce6d56ac7",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_detail.log.receipt.json": "7a5d587c22b14299bc57e26eb614353f0229880ddd012acf727a1b42bbf03f06",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_detail.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_detail_batch.json": "49a71cbc089f589fbbb169b7053ee4f2c53debdeb72b3d3df9f744918674757e",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_V2SkySpectacleBench/cloud_review.json": "f414a04c34b06d35f856a48fa26513e775707a84e461180f54c3a929938f09d0",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_V2SkySpectacleBench/return_camera.json": "f4e5df5f2ad054a3b119076e412c4911c0a2f15571e6feb998fb2f0f351edc40",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_V2SkySpectacleBench/return_uniform_changes.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_V2SkySpectacleBench.log": "cc8d79b1ffea888fa9c6c80a140707008a39cb26fc5c28e35424ce4afbbd9119",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_V2SkySpectacleBench.log.receipt.json": "6b0e018cbc0b009b3c0022b13465c7d14915e6f12ec425959fa3f95c3b60f4fd",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_V2SkySpectacleBench.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_vortex/vortex_review.json": "541574fb9e1544d33c290797945a04403f241ef178104bb9fae8355a5f09558c",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_vortex/vortex_setup.json": "f62c000ab50fdea4c784b41d1ae0f012b9743e675b420613f4996597e1dcdb20",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_vortex.log": "4f7768e5a03eb2be227403619c1d9dafec0cdd3d760e3ff5251d14842ef8e788",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_vortex.log.receipt.json": "27f21884807b7d2a8efcbffe9305c117646d492500e0868b84f075ba07ebbbc1",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_vortex.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/final_vortex_batch.json": "f63796ea46401be3c909af8a0fac83060f01b746740837cdd2460c198fc3a3ac",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/finish_retirement.py": "f54945cea8157c17256d1ddb363689b4a7bb0cc2cf5a8d16c47c480ed0259230",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/gauss_two/native_detail.json": "fdf09467d67f70b1d7d8b3278beac7c53044898ec0665710d28fe027f0b7589a",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/gauss_two.gdshader": "0774e63cc3ac6003e5ee01394d04e74c24ba743b1d1499b274d892e39872072c",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/gauss_two.log": "50ff477b8424f08aa7ec746c3ed8295918eebdc661c62630d8b912bce6d56ac7",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/gauss_two.log.receipt.json": "46a8739fb8182b4ac85d29669bbaabf582f26b1ce1188d5d9d492af9be2d032b",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/gauss_two.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/gauss_two_batch.json": "2b46fe4e4135e9402d9905c013a980df26abe4f80ad7a15ea6fc8bbb996d0ea9",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/height_only/native_detail.json": "7645ea6808d5f98bcffbf9f9124ab6f8f74f75f6a32598af73012494bff7e74a",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/height_only.gdshader": "d2f6ef18569f72fcfa86e02be1ddc6f1932ac60dfd6380d4c3b0d6825165950d",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/height_only.log": "50ff477b8424f08aa7ec746c3ed8295918eebdc661c62630d8b912bce6d56ac7",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/height_only.log.receipt.json": "6f1ee1cbc4eda9729d25a5812239dadd3b66a947667db990981d420af82b813a",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/height_only.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/height_only_batch.json": "07626487f4ad74a292694e278533cab8ca958d2da68d12a9f77ba244125729b6",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint/native_detail.json": "a76b19aeccb6fefb08d84869cbe459c6fc846773be16e02912bb4ce8bd479cfc",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint.gdshader": "a9b98dafa7ab7ef66c0786339d73427e8fece5b2c229bfd27a315a1f3668ff9d",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint.log": "50ff477b8424f08aa7ec746c3ed8295918eebdc661c62630d8b912bce6d56ac7",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint.log.receipt.json": "d4490314f8ffce63c273c891b2e82d704bca690177fa1d09d3c9d032fc587529",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint_batch.json": "62ad029175727511015daaac1fb49914e8d24863d151cee8fb42d4f723b9818b",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint_cost/cloud_review.json": "94f6bb99786cc0e96cf652084c10b282f7b1c3aba7f250c3e5db12d56b78f456",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint_cost/return_camera.json": "761c141e8c3b483112b3c15dc1c8a227b26120180f46ca81b6a586f90a0919d8",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint_cost/return_uniform_changes.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint_cost.log": "b722146dd338172ed9600095d71fd92e519804cb65b3b976865540177cd31ae7",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint_cost.log.receipt.json": "75fa3ceb223304e5c2db9d4382fe19d08caf191a567b44dffc91af84bcb2e677",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint_cost.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/midpoint_cost_batch.json": "81c8e6e31dd6bfaa664f28af2df673f6d2bddfe0159cc74fa46a124b7e366598",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/no_macro/native_detail.json": "7e93ce6af3cb831cdf7c4e4548d9dfded9d6f8d75a11684d116691af4fdd1b87",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/no_macro.gdshader": "b9db7ceed1b43c533a22527cf5f2ceee0339e8148484460b8ed62cbc6948d95e",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/no_macro.log": "50ff477b8424f08aa7ec746c3ed8295918eebdc661c62630d8b912bce6d56ac7",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/no_macro.log.receipt.json": "b0ab8001c1240a1cc68f4998411420fcc144642b60395ba6b5d626a29a7b9eaf",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/no_macro.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/no_macro_batch.json": "fff0925ed59dfeadba1b9448265f117441d25e0f18bd62893acb7d6ce5173758",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/package_final.py": "2436ef0fcba867558b568cb21d412fca555cecc02d8d5ddaf08e8ccc94ef7b99",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/prepare_filter_isolation.py": "f72ce4e37f33806f4966a362c7ed6ea7d1955c42e805005745fc485e6e8f61d2",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_batch.json": "557356f775b631e7a8a4de72edbd8bd7d8891c896c6c1a25a7e16efa501cc539",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_CampaignWeatherTest/calendar_test.json": "4af37a72e520d78f23c5cec9d8fe727631d88e222e33e1ae6bc712ddabd5f7b2",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_CampaignWeatherTest/living_year.json": "5009561d8644a974d78f7411aa015bd8e1b5f816c6950039772bd2ed1fc545ce",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_CampaignWeatherTest.log": "c1f3f58cc0eee572e1c5e5d1e6cb1c65de48ea7265133ac03c42ce65ced07b88",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_CampaignWeatherTest.log.receipt.json": "4ed30f7280b2d5d80bad18a6a873d004355d0c376435bc3be3728fa9317f0c54",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_CampaignWeatherTest.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_V2SkySpectacleBench/cloud_review.json": "e6eacf544d24d969aff42f4e14955a0a84d55e48d68bcc058c36969b0a61da01",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_V2SkySpectacleBench/return_camera.json": "cb9851e3efc7bb91416957d22f48d11fd5689350a7e2b17b0fb87abb75a6430c",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_V2SkySpectacleBench/return_uniform_changes.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_V2SkySpectacleBench.log": "9fd198e39a38a2e3d55bc10057f2be730f5f903a628dc0aeb7e24344ccd1c710",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_V2SkySpectacleBench.log.receipt.json": "faaca4865e2fa23b3a914d0a46a1e632bd724510c563f6772b0f15c64cc7697d",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_V2SkySpectacleBench.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_V2WeatherRouteProfile/cloud_world_frames.json": "17db7afc134d7a52702fbf0e2af62440874a4ed8a86fecb6b5c8efeae1bd4213",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_V2WeatherRouteProfile/route.json": "ccd589c54f9b25b8eeb2f0ea0f988911b73d4ff25d117ab668c6b7089c70defd",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_V2WeatherRouteProfile.log": "e95f4313dd7e1ca2e19769232818f8e74ec3dc35c6702fae7255e2de45aaf7e4",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_V2WeatherRouteProfile.log.receipt.json": "6f72c7338d9e7dc03dc28261c7b8ddad2382a285c60c9b0297a49625fd086af4",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_V2WeatherRouteProfile.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_WeatherSkyTest.log": "7564d78c3eb1dd7b8e4f13132c39e13e563f58d2c36f7dbaced941b23cd0b6b2",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_WeatherSkyTest.log.receipt.json": "a6457271773ddb5406498aac0b65344d101bc2db26246ee9b6f9bb9c06168a5b",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/published_WeatherSkyTest.log.stderr": "7a38c85a125a37d743a37d43184042af78157f914321c90a10bcfa9bba36b903",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/retire_shapes.py": "14fac442566b2862aa4cf70515bf88586fef82b1410eeac7c4f38505dc6d76ae",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/retired_cloud/cloud_review.json": "4eef517ce79a403639f3994dbd8c320c895915f103395aa3e2487426d06c198c",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/retired_cloud/return_camera.json": "4404fcbcf03a66ac3b4ce2649acee33549b56140561bbee69e9ee37aabd75894",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/retired_cloud/return_uniform_changes.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/retired_cloud.log": "19c7b19aedaf186cda684099a59c88cd5771be1ffbd6bc2d2ac1469b0708f358",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/retired_cloud.log.receipt.json": "929a1e7e2db95ad87b1b040b32bd9d3b6817fae7bcdad712aa45d3c438d96ed1",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/retired_cloud.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/retired_cloud_batch.json": "2f29b803ff904093638a8fc7c0b81075f92a181f035af57b5ba3a386c56ed0ea",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/retired_millwork.log": "059be5a1ba44485725c5fefedfe721b05437db0af392c1ff938716b7f0b3c06b",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/retired_millwork.log.receipt.json": "7796a4415f2ac197ed901caf3047d1a1384c8c3bace7ca6273fa967fa4b40697",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/retired_millwork.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_only/native_detail.json": "3f05c7486df0acbb4230c13c3f8e43ecd2e4964500446b9b33c3c4aa8af6ac95",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_only.gdshader": "92301fe7221eedecb3ac25f8d12d2a5833803f4db803745478a9622a24f813c1",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_only.log": "50ff477b8424f08aa7ec746c3ed8295918eebdc661c62630d8b912bce6d56ac7",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_only.log.receipt.json": "7e9abe3df23f05d0b17013dca16020ee50ae4510413580eebb87673a8ad5ea67",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_only.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_only_batch.json": "712f5a2af5986b0d7850330a998b9cd1f545f03fb050c437a71e5baed7caf0d9",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_production/cloud_review.json": "cf15a5d218213a082820c55976a70fa1e0dd7a3a815f5c1f97440a4c89dec12b",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_production/return_camera.json": "b814efcb443ef08a2477c255269a6d0bb8695d44ae1b24afafd0b50d1d529990",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_production/return_uniform_changes.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_production.log": "b722146dd338172ed9600095d71fd92e519804cb65b3b976865540177cd31ae7",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_production.log.receipt.json": "1e2fc6a56965952699aec2ddd1d261432c01d36dbba54103e1ecfd5d492bb0b6",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_production.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cloud_self_shadow_and_novelty_retirement/skywatch39/shadow_production_batch.json": "eda69366b89db2ee4e485f6c6555a9202d7595c67ebb92a4daa8542e90e9023e",
+    "cloud_self_shadow_and_novelty_retirement/skywatch38/main_baseline/board.json": "5021686fcff6f8833fc6ecfb5f96520a987fe3d10559458da2cadd9dc6133aa4",
+    "cloud_self_shadow_and_novelty_retirement/skywatch38/main_baseline/board.md": "6d402daf11e85576ea5f8b56b67ba2def967330254f2f6f3f80a547470ae256f",
+    "cloud_self_shadow_and_novelty_retirement/skywatch38/candidate_ad9302f8/verification.json": "62524f99c3c981bc8766d84bf0160f8736532ff286ac6105ee9b8641880c4d58",
+    "cloud_self_shadow_and_novelty_retirement/skywatch38/candidate_ad9302f8/verification.md": "33c63158965b261cb3dd4b82dccddb4e589c2fa9f6086f00ff3e48286f55c001"
   },
-  "archive_sha256": "09afddf478261fda5a18d8b30223d47e30ce2809432fe2b43fa5af8e0ab0ff39",
+  "archive_sha256": "20475bb41d71944cc6606e8a512352d326e5b47813067072feda7277a3d34822",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -1306,5 +1434,561 @@
       }
     },
     "contact_sha256": "bd028b2307eb756df7f1f61d8815434f56bed0c65ad42b5122fb08157e796b3d"
+  },
+  "cloud_self_shadow_and_novelty_retirement": {
+    "evidence_class": "INERT",
+    "scope": "Cloud self-shadow controls and owner-retired novelty; diagnostic renders and prior source-bound world ABBA, no renewed surface/annual/human acceptance",
+    "source_lf_sha256": {
+      "game/scripts/building/WeatherManager.gd": "7499d8dcc8ddf9878c03eed2df3914e3529e90fd549896eb48d8a95433b88529",
+      "game/scripts/building/roof_weather_preview.gd": "12d61d708f9615b383ce47263cc189c48e0e7bdb34e883806714cdcf01714542",
+      "game/shaders/queens_weather_math.gdshaderinc": "923bfaa907e5b904d00d90c01039542bd571b19f8abfa604f6f14cdca3bed7b4",
+      "game/shaders/queens_weather_sky.gdshader": "29404fd4409dcad37176d7e496c4ed769b5fbf0f8dc585b1c7d29ad939956963",
+      "game/shaders/v2_seasonal_sky.gdshader": "c83d449d5d61eddc6705515b2c4f54eddcd50d28550b38111d2a86cf92198758",
+      "game/tests/skywatch_optical_review.gd": "a77dcd9d881cd6424fb602c1b2448efda8def69c48234592bc104e1be617b971",
+      "game/tests/v2_millwork_weather_review.gd": "8e2a098eb068cedc33ae35ffcf195cc27005f760d6d11de97911fdc69eee1360",
+      "game/tests/v2_millwork_weather_test.gd": "7f954099a964001cbe2fff53156860a7d76ccc5bc2584e404b26e5b488415e05",
+      "game/tests/v2_sky_review.gd": "5c91c6461d31e50cff08aeb59f65b757beec419449265183559bbdb6b8ee64a3",
+      "tools/v2_surface_evidence.py": "25ca979a1ed4154e8a7a6d0584b6f805467d8d4e43afb18e12e7a4da2b080e68",
+      "tools/tests/test_v2_surface_requirements.py": "0ba4ddbf19eb3e6be1a50d84656edc0aedfbf205df6c210016eb8832e3eb0877"
+    },
+    "capture_files": {
+      "C:\\ov\\reports\\skywatch39\\filtered\\000_cu_1928_colour.png": {
+        "sha256": "1140647f79bfef67389352a01837cc91b760aad4ca94764d46cd90ac35051e4f",
+        "bytes": 1727626
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered\\000_cu_1928_mask.png": {
+        "sha256": "873a2818b0e007408f08a76e65de8f6bc119d672ee2294b861490f3ed4ebc83d",
+        "bytes": 1024751
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered\\001_cu_repeat_1928_colour.png": {
+        "sha256": "bf316beaa9f1326e03520a715f961c42f07d3a1d2df2e139a6c2fd48dbf60ab3",
+        "bytes": 1729111
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered\\001_cu_repeat_1928_mask.png": {
+        "sha256": "873a2818b0e007408f08a76e65de8f6bc119d672ee2294b861490f3ed4ebc83d",
+        "bytes": 1024751
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered\\002_cb_1928_colour.png": {
+        "sha256": "90bd3cfdc7410fd0577cbc5d21b9c38153ee0b2cccecb67977b1ea173877936f",
+        "bytes": 869358
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered\\002_cb_1928_mask.png": {
+        "sha256": "3396db4c33bafcd4fa02886eadd3355430a32281154da02a78693c1f34456100",
+        "bytes": 79770
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered\\003_cb_repeat_1928_colour.png": {
+        "sha256": "eecf20a98dc262189a2f5ee60699521c7f81f96543f532278b8fd8333ae4953b",
+        "bytes": 866337
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered\\003_cb_repeat_1928_mask.png": {
+        "sha256": "3396db4c33bafcd4fa02886eadd3355430a32281154da02a78693c1f34456100",
+        "bytes": 79770
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered_cost\\Cb_noon.png": {
+        "sha256": "91f9f0d9e8b8f44def083f8cb289368962f34dec75257160e9081d0a7c2d1b7e",
+        "bytes": 661538
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered_cost\\Ci_noon.png": {
+        "sha256": "bf3d31492a0df818bffd52c173924d58e87d57b3a074be3e26c3e7543309f338",
+        "bytes": 1683541
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered_cost\\Cu_inactive_shape_timer.png": {
+        "sha256": "e5b19f4c06b88d7b1ebc5a32183faea4db9a3f7f16d72b9942a2f2f10c88f834",
+        "bytes": 1722528
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered_cost\\Cu_legacy_phase_control.png": {
+        "sha256": "e5b19f4c06b88d7b1ebc5a32183faea4db9a3f7f16d72b9942a2f2f10c88f834",
+        "bytes": 1722528
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered_cost\\Cu_noon.png": {
+        "sha256": "88fcabc05123bf04596e42847511ba02a874f7085a2016d74c0bad9b0ac90621",
+        "bytes": 1734525
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered_cost\\Cu_paused_repeat.png": {
+        "sha256": "e5b19f4c06b88d7b1ebc5a32183faea4db9a3f7f16d72b9942a2f2f10c88f834",
+        "bytes": 1722528
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered_cost\\Cu_return_start.png": {
+        "sha256": "e5b19f4c06b88d7b1ebc5a32183faea4db9a3f7f16d72b9942a2f2f10c88f834",
+        "bytes": 1722528
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered_cost\\Cu_returned.png": {
+        "sha256": "e5b19f4c06b88d7b1ebc5a32183faea4db9a3f7f16d72b9942a2f2f10c88f834",
+        "bytes": 1722528
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered_cost\\Cu_two_minutes.png": {
+        "sha256": "6932a6db684e759faf6ba51616bb1171149ecace6a4d2cd5653f3d55f4adcb47",
+        "bytes": 1584473
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered_cost\\Ns_noon.png": {
+        "sha256": "8a923e3ecb236ada0e2956f146e429f8ea24fc3aecdf457e282a91bcdf336b7f",
+        "bytes": 586309
+      },
+      "C:\\ov\\reports\\skywatch39\\filtered_cost\\Sc_noon.png": {
+        "sha256": "6dfcf09ede39465a8851c31d91ac405f0920d3c000663fb482be6b6fa03b686f",
+        "bytes": 829262
+      },
+      "C:\\ov\\reports\\skywatch39\\final_detail\\000_cu_1928_colour.png": {
+        "sha256": "05150ff1d8864fb632367316cdf9218e140bf7ca0413920db3b58b91284ea03f",
+        "bytes": 1913487
+      },
+      "C:\\ov\\reports\\skywatch39\\final_detail\\000_cu_1928_mask.png": {
+        "sha256": "4d2492b37f339445e7c38b6c48a3fa413b2d2280b52683d07b94df3276e27405",
+        "bytes": 1141998
+      },
+      "C:\\ov\\reports\\skywatch39\\final_detail\\001_cu_repeat_1928_colour.png": {
+        "sha256": "76df017bc208c9b480b99bdb8bbcaf1a4bbe2050ac9e4103f60b5a43afdee4fb",
+        "bytes": 1914075
+      },
+      "C:\\ov\\reports\\skywatch39\\final_detail\\001_cu_repeat_1928_mask.png": {
+        "sha256": "9f5fc737ba32bddad5057ee34fe7175130bb451bfdd25c2883a51a9bd3d57fe1",
+        "bytes": 1142870
+      },
+      "C:\\ov\\reports\\skywatch39\\final_detail\\002_cb_1928_colour.png": {
+        "sha256": "5cfae9f64b22e1b865926cf28e7c8494ab1c69b728d341e6e7655513d58f5999",
+        "bytes": 920837
+      },
+      "C:\\ov\\reports\\skywatch39\\final_detail\\002_cb_1928_mask.png": {
+        "sha256": "d53b86d7a19c865e944be31a4f3816952a56cea1a61148d62a84e036de9c0f95",
+        "bytes": 80636
+      },
+      "C:\\ov\\reports\\skywatch39\\final_detail\\003_cb_repeat_1928_colour.png": {
+        "sha256": "b9e9726ccb6d631ff264d812f449ba56e0c0ff360758103789a369b21087262a",
+        "bytes": 922279
+      },
+      "C:\\ov\\reports\\skywatch39\\final_detail\\003_cb_repeat_1928_mask.png": {
+        "sha256": "d53b86d7a19c865e944be31a4f3816952a56cea1a61148d62a84e036de9c0f95",
+        "bytes": 80636
+      },
+      "C:\\ov\\reports\\skywatch39\\final_V2SkySpectacleBench\\Cb_noon.png": {
+        "sha256": "22c42471fe3907e5249fd974dd1a913b7ffdf9abaecdb1b0ff6cb51df3d0f8e7",
+        "bytes": 718821
+      },
+      "C:\\ov\\reports\\skywatch39\\final_V2SkySpectacleBench\\Ci_noon.png": {
+        "sha256": "9f65a2ba2b8867d8c214b67f10f8b8e655a95aafb298ae3bac784dcc6b85daa0",
+        "bytes": 1683544
+      },
+      "C:\\ov\\reports\\skywatch39\\final_V2SkySpectacleBench\\Cu_inactive_shape_timer.png": {
+        "sha256": "c16a9aa875d322288f01d9ed276c3771dd78314d0e6e4746de2c377fe8d532e9",
+        "bytes": 1893963
+      },
+      "C:\\ov\\reports\\skywatch39\\final_V2SkySpectacleBench\\Cu_legacy_phase_control.png": {
+        "sha256": "00ee9e54eea31d7c716642aa433fd7ec41e2170f2ca701f02f7511cd4c3b9cbb",
+        "bytes": 1894269
+      },
+      "C:\\ov\\reports\\skywatch39\\final_V2SkySpectacleBench\\Cu_noon.png": {
+        "sha256": "2641668b72d430afa0e2ed5c861f658c99fca7e887b85d4556cda816e0aceb95",
+        "bytes": 1911742
+      },
+      "C:\\ov\\reports\\skywatch39\\final_V2SkySpectacleBench\\Cu_paused_repeat.png": {
+        "sha256": "b78cad8d1ebd33aaa4ebf110b79cb4283c5b1999e42cd51714f2d4966e5fcfe9",
+        "bytes": 1894771
+      },
+      "C:\\ov\\reports\\skywatch39\\final_V2SkySpectacleBench\\Cu_return_start.png": {
+        "sha256": "afbee3875d124169e75cea3c58cc094e120954d2f56c680db45d94550464ee1d",
+        "bytes": 1893399
+      },
+      "C:\\ov\\reports\\skywatch39\\final_V2SkySpectacleBench\\Cu_returned.png": {
+        "sha256": "c6cbae6f3939172f68d1fed14bdd17d17be36bcbed63f0ca17b360b5a39702b6",
+        "bytes": 1894606
+      },
+      "C:\\ov\\reports\\skywatch39\\final_V2SkySpectacleBench\\Cu_two_minutes.png": {
+        "sha256": "f9aed3faff12f34f88650f82860eccc390b8a9b74f70ab410f52833e0e790500",
+        "bytes": 1782101
+      },
+      "C:\\ov\\reports\\skywatch39\\final_V2SkySpectacleBench\\Ns_noon.png": {
+        "sha256": "e2d7256e20d1ade7aa1d359ace668747327bfdc6846879cb71b5c550bb47684c",
+        "bytes": 586733
+      },
+      "C:\\ov\\reports\\skywatch39\\final_V2SkySpectacleBench\\Sc_noon.png": {
+        "sha256": "936d5c55fdaeede29a812d73a010f9d753f740e654c4e7f475926fb2bd9316f4",
+        "bytes": 978003
+      },
+      "C:\\ov\\reports\\skywatch39\\final_vortex\\vortex_production_control.png": {
+        "sha256": "2c9ef4bafb49d967eb7508732f39117f875c5cee1e5b9d3e4f2e01672fc17e8d",
+        "bytes": 768101
+      },
+      "C:\\ov\\reports\\skywatch39\\final_vortex\\vortex_production_root.png": {
+        "sha256": "542bf94d0dbf25e61bb095a15a5556fc7d7c2b65e622e8beda71ad6cafc6d871",
+        "bytes": 516288
+      },
+      "C:\\ov\\reports\\skywatch39\\final_vortex\\vortex_production_side.png": {
+        "sha256": "92c1d61b6f303f189d507cbfb6c1ec6835fc802de829cebd24d85027f7b818fa",
+        "bytes": 429526
+      },
+      "C:\\ov\\reports\\skywatch39\\final_vortex\\vortex_production_wide.png": {
+        "sha256": "a23f73768433975245eb51ad06431d2df26cc9f25c52a16c81ab7aaf43e5c2cf",
+        "bytes": 507674
+      },
+      "C:\\ov\\reports\\skywatch39\\final_vortex\\vortex_setup.png": {
+        "sha256": "e2b17112e2b1a7e26b4227368d6e1e04522d944ebf47ba61defc899d56149961",
+        "bytes": 501126
+      },
+      "C:\\ov\\reports\\skywatch39\\gauss_two\\000_cu_1928_colour.png": {
+        "sha256": "e6e991687a61d3e45b940f2b9ea400d9b5c3ade3fcbc384285f31f7f6884bcf6",
+        "bytes": 1927536
+      },
+      "C:\\ov\\reports\\skywatch39\\gauss_two\\000_cu_1928_mask.png": {
+        "sha256": "d632145611b0ba94fe1fa76cdaff32289e6d658441b21114bd6fa6185ad8580f",
+        "bytes": 1076639
+      },
+      "C:\\ov\\reports\\skywatch39\\gauss_two\\001_cu_repeat_1928_colour.png": {
+        "sha256": "f1dea3350124d87c1f6b4d65000c853ee4375a9793f284fb9e33794c1500fc8b",
+        "bytes": 1931989
+      },
+      "C:\\ov\\reports\\skywatch39\\gauss_two\\001_cu_repeat_1928_mask.png": {
+        "sha256": "834a1c1818237c0dc174e025a08d6fb7cbe889bc4544100f0b5920f1ced0395d",
+        "bytes": 1076408
+      },
+      "C:\\ov\\reports\\skywatch39\\gauss_two\\002_cb_1928_colour.png": {
+        "sha256": "2e3c67320e164c518f89dd721918156aae7e28a74e21253afb1b8f9c3417a6f5",
+        "bytes": 1021311
+      },
+      "C:\\ov\\reports\\skywatch39\\gauss_two\\002_cb_1928_mask.png": {
+        "sha256": "c8d5ff86a051b95be3dfedb2398f9ec58b3739c6bbea9fc2b4dab73d7aec3f7c",
+        "bytes": 80134
+      },
+      "C:\\ov\\reports\\skywatch39\\gauss_two\\003_cb_repeat_1928_colour.png": {
+        "sha256": "6d7318571da16ce1d7f3504ee56eff9819bdd3b3206c1368377939b25af1c9c7",
+        "bytes": 1022936
+      },
+      "C:\\ov\\reports\\skywatch39\\gauss_two\\003_cb_repeat_1928_mask.png": {
+        "sha256": "c8d5ff86a051b95be3dfedb2398f9ec58b3739c6bbea9fc2b4dab73d7aec3f7c",
+        "bytes": 80134
+      },
+      "C:\\ov\\reports\\skywatch39\\height_only\\000_cu_1928_colour.png": {
+        "sha256": "8a289da4f1c7d96f005fa1e7a4952046049e4766cf1b8f56408b23d5c3f73578",
+        "bytes": 1988662
+      },
+      "C:\\ov\\reports\\skywatch39\\height_only\\000_cu_1928_mask.png": {
+        "sha256": "e145d4064db4f0f0c852b7d60b33aaf5e0e818acfbd38b796f6fea07e9684653",
+        "bytes": 1139117
+      },
+      "C:\\ov\\reports\\skywatch39\\height_only\\001_cu_repeat_1928_colour.png": {
+        "sha256": "03bfe2404b9facacb766a90f19e065b8d271e83c88d4b966feeb60581daf64f8",
+        "bytes": 1992694
+      },
+      "C:\\ov\\reports\\skywatch39\\height_only\\001_cu_repeat_1928_mask.png": {
+        "sha256": "faecc26ae7be60b4a6b619c3569cfd6f7ff6d3da9685f951cf37fd7a89d5525f",
+        "bytes": 1138580
+      },
+      "C:\\ov\\reports\\skywatch39\\height_only\\002_cb_1928_colour.png": {
+        "sha256": "93581c9f7a427acaba4e39f26b8a7dba336f3be9916d7a25a75dba54b0826809",
+        "bytes": 948840
+      },
+      "C:\\ov\\reports\\skywatch39\\height_only\\002_cb_1928_mask.png": {
+        "sha256": "3730ee9dd62c023734ae0fcb87d784f10deb4232fdd77ac3e7f21f37a195637e",
+        "bytes": 80721
+      },
+      "C:\\ov\\reports\\skywatch39\\height_only\\003_cb_repeat_1928_colour.png": {
+        "sha256": "9e62e48cf8948d8059505ca18bd6aee0afcec58576e88c82c16179c6c285fd24",
+        "bytes": 949788
+      },
+      "C:\\ov\\reports\\skywatch39\\height_only\\003_cb_repeat_1928_mask.png": {
+        "sha256": "3730ee9dd62c023734ae0fcb87d784f10deb4232fdd77ac3e7f21f37a195637e",
+        "bytes": 80721
+      },
+      "C:\\ov\\reports\\skywatch39\\integration_native.png": {
+        "sha256": "cf02e07f413ae2d8bbb6eb222ec4427238dd84898639036294fe17b5d4be5f6b",
+        "bytes": 505072
+      },
+      "C:\\ov\\reports\\skywatch39\\isolation_native.png": {
+        "sha256": "f499e410a411aa2e054c981b94a931b82cb76dee635b7f90c67aa2c39c8b6d12",
+        "bytes": 720067
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint\\000_cu_1928_colour.png": {
+        "sha256": "61dcbc3d100bca08ae8936204d8ee51e6097fabeb117f2b38a63adda33308e51",
+        "bytes": 2000268
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint\\000_cu_1928_mask.png": {
+        "sha256": "e20c6347b0e2c0c172475cde2b1d02b9a402c8a8d38c19532a75329e92413d24",
+        "bytes": 1135772
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint\\001_cu_repeat_1928_colour.png": {
+        "sha256": "eaf5e4590e869de713ba5f243e4a039ce14f68d6a35093ec8c097c3291d58fcc",
+        "bytes": 2002535
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint\\001_cu_repeat_1928_mask.png": {
+        "sha256": "4d892e2d8edd4d8b2c0dc5057e784a1c1d12efe237f7f03aa6ddba0f03fbcb09",
+        "bytes": 1136147
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint\\002_cb_1928_colour.png": {
+        "sha256": "bf3efc936bb2d7b34bd851bc17b7efd4a50d128b55e0159c4198ab8e2fafe723",
+        "bytes": 985789
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint\\002_cb_1928_mask.png": {
+        "sha256": "d53b86d7a19c865e944be31a4f3816952a56cea1a61148d62a84e036de9c0f95",
+        "bytes": 80636
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint\\003_cb_repeat_1928_colour.png": {
+        "sha256": "e0030087c1872cf7a25687d5ca172db54b9120950c05868e0a214c9dac15dce5",
+        "bytes": 987666
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint\\003_cb_repeat_1928_mask.png": {
+        "sha256": "d53b86d7a19c865e944be31a4f3816952a56cea1a61148d62a84e036de9c0f95",
+        "bytes": 80636
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint_cost\\Cb_noon.png": {
+        "sha256": "f7c613cb25d276e5fa82eb92493a9b6008309547196d79aceafd589aa55e0f0c",
+        "bytes": 783732
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint_cost\\Ci_noon.png": {
+        "sha256": "80bcc78ff6cba36208914a72a68deea7742c11f368c95c40a55475947f27ca3e",
+        "bytes": 1683543
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint_cost\\Cu_inactive_shape_timer.png": {
+        "sha256": "c23dd660277daad92151f3d4b5f4c13f9a6ee450a340517fab08638b73019cde",
+        "bytes": 1984936
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint_cost\\Cu_legacy_phase_control.png": {
+        "sha256": "04d470c5927814890d86f3d7fe68b2a97527acd1bfe418cab758ca7d38ba4911",
+        "bytes": 1983137
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint_cost\\Cu_noon.png": {
+        "sha256": "eadfc6d45d228669561c8dbc8f0035dbfc2c117b6bcdcbcd1dadb1fcab21191e",
+        "bytes": 2003630
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint_cost\\Cu_paused_repeat.png": {
+        "sha256": "bf56ffec7d66a04e870a19df37b900ec600c81aa8ce1d9f424de7c23d5691f58",
+        "bytes": 1982582
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint_cost\\Cu_return_start.png": {
+        "sha256": "52775ffc0f79f7895927c1d0f185b3c9ee6d100b64f0be867766d31b0af4859b",
+        "bytes": 1981994
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint_cost\\Cu_returned.png": {
+        "sha256": "de00cf5e256a50dd924615cac4488812b598c5910a70db63f966a1d71da90217",
+        "bytes": 1983174
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint_cost\\Cu_two_minutes.png": {
+        "sha256": "b97ec20bdaade99c803afbfe434b2837a10f1d2a14110107113cf183e2ec4f3c",
+        "bytes": 1863021
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint_cost\\Ns_noon.png": {
+        "sha256": "896c585bf22b55f61adc440a7ab0e24dbdae58a66772e53b56a9374c395ed365",
+        "bytes": 586345
+      },
+      "C:\\ov\\reports\\skywatch39\\midpoint_cost\\Sc_noon.png": {
+        "sha256": "68abbb976a45d624dd903523d9fc71c3ded6b88f1dc64307937128f834ea5c46",
+        "bytes": 991183
+      },
+      "C:\\ov\\reports\\skywatch39\\no_macro\\000_cu_1928_colour.png": {
+        "sha256": "398d6a2bc303512b53ea8c968b4db1380293948b3fd6a90f6985ef98fd590146",
+        "bytes": 1872427
+      },
+      "C:\\ov\\reports\\skywatch39\\no_macro\\000_cu_1928_mask.png": {
+        "sha256": "c1776e5c3e7ee7001213789ce836a76eeb6e0e40e7ce4ce5353433d332f6ab81",
+        "bytes": 1122092
+      },
+      "C:\\ov\\reports\\skywatch39\\no_macro\\001_cu_repeat_1928_colour.png": {
+        "sha256": "73e8581153ed9bc9242ffe08e148d310690754fa7fc5ee4008854421b3f6e61d",
+        "bytes": 1871030
+      },
+      "C:\\ov\\reports\\skywatch39\\no_macro\\001_cu_repeat_1928_mask.png": {
+        "sha256": "5db57076ed54db3d9aa727903ca2d0ba315554b2f1f3ec0871e05768172aefe8",
+        "bytes": 1121842
+      },
+      "C:\\ov\\reports\\skywatch39\\no_macro\\002_cb_1928_colour.png": {
+        "sha256": "b310257f4b722e995c1b0dfa25b662e89fb2647c46fa5be434213560674f75f7",
+        "bytes": 974226
+      },
+      "C:\\ov\\reports\\skywatch39\\no_macro\\002_cb_1928_mask.png": {
+        "sha256": "f5a9c8e742e96ac4a822e19555b17773d406c00f7a4498a3c1914408eabca337",
+        "bytes": 79760
+      },
+      "C:\\ov\\reports\\skywatch39\\no_macro\\003_cb_repeat_1928_colour.png": {
+        "sha256": "b85ba591de912e3f65db511a3f91402aa5744837f4ec5fcc576ebffb36646d42",
+        "bytes": 968800
+      },
+      "C:\\ov\\reports\\skywatch39\\no_macro\\003_cb_repeat_1928_mask.png": {
+        "sha256": "f5a9c8e742e96ac4a822e19555b17773d406c00f7a4498a3c1914408eabca337",
+        "bytes": 79760
+      },
+      "C:\\ov\\reports\\skywatch39\\published_CampaignWeatherTest\\weather_report.png": {
+        "sha256": "edde8a975848f3669b4a0651827ed0b71b1c0930429eb0f7cf2f400739d4f7ed",
+        "bytes": 4858159
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2SkySpectacleBench\\Cb_noon.png": {
+        "sha256": "22c42471fe3907e5249fd974dd1a913b7ffdf9abaecdb1b0ff6cb51df3d0f8e7",
+        "bytes": 718821
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2SkySpectacleBench\\Ci_noon.png": {
+        "sha256": "9f65a2ba2b8867d8c214b67f10f8b8e655a95aafb298ae3bac784dcc6b85daa0",
+        "bytes": 1683544
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2SkySpectacleBench\\Cu_inactive_shape_timer.png": {
+        "sha256": "738a815589048a04957c7d1f0d60a8c8cc08ffd0e1601824bc9c67b16fcc4b7f",
+        "bytes": 1894061
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2SkySpectacleBench\\Cu_legacy_phase_control.png": {
+        "sha256": "28bb471919d4e4f49e8b20b5a0f5af38cf1194e7969b1c3fb829ae3c08570ca6",
+        "bytes": 1893641
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2SkySpectacleBench\\Cu_noon.png": {
+        "sha256": "d5dba832b55e811fe639fcaf3e8035c196e1983011897161d0840adb54feb9f2",
+        "bytes": 1912626
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2SkySpectacleBench\\Cu_paused_repeat.png": {
+        "sha256": "ceabb8b842101c80f2b0fdad4850b6f5bc3e65c2c21ed5ce3edba90686c5268e",
+        "bytes": 1893164
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2SkySpectacleBench\\Cu_return_start.png": {
+        "sha256": "d56bf19ad95edddc6f79d9309e9e558997da5000e54cdce4929555a0d62edb2c",
+        "bytes": 1893682
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2SkySpectacleBench\\Cu_returned.png": {
+        "sha256": "5d5d14dc32ea1eac4418e954dbfe296db6579736bb98491b53e74fcf64b125d8",
+        "bytes": 1894811
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2SkySpectacleBench\\Cu_two_minutes.png": {
+        "sha256": "d9ea6d66254f6e4e45c9c9e26b67b83028ce411e6fd79a76decb51f2982d4f69",
+        "bytes": 1785711
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2SkySpectacleBench\\Ns_noon.png": {
+        "sha256": "e2d7256e20d1ade7aa1d359ace668747327bfdc6846879cb71b5c550bb47684c",
+        "bytes": 586733
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2SkySpectacleBench\\Sc_noon.png": {
+        "sha256": "c82118af28b783e7f8cfaf068b6233f7ce48524bdd733a2924aa1e4a7e1fa31a",
+        "bytes": 978126
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2WeatherRouteProfile\\cloud_0_off_street.png": {
+        "sha256": "95857647aa9ff16a24937759541fe637fa9182402761c51cbe763c36ac496122",
+        "bytes": 2664805
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2WeatherRouteProfile\\cloud_1_on_street.png": {
+        "sha256": "dc7e0a4a86cddbb8b2f60042e18b2053027bd2d35b473c367b6f27eaa9018c5b",
+        "bytes": 2670479
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2WeatherRouteProfile\\cloud_2_on_street.png": {
+        "sha256": "0ce9f69c1988f01a27d9926ebed4e552cf7c20c1249e5713103ac0accb0b4750",
+        "bytes": 2618760
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2WeatherRouteProfile\\cloud_3_off_street.png": {
+        "sha256": "531d824a508081c8e9ae6bf0826e7365afe5694735aaf5d3e5e439858ad171a2",
+        "bytes": 2682452
+      },
+      "C:\\ov\\reports\\skywatch39\\published_V2WeatherRouteProfile\\last_position.png": {
+        "sha256": "3246557e6f412906e06e257fa3776741e2afc81c9c77954a7dad74a1422ac81e",
+        "bytes": 3056518
+      },
+      "C:\\ov\\reports\\skywatch39\\retired_cloud\\Cb_noon.png": {
+        "sha256": "a6a6a365a29309c7aa1b72a95a7667735a91e555e6fc0ab143d845ab940294e3",
+        "bytes": 721762
+      },
+      "C:\\ov\\reports\\skywatch39\\retired_cloud\\Ci_noon.png": {
+        "sha256": "9f65a2ba2b8867d8c214b67f10f8b8e655a95aafb298ae3bac784dcc6b85daa0",
+        "bytes": 1683544
+      },
+      "C:\\ov\\reports\\skywatch39\\retired_cloud\\Cu_legacy_phase_control.png": {
+        "sha256": "485bc8d876cb0fe5e8f314edadd11aba0d540244a490c0ee5c502e7f5856fff5",
+        "bytes": 1897252
+      },
+      "C:\\ov\\reports\\skywatch39\\retired_cloud\\Cu_noon.png": {
+        "sha256": "13f0429a83cf7865fbc63030b628ce088adb54303c8a68aef0c7cfbc27a8620f",
+        "bytes": 1913414
+      },
+      "C:\\ov\\reports\\skywatch39\\retired_cloud\\Cu_paused_repeat.png": {
+        "sha256": "d350840ff99da3b960b3d810c11fe3763181648ad9cef9eda9b7b36943bffcba",
+        "bytes": 1897284
+      },
+      "C:\\ov\\reports\\skywatch39\\retired_cloud\\Cu_return_start.png": {
+        "sha256": "ef6ba969ed963bf6fa43e0520be7967ce0f150e9e6e32abd7e416a9b8d15b1b4",
+        "bytes": 1897520
+      },
+      "C:\\ov\\reports\\skywatch39\\retired_cloud\\Cu_returned.png": {
+        "sha256": "27dc2eacffc91838ab89b92fc786f457b43fef0adb427c73d4019ad498f927df",
+        "bytes": 1897954
+      },
+      "C:\\ov\\reports\\skywatch39\\retired_cloud\\Cu_two_minutes.png": {
+        "sha256": "f483655e230962e00500d192367a09b83e7ebce2acd39e96b1a2e1dfce8792f9",
+        "bytes": 1788943
+      },
+      "C:\\ov\\reports\\skywatch39\\retired_cloud\\Ns_noon.png": {
+        "sha256": "e2d7256e20d1ade7aa1d359ace668747327bfdc6846879cb71b5c550bb47684c",
+        "bytes": 586733
+      },
+      "C:\\ov\\reports\\skywatch39\\retired_cloud\\Sc_noon.png": {
+        "sha256": "a9659c58ea6495141802dc75b0b46826d9f5065fb5d8dc3e42fb974264cce515",
+        "bytes": 978120
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_only\\000_cu_1928_colour.png": {
+        "sha256": "cdcaf2360674657d56e28cf8abac3558eb9e788253110fb70ce7a430c77ffc5e",
+        "bytes": 1909964
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_only\\000_cu_1928_mask.png": {
+        "sha256": "842fbffbe5a994d0b2efb995361a4b8028ef4f0bf1537e54cf2e49dbabf5fef8",
+        "bytes": 1138022
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_only\\001_cu_repeat_1928_colour.png": {
+        "sha256": "3fb0b4981bc119aaf619c4d8ae5353a4622b585bcc9e6782444340804be23b0e",
+        "bytes": 1909942
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_only\\001_cu_repeat_1928_mask.png": {
+        "sha256": "8d15907249cbf27cb49c37c03a10a4e979b361eb215c0c023e76ca95fe32f9a2",
+        "bytes": 1137362
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_only\\002_cb_1928_colour.png": {
+        "sha256": "0d1ee6f432a08d696da8d230d265feed713733a3eeb9cfe1d16e78891aeead36",
+        "bytes": 918870
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_only\\002_cb_1928_mask.png": {
+        "sha256": "d53b86d7a19c865e944be31a4f3816952a56cea1a61148d62a84e036de9c0f95",
+        "bytes": 80636
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_only\\003_cb_repeat_1928_colour.png": {
+        "sha256": "06a6ec79d90fe59f8b850ec2fabdd536550ded6c84607920a435875e32ed33b8",
+        "bytes": 919382
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_only\\003_cb_repeat_1928_mask.png": {
+        "sha256": "d53b86d7a19c865e944be31a4f3816952a56cea1a61148d62a84e036de9c0f95",
+        "bytes": 80636
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_production\\Cb_noon.png": {
+        "sha256": "22c42471fe3907e5249fd974dd1a913b7ffdf9abaecdb1b0ff6cb51df3d0f8e7",
+        "bytes": 718821
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_production\\Ci_noon.png": {
+        "sha256": "9f65a2ba2b8867d8c214b67f10f8b8e655a95aafb298ae3bac784dcc6b85daa0",
+        "bytes": 1683544
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_production\\Cu_inactive_shape_timer.png": {
+        "sha256": "91241f661b0b5495807d1fe2fcafa5f1e4f3f2b6c0b39722155ba9ef29a148d3",
+        "bytes": 1893706
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_production\\Cu_legacy_phase_control.png": {
+        "sha256": "d2dd53550a2bd99137a536b5a4e537d4440025391f7dbabc5dd7fe4fd33ad298",
+        "bytes": 1894007
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_production\\Cu_noon.png": {
+        "sha256": "a43894af4958d27a9f1fad8294157741379b80076f57b6b467b55e8bbcf44f66",
+        "bytes": 1911947
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_production\\Cu_paused_repeat.png": {
+        "sha256": "41698163170f70aa91923920d3cd342b7abc4fe163574b68db2e6e27e256e99d",
+        "bytes": 1893033
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_production\\Cu_return_start.png": {
+        "sha256": "40e2900967df812f8479e25cca27a4337222ec2510ac123baad02d32a1460556",
+        "bytes": 1892755
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_production\\Cu_returned.png": {
+        "sha256": "1e59b5330f5e10521577572c750fa256f854b72a45601cb9fc23c9472d929f44",
+        "bytes": 1893211
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_production\\Cu_two_minutes.png": {
+        "sha256": "a0074858c4856ca1c79f20cbe116ff0bc3a83678e34a7a30f2627ed5572057bc",
+        "bytes": 1784399
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_production\\Ns_noon.png": {
+        "sha256": "e2d7256e20d1ade7aa1d359ace668747327bfdc6846879cb71b5c550bb47684c",
+        "bytes": 586733
+      },
+      "C:\\ov\\reports\\skywatch39\\shadow_production\\Sc_noon.png": {
+        "sha256": "c7aed4a15e0da914a952cd90399884ea63532254dbe5047cd7161dc9af74a383",
+        "bytes": 977666
+      }
+    },
+    "contact_sha256": "862b7ef170ce342053dc86e81998b27d121414efa6b674f93a99dcaa67ba92cd"
   }
 }

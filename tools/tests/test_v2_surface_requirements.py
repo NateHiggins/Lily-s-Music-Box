@@ -83,6 +83,16 @@ class Requirements(unittest.TestCase):
         with patch.object(evidence,'file_hash',side_effect=lambda path:'changed' if path==target else 'source'):
             self.assertNotEqual(before,evidence.inputs()['sha256'])
 
+    def test_raw_cloud_fields_expire_surface_proof(self):
+        import v2_surface_evidence as evidence
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+        for name in ('perlin_worley_128.r8','cloud_curl_32.rgb8'):
+            with self.subTest(name=name):
+                with patch.object(evidence,'file_hash',side_effect=lambda path:
+                                  'changed' if path.name==name else 'source'):
+                    self.assertNotEqual(before,evidence.inputs()['sha256'])
+
     def test_material_sources_cannot_escape_or_disappear(self):
         import v2_surface_evidence as evidence
         with tempfile.TemporaryDirectory() as directory:

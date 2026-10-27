@@ -103,7 +103,6 @@ func run(bench: Node3D) -> void:
 		bench.sky_material.set_shader_parameter("living_enabled",true)
 		for layer in range(3):
 			bench.sky_material.set_shader_parameter("living_layer_%d" % layer,Vector4(0.,1.+float(layer),.5,0.))
-		bench.sky_material.set_shader_parameter("shape_opacity",0.)
 		var no_spectacle := PackedFloat32Array();no_spectacle.resize(41)
 		bench.sky_material.set_shader_parameter("spectacle",no_spectacle)
 		for key: String in ["wx_whiteout","wx_blood_rain","wx_hail","wx_cyclone","wx_formation_strength","vortex_intensity"]:
@@ -181,7 +180,7 @@ func set_field(bench: Node3D,degrees: float) -> void:
 
 func clear_optics(bench: Node3D) -> void:
 	bench.environment.fog_enabled=false;bench.environment.volumetric_fog_enabled=false
-	for key: String in ["cloud_coverage","lower_cloud_strength","high_cloud_strength","shape_opacity","wx_whiteout","wx_blood_rain","wx_hail","wx_cyclone","wx_formation_strength","vortex_intensity"]:
+	for key: String in ["cloud_coverage","lower_cloud_strength","high_cloud_strength","wx_whiteout","wx_blood_rain","wx_hail","wx_cyclone","wx_formation_strength","vortex_intensity"]:
 		bench.sky_material.set_shader_parameter(key,0.)
 	bench.sky_material.set_shader_parameter("living_enabled",true)
 	for layer in range(3):bench.sky_material.set_shader_parameter("living_layer_%d" % layer,Vector4(0.,1.+float(layer),.5,0.))
@@ -221,6 +220,7 @@ func cloud_review(bench: Node3D) -> void:
 		bench.camera.look_at(bench.camera.global_position+Vector3(-1,.42,-.3));set_field(bench,85.)
 		bench.sky_material.set_shader_parameter("temporal_phase",0.)
 		var timing := await measure(bench,85.,false)
+		timing.scope="stationary dated clouds over city horizon; not occupied-world or isolated GPU attribution"
 		await capture(bench,output.path_join(kind+"_noon.png"))
 		rows.append({"genus":kind,"date":bench.clock.datetime_string(),"state":bench.manager.atmosphere_state.duplicate(true),"timing":timing})
 		if kind=="Cu":
@@ -236,10 +236,6 @@ func cloud_review(bench: Node3D) -> void:
 			check(bench.sky_material.get_shader_parameter("living_flow_0")==advanced_roll,"paused clock holds the curl field")
 			bench.get_viewport().use_taa=false
 			bench.sky_material.set_shader_parameter("temporal_phase",0.)
-			# Isolate ordinary density from the retained random animal SDF,
-			# whose appearance envelope still follows instance uptime.
-			bench.sky_material.set_shader_parameter("shape_kind",0)
-			bench.sky_material.set_shader_parameter("shape_opacity",0.)
 			await capture(bench,output.path_join("Cu_return_start.png"))
 			var initial := bench.get_viewport().get_texture().get_image()
 			var original_uniforms: Dictionary={}
@@ -253,16 +249,10 @@ func cloud_review(bench: Node3D) -> void:
 			await capture(bench,output.path_join("Cu_legacy_phase_control.png"))
 			check(cloud_image_error(initial,bench.get_viewport().get_texture().get_image())<=maxf(1./1020.,paused_error*1.5),"legacy jitter phase cannot introduce visible cloud grain at a fixed calendar time")
 			bench.sky_material.set_shader_parameter("temporal_phase",0.)
-			bench.sky_material.set_shader_parameter("shape_opacity",1.)
-			await capture(bench,output.path_join("Cu_inactive_shape_timer.png"))
-			check(cloud_image_error(initial,bench.get_viewport().get_texture().get_image())<=maxf(1./1020.,paused_error*1.5),"an inactive legacy shape timer cannot alter ordinary cloud marching")
-			bench.sky_material.set_shader_parameter("shape_opacity",0.)
 			for uniform: Dictionary in bench.sky_material.shader.get_shader_uniform_list():
 				original_uniforms[uniform.name]=bench.sky_material.get_shader_parameter(uniform.name)
 			bench.clock.advance_seconds(120.);bench.manager._process(120.)
 			bench.sky_material.set_shader_parameter("temporal_phase",0.)
-			bench.sky_material.set_shader_parameter("shape_kind",0)
-			bench.sky_material.set_shader_parameter("shape_opacity",0.)
 			await capture(bench,output.path_join("Cu_two_minutes.png"))
 			var travelled := bench.get_viewport().get_texture().get_image()
 			var travelled_error := cloud_image_error(initial,travelled)
@@ -272,8 +262,6 @@ func cloud_review(bench: Node3D) -> void:
 			bench.manager.origin=bench.manager.target.duplicate(true);bench.manager.elapsed=bench.manager.TRANSITION_SECONDS
 			bench.manager._process(0.);bench.manager._publish()
 			bench.get_viewport().use_taa=false;bench.sky_material.set_shader_parameter("temporal_phase",0.)
-			bench.sky_material.set_shader_parameter("shape_kind",0)
-			bench.sky_material.set_shader_parameter("shape_opacity",0.)
 			var camera_restore := {"original":str(original_camera),"returned":str(bench.camera.global_transform),"original_projection":str(original_projection),"returned_projection":str(bench.camera.get_camera_projection())}
 			bench.camera.global_transform=original_camera;set_field(bench,85.)
 			bench.environment.volumetric_fog_enabled=false

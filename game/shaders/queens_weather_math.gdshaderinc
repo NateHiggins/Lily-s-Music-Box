@@ -58,7 +58,19 @@ float wx_height_erosion(float body,float detail,float h,float strength) {
 	threshold*=1.0-smoothstep(.72,1.0,body);
 	return clamp(wx_remap(body,threshold,1.0,0.0,1.0),0.0,1.0);
 }
-float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 flow_state) {
+float cloud_ramp_integral(float x) {
+	float u=clamp(x,0.0,1.0);
+	return u*u*u*(1.0-.5*u)+max(x-1.0,0.0);
+}
+float cloud_filtered_ramp(float a,float b,float h,float width) {
+	if(width<.0001) return smoothstep(a,b,h);
+	float x=(h-a)/(b-a), w=width/(b-a);
+	return clamp((cloud_ramp_integral(x+w*.5)-cloud_ramp_integral(x-w*.5))/w,0.0,1.0);
+}
+// The primary density uses zero footprint. Self-shadow taps integrate over the
+// view step they illuminate: loaded mips and a box-filtered height ramp suppress
+// undersampled lighting blocks without filtering the visible cloud silhouette.
+float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 flow_state,vec3 footprint) {
 	float coverage=layer.x;
 	if(coverage<=0.0001 || p.y<layer.y || p.y>layer.y+layer.z) return 0.0;
 	float h=(p.y-layer.y)/layer.z;
@@ -68,6 +80,8 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 	vec2 q=(mat2(vec2(wind_c,-wind_s),vec2(wind_s,wind_c))*p.xz)/max(brush.x,.1);
 	q+=vec2(mod(motion.w,127.0),mod(motion.w,71.0));
 	int genus=int(layer.w);
+	float qwidth=length(footprint.xz)/max(brush.x,.1);
+	float hwidth=living_fluid_enabled ? footprint.y/max(layer.z,.01) : 0.0;
 	float body=0.0;
 	float texture_detail=.6;
 	bool sheet=(genus==2 || genus==4 || genus==5 || genus==7);
@@ -118,9 +132,11 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		vec2 field;
 		if(living_fluid_enabled) {
 			// Nested Worley deformation is small enough to retain broad families.
-			vec2 detail=textureLod(cloud_noise,lookup*3.0,1.0).rg;
+			float detail_lod=clamp(log2(max(1.0,64.0*3.0*max(qwidth*mark_scale,hwidth*.55))),1.0,5.0);
+			float macro_lod=clamp(log2(max(1.0,128.0*max(qwidth*mark_scale,hwidth*.55))),1.0,6.0);
+			vec2 detail=textureLod(cloud_noise,lookup*3.0,detail_lod).rg;
 			lookup.xy+=(detail-.5)*.10;
-			field=vec2(textureLod(cloud_macro,lookup,1.0).r,detail.g);
+			field=vec2(textureLod(cloud_macro,lookup,macro_lod).r,detail.g);
 		} else field=textureLod(cloud_noise,lookup,1.0).rg;
 		texture_detail=field.y;
 		// Sculpt both bearings with the existing volume sample. The former
@@ -140,7 +156,7 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 fl
 		float family=smoothstep(.36-.20*coverage,.60-.20*coverage,warp.x+.5);
 		body*=mix(family,1.0,smoothstep(.70,.96,coverage));
 	}
-	float envelope=smoothstep(0.0,.10,h)*(1.0-smoothstep(.72,1.0,h));
+	float envelope=cloud_filtered_ramp(0.0,.10,h,hwidth)*(1.0-cloud_filtered_ramp(.72,1.0,h,hwidth));
 	float sculpted=living_fluid_enabled && genus!=0 ? wx_height_erosion(body,texture_detail,h,1.0) : max(0.0,body-(1.0-texture_detail)*.12);
 	return sculpted*envelope*brush.y;
 }

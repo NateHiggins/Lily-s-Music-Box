@@ -39,8 +39,6 @@ uniform vec4 season_weights = vec4(0.0,0.0,0.0,1.0);
 uniform float humidity = 0.52;
 uniform float storm_strength = 0.0;
 uniform vec3 wind_offset = vec3(0.0);
-uniform int shape_kind = 0;
-uniform float shape_opacity = 0.0;
 uniform float temporal_phase = 0.0;
 vec3 celestial_base(vec3 direction) {
 	float u = atan(direction.z, direction.x) / (2.0 * PI) + 0.5;
@@ -169,30 +167,6 @@ float soft_union(float a,float b,float k) {
     return mix(b,a,h)-k*h*(1.0-h);
 }
 #include "res://shaders/sky_spectacle.gdshaderinc"
-float cloud_object(vec3 p) {
-    // Soft SDFs. Noise breaks the contour before it contributes to density.
-    if (shape_kind==1) {
-        float body=ellipsoid(p,vec3(.48,.30,.30));
-        float head=ellipsoid(p-vec3(.29,.38,0),vec3(.21,.23,.21));
-        float bill=ellipsoid(p-vec3(.49,.33,0),vec3(.20,.055,.12));
-        float neck=ellipsoid(p-vec3(.23,.22,0),vec3(.16,.24,.17));
-        return soft_union(soft_union(soft_union(body,neck,.10),head,.10),bill,.06);
-    }
-    if (shape_kind==2) {
-        float body=ellipsoid(p,vec3(.75,.25,.29));
-        float fin=ellipsoid(p-vec3(.0,-.18,.18),vec3(.25,.16,.06));
-        float tail=ellipsoid(p-vec3(-.69,.10,0),vec3(.15,.15,.36));
-        return soft_union(soft_union(body,fin,.08),tail,.08);
-    }
-    float ship=ellipsoid(p+vec3(0,.24,0),vec3(.75,.20,.23));
-    for (int mast_index=0;mast_index<3;mast_index++) {
-        float x=(float(mast_index)-1.0)*.36;
-        float mast=ellipsoid(p-vec3(x,.10,0),vec3(.032,.46,.04));
-        float sail=ellipsoid(p-vec3(x+.04,.22,0),vec3(.16,.25,.07));
-        ship=soft_union(ship,soft_union(mast,sail,.035),.035);
-    }
-    return ship;
-}
 float density_tagged(vec3 p,out float fire) {
     fire=0.0;
     float summer=season_weights.z;
@@ -223,13 +197,6 @@ float density_tagged(vec3 p,out float fire) {
         fire=pouches/max(max(result,pouches),.001);
         result=max(result,pouches);
     }
-    if (shape_kind>0 && shape_opacity>0.0) {
-        vec3 q=advected-vec3(1.6,2.3,-2.6);
-        float sdf=cloud_object(q);
-        float edge_noise=textureLod(cloud_noise,q*1.8,0.0).g;
-        float fluffy=1.0-smoothstep(-.045,.045,sdf+(edge_noise-.5)*.10);
-        result=max(result,fluffy*.60*shape_opacity);
-    }
     return result*mix(.85,1.4,max(winter,storm_strength));
 }
 float density(vec3 p) {
@@ -250,9 +217,8 @@ vec4 volumetric_clouds(vec3 direction,vec2 screen_uv) {
     vec4 deck=vec4(0.0);
     if (direction.y>=.035) {
         float ceiling=1.85+3.0*season_weights.z;
-        if (shape_kind>0 && shape_opacity>0.0) ceiling=max(ceiling,3.15);
         float finish=min(18.0,ceiling/direction.y);
-        int steps=(shape_kind>0 && shape_opacity>0.0) || base_low<1.25 ? 64 : 40;
+        int steps=base_low<1.25 ? 64 : 40;
         float step_size=(finish-start)/float(steps);
         vec3 sum=vec3(0.0); float transmittance=1.0;
         vec3 source=normalize(sun_direction);
