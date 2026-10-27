@@ -147,10 +147,10 @@ func _ready() -> void:
 
 ## Development-only calendar viewer and compact annual gallery. Uses the same
 ## production manager/shader and real city horizon, not the full occupied world.
-func _library_date(day_index: int,hour: float) -> void:
+func _library_date(day_index: int,hour: float,exact_minute: int=-1) -> void:
 	var start:=Time.get_unix_time_from_datetime_string("1928-11-10T00:00:00")
 	var date:=Time.get_datetime_dict_from_unix_time(start+day_index*86400)
-	clock.configure_date(int(date.year),int(date.month),int(date.day),int(hour*60))
+	clock.configure_date(int(date.year),int(date.month),int(date.day),exact_minute if exact_minute>=0 else int(hour*60))
 	manager._calendar_check_left=0.0;manager._phenomena_left=0.0;manager._publish_left=0.0
 	manager._process(1.0);manager._publish()
 	if manager.extreme_weather!=null:manager.extreme_weather.publish(sky_material,camera.global_position)
@@ -460,15 +460,46 @@ func _library_detail() -> void:
 		for layout_seed: int in request.seeds:
 			OS.set_environment("WEATHER_SEED",str(layout_seed))
 			environment.sky.sky_material=sky_material;horizon.show();manager.effects.show()
-			get_viewport().use_taa=true
+			var particle_control := bool(request.get("particle_control",false))
+			get_viewport().use_taa=not particle_control
 			environment.tonemap_mode=normal_tonemap;environment.tonemap_exposure=normal_exposure
 			environment.glow_enabled=normal_glow;environment.volumetric_fog_enabled=normal_fog
-			_library_date(int(floor(float(stamp-first)/86400.0)),float(posmod(stamp,86400))/3600.0)
+			# ISO requests already name an exact minute. Float hours can turn
+			# 08:29 into 08:28 when converted back with truncation.
+			_library_date(int(floor(float(stamp-first)/86400.0)),float(posmod(stamp,86400))/3600.0,int(posmod(stamp,86400)/60))
+			if Time.get_unix_time_from_datetime_string(clock.datetime_string())!=stamp:
+				failures.append("native capture time differs from request "+str(request.date))
 			sky_material.set_shader_parameter("temporal_phase",0.0)
 			for frame in 24:await RenderingServer.frame_post_draw
 			var prefix:="%03d_%s_%d"%[rows.size(),str(request.period),layout_seed]
+			var particle_states: Array[Dictionary]=[]
+			var effects_processing: bool=manager.effects.is_processing()
+			if particle_control:
+				# Pause the owner as well as CPU simulation: its next update must
+				# not restore a hidden draw. Keep the local air/fog volume visible.
+				manager.effects.set_process(false)
+				for field: String in ["_splash","_leaves","_snow","_hail","_middle_rain","_road_mist"]:
+					var draw := manager.effects.get(field) as GeometryInstance3D
+					if draw==null:failures.append("missing fallback optical owner "+field);continue
+					particle_states.append({"node":draw,"visible":draw.visible,"speed":draw.speed_scale if draw is CPUParticles3D else 1.0})
+					if draw is CPUParticles3D:draw.speed_scale=0.0
+				for frame in 2:await RenderingServer.frame_post_draw
 			var color_path:=directory.path_join(prefix+"_colour.png")
 			if get_viewport().get_texture().get_image().save_png(color_path)!=OK:failures.append("colour capture "+prefix)
+			var particle_observation: Dictionary={}
+			if particle_control:
+				var owners: Array[String]=[]
+				for record: Dictionary in particle_states:
+					owners.append(str(manager.effects.get_path_to(record.node)))
+					record.node.hide()
+				for frame in 2:await RenderingServer.frame_post_draw
+				var clear_path:=directory.path_join(prefix+"_without_particles.png")
+				if get_viewport().get_texture().get_image().save_png(clear_path)!=OK:failures.append("particle isolation capture "+prefix)
+				particle_observation={"file":clear_path.get_file(),"hidden_owners":owners,"taa":false,"fog_retained":true,"scope":"Fallback optical geometry only; CPU particles and owner publication held, not the playable FPS GPU path"}
+				for record: Dictionary in particle_states:
+					record.node.visible=record.visible
+					if record.node is CPUParticles3D:record.node.speed_scale=record.speed
+				manager.effects.set_process(effects_processing)
 			for uniform: Dictionary in sky_material.shader.get_shader_uniform_list():
 				var value: Variant=sky_material.get_shader_parameter(str(uniform.name))
 				if value!=null:mask_material.set_shader_parameter(str(uniform.name),value)
@@ -490,7 +521,7 @@ func _library_detail() -> void:
 				"declared_coverage":manager.atmosphere_state.get("combined_coverage",0),"mean_alpha_upper_frame":alpha_sum/maxi(1,count),
 				"fraction_alpha_above_point_one":float(covered)/maxi(1,count),"colour":color_path.get_file(),"mask":mask_path.get_file(),
 				"sun":str(sky_material.get_shader_parameter("sun_direction")),"moon":str(sky_material.get_shader_parameter("celestial_direction")),
-				"moon_illumination":sky_material.get_shader_parameter("moon_illumination"),"state":manager.atmosphere_state.duplicate(true)})
+				"moon_illumination":sky_material.get_shader_parameter("moon_illumination"),"state":manager.atmosphere_state.duplicate(true),"particle_control":particle_observation})
 			print("NATIVE SKY DETAIL ",rows.size()," ",clock.datetime_string()," seed=",layout_seed)
 	FileAccess.open(directory.path_join("native_detail.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","scope":"Native colour and instrumented production cloud alpha over dated city-horizon bench; upper two-thirds every fourth pixel. Linear mask decoded from sRGB; world geometry, WeatherFX and TAA disabled only for mask. Excludes front optical phenomena and is not an artistic, occupied-world or performance acceptance.",
