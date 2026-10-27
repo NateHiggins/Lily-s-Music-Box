@@ -38,7 +38,7 @@ func _ready() -> void:
 	add_child(world_environment)
 	var material := ShaderMaterial.new()
 	material.shader = SKY_SHADER
-	var panorama := load(NIGHT_TEXTURE) as Texture2D
+	var panorama: Texture2D = null if RenderingServer.get_current_rendering_method()=="forward_plus" else load(NIGHT_TEXTURE) as Texture2D
 	material.set_shader_parameter("panorama_a", panorama)
 	material.set_shader_parameter("panorama_b", panorama)
 	material.set_shader_parameter("moon_surface", load("res://assets/environment/lroc_color_poles_1k.jpg"))
@@ -67,6 +67,11 @@ func _ready() -> void:
 		hybrid.set_shader_parameter("panorama_a",panorama)
 		hybrid.set_shader_parameter("panorama_b",panorama)
 		hybrid.set_shader_parameter("moon_surface",load("res://assets/environment/lroc_color_poles_1k.jpg"))
+		if OS.get_environment("WEATHER_SKY_BASELINE")!="1":
+			hybrid.set_shader_parameter("moon_surface",load("res://assets/environment/moon_lroc_4k.jpg"))
+			hybrid.set_shader_parameter("moon_height",load("res://assets/environment/moon_lola_height.png"))
+			hybrid.set_shader_parameter("moon_relief_enabled",true)
+			preload("res://scripts/building/skywatch_astronomy.gd").configure_starfield(hybrid)
 		var native_sky := Sky.new()
 		native_sky.sky_material=hybrid
 		native_sky.radiance_size=Sky.RADIANCE_SIZE_128

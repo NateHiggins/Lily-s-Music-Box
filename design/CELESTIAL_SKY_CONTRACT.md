@@ -1,6 +1,29 @@
 # Celestial sky contract
 
-The building remains 1928. The sky is the real sky above the observer now.
+Evidence class: **INERT**. Implementation reference, not runtime acceptance.
+
+The sky follows the UTC supplied by CampaignClock. Queens is the default
+observer; an explicitly chosen observer location remains with the existing
+weather/location owner. Host today's date is not a second astronomical clock.
+
+## Current V2 extension
+
+The native V2 sky now uses analytical BSC5 points, date precession, proper
+motion, spectral colour and bounded clock-driven scintillation. It does not
+load or enlarge the photographic stellar map. Magnified bright stars use an
+analytical diffraction profile. V2's Moon is artistically enlarged 2.5 times,
+with measured heightfield lighting and self-shadowing; native data maps and
+contact-fitted historical eclipse tracks extend the retained phase geometry.
+
+These are working foundations with scoped numerical/rendered diagnostics.
+Installed telescope input, final lunar detail/geometry, precise satellite
+transits and whole-world qualification remain open. See
+[the current astronomy implementation log](V2_SKYWATCH_ASTRONOMY_2026-10-27.md).
+
+## Retained V1 reference
+
+The following describes the retained implementation and its original tests.
+V2 differences and accuracy limits are recorded above and in the linked log.
 
 `CelestialEphemeris` accepts UTC and explicit latitude/longitude. It performs
 no network request and discovers no location. `LiveWeatherService` remains the

@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "source": "https://svs.gsfc.nasa.gov/4720/",
+  "credit": "NASA Scientific Visualization Studio / Ernie Wright; LRO LOLA and LROC teams",
+  "maps": {
+    "moon_lola_height.png": {
+      "source_url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/ldem_16_uint.tif",
+      "source_sha256": "45a2b32d56e81ed30db07fead8abc842b249b6511219d9ca2c53f81bc2dc5d62",
+      "output_sha256": "966d84171c29d2097a43faf15deeeacedcab89b53766535ac6795e84e9ef2b47"
+    },
+    "moon_lroc_4k.jpg": {
+      "source_url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_poles_4k.tif",
+      "source_sha256": "918649a7f8ed2f1329b2cd95bb0d25483befdcb60ae1a66db681a637cc21344f",
+      "output_sha256": "3b93e610e5f27ad82badc7830460d0bb0d3400df22dbb0fa9b2803a834a35f03"
+    }
+  },
+  "height_encoding": "RGB8 linear: metres = (R*65280 + G*255)*0.5 - 10000 with channels normalized 0..1; LOLA mean radius 1737400 m; 2x box reduced"
+}

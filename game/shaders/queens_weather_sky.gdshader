@@ -46,9 +46,13 @@ uniform int shape_kind = 0;
 uniform float shape_opacity = 0.0;
 uniform float temporal_phase = 0.0;
 #include "res://shaders/queens_weather_math.gdshaderinc"
+#include "res://shaders/skywatch_planets.gdshaderinc"
+#include "res://shaders/skywatch_moon.gdshaderinc"
+#include "res://shaders/skywatch_stars.gdshaderinc"
 
 
-vec3 celestial_base(vec3 direction) {
+vec3 celestial_base(vec3 direction,out vec3 point_stars) {
+	point_stars=vec3(0.0);
 	float u = atan(direction.z, direction.x) / (2.0 * PI) + 0.5;
 	// Half-dome source: top edge is zenith; bottom edge is horizon.
 	// Views below the horizon hold on that final skyline texel instead of
@@ -74,6 +78,11 @@ vec3 celestial_base(vec3 direction) {
 	vec4 authored_b = texture(panorama_b,
 			panorama_b_celestial ? galactic_uv : vec2(u, v));
 	vec4 authored = mix(authored_a, authored_b, sky_blend);
+	if(skywatch_stars_enabled) {
+		if(panorama_a_celestial) authored_a=vec4(.001,.002,.004,1.0);
+		if(panorama_b_celestial) authored_b=vec4(.001,.002,.004,1.0);
+		authored=mix(authored_a,authored_b,sky_blend);
+	}
 	float high_opacity = 0.0;
 	float thickness = 0.0;
 	vec3 color = authored.rgb * exposure;
@@ -101,6 +110,7 @@ vec3 celestial_base(vec3 direction) {
 			celestial_halo_radius, source_angle);
 	float core = 1.0 - smoothstep(0.0, celestial_core_radius, source_angle);
 	vec3 lunar_surface = vec3(1.0);
+	float lunar_occlusion=0.0;
 	if (moon_phase_enabled) {
 		// Project the visible hemisphere and light it from the real Sun vector.
 		// This draws crescent/gibbous geometry in the existing sky submission;
@@ -110,7 +120,7 @@ vec3 celestial_base(vec3 direction) {
 				: vec3(0.0, 1.0, 0.0);
 		vec3 right = normalize(cross(reference, moon));
 		vec3 disc_up = normalize(cross(moon, right));
-		float radius_sine = max(sin(celestial_core_radius), 0.00001);
+		float radius_sine = max(sin(celestial_core_radius*moon_visual_scale), 0.00001);
 		vec2 disc = vec2(dot(direction, right), dot(direction, disc_up))
 				/ radius_sine;
 		float radial2 = dot(disc, disc);
@@ -120,6 +130,7 @@ vec3 celestial_base(vec3 direction) {
 		float sunlit = smoothstep(-0.018, 0.018,
 				dot(surface_normal, normalize(sun_direction)));
 		float disc_edge = 1.0 - smoothstep(0.96, 1.0, sqrt(radial2));
+		lunar_occlusion=disc_edge;
 		core = disc_edge * sunlit;
 		// NASA LROC's cylindrical map is centered on the familiar near side.
 		// Keep lunar north upright; libration is deliberately outside this
@@ -128,17 +139,36 @@ vec3 celestial_base(vec3 direction) {
 		float lunar_lat = asin(clamp(disc.y, -1.0, 1.0));
 		vec2 lunar_uv = vec2(lunar_lon / (2.0 * PI) + 0.5,
 				0.5 - lunar_lat / PI);
-		lunar_surface = texture(moon_surface, lunar_uv).rgb;
-		halo *= sqrt(max(moon_illumination, 0.0));
+		if(radial2<1.02) lunar_surface = texture(moon_surface, lunar_uv).rgb;
+		lunar_surface *= lunar_eclipse_transmission(disc);
+		if(moon_relief_enabled && radial2<1.0) {
+			vec3 local_n=vec3(disc,sphere_z);
+			vec3 solar=vec3(dot(normalize(sun_direction),right),dot(normalize(sun_direction),disc_up),-dot(normalize(sun_direction),moon));
+			vec3 terrain=lunar_terrain_normal(local_n);
+			float incidence=max(0.0,dot(terrain,solar));
+			float shadow=moon_shadow_enabled ? lunar_terrain_shadow(local_n,solar) : 1.0;
+			core=disc_edge*(.008+sqrt(incidence)*shadow);
+		}
+		// The old eighteen-degree additive halo washed a magnified Moon flat.
+		// Keep a restrained atmospheric glow without flooding the eyepiece.
+		halo *= .07*sqrt(max(moon_illumination, 0.0));
 	}
 	float obscured = pow(1.0 - thickness, 2.4)
 			* (1.0 - high_opacity * 0.78);
 	float star_field = 0.0;
 	for (int i = 0; i < 12; i++) {
+		if(skywatch_stars_enabled) break;
 		float star_dot = dot(direction, normalize(bright_stars[i]));
 		star_field = max(star_field, smoothstep(0.99991, 0.99998, star_dot));
 	}
-	color += vec3(0.76, 0.82, 1.0) * star_field * star_strength * obscured;
+	// The unlit hemisphere still blocks stars and planets behind the Moon.
+	color *= 1.0-lunar_occlusion;
+	if(skywatch_stars_enabled && star_strength>.0001) {
+		vec3 observer_up=vec3(equatorial_axis_x.y,equatorial_axis_y.y,equatorial_axis_z.y);
+		point_stars=stellar_light(equatorial,observer_up,galactic.z)*star_strength*(1.0-lunar_occlusion);
+	}
+	color += vec3(0.76, 0.82, 1.0) * star_field * star_strength * obscured*(1.0-lunar_occlusion);
+	color += skywatch_planet_light(direction,normalize(sun_direction))*(1.0-lunar_occlusion);
 	color += celestial_color * celestial_strength * halo * 0.42 * obscured;
 	color += celestial_color * lunar_surface * celestial_strength
 			* core * 0.48 * obscured;
@@ -151,6 +181,7 @@ vec3 celestial_base(vec3 direction) {
 	// keeps any equirectangular pole stretch out of the playable horizon.
 	float horizon_haze = smoothstep(0.60, 0.96, v);
 	color = mix(color, fog_horizon_color, horizon_haze * 0.82);
+	point_stars *= 1.0-horizon_haze*.82;
 	// Queens never owns a coal-black horizon. Keep the glow shallow so the
 	// measured Milky Way survives overhead while distant building feet belong
 	// to the same atmosphere as their silhouettes.
@@ -430,7 +461,8 @@ void sky() {
         vec4 clouds=volumetric_clouds(EYEDIR,SCREEN_UV);
         COLOR=clouds.rgb; ALPHA=clouds.a;
     } else {
-        vec3 base=celestial_base(EYEDIR);
+        vec3 point_stars;
+        vec3 base=celestial_base(EYEDIR,point_stars);
         if(living_enabled && living_layer_2.x>.0001 && EYEDIR.y>.015) {
             vec3 high_p=wx_camera_km+EYEDIR*((living_layer_2.y+living_layer_2.z*.3-wx_camera_km.y)/EYEDIR.y);
             float ice=living_density(high_p,living_layer_2,living_motion_2,living_brush_2,living_drift_2);
@@ -444,6 +476,7 @@ void sky() {
             float amber=1.0-smoothstep(.015,.24,abs(sun_direction.y));
             ice_color=mix(ice_color,vec3(1.30,.55,.32),amber*high_sun);
             base=mix(base,ice_color,ice_alpha);
+            point_stars*=1.0-ice_alpha;
         }
         vec2 high_uv=EYEDIR.xz/max(.15,EYEDIR.y)*.14;
         vec2 uv=high_uv+wx_cirrus_drift.xy;
@@ -461,8 +494,15 @@ void sky() {
             cirrus_color=mix(cirrus_color,pearl*.35+vec3(.03,.025,.045),wx_nacreous_gate(normalize(sun_direction)));
         }
         base=mix(base,cirrus_color,cirrus);
+        point_stars*=1.0-cirrus;
         base=spectacle_behind(EYEDIR,base);
         vec3 combined=base*(1.0-HALF_RES_COLOR.a)+HALF_RES_COLOR.rgb;
+        // The march's early-opacity termination leaves residual transmission.
+        // HDR stellar points must not turn that numerical remainder into stars
+        // shining through an opaque ceiling. Reuse the existing cloud alpha.
+        float point_transmission=1.0-HALF_RES_COLOR.a;
+        point_transmission*=smoothstep(.015,.08,point_transmission);
+        combined+=point_stars*point_transmission;
         combined=spectacle_front(EYEDIR,combined,HALF_RES_COLOR.a);
         float rho=mix(living_enabled ? mix(.00015,.00055,living_aerosol/.4) : .00035,0.045,wx_whiteout);
         float tau=wx_height_tau(wx_camera_km.y*1000.0,max(EYEDIR.y,0.0),3000.0,rho,140.0);

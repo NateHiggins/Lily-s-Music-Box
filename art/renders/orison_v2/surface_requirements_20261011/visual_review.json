@@ -1,44 +1,49 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
+  "surface_inputs_sha256": "d5b53cfbf0b310522f095f058fb76ae59fd40a08ec16ad9c25d78c9479bbe7f2",
   "images": [
     {
       "file": "city_street_skyline.png",
-      "sha256": "80e40e0f7e6fe7e40aee62ec9f42525ae6a08708d069fab6f934aad4eae00507",
-      "observation": "Native street view: brick courses, pale window/door trim and glazed blind slats remain distinct; fair cloud bands are visible above the block. Representative surface observation, not annual weather acceptance.",
-      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
+      "sha256": "e3ce8c3f77824d53782d6f7ded063955eb0872dad23b1f51742fe96090593ba8",
+      "observation": "Brick courses, window surrounds and blind slats remain distinct beneath the clear blue cloud bands. Representative composed-world surface view, not annual sky artistic acceptance.",
+      "origin": "Agent inspected actual native composed V2 capture, 3440x1440 fullscreen, patched Vulkan, source 1b0b5997; technical surface review, not human acceptance"
+    },
+    {
+      "file": "city_weather_storm.png",
+      "sha256": "6ad028a6a4c1e73496eda215afe49815013ebbd8a272d93074d73f1848d5b0b0",
+      "observation": "Storm haze reduces the distant roof blocks to blue-gray silhouettes while nearby parapets and tank structures remain legible. The flat storm ceiling in this diagnostic is retained, not approved as the final dramatic sky.",
+      "origin": "Agent inspected actual native composed V2 capture, 3440x1440 fullscreen, patched Vulkan, source 1b0b5997; technical surface review, not human acceptance"
     },
     {
       "file": "front_gallery_05.png",
-      "sha256": "d201a82c4ba879c03aad1f56a29368724de4b7c21f55a7e9fbea3e2c4503383b",
-      "observation": "Native gallery view: plaster over timber wainscot, stone-like floor, window curtains/blinds and benches remain visually separate. Ceiling fixture highlights are strong; this is not a lighting-art approval.",
-      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
+      "sha256": "a59a31091894b21f2e25eb1d80d6bf4fc5e4861134f80a0f4429de5f7b47721b",
+      "observation": "Timber wainscot, pale plaster, textured floor, curtains and slatted blinds remain separate. Strong ceiling fixture highlights are retained; no new lighting-art approval.",
+      "origin": "Agent inspected actual native composed V2 capture, 3440x1440 fullscreen, patched Vulkan, source 1b0b5997; technical surface review, not human acceptance"
     },
     {
       "file": "street_paving.png",
-      "sha256": "d8337ade8878bd2eaaf88dd9a51562e1c3faea2b201ad2fa21f80f883c33e1ab",
-      "observation": "Native curbside view: kerb, pavement joints, road surface and brick wall retain separate scales and continuous visible ground. This frame does not establish wet/dry optical equivalence.",
-      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
+      "sha256": "438db8932cf826b667f47f71718426352ed00bfb9025a83829e321d5471b7347",
+      "observation": "Kerb, sidewalk joints, dark road and brick walls remain visually separate. Dark street exposure remains a presentation limitation, not a new wet/dry optical equivalence claim.",
+      "origin": "Agent inspected actual native composed V2 capture, 3440x1440 fullscreen, patched Vulkan, source 1b0b5997; technical surface review, not human acceptance"
+    },
+    {
+      "file": "front_restored_entrance.png",
+      "sha256": "a80049e8f9b0d2b22b68d67b971de8496291c791e78e5b83e9b6d88834a4032b",
+      "observation": "The installed paneled entrance, long brass pull, glazed marquee and brick/trim surrounds are visible together. This frame does not qualify door input or every architectural join.",
+      "origin": "Agent inspected actual native composed V2 capture, 3440x1440 fullscreen, patched Vulkan, source 1b0b5997; technical surface review, not human acceptance"
     },
     {
       "file": "public_arcade_hall.png",
-      "sha256": "0149cb72df9fd01a06d5aed6d039d8a04b3a7741743effaf56aed8aa2182e0f4",
-      "observation": "Native passage view: shop glazing transmits the counter/furniture interiors, with distinct brick, trim, canopy ribs and continuous aisle paving. This is a surface observation, not clearance acceptance for every shop door.",
-      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
+      "sha256": "e3d411a79555bc35d53441313f066a943c883a1033110dc09205d540589223b9",
+      "observation": "Glazing reveals shop counters and furnishing stock; brick, lower timber panels, pale paving and canopy ribs remain distinct. No claim of every storefront clearance.",
+      "origin": "Agent inspected actual native composed V2 capture, 3440x1440 fullscreen, patched Vulkan, source 1b0b5997; technical surface review, not human acceptance"
     },
     {
       "file": "tile_F02_A_BATH_corner.png",
-      "sha256": "e8fa6807c6eabbf548bc47acbcfbcb61909a8e1366229a92ced3ae1e09b7ef32",
-      "observation": "Native bathroom view: wall tile ends below painted plaster, the finishing cap stops at the door surround, floor hexagons have a separate scale, and the curtain/rod/rings remain distinct. No new shower or plumbing interaction claim.",
-      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
-    },
-    {
-      "file": "clearance_126_F02_2A_BOOKSHELF_01.png",
-      "sha256": "fa82d71e81cbe88b4e07d9f3204d18e5cd7c5886be35b1aa24aa4badcbc5ede7",
-      "observation": "Native occupied-room view: shelf timber, books and small keepsakes remain separate and the companion remains visible. Book spines are dark at this oblique light angle; this frame does not establish editorial readability or open-book interaction acceptance.",
-      "origin": "Native composed V2, 3440x1440, b0fb15ab, pinned Vulkan, agent inspected actual capture"
+      "sha256": "dd23833da55a8f3c4844b5a15e2115b9edaeda0c7cbf17e7124cd49445d67216",
+      "observation": "Tile wainscot stops below plaster with a finishing cap ending at the door surround. Fine floor hexagons, curtain folds and suspended rings remain separate. No new plumbing or shower input claim.",
+      "origin": "Agent inspected actual native composed V2 capture, 3440x1440 fullscreen, patched Vulkan, source 1b0b5997; technical surface review, not human acceptance"
     }
-  ],
-  "surface_inputs_sha256": "6a5e133e3ebef0dc2ff76522b2e3cf77b69ac92c8e2d0803c08047fb4416d2b0",
-  "scope": "Agent-reviewed native 3440x1440 representative surfaces plus exhaustive loaded UV/PBR/mipmap inventory. Separate fire-service interaction programme not executed. No annual-weather, open-book, full-V2 or human artistic acceptance."
+  ]
 }
