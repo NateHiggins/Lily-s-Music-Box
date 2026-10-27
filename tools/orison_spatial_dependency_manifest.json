@@ -322287,6 +322287,41 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "cee1682db04cbbbe",
+   "kind": "vector3_coordinate",
+   "token": "_profile_mirage_route",
+   "file": "game/tests/v2_weather_route_profile.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_profile_mirage_route"
+   ],
+   "lines": [
+    163,
+    173,
+    175
+   ],
+   "count": 3,
+   "context": [
+    "if not await _walk(world.adapter.root.to_local(Vector3(0,0,3))):_collect=false;break",
+    "if not await _walk(Vector3(0,0,-13.15)):break",
+    "if not await _walk(Vector3(0,0,-10.6)):break"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

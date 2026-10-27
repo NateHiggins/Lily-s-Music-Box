@@ -394,6 +394,13 @@ func _push_spectacle() -> void:
 		sky.set_shader_parameter("spectacle",_spectacle_levels)
 		sky.set_shader_parameter("spectacle_bearing",_spectacle_bearings)
 		sky.set_shader_parameter("spectacle_time",_spectacle_time)
+		if director.has_method("set_mirage_spectacle"):
+			# The existing schedule is second-granular; optical shimmer must follow
+			# the same clock continuously, including pause and reverse travel.
+			var mirage_time := _spectacle_time
+			if source=="campaign-calendar":
+				mirage_time+=fposmod(Calendar.clock_seconds(clock),1.0)
+			director.call("set_mirage_spectacle",float(_spectacle_levels[40]),float(_spectacle_bearings[40]),mirage_time)
 	if absf(corona-_corona)>.01 and is_inside_tree():
 		_corona=corona
 		get_tree().call_group("st_elmo_corona","set_corona",corona)

@@ -13,6 +13,12 @@ func check(ok: bool,label: String) -> void:
 	if not ok: failures.append(label)
 
 func run(bench: Node3D) -> void:
+	if OS.get_environment("SKYWATCH_CLOUD_REVIEW")=="1":
+		await cloud_review(bench)
+		return
+	if OS.get_environment("SKYWATCH_MIRAGE_REVIEW")=="1":
+		await mirage_review(bench)
+		return
 	if OS.get_environment("SKYWATCH_TRAFFIC_REVIEW")=="1":
 		await traffic_review(bench)
 		return
@@ -181,6 +187,45 @@ func clear_optics(bench: Node3D) -> void:
 	for layer in range(3):bench.sky_material.set_shader_parameter("living_layer_%d" % layer,Vector4(0.,1.+float(layer),.5,0.))
 	var empty := PackedFloat32Array();empty.resize(41)
 	bench.sky_material.set_shader_parameter("spectacle",empty)
+
+func cloud_review(bench: Node3D) -> void:
+	bench.manager.set_process(false);bench.director.set_process(false)
+	Engine.max_fps=0;DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+	var output := OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(output)
+	var selected: Dictionary={}
+	var calendar := preload("res://scripts/game/campaign_weather.gd")
+	var library := preload("res://scripts/building/living_sky.gd")
+	var start := Time.get_unix_time_from_datetime_string("1928-11-10T12:00:00")
+	# Select actual dated regimes, without changing their authored weather.
+	for day in range(365):
+		for hour in [9,12,15,18]:
+			var date := Time.get_datetime_dict_from_unix_time(start+day*86400+(hour-12)*3600)
+			var conditions: Dictionary=bench.manager.Service.presentation(calendar.snapshot(date))
+			var state := library.sample(date,conditions,1928)
+			for layer: Dictionary in state.layers:
+				if layer.genus in ["Cu","Sc","Ns","Cb","Ci"] and layer.coverage>(.05 if layer.genus=="Ci" else .2) and not selected.has(layer.genus):
+					selected[layer.genus]={"day":day,"hour":hour}
+		if selected.size()==5:break
+	check(selected.size()==5,"cloud review finds five real dated genera without changing calendar weather")
+	var rows: Array[Dictionary]=[]
+	for kind: String in selected:
+		bench._library_date(int(selected[kind].day),float(selected[kind].hour))
+		bench.manager.origin=bench.manager.target.duplicate(true);bench.manager.elapsed=bench.manager.TRANSITION_SECONDS
+		bench.manager._process(0.);bench.manager._publish()
+		bench.director._apply(bench.clock.minute_of_day())
+		for effect: Node in bench.get_children():
+			if effect is WeatherFX:effect.process_mode=Node.PROCESS_MODE_DISABLED;(effect as Node3D).hide()
+		bench.camera.look_at(bench.camera.global_position+Vector3(-1,.42,-.3));set_field(bench,85.)
+		bench.sky_material.set_shader_parameter("temporal_phase",0.)
+		var timing := await measure(bench,85.,false)
+		await capture(bench,output.path_join(kind+"_noon.png"))
+		rows.append({"genus":kind,"date":bench.clock.datetime_string(),"state":bench.manager.atmosphere_state.duplicate(true),"timing":timing})
+	FileAccess.open(output.path_join("cloud_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","scope":"five calendar-selected daytime genera over actual city-horizon bench; particle draws disabled; not occupied-world or annual artistic acceptance",
+		"resolution":str(bench.get_viewport().get_visible_rect().size),"msaa":bench.get_viewport().msaa_3d,"taa":bench.get_viewport().use_taa,
+		"rows":rows,"failures":failures},"\t"))
+	print("SKYWATCH CLOUD RESULT: ","PASS" if failures.is_empty() else "FAIL")
+	bench.get_tree().quit(0 if failures.is_empty() else 1)
 
 func measure(bench: Node3D,field: float,relief: bool) -> Dictionary:
 	Astronomy.publish_star_frame(bench.sky_material,bench.camera,bench.clock)
@@ -442,6 +487,105 @@ func display_peak(a: Image,b: Image,region := Rect2i()) -> float:
 			var d := a.get_pixel(x,y)-b.get_pixel(x,y)
 			peak=maxf(peak,absf(d.r)+absf(d.g)+absf(d.b))
 	return peak
+
+func mirage_review(bench: Node3D) -> void:
+	var out := OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(out)
+	var occurrence: Dictionary={}
+	for row: Dictionary in bench.manager.schedule.occurrences:
+		if row.id=="fata_morgana":occurrence=row;break
+	check(not occurrence.is_empty(),"authored annual calendar retains its dated mirage occurrence")
+	await bench._shoot("fata_morgana",occurrence,.5,"scheduled_mirage")
+	bench.manager.set_process(false);bench.director.set_process(false)
+	for effect: Node in bench.get_children():
+		if effect is WeatherFX:effect.process_mode=Node.PROCESS_MODE_DISABLED;(effect as Node3D).hide()
+	var mirage: CompositorEffect=bench.director._mirage
+	check(mirage.failed.is_empty() and mirage.passes>0 and mirage.enabled,"existing schedule drives the compiled native refraction compositor")
+	var initial_phase: float=mirage.state.z
+	bench.clock.advance_seconds(.05)
+	bench.manager._update_phenomena(0.);bench.manager._push_spectacle()
+	check(absf(fposmod(mirage.state.z-initial_phase,256.)-.05)<.001,"mirage follows fractional campaign time between whole seconds")
+	var held_phase: float=mirage.state.z
+	bench.manager._update_phenomena(0.);bench.manager._push_spectacle()
+	check(mirage.state.z==held_phase,"paused campaign time holds optical shimmer exactly")
+	clear_optics(bench)
+	bench.get_viewport().use_taa=false
+	# The retained bench's first neighbouring row is inside the protected 80 m
+	# range. A translated diagnostic station puts those real buildings beyond
+	# the cutoff; this does not claim that the installed roof sees a river.
+	var riverward := Vector3(sin(float(occurrence.bearing)),0.,-cos(float(occurrence.bearing)))
+	bench.camera.global_position-=riverward*120.
+	# Retain its published calendar state, but clear moving cloud/particle noise
+	# for paired spatial controls. The first capture preserves the real recipe.
+	await capture(bench,out+"/geometry_refracted.png")
+	var on := bench.get_viewport().get_texture().get_image()
+	mirage.enabled=false;await capture(bench,out+"/geometry_control.png")
+	var off := bench.get_viewport().get_texture().get_image()
+	var optical_signal := display_peak(on,off)
+	check(optical_signal>.02,"actual distant city image changes under the folded ray duct with TAA disabled")
+	# Bright nearby stock is both a destination blocker and a forbidden sample.
+	var block := MeshInstance3D.new();var mesh := BoxMesh.new();mesh.size=Vector3(.6,.8,.2);block.mesh=mesh
+	var red := StandardMaterial3D.new();red.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED;red.albedo_color=Color(1.,.02,.02);block.material_override=red
+	bench.add_child(block);block.global_position=bench.camera.global_position-bench.camera.global_basis.z*4.
+	var glass := MeshInstance3D.new();var pane := QuadMesh.new();pane.size=Vector2(.55,1.1);glass.mesh=pane
+	var glazing := StandardMaterial3D.new();glazing.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
+	glazing.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA;glazing.depth_draw_mode=BaseMaterial3D.DEPTH_DRAW_DISABLED;glazing.cull_mode=BaseMaterial3D.CULL_DISABLED
+	var pattern := Image.create_empty(32,64,false,Image.FORMAT_RGBA8)
+	for y in range(64):
+		for x in range(32):pattern.set_pixel(x,y,Color(.1,.8,.1,.6) if (y/8)%2==0 else Color(.8,.1,.8,.6))
+	glazing.albedo_texture=ImageTexture.create_from_image(pattern);glass.material_override=glazing
+	bench.add_child(glass);glass.global_transform=bench.camera.global_transform
+	glass.global_position=bench.camera.global_position-bench.camera.global_basis.z*4.+bench.camera.global_basis.x*.85
+	var overlay := CanvasLayer.new();bench.add_child(overlay)
+	var swatch := ColorRect.new();swatch.color=Color(.02,.8,.6);swatch.position=Vector2(40,40);swatch.size=Vector2(130,60);overlay.add_child(swatch)
+	await capture(bench,out+"/near_control.png");var near_off := bench.get_viewport().get_texture().get_image()
+	mirage.enabled=true;await capture(bench,out+"/near_refracted.png");var near_on := bench.get_viewport().get_texture().get_image()
+	var center: Vector2i=near_on.get_size()/2
+	check(display_peak(near_on,near_off,Rect2i(center-Vector2i(80,80),Vector2i(160,160)))<.01,"nearby opaque object remains unchanged by refraction")
+	check(display_peak(near_on,near_off,Rect2i(45,45,120,50))<.01,"canvas interface remains outside the scene-refraction pass")
+	var glass_center: Vector2i=bench.camera.unproject_position(glass.global_position)
+	check(display_peak(near_on,near_off,Rect2i(glass_center-Vector2i(40,70),Vector2i(80,140)))<.01,"near transparent detail without depth writes remains unchanged")
+	var dragged_red := 0
+	for y in range(20,near_on.get_height()-20,3):
+		for x in range(20,near_on.get_width()-20,3):
+			var a := near_on.get_pixel(x,y);var b := near_off.get_pixel(x,y)
+			if a.r>.7 and a.r>a.g*3. and a.r>a.b*3. and a.r-b.r>.1:dragged_red+=1
+	check(dragged_red==0,"refracted source taps cannot pull nearby stock into the distant sky")
+	block.queue_free();glass.queue_free();overlay.queue_free();await bench.get_tree().process_frame
+	# Resize/rebind without changing the owner's fullscreen debug window.
+	var probe := SubViewport.new();probe.size=Vector2i(1024,512);probe.world_3d=bench.get_world_3d()
+	probe.msaa_3d=Viewport.MSAA_4X;probe.render_target_update_mode=SubViewport.UPDATE_ALWAYS;bench.add_child(probe)
+	var probe_camera := Camera3D.new();probe_camera.fov=28.;probe.add_child(probe_camera)
+	probe_camera.global_transform=bench.camera.global_transform;probe_camera.make_current()
+	mirage.bind_camera(probe_camera)
+	for frame in range(12):await bench.get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	check(mirage.dimensions==probe.size and mirage.failed.is_empty(),"camera rebind resizes GPU snapshots for another multisampled viewport")
+	probe.get_texture().get_image().save_png(out+"/secondary_viewport.png")
+	mirage.bind_camera(bench.camera);probe.queue_free()
+	for frame in range(8):await bench.get_tree().process_frame
+	check(mirage.dimensions==Vector2i(bench.get_viewport().get_visible_rect().size),"returning to the native viewport rebuilds the correct snapshot extent")
+	Engine.max_fps=0;DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+	var frame_times := {"enabled":await measure(bench,28.,false)}
+	mirage.enabled=false;frame_times["disabled"]=await measure(bench,28.,false);mirage.enabled=true
+	# Camera-local composition preserves an unrelated pre-existing effect.
+	mirage.bind_camera(null)
+	var original := Compositor.new()
+	var sentinel := preload("res://scripts/lamp/lamp_scene_shadow_effect.gd").new();sentinel.enabled=false
+	original.compositor_effects=[sentinel];bench.camera.compositor=original
+	mirage.bind_camera(bench.camera)
+	check(bench.camera.compositor.compositor_effects.has(sentinel),"binding refraction preserves existing camera effects")
+	mirage.bind_camera(null)
+	check(bench.camera.compositor==original and original.compositor_effects==[sentinel],"unbinding restores the prior camera compositor")
+	bench.camera.compositor=null;sentinel.dispose()
+	mirage.bind_camera(bench.camera)
+	var before: int=mirage.passes
+	bench.director.set_mirage_spectacle(0.,float(occurrence.bearing),123.)
+	for i in range(8):await bench.get_tree().process_frame
+	check(mirage.passes==before and not mirage.enabled,"inactive weather executes no refraction dispatches")
+	var result := {"evidence_class":"INERT","scope":"native camera-local mirage optical/depth/ownership diagnostics; not occupied-world or river-site artistic acceptance","failures":failures,"occurrence":occurrence.date,"peak_displayed_signal":optical_signal,"dragged_near_red_samples":dragged_red,"compute_failure":mirage.failed,"passes":mirage.passes,"last_projection_parameters":mirage.last_projection_parameters,"frame_times":frame_times,"cached_snapshot_bytes":mirage.dimensions.x*mirage.dimensions.y*16,"primary_msaa":bench.get_viewport().msaa_3d,"paired_taa":bench.get_viewport().use_taa}
+	FileAccess.open(out+"/mirage_review.json",FileAccess.WRITE).store_string(JSON.stringify(result,"\t")+"\n")
+	print("SKYWATCH MIRAGE RESULT: ","PASS" if failures.is_empty() else "FAIL")
+	bench.get_tree().quit(0 if failures.is_empty() else 1)
 
 func traffic_review(bench: Node3D) -> void:
 	bench.manager.set_process(false);bench.director.set_process(false)

@@ -815,7 +815,7 @@ vec3 spectacle_behind(vec3 dir,vec3 colour) {
         colour+=ice_optics(dir);
     if (spectacle[S_CREPUSCULAR]+spectacle[S_ANTICREPUSCULAR]>0.0) colour+=sun_beams(dir);
     if (spectacle[S_GREEN_FLASH]>0.0) colour+=green_flash(dir);
-    if (spectacle[S_FATA_MORGANA]>0.0) colour=fata_morgana(dir,colour);
+    if (spectacle[S_FATA_MORGANA]>0.0 && !skywatch_extended_optics) colour=fata_morgana(dir,colour);
     if (spectacle[S_GLORY]>0.0) colour+=glory(dir);
     return colour;
 }

@@ -7,6 +7,7 @@ var _astronomy_observer := Vector2(INF,INF)
 var _eclipse_transmission := 1.0
 var _stellar_axes := PackedVector3Array()
 var _skyward: Node3D
+var _mirage: CompositorEffect
 
 func setup(root: Node3D,env: Environment,sky_key: DirectionalLight3D,sky_mat: ShaderMaterial) -> void:
 	super.setup(root,env,sky_key,sky_mat)
@@ -14,10 +15,18 @@ func setup(root: Node3D,env: Environment,sky_key: DirectionalLight3D,sky_mat: Sh
 		_skyward=preload("res://scripts/building/skyward_traffic.gd").new()
 		_skyward.name="SkywardTraffic";add_child(_skyward)
 		_skyward.configure(root.global_transform)
+		_mirage=preload("res://scripts/building/skywatch_mirage.gd").new()
+
+func set_mirage_spectacle(level: float,bearing: float,seconds: float) -> void:
+	if _mirage!=null:_mirage.publish(level,bearing,seconds)
+
+func _exit_tree() -> void:
+	if _mirage!=null:_mirage.dispose();_mirage=null
 
 func _process(delta: float) -> void:
 	super._process(delta)
 	if _skyward!=null and _campaign_clock!=null:_skyward.update(_campaign_clock,_live_conditions)
+	if _mirage!=null:_mirage.bind_camera(get_viewport().get_camera_3d())
 	if _sky==null or _campaign_clock==null or not is_finite(_astronomy_observer.x):return
 	if OS.get_environment("DAYNIGHT")=="0" or not OS.get_environment("DAYNIGHT_FORCE").is_empty():return
 	var camera := get_viewport().get_camera_3d()

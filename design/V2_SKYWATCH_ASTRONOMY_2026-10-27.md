@@ -477,9 +477,10 @@ original failures, wrapper receipts, numeric samples and raw capture hashes.
 - Inspect installed-world halos and lamp pillars in actual scheduled winter fog;
   qualify loaded materials, updated surfaces and occupied-world costs. Broad
   component image differences do not prove accurate ring angles or artistic merit.
-- Finish depth/river-sector-limited Fata Morgana distortion of **real distant
-  geometry**. The current scheduled shader still paints an invented far shore;
-  it does not meet that requirement. Protect nearby objects, UI and indoor views.
+- Qualify the new real-geometry Fata Morgana pass in the occupied world and
+  at an actual river/shore viewing site. The previous checkpoint still painted
+  an invented far shore. That fallback remains only in the older renderer;
+  V2's new camera pass must protect nearby objects, glass and the interface.
 - Finish convincing cloud-gap crepuscular/anticrepuscular rays and a genuinely
   brief horizon-rim green flash. Existing versions are authored approximations.
   Inspect the scheduled circumzenithal arc alongside the new ice complex.
@@ -497,3 +498,134 @@ original failures, wrapper receipts, numeric samples and raw capture hashes.
 - Inspect night dust orientation, airglow restraint and changing lunar wash with
   real scheduled clouds and telescope fields. Annual artistic acceptance remains
   open. None of this closes the roof club/telescope interaction work above.
+
+### Real-geometry mirage and multisample resolve
+
+V2 now forwards only the existing scheduled mirage intensity, bearing and phase
+to a camera-local presentation effect. The calendar, forcing, weather recipes,
+press times and persistent state remain with their existing owners. The older
+seasonal renderer retains its old shoreline; extended V2 stops painting it.
+The native compositor folds real scene-colour rays inside the scheduled sector
+and a low horizon band. It protects destination and bilinear-source depths below
+80 m. An immutable pre-transparent snapshot also protects visible transparent
+contributions without relying on their writing depth. Contrast falls into the
+existing horizon haze. This is an authored ray duct, not a refractive-index
+integration through a measured temperature profile.
+
+The project's MSAA setting is retained. The first attempt exposed real API and
+verification defects, preserved under **C:/ov/reports/skywatch35/**:
+
+| Location / reproduction | Severity and evidence | Repair / verification |
+| --- | --- | --- |
+| Copy the renderer colour buffer using a transfer operation | Prototype invalid; **mirage_compiled.log.stderr** rejects the missing transfer-source usage bit, despite printed test PASS lines | Use a GPU compute copy with the buffer's existing sampling/storage usage; no renderer flag mutation |
+| Write refraction immediately after the sky with MSAA enabled | Visible effect missing; TAA-off **mirage_far_station** has exactly zero displayed change | Refraction runs after the final multisample resolve; the earlier pass only captures immutable colour |
+| Count any TAA-on full-image difference as evidence | False positive; moving edge coverage produced a small signal without actual refraction | Freeze moving weather and disable TAA for paired optical controls; inspect actual inverted buildings. Production MSAA stays enabled |
+| Restore a camera with no previous effect list | Runtime type error in the prototype detach path | Compare ordinary arrays and remove only this effect pair; original camera compositor and unrelated effect survive the native test |
+| Resize a secondary viewport, then compare Vector2i with Vector2 | Diagnostic interrupted after the successful resize | Explicit integer-size conversion; retain the negative-exit receipt, not an invented completed run |
+
+**mirage_final.log.receipt.json** completes native fullscreen 3440x1440 with
+twelve assertions passing, empty stderr and no leaked-RID shutdown warning.
+The actual May 9 occurrence drives the effect. Paired controls show real
+inverted/stretched buildings, preserve nearby opaque stock, a striped transparent
+pane with depth writes disabled, and canvas pixels; source taps drag no nearby
+red stock into the sky. Camera binding preserves another effect and restores
+the previous compositor. A 1024x512 multisampled secondary viewport and return
+to native size exercise snapshot resizing. Inactive weather dispatches no pass.
+
+The first neighbouring row in the optical bench lies within the deliberately
+protected range. Its controlled far-city comparisons translate the observer
+120 m back, with that station recorded in the tested source. This is not a
+walked roof route or evidence of a river at the installed club. The initial
+scheduled capture retains the original station and actual weather recipe.
+River-site placement and artistic acceptance remain open.
+
+The paired clear-city optical frames on RTX 4080, 3440x1440, 8x MSAA, TAA off,
+uncapped, report enabled/disabled p50 **1.862/1.532 ms**, p95 **3.954/1.639 ms**,
+p99 **3.958/1.647 ms**, maximum **3.964/1.666 ms**. The two full-resolution
+RGBA16F snapshots cache **79,257,600 bytes** until resize or world teardown.
+This avoids repeated allocations but is a real memory cost. These figures do
+not establish an occupied-world speedup or attribute the tail to an individual
+GPU stage. The original occupied-world diagnostic is retained as a failure,
+**mirage_world.log.receipt.json** (246 s): it did not complete all four blocks.
+Both completed legs include a 1.36–1.38 s synchronous PNG readback/encode inside
+the measured interval. This is observer overhead, not evidence that refraction
+causes a loading or script stall. Profiling now suppresses that inherited midroute
+capture; ordinary crossing tests retain it. The next block also attempted to
+grab a partly closing leaf from 2.285 m. The repeated fixture now restores the
+leaf through actual reachable grab/move/release outside timed collection, rather
+than changing the game's reach or disabling physical protection.
+
+The separate native **mirage_fractional_fixed.log.receipt.json** passes fourteen
+assertions with empty stderr. Fractional campaign seconds now reach only the new
+mirage presentation hook; pause holds its phase exactly. Shimmer periods divide
+the bounded 256-second phase so wrapping is continuous. The first attempted
+launch, **mirage_fractional.log.receipt.json**, is retained as an invalid invocation:
+PowerShell serialized its CLI array as one argument; the owned process was stopped
+and the corrected batch passed. No playtest is claimed for that failed launch.
+
+**mirage_world_fixed.log.receipt.json** completes in 347 s with zero route
+failures and empty stderr. Its four 29-waypoint measured blocks cover 5,818
+frames in the occupied V2 world, at 3440x1440, 8x MSAA, TAA on, uncapped RTX 4080.
+Door restoration between blocks is outside collection; complete route trace has
+124 waypoints including setup/restoration. Weather/time and traffic seed are held;
+NPC animation and physical traffic remain live. This is a diagnostic, not a
+schema-2 runtime qualification or proof of artistic acceptance.
+
+| Block | Wall p50 / p95 / p99 / maximum, ms | GPU median, ms |
+| --- | --- | --- |
+| Cold off | 31.501 / 48.390 / 58.416 / 114.936 | 14.452 |
+| Warm on | 32.727 / 48.156 / 55.505 / 104.031 | 14.802 |
+| Warm on | 31.739 / 48.954 / 54.996 / 99.049 | 14.548 |
+| Warm off | 31.861 / 47.889 / 54.186 / 97.118 | 14.542 |
+
+Enabled blocks dispatch refraction; both disabled blocks dispatch zero passes.
+Runtime source digests match before/after. Original failed-run shader/script
+LF hashes were also compared unchanged before fixture repair. The warm medians
+correspond to roughly 30–32 FPS, not acceptable evidence that the world's
+responsiveness is solved. GPU medians near 14.5 ms are not whole-frame FPS.
+Residual 97–115 ms spikes remain, including passage residency and door approaches;
+low-rate Performance monitors cannot individually attribute each wall spike.
+The player profiler also records roughly 5.3 ms slide calls on the landing.
+No actual loading, physics or script optimization is claimed by removing PNG
+observer overhead. Nine affected static gates pass with zero regressions against
+the previous scoped board; the one new test-coordinate record was reviewed as
+fixture data. This is not a complete new 114-gate candidate verification.
+
+### Owner addenda: fluid clouds and the inhabited sky
+
+Parts 11 and 12 are accepted scope for the ongoing sky pass, not completed
+features. The owner explicitly authorizes alternate-universe embellishment:
+airship trade can be thriving, aviation beacons and industrial silhouettes can
+be theatrically legible, and birds and optical events can favor the rule of cool.
+Keep these fictional choices consistent with the actual campaign calendar,
+reading owners and established world. Do not present invented historical facts
+as researched evidence. The November 6 election spectacle precedes the campaign;
+it belongs in retrospective material unless a separate fictional event is authored.
+
+- First improve the existing three-stratum density function with coherent flow,
+  nested warping, altitude-weighted erosion and wind shear. Preserve integrated
+  calendar transport, pause/reversal and shared density for self-shadowing.
+  Existing stock is a mipmapped 64-cubed RG base/erosion volume, not the proposed
+  128-cubed base plus separate 64-cubed detail. Measure changes before selecting
+  a larger stock or adding per-sample finite-difference fetches. Curl-derived
+  coordinate deformation is an artistic flow approximation; finite warping and
+  erosion do not establish conserved cloud mass.
+- Fold airway beacons into the already queued airfield searchlights. Use one
+  intentional fictional sweep period; the submitted brief's six-second rotation
+  and ten-second flash descriptions are alternatives, not simultaneous facts.
+  Maintain bounded light/shadow costs and avoid forced blinding camera flashes.
+- Add small-droplet solar/lunar coronae separately from ice halos, gated by the
+  actual moist thin-cloud state and source elevation. Inspect rendered colored
+  rings rather than counting a shader function as visual acceptance.
+- Consider deterministic trolley contact sparks, yard steam/coal plumes and
+  construction lanterns where matching world infrastructure exists. Local flashes
+  must not replace the weather owner's global illumination or become lightning.
+- Consider bounded dawn/dusk pigeon flocks and seasonal migration silhouettes,
+  using instanced low-poly wing animation. Prefer convincing collective paths
+  over an expensive new general boids simulation. Ordinary world depth must
+  occlude birds and aircraft. Do not spawn thousands of independent rigid bodies.
+
+The currently built fictional rigid liner covers part of the aviation request;
+airmail planes, advertising blimps, beacons, coronae and flocks remain unbuilt.
+These additions do not supersede cloud quality, the rooftop club, its telescope,
+barbecue access or the outstanding occupied-world and surface qualification.
