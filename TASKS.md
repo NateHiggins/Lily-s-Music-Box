@@ -114,6 +114,8 @@ implemented and documented in `game/docs/core_loop.md`; K is now an integrated
 product proof, not another spine rewrite.
 ---
 
+- **K-POST-V2-YEAR — After V2 construction and qualification, build The Year You Died: nonlinear temporal forensics across the murder year, with a unified calendar/evidence interface and deterministic event-driven world states.** Owner-directed big goal; [brief](design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md). Do not divert current V2/weather closure into implementing this next phase.
+
 ## D — Needs a decision from the owner
 
 Nothing below is blocked on effort; it is blocked on someone choosing.
