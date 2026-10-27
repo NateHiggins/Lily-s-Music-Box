@@ -46,6 +46,8 @@ uniform int shape_kind = 0;
 uniform float shape_opacity = 0.0;
 uniform float temporal_phase = 0.0;
 #include "res://shaders/queens_weather_math.gdshaderinc"
+#include "res://shaders/skywatch_planets.gdshaderinc"
+#include "res://shaders/skywatch_moon.gdshaderinc"
 
 
 vec3 celestial_base(vec3 direction) {
@@ -101,6 +103,7 @@ vec3 celestial_base(vec3 direction) {
 			celestial_halo_radius, source_angle);
 	float core = 1.0 - smoothstep(0.0, celestial_core_radius, source_angle);
 	vec3 lunar_surface = vec3(1.0);
+	float lunar_occlusion=0.0;
 	if (moon_phase_enabled) {
 		// Project the visible hemisphere and light it from the real Sun vector.
 		// This draws crescent/gibbous geometry in the existing sky submission;
@@ -110,7 +113,7 @@ vec3 celestial_base(vec3 direction) {
 				: vec3(0.0, 1.0, 0.0);
 		vec3 right = normalize(cross(reference, moon));
 		vec3 disc_up = normalize(cross(moon, right));
-		float radius_sine = max(sin(celestial_core_radius), 0.00001);
+		float radius_sine = max(sin(celestial_core_radius*moon_visual_scale), 0.00001);
 		vec2 disc = vec2(dot(direction, right), dot(direction, disc_up))
 				/ radius_sine;
 		float radial2 = dot(disc, disc);
@@ -120,6 +123,7 @@ vec3 celestial_base(vec3 direction) {
 		float sunlit = smoothstep(-0.018, 0.018,
 				dot(surface_normal, normalize(sun_direction)));
 		float disc_edge = 1.0 - smoothstep(0.96, 1.0, sqrt(radial2));
+		lunar_occlusion=disc_edge;
 		core = disc_edge * sunlit;
 		// NASA LROC's cylindrical map is centered on the familiar near side.
 		// Keep lunar north upright; libration is deliberately outside this
@@ -128,8 +132,19 @@ vec3 celestial_base(vec3 direction) {
 		float lunar_lat = asin(clamp(disc.y, -1.0, 1.0));
 		vec2 lunar_uv = vec2(lunar_lon / (2.0 * PI) + 0.5,
 				0.5 - lunar_lat / PI);
-		lunar_surface = texture(moon_surface, lunar_uv).rgb;
-		halo *= sqrt(max(moon_illumination, 0.0));
+		if(radial2<1.02) lunar_surface = texture(moon_surface, lunar_uv).rgb;
+		lunar_surface *= lunar_eclipse_transmission(disc);
+		if(moon_relief_enabled && radial2<1.0) {
+			vec3 local_n=vec3(disc,sphere_z);
+			vec3 solar=vec3(dot(normalize(sun_direction),right),dot(normalize(sun_direction),disc_up),-dot(normalize(sun_direction),moon));
+			vec3 terrain=lunar_terrain_normal(local_n);
+			float incidence=max(0.0,dot(terrain,solar));
+			float shadow=moon_shadow_enabled ? lunar_terrain_shadow(local_n,solar) : 1.0;
+			core=disc_edge*(.008+sqrt(incidence)*shadow);
+		}
+		// The old eighteen-degree additive halo washed a magnified Moon flat.
+		// Keep a restrained atmospheric glow without flooding the eyepiece.
+		halo *= .07*sqrt(max(moon_illumination, 0.0));
 	}
 	float obscured = pow(1.0 - thickness, 2.4)
 			* (1.0 - high_opacity * 0.78);
@@ -138,7 +153,10 @@ vec3 celestial_base(vec3 direction) {
 		float star_dot = dot(direction, normalize(bright_stars[i]));
 		star_field = max(star_field, smoothstep(0.99991, 0.99998, star_dot));
 	}
-	color += vec3(0.76, 0.82, 1.0) * star_field * star_strength * obscured;
+	// The unlit hemisphere still blocks stars and planets behind the Moon.
+	color *= 1.0-lunar_occlusion;
+	color += vec3(0.76, 0.82, 1.0) * star_field * star_strength * obscured*(1.0-lunar_occlusion);
+	color += skywatch_planet_light(direction,normalize(sun_direction))*(1.0-lunar_occlusion);
 	color += celestial_color * celestial_strength * halo * 0.42 * obscured;
 	color += celestial_color * lunar_surface * celestial_strength
 			* core * 0.48 * obscured;

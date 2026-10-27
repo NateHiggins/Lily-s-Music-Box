@@ -98,6 +98,9 @@ func _ready() -> void:
 	camera.global_position = EYE
 	get_viewport().use_taa = true
 	await get_tree().process_frame
+	if OS.get_environment("SKYWATCH_OPTICAL_REVIEW")=="1":
+		await preload("res://tests/skywatch_optical_review.gd").new().run(self)
+		return
 	if not OS.get_environment("SKY_NATIVE_SAMPLING_PLAN").is_empty():
 		await _library_detail()
 		return

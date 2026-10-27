@@ -67,6 +67,10 @@ func _ready() -> void:
 		hybrid.set_shader_parameter("panorama_a",panorama)
 		hybrid.set_shader_parameter("panorama_b",panorama)
 		hybrid.set_shader_parameter("moon_surface",load("res://assets/environment/lroc_color_poles_1k.jpg"))
+		if OS.get_environment("WEATHER_SKY_BASELINE")!="1":
+			hybrid.set_shader_parameter("moon_surface",load("res://assets/environment/moon_lroc_4k.jpg"))
+			hybrid.set_shader_parameter("moon_height",load("res://assets/environment/moon_lola_height.png"))
+			hybrid.set_shader_parameter("moon_relief_enabled",true)
 		var native_sky := Sky.new()
 		native_sky.sky_material=hybrid
 		native_sky.radiance_size=Sky.RADIANCE_SIZE_128

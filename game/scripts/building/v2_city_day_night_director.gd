@@ -1,6 +1,49 @@
 extends "res://scripts/building/day_night_director.gd"
 ## V2's real neighbouring blocks extend past the retained V1 storm backdrop.
 ## The existing director remains the sole atmosphere and celestial authority.
+const SkywatchAstronomy := preload("res://scripts/building/skywatch_astronomy.gd")
+var _astronomy_second := -INF
+var _astronomy_observer := Vector2(INF,INF)
+var _eclipse_transmission := 1.0
+
+func _publish_astronomy(profile: Dictionary) -> void:
+	if _sky == null:
+		return
+	if _sky.shader == null or _sky.shader.resource_path != "res://shaders/queens_weather_sky.gdshader":
+		return
+	if _campaign_clock == null or not profile.has("observer"):
+		var empty := PackedVector4Array();empty.resize(5)
+		_sky.set_shader_parameter("skywatch_planets",empty)
+		_sky.set_shader_parameter("moon_eclipse_shadow",Vector4.ZERO)
+		_astronomy_second=-INF
+		return
+	var utc := _campaign_clock.utc_datetime()
+	var second := floorf(SkywatchAstronomy.Ephemeris.julian_day(utc)*86400.)
+	var observer: Vector2 = profile.observer
+	if second == _astronomy_second and observer==_astronomy_observer:
+		if bool(profile.get("moon_phase_enabled",false)): profile.key_e *= _eclipse_transmission
+		return
+	_astronomy_second = second
+	_astronomy_observer = observer
+	var eclipse := SkywatchAstronomy.lunar_eclipse(utc,observer.x,observer.y)
+	_eclipse_transmission = float(eclipse.light_transmission)
+	_sky.set_shader_parameter("moon_eclipse_shadow",eclipse.shadow)
+	if bool(profile.get("moon_phase_enabled",false)):
+		profile.key_e *= _eclipse_transmission
+	var states := SkywatchAstronomy.planet_states(utc,observer.x,observer.y)
+	var packed := PackedVector4Array()
+	var solar := PackedVector3Array()
+	var gains := [0.65,3.4,0.95,1.25,0.8]
+	for i in range(states.size()):
+		var state: Dictionary = states[i]
+		var direction: Vector3 = state.direction
+		# Solar proximity extinguishes the inner planets through twilight/smog.
+		var contrast := smoothstep(deg_to_rad(6.),deg_to_rad(20.),float(state.elongation))
+		packed.append(Vector4(direction.x,direction.y,direction.z,float(gains[i])*contrast))
+		solar.append(state.sun_direction)
+	_sky.set_shader_parameter("skywatch_planets",packed)
+	_sky.set_shader_parameter("skywatch_planet_suns",solar)
+	_sky.set_shader_parameter("skywatch_seconds",fposmod(second,3600.))
 
 static func city_visibility(conditions: Dictionary) -> Vector2:
 	var precipitation := clampf(float(conditions.get("precipitation_intensity", 0.0)), 0.0, 1.0)
@@ -15,6 +58,7 @@ static func city_visibility(conditions: Dictionary) -> Vector2:
 
 
 func _resolve_fog_profile(profile: Dictionary) -> void:
+	_publish_astronomy(profile)
 	var distances := city_visibility(_live_conditions)
 	profile.fog_begin = distances.x
 	profile.fog_end = distances.y

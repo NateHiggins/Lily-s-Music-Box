@@ -21,6 +21,7 @@ INSTALLATION_YEAR = re.compile(r"\binstalled\s+(\d{4})\b", re.IGNORECASE)
 EXPECTED_CONSUMERS = {
     "game/scripts/audio/music_director.gd": "player_readable_catalogue",
     "game/scripts/building/celestial_ephemeris.gd": "astronomy_calculation_only",
+    "game/scripts/building/skywatch_astronomy.gd": "campaign_utc_historical_astronomy_only",
     "game/scripts/building/WeatherManager.gd": "campaign_season_and_deterministic_cloud_shape",
     "game/scripts/building/deterministic_lightning_manager.gd": "campaign_minute_keyed_electrical_presentation",
     # Authored Gregorian calendar; host hour/minute may be sampled once.

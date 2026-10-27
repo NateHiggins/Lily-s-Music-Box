@@ -1,0 +1,153 @@
+{
+  "evidence_class": "INERT",
+  "scope": "source-bound numerical/optical diagnostics; no runtime qualification or human acceptance",
+  "source_lf_sha256": {
+    "game/scripts/building/skywatch_astronomy.gd": "21b08abdef188a389b658be24bb2e8fc374b8a5df53b4c85a366b42331daebd5",
+    "game/scripts/building/v2_city_day_night_director.gd": "11aeee6bd2243e835eb18bb263f5c3f4c2306123dd1976041c57708d1cbe947d",
+    "game/scripts/building/orison_v2_atmosphere.gd": "4428467220548e1e11c9f4103698abf9665a1ef02348dc426cb40a68f4d6961a",
+    "game/shaders/queens_weather_sky.gdshader": "ebf0bb9b0b7edb608d50af4fec922498df52014339490c6e9c81cc037e6aefee",
+    "game/shaders/skywatch_moon.gdshaderinc": "e926a1a0da31561f01fd7c20b9e8bdad5b5033a92be051134fe2456085fd5adf",
+    "game/shaders/skywatch_planets.gdshaderinc": "65cd2d8cae1fc904d0d7d4f7aa1dbe96c95709bca3816979451a83457106ca3f",
+    "game/tests/skywatch_optical_review.gd": "d0f2637242aff40bd05f259d7caeb1165925803970c096976ecf76afa1f24137",
+    "game/tests/v2_sky_spectacle_bench.gd": "f028125100ed4d26f30ad9707552cc91494268ac1694d78dc6807139b952e94f",
+    "game/tests/fixtures/skywatch_planet_reference.json": "38b436ec8cd42a25bcfbbc6d5eb113553f9a41304d919c938bb4476290f96225"
+  },
+  "capture_sha256": {
+    "copernicus_01deg_shadow.png": {
+      "sha256": "2a7f27c08c1d3e434892905f464839d7e60914dbdbfefe6bc2c12a36559dc9e6",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\copernicus_01deg_shadow.png",
+      "size": 1698791
+    },
+    "copernicus_01deg_unshadowed_control.png": {
+      "sha256": "520eea45e46a0f9dc317b0e367258694c2bda6b5ee28250d57487458cd915cdd",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\copernicus_01deg_unshadowed_control.png",
+      "size": 1700242
+    },
+    "moon_19_relief.png": {
+      "sha256": "89d42e438a7a424a4b3c81447840babc4a8a3e64f7ed693fb3256e5775e1f4b7",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\moon_19_relief.png",
+      "size": 576710
+    },
+    "moon_19_smooth_control.png": {
+      "sha256": "060f06569a91075e98232e8eaffa06043d20f484cc59e261296b34e4864e79fa",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\moon_19_smooth_control.png",
+      "size": 499175
+    },
+    "moon_22_relief.png": {
+      "sha256": "210cbd1aaa91a165074d205101ca31551bd8abc4674679ca2bb4c00b6ab3a659",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\moon_22_relief.png",
+      "size": 1318542
+    },
+    "moon_27_relief.png": {
+      "sha256": "fda2d7bcada7877dc7daa0107b19da5152f16776c6695ea42ae7e740c357d25f",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\moon_27_relief.png",
+      "size": 1610679
+    },
+    "planet_jupiter.png": {
+      "sha256": "e27af65e17b7b16237d84d8af6a6092d1156f903efd2917205890cb362adc6ad",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\planet_jupiter.png",
+      "size": 790941
+    },
+    "planet_mars.png": {
+      "sha256": "645e87be69f6e933e46cfed8de94032863bdd85954a33ca499174065b749225b",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\planet_mars.png",
+      "size": 1262661
+    },
+    "planet_mercury.png": {
+      "sha256": "c644d63998fe0a00e40e7336cb54e8ae579256c342928121a068b27b28f6dc80",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\planet_mercury.png",
+      "size": 173153
+    },
+    "planet_saturn.png": {
+      "sha256": "e527b4ef89483de75a9c766f578674e78505b76480383bcde46d73e61821994c",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\planet_saturn.png",
+      "size": 1219345
+    },
+    "planet_venus.png": {
+      "sha256": "2b90596178dd77cf7acb52e7c30a491bb11ad8a2e12bce3239f778dcb3b9fb86",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\planet_venus.png",
+      "size": 229265
+    },
+    "total_eclipse_19281127.png": {
+      "sha256": "88037bdadb6054366ab764c5942e026c31e92fe1bb251b1ee379471ad4224e25",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\total_eclipse_19281127.png",
+      "size": 1141355
+    },
+    "total_eclipse_unshadowed_control.png": {
+      "sha256": "6b92b6732fb9b1d34e968827d69fc12ea0c5e63e26b584b687683bfbf6119082",
+      "external_path": "C:\\ov\\reports\\skywatch33\\optical_qualified_diagnostic\\total_eclipse_unshadowed_control.png",
+      "size": 1533485
+    }
+  },
+  "members": {
+    "tested_source/game/scripts/building/skywatch_astronomy.gd": "21b08abdef188a389b658be24bb2e8fc374b8a5df53b4c85a366b42331daebd5",
+    "tested_source/game/scripts/building/v2_city_day_night_director.gd": "11aeee6bd2243e835eb18bb263f5c3f4c2306123dd1976041c57708d1cbe947d",
+    "tested_source/game/scripts/building/orison_v2_atmosphere.gd": "009e27e2f676825da969ad169f88bcf70ad170ef89ddc7f337fc5a5d1d2016fd",
+    "tested_source/game/shaders/queens_weather_sky.gdshader": "ebf0bb9b0b7edb608d50af4fec922498df52014339490c6e9c81cc037e6aefee",
+    "tested_source/game/shaders/skywatch_moon.gdshaderinc": "e926a1a0da31561f01fd7c20b9e8bdad5b5033a92be051134fe2456085fd5adf",
+    "tested_source/game/shaders/skywatch_planets.gdshaderinc": "65cd2d8cae1fc904d0d7d4f7aa1dbe96c95709bca3816979451a83457106ca3f",
+    "tested_source/game/tests/skywatch_optical_review.gd": "d0f2637242aff40bd05f259d7caeb1165925803970c096976ecf76afa1f24137",
+    "tested_source/game/tests/v2_sky_spectacle_bench.gd": "d9e88208c374147652de770ec452d358ab9b8723860c99ae9bce9b30dc3328a5",
+    "tested_source/game/tests/fixtures/skywatch_planet_reference.json": "11e34e45ba14701e5387dc8dd9db307fa029da2122e68dfb0d7fae605e6919b2",
+    "receipts_and_logs/ephemeris_regression.log": "e1cc5b6ce99eb5ce9f44881ad6bcbbec29125c8c3443ab60cfb4ecae257959e3",
+    "receipts_and_logs/ephemeris_regression.log.receipt.json": "05eaecbbccdecdb79675efcf4dc5df7b2c3057d18f6607f1f859b2782b3f8046",
+    "receipts_and_logs/ephemeris_regression.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/import.log": "dbb3490de9206ec025dc9a6311c5886e5eb32eb4a5fac5219e3d5b9e14ef583c",
+    "receipts_and_logs/import.log.receipt.json": "5766bab25a4a2b8b4d21541b1ba2c972ed44cdf2caca91e451fc48f9bf124dfe",
+    "receipts_and_logs/import.log.stderr": "c43668c7f766a39cee7dd73b2cf4bb73a95ebd032bf27bc68ac5abddb290fe3e",
+    "receipts_and_logs/optical_clear.log": "186efdef9f3d8e664428cbf3e2b1913976bd6ea58a5d43bb36e4d13b96ce5439",
+    "receipts_and_logs/optical_clear.log.receipt.json": "034c48a021509b44297e263c9c090353d5bd70c8c5b2b4a26d9f663fce730ac4",
+    "receipts_and_logs/optical_clear.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_contrast.log": "05f58a799502d11e61e3ccdd7bf4d6f7121417190f3a640e93a46be31d55f75c",
+    "receipts_and_logs/optical_contrast.log.receipt.json": "453f0b076d2875610f583800a4f01278075de49a757e076bf7911c32781f9210",
+    "receipts_and_logs/optical_contrast.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_eclipses.log": "bfc64da4aee49c31d0f479552fb8ebf9274ab2a669e6a650d8554d95b10d74cb",
+    "receipts_and_logs/optical_eclipses.log.receipt.json": "ca317f7a27de6450855414473c9f26e17fb0b19fff4ca9266eb0c402c8f2a6c7",
+    "receipts_and_logs/optical_eclipses.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_empty_strata.log": "05f58a799502d11e61e3ccdd7bf4d6f7121417190f3a640e93a46be31d55f75c",
+    "receipts_and_logs/optical_empty_strata.log.receipt.json": "6b5529249c75c25fb9af23109b1b24a4a556a09c5b1c01a43f8df843469e4b4f",
+    "receipts_and_logs/optical_empty_strata.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_final.log": "65fa55cf86adb40d6a673c3d0eff504e5c0c4c49ef4dd7ae4de82ec995e1cb67",
+    "receipts_and_logs/optical_final.log.receipt.json": "f99a8743e817b319241f08135199315257d6fe57232c54c55948fb05ef6811fe",
+    "receipts_and_logs/optical_final.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_grazing.log": "53c02295607b790c91ce110334d1ef329cfff31206b26fe602a7bc30e31f6a50",
+    "receipts_and_logs/optical_grazing.log.receipt.json": "48567700bec71fb921b6d96ba5feb17b62d9d9de88ef4e11354241bb5a346ddc",
+    "receipts_and_logs/optical_grazing.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_horizon.log": "05f58a799502d11e61e3ccdd7bf4d6f7121417190f3a640e93a46be31d55f75c",
+    "receipts_and_logs/optical_horizon.log.receipt.json": "dafd5c6a4bc210400351109d7112a62181c7ffcd4b4440300f7ff4e517c0be89",
+    "receipts_and_logs/optical_horizon.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_initial.log": "362fe0e68b784a98180917d7ebbe2254506197b5e59a345093ae7145bca4d1e8",
+    "receipts_and_logs/optical_initial.log.receipt.json": "dfc3ca70513b7936b8a79c017b956945e81078f70d2d690bfabcbe2a88331b49",
+    "receipts_and_logs/optical_initial.log.stderr": "635635417300feb2f47359268ed135193058959571d880f01ab2c2ce55daed9f",
+    "receipts_and_logs/optical_isolated.log": "186efdef9f3d8e664428cbf3e2b1913976bd6ea58a5d43bb36e4d13b96ce5439",
+    "receipts_and_logs/optical_isolated.log.receipt.json": "0103c56ed2396cd1b923e4b3f25755bd95386a386217231eaaa009fa64f2b3d5",
+    "receipts_and_logs/optical_isolated.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_phase_repair.log": "06c91cab1fdde6ae4704423fada967df06202ebfc42207f112d6657e56ea289f",
+    "receipts_and_logs/optical_phase_repair.log.receipt.json": "831acfab7b9252a7a84d3c180ec3821c8d60fece662935ba3eb72e4c8b86c63f",
+    "receipts_and_logs/optical_phase_repair.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_planets.log": "65fa55cf86adb40d6a673c3d0eff504e5c0c4c49ef4dd7ae4de82ec995e1cb67",
+    "receipts_and_logs/optical_planets.log.receipt.json": "244c414314c67b29318bc8b38ac90170f103f8017938cacb128d7f784ed000fd",
+    "receipts_and_logs/optical_planets.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_qualified_diagnostic.log": "98f4ccd6b14038ef4b2ded6f28569fb25129e38448f6744eedb3a85978afbd16",
+    "receipts_and_logs/optical_qualified_diagnostic.log.receipt.json": "75832734d9f77a3d1084a6093a20e157c6bc4a8787dcd0dc3b9e23aebb55e83f",
+    "receipts_and_logs/optical_qualified_diagnostic.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_second.log": "186efdef9f3d8e664428cbf3e2b1913976bd6ea58a5d43bb36e4d13b96ce5439",
+    "receipts_and_logs/optical_second.log.receipt.json": "23628f46247455b8d1309ff671a9bcced3ca8f417d4f8f0e34cbcfda4ad2b83d",
+    "receipts_and_logs/optical_second.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/optical_terrain.log": "05f58a799502d11e61e3ccdd7bf4d6f7121417190f3a640e93a46be31d55f75c",
+    "receipts_and_logs/optical_terrain.log.receipt.json": "3919523e916aad0d8c93edb96bcc489c342ab8463441a3338e305277b7815776",
+    "receipts_and_logs/optical_terrain.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "receipts_and_logs/weather_sky_regression.log": "c734edc7ee2fdb599ab8bac38ae1cea6dec7506bb2355090b99fc625abe327fe",
+    "receipts_and_logs/weather_sky_regression.log.receipt.json": "73784c11b6321ebafb897c488331fc0659d85c1b1d5fbaaadd5eef3a66106757",
+    "receipts_and_logs/weather_sky_regression.log.stderr": "7a38c85a125a37d743a37d43184042af78157f914321c90a10bcfa9bba36b903",
+    "references/horizons_jupiter_annual.json": "cc1279075ba4ee308fb661e64007352124048d3d5ff597ca62d0d17892a1c5e4",
+    "references/horizons_mars_annual.json": "e09d5a64007871e9df78b13fcbde89a294f8ec7e79e9f87d5030286306bbbe26",
+    "references/horizons_mercury_annual.json": "0cd6274285bcede995336e39b6790848c7bf3e3b5b46432dfcd6884becd948d8",
+    "references/horizons_saturn_annual.json": "e5f5eeb93b3e7ba7239a07a93bdcf8260679a31e57fa1874bd5f8a6fdb4fb868",
+    "references/horizons_venus_annual.json": "6ae2c5263ac44be64c4556f7bf54d7c35a844a06a8f120c7284baf80ade76c93",
+    "skywatch_review.json": "b470edebe8603007be29110fa7c96670200570f38c4730b0362880146001bb38",
+    "weather_candidate/verification.json": "edf5c6784101a15127e9bfbdcf3177ec3c0f8d68ef561b0671b2897b63be61c7",
+    "weather_candidate/verification.md": "85c8a6d509ecd28f8ca3473b5a5422f1b40dafcb036329b803007fad425586e0"
+  },
+  "archive_sha256": "35035dc177ed3ca058e12469e0ff77dc81e1016170dbdd551cc84ce2f90aadbb"
+}
