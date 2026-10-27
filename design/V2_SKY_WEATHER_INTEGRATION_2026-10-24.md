@@ -2016,3 +2016,38 @@ preserved externally and by Git history. Every remaining/new archive member
 hash was reverified. Original failure logs, wrapper receipts, test-written
 contracts, arrays and all annual contact pages remain intact. This reduces the
 current archive by about 12.7 MB without replacing runtime evidence.
+
+### Candidate regressions repaired without regrading runtime proof
+
+The complete **candidate_a1d8aa46/verification.json** records **8 regression
+entries**, no waivers: one spatial test-scope report, two timer/authority
+review findings and one failed manufactured-book source test (the comparison
+also reports their count/status changes). Protected paths pass **17/17**,
+selector remains **V2**, and design lint has zero errors. The original failed
+candidate result is archived unchanged; it is not a passing candidate.
+
+The temporary frame profiler had renamed the residency route to a new scope,
+creating spatial identity drift. It is now removed after its measurements,
+restoring the original route identity and reducing retained test code. Its
+raw frame arrays and tested sources remain archived. Negative duplicate-
+acquisition checks are separated from timed traversal into a timer-free
+assertion helper; successful acquisition still requires real lever input.
+Spatial drift is now **zero** and systemic review count returns to main's
+**29**, with no new actionable finding, policy exception or baseline update.
+
+The nook construction record retained one old hash of the readable-library
+construction record. Its only upstream delta is the already-reviewed additive
+**weather_frog_skin** catalogue binding: all **124** previous materials,
+every other construction field/dependency and every exported asset remain
+exact. That single transitive hash is renewed byte-for-byte in place; original
+records and the complete comparison are archived. All **4** nook source tests
+pass. No book geometry, texture, layout, dimensions or narrative data changes.
+
+**passage_gate_repair_final.log.receipt.json** passes **57 waypoints**, zero
+failures and empty stderr in **234 seconds**, exercising the cleaned route,
+native settlement lever, duplicate refusal after remount and both actual
+reconstructions. The original strict surface qualifier still returns **PASS /
+zero defects** after these repairs; its rendering inputs are unchanged, so the
+39,165-check surface evidence is reused without another world scan or hose
+programme. No original test-written receipt is edited. A fresh complete
+candidate comparison is still required before merge.

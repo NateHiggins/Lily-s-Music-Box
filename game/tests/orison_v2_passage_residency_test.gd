@@ -29,34 +29,7 @@ func _capture(identity: String, target: Vector3) -> void:
 			"ordinary input physically moves the handcart")
 	await _walk_world(Vector3(14, 0, 32))
 
-var _collect_frames := false
-var _last_frame_usec := 0
-var _residency_frames: Array = []
-
-func _process(_delta: float) -> void:
-	var now := Time.get_ticks_usec()
-	if _collect_frames and _last_frame_usec > 0:
-		_residency_frames.append([(now-_last_frame_usec)/1000.0,
-			Performance.get_monitor(Performance.TIME_PROCESS)*1000.0,
-			Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.0,
-			world.passage_region.residency.state])
-	_last_frame_usec = now
-
 func _route() -> void:
-	_collect_frames = true
-	await _exercise_route()
-	_collect_frames = false
-	var output := OS.get_environment("SHOT_DIR")
-	if not output.is_empty():
-		DirAccess.make_dir_recursive_absolute(output)
-		FileAccess.open(output.path_join("residency_frames.json"), FileAccess.WRITE).store_string(JSON.stringify({
-			"evidence_class":"INERT", "columns":["wall_ms","process_ms","physics_ms","state"],
-			"fit_budget_usec":world.passage_region.residency.FIT_BUDGET_USEC,
-			"viewport":str(get_viewport().get_visible_rect().size),
-			"samples":_residency_frames,"residency":world.passage_region.residency.snapshot(),
-			"failures":failures}, "\t"))
-
-func _exercise_route() -> void:
 	await super._route()
 	if not failures.is_empty(): return
 	var passage := world.passage_region
@@ -122,9 +95,9 @@ func _exercise_route() -> void:
 			and _moved_cart.global_position.distance_to(_initial_cart_position) > 0.05,
 			"open leaf and physically moved cart survive residency unchanged")
 	_require(world.shop_service.counter("hardware_paint") != null
-			and var_to_bytes(RealityState.data.maintenance_items) == inventory
-			and not world.shop_service.acquire("carbon_transmitter_capsule", "hardware_paint"),
-			"counter remount preserves acquisition and duplicate protection")
+			and var_to_bytes(RealityState.data.maintenance_items) == inventory,
+			"counter remount preserves acquisition and inventory")
+	_check_requisition_duplicate_refusal()
 	_require(not _surface_signature.is_empty() and _surface_values() == _surface_signature,
 			"all shader values and texture paths survive geometry reconstruction")
 	_check_ceiling_detail()

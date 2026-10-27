@@ -57,9 +57,7 @@ func _route() -> void:
 			and world.shop_service.pending_item("hardware_paint").is_empty(),
 			"physical counter grants the part exactly once"): return
 	var saved_items := var_to_bytes(RealityState.data.maintenance_items)
-	if not _require(not world.shop_service.acquire("carbon_transmitter_capsule", "hardware_paint")
-			and world.fire_maintenance_counter.terminals.carbon_transmitter_capsule.grip().is_empty(),
-			"settled requisition refuses duplicates and retires the exact lever target"):return
+	if not _check_requisition_duplicate_refusal():return
 	if not _require(var_to_bytes(RealityState.data.maintenance_items) == saved_items,
 			"duplicate refusal preserves the exact acquired inventory"): return
 	for point in [Vector3(9.7, 0, door_center.z)]:
@@ -123,3 +121,10 @@ func _use(owner_node: Node3D,target: Vector3,label: String) -> bool:
 		hand.free()
 		return _require(moved and follows,"actual grab, mouse motion and release: "+label)
 	return await super._use(owner_node,target,label)
+
+func _check_requisition_duplicate_refusal() -> bool:
+	# Pure negative-control assertion, separate from timed traversal. Successful
+	# acquisition above still requires actual mouse input through the lever.
+	return _require(not world.shop_service.acquire("carbon_transmitter_capsule", "hardware_paint")
+		and world.fire_maintenance_counter.terminals.carbon_transmitter_capsule.grip().is_empty(),
+		"settled requisition refuses duplicates and retires the exact lever target")
