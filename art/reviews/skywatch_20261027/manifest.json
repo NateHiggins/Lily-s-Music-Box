@@ -1116,9 +1116,14 @@
     "door_release_final_qualification/final_source/game/tests/v2_household_unchanged_bench.gd": "fee4dc2009c9ccbc874eb3ead94673c8d8a95416b908b8bfbe57ffc4352cd70b",
     "door_release_final_qualification/final_source/game/tests/campaign_weather_world_review.gd": "ddb897a75c1412aba1257cb8af2ff1ee09598230cf4fbc4b0d7a26956a903679",
     "door_release_final_qualification/qualification_provenance.json": "5349ce7f15472a495854e8333617924b49ef0dc34ec2e6889d063c1ddf5768b3",
-    "door_release_final_qualification/package_final_qualification.py": "3057b8578eee68b80cc6b6e926434b63b47fa92f6304127cd0f1727234b426d3"
+    "door_release_final_qualification/package_final_qualification.py": "3057b8578eee68b80cc6b6e926434b63b47fa92f6304127cd0f1727234b426d3",
+    "candidate_2efed368_main_merge/candidate/verification.json": "8b6aeeb73ea8e190e9f9cea3512d823bc2ce3cc3c92ff562068207392ceadbfd",
+    "candidate_2efed368_main_merge/candidate/verification.md": "f3d6f28225ef9544f843f1663580ef632287f5cbb3e933efc3bf448e00be7fd6",
+    "candidate_2efed368_main_merge/orphan_index_lock.json": "467af98f175482e153f46049ee80e81ecd972e225f9a1a235c0f8e48996c7716",
+    "candidate_2efed368_main_merge/orphan_index_lock.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "candidate_2efed368_main_merge/package_merge.py": "351599bb1cc6a8eeb5006d75bf339fce54d28de28c2403d924f17ce61234fd5c"
   },
-  "archive_sha256": "7000b968a89eaaddace3baaeb686603eab4d9b054f3412ddbf2bc8e65627ec44",
+  "archive_sha256": "5ea581192478445e43039d3a8a6b99a71e1288775e9a3f5d12b2ecaa3bee7b8f",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -2788,5 +2793,15 @@
     "lifecycle_checks": 43,
     "scope": "Actual final-source surface and isolated disk reconstruction/teardown; exact-identity cache fixture, state safety checks. No CampaignShell, whole-V2, human artistic or general performance acceptance.",
     "source_snapshots_in_archive": true
+  },
+  "candidate_2efed368_main_merge": {
+    "evidence_class": "INERT",
+    "tested_candidate": "2efed36838ed5521238f970839a5b33f050e24a4",
+    "merge_commit": "7dc4ca40530cdf77a2208a3d8a48fdbe6891be7f",
+    "merged_tree_identical_to_tested_candidate": true,
+    "regressions": 0,
+    "waivers": 0,
+    "protected_unchanged": 17,
+    "scope": "Clean canonical in-place complete gate comparison; no Godot invocation by verifier. Separately executed final-source native receipts bind on main. No fresh checkout, whole-V2 or human acceptance."
   }
 }

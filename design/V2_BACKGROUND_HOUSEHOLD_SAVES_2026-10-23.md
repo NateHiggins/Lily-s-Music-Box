@@ -270,3 +270,34 @@ median as script cost. **counter_semantics.json** records exact engine-source
 hashes. The built-in local **--profiling** debugger is a next attribution option,
 not an executed profile in this checkpoint; its once-per-second latest-frame
 prints and accumulated shutdown totals also need startup/overhead qualification.
+
+### Qualified checkpoint merged to main
+
+[PR 70](https://github.com/NateHiggins/Lily-s-Music-Box/pull/70) merged at
+**7dc4ca40530cdf77a2208a3d8a48fdbe6891be7f**. Canonical main was fast-forwarded
+and its complete tree compared equal to tested candidate
+**2efed36838ed5521238f970839a5b33f050e24a4**. All four final-source wrappers bind
+again after the actual main checkout. This following report/archive update
+changes no rendering or runtime input and requires no repeat world programme.
+
+**skywatch43/candidate/verification.json** records the complete **114-gate**
+comparison against clean main **c5d12902**: **zero regressions, zero waivers,
+17/17 protected paths unchanged**, selector V2, no design-lint errors and no
+requirement-status changes. The verifier uses **--no-godot**; native controller,
+state, disk and surface executions above remain separate evidence. This is
+in-place verification, not fresh-checkout/import or whole-game acceptance.
+The existing diagnostic archive retains the raw comparison under
+**candidate_2efed368_main_merge/**.
+
+An empty orphan **.git/index.lock**, last written more than 27 minutes earlier,
+blocked staging. No Git process was active and exclusive opening succeeded;
+its empty bytes/timestamps were preserved externally before removing only that
+verified file. No index reset, shared stash, bulk staging or contributor cleanup
+was used. The archive retains that provenance. Only named checkpoint paths were
+staged; temporary door timers were removed rather than rebuilding unrelated art.
+
+The improvement is a measured reduction in synchronous interaction work. Whole
+route frame tails, remaining weather art, installed Skywatcher content, broad V2
+coverage and owner playtest acceptance remain open. Next performance evidence
+should identify script call paths using the pinned engine's built-in profiler,
+with startup and observer overhead kept distinct from ordinary route budgets.
