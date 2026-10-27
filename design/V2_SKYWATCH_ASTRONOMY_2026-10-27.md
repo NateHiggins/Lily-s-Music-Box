@@ -311,3 +311,22 @@ The initial complete static board at **bd2d307a** found only the expected
 surface-qualification invalidation: rendering inputs changed and the old
 rendered review is stale. These are two open defects, not waived passes.
 The other gates did not regress against the unchanged merged weather tree.
+
+### Composed-world surface renewal
+
+The two stale-evidence defects above were resolved by a fresh source-frozen
+production-world run, not repinned old receipts. At code checkpoint
+**1b0b5997**, **surface_astronomy.log.receipt.json** completed in 843 seconds
+on the patched Vulkan engine, native fullscreen 3440x1440. The test-written
+schema-2 runtime contract reports **39,165 checks, zero failures**, including
+production composition, loaded surface requirements and teardown. Shutdown
+stderr is empty. The inventory contains **27,810 draws, 6,303 materials and
+527 textures**. Seven actual composed images were inspected and published
+with image hashes; independent packet qualification passes with zero defects.
+
+**ORISON_SURFACE_SKIP_FIRE_INTERACTION=1** explicitly excludes the unchanged
+fire-service interaction programme. Its physical draws remain in the surface
+inventory. Earlier fire-service evidence is retained; this run grants no new
+hose-input, save/load or astronomical telescope interaction qualification.
+The earlier stale board, all raw diagnostics and prior packet are preserved.
+No annual artistic acceptance or whole-game completion follows from this pass.
