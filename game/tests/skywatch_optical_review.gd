@@ -190,6 +190,9 @@ func clear_optics(bench: Node3D) -> void:
 
 func cloud_review(bench: Node3D) -> void:
 	bench.manager.set_process(false);bench.director.set_process(false)
+	var macro: Texture3D=bench.sky_material.get_shader_parameter("cloud_macro")
+	var curl: Texture3D=bench.sky_material.get_shader_parameter("cloud_curl")
+	check(macro!=null and curl!=null and macro.get_width()==128 and curl.get_width()==32 and macro.has_mipmaps() and curl.has_mipmaps(),"runtime cloud macro and curl textures are bound at their declared sizes with mipmaps")
 	Engine.max_fps=0;DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	var output := OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(output)
 	var selected: Dictionary={}
@@ -220,12 +223,93 @@ func cloud_review(bench: Node3D) -> void:
 		var timing := await measure(bench,85.,false)
 		await capture(bench,output.path_join(kind+"_noon.png"))
 		rows.append({"genus":kind,"date":bench.clock.datetime_string(),"state":bench.manager.atmosphere_state.duplicate(true),"timing":timing})
+		if kind=="Cu":
+			var previous_fog: bool=bench.environment.volumetric_fog_enabled
+			bench.environment.volumetric_fog_enabled=false
+			var roll: Vector2=bench.sky_material.get_shader_parameter("living_flow_0")
+			# Production morphology publications are throttled to 10 Hz. Force
+			# this diagnostic publication while retaining a fractional clock.
+			bench.clock.advance_seconds(.05);bench.manager._process(.05);bench.manager._publish()
+			var advanced_roll: Vector2=bench.sky_material.get_shader_parameter("living_flow_0")
+			check(absf(advanced_roll.x-roll.x-.05/1800.)<.000001,"curl roll publication follows fractional campaign time")
+			bench.manager._process(0.)
+			check(bench.sky_material.get_shader_parameter("living_flow_0")==advanced_roll,"paused clock holds the curl field")
+			bench.get_viewport().use_taa=false
+			bench.sky_material.set_shader_parameter("temporal_phase",0.)
+			# Isolate ordinary density from the retained random animal SDF,
+			# whose appearance envelope still follows instance uptime.
+			bench.sky_material.set_shader_parameter("shape_kind",0)
+			bench.sky_material.set_shader_parameter("shape_opacity",0.)
+			await capture(bench,output.path_join("Cu_return_start.png"))
+			var initial := bench.get_viewport().get_texture().get_image()
+			var original_uniforms: Dictionary={}
+			var original_camera: Transform3D=bench.camera.global_transform
+			var original_projection: Projection=bench.camera.get_camera_projection()
+			await capture(bench,output.path_join("Cu_paused_repeat.png"))
+			var paused_image := bench.get_viewport().get_texture().get_image()
+			var paused_signal := display_peak(initial,paused_image)
+			var paused_error := cloud_image_error(initial,paused_image)
+			bench.sky_material.set_shader_parameter("shape_opacity",1.)
+			await capture(bench,output.path_join("Cu_inactive_shape_timer.png"))
+			check(cloud_image_error(initial,bench.get_viewport().get_texture().get_image())<=maxf(1./1020.,paused_error*1.5),"an inactive legacy shape timer cannot alter ordinary cloud marching")
+			bench.sky_material.set_shader_parameter("shape_opacity",0.)
+			for uniform: Dictionary in bench.sky_material.shader.get_shader_uniform_list():
+				original_uniforms[uniform.name]=bench.sky_material.get_shader_parameter(uniform.name)
+			bench.clock.advance_seconds(120.);bench.manager._process(120.)
+			bench.sky_material.set_shader_parameter("temporal_phase",0.)
+			bench.sky_material.set_shader_parameter("shape_kind",0)
+			bench.sky_material.set_shader_parameter("shape_opacity",0.)
+			await capture(bench,output.path_join("Cu_two_minutes.png"))
+			var travelled := bench.get_viewport().get_texture().get_image()
+			var travelled_error := cloud_image_error(initial,travelled)
+			check(travelled_error>maxf(.005,paused_error*5.),"calendar transport changes cloud composition beyond measured paused render variation")
+			bench._library_date(int(selected[kind].day),float(selected[kind].hour))
+			bench.clock.advance_seconds(.05)
+			bench.manager.origin=bench.manager.target.duplicate(true);bench.manager.elapsed=bench.manager.TRANSITION_SECONDS
+			bench.manager._process(0.);bench.manager._publish()
+			bench.get_viewport().use_taa=false;bench.sky_material.set_shader_parameter("temporal_phase",0.)
+			bench.sky_material.set_shader_parameter("shape_kind",0)
+			bench.sky_material.set_shader_parameter("shape_opacity",0.)
+			var camera_restore := {"original":str(original_camera),"returned":str(bench.camera.global_transform),"original_projection":str(original_projection),"returned_projection":str(bench.camera.get_camera_projection())}
+			bench.camera.global_transform=original_camera;set_field(bench,85.)
+			bench.environment.volumetric_fog_enabled=false
+			camera_restore["exact_camera"]=bench.camera.global_transform==original_camera
+			camera_restore["exact_projection"]=bench.camera.get_camera_projection()==original_projection
+			camera_restore["paused_peak"]=paused_signal
+			camera_restore["paused_mean_error_160x90"]=paused_error
+			camera_restore["travelled_mean_error_160x90"]=travelled_error
+			FileAccess.open(output.path_join("return_camera.json"),FileAccess.WRITE).store_string(JSON.stringify(camera_restore,"\t"))
+			await capture(bench,output.path_join("Cu_returned.png"))
+			var changed_uniforms: Dictionary={}
+			for name: String in original_uniforms:
+				var value: Variant=bench.sky_material.get_shader_parameter(name)
+				if original_uniforms[name]!=value:changed_uniforms[name]=[str(original_uniforms[name]),str(value)]
+			FileAccess.open(output.path_join("return_uniform_changes.json"),FileAccess.WRITE).store_string(JSON.stringify(changed_uniforms,"\t"))
+			var returned_error := cloud_image_error(initial,bench.get_viewport().get_texture().get_image())
+			check(changed_uniforms.is_empty(),"returning to fractional time restores every published sky uniform")
+			check(returned_error<=maxf(1./1020.,paused_error*1.5),"returned cloud composition agrees within measured paused render variation")
+			camera_restore["returned_mean_error_160x90"]=returned_error
+			FileAccess.open(output.path_join("return_camera.json"),FileAccess.WRITE).store_string(JSON.stringify(camera_restore,"\t"))
+			bench.get_viewport().use_taa=true
+			bench.environment.volumetric_fog_enabled=previous_fog
 	FileAccess.open(output.path_join("cloud_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","scope":"five calendar-selected daytime genera over actual city-horizon bench; particle draws disabled; not occupied-world or annual artistic acceptance",
 		"resolution":str(bench.get_viewport().get_visible_rect().size),"msaa":bench.get_viewport().msaa_3d,"taa":bench.get_viewport().use_taa,
 		"rows":rows,"failures":failures},"\t"))
 	print("SKYWATCH CLOUD RESULT: ","PASS" if failures.is_empty() else "FAIL")
 	bench.get_tree().quit(0 if failures.is_empty() else 1)
+
+func cloud_image_error(a: Image,b: Image) -> float:
+	# Single-pixel maxima are dominated by renderer edge/jitter variation even
+	# when paused. Compare large-scale composition against that measured floor.
+	var left := a.duplicate() as Image;var right := b.duplicate() as Image
+	left.resize(160,90,Image.INTERPOLATE_LANCZOS);right.resize(160,90,Image.INTERPOLATE_LANCZOS)
+	var error := 0.
+	for y in range(90):
+		for x in range(160):
+			var delta := left.get_pixel(x,y)-right.get_pixel(x,y)
+			error+=absf(delta.r)+absf(delta.g)+absf(delta.b)
+	return error/(160.*90.*3.)
 
 func measure(bench: Node3D,field: float,relief: bool) -> Dictionary:
 	Astronomy.publish_star_frame(bench.sky_material,bench.camera,bench.clock)

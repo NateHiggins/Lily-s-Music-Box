@@ -667,3 +667,75 @@ not an enabled frame cap or a claim of 60+ FPS on the current world.
 A true 24 FPS engine cap may be a clearly labeled temporary comparison only,
 never the normal mode. Do not add another viewport or post-process dependency
 before measuring whether the existing presentation path can support the effect.
+
+### October 27 shutdown checkpoint — cloud-flow candidate, not production
+
+The owner requested a pause to shut down and relocate the computer. Preserve
+this branch and draft PR #68; do not merge this candidate on diagnostic evidence.
+The previous pushed checkpoint is **fb16e9e8** (real-city mirage and profiling)
+with **ba36d282** adding the analyzed film-cadence queue. Main remains
+**6ff8922f**. The following cloud changes are a new WIP checkpoint.
+
+Implemented in the existing density include and weather owners:
+
+- Seeded 128-cubed R8 macro noise and 32-cubed RGB curl flow, with complete loaded
+  3D mip chains, total **2,509,092 bytes**. Existing 64-cubed RG Worley stock is
+  reused for erosion. The extended existing baker derives curl from periodic
+  central differences of three scalar potentials; no runtime fluid solver.
+  Its pre-quantization discrete divergence maximum is **5.96e-8**. Quantization,
+  interpolation, finite warps and erosion are not a claim of conserved mass.
+  Method reference: [Bridson, Hourihan and Nordenstam, Curl-Noise for Procedural
+  Fluid Flow](https://www.cs.ubc.ca/~rbridson/docs/bridson-siggraph2007-curlnoise.pdf).
+- Coherent rolling deformation, nested detail warping, wind-aligned altitude
+  shear and height-weighted erosion in ordinary layers; sheets retain continuous
+  ceilings and cirrus retains its ice-fibre brush. The severe deck also samples
+  flow without moving the finite funnel SDF. View and shadow marches share density.
+- Flow phase derives from fractional campaign seconds; existing layer wind and
+  precise integrated transport remain authoritative. Existing 10 Hz publication
+  is retained. Raw stock export filters and binary Git attributes are explicit.
+- Corrected an inactive legacy shape envelope disabling empty-air layer skipping.
+  It now matters only when a shape is active. The actual legacy animal envelope
+  itself still follows instance age; its out-of-order behavior remains debt.
+
+Evidence under **C:/ov/reports/skywatch36/** must be preserved, including failures.
+The initial candidate produced nearly featureless clouds because the texture
+binding guard queried an unset shader default. Enumerating declared uniforms
+and asserting actual bound texture dimensions/mips corrected it. Initial test
+type errors and attempted bit-exact render checks also remain in original logs.
+Paused optical frames themselves have edge variation; do not call that cloud
+movement or quietly raise an arbitrary image threshold. Final checks compare
+160x90 composition against measured paused variation and separately require
+all published sky uniforms to return exactly. The controlled comparison disables
+TAA, volumetric fog and legacy animal appearance only for its rewind subcase.
+
+**final_V2SkySpectacleBench.log.receipt.json** completes in 18 s, eight assertions
+passing, empty stderr. It covers real dated Sc/Ns/Ci/Cu/Cb layers selected at
+09:00, 12:00, 15:00 and 18:00, not every genus or the whole year. Reconstructed
+uniforms match; composition error is **0.000565**, paused error **0.000552**,
+and two minutes of transport gives **0.034600**. An inactive shape timer also
+passes its independent rendered comparison. The older scoped return error
+before the gap-condition repair was **0.004112**, versus **0.000562** after;
+this is optical evidence, not an isolated GPU speedup measurement.
+
+The five dated optical medians changed from **2.352/3.052/2.391/1.998/1.988 ms**
+to **2.510/3.385/2.871/2.367/2.335 ms**, same native resolution and authored
+states. Raw p95/p99/maxima are retained, including a **25.301 ms** Sc outlier.
+These small city-horizon benches do not establish occupied-world performance.
+Final CampaignWeatherTest and SkyPhenomenaScheduleTest pass; WeatherSkyTest
+passes with its existing legacy character/found-art stderr warnings.
+
+**final_V2WeatherRouteProfile** was interrupted for the owner's shutdown request.
+Its wrapper exit alone, including a possible graceful exit 0, cannot count as a
+completed cloud ABBA route. See **user_shutdown_interruption.json**. No occupied
+cloud qualification, severe-deck render acceptance, new surface renewal or full
+candidate verification is claimed. The completed mirage ABBA above remains valid
+for that earlier rendering state, not the new cloud code.
+
+Resume by inspecting Git, the lane and the patched engine configuration. Re-run
+the pending June 25 cloud ABBA from **skywatch36/final_batch.json** (the first
+four runs already completed; do not repeat them unchanged merely for reporting).
+Use **SKYWATCH_CLOUD_PROFILE=1** and the native fullscreen wrapper arguments.
+Inspect the affected severe/funnel renders, resolve measured costs and remaining
+visual limits, then renew source-bound qualification after the batch settles.
+Do not rerun firehose interaction as part of this sky checkpoint. Continue the
+cloud/rooftop work before the newly queued optional film presentation experiment.

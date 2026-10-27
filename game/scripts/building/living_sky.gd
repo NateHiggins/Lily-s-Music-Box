@@ -179,5 +179,8 @@ static func publish(material: ShaderMaterial,state: Dictionary) -> void:
 		material.set_shader_parameter("living_motion_%d"%i,Vector4(fposmod(x*sx,1.0),fposmod(y*sy,1.0),fposmod(float(layer.evolution)*.001,1.0),layer.shape_seed))
 		material.set_shader_parameter("living_drift_%d"%i,Vector4(fposmod(x*.043,1.0),fposmod(y*.043,1.0),fposmod(x*.22 if kind==0 else y*2.2,TAU),fposmod(x*.16,TAU)))
 		material.set_shader_parameter("living_brush_%d"%i,Vector4(layer.scale_km,layer.optical_depth,arrangement,(layer.wind as Vector2).angle()))
+		# Bounded periodic roll and altitude shear; derive both from the existing
+		# campaign transport and layer wind, never render TIME or a random stream.
+		material.set_shader_parameter("living_flow_%d"%i,Vector2(fposmod(float(state.simulation_seconds)/1800.,1.),clampf((layer.wind as Vector2).length()/15.,0.,2.)))
 	material.set_shader_parameter("living_enabled",true)
 	material.set_shader_parameter("living_aerosol",float(state.aerosol_density))

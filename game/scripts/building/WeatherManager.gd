@@ -81,6 +81,14 @@ func _ready() -> void:
 	add_to_group("weather_manager")
 	if RenderingServer.get_current_rendering_method() == "forward_plus":
 		sky.set_shader_parameter("cloud_noise",CloudNoise.load_volume())
+		for uniform: Dictionary in sky.shader.get_shader_uniform_list():
+			if uniform.name!="living_fluid_enabled":continue
+			var fluid := CloudNoise.load_fluid()
+			if not fluid.is_empty():
+				sky.set_shader_parameter("cloud_macro",fluid.base)
+				sky.set_shader_parameter("cloud_curl",fluid.curl)
+			else:sky.set_shader_parameter("living_fluid_enabled",false)
+			break
 		sky.set_shader_parameter("cirrus_tex",load("res://assets/environment/weather/cirrus.png"))
 		_before_taa=get_viewport().use_taa
 		if bool(GameBoot.settings.get("weather_taa_enabled",true)):

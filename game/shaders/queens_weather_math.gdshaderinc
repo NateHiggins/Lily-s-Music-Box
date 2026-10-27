@@ -23,6 +23,12 @@ uniform vec3 wx_lens_center = vec3(-2.0, 3.0, -4.0);
 uniform sampler2D wx_iridescence_ramp : source_color, filter_linear, repeat_enable;
 // Three observed strata in the existing bounded march; no additional viewport.
 uniform bool living_enabled = false;
+uniform bool living_fluid_enabled = true;
+uniform sampler3D cloud_macro : filter_linear_mipmap, repeat_enable;
+uniform sampler3D cloud_curl : filter_linear_mipmap, repeat_enable;
+uniform vec2 living_flow_0;
+uniform vec2 living_flow_1;
+uniform vec2 living_flow_2;
 uniform float living_aerosol = .2;
 uniform vec4 living_layer_0 = vec4(0.0,1.25,1.6,8.0);
 uniform vec4 living_layer_1 = vec4(0.0,3.8,0.65,3.0);
@@ -37,7 +43,22 @@ uniform vec4 living_brush_0 = vec4(2.0,.9,1.0,0.0);
 uniform vec4 living_brush_1 = vec4(1.2,.65,1.0,0.0);
 uniform vec4 living_brush_2 = vec4(3.8,.22,9.0,0.0);
 
-float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift) {
+float wx_remap(float value,float old_min,float old_max,float new_min,float new_max) {
+	return mix(new_min,new_max,(value-old_min)/max(old_max-old_min,.0001));
+}
+vec3 curl_noise3d(vec3 p) {
+	// Periodic curl of a 3D vector potential, differentiated offline. One tap
+	// replaces twelve derivative taps inside every view and self-shadow march.
+	return textureLod(cloud_curl,p,0.0).rgb*2.0-1.0;
+}
+float wx_height_erosion(float body,float detail,float h,float strength) {
+	float top=smoothstep(.20,.90,h);
+	float threshold=mix(1.0-detail,detail,top)*mix(.08,.26,top)*strength;
+	// Preserve dense cores; spend erosion on boundaries and high shear.
+	threshold*=1.0-smoothstep(.72,1.0,body);
+	return clamp(wx_remap(body,threshold,1.0,0.0,1.0),0.0,1.0);
+}
+float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift,vec2 flow_state) {
 	float coverage=layer.x;
 	if(coverage<=0.0001 || p.y<layer.y || p.y>layer.y+layer.z) return 0.0;
 	float h=(p.y-layer.y)/layer.z;
@@ -50,9 +71,17 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift) {
 	float body=0.0;
 	float texture_detail=.6;
 	bool sheet=(genus==2 || genus==4 || genus==5 || genus==7);
+	if(living_fluid_enabled && genus!=0) {
+		// Wind-aligned leaning; cirrus retains its distinct ice-fibre brush.
+		q.x-=h*h*flow_state.y*.55;
+	}
 	if(sheet) {
 		vec2 sheet_noise=textureLod(cloud_noise,vec3(q*.125+motion.xy,motion.z*3.0),1.0).rg;
 		float broad=sheet_noise.r;
+		if(living_fluid_enabled) {
+			vec3 roll=curl_noise3d(vec3(q*.043+drift.xy,h*.18+flow_state.x));
+			h+=roll.z*.10*sin(h*3.14159265359);
+		}
 		texture_detail=sheet_noise.g;
 		body=smoothstep(1.0-coverage-.10,1.0-coverage+.10,broad);
 		if(coverage>.94) body=mix(body,1.0,smoothstep(.94,1.0,coverage));
@@ -76,11 +105,23 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift) {
 	} else {
 		// Continuous warped masses avoid a visible grid of identical ellipsoids.
 		// Reuse the existing two-channel volume; no new texture or march steps.
-		vec2 warp=textureLod(cloud_noise,vec3(q*.043+drift.xy,motion.z),1.0).rg-.5;
+		vec2 warp;
+		if(living_fluid_enabled) {
+			vec3 roll=curl_noise3d(vec3(q*.043+drift.xy,h*.30+flow_state.x));
+			warp=roll.xy*.5;
+			h+=roll.z*.13*sin(h*3.14159265359);
+		} else warp=textureLod(cloud_noise,vec3(q*.043+drift.xy,motion.z),1.0).rg-.5;
 		vec2 marks=q+warp*3.0;
 		if(int(brush.z)==4 || int(brush.z)==9) marks.y*=.32;
 		float mark_scale=genus==1 ? .025 : .18;
-		vec2 field=textureLod(cloud_noise,vec3(marks*mark_scale+motion.xy,h*.55+motion.z*2.0),1.0).rg;
+		vec3 lookup=vec3(marks*mark_scale+motion.xy,h*.55+motion.z*2.0);
+		vec2 field;
+		if(living_fluid_enabled) {
+			// Nested Worley deformation is small enough to retain broad families.
+			vec2 detail=textureLod(cloud_noise,lookup*3.0,1.0).rg;
+			lookup.xy+=(detail-.5)*.10;
+			field=vec2(textureLod(cloud_macro,lookup,1.0).r,detail.g);
+		} else field=textureLod(cloud_noise,lookup,1.0).rg;
 		texture_detail=field.y;
 		// Sculpt both bearings with the existing volume sample. The former
 		// shallow Z slice extruded flat islands through the whole cloud depth.
@@ -100,7 +141,8 @@ float living_density(vec3 p,vec4 layer,vec4 motion,vec4 brush,vec4 drift) {
 		body*=mix(family,1.0,smoothstep(.70,.96,coverage));
 	}
 	float envelope=smoothstep(0.0,.10,h)*(1.0-smoothstep(.72,1.0,h));
-	return max(0.0,body-(1.0-texture_detail)*.12)*envelope*brush.y;
+	float sculpted=living_fluid_enabled && genus!=0 ? wx_height_erosion(body,texture_detail,h,1.0) : max(0.0,body-(1.0-texture_detail)*.12);
+	return sculpted*envelope*brush.y;
 }
 
 mat2 wx_rotation(float a) {

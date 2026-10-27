@@ -11,13 +11,15 @@ var _walk_index:=0
 var _source_before:=""
 var _calendar_mode:=false
 var _mirage_profile_mode:=false
+var _cloud_profile_mode:=false
 var _phase_prefix:=""
 
 func _ready() -> void:
 	# GPU readback and PNG encoding must not contaminate measured route frames.
 	capture_street_line=false
 	OS.set_environment("WEATHER_SKY_BASELINE","1" if baseline_mode else "0")
-	_mirage_profile_mode=OS.get_environment("SKYWATCH_MIRAGE_PROFILE")=="1"
+	_cloud_profile_mode=OS.get_environment("SKYWATCH_CLOUD_PROFILE")=="1"
+	_mirage_profile_mode=OS.get_environment("SKYWATCH_MIRAGE_PROFILE")=="1" or _cloud_profile_mode
 	_calendar_mode=OS.get_environment("WEATHER_PROFILE_CALENDAR")=="1" or _mirage_profile_mode
 	OS.set_environment("WEATHER_SIMULATE","" if _calendar_mode else "hail_storm")
 	OS.set_environment("WEATHER_SEED","1928")
@@ -131,15 +133,19 @@ func _turn_and_hold() -> void:
 	await get_tree().create_timer(8.0).timeout
 
 func _profile_mirage_route(manager: Node) -> void:
+	var render_sources := _sky_source_bindings()
 	var clock := CampaignClock.new();clock.configure_date(1929,5,9,14*60+15)
+	if _cloud_profile_mode:clock.configure_date(1929,6,25,18*60)
 	manager._calendar_check_left=0.;manager._phenomena_left=0.;manager._publish_left=0.;manager._process(.016)
 	manager.origin=manager.target.duplicate(true);manager.elapsed=manager.TRANSITION_SECONDS
 	manager._phenomena_left=0.;manager._process(.016);manager._publish();manager.set_process(false)
 	var director: Node=world.get_node("WakingAtmosphere").director
 	director._apply(clock.minute_of_day())
 	var mirage: CompositorEffect=director._mirage
-	if mirage==null or float(manager._spectacle_levels[40])<.9:
+	if mirage==null or (not _cloud_profile_mode and float(manager._spectacle_levels[40])<.9):
 		failures.append("authored mirage did not reach production presentation");return
+	if _cloud_profile_mode and float(manager.atmosphere_state.get("combined_coverage",0.))<.5:
+		failures.append("authored cloud profile did not publish a substantial deck");return
 	var traffic: Node=world.period_traffic
 	player.profile_physics=true;player._grab.profiling=true
 	var output := OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(output)
@@ -148,8 +154,9 @@ func _profile_mirage_route(manager: Node) -> void:
 	# and route. ABBA retains the cold first traversal separately from warm tails.
 	for index in range(4):
 		var active := index in [1,2]
-		_collect=false;_phase_prefix="mirage_%d_%s_"%[index,"on" if active else "off"]
-		mirage.enabled=active
+		_collect=false;_phase_prefix="%s_%d_%s_"%["cloud" if _cloud_profile_mode else "mirage",index,"on" if active else "off"]
+		mirage.enabled=active and not _cloud_profile_mode
+		if _cloud_profile_mode:manager.sky.set_shader_parameter("living_fluid_enabled",active)
 		_prepare_player_start()
 		traffic.stage([{"id":traffic.data.kinds[0].id,"x":-30.,"lane_west":false,"speed":4.},
 			{"id":traffic.data.kinds[1].id,"x":30.,"lane_west":true,"speed":4.}])
@@ -166,7 +173,7 @@ func _profile_mirage_route(manager: Node) -> void:
 		blocks.append({"id":_phase_prefix,"enabled":active,"first_traversal":index==0,"trace_start":trace_start,"waypoints":trace.size()-trace_start,"frame_start":frame_start,"frame_end":_samples.size(),"dispatches":mirage.passes-dispatch_start,"resident_variance":"NPC animation and physical traffic remain live; campaign time and traffic seeds are held"})
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(output.path_join(_phase_prefix+"street.png"))
-		if (active and mirage.passes==dispatch_start) or (not active and mirage.passes!=dispatch_start):
+		if not _cloud_profile_mode and ((active and mirage.passes==dispatch_start) or (not active and mirage.passes!=dispatch_start)):
 			failures.append("mirage dispatch state contradicted paired route block");break
 		# Restore the next block's starting door state using the real hand path.
 		# Do this outside collection, while the exterior leaf is still reachable.
@@ -177,10 +184,21 @@ func _profile_mirage_route(manager: Node) -> void:
 	if not mirage.failed.is_empty():failures.append(mirage.failed)
 	var source_after := _runtime_digest()
 	if source_after!=_source_before or source_after.is_empty():failures.append("source changed during occupied mirage profile")
+	if render_sources!=_sky_source_bindings():failures.append("sky shader or noise stock changed during occupied profile")
 	if blocks.size()!=4:failures.append("occupied ABBA profile did not complete all four blocks")
-	FileAccess.open(output.path_join("mirage_world_frames.json"),FileAccess.WRITE).store_string(JSON.stringify({
+	FileAccess.open(output.path_join("cloud_world_frames.json" if _cloud_profile_mode else "mirage_world_frames.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","scope":"ABBA occupied-controller/door/street-turn diagnostic, first traversal retained separately; not whole-V2, river art or statistical performance acceptance",
+		"cloud_flow_comparison":_cloud_profile_mode,
+		"render_source_sha256":render_sources,
 		"source_before":_source_before,"source_after":source_after,"blocks":blocks,"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,
 		"conditions":manager.current,"calendar":clock.local_datetime(),"weather_source":manager.source,"mirage_parameters":mirage.last_projection_parameters,
 		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters"],"samples":_samples,"segments":_segments,
 		"input_costs":player._grab.profile_records,"player_physics":player.physics_profile_records,"failures":failures},"\t"))
+
+func _sky_source_bindings() -> Dictionary:
+	var result: Dictionary={}
+	for name: String in ["queens_weather_sky.gdshader","queens_weather_math.gdshaderinc","sky_spectacle.gdshaderinc","skywatch_mirage.compute"]:
+		result["game/shaders/"+name]=FileAccess.get_file_as_string("res://shaders/"+name).replace("\r\n","\n").sha256_text()
+	for name: String in ["perlin_worley_64.rg8","perlin_worley_128.r8","cloud_curl_32.rgb8"]:
+		result["game/assets/environment/weather/"+name]=FileAccess.get_sha256("res://assets/environment/weather/"+name)
+	return result
