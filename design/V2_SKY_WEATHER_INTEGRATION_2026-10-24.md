@@ -1214,3 +1214,114 @@ patch and evidence are retained under
 merges only the safe reconciliation handoff at **8e722838**, preserving the
 accepted creature/optical baseline. PR #62 must not be treated as merged or
 production-qualified merely because the focused weather checks pass.
+
+### Native production recovery — 2026-10-26
+
+REPORT — WEATHER-RECOVERY — 2026-10-26. Evidence class remains **INERT**.
+This section supersedes the earlier pending qualification status; it preserves
+the original failures rather than converting their diagnostic sections into passes.
+
+Branch: **codex/weather-production-recovery-20261026**. Accepted base and
+merge-base: **53d8eb068ce3b864d81d9e33ecc7480ad219ef2d**. Runtime qualification
+source: **a535b38005bcf97380ff2e75bfd2fcf4ed804501**. The recovery merges the
+retained weather tag onto newer main and keeps main's installed Tardi visibility
+and reflection-atlas fixes. All Godot runs use the hash-pinned custom Vulkan
+4.7.1 engine through the shared lane, native fullscreen at **3440×1440** for
+rendered checks. No protected gameplay authority or selector logic was changed.
+
+The original SubViewport workaround is retired. A small native-window launcher
+applies fullscreen after settings initialization, without modifying GameBoot.
+The three original 4K panoramas retain loaded mipmaps and a director-owned,
+bounded three-resource cache. Calendar/forecast/publication, inventory,
+relationship, case, work-order and save owners remain authoritative.
+
+| Issue / location | Reproduction, severity and evidence | Repair and verification |
+|---|---|---|
+| Panorama transitions | First-use date/presentation changes; previously measured loading hitch | Retain/preload the three textures and mip chains; sky59 checks identity/residency, roof43 exercises the full-year inspector. Historical cache timings remain historical, not a new shader-route speedup. |
+| Cloud silhouettes / shared sky | Flat extruded cloud islands, capped anvil, regular mammatus lattice; visual defect | Reuse existing noise for underside relief and broader masses; join rounded updraft/anvil lobes; warp pouch placement. Bound active march intervals and retain dense/severe lighting samples. No new noise assets, lights or march steps. Four-date paired renders and 42 phenomenon frames inspected. |
+| F03 native nozzle qualification | First native survey: **39,931 checks, two failures**, 911.02 s. Trace catches delayed warp motion **(71,13)** after the synthetic grab, displacing the part | Wait for native rendered-frame cursor delivery before clicking. Exact installed-frame diagnostic passes; all eight composed stations pass **1,637** checks. No collision bypass, wider tolerance or relaxed deadline. The failed contract and raw trace are retained. |
+| Local imported-scene metadata | Three V2 portrait caches referenced stale texture UIDs; diagnostic warnings | Rebuild only the ignored derived scene caches and import twice. No authored texture UID changed. Current V2 surface/roof/rebuild stderr is empty; the legacy V1 sky fixture still reports other portrait-cache warnings and cam_noel_witches. |
+| Stale surface qualification | Shader/import changes correctly expire the old packet | Original native full survey now passes **40,797 checks**, zero failures, **1,060.21 s**, empty shutdown stderr. Publish its untouched schema-2 contract, inventory, wrapper/raw logs and 19 reviewed native images through the existing publisher. Independent packet validation: zero defects, 27,806 draws, 6,298 materials, 525 textures. |
+| Remaining first-view hitch | Same occupied **walk_13** in both routes, passage RESIDENT; 1,205/1,248 ms spikes coincide with **22** new pipeline specializations | Not fixed by this patch. Retain raw counters and frame distributions; queued as **K-V2-FIRST-VIEW-HITCH**. Correlation does not identify a function-level CPU owner. |
+
+Terminal lane receipts are retained in **roof_preview_review.zip**, under
+**production_recovery/**, alongside the original failures and source controls:
+
+| Programme | Actual result | Elapsed |
+|---|---|---|
+| Original full surface inventory | 40,797 checks, zero failures; schema-2 runtime contract | 1,060.21 s |
+| Installed roof inspector | 43 checks, zero failures; keyboard input, year wrapping and restoration | 180.06 s |
+| Weather sky fixture | 59 checks, zero failures; legacy V1 warnings retained | 34.32 s |
+| Actual saved-world reconstruction | 41 checks, zero failures; schema-2 runtime contract; empty stderr | 252.93 s |
+| Campaign weather | 424 checks, zero failures | See original wrapper receipt |
+| Phenomenon schedule / flash accessibility | PASS / 2 of 2 PASS | See original wrapper receipts |
+| Occupied matched route | 29 waypoints, zero failures; scoped runtime contract | 183.49 s |
+| Phenomenon gallery | 42 actual rendered frames, empty stderr | 59.58 s |
+| Annual gallery | 2,190 samples, 13 reverse-date replays, zero failures; empty stderr | 1,107 s rounded by runner |
+
+The annual survey covers all 365 dates at six solar-relative periods. Its
+observed diversity is ten cloud genera, six regimes, five arrangements, five
+coverage bins and 2,186 appearance signatures. Signatures are image descriptors,
+not physical cloud segmentation or proof of artistic quality. Three complete
+seasonal pages and the phenomenon sheets were inspected in addition to the
+native occupied roof and surface images. The year has 23 retained review pages.
+
+#### Matched performance, with remaining limits
+
+Before/after routes use the same native resolution, Forward+, TAA, MSAA3,
+72-degree FOV, uncapped sampling, simulated evening hail, traffic seed1928,
+controller route and actual door grabs. Both already have the recovered
+panorama cache; this comparison evaluates subsequent sky polish, not the cache's
+original benefit. Startup is excluded. There are 1,500 / 1,575 measured frames.
+
+| Frame distribution (ms) | Before p50 / p95 / p99 / max | After p50 / p95 / p99 / max |
+|---|---|---|
+| Wall | 29.769 / 51.352 / 63.313 / 1,204.989 | 26.719 / 51.631 / 62.798 / 1,247.753 |
+| Render CPU | 14.100 / 24.048 / 26.744 / 70.778 | 12.089 / 24.221 / 26.805 / 62.689 |
+| Render GPU | 13.888 / 21.279 / 23.278 / 31.139 | 13.100 / 21.173 / 23.362 / 33.733 |
+
+Frames over100 ms: **five → four**. The largest spike has approximately12 ms
+measured GPU time in both routes and coincident specialization-counter growth.
+Loading-state spikes also remain. Process/physics monitor values are sampled
+monitors, not independent per-frame function profiles; do not sum them or claim
+that these counters prove a particular script or driver caused the stall.
+The route does not establish whole-game responsiveness or statistical confidence
+from a single pair, and p95 is effectively unchanged.
+
+The interleaved isolated sky control uses the original self-contained shader,
+identical date/settings, 128 warm frames and 256 samples per variant/date.
+GPU p95 before→after: November **5.798→6.619**, March **6.606→6.597**,
+June **6.649→6.729**, September **6.710→6.722 ms**. Driver clocks are not locked.
+This preserves a visible quality tradeoff and does not claim every sky is faster.
+
+#### Evidence, scope and integration status
+
+The consolidated archive has **647 hash-verified members, 52,110,563 bytes**;
+all 299 preceding members remain byte-exact. It keeps raw failure/pass logs,
+test-written contracts and original source controls. Four new native-resolution
+phenomenon PNGs are retained, with explicitly mapped JPEG review derivatives for
+other selected frames, contact sheets and annual pages. Original PNG hashes and
+conversion settings are recorded; derivatives are not mislabeled as original
+captures. The previous accepted packet's image bytes are verified against and
+remain available in **53d8eb06** Git history, avoiding redundant image copies.
+
+Technical qualification is complete for the listed weather scopes. Main's
+unrelated red whole-game gates and construction debt remain; this is neither
+whole-V2 completion nor owner acceptance of atmosphere, humor, readability or
+feel. Ordinary roof hail is deliberately low-contrast grey-sepia; the rare sky
+showcase is a separate review, not proof that every roof date looks like it.
+
+Owner follow-ups are recorded separately: authored release snapping for loose
+service parts, then the V2 Skywatcher Club, relief Moon, telescope and barbecue
+area. The old no-snap/support-fall checks qualify the tested pre-change mechanism,
+not that newly requested simplification. The Year You Died and its verbatim
+opening scene remain the post-V2 goal; alien/Signal Pro direction is recorded
+without introducing premature story facts into the current campaign.
+
+Final candidate verification and clean integration remain mandatory after this
+evidence checkpoint. The prequalification board ran all114 gates and found only
+the then-stale surface packet; reader NEW0 and ledger requirements unchanged.
+The independent publisher now validates the renewed packet. No owner decision
+is needed; routine verification and merge are authorized.
+
+BLOCKED — final clean candidate verification and merge pending.

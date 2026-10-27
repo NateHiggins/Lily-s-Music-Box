@@ -97,6 +97,37 @@ bureaucratic, technically confident and caring voice. Answers must remain useful
 and subordinate to witnessed evidence and validated world state. Do not replace
 its physical interface with a conventional dialogue wheel or omniscient chatbot.
 
+## V2 prerequisite: Skywatcher Club
+
+Owner direction, 2026-10-26: **build this into V2 after the weather merge**.
+This is an additional roof hangout, not a reason to interrupt the active weather
+qualification or prematurely implement the post-V2 mystery.
+
+Design and build the rooftop Skywatcher Club for weather, astronomy and alien
+watching. Include a usable period-appropriate telescope and a barbecue party
+area, with the supporting seating, serving space, circulation and physical
+fittings needed to make that gathering work. Survey the installed roof first;
+preserve weather-inspector access, plant service routes and safe player movement.
+Use the established Blender/PBR pipeline and verify the actual rooftop view and
+direct telescope manipulation, including entry, aiming and exit ownership.
+
+The Moon must be larger than life and relief modeled, with readable terrain
+shadows under grazing light through the telescope. Accurate lunar cycles and
+Sun-relative illumination follow the campaign clock, including out-of-order
+preview dates. The existing ephemeris and mapped sky disc are starting points,
+not proof of terrain relief, self-shadowing or a completed telescope. Exaggerate
+presentation scale without replacing phase geometry with a decorative crescent.
+Keep fine relief detail bounded to the viewing needs so normal exploration pays
+no unnecessary high-resolution geometry or lighting cost. Measure the result.
+
+The owner establishes that **aliens are real and common in this alternate
+universe**. They ignore humans; humanity has never got close enough to communicate.
+The larger mystery hinges on communicating with them through **Signal Pro AI**.
+Preserve this as an intentional narrative connection, not permission to invent
+an alien faction, decoded message or resolved contact event now. Club atmosphere
+can establish the subject; witnessed knowledge, discoveries, dialogue and future
+communication remain subordinate to their authored story and case authorities.
+
 ## Temporal engineering constraint
 
 **Never simulate all 8,760 hours in sequence.** Use deterministic, event-driven

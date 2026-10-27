@@ -116,6 +116,12 @@ product proof, not another spine rewrite.
 
 - **K-POST-V2-YEAR — After V2 construction and qualification, build The Year You Died: nonlinear temporal forensics across the murder year, with a unified calendar/evidence interface and deterministic event-driven world states.** Owner-directed big goal; [brief](design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md). Do not divert current V2/weather closure into implementing this next phase.
 
+- **K-V2-SKYWATCH — After the weather merge, build the rooftop Skywatcher Club: period telescope, larger-than-life relief Moon with calendar-accurate phases and relief shadows, weather/astronomy/alien watching, and a barbecue gathering area.** Owner explicitly places this in V2. Preserve roof plant access and the weather inspector; [requirements and story connection](design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md#v2-prerequisite-skywatcher-club). Not implemented or accepted yet.
+
+- **K-V2-SERVICE-SNAP — After the active weather merge and before the club build, simplify loose service parts such as the nozzle: authored compatible fitting/rest positions on release, no free gravity simulation.** Owner direction 2026-10-26 supersedes the previous no-snap/free-fall requirement. Preserve direct grab/motion/release, thread/repair/water authorities, save validation and sensible nearby placement. Update behavior tests to this new contract and exercise actual input; old support-fall and no-snap assertions are no longer acceptance criteria.
+
+- **K-V2-FIRST-VIEW-HITCH — Attribute and reduce the occupied route's remaining first-view stall.** Matched native 3440×1440 weather routes retain a 1.205/1.248-second spike at walk 13, coincident with 22 new pipeline specializations while the passage is RESIDENT; measured GPU frame time stays about 12 ms there. This is correlation, not a function-level diagnosis. Preserve detail and trace compilation/streaming/CPU ownership before changing budgets; [weather evidence](design/V2_SKY_WEATHER_INTEGRATION_2026-10-24.md). Weather qualification does not close this performance debt.
+
 ## D — Needs a decision from the owner
 
 Nothing below is blocked on effort; it is blocked on someone choosing.
