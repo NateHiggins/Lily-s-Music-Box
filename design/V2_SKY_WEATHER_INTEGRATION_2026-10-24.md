@@ -1945,3 +1945,65 @@ archive. No failure classifier exception, source repinning or fabricated child
 receipt is used. The durable review archive preserves the raw run and
 qualification artifacts. Current-source disk reconstruction, annual night
 review and the final full regression/candidate comparison remain outstanding.
+
+### Current-source reload and complete nightly sweep
+
+**fallout_lifecycle_final.log.receipt.json** passes **43 checks** in
+**328 seconds**, empty stderr, against source **61f8a38a**. Its original
+schema-2 **weather_lifecycle_contract.json** records production composition,
+validated isolated disk save/load reconstruction, invalid-event denial and
+teardown as executed/PASS. Both world generations retire all tracked weather
+nodes, resources and playbacks (zero retained). Fractional clock/weather
+transport, active blood state without stale frogs, inventory, work orders,
+residents, cases and reading authorities survive the real disk load. Timeline
+queries still exclude future issues. The integrated precipitation review has
+no failures; actual rooftop rain/snow and the blood-rain companion typing view
+were inspected. Streaks/flakes are plainly visible and the physical green text
+is unobscured. This does not close the recorded activation-frame stalls.
+
+**annual_nights_final.log.receipt.json** passes in **710 seconds**, empty
+stderr: **365 dates / zero capture failures**, November 10, 1928 through
+November 9, 1929 at **23:00**, seed **1928**, native **3440 by 1440**. This
+fills the current-source annual night gap; it is not a whole-day or multi-seed
+artistic qualification. **native_detail.json** carries each date's actual
+production cloud-alpha sample, illumination, presentation state and loaded
+shader/plan hashes. The analyser produces 11 contact pages and hashes every
+colour/mask pair. Both wrapper receipts bind to the current runtime sources.
+
+| Season | Nights | Median measured cloud alpha | Median angular fraction with alpha above 0.1 | Median cloud-region display luminance standard deviation |
+| --- | ---: | ---: | ---: | ---: |
+| Winter | 90 | 0.412 | 0.653 | 0.0446 |
+| Spring | 92 | 0.482 | 0.784 | 0.0482 |
+| Summer | 92 | 0.293 | 0.585 | 0.0548 |
+| Autumn | 91 | 0.286 | 0.589 | 0.0504 |
+
+There are **365 distinct colour hashes and 365 distinct mask hashes**. That
+rules out exact duplicate captures, not similar silhouettes or palettes.
+Inspected November/December, May/June and September/October contact pages show
+varying cloud breaks, dense decks and the dated aurora, but a recurring
+blue/sepia night palette and common cloud families remain apparent. The bright
+catalogue stars deliberately use enlarged discs in the inherited renderer;
+this is retained, not silently reclassified as a new weather failure. The
+benchmark skyline lacks occupied-rooftop ground context. The requested relief
+Moon/telescope/Skywatcher work remains separate and unimplemented here.
+
+Reproduction: extract **annual_night_plan_current.json** from the durable
+review archive, set **SKY_NATIVE_SAMPLING_PLAN** to it and run
+**res://tests/V2QueensSpectacleBench.tscn** with the shared lane wrapper,
+**-Windowed**, native fullscreen arguments and a fresh log/output path. The
+bench refuses a calendar hash mismatch. Then run
+**python tools/analyze_weather_gallery.py --detail OUTPUT --out REVIEW**.
+Its instrumented mask disables geometry/WeatherFX/TAA only for the mask and
+samples the upper two thirds every fourth pixel; declared weather coverage is
+not the same measurement as angular opacity. Single-seed results have no
+cross-seed groups. Earlier 165-view multi-seed/twilight evidence remains scoped
+to its recorded sources; the new nightly sweep does not replace those hours.
+
+The existing archive now also retains both raw final runs, the unchanged
+runtime contract, precipitation arrays, native per-date metadata, sampling
+plan, all 11 contact pages, assessment/summary and six selected actual-world
+captures. Full 730 colour/mask PNGs remain in the external native gallery;
+only hashes/measurements and review pages enter Git to avoid duplicating the
+large annual image collection. Technical checks are not human artistic
+acceptance. First-view/activation hitch attribution, the final full regression
+comparison and merge-candidate verification remain open.
