@@ -2,8 +2,8 @@
   "evidence_class": "INERT",
   "kind": "immutable_git_capture_recovery",
   "source_commit": "4a696934710f66de9cf57ebf8609428ca88f3659",
-  "scope": "Historical wall-art audit captures only. Original manifests retained; no gameplay/art sources or active acceptance packets removed. Every loose image verified byte-for-byte against its committed Git blob before removal. No new runtime or artistic acceptance.",
-  "recovery": "git archive --format=zip --output=C:/ov/wall-art-review.zip 4a696934710f66de9cf57ebf8609428ca88f3659 -- art/renders/wall_art_audit_before art/renders/wall_art_audit_after art/renders/wall_art_audit_final art/renders/wall_art_audit_delivered",
+  "scope": "Historical raster render outputs only. Original manifests/logs/receipts remain; every removed image matches its immutable committed Git blob. Runtime assets, editable sources and active qualification packets remain. No new runtime/artistic acceptance.",
+  "recovery": "git archive --format=zip --output=C:/ov/historical-render-review.zip 4a696934710f66de9cf57ebf8609428ca88f3659 -- art/renders/bathroom_sconce_side_mount art/renders/ceiling_soffit_approval_v1 art/renders/ceiling_soffit_final art/renders/celestial_phase_v1 art/renders/celestial_sidereal_v1 art/renders/cloud_direction_v1 art/renders/domestic_radios_k0 art/renders/dream_encounter_lifecycle_lc6f art/renders/dream_layers_en1b art/renders/dream_layers_en3 art/renders/dream_margin_death_stain_lc6b art/renders/dream_margin_lifecycle_lc6a art/renders/enamel_appliance_pilot art/renders/enamel_appliance_promotion art/renders/harukiya_rebuild art/renders/lighting_rooms art/renders/lightpass art/renders/lobby_marble art/renders/map_passage_finish art/renders/material_library_unification art/renders/mina_final art/renders/mipmap_verify art/renders/note_board_relocation art/renders/orison_v2/fabrication_batch_20261007 art/renders/orison_v2/kitchen_sinks_20261012 art/renders/orison_v2/street_paving_20261008 art/renders/pc_room_redesign art/renders/performance_shadow_k1 art/renders/shadow_budget_g17 art/renders/shower_curtain_final art/renders/shower_curtain_final_open art/renders/shower_curtain_final_warehouse art/renders/street_facade_survey_v1 art/renders/street_neon_batch_t7e art/renders/sweep2 art/renders/texture_grid_fix art/renders/vantry_arcade_v3b art/renders/vantry_arcade_v4_depth art/renders/vantry_arcade_v4_night art/renders/wall_art_audit_after art/renders/wall_art_audit_before art/renders/wall_art_audit_delivered art/renders/wall_art_audit_final art/renders/wall_art_audit_verified art/renders/windows_w1",
   "members": [
     {
       "path": "art/renders/wall_art_audit_after/01_memoryart_sixth_make_room.png",
@@ -1234,9 +1234,3183 @@
       "blob_oid": "e99df0792792466006544c8c142440ecf80d3486",
       "bytes": 117975,
       "sha256": "d331d4ba1df87a1925643302a541dc343df400de8b46ea1e9d4aef0717c93e32"
+    },
+    {
+      "path": "art/renders/bathroom_sconce_side_mount/stand_-6.65_11.05_-5.0_-24_-8.png",
+      "blob_oid": "2f88d457f181ee360f9aee3908cfd2e02167b9b4",
+      "bytes": 1670290,
+      "sha256": "0c3d854793595278afd5a89cad12c6f8e0cebcb5b28195aec34ff4b52259476e"
+    },
+    {
+      "path": "art/renders/ceiling_soffit_approval_v1/b_82_f04_soffit_test.png",
+      "blob_oid": "07d53700c4bac43a9fd6e8215c7091f8649408ca",
+      "bytes": 748537,
+      "sha256": "4e8ce68128c23237c10395c2c499c6647be26decc8186e2fa1493de56b6f7098"
+    },
+    {
+      "path": "art/renders/ceiling_soffit_approval_v1/stand_0_10.15_0.2_0_21.png",
+      "blob_oid": "3871ea4ad60cc35a38e5c094f3e59bf2549272d2",
+      "bytes": 1029042,
+      "sha256": "144874123aa7911373a7ab64dd60761d75933259ffb8dec115490ffe369dd8ab"
+    },
+    {
+      "path": "art/renders/ceiling_soffit_approval_v1/stand_2.35_10.15_0.2_0_24.png",
+      "blob_oid": "04299b8f7adce4ce5c9dc6810f0ab6da9aeea9fc",
+      "bytes": 1710038,
+      "sha256": "b062a260737433fe41fe9315b1e4b00bb80a9c42535a407e4742a3fbbe0b9e46"
+    },
+    {
+      "path": "art/renders/ceiling_soffit_final/f04_b_main_up.png",
+      "blob_oid": "8eaa6f4501da85d6ff176d0c81cad5f41b43a35f",
+      "bytes": 1781682,
+      "sha256": "29cfb6b03f893d50158c55df73b8bcbe69cfa4fb69ff1c34853e4fce86c8bf0f"
+    },
+    {
+      "path": "art/renders/ceiling_soffit_final/f06_c_bed2_up.png",
+      "blob_oid": "48e4555ed75942738e19c57e783e745d387bab7a",
+      "bytes": 1429900,
+      "sha256": "0671dfddb7dde1c461fbd671510a126534b04fe1690b6489e435464f80b0730e"
+    },
+    {
+      "path": "art/renders/ceiling_soffit_final/stand_2.35_10.15_0.2_0_24.png",
+      "blob_oid": "258c7d365d33706d84adb673e92f44a7bce75ca1",
+      "bytes": 1721388,
+      "sha256": "1355a9b1bc62be910ec3f1c2620c84376fc649c69dac6d54b9a5e5bfb4665cb8"
+    },
+    {
+      "path": "art/renders/ceiling_soffit_final/stand_2.35_6.95_0.2_0_24.png",
+      "blob_oid": "adc187008e4e6ad5d3b8004ae50e034bba5e3612",
+      "bytes": 1688231,
+      "sha256": "39524e7c49f993b8863317a8ea7b385ae85734c7811d94482ffd6e7f5c70a680"
+    },
+    {
+      "path": "art/renders/celestial_phase_v1/04_roof_skyline_crescent_final.png",
+      "blob_oid": "2b247cdd75e996468df8e16328800c591f56886d",
+      "bytes": 331520,
+      "sha256": "92954940172873d73e92f31b4e901aa95bce9d30c41a2f2e96a9ece3b026fe32"
+    },
+    {
+      "path": "art/renders/celestial_phase_v1/04_roof_skyline_full_control_a.png",
+      "blob_oid": "06bc82c854a409c9a3fe2218de3383498dd9a85a",
+      "bytes": 272482,
+      "sha256": "dc47e6560f1de523a7f739005cb3ae8d6d56a93b9472933442e2df9a370ad6af"
+    },
+    {
+      "path": "art/renders/celestial_phase_v1/04_roof_skyline_full_control_b.png",
+      "blob_oid": "06bc82c854a409c9a3fe2218de3383498dd9a85a",
+      "bytes": 272482,
+      "sha256": "dc47e6560f1de523a7f739005cb3ae8d6d56a93b9472933442e2df9a370ad6af"
+    },
+    {
+      "path": "art/renders/celestial_sidereal_v1/04_roof_skyline_sidereal_control_a.png",
+      "blob_oid": "94b20805504bc7725021a38d207cf4ff57b7592d",
+      "bytes": 758984,
+      "sha256": "5e77589ad69aeefd57b784f8661b1b85e286d0c7f66e8f91b41e5e30d1e4ba43"
+    },
+    {
+      "path": "art/renders/celestial_sidereal_v1/04_roof_skyline_sidereal_control_b.png",
+      "blob_oid": "94b20805504bc7725021a38d207cf4ff57b7592d",
+      "bytes": 758984,
+      "sha256": "5e77589ad69aeefd57b784f8661b1b85e286d0c7f66e8f91b41e5e30d1e4ba43"
+    },
+    {
+      "path": "art/renders/celestial_sidereal_v1/04_roof_skyline_sidereal_plus_6h.png",
+      "blob_oid": "7e7e4e6acf1f9d3f2dbcb68099a984b6d8956906",
+      "bytes": 568076,
+      "sha256": "d356651d8670b0b6fa2730a48c0e89fabeed2c20959ea7cb1473ca1f79f5ac8e"
+    },
+    {
+      "path": "art/renders/cloud_direction_v1/scattered_night/04_roof_skyline_linear_alpha.png",
+      "blob_oid": "1c77fe21291437034fa997bef652895c1a594310",
+      "bytes": 688752,
+      "sha256": "06860b0d775f8d2c6a2a02fe534567d45f8a6a553b929ecbba75212b3c7793e0"
+    },
+    {
+      "path": "art/renders/domestic_radios_k0/01_night_nurse_headphones.png",
+      "blob_oid": "52fcc831f2fa0c0cdd5ea219e7a3bddf2d9d7205",
+      "bytes": 103064,
+      "sha256": "c96a05e416bd838df4b1abbe6f2c46e62524f063f33efaf3c3d48a30dfc68ae3"
+    },
+    {
+      "path": "art/renders/domestic_radios_k0/02_signal_workers_1928_ac_set.png",
+      "blob_oid": "f53ee77d64dfb0c983fbdb14a55b81451a7a2c0d",
+      "bytes": 109143,
+      "sha256": "3f65205256e999c3531b3fa9fd1e27014c624f60676b092699adf81b0e985dfc"
+    },
+    {
+      "path": "art/renders/domestic_radios_k0/03_homebuilt_regenerative.png",
+      "blob_oid": "a12549b30342bd3385099adb88dc6fe5ffaf7ec6",
+      "bytes": 104331,
+      "sha256": "2e20aa1fcfa0a218dbbb507240e45ff7f42c328a0f9dab149378f37242eabea0"
+    },
+    {
+      "path": "art/renders/domestic_radios_k0/04_quiet_crystal_set.png",
+      "blob_oid": "787c05da6050f89c1e26da0f0fdcb61053a8234e",
+      "bytes": 103679,
+      "sha256": "7298849c998aaea9fc3015b575aa0cfa0e4c231a35ab693e0d14ca6b16c96cbb"
+    },
+    {
+      "path": "art/renders/domestic_radios_k0/05_players_furnished_wireless.png",
+      "blob_oid": "201cc83d9656b22d68f9b06ac6be1463eb7c92ee",
+      "bytes": 111161,
+      "sha256": "f00f80b2ba0c2d59b143d302a2ae0c1eded40c57fc6db55b824c9e9465850404"
+    },
+    {
+      "path": "art/renders/domestic_radios_k0/06_collectors_principal_set.png",
+      "blob_oid": "9abad39275c5340c8d4d0afae1d6c57b73075e2b",
+      "bytes": 116538,
+      "sha256": "08f38de9f5f66d44dea1b1c025a9d0cf77d970486b45be904591273f837a949b"
+    },
+    {
+      "path": "art/renders/domestic_radios_k0/Z_control_a.png",
+      "blob_oid": "201cc83d9656b22d68f9b06ac6be1463eb7c92ee",
+      "bytes": 111161,
+      "sha256": "f00f80b2ba0c2d59b143d302a2ae0c1eded40c57fc6db55b824c9e9465850404"
+    },
+    {
+      "path": "art/renders/domestic_radios_k0/Z_control_b.png",
+      "blob_oid": "201cc83d9656b22d68f9b06ac6be1463eb7c92ee",
+      "bytes": 111161,
+      "sha256": "f00f80b2ba0c2d59b143d302a2ae0c1eded40c57fc6db55b824c9e9465850404"
+    },
+    {
+      "path": "art/renders/dream_encounter_lifecycle_lc6f/exchange_a.png",
+      "blob_oid": "ee00603b74dc86758ef333d92513c310c525f711",
+      "bytes": 553267,
+      "sha256": "0c5d3d5ca92ba0858c96b3941f780b7bd807d420d1311ea3e4cb3c0137d4c6bc"
+    },
+    {
+      "path": "art/renders/dream_encounter_lifecycle_lc6f/exchange_b.png",
+      "blob_oid": "ee00603b74dc86758ef333d92513c310c525f711",
+      "bytes": 553267,
+      "sha256": "0c5d3d5ca92ba0858c96b3941f780b7bd807d420d1311ea3e4cb3c0137d4c6bc"
+    },
+    {
+      "path": "art/renders/dream_encounter_lifecycle_lc6f/folded_a.png",
+      "blob_oid": "0d58b4d101a69dbdeeb0f42304fd98b0dd4237d9",
+      "bytes": 507684,
+      "sha256": "8584e93e2f0e8a0cce697f4cc94c52b9dd5fda304fa527d1824a6014bb91e30e"
+    },
+    {
+      "path": "art/renders/dream_encounter_lifecycle_lc6f/folded_b.png",
+      "blob_oid": "0d58b4d101a69dbdeeb0f42304fd98b0dd4237d9",
+      "bytes": 507684,
+      "sha256": "8584e93e2f0e8a0cce697f4cc94c52b9dd5fda304fa527d1824a6014bb91e30e"
+    },
+    {
+      "path": "art/renders/dream_encounter_lifecycle_lc6f/mature_a.png",
+      "blob_oid": "aed0c70d959ed66cf6b26ba507fe2b332ece3518",
+      "bytes": 549087,
+      "sha256": "af16c4c61170060c3f190843fb828d3db28c14fcc2706720a1f6a75df8ead870"
+    },
+    {
+      "path": "art/renders/dream_encounter_lifecycle_lc6f/mature_b.png",
+      "blob_oid": "aed0c70d959ed66cf6b26ba507fe2b332ece3518",
+      "bytes": 549087,
+      "sha256": "af16c4c61170060c3f190843fb828d3db28c14fcc2706720a1f6a75df8ead870"
+    },
+    {
+      "path": "art/renders/dream_encounter_lifecycle_lc6f/stain_a.png",
+      "blob_oid": "2ca4435a2d5cedc10582a462cb9b2d11ee7c40de",
+      "bytes": 490089,
+      "sha256": "5eab830c36eb8e5063170b4f067e9ee5b2d63c4f800eb460044b24fed2cf6363"
+    },
+    {
+      "path": "art/renders/dream_encounter_lifecycle_lc6f/stain_b.png",
+      "blob_oid": "2ca4435a2d5cedc10582a462cb9b2d11ee7c40de",
+      "bytes": 490089,
+      "sha256": "5eab830c36eb8e5063170b4f067e9ee5b2d63c4f800eb460044b24fed2cf6363"
+    },
+    {
+      "path": "art/renders/dream_layers_en1b/klimt/00_klimt_latent.png",
+      "blob_oid": "d8fc77425c4dad2a94cb41f1c26f218e23df1f1c",
+      "bytes": 105391,
+      "sha256": "699eceee56036ad65d38c8ca4cdb1d6b9a975ec4527e0b80bc3cd15a2bd1ed67"
+    },
+    {
+      "path": "art/renders/dream_layers_en1b/klimt/02_klimt_mid.png",
+      "blob_oid": "b49db5fd0f05a0e218346345c333a65b36c6dff9",
+      "bytes": 160162,
+      "sha256": "ee13543fda37b5e2d482016ccb1edeb224902e6c8c24c7c81fadff6a872058bb"
+    },
+    {
+      "path": "art/renders/dream_layers_en1b/klimt/04_klimt_high.png",
+      "blob_oid": "439e9b5934c8e9690b2847be0ac572c70d7cb9c8",
+      "bytes": 207987,
+      "sha256": "3d2d34d293624855b6d7f19d81955e0ea8086d14b0607357dda3821a9ac2eb20"
+    },
+    {
+      "path": "art/renders/dream_layers_en1b/layered/00_klimt_latent.png",
+      "blob_oid": "3b614a43f9724238e3f5661ade955cab8cc6debe",
+      "bytes": 787600,
+      "sha256": "c6c88b040e6c86100be80da6fcaeeee7f4a58a9e1ed381523825c68197dc092a"
+    },
+    {
+      "path": "art/renders/dream_layers_en1b/layered/02_klimt_mid.png",
+      "blob_oid": "3255841479f8ca9e97983c98ef609304258a2682",
+      "bytes": 805323,
+      "sha256": "910e9423e5ab34a13e83d68b43124bdd400dc1d5e57316a4ef03b99f8b8b9ef0"
+    },
+    {
+      "path": "art/renders/dream_layers_en1b/layered/04_klimt_high.png",
+      "blob_oid": "a65d3c64627e54c20354b3a9701a0f5ea1e90d03",
+      "bytes": 1025440,
+      "sha256": "8e4458bf4b2172094d228b2fc29c69afe9870a84994eac3b6e714eb0ad1a0580"
+    },
+    {
+      "path": "art/renders/dream_layers_en1b/layered/05_probe_base.png",
+      "blob_oid": "a6dfbbfc106e907381bc28a5585d7384f29643e1",
+      "bytes": 1047817,
+      "sha256": "e209a6563f84b8bf78afa3df6a9b2daa08aa32b5e720420d5e3cd3ed8a086b89"
+    },
+    {
+      "path": "art/renders/dream_layers_en1b/layered/09_probe_stack_high.png",
+      "blob_oid": "4fdf6d107b0578aa2de65e42cc00caf782511a6e",
+      "bytes": 1097864,
+      "sha256": "cdf494202918032e0a29d69f0605b75ab340650a2656442ef6734c7cedef4bfc"
+    },
+    {
+      "path": "art/renders/dream_layers_en1b/layered/10_probe_stack_high_with_limbs.png",
+      "blob_oid": "a850cd698e503618e40d5075de0fa779fed28697",
+      "bytes": 1067152,
+      "sha256": "8143c520df7b044e842a5fd8b1651a4d67acfd4b7afb6591304c12c4565eb838"
+    },
+    {
+      "path": "art/renders/dream_layers_en1b/sheet_base_only.jpg",
+      "blob_oid": "0800b9eeb8cd590dce439a1823b42c975c68735a",
+      "bytes": 193662,
+      "sha256": "c8d4f5bc74f15f8911e22dcfe260bb4dc429c0ad7d83d107417e0e218d390fc1"
+    },
+    {
+      "path": "art/renders/dream_layers_en1b/sheet_en1b.jpg",
+      "blob_oid": "79728d1e64279429fcfa836bd06fabab9104dc89",
+      "bytes": 544955,
+      "sha256": "86e654e1a1d48ec790ff5a6828a8e66532682f831957cfe5c22fea3f64c03fa5"
+    },
+    {
+      "path": "art/renders/dream_layers_en3/fold/04_klimt_high.png",
+      "blob_oid": "fc6ee6bf421e163fdb44ac599494a34a41db4526",
+      "bytes": 923879,
+      "sha256": "1d9ca2dc201ead3028da87fb6dada3f34c9be08322986b00f17f2f78426448b3"
+    },
+    {
+      "path": "art/renders/dream_layers_en3/geometry/04_klimt_high.png",
+      "blob_oid": "e35899b0bbda0d1bb3569e37834431136f0ec36f",
+      "bytes": 925156,
+      "sha256": "dd60979ef44bd87a3c4a1b24064c2fe069787a55ee65dfcade69d86f55004113"
+    },
+    {
+      "path": "art/renders/dream_layers_en3/nofold/04_klimt_high.png",
+      "blob_oid": "03c5b8f3bf97ae73c4b5ce61b0188a40520b6528",
+      "bytes": 941870,
+      "sha256": "a9c608fec6702f816f1f6d379d1b1cdd447df4712af1dc2bdd8e33c933ceb4b2"
+    },
+    {
+      "path": "art/renders/dream_layers_en3/sheet_en3_fold.jpg",
+      "blob_oid": "251f2a63f1257092037c60cbb4a67cb13d863254",
+      "bytes": 309940,
+      "sha256": "a9d333d92f10a7c55a6faf4af0cd381a14dcac5f49ceb060d43f804e2c2785e3"
+    },
+    {
+      "path": "art/renders/dream_layers_en3/sheet_en3_geometry.jpg",
+      "blob_oid": "272a3ffce9d60c8e004b0b6ef2f583a46e9bd51e",
+      "bytes": 340181,
+      "sha256": "aadf44af5c3667de18ccba9f95593f473865e21082ac209a0cbceeddd6021fbd"
+    },
+    {
+      "path": "art/renders/dream_margin_death_stain_lc6b/00_mature_control_a.png",
+      "blob_oid": "391cf1132aa2a79e2a3d49c318bfd618dda2b16b",
+      "bytes": 992011,
+      "sha256": "3c00f9fd2db2b013704a3740cfba3d8c25da5a94a8143f6a2b9577fcb21e7068"
+    },
+    {
+      "path": "art/renders/dream_margin_death_stain_lc6b/00_mature_control_b.png",
+      "blob_oid": "db363f9f1de79f88840ff5459e144a8fe6596d97",
+      "bytes": 992097,
+      "sha256": "1896a7eb86e6ba58f9008f64c455b3296da2278a12683d21475807bebe203ee5"
+    },
+    {
+      "path": "art/renders/dream_margin_death_stain_lc6b/01_shed_before_withdrawal.png",
+      "blob_oid": "b19b53083ac1c0db420487c672e5a378985a30ca",
+      "bytes": 993563,
+      "sha256": "e1d1249e20eb5a654bf06068135295422c96b0f277f04928141149f416f046ff"
+    },
+    {
+      "path": "art/renders/dream_margin_death_stain_lc6b/02_stain_control_a.png",
+      "blob_oid": "b824f51f15606ba2b0730838fffa418f1901062a",
+      "bytes": 991355,
+      "sha256": "950f132a2d09d6e3ec8ed0580770a43e9fbed6096b8b85b723f09b1c814ecf8f"
+    },
+    {
+      "path": "art/renders/dream_margin_death_stain_lc6b/02_stain_control_b.png",
+      "blob_oid": "494b3cc1a28b821f006ed7bfab02c5de927b6562",
+      "bytes": 991356,
+      "sha256": "5dddf92559b63b00ed684d3f6515b89f565fdb55a0086e709d80f9108944703c"
+    },
+    {
+      "path": "art/renders/dream_margin_death_stain_lc6b/03_stain_after_owner_work.png",
+      "blob_oid": "e66f3511e18c8ea85575a8bab17b6979ddae214f",
+      "bytes": 991362,
+      "sha256": "6b9c02cc8f29edeb01b9a6f3b22c1b93ccefc93373751dfac6ea35c384abb507"
+    },
+    {
+      "path": "art/renders/dream_margin_lifecycle_lc6a/01_folded.png",
+      "blob_oid": "6893a5aad757842aa08097dc626b2612b7850fb4",
+      "bytes": 1088220,
+      "sha256": "1c56391be4b67dd4918b3fad810255f0bda1908d66338af11a0e4652ce177e7e"
+    },
+    {
+      "path": "art/renders/dream_margin_lifecycle_lc6a/02_bud.png",
+      "blob_oid": "b7fbcf71d2cc994fb2321323574491c2f6e79293",
+      "bytes": 1087452,
+      "sha256": "7e461a6e068264daacf962810c4cb5ec09d8618dd057ba636a28fafa4ae53022"
+    },
+    {
+      "path": "art/renders/dream_margin_lifecycle_lc6a/03_juvenile.png",
+      "blob_oid": "a75315f8a498f4a99cb131cbc96f99a6e7a2682d",
+      "bytes": 1093269,
+      "sha256": "b8221c3fd2b439c635bf9b96baf30587c6820d99ab1cea8df1c2b68cd19bb71f"
+    },
+    {
+      "path": "art/renders/dream_margin_lifecycle_lc6a/04_mature.png",
+      "blob_oid": "f84f61acd49a38f45fba8c9be8830de8e7118c82",
+      "bytes": 1093514,
+      "sha256": "89de9b16962683fe5e822cf20f036b68cdb4aa04772d451b2afdd75870e25ee7"
+    },
+    {
+      "path": "art/renders/dream_margin_lifecycle_lc6a/05_exchange.png",
+      "blob_oid": "803ed10bc0798061af57e897112ba4ec9f1b87af",
+      "bytes": 1094112,
+      "sha256": "fa423762f2bca5477a9857c859c367a6e32016b4017339f92a65f6742ce1f6b1"
+    },
+    {
+      "path": "art/renders/dream_margin_lifecycle_lc6a/06_senescent.png",
+      "blob_oid": "10e228fdb70392ae6be41f21e7f19fc23a759145",
+      "bytes": 1092823,
+      "sha256": "9799616dc06fe45a120c387714d5cc35e8584e4750920bf6ce893a5eee719914"
+    },
+    {
+      "path": "art/renders/dream_margin_lifecycle_lc6a/07_shed.png",
+      "blob_oid": "632b174cff40de0931226b90f829e1caad65ff86",
+      "bytes": 1088110,
+      "sha256": "ca6ec9b48aac88768cb75164b79b3b2954ea2c3643de36a75f3d49f3a43ce05c"
+    },
+    {
+      "path": "art/renders/dream_margin_lifecycle_lc6a/08_stain.png",
+      "blob_oid": "2986f0af7f1d257b4fbcb75f7e0f53f2d2e49138",
+      "bytes": 1088006,
+      "sha256": "1e054e3bbb4e69a39d83494a992157e89793b7a5daa06be4c86aac8fa1c1209d"
+    },
+    {
+      "path": "art/renders/enamel_appliance_pilot/after/4b_kitchen_fired.png",
+      "blob_oid": "1f1c7483a09cc5eb1dcff6dcd990845aad287bf4",
+      "bytes": 1494995,
+      "sha256": "e6182ad202fe312b8a9594647854a21710fedf686a0da1c73f54f5b63a6d4db4"
+    },
+    {
+      "path": "art/renders/enamel_appliance_pilot/after/warehouse_stove.png",
+      "blob_oid": "fe13275991b2ba9017b2f4bc4a29bc4405e1bb91",
+      "bytes": 269657,
+      "sha256": "42cf5592e60130339180644618072e90c0a26126242663645e88f33ef6bc5fbd"
+    },
+    {
+      "path": "art/renders/enamel_appliance_pilot/before/4b_kitchen_legacy.png",
+      "blob_oid": "f3270a67dfd3136771a469199641c54bc330600a",
+      "bytes": 1584528,
+      "sha256": "db754396fd9fbf715ee43adc8b22906188d4c4a97aa13d967c755d41cdb2e019"
+    },
+    {
+      "path": "art/renders/enamel_appliance_pilot/before/warehouse_stove_legacy.png",
+      "blob_oid": "eceabd04b697c8d90c8a504271f06ecf634fe0b4",
+      "bytes": 276139,
+      "sha256": "03fdb7a6fe96a9c99685e4251ca74f9b6ac3e2fe727546b5428941ea848d287a"
+    },
+    {
+      "path": "art/renders/enamel_appliance_promotion/stand_-7.5_4.5_2.8_0_-8.png",
+      "blob_oid": "c59574a087b1de5041a7a0490070899fcf16f47f",
+      "bytes": 1649741,
+      "sha256": "6fd331e456f6c61efc17ebd8a52636e78e5fc326bd53b168fd00f2ab6247e3cf"
+    },
+    {
+      "path": "art/renders/enamel_appliance_promotion/warehouse_stove.png",
+      "blob_oid": "77523564362ceecca95b90d6781a331e1b875ee2",
+      "bytes": 257916,
+      "sha256": "ea089aad58a2eb4290c0d60272189fe14f27e8a3abd3e078d754e41b196a5fe2"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b1_stair/01_descent_from_lobby.png",
+      "blob_oid": "2c242f4d26480dfeb07c2f4eb3d25067102c11a8",
+      "bytes": 1647078,
+      "sha256": "ffda9483ab1c1531007b5c9a82b40e4aa42a93d726a95f4fef8f4759b70fc85f"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b1_stair/02_mid_flight.png",
+      "blob_oid": "c16abd4e289d0f408f28ca54e6480f5584c84a27",
+      "bytes": 1630190,
+      "sha256": "8b838424bf832f9e06f2d48fdf514131748e55b9e5e98f5d47dc7d0aee8f982b"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b1_stair/03_foot_and_red_door.png",
+      "blob_oid": "056145861bd17b643088ae03377740981d5c152a",
+      "bytes": 417471,
+      "sha256": "10b3179987d8b24c16256b9825074201f3bbf11fab2e005fddf793cf7378a00c"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b1_stair/04_street_mouth.png",
+      "blob_oid": "935918866494c7cdc9b111f2378c49dc53f71716",
+      "bytes": 1158739,
+      "sha256": "841973cd35762189baa41082eb1616632317db069d4cb8b03ccf2583aa6591fe"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b2_diorama/01_descent_from_lobby.png",
+      "blob_oid": "e261930f87f71176978fe0e9e946c8b0736dc4b9",
+      "bytes": 1661789,
+      "sha256": "f02d93f4b52b1e8c76d2425679099b1244fd395c8de02d06f7d7fe7e219bac1e"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b2_diorama/02_mid_flight.png",
+      "blob_oid": "0e58f578c151c5b1d1447c3c70d5876c9350acb0",
+      "bytes": 1640823,
+      "sha256": "c14919b1f156497a5e63b3ea1ce881b37de33e654e05f80fdc4197c1390b4a05"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b2_diorama/03_foot_and_red_door.png",
+      "blob_oid": "33aa08ec527c72699ed0a7c36520397249287da5",
+      "bytes": 431456,
+      "sha256": "f4fefab86804fae0d7e0a686033615bbdde5f131613a2cb5e8f7e98c63da4b56"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b2_diorama/04_street_mouth.png",
+      "blob_oid": "54d92030384180ff50c4348c612bee91c839ef22",
+      "bytes": 1044136,
+      "sha256": "3799efb63de8bcb6f4137199f710180deba04d08e2592dfb59ca30cceaf247c9"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b2_diorama/05_arcade_corner.png",
+      "blob_oid": "5cc3d84f763a86953d7cc78200203821cbea809e",
+      "bytes": 741333,
+      "sha256": "8a624a3fc547f7b7ef1bcdfb11b7f3d9f1e828d3940ceef702f63f7eb8883b59"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b2_diorama/06_lounge.png",
+      "blob_oid": "f32074e8d7a7775e861b7505f02d83c3e0848d3a",
+      "bytes": 1001641,
+      "sha256": "c9baf51923efb7cb41bbd861d58222b7f8f2cb70bf4cc2b33fe7c3108a75e88d"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b2_diorama/07_room_from_door.png",
+      "blob_oid": "0830748735cdef34a03382d609b7cb68422a4cd7",
+      "bytes": 1254441,
+      "sha256": "9c8b5828712a489f81ad58e4a834e7855750a161512b3a48747433dd0d030c05"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b3_lounge/01_descent_from_lobby.png",
+      "blob_oid": "29bebb9551c2270fa876cd18400eb351e7250029",
+      "bytes": 1654293,
+      "sha256": "83384124c6dfdbc200f02265007ac2e042f93bc61840fcc792ab7221b70dc332"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b3_lounge/02_mid_flight.png",
+      "blob_oid": "37fb70c1254708577f66b56489a4f7b60fc1065e",
+      "bytes": 1620145,
+      "sha256": "fcaf57a829ec5fdb7bafa4890d3869b9f9bc3f1d80c1e08d4b5f69f289d460b4"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b3_lounge/03_foot_and_red_door.png",
+      "blob_oid": "b76e1d24a7797df80350990f86a171f6054efe75",
+      "bytes": 426271,
+      "sha256": "d9168f159bb2117bb4a80e6ae7e15eed6345f24e0b1a985bdd38562542cfae2d"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b3_lounge/04_street_mouth.png",
+      "blob_oid": "11f40491799cdc81042d2c0778286d85501ec2f1",
+      "bytes": 1157716,
+      "sha256": "23ffa917e93af4dc489e984c261d0474a33458b902499053866168353bc06938"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b3_lounge/05_arcade_corner.png",
+      "blob_oid": "91df9e6037769ade82ff880a0aee6008745bb98e",
+      "bytes": 746023,
+      "sha256": "0d82cac591b13152fa9c020f528a7a7e2a7432ae4d27155d654fade912dbb998"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b3_lounge/06_lounge.png",
+      "blob_oid": "21208f923e1883df8d05b39b640ee0f7f14a1df3",
+      "bytes": 975307,
+      "sha256": "05bcfb9345bd60533abb559fb6312fdc1230097c8ab1630634133a63a2c51219"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b3_lounge/07_room_from_door.png",
+      "blob_oid": "dbf7c4b1ebd4070f2bef09afc07113e628502c19",
+      "bytes": 1344442,
+      "sha256": "069e3c33728b92d0cf4f2214b19adebf97d640fdfd3b3fb0f6679bdb6a3d7f94"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b4_well/01_descent_from_lobby.png",
+      "blob_oid": "8fc7f64d7268cc7a6936e15bd4071d4a5ea80768",
+      "bytes": 1654290,
+      "sha256": "7fd353fffefa126d6b18e9a77c8576efb26aa9331b4ebe8d7d8ba3078c20aa8e"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b4_well/02_mid_flight.png",
+      "blob_oid": "70d19b36aa978619f91922670eaffb34be7d1e84",
+      "bytes": 1621461,
+      "sha256": "bb199776a3f9f4fc8c4d4b83de35a3c9221329e7c3c6a1a36616d282d00105fa"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b4_well/03_foot_and_red_door.png",
+      "blob_oid": "b3ebe98fff5fd09f1c81f2048dd310a845b86482",
+      "bytes": 425828,
+      "sha256": "e9f6ec63870102eb08f5a73d4696e6554f0d0c45658d9bd4c22fd3941f6d9da2"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b4_well/04_street_mouth.png",
+      "blob_oid": "9ac850d8443bec88e070bc00ab54bff6bd23924a",
+      "bytes": 1157626,
+      "sha256": "c84df651f9f2503cfa79ffdbc13a9a3b92ef7c4d88f96b34de7a394b4ce73f49"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b4_well/05_arcade_corner.png",
+      "blob_oid": "aa876fb6f7ef22912f76a1cf34efd76348dea891",
+      "bytes": 743745,
+      "sha256": "6fa3a365ab355c6231d1e9a48c6869e190428bda0e4e09c5311b5806bc6b4732"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b4_well/06_lounge.png",
+      "blob_oid": "2b8e7cd47abc0e8f034d64c3536b96a3c8fbf3f5",
+      "bytes": 954109,
+      "sha256": "4210f7da56ed28b943f894aa8178187c3d7bd2fc3f1d706de86295f0b24bd93b"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b4_well/07_room_from_door.png",
+      "blob_oid": "7ca6e0087fd41d8291f7e3804e66b0f58afc903d",
+      "bytes": 1250453,
+      "sha256": "eb4837968414e38a3d64c9ea4bc78da016a64574095a25e92511336b89a396de"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b5_light/01_descent_from_lobby.png",
+      "blob_oid": "50a40152c6d0c1473775857bed8de5cf4b855a4a",
+      "bytes": 1682583,
+      "sha256": "5a35e62e19ff71613e58ff2872851571bc6f6bfc503130da56f5981c3157d9c9"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b5_light/02_mid_flight.png",
+      "blob_oid": "b0d776c7e2e4c760d17aba54df15d437124b9713",
+      "bytes": 1703592,
+      "sha256": "d8742e1e4f83b549a6690157ed41b566cf5f6759d77305bb76ef0e5c433c2157"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b5_light/03_foot_and_red_door.png",
+      "blob_oid": "7702e1f10f29f9f216d2e6409cecbd8879b0b81e",
+      "bytes": 446566,
+      "sha256": "a11c0aaba0e97e36483d27f7a825897f8a13c3937e4e14936d5dec3abd53d559"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b5_light/04_street_mouth.png",
+      "blob_oid": "f5500ad32337dcad6dcb62235ebc8c25da8909e2",
+      "bytes": 1154340,
+      "sha256": "dd1f08038bd6b8a437c7b528597a7f3d5a650801958f9840ab722d4f874ba914"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b5_light/05_arcade_corner.png",
+      "blob_oid": "b9e5842bf9c3b783beac28888d521bce3e468273",
+      "bytes": 745587,
+      "sha256": "1c44ebe2c389c0c37329affd7821016cb6e3cae0b2a13a991f098d6adea3a416"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b5_light/06_lounge.png",
+      "blob_oid": "fc36824d185ac376ebc166930cbc4c1828187edc",
+      "bytes": 1141048,
+      "sha256": "d7e3e0452f3b224cfb0a2b638556429e326d83be268e92eb4741b97c63b418d3"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b5_light/07_room_from_door.png",
+      "blob_oid": "97caf94c2bd7d16220cec6915f45f534b3c594dd",
+      "bytes": 1379088,
+      "sha256": "32bbaa907f74d0afc3dc95f0bdf20bb7b76844bfc6b62934d8b2268d100f463f"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b6_counter/01_descent_from_lobby.png",
+      "blob_oid": "128b6747b81cd8edf4f899c04a4f6e2ea2c2349e",
+      "bytes": 1682136,
+      "sha256": "1ae550999e90e7c141c4245ee45537f5f80458f3d2647bbd9d17dcb3f26660d6"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b6_counter/02_mid_flight.png",
+      "blob_oid": "2fa2eb262bcf3d4884f65475fbada69c49336ce7",
+      "bytes": 1704484,
+      "sha256": "02a0cd3fa7cf6e29c2e5c4b356718a198eb81da69cd6f07eaad814c1ab6dc57d"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b6_counter/03_foot_and_red_door.png",
+      "blob_oid": "2c9898588747353e988bb950bae5758ba2e3e2e0",
+      "bytes": 446211,
+      "sha256": "25d9695431ba597dce8d2b0e77e2f3b2ca626eb89ecb9f14abd92cece7f24aa1"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b6_counter/04_street_mouth.png",
+      "blob_oid": "de42bce08fac54aafa8ac0e23dea259aaef7aff8",
+      "bytes": 1154546,
+      "sha256": "49218071a7cebf9e71b0f2b99499e9096a254a7f9ded52edd66a8824beda22a1"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b6_counter/05_arcade_corner.png",
+      "blob_oid": "c9989aff70536f8348b25b7103d77b3d54d3670a",
+      "bytes": 746110,
+      "sha256": "23560c1f9e533d584467464c3d9789dbd444259b46a54dd1495828f1edd64cbf"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b6_counter/06_lounge.png",
+      "blob_oid": "37229d2b10071fa2baebe88a2362c2ac39b8afc9",
+      "bytes": 1138167,
+      "sha256": "8d1a0a93e302fd7732862d3748d4f881ff350ca544e8abc613d1fcaa73622c9f"
+    },
+    {
+      "path": "art/renders/harukiya_rebuild/b6_counter/07_room_from_door.png",
+      "blob_oid": "e5cb8bd0613941c7ab2d9b5e719bcf7667648e2e",
+      "bytes": 1376024,
+      "sha256": "fbb4353a6048cea69ba33945fc4ef03ffe24a7504a9401524752d91fdfe587fc"
+    },
+    {
+      "path": "art/renders/lighting_rooms/contact_B1.jpg",
+      "blob_oid": "ade76c28fd9729e79f57a4311cbf2a39c5d852f2",
+      "bytes": 69635,
+      "sha256": "71478d7afee84fa97993bab715812502699552eb787e2a5b8de8532301d9d085"
+    },
+    {
+      "path": "art/renders/lighting_rooms/contact_F01.jpg",
+      "blob_oid": "6fdfbce7da69e47cc57b787bc76841d14b43ab93",
+      "bytes": 139870,
+      "sha256": "96c73211de7b5bf33cc17e54ceb876419493d71a6365b8de67fdd112c5cebcd0"
+    },
+    {
+      "path": "art/renders/lighting_rooms/contact_F02.jpg",
+      "blob_oid": "4c8f5caf9915b2259b2bbbdc2e9b8935bbd6073e",
+      "bytes": 146431,
+      "sha256": "bae134a4994f79d2186de41f054ad818a07d88defa7c3f21345ce375c241456a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/contact_F03.jpg",
+      "blob_oid": "e747dfe1a063dd33be30d591fdf7ad14af620298",
+      "bytes": 161854,
+      "sha256": "6d0270380a43b439fbd42e3db01a3efd4f19cfe6b5de1af057d5d3b5c3610c0d"
+    },
+    {
+      "path": "art/renders/lighting_rooms/contact_F04.jpg",
+      "blob_oid": "96817d8db614e682b8940d02eadba4b76d51ad60",
+      "bytes": 183469,
+      "sha256": "73a859e9b8e20d8f01fb19e373ff29eba05fc710f1db628b072c73a2e334e2fe"
+    },
+    {
+      "path": "art/renders/lighting_rooms/contact_F05.jpg",
+      "blob_oid": "e52f4b20f173f748a1210c89853f74d7467e70ed",
+      "bytes": 142366,
+      "sha256": "6813c8a0bb27b7a046df4a11ef77bceb4b491d4bc12d0680d3c1543f03752296"
+    },
+    {
+      "path": "art/renders/lighting_rooms/contact_F06.jpg",
+      "blob_oid": "b58860d9336bbe74eb4bf4d6c6bb33d1f2bccc29",
+      "bytes": 150668,
+      "sha256": "c398926c1644c752905b0106c3b790cee2de7be7835adb12451883b439aaae91"
+    },
+    {
+      "path": "art/renders/lighting_rooms/contact_ROOF.jpg",
+      "blob_oid": "429b60dff291edce30804c013ee9231722cc794a",
+      "bytes": 16583,
+      "sha256": "cc9a727c1d821627934434b34a270883898e7172c22b79ef4e27c0f8362e84b3"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_ATRIUM_a.png",
+      "blob_oid": "4be48c8965f35be8741163484e6a3f3e5b070868",
+      "bytes": 305864,
+      "sha256": "492b81ed9bb7828cd819bb1c30834fa64c053676f80878ba988f15471241857c"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_ATRIUM_b.png",
+      "blob_oid": "2d09c8781692d05d2d4ee510ae78e7bb3fa62b34",
+      "bytes": 193196,
+      "sha256": "22b96716f46fc9b7f2bf8a641e658bc96f8781f25b25b1c9e88a9918d8fd604a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_BOILER_a.png",
+      "blob_oid": "50b2370ee74503ed786539fa637bd9f1e60575c1",
+      "bytes": 7393,
+      "sha256": "41aa5fe459b744e5a9f0f57caebfaaff125a40285a531fdddd09c1aafdd8498c"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_BOILER_b.png",
+      "blob_oid": "09ed771391fd7087d2e76c649b5863734a7f1838",
+      "bytes": 1776,
+      "sha256": "c86a2ca0a9b49ba097687a9a37ac252502db013e6e77291d06e23fdd63b609a7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_COAL.png",
+      "blob_oid": "e94e931f0fb94da960f8a86e3439251bbe12c87f",
+      "bytes": 94789,
+      "sha256": "ad94b750b80a4a0e166bcec2d31de1e4924e9b81c7a5679704d10d622a1f7253"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_ELECTRICAL_a.png",
+      "blob_oid": "c7b3c74e0df56b4e2d47affb791193950448ebda",
+      "bytes": 154826,
+      "sha256": "a17b58a38b10ee98c48597c096f72f5409d26b1c9f82809f17396e4bba261e79"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_ELECTRICAL_b.png",
+      "blob_oid": "42b2059addb92a18c4282fcd6bb1862b9a05c6c1",
+      "bytes": 90677,
+      "sha256": "32b6c660f68e964b63b862a77f8cd8ff93f47b26edcbc53cdab3ac825d41a101"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_HALL.png",
+      "blob_oid": "64a9b2d8a173dcb2a842cfd4b1e8f6437b254a80",
+      "bytes": 286090,
+      "sha256": "8ff86bbd146e1b8dd14c7c66865a0d805e79ef95523a2154c3e74af0fae1446c"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_LAUNDRY_a.png",
+      "blob_oid": "304fbc5e9d35a6a91b1dbd10e63fe295cdc1ff11",
+      "bytes": 158727,
+      "sha256": "244d64e4f62e8a713107f1b896a07486b87304402d2608768027718ee1246a4c"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_LAUNDRY_b.png",
+      "blob_oid": "ebaf8ae4a4f8ed5ffc9263613d7e8b341989785f",
+      "bytes": 281265,
+      "sha256": "7c47b0aa26cda3585a9cc9cbd1fe89bcac27f1c60e1e8c9c09de425705880c19"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_STORAGE_CAGES_a.png",
+      "blob_oid": "0d479dee5497008243f3513c5a3ad6cd84f42d91",
+      "bytes": 10542,
+      "sha256": "7b87d0861df564fa2366423d58851e2d2172708ba529fc8b323d4a52dba1b561"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_STORAGE_CAGES_b.png",
+      "blob_oid": "054e35943d701e829feda8ce301188e6d609c2e0",
+      "bytes": 15171,
+      "sha256": "9ca496cef4a0fb94d8c9a13cfd3293d53e16649b72d4c1899d5cc03f7537ac9b"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_UTILITY_a.png",
+      "blob_oid": "696028736f4a25af76aac0793b7150ea94fce1b0",
+      "bytes": 326118,
+      "sha256": "ff4c5571d4891af81271fe75c8f03ff02d86c38ea241721d867c76119acb2789"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_B1_UTILITY_b.png",
+      "blob_oid": "72a5f038ae3aae426612fa7b1b67276ffd111f55",
+      "bytes": 34453,
+      "sha256": "b63de8d54b47c406731a102754a5a6b09f385d7bcc0f0017c56da5b1b2f797e8"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_ATRIUM_a.png",
+      "blob_oid": "1ac5606955020a9b729ba606a293f42fb6569121",
+      "bytes": 310253,
+      "sha256": "b28132ea8f8eece694a04c96334f020c67a7a1b8a08e7bb89b065ff112b51517"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_ATRIUM_b.png",
+      "blob_oid": "48eb56de3e7714e74fda7f16007c7539a5e4340d",
+      "bytes": 75217,
+      "sha256": "2670923d0612bc3e5027e932a0f0b7624ada66c712aaba52671f13287948b109"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_A_BATH.png",
+      "blob_oid": "1e5c42fa20af781b2d82313300b6b03f6dc205f8",
+      "bytes": 217138,
+      "sha256": "11fa1f813173e406567d2e5fc76095173387d4027fecd9073f9a3a7e57339097"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_A_BED_a.png",
+      "blob_oid": "eb0f1c8980d29d7c92649c5e7ec2b0003fcb11ee",
+      "bytes": 100215,
+      "sha256": "2472918f62915bb1d3f9e2b4951a9f8b47f7aba2e9ab3d637afcaf2f324650f7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_A_BED_b.png",
+      "blob_oid": "c0151a118619c65765cb37554295825e4fac8b81",
+      "bytes": 245051,
+      "sha256": "5be976932689f7a92ff89ca9db9f8a9a137b053feff60056871a056f4cc75ba8"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_A_MAIN_a.png",
+      "blob_oid": "7048607eb949eea037bcd0fe3ee19eb5fa2e26dc",
+      "bytes": 296687,
+      "sha256": "eb97c4abe2fd129379438e356c1e99e73d0baaa5e76d26266f76531a9553cc45"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_A_MAIN_b.png",
+      "blob_oid": "afbf8d2f586bb3b22f501dd418e06e9c3d144a26",
+      "bytes": 235255,
+      "sha256": "07855738eaf7052855377dbffcdee63f269ffdd6e9fbd3cf1bbb1b3a08919909"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_COMMON_B_a.png",
+      "blob_oid": "f8347bdb3f0374c43acfa50ac6d95296c73d70f4",
+      "bytes": 50769,
+      "sha256": "7e54cc4adda8845dc5a22bc02b37e3a468d699b9a695f92754191fd41907a4d0"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_COMMON_B_b.png",
+      "blob_oid": "09ed771391fd7087d2e76c649b5863734a7f1838",
+      "bytes": 1776,
+      "sha256": "c86a2ca0a9b49ba097687a9a37ac252502db013e6e77291d06e23fdd63b609a7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_D_BATH.png",
+      "blob_oid": "25284e45fa5626c16028c5508599f526b79a9753",
+      "bytes": 82941,
+      "sha256": "27b9b68e8ca517e931e7eb1ee884f2b865e0d94770570d5fdd8ba2f3f88a57ab"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_D_BED_a.png",
+      "blob_oid": "8a191b6bd3dcf2532ab8cc41308add8e0e8cd35f",
+      "bytes": 42522,
+      "sha256": "bdc1cc17d29b6d5070b1aa66c8ea2d540f15888a02f4bc2b8527733bd09df7a4"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_D_BED_b.png",
+      "blob_oid": "4e4c132bfe4cd9081d0688bba1bd5e4567e81a33",
+      "bytes": 172839,
+      "sha256": "fe15fa8a6043f62e345fc1d9330bc1f8034a20669ea52e6fbf2455ff383e58b0"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_D_MAIN_a.png",
+      "blob_oid": "fe029d087f692de07e12c11b765c494512e330e4",
+      "bytes": 275218,
+      "sha256": "20f691048bbd3973c374cb2bc0f94e98109c5a48bf90bd97f5c1c8dc5277bd62"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_D_MAIN_b.png",
+      "blob_oid": "7c73e1a047aebbfe4454d74e74d479ffd9ae3af0",
+      "bytes": 299603,
+      "sha256": "f0189878903ef3c2ac55e440fc2c372a8b191f1693c56ac1546dec6b6f4c8c44"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_D_OFFICE.png",
+      "blob_oid": "49557193142a7ee26328d152451b440741f86013",
+      "bytes": 39155,
+      "sha256": "723e550454a3298968e135483a8f93715cb770c41dad9fd5b390ecedcb12f1c9"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_HALL.png",
+      "blob_oid": "a5800a1b8b45b30ab63941c6089ee7f0ff1b95fd",
+      "bytes": 356599,
+      "sha256": "b8b38d2800fbb98e49f7937ecf9a493753552cb1d61365e278cfa7de04f09170"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_LOBBY_a.png",
+      "blob_oid": "e45012841975e777578923e8b000bcbc77fa635b",
+      "bytes": 282843,
+      "sha256": "9c4094857a13609d4e8c1ae26b1c8f96ac7b9470e8135d7c34b723f8062e85bc"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_LOBBY_b.png",
+      "blob_oid": "099d305c28546c5624993b42e4e912cf731531fe",
+      "bytes": 316332,
+      "sha256": "c49484ed05855d35b584ce33cf4a0b9baca9251e0d14a074cd41eccfa38b1f17"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_OFFICE.png",
+      "blob_oid": "c3308371f050b25e0fba11484d7a4502d83cd760",
+      "bytes": 94269,
+      "sha256": "da01a079320b480c0cd04cc9fd2ad20972c8e961c8577a312368616296429beb"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_PACKAGE.png",
+      "blob_oid": "ce304652bd03027c61d569bf44082154e8a76f86",
+      "bytes": 278159,
+      "sha256": "bf8a7f981b32f2ea5670f16c70e2d01a6ba1a5091de714d4dfdeac62c24b810f"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_RESTROOM.png",
+      "blob_oid": "c16625d88334f4c7570821e70acd928ea921c0cf",
+      "bytes": 2256,
+      "sha256": "c0e2b98358bca4f79811b2c33dfb6449bbf27ffa686229174bffe608c61dccea"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_STORAGE_C_a.png",
+      "blob_oid": "f354004c4c777a51ee7e6fcebc4f64ab4859b465",
+      "bytes": 2306,
+      "sha256": "a18429f315b92799573e5e61bd81d96fe2d980307c230aeefb3c97e3d660f70b"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_STORAGE_C_b.png",
+      "blob_oid": "708864719f0d31c331ca9c1eb71bf5185c0baed7",
+      "bytes": 63662,
+      "sha256": "4881d8b55e9ca512d95a7126c56e0a311fbaa55a40088c42443d7ef6223ae5b5"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_UTILITY_a.png",
+      "blob_oid": "db7c88d1afb71230918be3a09dee60ec5e71488c",
+      "bytes": 123876,
+      "sha256": "1faee184b99309ac90eccdddd5da0a51759ac52ea5a97d9ee9b1640aa4e74004"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F01_UTILITY_b.png",
+      "blob_oid": "810620e90abc1fb6e0d7e70d3ac978daac907d74",
+      "bytes": 56588,
+      "sha256": "f931e3eaba28dc8067588e429a92091a85086197067f4f6be0e6467545313746"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_ATRIUM.png",
+      "blob_oid": "245ddf591dfedb2147a7fb61794e496fafe1a38f",
+      "bytes": 386648,
+      "sha256": "6b27d503c3fea5e54b734c80cbd15bc5dff841cd9e39ac9fc8052c74f906236e"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_A_BATH.png",
+      "blob_oid": "5e25e2e5f1d01d37fcb6baac557a809aa69e84b3",
+      "bytes": 250418,
+      "sha256": "454e86a6be066e4649b82306e4542145190dc07712970e4f75cbaf7e2a56939f"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_A_BED_a.png",
+      "blob_oid": "8c1b519ebda5871884185af484d5d2793e0db749",
+      "bytes": 78245,
+      "sha256": "75f68d63f080a3da861a909ad8fcb43372be3e35081b8cd1ee75528523fcf98d"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_A_BED_b.png",
+      "blob_oid": "7e1b5a3ed8039ba6714fa1a00f6a07864329c8ee",
+      "bytes": 238991,
+      "sha256": "3366719f32c279f2291a4c8f0001e06ffd21b74f1d31c3d4fb743278ed5fa89b"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_A_MAIN_a.png",
+      "blob_oid": "8c4be0b686793e873b47c2ca67907a680f855ad2",
+      "bytes": 409554,
+      "sha256": "097b497b2507fc5e78bd8b0ab9cc00aa00807a494653b0352ef78ebd8ee77687"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_A_MAIN_b.png",
+      "blob_oid": "b447cad9c7e125176a8154e3a8d86aefcc81f2da",
+      "bytes": 283991,
+      "sha256": "f7938ca4ca398cbb3da144d25ca8e8a077c69e068b05fbd20321ac9f595581dd"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_B_ALCOVE.png",
+      "blob_oid": "d0a88d689df7a81be049ba2b6649cb116f79f750",
+      "bytes": 44886,
+      "sha256": "293d3d2061435fe130b631fefdf8386b3d18df5031d64e9d93de6fd0371021d5"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_B_BATH.png",
+      "blob_oid": "eda01ecdc70d2713f8d163ccb9da9fc92f146942",
+      "bytes": 81321,
+      "sha256": "fc23affec37a8c444f8350e88581779269e354ab8f1e48086d96ecfded7cb97e"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_B_KITCHEN.png",
+      "blob_oid": "bf50bb1d0c21e5ba0014cb6796e841714a92bebe",
+      "bytes": 124276,
+      "sha256": "e2e7c0ec74a382f2a3dd2b676313aec62548961a4fcc5730b3aa4fcd11a6159a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_B_MAIN_a.png",
+      "blob_oid": "5eaaddc8f5d1a3d2502eb7837029cdc1a678316b",
+      "bytes": 253250,
+      "sha256": "a22c0bfd7214d875cc1869ad44e15f34b48b0897fbddc79d44249b60be220b1d"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_B_MAIN_b.png",
+      "blob_oid": "0eda83d871b6ceb07187d3bfcbdec9a469951e52",
+      "bytes": 208913,
+      "sha256": "912afa139d3d2c141ca6093569bca037c9e8f400022d438fcc9b12c2427af6f2"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_CORRIDOR_a.png",
+      "blob_oid": "af5b7478e2d2ff1b9c46b23c6d7c4e27dc48e519",
+      "bytes": 228033,
+      "sha256": "3a072280e88dd1f5789fd179e6fce13d182d17e01e37120f761b380ddd7dfac3"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_CORRIDOR_b.png",
+      "blob_oid": "2653151cce38416a63e1e372fc62e96305e53d2c",
+      "bytes": 221244,
+      "sha256": "0c492a1dfd5d0a83a742369bd2ec855fc5bf4d0fdda9279060866e84e7a5731e"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_C_BATH.png",
+      "blob_oid": "03a12183bfcfb0ff44184d67d3ccc7e7808643f6",
+      "bytes": 300041,
+      "sha256": "62a64c273630222366e42f405e4ea17dc5cfcdeee45846f3b6569b4dcc73c1e6"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_C_BED1.png",
+      "blob_oid": "bc4fe045c5a56e384e0fec2e4fda13f33f5625cd",
+      "bytes": 32178,
+      "sha256": "3d3241a6ba0941e7f38058872e73a75189c76892a2629c7382b6c615315b1a5a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_C_BED2.png",
+      "blob_oid": "09ed771391fd7087d2e76c649b5863734a7f1838",
+      "bytes": 1776,
+      "sha256": "c86a2ca0a9b49ba097687a9a37ac252502db013e6e77291d06e23fdd63b609a7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_C_MAIN_a.png",
+      "blob_oid": "b6f384a4468d2bdc6cb549705241ae6029154d16",
+      "bytes": 19797,
+      "sha256": "107f9d40b9dd2ea27ad40327d40f670bd2790571444566aeb0f7fa046205633d"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_C_MAIN_b.png",
+      "blob_oid": "921bd0510051ff0db8ea4c4a2ef8f83a775f462c",
+      "bytes": 179967,
+      "sha256": "1bfcec671013049429f4f405a7249afea9fc14aaa3e71f1928449dd31553e926"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_D_BATH.png",
+      "blob_oid": "f4ea1f9a064334b3976adf101dcef3ba02ab482c",
+      "bytes": 110203,
+      "sha256": "8f30a5afe8151b9197ab38a0f5e4b2b2498d86037c33d009a66d306463773947"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_D_BED_a.png",
+      "blob_oid": "b569a67b346b44a748052cf8a1ea735785adfd3b",
+      "bytes": 1994,
+      "sha256": "ea921951d3883518fd207016cf3788eb86ede71e272ce1eb08012393fa519022"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_D_BED_b.png",
+      "blob_oid": "3ae919cd5be3c88bd1ce33eb6d080a4533ac35d7",
+      "bytes": 2208,
+      "sha256": "41a231a85ca87713a914f45f594fbe79c43b7ea09ae2029f427658da874e4908"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_D_MAIN_a.png",
+      "blob_oid": "fce8270f1c0bfdadfab49f359b3f98775cd2c852",
+      "bytes": 1802,
+      "sha256": "58204281b8c907efdf0fbcb8374e4c1482bc2bdf86f9c323d217101883267160"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_D_MAIN_b.png",
+      "blob_oid": "993f426b9eff75d6b810a271e2e2db8e21f69f52",
+      "bytes": 1864,
+      "sha256": "003816a8c046f66b1fa74f226456d6e7787a1439ff2270f4529db5c713761a51"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_D_OFFICE.png",
+      "blob_oid": "09ed771391fd7087d2e76c649b5863734a7f1838",
+      "bytes": 1776,
+      "sha256": "c86a2ca0a9b49ba097687a9a37ac252502db013e6e77291d06e23fdd63b609a7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_HALL.png",
+      "blob_oid": "b1650a73bbfaf0e776bae1ac5a8b5cbf612ec82e",
+      "bytes": 291557,
+      "sha256": "ff47f9040c978fdf0dc9b20879ddaa0c6be99ed6d047e9452fa76b7e1a3ea447"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_UTILITY.png",
+      "blob_oid": "5ca9fec248d47c117c20a0c952a1867ee78af741",
+      "bytes": 289198,
+      "sha256": "6431995bd4a2ca197d64aea4f13bd7cc53a5cbc3410c7c00220704cd3f981556"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_WSTOR_a.png",
+      "blob_oid": "a3cd493dfbdbff1dea6c9f4d052048bd7362ce94",
+      "bytes": 4031,
+      "sha256": "7d9706423f9197467b0f8a9372f51b470d7868ba5a8e1232896bcebe7cdc286a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F02_WSTOR_b.png",
+      "blob_oid": "5165667803206300491713a3cdcd538bb232cdc9",
+      "bytes": 287149,
+      "sha256": "d332ea042c4e7ec88b8893f00046edad359c9a7898bbbea8ed859e3d86a24d3d"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_ATRIUM.png",
+      "blob_oid": "d3a7fadff15658dbeb8b11e1133846f594b70980",
+      "bytes": 413485,
+      "sha256": "4711ba7d72d31ca7fda68d609e47d4bee44497d1173da4f8c4a3b5bde27cd74a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_A_BATH.png",
+      "blob_oid": "2307a37e7ddf1b0001e2c9d6a21bc5f6d9d1369b",
+      "bytes": 266637,
+      "sha256": "b65f1321f793021d81d7e9a743a0557f50c0bd5f0981eb47703f34150eea622d"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_A_BED_a.png",
+      "blob_oid": "2bf31ba66964c2497dc108d3e565b826b6188bf1",
+      "bytes": 139289,
+      "sha256": "438b5b34779ef8919247cf059dbdb035f2e3b3c421b8d81070358bc2fc9070e0"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_A_BED_b.png",
+      "blob_oid": "afc67b397908a0d44d8a314d188bc61b35c72b5c",
+      "bytes": 245923,
+      "sha256": "77e7bc1036cc3efbb75cc420599565bd67ab590eba2f32570316237473b046dc"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_A_MAIN_a.png",
+      "blob_oid": "d2005558fc263273fb37131f0537ba4cb5efb0da",
+      "bytes": 325736,
+      "sha256": "5f03eb0a29c255225b1a32188eb12b407254f2787dbc165baee764b45bc5bd16"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_A_MAIN_b.png",
+      "blob_oid": "90bfb55814e4a81b30508037463993e0ab237ad3",
+      "bytes": 250649,
+      "sha256": "23d15ceccf62aa274247a87d44e124e22b276f0cc6c9ebb5ab8ffb68b44561e5"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_B_ALCOVE.png",
+      "blob_oid": "a2589b5611c6dd5ed27da6ba6f0cd23f50b35981",
+      "bytes": 154813,
+      "sha256": "20d0259945c5baa948090c83999e5c5ca27497d8a81e463eb3cb011e50c66370"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_B_BATH.png",
+      "blob_oid": "f86bd4469aa23b5a1df779e9a7f83baeb3575c12",
+      "bytes": 128183,
+      "sha256": "c3fe2c53185aa8067b42dbd2a6dd61881aecf18d3524fd24a3778e3adf208279"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_B_KITCHEN.png",
+      "blob_oid": "e123df8a921d8ee3278d6254c23f6d08843af394",
+      "bytes": 138922,
+      "sha256": "c6afa7d760c9634280d5cf7eb8951d941213a284e0f30800ce483d17d62f25e6"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_B_MAIN_a.png",
+      "blob_oid": "017cf5808b466a93831201289c878a6fe0dfd194",
+      "bytes": 305701,
+      "sha256": "8c62034ad4b92d41406ec28a31f3f22deb855b1676c10397e84df71b141e73f5"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_B_MAIN_b.png",
+      "blob_oid": "079475a82159557e13e79738ff0ff7e72f72f376",
+      "bytes": 234388,
+      "sha256": "d8e3ff7d5c63b556463a4d9313d8495fb068940e66a4424fb8a9ba6f0564f75f"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_CORRIDOR_a.png",
+      "blob_oid": "0f1bc6fb25cb4b4bab58b2ae995a1eb16fcf1798",
+      "bytes": 261246,
+      "sha256": "80277b846e1861fbfa8b12c71b4c4639705f109ffc8111ecb88bbf5c0612d8f7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_CORRIDOR_b.png",
+      "blob_oid": "59d42a0e987eb67d6be8625b77568966f6055ed7",
+      "bytes": 238517,
+      "sha256": "ddd3cf4c3c3d463080f585cd373c9f228f709c06490295553da28c8698d5783e"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_C_BATH.png",
+      "blob_oid": "c310f69df20bfec67ae527267b04cc26749f94f9",
+      "bytes": 300795,
+      "sha256": "680d3e55172cc30bbd2b79de2518687a124f996c2ee260a3428cc0810b8911a0"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_C_BED1.png",
+      "blob_oid": "a6d760426737046a55859abfadf4da559f700d5c",
+      "bytes": 16528,
+      "sha256": "fa7247fcec1dd560024e192999e0fb1c00676299c030cbd66ce6ea43c35dbcee"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_C_BED2.png",
+      "blob_oid": "9918b1213364f166cc0df41b16d747b7b7813577",
+      "bytes": 26926,
+      "sha256": "574f12609d9ade08a87d9bb54a41954a35499729d6f3acfca96bb19e46a27251"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_C_MAIN_a.png",
+      "blob_oid": "09ed771391fd7087d2e76c649b5863734a7f1838",
+      "bytes": 1776,
+      "sha256": "c86a2ca0a9b49ba097687a9a37ac252502db013e6e77291d06e23fdd63b609a7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_C_MAIN_b.png",
+      "blob_oid": "2ba831398945c9ab76d4019b047dd770259dc640",
+      "bytes": 195413,
+      "sha256": "4f75e46dd01cf9e86342ca036405347187781ddd41fa929bb4a405af5efd2967"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_D_BATH.png",
+      "blob_oid": "fecb8b267275ae039bbf67ec46cff2fab9d47088",
+      "bytes": 63595,
+      "sha256": "cfa4f3e47c6d60d7afdc18a12ff27461ba5031cf2e68c8f18ebfdff396afa3c9"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_D_BED_a.png",
+      "blob_oid": "f62c9d766720f9e4b0060425dceec45a268feebd",
+      "bytes": 91588,
+      "sha256": "16f652f98bd604439575bcd604b8999a3539df72d5cde249762c76495c9a74f2"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_D_BED_b.png",
+      "blob_oid": "d60a27aa6d3bfc45df37a84badbf06313da03a24",
+      "bytes": 192907,
+      "sha256": "0c55d4eaffcae97822bf93999ef8c8090a9bad7a2287307b2f2d9f06057b753f"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_D_MAIN_a.png",
+      "blob_oid": "9ee03ed72fa924fa99eaa61d96e56bf6a19b34ff",
+      "bytes": 247846,
+      "sha256": "779f0a95350932bf1a99894c01f0d2f54779d763c09586d7f5c53284544df59a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_D_MAIN_b.png",
+      "blob_oid": "9e75eb0406f8111c4f101688bb6e1bd4e5760625",
+      "bytes": 175817,
+      "sha256": "d469e94c8cd6e2626deefa3247cca65de4d34df7b12112044eb555738821b8da"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_D_OFFICE.png",
+      "blob_oid": "b3dfbc8021d3ebe3531f559f3d52f5818d9f7d7a",
+      "bytes": 85158,
+      "sha256": "3ae2d08385e407fd3e66b7fb61e83b09e6e4311ef97e70c62a4b1a9aa95705ff"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_HALL.png",
+      "blob_oid": "71a006a959b417dc226c94526cc6d1644028db0f",
+      "bytes": 287672,
+      "sha256": "f1e8c88df1d4ff338dda60870178395dc5865faec4f34723bea7e3a9f052af28"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_UTILITY.png",
+      "blob_oid": "7ff59a93480ec815dd5efb2cd8390160f7788219",
+      "bytes": 335532,
+      "sha256": "db7d87a862a5b8d90966de7f32a26c543257e5c72d7a73e849f002c569b2c27a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_WSTOR_a.png",
+      "blob_oid": "30a498cd1ae25bb95b7083deb0a61a6b4564bc8a",
+      "bytes": 54898,
+      "sha256": "473e2aceb3683aca1cd74185233e129638afcfe7da281342fd66d627b1b64ab2"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F03_WSTOR_b.png",
+      "blob_oid": "a5052b5e59d54bef041f037cafdfd4b78557f4fb",
+      "bytes": 299328,
+      "sha256": "37bb5a462aa0fd24a8dea875c983234c26b083e01276da844ab96edde0e91036"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_ATRIUM.png",
+      "blob_oid": "c764886ff7c7ae5526c107693905ec570c6561ba",
+      "bytes": 345128,
+      "sha256": "e2cb42f91decccf2dc870268e75c6186d91628fef0af1f5a01d5dcc3fc18ebba"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_A_BATH.png",
+      "blob_oid": "3a4a79ba9d20631306c88619aacf0c0c95cd65a4",
+      "bytes": 203125,
+      "sha256": "4a5026b1fbbce426723369a191c8759bfcedaf3b09b5a2229e1ce9e5a9d764df"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_A_BED_a.png",
+      "blob_oid": "f8bcdd701c56d1cedbdebb743b785a629766c206",
+      "bytes": 166465,
+      "sha256": "a3238e12d528486e328e2cc28c821a29ea787fae385f414ba77cef1d7d7da0aa"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_A_BED_b.png",
+      "blob_oid": "8d0fb6b5c1c6904cf60bd1ae352b99bbd255073c",
+      "bytes": 185759,
+      "sha256": "a2be9c4e8eebcd141d6c8e09a38535a104d1c8fa53882bac6c17e1d93104c5ad"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_A_MAIN_a.png",
+      "blob_oid": "016494ef2295267e5ae8a113b257815878b1c847",
+      "bytes": 281370,
+      "sha256": "4a39f911941a718e0709b806c9e4f67fc442fc0928c56c08a6ff4ed4fb486fb4"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_A_MAIN_b.png",
+      "blob_oid": "72050b98b05a0b86e2bd8e39fb47f732faf5c5ed",
+      "bytes": 238028,
+      "sha256": "061d8759723b9c910f6e59f93ffb911646cc20c8d6d63de7a351c1fb8bf98890"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_B_ALCOVE.png",
+      "blob_oid": "d3f940d6f47d5eb1957ee43b563ea38ee6b30f52",
+      "bytes": 82540,
+      "sha256": "d666f013c233d1d17d695578b1bb5826f472509e6062462c02c1df204afa4543"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_B_BATH.png",
+      "blob_oid": "a5c6ba55190ab45f3bb8bba80b49512344c36546",
+      "bytes": 280301,
+      "sha256": "c9f4674bb4fc08c257ec357fd5836f8d0ce3a9c6cd99cf165c18f0ec11f761c0"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_B_CLOSET.png",
+      "blob_oid": "378451c688889fa8f19014605c4526d6fd5479d0",
+      "bytes": 42842,
+      "sha256": "bc357f95f95dfbc04faef415637cd24b55bb17caf2bc00b0e4d23c799177e665"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_B_KITCHEN.png",
+      "blob_oid": "e8102d62b80bf5c6be32abf251f9af92686173b6",
+      "bytes": 269901,
+      "sha256": "dbaf887240407154b94be05b8fb6703f04499dc7cb3e1999b40cc256b78c8802"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_B_MAIN_a.png",
+      "blob_oid": "7fd985bafff3cec04c0bb2fa3f2cf3c503a65997",
+      "bytes": 325308,
+      "sha256": "c6758c5ea49504fb1a5203c7092cb36859632a1a8e1ab391d42c67d119a660d1"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_B_MAIN_b.png",
+      "blob_oid": "78193e34a7f46039153853e5966d1127736c0840",
+      "bytes": 356926,
+      "sha256": "a2309f765d9bd25bc69a6b2bd312829026e6a638bfd564611b0d56c7d9ca2fb8"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_B_VESTIBULE.png",
+      "blob_oid": "30ace74d2b8cf7491b8e82727161c1f5698dd2ee",
+      "bytes": 6136,
+      "sha256": "67a06ac350eda3cf5a6e2cf13e86e5a423324c84c7f1325c6e9df68dde140969"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_CORRIDOR_a.png",
+      "blob_oid": "a7189251c4132418fa6fbdae9f643cb533a1f33d",
+      "bytes": 238293,
+      "sha256": "31b40be38dfdf3011a0f4815a9b669b6d2afeb43bc2ebd1588b77badc6902a0b"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_CORRIDOR_b.png",
+      "blob_oid": "3e018655264259ec1102d9c277181c098573dfb9",
+      "bytes": 243567,
+      "sha256": "cbf6a36a4549d9070785dfbb998229768e53d9b6ba387d64c427b0ff2b3555e4"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_C_BATH.png",
+      "blob_oid": "e7808d788f188891b430af6bb58653f68197ee9e",
+      "bytes": 257574,
+      "sha256": "e4c81f27c87457d89ff77e07cf1e72171a5cdae78badb3044e7a784bd630d07a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_C_BED1.png",
+      "blob_oid": "4b14e6c057f88545d2e408d6c69ec9004482c12f",
+      "bytes": 65520,
+      "sha256": "fd97085fd7a50fb049d964c26d1bc3e0d56e9e0cb1b15d6c7427a0300197ea2e"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_C_BED2.png",
+      "blob_oid": "09ed771391fd7087d2e76c649b5863734a7f1838",
+      "bytes": 1776,
+      "sha256": "c86a2ca0a9b49ba097687a9a37ac252502db013e6e77291d06e23fdd63b609a7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_C_MAIN_a.png",
+      "blob_oid": "e07faa3a7462d92dc43d037b735f1a7f86475f64",
+      "bytes": 9674,
+      "sha256": "18aee6787c35c62e7e6f3d538350025854dc4d1aaab9ac43153a549f3fbd30fd"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_C_MAIN_b.png",
+      "blob_oid": "2aeda3c99dabe8208d913b84da6870b7ac98ab08",
+      "bytes": 266659,
+      "sha256": "d373589fc57c139ce33a7b77f209c1ee63fc323f4d1fd1ca6bb3cb8b53fba8a3"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_D_BATH.png",
+      "blob_oid": "198efe07c73fcbdfea4a6c2a3a6560b396fa4e67",
+      "bytes": 251971,
+      "sha256": "66e5312a632c1362085b5fc99377608a07d215c32131176e6e162ea459747c52"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_D_BED_a.png",
+      "blob_oid": "d4460290c6dc5f2cfb9382414d66c18774bb4ef3",
+      "bytes": 159264,
+      "sha256": "10db74e3f4054b90933d850c9228de9c42716abd1278a39b0e62fe6ba43584f1"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_D_BED_b.png",
+      "blob_oid": "69da63669ef033cfd7f2052d29bcc2666fe3c99f",
+      "bytes": 176188,
+      "sha256": "5d5bd7d7352cd3dfd41f573d0f5c0b83c61ff1faeda8df4baf4d707382aacb69"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_D_MAIN_a.png",
+      "blob_oid": "745dc4b9a131030fa28b0cc81a3077ed2e750703",
+      "bytes": 322136,
+      "sha256": "c38291f2dcb64c3a14d9a1979a2dd13fbe8909952138b01b5b15e21d97b0ea6a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_D_MAIN_b.png",
+      "blob_oid": "4ea3f6292b10805e006dec64e2efaf489c38bfd2",
+      "bytes": 346345,
+      "sha256": "1c323a894c69005d1b6ffeb603ffef2e17a5f116d90e15938556aad3f35fd7d5"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_D_OFFICE.png",
+      "blob_oid": "410bc21deff27a0a97b621b133613f071502d480",
+      "bytes": 291423,
+      "sha256": "e98073db061fe66c753cce96d865f3c68d623d20dc74ca1364edaeb3aeb10039"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_HALL.png",
+      "blob_oid": "18cff73583a8002f24201b245e7284ee5d23085f",
+      "bytes": 236274,
+      "sha256": "58e652f1545232ab82627668c9bdb44258095d94cc0971bf0ac6240bedafb375"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_UTILITY.png",
+      "blob_oid": "4c6bbb83e1174e16b5edfbc3d19f1fe375090b70",
+      "bytes": 292437,
+      "sha256": "626c44c0f66f1c8a1123bbd9954695139b83a8873a190cef717e31af980da670"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_WSTOR_a.png",
+      "blob_oid": "c0bbccd244b06f8065a668fb103a529b03cfe6b2",
+      "bytes": 222852,
+      "sha256": "de99d52f476d185628132e6b60d1a8dd3d8d3ef01237600a179309aa68688d10"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F04_WSTOR_b.png",
+      "blob_oid": "8ceb186a87d2d0c23abc02e8114a8be146018324",
+      "bytes": 244463,
+      "sha256": "a33b089e26aa5aceadfb6a53d5794cb34a9488e98211c2315cb917b970678d9f"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_ATRIUM.png",
+      "blob_oid": "b35cdb77e1e536c7eec973837e5c9b1431980825",
+      "bytes": 408678,
+      "sha256": "2de7ec6203e5a777833e716e001fd7aae029063ea8d82b1cfa57711923f1ff25"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_A_BATH.png",
+      "blob_oid": "9c16724160b234250a4ddf805d24e513a03a7c53",
+      "bytes": 244085,
+      "sha256": "772c716cf73aa2d4cd519078821c55693bc9cc441daa13b52a7f2c548bd015b8"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_A_BED_a.png",
+      "blob_oid": "6cc26cf956e93989d4db0a492449ebb52a823375",
+      "bytes": 179162,
+      "sha256": "488a587b84619ee66d58730694d34114e24d818d1e2e6fb3fe1c920648b75edb"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_A_BED_b.png",
+      "blob_oid": "0f83d07940297b2f202267551f92763bfbb7c867",
+      "bytes": 264576,
+      "sha256": "e64e37ef79cf3969efa932d3e82bb97ac35f476d0bf6f318acd2553c85561c9f"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_A_MAIN_a.png",
+      "blob_oid": "b0b32ef596c2e15327679be2035c36f02a143208",
+      "bytes": 338306,
+      "sha256": "236c859ae99da80e0873b13eb1fdf69c7a361f888b6bed7ce120953fe0448f9d"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_A_MAIN_b.png",
+      "blob_oid": "68498ceb691477a88d397f4885548af67e2c110e",
+      "bytes": 251796,
+      "sha256": "a62c943f09b2e0c277dfd7ec73a196bcbacf7d3fa54edabd8aa3f7b1254be918"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_B_ALCOVE.png",
+      "blob_oid": "53b4b1a2036d888ab0cb0a5d5f39859209c3d9f6",
+      "bytes": 43227,
+      "sha256": "c9276afc61d9c272fe9787312efbb8aeb4f0837eada1725ca9a2674d1990e870"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_B_BATH.png",
+      "blob_oid": "93c8b8d98477cf3bb8e4759bd7cc5e37761e7555",
+      "bytes": 126931,
+      "sha256": "ca723e9d979fd9950991151522e5a177e09802bf3b274d664328fa6464acfd28"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_B_KITCHEN.png",
+      "blob_oid": "e37c8fb0bcc183cbe31f17b0a8848f5cf3aaf2a4",
+      "bytes": 104487,
+      "sha256": "3972f7d5a3ce84efce08fe57e59c618963a1332c5989db06049e34792d13294b"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_B_MAIN_a.png",
+      "blob_oid": "8ba6153e6ef0415af5b983f9ba6743ca77b92791",
+      "bytes": 208296,
+      "sha256": "665c58503fe24f56dd7258c28fde4a1e53278d1c5fd727c1aa4d51340fe1bf3a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_B_MAIN_b.png",
+      "blob_oid": "e06c4d07fa819cc27e40a5b69d27ddb5d6a45ec1",
+      "bytes": 133451,
+      "sha256": "c992bc3abd11c253020b5d5dc7dd2accd3dfc2aaeb2762efb28b0ae54f985465"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_CORRIDOR_a.png",
+      "blob_oid": "6e2ae2d508f544b277016590ac27295b3aac1660",
+      "bytes": 276466,
+      "sha256": "7c94978ab0d09e0a7b47db3f055d5ce57dfb7908780f5f7eca70c4e0d01189d0"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_CORRIDOR_b.png",
+      "blob_oid": "42f5076fcb739d30a3e49ccb666d2d6be6be2ead",
+      "bytes": 196854,
+      "sha256": "b98d100127e9da2e3880afe42492e10da88322f0bcf0fb783083d0cc48bd3426"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_C_BATH.png",
+      "blob_oid": "2375ab1f349db08030a3a61ef88f88d10a3ed5b3",
+      "bytes": 252460,
+      "sha256": "babc7fcfae1ecd3be589553cf7365f825c3904cdb79c78fc0ecb7dfa656147aa"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_C_BED1.png",
+      "blob_oid": "822c3a0fb7e08511d26a9d58da41f0524b34ff3e",
+      "bytes": 53037,
+      "sha256": "440880e1b802c0003a162fc1539af6f78011a8fe8da781fd0ff814e0ac78216f"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_C_BED2.png",
+      "blob_oid": "09ed771391fd7087d2e76c649b5863734a7f1838",
+      "bytes": 1776,
+      "sha256": "c86a2ca0a9b49ba097687a9a37ac252502db013e6e77291d06e23fdd63b609a7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_C_MAIN_a.png",
+      "blob_oid": "51e72753f9c6c5c05990d6a97817d74d5e09545f",
+      "bytes": 7421,
+      "sha256": "8b83415f0ba86a1e44ca542a6ce3093af7e90a38f7b97bd9f145cd99ae5b195b"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_C_MAIN_b.png",
+      "blob_oid": "d07106bc1a909511241ddc5a3ace897952a5b185",
+      "bytes": 219272,
+      "sha256": "d0b3e453e8d79ac873e2169ee4774424410f8c4159e58808afe23c2525965efb"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_D_BATH.png",
+      "blob_oid": "0540087f891cff22482c7e937cad722f796e2520",
+      "bytes": 107292,
+      "sha256": "7702f3773986ca291ce0e6ccc5069d04c5500b9d00afebcd993f7cf86cf7930c"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_D_BED_a.png",
+      "blob_oid": "929a3917cf2d55ac77215409f6b85fc08b62cb9e",
+      "bytes": 2008,
+      "sha256": "9ba4aa96c8cd6d65cab3bf3bd84b1f88853a92cdf810ec3baa2381e242b65519"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_D_BED_b.png",
+      "blob_oid": "96db5dd167cfd1be480eb134c186a631c815cbc7",
+      "bytes": 1822,
+      "sha256": "3a3cd4dea4a53b17d4d685d04145292b311cce318e8576e7c9d51243a2a7b6b2"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_D_MAIN_a.png",
+      "blob_oid": "9ceabcf0791dd9b979f6e7e31efb2adb5bcd1cd7",
+      "bytes": 1840,
+      "sha256": "0e5a4860add41f38d847cb3b054da58eabca80dd6464b4c8b0c4a894b72e3884"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_D_MAIN_b.png",
+      "blob_oid": "733ab89e7701fe0e4a93d58ae7c347f659a4d67b",
+      "bytes": 2258,
+      "sha256": "801a840569f04cd780b9ddb29f55dac50bb1ec6347b8293bb3383027c7622cb5"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_D_OFFICE.png",
+      "blob_oid": "09ed771391fd7087d2e76c649b5863734a7f1838",
+      "bytes": 1776,
+      "sha256": "c86a2ca0a9b49ba097687a9a37ac252502db013e6e77291d06e23fdd63b609a7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_HALL.png",
+      "blob_oid": "b28138749e3ecbad150cdf15cf93d2a20928c6f4",
+      "bytes": 284183,
+      "sha256": "dbf762f1197b54fe6df77b9a434b56831a891b18112d8eb20e71e84527f2b5d0"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_UTILITY.png",
+      "blob_oid": "cb190613034eb9a93fa0e77b26f1e6695eacab2e",
+      "bytes": 316054,
+      "sha256": "f5293ba8185f7c9cb8e1c86e2e2737331eb2dc71a48787c655ec16044be1b04f"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_WSTOR_a.png",
+      "blob_oid": "2fdc162a07e76aabb49f23e044bfe89678bbfeb8",
+      "bytes": 55173,
+      "sha256": "763127256fe85740562ee19d08c60d245a9f7e994a0e27c9d9e64ea7a1224a70"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F05_WSTOR_b.png",
+      "blob_oid": "8ff793227f4edd9928e0810608aa207bb6fe10e0",
+      "bytes": 322331,
+      "sha256": "ea4f4c458f8038646020995b746b0ef7f0392fa5f8a293d0798f19829f0ba523"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_ATRIUM.png",
+      "blob_oid": "b47cc4d26e02b496f6a2735f6e3a125b08afa9ac",
+      "bytes": 353264,
+      "sha256": "f267bbc685475b65c4bcd5976acf6efd981c9c4e252f4daa20b552d8467844a0"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_A_BATH.png",
+      "blob_oid": "a419279341f7f0f5f1362803154a9313862c0cd4",
+      "bytes": 202737,
+      "sha256": "69acf2de377e5c1dc167b0f0a51bc074083635c051438cfe573d889e1b85d743"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_A_BED_a.png",
+      "blob_oid": "8f31ea9d99b14fcdd002009ea577db96b1f78b24",
+      "bytes": 96303,
+      "sha256": "efcb6a2fe79b8560f3298055c78e5012a8f6a0d0184b016bfdfd70fe757d3d4a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_A_BED_b.png",
+      "blob_oid": "c70d79c9040f455d6dc42442709c2ce482c58b08",
+      "bytes": 144398,
+      "sha256": "dcbabc91c45c2f76479fd529fef215078a5f77ddf6c5297303611b9b1e204dac"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_A_MAIN_a.png",
+      "blob_oid": "5441e396a100817155b1826b087b1a69d7329012",
+      "bytes": 317602,
+      "sha256": "cfa06e0eaceb9b22e62bd13368dda8768a780c1858c785defa30ab54b7391b88"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_A_MAIN_b.png",
+      "blob_oid": "dd959405c54c0f50a0e425c51bd1e4e07aa94085",
+      "bytes": 183573,
+      "sha256": "5ab6c2639f0b1c7d2fef01822ab99868a1a80a381112b511b3698f4894a4d087"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_B_ALCOVE.png",
+      "blob_oid": "f802c041878452f5823e6a5ceedcd21e71ba5ac0",
+      "bytes": 39915,
+      "sha256": "7363f272412fcae683c35fb923bddd7feafe20dea545f47b3c227414c9fb7e56"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_B_BATH.png",
+      "blob_oid": "aee7b4468e960d36d3807aa2849d50a1e37c37f5",
+      "bytes": 100870,
+      "sha256": "a3e65a65b5aeb36249f186a61f0d7f92db7976dbd60107c677bec246d99efae1"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_B_KITCHEN.png",
+      "blob_oid": "6ded1931bcf4a22fae20b068c922ddc661cc7c4b",
+      "bytes": 107211,
+      "sha256": "a1e650da6f7138ac346c026383953fb67ac5a51d295125ce2aed3bede58f1d5a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_B_MAIN_a.png",
+      "blob_oid": "fb65d6be7ed6c7c7ad6cb2926ce24aac43c82312",
+      "bytes": 230947,
+      "sha256": "8a15ced0d620fa2e025a907a8a9bc8503fea28615cfe6f13c12dc79aa0498378"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_B_MAIN_b.png",
+      "blob_oid": "ce59f7d5d8df0cfcbd547826825402dd3484af2b",
+      "bytes": 193201,
+      "sha256": "c853215aab0e302dfa055345c0822e6a7fba60bbde656d3d60e1feec5352983a"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_CORRIDOR_a.png",
+      "blob_oid": "a3fbb6a3d72761c630d2154dc6c64b5bb1e69725",
+      "bytes": 231395,
+      "sha256": "06d269302bf475bae3ecf383c8f04663deec7911d27b18d567950459489fddd1"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_CORRIDOR_b.png",
+      "blob_oid": "2addbb646e2e16be98ad8c4a9c29039af295f91c",
+      "bytes": 270135,
+      "sha256": "3425d6b3cf963afccef15abf7316afe5e820d04f8828b2865131e0530ec7e858"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_C_BATH.png",
+      "blob_oid": "faf44cceea0d079e176df476eac4ab758a127c7e",
+      "bytes": 260864,
+      "sha256": "e48148218d47196c89feae24f807f35703fe74637aca7558490c3e4bde771958"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_C_BED1.png",
+      "blob_oid": "0b6997f7f6bc6eae73aa2d0a54d698441dc2d7ff",
+      "bytes": 36858,
+      "sha256": "5548d65dc372593eaf4310368cf0450b8779b7848e69a409ff98edb69d16194d"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_C_BED2.png",
+      "blob_oid": "09ed771391fd7087d2e76c649b5863734a7f1838",
+      "bytes": 1776,
+      "sha256": "c86a2ca0a9b49ba097687a9a37ac252502db013e6e77291d06e23fdd63b609a7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_C_MAIN_a.png",
+      "blob_oid": "6a2e8380871ff70d0e8bc3e2b07f4c144a33ae1c",
+      "bytes": 6777,
+      "sha256": "f4885574935388ce81dafac7ac98541de0d4dbd33ee6cbb1ddce849e5a294689"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_C_MAIN_b.png",
+      "blob_oid": "18b5bafe599b5440f4babb62a019e4945c6caf36",
+      "bytes": 262125,
+      "sha256": "38c10e380778f060004a304d6483020a1446070782878635f5e1a3f47eeea7e8"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_D_BATH.png",
+      "blob_oid": "c6f2c8b69985c0e75c1335a67344ace1d19cbd5e",
+      "bytes": 83155,
+      "sha256": "ab12b51f0b7d5f6c91e166290b739775f97c6a31df63a302317fea3926989344"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_D_BED_a.png",
+      "blob_oid": "99ed73737e8c02807c8f926cd5b6899b1418bdd5",
+      "bytes": 84266,
+      "sha256": "d8688028fa71b3baf0cf27a790c66943a440f82b599cd4cb7696f388ff2c87ba"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_D_BED_b.png",
+      "blob_oid": "d206fcb8196d92ea54f3644cc6b99135bc56b4f0",
+      "bytes": 177065,
+      "sha256": "2bb24ab4e4b6bbdac1e2ea2f78eefe075d1bb4ae82d0796202a279b3ecc5d1f7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_D_MAIN_a.png",
+      "blob_oid": "45c2dad4f763911750e2282757e9e5269a89e607",
+      "bytes": 302339,
+      "sha256": "9169a2e2503dd968f1f11eaeb04d0c67a946fbd4c53456fc751438125b6bdb82"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_D_MAIN_b.png",
+      "blob_oid": "724ec5a25c44b40064503e6268efb0acf6690635",
+      "bytes": 306643,
+      "sha256": "c2583d4229c5cfe5124f636146673970767b03af47695e302496fb28632592c1"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_D_OFFICE.png",
+      "blob_oid": "09ed771391fd7087d2e76c649b5863734a7f1838",
+      "bytes": 1776,
+      "sha256": "c86a2ca0a9b49ba097687a9a37ac252502db013e6e77291d06e23fdd63b609a7"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_HALL.png",
+      "blob_oid": "39f50f2d86ba0e49055f7361356418a0093992a1",
+      "bytes": 289683,
+      "sha256": "3e6377e94a46a344adbe98485a627b4cc89f05453698a09690e55335e2ca4535"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_UTILITY.png",
+      "blob_oid": "39bb7751fed476d4a1724d1ca138f6e6f0d57285",
+      "bytes": 266882,
+      "sha256": "786e553eb38e23a33540f4971a0ebc075e8e9be426b317ca5178b0e3e17f05de"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_WSTOR_a.png",
+      "blob_oid": "b8b86969e5122fbdfb5d1a4da6ef410f9f6d08fc",
+      "bytes": 257950,
+      "sha256": "b046f12ad10ed9b1da6ff3daed1f1b24db05280bf2e266f63ca6f6cddcd589a5"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_F06_WSTOR_b.png",
+      "blob_oid": "11d0bff925ce96272df73bfa0b91ba810e23ecdb",
+      "bytes": 281862,
+      "sha256": "303ea23101a3ea0259cb3af9f6698293ba85e9fca2e70c538503db7fd87506b9"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_ROOF_OPEN_a.png",
+      "blob_oid": "1dbe897858bf0b2224c2e8448a37e47440f4cc4e",
+      "bytes": 248096,
+      "sha256": "260e5e7512ecb60372a3fa744ff9874a42b583e3c4b80a9e2be1795c250b0c90"
+    },
+    {
+      "path": "art/renders/lighting_rooms/wt_ROOF_OPEN_b.png",
+      "blob_oid": "e0ce2ad8debe488dc856bc4c3c9e70ee2e96c8df",
+      "bytes": 223949,
+      "sha256": "6bc2b54776e9920570daaef9a8315cdfdee9efd452f46c009914c470f5532f82"
+    },
+    {
+      "path": "art/renders/lightpass/b_44_bar_room.png",
+      "blob_oid": "b52ddb6f5720f5dac02ccaa4c57393901facce01",
+      "bytes": 2420486,
+      "sha256": "bd87f0c20f2a969793daeb5c60a752884de1debcbbe3f5f0c8a99899819320d3"
+    },
+    {
+      "path": "art/renders/lightpass/b_45_bar_counter.png",
+      "blob_oid": "a91c85b119eec1f46793068ed6bccdca7cad1915",
+      "bytes": 1981933,
+      "sha256": "1a575dd3ddfed69d1dccbbde58b305a93eab677ff82847ed4bc0222907093fe2"
+    },
+    {
+      "path": "art/renders/lightpass/b_48_bar_lounge.png",
+      "blob_oid": "f2248f0a7d7fa45e7d16e0c3f47307c9cb3510e2",
+      "bytes": 2235987,
+      "sha256": "d4d228dcb63341eed79d42ec827d9b931454a786b4d4fb208fe0de4457d11b50"
+    },
+    {
+      "path": "art/renders/lightpass/b_62_bar_west.png",
+      "blob_oid": "6a9c52b5c1b3c3ce064dc8dc6bbd21b9c80853ab",
+      "bytes": 2999336,
+      "sha256": "acd05a35c25a700d93f64d9d5768649cacfe776d068c444a29ab4188b404de94"
+    },
+    {
+      "path": "art/renders/lightpass/b_63_shop_row.png",
+      "blob_oid": "7337caf5e86324892e8dfa980059f95d86205cc3",
+      "bytes": 967956,
+      "sha256": "70bd036e1281615781dcca88f9a9eb59898def7f782a4abc854475631698c314"
+    },
+    {
+      "path": "art/renders/lightpass/b_64_luncheonette.png",
+      "blob_oid": "e61a38558309d42ea2cb43ba105e508f30b401d6",
+      "bytes": 3087529,
+      "sha256": "feee224d6b70204145b0bbf0ec2416012b50450dbedfe4371411afc92ddd4313"
+    },
+    {
+      "path": "art/renders/lightpass/b_65_hand_laundry.png",
+      "blob_oid": "3d47198be08e897269c711b01799018445f01fc8",
+      "bytes": 2084227,
+      "sha256": "3070b875f5e7b4e2bace59e489c643b472a728de35bf7f917c921a64d47aa9cf"
+    },
+    {
+      "path": "art/renders/lightpass/b_66_pawnbroker.png",
+      "blob_oid": "2b471fbf71240ee3f9c7d150cb2b12b99ca65c20",
+      "bytes": 949790,
+      "sha256": "2ada6a1bfb9050558fdb9a3826cd4d09ee5e0c5c632a4bcb99946419559ea5b3"
+    },
+    {
+      "path": "art/renders/lightpass/b_67_radio_service.png",
+      "blob_oid": "152ffe96c615e0471a62e051060443b408babcfe",
+      "bytes": 1463102,
+      "sha256": "5c1d6d79f9fddc9bf4e359310c130d4b0c9d209d6e141d550b89a8ee81332964"
+    },
+    {
+      "path": "art/renders/lightpass/b_68_lobby_cabinet.png",
+      "blob_oid": "820d0f2c0f8dc312de59042b7fd105162e746c77",
+      "bytes": 2051943,
+      "sha256": "7d185e91885b1e13dd89a695536fa231912efd26ef2de0a76f1bb2dda090580e"
+    },
+    {
+      "path": "art/renders/lightpass/b_69_near_side.png",
+      "blob_oid": "37c9b367fa08a91f603f416375751c91b134d7e4",
+      "bytes": 1713656,
+      "sha256": "732bd7609bf2c82f3085141ca3efcfeea0d3ce65fbfeca884c1e642e66d9a646"
+    },
+    {
+      "path": "art/renders/lightpass/b_70_druggist.png",
+      "blob_oid": "677b560f2d5c2cc25337f8656df564e64af147ec",
+      "bytes": 1708880,
+      "sha256": "9ef03341b5b272aeec8f840af7bda78c824eae5117d16eb3383eb90682855681"
+    },
+    {
+      "path": "art/renders/lightpass/b_71_skyline_roof.png",
+      "blob_oid": "bb324986e593986571bd6dd128a862419e13e312",
+      "bytes": 1702648,
+      "sha256": "2b95186cf7d299ca214176213362d8b2eaed2856ee59e18165f1411b566857fc"
+    },
+    {
+      "path": "art/renders/lightpass/b_72_setbacks_up.png",
+      "blob_oid": "2e6628e2a67200049a1b1303d60bcd63bf060b44",
+      "bytes": 1233110,
+      "sha256": "f2c876c46d5557658b0e226a2b0deecb8b0da92d624e06ba241338b6192d1279"
+    },
+    {
+      "path": "art/renders/lightpass/b_73_block_wide.png",
+      "blob_oid": "cc8e3b91d9d6d95f8d15ef44e110e12f0caa1123",
+      "bytes": 2174136,
+      "sha256": "44423338c58429f2e8f99ffe5652713bfad959312ef6e9202d9c13eae9352103"
+    },
+    {
+      "path": "art/renders/lobby_marble/stand_-2.6_1.45_8.0_20_-6.png",
+      "blob_oid": "db267ddd15e61b548a6182a76baf5ce7497ff07a",
+      "bytes": 478953,
+      "sha256": "7be4218429e8c9bb15c484c4824635048fc866220ec3d9760938b02240bf59c6"
+    },
+    {
+      "path": "art/renders/lobby_marble/stand_0_1.55_8.4_0_-8.png",
+      "blob_oid": "96100353ee3972ffbab61bd2cdda9f956aeb335c",
+      "bytes": 1105760,
+      "sha256": "ef8d7c8f5664242821a3dc4e85b048733dd1d6996f085b60f7f7fbe62314a3ec"
+    },
+    {
+      "path": "art/renders/map_passage_finish/02_laundry_cart.png",
+      "blob_oid": "78f6defe53ec7c159fe2155012c9bff4c2cdfa5a",
+      "bytes": 1536943,
+      "sha256": "34fb45425b9b8b589999f0debade537596be4e62044aa3eb653d0a0e6e161c61"
+    },
+    {
+      "path": "art/renders/map_passage_finish/03_market_cart_and_drains.png",
+      "blob_oid": "57fce68ecf0c0a4a8adcff01c1c3d6c35cd31585",
+      "bytes": 1645743,
+      "sha256": "693ef8ec69ac8ec3ea74cd1b656df975a2b7cf9db8885e3b1245536ead491a0d"
+    },
+    {
+      "path": "art/renders/map_passage_finish/04_news_cart_northbound.png",
+      "blob_oid": "a237fc1bd4647bba9b912a1ba21ae6ea82022575",
+      "bytes": 1159112,
+      "sha256": "61c4105d48cbb14b336df2a1681de557e88417d7ef54c4ea9c355e1fac42d2ac"
+    },
+    {
+      "path": "art/renders/material_library_unification/warehouse_bookshelf.png",
+      "blob_oid": "7c9f98ba3c8d782a78096153a63a584ec8d85fc4",
+      "bytes": 248641,
+      "sha256": "e279e9d7585fda0197c49da1da9e551213b835a8cb6a5922145478a1d7e45b4d"
+    },
+    {
+      "path": "art/renders/mina_final/mina_corset_fix.png",
+      "blob_oid": "c37376bedac1dd8e1edbc5262ca5ac3da2c147a6",
+      "bytes": 290413,
+      "sha256": "4f18ee51c7d801a7b0ecc3e025152626b65742d6594802833cb00ed6ee3afc65"
+    },
+    {
+      "path": "art/renders/mina_final/mina_grey_elegance_idle.png",
+      "blob_oid": "67b81a1ba9e33621f1575ef8ed4f8de933cbbef8",
+      "bytes": 69110,
+      "sha256": "dc800a847c26019546aac3dcff6f74137b42d991f6e194575d858f1109c36a86"
+    },
+    {
+      "path": "art/renders/mina_final/mina_grey_elegance_walk.png",
+      "blob_oid": "8c06dccda95bf858692b96dbad2db1bdce7deb22",
+      "bytes": 89893,
+      "sha256": "b3e85bd2cd49076584dde28b55be0bb0015d879c39e94b6c91556f6b1a76957c"
+    },
+    {
+      "path": "art/renders/mina_final/mina_retarget_final.png",
+      "blob_oid": "e9902b9eec4dba5f69894789b6b6c9742cd6f1aa",
+      "bytes": 236380,
+      "sha256": "8d9dfe5b9b0c199fc4471628ea3198a45960bbc291a2b5599af18564ca893f93"
+    },
+    {
+      "path": "art/renders/mipmap_verify/after/street_2.png",
+      "blob_oid": "137ebbbd4ab38c6d8ce06d2b44cb62f54fbd292c",
+      "bytes": 876845,
+      "sha256": "3749b0eb02ab00e7547f512d6989c5692f5f8a64886cd128de25a774bd9663ab"
+    },
+    {
+      "path": "art/renders/mipmap_verify/after/street_3.png",
+      "blob_oid": "5fbc043b825b99467d4fffdc20ae8ea61d9d3f26",
+      "bytes": 876774,
+      "sha256": "49797a72d579ef9980d312ba4460bde60fb86c79301d22224e510d9fe918fdab"
+    },
+    {
+      "path": "art/renders/mipmap_verify/after/street_4.png",
+      "blob_oid": "0bf0ce024f40a8056d3af8f92bd60f84f5a7485f",
+      "bytes": 877279,
+      "sha256": "b5402bc3b8fc74625e546edb8110d118362cb97bf70e45c21b894b61f6460649"
+    },
+    {
+      "path": "art/renders/mipmap_verify/before/street_2.png",
+      "blob_oid": "67fa48c721fead3683b5caa93349878b20547666",
+      "bytes": 968571,
+      "sha256": "7a10550d240064966c79bba006562d0db22c0a0ea7ec6e73a2f36d675faa6658"
+    },
+    {
+      "path": "art/renders/mipmap_verify/before/street_3.png",
+      "blob_oid": "8e181527ac27cddfbbe0796ef7cd637cbe3ae7a4",
+      "bytes": 966283,
+      "sha256": "2406d6fc7ae00352fc96a9b22e119a22c52e5d462456ccebeb1f1fc883a86ce3"
+    },
+    {
+      "path": "art/renders/mipmap_verify/before/street_4.png",
+      "blob_oid": "d6aaee018795a7c421637cbd06d7104f11ca0aa0",
+      "bytes": 969855,
+      "sha256": "ed14e441214c28f3d1e89cbdc1bc1f4e2901c466936526cdf6b00d941f6b7f9c"
+    },
+    {
+      "path": "art/renders/mipmap_verify/mipmap_ab.png",
+      "blob_oid": "1b77f67419b6223f2eb78a2dfd86db5a797d7473",
+      "bytes": 143082,
+      "sha256": "a4586c868df3158644e3356aebd09ef5f654c4f44ae017c6a8176bea2c9afe27"
+    },
+    {
+      "path": "art/renders/note_board_relocation/stand_-11.8_4.65_-6.16_90_-5.png",
+      "blob_oid": "f54552cccde00a4c1e1416ae9f0a59c9972da2ed",
+      "bytes": 1651213,
+      "sha256": "de9e98ef5ad6ed2691be76e2cf7e167df5beda04aaf69f06be82505cb2541d33"
+    },
+    {
+      "path": "art/renders/orison_v2/fabrication_batch_20261007/images/east_case.jpg",
+      "blob_oid": "aee5ad683cc3893a6042d1862ebb0f602ae7a51f",
+      "bytes": 477744,
+      "sha256": "51e85d29f1b3753d6230c1aa0da63b64c1abcff4eb3c3cee6276e7d44b8ed3d2"
+    },
+    {
+      "path": "art/renders/orison_v2/fabrication_batch_20261007/images/east_safe_clearance.jpg",
+      "blob_oid": "7166f851e734148323e986553a3a82066b6e131c",
+      "bytes": 402232,
+      "sha256": "17d49cbb061afd3a2370172b95be4d245ceec69d8c1927ec49364c7358b31601"
+    },
+    {
+      "path": "art/renders/orison_v2/fabrication_batch_20261007/images/shop_context.jpg",
+      "blob_oid": "39873a2969a1033732898e8a4ebce343bb6c4d2b",
+      "bytes": 416321,
+      "sha256": "edf2b363706e4cf5bf79c10d4ebc5eabdd92e154d54be1541baa568427eb2da0"
+    },
+    {
+      "path": "art/renders/orison_v2/fabrication_batch_20261007/images/west_case.jpg",
+      "blob_oid": "033ed8a0ee1fa1e827f37e2985a4d307b8c67a4b",
+      "bytes": 458773,
+      "sha256": "8337fb3945912be8b6c4bd7fdc96f6617f88fa926b988929bd3c011f789a039f"
+    },
+    {
+      "path": "art/renders/orison_v2/fabrication_batch_20261007/images/window_optics.jpg",
+      "blob_oid": "36e30c9f6a6353e3aa161bcd9a7dfab5c9c56726",
+      "bytes": 261420,
+      "sha256": "d23d8bf88ac116fa41c768773f18887703fd71c17d74775e3aeda87b1e1d0f34"
+    },
+    {
+      "path": "art/renders/orison_v2/fabrication_batch_20261007/images/window_street.jpg",
+      "blob_oid": "9a045119a6062568db3e5b9350a764d8cd34144f",
+      "bytes": 443691,
+      "sha256": "90fd98890abd1cb2f7c6c8bc956e2730c923163dd97a6b3890d44a1c5f257466"
+    },
+    {
+      "path": "art/renders/orison_v2/kitchen_sinks_20261012/native/Compact.png",
+      "blob_oid": "e268d2391a8795d7185dcfcb9e94ff7520728a68",
+      "bytes": 704808,
+      "sha256": "15610bd489469d391acec75a14a70cebb4e27c43d619807df5f68c093dec3e91"
+    },
+    {
+      "path": "art/renders/orison_v2/kitchen_sinks_20261012/native/Standard.png",
+      "blob_oid": "2654d5857f5cbd0de129b88129b95868f0757466",
+      "bytes": 706901,
+      "sha256": "e489b548bf9098c90f72ba9aa1ec597f2f46b5820228e29ac9a0adb2b2da527c"
+    },
+    {
+      "path": "art/renders/orison_v2/street_paving_20261008/runtime01/street_paving_details/street_from_arcade_line.png",
+      "blob_oid": "ed2558fd16a2bfb655416c58dd73ad48e200c84f",
+      "bytes": 857617,
+      "sha256": "8039275de9d1e55989f8f699334a9751f996005777e7684d5a4b0470febf9424"
+    },
+    {
+      "path": "art/renders/orison_v2/street_paving_20261008/runtime01/street_paving_details/street_paving.png",
+      "blob_oid": "976017c25b5168cd8c35086521b4a9a0c1d4d8f8",
+      "bytes": 892661,
+      "sha256": "d4f34e21ebf3ef0865bf3b1d40d08f344595a8d14ca3b69b55b7878f7f403c32"
+    },
+    {
+      "path": "art/renders/orison_v2/street_paving_20261008/runtime01/street_paving_details/street_paving_before.png",
+      "blob_oid": "9adb274136e513b2a2285f3bc76781ef679fec00",
+      "bytes": 861033,
+      "sha256": "c82d034f98c1ab27c883dd5148d9ead931566b82b868d9f22cd4478c275000ab"
+    },
+    {
+      "path": "art/renders/orison_v2/street_paving_20261008/runtime02/street_paving_details/street_from_arcade_line.png",
+      "blob_oid": "079a7fd04abca2d2e5c5e29f2736f6703a47774a",
+      "bytes": 859741,
+      "sha256": "15092d974b9a21cf5afd3d2d769c2236e8a16aefdbd5c122e2306851d2b8bd5d"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_ATRIUM.png",
+      "blob_oid": "091ae870a3cdb44030616552790f20aa9eccc360",
+      "bytes": 6885819,
+      "sha256": "a0bb5b64c835c70532c7b19b14f31de29b4b206706812e7f0bb7787b6a4ac538"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_A_BATH.png",
+      "blob_oid": "1df72b5cbae52272fcebfbfb6e03d08e89c44630",
+      "bytes": 2693674,
+      "sha256": "3b57f3ea2514e1a91889eb9edb1c6719118c03ceeb112bc8f4fdfef2bf4b2740"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_A_BED_a.png",
+      "blob_oid": "bd48a90097b80e34651165480e4a4b17e9f43d91",
+      "bytes": 8613173,
+      "sha256": "4fbb8a81f05338401068c6654c70d9523ce15ba31149a0ce01791942e7cab34d"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_A_BED_b.png",
+      "blob_oid": "794a67c526c192b12c37a3cd2948688a54dd56ef",
+      "bytes": 7212010,
+      "sha256": "65ceac5ea58507a181638f8d7905c8166882c5b042f5c63f15f975b8e01f1909"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_A_MAIN_a.png",
+      "blob_oid": "ad5bbfb712a8adecf7980e33f112a4d89b4d75b5",
+      "bytes": 10158689,
+      "sha256": "3393434139b69f19d07b5a811af8bbed710d5eaa1c41f06b73c45676cb2b6d79"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_A_MAIN_b.png",
+      "blob_oid": "b6db0108cbe468786559fa4cec1e6c26847be5ef",
+      "bytes": 6694972,
+      "sha256": "0a4e08b1d772b5e6d9462ddcc1a59d32ff1f9880c2244db503ecc5e079a11f06"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_B_ALCOVE.png",
+      "blob_oid": "c97d7437d018ec953a54f121daf445154fb46624",
+      "bytes": 7153946,
+      "sha256": "c3a1c7406ebb955075dc03062cfa7fac4797e0e0fa2798cd329ab614234ee4e6"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_B_BATH.png",
+      "blob_oid": "3eeeebbb0d7f8fd9154817de7a7f45cd81d91193",
+      "bytes": 4286974,
+      "sha256": "a49e711bc5a6e3250fed6ed9c9116a825b529b3cf5682b97101a04195f2b6558"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_B_CLOSET.png",
+      "blob_oid": "192d0299e109d7b90899f0f485b6ea30eebc2abf",
+      "bytes": 2955583,
+      "sha256": "4259d1889f4ec76aadc69cba9de0fa0ce5758954b39b383d47c79d2dac5cfe4b"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_B_KITCHEN.png",
+      "blob_oid": "79a47633437d4228d04b38707c00c3f62d9c1312",
+      "bytes": 6808517,
+      "sha256": "35430af73c48730303ca6e138e61488edb134e6eb14db9f6ba30db6e3184142b"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_B_MAIN_a.png",
+      "blob_oid": "e534e8802689b53900f42569a3d65678a63cb65a",
+      "bytes": 9468065,
+      "sha256": "81914c71de2d17f6a0a493bcce0ae12ba9575744b96a6b33335feb221af5000c"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_B_MAIN_b.png",
+      "blob_oid": "ce548506682f03691317fd8dac850c6bca09bbfc",
+      "bytes": 8832315,
+      "sha256": "db4c64448dd6ca1edf44fd6a044a598a914a97878d16a6fb132771e7f2aa7e1c"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_B_VESTIBULE.png",
+      "blob_oid": "eae5ed512a9a1b791ba49ab000ac067406018e78",
+      "bytes": 3437529,
+      "sha256": "68924aed654a6ffec337ecd20d407f8bb75f0e6169764cc9b7292bf95c725e51"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_CORRIDOR_a.png",
+      "blob_oid": "02ee9a1cbaaa4e36afdc0da51fb8f0c3509009e7",
+      "bytes": 8749659,
+      "sha256": "e5faa005fa217340c29649e6fc9253450687fe0f40225a69cbf2f076b051c707"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_CORRIDOR_b.png",
+      "blob_oid": "5878176f20f73f1b8ef967adf5d21bbde7ebf8b4",
+      "bytes": 8814077,
+      "sha256": "7bce0fca983da6943e68fd4a00ebdd7df5e50d513168aecad98b86a90fbc74ef"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_C_BATH.png",
+      "blob_oid": "5bfc6830496b18e3316dbcffb4f58e8d53052961",
+      "bytes": 2838833,
+      "sha256": "13cce3d609c770501e6a8208469d9d864d22dfcc5e9a6646ff9a830198c2f85e"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_C_BED1.png",
+      "blob_oid": "528e46be12f5a993afd0ff379f9f55a635b1fc97",
+      "bytes": 8511631,
+      "sha256": "0200220729befeaaf159d4c83840b354858a18039d87be204194cc0738165707"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_C_BED2.png",
+      "blob_oid": "ccdfc7bb473164192922f88b2e9c163f87156325",
+      "bytes": 4137277,
+      "sha256": "5202121a55d61a740dd786ff8a42546d59c8a23a3b48c7782a32a209aed1d5b3"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_C_MAIN_a.png",
+      "blob_oid": "77083d4de6c1b1287e0f2818146693f823f5533e",
+      "bytes": 8555873,
+      "sha256": "14d3213d4a668dc7be2d1be3c1a6fefb2b13fd005c77b4414f6d7c86c6a58d99"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_C_MAIN_b.png",
+      "blob_oid": "ede0f00a4e66fdedd57d4777942bd3172d739af6",
+      "bytes": 10478086,
+      "sha256": "7ba820276d03d6267d932d62304c41adf077bc510d037b27b98807405635c2bc"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_D_BATH.png",
+      "blob_oid": "974e222d205f45fc5ce95f49ac246e4024a3402d",
+      "bytes": 2684998,
+      "sha256": "ee683345005ef01fe8b0f2d965fa55327f0e4707ee697a101e2117ab712023a3"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_D_BED_a.png",
+      "blob_oid": "ddefe8ce0ae846c7f297c736d664490f60a83812",
+      "bytes": 8359130,
+      "sha256": "cf244606fdfbc9d38c9b87f6dc1fab653fe0cae02c20131b395fb95c4616db1d"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_D_BED_b.png",
+      "blob_oid": "8d0366e128e554f0a7289771bd5ea9d62670d6e4",
+      "bytes": 7734409,
+      "sha256": "4e2ee1ab69383eef33f26150be0d38839866f541931c235df51b688d212f8441"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_D_MAIN_a.png",
+      "blob_oid": "8a8b484306db88a91ed74ddc32677521794b8947",
+      "bytes": 9508971,
+      "sha256": "9e6e6d1773cc1bfc2f01c88515b26393bafa65ef668accb728c0d837542371ff"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_D_MAIN_b.png",
+      "blob_oid": "3f7102f672792575ea0b0d97627bcc65467dbeef",
+      "bytes": 10015523,
+      "sha256": "ecaaf38644d7c64263f6e4dc3b5f1f224fadea28c14040cd19ab3d5da5a9eb4d"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_D_OFFICE.png",
+      "blob_oid": "dc7deb989c6cd5ffec8e65097f5e694a838d8b34",
+      "bytes": 4411483,
+      "sha256": "3eb06db390bea1899ae6f6c044825cbd14b254bd833f512308020e74d2664736"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_HALL.png",
+      "blob_oid": "743fb425158dc69229ccab38e900c6a56561597b",
+      "bytes": 8937730,
+      "sha256": "4d3e088893d51a560523f98137140dbffa9fc4c7da74feac7b6aadabc8905a79"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_UTILITY.png",
+      "blob_oid": "c3fa6eed30f97c5902d92add6f0549f971dc5fad",
+      "bytes": 7389759,
+      "sha256": "48faeccb8488a1d8294acc7cac35c0cedbddd652ec76c26e040cee2f3a39e361"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_WSTOR_a.png",
+      "blob_oid": "4f999e3bcd47530131e59ced265ef28b9413fef7",
+      "bytes": 6089646,
+      "sha256": "74d5f245901157c0bc4178dd9e0b36d315e04af2cef758cf09ac00a3c5edff06"
+    },
+    {
+      "path": "art/renders/pc_room_redesign/wt_F04_WSTOR_b.png",
+      "blob_oid": "612ccbde5b78edf472b3f098fb7f4cd77b835356",
+      "bytes": 7322992,
+      "sha256": "dabb3bff79ea81d418e9cc80c101ca54ee7e93b495344d2b745adf24b6cd1b07"
+    },
+    {
+      "path": "art/renders/performance_shadow_k1/candidate_64_5/01_atrium_f03_landing__playable_.png",
+      "blob_oid": "13ceb5e1dfa47f514821b7125cfff4a66b3386d5",
+      "bytes": 1523870,
+      "sha256": "8e420a1ed10f5db6ebff5897514856c7cb33a2d1fde4f492ad9db694021fed60"
+    },
+    {
+      "path": "art/renders/performance_shadow_k1/control_a_64_16/01_atrium_f03_landing__playable_.png",
+      "blob_oid": "b205f27fdb40adac4869f8f5f9e4533218f0bb90",
+      "bytes": 1528686,
+      "sha256": "8c3802ab622eb8df7c35a3336c3dd6fb67b9b7b6de7b3aab0474a147c48f4983"
+    },
+    {
+      "path": "art/renders/performance_shadow_k1/control_b_64_16/01_atrium_f03_landing__playable_.png",
+      "blob_oid": "57daab7574dd69bf3d9e8bb539c55f232a0ded96",
+      "bytes": 1528574,
+      "sha256": "9b753bdd0359f8e75407ba3203a1ee2a972a778b3d96e96d0e12ab56e875842b"
+    },
+    {
+      "path": "art/renders/shadow_budget_g17/candidate_64_4/01_lobby.png",
+      "blob_oid": "aa9799b6c25f58deadca0cd51ab3ffcdb0d8d85d",
+      "bytes": 2060150,
+      "sha256": "3f0a51646734e3c73e9b0681431b4021c3ab7b0845742497e2553fccd75e32c7"
+    },
+    {
+      "path": "art/renders/shadow_budget_g17/candidate_64_4/02_carriageway_north_pavement__playable_.png",
+      "blob_oid": "780785467951b614a3251915d231fc8170260c13",
+      "bytes": 1662650,
+      "sha256": "1e03e966b745e7c7e9b6b03c3711e536196d073345f3f8eb1df67e14462c404a"
+    },
+    {
+      "path": "art/renders/shadow_budget_g17/candidate_64_4/03_harukiya__16_fixtures_.png",
+      "blob_oid": "439af6322173185162e7cbc6a67e7c0acb00af7e",
+      "bytes": 2268414,
+      "sha256": "07613e78cb89a3af7a779fc0187a36bc57d1941a782718b0e732e7063b2c8d60"
+    },
+    {
+      "path": "art/renders/shadow_budget_g17/control_64_16/01_lobby.png",
+      "blob_oid": "f182e883b12744da24782093e1cf9ee0d381b122",
+      "bytes": 2076616,
+      "sha256": "3423d391c4a837e2b8242bfcefbc4cfc45f6b52ba81c4c621f86b62e7f3e6f3d"
+    },
+    {
+      "path": "art/renders/shadow_budget_g17/control_64_16/02_carriageway_north_pavement__playable_.png",
+      "blob_oid": "ea855de0001218343fb1ea65475563bc9a4b664a",
+      "bytes": 1665203,
+      "sha256": "6b0394fdd87305a8365ad7dea15f9d4ad0f82d413c74d4292f6d2cdd51700427"
+    },
+    {
+      "path": "art/renders/shadow_budget_g17/control_64_16/03_harukiya__16_fixtures_.png",
+      "blob_oid": "fb8c384424aef381d4c10baeb7ffda9c29233306",
+      "bytes": 2190813,
+      "sha256": "308ead7ea4983ec0e601702ac4a5e2fad55d88a4a2d101a8160694c35950b6ec"
+    },
+    {
+      "path": "art/renders/shadow_budget_g17/control_b_64_16/01_lobby.png",
+      "blob_oid": "0ea45ce6fffd3edcfaf1acd435bb5bae3798cabd",
+      "bytes": 2077447,
+      "sha256": "806a5b6e4eb6c42aafcfac767671faaad621b698b582cb0216c13d124e3b432b"
+    },
+    {
+      "path": "art/renders/shadow_budget_g17/control_b_64_16/02_carriageway_north_pavement__playable_.png",
+      "blob_oid": "dea1475ece459bf08c6c8f1bf6d196bf002474b5",
+      "bytes": 1665158,
+      "sha256": "7b6d6a7895a7dde62ed0d0d22c957623eb33b27b837e3ec142dca11d779025f6"
+    },
+    {
+      "path": "art/renders/shadow_budget_g17/control_b_64_16/03_harukiya__16_fixtures_.png",
+      "blob_oid": "e7c76759068160736351e75eda7478dc6ffba77a",
+      "bytes": 2190915,
+      "sha256": "709e85b81e7368e0175dc6062682a684cfeb2d0ae48a8748caf6f9fd1f7f8839"
+    },
+    {
+      "path": "art/renders/shower_curtain_final/stand_-7.21_11.0_-5.30_0_-8.png",
+      "blob_oid": "cb320836b6004f2e30d0154883a86b5e2486e7d7",
+      "bytes": 1638078,
+      "sha256": "b60be4b588241dcda441fd036be1214ca5dca9617e20681e008862fdf5623fef"
+    },
+    {
+      "path": "art/renders/shower_curtain_final_open/stand_-7.21_11.0_-5.30_0_-8.png",
+      "blob_oid": "487f86039fd6336485ea888ced5a60615c2602eb",
+      "bytes": 1664852,
+      "sha256": "78f2081c0e60a443c55a6de0ee3a8e9c69311caf45a0a63788c1b43adf6f5c5b"
+    },
+    {
+      "path": "art/renders/shower_curtain_final_warehouse/warehouse_shower.png",
+      "blob_oid": "6f36db8632ebb9d591da511c14cc58bbf0b06f10",
+      "bytes": 301562,
+      "sha256": "0475628b2f99c1dca42fec5b403a6218f954b4b8e787909916936eb80ee3af82"
+    },
+    {
+      "path": "art/renders/street_facade_survey_v1/01_gate_head_on.png",
+      "blob_oid": "bb704a671d208f7da06588e806d416ee2f4e4498",
+      "bytes": 935689,
+      "sha256": "0a409e55210e4748e0bc77c3666bf40bb74a207315e406fac5dc1a820bfc7391"
+    },
+    {
+      "path": "art/renders/street_facade_survey_v1/02_gate_oblique_west.png",
+      "blob_oid": "d60c7117dbda7f4e1120dcd40c42d5f89bb254d9",
+      "bytes": 855199,
+      "sha256": "444c343b5c24796e252852d2545d890c830de0e417aac9f514447805fe9c8558"
+    },
+    {
+      "path": "art/renders/street_facade_survey_v1/03_south_frontage_wide.png",
+      "blob_oid": "3d0e6a904847ef6d142873634edb6b379b2447b8",
+      "bytes": 806884,
+      "sha256": "13101991481c2f1c996ba03e410c600f7f2436f568f7827a2535e99c43bcc512"
+    },
+    {
+      "path": "art/renders/street_facade_survey_v1/04_from_gate_to_orison.png",
+      "blob_oid": "77a9ba987a2086918277d379a4efc33127b7b92f",
+      "bytes": 812431,
+      "sha256": "c12d157c7219b1baf800eca3bcec61be1eb3661df43560f1226d77d48e765e53"
+    },
+    {
+      "path": "art/renders/street_facade_survey_v1/05_east_end_join.png",
+      "blob_oid": "c75c02ccf2c6ff0670efc883b6b30e5328dbec24",
+      "bytes": 1097051,
+      "sha256": "e7ede111143905bd9ca763823bbb4d094235393889747c829cf6cc46be2d8047"
+    },
+    {
+      "path": "art/renders/street_facade_survey_v1/06_west_end_join.png",
+      "blob_oid": "dabf886ba8e485ae06d97ce75f992671125e248a",
+      "bytes": 931810,
+      "sha256": "61e01d900283959bbb278ec017b9a19e05799787e46af21407e6444904e3f8af"
+    },
+    {
+      "path": "art/renders/street_facade_survey_v1/07_high_oblique.png",
+      "blob_oid": "71a6ed04efd57df8a4c1115717dabb394366a8c5",
+      "bytes": 707053,
+      "sha256": "ad3a0097091e27fafa0e0951ba37b6da5ef9804d7fb27c2f658e1722c8aab5f6"
+    },
+    {
+      "path": "art/renders/street_facade_survey_v1/08_pavement_east_sweep.png",
+      "blob_oid": "40bfc72bc99b40467d92f81474f4d13a68bb9390",
+      "bytes": 1084834,
+      "sha256": "96a2f0f6a7f57e30f4635b993263ff6e1ad0fd924abd54a191d240c09f49d41d"
+    },
+    {
+      "path": "art/renders/street_neon_batch_t7e/control_a/02_south_pavement.png",
+      "blob_oid": "abcc18bcf1456cb2822b6767d3830ad0754fbc34",
+      "bytes": 3287322,
+      "sha256": "065ff74f47f301c5ac3729a5851c270e3837324fd5aa5e5294914f2168c13f0d"
+    },
+    {
+      "path": "art/renders/street_neon_batch_t7e/control_a/03_east_road_mouth.png",
+      "blob_oid": "9abbac217d6f241256fe04dc7f9ab453a59ec7e1",
+      "bytes": 3259729,
+      "sha256": "b8722ae1d2a6a1360d6189f8602ae5bdd9da394fddf0d228a6b53c8949c0b90a"
+    },
+    {
+      "path": "art/renders/street_neon_batch_t7e/control_b/02_south_pavement.png",
+      "blob_oid": "9b4a4a81b799b8cd117e1c676715f71da9b3b157",
+      "bytes": 3281933,
+      "sha256": "01d83fcb82ab51f103d7f82b0aced9e9ab256bb4cf8b001899ac20da3e76a792"
+    },
+    {
+      "path": "art/renders/street_neon_batch_t7e/control_b/03_east_road_mouth.png",
+      "blob_oid": "a0dd458660d6a742f11055ec224eaeec3611e86c",
+      "bytes": 3259087,
+      "sha256": "7bcafd8320c1f830fad517511f3dfe3b34caf81de78e9999196ab581ee205265"
+    },
+    {
+      "path": "art/renders/street_neon_batch_t7e/production/02_south_pavement.png",
+      "blob_oid": "82ce67c98ea77e83903e0a15d23f351effaa0bb2",
+      "bytes": 3282154,
+      "sha256": "ed2126f556a694715a3d5993eef47ab3c80b9a97cf634623e27105c108fc705e"
+    },
+    {
+      "path": "art/renders/street_neon_batch_t7e/production/03_east_road_mouth.png",
+      "blob_oid": "f46ff16cd91ebeb660447a63ce3337ef3dd4ba51",
+      "bytes": 3257713,
+      "sha256": "b725425eb22743746b3b7ec9428a71abe2a71806b6549dd63b7b5eda7f462f8b"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_a_bath_room.png",
+      "blob_oid": "74fcacef4d13d97438379ad3c294fad7bd136bb5",
+      "bytes": 1202561,
+      "sha256": "7c8117accc92126560c24cdd15a64916f0c22a6882c1d9589e19d29a3851fabd"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_a_bed_room.png",
+      "blob_oid": "98ab16ed8246a446fe2867c19cc131c115f8f3c1",
+      "bytes": 883561,
+      "sha256": "61f80081383e55214ce575897b7935953bf1b6bf81d63bd8d5ae061360c2c34e"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_atrium_room.png",
+      "blob_oid": "6bd66b78d5481a7505f3cb25b8da0613e77a2418",
+      "bytes": 1298068,
+      "sha256": "371fce7150751a02c6d242821582becb80715c692a1b3c17f127252ea8ec655f"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_b_alcove_room.png",
+      "blob_oid": "ea1da9493a27c5938512bbd16d129813f9a16fad",
+      "bytes": 945902,
+      "sha256": "69f246b92718c5567577880272c41090cf38519d47069c8fe3f23eedcb9bc661"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_b_bath_room.png",
+      "blob_oid": "e862ba2410c86a9aa825d03cfb92875b4f314982",
+      "bytes": 1165510,
+      "sha256": "9257064af4ef8cb91efb438639cb8beebcf59c71a0bd1263414e68f20933483e"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_b_kitchen_room.png",
+      "blob_oid": "47980d99bcaa4f4353cc5d6824375add8e6fc3a1",
+      "bytes": 1375637,
+      "sha256": "a459211e4e20ab73838f8a96ecf5bfadc89f8d0317a39087b8142039047fa5b4"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_b_main_room.png",
+      "blob_oid": "cf4a28e62e4113c14e40dcd716152fd5022738c9",
+      "bytes": 621550,
+      "sha256": "a2cf6d1253b0cd2f58e1a945e099bd1489172a246825706471d0a74724a1c06f"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_c_bath_room.png",
+      "blob_oid": "17ec377c17bf9b97332d2771fb6b3534b64c14d7",
+      "bytes": 1296002,
+      "sha256": "cd6fb30958967f8e8f763a9c29136863beef48e161db36d4b4d7509709031ad5"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_c_bed1_room.png",
+      "blob_oid": "fa3fe3de68d3df710f3106c8a91b9eb58229dec3",
+      "bytes": 875703,
+      "sha256": "9825d35eddbc7a3fee4446aa998ebfacd116d433e041efd8c4d1c9787f0acfdb"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_c_bed2_room.png",
+      "blob_oid": "28c6fcb1cc7d5ee66a8c3cec99addea8d2e1de22",
+      "bytes": 852157,
+      "sha256": "932a1e3d8bf60ebb32690b4e5fe9a125b30cecfa695aa934c41c599b510cdeb3"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_corridor_room.png",
+      "blob_oid": "6aa7f5f690b5095a939a3c47d06eb74fbadb795b",
+      "bytes": 408224,
+      "sha256": "7dacb8ed66299abac2a02dc69dc44a130684ec5588bb1cdd35f8729def34017e"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_d_bath_room.png",
+      "blob_oid": "96e7febdf6d15692620cdd744eb92e608018ac83",
+      "bytes": 1257264,
+      "sha256": "68d0f6f55842b06d28cd4b1672cd99d362008ac066ecff8440521d843356ea85"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_d_bed_room.png",
+      "blob_oid": "0c0067eceda87c8e5806bf4ada8a3a7683a6ece5",
+      "bytes": 694729,
+      "sha256": "d3566a4e532e3e568a5aa9a7afaaab823baab52a51058f903f2656cb4950dd09"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_d_main_room.png",
+      "blob_oid": "9d2e3d4c088c71983c3c9283396cdabd11a10d6d",
+      "bytes": 1179238,
+      "sha256": "0e03cfa25015f50224423c474d96038e472979055ac15f22a01d4fed7ea4891d"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_d_office_room.png",
+      "blob_oid": "2ec43162b79e403cc95b41a1038d6d2fec858f0e",
+      "bytes": 1073149,
+      "sha256": "db94f52dc433ae5261c9625c01563b6d509f9d4c73a08159e4d0d69ec83957f0"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_hall_room.png",
+      "blob_oid": "420b5cada2cfae10a9d1e625b757b8e41c444add",
+      "bytes": 1095908,
+      "sha256": "2884269dbd3e8426bbdae61fab2546dd3cf4d7e9587535dd448f3ab40009c2c2"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_utility_room.png",
+      "blob_oid": "c28e167f1f6f4008fc96d40906965da5699d5527",
+      "bytes": 1096518,
+      "sha256": "13317a52e7655ab1f63804d7041ca3a4e35638a3f897a894f9c0a367807691f2"
+    },
+    {
+      "path": "art/renders/sweep2/F02/f02_wstor_room.png",
+      "blob_oid": "a51e7641ae69ba694610615f59d0648743579aa2",
+      "bytes": 916997,
+      "sha256": "d0ad96e22a799a9b9969ab32101feb009fa20e06d1de19355c921a1ce2059788"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_a_bath_room.png",
+      "blob_oid": "5533b325cd67538e2c966aee2bf0970f2355d9c7",
+      "bytes": 1309820,
+      "sha256": "b6e20204c1cfeb36129cdf9f39b24c0ca14c7ca7b30847792fd77d158ebddd56"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_a_bed_room.png",
+      "blob_oid": "261da2da90dd65d73d6c001b6df84455f29a4903",
+      "bytes": 851049,
+      "sha256": "605b927b77c57d6f37ac34d2047134a52b98689d6bb17a019121824b4edb45aa"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_atrium_room.png",
+      "blob_oid": "08128331780bd2dea8eb292e40cd00fe72b6920e",
+      "bytes": 1290486,
+      "sha256": "c3e7910aea347375cf2cddd6df83a378bc853cdd3f33e6488abee3eeae6178f4"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_b_alcove_room.png",
+      "blob_oid": "e246125ad0eed483056a452ccbc7bd28e7cffbc7",
+      "bytes": 904434,
+      "sha256": "8ab50c4ff079f7610fd711e87568db011d6b91c3f7f1340b579dacddffada252"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_b_bath_room.png",
+      "blob_oid": "a34c4ba88eabda67530c8458ab8d3afccf862dfc",
+      "bytes": 1289498,
+      "sha256": "e6ff649345dbd77d56cdc3fbbf35b1502168835b49646001b801471e10c63544"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_b_kitchen_room.png",
+      "blob_oid": "2a5fe576423be00d49bcbdeb666e2c913e0b59e9",
+      "bytes": 1156674,
+      "sha256": "83bee55181f04ab69c3ff481a71c0368dee7753ecaea2737f3a345b9870ee874"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_b_main_room.png",
+      "blob_oid": "ad10f70b83567a570e5ecf2387d5977b240f5eb3",
+      "bytes": 775285,
+      "sha256": "4e6cda6a12864733b7ac78467adeeb0b6ec3326ef327bf5ebf5aa14c058d8e91"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_c_bath_room.png",
+      "blob_oid": "51b0c5bf5704ee93a029ccb2eb8c96bf625e906f",
+      "bytes": 1284024,
+      "sha256": "dc35c8fe9d52d67145d3029ab2aa798d1330e2ac24ca314a90b9127dfe3cf10a"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_c_bed1_room.png",
+      "blob_oid": "380d4cf54d83030ec9e73580c36dda29a0ce5f87",
+      "bytes": 988708,
+      "sha256": "a528ff24840a3f96b5352d194b0b70389de7a79011b216cd07f36ca140523ec4"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_c_bed2_room.png",
+      "blob_oid": "11794afccb948adf19e41b518d2f934ee195cd35",
+      "bytes": 934705,
+      "sha256": "5d70cff3b2dbe53a06fe8306a4dd2f00e74295b85988526bc35fb1ace5859f7f"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_c_main_room.png",
+      "blob_oid": "3915b7db970b96bc7e8fd909f7877be7a354994a",
+      "bytes": 1009367,
+      "sha256": "d57635ce9af044202345139eafb5c7239eda3733a2b03c668b9cf55a4025795e"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_corridor_room.png",
+      "blob_oid": "414300e9c6003d593d6f6d8686ac2af18c6b510d",
+      "bytes": 410730,
+      "sha256": "74501ed734f49a0f12471cded6a660899d43f4da355937b705de99aea979a6da"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_d_bath_room.png",
+      "blob_oid": "7875318df0e227b26f47b0ebae3d16ad12408970",
+      "bytes": 1226825,
+      "sha256": "e2a98e346446627e38c91b44a4c2fd9c4b8dca627ce9a3399a40ed312e9b0222"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_d_bed_room.png",
+      "blob_oid": "c89f88050a6322a20bb94b6c189aed92450b1647",
+      "bytes": 906497,
+      "sha256": "683886f439b562bd04e7e9856b5d9892dd413b4503b2b0c470bc297df38d6586"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_d_main_room.png",
+      "blob_oid": "060858d2b7a368220975fa017b424db3632e75d9",
+      "bytes": 1149892,
+      "sha256": "d66ddeeef395de114a34c6f66e9559bc9f0962411f4f6c572fe22d1ea617930c"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_d_office_room.png",
+      "blob_oid": "d7ccad19ead5b8807a15ae0d248215a936ce8a9b",
+      "bytes": 96684,
+      "sha256": "ff8a490dbb56a0d6f718f8c4f8f1c4fc2862b441d9a3dc59f76897d759bdb817"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_hall_room.png",
+      "blob_oid": "b43b72fddfcfe1026057aca9f47335af417d6d02",
+      "bytes": 1069614,
+      "sha256": "6e4313d34c0f9cc5ce57f760f2eca8a4dcd659c755e61e81a4bacb3f9fa5b944"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_utility_room.png",
+      "blob_oid": "2db4a3471371308ece87f0209ff8e43a9d0fafa9",
+      "bytes": 1156270,
+      "sha256": "1448ae408f4b632017b4f2324392a8927dadef9ab87cbffb4b34fd63f4fdeaee"
+    },
+    {
+      "path": "art/renders/sweep2/F03/f03_wstor_room.png",
+      "blob_oid": "d3138ef7353bc9d6ed57a222df7d32fe81250aad",
+      "bytes": 938409,
+      "sha256": "044f106261b36195864e1b1ffdf54af742ebbaef582d4a9acfae8db6556ca4fb"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_a_bath_room.png",
+      "blob_oid": "9fe635d76c58a3a0bea9c8dea0bf2520fd46f62b",
+      "bytes": 1274338,
+      "sha256": "5edeb3e013f92028189b8ec384d75b679d2b9f610f42351f6aca92bd53d4507c"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_a_bed_room.png",
+      "blob_oid": "bc1473a0c9dc8cb01ebe43f6ffdb82e43aa0d316",
+      "bytes": 879295,
+      "sha256": "5f532aae8c2d5c23b810fc642ea3a888384f60c6b99e4d487dd4164b7f6b9f1a"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_a_main_room.png",
+      "blob_oid": "6027dabcb4b02c98a31960559a26d6e4d4855918",
+      "bytes": 1358317,
+      "sha256": "5ac876e2c1e74a2f190e4bad3ff5f837bdc08500ed5508f2f0e59aeca83f3138"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_atrium_room.png",
+      "blob_oid": "38acdf92b6b21cac5ec1d67755c0e6cfd9643c12",
+      "bytes": 1461123,
+      "sha256": "08061a0b2b7896637d9c6881ddf28f6e270efd0637813e4ca5868992bafbac4b"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_b_alcove_room.png",
+      "blob_oid": "57b007e3d1f61e826e020c68a9dbdd12876710f2",
+      "bytes": 861339,
+      "sha256": "79ef71854667d5d1d9a39d2bd8327102814a028627e172c60076cefa3875256a"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_b_bath_room.png",
+      "blob_oid": "d01c575b72b90e61a56b23b8bc0a29731992bc8c",
+      "bytes": 1167767,
+      "sha256": "a0153cdf9fe324ac7ac523cdb7a8aabee069148931871fca5ff8727bc4d55f2a"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_b_kitchen_room.png",
+      "blob_oid": "5c8f12c7205909e67f061a6bcd3a4fd426ceb21b",
+      "bytes": 1277675,
+      "sha256": "462836663dddbd9c709ecc750dd1f16ea577d2f7b57e49a604448579c306d357"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_b_main_room.png",
+      "blob_oid": "e9e930285bc8744b9f0306340c3f3f4b39a9b57f",
+      "bytes": 748643,
+      "sha256": "e6a4bbad54287c72557c2230ccb94ca3f65d0728677db76bdcc42e8dc0d3825b"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_c_bath_room.png",
+      "blob_oid": "a620722b59b9b2085a53ac02b03ae601f4b9f939",
+      "bytes": 1321650,
+      "sha256": "fb9c4cea1bdc2e06697db5778473b163214c206171d17893af4b42c77909b871"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_c_bed1_room.png",
+      "blob_oid": "5353b7b8dcb7be85e256e3552721bbd43a6848dc",
+      "bytes": 881149,
+      "sha256": "f53a93f2502e0bcc44f8b442fb4a96ab858e2655dfa7aa2baeb06e93c0f5fb5a"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_corridor_room.png",
+      "blob_oid": "1521fd3d1c37d97ae6d4321d51f5bc18892419a0",
+      "bytes": 403319,
+      "sha256": "23c16156433a29953974219f4c44944ed8326662f59f3e783e1de2a8abc96c02"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_d_bath_room.png",
+      "blob_oid": "855d2bcffafc70eb2cb99172d20a9da96a0ad542",
+      "bytes": 1289203,
+      "sha256": "4e03c2152ee7b31b90e0317376a01b4e20da83e9298a512c3d58cd2d4fb844ea"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_d_bed_room.png",
+      "blob_oid": "19d1ecd1a92af0a9bfb5266f356e29ee5564e218",
+      "bytes": 820378,
+      "sha256": "7c47a8cc53181ff853db57e83de2003b7ad470ed69fea0a72c612f030b96ba7a"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_d_main_room.png",
+      "blob_oid": "867cd21f3bfb5587ab4c33dda4a195799259c149",
+      "bytes": 1176037,
+      "sha256": "850a2ab1ccf10e2fc212c91c76987e77dbce1e8dda3e37a825a06e8f0a765269"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_d_office_room.png",
+      "blob_oid": "16403a1d0273bb6ddf0869ecdfa23f88f6489110",
+      "bytes": 1088901,
+      "sha256": "335dcb15ba8700fdf9bc13f49334659ec7c64bb3b4325b3c3f6f1264032a236c"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_hall_room.png",
+      "blob_oid": "494e2c08748400d66d637b3e2d5793fbeb8386a6",
+      "bytes": 1266129,
+      "sha256": "c503ac7f822c82a97632746f9f702f0c554bbf212811d1ee60c57ecc50387378"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_utility_room.png",
+      "blob_oid": "527f0bf15645f6d4e36031a8085d9dc37423f75c",
+      "bytes": 1124384,
+      "sha256": "b57ae7c87724f2bd33bc27210aa3423c7ccc0adcdec083d0e70d145a9f09223d"
+    },
+    {
+      "path": "art/renders/sweep2/F05/f05_wstor_room.png",
+      "blob_oid": "373dba972270260d4fe05cdf89155613bfc81e65",
+      "bytes": 918967,
+      "sha256": "6bf91dbf0db210484759d2c7a54cd27631ef376ff1006e1fb467d939d6a0abc5"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_a_bath_room.png",
+      "blob_oid": "170185474bfa5151ddf9300c3467fceeb0bfdf01",
+      "bytes": 1187775,
+      "sha256": "c5b48b9e2960b4880740570f8bb5164d28d32111771f50fdaa4d4f3356ee7b4a"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_a_bed_room.png",
+      "blob_oid": "02a74f1191c6b97a8e0a0d22d092f5e975812fbd",
+      "bytes": 768193,
+      "sha256": "4dc94d545b584d2ef49eaeec6a567dde4c1cd69522aee506c6c83c66c906c02b"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_atrium_room.png",
+      "blob_oid": "72c5fe79bd2362cb54f8e7f5ac6d28ded9c5693b",
+      "bytes": 1514022,
+      "sha256": "32151dc6bb404c2a0a857c2fbfdaa40a0540aad1d34d0cb1a139349486ff0a8c"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_b_alcove_room.png",
+      "blob_oid": "ec8d525dbca98c7dc12554188409307423b868be",
+      "bytes": 902808,
+      "sha256": "2bea6556c3facee5ff9bb6513351bb2b45fb5ef456e2cb30d67e8ab40120815c"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_b_bath_room.png",
+      "blob_oid": "6b6dea7576b683ea20d46798c2ab6f3b1111da45",
+      "bytes": 1171561,
+      "sha256": "eeef3ca5a342ee7c22f7d6f0d0c02edff19ed5c34b740286fee1ecc82c1d86d3"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_b_kitchen_room.png",
+      "blob_oid": "c1c85271ac00b8be52ee5461581971c0de2e7a83",
+      "bytes": 1392831,
+      "sha256": "1bfc5b449c31bb1f7b386fc4ac55ca94d9a3eabc463c5d57193647eeba52fa77"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_b_main_room.png",
+      "blob_oid": "83995c504b9109e7380a10f71d962ce55b81fe48",
+      "bytes": 995690,
+      "sha256": "cb8be7a63dbc9efb22567dda47b1efbbee63c5c53a44a177b53e6de1b210f71a"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_c_bath_room.png",
+      "blob_oid": "5d942d95914abf6b4721a178bfed841a4ed9e5a8",
+      "bytes": 1324380,
+      "sha256": "3ea675492edbc98e4e39344683d0a5eb875912899805edb046243caee73df40c"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_c_bed1_room.png",
+      "blob_oid": "16028cb0b6dba82a02951f4218278951442f23dc",
+      "bytes": 878236,
+      "sha256": "40247ebf4f3856d6bada5a67410c8e552fab8f925cd74c4b7baae01d231d0b2e"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_c_bed2_room.png",
+      "blob_oid": "fd1afc736ecd429e3eabb74e7d2e171aeeafdce2",
+      "bytes": 849661,
+      "sha256": "51c4b3cb0fc46c603519d79eafe7a743e8d03765a8fcbde1687204fa098ad623"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_corridor_room.png",
+      "blob_oid": "2fede0070a2717530057aaab1e81c190f0c83237",
+      "bytes": 398149,
+      "sha256": "200ad5398fce6de90280b77787a7ebc3cdcc773dde868bda4c610674dd9d9aa0"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_d_bath_room.png",
+      "blob_oid": "f81a036126af3bee55c3ae717ba23ace9ad219af",
+      "bytes": 1241854,
+      "sha256": "126143db52a5787ef2499f16966a1ba2b4c771cec826ddda7c436b676e529546"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_d_bed_room.png",
+      "blob_oid": "7a800c7f51661d8270fb38444635b255e503d217",
+      "bytes": 1219065,
+      "sha256": "1d8115f29d5ae9b5e130e31556d37adcb547da03f1586ab65776c137a3c56de9"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_d_main_room.png",
+      "blob_oid": "e18472fd3fc45d4262eb1dee0a7d8b897f6e1a51",
+      "bytes": 1367339,
+      "sha256": "3158cfac98bbc835c29473d279b27dca832332b8a462f77717c5f928f94faa40"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_d_office_room.png",
+      "blob_oid": "b138d663bd10fa94bc1abd7dfc38c99f172ddefd",
+      "bytes": 173922,
+      "sha256": "b99efe6bb88aa1a1582acd808113a8aa522729f19ac738b9e921480bab9f48d1"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_hall_room.png",
+      "blob_oid": "c431d1c746492e8ad1bd12b6c6ccb9387b147b9a",
+      "bytes": 1158335,
+      "sha256": "e4dd339874c0fde810ba1ef981fb323e007113dbfdc300efe85ef37ba450bc0a"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_utility_room.png",
+      "blob_oid": "b35de715a919aacff4e795c889292ea1a4ed6e61",
+      "bytes": 1455958,
+      "sha256": "61a30e3c6eb6339f3332e0522a93881a97495a98b63d801276edf458906e2d7b"
+    },
+    {
+      "path": "art/renders/sweep2/F06/f06_wstor_room.png",
+      "blob_oid": "96269ff93a9040d0aa26a53bb365e5da14fdeee2",
+      "bytes": 926147,
+      "sha256": "6176685e6d289f9f2aaaae251dab72e8675b5335c960ed95ba283c20488d1f92"
+    },
+    {
+      "path": "art/renders/sweep2/fix/f02_d_office_room.png",
+      "blob_oid": "87cb77a2225c9f0c7172a6e8c0c69c158bd1e42f",
+      "bytes": 1061504,
+      "sha256": "fe3378eb994988510b1dbdfe07d59c9cc59b93e3bc54f2bc7e715c6a1304e4c3"
+    },
+    {
+      "path": "art/renders/sweep2/fix/f03_d_office_room.png",
+      "blob_oid": "8792d4d4b92b8ffe6f3bad21ec34c38faf7597a5",
+      "bytes": 1488339,
+      "sha256": "a9c5e10734e24489c10e72f06520331725b881e71d23df9d33fde6b8a3c0f8b2"
+    },
+    {
+      "path": "art/renders/sweep2/fix/f06_d_office_room.png",
+      "blob_oid": "9086cafa8cfe3f747c10ae14e629d99ca77b349f",
+      "bytes": 953420,
+      "sha256": "8a268cb278c3168be18897fc48f2253d265c2e71f2d312ae64ccf239dc3edd45"
+    },
+    {
+      "path": "art/renders/texture_grid_fix/f04_hall_room.png",
+      "blob_oid": "adbd9f88a03535f47a53b2893f6dad8b388d1d3b",
+      "bytes": 1591374,
+      "sha256": "0abb30d78a4fda6b5ef824d2cbe8a98ff1dcd7d99ffe90db0f6d8bf940937f90"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v3b/01_frontispiece_head_on.png",
+      "blob_oid": "0bb82c397eda68c72e18abef9b7c80eef5dd0ce3",
+      "bytes": 1550059,
+      "sha256": "56c23e77fc1cbef75d0585f720736cb6a8765600f5a0cfd54f50ad2976ce92fb"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v3b/01_gate_head_on.png",
+      "blob_oid": "1631d341dd7181df6c321ea96a798c62e6c5a39b",
+      "bytes": 1389567,
+      "sha256": "f4c78dbe18fc5eafec7cc76833321f7fff90278fba6c6abf663788b8ff88a7a4"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v3b/02_frontispiece_oblique.png",
+      "blob_oid": "4097a05701d2975f83c524e9baaf631456f7dd76",
+      "bytes": 1480892,
+      "sha256": "16c0445d2a8a2b76d20763e34ada9a8f06883b77076f0c13c30e4eeee0ee82ed"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v3b/02_gate_oblique_west.png",
+      "blob_oid": "cfdfc2b3d329d690e87feaae9ed496ffc5d02bfe",
+      "bytes": 1416058,
+      "sha256": "f35a9c14da2945d1c54534a1937da8cd9a3e3e8e83e4a8afb6defa9c88ad86a6"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v3b/03_portal_close.png",
+      "blob_oid": "28067634778f9823a1137c809b1b624819a274a0",
+      "bytes": 1616854,
+      "sha256": "fac4b3c16e5581bb26ebf50bdb0cfb9f65000e2b615c738731bebfe391573f3a"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v3b/03_south_frontage_wide.png",
+      "blob_oid": "ed732b3da03e408c23a5a62ca8ae5d2a8bf720ab",
+      "bytes": 1410180,
+      "sha256": "0cbb4bc6ae6e4c1cb33a272087834c7d958189fc51952ca2e049d58d49869743"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v3b/04_from_gate_to_orison.png",
+      "blob_oid": "7560d4e1aebb23b48e54aac457ca6b5c41c719b6",
+      "bytes": 1349258,
+      "sha256": "a2fb10a0f7b27a37ed983c5430445753565a0f614a89bd28b5ebf37ab631bcfb"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v3b/05_east_end_join.png",
+      "blob_oid": "098a8a09eabd6fc128cee86706ede5e15da9cf48",
+      "bytes": 1392362,
+      "sha256": "7dfcd2d440e3fb6194a6e3199774e70cddedb74ec345730d98d0a7ae11a211a7"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v3b/06_west_end_join.png",
+      "blob_oid": "56890acdbfeac9ff528a8f0dc83b00dc125b385b",
+      "bytes": 1309457,
+      "sha256": "85fdc9349731bb2dd5f32cbe3623105caf601aed46216a1a4987508370d028cd"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v3b/07_high_oblique.png",
+      "blob_oid": "706f5b18919b9a3e93e0e21aa8315fff39452fad",
+      "bytes": 1376927,
+      "sha256": "8e9421a993cc33a33c4edfe7400a69078e2fe6b9050a2542413605737deb2e57"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v3b/08_pavement_east_sweep.png",
+      "blob_oid": "aaa7fd5a0c27091bb6588a458ed54c029648aeb5",
+      "bytes": 1530191,
+      "sha256": "e7f39c7ec6d88203ec13b4fd0c32ae07796e86915211346271cd1b32408e2301"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_depth/01_locksmith_layers.png",
+      "blob_oid": "b096593cf12737045ddf891e87badd2bb886c812",
+      "bytes": 1653497,
+      "sha256": "90937fdbd46a9c4b0ebbc2b3672e19b2fc171fa59ebb85d9c2774a712888518e"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_depth/02_hardware_depth.png",
+      "blob_oid": "533d83361147b7dd8d70da312b29c915e15e314d",
+      "bytes": 1895016,
+      "sha256": "40930d07b61da56a245e6e5409aab7bc5882af96ad6040902ba8cef8bbf8694a"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_depth/03_chapel_doorway.png",
+      "blob_oid": "3951bb5097ec61f0a27859eec8f6e8972aa8dfda",
+      "bytes": 1737339,
+      "sha256": "c7d21d88362f953b96dbda63de2e7d5e22ed34ebb56b04f12290fce9464db9b1"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_depth/04_aisle_oblique.png",
+      "blob_oid": "c01408dd39013201e756f72e9234546c5036abbb",
+      "bytes": 1323359,
+      "sha256": "d05e82187452bce48644cc5d8241ee4ce21a088676741331f7f37973d7f92e47"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_depth/05_crossing_lantern_up.png",
+      "blob_oid": "a69411a0d6fdc5884616954169cc600dc7735644",
+      "bytes": 1840748,
+      "sha256": "a0967d5f5f8a6fea36c7a7407e861a374e2ad3696485840895ccb2e4595652a8"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_depth/06_south_gable_lunette.png",
+      "blob_oid": "1cfea0d55d8ec88af2db7269dc39db930d741442",
+      "bytes": 1243376,
+      "sha256": "b696ebc0e226d587ba38010f0db84cb31a6352d586862468976159a54f330b56"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/01_pawnbroker_0.35.png",
+      "blob_oid": "76cb30e873738599f41119c85b66e70d14ad3dcf",
+      "bytes": 1600431,
+      "sha256": "4976b046b57a346c1cf1a71e94d09a10ebd9391832941de335e4c9242af62761"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/01_pawnbroker_0.35_CONTROL.png",
+      "blob_oid": "5bbd18cf1c4dc14746f5780ffa02fd6b1b428a52",
+      "bytes": 1348554,
+      "sha256": "b11461a41c7da42e232e4cbe3e5bfa20bc5ca1232a1b27299e1614a4265f2af1"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/02_druggist_0.30.png",
+      "blob_oid": "011e42f78952ac9eefa980ecd762b7e423b53d0c",
+      "bytes": 994057,
+      "sha256": "626ec311d47e0679ec8b99dda4ebf5b21447fbd452005ef5650f12a76940fee4"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/02_druggist_0.30_CONTROL.png",
+      "blob_oid": "76ff97164877428f55bd5e6fcd346fd59d324ea5",
+      "bytes": 634801,
+      "sha256": "604b483a381924edd5b1a8b798044afab99219604ab27010b449f16ef32f5534"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/03_funeral_vigil_0.22.png",
+      "blob_oid": "bd54d1b1d6d564d0c3c7f39d20288f5062b7d375",
+      "bytes": 957870,
+      "sha256": "97adbcf813000b8e9412cce0d91b38ac30f90d5e163e82f6fddf0df1fa34279d"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/03_funeral_vigil_0.22_CONTROL.png",
+      "blob_oid": "7b09c377a761b1f5904b923161ebfb655f1d833e",
+      "bytes": 787997,
+      "sha256": "bdf378ea5bad05196af4abf1b1dbfc8855f68c66227653496bb56517884facf9"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/04_cobbler_0.12.png",
+      "blob_oid": "1dc3465983fea49690f4b26cdf4306f252c22f9d",
+      "bytes": 1144317,
+      "sha256": "4e86d69bc5fc1c4effaaa3dccc0b0e41132874864ecb92b803808db95a5dbdca"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/04_cobbler_0.12_CONTROL.png",
+      "blob_oid": "b72761ba326d5ce79da0c38cc5fc2417e4063960",
+      "bytes": 966544,
+      "sha256": "6a5053ac13f32999d499aae143cfb4ba56b54f78d254add1ff9dd4885001346c"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/05_east_line_rhythm.png",
+      "blob_oid": "b090ddd071b3fabf7340aa2afaa4ad03e0c2c114",
+      "bytes": 1390138,
+      "sha256": "1feeef758c1ec519eb9fbe411f7675f5c0800c57835e5faec4201c73005f922b"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/05_east_line_rhythm_CONTROL.png",
+      "blob_oid": "597c1d6176d5ccbb74dc07932ebdfd8d1ba57f6e",
+      "bytes": 1106611,
+      "sha256": "8ae3564d64ae6fce863cbcd95eb71b5c1b428d5e38c589ae69f1e890b1ccf9a2"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/06_hardware_night_service.png",
+      "blob_oid": "8b10d483d3969f160b66d14a287ac2115b45d5fc",
+      "bytes": 1463351,
+      "sha256": "2e0eaf50bf9e713669d5975ca6f6277e801577fefa24f62f8881edef50c43bca"
+    },
+    {
+      "path": "art/renders/vantry_arcade_v4_night/06_hardware_night_service_CONTROL.png",
+      "blob_oid": "2404e42df66255581420eafc35bf4af47263d86b",
+      "bytes": 1437107,
+      "sha256": "e47c712a7965496d59148ee447757103ef84591e78e204e1e7fe40fd8adea071"
+    },
+    {
+      "path": "art/renders/wall_art_audit_verified/01_memoryart_mae_young_cataloger.png",
+      "blob_oid": "a8c1b477294c018a3bdec8f52c104d8addeae9d2",
+      "bytes": 3475871,
+      "sha256": "8dd8667ea72a0a1b9c7547c44192515cabc3f5c3f11843b8cb971c8b3f88364c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_verified/02_memoryart_jonah_listening_watercolor.png",
+      "blob_oid": "970fed4ee67f6c56bc4b371a2e8dde89646263f8",
+      "bytes": 3077226,
+      "sha256": "daf0d24ab15d5025d87cd4270058ef977e0a8e7f6e083c0eeb883c6dcd74b4ae"
+    },
+    {
+      "path": "art/renders/windows_w1/after/01_carriageway_elevation.png",
+      "blob_oid": "c375dfd3e5f5f68ed5e9aa10506a049b10349b2e",
+      "bytes": 1591089,
+      "sha256": "77191a636e29b2bb50f46c9bf670351d8391b0b60a207a494d03d7603e7b2c09"
+    },
+    {
+      "path": "art/renders/windows_w1/after/02_carriageway_ground_windows.png",
+      "blob_oid": "9629acc7f789fb23608d7da6ac137995d48b0e7d",
+      "bytes": 1628670,
+      "sha256": "c1891d434cc28d9b97deddf072b0c33182b0b7cf1f752a07af4cca986b956d55"
+    },
+    {
+      "path": "art/renders/windows_w1/after/03_against_the_facade.png",
+      "blob_oid": "06f11b73d784f42c9bdc8a9238adfae3ea49bbcb",
+      "bytes": 1128517,
+      "sha256": "91bc91096910b147756ff524c5d0cd7dee0b963eb69dae2ea51fb7281066d9c5"
+    },
+    {
+      "path": "art/renders/windows_w1/after/04_window_close.png",
+      "blob_oid": "270172b105ea27f72e830e1cb2434c176d37a006",
+      "bytes": 1218992,
+      "sha256": "9cb0060a25453ab8fd9de2d519c4bdc673bf9c58c5eda77bbaa75308c373ca38"
+    },
+    {
+      "path": "art/renders/windows_w1/after/05_from_the_room.png",
+      "blob_oid": "53ae6a0f12eea74d8694938e918c8da2a4bef62c",
+      "bytes": 1206199,
+      "sha256": "f7f40d73af4e0c409329db0e10064d08b875947841ad91dd81bd5c6a82f52119"
+    },
+    {
+      "path": "art/renders/windows_w1/before/01_carriageway_elevation.png",
+      "blob_oid": "87b1650107ce7b26014f37f2669f6bce3d77c96c",
+      "bytes": 1648091,
+      "sha256": "a0a1a489e526381b906a4488d0af10ec638a23ecd42c86124cd3b7e149b67b06"
+    },
+    {
+      "path": "art/renders/windows_w1/before/02_carriageway_ground_windows.png",
+      "blob_oid": "be56706baefbd39a66318413b242cc569a38435a",
+      "bytes": 1613428,
+      "sha256": "6108e18f24e2244454c858a6db9d9f4425f20e7fe271133d9566a2fa2f86e811"
+    },
+    {
+      "path": "art/renders/windows_w1/before/03_against_the_facade.png",
+      "blob_oid": "a675f0ca71040b19de31a86c49285aa19bc5f24d",
+      "bytes": 1087899,
+      "sha256": "2f6d21d5cf12829989a6c97746d5a0ee9c2022ef35ee25ce38edede1be83627b"
+    },
+    {
+      "path": "art/renders/windows_w1/before/04_window_close.png",
+      "blob_oid": "173cfa798ea378a6fe00817c2a38207bdc58fbc8",
+      "bytes": 1184562,
+      "sha256": "46fc0a57e4209f39793d16b39c426fce04f50c1819042809a265896a9ead4078"
+    },
+    {
+      "path": "art/renders/windows_w1/before/05_from_the_room.png",
+      "blob_oid": "8b94d885fcef860608c2d737dbf7759d70ba8580",
+      "bytes": 1189151,
+      "sha256": "42f49528aba61c0df7707c7289479215ec285804f24d0dacec785062b7c52f49"
+    },
+    {
+      "path": "art/renders/windows_w1/night/01_carriageway_elevation.png",
+      "blob_oid": "eca0c1faf1489cf7199e1e238f78d49d93c74c7e",
+      "bytes": 552692,
+      "sha256": "8cbfe8a43a3913f28218c0c9aee196d0a1a45426d423e6820ed7a857c674cd04"
+    },
+    {
+      "path": "art/renders/windows_w1/night/02_carriageway_ground_windows.png",
+      "blob_oid": "80f8f5fd8347268e10b806a710179cf48ed30090",
+      "bytes": 1013447,
+      "sha256": "648ecca0d8dc25994b01228c1d09122a4e041015cedea29578e4ff35855fe255"
+    },
+    {
+      "path": "art/renders/windows_w1/night/03_against_the_facade.png",
+      "blob_oid": "f59994dca8b637e31babf435cc9e0844d3b4e3a6",
+      "bytes": 907974,
+      "sha256": "04c2981988889513f8cb6222c4fdb5ca4278832fc8db5e211acffccaf6a16498"
+    },
+    {
+      "path": "art/renders/windows_w1/night/04_window_close.png",
+      "blob_oid": "0fb0c029b100b5c278c6693f35a958d068a710e0",
+      "bytes": 504852,
+      "sha256": "5c0c026ec0b0c743024907db7517546a5c1a02a8e72f0e674bc8d6a29aad7ed0"
+    },
+    {
+      "path": "art/renders/windows_w1/night/05_from_the_room.png",
+      "blob_oid": "e9be6b3f52cb1fe6040b28472f4c86c7258999e9",
+      "bytes": 1177545,
+      "sha256": "75353b09b08da4ec9efaa12e61b803e4285501069b22d17cd4c5b87bc49380df"
+    },
+    {
+      "path": "art/renders/windows_w1/night_nowindowparts/01_carriageway_elevation.png",
+      "blob_oid": "595e5cc354ed67bc7d12ab7e00dc9abcb0a9195b",
+      "bytes": 515189,
+      "sha256": "a1c21656819bd7e67373cd82b572c8379c96609d5516323019896ae612667155"
+    },
+    {
+      "path": "art/renders/windows_w1/night_nowindowparts/02_carriageway_ground_windows.png",
+      "blob_oid": "3352dabc21313062486f031cbdc4b95ac6bce815",
+      "bytes": 1002839,
+      "sha256": "e26e1991b819fcd203716230f36ce2b7ded2d0a0d613bc6b7962d8e3935c1d75"
+    },
+    {
+      "path": "art/renders/windows_w1/night_nowindowparts/03_against_the_facade.png",
+      "blob_oid": "8f2d521a20f5e8c1aa490a96f3689611baa83050",
+      "bytes": 900685,
+      "sha256": "0aec163987f8166972fe96dab1f69a31dbf9164da9ad68e2a59f58e98c812355"
+    },
+    {
+      "path": "art/renders/windows_w1/night_nowindowparts/04_window_close.png",
+      "blob_oid": "dc9090bc57104efb3d70c393975ac1489566d84f",
+      "bytes": 466490,
+      "sha256": "1880030cb9c0a09a02f9a610ae60e933824a9d8858d3b1dc8f4208dfd8dd78d9"
+    },
+    {
+      "path": "art/renders/windows_w1/night_nowindowparts/05_from_the_room.png",
+      "blob_oid": "df7924fbd07804bd2b18c9bc9670476d6c3e03fd",
+      "bytes": 1235434,
+      "sha256": "086690be80a863c2dbee04eb832c8edf0f55a734214017158f8e231b2d93f49a"
     }
   ],
-  "qualification": {
+  "prior_qualification": {
     "candidate": "7ee98f56d45fbdfef7cf3500ee2ce9eb48243898",
     "merge": "21e382ce686f5ba2dacac25641f6ea62560f0ee2",
     "pr": 77,
@@ -1259,6 +4433,23 @@
       "failures": 0
     },
     "current_surface_packet": "PASS, unchanged qualification; no new Godot run",
-    "limits": "In-place static verification; no fresh-checkout or new runtime/artistic acceptance. Git history retained."
+    "limits": "In-place static verification; no fresh-checkout or new runtime/artistic acceptance. Git history retained.",
+    "scope": "Initial205 wall-art captures only; this does not qualify the pending additions."
+  },
+  "pending_batch": {
+    "base": "bc135d855b69afef8e48e1d5b261165655d791b1",
+    "files": 529,
+    "bytes": 590195841,
+    "consumer_audit": "Raster render outputs only. Current canonical surface packet excluded. Retain any image whose basename OR family token occurs in gameplay, tooling, authoring scripts/data, material metadata, current design documents or skills. All project text locations searched, including review/native authoring metadata; generated render metadata and historical copied Astra source/evidence excluded from primary-consumer search. No source files or receipts selected.",
+    "conservatively_retained_images": 9949,
+    "native_images": {
+      "blender": "5.2.0 LTS",
+      "blend_files": 329,
+      "image_datablocks": 4340,
+      "matching_candidate_inputs": 0,
+      "failures": 0,
+      "native_hashes_unchanged": true
+    },
+    "static_comparison": "pending"
   }
 }
