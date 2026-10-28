@@ -27,6 +27,7 @@ var _running := false
 var _last_moved_valve := -1
 var _document: Dictionary={}
 var _carrier: Node
+var _window_controls: Array[Node]=[]
 
 func _ready() -> void:
 	set_process(false)
@@ -42,7 +43,7 @@ func configure(owner_world: Node3D) -> bool:
 		if row is not Dictionary or row.get("id") is not String or row.get("text") is not String: return _fail("invalid writing row")
 		if row.id.is_empty() or row.text.is_empty() or _messages.has(row.id): return _fail("duplicate/empty writing row")
 		_messages[row.id]=row.text
-	for id in ["wake_passed","wake_shower","curtain_open","cold_start","hot_start","more_hot","less_hot","comfort","hot_off","water_off"]:
+	for id in ["wake_passed","wake_shower","curtain_open","wrong_curtain","cold_start","hot_start","more_hot","less_hot","comfort","hot_off","water_off"]:
 		if not _messages.has(id): return _fail("missing writing message "+id)
 	# One mounting survey per support. The actual wall hit supplies the frame;
 	# do not float lettering at a guessed wall plane or scan interaction targets.
@@ -54,6 +55,10 @@ func configure(owner_world: Node3D) -> bool:
 	writing.transcription_changed.connect(func(text: String): transcription_changed.emit(text))
 	shower.manipulation_changed.connect(_released)
 	shower.flow_changed.connect(_flow_changed)
+	for treatment: Node in get_tree().get_nodes_in_group("v2_window_treatments"):
+		if world.is_ancestor_of(treatment) and treatment.get_meta("unit","")=="4B":
+			treatment.control_released.connect(_window_released)
+			_window_controls.append(treatment)
 	RealityState.state_changed.connect(_restore)
 	_restore()
 	return errors.is_empty()
@@ -125,7 +130,7 @@ func _say(id: String, bathroom: bool) -> void:
 	message_id=id
 	writing.global_transform=_bath_anchor if bathroom else _bed_anchor
 	var reveal := 0.7 if bool(GameBoot.settings.get("reduce_flashing",false)) else 1.35
-	if not writing.show_message(_messages[id],reveal): _fail("writing presentation refused "+id)
+	if not writing.show_message(_messages[id],reveal,-1.0,.9 if bathroom else 1.25): _fail("writing presentation refused "+id)
 
 func _released() -> void:
 	if not _running or get_tree().paused or player.call_locked or RealityState.save_write_blocked: return
@@ -149,6 +154,13 @@ func _released() -> void:
 func _flow_changed() -> void:
 	# Restore/supply notifications cannot manufacture tutorial interaction.
 	if _running and is_same(_document,RealityState.data) and shower._held_valve in [0,1]: _last_moved_valve=shower._held_valve
+
+func _window_released(control: String, before: float, after: float) -> void:
+	if not _running or get_tree().paused or player.call_locked or RealityState.save_write_blocked: return
+	if not is_same(_document,RealityState.data): return
+	if state.phase=="curtain_interaction" and "curtain_pulled" not in state.events \
+			and control=="curtain" and after>.1 and after>before+.02:
+		_say("wrong_curtain",true)
 
 func _process(delta: float) -> void:
 	_poll+=maxf(delta,0.0)
@@ -181,6 +193,9 @@ func shutdown() -> void:
 	_carrier=null
 	if is_instance_valid(shower) and shower.manipulation_changed.is_connected(_released): shower.manipulation_changed.disconnect(_released)
 	if is_instance_valid(shower) and shower.flow_changed.is_connected(_flow_changed): shower.flow_changed.disconnect(_flow_changed)
+	for treatment: Node in _window_controls:
+		if is_instance_valid(treatment) and treatment.control_released.is_connected(_window_released): treatment.control_released.disconnect(_window_released)
+	_window_controls.clear()
 	if RealityState.state_changed.is_connected(_restore): RealityState.state_changed.disconnect(_restore)
 	if is_instance_valid(writing): writing.clear();writing.queue_free()
 	writing=null

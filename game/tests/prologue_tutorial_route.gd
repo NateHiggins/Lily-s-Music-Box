@@ -14,12 +14,12 @@ func _route() -> void:
 	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR"))
 	director=Director.new();world.add_child(director)
 	if not _require(director.configure(world),"actual 4B fixture and wall supports bound: "+str(director.errors)): return
-	if not _require(director.begin_waking_preview(),"explicit waking-only slice begins without fake dream acceptance"): return
 	var carrier: Node=world.service_set_carrier
 	var draft_before: String=carrier.session.draft
 	var lamp_before: bool=player.lamp_is_enabled()
 	var radio_before: bool=carrier.device.radio_powered
 	carrier.session.draft="Unsubmitted draft survives the opening."
+	if not _require(director.begin_waking_preview(),"explicit waking-only slice begins without fake dream acceptance"): return
 	carrier.release_story_absence(world) # An unrelated caller cannot reveal it.
 	carrier.set_capture_hidden(true)
 	carrier.set_capture_hidden(false) # Review visibility cannot defeat story absence.
@@ -32,7 +32,7 @@ func _route() -> void:
 	Input.parse_input_event(read_press)
 	if not _require(carrier.is_story_absent() and not carrier.rig.is_visible_in_tree()
 			and carrier.reading==reading_before and not carrier.session.available()
-			and not carrier.hand_is_enabled(),"story absence hides the single rig and rejects recall, typing and hand input"): return
+			and not carrier.hand_is_enabled() and carrier.session.draft=="Unsubmitted draft survives the opening.","story absence retains draft, hides the single rig and rejects recall, typing and hand input"): return
 	for area: Area3D in carrier.find_children("*","Area3D",true,false):
 		if not _require(area.collision_layer==0,"absent companion has no query obstruction: "+str(area.name)): return
 	if not _require(not player.flashlight.visible and player.flashlight.light_energy==0.0
@@ -52,6 +52,23 @@ func _route() -> void:
 	player.face_world_point(director._bath_anchor.origin)
 	await get_tree().create_timer(1.6).timeout
 	await _shot("bathroom_writing.png")
+	var window := world.adapter.root.get_node_or_null("F04_B_BATH_WINDOW_E/WindowTreatment") as Node3D
+	if not _require(window!=null,"actual bathroom window curtain owner exists"): return
+	# Household restore is not a witnessed player gesture and must not trigger
+	# the joke. The physical opening below must leave the shower gate unfinished.
+	var saved: Dictionary=window.settings_snapshot()
+	window.set_settings(window.raised,window.tilt_degrees,.8,0.0)
+	if not _require(director.message_id=="curtain_open","programmatic window change cannot invent wrong-curtain interaction"): return
+	window.restore_settings(saved)
+	if not await _walk(Vector3(-6.9,9.6,4.75)): return
+	var extent: float=(window.width+.24)*.38
+	if not await _drag_part(window,window.get_node("CurtainControl").global_position,extent,"prologue_wrong_curtain"): return
+	if not _require(director.message_id=="wrong_curtain" and director.state.phase=="curtain_interaction"
+			and "curtain_pulled" not in director.state.events,"actual window-curtain opening prompts correction without completing shower step"): return
+	player.face_world_point(director._bath_anchor.origin)
+	await get_tree().create_timer(1.6).timeout
+	await _shot("wrong_curtain.png")
+	if not await _walk(Vector3(-8.45,9.6,4.35)): return
 	if not await _drag_part(shower,shower.to_global(Vector3(0,1.18,-.32)),1.78,"prologue_curtain"): return
 	if not _require("curtain_pulled" in director.state.events and director.message_id=="cold_start","curtain release advances actual guidance"): return
 	if not await _drag_part(shower,shower._handles[1].global_position,PI*.5,"prologue_cold"): return

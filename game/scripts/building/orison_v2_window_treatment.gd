@@ -1,6 +1,8 @@
 extends Node3D
 ## Independent lift, slat tilt and curtain draw; HouseholdState owns saves.
 signal settings_changed
+## Physical release only; restore/tween/legacy toggles do not witness a gesture.
+signal control_released(control: String, before: float, after: float)
 const SOURCE := preload("res://assets/props/window_treatments.glb")
 const SHADER := preload("res://shaders/v2_window_stock.gdshader")
 const SHEER_SHADER := preload("res://shaders/v2_window_sheer.gdshader")
@@ -45,6 +47,7 @@ var _tassel: MultiMeshInstance3D
 var _motion: Tween
 var _target: Dictionary = {}
 var _held_control := ""
+var _held_start := 0.0
 var _count := 0
 var _drop := 0.0
 var _pitch := PITCH
@@ -218,6 +221,7 @@ func control_grip(id: String, part: Node3D) -> Dictionary:
             if _held_control!="":return false
             if _motion!=null and _motion.is_valid():_motion.kill()
             _target.clear();_held_control=id
+            _held_start=raised if id=="lift" else tilt_degrees if id=="tilt" else curtain_open
             return true,
         "write":func(value: float):
             if _held_control!=id:return
@@ -226,7 +230,12 @@ func control_grip(id: String, part: Node3D) -> Dictionary:
                 "tilt":tilt_degrees=rad_to_deg(value)
                 "curtain":curtain_open=value/extent
             _apply(),
-        "end":func():_held_control="";settings_changed.emit()}
+        "end":func():
+            if _held_control!=id:return
+            var after: float=raised if id=="lift" else tilt_degrees if id=="tilt" else curtain_open
+            _held_control=""
+            control_released.emit(id,_held_start,after)
+            settings_changed.emit()}
 
 func _line(index: int, a: Vector3, b: Vector3) -> void:
     var delta := b-a;var length := maxf(.001,delta.length())
