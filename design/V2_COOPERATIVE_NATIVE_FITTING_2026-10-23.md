@@ -329,3 +329,64 @@ ordinary roughly 65 ms p95, city architecture, weather presentation and human
 acceptance stay open. Owner decision needed: **none**.
 
 MERGE-CANDIDATE 1b7d701333d0556c31b3c37e71f17b558603692b — merged in PR #73
+
+## October 28 — frame-linked load attribution
+
+Evidence class remains **INERT**. Opt-in diagnostic instrumentation, not a
+scheduling repair or performance acceptance. Baseline **f71f1c82** is clean;
+the new production flag defaults off. No new source files or gameplay owners.
+
+| Location / reproduction | Severity | Evidence | Repair / next action | Verification |
+|---|---|---|---|---|
+| Passage reload during actual street/door route | Input stutter | Complete trace: fitting call max37.446ms, first cooperative advance max36.819ms; nominal budget8ms | Added bounded monotonic request/get/fit/callback intervals; next repair should split or reduce atomic fitting work, preserving exact source and collision validation | Four ABBA blocks complete, no dropped records, empty shutdown stderr; original residency and surface regressions pass |
+| Attribution buffer during fourth crossing | Diagnostic failure | First instrumented run drops1,279 records at4,096 and correctly fails its new check | Increased bounded limit to8,192; retained original failure | Complete repeat passes with zero dropped records |
+
+Raw receipts, screenshots, source-frozen frame arrays, prepared source snapshots
+and reproducible analysis remain outside the repository at
+**C:/ov/reports/passage_load_attribution_20261028/**. The **baseline.log.receipt.json**
+and **instrumented_complete.log.receipt.json** record completed windowed runs;
+they are wrapper receipts, not runtime qualification. **instrumented** is the
+preserved failed diagnostic. **run_route.ps1** and **analyze_routes.py** reproduce
+the route/settings and nearest-lower-rank percentiles in **route_comparison.json**.
+
+Same3440×1440 fullscreen, patched4.7.1 Vulkan/RTX4080,8×MSAA/TAA, vsync off,
+uncapped, June25,1929 at18:00, fixed traffic seed1928, live NPCs/traffic and
+unchanged cloud-off/on/on/off route. Baseline4,872 frames versus complete
+instrumented4,944: wall p50/p95/p99/max **36.394/64.580/74.531/120.872ms** versus
+**35.849/63.109/74.765/112.924ms**. Main-viewport GPU p99 **23.594/23.767ms**.
+These diagnostic repeats do not establish a speedup or instrumentation overhead.
+All four load cycles request/get48 cells,52 height dependencies and200 native
+assets. Largest request0.026ms, largest ready-result get0.010ms; these exclude
+worker/deferred costs and do not exonerate asynchronous loading as a whole.
+
+The112.924ms frame contains an18.981ms residency callback, including18.952ms
+of locksmith advancement. A94.842ms frame contains31.785ms of its first
+advance. Thus the fitter is a measured contributor, not an explanation for the
+entire frame. Baseline's largest frame is DORMANT; do not attribute every spike
+to passage loading. Process records contain nested fitting/request/get records;
+never add them together. Frame ids and monotonic intervals permit correlation
+without treating one-second engine process/physics peak counters as frame costs.
+
+The complete trace contains7,046 records under the8,192 cap. The original
+**OrisonV2PassageResidencyTest** passes57 waypoints/zero failures; its DORMANT
+and RESUMED snapshots both confirm profiling disabled and zero diagnostic
+records. This is actual input/regression evidence, not a schema-2 contract.
+Applying the spatial-contract preflight to this historical diagnostic reports
+its missing static SOURCES declaration; it does not turn that fixture into a
+contract writer. No test assertions or deadlines were weakened.
+
+**surface.log.receipt.json** and its test-written **surface/runtime_contract.json**
+record39,427 passing checks, zero failures and empty shutdown stderr. Seven
+current composed captures were inspected. Atomic fitting costs, dark exterior
+lighting and the flat storm ceiling remain open. The unchanged fire-service
+interaction programme was explicitly skipped; physical hose/cabinet surfaces
+remain covered. Save reconstruction remains NOT_EXECUTED.
+
+The source-bound surface packet is renewed only through the existing publisher.
+Previous packet bytes were checked against immutable commit
+**b6f4307cf4d6ff8b8036abd58e4ecbe676678abe** before publication; recover them with
+Git archive of **art/renders/orison_v2/surface_requirements_20261011** at that
+commit. No new duplicate review archive or source file is introduced. Raw local
+backups and **previous_packet_git_provenance.json** remain with the external run.
+Candidate comparison and integration remain pending; no speedup, new disk-save
+qualification or human artistic acceptance is claimed.

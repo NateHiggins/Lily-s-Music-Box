@@ -48,7 +48,7 @@ func _process(_delta: float) -> void:
 			Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.0,
 			RenderingServer.viewport_get_measured_render_time_cpu(view),
 			RenderingServer.viewport_get_measured_render_time_gpu(view),
-			world.passage_region.residency.state,counters])
+			world.passage_region.residency.state,counters,Engine.get_process_frames(),now])
 		var residency: Node=world.passage_region.residency
 		if residency.load_cycles!=_publication_cycle:
 			_publication_cycle=residency.load_cycles
@@ -72,6 +72,7 @@ func _release_attribution() -> Dictionary:
 		"household":world.household_state.profile_records,"commit_causes":world.household_state.profile_causes}
 
 func _route() -> void:
+	world.passage_region.residency.load_profiling=OS.get_environment("V2_PROFILE_PASSAGE_LOADING")=="1"
 	if OS.get_environment("V2_PROFILE_RELEASES")=="1":world.household_state.profiling=true
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED);Engine.max_fps=0
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
@@ -112,7 +113,7 @@ func _route() -> void:
 		"baseline_mode":baseline_mode,"lens_draw_enabled":lens_draw_enabled,"resolution":str(get_viewport().get_visible_rect().size),"fov":player.camera.fov,
 		"renderer":RenderingServer.get_current_rendering_method(),"taa":get_viewport().use_taa,"msaa":get_viewport().msaa_3d,
 		"weather":"campaign-calendar" if _calendar_mode else "hail_storm","weather_source":manager.source,"conditions":manager.current.duplicate(true),"atmosphere":manager.atmosphere_state,"daynight_force":"evening","traffic_seed":1928,"traffic_frozen":traffic.frozen,
-		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters"],
+		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters","process_frame","sample_usec"],
 		"segments":_segments,"samples":_samples,"input_costs":player._grab.profile_records,
 		"player_physics":player.physics_profile_records,"release_attribution":_release_attribution(),"failures":failures},"\t"))
 	var source_after:=_runtime_digest()
@@ -199,13 +200,24 @@ func _profile_mirage_route(manager: Node) -> void:
 	if source_after!=_source_before or source_after.is_empty():failures.append("source changed during occupied mirage profile")
 	if render_sources!=_sky_source_bindings():failures.append("sky shader or noise stock changed during occupied profile")
 	if blocks.size()!=4:failures.append("occupied ABBA profile did not complete all four blocks")
+	var residency: Node=world.passage_region.residency
+	if residency.load_profiling:
+		if residency.load_profile_records.is_empty() or residency.load_profile_dropped!=0:
+			failures.append("loading attribution missing or truncated")
+		var seen: Dictionary={}
+		for record: Dictionary in residency.load_profile_records:
+			seen[record.kind]=true
+			if record.ended_usec<record.started_usec or record.process_frame<=0:
+				failures.append("loading attribution has invalid monotonic interval")
+		for kind in ["process","native_request","height_request","cell_request","native_get","height_get","cell_get","fit"]:
+			if not seen.has(kind):failures.append("loading attribution did not exercise "+kind)
 	FileAccess.open(output.path_join("cloud_world_frames.json" if _cloud_profile_mode else "mirage_world_frames.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","scope":"ABBA occupied-controller/door/street-turn diagnostic, first traversal retained separately; not whole-V2, river art or statistical performance acceptance",
 		"cloud_flow_comparison":_cloud_profile_mode,
 		"render_source_sha256":render_sources,
 		"source_before":_source_before,"source_after":source_after,"blocks":blocks,"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,
 		"conditions":manager.current,"calendar":clock.local_datetime(),"weather_source":manager.source,"mirage_parameters":mirage.last_projection_parameters,
-		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters"],"samples":_samples,"segments":_segments,
+		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters","process_frame","sample_usec"],"samples":_samples,"segments":_segments,
 		"input_costs":player._grab.profile_records,"player_physics":player.physics_profile_records,"release_attribution":_release_attribution(),
 		"passage_residency":world.passage_region.residency.snapshot(),"publication_events":_publication_events,
 		"city_clock_refresh_usec":world.get_node("CityShells").clock_refresh_usec,
