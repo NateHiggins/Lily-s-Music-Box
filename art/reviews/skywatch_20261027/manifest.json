@@ -1542,9 +1542,13 @@
     "passage_publication/surface_final/runtime_contract.json": "2c4036c2582e705e436c4902de0504056ae82c9c412c283db42cc49d74635592",
     "passage_publication/candidate/verification.json": "963661b858d19698ab0f2e5a3169468198336ffd6dc0d1df48f9d6fe93f21d00",
     "passage_publication/candidate/verification.md": "afa65fb137738990d787f59c0d733d4db620c9c8f36b059d59ef709055ddb1af",
-    "passage_publication/artifact_trim.py": "f288510694a07e1d125aea5d0d257f7afef613b09f08e4f41affb391195e9555"
+    "passage_publication/artifact_trim.py": "f288510694a07e1d125aea5d0d257f7afef613b09f08e4f41affb391195e9555",
+    "passage_publication_integration/candidate_final/verification.json": "ec2e263133dcd9faae0e8f20e89da31376479b24c7230f7b7c716be19c23809b",
+    "passage_publication_integration/candidate_final/verification.md": "cab952becbe2ace3f9998dc2b608b70ef279eaebed21266fa12f5b3854bf5aca",
+    "passage_publication_integration/candidate_final.log": "16dc9a02a633290ab30a0682324d790b3c51eccc67323d23af84eff09ce9fdb2",
+    "passage_publication_integration/integration.json": "4be4834e3f7186e4017aa6a4a59f793340d43da10f2dceea3267b1d1b8394773"
   },
-  "archive_sha256": "8a8342bfc537a1d3692f96be5688f83a4a97f329586f88badcf3747d7126babd",
+  "archive_sha256": "6a3b499f8f3a2c51eddfca2d59f1f2b1fc10218b8dcc6d437d0baa59db10f118",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -6427,7 +6431,7 @@
       }
     },
     "limits": [
-      "Historical short streaming diagnostic still fails its unchanged ten-second deadline.",
+      "Original unoptimized short diagnostic failed its unchanged ten-second deadline; not rerun after the repair.",
       "Ordinary p95 about65 ms, cold/other101 ms spike and atomic fitting peaks about39 ms remain.",
       "Deferred engine costs not fully attributed.",
       "No save reconstruction, repeated unchanged hose controls, human artistic or full-year weather acceptance."
@@ -6458,14 +6462,41 @@
       "policy": "Only three new diagnostic stills move to exact immutable Git recovery. All source, samples, failures and logs remain in this archive; seven current reviewed qualification images remain in the canonical packet."
     },
     "candidate_verification": {
-      "candidate": "e5f44f82491e2f19cfce7a1b95b2ef63c83b8481",
+      "evidence_class": "INERT",
+      "created_utc": "2026-10-28T05:26:30.291165+00:00",
+      "pr": "https://github.com/NateHiggins/Lily-s-Music-Box/pull/73",
+      "candidate": "1b7d701333d0556c31b3c37e71f17b558603692b",
+      "merge": "23f65382c56d1d5005d6671c48f77ec54d36ad07",
+      "candidate_tree_equals_merge_tree": true,
       "gates": 114,
-      "regressions": 0,
+      "regressions": [],
       "protected_unchanged": 17,
       "selector": "v2",
+      "ledger_before": {
+        "FIRST_SLICE_TECHNICAL": 7,
+        "FULL_BUILDING_RUNTIME": 42,
+        "FULL_BUILDING_STRUCTURAL": 110,
+        "GOLDEN_SHIFT_V2": 8,
+        "PRODUCTION_CUTOVER": 134,
+        "V1_RETIREMENT": 136
+      },
+      "ledger_after": {
+        "FIRST_SLICE_TECHNICAL": 7,
+        "GOLDEN_SHIFT_V2": 8,
+        "FULL_BUILDING_STRUCTURAL": 110,
+        "FULL_BUILDING_RUNTIME": 42,
+        "PRODUCTION_CUTOVER": 134,
+        "V1_RETIREMENT": 136
+      },
       "requirements_changed": [],
-      "mode": "in-place --no-godot; separately executed source-bound Godot receipts",
-      "packaging_followup": "not yet verified"
+      "post_merge_receipts_bind": true,
+      "post_merge_surface_packet": "PASS, zero defects",
+      "mode": "clean canonical in-place --no-godot; separately executed actual-input and test-written surface receipts",
+      "limits": [
+        "No fresh-checkout import/autocrlf claim.",
+        "Original unoptimized short diagnostic failed its unchanged ten-second deadline; not rerun after repair.",
+        "No new save reconstruction, general stutter elimination, full-year weather or human artistic acceptance."
+      ]
     }
   }
 }

@@ -284,8 +284,48 @@ retained payloads and keep three new diagnostic stills recoverable by exact
 commit/member/hash at pushed **e5f44f82**. All samples, sources, original failures
 and logs remain in the current archive; the seven reviewed qualification images
 remain in the canonical packet. No runtime or test code changes in this follow-up.
-Its frozen candidate comparison remains required before integration.
+Its final frozen comparison also passed; integration is recorded below.
 
  The earlier city terrain-detail
 suggestions are already adapted in the city reference's hybrid-relief section;
 explicit curbs/bulkheads/ballast and 146 individual building studies remain open.
+
+
+### Main integration — October 28
+
+REPORT — passage publication. **PR #73** merged as **23f65382**. Qualified
+candidate **1b7d7013** and merge have identical trees. Canonical **main** was
+fast-forwarded cleanly from **2ec518f2**, preserving the recoverable **e5f44f82**
+ancestor. No verification worktree was created. Only this checkpoint's merged
+branch is eligible for cleanup; other contributors' branches are untouched.
+
+Final **114-gate** comparison: **zero regressions**, **17/17 protected paths
+unchanged**, selector **V2**, zero lint errors and **no requirement changes**.
+Ledger before/after: FIRST_SLICE_TECHNICAL **7/7**, FULL_BUILDING_RUNTIME **42/42**,
+FULL_BUILDING_STRUCTURAL **110/110**, GOLDEN_SHIFT_V2 **8/8**,
+PRODUCTION_CUTOVER **134/134**, V1_RETIREMENT **136/136**. Existing unrelated
+red gates remain baseline debt. No tools test, gate, baseline or runner was
+changed. Both GDScript test diffs retain their original assertions/deadlines;
+the additions observe publication and cleanup rather than waive failures.
+
+Post-merge final route and residency receipts still **BIND**; the current
+canonical surface packet is **PASS, zero defects**. The original unoptimized
+short diagnostic failed before the repair and was **not rerun** afterward;
+no current pass/fail result for that short fixture is invented. Current real
+street-approach readiness passed its full original residency route.
+
+Raw final candidate verification and integration metadata are archived under
+**passage_publication_integration/** in the existing diagnostics archive. This
+report/evidence publication changes no runtime inputs, so unchanged Godot tests
+are not repeated. Earlier main packet bytes are verified against **2ec518f2**;
+three trimmed diagnostic stills recover exactly from **e5f44f82**, with member
+names and hashes in the manifest. All retained archive members were byte-checked.
+
+Changes beyond the two production owners: two existing diagnostics/regression
+tests, queue/map/report updates, renewed canonical surface evidence and the
+existing compressed review packet. No new source files, dependencies or art
+assets. Remaining atomic fitting/deferred-engine costs, 101 ms cold/other spikes,
+ordinary roughly 65 ms p95, city architecture, weather presentation and human
+acceptance stay open. Owner decision needed: **none**.
+
+MERGE-CANDIDATE 1b7d701333d0556c31b3c37e71f17b558603692b — merged in PR #73
