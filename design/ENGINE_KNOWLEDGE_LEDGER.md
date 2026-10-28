@@ -678,3 +678,74 @@ passes the same actual-input sequence and repeated runs. This is a local
 Godot-coordinate observation, not a global epsilon change or a new save owner.
 Evidence: **design/V2_CASE_CALIBRATOR_2026-10-21.md** and original/fixed runs in
 **art/reviews/v2_case_calibrator_20261021/**. Case outcomes remain game-specific.
+
+
+## Cooperative scene publication — 2026-10-28 (L1)
+
+**Problem:** a fully fitted off-tree passage entered the scene tree in one burst
+of 5,083 nodes. Four repeatable native-resolution route frames took 102–105 ms,
+although the measured attachment plus resource cleanup was only about 27 ms.
+Prefetch resource destruction was measured at roughly 10–11 ms; it was not the
+main source of the complete frame stall. Do not equate one synchronous timer
+with all work a scene-tree mutation schedules.
+
+**Local rule:** after off-tree validation finishes, register complete cells in a
+hidden pending root across frames. Keep access guarded, actor/counter ownership
+suspended and the public cell map unpublished until the complete presentation
+is ready. Cancellation and shutdown own both the still-private root and the
+already-attached pending root. A per-cell allowance is cooperative: one large
+cell can still exceed a frame's budget.
+
+**Evidence:** merged PR **#73**, candidate **1b7d7013**, merge **23f65382**;
+**design/V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md**, October 28 section.
+Actual 124-waypoint route completion frames fell to 63–65 ms. The 57-waypoint
+residency regression passed 1,935 checks, including 24 guarded publication
+observations, both cleanup exits, source resource release and retained
+actor/material/inventory identities. GPU percentiles were essentially unchanged;
+ordinary p95 stayed near 65 ms and a 101 ms cold/other spike remained. This is
+local improvement, not a general FPS or stutter-elimination claim.
+
+**Godot constraint:** scene attachment can schedule deferred rendering/physics
+work. CollisionObject3D defaults to DISABLE_MODE_REMOVE, so disabling a pending
+parent's processing removes its static bodies and can bunch re-registration at
+activation. Keeping per-cell collision registration enabled did not demonstrate
+an additional frame-tail gain in the control. Hidden ReflectionProbes must also
+remain hidden until full geometry exists; preserve one-time capture ownership.
+
+**Extraction caution:** this is L1 production evidence, not a reusable loading
+API. The barrier, public cell map, retained shop actors, prefetch dependencies
+and cleanup are Orison-specific. Another consumer must define its own atomic
+visibility/access boundary and cancellation ownership before reusing the method.
+Current source-bound receipts and exact failed controls matter more than a
+nominal scheduling budget. Do not relax a deadline merely to make a diagnostic
+pass; distinguish the older stationary deadline from the actual played approach.
+
+
+## Local frames and calendar-driven architecture — 2026-10-28 (L1)
+
+**Problem / local rule:** facade and dial frames can have opposite handedness.
+Normalize polygon winding against the actual tangent/up/outward basis, then
+verify named front normals. Mechanical plates need meaningful origins and
+separate layers. Float32 transformed export measurements matter as well as the
+editable mesh. New direct helper dependencies belong in the producer's source
+bindings before qualification; preserve dependency-only finalization separately.
+
+**Evidence:** the Sohmer study in **design/V2_CITY_CONTEXT_REPORT_2026-10-19.md**;
+5,392 loaded checks, actual clock poses and roughly 8 mm exported hand clearance.
+The direct Windows overwrite failed with OSError 22; the existing validated
+staged-export path succeeded. The new reader sampled 410 calls at at most
+68 microseconds, while route maxima still exceeded 100 ms. A small synchronous
+scope does not explain deferred engine work or clear the entire frame.
+
+**Godot boundary:** architecture reads the existing CampaignClock. No new writer,
+calendar seed or save fields. Test actual automatic updates, pause/resume and
+rewind as well as manual refresh and rendered directions. In this project,
+Godot-space pivots/normals are exported once from Blender coordinates; rotating
+the display must keep its physical stock aligned.
+
+**Reuse caution:** these are L1 Orison observations, not a reusable city/clock
+engine contract. The facade reservation, local material catalogue, metadata,
+loading owner and campaign service remain game-specific. Profile the real owner
+and define lifecycle/coordinate boundaries before extracting an API. Small
+lesson updates were added to the existing Blender/Godot skills; their structure
+validators pass, with no invocation-policy change or new helper files.

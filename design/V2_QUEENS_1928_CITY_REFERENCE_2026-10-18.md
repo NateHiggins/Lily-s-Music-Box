@@ -419,3 +419,17 @@ individual-building studies. See **V2_CITY_CONTEXT_REPORT_2026-10-19.md** for th
 39,207-check technical surface renewal, measured route without demonstrated
 stutter gain, original preflight failure and remaining limits. The city, transport
 construction, final artistic acceptance and V2 remain unfinished.
+
+
+### First near-city individual study — Sohmer-inspired factory
+
+The height-only east mass now has a continuous six-storey factory elevation,
+segmental openings on all four faces, selected floor bands, closed portals,
+corner piers and a supported curved-mansard clock pavilion. Its eight hands
+read CampaignClock, including pause/resume and reversed dates. This is authored
+adaptation inside the existing reservation, not a surveyed replica or historic
+relocation. Native/imported checks, actual renders, matched occupied routes and
+39,265-check surface renewal are recorded in
+**design/V2_CITY_CONTEXT_REPORT_2026-10-19.md**, Sohmer factory section. Remaining
+individual studies: **145**. Large frame tails and artistic acceptance remain
+open despite typical/GPU costs staying close to the measured baseline.

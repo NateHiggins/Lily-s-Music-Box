@@ -714,8 +714,8 @@
     },
     {
       "id": "site_far_e",
-      "description": "Sohmer & Company Piano Factory, 31-01 Vernon Boulevard, Berger & Baylies, c.1886 \u2014 authored proportion repair; individual architectural study remains open",
-      "massing": "single_upper_setback",
+      "description": "Sohmer-inspired six-storey piano factory: continuous masonry, segmental openings, selected belt courses and a seated curved-mansard clock pavilion",
+      "massing": "straight_eave",
       "storey_height": 3.08,
       "bay_pitch": 2.4,
       "window_width": 1.4,
@@ -737,9 +737,9 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
+      "detail_faces": "all",
       "window_joinery": "paired_sash",
-      "window_treatment": "mixed",
+      "window_treatment": "roller",
       "sill_projection": 0.12,
       "lintel_height": 0.21,
       "variation_seed": 2268,
@@ -762,9 +762,31 @@
         "name": "Sohmer & Company Piano Factory, 31-01 Vernon Boulevard, Berger & Baylies, c.1886",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/2172.pdf",
         "pdf_pages": [
+          1,
+          8,
+          14,
+          15
+        ],
+        "adaptation": "Authored dimensions and fixed gameplay footprint, not an exact replica or relocated historic factory. Six continuous storeys, segmental openings, bands above floors 1/2/5, corner clock pavilion and curved metal mansard; existing roof equipment and its support heights retained."
+      },
+      "architecture": {
+        "type": "sohmer_factory",
+        "arch_rise_m": 0.22,
+        "belt_floors": [
+          1,
+          2,
           5
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Six generous factory storeys; segmental industrial windows and curved mansard clock tower remain to be individually constructed."
+        "tower": {
+          "rect": [
+            74.24,
+            10.6,
+            79.4,
+            15.76
+          ],
+          "wall_height_m": 3.3,
+          "roof_height_m": 4.1
+        }
       }
     },
     {

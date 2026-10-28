@@ -401,5 +401,119 @@
         1
       ]
     }
+  ],
+  "clock_hands": [
+    {
+      "part": "site_far_e__clock_south_hour__iron_blackened",
+      "pivot": [
+        76.81999969482422,
+        25.15999984741211,
+        -10.34000015258789
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "period_minutes": 720
+    },
+    {
+      "part": "site_far_e__clock_south_minute__iron_blackened",
+      "pivot": [
+        76.81999969482422,
+        25.15999984741211,
+        -10.292000770568848
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "period_minutes": 60
+    },
+    {
+      "part": "site_far_e__clock_east_hour__iron_blackened",
+      "pivot": [
+        79.66000366210938,
+        25.15999984741211,
+        -13.180000305175781
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        -0.0
+      ],
+      "period_minutes": 720
+    },
+    {
+      "part": "site_far_e__clock_east_minute__iron_blackened",
+      "pivot": [
+        79.70800018310547,
+        25.15999984741211,
+        -13.180000305175781
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        -0.0
+      ],
+      "period_minutes": 60
+    },
+    {
+      "part": "site_far_e__clock_north_hour__iron_blackened",
+      "pivot": [
+        76.81999969482422,
+        25.15999984741211,
+        -16.020000457763672
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "period_minutes": 720
+    },
+    {
+      "part": "site_far_e__clock_north_minute__iron_blackened",
+      "pivot": [
+        76.81999969482422,
+        25.15999984741211,
+        -16.06800079345703
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "period_minutes": 60
+    },
+    {
+      "part": "site_far_e__clock_west_hour__iron_blackened",
+      "pivot": [
+        73.97999572753906,
+        25.15999984741211,
+        -13.180000305175781
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        -0.0
+      ],
+      "period_minutes": 720
+    },
+    {
+      "part": "site_far_e__clock_west_minute__iron_blackened",
+      "pivot": [
+        73.93199920654297,
+        25.15999984741211,
+        -13.180000305175781
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        -0.0
+      ],
+      "period_minutes": 60
+    }
   ]
 }
