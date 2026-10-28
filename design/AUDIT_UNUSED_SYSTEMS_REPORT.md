@@ -41,6 +41,16 @@ verifier's 34 tests and surface-publication tool's six tests pass. The installed
 surface packet independently validates with zero defects. No new acceptance
 claim or weakened verifier accompanies removal.
 
+PR **77** is merged at **21e382ce686f5ba2dacac25641f6ea62560f0ee2**, with a tree
+identical to candidate **7ee98f56d45fbdfef7cf3500ee2ce9eb48243898**. The clean
+114-gate comparison has zero regressions, all 17 protected paths unchanged,
+selector V2 and no requirement-status changes. Main's existing incomplete
+qualification/ledger debt remains; this is not a whole-game green claim.
+Verification and recovery summaries are retained in the capture index itself.
+Together with the preceding snapshot consolidation, tracked working-tree
+reduction is **25,940 files / 1,320,205,148 bytes** before this small metadata
+follow-up. Shared Git history is preserved; its database size is not reduced.
+
 ## Method
 
 The sweep covered all 182 scripts under `game/scripts`, every shipped JSON in

@@ -1235,5 +1235,30 @@
       "bytes": 117975,
       "sha256": "d331d4ba1df87a1925643302a541dc343df400de8b46ea1e9d4aef0717c93e32"
     }
-  ]
+  ],
+  "qualification": {
+    "candidate": "7ee98f56d45fbdfef7cf3500ee2ce9eb48243898",
+    "merge": "21e382ce686f5ba2dacac25641f6ea62560f0ee2",
+    "pr": 77,
+    "merge_tree_exact": true,
+    "static_gate_comparison": {
+      "gates": 114,
+      "regressions": 0,
+      "protected_unchanged": 17,
+      "requirements_changed": [],
+      "selector": "v2"
+    },
+    "recovery_exercised": {
+      "method": "actual git archive ZIP, decoded in memory",
+      "sample": "art/renders/wall_art_audit_after/01_memoryart_sixth_make_room.png",
+      "sha256_matches": true
+    },
+    "targeted_tests": {
+      "room_evidence_verifier": 34,
+      "surface_publication": 6,
+      "failures": 0
+    },
+    "current_surface_packet": "PASS, unchanged qualification; no new Godot run",
+    "limits": "In-place static verification; no fresh-checkout or new runtime/artistic acceptance. Git history retained."
+  }
 }
