@@ -50,6 +50,35 @@ var _fit_work_ms := 0.0
 var fit_records: Array[Dictionary] = []
 var activation_records: Array[Dictionary] = []
 var publication_records: Array[Dictionary] = []
+# Opt-in caller timings only; never a new residency/scheduling authority.
+var load_profiling := false
+const LOAD_PROFILE_LIMIT := 8192
+var load_profile_records: Array[Dictionary] = []
+var load_profile_dropped := 0
+
+func _record_loading(kind: String, detail: String, started: int) -> void:
+	if not load_profiling: return
+	var ended := Time.get_ticks_usec()
+	if load_profile_records.size() >= LOAD_PROFILE_LIMIT:
+		load_profile_dropped += 1
+		return
+	load_profile_records.append({"kind":kind,"detail":detail,"started_usec":started,
+		"ended_usec":ended,"ms":float(ended-started)/1000.0,
+		"process_frame":Engine.get_process_frames(),"completed_cycles":load_cycles,"state":state})
+
+func _request_loading(path: String, type_hint: String, kind: String) -> Error:
+	if not load_profiling: return ResourceLoader.load_threaded_request(path,type_hint)
+	var started := Time.get_ticks_usec()
+	var result := ResourceLoader.load_threaded_request(path,type_hint)
+	_record_loading(kind,path,started)
+	return result
+
+func _get_loading(path: String, kind: String) -> Resource:
+	if not load_profiling: return ResourceLoader.load_threaded_get(path)
+	var started := Time.get_ticks_usec()
+	var result := ResourceLoader.load_threaded_get(path)
+	_record_loading(kind,path,started)
+	return result
 
 func configure(owner_region: Node3D, owner_player: PlayerController,
 		owner_frame: Node3D, layout: Dictionary) -> bool:
@@ -138,6 +167,16 @@ func _update_wanted(world_position: Vector3) -> void:
 		_wanted = true
 
 func _process(delta: float) -> void:
+	if not load_profiling:
+		_advance_residency(delta)
+		return
+	var started := Time.get_ticks_usec()
+	var previous_state := state
+	_advance_residency(delta)
+	if previous_state != "RESIDENT" or state != "RESIDENT" or Time.get_ticks_usec()-started >= 1000:
+		_record_loading("process",previous_state+"->"+state,started)
+
+func _advance_residency(delta: float) -> void:
 	if _stopped or not is_instance_valid(player): return
 	var stock_wants: bool=region.geometry_required_by_stock()
 	# A brief lobby crossing must not throw away a completely fitted region.
@@ -168,18 +207,18 @@ func _begin_load() -> void:
 	_collision_shapes=_collision_cache.shapes.duplicate()
 
 	for path: String in _native_paths:
-		if ResourceLoader.load_threaded_request(path, "PackedScene") != OK:
+		if _request_loading(path,"PackedScene","native_request") != OK:
 			_fail("threaded native fitting request failed: " + path)
 			return
 		_native_pending[path] = true
 	for path: String in _height_paths:
-		if ResourceLoader.load_threaded_request(path, "Texture2D") != OK:
+		if _request_loading(path,"Texture2D","height_request") != OK:
 			_fail("threaded material dependency request failed: " + path)
 			return
 		_height_pending[path] = true
 	for identity: String in region.CELLS:
 		var path: String = region.cell_path(identity)
-		var error := ResourceLoader.load_threaded_request(path, "PackedScene")
+		var error := _request_loading(path,"PackedScene","cell_request")
 		if error != OK:
 			_fail("threaded cell request failed: " + identity)
 			return
@@ -198,7 +237,7 @@ func _stage_one() -> void:
 			_fail("threaded material dependency failed: " + path)
 			return
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
-			var resource := ResourceLoader.load_threaded_get(path) as Resource
+			var resource := _get_loading(path,"height_get")
 			if resource == null:
 				_fail("empty material dependency: " + path)
 				return
@@ -210,7 +249,7 @@ func _stage_one() -> void:
 			_fail("threaded native fitting failed: " + path)
 			return
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
-			var resource := ResourceLoader.load_threaded_get(path) as Resource
+			var resource := _get_loading(path,"native_get")
 			if resource == null:
 				_fail("empty native fitting: " + path)
 				return
@@ -225,7 +264,7 @@ func _stage_one() -> void:
 			return
 		if status != ResourceLoader.THREAD_LOAD_LOADED: continue
 		var started := Time.get_ticks_usec()
-		var packed := ResourceLoader.load_threaded_get(path) as PackedScene
+		var packed := _get_loading(path,"cell_get") as PackedScene
 		var fetched := Time.get_ticks_usec()
 		_pending.erase(identity)
 		if packed == null:
@@ -378,16 +417,23 @@ func _advance_fit() -> void:
 		var cell := _staged_cells[_fit_identity] as Node3D
 		if cooperative_fitting and operation.size()==3:
 			if _fit_job==null:
+				var prepare_started := Time.get_ticks_usec() if load_profiling else 0
 				_fit_job=region.Seating.begin_streamed_fitting(str(operation[2]),cell,region.source_layout)
+				if load_profiling: _record_loading("fit_begin",str(operation[0]),prepare_started)
 			if _fit_job==null:
 				ok=false
 			else:
+				var advance_started := Time.get_ticks_usec() if load_profiling else 0
+				var first_advance: bool=not _fit_job.prepared if load_profiling else false
 				_fit_job.advance(maxi(1,FIT_BUDGET_USEC-int(Time.get_ticks_usec()-started)))
+				if load_profiling: _record_loading("fit_first_advance" if first_advance else "fit_advance",str(operation[0]),advance_started)
 				complete=_fit_job.done
 				ok=not complete or _fit_job.ok
 				if complete and ok:
 					if not _fit_job.skipped:cell.set_meta("prepared_native_fit",_fit_job)
+					var finish_started := Time.get_ticks_usec() if load_profiling else 0
 					ok=operation[1].call()
+					if load_profiling: _record_loading("fit_finish",str(operation[0]),finish_started)
 					# A wrapper must consume the token; an early return cannot leave one.
 					if cell.has_meta("prepared_native_fit"):
 						cell.remove_meta("prepared_native_fit")
@@ -395,6 +441,7 @@ func _advance_fit() -> void:
 		else:
 			ok=operation[1].call()
 		var elapsed := float(Time.get_ticks_usec()-before)/1000.0
+		if load_profiling: _record_loading("fit",str(operation[0]),before)
 		_fit_work_ms += elapsed
 		if elapsed >= 1.0:
 			fit_records.append({"cell":_fit_identity,"operation":operation[0],"ms":elapsed,"chunk":cooperative_fitting and operation.size()==3})
@@ -428,6 +475,9 @@ func snapshot() -> Dictionary:
 		"retired_mesh_resources_alive": retained_meshes, "peak_stage_ms": peak_stage_ms,
 		"peak_activation_ms": peak_activation_ms, "stage_records": stage_records.duplicate(true), "fit_records":fit_records.duplicate(true), "activation_records":activation_records.duplicate(true),
 		"publication_records":publication_records.duplicate(true),
+		"load_profile":{"enabled":load_profiling,"limit":LOAD_PROFILE_LIMIT,"dropped":load_profile_dropped,
+			"scope":"Synchronous caller intervals; process contains nested request/get/fit intervals. Excludes deferred renderer/worker costs. Not additive with nested records.",
+			"records":load_profile_records.duplicate(true)},
 		"collision_cache_parts":_collision_cache.paths.size(),"collision_cache_bytes":_collision_cache.cache_bytes,"collision_cache_seed_ms":_collision_cache.seed_ms,"physical_actors_retained": true, "cell_count": region.cell_nodes.size()}
 
 func shutdown() -> void:
