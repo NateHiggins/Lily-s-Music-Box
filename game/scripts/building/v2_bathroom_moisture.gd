@@ -140,6 +140,7 @@ func _sync_spray(index: int) -> void:
 	if _stopped:return
 	var source: Dictionary=_sources[index]
 	var amount: float=float(source.tap.get_flow_state().flow)
+	if source.tap.has_method("spray_flow_amount"):amount=float(source.tap.spray_flow_amount())
 	var emitting:=amount>0.0001
 	if source.spray.emitting!=emitting:
 		source.spray.emitting=emitting

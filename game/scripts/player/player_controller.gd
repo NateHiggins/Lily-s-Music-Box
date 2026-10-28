@@ -1288,28 +1288,35 @@ func _try_step_up(delta: float) -> void:
 	var motion := Vector3(velocity.x, 0, velocity.z) * delta
 	if motion.length() < 0.0005:
 		return
+	var step_height:=.30
+	for index in get_slide_collision_count():
+		var body:=get_slide_collision(index).get_collider()
+		if body is Node and body.has_method("step_height_for"):
+			var requested:Variant=body.call("step_height_for",self,motion)
+			if typeof(requested) in [TYPE_FLOAT,TYPE_INT] and is_finite(float(requested)):
+				step_height=maxf(step_height,clampf(float(requested),.30,.64))
 	# The previous resolved contact is authoritative evidence of a solid above
 	# our legal lift. Moving into that face cannot become a step; avoid three
 	# costly full-capsule casts against detailed native stock. Sliding below
 	# still resolves every actual obstruction and refreshes these contacts.
-	if not _profile_disable_step_guard and _blocked_above_step(motion):
+	if not _profile_disable_step_guard and _blocked_above_step(motion,step_height):
 		if profile_physics:step_guard_rejections+=1
 		return
 	var probe := motion.normalized() * maxf(motion.length(), 0.06)
 	if not _step_path_blocked(probe):
 		return  # path clear at ground level
-	var lift := Vector3.UP * 0.30
+	var lift := Vector3.UP * step_height
 	if test_move(global_transform, lift):
 		return  # no headroom
 	if test_move(global_transform.translated(lift), probe):
 		return  # still blocked higher: a real wall
-	global_position.y += 0.30
+	global_position.y += step_height
 
 
-func _blocked_above_step(motion: Vector3) -> bool:
+func _blocked_above_step(motion: Vector3,step_height:float=.30) -> bool:
 	for index in get_slide_collision_count():
 		var contact:=get_slide_collision(index)
-		if contact.get_position().y>global_position.y+.30 and contact.get_normal().dot(motion)<-.00001:
+		if contact.get_position().y>global_position.y+step_height and contact.get_normal().dot(motion)<-.00001:
 			return true
 	return false
 

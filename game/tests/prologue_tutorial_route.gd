@@ -2,6 +2,31 @@ extends "res://tests/orison_v2_4b_door_route_test.gd"
 ## Actual installed-world tutorial slice; DREAM/mirror/finale not executed.
 const Director := preload("res://scripts/game/prologue_director.gd")
 var director: Node
+var frame_trace:Node
+
+class FrameTrace extends Node:
+	var director:Node
+	var rows:Array=[]
+	var previous:=0
+	var complete:=false
+	var settings:Dictionary={}
+	func _process(delta:float) -> void:
+		var now:=Time.get_ticks_usec()
+		if previous>0 and rows.size()<16384:
+			var phase:String=str(director.state.phase) if is_instance_valid(director) else "retired"
+			rows.append([phase,Engine.max_fps,delta*1000.0,float(now-previous)/1000.0,
+				Performance.get_monitor(Performance.TIME_PROCESS)*1000.0,
+				Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.0,
+				Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)])
+		previous=now
+	func _exit_tree() -> void:
+		var out:=OS.get_environment("SHOT_DIR")
+		if out.is_empty():return
+		var file:=FileAccess.open(out.path_join("tutorial_frame_times.json"),FileAccess.WRITE)
+		if file==null:return
+		file.store_string(JSON.stringify({"evidence_class":"INERT","complete":complete,
+			"settings":settings,"columns":["phase","fps_cap","process_delta_ms","wall_ms","process_monitor_ms","physics_monitor_ms","draw_calls"],"frames":rows,
+			"limits":"Occupied route starts after world construction; process/physics monitors overlap and lag. GPU/render-thread, compilation, loading and streaming costs are not independently attributed. Capture stalls and cap changes are retained; compare matched phases/caps, not an aggregate FPS."},"\t",true,true))
 
 func _init() -> void:
 	route_label="V2 PROLOGUE TUTORIAL SLICE"
@@ -14,6 +39,11 @@ func _route() -> void:
 	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR"))
 	director=Director.new();world.add_child(director)
 	if not _require(director.configure(world),"actual 4B fixture and wall supports bound: "+str(director.errors)): return
+	frame_trace=FrameTrace.new();frame_trace.director=director
+	frame_trace.settings={"viewport":str(get_viewport().size),"msaa_3d":get_viewport().msaa_3d,
+		"engine":Engine.get_version_info(),"fixture_script":director.shower.get_script().resource_path,
+		"weather":world.get_node("WeatherFX")._live_conditions.duplicate(true)}
+	add_child(frame_trace)
 	var carrier: Node=world.service_set_carrier
 	var draft_before: String=carrier.session.draft
 	var lamp_before: bool=player.lamp_is_enabled()
@@ -116,6 +146,7 @@ func _route() -> void:
 	var file := FileAccess.open(out.path_join("tutorial_slice.json"),FileAccess.WRITE)
 	if not _require(file!=null,"diagnostic output is writable"): return
 	file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual bed-to-bath walking and curtain/cold/hot/shutoff input; no DREAM, body reveal, visitor, crossing, typing arm, finale or production-entry acceptance.","state":director.state,"errors":director.errors,"failures":failures},"\t"))
+	frame_trace.complete=failures.is_empty()
 
 func _review_refit(carrier: Node) -> void:
 	player.face_world_point(director._bath_anchor.origin)
