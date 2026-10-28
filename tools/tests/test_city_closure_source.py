@@ -32,10 +32,11 @@ class ConsumedCitySourceTest(unittest.TestCase):
         self.assertEqual(self.layout,before)
         source={r['id']:r for r in next(f for f in before['floors'] if f['id']=='F01')['furniture']}
         rows=next(f for f in result['floors'] if f['id']=='F01')['furniture']
+        projected={r['id'] for r in self.plan['buildings'] if 'vertical_profile' in r}
         changed=0;equipment=0
         for row in rows:
             old=source[row['id']]
-            if city_group(row['id'])!='site_far_n':
+            if city_group(row['id']) not in projected:
                 self.assertEqual(old,row);continue
             changed+=old!=row
             if row.get('asm')=='pipe':

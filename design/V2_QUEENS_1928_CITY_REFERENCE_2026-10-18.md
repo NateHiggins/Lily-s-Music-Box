@@ -405,3 +405,17 @@ quality switches. Preserve the installed lighting/weather owners and measure
 their actual result. Optical displacement cannot move a playable curb away
 from its physical collision. These refinements remain construction work, not
 claims that a heightmap, coastline or city has been accepted.
+
+### Eight near-city height repairs — October 28 UTC
+
+The eight previously oversized **site_far** bodies now use authored four-, five-
+and six-storey proportions informed by Hampton Court, Greystone, The Towers,
+Sohmer, Elm Court, The Chateau, Laburnum and Cambridge Court. Body heights span
+**13.1–23.1 m**; original playable datums/footprints and roof-equipment dimensions
+remain. This is a height repair, not eight completed individual studies: the
+distinct courts, entrances, bays, roofs and ornament remain open. The existing
+three horizon studies remain separate from the other **146** unfinished
+individual-building studies. See **V2_CITY_CONTEXT_REPORT_2026-10-19.md** for the
+39,207-check technical surface renewal, measured route without demonstrated
+stutter gain, original preflight failure and remaining limits. The city, transport
+construction, final artistic acceptance and V2 remain unfinished.

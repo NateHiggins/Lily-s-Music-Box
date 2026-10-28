@@ -12,6 +12,7 @@ profiles=json.loads((ROOT/'art/data/city_elevations/source_plan.json').read_text
 catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']
 report=json.loads((ROOT/'art/blender/city_closure_construction.json').read_text())
 rows=report['original_records'];groups={p['id']:p for p in profiles['buildings']}
+source_rows=json.loads((ROOT/'art/blender/city_shells_consumed_layout.json').read_text())['source_records']
 def group(n):return '_'.join(n.split('_')[:3]) if n.startswith(('site_nbr_','site_back_','site_far_')) else '_'.join(n.split('_')[:2])
 bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/blender/city_closure.blend'))
 original={o.name.removesuffix('__RetainedStock'):o for o in bpy.data.collections['ClosedConstruction'].objects}
@@ -142,6 +143,9 @@ for name,p in groups.items():
         x,y,X,Y=rect0;u,v,U,V=final_rect
         for lo,hi in [((x,y,split-.12),(X,v,split)),((x,V,split-.12),(X,Y,split)),((x,v,split-.12),(u,V,split)),((U,v,split-.12),(X,V,split))]:box(name,'roof_bitumen',lo,hi)
     stats.append(dict(id=name,old_setbacks=len(ss)-1,new_setbacks=min(1,len(ss)-1),windows=len(window_rows)-first_window,roof_height=top,shaft_bottom=ss[0]['z0'],setback_height=split,original_roof_rect=final_rect,main_rect=rect0))
+    if 'vertical_profile' in p:
+        old_last=next(r for r in source_rows if r['id']==last['id'])
+        stats[-1].update(previous_roof_height=old_last['z0']+old_last['h'],floor_heights=p['floor_heights'])
 # Retired continuous cornice bands can still carry original guy anchors.
 # Retain only a local closed bearing saddle outside the new terrace boundary;
 # adjoining top planes meet without coplanar overlap or a repeated facade band.

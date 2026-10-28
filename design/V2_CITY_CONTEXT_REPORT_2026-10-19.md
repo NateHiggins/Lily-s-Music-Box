@@ -2,6 +2,95 @@
 
 Evidence class: **INERT**. Publication report; no additional acceptance grant.
 
+## Eight-block height repair and surface renewal — October 28 UTC
+
+Branch **codex/v2-city-relief-20261028**, parent **e10c0425**, integration base
+**04d72f3a**. Three individual horizon studies remain installed. This batch
+repairs the other seven oversized near-city masses; it does **not** complete
+their individual architectural studies or the full **149-building** mandate.
+
+| Mass | Previous body / new body (m) | Floors | Proportion reference |
+|---|---:|---:|---|
+| **site_far_nw** | 38.0 / 16.7 | 5 | Hampton Court, 35-16 79th Street |
+| **site_far_n** | 44.0 / 16.25 | 5 | Greystone Apartments; preceding checkpoint |
+| **site_far_ne** | 33.5 / 19.8 | 6 | The Towers, 33-16 81st Street |
+| **site_far_e** | 41.0 / 23.1 | 6 | Sohmer Piano Factory, 31-01 Vernon Boulevard |
+| **site_far_se** | 29.5 / 13.4 | 4 | Elm Court, 34-27 79th Street |
+| **site_far_s** | 44.71530952 / 20.5 | 6 | The Chateau, 34-22 81st Street |
+| **site_far_sw** | 31.0 / 16.7 | 5 | Laburnum Court, 37-15 79th Street |
+| **site_far_w** | 36.5 / 13.1 | 4 | Cambridge Court, 37-14 86th Street |
+
+The existing source plan records primary LPC references/pages and remaining
+distinctive features. Storey counts inform authored dimensions, not surveyed
+replicas. Courts, projecting bays, differentiated entrances, loggias, mansards,
+industrial arches, towers and ornament remain to be individually constructed.
+The existing inward-only detail policy leaves plainer outward walls; no final
+all-angle architectural acceptance is claimed. Playable ground, footprints,
+original V1 source and gameplay/state owners remain unchanged.
+
+Five source tests pass, including unchanged source data, rigid roof-equipment
+endpoint vectors/radii, unedited buildings and invalid/stale height controls.
+The old native library correctly refuses the new height program before rebuild.
+All **335** stocks and dependent equipment rebuild. Final native checks pass
+**1,205 bearing** and **2,613 pane** samples at **0.1 mm**. **638** unrelated draws
+retain exact decoded arrays and poses against **e10c0425**. Installed city GLBs
+shrink **20,185,984 bytes / 196,859 triangles**, **941→935 draws**. This is a
+storage/geometry result, not an FPS claim.
+
+Native and imported review first exposes outward-wall camera choices and cropped
+assemblies. Retain those attempts; final review selects city-facing façades and
+projects all assembly bounds into the actual viewport with a margin. All eight
+complete native/imported views were inspected. The final production-loader bench
+passes **5,243 checks**, eight real lowered-roof/old-height controls, **1,205**
+roof samples, source hashes, imported derivatives, PBR/mips and physical backing;
+empty shutdown stderr. Its wrapper binds after final dependency renewal.
+
+The **124-waypoint** occupied route passes in **345 s**, with **4,850 measured
+frames**, **3440×1440**, **8× MSAA**, TAA and the same calendar/control schedule
+as the preceding relief route. Wall p50/p95/p99/max are
+**36.178 / 65.850 / 75.815 / 142.788 ms**, versus
+**36.397 / 65.381 / 75.941 / 105.032 ms** before. Main-viewport GPU p50/p95/p99/max
+are **14.867 / 21.635 / 23.645 / 26.220 ms**, versus
+**15.160 / 21.897 / 23.911 / 25.697 ms**. No meaningful whole-route stutter gain
+is established; the worst frame is worse. Residents/traffic remain live and the
+earlier baseline predates the three horizon studies, so this is not an isolated
+height experiment. Two 100+ ms spikes coincide with **5,083** nodes entering the
+tree and **5,081** fewer orphans; one adds ten shader specializations. This is
+correlation, not function attribution. Investigate the existing passage activation
+timing and staged-publication path next; process/physics monitors are one-second
+peaks and viewport GPU timing excludes private views.
+
+The first surface run stops after **10 s**: closure binds equipment exports from
+the wrong batch order. Keep that failure. Correct the order to **shells → masts /
+aerials / tanks / beacons → closure → elevations**, rerun the last two producers,
+and independently prove all **six runtime GLBs byte-identical**. No hash repinning
+or guard removal. Native/fixture provenance changes still expire the earlier
+wrappers; retain the route as measured same-geometry evidence, not fresh runtime
+qualification. Renew the bench and full surface run after preflight passes.
+
+Final surface wrapper: **775 s**, empty shutdown stderr, current source binds.
+The test itself writes a schema-2 runtime contract: **39,207 checks**, **zero
+failures/unresolved surfaces**, **27,827 draws / 17,013 meshes / 6,324 materials /
+527 textures**. Production composition, surface requirements and runtime-owned
+teardown pass. **Save reconstruction is NOT_EXECUTED**; unchanged save authorities
+reuse their separate evidence. Fire interactions are skipped while their physical
+surfaces remain inventoried. No hose input suite is repeated.
+
+All **237** optical captures were inspected via seven contact sheets; seven
+representative native-resolution images were also inspected individually. The
+published packet is renewed using **publish_v2_surface_packet.py**, preserving
+the preceding packet before installing the test-written contract last. This is
+technical rendered review, not human acceptance. Dark street exposure, bright
+gallery fixtures, near-flat storm ceilings and repeated seasonal cloud silhouettes
+remain limitations. No annual-weather, all-area gameplay or whole-V2 completion
+is claimed. Candidate/static comparison and merge are separate pending steps.
+
+Diagnostics and original failures: **C:/ov/reports/city_mass_batch_20261028**;
+the existing skywatch archive carries the compact packet, provenance and prior
+surface publication. Full-resolution intermediate captures stay externally
+indexed. Existing ground-recipe binding debt remains as recorded below; no
+retained ground was rebuilt or repinned.
+
 ## North-block proportion repair — October 28 UTC
 
 Unmerged WIP after **586a0ddd**, still based on main **04d72f3a**. This is a

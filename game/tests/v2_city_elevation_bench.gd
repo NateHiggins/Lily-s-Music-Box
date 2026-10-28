@@ -62,12 +62,26 @@ func _run() -> void:
 				check(not hit.is_empty() and shells.has(hit.collider.get_rid()) and hit.position.distance_to(p)<.0001,"real roof bearing: "+str(contact.id))
 				contacts+=1
 	check(contacts>=1205 and shells.size()==fixture.parts.size() and draws>600,"nonempty complete family inventory")
-	# A wrong old roof height cannot satisfy the repaired building's actual solid.
-	var roof := city.to_global(Vector3(-6,16.51,-48))
-	var roof_hit := city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(roof+Vector3.UP*.03,roof-Vector3.UP*.03,1,exclude))
-	check(not roof_hit.is_empty() and str(shells.get(roof_hit.collider.get_rid(),"")).begins_with("site_far_n__"),"lowered north roof physically present")
-	var old := city.to_global(Vector3(-6,44.26,-48))
-	check(city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(old+Vector3.UP*.03,old-Vector3.UP*.03,1,exclude)).is_empty(),"old tower roof rejected")
+	var repaired := 0
+	for building: Dictionary in fixture.buildings:
+		if not building.has("previous_roof_height"):continue
+		repaired+=1
+		var floor_total := 0.
+		for height: float in building.floor_heights:floor_total+=height
+		check(is_equal_approx(floor_total,float(building.roof_height)),"explicit storeys span repaired body: "+str(building.id))
+		var cap := 0.
+		for record: Dictionary in fixture.original_records:
+			if str(record.id).begins_with(str(building.id)+"_c"):cap=maxf(cap,float(record.z0)+float(record.h))
+		var bounds: Array=building.original_roof_rect
+		var found_roof := false
+		for fraction: float in [.2,.5,.8]:
+			var roof := city.to_global(Vector3(lerpf(bounds[0],bounds[2],fraction),cap,-lerpf(bounds[1],bounds[3],fraction)))
+			var hit := city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(roof+Vector3.UP*.03,roof-Vector3.UP*.03,1,exclude))
+			found_roof=found_roof or (not hit.is_empty() and str(shells.get(hit.collider.get_rid(),"")).begins_with(str(building.id)+"__"))
+			var old := roof+Vector3.UP*(float(building.previous_roof_height)-float(building.roof_height))
+			check(city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(old+Vector3.UP*.03,old-Vector3.UP*.03,1,exclude)).is_empty(),"old tower roof rejected: "+str(building.id))
+		check(found_roof,"repaired roof physically present: "+str(building.id))
+	check(repaired==8,"all eight height repairs receive real roof and old-height controls")
 	if not OS.get_environment("SHOT_DIR").is_empty():
 		check(DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR"))==OK,"capture directory available")
 		var environment := WorldEnvironment.new()
@@ -83,17 +97,37 @@ func _run() -> void:
 		add_child(sun)
 		var camera := Camera3D.new()
 		add_child(camera);camera.make_current();camera.fov=45
-		for draw: MeshInstance3D in city.find_children("*","MeshInstance3D",true,false):
-			draw.visible=str(draw.name).begins_with("site_far_n__")
-		var building: Dictionary=fixture.buildings.filter(func(row):return row.id=="site_far_n")[0]
-		var bounds: Array=building.main_rect
-		var target := Vector3((bounds[0]+bounds[2])*.5,float(building.roof_height)*.55,-(bounds[1]+bounds[3])*.5)
-		var span := maxf(float(bounds[2]-bounds[0]),float(bounds[3]-bounds[1]))
-		camera.global_position=city.to_global(target+Vector3(span*.7,float(building.roof_height)*.45,span*1.05))
-		camera.look_at(city.to_global(target))
-		await get_tree().create_timer(.6).timeout
-		await RenderingServer.frame_post_draw
-		check(get_viewport().get_texture().get_image().save_png(OS.get_environment("SHOT_DIR").path_join("north_five_storeys.png"))==OK,"actual optical capture saved")
+		for building: Dictionary in fixture.buildings:
+			if not building.has("previous_roof_height"):continue
+			var top := 0.
+			var boxes: Array[AABB]=[]
+			for draw: MeshInstance3D in city.find_children("*","MeshInstance3D",true,false):
+				draw.visible=str(draw.name).begins_with(str(building.id)+"__")
+				if draw.visible:
+					var box: AABB=draw.global_transform*draw.get_aabb()
+					boxes.append(box)
+					top=maxf(top,box.end.y-city.global_position.y)
+			var bounds: Array=building.main_rect
+			var target := Vector3((bounds[0]+bounds[2])*.5,top*.48,-(bounds[1]+bounds[3])*.5)
+			var span := maxf(float(bounds[2]-bounds[0]),float(bounds[3]-bounds[1]))
+			var toward_city := Vector3(-target.x,0.,-target.z).normalized()
+			var tangent := Vector3(toward_city.z,0.,-toward_city.x)
+			var offset := toward_city*span*1.35+tangent*span*.5+Vector3.UP*float(building.roof_height)*.35
+			var viewport_size := get_viewport().get_visible_rect().size
+			var safe := Rect2(viewport_size*.05,viewport_size*.9)
+			var framed := false
+			for attempt in 12:
+				camera.global_position=city.to_global(target+offset*pow(1.2,attempt))
+				camera.look_at(city.to_global(target))
+				framed=true
+				for box: AABB in boxes:
+					for corner in 8:
+						if not safe.has_point(camera.unproject_position(box.get_endpoint(corner))):framed=false
+				if framed:break
+			check(framed,"complete building and equipment fit the actual viewport: "+str(building.id))
+			await get_tree().create_timer(.6).timeout
+			await RenderingServer.frame_post_draw
+			check(get_viewport().get_texture().get_image().save_png(OS.get_environment("SHOT_DIR").path_join(str(building.id)+".png"))==OK,"actual optical capture saved: "+str(building.id))
 	city.free()
 	await get_tree().process_frame
 	print("CITY NATIVE BENCH: %d checks, %d roof samples, %d draws, %d failures" % [checks,contacts,draws,failures.size()])
