@@ -413,4 +413,10 @@ the existing publisher installs the renewed packet with zero defects. The
 original incomplete profiler, stale gate and unstaged-import preflight failures
 remain. This follows through the source qualification; it does not establish a
 new ordinary FPS gain, first-view callback duration, city construction or whole-V2
-acceptance. Final candidate comparison remains pending.
+acceptance. Final candidate **dbd91cc6** passes the complete **114-gate** comparison
+against clean **c5f8400a**: zero regressions, 12 reader improvements, 17 protected
+paths unchanged, V2 selector and zero design lint errors. The in-place verifier
+uses **--no-godot**; it does not replace the separate lane evidence. PR **71**
+merges as **ca4835ee**, with the same tree as the tested candidate. The original
+blocked candidate remains archived. This paragraph/archive update changes only
+reports and does not warrant repeating unchanged runtime suites.

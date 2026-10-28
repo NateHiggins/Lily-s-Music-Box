@@ -1214,9 +1214,12 @@
     "approved_task_reconciliation/surface_staged/suite_run.stdout.log.gz": "7ae30b3aab11e554c2b8cac74ff4d04d11e7c2ac267c18833a4296fac9b9f9b7",
     "approved_task_reconciliation/surface_staged/suite_run.stderr.log.gz": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
     "approved_task_reconciliation/original_blocked_candidate/verification.json": "14b4a89598e49d71b8a5993be0047904d1731f8902366708244cd45cc55335cd",
-    "approved_task_reconciliation/original_blocked_candidate/verification.md": "e6c84040a3244e7750463bb52df642c5b50f9210c51888b4e687fbd0c05484e8"
+    "approved_task_reconciliation/original_blocked_candidate/verification.md": "e6c84040a3244e7750463bb52df642c5b50f9210c51888b4e687fbd0c05484e8",
+    "candidate_dbd91cc6_main_merge/candidate/verification.json": "a4d68fddfc7ffe222330da99d64c1e6d2bf38d5465b672bf940fbb02f6100fe7",
+    "candidate_dbd91cc6_main_merge/candidate/verification.md": "4ebd82f78de7049acb6fd46977cecafc5102b0b8738b678bec17c60c313d1b6c",
+    "candidate_dbd91cc6_main_merge/package_merge.py": "0809ed09b667ed6cdaac45461209ab1df7302300d57637b16c46de9f17dae7e0"
   },
-  "archive_sha256": "91af59a60912ba8e4ed37e902269333ce349c2a1592ab884469be99a991702d8",
+  "archive_sha256": "5e042b897a3707a83a77205cd9e9eb4d75634393b9dbee819520dfb8daf7c30c",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -2922,7 +2925,7 @@
       "after_kernel": "kitchen_larder_after.gd"
     },
     "host": "Intel i7-13700KF; NVIDIA RTX4080; patched4.7.1 LLVM Vulkan",
-    "candidate_verification": "pending; no whole-V2 or human acceptance",
+    "candidate_verification": "9cdaa97f blocked on stale surface; final dbd91cc6 PASS after renewed surface and approved cleanup. PR71 merged ca4835ee; no ordinary-route FPS gain.",
     "capture_sha256": {
       "plain/cloud_0_off_street.png": {
         "sha256": "0a37a6ca6b71629130785173451130c90569a8dd180e82c32edfe68b6d25b542",
@@ -2994,6 +2997,16 @@
         "textures": 527
       }
     },
-    "next": "Final candidate comparison; then city construction, not more unrelated expansion."
+    "next": "Final candidate PASS and PR71 merged; city construction next."
+  },
+  "candidate_dbd91cc6_main_merge": {
+    "evidence_class": "INERT",
+    "tested_candidate": "dbd91cc6e31ddc682f0b39db88afb16622a31417",
+    "merge_commit": "ca4835ee6f7bf609b9e975fc2ff5bdfc4c82204d",
+    "merged_tree_identical_to_tested_candidate": true,
+    "regressions": 0,
+    "protected_unchanged": 17,
+    "waivers": 0,
+    "scope": "Clean canonical in-place 114-gate comparison. Verifier --no-godot; separate lane receipts provide runtime evidence. No fresh checkout, whole-V2 or human acceptance."
   }
 }

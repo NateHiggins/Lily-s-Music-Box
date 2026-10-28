@@ -214,7 +214,8 @@ is preserved with timestamps/bytes before removal only after no Git process and
 exclusive opening are confirmed. No reset, shared stash or bulk staging is used.
 
 The first surface attempt stops before composition: the snapshot still enumerates
-a deleted but unstaged old import. Original failed receipt and traceback remain.
+a deleted but unstaged old import. The original failed receipt remains; the
+manual FileNotFoundError diagnosis is in the tool transcript, not an archived traceback.
 Stage the named relocations/deletions; the real snapshot then succeeds without
 a checker exception, fixture repin or weakened test. The fresh **surface_staged**
 run passes in **772 seconds**, **39,169 checks / zero failures**, empty shutdown
@@ -225,7 +226,14 @@ The separate save tests retain their own scope. Hose interaction is skipped whil
 its physical surfaces remain inventoried. Seven actual native 3440×1440 views were
 inspected; dark street exposure, strong ceiling highlights and a flat storm deck
 remain artistic limits. The publisher installs the fresh packet with zero
-defects and preserves its predecessor. Final candidate comparison is pending.
+defects and preserves its predecessor. Candidate **dbd91cc6** then passes the
+complete **114-gate** comparison against clean merge-base **c5f8400a** with
+**zero regressions**, **12 reader improvements**, **17/17 protected paths
+unchanged**, V2 selector preserved and zero design lint errors. The verifier
+uses **--no-godot**; the separately executed lane receipts above supply runtime
+evidence. PR **71** merges as **ca4835ee**; its tree is identical to the tested
+candidate. Fresh-checkout import/autocrlf and human acceptance remain outside
+this in-place verification.
 
 The latest terrain/relief brief is integrated in
 **design/V2_QUEENS_1928_CITY_REFERENCE_2026-10-18.md**: one scene/ASL datum preserves
