@@ -13,6 +13,7 @@ const DORMANCY_GRACE_SECONDS := 3.0
 var _unwanted_seconds := 0.0
 var _pending: Dictionary = {}
 var _staging: Node3D
+var _publication_root: Node3D
 var _staged_cells: Dictionary = {}
 var _staged_surface: RefCounted
 var _retired: Array[WeakRef] = []
@@ -46,6 +47,8 @@ var _fit_fetch_ms := 0.0
 var _fit_instantiate_ms := 0.0
 var _fit_work_ms := 0.0
 var fit_records: Array[Dictionary] = []
+var activation_records: Array[Dictionary] = []
+var publication_records: Array[Dictionary] = []
 
 func configure(owner_region: Node3D, owner_player: PlayerController,
 		owner_frame: Node3D, layout: Dictionary) -> bool:
@@ -304,6 +307,8 @@ func _stage_one() -> void:
 		return
 	if not _pending.is_empty(): return
 	if not _wanted and not region.geometry_required_by_stock():
+		if is_instance_valid(_publication_root): _publication_root.free()
+		_publication_root = null
 		_staging.free()
 		_staging = null
 		_staged_cells.clear()
@@ -313,15 +318,44 @@ func _stage_one() -> void:
 		_collision_shapes.clear()
 		state = "DORMANT"
 		return
+	# Fitting remains entirely off-tree. Once validated, register one complete
+	# cell per frame so deferred rendering/physics work is not published in one
+	# burst. Keep it hidden and actors/barrier unchanged until every cell exists.
+	if _publication_root == null:
+		_publication_root = Node3D.new()
+		_publication_root.name = "PendingPassageGeometry"
+		_publication_root.visible = false
+		# Static collision enters with its cell. Disabling processing here would
+		# remove those bodies, then re-register all of them at final activation.
+		region.add_child(_publication_root)
+	if _staging.get_child_count() > 0:
+		var cell := _staging.get_child(0) as Node3D
+		var before := Time.get_ticks_usec()
+		_staging.remove_child(cell)
+		_publication_root.add_child(cell)
+		publication_records.append({"cycle":load_cycles+1,"cell":str(cell.name),
+			"attach_ms":float(Time.get_ticks_usec()-before)/1000.0})
+		if publication_records.size()>64: publication_records.pop_front()
+		return
+	_staging.free()
+	_staging = null
 	var activation_start := Time.get_ticks_usec()
-	region.activate_geometry(_staging, _staged_cells, _staged_surface)
-	peak_activation_ms = maxf(peak_activation_ms, float(Time.get_ticks_usec()-activation_start)/1000.0)
+	region.activate_geometry(_publication_root, _staged_cells, _staged_surface)
+	_publication_root = null
+	var attached := Time.get_ticks_usec()
+	peak_activation_ms = maxf(peak_activation_ms, float(attached-activation_start)/1000.0)
 	_staging = null
 	_staged_cells = {}
 	_staged_surface = null
 	_height_resources.clear()
+	var heights_cleared := Time.get_ticks_usec()
 	_native_resources.clear()
+	var native_cleared := Time.get_ticks_usec()
 	_collision_shapes.clear()
+	activation_records.append({"cycle":load_cycles+1,"attach_ms":float(attached-activation_start)/1000.0,
+		"height_clear_ms":float(heights_cleared-attached)/1000.0,"native_clear_ms":float(native_cleared-heights_cleared)/1000.0,
+		"shape_clear_ms":float(Time.get_ticks_usec()-native_cleared)/1000.0,"total_ms":float(Time.get_ticks_usec()-activation_start)/1000.0})
+	if activation_records.size()>8:activation_records.pop_front()
 	if region.startup_failed:
 		state = "FAILED"
 		_gate(true)
@@ -388,7 +422,8 @@ func snapshot() -> Dictionary:
 	return {"dormancy_grace_seconds":DORMANCY_GRACE_SECONDS,"unwanted_seconds":_unwanted_seconds,"portrait_atlas_cache":region.portrait_atlas_cache.snapshot(),"kept_shader_materials":1 if _canopy_shader_material!=null else 0,"state": state, "pending_requests": _pending.size()+_height_pending.size()+_native_pending.size(), "load_cycles": load_cycles,
 		"unload_cycles": unload_cycles, "retired_geometry_roots_alive": retained_roots,
 		"retired_mesh_resources_alive": retained_meshes, "peak_stage_ms": peak_stage_ms,
-		"peak_activation_ms": peak_activation_ms, "stage_records": stage_records.duplicate(true), "fit_records":fit_records.duplicate(true),
+		"peak_activation_ms": peak_activation_ms, "stage_records": stage_records.duplicate(true), "fit_records":fit_records.duplicate(true), "activation_records":activation_records.duplicate(true),
+		"publication_records":publication_records.duplicate(true),
 		"collision_cache_parts":_collision_cache.paths.size(),"collision_cache_bytes":_collision_cache.cache_bytes,"collision_cache_seed_ms":_collision_cache.seed_ms,"physical_actors_retained": true, "cell_count": region.cell_nodes.size()}
 
 func shutdown() -> void:
@@ -416,6 +451,8 @@ func shutdown() -> void:
 	_height_paths.clear()
 	if is_instance_valid(_staging): _staging.free()
 	_staging = null
+	if is_instance_valid(_publication_root): _publication_root.free()
+	_publication_root = null
 	_staged_cells.clear()
 	_staged_surface = null
 	_material_statistics.clear()

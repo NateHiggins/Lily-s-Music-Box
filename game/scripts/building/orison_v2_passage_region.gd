@@ -543,7 +543,9 @@ func suspend_geometry() -> WeakRef:
 func activate_geometry(geometry: Node3D, cells: Dictionary, surfaces: RefCounted) -> void:
 	_geometry_root = geometry
 	_geometry_root.name = "ResidentGeometry"
-	add_child(_geometry_root)
+	if _geometry_root.get_parent() == null: add_child(_geometry_root)
+	_geometry_root.process_mode = Node.PROCESS_MODE_INHERIT
+	_geometry_root.visible = true
 	cell_nodes.merge(cells)
 	for cell: Node3D in cells.values(): preload("res://scripts/building/orison_v2_owner_finishes.gd").apply_shop_wear(cell)
 	surface_pass = surfaces

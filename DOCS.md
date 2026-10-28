@@ -61,7 +61,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Installed hose maintenance input, connected charge/save route and idle negative control | `design/V2_HOSE_INSTALLED_MAINTENANCE_2026-10-24.md` |
 | Portrait atlas reloads, retired shader ownership and eight cooperative fitting families | `design/V2_PORTRAIT_RELOAD_AND_UV_LIFETIME_2026-10-24.md` |
 | Incremental signatures, canopy shader lifetime and same-process cache control | `design/V2_INCREMENTAL_NATIVE_SIGNATURES_2026-10-24.md` |
-| Cooperative fitting jobs, source equivalence and loading frame tails | `design/V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md` |
+| Cooperative fitting jobs, source equivalence, measured passage publication and loading frame tails | `design/V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md` |
 | Fixture halo retirement, actual passage streaming and native fitting stalls | `design/V2_FIXTURE_HALOS_AND_PASSAGE_PROFILE_2026-10-23.md` |
 | Background household save transactions, settlement barriers and warmed route tails | `design/V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md` |
 | Redundant shadow-budget writes, cache controls and observed route frame improvement | `design/V2_SHADOW_BUDGET_WRITES_2026-10-23.md` |

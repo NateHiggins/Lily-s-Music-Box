@@ -6,6 +6,54 @@ var _surface_signature: Dictionary = {}
 var _receiver_signature: Dictionary = {}
 var _diner_probe: WeakRef
 var _diner_probe_id: int
+var _publication_checks: Dictionary = {}
+
+class UnwantedRegion extends Node3D:
+	func geometry_required_by_stock() -> bool: return false
+
+func _check_partial_publication_cleanup() -> void:
+	# Exercise both exits with separately owned off-tree and already-attached
+	# cells. Weak references catch a leaked pending root, not just state flags.
+	for cancel in [true, false]:
+		var owner := UnwantedRegion.new()
+		var residency := preload("res://scripts/building/orison_v2_passage_residency.gd").new()
+		residency.region = owner
+		residency._wanted = false
+		residency.state = "LOADING"
+		residency._staging = Node3D.new()
+		residency._publication_root = Node3D.new()
+		owner.add_child(residency._publication_root)
+		var unregistered := Node3D.new()
+		var registered := Node3D.new()
+		residency._staging.add_child(unregistered)
+		residency._publication_root.add_child(registered)
+		residency._staged_cells = {"unregistered":unregistered,"registered":registered}
+		var roots := [weakref(residency._staging),weakref(residency._publication_root),
+			weakref(unregistered),weakref(registered)]
+		if cancel: residency._stage_one()
+		else: residency.shutdown()
+		_require(roots.all(func(reference: WeakRef): return reference.get_ref() == null)
+				and residency._staged_cells.is_empty() and residency._publication_root == null
+				and (residency.state == "DORMANT" if cancel else residency._stopped),
+				"partial publication releases both node owners on "+("cancellation" if cancel else "shutdown"))
+		residency.shutdown()
+		residency.free()
+		owner.free()
+
+func _process(_delta: float) -> void:
+	if not is_instance_valid(world) or not is_instance_valid(world.passage_region): return
+	var passage := world.passage_region
+	if not is_instance_valid(passage.residency): return
+	var pending: Node3D = passage.residency._publication_root
+	if not is_instance_valid(pending): return
+	var identity := str(pending.get_instance_id())+":"+str(pending.get_child_count())
+	if _publication_checks.has(identity): return
+	_publication_checks[identity] = true
+	_require(passage.residency.state == "LOADING" and not pending.is_visible_in_tree()
+			and pending.can_process() and passage.residency._guard.visible
+			and passage.cell_nodes.size() == 1 and not passage._actors.visible
+			and passage._actors.process_mode == Node.PROCESS_MODE_DISABLED,
+			"partial publication stays hidden and guarded without publishing actors/cell authority")
 
 func _init() -> void:
 	route_label = "V2 PASSAGE RESIDENCY"
@@ -30,6 +78,7 @@ func _capture(identity: String, target: Vector3) -> void:
 	await _walk_world(Vector3(14, 0, 32))
 
 func _route() -> void:
+	_check_partial_publication_cleanup()
 	await super._route()
 	if not failures.is_empty(): return
 	var passage := world.passage_region
@@ -84,6 +133,8 @@ func _route() -> void:
 	if not _require(resumed.state == "RESIDENT" and resumed.cell_count == 13
 			and resumed.load_cycles >= 2 and resumed.unload_cycles >= 2,
 			"ordinary street approach completes second reconstruction before the protected gateway"): return
+	_require(_publication_checks.size() >= 24 and resumed.publication_records.size() >= 24,
+			"both reconstruction cycles exercise all twelve guarded cell publications")
 	if not _check_specialist_fittings():return
 	if not _require(passage.cell_nodes.shop_luncheonette.get_node("DinerBackbar/DinerFinishReflection").get_instance_id()!=_diner_probe_id,
 			"reconstruction creates a fresh one-time Diner reflection owner"):return
