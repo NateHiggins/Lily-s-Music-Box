@@ -629,3 +629,44 @@ and Cambridge flat-roof end-pavilion precedent; it grants no runtime acceptance.
 The entrance remodel, remaining city identities, bridge/station, weather polish,
 frame-time spikes, current route/save gaps and owner acceptance remain open.
 Owner decision needed: **none**. V2 is not complete.
+
+## Court-apartment batch in progress — October 28
+
+WIP, **INERT**. Base **9896ebe7**, clean 114-gate board captured before edits.
+The six-building research brief is being implemented on
+**codex/v2-city-courts-20261028**. Only **site_far_se / Elm** and
+**site_far_w / Cambridge** are presently rebuilt; Greystone, Towers, Chateau
+and Laburnum remain unfinished. No additional completed city studies are
+counted yet. The owner canceled parallel entrance work and requested one task
+at a time; this batch remains the sole construction focus.
+
+Elm has nine front axes, a round-headed stair window, six-over-one front sash
+and a seated columned/balustraded portico. Cambridge has thirteen axes, an
+arched central light with flat sidelights, a pilastered iron-crowned porch and
+a flat roof with a front balustrade. Both use actual shallow, sky-open recesses.
+Original rooftop bearings remain supported. On October 28 the owner explicitly
+authorized editing legacy roof slabs; subsequent court/roof work need not retain
+obsolete slab shapes, but must verify structure, bearings and affected access.
+
+| Reproduction / location | Severity | Evidence | Repair | Verification |
+|---|---|---|---|---|
+| First pair build, court outline | Build blocker | Mixed Vector2/Vector3 arithmetic fails before export | Use a planar tangent for the planar perimeter | Fresh native build passes |
+| Door transom / Cambridge ordinary sash | Native pane failure | New low door probe hits its leaf; Palladian mullions repeat on ordinary windows | Sample the actual transom; restrict mullions to the central stair light | Original pane tolerance retained; all 2,950 pane samples pass |
+| New crown courses | Visible shading defect | Actual native renders show inward, black-shaded stock | Correct this new perimeter's winding; retain unrelated geometry | Both sampled crown normals dot outward = 1, zero position error; refined renders inspected |
+
+Final pair native build: **1,205 bearing samples**, **2,950 pane samples**,
+zero failures at 0.1 mm tolerance; both open-court negative controls pass.
+The focused imported diagnostic completes **5,411 checks**, **1,205 roof
+samples**, **946 draws**, zero failures and empty shutdown stderr. Its wrapper
+receipt binds current source. Thirteen relevant Python source tests pass and
+NEW unread fields remain zero. All **918 unrelated decoded draw arrays/poses**
+remain exact; five other city GLBs remain byte-identical to the base.
+
+Elevation totals are provisionally **761,329 triangles / 238 draws /
+76,675,332 GLB bytes**, versus base **705,821 / 239 / 70,928,092**. No new texture
+or runtime source file is added. This is an increased geometry cost, not an FPS
+claim. Composed-world optical review, occupied-route performance, renewed
+surface qualification, full candidate gates and merge are **NOT_EXECUTED** for
+this WIP. The existing main surface packet does not qualify these changed
+inputs. Save/load is not claimed. Native failures, source snapshots and rendered
+reviews are retained under **C:/ov/reports/city_reference_next_20261028**.

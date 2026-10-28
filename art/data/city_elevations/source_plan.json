@@ -811,18 +811,18 @@
     },
     {
       "id": "site_far_se",
-      "description": "Elm Court, 34-27 79th Street, George H. Wells, 1921\u201322 \u2014 authored proportion repair; individual architectural study remains open",
+      "description": "Elm Court, 34-27 79th Street, George H. Wells, 1921\u201322 \u2014 authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
       "massing": "single_upper_setback",
       "storey_height": 2.95,
-      "bay_pitch": 2.15,
-      "window_width": 0.94,
-      "window_height": 1.84,
+      "bay_pitch": 2.8,
+      "window_width": 1.05,
+      "window_height": 1.85,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "brick",
       "wall_tint": [
-        0.95,
-        0.92,
-        0.86,
+        0.66,
+        0.47,
+        0.38,
         1
       ],
       "frame_tint": [
@@ -834,7 +834,7 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
+      "detail_faces": "all",
       "window_joinery": "single_sash",
       "window_treatment": "draped",
       "sill_projection": 0.1,
@@ -859,7 +859,17 @@
         "pdf_pages": [
           136
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Four-storey Georgian hierarchy; projecting balustraded entry, central stair bay and garden organisation remain to be constructed."
+        "adaptation": "Authored proportions within the retained mass and roof/equipment reservation. Four-storey Georgian court vocabulary; no new interior, actor or access. Cambridge uses the documented flat-roof end A pavilion, not the mansard B block. Native/imported review remains pending."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "elm",
+        "front_side": 3,
+        "side_bays": 4,
+        "recess_width_m": 5.0,
+        "recess_depth_m": 1.0,
+        "stair_window_width_m": 1.4,
+        "arch_rise_m": 0.36
       }
     },
     {
@@ -973,18 +983,18 @@
     },
     {
       "id": "site_far_w",
-      "description": "Cambridge Court, 37-14 86th Street, George H. Wells, 1922 \u2014 authored proportion repair; individual architectural study remains open",
+      "description": "Cambridge Court, 37-14 86th Street, George H. Wells, 1922 \u2014 authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
-      "bay_pitch": 2.22,
-      "window_width": 1.0,
-      "window_height": 1.76,
+      "bay_pitch": 2.7,
+      "window_width": 1.05,
+      "window_height": 1.85,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "brick",
       "wall_tint": [
-        0.86,
-        0.82,
-        0.75,
+        0.6,
+        0.4,
+        0.32,
         1
       ],
       "frame_tint": [
@@ -996,7 +1006,7 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
+      "detail_faces": "all",
       "window_joinery": "single_sash",
       "window_treatment": "roller",
       "sill_projection": 0.085,
@@ -1019,9 +1029,21 @@
         "name": "Cambridge Court, 37-14 86th Street, George H. Wells, 1922",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
-          203
+          203,
+          204,
+          66
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Four-storey hierarchy; modified T plan, entrance porch and mansard/dormer variation remain to be constructed."
+        "adaptation": "Authored proportions within the retained mass and roof/equipment reservation. Four-storey Georgian court vocabulary; no new interior, actor or access. Cambridge uses the documented flat-roof end A pavilion, not the mansard B block. Native/imported review remains pending."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "cambridge",
+        "front_side": 1,
+        "side_bays": 6,
+        "recess_width_m": 4.8,
+        "recess_depth_m": 0.9,
+        "stair_window_width_m": 2.65,
+        "arch_rise_m": 0.6
       }
     }
   ]

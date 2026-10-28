@@ -79,20 +79,32 @@ func _run() -> void:
 	check(contacts>=1205 and shells.size()==fixture.parts.size() and draws>600,"nonempty complete family inventory")
 	var factory_studies: Array=fixture.get("architecture_checks",[])
 	check(factory_studies.size()==1,"one explicit factory study, not a promotion of all height repairs")
-	check(fixture.portals.size()==3,"two factory portals and one street-facing townhouse entry")
+	check(fixture.portals.size()==5,"two factory portals, original townhouse entry and two court entries")
 	var factory_portals:=0
 	var terrace_portals:=0
+	var court_portals:=0
 	for portal: Dictionary in fixture.portals:
-		check(str(portal.building) in ["site_far_e","site_nw2"],"portal belongs to an explicitly adapted building")
+		check(str(portal.building) in ["site_far_e","site_nw2","site_far_se","site_far_w"],"portal belongs to an explicitly adapted building")
 		if str(portal.building)=="site_far_e":factory_portals+=1
-		else:terrace_portals+=1
+		elif str(portal.building)=="site_nw2":terrace_portals+=1
+		else:court_portals+=1
 		var source: Array=portal.point
 		var normal: Vector3=[Vector3.BACK,Vector3.RIGHT,Vector3.FORWARD,Vector3.LEFT][int(portal.side)]
 		var point:=city.to_global(Vector3(source[0],source[2],-source[1]))
 		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.1,point-normal*.4,1,exclude))
 		check(not hit.is_empty() and hit.position.distance_to(point+normal*float(portal.front))<.0001
 				and str(shells.get(hit.collider.get_rid(),"")).ends_with("__door_paint"),"raised portal leaf has real closed backing")
-	check(factory_portals==2 and terrace_portals==1,"original factory portals and the townhouse entry remain nonempty")
+	check(factory_portals==2 and terrace_portals==1 and court_portals==2,"original portals remain nonempty alongside two new passive entries")
+	var court_details: Array=fixture.court_details
+	check(court_details.size()==2,"two individually authored court studies, not all six batch candidates")
+	var expected_courts: Dictionary={"site_far_se":"elm","site_far_w":"cambridge"}
+	for detail: Dictionary in court_details:
+		check(expected_courts.has(str(detail.building)) and expected_courts.get(str(detail.building))==str(detail.style),"distinct court identity has an explicit source owner")
+		check(int(detail.entry_count)==1 and float(detail.recess_depth_m)>=.9,"one supported entry and a real shallow recess")
+		var probe: Array=detail.void_probe
+		var start:=city.to_global(Vector3(probe[0],probe[2],-probe[1]))
+		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(start,start-Vector3.UP*float(detail.roof_height),1,exclude))
+		check(not hit.is_empty() and hit.position.y<=city.global_position.y+float(detail.porch_top)+.001,"court is genuinely sky-open above the porch, no hidden roof slab")
 	var terrace_details: Array=fixture.townhouse_details
 	check(terrace_details.size()==1,"one individual terrace study")
 	for detail: Dictionary in terrace_details:
