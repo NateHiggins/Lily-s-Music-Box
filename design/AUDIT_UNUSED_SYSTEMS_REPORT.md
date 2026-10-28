@@ -51,6 +51,23 @@ Together with the preceding snapshot consolidation, tracked working-tree
 reduction is **25,940 files / 1,320,205,148 bytes** before this small metadata
 follow-up. Shared Git history is preserved; its database size is not reduced.
 
+A broader read-only render census then selected **529 additional images /
+590,195,841 bytes**. Any image whose basename or capture-family token appeared
+in primary project text was retained conservatively; 9,949 images remain in
+that audit. The search covered gameplay, tools, native authoring scripts/data,
+review/material metadata, design documents and skills, excluding generated
+render metadata and historical copied Astra source/evidence from the primary
+consumer search. No source file, manifest, log or receipt was selected.
+
+A single Blender 5.2 LTS library-datablock pass read **329 native files / 4,340
+image blocks**, finding no selected-image inputs and no read failures. Every
+native source hash remained unchanged. Each selected raster was independently
+compared byte-for-byte to its blob at the capture index's existing immutable
+commit. **art/renders/HISTORICAL_CAPTURES.json** extends that same recovery index;
+the preceding 205-image qualification remains separately scoped. The current
+surface packet and full static comparison must still pass before integration.
+No new runtime, visual or artistic acceptance is implied by storage cleanup.
+
 ## Method
 
 The sweep covered all 182 scripts under `game/scripts`, every shipped JSON in
