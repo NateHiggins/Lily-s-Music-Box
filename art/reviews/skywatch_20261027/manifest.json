@@ -1649,9 +1649,12 @@
     "city_sohmer/review_images/factory_clock_0000.webp": "97f4961d9d544b6418b6af458cd876a7b40f251143e7a52e178d7105a5c585b4",
     "city_sohmer/review_images/factory_clock_0180.webp": "4d1e46a299f0cb51711a51696bace3c0835ed87e9c901f34090f1104afef767b",
     "city_sohmer/review_images/factory_clock_0735.webp": "c1c5ae3a1d93d6bdd5faf6063515b8165abfebf109cc65ec98547dfe52ec0217",
-    "city_sohmer/review_images/site_far_e.webp": "8eea372ae77e2c36676b50d3335cb1ff51fca1cb0affc0fb019bae401613830a"
+    "city_sohmer/review_images/site_far_e.webp": "8eea372ae77e2c36676b50d3335cb1ff51fca1cb0affc0fb019bae401613830a",
+    "city_sohmer/candidate/verification.json": "c21ef9ef7827950f748885c457305e7d9096aa2328d71d40638183d889fea79d",
+    "city_sohmer/candidate/verification.md": "f2eb0339976c14b5a20d25a432016d18d920df302af72e907835dbe109f2c30a",
+    "city_sohmer/finalize.py": "95aac28204078f50b7372685cb311fa07ddc74085994d579c712dad55b62920f"
   },
-  "archive_sha256": "ea309c7dc748bd62ffbe9da35d5664b5551ba6e9d7c79607ac33993f677169e0",
+  "archive_sha256": "8b0c9edb2fd91587074ee1ba740d931633959990b4b873c82c96fd71422949a3",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -6927,8 +6930,20 @@
       "145 of 149 individual city studies remain.",
       "Typical/GPU costs essentially unchanged; after maxima exceed this baseline and large stalls remain unattributed.",
       "Clock timing excludes deferred engine work.",
-      "Save reconstruction and unchanged hose input not executed; no human acceptance.",
-      "Candidate verification pending."
-    ]
+      "Save reconstruction and unchanged hose input not executed; no human acceptance."
+    ],
+    "candidate_verification": {
+      "candidate": "1cb5f10418a1b1cc8f4899d2c88b080d51de2a65",
+      "base": "8d2952079cfa46296bc13eff54a5ef2ab6d714ab",
+      "gates": 114,
+      "regressions": 0,
+      "protected_unchanged": 17,
+      "selector": "v2",
+      "requirements_changed": [],
+      "mode": "clean in-place --no-godot; separately executed source-bound Godot receipts",
+      "merge": "079b951e5aa105cbee2d042813bd38419f81a168",
+      "pr": 74,
+      "tree_matches_candidate": true
+    }
   }
 }

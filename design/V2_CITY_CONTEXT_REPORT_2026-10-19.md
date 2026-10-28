@@ -488,7 +488,19 @@ Static preflight found one new test-camera record and stale surface evidence.
 The camera is now recorded as TEST_CONTRACT / UPDATE_TEST_FIXTURE; scanner,
 classifications and baselines are unchanged. Spatial drift and NEW reader fields
 are zero; all five city-source tests pass. The original test assertions and
-budgets remain. Candidate verification remains the final integration step.
+budgets remain. Frozen candidate **1cb5f104** passes the **114-gate** comparison
+with **zero regressions**, all **17 protected paths unchanged**, selector **V2**,
+clean changed-document lint and no changed requirement statuses. The one
+test-camera manifest addition was reviewed; no scanner or baseline weakened.
+Existing unrelated red gates remain red. Verification is in-place with separately
+executed source-bound Godot receipts, not fresh-checkout import/autocrlf proof.
+
+Merged through **PR #74**, commit **079b951e5aa105cbee2d042813bd38419f81a168**; its tree exactly matches
+the qualified candidate. This final report/archive update changes metadata only;
+runtime and test sources remain the executed candidate. The four review images,
+original failures, raw measurements and candidate verdict are preserved in the
+existing archive, below 50 MiB. No runtime qualification is inferred from this
+metadata update.
 
 There are now **four individually developed technical city studies** (three
 horizon studies plus this factory), **145** still open across the 149-building
