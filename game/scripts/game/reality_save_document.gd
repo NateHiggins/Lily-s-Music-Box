@@ -12,6 +12,8 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("lamp_optics")
 	if candidate.has("companion") and not preload("res://scripts/device/companion_campaign_state.gd").valid(candidate.companion):
 		return _invalid_shape("companion")
+	if candidate.has("prologue") and not preload("res://scripts/game/prologue_state.gd").valid(candidate.prologue):
+		return _invalid_shape("prologue")
 	if candidate.has("caretaker_economy") and not preload("res://scripts/game/caretaker_economy.gd").valid(candidate.caretaker_economy):
 		return _invalid_shape("caretaker_economy")
 	if candidate.has("door_keys") and not preload("res://scripts/game/door_keyring.gd").valid(candidate.door_keys):

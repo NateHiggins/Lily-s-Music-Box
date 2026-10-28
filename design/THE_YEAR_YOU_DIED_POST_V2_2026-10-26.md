@@ -43,6 +43,14 @@ January-to-November room examples do not replace the installed November 10,
 
 ## Owner's opening scene and stage setting
 
+**Superseded sequencing/wording, October28:** the owner now requires the expanded
+**An Unfortunate Development** prologue as the V2 intro, replacing the old normal
+opening sequences. Bible §VIII.5.p and **design/V2_PROLOGUE_2026-10-28.md** govern
+its exact dialogue, staging and current priority. The earlier sketch below is
+historical source material; its post-V2 deferral and rough wording no longer
+govern this opening. The larger murder-year investigation remains after V2.
+
+
 The flying machine introduces the premise with these owner-authored lines,
 preserved verbatim, including the emotional contrast:
 

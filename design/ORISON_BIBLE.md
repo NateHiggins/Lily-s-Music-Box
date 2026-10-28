@@ -1047,6 +1047,33 @@ readability, accessibility, reliable saves, atmosphere and honest verification
 remain engineering requirements. The exact approved dispositions are recorded in
 **design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md**.
 
+**VIII.5.p — THE V2 OPENING IS AN UNFORTUNATE DEVELOPMENT.**
+*(Owner directive and clarification, 2026-10-28.)*
+
+The bedroom/shower/mirror/companion prologue is the **V2 intro**, not deferred
+with the later murder-year investigation. After the current verified checkpoint,
+prioritize it before resuming city construction. Replace the old player-facing
+curb, clock-in and introductory cinematics; retain useful independent technical
+fixtures and the mechanical, resident, inventory, work-order, case, reading,
+calendar/weather and validated save authorities. Other V2 commitments remain.
+
+Begin in the existing 4B home on November 10, 1928. Teach actual curtain, hot/cold
+valve and medicine-cabinet manipulation. Reveal the drawn protagonist quietly,
+then the reflection-only companion crossing into physical space. Use the
+established bot, printer and tile face, plus the required aftermarket typing
+arm. Preserve exact dialogue and pacing in **design/V2_PROLOGUE_2026-10-28.md**
+and its identified owner brief. The final line is **I am connecting you to the
+present, please stay on the line...** No dialogue follows. The simulated
+privileged command never touches the OS; sample host time once, traverse the
+sky parametrically and apply the destination through the campaign clock. Keep
+Queens as geographic reference. Do not simulate intervening days or infer new
+future news, identity answers, modern city assets or resident history from the
+jump. End at the title; preserve accessible pacing, input, reload and skip.
+
+This supersedes older opening and city-first sequencing where they conflict.
+Full V2 and the later mystery still need qualification. Owner direction does
+not prove completed gameplay.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of
