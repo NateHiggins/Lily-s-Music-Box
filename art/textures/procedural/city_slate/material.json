@@ -5,6 +5,18 @@
   "meters_per_tile": 1.2,
   "height_min_m": -0.0002850680257358158,
   "height_max_m": 0.0033858502601159233,
+  "normal_strength": 1.0,
+  "normal_authoring": {
+    "profile": "city_slate",
+    "height_units": "metres",
+    "normal_convention": "OpenGL",
+    "normal_strength": 1.0,
+    "meters_per_tile": 1.2,
+    "resolution": 1024,
+    "height_source": "authored joints, overlaps and grain; independent of albedo and lighting",
+    "rms_relief_m": 0.0006033701005996772,
+    "maximum_slope": 1.3256749613578596
+  },
   "maps": {
     "albedo": "albedo.png",
     "roughness": "roughness.png",

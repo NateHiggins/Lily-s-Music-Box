@@ -81,6 +81,18 @@ def build():
         meta = {'material': key, 'generator': 'art/tools/build_city_masonry.py',
                 'seed': 19281028 + index, 'meters_per_tile': METRES,
                 'height_min_m': lo, 'height_max_m': hi,
+                'normal_strength': 1.0,
+                'normal_authoring': {
+                    'profile': key,
+                    'height_units': 'metres',
+                    'normal_convention': 'OpenGL',
+                    'normal_strength': 1.0,
+                    'meters_per_tile': METRES,
+                    'resolution': SIZE,
+                    'height_source': 'authored joints, overlaps and grain; independent of albedo and lighting',
+                    'rms_relief_m': float(height.std()),
+                    'maximum_slope': float(np.hypot(hx, hy).max()),
+                },
                 'maps': {c: c + '.png' for c in [*maps, 'height']}}
         meta['map_sha256'] = {c: hashlib.sha256((folder / n).read_bytes()).hexdigest() for c, n in meta['maps'].items()}
         (folder / 'material.json').write_text(json.dumps(meta, indent=2) + '\n', encoding='utf-8', newline='\n')

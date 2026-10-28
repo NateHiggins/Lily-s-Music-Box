@@ -757,3 +757,69 @@ execution, the occupied-world before/after comparison, full surface renewal,
 candidate verification and merge remain pending. This WIP is not production
 qualification; the queue's five qualified studies / 144 remaining identities
 remain unchanged until the full batch qualifies.
+
+### Six-building world qualification — October 28, integration pending
+
+The first composed run stopped before startup because the shared material
+catalogue addition left the passage-leaf construction binding stale. The
+existing strict additive-renewal tool now discovers that explicitly named
+fixture; it still excludes runtime contracts. Thirteen tooling tests pass.
+Renewal proves all 125 pre-existing material records and 361 shipped maps
+unchanged, updates five construction/dependency bindings, and preserves 640
+already-stale baseline bindings. Original fixture bytes and failures remain
+under **C:/ov/reports/city_reference_next_20261028**.
+
+A second preflight caught missing independent normal-authoring calibration
+for the three new finishes. Recipes now declare metre height, OpenGL normals
+and their authored strength of 1.0. All twelve regenerated source maps are
+hash-identical to their preceding committed versions. Independently
+differentiating retained 16-bit heights with the shared normal helper agrees
+within one 8-bit quantization code. No renderer default or test was weakened.
+
+The first actual city review completed 5,196 checks with four failures: its
+Chateau perimeter probes extended above the five-storey shaft into the new
+mansard. The generator now records the actual **17.2 m shaft top** separately
+from the retained **20.5 m deck**. The composed review adds 74 physical roof
+face/normal probes, retaining its 100-micrometre tolerance. Posed day/dusk views
+use the existing forced-lighting diagnostic and restore its environment flag,
+director processing and real campaign presentation afterward. The original
+minute-only views had retained the actual nighttime celestial direction.
+Neither version seeks the campaign clock or grants player roof access.
+
+Final executed evidence on the patched Vulkan engine at fullscreen 3440×1440:
+**bench_six_shaft.log.receipt.json** records 5,557 imported checks, zero
+failures; **city_diag_six_shaft.log.receipt.json** records 5,270 city/camera
+diagnostic checks, zero failures; **route_six_shaft.log.receipt.json** records
+124 waypoints, zero failures. **surface_six_shaft.log.receipt.json** accompanies
+the test-written schema-2 runtime contract: **39,427 checks**, zero failures,
+27,842 draws, 17,028 meshes, 6,335 materials and 536 textures. All four runs have
+empty shutdown stderr. The canonical surface packet was independently
+validated and published with the previous packet preserved. Production
+composition, surface requirements and runtime-owned teardown pass;
+**save reconstruction remains NOT_EXECUTED**. Unchanged hose input was skipped;
+its physical surfaces remain inventoried.
+
+All eighteen new street/day/dusk city captures and seven full-run packet
+images were inspected. Roof silhouettes, real courts, dormers and retained
+equipment are visible in composition. Exterior exposure remains dim; the
+low-contrast storm ceiling, entrance remodel and final artistic acceptance
+remain open. These posed construction views do not establish new playable
+access, annual sky acceptance or complete city coverage.
+
+The matched main route and current route hold the same calendar, weather,
+resolution, 8× MSAA and TAA, with live NPC/traffic variation. Across 4,933 before
+and 4,913 after samples, wall-time p50/p95/p99/max is
+**35.865/63.886/75.329/104.781 → 35.869/64.465/75.609/171.141 ms**;
+main-viewport GPU is **14.746/21.783/23.661/26.320 →
+14.929/21.596/23.647/25.830 ms**. Frames over 100 ms rise from one to four.
+The largest current spike coincides with first passage loading, 2,299 added
+resources and 20 mesh pipeline compilations, while its main GPU time is 14 ms.
+That is correlation, not isolated attribution. Driver caches are uncontrolled;
+process/physics counters are one-second peaks, and private viewports are not
+included in main GPU timing. **No stutter improvement is claimed.** Raw frame
+tables, settings checks and outlier context are retained in
+**six_route_comparison.json** and **six_route_spike_context.json** externally.
+
+Archive consolidation, full static candidate comparison and integration remain
+pending. The active queue remains at five integrated city studies / 144
+remaining until that checkpoint is merged. This work does not complete V2.

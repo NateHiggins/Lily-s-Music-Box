@@ -4,10 +4,24 @@ import json
 import importlib.util
 from pathlib import Path
 import unittest
+import tempfile
 
 path=Path(__file__).resolve().parents[1]/'rebind_additive_material.py'
 spec=importlib.util.spec_from_file_location('additive_rebind',path)
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+
+class NativeOwnerDiscoveryTest(unittest.TestCase):
+    def test_nonprefixed_shop_leaf_owner_is_discovered(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);fixture=root/'game/tests/fixtures/passage_shop_leaves.json'
+            fixture.parent.mkdir(parents=True);fixture.write_text('{"source_bindings": {}}')
+            self.assertIn(fixture,module.binding_files(root))
+
+    def test_runtime_receipt_is_not_a_construction_owner(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);fixture=root/'game/tests/fixtures/runtime_contract.json'
+            fixture.parent.mkdir(parents=True);fixture.write_text('{"source_bindings": {"catalog": "old"}}')
+            self.assertNotIn(fixture,module.binding_files(root))
 
 class BaselineDriftGuardTest(unittest.TestCase):
     def setUp(self):

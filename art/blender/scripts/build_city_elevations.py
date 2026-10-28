@@ -700,6 +700,9 @@ for name,p in groups.items():
         architecture_checks[-1]['arch_windows']=n
     if townhouse:townhouse_cornice(name,p,rect0,top+.26)
     stats.append(dict(id=name,old_setbacks=len(ss)-1,new_setbacks=0 if factory or townhouse or court else min(1,len(ss)-1),windows=len(window_rows)-first_window,roof_height=top,shaft_bottom=0. if townhouse or court else ss[0]['z0'],setback_height=split,original_roof_rect=final_rect,main_rect=rect0))
+    # Chateau's continuous perimeter ends at the mansard spring, below its
+    # asymmetric sixth-storey pavilion and retained inner equipment deck.
+    stats[-1]['shaft_top']=sum(p['floor_heights'][:5]) if p.get('architecture',{}).get('style')=='chateau' else split
     if 'vertical_profile' in p:
         old_last=next(r for r in source_rows if r['id']==last['id'])
         stats[-1].update(previous_roof_height=old_last['z0']+old_last['h'],floor_heights=p['floor_heights'])
