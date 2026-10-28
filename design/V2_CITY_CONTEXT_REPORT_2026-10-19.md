@@ -823,3 +823,26 @@ tables, settings checks and outlier context are retained in
 Archive consolidation, full static candidate comparison and integration remain
 pending. The active queue remains at five integrated city studies / 144
 remaining until that checkpoint is merged. This work does not complete V2.
+
+The first clean candidate **7f301c66** passes the 114-gate main comparison with
+zero regressions, unchanged requirement statuses, 17 protected paths unchanged
+and selector V2. Godot was executed separately as recorded above; in-place
+verification does not qualify a fresh checkout. The sole changed tooling-test
+file adds two discovery controls without relaxing existing assertions.
+
+Evidence is consolidated into the existing **art/reviews/skywatch_20261027/**
+archive and manifest, under **city_courts/**. All original non-image members
+remain exact; 33 historical images are byte-verified against immutable main
+**9896ebe7** and have exact archive/member/hash recovery records. Eighteen new
+posed images, two native roof details and an original failed-crown image retain
+lossless decoded pixels. The first overlarge packing attempt is retained as a
+diagnostic failure; it did not overwrite the repository archive. The previous
+canonical surface packet is byte-verified against that same main commit.
+
+The owner then requested immediate file cleanup. Separate checkpoint
+**f3252a3f** replaces 25,740 historical navigation source copies with three
+indexed archives; original logs, verdicts and raw hashes remain. Astra packet
+validation passes before and after; the installed surface packet still binds
+and validates. No Godot rerun is needed for that evidence-only move. Final
+post-cleanup static comparison and integration remain pending; the existing
+city-count queue is not yet promoted.
