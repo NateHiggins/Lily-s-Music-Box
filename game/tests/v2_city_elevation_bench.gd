@@ -2,6 +2,19 @@ extends Node
 ## Imported production owner and support diagnostics, not whole-world acceptance.
 var checks := 0
 var failures: Array[String] = []
+func _clock_tip(hand: Dictionary) -> Vector3:
+	var draw: MeshInstance3D=hand.draw
+	var pivot: Vector3=hand.pivot
+	var normal: Vector3=hand.normal
+	var result:=Vector3.ZERO
+	var largest:=-1.0
+	for vertex: Vector3 in draw.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]:
+		var relative:=draw.transform*vertex-pivot
+		relative-=normal*relative.dot(normal)
+		if relative.length_squared()>largest:
+			largest=relative.length_squared()
+			result=relative
+	return result.normalized()
 func check(ok: bool, label: String) -> void:
 	checks += 1
 	if not ok:
@@ -10,6 +23,8 @@ func check(ok: bool, label: String) -> void:
 func _ready() -> void:
 	call_deferred("_run")
 func _run() -> void:
+	RealityState.persistence_enabled=false
+	RealityState.reset_campaign_for_tests()
 	for path: String in ["res://tests/v2_city_horizon_review.gd","res://tests/v2_city_elevation_review.gd","res://tests/orison_v2_surface_inventory.gd","res://tests/orison_v2_city_closure_test.gd","res://tests/orison_v2_city_composition_test.gd"]:
 		var source := load(path) as Script
 		check(source!=null and source.can_instantiate(),"dependent city source parses: "+path)
@@ -62,6 +77,55 @@ func _run() -> void:
 				check(not hit.is_empty() and shells.has(hit.collider.get_rid()) and hit.position.distance_to(p)<.0001,"real roof bearing: "+str(contact.id))
 				contacts+=1
 	check(contacts>=1205 and shells.size()==fixture.parts.size() and draws>600,"nonempty complete family inventory")
+	var factory_studies: Array=fixture.get("architecture_checks",[])
+	check(factory_studies.size()==1,"one explicit factory study, not a promotion of all height repairs")
+	check(fixture.portals.size()==2,"two closed factory portals rather than ground-floor sashes everywhere")
+	for portal: Dictionary in fixture.portals:
+		check(str(portal.building)=="site_far_e","portal belongs to the adapted factory")
+		var source: Array=portal.point
+		var normal: Vector3=[Vector3.BACK,Vector3.RIGHT,Vector3.FORWARD,Vector3.LEFT][int(portal.side)]
+		var point:=city.to_global(Vector3(source[0],source[2],-source[1]))
+		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.1,point-normal*.4,1,exclude))
+		check(not hit.is_empty() and hit.position.distance_to(point+normal*float(portal.front))<.0001
+				and str(shells.get(hit.collider.get_rid(),"")).ends_with("__door_paint"),"raised portal leaf has real closed backing")
+	for study: Dictionary in factory_studies:
+		check(str(study.building)=="site_far_e" and int(study.arch_windows)==300
+				and int(study.tower_support_samples)==9 and int(study.clock_face_normals)==4
+				and float(study.tower_top)>float(study.tower_seat)+7.,"nonempty native factory form controls")
+		var foundation_exclude: Array[RID]=exclude.duplicate()
+		for rid: RID in shells:
+			var identity: String=shells[rid]
+			if not identity.begins_with(str(study.building)+"__") or identity.split("__")[-1] not in ["roof_bitumen","bronze_sheet","concrete"]:
+				foundation_exclude.append(rid)
+		var bounds: Array=study.tower_rect
+		for x: float in [.05,.5,.95]:
+			for z: float in [.05,.5,.95]:
+				var point:=city.to_global(Vector3(lerpf(bounds[0],bounds[2],x),float(study.tower_seat),-lerpf(bounds[1],bounds[3],z)))
+				var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+Vector3.UP*.03,point-Vector3.UP*.03,1,foundation_exclude))
+				check(not hit.is_empty() and hit.position.distance_to(point)<.0001,"tower seats on actual roof stock, excluding its own underside")
+	check(city._clock_hands.size()==8 and fixture.clock_hands.size()==8,"four physical clock faces retain eight independent hands")
+	var clock:=CampaignClock.new()
+	for minute: int in [0,180,735,0]:
+		check(clock.configure_date(1928,11,10,minute) and city.refresh_clock_from_campaign(),"city clock reads authoritative civil time including reversal")
+		for hand: Dictionary in city._clock_hands:
+			var tip:=_clock_tip(hand)
+			var normal: Vector3=hand.normal
+			var right:=Vector3.UP.cross(normal)
+			if minute==0:check(tip.dot(Vector3.UP)>.999,"both hands return to twelve after time reversal")
+			elif minute==180:check(tip.dot(right if hand.period==720. else Vector3.UP)>.999,"three o'clock has a rightward hour hand and upright minute hand")
+			elif hand.period==60.:check(tip.dot(right)>.999,"quarter past has a rightward minute hand on every face")
+			check(hand.collision.global_transform.is_equal_approx(hand.draw.global_transform),"clock visual and physical stock remain aligned")
+	check(clock.configure_date(1928,11,10,195),"live clock update uses the existing time owner")
+	await get_tree().create_timer(.65).timeout
+	check(is_equal_approx(city.displayed_minute,195.),"clock presentation polls changed campaign time without a manual refresh")
+	get_tree().paused=true
+	check(clock.configure_date(1928,11,10,240),"paused fixture changes time only through the authoritative owner")
+	await get_tree().create_timer(.65).timeout
+	check(is_equal_approx(city.displayed_minute,195.),"paused presentation holds its pose")
+	get_tree().paused=false
+	await get_tree().create_timer(.65).timeout
+	check(is_equal_approx(city.displayed_minute,240.),"resumed presentation observes the latest campaign time")
+	check(clock.configure_date(1928,11,10,0) and city.refresh_clock_from_campaign(),"live clock fixture returns to its initial civil time")
 	var repaired := 0
 	for building: Dictionary in fixture.buildings:
 		if not building.has("previous_roof_height"):continue
@@ -128,6 +192,18 @@ func _run() -> void:
 			await get_tree().create_timer(.6).timeout
 			await RenderingServer.frame_post_draw
 			check(get_viewport().get_texture().get_image().save_png(OS.get_environment("SHOT_DIR").path_join(str(building.id)+".png"))==OK,"actual optical capture saved: "+str(building.id))
+			if str(building.id)=="site_far_e":
+				var study: Dictionary=factory_studies[0]
+				var tower: Array=study.tower_rect
+				var center:=Vector3((tower[0]+tower[2])*.5,float(study.tower_seat)+2.0,-(tower[1]+tower[3])*.5)
+				camera.global_position=city.to_global(center+Vector3(-11,3,-11))
+				camera.look_at(city.to_global(center))
+				for minute: int in [0,180,735]:
+					check(clock.configure_date(1928,11,10,minute) and city.refresh_clock_from_campaign(),"rendered tower pose reads the campaign owner")
+					await get_tree().create_timer(.1).timeout
+					await RenderingServer.frame_post_draw
+					check(get_viewport().get_texture().get_image().save_png(OS.get_environment("SHOT_DIR").path_join("factory_clock_%04d.png"%minute))==OK,"actual rendered clock pose saved")
+				check(clock.configure_date(1928,11,10,0) and city.refresh_clock_from_campaign(),"clock returns from optical review time")
 	city.free()
 	await get_tree().process_frame
 	print("CITY NATIVE BENCH: %d checks, %d roof samples, %d draws, %d failures" % [checks,contacts,draws,failures.size()])

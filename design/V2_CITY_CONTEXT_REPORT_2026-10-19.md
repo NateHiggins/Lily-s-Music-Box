@@ -380,3 +380,118 @@ Decision needed from owner: none for this scoped checkpoint. Human acceptance
 and eventual explicit V1 retirement remain separate.
 
 MERGE-CANDIDATE 30f603c3bdd75ab5557cba15c2db4c9b35be1555
+
+
+## Sohmer factory study — October 28
+
+REPORT — branch **codex/v2-sohmer-factory-20261028**, clean integration base
+**8d295207**. Evidence remains **INERT**: technical construction and executed
+checks, not human artistic acceptance or whole-city completion.
+
+The east mass **site_far_e** is now a specific six-storey factory adaptation,
+using [LPC LP-2172](https://s-media.nyc.gov/agencies/lpc/lp/2172.pdf), pp. 1, 8,
+14–15, for segmental openings, selected floor bands and a mansard clock tower.
+The source photographs inform form only; no photograph pixels enter the game
+or this committed evidence. The 30 x 34 m reservation is retained, not presented
+as a surveyed replica or relocation of the actual Sohmer factory.
+
+| Location / reproduction | Severity | Evidence | Repair | Verification |
+|---|---|---|---|---|
+| East factory, city/roof views | Architectural coherence | Former generic upper setback and rectangular sash did not convey the named factory precedent | Continuous six-storey wall, 300 segmental-headed openings across four elevations, bands above floors 1/2/5, corner piers and two closed panelled portals with glazed transoms | Native and imported focused renders; 2,841 native pane samples; actual portal backing rays |
+| Factory roof and tower | Support / continuity | Original guy anchor was carried on the inset parapet being retired | Disjoint roof-extension stock meets the original cap; a local pier preserves the old anchor; new pavilion seats on the enlarged roof | All 1,205 original bearing samples and nine separately filtered tower-foundation samples pass |
+| Broad factory roof plate | Finish coherence | Imported image exposed inherited bronze roof stock | Registered bituminous-roof finish on retained cap geometry | Loaded PBR/mip checks and final optical view; no new texture recipe |
+| Tower clock hands | Geometry / time | Two hands initially occupied one plane; manual refresh alone could hide a disconnected update loop | Separate plate layers, shared hub, eight independently pivoted hands reading CampaignClock every 0.5 s | Float32 export clearances 7.999–8.003 mm; actual direction, reversal, automatic update, pause/resume and three rendered poses pass |
+| Native GLB publication | Tool failure | Direct overwrite raises Windows OSError 22 after native geometry checks pass | Existing validated temporary-export and bounded replacement mode | Original failure/log/source retained; staged export passes; no hand-edited GLB |
+
+Body height remains **23.1 m**, roof bearing **23.36 m**, and pavilion top
+**30.94 m**. The pavilion is a corner continuation rather than an unrelated
+floating roof object. Retained equipment remains at its original repaired
+height/pose; mast, aerial, tank, beacon and shell GLBs are byte-identical to
+main. Across all six source families, **971** unedited draws retain exact decoded
+arrays and poses. Original V1 layout, playable datums, inventory, residents,
+quests, reading, weather and save authorities remain unchanged. These portals
+are closed background architecture, not new accessible rooms or interactions.
+
+The native dependency chain rebuilds in order: shells, masts, aerials, tanks,
+beacons, closure, elevations. The reused cornice helper is explicitly bound in
+the elevation source provenance. Timing/dependency finalization regenerates a
+**byte-identical GLB**; earlier native views retain their original file bindings
+rather than being repinned. Final imported/source-bound checks follow that
+finalization. Raw evidence is under **C:/ov/reports/city_sohmer_20261028** and
+archived under **city_sohmer/** in the existing skywatch packet.
+
+The final production-loader bench passes **5,392 checks / zero failures**,
+**1,205 roof samples**, **946 draws**, empty stderr. It retains all original
+height/old-roof, loaded UV/normal/tangent, PBR/mip and visible/collision checks.
+New checks cover real closed portals, tower support excluding the tower's own
+underside, four clock faces/eight hands, clockwise directions, out-of-order
+calendar return, actual scheduled updates and pause/resume. Full-size body and
+clock-detail renders were inspected. Clock timing adds no writer or save fields;
+CampaignClock remains authoritative. Bounded timing runs only in the existing
+cloud-route diagnostic mode. No new runtime source files or dependencies.
+
+### Measured cost and remaining stutter
+
+All routes use fullscreen **3440 x 1440**, RTX 4080, pinned patched Vulkan,
+8x MSAA, TAA, uncapped/vsync off, seed 1928 and frozen June 25, 1929 18:00.
+The four cloud-off/on/on/off blocks retain actual movement and door input.
+Readback/PNG encoding stays outside measured intervals. Residents/traffic remain
+live, so individual tail frames are not an isolated rendering microbenchmark.
+
+| Route | Frames | Wall p50 / p95 / p99 / max (ms) | Main viewport GPU p50 / p95 / p99 / max (ms) |
+|---|---:|---|---|
+| Main runtime baseline | 4,922 | 35.755 / 64.861 / 75.404 / 101.068 | 14.833 / 21.700 / 23.635 / 26.555 |
+| Factory, original reader | 4,901 | 36.080 / 63.968 / 75.009 / 137.491 | 14.760 / 21.706 / 23.648 / 26.235 |
+| Factory, bounded reader timing | 4,926 | 35.773 / 64.738 / 75.693 / 114.935 | 14.651 / 21.622 / 23.662 / 26.326 |
+
+Both factory routes pass **124 waypoints / zero failures**, frozen source-before/
+source-after hashes. The uninstrumented reader was recovered exactly by reversing
+the timing-only patch and matching the **complete original runtime digest**;
+its original test source SHA also matches Git **8d295207**. Original receipts
+are preserved as historical measurements, not repinned to current code. Final
+bench/route receipts bind to the finalized source.
+
+Typical/GPU distributions show no meaningful change, while **after maxima exceed
+this baseline**. No FPS or stutter improvement is claimed for the architecture.
+The new reader's **410** timed calls measure p50/p95/p99/max **29 / 42.55 / 47.91 /
+68 microseconds**, with **two** pose publications over the run. This includes
+synchronous campaign binding/read and transform publication, excludes deferred
+engine work and diagnostic storage, and does not attribute all graphics/physics
+costs. Large cold/door/loading stalls remain open. Passage publication frames
+remain **60.868–66.369 ms**, preserving the previous publication repair.
+
+This study spends **10,911,904 runtime GLB bytes**, **98,410 triangles** and
+**11 draws** on the four-sided factory/clock. City elevation totals move from
+618,935 to **717,345 triangles**, 227 to **238** partitions. It adds three loaded
+materials and **zero textures**. These are measured asset costs, not FPS claims.
+
+### Surface renewal and integration boundary
+
+The composed inventory completes in **774 wrapper seconds**: **39,265 checks /
+zero failures**, **27,838 draws / 17,024 meshes / 6,327 materials / 527 textures**,
+empty shutdown stderr. Its test-written schema-2 production-composition,
+surface-requirements and runtime-owned teardown contracts pass. **Save
+reconstruction is NOT_EXECUTED**. Unchanged hose interaction is not repeated;
+its physical stock remains inventoried. Seven representative actual world
+captures were inspected; 237 exist, not all newly artistically reviewed.
+Dark streets, strong gallery highlights and the flat storm ceiling remain debt.
+
+The canonical packet is renewed through the existing validated publisher.
+Preceding packet bytes are preserved against Git **8d295207** and an external
+backup. Four lossless WebP review images decode to exactly the original Godot
+PNG pixels; original PNG bytes/hashes remain external. No reference photographs
+are committed. Import warnings/627 generated UIDs and 14 EOL-only sidecars were
+archived before named cleanup. A stale empty index lock was removed only after
+no live Git process, an exclusive-open probe and unchanged metadata checks.
+
+Static preflight found one new test-camera record and stale surface evidence.
+The camera is now recorded as TEST_CONTRACT / UPDATE_TEST_FIXTURE; scanner,
+classifications and baselines are unchanged. Spatial drift and NEW reader fields
+are zero; all five city-source tests pass. The original test assertions and
+budgets remain. Candidate verification remains the final integration step.
+
+There are now **four individually developed technical city studies** (three
+horizon studies plus this factory), **145** still open across the 149-building
+mandate. Height repairs are not additional individual studies. Curbs, bulkheads,
+ballast, bridge/station construction, the entrance remodel, weather polish and
+human acceptance remain open. Owner decision needed: **none**.

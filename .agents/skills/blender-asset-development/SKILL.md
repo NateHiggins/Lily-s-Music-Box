@@ -67,6 +67,13 @@ glTF. Record source/builder bindings and review the saved blend, final float32
 export and Godot import, including UV degeneracy, tangents and loaded mipmaps.
 Apply import/compression exceptions only to demonstrated defects and register them.
 
+For planar extrusions, derive winding from the actual tangent/up/outward frame;
+facade and dial frames can have opposite handedness. Check named front normals
+and mechanical layer clearances in transformed float32 exports, then the loaded
+result. Bind newly reused geometry helpers in the family's source provenance.
+If Windows blocks direct export replacement, prefer the existing validated
+temporary-export path with bounded replacement; retain the original failure.
+
 ## Verify in a bounded batch
 
 Finish native diffuse/grazing/back-side and motion-extreme review before a

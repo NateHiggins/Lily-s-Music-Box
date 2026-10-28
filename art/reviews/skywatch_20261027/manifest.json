@@ -1546,9 +1546,112 @@
     "passage_publication_integration/candidate_final/verification.json": "ec2e263133dcd9faae0e8f20e89da31376479b24c7230f7b7c716be19c23809b",
     "passage_publication_integration/candidate_final/verification.md": "cab952becbe2ace3f9998dc2b608b70ef279eaebed21266fa12f5b3854bf5aca",
     "passage_publication_integration/candidate_final.log": "16dc9a02a633290ab30a0682324d790b3c51eccc67323d23af84eff09ce9fdb2",
-    "passage_publication_integration/integration.json": "4be4834e3f7186e4017aa6a4a59f793340d43da10f2dceea3267b1d1b8394773"
+    "passage_publication_integration/integration.json": "4be4834e3f7186e4017aa6a4a59f793340d43da10f2dceea3267b1d1b8394773",
+    "city_sohmer/author_factory.py": "961904c71c649bda458bd682992391c8bbfd96909b2b48a8f12363469cac6dda",
+    "city_sohmer/before_dependency_finalize.json": "15e242047eb22e13a93917a3ab5db768dc780912a015117fdc72a26fd98c283c",
+    "city_sohmer/bench_bound.log": "09a543b96ba8c4b55c09e2134a5c1e5cb01fcbf0985a562874846e4c47486243",
+    "city_sohmer/bench_bound.log.receipt.json": "26d2d39ae8d331c2b8ae2a355c01f43bb56894dad84354c59f033fc21a8196b9",
+    "city_sohmer/bench_bound.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_sohmer/bench_final.log": "ff3429c256b53606026c15e6cdf20206065f858b533a401e42304fbec632f633",
+    "city_sohmer/bench_final.log.receipt.json": "ecc2c6c87eea4a06d9d5f6a902b174ce650e3dbe804b7b2ee890bde3de0b1b2c",
+    "city_sohmer/bench_final.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_sohmer/bench_final.ps1": "f9b286e8443a541f2d2b2d7995a312d3c6904a394a82f45f8c1e55c21a566ad6",
+    "city_sohmer/bench_first.log": "e8aed7d6445295cb1402f45d43d087a950006167c1a8a1e7a3fbf52b3c1ed3d6",
+    "city_sohmer/bench_first.log.receipt.json": "db0a0553769deb0c6d9724e1c40fc9a7ebce8ea46ea94f3d54520d20cddd6a15",
+    "city_sohmer/bench_first.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_sohmer/bench_first.ps1": "cd6b0289500daf6376c2ffe14a209d08945382833348bd6f5d2974819a01df7a",
+    "city_sohmer/bench_live.log": "09a543b96ba8c4b55c09e2134a5c1e5cb01fcbf0985a562874846e4c47486243",
+    "city_sohmer/bench_live.log.receipt.json": "6bcb6964f5238242aa770c45e60ca16e2615d9ceb792a0fbe2a725965c13c5e1",
+    "city_sohmer/bench_live.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_sohmer/bench_live.ps1": "f423aa48ade54c9a601c3c83d452918e98008d238e972f217e1d0d1f4d642302",
+    "city_sohmer/bound_batch.json": "8c7474975437b0d6f12236aabfa587aeedabbf20f0e2e980be60a6914985f351",
+    "city_sohmer/bound_batch.ps1": "6649796fb7dc1a4a02ffe3b3b491c61fe085058207f002d45c10e31edc86a2b2",
+    "city_sohmer/build_aerials.log": "b0eb8103b25ad51876a90a5b988c681f9cba0668f3c72ae481328d0172bc1887",
+    "city_sohmer/build_batch.ps1": "51062f2d910471361b20830c182c64ab80203d58995fc8c6d9a6457052ca9b07",
+    "city_sohmer/build_beacons.log": "da6eeb552150ff27eee714b656b9b804ba170744ba036fbd936cad7f60403992",
+    "city_sohmer/build_closure.log": "805599682860dadcfefdee8eb95b1f65560b92a36c974de80e57cf00e5a20792",
+    "city_sohmer/build_elevations.log": "240393b9cd0869f220485707270c01e5fc4bf60093dc49203032065a992919d7",
+    "city_sohmer/build_masts.log": "0aef1703cd2533035c17c0d963f0c6cedd88297229d1641747ef6daf713aaac2",
+    "city_sohmer/build_shells.log": "de62a764458c066175c59ce6ece419115909077a790c7c16ed32129f6dcc079f",
+    "city_sohmer/build_tanks.log": "20e4d2cbffcf9073bd54071a7b91e765116e540f3ade14a2c038ee6ff0405f15",
+    "city_sohmer/clean_import.py": "5db44f4f29efb87942f1d40223c2c42aea171e6bb9340b80dc6d9b2251f8624b",
+    "city_sohmer/compare_performance.py": "54e4b8e9ff4ebbb00839ecb4e0d2d54257a47a54d15ed26c54d58f1279213b4f",
+    "city_sohmer/compare_unrelated.py": "d2fde5db8e930ce28b75d990b328c87c8d8ec77226cd5d563dba5c8bec88080d",
+    "city_sohmer/dependency_finalization.json": "6538e02a9eadf69d5d73c216344ee9da866d756e02501eeed1f8c00ce0e89402",
+    "city_sohmer/encode_review_images.py": "103f8fca1ca06aef8638046543d12ab4fdd7e786637818233d00ecebf017aa51",
+    "city_sohmer/failed_direct_export.py": "ad605a5e1422f9293fbbfd1af190b348f7c174f7f85a2d761784ff313b82c9de",
+    "city_sohmer/generated_import_churn.zip": "ec81d98f8d2e00c5b534dd9d7bc5b392cfb66e1beae9df2a8b536e54dc414bc3",
+    "city_sohmer/hand_clearance.json": "c46770d9643740f0883077ef7a23144d8c6aa1bc030ba61df513f22dd2ca8cd2",
+    "city_sohmer/import.log": "37c9193b51afd8d1ad9328fcc53cb5b313fbd6c88abdb36e461b4147fed9b3f1",
+    "city_sohmer/import.log.receipt.json": "5003a4c8000a0f7f5dfecdfff9c571db4215b5e8ebc03556d81575b7b9db5d56",
+    "city_sohmer/import.log.stderr": "d6de232e6b2801a541d7b87c571e04dbd392211cb364d7d7db4840a2d6b5f11d",
+    "city_sohmer/import.ps1": "5a69f75d23d3b09e5546bb64e6c16e8bdabe316c1b1062231cfd87f1e7d0b437",
+    "city_sohmer/import_cleanup.json": "84133f06c2e04a12a218d4191bc6eeafed92160d9e02c04bc2625183da87f6da",
+    "city_sohmer/import_final.log": "3d403c2af41d81a42dd9a9514029ce5c29bd5a97f87e48b63c96efd1b69ce557",
+    "city_sohmer/import_final.log.receipt.json": "158d9385eb458e852869902f9f6400df57aac44ed3834c2a2cfc4bc937d0df24",
+    "city_sohmer/import_final.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_sohmer/import_live.log": "3d403c2af41d81a42dd9a9514029ce5c29bd5a97f87e48b63c96efd1b69ce557",
+    "city_sohmer/import_live.log.receipt.json": "83f99d7900eb2c73f41972aff28eca4546430993c156c476cfc9622a06838d7a",
+    "city_sohmer/import_live.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_sohmer/lossless_review_images.json": "f4f1cbcb824bfd2dfdaf39da0cd4e775e31f26a25f70203385cd8032573a6193",
+    "city_sohmer/main_baseline.log": "971cdf39bfe79f2c602d096c733648fcda1663ff49c9cef0f3da3a95c1807fc0",
+    "city_sohmer/measure_hand_clearance.py": "1f8f83d6b8dfc9212bd248a542c1f087df41d3064cf9b993bc561215f9c71ea5",
+    "city_sohmer/native_bound.log": "7631ef56162be87121ec51a4c0240853064b230610f6a5b232b558c66341a10a",
+    "city_sohmer/native_first.log": "4516eac092d9242c662b0c43498ed31150dc6af7f09341a227d671ab5deeb222",
+    "city_sohmer/native_full.log": "7b17b79cf78005d3c32f7a5349c008a9a1229d8e1d627beaafc0c77ccbd6d6da",
+    "city_sohmer/native_hands.log": "33d3bfbd0eb0b372d74e59e03e31470630ec8c7797e96ad6f5ca183d010b01e2",
+    "city_sohmer/native_portals.log": "3108dc79840cdf7f3369430ee834f9e2bcfafb5a3da164c3290ab5dab19324c2",
+    "city_sohmer/native_review.log": "1d3f6f6436c020ed78c0deaaed542644e54c3a092bafc7d4be4049be818b6d1e",
+    "city_sohmer/native_review_final.log": "7adc3226f724b02fdb927194a87eab32e1fe0f47e4c6511cca13410daddb0880",
+    "city_sohmer/native_review_hands.log": "0192ae07b0c6356fb6eb6486a7a74bc7e47906b5ae5636e00d59ea1e55a5c9cc",
+    "city_sohmer/native_review_roof.log": "bfce4cd0f34254833c6ab583f864de72e8401070c7155e7a3a262988fc3188d7",
+    "city_sohmer/native_roof.log": "e045793bdc182564e33641147543dfdea3c0133736bf38634600fd029d3a6335",
+    "city_sohmer/native_staged.log": "f63a817a250c1fc2ee6a2439cf31e45056a8369ce64ceaf043667569d5a607fc",
+    "city_sohmer/orphan_index_lock.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_sohmer/orphan_index_lock.json": "667693db8b3e65ca64250842a9104a897f3c45c05c8efa970eee30d554fc0b56",
+    "city_sohmer/package.py": "bdf4019dd126732afc6613543e39a174ed8f70e8c2b5c1e780723bf4247736e3",
+    "city_sohmer/performance_comparison.json": "ac0485f16c954ececaaf75020c54c4adea8101a80866e205558021f6a7c22610",
+    "city_sohmer/preflight.log": "94c24f882d950fa760a9d34727430b4f54b118fc55a1bfc600430131c20c2f2b",
+    "city_sohmer/prepare_surface_packet.py": "2078aafbac0640eb5c364e9ca585e66cf5450c51b76434f21e72f09ad87c54ce",
+    "city_sohmer/previous_packet_recovery.json": "226ea4aea794b6552301815ee0f67cfa3b0123d6eab9ebb68a09e1df0a230635",
+    "city_sohmer/pre_import_changes.json": "063452d182636f7a018a70c6d79e8eda8529222ccc64f338a2cd65935d8a374b",
+    "city_sohmer/pre_import_untracked.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+    "city_sohmer/recover_unprofiled_source.py": "eac494d5295ef3c5bc9a4fd5f70c8b94aae0eb7ac7361dedc59e1621c4e4e5d0",
+    "city_sohmer/review_factory.py": "da8fb91de950aa3e110c638b942a7434e12ea7c1a975ee060cbbaacf419e9dd9",
+    "city_sohmer/route.log": "90c6eaf3a69fb10e36b1e296b636c4f741ce3ed9af53e538d02fba45e165b443",
+    "city_sohmer/route.log.receipt.json": "de37b022d8f904284d2cac00c61adcf1f97c7d480ef318664ab191ee11a6d2bb",
+    "city_sohmer/route.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_sohmer/route.ps1": "e43c2cb51cd3d261f420ab4ca4787c2ab6c1d4e18f853be83d2bc631885e08da",
+    "city_sohmer/route_clock_profile.log": "6b56c3d8588b07a83ee49b8d222d70784fd0279d978053a4a13cc64a27416f9b",
+    "city_sohmer/route_clock_profile.log.receipt.json": "62f706ad3c5b2bc766634d2c039b54768972229136f97e039f87a3aac2af3159",
+    "city_sohmer/route_clock_profile.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_sohmer/source_binding_preflight.json": "6bd27f67b30ec3d79e89475eebbf6b1a21d9752913fb1981b6ae52dd4871841c",
+    "city_sohmer/spatial.json": "9c07e9d66c5000e143d34ef081d8fa60869b909a3ca091e93323dfc517577f00",
+    "city_sohmer/spatial_after.json": "538761f23b6cc8197816e0a5ad11c7be0cbb6197676b62425e890d0900a2c0e2",
+    "city_sohmer/spatial_final.json": "937510cbd558de6227572914d3feb876c169dc605526f6573c34f8d6c6591d7b",
+    "city_sohmer/surface_final.log": "5626c96e5b136ce74b3cabb4c55df360f79bf11f523e77f212ad2664e1496f45",
+    "city_sohmer/surface_final.log.receipt.json": "cd94f46f9e98cf501e4f44eb6f6e7599f7b5012a1da38b48310072fba09417bd",
+    "city_sohmer/surface_final.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_sohmer/surface_final.ps1": "2c720c3820982c9cacd67e141c411066a557d95a244ef528cf81905a77b8144f",
+    "city_sohmer/surface_final_batch.json": "2cc9f3876989eed3c102155b094fb2804f4d8472df35f214cb4fad35a3681b58",
+    "city_sohmer/unprofiled_city_shells.gd": "69df0f2829c02b699e25ff3e2f62ebbd599fdb6a036092749aee93231411f35a",
+    "city_sohmer/unprofiled_source_recovery.json": "9a2cf17e90589805cab82da4ebb83674ea1d379385aaab0537ad27b53cfc46b1",
+    "city_sohmer/unprofiled_weather_route.gd": "c1962b62466f4e7b03313bb5edd27142b7ee914a6009b0e3a90f3bbd7a499931",
+    "city_sohmer/unrelated_arrays.json": "42dbc45647ef6014d88e98b5093fb11a4767dc8e0af0eaee698e844dcf94646b",
+    "city_sohmer/update_docs.py": "47948c94b0019189a4abad35323c76bac7e0e21606929ea5f13475c1f21496b6",
+    "city_sohmer/main_baseline/board.json": "ece17eb74d429014c0e6172a9d15e4d886c037f2d5474e8a44f86b2a9bd830c2",
+    "city_sohmer/preflight/board.json": "cd41983a1bc76256cc17c6383cb7ceecaea013d1764c84831c804e16d9430195",
+    "city_sohmer/surface_final/runtime_contract.json": "bd2ad0b1b8907eb0d0546ec63ea36f4b8024ee68a85a4f7bbbd9620639c16a89",
+    "city_sohmer/route/cloud_world_frames.json": "027606eddc303d39a67161f3e277fe73b1794458955c58af787e1d4a57fa9562",
+    "city_sohmer/route/route.json": "eb6125373d662c1d4f8cc8be5a7e9281b1fd3c76f48a0bd5ba24478d6db813bf",
+    "city_sohmer/route_clock_profile/cloud_world_frames.json": "c5cdd4a2eff6865edab28f1dc9ecf7e0669864e332868c7484a27d51a6099e92",
+    "city_sohmer/route_clock_profile/route.json": "eb6125373d662c1d4f8cc8be5a7e9281b1fd3c76f48a0bd5ba24478d6db813bf",
+    "city_sohmer/review_images/factory_clock_0000.webp": "97f4961d9d544b6418b6af458cd876a7b40f251143e7a52e178d7105a5c585b4",
+    "city_sohmer/review_images/factory_clock_0180.webp": "4d1e46a299f0cb51711a51696bace3c0835ed87e9c901f34090f1104afef767b",
+    "city_sohmer/review_images/factory_clock_0735.webp": "c1c5ae3a1d93d6bdd5faf6063515b8165abfebf109cc65ec98547dfe52ec0217",
+    "city_sohmer/review_images/site_far_e.webp": "8eea372ae77e2c36676b50d3335cb1ff51fca1cb0affc0fb019bae401613830a"
   },
-  "archive_sha256": "6a3b499f8f3a2c51eddfca2d59f1f2b1fc10218b8dcc6d437d0baa59db10f118",
+  "archive_sha256": "ea309c7dc748bd62ffbe9da35d5664b5551ba6e9d7c79607ac33993f677169e0",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -6498,5 +6601,334 @@
         "No new save reconstruction, general stutter elimination, full-year weather or human artistic acceptance."
       ]
     }
+  },
+  "city_sohmer": {
+    "evidence_class": "INERT",
+    "base": "8d295207",
+    "scope": "One individual near-city factory study, calendar-clock projection and measured cost; not whole-city or human artistic acceptance.",
+    "raw_prefix": "city_sohmer/",
+    "comparison": {
+      "evidence_class": "INERT",
+      "scope": "Same native occupied route; dynamic residents/traffic remain live. Source-clock probes are gated diagnostics, not full script/physics attribution.",
+      "routes": {
+        "main_runtime_baseline": {
+          "frames": 4922,
+          "failures": [],
+          "source_before": "4da34e728917bd83e54256b82fa59577b550e0bf5ede4e9d2fcbaeacdb38c20b",
+          "source_after": "4da34e728917bd83e54256b82fa59577b550e0bf5ede4e9d2fcbaeacdb38c20b",
+          "wall_p50_p95_p99_max_ms": [
+            35.755,
+            64.861,
+            75.404,
+            101.068
+          ],
+          "gpu_p50_p95_p99_max_ms": [
+            14.833,
+            21.7,
+            23.635,
+            26.555
+          ],
+          "render_cpu_p50_p95_p99_max_ms": [
+            15.731,
+            27.323,
+            29.319,
+            36.442
+          ],
+          "publication_frames_ms": [
+            63.116,
+            63.227,
+            63.053,
+            65.229
+          ],
+          "frames_over_100_ms": 1,
+          "source_file_sha256": "960df0c4f6d20c58c89a4a108e8bd45bf0ed725834156b0992ddc6c7c7d4ad02",
+          "resolution": "(3440.0, 1440.0)",
+          "msaa": 3,
+          "taa": true,
+          "conditions": {
+            "cloud_high": 0.24,
+            "cloud_low": 0.82,
+            "cloud_mid": 0.55,
+            "cloud_total": 1.0,
+            "dust": 0.0,
+            "foggy": false,
+            "hailing": false,
+            "latitude": 40.75,
+            "longitude": -73.92,
+            "phenomena": [],
+            "precipitation_intensity": 1.0,
+            "pressure_hpa": 996.0,
+            "provider_weather_id": -1,
+            "rain_intensity": 1.0,
+            "relative_humidity": 0.9,
+            "season_weights": "(0.0, 0.125327, 0.874673, 0.0)",
+            "snow_intensity": 0.0,
+            "snowing": false,
+            "temperature_c": 30.93,
+            "thunderstorm": true,
+            "weather_code": 95,
+            "wet": true,
+            "wind_direction_degrees": 240.0,
+            "wind_gusts_kmh": 70.4,
+            "wind_speed_kmh": 44.0
+          }
+        },
+        "factory_first": {
+          "frames": 4901,
+          "failures": [],
+          "source_before": "aa33129b4441b02d4991cadefcf2e9be73fe4d12fa1640d4035817c03b9016f4",
+          "source_after": "aa33129b4441b02d4991cadefcf2e9be73fe4d12fa1640d4035817c03b9016f4",
+          "wall_p50_p95_p99_max_ms": [
+            36.08,
+            63.968,
+            75.009,
+            137.491
+          ],
+          "gpu_p50_p95_p99_max_ms": [
+            14.76,
+            21.706,
+            23.648,
+            26.235
+          ],
+          "render_cpu_p50_p95_p99_max_ms": [
+            15.965,
+            27.449,
+            29.48,
+            87.691
+          ],
+          "publication_frames_ms": [
+            61.524,
+            62.47,
+            62.327,
+            63.436
+          ],
+          "frames_over_100_ms": 4,
+          "source_file_sha256": "027606eddc303d39a67161f3e277fe73b1794458955c58af787e1d4a57fa9562",
+          "resolution": "(3440.0, 1440.0)",
+          "msaa": 3,
+          "taa": true,
+          "conditions": {
+            "cloud_high": 0.24,
+            "cloud_low": 0.82,
+            "cloud_mid": 0.55,
+            "cloud_total": 1.0,
+            "dust": 0.0,
+            "foggy": false,
+            "hailing": false,
+            "latitude": 40.75,
+            "longitude": -73.92,
+            "phenomena": [],
+            "precipitation_intensity": 1.0,
+            "pressure_hpa": 996.0,
+            "provider_weather_id": -1,
+            "rain_intensity": 1.0,
+            "relative_humidity": 0.9,
+            "season_weights": "(0.0, 0.125327, 0.874673, 0.0)",
+            "snow_intensity": 0.0,
+            "snowing": false,
+            "temperature_c": 30.93,
+            "thunderstorm": true,
+            "weather_code": 95,
+            "wet": true,
+            "wind_direction_degrees": 240.0,
+            "wind_gusts_kmh": 70.4,
+            "wind_speed_kmh": 44.0
+          }
+        },
+        "factory_clock_profile": {
+          "frames": 4926,
+          "failures": [],
+          "source_before": "7e8bc7208460bd1ab97677d3b8931168b7e17af7ace762c47a7c0983c4aca5e9",
+          "source_after": "7e8bc7208460bd1ab97677d3b8931168b7e17af7ace762c47a7c0983c4aca5e9",
+          "wall_p50_p95_p99_max_ms": [
+            35.773,
+            64.738,
+            75.693,
+            114.935
+          ],
+          "gpu_p50_p95_p99_max_ms": [
+            14.651,
+            21.622,
+            23.662,
+            26.326
+          ],
+          "render_cpu_p50_p95_p99_max_ms": [
+            15.734,
+            27.266,
+            28.966,
+            63.869
+          ],
+          "publication_frames_ms": [
+            66.369,
+            60.868,
+            63.77,
+            62.399
+          ],
+          "frames_over_100_ms": 2,
+          "source_file_sha256": "c5cdd4a2eff6865edab28f1dc9ecf7e0669864e332868c7484a27d51a6099e92",
+          "resolution": "(3440.0, 1440.0)",
+          "msaa": 3,
+          "taa": true,
+          "conditions": {
+            "cloud_high": 0.24,
+            "cloud_low": 0.82,
+            "cloud_mid": 0.55,
+            "cloud_total": 1.0,
+            "dust": 0.0,
+            "foggy": false,
+            "hailing": false,
+            "latitude": 40.75,
+            "longitude": -73.92,
+            "phenomena": [],
+            "precipitation_intensity": 1.0,
+            "pressure_hpa": 996.0,
+            "provider_weather_id": -1,
+            "rain_intensity": 1.0,
+            "relative_humidity": 0.9,
+            "season_weights": "(0.0, 0.125327, 0.874673, 0.0)",
+            "snow_intensity": 0.0,
+            "snowing": false,
+            "temperature_c": 30.93,
+            "thunderstorm": true,
+            "weather_code": 95,
+            "wet": true,
+            "wind_direction_degrees": 240.0,
+            "wind_gusts_kmh": 70.4,
+            "wind_speed_kmh": 44.0
+          }
+        }
+      },
+      "clock": {
+        "calls": 410,
+        "refresh_p50_p95_p99_max_usec": [
+          29.0,
+          42.55,
+          47.91,
+          68.0
+        ],
+        "pose_publications": 2,
+        "scope": "Includes CampaignClock binding/read and any synchronous visual/collision transform publication. Excludes deferred engine work and diagnostic storage."
+      },
+      "limits": [
+        "No meaningful typical-frame/GPU gain or regression demonstrated; worst after frames exceed this baseline.",
+        "Large spikes remain unattributed. Clock scope is too small to explain them.",
+        "First factory route predates timing/dependency-only finalization; retain its exact source and receipts as historical diagnostics.",
+        "No human acceptance or whole-year weather claim."
+      ]
+    },
+    "baseline_raw_member": "passage_publication/after_physics/cloud_world_frames.json",
+    "surface": {
+      "checks": 39265,
+      "contracts": {
+        "production_composition": {
+          "executed": true,
+          "status": "PASS"
+        },
+        "save_reconstruction": {
+          "executed": false,
+          "status": "NOT_EXECUTED"
+        },
+        "surface_requirements": {
+          "executed": true,
+          "status": "PASS"
+        },
+        "teardown": {
+          "executed": true,
+          "measurement_scope": "runtime_owned",
+          "status": "PASS"
+        }
+      },
+      "wrapper_seconds": 774,
+      "stderr_empty": true,
+      "captures": 237,
+      "individually_reviewed": 7
+    },
+    "previous_packet": {
+      "commit": "8d2952079cfa46296bc13eff54a5ef2ab6d714ab",
+      "byte_verified": {
+        "runtime_contract.json": "2c4036c2582e705e436c4902de0504056ae82c9c412c283db42cc49d74635592",
+        "surface-inventory.json": "2a478c59807df2a8e78b7dc5ffdd9209d85cd40f31d7016abcc83d77519d39e6",
+        "suite_run.receipt.json": "a6bba2e5d418176bc6045a63f08b6666123e17faeeb140c8d285a93a1faca09f",
+        "suite_run.stdout.log.gz": "e131ec95f9120c0a364167181dff205fbb63b26e42d2b569fdcf6b12c8a9ca5f",
+        "suite_run.stderr.log.gz": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+        "visual_review.json": "80485137909c388cf2c4614f5f45cddeb1119ca88cc6e52cfcd3bae4c555e961",
+        "city_street_skyline.png": "a2092ee06f4d6e720b832f0c146a0ddf0bf42a43f6dc1733be997ed71e4fca80",
+        "city_weather_storm.png": "03c4d40494b63c1a11585bbcc0231ee06ff47dc9d6114edd140e42754c9f463b",
+        "front_gallery_05.png": "ded08e20f299f9ef319bd4ed34a404f5ef74e1d64805362b8e34607f1d64934d",
+        "street_paving.png": "88f042d23d5e67951206484ba1ab92d4fec65257437cdd59d9fe99c568947b97",
+        "front_restored_entrance.png": "00b342de799511263a0d95313978170ff658262481bfc010795fa3f27f73008b",
+        "public_arcade_hall.png": "db0e0363351c9d75a59702b2cbf635d5f1564f43314341cb824d7fd9f02723ce",
+        "tile_F02_A_BATH_corner.png": "0c8b38de73a9693eb9bb41041f558558acbe3dc2a4211f7f15e8211c7d7da2fd"
+      }
+    },
+    "review_images": {
+      "evidence_class": "INERT",
+      "scope": "Lossless image representation; decoded pixels verified exact against actual Godot PNGs. Original PNG bytes retained externally with hashes.",
+      "images": [
+        {
+          "source": "C:\\ov\\reports\\city_sohmer_20261028\\imported_bound\\site_far_e.png",
+          "source_png_sha256": "5e421b495f729697563f4f75ef3be95b71258ca207e58a6607da50ab74ac653b",
+          "webp": "site_far_e.webp",
+          "sha256": "8eea372ae77e2c36676b50d3335cb1ff51fca1cb0affc0fb019bae401613830a",
+          "mode": "RGB",
+          "size": [
+            3440,
+            1440
+          ],
+          "pixel_sha256": "e54ecbd916a6b3fb82693a691e4170ade0299400a30f3a2541ef3709ff6f790b",
+          "pixel_exact": true,
+          "bytes": 863946
+        },
+        {
+          "source": "C:\\ov\\reports\\city_sohmer_20261028\\imported_bound\\factory_clock_0000.png",
+          "source_png_sha256": "77c22e013c124da6cd4a5657d6209d8a4e669df6c034beb8146aabd256a1ada5",
+          "webp": "factory_clock_0000.webp",
+          "sha256": "97f4961d9d544b6418b6af458cd876a7b40f251143e7a52e178d7105a5c585b4",
+          "mode": "RGB",
+          "size": [
+            3440,
+            1440
+          ],
+          "pixel_sha256": "6ccf51d247d23ebd99f85bfc2033ea2f25737e389394b5f42f51535ea32c1791",
+          "pixel_exact": true,
+          "bytes": 1951010
+        },
+        {
+          "source": "C:\\ov\\reports\\city_sohmer_20261028\\imported_bound\\factory_clock_0180.png",
+          "source_png_sha256": "70ef008430dd270b4b8224f0374f246f18f4d6a96d1e0b0dcfde4bc89828ac0b",
+          "webp": "factory_clock_0180.webp",
+          "sha256": "4d1e46a299f0cb51711a51696bace3c0835ed87e9c901f34090f1104afef767b",
+          "mode": "RGB",
+          "size": [
+            3440,
+            1440
+          ],
+          "pixel_sha256": "38ad95ebb8de39c1f0a75e2047b9b22403fb80bade3d35af1cd906c0437e9d9b",
+          "pixel_exact": true,
+          "bytes": 1951612
+        },
+        {
+          "source": "C:\\ov\\reports\\city_sohmer_20261028\\imported_bound\\factory_clock_0735.png",
+          "source_png_sha256": "6bd35e6f9258163279f9e3d3235adb1e936f5994bd9728e748845f1197e80daa",
+          "webp": "factory_clock_0735.webp",
+          "sha256": "c1c5ae3a1d93d6bdd5faf6063515b8165abfebf109cc65ec98547dfe52ec0217",
+          "mode": "RGB",
+          "size": [
+            3440,
+            1440
+          ],
+          "pixel_sha256": "d19fced6fb781e5b5601ef914d17e180b32134fc7ec2ca0662a06a8d75aae6f2",
+          "pixel_exact": true,
+          "bytes": 1952034
+        }
+      ]
+    },
+    "limits": [
+      "145 of 149 individual city studies remain.",
+      "Typical/GPU costs essentially unchanged; after maxima exceed this baseline and large stalls remain unattributed.",
+      "Clock timing excludes deferred engine work.",
+      "Save reconstruction and unchanged hose input not executed; no human acceptance.",
+      "Candidate verification pending."
+    ]
   }
 }

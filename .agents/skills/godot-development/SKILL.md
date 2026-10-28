@@ -117,6 +117,8 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
 - **Time and visibility:** derive reversible sky presentation from authoritative
   fractional campaign time, not scene uptime or an independent clock. Check
   pause and out-of-order return with rendered comparisons as well as uniforms.
+  Manual refresh tests do not prove that scheduling is connected: let the actual
+  poll/signal observe changed authoritative time, including pause and resume.
   Keep future news hidden behind its reading/publication owners. A readable
   composited companion must still leave world blockers authoritative for its
   lamp; protect both positive visibility and negative occlusion controls.
@@ -126,6 +128,8 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   the sum of private viewports. Residency labels and compilation counters show
   correlation, not function attribution. Separate asset load, script, physics,
   shader compilation and render costs before assigning a cause or a speedup.
+  A small timed reader/presenter excludes only its synchronous work; report
+  deferred engine costs separately rather than clearing the whole feature.
   Check counter semantics in the pinned engine: its process/physics monitors
   publish one-second peaks, not independent per-frame script/physics times.
   The local script debugger needs **both** `--debug --profiling`; require its

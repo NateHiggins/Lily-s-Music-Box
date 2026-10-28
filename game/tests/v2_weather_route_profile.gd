@@ -207,7 +207,9 @@ func _profile_mirage_route(manager: Node) -> void:
 		"conditions":manager.current,"calendar":clock.local_datetime(),"weather_source":manager.source,"mirage_parameters":mirage.last_projection_parameters,
 		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters"],"samples":_samples,"segments":_segments,
 		"input_costs":player._grab.profile_records,"player_physics":player.physics_profile_records,"release_attribution":_release_attribution(),
-		"passage_residency":world.passage_region.residency.snapshot(),"publication_events":_publication_events,"failures":failures},"\t"))
+		"passage_residency":world.passage_region.residency.snapshot(),"publication_events":_publication_events,
+		"city_clock_refresh_usec":world.get_node("CityShells").clock_refresh_usec,
+		"city_clock_pose_publications":world.get_node("CityShells").clock_pose_publications,"failures":failures},"\t"))
 
 func _sky_source_bindings() -> Dictionary:
 	var result: Dictionary={}
