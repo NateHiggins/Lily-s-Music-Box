@@ -451,3 +451,23 @@ registers and primary LPC sources. Recheck current source bindings before using
 its proposed geometry. Correct the Chateau selected address/type and Cambridge
 flat-roof end-pavilion interpretation during implementation; do not treat the
 researcher's proposed budgets or floor treatments as measured acceptance.
+
+### Six apartment adaptations integrated; research ready
+
+PR **76**, merge **dee9e28b**, integrates the six Greystone/Towers/Elm/Chateau/
+Laburnum/Cambridge adaptations. Eleven individual studies are now integrated,
+with **138** remaining; this is technical coverage, not complete city or artistic
+acceptance. Actual world review, 39,427-check surface qualification, matched
+route distributions and remaining limits are recorded in the existing city
+context report. No stutter gain is claimed.
+
+The read-only storefront, traffic and sightline deliveries are available at
+**C:/ov/reports/storefront_research_20261028/REFERENCE_CARDS.md**,
+**C:/ov/reports/traffic_reference_research_20261028/reference_brief.txt** and
+**C:/ov/reports/city_sightline_research_20261028/SIGHTLINE_PLAN.md**. Their source
+measurements, estimates and adaptation proposals remain distinct. Street-level
+grading/view-channel changes require source-fit and occupied-view verification;
+these reports alone do not move gameplay or grant acceptance. The traffic
+report flags a source-estimated ladder/envelope discrepancy for later measured
+review. Keep photographs external. Immediate owner-directed file cleanup takes
+precedence over starting the next construction batch.

@@ -846,3 +846,13 @@ validation passes before and after; the installed surface packet still binds
 and validates. No Godot rerun is needed for that evidence-only move. Final
 post-cleanup static comparison and integration remain pending; the existing
 city-count queue is not yet promoted.
+
+PR **76** is merged at **dee9e28b6be95584c9fd43148fffa36a6bda6655**. Its tree
+matches candidate **faf0c1ec7e7d95826ff2a47c6eb5e8221cedce44** exactly. Final
+clean in-place verification passes the 114-gate comparison with zero regressions,
+all 17 protected paths unchanged, selector V2 and no requirement-status changes.
+The canonical checkout was fast-forwarded onto main. The queue now counts
+eleven integrated individual studies and 138 remaining; height repairs are
+separate. Stutter, exterior lighting, dramatic/annual skies, save reconstruction
+and human acceptance remain open. The owner's immediate file-size cleanup is
+now explicit housekeeping priority before another construction batch.

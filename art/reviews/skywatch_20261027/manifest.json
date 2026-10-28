@@ -2088,9 +2088,11 @@
     "city_courts/snapshot_cleanup/snapshot_cleanup/verified_plan.json": "8beb7cc4de313f2ea5b0725bd292bef52f3fd8b380e065741e38ed0990fc994b",
     "city_courts/snapshot_cleanup/snapshot_cleanup/named_snapshot_deletions.nul": "dbe960971407c75c3fe1fe1c8ec25e008210ceca96e95963d76ee4cdcaa31dd8",
     "city_courts/snapshot_cleanup/snapshot_cleanup/discarded_superseded_pack_attempts.json": "fe09ef72cd8d8fea03888885c8974d885a72521ccc00f4b70117df1db0f343a3",
-    "city_courts/package_size_failure.json": "b2ebf92c19f63ec88429b7bf0dd8e2c5524c51ce9e3764376f5717e334fa7257"
+    "city_courts/package_size_failure.json": "b2ebf92c19f63ec88429b7bf0dd8e2c5524c51ce9e3764376f5717e334fa7257",
+    "city_courts/candidate_six_final/verification.json": "a205d9a29b764ad747f41461b4907dca41095259726189839ed60576755f107b",
+    "city_courts/candidate_six_final/verification.md": "b60e6c06acf50d45dd8b40598754ea432f8fb05b6f674f2f3b0488d99e23d92d"
   },
-  "archive_sha256": "a52ffdb1f77c42d6012782398b642fcf0acabf37fbe91a86a2d5e9297cfba943",
+  "archive_sha256": "1a2eddd098b1edbe2e9ed59f474643ac3317b27837551f1f8abe0165058e77f4",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -8428,15 +8430,19 @@
       "No stutter improvement: largest frame171ms during first passage loading; cause not isolated.",
       "Dim exterior exposure and flat storm ceiling remain presentation debt.",
       "Save reconstruction NOT_EXECUTED; no human artistic acceptance.",
-      "Final post-cleanup static comparison and integration pending."
+      "Merged technical checkpoint; V2 and city remain incomplete."
     ],
     "candidate": {
-      "sha": "7f301c66d9f6492ea336150cc624f0a3cfaf2441",
+      "sha": "faf0c1ec7e7d95826ff2a47c6eb5e8221cedce44",
+      "gates": 114,
       "regressions": 0,
       "protected_unchanged": 17,
-      "mode": "in-place; separately executed source-bound Godot suites",
-      "snapshot_cleanup_commit": "f3252a3f",
-      "final_comparison": "pending after evidence metadata commit"
+      "selector": "v2",
+      "requirement_statuses_changed": [],
+      "merge_sha": "dee9e28b6be95584c9fd43148fffa36a6bda6655",
+      "pr": 76,
+      "merge_tree_exact": true,
+      "mode": "clean in-place; separately executed source-bound Godot suites"
     },
     "snapshot_cleanup": {
       "commit": "f3252a3f",
