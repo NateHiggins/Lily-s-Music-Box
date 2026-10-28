@@ -129,6 +129,10 @@ repository skill [godot-development](.agents/skills/godot-development/SKILL.md).
 Its ethos is **deeper, not bigger**: improve execution without expanding scope;
 use a lightweight pass for small edits.
 
+For texture, material, glass, sky and shader appearance work, also use
+[godot-textures-and-shaders](.agents/skills/godot-textures-and-shaders/SKILL.md).
+Native geometry and UV authoring remain in the Blender asset skill.
+
 `tools/PIPELINE_TOOLS.md` describes the gate board, run receipts, the
 candidate verifier, the design-doc lint, the lane broker, the lane ledger
 and the rulings checker.

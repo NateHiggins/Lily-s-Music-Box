@@ -88,6 +88,11 @@ readability, and feel.
 
 ## Reuse demonstrated project lessons
 
+For texture, PBR, glass, sky or shader appearance work, also use
+[godot-textures-and-shaders](../godot-textures-and-shaders/SKILL.md). It covers
+surface ownership, physical sampling, optical boundaries and rendered checks;
+this skill retains the runtime integration and gameplay verification workflow.
+
 Choose only the lessons relevant to the current task; do not turn every repair
 into a whole-world test campaign. Read linked evidence for its date and limits.
 
