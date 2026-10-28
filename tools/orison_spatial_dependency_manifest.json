@@ -322846,6 +322846,97 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "dcbab47f919d9d4d",
+   "kind": "id_reference",
+   "token": "F04_B_BATH",
+   "file": "game/scripts/game/prologue_temporal_sky.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "_find_window"
+   ],
+   "lines": [
+    126
+   ],
+   "count": 1,
+   "context": [
+    "if str(record.space)!=\"F04_B_BATH\":continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e03c7029e8d5033f",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/prologue_temporal_sky_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e7f761977684b20e",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/prologue_temporal_sky_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    50,
+    52
+   ],
+   "count": 2,
+   "context": [
+    "player.global_position=world.adapter.root.to_global(Vector3(-8.4,9.62,4.75))",
+    "player.camera.look_at(world.adapter.root.to_global(Vector3(-5.9,11.5,4.75)))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

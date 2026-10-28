@@ -6,6 +6,7 @@ signal transcription_changed(text: String)
 const State := preload("res://scripts/game/prologue_state.gd")
 const Writing := preload("res://scripts/game/signal_surface_writing.gd")
 const TemporalConsole:=preload("res://scripts/game/prologue_temporal_console.gd")
+const TemporalSky:=preload("res://scripts/game/prologue_temporal_sky.gd")
 const WORDS := "res://data/dialogue/prologue.json"
 const PERIOD := 0.1
 const COMFORT := Vector2(0.30,0.57)
@@ -30,6 +31,7 @@ var _document: Dictionary={}
 var _carrier: Node
 var _window_controls: Array[Node]=[]
 var temporal_console:Node
+var temporal_sky:Node
 
 func _ready() -> void:
 	set_process(false)
@@ -109,6 +111,16 @@ func _temporal_finished(completed:bool) -> void:
 	if completed and is_same(_document,RealityState.data) and state.phase=="temporal_command" and "destination_accepted" in state.events:
 		_advance("temporal_synchronization")
 
+func begin_temporal_sky() -> bool:
+	if world==null or not is_same(_document,RealityState.data) or state.get("phase","")!="temporal_synchronization":return false
+	if is_instance_valid(temporal_sky) and temporal_sky.active:return false
+	if state.effects.clock_applied:return finish_temporal_synchronization()
+	if is_instance_valid(temporal_sky):temporal_sky.queue_free()
+	temporal_sky=TemporalSky.new();add_child(temporal_sky)
+	return temporal_sky.start(world,func() -> bool:
+		if temporal_sky.was_skipped and not _store(State.request_skip(state)):return false
+		return finish_temporal_synchronization())
+
 ## Called only by the completed visual transition (or its explicit skip).
 ## The historical bedroom cutaway must never call the clock owner again.
 func finish_temporal_synchronization() -> bool:
@@ -121,6 +133,7 @@ func finish_temporal_synchronization() -> bool:
 func _restore() -> void:
 	if _publishing: return
 	var replaced := not is_same(_document,RealityState.data)
+	if replaced and is_instance_valid(temporal_sky):temporal_sky.cancel()
 	var restored := State.restore(RealityState.data.get("prologue",{}))
 	if restored.is_empty(): _fail("invalid prologue state");return
 	_document=RealityState.data
@@ -157,6 +170,8 @@ func _enter_phase() -> void:
 		"mirror_tapping": _say("hot_off",true)
 		"mirror_condensation":
 			writing.clear();_running=false;set_process(false)
+		"temporal_synchronization":
+			if world!=null and world.has_node("WakingAtmosphere"):begin_temporal_sky()
 	phase_changed.emit(state.phase)
 
 func _say(id: String, bathroom: bool) -> void:
@@ -223,6 +238,8 @@ func _process(delta: float) -> void:
 
 func shutdown() -> void:
 	_running=false;set_process(false)
+	if is_instance_valid(temporal_sky):temporal_sky.cancel();temporal_sky.queue_free()
+	temporal_sky=null
 	if is_instance_valid(temporal_console):
 		if temporal_console.accepted.is_connected(_temporal_accepted):temporal_console.accepted.disconnect(_temporal_accepted)
 		if temporal_console.finished.is_connected(_temporal_finished):temporal_console.finished.disconnect(_temporal_finished)

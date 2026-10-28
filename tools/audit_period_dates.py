@@ -26,6 +26,9 @@ EXPECTED_CONSUMERS = {
     "game/scripts/building/deterministic_lightning_manager.gd": "campaign_minute_keyed_electrical_presentation",
     # Authored Gregorian calendar; host hour/minute may be sampled once.
     "game/scripts/game/campaign_clock.gd": "authored_campaign_calendar",
+    # Bible VIII.5.p: detached render projection of the already captured target;
+    # no host read, campaign bind/write, weather publication or dated reporting.
+    "game/scripts/game/prologue_temporal_sky.gd": "prologue_render_only_utc_projection_no_publication",
     # Pure dated projection of CampaignClock, with as-of press dispatches.
     "game/scripts/game/campaign_weather.gd": "authored_campaign_weather_and_issued_forecasts",
     "game/scripts/game/historical_radio_notice.gd": "observed_printed_historical_notice",
