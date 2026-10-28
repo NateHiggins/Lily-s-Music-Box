@@ -103,6 +103,10 @@ func additional_checks() -> void:
 			check(director.state.phase=="temporal_synchronization" and director.state.target==destination and not carrier.arm_busy() and not paper.printing,"only finished paper and retracted arm advance to sky synchronization")
 			await get_tree().create_timer(.3).timeout
 			await capture("temporal_completed.png")
+			# Explicit end-of-visual seam diagnostic. No sky travel is claimed.
+			check(director.finish_temporal_synchronization(),"director delegates the completed visual seam to the campaign clock owner")
+			var clock:=CampaignClock.new()
+			check(director.state.phase=="title_reveal" and director.state.effects.clock_applied and int(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))==int(destination.utc_unix_seconds),"live director advances only with exact clock-owner acknowledgement")
 	director.shutdown();director.queue_free()
 	FileAccess.open(directory.path_join("temporal_contacts.json"),FileAccess.WRITE).store_string(JSON.stringify({"destination":destination,"contacts":contact_keys,"accepted":accepted_count},"\t"))
 

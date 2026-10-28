@@ -8,6 +8,7 @@ const MINUTES_PER_DAY := 1440
 const DAY_NAMES := ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 const MONTH_DAYS := [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 const LAST_ORDINAL := 3652058 # 9999-12-31; 0001-01-01 = 0.
+const PrologueState := preload("res://scripts/game/prologue_state.gd")
 
 ## Deterministic creation seam. Date fields have no authority; reload never calls it.
 var creation_time_provider: Callable
@@ -157,6 +158,34 @@ func configure_date(year: int, month: int, day_of_month: int, minute := 0) -> bo
 		return false
 	_state = _civil_record(date, minute)
 	RealityState.data.campaign_clock = _state
+	RealityState.commit()
+	return true
+
+
+## The prologue's final handoff only. Intermediate sky frames never call this.
+## Adopt clock and acknowledgement in one snapshot; retries cannot rewind time.
+func apply_prologue_destination() -> bool:
+	if RealityState.save_write_blocked:return false
+	var opening:=PrologueState.restore(RealityState.data.get("prologue",{}))
+	if opening.is_empty() or opening.phase not in ["temporal_synchronization","title_reveal","prologue_complete"]:return false
+	if opening.target.is_empty() or not validate_saved_state():return false
+	var saved:Dictionary=RealityState.data.get("campaign_clock",{})
+	if saved.is_empty() or saved.get("calendar_mode","")!="gregorian":return false
+	if opening.effects.clock_applied:return true
+	if opening.phase!="temporal_synchronization" or (not opening.skipped and "destination_accepted" not in opening.events):return false
+	# Host zone labels describe the command, never a geographic relocation.
+	# The existing campaign clock retains Queens' fixed -05:00 reference.
+	var local_seconds:int=int(opening.target.utc_unix_seconds)-18000
+	if local_seconds<PrologueState.MIN_UNIX or local_seconds>PrologueState.MAX_UNIX:return false
+	var local:=Time.get_datetime_dict_from_unix_time(local_seconds)
+	var candidate:=_civil_record({"year":local.year,"month":local.month,"day_of_month":local.day},int(local.hour)*60+int(local.minute))
+	candidate.elapsed_minutes=float(local.second)/60.0
+	if not validate_snapshot(candidate).ok:return false
+	var acknowledged:=PrologueState.applied(opening,"clock_applied")
+	if acknowledged.is_empty():return false
+	_state=candidate
+	RealityState.data.campaign_clock=candidate
+	RealityState.data.prologue=acknowledged
 	RealityState.commit()
 	return true
 

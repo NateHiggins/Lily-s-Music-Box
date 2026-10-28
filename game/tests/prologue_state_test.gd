@@ -52,7 +52,9 @@ func _ready() -> void:
 			record=State.with_target(record,target)
 			var changed := target.duplicate(true);changed.utc_unix_seconds+=1
 			check(State.with_target(record,changed).is_empty(),"destination immutable after initial capture")
-		if phase=="temporal_synchronization": record=State.applied(record,"clock_applied")
+		if phase=="temporal_synchronization":
+			_test_clock_handoff(record)
+			record=State.applied(record,"clock_applied")
 		for event: String in State.GATES.get(phase,[]):
 			record=State.observe(record,event)
 		if index in [4,10,12,15,16,17]:
@@ -106,3 +108,55 @@ func _ready() -> void:
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(path+suffix))
 	print("PROLOGUE STATE TEST: ",checks," checks; ",failures.size()," failures; domain/save only, not playable acceptance")
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _test_clock_handoff(opening:Dictionary) -> void:
+	var original:Dictionary=RealityState.data.duplicate(true)
+	var clock:=CampaignClock.new()
+	check(clock.configure_date(1928,11,10,1380),"handoff fixture retains the historical source through the visual transition")
+	RealityState.data.prologue=opening.duplicate(true)
+	var before:Dictionary=JSON.parse_string(JSON.stringify(RealityState.data))
+	RealityState.save_write_blocked=true
+	check(not clock.apply_prologue_destination() and JSON.parse_string(JSON.stringify(RealityState.data))==before,"protected campaign refuses temporal application without mutation")
+	RealityState.save_write_blocked=false
+	var observed:Array[Dictionary]=[]
+	var observer:Callable=func():observed.append({"clock":RealityState.data.campaign_clock.duplicate(true),"prologue":RealityState.data.prologue.duplicate(true)})
+	RealityState.state_changed.connect(observer)
+	check(clock.apply_prologue_destination(),"campaign clock accepts the completed prologue destination")
+	RealityState.state_changed.disconnect(observer)
+	var utc:Dictionary=clock.utc_datetime()
+	check(int(Time.get_unix_time_from_datetime_dict(utc))==int(opening.target.utc_unix_seconds),"clock preserves the exact target UTC second despite a non-hour host offset")
+	check(RealityState.data.campaign_clock.utc_offset_minutes==-300 and RealityState.data.campaign_clock.timezone=="America/New_York","host timezone does not relocate Queens or replace its clock convention")
+	check(observed.size()==1 and observed[0].prologue.effects.clock_applied and CampaignClock.validate_snapshot(observed[0].clock).ok,"state observers receive clock and acknowledgement atomically")
+	var after:Dictionary=JSON.parse_string(JSON.stringify(RealityState.data))
+	var unchanged:=true
+	for domain:String in before:
+		if domain not in ["campaign_clock","prologue"]:unchanged=unchanged and before[domain]==after[domain]
+	check(unchanged,"destination handoff preserves all unrelated gameplay domains")
+	check(RealityState.save_game(),"validated save stores the applied clock and prologue acknowledgement")
+	RealityState.load_game()
+	check(State.restore(RealityState.data.prologue).effects.clock_applied and int(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))==int(opening.target.utc_unix_seconds),"validated reload retains the exact applied destination")
+	clock.advance_seconds(125)
+	var progressed:float=clock.absolute_minutes()
+	check(clock.apply_prologue_destination() and clock.absolute_minutes()==progressed,"retry cannot rewind time after play resumes")
+	var director:Node=preload("res://scripts/game/prologue_director.gd").new();add_child(director)
+	RealityState.data.prologue=opening.duplicate(true)
+	director.state=State.restore(opening);director._document=RealityState.data
+	check(director.finish_temporal_synchronization() and director.state.phase=="title_reveal" and "temporal_transition_complete" in director.state.events,"ordinary completed transition records only its real clock acknowledgement")
+	var accepted_clock:Dictionary=RealityState.data.campaign_clock.duplicate(true)
+	check(not director.finish_temporal_synchronization() and RealityState.data.campaign_clock==accepted_clock,"duplicate visual completion cannot apply another clock jump")
+	director.shutdown();director.queue_free()
+	var skip:Dictionary=opening.duplicate(true);skip.skipped=true;skip.events=[]
+	RealityState.data.prologue=skip
+	director=preload("res://scripts/game/prologue_director.gd").new();add_child(director)
+	director.state=State.restore(skip);director._document=RealityState.data
+	check(director.finish_temporal_synchronization() and director.state.effects.clock_applied and director.state.events.is_empty(),"skip performs the real clock handoff without inventing witnessed transition events")
+	director.shutdown();director.queue_free()
+	# No state flag or timestamp is granted to a refused target/early phase.
+	RealityState.data.prologue=opening.duplicate(true)
+	RealityState.data.prologue.target.utc_unix_seconds=State.MIN_UNIX
+	RealityState.data.prologue.target.local_bias_minutes=0
+	var edge:Dictionary=RealityState.data.duplicate(true)
+	check(not clock.apply_prologue_destination() and RealityState.data==edge,"destination outside Queens civil range refuses without partial effects")
+	RealityState.data.prologue=State.initial()
+	check(not clock.apply_prologue_destination(),"early prologue phase cannot use the privileged clock handoff")
+	RealityState.data=original

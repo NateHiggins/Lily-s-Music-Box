@@ -109,6 +109,15 @@ func _temporal_finished(completed:bool) -> void:
 	if completed and is_same(_document,RealityState.data) and state.phase=="temporal_command" and "destination_accepted" in state.events:
 		_advance("temporal_synchronization")
 
+## Called only by the completed visual transition (or its explicit skip).
+## The historical bedroom cutaway must never call the clock owner again.
+func finish_temporal_synchronization() -> bool:
+	if not is_same(_document,RealityState.data) or state.get("phase","")!="temporal_synchronization":return false
+	if not CampaignClock.new().apply_prologue_destination():return false
+	_restore()
+	if state.skipped:return _advance("title_reveal")
+	return _observe("temporal_transition_complete") and _advance("title_reveal")
+
 func _restore() -> void:
 	if _publishing: return
 	var replaced := not is_same(_document,RealityState.data)
