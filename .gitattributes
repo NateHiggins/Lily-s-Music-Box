@@ -3256,3 +3256,7 @@ design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_*/source_snap
 art/renders/HISTORICAL_CAPTURES.json -text
 design/astra/evidence/SOURCE_ARCHIVES.json -text
 design/astra/evidence/*/source_snapshots.tar.gz -text
+# Keep new prologue script/scene receipt bindings stable on Windows checkouts.
+game/scripts/game/prologue_state.gd -text
+game/tests/prologue_state_test.gd -text
+game/tests/PrologueStateTest.tscn -text
