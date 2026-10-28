@@ -23,9 +23,11 @@ for path,value in registration['bindings'].items():
 # The registered native library still owns all335 physical records. Permit
 # editorial fields only after exact consumed dimensions/materials match its
 # immutable source projection; the independent native bounds checks remain.
-from city_closure_source import check_registered_layout
+from city_closure_source import check_registered_layout, v2_layout
 projection_path=ROOT/'art/blender/city_shells_consumed_layout.json'
-check_registered_layout(layout,json.loads(projection_path.read_text()),registration)
+height_plan=json.loads((ROOT/'art/data/city_elevations/source_plan.json').read_text())
+check_registered_layout(layout,json.loads(projection_path.read_text()),registration,height_plan)
+layout=v2_layout(layout,height_plan)
 # The historical registration predates later blockout ports and public-region
 # programmes. Re-derive every
 # consumed registration value from the current authority; do not silently reuse
@@ -226,7 +228,7 @@ asset=ROOT/'game/assets/props/city_shells.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True,export_materials='NONE')
 assert ExportUVHandedness.corrected==len(draws),(ExportUVHandedness.corrected,len(draws))
 
-bindings=[plan_path,layout_path,registration_path,native_path,v2_path,ROOT/'game/data/orison_v2/exterior/regions.json',Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',Path(__file__).with_name('city_registration.py'),ROOT/'game/data/runtime_material_sets.json']
+bindings=[plan_path,layout_path,registration_path,native_path,v2_path,ROOT/'game/data/orison_v2/exterior/regions.json',Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',Path(__file__).with_name('city_registration.py'),Path(__file__).with_name('city_closure_source.py'),ROOT/'art/data/city_elevations/source_plan.json',ROOT/'game/data/runtime_material_sets.json']
 for key in plan['runtime_keys']:
  bindings.extend(ROOT/'game/assets/building/textures'/name for name in sets[key]['files'])
 corners=[]

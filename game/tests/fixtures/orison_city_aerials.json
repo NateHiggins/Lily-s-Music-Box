@@ -410,12 +410,12 @@
       "p0": [
         -20.599999999999998,
         50.6266694338605,
-        44.879999999999995
+        17.129999999999995
       ],
       "p1": [
         -20.599999999999998,
         50.6266694338605,
-        47.48
+        19.729999999999997
       ],
       "r": 0.032,
       "registration_offset_x": 0
@@ -432,12 +432,12 @@
       "p0": [
         8.6,
         50.6266694338605,
-        44.879999999999995
+        17.129999999999995
       ],
       "p1": [
         8.6,
         50.6266694338605,
-        47.48
+        19.729999999999997
       ],
       "r": 0.032,
       "registration_offset_x": 0
@@ -454,12 +454,12 @@
       "p0": [
         -20.599999999999998,
         50.6266694338605,
-        47.42999999999999
+        19.679999999999993
       ],
       "p1": [
         8.6,
         50.6266694338605,
-        47.42999999999999
+        19.679999999999993
       ],
       "r": 0.014,
       "registration_offset_x": 0
@@ -476,12 +476,12 @@
       "p0": [
         -5.999999999999999,
         50.6266694338605,
-        47.42999999999999
+        19.679999999999993
       ],
       "p1": [
         -5.999999999999999,
         50.6266694338605,
-        45.17999999999999
+        17.429999999999993
       ],
       "r": 0.012,
       "registration_offset_x": 0
@@ -498,12 +498,12 @@
       "p0": [
         -1.798698879573803,
         42.97672458115465,
-        44.879999999999995
+        17.129999999999995
       ],
       "p1": [
         -1.798698879573803,
         42.97672458115465,
-        47.293862588241105
+        19.543862588241105
       ],
       "r": 0.048,
       "registration_offset_x": 0
@@ -520,12 +520,12 @@
       "p0": [
         -1.798698879573803,
         42.97672458115465,
-        47.293862588241105
+        19.543862588241105
       ],
       "p1": [
         -1.6986679005160363,
         42.78078121375288,
-        47.293862588241105
+        19.543862588241105
       ],
       "r": 0.5515488833732489,
       "registration_offset_x": 0
@@ -542,12 +542,12 @@
       "p0": [
         -1.798698879573803,
         42.97672458115465,
-        47.293862588241105
+        19.543862588241105
       ],
       "p1": [
         -1.5607379635109264,
         42.51060035001578,
-        47.293862588241105
+        19.543862588241105
       ],
       "r": 0.05,
       "registration_offset_x": 0
@@ -3472,12 +3472,12 @@
       "high": [
         -20.600000381469727,
         50.626670837402344,
-        47.47999954223633
+        19.729999542236328
       ],
       "low": [
         -20.600000381469727,
         50.626670837402344,
-        44.27290344238281
+        16.522897720336914
       ]
     },
     {
@@ -3486,12 +3486,12 @@
       "high": [
         8.600000381469727,
         50.626670837402344,
-        47.47999954223633
+        19.729999542236328
       ],
       "low": [
         8.600000381469727,
         50.626670837402344,
-        44.27290344238281
+        16.522897720336914
       ]
     },
     {
@@ -3500,12 +3500,12 @@
       "high": [
         -20.600000381469727,
         50.626670837402344,
-        47.43000030517578
+        19.68000030517578
       ],
       "low": [
         8.600000381469727,
         50.626670837402344,
-        47.43000030517578
+        19.68000030517578
       ]
     },
     {
@@ -3514,12 +3514,12 @@
       "high": [
         -6.0,
         50.626670837402344,
-        47.43000030517578
+        19.68000030517578
       ],
       "low": [
         -6.0,
         50.626670837402344,
-        44.3899040222168
+        16.6398983001709
       ]
     },
     {
@@ -3528,12 +3528,12 @@
       "high": [
         -1.798698902130127,
         42.976722717285156,
-        46.95823287963867
+        19.208234786987305
       ],
       "low": [
         -1.798698902130127,
         42.976722717285156,
-        44.27290344238281
+        16.522897720336914
       ]
     },
     {
@@ -4840,7 +4840,7 @@
       "center": [
         -1.798698902130127,
         42.976722717285156,
-        47.293861389160156
+        19.54386329650879
       ],
       "axis": [
         0.45468905568122864,
@@ -4853,7 +4853,7 @@
       "post_joint": [
         -1.798698902130127,
         42.976722717285156,
-        46.95823287963867
+        19.208234786987305
       ],
       "rear_bracket_offset": 0.09,
       "feed_length": 0.5263481525949766,
@@ -5453,91 +5453,98 @@
       "triangles": 296
     },
     {
-      "name": "site_far_n__Dish__-1_10_11__galvanized_roof",
+      "name": "site_far_n__Dish__-1_10_4__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__Dish",
       "key": "galvanized_roof",
       "triangles": 848
     },
     {
-      "name": "site_far_n__Dish__-1_10_11__bronze_sheet",
+      "name": "site_far_n__Dish__-1_10_4__bronze_sheet",
       "group": "site_far_n",
       "assembly": "site_far_n__Dish",
       "key": "bronze_sheet",
-      "triangles": 2968
+      "triangles": 2934
     },
     {
-      "name": "site_far_n__Dish__-1_10_11__brass",
+      "name": "site_far_n__Dish__-1_10_4__brass",
       "group": "site_far_n",
       "assembly": "site_far_n__Dish",
       "key": "brass",
-      "triangles": 278
+      "triangles": 274
     },
     {
-      "name": "site_far_n__FlatTop__-6_12_11__galvanized_roof",
+      "name": "site_far_n__Dish__-1_10_5__bronze_sheet",
+      "group": "site_far_n",
+      "assembly": "site_far_n__Dish",
+      "key": "bronze_sheet",
+      "triangles": 166
+    },
+    {
+      "name": "site_far_n__FlatTop__-6_12_4__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__FlatTop",
       "key": "galvanized_roof",
       "triangles": 516
     },
     {
-      "name": "site_far_n__FlatTop__-5_12_11__galvanized_roof",
+      "name": "site_far_n__FlatTop__-5_12_4__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__FlatTop",
       "key": "galvanized_roof",
       "triangles": 200
     },
     {
-      "name": "site_far_n__FlatTop__-4_12_11__galvanized_roof",
+      "name": "site_far_n__FlatTop__-4_12_4__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__FlatTop",
       "key": "galvanized_roof",
       "triangles": 192
     },
     {
-      "name": "site_far_n__FlatTop__-3_12_11__galvanized_roof",
+      "name": "site_far_n__FlatTop__-3_12_4__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__FlatTop",
       "key": "galvanized_roof",
       "triangles": 204
     },
     {
-      "name": "site_far_n__FlatTop__-2_12_11__galvanized_roof",
+      "name": "site_far_n__FlatTop__-2_12_4__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__FlatTop",
       "key": "galvanized_roof",
       "triangles": 602
     },
     {
-      "name": "site_far_n__FlatTop__-2_12_11__porcelain_fixture",
+      "name": "site_far_n__FlatTop__-2_12_4__porcelain_fixture",
       "group": "site_far_n",
       "assembly": "site_far_n__FlatTop",
       "key": "porcelain_fixture",
       "triangles": 642
     },
     {
-      "name": "site_far_n__FlatTop__-1_12_11__galvanized_roof",
+      "name": "site_far_n__FlatTop__-1_12_4__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__FlatTop",
       "key": "galvanized_roof",
       "triangles": 204
     },
     {
-      "name": "site_far_n__FlatTop__0_12_11__galvanized_roof",
+      "name": "site_far_n__FlatTop__0_12_4__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__FlatTop",
       "key": "galvanized_roof",
       "triangles": 192
     },
     {
-      "name": "site_far_n__FlatTop__1_12_11__galvanized_roof",
+      "name": "site_far_n__FlatTop__1_12_4__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__FlatTop",
       "key": "galvanized_roof",
       "triangles": 200
     },
     {
-      "name": "site_far_n__FlatTop__2_12_11__galvanized_roof",
+      "name": "site_far_n__FlatTop__2_12_4__galvanized_roof",
       "group": "site_far_n",
       "assembly": "site_far_n__FlatTop",
       "key": "galvanized_roof",
@@ -7084,7 +7091,7 @@
       "triangles": 308
     }
   ],
-  "triangles": 143058,
+  "triangles": 143186,
   "precision_chart_fallbacks": 0,
   "contacts": [
     {
@@ -7594,7 +7601,7 @@
       "point": [
         -20.600000381469727,
         50.626670837402344,
-        44.26000213623047
+        16.509998321533203
       ],
       "normal": [
         0.0,
@@ -7606,28 +7613,28 @@
         [
           -20.68000030517578,
           50.546669006347656,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           -20.520000457763672,
           50.546669006347656,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           -20.520000457763672,
           50.70667266845703,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           -20.68000030517578,
           50.70667266845703,
-          44.26000213623047
+          16.509998321533203
         ]
       ],
       "nominal_endpoint": [
         -20.600000381469727,
         50.626670837402344,
-        44.880001068115234
+        17.1299991607666
       ]
     },
     {
@@ -7638,7 +7645,7 @@
       "point": [
         8.600000381469727,
         50.626670837402344,
-        44.26000213623047
+        16.509998321533203
       ],
       "normal": [
         0.0,
@@ -7650,28 +7657,28 @@
         [
           8.520000457763672,
           50.546669006347656,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           8.680000305175781,
           50.546669006347656,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           8.680000305175781,
           50.70667266845703,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           8.520000457763672,
           50.70667266845703,
-          44.26000213623047
+          16.509998321533203
         ]
       ],
       "nominal_endpoint": [
         8.600000381469727,
         50.626670837402344,
-        44.880001068115234
+        17.1299991607666
       ]
     },
     {
@@ -7682,7 +7689,7 @@
       "point": [
         -6.0,
         50.626670837402344,
-        44.26000213623047
+        16.509998321533203
       ],
       "normal": [
         0.0,
@@ -7694,33 +7701,33 @@
         [
           -6.079999923706055,
           50.546669006347656,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           -5.920000076293945,
           50.546669006347656,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           -5.920000076293945,
           50.70667266845703,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           -6.079999923706055,
           50.70667266845703,
-          44.26000213623047
+          16.509998321533203
         ]
       ],
       "nominal_endpoint": [
         -6.0,
         50.626670837402344,
-        45.18000030517578
+        17.43000030517578
       ],
       "fitted_endpoint": [
         -6.0,
         50.626670837402344,
-        44.3899040222168
+        16.6398983001709
       ]
     },
     {
@@ -7731,7 +7738,7 @@
       "point": [
         -1.798698902130127,
         42.976722717285156,
-        44.26000213623047
+        16.509998321533203
       ],
       "normal": [
         0.0,
@@ -7743,28 +7750,28 @@
         [
           -1.8786989450454712,
           42.89672088623047,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           -1.7186988592147827,
           42.89672088623047,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           -1.7186988592147827,
           43.056724548339844,
-          44.26000213623047
+          16.509998321533203
         ],
         [
           -1.8786989450454712,
           43.056724548339844,
-          44.26000213623047
+          16.509998321533203
         ]
       ],
       "nominal_endpoint": [
         -1.798698902130127,
         42.976722717285156,
-        44.880001068115234
+        17.1299991607666
       ]
     },
     {
@@ -10961,7 +10968,7 @@
     },
     "historical_blockout_binding_stale": false
   },
-  "asset_sha256": "092ae72b844bd96c75f6d1b4b214879dbd274840b3f3245f17577fd4fb67c3f0",
+  "asset_sha256": "235e0fecb59c1587ee21b90bd93d422875b9d4ad1651223a1b1d900456acdd4f",
   "source_bindings": {
     "art/tools/build_galvanized_roof.py": "711b0e12b4a2a375999536d613f6ac2c81e9c6504fe771a9cf47ac995dd16413",
     "art/textures/procedural/galvanized_roof/material.json": "193e6a006be30ecc47491856972a1e32b1dc1ebff81d521922638e7b0659cb17",
@@ -10977,13 +10984,15 @@
     "art/textures/procedural/bronze_sheet/normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
     "art/data/city_aerials/source_plan.json": "0b71958face4ca9220669ed38e2c327098bc0b67136ce1ac9641e3893644beb1",
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
-    "art/blender/city_shells_registration.json": "56414b30fcdfd606271f34053a308505acb319505c9d9577b4d9f94c4f879dab",
-    "art/blender/city_shells.blend": "9cce9515ab131fc5c45709171aebcb994dcf949de5ef3eead65c21710891994c",
+    "art/blender/city_shells_registration.json": "f7568ecadcf5b94501a74578707000357ffd3d85ec21fdfbab68ce8795139418",
+    "art/blender/city_shells.blend": "934ecc5de651e03d26c4b0d6a1f1afa5a6cf5c529623d05d6cbb4f5d98be0c68",
     "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
-    "art/blender/scripts/build_city_aerials.py": "50664328fa371d47dbf43d3012b538d94f5a0ca8e988866d5fddba09dc9c6677",
+    "art/blender/scripts/build_city_aerials.py": "b4b430be54bb85d4399ab6ed3cb8666815e25e83b3c9d9ae5ed2deee1800e501",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/city_registration.py": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
-    "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916"
+    "art/blender/scripts/city_closure_source.py": "44c4ce354ef863f3791fed2cc5ac8b56920741174bb03b56036143d03695f2cc",
+    "art/data/city_elevations/source_plan.json": "171e651cb6678e0fc6f1789ef1f5be60bcc2ec5509853f89ab349cb082c0d39c",
+    "game/data/runtime_material_sets.json": "13dd9a0e229d6170871c7bc68f9344391215dc5eb8a237ad603ce1410e7f559d"
   },
   "open_work": "Source-authored static signal collectors only. Original actor/control/utility authority remains. Neighboring tanks and beacon housings remain separate batches. Whole-city weather closure and broader material acceptance remain open. Heating cutouts remain parked."
 }

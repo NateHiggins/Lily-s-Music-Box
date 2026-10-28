@@ -15,14 +15,15 @@
   },
   "source_solids": 335,
   "runtime_batches": 84,
-  "source_native_sha256": "9cce9515ab131fc5c45709171aebcb994dcf949de5ef3eead65c21710891994c",
+  "source_native_sha256": "934ecc5de651e03d26c4b0d6a1f1afa5a6cf5c529623d05d6cbb4f5d98be0c68",
   "bindings": {
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
     "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
-    "art/blender/scripts/build_city_shells.py": "6b76fb757289b22bc05550dd0d94d139a4deada724d7f609e50cad2b1872447f",
+    "art/blender/scripts/build_city_shells.py": "e477f9201d31bab7d19f030f6da6f945d808a48f3d720cea78fb6bd19ac84177",
     "art/blender/scripts/city_registration.py": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
-    "art/blender/scripts/city_closure_source.py": "6be16209ab66695a57bef6ce5963e113fb7a61eb212be84f491138efadad81e4"
+    "art/blender/scripts/city_closure_source.py": "44c4ce354ef863f3791fed2cc5ac8b56920741174bb03b56036143d03695f2cc",
+    "art/data/city_elevations/source_plan.json": "171e651cb6678e0fc6f1789ef1f5be60bcc2ec5509853f89ab349cb082c0d39c"
   },
   "note": "Existing authored closed city masses; northwest row shares its near mass registration. No new occupied building or service authority."
 }

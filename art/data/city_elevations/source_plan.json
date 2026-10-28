@@ -1,7 +1,7 @@
 {
   "schema": "orison.city-elevations.v1",
   "evidence_class": "INERT",
-  "scope": "Passive V2 masonry adaptation. Immutable original base reservations and final roof/hardware bearing datums retained. No occupied interior or play area added.",
+  "scope": "Passive V2 masonry adaptation. Explicit vertical_profile rows project frozen V1 stock into V2; other original reservations and roof datums are retained. No occupied interior or play area added.",
   "buildings": [
     {
       "id": "site_nbr_w",
@@ -581,7 +581,7 @@
     },
     {
       "id": "site_far_n",
-      "description": "Older brick flats with slender sash and uneven roller shades",
+      "description": "Five-storey Greystone-inspired north block; authored height repair, individual Tudor entrance/court study remains open",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
       "bay_pitch": 2.22,
@@ -609,7 +609,31 @@
       "window_treatment": "roller",
       "sill_projection": 0.085,
       "lintel_height": 0.12,
-      "variation_seed": 2234
+      "variation_seed": 2234,
+      "vertical_profile": [
+        0,
+        3.25,
+        3.59,
+        13.0,
+        16.25
+      ],
+      "floor_heights": [
+        3.25,
+        3.25,
+        3.25,
+        3.25,
+        3.25
+      ],
+      "precedent": {
+        "name": "Greystone Apartments, 80th Street, George H. Wells, 1917\u201318",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
+        "pdf_pages": [
+          30,
+          31,
+          62
+        ],
+        "adaptation": "Five-storey height hierarchy is documented. Dimensions are authored; existing reservation and roof hardware are retained. This is not a replica or completed individual architectural study."
+      }
     },
     {
       "id": "site_far_ne",

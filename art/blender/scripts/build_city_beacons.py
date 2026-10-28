@@ -25,6 +25,10 @@ def digest(path):return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n') 
 assert plan['classification']=='ADAPTATION' and digest(native_path)==registration['source_native_sha256']
 for path,value in registration['bindings'].items():
  if path!='game/data/orison_v2_blockout.json':assert digest(ROOT/path)==value,path
+from city_closure_source import check_registered_layout, v2_layout
+height_plan=json.loads((ROOT/'art/data/city_elevations/source_plan.json').read_text())
+check_registered_layout(layout,json.loads((ROOT/'art/blender/city_shells_consumed_layout.json').read_text()),registration,height_plan)
+layout=v2_layout(layout,height_plan)
 # The historical registration predates later blockout ports. Re-derive every
 # consumed registration value from the current authority; do not silently reuse
 # an old whole-file binding. Actual saved bounds are checked below as well.
@@ -283,7 +287,7 @@ io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
 asset=ROOT/'game/assets/props/city_beacons.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True)
 assert ExportUVHandedness.corrected==len(draws),(ExportUVHandedness.corrected,len(draws))
-bindings=[plan_path,layout_path,registration_path,native_path,v2_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),Path(__file__).with_name('city_registration.py'),ROOT/'game/data/runtime_material_sets.json',ROOT/'art/blender/city_masts.blend',ROOT/'art/tools/build_beacon_lacquer.py',ROOT/'art/textures/procedural/beacon_lacquer/material.json']
+bindings=[plan_path,layout_path,registration_path,native_path,v2_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),Path(__file__).with_name('city_registration.py'),Path(__file__).with_name('city_closure_source.py'),ROOT/'art/data/city_elevations/source_plan.json',ROOT/'game/data/runtime_material_sets.json',ROOT/'art/blender/city_masts.blend',ROOT/'art/tools/build_beacon_lacquer.py',ROOT/'art/textures/procedural/beacon_lacquer/material.json']
 bindings.extend(ROOT/'art/textures/procedural/beacon_lacquer'/name for name in ['albedo.png','roughness.png','height.png','normal.png'])
 finish_bindings=[]
 finish_bindings.extend([ROOT/'art/tools/build_galvanized_roof.py',ROOT/'art/textures/procedural/galvanized_roof/material.json'])

@@ -2,6 +2,74 @@
 
 Evidence class: **INERT**. Publication report; no additional acceptance grant.
 
+## North-block proportion repair — October 28 UTC
+
+Unmerged WIP after **586a0ddd**, still based on main **04d72f3a**. This is a
+height/floor repair, not a fourth completed individual architectural study.
+The **site_far_n** body changes **44.0→16.25 m**, with five **3.25 m** floors,
+one full-height upper setback, and a **16.51 m** roof-cap datum. Greystone
+Apartments' documented five-storey hierarchy informs this authored proportion;
+its Tudor porches, entrance/courtyard organisation and individual finish study
+remain open. The other seven oversized background masses still need repair.
+
+The existing authoring helper projects explicit monotone height landmarks from
+the frozen V1 layout. Ground/footprints stay fixed; hardware above the roof
+translates without changing endpoint vectors or radii. The source owner rebuilds
+all **335** closed native stocks. Every roof consumer validates both the original
+consumed source and exact V2 projection before fitting its actual native stock.
+Changing a physical source field or height program rejects stale reuse. Five
+Python tests include bad-height and changed-program controls. No new runtime
+state authority, asset file family or addon is introduced; V1 data is unchanged.
+
+Rebuild shells, joined parapets, masts, aerials, tanks, beacons and elevations
+together. The final native elevation checks pass **1,205 support samples** and
+**3,489 pane-depth samples** at **0.1 mm**. Four context images and a focused
+roof-equipment native image were actually inspected. All **975** unrelated
+exported draws across six GLBs retain exact decoded arrays and node poses.
+The five installed GLBs together shrink **3,182,120 bytes**; bounded hardware
+partitioning adds one draw. This is not an FPS or memory-residency claim.
+
+The renewed **V2CityElevationBench** uses the actual production city loader,
+retains the earlier source-parser/apron coverage, and exercises all five installed
+asset hashes, native UV derivatives, loaded PBR/mips, triangle collision and
+**1,205** actual imported roof contacts. Positive lowered-roof and negative
+old-tower-roof probes pass. Final **bench_frozen.log.receipt.json** binds:
+**5,213 checks / zero failures**, **19.73 s**,
+**3440×1440 fullscreen**, empty shutdown stderr; its final optical image was
+actually inspected. The first run's PNG save error remains recorded; the bench
+now creates the directory and checks the save result. Camera framing now derives
+from the building's actual fixture dimensions. The intermediate camera-bound
+wrapper becomes stale when normalizing the final mixed line ending; keep it
+and renew rather than repin. These wrappers are
+diagnostics, not schema-2 production qualification or artistic acceptance.
+
+Ground reconciliation correctly stops on a pre-existing pavement binding.
+The retained-grade plan has five pre-existing stale non-city bindings plus the
+new city-native binding. Do not repin those as acceptance. The ground GLB and its
+underground reservations are unchanged; a fresh consumed-geometry survey is
+needed before rebuilding that historical ground recipe. No ground source was
+rewritten after this refusal.
+
+The original **OrisonV2CityClosureTest** completes in **256 s**: **3,846 checks**,
+**227 elevation partitions**, **814,611 triangles**, **25 joined parapets** and
+**1,205 retained hardware footprint samples**, zero failures and empty shutdown
+stderr. Its wrapper still binds after the bench-only camera/line-ending repair.
+All **58** real fullscreen captures were inspected via four contact sheets.
+The before/after pairs compare roof finishes, not old/new building heights.
+This is posed composed-world review, not a walked route or final artistic grant.
+
+The early **114-gate** diagnostic comparison reports a new raw bench camera
+coordinate and stale/missing full-surface qualification. The camera is repaired
+as above and the renewed spatial audit has **zero NEW reported** references.
+The other five existing tool-test failures remain baseline debt, with no new
+tool-test regression. This board spans a report edit and is diagnostic; renew
+a frozen comparison/candidate check before merging. Full-surface and rendered
+review qualification must be renewed; do not waive or repin them. No performance
+route or save test is repeated for this passive geometry-only repair.
+Original/new diagnostics: **C:/ov/reports/city_mass_20261028**; archive under
+**city_north_height_repair/** in the existing skywatch packet. The overall city
+and V2 goals remain open.
+
 ## Construction update — October 27 evening / October 28 UTC
 
 **Unmerged WIP**, branch **codex/v2-city-relief-20261028**, parent **499ebad0**,
