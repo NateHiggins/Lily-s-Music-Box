@@ -79,20 +79,73 @@ func _run() -> void:
 	check(contacts>=1205 and shells.size()==fixture.parts.size() and draws>600,"nonempty complete family inventory")
 	var factory_studies: Array=fixture.get("architecture_checks",[])
 	check(factory_studies.size()==1,"one explicit factory study, not a promotion of all height repairs")
-	check(fixture.portals.size()==3,"two factory portals and one street-facing townhouse entry")
+	check(fixture.portals.size()==10,"two factory portals, original townhouse entry and seven apartment entries")
 	var factory_portals:=0
 	var terrace_portals:=0
+	var court_portals:=0
 	for portal: Dictionary in fixture.portals:
-		check(str(portal.building) in ["site_far_e","site_nw2"],"portal belongs to an explicitly adapted building")
+		check(str(portal.building) in ["site_far_e","site_nw2","site_far_se","site_far_w","site_far_n","site_far_sw","site_far_ne","site_far_s"],"portal belongs to an explicitly adapted building")
 		if str(portal.building)=="site_far_e":factory_portals+=1
-		else:terrace_portals+=1
+		elif str(portal.building)=="site_nw2":terrace_portals+=1
+		else:court_portals+=1
 		var source: Array=portal.point
 		var normal: Vector3=[Vector3.BACK,Vector3.RIGHT,Vector3.FORWARD,Vector3.LEFT][int(portal.side)]
 		var point:=city.to_global(Vector3(source[0],source[2],-source[1]))
 		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.1,point-normal*.4,1,exclude))
 		check(not hit.is_empty() and hit.position.distance_to(point+normal*float(portal.front))<.0001
 				and str(shells.get(hit.collider.get_rid(),"")).ends_with("__door_paint"),"raised portal leaf has real closed backing")
-	check(factory_portals==2 and terrace_portals==1,"original factory portals and the townhouse entry remain nonempty")
+	check(factory_portals==2 and terrace_portals==1 and court_portals==7,"original portals remain nonempty alongside seven passive apartment entries")
+	var court_details: Array=fixture.court_details
+	check(court_details.size()==6,"six real open recesses across five court-building identities")
+	var expected_courts: Dictionary={"site_far_se":"elm","site_far_w":"cambridge","site_far_n":"greystone","site_far_sw":"laburnum","site_far_ne":"towers"}
+	for detail: Dictionary in court_details:
+		check(expected_courts.has(str(detail.building)) and expected_courts.get(str(detail.building))==str(detail.style),"distinct court identity has an explicit source owner")
+		check(int(detail.entry_count)==(2 if str(detail.style)=="laburnum" else 1) and float(detail.recess_depth_m)>=.9,"declared supported entry count and a real open recess")
+		var probe: Array=detail.void_probe
+		var start:=city.to_global(Vector3(probe[0],probe[2],-probe[1]))
+		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(start,start-Vector3.UP*(float(detail.roof_height)+1.),1,exclude))
+		check(not hit.is_empty() and hit.position.y<=city.global_position.y+float(detail.porch_top)+.001,"court is genuinely sky-open above the porch, no hidden roof slab")
+	var roofs: Array=fixture.roof_details
+	check(roofs.size()==2,"two individually authored roof families")
+	var roof_owners: Dictionary={}
+	for roof: Dictionary in roofs:
+		roof_owners[str(roof.building)]=true
+		if str(roof.style)=="towers":
+			check(str(roof.building)=="site_far_ne" and str(roof.finish)=="city_roof_clay" and int(roof.arches)==12,"tiled belvedere keeps twelve real arch openings")
+			var r: Array=roof.rect
+			var elevation: float=float(roof.base)+1.30
+			var frames: Array=[
+				[Vector3(r[2],r[1],elevation),Vector3.LEFT,Vector3(0,-1,0),float(r[2])-float(r[0])],
+				[Vector3(r[2],r[3],elevation),Vector3(0,-1,0),Vector3.RIGHT,float(r[3])-float(r[1])],
+				[Vector3(r[0],r[3],elevation),Vector3.RIGHT,Vector3(0,1,0),float(r[2])-float(r[0])],
+				[Vector3(r[0],r[1],elevation),Vector3(0,1,0),Vector3.LEFT,float(r[3])-float(r[1])]]
+			var openings:=0
+			for frame: Array in frames:
+				for i in range(3):
+					var source_normal: Vector3=frame[2]
+					var normal:=city.global_basis*Vector3(source_normal.x,source_normal.z,-source_normal.y)
+					for is_open: bool in [true,false]:
+						var along: float=(float(i)+.5)*float(frame[3])/3. if is_open else float(i)*float(frame[3])/3.+.10
+						var source_point: Vector3=frame[0]+frame[1]*along
+						var point:=city.to_global(Vector3(source_point.x,source_point.z,-source_point.y))
+						var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.10,point-normal*.65,1,exclude))
+						if is_open:check(hit.is_empty(),"belvedere arch is physically open beyond its front face")
+						else:check(not hit.is_empty() and hit.position.distance_to(point)<.0001 and hit.normal.dot(normal)>.99,"adjacent belvedere jamb remains solid and outward-facing")
+					openings+=1
+			check(openings==12,"open-arch probes have twelve actual solid-jamb controls")
+		elif str(roof.style)=="chateau":
+			check(str(roof.building)=="site_far_s" and str(roof.finish)=="city_slate" and int(roof.dormers)==4 and float(roof.knee_height)>float(roof.mansard_base)+2.,"slate mansard keeps its steep lower pitch and four dormers")
+		else:check(false,"unexpected roof identity")
+	check(roof_owners.size()==2,"roof studies have distinct owners")
+	var roof_probes:=0
+	for sample: Dictionary in fixture.roof_samples:
+		var a: Array=sample.point;var b: Array=sample.normal
+		var point:=city.to_global(Vector3(a[0],a[2],-a[1]))
+		var normal:=Vector3(b[0],b[2],-b[1])
+		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.05,point-normal*.05,1,exclude))
+		check(not hit.is_empty() and hit.position.distance_to(point)<.0001 and hit.normal.dot(normal)>.99 and str(shells.get(hit.collider.get_rid(),"")).ends_with("__"+str(sample.finish)),"imported closed roof stock keeps its actual outward surface")
+		roof_probes+=1
+	check(roof_probes>=20,"roof stock checks cannot pass as an empty loop")
 	var terrace_details: Array=fixture.townhouse_details
 	check(terrace_details.size()==1,"one individual terrace study")
 	for detail: Dictionary in terrace_details:

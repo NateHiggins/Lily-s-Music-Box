@@ -1,0 +1,32 @@
+{
+  "material": "city_grey_brick",
+  "generator": "art/tools/build_city_masonry.py",
+  "seed": 19281028,
+  "meters_per_tile": 1.2,
+  "height_min_m": 0.0,
+  "height_max_m": 0.004657430023348322,
+  "normal_strength": 1.0,
+  "normal_authoring": {
+    "profile": "city_grey_brick",
+    "height_units": "metres",
+    "normal_convention": "OpenGL",
+    "normal_strength": 1.0,
+    "meters_per_tile": 1.2,
+    "resolution": 1024,
+    "height_source": "authored joints, overlaps and grain; independent of albedo and lighting",
+    "rms_relief_m": 0.0014144834366427528,
+    "maximum_slope": 1.4685128109154721
+  },
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "f38f9cffbb9e007f0eb0513b2867b7d23773b13fa72ba2b9b904f94a15e3b0b0",
+    "roughness": "ea90cde3a877606b48744d343273d68be736e01452912593141a5467c8187e82",
+    "normal": "1b5fc43ea910eb306fb3c6991cbc5f9a4eacd789bbfcc602482a35fb4c3cf716",
+    "height": "3c1322b6265a7228d2e90be085a7999db143bee710bbbb90d3d29dea110a2365"
+  }
+}

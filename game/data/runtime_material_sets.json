@@ -420,6 +420,48 @@
       "roughness_multiplier": 1.0,
       "visual_lock": true
     },
+    "city_grey_brick": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "procedural/city_grey_brick",
+      "files": [
+        "T_ai_materials_city_grey_brick_albedo.png",
+        "T_ai_materials_city_grey_brick_rough.png",
+        "T_ai_materials_city_grey_brick_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "city_roof_clay": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "procedural/city_roof_clay",
+      "files": [
+        "T_ai_materials_city_roof_clay_albedo.png",
+        "T_ai_materials_city_roof_clay_rough.png",
+        "T_ai_materials_city_roof_clay_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "city_slate": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "procedural/city_slate",
+      "files": [
+        "T_ai_materials_city_slate_albedo.png",
+        "T_ai_materials_city_slate_rough.png",
+        "T_ai_materials_city_slate_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "concrete": {
       "alpha": false,
       "canonical_meters_per_tile": 2.8,

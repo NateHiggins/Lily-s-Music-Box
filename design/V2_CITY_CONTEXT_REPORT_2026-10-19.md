@@ -629,3 +629,220 @@ and Cambridge flat-roof end-pavilion precedent; it grants no runtime acceptance.
 The entrance remodel, remaining city identities, bridge/station, weather polish,
 frame-time spikes, current route/save gaps and owner acceptance remain open.
 Owner decision needed: **none**. V2 is not complete.
+
+## Court-apartment batch in progress — October 28
+
+WIP, **INERT**. Base **9896ebe7**, clean 114-gate board captured before edits.
+The six-building research brief is being implemented on
+**codex/v2-city-courts-20261028**. **site_far_se / Elm**, **site_far_w / Cambridge**, **site_far_n / Greystone**
+and **site_far_sw / Laburnum** now have native prototypes. Towers and Chateau
+remain unfinished. No additional completed city studies are
+counted yet. The owner canceled parallel entrance work and requested one task
+at a time; this batch remains the sole construction focus.
+
+Elm has nine front axes, a round-headed stair window, six-over-one front sash
+and a seated columned/balustraded portico. Cambridge has thirteen axes, an
+arched central light with flat sidelights, a pilastered iron-crowned porch and
+a flat roof with a front balustrade. Both use actual shallow, sky-open recesses.
+Original rooftop bearings remain supported. On October 28 the owner explicitly
+authorized editing legacy roof slabs; subsequent court/roof work need not retain
+obsolete slab shapes, but must verify structure, bearings and affected access.
+
+| Reproduction / location | Severity | Evidence | Repair | Verification |
+|---|---|---|---|---|
+| First pair build, court outline | Build blocker | Mixed Vector2/Vector3 arithmetic fails before export | Use a planar tangent for the planar perimeter | Fresh native build passes |
+| Door transom / Cambridge ordinary sash | Native pane failure | New low door probe hits its leaf; Palladian mullions repeat on ordinary windows | Sample the actual transom; restrict mullions to the central stair light | Original pane tolerance retained; all 2,950 pane samples pass |
+| New crown courses | Visible shading defect | Actual native renders show inward, black-shaded stock | Correct this new perimeter's winding; retain unrelated geometry | Both sampled crown normals dot outward = 1, zero position error; refined renders inspected |
+
+Final pair native build: **1,205 bearing samples**, **2,950 pane samples**,
+zero failures at 0.1 mm tolerance; both open-court negative controls pass.
+The focused imported diagnostic completes **5,411 checks**, **1,205 roof
+samples**, **946 draws**, zero failures and empty shutdown stderr. Its wrapper
+receipt binds the earlier two-prototype inputs, not the later four-building or
+additive-material work. Thirteen relevant Python source tests pass and
+NEW unread fields remain zero. All **918 unrelated decoded draw arrays/poses**
+remain exact; five other city GLBs remain byte-identical to the base.
+
+Elevation totals are provisionally **761,329 triangles / 238 draws /
+76,675,332 GLB bytes**, versus base **705,821 / 239 / 70,928,092**. No new texture
+or runtime source file is added. This is an increased geometry cost, not an FPS
+claim. Composed-world optical review, occupied-route performance, renewed
+surface qualification, full candidate gates and merge are **NOT_EXECUTED** for
+this WIP. The existing main surface packet does not qualify these changed
+inputs. Save/load is not claimed. Native failures, source snapshots and rendered
+reviews are retained under **C:/ov/reports/city_reference_next_20261028**.
+
+
+### Four native forms and shared finishes — October 28 WIP
+
+Greystone now has a fifteen-axis, five-storey gray-brick composition, keyed
+Tudor-style doorway, connected stepped centre parapet and a 3 m-deep open rear
+court. Laburnum has two 2.8 m-deep entry courts, attached portico decks with iron
+crowns and pale arched upper windows. The legacy cap/parapet stock is replaced
+where these courts require it; new closed roof panels subtract the real voids.
+Original equipment bearing heights and supports remain verified. No new
+accessible interior, route, resident, shop or gameplay state owner is added.
+
+Native result: **3,189 panes / 1,205 bearings / 10 wall-return samples**, zero
+failures at the original 0.1 mm tolerance. All four sampled crown faces have
+outward dot = 1 and zero position error. Native building, entry and roof images
+were inspected. The first return-probe tangent was reversed; its failure and
+source are retained. Correcting the probe leaves the optically reviewed GLB
+byte-identical. **915 unrelated draw arrays/poses** remain exact against the
+preceding two-prototype WIP; five other city GLBs remain byte-identical.
+
+Three catalogue-owned periodic PBR families are added: **city_grey_brick**,
+**city_slate**, **city_roof_clay**. The latter two are prepared for the unfinished
+roof pair, not evidence of completed roofs. All **125 pre-existing material
+records remain exact**. The existing additive renewal tool validates and archives
+prior construction bindings; it never repins runtime contracts. The catalogue
+persistence test initially exposed missing declarations in the layout generator;
+only three catalogue entries were added there, without running the world-data
+writer. A preserved negative-control reproduction fails the original assertion;
+the current persistence test and seven additive-binding tests pass. Thirteen
+city-source tests pass; NEW reader fields remain zero. Procedural source maps
+have no lettering, photography or baked lighting. Source files/metadata are
+marked -text; no new material default is substituted for an existing finish.
+
+Provisional elevation totals: **805,043 triangles / 239 draws / 81,105,472 GLB
+bytes**. This increases geometry/asset cost and has not yet been measured on the
+occupied route. The new finishes have not yet received imported loaded-mipmap
+or composed-world optical qualification. The four-building imported checks,
+final six-building world review, performance comparison, source-bound surface
+renewal, candidate verification and merge remain **NOT_EXECUTED**. The earlier
+5,411-check imported result applies only to its original two-prototype inputs.
+This work remains WIP; the active queue still counts only five qualified city
+studies and 144 unfinished identities. Reproduction and failure records remain
+under **C:/ov/reports/city_reference_next_20261028**.
+
+
+### Six native forms and imported diagnostics — October 28 WIP
+
+Towers now adds a real 3.8 m-deep court and a seated corner belvedere with
+2.4 m internal wall height, twelve open arches, solid jambs and a closed tiled
+hip. Its top is **23.61 m** in source coordinates. Chateau replaces the obsolete
+sixth-storey perimeter with a five-storey body, six-storey end pavilion,
+two-pitch slate mansard and four closed dormers. The roof is actually cut at
+the dormers; masonry cheeks, gabled caps and galvanized valley flashing join
+the host roof. The existing equipment deck/bearing elevations remain exact.
+Its highest corner cap is **22.61 m**. These dimensions are authored adaptations,
+not a surveyed replica of the historical buildings.
+
+The first six-building pass caught eight twisted dormer roof quads, with
+roughly 4–5 cm surface discrepancies. Rear eave heights now give planar stock;
+a planarity assertion and all original 0.1 mm surface tolerances remain. Roof
+UVs use horizontal courses and metric downslope axes, with updated exported
+tangent guides. Native results: **3,396 panes / 1,205 bearings / 12 wall returns /
+74 roof surfaces**, zero failures. Final native whole-building and roof-detail
+renders were inspected; those do not constitute owner artistic acceptance.
+
+The windowed native-resolution imported bench now passes **5,557 checks /
+1,205 roof samples / 950 draws / zero failures**, empty shutdown stderr. It
+checks actual loaded PBR mipmaps/derivatives, roof surfaces and twelve open arch
+rays with twelve adjacent solid-jamb controls. Two failed runs preserve an
+untyped ray-result declaration in the new world-view test. The first attempted
+edit guard did not apply, so the second run repeated the same failure; explicit
+Dictionary declarations fix it. Tests and tolerances are not weakened. Nine
+new sidecars were configured with the established V2 import policy; other
+settings were already correct. Task-generated UID/EOL churn was archived before
+named cleanup; an empty orphan index lock was removed only after a no-live-Git,
+exclusive-open and unchanged-metadata check.
+
+Provisional elevation cost is **862,859 triangles / 242 draws / 86,784,956 GLB
+bytes**, against main's **705,821 / 239 / 70,928,092**. No performance gain is
+claimed. New actual-world daylight/dusk viewpoints are derived from source
+bounds and require first-hit visibility with real blockers retained. These are
+posed construction views, not new player access or calendar progression. Their
+execution, the occupied-world before/after comparison, full surface renewal,
+candidate verification and merge remain pending. This WIP is not production
+qualification; the queue's five qualified studies / 144 remaining identities
+remain unchanged until the full batch qualifies.
+
+### Six-building world qualification — October 28, integration pending
+
+The first composed run stopped before startup because the shared material
+catalogue addition left the passage-leaf construction binding stale. The
+existing strict additive-renewal tool now discovers that explicitly named
+fixture; it still excludes runtime contracts. Thirteen tooling tests pass.
+Renewal proves all 125 pre-existing material records and 361 shipped maps
+unchanged, updates five construction/dependency bindings, and preserves 640
+already-stale baseline bindings. Original fixture bytes and failures remain
+under **C:/ov/reports/city_reference_next_20261028**.
+
+A second preflight caught missing independent normal-authoring calibration
+for the three new finishes. Recipes now declare metre height, OpenGL normals
+and their authored strength of 1.0. All twelve regenerated source maps are
+hash-identical to their preceding committed versions. Independently
+differentiating retained 16-bit heights with the shared normal helper agrees
+within one 8-bit quantization code. No renderer default or test was weakened.
+
+The first actual city review completed 5,196 checks with four failures: its
+Chateau perimeter probes extended above the five-storey shaft into the new
+mansard. The generator now records the actual **17.2 m shaft top** separately
+from the retained **20.5 m deck**. The composed review adds 74 physical roof
+face/normal probes, retaining its 100-micrometre tolerance. Posed day/dusk views
+use the existing forced-lighting diagnostic and restore its environment flag,
+director processing and real campaign presentation afterward. The original
+minute-only views had retained the actual nighttime celestial direction.
+Neither version seeks the campaign clock or grants player roof access.
+
+Final executed evidence on the patched Vulkan engine at fullscreen 3440×1440:
+**bench_six_shaft.log.receipt.json** records 5,557 imported checks, zero
+failures; **city_diag_six_shaft.log.receipt.json** records 5,270 city/camera
+diagnostic checks, zero failures; **route_six_shaft.log.receipt.json** records
+124 waypoints, zero failures. **surface_six_shaft.log.receipt.json** accompanies
+the test-written schema-2 runtime contract: **39,427 checks**, zero failures,
+27,842 draws, 17,028 meshes, 6,335 materials and 536 textures. All four runs have
+empty shutdown stderr. The canonical surface packet was independently
+validated and published with the previous packet preserved. Production
+composition, surface requirements and runtime-owned teardown pass;
+**save reconstruction remains NOT_EXECUTED**. Unchanged hose input was skipped;
+its physical surfaces remain inventoried.
+
+All eighteen new street/day/dusk city captures and seven full-run packet
+images were inspected. Roof silhouettes, real courts, dormers and retained
+equipment are visible in composition. Exterior exposure remains dim; the
+low-contrast storm ceiling, entrance remodel and final artistic acceptance
+remain open. These posed construction views do not establish new playable
+access, annual sky acceptance or complete city coverage.
+
+The matched main route and current route hold the same calendar, weather,
+resolution, 8× MSAA and TAA, with live NPC/traffic variation. Across 4,933 before
+and 4,913 after samples, wall-time p50/p95/p99/max is
+**35.865/63.886/75.329/104.781 → 35.869/64.465/75.609/171.141 ms**;
+main-viewport GPU is **14.746/21.783/23.661/26.320 →
+14.929/21.596/23.647/25.830 ms**. Frames over 100 ms rise from one to four.
+The largest current spike coincides with first passage loading, 2,299 added
+resources and 20 mesh pipeline compilations, while its main GPU time is 14 ms.
+That is correlation, not isolated attribution. Driver caches are uncontrolled;
+process/physics counters are one-second peaks, and private viewports are not
+included in main GPU timing. **No stutter improvement is claimed.** Raw frame
+tables, settings checks and outlier context are retained in
+**six_route_comparison.json** and **six_route_spike_context.json** externally.
+
+Archive consolidation, full static candidate comparison and integration remain
+pending. The active queue remains at five integrated city studies / 144
+remaining until that checkpoint is merged. This work does not complete V2.
+
+The first clean candidate **7f301c66** passes the 114-gate main comparison with
+zero regressions, unchanged requirement statuses, 17 protected paths unchanged
+and selector V2. Godot was executed separately as recorded above; in-place
+verification does not qualify a fresh checkout. The sole changed tooling-test
+file adds two discovery controls without relaxing existing assertions.
+
+Evidence is consolidated into the existing **art/reviews/skywatch_20261027/**
+archive and manifest, under **city_courts/**. All original non-image members
+remain exact; 33 historical images are byte-verified against immutable main
+**9896ebe7** and have exact archive/member/hash recovery records. Eighteen new
+posed images, two native roof details and an original failed-crown image retain
+lossless decoded pixels. The first overlarge packing attempt is retained as a
+diagnostic failure; it did not overwrite the repository archive. The previous
+canonical surface packet is byte-verified against that same main commit.
+
+The owner then requested immediate file cleanup. Separate checkpoint
+**f3252a3f** replaces 25,740 historical navigation source copies with three
+indexed archives; original logs, verdicts and raw hashes remain. Astra packet
+validation passes before and after; the installed surface packet still binds
+and validates. No Godot rerun is needed for that evidence-only move. Final
+post-cleanup static comparison and integration remain pending; the existing
+city-count queue is not yet promoted.

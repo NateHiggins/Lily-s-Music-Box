@@ -8,6 +8,13 @@ import argparse,ast,hashlib,json,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
+def binding_files(root):
+ """Native construction owners only; never discover runtime receipts broadly."""
+ patterns=(('game/tests/fixtures','orison_*.json'),
+           ('game/tests/fixtures','passage_shop_leaves.json'),
+           ('art/blender','*_construction.json'))
+ return sorted({file for folder,pattern in patterns for file in (root/folder).glob(pattern)})
+
 def digest(data):return hashlib.sha256(data.replace(b'\r\n',b'\n')).hexdigest()
 
 def unchanged_stale_binding(prior, current, literal, expected):
@@ -71,11 +78,10 @@ def main():
   original=subprocess.check_output(['git','show',base+':'+s],cwd=ROOT)
   assert (ROOT/s).read_bytes()==original,('existing texture changed',s)
  hashes={s:(digest(before[s]),digest(after[s])) for s in paths};updates=[];pending=[];documents={};original_bytes={};base_documents={}
- for folder,pattern in [('game/tests/fixtures','orison_*.json'),('art/blender','*_construction.json')]:
-  for file in sorted((ROOT/folder).glob(pattern)):
-   data=json.loads(file.read_text(encoding='utf-8'))
-   if not isinstance(data,dict) or not data.get('source_bindings'):continue
-   s=file.relative_to(ROOT).as_posix();documents[s]=data;original_bytes[s]=file.read_bytes()
+ for file in binding_files(ROOT):
+  data=json.loads(file.read_text(encoding='utf-8'))
+  if not isinstance(data,dict) or not data.get('source_bindings'):continue
+  s=file.relative_to(ROOT).as_posix();documents[s]=data;original_bytes[s]=file.read_bytes()
  def base_bytes(s):
   if s not in base_documents:base_documents[s]=subprocess.check_output(['git','show',base+':'+s],cwd=ROOT).replace(b'\r\n',b'\n')
   return base_documents[s]

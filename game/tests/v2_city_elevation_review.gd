@@ -36,7 +36,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	for building: Dictionary in fixture.buildings:
 		var r: Array=building.main_rect
 		for fraction: float in [.12,.36,.64,.88]:
-			var height := lerpf(float(building.shaft_bottom),float(building.setback_height),fraction)
+			var height := lerpf(float(building.shaft_bottom),float(building.get("shaft_top",building.setback_height)),fraction)
 			for station: Array in [
 				[Vector3(r[0]+.12,height,-r[1]),Vector3(0,0,1)],
 				[Vector3(r[2]-.12,height,-r[3]),Vector3(0,0,-1)],
@@ -47,6 +47,15 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 				var ray := PhysicsRayQueryParameters3D.create(p+n*.04,p-n*.04,1,exclusions)
 				var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
 				suite.check(not hit.is_empty() and str(bodies.get(hit.collider.get_rid(),"")).begins_with(str(building.id)+"__") and hit.position.distance_to(p)<.0001,"installed main elevation stays continuous between base and upper setback: "+str(building.id))
+	# Roof transitions replace full-height perimeter walls; probe the physical
+	# sloping stock itself rather than accepting only a lower shaft datum.
+	for sample: Dictionary in fixture.roof_samples:
+		var point: Array=sample.point
+		var direction: Array=sample.normal
+		var p := city.to_global(Vector3(point[0],point[2],-point[1]))
+		var n := city.global_basis*Vector3(direction[0],direction[2],-direction[1])
+		var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(p+n*.05,p-n*.05,1,exclusions))
+		suite.check(not hit.is_empty() and str(bodies.get(hit.collider.get_rid(),"")).begins_with(str(sample.building)+"__") and hit.position.distance_to(p)<.0001 and hit.normal.dot(n)>.99,"installed architectural roof stock retains physical face and normal: "+str(sample.building))
 	var contacts := 0
 	for asset: String in ["masts","aerials","tanks"]:
 		var original: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_"+asset+".json"))
@@ -149,6 +158,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 			await _review_inspection_camera(world,suite,camera.global_transform)
 			break
 		suite.check(visible,"townhouse street front is genuinely visible with real world blockers retained")
+	await _review_apartment_batch(world,suite,camera,city,fixture,bodies)
 	await preload("res://tests/v2_city_horizon_review.gd").new().run(world,suite,camera)
 	# Presentation-only comparisons in the same composed world and camera.
 	# They grant no played exterior access or live-network weather acceptance.
@@ -188,6 +198,82 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	if is_instance_valid(prior):prior.make_current()
 	camera.free()
 	print("CITY ELEVATION REVIEW: parts=%d triangles=%d windows=%d bearing_samples=%d window_stations=%d" % [parts,triangles,int(fixture.windows),contacts,sampled.size()])
+
+
+func _review_apartment_batch(world: Node,suite: Node,camera: Camera3D,city: Node3D,fixture: Dictionary,bodies: Dictionary) -> void:
+	# Source-derived posed views of the actual composition, not new travel access.
+	# Keep other buildings and foreground blockers authoritative in every ray.
+	var fronts: Dictionary={"site_far_n":0,"site_far_ne":0,"site_far_se":3,
+		"site_far_s":2,"site_far_sw":2,"site_far_w":1}
+	var atmosphere: Node=world.get_node("WakingAtmosphere")
+	var director_processing: bool=atmosphere.director.is_processing()
+	var saved_force := OS.get_environment("DAYNIGHT_FORCE")
+	var had_force := OS.has_environment("DAYNIGHT_FORCE")
+	atmosphere.director.set_process(false)
+	var saved_minute: float=world.campaign_clock.minute_of_day()
+	var saved_campaign: String=JSON.stringify(RealityState.data.campaign_clock)
+	var reviewed:=0
+	for building: Dictionary in fixture.buildings:
+		var identity:=str(building.id)
+		if not fronts.has(identity):continue
+		var side: int=fronts[identity]
+		var normal: Vector3=[Vector3.BACK,Vector3.RIGHT,Vector3.FORWARD,Vector3.LEFT][side]
+		normal=city.global_basis*normal
+		var bounds: Array=building.main_rect
+		var center:=Vector3(float(bounds[0]+bounds[2])*.5,0,-float(bounds[1]+bounds[3])*.5)
+		var choices: Array[Dictionary]=[]
+		for window: Dictionary in fixture.window_rows:
+			if str(window.building)==identity and int(window.side)==side and float(window.center[2])>=7.0 and float(window.center[2])<=12.0:
+				choices.append(window)
+		choices.sort_custom(func(a: Dictionary,b: Dictionary) -> bool:
+			var first:=Vector3(a.center[0],0,-a.center[1])
+			var second:=Vector3(b.center[0],0,-b.center[1])
+			return first.distance_squared_to(center)<second.distance_squared_to(center))
+		var street_visible:=false
+		var roof_target:=Vector3.ZERO
+		for window: Dictionary in choices:
+			var source: Array=window.center
+			var target:=city.to_global(Vector3(source[0],source[2],-source[1]))
+			for distance: float in [7.,5.,3.,1.5]:
+				var eye:=target+normal*distance
+				eye.y=city.global_position.y+1.6
+				var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(eye,target-normal*.35,1,[world.player.get_rid()]))
+				if hit.is_empty() or not str(bodies.get(hit.collider.get_rid(),"")).begins_with(identity+"__") or hit.position.distance_to(target)>.36:continue
+				camera.global_position=eye;camera.look_at(target);street_visible=true;roof_target=target
+				# Existing forced-lighting diagnostic bypasses calendar ephemeris.
+				# A minute-only _apply otherwise retains the real nighttime sun.
+				OS.set_environment("DAYNIGHT_FORCE","12:00")
+				atmosphere.director._apply(720.)
+				await suite.get_tree().create_timer(.6).timeout
+				await suite.shot("city_batch_"+identity+"_street")
+				break
+			if street_visible:break
+		suite.check(street_visible,"apartment street viewpoint retains actual first-hit visibility: "+identity)
+		if not street_visible:continue
+		var span:=maxf(float(bounds[2]-bounds[0]),float(bounds[3]-bounds[1]))
+		var roof_visible:=false
+		for factor: float in [.70,.45,.25]:
+			var eye:=city.to_global(center)+normal*span*factor
+			eye.y=city.global_position.y+float(building.roof_height)+11.
+			var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(eye,roof_target-normal*.35,1,[world.player.get_rid()]))
+			if hit.is_empty() or not str(bodies.get(hit.collider.get_rid(),"")).begins_with(identity+"__"):continue
+			camera.global_position=eye;camera.look_at(roof_target);roof_visible=true
+			for phase: Array in [[720.,"day"],[1050.,"dusk"]]:
+				# Presentation diagnostics use the installed director; no calendar
+				# seek or NPC/publication/save mutation is asserted by a posed view.
+				OS.set_environment("DAYNIGHT_FORCE","12:00" if float(phase[0])==720. else "17:30")
+				atmosphere.director._apply(float(phase[0]))
+				await suite.get_tree().create_timer(.6).timeout
+				await suite.shot("city_batch_"+identity+"_roof_"+str(phase[1]))
+			break
+		suite.check(roof_visible,"apartment rooftop viewpoint retains composed-world blockers: "+identity)
+		reviewed+=1
+	if had_force:OS.set_environment("DAYNIGHT_FORCE",saved_force)
+	else:OS.unset_environment("DAYNIGHT_FORCE")
+	atmosphere.director._apply(saved_minute)
+	atmosphere.director.set_process(director_processing)
+	suite.check(reviewed==6,"all six individually authored apartment identities receive actual world views")
+	suite.check(JSON.stringify(RealityState.data.campaign_clock)==saved_campaign,"posed city lighting never seeks the authoritative campaign calendar")
 
 
 func _inspection_key(suite: Node,key: Key,pressed: bool) -> void:

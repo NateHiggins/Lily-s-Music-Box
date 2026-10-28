@@ -623,18 +623,18 @@
     },
     {
       "id": "site_far_n",
-      "description": "Five-storey Greystone-inspired north block; authored height repair, individual Tudor entrance/court study remains open",
+      "description": "Greystone-inspired five-storey gray-brick Tudor apartment composition: fifteen front axes, keyed doorway, raised centre parapet and an open rear court",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
-      "bay_pitch": 2.22,
-      "window_width": 1.0,
-      "window_height": 1.76,
+      "bay_pitch": 2.65,
+      "window_width": 1.08,
+      "window_height": 1.9,
       "sash": "door_paint",
-      "wall_key": "limestone",
+      "wall_key": "city_grey_brick",
       "wall_tint": [
-        0.78,
-        0.72,
-        0.65,
+        1,
+        1,
+        1,
         1
       ],
       "frame_tint": [
@@ -646,7 +646,7 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
+      "detail_faces": "all",
       "window_joinery": "single_sash",
       "window_treatment": "roller",
       "sill_projection": 0.085,
@@ -667,30 +667,86 @@
         3.25
       ],
       "precedent": {
-        "name": "Greystone Apartments, 80th Street, George H. Wells, 1917\u201318",
+        "name": "Greystone Apartments, 35-15 80th Street, George H. Wells, 1916\u201318",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           30,
           31,
-          62
+          147,
+          148,
+          61
         ],
-        "adaptation": "Five-storey height hierarchy is documented. Dimensions are authored; existing reservation and roof hardware are retained. This is not a replica or completed individual architectural study."
+        "adaptation": "Authored enlarged 40 m mass, gray brick, fifteen axes and Tudor entry vocabulary; not a surveyed replica. The old slab is edited for a true rear court. Roof bearings remain measured; no new interior or access."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "greystone",
+        "front_side": 0,
+        "arch_rise_m": 0.22,
+        "segments": {
+          "0": [
+            [
+              0,
+              16.4,
+              0.3,
+              6,
+              false
+            ],
+            [
+              16.4,
+              23.6,
+              0,
+              3,
+              true
+            ],
+            [
+              23.6,
+              40,
+              0.3,
+              6,
+              false
+            ]
+          ],
+          "2": [
+            [
+              0,
+              16.4,
+              0,
+              6,
+              false
+            ],
+            [
+              16.4,
+              23.6,
+              3.0,
+              3,
+              false
+            ],
+            [
+              23.6,
+              40,
+              0,
+              6,
+              false
+            ]
+          ]
+        }
       }
     },
     {
       "id": "site_far_ne",
-      "description": "The Towers, 33-16 81st Street, Andrew J. Thomas, 1923\u201325 \u2014 authored proportion repair; individual architectural study remains open",
+      "description": "Towers-inspired six-storey Italianate court apartment with three grouped front bays, open entry court and tiled corner belvedere",
       "massing": "single_upper_setback",
       "storey_height": 3.08,
-      "bay_pitch": 2.4,
-      "window_width": 1.4,
-      "window_height": 1.94,
+      "bay_pitch": 3.25,
+      "window_width": 1.15,
+      "window_height": 1.95,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "brick",
       "wall_tint": [
-        1,
-        1,
-        1,
+        0.69,
+        0.51,
+        0.4,
         1
       ],
       "frame_tint": [
@@ -702,8 +758,8 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
-      "window_joinery": "paired_sash",
+      "detail_faces": "all",
+      "window_joinery": "single_sash",
       "window_treatment": "mixed",
       "sill_projection": 0.12,
       "lintel_height": 0.21,
@@ -724,12 +780,51 @@
         3.2
       ],
       "precedent": {
-        "name": "The Towers, 33-16 81st Street, Andrew J. Thomas, 1923\u201325",
+        "name": "The Towers, 33-51 80th Street, Andrew J. Thomas, 1923\u201325",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
-          143
+          143,
+          34,
+          67
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Six-storey Italianate hierarchy; asymmetrical corner tower, loggia, tiled roof and U court remain to be constructed."
+        "adaptation": "A six-storey authored mass with a 3.8 m-deep court and a small roof belvedere; no replica or new interior. Tiled hip, open arches and asymmetric corner emphasis adapt the documented south end building. Legacy slabs are cut for the court, with original equipment bearings verified."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "towers",
+        "front_side": 0,
+        "arch_rise_m": 0.55,
+        "belvedere_rect": [
+          44,
+          28,
+          49,
+          33
+        ],
+        "segments": {
+          "0": [
+            [
+              0,
+              11,
+              0,
+              3,
+              false
+            ],
+            [
+              11,
+              23,
+              3.8,
+              3,
+              true
+            ],
+            [
+              23,
+              34,
+              0,
+              3,
+              false
+            ]
+          ]
+        }
       }
     },
     {
@@ -811,18 +906,18 @@
     },
     {
       "id": "site_far_se",
-      "description": "Elm Court, 34-27 79th Street, George H. Wells, 1921\u201322 \u2014 authored proportion repair; individual architectural study remains open",
+      "description": "Elm Court, 34-27 79th Street, George H. Wells, 1921\u201322 \u2014 authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
       "massing": "single_upper_setback",
       "storey_height": 2.95,
-      "bay_pitch": 2.15,
-      "window_width": 0.94,
-      "window_height": 1.84,
+      "bay_pitch": 2.8,
+      "window_width": 1.05,
+      "window_height": 1.85,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "brick",
       "wall_tint": [
-        0.95,
-        0.92,
-        0.86,
+        0.66,
+        0.47,
+        0.38,
         1
       ],
       "frame_tint": [
@@ -834,7 +929,7 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
+      "detail_faces": "all",
       "window_joinery": "single_sash",
       "window_treatment": "draped",
       "sill_projection": 0.1,
@@ -859,23 +954,33 @@
         "pdf_pages": [
           136
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Four-storey Georgian hierarchy; projecting balustraded entry, central stair bay and garden organisation remain to be constructed."
+        "adaptation": "Authored proportions within the retained mass and roof/equipment reservation. Four-storey Georgian court vocabulary; no new interior, actor or access. Cambridge uses the documented flat-roof end A pavilion, not the mansard B block. Native/imported review remains pending."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "elm",
+        "front_side": 3,
+        "side_bays": 4,
+        "recess_width_m": 5.0,
+        "recess_depth_m": 1.0,
+        "stair_window_width_m": 1.4,
+        "arch_rise_m": 0.36
       }
     },
     {
       "id": "site_far_s",
-      "description": "The Chateau, 34-22 81st Street, Andrew J. Thomas, 1922 \u2014 authored proportion repair; individual architectural study remains open",
+      "description": "Chateau-inspired asymmetric French apartment: five-storey shaft, sixth-storey end pavilion, two-pitch slate mansard and four actual dormers",
       "massing": "single_upper_setback",
       "storey_height": 3.02,
-      "bay_pitch": 2.38,
-      "window_width": 1.37,
-      "window_height": 1.91,
+      "bay_pitch": 3.0,
+      "window_width": 1.15,
+      "window_height": 1.9,
       "sash": "door_paint",
-      "wall_key": "limestone",
+      "wall_key": "brick",
       "wall_tint": [
-        0.78,
-        0.72,
         0.65,
+        0.43,
+        0.36,
         1
       ],
       "frame_tint": [
@@ -887,7 +992,7 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
+      "detail_faces": "all",
       "window_joinery": "paired_sash",
       "window_treatment": "mixed",
       "sill_projection": 0.14,
@@ -909,28 +1014,36 @@
         3.3
       ],
       "precedent": {
-        "name": "The Chateau, 34-22 81st Street, Andrew J. Thomas, 1922",
+        "name": "The Chateau, 34-01\u201334-05 80th Street, Andrew J. Thomas, 1922",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
-          145
+          145,
+          69,
+          67
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Taller end-building hierarchy; asymmetric wing, mansard, dormers and carved portal remain to be constructed."
+        "adaptation": "Authored end-building hierarchy, not the previously selected central C pair. Five-storey body, one six-storey pavilion and real dormer cuts in a double-pitch slate skirt; original equipment deck and verified bearing heights remain. This is a fictional Queens adaptation, not a replica, extra accessible floor or new route."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "chateau",
+        "front_side": 2,
+        "arch_rise_m": 0.44
       }
     },
     {
       "id": "site_far_sw",
-      "description": "Laburnum Court, 37-15 79th Street, George H. Wells, 1921\u201322 \u2014 authored proportion repair; individual architectural study remains open",
+      "description": "Laburnum-inspired five-storey red-brick court apartment: two open entry courts, supported iron-crowned porticoes and arched upper sash",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
-      "bay_pitch": 2.22,
-      "window_width": 1.0,
-      "window_height": 1.76,
+      "bay_pitch": 2.75,
+      "window_width": 1.02,
+      "window_height": 1.9,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "brick",
       "wall_tint": [
-        1,
-        1,
-        1,
+        0.72,
+        0.48,
+        0.39,
         1
       ],
       "frame_tint": [
@@ -942,7 +1055,7 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
+      "detail_faces": "all",
       "window_joinery": "single_sash",
       "window_treatment": "roller",
       "sill_projection": 0.085,
@@ -966,25 +1079,72 @@
         "name": "Laburnum Court, 37-15 79th Street, George H. Wells, 1921\u201322",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
-          138
+          138,
+          34,
+          65
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Five-storey hierarchy; H plan with recessed front courts, iron balcony and cornice remain to be constructed."
+        "adaptation": "Two 2.8 m-deep courts adapt the group to one existing mass; original roof slabs are cut rather than hiding the courts. Keep the registered -4.83 m X offset once, supported equipment and passive doors. No new interior, garden route or actor."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "laburnum",
+        "front_side": 2,
+        "arch_rise_m": 0.48,
+        "segments": {
+          "2": [
+            [
+              0,
+              7,
+              0,
+              3,
+              false
+            ],
+            [
+              7,
+              12,
+              2.8,
+              1,
+              true
+            ],
+            [
+              12,
+              22,
+              0,
+              3,
+              false
+            ],
+            [
+              22,
+              27,
+              2.8,
+              1,
+              true
+            ],
+            [
+              27,
+              34,
+              0,
+              3,
+              false
+            ]
+          ]
+        }
       }
     },
     {
       "id": "site_far_w",
-      "description": "Cambridge Court, 37-14 86th Street, George H. Wells, 1922 \u2014 authored proportion repair; individual architectural study remains open",
+      "description": "Cambridge Court, 37-14 86th Street, George H. Wells, 1922 \u2014 authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
-      "bay_pitch": 2.22,
-      "window_width": 1.0,
-      "window_height": 1.76,
+      "bay_pitch": 2.7,
+      "window_width": 1.05,
+      "window_height": 1.85,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "brick",
       "wall_tint": [
-        0.86,
-        0.82,
-        0.75,
+        0.6,
+        0.4,
+        0.32,
         1
       ],
       "frame_tint": [
@@ -996,7 +1156,7 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
+      "detail_faces": "all",
       "window_joinery": "single_sash",
       "window_treatment": "roller",
       "sill_projection": 0.085,
@@ -1019,9 +1179,21 @@
         "name": "Cambridge Court, 37-14 86th Street, George H. Wells, 1922",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
-          203
+          203,
+          204,
+          66
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Four-storey hierarchy; modified T plan, entrance porch and mansard/dormer variation remain to be constructed."
+        "adaptation": "Authored proportions within the retained mass and roof/equipment reservation. Four-storey Georgian court vocabulary; no new interior, actor or access. Cambridge uses the documented flat-roof end A pavilion, not the mansard B block. Native/imported review remains pending."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "cambridge",
+        "front_side": 1,
+        "side_bays": 6,
+        "recess_width_m": 4.8,
+        "recess_depth_m": 0.9,
+        "stair_window_width_m": 2.65,
+        "arch_rise_m": 0.6
       }
     }
   ]

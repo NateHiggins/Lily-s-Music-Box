@@ -26,6 +26,9 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 # its authored roughness map by this value; selected finishes deliberately cap
 # that response. No texture path or physical scale is authored here.
 RUNTIME_POLICY = {
+    "city_grey_brick": {"normal_scale": 1.0},
+    "city_slate": {"normal_scale": 1.0},
+    "city_roof_clay": {"normal_scale": 1.0},
     "weather_frog_skin": {"normal_scale": 1.0},
     'resident_evelyn_marsh': {"normal_scale": 0.35},
     'resident_teresa_vale': {"normal_scale": 0.35},
