@@ -146,5 +146,8 @@ static func date_command(target: Dictionary) -> String:
 	if not valid_target(target): return ""
 	var bias := int(target.local_bias_minutes)
 	var date := Time.get_datetime_string_from_unix_time(int(target.utc_unix_seconds)+bias*60)
-	var offset := "%s%02d:%02d" % ["-" if bias<0 else "+",int(absi(bias)/60.0),absi(bias)%60]
-	return "root# date --set=\"%s%s\"" % [date,offset]
+	# Signal's mechanical console uses the actual43-key alphabet. The root
+	# prompt is preprinted; punctuation absent from that keyboard is not faked.
+	date=date.replace("-","/").replace("T"," ").replace(":",".")
+	var offset := "%s %02d.%02d" % ["minus" if bias<0 else "plus",int(absi(bias)/60.0),absi(bias)%60]
+	return "root# date %s utc %s" % [date,offset]

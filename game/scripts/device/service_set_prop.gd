@@ -123,6 +123,13 @@ func print_telegram_card(message: Variant) -> bool:
 	teletype.present(card,printed_count)
 	return true
 
+func finish_keyed_copy(owner:Node,response:String) -> bool:
+	# The existing device owns copy numbering; an aborted command is no report.
+	if not radio_powered or teletype==null:return false
+	if not teletype.finish_keyed_copy(owner,response,printed_count+1):return false
+	printed_count+=1
+	return true
+
 
 func _play_feed() -> void:
 	if _printer_feed and _printer_feed.stream:

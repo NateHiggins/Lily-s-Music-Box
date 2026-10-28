@@ -5,6 +5,7 @@ signal phase_changed(phase: String)
 signal transcription_changed(text: String)
 const State := preload("res://scripts/game/prologue_state.gd")
 const Writing := preload("res://scripts/game/signal_surface_writing.gd")
+const TemporalConsole:=preload("res://scripts/game/prologue_temporal_console.gd")
 const WORDS := "res://data/dialogue/prologue.json"
 const PERIOD := 0.1
 const COMFORT := Vector2(0.30,0.57)
@@ -28,6 +29,7 @@ var _last_moved_valve := -1
 var _document: Dictionary={}
 var _carrier: Node
 var _window_controls: Array[Node]=[]
+var temporal_console:Node
 
 func _ready() -> void:
 	set_process(false)
@@ -83,6 +85,29 @@ func begin_waking_preview() -> bool:
 	if _carrier==null or not _carrier.acquire_story_absence(self): return _fail("companion absence lease refused")
 	_running=true;set_process(true);_enter_phase()
 	return true
+
+func begin_temporal_command() -> bool:
+	if world==null or RealityState.save_write_blocked or state.get("phase","")!="temporal_command":return false
+	if not is_same(_document,RealityState.data):return false
+	if not is_instance_valid(_carrier):_carrier=world.service_set_carrier
+	if not is_instance_valid(_carrier) or _carrier.arm_busy():return false
+	# An accepted saved command is not reprinted or resampled after reload.
+	if "destination_accepted" in state.events:return _advance("temporal_synchronization")
+	if state.target.is_empty():
+		if not _store(State.with_target(state,State.sample_destination())):return false
+	if is_instance_valid(temporal_console):temporal_console.queue_free()
+	temporal_console=TemporalConsole.new();add_child(temporal_console)
+	temporal_console.accepted.connect(_temporal_accepted)
+	temporal_console.finished.connect(_temporal_finished)
+	return temporal_console.start(_carrier,state.target)
+
+func _temporal_accepted(target:Dictionary) -> void:
+	if is_same(_document,RealityState.data) and state.phase=="temporal_command" and state.target==target:
+		_observe("destination_accepted")
+
+func _temporal_finished(completed:bool) -> void:
+	if completed and is_same(_document,RealityState.data) and state.phase=="temporal_command" and "destination_accepted" in state.events:
+		_advance("temporal_synchronization")
 
 func _restore() -> void:
 	if _publishing: return
@@ -189,6 +214,11 @@ func _process(delta: float) -> void:
 
 func shutdown() -> void:
 	_running=false;set_process(false)
+	if is_instance_valid(temporal_console):
+		if temporal_console.accepted.is_connected(_temporal_accepted):temporal_console.accepted.disconnect(_temporal_accepted)
+		if temporal_console.finished.is_connected(_temporal_finished):temporal_console.finished.disconnect(_temporal_finished)
+		temporal_console.cancel();temporal_console.queue_free()
+	temporal_console=null
 	if is_instance_valid(_carrier): _carrier.release_story_absence(self)
 	_carrier=null
 	if is_instance_valid(shower) and shower.manipulation_changed.is_connected(_released): shower.manipulation_changed.disconnect(_released)

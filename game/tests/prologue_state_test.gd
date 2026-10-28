@@ -34,7 +34,16 @@ func _ready() -> void:
 	var legacy: Dictionary=RealityState.data.duplicate(true);legacy.erase("prologue");legacy.intro_complete=true
 	check(Document.validate(legacy,RealityState.SAVE_VERSION).ok,"old completed intro save accepted without inventing new prologue facts")
 	var command := State.date_command(target)
-	check(command.ends_with("+05:45\"") and command.begins_with("root# date --set="),"non-hour timezone represented in inert command")
+	check(command.ends_with("utc plus 05.45") and command.begins_with("root# date "),"non-hour timezone represented exactly in the mechanical command")
+	var keyboard:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/device/service_companion_v2.json"))
+	var available:Array=[]
+	for key:Dictionary in keyboard.keys:available.append(str(key.character))
+	var supported:=true
+	for character:String in command.trim_prefix("root# "):
+		supported=supported and ("SPACE" if character==" " else character.to_upper()) in available
+	check(supported,"every typed command character has a real physical key")
+	var west:Dictionary=target.duplicate(true);west.local_bias_minutes=-210
+	check(State.date_command(west).ends_with("utc minus 03.30"),"negative non-hour timezone retains its sign and minutes")
 	check(State.valid_target(State.sample_destination()),"real host destination sampled using read-only APIs")
 	for index in range(State.PHASES.size()-1):
 		var phase: String=State.PHASES[index]
