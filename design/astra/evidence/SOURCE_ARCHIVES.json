@@ -183,6 +183,19 @@
       "existing_hash_mismatches": 0,
       "restored_source_files": 984
     },
-    "static_comparison": "pending"
+    "static_comparison": "PASS, zero regressions"
+  },
+  "qualification": {
+    "candidate": "858fd36931dd16aaaeb7b80253a6b6ad06d00556",
+    "merge": "d5d934daf43fccc54739b2d7c21496f0c3b62bc5",
+    "pr": 79,
+    "merge_tree_exact": true,
+    "gates": 114,
+    "regressions": 0,
+    "protected_unchanged": 17,
+    "selector": "v2",
+    "requirements_changed": [],
+    "current_surface_packet": "PASS, unchanged runtime qualification",
+    "limits": "Offline archive verification and clean in-place static comparison; no new Godot, fresh-checkout or artistic acceptance."
   }
 }

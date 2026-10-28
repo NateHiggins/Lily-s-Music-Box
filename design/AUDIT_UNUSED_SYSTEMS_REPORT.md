@@ -35,12 +35,14 @@ surface packet still independently validates. No new Godot, fresh-checkout,
 visual or artistic acceptance is claimed; existing incomplete ledger debt
 remains. Verification summaries are retained in the capture index.
 
-Cumulative reduction at that merge: **26,469 tracked files / 1,910,263,469
-working-tree bytes**, before this small metadata follow-up. Shared Git history
+Cumulative reduction through PR 79: **31,333 tracked files / 2,072,678,636
+working-tree bytes**, measured from **7f301c66** to **d5d934da** before this
+metadata/design follow-up. Shared Git history
 and its database remain intact. Further cleanup needs targeted consumer review
 or migration; referenced images were not automatically declared disposable.
 
-The next source-copy batch consolidates **4,878 files / 165,946,930 bytes** from
+PR 79 (**d5d934daf43fccc54739b2d7c21496f0c3b62bc5**) consolidates
+**4,878 files / 165,946,930 bytes** from
 thirteen historical audit families into **3,522,100 archive bytes**. Logs, results,
 artifact maps and active tools remain loose. All source copies passed exact
 archive round trips. **design/astra/evidence/SOURCE_ARCHIVES.json** indexes the
@@ -52,8 +54,12 @@ An unchanged material aggregate was executed only in disposable mirrored trees
 before/after reconstructing 984 source files: 1,087 artifact hashes checked,
 zero mismatches, exit zero both times, identical results apart from review time.
 This verifies offline-consumer continuity, not new gameplay acceptance; original
-runtime failures remain unchanged. Current packet and full static comparison
-verification remain pending before integration of this batch.
+runtime failures remain unchanged. Candidate
+**858fd36931dd16aaaeb7b80253a6b6ad06d00556** matches the merge tree exactly:
+114-gate comparison, zero regressions, all 17 protected paths unchanged,
+selector V2 and no requirement-status changes. The current surface packet
+validates with zero defects. These checks reuse unchanged runtime evidence;
+no new Godot run, fresh-checkout qualification or artistic acceptance is claimed.
 
 ## Method
 
