@@ -66,6 +66,9 @@ for obj in exports.objects:
         assert len(face.vertices)==3,(obj.name,'nontriangular stock')
         p=[mesh.vertices[i].co for i in face.vertices]
         q=[uv.data[i].uv for i in face.loop_indices]
+        for a,b in [(0,1),(1,2),(2,0)]:
+            length=(p[b]-p[a]).length
+            assert length>1e-10 and abs((q[b]-q[a]).length/length-1)<.005,(obj.name,'physical UV edge scale')
         a=q[1]-q[0];b=q[2]-q[0];det=a.x*b.y-b.x*a.y
         assert abs(det)>1e-14,(obj.name,'collapsed metric chart')
         tangent=((p[1]-p[0])*b.y-(p[2]-p[0])*a.y)/det;tangent.normalize()

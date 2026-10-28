@@ -45,18 +45,23 @@ func check_surface(draw:MeshInstance3D,surface:int,material:Material) -> void:
 	var indices:PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
 	var valid:=uv.size()==vertices.size() and normals.size()==vertices.size() and tangents.size()==vertices.size()*4
 	var minimum:=1.0
+	var metric_error:=0.0
 	if valid:
 		for start in range(0,indices.size(),3):
 			var a:=indices[start];var b:=indices[start+1];var c:=indices[start+2]
 			var s:=uv[b]-uv[a];var t:=uv[c]-uv[a];var det:=s.cross(t)
 			if not is_finite(det) or absf(det)<=1e-12:valid=false;continue
 			var derivative:=((vertices[b]-vertices[a])*t.y-(vertices[c]-vertices[a])*s.y)/det
+			for edge:Array in [[a,b],[b,c],[c,a]]:
+				var length:float=vertices[edge[0]].distance_to(vertices[edge[1]])
+				if length>1e-8:metric_error=maxf(metric_error,absf(uv[edge[0]].distance_to(uv[edge[1]])/length-1.0))
 			for index:int in [a,b,c]:
 				var tangent:=Vector3(tangents[index*4],tangents[index*4+1],tangents[index*4+2])
 				var expected:=(derivative-normals[index]*normals[index].dot(derivative)).normalized()
 				minimum=minf(minimum,tangent.dot(expected))
 				valid=valid and vertices[index].is_finite() and uv[index].is_finite() and normals[index].is_finite() and tangent.is_finite()
 	check(valid and minimum>.995,"loaded finite metric charts and tangent derivatives: "+str(draw.name)+" / "+str(surface)+" minimum="+str(minimum))
+	check(metric_error<.005,"loaded physical UV edges within 0.5 percent: "+str(draw.name)+" / "+str(surface)+" maximum="+str(metric_error))
 	var maps:Array=[]
 	if material is StandardMaterial3D:
 		check(not MatLib.is_shared_material(material) and not material.uv1_triplanar,"private finish samples authored charts")

@@ -25,10 +25,21 @@ def index(value,size):
 def controller_step_height(text):
     body=re.search(r'^func _try_step_up\([^\n]*\).*?:\n(.*?)(?=^func |\Z)',text,re.M|re.S)
     if not body:raise ValueError('bound controller curb-step source required')
-    lifted=re.findall(r'^\s+global_position\.y\s*\+=\s*([0-9]+(?:\.[0-9]+)?)\s*$',body[1],re.M)
-    swept=re.findall(r'^\s+var lift\s*:=\s*Vector3\.UP\s*\*\s*([0-9]+(?:\.[0-9]+)?)\s*$',body[1],re.M)
-    if len(lifted)!=1 or lifted!=swept or float(lifted[0])<=0:raise ValueError('unique source-bound swept curb-step height required')
-    return float(lifted[0])
+    number=r'(?:[0-9]+(?:\.[0-9]+)?|\.[0-9]+)'
+    token=rf'(?:{number}|[A-Za-z_][A-Za-z_0-9]*)'
+    lifted=re.findall(rf'^\s+global_position\.y\s*\+=\s*({token})\s*$',body[1],re.M)
+    swept=re.findall(rf'^\s+var lift\s*:=\s*Vector3\.UP\s*\*\s*({token})\s*$',body[1],re.M)
+    if len(lifted)!=1 or lifted!=swept:raise ValueError('unique source-bound swept curb-step height required')
+    value=lifted[0]
+    if not re.fullmatch(number,value):
+        # Fixture contacts can request a larger lift. Exterior evidence gets
+        # only the ordinary initialized curb height, never that upper bound.
+        # A larger observed rise still fails consecutive_motion below.
+        initial=re.findall(rf'^\s+var {re.escape(value)}\s*:=\s*({number})\s*$',body[1],re.M)
+        if len(initial)!=1:raise ValueError('unique ordinary curb-step initializer required')
+        value=initial[0]
+    if float(value)<=0:raise ValueError('positive source-bound curb-step height required')
+    return float(value)
 
 
 def consecutive_motion(previous,current,step_height):

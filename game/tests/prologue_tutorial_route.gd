@@ -1,6 +1,8 @@
 extends "res://tests/orison_v2_4b_door_route_test.gd"
 ## Actual installed-world tutorial slice; DREAM/mirror/finale not executed.
 const Director := preload("res://scripts/game/prologue_director.gd")
+const BathCurtain := preload("res://scripts/props/clawfoot_curtain_motion.gd")
+const Household := preload("res://scripts/building/orison_v2_household_state.gd")
 var director: Node
 var frame_trace:Node
 
@@ -37,6 +39,9 @@ func _prepare_player_start() -> void:
 
 func _route() -> void:
 	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR"))
+	if OS.get_environment("ORISON_BATH_REPAIR_REVIEW")=="1":
+		await _review_installed_bath()
+		return
 	director=Director.new();world.add_child(director)
 	if not _require(director.configure(world),"actual 4B fixture and wall supports bound: "+str(director.errors)): return
 	frame_trace=FrameTrace.new();frame_trace.director=director
@@ -147,6 +152,149 @@ func _route() -> void:
 	if not _require(file!=null,"diagnostic output is writable"): return
 	file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual bed-to-bath walking and curtain/cold/hot/shutoff input; no DREAM, body reveal, visitor, crossing, typing arm, finale or production-entry acceptance.","state":director.state,"errors":director.errors,"failures":failures},"\t"))
 	frame_trace.complete=failures.is_empty()
+
+func _bath_click() -> void:
+	var click:=InputEventMouseButton.new();click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
+	player._unhandled_input(click)
+	await get_tree().physics_frame
+
+func _bath_valve(tap:TapProp,index:int,goal:float) -> bool:
+	var part:Node3D=tap._handles[index]
+	# Aim at the cap rather than its mounting pivot behind the wall finish.
+	var cap:Vector3=part.to_global(Vector3(0,0,-.06))
+	player.face_world_point(cap)
+	await get_tree().physics_frame
+	player.face_world_point(cap)
+	if not _require(player._grab.find_target().get("part")==part,"ray selects the specific valve cap: "+str(index)):return false
+	# The inherited room-route driver uses constant-size gestures to reach
+	# endpoints. Use the existing adaptive hand for a deliberately partial turn.
+	var hand:=preload("res://tests/fixed_gesture_patrol_hand.gd").new()
+	add_child(hand);hand.player=player
+	var moved:bool=await hand.operate(cap,goal,tap)
+	hand.queue_free()
+	return _require(moved and absf(tap._valve_openings[index]*PI*.5-goal)<.000001,"actual partial valve motion and release: "+str(index))
+
+func _walk_bath_pose(tap:TapProp,local_target:Vector3) -> bool:
+	# The ordinary room route stops 100mm short and checks immediately. The
+	# bowl's fitted standing pose needs a centered capsule and time to settle
+	# after stepping over its rim. Keep this precision local to this review.
+	var target:Vector3=tap.model.to_global(local_target)
+	var deadline:=Time.get_ticks_msec()+8000
+	while Time.get_ticks_msec()<deadline:
+		var delta:=target-player.global_position;delta.y=0
+		if delta.length()<.006:break
+		player.rotation.y=atan2(-delta.x,-delta.z);player.camera.rotation=Vector3.ZERO
+		Input.action_press("move_forward",minf(1,delta.length()/.12))
+		await get_tree().physics_frame
+	Input.action_release("move_forward")
+	for frame in 60:await get_tree().physics_frame
+	var actual:Vector3=tap.model.to_local(player.global_position)
+	var ok:=actual.distance_to(local_target)<.035
+	trace.append({"bath_target":str(local_target),"bath_actual":str(actual),"ok":ok})
+	return _require(ok,"walked precise tub stance and settled through real collision: "+str(actual))
+
+func _review_installed_bath() -> void:
+	var tap:TapProp=world.adapter.resolve("F04_4B_SHOWER_01")
+	if not _require(tap!=null and tap.has_method("mount_fixture_collision") and tap.native_ready,"actual 4B loader mounts the native bath actor"):return
+	# One explicit initial review placement. Subsequent access is walked.
+	player.global_position=tap.model.to_global(Vector3(0,0,-1.05));player.velocity=Vector3.ZERO
+	await get_tree().physics_frame
+	player.face_world_point(tap.model.to_global(Vector3(0,1.25,0)))
+	await _shot("installed_tub_closed")
+	var point:Vector3=tap.model.to_global(BathCurtain.cloth_centerline(.75,.5,0))
+	if not await _drag_part(tap,point,1.78,"installed_tub_curtain"):return
+	if not await _walk_bath_pose(tap,Vector3(0,.239,0)):return
+	for tick in 30:await get_tree().physics_frame
+	if not _require(absf(tap.model.to_local(player.global_position).y-.239)<.045 and is_equal_approx(player._capsule.radius,PlayerController.BODY_RADIUS),"actual room admits the unshrunk standing capsule into the tub"):return
+	for index in 2:
+		if not await _bath_valve(tap,index,PI*.5*(.85 if index==0 else .5)):return
+	var sources:Array=world.bathroom_moisture._sources.filter(func(source:Dictionary):return source.tap==tap)
+	if not _require(sources.size()==1 and sources[0].spray.emitting,"one existing moisture owner emits the actual shower cone"):return
+	player.face_world_point(tap._stream.global_position-Vector3.UP*.35)
+	await get_tree().create_timer(.6).timeout
+	await _shot("installed_tub_shower_cone")
+	player.face_world_point(tap.model.to_global(Vector3(0,2.28,.44)))
+	await _shot("installed_tub_wall_supports")
+	if not await _drag_part(tap,tap.diverter.global_position,0.0,"installed_tub_filler"):return
+	if not _require(not sources[0].spray.emitting and tap.filler.visible and tap.spray_flow_amount()==0,"filler diversion stops GPU shower emission through authoritative flow"):return
+	player.face_world_point(tap._bath_plug.global_position)
+	await get_tree().physics_frame
+	var target:Dictionary=player._grab.find_target()
+	if not _require(target.get("part")==tap._bath_plug,"occupied bowl leaves the specific stopper accessible"):return
+	await _bath_click()
+	if not _require(player._grab.active() and player._grab.target.part==tap._bath_plug,"primary grabs the installed stopper"):return
+	var pixels:Vector2=player.camera.unproject_position(tap.model.to_global(tap.plug_seat))-player.camera.unproject_position(tap._bath_plug.global_position)
+	for index in 12:
+		var motion:=InputEventMouseMotion.new();motion.relative=pixels/12
+		player._unhandled_input(motion);await get_tree().physics_frame
+	await _bath_click()
+	if not _require(not player._grab.active() and tap._stopper,"installed stopper snaps into the drain on release"):return
+	await get_tree().create_timer(2.0).timeout
+	if not _require(tap._water_level>.05,"actual occupied tub collects mixed supply behind its sealed drain"):return
+	player.face_world_point(tap.model.to_global(Vector3(-.32,.90,.28)))
+	await _shot("installed_tub_filler_and_chain")
+	for index in 2:
+		if not await _bath_valve(tap,index,0.0):return
+	if not await _walk_bath_pose(tap,Vector3(0,0,-1.05)):return
+	for tick in 30:await get_tree().physics_frame
+	if not _require(absf(tap.model.to_local(player.global_position).y)<.045,"actual room permits return to its original floor"):return
+	if OS.get_environment("ORISON_BATH_OPTICAL_ONLY")=="1":
+		# An exterior view distinguishes the whole cone from the view while
+		# standing within it. Restore flow through real controls, then shut off.
+		for index in 2:
+			if not await _bath_valve(tap,index,PI*.5*(.85 if index==0 else .5)):return
+		if not await _drag_part(tap,tap.diverter.global_position,.012,"exterior_shower_diversion"):return
+		player.face_world_point(tap._stream.global_position-Vector3.UP*.7)
+		await get_tree().create_timer(.6).timeout
+		await _shot("installed_tub_shower_exterior")
+		for index in 2:
+			if not await _bath_valve(tap,index,0.0):return
+		print("BATH OPTICAL REVIEW: INERT input/capture review; disk reconstruction is not run in this mode.")
+		return
+	var old_path:String=RealityState.save_path
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("validated_bath_campaign.json")
+	await _save_rebuild_bath(tap)
+	RealityState.flush_background_saves();RealityState.save_path=old_path
+	var file:=FileAccess.open(OS.get_environment("SHOT_DIR").path_join("bath_world.json"),FileAccess.WRITE)
+	file.store_string(JSON.stringify({"evidence_class":"INERT","checks":interaction_checks,"failures":failures,
+		"scope":"Actual 4B actor, walked vessel access, native controls/spray and validated campaign disk save with world reconstruction. No complete prologue, whole-V2 surface qualification, global navigation, performance attribution or human acceptance."},"\t",true,true))
+
+func _save_rebuild_bath(tap:TapProp) -> void:
+	var wanted:Dictionary=tap.mechanism_snapshot()
+	var complete_household:Dictionary=world.household_state.snapshot()
+	if not _require(world.household_state.validate(complete_household,world.household_state._kinds),"existing household validator accepts the complete mixed fixture roster"):return
+	if not _require(RealityState.save_game() and FileAccess.file_exists(RealityState.save_path),"existing campaign storage writes an isolated real save"):return
+	var key:String=Household.KEY
+	if not _require(RealityState.data[key].records["F04_4B_SHOWER_01"].value==wanted,"campaign snapshot contains the actual released tub controls"):return
+	var saved:Dictionary=JSON.parse_string(FileAccess.get_file_as_string(RealityState.save_path))
+	var protected_domains:Dictionary={}
+	for domain:String in ["cases","inventories","work_orders","resident_trust","newspapers_collected","discovered_documents","campaign_clock"]:
+		if saved.has(domain):protected_domains[domain]=saved[domain]
+	var previous:WeakRef=weakref(tap)
+	world.shutdown_for_tests();remove_child(world);world.free()
+	await get_tree().process_frame
+	if not _require(previous.get_ref()==null,"retired world releases the original bath and its callbacks"):return
+	RealityState.reset_campaign_for_tests();RealityState.load_game()
+	var loaded:=_require(RealityState.load_status().status=="loaded" and not RealityState.save_write_blocked,"existing validated campaign loader accepts the complete saved document")
+	for domain:String in protected_domains:
+		loaded=_require(RealityState.data.get(domain)==protected_domains[domain],"load preserves authoritative domain: "+domain) and loaded
+	world=Runtime.instantiate();add_child(world)
+	var deadline:=Time.get_ticks_msec()+240000
+	while world.startup_ms<=0 and not world.startup_failed and Time.get_ticks_msec()<deadline:
+		await get_tree().process_frame
+	if not loaded:return
+	if not _require(not world.startup_failed and world.startup_ms>0,"saved household reconstructs on a fresh occupied V2 world"):return
+	player=world.player
+	var restored:TapProp=world.adapter.resolve("F04_4B_SHOWER_01")
+	if not _require(restored!=null and restored!=previous.get_ref(),"new 4B bath owner is resolved after rebuild"):return
+	await get_tree().physics_frame;await get_tree().physics_frame
+	var actual:Dictionary=restored.mechanism_snapshot()
+	var exact:=Vector3(actual.plug[0],actual.plug[1],actual.plug[2])==Vector3(wanted.plug[0],wanted.plug[1],wanted.plug[2])
+	var error:=0.0
+	for field:String in ["hot","cold","curtain","water","diverter"]:error=maxf(error,absf(float(actual[field])-float(wanted[field])))
+	_require(exact and error<1e-12,"fresh actor restores the released plug and every saved control/water value")
+	_require(restored._held_valve==-1 and not restored._curtain_hand.held and not restored._plug_hand.held,"reload does not resurrect transient input ownership")
+	_require(world.bathroom_moisture._rooms["F04_B_BATH"].humidity==0.0,"transient room steam does not reappear as stale saved observations")
 
 func _review_refit(carrier: Node) -> void:
 	player.face_world_point(director._bath_anchor.origin)

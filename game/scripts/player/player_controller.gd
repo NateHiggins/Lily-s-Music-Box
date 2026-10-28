@@ -1264,8 +1264,10 @@ func clear_native_contact_agent() -> void:
 	var previous: RefCounted=_native_contact_agent;_native_contact_agent=null
 	if previous!=null:previous.release()
 
-func _step_path_blocked(probe: Vector3) -> bool:
-	if not _low_step_probe_enabled or _step_cap==null or _capsule.radius<.30 or _shape.basis!=Basis.IDENTITY:
+func _step_path_blocked(probe: Vector3,step_height:float=.30) -> bool:
+	# The cached lower sphere is equivalent only in the ordinary 300mm band.
+	# A fixture's larger step-over must query the complete standing capsule.
+	if step_height>.30 or not _low_step_probe_enabled or _step_cap==null or _capsule.radius<.30 or _shape.basis!=Basis.IDENTITY:
 		return test_move(global_transform,probe)
 	if _step_cap_shape.radius!=_capsule.radius:_step_cap_shape.radius=_capsule.radius
 	var exceptions: Array=get_collision_exceptions()
@@ -1303,7 +1305,7 @@ func _try_step_up(delta: float) -> void:
 		if profile_physics:step_guard_rejections+=1
 		return
 	var probe := motion.normalized() * maxf(motion.length(), 0.06)
-	if not _step_path_blocked(probe):
+	if not _step_path_blocked(probe,step_height):
 		return  # path clear at ground level
 	var lift := Vector3.UP * step_height
 	if test_move(global_transform, lift):

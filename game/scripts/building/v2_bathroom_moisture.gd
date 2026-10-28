@@ -21,9 +21,13 @@ func configure(world: Node3D) -> bool:
 	_water.uv1_triplanar=false;_water.normal_enabled=true;_water.normal_scale=0.1
 	_water.albedo_color=Color(0.72,0.86,0.94,0.58);_water.roughness=0.12
 	_water.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
+	# A player can stand inside the cone. Fade the nearest drops rather than
+	# letting a centimetre-long streak clip into a bright screen-sized polygon.
+	_water.distance_fade_mode=BaseMaterial3D.DISTANCE_FADE_PIXEL_ALPHA
+	_water.distance_fade_min_distance=0.25;_water.distance_fade_max_distance=0.55
 	_water.emission_enabled=true;_water.emission=Color(0.85,0.92,1.0);_water.emission_energy_multiplier=0.3
 	_water.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
-	_drop_mesh=SphereMesh.new();_drop_mesh.radius=0.003;_drop_mesh.height=0.035
+	_drop_mesh=SphereMesh.new();_drop_mesh.radius=0.0008;_drop_mesh.height=0.035
 	_drop_mesh.radial_segments=6;_drop_mesh.rings=2;_drop_mesh.material=_water
 	_drop_process=ParticleProcessMaterial.new();_drop_process.direction=Vector3.DOWN
 	_drop_process.spread=10.0;_drop_process.gravity=Vector3.DOWN*3.0
