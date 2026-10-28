@@ -200,3 +200,146 @@ city stock was changed.
   (`OrisonV2StreetTraffic.lamp_factor`, one source of the times).
 - Any merged script or data change expires the V2 runtime and surface
   receipts.
+
+## 9. Authored body-mesh LOD extension — queued design, October 28
+
+Owner request: extend LOD beyond omitting detail to switching the main body
+mesh. This section specifies future implementation; it changes no runtime
+schema, installed asset or acceptance status. **P-BODY-MESH-LOD** in TASKS.md
+owns delivery. Start with one measured traffic stock, then extend only where
+the same approach has demonstrated value. Keep this design here rather than
+create another parallel specification or global LOD manager.
+
+### Existing owners and the gap
+
+**orison_v2_street_traffic.gd**, **_write_instances / _write_vehicle**, selects
+detail using street x and always writes **kind.stock** for the body. Omitting
+wheels/riders does not simplify that body. The generated traffic table uses
+**orison.v2.street-traffic.v1**; its existing **lod** fields also control flow
+and junction policy, so they must not be reinterpreted as mesh-selection data.
+
+Body alternatives already exist elsewhere: **dream_critter_blender_assets.gd**
+loads separate LOD0/LOD1 templates, and **dream_critter_blender_batch.gd** owns
+their inspection selection and triangle budget. Resident presentation retains
+imported surface index LODs. Reuse those owners; do not replace them with a
+traffic-specific convention. Prefer native index LOD where it already solves
+the measured cost. Authored body variants serve topology, material/part-count
+or silhouette simplification that detail hiding/index reduction cannot supply.
+
+### Proposed visual-only contract
+
+Add an optional, explicitly versioned **visual_lod** block to participating
+asset recipes. The traffic adapter should emit a versioned v2 table and accept
+legacy v1 tables unchanged. No block means the current body and current detail
+policy. Keep the new block independent of existing **lod** flow settings.
+The example below is illustrative design data, not a new runtime input:
+
+```json
+{
+  "visual_lod": {
+    "schema": "orison.visual-body-lod.v1",
+    "reference_height_px": 1440,
+    "selection": "projected_height",
+    "variants": [
+      {"id": "near", "mesh_set": "body_near", "detail_profile": "full"},
+      {"id": "mid", "mesh_set": "body_mid", "detail_profile": "reduced"},
+      {"id": "far", "mesh_set": "body_far", "detail_profile": "silhouette"}
+    ],
+    "transitions": [
+      {"fine": "near", "coarse": "mid", "coarsen_below_px": 140, "refine_above_px": 175},
+      {"fine": "mid", "coarse": "far", "coarsen_below_px": 40, "refine_above_px": 55}
+    ],
+    "fallback": "near"
+  }
+}
+```
+
+Thresholds are calibration examples, not approved budgets. Normalize projected
+height to the declared reference viewport height, using the actual camera
+projection/FOV and conservative shared body bounds. Account for orthographic
+views and near-plane intersections; a camera inside the bounds requests near.
+Distance may cheaply reject irrelevant objects but must not determine final
+detail during telescope zoom. Use separate refine/coarsen thresholds, bounded
+selection cadence and minimum dwell to prevent flicker without delaying a
+close approach. Validate positive ordered thresholds, unique variant ids,
+resolvable mesh sets, compatible bounds/material partitions and a valid
+fallback. Missing optional variants keep a valid loaded body with a bounded
+diagnostic; they must never make an actor disappear or trigger synchronous
+loading during a turn. Malformed authored data fails its build/schema check.
+
+Each mesh set resolves explicit body meshes and material partitions in the
+existing stock manifest. Each variant must contain genuinely different geometry
+with measured triangle/surface counts, not another name for the same mesh.
+Detail profiles remain separate: a reduced body may retain necessary moving
+parts. In particular, distant cars need believable wheels, ground contact and
+wheel arches; merge simple wheels into a far silhouette if appropriate rather
+than produce floating coachwork. Preserve distinctive proportions, windows,
+rooflines and period identity before small ornament.
+
+### Authoring, ownership and residency
+
+- Author alternatives in the same editable Blender source and preferably the
+  same exported GLB/manifest. No hand-edited glTF and no separate file per LOD
+  unless measured residency requires it. Shared packaging reduces file/import
+  overhead but does not automatically reduce resident memory. Record triangles,
+  surfaces/materials, bounds, texture use and packaged bytes per variant.
+- Keep stable semantic actor/part ids, local origins, scales, hinge/wheel pivots
+  and attachment roots. Swap visuals within the existing actor; retain motion,
+  wheel travel, steering, brake/signal state, audio and animation phase. Collision,
+  reticle targets, physical constraints, inventory, resident relationships,
+  quests and saves stay with their current owners. Visual LOD never changes live
+  braking/avoidance or promotes background cross-flow into gameplay simulation.
+- Rigid stock, skinned residents and procedural critters need distinct adapters.
+  Skinned variants share validated skeleton/bone mappings and animation state;
+  procedural templates preserve atlas/anchor contracts. Keep the critter batch's
+  existing triangle cap and inspection allocation. Do not force all families
+  through one replacement scene or override budgets to satisfy a detail pin.
+- Traffic MultiMesh batches become stock + variant + material/part batches.
+  Maintain stable actor-to-slot bookkeeping and bounded dirty migrations. Avoid
+  per-frame scene scans, mesh rebuilding, scene instantiation or resource loads.
+  Prewarm through the current residency loader; retain a ready fallback. Budget
+  added batches and shader/material variants as well as saved triangles.
+- Selection is transient derived presentation, never a campaign save field.
+  Reload reconstructs it from current observers. A grab or inspection uses its
+  existing owner's suitable detail/reservation policy without resetting input
+  or bypassing a hard rendering budget. Companion readability stays with its
+  installed presentation owner.
+
+### Cameras, transitions and surfaces
+
+Evaluate relevant main, mirror and telescope observers using their actual
+visibility masks. Shared MultiMeshes choose the finest required variant across
+those observers unless the existing renderer already supplies per-view index
+LOD; do not duplicate the world for each camera. Small reflections should not
+pin unrelated stock at near detail. Preserve the companion layer's visibility
+and the lamp's separate world-occlusion rules.
+
+Start with hard swaps plus hysteresis. Do not require alpha/dither crossfades:
+they can add draws, disrupt glass and introduce visible noise. Add a transition
+effect only if rendered comparisons justify its cost. All variants still need
+UVs, custom catalogue PBR, normals/tangents and loaded mipmaps. Preserve glass
+tint, alpha/culling and shared finish ownership; lower detail is no exemption.
+Check silhouettes, gaps and contact shadows from all supported views.
+
+### Delivery and verification
+
+1. Freeze a baseline for one traffic body and the existing traffic route. Measure
+   CPU/render submission, main and private-view GPU costs, triangles, draw calls,
+   shadow passes, resident memory and first-view load/compilation separately.
+2. Implement the optional schema/validator, Blender export and traffic adapter
+   together. Prove real distinct body geometry, legacy/no-block fallback, missing
+   variant fallback, hysteresis and stable part ownership with meaningful tests.
+3. Through the shared Godot lane, compare the same occupied route/settings,
+   cold and warm: p50/p95/p99/max and spike counts. Exercise rapid turning,
+   approach/retreat, transitions, mirror/telescope zoom and relevant actual
+   grab/inspection/release. Check traffic stop/avoidance and unchanged validated
+   save/load reconstruction; do not rerun unrelated mechanisms.
+4. Inspect rendered transitions and silhouettes before broad rollout. Record
+   gains and regressions, including extra batches, memory and loading spikes.
+   Expand only to measured beneficiaries; do not manufacture three variants for
+   every asset. Retain original failures, runtime-contract evidence and static
+   comparison gates separately from diagnostics and human artistic acceptance.
+
+This is a queued optimization capability, not a claim of improved frame times
+or completed visual qualification. It does not displace current repairs or
+authorize unrelated gameplay changes.

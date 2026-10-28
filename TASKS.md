@@ -1221,6 +1221,18 @@ deliberate cleanup. Explicit V1 rollback/protected paths remain intact.
 Measured repair history: `design/V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md`.
 Performance/counter procedure: `.agents/skills/godot-development/SKILL.md`.
 
+- **P-BODY-MESH-LOD — Implement authored body-mesh switching alongside detail
+  omission.** Design: `design/V2_TRAFFIC_BEHAVIOUR_2026-10-24.md` §9. After the
+  current cleanup/measurement checkpoint, pilot one measured traffic stock:
+  optional versioned visual schema, true near/mid/far body mesh sets, Blender
+  export/validation, projected-size selection with hysteresis, bounded MultiMesh
+  migration and ready fallback. Preserve existing gameplay/part/save owners,
+  native index LOD, critter budgets and relevant mirror/telescope/inspection
+  detail. Compare cold/warm same-settings frame distributions, draws, triangles,
+  shadows and memory; inspect actual rendered transitions and affected input,
+  then qualify the candidate. Roll out only where measured benefits justify it.
+  **QUEUED: design only; no runtime implementation or acceptance yet.**
+
 ## I — Prop and set interaction review / the service wire
 
 Owner ruling 2026-08-15; design contract in `design/PROP_ACTIVITIES.md`,
