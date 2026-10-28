@@ -634,9 +634,9 @@ Owner decision needed: **none**. V2 is not complete.
 
 WIP, **INERT**. Base **9896ebe7**, clean 114-gate board captured before edits.
 The six-building research brief is being implemented on
-**codex/v2-city-courts-20261028**. Only **site_far_se / Elm** and
-**site_far_w / Cambridge** are presently rebuilt; Greystone, Towers, Chateau
-and Laburnum remain unfinished. No additional completed city studies are
+**codex/v2-city-courts-20261028**. **site_far_se / Elm**, **site_far_w / Cambridge**, **site_far_n / Greystone**
+and **site_far_sw / Laburnum** now have native prototypes. Towers and Chateau
+remain unfinished. No additional completed city studies are
 counted yet. The owner canceled parallel entrance work and requested one task
 at a time; this batch remains the sole construction focus.
 
@@ -658,7 +658,8 @@ Final pair native build: **1,205 bearing samples**, **2,950 pane samples**,
 zero failures at 0.1 mm tolerance; both open-court negative controls pass.
 The focused imported diagnostic completes **5,411 checks**, **1,205 roof
 samples**, **946 draws**, zero failures and empty shutdown stderr. Its wrapper
-receipt binds current source. Thirteen relevant Python source tests pass and
+receipt binds the earlier two-prototype inputs, not the later four-building or
+additive-material work. Thirteen relevant Python source tests pass and
 NEW unread fields remain zero. All **918 unrelated decoded draw arrays/poses**
 remain exact; five other city GLBs remain byte-identical to the base.
 
@@ -670,3 +671,46 @@ surface qualification, full candidate gates and merge are **NOT_EXECUTED** for
 this WIP. The existing main surface packet does not qualify these changed
 inputs. Save/load is not claimed. Native failures, source snapshots and rendered
 reviews are retained under **C:/ov/reports/city_reference_next_20261028**.
+
+
+### Four native forms and shared finishes — October 28 WIP
+
+Greystone now has a fifteen-axis, five-storey gray-brick composition, keyed
+Tudor-style doorway, connected stepped centre parapet and a 3 m-deep open rear
+court. Laburnum has two 2.8 m-deep entry courts, attached portico decks with iron
+crowns and pale arched upper windows. The legacy cap/parapet stock is replaced
+where these courts require it; new closed roof panels subtract the real voids.
+Original equipment bearing heights and supports remain verified. No new
+accessible interior, route, resident, shop or gameplay state owner is added.
+
+Native result: **3,189 panes / 1,205 bearings / 10 wall-return samples**, zero
+failures at the original 0.1 mm tolerance. All four sampled crown faces have
+outward dot = 1 and zero position error. Native building, entry and roof images
+were inspected. The first return-probe tangent was reversed; its failure and
+source are retained. Correcting the probe leaves the optically reviewed GLB
+byte-identical. **915 unrelated draw arrays/poses** remain exact against the
+preceding two-prototype WIP; five other city GLBs remain byte-identical.
+
+Three catalogue-owned periodic PBR families are added: **city_grey_brick**,
+**city_slate**, **city_roof_clay**. The latter two are prepared for the unfinished
+roof pair, not evidence of completed roofs. All **125 pre-existing material
+records remain exact**. The existing additive renewal tool validates and archives
+prior construction bindings; it never repins runtime contracts. The catalogue
+persistence test initially exposed missing declarations in the layout generator;
+only three catalogue entries were added there, without running the world-data
+writer. A preserved negative-control reproduction fails the original assertion;
+the current persistence test and seven additive-binding tests pass. Thirteen
+city-source tests pass; NEW reader fields remain zero. Procedural source maps
+have no lettering, photography or baked lighting. Source files/metadata are
+marked -text; no new material default is substituted for an existing finish.
+
+Provisional elevation totals: **805,043 triangles / 239 draws / 81,105,472 GLB
+bytes**. This increases geometry/asset cost and has not yet been measured on the
+occupied route. The new finishes have not yet received imported loaded-mipmap
+or composed-world optical qualification. The four-building imported checks,
+final six-building world review, performance comparison, source-bound surface
+renewal, candidate verification and merge remain **NOT_EXECUTED**. The earlier
+5,411-check imported result applies only to its original two-prototype inputs.
+This work remains WIP; the active queue still counts only five qualified city
+studies and 144 unfinished identities. Reproduction and failure records remain
+under **C:/ov/reports/city_reference_next_20261028**.

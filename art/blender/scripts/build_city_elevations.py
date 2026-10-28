@@ -175,7 +175,107 @@ def turned_stock(name,key,center,profile,sides=12,flute=0.):
     ff += [(j*sides+i,j*sides+(i+1)%sides,(j+1)*sides+(i+1)%sides,(j+1)*sides+i) for j in range(len(profile)-1) for i in range(sides)]
     add(name,key,vv,ff)
 
+
+def terraced_courts(name,p,rect,top,cap_row):
+    """A measured multi-court perimeter and edited roof, not an extra facade skin."""
+    a=p['architecture'];style=a['style'];depth=float(p['reveal_depth']);x,y,X,Y=rect
+    frames=facade_frames(rect,depth);schedules={int(k):v for k,v in a['segments'].items()}
+    cuts=[];entries=[];courts=[];count=0;outline=[]
+    # Full corner frames for the roof boundary; facade corners retain their
+    # existing reveal-depth ownership so adjacent sides do not overlap.
+    corners={0:(Vector((X,y,0)),Vector((-1,0,0)),Vector((0,-1,0)),X-x),3:(Vector((x,y,0)),Vector((0,1,0)),Vector((-1,0,0)),Y-y),2:(Vector((x,Y,0)),Vector((1,0,0)),Vector((0,1,0)),X-x),1:(Vector((X,Y,0)),Vector((0,-1,0)),Vector((1,0,0)),Y-y)}
+    for side in [0,3,2,1]:
+        origin,u,out,length=corners[side]
+        schedule=schedules.get(side,[[0,length,0,max(1,int(length/p['bay_pitch'])),False]])
+        assert abs(schedule[0][0])<1e-6 and abs(schedule[-1][1]-length)<1e-6
+        previous=0.
+        for i,(left,right,back,bays,entry) in enumerate(schedule):
+            assert right>left and back>=0 and bays>0 and (i==0 or abs(left-schedule[i-1][1])<1e-6)
+            start=origin+u*left-out*back;end=origin+u*right-out*back
+            if not outline or (Vector(outline[-1])-Vector((start.x,start.y))).length>1e-6:outline.append((start.x,start.y))
+            outline.append((end.x,end.y))
+            if back>0:
+                points=[origin+u*t-out*d for t,d in [(left,0),(right,0),(left,back),(right,back)]]
+                cuts.append([min(v.x for v in points),min(v.y for v in points),max(v.x for v in points),max(v.y for v in points)])
+            if side not in schedules:
+                count+=facade(name,dict(p,_frames=[(side,frames[side])]),rect,0.,top)
+                break
+            # Every depth change has a closed masonry return with real thickness.
+            if abs(back-previous)>1e-6:
+                local_box(name,p['wall_key'],origin,u,out,(max(0,left-depth),-max(back,previous),0),(max(depth,left),-min(back,previous),top))
+            q=dict(p,_frames=[(side,(start,u,out,right-left))],_bays=int(bays),_entry=bool(entry),_entry_width=1.45,_entry_height=2.70,_entry_arch=bool(entry),_arch_top=style=='laburnum' and side==int(a['front_side']),_arch_top_all=style=='laburnum',_arch_finish='limestone',_top_width=p['window_width'])
+            count+=facade(name,q,rect,0.,top)
+            local_box(name,'limestone',start,u,out,(0,-depth,0),(right-left,.035,.65))
+            if side==int(a['front_side']):
+                level=p['floor_heights'][0]
+                local_box(name,'limestone',start,u,out,(0,-depth,level-.06),(right-left,.065,level+.06))
+            if back>=1.0:
+                local_box(name,'limestone',origin,u,out,(left+.02,-back,.0),(right-.02,-.01,.14))
+                courts.append((side,origin,u,out,left,right,back,entry))
+            if entry:entries.append((side,origin,u,out,left,right,back))
+            previous=back
+        if previous>0:local_box(name,p['wall_key'],origin,u,out,(length-depth,-previous,0),(length,0,top))
+    # Remove collinear vertices before generating full-depth mitred courses.
+    compact=[]
+    for v in outline:
+        if not compact or (Vector(v)-Vector(compact[-1])).length>1e-6:compact.append(v)
+    if (Vector(compact[0])-Vector(compact[-1])).length<1e-6:compact.pop()
+    while True:
+        keep=[]
+        for i,v in enumerate(compact):
+            before=Vector(v)-Vector(compact[i-1]);after=Vector(compact[(i+1)%len(compact)])-Vector(v)
+            if abs(before.x*after.y-before.y*after.x)>1e-7:keep.append(v)
+        if len(keep)==len(compact):break
+        compact=keep
+    assert len(compact)>=4
+    if sum(a[0]*b[1]-b[0]*a[1] for a,b in zip(compact,compact[1:]+compact[:1]))>0:compact.reverse()
+    # The owner permits replacing the legacy slab. Keep every surviving roof
+    # at the original physical bearing height; subtract actual court voids.
+    pieces=[rect]
+    for L,B,R,T in cuts:
+        result=[]
+        for l,b,r,t in pieces:
+            A=max(l,L);C=min(r,R);D=max(b,B);E=min(t,T)
+            candidates=[(l,b,r,t)] if A>=C or D>=E else [(l,b,r,D),(l,E,r,t),(l,D,A,E),(C,D,r,E)]
+            result.extend(v for v in candidates if v[2]-v[0]>1e-6 and v[3]-v[1]>1e-6)
+        pieces=result
+    for l,b,r,t in pieces:box(name,'roof_bitumen',(l,b,top),(r,t,top+.26))
+    for projection,bottom,high in [(.12,top-.20,top+.03),(.26,top+.03,top+.24)]:
+        vv,ff=cornice_ring(compact,projection,bottom,high);add(name,'limestone',vv,ff)
+    for side,origin,u,out,left,right,back in entries:
+        center=(left+right)/2
+        if style=='greystone':
+            # Tudor doorway has keyed pale stone attached to its masonry jambs.
+            for sign in [-1,1]:
+                at=center+sign*.86
+                local_box(name,'limestone',origin,u,out,(at-.11,-back-.08,0),(at+.11,-back+.12,2.74))
+                for z in [.15,.65,1.15,1.65,2.15]:local_box(name,'limestone',origin,u,out,(at-.16,-back+.12,z),(at+.16,-back+.16,z+.16))
+            profile_stock(name,'limestone',origin,u,out,[(center-.16,2.92),(center+.16,2.92),(center+.12,3.17),(center-.12,3.17)],-back-.03,-back+.18)
+            local_box(name,p['wall_key'],origin,u,out,(left,-back-depth,top+.24),(right,-back+.02,top+.60))
+            local_box(name,'limestone',origin,u,out,(left-.04,-back-depth-.04,top+.60),(right+.04,-back+.06,top+.69))
+            for sign in [-1,0,1]:
+                t=center+sign*2.35
+                local_box(name,p['wall_key'],origin,u,out,(t-.48,-back-depth,top+.60),(t+.48,-back+.02,top+.98))
+                local_box(name,'limestone',origin,u,out,(t-.54,-back-depth-.04,top+.98),(t+.54,-back+.08,top+1.09))
+        else:
+            # Four-sided support: masonry at the back and two front pilasters
+            # carry the real portico deck, with a small iron balcony crown.
+            for sign in [-1,1]:
+                at=center+sign*((right-left)*.5-.38)
+                local_box(name,'limestone',origin,u,out,(at-.18,-.48,.14),(at+.18,-.12,2.90))
+                local_box(name,'limestone',origin,u,out,(at-.23,-.54,2.78),(at+.23,-.08,2.92))
+            local_box(name,'limestone',origin,u,out,(left+.05,-back-.04,2.90),(right-.05,.08,3.15))
+            for i in range(15):
+                t=left+.18+(right-left-.36)*i/14
+                local_box(name,'iron_blackened',origin,u,out,(t-.014,-.025,3.15),(t+.014,.005,3.70))
+            local_box(name,'iron_blackened',origin,u,out,(left+.12,-.055,3.70),(right-.12,.035,3.76))
+    for side,origin,u,out,left,right,back,entry in courts:
+        probe=origin+u*((left+right)/2)-out*back*.5+Vector((0,0,top+.8))
+        court_details.append(dict(building=name,style=style,front_side=side,recess_depth_m=back,recess_width_m=right-left,outline=compact,void_probe=list(probe),porch_top=3.15 if entry else .14,roof_height=top,entry_count=len(entries),edited_legacy_roof=True))
+    return count
+
 def court_apartment(name,p,rect,top,cap_row):
+    if p['architecture']['style'] in ['greystone','laburnum']:return terraced_courts(name,p,rect,top,cap_row)
     a=p['architecture'];front=int(a['front_side']);depth=float(p['reveal_depth'])
     frames=facade_frames(rect,depth);origin,u,out,length=frames[front]
     width=float(a['recess_width_m']);inset=float(a['recess_depth_m']);left=(length-width)/2;right=left+width
@@ -280,7 +380,7 @@ def facade(name,p,rect,z0,z1):
                 # Very short retained crowns are solid masonry, never squashed windows.
                 if h<.9 or w<.6:
                     local_box(name,p['wall_key'],origin,tangent,out,(left,-depth,a),(right,0,b));continue
-                arched=factory or (townhouse and side==int(p['architecture']['front_side'])) or (p.get('_arch_top',False) and floor==len(intervals)-1 and bay==bays//2)
+                arched=factory or (townhouse and side==int(p['architecture']['front_side'])) or (p.get('_arch_top',False) and floor==len(intervals)-1 and (p.get('_arch_top_all',False) or bay==bays//2))
                 portal=(factory and floor==0 and side in [0,3] and bay==bays//2) or (townhouse and floor==0 and side==int(p['architecture']['front_side']) and bay%3==0) or (p.get('_entry',False) and floor==0 and bay==bays//2)
                 if p.get('_arch_top',False) and floor==len(intervals)-1 and bay==bays//2:w=float(p.get('_top_width',w))
                 if portal:w=min(float(p.get('_entry_width',1.45 if townhouse else 2.0)),pitch-.35);h=float(p.get('_entry_height',3.2));arched=arched or bool(p.get('_entry_arch',False))
@@ -300,7 +400,7 @@ def facade(name,p,rect,z0,z1):
                         l=cx-arch_width*.5*math.cos(a0);r=cx-arch_width*.5*math.cos(a1)
                         z=spring+rise*math.sin(a0);Z=spring+rise*math.sin(a1)
                         profile_stock(name,p['wall_key'],origin,tangent,out,[(l,z),(r,Z),(r,high+.04),(l,high+.04)],-depth,0)
-                    arch_stock(name,'limestone' if townhouse else p['wall_key'],origin,tangent,out,cx,spring,arch_width/2,rise,.12,-.08,.09 if townhouse else .035)
+                    arch_stock(name,p.get('_arch_finish','limestone' if townhouse else p['wall_key']),origin,tangent,out,cx,spring,arch_width/2,rise,.12,-.08,.09 if townhouse else .035)
                     if townhouse and not portal:
                         # Projecting hood and two supporting corbels, with actual
                         # contact at the hood spring rather than floating blocks.
@@ -373,6 +473,7 @@ for name,p in groups.items():
         if ('vertical_profile' in p or townhouse) and (suffix.startswith('base') or suffix=='bcorn'):continue
         if re.fullmatch('s[0-9]+',suffix) or suffix.startswith('par_'):continue
         if re.fullmatch('c[0-9]+',suffix) and r is not last and suffix!='c'+last['id'].rsplit('_s',1)[1]:continue
+        if p.get('architecture',{}).get('style') in ['greystone','laburnum'] and suffix=='c'+last['id'].rsplit('_s',1)[1]:continue
         key=r['key']
         if factory and (re.fullmatch('c[0-9]+',suffix) or suffix=='bulk_c'):key='roof_bitumen'
         if suffix.startswith('base') and key=='concrete':key='limestone'
@@ -388,7 +489,7 @@ for name,p in groups.items():
     factory=p.get('architecture',{}).get('type')=='sohmer_factory'
     townhouse=p.get('architecture',{}).get('type')=='hunters_point_italianate'
     ring=rings[name];cap=max(v.co.z for v in ring.data.vertices)
-    for face in ([] if factory else ring.data.polygons):
+    for face in ([] if factory or p.get('architecture',{}).get('style') in ['greystone','laburnum'] else ring.data.polygons):
         key=next(r['key'] for r in rr if '_par_' in r['id']) if all(ring.data.vertices[i].co.z>=cap-.00002 for i in face.vertices) else p['wall_key']
         add(name,key,[tuple(ring.matrix_world@ring.data.vertices[i].co) for i in face.vertices],[tuple(range(len(face.vertices)))])
     # One continuous primary shaft and at most one upper setback, retaining all
@@ -532,10 +633,18 @@ for detail in townhouse_details:
     if hit is None or (hit-point).length>.0001 or n.dot(normal)<.99 or not face_owners[index].endswith('__'+detail['finish']):native_failures.append(dict(kind='townhouse_cornice_front',detail=detail))
 for detail in court_details:
     point=Vector(detail['void_probe'])
-    hit,n,index,distance=bvh.ray_cast(point,Vector((0,0,-1)),detail['roof_height'])
+    hit,n,index,distance=bvh.ray_cast(point,Vector((0,0,-1)),detail['roof_height']+1.)
     if hit is None or hit.z>detail['porch_top']+.0001:native_failures.append(dict(kind='court_void_obstructed',building=detail['building'],hit=list(hit) if hit is not None else None))
+native_returns=0
+for detail in court_details:
+    normal=[Vector((0,-1,0)),Vector((1,0,0)),Vector((0,1,0)),Vector((-1,0,0))][int(detail['front_side'])]
+    tangent=Vector((normal.y,-normal.x,0));center=Vector(detail['void_probe']);center.z=detail['roof_height']*.6
+    depth=float(groups[detail['building']]['reveal_depth']);half=detail['recess_width_m']*.5
+    for point,direction in [(center-tangent*half,tangent),(center+tangent*(half-depth),-tangent)]:
+        hit,n,index,distance=bvh.ray_cast(point+direction*.10,-direction,.20);native_returns+=1
+        if hit is None or (hit-point).length>=.0001 or n.dot(direction)<.99:native_failures.append(dict(kind='court_return',building=detail['building'],sample=list(point)))
 assert not native_failures,native_failures[:12]
-native_checks=dict(bearing_samples=native_bearings,window_samples=native_windows,failures=native_failures,tolerance_m=.0001)
+native_checks=dict(return_samples=native_returns,bearing_samples=native_bearings,window_samples=native_windows,failures=native_failures,tolerance_m=.0001)
 print('CITY NATIVE CONTACTS',native_checks,flush=True)
 
 # Native source and portable export are rebuilt together, before review cameras.

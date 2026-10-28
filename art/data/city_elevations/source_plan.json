@@ -623,18 +623,18 @@
     },
     {
       "id": "site_far_n",
-      "description": "Five-storey Greystone-inspired north block; authored height repair, individual Tudor entrance/court study remains open",
+      "description": "Greystone-inspired five-storey gray-brick Tudor apartment composition: fifteen front axes, keyed doorway, raised centre parapet and an open rear court",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
-      "bay_pitch": 2.22,
-      "window_width": 1.0,
-      "window_height": 1.76,
+      "bay_pitch": 2.65,
+      "window_width": 1.08,
+      "window_height": 1.9,
       "sash": "door_paint",
-      "wall_key": "limestone",
+      "wall_key": "city_grey_brick",
       "wall_tint": [
-        0.78,
-        0.72,
-        0.65,
+        1,
+        1,
+        1,
         1
       ],
       "frame_tint": [
@@ -646,7 +646,7 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
+      "detail_faces": "all",
       "window_joinery": "single_sash",
       "window_treatment": "roller",
       "sill_projection": 0.085,
@@ -667,14 +667,70 @@
         3.25
       ],
       "precedent": {
-        "name": "Greystone Apartments, 80th Street, George H. Wells, 1917\u201318",
+        "name": "Greystone Apartments, 35-15 80th Street, George H. Wells, 1916\u201318",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           30,
           31,
-          62
+          147,
+          148,
+          61
         ],
-        "adaptation": "Five-storey height hierarchy is documented. Dimensions are authored; existing reservation and roof hardware are retained. This is not a replica or completed individual architectural study."
+        "adaptation": "Authored enlarged 40 m mass, gray brick, fifteen axes and Tudor entry vocabulary; not a surveyed replica. The old slab is edited for a true rear court. Roof bearings remain measured; no new interior or access."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "greystone",
+        "front_side": 0,
+        "arch_rise_m": 0.22,
+        "segments": {
+          "0": [
+            [
+              0,
+              16.4,
+              0.3,
+              6,
+              false
+            ],
+            [
+              16.4,
+              23.6,
+              0,
+              3,
+              true
+            ],
+            [
+              23.6,
+              40,
+              0.3,
+              6,
+              false
+            ]
+          ],
+          "2": [
+            [
+              0,
+              16.4,
+              0,
+              6,
+              false
+            ],
+            [
+              16.4,
+              23.6,
+              3.0,
+              3,
+              false
+            ],
+            [
+              23.6,
+              40,
+              0,
+              6,
+              false
+            ]
+          ]
+        }
       }
     },
     {
@@ -929,18 +985,18 @@
     },
     {
       "id": "site_far_sw",
-      "description": "Laburnum Court, 37-15 79th Street, George H. Wells, 1921\u201322 \u2014 authored proportion repair; individual architectural study remains open",
+      "description": "Laburnum-inspired five-storey red-brick court apartment: two open entry courts, supported iron-crowned porticoes and arched upper sash",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
-      "bay_pitch": 2.22,
-      "window_width": 1.0,
-      "window_height": 1.76,
+      "bay_pitch": 2.75,
+      "window_width": 1.02,
+      "window_height": 1.9,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "brick",
       "wall_tint": [
-        1,
-        1,
-        1,
+        0.72,
+        0.48,
+        0.39,
         1
       ],
       "frame_tint": [
@@ -952,7 +1008,7 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
+      "detail_faces": "all",
       "window_joinery": "single_sash",
       "window_treatment": "roller",
       "sill_projection": 0.085,
@@ -976,9 +1032,56 @@
         "name": "Laburnum Court, 37-15 79th Street, George H. Wells, 1921\u201322",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
-          138
+          138,
+          34,
+          65
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Five-storey hierarchy; H plan with recessed front courts, iron balcony and cornice remain to be constructed."
+        "adaptation": "Two 2.8 m-deep courts adapt the group to one existing mass; original roof slabs are cut rather than hiding the courts. Keep the registered -4.83 m X offset once, supported equipment and passive doors. No new interior, garden route or actor."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "laburnum",
+        "front_side": 2,
+        "arch_rise_m": 0.48,
+        "segments": {
+          "2": [
+            [
+              0,
+              7,
+              0,
+              3,
+              false
+            ],
+            [
+              7,
+              12,
+              2.8,
+              1,
+              true
+            ],
+            [
+              12,
+              22,
+              0,
+              3,
+              false
+            ],
+            [
+              22,
+              27,
+              2.8,
+              1,
+              true
+            ],
+            [
+              27,
+              34,
+              0,
+              3,
+              false
+            ]
+          ]
+        }
       }
     },
     {

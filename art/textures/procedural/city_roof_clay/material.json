@@ -1,0 +1,20 @@
+{
+  "material": "city_roof_clay",
+  "generator": "art/tools/build_city_masonry.py",
+  "seed": 19281030,
+  "meters_per_tile": 1.2,
+  "height_min_m": -0.0001617282079558371,
+  "height_max_m": 0.018284142758419112,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "normal": "normal.png",
+    "height": "height.png"
+  },
+  "map_sha256": {
+    "albedo": "13e01c560e45e50026cf9cccc3c0e6a34625949eca1149936a097428217ede7e",
+    "roughness": "43556ebf8af6d266e8b93e15836ee2963fb7f3b51dee5ceecf9e41043cc3e1c4",
+    "normal": "d861f0a0d652f38613e46a9fd2a73acd56eda78c88dfe3b0c274ae89a72c8e93",
+    "height": "2c2b37963fdc557936eecfabd911cdea37f14f10c19d74603f0c6bc45fb135ce"
+  }
+}
