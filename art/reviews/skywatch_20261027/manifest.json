@@ -1256,9 +1256,60 @@
     "city_relief_first_pass/native/final/relief_context.png": "a996504d15104f3b2cc6d1af56a9d858d77b0e2ad62544cac5ded6940d5f6f7c",
     "city_relief_first_pass/main_baseline/board.json": "7a40c0b6fb3ae11729d5d17c051008b0a30b79d732bb2dffd63c05dc78821670",
     "city_relief_first_pass/main_baseline/board.md": "c0f6fca49325f29fcbf8aa2d097ac8d9dff233872262d5dd1fc8a1afc05d3fea",
-    "city_relief_first_pass/package_first_pass.py": "43db654b552ae3b4aa242277b7f73da24f1e6e5dd7fde7c26e074038726debca"
+    "city_relief_first_pass/package_first_pass.py": "43db654b552ae3b4aa242277b7f73da24f1e6e5dd7fde7c26e074038726debca",
+    "city_building_studies_three/bearing_bench.json": "ebf1d50caa485620725261ccf4bf16505b69bf0f19bad11874e974544babde93",
+    "city_building_studies_three/bearing_bench.ps1": "b74896bd82eeeed108a4035537c3f03ef6b948129b6995a9a08cd65a0095fd6d",
+    "city_building_studies_three/bearing_generated_import_churn.zip": "195f4c9e653c9b212555885b044fa1318cd1699e1b67fa28264ee8d4e486ee42",
+    "city_building_studies_three/bearing_import_cleanup.json": "fa1020a71282bc8547eb989e6a7b26e268bec5574781eab51dd6e392e58c5260",
+    "city_building_studies_three/bearing_orphan_index.lock.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_building_studies_three/bearing_orphan_index_lock.json": "99e65d2d5cda094ec49e58aea78f850156fab305cc6322fad64aac8686dbf15d",
+    "city_building_studies_three/bench.json": "9a6b168562cf5c59889ae28422ba2a9a427b514ca737a4b32bc9d3c6f3104a6c",
+    "city_building_studies_three/bench.log": "ef4dc471a83c8920fccc425c715f7861425e86074c90c605458f583d21543a2f",
+    "city_building_studies_three/bench.log.receipt.json": "49e933bab263d368dafe3f37ca6a517290d144f1541cc65363129a28cc6eab1a",
+    "city_building_studies_three/bench.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_building_studies_three/bench.ps1": "2262d8ba05e227b0f1c3f4a4106ca25f1bda7a3d41e52b45ea30f71fc2fe8593",
+    "city_building_studies_three/bench_bearings.log": "c0bda7a30c1246fceb002c2c3db9e82454efa0d5b4878d8c41995e3e05d08b2f",
+    "city_building_studies_three/bench_bearings.log.receipt.json": "5954e63d040320456ee6c0ae5fccf4ecae4be6135421ab889b65fc08de78181a",
+    "city_building_studies_three/bench_bearings.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_building_studies_three/bench_final.log": "021f0e567b0da2b541a1945634cda30656a6443508d840402da7b99ecb39b66e",
+    "city_building_studies_three/bench_final.log.receipt.json": "2e4ea62a81a73390276d83db458bafa2cdea984d64be2f5290342fc6ac6a4974",
+    "city_building_studies_three/bench_final.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_building_studies_three/clean_bearing_import.py": "00620d69c124f4a781df4b6022a55143c04e586bb92ad243201dbfe8edac3afe",
+    "city_building_studies_three/clean_import.py": "51ad2a7b1f8ec6ca4dd393f28e5a076b3314d4bd37efa8ac19d014edc3ebc0db",
+    "city_building_studies_three/compare_unrelated.py": "108324f0a995b873d84d1953a400f7dc4841e4e2a6b5d1cc6ecf23ae35221922",
+    "city_building_studies_three/eol_preflight_attempt.zip": "ac35a68b33b9538f54bb6e0a6c63bb8a64c7d9e0fa7b53f217123fb601758ee3",
+    "city_building_studies_three/generated_import_churn.zip": "84d2f5838acbe19241f32f13a6abc3a50a87699a5187756035050aabf51b7f94",
+    "city_building_studies_three/generated_uid_value_changes.json": "30a295e6aaa1a3ac120e5ff783348e6300863fb2b191cb6bc0b27701a6843493",
+    "city_building_studies_three/ground_rebind.log": "4f317cdc669366163116b2c8d86518cd862284fbf19db4e962a2bc92b9012c9e",
+    "city_building_studies_three/horizon_bearing_controls_build.log": "c5da252d2f37eaec97ca68eb63b211ded74d53c9d930f292a9fd24a92d519475",
+    "city_building_studies_three/horizon_build.log": "855e36c1e7289fd930022cafe0d742dde54bdc3d1f1fad1318419cda9e6aeb0b",
+    "city_building_studies_three/horizon_final_build.log": "a585e0ab2b816353ca380b10c4e2fcc9e627fcdb82c68c5ee6809a6189d3ec8e",
+    "city_building_studies_three/horizon_preserved_build.log": "8aa5ed4f433ad48b4d3f6b31d7994dc5ddb2dac8b9b80ced11fc508a3a16e1b1",
+    "city_building_studies_three/horizon_seated_parapet_build.log": "db9873d036121e768dd53190c788a4b57bb6adc58909dc4ab77db7bace29ceee",
+    "city_building_studies_three/horizon_sparse_projection_build.log": "fccaf1139340ba07a70059ff796338b39c78d4cd5213c59f7796f4b652bdf4c3",
+    "city_building_studies_three/import.log": "c093fd870ee0c465c70d9e553d48433a511c6e6e916793ebef917e7e8a43c629",
+    "city_building_studies_three/import.log.receipt.json": "d99f5fd9f020016aefcb9acbb0070eeb78cff03a065890de96810940f749c6b3",
+    "city_building_studies_three/import.log.stderr": "c1e6a4adabd0a3a1901c68fecd301c721a5ed1cf7b2347985d16d44cb9b553b5",
+    "city_building_studies_three/import_bearings.log": "c31f981bb5515cb5cb06ba2056d2d31a0999119be0f80b54f0917359ce70e481",
+    "city_building_studies_three/import_bearings.log.receipt.json": "619bcedcc68d336d073f2bd9d53529fa83460967cd781796189403bc6ff7fbdd",
+    "city_building_studies_three/import_bearings.log.stderr": "02a4045763f6ff6972faa5b0d98a4c7c4a5823b476f9bbf5e59cba2ce852ea54",
+    "city_building_studies_three/import_cleanup.json": "f183773b6a1a59f97c56aa07a1a7d519b60dd62a92b5d4688fd149801df474e3",
+    "city_building_studies_three/native_bearings_review.log": "7ded3a1d2e754e8633a9a8ca550f6ffa93a59d70e95ab8b3b39e6600e0f8a3b0",
+    "city_building_studies_three/native_bound_review.log": "61bb3a2574c780a823af51f8e41416d569ced90bd9ef3c5385ade50e57678857",
+    "city_building_studies_three/native_final_review.log": "4dc09b0ed39d0597d7522f69d3efb17fc001ffb0b0b98b0ae7581caa6de45aa3",
+    "city_building_studies_three/native_review.log": "a79584a7627b809f92226fc8fd6af2f3d246c6e4a62a822f34dd2ca0ee904f88",
+    "city_building_studies_three/native_seated_review.log": "68855fd4a8fed68a606e05a8063a78dd37df3dd694ba096100adb630c1c0e931",
+    "city_building_studies_three/orphan_index.lock.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_building_studies_three/orphan_index_lock.json": "b9267d394d6727219d52cb822af4e9f2a6cccf0e0b9ee98579508b71efd07a06",
+    "city_building_studies_three/package_three.py": "935b4e488058a9da57c31bbf37544aef94d6d2178782e7cb4c49212e21e3c15f",
+    "city_building_studies_three/unrelated_arrays.json": "95d64088d90d9171d473181ff38693205eb5049ca2d827338006ebcd895e89ec",
+    "city_building_studies_three/unrelated_arrays_before_parapet.json": "e30cc0950d75fbb773b2a94f6cce64071cc8a8cd6fd44fd86f0f4d84553e5bf7",
+    "city_building_studies_three/unrelated_arrays_final.json": "548a53ec7ab7987b52eb3be351fcd74ea264563f36b145a77f00bf5109ee73da",
+    "city_building_studies_three/untracked_before_bearing_import.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "city_building_studies_three/native_bearings/review.json": "873c35662d018a682a7f933569a51bc73766120ee343e783d85089d7d9ee309f",
+    "city_building_studies_three/native_bearings/HORIZON_NEAR_0_0_P0R1.png": "5cd9d708ff5fcaa3706349d081af357c332d0a7691b5f622e4a40861a90abfb9"
   },
-  "archive_sha256": "cf0da4a50abed6f928f6838a884a64915a03dd5234534367b855bca0080880dc",
+  "archive_sha256": "e6d37c6ebddbdc17f4e69c96683b1439c0a66d2612df983b19610525c3200939",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -3139,6 +3190,303 @@
       "Flat generic buildings need individual precedent-based refinement.",
       "No full surface/runtime contract, quays, tracks, elevated station or bridge completion.",
       "Original water-side orientation failure exists in tool transcript; no fabricated log."
+    ]
+  },
+  "city_building_studies_three": {
+    "evidence_class": "INERT",
+    "scope": "Three authored architectural studies; native and imported neutral bench only. No composed-world/full-surface, played-access, save-rebuild or human acceptance.",
+    "base": "499ebad0",
+    "mode": "3440x1440 fullscreen; patched4.7.1 LLVM Vulkan; neutral bench lighting",
+    "studies": [
+      {
+        "id": "HORIZON_NEAR_0_0_P0R0",
+        "height_m": 10.55,
+        "architecture": {
+          "precedent": "21-21 45th Avenue, Hunters Point; Root and Rust stone Italianate row",
+          "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+          "source_pages": [
+            3,
+            4
+          ],
+          "adaptation": "Authored dimensions, not a measured replica. Three main storeys over a low basement; narrow three-bay street face, seated stoop and bracketed cornice.",
+          "floor_heights_m": [
+            1.1,
+            3.15,
+            3.15,
+            3.15
+          ],
+          "side_bays": [
+            3,
+            6,
+            3,
+            6
+          ],
+          "cornice_key": "door_paint",
+          "entrance": {
+            "side": 0,
+            "bay": 0,
+            "floor": 1,
+            "height_m": 2.5,
+            "width_m": 1.05,
+            "steps": 7,
+            "step_run_m": 0.27
+          },
+          "bracket_sides": [
+            0
+          ],
+          "bracket_pitch_m": 1.7
+        }
+      },
+      {
+        "id": "HORIZON_NEAR_0_0_P0R1",
+        "height_m": 13.0,
+        "architecture": {
+          "precedent": "21-42 45th Avenue, Hunters Point; 1889 Queen Anne apartment house",
+          "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+          "source_pages": [
+            5
+          ],
+          "adaptation": "Authored four-storey narrow apartment house. A real three-sided bay, continuous banded cornice and separate entry replace a stretched rectangular module.",
+          "outline_m": [
+            [
+              -135.33333333333334,
+              -150.65
+            ],
+            [
+              -136.65333333333334,
+              -150.65
+            ],
+            [
+              -137.31333333333333,
+              -150
+            ],
+            [
+              -139.73333333333332,
+              -150
+            ],
+            [
+              -140.39333333333332,
+              -150.65
+            ],
+            [
+              -142.66666666666666,
+              -150.65
+            ],
+            [
+              -142.66666666666666,
+              -170
+            ],
+            [
+              -135.33333333333334,
+              -170
+            ]
+          ],
+          "floor_heights_m": [
+            3.25,
+            3.25,
+            3.25,
+            3.25
+          ],
+          "side_bays": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            6,
+            3,
+            6
+          ],
+          "cornice_key": "door_paint",
+          "entrance": {
+            "side": 4,
+            "bay": 0,
+            "floor": 0,
+            "height_m": 2.45,
+            "width_m": 1.0,
+            "steps": 1,
+            "step_run_m": 0.28
+          },
+          "bracket_sides": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "bracket_pitch_m": 1.7
+        }
+      },
+      {
+        "id": "HORIZON_NEAR_0_0_P2",
+        "height_m": 12.4,
+        "architecture": {
+          "precedent": "Linden Court, 84th/85th Streets; Andrew J. Thomas paired garden apartments, 1919\u201321",
+          "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
+          "source_pages": [
+            32,
+            63
+          ],
+          "adaptation": "Fictional four-storey adaptation of the paired-building/garden vocabulary. A recessed entrance court breaks the street wall; dimensions are authored, not surveyed.",
+          "outline_m": [
+            [
+              -84.0,
+              -150
+            ],
+            [
+              -92.0,
+              -150
+            ],
+            [
+              -92.0,
+              -153
+            ],
+            [
+              -98.0,
+              -153
+            ],
+            [
+              -98.0,
+              -150
+            ],
+            [
+              -106.0,
+              -150
+            ],
+            [
+              -106.0,
+              -170
+            ],
+            [
+              -84.0,
+              -170
+            ]
+          ],
+          "floor_heights_m": [
+            3.1,
+            3.1,
+            3.1,
+            3.1
+          ],
+          "side_bays": [
+            3,
+            1,
+            3,
+            1,
+            3,
+            6,
+            7,
+            6
+          ],
+          "cornice_key": "limestone",
+          "entrance": {
+            "side": 2,
+            "bay": 1,
+            "floor": 0,
+            "height_m": 2.5,
+            "width_m": 1.2,
+            "steps": 0,
+            "step_run_m": 0.28
+          },
+          "bracket_sides": [],
+          "bracket_pitch_m": 1.7
+        }
+      }
+    ],
+    "remaining": "25 near-city plus121 horizon buildings require individual studies/acceptance; repair eight29.5\u201344.715m near-city background masses with dependent roof equipment next.",
+    "final_bench": {
+      "receipt": "bench_bearings.log.receipt.json",
+      "checks": 12534,
+      "failures": 0,
+      "elapsed_s": 15.95,
+      "shutdown_stderr_empty": true,
+      "kind": "suite_run, not runtime_contract"
+    },
+    "native_checks": {
+      "near": {
+        "window_samples": 4443,
+        "parapet_samples": 20,
+        "parapet_outside_controls": 20,
+        "failures": [],
+        "tolerance_m": 0.0001
+      },
+      "far": {
+        "window_samples": 7844,
+        "parapet_samples": 0,
+        "parapet_outside_controls": 0,
+        "failures": [],
+        "tolerance_m": 0.0001
+      }
+    },
+    "unrelated_arrays": {
+      "evidence_class": "INERT",
+      "base": "499ebad0",
+      "scope": "All exported arrays and node poses of unedited building draws; not loaded runtime or optical acceptance.",
+      "families": {
+        "near": {
+          "unchanged_draws": 381,
+          "array_or_pose_changes": [],
+          "added_unrelated": [],
+          "whole_glb_identical": false,
+          "before_sha256": "88215b8981fb617be489642e62cfed0a7d274c401931520626a286fb56a953f0",
+          "after_sha256": "55bcfdb099e238516a6953b5864893da7ab7f41f5c31b4a629c1903b361073cf"
+        },
+        "far": {
+          "unchanged_draws": 214,
+          "array_or_pose_changes": [],
+          "added_unrelated": [],
+          "whole_glb_identical": true,
+          "before_sha256": "14bf89f23519d6877d32aa07ec125254ac16623a7d1ba37de7ed6cbd0dc8edc4",
+          "after_sha256": "14bf89f23519d6877d32aa07ec125254ac16623a7d1ba37de7ed6cbd0dc8edc4"
+        }
+      }
+    },
+    "source_lf_sha256": {
+      "art/data/city_horizon/source_plan.json": "39c5ca2ce3c6066508b3265b07a963aeb59254c90452a4f5b9515e8ee0ab974d",
+      "art/blender/scripts/build_city_horizon.py": "d6bc4c6c457c422ef04041228391111623e61240f38caf61abcc5eeb71eb080e",
+      "art/blender/scripts/city_horizon_geometry.py": "e50d1e0e6e024fcbe1cf14970d7057f1cbcb779122498cf27568ba6d73b8671a",
+      "game/scripts/building/orison_v2_city_horizon.gd": "57df492686cfecac3196ac3ee2a7b0ed804a2d8d561781fee4bf8255c9d190f2",
+      "game/tests/v2_city_horizon_bench.gd": "e583f0fcab0028a119c02421019681d1a1ba1939f8f13995e6d92f4dbb723aee",
+      "game/tests/fixtures/orison_city_horizon.json": "3e9569a3a5be1d25df63947053c51e208257d6df0026605c6d63130ccbe24253"
+    },
+    "captures": {
+      "native_bearings\\HORIZON_NEAR_0_0_P0R0.png": {
+        "sha256": "b030fe159c7c37bb519c6494376e153da808f21235c58d3a8272670bfa9d8157",
+        "external_path": "C:\\ov\\reports\\city_studies_20261028\\native_bearings\\HORIZON_NEAR_0_0_P0R0.png",
+        "inspected": true
+      },
+      "native_bearings\\HORIZON_NEAR_0_0_P0R1.png": {
+        "sha256": "5cd9d708ff5fcaa3706349d081af357c332d0a7691b5f622e4a40861a90abfb9",
+        "external_path": "C:\\ov\\reports\\city_studies_20261028\\native_bearings\\HORIZON_NEAR_0_0_P0R1.png",
+        "inspected": true
+      },
+      "native_bearings\\HORIZON_NEAR_0_0_P2.png": {
+        "sha256": "00796d81dab64a775c03898596675306ff0f72f6de69da834707094e1dd62a4a",
+        "external_path": "C:\\ov\\reports\\city_studies_20261028\\native_bearings\\HORIZON_NEAR_0_0_P2.png",
+        "inspected": true
+      },
+      "imported_bearings\\HORIZON_NEAR_0_0_P0R0.png": {
+        "sha256": "62c91221771bdb47d7c079cd3e0b94d66941dbf14c15c6ba64197592f2fa489d",
+        "external_path": "C:\\ov\\reports\\city_studies_20261028\\imported_bearings\\HORIZON_NEAR_0_0_P0R0.png",
+        "inspected": true
+      },
+      "imported_bearings\\HORIZON_NEAR_0_0_P0R1.png": {
+        "sha256": "ad00836a1e1ccb7ca806c4e8aa3830e3dac2c619a178b7126c05074c6f7fe51c",
+        "external_path": "C:\\ov\\reports\\city_studies_20261028\\imported_bearings\\HORIZON_NEAR_0_0_P0R1.png",
+        "inspected": true
+      },
+      "imported_bearings\\HORIZON_NEAR_0_0_P2.png": {
+        "sha256": "888a40b710e33f0cecb47eaa4ed1748f27f27677b5955906a6be1105f0c78152",
+        "external_path": "C:\\ov\\reports\\city_studies_20261028\\imported_bearings\\HORIZON_NEAR_0_0_P2.png",
+        "inspected": true
+      }
+    },
+    "limits": [
+      "Authored proportions, not surveyed facsimiles.",
+      "Simplified ornament and opaque distant panes; neutral renders are not final atmospheric acceptance.",
+      "Earlier terrain route predates these building changes and is not their performance qualification.",
+      "Earlier bench wrappers retained but stale after added checks/geometry correction.",
+      "Cleanup preflight failures exist in tool transcript; no fabricated traceback log."
     ]
   }
 }

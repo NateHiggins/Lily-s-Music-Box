@@ -1,5 +1,70 @@
 """Closed distant window reveals; source geometry, never runtime evidence."""
 
+import math
+
+
+def building_outline(row):
+    """Clockwise Blender XY boundary; explicit study outlines use Godot X/Z."""
+    a,b,c,d=row['rect']
+    points=row.get('architecture',{}).get('outline_m',[[c,d],[a,d],[a,b],[c,b]])
+    outline=[(float(x),-float(z)) for x,z in points]
+    area=sum(x*Y-X*y for (x,y),(X,Y) in zip(outline,outline[1:]+outline[:1]))*.5
+    assert len(outline)>=4 and area<0,'Outline must run clockwise in Blender XY'
+    assert all(a-1e-7<=x<=c+1e-7 and b-1e-7<=-y<=d+1e-7 for x,y in outline)
+    return outline
+
+
+def extrusion(outline,bottom,top):
+    """Closed, consistently oriented polygonal stock, including concave courts."""
+    assert bottom<top
+    n=len(outline)
+    vertices=[(x,y,z) for z in [bottom,top] for x,y in outline]
+    faces=[tuple(range(n)),tuple(range(2*n-1,n-1,-1))]
+    faces += [(j,i,i+n,j+n) for i,j in zip(range(n),list(range(1,n))+[0])]
+    return vertices,faces
+
+
+def offset_outline(outline,distance):
+    """Intersect neighboring offset lines: full-depth mitres around real bays."""
+    result=[]
+    for index,p in enumerate(outline):
+        previous=outline[index-1]; following=outline[(index+1)%len(outline)]
+        ax,ay=p[0]-previous[0],p[1]-previous[1];al=math.hypot(ax,ay);ax/=al;ay/=al
+        bx,by=following[0]-p[0],following[1]-p[1];bl=math.hypot(bx,by);bx/=bl;by/=bl
+        det=ay*bx-ax*by;assert abs(det)>1e-8,'Collinear outline corner'
+        # Left normals point out of this clockwise boundary.
+        dx=(-by+ay)*distance;dy=(bx-ax)*distance
+        t=(-by*dx+bx*dy)/det
+        result.append((p[0]-ay*distance+ax*t,p[1]+ax*distance+ay*t))
+    return result
+
+
+def cornice_ring(outline,width,bottom,top):
+    """Closed annular course. Its inner edge seats on the masonry face."""
+    outer=offset_outline(outline,width);n=len(outline)
+    v=[(x,y,z) for z in [bottom,top] for ring in [outline,outer] for x,y in ring]
+    f=[]
+    for i in range(n):
+        j=(i+1)%n
+        f += [(i,j,j+n,i+n),(i+2*n,i+3*n,j+3*n,j+2*n),
+              (i,i+2*n,j+2*n,j),(i+n,j+n,j+3*n,i+3*n)]
+    return v,[tuple(reversed(face)) for face in f]
+
+
+def floor_intervals(row):
+    study=row.get('architecture',{})
+    heights=study.get('floor_heights_m')
+    if heights is None:
+        count=max(1,round(row['height_m']/row['storey_m']))
+        height=row['height_m']/count
+        # Preserve the existing multiplication order for unedited buildings.
+        return [(i*height,(i+1)*height) for i in range(count)]
+    assert all(float(h)>.65 for h in heights) and abs(sum(heights)-row['height_m'])<1e-6
+    bottom=0.; result=[]
+    for height in heights:
+        result.append((bottom,bottom+height));bottom+=height
+    return result
+
 def reveal_cell(left,bottom,right,top,wl,low,wr,high,depth):
     assert left<wl<wr<right and bottom<low<high<top and 0<depth<.5
     outer=[(left,bottom),(left,top),(right,top),(right,bottom)]

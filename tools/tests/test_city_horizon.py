@@ -35,4 +35,24 @@ class Horizon(unittest.TestCase):
         plan['buildings'][0]['rect']=[100,0,120,50]
         with self.assertRaises(AssertionError):module.validate_plan(plan,[-108,-4,-108,112,-.02,64])
 
+    def test_individual_study_stock_is_closed_and_oriented_including_concave_court(self):
+        plan=json.loads((root/'art/data/city_horizon/source_plan.json').read_text())
+        studies=[r for r in plan['buildings'] if 'architecture' in r]
+        self.assertGreaterEqual(len(studies),3)
+        for row in studies:
+            outline=module.building_outline(row)
+            for v,f in [module.extrusion(outline,0,.18),module.cornice_ring(outline,.32,0,.2)]:
+                edges=collections.Counter(tuple(sorted((a,b))) for face in f for a,b in zip(face,face[1:]+face[:1]))
+                self.assertTrue(all(n==2 for n in edges.values()),row['id'])
+                volume=sum(np.dot(v[face[0]],np.cross(v[face[i]],v[face[i+1]]))/6 for face in f for i in range(1,len(face)-1))
+                self.assertGreater(volume,0,row['id'])
+            floors=module.floor_intervals(row)
+            self.assertAlmostEqual(floors[-1][1],row['height_m'])
+            self.assertEqual(len(outline),len(row['architecture']['side_bays']))
+        # Reversed and malformed source must fail before a native export.
+        bad=dict(studies[0]);bad['architecture']=dict(bad['architecture'],floor_heights_m=[1,2])
+        with self.assertRaises(AssertionError):module.floor_intervals(bad)
+        bad['architecture']=dict(studies[0]['architecture'],outline_m=[[x,-y] for x,y in reversed(module.building_outline(studies[0]))])
+        with self.assertRaises(AssertionError):module.building_outline(bad)
+
 if __name__=='__main__':unittest.main()

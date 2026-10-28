@@ -12,23 +12,64 @@
         -142.66666666666666,
         -150
       ],
-      "height_m": 9.6,
-      "storey_m": 3.2,
+      "height_m": 10.55,
+      "storey_m": 3.15,
       "bay_pitch_m": 2.35,
-      "window_width_m": 0.94,
-      "window_height_m": 1.85,
+      "window_width_m": 1.08,
+      "window_height_m": 2.05,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "limestone",
       "wall_tint": [
-        0.78,
-        0.66,
-        0.55,
+        0.64,
+        0.56,
+        0.46,
         1
       ],
       "variation_seed": 0,
       "typology": "rowhouse",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.19,
+        0.24,
+        0.18,
+        1
+      ],
+      "architecture": {
+        "precedent": "21-21 45th Avenue, Hunters Point; Root and Rust stone Italianate row",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "source_pages": [
+          3,
+          4
+        ],
+        "adaptation": "Authored dimensions, not a measured replica. Three main storeys over a low basement; narrow three-bay street face, seated stoop and bracketed cornice.",
+        "floor_heights_m": [
+          1.1,
+          3.15,
+          3.15,
+          3.15
+        ],
+        "side_bays": [
+          3,
+          6,
+          3,
+          6
+        ],
+        "cornice_key": "door_paint",
+        "entrance": {
+          "side": 0,
+          "bay": 0,
+          "floor": 1,
+          "height_m": 2.5,
+          "width_m": 1.05,
+          "steps": 7,
+          "step_run_m": 0.27
+        },
+        "bracket_sides": [
+          0
+        ],
+        "bracket_pitch_m": 1.7
+      }
     },
     {
       "id": "HORIZON_NEAR_0_0_P0R1",
@@ -38,23 +79,105 @@
         -135.33333333333334,
         -150
       ],
-      "height_m": 9.6,
-      "storey_m": 3.2,
+      "height_m": 13.0,
+      "storey_m": 3.25,
       "bay_pitch_m": 2.35,
-      "window_width_m": 0.94,
-      "window_height_m": 1.85,
+      "window_width_m": 1.25,
+      "window_height_m": 2.05,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.9,
-        0.82,
-        0.65,
+        0.78,
+        0.51,
+        0.34,
         1
       ],
       "variation_seed": 1,
       "typology": "rowhouse",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.28,
+        0.25,
+        0.2,
+        1
+      ],
+      "architecture": {
+        "precedent": "21-42 45th Avenue, Hunters Point; 1889 Queen Anne apartment house",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "source_pages": [
+          5
+        ],
+        "adaptation": "Authored four-storey narrow apartment house. A real three-sided bay, continuous banded cornice and separate entry replace a stretched rectangular module.",
+        "outline_m": [
+          [
+            -135.33333333333334,
+            -150.65
+          ],
+          [
+            -136.65333333333334,
+            -150.65
+          ],
+          [
+            -137.31333333333333,
+            -150
+          ],
+          [
+            -139.73333333333332,
+            -150
+          ],
+          [
+            -140.39333333333332,
+            -150.65
+          ],
+          [
+            -142.66666666666666,
+            -150.65
+          ],
+          [
+            -142.66666666666666,
+            -170
+          ],
+          [
+            -135.33333333333334,
+            -170
+          ]
+        ],
+        "floor_heights_m": [
+          3.25,
+          3.25,
+          3.25,
+          3.25
+        ],
+        "side_bays": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          6,
+          3,
+          6
+        ],
+        "cornice_key": "door_paint",
+        "entrance": {
+          "side": 4,
+          "bay": 0,
+          "floor": 0,
+          "height_m": 2.45,
+          "width_m": 1.0,
+          "steps": 1,
+          "step_run_m": 0.28
+        },
+        "bracket_sides": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "bracket_pitch_m": 1.7
+      }
     },
     {
       "id": "HORIZON_NEAR_0_0_P0R2",
@@ -116,23 +239,100 @@
         -84.0,
         -150
       ],
-      "height_m": 19.2,
-      "storey_m": 3.2,
+      "height_m": 12.4,
+      "storey_m": 3.1,
       "bay_pitch_m": 2.65,
-      "window_width_m": 1.03,
-      "window_height_m": 1.9,
+      "window_width_m": 1.05,
+      "window_height_m": 1.8,
       "reveal_m": 0.18,
       "glass_recess_m": 0.11,
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.7,
+        0.76,
         0.6,
-        0.53,
+        0.47,
         1
       ],
       "variation_seed": 10,
       "typology": "walkup",
-      "chimney_height_m": 1.4
+      "chimney_height_m": 1.4,
+      "joinery_tint": [
+        0.36,
+        0.34,
+        0.29,
+        1
+      ],
+      "architecture": {
+        "precedent": "Linden Court, 84th/85th Streets; Andrew J. Thomas paired garden apartments, 1919\u201321",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
+        "source_pages": [
+          32,
+          63
+        ],
+        "adaptation": "Fictional four-storey adaptation of the paired-building/garden vocabulary. A recessed entrance court breaks the street wall; dimensions are authored, not surveyed.",
+        "outline_m": [
+          [
+            -84.0,
+            -150
+          ],
+          [
+            -92.0,
+            -150
+          ],
+          [
+            -92.0,
+            -153
+          ],
+          [
+            -98.0,
+            -153
+          ],
+          [
+            -98.0,
+            -150
+          ],
+          [
+            -106.0,
+            -150
+          ],
+          [
+            -106.0,
+            -170
+          ],
+          [
+            -84.0,
+            -170
+          ]
+        ],
+        "floor_heights_m": [
+          3.1,
+          3.1,
+          3.1,
+          3.1
+        ],
+        "side_bays": [
+          3,
+          1,
+          3,
+          1,
+          3,
+          6,
+          7,
+          6
+        ],
+        "cornice_key": "limestone",
+        "entrance": {
+          "side": 2,
+          "bay": 1,
+          "floor": 0,
+          "height_m": 2.5,
+          "width_m": 1.2,
+          "steps": 0,
+          "step_run_m": 0.28
+        },
+        "bracket_sides": [],
+        "bracket_pitch_m": 1.7
+      }
     },
     {
       "id": "HORIZON_NEAR_0_1_P0R0",

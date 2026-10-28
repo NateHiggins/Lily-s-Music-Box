@@ -2,6 +2,76 @@
 
 Evidence class: **INERT**. Publication report; no additional acceptance grant.
 
+## Construction update — October 27 evening / October 28 UTC
+
+**Unmerged WIP**, branch **codex/v2-city-relief-20261028**, parent **499ebad0**,
+based on main **04d72f3a**. Earlier publication evidence below retains its
+original scope; it does not qualify this new construction.
+
+Three of **149** passive buildings now have authored individual studies:
+**HORIZON_NEAR_0_0_P0R0**, a stone Italianate adaptation of 21-21 45th Avenue,
+has three main floors over a low basement, a seated seven-step stoop, iron rails,
+recessed paneled entrance and bracketed cornice; **HORIZON_NEAR_0_0_P0R1** uses
+21-42 45th Avenue's four-storey angled-bay vocabulary;
+**HORIZON_NEAR_0_0_P2** uses Linden Court's paired-block vocabulary with a genuine
+recessed entrance court. Body heights are **10.55 / 13.0 / 12.4 m**. Dimensions
+are authored adaptations, not surveys or complete copies of historic ornament.
+
+The existing source plan holds references/pages, floor heights, outlines, bay
+counts, entrances and cornice programs. Closed polygonal stocks and mitred
+cornice rings follow the bays/court. No rectangular roof spans the court.
+Extend existing builders/helper/loader; serialize just three finish overrides.
+
+The native build passes **12,287 pane-depth rays** at **0.1 mm**, closed-stock
+checks, **20 parapet seats + 20 outside controls**, and complete exported tangent
+checks. Near stock changes **396→398 draws**,
+**528,364→529,300 triangles**, **52,485,040→52,641,652 bytes**. Far GLB is
+byte-identical. A decoded comparison against **499ebad0** verifies all exported
+attribute/index arrays and node poses on **381 other near + 214 far draws**, with
+no unrelated added draw. This is geometric preservation, not an FPS claim.
+
+The first imported bench passes **12,472** checks, then **12,474** after explicit
+native-asset SHA checks. Both original wrappers remain but are stale after the
+subsequent test/geometry changes. Review identifies parapets incorrectly seated
+outside the wall line on decorative cornices. Move their footprint inward to
+bear over the wall/roof assembly. Final **bench_bearings.log.receipt.json** passes
+**12,534 checks / zero failures** in **15.95 seconds**, empty shutdown stderr,
+and verifies against current source. Opposing front-face rays prove that actual
+parapet bottoms and roof tops meet; outside-wall probes cannot count a decorative
+cornice as a roof bearing.
+It checks actual imported bounds, panes, terrain, source asset hashes, mapping
+and teardown. A ray through the court reaches ground rather than a rectangular
+roof. Three final **3440×1440 fullscreen** captures and three final native views
+were actually inspected. Stoop/rails, angled bay, wrapped cornice and court read
+distinctly. Neutral bench lighting, opaque distant panes and simplified ornament
+remain limits. This wrapper is not a schema-2 runtime contract; composed-world,
+played-access, human acceptance and full surface renewal remain unproven.
+
+The editor recreates **627** untracked UIDs and **14** normalized-identical import
+sidecars. Archive their bytes and verify the known roster, indexed parents,
+resolved paths and creation times against this import before removing only that
+churn. Two UIDs regenerate for the two edited script owners; none is committed.
+The empty pre-import PowerShell pipeline created no file: cleanup additionally
+checks the prior archived 627-path roster and 625 unchanged values, without
+inventing an earlier file. Cleanup preflight stops are in the tool transcript;
+the eventual provenance, changed UID values and empty orphan lock are archived.
+No shared stash, reset, bulk staging or unrelated source removal is used.
+
+Diagnostics are **C:/ov/reports/city_studies_20261028**, archived in the existing
+skywatch packet under **city_building_studies_three/**. Python geometry tests
+pass; physical source retention has no missing/wrong source; reader has **zero
+NEW** unread fields. Candidate verification and merge are pending. No save suite
+or hose interaction is repeated for passive models/finishes. The earlier terrain
+route does not qualify these later building changes.
+
+| Location / issue | Reproduction / severity | Evidence | Repair / verification |
+|---|---|---|---|
+| Three horizon frontages lack coherent individual proportions | Inspect at source street height; visual high | Explicit floor plans and native/loaded renders above | Three studies implemented and bench-verified; composed-world review pending. |
+| Eight near-city background masses dominate the low-rise brief | Review street/roof skyline and elevation inventory; visual high | Existing roof heights **29.5–44.715 m** across eight **site_far** groups | Next: individual period mass/floor profiles and dependent roof equipment together. Preserve accessories' dimensions, playable anchors, frozen V1 source and strict source guards. |
+| Remaining **25 near-city + 121 horizon** buildings lack individual study acceptance | Compare repeated generic recipes; visual high | Source roster and earlier captures | Continue reference-based geometry and combined qualification. Three examples do not close the city task. |
+
+---
+
 Branch / HEAD / origin/main / merge-base: **main** / verified candidate
 **30f603c3bdd75ab5557cba15c2db4c9b35be1555** / **fa6e8f9762763a0ff369c74ed42aa704b44365e2** /
 **fa6e8f9762763a0ff369c74ed42aa704b44365e2**.

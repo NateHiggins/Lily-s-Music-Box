@@ -14,6 +14,8 @@ func _ready() -> void:
 
 func run() -> void:
 	var fixture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_horizon.json"))
+	for asset: Dictionary in fixture.assets.values():
+		check(FileAccess.get_sha256("res://"+str(asset.asset).trim_prefix("game/"))==str(asset.sha256),"installed horizon asset matches its native source binding")
 	var horizon := Horizon.new()
 	add_child(horizon)
 	var ground := preload("res://scripts/building/orison_v2_ground.gd").new()
@@ -77,10 +79,31 @@ func run() -> void:
 			check(not draw.has_node("GroundCollision"),"river/canal water has no walkable collision slab")
 	check(relief_parts==grade.parts.size(),"complete imported relief and water inventory")
 	check(float(ground.get_meta("city_street_asl_m"))==6.0 and float(ground.get_meta("city_water_scene_y_m"))==-6.0,"one scene-to-ASL datum")
+	var court:=Vector3(-95,30,-151.5)
+	var court_hit:=ground.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(court,Vector3(court.x,-.2,court.z),1))
+	check(not court_hit.is_empty() and ground.is_ancestor_of(court_hit.collider) and absf(court_hit.position.y+.02)<.0001,"recessed entrance court is genuinely open above the ground, without a rectangular roof crossing it")
+	for contact: Dictionary in fixture.parapet_contacts:
+		var p: Array=contact.point
+		var point:=Vector3(p[0],p[2],-p[1])
+		for direction: float in [-1.,1.]:
+			var query:=PhysicsRayQueryParameters3D.create(point+Vector3.UP*.025*direction,point-Vector3.UP*.025*direction,1)
+			query.hit_back_faces=false
+			var hit:=horizon.get_world_3d().direct_space_state.intersect_ray(query)
+			var draw: MeshInstance3D=bodies.get(hit.collider.get_rid()) if not hit.is_empty() else null
+			var expected_key: String=contact.wall_key if direction<0 else "galvanized_roof"
+			check(draw!=null and str(draw.name)==str(contact.building)+"__"+expected_key and hit.position.distance_to(point)<.0001,"actual parapet bottom and roof top meet over the bearing wall: "+str(contact.building)+" "+expected_key)
+		var outside: Array=contact.outside_probe
+		var probe:=Vector3(outside[0],outside[2],-outside[1])
+		var query:=PhysicsRayQueryParameters3D.create(probe+Vector3.UP*.025,probe-Vector3.UP*.025,1)
+		query.hit_back_faces=false
+		var hit:=horizon.get_world_3d().direct_space_state.intersect_ray(query)
+		var draw: MeshInstance3D=bodies.get(hit.collider.get_rid()) if not hit.is_empty() else null
+		check(draw==null or str(draw.name)!=str(contact.building)+"__galvanized_roof","outside-wall control is not accepted as a structural roof bearing")
 	var eyes: Array[Vector3]=[]
 	var excluded: Array[RID]=[]
 	var view := preload("res://tests/v2_city_context_review.gd").capture_station(horizon.get_world_3d().direct_space_state,horizon,fixture.window_rows,bodies,eyes,excluded)
 	check(not view.is_empty() and not view.get("retained_camera",true),"derived context camera has a genuine first-hit native pane")
+	if OS.get_environment("CITY_STUDY_CAPTURE")=="1":await _study_reviews(fixture)
 	var retired_ground: WeakRef=weakref(ground)
 	ground.free()
 	var retired: WeakRef = weakref(horizon)
@@ -90,3 +113,31 @@ func run() -> void:
 	check(retired_ground.get_ref()==null,"production grade node retires")
 	print("CITY HORIZON BENCH: %s; %d checks; %d failures" % ["PASS" if failures.is_empty() else "FAIL", checks, failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _study_reviews(fixture: Dictionary) -> void:
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DisplayServer.get_name()!="headless","study render requires the graphical backend and SHOT_DIR")
+	if directory.is_empty() or DisplayServer.get_name()=="headless":return
+	DirAccess.make_dir_recursive_absolute(directory)
+	var environment:=WorldEnvironment.new()
+	var settings:=Environment.new()
+	settings.background_mode=Environment.BG_COLOR;settings.background_color=Color(.32,.38,.44)
+	settings.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR
+	settings.ambient_light_color=Color(.62,.72,.8);settings.ambient_light_energy=.7
+	environment.environment=settings;add_child(environment)
+	var sun:=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-40,-25,0);sun.light_energy=2.8;sun.shadow_enabled=true;add_child(sun)
+	var camera:=Camera3D.new();camera.fov=48;camera.far=1500;add_child(camera);camera.make_current()
+	var captures:=0
+	for row: Dictionary in fixture.buildings:
+		if not row.has("architecture"):continue
+		var r: Array=row.rect;var center: float=(r[0]+r[2])*.5
+		var width: float=r[2]-r[0];var height:=float(row.height_m)
+		camera.position=Vector3(center+width*.25,height*.55,r[3]+maxf(20,width*1.35))
+		camera.look_at(Vector3(center,height*.48,r[3]-1))
+		await get_tree().create_timer(.3).timeout
+		await RenderingServer.frame_post_draw
+		var saved:=get_viewport().get_texture().get_image().save_png(directory.path_join(str(row.id)+".png"))
+		check(saved==OK,"imported native-resolution study render saved: "+str(row.id));captures+=1
+	check(captures>0,"nonempty imported study render roster")
+	print("CITY STUDY RENDERS: ",captures,"; neutral bench lighting, no composed-world or played-access acceptance")
+	camera.free();sun.free();environment.free()

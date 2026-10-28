@@ -22,7 +22,7 @@ func _ready() -> void:
 			var key: String = pieces[-1]
 			assert(profiles.has(identity) and MatLib.SETS.has(key))
 			var profile: Dictionary = profiles[identity]
-			var tint: Array = profile.wall_tint if key == str(profile.wall_key) else [.16,.20,.23,1] if key == "mirror_aged" else [1,1,1,1]
+			var tint: Array = profile.wall_tint if key == str(profile.wall_key) else profile.get("joinery_tint",[1,1,1,1]) if key in ["door_paint","cast_iron"] else [.16,.20,.23,1] if key == "mirror_aged" else [1,1,1,1]
 			var cache_key := key + "|" + str(tint)
 			if not materials.has(cache_key):
 				var stock := MatLib.get_mat(key).duplicate() as StandardMaterial3D

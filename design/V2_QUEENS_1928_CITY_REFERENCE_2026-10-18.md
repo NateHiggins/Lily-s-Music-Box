@@ -366,11 +366,12 @@ The first reference studies selected for refinement are:
 
 Source PDFs, extracted text and inspected plates remain outside game packaging
 at **C:/ov/reports/city_relief_20261028/references/**. No reference-photo pixels
-enter a model, map or exported material. These studies establish modeling
-direction; none of the 149 buildings is newly declared individually rebuilt or
-accepted by this reference pass. Keep the combined native/render qualification
-pending until actual geometry, its dependent roof attachments and the installed
-scene have been reviewed.
+enter a model, map or exported material. The reference pass establishes modeling
+direction, not acceptance. The subsequent first three modeled studies and their
+native/imported bench results are recorded in **V2_CITY_CONTEXT_REPORT_2026-10-19.md**.
+The other **25 near-city + 121 horizon** buildings, composed-world review and
+combined qualification remain open. Revise dependent roof attachments together
+with any changed massing; do not shrink the full task to three examples.
 
 ### Hybrid relief detailing — supplied suggestion, adapted to project rules
 

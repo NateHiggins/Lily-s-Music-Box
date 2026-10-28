@@ -5,7 +5,8 @@ from mathutils import Vector,Matrix
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
 OUT=ROOT/'tmp/v2-city-polish-20261018/horizon_native';OUT.mkdir(exist_ok=True,parents=True)
 relief_review=os.environ.get('CITY_RELIEF_REVIEW')=='1'
-if relief_review:
+study_review=os.environ.get('CITY_STUDY_REVIEW')=='1'
+if relief_review or study_review:
     OUT=Path(os.environ['CITY_REVIEW_OUTPUT']);OUT.mkdir(exist_ok=True,parents=True)
 files=[ROOT/'art/blender'/name for name in ['city_horizon_near.blend','city_horizon_far.blend','city_ground_apron.blend']]
 before={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
@@ -32,6 +33,12 @@ views=[('horizon_north',(0,0,24),(0,180,25)),('horizon_east',(0,0,24),(180,0,25)
 if relief_review:
     views=[('river_bank',(420,-10,10),(380,0,-4)),('canal_bank',(20,310,7),(50,360,-6)),
            ('rail_cut',(-305,-40,9),(-410,0,-3.5)),('relief_context',(480,540,240),(0,0,0))]
+if study_review:
+    views=[]
+    for row in json.loads((ROOT/'art/data/city_horizon/source_plan.json').read_text())['buildings']:
+        if 'architecture' not in row:continue
+        a,b,c,d=row['rect'];center=(a+c)/2;distance=max(20.,(c-a)*1.35);height=row['height_m']
+        views.append((row['id'],(center+(c-a)*.25,-d-distance,height*.55),(center,-d+1,height*.48)))
 for label,at,target in views:
     camera.location=at;camera.rotation_euler=(Vector(target)-camera.location).to_track_quat('-Z','Y').to_euler()
     scene.render.filepath=str(OUT/(label+'.png'));bpy.ops.render.render(write_still=True)
