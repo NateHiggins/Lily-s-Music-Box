@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "frame": "ORISON_V2_BUILDING_FRAME",
+  "street_asl_m": 6.0,
+  "water_scene_y_m": -6.0,
+  "finishes": [
+    {
+      "catalog_key": "asphalt",
+      "tint": [
+        0.78,
+        0.79,
+        0.78,
+        1.0
+      ],
+      "normal": 0.14,
+      "roughness": 0.97
+    },
+    {
+      "catalog_key": "soil",
+      "tint": [
+        0.48,
+        0.42,
+        0.33,
+        1
+      ],
+      "normal": 0.55,
+      "roughness": 1.0
+    },
+    {
+      "catalog_key": "concrete",
+      "tint": [
+        0.46,
+        0.45,
+        0.4,
+        1
+      ],
+      "normal": 0.55,
+      "roughness": 1.0
+    },
+    {
+      "catalog_key": "water_clear",
+      "tint": [
+        0.14,
+        0.2,
+        0.18,
+        1
+      ],
+      "normal": 0.18,
+      "roughness": 0.22
+    }
+  ]
+}

@@ -58,11 +58,25 @@ func run() -> void:
 		check(valid, "actual fitted opaque pane: "+str(window.building)+" "+str(point))
 	var grade: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_ground_apron.json"))
 	for strip: Dictionary in grade.boxes:
-		var samples := preload("res://tests/v2_city_context_review.gd").exposed_grade_samples(strip.bounds,fixture.buildings)
+		var samples: Array=strip.exposed_samples
 		check(samples.size()==9,"source-spanning exposed ground roster: "+str(strip.id))
-		for point: Vector3 in samples:
+		for sample: Array in samples:
+			var point:=Vector3(sample[0],sample[1],sample[2])
 			var hit := horizon.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+Vector3.UP*.03,point-Vector3.UP*.03,1))
 			check(not hit.is_empty() and ground.is_ancestor_of(hit.collider) and hit.position.distance_to(point)<.0001,"actual exposed grade beside new foundations: "+str(strip.id))
+	# Independent intended elevations, including submerged beds. Water must not
+	# become a solid platform above them.
+	for point: Vector3 in [Vector3(450,-8,0),Vector3(-400,-3.5,0),Vector3(0,-8,-360),Vector3(112,-.02,0),Vector3(-108,-.02,0)]:
+		var hit:=ground.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+Vector3.UP*12,point-Vector3.UP*.1,1))
+		check(not hit.is_empty() and ground.is_ancestor_of(hit.collider) and hit.position.distance_to(point)<.0001,"actual retained datum, rail cut or submerged bed: "+str(point))
+	var relief_parts:=0
+	for draw: MeshInstance3D in ground.find_children("*","MeshInstance3D",true,false):
+		if not str(draw.name).contains("__"):continue
+		relief_parts+=1
+		if str(draw.name).ends_with("__water_clear"):
+			check(not draw.has_node("GroundCollision"),"river/canal water has no walkable collision slab")
+	check(relief_parts==grade.parts.size(),"complete imported relief and water inventory")
+	check(float(ground.get_meta("city_street_asl_m"))==6.0 and float(ground.get_meta("city_water_scene_y_m"))==-6.0,"one scene-to-ASL datum")
 	var eyes: Array[Vector3]=[]
 	var excluded: Array[RID]=[]
 	var view := preload("res://tests/v2_city_context_review.gd").capture_station(horizon.get_world_3d().direct_space_state,horizon,fixture.window_rows,bodies,eyes,excluded)
