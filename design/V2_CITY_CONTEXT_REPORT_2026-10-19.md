@@ -603,7 +603,21 @@ gallery highlights and the flat storm ceiling remain presentation debt. Raw
 receipts, original failures, source snapshots and repeatable diagnostics are
 retained externally under **C:/ov/reports/city_townhouse_20261028**; the existing
 review archive carries selected portable evidence with explicit recovery
-provenance. Candidate verification and integration remain pending.
+provenance. Candidate **05715f12** passes the **114-gate** comparison with zero
+regressions, all **17 protected paths unchanged**, selector **V2**, clean
+checkout and document lint, zero NEW reader fields and unchanged requirement
+statuses. Existing unrelated red gates remain red. Godot ran separately through
+the lane; the in-place verifier used --no-godot and does not establish fresh
+checkout import/autocrlf behavior.
+
+Merged through **PR #75**, commit **3ac65118cbca8f7fe28e4ea2a86fdecea1d23883**.
+The merge tree exactly matches the qualified candidate. This following
+report/archive change is metadata only; it does not renew runtime evidence.
+The evidence archive preserves 1,570 prior members byte-for-byte and records
+exact immutable Git recovery for three earlier clock images, keeping the
+archive below 50 MiB. Task-owned import churn was archived before cleanup;
+an empty stale index lock required a no-live-Git/exclusive-open/metadata check
+before its exact-path removal. No other contributor's source was discarded.
 
 There are now **five individual technical city studies**, **144** remaining
 across the 149-mass mandate; eight height repairs are separate. The completed

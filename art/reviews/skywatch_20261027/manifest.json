@@ -1888,9 +1888,12 @@
     "city_townhouse/route_supported/cloud_world_frames.json": "3dd71fd4c651f3b644595ed2acfd6f5273452bcb74d57039af3ca9d7a4daf1a7",
     "city_townhouse/route_supported/route.json": "70058284c4cb46758df9ead3fe76f776c107feedc835731a59c6b1c307eb5576",
     "city_townhouse/verified_review_images/native_front.webp": "77d5a0ad238e73d913917b1e33c25d296a14c042be33b845190a345f6dedf84c",
-    "city_townhouse/verified_review_images/street_f8.webp": "31e0d52a8ced7f5fc77781465d849e63f2156597924e2aed2131ef116c494ef4"
+    "city_townhouse/verified_review_images/street_f8.webp": "31e0d52a8ced7f5fc77781465d849e63f2156597924e2aed2131ef116c494ef4",
+    "city_townhouse/candidate/verification.json": "f7ffa467a8d75929249c6405c798d201298c5dd12164b31b3e79e6019dcd3450",
+    "city_townhouse/candidate/verification.md": "2c256c7dc04b115ca220c09cfe97a3da00a1021f8cc781c4a34c776c0772094d",
+    "city_townhouse/finalize_merge.py": "e21d08e8c698e8efc86144ac314c6751dd0c1033b316c0fc77388412b7f2ce89"
   },
-  "archive_sha256": "b248f3d6625c9c6b4bcd264d8a22feed56d74dcd526a2ff392cd5e4772967a60",
+  "archive_sha256": "cd0eb4b3d665a70aab0b9b93577a2cdb4a0baebbc606503fb36b3fcc6f3d68c3",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -7527,8 +7530,19 @@
       "144 individual city studies remain.",
       "Typical GPU and frame tails broadly unchanged; no FPS improvement claimed.",
       "Original failed surface_supported contract retained; wrong-frontage surface_bound is not final qualification.",
-      "Save reconstruction NOT_EXECUTED; no human artistic acceptance.",
-      "Candidate verification pending."
-    ]
+      "Save reconstruction NOT_EXECUTED; no human artistic acceptance."
+    ],
+    "candidate": {
+      "sha": "05715f1200ed3f23562fa63e7da2c73e621f4dd2",
+      "gates": 114,
+      "regressions": 0,
+      "protected_unchanged": 17,
+      "selector": "v2",
+      "requirement_statuses_changed": [],
+      "merge_sha": "3ac65118cbca8f7fe28e4ea2a86fdecea1d23883",
+      "pr": 75,
+      "merge_tree_exact": true,
+      "mode": "in-place; separately executed source-bound Godot suites"
+    }
   }
 }
