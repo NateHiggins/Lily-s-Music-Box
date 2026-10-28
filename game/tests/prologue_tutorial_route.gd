@@ -52,6 +52,21 @@ func _route() -> void:
 	player.face_world_point(director._bath_anchor.origin)
 	await get_tree().create_timer(1.6).timeout
 	await _shot("bathroom_writing.png")
+	var plate: Node3D=world.adapter.resolve("F04_B_BATH_SWITCH")
+	var fixture: Node=world.adapter.resolve("F04_B_BATH_LT_FLUSH_DOME")
+	if not _require(plate!=null and fixture!=null,"bathroom switch and its existing fixture resolve"): return
+	var lowest := INF
+	for draw: MeshInstance3D in plate._model.find_children("*","MeshInstance3D",true,false):
+		for corner in 8: lowest=minf(lowest,draw.to_global(draw.mesh.get_aabb().get_endpoint(corner)).y)
+	var border_top: float=world.adapter.root.to_global(Vector3(0,9.6+1.2192+.03,0)).y
+	if not _require(lowest>border_top,"whole switch plate clears tile and finishing border"): return
+	if not await _drag_part(plate,plate._toggle.global_position,deg_to_rad(-22),"prologue_bath_light_off"): return
+	if not _require(not fixture.powered,"raised switch still opens its authoritative bathroom circuit"): return
+	if not await _drag_part(plate,plate._toggle.global_position,deg_to_rad(22),"prologue_bath_light_on"): return
+	if not _require(fixture.powered,"raised switch restores the same fixture circuit"): return
+	player.face_world_point(plate.global_position)
+	await get_tree().create_timer(.8).timeout
+	await _shot("bathroom_switch_above_tile.png")
 	var window := world.adapter.root.get_node_or_null("F04_B_BATH_WINDOW_E/WindowTreatment") as Node3D
 	if not _require(window!=null,"actual bathroom window curtain owner exists"): return
 	# Household restore is not a witnessed player gesture and must not trigger
