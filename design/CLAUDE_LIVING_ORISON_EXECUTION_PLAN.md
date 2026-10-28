@@ -1,5 +1,17 @@
 # Claude production plan: build the shift, then polish the world around it
 
+Evidence class: **INERT**. Historical execution plan and current fixture reference,
+not runtime qualification.
+
+**Owner reconciliation, 2026-10-27:** Bible §VIII.5.o and the approved task review
+supersede this plan's mandatory campaign structure. Temporal investigation is
+primary; the player is quantum leaping into a maintenance worker. Maintenance
+and dream subplots become optional investigative material in the post-V2 game.
+Preserve present V2 route/save fixtures and existing authorities while finishing
+construction. The city is the next construction priority; fundability/marketing
+are retired. The plan below records its earlier execution contract, not a
+requirement to force the final narrative through eleven compulsory beats.
+
 *Owner-directed product plan, rewritten 2026-08-13. This is the product-direction
 authority named by `ORISON_BIBLE.md` §V. The Bible remains the authority for
 fiction. This plan supersedes the 2026-08-01 execution plan.*

@@ -15,6 +15,14 @@ investigation map. The decisive question is **when should I look?**
 
 ## Sequence and creative authority
 
+Owner clarification, **2026-10-27**: the time-travel investigation is the primary
+narrative; maintenance subplots are secondary. The player is **“quantum leaping
+into maintenance worker.”** Reuse shift and dream content as optional
+investigations, without a mandatory future maintenance/narcolepsy sequence.
+Do not invent the host's identity, a host count or host-memory rules from that
+phrase. Bible §VIII.5.o records this direction; no further permission is needed
+to recognize the premise. Existing V2 routes remain technical qualification.
+
 This is the major goal **after V2 is constructed**. Finish and qualify the
 existing environment, interactions, weather, companion, persistence and current
 work first. A successful weather merge alone does not satisfy that dependency.
@@ -23,9 +31,9 @@ The roof-only weather inspector remains a development preview, not shipped
 campaign time travel or evidence that temporal forensics already works.
 
 The later owner direction establishes the future murder premise; it is not an
-unresolved request for permission. At the transition, explicitly reconcile the
-Bible's present ambiguity contract and the current maintenance-shift product
-plan with this direction. Keep the Orison, residents, atmosphere, established
+unresolved request for permission. Bible §VIII.5.o now resolves the narrative
+priority; implementation must still reconcile the existing maintenance-shift
+systems without silently rewriting their authorities. Keep the Orison, residents, atmosphere, established
 writing voice and functioning systems. Do not silently retrofit today's save,
 case or quest authorities or declare the existing construction ledger complete.
 The precise murder date, killer, conspiracy membership and final causal answer
@@ -98,6 +106,10 @@ and subordinate to witnessed evidence and validated world state. Do not replace
 its physical interface with a conventional dialogue wheel or omniscient chatbot.
 
 ## V2 prerequisite: Skywatcher Club
+
+October 27 sequencing: **the city is the next construction priority**. Keep this
+club/Moon/telescope commitment in V2 and compose its views with the city terrain
+and landmarks; it is not cancelled or used to postpone the city indefinitely.
 
 Owner direction, 2026-10-26: **build this into V2 after the weather merge**.
 This is an additional roof hangout, not a reason to interrupt the active weather

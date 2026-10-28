@@ -397,7 +397,20 @@ all original logs/receipts/failures, both kernel variants, final and exploratory
 fixtures, commands, profiler analysis and clean/preliminary boards under
 **occupied_larder_query_profile/**. The manifest records external native-image
 hashes without duplicating PNGs in the repository. Final query, full-agenda and
-native-route wrappers bind current runtime/test sources. Candidate comparison
-remains pending; the complete surface and actual disk-lifecycle evidence from
-PR70 is reused only for their unchanged visual, save and retirement scopes.
-The task-review form remains unanswered; none of its proposed cuts is applied.
+native-route wrappers bound the performance candidate **9cdaa97f** before the
+subsequent owner-approved cleanup. Its first candidate comparison preserves four
+regression lines: the broad surface-source hash changed, so the earlier surface
+packet could not be reused as current qualification. No waiver or repin is used.
+
+The owner then answered the task-review form and prioritized city construction.
+The approved queue/alias/held-character reconciliation is recorded in
+**V2_TASK_RELEVANCE_REVIEW_2026-10-27.md**. After final runtime sources are frozen,
+fresh **surface_staged** passes **39,169 checks / zero failures** in **772 seconds**
+with empty stderr, production/surface/runtime-owned teardown PASS and separate
+save-reconstruction NOT_EXECUTED. Current-save compatibility and disk-recovery
+tests pass **14/14** and **195/195**. Seven actual native views were inspected and
+the existing publisher installs the renewed packet with zero defects. The
+original incomplete profiler, stale gate and unstaged-import preflight failures
+remain. This follows through the source qualification; it does not establish a
+new ordinary FPS gain, first-view callback duration, city construction or whole-V2
+acceptance. Final candidate comparison remains pending.

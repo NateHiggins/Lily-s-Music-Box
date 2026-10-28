@@ -1,0 +1,20 @@
+{
+  "comment": "Authoring originals held outside game packaging. Owner direction 2026-10-27: the harpy and succubus/oni are future characters with in-world cultures; they are not discarded monsters. These 2026-08-02 exports retain the Meshy 24-joint biped rig and separate move libraries. Paths below are relative to this index, not Godot resources. Retained .import sidecars are historical provenance, not current import configuration. A reviewed integration must establish their runtime, culture, role and presentation before adding them to the installed resident roster. The lamia was requested but absent from the dump.",
+  "creatures": {
+    "harpy": {
+      "model": "harpy/harpy.gltf",
+      "moves": "harpy/harpy_moves.glb",
+      "clips": ["walk"],
+      "skeleton": "meshy_biped_24",
+      "notes": "Winged, taloned; wings skinned to the arm chain, so arm clips read as wing gestures."
+    },
+    "oni": {
+      "model": "oni/oni.gltf",
+      "moves": "oni/oni_moves.glb",
+      "clips": ["walk"],
+      "skeleton": "meshy_biped_24",
+      "notes": "Horned, red-skinned, athletic build."
+    }
+  },
+  "missing": ["lamia"]
+}

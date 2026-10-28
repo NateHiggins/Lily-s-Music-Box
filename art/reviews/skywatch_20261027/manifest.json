@@ -1175,9 +1175,48 @@
     "occupied_larder_query_profile/profile_active/cloud_world_frames.json": "75f897339e45b3ff7a02698052963e4ab6e48d6b9b7547baf418f458d5da38e7",
     "occupied_larder_query_profile/profile_active/route.json": "318aecddc33dc5a87db8c59597aab7988ae7893d93ae128e767e4302ee51fe76",
     "occupied_larder_query_profile/route_after/cloud_world_frames.json": "7f1ebf82aaeafaf62dc2cbb81e81028779933ae1426ca46a61e7887892897877",
-    "occupied_larder_query_profile/route_after/route.json": "136acafc96704fca9a8c6e724d5edaf38fd035892c3dec49efda4fee1306f96a"
+    "occupied_larder_query_profile/route_after/route.json": "136acafc96704fca9a8c6e724d5edaf38fd035892c3dec49efda4fee1306f96a",
+    "approved_task_reconciliation/cleanup_batch.json": "7deb807953cf1163f684393de08b2dcb38d6f06792b1ddd81d9a714d58b7ea00",
+    "approved_task_reconciliation/cleanup_provenance.json": "afedea683541809bb9ee216e8a287f3e1dc3c435cd2c0fbd237eb22d74979fe7",
+    "approved_task_reconciliation/cleanup_qualification.ps1": "832a2f202b6286d7efb230d52b016c76b646f75a38474bbaae96240b7f90263d",
+    "approved_task_reconciliation/cleanup_sources.json": "93fb7b889bb1de1bb4e929c4b99aeb30c11b238fd1a49217eebf2ba335e0b461",
+    "approved_task_reconciliation/generated_uid_candidates.json": "f5ea36cb670aa51a89300ece02b8018e5445fd6bef419e92c54b099982f1dfad",
+    "approved_task_reconciliation/held_assets_audit.json": "880d6b7ef7a28f51e6eebd8b188386cdaed02d976127107ed8502d3f6f0d84ec",
+    "approved_task_reconciliation/import_cleanup.log": "50fd6dc2d73471f651a70a122eb2c1888de721e646da8432e46ed5af19e16691",
+    "approved_task_reconciliation/import_cleanup.log.receipt.json": "a56c855c8b033e55de483b5b4227b0a89d9701f6f3f37425a387b0809ff9bf9f",
+    "approved_task_reconciliation/import_cleanup.log.stderr": "e4a89bee0b0964f0bd3635096a7a89531e1e3e84e51a5f3c31c116b3557fa7ab",
+    "approved_task_reconciliation/import_cleanup_provenance.json": "4ebff2b51e495a9632d0db0345f4010a84ec3b7f260fba4510e93d03bb987c28",
+    "approved_task_reconciliation/import_generated_files.zip": "4b5e290b6b7a9aaf1681e1ac114ea4fa8d01c11dc9ca45f9a6f9623e221b13fc",
+    "approved_task_reconciliation/orphan_lock.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "approved_task_reconciliation/orphan_lock.json": "e55b3539cad26e03ba327eb1388bdca8b913745a128400636e355aa22626d9f4",
+    "approved_task_reconciliation/orphan_lock_followup.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "approved_task_reconciliation/orphan_lock_followup.json": "77dd2af34ff7a089301e88060d48c749b15997f3b5e2f83db23c2dde1f5670d0",
+    "approved_task_reconciliation/package_cleanup.py": "23b7f9c7510215b2dc7d085adbb2724957bbcc108b6d8b20c50ce5c4dffcdb43",
+    "approved_task_reconciliation/prepare_surface.py": "4926242a9ef733ab09d7419f9b7da59cdd601fe8f97d7018e8673cc213520111",
+    "approved_task_reconciliation/published_surface.json": "4af2a14847407608e43d78cfd42c06e963765018d4ba391ee7cb3252c2a7e8e8",
+    "approved_task_reconciliation/queue_disposition.json": "6f3f198bd7d7db051348dfbb052f89d995a9b1f200bcc04fa915e3bd316bdfdf",
+    "approved_task_reconciliation/reconcile_queue.py": "7b839f1f51f44e038c4c85025e9b7f64362ac59d87badf670f5e0482bb756bb2",
+    "approved_task_reconciliation/save_compat.log": "1dc62ee551b6e1e1e2ecc36a2f79a09825b284877681df339feb15354eedb738",
+    "approved_task_reconciliation/save_compat.log.receipt.json": "7939ebf1762a3a4bd69c44c3f91376914a4a558318030ed253eebd3bd4f7724e",
+    "approved_task_reconciliation/save_compat.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "approved_task_reconciliation/save_recovery.log": "3ce12f1ac94f3d14f2172adb8921f21904876b6902cf7552844f36208f45003a",
+    "approved_task_reconciliation/save_recovery.log.receipt.json": "a7a463dc1ca11cd2fab47cec26bb6252c03ce902ebca8745185946d97587c8ae",
+    "approved_task_reconciliation/save_recovery.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "approved_task_reconciliation/surface.log": "5be560a7058d3407d1d4d92891903ad63f1db17e06fbddd511ccecee4b358b22",
+    "approved_task_reconciliation/surface.log.receipt.json": "1a4c28cb720ace77343c08807bbac76aaa74f241126d74f05ac4be16304b4b7a",
+    "approved_task_reconciliation/surface.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "approved_task_reconciliation/surface_staged.log": "441fd562f168a1af2bf0272b64a32d68f75b55cd61c35f35729a17093ebcee49",
+    "approved_task_reconciliation/surface_staged.log.receipt.json": "cfa076270abcc0bef78dfb2aadbb6bbab738abab36d256dec6b6ac08c6b3157a",
+    "approved_task_reconciliation/surface_staged.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "approved_task_reconciliation/surface_staged/runtime_contract.json": "d51b992ddfe67a90f9414dfbed9143bd9c517f71f45f308718fb8c0b3dfc2af9",
+    "approved_task_reconciliation/surface_staged/visual_review.json": "b531b9103ec436b9c01e57b14625945c8738aff7de27f921b736108cfdc60f56",
+    "approved_task_reconciliation/surface_staged/suite_run.receipt.json": "cfa076270abcc0bef78dfb2aadbb6bbab738abab36d256dec6b6ac08c6b3157a",
+    "approved_task_reconciliation/surface_staged/suite_run.stdout.log.gz": "7ae30b3aab11e554c2b8cac74ff4d04d11e7c2ac267c18833a4296fac9b9f9b7",
+    "approved_task_reconciliation/surface_staged/suite_run.stderr.log.gz": "46b50c321b39e89a491b6727a01628c34245605a30beb3e7414c5e01cff90e6e",
+    "approved_task_reconciliation/original_blocked_candidate/verification.json": "14b4a89598e49d71b8a5993be0047904d1731f8902366708244cd45cc55335cd",
+    "approved_task_reconciliation/original_blocked_candidate/verification.md": "e6c84040a3244e7750463bb52df642c5b50f9210c51888b4e687fbd0c05484e8"
   },
-  "archive_sha256": "0e3bdb95baa4f2795f1995dba8f4f7dd4fe5414f926bb4ebf8ef81256d651d72",
+  "archive_sha256": "91af59a60912ba8e4ed37e902269333ce349c2a1592ab884469be99a991702d8",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -2930,5 +2969,31 @@
         "external_path": "C:\\ov\\reports\\skywatch44\\route_after\\last_position.png"
       }
     }
+  },
+  "approved_task_reconciliation": {
+    "evidence_class": "INERT",
+    "source_before": "9cdaa97f89331ac6662c6736af1e5104327d2456",
+    "decisions": "All20 owner choices, with Q10/Q11/Q15/Q20 adjustments; city construction prioritized next; terrain/relief addendum integrated as approximate art direction.",
+    "queue_lines_before": 3816,
+    "queue_lines_after": 1436,
+    "cleanup": "16 byte-identical held character files (6221555 bytes) moved outside game; authoring destinations updated; unused SmokeDetectorProp and UID removed under explicit narrow waiver.",
+    "save_compat": "14/14 PASS; wrapper binds final code",
+    "save_recovery": "195/195 PASS; real isolated disk transactions/current Continue; wrapper binds final code",
+    "surface": "surface_staged:39169 checks,0fail,772s,empty stderr;39169 schema2 production/surface/runtime-owned teardown; save reconstruction NOT_EXECUTED; fire interaction skipped, physical hose surfaces inventoried; wrapper binds final code.",
+    "scope_limits": "No new city geometry yet, no future character/culture acceptance, no campaign temporal-travel implementation, no whole-V2 or human artistic acceptance. Ordinary route FPS/tails remain unresolved.",
+    "failures_retained": "9cdaa97f candidate blocked on stale surface hash; first cleanup surface exit1 before composition due indexed-but-unstaged deleted import. Manual FileNotFoundError diagnosis is in the tool transcript, not a newly fabricated traceback log.",
+    "published_surface": {
+      "result": "PASS",
+      "counts": {
+        "defects": 0
+      },
+      "defects": [],
+      "coverage": {
+        "draws": 27820,
+        "materials": 6309,
+        "textures": 527
+      }
+    },
+    "next": "Final candidate comparison; then city construction, not more unrelated expansion."
   }
 }

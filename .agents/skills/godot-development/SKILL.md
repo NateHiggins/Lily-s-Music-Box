@@ -142,6 +142,10 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   synchronous, non-mutating query before considering persistent caches. Prove
   that the next call sees in-place edits, replacement domains and corruption
   in a different holder. Preserve the full validator and mutation/save owners.
+  Audit authoring consumers as well as runtime references before relocating held
+  assets; update generator destinations so they cannot silently restore retired
+  runtime copies. With indexed deletions, stage the named paths before the surface
+  snapshot: its tracked-import enumeration otherwise reads missing old sidecars.
 - **Static baseline provenance:** freeze inputs until the gate board finishes;
   its Git metadata is collected after its gates run. Restoring a clean tree at
   the end does not establish that earlier checks ran against that same tree.
