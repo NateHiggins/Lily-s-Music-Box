@@ -17,6 +17,30 @@ This removes historical copies from the working tree, not installed gameplay,
 editable art sources or current qualification packets. Original failures remain
 failures. Broader render/review accumulation remains for subsequent cleanup.
 
+The next batch removes 205 loose images from the four historical
+**art/renders/wall_art_audit_before**, **wall_art_audit_after**,
+**wall_art_audit_final** and **wall_art_audit_delivered** sets: **1,075,839,623
+bytes**. Each image was compared byte-for-byte with its committed Git blob.
+The four original manifests remain. **art/renders/HISTORICAL_CAPTURES.json**
+records every original path, byte count, SHA256, blob identity and immutable
+recovery commit **4a696934710f66de9cf57ebf8609428ca88f3659**. Its command exports
+the full original sets to an external review ZIP through Git. This changes
+working-tree storage, not shared history or historical acceptance.
+
+Folder and all-image-basename searches found no references from gameplay,
+tooling, art builders/data or current design documents outside the capture
+manifests. The generic room-evidence basename resolver was inspected. Installed
+wall-art assets, editable sources and the canonical V2 surface packet remain.
+No Godot or Blender run is asserted for this evidence-only consolidation;
+post-change static comparison remains pending.
+
+Recovery was exercised with the actual Git archive command for a representative
+image and its decoded ZIP bytes match the indexed SHA256. All 205 originals had
+already passed independent committed-blob equality. The existing room-evidence
+verifier's 34 tests and surface-publication tool's six tests pass. The installed
+surface packet independently validates with zero defects. No new acceptance
+claim or weakened verifier accompanies removal.
+
 ## Method
 
 The sweep covered all 182 scripts under `game/scripts`, every shipped JSON in
