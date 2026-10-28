@@ -1085,6 +1085,11 @@ do not treat this as cancellation of installed ecology or approved future people
   and field construction just because its historical checklist is long.
 - **TL-GAPS — Finish the current autonomous companion, physical paper/keyboard,
   controls, sound, lamp and readable presentation against their actual owners.**
+  October28 refit: approximately phone-sized, close to the face, contextual right
+  third framing; flight-path body language with puttering/weaving and effortful
+  upright correction, steady for reading/typing. Recheck native proportions,
+  arm fit, mirror scale, lamp alignment and actual input. Direction and current
+  limits: `design/V2_COMPANION_TERMINAL_2026-10-24.md`.
   Reconcile legacy **TL2–TL5** mechanism/material/wear/tactility goals rather than
   rebuild the retired handheld shell or restore ink/heat instructions. Preserve
   protected typing drafts, pause, power, memory and validated campaign state.

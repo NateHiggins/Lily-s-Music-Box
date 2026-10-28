@@ -3,6 +3,30 @@
 Evidence class: **INERT**. Audit, construction decisions and unfinished work;
 no runtime qualification, ledger promotion or human acceptance.
 
+## Owner refit direction — October 28, 2026
+
+Refit the installed companion to approximately modern-phone physical size,
+close to the player's face and contextually occupying the right third of the
+viewport. This describes size, not modern materials or a smartphone interface.
+Preserve the physical phosphor printer, folding keyboard, mechanical face,
+visible improvised 1928 propulsion and existing gameplay authorities.
+
+The machine visibly works to stay upright. Its flight path is body language:
+bounded weaving, puttering, banking and exaggerated corrective effort during
+accompaniment, with a stable readable pose when reading/typing. Respect reduced
+motion, physical controls and central-world visibility; do not trade legibility
+for constant jitter or add a second rig. Current framing pins the body and zeros
+velocity, so the requested movement is not implemented by existing flight code.
+Measure the actual native assembly before choosing scale and standoff; preserve
+manufactured proportions and validate mirror appearance, lamp source alignment,
+keyboard hand input and typography. Recheck the external typing-arm prototype's
+reach, stow envelope and attachment after any dimensional refit. Native arm
+acceptance at its old dimensions does not qualify a resized installation.
+
+Status: requested refit, not yet implemented or visually accepted. Integrate
+with the prologue's withheld-presence/reveal rather than showing the companion
+early. Existing historical measurements below retain their original scope.
+
 ## Audit before replacement
 
 Owner directive: autonomous companion terminal, received after the frame-mitre

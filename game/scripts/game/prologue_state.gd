@@ -9,7 +9,7 @@ const PHASES := ["dream", "awakening", "bedroom_exploration", "bathroom_entry",
 const GATES := {
 	"bedroom_exploration":["bathroom_entered"],
 	"curtain_interaction":["curtain_pulled", "cold_water_started"],
-	"shower_temperature":["temperature_balanced"],
+	"shower_temperature":["hot_water_adjusted", "temperature_balanced"],
 	"mirror_tapping":["shower_stopped"],
 	"protagonist_reveal":["reflection_observed"],
 	"cabinet_inspection":["cabinet_opened", "cabinet_closed"],

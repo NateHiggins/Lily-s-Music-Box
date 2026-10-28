@@ -1070,6 +1070,15 @@ Queens as geographic reference. Do not simulate intervening days or infer new
 future news, identity answers, modern city assets or resident history from the
 jump. End at the title; preserve accessible pacing, input, reload and skip.
 
+The owner's final-stinger addendum cuts back to the empty historical bedroom
+after that completed warp, without changing the player's present-day timeline.
+The established friendly Tardi emerges from under the bed, gives a small
+front-leg greeting, waits and retreats. Preserve its current V2 shader look
+and scale over conflicting fallback design suggestions. The single timeline
+lasts exactly17 seconds, including black at13.50, title at14.00 and end at17.00;
+the full beat table is in the prologue ledger. No dialogue, ominous behavior,
+music, added reveal or post-title scene.
+
 This supersedes older opening and city-first sequencing where they conflict.
 Full V2 and the later mystery still need qualification. Owner direction does
 not prove completed gameplay.

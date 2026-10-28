@@ -17,6 +17,43 @@ var _pick_layers := {}
 var screen_frame: Node
 var _lamp_target_frame := -1
 var lamp_target_queries := 0
+var _absence_owner: WeakRef
+
+## Transient staging only: no radio, inventory, draft or lamp-save mutation.
+## The owning scene releases this lease on exit, including interrupted previews.
+func acquire_story_absence(owner: Node) -> bool:
+	if not is_instance_valid(owner) or not owner.is_inside_tree() or not world_ready: return false
+	if is_story_absent(): return _absence_owner.get_ref() == owner
+	if session != null and session.retired: return false
+	_absence_owner = weakref(owner)
+	owner.tree_exiting.connect(_release_story_absence.bind(owner.get_instance_id()), CONNECT_ONE_SHOT)
+	if session != null: session.close()
+	_apply_visibility()
+	_refresh_optical_output()
+	return true
+
+func release_story_absence(owner: Node) -> void:
+	if is_instance_valid(owner): _release_story_absence(owner.get_instance_id())
+
+func _release_story_absence(owner_id: int) -> void:
+	if _absence_owner == null: return
+	var owner: Node = _absence_owner.get_ref()
+	if owner != null and owner.get_instance_id() != owner_id: return
+	if owner != null and owner.tree_exiting.is_connected(_release_story_absence.bind(owner_id)):
+		owner.tree_exiting.disconnect(_release_story_absence.bind(owner_id))
+	_absence_owner = null
+	_apply_visibility()
+	_refresh_optical_output()
+
+func is_story_absent() -> bool:
+	return _absence_owner != null and is_instance_valid(_absence_owner.get_ref())
+
+func is_capture_hidden() -> bool:
+	return _capture_hidden or is_story_absent()
+
+func _refresh_optical_output() -> void:
+	if is_instance_valid(_player) and is_instance_valid(_player.lamp_presentation):
+		_player.lamp_presentation.apply_output()
 
 func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) -> void:
 	_player = player
@@ -92,7 +129,7 @@ func hand_camera() -> Camera3D:
 	return _player.camera if is_instance_valid(_player) else null
 
 func hand_is_enabled() -> bool:
-	return world_ready and reading and not _capture_hidden and not _player.call_locked and not _player.mouse_released and (motion.stationary_for_hand or motion.steady_for_input())
+	return world_ready and reading and not is_capture_hidden() and not _player.call_locked and not _player.mouse_released and (motion.stationary_for_hand or motion.steady_for_input())
 
 func hand_begin() -> bool:
 	return hand_is_enabled() and motion.hold_for_hand(true)
@@ -116,6 +153,10 @@ func apply_look(_relative: Vector2) -> void:
 func set_capture_hidden(hidden: bool) -> void:
 	if session != null and session.retired: hidden = true
 	_capture_hidden = hidden
+	_apply_visibility()
+
+func _apply_visibility() -> void:
+	var hidden := is_capture_hidden()
 	if rig != null: rig.visible = not hidden
 	# Hidden review stock must not leave invisible query-only obstructions.
 	for entry: Dictionary in _pick_layers.values():
@@ -161,7 +202,10 @@ func _update_lamp_target() -> void:
 
 func _advance_presentation(_delta: float) -> void:
 	if not world_ready: return
-	device.teletype.set_reading_illumination(reading and device.radio_powered and not _capture_hidden)
+	device.teletype.set_reading_illumination(reading and device.radio_powered and not is_capture_hidden())
+	if is_story_absent():
+		rig.request_keyboard(false)
+		return # No fabricated observations or autonomous replies before arrival.
 	if witness != null: witness.observe(_delta)
 	beam_valid = true
 	if device.lamp_enabled != _lamp_face_state:
@@ -198,6 +242,7 @@ func _advance_presentation(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if session != null and session.retired: return
+	if is_capture_hidden(): return
 	if not world_ready or event.is_echo() or _player.call_locked or _player.mouse_released or get_tree().paused: return
 	if not _player.camera.is_current(): return
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not _player.inspecting() and not _player.touch_input: return
