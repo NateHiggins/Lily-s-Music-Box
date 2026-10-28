@@ -95,7 +95,9 @@ def audit(repo: Path) -> tuple[list[str], list[str]]:
     failures.extend(campaign_calendar_failures(calendar))
     failures.extend(campaign_host_clock_failures(repo))
     notes.append("campaign calendar: authored 1928-11-10, fixed EST; "
-                 "one local hour/minute sample, no host calendar persistence")
+                 "one local hour/minute creation sample; Bible VIII.5.p also "
+                 "permits the exact pure validated prologue destination sampler, "
+                 "with immutable adoption and clock application owned elsewhere")
 
     wire = load_object(repo / "game/data/prop_service_wire.json")
     try:
