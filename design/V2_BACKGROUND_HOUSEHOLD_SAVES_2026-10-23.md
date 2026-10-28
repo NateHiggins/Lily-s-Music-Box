@@ -301,3 +301,103 @@ route frame tails, remaining weather art, installed Skywatcher content, broad V2
 coverage and owner playtest acceptance remain open. Next performance evidence
 should identify script call paths using the pinned engine's built-in profiler,
 with startup and observer overhead kept distinct from ordinary route budgets.
+
+### October 27 — inventory reads during resident reconstruction
+
+REPORT - V2-LARDER-QUERY-COST - 2026-10-27
+
+Evidence class: **INERT**. Measured query repair and diagnostic follow-through,
+not whole-game qualification or owner artistic acceptance. Baseline main is
+**c5f8400a27d582738c620f23c0a887f4ae9724e8**. Work is on
+**codex/v2-larder-query-profile-20261027** in the canonical checkout.
+
+| Location / reproduction | Evidence and severity | Repair | Verification |
+|---|---|---|---|
+| First resident destination after a date reconstruction | The occupied local script profile samples 12,802 **PersonInventory.valid** calls costing 383.021 ms of instrumented self time in one sampled frame. High initial/date-change latency; this is not an unprofiled duration or a recurring per-frame average. | **KitchenLarder._short** asks **PersonInventory.items** once for the entire synchronous ingredient query rather than calling the whole-book validator per ingredient. No persistent cache, schema, new state owner, scheduling or mutation changes. | Focused before/after queries and full agenda pass; native route and candidate comparison below remain separate scopes. |
+| Tool profiler activation | The first **--profiling**-only run never prints **BEGIN PROFILING**. | Pinned engine **main/main.cpp:1893–1895,3888** and **engine_debugger.cpp:128–134** require an active debugger; use **--debug --profiling** and verify the marker. | Stop only the exact owned console/child process after recording identity. Original run receipt is **profile.log.receipt.json**, exit -1, deliberate cancellation after 59 seconds, not timeout or runtime acceptance. |
+| Profiler-distorted played route | The correctly activated profiler run completes only six waypoints, misses the unchanged crossing travel budget and fails the four-block completion check. | Preserve the failed route; do not relax player motion, collision or the acceptance timeout to force a green profile. Use it for call-path discovery and isolate the candidate outside profiling. | **profile_active.log.receipt.json** exits 1 after 189 seconds. Both original failures remain; no complete-route qualification or matched FPS comparison comes from this run. |
+
+The ordinary baseline **plain.log.receipt.json** passes in **345 seconds**:
+**124 controller waypoints / zero failures**, native **3440×1440** fullscreen,
+patched Vulkan on **RTX 4080 / i7-13700KF**, **8× MSAA and TAA**, uncapped/vsync
+disabled by the existing route. Its four ABBA cloud-flow blocks use the same
+June 25, 1929 evening, traffic seed, continuous controller movement, hand-operated
+entrance and outdoor turns as the prior diagnostic. No firehose interaction is
+repeated. The household changed-ID/stack timing observer is disabled in both new
+ordinary routes. Screenshot readback remains outside measured intervals.
+
+Baseline **4,887 measured frames**: wall p50/p95/p99/max
+**36.245/65.165/76.206/123.589 ms**; main viewport GPU
+**14.928/21.734/23.788/26.255 ms**. On/off flow ranges overlap. These counters do
+not sum private viewport cost, and this observation is not a statistical reason
+to remove the fluid cloud detail. The rendered native street view was inspected;
+dark exposure, subdued storm relief and prominent lens trails remain art limits.
+
+The correctly activated debugger/profiler run publishes **41 sampled occupied
+frames**, including initialization and teardown. It has only **79 collected
+route frames**, **zero completed ABBA blocks**, wall p50/p95/max
+**64.196/956.808/1157.623 ms**: an observer-distorted failed diagnostic, not a
+comparable route distribution. It also samples native fitting work in
+**FitJob._advance_draw** and **_without_boxes**; those need unprofiled operation
+timing before further optimization. Test digest hashing and shutdown methods
+are explicitly separate from gameplay. The profiler prints an accumulated zero
+after teardown; it does not supply complete cumulative accounting for retired
+scripts. Debug-mode compiler warnings remain in the original stderr.
+
+The existing **ResidentAgendaTest** gains query safety controls and an opt-in
+**AGENDA_QUERY_ONLY=1** component mode. Full mode still runs its seasonal,
+timetable, relationship, reconstruction and four-day kitchen checks. The
+query checks exercise a real missing ingredient, public carry, in-place bag
+changes, query purity, stock-only cooking, corrupt unrelated holders, repair,
+replacement inventory domains, unknown residents and no inventory seeding by
+stock-only queries. They make no disk-save or installed-input claim.
+
+The exact same LF fixture runs before and after the repair, without the debugger:
+**query_before_clean** and **query_after** both pass. Each samples **25 batches
+of 18 residents**. Batch median/p95/max changes from
+**6.584/7.454/7.602 ms** to **0.920/0.959/1.156 ms**, about **86 percent lower
+median component cost**. All 18 output dictionaries, inventory and larder state
+compare exactly equal. This is a sequential pair on this host, not randomized
+multi-session qualification or an FPS improvement. Every subsequent query
+revalidates the authoritative book, including unrelated-holder corruption;
+public inventory APIs and the full validator are unchanged. The fixture is
+**-text** so its raw wrapper source hash survives Windows checkouts.
+
+**agenda_before** passes the expanded controls against the original kernel in
+94.69 seconds; its exact earlier fixture variant is preserved. That exploratory
+run overlaps a static board and is not the clean timing baseline. The first
+static board also overlaps that fixture edit and records a dirty path; retain it
+as preliminary history, not the candidate baseline. Restore only the saved
+task-owned test path, then execute **clean_main_baseline/board.json** with the
+complete **114 gates**, exact main commit and **zero dirty paths**, holding the
+tree unchanged throughout. No shared stash, contributor restore or worktree is
+used. The final query pair is collected after that board finishes.
+
+**agenda_after.log.receipt.json** passes the complete expanded agenda suite
+with **40 checks / zero failures** in **92.32 seconds**. Its statement that larder state survives a save checks
+structural validity; it is not an actual disk reload. This read-only change does
+not alter the campaign save schema or write path.
+
+**route_after.log.receipt.json** passes in **348 seconds** with **124 waypoints /
+zero failures**, empty stderr and unchanged runtime inputs throughout. Calendar,
+conditions, shader/noise bindings and rendering settings match the baseline.
+The **4,776 measured frames** have wall p50/p95/p99/max
+**36.642/66.063/77.105/147.252 ms** and main-viewport GPU
+**15.051/22.193/24.046/26.598 ms**. This pair demonstrates no whole-route FPS or
+frame-tail improvement; the maximum is worse in the after run. Keep the first
+traversal and that spike, without hiding them in a warm-only number. The repair
+targets repeated validation during resident reconstruction; the route freezes
+the clock before collection and cannot isolate that initial callback's ordinary
+duration. A future unprofiled reconstruction measurement is still needed for a
+playable first-view latency claim. Both actual native street views were inspected;
+no appearance change is attributed to this query-only repair.
+
+The existing **skywatch_20261027/diagnostics.zip** retains raw frame arrays,
+all original logs/receipts/failures, both kernel variants, final and exploratory
+fixtures, commands, profiler analysis and clean/preliminary boards under
+**occupied_larder_query_profile/**. The manifest records external native-image
+hashes without duplicating PNGs in the repository. Final query, full-agenda and
+native-route wrappers bind current runtime/test sources. Candidate comparison
+remains pending; the complete surface and actual disk-lifecycle evidence from
+PR70 is reused only for their unchanged visual, save and retirement scopes.
+The task-review form remains unanswered; none of its proposed cuts is applied.

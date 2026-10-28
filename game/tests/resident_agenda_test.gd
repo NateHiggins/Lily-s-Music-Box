@@ -49,7 +49,14 @@ func _ready() -> void:
 			func(flag: String) -> bool: return known.has(flag),
 			func(resident: String) -> int: return int(trust.get(resident, 0))))
 	if agenda.enabled:
-		_run()
+		if OS.get_environment("AGENDA_QUERY_ONLY") == "1":
+			var larder := KitchenLarder.new()
+			_check("query diagnostic loads the real household data", larder.load_data(agenda.homes()))
+			if larder.errors.is_empty():
+				larder.bind({})
+				_shortage_queries(larder)
+		else:
+			_run()
 	print("RESIDENT AGENDA TEST: %d failures" % _fails)
 	get_tree().quit(0 if _fails == 0 else 1)
 
@@ -277,6 +284,7 @@ func _kitchens() -> Array:
 	larder.event_limit = 100000
 	larder.bind(store)
 	_check("every household is seeded", larder.state.units.size() == 17)
+	_shortage_queries(larder)
 	agenda.larder = larder
 	agenda.clock_stamps = false
 	agenda.live_day = ""
@@ -334,6 +342,58 @@ func _kitchens() -> Array:
 	_check("iceboxes show what is in them, on real shelves", shown > 0)
 	_check("the larder state survives a save", KitchenLarder.valid(store[KitchenLarder.STATE_KEY]))
 	return events
+
+
+## Shortage queries must see changes between calls, validate the whole inventory,
+## and never consume carried groceries or let bags count as a cooked meal.
+func _shortage_queries(larder: KitchenLarder) -> void:
+	var inventory := PersonInventory.book().duplicate(true)
+	var resident := agenda.order[0]
+	var initial := larder.missing(resident)
+	_check("shortage control has an actual missing ingredient", not initial.is_empty())
+	if initial.is_empty(): return
+	var item: String = initial.keys()[0]
+	var needed := float(initial[item])
+	PersonInventory.carry(resident, item, needed * .5)
+	_check("carried groceries reduce the next shortage query", is_equal_approx(float(larder.missing(resident).get(item, 0.0)), needed * .5))
+	var held := PersonInventory.items(resident)
+	held["grocery:" + item].qty = needed
+	_check("in-place bag changes are visible on the next query", not larder.missing(resident).has(item))
+	var before_query := RealityState.data.duplicate(true)
+	var before_larder := larder.state.duplicate(true)
+	larder.missing(resident)
+	_check("shortage queries leave bags, campaign state and larder untouched", RealityState.data == before_query and larder.state == before_larder)
+	_check("carried groceries cannot substitute for stock when cooking", larder._short(resident, false).has(item) and not larder.can_cook(resident))
+	var other: String = agenda.order[1]
+	var other_items := PersonInventory.items(other)
+	var key: String = other_items.keys()[0]
+	var old_cut: String = other_items[key].cut
+	other_items[key].cut = "invalid"
+	_check("a corrupt unrelated holder invalidates carried quantities", is_equal_approx(float(larder.missing(resident).get(item, 0.0)), needed))
+	other_items[key].cut = old_cut
+	_check("repairing the unrelated holder restores current carried quantities", not larder.missing(resident).has(item))
+	RealityState.data[PersonInventory.KEY] = inventory.duplicate(true)
+	_check("replacing the inventory domain cannot retain old carried quantities", larder.missing(resident) == initial)
+	_check("unknown residents return no shortage", larder.missing("not_a_resident").is_empty())
+	RealityState.data.erase(PersonInventory.KEY)
+	larder._short(resident, false)
+	_check("stock-only cooking checks do not seed the inventory", not RealityState.data.has(PersonInventory.KEY))
+	RealityState.data[PersonInventory.KEY] = inventory.duplicate(true)
+	if OS.get_environment("AGENDA_QUERY_PROFILE") != "":
+		var samples: Array = []
+		var answers := {}
+		for sample_index in 25:
+			var started := Time.get_ticks_usec()
+			for slug in agenda.order: answers[slug] = larder.missing(slug)
+			samples.append(float(Time.get_ticks_usec() - started) / 1000.0)
+		var output := {
+			"evidence_class": "INERT", "scope": "25 batches of 18 synchronous shortage queries; component timing, not playable FPS or disk reload qualification",
+			"samples_ms": samples, "answers": answers, "inventory": RealityState.data[PersonInventory.KEY], "larder": larder.state,
+			"source_lf_sha256": FileAccess.get_file_as_string("res://scripts/game/kitchen_larder.gd").replace("\r\n", "\n").sha256_text()}
+		var file := FileAccess.open(OS.get_environment("AGENDA_QUERY_PROFILE"), FileAccess.WRITE)
+		if file: file.store_string(JSON.stringify(output, "\t"))
+		_check("shortage timing diagnostic was written", file != null)
+	RealityState.data[PersonInventory.KEY] = inventory
 
 
 func _report(plans: Dictionary, path: String, kitchen: Array) -> void:

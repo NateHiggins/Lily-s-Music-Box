@@ -128,9 +128,23 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   shader compilation and render costs before assigning a cause or a speedup.
   Check counter semantics in the pinned engine: its process/physics monitors
   publish one-second peaks, not independent per-frame script/physics times.
-  The local `--profiling` script debugger samples a frame once per second and
-  prints accumulated totals at shutdown; separate startup and account for its
-  overhead. See [release attribution](../../../design/V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md).
+  The local script debugger needs **both** `--debug --profiling`; require its
+  `BEGIN PROFILING` marker. `--profiling` alone does not activate a debugger in
+  this engine. Use `--ignore-error-breaks` for bounded unattended diagnostics.
+  It samples a frame once per second, adds substantial instrumentation/stdout
+  overhead and can make a previously passing controller route time out. Keep
+  that failure; use call paths to choose unprofiled measurements. Shutdown
+  totals may omit already-retired scripts (the occupied run printed zero), so
+  inspect actual output rather than assuming a complete accumulation. Separate
+  startup, streaming, test hashing and teardown. See
+  [release attribution](../../../design/V2_BACKGROUND_HOUSEHOLD_SAVES_2026-10-23.md).
+- **Read-only hot paths:** reuse an authoritative validated read within one
+  synchronous, non-mutating query before considering persistent caches. Prove
+  that the next call sees in-place edits, replacement domains and corruption
+  in a different holder. Preserve the full validator and mutation/save owners.
+- **Static baseline provenance:** freeze inputs until the gate board finishes;
+  its Git metadata is collected after its gates run. Restoring a clean tree at
+  the end does not establish that earlier checks ran against that same tree.
 - **Evidence pitfalls:** runtime-composing MultiMesh tests need the windowed
   backend here; headless identity readback is not proof of corrupt source poses.
   Use the pinned patched Vulkan engine and lane receipts. A graceful exit can
