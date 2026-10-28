@@ -22,6 +22,7 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."))
 PATTERNS = [
     os.path.join(ROOT, "game", "assets", "characters", "*", "*.gltf"),
     os.path.join(ROOT, "game", "assets", "creatures", "*", "*.gltf"),
+    os.path.join(ROOT, "art", "source", "held_characters", "*", "*.gltf"),
 ]
 
 

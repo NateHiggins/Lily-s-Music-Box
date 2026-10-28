@@ -1,6 +1,15 @@
 # Early Access distribution and marketing project
 
-Status: priority project charter. The release-build milestone decides what is
+Evidence class: **INERT**. Historical charter, retained as provenance.
+
+**Status: retired from active scope by the owner, 2026-10-27.** Funding,
+fundability and marketing work are not current project goals. The owner wants
+to focus on making the best game. No campaigns, outreach, pricing/funding models
+or marketing deliverables are authorized by this old charter. Technical delivery,
+save reliability, accessibility and game quality remain ordinary development
+requirements; no such requirement is waived by retiring this project.
+
+Historical status: priority project charter. The release-build milestone decides what is
 ready to sell; this project decides how players discover, obtain, understand
 and support it.
 

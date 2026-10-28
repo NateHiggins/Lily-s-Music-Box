@@ -3239,3 +3239,5 @@ art/data/astronomy/bsc5_source.json -text
 game/assets/environment/stars/*.res -text
 # Keep the cache fixture's raw receipt hash stable across Windows checkouts.
 game/tests/v2_household_unchanged_bench.gd -text
+game/tests/resident_agenda_test.gd -text
+art/source/held_characters/** -text -whitespace

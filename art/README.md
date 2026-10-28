@@ -1,5 +1,13 @@
 # Orison Apartments — Art Pipeline
 
+Held future character originals: **art/source/held_characters/** contains the
+harpy and succubus/oni models, rigs and walk libraries preserved outside the
+Godot project. The owner intends characters with in-world cultures as gameplay
+uses are vetted. The character converter now targets that source location;
+review/re-export and establish runtime ownership before integrating them. The
+relative source index and retained historical import sidecars are not runtime
+resources. Current resident mapping and installed cast are unchanged.
+
 Procedural authoring pipeline for the building described in the Master
 Build Brief. Nothing is generated at game runtime: Python authors a
 semantic model, Blender constructs deterministic geometry from it, Godot

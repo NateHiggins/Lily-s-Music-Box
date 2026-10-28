@@ -1,5 +1,12 @@
 # Early Access distribution and marketing plan — 2026-08-26
 
+Evidence class: **INERT**. Historical marketing plan, retired from active scope.
+
+**Owner update, 2026-10-27: retired from active scope.** Keep this plan as
+historical provenance. Funding and marketing are no longer project goals;
+its campaign, pricing and outreach work must not create tasks or promises.
+Current game quality, accessibility and technical delivery requirements remain.
+
 > **Implementation update — 2026-08-26:** the settings-surface blocker recorded
 > in §§9, 12, 17 and 21 was true at this plan's source commit and has since been
 > partially closed. Pushed production now provides persistent Master,

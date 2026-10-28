@@ -141,11 +141,13 @@ remain external form research; no archive photograph is a game texture.
 
 ## Queued city revamp: Queens Plaza / Jackson Avenue, owner brief October 27
 
-**After current open work**, develop this location as the preferred composition
+**Next construction priority, owner direction October 27**, develop this location as the preferred composition
 reference: the Jackson Avenue / 41st Avenue / Queens Plaza South area of Long
 Island City, near elevated transit and the Queensboro Bridge approach. This is
 a queued fictional-site study, not a surveyed parcel assignment or an immediate
-change to the Bible, existing street coordinates, bar or transit access.
+rewrite of existing street coordinates, bar or transit access. Bible §VIII.5.o
+records the priority; replace working topology only after the replacement is
+verified. The prior “after all open tasks” sequence is superseded.
 
 Compose the six-story Orison, its ground-floor glass-and-iron arcade, grocery
 corner and bar against a legible hierarchy of landmarks:
@@ -220,3 +222,77 @@ owner to blend distance, not fog to conceal broken playable geometry or disable
 visibility arbitrarily. Review near/far overlap, dusk/night, storm/clear, rooftop
 and telescope views, then compare repeated occupied approach routes before
 accepting a replacement. Existing visual/spatial/save authorities remain intact.
+
+## Terrain and structural relief — owner addendum, October 27
+
+Integrate the supplied Long Island City / Queens Plaza North relief sketch with
+the Jackson Avenue / 41st Avenue / Queens Plaza South composition above. It is
+**owner art direction with approximate numbers**, not an exact 1928 height survey.
+The pasted map-interface “Click to open side panel” text is not a game instruction.
+Modern operator/name labels in that source do not belong on period scenery.
+
+The composition should read in depth: a low urban street shelf, a gentle
+riverward fall, the Dutch Kills canal/basin, a broad excavated rail yard, raised
+road approaches and a dominant lattice of elevated transport. Avoid replacing
+the neighborhood with a uniform flat ring or a row of landmark-shaped screens.
+Investigate actual historical shorelines, filled industrial ground, street
+bearings and rail/bridge approach alignments before calling any contour accurate.
+The rule of cool permits authored composition; label it as adaptation.
+
+| Owner relief cue | Working target to verify/adapt | Construction consequence |
+|---|---|---|
+| Jackson Avenue street shelf | About +5 to +7 m above sea level | Keep the existing playable street/foundation datum fixed; grade the surrounding terrain to it. |
+| East River and Dutch Kills | Water near 0 m, low banks about 0–2 m ASL | Separate water and bank geometry; provide a visible descent and industrial canal edges rather than a flat painted strip. |
+| Sunnyside rail cut | Roughly 3 m below nearby street; about +2.5 to +3 m ASL in the supplied sketch | Model an actual basin/cut and retaining edges; do not confuse depth below street with depth below sea level. |
+| Yard-crossing road approaches | Supplied target about +12 m ASL | Earth embankments may join terrain; spans, supports and underpasses remain structures. |
+| Elevated transit | Supplied clearance/level cue about 9–12 m above streets | Build a supported trestle layer with readable underside, columns, bracing and stairs; measure clearances at crossings. |
+| Queensboro approach | Supplied rising profile, with a +41 m bridge-height cue | Verify what the source measures and where; do not lift the whole local plaza to the main bridge deck's height. |
+| Industrial/storefront mass | Supplied 8–12 m height cue | Vary eaves, parapets, sheds, factory bays and roof plant; distinguish above-grade building height from ASL. |
+| Orison / bank accent | Supplied about 22 m / 55 m cues | Preserve the installed Orison's actual storey dimensions. Treat the bank as a researched skyline accent, not a requirement to stretch existing rooms. |
+
+### Coordinate and height-data contract
+
+Use a **1,000 × 1,000 m study footprint** centered on the authored Orison site;
+the supplied 256 × 256 grid is a blockout starting point, not required final
+topology. Establish one scene-to-ASL offset. For example, choosing street ASL
+**+6 m** while retaining the playable street at **scene Y=0** gives water near
+**scene Y=-6 m**. Record the chosen datum in the existing city source, with the
+installed compass/coordinate conversion, rather than move the building, anchors,
+traffic, doors or campaign owners to fit an illustrative graph. Confirm east/west
+from the installed rig; do not assume a Godot Z sign is geographic north.
+
+The proposed 0/85/140/180 gray swatches are conceptual class labels, not a linear
+metre encoding: 0→0 m, 85→3 m, 140→6 m and 180→12 m cannot all share one scale.
+Author elevations in metres; if a height image is useful, encode normalized
+height in a genuine **16-bit** channel with explicit minimum/maximum elevations,
+linear data sampling and documented datum. Do not bake an 8-bit quantization
+and then merely save it in a 16-bit container. Bridges, elevated roads and tracks
+cannot be represented as a single-valued terrain height field without filling
+their underpasses; export them as separate native assemblies.
+
+### Existing pipeline first
+
+Prefer the existing Blender-to-glTF chunk/LOD, catalogue PBR and Godot loader
+pipeline. A new Terrain3D dependency is optional, not part of this approval.
+Use denser authored terrain where bank/cut silhouettes and walkable transitions
+need it, coarser background chunks farther away, and measured material batches.
+Keep a continuous seam with the current street/courtyard patch. Shader-only
+displacement must not move playable ground away from its physical collision.
+Preserve loaded mipmaps, meaningful UV scale, tangent/normal calibration and
+custom materials on all new visible surfaces, including cut faces and supports.
+
+Design the terrain and landmarks together with rooftop Skywatcher/telescope
+sightlines, river/Manhattan and rail-yard views, seasonal sunlight and low storm
+decks. Reuse existing smog, fog, water and calendar lighting owners; do not restore
+the removed end-of-road fog screens. Preserve the current bar, tent-theater,
+arcade and grocery approaches until new geometry passes actual player/NPC access
+and traffic checks. Street crossing remains a low-stakes, low-effort challenge.
+
+Build/verify in bounded batches: establish the datum and visible massing; join
+the terrain, cut and banks; construct supported elevated/bridge/stair layers;
+then finish storefronts, street furniture and roof/detail tiers. Inspect actual
+near-ground and rooftop/telescope renders at dawn, day, dusk/night and severe
+weather. Compare occupied route frame distributions, visible draws, loading and
+collision costs against the retained baseline before accepting each replacement.
+The 1 km footprint and illustrative elevations establish direction, not a claim
+that surveyed terrain, the city or its artistic acceptance is complete.

@@ -174,8 +174,11 @@ func _short(resident: String, count_carried: bool) -> Dictionary:
 		needs[item] = maxf(float(needs.get(item, 0.0)), float(groceries.household.lighting[item]))
 	for item: String in groceries.household.washing_up:
 		needs[item] = maxf(float(needs.get(item, 0.0)), float(groceries.household.washing_up[item]))
+	# One synchronous query, one fully validated inventory read. Nothing here
+	# yields or mutates the bag; the next query always asks its owner again.
+	var carried := PersonInventory.items(resident) if count_carried and not needs.is_empty() else {}
 	for item: String in needs:
-		var had := qty(unit, item) + (PersonInventory.carried(resident, item) if count_carried else 0.0)
+		var had := qty(unit, item) + float(carried.get("grocery:" + item, {}).get("qty", 0.0))
 		if float(needs[item]) - had > 0.0001:
 			out[item] = float(needs[item]) - had
 	return out

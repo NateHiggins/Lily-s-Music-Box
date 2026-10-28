@@ -14,6 +14,11 @@ confessed openly in §VI rather than papered over.
 
 ## I. THE WORD
 
+**Current direction, owner ruling 2026-10-27:** §VIII.5.o governs the primary
+temporal-forensic narrative and the secondary maintenance material. The earlier
+shift/dream movement below describes existing content and V2 qualification;
+it is not a mandatory repeating structure for the future investigation.
+
 **The aesthetic statement** *(ruled 2026-08-02)*: this is a **liminal-space,
 slow-burn psychological horror**, and its engine is one rule — **both
 true**. The Orison is a real prewar block in Queens, and it is purgatory.
@@ -395,9 +400,13 @@ of this building without a chapter of their own — case-less, never absent.**
 **Confirmed kinship:** Cam is of the Ortiz family (with Lena). All other
 shared surnames — Vale, Reed, Bell, Price — are *open canon* (§VI.5).
 
-**Creatures:** a harpy and an oni, prepped and indexed, ride the same
-biped skeleton as the hero cast; their purpose is unassigned. A lamia is
-prophesied and has not yet arrived.
+**Future characters, owner direction 2026-10-27:** the harpy and succubus/oni
+are intended as people with in-world cultures, not discarded monster stock.
+Their existing rigged originals are held outside game packaging under
+**art/source/held_characters/**. Develop their roles and cultures deliberately;
+do not invent those facts or silently insert them into today's eighteen-resident
+roster. Vet new breadth as gameplay uses appear (§VIII.5.o). The previously
+requested lamia has not arrived; this is not an automatic new commission.
 
 **Mara Chen** (Case 01's caller, rust cardigan) exists in the art bible
 and the desk fiction; she has no body in the building.
@@ -1002,6 +1011,41 @@ a light switch reads as an older switch, and the house wiring is legible
 enough through the switchboard, the risers, the radios and the bells. Nothing
 is to be added back as a socket form. Light switches stand alone, flush on
 their finished walls.
+
+**VIII.5.o — THE YEAR IS THE INVESTIGATION; MAINTENANCE IS SECONDARY.**
+*(Owner direction 2026-10-26–27; task-review decisions October 27.)*
+
+The primary game is the nonlinear temporal-forensic mystery **The Year You
+Died**: investigate the murder year out of order and solve the player's own
+murder. The player is “quantum leaping into maintenance worker,” in the owner's
+words. Maintenance subplots and existing dream material are secondary optional
+investigations, not a required repeating repair/narcolepsy ladder. This establishes
+the narrative direction, not the host's identity, number of hosts, murder date,
+killer or the mechanics of host memory. Do not invent those answers as canon.
+Preserve the opening and other owner-authored material in
+**design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md**.
+
+Finish V2 construction and qualification before implementing the larger mystery.
+**The city is the next construction priority**, superseding “after all open
+tasks.” Preserve current route/save acceptance fixtures and working mechanical,
+resident, inventory, case, dialogue, calendar/weather and reading authorities;
+this ruling does not pretend the installed campaign already supports time travel.
+The weather, companion, rooftop club/Moon/telescope and entrance commitments
+remain. City work follows the Queens Plaza/Jackson Avenue brief and must retain
+working access until a replacement is verified.
+
+The separate mechanical fortune-teller remains in V2. Studio expansion, online
+music sharing, phrase duels, the House Rig audition, additional service breadth
+and new ecological families are deferred. Keep installed creatures and accepted
+work; vet further breadth as gameplay uses appear. The harpy and succubus/oni
+are planned characters with cultures, not unused assets to discard.
+
+The next release is **desktop-only**; retained mobile source/export presets are
+not a delivery or performance claim. Funding, fundability and marketing projects
+are retired from active scope. Make the best game: responsive interaction, sound,
+readability, accessibility, reliable saves, atmosphere and honest verification
+remain engineering requirements. The exact approved dispositions are recorded in
+**design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md**.
 
 ### VIII.6 What this does not license
 

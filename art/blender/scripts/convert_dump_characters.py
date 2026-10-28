@@ -11,7 +11,8 @@ For every mapped resident and creature:
 - downscale textures to 1K;
 - export residents to game/assets/characters/<slug>/<slug>.gltf (the hero
   slot ResidentRoutines._upgrade already prefers) and creatures to
-  game/assets/creatures/<name>/<name>.gltf.
+  art/source/held_characters/<name>/<name>.gltf. The owner intends these as
+  future characters with in-world cultures; held originals do not ship in game/.
 
 Each creature's Walking fbx is additionally baked out unchanged as
 <name>_moves.glb next to its model — its indexed animation library.
@@ -257,7 +258,7 @@ if __name__ == "__main__":
                 slug, bake_body=True,
                 keep_emission=bool(spec.get("keep_emission", False)))
     for name, spec in mapping["creatures"].items():
-        out_dir = os.path.join(ROOT, "game", "assets", "creatures", name)
+        out_dir = os.path.join(ROOT, "art", "source", "held_characters", name)
         convert(spec["source"], out_dir, name)
         export_creature_moves(spec["source"], out_dir, name)
     print("dump conversion complete")

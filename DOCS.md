@@ -36,7 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to knowâ€¦ | Read |
 | Creature acceptance, installed Tardi visibility and acoustic-branch integration to main (INERT) | `design/CREATURE_MAIN_INTEGRATION_2026-10-26.md` |
 | Post-V2 big goal: The Year You Died, opening scene and temporal-forensics boundaries; queued V2 Skywatcher Club and relief Moon | `design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md` |
-| Task relevance screening, proposed deprecations and pending owner choices (INERT; no cuts applied) | `design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md` |
+| Approved task trimming, deferred scope, source provenance and city-first sequencing (INERT) | `design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md` |
 | Vorticella maintenance guide-bell requirements, implementation checkpoint and route-distance lifecycle | `design/VORTICELLA_GUIDE_BELLS_BRIEF_2026-10-25.md`, `design/VORTICELLA_GUIDE_BELLS_IMPLEMENTATION_2026-10-25.md` and `game/docs/maintenance_guide_bells.md` |
 | Tardi lunch priority, Euplotes microscopy and comic pursuit | `design/V2_TARDIGRADE_LUNCH_2026-10-25.md` |
 | Tardigrade nested tissue, shared lamp optics and isolated review limits | `design/V2_TARDIGRADE_MICROSCOPY_2026-10-25.md` |
