@@ -188,3 +188,93 @@ the started-work queue; this performance checkpoint does not complete V2.
 Decision needed from owner: none.
 
 BLOCKED remaining atomic calls, renderer/compilation stalls and broader started-work/runtime/human coverage remain open
+
+
+## October 28 — cooperative passage publication
+
+Evidence class remains **INERT**: occupied-world measurements and regression
+results, not human acceptance or whole-V2 completion.
+
+REPORT — canonical checkout **C:/PleaseRemainOnTheLine**, branch
+**codex/v2-passage-publication-20261028**, integration base **2ec518f2**.
+The clean 114-gate merge-base board is retained at
+**C:/ov/reports/passage_publication_20261028/main_baseline/board.json**.
+No asset, material recipe, collision shape, save schema or gameplay authority
+is changed. This follows the city repair, rather than expanding city scope.
+
+| Location / reproduction | Severity | Evidence | Repair / disposition | Verification |
+|---|---|---|---|---|
+| Ordinary passage reload on the native 124-waypoint route | Input hitch | Four completion frames at 101.626–104.983 ms; each adds 5,083 nodes | Register one fully fitted cell per frame, hidden behind the retained loading barrier; reveal/remount after all twelve | Final matched route: 63.053–65.229 ms completion frames, 124 waypoints / zero failures |
+| Attribution of the same hitch | Diagnostic uncertainty | Timed attachment 16.580–16.816 ms, native prefetch release 10.017–10.757 ms, complete block 26.945–27.631 ms; frame 100.221–103.280 ms | Reject the hypothesis that resource release accounts for most of the stall; deferred engine work remains partly unattributed | Separate unoptimized instrumentation run, 124 waypoints / zero failures |
+| Short historical streaming diagnostic | Existing deadline failure | Original ten-second stationary prefetch deadline expires before activation; nine waypoints / one failure, empty stderr | Preserve original failure and fixture; use the current real-street-approach residency contract for readiness | No pass claimed for this diagnostic |
+
+Same patched Vulkan engine, RTX 4080, fullscreen **3440 x 1440**, 8x MSAA,
+TAA, uncapped/vsync off, seed 1928 and frozen June 25, 1929 18:00. Four
+cloud-off/on/on/off routes use actual movement and door grab/motion/release.
+PNG readback remains outside measured intervals. Dynamic residents/traffic
+prevent treating these as a perfectly isolated graphics microbenchmark.
+
+| Measured route | Frames | Wall p50 / p95 / p99 / max, ms | Frames over 100 ms |
+|---|---:|---|---:|
+| Unchanged publication + diagnostic observation | 4,888 | 35.912 / 64.717 / 77.149 / 117.300 | 6 |
+| Unchanged publication + cleanup timers | 4,924 | 35.721 / 63.527 / 74.634 / 133.985 | 5 |
+| Hidden per-cell registration, processing disabled | 4,949 | 35.418 / 63.344 / 75.071 / 100.871 | 1 |
+| Final: static collision registers with each cell | 4,922 | 35.755 / 64.861 / 75.404 / 101.068 | 1 |
+
+The final version avoids removing/re-adding static bodies via a disabled parent;
+the pinned engine's CollisionObject3D default is DISABLE_MODE_REMOVE. This
+control **does not demonstrate another frame-tail improvement** over the first
+candidate. The measured benefit is the repeated publication hitch reduction,
+not higher average FPS or elimination of cold/atomic fitting/render spikes.
+Main-viewport GPU p50/p95/p99/max is 14.762/21.719/23.582/26.798 ms
+before and 14.833/21.700/23.635/26.555 ms final: no material GPU change.
+Sampled main-viewport render-CPU maximum falls from 66.221 to 36.442 ms;
+private viewports are not included. Peak cooperative fitting steps remain
+37.670/38.576 ms. Completed cell-resource fetch calls peak at 0.009/0.006 ms
+and instantiation at 1.009/0.940 ms; this does not measure asynchronous disk
+latency. Process/physics counters are one-second peaks, not independent
+per-frame script/physics attribution. Pipeline counters are cumulative and
+cannot assign the remainder to shader compilation alone.
+
+Final per-cell attachment calls peak at 2.529 ms; the largest observed node
+increase is 1,063 instead of 5,083. Those call timings exclude deferred engine
+costs. Final activation plus prefetch cleanup still takes 15.568–16.642 ms;
+its frame still exceeds 63 ms. Do not claim complete renderer/physics attribution.
+
+Fitting and its source-boundary validations still finish off-tree. Partial
+geometry is hidden; retained actors, counters and the public cell dictionary
+remain dormant until activation. Both pending roots must be released on
+cancellation/shutdown. Reflection owners inherit hidden visibility; restored
+one-time capture, actual input, retirement and authority checks remain required.
+Registration is cooperative, not a hard frame budget: one large cell can exceed
+its frame's allowance. Raw logs, test-written route samples, source snapshots,
+scripts and wrapper receipts are under
+**C:/ov/reports/passage_publication_20261028** and archived under
+**passage_publication/** in **art/reviews/skywatch_20261027/diagnostics.zip**.
+
+The original **OrisonV2PassageResidencyTest** passes **57 waypoints / zero
+failures**, **1,935 checks**, including 24 hidden/guarded publication observations,
+cancellation and shutdown of both pending roots, retained actor/cart/door and
+inventory identities, exact material values, retired mesh release and fresh
+one-time Diner reflection ownership. Shutdown stderr is empty. This is an
+actual-input regression, not a test-written runtime_contract. Final weather-route
+and residency wrapper receipts bind to the current source; the data-consumption
+audit reports **zero NEW** unread fields. Earlier unoptimized/control wrappers
+are preserved as historical diagnostics and are not repinned to the repair.
+
+The source-final **OrisonV2SurfaceInventory** completes in **779 wrapper seconds**:
+**39,207 checks / zero failures**, **27,827 draws / 17,013 meshes / 6,324 materials /
+527 textures**, empty stderr. Its test-written schema-2 contracts pass production
+composition, surface requirements and runtime-owned teardown. **Save
+reconstruction is NOT_EXECUTED**. Fire interaction is not repeated; its physical
+draws remain inventoried. Seven actual fullscreen captures were individually
+inspected; 237 captures exist, not all newly artistically reviewed. Dark streets,
+strong gallery highlights and the flat storm ceiling remain presentation debt.
+The renewed packet is published with **tools/publish_v2_surface_packet.py**;
+previous packet bytes are recoverable at main **2ec518f2** and separately backed
+up before publication. No human acceptance, full-year sky acceptance or V2
+completion is granted. Candidate verification is the remaining integration step.
+
+ The earlier city terrain-detail
+suggestions are already adapted in the city reference's hybrid-relief section;
+explicit curbs/bulkheads/ballast and 146 individual building studies remain open.

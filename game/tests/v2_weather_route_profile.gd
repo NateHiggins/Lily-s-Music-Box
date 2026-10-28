@@ -13,6 +13,8 @@ var _calendar_mode:=false
 var _mirage_profile_mode:=false
 var _cloud_profile_mode:=false
 var _phase_prefix:=""
+var _publication_cycle:=0
+var _publication_events: Array[Dictionary]=[]
 
 func _ready() -> void:
 	# GPU readback and PNG encoding must not contaminate measured route frames.
@@ -47,6 +49,12 @@ func _process(_delta: float) -> void:
 			RenderingServer.viewport_get_measured_render_time_cpu(view),
 			RenderingServer.viewport_get_measured_render_time_gpu(view),
 			world.passage_region.residency.state,counters])
+		var residency: Node=world.passage_region.residency
+		if residency.load_cycles!=_publication_cycle:
+			_publication_cycle=residency.load_cycles
+			_publication_events.append({"sample_index":_samples.size()-1,"phase":_phase,
+				"load_cycles":residency.load_cycles,"peak_activation_ms":residency.peak_activation_ms,
+				"peak_stage_ms":residency.peak_stage_ms,"cell_count":world.passage_region.cell_nodes.size()})
 	_previous_usec=now
 
 func _walk(target: Vector3) -> bool:
@@ -198,7 +206,8 @@ func _profile_mirage_route(manager: Node) -> void:
 		"source_before":_source_before,"source_after":source_after,"blocks":blocks,"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,
 		"conditions":manager.current,"calendar":clock.local_datetime(),"weather_source":manager.source,"mirage_parameters":mirage.last_projection_parameters,
 		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","residency","counters"],"samples":_samples,"segments":_segments,
-		"input_costs":player._grab.profile_records,"player_physics":player.physics_profile_records,"release_attribution":_release_attribution(),"failures":failures},"\t"))
+		"input_costs":player._grab.profile_records,"player_physics":player.physics_profile_records,"release_attribution":_release_attribution(),
+		"passage_residency":world.passage_region.residency.snapshot(),"publication_events":_publication_events,"failures":failures},"\t"))
 
 func _sky_source_bindings() -> Dictionary:
 	var result: Dictionary={}
