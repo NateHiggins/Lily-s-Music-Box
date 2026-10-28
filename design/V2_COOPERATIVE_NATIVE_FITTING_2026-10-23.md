@@ -388,5 +388,12 @@ Previous packet bytes were checked against immutable commit
 Git archive of **art/renders/orison_v2/surface_requirements_20261011** at that
 commit. No new duplicate review archive or source file is introduced. Raw local
 backups and **previous_packet_git_provenance.json** remain with the external run.
-Candidate comparison and integration remain pending; no speedup, new disk-save
-qualification or human artistic acceptance is claimed.
+Candidate **0b8ccff66270dc81540271a662ea2d1924d60233** passed the clean in-place
+comparison against **f71f1c82**:114 gates, zero regressions,17 protected paths
+unchanged, selector V2, no requirement-status changes and no modified gates.
+The verifier used --no-godot to reuse the separate executed runs above; fresh
+checkout qualification is outside that check. PR80 merged as
+**91aa459387d24fb7ff8a7498bd7af04e6ecc6115**, with a tree identical to the verified
+candidate. Canonical main is reconciled; the owned branch is removed locally
+and remotely. No speedup, new disk-save qualification or human artistic
+acceptance is claimed. Atomic fitting repair remains open under **P1**.

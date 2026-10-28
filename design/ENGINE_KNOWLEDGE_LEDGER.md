@@ -2,6 +2,31 @@
 
 Evidence class: **INERT**. Living observations, not acceptance.
 
+## October 28 — cooperative budgets require atomic-step attribution (L1)
+
+Problem: occupied passage reconstruction still stalls despite an8ms fitting
+budget. Frame-linked monotonic caller intervals in PR80, candidate
+**0b8ccff6**, measure a first advance up to36.819ms and a complete fitting call
+up to37.446ms. Ready-result gets are at most0.010ms in the complete diagnostic;
+that does not exclude worker or deferred-render costs. Evidence and original
+buffer-truncation failure: **V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md**,
+October28 section; actual fullscreen route and original residency regression.
+
+Reusable lesson, not a general performance guarantee: measure first preparation,
+later chunks and completion separately. A cooperative deadline cannot interrupt
+an atomic engine call or an unyielding preparation step. Record frame ids and
+monotonic intervals, bound storage and detect dropped records. Parent callback
+and nested-call durations overlap and must not be summed. The first4,096-record
+buffer was inadequate; an8,192 cap retained all7,046 records on this route.
+The probes are off by default and add no save or scheduling authority.
+
+Godot constraint: a threaded API's caller time is not its worker/GPU cost.
+Orison-specific scope: private source/collision validation, traffic and calendar
+settings, this machine and route. Extraction caution: preserve those validation
+owners and qualify another consumer before claiming a reusable contract (L3)
+or cross-project proof (L4). This is observation (L1); atomic fitting remains
+unrepaired, and the measurements do not establish a speedup.
+
 Status: living evidence record. This is not a claim that Orison is already a
 general-purpose engine. It records what this production has taught us, which
 parts appear reusable, and what must be separated or stabilized before reuse,
