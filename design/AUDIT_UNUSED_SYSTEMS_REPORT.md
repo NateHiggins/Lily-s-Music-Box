@@ -7,66 +7,38 @@ an audit only. No candidate below was removed or repaired.*
 
 ## October 28 — historical evidence storage cleanup
 
-At the owner's request, 25,740 duplicate navigation source-snapshot files under
-**design/astra/evidence/resident_f01_haunt/nav_validation** were consolidated into
-three indexed archives. All original bytes were verified before named-path
-removal. Logs, results, artifact maps and aggregate verdicts remain loose.
-Recovery instructions and the immutable preceding commit are in
-**design/astra/evidence/resident_f01_haunt/nav_validation/SOURCE_ARCHIVES.md**.
-This removes historical copies from the working tree, not installed gameplay,
-editable art sources or current qualification packets. Original failures remain
-failures. Broader render/review accumulation remains for subsequent cleanup.
+Evidence-only consolidation requested by the owner; installed gameplay,
+editable sources, logs, original verdicts and current qualification packets
+remain. Earlier chronological cleanup notes are recoverable from this file at
+commit **2c47150b83a037dae7a8120e72bd8b380a197d3d**.
 
-The next batch removes 205 loose images from the four historical
-**art/renders/wall_art_audit_before**, **wall_art_audit_after**,
-**wall_art_audit_final** and **wall_art_audit_delivered** sets: **1,075,839,623
-bytes**. Each image was compared byte-for-byte with its committed Git blob.
-The four original manifests remain. **art/renders/HISTORICAL_CAPTURES.json**
-records every original path, byte count, SHA256, blob identity and immutable
-recovery commit **4a696934710f66de9cf57ebf8609428ca88f3659**. Its command exports
-the full original sets to an external review ZIP through Git. This changes
-working-tree storage, not shared history or historical acceptance.
+| Merged checkpoint | Removed loose copies | Recovery and verification |
+|---|---:|---|
+| **PR 76 / dee9e28b** | 25,740 historical navigation source files | Three indexed archives preserve every byte: 254,108,724 source bytes become 9,934,873 archive bytes. Original result/artifact maps remain loose. **design/astra/evidence/resident_f01_haunt/nav_validation/SOURCE_ARCHIVES.md** records extraction and immutable preceding commit. Astra packet checks pass before/after. |
+| **PR 77 / 21e382ce** | 205 wall-art audit images / 1,075,839,623 bytes | Four original manifests retained. Every image equals its committed blob; actual Git-archive recovery exercised. Room-evidence verifier: 34 tests; surface publication: six tests, all pass. |
+| **PR 78 / 2c47150b** | 529 further render outputs / 590,195,841 bytes | Project-wide text audit retains basename/family references. Read-only Blender 5.2 LTS census: 329 native files, 4,340 image blocks, zero candidate inputs or failures; all native hashes unchanged. Every removed image equals its committed blob. |
 
-Folder and all-image-basename searches found no references from gameplay,
-tooling, art builders/data or current design documents outside the capture
-manifests. The generic room-evidence basename resolver was inspected. Installed
-wall-art assets, editable sources and the canonical V2 surface packet remain.
-No Godot or Blender run is asserted for this evidence-only consolidation;
-post-change static comparison remains pending.
+**art/renders/HISTORICAL_CAPTURES.json** indexes all 734 removed images by
+original path, bytes, SHA256 and blob identity, with immutable recovery commit
+**4a696934710f66de9cf57ebf8609428ca88f3659** and external Git-archive commands.
+The census searched primary project text, including authoring/review/material
+metadata, documents and skills; generated render metadata and historical copied
+Astra source/evidence were excluded from that primary-consumer search. It
+conservatively retained 9,949 other images. No source file, manifest, log or
+receipt was selected in the image batches.
 
-Recovery was exercised with the actual Git archive command for a representative
-image and its decoded ZIP bytes match the indexed SHA256. All 205 originals had
-already passed independent committed-blob equality. The existing room-evidence
-verifier's 34 tests and surface-publication tool's six tests pass. The installed
-surface packet independently validates with zero defects. No new acceptance
-claim or weakened verifier accompanies removal.
+Both image candidates pass clean 114-gate comparisons with zero regressions,
+17 protected paths unchanged, selector V2 and unchanged requirement statuses.
+Candidate **afc85ac7ba41364ea61950a2411356669de7a0a6** has a tree identical to
+PR 78's merge **2c47150b83a037dae7a8120e72bd8b380a197d3d**. The current composed
+surface packet still independently validates. No new Godot, fresh-checkout,
+visual or artistic acceptance is claimed; existing incomplete ledger debt
+remains. Verification summaries are retained in the capture index.
 
-PR **77** is merged at **21e382ce686f5ba2dacac25641f6ea62560f0ee2**, with a tree
-identical to candidate **7ee98f56d45fbdfef7cf3500ee2ce9eb48243898**. The clean
-114-gate comparison has zero regressions, all 17 protected paths unchanged,
-selector V2 and no requirement-status changes. Main's existing incomplete
-qualification/ledger debt remains; this is not a whole-game green claim.
-Verification and recovery summaries are retained in the capture index itself.
-Together with the preceding snapshot consolidation, tracked working-tree
-reduction is **25,940 files / 1,320,205,148 bytes** before this small metadata
-follow-up. Shared Git history is preserved; its database size is not reduced.
-
-A broader read-only render census then selected **529 additional images /
-590,195,841 bytes**. Any image whose basename or capture-family token appeared
-in primary project text was retained conservatively; 9,949 images remain in
-that audit. The search covered gameplay, tools, native authoring scripts/data,
-review/material metadata, design documents and skills, excluding generated
-render metadata and historical copied Astra source/evidence from the primary
-consumer search. No source file, manifest, log or receipt was selected.
-
-A single Blender 5.2 LTS library-datablock pass read **329 native files / 4,340
-image blocks**, finding no selected-image inputs and no read failures. Every
-native source hash remained unchanged. Each selected raster was independently
-compared byte-for-byte to its blob at the capture index's existing immutable
-commit. **art/renders/HISTORICAL_CAPTURES.json** extends that same recovery index;
-the preceding 205-image qualification remains separately scoped. The current
-surface packet and full static comparison must still pass before integration.
-No new runtime, visual or artistic acceptance is implied by storage cleanup.
+Cumulative reduction at that merge: **26,469 tracked files / 1,910,263,469
+working-tree bytes**, before this small metadata follow-up. Shared Git history
+and its database remain intact. Further cleanup needs targeted consumer review
+or migration; referenced images were not automatically declared disposable.
 
 ## Method
 

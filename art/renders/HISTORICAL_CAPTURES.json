@@ -4436,7 +4436,7 @@
     "limits": "In-place static verification; no fresh-checkout or new runtime/artistic acceptance. Git history retained.",
     "scope": "Initial205 wall-art captures only; this does not qualify the pending additions."
   },
-  "pending_batch": {
+  "latest_batch": {
     "base": "bc135d855b69afef8e48e1d5b261165655d791b1",
     "files": 529,
     "bytes": 590195841,
@@ -4450,6 +4450,21 @@
       "failures": 0,
       "native_hashes_unchanged": true
     },
-    "static_comparison": "pending"
+    "static_comparison": "PASS, zero regressions"
+  },
+  "qualification": {
+    "candidate": "afc85ac7ba41364ea61950a2411356669de7a0a6",
+    "merge": "2c47150b83a037dae7a8120e72bd8b380a197d3d",
+    "pr": 78,
+    "merge_tree_exact": true,
+    "static_gate_comparison": {
+      "gates": 114,
+      "regressions": 0,
+      "protected_unchanged": 17,
+      "requirements_changed": [],
+      "selector": "v2"
+    },
+    "current_surface_packet": "PASS, unchanged qualification; no new Godot run",
+    "limits": "In-place static verification; no new runtime, fresh-checkout or artistic acceptance. Shared history preserved."
   }
 }
