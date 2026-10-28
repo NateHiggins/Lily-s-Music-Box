@@ -4,6 +4,7 @@ extends Node
 
 var region
 var player: PlayerController
+var observer: Camera3D
 var frame: Node3D
 var _dormant_box: AABB
 var _prefetch_box: AABB
@@ -118,7 +119,10 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if _stopped or not is_instance_valid(player): return
+	# An inspection eye may request additional geometry, never retire the
+	# parked operator's support or a focused programme underneath its owner.
 	_update_wanted(player.global_position)
+	if is_instance_valid(observer) and not _wanted:_update_wanted(observer.global_position)
 
 func _update_wanted(world_position: Vector3) -> void:
 	# A focused programme owns its board even if another camera moves. Retiring

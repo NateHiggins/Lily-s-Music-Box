@@ -24,6 +24,15 @@ var _stopped := false
 var _avatar: Node3D
 
 
+func set_observer(camera: Camera3D) -> bool:
+	if not is_instance_valid(camera):return false
+	_main_camera=camera
+	if is_instance_valid(_camera):
+		_camera.fov=camera.fov
+		_camera.far=camera.far
+	return true
+
+
 func setup(main_camera: Camera3D,avatar: Node3D=null) -> void:
 	name = "PlanarMirrorRenderer"
 	_main_camera = main_camera

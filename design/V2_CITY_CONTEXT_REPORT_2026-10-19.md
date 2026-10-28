@@ -507,3 +507,111 @@ horizon studies plus this factory), **145** still open across the 149-building
 mandate. Height repairs are not additional individual studies. Curbs, bulkheads,
 ballast, bridge/station construction, the entrance remodel, weather polish and
 human acceptance remain open. Owner decision needed: **none**.
+
+
+## Hunters Point street-front repair and inspection camera — October 28
+
+REPORT — clean integration base **2467e7e6**, branch
+**codex/v2-city-townhouse-20261028**. Evidence class remains **INERT**.
+
+One existing mass, **site_nw2**, now uses a coherent brick Italianate house
+composition informed by **21-13 45th Avenue**, Root & Rust, 1871–72:
+[NYC LPC LP-0450](https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf), PDF pp. 3–4.
+The original **8 × 23.7 m** body and **10.9 m** height remain. Three floors,
+three narrow street bays, segmental hoods, one pedimented closed entry and a
+four-bracket timber cornice replace the oversized 6.2 m concrete podium.
+The plinth is now 0.53 m. The street-level entry adapts the reference's raised
+stoop; this is no surveyed replica, relocated historical parcel or new interior.
+Reference photographs inform form only and are not committed or projected.
+
+| Location / reproduction | Severity | Evidence | Repair | Verification |
+|---|---|---|---|---|
+| Northwest low block, street approach | Architectural coherence | Generic upper sash above a warehouse-scale podium | One narrow-front Italianate house with quieter party walls and rear windows | Native review, actual composed street first-hit and rendered street captures |
+| Initial isolated camera / frontage | Incorrect experiment | A camera facing the party wall was incorrectly treated as street direction, producing a three-house long-front terrace | Restore the actual narrow street frontage; retain the discarded experiment at WIP **197944bf** | Final composed street view and F8 capture show the single house between its neighbors |
+| City source chain | Startup blocker | Original surface run rejects stale closure provenance; closure-only rebuild rejects the upstream plan | Regenerate shells → masts → aerials → tanks → beacons → closure → elevations | Nine preflight fixtures pass; original failures retained |
+| F8 detached inspection | Input/support safety | Observer-only residency could abandon the parked body; unrestricted camera input could conflict with protected calls | Existing player input lease, parked-body-first residency, bounded observer additions and interruption cleanup | Actual engine key/mouse dispatch, movement, pointer, pause and protected-call checks |
+| Mouse-look test after physics ticks | Test failure | Original **surface_supported**: 39,291 checks, one unchanged mouse-basis assertion fails; contract preserved | Flush synthetic input and sample after rendered frame, retaining the same assertion | Focused 5,134-check diagnostic and final 39,291-check composed run pass; no production input setting changed |
+
+All **1,002** unrelated decoded draw arrays/local poses remain exact. Other five
+city GLBs remain byte-identical to main. The seven native sources regenerate
+their dependency bindings; generated GLBs are not hand-edited. Elevations move
+from **717,345 to 705,821 triangles**, **238 to 239 draws**, and
+**72,064,596 to 70,928,092 GLB bytes**. No texture assets are added. Existing
+registered PBR recipes, UVs, normals and loaded mipmaps remain authoritative.
+The original **1,205 roof samples** and equipment/support poses are retained;
+all **2,755** native pane probes pass at the unchanged 0.1 mm tolerance.
+Earlier conservative box/slab overlap diagnostics are not physical penetration
+proof; their three-house clearance result is not claimed for the final house.
+
+### F8 inspection tool
+
+The tool extends existing ShotCapture, not the legacy V1 free_cam script. F8
+enters/returns in developer/debug launch or explicitly enabled rooftop preview.
+**WASD** flies, **Q/E** moves vertically, **Shift/Ctrl** adjusts travel,
+wheel changes speed, **F** captures a clean image, backtick releases/captures
+the pointer, right click recaptures, and **Esc** returns. No collision is applied
+to the debug camera. It preserves the parked player pose and its processing
+flags, copies the real view, hides the interaction HUD/companion for inspection,
+and restores mirrors, residency observation, input ownership and pointer state.
+Protected conversations, text owners, active grabs/inspection/seating and pause
+refuse entry; incoming protected calls end inspection without stealing input.
+Inactive camera allocates no camera/HUD and does no per-frame processing.
+
+Actual Input.parse_input_event tests exercise F8, held movement, mouse look,
+wheel, screenshot, pointer release/reacquisition, pause return and incoming-call
+interruption. A physics-frame negative control retains support beneath the
+parked operator while the observer moves away. These are engine-dispatched
+inputs, not OS-hardware or owner feel acceptance. Individual vertical/speed
+modifier keys were not separately qualified. Save/load is not claimed here.
+
+The windowed rooftop regression passes **46 checks / zero failures**, including
+detached date/operator invariance while flying and complete campaign-state
+restoration on exit. The final imported native bench passes **5,405 checks /
+zero failures**, **1,205 roof samples**, **947 draws**, empty shutdown stderr.
+The surface, roof and bench wrapper receipts independently bind current inputs.
+
+### Measured occupied route and surface renewal
+
+At native **3440 × 1440 fullscreen**, RTX 4080, pinned patched Vulkan 4.7.1,
+8x MSAA, TAA, uncapped/vsync off, seed 1928, frozen June 25 1929 18:00,
+the current source-bound route completes **124 waypoints / zero failures**.
+Its **4,933 frames** yield wall p50/p95/p99/max **35.865 / 63.886 / 75.329 /
+104.781 ms**, GPU **14.746 / 21.783 / 23.661 / 26.320 ms**.
+The accepted factory baseline's 4,926 frames yield wall **35.773 / 64.738 /
+75.693 / 114.935 ms**, GPU **14.651 / 21.622 / 23.662 / 26.326 ms**.
+Two intermediate correct-frontage repetitions and their bindings remain in
+**supported_performance.json**. Residents, traffic and driver caches remain
+live; these results do not demonstrate a general FPS or stutter improvement.
+Screenshot readback stays outside measured intervals. A discarded terrace
+route's 230.567 ms loading spike correlates with compilation/resource changes;
+that correlation does not identify script, physics or asset-loading cost.
+
+The final composed surface qualification passes **39,291 checks / zero
+failures**, with **27,839 draws / 17,025 meshes / 6,328 materials / 527 textures**
+and empty shutdown stderr. Test-written schema-2 production-composition,
+surface-requirements and runtime-owned teardown contracts pass. Save
+reconstruction remains **NOT_EXECUTED**. Unchanged hose interaction is not
+repeated; its physical surfaces remain inventoried. The canonical packet is
+renewed only from **surface_verified**, not the failed **surface_supported**
+or the wrong-frontage **surface_bound** experiment. The latter passed technical
+checks but did not establish correct architectural placement. One superseded
+run was explicitly canceled by its owner; cancellation is not a suite result.
+
+Seven representative final world captures plus the actual street/F8 views were
+inspected. This is not artistic review of every capture. Dark streets, strong
+gallery highlights and the flat storm ceiling remain presentation debt. Raw
+receipts, original failures, source snapshots and repeatable diagnostics are
+retained externally under **C:/ov/reports/city_townhouse_20261028**; the existing
+review archive carries selected portable evidence with explicit recovery
+provenance. Candidate verification and integration remain pending.
+
+There are now **five individual technical city studies**, **144** remaining
+across the 149-mass mandate; eight height repairs are separate. The completed
+read-only six-building research brief is under
+**C:/ov/reports/city_reference_next_20261028/reference_brief.txt**. It recommends
+the existing Greystone, Towers, Elm, Chateau, Laburnum and Cambridge reference
+masses, excluding this house and Sohmer. It corrects the Chateau address/type
+and Cambridge flat-roof end-pavilion precedent; it grants no runtime acceptance.
+The entrance remodel, remaining city identities, bridge/station, weather polish,
+frame-time spikes, current route/save gaps and owner acceptance remain open.
+Owner decision needed: **none**. V2 is not complete.

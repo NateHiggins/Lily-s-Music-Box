@@ -69,12 +69,12 @@ func _process(delta: float) -> void:
 	_t+=delta;_update_lightning(delta)
 	var wind_gain := _advance_wind()
 	if air==null or not is_instance_valid(_player): return
+	var camera:=get_viewport().get_camera_3d()
+	var at: Vector3=camera.global_position if camera!=null else _player.global_position
 	_exposure_due-=delta
 	if _exposure_due<=0.0:
 		_exposure_due=.1
-		_outdoor=exposed(_player.global_position)
-	var camera:=get_viewport().get_camera_3d()
-	var at: Vector3=camera.global_position if camera!=null else _player.global_position
+		_outdoor=exposed(at if camera!=null and camera.has_meta("inspection_camera") else _player.global_position)
 	if extreme_weather!=null:
 		extreme_weather.update_emitters(gpu_emitters,at,_outdoor and OS.get_environment("WEATHER_RAIN")!="0",wind_gain,camera)
 		# A 64 m field retains 20 m of visible precipitation while its centre

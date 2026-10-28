@@ -2,8 +2,9 @@
 
 First-person navigable blockout of the full building, assembled from the
 procedural art pipeline in `../art/` (see that README for regeneration).
-Open this folder in Godot 4.7.1 and press F5. You start in the lobby at
-night.
+Run Godot through the repository's shared-lane wrappers; see `AGENTS.md`
+and `tools/engine_patches/README.md` in the repository root. The selector
+defaults to V2 and retains the explicit V1 rollback.
 
 ## Controls
 
@@ -11,6 +12,29 @@ night.
 - **Mouse** look (click to capture, **Esc** to release)
 - **E** interact (elevator call buttons and cabin panel)
 - **L** flashlight · **V** noclip · **F1** debug panel · **F2** intro
+
+### V2 inspection camera
+
+**F8** detaches a free camera in Debug launch, with
+`ORISON_DEVELOPER_OVERLAYS=1`, or in the detached rooftop weather preview.
+The player stays parked. **WASD** flies, **Q/E** descends/ascends, **Shift**
+boosts, **Ctrl** moves precisely, and the **wheel** changes speed. **F** writes
+a clean screenshot and its camera stand to the wrapper's `SHOT_DIR` (or the
+existing `art/renders/insitu` default). **Backtick** releases/recaptures the
+pointer; right click recaptures it. **F8** or **Escape** returns to the original
+camera and control state. Typing, grabbing, inspection, seating and protected
+conversations block entry. Flying does not move the player or scrub rooftop time.
+
+For an interactive native-resolution session, run from the repository root:
+
+```powershell
+$env:ORISON_DEVELOPER_OVERLAYS='1'
+$inspectionArgs=@('--script','res://tests/native_debug_window.gd','--fullscreen','--resolution','3440x1440')
+& ./tools/lane.ps1 run -Runner long -TimeoutSeconds 1500 -Windowed -ExtraArgs $inspectionArgs -ShotDir C:/ov/reports/inspection_camera/shots -LogPath C:/ov/reports/inspection_camera/session.log
+```
+
+This opens the normal project entry point; use its existing campaign controls.
+Inspection is a development view, not proof of played access or performance.
 
 **Touch:** a phone HUD auto-enables on mobile — a virtual stick under the
 left thumb (it appears wherever you press, so where your hand lands never

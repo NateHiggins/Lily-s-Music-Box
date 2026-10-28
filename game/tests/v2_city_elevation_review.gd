@@ -110,7 +110,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 		await suite.shot("city_"+str(view.id))
 	# Select upper windows and verify their actual first-hit sightline; low
 	# source windows can be hidden by the real construction canopy.
-	for identity: String in ["site_nbr_e","site_ne1","site_back_e"]:
+	for identity: String in ["site_nbr_e","site_ne1","site_back_e","site_nw2"]:
 		var found := false
 		for window: Dictionary in fixture.window_rows:
 			if str(window.building)!=identity or int(window.side)!=0 or float(window.center[2])<8.5:continue
@@ -127,6 +127,28 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 				break
 			if found:break
 		suite.check(found,"city window capture has an actual unobstructed first-hit sightline: "+identity)
+	# The narrow end fronts the street; the long faces adjoin the other row
+	# buildings. Review in the composed world, not just an isolated asset camera.
+	var townhouse_bounds: Array=[]
+	for building: Dictionary in fixture.buildings:
+		if str(building.id)=="site_nw2":townhouse_bounds=building.main_rect
+	suite.check(townhouse_bounds.size()==4,"one source townhouse reservation")
+	if townhouse_bounds.size()==4:
+		var center_x:=float(townhouse_bounds[0]+townhouse_bounds[2])*.5
+		var front_z: float=-float(townhouse_bounds[1])
+		var target:=city.to_global(Vector3(center_x,5.8,front_z))
+		var visible:=false
+		for offset_x: float in [0.,-.8,.8]:
+			var eye:=city.to_global(Vector3(center_x+offset_x,1.6,front_z+13.))
+			var inside:=city.to_global(Vector3(center_x,5.8,front_z-.4))
+			var hit:=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(eye,inside,1,[world.player.get_rid()]))
+			if hit.is_empty() or not str(bodies.get(hit.collider.get_rid(),"")).begins_with("site_nw2__"):continue
+			camera.global_position=eye;camera.look_at(target);visible=true
+			await suite.get_tree().create_timer(.6).timeout
+			await suite.shot("city_townhouse_street_front")
+			await _review_inspection_camera(world,suite,camera.global_transform)
+			break
+		suite.check(visible,"townhouse street front is genuinely visible with real world blockers retained")
 	await preload("res://tests/v2_city_horizon_review.gd").new().run(world,suite,camera)
 	# Presentation-only comparisons in the same composed world and camera.
 	# They grant no played exterior access or live-network weather acceptance.
@@ -166,3 +188,114 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	if is_instance_valid(prior):prior.make_current()
 	camera.free()
 	print("CITY ELEVATION REVIEW: parts=%d triangles=%d windows=%d bearing_samples=%d window_stations=%d" % [parts,triangles,int(fixture.windows),contacts,sampled.size()])
+
+
+func _inspection_key(suite: Node,key: Key,pressed: bool) -> void:
+	var event:=InputEventKey.new()
+	event.keycode=key;event.physical_keycode=key;event.pressed=pressed
+	Input.parse_input_event(event)
+	await suite.get_tree().process_frame
+
+
+func _inspection_tap(suite: Node,key: Key) -> void:
+	await _inspection_key(suite,key,true)
+	await _inspection_key(suite,key,false)
+
+
+func _review_inspection_camera(world: OrisonV2RuntimeRoot,suite: Node,street_pose: Transform3D) -> void:
+	var shots: ShotCapture=world.shots
+	var player: PlayerController=world.player
+	var previous:=world.get_viewport().get_camera_3d()
+	var mode:=GameBoot.launch_mode
+	var mouse:=Input.mouse_mode
+	var pose:=player.global_transform
+	var physics:=player.is_physics_processing()
+	var processing:=player.is_processing()
+	var protected:=player.protected_input_active()
+	GameBoot.launch_mode=GameBoot.LaunchMode.DEBUG
+	player.camera.make_current()
+	player.call_locked=true
+	await _inspection_tap(suite,KEY_F8)
+	suite.check(not is_instance_valid(shots.inspection_camera) and player.protected_input_active(),"free camera refuses protected conversation input")
+	player.call_locked=protected
+	var text_owner:=Node.new();world.add_child(text_owner)
+	var acquired:=player.acquire_text_input(text_owner)
+	suite.check(acquired,"camera text-ownership control uses the real input owner")
+	await _inspection_tap(suite,KEY_F8)
+	suite.check(not is_instance_valid(shots.inspection_camera) and player.text_input_owner==text_owner,"free camera preserves typed input ownership")
+	player.release_text_input(text_owner);text_owner.queue_free()
+	await _inspection_tap(suite,KEY_F8)
+	var camera:=shots.inspection_camera
+	suite.check(is_instance_valid(camera),"actual F8 event activates the inspection camera")
+	if is_instance_valid(camera):
+		suite.check(player.text_input_owner==shots,"inspection owns the existing input lease while flying")
+		suite.check(camera.is_current() and world.view_override==camera and world.passage_region.residency.observer==camera
+				and world.mirror_renderer._main_camera==camera,"camera drives view, visual residency and mirror observer")
+		suite.check(not player.is_processing() and not player.is_physics_processing(),"operator remains parked while the camera flies")
+		camera.global_transform=street_pose
+		var start:=camera.global_position
+		await _inspection_key(suite,KEY_W,true)
+		await suite.get_tree().create_timer(.12).timeout
+		await _inspection_key(suite,KEY_W,false)
+		suite.check(camera.global_position.distance_to(start)>.15 and player.global_transform.is_equal_approx(pose),"actual held movement flies the eye without moving the player")
+		var residency: Node=world.passage_region.residency
+		var camera_pose:=camera.global_transform
+		player.global_position=residency.frame.to_global(residency._prefetch_box.get_center())
+		camera.global_position=player.global_position+Vector3.UP*100.
+		await suite.get_tree().physics_frame
+		await suite.get_tree().physics_frame
+		suite.check(residency._wanted,"flying away cannot retire geometry supporting the parked operator")
+		player.global_transform=pose;camera.global_transform=camera_pose
+		var before_look:=camera.global_basis
+		var motion:=InputEventMouseMotion.new();motion.relative=Vector2(24,-12)
+		motion.position=world.get_viewport().get_visible_rect().get_center()
+		motion.global_position=motion.position
+		Input.parse_input_event(motion)
+		Input.flush_buffered_events()
+		await RenderingServer.frame_post_draw
+		print("INSPECTION LOOK: before=",before_look," after=",camera.global_basis,
+				" mouse=",Input.mouse_mode," processing_input=",shots.is_processing_input()," lease=",player.text_input_owner==shots)
+		suite.check(not camera.global_basis.is_equal_approx(before_look),"actual mouse motion turns the inspection camera")
+		var speed:=shots.inspection_speed
+		var wheel:=InputEventMouseButton.new();wheel.button_index=MOUSE_BUTTON_WHEEL_UP;wheel.pressed=true
+		Input.parse_input_event(wheel);await suite.get_tree().process_frame
+		suite.check(is_equal_approx(shots.inspection_speed,speed*1.5),"wheel adjusts inspection travel speed")
+		await _inspection_tap(suite,KEY_QUOTELEFT)
+		start=camera.global_position
+		await _inspection_key(suite,KEY_W,true)
+		await suite.get_tree().create_timer(.08).timeout
+		await _inspection_key(suite,KEY_W,false)
+		suite.check(Input.mouse_mode==Input.MOUSE_MODE_VISIBLE and camera.global_position.is_equal_approx(start),"released pointer stops camera movement")
+		var click:=InputEventMouseButton.new();click.button_index=MOUSE_BUTTON_RIGHT;click.pressed=true
+		Input.parse_input_event(click);await suite.get_tree().process_frame
+		suite.check(Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"right click recaptures the inspection pointer")
+		camera.global_transform=street_pose
+		var captured: Array[String]=[]
+		var on_capture:=func(stem: String,_aim: String):captured.append(stem)
+		shots.captured.connect(on_capture)
+		await _inspection_tap(suite,KEY_F)
+		for frame in 20:
+			if not captured.is_empty():break
+			await suite.get_tree().process_frame
+		shots.captured.disconnect(on_capture)
+		suite.check(captured.size()==1 and FileAccess.file_exists(OS.get_environment("SHOT_DIR").path_join(captured[0]+".png")),"actual F event saves the inspection view with its stand")
+		suite.get_tree().paused=true
+		await _inspection_tap(suite,KEY_ESCAPE)
+		suite.check(not is_instance_valid(shots.inspection_camera) and suite.get_tree().paused,"Escape restores control without resuming a paused world")
+		suite.get_tree().paused=false
+	suite.check(player.camera.is_current() and player.global_transform.is_equal_approx(pose)
+			and player.is_processing()==processing and player.is_physics_processing()==physics,"leaving inspection restores the original player camera, pose and processing")
+	suite.check(world.view_override==null and world.passage_region.residency.observer==null
+			and world.mirror_renderer._main_camera==player.camera,"inspection presentation owners are restored")
+	suite.check(player.text_input_owner==null and player.protected_input_active()==protected,"inspection releases only its own input lease")
+	await _inspection_tap(suite,KEY_F8)
+	suite.check(is_instance_valid(shots.inspection_camera),"inspection can be resumed after returning control")
+	player.call_locked=true
+	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+	await suite.get_tree().process_frame
+	await suite.get_tree().process_frame
+	suite.check(not is_instance_valid(shots.inspection_camera) and player.protected_input_active()
+			and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"incoming protected conversation ends flight without stealing its pointer")
+	player.call_locked=protected
+	GameBoot.launch_mode=mode;Input.mouse_mode=mouse
+	if is_instance_valid(previous):previous.make_current()

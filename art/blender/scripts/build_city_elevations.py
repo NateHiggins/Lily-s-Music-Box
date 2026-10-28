@@ -117,9 +117,16 @@ def factory_tower(name,p,seat):
         profile_stock(name,'copper_aged',origin,u,out,[(math.cos(i*math.tau/16)*.12,center+math.sin(i*math.tau/16)*.12) for i in range(16)],.27,.36)
     architecture_checks.append(dict(building=name,tower_rect=[x,y,X,Y],tower_seat=seat,tower_top=wall+height+.18,arch_windows=0))
 
+def facade_frames(rect,depth):
+    x,y,X,Y=rect
+    return [
+        (Vector((X,y,0)),Vector((-1,0,0)),Vector((0,-1,0)),X-x),
+        (Vector((X,Y-depth,0)),Vector((0,-1,0)),Vector((1,0,0)),Y-y-2*depth),
+        (Vector((x,Y,0)),Vector((1,0,0)),Vector((0,1,0)),X-x),
+        (Vector((x,y+depth,0)),Vector((0,1,0)),Vector((-1,0,0)),Y-y-2*depth)]
+
 def townhouse_cornice(name,p,rect,roof):
-    x,y,X,Y=rect;depth=float(p['reveal_depth']);width=Y-y-2*depth
-    origin=Vector((X,Y-depth,0));u=Vector((0,-1,0));out=Vector((1,0,0))
+    origin,u,out,width=facade_frames(rect,float(p['reveal_depth']))[int(p['architecture']['front_side'])]
     # The neighboring sash/sills project into this narrow reservation gap.
     # Scale decorative depth only; retain the seated back faces and stock width.
     projection=.78
@@ -169,11 +176,7 @@ def facade(name,p,rect,z0,z1):
             levels.append(levels[-1]+h)
         assert any(abs(z0-v)<.00002 for v in levels) and any(abs(z1-v)<.00002 for v in levels),(name,z0,z1,levels)
         intervals=[(a,b) for a,b in zip(levels,levels[1:]) if a>=z0-.00002 and b<=z1+.00002]
-    for side,(origin,tangent,out,length) in enumerate([
-        (Vector((X,y,0)),Vector((-1,0,0)),Vector((0,-1,0)),X-x),
-        (Vector((X,Y-depth,0)),Vector((0,-1,0)),Vector((1,0,0)),Y-y-2*depth),
-        (Vector((x,Y,0)),Vector((1,0,0)),Vector((0,1,0)),X-x),
-        (Vector((x,y+depth,0)),Vector((0,1,0)),Vector((-1,0,0)),Y-y-2*depth)]):
+    for side,(origin,tangent,out,length) in enumerate(facade_frames(rect,depth)):
         if (townhouse and side not in [int(p['architecture']['front_side']),(int(p['architecture']['front_side'])+2)%4]) or (p['detail_faces']=='inward' and out.dot(-origin)<=0):
             # Secondary outward elevations retain closed mapped masonry;
             # concentrate physical window stock on the principal city-facing elevations.

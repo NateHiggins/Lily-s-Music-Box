@@ -5235,30 +5235,10 @@
   "portals": [
     {
       "building": "site_nw2",
-      "side": 1,
+      "side": 0,
       "point": [
-        -31.200000762939453,
-        8.314722061157227,
-        1.5
-      ],
-      "front": -0.07
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "point": [
-        -31.200000762939453,
-        0.5880556106567383,
-        1.5
-      ],
-      "front": -0.07
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "point": [
-        -31.200000762939453,
-        -7.13861083984375,
+        -32.170833587646484,
+        -14.199999809265137,
         1.5
       ],
       "front": -0.07
@@ -5417,17 +5397,17 @@
   "townhouse_details": [
     {
       "building": "site_nw2",
-      "brackets": 12,
-      "terraces": 3,
+      "brackets": 4,
+      "terraces": 1,
       "storeys": 3,
       "probe": [
-        -30.794401168823242,
-        -2.3500003814697266,
+        -35.20000076293945,
+        -14.605599403381348,
         11.5
       ],
       "normal": [
-        1.0,
         0.0,
+        -1.0,
         0.0
       ],
       "finish": "wood_dark"
@@ -5465,7 +5445,7 @@
   ],
   "native_checks": {
     "bearing_samples": 1205,
-    "window_samples": 2791,
+    "window_samples": 2755,
     "failures": [],
     "tolerance_m": 0.0001
   },
@@ -5519,7 +5499,7 @@
       "id": "site_nw2",
       "old_setbacks": 0,
       "new_setbacks": 0,
-      "windows": 54,
+      "windows": 18,
       "roof_height": 10.9,
       "shaft_bottom": 0.0,
       "setback_height": 10.9,
@@ -6064,7 +6044,7 @@
       ]
     }
   ],
-  "windows": 2791,
+  "windows": 2755,
   "window_rows": [
     {
       "building": "site_nbr_w",
@@ -10362,1027 +10342,343 @@
     },
     {
       "building": "site_nw2",
-      "side": 1,
+      "side": 0,
       "floor": 0,
       "bay": 0,
       "center": [
-        -31.200000762939453,
-        7.952221870422363,
+        -32.53333282470703,
+        -14.199999809265137,
         1.7000000476837158
       ],
       "width": 1.45,
       "height": 3.2,
       "recess_m": 0.17,
       "pane_sample": [
-        -31.200000762939453,
-        7.6332221031188965,
+        -32.852333068847656,
+        -14.199999809265137,
         2.3399999141693115
       ]
     },
     {
       "building": "site_nw2",
-      "side": 1,
+      "side": 0,
       "floor": 0,
       "bay": 1,
       "center": [
-        -31.200000762939453,
-        5.37666654586792,
+        -35.20000076293945,
+        -14.199999809265137,
         1.6749999523162842
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -31.200000762939453,
-        5.0906662940979,
+        -35.486000061035156,
+        -14.199999809265137,
         2.1050000190734863
       ]
     },
     {
       "building": "site_nw2",
-      "side": 1,
+      "side": 0,
       "floor": 0,
       "bay": 2,
       "center": [
-        -31.200000762939453,
-        2.8011107444763184,
+        -37.866668701171875,
+        -14.199999809265137,
         1.6749999523162842
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -31.200000762939453,
-        2.515110969543457,
+        -38.15266799926758,
+        -14.199999809265137,
         2.1050000190734863
       ]
     },
     {
       "building": "site_nw2",
-      "side": 1,
-      "floor": 0,
-      "bay": 3,
-      "center": [
-        -31.200000762939453,
-        0.225555419921875,
-        1.7000000476837158
-      ],
-      "width": 1.45,
-      "height": 3.2,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -0.09344482421875,
-        2.3399999141693115
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 0,
-      "bay": 4,
-      "center": [
-        -31.200000762939453,
-        -2.3500003814697266,
-        1.6749999523162842
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -2.636000633239746,
-        2.1050000190734863
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 0,
-      "bay": 5,
-      "center": [
-        -31.200000762939453,
-        -4.925556182861328,
-        1.6749999523162842
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -5.211555480957031,
-        2.1050000190734863
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 0,
-      "bay": 6,
-      "center": [
-        -31.200000762939453,
-        -7.50111198425293,
-        1.7000000476837158
-      ],
-      "width": 1.45,
-      "height": 3.2,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -7.820112228393555,
-        2.3399999141693115
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 0,
-      "bay": 7,
-      "center": [
-        -31.200000762939453,
-        -10.076667785644531,
-        1.6749999523162842
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -10.362667083740234,
-        2.1050000190734863
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 0,
-      "bay": 8,
-      "center": [
-        -31.200000762939453,
-        -12.6522216796875,
-        1.6749999523162842
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -12.938222885131836,
-        2.1050000190734863
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
+      "side": 0,
       "floor": 1,
       "bay": 0,
       "center": [
-        -31.200000762939453,
-        7.952221870422363,
+        -32.53333282470703,
+        -14.199999809265137,
         5.275000095367432
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -31.200000762939453,
-        7.666222095489502,
+        -32.8193359375,
+        -14.199999809265137,
         5.704999923706055
       ]
     },
     {
       "building": "site_nw2",
-      "side": 1,
+      "side": 0,
       "floor": 1,
       "bay": 1,
       "center": [
-        -31.200000762939453,
-        5.37666654586792,
+        -35.20000076293945,
+        -14.199999809265137,
         5.275000095367432
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -31.200000762939453,
-        5.0906662940979,
+        -35.486000061035156,
+        -14.199999809265137,
         5.704999923706055
       ]
     },
     {
       "building": "site_nw2",
-      "side": 1,
+      "side": 0,
       "floor": 1,
       "bay": 2,
       "center": [
-        -31.200000762939453,
-        2.8011107444763184,
+        -37.866668701171875,
+        -14.199999809265137,
         5.275000095367432
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -31.200000762939453,
-        2.515110969543457,
+        -38.15266799926758,
+        -14.199999809265137,
         5.704999923706055
       ]
     },
     {
       "building": "site_nw2",
-      "side": 1,
-      "floor": 1,
-      "bay": 3,
-      "center": [
-        -31.200000762939453,
-        0.225555419921875,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -0.06044483184814453,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 1,
-      "bay": 4,
-      "center": [
-        -31.200000762939453,
-        -2.3500003814697266,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -2.636000633239746,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 1,
-      "bay": 5,
-      "center": [
-        -31.200000762939453,
-        -4.925556182861328,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -5.211555480957031,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 1,
-      "bay": 6,
-      "center": [
-        -31.200000762939453,
-        -7.50111198425293,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -7.787111282348633,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 1,
-      "bay": 7,
-      "center": [
-        -31.200000762939453,
-        -10.076667785644531,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -10.362667083740234,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 1,
-      "bay": 8,
-      "center": [
-        -31.200000762939453,
-        -12.6522216796875,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -12.938222885131836,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
+      "side": 0,
       "floor": 2,
       "bay": 0,
       "center": [
-        -31.200000762939453,
-        7.952221870422363,
+        -32.53333282470703,
+        -14.199999809265137,
         8.925000190734863
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -31.200000762939453,
-        7.666222095489502,
+        -32.8193359375,
+        -14.199999809265137,
         9.354999542236328
       ]
     },
     {
       "building": "site_nw2",
-      "side": 1,
+      "side": 0,
       "floor": 2,
       "bay": 1,
       "center": [
-        -31.200000762939453,
-        5.37666654586792,
+        -35.20000076293945,
+        -14.199999809265137,
         8.925000190734863
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -31.200000762939453,
-        5.0906662940979,
+        -35.486000061035156,
+        -14.199999809265137,
         9.354999542236328
       ]
     },
     {
       "building": "site_nw2",
-      "side": 1,
+      "side": 0,
       "floor": 2,
       "bay": 2,
       "center": [
-        -31.200000762939453,
-        2.8011107444763184,
+        -37.866668701171875,
+        -14.199999809265137,
         8.925000190734863
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -31.200000762939453,
-        2.515110969543457,
+        -38.15266799926758,
+        -14.199999809265137,
         9.354999542236328
       ]
     },
     {
       "building": "site_nw2",
-      "side": 1,
-      "floor": 2,
-      "bay": 3,
-      "center": [
-        -31.200000762939453,
-        0.225555419921875,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -0.06044483184814453,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 2,
-      "bay": 4,
-      "center": [
-        -31.200000762939453,
-        -2.3500003814697266,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -2.636000633239746,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 2,
-      "bay": 5,
-      "center": [
-        -31.200000762939453,
-        -4.925556182861328,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -5.211555480957031,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 2,
-      "bay": 6,
-      "center": [
-        -31.200000762939453,
-        -7.50111198425293,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -7.787111282348633,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 2,
-      "bay": 7,
-      "center": [
-        -31.200000762939453,
-        -10.076667785644531,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -10.362667083740234,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 1,
-      "floor": 2,
-      "bay": 8,
-      "center": [
-        -31.200000762939453,
-        -12.6522216796875,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -31.200000762939453,
-        -12.938222885131836,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
+      "side": 2,
       "floor": 0,
       "bay": 0,
       "center": [
-        -39.20000076293945,
-        -12.6522216796875,
+        -37.866668701171875,
+        9.5,
         1.6749999523162842
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -39.20000076293945,
-        -12.36622142791748,
+        -37.580665588378906,
+        9.5,
         2.1050000190734863
       ]
     },
     {
       "building": "site_nw2",
-      "side": 3,
+      "side": 2,
       "floor": 0,
       "bay": 1,
       "center": [
-        -39.20000076293945,
-        -10.076665878295898,
+        -35.20000076293945,
+        9.5,
         1.6749999523162842
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -39.20000076293945,
-        -9.790666580200195,
+        -34.91400146484375,
+        9.5,
         2.1050000190734863
       ]
     },
     {
       "building": "site_nw2",
-      "side": 3,
+      "side": 2,
       "floor": 0,
       "bay": 2,
       "center": [
-        -39.20000076293945,
-        -7.501110553741455,
+        -32.53333282470703,
+        9.5,
         1.6749999523162842
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -39.20000076293945,
-        -7.215110778808594,
+        -32.24733352661133,
+        9.5,
         2.1050000190734863
       ]
     },
     {
       "building": "site_nw2",
-      "side": 3,
-      "floor": 0,
-      "bay": 3,
-      "center": [
-        -39.20000076293945,
-        -4.925555229187012,
-        1.6749999523162842
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        -4.639554977416992,
-        2.1050000190734863
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 0,
-      "bay": 4,
-      "center": [
-        -39.20000076293945,
-        -2.34999942779541,
-        1.6749999523162842
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        -2.0639991760253906,
-        2.1050000190734863
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 0,
-      "bay": 5,
-      "center": [
-        -39.20000076293945,
-        0.2255563735961914,
-        1.6749999523162842
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        0.5115556716918945,
-        2.1050000190734863
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 0,
-      "bay": 6,
-      "center": [
-        -39.20000076293945,
-        2.801112174987793,
-        1.6749999523162842
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        3.087111473083496,
-        2.1050000190734863
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 0,
-      "bay": 7,
-      "center": [
-        -39.20000076293945,
-        5.3766679763793945,
-        1.6749999523162842
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        5.662667274475098,
-        2.1050000190734863
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 0,
-      "bay": 8,
-      "center": [
-        -39.20000076293945,
-        7.952221870422363,
-        1.6749999523162842
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        8.2382230758667,
-        2.1050000190734863
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
+      "side": 2,
       "floor": 1,
       "bay": 0,
       "center": [
-        -39.20000076293945,
-        -12.6522216796875,
+        -37.866668701171875,
+        9.5,
         5.275000095367432
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -39.20000076293945,
-        -12.36622142791748,
+        -37.580665588378906,
+        9.5,
         5.704999923706055
       ]
     },
     {
       "building": "site_nw2",
-      "side": 3,
+      "side": 2,
       "floor": 1,
       "bay": 1,
       "center": [
-        -39.20000076293945,
-        -10.076665878295898,
+        -35.20000076293945,
+        9.5,
         5.275000095367432
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -39.20000076293945,
-        -9.790666580200195,
+        -34.91400146484375,
+        9.5,
         5.704999923706055
       ]
     },
     {
       "building": "site_nw2",
-      "side": 3,
+      "side": 2,
       "floor": 1,
       "bay": 2,
       "center": [
-        -39.20000076293945,
-        -7.501110553741455,
+        -32.53333282470703,
+        9.5,
         5.275000095367432
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -39.20000076293945,
-        -7.215110778808594,
+        -32.24733352661133,
+        9.5,
         5.704999923706055
       ]
     },
     {
       "building": "site_nw2",
-      "side": 3,
-      "floor": 1,
-      "bay": 3,
-      "center": [
-        -39.20000076293945,
-        -4.925555229187012,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        -4.639554977416992,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 1,
-      "bay": 4,
-      "center": [
-        -39.20000076293945,
-        -2.34999942779541,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        -2.0639991760253906,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 1,
-      "bay": 5,
-      "center": [
-        -39.20000076293945,
-        0.2255563735961914,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        0.5115556716918945,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 1,
-      "bay": 6,
-      "center": [
-        -39.20000076293945,
-        2.801112174987793,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        3.087111473083496,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 1,
-      "bay": 7,
-      "center": [
-        -39.20000076293945,
-        5.3766679763793945,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        5.662667274475098,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 1,
-      "bay": 8,
-      "center": [
-        -39.20000076293945,
-        7.952221870422363,
-        5.275000095367432
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        8.2382230758667,
-        5.704999923706055
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
+      "side": 2,
       "floor": 2,
       "bay": 0,
       "center": [
-        -39.20000076293945,
-        -12.6522216796875,
+        -37.866668701171875,
+        9.5,
         8.925000190734863
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -39.20000076293945,
-        -12.36622142791748,
+        -37.580665588378906,
+        9.5,
         9.354999542236328
       ]
     },
     {
       "building": "site_nw2",
-      "side": 3,
+      "side": 2,
       "floor": 2,
       "bay": 1,
       "center": [
-        -39.20000076293945,
-        -10.076665878295898,
+        -35.20000076293945,
+        9.5,
         8.925000190734863
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -39.20000076293945,
-        -9.790666580200195,
+        -34.91400146484375,
+        9.5,
         9.354999542236328
       ]
     },
     {
       "building": "site_nw2",
-      "side": 3,
+      "side": 2,
       "floor": 2,
       "bay": 2,
       "center": [
-        -39.20000076293945,
-        -7.501110553741455,
+        -32.53333282470703,
+        9.5,
         8.925000190734863
       ],
       "width": 1.3,
       "height": 2.15,
       "recess_m": 0.17,
       "pane_sample": [
-        -39.20000076293945,
-        -7.215110778808594,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 2,
-      "bay": 3,
-      "center": [
-        -39.20000076293945,
-        -4.925555229187012,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        -4.639554977416992,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 2,
-      "bay": 4,
-      "center": [
-        -39.20000076293945,
-        -2.34999942779541,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        -2.0639991760253906,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 2,
-      "bay": 5,
-      "center": [
-        -39.20000076293945,
-        0.2255563735961914,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        0.5115556716918945,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 2,
-      "bay": 6,
-      "center": [
-        -39.20000076293945,
-        2.801112174987793,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        3.087111473083496,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 2,
-      "bay": 7,
-      "center": [
-        -39.20000076293945,
-        5.3766679763793945,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        5.662667274475098,
-        9.354999542236328
-      ]
-    },
-    {
-      "building": "site_nw2",
-      "side": 3,
-      "floor": 2,
-      "bay": 8,
-      "center": [
-        -39.20000076293945,
-        7.952221870422363,
-        8.925000190734863
-      ],
-      "width": 1.3,
-      "height": 2.15,
-      "recess_m": 0.17,
-      "pane_sample": [
-        -39.20000076293945,
-        8.2382230758667,
+        -32.24733352661133,
+        9.5,
         9.354999542236328
       ]
     },
@@ -59985,7 +59281,7 @@
     {
       "name": "site_nw2__arcade_brick_bond",
       "key": "arcade_brick_bond",
-      "triangles": 4676
+      "triangles": 1652
     },
     {
       "name": "site_nw2__brick",
@@ -59995,12 +59291,12 @@
     {
       "name": "site_nw2__bronze_sheet",
       "key": "bronze_sheet",
-      "triangles": 72
+      "triangles": 24
     },
     {
       "name": "site_nw2__door_paint",
       "key": "door_paint",
-      "triangles": 5400
+      "triangles": 1800
     },
     {
       "name": "site_nw2__galvanized_roof",
@@ -60010,22 +59306,22 @@
     {
       "name": "site_nw2__limestone",
       "key": "limestone",
-      "triangles": 3804
+      "triangles": 1292
     },
     {
       "name": "site_nw2__linen",
       "key": "linen",
-      "triangles": 516
+      "triangles": 180
     },
     {
       "name": "site_nw2__mirror_aged",
       "key": "mirror_aged",
-      "triangles": 648
+      "triangles": 216
     },
     {
       "name": "site_nw2__wood_dark",
       "key": "wood_dark",
-      "triangles": 2028
+      "triangles": 692
     },
     {
       "name": "site_nw3__arcade_brick_bond",
@@ -60293,78 +59589,78 @@
       "triangles": 960
     }
   ],
-  "triangles": 717109,
-  "asset_sha256": "5dc21cb4796da91fc4982ea30df7a89ee4f04a8a08c282f20d9e4115d32d28b8",
+  "triangles": 705821,
+  "asset_sha256": "5ba34ec3c923cc4288808b244115290552970aea7cba02b1560bc6fc13b84e01",
   "source_bindings": {
-    "art/data/city_elevations/source_plan.json": "ef0add0ae65f650fb4f4cef7b03959f4954472e6353acc5da1e2adee51e87a7c",
-    "art/blender/city_closure.blend": "544146c808f1645f0a9ff7875c7744d6dfae322bf8a27a42f2b9673306eedba1",
-    "art/blender/city_closure_construction.json": "15c1af438d9b064a28f26661855e35340cda7671bcc613d82203dd441eb3ecfc",
-    "art/blender/city_shells.blend": "e02f7b2d9eeb18a63e46e1d667c2b9026d576cd571b01dbb4c7bd6ac303c25ce",
-    "art/blender/city_shells_registration.json": "ddaeaade0cac88921a22786d6c3c22e77702bc230fc8bc1044d3e75a321cac95",
+    "art/data/city_elevations/source_plan.json": "e9f9e19c66d28544f6d0102a7d36b9a7525eb3345040b6a091f149e90c24ab70",
+    "art/blender/city_closure.blend": "f302dcd7c98e9811ff6bee604576ef1bef3e863706e1f4a284e826d221bc424f",
+    "art/blender/city_closure_construction.json": "be480247fe7c2292d29ddaabe815081c8fba0d5fd1b12408d961ca703da079dc",
+    "art/blender/city_shells.blend": "be6555a2420d5b1950d259478d9d56be47dc54e2743deb3aa7bc65f6c60d6b82",
+    "art/blender/city_shells_registration.json": "80528b9e386f1996f21c1276330842d1f168ff86f51520b62e747fd979f58f5b",
     "game/data/runtime_material_sets.json": "13dd9a0e229d6170871c7bc68f9344391215dc5eb8a237ad603ce1410e7f559d",
     "game/data/orison_v2/exterior/city_elevations.json": "feb912cbad81ebc00512856ac5c46c65e13401e05e62d189c61075a7372dc2a3",
-    "game/tests/fixtures/orison_city_masts.json": "41d957b586d011b9a2f17aee86789cba425c0ec953fbd76bac7f42bd944f7878",
-    "game/tests/fixtures/orison_city_aerials.json": "c54cd7b35c73f5911baeb2c45c290e97cf0efdebd501670a26f635f48685c07b",
-    "game/tests/fixtures/orison_city_tanks.json": "73302192753af7ac6892eb947bb0868d8a975b7bdf9dce3db162a57f80699afb",
+    "game/tests/fixtures/orison_city_masts.json": "ce7992731e9b2a7a81467e430e0d6e63985a939d5e372ba64c6dd6dfb5aaf52b",
+    "game/tests/fixtures/orison_city_aerials.json": "5980106b9d2a1ee4c70e4cf0fb5e435b8b527057a6e4c221ef4a284778bc0384",
+    "game/tests/fixtures/orison_city_tanks.json": "4cbb830d91471b5a5636d4412581445a798d5ff39a7706470a53e2befbb06a67",
     "game/scripts/building/orison_v2_city_shells.gd": "bf3dbaa65e031b7b9a8827aa6118c6f263838d7627d56bf5eb3bc32fb68bc995",
     "art/blender/scripts/city_horizon_geometry.py": "e50d1e0e6e024fcbe1cf14970d7057f1cbcb779122498cf27568ba6d73b8671a",
     "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
-    "art/blender/scripts/build_city_elevations.py": "11a9d07ed5ff6667ae09b9559c5a9269ae56dd97ae4f6dd3ec6cd2b64202d689",
-    "game/assets/building/textures/T_ai_materials_door_paint_albedo.png": "3a68fb4497fb0f5b56edfcd168a4d05593b760b0437c20aa4b2ec4e97f19616f",
-    "game/assets/building/textures/T_ai_materials_door_paint_rough.png": "31232d24578d907132c6a97ff15fe93939ab644529968fdad466551647cf83d0",
-    "game/assets/building/textures/T_ai_materials_door_paint_normal.png": "660c2582ee91be3aae0746662cc7c24bf9eb77467cbde8aece2104f920127cc5",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
-    "game/assets/building/textures/T_ai_materials_galvanized_roof_albedo.png": "4f5200041f815f4e58eec3607a61dc014291743f807029e958eee2f35ed8f429",
-    "game/assets/building/textures/T_ai_materials_galvanized_roof_rough.png": "4aaf1617b32a3c3fcfe8494cead7a50a963fb55f6dfadaa9095e37f09db30f7b",
-    "game/assets/building/textures/T_ai_materials_galvanized_roof_normal.png": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf",
-    "game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_albedo.png": "21bbb79bfb9001595f53d1870fb0649268f768a2695052ceb8b8369d4313dc95",
-    "game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_rough.png": "4d74144c6ac0907e910e33a8387a294921b4a54481a435a2b8d3db4f1d8e80c0",
-    "game/assets/building/textures/T_library_appliances_aged_enamel_normal.png": "9d82da86ae49cfc79d85bf2fe0fb9de5c32011620254712e6d9846fdda6cbf98",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
-    "game/assets/building/textures/T_ai_materials_concrete_albedo.png": "ff9788841dbf3c791f1c031cdeb15d516e57858f5490a8a8223161cb79430237",
-    "game/assets/building/textures/T_ai_materials_concrete_rough.png": "a003c68088e072bc58b4cb0da97217908d410a7dd5b37c9259f05afb06b36c2f",
-    "game/assets/building/textures/T_ai_materials_concrete_normal.png": "7b579bc100dd5ef450130141ca028f75f918dfcc1e2be147c2adbf46a4a3af79",
-    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
-    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
-    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
-    "game/assets/building/textures/T_ai_materials_roof_bitumen_albedo.png": "19b9e24bb67c7b494806ac445f961515915998d3c4841db9b3c4874e4227ddd7",
-    "game/assets/building/textures/T_ai_materials_roof_bitumen_rough.png": "1dea72e00110ba4a2aa7ea8469b827d19d060b8af49018bfcd247a73671c80b4",
-    "game/assets/building/textures/T_ai_materials_roof_bitumen_normal.png": "ebc5c3411201d5ecc337fbc3571f4d36f626427c166d51167556765af1ad7f7b",
-    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
-    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
-    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
-    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
-    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
-    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
-    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_albedo.png": "b30bf3cff86c0718b3d9e1424739caacc388635289b2dd821ac9fbe5f947e14d",
-    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_rough.png": "e5521a01503ef13b22bd53900bc8e7a7bde5b3bf0c0e17e61b79a0c93f7aa258",
-    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_normal.png": "bd48e9cb520637eca05c09fc774962a8ea191424eed92cb639bb20ab0357736b",
-    "game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png": "028870c51a301aae725e85a96aba0f64f8bdc85e29d64a4fca9406ba5eef089b",
-    "game/assets/building/textures/T_ai_materials_brass_mesh_rough.png": "7ed0cf343d586a266eba266d98896b7eb4e6004487f822f59995e03304b9659a",
-    "game/assets/building/textures/T_ai_materials_brass_mesh_normal.png": "ffa3452fa9e62d83138a2c22e79cd3b811886800face31861409f7b2450d9def",
-    "game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png": "599ccf878c2fb74c6462a8e961addfe12fb5f90e9c85b68b0601edb0921ee547",
-    "game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png": "23e9482180b08d41394fcbf259e5cc69c813da4e1f3c6a0b1b82755e39e2b1ca",
-    "game/assets/building/textures/T_ai_materials_soot_normal.png": "87975ab4abf0d0c6629b3c43078a83ddc9721afabf4a808bdfdfc3112aa33444",
-    "game/assets/building/textures/T_ai_materials_copper_aged_albedo.png": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272",
-    "game/assets/building/textures/T_ai_materials_copper_aged_rough.png": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79",
-    "game/assets/building/textures/T_ai_materials_copper_aged_normal.png": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de",
+    "art/blender/scripts/build_city_elevations.py": "3f4ff02716ace8c45ec971442fabec175064f9526f7feed01691d03ac840e4e4",
     "game/assets/building/textures/T_ai_materials_limestone_albedo.png": "98dc560a3b41c71fdac9e0fcc4d78410a7f48377c22152dfe9f18c1d284d2d91",
     "game/assets/building/textures/T_ai_materials_limestone_rough.png": "dc2118543d957385564364c56a9f000377d530ce4c07b30e66273014a1b16b16",
     "game/assets/building/textures/T_ai_materials_limestone_normal.png": "160a35cceaa8b2b296f34a28f9c3e8929f16f813986ab3f0503bf7e7eb4c22c4",
+    "game/assets/building/textures/T_ai_materials_roof_bitumen_albedo.png": "19b9e24bb67c7b494806ac445f961515915998d3c4841db9b3c4874e4227ddd7",
+    "game/assets/building/textures/T_ai_materials_roof_bitumen_rough.png": "1dea72e00110ba4a2aa7ea8469b827d19d060b8af49018bfcd247a73671c80b4",
+    "game/assets/building/textures/T_ai_materials_roof_bitumen_normal.png": "ebc5c3411201d5ecc337fbc3571f4d36f626427c166d51167556765af1ad7f7b",
+    "game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_albedo.png": "21bbb79bfb9001595f53d1870fb0649268f768a2695052ceb8b8369d4313dc95",
+    "game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_rough.png": "4d74144c6ac0907e910e33a8387a294921b4a54481a435a2b8d3db4f1d8e80c0",
+    "game/assets/building/textures/T_library_appliances_aged_enamel_normal.png": "9d82da86ae49cfc79d85bf2fe0fb9de5c32011620254712e6d9846fdda6cbf98",
+    "game/assets/building/textures/T_ai_materials_door_paint_albedo.png": "3a68fb4497fb0f5b56edfcd168a4d05593b760b0437c20aa4b2ec4e97f19616f",
+    "game/assets/building/textures/T_ai_materials_door_paint_rough.png": "31232d24578d907132c6a97ff15fe93939ab644529968fdad466551647cf83d0",
+    "game/assets/building/textures/T_ai_materials_door_paint_normal.png": "660c2582ee91be3aae0746662cc7c24bf9eb77467cbde8aece2104f920127cc5",
+    "game/assets/building/textures/T_ai_materials_concrete_albedo.png": "ff9788841dbf3c791f1c031cdeb15d516e57858f5490a8a8223161cb79430237",
+    "game/assets/building/textures/T_ai_materials_concrete_rough.png": "a003c68088e072bc58b4cb0da97217908d410a7dd5b37c9259f05afb06b36c2f",
+    "game/assets/building/textures/T_ai_materials_concrete_normal.png": "7b579bc100dd5ef450130141ca028f75f918dfcc1e2be147c2adbf46a4a3af79",
+    "game/assets/building/textures/T_ai_materials_copper_aged_albedo.png": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272",
+    "game/assets/building/textures/T_ai_materials_copper_aged_rough.png": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79",
+    "game/assets/building/textures/T_ai_materials_copper_aged_normal.png": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de",
+    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+    "game/assets/building/textures/T_ai_materials_galvanized_roof_albedo.png": "4f5200041f815f4e58eec3607a61dc014291743f807029e958eee2f35ed8f429",
+    "game/assets/building/textures/T_ai_materials_galvanized_roof_rough.png": "4aaf1617b32a3c3fcfe8494cead7a50a963fb55f6dfadaa9095e37f09db30f7b",
+    "game/assets/building/textures/T_ai_materials_galvanized_roof_normal.png": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
     "game/assets/building/textures/T_ai_materials_brick_albedo.png": "832731a0eb590c719c2df4d18269d900fba901409ad959b7250fcfa7ccbd47a6",
     "game/assets/building/textures/T_ai_materials_brick_rough.png": "13981cad068720de19ae2108c4f3fa38b92f6fa016527c382632d65d6c43674a",
-    "game/assets/building/textures/T_ai_materials_brick_normal.png": "c6a75f76f4053be29629bb1a8b235eebef29d60d60b01cc66332abdaf8711a19"
+    "game/assets/building/textures/T_ai_materials_brick_normal.png": "c6a75f76f4053be29629bb1a8b235eebef29d60d60b01cc66332abdaf8711a19",
+    "game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png": "028870c51a301aae725e85a96aba0f64f8bdc85e29d64a4fca9406ba5eef089b",
+    "game/assets/building/textures/T_ai_materials_brass_mesh_rough.png": "7ed0cf343d586a266eba266d98896b7eb4e6004487f822f59995e03304b9659a",
+    "game/assets/building/textures/T_ai_materials_brass_mesh_normal.png": "ffa3452fa9e62d83138a2c22e79cd3b811886800face31861409f7b2450d9def",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
+    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_albedo.png": "b30bf3cff86c0718b3d9e1424739caacc388635289b2dd821ac9fbe5f947e14d",
+    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_rough.png": "e5521a01503ef13b22bd53900bc8e7a7bde5b3bf0c0e17e61b79a0c93f7aa258",
+    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_normal.png": "bd48e9cb520637eca05c09fc774962a8ea191424eed92cb639bb20ab0357736b",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png": "599ccf878c2fb74c6462a8e961addfe12fb5f90e9c85b68b0601edb0921ee547",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png": "23e9482180b08d41394fcbf259e5cc69c813da4e1f3c6a0b1b82755e39e2b1ca",
+    "game/assets/building/textures/T_ai_materials_soot_normal.png": "87975ab4abf0d0c6629b3c43078a83ddc9721afabf4a808bdfdfc3112aa33444"
   },
   "export_check": {
     "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\city_elevations.glb",
     "primitives": 239,
-    "triangles": 717109,
+    "triangles": 705821,
     "minimum_tangent_agreement": 0.9996432939025262,
     "status": "PASS"
   }

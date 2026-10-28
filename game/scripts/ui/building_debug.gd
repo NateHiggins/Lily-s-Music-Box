@@ -885,7 +885,7 @@ func _build_keys() -> void:
 	var hint := Label.new()
 	hint.text = "WASD move · Shift run · C crouch · E interact\n" \
 			+ "L / left shoulder: lamp · R / right shoulder: radio\n" \
-			+ "F screenshot · H hide/show device · V noclip\n" \
+			+ "F screenshot · H hide/show device · V noclip · F8 fly camera\n" \
 			+ "F2 intro · F3 distort · F4 chaos\n" \
 			+ "` (backtick) releases or recaptures the mouse in play\n" \
 			+ "F1 controls + pointer · F1 / Esc return to play\n" \
