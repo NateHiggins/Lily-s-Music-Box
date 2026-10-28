@@ -349,6 +349,29 @@ changes alone do not establish uniqueness. Distinguish sourced features from
 fictional dimensions and adaptations. Preserve usable routes and nonvisual
 owners; revise dependent roof equipment/bearings together if their stock moves.
 
+The installed roster is **25 retained near-city buildings plus 124 horizon
+buildings**, not seven interchangeable near masses. Audit all 149 individually;
+the source's repeated prose descriptions and changing variation seeds are not
+individual architectural briefs. Preserve the distinction between the Orison's
+playable construction, passive neighbors and distant skyline stock.
+
+The first reference studies selected for refinement are:
+
+| Specific precedent | Observed/documented proportional cues | Adaptation boundary |
+|---|---|---|
+| **21-21 45th Avenue**, Hunters Point | LPC LP-0450 pp. 3–4 describes the three-storey-plus-basement stone Italianate row, with stoop, tall openings, pedimented entry and bracketed cornice. | Give a narrow house a coherent basement/main-floor/upper-floor rhythm; do not treat a warehouse-width block as one enlarged townhouse. Exact dimensions still need source measurement. |
+| **Sohmer factory, 31-01 Vernon Boulevard** | [LPC LP-2172](https://s-media.nyc.gov/agencies/lpc/lp/2172.pdf) pp. 1, 8 and 14–15: brick industrial mass, repeated narrow segmental-headed windows, differentiated lower storeys, selected belt courses and a corner mansard clock tower. The 2006 plates were actually inspected for surviving form. | Exclude modern advertisements, cars, alterations and conversion work. Distinguish the long factory wings from the tower instead of stretching one generic facade module. |
+| **Bank of the Manhattan Company, 29-27 Queens Plaza North** | LP-2570 pp. 1–4, 9 documents an eleven-storey body plus three-storey clock tower; the 1928 atlas footprint is recorded as about 50 × 110 ft. The 2015 plate was inspected for the slender body, vertical piers and crown. | These are two height components, not fourteen equal full-width floors. Do not copy the later base, air conditioners or signs. Authored placement is not the actual tax parcel. |
+| **Linden Court, 84th/85th Streets** | [LPC LP-1831](https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf), printed pp. 22–23 and fig. 18 (PDF p. 63), describes paired buildings and open passages; the c. 1925 photograph was inspected for four-storey proportions, projecting porches, varied entry placement and restrained roof edges. | Use a real courtyard/porch composition where space supports it, not a continuous oversized slab with a different tint. Other named court buildings require their own studies. |
+
+Source PDFs, extracted text and inspected plates remain outside game packaging
+at **C:/ov/reports/city_relief_20261028/references/**. No reference-photo pixels
+enter a model, map or exported material. These studies establish modeling
+direction; none of the 149 buildings is newly declared individually rebuilt or
+accepted by this reference pass. Keep the combined native/render qualification
+pending until actual geometry, its dependent roof attachments and the installed
+scene have been reviewed.
+
 ### Hybrid relief detailing — supplied suggestion, adapted to project rules
 
 Keep broad regional grading separate from crisp construction. A 2048-square
