@@ -1479,9 +1479,13 @@
     "city_height_batch/surface_sheet_3.png": "058d56e1ec5fe35462ec10a388fda08b6cddd9ade4a508539efb0c9c69152336",
     "city_height_batch/surface_sheet_4.png": "77cb8ddabff22dbd08de4f6ecba0d7c91dccc027c708fb73787ca38c397ebaa0",
     "city_height_batch/surface_sheet_5.png": "67ea4a22aa0aa6c566b268be09537c24e2f9193ceb5bed111361ec351bfada47",
-    "city_height_batch/surface_sheet_6.png": "ccc23f23747effa59198c34dddd324167e7f7600cf42757c3d6d0acda5497d9b"
+    "city_height_batch/surface_sheet_6.png": "ccc23f23747effa59198c34dddd324167e7f7600cf42757c3d6d0acda5497d9b",
+    "city_height_batch_verification/candidate/verification.json": "c8d0c7a5da3375309a05bee8b7e7bf5b8f08636da3ca0caa2822bfa896aecc8f",
+    "city_height_batch_verification/candidate/verification.md": "d4309ed24893c2d8067f0964ed454d398eae5c417adaec9193e9a052012a18ee",
+    "city_height_batch_verification/candidate.log": "c06b0e80c07bbf349783603194b7652ee9b323b423e16582224aec646c3b00ea",
+    "city_height_batch_verification/final_verification_summary.json": "3798be861a3a6fa1b4cc0e9aba695fb51e51ae18ab314b180fe8373a94cc8a13"
   },
-  "archive_sha256": "4478268852ea30415e68c668974d6107e7d8ac0390552ffa09109bf6af18f03a",
+  "archive_sha256": "77159024f3f7fef69e98dd5d069d0d5298c810534d36ef64dee049e683c4e16d",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -5480,5 +5484,22 @@
         "sha256": "0e506fccb28ed0b94e98f9ff80ac24dad7d6f090ee011f7a9ded07d329b3845b"
       }
     }
+  },
+  "city_height_batch_verification": {
+    "evidence_class": "INERT",
+    "candidate": "a9703c457b55094c4011e95ced41d9a8a0d6b5df",
+    "merge": "93e8eaaf84ca02cc0fd3748637e060f2442fec28",
+    "same_tree": true,
+    "pr": "https://github.com/NateHiggins/Lily-s-Music-Box/pull/72",
+    "gates": 114,
+    "regressions": [],
+    "review": [
+      "candidate changes 3 gate file(s); read those diffs before trusting the board",
+      "Godot suites were not run (--no-godot)",
+      "Verified the clean canonical checkout; fresh-checkout import and autocrlf behavior are outside this in-place verification"
+    ],
+    "gate_diff_review": "Read all three changed tool-test diffs. Original guards remain; additional source-projection, malformed/reversed geometry, closed-volume, support and height controls are meaningful.",
+    "runtime": "Separate source-bound fullscreen bench and schema-2 surface qualification are current. Verifier used --no-godot to reuse those executed runs.",
+    "remaining": "146 individual building studies, transport/street/shore construction, weather artistic work and existing V2/performance debt remain."
   }
 }

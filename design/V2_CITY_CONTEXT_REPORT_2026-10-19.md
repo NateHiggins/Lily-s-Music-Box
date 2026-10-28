@@ -2,6 +2,31 @@
 
 Evidence class: **INERT**. Publication report; no additional acceptance grant.
 
+## Main integration — October 28 UTC
+
+PR **#72** merges at **93e8eaaf84ca02cc0fd3748637e060f2442fec28**. Verified candidate
+**a9703c457b55094c4011e95ced41d9a8a0d6b5df** has an exactly identical tree. The frozen
+in-place verifier compares all **114** static/tool gates with clean main baseline
+**04d72f3a**: **zero regressions**, **17/17 protected paths unchanged**, selector
+**v2**, zero design-lint errors and no changed ledger requirements. The three
+changed tool-test diffs were read: original source guards remain and additional
+negative/geometry controls are substantive. Main retains its unrelated red gates.
+
+The verifier uses **--no-godot**, reusing the separately executed and source-bound
+fullscreen imported bench and full schema-2 surface qualification below. It does
+not claim a fresh-checkout import/autocrlf run. Candidate JSON/Markdown, raw output
+and merge-tree proof are archived under **city_height_batch_verification/** in the
+existing skywatch packet. All thirteen preceding surface-packet files are also
+verified byte-for-byte against Git **04d72f3a**, with an external publication backup
+retained; old PNGs are not duplicated into another archive.
+
+The canonical checkout fast-forwards to main; the fully merged local/remote
+**codex/v2-city-relief-20261028** branch is removed. No other worktree/branch is
+altered. This publication child changes only this report and the diagnostic
+archive/index. It does not alter rendering or gameplay inputs. The city, weather
+artistic qualification, individual building studies, unresolved stutter and
+remaining V2 work remain open; no whole-game completion or human acceptance.
+
 ## Eight-block height repair and surface renewal — October 28 UTC
 
 Branch **codex/v2-city-relief-20261028**, parent **e10c0425**, integration base
