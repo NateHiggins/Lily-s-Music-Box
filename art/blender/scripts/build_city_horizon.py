@@ -6,7 +6,7 @@ from mathutils.bvhtree import BVHTree
 
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
 sys.path.insert(0,str(ROOT/'art/blender/scripts'))
-from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_overlap
+from city_horizon_geometry import reveal_cell,ray_hit,validate_plan,party_wall_overlap,building_outline,extrusion,cornice_ring,floor_intervals,offset_outline
 from fabrication_native_batch import material,partition,export
 from city_ground_apron_geometry import exported_bounds
 plan_path=ROOT/'art/data/city_horizon/source_plan.json';plan=json.loads(plan_path.read_text())
@@ -14,12 +14,12 @@ grade_path=ROOT/'art/blender/city_ground_apron_construction.json';grade=json.loa
 validate_plan(plan,grade['retained_ground_bounds'])
 catalog_path=ROOT/'game/data/runtime_material_sets.json';catalog=json.loads(catalog_path.read_text())['materials']
 OUT=ROOT/'tmp/v2-city-polish-20261018/horizon_native';OUT.mkdir(parents=True,exist_ok=True)
-all_rows=[];all_windows=[];assets={};native_checks={}
+all_rows=[];all_windows=[];all_bearings=[];assets={};native_checks={}
 
 for family in ['near','far']:
     bpy.ops.wm.read_factory_settings(use_empty=True)
     collection=bpy.data.collections.new('CityHorizon_'+family);bpy.context.scene.collection.children.link(collection)
-    buffers=collections.defaultdict(lambda:([],[]));windows=[]
+    buffers=collections.defaultdict(lambda:([],[]));windows=[];bearings=[]
     rows=[r for r in plan['buildings'] if ('NEAR' in r['id'])==(family=='near')]
     by_id={r['id']:r for r in rows}
     def add(name,key,vertices,faces):
@@ -33,37 +33,126 @@ for family in ['near','far']:
         vv=[(u,v,w) for u,v,w in [(x,y,z),(X,y,z),(X,Y,z),(x,Y,z),(x,y,Z),(X,y,Z),(X,Y,Z),(x,Y,Z)]]
         add(name,key,[tuple(origin+tangent*u+out*v+Vector((0,0,w))) for u,v,w in vv],
             [(0,3,2,1),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)])
+    def beam(name,key,start,end,width):
+        axis=(end-start).normalized();u=axis.cross(Vector((0,0,1)))
+        if u.length<.01:u=axis.cross(Vector((1,0,0)))
+        u.normalize();v=axis.cross(u)
+        verts=[tuple(p+u*a*width/2+v*b*width/2) for p in [start,end] for a,b in [(-1,-1),(1,-1),(1,1),(-1,1)]]
+        add(name,key,verts,[(0,3,2,1),(4,5,6,7),(0,1,5,4),(1,2,6,5),(2,3,7,6),(3,0,4,7)])
     for row in rows:
         name=row['id'];a,b,c,d=row['rect'];x,y,X,Y=a,-d,c,-b
         h=float(row['height_m']);depth=float(row['reveal_m']);recess=float(row['glass_recess_m'])
-        box(name,row['wall_key'],(x,y,-.28),(X,Y,0))
-        box(name,'galvanized_roof',(x,y,h),(X,Y,h+.18))
+        study=row.get('architecture',{});outline=building_outline(row)
+        if study:
+            vv,ff=extrusion(outline,-.28,0);add(name,row['wall_key'],vv,ff)
+            vv,ff=extrusion(outline,h,h+.18);add(name,'galvanized_roof',vv,ff)
+        else:
+            box(name,row['wall_key'],(x,y,-.28),(X,Y,0))
+            box(name,'galvanized_roof',(x,y,h),(X,Y,h+.18))
         # Separate horizontal cornice stocks and chimney caps, never stepped floors.
-        for lo,hi in [((x,y,h-.32),(X,y+.28,h-.17)),((x,Y-.28,h-.32),(X,Y,h-.17)),
-                      ((x,y+.28,h-.32),(x+.28,Y-.28,h-.17)),((X-.28,y+.28,h-.32),(X,Y-.28,h-.17))]:box(name,'limestone',lo,hi)
+        if study:
+            for width,lo,hi in [(.15,h-.22,h-.1),(.32,h-.1,h+.1),(.38,h+.1,h+.18)]:
+                vv,ff=cornice_ring(outline,width,lo,hi);add(name,study['cornice_key'],vv,ff)
+        else:
+            for lo,hi in [((x,y,h-.32),(X,y+.28,h-.17)),((x,Y-.28,h-.32),(X,Y,h-.17)),
+                          ((x,y+.28,h-.32),(x+.28,Y-.28,h-.17)),((X-.28,y+.28,h-.32),(X,Y-.28,h-.17))]:box(name,'limestone',lo,hi)
         chimney_top=h+float(row['chimney_height_m'])
         box(name,row['wall_key'],(x+.75,y+.75,h+.18),(x+1.45,y+1.45,chimney_top-.12))
         box(name,'limestone',(x+.65,y+.65,chimney_top-.12),(x+1.55,y+1.55,chimney_top))
-        for lo,hi in [((x,y,h+.18),(X,y+.18,h+.65)),((x,Y-.18,h+.18),(X,Y,h+.65)),
-                      ((x,y+.18,h+.18),(x+.18,Y-.18,h+.65)),((X-.18,y+.18,h+.18),(X,Y-.18,h+.65))]:box(name,row['wall_key'],lo,hi)
-        for side,(origin,tangent,out,length) in enumerate([
+        if study:
+            # Parapet follows the actual court/bay outline; no solid roof over
+            # a courtyard and no square cornice crossing an angled bay.
+            # The parapet bears over the masonry/roof assembly, not on the
+            # projecting decorative cornice outside the wall line.
+            vv,ff=cornice_ring(offset_outline(outline,-.18),.18,h+.18,h+.58);add(name,row['wall_key'],vv,ff)
+            n=len(outline)
+            for i in range(n):
+                j=(i+1)%n
+                foot=sum((Vector(vv[k]) for k in [i,j,i+n,j+n]),Vector())*.25
+                edge=Vector((*outline[j],0))-Vector((*outline[i],0));edge.normalize()
+                outside=(Vector((*outline[i],h+.18))+Vector((*outline[j],h+.18)))*.5+Vector((-edge.y,edge.x,0))*.09
+                bearings.append(dict(building=name,wall_key=row['wall_key'],point=list(foot),outside_probe=list(outside)))
+        else:
+            for lo,hi in [((x,y,h+.18),(X,y+.18,h+.65)),((x,Y-.18,h+.18),(X,Y,h+.65)),
+                          ((x,y+.18,h+.18),(x+.18,Y-.18,h+.65)),((X-.18,y+.18,h+.18),(X,Y-.18,h+.65))]:box(name,row['wall_key'],lo,hi)
+        sides=[
             (Vector((X,y,0)),Vector((-1,0,0)),Vector((0,-1,0)),X-x),
             (Vector((X,Y-depth,0)),Vector((0,-1,0)),Vector((1,0,0)),Y-y-2*depth),
             (Vector((x,Y,0)),Vector((1,0,0)),Vector((0,1,0)),X-x),
-            (Vector((x,y+depth,0)),Vector((0,1,0)),Vector((-1,0,0)),Y-y-2*depth)]):
+            (Vector((x,y+depth,0)),Vector((0,1,0)),Vector((-1,0,0)),Y-y-2*depth)]
+        if study:
+            sides=[]
+            for p,q in zip(outline,outline[1:]+outline[:1]):
+                tangent=Vector((q[0]-p[0],q[1]-p[1],0));length=tangent.length;tangent.normalize()
+                sides.append((Vector((*p,0)),tangent,Vector((-tangent.y,tangent.x,0)),length))
+        for side,(origin,tangent,out,length) in enumerate(sides):
+            if side in study.get('bracket_sides',[]):
+                count=max(2,round(length/float(study['bracket_pitch_m'])))
+                profile=[(0,h-.56),(.04,h-.56),(.14,h-.28),(.14,h-.22),(0,h-.22)]
+                for slot in range(count):
+                    center=(slot+.5)*length/count;n=len(profile)
+                    vv=[tuple(origin+tangent*(center+u)+out*v+Vector((0,0,z))) for u in [-.055,.055] for v,z in profile]
+                    ff=[tuple(range(n-1,-1,-1)),tuple(range(n,2*n))]+[(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
+                    add(name,study['cornice_key'],vv,ff)
             bays=max(1,round(length/row['bay_pitch_m']));pitch=length/bays
-            floors=max(1,round(h/row['storey_m']));storey=h/floors
-            for floor in range(floors):
+            if study:
+                bays=study['side_bays'][side];pitch=length/bays
+            for floor,(bottom,top) in enumerate(floor_intervals(row)):
+                storey=top-bottom
                 for bay in range(bays):
                     left=bay*pitch;right=left+pitch;cx=(left+right)*.5
                     first=origin+tangent*left+out*.02;last=origin+tangent*right+out*.02
-                    if party_wall_overlap((first.x,-first.y),(last.x,-last.y),floor*storey,[r for r in rows if r['id']!=name]):
-                        local_box(name,row['wall_key'],origin,tangent,out,(left,-depth,floor*storey),(right,0,(floor+1)*storey))
+                    axis_aligned=abs(tangent.x)<1e-8 or abs(tangent.y)<1e-8
+                    if axis_aligned and party_wall_overlap((first.x,-first.y),(last.x,-last.y),bottom,[r for r in rows if r['id']!=name]):
+                        local_box(name,row['wall_key'],origin,tangent,out,(left,-depth,bottom),(right,0,top))
                         continue
-                    w=min(float(row['window_width_m']),pitch-.65);wh=min(float(row['window_height_m']),storey-.75)
-                    low=floor*storey+.6;high=low+wh;wl=cx-w*.5;wr=cx+w*.5
-                    vv,ff=reveal_cell(left,floor*storey,right,(floor+1)*storey,wl,low,wr,high,depth)
+                    entrance=study.get('entrance',{})
+                    entry_bay=bool(entrance) and side==entrance['side'] and bay==entrance['bay']
+                    if entry_bay and floor<entrance['floor']:
+                        local_box(name,row['wall_key'],origin,tangent,out,(left,-depth,bottom),(right,0,top));continue
+                    door=entry_bay and floor==entrance['floor']
+                    w=min(float(row['window_width_m']),pitch-(.24 if study else .65));wh=min(float(row['window_height_m']),storey-.75)
+                    low=bottom+(.04 if door else .6);high=low+(entrance['height_m'] if door else wh)
+                    if door:w=float(entrance['width_m'])
+                    wl=cx-w*.5;wr=cx+w*.5
+                    vv,ff=reveal_cell(left,bottom,right,top,wl,low,wr,high,depth)
                     add(name,row['wall_key'],[tuple(origin+tangent*p[0]+out*p[1]+Vector((0,0,p[2]))) for p in vv],ff)
+                    if study:
+                        local_box(name,'limestone',origin,tangent,out,(wl-.07,-depth,low-.06),(wr+.07,.075,low))
+                        local_box(name,'limestone',origin,tangent,out,(wl-.09,-.05,high),(wr+.09,.06,high+.12))
+                    if door:
+                        local_box(name,'door_paint',origin,tangent,out,(wl+.018,-recess-.035,low+.018),(wr-.018,-recess,high-.018))
+                        for zlo,zhi in [(low+.16,low+.95),(low+1.08,high-.16)]:
+                            local_box(name,'door_paint',origin,tangent,out,(wl+.12,-recess,zlo),(wr-.12,-recess+.025,zhi))
+                        steps=int(entrance['steps']);rise=low/max(1,steps);run=float(entrance['step_run_m'])
+                        for step in range(steps):
+                            local_box(name,'limestone',origin,tangent,out,(wl-.13,(steps-step-1)*run,0),(wr+.13,(steps-step)*run,(step+1)*rise))
+                        if steps>1:
+                            for u in [wl-.10,wr+.10]:
+                                ends=[]
+                                for v,z in [((steps-.5)*run,rise),(.5*run,low)]:
+                                    local_box(name,'cast_iron',origin,tangent,out,(u-.035,v-.045,z),(u+.035,v+.045,z+.02))
+                                    foot=origin+tangent*u+out*v+Vector((0,0,z+.02))
+                                    tip=origin+tangent*u+out*v+Vector((0,0,z+.86))
+                                    beam(name,'cast_iron',foot,tip,.035);ends.append(tip)
+                                beam(name,'cast_iron',ends[0],ends[1],.045)
+                                count=max(2,math.ceil((steps-1)*run/.18))
+                                for i in range(1,count):
+                                    v=(steps-.5)*run-(steps-1)*run*i/count
+                                    z=(steps-min(steps-1,int(v/run)))*rise
+                                    top_z=rise+.86+(low-rise)*i/count
+                                    foot=origin+tangent*u+out*v+Vector((0,0,z+.015))
+                                    tip=origin+tangent*u+out*v+Vector((0,0,top_z-.015))
+                                    beam(name,'cast_iron',foot,tip,.018)
+                        if not steps:
+                            local_box(name,'limestone',origin,tangent,out,(wl-.08,-.05,0),(wr+.08,.18,low))
+                        # Small seated iron pull, appropriate to a passive far
+                        # entrance; it creates no new operable gameplay owner.
+                        handle_x=wr-.17;handle_low=low+.95
+                        for z in [handle_low,handle_low+.23]:
+                            local_box(name,'cast_iron',origin,tangent,out,(handle_x-.025,-recess+.025,z),(handle_x+.025,-recess+.07,z+.025))
+                        local_box(name,'cast_iron',origin,tangent,out,(handle_x-.012,-recess+.058,handle_low),(handle_x+.012,-recess+.085,handle_low+.255))
+                        continue
                     # A closed opaque physical pane; these far shells imply no occupied interior.
                     pane=[(wl+.018,-recess-.035,low+.018),(wr-.018,-recess,high-.018)]
                     l,r=pane
@@ -82,7 +171,7 @@ for family in ['near','far']:
                     windows.append(dict(building=name,side=side,point=list(origin+tangent*(cx+w*.22)+Vector((0,0,(low+high)*.5+wh*.2))),normal=list(out),recess_m=recess))
     mats={};draws=[];closed_stocks=0
     for (name,key),(vertices,faces) in sorted(buffers.items()):
-        row=by_id[name];tint=row['wall_tint'] if key==row['wall_key'] else [.16,.20,.23,1] if key=='mirror_aged' else [1,1,1,1]
+        row=by_id[name];tint=row['wall_tint'] if key==row['wall_key'] else row.get('joinery_tint',[1,1,1,1]) if key in ['door_paint','cast_iron'] else [.16,.20,.23,1] if key=='mirror_aged' else [1,1,1,1]
         finish=dict(catalog_key=key,tint=tint,pigment=1.0,normal=.12 if key=='mirror_aged' else .55,roughness=.45 if key=='mirror_aged' else 1.)
         if key=='mirror_aged':finish['metallic']=0.
         cache=(key,tuple(tint))
@@ -107,6 +196,16 @@ for family in ['near','far']:
         point=Vector(window['point']);normal=Vector(window['normal'])
         hit,n,index,distance=bvh.ray_cast(point+normal*.05,-normal,.3)
         assert hit is not None and (hit-(point-normal*window['recess_m'])).length<.0001 and owners[index]==window['building']+'__mirror_aged',window
+    for row in rows:
+        contacts=[b for b in bearings if b['building']==row['id']]
+        if not contacts:continue
+        roof=next(o for o in draws if o.name==row['id']+'__galvanized_roof')
+        roof_bvh=BVHTree.FromPolygons([roof.matrix_world@v.co for v in roof.data.vertices],[tuple(f.vertices) for f in roof.data.polygons],all_triangles=True)
+        for contact in contacts:
+            point=Vector(contact['point']);hit,normal,index,distance=roof_bvh.ray_cast(point+Vector((0,0,.02)),Vector((0,0,-1)),.04)
+            assert hit is not None and (hit-point).length<.0001,('unseated parapet',contact)
+            outside=Vector(contact['outside_probe']);hit,normal,index,distance=roof_bvh.ray_cast(outside+Vector((0,0,.02)),Vector((0,0,-1)),.04)
+            assert hit is None,('outside control accepted as roof bearing',contact)
     proof=export(ROOT,'city_horizon_'+family,collection,staged_output=True)
     native=ROOT/'art/blender'/('city_horizon_'+family+'.blend')
     bpy.ops.wm.save_as_mainfile(filepath=str(native),compress=True)
@@ -115,8 +214,8 @@ for family in ['near','far']:
     assets[family]=dict(asset=asset.relative_to(ROOT).as_posix(),sha256=hashlib.sha256(asset.read_bytes()).hexdigest(),bytes=asset.stat().st_size,
         native=native.relative_to(ROOT).as_posix(),native_sha256=hashlib.sha256(native.read_bytes()).hexdigest(),bounds=exported_bounds(asset.read_bytes()),export_check=proof,
         parts=[dict(name=o.name,key=o.name.split('__')[-1],triangles=len(o.data.polygons)) for o in draws])
-    native_checks[family]=dict(window_samples=len(windows),failures=[],tolerance_m=.0001)
-    all_rows.extend(rows);all_windows.extend(windows)
+    native_checks[family]=dict(window_samples=len(windows),parapet_samples=len(bearings),parapet_outside_controls=len(bearings),failures=[],tolerance_m=.0001)
+    all_rows.extend(rows);all_windows.extend(windows);all_bearings.extend(bearings)
     print('CITY HORIZON',family,len(rows),'blocks',len(windows),'recessed opaque panes',asset.stat().st_size,'bytes',flush=True)
 coverage=[];rays=0
 for origin in [(0,0),(-45,-65),(-45,45),(45,-65),(45,45)]:
@@ -127,13 +226,18 @@ for origin in [(0,0),(-45,-65),(-45,45),(45,-65),(45,45)]:
 ground_gaps=[r for r in coverage if r['height']==1.6]
 assert not ground_gaps,ground_gaps[:10]
 runtime=ROOT/'game/data/orison_v2/exterior/city_horizon.json'
-runtime.write_text(json.dumps(dict(schema=1,frame=plan['frame'],buildings=[{k:r[k] for k in ['id','wall_key','wall_tint']} for r in all_rows]),indent=2)+'\n',encoding='utf-8',newline='\n')
+runtime_rows=[]
+for row in all_rows:
+    profile={k:row[k] for k in ['id','wall_key','wall_tint']}
+    if 'joinery_tint' in row:profile['joinery_tint']=row['joinery_tint']
+    runtime_rows.append(profile)
+runtime.write_text(json.dumps(dict(schema=1,frame=plan['frame'],buildings=runtime_rows),indent=2)+'\n',encoding='utf-8',newline='\n')
 paths=[plan_path,grade_path,catalog_path,runtime,Path(__file__),ROOT/'game/scripts/building/orison_v2_city_horizon.gd']
 paths += [ROOT/'art/blender/scripts'/p for p in ['city_horizon_geometry.py','city_ground_apron_geometry.py','fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_grain.py','fabrication_normals.py','check_exported_tangents.py']]
 for key in {r['wall_key'] for r in all_rows}|{'mirror_aged','galvanized_roof','limestone','cast_iron','door_paint'}:paths.extend(ROOT/'game/assets/building/textures'/p for p in catalog[key]['files'])
 def sha(path):
     raw=path.read_bytes();return hashlib.sha256(raw.replace(b'\r\n',b'\n') if path.suffix in ['.json','.py','.gd'] else raw).hexdigest()
-report=dict(evidence_class='INERT',scope=plan['scope'],frame=plan['frame'],buildings=all_rows,windows=len(all_windows),window_rows=all_windows,assets=assets,native_checks=native_checks,
+report=dict(evidence_class='INERT',scope=plan['scope'],frame=plan['frame'],buildings=all_rows,windows=len(all_windows),window_rows=all_windows,parapet_contacts=all_bearings,assets=assets,native_checks=native_checks,
     angular_coverage=dict(scope='Source-only synthetic horizontal rays; ground continuity required, open sky above period rooflines expected. Not runtime or played proof.',rays=rays,ground_gaps=ground_gaps,open_sky_above_roofs=coverage),source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in paths})
 for relative in ['art/blender/city_horizon_construction.json','game/tests/fixtures/orison_city_horizon.json']:
     (ROOT/relative).write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')

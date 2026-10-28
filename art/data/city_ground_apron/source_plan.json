@@ -2,8 +2,24 @@
   "schema": "orison.city-ground-apron.v1",
   "evidence_class": "INERT",
   "frame": "ORISON_V2_BUILDING_FRAME",
-  "scope": "Closed mapped distant grade outside the actual retained ground envelope. Existing streets, foundations, underground reservations and travel boundaries retain their authorities.",
-  "outer_rect": [-420.0, -420.0, 420.0, 420.0],
+  "scope": "Authored LIC relief outside the retained ground and building shelf: riverward fall, canal and rail cut. Approximate fictional composition, not a historical elevation survey. Existing travel, foundations and campaign owners remain authoritative.",
+  "outer_rect": [-500.0, -500.0, 500.0, 500.0],
   "slab_depth": 0.28,
-  "catalog_key": "asphalt"
+  "catalog_key": "asphalt",
+  "relief": {
+    "street_asl_m": 6.0,
+    "street_scene_y_m": 0.0,
+    "water_scene_y_m": -6.0,
+    "solid_bottom_scene_y_m": -10.0,
+    "compass": "The installed threshold registration rotates the building frame 180 degrees about Y: local +X west, +Z north; sky azimuth zero is world -Z.",
+    "west_profile": [[290, -0.02], [330, -1.0], [365, -4.2], [390, -4.8], [395, -8.0], [500, -8.0]],
+    "east_profile": [[-500, -0.02], [-490, -0.02], [-482, -3.5], [-320, -3.5], [-310, -0.02], [-290, -0.02]],
+    "canal": {"x_start": -180.0, "bank_end_x": -170.0, "south_bank_z": -390.0, "south_water_z": -380.0, "north_water_z": -345.0, "north_bank_z": -335.0, "bed_y": -8.0},
+    "grid_pitch_m": 80.0,
+    "finishes": {
+      "soil": {"catalog_key": "soil", "tint": [0.48, 0.42, 0.33, 1], "normal": 0.55, "roughness": 1.0, "pigment": 1.0},
+      "concrete": {"catalog_key": "concrete", "tint": [0.46, 0.45, 0.40, 1], "normal": 0.55, "roughness": 1.0, "pigment": 1.0},
+      "water_clear": {"catalog_key": "water_clear", "tint": [0.14, 0.20, 0.18, 1], "normal": 0.18, "roughness": 0.22, "pigment": 1.0}
+    }
+  }
 }

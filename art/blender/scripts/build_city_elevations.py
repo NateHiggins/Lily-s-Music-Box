@@ -12,6 +12,7 @@ profiles=json.loads((ROOT/'art/data/city_elevations/source_plan.json').read_text
 catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']
 report=json.loads((ROOT/'art/blender/city_closure_construction.json').read_text())
 rows=report['original_records'];groups={p['id']:p for p in profiles['buildings']}
+source_rows=json.loads((ROOT/'art/blender/city_shells_consumed_layout.json').read_text())['source_records']
 def group(n):return '_'.join(n.split('_')[:3]) if n.startswith(('site_nbr_','site_back_','site_far_')) else '_'.join(n.split('_')[:2])
 bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/blender/city_closure.blend'))
 original={o.name.removesuffix('__RetainedStock'):o for o in bpy.data.collections['ClosedConstruction'].objects}
@@ -53,6 +54,14 @@ def curtain_panel(name,origin,tangent,out,left,right,low,high,depth,seed):
 def facade(name,p,rect,z0,z1):
     depth=float(p['reveal_depth']);recess=float(p['window_recess']);assert 0<recess<depth
     x,y,X,Y=rect;count=0;floor_count=max(1,round((z1-z0)/p['storey_height']));floor_h=(z1-z0)/floor_count
+    intervals=[(z0+i*floor_h,z0+i*floor_h+floor_h) for i in range(floor_count)]
+    if 'floor_heights' in p:
+        levels=[0.]
+        for h in p['floor_heights']:
+            assert h>2.5
+            levels.append(levels[-1]+h)
+        assert any(abs(z0-v)<.00002 for v in levels) and any(abs(z1-v)<.00002 for v in levels),(name,z0,z1,levels)
+        intervals=[(a,b) for a,b in zip(levels,levels[1:]) if a>=z0-.00002 and b<=z1+.00002]
     for side,(origin,tangent,out,length) in enumerate([
         (Vector((X,y,0)),Vector((-1,0,0)),Vector((0,-1,0)),X-x),
         (Vector((X,Y-depth,0)),Vector((0,-1,0)),Vector((1,0,0)),Y-y-2*depth),
@@ -64,8 +73,8 @@ def facade(name,p,rect,z0,z1):
             local_box(name,p['wall_key'],origin,tangent,out,(0,-depth,z0),(length,0,z1))
             continue
         bays=max(1,math.floor(length/p['bay_pitch']));pitch=length/bays
-        for floor in range(floor_count):
-            a=z0+floor*floor_h;b=a+floor_h
+        for floor,(a,b) in enumerate(intervals):
+            floor_h=b-a
             for bay in range(bays):
                 left=bay*pitch;right=left+pitch;cx=(left+right)/2;w=min(p['window_width'],pitch-.6);h=min(p['window_height'],floor_h-.7)
                 # Very short retained crowns are solid masonry, never squashed windows.
@@ -106,6 +115,7 @@ for name,p in groups.items():
     final_rect=list(last['rect']);final_rect[0]+=dx;final_rect[2]+=dx
     for r in rr:
         suffix=r['id'][len(name)+1:]
+        if 'vertical_profile' in p and (suffix.startswith('base') or suffix=='bcorn'):continue
         if re.fullmatch('s[0-9]+',suffix) or suffix.startswith('par_'):continue
         if re.fullmatch('c[0-9]+',suffix) and r is not last and suffix!='c'+last['id'].rsplit('_s',1)[1]:continue
         key=r['key']
@@ -126,13 +136,16 @@ for name,p in groups.items():
     # One continuous primary shaft and at most one upper setback, retaining all
     # final roof planes and original roof equipment bearing stock exactly.
     split=last['z0'] if len(ss)>1 else top
-    n=facade(name,p,rect0,ss[0]['z0'],split)
+    n=facade(name,p,rect0,0. if 'vertical_profile' in p else ss[0]['z0'],split)
     if len(ss)>1:
         n+=facade(name,p,final_rect,split,top)
         # Closed 120 mm roof terrace course; never a stack of projecting cornices.
         x,y,X,Y=rect0;u,v,U,V=final_rect
         for lo,hi in [((x,y,split-.12),(X,v,split)),((x,V,split-.12),(X,Y,split)),((x,v,split-.12),(u,V,split)),((U,v,split-.12),(X,V,split))]:box(name,'roof_bitumen',lo,hi)
     stats.append(dict(id=name,old_setbacks=len(ss)-1,new_setbacks=min(1,len(ss)-1),windows=len(window_rows)-first_window,roof_height=top,shaft_bottom=ss[0]['z0'],setback_height=split,original_roof_rect=final_rect,main_rect=rect0))
+    if 'vertical_profile' in p:
+        old_last=next(r for r in source_rows if r['id']==last['id'])
+        stats[-1].update(previous_roof_height=old_last['z0']+old_last['h'],floor_heights=p['floor_heights'])
 # Retired continuous cornice bands can still carry original guy anchors.
 # Retain only a local closed bearing saddle outside the new terrace boundary;
 # adjoining top planes meet without coplanar overlap or a repeated facade band.

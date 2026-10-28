@@ -77,13 +77,12 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	suite.check(apron != null and FileAccess.get_sha256("res://assets/props/city_ground_apron.glb") == apron_source.asset_sha256, "installed distant grade matches the native source")
 	suite.check(FileAccess.get_sha256("res://assets/props/orison_ground.glb") == apron_source.retained_ground_sha256, "retained ground and its underground reservations remain byte-identical")
 	var apron_samples := 0
-	var horizon_source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_horizon.json"))
 	if apron != null:
 		for row: Dictionary in apron_source.boxes:
-			var bounds: Array = row.bounds
-			var samples := preload("res://tests/v2_city_context_review.gd").exposed_grade_samples(bounds,horizon_source.buildings)
+			var samples: Array = row.exposed_samples
 			suite.check(samples.size()==9,"nine exposed grade stations span the source strip: "+str(row.id))
-			for local_point: Vector3 in samples:
+			for sample: Array in samples:
+				var local_point:=Vector3(sample[0],sample[1],sample[2])
 				var p: Vector3 = world.adapter.root.to_global(local_point)
 				var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(p+Vector3.UP*.03,p-Vector3.UP*.03,1,[world.player.get_rid()]))
 				suite.check(not hit.is_empty() and apron.is_ancestor_of(hit.collider) and hit.position.distance_to(p)<.0001, "distant exposed ground has its actual fitted physical top: "+str(row.id))
@@ -147,6 +146,18 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 		await suite.shot("city_weather_"+str(state.id))
 	manager.current = original_conditions
 	manager._publish()
+	# Posed construction reviews outside the current walkable street. They do
+	# not expand the travel graph or qualify player access to the rail yard.
+	for view: Array in [
+		["river",Vector3(420,10,10),Vector3(380,-4,0)],
+		["canal",Vector3(20,7,-310),Vector3(50,-6,-360)],
+		["rail_cut",Vector3(-290,12,60),Vector3(-390,-3.5,0)],
+	]:
+		camera.global_position=root.to_global(view[1])
+		camera.look_at(root.to_global(view[2]))
+		await suite.get_tree().create_timer(.6).timeout
+		await suite.shot("city_relief_"+str(view[0]))
+	suite.check((root.global_basis*Vector3.RIGHT).dot(Vector3.LEFT)>.999 and (root.global_basis*Vector3.BACK).dot(Vector3.FORWARD)>.999,"relief west/north axes match actual installed sky compass")
 	camera.global_position = root.to_global(Vector3(140,8,82))
 	camera.look_at(root.to_global(Vector3(110,-.02,64)))
 	await suite.get_tree().create_timer(.6).timeout

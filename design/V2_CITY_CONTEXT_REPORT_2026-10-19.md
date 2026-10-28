@@ -2,6 +2,233 @@
 
 Evidence class: **INERT**. Publication report; no additional acceptance grant.
 
+## Eight-block height repair and surface renewal — October 28 UTC
+
+Branch **codex/v2-city-relief-20261028**, parent **e10c0425**, integration base
+**04d72f3a**. Three individual horizon studies remain installed. This batch
+repairs the other seven oversized near-city masses; it does **not** complete
+their individual architectural studies or the full **149-building** mandate.
+
+| Mass | Previous body / new body (m) | Floors | Proportion reference |
+|---|---:|---:|---|
+| **site_far_nw** | 38.0 / 16.7 | 5 | Hampton Court, 35-16 79th Street |
+| **site_far_n** | 44.0 / 16.25 | 5 | Greystone Apartments; preceding checkpoint |
+| **site_far_ne** | 33.5 / 19.8 | 6 | The Towers, 33-16 81st Street |
+| **site_far_e** | 41.0 / 23.1 | 6 | Sohmer Piano Factory, 31-01 Vernon Boulevard |
+| **site_far_se** | 29.5 / 13.4 | 4 | Elm Court, 34-27 79th Street |
+| **site_far_s** | 44.71530952 / 20.5 | 6 | The Chateau, 34-22 81st Street |
+| **site_far_sw** | 31.0 / 16.7 | 5 | Laburnum Court, 37-15 79th Street |
+| **site_far_w** | 36.5 / 13.1 | 4 | Cambridge Court, 37-14 86th Street |
+
+The existing source plan records primary LPC references/pages and remaining
+distinctive features. Storey counts inform authored dimensions, not surveyed
+replicas. Courts, projecting bays, differentiated entrances, loggias, mansards,
+industrial arches, towers and ornament remain to be individually constructed.
+The existing inward-only detail policy leaves plainer outward walls; no final
+all-angle architectural acceptance is claimed. Playable ground, footprints,
+original V1 source and gameplay/state owners remain unchanged.
+
+Five source tests pass, including unchanged source data, rigid roof-equipment
+endpoint vectors/radii, unedited buildings and invalid/stale height controls.
+The old native library correctly refuses the new height program before rebuild.
+All **335** stocks and dependent equipment rebuild. Final native checks pass
+**1,205 bearing** and **2,613 pane** samples at **0.1 mm**. **638** unrelated draws
+retain exact decoded arrays and poses against **e10c0425**. Installed city GLBs
+shrink **20,185,984 bytes / 196,859 triangles**, **941→935 draws**. This is a
+storage/geometry result, not an FPS claim.
+
+Native and imported review first exposes outward-wall camera choices and cropped
+assemblies. Retain those attempts; final review selects city-facing façades and
+projects all assembly bounds into the actual viewport with a margin. All eight
+complete native/imported views were inspected. The final production-loader bench
+passes **5,243 checks**, eight real lowered-roof/old-height controls, **1,205**
+roof samples, source hashes, imported derivatives, PBR/mips and physical backing;
+empty shutdown stderr. Its wrapper binds after final dependency renewal.
+
+The **124-waypoint** occupied route passes in **345 s**, with **4,850 measured
+frames**, **3440×1440**, **8× MSAA**, TAA and the same calendar/control schedule
+as the preceding relief route. Wall p50/p95/p99/max are
+**36.178 / 65.850 / 75.815 / 142.788 ms**, versus
+**36.397 / 65.381 / 75.941 / 105.032 ms** before. Main-viewport GPU p50/p95/p99/max
+are **14.867 / 21.635 / 23.645 / 26.220 ms**, versus
+**15.160 / 21.897 / 23.911 / 25.697 ms**. No meaningful whole-route stutter gain
+is established; the worst frame is worse. Residents/traffic remain live and the
+earlier baseline predates the three horizon studies, so this is not an isolated
+height experiment. Two 100+ ms spikes coincide with **5,083** nodes entering the
+tree and **5,081** fewer orphans; one adds ten shader specializations. This is
+correlation, not function attribution. Investigate the existing passage activation
+timing and staged-publication path next; process/physics monitors are one-second
+peaks and viewport GPU timing excludes private views.
+
+The first surface run stops after **10 s**: closure binds equipment exports from
+the wrong batch order. Keep that failure. Correct the order to **shells → masts /
+aerials / tanks / beacons → closure → elevations**, rerun the last two producers,
+and independently prove all **six runtime GLBs byte-identical**. No hash repinning
+or guard removal. Native/fixture provenance changes still expire the earlier
+wrappers; retain the route as measured same-geometry evidence, not fresh runtime
+qualification. Renew the bench and full surface run after preflight passes.
+
+Final surface wrapper: **775 s**, empty shutdown stderr, current source binds.
+The test itself writes a schema-2 runtime contract: **39,207 checks**, **zero
+failures/unresolved surfaces**, **27,827 draws / 17,013 meshes / 6,324 materials /
+527 textures**. Production composition, surface requirements and runtime-owned
+teardown pass. **Save reconstruction is NOT_EXECUTED**; unchanged save authorities
+reuse their separate evidence. Fire interactions are skipped while their physical
+surfaces remain inventoried. No hose input suite is repeated.
+
+All **237** optical captures were inspected via seven contact sheets; seven
+representative native-resolution images were also inspected individually. The
+published packet is renewed using **publish_v2_surface_packet.py**, preserving
+the preceding packet before installing the test-written contract last. This is
+technical rendered review, not human acceptance. Dark street exposure, bright
+gallery fixtures, near-flat storm ceilings and repeated seasonal cloud silhouettes
+remain limitations. No annual-weather, all-area gameplay or whole-V2 completion
+is claimed. Candidate/static comparison and merge are separate pending steps.
+
+Diagnostics and original failures: **C:/ov/reports/city_mass_batch_20261028**;
+the existing skywatch archive carries the compact packet, provenance and prior
+surface publication. Full-resolution intermediate captures stay externally
+indexed. Existing ground-recipe binding debt remains as recorded below; no
+retained ground was rebuilt or repinned.
+
+## North-block proportion repair — October 28 UTC
+
+Unmerged WIP after **586a0ddd**, still based on main **04d72f3a**. This is a
+height/floor repair, not a fourth completed individual architectural study.
+The **site_far_n** body changes **44.0→16.25 m**, with five **3.25 m** floors,
+one full-height upper setback, and a **16.51 m** roof-cap datum. Greystone
+Apartments' documented five-storey hierarchy informs this authored proportion;
+its Tudor porches, entrance/courtyard organisation and individual finish study
+remain open. The other seven oversized background masses still need repair.
+
+The existing authoring helper projects explicit monotone height landmarks from
+the frozen V1 layout. Ground/footprints stay fixed; hardware above the roof
+translates without changing endpoint vectors or radii. The source owner rebuilds
+all **335** closed native stocks. Every roof consumer validates both the original
+consumed source and exact V2 projection before fitting its actual native stock.
+Changing a physical source field or height program rejects stale reuse. Five
+Python tests include bad-height and changed-program controls. No new runtime
+state authority, asset file family or addon is introduced; V1 data is unchanged.
+
+Rebuild shells, joined parapets, masts, aerials, tanks, beacons and elevations
+together. The final native elevation checks pass **1,205 support samples** and
+**3,489 pane-depth samples** at **0.1 mm**. Four context images and a focused
+roof-equipment native image were actually inspected. All **975** unrelated
+exported draws across six GLBs retain exact decoded arrays and node poses.
+The five installed GLBs together shrink **3,182,120 bytes**; bounded hardware
+partitioning adds one draw. This is not an FPS or memory-residency claim.
+
+The renewed **V2CityElevationBench** uses the actual production city loader,
+retains the earlier source-parser/apron coverage, and exercises all five installed
+asset hashes, native UV derivatives, loaded PBR/mips, triangle collision and
+**1,205** actual imported roof contacts. Positive lowered-roof and negative
+old-tower-roof probes pass. Final **bench_frozen.log.receipt.json** binds:
+**5,213 checks / zero failures**, **19.73 s**,
+**3440×1440 fullscreen**, empty shutdown stderr; its final optical image was
+actually inspected. The first run's PNG save error remains recorded; the bench
+now creates the directory and checks the save result. Camera framing now derives
+from the building's actual fixture dimensions. The intermediate camera-bound
+wrapper becomes stale when normalizing the final mixed line ending; keep it
+and renew rather than repin. These wrappers are
+diagnostics, not schema-2 production qualification or artistic acceptance.
+
+Ground reconciliation correctly stops on a pre-existing pavement binding.
+The retained-grade plan has five pre-existing stale non-city bindings plus the
+new city-native binding. Do not repin those as acceptance. The ground GLB and its
+underground reservations are unchanged; a fresh consumed-geometry survey is
+needed before rebuilding that historical ground recipe. No ground source was
+rewritten after this refusal.
+
+The original **OrisonV2CityClosureTest** completes in **256 s**: **3,846 checks**,
+**227 elevation partitions**, **814,611 triangles**, **25 joined parapets** and
+**1,205 retained hardware footprint samples**, zero failures and empty shutdown
+stderr. Its wrapper still binds after the bench-only camera/line-ending repair.
+All **58** real fullscreen captures were inspected via four contact sheets.
+The before/after pairs compare roof finishes, not old/new building heights.
+This is posed composed-world review, not a walked route or final artistic grant.
+
+The early **114-gate** diagnostic comparison reports a new raw bench camera
+coordinate and stale/missing full-surface qualification. The camera is repaired
+as above and the renewed spatial audit has **zero NEW reported** references.
+The other five existing tool-test failures remain baseline debt, with no new
+tool-test regression. This board spans a report edit and is diagnostic; renew
+a frozen comparison/candidate check before merging. Full-surface and rendered
+review qualification must be renewed; do not waive or repin them. No performance
+route or save test is repeated for this passive geometry-only repair.
+Original/new diagnostics: **C:/ov/reports/city_mass_20261028**; archive under
+**city_north_height_repair/** in the existing skywatch packet. The overall city
+and V2 goals remain open.
+
+## Construction update — October 27 evening / October 28 UTC
+
+**Unmerged WIP**, branch **codex/v2-city-relief-20261028**, parent **499ebad0**,
+based on main **04d72f3a**. Earlier publication evidence below retains its
+original scope; it does not qualify this new construction.
+
+Three of **149** passive buildings now have authored individual studies:
+**HORIZON_NEAR_0_0_P0R0**, a stone Italianate adaptation of 21-21 45th Avenue,
+has three main floors over a low basement, a seated seven-step stoop, iron rails,
+recessed paneled entrance and bracketed cornice; **HORIZON_NEAR_0_0_P0R1** uses
+21-42 45th Avenue's four-storey angled-bay vocabulary;
+**HORIZON_NEAR_0_0_P2** uses Linden Court's paired-block vocabulary with a genuine
+recessed entrance court. Body heights are **10.55 / 13.0 / 12.4 m**. Dimensions
+are authored adaptations, not surveys or complete copies of historic ornament.
+
+The existing source plan holds references/pages, floor heights, outlines, bay
+counts, entrances and cornice programs. Closed polygonal stocks and mitred
+cornice rings follow the bays/court. No rectangular roof spans the court.
+Extend existing builders/helper/loader; serialize just three finish overrides.
+
+The native build passes **12,287 pane-depth rays** at **0.1 mm**, closed-stock
+checks, **20 parapet seats + 20 outside controls**, and complete exported tangent
+checks. Near stock changes **396→398 draws**,
+**528,364→529,300 triangles**, **52,485,040→52,641,652 bytes**. Far GLB is
+byte-identical. A decoded comparison against **499ebad0** verifies all exported
+attribute/index arrays and node poses on **381 other near + 214 far draws**, with
+no unrelated added draw. This is geometric preservation, not an FPS claim.
+
+The first imported bench passes **12,472** checks, then **12,474** after explicit
+native-asset SHA checks. Both original wrappers remain but are stale after the
+subsequent test/geometry changes. Review identifies parapets incorrectly seated
+outside the wall line on decorative cornices. Move their footprint inward to
+bear over the wall/roof assembly. Final **bench_bearings.log.receipt.json** passes
+**12,534 checks / zero failures** in **15.95 seconds**, empty shutdown stderr,
+and verifies against current source. Opposing front-face rays prove that actual
+parapet bottoms and roof tops meet; outside-wall probes cannot count a decorative
+cornice as a roof bearing.
+It checks actual imported bounds, panes, terrain, source asset hashes, mapping
+and teardown. A ray through the court reaches ground rather than a rectangular
+roof. Three final **3440×1440 fullscreen** captures and three final native views
+were actually inspected. Stoop/rails, angled bay, wrapped cornice and court read
+distinctly. Neutral bench lighting, opaque distant panes and simplified ornament
+remain limits. This wrapper is not a schema-2 runtime contract; composed-world,
+played-access, human acceptance and full surface renewal remain unproven.
+
+The editor recreates **627** untracked UIDs and **14** normalized-identical import
+sidecars. Archive their bytes and verify the known roster, indexed parents,
+resolved paths and creation times against this import before removing only that
+churn. Two UIDs regenerate for the two edited script owners; none is committed.
+The empty pre-import PowerShell pipeline created no file: cleanup additionally
+checks the prior archived 627-path roster and 625 unchanged values, without
+inventing an earlier file. Cleanup preflight stops are in the tool transcript;
+the eventual provenance, changed UID values and empty orphan lock are archived.
+No shared stash, reset, bulk staging or unrelated source removal is used.
+
+Diagnostics are **C:/ov/reports/city_studies_20261028**, archived in the existing
+skywatch packet under **city_building_studies_three/**. Python geometry tests
+pass; physical source retention has no missing/wrong source; reader has **zero
+NEW** unread fields. Candidate verification and merge are pending. No save suite
+or hose interaction is repeated for passive models/finishes. The earlier terrain
+route does not qualify these later building changes.
+
+| Location / issue | Reproduction / severity | Evidence | Repair / verification |
+|---|---|---|---|
+| Three horizon frontages lack coherent individual proportions | Inspect at source street height; visual high | Explicit floor plans and native/loaded renders above | Three studies implemented and bench-verified; composed-world review pending. |
+| Eight near-city background masses dominate the low-rise brief | Review street/roof skyline and elevation inventory; visual high | Existing roof heights **29.5–44.715 m** across eight **site_far** groups | Next: individual period mass/floor profiles and dependent roof equipment together. Preserve accessories' dimensions, playable anchors, frozen V1 source and strict source guards. |
+| Remaining **25 near-city + 121 horizon** buildings lack individual study acceptance | Compare repeated generic recipes; visual high | Source roster and earlier captures | Continue reference-based geometry and combined qualification. Three examples do not close the city task. |
+
+---
+
 Branch / HEAD / origin/main / merge-base: **main** / verified candidate
 **30f603c3bdd75ab5557cba15c2db4c9b35be1555** / **fa6e8f9762763a0ff369c74ed42aa704b44365e2** /
 **fa6e8f9762763a0ff369c74ed42aa704b44365e2**.

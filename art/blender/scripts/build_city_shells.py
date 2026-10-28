@@ -27,7 +27,12 @@ records = [r for r in floor['furniture'] if is_city_shell(r['id']) and 'rect' in
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from city_registration import derive_city_offsets
-from city_closure_source import shell_projection
+from city_closure_source import shell_projection, v2_layout
+source_records = shell_projection(layout)
+height_plan_path = ROOT/'art/data/city_elevations/source_plan.json'
+layout = v2_layout(layout, json.loads(height_plan_path.read_text()))
+floor = next(f for f in layout['floors'] if f['id']=='F01')
+records = [r for r in floor['furniture'] if is_city_shell(r['id']) and 'rect' in r and not r['id'].endswith('_beacon')]
 projection_records = shell_projection(layout)
 assert {r["id"] for r in records} == {r["id"] for r in projection_records}
 offsets=derive_city_offsets(layout,v2,regions)
@@ -113,7 +118,7 @@ def source_hash(path):
     return hashlib.sha256(raw).hexdigest()
 report={'evidence_class':'INERT','offsets':offsets,'source_solids':len(records),'runtime_batches':len(groups),
         'source_native_sha256':source_hash(ROOT/'art/blender/city_shells.blend'),
-        'bindings':{str(p.relative_to(ROOT)).replace('\\','/'):source_hash(p) for p in [ROOT/'art/data/building_layout.json',ROOT/'game/data/orison_v2_blockout.json',ROOT/'game/data/orison_v2/exterior/regions.json',Path(__file__),Path(__file__).with_name('city_registration.py'),Path(__file__).with_name('city_closure_source.py')]},
+        'bindings':{str(p.relative_to(ROOT)).replace('\\','/'):source_hash(p) for p in [ROOT/'art/data/building_layout.json',ROOT/'game/data/orison_v2_blockout.json',ROOT/'game/data/orison_v2/exterior/regions.json',Path(__file__),Path(__file__).with_name('city_registration.py'),Path(__file__).with_name('city_closure_source.py'),height_plan_path]},
         'note':'Existing authored closed city masses; northwest row shares its near mass registration. No new occupied building or service authority.'}
 (ROOT/'art/blender/city_shells_registration.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 
@@ -123,6 +128,7 @@ projection = {
     "producer":"art/blender/scripts/build_city_shells.py",
     "layout_sha256":report["bindings"]["art/data/building_layout.json"],
     "native_sha256":report["source_native_sha256"],
+    "source_records":source_records,
     "records":projection_records,
     "native_checks":native_checks,
 }

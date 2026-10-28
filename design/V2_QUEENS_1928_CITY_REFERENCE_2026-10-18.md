@@ -296,3 +296,126 @@ weather. Compare occupied route frame distributions, visible draws, loading and
 collision costs against the retained baseline before accepting each replacement.
 The 1 km footprint and illustrative elevations establish direction, not a claim
 that surveyed terrain, the city or its artistic acceptance is complete.
+
+## Construction pass and owner refinements, October 27–28
+
+The first relief batch replaces the flat apron with a **1 km square** native
+mesh around the byte-identical retained ground. The scene street datum remains
+**Y=0 / +6 m ASL**; water is **Y=-6 m**, the rail bed **Y=-3.5 m** and river/canal
+beds **Y=-8 m**. Actual threshold registration turns the building frame 180°:
+local **+X is west**, **+Z north**. All **124** existing horizon footprints stay
+on their original shelf. These are fictional authored elevations, not a survey.
+
+Four closed editable terrain stocks carry the slopes and cuts. Water is clipped
+against their actual triangles and has no walkable collision slab. Reuse four
+catalogue finishes with metric charts, enabled normal maps and loaded mipmaps;
+opaque turbid water avoids a kilometre-wide refraction pass. A coarser grid with
+all breaklines retained reduces the first **13,300** triangles to **2,692** across
+**14** material draws. Four actual native previews were inspected. They show
+continuous banks and the cut; quays, tracks, bridge and station remain unbuilt.
+
+Diagnostics are in **C:/ov/reports/city_relief_20261028** and archived under
+**city_relief_first_pass/** in the existing skywatch review packet. Four Python
+geometry tests pass, including closed oriented volumes and unchanged building
+grades; the final exported tangent audit passes. The installed native-resolution
+bench passes **12,510 checks / zero failures**, with submerged-bed rays proving
+that water is not a solid platform. This bench is not a schema-2 runtime contract.
+
+The **343-second** occupied controller route completes **124 waypoints / zero
+failures**, empty stderr, unchanged source digest throughout. Its **4,847 frames**
+have wall p50/p95/p99/max **36.397/65.381/75.941/105.032 ms** and GPU
+**15.160/21.897/23.911/25.697 ms**. The retained earlier same-settings route has
+**36.642/66.063/77.105/147.252 ms** wall timings. Both use 3440×1440, 8×MSAA,
+TAA, the same calendar route and seed, with live residents/traffic. The earlier
+run precedes the unrelated unused-alias/held-asset cleanup: this is a diagnostic
+comparison, not an isolated terrain-only experiment or evidence of an FPS gain.
+One actual occupied street capture was inspected; it does not visually qualify
+the distant banks. Original malformed import cancellation, regenerated UID/EOL
+churn provenance and the water-side orientation failure remain documented.
+
+The broad surface leg was deliberately cancelled **0.53 seconds** after startup
+when the owner requested individual building studies. Its failed wrapper is
+retained; no composition or surface acceptance is claimed. Finish the related
+native building batch before a renewed combined Godot surface/render review.
+
+### Individually proportioned buildings — owner direction October 27
+
+The existing generic near-city and horizon stock is not the desired final
+architecture. Refine each building from a specific period example: frontage and
+depth, storey count and floor heights, bay count, opening proportions, base/entry,
+roof silhouette and intended use must make sense together. Give every building
+an individual reference and an intentional architectural identity. Tint/seed
+changes alone do not establish uniqueness. Distinguish sourced features from
+fictional dimensions and adaptations. Preserve usable routes and nonvisual
+owners; revise dependent roof equipment/bearings together if their stock moves.
+
+The installed roster is **25 retained near-city buildings plus 124 horizon
+buildings**, not seven interchangeable near masses. Audit all 149 individually;
+the source's repeated prose descriptions and changing variation seeds are not
+individual architectural briefs. Preserve the distinction between the Orison's
+playable construction, passive neighbors and distant skyline stock.
+
+The first reference studies selected for refinement are:
+
+| Specific precedent | Observed/documented proportional cues | Adaptation boundary |
+|---|---|---|
+| **21-21 45th Avenue**, Hunters Point | LPC LP-0450 pp. 3–4 describes the three-storey-plus-basement stone Italianate row, with stoop, tall openings, pedimented entry and bracketed cornice. | Give a narrow house a coherent basement/main-floor/upper-floor rhythm; do not treat a warehouse-width block as one enlarged townhouse. Exact dimensions still need source measurement. |
+| **Sohmer factory, 31-01 Vernon Boulevard** | [LPC LP-2172](https://s-media.nyc.gov/agencies/lpc/lp/2172.pdf) pp. 1, 8 and 14–15: brick industrial mass, repeated narrow segmental-headed windows, differentiated lower storeys, selected belt courses and a corner mansard clock tower. The 2006 plates were actually inspected for surviving form. | Exclude modern advertisements, cars, alterations and conversion work. Distinguish the long factory wings from the tower instead of stretching one generic facade module. |
+| **Bank of the Manhattan Company, 29-27 Queens Plaza North** | LP-2570 pp. 1–4, 9 documents an eleven-storey body plus three-storey clock tower; the 1928 atlas footprint is recorded as about 50 × 110 ft. The 2015 plate was inspected for the slender body, vertical piers and crown. | These are two height components, not fourteen equal full-width floors. Do not copy the later base, air conditioners or signs. Authored placement is not the actual tax parcel. |
+| **Linden Court, 84th/85th Streets** | [LPC LP-1831](https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf), printed p. 25 (PDF p. 32) and fig. 18 (PDF p. 63), describes paired buildings and open passages; the c. 1925 photograph was inspected for four-storey proportions, projecting porches, varied entry placement and restrained roof edges. | Use a real courtyard/porch composition where space supports it, not a continuous oversized slab with a different tint. Other named court buildings require their own studies. |
+
+Source PDFs, extracted text and inspected plates remain outside game packaging
+at **C:/ov/reports/city_relief_20261028/references/**. No reference-photo pixels
+enter a model, map or exported material. The reference pass establishes modeling
+direction, not acceptance. The subsequent first three modeled studies and their
+native/imported bench results are recorded in **V2_CITY_CONTEXT_REPORT_2026-10-19.md**.
+The other **25 near-city + 121 horizon** buildings, composed-world review and
+combined qualification remain open. Revise dependent roof attachments together
+with any changed massing; do not shrink the full task to three examples.
+
+### Hybrid relief detailing — supplied suggestion, adapted to project rules
+
+Keep broad regional grading separate from crisp construction. A 2048-square
+height image across 1 km has roughly **0.49 m** sample spacing; 16-bit vertical
+precision does not supply finer horizontal features. The existing native mesh
+pipeline remains suitable and does not require Terrain3D, Geometry Nodes or a
+new runtime extrusion framework merely to follow the example.
+
+- **Broad terrain:** author metre-valued slopes and excavations, with sufficient
+  topology at actual breaklines. Use true 16-bit linear data if a height image
+  becomes useful. Do not encode a vertical retaining wall as a stretched raster
+  slope. The suggested 60° limit is guidance, not an acceptance rule.
+- **Explicit construction:** fit approximately 150 mm curbs and draining gutters
+  to measured street levels; construct canal bulkheads with a cap, posts/piles,
+  walers and seated tie hardware; add mud beds, riprap and trapezoidal ballast
+  shoulders. Curve/profile authoring may help. Prevent terrain from poking
+  through and preserve collision/access where gameplay uses it. Support spans
+  and leave underpasses open. Review joined ends and grain direction.
+- **Surface relief:** use registered UV-sampled PBR/normal maps first. Apply
+  shoreline blending, wetness masks or selective parallax only where they improve
+  the actual view within measured cost. Persistent waterline wetness should
+  follow world elevation/shore distance and existing wetness owners; screen
+  depth alone cannot author a stable wet band on surrounding objects.
+
+The pasted suggestions to enable primary triplanar mapping conflict with
+RUL-012; keep it disabled and author metric charts for vertical stock. Vertex
+alpha may blend registered physical substances, never waive UV/PBR/mip rules.
+Do not add SSAO, full-scene depth passes or shader displacement as automatic
+quality switches. Preserve the installed lighting/weather owners and measure
+their actual result. Optical displacement cannot move a playable curb away
+from its physical collision. These refinements remain construction work, not
+claims that a heightmap, coastline or city has been accepted.
+
+### Eight near-city height repairs — October 28 UTC
+
+The eight previously oversized **site_far** bodies now use authored four-, five-
+and six-storey proportions informed by Hampton Court, Greystone, The Towers,
+Sohmer, Elm Court, The Chateau, Laburnum and Cambridge Court. Body heights span
+**13.1–23.1 m**; original playable datums/footprints and roof-equipment dimensions
+remain. This is a height repair, not eight completed individual studies: the
+distinct courts, entrances, bays, roofs and ornament remain open. The existing
+three horizon studies remain separate from the other **146** unfinished
+individual-building studies. See **V2_CITY_CONTEXT_REPORT_2026-10-19.md** for the
+39,207-check technical surface renewal, measured route without demonstrated
+stutter gain, original preflight failure and remaining limits. The city, transport
+construction, final artistic acceptance and V2 remain unfinished.
