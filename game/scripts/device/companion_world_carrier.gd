@@ -72,6 +72,10 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 		push_error(failure)
 		return
 	rig.scale = Vector3.ONE * PRESENTATION_SCALE
+	rig.typing_arm=preload("res://scripts/device/companion_typing_arm.gd").new()
+	rig.add_child(rig.typing_arm)
+	if not rig.typing_arm.configure(rig,player,_arm_permitted):
+		failure="Native typing arm refused";push_error(failure);return
 	setup_records.append({"stage":"asset_and_presentation_bind", "start_usec":asset_started, "end_usec":Time.get_ticks_usec()})
 	device = rig.device
 	var lens: MeshInstance3D = device.teletype.torch_lens
@@ -111,6 +115,17 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 
 func reading_limits() -> Vector2:
 	return Vector2(.18, .32)
+
+func arm_busy() -> bool:
+	return rig!=null and rig.typing_arm!=null and rig.typing_arm.active()
+
+func _arm_permitted() -> bool:
+	return world_ready and reading and not is_capture_hidden() and device.radio_powered \
+		and not device.incoming_call and not _player.protected_input_active() \
+		and not _player.mouse_released and _sleep_onset<=.8 \
+		and session!=null and not session.typing and not session.opening \
+		and not session._foreign_editor_active() and not _player.inspecting() \
+		and (_player.telegram_hud==null or not _player.telegram_hud._conversation_active)
 
 func adjust_reading_distance(amount: float) -> void:
 	super.adjust_reading_distance(amount)
@@ -229,11 +244,11 @@ func _advance_presentation(_delta: float) -> void:
 		motion.request_behavior(&"sleep")
 	elif session != null and (session.typing or session.opening):
 		motion.request_behavior(&"type")
-	elif _player.call_locked or device.incoming_call or session._foreign_editor_active() or (_player.inspecting() and _player.inspect_owner != self):
+	elif _player.protected_input_active() or (is_instance_valid(_player.text_input_owner) and _player.text_input_owner!=rig.typing_arm) or device.incoming_call or session._foreign_editor_active() or (_player.inspecting() and _player.inspect_owner != self):
 		rig.request_keyboard(false)
 		motion.request_behavior(&"observe")
 	elif reading:
-		motion.request_behavior(&"present")
+		motion.request_behavior(&"type" if arm_busy() else &"present")
 		# Reply reading is still computer use. The closed face covers the lower
 		# copy window, so latch it only when the reader dismisses the apparatus.
 		rig.request_keyboard(motion.steady_for_input())

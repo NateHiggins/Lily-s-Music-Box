@@ -3,6 +3,10 @@ extends Node3D
 ## Created explicitly by a companion presentation; no production autoload.
 signal keyboard_settled(open: bool)
 const DATA := "res://data/device/service_companion_v2.json"
+const KEY_TRAVEL:=.0014
+var typing_arm:Node
+var _automatic_key:=-1
+var _automatic_depth:=0.0
 var device: ServiceSetProp
 var model: Node3D
 var keyboard: Node3D
@@ -193,6 +197,8 @@ func set_glass_moisture(inside: float, outside: float) -> void:
 	_glass_outside = outside
 
 func request_keyboard(open: bool) -> void:
+	if not open and typing_arm!=null and typing_arm.active():
+		typing_arm.cancel();return
 	if keyboard_requested == open: return
 	keyboard_requested = open
 	_settled = false
@@ -246,13 +252,26 @@ func _advance_mechanism(delta: float) -> void:
 		if _depressions[index] <= 0.0: continue
 		_depressions[index] = move_toward(_depressions[index], 0.0, delta * 10.0)
 		var pose := _key_homes[index]
-		pose.origin.z += .0014 * _depressions[index]
+		if index==_automatic_key:_depressions[index]=_automatic_depth
+		pose.origin.z += KEY_TRAVEL * _depressions[index]
 		_set_key_transform(index, pose)
 
 func key_transform(index: int) -> Transform3D:
 	var draw: GeometryInstance3D = _key_draws[index]
 	if draw is MultiMeshInstance3D: return draw.multimesh.get_instance_transform(_key_instances[index])
 	return (draw as MeshInstance3D).transform
+
+func automated_key(owner:Node,character:String,depth:float) -> void:
+	if owner!=typing_arm or not is_finite(depth):return
+	if _automatic_key>=0:
+		_depressions[_automatic_key]=0
+		_set_key_transform(_automatic_key,_key_homes[_automatic_key])
+	_automatic_key=_key_names.find(character);_automatic_depth=clampf(depth,0,1)
+	if _automatic_key>=0:
+		_depressions[_automatic_key]=_automatic_depth
+		var pose:Transform3D=_key_homes[_automatic_key]
+		pose.origin.z+=KEY_TRAVEL*_automatic_depth
+		_set_key_transform(_automatic_key,pose)
 
 func _set_key_transform(index: int, pose: Transform3D) -> void:
 	var draw: GeometryInstance3D = _key_draws[index]

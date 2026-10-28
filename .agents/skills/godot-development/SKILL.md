@@ -114,6 +114,9 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   UV precision, normal/tangent derivatives and loaded maps in a small family
   bench before a full world. Reuse the actual loader and preserve shared
   material ownership; a source GLB pass does not establish its imported result.
+  The pinned glTF importer nests authoring metadata under `get_meta("extras")`;
+  it also sanitizes illegal node-name characters. Preserve semantic key tokens
+  in extras and verify the loaded bindings rather than relying on raw names.
 - **Input:** exercise the first mouse increment, continued hold, travel stops,
   release and cancellation with the real controller. Toggle tests do not prove
   direct manipulation. Preserve draft/focus and pause/input ownership. Do not
