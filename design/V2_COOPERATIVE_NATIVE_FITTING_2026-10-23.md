@@ -330,7 +330,7 @@ acceptance stay open. Owner decision needed: **none**.
 
 MERGE-CANDIDATE 1b7d701333d0556c31b3c37e71f17b558603692b — merged in PR #73
 
-## October 28 — frame-linked load attribution, qualification pending
+## October 28 — frame-linked load attribution
 
 Evidence class remains **INERT**. Opt-in diagnostic instrumentation, not a
 scheduling repair or performance acceptance. Baseline **f71f1c82** is clean;
@@ -338,7 +338,7 @@ the new production flag defaults off. No new source files or gameplay owners.
 
 | Location / reproduction | Severity | Evidence | Repair / next action | Verification |
 |---|---|---|---|---|
-| Passage reload during actual street/door route | Input stutter | Complete trace: fitting call max37.446ms, first cooperative advance max36.819ms; nominal budget8ms | Added bounded monotonic request/get/fit/callback intervals; next repair should split or reduce atomic fitting work, preserving exact source and collision validation | Four ABBA blocks complete, no dropped records, empty shutdown stderr; broader regression checks pending |
+| Passage reload during actual street/door route | Input stutter | Complete trace: fitting call max37.446ms, first cooperative advance max36.819ms; nominal budget8ms | Added bounded monotonic request/get/fit/callback intervals; next repair should split or reduce atomic fitting work, preserving exact source and collision validation | Four ABBA blocks complete, no dropped records, empty shutdown stderr; original residency and surface regressions pass |
 | Attribution buffer during fourth crossing | Diagnostic failure | First instrumented run drops1,279 records at4,096 and correctly fails its new check | Increased bounded limit to8,192; retained original failure | Complete repeat passes with zero dropped records |
 
 Raw receipts, screenshots, source-frozen frame arrays, prepared source snapshots
@@ -367,6 +367,26 @@ to passage loading. Process records contain nested fitting/request/get records;
 never add them together. Frame ids and monotonic intervals permit correlation
 without treating one-second engine process/physics peak counters as frame costs.
 
-Surface/residency regression qualification, candidate gates and integration are
-still pending. Existing surface evidence is not renewed by these diagnostics.
-No save/load reconstruction or human artistic acceptance is claimed.
+The complete trace contains7,046 records under the8,192 cap. The original
+**OrisonV2PassageResidencyTest** passes57 waypoints/zero failures; its DORMANT
+and RESUMED snapshots both confirm profiling disabled and zero diagnostic
+records. This is actual input/regression evidence, not a schema-2 contract.
+Applying the spatial-contract preflight to this historical diagnostic reports
+its missing static SOURCES declaration; it does not turn that fixture into a
+contract writer. No test assertions or deadlines were weakened.
+
+**surface.log.receipt.json** and its test-written **surface/runtime_contract.json**
+record39,427 passing checks, zero failures and empty shutdown stderr. Seven
+current composed captures were inspected. Atomic fitting costs, dark exterior
+lighting and the flat storm ceiling remain open. The unchanged fire-service
+interaction programme was explicitly skipped; physical hose/cabinet surfaces
+remain covered. Save reconstruction remains NOT_EXECUTED.
+
+The source-bound surface packet is renewed only through the existing publisher.
+Previous packet bytes were checked against immutable commit
+**b6f4307cf4d6ff8b8036abd58e4ecbe676678abe** before publication; recover them with
+Git archive of **art/renders/orison_v2/surface_requirements_20261011** at that
+commit. No new duplicate review archive or source file is introduced. Raw local
+backups and **previous_packet_git_provenance.json** remain with the external run.
+Candidate comparison and integration remain pending; no speedup, new disk-save
+qualification or human artistic acceptance is claimed.

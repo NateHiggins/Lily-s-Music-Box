@@ -1210,6 +1210,10 @@ Standing until reversed, and it re-sorts several open items:
   submission, shadows and private-viewport costs; retain cold/warm distributions
   and actual input. New city work must measure its incremental cost on the same
   route/settings and preserve visual detail through measured tradeoffs.
+  October28 frame-linked passage attribution isolates atomic fitting calls up
+  to37.446ms despite the8ms cooperative budget; split/reduce that work without
+  relaxing source/collision validation. See the dated section in
+  `design/V2_COOPERATIVE_NATIVE_FITTING_2026-10-23.md`; probes are not a repair.
 - **P2/P3/P6/P8 — Historical leads, not automatic prescriptions.** Reproduce
   relevant occlusion, shadow, mirror/reflection and tier/culling issues in the
   current V2 composition before optimizing. Keep any reproduced defects active;
