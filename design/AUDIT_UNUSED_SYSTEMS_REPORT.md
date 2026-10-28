@@ -14,7 +14,7 @@ commit **2c47150b83a037dae7a8120e72bd8b380a197d3d**.
 
 | Merged checkpoint | Removed loose copies | Recovery and verification |
 |---|---:|---|
-| **PR 76 / dee9e28b** | 25,740 historical navigation source files | Three indexed archives preserve every byte: 254,108,724 source bytes become 9,934,873 archive bytes. Original result/artifact maps remain loose. **design/astra/evidence/resident_f01_haunt/nav_validation/SOURCE_ARCHIVES.md** records extraction and immutable preceding commit. Astra packet checks pass before/after. |
+| **PR 76 / dee9e28b** | 25,740 historical navigation source files | Three indexed archives preserve every byte: 254,108,724 source bytes become 9,934,873 archive bytes. Original result/artifact maps remain loose. **design/astra/evidence/SOURCE_ARCHIVES.md** records extraction and immutable preceding commit. Astra packet checks pass before/after. |
 | **PR 77 / 21e382ce** | 205 wall-art audit images / 1,075,839,623 bytes | Four original manifests retained. Every image equals its committed blob; actual Git-archive recovery exercised. Room-evidence verifier: 34 tests; surface publication: six tests, all pass. |
 | **PR 78 / 2c47150b** | 529 further render outputs / 590,195,841 bytes | Project-wide text audit retains basename/family references. Read-only Blender 5.2 LTS census: 329 native files, 4,340 image blocks, zero candidate inputs or failures; all native hashes unchanged. Every removed image equals its committed blob. |
 
@@ -39,6 +39,21 @@ Cumulative reduction at that merge: **26,469 tracked files / 1,910,263,469
 working-tree bytes**, before this small metadata follow-up. Shared Git history
 and its database remain intact. Further cleanup needs targeted consumer review
 or migration; referenced images were not automatically declared disposable.
+
+The next source-copy batch consolidates **4,878 files / 165,946,930 bytes** from
+thirteen historical audit families into **3,522,100 archive bytes**. Logs, results,
+artifact maps and active tools remain loose. All source copies passed exact
+archive round trips. **design/astra/evidence/SOURCE_ARCHIVES.json** indexes the
+new archives and the three preceding navigation archives; their shared guide
+is consolidated at that same evidence root. Stored-byte and LF-normalized text
+checksums remain distinct; original receipt hashes were not repinned.
+
+An unchanged material aggregate was executed only in disposable mirrored trees
+before/after reconstructing 984 source files: 1,087 artifact hashes checked,
+zero mismatches, exit zero both times, identical results apart from review time.
+This verifies offline-consumer continuity, not new gameplay acceptance; original
+runtime failures remain unchanged. Current packet and full static comparison
+verification remain pending before integration of this batch.
 
 ## Method
 
