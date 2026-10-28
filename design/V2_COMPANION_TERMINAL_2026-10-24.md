@@ -58,6 +58,21 @@ prologue withholds this same rig until its reveal. Existing historical
 measurements below retain their original scope; no full companion or V2
 acceptance is claimed here.
 
+## Temporal channel origin — October28,2026
+
+October28 canon extension: Bible VIII.2 now owns Helical Resonance and the
+future singularity's channel mechanism. The companion interfaces with that
+mechanism; its access is bounded by actual connections and witnessed knowledge,
+not omniscience. Use Echo Window access, Tachyonic Shear correction, Phase Lock,
+then Phase Translation and a Temporal Aperture when matter crosses. Writing and
+mechanical messages are Phase-Locked information transfer. The mirror visitor
+begins as incomplete manifestation and becomes physically present only at the
+actual aperture handoff. Its local anchor does not make every mirror a portal.
+Keep the printer/keyboard and validated action/save owners. Neither this origin
+explanation nor generative conversation can invent evidence, reveal the player's
+identity/composition, change history or equate the singularity with the Dream
+organism. Existing operational code does not yet simulate this channel sequence.
+
 ## Audit before replacement
 
 Owner directive: autonomous companion terminal, received after the frame-mitre

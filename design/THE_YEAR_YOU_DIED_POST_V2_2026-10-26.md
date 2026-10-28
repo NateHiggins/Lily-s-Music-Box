@@ -167,6 +167,27 @@ past NPCs. Keep player knowledge distinct from the world's state at the selected
 time; possession and object identity require explicit temporal rules, not copies
 of inventory items or assertions made by generated dialogue.
 
+## Helical Resonance integration — October28,2026
+
+Bible VIII.2 owns the new fictional mechanism: Helical Resonance → Echo Window
+access/provisional channel → Tachyonic Shear correction → Phase Lock → Phase
+Translation to an exact Temporal Coordinate → Temporal Aperture for matter.
+Information transfer can begin after lock; precise addressing uses translation.
+This does not introduce a second temporal-travel system or revise the murder
+events. Favorable windows derive from astronomical state, not recurring date
+strings; translation preserves the owner's free-order investigation commitment.
+
+Keep future resonance/anchor calculations deterministic and bounded by explicit
+source/destination instants and physical anchor geometry. Reuse campaign clock
+and ephemeris owners; derive/cache phase and correction rather than simulating
+every intervening hour or storing a second world clock. Signal strength,
+interference, records revealing windows, phase correction and precise targeting
+are investigation hooks, not newly installed mechanics or compulsory puzzles.
+No automatic costs, cooldowns, damage or denied dates follow from this theory.
+Inventory/custody, NPC knowledge and newspaper publication retain the boundaries
+above. Historical alteration, loops, branches and paradoxes remain unresolved;
+this canon update supplies no answer to them or to the protagonist's nature.
+
 ## First milestone after the V2 prerequisite
 
 Build one authored room/evidence chain across several dates, including a clue

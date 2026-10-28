@@ -593,6 +593,52 @@ world that got very good at listening and no better at anything else.**
 The infection is audio-borne because audio is the only thing here that
 was ever given room to grow.
 
+#### Helical Resonance — owner canon extension, 2026-10-28
+
+The future singularity addresses distinct events through **Helical Resonance**:
+astronomically compatible configurations can couple across time. Earth's path
+can be pictured as locally helical in a moving galactic frame; the helix is
+frame-dependent, and successive turns are never the same spacetime event.
+The **Solar Tachyon Wake**, **Tachyonic Shear**, retrocausal coupling and its
+engineering are fictional physics, not established astronomy.
+**The Signal** is the established phenomenon carrying these channels.
+
+The ordered mechanism is: **Helical Resonance** identifies compatibility;
+an **Echo Window** supplies favorable access; a provisional channel is opened;
+tachyonic correction cancels the relevant **Tachyonic Shear**; **Phase Lock**
+stabilizes that channel; sideband **Phase Translation** tunes it to the requested
+**Temporal Coordinate**; a bounded **Temporal Aperture** permits matter transfer
+when required. Translation cannot substitute for initial resonance access.
+
+A Temporal Coordinate includes epoch, orbital phase, rotational phase, solar
+displacement, local anchor geometry and tachyonic correction. Favorable windows
+recur approximately annually but are calculated from astronomical state,
+including precession/perturbations, not matching Gregorian month/day strings.
+This explanation adds no automatic access prohibition, resource currency,
+cooldown, damage or paradox penalty. Preserve free-order investigation.
+
+Phase-Locked information can produce environmental writing and mechanical
+messages without matter transfer. The prologue's incomplete reflected companion
+crosses only through a stabilized, translated Temporal Aperture aligned to the
+room's local anchor. Reflective geometry assists that anchor; mirrors are not
+universally supernatural. The companion remains visibly propelled machinery;
+this rule grants no general antigravity or unrelated technology advance.
+
+The date command samples the player's present once, accesses an Echo Window,
+corrects and locks the channel, then translates to that exact destination.
+**DATE ACCEPTED** acknowledges the fictional destination/lock, never an OS
+clock change. Keep November10,1928 as the prologue source and retain the
+historical bedroom stinger without resetting the authoritative present.
+No scientific explanation is added to the opening's established dialogue.
+
+Temporal access is not omniscience. The companion knows the protagonist was
+murdered but not who they were. Do not resolve the protagonist's composition,
+identity or origin, identify the singularity with the Dream organism, or settle
+historical alteration, causal loops, branches and paradoxes through this rule.
+Existing knowledge, publication, inventory, save and committed-fact authorities
+remain binding. Sources, implementation boundaries and unresolved work are in
+**design/V2_PROLOGUE_2026-10-28.md** and the post-V2 temporal-forensics goal.
+
 ### VIII.3 The Orison as a demonstration
 
 **Vantry & Co. built the Orison in 1912 as a showcase**, which is why an
