@@ -273,7 +273,18 @@ strong gallery highlights and the flat storm ceiling remain presentation debt.
 The renewed packet is published with **tools/publish_v2_surface_packet.py**;
 previous packet bytes are recoverable at main **2ec518f2** and separately backed
 up before publication. No human acceptance, full-year sky acceptance or V2
-completion is granted. Candidate verification is the remaining integration step.
+completion is granted. Frozen candidate **e5f44f82** passed the **114-gate**
+comparison with **zero regressions**, all **17 protected paths unchanged**, selector
+**V2**, no lint errors and no changed requirement statuses. This is in-place
+verification using the separate executed Godot receipts, not fresh-checkout
+import/autocrlf qualification. Existing unrelated red gates remain red.
+
+GitHub's archive-size warning prompted a packaging-only follow-up: recompress
+retained payloads and keep three new diagnostic stills recoverable by exact
+commit/member/hash at pushed **e5f44f82**. All samples, sources, original failures
+and logs remain in the current archive; the seven reviewed qualification images
+remain in the canonical packet. No runtime or test code changes in this follow-up.
+Its frozen candidate comparison remains required before integration.
 
  The earlier city terrain-detail
 suggestions are already adapted in the city reference's hybrid-relief section;

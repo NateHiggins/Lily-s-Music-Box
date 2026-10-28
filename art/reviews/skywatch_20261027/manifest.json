@@ -1540,11 +1540,11 @@
     "passage_publication/after_physics/route.json": "203357e899f6833f25f8638fdc1d6bfca201569949a433522d94995d2fa3bbe3",
     "passage_publication/residency/route.json": "ab84320af118f5dd73eef6276d31e95792ac8632a3be9dc815773cffe2229fe4",
     "passage_publication/surface_final/runtime_contract.json": "2c4036c2582e705e436c4902de0504056ae82c9c412c283db42cc49d74635592",
-    "passage_publication/after_physics/cloud_1_on_street.png": "d67d5d5189140276e071c5f0c910753ee0b96b68b57a8277e51f6348d135749a",
-    "passage_publication/residency/nave.png": "39d49d294bc638c4523bc35390ea1e96d25aab1f1531cdbfbb9041c85d519d90",
-    "passage_publication/residency/last_position.png": "bf018fe63f0cc2d1bc750104d2564def074c0193014d3d90e99ba1c9b8c80a9b"
+    "passage_publication/candidate/verification.json": "963661b858d19698ab0f2e5a3169468198336ffd6dc0d1df48f9d6fe93f21d00",
+    "passage_publication/candidate/verification.md": "afa65fb137738990d787f59c0d733d4db620c9c8f36b059d59ef709055ddb1af",
+    "passage_publication/artifact_trim.py": "f288510694a07e1d125aea5d0d257f7afef613b09f08e4f41affb391195e9555"
   },
-  "archive_sha256": "514ca95daddcc41c2dce788ec2f9848c6d42d1d485419af368647628550393fa",
+  "archive_sha256": "8a8342bfc537a1d3692f96be5688f83a4a97f329586f88badcf3747d7126babd",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -6430,8 +6430,42 @@
       "Historical short streaming diagnostic still fails its unchanged ten-second deadline.",
       "Ordinary p95 about65 ms, cold/other101 ms spike and atomic fitting peaks about39 ms remain.",
       "Deferred engine costs not fully attributed.",
-      "No save reconstruction, repeated unchanged hose controls, human artistic or full-year weather acceptance.",
-      "Candidate verification pending."
-    ]
+      "No save reconstruction, repeated unchanged hose controls, human artistic or full-year weather acceptance."
+    ],
+    "render_recovery": [
+      {
+        "member": "passage_publication/after_physics/cloud_1_on_street.png",
+        "sha256": "d67d5d5189140276e071c5f0c910753ee0b96b68b57a8277e51f6348d135749a",
+        "commit": "e5f44f82491e2f19cfce7a1b95b2ef63c83b8481",
+        "archive": "art/reviews/skywatch_20261027/diagnostics.zip"
+      },
+      {
+        "member": "passage_publication/residency/nave.png",
+        "sha256": "39d49d294bc638c4523bc35390ea1e96d25aab1f1531cdbfbb9041c85d519d90",
+        "commit": "e5f44f82491e2f19cfce7a1b95b2ef63c83b8481",
+        "archive": "art/reviews/skywatch_20261027/diagnostics.zip"
+      },
+      {
+        "member": "passage_publication/residency/last_position.png",
+        "sha256": "bf018fe63f0cc2d1bc750104d2564def074c0193014d3d90e99ba1c9b8c80a9b",
+        "commit": "e5f44f82491e2f19cfce7a1b95b2ef63c83b8481",
+        "archive": "art/reviews/skywatch_20261027/diagnostics.zip"
+      }
+    ],
+    "packaging": {
+      "old_bytes": 55410077,
+      "new_bytes": 42685169,
+      "policy": "Only three new diagnostic stills move to exact immutable Git recovery. All source, samples, failures and logs remain in this archive; seven current reviewed qualification images remain in the canonical packet."
+    },
+    "candidate_verification": {
+      "candidate": "e5f44f82491e2f19cfce7a1b95b2ef63c83b8481",
+      "gates": 114,
+      "regressions": 0,
+      "protected_unchanged": 17,
+      "selector": "v2",
+      "requirements_changed": [],
+      "mode": "in-place --no-godot; separately executed source-bound Godot receipts",
+      "packaging_followup": "not yet verified"
+    }
   }
 }
