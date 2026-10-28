@@ -85,6 +85,7 @@ func _build() -> void:
 	world=load(Selector.scene_path()).instantiate()
 	add_child(world)
 	while not world.startup_failed and world.startup_ms<=0.0: await get_tree().process_frame
+	if not world.startup_failed and world.shots!=null:world.shots.set_meta("inspection_enabled",true)
 	if _closing:return
 	if world.startup_failed: push_error("Roof weather preview: V2 startup refused");close_preview(1);return
 	world.resident_agenda.set_process(false)
@@ -143,6 +144,7 @@ func refresh_weather() -> void:
 
 func _process(delta: float) -> void:
 	if not ready_for_input or not is_instance_valid(player):return
+	if player.call_locked:return
 	var direction:=0.0 if pointer or frozen else Input.get_axis("move_back","move_forward")
 	var rate:=scrub_rate(direction,Input.is_action_pressed("run"),player.crouched)
 	if rate!=0.0:preview_clock.seek(preview_clock.position_minutes+rate*delta)

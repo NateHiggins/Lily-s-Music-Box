@@ -749,3 +749,19 @@ loading owner and campaign service remain game-specific. Profile the real owner
 and define lifecycle/coordinate boundaries before extracting an API. Small
 lesson updates were added to the existing Blender/Godot skills; their structure
 validators pass, with no invocation-policy change or new helper files.
+
+
+### October 28 — actual frontage and detached observation
+
+An isolated camera heading is not evidence of street frontage. Read registered
+neighbors and inspect the real composed street before authoring the facade.
+The rejected three-house experiment and final single-house correction remain
+documented in **design/V2_CITY_CONTEXT_REPORT_2026-10-19.md**.
+
+Detached inspection must retain residency under the parked body while adding
+observer visibility. Reuse the existing input lease; restore only the camera's
+own ownership and let protected interruptions keep theirs. Engine-dispatched
+mouse tests must flush buffered synthetic events and sample after rendering;
+do not weaken a real assertion or change production input settings to satisfy
+test timing. Inactive debug tools should avoid ongoing frame work. These are
+project observations, not a new movement or persistence authority.

@@ -70,6 +70,11 @@ func _run() -> void:
 		print("V2 FIRE PREFLIGHT: ","PASS" if failures.is_empty() else "FAIL"," checks=",batch_checks," failures=",failures.size(),"; fire-only scope, not full surface acceptance")
 		get_tree().quit(0 if failures.is_empty() else 1);return
 	await preload("res://tests/v2_city_elevation_review.gd").new().run(world,self)
+	if OS.get_environment("ORISON_SURFACE_CITY_ONLY")=="1":
+		world.shutdown_for_tests();world.free()
+		for frame in 4:await RenderingServer.frame_post_draw
+		print("V2 CITY DIAGNOSTIC: checks=",batch_checks," failures=",failures.size(),"; city/camera only, no full surface contract")
+		get_tree().quit(0 if failures.is_empty() else 1);return
 	var furnishing_review := preload("res://tests/v2_furnishing_clearance_review.gd").new()
 	furnishing_review.set_meta("shared_world_validation",true);add_child(furnishing_review)
 	await furnishing_review.validate_in_world(world)

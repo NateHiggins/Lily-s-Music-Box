@@ -25,7 +25,7 @@ for o in bpy.context.scene.objects:
     if o.library is None:o.name='RetainedReference_'+o.name
 exports=bpy.data.collections.new('V2CityElevations');bpy.context.scene.collection.children.link(exports)
 buffers=collections.defaultdict(lambda:([],[]));stats=[];window_rows=[]
-hand_origins={};clock_hands=[];architecture_checks=[];portal_rows=[]
+hand_origins={};clock_hands=[];architecture_checks=[];portal_rows=[];townhouse_details=[]
 def add(name,key,verts,faces):
     vv,ff=buffers[(name,key)];start=len(vv);vv.extend(verts);ff.extend(tuple(start+i for i in f) for f in faces)
 def box(name,key,lo,hi):
@@ -117,9 +117,56 @@ def factory_tower(name,p,seat):
         profile_stock(name,'copper_aged',origin,u,out,[(math.cos(i*math.tau/16)*.12,center+math.sin(i*math.tau/16)*.12) for i in range(16)],.27,.36)
     architecture_checks.append(dict(building=name,tower_rect=[x,y,X,Y],tower_seat=seat,tower_top=wall+height+.18,arch_windows=0))
 
+def facade_frames(rect,depth):
+    x,y,X,Y=rect
+    return [
+        (Vector((X,y,0)),Vector((-1,0,0)),Vector((0,-1,0)),X-x),
+        (Vector((X,Y-depth,0)),Vector((0,-1,0)),Vector((1,0,0)),Y-y-2*depth),
+        (Vector((x,Y,0)),Vector((1,0,0)),Vector((0,1,0)),X-x),
+        (Vector((x,y+depth,0)),Vector((0,1,0)),Vector((-1,0,0)),Y-y-2*depth)]
+
+def townhouse_cornice(name,p,rect,roof):
+    origin,u,out,width=facade_frames(rect,float(p['reveal_depth']))[int(p['architecture']['front_side'])]
+    # The neighboring sash/sills project into this narrow reservation gap.
+    # Scale decorative depth only; retain the seated back faces and stock width.
+    projection=.78
+    def stock(key,lo,hi):
+        lo=(lo[0],lo[1]*projection if lo[1]>0 else lo[1],lo[2])
+        hi=(hi[0],hi[1]*projection if hi[1]>0 else hi[1],hi[2])
+        local_box(name,key,origin,u,out,lo,hi)
+    bottom=roof-.20
+    # Four shaped bearing consoles join the timber fascia, with dentils and
+    # raised panels between them. Closed stocks, not surface decals.
+    terraces=int(p['architecture']['terraces']);unit=width/terraces
+    positions=[k*unit+.40+i*(unit-.80)/3 for k in range(terraces) for i in range(4)]
+    for at in positions:
+        profile_stock(name,'wood_dark',origin+u*at,out,u,[(d*projection if d>0 else d,z) for d,z in [(-.03,bottom-.54),(.14,bottom-.54),(.18,bottom-.28),(.32,bottom-.09),(.42,bottom),(-.03,bottom)]],-.095,.095)
+    stock('wood_dark',(0,-.03,bottom),(width,.43,roof+.27))
+    stock('wood_dark',(-.12,-.04,roof+.27),(width+.12,.52,roof+.41))
+    for left,right in zip(positions,positions[1:]):
+        if right-left<.9:continue
+        stock('wood_dark',(left+.22,.43,bottom+.09),(right-.22,.48,roof+.17))
+    for i in range(28*terraces):
+        at=(i+.5)*width/(28*terraces)
+        stock('wood_dark',(at-.05,.30,bottom-.06),(at+.05,.45,bottom))
+    # A low, physically mapped masonry plinth; no six-metre concrete podium.
+    pitch=width/(3*terraces);door_width=1.45
+    cursor=0.
+    for k in range(terraces):
+        center=(k*3+.5)*pitch
+        left=center-door_width*.5;right=center+door_width*.5
+        stock('limestone',(cursor,-.04,0),(left,.025,.53))
+        for z in [.18,.36]:stock('limestone',(cursor,.025,z),(left,.042,z+.025))
+        cursor=right
+    stock('limestone',(cursor,-.04,0),(width,.025,.53))
+    for z in [.18,.36]:stock('limestone',(cursor,.025,z),(width,.042,z+.025))
+    point=origin+u*(width*.5)+out*(.52*projection)+Vector((0,0,roof+.34))
+    townhouse_details.append(dict(building=name,brackets=4*terraces,terraces=terraces,storeys=3,probe=list(point),normal=list(out),finish='wood_dark'))
+
 def facade(name,p,rect,z0,z1):
     depth=float(p['reveal_depth']);recess=float(p['window_recess']);assert 0<recess<depth
     factory=p.get('architecture',{}).get('type')=='sohmer_factory'
+    townhouse=p.get('architecture',{}).get('type')=='hunters_point_italianate'
     x,y,X,Y=rect;count=0;floor_count=max(1,round((z1-z0)/p['storey_height']));floor_h=(z1-z0)/floor_count
     intervals=[(z0+i*floor_h,z0+i*floor_h+floor_h) for i in range(floor_count)]
     if 'floor_heights' in p:
@@ -129,17 +176,13 @@ def facade(name,p,rect,z0,z1):
             levels.append(levels[-1]+h)
         assert any(abs(z0-v)<.00002 for v in levels) and any(abs(z1-v)<.00002 for v in levels),(name,z0,z1,levels)
         intervals=[(a,b) for a,b in zip(levels,levels[1:]) if a>=z0-.00002 and b<=z1+.00002]
-    for side,(origin,tangent,out,length) in enumerate([
-        (Vector((X,y,0)),Vector((-1,0,0)),Vector((0,-1,0)),X-x),
-        (Vector((X,Y-depth,0)),Vector((0,-1,0)),Vector((1,0,0)),Y-y-2*depth),
-        (Vector((x,Y,0)),Vector((1,0,0)),Vector((0,1,0)),X-x),
-        (Vector((x,y+depth,0)),Vector((0,1,0)),Vector((-1,0,0)),Y-y-2*depth)]):
-        if p['detail_faces']=='inward' and out.dot(-origin)<=0:
+    for side,(origin,tangent,out,length) in enumerate(facade_frames(rect,depth)):
+        if (townhouse and side not in [int(p['architecture']['front_side']),(int(p['architecture']['front_side'])+2)%4]) or (p['detail_faces']=='inward' and out.dot(-origin)<=0):
             # Secondary outward elevations retain closed mapped masonry;
             # concentrate physical window stock on the principal city-facing elevations.
             local_box(name,p['wall_key'],origin,tangent,out,(0,-depth,z0),(length,0,z1))
             continue
-        bays=max(1,math.floor(length/p['bay_pitch']));pitch=length/bays
+        bays=3*int(p['architecture']['terraces']) if townhouse else max(1,math.floor(length/p['bay_pitch']));pitch=length/bays
         for floor,(a,b) in enumerate(intervals):
             floor_h=b-a
             for bay in range(bays):
@@ -147,12 +190,13 @@ def facade(name,p,rect,z0,z1):
                 # Very short retained crowns are solid masonry, never squashed windows.
                 if h<.9 or w<.6:
                     local_box(name,p['wall_key'],origin,tangent,out,(left,-depth,a),(right,0,b));continue
-                portal=factory and floor==0 and side in [0,3] and bay==bays//2
-                if portal:w=min(2.0,pitch-.35);h=3.2
+                arched=factory or (townhouse and side==int(p['architecture']['front_side']))
+                portal=(factory and floor==0 and side in [0,3] and bay==bays//2) or (townhouse and floor==0 and side==int(p['architecture']['front_side']) and bay%3==0)
+                if portal:w=min(1.45 if townhouse else 2.0,pitch-.35);h=3.2
                 low=a+(.10 if portal else .60);high=low+h;wl=cx-w/2;wr=cx+w/2
                 # Four disjoint closed masonry stocks form a genuine 260 mm reveal.
                 for lo,hi in [((left,-depth,a),(wl,0,b)),((wr,-depth,a),(right,0,b)),((wl,-depth,a),(wr,0,low)),((wl,-depth,high),(wr,0,b))]:local_box(name,p['wall_key'],origin,tangent,out,lo,hi)
-                if factory:
+                if arched:
                     rise=float(p['architecture']['arch_rise_m']);spring=high-rise
                     # Closed spandrels cut the square opening to a true segmental head.
                     for step in range(6):
@@ -160,7 +204,12 @@ def facade(name,p,rect,z0,z1):
                         l=cx-w*.5*math.cos(a0);r=cx-w*.5*math.cos(a1)
                         z=spring+rise*math.sin(a0);Z=spring+rise*math.sin(a1)
                         profile_stock(name,p['wall_key'],origin,tangent,out,[(l,z),(r,Z),(r,high+.04),(l,high+.04)],-depth,0)
-                    arch_stock(name,p['wall_key'],origin,tangent,out,cx,spring,w/2,rise,.12,-.08,.035)
+                    arch_stock(name,'limestone' if townhouse else p['wall_key'],origin,tangent,out,cx,spring,w/2,rise,.12,-.08,.09 if townhouse else .035)
+                    if townhouse and not portal:
+                        # Projecting hood and two supporting corbels, with actual
+                        # contact at the hood spring rather than floating blocks.
+                        for edge in [wl-.10,wr+.10]:
+                            local_box(name,'limestone',origin,tangent,out,(edge-.055,-.03,spring-.19),(edge+.055,.16,spring+.005))
                     arch_stock(name,p['sash'],origin,tangent,out,cx,spring,w/2-.055,rise-.025,.055,-recess-.044,-recess)
                 # Glazed, closed backing: these passive shells imply no accessible interior.
                 local_box(name,'mirror_aged',origin,tangent,out,(wl+.045,-recess-.054,low+.045),(wr-.045,-recess-.044,high-.045))
@@ -176,13 +225,13 @@ def facade(name,p,rect,z0,z1):
                     else:
                         drop=[.29,.52,.76,1.][(floor+bay+side+seed)%4]
                         local_box(name,'linen',origin,tangent,out,(wl+.05,-depth+.012,high-h*drop),(wr-.05,-depth+.02,high-.045))
-                frame_top=high-float(p['architecture']['arch_rise_m']) if factory else high
+                frame_top=high-float(p['architecture']['arch_rise_m']) if arched else high
                 for lo,hi in [((wl,-recess-.044,low),(wl+.055,-recess,frame_top)),((wr-.055,-recess-.044,low),(wr,-recess,frame_top)),((wl+.055,-recess-.044,low),(wr-.055,-recess,low+.055)),((wl+.055,-recess-.044,frame_top-.055),(wr-.055,-recess,frame_top)),((wl+.055,-recess-.038,(low+high)/2-.025),(wr-.055,-recess+.014,(low+high)/2+.025))]:local_box(name,p['sash'],origin,tangent,out,lo,hi)
                 if p['window_joinery']=='paired_sash':
                     local_box(name,p['sash'],origin,tangent,out,(cx-.025,-recess-.044,low+.055),(cx+.025,-recess+.014,high-.055))
                 else:assert p['window_joinery']=='single_sash'
                 local_box(name,'limestone',origin,tangent,out,(wl-.08,-.23,low-.07),(wr+.08,float(p['sill_projection']),low))
-                if not factory:local_box(name,p['lintel_key'],origin,tangent,out,(wl-.09,-.08,high),(wr+.09,.025,high+float(p['lintel_height'])))
+                if not arched:local_box(name,p['lintel_key'],origin,tangent,out,(wl-.09,-.08,high),(wr+.09,.025,high+float(p['lintel_height'])))
                 if portal:
                     # Passive closed factory doors: solid leaves and raised fields,
                     # with an upper glazed transom, not another ground-floor sash.
@@ -194,6 +243,13 @@ def facade(name,p,rect,z0,z1):
                         local_box(name,'bronze_sheet',origin,tangent,out,(cx+direction*.18-.025,-recess+.10,a+1.0),(cx+direction*.18+.025,-recess+.16,a+1.4))
                     point=origin+tangent*(cx-w*.25)+Vector((0,0,a+1.5))
                     portal_rows.append(dict(building=name,side=side,point=list(point),front=-recess+.10))
+                    if townhouse:
+                        # Seated pilasters, console capitals and a closed triangular
+                        # pediment; the source's raised stoop is adapted to street level.
+                        for edge in [wl-.17,wr+.17]:
+                            local_box(name,'limestone',origin,tangent,out,(edge-.07,-.03,a),(edge+.07,.13,high+.12))
+                            local_box(name,'limestone',origin,tangent,out,(edge-.11,-.03,high+.04),(edge+.11,.23,high+.16))
+                        profile_stock(name,'limestone',origin,tangent,out,[(wl-.32,high+.16),(wr+.32,high+.16),(cx,high+.64)],-.03,.23)
                 count+=1
                 window_rows.append(dict(building=name,side=side,floor=floor,bay=bay,center=list(origin+tangent*cx+Vector((0,0,(low+high)/2))),width=w,height=h,recess_m=recess,
                     pane_sample=list(origin+tangent*(cx+w*.22)+Vector((0,0,(low+high)/2+h*.2)))))
@@ -201,13 +257,14 @@ def facade(name,p,rect,z0,z1):
 for name,p in groups.items():
     assert p['massing'] in ['straight_eave','single_upper_setback']
     factory=p.get('architecture',{}).get('type')=='sohmer_factory'
+    townhouse=p.get('architecture',{}).get('type')=='hunters_point_italianate'
     first_window=len(window_rows)
     rr=[r for r in rows if group(r['id'])==name];ss=sorted([r for r in rr if re.search(r'_s\d+$',r['id'])],key=lambda r:r['z0'])
     last=ss[-1];dx=last['registration_offset_x'];top=last['z0']+last['h'];rect0=list(ss[0]['rect']);rect0[0]+=dx;rect0[2]+=dx
     final_rect=list(last['rect']);final_rect[0]+=dx;final_rect[2]+=dx
     for r in rr:
         suffix=r['id'][len(name)+1:]
-        if 'vertical_profile' in p and (suffix.startswith('base') or suffix=='bcorn'):continue
+        if ('vertical_profile' in p or townhouse) and (suffix.startswith('base') or suffix=='bcorn'):continue
         if re.fullmatch('s[0-9]+',suffix) or suffix.startswith('par_'):continue
         if re.fullmatch('c[0-9]+',suffix) and r is not last and suffix!='c'+last['id'].rsplit('_s',1)[1]:continue
         key=r['key']
@@ -223,15 +280,16 @@ for name,p in groups.items():
         if suffix=='bcorn':key='limestone'
         copied(name,key,original[r['id']])
     factory=p.get('architecture',{}).get('type')=='sohmer_factory'
+    townhouse=p.get('architecture',{}).get('type')=='hunters_point_italianate'
     ring=rings[name];cap=max(v.co.z for v in ring.data.vertices)
     for face in ([] if factory else ring.data.polygons):
         key=next(r['key'] for r in rr if '_par_' in r['id']) if all(ring.data.vertices[i].co.z>=cap-.00002 for i in face.vertices) else p['wall_key']
         add(name,key,[tuple(ring.matrix_world@ring.data.vertices[i].co) for i in face.vertices],[tuple(range(len(face.vertices)))])
     # One continuous primary shaft and at most one upper setback, retaining all
     # final roof planes and original roof equipment bearing stock exactly.
-    split=top if factory else last['z0'] if len(ss)>1 else top
-    n=facade(name,p,rect0,0. if 'vertical_profile' in p else ss[0]['z0'],split)
-    if len(ss)>1 and not factory:
+    split=top if factory or townhouse else last['z0'] if len(ss)>1 else top
+    n=facade(name,p,rect0,0. if 'vertical_profile' in p or townhouse else ss[0]['z0'],split)
+    if len(ss)>1 and not factory and not townhouse:
         n+=facade(name,p,final_rect,split,top)
         # Closed 120 mm roof terrace course; never a stack of projecting cornices.
         x,y,X,Y=rect0;u,v,U,V=final_rect
@@ -248,7 +306,8 @@ for name,p in groups.items():
         for lo,hi in [((a-.07,ty,0),(a+.02,ty+.20,roof)),((a-.07,tY-.20,0),(a+.02,tY,roof)),((tx,d-.02,0),(tx+.20,d+.07,roof)),((tX-.20,d-.02,0),(tX,d+.07,roof))]:box(name,p['wall_key'],lo,hi)
         factory_tower(name,p,roof)
         architecture_checks[-1]['arch_windows']=n
-    stats.append(dict(id=name,old_setbacks=len(ss)-1,new_setbacks=0 if factory else min(1,len(ss)-1),windows=len(window_rows)-first_window,roof_height=top,shaft_bottom=ss[0]['z0'],setback_height=split,original_roof_rect=final_rect,main_rect=rect0))
+    if townhouse:townhouse_cornice(name,p,rect0,top+.26)
+    stats.append(dict(id=name,old_setbacks=len(ss)-1,new_setbacks=0 if factory or townhouse else min(1,len(ss)-1),windows=len(window_rows)-first_window,roof_height=top,shaft_bottom=0. if townhouse else ss[0]['z0'],setback_height=split,original_roof_rect=final_rect,main_rect=rect0))
     if 'vertical_profile' in p:
         old_last=next(r for r in source_rows if r['id']==last['id'])
         stats[-1].update(previous_roof_height=old_last['z0']+old_last['h'],floor_heights=p['floor_heights'])
@@ -357,6 +416,10 @@ for study in architecture_checks:
         hit,n,index,distance=bvh.ray_cast(point+normal*.15,-normal,.4)
         if hit is None or n.dot(normal)<.99 or not face_owners[index].endswith('__enamel'):native_failures.append(dict(kind='clock_dial_front',part=hand['part']))
         study['clock_face_normals']+=1
+for detail in townhouse_details:
+    point=Vector(detail['probe']);normal=Vector(detail['normal'])
+    hit,n,index,distance=bvh.ray_cast(point+normal*.1,-normal,.4)
+    if hit is None or (hit-point).length>.0001 or n.dot(normal)<.99 or not face_owners[index].endswith('__'+detail['finish']):native_failures.append(dict(kind='townhouse_cornice_front',detail=detail))
 assert not native_failures,native_failures[:12]
 native_checks=dict(bearing_samples=native_bearings,window_samples=native_windows,failures=native_failures,tolerance_m=.0001)
 print('CITY NATIVE CONTACTS',native_checks,flush=True)
@@ -374,7 +437,7 @@ bindings=[ROOT/p for p in ['art/data/city_elevations/source_plan.json','art/blen
 for key in {key for name,key in buffers}:
     bindings.extend(ROOT/'game/assets/building/textures'/f for f in catalog[key]['files'])
 construction={k:report[k] for k in ['original_records','source_parapet_stocks','closed_joined_parapets','corner_stations','capture_offsets_godot','skyline_views_godot']}
-construction.update(portals=portal_rows,clock_hands=clock_hands,architecture_checks=architecture_checks,anchor_seats=anchor_seats,native_checks=native_checks,evidence_class='INERT',classification='ADAPTATION',scope='Passive physical city elevations. No occupied rooms or runtime acceptance inferred.',buildings=stats,windows=len(window_rows),window_rows=window_rows,parts=[dict(name=o.name,key=o.name.split('__')[-1],triangles=len(o.data.polygons)) for o in draws],triangles=sum(len(o.data.polygons) for o in draws),asset_sha256=sha(ROOT/'game/assets/props/city_elevations.glb'),source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in bindings},export_check=proof)
+construction.update(portals=portal_rows,clock_hands=clock_hands,architecture_checks=architecture_checks,townhouse_details=townhouse_details,anchor_seats=anchor_seats,native_checks=native_checks,evidence_class='INERT',classification='ADAPTATION',scope='Passive physical city elevations. No occupied rooms or runtime acceptance inferred.',buildings=stats,windows=len(window_rows),window_rows=window_rows,parts=[dict(name=o.name,key=o.name.split('__')[-1],triangles=len(o.data.polygons)) for o in draws],triangles=sum(len(o.data.polygons) for o in draws),asset_sha256=sha(ROOT/'game/assets/props/city_elevations.glb'),source_bindings={p.relative_to(ROOT).as_posix():sha(p) for p in bindings},export_check=proof)
 for dest in ['art/blender/city_elevations_construction.json','game/tests/fixtures/orison_city_elevations.json']:
     (ROOT/dest).write_text(json.dumps(construction,indent=2)+'\n',encoding='utf-8',newline='\n')
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=12

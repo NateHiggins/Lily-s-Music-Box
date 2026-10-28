@@ -79,7 +79,8 @@ func _open_room(room: Dictionary) -> bool:
 
 func _poll() -> void:
 	if not enabled or not is_instance_valid(world) or not is_instance_valid(world.player):return
-	context_room=world.room_at_world(world.player.camera.global_position)
+	var camera: Camera3D=world.view_override if is_instance_valid(world.view_override) else world.player.camera
+	context_room=world.room_at_world(camera.global_position)
 	var signature: String=context_room
 	for edge: Dictionary in edges:
 		var leaf: DoorProp=edge.door

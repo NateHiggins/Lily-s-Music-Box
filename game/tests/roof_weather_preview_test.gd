@@ -67,6 +67,18 @@ func _exercise() -> void:
 	check(manager.clock==preview_clock and director._campaign_clock==preview_clock and world.campaign_clock!=preview_clock,"sky and astronomy share detached clock; campaign clock stays separate")
 	check(not RealityState.persistence_enabled,"preview disables disk writes before composing the world")
 	check(pointer and not player.is_physics_processing() and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"preview opens with a free pointer and stationary player")
+	var held_date:=preview_clock.position_minutes
+	var held_player:=player.global_transform
+	await key(KEY_F8,true);await key(KEY_F8,false)
+	check(is_instance_valid(world.shots.inspection_camera) and player.text_input_owner==world.shots,"F8 borrows inspection input in the detached roof preview")
+	if is_instance_valid(world.shots.inspection_camera):
+		var eye:=world.shots.inspection_camera.global_position
+		await hold(KEY_W,.15)
+		check(world.shots.inspection_camera.global_position.distance_to(eye)>.15,"inspection movement is actual input in the roof preview")
+		check(preview_clock.position_minutes==held_date and player.global_transform.is_equal_approx(held_player),"flying leaves the preview date and parked operator unchanged")
+		await key(KEY_ESCAPE,true);await key(KEY_ESCAPE,false)
+		check(ready_for_input and not is_instance_valid(world.shots.inspection_camera) and pointer
+				and not player.is_physics_processing() and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,"Escape returns to the original roof pointer mode without closing it")
 	var still_position:=player.global_position
 	var still_time:=preview_clock.position_minutes
 	await hold(KEY_W,.2)

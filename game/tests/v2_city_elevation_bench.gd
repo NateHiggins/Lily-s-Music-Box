@@ -79,15 +79,31 @@ func _run() -> void:
 	check(contacts>=1205 and shells.size()==fixture.parts.size() and draws>600,"nonempty complete family inventory")
 	var factory_studies: Array=fixture.get("architecture_checks",[])
 	check(factory_studies.size()==1,"one explicit factory study, not a promotion of all height repairs")
-	check(fixture.portals.size()==2,"two closed factory portals rather than ground-floor sashes everywhere")
+	check(fixture.portals.size()==3,"two factory portals and one street-facing townhouse entry")
+	var factory_portals:=0
+	var terrace_portals:=0
 	for portal: Dictionary in fixture.portals:
-		check(str(portal.building)=="site_far_e","portal belongs to the adapted factory")
+		check(str(portal.building) in ["site_far_e","site_nw2"],"portal belongs to an explicitly adapted building")
+		if str(portal.building)=="site_far_e":factory_portals+=1
+		else:terrace_portals+=1
 		var source: Array=portal.point
 		var normal: Vector3=[Vector3.BACK,Vector3.RIGHT,Vector3.FORWARD,Vector3.LEFT][int(portal.side)]
 		var point:=city.to_global(Vector3(source[0],source[2],-source[1]))
 		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.1,point-normal*.4,1,exclude))
 		check(not hit.is_empty() and hit.position.distance_to(point+normal*float(portal.front))<.0001
 				and str(shells.get(hit.collider.get_rid(),"")).ends_with("__door_paint"),"raised portal leaf has real closed backing")
+	check(factory_portals==2 and terrace_portals==1,"original factory portals and the townhouse entry remain nonempty")
+	var terrace_details: Array=fixture.townhouse_details
+	check(terrace_details.size()==1,"one individual terrace study")
+	for detail: Dictionary in terrace_details:
+		check(str(detail.building)=="site_nw2" and int(detail.brackets)==4 and int(detail.storeys)==3 and int(detail.terraces)==1,"the townhouse retains one four-bracket cornice group")
+		var p: Array=detail.probe
+		var n: Array=detail.normal
+		var point:=city.to_global(Vector3(p[0],p[2],-p[1]))
+		var normal:=Vector3(n[0],n[2],-n[1])
+		var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+normal*.1,point-normal*.4,1,exclude))
+		check(not hit.is_empty() and hit.position.distance_to(point)<.0001 and hit.normal.dot(normal)>.99
+				and str(shells.get(hit.collider.get_rid(),"")).ends_with("__"+str(detail.finish)),"real outward-facing terrace cornice, not a hidden or reversed facade")
 	for study: Dictionary in factory_studies:
 		check(str(study.building)=="site_far_e" and int(study.arch_windows)==300
 				and int(study.tower_support_samples)==9 and int(study.clock_face_normals)==4
@@ -162,7 +178,7 @@ func _run() -> void:
 		var camera := Camera3D.new()
 		add_child(camera);camera.make_current();camera.fov=45
 		for building: Dictionary in fixture.buildings:
-			if not building.has("previous_roof_height"):continue
+			if not building.has("previous_roof_height") and str(building.id)!="site_nw2":continue
 			var top := 0.
 			var boxes: Array[AABB]=[]
 			for draw: MeshInstance3D in city.find_children("*","MeshInstance3D",true,false):
@@ -174,9 +190,10 @@ func _run() -> void:
 			var bounds: Array=building.main_rect
 			var target := Vector3((bounds[0]+bounds[2])*.5,top*.48,-(bounds[1]+bounds[3])*.5)
 			var span := maxf(float(bounds[2]-bounds[0]),float(bounds[3]-bounds[1]))
-			var toward_city := Vector3(-target.x,0.,-target.z).normalized()
+			var toward_city := Vector3.BACK if str(building.id)=="site_nw2" else Vector3(-target.x,0.,-target.z).normalized()
 			var tangent := Vector3(toward_city.z,0.,-toward_city.x)
 			var offset := toward_city*span*1.35+tangent*span*.5+Vector3.UP*float(building.roof_height)*.35
+			if str(building.id)=="site_nw2":offset=toward_city*span*1.35+Vector3.UP*float(building.roof_height)*.1
 			var viewport_size := get_viewport().get_visible_rect().size
 			var safe := Rect2(viewport_size*.05,viewport_size*.9)
 			var framed := false

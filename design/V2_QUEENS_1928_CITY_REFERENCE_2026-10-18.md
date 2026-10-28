@@ -433,3 +433,21 @@ relocation. Native/imported checks, actual renders, matched occupied routes and
 **design/V2_CITY_CONTEXT_REPORT_2026-10-19.md**, Sohmer factory section. Remaining
 individual studies: **145**. Large frame tails and artistic acceptance remain
 open despite typical/GPU costs staying close to the measured baseline.
+
+
+### Narrow-front Hunters Point adaptation — October 28
+
+**site_nw2** now uses the brick Italianate vocabulary of **21-13 45th Avenue**,
+Root & Rust, 1871–72 (LPC LP-0450, PDF pp. 3–4). Three street bays, segmental
+hoods and a bracketed cornice fit the actual 8 m street face. Its street-level
+entry adapts the raised stoop; no claim of a measured replica or new interior.
+An earlier long-front three-house experiment was rejected after composed-world
+inspection. See the street-front repair section of the existing city context
+report for source-bound measurements, original failures and limits.
+
+The next-six read-only reference brief is retained externally at
+**C:/ov/reports/city_reference_next_20261028/reference_brief.txt** with roof
+registers and primary LPC sources. Recheck current source bindings before using
+its proposed geometry. Correct the Chateau selected address/type and Cambridge
+flat-roof end-pavilion interpretation during implementation; do not treat the
+researcher's proposed budgets or floor treatments as measured acceptance.
