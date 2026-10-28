@@ -1,7 +1,21 @@
 # AUDIT 2 — WHAT IS BUILT AND NEVER USED
 
+Evidence class: **INERT**. Historical audit and explicitly dated cleanup notes.
+
 *Run 2026-08-10 after the ceiling, prop-family and H18 terminal passes. This is
 an audit only. No candidate below was removed or repaired.*
+
+## October 28 — historical evidence storage cleanup
+
+At the owner's request, 25,740 duplicate navigation source-snapshot files under
+**design/astra/evidence/resident_f01_haunt/nav_validation** were consolidated into
+three indexed archives. All original bytes were verified before named-path
+removal. Logs, results, artifact maps and aggregate verdicts remain loose.
+Recovery instructions and the immutable preceding commit are in
+**design/astra/evidence/resident_f01_haunt/nav_validation/SOURCE_ARCHIVES.md**.
+This removes historical copies from the working tree, not installed gameplay,
+editable art sources or current qualification packets. Original failures remain
+failures. Broader render/review accumulation remains for subsequent cleanup.
 
 ## Method
 
