@@ -209,7 +209,7 @@ func _finish() -> void:
 		manager._process(0)
 		director._apply(director._campaign_clock.minute_of_day())
 	if profile_samples:
-		finish_costs={"cleanup_ms":(cleaned-began)/1000.0,"clock_callback_ms":(committed-cleaned)/1000.0,"weather_refresh_ms":(Time.get_ticks_usec()-committed)/1000.0}
+		finish_costs.merge({"cleanup_ms":(cleaned-began)/1000.0,"clock_callback_ms":(committed-cleaned)/1000.0,"weather_refresh_ms":(Time.get_ticks_usec()-committed)/1000.0},true)
 	finished.emit(accepted)
 
 func cancel() -> void:
@@ -217,27 +217,36 @@ func cancel() -> void:
 	_cleanup();finished.emit(false)
 
 func _cleanup() -> void:
+	var began:int=Time.get_ticks_usec() if profile_samples else 0
 	active=false;set_process(false);set_process_unhandled_input(false)
 	if is_instance_valid(director):
 		director._campaign_clock=_old_clock;director._live_conditions=_old_conditions;director.extreme_weather=_old_extreme
 		director._apply(_old_clock.minute_of_day())
+	var lighting:int=Time.get_ticks_usec() if profile_samples else 0
 	if is_instance_valid(manager):
 		for parameter:String in _old_parameters:manager.sky.set_shader_parameter(parameter,_old_parameters[parameter])
 	_old_parameters.clear()
 	_view_extreme=null
+	var parameters:int=Time.get_ticks_usec() if profile_samples else 0
 	if is_instance_valid(camera):
 		if camera.is_current() and is_instance_valid(_old_camera) and _old_camera.is_inside_tree():_old_camera.make_current()
 		camera.queue_free()
 	if is_instance_valid(_veil):_veil.get_parent().queue_free()
+	var view:int=Time.get_ticks_usec() if profile_samples else 0
 	for record:Dictionary in _particles:
 		if is_instance_valid(record.node):record.node.speed_scale=record.speed
 	_particles.clear()
 	for record:Dictionary in _audio:
 		if is_instance_valid(record.node):record.node.pitch_scale=record.pitch;record.node.volume_db=record.volume
 	_audio.clear()
+	var effects:int=Time.get_ticks_usec() if profile_samples else 0
 	if is_instance_valid(_carrier):_carrier.release_story_absence(self)
+	var carrier:int=Time.get_ticks_usec() if profile_samples else 0
 	if is_instance_valid(player):player.release_text_input(self)
+	var input:int=Time.get_ticks_usec() if profile_samples else 0
 	if is_instance_valid(world) and world.process_mode==Node.PROCESS_MODE_DISABLED:world.process_mode=_old_mode
+	if profile_samples:
+		finish_costs={"restore_lighting_ms":(lighting-began)/1000.0,"restore_parameters_ms":(parameters-lighting)/1000.0,"restore_view_ms":(view-parameters)/1000.0,"restore_effects_ms":(effects-view)/1000.0,"release_carrier_ms":(carrier-effects)/1000.0,"release_input_ms":(input-carrier)/1000.0,"resume_world_ms":(Time.get_ticks_usec()-input)/1000.0}
 
 func _exit_tree() -> void:
 	if active:_cleanup()
