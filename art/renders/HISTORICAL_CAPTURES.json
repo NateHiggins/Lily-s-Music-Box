@@ -1,0 +1,1239 @@
+{
+  "evidence_class": "INERT",
+  "kind": "immutable_git_capture_recovery",
+  "source_commit": "4a696934710f66de9cf57ebf8609428ca88f3659",
+  "scope": "Historical wall-art audit captures only. Original manifests retained; no gameplay/art sources or active acceptance packets removed. Every loose image verified byte-for-byte against its committed Git blob before removal. No new runtime or artistic acceptance.",
+  "recovery": "git archive --format=zip --output=C:/ov/wall-art-review.zip 4a696934710f66de9cf57ebf8609428ca88f3659 -- art/renders/wall_art_audit_before art/renders/wall_art_audit_after art/renders/wall_art_audit_final art/renders/wall_art_audit_delivered",
+  "members": [
+    {
+      "path": "art/renders/wall_art_audit_after/01_memoryart_sixth_make_room.png",
+      "blob_oid": "f5c74456b55bdaf5ed6ab88b3e3733b4f490748a",
+      "bytes": 5787289,
+      "sha256": "7f92db123eb0e91a16f7f7c44d97d5982187069a9a1dd0456ffb96887d03ac9d"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/02_memoryart_fifth_lights_on.png",
+      "blob_oid": "acc560d017a097c1aee2b011e17c715cc6c6bc27",
+      "bytes": 6153378,
+      "sha256": "a5274fcaf64245463b237529bad516bde785fa9d1f74eb564f762bd5d9a54863"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/03_memoryart_fourth_impossible_stairs.png",
+      "blob_oid": "2b9f8469ce47cd7eea1c973de2a91e588bf058fb",
+      "bytes": 6460086,
+      "sha256": "e0ee80ecac91642e8dfe7d3055cb3a9adc048c6bb95ae41f26f4d39f174941b4"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/04_memoryart_third_rooftop_party.png",
+      "blob_oid": "a5c6caa54b39103e6e83cdca791f098f69b833eb",
+      "bytes": 6553211,
+      "sha256": "53e49e4987e5acaecf0d614565a3a41b754172eef4d122c9e76ebe8124129562"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/05_memoryart_second_queensboro.png",
+      "blob_oid": "235e32bc9c3b9ecb44c35592701694ab5b57c238",
+      "bytes": 6567930,
+      "sha256": "26eef9f1367e9a6910cb90f4c57d876f670886eaa06cc7df001d520642a15e7e"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/06_memoryart_first_our_queens.png",
+      "blob_oid": "40bbb01614c02fbafbd2608c07e0169f509a381e",
+      "bytes": 7150610,
+      "sha256": "151426ca9576979f4c8bca900a60fd88cd0cf01d9a89bec032cee2e23b3e3692"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/07_memoryart_lobby_orison_1928.png",
+      "blob_oid": "aa8077d32154efdf862b1701321b2512c9f36a45",
+      "bytes": 3750506,
+      "sha256": "bdd2d9c28baa989cca63ac34b8f4ff5149944d1734fb59ec7e1466ccb46f2868"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/08_memoryart_basement_know_your_exit.png",
+      "blob_oid": "a1b7a8372b1dc4d5818eaa5d84ce62136661c72c",
+      "bytes": 6522061,
+      "sha256": "3fb2aeb6e8002ce2727e8698488c6117322cac22a67828231fb9096ac3d33a10"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/09_wallart_mae_object_genealogy.png",
+      "blob_oid": "73ba05d2b6a82aff6ad01dbbe4d576749b9fe55a",
+      "bytes": 6270121,
+      "sha256": "fa9119d8136d5d467d620025f898cc34446852b0d8e4a4bc8cc7e0982a9689c4"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/10_wallart_mae_provenance_unknown.png",
+      "blob_oid": "fb653b9e0cc37459a60b697668bb4daf47ce612b",
+      "bytes": 7247066,
+      "sha256": "9d0cc9c00e45716e84342498e68b490d7b64b3ce5220480577afd43d46ed1a1f"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/11_wallart_jonah_words_missing.png",
+      "blob_oid": "afe8bf868b58af793d04c13aa6acf3f35d01895d",
+      "bytes": 6059155,
+      "sha256": "b1eb2c476f224beb4d46094ec8cc351819e0a9b77629ebaa1756f08b05a57625"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/12_wallart_jonah_begin_anywhere.png",
+      "blob_oid": "e35516c11a182d0a5fbe3ef9e8b3b289197b0fa0",
+      "bytes": 4750901,
+      "sha256": "8b0503afaabdbc94af223c117f3c6ed215826cfe958bdce10e1218c650c1e21c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/13_wallart_sacha_look_first.png",
+      "blob_oid": "bf579e8d93d04e65071fcd5781f8334ccca819b4",
+      "bytes": 6615360,
+      "sha256": "9b2d2b8745b292591f6bb5854526772a2507cf26b32280c47f80a65f0588e79e"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/14_wallart_iris_impossible_fold.png",
+      "blob_oid": "e8af8c5e829ebde3e5b7ab08cca5d2fd2fabe6b8",
+      "bytes": 6418879,
+      "sha256": "99e4b9cb82a28de7a8ecbeee79d8e11abb878f1650653eecc70e80299505c96a"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/15_wallart_cal_signal_received.png",
+      "blob_oid": "7dbe564c498ef0cbd3320a3c6cd3bec220575c86",
+      "bytes": 6037035,
+      "sha256": "835bdb02160f0221a3d73c8bd87344f9e00b665b3115d0db497d79e67262ef3c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/16_wallart_nadia_people_live_here.png",
+      "blob_oid": "3bffdb699b2c5e82e582b3b949a91cb561010d00",
+      "bytes": 6851031,
+      "sha256": "128b3059dca9e32b8ea0ce404c42324553862b6d0f2fcd4b842baee1578056f4"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/17_wallart_guests_you_are_here.png",
+      "blob_oid": "461a216da2560b48a2386cc3840ac05af3b87745",
+      "bytes": 6198276,
+      "sha256": "ccf2423fc3b14658046ad1148aef198ea0f9f613b9b734cc7f22b68e9db9314e"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/18_wallart_noel_ordinary_objects.png",
+      "blob_oid": "c98a64ac5c60ba5d16b1ef880a6ed214c9115b65",
+      "bytes": 3500943,
+      "sha256": "c08d53b731cac8e5f3d4b2690aa4ff01c53e9fe32fb4c4a13a7125c8dcec097c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/19_wallart_cam_stolen_bike_route.png",
+      "blob_oid": "06d3e54f0beb46daa40e8b448176ad0f3415ae6a",
+      "bytes": 3673785,
+      "sha256": "438412a584a6a9a4c5c4b9379ce40e67c9e9a3dc901a1597c97fa31dd5a02037"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/20_wallart_peter_proceed_uncertain.png",
+      "blob_oid": "f3e6bdab273ab27b78cbc3c1d4c6f5266a08c023",
+      "bytes": 3640738,
+      "sha256": "da34ee083c825357b3f10c85b4c03ffa853c85bfb7e3369a5de50a58450913e1"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/21_wallart_rhea_one_bad_note.png",
+      "blob_oid": "a5819312f57b13682ac23c4e225d90f780aeb3af",
+      "bytes": 6869422,
+      "sha256": "78740b4bfc299f90ed3be128185365eae0e6a22de497b39962cfdadfd174d6c6"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/22_wallart_omar_repair_manual.png",
+      "blob_oid": "409e5650830181e7ec00a3b44fc832034eddd9c2",
+      "bytes": 5194408,
+      "sha256": "92f08468557efecc57cc76f0dc2041bbd8bf345a931f1ddb00da270016df4e4d"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/23_wallart_malcolm_propagation_plate.png",
+      "blob_oid": "183cb6fd4e7adab3e33d0c8bae42db2e03aab582",
+      "bytes": 4702441,
+      "sha256": "539477df267730d8954d3879f2cc5c27679598025af5cbd6a5159b0e82c2e524"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/24_wallart_juno_open_channel.png",
+      "blob_oid": "f93da5118da7677eb15b1287bc2ac29774be2d7a",
+      "bytes": 4066655,
+      "sha256": "a9ee6ef78d19134da1dd2c92116d5e2390df44876a58859ef52eb85799945498"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/25_wallart_lena_visible_mends.png",
+      "blob_oid": "43e95ea3c72aa44f0a48db061df7a67c07e4e884",
+      "bytes": 6415922,
+      "sha256": "3cbe14ab43f603c7ff4414a82f34f9772dd10dd811ec0e80f0d0aed7a6c67773"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/26_wallart_mina_the_unsaid.png",
+      "blob_oid": "40bf1c1cdc3a4ec5128bfa0f8ffa9dcabe01fe9d",
+      "bytes": 4679833,
+      "sha256": "782b5345d05ff7732191efc0fe64b3b44a065508b70ecd9dda14dd085ecaf9ad"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/27_wallart_teresa_quiet_please.png",
+      "blob_oid": "5c230f54230cb0703259434ded16e88f4f73a9bd",
+      "bytes": 5280641,
+      "sha256": "a191549737a880a004e9cd106045518994ddce1b6d51245464484503eb5c3eae"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/28_wallart_evelyn_good_enough.png",
+      "blob_oid": "8f74ca1173cf75a262d5ae906f7e449c01df07bb",
+      "bytes": 4684098,
+      "sha256": "ef122a0d6c7de92e6b3e872f2625107e5b9dc3722037469a94b592337bd760f0"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/29_memoryart_mae_young_cataloger.png",
+      "blob_oid": "4a4e02d6c37acb23a94ff34ebbdbf66066370a9c",
+      "bytes": 3371937,
+      "sha256": "c350aa0575bd77ddd9c72de5a0e56da4c1851346ceaab9a725593280ff903267"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/30_memoryart_mae_inherited_box.png",
+      "blob_oid": "872a9e6be3a79919965a6b908d3da65ad6de794b",
+      "bytes": 6600883,
+      "sha256": "53bb666ffab6b4a83a239e473ca3fc1d70a1226b78316d0126eb3ff000893a04"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/31_memoryart_jonah_listening_watercolor.png",
+      "blob_oid": "7d70a39ee38d50b2faac67c1f325ac0caebfe2d0",
+      "bytes": 2969506,
+      "sha256": "d875032ee5d2ccc1ca71dd9d0f2fbf08a98c686eda3551e40c7b8c61533031c1"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/32_memoryart_jonah_unfinished_words.png",
+      "blob_oid": "63bbb670e62cb7853b0d92a472181f3d03212cfe",
+      "bytes": 7077347,
+      "sha256": "f0016f6600098e16a92240fe013fe8c2b24fb65ae67f1b4c62a2ab6b6a757fe9"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/33_memoryart_sacha_camera_lowered.png",
+      "blob_oid": "f176fe1f584bc13dcbcfa46bf40220e848139d1e",
+      "bytes": 4458450,
+      "sha256": "2a409bd07a8e37be1910dd654c15fb7c0588b74b615c509619ae589609b968df"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/34_memoryart_iris_self_portrait.png",
+      "blob_oid": "76531c607b15e89a3d897706a4c5f97cc03952c0",
+      "bytes": 3223501,
+      "sha256": "1e85dae971a9d41960bc71ce081b571ac7aeb49b9302df0a385871948a1f675f"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/35_memoryart_cal_human_signal.png",
+      "blob_oid": "b1d4b377ced8693ae1621ff34cad5225a1a66287",
+      "bytes": 5903156,
+      "sha256": "557cb250defa35e18a1afc9c551c8fa109e71671dd5cc379136b6d24d113be16"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/36_memoryart_nadia_humane_plan.png",
+      "blob_oid": "1474f51493297009ffbaa35ca8381d0a97169792",
+      "bytes": 3976091,
+      "sha256": "6b7276b114692bc9743410c80f190f32768daf9e982d7d53cfa9004cd1e56286"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/37_memoryart_guests_safe_trip.png",
+      "blob_oid": "09a3f161df72eb44e784e1e15055e0487a3dc2aa",
+      "bytes": 6666272,
+      "sha256": "2163af563aaa4bffc5695a6f732c28f4e0b507134a157737a264dfc0113f398c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/38_memoryart_noel_conservation.png",
+      "blob_oid": "724e20eb1fe353b9ad616216381b021617d3a5c9",
+      "bytes": 5547451,
+      "sha256": "0bdc15d5380700d45898e757251ebc004acfb9a8c6a877a1de3d2e0f72e34f1e"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/39_memoryart_cam_delivery.png",
+      "blob_oid": "ac5b4462c03900bfbc8820cdeb2ee50f4d4abceb",
+      "bytes": 7222396,
+      "sha256": "646af382bd33cc4bd8e1b3807c70d6df78a0a3049263c7c4811dccbab86bf0ec"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/40_memoryart_peter_submitted.png",
+      "blob_oid": "0fac2639449f6a5849000ba8d557134936dd36c1",
+      "bytes": 5400923,
+      "sha256": "c2f3000bce261fa434a9f4533d2010cf019d9a8c2df5e54661c75ee52a869ea0"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/41_memoryart_rhea_before_stage.png",
+      "blob_oid": "af11c69c6a2acd02a9768c616aba267d6b7669a5",
+      "bytes": 5621017,
+      "sha256": "2c2f024cb96cb7e8d961019eff959d17dbec13c42cff2043a8b4e3e329416b3d"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/42_memoryart_omar_radio.png",
+      "blob_oid": "b688da3731a26bb332f27af03f0a0f1879f08e29",
+      "bytes": 5876067,
+      "sha256": "af976b27f9e865cd20dd2fb9f1eb94172c5ba83aee9f9ed4e2cfd9197a02f6dd"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/43_memoryart_malcolm_cutting.png",
+      "blob_oid": "045494fe7515a6f38bf7c3489deba66c34bfabc1",
+      "bytes": 5156810,
+      "sha256": "5b74d9ffa194debf1a2f65384f996c466643d14ac0a249ccc1629ebed12c288a"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/44_memoryart_juno_session.png",
+      "blob_oid": "a1041923722e8e81ce60aa1bae2582802ac864e9",
+      "bytes": 5847200,
+      "sha256": "55188e169f6e40a2eca8f2b0329ece3974f9b1e43c57563c9a16ccb19ec9fc6d"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/45_memoryart_lena_visible_mend.png",
+      "blob_oid": "5336d62746f01b88728e2ca43d7d1badd25a2776",
+      "bytes": 4224808,
+      "sha256": "2095108141b25346165e93e839ff5b71d47de500d9b6ab4fea9c957e238cdbaa"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/46_memoryart_mina_caption_desk.png",
+      "blob_oid": "3a6cf5491f373c9b7f83385cbf4bcbaea6fb1034",
+      "bytes": 6697091,
+      "sha256": "6769b31cc87762224a195af96ea0afb175bba200afc3a0be98f0b1c8520532c8"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/47_memoryart_teresa_night_shift.png",
+      "blob_oid": "ffbe00f84f97a9e75c11dc6101e90eef0bf6836e",
+      "bytes": 3800193,
+      "sha256": "30094e7e2c56ed8efadedfaab3538c2560b90434487a9f5ea4cefb3894565380"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/48_memoryart_evelyn_retirement.png",
+      "blob_oid": "91e53131230f5c9b4906d97d3b43364ae9904ca7",
+      "bytes": 6065330,
+      "sha256": "fff210259601ae4c06a789e2678cc5c56560490412134b5ab2851019cc842b48"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/contact_1.jpg",
+      "blob_oid": "81b422c5651163b4fc206102006baad4f6c011e6",
+      "bytes": 142416,
+      "sha256": "b97413a087b1cc2ad037a4ca9a84ee3f13cb7ca329984aa37ff411e94fa78c93"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/contact_2.jpg",
+      "blob_oid": "563c52ee76a95a73e5f8120754dabdf4ae2d09bb",
+      "bytes": 137642,
+      "sha256": "c2bc53d2ea7e0a7dd974a3a223277fe2e4c4b8cc7bec01db0a61be8ffa874c8f"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/contact_3.jpg",
+      "blob_oid": "e8038a2f3754d43dd06a9f8347c90e41c59aff95",
+      "bytes": 137416,
+      "sha256": "a6e0c7252fd3976c56fc8894c93c2bd82c0a3bbd31a29b3cf3e194c5dac9dd1b"
+    },
+    {
+      "path": "art/renders/wall_art_audit_after/contact_4.jpg",
+      "blob_oid": "5dbaa7d3f61ab9f8b4915eb4aeda962938054944",
+      "bytes": 119176,
+      "sha256": "b6f300f11c047b652f1e1fe8994f7d2b6b796bee998f566f9704aa91b023f018"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/01_memoryart_sixth_make_room.png",
+      "blob_oid": "bebadacea042f1673b3dff38bb2e1215e3be7d3b",
+      "bytes": 5990158,
+      "sha256": "e3466954b30330d94ba1ca6ae7a0935c06d98e08a7c82648eac0462b88e3b184"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/02_memoryart_fifth_lights_on.png",
+      "blob_oid": "16006f2e0e065f3b586ccd27a0dbf8a8e2dea058",
+      "bytes": 6233630,
+      "sha256": "e2f19060451d34804f38505cd8e7d60be753be6598b6cc89cbfa6d58b0c5844b"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/03_memoryart_fourth_impossible_stairs.png",
+      "blob_oid": "7723a40cfd8d089aa098460eb4809d5b63225e77",
+      "bytes": 6458834,
+      "sha256": "bfe787d024b0ba8eae14f5ee89b676fa67f404992ccea8d6489f1020d7bc90c5"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/04_memoryart_third_rooftop_party.png",
+      "blob_oid": "6668c56b5509396ee278feb5fbdaf53f772ca740",
+      "bytes": 6501214,
+      "sha256": "3b732b9a6f69452d95fcbd08bb7f76441497e5e54677514f532e5c51456c44da"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/05_memoryart_second_queensboro.png",
+      "blob_oid": "a703a1f01fc8b44604119fc19de9590391eddc84",
+      "bytes": 6567806,
+      "sha256": "56b3d0e97f00ed5bf7d094c5f1460fbf22d21bd9e262e48286ddd13fd638ec08"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/06_memoryart_first_our_queens.png",
+      "blob_oid": "30e576538e509a35f93a4657b2e48eb0f1d7c1c6",
+      "bytes": 7056918,
+      "sha256": "04a899931389b0758e51b1abb19d9c8c7d86dcc5364292e2c85c59e2ce89aed0"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/07_memoryart_lobby_orison_1928.png",
+      "blob_oid": "e1afccfa9c86803680e74abd8d271acf7ea12209",
+      "bytes": 3796408,
+      "sha256": "45dfbc5422e71c63554d9d705d48d266dcbc3757a04fd33e4b27efd1d9008cb8"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/08_memoryart_basement_know_your_exit.png",
+      "blob_oid": "2014cc01ee145f152c90a4268383a58114ba9292",
+      "bytes": 6531045,
+      "sha256": "72bc2dee0560a101d7b4bab01871b04bae654de97667f4a57212810bb7153da1"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/09_wallart_mae_object_genealogy.png",
+      "blob_oid": "2e52f751df40382fc268992048c6b41c485e5047",
+      "bytes": 5860363,
+      "sha256": "ddfe615d3a979308d05ff9dc27715b0bae8ae952818a445eb59203c936b07992"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/10_wallart_mae_provenance_unknown.png",
+      "blob_oid": "80fb38217a0474561154784924d918d30e429a8e",
+      "bytes": 7326106,
+      "sha256": "821c33a81f5f8fc81ea2afef42ffe046f9e115c70c6d34d28b34ac9d206bd9ff"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/11_wallart_jonah_words_missing.png",
+      "blob_oid": "9669e43cbdaeb7b1adfbab7eb4c9b50b735bf076",
+      "bytes": 5372399,
+      "sha256": "bd657807d06aef9cd784241c3f1aae36804b6c6eff497dd006e86f19a811a3e8"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/12_wallart_jonah_begin_anywhere.png",
+      "blob_oid": "044af0262964442107e2467c90d46d85bcec9828",
+      "bytes": 4611663,
+      "sha256": "085a63a22b2afc5cc36f36c2ae6d908c8132a7c79497be3d32579f34ba50f609"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/13_wallart_sacha_look_first.png",
+      "blob_oid": "aa06e89b40855e22e16a701aa16a20cbcf3f00f2",
+      "bytes": 6650612,
+      "sha256": "e601e6bbbc56a7f4bc83c711dde37dc6869775dc54b800e93dcd710e4a4af50b"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/14_wallart_iris_impossible_fold.png",
+      "blob_oid": "e82eb955af679dd76c0220ae4ca1d9493c922aed",
+      "bytes": 6418978,
+      "sha256": "4c0cbe28f73cfa5ccff89a6ebb71e8cc37909a477c5e193500b04e436f4e911d"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/15_wallart_cal_signal_received.png",
+      "blob_oid": "223659c58d2550fd4915a633e68d3a3c32ddcb1b",
+      "bytes": 6027646,
+      "sha256": "97aa96daf49c9101b78ff1bf8e1e9fef5cace1749705f633fc5f050bbf6449a2"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/16_wallart_nadia_people_live_here.png",
+      "blob_oid": "239f81a8e6f691b130841c7f0759ba0b79553ea6",
+      "bytes": 6976424,
+      "sha256": "aa18c1d589f30e511552f7c87d20f547351c95faf39490dd6c0c5cf77a8c4340"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/17_wallart_guests_you_are_here.png",
+      "blob_oid": "603c8e4ef6cf4d07eb1a223adcec48f60f3c83b3",
+      "bytes": 6199295,
+      "sha256": "ab956913b3cce0995ee81053255788a070a95113a399de715ea49cd4818bf7e3"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/18_wallart_noel_ordinary_objects.png",
+      "blob_oid": "07c398a43545614e7e682cc4487ac2e236380cae",
+      "bytes": 3090903,
+      "sha256": "dee296317a6a25b0ebffa6dc4b38492335a18c623977194eb58ec8d189f510de"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/19_wallart_cam_stolen_bike_route.png",
+      "blob_oid": "432c7280e54f15549c0f8f803b8154df67bf9cb4",
+      "bytes": 3428858,
+      "sha256": "180affc64554e00759d5cfc03ccf862404e8162f0c4cebf6e32d9c88ed8a0590"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/20_wallart_peter_proceed_uncertain.png",
+      "blob_oid": "bfdea1edce9865b480721a89196983511d9e3e5c",
+      "bytes": 3617219,
+      "sha256": "fca55e1da3243801076204ae70f071bfea418302d32954527d211e02bec08eb0"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/21_wallart_rhea_one_bad_note.png",
+      "blob_oid": "bb2962dd5e6a61593fcfdd1238b60c42a2b4e100",
+      "bytes": 6875391,
+      "sha256": "6d8c5962185a317201f857dffc8de5f89bb30d5533a491d9ca39001239d70580"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/22_wallart_omar_repair_manual.png",
+      "blob_oid": "7534a8dad63f90effc0fe15a59abb11ae7294994",
+      "bytes": 4774178,
+      "sha256": "bdbbd2d0d0c514cfca9a05784fbbf6d032a5a9a92850007b4a8318fbbd99510d"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/23_wallart_malcolm_propagation_plate.png",
+      "blob_oid": "8011c2cda92d4dd1d8cef284d0cb1c7c06813bfd",
+      "bytes": 6583621,
+      "sha256": "0958ef756e399203c2791cc8db4198cdf20ab9e8083ca065998873fa6b64e6de"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/24_wallart_juno_open_channel.png",
+      "blob_oid": "a5a4a21c8a9f1280b644d31080726825fba118b5",
+      "bytes": 3998908,
+      "sha256": "e2223dc88ba4f30a2fb0d65b8cbe7790c9c98e2f6d056b00054c37e5bf929a80"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/25_wallart_lena_visible_mends.png",
+      "blob_oid": "7240cc74b4cd6c1b2571a7238f025d26a6666f5a",
+      "bytes": 6542969,
+      "sha256": "89399f58b214e5decca2377733388414f03aa5067a3bf8ef82274ee269000eba"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/26_wallart_mina_the_unsaid.png",
+      "blob_oid": "e0e271a8e44380f2e4177ebdcf3310cd13bf9309",
+      "bytes": 4625634,
+      "sha256": "51768962660d05aa5362cb2e98db3d78ca03ea7cead0377f0b70ef78af51e78c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/27_wallart_teresa_quiet_please.png",
+      "blob_oid": "64fec55373795e54032e41858c6671fde2126310",
+      "bytes": 5295269,
+      "sha256": "c1198b7a7e7eeca133df1f8c41c2a408ac67ad11e723140c59f5a4b9c86bd11c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/28_wallart_evelyn_good_enough.png",
+      "blob_oid": "3f278043741ca89865bb94bd8cf91e3428ff00c2",
+      "bytes": 4698490,
+      "sha256": "c1e0baffc6145f3fd124ef14c4602a44eedf6fed199ffbc3961434dbf7d13d9f"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/29_memoryart_mae_young_cataloger.png",
+      "blob_oid": "e576a50c5eecf582b2e3f812a271bfe971428613",
+      "bytes": 2933472,
+      "sha256": "c5855ca5b3b57eb9399ea4a3e70927fe0c564084a152bb0b3131342e6acbb82c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/30_memoryart_mae_inherited_box.png",
+      "blob_oid": "4196a93b4621d999d06530db4f7d9158b4abc1c4",
+      "bytes": 6597586,
+      "sha256": "1b984a1ab06208b95d12575b594738d77b1fcb4357f2580afe68da7f6380c007"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/31_memoryart_jonah_listening_watercolor.png",
+      "blob_oid": "88140c0481b85fe1c0f8072eb09c13a657fd80ad",
+      "bytes": 3053923,
+      "sha256": "b9cecf713f2ba8d3da3561c96f6b192ce2ea8bdc87b4990dea941735c1ad88b2"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/32_memoryart_jonah_unfinished_words.png",
+      "blob_oid": "65a0ea9f243c59e6a31f6aadcdec1e5125b0d2c8",
+      "bytes": 7225747,
+      "sha256": "c756e2a4a07590a2e77083cdf6b33d498061706d795863c55392d2d4478a7fce"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/33_memoryart_sacha_camera_lowered.png",
+      "blob_oid": "ed9b3be278eb736e6f8ae709f599a48427a6ca8c",
+      "bytes": 6289826,
+      "sha256": "ea3817129df9440c15e124053368799f8dd8d2393927c7de8c9e955b12a8c475"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/34_memoryart_iris_self_portrait.png",
+      "blob_oid": "1224ab012211a28b95faa41ef640a6d82f153232",
+      "bytes": 3016709,
+      "sha256": "bda537aa84cbe83a055d36973547f76a5426a9bf58c43770bc94dbbb20c93427"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/35_memoryart_cal_human_signal.png",
+      "blob_oid": "54e0f839f6d6552b2103ec6fbc2cceb714a09e61",
+      "bytes": 5923426,
+      "sha256": "ba104e540ae140c1e1081efba6438926b96cf75a89598e3c0c284ce2bf99e98c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/36_memoryart_nadia_humane_plan.png",
+      "blob_oid": "f2d102118103b3fed8e5d47818b20da0996acbf5",
+      "bytes": 3553658,
+      "sha256": "86cff19a8bbc3c08244f6135b966970893ddf3c33da2179eff08dd5ca0459681"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/37_memoryart_guests_safe_trip.png",
+      "blob_oid": "29fdfe132729fc64c6f0d6b2277650488f72623b",
+      "bytes": 6720226,
+      "sha256": "f32dc7cc0dbfb58e3e4d28385e890d72ec6e1075916814045a7a62b63e671d8b"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/38_memoryart_noel_conservation.png",
+      "blob_oid": "09c2345be82a66e6f44ca9cba41e5c7f7826f023",
+      "bytes": 6659029,
+      "sha256": "8294e0c45ee03f43b9281219eb5e182f27dd100b2d4137159b7fa953cee0e06f"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/39_memoryart_cam_delivery.png",
+      "blob_oid": "c09b4b76a981b68985cff2444c54ea32b026efb6",
+      "bytes": 6172174,
+      "sha256": "b966a67b73d4900f6226a27dd2adbe2686607c874f1847e28171ff604d3a2dcf"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/40_memoryart_peter_submitted.png",
+      "blob_oid": "c2c1d52d9e845869d7b56f8c1be2610287c737f5",
+      "bytes": 5349840,
+      "sha256": "78b5f46fc890359125c70034f9a4ee1691be4e422dd7debba0ad3e1b3c0eeb6a"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/41_memoryart_rhea_before_stage.png",
+      "blob_oid": "d6780b8d693a2a66449bc6847e3c61c206b1c678",
+      "bytes": 5623027,
+      "sha256": "1745c25b0dfc71fd2df5f0998f3c498597194dd388a00e2de21c1c4cd10d0881"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/42_memoryart_omar_radio.png",
+      "blob_oid": "b3ff757f8af4f2cde800b6d1c45da681898cd8b9",
+      "bytes": 6091127,
+      "sha256": "601d03e8a0d55cdf41f95aa1a3778739db09a6be72a518266d026ee6ca86cf0c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/43_memoryart_malcolm_cutting.png",
+      "blob_oid": "b6d2050ca0c0299e29699e455607edf816d17cd7",
+      "bytes": 5168837,
+      "sha256": "07eac274a1c3d50e6ae49a774a3f5b5cf9e69d0d2398c3beec18f0d40ee22438"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/44_memoryart_juno_session.png",
+      "blob_oid": "5c5ca5e92c735396dbb3424159a8f953d2c0ec4a",
+      "bytes": 5846753,
+      "sha256": "6b91a5673bc37555ab49b396921f02aca9175480c90ecfddb68d0d3ad5b47758"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/45_memoryart_lena_visible_mend.png",
+      "blob_oid": "835b6282492114c87a4363cfc99d070f33ff29fb",
+      "bytes": 4180799,
+      "sha256": "7514b601ea385568c46a4d7b990d663c82e26dfda6fe41832e48e77c21da6605"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/46_memoryart_mina_caption_desk.png",
+      "blob_oid": "abcde1f7fca40e2ad938e6aec5d5ced882936c37",
+      "bytes": 6706121,
+      "sha256": "76a38aa2536d5a44476936063d8b346ff14aa6a464c4ec5f60bc14b98f7d6691"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/47_memoryart_teresa_night_shift.png",
+      "blob_oid": "3d7b222f59e97503cb11059253bc511399dab30a",
+      "bytes": 3718096,
+      "sha256": "d574bb74d837f80020c0a3e505f78a6d45a4715217642abd983534f010543a2b"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/48_memoryart_evelyn_retirement.png",
+      "blob_oid": "29e8c534e49db391464e34d32c2f6e6cb931e0c6",
+      "bytes": 6045919,
+      "sha256": "b043dc12ceb03656e4f5ae471b2ac485216b41d66761e180e5aa7e932980f29c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/contact_1.jpg",
+      "blob_oid": "b9c2034933f3922b29a56a8c7d7819f046e50e38",
+      "bytes": 142353,
+      "sha256": "58dd05c6943d70b067ba828d106f14ba812309ea73c3e36ce9c93212f4e25df3"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/contact_2.jpg",
+      "blob_oid": "96c9ffd533ec4434218b99348e6fa5ff3d98f315",
+      "bytes": 135289,
+      "sha256": "032470c9cfb8dec7f5890f1c32de9d02981e053a840cc197471f8749cd122915"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/contact_3.jpg",
+      "blob_oid": "5ab1a97bd8c4eda349df9fc0031b0421012eb6b8",
+      "bytes": 135450,
+      "sha256": "1f55ffa769e8fe264afb686dc7a8079c301622e4c4ba698cdbf4cf2545140c45"
+    },
+    {
+      "path": "art/renders/wall_art_audit_before/contact_4.jpg",
+      "blob_oid": "509eae7fbce571bb0ea14bd344c75821048e0370",
+      "bytes": 120860,
+      "sha256": "83f6bb5f78e4c6143577a30cdc05124e7c29f4a1e1cc2d8413ee007da88f4a86"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/01_memoryart_sixth_make_room.png",
+      "blob_oid": "3f18c33c4ea2a39d311aa7ef52c9d23196491511",
+      "bytes": 6181179,
+      "sha256": "2f02de0cc3e2d9a3a7da93f42fd2bca69a1a8559bf177d6fd05a0dab7adef3b7"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/02_memoryart_fifth_lights_on.png",
+      "blob_oid": "d5602a42b86e8b94fd696bb42def9e06552f8b44",
+      "bytes": 5867299,
+      "sha256": "c578363281124242bc95f0dfe7453444142594a84128df26ef088c74427eeadb"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/03_memoryart_fourth_impossible_stairs.png",
+      "blob_oid": "403f0022d351ff6b7817577ae88983b212329a5c",
+      "bytes": 6320370,
+      "sha256": "6648455d6e7928d17633435d38bb9dfc6ab3664171889b32550ef08ee62a82cb"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/04_memoryart_third_rooftop_party.png",
+      "blob_oid": "6440983d145fd6e65f3267292a53764d28c290f3",
+      "bytes": 6239573,
+      "sha256": "1560314c41b20aed97f7bf804c3aec97d6ddb94b407ea07239ff56a5138f7c8a"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/05_memoryart_second_queensboro.png",
+      "blob_oid": "07fd4f342cc29bc6a8dd5b6ba4363d56afed5e19",
+      "bytes": 6606357,
+      "sha256": "8eea63fabd0adcf612f8ec4bd42a2d731e3ee9b217ae967c9ecafdfc696737ad"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/06_memoryart_first_our_queens.png",
+      "blob_oid": "6da13d849a5feb7d590b33cad5347780c713b8e7",
+      "bytes": 6783508,
+      "sha256": "427bcfb39a3eda6e484a309c07d947e3b7bf37e0af0a14d36872c5a5f80ac1de"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/07_memoryart_lobby_orison_1928.png",
+      "blob_oid": "5a34b15810dba7767fbb140b30b50652913c4ea5",
+      "bytes": 5765317,
+      "sha256": "b8bcc4a854f9669c00da932dff78ae1f6f34ad85d2778444b5395d69b70da027"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/08_memoryart_basement_know_your_exit.png",
+      "blob_oid": "fbc64f12f48011478e26a7efa0a401339bcd1b1e",
+      "bytes": 6595770,
+      "sha256": "4d9c12e5137c6187c41d128b87955d4cc5cbf866c4af01c357632e53cec72d50"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/09_wallart_mae_object_genealogy.png",
+      "blob_oid": "d281f40b8fd02a11b8e41ff7970864dc860765b4",
+      "bytes": 6171921,
+      "sha256": "55e5ee920430d4147b8c05b78ab6f688a5941b57a10bf6b8784812a5980bad9d"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/10_wallart_mae_provenance_unknown.png",
+      "blob_oid": "3fb281c3825ba86ae2c72af643dcc01b46bbb7f0",
+      "bytes": 7150567,
+      "sha256": "dbd844f0b1ff2db503ecd3d15f2928b2834faee67fcc7de82b1456e3d09c2e9d"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/11_wallart_jonah_words_missing.png",
+      "blob_oid": "899fe2bf90423e5d818daa9befa79c8161831c66",
+      "bytes": 6004438,
+      "sha256": "a8c3b55386d0a4d542dc651c0ecb502466357719417fceb3c9239bfe16d50442"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/12_wallart_jonah_begin_anywhere.png",
+      "blob_oid": "ed30a99083e75228cc78a0d3300bbf7d5ad069e5",
+      "bytes": 4755202,
+      "sha256": "ddb88a1de643dfb9a512cdb10a7345a82899b62337ed7f2ee8d96687fa2cf7e3"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/13_wallart_sacha_look_first.png",
+      "blob_oid": "8bd3e1222e58072a02e9dfa6d55ae35a33f1d662",
+      "bytes": 6296539,
+      "sha256": "aaa19c58f7a540f28849f658a38049018ccb236e6571a653c4f8bd6652795841"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/14_wallart_iris_impossible_fold.png",
+      "blob_oid": "1886d4b091a6d617999878cfd61585a0cffaf797",
+      "bytes": 5888693,
+      "sha256": "cba14d5091fafc7a34f22dd4810270ba629cc582370822eae74e603f660126d7"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/15_wallart_cal_signal_received.png",
+      "blob_oid": "ef509c9b22bc6c620f89f61c4b2c58023e92f71b",
+      "bytes": 6027493,
+      "sha256": "f6cc8f219a6aaba3004a2f73095a82dd12690f0dcbda9b4669634391d7f67a11"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/16_wallart_nadia_people_live_here.png",
+      "blob_oid": "08b0dcca695786d0e3a23fc5fb9fdb17970355f1",
+      "bytes": 6825674,
+      "sha256": "d88013c26cdc746ec3e7a5de19f039d0be3487b56e78bec07c16b844a098fd5e"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/17_wallart_guests_you_are_here.png",
+      "blob_oid": "80efd60e7dd50456ce99dd22176157b926e116c6",
+      "bytes": 6646127,
+      "sha256": "5ae53ff0aa9b354454d275aa9f3645ecbac9a438e68a959a88c8dfad85f0eb4b"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/18_wallart_noel_ordinary_objects.png",
+      "blob_oid": "46971974f17946d2a4fe295955b662db0efd55a5",
+      "bytes": 3244513,
+      "sha256": "e49a647a7dcbda58c3599fb8004e28b6f21f7b57a94c38115b81a8574f92a974"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/19_wallart_cam_stolen_bike_route.png",
+      "blob_oid": "b68a905d8ad0d200dfc3a8e887c084bee6af0232",
+      "bytes": 6846640,
+      "sha256": "f08a11f6f46e3669e796cb97f2ce46fefe502108bc816039c6034c756591e847"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/20_wallart_peter_proceed_uncertain.png",
+      "blob_oid": "122e9be9f798da6ccd9ebb704c184fa0ef28eda0",
+      "bytes": 5502374,
+      "sha256": "db6ed1bb8f125ecc182db6238fee8d3fc12405956d32b5ea31f7e7a827c4f77a"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/21_wallart_rhea_one_bad_note.png",
+      "blob_oid": "a3775ffca41e172bb02ee8999a0cdab93437ac47",
+      "bytes": 6864641,
+      "sha256": "6f3d1e8d62d3771af22fed1c47d3fdbe62a7bfeb5d9dd25d5d3d42b259447a38"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/22_wallart_omar_repair_manual.png",
+      "blob_oid": "daa1221a67bafc8e34554c6fbb26d0a95668a3a4",
+      "bytes": 5176290,
+      "sha256": "38afd5a6dd2695ef37b3f5babf1de9037d8922bb36218ff4bb303e65ebec5374"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/23_wallart_malcolm_propagation_plate.png",
+      "blob_oid": "8c5a1bf838e545de6d32fed316e6c6a722bd492d",
+      "bytes": 4702930,
+      "sha256": "4056cb92cecda57f45ee6d02a9aa7b4cd4518a357660893dc454f237eb6138c1"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/24_wallart_juno_open_channel.png",
+      "blob_oid": "aa382dae7097b361fc71b6b823bfa2f3e43f0e2a",
+      "bytes": 6397331,
+      "sha256": "1cd299a68990c39878b8ff30eec2f5e679f63fe35b13d69cf914694b875efcf3"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/25_wallart_lena_visible_mends.png",
+      "blob_oid": "dbbaf2762a8637269e72c71b712ece7e60332390",
+      "bytes": 6375560,
+      "sha256": "f43cdb040ac2f994aba54922c1b590ba4ace5719f7fe92f2bc3ed7cd08854ebe"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/26_wallart_mina_the_unsaid.png",
+      "blob_oid": "96b1d53864a9513eda1d2e61407da7c106f0e4df",
+      "bytes": 4543223,
+      "sha256": "95217c9ed9feb14cac05488f60a39e60dfaaefec928e4f7787d233a5ea1cc30f"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/27_wallart_teresa_quiet_please.png",
+      "blob_oid": "d5826f661831b18669cbe28e27a18cd4740756ca",
+      "bytes": 5995741,
+      "sha256": "25dc82af041dc06aee059cefc47ffd6cc7848cf11f671600a5ddc006ce4b8a10"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/28_wallart_evelyn_good_enough.png",
+      "blob_oid": "391613aa43469d6db51ea67f0852297c78e6a926",
+      "bytes": 4688898,
+      "sha256": "7dfe020c2f254920e53becb614d0dce80a63d57177ff3b0d209d7fcf6ad090f4"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/29_memoryart_mae_young_cataloger.png",
+      "blob_oid": "308327e23b4216c979b3570f101cb97f08065e4c",
+      "bytes": 3353515,
+      "sha256": "fdcea4e7763fa4e789914dc4ad84df2691eb5170e27dd7c40678d785e0f3f8d1"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/30_memoryart_mae_inherited_box.png",
+      "blob_oid": "7455dae0370fd031dfa44c8eeeb6d22e6e09d01b",
+      "bytes": 4152025,
+      "sha256": "5b3683281f7f943c3f8c6a6076b772932e40644561c773435dd12b3103fa27c3"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/31_memoryart_jonah_listening_watercolor.png",
+      "blob_oid": "32f5897c2062bf3a5907ae193709a1d2bef5fbfa",
+      "bytes": 3071227,
+      "sha256": "efc718916382aef0cf2d2feb2fc5d957f929ce162bbb2e73f3335892693738de"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/32_memoryart_jonah_unfinished_words.png",
+      "blob_oid": "4afa01fadace9d36f36c84e6cc4d87bc92635d88",
+      "bytes": 7125918,
+      "sha256": "91f65d4817d87d556a459c0d6ae35cddbff827e2d071b9a9543fb58a4a362c68"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/33_memoryart_sacha_camera_lowered.png",
+      "blob_oid": "f94ae9fac7abd6372b304e7c9e81d383ca641f8c",
+      "bytes": 5957105,
+      "sha256": "66df605416ec4b27dfc15681f03ef6b34728fce7aeb73ab2588c30253822bb70"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/34_memoryart_iris_self_portrait.png",
+      "blob_oid": "7b2f760dadad8d39f453da7f26df6141327665a3",
+      "bytes": 5553636,
+      "sha256": "cfc04b4a2dae7aaa4f424cc360be36a815921c6828cc5e377da9d2dcb9451ef7"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/35_memoryart_cal_human_signal.png",
+      "blob_oid": "21f421047159f9b6cdd77ddf4028d48adb8b3f17",
+      "bytes": 5915848,
+      "sha256": "4ccc7b4ff9db17b35c56e59513f2a9fdd85eae634a5a579a52703876793a7be2"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/36_memoryart_nadia_humane_plan.png",
+      "blob_oid": "3e90c4b78ba6489e76402088329184119c14d10c",
+      "bytes": 3973247,
+      "sha256": "d536236993f81ba6fc6df584fce332c185de8df7ab757f88d345b64a8c57e19a"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/37_memoryart_guests_safe_trip.png",
+      "blob_oid": "4c4799cb8202867395380d7d634c0c423fdb0f10",
+      "bytes": 4161261,
+      "sha256": "9033d375ded7638a60d89450b84f313f6b63a37ace690598f69718e07d468449"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/38_memoryart_noel_conservation.png",
+      "blob_oid": "550aa9efc347bf61a8c55a1bc6ef7d655aeaad8a",
+      "bytes": 6780207,
+      "sha256": "3475616c9f9ab9b5184d6b910974c1602d087bb4c28bfabe377f640be537f600"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/39_memoryart_cam_delivery.png",
+      "blob_oid": "370175d31310cf1a94a2caff8539c59705e0594d",
+      "bytes": 6718543,
+      "sha256": "be2d01a3c006d514454f2e1bc087b2fe438cae55c006ac6c629f6f583c37192c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/40_memoryart_peter_submitted.png",
+      "blob_oid": "009fa658552d8db680b5836607de0b177077e969",
+      "bytes": 6655723,
+      "sha256": "509a5f84d0a19922d9040156345253b0184491fda49f29edb244234b99c040bf"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/41_memoryart_rhea_before_stage.png",
+      "blob_oid": "f02a7047365b020fda12435e97b25f11b5b35cbf",
+      "bytes": 5128154,
+      "sha256": "d6f2b26382851698f69df17360b48b529e849cc6fefa988fb36ba43a5eb96c6c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/42_memoryart_omar_radio.png",
+      "blob_oid": "527d819f2cf496d994ca44675922064820a115b5",
+      "bytes": 5841653,
+      "sha256": "c9ffc5dffa416e51d525344b3764520a8f3671f8a8dee1d2d5ec3e657fb76e80"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/43_memoryart_malcolm_cutting.png",
+      "blob_oid": "3b23037c945b2ebb08ef33cd4f6c763fd226fcd6",
+      "bytes": 3906347,
+      "sha256": "dd2bf0be91106659fb133b7c0bf3d2d4fac78c9685fcafb9788611c8b20e85c5"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/44_memoryart_juno_session.png",
+      "blob_oid": "c39bb54c97aa9a842c5ced78a5557c92bd071b14",
+      "bytes": 5957127,
+      "sha256": "acf851aa74bd0aff0a59e2fffc57618184ebd16fe1086879bde2d1eb3afa215f"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/45_memoryart_lena_visible_mend.png",
+      "blob_oid": "27f935eff0982f1460c9dbe7edd584a4e29368d1",
+      "bytes": 4221597,
+      "sha256": "eddf5e49e076cc2854dbb9c23977cb9d47d519efbfa6254a404be03a36ed731d"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/46_memoryart_mina_caption_desk.png",
+      "blob_oid": "2806b1dfa874a948fee74adcdc87d1bf706ce7e4",
+      "bytes": 6588271,
+      "sha256": "31e4913200cd0b2db9faaf618a705473620bc5449ae207b06028b7c21721a62b"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/47_memoryart_teresa_night_shift.png",
+      "blob_oid": "8b16530c480a4425ef4e7703718231a1a2f4cc77",
+      "bytes": 3795053,
+      "sha256": "ce91f51d45129f5243b25693a1c5174ca80cd9c4ee2d22ab78edd2b20b67797d"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/48_memoryart_evelyn_retirement.png",
+      "blob_oid": "98ed0f3e24f16331dfb359a348b06e4a0bfccb4d",
+      "bytes": 6063057,
+      "sha256": "375dd14e62b6d81fccedcd8a82f76a9c492eb4d2bb40cd3c8a530a471abfb964"
+    },
+    {
+      "path": "art/renders/wall_art_audit_delivered/contact_all.jpg",
+      "blob_oid": "ec11e7b3ba3df7deedc0458ec98dcf64f866065c",
+      "bytes": 375174,
+      "sha256": "93e1a20fdc331a37f5352bef91be660f686b06111626454f07f6a5e681f5daa2"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/01_memoryart_sixth_make_room.png",
+      "blob_oid": "2a646487a4524ef574221a0b6473e01e581a0c40",
+      "bytes": 6177407,
+      "sha256": "4dc91fac016175b5433645030765aa43d4239db17a5d80dadf9ee265f7ddf2b8"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/02_memoryart_fifth_lights_on.png",
+      "blob_oid": "a47f76f61612e89f506428e0d17603f27477b29c",
+      "bytes": 5876560,
+      "sha256": "c82b50de118e8fa5036a906be29d0811b7d906edb9e81805f90abe97a1425ec7"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/03_memoryart_fourth_impossible_stairs.png",
+      "blob_oid": "96783e73def18ff52ceb1fbe3556cde16e3226df",
+      "bytes": 6322068,
+      "sha256": "a58c3cc002c8d7e40ce78e0fe337f456f9baebb650e87f4e6e96617f4d279132"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/04_memoryart_third_rooftop_party.png",
+      "blob_oid": "e7608cf18c55fa87a049da22e89a867071c18581",
+      "bytes": 6239587,
+      "sha256": "daa7809aac15c2be482c601f3109813e28abc2937d9105b8afa8440a90230792"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/05_memoryart_second_queensboro.png",
+      "blob_oid": "fd445281d646f444d09693a1112815b3777a91f4",
+      "bytes": 6606873,
+      "sha256": "c554be80dc02a0f96d078b16197774c08e548577777f8864efb7fee9b86ed3df"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/06_memoryart_first_our_queens.png",
+      "blob_oid": "510137ba19a2f21f0ec36cc36feb74bcee205cc7",
+      "bytes": 6784577,
+      "sha256": "9ef1a4b80d252ee0010686ecb664ab71362c6ca354a0ee618fa46ea700f0b7d2"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/07_memoryart_lobby_orison_1928.png",
+      "blob_oid": "79228332f1953084e7d67a3a854a174b5d0b9cd7",
+      "bytes": 5767051,
+      "sha256": "c3b4120eecc6037ea9e2f93aa0f403ea8a6a7678f2126c266becff959025f07f"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/08_memoryart_basement_know_your_exit.png",
+      "blob_oid": "535d191d16ecb6376708ebad02183818d714ab16",
+      "bytes": 6595590,
+      "sha256": "a4799332859f9edb018935d2f25db5c94a1f9005bcd5208610081016fb35b786"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/09_wallart_mae_object_genealogy.png",
+      "blob_oid": "5e58856a268f81666095bb4340270a77a7acf6f9",
+      "bytes": 6272278,
+      "sha256": "db79faca1b9a46f022b8823237efe628b67f15f48903bc4222bc8962f225a318"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/10_wallart_mae_provenance_unknown.png",
+      "blob_oid": "0de636aec7c9cddc43a95a07545eb2d31e75a4cf",
+      "bytes": 7255526,
+      "sha256": "d48185e2e2a0fa86583195f93971d830467077a94784f4526a168cfb5876800a"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/11_wallart_jonah_words_missing.png",
+      "blob_oid": "55c60a6a9924315d5495011d7d727a9b3e7a1ec2",
+      "bytes": 6105319,
+      "sha256": "785e16ab961aadec2df9b1c5a5688d9167efb99cccb171dd2e4557418ce3684d"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/12_wallart_jonah_begin_anywhere.png",
+      "blob_oid": "dcebc09bceafe3af14623618b181e92247f5594a",
+      "bytes": 4756187,
+      "sha256": "1241af39016c716300bcddc35d2d147a0fceda44e335961834b36350d9cd8ac8"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/13_wallart_sacha_look_first.png",
+      "blob_oid": "700db21a7edbaaffade802602f48d739fa30953b",
+      "bytes": 6303296,
+      "sha256": "9d2e3a52172cc1c7b4e55da9402d5f07239a7517f4638bc2b7c6107a9da43e81"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/14_wallart_iris_impossible_fold.png",
+      "blob_oid": "6ed45d5c55b969e828e814f9bf63383e8bcf1d72",
+      "bytes": 5888737,
+      "sha256": "ff2a767edfd540ac3f9c375417185d8072046c615aec6909d18fbf017065570c"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/15_wallart_cal_signal_received.png",
+      "blob_oid": "0a9f8ef5b551ccfa08059b66796efd147da09e27",
+      "bytes": 6034335,
+      "sha256": "ddc0215b4aad9eda37462812680147bc5c19e3bafe79d63f9e0fc3d63cb40cb8"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/16_wallart_nadia_people_live_here.png",
+      "blob_oid": "ee3b6e645e8e2a708b284353c5427110f3f346af",
+      "bytes": 6851690,
+      "sha256": "268b37f8ba32e761f6559179eb3b2966f29e8d2f3855c24d1b9cec5bc6bd7bc8"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/17_wallart_guests_you_are_here.png",
+      "blob_oid": "3c1adcda51fcbb39cfaa69d3ba05e155696dbc99",
+      "bytes": 5168939,
+      "sha256": "826b7e4c01a02c33ee6d016897363770ef76e03fc79c80bc02076df99b04b7a8"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/18_wallart_noel_ordinary_objects.png",
+      "blob_oid": "55dbfc656b9a178d79e2c4c79f28aaf5dbbc5c60",
+      "bytes": 3339816,
+      "sha256": "4f9ab42bff55a57b4b69652b8217be8d9cff092e8a874ddc2cd235288349c068"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/19_wallart_cam_stolen_bike_route.png",
+      "blob_oid": "658eda5fa3100c8a7acf8e85f55528844a6ff8e4",
+      "bytes": 6804911,
+      "sha256": "916298c5e88cd1534ba6a977938e580c90b9ea405cb42247f52a86d99addc3bd"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/20_wallart_peter_proceed_uncertain.png",
+      "blob_oid": "5fc2075bf4cc9767657ad8125618ebaf4a1253cf",
+      "bytes": 4843494,
+      "sha256": "0d0028b5afa0da0c57079ada2774d1de2e2d6c1202bc4f74cd2ca5b56e736617"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/21_wallart_rhea_one_bad_note.png",
+      "blob_oid": "8b84bf6f575c1a0d1be05013596979ad4d3cd02b",
+      "bytes": 6840723,
+      "sha256": "0ddd5f9b59d63453235332d18e7900166d533a9df933136deddfd2b96cee7479"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/22_wallart_omar_repair_manual.png",
+      "blob_oid": "c0d178b435504fae9de57f55ce15c453cdb10fe6",
+      "bytes": 5174536,
+      "sha256": "e512e7462003e218558e74e5e04097d0c8b94e6207c21c9e253bf3ca5adf25de"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/23_wallart_malcolm_propagation_plate.png",
+      "blob_oid": "ff0d29d01e3bd173b219846431b827b9005ad36e",
+      "bytes": 4703825,
+      "sha256": "80b3141d31e874239be0df68124853b7e103ac750cbab042a20cb84f1d6712cd"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/24_wallart_juno_open_channel.png",
+      "blob_oid": "df63b8a47c1374216253ecd8a0cd35e8da30668f",
+      "bytes": 6391229,
+      "sha256": "5b6763b358d282c10547a44c3eae1a24c24b1262da2f54c59d20a9ec9801104a"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/25_wallart_lena_visible_mends.png",
+      "blob_oid": "5ec500736372407e7f3a646d65599a09b351b1db",
+      "bytes": 6401676,
+      "sha256": "479704649f40558361c7cb76186d278a4da709a756a73a3f541084a93980b90e"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/26_wallart_mina_the_unsaid.png",
+      "blob_oid": "ac3e16412e63d9e499592b5915474ca7da236120",
+      "bytes": 4539855,
+      "sha256": "77728fb6bf6ad93c169195f157d25efeca2bc8b75a44c631ba9cdaff098208a2"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/27_wallart_teresa_quiet_please.png",
+      "blob_oid": "9d4f49e412f1cb6d41e13d3ec770a0adc8edf9d8",
+      "bytes": 6492900,
+      "sha256": "a65cef3c214d6f346cbfe829688f89fd73d1e21a1b73e4ae12be866482dde98e"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/28_wallart_evelyn_good_enough.png",
+      "blob_oid": "89572f88babdb26782b56fc03624a76ca4a059b9",
+      "bytes": 4694136,
+      "sha256": "54e660260cacebf3ad3b9da3c4359a39cb502a6cec29ab12eb48ba47e150a2cc"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/29_memoryart_mae_young_cataloger.png",
+      "blob_oid": "82c8f25e1ecde55759d31de91c79de015daca2e7",
+      "bytes": 3392188,
+      "sha256": "7a485fa94f97ebd4f85978d054c5046e370b857ed8c2e3ca8f4b5244b13ae6e9"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/30_memoryart_mae_inherited_box.png",
+      "blob_oid": "bb589ec4fbcfd3e1fd51261dc87db7ad64473b34",
+      "bytes": 3819680,
+      "sha256": "7fa8c7fbb85242b51b9258842605115c5cc672108dea0007a25cb75af154c275"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/31_memoryart_jonah_listening_watercolor.png",
+      "blob_oid": "a5aed83b235278f057c8d5737ec9ebde80b69397",
+      "bytes": 3653491,
+      "sha256": "f0b88e2930804de146e01a2b7012b61aae3b6e20f3e375d86e16ea9ea3d1f847"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/32_memoryart_jonah_unfinished_words.png",
+      "blob_oid": "2d30d2bc87558e6d071ceddd491e3fe79f0c920e",
+      "bytes": 7134217,
+      "sha256": "72ae046ab697f8270d61710a8a622c9a06633a229e088ba0638cc5b8625ae599"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/33_memoryart_sacha_camera_lowered.png",
+      "blob_oid": "58f5aa112c7e54184a284b3053c4b7b66997f3ea",
+      "bytes": 5953334,
+      "sha256": "336faf3c29f4d5d769d0f86bf31fb302e475ec5c0339dfe4839f7f8710f7bc6a"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/34_memoryart_iris_self_portrait.png",
+      "blob_oid": "0fb9d7818b02d284e8b341eacd9c4e163ef74567",
+      "bytes": 5482152,
+      "sha256": "48082984ab7a98914157fbc7f83296d90cc3ad12d713dac6f08e755b49c80b78"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/35_memoryart_cal_human_signal.png",
+      "blob_oid": "10ac9b7d2237a5463e1f98a87faee8e522d5ae3d",
+      "bytes": 5894054,
+      "sha256": "2b0c49d1dd706444ec281fcf05d7b79ac4d28d830528d5a7de884bf50832f512"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/36_memoryart_nadia_humane_plan.png",
+      "blob_oid": "5f41f4fb6aba7e129c9a39737fd99aae8a197543",
+      "bytes": 3970504,
+      "sha256": "b6e7e95d895a4c50ca4c1118cc50cb5e77d574fb5cf2563a2058d9c28b1ea5fe"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/37_memoryart_guests_safe_trip.png",
+      "blob_oid": "b943e39bcfb0006a69f3a24610e917457dc52576",
+      "bytes": 4164432,
+      "sha256": "19e60353e9dbe825c2ec3d41b1f400472c682b2bf217fb9bda9d0ee2409258fc"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/38_memoryart_noel_conservation.png",
+      "blob_oid": "b117dc8795f438d9ff59c6fc066b559e47d5eee0",
+      "bytes": 5706699,
+      "sha256": "136b0ef5e356ca7029e8d156f810c2c6898ae22bf8013d98715f55bde3b08ec6"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/39_memoryart_cam_delivery.png",
+      "blob_oid": "cd81e27e4becc018911fa768bb2a83270af76444",
+      "bytes": 7125439,
+      "sha256": "c84f09a4d3e0cc76a33a498a875abfdebc2afd4c6d23417d772b0e7227a97092"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/40_memoryart_peter_submitted.png",
+      "blob_oid": "03b139e2bb9119fdd3f318397aae903dec2a75ce",
+      "bytes": 6244463,
+      "sha256": "d2f1c0f5f62c5860212a22e29e4c194ecbb5af66667baf7c002f3b5d53569929"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/41_memoryart_rhea_before_stage.png",
+      "blob_oid": "da3fe3eb422ac32bf21e17e316e63a8ff63da617",
+      "bytes": 6584182,
+      "sha256": "474da2d74695a51dc6f5c2eb8bd2aa386673940d64b5e4a979947f1139c507e4"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/42_memoryart_omar_radio.png",
+      "blob_oid": "2a10811ae7bc452f867d7f5bb58346aefaab784f",
+      "bytes": 5862393,
+      "sha256": "bedf587cc5082e624658501158057ada741257a18ee8a3787108a538367351e1"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/43_memoryart_malcolm_cutting.png",
+      "blob_oid": "aa32fe074bafacc164d4693dc897ef1c7f4fcf1c",
+      "bytes": 6751039,
+      "sha256": "c3b22bc2e0f888cb8ae1769669149ab67f51d16c24f2e6fd9ddb5020ab035bd0"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/44_memoryart_juno_session.png",
+      "blob_oid": "a9926cadfd1c388448ee79e5f7dbe32a5b316d2f",
+      "bytes": 5961093,
+      "sha256": "b209d357f3a013419a2529f630fe5f0609e5731a0b8c8dae577d993cbdc95186"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/45_memoryart_lena_visible_mend.png",
+      "blob_oid": "4429b8e1374b1bfb87fe23e86598efd854706c73",
+      "bytes": 4224077,
+      "sha256": "0807515109fe63559ef3408938dd431496a86482c542aee4f02d1127d08da547"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/46_memoryart_mina_caption_desk.png",
+      "blob_oid": "9618101479fbab73e16816ba29820903d6fccd42",
+      "bytes": 6687235,
+      "sha256": "c4e64b2f9015ea7992755c6c51af7316b57ec06c3aeab88cf02fceb38e766c10"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/47_memoryart_teresa_night_shift.png",
+      "blob_oid": "ccd349a292a4ff49feccfd46d0fbb4b73d782021",
+      "bytes": 3796306,
+      "sha256": "681cbce1a2642c8477cdd4d0a3ca10c86a4e5f4ecda19eecd631b7290a39bed9"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/48_memoryart_evelyn_retirement.png",
+      "blob_oid": "520c15c535bd2a558ad30f4f11e6f0dccb0e540a",
+      "bytes": 6062158,
+      "sha256": "bfc6f2e7b2bf7486f716df177760f74654cc238e6abce1c23095bc8ac8f58f39"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/contact_1.jpg",
+      "blob_oid": "29d1a78f2262c7725b90d22ef658d03f36ae7a23",
+      "bytes": 135373,
+      "sha256": "529b1cb5ff89b0a294e7b3fc904a037a5c6a2bbfd216b7b02242d666cc8af1b6"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/contact_2.jpg",
+      "blob_oid": "3d6f7ffaf2942cfeda2a56f8870ffd8195062eb4",
+      "bytes": 132836,
+      "sha256": "2b1c9e6c4fd1c9eaa7dbc28254e671bbfc686aa7bd85d3287a0902fa4d50e898"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/contact_3.jpg",
+      "blob_oid": "920ce398a7ce47d533898472f22f79fb7f8cb579",
+      "bytes": 126280,
+      "sha256": "2b9d01ea169996c49e8e1eede7454bdbc1cc0fe2a6af3af6dd38057996d71ece"
+    },
+    {
+      "path": "art/renders/wall_art_audit_final/contact_4.jpg",
+      "blob_oid": "e99df0792792466006544c8c142440ecf80d3486",
+      "bytes": 117975,
+      "sha256": "d331d4ba1df87a1925643302a541dc343df400de8b46ea1e9d4aef0717c93e32"
+    }
+  ]
+}
