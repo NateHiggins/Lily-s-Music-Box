@@ -3,6 +3,7 @@ extends ServiceSetCarrier
 ## lamp, print and WorkOrders owner. V2 always presents this autonomous bot.
 const Motion := preload("res://scripts/device/companion_motion.gd")
 const Mechanism := preload("res://scripts/device/companion_mechanism.gd")
+const PRESENTATION_SCALE := 0.42 # Native closed envelope becomes 83 × 153 mm.
 var motion: Motion
 var rig: Mechanism
 var world_ready := false
@@ -58,7 +59,7 @@ func _refresh_optical_output() -> void:
 func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) -> void:
 	_player = player
 	player.get_parent().add_child(self)
-	reading_distance = .44
+	reading_distance = .22
 	motion = Motion.new()
 	motion.name = "CompanionFlight"
 	motion.screen_framed = true
@@ -70,6 +71,7 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 		failure = "Native companion presentation refused"
 		push_error(failure)
 		return
+	rig.scale = Vector3.ONE * PRESENTATION_SCALE
 	setup_records.append({"stage":"asset_and_presentation_bind", "start_usec":asset_started, "end_usec":Time.get_ticks_usec()})
 	device = rig.device
 	var lens: MeshInstance3D = device.teletype.torch_lens
@@ -108,7 +110,7 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	set_process(true)
 
 func reading_limits() -> Vector2:
-	return Vector2(.44, .72)
+	return Vector2(.18, .32)
 
 func adjust_reading_distance(amount: float) -> void:
 	super.adjust_reading_distance(amount)

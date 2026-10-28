@@ -17,6 +17,10 @@ var _has_reading_bounds := false
 var _main_mask := 0
 var _last_basis := Basis.IDENTITY
 var _lean := Vector3.ZERO
+var _lean_velocity := Vector3.ZERO
+var _drift := Vector2.ZERO
+var _drift_velocity := Vector2.ZERO
+var _flight_clock := 0.0
 var _size := Vector2i.ZERO
 var _environment: Environment
 
@@ -105,14 +109,14 @@ func advance(delta: float, reading: bool) -> void:
 	if size.x < 2.0 or size.y < 2.0: return
 	# Reserve the centre/reticle and leftward view even while reading. The
 	# transition never sweeps the bot across that protected view corridor.
-	safe_rect = Rect2(Vector2(.53, .02), Vector2(.46, .96)) if reading else Rect2(Vector2(.72, .49), Vector2(.27, .49))
+	safe_rect = Rect2(Vector2(.67, .03), Vector2(.32, .94)) if reading else Rect2(Vector2(.70, .12), Vector2(.29, .83))
 	var pixels := Rect2(safe_rect.position * size, safe_rect.size * size)
 	image.position = pixels.position; image.size = pixels.size
 	var wanted_size := Vector2i(pixels.size.round()).max(Vector2i(2, 2))
 	if wanted_size != _size:
 		_size = wanted_size; view.size = _size
 	# A cropped off-axis camera has exactly the main camera's rays. Render
-	# only the reserved rectangle (13% travelling / 44% reading at 16:9).
+	# only the contextual right-third rectangle, with no extra render pass.
 	var half_height := tan(deg_to_rad(camera.fov) * .5) * camera.near
 	var aspect := size.x / size.y
 	if camera.keep_aspect == Camera3D.KEEP_WIDTH: half_height /= aspect
@@ -121,16 +125,42 @@ func advance(delta: float, reading: bool) -> void:
 		Vector2((center.x * 2.0 - 1.0) * half_height * aspect,
 		(1.0 - center.y * 2.0) * half_height), camera.near, camera.far)
 	view_camera.global_transform = camera.global_transform
-	# Finite, acceleration-driven expression only: no perpetual bob or chase
-	# lag. Exact camera-relative placement wins over scenery, pitch and speed.
+	# Flight path is expression: a small machine hunts for a station, then
+	# banks against its own drift to recover upright. This remains bounded in
+	# screen space; no scenery scan or expensive simulated rotor physics.
+	var dt := clampf(delta, 0.0, .1)
+	var intensity: float = carrier.motion.motion_intensity
+	if bool(GameBoot.settings.get("reduce_camera_roll", false)): intensity *= .15
+	var held: bool = carrier.motion.stationary_for_hand or (carrier.session != null and (carrier.session.typing or carrier.session.opening))
+	_flight_clock += dt
+	var station := floorf(_flight_clock / 1.9)
+	var wander := Vector2(sin(station * 2.39996), sin(station * 1.618 + .7))
+	var target_drift := wander * Vector2(.017, .030) * intensity
+	if reading: target_drift *= .12
+	if held: target_drift = Vector2.ZERO
+	# Exact critically damped station correction, stable across render rates.
+	var omega := 5.0 if reading else 2.8
+	var error := _drift - target_drift
+	var impulse := _drift_velocity + error * omega
+	var decay := exp(-omega * dt)
+	_drift = target_drift + (error + impulse * dt) * decay
+	_drift_velocity = (_drift_velocity - impulse * omega * dt) * decay
 	var turn := _last_basis.inverse() * camera.global_basis
 	var turning := turn.get_euler() / maxf(delta, .001)
 	_last_basis = camera.global_basis
-	var desired := Vector3(clampf(-carrier._player.velocity.length() * .008, -.055, 0.0),
-		clampf(turning.y * .015, -.045, .045), clampf(-turning.y * .02, -.06, .06))
-	if reading or carrier.motion.stationary_for_hand: desired = Vector3.ZERO
-	_lean = _lean.lerp(desired * carrier.motion.motion_intensity, 1.0 - exp(-maxf(delta, 0.0) * 14.0))
-	if reading: _lean = Vector3.ZERO
+	var desired := Vector3(clampf(-carrier._player.velocity.length() * .018 - _drift_velocity.y * 3.0, -.13, .10),
+		clampf(turning.y * .035, -.13, .13), clampf(-turning.y * .055 - _drift_velocity.x * 7.0, -.22, .22)) * intensity
+	if reading: desired *= .12
+	if held: desired = Vector3.ZERO
+	# Slightly underdamped attitude correction sells effort without jitter.
+	var steps := maxi(1, int(ceil(dt * 120.0)))
+	var step := dt / steps
+	for index in steps:
+		_lean_velocity += ((desired - _lean) * 80.0 - _lean_velocity * 11.0) * step
+		_lean += _lean_velocity * step
+	if held:
+		_drift = Vector2.ZERO; _drift_velocity = Vector2.ZERO
+		_lean = Vector3.ZERO; _lean_velocity = Vector3.ZERO
 	var slope := half_height / camera.near
 	var toward_reader := Vector3(-(center.x * 2.0 - 1.0) * slope * aspect,
 		-(1.0 - center.y * 2.0) * slope, 1.0)
@@ -139,22 +169,24 @@ func advance(delta: float, reading: bool) -> void:
 	# Reading frames the useful paper and tray; projecting every rotor and
 	# corner protector would shrink the copy to an unreadable postage stamp.
 	# Peripheral machinery may leave the cropped frame, never enter the view.
-	var fitted := reading_bounds if reading and _has_reading_bounds else stock_bounds
+	var source := reading_bounds if reading and _has_reading_bounds else stock_bounds
+	var fitted := AABB(source.position * carrier.PRESENTATION_SCALE, source.size * carrier.PRESENTATION_SCALE)
 	var rotated := AABB(relative_basis * fitted.get_endpoint(0), Vector3.ZERO)
 	for corner in range(1, 8): rotated = rotated.expand(relative_basis * fitted.get_endpoint(corner))
-	var extents := rotated.size * (1.025 if reading else 1.14)
+	var extents := rotated.size * (1.04 if reading else 1.4)
 	var depth := maxf(extents.y / (2.0 * slope * safe_rect.size.y),
 		extents.x / (2.0 * slope * aspect * safe_rect.size.x)) + extents.z * .5
-	depth = maxf(depth, .44)
-	if reading: depth *= clampf(carrier.reading_distance / .44, 1.0, 1.25)
+	depth = maxf(depth, .18)
+	if reading: depth *= clampf(carrier.reading_distance / .22, .82, 1.45)
+	center += _drift
 	var origin := Vector3((center.x * 2.0 - 1.0) * depth * slope * aspect,
 		(1.0 - center.y * 2.0) * depth * slope, -depth)
 	carrier.motion.global_transform = Transform3D(camera.global_basis,
 		camera.global_position + camera.global_basis * (origin - relative_basis * fitted.get_center()))
-	carrier.rig.basis = relative_basis
+	carrier.rig.basis = relative_basis.scaled(Vector3.ONE * carrier.PRESENTATION_SCALE)
 	carrier.motion.velocity = Vector3.ZERO
 	carrier.motion.screen_settled = true
-	carrier.rig.propulsion = clampf(.5 + carrier._player.velocity.length() * .13 + turning.length() * .025, .5, 1.6)
+	carrier.rig.propulsion = clampf(.5 + carrier._player.velocity.length() * .13 + turning.length() * .04 + _drift_velocity.length() * 14.0 + _lean_velocity.length() * .12, .5, 1.6)
 	# The real optical aperture follows the visible manufactured pose.
 	carrier.beam_valid = true
 

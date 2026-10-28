@@ -79,10 +79,58 @@ func _route() -> void:
 	temporary.queue_free()
 	await get_tree().process_frame
 	_require(not carrier.is_story_absent() and carrier.rig.is_visible_in_tree(),"owner removal releases absence without stale hidden rig")
+	await _review_refit(carrier)
 	var out := OS.get_environment("SHOT_DIR")
 	var file := FileAccess.open(out.path_join("tutorial_slice.json"),FileAccess.WRITE)
 	if not _require(file!=null,"diagnostic output is writable"): return
 	file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual bed-to-bath walking and curtain/cold/hot/shutoff input; no DREAM, body reveal, visitor, crossing, typing arm, finale or production-entry acceptance.","state":director.state,"errors":director.errors,"failures":failures},"\t"))
+
+func _review_refit(carrier: Node) -> void:
+	player.face_world_point(director._bath_anchor.origin)
+	var old_cap := Engine.max_fps
+	var records: Array[Dictionary]=[]
+	var min_up := 1.0
+	var valid := true
+	var drift_min := Vector2(INF,INF)
+	var drift_max := Vector2(-INF,-INF)
+	for cap in [30,60,144]:
+		Engine.max_fps=cap
+		var walls: Array[float]=[]
+		var previous := Time.get_ticks_usec()
+		for index in 100:
+			if index in [10,35,65]:
+				var turn := InputEventMouseMotion.new()
+				turn.relative=Vector2(35 if index!=35 else -70,0)
+				player._unhandled_input(turn)
+			await get_tree().process_frame
+			var now := Time.get_ticks_usec()
+			walls.append(float(now-previous)/1000.0);previous=now
+			valid=valid and carrier.motion.global_transform.is_finite() and carrier.rig.global_transform.is_finite()
+			var up: Vector3=carrier.rig.global_basis.y.normalized()
+			min_up=minf(min_up,up.dot(player.camera.global_basis.y.normalized()))
+			var drift: Vector2=carrier.screen_frame._drift
+			drift_min=drift_min.min(drift);drift_max=drift_max.max(drift)
+			var rect: Rect2=carrier.screen_frame.safe_rect
+			valid=valid and rect.position.x>=2.0/3.0 and rect.end.x<=1.0
+		walls.sort()
+		records.append({"cap":cap,"wall_ms_p50":walls[50],"wall_ms_p95":walls[95],"wall_ms_p99":walls[99],"wall_ms_max":walls[-1]})
+	Engine.max_fps=old_cap
+	_require(valid and min_up>.95,"phone refit remains finite, upright and in the contextual right third at 30/60/144 caps")
+	_require((drift_max-drift_min).length()>.005,"accompanying bot follows a visible bounded flight path instead of a pinned pose")
+	_require(carrier.rig.global_basis.get_scale().distance_to(Vector3.ONE*.42)<.0001,"single manufactured assembly retains uniform phone-sized scale")
+	player.face_world_point(director._bath_anchor.origin)
+	await get_tree().create_timer(.8).timeout
+	await _shot("bathroom_phone_accompany.png")
+	for pressed in [true,false]:
+		var key := InputEventKey.new();key.keycode=KEY_E;key.physical_keycode=KEY_E;key.pressed=pressed
+		Input.parse_input_event(key);Input.flush_buffered_events()
+		await get_tree().process_frame
+	await get_tree().create_timer(1.5).timeout
+	_require(carrier.reading and carrier.motion.steady_for_input(),"actual recall presents refitted physical interface")
+	await _shot("bathroom_phone_reading.png")
+	var out := FileAccess.open(OS.get_environment("SHOT_DIR").path_join("phone_flight.json"),FileAccess.WRITE)
+	if _require(out!=null,"flight diagnostic output writable"):
+		out.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Occupied 4B capped-rate station-keeping and camera-turn diagnostic; no matched performance gain or artistic acceptance.","records":records,"minimum_upright_dot":min_up,"drift_span":str(drift_max-drift_min)},"\t"))
 
 func _shot(name_: String) -> void:
 	await RenderingServer.frame_post_draw

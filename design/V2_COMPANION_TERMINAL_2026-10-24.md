@@ -23,9 +23,40 @@ keyboard hand input and typography. Recheck the external typing-arm prototype's
 reach, stow envelope and attachment after any dimensional refit. Native arm
 acceptance at its old dimensions does not qualify a resized installation.
 
-Status: requested refit, not yet implemented or visually accepted. Integrate
-with the prologue's withheld-presence/reveal rather than showing the companion
-early. Existing historical measurements below retain their original scope.
+First refit implemented: the unchanged native closed assembly measures
+196.82 ×363.65 ×219.00 mm including propulsion. A uniform0.42 presentation
+scale yields82.66 ×152.73 ×91.98 mm, preserving joints and circular hardware.
+The same rig serves mirrors, controls and the native-aperture lamp. Reading
+standoff is adjustable0.18–0.32 m, default0.22 m. A contextual right-third
+crop replaces the former46%-width reading crop. No texture, light, shadow
+pass, collision scan or second rig is added; this is not a measured speedup.
+
+Bounded station targets, damped position and underdamped attitude correction
+produce a wandering flight path and effortful upright recovery. Propulsion
+responds to travel, turns and corrective movement. Reading reduces motion;
+typing/hand manipulation holds still. Existing reduced-camera-roll preference
+reduces the flight expression. This is presentation motion, not rotor physics.
+
+Diagnostics under **C:/ov/reports/prologue_20261028/**:
+**phone_refit_hand_first.log.receipt.json** passes87 actual native hand-control
+checks, but reports four ObjectDB instances and two resources at shutdown;
+retain that warning, not a clean-teardown claim. **phone_refit_typing.log.receipt.json**
+passes62 typing/focus/parser/validated-save checks with empty stderr; the rendered
+physical draft and keyboard were reviewed. **tutorial_phone_atmosphere.log.receipt.json**
+passes the occupied six-waypoint curtain/valve route and added flight/recall
+checks with empty stderr. Its full-resolution accompanied/reading captures were
+reviewed. Short30/60/144-cap samples keep upright dot≥0.9953 and span1.90% viewport
+width/2.93% height in station drift. Actual median frame times are63.74/63.96/64.26 ms,
+with maxima73.67/83.17/75.87 ms: the caps did not establish those achieved rates.
+These short diagnostic samples have no matched baseline or GPU/script cost
+attribution. Fullscreen world performance remains unresolved.
+
+Still open: owner approval of size/expressiveness and readability across aspect
+ratios, mirror optical review at the smaller physical scale, renewed surface
+qualification after scale changes, and native typing-arm fit/integration. The
+prologue withholds this same rig until its reveal. Existing historical
+measurements below retain their original scope; no full companion or V2
+acceptance is claimed here.
 
 ## Audit before replacement
 
