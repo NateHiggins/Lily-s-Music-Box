@@ -69,18 +69,18 @@
     },
     {
       "id": "site_nw2",
-      "description": "Older brick flats with slender sash and uneven roller shades",
+      "description": "Three attached Hunters Point Italianate houses: brick over stone plinths, nine front bays, segmental hoods, three pedimented closed entries and separate four-bracket timber cornices",
       "massing": "straight_eave",
       "storey_height": 2.86,
-      "bay_pitch": 2.22,
-      "window_width": 1.0,
-      "window_height": 1.76,
+      "bay_pitch": 2.66,
+      "window_width": 1.3,
+      "window_height": 2.15,
       "sash": "door_paint",
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
         0.78,
-        0.72,
-        0.65,
+        0.6,
+        0.48,
         1
       ],
       "frame_tint": [
@@ -97,7 +97,27 @@
       "window_treatment": "roller",
       "sill_projection": 0.085,
       "lintel_height": 0.12,
-      "variation_seed": 1962
+      "variation_seed": 1962,
+      "floor_heights": [
+        3.6,
+        3.65,
+        3.65
+      ],
+      "architecture": {
+        "type": "hunters_point_italianate",
+        "front_side": 1,
+        "arch_rise_m": 0.18,
+        "terraces": 3
+      },
+      "precedent": {
+        "name": "21-09 through 21-17 45th Avenue, Root and Rust, 1871\u201372",
+        "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
+        "pdf_pages": [
+          3,
+          4
+        ],
+        "adaptation": "Three-house terrace informed by the documented brick Italianate row and its four-bracket cornices, hoods and pediments. Authored proportions fit the existing 23.18 m frontage / 8 m deep reservation and preserve roof equipment. Street-level closed entries adapt the raised stoops. Not surveyed replicas or accessible interiors."
+      }
     },
     {
       "id": "site_nw3",
