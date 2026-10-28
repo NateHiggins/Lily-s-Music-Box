@@ -735,18 +735,18 @@
     },
     {
       "id": "site_far_ne",
-      "description": "The Towers, 33-16 81st Street, Andrew J. Thomas, 1923\u201325 \u2014 authored proportion repair; individual architectural study remains open",
+      "description": "Towers-inspired six-storey Italianate court apartment with three grouped front bays, open entry court and tiled corner belvedere",
       "massing": "single_upper_setback",
       "storey_height": 3.08,
-      "bay_pitch": 2.4,
-      "window_width": 1.4,
-      "window_height": 1.94,
+      "bay_pitch": 3.25,
+      "window_width": 1.15,
+      "window_height": 1.95,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "brick",
       "wall_tint": [
-        1,
-        1,
-        1,
+        0.69,
+        0.51,
+        0.4,
         1
       ],
       "frame_tint": [
@@ -758,8 +758,8 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
-      "window_joinery": "paired_sash",
+      "detail_faces": "all",
+      "window_joinery": "single_sash",
       "window_treatment": "mixed",
       "sill_projection": 0.12,
       "lintel_height": 0.21,
@@ -780,12 +780,51 @@
         3.2
       ],
       "precedent": {
-        "name": "The Towers, 33-16 81st Street, Andrew J. Thomas, 1923\u201325",
+        "name": "The Towers, 33-51 80th Street, Andrew J. Thomas, 1923\u201325",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
-          143
+          143,
+          34,
+          67
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Six-storey Italianate hierarchy; asymmetrical corner tower, loggia, tiled roof and U court remain to be constructed."
+        "adaptation": "A six-storey authored mass with a 3.8 m-deep court and a small roof belvedere; no replica or new interior. Tiled hip, open arches and asymmetric corner emphasis adapt the documented south end building. Legacy slabs are cut for the court, with original equipment bearings verified."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "towers",
+        "front_side": 0,
+        "arch_rise_m": 0.55,
+        "belvedere_rect": [
+          44,
+          28,
+          49,
+          33
+        ],
+        "segments": {
+          "0": [
+            [
+              0,
+              11,
+              0,
+              3,
+              false
+            ],
+            [
+              11,
+              23,
+              3.8,
+              3,
+              true
+            ],
+            [
+              23,
+              34,
+              0,
+              3,
+              false
+            ]
+          ]
+        }
       }
     },
     {
@@ -930,18 +969,18 @@
     },
     {
       "id": "site_far_s",
-      "description": "The Chateau, 34-22 81st Street, Andrew J. Thomas, 1922 \u2014 authored proportion repair; individual architectural study remains open",
+      "description": "Chateau-inspired asymmetric French apartment: five-storey shaft, sixth-storey end pavilion, two-pitch slate mansard and four actual dormers",
       "massing": "single_upper_setback",
       "storey_height": 3.02,
-      "bay_pitch": 2.38,
-      "window_width": 1.37,
-      "window_height": 1.91,
+      "bay_pitch": 3.0,
+      "window_width": 1.15,
+      "window_height": 1.9,
       "sash": "door_paint",
-      "wall_key": "limestone",
+      "wall_key": "brick",
       "wall_tint": [
-        0.78,
-        0.72,
         0.65,
+        0.43,
+        0.36,
         1
       ],
       "frame_tint": [
@@ -953,7 +992,7 @@
       "window_recess": 0.17,
       "reveal_depth": 0.26,
       "lintel_key": "limestone",
-      "detail_faces": "inward",
+      "detail_faces": "all",
       "window_joinery": "paired_sash",
       "window_treatment": "mixed",
       "sill_projection": 0.14,
@@ -975,12 +1014,20 @@
         3.3
       ],
       "precedent": {
-        "name": "The Chateau, 34-22 81st Street, Andrew J. Thomas, 1922",
+        "name": "The Chateau, 34-01\u201334-05 80th Street, Andrew J. Thomas, 1922",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
-          145
+          145,
+          69,
+          67
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Taller end-building hierarchy; asymmetric wing, mansard, dormers and carved portal remain to be constructed."
+        "adaptation": "Authored end-building hierarchy, not the previously selected central C pair. Five-storey body, one six-storey pavilion and real dormer cuts in a double-pitch slate skirt; original equipment deck and verified bearing heights remain. This is a fictional Queens adaptation, not a replica, extra accessible floor or new route."
+      },
+      "architecture": {
+        "type": "court_apartment",
+        "style": "chateau",
+        "front_side": 2,
+        "arch_rise_m": 0.44
       }
     },
     {

@@ -714,3 +714,46 @@ renewal, candidate verification and merge remain **NOT_EXECUTED**. The earlier
 This work remains WIP; the active queue still counts only five qualified city
 studies and 144 unfinished identities. Reproduction and failure records remain
 under **C:/ov/reports/city_reference_next_20261028**.
+
+
+### Six native forms and imported diagnostics — October 28 WIP
+
+Towers now adds a real 3.8 m-deep court and a seated corner belvedere with
+2.4 m internal wall height, twelve open arches, solid jambs and a closed tiled
+hip. Its top is **23.61 m** in source coordinates. Chateau replaces the obsolete
+sixth-storey perimeter with a five-storey body, six-storey end pavilion,
+two-pitch slate mansard and four closed dormers. The roof is actually cut at
+the dormers; masonry cheeks, gabled caps and galvanized valley flashing join
+the host roof. The existing equipment deck/bearing elevations remain exact.
+Its highest corner cap is **22.61 m**. These dimensions are authored adaptations,
+not a surveyed replica of the historical buildings.
+
+The first six-building pass caught eight twisted dormer roof quads, with
+roughly 4–5 cm surface discrepancies. Rear eave heights now give planar stock;
+a planarity assertion and all original 0.1 mm surface tolerances remain. Roof
+UVs use horizontal courses and metric downslope axes, with updated exported
+tangent guides. Native results: **3,396 panes / 1,205 bearings / 12 wall returns /
+74 roof surfaces**, zero failures. Final native whole-building and roof-detail
+renders were inspected; those do not constitute owner artistic acceptance.
+
+The windowed native-resolution imported bench now passes **5,557 checks /
+1,205 roof samples / 950 draws / zero failures**, empty shutdown stderr. It
+checks actual loaded PBR mipmaps/derivatives, roof surfaces and twelve open arch
+rays with twelve adjacent solid-jamb controls. Two failed runs preserve an
+untyped ray-result declaration in the new world-view test. The first attempted
+edit guard did not apply, so the second run repeated the same failure; explicit
+Dictionary declarations fix it. Tests and tolerances are not weakened. Nine
+new sidecars were configured with the established V2 import policy; other
+settings were already correct. Task-generated UID/EOL churn was archived before
+named cleanup; an empty orphan index lock was removed only after a no-live-Git,
+exclusive-open and unchanged-metadata check.
+
+Provisional elevation cost is **862,859 triangles / 242 draws / 86,784,956 GLB
+bytes**, against main's **705,821 / 239 / 70,928,092**. No performance gain is
+claimed. New actual-world daylight/dusk viewpoints are derived from source
+bounds and require first-hit visibility with real blockers retained. These are
+posed construction views, not new player access or calendar progression. Their
+execution, the occupied-world before/after comparison, full surface renewal,
+candidate verification and merge remain pending. This WIP is not production
+qualification; the queue's five qualified studies / 144 remaining identities
+remain unchanged until the full batch qualifies.
