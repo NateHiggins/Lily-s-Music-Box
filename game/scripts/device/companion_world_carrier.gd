@@ -28,6 +28,33 @@ var _world_story_draws:Array[Dictionary]=[]
 var _world_story_mask:=0
 var _housing_shadow:MeshInstance3D
 var _reflection_shadow_home:=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+var story_attitude:=Vector3.ZERO
+var story_nudge:=Vector2.ZERO
+var story_depth_scale:=1.0
+var _story_pose_owner_id:=0
+
+func story_pose_active() -> bool:return _story_pose_owner_id!=0
+
+func set_story_face(owner:Node,expression:String) -> bool:
+	if _player.text_input_owner!=owner or expression not in ["sympathetic","grinning","conspiratorial","thoughtful"]:return false
+	_story_pose_owner_id=owner.get_instance_id()
+	rig.reaction_player.cancel(false)
+	rig.face_emotion=expression
+	rig.display.set_expression(expression)
+	return true
+
+func set_story_pose(owner:Node,attitude:Vector3,nudge:Vector2,depth_scale:=1.0) -> bool:
+	if _player.text_input_owner!=owner or not attitude.is_finite() or not nudge.is_finite() or not is_finite(depth_scale):return false
+	_story_pose_owner_id=owner.get_instance_id()
+	story_attitude=attitude.clamp(Vector3.ONE*-.12,Vector3.ONE*.12)
+	story_nudge=nudge.clamp(Vector2.ONE*-.012,Vector2.ONE*.012)
+	story_depth_scale=clampf(depth_scale,.96,1.04)
+	return true
+
+func release_story_pose(owner:Node) -> void:
+	if is_instance_valid(owner) and _story_pose_owner_id==owner.get_instance_id():
+		_story_pose_owner_id=0;story_attitude=Vector3.ZERO;story_nudge=Vector2.ZERO;story_depth_scale=1.0
+		rig.face_emotion="";rig.display.set_expression("content")
 
 func story_world_active() -> bool:
 	return _world_story_owner!=null and is_instance_valid(_world_story_owner.get_ref())
@@ -309,6 +336,9 @@ func _update_lamp_target() -> void:
 
 func _advance_presentation(_delta: float) -> void:
 	if not world_ready: return
+	if _story_pose_owner_id!=0 and (not is_instance_valid(_player.text_input_owner) or _player.text_input_owner.get_instance_id()!=_story_pose_owner_id):
+		_story_pose_owner_id=0;story_attitude=Vector3.ZERO;story_nudge=Vector2.ZERO;story_depth_scale=1.0
+		rig.face_emotion="";rig.display.set_expression("content")
 	device.teletype.set_reading_illumination(reading and device.radio_powered and not is_capture_hidden())
 	if is_story_absent():
 		rig.request_keyboard(false)

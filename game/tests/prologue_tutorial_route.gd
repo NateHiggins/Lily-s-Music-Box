@@ -5,6 +5,7 @@ const BathCurtain := preload("res://scripts/props/clawfoot_curtain_motion.gd")
 const Household := preload("res://scripts/building/orison_v2_household_state.gd")
 var director: Node
 var frame_trace:Node
+var contact_optical:Array[Dictionary]=[]
 
 class FrameTrace extends Node:
 	var director:Node
@@ -78,6 +79,10 @@ func _route() -> void:
 	var draft_before: String=carrier.session.draft
 	var lamp_before: bool=player.lamp_is_enabled()
 	var radio_before: bool=carrier.device.radio_powered
+	var contact_source:=OS.get_environment("PROLOGUE_FIRST_CONTACT_SOURCE")
+	if not contact_source.is_empty():
+		await _review_first_contact(contact_source)
+		return
 	var crossing_source:=OS.get_environment("PROLOGUE_CROSSING_SOURCE")
 	if not crossing_source.is_empty():
 		await _review_crossing_snapshot(crossing_source)
@@ -315,7 +320,7 @@ func _review_crossing() -> bool:
 	var deadline:=Time.get_ticks_msec()+20000
 	while director.state.phase=="companion_crossing" and Time.get_ticks_msec()<deadline:await get_tree().process_frame
 	_require(director.state.phase=="first_contact" and director.state.effects.companion_materialized and not carrier.is_story_absent(),"completed physical and framing handoff acknowledges arrival through the existing reducer")
-	_require(player.text_input_owner==null and carrier._world_story_draws.is_empty() and not carrier._story_reflection and carrier.rig.get_instance_id()==rig_id and carrier.session.draft==draft,"arrival restores ordinary controls, layers and original rig without replacing the typed draft")
+	_require(player.text_input_owner in [null,director] and carrier._world_story_draws.is_empty() and not carrier._story_reflection and carrier.rig.get_instance_id()==rig_id and carrier.session.draft==draft,"arrival releases crossing input to ordinary control or the following contact owner, restoring layers and original draft")
 	_require(carrier._housing_shadow.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_ON,"physical housing keeps its world shadow after the temporary arrival lease ends")
 	await _shot("crossing_arrived.png")
 	var arrived_path:=OS.get_environment("SHOT_DIR").path_join("arrived_reload.json")
@@ -327,7 +332,7 @@ func _review_crossing() -> bool:
 	RealityState.save_path=arrived_path
 	RealityState.load_game();await get_tree().process_frame;await get_tree().process_frame
 	RealityState.persistence_enabled=false;RealityState.save_path=old_path
-	_require(director.state.phase=="first_contact" and not carrier.is_story_absent() and carrier.rig.get_instance_id()==rig_id and player.text_input_owner==null,"loading the later acknowledged arrival retires a resumed crossing without leaving the bot hidden or input owned")
+	_require(director.state.phase=="first_contact" and not carrier.is_story_absent() and carrier.rig.get_instance_id()==rig_id and player.text_input_owner in [null,director],"loading the later arrival retires crossing and permits only the following contact input owner")
 	return failures.is_empty()
 
 func _review_crossing_snapshot(source:String) -> void:
@@ -351,6 +356,127 @@ func _review_crossing_snapshot(source:String) -> void:
 	director.shutdown()
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("crossing_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","source":source,"source_sha256":FileAccess.get_sha256(source),"state":director.state,"errors":director.errors,"failures":failures,"limits":"Focused actual-world crossing/reload diagnostic from a previously test-written actual-input save. No new bedroom-to-bath route, full prologue, performance or human acceptance."},"\t"))
 	frame_trace.complete=failures.is_empty()
+
+func _review_first_contact(source:String) -> void:
+	var carrier:Node=world.service_set_carrier
+	var old_path:String=RealityState.save_path
+	var source_hash:=FileAccess.get_sha256(source)
+	var input_copy:=OS.get_environment("SHOT_DIR").path_join("arrival_input.json")
+	if not _require(DirAccess.copy_absolute(source,input_copy)==OK,"copy immutable actual-input source before any live save/reload"):return
+	RealityState.save_path=input_copy;RealityState.persistence_enabled=true;RealityState.load_game()
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	if not _require(director.state.phase=="first_contact" and director.state.effects.companion_materialized,"contact starts from a validated test-written physical-arrival save"):return
+	var mirror:MedicineCabinetProp=director.mirror
+	var at:Vector3=mirror.mirror_center()+mirror.mirror_normal()*1.1;at.y=mirror.global_position.y+.025
+	player.global_position=at;player.velocity=Vector3.ZERO;player.face_world_point(mirror.mirror_center())
+	var draft:String=carrier.session.draft
+	var rig_id:int=carrier.rig.get_instance_id()
+	if not _require(director.begin_waking_preview(),"actual director resumes acknowledged arrival without replaying crossing"):return
+	var expected:Array[String]=["Sorry you died.","But if it makes you feel better, I can help you solve your murder!","First we need to solve a bigger mystery.","Who were you?","I am connecting you to the present, please stay on the line..."]
+	var seen:Array[String]=[]
+	var interrupted:=false
+	var restored:=false
+	var thinking_start:=-1.0
+	var thinking_end:=-1.0
+	var deadline:=Time.get_ticks_msec()+140000
+	while Time.get_ticks_msec()<deadline and director.state.phase in ["first_contact","identity_mystery","temporal_command"]:
+		await get_tree().process_frame
+		var paper:Node=carrier.device.teletype
+		if director._contact_thinking_age>0 and thinking_start<0:thinking_start=Time.get_ticks_usec()/1000000.0
+		var copy:String=" ".join(str(paper.ink.text).replace("\n"," ").split(" ",false))
+		if paper.copy_delivered() and expected.has(copy) and not seen.has(copy):
+			seen.append(copy)
+			if copy==expected[3]:thinking_end=Time.get_ticks_usec()/1000000.0
+			var visible_pixels:int=await _contact_ink_pixels(paper)
+			_require(visible_pixels>copy.length()*4,"rendered green glyphs are visible above the closed tile face: "+copy)
+			await _shot("contact_%d.png"%seen.size())
+		if seen.size()==1 and not interrupted:
+			interrupted=true
+			var ink_pose:Vector3=paper.ink.position
+			paper.ink.position=paper._ink_home
+			await RenderingServer.frame_post_draw;await RenderingServer.frame_post_draw
+			var hidden_pixels:int=await _contact_ink_pixels(paper)
+			_require(hidden_pixels<=copy.length()*4,"the actual unfed impression datum remains an optical negative control behind the closed face")
+			paper.ink.position=ink_pose
+			await RenderingServer.frame_post_draw;await RenderingServer.frame_post_draw
+			_require(player.text_input_owner==director and not carrier.session.available(),"contact owns focus and suppresses autonomous chatter without overwriting correspondence")
+			var age:float=director._contact_age
+			get_tree().paused=true
+			await get_tree().create_timer(.3,true,false,true).timeout
+			_require(director._contact_age==age,"pause holds the actual printed-line reading interval")
+			get_tree().paused=false
+			carrier.device.set_radio_powered(false)
+			await get_tree().create_timer(.3).timeout
+			_require(director._contact_age==age and player.text_input_owner!=director,"power loss releases contact input and cannot acknowledge the unheard revelation")
+			carrier.device.set_radio_powered(true)
+			await get_tree().process_frame
+			age=director._contact_age;player.call_locked=true
+			await get_tree().create_timer(.3).timeout
+			_require(director._contact_age==age and player.protected_input_active() and player.text_input_owner!=director,"protected conversation retains its own lock while contact yields")
+			player.call_locked=false
+			await get_tree().process_frame
+			var press:=InputEventAction.new();press.action="companion_type";press.pressed=true;Input.parse_input_event(press)
+			await get_tree().process_frame
+			press=InputEventAction.new();press.action="companion_type";press.pressed=false;Input.parse_input_event(press)
+			_require(not carrier.session.typing and carrier.session.draft==draft,"actual type input cannot steal contact focus or erase the existing draft")
+		if seen.size()==2 and director.state.phase=="identity_mystery" and not restored:
+			restored=true
+			RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("identity_reload.json");RealityState.persistence_enabled=true
+			_require(RealityState.save_game(),"validated disk save records completed murder disclosure")
+			var identity_path:String=RealityState.save_path
+			player.call_locked=true
+			carrier.print_telegram_card({"title":"FIELD COPY","body":"Keep this unrelated report."})
+			var foreign_serial:int=carrier.device.teletype._serial
+			RealityState.save_path=input_copy;RealityState.load_game()
+			await get_tree().process_frame;await get_tree().process_frame
+			var stale:=false
+			for report:Dictionary in carrier.device.teletype.reports:
+				stale=stale or " ".join(report.pages).replace("\n"," ").contains("solve your murder")
+			_require(not stale and director.state.phase=="first_contact" and "murder_presented" not in director.state.events,"older disk save retires only invalidated prologue copies and facts")
+			_require(carrier.device.teletype._serial==foreign_serial and " ".join(carrier.device.teletype.pages).contains("Keep this unrelated report."),"backward reload preserves the unrelated current physical field copy")
+			RealityState.save_path=identity_path;RealityState.load_game()
+			await get_tree().process_frame;await get_tree().process_frame
+			_require(carrier.device.teletype._serial==foreign_serial,"forward reload also preserves unrelated report ownership")
+			RealityState.persistence_enabled=false;RealityState.save_path=old_path
+			_require(director.state.phase=="identity_mystery" and "murder_presented" in director.state.events and director._contact_index==0,"reload resumes identity without replaying completed murder revelation")
+			player.call_locked=false
+	_require(seen==expected,"actual paper delivered all five exact lines in order: "+str(seen))
+	_require(thinking_start>=0 and thinking_end-thinking_start>=2.0,"settled thoughtful tiles precede the identity question by at least two real unpaused seconds")
+	_require(director.state.phase=="temporal_synchronization" and "identity_question_presented" in director.state.events and "destination_accepted" in director.state.events,"printed identity and real arm Return advance through existing acknowledged gates")
+	_require(carrier.rig.get_instance_id()==rig_id and carrier.session.draft==draft and carrier.story_attitude==Vector3.ZERO and player.text_input_owner!=director,"handoff retains the original machine and draft, retiring contact pose and input")
+	director.shutdown()
+	_require(FileAccess.get_sha256(source)==source_hash,"original actual-input source stays byte-for-byte unchanged")
+	_require(player.text_input_owner==null and carrier.story_attitude==Vector3.ZERO,"shutdown retires presentation and cinematic input without a stale owner")
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("contact_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","source":source,"source_sha256":FileAccess.get_sha256(source),"lines":seen,"optical":contact_optical,"state":director.state,"errors":director.errors,"failures":failures,"limits":"Actual-world first contact and command diagnostic from a previous actual-input arrival save; not the full opening or human acceptance."},"\t"))
+	frame_trace.complete=failures.is_empty()
+
+func _contact_ink_pixels(paper:Node) -> int:
+	await get_tree().process_frame # Let the ready copy acquire its stable pose.
+	var box:AABB=paper.ink.get_aabb()
+	var rect:=Rect2(player.camera.unproject_position(paper.ink.to_global(box.position)),Vector2.ZERO)
+	for corner in 8:rect=rect.expand(player.camera.unproject_position(paper.ink.to_global(box.get_endpoint(corner))))
+	var image:Image=get_viewport().get_texture().get_image()
+	var crop:=Rect2i(rect).intersection(Rect2i(Vector2i.ZERO,image.get_size()))
+	# Isolate the ink contribution. Brass/writer reflections and heading text
+	# can also be green; raw green counts falsely passed the obscured control.
+	var paused_before:=get_tree().paused
+	var visible_before:bool=paper.ink.visible
+	get_tree().paused=true
+	await RenderingServer.frame_post_draw;await RenderingServer.frame_post_draw
+	image=get_viewport().get_texture().get_image()
+	paper.ink.visible=false
+	await RenderingServer.frame_post_draw;await RenderingServer.frame_post_draw
+	var blank:Image=get_viewport().get_texture().get_image()
+	paper.ink.visible=visible_before
+	await RenderingServer.frame_post_draw;await RenderingServer.frame_post_draw
+	get_tree().paused=paused_before
+	var green:=0
+	for y in range(crop.position.y,crop.end.y,2):
+		for x in range(crop.position.x,crop.end.x,2):
+			var pixel:Color=image.get_pixel(x,y)
+			if pixel.g>.18 and pixel.g>pixel.r*1.3 and pixel.g>pixel.b*1.3 and pixel.g-blank.get_pixel(x,y).g>.15:green+=1
+	contact_optical.append({"serial":paper._serial,"ink_local":str(paper.ink.position),"crop":str(crop),"visible_pixels":green,"camera_fov":player.camera.fov})
+	return green
 
 func _review_mirror_reveal() -> bool:
 	var cabinet:MedicineCabinetProp=director.mirror

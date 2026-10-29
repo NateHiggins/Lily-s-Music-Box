@@ -107,7 +107,7 @@ func _before_draw() -> void:
 
 func advance(delta: float, reading: bool) -> void:
 	if not is_instance_valid(camera) or not is_instance_valid(carrier): return
-	if _world_handoff and get_tree().paused:return
+	if get_tree().paused and (_world_handoff or carrier.story_pose_active()):return
 	var visible_now: bool = not carrier.is_capture_hidden() and camera.is_current()
 	layer.visible = visible_now and composite_enabled
 	view.render_target_update_mode = SubViewport.UPDATE_ALWAYS if visible_now and composite_enabled else SubViewport.UPDATE_DISABLED
@@ -165,6 +165,7 @@ func advance(delta: float, reading: bool) -> void:
 	var desired := Vector3(clampf(-carrier._player.velocity.length() * .018 - _drift_velocity.y * 3.0, -.13, .10),
 		clampf(turning.y * .035, -.13, .13), clampf(-turning.y * .055 - _drift_velocity.x * 7.0, -.22, .22)) * intensity
 	if reading: desired *= .12
+	desired += carrier.story_attitude * intensity
 	if held: desired = Vector3.ZERO
 	# Slightly underdamped attitude correction sells effort without jitter.
 	var steps := maxi(1, int(ceil(dt * 120.0)))
@@ -192,7 +193,9 @@ func advance(delta: float, reading: bool) -> void:
 		extents.x / (2.0 * slope * aspect * safe_rect.size.x)) + extents.z * .5
 	depth = maxf(depth, .18)
 	if reading: depth *= clampf(carrier.reading_distance / .22, .82, 1.45)
+	depth *= carrier.story_depth_scale
 	center += _drift
+	center += carrier.story_nudge * intensity
 	var origin := Vector3((center.x * 2.0 - 1.0) * depth * slope * aspect,
 		(1.0 - center.y * 2.0) * depth * slope, -depth)
 	carrier.motion.global_transform = Transform3D(camera.global_basis,

@@ -46,6 +46,14 @@ var _visitor_center:=Vector3.ZERO
 var _visitor_basis:=Basis.IDENTITY
 var _visitor_dwell:=0.0
 var _visitor_return_dwell:=0.0
+var _contact_index:=0
+var _contact_age:=0.0
+var _contact_thinking_age:=0.0
+var _contact_serial:=-1
+var _contact_emotion:=""
+var _contact_reading_before:=false
+var _contact_owns:=false
+var _contact_copies:Array[int]=[]
 
 
 func _ready() -> void:
@@ -63,7 +71,7 @@ func configure(owner_world: Node3D) -> bool:
 		if row is not Dictionary or row.get("id") is not String or row.get("text") is not String: return _fail("invalid writing row")
 		if row.id.is_empty() or row.text.is_empty() or _messages.has(row.id): return _fail("duplicate/empty writing row")
 		_messages[row.id]=row.text
-	for id in ["wake_passed","wake_shower","curtain_open","wrong_curtain","cold_start","hot_start","more_hot","less_hot","comfort","hot_off","water_off","cabinet_open"]:
+	for id in ["wake_passed","wake_shower","curtain_open","wrong_curtain","cold_start","hot_start","more_hot","less_hot","comfort","hot_off","water_off","cabinet_open","contact_sorry","contact_murder","contact_bigger","contact_who","contact_connect"]:
 		if not _messages.has(id): return _fail("missing writing message "+id)
 	# One mounting survey per support. The actual wall hit supplies the frame;
 	# do not float lettering at a guessed wall plane or scan interaction targets.
@@ -133,6 +141,7 @@ func begin_temporal_command() -> bool:
 
 func _temporal_accepted(target:Dictionary) -> void:
 	if is_same(_document,RealityState.data) and state.phase=="temporal_command" and state.target==target:
+		_remember_contact_copy(_carrier.device.teletype._serial)
 		_observe("destination_accepted")
 
 func _temporal_finished(completed:bool) -> void:
@@ -171,8 +180,13 @@ func finish_temporal_synchronization() -> bool:
 func _restore() -> void:
 	if _publishing: return
 	var replaced := not is_same(_document,RealityState.data)
+	if replaced:_release_contact()
+	if replaced and is_instance_valid(temporal_console):temporal_console.cancel()
 	if replaced and is_instance_valid(temporal_sky):temporal_sky.cancel()
 	if replaced and is_instance_valid(mirror_crossing):mirror_crossing.cancel()
+	if replaced and is_instance_valid(_carrier):
+		_carrier.device.teletype.retire_transient_copies(_contact_copies)
+		_contact_copies.clear()
 	var restored := State.restore(RealityState.data.get("prologue",{}))
 	if restored.is_empty(): _fail("invalid prologue state");return
 	_document=RealityState.data
@@ -203,6 +217,8 @@ func _advance(next: String) -> bool:
 	_enter_phase();return true
 
 func _enter_phase() -> void:
+	_release_contact(state.phase in ["identity_mystery","temporal_command"])
+	_contact_index=0;_contact_age=0;_contact_thinking_age=0;_contact_serial=-1
 	if _visitor_active and state.phase!="companion_crossing":_end_visitor()
 	_phase_age=0;_comfortable=0;message_id="";_reflection_dwell=0;_knock_index=0;_withdrawal_seen=false
 	if _avatar_leased:
@@ -228,6 +244,9 @@ func _enter_phase() -> void:
 			if not _begin_visitor():return
 		"companion_crossing":
 			writing.clear()
+		"first_contact","identity_mystery":writing.clear()
+		"temporal_command":
+			if is_instance_valid(_carrier):_carrier.reading=true
 		"temporal_synchronization":
 			if world!=null and world.has_node("WakingAtmosphere"):begin_temporal_sky()
 	phase_changed.emit(state.phase)
@@ -271,6 +290,8 @@ func _window_released(control: String, before: float, after: float) -> void:
 
 func _process(delta: float) -> void:
 	if _visitor_active:_pose_visitor()
+	if _running and state.phase in ["first_contact","identity_mystery"]:
+		_contact_tick(delta);return
 	if not _running or player.call_locked or player.mouse_released or RealityState.save_write_blocked: return
 	if not is_same(_document,RealityState.data): return
 	var step:=maxf(delta,0.0)
@@ -325,10 +346,79 @@ func _process(delta: float) -> void:
 				mirror_crossing=preload("res://scripts/game/prologue_mirror_crossing.gd").new();add_child(mirror_crossing)
 				mirror_crossing.finished.connect(_crossing_finished)
 				mirror_crossing.start(self)
+		"temporal_command":
+			# First let the real flight owner leave its protected observation
+			# stance. Starting a key cycle before that cancels its waiting arm.
+			if is_instance_valid(_carrier) and _carrier.motion.steady_for_input() and (not is_instance_valid(temporal_console) or not temporal_console.active):begin_temporal_command()
 
 func _crossing_finished(completed:bool) -> void:
 	if completed and is_same(_document,RealityState.data) and state.phase=="companion_crossing":
 		if _store(State.applied(state,"companion_materialized")):_advance("first_contact")
+
+func _release_contact(keep_reading:=false) -> void:
+	if not _contact_owns:return
+	_contact_owns=false
+	if is_instance_valid(player):player.release_text_input(self)
+	if is_instance_valid(_carrier):
+		_carrier.release_story_pose(self)
+		_carrier.reading=true if keep_reading else _contact_reading_before
+	_contact_emotion=""
+
+func _contact_face(expression:String) -> void:
+	_contact_emotion=expression
+	_carrier.set_story_face(self,expression)
+
+func _remember_contact_copy(serial:int) -> void:
+	if serial<=0 or serial in _contact_copies:return
+	_contact_copies.append(serial)
+	if _contact_copies.size()>_carrier.device.teletype.HISTORY_LIMIT:_contact_copies.pop_front()
+
+func _contact_tick(delta:float) -> void:
+	if not is_same(_document,RealityState.data) or RealityState.save_write_blocked or not is_instance_valid(_carrier):_release_contact();return
+	if state.phase=="first_contact" and "murder_presented" in state.events:_advance("identity_mystery");return
+	var session:Node=_carrier.session
+	if get_tree().paused or player.protected_input_active() or player.mouse_released or not player.camera.is_current() or not _carrier.device.radio_powered or _carrier.device.incoming_call or session.typing or session.opening or session._foreign_editor_active():
+		_release_contact();return
+	if player.text_input_owner!=self:
+		if not player.acquire_text_input(self):return
+		_contact_reading_before=_carrier.reading;_contact_owns=true
+		_carrier.reading=true
+	var ids:Array=["contact_sorry","contact_murder"] if state.phase=="first_contact" else ["contact_bigger","contact_who","contact_connect"]
+	var expressions:Array=["sympathetic","grinning"] if state.phase=="first_contact" else ["conspiratorial","thoughtful","grinning"]
+	# Completed identity revelation resumes at the final line after reload.
+	if state.phase=="identity_mystery" and "identity_question_presented" in state.events and _contact_index<2:_contact_index=2
+	var paper:Node=_carrier.device.teletype
+	if _contact_serial>=0 and paper._serial!=_contact_serial:
+		_contact_serial=-1;_contact_age=0;_contact_thinking_age=0 # A real field copy took priority.
+	if _contact_serial<0:
+		if paper.printing or _carrier.arm_busy():return
+		if not _carrier.print_telegram_card({"title":"","body":_messages[ids[_contact_index]]},true):return
+		_contact_serial=paper._serial;_contact_age=0;_contact_thinking_age=0
+		_remember_contact_copy(_contact_serial)
+		_contact_face(expressions[_contact_index])
+	elif _contact_emotion.is_empty():_contact_face(expressions[_contact_index])
+	_carrier.rig.request_keyboard(false)
+	if not paper.copy_delivered():return
+	_contact_age+=maxf(0,delta)
+	var emotion:String=expressions[_contact_index]
+	if state.phase=="identity_mystery" and _contact_index==0 and _contact_age>=2.0:
+		emotion="thoughtful"
+		if _contact_emotion!=emotion:_contact_face(emotion)
+		if _carrier.rig.display.settled():_contact_thinking_age+=maxf(0,delta)
+	var tilt:=Vector3(0,0,.07) if emotion=="sympathetic" else Vector3(-.025,0,-.025) if emotion=="thoughtful" else Vector3.ZERO
+	var bounce:=sin(clampf(_contact_age,0,1)*PI)*-.006 if emotion=="grinning" else 0.0
+	_carrier.set_story_pose(self,tilt,Vector2(0,bounce),.96 if state.phase=="identity_mystery" else 1.0)
+	# Reading holds begin after real print completion, not a guessed print timer.
+	var hold:=4.0 if _contact_index==0 else 6.0
+	if state.phase=="identity_mystery":hold=4.0 if _contact_index==0 else 5.0
+	if _contact_age<hold:return
+	if state.phase=="identity_mystery" and _contact_index==0 and _contact_thinking_age<2.0:return
+	if state.phase=="first_contact" and _contact_index==1:
+		if _observe("murder_presented"):_advance("identity_mystery")
+	elif state.phase=="identity_mystery" and _contact_index==1:
+		if _observe("identity_question_presented"):_contact_index+=1;_contact_serial=-1;_contact_age=0
+	elif state.phase=="identity_mystery" and _contact_index==2:_advance("temporal_command")
+	else:_contact_index+=1;_contact_serial=-1;_contact_age=0
 
 func _begin_visitor() -> bool:
 	if not is_instance_valid(_carrier) or not _carrier.begin_story_reflection(self):return _fail("reflection presentation lease refused")
@@ -427,6 +517,7 @@ func _cabinet_released(before:float,after:float) -> void:
 
 
 func shutdown() -> void:
+	_release_contact()
 	if is_instance_valid(mirror_crossing):mirror_crossing.cancel();mirror_crossing.queue_free()
 	mirror_crossing=null
 	_end_visitor()

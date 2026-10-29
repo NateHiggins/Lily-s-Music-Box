@@ -122,8 +122,8 @@ func radio_is_powered() -> bool:
 	return device != null and device.radio_powered
 
 
-func print_telegram_card(message: Variant) -> bool:
-	return device != null and device.print_telegram_card(message)
+func print_telegram_card(message: Variant,raised_copy:=false) -> bool:
+	return device != null and device.print_telegram_card(message,raised_copy)
 
 
 ## Proof-only turntable poses. Production always leaves this at zero.

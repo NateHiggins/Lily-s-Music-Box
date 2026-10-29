@@ -115,12 +115,12 @@ func set_incoming_call(waiting: bool) -> void:
 
 ## A powered set prints the full field copy onto persistent physical paper.
 ## The physical printer is the carried presentation of the supplied facts.
-func print_telegram_card(message: Variant) -> bool:
+func print_telegram_card(message: Variant,raised_copy:=false) -> bool:
 	if not radio_powered or teletype == null:
 		return false
 	printed_count += 1
 	var card: Dictionary = message if message is Dictionary else {"title":str(message)}
-	teletype.present(card,printed_count)
+	teletype.present(card,printed_count,raised_copy)
 	return true
 
 func finish_keyed_copy(owner:Node,response:String) -> bool:
