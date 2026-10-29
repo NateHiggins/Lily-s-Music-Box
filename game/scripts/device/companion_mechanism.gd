@@ -42,6 +42,7 @@ var _settled := true
 var _last_latched := true
 var _rotor_angle := 0.0
 var _display_clock := 0.0
+var face_emotion:="" # Transient presentation, set only by the carrier's input owner.
 var reaction_player: Node
 var _reaction_clock := 0.0
 var profile_callbacks := false
@@ -207,7 +208,7 @@ func typing_ready() -> bool:
 	return keyboard_requested and keyboard_open >= .999 and failures.is_empty()
 
 func play_reaction(id: String) -> bool:
-	if reaction_player == null or not device.radio_powered or device.teletype.printing or keyboard_open > .05: return false
+	if reaction_player == null or not face_emotion.is_empty() or not device.radio_powered or device.teletype.printing or keyboard_open > .05: return false
 	return reaction_player.request(id)
 
 func pulse_key(character: String) -> void:
@@ -227,6 +228,7 @@ func _process(delta: float) -> void:
 
 func _advance_mechanism(delta: float) -> void:
 	if keyboard == null or not failures.is_empty(): return
+	display.set_process(device.radio_powered and not display.settled())
 	_reaction_clock += maxf(0.0, delta)
 	if reaction_player != null and not reaction_player.current.is_empty() and (not device.radio_powered or device.teletype.printing or keyboard_requested):
 		reaction_player.cancel(device.radio_powered and not keyboard_requested)
@@ -244,10 +246,13 @@ func _advance_mechanism(delta: float) -> void:
 	_display_clock += delta
 	if _display_clock >= .12 and device.radio_powered and not keyboard_requested and keyboard_open <= .05 and not display.illustration_active:
 		_display_clock = fmod(_display_clock, .12)
+		var blink:=fposmod(_reaction_clock,4.7)>=4.46
+		var gaze:int=[0,1,0,-1][floori(_reaction_clock/2.8)%4]
+		var emotion:String=face_emotion if not face_emotion.is_empty() else "speaking" if device.teletype.printing else "content"
 		if device.teletype.printing:
 			var cadence: Array[float] = [.1, .7, .3, 1.0, .45, .15]
-			display.set_expression("speaking", cadence[floori(float(device.teletype.printed_characters) * .5) % cadence.size()])
-		else: display.set_expression("content")
+			display.set_expression(emotion, cadence[floori(float(device.teletype.printed_characters) * .5) % cadence.size()],false,blink,gaze)
+		else: display.set_expression(emotion,0.0,false,blink,gaze)
 	for index in _depressions.size():
 		if _depressions[index] <= 0.0: continue
 		_depressions[index] = move_toward(_depressions[index], 0.0, delta * 10.0)
