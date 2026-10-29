@@ -11,6 +11,7 @@ var cover:MeshInstance3D
 var active:=false
 var age:=0.0
 var failure:=""
+var input_refused:=false
 var start_costs:Dictionary={}
 var _document:Dictionary
 var _bed:Node3D
@@ -39,6 +40,10 @@ func start(owner:Node,cover_scene:PackedScene) -> bool:
 	var began:=Time.get_ticks_usec()
 	var mark:=began
 	director=owner;player=owner.player
+	# Refuse through the authoritative input owner before claiming visibility,
+	# closing a session, traversing the world or constructing a shot.
+	if not player.acquire_text_input(self):
+		input_refused=true;return _refuse("input already owned")
 	_bed=owner.world.adapter.resolve("4B_wake_bed") as Node3D
 	var anchor:Dictionary=owner.world.core_loop.resolve_return_anchor()
 	if _bed==null or anchor.is_empty():return _refuse("missing actual bed/standing anchor")
@@ -50,8 +55,6 @@ func start(owner:Node,cover_scene:PackedScene) -> bool:
 	cover=meshes[0]
 	if cover.find_blend_shape_by_name("Breath")<0 or cover.find_blend_shape_by_name("Recoil")<0:
 		_model.free();_model=null;return _refuse("missing authored cloth morphs")
-	if not player.acquire_text_input(self):
-		_model.free();_model=null;return _refuse("input already owned")
 	_document=RealityState.data;_anchor=anchor.position
 	_old_camera=get_viewport().get_camera_3d()
 	# Native stock remains with its actual owner; hide only the thrown cover,
@@ -136,7 +139,7 @@ func seek(seconds:float) -> void:
 
 func _process(delta:float) -> void:
 	if not active:return
-	if not is_same(_document,RealityState.data) or player.text_input_owner!=self or RealityState.save_write_blocked or director.state.phase not in ["dream","awakening"]:
+	if not is_same(_document,RealityState.data) or player.text_input_owner!=self or player.protected_input_active() or not camera.is_current() or RealityState.save_write_blocked or director.state.phase not in ["dream","awakening"]:
 		cancel();return
 	seek(age+maxf(delta,0))
 
@@ -154,7 +157,7 @@ func cancel() -> void:
 
 func _release() -> void:
 	active=false;set_process(false)
-	if is_instance_valid(camera) and camera.is_current() and is_instance_valid(_old_camera):_old_camera.make_current()
+	if is_instance_valid(camera) and camera.is_current() and is_instance_valid(_old_camera) and _old_camera.is_inside_tree():_old_camera.make_current()
 	if is_instance_valid(player):player.release_text_input(self)
 	for node:Node3D in _hidden:
 		if is_instance_valid(node):node.show()
@@ -165,7 +168,8 @@ func _release() -> void:
 	if is_instance_valid(_veil):_veil.get_parent().queue_free()
 
 func _exit_tree() -> void:
-	if active:_release()
+	if active or (is_instance_valid(player) and player.text_input_owner==self):_release()
 
 func _refuse(reason:String) -> bool:
+	if is_instance_valid(player):player.release_text_input(self)
 	failure=reason;return false

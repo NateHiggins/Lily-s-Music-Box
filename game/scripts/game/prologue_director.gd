@@ -123,14 +123,18 @@ func _claim_waking_presentation() -> bool:
 func begin_opening(cover_scene:PackedScene) -> bool:
 	# Real DREAM/wake candidate. Normal entry remains gated until its occupied
 	# optical/input/reload qualification; the preview below is never a substitute.
-	if world==null or not errors.is_empty() or state.phase not in ["dream","awakening"] or is_instance_valid(waking):return false
-	if not _claim_waking_presentation():return false
-	world.player_avatar.hide()
+	if world==null or not errors.is_empty() or state.phase not in ["dream","awakening"] or is_instance_valid(waking) or get_tree().paused or RealityState.save_write_blocked:return false
 	waking=preload("res://scripts/game/prologue_waking.gd").new();add_child(waking)
 	if not waking.start(self,cover_scene):
 		var reason:String=waking.failure
-		waking.queue_free();waking=null;shutdown()
+		var retryable:bool=waking.input_refused
+		waking.queue_free();waking=null
+		if retryable:return false
 		return _fail("opening shot refused: "+reason)
+	if not _claim_waking_presentation():
+		waking.cancel();waking.queue_free();waking=null
+		return false
+	world.player_avatar.hide()
 	waking.finished.connect(func(_completed:bool):
 		if is_instance_valid(waking):waking.queue_free()
 		waking=null)
