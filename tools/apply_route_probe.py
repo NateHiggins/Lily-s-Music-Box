@@ -6,8 +6,9 @@ keeping the file's one-route-per-line layout. When a point is reported twice
 (closed doors, then open doors) the later suggestion wins: it clears the open
 leaves as well as the furniture. A blocked edge reported with "route via"
 gains those waypoints, named <a>_to_<b>_<n>; one reported with only "detour
-at" gains a <a>_via_<b> waypoint there. Findings with no clear spot within
-0.8 m are printed for a hand fix.
+at" gains a <a>_via_<b> waypoint there. When the probe reports "reach at", <b>
+sits in a pocket nothing reaches and moves to that nearest reachable stance.
+Findings with no clear spot within 0.8 m are printed for a hand fix.
 
     python tools/apply_route_probe.py <probe.log> [--dry-run]
 """
@@ -21,6 +22,7 @@ DATA = ROOT / "game/data/orison_v2"
 NODE = re.compile(r"ROUTE PROBE FAIL: \[(?P<file>[^\]]+)\] node (?P<name>\S+): .*clear at \[(?P<x>-?[\d.]+), (?P<y>-?[\d.]+), (?P<z>-?[\d.]+)\]")
 EDGE = re.compile(r"ROUTE PROBE FAIL: \[(?P<file>[^\]]+)\] edge (?P<a>\S+) -> (?P<b>\S+) at .*(?:detour at|route via) (?P<points>(?:\[-?[\d.]+, -?[\d.]+, -?[\d.]+\] ?)+)")
 TRIPLE = re.compile(r"\[(-?[\d.]+), (-?[\d.]+), (-?[\d.]+)\]")
+REACH = re.compile(r"ROUTE PROBE FAIL: \[(?P<file>[^\]]+)\] edge \S+ -> (?P<name>\S+) at .*reach at \[(?P<x>-?[\d.]+), (?P<y>-?[\d.]+), (?P<z>-?[\d.]+)\]")
 POINT = r'\["%s",-?[\d.]+,-?[\d.]+,-?[\d.]+\]'
 OTHER = re.compile(r"ROUTE PROBE FAIL: (.*)")
 
@@ -34,7 +36,7 @@ def main():
     detours = {}
     unresolved = []
     for line in Path(args.log).read_text(encoding="utf-8", errors="replace").splitlines():
-        found = NODE.search(line)
+        found = NODE.search(line) or REACH.search(line)
         edge = EDGE.search(line)
         if found:
             moves.setdefault(found["file"], {})[found["name"]] = [float(found[a]) for a in "xyz"]

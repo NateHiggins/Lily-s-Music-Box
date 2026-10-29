@@ -133,7 +133,15 @@ func _route_around(world: OrisonV2RuntimeRoot, space: PhysicsDirectSpaceState3D,
 				came[next] = at
 				if next not in open: open.append(next)
 	if not found:
-		return ""
+		# b stands in a pocket the search cannot enter: offer the reachable
+		# stance nearest it, which the apply tool takes as b's new place.
+		var nearest := start
+		for cell: Vector2i in came:
+			if Vector2(cell - goal).length() < Vector2(nearest - goal).length(): nearest = cell
+		if nearest == start:
+			return ""
+		var local := root.to_local(cell_at.call(nearest))
+		return "reach at [%.2f, %.2f, %.2f]" % [local.x, local.y, local.z]
 	var cells: Array[Vector3] = [b]
 	var walk := goal
 	while walk != start:
