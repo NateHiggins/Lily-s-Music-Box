@@ -121,6 +121,8 @@ product proof, not another spine rewrite.
 
 - **K-V2-ENTRY-SMALL-STOCK — Approved external Blender batch: cast-iron boot scraper, then umbrella stand with removable drip tray.** Blender agent takes ownership on receipt of the handoff; canonical Codex integrates after current repairs. Next survey existing entrance stock, full door swing and standing/walking clearance, then author isolated native candidates using shared PBR/metric UV/tangent pipeline. Reuse suitable existing umbrella stock; no new simulation, lights, labels or gameplay authority. Other proposed replacements are deferred, not added as V2 blockers. [Approved scope and delivery requirements](design/V2_FRONT_ENTRANCE_REMODEL_2026-10-27.md#approved-small-entrance-batch--october29). No deadline; native, runtime and artistic acceptance remain separate.
 
+- **K-V2-PLAYER-FACES — Codex: generate and integrate original player expressions, starting with the V2 intro sequence.** Research meme-face history for expressive economy and reaction timing; retain the supplied androgynous drawn character, camera-linked gaze and readable face lighting. Next survey the native facial UV region, author a consistent expression sheet and bounded atlas, then connect witnessed prologue beats and inspect actual mirror playback, pause/reload and rendering cost. [Initial sequence, research and verification scope](design/V2_PROLOGUE_2026-10-28.md#player-expression-sequence--october29). Queued; no generated faces, runtime verification or artistic acceptance yet. No deadline.
+
 ## D — Unresolved decisions and integration
 
 **D1–D4** travel with the deferred studio brief below. **D5** was answered by the
