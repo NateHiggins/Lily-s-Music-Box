@@ -163,3 +163,61 @@ inspected for form; the re-export preservation checks are not optical renders
 or artistic acceptance. Their bundled maps still require catalogue integration.
 The Blender skill records both derivative and selective-merge lessons; its
 structural validator passes. No broad task or V2 completion is declared.
+
+## Approved small entrance batch — October29
+
+The owner delegates selection from the twelve proposed props. Approve only
+these two isolated native candidates, in order; this is authoring authorization,
+not placement, runtime qualification or artistic acceptance:
+
+1. **Cast-iron boot scraper:** one restrained ornamental casting with a worn
+   scraping edge, credible base and real pavement anchors. Static visual prop;
+   no new boot-cleaning mechanic or interaction actor.
+2. **Umbrella stand and removable drip tray:** practical period iron construction,
+   stable feet, rounded contact edges and a seated tray with a clear extraction
+   path. Reuse suitable existing umbrella/stand stock before rebuilding it.
+   Separate the tray for possible later direct manipulation; do not implement
+   water simulation or promise new inventory/save behavior.
+
+The external Blender agent owns authoring once given the handoff; canonical
+Codex owns later integration. Use **C:/ov/asset-prototypes/orison-entry-small-stock-20261029/**;
+the repository stays read-only for that agent. Inspect current entrance blend,
+runtime anchors and **entry_vestibule.json** before choosing dimensions. Show a
+measured placement proposal and explicit keep-clear envelope for the door,
+threshold, mailbox approach and normal full-size player route. If neither prop
+fits, report it rather than relocating doors, lights or other contributors' work.
+
+Deliver one concise construction report for both props, editable native source,
+efficient material-key exports and modest closed/service/grazing CPU views.
+Keep meaningful manufacturing stocks editable, batch static render partitions,
+and provide a simple replacement body LOD if silhouette cost warrants one.
+Use existing registered PBR maps with metre charts and loaded-mipmap-compatible
+bindings; report triangles, material partitions and any new texture bytes.
+Run the repository's final float32 metric/UV/tangent checks rather than checking
+only normal/tangent orthogonality. Reference pixels and texture lettering stay
+out. Do not copy packed catalogue images or historical authoring logs into the
+repository. No Godot, catalogue, scene, interaction or placement edits in the
+external authoring chat. No deadline is assigned.
+
+Defer the other suggestions from this batch, without deleting installed work:
+
+- **Mailbox bank:** already native via **mail_bank.blend** and
+  **orison_v2_native_mail_bank.gd**, with real compartment/motion, mail custody,
+  resident cards and inventory owners. A new formed-steel style is not approved
+  as an incidental replacement of its existing finishes and behavior.
+- **Entrance gas lantern, lobby radiator and notice cabinet:** current
+  **orison_v2_entry_vestibule.gd**, native stock and data already provide gas
+  fittings, radiator dress and authored notice frames. No demonstrated defect
+  here justifies another parallel replacement or another light.
+- **Mosaic threshold:** defer until the door/threshold and street-grade work
+  are qualified; avoid competing floor transitions and additional texture work.
+- **Doorbell/annunciator and service electrical cabinet:** preserve the existing
+  telephone, dispatch, electrical and direct-manipulation owners; no replacement
+  is authorized by this small decorative batch.
+- **High-level cistern, shower curtain and kitchen sink:** outside the entrance
+  batch. Preserve the repaired close-coupled toilet, clawfoot bath/plumbing and
+  curtain, plus existing kitchen fixtures. Revisit only a reproduced defect or
+  separately approved need.
+
+The two-prop approval adds no V2-wide completion gate. Existing prologue, city,
+weather, audio, persistence and performance commitments retain their priorities.
