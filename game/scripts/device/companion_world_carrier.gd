@@ -19,6 +19,43 @@ var screen_frame: Node
 var _lamp_target_frame := -1
 var lamp_target_queries := 0
 var _absence_owner: WeakRef
+var _story_reflection := false
+var _story_reflection_visible := false
+var _story_motion_home := Transform3D.IDENTITY
+var _story_rig_home := Transform3D.IDENTITY
+
+func begin_story_reflection(owner:Node) -> bool:
+	if not is_story_absent() or _absence_owner.get_ref()!=owner:return false
+	if _story_reflection:return true
+	_story_motion_home=motion.global_transform;_story_rig_home=rig.transform
+	_story_reflection=true
+	RenderingServer.frame_pre_draw.connect(_story_reflection_before_draw)
+	return true
+
+func pose_story_reflection(owner:Node,pose:Transform3D,visible_in_mirror:bool) -> bool:
+	if not _story_reflection or not is_story_absent() or _absence_owner.get_ref()!=owner:return false
+	motion.global_transform=pose
+	rig.transform=Transform3D(Basis.IDENTITY.scaled(Vector3.ONE*PRESENTATION_SCALE),Vector3.ZERO)
+	_story_reflection_visible=visible_in_mirror
+	rig.visible=visible_in_mirror and not _capture_hidden
+	# Reuse the instrument's existing device-only fill, without rendering its
+	# foreground pass or illuminating/shadowing physical room surfaces.
+	if is_instance_valid(screen_frame):screen_frame.view_camera.global_transform=_player.camera.global_transform
+	return true
+
+func end_story_reflection(owner:Node) -> void:
+	if not _story_reflection or not is_story_absent() or _absence_owner.get_ref()!=owner:return
+	_story_reflection=false;_story_reflection_visible=false
+	if RenderingServer.frame_pre_draw.is_connected(_story_reflection_before_draw):RenderingServer.frame_pre_draw.disconnect(_story_reflection_before_draw)
+	motion.global_transform=_story_motion_home;rig.transform=_story_rig_home
+	_apply_visibility()
+
+func _story_reflection_before_draw() -> void:
+	# Rendering continues through pause. Observer privacy must not depend on
+	# the paused gameplay process or the director's current milestone.
+	if not _story_reflection or not is_instance_valid(rig):return
+	var visible_now:=_story_reflection_visible and not _capture_hidden and is_story_absent() and is_instance_valid(_player) and _player.camera.is_current()
+	if rig.visible!=visible_now:rig.visible=visible_now
 
 ## Transient staging only: no radio, inventory, draft or lamp-save mutation.
 ## The owning scene releases this lease on exit, including interrupted previews.
@@ -42,6 +79,7 @@ func _release_story_absence(owner_id: int) -> void:
 	if owner != null and owner.get_instance_id() != owner_id: return
 	if owner != null and owner.tree_exiting.is_connected(_release_story_absence.bind(owner_id)):
 		owner.tree_exiting.disconnect(_release_story_absence.bind(owner_id))
+	if owner!=null:end_story_reflection(owner)
 	_absence_owner = null
 	_apply_visibility()
 	_refresh_optical_output()
@@ -174,7 +212,7 @@ func set_capture_hidden(hidden: bool) -> void:
 
 func _apply_visibility() -> void:
 	var hidden := is_capture_hidden()
-	if rig != null: rig.visible = not hidden
+	if rig != null: rig.visible = not hidden or (_story_reflection and _story_reflection_visible and is_story_absent() and not _capture_hidden)
 	# Hidden review stock must not leave invisible query-only obstructions.
 	for entry: Dictionary in _pick_layers.values():
 		var area: Area3D = entry.ref.get_ref()

@@ -39,9 +39,16 @@ var _reflection_dwell:=0.0
 var _withdrawal_seen:=false
 var _knock_index:=0
 var _knock:AudioStreamPlayer3D
+var _visitor_active:=false
+var _visitor_anchor:=Vector3.ZERO
+var _visitor_center:=Vector3.ZERO
+var _visitor_basis:=Basis.IDENTITY
+var _visitor_dwell:=0.0
+var _visitor_return_dwell:=0.0
 
 
 func _ready() -> void:
+	process_priority=110 # Read the selected/posed mirror after its owner (100).
 	set_process(false)
 
 func configure(owner_world: Node3D) -> bool:
@@ -190,12 +197,13 @@ func _advance(next: String) -> bool:
 	_enter_phase();return true
 
 func _enter_phase() -> void:
+	if _visitor_active and state.phase!="companion_crossing":_end_visitor()
 	_phase_age=0;_comfortable=0;message_id="";_reflection_dwell=0;_knock_index=0;_withdrawal_seen=false
 	if _avatar_leased:
 		world.player_avatar.visible=State.PHASES.find(state.phase)>=State.PHASES.find("protagonist_reveal") and _avatar_visible
 	if state.phase in ["mirror_tapping","mirror_condensation"]:_set_mirror_film(Vector2(1,0))
 	elif state.phase in ["protagonist_reveal","cabinet_inspection","reflection_visitor"]:_set_mirror_film(Vector2(1,1))
-	elif mirror!=null:mirror.mirror_surface().remove_meta("prologue_mirror_film")
+	elif mirror!=null:_set_mirror_film(Vector2(-1,0))
 	if is_instance_valid(_knock):_knock.stop()
 	match state.phase:
 		"bedroom_exploration": _say("wake_passed",false)
@@ -210,8 +218,11 @@ func _enter_phase() -> void:
 			if "cabinet_opened" not in state.events:_say("cabinet_open",true)
 			else:writing.clear()
 		"reflection_visitor":
-			# The reflection-only visitor is the next unfinished slice. Keep the
-			# real bot absent, without substituting its ordinary-world appearance.
+			writing.clear()
+			if not _begin_visitor():return
+		"companion_crossing":
+			# The translated aperture/physical handoff is not implemented yet.
+			# Hold this one private rig; never substitute normal-world appearance.
 			writing.clear();set_process(false)
 		"temporal_synchronization":
 			if world!=null and world.has_node("WakingAtmosphere"):begin_temporal_sky()
@@ -255,6 +266,7 @@ func _window_released(control: String, before: float, after: float) -> void:
 		_say("wrong_curtain",true)
 
 func _process(delta: float) -> void:
+	if _visitor_active:_pose_visitor()
 	if not _running or player.call_locked or player.mouse_released or RealityState.save_write_blocked: return
 	if not is_same(_document,RealityState.data): return
 	var step:=maxf(delta,0.0)
@@ -300,6 +312,68 @@ func _process(delta: float) -> void:
 				if _observe("reflection_observed"):_advance("cabinet_inspection")
 		"cabinet_inspection":
 			if not ("cabinet_opened" in state.events) or _phase_age>=6.0:_tap_mirror()
+		"reflection_visitor":_observe_visitor(elapsed)
+
+func _begin_visitor() -> bool:
+	if not is_instance_valid(_carrier) or not _carrier.begin_story_reflection(self):return _fail("reflection presentation lease refused")
+	_visitor_active=true;_visitor_dwell=0;_visitor_return_dwell=0
+	var normal:=mirror.mirror_normal()
+	_visitor_basis=Basis.looking_at(normal,Vector3.UP)
+	# Choose an interior point of the actual mirror window, then place the
+	# bot on its reflected ray at a fixed behind-player distance. This accounts
+	# for an off-centre player without following their subsequent gaze.
+	var center:=mirror.mirror_center()
+	var reflected:Vector3=world.mirror_renderer._reflect_point(player.camera.global_position,center,normal)
+	var pane:MeshInstance3D=mirror.mirror_surface()
+	var opening:=center+pane.global_basis.x.normalized()*.11+pane.global_basis.y.normalized()*.06
+	var ray:=opening-reflected
+	var depth:float=(player.camera.global_position-center).dot(normal)+.40
+	_visitor_anchor=reflected+ray*((depth-(reflected-center).dot(normal))/ray.dot(normal))
+	_pose_visitor()
+	return true
+
+func _pose_visitor() -> void:
+	# The same manufactured bot is placed behind the player in reflected rays.
+	# Its normal compositor and query areas remain disabled by the absence lease.
+	var effort:=maxf(0,_phase_age-2.0)
+	_visitor_center=_visitor_anchor+_visitor_basis.x*sin(effort*.85)*.025+Vector3.UP*sin(effort*1.13)*.014
+	var basis:=_visitor_basis*Basis(Vector3.FORWARD,sin(effort*.85)*.055)
+	var offset:Vector3=basis*(_carrier.screen_frame.stock_bounds.get_center()*_carrier.PRESENTATION_SCALE)
+	_carrier.pose_story_reflection(self,Transform3D(basis,_visitor_center-offset),world.mirror_renderer.active_mirror()==mirror and player.camera.is_current())
+
+func _visitor_observed() -> bool:
+	if not _visitor_active or not _mirror_observed() or not _carrier.rig.is_visible_in_tree():return false
+	var camera:Camera3D=world.mirror_renderer.active_camera()
+	if camera==null or not camera.is_position_in_frustum(_visitor_center):return false
+	var direction:=(_visitor_center-camera.global_position).normalized()
+	var point:Variant=Plane(mirror.mirror_normal(),mirror.mirror_center()).intersects_ray(camera.global_position,direction)
+	if point is not Vector3:return false
+	# Start outside the pane's real solid leaf; retained room obstructions still
+	# block the observation. The player's generous capsule is not their drawing.
+	var ray:=PhysicsRayQueryParameters3D.create(point+direction*.03,_visitor_center,1,[player.get_rid()])
+	return world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty()
+
+func _observe_visitor(elapsed:float) -> void:
+	if _phase_age>=2:_tap_mirror(2.0)
+	if _visitor_observed():
+		_visitor_dwell+=elapsed
+		if _visitor_dwell>=.8 and not _observe("visitor_seen"):return
+		if "looked_behind" in state.events:
+			_visitor_return_dwell+=elapsed
+			if _visitor_return_dwell>=.8 and not _observe("visitor_seen_again"):return
+	else:
+		_visitor_return_dwell=0
+		var toward:=(_visitor_center-player.camera.global_position).normalized()
+		if "visitor_seen" in state.events and (-player.camera.global_basis.z).dot(toward)>.55:
+			if not _observe("looked_behind"):return
+	# Time alone cannot fabricate seeing the visitor or investigating its absence.
+	# Leave room for repeated experiments after returning to the mirror.
+	if _phase_age>=18 and _visitor_dwell>=6 and _visitor_return_dwell>=5 and "visitor_seen_again" in state.events:
+		_advance("companion_crossing")
+
+func _end_visitor() -> void:
+	if is_instance_valid(_carrier):_carrier.end_story_reflection(self)
+	_visitor_active=false
 
 func _set_mirror_film(value:Vector2) -> void:
 	if not is_instance_valid(mirror):return
@@ -308,7 +382,7 @@ func _set_mirror_film(value:Vector2) -> void:
 	world.mirror_renderer.set_mirror_story(pane,value)
 
 func _mirror_observed() -> bool:
-	if not is_instance_valid(mirror) or world.mirror_renderer.active_mirror()!=mirror or not world.player_avatar.reflected:return false
+	if not is_instance_valid(mirror) or not player.camera.is_current() or world.mirror_renderer.active_mirror()!=mirror or not world.player_avatar.reflected:return false
 	var camera:Camera3D=player.camera
 	var toward:=mirror.mirror_center()-camera.global_position
 	if toward.length()>2.5 or (-camera.global_basis.z).dot(toward.normalized())<.72:return false
@@ -316,8 +390,8 @@ func _mirror_observed() -> bool:
 	var hit:=world.get_world_3d().direct_space_state.intersect_ray(ray)
 	return hit.is_empty() or mirror.is_ancestor_of(hit.collider)
 
-func _tap_mirror() -> void:
-	var next:=float(_knock_index/3)*5.0+float(_knock_index%3)*.28
+func _tap_mirror(offset:=0.0) -> void:
+	var next:=offset+float(_knock_index/3)*5.0+float(_knock_index%3)*.28
 	if _phase_age<next:return
 	_knock_index+=1
 	if not is_instance_valid(_knock):
@@ -337,6 +411,7 @@ func _cabinet_released(before:float,after:float) -> void:
 
 
 func shutdown() -> void:
+	_end_visitor()
 	_running=false;set_process(false)
 	if is_instance_valid(_knock):_knock.stop();_knock.queue_free()
 	_knock=null

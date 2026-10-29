@@ -54,7 +54,7 @@ func setup(main_camera: Camera3D,avatar: Node3D=null) -> void:
 	_camera.name = "ReflectedCamera"
 	_camera.fov = main_camera.fov
 	_camera.far = main_camera.far
-	_camera.cull_mask = main_camera.cull_mask & ~MIRROR_LAYER
+	_camera.cull_mask = (main_camera.cull_mask & ~MIRROR_LAYER) | (1 << (ServiceSetProp.DEVICE_LAYER-1))
 	if _avatar!=null:_camera.cull_mask|=preload("res://scripts/player/doodle_player_avatar.gd").LAYER
 	_camera.current = true
 	_view.add_child(_camera)

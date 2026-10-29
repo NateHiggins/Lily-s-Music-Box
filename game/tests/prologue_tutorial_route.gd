@@ -1,5 +1,5 @@
 extends "res://tests/orison_v2_4b_door_route_test.gd"
-## Actual installed-world waking/shower/mirror/cabinet slice; DREAM/visitor/finale not executed.
+## Actual waking/shower/mirror/cabinet/visitor slice; physical crossing and full opening remain unqualified.
 const Director := preload("res://scripts/game/prologue_director.gd")
 const BathCurtain := preload("res://scripts/props/clawfoot_curtain_motion.gd")
 const Household := preload("res://scripts/building/orison_v2_household_state.gd")
@@ -158,6 +158,7 @@ func _route() -> void:
 	if not await _drag_part(shower,shower._handles[1].global_position,0.0,"prologue_cold_off"): return
 	if not _require(director.state.phase=="mirror_condensation" and director.is_processing(),"real shower shutoff starts the mirror withdrawal"): return
 	if not await _review_mirror_reveal():return
+	if not await _review_visitor():return
 	var before: Dictionary=shower.mechanism_snapshot()
 	director.shutdown()
 	_require(before==shower.mechanism_snapshot(),"presentation retirement does not alter physical mechanisms")
@@ -177,8 +178,91 @@ func _route() -> void:
 	var out := OS.get_environment("SHOT_DIR")
 	var file := FileAccess.open(out.path_join("tutorial_slice.json"),FileAccess.WRITE)
 	if not _require(file!=null,"diagnostic output is writable"): return
-	file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual bed-to-bath walking, curtain/cold/hot/shutoff, mirror withdrawal, drawn reflection and cabinet input; no DREAM, visitor, crossing, typing arm, finale or production-entry acceptance.","state":director.state,"errors":director.errors,"failures":failures},"\t"))
+	file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual bed-to-bath walking, curtain/valves/shutoff, mirror withdrawal, drawn reflection, cabinet input and repeated reflection-only visitor observations/reload; no DREAM, physical crossing, first contact, typing-arm finale or production-entry acceptance.","state":director.state,"errors":director.errors,"failures":failures},"\t"))
 	frame_trace.complete=failures.is_empty()
+
+func _turn_at(point:Vector3) -> void:
+	for i in 14:
+		var toward:Vector3=(point-player.camera.global_position).normalized()
+		var forward:Vector3=-player.camera.global_basis.z
+		var flat:=Vector3(toward.x,0,toward.z).normalized()
+		var yaw:=Vector3(forward.x,0,forward.z).normalized().signed_angle_to(flat,Vector3.UP)
+		var pitch:=atan2(toward.y,Vector2(toward.x,toward.z).length())-player.camera.rotation.x
+		var sensitivity:=player.MOUSE_SENS*clampf(float(GameBoot.settings.get("look_sensitivity",1.0)),.25,2)
+		var motion:=InputEventMouseMotion.new()
+		motion.relative=Vector2(-yaw,-pitch)/sensitivity/float(14-i)
+		Input.parse_input_event(motion);Input.flush_buffered_events()
+		await get_tree().process_frame
+
+func _review_visitor() -> bool:
+	var carrier:Node=world.service_set_carrier
+	var device_id:int=carrier.device.get_instance_id()
+	var rig_id:int=carrier.rig.get_instance_id()
+	# Closing the leaf leaves the real camera aimed at its old open position.
+	# Looking back is an actual input action, not an assumed consequence.
+	await _turn_at(director.mirror.mirror_center())
+	await get_tree().create_timer(1.2).timeout
+	print("VISITOR_DIAGNOSTIC ",JSON.stringify({"age":director._phase_age,"events":director.state.events,"active":str(world.mirror_renderer.active_mirror()),"mirror_observed":director._mirror_observed(),"visitor_observed":director._visitor_observed(),"center":str(director._visitor_center),"camera":str(player.camera.global_transform),"rig":str(carrier.rig.global_transform)}))
+	await _shot("reflection_visitor_first.png")
+	if not _require("visitor_seen" in director.state.events and not ("looked_behind" in director.state.events),"mirror attention witnesses visitor without inventing a look behind"):return false
+	var device_mask:=1<<(ServiceSetProp.DEVICE_LAYER-1)
+	_require(player.camera.cull_mask&device_mask==0 and world.mirror_renderer.active_camera().cull_mask&device_mask!=0,"only reflected rays see the staged instrument layer")
+	_require(carrier.is_story_absent() and carrier.is_capture_hidden() and carrier._story_reflection and carrier.rig.visible and carrier.screen_frame.view.render_target_update_mode==SubViewport.UPDATE_DISABLED,"one native rig is projected while ordinary compositor and input remain absent")
+	var no_shadows:=true
+	for draw:GeometryInstance3D in carrier.rig.find_children("*","GeometryInstance3D",true,false):no_shadows=no_shadows and draw.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	var no_queries:=true
+	for entry:Dictionary in carrier._pick_layers.values():
+		var area:Area3D=entry.ref.get_ref()
+		if area!=null:no_queries=no_queries and area.collision_layer==0
+	_require(no_shadows and no_queries and carrier.motion.collision_layer==0,"reflection visitor has no physical shadows, controls or blocking body")
+	carrier.set_capture_hidden(true)
+	await get_tree().process_frame
+	_require(not carrier.rig.visible,"capture suppression also hides the private reflection")
+	carrier.set_capture_hidden(false)
+	await get_tree().process_frame
+	_require(carrier.rig.visible and carrier.is_story_absent(),"capture restoration cannot release narrative absence")
+	var events_before:Array=director.state.events.duplicate()
+	var other:=Camera3D.new();other.name="VisitorPrivacyObserver"
+	other.cull_mask=player.camera.cull_mask|device_mask
+	world.add_child(other);other.global_transform=player.camera.global_transform;other.make_current()
+	await get_tree().process_frame;await get_tree().process_frame
+	_require(not carrier.rig.visible and not director._mirror_observed() and director.state.events==events_before,"a different current camera cannot expose the private visitor or fabricate observations")
+	player.camera.make_current();other.queue_free()
+	await get_tree().process_frame;await get_tree().process_frame
+	var visitor:Vector3=director._visitor_center
+	await _turn_at(visitor)
+	await get_tree().create_timer(.5).timeout
+	if not _require("looked_behind" in director.state.events and not ("visitor_seen_again" in director.state.events) and not carrier.rig.visible,"real mouse turn finds no physical machine and records only the absence investigation"):return false
+	await _shot("reflection_visitor_absent.png")
+	await _turn_at(director.mirror.mirror_center())
+	await get_tree().create_timer(1.2).timeout
+	if not _require("visitor_seen_again" in director.state.events and director.state.phase=="reflection_visitor","mouse return rediscovers the same visitor without immediate crossing"):return false
+	await _shot("reflection_visitor_return.png")
+	# Repeat the experiment before permitting the authored crossing gate.
+	await _turn_at(visitor)
+	await get_tree().create_timer(.4).timeout
+	_require(not carrier.rig.visible and carrier.is_story_absent(),"repeated look behind remains empty")
+	await _turn_at(director.mirror.mirror_center())
+	await get_tree().create_timer(1.1).timeout
+	_require(carrier.rig.visible and carrier.device.get_instance_id()==device_id and carrier.rig.get_instance_id()==rig_id,"repeat experiment retains exactly the original companion authority and rig")
+	var old_path:String=RealityState.save_path
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("visitor_reload.json");RealityState.persistence_enabled=true
+	var events:Array=director.state.events.duplicate()
+	if not _require(RealityState.save_game(),"validated save records actual ordered visitor observations"):return false
+	RealityState.load_game();await get_tree().process_frame
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	_require(director._visitor_active and director._phase_age<.5 and director.state.events==events and carrier.rig.get_instance_id()==rig_id,"reload restages private presentation without stale dwell, new observations or another bot")
+	await get_tree().create_timer(18.7).timeout
+	if not _require(director.state.phase=="companion_crossing" and not director.state.effects.companion_materialized and carrier.is_story_absent(),"only genuine observations and the generous dwell reach the pending crossing; no physical arrival is invented"):return false
+	var held_observer:=Camera3D.new();held_observer.name="HeldVisitorPrivacyObserver"
+	held_observer.cull_mask=player.camera.cull_mask|device_mask
+	world.add_child(held_observer);held_observer.global_transform=player.camera.global_transform;held_observer.make_current()
+	await get_tree().process_frame;await get_tree().process_frame
+	_require(not carrier.rig.visible,"carrier independently protects observer privacy while the crossing implementation is pending")
+	player.camera.make_current();held_observer.queue_free()
+	await get_tree().process_frame;await get_tree().process_frame
+	_require(carrier.rig.visible and carrier.device.get_instance_id()==device_id,"return to the player retains the same private machine at the handoff boundary")
+	return true
 
 func _review_mirror_reveal() -> bool:
 	var cabinet:MedicineCabinetProp=director.mirror
