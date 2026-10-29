@@ -1,5 +1,5 @@
 extends "res://tests/orison_v2_4b_door_route_test.gd"
-## Actual installed-world tutorial slice; DREAM/mirror/finale not executed.
+## Actual installed-world waking/shower/mirror/cabinet slice; DREAM/visitor/finale not executed.
 const Director := preload("res://scripts/game/prologue_director.gd")
 const BathCurtain := preload("res://scripts/props/clawfoot_curtain_motion.gd")
 const Household := preload("res://scripts/building/orison_v2_household_state.gd")
@@ -131,11 +131,13 @@ func _route() -> void:
 	if not await _drag_part(shower,shower._handles[0].global_position,0.0,"prologue_hot_off"): return
 	if not _require(director.state.phase=="mirror_tapping" and director.message_id=="water_off","cold flow cannot falsely complete shutoff"): return
 	if not await _drag_part(shower,shower._handles[1].global_position,0.0,"prologue_cold_off"): return
-	if not _require(director.state.phase=="mirror_condensation" and not director.is_processing(),"real shower shutoff completes this bounded slice"): return
+	if not _require(director.state.phase=="mirror_condensation" and director.is_processing(),"real shower shutoff starts the mirror withdrawal"): return
+	if not await _review_mirror_reveal():return
 	var before: Dictionary=shower.mechanism_snapshot()
 	director.shutdown()
 	_require(before==shower.mechanism_snapshot(),"presentation retirement does not alter physical mechanisms")
-	await get_tree().process_frame
+	await get_tree().create_timer(.2).timeout
+	_require(not director.mirror.mirror_surface().has_meta("prologue_mirror_film") and world.mirror_renderer._material.get_shader_parameter("prologue_film")==Vector2(-1,0),"shutdown restores ordinary mirror moisture without a stale reveal")
 	_require(not carrier.is_story_absent() and carrier.rig.is_visible_in_tree()
 			and carrier.session.draft=="Unsubmitted draft survives the opening."
 			and player.lamp_is_enabled()==lamp_before and carrier.device.radio_powered==radio_before,
@@ -150,8 +152,62 @@ func _route() -> void:
 	var out := OS.get_environment("SHOT_DIR")
 	var file := FileAccess.open(out.path_join("tutorial_slice.json"),FileAccess.WRITE)
 	if not _require(file!=null,"diagnostic output is writable"): return
-	file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual bed-to-bath walking and curtain/cold/hot/shutoff input; no DREAM, body reveal, visitor, crossing, typing arm, finale or production-entry acceptance.","state":director.state,"errors":director.errors,"failures":failures},"\t"))
+	file.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual bed-to-bath walking, curtain/cold/hot/shutoff, mirror withdrawal, drawn reflection and cabinet input; no DREAM, visitor, crossing, typing arm, finale or production-entry acceptance.","state":director.state,"errors":director.errors,"failures":failures},"\t"))
 	frame_trace.complete=failures.is_empty()
+
+func _review_mirror_reveal() -> bool:
+	var cabinet:MedicineCabinetProp=director.mirror
+	player.face_world_point(player.camera.global_position+Vector3.UP*3)
+	await get_tree().create_timer(3.0).timeout
+	if not _require(not director._withdrawal_seen and director._phase_age<=1.5 and not world.player_avatar.visible,"branching reveal waits for the player to notice the mirror"):return false
+	var at:Vector3=cabinet.mirror_center()+cabinet.mirror_normal()*.85
+	at.y=player.global_position.y
+	if not await _walk_world(at):return false
+	player.face_world_point(cabinet.mirror_center())
+	await get_tree().create_timer(.4).timeout
+	if not _require(not world.player_avatar.visible and cabinet.mirror_surface().get_meta("prologue_mirror_film").x==1,"body remains concealed behind the authored condensation"):return false
+	await _shot("mirror_fully_obscured.png")
+	get_tree().paused=true
+	var age:float=director._phase_age
+	await get_tree().create_timer(.3,true).timeout
+	if not _require(director._phase_age==age,"pause holds branching withdrawal without another clock"):return false
+	get_tree().paused=false
+	await get_tree().create_timer(3.0).timeout
+	await _shot("mirror_branching.png")
+	var old_path:String=RealityState.save_path
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("mirror_reload.json")
+	RealityState.persistence_enabled=true
+	if not _require(RealityState.save_game(),"validated save records the genuine mirror phase"):return false
+	RealityState.load_game()
+	await get_tree().process_frame
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	if not _require(director.state.phase=="mirror_condensation" and director._phase_age<.5 and not world.player_avatar.visible,"reload restages transient withdrawal without inventing reflection observations: phase=%s age=%s visible=%s"%[director.state.phase,director._phase_age,world.player_avatar.visible]):return false
+	await get_tree().create_timer(6.5).timeout
+	await _shot("mirror_branching_body.png")
+	player.face_world_point(player.camera.global_position+Vector3.UP*3)
+	await get_tree().create_timer(5.0).timeout
+	if not _require(director.state.phase=="protagonist_reveal" and not ("reflection_observed" in director.state.events),"looking away cannot falsely witness the protagonist"):return false
+	player.face_world_point(cabinet.mirror_center())
+	await get_tree().create_timer(1.5).timeout
+	await _shot("mirror_drawn_protagonist.png")
+	if not _require(world.player_avatar.visible and world.player_avatar.reflected and world.mirror_renderer.active_mirror()==cabinet,"the supplied drawn rig is synchronized through the existing borrowed mirror"):return false
+	await get_tree().create_timer(7.0).timeout
+	if not _require(director.state.phase=="cabinet_inspection" and director.message_id=="cabinet_open","quiet actual reflection observation enables Open it guidance"):return false
+	cabinet.restore_travel(1);cabinet.restore_travel(0)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	_require(cabinet.get_node("CabinetReach").collision_layer==0 and cabinet._door.get_node("ManipulationTarget").collision_layer==1,"only the actual moving leaf receives cabinet queries")
+	if not _require(not ("cabinet_opened" in director.state.events) and not ("cabinet_closed" in director.state.events),"restored cabinet travel cannot fabricate player investigation"):return false
+	player.face_world_point(cabinet.mirror_center()+cabinet.mirror_normal()*.02)
+	await get_tree().physics_frame
+	var grip:Dictionary=player._grab.find_target()
+	print("MIRROR_GRAB_DIAGNOSTIC ",JSON.stringify({"owner":str(grip.get("owner")),"hit":str(player._grab.last_hit),"camera":str(player.camera.global_position),"center":str(cabinet.mirror_center()),"leaf":str(cabinet._leaf_body.global_transform)}))
+	if not await _drag_part(cabinet,cabinet.mirror_center()+cabinet.mirror_normal()*.02,cabinet.DOOR_ANGLE,"prologue_medicine_open"):return false
+	if not _require("cabinet_opened" in director.state.events and not ("cabinet_closed" in director.state.events),"primary grab motion and release witnesses the real cabinet opening"):return false
+	await _shot("mirror_cabinet_ordinary_contents.png")
+	if not _require(cabinet.inventory_names()==["aspirin","iodine","razor"],"cabinet retains its ordinary authored personal effects"):return false
+	if not await _drag_part(cabinet,cabinet.mirror_center()+cabinet.mirror_normal()*.02,0.0,"prologue_medicine_close"):return false
+	return _require(director.state.phase=="reflection_visitor" and "cabinet_closed" in director.state.events and world.service_set_carrier.is_story_absent(),"actual cabinet closure reaches the next unfinished beat without revealing a world bot")
+
 
 func _bath_click() -> void:
 	var click:=InputEventMouseButton.new();click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true

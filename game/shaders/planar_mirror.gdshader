@@ -1,5 +1,6 @@
 shader_type spatial;
 render_mode unshaded, cull_disabled;
+#include "res://shaders/prologue_mirror_film.gdshaderinc"
 
 uniform sampler2D mirror_view : source_color, filter_linear_mipmap;
 uniform float reflection_gain : hint_range(0.5, 1.5) = 0.92;
@@ -17,14 +18,16 @@ void vertex() {
 void fragment() {
 	vec2 feed_uv = vec2(glass_uv.x, 1.0 - glass_uv.y);
 	vec3 reflected = texture(mirror_view, feed_uv).rgb * reflection_gain;
-	if (condensation>0.01) {
-		vec2 blur=vec2(0.008)*condensation;
+	float wet=prologue_mirror_wet(glass_uv,condensation);
+	if (wet>0.01) {
+		vec2 blur=vec2(0.008)*wet;
 		vec3 diffused=texture(mirror_view,feed_uv+vec2(blur.x,0.0)).rgb
 			+texture(mirror_view,feed_uv-vec2(blur.x,0.0)).rgb
 			+texture(mirror_view,feed_uv+vec2(0.0,blur.y)).rgb
 			+texture(mirror_view,feed_uv-vec2(0.0,blur.y)).rgb;
-		reflected=mix(reflected,diffused*0.25*reflection_gain,condensation*0.8);
+		reflected=mix(reflected,diffused*0.25*reflection_gain,wet*0.8);
 	}
+	if(prologue_film.x>=0.0)reflected=mix(reflected,vec3(.58,.62,.60),wet*.985);
 	float edge = smoothstep(0.42, 0.50, max(abs(glass_uv.x - 0.5), abs(glass_uv.y - 0.5)));
 	float broad = sin(glass_uv.x * 19.0 + sin(glass_uv.y * 13.0) * 2.2)
 		* sin(glass_uv.y * 27.0 - glass_uv.x * 8.0);

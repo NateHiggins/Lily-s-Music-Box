@@ -33,6 +33,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(body.sync_to_physics and shape.shape is BoxShape3D and (shape.shape as BoxShape3D).size.is_equal_approx(Vector3(.46,.61,.030)) and shape.position.is_equal_approx(Vector3(-side*.230,0,-.003)), "original moving solid leaf collision")
 		mounted_ids.append(body.get_instance_id())
 		var reach := prop.get_node("CabinetReach") as Area3D
+		check(reach.collision_layer==0 and prop._door.get_node("ManipulationTarget").collision_layer==1,"legacy whole-cabinet query is retired; actual moving leaf remains targetable")
 		var reach_shape := reach.get_child(0) as CollisionShape3D
 		check((reach_shape.shape as BoxShape3D).size.is_equal_approx(Vector3(.54,.69,.24)) and reach_shape.position.is_equal_approx(Vector3(0,1.505,-.08)), "original player cabinet reach")
 		var assembly: Dictionary = fixture.runtime.assemblies.filter(func(row): return row.id == instance.variant)[0]
@@ -59,12 +60,22 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(mirror.material_override == borrowed, "original mirror owner can lend native surface its live material")
 		prop.set_live_mirror_material(null)
 		check(mirror.material_override == fallback, "original mirror fallback restored")
+		# CPU UV/mesh inspection above is a blocking diagnostic, not hinge time.
+		# Let its queued frame settle before issuing the timed operation. Retain
+		# the original two-second wall deadline and report this separate cost.
+		var inspection_finished:=Time.get_ticks_msec()
+		await get_tree().physics_frame;await get_tree().physics_frame
+		var settled_ms:=Time.get_ticks_msec()-inspection_finished
+		var opening_started:=Time.get_ticks_msec()
+		var physics_started:=Engine.get_physics_frames()
 		prop.interact(world.player)
+		var command_ms:=Time.get_ticks_msec()-opening_started
 		var deadline := Time.get_ticks_msec()+2000
 		while prop._swing<1. and Time.get_ticks_msec()<deadline: await get_tree().physics_frame
 		await get_tree().physics_frame
 		await get_tree().physics_frame
-		check(prop.is_door_open() and is_equal_approx(prop._door.rotation.y,-side*deg_to_rad(95.)), "ordinary interaction opens the original full hinge")
+		print("CABINET_OPEN_DIAGNOSTIC ",JSON.stringify({"id":identity,"inspection_settle_ms":settled_ms,"command_ms":command_ms,"wall_ms":Time.get_ticks_msec()-opening_started,"physics_frames":Engine.get_physics_frames()-physics_started,"swing":prop._swing,"open":prop.is_door_open(),"hand_pose":prop._hand_pose,"held":prop._hand_held}))
+		check(prop.is_door_open() and is_equal_approx(prop._door.rotation.y,-side*deg_to_rad(95.)), "ordinary interaction opens the original full hinge: "+identity)
 		check(body.get_parent() == prop._door and prop.mirror_surface() == mirror, "collision and live surface follow the same source hinge")
 		check(body.global_transform.is_equal_approx(prop._door.global_transform), "actual solid leaf reaches the original open hinge pose")
 		check(_leaf_in_physics(world,prop,body,shape), "physics ray finds the solid leaf at its open target")
@@ -75,6 +86,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(not prop.is_door_open() and prop._door.rotation.is_zero_approx(), "existing save restoration closes native leaf")
 		check(body.global_transform.is_equal_approx(prop._door.global_transform), "restored solid leaf reaches the closed hinge pose")
 		check(_leaf_in_physics(world,prop,body,shape), "physics ray finds the solid leaf at its restored target")
+	if OS.get_environment("PROLOGUE_MIRROR_OPTICS")=="1":await _review_story_film(world)
 	check(actors.size()==12 and kept_count==28, "all twelve cabinets and twenty-eight source household items")
 	check(unique_triangles==int(fixture.triangles), "all unique native cabinet and kept geometry accounted for")
 	return {"checks":checks,"actors":actors.size(),"kept_items":kept_count,"unique_triangles":unique_triangles,"views":discovery.duplicate(true),"failures":failures.duplicate()}
@@ -183,3 +195,34 @@ func _capture_cabinet(world: OrisonV2RuntimeRoot, prop: Cabinet, record: Diction
 		prop.restore_open_state(false)
 		await _city_capture(world,station,prop.mirror_center(),str(record.id)+"_native_mirror","native leaf and live source reflection",str(record.id))
 		check(world.mirror_renderer.active_mirror()==prop and prop.mirror_surface().material_override is ShaderMaterial, "single original reflection owner borrows native mirror")
+
+
+## INERT optical sampling only; this does not grant prologue observations.
+func _review_story_film(world:OrisonV2RuntimeRoot) -> void:
+	var prop:=world.adapter.resolve("F04_4B_MIRROR_01") as Cabinet
+	var pane:=prop.mirror_surface()
+	var at:Vector3=prop.global_position-prop.global_basis.z*1.05
+	at.y=prop.get_parent().global_position.y
+	world.player.global_position=at;world.player.velocity=Vector3.ZERO
+	world.player.face_world_point(prop.mirror_center())
+	world.player.camera.make_current()
+	var poses:Array=[]
+	for progress:float in [0.0,.30,.50,.65,.85,1.0]:
+		pane.set_meta("prologue_mirror_film",Vector2(1,progress))
+		await _settled_optics();await shot("story_film_%03d"%int(progress*100))
+		check(world.mirror_renderer.active_mirror()==prop,"story film uses the one existing mirror viewport")
+		poses.append({"progress":progress,"film":str(pane.get_meta("prologue_mirror_film")),"camera":str(world.player.camera.global_position)})
+	var skeleton:Skeleton3D=world.player_avatar.skeleton
+	var heads:Dictionary={}
+	for bone in skeleton.get_bone_count():
+		if str(skeleton.get_bone_name(bone)).to_lower().contains("head"):
+			heads[str(skeleton.get_bone_name(bone))]=str(skeleton.to_global(skeleton.get_bone_global_pose(bone).origin))
+	var bounds:Array=[]
+	for draw:MeshInstance3D in prop.get_parent().find_children("*","MeshInstance3D",true,false):
+		if prop.is_ancestor_of(draw) or draw.mesh==null:continue
+		var box:AABB=draw.global_transform*draw.mesh.get_aabb()
+		if box.end.y>prop.global_position.y+1.0:bounds.append({"path":str(draw.get_path()),"aabb":str(box)})
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("story_film_optics.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Local shader review and measured readability; no water/input/story acceptance","poses":poses,"mirror_center":str(prop.mirror_center()),"avatar_heads":heads,"sink_high_stock":bounds},"	"))
+	pane.remove_meta("prologue_mirror_film")
+	await _settled_optics()
+	check(world.mirror_renderer._material.get_shader_parameter("prologue_film")==Vector2(-1,0),"local film removal restores ordinary mirror response")

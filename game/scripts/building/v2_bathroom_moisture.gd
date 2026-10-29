@@ -187,6 +187,10 @@ func _process(delta: float) -> void:
 		surface.inside=move_toward(float(surface.inside),humidity,step*0.05)
 		surface.outside=move_toward(float(surface.outside),rain if surface.exposed else 0.0,step*(0.12 if rain>float(surface.outside) else 0.02))
 		var film: ShaderMaterial=surface.material
+		if surface.mirror:
+			var story:Vector2=surface.pane.get_meta("prologue_mirror_film",Vector2(-1,0))
+			if story!=surface.get("last_story",Vector2.INF):
+				film.set_shader_parameter("prologue_film",story);surface.last_story=story
 		if float(surface.inside)!=float(surface.last_inside) or float(surface.outside)!=float(surface.last_outside):
 			film.set_shader_parameter("inside_wet",0.0 if surface.mirror else float(surface.inside))
 			film.set_shader_parameter("outside_wet",float(surface.inside) if surface.mirror else float(surface.outside))

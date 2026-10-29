@@ -323059,6 +323059,36 @@
     "rationale": "Production code looks up a layout id at runtime.",
     "resolved_target": "v2_blockout",
     "target_exists": true
+  },
+  {
+    "key": "a930d47ae45c222d",
+    "kind": "id_reference",
+    "token": "F04_4B_MIRROR_01",
+    "file": "game/tests/orison_v2_medicine_cabinets_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+      "_review_story_film"
+    ],
+    "lines": [
+      202
+    ],
+    "count": 1,
+    "context": [
+      "var prop:=world.adapter.resolve(\"F04_4B_MIRROR_01\") as Cabinet"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+      "TEST_CONTRACT"
+    ],
+    "spatial": [
+      "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "F04/marker",
+    "target_exists": true
   }
  ]
 }

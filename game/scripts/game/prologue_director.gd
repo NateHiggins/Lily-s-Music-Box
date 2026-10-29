@@ -32,6 +32,14 @@ var _carrier: Node
 var _window_controls: Array[Node]=[]
 var temporal_console:Node
 var temporal_sky:Node
+var mirror:MedicineCabinetProp
+var _avatar_visible:=true
+var _avatar_leased:=false
+var _reflection_dwell:=0.0
+var _withdrawal_seen:=false
+var _knock_index:=0
+var _knock:AudioStreamPlayer3D
+
 
 func _ready() -> void:
 	set_process(false)
@@ -47,7 +55,7 @@ func configure(owner_world: Node3D) -> bool:
 		if row is not Dictionary or row.get("id") is not String or row.get("text") is not String: return _fail("invalid writing row")
 		if row.id.is_empty() or row.text.is_empty() or _messages.has(row.id): return _fail("duplicate/empty writing row")
 		_messages[row.id]=row.text
-	for id in ["wake_passed","wake_shower","curtain_open","wrong_curtain","cold_start","hot_start","more_hot","less_hot","comfort","hot_off","water_off"]:
+	for id in ["wake_passed","wake_shower","curtain_open","wrong_curtain","cold_start","hot_start","more_hot","less_hot","comfort","hot_off","water_off","cabinet_open"]:
 		if not _messages.has(id): return _fail("missing writing message "+id)
 	# One mounting survey per support. The actual wall hit supplies the frame;
 	# do not float lettering at a guessed wall plane or scan interaction targets.
@@ -63,6 +71,16 @@ func configure(owner_world: Node3D) -> bool:
 		if world.is_ancestor_of(treatment) and treatment.get_meta("unit","")=="4B":
 			treatment.control_released.connect(_window_released)
 			_window_controls.append(treatment)
+	for surface:Node in get_tree().get_nodes_in_group("planar_mirror_surface"):
+		if not world.is_ancestor_of(surface):continue
+		var owner_node:Node=surface.get_parent()
+		while owner_node!=null and owner_node is not MedicineCabinetProp:owner_node=owner_node.get_parent()
+		if owner_node is MedicineCabinetProp and owner_node.unit=="4B":
+			if mirror!=null:return _fail("ambiguous 4B mirror owner")
+			mirror=owner_node
+	if mirror==null:return _fail("missing installed 4B medicine cabinet")
+	if mirror.mirror_surface().has_meta("prologue_mirror_film"):return _fail("mirror presentation already owned")
+	mirror.manipulation_released.connect(_cabinet_released)
 	RealityState.state_changed.connect(_restore)
 	_restore()
 	return errors.is_empty()
@@ -79,12 +97,14 @@ func _wall_anchor(at: Vector3, normal: Vector3) -> Transform3D:
 
 func begin_waking_preview() -> bool:
 	# Explicit incomplete-slice preview only; it does not claim DREAM was played.
-	if world==null or not errors.is_empty() or state.phase not in ["dream","awakening","bedroom_exploration"]: return false
-	while state.phase!="bedroom_exploration":
+	if world==null or not errors.is_empty() or state.phase not in ["dream","awakening","bedroom_exploration","bathroom_entry","curtain_interaction","shower_temperature","shower_complete","mirror_tapping","mirror_condensation","protagonist_reveal","cabinet_inspection","reflection_visitor"]: return false
+	while state.phase in ["dream","awakening"]:
 		var next: String=State.PHASES[State.PHASES.find(state.phase)+1]
 		if not _store(State.advance(state,next)): return false
 	_carrier=world.service_set_carrier
 	if _carrier==null or not _carrier.acquire_story_absence(self): return _fail("companion absence lease refused")
+	if not _avatar_leased:
+		_avatar_visible=world.player_avatar.visible;_avatar_leased=true
 	_running=true;set_process(true);_enter_phase()
 	return true
 
@@ -148,10 +168,10 @@ func _restore() -> void:
 	if restored.is_empty(): _fail("invalid prologue state");return
 	_document=RealityState.data
 	if replaced: _last_moved_valve=-1
-	if restored==state: return
+	if restored==state and not replaced: return
 	var changed: bool=state.get("phase","")!=restored.phase
 	state=restored
-	if changed and _running: _enter_phase()
+	if (changed or replaced) and _running: _enter_phase()
 
 func _store(next: Dictionary) -> bool:
 	if next.is_empty() or RealityState.save_write_blocked: return _fail("prologue transition refused")
@@ -170,7 +190,13 @@ func _advance(next: String) -> bool:
 	_enter_phase();return true
 
 func _enter_phase() -> void:
-	_phase_age=0;_comfortable=0;message_id=""
+	_phase_age=0;_comfortable=0;message_id="";_reflection_dwell=0;_knock_index=0;_withdrawal_seen=false
+	if _avatar_leased:
+		world.player_avatar.visible=State.PHASES.find(state.phase)>=State.PHASES.find("protagonist_reveal") and _avatar_visible
+	if state.phase in ["mirror_tapping","mirror_condensation"]:_set_mirror_film(Vector2(1,0))
+	elif state.phase in ["protagonist_reveal","cabinet_inspection","reflection_visitor"]:_set_mirror_film(Vector2(1,1))
+	elif mirror!=null:mirror.mirror_surface().remove_meta("prologue_mirror_film")
+	if is_instance_valid(_knock):_knock.stop()
 	match state.phase:
 		"bedroom_exploration": _say("wake_passed",false)
 		"bathroom_entry": _advance("curtain_interaction");return
@@ -178,8 +204,15 @@ func _enter_phase() -> void:
 		"shower_temperature": _say("hot_start",true)
 		"shower_complete": _say("comfort",true)
 		"mirror_tapping": _say("hot_off",true)
-		"mirror_condensation":
-			writing.clear();_running=false;set_process(false)
+		"mirror_condensation":writing.clear()
+		"protagonist_reveal":writing.clear()
+		"cabinet_inspection":
+			if "cabinet_opened" not in state.events:_say("cabinet_open",true)
+			else:writing.clear()
+		"reflection_visitor":
+			# The reflection-only visitor is the next unfinished slice. Keep the
+			# real bot absent, without substituting its ordinary-world appearance.
+			writing.clear();set_process(false)
 		"temporal_synchronization":
 			if world!=null and world.has_node("WakingAtmosphere"):begin_temporal_sky()
 	phase_changed.emit(state.phase)
@@ -245,9 +278,65 @@ func _process(delta: float) -> void:
 				if _observe("temperature_balanced"): _advance("shower_complete")
 		"shower_complete":
 			if _phase_age>=7.0: _advance("mirror_tapping")
+		"mirror_tapping":_tap_mirror()
+		"mirror_condensation":
+			# Let the player find the tapping before the branching moment runs.
+			if not _withdrawal_seen:
+				_withdrawal_seen=_mirror_observed()
+				if not _withdrawal_seen:_phase_age=minf(_phase_age,1.5);return
+			# Restore the synchronized body behind opaque film before paths open.
+			if _avatar_leased and _phase_age>=2.5:world.player_avatar.visible=_avatar_visible
+			_set_mirror_film(Vector2(1,smoothstep(2.0,10.0,_phase_age)))
+			if _phase_age>=10.0:_advance("protagonist_reveal")
+		"protagonist_reveal":
+			if _mirror_observed():_reflection_dwell+=elapsed
+			if _reflection_dwell>=8.0:
+				if _observe("reflection_observed"):_advance("cabinet_inspection")
+		"cabinet_inspection":
+			if not ("cabinet_opened" in state.events) or _phase_age>=6.0:_tap_mirror()
+
+func _set_mirror_film(value:Vector2) -> void:
+	if is_instance_valid(mirror) and mirror.mirror_surface().get_meta("prologue_mirror_film",Vector2(-1,0))!=value:
+		mirror.mirror_surface().set_meta("prologue_mirror_film",value)
+
+func _mirror_observed() -> bool:
+	if not is_instance_valid(mirror) or world.mirror_renderer.active_mirror()!=mirror or not world.player_avatar.reflected:return false
+	var camera:Camera3D=player.camera
+	var toward:=mirror.mirror_center()-camera.global_position
+	if toward.length()>2.5 or (-camera.global_basis.z).dot(toward.normalized())<.72:return false
+	var ray:=PhysicsRayQueryParameters3D.create(camera.global_position,mirror.mirror_center(),1,[player.get_rid()])
+	var hit:=world.get_world_3d().direct_space_state.intersect_ray(ray)
+	return hit.is_empty() or mirror.is_ancestor_of(hit.collider)
+
+func _tap_mirror() -> void:
+	var next:=float(_knock_index/3)*5.0+float(_knock_index%3)*.28
+	if _phase_age<next:return
+	_knock_index+=1
+	if not is_instance_valid(_knock):
+		_knock=AudioStreamPlayer3D.new();_knock.name="InsideMirrorTap"
+		_knock.stream=preload("res://assets/audio/freesound/processed/mechanical/pipe_knock.ogg")
+		_knock.volume_db=-25;_knock.max_distance=6;_knock.unit_size=.5;add_child(_knock)
+	_knock.global_position=mirror.mirror_center()-mirror.mirror_normal()*.03
+	_knock.play()
+
+func _cabinet_released(before:float,after:float) -> void:
+	if not _running or get_tree().paused or player.call_locked or RealityState.save_write_blocked or not is_same(_document,RealityState.data):return
+	if state.phase!="cabinet_inspection":return
+	if after>=.55 and after>before+.02 and "cabinet_opened" not in state.events:
+		if _observe("cabinet_opened"):_phase_age=0;_knock_index=0;writing.clear()
+	elif after<=.025 and after<before-.02 and "cabinet_opened" in state.events:
+		if _observe("cabinet_closed"):_advance("reflection_visitor")
+
 
 func shutdown() -> void:
 	_running=false;set_process(false)
+	if is_instance_valid(_knock):_knock.stop();_knock.queue_free()
+	_knock=null
+	if is_instance_valid(mirror):
+		mirror.mirror_surface().remove_meta("prologue_mirror_film")
+		if mirror.manipulation_released.is_connected(_cabinet_released):mirror.manipulation_released.disconnect(_cabinet_released)
+	if _avatar_leased and is_instance_valid(world) and is_instance_valid(world.player_avatar):world.player_avatar.visible=_avatar_visible
+	_avatar_leased=false
 	if is_instance_valid(temporal_sky):temporal_sky.cancel();temporal_sky.queue_free()
 	temporal_sky=null
 	if is_instance_valid(temporal_console):
