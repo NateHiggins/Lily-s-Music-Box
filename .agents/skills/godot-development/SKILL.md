@@ -109,6 +109,11 @@ readability, and feel.
   Let the real lamp and pose transitions settle before freezing a capture;
   assert final power/visibility. For a fixed review stance, stop the body physics
   before placing and aiming the camera so its next step cannot change framing.
+- **Review cameras:** inherit the intended production camera's cull mask.
+  A default Camera3D can expose reflection-only avatars and create apparent
+  geometry artifacts. The entrance review's white streak disappears with the
+  first-person mask; preserve the mirror's separate inclusion of the avatar.
+  Derive test stances through the actual owner's frame, not raw layout numbers.
 - **Mechanical handoffs:** advance from the outgoing owner's acknowledgement
   into the incoming owner's real readiness state. A protected observation pose
   may not yet permit typing; do not force a mechanism or weaken its constraints

@@ -264,3 +264,35 @@ queued for the same unlaunched **world_stance** review. No other agent's engine
 process is interrupted. Changed test source copies the first-person camera's
 visibility mask and derives its hand stance from the real door transform.
 These corrections remain unverified in Godot until that run actually executes.
+
+
+### Corrected occupied entrance review — October29
+
+**world_stance.log.receipt.json** completes exit0 in203.13seconds, empty stderr,
+fullscreen3440x1440 on the patched Vulkan engine. All673 checks pass, including
+loaded native metre UVs/derivatives, existing PBR and clear glass, matching fixed
+collision, retained bearings, sampled standing stations and actual primary-click
+acquisition, mouse travel to86degrees and next-click release. The same actual
+leaf owns the gesture and is released; no endpoint/toggle substitution is used.
+The receipt verifier reports RECEIPT BINDS before this report update. This
+fixture writes no schema-2 runtime contract: its result is a scoped diagnostic,
+not global space/save/campaign qualification.
+
+All six current native-resolution captures are inspected. The diagonal white
+streak is absent after inheriting the player's camera mask, confirming the
+review-only avatar-layer artifact. Production avatar/mirror/sky behavior is
+unchanged. Oak grain, carved panels, brass fittings, six glass lights, warm stone,
+marquee and retained sign are visible in the loaded scene. This is technical
+optical review under the fixture's night lighting, not owner artistic acceptance
+or a complete facade-window repair. The hand operation occurs after these six
+captures; an open-pose Game screenshot is not claimed. Native open/back views
+and sampled clearance evidence remain separate.
+
+Original failed **world_first** receipt/stderr/captures remain intact; the
+intervening busy waits launch nothing and confer no test result. Source-bound
+full-world surface renewal and current-main candidate/regression work remain
+open. Reconcile the facade/window research against actual installed interiors
+before changing their openings; this portal delivery does not close that work.
+The Godot skill records the demonstrated camera-mask and coordinate-frame
+lessons. Car/lamp preparation is still external and does not qualify new traffic
+or street-light behavior. No whole-V2 or whole-prologue completion is declared.
