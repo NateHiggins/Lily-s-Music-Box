@@ -246,3 +246,21 @@ shader is modified. The corrected hand/camera rerun is queued on the same live
 shared-lane waiter, with other contributors' processes preserved. It has not yet
 returned a result. Routine import rewrites are verified normalization-only and
 excluded from staging; no other contributor's assets or UIDs are discarded.
+
+
+### Source-bound renewal gate — October29
+
+The complete114-gate **entrance_delivery_review/full_board/board.json** at
+**6aa0ce92** records only the expected surface-qualification regressions against
+retained baseline **39314900**: missing/stale rendered review and changed
+rendering inputs. Four comparison messages describe those two expiry defects;
+all other gate results match the baseline, including its existing failures.
+No current-main/candidate pass is claimed. The source-expiry guard is retained;
+renew actual loaded review and full-world surfaces after final source freeze.
+
+The first corrected-run wait expires after20minutes with **nothing started**;
+there is no runtime receipt for that refusal. A new single40-minute waiter is
+queued for the same unlaunched **world_stance** review. No other agent's engine
+process is interrupted. Changed test source copies the first-person camera's
+visibility mask and derives its hand stance from the real door transform.
+These corrections remain unverified in Godot until that run actually executes.
