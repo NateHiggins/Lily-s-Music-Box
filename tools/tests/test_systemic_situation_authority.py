@@ -450,9 +450,12 @@ class HostCalendarTests(unittest.TestCase):
         self.assertEqual(self._find(source,path),[])
         changes=[
             ('var zone :=', 'var again := Time.get_unix_time_from_system()\n\tvar zone :='),
-            ('return target if valid_target(target) else {}', 'RealityState.data.target = target\n\treturn target if valid_target(target) else {}'),
-            ('return target if valid_target(target) else {}', 'OS.execute("date",[])\n\treturn target if valid_target(target) else {}'),
-            ('return target if valid_target(target) else {}', 'return target'),
+            ('return annual_destination(target)', 'RealityState.data.target = target\n\treturn annual_destination(target)'),
+            ('return annual_destination(target)', 'OS.execute("date",[])\n\treturn annual_destination(target)'),
+            ('return annual_destination(target)', 'return target'),
+            ('if not valid_target(anchor):return {}', 'if not valid_target(anchor):return {}\n\tRealityState.data.target = anchor'),
+            ('if not valid_target(anchor):return {}', 'if not valid_target(anchor):return {}\n\tOS.execute("date",[])'),
+            ('if not valid_target(anchor):return {}', 'if not valid_target(anchor):return {}\n\tvar extra = Time.get_unix_time_from_system()'),
             ('static func sample_destination()', 'static func other_destination()')]
         for before,after in changes:
             changed=source.replace(before,after)

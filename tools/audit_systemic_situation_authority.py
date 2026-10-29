@@ -917,20 +917,30 @@ def _pure_seed_entropy(rel, scope, body):
             not CALENDAR_DURABLE_RE.search(body))
 
 
-def _pure_prologue_destination(rel, scope, body):
+def _pure_prologue_destination(ctx, scope, body):
     # Bible VIII.5.p authorizes a once-captured present destination, not a
     # general host-calendar exemption. Accept only this read/validate/return
-    # boundary; additions (writes, extra reads, calls, unchecked returns) fail.
+    # boundary; unreviewed writes, extra reads, calls and unchecked returns fail.
     # The reducer/save tests separately prove immutable destination adoption.
-    if rel != "game/scripts/game/prologue_state.gd" or scope != "sample_destination":
+    if ctx.rel != "game/scripts/game/prologue_state.gd" or scope != "sample_destination":
         return False
     expected = '''static func sample_destination() -> Dictionary:
         var stamp := int(floor(Time.get_unix_time_from_system()))
         var zone := Time.get_time_zone_from_system()
         var target := {"utc_unix_seconds":stamp,"local_bias_minutes":zone.get("bias",0),
             "local_zone":zone.get("name","")}
-        return target if valid_target(target) else {}'''
-    return re.sub(r"\s+", "", body) == re.sub(r"\s+", "", expected)
+        return annual_destination(target)'''
+    projection = '''static func annual_destination(anchor:Dictionary) -> Dictionary:
+        if not valid_target(anchor):return {}
+        var date:=Time.get_datetime_dict_from_unix_time(int(anchor.utc_unix_seconds)+int(anchor.local_bias_minutes)*60)
+        date.year=1928 if int(date.month)*100+int(date.day)>=1110 else 1929
+        if date.month==2 and date.day==29:date.day=28
+        return {"utc_unix_seconds":Time.get_unix_time_from_datetime_dict(date)+18000,"local_bias_minutes":-300,"local_zone":"Queens EST"}'''
+    helper = "\n".join(line.split("#", 1)[0] for line in ctx.function_body("annual_destination").splitlines())
+    # The owner narrowed the destination to the authored annual loop. Permit
+    # exactly that pure projection, never an unchecked or world-writing helper.
+    normalize = lambda value: re.sub(r"\s+", "", value)
+    return normalize(body) == normalize(expected) and normalize(helper) == normalize(projection)
 
 
 def _scan_host_clock(ctx, findings, line, scope, line_no):
@@ -947,7 +957,7 @@ def _scan_host_clock(ctx, findings, line, scope, line_no):
     unix_host_read = HOST_UNIX_RE.search(line)
     if _pure_seed_entropy(ctx.rel, scope, code_body):
         return
-    if _pure_prologue_destination(ctx.rel, scope, code_body):
+    if _pure_prologue_destination(ctx, scope, code_body):
         return
     if _artifact_timestamp_only(ctx, scope, line):
         return

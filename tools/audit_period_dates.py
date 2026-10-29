@@ -26,6 +26,9 @@ EXPECTED_CONSUMERS = {
     "game/scripts/building/deterministic_lightning_manager.gd": "campaign_minute_keyed_electrical_presentation",
     # Authored Gregorian calendar; host hour/minute may be sampled once.
     "game/scripts/game/campaign_clock.gd": "authored_campaign_calendar",
+    # Owner October29 annual-present amendment: pure validated month/day/time
+    # projection into1928/1929; the systemic audit still rejects other host reads.
+    "game/scripts/game/prologue_state.gd": "validated_annual_prologue_destination_projection",
     # Bible VIII.5.p: detached render projection of the already captured target;
     # no host read, campaign bind/write, weather publication or dated reporting.
     "game/scripts/game/prologue_temporal_sky.gd": "prologue_render_only_utc_projection_no_publication",
