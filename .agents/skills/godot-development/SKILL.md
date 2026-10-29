@@ -11,6 +11,11 @@ gameplay authorities. Use the full workflow for substantial features, difficult
 bugs, integration, and performance work. For a small edit, inspect the affected
 owner, make the change, and run the smallest meaningful check.
 
+The workflow applies to general Godot development. The Orison paths, lane,
+engine patch and acceptance rules below are this repository's constraints;
+derive equivalents from evidence when working in another project rather than
+copying its engine assumptions or fictional authorities.
+
 ## Inspect before deciding
 
 Read the applicable repository instructions and design documents. In this
@@ -87,6 +92,29 @@ the owner's judgment and actual playtesting establish humor, atmosphere,
 readability, and feel.
 
 ## Reuse demonstrated project lessons
+
+- **Runtime branches:** parsing and successful instantiation do not execute
+  conditional branches. Exercise the changed branch with actual values. On the
+  pinned Godot build, a ternary producing an untyped Array can fail when assigned
+  to Array[String] at runtime; use explicit typed construction/assignment or an
+  intentionally untyped local rather than trusting preflight alone.
+- **Physical UI:** stored text and a finished print flag do not establish
+  readable output. Inspect the delivered glyphs against glass, moving covers,
+  keyboards and actual camera framing; wait for the real delivery motion.
+  Validate optical checks against known obscured/hidden controls. A positive
+  colour count is not proof if unrelated emissive hardware can satisfy it.
+- **Mechanical handoffs:** advance from the outgoing owner's acknowledgement
+  into the incoming owner's real readiness state. A protected observation pose
+  may not yet permit typing; do not force a mechanism or weaken its constraints
+  to satisfy a guessed delay. Bound retries and preserve accepted-command state.
+- **Clock coordinates:** separate reversible calendar presentation from
+  monotonic elapsed/deadline counters. An annual civil loop must not wrap a
+  service deadline. Derive paper, sky and adopted destination from one immutable
+  target; test the annual seam, local-zone boundaries and validated reloads.
+
+The [prologue ledger](../../../design/V2_PROLOGUE_2026-10-28.md) records the
+annual-clock evidence and first-contact failures behind these lessons. Its
+unqualified visual candidate is not a completed opening or an accepted remedy.
 
 For texture, PBR, glass, sky or shader appearance work, also use
 [godot-textures-and-shaders](../godot-textures-and-shaders/SKILL.md). It covers
@@ -174,3 +202,14 @@ executed verdict. [Claude's lived-in pass](../../../design/CLAUDE_APARTMENT_LIVE
 separates gameplay, simulated and visual function while limiting actor/draw cost.
 Their historical baselines are not current acceptance. Preserve authoring/debug
 stimuli as diagnostics rather than silently turning them into gameplay features.
+
+## Keep this skill current
+
+Update this existing skill when a reproduced failure or verified improvement
+changes how future Godot work should be executed. Merge lessons with related
+guidance, retain a source/evidence pointer and state engine/platform limits;
+do not append a session diary or promote an unverified proposed fix into a rule.
+Revise obsolete advice when contrary evidence appears. Keep detailed findings
+in their existing subsystem ledger and texture/native authoring in the linked
+skills. Validate skill structure and links after edits; documentation-only
+maintenance does not require another Godot launch or gameplay acceptance claim.
