@@ -207,6 +207,13 @@ release of an ending* — has a first ending on the shelf: hers.
 *(New canon proposed by this document; flag for review with Case
 Network work.)*
 
+*Owner-ruled 2026-10-29: closed. Mara Chen moved out of 4B ordinarily, before
+the reopening year's night tenancy began; her case did not stay open and she
+is not on hold. The night man who took the vacant job is the Tenant's
+construct (Bible §I). This knot carries no second thread. Her voice on the
+desk line remains as shipped in the Case Network (Bible §IV, “Mara Chen … has
+no body in the building”), without the “still on hold” reading above.*
+
 ---
 
 ## III. THE ADJACENCY — every resident's threads at a glance
@@ -222,7 +229,7 @@ Network work.)*
 | Omar 3B | Iris | still married, two floors apart (§II.3); the '77 silence, with Cal |
 | Rhea 3D | Juno | the deleted take that survived (§II.7) |
 | Peter 4A | Evelyn; the Prices; Mina | the pencil that made him; the appeal he certified to death (§II.1, 6) |
-| player 4B | Nadia; Mara | hired by one war (§II.2), heir to one hold queue (§II.9) |
+| night man 4B (ridden by the player) | Nadia | hired by one war (§II.2); took a vacant job (§II.9, closed) |
 | Cam 4C | Lena | kin; her century's stillness in his legs (§II.5) |
 | Noel 4C | Jonah, Leon, Mina | the museum of before (§II.1) |
 | Guests 4D | the building | first tenants, eternally arriving (§I) |
@@ -232,7 +239,7 @@ Network work.)*
 | Sacha 6A | Malcolm; Iris | proof of the family love (§II.8) |
 | Jonah 6B | Noel, Leon, Cal | the unfinishable last chapter, and where it's archived (§II.1) |
 | Mae 6C | Nadia; everyone | the Estate's last name on every lease (§II.2) |
-| Mara (line) | the player; the callers | 4B's previous tenant (§II.9) |
+| Mara (line) | the callers | 4B's previous tenant, moved out (§II.9, closed) |
 | Leon (line) | Noel, Jonah | the brother who calls the building he fled (§II.1) |
 
 Harpy and oni: prepped, indexed, purposes unassigned — the web does not
