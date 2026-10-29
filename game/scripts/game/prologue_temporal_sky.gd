@@ -42,6 +42,7 @@ var sample_costs:Array=[]
 var finish_costs:Dictionary={}
 var source_utc:=0.0
 var destination_utc:=0.0
+var _travel_destination:=0.0
 var view_clock:=RenderClock.new()
 var _campaign:Dictionary
 var _completion:Callable
@@ -52,7 +53,6 @@ var _old_clock:CampaignClock
 var _old_conditions:Dictionary
 var _old_extreme:RefCounted
 var _view_extreme:RefCounted
-var _representatives:Dictionary={}
 var _old_parameters:Dictionary={}
 var _particles:Array[Dictionary]=[]
 var _audio:Array[Dictionary]=[]
@@ -117,8 +117,9 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 	if manager==null or manager.extreme_weather==null or not _find_window():return _refuse("missing installed window or weather owner")
 	var clock:=CampaignClock.new()
 	if not clock.bind_state():return _refuse("campaign clock refused binding")
-	source_utc=Calendar.clock_seconds(clock)+18000.0
-	destination_utc=float(opening.target.utc_unix_seconds)
+	source_utc=State.wrap_loop_utc(Calendar.clock_seconds(clock)+18000.0)
+	destination_utc=float(State.annual_destination(opening.target).utc_unix_seconds)
+	_travel_destination=State.showcase_end(source_utc,destination_utc)
 	if not view_clock.seek_utc(destination_utc):return _refuse("detached clock refused destination")
 	if not player.acquire_text_input(self):return _refuse("player input lease refused: protected=%s inspection=%s mouse_released=%s owner=%s"%[player.protected_input_active(),player.inspecting(),player.mouse_released,str(player.text_input_owner)])
 	_campaign=RealityState.data;_completion=completion;_cutaway_completion=cutaway_completion;_old_mode=world.process_mode
@@ -126,7 +127,6 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 	_old_clock=director._campaign_clock;_old_conditions=director._live_conditions.duplicate(true)
 	_old_extreme=director.extreme_weather
 	_view_extreme=preload("res://scripts/building/queens_weather_extension.gd").new()
-	for date:String in Calendar._dates:_representatives[date.substr(5)]=date
 	for uniform:Dictionary in manager.sky.shader.get_shader_uniform_list():
 		_old_parameters[str(uniform.name)]=manager.sky.get_shader_parameter(uniform.name)
 	for node:Node in world.find_children("*","",true,false):
@@ -194,7 +194,7 @@ func _find_window() -> bool:
 func seek(seconds:float) -> void:
 	if not active or not is_finite(seconds):return
 	age=clampf(seconds,0,DURATION)
-	sampled_utc=time_at(age,source_utc,destination_utc)
+	sampled_utc=destination_utc if age>=30 else State.wrap_loop_utc(time_at(age,source_utc,_travel_destination))
 	if not view_clock.seek_utc(sampled_utc):cancel();return
 	var entering:=smoothstep(2.6,4.3,age)
 	var crossing:=smoothstep(4.3,5.7,age)
@@ -222,12 +222,7 @@ func _publish() -> void:
 	var date:=view_clock.local_datetime()
 	var authored:=Calendar.snapshot(date)
 	var conditions:=Weather.Service.presentation(authored if not authored.is_empty() else Weather.seasonal_snapshot(date))
-	# Representative seasonal weather is visual art, never historical reporting.
-	var month_day:="%02d-%02d"%[date.month,date.day]
-	if age<29 and _representatives.has(month_day):
-		var representative:=Time.get_datetime_dict_from_datetime_string(str(_representatives[month_day])+"T%02d:%02d:%02d"%[date.hour,date.minute,date.second],false)
-		var borrowed:=Weather.Service.presentation(Calendar.snapshot(representative))
-		conditions=Weather.interpolate(borrowed,conditions,smoothstep(24,29,age))
+	# Every detached sample is in the authored year; no modern-year weather proxy.
 	conditions.season_weights=Weather.season_weights(int(date.month),int(date.day))
 	var shape:=Living.sample(date,conditions,manager._seed_value())
 	Living.publish(manager.sky,shape)

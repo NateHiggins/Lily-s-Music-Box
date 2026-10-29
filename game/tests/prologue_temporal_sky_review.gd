@@ -73,11 +73,12 @@ func run() -> void:
 	check(projection.seek_utc(float(target.utc_unix_seconds)) and not projection.apply_prologue_destination() and not projection.configure_date(1928,11,10),"detached sky clock can project dates but cannot apply or configure campaign time")
 	check(RealityState.data.campaign_clock==before,"render clock projection leaves the actual clock unchanged")
 	var source:=float(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))
+	var ending:float=Opening.showcase_end(source,float(target.utc_unix_seconds))
 	var previous:=source;var monotone:=true
 	for step in 1025:
-		var stamp:float=TemporalSky.time_at(float(step)/32,source,float(target.utc_unix_seconds))
+		var stamp:float=TemporalSky.time_at(float(step)/32,source,ending)
 		monotone=monotone and stamp>=previous;previous=stamp
-	check(monotone and TemporalSky.time_at(0,source,float(target.utc_unix_seconds))==source and TemporalSky.time_at(32,source,float(target.utc_unix_seconds))==float(target.utc_unix_seconds),"continuous clip traverses monotonically to the exact destination")
+	check(monotone and ending-source>=Opening.LOOP_SECONDS and ending-source<2*Opening.LOOP_SECONDS and Opening.wrap_loop_utc(TemporalSky.time_at(32,source,ending))==float(target.utc_unix_seconds),"continuous showcase takes one to two seasonal laps and lands on the exact historical destination")
 	if OS.get_environment("PROLOGUE_APERTURE_REVIEW")=="1":
 		await review_aperture(target);finish();return
 	var manager:Node=world.get_node("WakingAtmosphere").weather_manager
@@ -93,6 +94,7 @@ func run() -> void:
 	var frozen:Dictionary=RealityState.data.campaign_clock.duplicate(true)
 	for stamp:float in [0.0,3.5,4.5,6.5,9.0,15.0,24.0,29.8]:
 		clip.seek(stamp)
+		check(clip.sampled_utc>=Opening.LOOP_START_UTC and clip.sampled_utc<Opening.LOOP_START_UTC+Opening.LOOP_SECONDS,"actual detached sky sample stays in the authored year: "+str(stamp))
 		await frames(3)
 		await capture("sky_%02d.png"%int(stamp*10))
 	# Isolate the observed centre seam at a fixed sky/camera/time.
@@ -137,7 +139,8 @@ func run() -> void:
 			RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_SURFACE),clip.cutaway.age if is_instance_valid(clip.cutaway) else -1.0]);last=now
 	check(saw_cutaway and held_correctly,"natural sky hands directly into historical cutaway while the authoritative clock stays present")
 	check(not clip.active and not clip.holding and director.state.phase=="prologue_complete" and director.state.effects.clock_applied,"natural cinematic and17-second ending finish through their authoritative owners")
-	check(int(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))>=int(target.utc_unix_seconds),"completed scene reaches the fixed destination UTC instant")
+	var arrival_drift:=fposmod(CampaignWeather.clock_seconds(clock)-float(target.utc_unix_seconds-18000),float(Opening.LOOP_SECONDS))
+	check(arrival_drift<60.0,"completed scene lands at the fixed annual coordinate and resumes ordinary time, including across the annual seam")
 	check(world.process_mode==mode and player.text_input_owner==null and player.camera.is_current(),"natural completion returns camera/input/world control")
 	FileAccess.open(directory.path_join("publication_costs.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","samples":clip.sample_costs,"finish":clip.finish_costs,"scope":"synchronous cinematic publication cost; not a playable movement profile"},"\t"))
 	FileAccess.open(directory.path_join("frame_times.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","samples":frame_times,"viewport":str(get_viewport().size),"msaa_3d":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"fps_cap":Engine.max_fps,"vsync":DisplayServer.window_get_vsync_mode(),"engine":Engine.get_version_info(),"target":target,"scope":"uninterrupted optical cinematic only; no PNG readback within this trace; main-viewport CPU/GPU times exclude private viewports"},"\t"))
@@ -299,14 +302,26 @@ func review_cutaway(target:Dictionary) -> void:
 	check(late.volume_db==-19,"historical teardown restores late audio to its actual owner volume");late.free()
 	check(not clip.holding and ending.specimen==saved_pose and ending.controller.critters.size()==population,"title completion restores the existing specimen and population without duplicates")
 	check(director.state.phase=="prologue_complete" and clip.player.text_input_owner==null,"title completion releases input without another clock application")
-	check(ending.controller._temporal_hidden and not ending.controller.visible,"the existing private animal stays behind when play resumes in the present")
-	var clock:=CampaignClock.new()
-	clock.configure_date(1928,11,10,18*60)
+	check(not ending.controller._temporal_hidden and ending.controller.visible,"annual present retains the existing authored-calendar ecology instead of assuming a modern-year absence")
+	# Preserve the unsupported-date negative control without changing the
+	# authoritative annual destination or inventing a new Tardi presence rule.
+	var clock:CampaignClock=world.campaign_clock
+	var outside:=TemporalSky.RenderClock.new()
+	outside.seek_utc(float(Opening.LOOP_START_UTC+2*Opening.LOOP_SECONDS))
+	world.campaign_clock=outside
+	await get_tree().create_timer(.35).timeout
+	check(ending.controller._temporal_hidden and not ending.controller.visible and ending.controller.critters.size()==population,"detached unsupported date still withholds the historical animal without a lifecycle event")
+	outside.seek_utc(float(Opening.LOOP_START_UTC+18*3600))
 	await get_tree().create_timer(.35).timeout
 	check(not ending.controller._temporal_hidden and ending.controller.visible and ending.controller.companion.specimen_id==int(ending.specimen.id),"returning to the historical year restores the same specimen through normal polling")
-	RealityState.data.campaign_clock=present.duplicate(true)
+	world.campaign_clock=clock
 	await get_tree().create_timer(.35).timeout
-	check(ending.controller._temporal_hidden and not ending.controller.visible,"returning to the present removes the historical animal without a lifecycle event")
+	var current:Dictionary=RealityState.data.campaign_clock
+	var same_epoch:=true
+	for key:String in present:
+		if key!="elapsed_minutes":same_epoch=same_epoch and current.get(key)==present[key]
+	var elapsed_delta:float=float(current.elapsed_minutes)-float(present.elapsed_minutes)
+	check(not ending.controller._temporal_hidden and ending.controller.visible and same_epoch and elapsed_delta>=0 and elapsed_delta<5,"returning to annual present restores normal ecology while only the real clock driver advances elapsed time")
 
 func review_cutaway_optics(ending:Node) -> void:
 	var lamp:Node=ending.lamp_air

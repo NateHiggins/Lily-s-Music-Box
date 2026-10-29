@@ -23,6 +23,25 @@ const KEYS := ["schema_version", "phase", "events", "skipped", "target", "effect
 const EFFECTS := ["companion_materialized", "clock_applied"]
 const MIN_UNIX := -62135596800 # Gregorian 0001-01-01, matching clock date range.
 const MAX_UNIX := 253402300799 # Gregorian 9999-12-31 23:59:59.
+const LOOP_START_UTC := -1298314800 # 1928-11-10 00:00 Queens fixed EST.
+const LOOP_SECONDS := 365*86400
+
+static func annual_destination(anchor:Dictionary) -> Dictionary:
+	if not valid_target(anchor):return {}
+	# The immutable host anchor supplies month/day/local time, not its year.
+	var date:=Time.get_datetime_dict_from_unix_time(int(anchor.utc_unix_seconds)+int(anchor.local_bias_minutes)*60)
+	date.year=1928 if int(date.month)*100+int(date.day)>=1110 else 1929
+	# The modeled year has no February29. Preserve the month and clock on28.
+	if date.month==2 and date.day==29:date.day=28
+	return {"utc_unix_seconds":Time.get_unix_time_from_datetime_dict(date)+18000,"local_bias_minutes":-300,"local_zone":"Queens EST"}
+
+static func wrap_loop_utc(stamp:float) -> float:
+	return LOOP_START_UTC+fposmod(stamp-LOOP_START_UTC,float(LOOP_SECONDS))
+
+static func showcase_end(source:float,destination:float) -> float:
+	# One complete seasonal circuit, then the remainder to the real-date anchor.
+	# Rendering can traverse two laps; authoritative play adopts only the end.
+	return source+LOOP_SECONDS+fposmod(destination-source,float(LOOP_SECONDS))
 
 static func initial() -> Dictionary:
 	return {"schema_version":1, "phase":"dream", "events":[], "skipped":false,
@@ -140,12 +159,13 @@ static func sample_destination() -> Dictionary:
 	var zone := Time.get_time_zone_from_system()
 	var target := {"utc_unix_seconds":stamp,"local_bias_minutes":zone.get("bias",0),
 		"local_zone":zone.get("name","")}
-	return target if valid_target(target) else {}
+	return annual_destination(target)
 
 static func date_command(target: Dictionary) -> String:
 	if not valid_target(target): return ""
-	var bias := int(target.local_bias_minutes)
-	var date := Time.get_datetime_string_from_unix_time(int(target.utc_unix_seconds)+bias*60)
+	var destination:=annual_destination(target)
+	var bias := int(destination.local_bias_minutes)
+	var date := Time.get_datetime_string_from_unix_time(int(destination.utc_unix_seconds)+bias*60)
 	# Signal's mechanical console uses the actual43-key alphabet. The root
 	# prompt is preprinted; punctuation absent from that keyboard is not faked.
 	date=date.replace("-","/").replace("T"," ").replace(":",".")

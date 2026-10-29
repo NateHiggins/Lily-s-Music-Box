@@ -1129,6 +1129,25 @@ This supersedes older opening and city-first sequencing where they conflict.
 Full V2 and the later mystery still need qualification. Owner direction does
 not prove completed gameplay.
 
+**Annual present and companion hardware — owner amendment, 2026-10-29.**
+The jump reaches the user's sampled local month, day and time within the modeled
+November10,1928–November10,1929 annual loop, not the user's modern calendar year.
+Extra seasonal laps may show off the sky without lengthening the bounded shot.
+The opening's staged date does not establish the unknown date/time of the murder.
+Keep elapsed/deadline time monotonic while the civil/weather calendar repeats.
+The historical Tardi cutaway keeps its exact17-second timeline and does not
+rewrite the annual destination or the existing ecology's dated presence rules.
+
+The signal-bound companion may have a folding temporal readout and an original
+three-branch flux-capacitor homage, manufactured in its existing mechanical
+language. References inform form, not copied labels/textures or a new nuclear
+fuel/gameplay authority. Its vocal system begins in synthetic babble/emotes and
+learns spoken English from witnessed words; its articulate written dialogue is
+preserved. Separately, rights-reviewed recorded reactions may be anachronistic.
+They remain context-sensitive, respect protected speech and silence, and cannot
+teach the machine by replaying its own recordings. These specific directions
+do not extend the signal exception to unrelated city technology.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of

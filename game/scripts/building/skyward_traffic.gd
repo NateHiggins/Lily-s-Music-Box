@@ -61,7 +61,7 @@ static func sample(minutes: float,conditions: Dictionary) -> Dictionary:
 	return {"active":false}
 
 func update(clock: CampaignClock,conditions: Dictionary) -> void:
-	last_sample=sample(clock.absolute_minutes(),conditions)
+	last_sample=sample(clock.calendar_minutes(),conditions)
 	visible=bool(last_sample.active)
 	if not visible:return
 	global_transform=frame

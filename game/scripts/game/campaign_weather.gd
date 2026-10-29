@@ -154,7 +154,7 @@ static func cloud_transport(date: Dictionary) -> Vector2:
 
 ## Read the existing clock without quantizing it through a civil-date dictionary.
 static func clock_seconds(clock: CampaignClock) -> float:
-	return (clock.absolute_minutes()-float(CampaignClock._ordinal(1970,1,1))*1440.0)*60.0
+	return (clock.calendar_minutes()-float(CampaignClock._ordinal(1970,1,1))*1440.0)*60.0
 
 ## Double-precision prefix integral; Vector2 loses metre-scale movement after
 ## months of transport. No per-frame year scan or additional clock/save owner.

@@ -12,6 +12,7 @@ func check(ok: bool, label: String) -> void:
 	print("PROLOGUE STATE ","PASS " if ok else "FAIL ",label)
 
 func _ready() -> void:
+	review_annual_destination()
 	check(Stinger.DURATION==17 and not Stinger.sample(16.999).finished and Stinger.sample(17).finished,"historical cutaway has exactly17 seconds including title")
 	check(not Stinger.sample(4.499).flash and Stinger.sample(4.5).flash and not Stinger.sample(4.8).flash,"controlled reveal occupies4.50 through4.80 seconds")
 	check(Stinger.sample(6.5).lift==0 and Stinger.sample(8.5).lift==1,"greeting begins6.50 and settles at8.50")
@@ -41,7 +42,7 @@ func _ready() -> void:
 	var legacy: Dictionary=RealityState.data.duplicate(true);legacy.erase("prologue");legacy.intro_complete=true
 	check(Document.validate(legacy,RealityState.SAVE_VERSION).ok,"old completed intro save accepted without inventing new prologue facts")
 	var command := State.date_command(target)
-	check(command.ends_with("utc plus 05.45") and command.begins_with("root# date "),"non-hour timezone represented exactly in the mechanical command")
+	check(command=="root# date 1929/10/28 17.19.56 utc minus 05.00","non-hour host time maps to the same civil clock on the historical mechanical command")
 	var keyboard:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/device/service_companion_v2.json"))
 	var available:Array=[]
 	for key:Dictionary in keyboard.keys:available.append(str(key.character))
@@ -50,7 +51,7 @@ func _ready() -> void:
 		supported=supported and ("SPACE" if character==" " else character.to_upper()) in available
 	check(supported,"every typed command character has a real physical key")
 	var west:Dictionary=target.duplicate(true);west.local_bias_minutes=-210
-	check(State.date_command(west).ends_with("utc minus 03.30"),"negative non-hour timezone retains its sign and minutes")
+	check(State.date_command(west)=="root# date 1929/10/28 08.04.56 utc minus 05.00","negative non-hour host offset preserves its local clock in Queens reference time")
 	check(State.valid_target(State.sample_destination()),"real host destination sampled using read-only APIs")
 	for index in range(State.PHASES.size()-1):
 		var phase: String=State.PHASES[index]
@@ -131,7 +132,7 @@ func _test_clock_handoff(opening:Dictionary) -> void:
 	check(clock.apply_prologue_destination(),"campaign clock accepts the completed prologue destination")
 	RealityState.state_changed.disconnect(observer)
 	var utc:Dictionary=clock.utc_datetime()
-	check(int(Time.get_unix_time_from_datetime_dict(utc))==int(opening.target.utc_unix_seconds),"clock preserves the exact target UTC second despite a non-hour host offset")
+	check(int(Time.get_unix_time_from_datetime_dict(utc))==int(State.annual_destination(opening.target).utc_unix_seconds),"clock adopts the projected historical second despite a non-hour host offset")
 	check(RealityState.data.campaign_clock.utc_offset_minutes==-300 and RealityState.data.campaign_clock.timezone=="America/New_York","host timezone does not relocate Queens or replace its clock convention")
 	check(observed.size()==1 and observed[0].prologue.effects.clock_applied and CampaignClock.validate_snapshot(observed[0].clock).ok,"state observers receive clock and acknowledgement atomically")
 	var after:Dictionary=JSON.parse_string(JSON.stringify(RealityState.data))
@@ -141,7 +142,7 @@ func _test_clock_handoff(opening:Dictionary) -> void:
 	check(unchanged,"destination handoff preserves all unrelated gameplay domains")
 	check(RealityState.save_game(),"validated save stores the applied clock and prologue acknowledgement")
 	RealityState.load_game()
-	check(State.restore(RealityState.data.prologue).effects.clock_applied and int(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))==int(opening.target.utc_unix_seconds),"validated reload retains the exact applied destination")
+	check(State.restore(RealityState.data.prologue).effects.clock_applied and int(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))==int(State.annual_destination(opening.target).utc_unix_seconds),"validated reload retains the exact historical destination and immutable source anchor")
 	clock.advance_seconds(125)
 	var progressed:float=clock.absolute_minutes()
 	check(clock.apply_prologue_destination() and clock.absolute_minutes()==progressed,"retry cannot rewind time after play resumes")
@@ -164,10 +165,44 @@ func _test_clock_handoff(opening:Dictionary) -> void:
 	director.shutdown();director.queue_free()
 	# No state flag or timestamp is granted to a refused target/early phase.
 	RealityState.data.prologue=opening.duplicate(true)
-	RealityState.data.prologue.target.utc_unix_seconds=State.MIN_UNIX
+	RealityState.data.prologue.target.utc_unix_seconds+=.5
 	RealityState.data.prologue.target.local_bias_minutes=0
 	var edge:Dictionary=RealityState.data.duplicate(true)
-	check(not clock.apply_prologue_destination() and RealityState.data==edge,"destination outside Queens civil range refuses without partial effects")
+	check(not clock.apply_prologue_destination() and RealityState.data==edge,"malformed destination refuses without partial effects")
 	RealityState.data.prologue=State.initial()
 	check(not clock.apply_prologue_destination(),"early prologue phase cannot use the privileged clock handoff")
+	RealityState.data.prologue=State.applied(opening,"clock_applied")
+	check(clock.configure_date(1929,11,9,1439),"annual seam fixture starts at the final modeled minute")
+	var elapsed_before:=clock.elapsed_minutes();var absolute_before:=clock.absolute_minutes()
+	clock.advance_seconds(75)
+	check(clock.datetime_string()=="1928-11-10T00:00:15" and clock.day_info().day=="sat","acknowledged campaign civil date and weekday wrap into the same authored year")
+	check(absf(clock.elapsed_minutes()-elapsed_before-1.25)<.00001 and absf(clock.absolute_minutes()-absolute_before-1.25)<.00001,"annual wrapping never rewinds elapsed or absolute deadline time")
+	check(absf(CampaignWeather.clock_seconds(clock)-float(State.LOOP_START_UTC-18000+15))<.001,"weather and civil clock agree at the annual seam")
+	check(RealityState.save_game(),"validated save retains the wrapped calendar and monotonic elapsed counter")
+	RealityState.load_game()
+	check(clock.datetime_string()=="1928-11-10T00:00:15" and absf(clock.elapsed_minutes()-elapsed_before-1.25)<.00001,"reload preserves annual projection without resetting campaign progress")
 	RealityState.data=original
+
+func review_annual_destination() -> void:
+	for spec:Array in [
+		["2026-10-29T11:12:34",-240,"1929-10-29T11:12:34"],
+		["2026-11-09T23:59:59",840,"1929-11-09T23:59:59"],
+		["2026-11-10T00:00:00",-840,"1928-11-10T00:00:00"],
+		["2026-12-31T23:59:59",345,"1928-12-31T23:59:59"],
+		["2030-01-01T00:00:00",-210,"1929-01-01T00:00:00"],
+		["2028-02-29T12:34:56",0,"1929-02-28T12:34:56"]]:
+		var anchor:Dictionary={"utc_unix_seconds":Time.get_unix_time_from_datetime_string(spec[0])-int(spec[1])*60,"local_bias_minutes":spec[1],"local_zone":"Injected local zone"}
+		var before:=anchor.duplicate(true)
+		var mapped:=State.annual_destination(anchor)
+		var civil:=Time.get_datetime_string_from_unix_time(int(mapped.utc_unix_seconds)-18000)
+		check(civil==spec[2] and anchor==before and mapped.local_bias_minutes==-300,"annual anchor preserves host civil time without changing source: "+str(spec[0]))
+		check(State.annual_destination(mapped)==mapped,"historical destination projection is idempotent: "+str(spec[0]))
+	var bounded:=true;var aligned:=true
+	for day in 365:
+		var source:float=State.LOOP_START_UTC+18*3600
+		var destination:float=State.LOOP_START_UTC+day*86400+12345
+		var ending:float=State.showcase_end(source,destination)
+		bounded=bounded and ending-source>=State.LOOP_SECONDS and ending-source<2*State.LOOP_SECONDS
+		aligned=aligned and absf(State.wrap_loop_utc(ending)-destination)<.001
+	check(bounded and aligned,"all365 destinations get a bounded full seasonal lap and the exact final historical instant")
+	check(State.wrap_loop_utc(State.LOOP_START_UTC+State.LOOP_SECONDS)==State.LOOP_START_UTC and State.wrap_loop_utc(State.LOOP_START_UTC-1)==State.LOOP_START_UTC+State.LOOP_SECONDS-1,"annual seam wraps both directions without a366th date")

@@ -173,9 +173,11 @@ func apply_prologue_destination() -> bool:
 	if saved.is_empty() or saved.get("calendar_mode","")!="gregorian":return false
 	if opening.effects.clock_applied:return true
 	if opening.phase!="temporal_synchronization" or (not opening.skipped and "destination_accepted" not in opening.events):return false
-	# Host zone labels describe the command, never a geographic relocation.
-	# The existing campaign clock retains Queens' fixed -05:00 reference.
-	var local_seconds:int=int(opening.target.utc_unix_seconds)-18000
+	# Match the user's civil month/day/time inside the historical annual loop.
+	# Keep the sampled host anchor immutable and Queens' fixed -05:00 reference.
+	var destination:=PrologueState.annual_destination(opening.target)
+	if destination.is_empty():return false
+	var local_seconds:int=int(destination.utc_unix_seconds)-18000
 	if local_seconds<PrologueState.MIN_UNIX or local_seconds>PrologueState.MAX_UNIX:return false
 	var local:=Time.get_datetime_dict_from_unix_time(local_seconds)
 	var candidate:=_civil_record({"year":local.year,"month":local.month,"day_of_month":local.day},int(local.hour)*60+int(local.minute))
@@ -215,6 +217,24 @@ func absolute_minutes() -> float:
 			if str(_state.calendar_mode) == "gregorian" else int(_state.start_doy) - 1
 	return float(ordinal) * MINUTES_PER_DAY + float(_state.start_minute_of_day) \
 			+ float(_state.elapsed_minutes)
+
+func _calendar_projection(minutes:float) -> float:
+	# Preserve monotonic elapsed/deadline time. Only the acknowledged new
+	# prologue campaign repeats its civil calendar; detached clocks and V1
+	# fixtures retain their own projection. No second clock or saved mode.
+	if _state.get("calendar_mode","")!="gregorian" or not is_same(_state,RealityState.data.get("campaign_clock",{})):return minutes
+	var opening:Variant=RealityState.data.get("prologue",{})
+	if opening is not Dictionary or opening.get("effects") is not Dictionary or opening.effects.get("clock_applied",false)!=true:return minutes
+	var beginning:=float(_ordinal(1970,1,1))*MINUTES_PER_DAY+float(PrologueState.LOOP_START_UTC-18000)/60.0
+	var year:=1928 if int(_state.month)*100+int(_state.day_of_month)>=1110 else 1929
+	var day:=mini(int(_state.day_of_month),_days_in_month(year,int(_state.month)))
+	# Older unshipped century-preview saves keep their raw epoch/elapsed bytes;
+	# rebase their civil view by month/day, not by accumulated leap-year drift.
+	var shift:=float(_ordinal(year,int(_state.month),day)-_ordinal(int(_state.year),int(_state.month),int(_state.day_of_month)))*MINUTES_PER_DAY
+	return beginning+fposmod(minutes+shift-beginning,float(PrologueState.LOOP_SECONDS)/60.0)
+
+func calendar_minutes() -> float:
+	return _calendar_projection(absolute_minutes())
 
 
 func advance_to(target_minute: float) -> bool:
@@ -271,6 +291,7 @@ func day_info_at(elapsed_minute: float) -> Dictionary:
 				"civil_date_valid": false}
 	else:
 		var ordinal := _ordinal(int(_state.year), int(_state.month), int(_state.day_of_month)) + offset
+		ordinal=int(floor(_calendar_projection(float(ordinal)*MINUTES_PER_DAY)/MINUTES_PER_DAY))
 		info = _date_from_ordinal(ordinal)
 		info.day = DAY_NAMES[ordinal % 7]
 		info.doy = _schedule_doy(info)
@@ -288,13 +309,13 @@ func local_datetime() -> Dictionary:
 	var info := day_info()
 	if not bool(info.get("valid", false)) or not bool(info.get("civil_date_valid", false)):
 		return {}
-	return _datetime_from_minutes(absolute_minutes())
+	return _datetime_from_minutes(calendar_minutes())
 
 
 func utc_datetime() -> Dictionary:
 	if not bind_state() or str(_state.calendar_mode) != "gregorian":
 		return {}
-	return _datetime_from_minutes(absolute_minutes() - float(_state.utc_offset_minutes))
+	return _datetime_from_minutes(calendar_minutes() - float(_state.utc_offset_minutes))
 
 
 func datetime_string() -> String:
