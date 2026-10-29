@@ -856,3 +856,131 @@ eleven integrated individual studies and 138 remaining; height repairs are
 separate. Stutter, exterior lighting, dramatic/annual skies, save reconstruction
 and human acceptance remain open. The owner's immediate file-size cleanup is
 now explicit housekeeping priority before another construction batch.
+
+
+## West frontage construction checkpoint — October 29
+
+**INERT**, isolated **C:/ov/city**, branch **codex/v2-city-20261029**,
+starting **3ea80715bd201738d5566dea18bc17d4353ca867**. Preserve the eleven
+integrated individual studies. First bounded target: open the west foreground
+from the existing front walk by re-siting seven complete passive assemblies;
+refit their actual foundations and regenerate vacated ground. The larger road
+regrading, Manhattan skyline, bridge and station remain separate unfinished work.
+No Orison/arcade/shop/bar/tent access or simulation authority is relocated.
+The west north-footway remains closed at the existing works boundary.
+
+Issue/evidence log under **C:/ov/reports/city_west_20261029/**:
+
+| Issue | Evidence | Disposition / verification |
+|---|---|---|
+| Native study read stale object matrices | Original script, log and bad-pose JSON retained | Update the Blender dependency graph before reading poses. Corrected source study opens four westward near-city rays; this is not runtime proof. |
+| Fresh worktree import cache | **import1.log.receipt.json** and stderr | Required second import completes without script errors. Initial failures retained. |
+| Fullscreen flag retained 1280×720 viewport | **before_route.log.receipt.json**, frame JSON | Existing native-window script confirms 3440×1440 on the next diagnostic; both routes complete 124 waypoints. |
+| Ignored engine pin absent from fresh worktree | Official-engine route receipts | Existing canonical pin copied read-only into city worktree. Earlier routes remain diagnostics; patched-engine baseline and candidate comparison pending. |
+| Closure guard rejects changed authoring-plan hash | **build_closure.log** | Rebuild shell/closure dependencies through their owners. Elevation and shell GLBs remain byte-identical; source provenance is renewed by construction, not by repinning runtime receipts. |
+| Foundation builder rejects stale grade discovery | **build_city_foundations_01.log** | Fresh brokered **grade_owner_survey_01.log.receipt.json** passes 581 aligned boxes, zero failures. No assertion or tolerance relaxed. |
+| Ground build catches old bar reservation bindings | **build_orison_ground_02.log** | Replay the existing bar exporter; all 32 construction boxes, 18 air reservations and registration compare exactly. No bar authority or geometry changes. |
+| Native context/framing rejected visually | **native_final_01/** and **native_final_02.log** | Preserve both, including exact review scripts. Include the retained public slab and installed masonry export; require first-hit ownership for the relocated pocket and Cambridge views. |
+| Imported frontage metric and translated townhouse probe failures | **imported_bench_01.log.receipt.json** and original stderr | Default UV quantization stretched small barricade charts by up to 6.07%; use the existing asset-specific full-precision policy. Translate the existing cornice probe with its assembly, preserving tolerances. **imported_bench_02.log.receipt.json** completes 5,567 checks / zero failures, including 1,205 real roof bearings and loaded maps/mips. |
+| First played route expires during cold startup | **west_frontage_01.log.receipt.json**, failed test-written contract and exact executed source | First movement receives one physics frame in 7,526 ms, with no wall contact. Preserve failure; record forty rendered startup frames separately before unchanged controller deadlines. **west_frontage_05** passes; its largest recorded startup frame is 7,038.711 ms. |
+| Native retry launcher did not execute its scene | **west_frontage_02.log.receipt.json** and stderr | Wrapper exit zero has no route output or test-written contract; rejected. Reissue using the proven JSON batch argument path. |
+| Resident-inventory assertion after normal streaming | **west_frontage_03.log.receipt.json**, failed contract and executed source | Original 24 road/door waypoints pass. Preserve failure; require all 13 cells at initial composition, record initial/settled residency, then exercise unchanged actual controller routes. No streamer edits. **west_frontage_05** passes, with 13 cells in both recorded snapshots. |
+| Courtyard centres are not body undersides | **west_frontage_04.log.receipt.json**, failed contract and executed source | Nine fifth probes targeted voids in individually authored buildings. Preserve all four passing perimeter probes; derive the fifth from a real imported bottom triangle instead. **west_frontage_05** passes all 115 probes with exact owners/points recorded and the same 0.1 mm tolerance. |
+| Surface posed-view type inference failure | **surface_final_01.log.receipt.json**, stderr and executed city-review source | Test-only Variant comparison required an explicit bool. Gracefully close only the exact city test window; exit zero with no qualification contract is rejected. **city_parse_01.log.receipt.json** then parses all three affected test sources; **surface_final_02** passes after the fix. |
+| Existing 2.4 m WestNorthWorks still blocks the actual view | Existing V2 street boundary source | Replace only that span with a 1.35 m native timber barricade at its exact 0.36 × 5.30 m footprint; retain its identity and closed route. Imported UV/basis/PBR/mip and exact visual/collider bounds pass. **west_frontage_05** passes the actual walk/jump closed-boundary control. |
+
+Current placement source and runtime projection preserve all building mesh stock,
+UVs and materials. **native_final_04/** reopens current source assets and checks
+1,205 rooftop bearings, 23 positive closed foundation unions and seven filled
+vacated plots, with zero failures at the original 0.1 mm tolerance. The retained
+public slab/masonry context and all seven native renders were inspected. This
+is native geometry/appearance review, not runtime or artistic acceptance.
+
+The new barricade has 87 closed stocks, 15 actual pavement-contact probes and
+40 board/carrier contacts. Its export is 2 draws / 2,996 triangles; exported
+tangent agreement exceeds 0.99999996. Existing registered timber/iron maps are
+reused. Other hoardings and marker-beacon count remain; only this beacon seats
+on the lower cap. No photographic pixels or generated lettering are introduced.
+
+Ground now has 2,647 bounded parts / 10,700 triangles, compared with the earlier
+2,099 / 6,084 source totals; the main apron has 14 primitives / 2,783 triangles.
+These are geometry counts, not measured FPS or a performance gain. The exact
+patched baseline passes 124 waypoints at native 3440×1440, 8× MSAA and TAA:
+wall p50/p95/p99/max **36.084/64.304/76.588/132.502 ms**; main-viewport GPU
+**14.917/21.912/23.875/25.663 ms**, 4,871 samples. Raw frames and wrapper remain
+in **patched_before_route/** and **patched_before_route.log.receipt.json**.
+No uncontended-machine or isolated-cause claim is made.
+
+The barricade integration is covered by fresh **grade_owner_survey_02.log.receipt.json**: 581 boxes, zero failures and fixed inputs. Its source-driven replay completes without relaxed guards. All six rebuilt installed GLBs compare byte-identical to the preceding native-reviewed geometry (**grade_replay_02_asset_comparison.json**). The test-written schema-2 **west_frontage_05/west_frontage_contract.json** passes
+159 checks and 39 actual-controller waypoints with fixed runtime inputs and
+empty stderr. The original crossing/door hands, west walk, unfiltered sightline,
+restored-blocker negative control, 115 imported-body underside probes and seven
+vacated-grade probes pass. The existing closed works boundary stops actual
+forward input at x = -19.589 m despite a real 0.619 m jump. Initial and settled
+arcade snapshots both retain 13 cells; no streaming, shop or bar authority changes.
+This is narrow played qualification, not passive-lot or save reconstruction proof.
+
+The actual fullscreen street and restored-blocker captures were inspected.
+The opened strip is visible beside the retained frontage/lamp/traffic/works.
+Distant generic stock and dark street exposure remain presentation limitations;
+this checkpoint adds no Manhattan or bridge-view acceptance.
+
+**patched_after_route.log.receipt.json** passes the same 124 controller waypoints,
+with 4,769 raw frame samples. Calendar, conditions, resolution, MSAA/TAA, weather
+source, render-source hashes and mirage parameters compare exactly. Using linear
+quantiles from the raw data:
+
+| Whole-route measurement | Starting commit | City candidate |
+|---|---:|---:|
+| Wall p50 / p95 / p99 / max (ms) | 36.084 / 64.304 / 76.588 / 132.502 | 36.347 / 68.883 / 78.502 / 110.111 |
+| Main GPU p50 / p95 / p99 / max (ms) | 14.917 / 21.912 / 23.875 / 25.663 | 14.410 / 21.865 / 23.705 / 26.591 |
+| Samples exceeding 50 / 100 ms | 1,203 / 3 | 1,387 / 2 |
+
+These are mixed results, not a speedup: p95/p99 wall tails increase while the
+maximum decreases. The same-process west-facing ABBA control gives wall medians
+36.013 / 31.883 / 29.764 / 29.112 ms (original / placed / placed / original),
+which does not establish a consistent placement gain. Main GPU excludes private
+viewports and rendering counters retain their global scope. Live NPC/traffic
+and driver caches are uncontrolled; screenshot readback is excluded. The forty
+recorded startup frames include a 7,038.711 ms stall, separately from travel and
+warmed samples. **measured_city_comparison.json** retains quantile method, per-block
+cost/counters and the largest route spikes. No proposed triangle/draw budget is
+presented as measured performance, and no new body LOD is claimed.
+
+**surface_final_02.log.receipt.json** completes in 860 s: 42,530 checks,
+zero failures and empty stderr. Its test-written schema-2 production composition,
+surface requirements and runtime-owned teardown contracts pass. All 1,033 actual
+foundation partitions match native fitted bounds and identical visible/collision
+stock. Loaded inventory: 28,351 draws, 17,537 meshes, 6,337 materials, 536 textures;
+zero unresolved surfaces. Nine actual fullscreen images, including the new
+barricade diffuse/grazing views, are inspected and published through the existing
+surface-packet publisher. Unchanged fire-hose interaction is explicitly skipped;
+save reconstruction remains **NOT_EXECUTED**. No old runtime receipt is repinned.
+
+Eight installed city/roof-equipment/horizon GLBs compare byte-identical with the
+starting commit (**retained_city_asset_parity.json**); completed architecture,
+proportions, UVs and materials are retained. Geometry is placed through one passive
+assembly helper; collision and fittings follow. Native foundation/ground/apron
+outputs are regenerated through their existing owners. The only additional art
+family is the source-owned low timber works body, with registered materials.
+Bar reservation boxes, occupied-air volumes and registration compare exactly;
+only their construction bindings change. No apartment, companion, Tardi, weather,
+campaign clock, narrative, save, shop or traffic authority is edited.
+
+Owned import cleanup archives/restores 1,658 EOL-only sidecars and removes 627
+own generated untracked UIDs; no semantic import change is restored. The two new
+GDScript UIDs are staged and absent from origin/main. The only precision-policy
+addition is the demonstrated new barricade exception; the spatial manifest adds
+five reviewed records while preserving every prior record. No gate logic or
+tolerance is relaxed. Final LF-only source-plan normalization preserves JSON
+values and the normalized binding; its exact native-review raw input and
+normalization witness are archived without repinning any receipt.
+
+Clean candidate verification remains **PENDING** before push. Existing project
+records preserve original failed logs, exact executed scripts and raw
+measurements under **city_west_frontage_20261029/** in the existing skywatch
+archive; 2,011 earlier members/hashes are verified unchanged. Previous surface packet bytes
+are preserved externally and recoverable from the starting Git revision.
+No additional individual building, requirement or artistic acceptance is claimed.
+Manhattan, road regrading, bridge/station, waterfront construction, new body LODs
+and the remaining 138 individual studies are still open.

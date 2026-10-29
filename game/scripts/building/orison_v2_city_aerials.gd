@@ -5,12 +5,14 @@ static func mount(city: Node3D) -> Node3D:
 	var model: Node3D=(preload("res://assets/props/city_aerials.glb") as PackedScene).instantiate()
 	model.name="RooftopAerials";city.add_child(model)
 	var materials: Dictionary={}
+	var placement := preload("res://scripts/building/orison_v2_city_placement.gd").new()
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		var key:=str(draw.name).split("__")[-1]
 		assert(MatLib.SETS.has(key),"Aerial material must be catalogued: "+key)
 		if not materials.has(key):
 			var material:=MatLib.get_mat(key).duplicate() as StandardMaterial3D
 			material.uv1_triplanar=false;materials[key]=material
+		placement.apply(draw)
 		draw.material_override=materials[key]
 		var body:=StaticBody3D.new();body.name="AerialCollision"
 		var shape:=CollisionShape3D.new();shape.name="Surface";shape.shape=draw.mesh.create_trimesh_shape()

@@ -18,6 +18,7 @@ func _ready() -> void:
 	position.z = -float(section.source_threshold_z)
 	var model := ASSET.instantiate() as Node3D
 	add_child(model)
+	var placement := preload("res://scripts/building/orison_v2_city_placement.gd").new()
 	var materials: Dictionary={}
 	var profiles: Dictionary={}
 	var finish_data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(FINISHES))
@@ -29,6 +30,7 @@ func _ready() -> void:
 	for profile: Dictionary in finish_data.buildings:profiles[str(profile.id)]=profile
 	var roof_finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd").new()
 	for mesh: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+		placement.apply(mesh)
 		mesh.set_meta("retained_city_shell",true)
 		var key := str(mesh.name).split("__")[-1]
 		var building := str(mesh.name).split("__")[0]
@@ -75,7 +77,7 @@ func _ready() -> void:
 			var period:=float(hand.period_minutes)
 			assert(is_equal_approx(axis.length(),1.) and period in [60.,720.])
 			_clock_hands.append({"draw":mesh,"collision":collision,"rest":mesh.transform,
-				"pivot":Vector3(pivot[0],pivot[1],pivot[2]),"normal":axis,"period":period})
+				"pivot":Vector3(pivot[0],pivot[1],pivot[2])+placement.city_offset(str(mesh.name)),"normal":axis,"period":period})
 	assert(_clock_hands.size()==hands.size())
 	refresh_clock_from_campaign()
 	set_process(not _clock_hands.is_empty())

@@ -322353,6 +322353,170 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "1f0d544550e37d10",
+   "kind": "node_path",
+   "token": "StreetEndHoardingFaces",
+   "file": "game/scripts/building/v2_street_end_details.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_street_ends"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [
+    "var faces := parent.get_node(\"StreetEndHoardingFaces\") as MultiMeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "47822334352089b5",
+   "kind": "runtime_id",
+   "token": "StreetEndHoardingFaces",
+   "file": "game/scripts/building/v2_street_end_details.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_street_ends"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [
+    "var faces := parent.get_node(\"StreetEndHoardingFaces\") as MultiMeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "1ebb70d8a68aeec7",
+   "kind": "vector3_coordinate",
+   "token": "_closed_footway_control",
+   "file": "game/tests/v2_city_west_frontage.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_closed_footway_control"
+   ],
+   "lines": [
+    189
+   ],
+   "count": 1,
+   "context": [
+    "if not await _walk(world.adapter.root.to_local(Vector3(-16,0,3))): return"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "64892251559dfd81",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/v2_city_west_frontage.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    74,
+    74,
+    74,
+    74,
+    74,
+    74,
+    78,
+    98,
+    133
+   ],
+   "count": 9,
+   "context": [
+    "for point: Vector3 in [Vector3(0,0,3),Vector3(-8,0,3),Vector3(-16,0,3),Vector3(-19.2,0,3),Vector3(-16,0,3),Vector3(0,0,3)]:",
+    "if not await _walk(world.adapter.root.to_local(Vector3(0,0,3))): return",
+    "player.face_world_point(Vector3(-130,4,3))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c935d3dca5f621ec",
+   "kind": "vector3_coordinate",
+   "token": "_west_ray",
+   "file": "game/tests/v2_city_west_frontage.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_west_ray"
+   ],
+   "lines": [
+    67,
+    67
+   ],
+   "count": 2,
+   "context": [
+    "return world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(Vector3(0,1.41,3),Vector3(-130,4,3),1,[player.get_rid()]))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

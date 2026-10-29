@@ -3256,3 +3256,18 @@ design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_*/source_snap
 art/renders/HISTORICAL_CAPTURES.json -text
 design/astra/evidence/SOURCE_ARCHIVES.json -text
 design/astra/evidence/*/source_snapshots.tar.gz -text
+
+# City composition and its test-written source hashes.
+game/scripts/building/orison_v2_city_placement.gd -text
+game/tests/v2_city_west_frontage.gd -text
+game/tests/V2CityWestFrontage.tscn -text
+art/blender/scripts/review_city_composition.py -text
+
+# Source-owned west works body and construction/runtime projections.
+art/data/city_frontage/source_plan.json -text
+art/blender/scripts/build_city_frontage.py -text
+art/blender/city_frontage.blend -text
+art/blender/city_frontage_construction.json -text
+game/assets/props/city_frontage.glb -text
+game/data/orison_v2/exterior/city_frontage.json -text
+game/tests/fixtures/orison_city_frontage.json -text
