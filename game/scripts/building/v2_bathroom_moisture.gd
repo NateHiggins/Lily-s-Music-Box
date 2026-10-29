@@ -7,6 +7,7 @@ var _world: Node3D
 var _sources: Array=[]
 var _rooms: Dictionary={}
 var _surfaces: Array=[]
+var _mirror_surfaces: Dictionary={}
 var _retiring: Array[int]=[]
 var _elapsed:=0.0
 var _stopped:=false
@@ -137,7 +138,19 @@ func _bind_surface(pane: MeshInstance3D,room: String,size: Vector2,along_z: bool
 	film.set_shader_parameter("pane_center",pane.mesh.get_aabb().get_center())
 	film.set_shader_parameter("outside_sign",outside_sign)
 	film.set_shader_parameter("mirror_surface",mirror)
-	_surfaces.append({"pane":pane,"room":room,"material":film,"mirror":mirror,"exposed":exposed,"inside":0.0,"outside":0.0,"last_inside":-1.0,"last_outside":-1.0})
+	var surface:Dictionary={"pane":pane,"room":room,"material":film,"mirror":mirror,"exposed":exposed,"inside":0.0,"outside":0.0,"last_inside":-1.0,"last_outside":-1.0}
+	_surfaces.append(surface)
+	if mirror:_mirror_surfaces[pane.get_instance_id()]=surface
+	return true
+
+func set_mirror_story(pane:MeshInstance3D,value:Vector2) -> bool:
+	# Cached once at binding: no per-frame surface scan or second phase clock.
+	if _stopped or not is_instance_valid(pane) or not _mirror_surfaces.has(pane.get_instance_id()):return false
+	var surface:Dictionary=_mirror_surfaces[pane.get_instance_id()]
+	if value.x<0:pane.remove_meta("prologue_mirror_film")
+	else:pane.set_meta("prologue_mirror_film",value)
+	if value!=surface.get("last_story",Vector2.INF):
+		surface.material.set_shader_parameter("prologue_film",value);surface.last_story=value
 	return true
 
 func _sync_spray(index: int) -> void:
@@ -206,7 +219,9 @@ func shutdown() -> void:
 	for surface: Dictionary in _surfaces:
 		if is_instance_valid(surface.pane):
 			if surface.pane.material_overlay==surface.material:surface.pane.material_overlay=null
-			if surface.mirror:surface.pane.remove_meta("v2_condensation")
+			if surface.mirror:
+				surface.pane.remove_meta("v2_condensation")
+				surface.pane.remove_meta("prologue_mirror_film")
 	for index in _sources.size():
 		var source: Dictionary=_sources[index]
 		if is_instance_valid(source.tap) and source.tap.flow_changed.is_connected(_sync_spray.bind(index)):
@@ -215,6 +230,6 @@ func shutdown() -> void:
 		if is_instance_valid(source.spray):source.spray.free()
 	for state: Dictionary in _rooms.values():
 		if state.has("steam") and is_instance_valid(state.steam):state.steam.free()
-	_sources.clear();_retiring.clear();_rooms.clear();_surfaces.clear();_drop_mesh=null;_drop_process=null;_water=null
+	_sources.clear();_retiring.clear();_rooms.clear();_surfaces.clear();_mirror_surfaces.clear();_drop_mesh=null;_drop_process=null;_water=null
 
 func _exit_tree() -> void:shutdown()

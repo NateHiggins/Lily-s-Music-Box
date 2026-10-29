@@ -12,6 +12,21 @@ class FrameTrace extends Node:
 	var previous:=0
 	var complete:=false
 	var settings:Dictionary={}
+	var film_rows:Array=[]
+	var film_captures:Array=[]
+	func _ready() -> void:
+		if OS.get_environment("PROLOGUE_FILM_CAPTURE")=="1":RenderingServer.frame_post_draw.connect(_capture_film)
+	func _capture_film() -> void:
+		if film_captures.size()>=40 or not is_instance_valid(director) or director.state.phase!="mirror_condensation" or not director._withdrawal_seen or director._phase_age<3 or director._phase_age>5:return
+		var pane:MeshInstance3D=director.mirror.mirror_surface()
+		var image:Image=get_viewport().get_texture().get_image()
+		var box:AABB=pane.mesh.get_aabb()
+		var pixels:=Rect2(director.player.camera.unproject_position(pane.to_global(box.position)),Vector2.ZERO)
+		for i in 8:pixels=pixels.expand(director.player.camera.unproject_position(pane.to_global(box.get_endpoint(i))))
+		var crop:=Rect2i(pixels.grow(16)).intersection(Rect2i(Vector2i.ZERO,image.get_size()))
+		var name_:String="film_frame_%03d.png"%film_captures.size()
+		var result:=image.get_region(crop).save_png(OS.get_environment("SHOT_DIR").path_join(name_))
+		film_captures.append({"file":name_,"age":director._phase_age,"progress":pane.get_meta("prologue_mirror_film"),"saved":result==OK})
 	func _process(delta:float) -> void:
 		var now:=Time.get_ticks_usec()
 		if previous>0 and rows.size()<16384:
@@ -21,12 +36,21 @@ class FrameTrace extends Node:
 				Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.0,
 				Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)])
 		previous=now
+		if is_instance_valid(director) and director.state.phase=="mirror_condensation" and director._withdrawal_seen and film_rows.size()<2048:
+			var pane:MeshInstance3D=director.mirror.mirror_surface()
+			var value:Vector2=pane.get_meta("prologue_mirror_film",Vector2(-1,0))
+			var overlay:ShaderMaterial=director.world.bathroom_moisture._mirror_surfaces[pane.get_instance_id()].material
+			var reflected:ShaderMaterial=director.world.mirror_renderer._material
+			film_rows.append([director._phase_age,director._poll,value.y,
+				value==overlay.get_shader_parameter("prologue_film") and value==reflected.get_shader_parameter("prologue_film"),
+				get_tree().paused,director.player.call_locked])
 	func _exit_tree() -> void:
 		var out:=OS.get_environment("SHOT_DIR")
 		if out.is_empty():return
 		var file:=FileAccess.open(out.path_join("tutorial_frame_times.json"),FileAccess.WRITE)
 		if file==null:return
 		file.store_string(JSON.stringify({"evidence_class":"INERT","complete":complete,
+			"film_captures":film_captures,"film_columns":["phase_age","poll","progress","passes_identical","paused","call_locked"],"film_frames":film_rows,
 			"settings":settings,"columns":["phase","fps_cap","process_delta_ms","wall_ms","process_monitor_ms","physics_monitor_ms","draw_calls"],"frames":rows,
 			"limits":"Occupied route starts after world construction; process/physics monitors overlap and lag. GPU/render-thread, compilation, loading and streaming costs are not independently attributed. Capture stalls and cap changes are retained; compare matched phases/caps, not an aggregate FPS."},"\t",true,true))
 
@@ -45,6 +69,7 @@ func _route() -> void:
 	director=Director.new();world.add_child(director)
 	if not _require(director.configure(world),"actual 4B fixture and wall supports bound: "+str(director.errors)): return
 	frame_trace=FrameTrace.new();frame_trace.director=director
+	frame_trace.process_priority=1000;frame_trace.process_mode=Node.PROCESS_MODE_ALWAYS
 	frame_trace.settings={"viewport":str(get_viewport().size),"msaa_3d":get_viewport().msaa_3d,
 		"engine":Engine.get_version_info(),"fixture_script":director.shower.get_script().resource_path,
 		"weather":world.get_node("WeatherFX")._live_conditions.duplicate(true)}
@@ -174,6 +199,21 @@ func _review_mirror_reveal() -> bool:
 	get_tree().paused=false
 	await get_tree().create_timer(3.0).timeout
 	await _shot("mirror_branching.png")
+	var locked_before:bool=player.call_locked
+	var protected_age:float=director._phase_age
+	var protected_film:Vector2=cabinet.mirror_surface().get_meta("prologue_mirror_film")
+	player.call_locked=true
+	await get_tree().create_timer(.3).timeout
+	_require(director._phase_age==protected_age and cabinet.mirror_surface().get_meta("prologue_mirror_film")==protected_film,"protected conversation freezes the shared film without fractional rewind")
+	player.call_locked=locked_before
+	var synchronized:=true
+	var subperiod_changes:=0
+	var samples:Array=frame_trace.film_rows
+	for i in range(1,samples.size()):
+		var previous:Array=samples[i-1];var current:Array=samples[i]
+		synchronized=synchronized and bool(current[3])
+		if float(current[0])>2.1 and float(current[0])>float(previous[0]) and float(current[1])>float(previous[1]) and float(current[2])>float(previous[2]):subperiod_changes+=1
+	_require(synchronized and subperiod_changes>=8,"both optical passes share every frame and advance between story polls: "+str(subperiod_changes))
 	var old_path:String=RealityState.save_path
 	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("mirror_reload.json")
 	RealityState.persistence_enabled=true

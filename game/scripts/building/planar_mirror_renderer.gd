@@ -171,6 +171,12 @@ func _sleep() -> void:
 	set_meta("active_unit", "")
 
 
+func set_mirror_story(pane:MeshInstance3D,value:Vector2) -> void:
+	# The pane metadata remains the authority when selection changes. Updating
+	# the borrowed material now keeps both optical passes on the same frame.
+	if not _stopped and is_instance_valid(_active) and _active.mirror_surface()==pane:
+		_material.set_shader_parameter("prologue_film",value)
+
 func active_mirror() -> Variant:
 	return _active
 

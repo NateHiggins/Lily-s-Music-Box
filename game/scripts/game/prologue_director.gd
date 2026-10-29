@@ -255,12 +255,18 @@ func _window_released(control: String, before: float, after: float) -> void:
 		_say("wrong_curtain",true)
 
 func _process(delta: float) -> void:
-	_poll+=maxf(delta,0.0)
-	if _poll<PERIOD: return
-	var elapsed := _poll;_poll=0
 	if not _running or player.call_locked or player.mouse_released or RealityState.save_write_blocked: return
 	if not is_same(_document,RealityState.data): return
-	_phase_age+=elapsed
+	var step:=maxf(delta,0.0)
+	_phase_age+=step
+	if state.phase=="mirror_condensation":
+		if not _withdrawal_seen:_phase_age=minf(_phase_age,1.5)
+		else:_set_mirror_film(Vector2(1,smoothstep(2.0,10.0,_phase_age)))
+	# Presentation consumes the same phase age every frame. Story observations
+	# retain their existing cadence, with no protected-input time accumulated.
+	_poll+=step
+	if _poll<PERIOD: return
+	var elapsed := _poll;_poll=0
 	match state.phase:
 		"bedroom_exploration":
 			if _phase_age>=4.0: _say("wake_shower",false)
@@ -296,8 +302,10 @@ func _process(delta: float) -> void:
 			if not ("cabinet_opened" in state.events) or _phase_age>=6.0:_tap_mirror()
 
 func _set_mirror_film(value:Vector2) -> void:
-	if is_instance_valid(mirror) and mirror.mirror_surface().get_meta("prologue_mirror_film",Vector2(-1,0))!=value:
-		mirror.mirror_surface().set_meta("prologue_mirror_film",value)
+	if not is_instance_valid(mirror):return
+	var pane:=mirror.mirror_surface()
+	world.bathroom_moisture.set_mirror_story(pane,value)
+	world.mirror_renderer.set_mirror_story(pane,value)
 
 func _mirror_observed() -> bool:
 	if not is_instance_valid(mirror) or world.mirror_renderer.active_mirror()!=mirror or not world.player_avatar.reflected:return false
@@ -333,7 +341,7 @@ func shutdown() -> void:
 	if is_instance_valid(_knock):_knock.stop();_knock.queue_free()
 	_knock=null
 	if is_instance_valid(mirror):
-		mirror.mirror_surface().remove_meta("prologue_mirror_film")
+		_set_mirror_film(Vector2(-1,0))
 		if mirror.manipulation_released.is_connected(_cabinet_released):mirror.manipulation_released.disconnect(_cabinet_released)
 	if _avatar_leased and is_instance_valid(world) and is_instance_valid(world.player_avatar):world.player_avatar.visible=_avatar_visible
 	_avatar_leased=false
