@@ -2687,9 +2687,15 @@
     "city_transport_20261029/surface_final_03.log.receipt.json": "eba30b69b899f6f1dfe334d9984e4889c34835d572e52b3726cdc5b7570d2793",
     "city_transport_20261029/surface_final_03.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "city_transport_20261029/surface_inventory_external_index_qualification.json": "2a77f3bb70e00729cdae378a9a4cad0f8078d2c580ab63187dd79a6c0775a3c0",
-    "city_transport_20261029/external_media_index_qualification.json": "d8c8b5eab8a8e1ab23caab636c2375117ca1849d0557b3ba09f90d126518c58c"
+    "city_transport_20261029/external_media_index_qualification.json": "d8c8b5eab8a8e1ab23caab636c2375117ca1849d0557b3ba09f90d126518c58c",
+    "city_transport_20261029/candidate_qualification_01/verification.json": "f8a2c443f2f03691cdbf0e2b4bad5eb2326bbe8458d792fe0ecc89e011957a9b",
+    "city_transport_20261029/candidate_qualification_01/verification.md": "ef7b792a64ff4d7cae315edb9eddd598c4dfb807791526c7498c0926768da3ca",
+    "city_transport_20261029/street_junction_discovery.py": "4b19807e76d4932cca376ee324c3b14cbc3de7a4171b37bf7e4a63aea824abf4",
+    "city_transport_20261029/street_junction_source_discovery.json": "eb43917e3cae4fd30bf22620d6789674d2ded4e807f8b1f202741007be2ebd75",
+    "city_transport_20261029/street_junction_source_discovery.png": "8ec691bbc44a27faf2098cbc02132a2d3d48f1ee3accc5336aaadc377cb13bb0",
+    "city_transport_20261029/archive_candidate_qualification.py": "5b78b38e09199a1ac255f7562009716521bb4978f46718a3195f1b68acba10c6"
   },
-  "archive_sha256": "4c4fb4aa0cd7b7fba9a260eeb4712222506df0b8b3abf323f2b62bbd2a010a35",
+  "archive_sha256": "57c7d3b8176fb07f13337f9c57a7884fc68c12dbe6ee5744fe5a2176632a5af3",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -9148,5 +9154,19 @@
     "replay_identity": "city_transport_20261029/open_replay_identity_03.json",
     "failures_retained": true,
     "source_snapshot_scope": "Original failed sources/logs/receipts; exact successful contracts and numerical diagnostics. Selected actual captures embedded; remaining originals externally indexed. No reference photographs included."
+  },
+  "city_transport_candidate_20261029": {
+    "evidence_class": "INERT",
+    "candidate": "5c28bb902c4e719cd4b9f5016dac72bcd0f04fde",
+    "base": "33e60f149f3bf348b05562e0ae3ac5499b7114af",
+    "merge_base": "3ea80715bd201738d5566dea18bc17d4353ca867",
+    "gates": 114,
+    "regressions": 0,
+    "accepted_regressions": 0,
+    "protected": "17/17",
+    "mode": "in-place isolated city checkout; no new Godot execution",
+    "prior_members_preserved": 2608,
+    "new_members": 6,
+    "scope": "Static candidate verification plus source-only next-street discovery. Original surface03/open-route04 receipts remain separate runtime evidence. No merge or whole-city acceptance."
   }
 }

@@ -1308,3 +1308,32 @@ UIDs. No meaningful import changes are discarded; the runtime digest remains
 **c0965c4726903e59895bfc080e659d8f3f95d47174121b3af8c05c99668b01dc**.
 No further city Godot process is queued during the prologue's next focused run.
 No main merge is requested. Candidate static verification follows publication.
+
+Candidate verification subsequently passes at
+**5c28bb902c4e719cd4b9f5016dac72bcd0f04fde**, against fetched main
+**33e60f149f3bf348b05562e0ae3ac5499b7114af** and the original merge-base
+**3ea80715bd201738d5566dea18bc17d4353ca867**: **114 gates, zero regressions,
+zero accepted regressions, zero changed requirements**, clean checkout,
+**17/17 protected unchanged**, selector **v2**, zero design lint errors.
+The known main ledger/tool-test failures remain baseline debt. The verifier's
+in-place mode runs in this **isolated city worktree**, despite its generic
+“canonical checkout” wording. It deliberately uses **--no-godot**; the original
+source-bound surface03 and open-route04 receipts above supply their separately
+scoped runtime evidence. Fresh-checkout import/autocrlf is not tested here.
+The additive spatial manifest records preserve prior rows; its two new station
+test coordinates do not grant access or completeness acceptance. No main merge.
+
+Inventory clarification: **TASKS.md F-RELOCATION** and the October23 started-work
+record identify the film tent as a **native candidate with installation and
+access unqualified**. The current runtime still mounts three apartment
+projectors. These owners remain untouched; this city checkpoint does not claim
+an installed or route-qualified film tent. Coordinate its intended bar-side
+placement before later street work occupies that approach.
+
+Next bounded construction target remains the street between the existing
+traffic junctions. Read-only source topology places them at native city
+**x=−69.6 / +68.8 m, y=−19.322 m**. The eastern nine-metre traffic corridor
+overlaps station pad edges at **x=73 m**, and its crossing must be cut through
+the current station paving. Fit the road, curb returns and protected pier
+islands to the fixed traffic/entrance/access datums before claiming a continuous
+street. This discovery is not a new collision or construction pass.
