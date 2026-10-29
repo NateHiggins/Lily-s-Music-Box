@@ -1,6 +1,7 @@
 """Blender bedding library, preserving authored frame meshes and three bed sizes."""
 from pathlib import Path
 import json, math, os
+from itertools import combinations
 import bpy, bmesh
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
@@ -14,6 +15,15 @@ for name,color in {'Frame':(.3,.19,.1),'Mattress':(.78,.74,.62),'Blanket':(.27,.
  m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);mats[name]=m
 
 def point(v):return (v[0],-v[2],v[1])
+def collapsed_cloth_triangle(points):
+ # BMesh's single-precision area sum can lose tiny translated triangles.
+ # Subtract stored coordinates in Python doubles before taking the cross.
+ a,b,c=points
+ u=[b[i]-a[i] for i in range(3)];v=[c[i]-a[i] for i in range(3)]
+ cross=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]]
+ return sum(x*x for x in cross)<4e-24
+def collapsed_cloth_face(face):
+ return any(collapsed_cloth_triangle(points) for points in combinations([tuple(v.co) for v in face.verts],3))
 def mesh(name,verts,faces,owner,role):
  data=bpy.data.meshes.new(name);data.from_pydata([point(v) for v in verts],[],faces);data.update()
  obj=bpy.data.objects.new(name,data);bpy.context.collection.objects.link(obj);obj.parent=owner;obj.data.materials.append(mats[role]);return obj
@@ -149,9 +159,34 @@ for W,L,state in [(1.35,2.6,'thrown'),(1.5,2.05,'unmade'),(1.5,2.05,'pillows')]:
  else:
   sheet('DrapedBlanket',owner,W,L);sheet('Turnback',owner,W,L,True)
  pillows(owner,L,mismatch=(state=='pillows'))
+# Only 4B needs the historical under-bed reveal. Raise its existing rails,
+# slats and bedding together on longer continuous posts; retain floor caps
+# and footprint. The lowest rail moves from .20 to .38 m, clearing the
+# established cat-sized Tardi without scaling the animal or clipping stock.
+for owner in owners:
+ if owner.name!='Bed_135_260_thrown':continue
+ for obj in owner.children:
+  if obj.type!='MESH':continue
+  if obj.name.startswith('AuthoredFrame'):
+   for vertex in obj.data.vertices:
+    if vertex.co.z>.19:vertex.co.z+=.18
+  else:obj.location.z+=.18
 for o in list(bpy.context.scene.objects):
  if o.type!='MESH':continue
- bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=.00001);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()
+ # Clean at the final float32 export coordinates, including the raised 4B
+ # stock. Applying this after cleanup can collapse a tiny cloth edge again.
+ bpy.context.view_layer.objects.active=o
+ bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
+ bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=.00001)
+ if o.name.startswith(('DrapedBlanket','Turnback')):
+  # Clamped cloth edges can leave zero-area export triangles after welding.
+  # Triangulate only affected faces, retaining the editable quad cloth and
+  # its charts everywhere else. Remove sub-micrometre slivers before UVs.
+  affected=[face for face in bm.faces if collapsed_cloth_face(face)]
+  if affected:bmesh.ops.triangulate(bm,faces=affected)
+  collapsed=[face for face in bm.faces if collapsed_cloth_face(face)]
+  if collapsed:bmesh.ops.delete(bm,geom=collapsed,context='FACES_ONLY')
+ bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()
  if o.name.startswith('AuthoredFrame'):
   # Fine eased timber edges catch light without changing joints or bed footprint.
   bpy.context.view_layer.objects.active=o

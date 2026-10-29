@@ -322937,6 +322937,72 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "ddbc39d4f0b4d5bb",
+   "kind": "id_reference",
+   "token": "4B_wake_bed",
+   "file": "game/tests/orison_v2_bedding_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    111
+   ],
+   "count": 1,
+   "context": [
+    "if str(record.id)==\"4B_wake_bed\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed measured 4B bedding-clearance diagnostic. Original bed owner remains authoritative; survey coordinates are test camera stations, not gameplay access or runtime qualification.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0b8f574653b1d622",
+   "kind": "vector3_coordinate",
+   "token": "survey_bed",
+   "file": "game/tests/prologue_temporal_sky_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "survey_bed"
+   ],
+   "lines": [
+    168,
+    183,
+    184,
+    187,
+    188
+   ],
+   "count": 5,
+   "context": [
+    "world.player.global_position=frame.to_global(Vector3(-11.95,9.65,8.9))",
+    "world.player.camera.global_position=frame.to_global(Vector3(-11.5,10.25,8.9))",
+    "world.player.camera.look_at(frame.to_global(Vector3(-13.15,9.85,8.9)))",
+    "world.player.camera.global_position=frame.to_global(Vector3(-11.95,9.88,8.9))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed measured 4B bedding-clearance diagnostic. Original bed owner remains authoritative; survey coordinates are test camera stations, not gameplay access or runtime qualification.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

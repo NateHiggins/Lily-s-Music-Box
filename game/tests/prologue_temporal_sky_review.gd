@@ -47,6 +47,16 @@ func run() -> void:
 	while not world.startup_failed and world.startup_ms<=0:await get_tree().process_frame
 	if not check(not world.startup_failed,"actual occupied V2 world starts"):finish();return
 	var player:=world.player
+	if OS.get_environment("PROLOGUE_STINGER_SURVEY")=="1":
+		await get_tree().physics_frame;await get_tree().physics_frame
+		if OS.get_environment("PROLOGUE_BEDDING_REVIEW")=="1":
+			var bedding:=preload("res://tests/orison_v2_bedding_test.gd").new()
+			bedding.batch_mode=true;bedding.capture_enabled=false;add_child(bedding)
+			var result:Dictionary=await bedding.validate_in_world(world)
+			check(result.failures.is_empty(),"all installed bedding owners retain visible contacts and inspection access")
+			FileAccess.open(directory.path_join("bedding_checks.json"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
+			bedding.free()
+		await survey_bed();finish();return
 	player.global_position=world.adapter.root.to_global(Vector3(-8.4,9.62,4.75))
 	player.velocity=Vector3.ZERO;player.camera.make_current();player.camera.fov=78
 	player.camera.look_at(world.adapter.root.to_global(Vector3(-5.9,11.5,4.75)))
@@ -150,6 +160,33 @@ func run() -> void:
 
 func frames(count:int) -> void:
 	for index in count:await get_tree().process_frame
+
+func survey_bed() -> void:
+	var frame:Node3D=world.adapter.root
+	var bed:Node3D=world.adapter.explicit_bed()
+	if not check(bed!=null,"installed bedroom bed resolves for cinematic survey"):return
+	world.player.global_position=frame.to_global(Vector3(-11.95,9.65,8.9))
+	await get_tree().physics_frame;await get_tree().physics_frame
+	var nearby:Array=[]
+	var region:=AABB(Vector3(-14.8,9.6,7.6),Vector3(2.8,1.6,2.6))
+	for mesh:MeshInstance3D in world.find_children("*","MeshInstance3D",true,false):
+		if mesh.mesh==null:continue
+		var bounds:AABB=(frame.global_transform.affine_inverse()*mesh.global_transform)*mesh.get_aabb()
+		if bounds.intersects(region):nearby.append({"path":str(world.get_path_to(mesh)),"position":str(bounds.position),"size":str(bounds.size)})
+	var rays:Array=[]
+	for height:float in [.10,.20,.30,.40,.50]:
+		var from:=frame.to_global(Vector3(-11.9,9.6+height,8.9))
+		var to:=frame.to_global(Vector3(-14.5,9.6+height,8.9))
+		var hit:=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(from,to,1,[world.player.get_rid()]))
+		rays.append({"height":height,"hit":str(hit.get("position",Vector3.INF)),"collider":str(hit.get("collider","none"))})
+	FileAccess.open(directory.path_join("bed_survey.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","bed_path":str(world.get_path_to(bed)),"bed_transform":str(bed.global_transform),"nearby_geometry":nearby,"horizontal_clearance":rays},"\t"))
+	world.player.camera.global_position=frame.to_global(Vector3(-11.5,10.25,8.9))
+	world.player.camera.look_at(frame.to_global(Vector3(-13.15,9.85,8.9)))
+	world.player.camera.fov=58;world.player.camera.make_current()
+	await frames(60);await capture("bedroom_wide.png")
+	world.player.camera.global_position=frame.to_global(Vector3(-11.95,9.88,8.9))
+	world.player.camera.look_at(frame.to_global(Vector3(-13.15,9.78,8.9)))
+	await frames(30);await capture("bedroom_floor.png")
 
 func capture(name:String) -> void:
 	await RenderingServer.frame_post_draw
