@@ -22,10 +22,9 @@ func run(current: OrisonV2RuntimeRoot, suite: Node) -> void:
 	for row: Dictionary in source.lights:
 		var light := boundary.get_node(str(row.id)) as LightFixtureProp
 		host.check(light.position.is_equal_approx(Vector3(row.center[0],row.center[1],row.center[2])),"shed retains work lamp: "+str(row.id))
-	var notice := boundary.get_node("ShedTemporaryClosure/ContractorClosureNotice") as Label3D
-	host.check(notice.text=="SIDEWALK CLOSED\nWORK IN PROGRESS" and notice.position.is_equal_approx(Vector3(0,.35,.125)),"closure retains separate source-mounted lettering")
+	host.check(boundary.get_node_or_null("ShedTemporaryClosure") == null and boundary.find_children("ContractorClosureNotice","Label3D",true,false).is_empty(),"retired closure and its misleading notice stay out of the open scaffold")
 	var draws := native.find_children("*","MeshInstance3D",true,false)
-	host.check(draws.size()==7,"shed renders seven shared native catalogue partitions")
+	host.check(draws.size()==5,"open scaffold renders five shared native catalogue partitions")
 	for draw: MeshInstance3D in draws:
 		for surface in draw.mesh.get_surface_count():
 			var material := draw.get_active_material(surface) as StandardMaterial3D
@@ -40,13 +39,13 @@ func run(current: OrisonV2RuntimeRoot, suite: Node) -> void:
 	player.global_position=Vector3(19.5,.025,3)
 	player.velocity=Vector3.ZERO;player.set_physics_process(true)
 	player.set_lamp_enabled(false)
-	for point in [Vector3(21.5,0,3),Vector3(24,0,3),Vector3(24,0,0),Vector3(24,0,-2.1)]:
+	for point in [Vector3(21.5,0,3),Vector3(24,0,3),Vector3(24,0,0),Vector3(24,0,-2.1),Vector3(24,0,-4)]:
 		if not await _walk(world.adapter.root.to_local(point)):break
 	var query := PhysicsRayQueryParameters3D.create(Vector3(24,1.2,-2.1),Vector3(24,1.2,-4))
 	var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(query)
-	host.check(not hit.is_empty() and str(hit.collider.name)=="ShedTemporaryClosure","native shed preserves the physical temporary closure")
+	host.check(hit.is_empty(),"former temporary closure now admits the real player route")
 	query=PhysicsRayQueryParameters3D.create(Vector3(24,1.5,-2),Vector3(19,1.5,3))
-	host.check(not world.get_world_3d().direct_space_state.intersect_ray(query).is_empty(),"native shed retains occluded dogleg")
+	host.check(world.get_world_3d().direct_space_state.intersect_ray(query).is_empty(),"retired inner hoarding no longer closes the street view")
 	for point in [Vector3(24,0,0),Vector3(24,0,3),Vector3(21.5,0,3),Vector3(19.5,0,3)]:
 		if not await _walk(world.adapter.root.to_local(point)):break
 	player.set_physics_process(false)

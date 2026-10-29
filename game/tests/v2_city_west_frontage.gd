@@ -24,6 +24,12 @@ func _digest() -> String:
 	if OS.execute("python", [root.path_join("tools/run_receipt.py"), "digest", "--root", root], result) != 0: return ""
 	return str(result[0]).strip_edges() if not result.is_empty() else ""
 
+func _evidence_scope() -> String:
+	return "Actual controller frontage walk and retained street crossing/door manipulation; unfiltered west-view, 115 fitted foundation contacts, vacated-grade and restored blocker controls. No passive-lot access, save reconstruction, full city, weather or artistic acceptance."
+
+func _evidence_file() -> String:
+	return "west_frontage_contract.json"
+
 func _run() -> void:
 	source_before = _digest()
 	RealityState.persistence_enabled = false
@@ -65,13 +71,13 @@ func _run() -> void:
 	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory) == OK, "writable evidence directory")
 	if not directory.is_empty():
 		var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-			"scope":"Actual controller frontage walk and retained street crossing/door manipulation; unfiltered west-view, 115 fitted foundation contacts, vacated-grade and restored blocker controls. No passive-lot access, save reconstruction, full city, weather or artistic acceptance.",
+			"scope":_evidence_scope(),
 			"execution":{"completed":true,"exit_code":0 if failures.is_empty() else 1,"timed_out":false},
-			"source":{"test_path":"game/tests/v2_city_west_frontage.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
+			"source":{"test_path":"game/"+get_script().resource_path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
 			"contracts":{"production_composition":{"executed":true,"passed":failures.is_empty()},"frontage_and_crossing":{"executed":not trace.is_empty(),"passed":not trace.is_empty() and failures.is_empty(),"waypoints":trace.size()},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
 			"checks":city_checks,"failures":failures,"trace":trace,"observations":city_observations}
-		FileAccess.open(directory.path_join("west_frontage_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
-	print("V2 WEST FRONTAGE: %d checks; %d waypoints; %d failures" % [city_checks,trace.size(),failures.size()])
+		FileAccess.open(directory.path_join(_evidence_file()),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
+	print("%s: %d checks; %d waypoints; %d failures" % [route_label,city_checks,trace.size(),failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _west_ray() -> Dictionary:
@@ -85,7 +91,7 @@ func _route() -> void:
 	for point: Vector3 in [Vector3(0,0,3),Vector3(-8,0,3),Vector3(-16,0,3),Vector3(-19.2,0,3),Vector3(-16,0,3),Vector3(0,0,3)]:
 		if not await _walk(world.adapter.root.to_local(point)): return
 	check(_west_ray().is_empty(), "unfiltered 130-metre westward sightline from the front walk")
-	await _closed_footway_control()
+	await _open_footway_control()
 	if not await _walk(world.adapter.root.to_local(Vector3(0,0,3))): return
 	var city := world.get_node("CityShells") as Node3D
 	# Restore one former blocker, including real physical backing. This must
@@ -224,27 +230,8 @@ func _paired_view_cost(city: Node3D) -> void:
 	city_observations["placement_cost_control"] = {"scope":"Same-process warmed ABBA west-facing placement control on current grade; live NPC/traffic and driver caches uncontrolled. Screenshot readback excluded. Main-viewport GPU excludes private viewports; engine rendering counters retain their global scope. No whole-world improvement or causal CPU attribution.","moved_draws":moved.size(),"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives","engine_objects"],"blocks":blocks}
 
 
-func _closed_footway_control() -> void:
-	if not await _walk(world.adapter.root.to_local(Vector3(-16,0,3))): return
-	var start := player.global_position
-	player.face_world_point(Vector3(-30,player.camera.global_position.y,3))
-	Input.action_press("move_forward")
-	for frame in 150: await get_tree().physics_frame
-	Input.action_press("jump")
-	await get_tree().physics_frame
-	Input.action_release("jump")
-	var max_height := player.global_position.y
-	for frame in 90:
-		await get_tree().physics_frame
-		max_height=maxf(max_height,player.global_position.y)
-	Input.action_release("move_forward")
-	var touched := false
-	var owners: Array[String] = []
-	for index in player.get_slide_collision_count():
-		var collider := player.get_slide_collision(index).get_collider() as CollisionObject3D
-		if collider==null: continue
-		owners.append(str(collider.get_path()))
-		touched=touched or str(collider.name)=="StreetEndConstructionBoundary"
-	check(player.global_position.distance_to(start)>1. and player.global_position.x>-19.7 and touched,"actual forward input reaches the retained west works boundary and cannot cross it")
-	check(max_height>.2,"boundary control exercises a real jump without opening a new route")
-	city_observations["closed_footway"]={"start":str(start),"end":str(player.global_position),"jump_peak_y":max_height,"contacts":owners}
+func _open_footway_control() -> void:
+	check(world.get_node_or_null("StreetBoundaries/RetainedStreetEnds") == null, "retired short street-end limits stay outside V2")
+	for point: Vector3 in [Vector3(-21.5,0,3),Vector3(-25,0,3),Vector3(-19.2,0,3)]:
+		if not await _walk(world.adapter.root.to_local(point)): return
+	city_observations["open_footway"] = {"crossed_former_west_limit":true,"normal_collision":not player.noclip}

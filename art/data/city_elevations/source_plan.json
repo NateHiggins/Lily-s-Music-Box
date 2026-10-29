@@ -270,7 +270,12 @@
       "window_treatment": "mixed",
       "sill_projection": 0.14,
       "lintel_height": 0.18,
-      "variation_seed": 2030
+      "variation_seed": 2030,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_ne2",
@@ -302,7 +307,12 @@
       "window_treatment": "roller",
       "sill_projection": 0.085,
       "lintel_height": 0.12,
-      "variation_seed": 2047
+      "variation_seed": 2047,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_ne3",
@@ -334,7 +344,12 @@
       "window_treatment": "roller",
       "sill_projection": 0.085,
       "lintel_height": 0.12,
-      "variation_seed": 2064
+      "variation_seed": 2064,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_ne4",
@@ -366,7 +381,12 @@
       "window_treatment": "mixed",
       "sill_projection": 0.12,
       "lintel_height": 0.21,
-      "variation_seed": 2081
+      "variation_seed": 2081,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_nbr_s2",
@@ -595,7 +615,12 @@
       "window_treatment": "draped",
       "sill_projection": 0.1,
       "lintel_height": 0.14,
-      "variation_seed": 2200
+      "variation_seed": 2200,
+      "assembly_translation_m": [
+        0,
+        46,
+        0
+      ]
     },
     {
       "id": "site_far_nw",
@@ -855,7 +880,12 @@
             ]
           ]
         }
-      }
+      },
+      "assembly_translation_m": [
+        0,
+        18,
+        0
+      ]
     },
     {
       "id": "site_far_e",
@@ -932,7 +962,12 @@
           "wall_height_m": 3.3,
           "roof_height_m": 4.1
         }
-      }
+      },
+      "assembly_translation_m": [
+        30,
+        30,
+        0
+      ]
     },
     {
       "id": "site_far_se",

@@ -3271,3 +3271,19 @@ art/blender/city_frontage_construction.json -text
 game/assets/props/city_frontage.glb -text
 game/data/orison_v2/exterior/city_frontage.json -text
 game/tests/fixtures/orison_city_frontage.json -text
+
+# Source-owned elevated plaza and per-view replacement bodies.
+art/data/city_transport/source_plan.json -text
+art/blender/scripts/build_city_transport.py -text
+art/blender/scripts/review_city_transport.py -text
+art/blender/city_transport.blend -text
+art/blender/city_transport_construction.json -text
+game/assets/props/city_transport.glb -text
+game/assets/props/city_transport_lod1.glb -text
+game/data/orison_v2/exterior/city_transport.json -text
+game/tests/fixtures/orison_city_transport.json -text
+game/scripts/building/orison_v2_city_transport.gd -text
+game/tests/v2_city_transport_bench.gd -text
+game/tests/V2CityTransportBench.tscn -text
+game/tests/v2_city_transport_route.gd -text
+game/tests/V2CityTransportRoute.tscn -text

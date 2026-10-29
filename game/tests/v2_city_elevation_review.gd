@@ -47,7 +47,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 		var shape := backing.get_child(0) as CollisionShape3D
 		suite.check(shape.shape is ConcavePolygonShape3D and (shape.shape as ConcavePolygonShape3D).get_faces()==draw.mesh.get_faces() and shape.global_transform.is_equal_approx(draw.global_transform),"fitted foundation has identical visible and physical stock: "+identity)
 		foundation_count+=1
-	suite.check(foundation_count==foundation_parts.size() and foundation_count==1033,"all fitted foundation partitions are checked in the production world")
+	suite.check(foundation_count==foundation_parts.size() and foundation_count==1049,"all fitted foundation partitions are checked in the production world")
 	suite.check(fixture.buildings.size()==25 and int(fixture.windows)>2500,"all 25 city buildings have physically built window stock")
 	for building: Dictionary in fixture.buildings:
 		suite.check(int(building.new_setbacks)<=1,"no repeated ziggurat tiers: "+str(building.id))
@@ -182,21 +182,13 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 			await _review_inspection_camera(world,suite,camera.global_transform)
 			break
 		suite.check(visible,"townhouse street front is genuinely visible with real world blockers retained")
-	# Actual installed low works body: composed lighting and grazing materials.
-	# The first-hit check keeps the other street stock authoritative.
-	var barricade := world.get_node("StreetBoundaries/RetainedStreetEnds/StreetEndConstructionBoundary/WestNorthWorks") as CollisionShape3D
-	for view: Dictionary in [
-		{"id":"diffuse","offset":Vector3(2.4,.7,.8)},
-		{"id":"grazing","offset":Vector3(1.3,.5,-1.8)}]:
-		var target := barricade.global_position+Vector3.UP*.2
-		var eye: Vector3=barricade.global_position+view.offset
-		var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(eye,target-Vector3.RIGHT*.05,1,[world.player.get_rid()]))
-		var visible: bool = not hit.is_empty() and hit.collider==barricade.get_parent()
-		suite.check(visible,"native low barricade has an unobstructed composed material view: "+str(view.id))
-		if visible:
-			camera.global_position=eye;camera.look_at(target)
-			await suite.get_tree().create_timer(.6).timeout
-			await suite.shot("city_west_barricade_"+str(view.id))
+	# The owner opened exterior exploration. Review the actual former closure
+	# instead of remounting retired stock just to satisfy its historical capture.
+	suite.check(world.get_node_or_null("StreetBoundaries/RetainedStreetEnds") == null,"short street-end limits remain retired in the composed surface review")
+	camera.global_position=Vector3(-16,1.41,3)
+	camera.look_at(Vector3(-45,1.41,3))
+	await suite.get_tree().create_timer(.6).timeout
+	await suite.shot("city_open_west_frontage")
 	await _review_apartment_batch(world,suite,camera,city,fixture,bodies)
 	await preload("res://tests/v2_city_horizon_review.gd").new().run(world,suite,camera)
 	# Presentation-only comparisons in the same composed world and camera.

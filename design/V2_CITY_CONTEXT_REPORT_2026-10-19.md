@@ -1032,3 +1032,194 @@ Decision needed from owner: **none for this city checkpoint**. Remaining city,
 LOD, lighting/sky artistic and frame-tail limitations are recorded above.
 
 Last line: **BLOCKED main integration pending coordinated prologue reconciliation and combined verification; isolated city construction is technically qualified.**
+
+### Eastern plaza construction in progress — 2026-10-29
+
+Evidence class: **INERT**. Starting checkpoint **8f7d81f305b33d35676952c7baeb7bec36c502be**;
+original integration base **3ea80715bd201738d5566dea18bc17d4353ca867**.
+The next bounded construction is a 75 m elevated station east of the installed
+Orison, with four tracks on each of two levels, two island platforms per level,
+public U-stairs, transfer mezzanine and extended jointed sidewalks/curbs.
+The source adapts contemporary PSC station proposals to the alternate geography;
+it is not a surveyed reconstruction. Original building bodies are retained and
+seven eastern assemblies move as units to open the plaza. No train service or
+calendar authority is introduced.
+
+Native batch 05 exports **361,820 / 65,944 triangles** in near/far bodies from
+**11,767 closed source stocks**. These are asset counts, not measured rendering
+cost. Reopened native review 01 checks actual treads, standing headroom and road
+clearance and renders platforms, stairs, canopy and both replacement LODs.
+The retained diagnostic logs, executed sources and images are currently under
+**C:/ov/reports/city_transport_20261029/**. Original build 03 fails on the native
+Vector-length call and is retained; later builds correct it. Current source
+replay, composed soil/foundation support, runtime collision/access, loaded maps,
+LOD transitions, timing and full surface renewal remain pending. This section
+grants no implementation completion, runtime qualification or artistic acceptance.
+
+Imported diagnostics retain the original 180 s import timeout and original
+bench 01 failure (missing output directory, rejected equal-count LOD buffers,
+default compressed-chart errors), including its eventual wrapper timeout.
+The corrected bench 03 completes **193 checks / zero failures**, with clean
+stderr, loaded PBR mip chains and retained UV/tangent tolerances. Precision
+exceptions are limited to the two new station GLBs: the original compressed
+near charts stretch **99.97%**, and the far charts **9.98%** with **3,888** bad
+tangent derivatives. Their uncompressed imports pass without tolerance changes.
+At **3440 x 1440**, actual visible rendering counters report **361,820 near /
+65,944 far triangles**, **30 draw calls** each. The ordinary 75-degree view
+selects the far body; a 5-degree view at the same pose restores the near body.
+This proves isolated per-view selection and counts, not a city frame-time gain.
+The first composed grade survey reaches production startup at **131,941.716 ms**
+but its final source digest exceeds the 180 s wrapper ceiling; no completed
+survey or runtime acceptance comes from that run. A long-wrapper rerun is
+required. This cold startup is retained as a performance observation rather
+than hidden in steady-state averages.
+
+Subsequent native framing review replaces overlapping sleeper/stringer stock
+with seated stringers, web tongues, riveted angles and segmented columns at
+actual seat plates. Deck separation becomes **5.30 m**, with a declared empty
+rail envelope **2.80 m wide / 3.80 m high**. This is an authored clearance, not
+a historical rolling-stock measurement. The raised upper deck/canopy and longer
+upper stair flights export **396,356 / 73,856 triangles** in near/far bodies.
+Reopened native review 04 completes **8,682 checks / zero failures**, including
+actual stringer/sleeper/rail bearing faces and the sampled empty rail envelope.
+These new bodies supersede the earlier imported counts for current qualification;
+their imported, route and timing checks remain pending.
+
+Native composition 01 checks **1,205 retained roof bearings**, **23 closed
+foundations**, **12 ground/paving locations** and **120 soil samples below
+station footings**, with zero failures. Framing revision 08 preserves all
+**2,389** ground stock records exactly; fresh extraction also preserves all
+**3,398** classified native masks and the survey's runtime-input digest.
+This permits reuse of the unchanged static-box/pose discovery from completed
+grade survey 02; it does not reuse visual acceptance of the earlier station.
+Provenance and native products are regenerated through their builders, without
+rewriting a test receipt. The composed player run 01 completes the retained
+frontage checks but fails its third live entrance attempt before the station:
+the partially closed leaf's hinge-side contact is beyond the test stance's
+reach. The corrected test walks closer; door and player authorities are intact.
+The second startup is **130,848.863 ms**, so the earlier spike cannot yet be
+attributed solely to a cold cache. No city startup or frame-time gain is claimed.
+
+Pre-expansion route 03 completes **216 checks / 128 controller waypoints / zero
+failures**, including both levels, both islands and the street return. Its
+schema-2 test-written receipt and exact executed sources remain under
+**transport_route_03/**. The owner subsequently requests removal of artificial
+walking limits and a temporary distance wall, deferring the narcoleptic bed
+return. This is a new exterior-access authorization, not acceptance of earlier
+closed-frontage behaviour or of the whole city.
+
+The revised V2 owner retires the short street-end works and seven shed closure/
+hoarding/notice actors. Native scaffold roofs, lapped posts/beams, floor and work
+lights stay in their existing frame; the rebuilt five-partition export has
+**155 source parts / 91,926 triangles**, and its nine tool checks pass. Native
+renders are inspected before runtime renewal. One temporary invisible physics
+cylinder limits horizontal travel to **450 m from the front-door threshold**;
+no player-position clamp, clock, narrative, save or bed-return writer is added.
+Existing physical city buildings and shop access controls stay authoritative.
+The planned wider controller tour follows real street gaps around the distant
+blocks; source-footprint path planning is INERT guidance until actually walked.
+New boundary, scaffold and extended-area qualification remain pending.
+
+The first expanded run exposes another real travel limit: the existing safety
+owner rescues the normally walking player at its former **240 m** fallback,
+recording **429 recoveries** in failed **open_exterior_02**. The city now
+registers the actual imported apron footprint through the safety owner's
+existing exemption API. Non-finite and below-world recovery remain owned there.
+The initial registration attempt assumes that owner already exists and asserts
+during composition in **open_exterior_03**. Its own verified GUI is closed
+cooperatively; wrapper exit zero is not a pass and no runtime contract exists.
+Both original failures, executed sources and cancellation explanation remain.
+The corrected city owner binds the safety node's actual creation and removes
+only its own exemption on retirement. A transformed-section boundary diagnostic
+completes **13 checks / zero failures** in **open_ownership_04**; this does not
+replace the running occupied-world walk or its controller negative control.
+
+Native composition review **03** omits the unmounted west barricade, retaining
+its independent native-stock checks, and includes the actual five scaffold
+partitions at their installed transform. Its Blender render overlaps part of
+**open_exterior_04**. Any raw frame timings from that run are diagnostic under
+concurrent load, not isolated rendering performance or a before/after claim.
+
+Expanded occupied-world run **open_exterior_04** completes **228 checks / 164
+normal-controller waypoints / zero failures**, with clean stderr and its own
+schema-2 **city_exterior_contract.json**. It walks through the former closures,
+both station levels/islands, real street gaps to **280 m west and east**, and
+back. Safety recovery counts remain unchanged. Separate airborne controller
+fixtures contact the distance wall at five angles with maximum centre distances
+**449.669–449.711 m**; disabling only that wall admits **453.499 m**. Original
+pose/layer and all preceding exemption memberships are restored. These fixtures
+do not prove a continuous ground route to every point on the450m circle.
+
+The run takes **993 s**, reports production startup **149,737.450 ms**, and
+records **38,371** street-walk frame samples at **3440×1440 / MSAA8 / TAA on**.
+Wall median/p95/p99/max are **7.950 / 48.358 / 63.266 / 102.052 ms**; main-view
+GPU median/p95/p99/max are **3.804 / 16.736 / 21.265 / 24.948 ms**. Varying
+distance/residency and concurrent diagnostic work preclude a speed comparison.
+The distant captures expose repetitive shallow background facades and unfinished
+streets; opening access does not qualify them as completed architecture.
+
+Isolated station bench **05** completes **193 checks / zero failures**, clean
+stderr. With uncapped90-frame cases, MSAA8 and **TAA off**, the imported body
+uses **30 draws**, **396,356 near / 73,856 far triangles**, and mounts in
+**609.684 ms**. Forced-near/far GPU medians are **0.634 / 0.566 ms**, repeated
+**0.592 / 0.549 ms**; wide/narrow projection selects far/near bodies independently.
+This measures the station, not occupied-world performance or artistic acceptance.
+Native composition03 also completes with zero failures. Fresh grade discovery,
+ground binding replay and the complete surface packet remain pending before a
+coherent construction checkpoint is committed.
+
+Fresh grade survey **03** passes **573 aligned boxes / zero failures / 210 s**,
+with production startup **140,245.149 ms**. Native extraction03 still yields
+**3,398** classified records. The full native replay preserves all **3,451
+retained solid bounds**, **3,288 surface exclusions**, **57 occupied reservations**,
+the constructed soil grid and all five exported foundation/ground/apron/horizon
+bodies exactly. Fresh source records differ in provenance and generated collision
+names. **open_replay_identity_03.json** independently checks these identities,
+the original walk's runtime-input digest and all **15** bound programme files.
+All match. The original test-written228/164 contract and inspected native03
+renders are retained unchanged; the witness does not manufacture a new receipt.
+Foundation inventory is **1,049 parts**, so the composed review's older1,033
+literal is corrected to the actual native/export fixture. Its retired-barricade
+capture is replaced by the open frontage. The physical-import gate now passes
+with **359 retained sources**, and the **66** precision-policy imports pass.
+The full surface renewal remains pending.
+
+### REPORT - V2-CITY-TRANSPORT-CONSTRUCTION - 2026-10-29
+
+- Branch **codex/v2-city-20261029**; preceding HEAD **8f7d81f3**;
+  origin/main / merge-base **3ea80715bd201738d5566dea18bc17d4353ca867**.
+  Construction is published separately from the pending qualification update.
+- Worktree clean at this construction boundary: **no**. Owned generated import
+  line-ending/UID churn is retained until the last Godot run; a scoped cleanup
+  archives it and preserves the three new script UIDs. No canonical checkout
+  or outstanding prologue changes are included.
+- Protected **17/17 unchanged**, checked against the merge-base; selector **v2**
+  with explicit V1 rollback retained. Ledger **7/8/110/42/134/136 → same**;
+  no requirement status changes are claimed.
+- Gates: full **open_board_01** records all114 checks and the original failures.
+  Its four untracked-model/import findings are subsequently resolved: physical
+  import retention passes **359 sources**. The two stale full-surface packet/
+  rendered-review findings remain open. Reader **0 NEW**, spatial **clean**;
+  no other gate regresses against the captured clean-main board.
+- Runtime: **open_exterior_04** test-written contract **228 checks / 164
+  waypoints / zero failures**; native/imported measurements and exact reuse
+  witness are detailed above. Fresh survey03 passes; current rendering inputs
+  stay frozen for the pending full surface renewal. No complete surface pass
+  is claimed for this construction commit.
+- Expected file boundary: native city/scaffold source and exports, eastern
+  placements, additive station owner, exterior boundary owner, affected reviews
+  and fixtures. The grade exporter is extended for actual station ground stocks;
+  the precision catalogue adds only two demonstrated station import exceptions;
+  two reviewed test records are appended to the spatial manifest. These tool
+  changes and shared city mount were coordinated with the prologue chat.
+- Open findings: full surface/candidate qualification; long startup and frame
+  spikes; repetitive distant stock, unfinished streets, bridge/yard/waterfront
+  work and remaining **138 of149** individual building studies. Train service,
+  the later sleep/bed event and human artistic acceptance remain unimplemented
+  or ungranted. The window-depth request stays queued; the reserved entrance
+  authoring and all interior/companion/Tardi/weather/clock/save owners stay out
+  of this checkpoint.
+- Decision needed from owner: **none for continued implementation**. The city
+  renewal waits through the shared lane. No main merge is requested or performed.
+
+BLOCKED integration qualification pending; bounded construction checkpoint only.

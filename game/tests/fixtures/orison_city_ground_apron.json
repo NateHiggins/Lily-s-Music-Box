@@ -3,7 +3,7 @@
   "scope": "Authored LIC relief outside the retained ground and building shelf: riverward fall, canal and rail cut. Approximate fictional composition, not a historical elevation survey. Existing travel, foundations and campaign owners remain authoritative.",
   "frame": "ORISON_V2_BUILDING_FRAME",
   "retained_ground_bounds": [
-    -108.0,
+    -140.0,
     -4.0,
     -108.0,
     140.0,
@@ -26,7 +26,7 @@
         -500.0,
         -10.0,
         -500.0,
-        -108.0,
+        -140.0,
         -0.019999995827674866,
         500.0
       ],
@@ -47,22 +47,22 @@
           423.0769230769231
         ],
         [
-          -310,
-          -0.020000000000000462,
+          -320,
+          -3.5,
           -390.0
         ],
         [
-          -310,
-          -0.020000000000000462,
+          -320,
+          -3.5,
           -38.46153846153845
         ],
         [
-          -310,
-          -0.020000000000000462,
+          -320,
+          -3.5,
           423.0769230769231
         ],
         [
-          -170.0,
+          -180.0,
           -0.019999995827674866,
           -390.0
         ],
@@ -72,7 +72,7 @@
           -38.46153846153845
         ],
         [
-          -170.0,
+          -180.0,
           -0.019999995827674866,
           423.0769230769231
         ]
@@ -139,7 +139,7 @@
     {
       "id": "north",
       "bounds": [
-        -108.0,
+        -140.0,
         -10.0,
         -500.0,
         140.0,
@@ -148,32 +148,32 @@
       ],
       "exposed_samples": [
         [
-          -108.0,
+          -140.0,
           -0.019999995827674866,
           -500.0
         ],
         [
-          -108.0,
+          -140.0,
           -0.019999995827674866,
           -335.0
         ],
         [
-          -108.0,
+          -140.0,
           -0.019999995827674866,
           -186.39999999999998
         ],
         [
-          16.0,
+          0.0,
           -0.019999995827674866,
           -500.0
         ],
         [
-          16.0,
+          0.0,
           -0.019999995827674866,
           -335.0
         ],
         [
-          16.0,
+          0.0,
           -0.019999995827674866,
           -186.39999999999998
         ],
@@ -197,7 +197,7 @@
     {
       "id": "south",
       "bounds": [
-        -108.0,
+        -140.0,
         -10.0,
         76.0,
         140.0,
@@ -206,32 +206,32 @@
       ],
       "exposed_samples": [
         [
-          -108.0,
+          -140.0,
           -0.019999995827674866,
           146.66666666666669
         ],
         [
-          -108.0,
+          -140.0,
           -0.019999995827674866,
           288.0
         ],
         [
-          -108.0,
+          -140.0,
           -0.019999995827674866,
           429.3333333333333
         ],
         [
-          16.0,
+          0.0,
           -0.019999995827674866,
           146.66666666666669
         ],
         [
-          16.0,
+          0.0,
           -0.019999995827674866,
           288.0
         ],
         [
-          16.0,
+          0.0,
           -0.019999995827674866,
           429.3333333333333
         ],
@@ -302,7 +302,7 @@
     {
       "name": "Horizon_north__concrete",
       "finish": "concrete",
-      "triangles": 22
+      "triangles": 23
     },
     {
       "name": "Horizon_north__soil",
@@ -432,12 +432,12 @@
       }
     }
   },
-  "retained_ground_sha256": "0c44684b84cdfca8da14d802c6e5d354594dd22e9fa9c2727584e5ca4249a388",
-  "asset_sha256": "95ff6c8a46ce9e9a7d7524db841af96c116c267d0d08493f82d5974cb3a4cc91",
+  "retained_ground_sha256": "5bc235fd1b9b5cf55a6993b7598700e45d54c7240224d7aea101e083def9ef33",
+  "asset_sha256": "2a0f3ab923f5bfe9a2337f5f1d900b6f360afdfbd2be19e7485e1d799852ba8b",
   "source_bindings": {
     "art/data/city_ground_apron/source_plan.json": "5bcb71b2deedf43f22421c026cd7f5d7b7ad82d0b49bf8e29ae603c0fd71c822",
-    "game/assets/props/orison_ground.glb": "0c44684b84cdfca8da14d802c6e5d354594dd22e9fa9c2727584e5ca4249a388",
-    "art/blender/orison_ground_construction.json": "97bf573b4da88a30fd2c20a73cbdc18dc121e3ffeb28aea8e98baa1ed315c1ae",
+    "game/assets/props/orison_ground.glb": "5bc235fd1b9b5cf55a6993b7598700e45d54c7240224d7aea101e083def9ef33",
+    "art/blender/orison_ground_construction.json": "ecd7019d2df1c535b4858e9f98715875d8191cd2b46428142cf0f4bdcb6f1be3",
     "game/data/orison_v2/ground_finish.json": "30e05ddcac2abb08ed0148b6e0db9f9eaa676d22fa34fce302d55254bfef8db9",
     "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc",
     "art/blender/scripts/build_city_ground_apron.py": "1baa68e842b2d402ebe22decf3ef35c92f6ebaf4f250497850cdea74c0d759b4",
@@ -466,7 +466,7 @@
   "export_check": {
     "asset": "C:\\ov\\city\\game\\assets\\props\\city_ground_apron.glb",
     "primitives": 14,
-    "triangles": 2783,
+    "triangles": 2784,
     "minimum_tangent_agreement": 0.9999999707991638,
     "status": "PASS"
   }

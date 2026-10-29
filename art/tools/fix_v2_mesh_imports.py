@@ -36,6 +36,8 @@ ASSETS = (
     "props/city_horizon_near.glb", "props/city_horizon_far.glb", # The same thin closed pane/reveal metre charts as validated city stock.
     "props/city_ground_apron.glb", # source_bench1: default import stretches thin-edge metre charts by 1.69%.
     "props/city_frontage.glb", # imported_bench_01: default quantization stretches barricade stock charts by 6.07%, beyond the retained 0.5% metric gate.
+    "props/city_transport.glb", # transport bench_01: default compression stretches small bevel charts99.97% and fails UV tangent derivatives; native export passes.
+    "props/city_transport_lod1.glb", # Same bench: replacement charts stretch9.98%, with3888 bad derivatives under default compression.
     "props/city_elevations.glb", # Preserve the validated metric charts of retained cap bevels and recessed window stock.
     "props/arcade_clock.glb", # bench2: fine dial/hand charts deform by up to 64% under default import quantization.
     "props/arcade_lantern.glb", # Folded 2 mm roof skin and small closed seams retain metric charts.

@@ -96,6 +96,37 @@ for face in obj.data.polygons:
     cells.append(b);append('FrontPavement','RetainedSlabCell_%03d'%(len(cells)-1),b,'authored_union_component')
 assert abs(sum((b[3]-b[0])*(b[5]-b[2])*(high-low) for b in cells)-volume)<1e-5
 for p in ['game/assets/props/exterior_masonry.glb','game/assets/props/service_alley.glb','game/assets/props/bodega_receiving.glb','game/assets/props/front_pavement.glb','game/scripts/generated/v2_exterior_masonry.gd']:bind(p)
+
+# Station ground stock is classified individually in its saved native source.
+# The shared city pose supplies the building frame; a whole station AABB would
+# incorrectly fill the public footways, carriageway and stairs with soil masks.
+transport=json.loads(bind('art/blender/city_transport_construction.json').read_text())
+ground={r['id']:r for r in transport['stocks'] if r['lod']==0 and r['role'] in ['footing','pedestal','public_paving','curb']}
+city_pose=survey['poses']['city']
+axes=[city_pose[k] for k in ['x_axis','y_axis','z_axis']]
+assert all(sum(abs(v)>.00003 for v in axis)==1 and abs(sum(v*v for v in axis)-1)<.00006 for axis in axes)
+def station_point(point):
+    local=[point.x,point.z,-point.y]
+    return [city_pose['origin'][i]+sum(local[j]*city_pose[k][i] for j,k in enumerate(['x_axis','y_axis','z_axis'])) for i in range(3)]
+native_ground=objects('art/blender/city_transport.blend',lambda n:n in ground)
+assert len(native_ground)==len(ground)>0
+for obj in native_ground:
+    record=ground[obj.name];points=[obj.matrix_world@v.co for v in obj.data.vertices]
+    actual=[min(p[i] for p in points) for i in range(3)]+[max(p[i] for p in points) for i in range(3)]
+    assert max(abs(a-b) for a,b in zip(actual,record['bounds']))<.00003,obj.name
+    bm=bmesh.new();bm.from_mesh(obj.data)
+    assert all(e.is_manifold for e in bm.edges),obj.name
+    volume=bm.calc_volume(signed=True);bm.free();assert volume>0,obj.name
+    box_volume=math.prod(actual[i+3]-actual[i] for i in range(3))
+    exact=len(obj.data.vertices)==8 and abs(volume-box_volume)<max(1e-8,box_volume*1e-5)
+    if exact:
+        local_lo=[min(v.co[i] for v in obj.data.vertices) for i in range(3)]
+        local_hi=[max(v.co[i] for v in obj.data.vertices) for i in range(3)]
+        assert all(all(abs(v.co[i]-local_lo[i])<.00003 or abs(v.co[i]-local_hi[i])<.00003 for i in range(3)) for v in obj.data.vertices),obj.name
+    transformed=[station_point(p) for p in points]
+    box=[min(p[i] for p in transformed) for i in range(3)]+[max(p[i] for p in transformed) for i in range(3)]
+    append('CityTransport',obj.name,box,'authored_original_box' if exact else 'worked_arris_clearance_bounds')
+for p in ['art/data/city_transport/source_plan.json','art/blender/scripts/build_city_transport.py','game/assets/props/city_transport.glb','game/assets/props/city_transport_lod1.glb','game/scripts/building/orison_v2_city_transport.gd']:bind(p)
 bind(Path(__file__).relative_to(ROOT).as_posix())
 result=dict(evidence_class='INERT',records=rows,bindings=bindings,front_cells=len(cells),front_volume_m3=volume,receiving_registration=pose,
     note='Native original masonry/union components, pavement cells and explicitly classified worked-arris clearances. Original paving substrate bounds reserve construction ownership; current graded cuts/air have their separate reservations. No whole mesh AABB is an exact solid.')

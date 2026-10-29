@@ -8140,15 +8140,15 @@
   "source_bindings": {
     "art/data/city_closure/source_plan.json": "698345a5e6a97318e932e36f4a8a6374cac846c76366d4b5f95ddb363e14e088",
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
-    "art/blender/city_shells_registration.json": "e287c8f754b3d32308031ca9d03b71f7388b09ed6fa4c38499c18613a4fd087b",
-    "art/blender/city_shells.blend": "9a95060310b1c7ef14af340957c3ddeaa524642653825f0a3c80b9ad5def901c",
+    "art/blender/city_shells_registration.json": "e849a2b44e8f4eea2d6a17b73fce43c5bc99ffcc654a9c4303f338793af35282",
+    "art/blender/city_shells.blend": "cb8e3cd6f1553a809ae7e2d33f17b24b9a7ac62859340312f35805f24af208b9",
     "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
     "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
     "art/blender/scripts/build_city_closure.py": "a35b02cb8824d9f0fcd6abfffbfa6e7964f48d7b39025a93c65958a7ddf7dc59",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/city_registration.py": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
     "art/blender/scripts/city_closure_source.py": "44c4ce354ef863f3791fed2cc5ac8b56920741174bb03b56036143d03695f2cc",
-    "art/data/city_elevations/source_plan.json": "b0ed8e5bf52c5e7152c64d451187890aa2811cdc7d1903d5f8ee43ea5fa4241e",
+    "art/data/city_elevations/source_plan.json": "76da3dfd3e687b7ee1e6fe1f773a540631c6a855fa9b3a7948dd662206801afb",
     "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc",
     "game/assets/building/textures/T_ai_materials_brick_albedo.png": "832731a0eb590c719c2df4d18269d900fba901409ad959b7250fcfa7ccbd47a6",
     "game/assets/building/textures/T_ai_materials_brick_rough.png": "13981cad068720de19ae2108c4f3fa38b92f6fa016527c382632d65d6c43674a",
@@ -8186,7 +8186,7 @@
     "game/tests/fixtures/orison_city_aerials.json": "891cd847331990af1386db8ba34a3ab4ca903cf2315170d9d03c9259e1268f0a",
     "game/assets/props/city_tanks.glb": "0737c5d39222baabab875292541a506be3ee5dc77b37df0dc3ffe7fb39789e05",
     "game/tests/fixtures/orison_city_tanks.json": "c303cce0c54727ece7fb7892645cd08664250f1fb5c47ef5236d3ac7f56b2a84",
-    "art/blender/city_shells_consumed_layout.json": "aed4a84ef817f4ce7127c89a4c1ffd88884335a784086effb414a103f7545273"
+    "art/blender/city_shells_consumed_layout.json": "87914a205b4b19b3f61b4f3297570c2caf1a15450f5fb8c648a21b057821752c"
   },
   "open_work": "Original city boundary masses only. Join original parapet corner overlaps without moving source envelopes, occupied spaces, services, roof attachments or active controls. Main roof drainage, weather capacity, broader room/city finishes and street/courtyard closure remain open."
 }

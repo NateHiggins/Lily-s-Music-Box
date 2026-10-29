@@ -1,7 +1,7 @@
 """Reopen the city composition; native checks and renders, no runtime acceptance."""
 from pathlib import Path
 import hashlib,json,os,sys
-import bpy,bmesh
+import bpy,bmesh,numpy as np
 from mathutils import Vector,Matrix
 from mathutils.bvhtree import BVHTree
 ROOT=Path(os.environ.get('CITY_COMPOSITION_ROOT',str(next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file()))))
@@ -33,7 +33,10 @@ for family in ['elevations','masts','aerials','tanks','beacons']:
     family_objects[family]=draws;objects.extend(draws)
 frontage_meta=json.loads((ROOT/'art/blender/city_frontage_construction.json').read_text())
 frontage_parts=load_objects(ROOT/'art/blender/city_frontage.blend',['WestNorthWorks__'+k for k in frontage_meta['finishes']])
-objects.extend(frontage_parts)
+# Retained source only: the owner's open-exploration direction unmounted this
+# former street-end barricade. Keep its independent stock checks below, but do
+# not render it or let it obstruct installed-composition rays.
+for obj in frontage_parts:obj.hide_render=True
 frontage_closed=load_objects(ROOT/'art/blender/city_frontage.blend',[r['id'] for r in frontage_meta['stocks']])
 for obj in frontage_closed:
     bm=bmesh.new();bm.from_mesh(obj.data);assert all(e.is_manifold for e in bm.edges) and bm.calc_volume(signed=True)>0,obj.name;bm.free();obj.hide_render=True
@@ -53,6 +56,17 @@ objects.extend(found)
 grade=json.loads((ROOT/'art/blender/orison_ground_construction.json').read_text())
 ground=load_objects(ROOT/'art/blender/orison_ground.blend',[r['id'] for r in grade['parts']],registered)
 objects.extend(ground)
+transport_meta=json.loads((ROOT/'art/blender/city_transport_construction.json').read_text())
+transport_runtime=json.loads((ROOT/'game/data/orison_v2/exterior/city_transport.json').read_text())
+transport=load_objects(ROOT/'art/blender/city_transport.blend',transport_runtime['parts'])
+objects.extend(transport)
+hashes['game/data/orison_v2/exterior/construction_shed.json']=hashlib.sha256((ROOT/'game/data/orison_v2/exterior/construction_shed.json').read_bytes()).hexdigest()
+with bpy.data.libraries.load(str(ROOT/'art/blender/construction_shed.blend'),link=False) as (available,unused):
+    shed_names=[name for name in available.objects if name.startswith('Shed_')]
+assert len(shed_names)==5,shed_names
+shed_transform=Matrix.Identity(4);shed_transform.translation=Vector((22.25,-frame['source_threshold_z'],0))
+shed=load_objects(ROOT/'art/blender/construction_shed.blend',shed_names,shed_transform)
+objects.extend(shed)
 # Include retained owners around the real entrance; their genuine cutouts in
 # the new grade are not ground holes. Do not invent a proxy floor over them.
 paving=json.loads((ROOT/'art/blender/front_pavement_construction.json').read_text())
@@ -88,7 +102,7 @@ def tree(draws):
         offset=len(vs);vs.extend(obj.matrix_world@v.co for v in obj.data.vertices)
         fs.extend(tuple(offset+i for i in face.vertices) for face in obj.data.polygons);names.extend([obj.name]*len(obj.data.polygons))
     return BVHTree.FromPolygons(vs,fs),names
-city_bvh,city_names=tree(family_objects['elevations']+frontage_parts);ground_bvh,_=tree(ground)
+city_bvh,city_names=tree(family_objects['elevations']+shed);ground_bvh,_=tree(ground)
 failures=[];bearings=0
 for family in ['masts','aerials','tanks']:
     fixture=json.loads((ROOT/f'game/tests/fixtures/orison_city_{family}.json').read_text())
@@ -107,6 +121,30 @@ for x,y in [(-20.6,-10),(-26.5,-10),(-35.2,-10),(-45.25,-10),(-56.25,-10),(-21,2
     hit,n,index,distance=ground_bvh.ray_cast(Vector((x,y,.3)),Vector((0,0,-1)),.6)
     ok=hit is not None and abs(hit.z+.02)<.0001;filled.append({'point':[x,y],'height':hit.z if hit is not None else None,'passed':ok})
     if not ok:failures.append({'kind':'vacated_grade','point':[x,y]})
+surface,surface_names=tree(ground+transport)
+for x,y in [(30,-4),(40,-4),(55,-4),(64,18),(87,-3)]:
+    # Vacated eastern sites now have public paving at zero or grade at -20 mm.
+    hit,n,index,distance=surface.ray_cast(Vector((x,y,.3)),Vector((0,0,-1)),.6)
+    ok=hit is not None and -.0201<=hit.z<=.0001
+    filled.append({'point':[x,y],'height':hit.z if hit is not None else None,'passed':ok})
+    if not ok:failures.append({'kind':'eastern_public_grade','point':[x,y]})
+# Buried interfaces are deliberately omitted from the render mesh. Query the
+# actual constructed soil cells, rather than demanding an invisible contact face.
+cells_path=ROOT/'tmp/orison-ground/orison-ground-cells.npz'
+hashes[cells_path.relative_to(ROOT).as_posix()]=hashlib.sha256(cells_path.read_bytes()).hexdigest()
+cells=np.load(cells_path);solid=cells['solid'];axes=[cells[k] for k in ['xs','ys','zs']]
+inverse=registered.inverted();station_support=[]
+for stock in transport_meta['stocks']:
+    if stock['lod']!=0 or stock['role']!='footing':continue
+    a,b,z,c,d,Z=stock['bounds']
+    for u,v in [(.1,.1),(.1,.9),(.5,.5),(.9,.1),(.9,.9)]:
+        native=Vector((a+(c-a)*u,b+(d-b)*v,z-.0001));local=inverse@native
+        point=[local.x,local.z,-local.y]
+        index=tuple(int(np.searchsorted(axis,p,side='right')-1) for axis,p in zip(axes,point))
+        ok=all(0<=i<solid.shape[k] for k,i in enumerate(index)) and bool(solid[index])
+        station_support.append({'id':stock['id'],'point':list(native),'soil_below':ok})
+        if not ok:failures.append({'kind':'station_footing_soil','id':stock['id'],'point':list(native)})
+(OUT/'geometry_checks.json').write_text(json.dumps(dict(evidence_class='INERT',failures=failures,station_support=station_support),indent=2)+'\n',encoding='utf-8',newline='\n')
 assert not failures,failures[:12]
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=12
 scene.render.resolution_x=1600;scene.render.resolution_y=900;scene.render.resolution_percentage=100
@@ -114,7 +152,8 @@ scene.world=bpy.data.worlds.new('CompositionReview');scene.world.use_nodes=True
 scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.65,.8,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
 sun=bpy.data.objects.new('ReviewSun',bpy.data.lights.new('ReviewSun','SUN'));scene.collection.objects.link(sun);sun.data.energy=3;sun.rotation_euler=(.45,-.35,-.7)
 cam=bpy.data.objects.new('ReviewCamera',bpy.data.cameras.new('ReviewCamera'));scene.collection.objects.link(cam);scene.camera=cam;cam.data.lens=25
-views=[('front_west',(0,-12.795,1.41),(-130,-12.795,4)),('row_grazing',(-13,-14,1.8),(-56,0,6)),('roof_west',(0,-11,21),(-100,18,12)),('new_pocket',(-47,55,9),(-55.6,35,7)),('new_cambridge',(-85,110,23),(-121,54,8)),('barricade_diffuse',(-16,-12.1,1.5),(-20.1,-12.1,.75)),('barricade_grazing',(-18,-9.9,1.25),(-20.1,-12.1,.75))]
+views=[('front_west',(0,-12.795,1.41),(-130,-12.795,4)),('row_grazing',(-13,-14,1.8),(-56,0,6)),('roof_west',(0,-11,21),(-100,18,12)),('new_pocket',(-47,55,9),(-55.6,35,7)),('new_cambridge',(-85,110,23),(-121,54,8)),('open_west_frontage',(-16,-12.1,1.5),(-35,-12.1,1.5)),('open_scaffold',(17,-12.795,1.41),(27,-12.795,1.8))]
+views.extend([('plaza_east',(24,-12.8,1.41),(65,-10,11)),('public_entry_ground',(29,9,1.41),(36,5,4)),('platform_lower',(45,-20,12.79),(86,-20,12.38)),('east_factory',(94,6,1.41),(115,13,13))])
 for label,eye,target in views:
     if label in ['new_pocket','new_cambridge']:
         start=Vector(eye);end=Vector(target);hit,n,index,distance=city_bvh.ray_cast(start,(end-start).normalized(),(end-start).length)
@@ -124,6 +163,9 @@ for label,eye,target in views:
 for relative in ['art/data/city_elevations/source_plan.json','art/blender/city_foundations_construction.json','art/blender/orison_ground_construction.json','art/blender/city_frontage_construction.json','art/data/city_frontage/source_plan.json',Path(__file__).relative_to(ROOT).as_posix()]:
     hashes[relative]=hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()
 report={'evidence_class':'INERT','scope':'Reopened native composition, original hardware contacts, manifold foundations and filled vacated plots. No runtime, new playable lot, structural capacity, weather or artistic acceptance. Native previews use registered maps; runtime optical effects remain with the runtime.','source_hashes':hashes,'bearings':bearings,'frontage_closed_stocks':len(frontage_closed),'frontage_pavement_contacts':len(frontage_meta['pavement_contacts']),'frontage_carrier_contacts':frontage_meta['board_carrier_contacts'],'closed_foundations':volumes,'west_views':visibility,'vacated_grade':filled,'failures':failures,'renders':[v[0]+'.png' for v in views]}
+for relative in ['art/blender/city_transport_construction.json','game/data/orison_v2/exterior/city_transport.json']:
+    hashes[relative]=hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()
+report['station_footing_support']=station_support
 (OUT/'native_review.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 for relative,digest in hashes.items():assert hashlib.sha256((ROOT/relative).read_bytes()).hexdigest()==digest,relative
 print('CITY COMPOSITION NATIVE:',bearings,'bearings;',len(volumes),'closed foundations;',len(filled),'filled plots;',len(failures),'failures')
