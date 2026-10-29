@@ -221,3 +221,28 @@ Defer the other suggestions from this batch, without deleting installed work:
 
 The two-prop approval adds no V2-wide completion gate. Existing prologue, city,
 weather, audio, persistence and performance commitments retain their priorities.
+
+
+### First composed entrance review — October29
+
+**import.log.receipt.json** passes in27.42seconds with empty stderr. The first
+occupied fullscreen3440x1440 run, **world_first.log.receipt.json**, ends exit1
+in188.33seconds:672 checks report one failure. Loaded metric mapping, materials,
+matching fixed collision, retained bearings and door sweep report no failures,
+but this failed aggregate grants no runtime qualification. Its new hand check
+mistakenly uses layout coordinates as world coordinates: the logged camera is
+at worldZ-13.55 while its actual leaf contact is atZ+0.315. Correct the fixture
+stance through **door.to_global**, preserving production reach and collision.
+The original failure, six optical frames and stderr remain external.
+
+The loaded close/approach images show the new oak, carved panels, six retained
+glass lights and stone arch; the facade is not artistically accepted. A diagonal
+white streak remains visible in the review. Inspection finds the temporary
+Camera3D uses its default all-layer mask, including the reflection-only player
+avatar that the real first-person camera excludes. The review now copies the
+actual player camera mask and asserts avatar privacy; attribution/removal of
+the streak still requires a fresh render. No avatar, mirror or sky production
+shader is modified. The corrected hand/camera rerun is queued on the same live
+shared-lane waiter, with other contributors' processes preserved. It has not yet
+returned a result. Routine import rewrites are verified normalization-only and
+excluded from staging; no other contributor's assets or UIDs are discarded.

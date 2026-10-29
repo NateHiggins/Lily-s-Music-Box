@@ -79,7 +79,9 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(not hit.is_empty() and str(hit.collider.get_path()).contains("ExteriorMasonry") and hit.position.distance_to(at)<.0001,"original blade bracket has a real retained pier")
 		var approach:=PhysicsRayQueryParameters3D.create(Vector3(blade.global_position.x,y,4),at,1,[world.player.get_rid()])
 		print("FACADE STREET OCCLUDER at y=",y," hit=",world.get_world_3d().direct_space_state.intersect_ray(approach))
-	var camera:=Camera3D.new();world.add_child(camera);camera.make_current();camera.fov=65
+	var camera:=Camera3D.new();camera.cull_mask=world.player.camera.cull_mask
+	world.add_child(camera);camera.make_current();camera.fov=65
+	check((camera.cull_mask & preload("res://scripts/player/doodle_player_avatar.gd").LAYER)==0,"ordinary facade camera preserves first-person avatar privacy")
 	for view: Array in [["front",Vector3(0,1.43,6),Vector3(0,2.7,0)],["approach",Vector3(3,1.43,4),Vector3(0,2.7,0)],["door",Vector3(.45,1.43,1.55),Vector3(0,1.6,0)],["canopy",Vector3(1.5,1.43,2.8),Vector3(0,3.1,.4)],["blade",Vector3(9,1.43,4),blade.global_position+Vector3(0,0,.65)],["front_wide",Vector3(0,1.43,11),Vector3(0,6,0)]]:
 		var feet: Vector3=view[1]-Vector3.UP*world.player.STANDING_EYE
 		var ground:=PhysicsRayQueryParameters3D.create(feet+Vector3.UP*.35,feet-Vector3.UP*.40,1,[world.player.get_rid()])
@@ -104,7 +106,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	# The replacement is qualified with the same physical input driver used by
 	# the golden route, rather than the legacy endpoint/toggle command.
 	world.player.camera.make_current()
-	world.player.global_position=Vector3(0,.02,-13.55)
+	world.player.global_position=door.to_global(Vector3(door.width*.5,.02,-1.40))
 	world.player.set_mouse_released(false)
 	await get_tree().physics_frame
 	var hand:=preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()

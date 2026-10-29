@@ -227,3 +227,34 @@ Sources: [Checker Taxi](https://en.wikipedia.org/wiki/Checker_Taxi),
 [Sheffield Farms, Columbia neighbours history](https://sheffieldfarms.neighbors.columbia.edu/content/chapter-2-sheffield-farms),
 [History of current bus routes in Queens](https://en.wikipedia.org/wiki/History_of_current_bus_routes_in_Queens),
 [List of streetcar lines in Queens](https://en.wikipedia.org/wiki/List_of_streetcar_lines_in_Queens).
+
+
+## October29 delivered Tudor stock preparation
+
+The delivered **C:/ov/asset-prototypes/model-a-tudor-20261028/** source is retained
+unchanged. Its63 manifest entries match. Canonical tangent checking exposes a
+UV-derivative disagreement despite its original orthogonality pass; a native
+corner guide resolves this in an external re-export while retaining original
+triangle positions, normals, UVs, all27 encoded images and named transforms.
+See the entrance intake record for the preserved failures and gaslamp study.
+
+An additional external catalogue-key candidate is prepared at
+**C:/ov/reports/prologue_20261028/entrance_delivery_review/tudor_stock/**.
+Its **model_a_tudor_stock.glb** is3,372,456bytes,14 single-material partitions,
+22,390 unique triangles, with no embedded images/materials. It uses the traffic
+loader's **stock__finish** ABI and includes the fitted driver's wool/skin
+partitions. The first prep caught donor-name collisions producing **.001**
+finish suffixes; the corrected candidate passes all14 semantic names.
+The metre edge check's worst relative error is0.0000035623 and minimum exported
+tangent agreement is0.9999999589. These are native/export checks, not optical
+or runtime acceptance. The compact blend is an export-stage candidate; original
+manufacturing stocks remain recoverable in the unchanged donor file.
+
+Wheels remain physical0.381m-radius stock at their axle origins, not normalized
+0.5m primitives. Integration must bind that stock radius explicitly, retain
+actual axle coordinates, register the existing clear-glass/finish bindings and
+preserve traffic timing, yielding, signalling, collisions and ownership. No
+prototype palette textures enter the repository. Body replacement LOD, actual
+loaded appearance/mips, road fit and same-settings runtime cost remain open.
+No traffic script, generated table or canonical vehicle asset changes in this
+preparation checkpoint; entrance verification is still the active runtime task.
