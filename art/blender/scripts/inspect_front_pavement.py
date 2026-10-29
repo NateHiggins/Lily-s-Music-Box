@@ -36,6 +36,20 @@ else:
     assert projection==historical_projection
 connection=read('game/data/orison_v2/world_connection.json')
 assert digest('game/data/orison_v2/world_connection.json')==resume['source_hashes']['game/data/orison_v2/world_connection.json']
+# A shed edit can retire above-floor hoardings without changing this slab.
+# Independently reconstruct exactly the masks consumed by the native builder;
+# a new floor footprint must fail even if someone refreshes a whole-file pin.
+shed=read('game/data/orison_v2/exterior/construction_shed.json')
+assert shed['frame']=='ORISON_FRONT_DOOR_THRESHOLD' and shed['schema_version']==1
+low,high=fixture['y'];a,z,c,d=fixture['envelope'];shed_masks=[]
+for record in shed['boxes']:
+    px,py,pz=record['center'];sx,sy,sz=record['size']
+    if py-sy/2>=high or py+sy/2<=low:continue
+    assert record.get('roll_degrees',0)==0
+    rect=[-px-sx/2,projection['door']['center'][1]-pz-sz/2,-px+sx/2,projection['door']['center'][1]-pz+sz/2]
+    if rect[2]>a and rect[0]<c and rect[3]>z and rect[1]<d:
+        shed_masks.append({'owner':'StreetBoundaries/'+record['id'],'bounds':rect,'kind':'retained_authored_shed_solid'})
+assert shed_masks==[r for r in fixture['masks'] if r['kind']=='retained_authored_shed_solid'], 'Current shed floor masks differ from the saved native slab'
 bpy.ops.wm.read_factory_settings(use_empty=True)
 with bpy.data.libraries.load(str(ROOT/'art/blender/exterior_masonry.blend'),link=False) as (a,b):
     assert 'PreServiceMasonry' in a.collections
@@ -76,8 +90,9 @@ report={'evidence_class':'INERT','schema':'orison.front-pavement-consumed-source
     'blockout_projection':projection,'connection_remove_boxes':connection['remove_boxes'],
     'historical_projection_matches':projection==historical_projection,
     'regenerated_current_source':regenerated_current,
+    'shed_masks':shed_masks,'shed_mask_projection_matches':True,
     'masonry_masks':actual,'mask_max_difference_m':error,'closed_union_volume_m3':volume,'parts':len(parts),
-    'scope':'Exact consumed layout and 24 native masonry mask comparison. Original source fixture and native paving/export unchanged; no runtime proof.'}
+    'scope':'Exact consumed layout, shed floor masks and native masonry mask comparison. Source-binding metadata reviewed separately; original native paving/export geometry unchanged. No runtime proof.'}
 (OUT/'pavement_source_review.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
 if os.environ.get('STREET_WRITE_REVIEW')=='1':
     (ROOT/'game/tests/fixtures/orison_front_pavement_review.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')

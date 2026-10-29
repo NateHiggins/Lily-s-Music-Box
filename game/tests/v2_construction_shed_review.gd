@@ -41,11 +41,25 @@ func run(current: OrisonV2RuntimeRoot, suite: Node) -> void:
 	player.set_lamp_enabled(false)
 	for point in [Vector3(21.5,0,3),Vector3(24,0,3),Vector3(24,0,0),Vector3(24,0,-2.1),Vector3(24,0,-4)]:
 		if not await _walk(world.adapter.root.to_local(point)):break
-	var query := PhysicsRayQueryParameters3D.create(Vector3(24,1.2,-2.1),Vector3(24,1.2,-4))
+	# Retain the failed probes as actual collider controls. The first ended
+	# inside the player; the old diagonal also entered the retained shop.
+	var legacy := PhysicsRayQueryParameters3D.create(Vector3(24,1.2,-2.1),Vector3(24,1.2,-4))
+	var legacy_hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(legacy)
+	host.check(not legacy_hit.is_empty() and legacy_hit.collider==player,"unfiltered former-closure probe hits the player, not a closure")
+	var legacy_player_path: String=str(legacy_hit.collider.get_path()) if not legacy_hit.is_empty() else "empty"
+	var query := PhysicsRayQueryParameters3D.create(Vector3(24,1.2,-2.1),Vector3(24,1.2,-4),1,[player.get_rid()])
 	var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(query)
 	host.check(hit.is_empty(),"former temporary closure now admits the real player route")
-	query=PhysicsRayQueryParameters3D.create(Vector3(24,1.5,-2),Vector3(19,1.5,3))
+	legacy=PhysicsRayQueryParameters3D.create(Vector3(24,1.5,-2),Vector3(19,1.5,3),1,[player.get_rid()])
+	legacy_hit=world.get_world_3d().direct_space_state.intersect_ray(legacy)
+	host.check(not legacy_hit.is_empty(),"old diagonal remains occluded by retained world geometry")
+	var legacy_diagonal_path: String=str(legacy_hit.collider.get_path()) if not legacy_hit.is_empty() else "empty"
+	# This sightline still crosses both former hoarding footprints, while its
+	# end stays outside the shop. Production collision and player masks stay on.
+	query=PhysicsRayQueryParameters3D.create(Vector3(24,1.5,-2),Vector3(21,1.5,3),1,[player.get_rid()])
 	host.check(world.get_world_3d().direct_space_state.intersect_ray(query).is_empty(),"retired inner hoarding no longer closes the street view")
+	var probe_controls: Dictionary={"legacy_player_hit":legacy_player_path,"legacy_diagonal_hit":legacy_diagonal_path,"corrected_world_mask":1,"shop_clear_endpoint":[21,1.5,3]}
+	print("CONSTRUCTION PROBE CONTROLS: ",probe_controls)
 	for point in [Vector3(24,0,0),Vector3(24,0,3),Vector3(21.5,0,3),Vector3(19.5,0,3)]:
 		if not await _walk(world.adapter.root.to_local(point)):break
 	player.set_physics_process(false)
@@ -61,6 +75,6 @@ func run(current: OrisonV2RuntimeRoot, suite: Node) -> void:
 			await _capture("construction_"+str(station[0])+("_carried" if carried else "_diffuse"),world.adapter.root.to_local(station[1]),world.adapter.root.to_local(station[2]))
 	player.set_lamp_enabled(false)
 	var directory := OS.get_environment("SHOT_DIR")
-	FileAccess.open(directory.path_join("construction_route_trace.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","fixture":"Street arrival at (19.5,0.025,3); capture stances are camera fixtures; no lobby route claim.","waypoints":trace},"\t"))
+	FileAccess.open(directory.path_join("construction_route_trace.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","fixture":"Street arrival at (19.5,0.025,3); capture stances are camera fixtures; no lobby route claim.","waypoints":trace,"probe_controls":probe_controls},"\t"))
 	player.global_position=prior_position;player.rotation=prior_rotation;player.camera.rotation=prior_camera
 	player.velocity=Vector3.ZERO;player.set_physics_process(prior_physics)

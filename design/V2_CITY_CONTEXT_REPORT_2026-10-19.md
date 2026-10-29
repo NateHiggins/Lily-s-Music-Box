@@ -1223,3 +1223,88 @@ The full surface renewal remains pending.
   renewal waits through the shared lane. No main merge is requested or performed.
 
 BLOCKED integration qualification pending; bounded construction checkpoint only.
+
+Next-street discovery, not construction acceptance: fresh survey03 measures the
+existing **STREET_ORISON_01** road box at **−0.10 m**, **9.144 m** across and
+**41.1 m** long; its kerb boxes reach **+0.12 m**, with retained footways at zero.
+The traffic source owns junction positions **−69.6 / +68.8 m**. These datums and
+the installed threshold/shop approaches must be reconciled with actual new road,
+sidewalk and intersection construction. Opening the exterior and adding station
+paving does not by itself complete that continuous street section.
+
+Surface renewal01 reaches preflight and fails before composition in **20.7 s**:
+the two pavement fixtures still bind the pre-expansion shed source. Earlier
+four-fixture checking missed this downstream dependency; the original failed
+wrapper receipt/log remain preserved. Independent projection proves all seven
+removed actors are outside the slab: the sole consumed shed mask is the retained
+**ShedTurnFloor**, exactly unchanged. Native reopening verifies **34 parts**, all
+**48 masks** (including34 masonry masks), and closed volume **27.583769631 m³**.
+
+The existing pavement inspector now reconstructs those shed masks explicitly.
+A read-only negative control shifts the floor **5 cm** and supplies a matching
+fresh whole-file hash; the consumed-mask guard rejects it. Reviewed provenance
+is refreshed without changing the pavement body. Native street-detail replay
+passes **187 closed stocks / 224 supports**; fresh diffuse/grazing/end renders
+are inspected. All paving exports remain byte-identical. Full preflight then
+finds the retired works fixture's dependent pavement pin; its native replay
+passes **87 closed stocks / 15 contacts**, with its unmounted body unchanged.
+Both source-only failures are retained, without a fabricated runtime contract.
+
+Downstream grade provenance is replayed through the builders again. All **ten**
+fixtures from the actual surface suite pass **surface_all10_preflight_03**;
+**13** binding-preflight tool tests pass. **open_replay_identity_04.json** matches
+the original runtime digest,15 programme inputs, paving/retired-works/five grade
+bodies, soil cells and all retained/exclusion/reservation bounds. There are zero
+semantic material/shader changes. The original228/164 contract remains untouched;
+the corrected full surface renewal is still required.
+
+Full renewal02 completes in **936.14 s** with **42,548 checks / two failures**.
+Its test-written contract is **failed**, preserved unchanged. The exhaustive
+technical inventory has **zero unresolved surfaces**, covering **28,807 draws /
+17,993 meshes / 6,336 materials / 536 textures**; this numerical pass does not
+override the failed contract. Both failures are the new shed-clearance rays.
+The associated nine-waypoint controller trace completes successfully.
+
+The first ray ends at the player's arrival and used the default all-body mask;
+the second aims through retained shop geometry. The corrected review excludes
+the player from architecture rays, retains the shop, and ends its diagonal at
+**x=21** outside the shop while still crossing former hoarding footprints. It
+also retains the old rays as actual-collider controls, whose identities must
+be confirmed in the next run. No production collider, controller mask, floor
+or shop authority changes. The failed executed source is archived separately.
+Reader **0 NEW** and spatial **clean** after the test correction. Corrected
+renewal03 is held unarmed for the agreed short prologue review batch.
+
+Qualification update, 2026-10-29: renewal03 subsequently runs through the shared
+lane with the pinned patched Vulkan engine, fullscreen **3440×1440**. Its
+original test-written schema-2 contract passes **42,550 checks / zero failures**;
+wrapper duration **982.26 s**, empty stderr. Production composition, surface
+requirements and runtime-owned teardown pass. Save reconstruction is explicitly
+**NOT EXECUTED**. The exhaustive inventory has **zero unresolved surfaces**:
+**28,807 draws / 17,993 meshes / 6,336 materials / 536 textures**. These are
+inventory totals, not simultaneous rendered-frame counts or a performance budget.
+
+Both retained negative controls identify the actual obstruction: the first old
+ray hits **Player**, the diagonal hits **StreetAndBodega / ExteriorInstances /
+SHOP_BODEGA / Collision**. Corrected architecture rays exclude the player's RID
+and avoid the retained shop; all nine controller waypoints reach their targets.
+Only the test probes changed; the original failed02 contract remains unchanged.
+The primary surface packet publishes this fresh03 contract, exact raw-log
+hashes and eight actually inspected representative captures. Its source digest
+is **03d19f893139075c93187f3d717c10b50b48066034b2cedc579c5a35e6770e30**.
+
+Startup remains **137,108.727 ms**. The earlier open-route timing tails and
+isolated station measurements remain as reported, without a new speed claim.
+Actual captures show open west/scaffold routes, station structure, retained
+entrance/arcade and unchanged interior surfaces. Dark exposure, generic distant
+stock, incomplete continuous streets and lighting highlights remain visible.
+This is technical qualification of a bounded construction checkpoint, not
+whole-city completion or human artistic acceptance. The remaining **138/149**
+building studies and bridge, yard, steam, waterfront and street work stay open.
+
+After the final city run, scoped cleanup archives **1,658** owned EOL-only import
+changes and **627** generated untracked UIDs, preserving all three new committed
+UIDs. No meaningful import changes are discarded; the runtime digest remains
+**c0965c4726903e59895bfc080e659d8f3f95d47174121b3af8c05c99668b01dc**.
+No further city Godot process is queued during the prologue's next focused run.
+No main merge is requested. Candidate static verification follows publication.
