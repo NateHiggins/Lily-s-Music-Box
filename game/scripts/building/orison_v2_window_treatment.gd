@@ -51,6 +51,26 @@ var _held_start := 0.0
 var _count := 0
 var _drop := 0.0
 var _pitch := PITCH
+## Temporary cinematic pose; never a household setting or a witnessed gesture.
+var _story_owner: Node
+var _story_pose := Vector3.ZERO
+
+func begin_story_aperture(owner: Node) -> bool:
+    if not is_instance_valid(owner) or is_instance_valid(_story_owner) or _slats==null:return false
+    _story_owner=owner;_story_pose=Vector3(0,8,.38);_apply()
+    return true
+
+func story_aperture_frame(owner: Node) -> Transform3D:
+    if not is_same(owner,_story_owner):return Transform3D.IDENTITY
+    # Upper sash, between real adjacent slats, clear of both ladder cords.
+    var index := clampi(roundi((height*.18-.155-.055)/_pitch),0,_count-2)
+    var a := _slats.multimesh.get_instance_transform(index)
+    var b := _slats.multimesh.get_instance_transform(index+1)
+    return global_transform*Transform3D(a.basis.orthonormalized(),(a.origin+b.origin)*.5)
+
+func end_story_aperture(owner: Node) -> void:
+    if not is_same(owner,_story_owner):return
+    _story_owner=null;_apply()
 
 static func material(key: String, color: Color, grain: bool = false,
         cloth: Vector2 = Vector2.ONE) -> ShaderMaterial:
@@ -140,11 +160,16 @@ func _build_sheer(metal: Material) -> void:
     _sheers=_batch("GlassCurtains","LaceEdgedSheerPanel" if sheer_lace else "GatheredSheerPanel",2,finish)
     _sheers.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
     _sheer_rings=_batch("GlassCurtainRings","CurtainRing",2*SHEER_RINGS,metal)
+    _apply_sheers(0)
+
+func _apply_sheers(open_fraction: float) -> void:
+    if _sheers==null:return
     # The sheer reaches the sill, its lace hem included.
     var drop := (height-.16)/(1.075 if sheer_lace else 1.0)
-    var panel := (width+.10)*.5*1.04
+    var full_panel := (width+.10)*.5*1.04
+    var panel := full_panel*lerpf(1,.26,open_fraction)
     for side in 2:
-        var cx := (side*2-1)*((width+.10)*.25)
+        var cx := (side*2-1)*((width+.10)*.25+(full_panel-panel)*.5)
         _put(_sheers,side,_pose(Vector3(cx,SHEER_ROD.x-RING_DROP-RING_OUTER*.8-HOOK*.5,SHEER_ROD.y),Vector3(panel,drop,1)),Vector2(panel,drop))
         for ring in SHEER_RINGS:
             var x := cx+panel*(float(ring)/float(SHEER_RINGS-1)-.5)*.96
@@ -243,7 +268,11 @@ func _line(index: int, a: Vector3, b: Vector3) -> void:
     _put(_cords,index,Transform3D(rotation*Basis.from_scale(Vector3(1,length,1)),(a+b)*.5),Vector2(1,length))
 
 func _apply() -> void:
-    _drop=.055+float(_count-1)*_pitch-raised*float(_count-1)*(_pitch-PACKED)
+    var lift := _story_pose.x if is_instance_valid(_story_owner) else raised
+    var tilt := _story_pose.y if is_instance_valid(_story_owner) else tilt_degrees
+    var draw := _story_pose.z if is_instance_valid(_story_owner) else curtain_open
+    _apply_sheers(draw if is_instance_valid(_story_owner) else 0)
+    _drop=.055+float(_count-1)*_pitch-lift*float(_count-1)*(_pitch-PACKED)
     var last_points: Array[Vector3]=[]
     for ladder in 2:
         for side in [-1.0,1.0]:last_points.append(Vector3((ladder*2-1)*width*.28,-.026,side*.027))
@@ -251,8 +280,8 @@ func _apply() -> void:
         var nominal := .055+float(i)*_pitch
         var depth := minf(nominal,_drop-float(_count-1-i)*PACKED)
         var next_depth := minf(nominal+_pitch,_drop-float(_count-2-i)*PACKED)
-        var packed := depth<nominal-.001 or raised>.999 or (i<_count-1 and next_depth-depth<_pitch-.001)
-        var angle := 0.0 if packed else deg_to_rad(tilt_degrees)
+        var packed := depth<nominal-.001 or lift>.999 or (i<_count-1 and next_depth-depth<_pitch-.001)
+        var angle := 0.0 if packed else deg_to_rad(tilt)
         var at := Vector3(0,-depth,0)
         _put(_slats,i,_pose(at,Vector3(width-.09,1,1),angle),Vector2(width-.09,1))
         for ladder in 2:
@@ -264,14 +293,14 @@ func _apply() -> void:
                 _line(i*4+slot,last_points[slot],point);last_points[slot]=point
     for slot in 4:_line(_count*4+slot,last_points[slot],Vector3(last_points[slot].x,-_drop-.017,0))
     for i in 2:_line(4*(_count+1)+i,Vector3((i*2-1)*width*.28,-.027,0),Vector3((i*2-1)*width*.28,-_drop-.017,0))
-    var pull_length := minf(height-.3,.52+raised*.45)
+    var pull_length := minf(height-.3,.52+lift*.45)
     _line(4*(_count+1)+2,Vector3(width*.43,-.026,.052),Vector3(width*.43,-pull_length,.052))
     _pull.position.y=-pull_length
     _put(_tassel,0,_pose(Vector3(width*.43,-pull_length,.052),Vector3.ONE))
     _put(_bottom,0,_pose(Vector3(0,-_drop-.017,0),Vector3(width-.09,1,1)),Vector2(width-.09,1))
     if _panels!=null:
         var length := (height-.16)*(.52 if style=="cafe" else 1.0)
-        var panel_width := (width+.24)*.5*lerpf(1.02,.26,curtain_open)
+        var panel_width := (width+.24)*.5*lerpf(1.02,.26,draw)
         var center := (width+.24)*.5-panel_width*.5
         var curtain_target := get_node_or_null("CurtainControl") as Node3D
         if curtain_target!=null:curtain_target.position.x=center-panel_width*.5+.04

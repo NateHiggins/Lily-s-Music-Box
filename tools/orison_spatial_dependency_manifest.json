@@ -322848,9 +322848,9 @@
    "target_exists": null
   },
   {
-   "key": "dcbab47f919d9d4d",
+   "key": "c508a59700be72e5",
    "kind": "id_reference",
-   "token": "F04_B_BATH",
+   "token": "F04_B_ALCOVE",
    "file": "game/scripts/game/prologue_temporal_sky.gd",
    "tier": "production",
    "subsystem": "game",
@@ -322858,11 +322858,11 @@
     "_find_window"
    ],
    "lines": [
-    126
+    179
    ],
    "count": 1,
    "context": [
-    "if str(record.space)!=\"F04_B_BATH\":continue"
+    "if str(record.space)!=\"F04_B_ALCOVE\" or str(record.axis)!=\"z\":continue"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -322873,7 +322873,7 @@
    ],
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
+   "rationale": "Production code looks up a layout id at runtime. Finale staging uses the existing sleeping-alcove west exterior; the former bath lookup faced retained interior stock. See V2_PROLOGUE_2026-10-28.",
    "resolved_target": "F04/room+v2_blockout",
    "target_exists": true
   },
@@ -323122,6 +323122,40 @@
     "rationale": "Production code looks up a layout id at runtime.",
     "resolved_target": "F04/marker",
     "target_exists": true
+  },
+  {
+   "key": "b7c14a0671172eca",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/v2_player_rig_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    39,
+    39,
+    64
+   ],
+   "count": 3,
+   "context": [
+    "var observer:=Camera3D.new();add_child(observer);observer.position=Vector3(0,1.1,-2.0);observer.look_at(Vector3(0,1.05,0));observer.make_current()",
+    "holder.velocity=Vector3(1,0,0);holder.camera.rotation.x=deg_to_rad(-20)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate. Native isolated rig camera and movement stimulus, verified by player_face_aim/native_first; not an installed world station.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -39,6 +39,7 @@ func stage(target:Dictionary) -> bool:
 
 func run() -> void:
 	if DisplayServer.get_name()=="headless":check(false,"windowed rendering required");finish();return
+	review_time_curve()
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
 	GameBoot.settings.weather_network_enabled=false
@@ -77,6 +78,8 @@ func run() -> void:
 		var stamp:float=TemporalSky.time_at(float(step)/32,source,float(target.utc_unix_seconds))
 		monotone=monotone and stamp>=previous;previous=stamp
 	check(monotone and TemporalSky.time_at(0,source,float(target.utc_unix_seconds))==source and TemporalSky.time_at(32,source,float(target.utc_unix_seconds))==float(target.utc_unix_seconds),"continuous clip traverses monotonically to the exact destination")
+	if OS.get_environment("PROLOGUE_APERTURE_REVIEW")=="1":
+		await review_aperture(target);finish();return
 	var manager:Node=world.get_node("WakingAtmosphere").weather_manager
 	manager.conditions_changed.connect(func(_conditions:Dictionary):publications+=1)
 	var mode:int=world.process_mode
@@ -172,6 +175,102 @@ func run() -> void:
 		Input.parse_input_event(press);Input.flush_buffered_events();await frames(2)
 		check(director.state.phase=="prologue_complete" and director.temporal_sky.was_skipped and player.text_input_owner==null,"actual skip input completes through the same clock owner and releases its lease")
 	finish()
+
+func review_time_curve() -> void:
+	for span:float in [1.0,86400.0,31536000.0,3090000000.0,-3090000000.0]:
+		var source:=-1298242800.0;var destination:=source+span
+		var last:=source;var monotone:=true
+		for tick in 1921:
+			var stamp:=TemporalSky.time_at(float(tick)/60,source,destination)
+			monotone=monotone and (stamp-last)*signf(span)>=-.000001;last=stamp
+		check(monotone and TemporalSky.time_at(2,source,destination)==source and TemporalSky.time_at(30,source,destination)==destination,"smooth speed envelope preserves holds, direction and exact endpoints: "+str(span))
+	var previous:=0.0;var accelerating:=true
+	for tick in range(40,161):
+		var t:=float(tick)*.1
+		var speed:=(TemporalSky.time_at(t+.005,0,3090000000)-TemporalSky.time_at(t-.005,0,3090000000))/.01
+		accelerating=accelerating and speed>=previous;previous=speed
+	check(accelerating,"one continuous acceleration has no intermediate date-knot stops")
+	check(absf(TemporalSky.time_at(16,0,3090000000)-1545000000)<1 and TemporalSky.time_at(29,0,3090000000)>3089999880,"century clip decelerates symmetrically to readable final seconds")
+
+func review_aperture(target:Dictionary) -> void:
+	if not check(director.begin_temporal_sky(),"actual installed window aperture starts"):return
+	var clip:Node=director.temporal_sky;clip.set_process(false)
+	var treatment:Node3D=clip._treatment
+	var settings:Dictionary=treatment.settings_snapshot().duplicate(true)
+	var original:Dictionary={}
+	for draw:MultiMeshInstance3D in [treatment._slats,treatment._panels]:
+		original[str(draw.name)]=draw.multimesh.get_instance_transform(0)
+	var present:Dictionary=RealityState.data.campaign_clock.duplicate(true)
+	check(treatment._story_owner==clip and treatment._story_pose.z>0 and treatment._story_pose.z<1,"existing curtain panels are partly drawn under the cinematic lease")
+	check(not treatment.begin_story_aperture(self),"another observer cannot replace the aperture owner")
+	var axis:Vector3=clip._outward
+	var a:Vector3=clip._window-axis*clip._crossing_distance
+	var b:Vector3=clip._window+axis*clip._crossing_distance
+	var hits:=0
+	# Independent intersections against actual imported triangles, not the path
+	# planner's idea of a gap. Check the camera's finite 2-mm near footprint.
+	var native:Array[Dictionary]=[]
+	var stocks:Array=[treatment._slats,treatment._panels,treatment._cords,treatment._rungs]
+	if treatment._sheers!=null:stocks.append(treatment._sheers)
+	for draw:MultiMeshInstance3D in stocks:
+		var faces:PackedVector3Array=draw.multimesh.mesh.get_faces()
+		for instance in draw.multimesh.instance_count:
+			native.append({"faces":faces,"pose":draw.global_transform*draw.multimesh.get_instance_transform(instance)})
+	var joinery:=treatment.get_parent().get_node("FittedWindowJoinery") as MeshInstance3D
+	native.append({"faces":joinery.mesh.get_faces(),"pose":joinery.global_transform})
+	var ray:=PhysicsRayQueryParameters3D.create(a,b,world.player.collision_mask,[world.player.get_rid()])
+	var blocked:=world.get_world_3d().direct_space_state.intersect_ray(ray)
+	check(blocked.is_empty(),"full reveal crossing clears existing world collision: "+str(blocked.get("collider","clear")))
+	var frame:Transform3D=treatment.story_aperture_frame(clip)
+	for offset:Vector2 in [Vector2.ZERO,Vector2(-.004,-.002),Vector2(.004,-.002),Vector2(-.004,.002),Vector2(.004,.002)]:
+		var shift:=frame.basis.x*offset.x+frame.basis.y*offset.y
+		for stock:Dictionary in native:
+			var local_a:Vector3=stock.pose.affine_inverse()*(a+shift)
+			var local_b:Vector3=stock.pose.affine_inverse()*(b+shift)
+			for index in range(0,stock.faces.size(),3):
+				if Geometry3D.segment_intersects_triangle(local_a,local_b,stock.faces[index],stock.faces[index+1],stock.faces[index+2])!=null:hits+=1
+	check(hits==0,"finite lens passage clears actual slat, curtain, cord, ladder and sash triangles: "+str(hits))
+	for stamp:float in [2.0,3.5,4.3,4.7,4.9,5.0,5.1,5.3,5.7,7.5,15.0,29.0]:
+		clip.seek(stamp);await frames(3);await capture("aperture_%03d.png"%int(stamp*10))
+		check(clip._veil.color.a==0,"normal aperture remains visible at "+str(stamp))
+	clip.seek(5)
+	check(clip.camera.global_position.distance_to(clip._window)<.0001 and clip.camera.near<=.0021,"camera crosses the measured gap with its bounded near plane")
+	clip.seek(5.7);await frames(3)
+	var root:Node3D=world.adapter.root
+	var pose:Transform3D=clip.camera.global_transform
+	var look:Vector3=-clip.camera.global_basis.z
+	var look_hit:=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(pose.origin,pose.origin+look*20,world.player.collision_mask,[world.player.get_rid()]))
+	FileAccess.open(directory.path_join("aperture_context.json"),FileAccess.WRITE).store_string(JSON.stringify({"window":str(treatment.get_meta("semantic_window")),"frame":str(frame),"outward":str(axis),"camera_local":str(root.to_local(pose.origin)),"look_local":str(root.global_basis.inverse()*look),"near_collision":str(look_hit),"distance":clip._crossing_distance},"\t"))
+	clip.camera.rotate_y(PI);await frames(3);await capture("aperture_reverse.png")
+	clip.camera.global_transform=pose
+	check(treatment.settings_snapshot()==settings and RealityState.data.campaign_clock==present,"presentation never edits household settings or campaign time")
+	get_tree().paused=true;var age:float=clip.age;await frames(3)
+	check(clip.age==age and treatment._story_owner==clip,"pause holds the borrowed aperture and cinematic time")
+	get_tree().paused=false;clip.cancel();await frames(2)
+	check(treatment._story_owner==null and treatment.settings_snapshot()==settings and world.player.camera.is_current(),"cancel restores the original treatment and camera owners")
+	check(treatment._slats.multimesh.get_instance_transform(0)!=original.RotatingCrownedSlats,"cancel reinstates live blind geometry rather than leaving the cinematic tilt")
+	if check(director.begin_temporal_sky(),"cancelled aperture can reopen without changing its target"):
+		clip=director.temporal_sky;clip.set_process(false);clip.seek(5)
+		RealityState.save_path=directory.path_join("aperture_reload.json");RealityState.persistence_enabled=true
+		check(RealityState.save_game(),"validated save succeeds during the borrowed aperture")
+		RealityState.load_game()
+		await frames(2)
+		check(not clip.active and treatment._story_owner==null and treatment.settings_snapshot()==settings and world.player.camera.is_current(),"reload cancels stale aperture poses and releases input")
+		check(Opening.restore(RealityState.data.prologue).target==target and not RealityState.data.prologue.effects.clock_applied,"reload retains the fixed destination without committing the preview")
+	RealityState.persistence_enabled=false
+	# Exercise the uninterrupted clip too; snapshots alone cannot prove that
+	# its scheduler, endpoint commit and borrowed geometry retire together.
+	if check(director.begin_temporal_sky(),"reloaded aperture restarts its actual timed presentation"):
+		clip=director.temporal_sky
+		var began:=Time.get_ticks_msec()
+		while (clip.active or clip.holding) and Time.get_ticks_msec()-began<90000:await frames(1)
+		check(not clip.active and not clip.holding and director.state.phase=="prologue_complete" and director.state.effects.clock_applied,"natural smooth-speed clip and historical ending finish through existing clock owners")
+		check(treatment._story_owner==null and treatment.settings_snapshot()==settings and world.player.camera.is_current(),"natural ending restores treatment geometry and player camera")
+	if check(stage(target) and director.begin_temporal_sky(),"skip control restages the same fixed destination"):
+		clip=director.temporal_sky
+		var press:=InputEventAction.new();press.action="ui_accept";press.pressed=true
+		Input.parse_input_event(press);Input.flush_buffered_events();await frames(2)
+		check(director.state.phase=="prologue_complete" and clip.was_skipped and treatment._story_owner==null and world.player.text_input_owner==null,"actual skip retires aperture geometry and input without another target")
 
 func review_cutaway(target:Dictionary) -> void:
 	if not check(stage(target) and director.begin_temporal_sky(),"rendered cutaway review starts from real sky ownership"):return

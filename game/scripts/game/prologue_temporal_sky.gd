@@ -69,6 +69,10 @@ var _published_camera:=Vector3(INF,INF,INF)
 var _carrier:Node
 var _quiet:=false
 var _veil:ColorRect
+var _treatment:Node3D
+var _aperture_borrowed:=false
+var _crossing_distance:=.5
+var _window_start:Transform3D
 
 func _init() -> void:
 	process_mode=Node.PROCESS_MODE_ALWAYS
@@ -77,16 +81,27 @@ func _init() -> void:
 static func time_at(seconds:float,source:float,destination:float) -> float:
 	var span:=absf(destination-source)
 	if span<.00001:return destination
-	var knots:Array=[[0.0,0.0],[2.0,0.0],[5.0,minf(172800/span,.01)],
-		[9.0,minf(5184000/span,.08)],[15.0,.55],
-		[20.0,maxf(.70,1-minf(31536000/span,.30))],
-		[24.0,maxf(.90,1-minf(604800/span,.10))],
-		[27.0,maxf(.98,1-minf(21600/span,.02))],
-		[29.0,maxf(.999,1-minf(120/span,.001))],[30.0,1.0],[DURATION,1.0]]
-	for index in range(knots.size()-1):
-		var a:Array=knots[index];var b:Array=knots[index+1]
-		if seconds<=b[0]:return lerpf(source,destination,lerpf(a[1],b[1],smoothstep(a[0],b[0],maxf(0,seconds))))
-	return destination
+	if seconds<=2:return source
+	if seconds>=30:return destination
+	var u:=(seconds-2.0)/28.0
+	# Integrate one speed envelope: log(speed) is a smooth parabola, rather
+	# than stopping at every date knot. Subtract its tiny endpoint speed so
+	# the two-second holds join at rest. Span controls the orders of magnitude.
+	var k:=clampf(4.0*log(maxf(1.0,span/28.0)),12.0,96.0)
+	var root:=sqrt(k)
+	var base:=exp(-k*.25)
+	var end_tail:=_erfc(root*.5)
+	var width:=sqrt(PI/k)
+	# Integrate from the nearer end to retain seconds at a century's end.
+	var near_end:=minf(u,1.0-u)
+	var area:=.5*width*(_erfc(root*(.5-near_end))-end_tail)-base*near_end
+	var fraction:=clampf(area/(width*(_erfc(0)-end_tail)-base),0,.5)
+	return lerpf(source,destination,fraction if u<=.5 else 1.0-fraction)
+
+static func _erfc(x:float) -> float:
+	# Complementary Gaussian integral; x>=0. Bounded, no per-frame quadrature.
+	var t:=1.0/(1.0+.5*x)
+	return t*exp(-x*x-1.26551223+t*(1.00002368+t*(.37409196+t*(.09678418+t*(-.18628806+t*(.27886807+t*(-1.13520398+t*(1.48851587+t*(-.82215223+t*.17087277)))))))))
 
 func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Callable()) -> bool:
 	if active or get_tree().paused or not is_instance_valid(owner_world) or not completion.is_valid():return _refuse("active, paused or missing owner/completion")
@@ -138,6 +153,13 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 		holding=true
 		if _start_cutaway():return true
 		_cleanup();return false
+	if not _treatment.begin_story_aperture(self):
+		_cleanup();return _refuse("window presentation already owned")
+	_aperture_borrowed=true
+	var aperture:Transform3D=_treatment.story_aperture_frame(self)
+	_window=aperture.origin;_outward=-aperture.basis.z.normalized()
+	_above=_window+_outward*2.0+Vector3.UP*12.0
+	_window_start=Transform3D(Basis.looking_at(_outward,Vector3.UP),_window-_outward*1.45)
 	active=true;age=0;_publish_age=-INF
 	set_process(true);set_process_unhandled_input(true);seek(0)
 	return true
@@ -151,10 +173,18 @@ func _track_added(node:Node) -> void:
 	else:_late_audio.append(node)
 
 func _find_window() -> bool:
-	# The installed sanitary-room opening supplies the camera datums.
+	# The bath's labelled east window faces retained interior stock. Cut to
+	# the sleeping alcove's real west exterior opening; do not invent a view.
 	for record:Dictionary in world.layout.windows:
-		if str(record.space)!="F04_B_BATH":continue
+		if str(record.space)!="F04_B_ALCOVE" or str(record.axis)!="z":continue
 		var root:Node3D=world.adapter.root
+		var opening:=root.get_node_or_null(str(record.id))
+		if opening==null:return false
+		_treatment=opening.get_node_or_null("WindowTreatment")
+		if _treatment==null:return false
+		var span:Vector2=root.window_reveal_span(record)
+		# Start the rise only beyond the complete installed masonry reveal.
+		_crossing_distance=maxf(.5,span.y-span.x+.30)
 		_window=root.to_global(Vector3(float(record.center[0]),float(root.level_y[record.level])+float(record.sill)+float(record.height)*.82,float(record.center[1])))
 		_outward=(root.global_basis*Vector3.RIGHT).normalized()
 		_above=_window+_outward*2.0+Vector3.UP*12.0
@@ -166,15 +196,22 @@ func seek(seconds:float) -> void:
 	age=clampf(seconds,0,DURATION)
 	sampled_utc=time_at(age,source_utc,destination_utc)
 	if not view_clock.seek_utc(sampled_utc):cancel();return
-	var entering:=smoothstep(1.5,5.0,age)
-	var rising:=smoothstep(4.5,6.5,age)
-	var at:=_start.origin.lerp(_window-_outward*.45,entering).lerp(_above,rising)
+	var entering:=smoothstep(2.6,4.3,age)
+	var crossing:=smoothstep(4.3,5.7,age)
+	var rising:=smoothstep(5.7,7.5,age)
+	# Stay parallel to the slats until outside the complete wall reveal.
+	# A deliberate cut after the suspended bathroom hold avoids crossing
+	# rooms, doors or closed walls on the way to the verified exterior.
+	var start_view:=_start if age<2 else _window_start
+	var at:=start_view.origin.lerp(_window-_outward*_crossing_distance,entering)
+	at=at.lerp(_window+_outward*_crossing_distance,crossing).lerp(_above,rising)
 	var aim:=Basis.looking_at((_outward+Vector3.UP*lerpf(.03,.55,rising)).normalized(),Vector3.UP)
-	camera.global_transform=Transform3D(_start.basis.slerp(aim,entering),at)
+	camera.global_transform=Transform3D(start_view.basis.slerp(aim,entering),at)
+	camera.near=lerpf(_old_camera.near,.002,smoothstep(2,4,age)*(1-smoothstep(5.8,7.5,age)))
 	if age>=1.5 and not _carrier.is_story_absent():_carrier.acquire_story_absence(self)
-	# The dark aperture hides the passage through closed glazing/linen. No
-	# physical curtain, window, collision or saved household state is changed.
-	_veil.color.a=(smoothstep(2,4,age)*(1-smoothstep(29,31,age))) if _quiet else smoothstep(3.7,4.5,age)*(1-smoothstep(5.6,6.8,age))
+	# Normal presentation crosses the actual opening without a blackout.
+	# Reduced-flash presentation still protects against rapid day/night cycles.
+	_veil.color.a=(smoothstep(2,4,age)*(1-smoothstep(29,31,age))) if _quiet else 0.0
 	# Bounded morphology/ephemeris work, independent of elapsed campaign days.
 	if (sampled_utc!=_published_utc or camera.global_position!=_published_camera) and (age-_publish_age>=.05 or age<_publish_age or (age>=30 and _publish_age<30)):
 		_publish_age=age;_published_utc=sampled_utc;_published_camera=camera.global_position;_publish()
@@ -273,6 +310,8 @@ func cancel() -> void:
 
 func _cleanup() -> void:
 	var began:int=Time.get_ticks_usec() if profile_samples else 0
+	if _aperture_borrowed and is_instance_valid(_treatment):_treatment.end_story_aperture(self)
+	_aperture_borrowed=false
 	if _watching_tree!=null and _watching_tree.node_added.is_connected(_track_added):_watching_tree.node_added.disconnect(_track_added)
 	_watching_tree=null
 	if is_instance_valid(cutaway):cutaway.release()
