@@ -296,3 +296,34 @@ before changing their openings; this portal delivery does not close that work.
 The Godot skill records the demonstrated camera-mask and coordinate-frame
 lessons. Car/lamp preparation is still external and does not qualify new traffic
 or street-light behavior. No whole-V2 or whole-prologue completion is declared.
+
+### Small-stock delivery intake — October29
+
+**K-V2-ENTRY-SMALL-STOCK** moves from external authoring to canonical integration,
+queued after current repairs. Delivery root:
+**C:/ov/asset-prototypes/orison-entry-small-stock-20261029/**. Its construction
+report records3,676triangles/two partitions for **boot_scraper.glb** and
+4,624/six for **umbrella_stand.glb**:8,300triangles/eight partitions total,
+with no newly authored texture bytes. Editable blends, finish bindings and
+native checks are delivered. All76 **DELIVERY_MANIFEST.json** file hashes were
+independently checked with zero failures. This verifies delivery integrity,
+not a rerun of the author's native geometry tests or loaded performance.
+
+The measured entrance plan and tray-service CPU preview were inspected. Proposed
+positions are blockout-root-local Godot metres, yaw0: scraper **(1.95,0,-12.65)**,
+stand **(-2.05,0,-9.60)**. Convert through that actual parent exactly once;
+these are not final world transforms. The donor reports201 sampled door poses
+and a conservative1.20m hinge reserve, preserved central/mailbox approaches,
+and an8mm lift then340mm withdrawal for the separated tray. Preserve those
+datums without introducing a decorative mechanism or simulation.
+
+Next: retarget only **F01_vestibule_umbrella_stand** or selectively replace
+its declared stock, preserving other domestic-object instances. Bind the
+image/material-free GLBs through **material_bindings.json** and existing local
+catalogue owners. Keep packed map duplicates and authoring logs outside game
+packaging; preserve recoverable editable construction. Verify current floor
+support and60mm scraper anchoring against the evolving street grade, collision,
+full door travel, player/mail access, loaded metric UVs/derivatives/mips and
+same-settings cost. Separate tray geometry is preparation for possible later
+direct manipulation, not approval of a new maintenance/inventory/save system.
+No Godot integration, placement, forces or human artistic acceptance is claimed.
