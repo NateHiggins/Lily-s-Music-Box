@@ -426,6 +426,10 @@ func _compose_authorities() -> void:
 	light_rig.name = "LightRig"
 	light_rig.glow_intensity = get_node("WakingAtmosphere").environment.glow_intensity
 	get_node("WakingAtmosphere").add_child(light_rig)
+	# Retain every light and its personality; rank eight local shadow casters.
+	# Native 4B attribution: ~41 -> 28.5 ms, with the same near-room lighting.
+	# Keep smaller platform budgets and explicit diagnostic overrides intact.
+	light_rig.set_budgets(light_rig._active_budget,mini(light_rig._shadow_budget,8))
 	var telephone := HouseSwitchboardProp.new()
 	telephone.set_meta("v2_house_switchboard",true)
 	var line := HouseTelephoneNetwork.new()

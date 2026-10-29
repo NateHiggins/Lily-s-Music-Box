@@ -38,9 +38,9 @@ func run() -> void:
 	check((preload("res://scripts/building/orison_v2_room_reflections.gd").CAPTURE_MASK&layer)==0,"room cube cache excludes transient avatar")
 	for draw: MeshInstance3D in avatar.find_children("*","MeshInstance3D",true,false):
 		check(draw.layers==layer and draw.mesh.get_faces().size()/3<25000,"one bounded native avatar partition")
-		var finish:=draw.material_override as StandardMaterial3D
-		check(finish!=null and not finish.uv1_triplanar and finish.normal_enabled,"registered custom finish uses supplied authored UVs")
-		for texture: Texture2D in [finish.albedo_texture,finish.normal_texture,finish.roughness_texture]:
+		var finish:=draw.material_override as ShaderMaterial
+		check(finish!=null and finish.shader==avatar.FACE_SHADER and int(finish.get_shader_parameter("head_bind"))>=0,"registered custom finish uses supplied authored UVs and native head skin")
+		for texture: Texture2D in [finish.get_shader_parameter("albedo_tex"),finish.get_shader_parameter("normal_tex"),finish.get_shader_parameter("rough_tex")]:
 			check(texture!=null and texture.get_image().get_mipmap_count()>0,"loaded character map has mip chain")
 	world.player.set_physics_process(false);world.player.velocity=Vector3.ZERO
 	world.service_set_carrier.set_capture_hidden(true);world.player.set_lamp_enabled(false)

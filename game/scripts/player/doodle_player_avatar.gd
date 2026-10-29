@@ -2,6 +2,7 @@ extends Node3D
 ## Owner-supplied rig is presentation only; the existing controller owns motion.
 const LAYER:=1<<15
 const MODEL:="res://assets/characters/player_doodle/player_doodle.glb"
+const FACE_SHADER:=preload("res://shaders/player_doodle.gdshader")
 var holder: PlayerController
 var animator: AnimationPlayer
 var skeleton: Skeleton3D
@@ -60,6 +61,8 @@ func _ready() -> void:
 	var front:=skeleton.find_bone("headfront")
 	var top:=skeleton.find_bone("smartrig_HeadTop_End")
 	if head<0 or front<0 or top<0 or skeleton.get_bone_parent(head)<0:return
+	for draw:MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+		if not _bind_face(draw,finish,head):return
 	var rest:=skeleton.get_bone_global_rest(head)
 	var forward:=rest.basis.inverse()*(skeleton.get_bone_global_rest(front).origin-rest.origin)
 	var up:=rest.basis.inverse()*(skeleton.get_bone_global_rest(top).origin-rest.origin)
@@ -69,6 +72,23 @@ func _ready() -> void:
 	head_aim.active=false;skeleton.add_child(head_aim)
 	holder.camera.cull_mask&=~LAYER
 	native_ready=true
+
+func _bind_face(draw:MeshInstance3D,base:StandardMaterial3D,head:int) -> bool:
+	if draw.skin==null:return false
+	var head_bind:=-1
+	for index in draw.skin.get_bind_count():
+		if draw.skin.get_bind_bone(index)==head or draw.skin.get_bind_name(index)==skeleton.get_bone_name(head):head_bind=index;break
+	if head_bind<0:return false
+	var finish:=ShaderMaterial.new();finish.shader=FACE_SHADER
+	finish.set_shader_parameter("albedo_tex",base.albedo_texture)
+	finish.set_shader_parameter("rough_tex",base.roughness_texture)
+	finish.set_shader_parameter("normal_tex",base.normal_texture)
+	finish.set_shader_parameter("stock_tint",base.albedo_color)
+	finish.set_shader_parameter("roughness_gain",base.roughness)
+	finish.set_shader_parameter("normal_strength",base.normal_scale)
+	finish.set_shader_parameter("head_bind",head_bind)
+	draw.material_override=finish
+	return true
 
 func set_reflection_active(enabled: bool) -> void:
 	if not native_ready or reflected==enabled:return
