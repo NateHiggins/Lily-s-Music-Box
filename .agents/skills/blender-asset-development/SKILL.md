@@ -86,6 +86,14 @@ glTF. Record source/builder bindings and review the saved blend, final float32
 export and Godot import, including UV degeneracy, tangents and loaded mipmaps.
 Apply import/compression exceptions only to demonstrated defects and register them.
 
+Solidify can leave a sewn thickness rim with coincident UVs. Chart the rim in
+metres before exporting; do not exempt it from UV/tangent checks. Curved cloth
+can also merge incident chart derivatives during glTF deduplication. Reuse the
+shared metric exporter's corner tangent guide when demonstrated, preserving
+smooth normals and texture phase. The DREAM/wake cover failures and native
+review are recorded in the [prologue ledger](../../../design/V2_PROLOGUE_2026-10-28.md);
+their native pass does not establish Godot morph shading or artistic acceptance.
+
 For planar extrusions, derive winding from the actual tangent/up/outward frame;
 facade and dial frames can have opposite handedness. Check named front normals
 and mechanical layer clearances in transformed float32 exports, then the loaded

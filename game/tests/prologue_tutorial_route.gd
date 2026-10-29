@@ -75,6 +75,9 @@ func _route() -> void:
 		"engine":Engine.get_version_info(),"fixture_script":director.shower.get_script().resource_path,
 		"weather":world.get_node("WeatherFX")._live_conditions.duplicate(true)}
 	add_child(frame_trace)
+	if OS.get_environment("PROLOGUE_WAKE_REVIEW")=="1":
+		await _review_waking()
+		return
 	var carrier: Node=world.service_set_carrier
 	var draft_before: String=carrier.session.draft
 	var lamp_before: bool=player.lamp_is_enabled()
@@ -736,6 +739,60 @@ func _review_refit(carrier: Node) -> void:
 	var out := FileAccess.open(OS.get_environment("SHOT_DIR").path_join("phone_flight.json"),FileAccess.WRITE)
 	if _require(out!=null,"flight diagnostic output writable"):
 		out.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Occupied 4B capped-rate station-keeping and camera-turn diagnostic; no matched performance gain or artistic acceptance.","records":records,"minimum_upright_dot":min_up,"drift_span":str(drift_max-drift_min)},"\t"))
+
+func _review_waking() -> void:
+	var scene:=load("res://assets/props/prologue_wake_cover.glb") as PackedScene
+	if not _require(scene!=null,"imported native wake cover available"):return
+	var carrier:Node=world.service_set_carrier
+	var draft_before:String=carrier.session.draft
+	carrier.session.draft="Unsubmitted waking draft."
+	if not _require(director.state.phase=="dream" and director.begin_opening(scene),"actual DREAM starts without preview advancement"):return
+	var clip:Node=director.waking
+	if not _require(clip.active and player.text_input_owner==clip and not world.player_avatar.visible and carrier.is_story_absent(),"camera/input/absence owners conceal body and bot"):return
+	var material:=clip.cover.material_override as StandardMaterial3D
+	if not _require(material!=null and not material.uv1_triplanar,"loaded opaque cover uses native UVs"):return
+	for texture:Texture2D in [material.albedo_texture,material.roughness_texture,material.normal_texture]:
+		if not _require(texture!=null and texture.get_image()!=null and texture.get_image().has_mipmaps(),"loaded cover PBR map has real mipmaps"):return
+	_require(not player.acquire_text_input(self),"another editor cannot steal opening input")
+	clip.set_process(false)
+	for seconds:float in [0.0,4.5,6.4,9.9]:
+		clip.seek(seconds)
+		await _shot("wake_%03d.png"%roundi(seconds*10))
+	var age_before:float=clip.age
+	clip.set_process(true);get_tree().paused=true
+	await get_tree().create_timer(.15,true).timeout
+	get_tree().paused=false;clip.set_process(false)
+	_require(is_equal_approx(age_before,clip.age),"pause preserves waking presentation age")
+	var old_path:String=RealityState.save_path
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("waking_reload.json")
+	RealityState.persistence_enabled=true
+	var saved:=RealityState.save_game()
+	RealityState.load_game()
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	await get_tree().process_frame;await get_tree().process_frame
+	if not _require(saved and director.state.phase=="dream" and player.text_input_owner==null,"validated DREAM reload cancels transient input without inventing awakening"):return
+	if not _require(director.begin_opening(scene),"DREAM can restage from saved phase"):return
+	clip=director.waking;clip.set_process(false);clip.seek(11.2)
+	if not _require(director.state.phase=="awakening","actual shot acknowledges awakening at its handoff"):return
+	await _shot("wake_first_person.png")
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("awakening_reload.json")
+	RealityState.persistence_enabled=true;saved=RealityState.save_game();RealityState.load_game()
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	await get_tree().process_frame;await get_tree().process_frame
+	if not _require(saved and director.state.phase=="awakening" and director.begin_opening(scene),"validated awakening reload resumes the first-person segment"):return
+	# Let the real frame-driven handoff finish; seeking alone is not proof of
+	# pause/lifecycle completion or actual camera/input restoration.
+	await get_tree().create_timer(6.5).timeout
+	_require(director.state.phase=="bedroom_exploration" and player.text_input_owner==null,"real-time completion releases movement at bedroom exploration")
+	_require(player.camera.is_current() and player.global_position.distance_to(world.core_loop.resolve_return_anchor().position)<.10,"handoff uses actual standing anchor and player camera")
+	_require(not world.player_avatar.visible and carrier.is_story_absent(),"true body and companion stay concealed after waking")
+	await _shot("wake_control_restored.png")
+	director.shutdown()
+	_require(carrier.session.draft=="Unsubmitted waking draft.","waking does not alter typed drafts")
+	_require(player.text_input_owner==null and not carrier.is_story_absent(),"shutdown releases only opening presentation/input leases")
+	carrier.session.draft=draft_before
+	frame_trace.complete=failures.is_empty()
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","failures":failures,"state":director.state,"limits":"Focused occupied DREAM/wake imported-cover, camera, pause, input and validated-reload diagnostic. Does not prove normal entry, full prologue, frame-time qualification or human artistic acceptance."},"\t"))
 
 func _shot(name_: String) -> void:
 	await RenderingServer.frame_post_draw

@@ -54,6 +54,7 @@ var _contact_emotion:=""
 var _contact_reading_before:=false
 var _contact_owns:=false
 var _contact_copies:Array[int]=[]
+var waking:Node
 
 
 func _ready() -> void:
@@ -111,17 +112,38 @@ func _wall_anchor(at: Vector3, normal: Vector3) -> Transform3D:
 		_fail("writing support wall not found at "+str(at));return Transform3D.IDENTITY
 	return Transform3D(Basis.looking_at(-expected,Vector3.UP),hit.position+expected*.006)
 
+func _claim_waking_presentation() -> bool:
+	_carrier=world.service_set_carrier
+	if _carrier==null or (not state.effects.companion_materialized and not _carrier.acquire_story_absence(self)): return _fail("companion absence lease refused")
+	if not _avatar_leased:
+		_avatar_visible=world.player_avatar.visible;_avatar_leased=true
+	_running=true;set_process(true)
+	return true
+
+func begin_opening(cover_scene:PackedScene) -> bool:
+	# Real DREAM/wake candidate. Normal entry remains gated until its occupied
+	# optical/input/reload qualification; the preview below is never a substitute.
+	if world==null or not errors.is_empty() or state.phase not in ["dream","awakening"] or is_instance_valid(waking):return false
+	if not _claim_waking_presentation():return false
+	world.player_avatar.hide()
+	waking=preload("res://scripts/game/prologue_waking.gd").new();add_child(waking)
+	if not waking.start(self,cover_scene):
+		var reason:String=waking.failure
+		waking.queue_free();waking=null;shutdown()
+		return _fail("opening shot refused: "+reason)
+	waking.finished.connect(func(_completed:bool):
+		if is_instance_valid(waking):waking.queue_free()
+		waking=null)
+	return true
+
 func begin_waking_preview() -> bool:
 	# Explicit incomplete-slice preview only; it does not claim DREAM was played.
 	if world==null or not errors.is_empty() or state.phase not in ["dream","awakening","bedroom_exploration","bathroom_entry","curtain_interaction","shower_temperature","shower_complete","mirror_tapping","mirror_condensation","protagonist_reveal","cabinet_inspection","reflection_visitor","companion_crossing","first_contact"]: return false
 	while state.phase in ["dream","awakening"]:
 		var next: String=State.PHASES[State.PHASES.find(state.phase)+1]
 		if not _store(State.advance(state,next)): return false
-	_carrier=world.service_set_carrier
-	if _carrier==null or (not state.effects.companion_materialized and not _carrier.acquire_story_absence(self)): return _fail("companion absence lease refused")
-	if not _avatar_leased:
-		_avatar_visible=world.player_avatar.visible;_avatar_leased=true
-	_running=true;set_process(true);_enter_phase()
+	if not _claim_waking_presentation():return false
+	_enter_phase()
 	return true
 
 func begin_temporal_command() -> bool:
@@ -180,6 +202,7 @@ func finish_temporal_synchronization() -> bool:
 func _restore() -> void:
 	if _publishing: return
 	var replaced := not is_same(_document,RealityState.data)
+	if replaced and is_instance_valid(waking):waking.cancel()
 	if replaced:_release_contact()
 	if replaced and is_instance_valid(temporal_console):temporal_console.cancel()
 	if replaced and is_instance_valid(temporal_sky):temporal_sky.cancel()
@@ -517,6 +540,8 @@ func _cabinet_released(before:float,after:float) -> void:
 
 
 func shutdown() -> void:
+	if is_instance_valid(waking):waking.cancel();waking.queue_free()
+	waking=null
 	_release_contact()
 	if is_instance_valid(mirror_crossing):mirror_crossing.cancel();mirror_crossing.queue_free()
 	mirror_crossing=null

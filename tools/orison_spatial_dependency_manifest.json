@@ -323156,6 +323156,34 @@
    "rationale": "Test/capture Godot-space coordinate. Native isolated rig camera and movement stimulus, verified by player_face_aim/native_first; not an installed world station.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "eaeb07b24b0e2941",
+   "kind": "id_reference",
+   "token": "4B_wake_bed",
+   "file": "game/scripts/game/prologue_waking.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "start"
+   ],
+   "lines": [
+    39
+   ],
+   "count": 1,
+   "context": [
+    "_bed=owner.world.adapter.resolve(\"4B_wake_bed\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }
