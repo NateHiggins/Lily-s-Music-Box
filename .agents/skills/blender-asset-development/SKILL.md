@@ -45,7 +45,26 @@ metric charts; `fabrication_grain.py` for stock grain; `fabrication_normals.py`
 and `check_exported_tangents.py` for shading/export derivatives. Preserve curved
 rest-length charts where appropriate. Read each helper's actual contract first.
 
+Drive a moving stock around its measured local mechanism axis with an explicit
+pivot. Euler channels on an already tilted stock can rotate about the wrong
+axis; compare closed, intermediate and endpoint poses after export.
+
 ## Surface and export decisions
+
+Keep material and shader ownership in the existing shared pipeline. Bind
+registered materials, maps and reusable preview presets rather than embedding
+copies of runtime shader logic or scattering hard-coded palette, optical and
+material-response values through asset builders. Resolve existing appearance
+parameters from their catalogue or source material; make any necessary preview
+binding reusable and data-driven.
+
+Blender studies own geometry, UVs, semantic attributes and deformation. Runtime
+lamp gating, optical attenuation, observer privacy and state-dependent effects
+remain with their runtime owners unless the task explicitly authorizes shader
+development. Use existing native materials or clearly labelled diagnostic
+materials for CPU review; record missing renderer effects instead of recreating
+them to make a preview look finished. A Blender preview does not qualify the
+runtime shader or its behavior.
 
 Use registered custom PBR recipes, physical UV scale, grain along each stock,
 linear data maps and the existing OpenGL normal convention. Primary maps must

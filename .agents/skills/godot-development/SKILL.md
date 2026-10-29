@@ -103,6 +103,9 @@ readability, and feel.
   keyboards and actual camera framing; wait for the real delivery motion.
   Validate optical checks against known obscured/hidden controls. A positive
   colour count is not proof if unrelated emissive hardware can satisfy it.
+  Let the real lamp and pose transitions settle before freezing a capture;
+  assert final power/visibility. For a fixed review stance, stop the body physics
+  before placing and aiming the camera so its next step cannot change framing.
 - **Mechanical handoffs:** advance from the outgoing owner's acknowledgement
   into the incoming owner's real readiness state. A protected observation pose
   may not yet permit typing; do not force a mechanism or weaken its constraints
@@ -190,6 +193,9 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   assets; update generator destinations so they cannot silently restore retired
   runtime copies. With indexed deletions, stage the named paths before the surface
   snapshot: its tracked-import enumeration otherwise reads missing old sidecars.
+  On Windows inspect junctions/reparse points before archiving, moving or
+  removing a worktree. Resolve their targets and keep linked subtrees out of
+  bulk file enumeration so cleanup cannot move the owner's only asset copy.
 - **Static baseline provenance:** freeze inputs until the gate board finishes;
   its Git metadata is collected after its gates run. Restoring a clean tree at
   the end does not establish that earlier checks ran against that same tree.

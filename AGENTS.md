@@ -133,6 +133,11 @@ For texture, material, glass, sky and shader appearance work, also use
 [godot-textures-and-shaders](.agents/skills/godot-textures-and-shaders/SKILL.md).
 Native geometry and UV authoring remain in the Blender asset skill.
 
+For intentional low-resolution sprites, glyphs and physical tile displays, use
+[godot-pixel-art](.agents/skills/godot-pixel-art/SKILL.md). The canonical skills
+live in `.agents/skills`; Claude Code can consume them through thin personal
+skill adapters without a duplicate guide or a directory junction.
+
 `tools/PIPELINE_TOOLS.md` describes the gate board, run receipts, the
 candidate verifier, the design-doc lint, the lane broker, the lane ledger
 and the rulings checker.

@@ -62,7 +62,10 @@ appropriate roughness response instead of creating glittering normal noise.
 Silhouette, seams, holes and substantial bevels belong in geometry.
 
 Check complete mip chains on loaded textures, including masks and details;
-import settings alone are not proof. Review mip-capable/anisotropic filtering
+import settings alone are not proof. New maps can arrive with2D import defaults;
+check generated sidecars with `art/tools/fix_runtime_texture_imports.py --v2 --check`
+and repair missing requirements through that owner before loaded verification.
+Review mip-capable/anisotropic filtering
 at grazing angles and distance. Choose compression compatible with the actual
 consumer: an RGB normal sampler cannot silently consume a two-channel normal
 format without reconstruction. Register only demonstrated, narrowly scoped
@@ -120,6 +123,10 @@ Report implementation, executed checks, observed appearance, performance limits
 and unverified scope separately. Keep original failures. Parsing, a wrapper
 receipt and a native preview are not runtime qualification; a test-written
 schema-2 contract is not the owner's artistic acceptance.
+
+For deliberately low-resolution glyphs, sprites or physical tile displays, use
+[Godot pixel art](../godot-pixel-art/SKILL.md) as well; its sampling choices do
+not replace the loaded-mipmap requirement for world PBR maps.
 
 ## Read relevant project lessons, not the entire history
 
