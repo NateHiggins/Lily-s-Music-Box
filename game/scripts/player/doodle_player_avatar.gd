@@ -9,6 +9,22 @@ var idle_clip: StringName
 var native_ready:=false
 var reflected:=false
 var _moving:=false
+var head_aim:HeadAim
+
+class HeadAim extends SkeletonModifier3D:
+	var camera:Camera3D
+	var head:=-1
+	var parent_bone:=-1
+	var face_frame:=Basis.IDENTITY
+	func _process_modification_with_delta(_delta:float) -> void:
+		if head<0 or not is_instance_valid(camera):return
+		var rig:=get_skeleton()
+		# Model-front is derived from its native markers, not assumed to share
+		# an imported bone axis. Solve after animation; retain position/scale.
+		var aim:=Basis.looking_at(camera.global_basis.z,camera.global_basis.y)
+		var desired:=rig.global_basis.orthonormalized().inverse()*aim*face_frame.inverse()
+		var parent_pose:=rig.get_bone_global_pose(parent_bone).basis.orthonormalized()
+		rig.set_bone_pose_rotation(head,(parent_pose.inverse()*desired).get_rotation_quaternion().normalized())
 
 func _ready() -> void:
 	set_process(false)
@@ -40,12 +56,23 @@ func _ready() -> void:
 	if idle_clip.is_empty():return
 	animator.get_animation(idle_clip).loop_mode=Animation.LOOP_LINEAR
 	animator.play(idle_clip);animator.advance(0);animator.active=false
+	var head:=skeleton.find_bone("smartrig_Head")
+	var front:=skeleton.find_bone("headfront")
+	var top:=skeleton.find_bone("smartrig_HeadTop_End")
+	if head<0 or front<0 or top<0 or skeleton.get_bone_parent(head)<0:return
+	var rest:=skeleton.get_bone_global_rest(head)
+	var forward:=rest.basis.inverse()*(skeleton.get_bone_global_rest(front).origin-rest.origin)
+	var up:=rest.basis.inverse()*(skeleton.get_bone_global_rest(top).origin-rest.origin)
+	head_aim=HeadAim.new();head_aim.name="CameraHeadAim"
+	head_aim.camera=holder.camera;head_aim.head=head;head_aim.parent_bone=skeleton.get_bone_parent(head)
+	head_aim.face_frame=Basis.looking_at(-forward.normalized(),up.normalized())
+	head_aim.active=false;skeleton.add_child(head_aim)
 	holder.camera.cull_mask&=~LAYER
 	native_ready=true
 
 func set_reflection_active(enabled: bool) -> void:
 	if not native_ready or reflected==enabled:return
-	reflected=enabled;animator.active=enabled;set_process(enabled)
+	reflected=enabled;animator.active=enabled;head_aim.active=enabled;set_process(enabled)
 
 func _process(_delta: float) -> void:
 	var moving: bool=holder.planar_speed()>.10
