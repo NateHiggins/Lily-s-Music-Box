@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 	samples[-1].foreground_update_mode=foreground.view.render_target_update_mode
 	samples[-1].frame=Engine.get_process_frames()
 	samples[-1].load_cycles=world.passage_region.residency.load_cycles
+	samples[-1].housing_shadow=world.service_set_carrier._housing_shadow.cast_shadow
 	for item: Array in [["main",main],["mirror",reflected]]:
 		for info: Array in [["draws",RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME],["triangles",RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME]]:
 			samples[-1][item[0]+"_"+info[0]]=RenderingServer.viewport_get_render_info(item[1],RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,info[1])
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 
 func restore() -> void:
 	world.process_mode=original.world_mode
+	world.service_set_carrier._housing_shadow.cast_shadow=original.housing_shadow
 	world.service_set_carrier.set_capture_hidden(original.capture_hidden)
 	world.light_rig._shadow_budget=original.shadow_budget
 	for row:Dictionary in animations:row.node.active=row.active
@@ -81,6 +83,10 @@ func treatment(label: String) -> void:
 	elif label=="fog_off":
 		environment.volumetric_fog_enabled=false;environment.fog_enabled=false
 	elif label=="msaa4":get_viewport().msaa_3d=Viewport.MSAA_4X
+	elif label.begins_with("away_"):
+		# Exercise the real sleeping-mirror selection, not a frozen viewport.
+		player.rotate_y(PI)
+		world.service_set_carrier._housing_shadow.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF if "_off" in label else GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 
 func run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests();GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
@@ -124,6 +130,7 @@ func run() -> void:
 	original.foreground=foreground.composite_enabled;original.visibility_process=world.service_light_visibility.is_processing()
 	original.world_mode=world.process_mode;original.capture_hidden=world.service_set_carrier.is_capture_hidden()
 	original.head_aim=world.player_avatar.head_aim.active
+	original.housing_shadow=world.service_set_carrier._housing_shadow.cast_shadow
 	for node:AnimationMixer in world.find_children("*","AnimationMixer",true,false):animations.append({"node":node,"active":node.active})
 	for node: Node in world.light_rig._controlled_lights():fixtures.append({"node":node,"processing":node.is_processing()})
 	var inventory: Array=[]
@@ -165,7 +172,7 @@ func run() -> void:
 		set_process(false);key(KEY_A,false);key(KEY_D,false);player.set_physics_process(false)
 		var unchanged:=player.camera.global_transform.is_equal_approx(camera_before)
 		if not label.ends_with("_move") and not unchanged:failures.append("static camera changed: "+label)
-		records.append({"phase":label,"setting_ms":setting_ms,"start":str(start),"end":str(player.global_position),"camera_before":str(camera_before),"camera_after":str(player.camera.global_transform),"static_camera_unchanged":unchanged,"query_ms":query_times,"slow_physics":player.physics_profile_records.duplicate(true),"active_mirror":str(mirror.active_mirror()),"msaa":get_viewport().msaa_3d,"light_rig":world.light_rig.stats(),"shadow_budget":world.light_rig._shadow_budget,"mirror_atlas":mirror._view.positional_shadow_atlas_size})
+		records.append({"phase":label,"setting_ms":setting_ms,"start":str(start),"end":str(player.global_position),"camera_before":str(camera_before),"camera_after":str(player.camera.global_transform),"static_camera_unchanged":unchanged,"query_ms":query_times,"slow_physics":player.physics_profile_records.duplicate(true),"active_mirror":str(mirror.active_mirror()),"housing_shadow":world.service_set_carrier._housing_shadow.cast_shadow,"msaa":get_viewport().msaa_3d,"light_rig":world.light_rig.stats(),"shadow_budget":world.light_rig._shadow_budget,"mirror_atlas":mirror._view.positional_shadow_atlas_size})
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(directory.path_join(label+".png"))
 	restore();switches.restore_room(room,saved)

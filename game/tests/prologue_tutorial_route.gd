@@ -78,6 +78,10 @@ func _route() -> void:
 	var draft_before: String=carrier.session.draft
 	var lamp_before: bool=player.lamp_is_enabled()
 	var radio_before: bool=carrier.device.radio_powered
+	var crossing_source:=OS.get_environment("PROLOGUE_CROSSING_SOURCE")
+	if not crossing_source.is_empty():
+		await _review_crossing_snapshot(crossing_source)
+		return
 	carrier.session.draft="Unsubmitted draft survives the opening."
 	if not _require(director.begin_waking_preview(),"explicit waking-only slice begins without fake dream acceptance"): return
 	carrier.release_story_absence(world) # An unrelated caller cannot reveal it.
@@ -159,6 +163,7 @@ func _route() -> void:
 	if not _require(director.state.phase=="mirror_condensation" and director.is_processing(),"real shower shutoff starts the mirror withdrawal"): return
 	if not await _review_mirror_reveal():return
 	if not await _review_visitor():return
+	if not await _review_crossing():return
 	var before: Dictionary=shower.mechanism_snapshot()
 	director.shutdown()
 	_require(before==shower.mechanism_snapshot(),"presentation retirement does not alter physical mechanisms")
@@ -263,6 +268,89 @@ func _review_visitor() -> bool:
 	await get_tree().process_frame;await get_tree().process_frame
 	_require(carrier.rig.visible and carrier.device.get_instance_id()==device_id,"return to the player retains the same private machine at the handoff boundary")
 	return true
+
+func _crossing_age(target:float) -> bool:
+	var deadline:=Time.get_ticks_msec()+20000
+	while Time.get_ticks_msec()<deadline:
+		if is_instance_valid(director.mirror_crossing) and director.mirror_crossing.active and director.mirror_crossing.age>=target:return true
+		await get_tree().process_frame
+	return _require(false,"crossing reaches authored age "+str(target))
+
+func _review_crossing() -> bool:
+	var carrier:Node=world.service_set_carrier
+	var rig_id:int=carrier.rig.get_instance_id()
+	var draft:String=carrier.session.draft
+	if not await _crossing_age(2.0):return false
+	var clip:Node=director.mirror_crossing
+	_require(player.text_input_owner==clip and carrier.is_story_absent() and not clip.world_stage,"private approach owns input without a physical arrival")
+	await _shot("crossing_tunnel.png")
+	var age:float=clip.age
+	get_tree().paused=true
+	await get_tree().create_timer(.25,true,false,true).timeout
+	_require(clip.age==age,"pause holds the crossing and its optical time exactly")
+	get_tree().paused=false
+	if not await _crossing_age(4.8):return false
+	var opaque_shadows:=0
+	for draw:GeometryInstance3D in carrier.rig.find_children("*","GeometryInstance3D",true,false):
+		_require(draw.layers==carrier.screen_frame.DEVICE_MASK,"arrival preserves native geometry layers: "+str(draw.name))
+		if draw is MeshInstance3D and draw.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_ON:opaque_shadows+=1
+	_require(clip.world_stage and opaque_shadows>0 and (player.camera.cull_mask&carrier.screen_frame.DEVICE_MASK)!=0 and not carrier.screen_frame.layer.visible and carrier.is_story_absent() and not director.state.effects.companion_materialized,"ordinary world camera and housing shadow carry arrival; foreground, controls and completion remain withheld")
+	await _shot("crossing_emergence.png")
+	var old_path:String=RealityState.save_path
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("crossing_reload.json");RealityState.persistence_enabled=true
+	if not _require(RealityState.save_game(),"validated disk save records an incomplete crossing without inventing arrival"):return false
+	RealityState.load_game();await get_tree().process_frame;await get_tree().process_frame
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	_require(director.state.phase=="companion_crossing" and not director.state.effects.companion_materialized and carrier.rig.get_instance_id()==rig_id and carrier._world_story_draws.is_empty(),"reload retires transient world layers and restages the same unarrived machine")
+	if not await _crossing_age(5.8):return false
+	await _shot("crossing_emergence_reloaded.png")
+	var handoff_deadline:=Time.get_ticks_msec()+20000
+	while not director.mirror_crossing.handing_off and Time.get_ticks_msec()<handoff_deadline:await get_tree().process_frame
+	var handoff_age:float=carrier.screen_frame._handoff_age
+	var handoff_pose:Transform3D=carrier.rig.global_transform
+	get_tree().paused=true
+	await get_tree().create_timer(.25,true,false,true).timeout
+	_require(carrier.screen_frame._handoff_age==handoff_age and carrier.rig.global_transform==handoff_pose,"pause holds the actual world-to-foreground flight without a pre-draw clock leak")
+	get_tree().paused=false
+	var deadline:=Time.get_ticks_msec()+20000
+	while director.state.phase=="companion_crossing" and Time.get_ticks_msec()<deadline:await get_tree().process_frame
+	_require(director.state.phase=="first_contact" and director.state.effects.companion_materialized and not carrier.is_story_absent(),"completed physical and framing handoff acknowledges arrival through the existing reducer")
+	_require(player.text_input_owner==null and carrier._world_story_draws.is_empty() and not carrier._story_reflection and carrier.rig.get_instance_id()==rig_id and carrier.session.draft==draft,"arrival restores ordinary controls, layers and original rig without replacing the typed draft")
+	_require(carrier._housing_shadow.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_ON,"physical housing keeps its world shadow after the temporary arrival lease ends")
+	await _shot("crossing_arrived.png")
+	var arrived_path:=OS.get_environment("SHOT_DIR").path_join("arrived_reload.json")
+	RealityState.save_path=arrived_path;RealityState.persistence_enabled=true
+	if not _require(RealityState.save_game(),"validated disk save records the acknowledged arrival"):return false
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("crossing_reload.json")
+	RealityState.load_game();await get_tree().process_frame;await get_tree().process_frame
+	_require(director.state.phase=="companion_crossing" and carrier.is_story_absent(),"loading the earlier incomplete crossing restores absence from saved facts")
+	RealityState.save_path=arrived_path
+	RealityState.load_game();await get_tree().process_frame;await get_tree().process_frame
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	_require(director.state.phase=="first_contact" and not carrier.is_story_absent() and carrier.rig.get_instance_id()==rig_id and player.text_input_owner==null,"loading the later acknowledged arrival retires a resumed crossing without leaving the bot hidden or input owned")
+	return failures.is_empty()
+
+func _review_crossing_snapshot(source:String) -> void:
+	# Reuse a test-written disk save from actual curtain/valve/cabinet input;
+	# never synthesize earlier gates to shorten this focused reload diagnostic.
+	var old_path:String=RealityState.save_path
+	RealityState.save_path=source;RealityState.persistence_enabled=true
+	RealityState.load_game()
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	if not _require(director.state.phase=="companion_crossing" and not director.state.effects.companion_materialized,"focused source is an actual validated uncompleted crossing"):return
+	var mirror:MedicineCabinetProp=director.mirror
+	var at:=mirror.mirror_center()+mirror.mirror_normal()*1.1;at.y=mirror.global_position.y+.025
+	var capsule:=CapsuleShape3D.new();capsule.radius=player.BODY_RADIUS;capsule.height=player.STANDING_HEIGHT
+	var query:=PhysicsShapeQueryParameters3D.new();query.shape=capsule;query.collision_mask=player.collision_mask;query.exclude=[player.get_rid()]
+	query.transform=Transform3D(Basis.IDENTITY,at+Vector3.UP*player.STANDING_HEIGHT*.5)
+	if not _require(world.get_world_3d().direct_space_state.intersect_shape(query,1).is_empty(),"focused mirror stance clears actual full-size player collision"):return
+	player.set_physics_process(false);player.global_position=at;player.velocity=Vector3.ZERO;player.face_world_point(mirror.mirror_center())
+	for tick in 12:await RenderingServer.frame_post_draw
+	if not _require(director.begin_waking_preview(),"validated crossing resumes through the actual opening owner"):return
+	await _review_crossing()
+	director.shutdown()
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("crossing_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","source":source,"source_sha256":FileAccess.get_sha256(source),"state":director.state,"errors":director.errors,"failures":failures,"limits":"Focused actual-world crossing/reload diagnostic from a previously test-written actual-input save. No new bedroom-to-bath route, full prologue, performance or human acceptance."},"\t"))
+	frame_trace.complete=failures.is_empty()
 
 func _review_mirror_reveal() -> bool:
 	var cabinet:MedicineCabinetProp=director.mirror

@@ -32,6 +32,7 @@ var _carrier: Node
 var _window_controls: Array[Node]=[]
 var temporal_console:Node
 var temporal_sky:Node
+var mirror_crossing:Node
 var mirror:MedicineCabinetProp
 var _avatar_visible:=true
 var _avatar_leased:=false
@@ -104,12 +105,12 @@ func _wall_anchor(at: Vector3, normal: Vector3) -> Transform3D:
 
 func begin_waking_preview() -> bool:
 	# Explicit incomplete-slice preview only; it does not claim DREAM was played.
-	if world==null or not errors.is_empty() or state.phase not in ["dream","awakening","bedroom_exploration","bathroom_entry","curtain_interaction","shower_temperature","shower_complete","mirror_tapping","mirror_condensation","protagonist_reveal","cabinet_inspection","reflection_visitor"]: return false
+	if world==null or not errors.is_empty() or state.phase not in ["dream","awakening","bedroom_exploration","bathroom_entry","curtain_interaction","shower_temperature","shower_complete","mirror_tapping","mirror_condensation","protagonist_reveal","cabinet_inspection","reflection_visitor","companion_crossing","first_contact"]: return false
 	while state.phase in ["dream","awakening"]:
 		var next: String=State.PHASES[State.PHASES.find(state.phase)+1]
 		if not _store(State.advance(state,next)): return false
 	_carrier=world.service_set_carrier
-	if _carrier==null or not _carrier.acquire_story_absence(self): return _fail("companion absence lease refused")
+	if _carrier==null or (not state.effects.companion_materialized and not _carrier.acquire_story_absence(self)): return _fail("companion absence lease refused")
 	if not _avatar_leased:
 		_avatar_visible=world.player_avatar.visible;_avatar_leased=true
 	_running=true;set_process(true);_enter_phase()
@@ -171,6 +172,7 @@ func _restore() -> void:
 	if _publishing: return
 	var replaced := not is_same(_document,RealityState.data)
 	if replaced and is_instance_valid(temporal_sky):temporal_sky.cancel()
+	if replaced and is_instance_valid(mirror_crossing):mirror_crossing.cancel()
 	var restored := State.restore(RealityState.data.get("prologue",{}))
 	if restored.is_empty(): _fail("invalid prologue state");return
 	_document=RealityState.data
@@ -178,7 +180,11 @@ func _restore() -> void:
 	if restored==state and not replaced: return
 	var changed: bool=state.get("phase","")!=restored.phase
 	state=restored
-	if (changed or replaced) and _running: _enter_phase()
+	if (changed or replaced) and _running:
+		if is_instance_valid(_carrier):
+			if state.effects.companion_materialized:_carrier.release_story_absence(self)
+			elif not _carrier.acquire_story_absence(self):_fail("restored opening absence refused");return
+		_enter_phase()
 
 func _store(next: Dictionary) -> bool:
 	if next.is_empty() or RealityState.save_write_blocked: return _fail("prologue transition refused")
@@ -221,9 +227,7 @@ func _enter_phase() -> void:
 			writing.clear()
 			if not _begin_visitor():return
 		"companion_crossing":
-			# The translated aperture/physical handoff is not implemented yet.
-			# Hold this one private rig; never substitute normal-world appearance.
-			writing.clear();set_process(false)
+			writing.clear()
 		"temporal_synchronization":
 			if world!=null and world.has_node("WakingAtmosphere"):begin_temporal_sky()
 	phase_changed.emit(state.phase)
@@ -313,6 +317,18 @@ func _process(delta: float) -> void:
 		"cabinet_inspection":
 			if not ("cabinet_opened" in state.events) or _phase_age>=6.0:_tap_mirror()
 		"reflection_visitor":_observe_visitor(elapsed)
+		"companion_crossing":
+			if not is_instance_valid(mirror_crossing) or not mirror_crossing.active:
+				if not _mirror_observed():return
+				if not _visitor_active and not _begin_visitor():return
+				if is_instance_valid(mirror_crossing):mirror_crossing.queue_free()
+				mirror_crossing=preload("res://scripts/game/prologue_mirror_crossing.gd").new();add_child(mirror_crossing)
+				mirror_crossing.finished.connect(_crossing_finished)
+				mirror_crossing.start(self)
+
+func _crossing_finished(completed:bool) -> void:
+	if completed and is_same(_document,RealityState.data) and state.phase=="companion_crossing":
+		if _store(State.applied(state,"companion_materialized")):_advance("first_contact")
 
 func _begin_visitor() -> bool:
 	if not is_instance_valid(_carrier) or not _carrier.begin_story_reflection(self):return _fail("reflection presentation lease refused")
@@ -411,6 +427,8 @@ func _cabinet_released(before:float,after:float) -> void:
 
 
 func shutdown() -> void:
+	if is_instance_valid(mirror_crossing):mirror_crossing.cancel();mirror_crossing.queue_free()
+	mirror_crossing=null
 	_end_visitor()
 	_running=false;set_process(false)
 	if is_instance_valid(_knock):_knock.stop();_knock.queue_free()

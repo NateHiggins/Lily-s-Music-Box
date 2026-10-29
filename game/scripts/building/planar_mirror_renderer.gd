@@ -87,6 +87,7 @@ func _process(_delta: float) -> void:
 		if is_instance_valid(_active):
 			_active.set_live_mirror_material(null)
 		_active = candidate
+		if _material!=null:_material.set_shader_parameter("crossing",Vector2.ZERO)
 		if is_instance_valid(_active) and _texture_bound:
 			_active.set_live_mirror_material(_material)
 	if not is_instance_valid(_active) or not _texture_bound:
@@ -176,6 +177,10 @@ func set_mirror_story(pane:MeshInstance3D,value:Vector2) -> void:
 	# the borrowed material now keeps both optical passes on the same frame.
 	if not _stopped and is_instance_valid(_active) and _active.mirror_surface()==pane:
 		_material.set_shader_parameter("prologue_film",value)
+
+func set_mirror_crossing(pane:MeshInstance3D,value:Vector2) -> void:
+	if _material!=null and is_instance_valid(_active) and _active.mirror_surface()==pane:
+		_material.set_shader_parameter("crossing",value)
 
 func active_mirror() -> Variant:
 	return _active

@@ -1098,6 +1098,16 @@ do not treat this as cancellation of installed ecology or approved future people
   records. **TL6–TL9** (RETURN, reality inspection, impossible correspondence and
   creature recognition) remain unresolved narrative capabilities for explicit
   story-fit reconciliation, not silently completed or cancelled features.
+- **TL-VOCAL — Give the companion a learned synthetic speaking voice.** Owner
+  direction2026-10-29: begin with Speak & Spell-inspired babble and original
+  16-bit game-inspired laughs, crying, emotive whines and other reactions;
+  indirectly acquire English through interaction, mimicking any word it hears.
+  Preserve articulate physical-printer dialogue and existing narrative/input
+  owners. Learn from actual witnessed utterances, never future/offscreen text
+  or the companion's own babble; persist learning through validated campaign
+  storage. Use existing voice-volume control, bounded playback and cooldowns;
+  do not silently enable a microphone. First complete the current crossing
+  repair, then integrate and audition this voice. Implementation/acceptance open.
 - **MX3/MX4 — Retain actual material-ingest and rollout gaps.** Verify calibrated
   height/relief, tile scale, ORM/detail/mask authoring and still-unaccepted classes
   against the installed pipeline. Recheck old missing-map/42-height assertions;

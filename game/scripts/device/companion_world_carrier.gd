@@ -23,11 +23,56 @@ var _story_reflection := false
 var _story_reflection_visible := false
 var _story_motion_home := Transform3D.IDENTITY
 var _story_rig_home := Transform3D.IDENTITY
+var _world_story_owner:WeakRef
+var _world_story_draws:Array[Dictionary]=[]
+var _world_story_mask:=0
+var _housing_shadow:MeshInstance3D
+var _reflection_shadow_home:=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+
+func story_world_active() -> bool:
+	return _world_story_owner!=null and is_instance_valid(_world_story_owner.get_ref())
+
+func begin_story_world(owner:Node) -> bool:
+	if not is_story_absent() or _absence_owner.get_ref()!=owner:return false
+	if _world_story_owner!=null:return _world_story_owner.get_ref()==owner
+	end_story_reflection(owner)
+	_world_story_owner=weakref(owner)
+	_world_story_mask=_player.camera.cull_mask&(1<<(ServiceSetProp.DEVICE_LAYER-1))
+	_player.camera.cull_mask|=1<<(ServiceSetProp.DEVICE_LAYER-1)
+	owner.tree_exiting.connect(_release_story_world.bind(owner.get_instance_id()),CONNECT_ONE_SHOT)
+	for draw:GeometryInstance3D in rig.find_children("*","GeometryInstance3D",true,false):
+		_world_story_draws.append({"ref":weakref(draw),"shadow":draw.cast_shadow})
+		# Keep native render layers stable: this engine's light unpairing uses
+		# the current layer mask and can retain stale pairs after a live swap.
+		# Real room illumination and depth, including a real opaque housing shadow.
+		# Labels and translucent glazing retain their original shadow policy.
+		if draw is MeshInstance3D and str(draw.name)=="ShellStudy__ShellSteel":draw.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+	_apply_visibility()
+	return true
+
+func end_story_world(owner:Node) -> void:
+	if is_instance_valid(owner):_release_story_world(owner.get_instance_id())
+
+func _release_story_world(owner_id:int) -> void:
+	if _world_story_owner==null:return
+	var owner:Node=_world_story_owner.get_ref()
+	if owner!=null and owner.get_instance_id()!=owner_id:return
+	if owner!=null and owner.tree_exiting.is_connected(_release_story_world.bind(owner_id)):
+		owner.tree_exiting.disconnect(_release_story_world.bind(owner_id))
+	for row:Dictionary in _world_story_draws:
+		var draw:GeometryInstance3D=row.ref.get_ref()
+		if draw!=null:draw.cast_shadow=row.shadow
+	_world_story_draws.clear();_world_story_owner=null
+	var mask:=1<<(ServiceSetProp.DEVICE_LAYER-1)
+	_player.camera.cull_mask=(_player.camera.cull_mask&~mask)|_world_story_mask
+	_apply_visibility()
 
 func begin_story_reflection(owner:Node) -> bool:
 	if not is_story_absent() or _absence_owner.get_ref()!=owner:return false
 	if _story_reflection:return true
 	_story_motion_home=motion.global_transform;_story_rig_home=rig.transform
+	_reflection_shadow_home=_housing_shadow.cast_shadow
+	_housing_shadow.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_story_reflection=true
 	RenderingServer.frame_pre_draw.connect(_story_reflection_before_draw)
 	return true
@@ -46,6 +91,7 @@ func pose_story_reflection(owner:Node,pose:Transform3D,visible_in_mirror:bool) -
 func end_story_reflection(owner:Node) -> void:
 	if not _story_reflection or not is_story_absent() or _absence_owner.get_ref()!=owner:return
 	_story_reflection=false;_story_reflection_visible=false
+	_housing_shadow.cast_shadow=_reflection_shadow_home
 	if RenderingServer.frame_pre_draw.is_connected(_story_reflection_before_draw):RenderingServer.frame_pre_draw.disconnect(_story_reflection_before_draw)
 	motion.global_transform=_story_motion_home;rig.transform=_story_rig_home
 	_apply_visibility()
@@ -109,6 +155,11 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 		failure = "Native companion presentation refused"
 		push_error(failure)
 		return
+	_housing_shadow=rig.model.find_child("ShellStudy__ShellSteel",true,false) as MeshInstance3D
+	if _housing_shadow==null:failure="Native housing shadow source missing";push_error(failure);return
+	# One opaque manufactured partition, not every label, key and glass layer.
+	# It remains a real physical shadow after the narrative arrival finishes.
+	_housing_shadow.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	rig.scale = Vector3.ONE * PRESENTATION_SCALE
 	rig.typing_arm=preload("res://scripts/device/companion_typing_arm.gd").new()
 	rig.add_child(rig.typing_arm)
@@ -212,7 +263,8 @@ func set_capture_hidden(hidden: bool) -> void:
 
 func _apply_visibility() -> void:
 	var hidden := is_capture_hidden()
-	if rig != null: rig.visible = not hidden or (_story_reflection and _story_reflection_visible and is_story_absent() and not _capture_hidden)
+	var world_story:=_world_story_owner!=null and is_instance_valid(_world_story_owner.get_ref())
+	if rig != null: rig.visible = not hidden or ((world_story or (_story_reflection and _story_reflection_visible and is_story_absent())) and not _capture_hidden)
 	# Hidden review stock must not leave invisible query-only obstructions.
 	for entry: Dictionary in _pick_layers.values():
 		var area: Area3D = entry.ref.get_ref()

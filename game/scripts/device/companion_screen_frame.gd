@@ -1,4 +1,5 @@
 extends Node
+signal world_handoff_finished
 ## Foreground flight is a presentation cheat, never a second device or action owner.
 ## The same rig remains in the world for mirrors, its lamp and physical controls.
 const DEVICE_MASK := 1 << (ServiceSetProp.DEVICE_LAYER - 1)
@@ -13,6 +14,15 @@ var safe_rect := Rect2()
 var reading_bounds := AABB()
 var composite_enabled := true
 var present_reading := false
+var _world_handoff:=false
+var _handoff_from:=Transform3D.IDENTITY
+var _handoff_age:=0.0
+
+func begin_world_handoff(pose:Transform3D) -> void:
+	_handoff_from=pose;_handoff_age=0;_world_handoff=true
+
+func cancel_world_handoff() -> void:
+	_world_handoff=false
 var _has_reading_bounds := false
 var _main_mask := 0
 var _last_basis := Basis.IDENTITY
@@ -97,13 +107,17 @@ func _before_draw() -> void:
 
 func advance(delta: float, reading: bool) -> void:
 	if not is_instance_valid(camera) or not is_instance_valid(carrier): return
+	if _world_handoff and get_tree().paused:return
 	var visible_now: bool = not carrier.is_capture_hidden() and camera.is_current()
 	layer.visible = visible_now and composite_enabled
 	view.render_target_update_mode = SubViewport.UPDATE_ALWAYS if visible_now and composite_enabled else SubViewport.UPDATE_DISABLED
-	# The diagnostic may hide this pass, but must never transfer a live
-	# refractive/Label3D rig between cameras with different environments.
-	# There is one shipping presentation owner, including while hidden.
-	camera.cull_mask &= ~DEVICE_MASK
+	# The authored arrival briefly uses ordinary world depth, retaining the
+	# exact native layers. Normal accompaniment has one foreground owner.
+	if carrier.story_world_active():
+		camera.cull_mask|=DEVICE_MASK
+		layer.visible=false;view.render_target_update_mode=SubViewport.UPDATE_DISABLED
+		if not _world_handoff:return
+	else:camera.cull_mask &= ~DEVICE_MASK
 	if not visible_now: return
 	var size := camera.get_viewport().get_visible_rect().size
 	if size.x < 2.0 or size.y < 2.0: return
@@ -183,9 +197,20 @@ func advance(delta: float, reading: bool) -> void:
 		(1.0 - center.y * 2.0) * depth * slope, -depth)
 	carrier.motion.global_transform = Transform3D(camera.global_basis,
 		camera.global_position + camera.global_basis * (origin - relative_basis * fitted.get_center()))
+	if _world_handoff:carrier.rig.position=Vector3.ZERO
 	carrier.rig.basis = relative_basis.scaled(Vector3.ONE * carrier.PRESENTATION_SCALE)
 	carrier.motion.velocity = Vector3.ZERO
 	carrier.motion.screen_settled = true
+	if _world_handoff:
+		_handoff_age+=dt
+		var fraction:=smoothstep(0.0,1.2,_handoff_age)
+		carrier.rig.global_transform=_handoff_from.interpolate_with(carrier.rig.global_transform,fraction)
+		layer.visible=false;view.render_target_update_mode=SubViewport.UPDATE_DISABLED
+		if fraction>=1:
+			_world_handoff=false
+			world_handoff_finished.emit()
+			layer.visible=visible_now and composite_enabled
+			view.render_target_update_mode=SubViewport.UPDATE_ALWAYS if layer.visible else SubViewport.UPDATE_DISABLED
 	carrier.rig.propulsion = clampf(.5 + carrier._player.velocity.length() * .13 + turning.length() * .04 + _drift_velocity.length() * 14.0 + _lean_velocity.length() * .12, .5, 1.6)
 	# The real optical aperture follows the visible manufactured pose.
 	carrier.beam_valid = true

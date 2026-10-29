@@ -8,6 +8,8 @@ uniform float age_strength : hint_range(0.0, 1.0) = 0.24;
 
 uniform vec2 glass_size = vec2(0.42, 0.57);
 uniform float condensation = 0.0;
+// Bounded authored time, never shader TIME: pause and reload own this effect.
+uniform vec2 crossing = vec2(0.0);
 varying vec2 glass_uv;
 
 void vertex() {
@@ -18,6 +20,22 @@ void vertex() {
 void fragment() {
 	vec2 feed_uv = vec2(glass_uv.x, 1.0 - glass_uv.y);
 	vec3 reflected = texture(mirror_view, feed_uv).rgb * reflection_gain;
+	if(crossing.x>0.0){
+		vec2 centered=feed_uv-vec2(.5);
+		float aperture=1.0-smoothstep(.32,.51,length(centered));
+		vec3 folded=reflected;
+		for(int i=1;i<=5;i++){
+			float depth=float(i);
+			float angle=crossing.x*.055*depth*sin(crossing.y*.65);
+			mat2 turn=mat2(vec2(cos(angle),-sin(angle)),vec2(sin(angle),cos(angle)));
+			vec2 nested=turn*centered*pow(1.38,depth)+vec2(.5);
+			float inside=step(0.0,nested.x)*step(nested.x,1.0)*step(0.0,nested.y)*step(nested.y,1.0);
+			float rim=smoothstep(.43,.49,max(abs(nested.x-.5),abs(nested.y-.5)));
+			vec3 view=texture(mirror_view,clamp(nested,vec2(.001),vec2(.999))).rgb*reflection_gain;
+			folded=mix(folded,view*(1.0-depth*.09),inside*(.35+rim*.4));
+		}
+		reflected=mix(reflected,folded,crossing.x*aperture);
+	}
 	float wet=prologue_mirror_wet(glass_uv,condensation);
 	if (wet>0.01) {
 		vec2 blur=vec2(0.008)*wet;
