@@ -170,6 +170,9 @@ The owner's supplied adjustments are binding:
 - **Q10:** “The maintenance sub plots are secondary to the primary narrative
   structure of time travel investigation, the player is quantum leaping into
   maintenance worker”
+  *Dated note, owner-ruled 2026-10-29:* Bible §I now names the maintenance
+  worker as the night man, a construct the Tenant made, ridden by the player,
+  Adela Voss; Bible §VIII.5.o rules the murder.
 - **Q11:** “As gameplay uses appear they will be vetted and added”
 - **Q15:** “The Harpy and succubus oni will be integrated as characters in the
   game, with in world cultures as we develop them.”

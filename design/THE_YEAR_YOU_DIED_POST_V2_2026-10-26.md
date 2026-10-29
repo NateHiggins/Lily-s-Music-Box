@@ -23,6 +23,16 @@ Do not invent the host's identity, a host count or host-memory rules from that
 phrase. Bible §VIII.5.o records this direction; no further permission is needed
 to recognize the premise. Existing V2 routes remain technical qualification.
 
+*Dated note, owner-ruled 2026-10-29:* Bible §I now rules the host and the
+player. The maintenance worker is the night man, a construct the Tenant made
+to explore its bridge through time; the player riding it is Adela Voss, after
+her death; the companion is the Tenant's crude intermediary, reaching the past
+only through its paper. Bible §VIII.5.o now rules the murder date, killer and
+motive. The instructions in this brief not to invent the host, a host count,
+host-memory rules, the murder date or the killer are answered by those
+rulings; prevention snaps back (owner-ruled
+2026-10-29); the larger conspiracy remains open.
+
 This is the major goal **after V2 is constructed**. Finish and qualify the
 existing environment, interactions, weather, companion, persistence and current
 work first. A successful weather merge alone does not satisfy that dependency.
