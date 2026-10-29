@@ -540,8 +540,10 @@ func _cabinet_released(before:float,after:float) -> void:
 
 
 func shutdown() -> void:
-	if is_instance_valid(waking):waking.cancel();waking.queue_free()
+	# cancel emits finished synchronously; its callback can clear `waking`.
+	var old_waking:Node=waking
 	waking=null
+	if is_instance_valid(old_waking):old_waking.cancel();old_waking.queue_free()
 	_release_contact()
 	if is_instance_valid(mirror_crossing):mirror_crossing.cancel();mirror_crossing.queue_free()
 	mirror_crossing=null

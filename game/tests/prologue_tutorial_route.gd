@@ -741,13 +741,16 @@ func _review_refit(carrier: Node) -> void:
 		out.store_string(JSON.stringify({"evidence_class":"INERT","scope":"Occupied 4B capped-rate station-keeping and camera-turn diagnostic; no matched performance gain or artistic acceptance.","records":records,"minimum_upright_dot":min_up,"drift_span":str(drift_max-drift_min)},"\t"))
 
 func _review_waking() -> void:
+	var load_started:=Time.get_ticks_usec()
 	var scene:=load("res://assets/props/prologue_wake_cover.glb") as PackedScene
+	var imported_load_ms:float=(Time.get_ticks_usec()-load_started)/1000.0
 	if not _require(scene!=null,"imported native wake cover available"):return
 	var carrier:Node=world.service_set_carrier
 	var draft_before:String=carrier.session.draft
 	carrier.session.draft="Unsubmitted waking draft."
 	if not _require(director.state.phase=="dream" and director.begin_opening(scene),"actual DREAM starts without preview advancement"):return
 	var clip:Node=director.waking
+	var start_costs:Dictionary=clip.start_costs.duplicate(true)
 	if not _require(clip.active and player.text_input_owner==clip and not world.player_avatar.visible and carrier.is_story_absent(),"camera/input/absence owners conceal body and bot"):return
 	var material:=clip.cover.material_override as StandardMaterial3D
 	if not _require(material!=null and not material.uv1_triplanar,"loaded opaque cover uses native UVs"):return
@@ -763,6 +766,12 @@ func _review_waking() -> void:
 	await get_tree().create_timer(.15,true).timeout
 	get_tree().paused=false;clip.set_process(false)
 	_require(is_equal_approx(age_before,clip.age),"pause preserves waking presentation age")
+	director.shutdown()
+	if not _require(player.text_input_owner==null and player.camera.is_current() and not carrier.is_story_absent(),"active-shot shutdown survives synchronous finish and releases its leases"):return
+	director.queue_free();director=Director.new();world.add_child(director)
+	if not _require(director.configure(world) and director.begin_opening(scene),"new director can rebind after active-shot shutdown"):return
+	frame_trace.director=director
+	clip=director.waking;clip.set_process(false);clip.seek(6.4)
 	var old_path:String=RealityState.save_path
 	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("waking_reload.json")
 	RealityState.persistence_enabled=true
@@ -792,7 +801,7 @@ func _review_waking() -> void:
 	_require(player.text_input_owner==null and not carrier.is_story_absent(),"shutdown releases only opening presentation/input leases")
 	carrier.session.draft=draft_before
 	frame_trace.complete=failures.is_empty()
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","failures":failures,"state":director.state,"limits":"Focused occupied DREAM/wake imported-cover, camera, pause, input and validated-reload diagnostic. Does not prove normal entry, full prologue, frame-time qualification or human artistic acceptance."},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","failures":failures,"state":director.state,"imported_scene_load_ms":imported_load_ms,"start_costs_ms":start_costs,"limits":"Focused occupied DREAM/wake imported-cover, camera, pause, input and validated-reload diagnostic. Synchronous timings exclude deferred renderer/compiler work. Does not prove normal entry, full prologue, frame-time qualification or human artistic acceptance."},"\t"))
 
 func _shot(name_: String) -> void:
 	await RenderingServer.frame_post_draw

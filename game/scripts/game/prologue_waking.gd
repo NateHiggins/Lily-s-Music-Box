@@ -11,6 +11,7 @@ var cover:MeshInstance3D
 var active:=false
 var age:=0.0
 var failure:=""
+var start_costs:Dictionary={}
 var _document:Dictionary
 var _bed:Node3D
 var _model:Node3D
@@ -35,10 +36,13 @@ func _init() -> void:set_process(false)
 
 func start(owner:Node,cover_scene:PackedScene) -> bool:
 	if active or cover_scene==null or owner.state.phase not in ["dream","awakening"] or get_tree().paused:return false
+	var began:=Time.get_ticks_usec()
+	var mark:=began
 	director=owner;player=owner.player
 	_bed=owner.world.adapter.resolve("4B_wake_bed") as Node3D
 	var anchor:Dictionary=owner.world.core_loop.resolve_return_anchor()
 	if _bed==null or anchor.is_empty():return _refuse("missing actual bed/standing anchor")
+	start_costs.binding_ms=(Time.get_ticks_usec()-mark)/1000.0;mark=Time.get_ticks_usec()
 	_model=cover_scene.instantiate()
 	var meshes:=_model.find_children("*","MeshInstance3D",true,false)
 	if meshes.size()!=1:
@@ -61,6 +65,7 @@ func start(owner:Node,cover_scene:PackedScene) -> bool:
 	var material:=MatLib.get_mat("linen").duplicate() as StandardMaterial3D
 	material.uv1_triplanar=false;material.uv1_scale=Vector3.ONE/.6
 	cover.material_override=material
+	start_costs.cover_and_material_ms=(Time.get_ticks_usec()-mark)/1000.0;mark=Time.get_ticks_usec()
 	camera=Camera3D.new();camera.name="OpeningBedroomCamera";add_child(camera)
 	camera.fov=_old_camera.fov;camera.near=_old_camera.near;camera.far=_old_camera.far
 	camera.environment=_old_camera.environment;camera.cull_mask=_old_camera.cull_mask
@@ -75,7 +80,7 @@ func start(owner:Node,cover_scene:PackedScene) -> bool:
 	# Do not shrink the capsule, move its colliders onto the bed, or infer a
 	# mattress datum from the nominal semantic wake marker.
 	var standing_at:=_anchor+Vector3.UP*PlayerController.STANDING_EYE
-	var target:=director._bed_anchor.origin
+	var target:Vector3=director._bed_anchor.origin
 	_standing=Transform3D(Basis.looking_at(target-standing_at,Vector3.UP),standing_at)
 	_hud=player._interaction_hud
 	if is_instance_valid(_hud):_hud_visible=_hud.visible;_hud.hide()
@@ -88,6 +93,7 @@ func start(owner:Node,cover_scene:PackedScene) -> bool:
 	_light.light_cull_mask=1;_light.shadow_caster_mask=1
 	_light.light_color=Color(.65,.73,.91);_light.light_energy=0
 	_light.global_position=_bed.to_global(Vector3(.9,2.0,.1));_light.look_at(center)
+	start_costs.camera_and_light_ms=(Time.get_ticks_usec()-mark)/1000.0;mark=Time.get_ticks_usec()
 	_storm=AudioStreamPlayer.new();_storm.stream=preload("res://assets/audio/freesound/processed/beds/ambient_roof_storm_city.ogg")
 	_storm.volume_db=-28;add_child(_storm);_storm.play()
 	_thunder=AudioStreamPlayer.new();_thunder.stream=preload("res://scripts/building/deterministic_lightning_manager.gd")._thunder(19281110)
@@ -97,9 +103,12 @@ func start(owner:Node,cover_scene:PackedScene) -> bool:
 	_breath.play()
 	_rustle=AudioStreamPlayer3D.new();_rustle.stream=preload("res://scripts/game/prologue_tardi_stinger.gd")._rustle()
 	_rustle.volume_db=-26;_rustle.max_distance=4;add_child(_rustle);_rustle.global_position=center
+	start_costs.audio_ms=(Time.get_ticks_usec()-mark)/1000.0;mark=Time.get_ticks_usec()
 	active=true;_awake=owner.state.phase=="awakening"
 	age=AWAKENING if _awake else 0
 	seek(age);camera.make_current();set_process(true)
+	start_costs.first_pose_ms=(Time.get_ticks_usec()-mark)/1000.0
+	start_costs.total_ms=(Time.get_ticks_usec()-began)/1000.0
 	return true
 
 func seek(seconds:float) -> void:

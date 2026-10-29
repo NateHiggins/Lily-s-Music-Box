@@ -98,6 +98,9 @@ readability, and feel.
   pinned Godot build, a ternary producing an untyped Array can fail when assigned
   to Array[String] at runtime; use explicit typed construction/assignment or an
   intentionally untyped local rather than trusting preflight alone.
+  Grammar checks and editor imports also do not prove semantic compilation of
+  an unnamed dependency. Type values read through dynamic Node properties
+  explicitly where inference has no declared type, then load the selected scene.
 - **Physical UI:** stored text and a finished print flag do not establish
   readable output. Inspect the delivered glyphs against glass, moving covers,
   keyboards and actual camera framing; wait for the real delivery motion.
@@ -205,6 +208,9 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   precede test completion: require the test's complete output/contract. Freeze
   rendering inputs during source-bound runs; renew stale qualification rather
   than waiving or repinning it. See the [batch workflow](../../../art/blender/v2_batch_workflow.md).
+  Check each batch stage's receipt: an earlier stage passing does not establish
+  that later stages started. Preserve a between-stage busy refusal and resume
+  only unfinished stages through guarded wrappers; never restart a live handle.
 
 [Astra's material-binding notes](../../../design/astra/work/apartment_material_binding/README.md)
 preserve original fixture/runner failures and distinguish preparation from an
