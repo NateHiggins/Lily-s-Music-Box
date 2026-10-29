@@ -140,6 +140,29 @@ func begin_opening(cover_scene:PackedScene) -> bool:
 		waking=null)
 	return true
 
+func resume_opening(cover_scene:PackedScene) -> bool:
+	# Campaign startup must resume validated facts, never use the preview's
+	# deliberate DREAM advancement. A completed opening is an inert no-op.
+	if world==null or not errors.is_empty() or not is_same(_document,RealityState.data) or get_tree().paused or RealityState.save_write_blocked:return false
+	if state.phase=="prologue_complete":return true
+	if player.protected_input_active():return false
+	if player.text_input_owner!=null or not player.camera.is_current():
+		# Our own active presentation is already resumed; a foreign owner must
+		# remain untouched. Do not restart a clip or reset its phase timers.
+		if not _running:return false
+		if is_instance_valid(waking) and waking.active and player.text_input_owner==waking and waking.camera.is_current():return true
+		if is_instance_valid(temporal_sky) and (temporal_sky.active or temporal_sky.holding) and player.text_input_owner==temporal_sky and temporal_sky.is_ancestor_of(get_viewport().get_camera_3d()):return true
+		return _contact_owns and player.text_input_owner==self and player.camera.is_current()
+	if state.phase in ["dream","awakening"]:return begin_opening(cover_scene)
+	if _running:
+		# A previous presentation attempt may have been refused by its owner.
+		# Keep the saved phase retryable instead of reporting an idle clip ready.
+		return begin_temporal_sky() if state.phase in ["temporal_synchronization","title_reveal"] else true
+	if not _claim_waking_presentation():return false
+	_enter_phase()
+	if state.phase=="title_reveal":return begin_temporal_sky()
+	return errors.is_empty()
+
 func begin_waking_preview() -> bool:
 	# Explicit incomplete-slice preview only; it does not claim DREAM was played.
 	if world==null or not errors.is_empty() or state.phase not in ["dream","awakening","bedroom_exploration","bathroom_entry","curtain_interaction","shower_temperature","shower_complete","mirror_tapping","mirror_condensation","protagonist_reveal","cabinet_inspection","reflection_visitor","companion_crossing","first_contact"]: return false

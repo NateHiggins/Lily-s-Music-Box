@@ -763,8 +763,9 @@ func _review_waking() -> void:
 	var editor_retained:bool=player.text_input_owner==self
 	player.release_text_input(self)
 	if not _require(editor_refused and editor_retained and director.errors.is_empty() and director.shower.manipulation_changed.is_connected(Callable(director,"_released")),"busy editor refuses without closing input or disconnecting tutorial bindings"):return
-	if not _require(director.state.phase=="dream" and director.begin_opening(scene),"actual DREAM starts without preview advancement"):return
+	if not _require(director.state.phase=="dream" and director.resume_opening(scene),"public resume starts actual DREAM without preview advancement"):return
 	var clip:Node=director.waking
+	if not _require(director.resume_opening(scene) and director.waking==clip and clip.age<.01,"repeated resume retains the same active DREAM clip"):return
 	var start_costs:Dictionary=clip.start_costs.duplicate(true)
 	if not _require(clip.active and player.text_input_owner==clip and not world.player_avatar.visible and carrier.is_story_absent(),"camera/input/absence owners conceal body and bot"):return
 	var material:=clip.cover.material_override as StandardMaterial3D
@@ -795,6 +796,7 @@ func _review_waking() -> void:
 	if not _require(director.begin_opening(scene),"opening can resume after protected conversation releases input"):return
 	var foreign_camera:=Camera3D.new();add_child(foreign_camera)
 	foreign_camera.global_transform=player.camera.global_transform;foreign_camera.make_current()
+	if not _require(not director.resume_opening(scene) and foreign_camera.is_current(),"resume refuses a foreign camera even while its old shot still owns input"):return
 	await get_tree().process_frame;await get_tree().process_frame
 	var foreign_view_preserved:bool=foreign_camera.is_current()
 	player.camera.make_current();foreign_camera.queue_free()
@@ -835,6 +837,26 @@ func _review_waking() -> void:
 	_require(player.camera.is_current() and player.global_position.distance_to(world.core_loop.resolve_return_anchor().position)<.10,"handoff uses actual standing anchor and player camera")
 	_require(not world.player_avatar.visible and carrier.is_story_absent(),"true body and companion stay concealed after waking")
 	await _shot("wake_control_restored.png")
+	# A reconstructed opening must use its saved phase rather than the preview
+	# which deliberately skips DREAM. Exercise this through real disk storage.
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("bedroom_resume.json")
+	RealityState.persistence_enabled=true;saved=RealityState.save_game()
+	director.shutdown();director.queue_free()
+	RealityState.load_game();RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	await get_tree().process_frame
+	director=Director.new();world.add_child(director);frame_trace.director=director
+	if not _require(saved and director.configure(world),"new director binds the validated bedroom save"):return
+	var resume_facts:Dictionary=director.state.duplicate(true)
+	if not _require(player.acquire_text_input(self),"successor editor holds saved-opening startup"):return
+	var resume_refused:bool=not director.resume_opening(scene)
+	var editor_preserved:bool=player.text_input_owner==self
+	player.release_text_input(self)
+	if not _require(resume_refused and editor_preserved and director.state==resume_facts and not director._running,"saved-opening retry preserves a foreign editor and narrative facts"):return
+	if not _require(director.resume_opening(scene) and director.state==resume_facts and director.waking==null,"saved bedroom resumes directly without replaying DREAM or advancing facts"):return
+	director._phase_age=2.0
+	if not _require(director.resume_opening(scene) and director._phase_age==2.0 and director.message_id=="wake_passed","repeated resume preserves live phase age and surface writing"):return
+	_require(not world.player_avatar.visible and carrier.is_story_absent() and player.camera.is_current() and player.text_input_owner==null,"resumed bedroom preserves concealment and player-owned exploration")
+	await _shot("wake_bedroom_resumed.png")
 	# Replay the saved DREAM boundary once without seeking, screenshots or disk
 	# work inside the interval. Keep every raw frame, including setup/handoff.
 	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("waking_reload.json")
