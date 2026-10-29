@@ -30,7 +30,7 @@ func _route() -> void:
 	for point in [Vector3(-13.4,3.2,2.5),Vector3(-10.5,3.2,2.5),Vector3(-9.2,3.2,1.4)]:
 		if not await _walk(point): return
 	var detector: VantryPointProp = world.vantry_points.active_owner
-	if not await _use(detector,detector.global_position-Vector3.UP*.05,"listening_head_inspection"): return
+	if not await _open_grille(detector,"listening_head_inspection"): return
 	_reported_job = world.work_orders.job_state(ChirpHunt.JOB_ID).duplicate(true)
 	if not _require(_reported_job.stage == "awaiting_part" and _reported_job.evidence.size() == 3
 			and world.chirp_hunt.fault_active(),"physical inspection diagnoses the still-chirping head"): return
@@ -39,7 +39,7 @@ func _route() -> void:
 	if not failures.is_empty(): return
 	if not await _walk(Vector3(1.925,0,-3.5)): return
 	if not await _enter_2a(): return
-	if not await _use(detector,detector.global_position-Vector3.UP*.05,"listening_head_repair"): return
+	if not await _open_grille(detector,"listening_head_repair"): return
 	await get_tree().create_timer(.6).timeout
 	var job: Dictionary = world.work_orders.job_state(ChirpHunt.JOB_ID)
 	_require(job.stage == "repaired" and job.repair_result.quality == "good",
@@ -111,6 +111,23 @@ func _use(owner_node: Node3D,target: Vector3,label: String) -> bool:
 		return await _hand_move(door,target,0.0 if door.open else door.motion_target_angle(true)*0.86,label)
 	# Conversation and authored semantic actions keep their existing owners.
 	return await super._use(owner_node,target,label)
+
+## The listening head's captive grille is a slider the hand draws down
+## (RUL-013); drawing it fully open and letting go is the inspection, and,
+## once the part is in hand, the repair. An already open grille is pushed
+## shut first, as a player would.
+func _open_grille(detector: VantryPointProp, label: String) -> bool:
+	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var grille: Vector3 = detector.global_position-Vector3.UP*.05
+	var shut := true
+	if detector._grille_open > .5:
+		shut = await hand.operate(grille, 0.0, detector)
+	var opened: bool = shut and await hand.operate(grille, .05, detector)
+	hand.free()
+	return _require(opened, "actual grab, motion and release open the grille: " + label)
 
 func _enter_front_entrance() -> bool:
 	# At the inherited -13.15 stance the outward leaf hits this player's
