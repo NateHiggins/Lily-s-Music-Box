@@ -145,6 +145,10 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   The pinned glTF importer nests authoring metadata under `get_meta("extras")`;
   it also sanitizes illegal node-name characters. Preserve semantic key tokens
   in extras and verify the loaded bindings rather than relying on raw names.
+  A reviewed source-binding refresh changes the containing fixture bytes too;
+  check the complete declared downstream fixture closure before reopening the
+  world. Prove unchanged consumed projections/native stock and retain prior
+  pins or reports before refreshing metadata; do not blindly repin dependencies.
 - **Input:** exercise the first mouse increment, continued hold, travel stops,
   release and cancellation with the real controller. Toggle tests do not prove
   direct manipulation. Preserve draft/focus and pause/input ownership. Do not
