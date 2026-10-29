@@ -976,7 +976,7 @@ tolerance is relaxed. Final LF-only source-plan normalization preserves JSON
 values and the normalized binding; its exact native-review raw input and
 normalization witness are archived without repinning any receipt.
 
-Clean candidate verification remains **PENDING** before push. Existing project
+Clean construction candidate **04f155c4818ae3de8b6fb65eef2c69369ccd3ba8** passes the complete clean in-place verifier in **C:/ov/city**: 114 gates/tests, zero regressions, zero improvements, all 17 protected paths unchanged, selector **v2**, zero design-lint errors and no changed requirements. The verifier uses **--no-godot** to reuse the separately executed source-bound native/imported, played and full-surface runs. Its generic canonical-checkout wording refers here to this isolated worktree; no canonical prologue checkout is verified or modified. Fresh final-checkout/autocrlf behaviour is outside this in-place comparison. Existing project
 records preserve original failed logs, exact executed scripts and raw
 measurements under **city_west_frontage_20261029/** in the existing skywatch
 archive; 2,011 earlier members/hashes are verified unchanged. Previous surface packet bytes
@@ -984,3 +984,51 @@ are preserved externally and recoverable from the starting Git revision.
 No additional individual building, requirement or artistic acceptance is claimed.
 Manhattan, road regrading, bridge/station, waterfront construction, new body LODs
 and the remaining 138 individual studies are still open.
+
+
+### Management record for this checkpoint
+
+REPORT - V2-CITY-WEST-FRONTAGE - 2026-10-29
+
+Branch / HEAD / origin/main / merge-base: **codex/v2-city-20261029 / 04f155c4818ae3de8b6fb65eef2c69369ccd3ba8 / 3ea80715bd201738d5566dea18bc17d4353ca867 / 3ea80715bd201738d5566dea18bc17d4353ca867**.
+HEAD above is the verified construction; its following publication changes only
+this report and the existing diagnostic archive/index. Runtime/rendering inputs
+remain identical, with a source-Merkle witness in **publication_inputs.json**.
+
+Worktree clean at verification: **yes**. Protected **17/17** unchanged; selector
+**v2**, explicit **ORISON_BUILDING_ROOT=v1** rollback retained. Ledger blockers
+before -> after: **[7,8,110,42,134,136] -> [7,8,110,42,134,136]**;
+requirements_changed: **[]**. No additional human or requirement acceptance.
+
+All 114 baseline comparisons have zero regressions. Existing debt remains:
+ledger **INCOMPLETE**, plus the interaction-implementor, interaction-prompt,
+M11C1 source-ownership, M11C2 export and completeness tool-test failures. Reader
+has zero NEW unread fields; spatial/systemic/period and the physical surface
+gates pass. The verifier flags only the spatial manifest as a changed gate file;
+its five appended records were individually reviewed, with every earlier row
+unchanged. The separate import-policy list addition was also reviewed against
+the preserved 6.07% default-compression failure. No waived regression or suite.
+
+Godot results are the original wrapper receipts/test-written contracts named
+above, not typed exit-code claims. Native and posed review are INERT; played
+frontage is narrow runtime proof; full-surface qualification is technical only.
+Save reconstruction, whole-city completion and human artistic acceptance are
+not executed or granted. Full file changes and all gate results are preserved
+in **candidate_verification/verification.json** inside the existing archive.
+
+Changes outside the immediate street assets: bar reservation *bindings* and
+global surface evidence require renewal after native grade construction. Their
+geometry/authorities remain unchanged. Other generated native reports renew
+dependency bindings rather than introducing duplicate art or new material keys.
+
+Integration remains separate from the active prologue. The independently pushed
+prologue **8634333dd4f8dcf353e3c18f7b90f6eff2056c1b** changes face presentation and
+the V2 shadow budget to eight. This city comparison retains the starting 32-slot
+lighting settings. Reconcile that setter and renew combined-source qualification
+at future integration; do not mix these profile baselines or treat either
+branch's receipts as proof of the combined world. No merge into main here.
+
+Decision needed from owner: **none for this city checkpoint**. Remaining city,
+LOD, lighting/sky artistic and frame-tail limitations are recorded above.
+
+Last line: **BLOCKED main integration pending coordinated prologue reconciliation and combined verification; isolated city construction is technically qualified.**

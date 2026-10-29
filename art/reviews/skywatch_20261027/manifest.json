@@ -2323,9 +2323,12 @@
     "city_west_frontage_20261029/west_frontage_05.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "city_west_frontage_20261029/external_media_index.json": "660b29b4fb72e545edf3fd53ebbcacf7bd5e3eb887a85e8ca4cabaa4aa19d132",
     "city_west_frontage_20261029/native_final_04/executed_frontage_source_plan.json": "50450575323ba65a37947a8254a3c955aff099ef80d6487186dc9faa3e49c592",
-    "city_west_frontage_20261029/frontage_plan_lf_normalization.json": "c4551a34b84c9598a0d7b838196432f133b78a4821bf5f9e805ed1baf41a96c8"
+    "city_west_frontage_20261029/frontage_plan_lf_normalization.json": "c4551a34b84c9598a0d7b838196432f133b78a4821bf5f9e805ed1baf41a96c8",
+    "city_west_frontage_20261029/candidate_verification/verification.json": "16e561b3b4a4070dcd50ffedcc3f964da3d5584a0b8bd61681743c8aa2e1be11",
+    "city_west_frontage_20261029/candidate_verification/verification.md": "15188a710343062e3f8fe3d93de0913ed7acb4de3a3c4584965f9b291b51b6be",
+    "city_west_frontage_20261029/publication_inputs.json": "6d40ca0cf16e419a061ce68e62493c19a8a31462086c816ac0d5093503e6439d"
   },
-  "archive_sha256": "11edbd0e7464222be63d83c73f32948f3bbba77318ccc125ee16b75a8888a6b6",
+  "archive_sha256": "172ba42fd48231778a6e80a6b4280316a69c329a83c81724b30f1c974b61995f",
   "part9_source_lf_sha256": {
     "game/scripts/building/skywatch_catalogue.gd": "d52878af4786039b948fef0b4bba1cb16262b5f1168603643f876ae423486bc5",
     "game/scripts/building/skywatch_astronomy.gd": "875efe5ff925d9714b0b47092c11e4658ba0e0f765dcb968e2305d7ec3db0165",
@@ -8696,7 +8699,7 @@
     "raw_prefix": "city_west_frontage_20261029/",
     "scope": "Seven retained passive assembly translations, native low closed works body, source-fitted grade. No new individual building, passive-lot access, save reconstruction or artistic acceptance.",
     "prior_members_preserved": 2011,
-    "new_members": 233,
+    "new_members": 236,
     "played_checks": 159,
     "played_waypoints": 39,
     "matched_profile_waypoints": 124,
@@ -8723,6 +8726,12 @@
     "measurements": "city_west_frontage_20261029/measured_city_comparison.json",
     "failures_retained": true,
     "source_snapshot_scope": "Original failed scripts/logs/receipts and current native/runtime witnesses; large original images/import-churn archives retained externally with SHA256 index.",
-    "eol_normalization_witness": "city_west_frontage_20261029/frontage_plan_lf_normalization.json"
+    "eol_normalization_witness": "city_west_frontage_20261029/frontage_plan_lf_normalization.json",
+    "verified_construction": "04f155c4818ae3de8b6fb65eef2c69369ccd3ba8",
+    "static_gates": 114,
+    "regressions": [],
+    "requirements_changed": [],
+    "protected_unchanged": 17,
+    "selector": "v2"
   }
 }
