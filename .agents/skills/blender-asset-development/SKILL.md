@@ -101,6 +101,20 @@ result. Bind newly reused geometry helpers in the family's source provenance.
 If Windows blocks direct export replacement, prefer the existing validated
 temporary-export path with bounded replacement; retain the original failure.
 
+For external deliveries, run the repository's exported derivative checker before
+integration. Unit length and orthogonality alone do not establish a correct UV
+tangent. The October29 car/lamp studies needed per-corner derivative guides to
+prevent deduplication from averaging incompatible charts. Re-export from native
+source, then compare triangle positions/normals/UVs, named transforms and encoded
+images against the original; preserve the failed exports. Do not change palettes,
+wheel normalization or light ownership as an incidental tangent repair.
+
+For a partial architectural delivery, merge only its declared replacement stocks
+and moving branch. A complete installed facade may also own marquee supports,
+window surrounds and water tables. Verify untouched draw arrays exactly; in mixed
+batches, compare retained triangle attributes after removing only the specified
+source faces. Do not replace the full asset with a portal-only GLB.
+
 ## Verify in a bounded batch
 
 Finish native diffuse/grazing/back-side and motion-extreme review before a

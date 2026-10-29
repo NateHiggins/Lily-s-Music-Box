@@ -1,7 +1,7 @@
 # Orison front entrance: remodel plan and example adaptation
 
-Evidence class: **INERT**. Queued authoring plan, not modeled work, runtime
-qualification or artistic acceptance. Weather/noise repair remains first.
+Evidence class: **INERT**. Authoring plan and native integration record;
+runtime qualification and artistic acceptance are reported separately below.
 
 ## Owner direction and form references
 
@@ -83,3 +83,83 @@ readability. Exercise actual grab/motion/release, easy passage and affected
 save/load owners. Compare frame-time distributions on the same approach route;
 triangle targets alone do not qualify responsiveness. Preserve original defects
 and renew only affected evidence after sources settle.
+
+## October29 delivery intake and selective native integration
+
+REPORT — ENTRANCE-NATIVE-INTAKE — 2026-10-29. Parent **fccd68cb**.
+The external **C:/ov/asset-prototypes/orison-front-entrance-20261029/** delivery
+passes128 manifest hashes,20 current source bindings and both repository tangent
+checks. Its final source SHA256 is
+**d210b8927737ae57be9f9bd12fb8a8f5158749bf337f17eba1ce7058a38db7d4**.
+It is a partial portal, not a complete replacement facade. The combined source
+is merged in Blender by retiring only the seven named fixed stocks in its
+replacement manifest and the old moving leaf. No donor context, copied original
+construction, reference pixels, lettering, cameras or lights are installed.
+
+**385 retained editable stocks** have unchanged native fingerprints. All arrays
+and transforms in52 untouched export draws remain exact. In the eight mixed
+draws, every retained triangle's position, normal, UV and tangent remains exact;
+only the1,308 declared retired fixed triangles are removed. All five new portal
+partitions retain the delivered arrays exactly. The complete asset is59 draws,
+41,302 triangles versus68/37,687 previously, with no embedded materials/images.
+GLB size falls from5,654,716 to5,306,272bytes. These are asset measurements,
+not a frame-time improvement. Closed construction now totals633 stocks.
+
+The first external merge attempt stops on a missing retained material binding
+after removal of the old oak; the original failure remains in **merge_first.log**.
+Capturing material owners before retirement fixes it. Native previews inspect
+the combined closed approach and open rear joinery. Canonical export succeeds
+with minimum tangent agreement0.9999954422, noncollapsed geometry/UVs and all
+draws bounded to4metres. Existing fixture evidence is renewed for the actual
+complete asset, without changing retained source bindings. The native source and
+**export_front_facade.py** drive ordinary rebuilds; the old generator delegates
+to that export, reserving **--legacy-baseline** for historical reconstruction.
+
+The local finish proposal uses dark oiled oak and warm stone through duplicated
+materials; shared catalogue defaults and the established clear-glass owner are
+retained. Door, lock, save, closer, mail repair, panic bar, marquee, acoustic sign,
+lamp and entrance placement authorities are unchanged. Actual loaded appearance,
+glass, player grab and composed fit remain pending the queued shared-lane review.
+The existing facade test now uses the golden route's physical mouse driver for
+the new leaf. This statement records implementation, not a passing playtest.
+
+Evidence and preserved originals are under
+**C:/ov/reports/prologue_20261028/entrance_delivery_review/**: **manifest_check.json**,
+**source_recheck.json**, **combined_candidate/merge_review.json**,
+**export_preservation.json**, **mixed_draw_preservation.json** and
+**donor_stream_preservation.json** within that combined-candidate directory.
+The two combined CPU images are native review only. Six scoped static gates
+pass with0NEW unread fields and no regressions against the retained board;
+this does not replace current-main candidate verification or surface renewal.
+
+### Other waiting deliveries: actual disposition
+
+- **Phone-scale arm and clawfoot tub:** already installed with later cassette,
+  plumbing, curtain and UV repairs. Do not overwrite these with earlier external
+  prototypes or apply the arm's0.42scale again.
+- **Model A Tudor:**63 manifest files match. The complete assembly is29,662
+  triangles including four wheel instances and driver;22,390 counts unique
+  mesh data only. Original export fails the canonical UV-derivative tangent
+  check at the rear quarter, despite unit/orthogonal tangents. An external native
+  corner-guide re-export passes0.9999999570 minimum agreement, preserving all
+  triangle positions/normals/UVs,27 encoded images and named transforms exactly.
+  It is not installed. Catalogue/traffic batches, physical0.381m wheel radius,
+  driver ownership, lamp optics and runtime cost still need integration.
+- **Gas streetlamp:**40 manifest files match. The original22,444triangle export
+  fails the same derivative check at the base cock. A native corner-guide study
+  passes0.9999999590 while preserving triangle positions/normals/UVs,14 encoded
+  images and transforms exactly. It is not installed. The existing gaslight
+  clock, emitter budget, crossing signal box, glass and collision owners must
+  survive conversion; a visible mantle does not create a simulated gas service.
+- **Tardi organ:** remains explicitly INERT research-only. Intake does not
+  authorize runtime attachment or changes to Tardi's exterior/current shader.
+- **Voice sketch:** audio, not a Blender delivery; not treated as an installed
+  companion voice system.
+
+Car/lamp originals, manifest results and failed checks remain external alongside
+**other_delivery_checks.json**, **tangent_studies/review.json** and
+**tangent_studies/preservation.json**. Four original car/lamp CPU views are
+inspected for form; the re-export preservation checks are not optical renders
+or artistic acceptance. Their bundled maps still require catalogue integration.
+The Blender skill records both derivative and selective-merge lessons; its
+structural validator passes. No broad task or V2 completion is declared.

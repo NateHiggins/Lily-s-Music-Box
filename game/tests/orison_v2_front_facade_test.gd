@@ -101,6 +101,18 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var inspect_ray:=PhysicsRayQueryParameters3D.create(world.player.camera.global_position,world.player.camera.global_position-world.player.camera.global_basis.z*2.1,1,[world.player.get_rid()]);inspect_ray.collide_with_areas=true
 	print("FACADE INSPECTION ",world.get_world_3d().direct_space_state.intersect_ray(inspect_ray)," prompt=",world.player._prompt.text)
 	check(world.player._prompt.text.contains("Inspect ORISON neon"),"original low transformer inspection is reachable from the pavement")
+	# The replacement is qualified with the same physical input driver used by
+	# the golden route, rather than the legacy endpoint/toggle command.
+	world.player.camera.make_current()
+	world.player.global_position=Vector3(0,.02,-13.55)
+	world.player.set_mouse_released(false)
+	await get_tree().physics_frame
+	var hand:=preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand);hand.player=world.player
+	var contact: Vector3=door._body.to_global(Vector3(door.width/3.0,1.1,door._hinge_offset))
+	var moved: bool=await hand.operate(contact,deg_to_rad(86),door)
+	check(moved and hand.follows_cursor and door.open and not door._hand_gripped,"new native entrance opens through actual grab, mouse travel and next-click release")
+	hand.free()
 	print("FRONT FACADE TEST: parts=",parts," triangles=",triangles," checks=",checks," failures=",failures.size())
 	world.player.global_transform=old_player_pose
 	world.player.camera.transform=old_camera_pose

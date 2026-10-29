@@ -9,6 +9,14 @@ import bpy,bmesh,numpy as np
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
 sys.path.insert(0,str(Path(__file__).parent));os.environ['ORISON_DEFINITIONS_ONLY']='1'
+# The newer entrance is editable native construction, not this historical
+# baseline recipe. Ordinary rebuilds export it rather than silently reverting it.
+if '--legacy-baseline' not in sys.argv and (ROOT/'art/blender/front_facade.blend').exists():
+    bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/blender/front_facade.blend'))
+    if bpy.context.scene.get('portal_revision')=='20261029':
+        from export_front_facade import main
+        main()
+        raise SystemExit(0)
 import build_orison as original
 from fabrication_uvs import chart_for_triangle
 def digest(p):
