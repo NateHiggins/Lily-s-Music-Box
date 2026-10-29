@@ -207,6 +207,10 @@ static func date_key(date: Dictionary) -> String:
 	return "%04d-%02d-%02d" % [int(date.get("year", 0)), int(date.get("month", 0)),
 		int(date.get("day", date.get("day_of_month", 0)))]
 
+## Membership only; no weather projection or new time authority.
+static func has_date(date: String) -> bool:
+	return load_calendar() and _days.has(date)
+
 static func day(date: String) -> Dictionary:
 	return _days.get(date, {}).duplicate(true) if load_calendar() else {}
 

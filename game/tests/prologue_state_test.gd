@@ -2,6 +2,7 @@ extends Node
 ## Domain and real validated disk-save test; no prologue presentation acceptance.
 const State := preload("res://scripts/game/prologue_state.gd")
 const Document := preload("res://scripts/game/reality_save_document.gd")
+const Stinger:=preload("res://scripts/game/prologue_tardi_stinger.gd")
 var failures: Array[String]=[]
 var checks := 0
 
@@ -11,6 +12,12 @@ func check(ok: bool, label: String) -> void:
 	print("PROLOGUE STATE ","PASS " if ok else "FAIL ",label)
 
 func _ready() -> void:
+	check(Stinger.DURATION==17 and not Stinger.sample(16.999).finished and Stinger.sample(17).finished,"historical cutaway has exactly17 seconds including title")
+	check(not Stinger.sample(4.499).flash and Stinger.sample(4.5).flash and not Stinger.sample(4.8).flash,"controlled reveal occupies4.50 through4.80 seconds")
+	check(Stinger.sample(6.5).lift==0 and Stinger.sample(8.5).lift==1,"greeting begins6.50 and settles at8.50")
+	check(Stinger.sample(8.5).travel==Stinger.sample(10.5).travel and Stinger.sample(10.5).lift==1,"two-second expectant pause has identical body travel and greeting")
+	check(Stinger.sample(12.5).travel==Stinger.WALK*2+Stinger.TURN,"retreat completes by12.50")
+	check(not Stinger.sample(13.499).black and Stinger.sample(13.5).black and not Stinger.sample(13.999).title and Stinger.sample(14).title,"black and title boundaries remain13.50 and14.00")
 	var old_path: String=RealityState.save_path
 	var old_persistence: bool=RealityState.persistence_enabled
 	var old_data: Dictionary=RealityState.data.duplicate(true)
@@ -144,12 +151,16 @@ func _test_clock_handoff(opening:Dictionary) -> void:
 	check(director.finish_temporal_synchronization() and director.state.phase=="title_reveal" and "temporal_transition_complete" in director.state.events,"ordinary completed transition records only its real clock acknowledgement")
 	var accepted_clock:Dictionary=RealityState.data.campaign_clock.duplicate(true)
 	check(not director.finish_temporal_synchronization() and RealityState.data.campaign_clock==accepted_clock,"duplicate visual completion cannot apply another clock jump")
+	check(director.finish_historical_cutaway(false) and director.state.phase=="prologue_complete" and "title_presented" in director.state.events and RealityState.data.campaign_clock==accepted_clock,"completed historical title preserves the present-day clock")
+	var completed:Dictionary=RealityState.data.prologue.duplicate(true)
+	check(director.finish_historical_cutaway(false) and RealityState.data.prologue==completed and RealityState.data.campaign_clock==accepted_clock,"duplicate historical completion is idempotent")
 	director.shutdown();director.queue_free()
 	var skip:Dictionary=opening.duplicate(true);skip.skipped=true;skip.events=[]
 	RealityState.data.prologue=skip
 	director=preload("res://scripts/game/prologue_director.gd").new();add_child(director)
 	director.state=State.restore(skip);director._document=RealityState.data
 	check(director.finish_temporal_synchronization() and director.state.effects.clock_applied and director.state.events.is_empty(),"skip performs the real clock handoff without inventing witnessed transition events")
+	check(director.finish_historical_cutaway(true) and director.state.phase=="prologue_complete" and director.state.events.is_empty(),"skipped cutaway completes without invented title or creature observations")
 	director.shutdown();director.queue_free()
 	# No state flag or timestamp is granted to a refused target/early phase.
 	RealityState.data.prologue=opening.duplicate(true)

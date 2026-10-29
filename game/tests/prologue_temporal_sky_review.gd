@@ -84,7 +84,8 @@ func run() -> void:
 	player.acquire_text_input(self)
 	check(not director.begin_temporal_sky() and world.process_mode==mode and player.text_input_owner==self,"foreign text ownership refuses the cinematic without freezing the world")
 	player.release_text_input(self)
-	if not check(director.begin_temporal_sky(),"actual window-to-sky cinematic starts"):finish();return
+	var started:bool=director.begin_temporal_sky()
+	if not check(started,"actual window-to-sky cinematic starts: "+str(director.temporal_sky.failure if is_instance_valid(director.temporal_sky) else "no scope")):finish();return
 	var clip:Node=director.temporal_sky
 	var frozen:Dictionary=RealityState.data.campaign_clock.duplicate(true)
 	for stamp:float in [0.0,3.5,4.5,6.5,9.0,15.0,24.0,29.8]:
@@ -119,19 +120,26 @@ func run() -> void:
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 	var began:=Time.get_ticks_msec()
 	var frame_times:Array=[];var last:int=Time.get_ticks_usec()
-	while clip.active and Time.get_ticks_msec()-began<50000:
+	var held_correctly:=true;var saw_cutaway:=false
+	while (clip.active or clip.holding) and Time.get_ticks_msec()-began<80000:
 		await frames(1)
+		if clip.holding:
+			saw_cutaway=true
+			held_correctly=held_correctly and world.process_mode==Node.PROCESS_MODE_DISABLED and player.text_input_owner==clip and world.service_set_carrier.is_story_absent() and int(clip.view_clock.local_datetime().year)==1928 and int(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))==int(target.utc_unix_seconds)
 		var now:int=Time.get_ticks_usec()
 		frame_times.append([clip.age,(now-last)/1000.0,
 			RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),
 			RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid()),
 			RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_DRAW),
-			RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_SURFACE)]);last=now
-	check(not clip.active and director.state.phase=="title_reveal" and director.state.effects.clock_applied,"natural cinematic finishes through the real clock-owner callback")
+			RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_SURFACE),clip.cutaway.age if is_instance_valid(clip.cutaway) else -1.0]);last=now
+	check(saw_cutaway and held_correctly,"natural sky hands directly into historical cutaway while the authoritative clock stays present")
+	check(not clip.active and not clip.holding and director.state.phase=="prologue_complete" and director.state.effects.clock_applied,"natural cinematic and17-second ending finish through their authoritative owners")
 	check(int(Time.get_unix_time_from_datetime_dict(clock.utc_datetime()))>=int(target.utc_unix_seconds),"completed scene reaches the fixed destination UTC instant")
 	check(world.process_mode==mode and player.text_input_owner==null and player.camera.is_current(),"natural completion returns camera/input/world control")
 	FileAccess.open(directory.path_join("publication_costs.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","samples":clip.sample_costs,"finish":clip.finish_costs,"scope":"synchronous cinematic publication cost; not a playable movement profile"},"\t"))
 	FileAccess.open(directory.path_join("frame_times.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","samples":frame_times,"viewport":str(get_viewport().size),"msaa_3d":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"fps_cap":Engine.max_fps,"vsync":DisplayServer.window_get_vsync_mode(),"engine":Engine.get_version_info(),"target":target,"scope":"uninterrupted optical cinematic only; no PNG readback within this trace; main-viewport CPU/GPU times exclude private viewports"},"\t"))
+	await review_cutaway(target)
+	await reload_cutaway(target,mode)
 	# Accessible presentation hides fast cycles, but uses the same final state.
 	var previous_quiet:bool=bool(GameBoot.settings.get("reduce_flashing",false))
 	GameBoot.settings.reduce_flashing=true
@@ -141,6 +149,13 @@ func run() -> void:
 		await capture("reduced_flash_midpoint.png")
 		clip.seek(31);await frames(3);await capture("reduced_flash_destination.png")
 		check(clip._veil.color.a<.01,"reduced-flash path reveals the settled destination")
+		clip.seek(32)
+		if check(clip.holding,"reduced-flash path enters the same historical scene"):
+			clip.cutaway.set_process(false);clip.cutaway.seek(4.5)
+			var energy:float=clip.cutaway.light.light_energy
+			await frames(6);await capture("reduced_flash_stinger.png")
+			clip.cutaway.seek(8.5)
+			check(energy==clip.cutaway.light.light_energy and energy<1.0,"reduced-flash reveal keeps steady restrained illumination")
 		clip.cancel()
 	GameBoot.settings.reduce_flashing=previous_quiet
 	# Reload through real validated storage during an accelerated frame.
@@ -155,8 +170,86 @@ func run() -> void:
 	if check(director.begin_temporal_sky(),"reloaded transition resumes with its original target"):
 		var press:=InputEventAction.new();press.action="ui_accept";press.pressed=true
 		Input.parse_input_event(press);Input.flush_buffered_events();await frames(2)
-		check(director.state.phase=="title_reveal" and director.temporal_sky.was_skipped and player.text_input_owner==null,"actual skip input lands through the same clock owner and releases its lease")
+		check(director.state.phase=="prologue_complete" and director.temporal_sky.was_skipped and player.text_input_owner==null,"actual skip input completes through the same clock owner and releases its lease")
 	finish()
+
+func review_cutaway(target:Dictionary) -> void:
+	if not check(stage(target) and director.begin_temporal_sky(),"rendered cutaway review starts from real sky ownership"):return
+	var clip:Node=director.temporal_sky
+	var late:=AudioStreamPlayer.new();late.volume_db=-19;world.add_child(late)
+	clip.seek(32)
+	check(late.volume_db==-80,"a newly mounted world audio owner is muted without a second tree scan")
+	if not check(clip.holding and is_instance_valid(clip.cutaway) and clip.cutaway.active,"historical cutaway reuses the frozen scope: "+str(clip.cutaway.failure if is_instance_valid(clip.cutaway) else "no cutaway")):return
+	var ending:Node=clip.cutaway;ending.set_process(false)
+	var saved_pose:Dictionary=ending.original.duplicate(true)
+	var population:int=ending.controller.critters.size()
+	var present:Dictionary=RealityState.data.campaign_clock.duplicate(true)
+	var hold:=""
+	for stamp:float in [0.0,4.5,6.5,8.5,10.5,12.5,13.5,14.0,16.9]:
+		ending.seek(stamp);await frames(6)
+		if stamp==8.5:hold=JSON.stringify(ending.specimen)
+		if stamp==10.5:check(hold==JSON.stringify(ending.specimen),"expectant wait preserves the exact existing specimen pose for two seconds")
+		await capture("stinger_%03d.png"%int(stamp*10))
+	check(RealityState.data.campaign_clock==present,"all historical cutaway frames leave present-day campaign time unchanged")
+	ending.seek(8.5)
+	await review_cutaway_optics(ending)
+	get_tree().paused=true;var age:float=ending.age;await frames(3)
+	check(ending.age==age and clip.player.text_input_owner==clip,"pause preserves cutaway timing and existing input ownership")
+	get_tree().paused=false
+	ending.seek(17)
+	check(late.volume_db==-19,"historical teardown restores late audio to its actual owner volume");late.free()
+	check(not clip.holding and ending.specimen==saved_pose and ending.controller.critters.size()==population,"title completion restores the existing specimen and population without duplicates")
+	check(director.state.phase=="prologue_complete" and clip.player.text_input_owner==null,"title completion releases input without another clock application")
+	check(ending.controller._temporal_hidden and not ending.controller.visible,"the existing private animal stays behind when play resumes in the present")
+	var clock:=CampaignClock.new()
+	clock.configure_date(1928,11,10,18*60)
+	await get_tree().create_timer(.35).timeout
+	check(not ending.controller._temporal_hidden and ending.controller.visible and ending.controller.companion.specimen_id==int(ending.specimen.id),"returning to the historical year restores the same specimen through normal polling")
+	RealityState.data.campaign_clock=present.duplicate(true)
+	await get_tree().create_timer(.35).timeout
+	check(ending.controller._temporal_hidden and not ending.controller.visible,"returning to the present removes the historical animal without a lifecycle event")
+
+func review_cutaway_optics(ending:Node) -> void:
+	var lamp:Node=ending.lamp_air
+	ending.light.light_energy=0
+	lamp.observation.observe_light(ending.light,false,.016);lamp.field.observe(lamp.observation,true);lamp.scene_shadow._process(0)
+	await frames(8);await capture("stinger_source_off.png")
+	check(not lamp.field.enabled,"controlled source off also disables Tardi's shared optical field")
+	ending.seek(8.5);await frames(8)
+	var foreign:=Camera3D.new();add_child(foreign)
+	foreign.global_transform=ending.scope.camera.global_transform.translated(Vector3(.15,0,0));foreign.fov=ending.scope.camera.fov
+	foreign.cull_mask=ending.scope.camera.cull_mask;foreign.make_current()
+	await frames(6);await capture("stinger_foreign_observer.png")
+	ending.scope.camera.make_current();foreign.free()
+	var blocker:=MeshInstance3D.new();var box:=BoxMesh.new();box.size=Vector3(.7,.16,.04);blocker.mesh=box
+	blocker.material_override=MatLib.get_mat("wood_dark");ending.add_child(blocker)
+	var source:Vector3=ending.light.global_position;var target:Vector3=ending.specimen.pos
+	blocker.global_transform=Transform3D(Basis.looking_at((target-source).normalized(),Vector3.UP),source.lerp(target,.5))
+	await frames(4);lamp.field.observe(lamp.observation,true);await frames(8)
+	await capture("stinger_real_blocker.png")
+	blocker.free();await frames(4);ending.seek(8.5);lamp.field.observe(lamp.observation,true);await frames(8)
+	await capture("stinger_source_restored.png")
+	check(lamp.field.enabled and lamp.scene_shadow.camera.cull_mask & (1<<14)==0 and lamp.scene_shadow.camera.cull_mask & (1<<1)==0,"cinematic source preserves private-body/device shadow exclusions and real world blockers")
+
+func reload_cutaway(target:Dictionary,mode:int) -> void:
+	if not check(stage(target) and director.begin_temporal_sky(),"historical reload control begins through the real scope"):return
+	var clip:Node=director.temporal_sky;clip.seek(32)
+	if not check(clip.holding,"historical reload control reaches the cutaway"):return
+	clip.cutaway.seek(8.5)
+	RealityState.save_path=directory.path_join("cutaway_reload.json");RealityState.persistence_enabled=true
+	check(RealityState.save_game(),"validated campaign storage saves the already-applied destination during the cutaway")
+	RealityState.load_game();await frames(2)
+	check(not clip.holding and world.process_mode==mode and world.player.text_input_owner==null and world.player.camera.is_current(),"validated historical reload cancels stale pose, camera and input scope")
+	check(director.state.phase=="title_reveal" and director.state.effects.clock_applied and director.state.target==target,"reload retains the present destination and unfinished historical title")
+	CampaignClock.new().advance_seconds(2)
+	var before:Dictionary=RealityState.data.campaign_clock.duplicate(true)
+	if check(director.begin_temporal_sky(),"saved historical title resumes without replaying the sky or root command"):
+		clip=director.temporal_sky
+		check(clip.holding and not clip.active and RealityState.data.campaign_clock==before,"resumed historical presentation does not rewind elapsed present-day time")
+		var press:=InputEventAction.new();press.action="ui_accept";press.pressed=true
+		Input.parse_input_event(press);Input.flush_buffered_events();await frames(2)
+		check(director.state.phase=="prologue_complete" and world.player.text_input_owner==null and not clip.holding,"actual cutaway skip releases ownership and completes idempotently")
+	RealityState.persistence_enabled=false
 
 func frames(count:int) -> void:
 	for index in count:await get_tree().process_frame

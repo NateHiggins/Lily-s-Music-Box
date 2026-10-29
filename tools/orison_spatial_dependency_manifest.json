@@ -323003,6 +323003,62 @@
    "rationale": "Reviewed measured 4B bedding-clearance diagnostic. Original bed owner remains authoritative; survey coordinates are test camera stations, not gameplay access or runtime qualification.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+    "key": "d698c43708dc9c4d",
+    "kind": "id_reference",
+    "token": "4B_wake_bed",
+    "file": "game/scripts/game/prologue_tardi_stinger.gd",
+    "tier": "production",
+    "subsystem": "game",
+    "symbols": [
+      "start"
+    ],
+    "lines": [
+      70
+    ],
+    "count": 1,
+    "context": [
+      "var bed:Node3D=scope.world.adapter.resolve(\"4B_wake_bed\")"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+      "RUNTIME_LOOKUP"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Production code looks up a layout id at runtime.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+  },
+  {
+    "key": "16c8216ea5bccf0e",
+    "kind": "id_reference",
+    "token": "F04_B_BATH_DOOR",
+    "file": "game/scripts/game/prologue_tardi_stinger.gd",
+    "tier": "production",
+    "subsystem": "game",
+    "symbols": [
+      "start"
+    ],
+    "lines": [
+      77
+    ],
+    "count": 1,
+    "context": [
+      "if str(door.id)==\"F04_B_BATH_DOOR\":departure=frame.to_global(Vector3(float(door.center[0]),bed_at.y,float(door.center[1])))"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+      "RUNTIME_LOOKUP"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Production code looks up a layout id at runtime.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
   }
  ]
 }

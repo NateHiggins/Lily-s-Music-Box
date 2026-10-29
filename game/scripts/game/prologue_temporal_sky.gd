@@ -7,6 +7,7 @@ const Living:=preload("res://scripts/building/living_sky.gd")
 const Calendar:=preload("res://scripts/game/campaign_weather.gd")
 const Weather:=preload("res://scripts/building/WeatherManager.gd")
 const Astronomy:=preload("res://scripts/building/skywatch_astronomy.gd")
+const Stinger:=preload("res://scripts/game/prologue_tardi_stinger.gd")
 
 class RenderClock extends CampaignClock:
 	## Detached read-only projection. No binding, creation, migration or save.
@@ -28,7 +29,10 @@ var director:Node
 var manager:Node
 var camera:Camera3D
 var player:PlayerController
+var failure:=""
 var active:=false
+var holding:=false
+var cutaway:Node
 var age:=0.0
 var sampled_utc:=0.0
 var publications:=0
@@ -41,6 +45,7 @@ var destination_utc:=0.0
 var view_clock:=RenderClock.new()
 var _campaign:Dictionary
 var _completion:Callable
+var _cutaway_completion:Callable
 var _old_mode:int
 var _old_camera:Camera3D
 var _old_clock:CampaignClock
@@ -51,6 +56,9 @@ var _representatives:Dictionary={}
 var _old_parameters:Dictionary={}
 var _particles:Array[Dictionary]=[]
 var _audio:Array[Dictionary]=[]
+var _late_audio:Array[Node]=[]
+var _canvas_layers:Array[CanvasLayer]=[]
+var _watching_tree:SceneTree
 var _start:Transform3D
 var _window:Vector3
 var _above:Vector3
@@ -80,21 +88,25 @@ static func time_at(seconds:float,source:float,destination:float) -> float:
 		if seconds<=b[0]:return lerpf(source,destination,lerpf(a[1],b[1],smoothstep(a[0],b[0],maxf(0,seconds))))
 	return destination
 
-func start(owner_world:Node3D,completion:Callable) -> bool:
-	if active or get_tree().paused or not is_instance_valid(owner_world) or not completion.is_valid():return false
+func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Callable()) -> bool:
+	if active or get_tree().paused or not is_instance_valid(owner_world) or not completion.is_valid():return _refuse("active, paused or missing owner/completion")
 	var opening:=State.restore(RealityState.data.get("prologue",{}))
-	if opening.is_empty() or opening.phase!="temporal_synchronization" or opening.target.is_empty() or opening.effects.clock_applied:return false
+	if opening.is_empty() or opening.target.is_empty():return _refuse("missing validated destination")
+	var resuming:bool=opening.phase=="title_reveal" and opening.effects.clock_applied
+	if not resuming and (opening.phase!="temporal_synchronization" or opening.effects.clock_applied):return _refuse("opening phase or clock acknowledgement changed")
+	if resuming and not cutaway_completion.is_valid():return _refuse("missing cutaway completion")
 	world=owner_world;player=world.player;director=world.day_night_director
 	var atmosphere:=world.get_node_or_null("WakingAtmosphere")
-	if player==null or director==null or atmosphere==null:return false
+	if player==null or director==null or atmosphere==null:return _refuse("missing existing atmosphere or player")
 	manager=atmosphere.weather_manager
-	if manager==null or manager.extreme_weather==null or not _find_window():return false
+	if manager==null or manager.extreme_weather==null or not _find_window():return _refuse("missing installed window or weather owner")
 	var clock:=CampaignClock.new()
-	if not clock.bind_state():return false
+	if not clock.bind_state():return _refuse("campaign clock refused binding")
 	source_utc=Calendar.clock_seconds(clock)+18000.0
 	destination_utc=float(opening.target.utc_unix_seconds)
-	if not view_clock.seek_utc(destination_utc) or not player.acquire_text_input(self):return false
-	_campaign=RealityState.data;_completion=completion;_old_mode=world.process_mode
+	if not view_clock.seek_utc(destination_utc):return _refuse("detached clock refused destination")
+	if not player.acquire_text_input(self):return _refuse("player input lease refused: protected=%s inspection=%s mouse_released=%s owner=%s"%[player.protected_input_active(),player.inspecting(),player.mouse_released,str(player.text_input_owner)])
+	_campaign=RealityState.data;_completion=completion;_cutaway_completion=cutaway_completion;_old_mode=world.process_mode
 	_old_camera=get_viewport().get_camera_3d();_start=_old_camera.global_transform
 	_old_clock=director._campaign_clock;_old_conditions=director._live_conditions.duplicate(true)
 	_old_extreme=director.extreme_weather
@@ -102,12 +114,14 @@ func start(owner_world:Node3D,completion:Callable) -> bool:
 	for date:String in Calendar._dates:_representatives[date.substr(5)]=date
 	for uniform:Dictionary in manager.sky.shader.get_shader_uniform_list():
 		_old_parameters[str(uniform.name)]=manager.sky.get_shader_parameter(uniform.name)
-	for node:Node in world.find_children("*","GPUParticles3D",true,false):
-		_particles.append({"node":node,"speed":node.speed_scale});node.speed_scale=0
 	for node:Node in world.find_children("*","",true,false):
+		if node is GPUParticles3D:
+			_particles.append({"node":node,"speed":node.speed_scale});node.speed_scale=0
+		if node is CanvasLayer:_canvas_layers.append(node)
 		if node is AudioStreamPlayer or node is AudioStreamPlayer3D:
 			_audio.append({"node":node,"pitch":node.pitch_scale,"volume":node.volume_db})
 			node.pitch_scale*=.25;node.volume_db-=8
+	_watching_tree=get_tree();_watching_tree.node_added.connect(_track_added)
 	_carrier=world.service_set_carrier
 	world.process_mode=Node.PROCESS_MODE_DISABLED
 	director._campaign_clock=view_clock
@@ -120,9 +134,21 @@ func start(owner_world:Node3D,completion:Callable) -> bool:
 	var layer:=CanvasLayer.new();layer.layer=80;add_child(layer)
 	_veil=ColorRect.new();layer.add_child(_veil);_veil.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_veil.mouse_filter=Control.MOUSE_FILTER_IGNORE;_veil.color=Color(0,0,0,0)
+	if resuming:
+		holding=true
+		if _start_cutaway():return true
+		_cleanup();return false
 	active=true;age=0;_publish_age=-INF
 	set_process(true);set_process_unhandled_input(true);seek(0)
 	return true
+
+## Capture only newly mounted presentation owners while the world is borrowed.
+## Avoid rescanning the complete building at the historical handoff.
+func _track_added(node:Node) -> void:
+	if node is not AudioStreamPlayer and node is not AudioStreamPlayer3D and node is not CanvasLayer:return
+	if not is_instance_valid(world) or not world.is_ancestor_of(node):return
+	if node is CanvasLayer:_canvas_layers.append(node)
+	else:_late_audio.append(node)
 
 func _find_window() -> bool:
 	# The installed sanitary-room opening supplies the camera datums.
@@ -188,7 +214,7 @@ func _publish() -> void:
 
 func _process(delta:float) -> void:
 	if not active or get_tree().paused:return
-	if not is_same(_campaign,RealityState.data) or RealityState.save_write_blocked:cancel();return
+	if not is_same(_campaign,RealityState.data) or RealityState.save_write_blocked or player.protected_input_active() or player.text_input_owner!=self:cancel();return
 	seek(age+delta)
 
 func _unhandled_input(event:InputEvent) -> void:
@@ -200,6 +226,13 @@ func _unhandled_input(event:InputEvent) -> void:
 
 func _finish() -> void:
 	var began:int=Time.get_ticks_usec() if profile_samples else 0
+	if _cutaway_completion.is_valid():
+		active=false;holding=true;set_process(false);set_process_unhandled_input(false)
+		var accepted:bool=_completion.call() if _completion.is_valid() else false
+		if accepted and holding and _start_cutaway():
+			if profile_samples:finish_costs["handoff_ms"]=(Time.get_ticks_usec()-began)/1000.0
+			finished.emit(true);return
+		finish_cutaway(false);return
 	_cleanup()
 	var cleaned:int=Time.get_ticks_usec() if profile_samples else 0
 	var accepted:bool=_completion.call() if _completion.is_valid() else false
@@ -212,13 +245,39 @@ func _finish() -> void:
 		finish_costs.merge({"cleanup_ms":(cleaned-began)/1000.0,"clock_callback_ms":(committed-cleaned)/1000.0,"weather_refresh_ms":(Time.get_ticks_usec()-committed)/1000.0},true)
 	finished.emit(accepted)
 
+func _start_cutaway() -> bool:
+	if not _carrier.is_story_absent() and not _carrier.acquire_story_absence(self):return false
+	cutaway=Stinger.new();add_child(cutaway)
+	if not cutaway.start(self,_cutaway_completion):return false
+	if was_skipped:finish_cutaway(bool(_cutaway_completion.call(true)))
+	return true
+
+func finish_cutaway(_accepted:bool) -> void:
+	if not holding:return
+	var began:int=Time.get_ticks_usec() if profile_samples else 0
+	if is_instance_valid(cutaway):cutaway.release()
+	_cleanup()
+	_refresh_destination()
+	if profile_samples:finish_costs["cutaway_release_ms"]=(Time.get_ticks_usec()-began)/1000.0
+
+func _refresh_destination() -> void:
+	var opening:=State.restore(RealityState.data.get("prologue",{}))
+	if opening.is_empty() or not opening.effects.clock_applied:return
+	if is_instance_valid(manager) and is_instance_valid(director):
+		manager._calendar_check_left=0;manager._publish_left=0;manager._phenomena_left=0
+		manager._process(0);director._apply(director._campaign_clock.minute_of_day())
+
 func cancel() -> void:
-	if not active:return
-	_cleanup();finished.emit(false)
+	if not active and not holding:return
+	_cleanup();_refresh_destination();finished.emit(false)
 
 func _cleanup() -> void:
 	var began:int=Time.get_ticks_usec() if profile_samples else 0
-	active=false;set_process(false);set_process_unhandled_input(false)
+	if _watching_tree!=null and _watching_tree.node_added.is_connected(_track_added):_watching_tree.node_added.disconnect(_track_added)
+	_watching_tree=null
+	if is_instance_valid(cutaway):cutaway.release()
+	_late_audio.clear();_canvas_layers.clear()
+	active=false;holding=false;set_process(false);set_process_unhandled_input(false)
 	if is_instance_valid(director):
 		director._campaign_clock=_old_clock;director._live_conditions=_old_conditions;director.extreme_weather=_old_extreme
 		director._apply(_old_clock.minute_of_day())
@@ -246,7 +305,11 @@ func _cleanup() -> void:
 	var input:int=Time.get_ticks_usec() if profile_samples else 0
 	if is_instance_valid(world) and world.process_mode==Node.PROCESS_MODE_DISABLED:world.process_mode=_old_mode
 	if profile_samples:
-		finish_costs={"restore_lighting_ms":(lighting-began)/1000.0,"restore_parameters_ms":(parameters-lighting)/1000.0,"restore_view_ms":(view-parameters)/1000.0,"restore_effects_ms":(effects-view)/1000.0,"release_carrier_ms":(carrier-effects)/1000.0,"release_input_ms":(input-carrier)/1000.0,"resume_world_ms":(Time.get_ticks_usec()-input)/1000.0}
+		finish_costs.merge({"restore_lighting_ms":(lighting-began)/1000.0,"restore_parameters_ms":(parameters-lighting)/1000.0,"restore_view_ms":(view-parameters)/1000.0,"restore_effects_ms":(effects-view)/1000.0,"release_carrier_ms":(carrier-effects)/1000.0,"release_input_ms":(input-carrier)/1000.0,"resume_world_ms":(Time.get_ticks_usec()-input)/1000.0},true)
 
 func _exit_tree() -> void:
-	if active:_cleanup()
+	if active or holding:_cleanup()
+
+func _refuse(reason:String) -> bool:
+	failure=reason
+	return false

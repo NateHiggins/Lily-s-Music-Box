@@ -1,5 +1,5 @@
 extends Node
-## Current working slice: waking surface guidance through shower shutoff.
+## Working slices: waking/shower guidance and the console/sky/historical finale.
 ## Not installed into normal entry until the complete opening is qualified.
 signal phase_changed(phase: String)
 signal transcription_changed(text: String)
@@ -112,14 +112,24 @@ func _temporal_finished(completed:bool) -> void:
 		_advance("temporal_synchronization")
 
 func begin_temporal_sky() -> bool:
-	if world==null or not is_same(_document,RealityState.data) or state.get("phase","")!="temporal_synchronization":return false
-	if is_instance_valid(temporal_sky) and temporal_sky.active:return false
-	if state.effects.clock_applied:return finish_temporal_synchronization()
+	if world==null or not is_same(_document,RealityState.data) or state.get("phase","") not in ["temporal_synchronization","title_reveal"]:return false
+	if is_instance_valid(temporal_sky) and (temporal_sky.active or temporal_sky.holding):return false
+	if state.phase=="temporal_synchronization" and state.effects.clock_applied:
+		if not finish_temporal_synchronization():return false
 	if is_instance_valid(temporal_sky):temporal_sky.queue_free()
 	temporal_sky=TemporalSky.new();add_child(temporal_sky)
 	return temporal_sky.start(world,func() -> bool:
 		if temporal_sky.was_skipped and not _store(State.request_skip(state)):return false
-		return finish_temporal_synchronization())
+		return finish_temporal_synchronization(),finish_historical_cutaway)
+
+func finish_historical_cutaway(skipped:bool) -> bool:
+	if not is_same(_document,RealityState.data):return false
+	if state.get("phase","")=="prologue_complete":return true
+	if state.get("phase","")!="title_reveal" or not state.effects.clock_applied:return false
+	if skipped:
+		if not _store(State.request_skip(state)):return false
+	elif not _observe("title_presented"):return false
+	return _advance("prologue_complete")
 
 ## Called only by the completed visual transition (or its explicit skip).
 ## The historical bedroom cutaway must never call the clock owner again.
