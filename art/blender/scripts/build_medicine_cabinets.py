@@ -73,7 +73,7 @@ assert plan['original_kept']=={row['unit']:kept[row['unit']] for row in selected
 assert 'const SHELF_Y := [1.40, 1.59]' in mechanism and 'const DOOR_ANGLE := deg_to_rad(95.0)' in mechanism
 
 assemblies=[{'id':v['id'],'kind':v['kind'],'cell':'shared','members':[{'id':v['source_id']}],'body':{'rect':[0,0,0,0],'z0':0.}} for v in plan['variants']]
-assert all(instance['variant']==('MedicineLeft' if row['hinge_side']=='left' else 'MedicineRight') for row,instance in zip(selected,plan['instances']))
+assert all(instance['variant']==('MedicineLeftDown6' if row['unit']=='4B' else 'MedicineLeft' if row['hinge_side']=='left' else 'MedicineRight') for row,instance in zip(selected,plan['instances']))
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
 closed=bpy.data.collections.new('ClosedConstruction');bpy.context.scene.collection.children.link(closed);closed.hide_render=True
 retained=bpy.data.collections.new('RetainedSourceBoxes');bpy.context.scene.collection.children.link(retained);retained.hide_render=True
@@ -323,9 +323,12 @@ for item in assemblies:
  if item['id']=='MedicineItem_QUELL_TONIC':
   for part in parts:
    if part['key']=='bottle':part['tint']=[*plan['original_kept']['6B'][0][1],1.]
+ if variants[item['id']].get('base_variant'):
+  base=next(record for record in records if record['id']==variants[item['id']]['base_variant'])
+  parts=base['parts']+parts
  records.append({'id':item['id'],'parts':parts,**frames[item['id']]})
 local_materials={key:{'files':sets[key]['files'],'metallic':sets[key]['metallic'],'roughness':sets[key]['roughness'],'normal_scale':sets[key]['normal_scale'],'color':sets[key]['source_color'],'alpha':sets[key]['alpha']} for key in plan['runtime_keys'] if key not in plan['catalog_variants']}
-runtime={'schema_version':1,'asset':'res://assets/props/medicine_cabinets.glb','floor_y':plan['placement']['floor_y'],'assemblies':records,'instances':plan['instances'],'tint_space':plan['tint_space']}
+runtime={'schema_version':1,'asset':'res://assets/props/medicine_cabinets.glb','floor_y':plan['placement']['floor_y'],'assemblies':records,'instances':plan['instances'],'tint_space':plan['tint_space'],'mounts':plan['mounts']}
 assert set(local_materials)=={'glassish'}
 runtime.update({'local_materials':local_materials,'optics':plan['optics']})
 (OUT/'game/data/orison_v2/medicine_cabinets.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')

@@ -323089,6 +323089,39 @@
     "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
     "resolved_target": "F04/marker",
     "target_exists": true
+  },
+  {
+    "key": "a642d93db1391b6c",
+    "kind": "id_reference",
+    "token": "F04_4B_MIRROR_01",
+    "file": "game/scripts/building/orison_v2_native_medicine_cabinets.gd",
+    "tier": "production",
+    "subsystem": "building",
+    "symbols": [
+      "prepare",
+      "mounting_pose"
+    ],
+    "lines": [
+      8,
+      30
+    ],
+    "count": 2,
+    "context": [
+      "if data.mounts.keys() != [\"F04_4B_MIRROR_01\"]: return false",
+      "if identity != \"F04_4B_MIRROR_01\": return Transform3D.IDENTITY"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+      "RUNTIME_LOOKUP"
+    ],
+    "spatial": [
+      "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Production code looks up a layout id at runtime.",
+    "resolved_target": "F04/marker",
+    "target_exists": true
   }
  ]
 }

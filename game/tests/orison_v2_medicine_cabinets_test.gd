@@ -20,7 +20,12 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		actors.append(prop);mounted_ids.append(prop.get_instance_id())
 		var record: Dictionary = source.accessories.filter(func(row): return row.id == identity)[0]
 		var owner := world.adapter.resolve(str(record.support)) as Node3D
-		check(prop.get_parent() == owner and prop.position.is_equal_approx(Vector3(record.position[0],record.position[1],record.position[2])) and prop.rotation.is_zero_approx(), "original sink attachment and fitted pose")
+		var expected_pose := Transform3D(Basis.IDENTITY, Vector3(record.position[0],record.position[1],record.position[2]))
+		if identity == "F04_4B_MIRROR_01":
+			var pivot := Vector3(0,1.20,.058)
+			var pitch := Basis(Vector3.RIGHT,deg_to_rad(-6.0))
+			expected_pose *= Transform3D(pitch,pivot-pitch*pivot+Vector3(0,.03,0))
+		check(prop.get_parent() == owner and prop.transform.is_equal_approx(expected_pose), "original sink support with exact authored mounting pose")
 		check(prop.unit == record.unit and prop.hinge_side == record.hinge_side, "original household and hinge handedness")
 		var side := 1. if prop.hinge_side == "left" else -1.
 		check(prop._door.position.is_equal_approx(Vector3(side*.230,1.505,-.060)) and prop._door.rotation.is_zero_approx(), "original mirror hinge datum")
@@ -49,7 +54,8 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			if contact.assembly != instance.variant: continue
 			var p: Array = contact.point
 			var at := prop.to_global(Vector3(p[0],p[1],p[2]))
-			var away := -prop.global_basis.z
+			var d: Array = contact.direction
+			var away := prop.global_basis * Vector3(d[0],d[1],d[2])
 			var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+away*.004,at-away*.004,1))
 			check(not hit.is_empty() and hit.position.distance_to(at)<.00005, "native back bears on actual bath wall including 4B extension")
 		kept_count += _check_kept(prop,fixture,factory)
@@ -114,7 +120,10 @@ func _check_kept(prop: Cabinet, fixture: Dictionary, factory: RefCounted) -> int
 	check(contents.get_child_count()==original.size() and prop.inventory_names().size()==original.size(), "original kept inventory count")
 	var rng := RandomNumberGenerator.new();rng.seed=hash(prop.unit+"cab")
 	var used := {0:0,1:0}
-	var shelf_draw := prop.get_node("CabinetCarcass").get_node(str(prop.get_meta("v2_native_medicine_variant"))+"__Body_ON_glassish") as MeshInstance3D
+	var cabinet_variant := str(prop.get_meta("v2_native_medicine_variant"))
+	var cabinet_assembly: Dictionary = fixture.runtime.assemblies.filter(func(row):return row.id==cabinet_variant)[0]
+	var shelf_part: Dictionary = cabinet_assembly.parts.filter(func(part):return part.key=="glassish" and part.component=="Body")[0]
+	var shelf_draw := prop.get_node("CabinetCarcass").get_node(str(shelf_part.name)) as MeshInstance3D
 	for i in original.size():
 		var source: Array = original[i];var shelf := i%2;var n: int = used[shelf];used[shelf]=n+1
 		var at := Vector3(-.155+n*.090+rng.randf_range(-.008,.008),float(Cabinet.SHELF_Y[shelf])+float(source[3])*.5+.008,.005+rng.randf_range(-.010,.010))
@@ -226,3 +235,4 @@ func _review_story_film(world:OrisonV2RuntimeRoot) -> void:
 	pane.remove_meta("prologue_mirror_film")
 	await _settled_optics()
 	check(world.mirror_renderer._material.get_shader_parameter("prologue_film")==Vector2(-1,0),"local film removal restores ordinary mirror response")
+	await shot("mirror_down6_installed")

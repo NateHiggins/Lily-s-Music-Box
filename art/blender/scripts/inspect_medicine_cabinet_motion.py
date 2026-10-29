@@ -26,8 +26,8 @@ def arc_bounds(points,pivot,a,b):
     extra=points[valid].copy();extra[:,axis]=extreme;values.append(extra)
  p=np.concatenate(values);return p.min(0),p.max(0)
 
-for identity,side in [('MedicineLeft',1),('MedicineRight',-1)]:
- objects=[o for o in bpy.data.collections['ClosedConstruction'].objects if o.name.startswith(identity+'_')]
+for identity,side in [('MedicineLeft',1),('MedicineRight',-1),('MedicineLeftDown6',1)]:
+ objects=[o for o in bpy.data.collections['ClosedConstruction'].objects if o.name.startswith(identity+'_') or (identity=='MedicineLeftDown6' and o.name.startswith('MedicineLeft_'))]
  fixed=[o for o in objects if o.get('component','Body')=='Body'];leaf=[o for o in objects if o.get('component') in ['CabinetDoor','Mirror']]
  pivot=np.array((side*.230,.060,1.505));end=-side*math.radians(95);a,b=sorted([0,end])
  for obj in leaf:

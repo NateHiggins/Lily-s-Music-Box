@@ -4,14 +4,33 @@ const PATH := "res://data/orison_v2/medicine_cabinets.json"
 
 func prepare() -> bool:
 	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+	if data is not Dictionary or data.get("mounts") is not Dictionary: return false
+	if data.mounts.keys() != ["F04_4B_MIRROR_01"]: return false
+	var mount: Dictionary = data.mounts.F04_4B_MIRROR_01
+	if mount.get("pitch_degrees") != -6 or mount.get("rise") != .03 or mount.get("pivot") is not Array: return false
+	if mount.pivot.size() != 3 or Vector3(mount.pivot[0],mount.pivot[1],mount.pivot[2]) != Vector3(0,1.20,.058): return false
 	if not _prepare_family(data): return false
+	var shared_parts := {}
 	for row: Dictionary in data.assemblies:
 		for i in row.parts.size():
 			if row.parts[i].get("finish") is not Dictionary: return false
 			var component := str(row.parts[i].component)
 			if component not in ["Body", "CabinetDoor", "Mirror"]: return false
-			_variants[str(row.id)][i]["component"] = component
+			var name_: String = str(row.parts[i].name)
+			if shared_parts.has(name_):
+				_variants[str(row.id)][i] = shared_parts[name_]
+			else:
+				_variants[str(row.id)][i]["component"] = component
+				shared_parts[name_] = _variants[str(row.id)][i]
 	return true
+
+func mounting_pose(identity: String) -> Transform3D:
+	# Original support origin stays authoritative. Only 4B uses the native
+	# six-degree tapered wall rails; the other eleven cabinets remain vertical.
+	if identity != "F04_4B_MIRROR_01": return Transform3D.IDENTITY
+	var pivot := Vector3(0, 1.20, .058)
+	var rotation := Basis(Vector3.RIGHT, deg_to_rad(-6.0))
+	return Transform3D(rotation, pivot-rotation*pivot+Vector3(0,.03,0))
 
 func install_on(prop: MedicineCabinetProp) -> bool:
 	var identity := str(prop.name)

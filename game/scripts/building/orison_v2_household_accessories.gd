@@ -40,6 +40,7 @@ func mount(adapter: Variant) -> bool:
 		prop.name = str(record.id)
 		prop.position = Vector3(record.position[0], record.position[1], record.position[2])
 		prop.rotation.y = float(record.yaw)
+		if record.kind == "mirror": prop.transform *= cabinets.mounting_pose(str(record.id))
 		prop.set_meta("v2_accessory_support", str(record.support))
 		if AcousticGraphData.nodes.has(record.id):
 			prop.graph_node_id = str(record.id)
