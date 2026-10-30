@@ -273,3 +273,35 @@ all three before and after execution; the ledger independently rechecks them.
 A geometry edit invalidates the old physical pass, including same-size edits
 with restored timestamps. Reuse a gameplay run after an optical-only change
 only while its physical and production input bindings remain current.
+
+## Local image generation
+
+`art/tools/imagegen.py` runs SDXL base 1.0 on this machine's RTX 4080. Every agent
+may use it; nothing is uploaded and there is no per-image cost.
+
+- **Run it with any Python.** It re-launches itself in the environment at
+  `C:/devkit/imagegen` (venv and model cache, outside the repository).
+- **One image or a batch.** `--prompt "..." --out <dir> --seeds 4`, or `--batch
+  jobs.json --out <dir>`. Finished images are skipped, so a stopped batch resumes.
+- **Provenance.** Each PNG gets a JSON sidecar with its prompt, seed and model.
+- **It is a lane task.** Each slice of 24 images takes the Godot lane through
+  `tools/lane.ps1` (a batch entry with `"gpu"`), so it queues with Godot runs and
+  never shares video memory with one. `lane.ps1 status` shows it as `lane/gpu`.
+  The queue is first come, first served, so a batch goes to the back after every slice. Logs land in `<out>/logs`.
+- **Results are drafts.** Look at each one. SDXL invents lettering; RUL-008 still
+  forbids it. Reference photographs stay out (RUL-007).
+- **Rebuilding the environment.** `uv venv --python 3.12 C:/devkit/imagegen/venv`,
+  install `torch` from the PyTorch cu124 index, then `diffusers transformers
+  accelerate safetensors sentencepiece pillow huggingface_hub`. Download the model
+  with `HF_HOME=C:/devkit/imagegen/hf`, fp16 files only.
+
+## The lane queue
+
+`tools/lane.ps1` is first come, first served. A waiting broker writes a record under
+`%LOCALAPPDATA%/Orison/waiters`, and only the oldest live record asks for the mutex.
+A record whose process is gone, or started after the record was stamped, does not
+count. A runner started directly exits 73 while anyone is queued. The mutex and the
+Godot census still decide ownership; the queue only decides whose turn it is. A
+broker running an older copy of the script ignores the queue until its checkout
+has this change. `tools/tests/test_lane_queue.py` races real brokers on a private
+mutex.

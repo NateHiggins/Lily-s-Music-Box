@@ -7,6 +7,11 @@
 #        [-WaitMinutes 30] [-TimeoutSeconds N] [-ExtraArgs @(...)] [-Windowed] [-ShotDir <dir>]
 #   pwsh -File tools/lane.ps1 batch -BatchFile <runs.json> [-WaitMinutes 30] [-ContinueOnFailure]
 #
+# The lane also carries other work that needs the whole GPU, such as image
+# generation (art/tools/imagegen.py). A batch entry with "gpu": [exe, args...]
+# instead of a Godot scene runs that command while holding the lane, with its
+# output in "log", under "timeout" seconds (default 900; 124 on the ceiling).
+#
 # The lane is and stays the Windows named mutex
 # Global\OrisonGodotSingleInstance plus the Godot process census. This broker
 # never bypasses either: it WAITS for both to be free, takes the mutex, and
@@ -17,9 +22,10 @@
 # scenes. Every run still goes through the runner, so every run still gets
 # its log, its exit-code contract and its receipt.
 #
-# Waiting agents register a small record under %LOCALAPPDATA%\Orison\waiters
-# so `status` can say who is queued. There is no priority and no pre-emption:
-# the first waiter to find the lane free takes it.
+# Waiting agents register a small record under %LOCALAPPDATA%\Orison\waiters.
+# The lane is first come, first served: only the oldest live record may try for
+# it, and a runner started directly refuses with 73 while anyone is queued.
+# There is no priority and no pre-emption. See Get-OrisonLaneQueue.
 #
 # Batch file: a JSON array of objects
 #   {"scene": "res://tests/X.tscn", "log": "C:/.../x.log",
@@ -51,7 +57,8 @@ param(
 )
 
 . (Join-Path $PSScriptRoot "lane_common.ps1")
-$MUTEX_NAME = "Global\OrisonGodotSingleInstance"
+# ORISON_LANE_TEST_MUTEX isolates the queue test from the real lane and its census.
+$MUTEX_NAME = if ($env:ORISON_LANE_TEST_MUTEX) { $env:ORISON_LANE_TEST_MUTEX } else { "Global\OrisonGodotSingleInstance" }
 $EXIT_LANE_BUSY = 73
 $EXIT_USAGE = 64
 
@@ -156,30 +163,37 @@ function Wait-ForLane {
     $waitDir = Join-Path (Get-OrisonLaneStateDir) "waiters"
     New-Item -ItemType Directory -Force -Path $waitDir | Out-Null
     $waitFile = Join-Path $waitDir "$PID.json"
+    $stamp = "$waitFile.tmp"
     [ordered]@{ pid = $PID; scene = $What; worktree = (Split-Path $PSScriptRoot -Parent)
                 since_utc = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ") } |
-        ConvertTo-Json | Set-Content -LiteralPath $waitFile -Encoding utf8
+        ConvertTo-Json | Set-Content -LiteralPath $stamp -Encoding utf8
+    Move-Item -LiteralPath $stamp -Destination $waitFile -Force
     $announced = $false
     try {
         while ($true) {
-            $m = [System.Threading.Mutex]::new($false, $MUTEX_NAME)
-            $owned = $false
-            $remaining = [int][math]::Max(0, ($deadline - (Get-Date)).TotalMilliseconds)
-            try { $owned = $m.WaitOne([math]::Min($remaining, 15000)) }
-            catch [System.Threading.AbandonedMutexException] { $owned = $true }
-            if ($owned) {
-                if (@(Get-Process -Name "Godot*" -ErrorAction SilentlyContinue).Count -eq 0) {
-                    return $m
+            $queue = @(Get-OrisonLaneQueue)
+            if ($queue.Count -gt 0 -and $queue[0].pid -eq $PID) {
+                $m = [System.Threading.Mutex]::new($false, $MUTEX_NAME)
+                $owned = $false
+                $remaining = [int][math]::Max(0, ($deadline - (Get-Date)).TotalMilliseconds)
+                try { $owned = $m.WaitOne([math]::Min($remaining, 1000)) }
+                catch [System.Threading.AbandonedMutexException] { $owned = $true }
+                if ($owned) {
+                    $census = if ($env:ORISON_LANE_TEST_MUTEX) { 0 } else { @(Get-Process -Name "Godot*" -ErrorAction SilentlyContinue).Count }
+                    if ($census -eq 0) {
+                        return $m
+                    }
+                    $m.ReleaseMutex()
                 }
-                $m.ReleaseMutex()
+                $m.Dispose()
             }
-            $m.Dispose()
             if ((Get-Date) -ge $deadline) { return $null }
             if (-not $announced) {
                 Write-Host "[LANE] busy; waiting up to $Minutes min for '$What'"
                 Write-LaneStatus (Get-LaneStatus) | ForEach-Object { Write-Host $_ }
                 $announced = $true
             }
+            # Only the head of the queue asks for the mutex.
             # Unrelated projects can release/reacquire Godot between short
             # runs while this mutex is free. A five-second poll repeatedly
             # misses those gaps. Keep both ownership checks above intact.
@@ -191,8 +205,33 @@ function Wait-ForLane {
     }
 }
 
+function Invoke-GpuTask {
+    param([hashtable]$Spec)
+    Write-OrisonLaneHolder -Runner "lane/gpu" -Scene $Spec.scene -Worktree (Split-Path $PSScriptRoot -Parent)
+    $command = [string[]]$Spec.gpu
+    $limit = if ($Spec.timeout) { [int]$Spec.timeout } else { 900 }
+    $start = [System.Diagnostics.ProcessStartInfo]::new($command[0])
+    foreach ($word in $command[1..($command.Count - 1)]) { $start.ArgumentList.Add($word) }
+    $start.RedirectStandardOutput = $true
+    $start.RedirectStandardError = $true
+    $start.UseShellExecute = $false
+    $process = [System.Diagnostics.Process]::Start($start)
+    $output = $process.StandardOutput.ReadToEndAsync()
+    $errors = $process.StandardError.ReadToEndAsync()
+    if (-not $process.WaitForExit($limit * 1000)) {
+        $process.Kill($true)
+        $process.WaitForExit()
+        Set-Content -LiteralPath $Spec.log -Value ($output.Result + $errors.Result) -Encoding utf8
+        Write-Host "[LANE] gpu task killed at its $limit-second ceiling"
+        return 124
+    }
+    Set-Content -LiteralPath $Spec.log -Value ($output.Result + $errors.Result) -Encoding utf8
+    return $process.ExitCode
+}
+
 function Invoke-OneRun {
     param([hashtable]$Spec)
+    if ($Spec.gpu) { return Invoke-GpuTask -Spec $Spec }
     $runnerName = if ($Spec.runner) { $Spec.runner } else { "serial" }
     $script = Join-Path $PSScriptRoot $(if ($runnerName -eq "long") { "run_godot_long_suite.ps1" } else { "run_godot_serial.ps1" })
     $project = if ($Spec.project) { $Spec.project } elseif ($ProjectPath) { $ProjectPath } else { Join-Path (Split-Path $PSScriptRoot -Parent) "game" }
@@ -240,6 +279,7 @@ if ($null -eq $mutex) {
 }
 $final = 0
 $results = @()
+$env:ORISON_LANE_BROKER = "$PID"
 try {
     foreach ($spec in $runs) {
         $code = Invoke-OneRun -Spec $spec
