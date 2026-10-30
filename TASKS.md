@@ -1473,7 +1473,6 @@ accessibility and reload repairs first. Existing authorities stay installed.
 
 
 - **H-LOCAL-HANDOFF — Canonical Codex: finish app-owned temporary-baseline cleanup after this chat is handed back to Local.** Preserve codex/v2-prologue-20261028 and the clean baseline evidence; verify current app attachment, Git/index and reparse targets before archiving only the temporary v2-baseline worktree. The app previously refused archiving its calling chat's primary checkout; the owner's promised handoff is not proof it happened. Never remove other agents' worktrees/branches or bypass that refusal.
-- **H-SKILL-EXCHANGE — Canonical Codex: verify the authorized Claude skill exchange and retain useful demonstrated lessons.** Godot, Blender, textures/shaders and pixel-art canonical skills exist under .agents/skills; confirm thin Claude adapters and reciprocal project notes rather than creating duplicate guides or claiming exchange from file existence. Keep general lessons separate from Orison-specific authorities; validate changed skills and links. This is tooling follow-through, not permission to edit Zorda gameplay.
 
 ## Deferred after V2 — preserved scope, not current blockers
 

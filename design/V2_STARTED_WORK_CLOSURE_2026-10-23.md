@@ -7,12 +7,12 @@ Evidence class: **INERT**. Scope inventory and remaining work, not acceptance.
 The live queue is **TASKS.md**, not the historical order or status below. This
 index reconciles the owner's started-work request without declaring any runtime
 or artistic acceptance. Canonical branch **codex/v2-prologue-20261028** is pushed
-through **b6a6226d**. Main has since advanced to **d9288236** (PR88–PR90);
-its memory/import/treatment changes are not part of that branch's frozen runs.
+through **b595a980**. Main **94ef1638** (PR88–PR91) is reconciled through
+**5cd3489b**. The latest dated prologue ledger governs subsequent run results.
 
 | Started commitment | Current disposition / live owner |
 |---|---|
-| Replacement intro, phone-scale arm, dark paper, face motion, close framing, mirror/gaze, bathroom light/switch/plumbing, wrong curtain, annual sky and friendly17-second ending | **K-V2-PROLOGUE**, canonical Codex. Current full diagnostic287 checks/9 waypoints passes with clean logs, actual gestures, delivered title and completed shop/save reload. Original failures remain. Normal-title whole route, remaining regressions/current-source surface, newer-main reconciliation and acceptance stay open. |
+| Replacement intro, phone-scale arm, dark paper, face motion, close framing, mirror/gaze, bathroom light/switch/plumbing, wrong curtain, annual sky and friendly17-second ending | **K-V2-PROLOGUE**, canonical Codex. Real-title full route passes16 launch plus287 actual interaction checks with empty stderr; temporal regression67 and domain121 also pass. Original failures remain. Newspaper pointer diagnosis, remaining memory/city/surface and candidate gates, complete save boundaries, performance and acceptance stay open. |
 | Full-length cheap hose, held aiming, fitting manipulation, valve/lever, gasket/protectant | **K-V2-HOSE-CLOSURE**. Reuse unchanged installed proof; target remaining payout, transfer/dressing and appearance gaps. |
 | Book categories/editing/layouts/bindings; varied shelves; plant/rug/nook access | **K-V2-BOOK-NOOK-CLOSURE**. Conversion and nook construction are implemented; remaining appearance/first-use/handling/coverage are not a new fabrication brief. |
 | Exact-part reticle, held objects, XYZ fitting motion and release snaps; easy doors | **K-V2-INTERACTION-COVERAGE**, existing mechanical/player/save authorities. |
@@ -24,7 +24,7 @@ its memory/import/treatment changes are not part of that branch's frozen runs.
 | Learned babble/English and contextual sound clips; original player faces; time register/capacitor | **TL-VOCAL**, **K-V2-PLAYER-FACES**, **K-V2-TIME-REGISTER**. Research/proposals and external deliveries do not establish these integrations. |
 | Tardi impossible internal organ | **M-V2-MICROSCOPY-GAPS** retains explicit INERT/research-only hold. No new implementation authorization. Existing specimen/shader, lamp gating and greeting remain protected. |
 | Murder-year premise, opening identity framing and final treatment review | **K-POST-V2-YEAR**. PR90 revises the INERT design; law, cumulative trans-reader, read-aloud, positive-case and owner humour checks remain. No mystery gameplay built by this review. |
-| Excess-file reduction, skills, old chats/worktrees | Existing **H**, **K0-ENGINE**, new **H-LOCAL-HANDOFF/H-SKILL-EXCHANGE**. Preserve recovery and other contributors; do not repeat completed archival batches or delete broad runtime content. |
+| Excess-file reduction, skills, old chats/worktrees | Existing **H**, **K0-ENGINE**, **H-LOCAL-HANDOFF**. The scoped **H-SKILL-EXCHANGE** verification is complete as recorded below; continuing evidence-based skill upkeep remains standing practice. Preserve recovery and other contributors; do not repeat completed archival batches or delete broad runtime content. |
 | Whole V2 surfaces, area/mechanism/save coverage, measured stutter, listening and fresh-player routes | **K2/K3**, **K0-AUDIO**, **K-V2-FIRST-VIEW-HITCH/P1** and current family gaps. Whole-game gates and artistic acceptance remain open; no deadlines assigned. |
 
 Completed flare removal, arcade retirement, native bathroom finish/casing and
@@ -34,6 +34,27 @@ are superseded by the dated repairs above/below, not instructions to redo them.
 The old branch/verification boundary and next-closure order below are historical;
 Bible §VIII.5.p and the live queue put the current prologue first. No source
 receipt, original failure or unfinished acceptance clause is discarded.
+
+### Shared-skill verification — October30
+
+**H-SKILL-EXCHANGE** is removed from the open queue after direct inspection of
+all four personal Claude adapters under **C:/Users/nate_/.claude/skills/**.
+They resolve to the four maintained **.agents/skills/** guides rather than copied
+bodies or junctions. Claude's Orison memory index also names those adapters.
+Four relevant reciprocal notes were read: mip imports, render-harness traps,
+audit-corpus transfer and performance-probe shape. Existing canonical guidance
+already covers V2 import policy, measured pivots, lamp/camera settling and audit
+negative controls. The Godot skill now explicitly rejects deriving precise
+frame times from integer FPS, grounded in the current probe and
+**DT4_PERFORMANCE_REAUDIT.md**; historical bottleneck claims are not adopted.
+
+External **skill_exchange_validation_20261030.json** retains LF-normalized
+hashes and inspected sources: eight skill folders pass the structural validator,
+36 local Markdown links resolve, and all adapter targets are readable. This
+proves installed sharing and note reconciliation, not that a future Claude
+session invokes the guidance. No game, Zorda, permission or external publication
+changes, no duplicate handbook and no Godot run. This disposition preserves the
+task's source history; future verified lessons stay with their existing skills.
 
 Current curtain repair: **V2_CURTAIN_SKIN_RESPONSIVENESS_2026-10-24.md**.
 Native cloth/ring skin replaces the per-motion mesh/tangent/trimesh rebuild.

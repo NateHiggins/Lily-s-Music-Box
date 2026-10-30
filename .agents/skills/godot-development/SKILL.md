@@ -195,6 +195,12 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   the sum of private viewports. Residency labels and compilation counters show
   correlation, not function attribution. Separate asset load, script, physics,
   shader compilation and render costs before assigning a cause or a speedup.
+  Do not derive precise frame times from integer `Performance.TIME_FPS` values.
+  Sample frame deltas and cross-check monotonic wall time over the same frames;
+  a return-to-first-view A/A control can distinguish drift from a changed view.
+  [Claude's probe re-audit](../../../design/DT4_PERFORMANCE_REAUDIT.md) records
+  the quantization failure; its historical bottleneck/quality claims require
+  current route, renderer and hardware measurements before reuse.
   A small timed reader/presenter excludes only its synchronous work; report
   deferred engine costs separately rather than clearing the whole feature.
   For repeated fixed-geometry queries, profile the actual restored/settling
