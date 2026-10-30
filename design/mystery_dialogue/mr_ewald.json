@@ -1,0 +1,139 @@
+{
+ "meta": {
+  "resident_id": "mr_ewald",
+  "speaker_default": "MR. EWALD",
+  "voice_prefix": "m_ew_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Arcade tenants' counsel. Commissioned the deed copy for the Arcade's rent and read it for that. Sharp about money, slow about envelopes. Stops at what a paper shows."
+ },
+ "entries": {
+  "ew_monday": "ew_1",
+  "ew_note": "ew_n1",
+  "ew_lease": "ew_l1",
+  "ew_letter": "ew_lt1"
+ },
+ "threads": [
+  {
+   "id": "ew_monday",
+   "from": "1929-07-22",
+   "until": "1929-07-22",
+   "topic": "You had an appointment.",
+   "hours": [
+    "10:00",
+    "16:00"
+   ],
+   "source": "B15. He brings the insult, not the evidence, and does not know the difference.",
+   "root": "ew_1"
+  },
+  {
+   "id": "ew_note",
+   "from": "1929-07-23",
+   "until": "1929-11-09",
+   "topic": "Did you hear from 6C, after?",
+   "source": "3.1. The note is not date-locked: a player who missed 22 July can still get it.",
+   "root": "ew_n1"
+  },
+  {
+   "id": "ew_lease",
+   "from": "1929-07-22",
+   "until": "1929-11-09",
+   "topic": "What's a reversion?",
+   "requires": [
+    "m_lease_read"
+   ],
+   "source": "B03 and WR-03. Stops at the consequence. Pending period-law review.",
+   "root": "ew_l1"
+  },
+  {
+   "id": "ew_letter",
+   "from": "1929-07-22",
+   "until": "1929-11-09",
+   "topic": "The letter from 6C. Turn it over.",
+   "requires": [
+    "m_saw_kessler_note",
+    "m_route_book"
+   ],
+   "review": true,
+   "source": "B25 and section 4.5. The conclusive beat. He does the reading; the finding is not his to state.",
+   "root": "ew_lt1"
+  }
+ ],
+ "nodes": {
+  "ew_1": {
+   "flag": "m_saw_kessler_note",
+   "silence_goto": "ew_2",
+   "line": "Ten o'clock, with Miss Quell. Nobody cancelled. Well. Somebody did. I had this on Saturday from upstairs over there, on her good paper, telling me I need not attend. \"The person who kept the counter.\" I've had forty years of landlords and that's the rudest thing that has ever arrived on time.",
+   "choices": [
+    {
+     "label": "What was the appointment about?",
+     "goto": "ew_2"
+    },
+    {
+     "label": "Can I see it?",
+     "goto": "ew_3"
+    }
+   ]
+  },
+  "ew_2": {
+   "line": "Her copy of my deed. She wanted to show Miss Quell something in the schedule, and she was very pleased about it, and now I'll never know what it was. I do Arcade rents. I read a schedule the way you read a bus."
+  },
+  "ew_3": {
+   "line": "It's on my file with its envelope. My clerk pins everything. If he had pinned my wife's letters I'd be a happier man. Come to the office if you've a reason."
+  },
+  "ew_n1": {
+   "flag": "m_saw_kessler_note",
+   "silence_goto": "ew_n2",
+   "line": "On the Saturday, by the first post. Telling me I need not attend, about a woman I had already heard was dead from a boy with a bicycle. \"The person who kept the counter.\" I've had forty years of landlords. It's on my file with its envelope.",
+   "choices": [
+    {
+     "label": "Why keep it?",
+     "goto": "ew_n2"
+    }
+   ]
+  },
+  "ew_n2": {
+   "line": "My clerk pins everything. I have asked him not to. It is the only reason I know what my wife wrote me in 1911."
+  },
+  "ew_l1": {
+   "silence_goto": "ew_l2",
+   "line": "Who's been letting the maintenance read schedules? It means when the Kessler lease on that lot ends, the lot comes back to the Arcade's ground. First of August, this one. After that, I'd want to know on what authority anybody was collecting.",
+   "choices": [
+    {
+     "label": "And if they collected anyway?",
+     "goto": "ew_l2",
+     "requires": [
+      "m_receipt_seen"
+     ]
+    },
+    {
+     "label": "So the tenants don't owe her.",
+     "goto": "ew_l3",
+     "trust": -1
+    }
+   ]
+  },
+  "ew_l2": {
+   "flag": "m_collection_named",
+   "line": "Then you have a receipt, which shows she collected. Whether she was entitled is a question for a court and not for a receipt. Don't look at me like that. I charge for the other answer."
+  },
+  "ew_l3": {
+   "line": "I said no such thing, and neither did you, if anyone asks."
+  },
+  "ew_lt1": {
+   "flag": "m_letter_found",
+   "silence_goto": "ew_lt2",
+   "line": "Stamped received, July twentieth, eight-fifty. Pinned. Why would I turn... that's a pencil. \"C.O., 6.40.\" That's the Ortiz boy, he marks anything he holds. Six-forty when?",
+   "choices": [
+    {
+     "label": "His book says Friday. Six-forty, Friday the nineteenth.",
+     "goto": "ew_lt2"
+    }
+   ]
+  },
+  "ew_lt2": {
+   "flag": "m_letter_compared",
+   "line": "Friday. She was up on that roof at six-forty on Friday with a camera. I saw her buy the sandwich. This says last night's storm. Sit down. No. I'll sit down. I have had that on my file for a long time, as bad manners."
+  }
+ }
+}

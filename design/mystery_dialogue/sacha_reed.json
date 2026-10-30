@@ -1,0 +1,102 @@
+{
+ "meta": {
+  "resident_id": "sacha_reed",
+  "speaker_default": "SACHA REED",
+  "voice_prefix": "m_sr_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "One dry frame-edge observation. They/them. Thursday roof rota, the duplicate, prints plate 13. Never treats an image as the whole event. Keeps a sleeve book."
+ },
+ "entries": {
+  "sr_thursday": "sr_t1",
+  "sr_duplicate": "sr_d1",
+  "sr_plate": "sr_p1"
+ },
+ "threads": [
+  {
+   "id": "sr_thursday",
+   "from": "1929-07-11",
+   "until": "1929-11-09",
+   "topic": "You had the darkroom lit on the eleventh.",
+   "requires": [
+    "m_o1_print"
+   ],
+   "source": "B01, B02. Lit darkroom proves a light.",
+   "root": "sr_t1"
+  },
+  {
+   "id": "sr_duplicate",
+   "from": "1929-10-18",
+   "until": "1929-11-09",
+   "topic": "Your quarterly sleeve check.",
+   "requires": [
+    "m_backup_ledger"
+   ],
+   "source": "B22, 3.1. Sacha names the date of the next one in full.",
+   "root": "sr_d1"
+  },
+  {
+   "id": "sr_plate",
+   "from": "1929-10-29",
+   "until": "1929-11-09",
+   "topic": "Can you get the rest?",
+   "requires": [
+    "m_plate_salvaged"
+   ],
+   "review": true,
+   "source": "B23, S13.",
+   "root": "sr_p1"
+  }
+ ],
+ "nodes": {
+  "sr_t1": {
+   "silence_goto": "sr_t2",
+   "line": "I have the roof Thursdays, and the sixth-floor darkroom every night. That light being on proves that light was on. Who printed that? It's sharp to the tank leg and it's been handled by someone who was happy.",
+   "choices": [
+    {
+     "label": "Do you know the hand?",
+     "goto": "sr_t2"
+    }
+   ]
+  },
+  "sr_t2": {
+   "flag": "m_sacha_knows_hand",
+   "line": "Hers. The woman from the Arcade. I do her overflow. I don't know how you came by plate twelve, and I notice you didn't say."
+  },
+  "sr_d1": {
+   "flag": "m_lease_on_glass",
+   "silence_goto": "sr_d2",
+   "line": "The duplicate is here. I wrote the date on the sleeve. \"A.V., deed, to S.R., June.\" I never looked at it. You don't look at another person's insurance. I'm looking now.",
+   "choices": [
+    {
+     "label": "Can you read the schedule?",
+     "goto": "sr_d2"
+    }
+   ]
+  },
+  "sr_d2": {
+   "line": "At ten times, yes. There's a parcel. Bring me what Omar has. Tuesday the twenty-ninth, after the fixer's fresh. Not this Tuesday. People hear what they want from a Tuesday."
+  },
+  "sr_p1": {
+   "flag": "m_plate13_half",
+   "silence_goto": "sr_p2",
+   "line": "This part survived. I haven't repaired the rest into it. Wet deck. An arm and a shoulder, near edge, turning to the flash. The tank, small. And a mark at the tank's edge, a millimetre, raised and pale.",
+   "choices": [
+    {
+     "label": "Is that a hand?",
+     "goto": "sr_p2"
+    },
+    {
+     "label": "Whose arm is it?",
+     "goto": "sr_p3"
+    }
+   ]
+  },
+  "sr_p2": {
+   "line": "I can make it larger. I can't make it more there."
+  },
+  "sr_p3": {
+   "line": "She's at the edge of her own picture. She'd have cropped it. I won't."
+  }
+ }
+}

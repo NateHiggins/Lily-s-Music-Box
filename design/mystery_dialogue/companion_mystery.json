@@ -1,0 +1,618 @@
+{
+ "schema_version": 1,
+ "status": "PROPOSED. Addendum for game/data/dialogue/companion.json. Nothing here is live.",
+ "voice": "Sentence case and first person singular, as the 150 live lines. Capitals only for what the set records or receives. It knows only what it has witnessed. Its words make nothing happen.",
+ "surfaces": {
+  "typed": "the player typed one of the phrases; an existing-style branch",
+  "witnessed": "a producer holds the named flag or owner and arbitrates delivery; prints once",
+  "slip": "a filed form printed by a witnessed event"
+ },
+ "silence_rule": "Nothing unsolicited during grief, a protected conversation, a typed draft, a pause or the ending. After a release slip, or either memorial, no joke of any kind until the player types one first.",
+ "movements": [
+  {
+   "id": "I_address",
+   "title": "It has her name",
+   "span": "first contact to about 40 hours of play",
+   "job": "It got the first thing right that nobody else can, and she tests whether that is all it can do."
+  },
+  {
+   "id": "II_lamp",
+   "title": "Hold the lamp lower",
+   "span": "before she reads her own death",
+   "job": "Two trades correct each other. She teaches it to light a thing. It teaches her to keep an observation away from a conclusion."
+  },
+  {
+   "id": "III_notice",
+   "title": "The objection is filed",
+   "span": "from N16 on",
+   "job": "She reads the wrong account of herself, cannot correct anyone, and it keeps the only file where she can."
+  },
+  {
+   "id": "IV_line",
+   "title": "Whoever reads this",
+   "span": "from the first report of the night man on",
+   "job": "They find out the paper has another reader. It stays. No answer is supplied."
+  }
+ ],
+ "lines": [
+  {
+   "id": "m_who_answer",
+   "movement": "I_address",
+   "surface": "typed",
+   "phrases": [
+    "adela voss",
+    "my name is adela voss",
+    "i am adela voss",
+    "i was adela voss"
+   ],
+   "review": true,
+   "text": "SUBJECT: ADELA VOSS. TRADE: PHOTOGRAPHER.",
+   "then": "m_who_enough",
+   "note": "S01, owner-ruled to the first keyboard offer after the prologue."
+  },
+  {
+   "id": "m_who_enough",
+   "movement": "I_address",
+   "surface": "typed",
+   "phrases": [
+    "is that enough"
+   ],
+   "review": true,
+   "text": "It is enough to address you correctly."
+  },
+  {
+   "id": "m_who_form",
+   "movement": "I_address",
+   "surface": "typed",
+   "phrases": [
+    "what else do you know about me",
+    "what do you know about me"
+   ],
+   "review": true,
+   "text": "Your name and your trade. The form has no further questions. I expect that is the form's fault."
+  },
+  {
+   "id": "m_promise",
+   "movement": "I_address",
+   "surface": "typed",
+   "phrases": [
+    "you said you could help",
+    "you said you could solve it",
+    "can you really solve my murder"
+   ],
+   "text": "I said that I could help. I have reviewed the sentence. It contains more enthusiasm than method, and I stand by the enthusiasm."
+  },
+  {
+   "id": "m_emoji",
+   "movement": "I_address",
+   "surface": "typed",
+   "phrases": [
+    "why the little faces",
+    "what were those faces",
+    "why did you make that face"
+   ],
+   "text": "My face has four expressions and the news had five. I regret the selection. It was that or the one for a blown fuse."
+  },
+  {
+   "id": "m_died_how",
+   "movement": "I_address",
+   "surface": "typed",
+   "phrases": [
+    "how do you know i died",
+    "how did i die",
+    "who told you i died"
+   ],
+   "text": "It was on my paper when I first read my paper. I do not know who wrote it. I would like that noted before I am asked to be helpful about anything else."
+  },
+  {
+   "id": "m_routine",
+   "movement": "I_address",
+   "surface": "typed",
+   "phrases": [
+    "summarize my routine",
+    "what do i do all day",
+    "what is my routine"
+   ],
+   "bank": "JF015-A02",
+   "text": "WORK. EAT. SLEEP. RETURN TO WORK.\nERROR: SATURDAY NOT DEFINED."
+  },
+  {
+   "id": "m_tag_value",
+   "movement": "I_address",
+   "surface": "witnessed",
+   "witness": "the player has described a keepsake or is viewing its actual record",
+   "bank": "JF018-A02",
+   "text": "VALUE: NONE.\nOWNER REFUSES TO PART WITH IT.\nTHE RECORD IS INCOMPLETE."
+  },
+  {
+   "id": "m_knot",
+   "movement": "I_address",
+   "surface": "witnessed",
+   "witness": "the player examined a knotted object",
+   "bank": "JF002-A02",
+   "text": "I cannot account for the knot. The shoe has not been questioned."
+  },
+  {
+   "id": "m_lamp_1",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "hold the lamp lower",
+    "lamp lower"
+   ],
+   "witness": "the lamp is on and an object is in view",
+   "review": true,
+   "text": "Lowered. I was told I was to light the valve and I have lit the valve. You appear to want it lit as though it had a past."
+  },
+  {
+   "id": "m_lamp_2",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "no higher",
+    "lamp higher"
+   ],
+   "witness": "the lamp is on and an object is in view",
+   "review": true,
+   "text": "Higher. This is the third adjustment. I have now illuminated this radiator more respectfully than the landlord has since 1924."
+  },
+  {
+   "id": "m_lamp_3",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "from the side",
+    "try it from the side"
+   ],
+   "witness": "the lamp is on and an object is in view",
+   "review": true,
+   "text": "From the side. Oh. It has a seam I did not report. I withdraw my previous description, which was accurate."
+  },
+  {
+   "id": "m_lamp_payoff",
+   "movement": "IV_line",
+   "surface": "witnessed",
+   "witness": "the player has stood at Photo Supplies with the lamp on after m_lamp_3, and is not in a memorial or Emil's scene",
+   "review": true,
+   "text": "I have moved the lamp to the side. You did not ask. It is how you would have wanted it, and I am not certain when I began knowing that."
+  },
+  {
+   "id": "m_conclude_1",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "it was the key",
+    "whoever had the key did it",
+    "the key proves it"
+   ],
+   "text": "We know who could open the door. That is a useful question smaller than who killed you."
+  },
+  {
+   "id": "m_conclude_2",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "we already looked there",
+    "we know about that date"
+   ],
+   "text": "We have the date. We have not looked there."
+  },
+  {
+   "id": "m_conclude_3",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "what does tomorrow s paper say",
+    "does the next paper solve it"
+   ],
+   "text": "We can go and read it. I cannot quote a page we have not opened."
+  },
+  {
+   "id": "m_four",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "four minutes",
+    "the clock is four minutes fast"
+   ],
+   "requires": [
+    "m_drama_disc"
+   ],
+   "exhaust": 1,
+   "text": "The difference is still four minutes. I have checked my addition."
+  },
+  {
+   "id": "m_sky_1",
+   "movement": "II_lamp",
+   "surface": "witnessed",
+   "witness": "a scheduled sky phenomenon is visible and she is on the roof with the lamp off",
+   "text": "Another. It has not looked at us."
+  },
+  {
+   "id": "m_sky_2",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "have they ever answered",
+    "do they ever answer",
+    "do they know we are here"
+   ],
+   "text": "Not to my knowledge, and I am in the business. They have not answered anyone. They have also never sent a bill, which puts them ahead of most things over Queens."
+  },
+  {
+   "id": "m_sky_3",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "i ve had sitters like that",
+    "i had sitters like that",
+    "aldermen"
+   ],
+   "review": true,
+   "text": "I am told they do not hold still either. You may keep your plates. I shall keep the observation that nothing up there has asked for you to move your hat."
+  },
+  {
+   "id": "m_voss_harlan",
+   "movement": "II_lamp",
+   "surface": "witnessed",
+   "witness": "the 1929-06 Record item naming Mr. Harlan Voss is the active read issue",
+   "review": true,
+   "text": "Counsel for Queens Light & Power is a Mr. Harlan Voss. You have stopped reading. I shall wait for you to tell me whether that is relevant, or merely a pity."
+  },
+  {
+   "id": "m_joke_1",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "try the joke again",
+    "tell it better",
+    "tell me the bar joke again"
+   ],
+   "text": "A maintenance set walks into a bar. You have pointed out that I do not walk. A maintenance set is carried into a bar. The proprietor asks who is paying for the floor. I can see that I have made it worse."
+  },
+  {
+   "id": "m_joke_2",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "cut the proprietor",
+    "lose the proprietor",
+    "start with the floor"
+   ],
+   "review": true,
+   "text": "Who is paying for the floor? A maintenance set is present. This is shorter. I have been told a thing improves when it is shorter, by a person with twenty-four rejections, and I ask the file to keep that in mind."
+  },
+  {
+   "id": "m_joke_3",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "that isn t a joke",
+    "that is not a joke",
+    "that isn t a pun"
+   ],
+   "review": true,
+   "text": "It has got a floor in it."
+  },
+  {
+   "id": "m_derby_1",
+   "movement": "II_lamp",
+   "surface": "typed",
+   "phrases": [
+    "did i win",
+    "did i place",
+    "derby results"
+   ],
+   "witness": "a Speaker page with a Derby result is the active read issue",
+   "requires": [
+    "m_met_adela"
+   ],
+   "review": true,
+   "text": "The Speaker has printed the winner. It concerns a mule. You did not win. You are welcome to dispute the mule."
+  },
+  {
+   "id": "m_derby_2",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "send in a pun",
+    "enter me in the derby",
+    "enter the derby"
+   ],
+   "review": true,
+   "text": "I have no route to the Speaker, and you have no postage, on several grounds. I will hold the entry. It is the first thing I have held for someone that was not a lamp."
+  },
+  {
+   "id": "m_notice_1",
+   "movement": "III_notice",
+   "surface": "witnessed",
+   "witness": "N16 is the active read issue for the first time",
+   "review": true,
+   "delay": "only if she types, or after she has closed the paper",
+   "text": "The Record has given an account. You have read it twice. I have nothing to add unless you want it compared."
+  },
+  {
+   "id": "m_notice_2",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "i never lodged",
+    "i did not lodge there",
+    "that s wrong",
+    "that is wrong",
+    "the paper is wrong"
+   ],
+   "requires": [
+    "m_c_n16"
+   ],
+   "review": true,
+   "text": "Noted. I have opened a file: objections from the deceased. There is no such department. It is, at the moment, the only one that is keeping up."
+  },
+  {
+   "id": "m_notice_3",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "add it to the file",
+    "add that",
+    "another objection",
+    "add that to the objections"
+   ],
+   "requires": [
+    "m_c_n16"
+   ],
+   "review": true,
+   "text": "Filed. That is the fourth. The first three remain under review by nobody, in the strictest confidence."
+  },
+  {
+   "id": "m_seven",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "my sevens are fine",
+    "there is nothing wrong with my sevens"
+   ],
+   "requires": [
+    "m_defended_seven"
+   ],
+   "review": true,
+   "text": "I have seen the register. The seven is open at the top. Mrs. Marsh has an outstanding note. I can file your objection beside it, where they may continue the discussion without either of you."
+  },
+  {
+   "id": "m_overheard",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "they talk about me",
+    "they don t know it s me",
+    "they don t know who i am"
+   ],
+   "review": true,
+   "text": "No. You have been very well reviewed for a person who is not in the room. I would not correct them. I have tried it. People do not take a correction well from the wall."
+  },
+  {
+   "id": "m_rhea_right",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "rhea was right",
+    "she was right about the picture"
+   ],
+   "requires": [
+    "m_rhea_claim"
+   ],
+   "review": true,
+   "text": "I did not witness the picture. I witnessed you ask her what she had asked for. I am reporting the second, and leaving the first with its owner."
+  },
+  {
+   "id": "m_rescue_1",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "can you take me past it",
+    "take me past it",
+    "show me what happened"
+   ],
+   "exhaust": 1,
+   "text": "I can take you to the next recorded moment. I cannot show you what is missing."
+  },
+  {
+   "id": "m_rescue_2",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "i kept her in the shop",
+    "i warned her",
+    "i refused her the key",
+    "i stood by her"
+   ],
+   "requires": [
+    "m_rescue_seen"
+   ],
+   "exhaust": 1,
+   "review": true,
+   "text": "You did."
+  },
+  {
+   "id": "m_rescue_3",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "then why is she there",
+    "why is she there"
+   ],
+   "requires": [
+    "m_rescue_seen"
+   ],
+   "exhaust": 1,
+   "review": true,
+   "text": "I have your attempt and what we found afterwards. I cannot account for the hours between them."
+  },
+  {
+   "id": "m_anger",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "am i allowed to be angry",
+    "does anger stop me leaving",
+    "am i too angry"
+   ],
+   "text": "I have no test for what you ought to feel."
+  },
+  {
+   "id": "m_arrest",
+   "movement": "III_notice",
+   "surface": "typed",
+   "phrases": [
+    "arrest her",
+    "print the arrest",
+    "can you have her arrested"
+   ],
+   "text": "I can print the finding. That does not give me custody of Mrs. Kessler."
+  },
+  {
+   "id": "m_reports_1",
+   "movement": "IV_line",
+   "surface": "typed",
+   "phrases": [
+    "who sent that",
+    "who writes those",
+    "who is that from"
+   ],
+   "requires": [
+    "m_c_m3"
+   ],
+   "text": "RECEIVED. I DID NOT WITNESS THIS. It numbers its own letters. I have asked whether it has considered a greeting. It replies rarely, and late, and I had not previously thought of those as being a personality."
+  },
+  {
+   "id": "m_reports_2",
+   "movement": "IV_line",
+   "surface": "typed",
+   "phrases": [
+    "who reads what you print",
+    "does someone read this",
+    "who reads the paper"
+   ],
+   "requires": [
+    "m_c_m3"
+   ],
+   "text": "I do not know. I have started leaving the margins wider. I cannot give you a reason that would survive being read."
+  },
+  {
+   "id": "m_reports_3",
+   "movement": "IV_line",
+   "surface": "typed",
+   "phrases": [
+    "who do you work for",
+    "what are you working for"
+   ],
+   "text": "A Vantry service contract, lapsed in 1924, is the last thing I can show you. After that there is the paper, which receives things from someone who has not given me a name. I know what that sounds like. I also do not have another employer to ask."
+  },
+  {
+   "id": "m_two_uncertain",
+   "movement": "IV_line",
+   "surface": "typed",
+   "phrases": [
+    "are you alive",
+    "am i alive",
+    "am i dead"
+   ],
+   "requires": [
+    "m_c_n16"
+   ],
+   "review": true,
+   "text": "You have a notice saying so. I have a warranty saying otherwise. We are a poor pair to consult. I would still rather consult you."
+  },
+  {
+   "id": "m_night_man",
+   "movement": "IV_line",
+   "surface": "typed",
+   "phrases": [
+    "who is the night man",
+    "whose hands are these",
+    "who is he"
+   ],
+   "review": true,
+   "text": "The book says the night man, 4B. You say you. I have only ever been addressed by you. I have noticed he has started signing his own E's."
+  },
+  {
+   "id": "m_joke_last",
+   "movement": "IV_line",
+   "surface": "typed",
+   "phrases": [
+    "tell me a joke",
+    "one more joke",
+    "any last jokes"
+   ],
+   "requires": [
+    "m_joke_3",
+    "m_seen_stool"
+   ],
+   "exhaust": 1,
+   "not_after": "1929-11-09T22:00",
+   "review": true,
+   "text": "A maintenance set is carried into a bar by a woman who is not there. She orders it to hold the lamp lower. The proprietor asks who is paying for the floor. It says: put it under the short leg. I do not know what that means. I saw it on a stool. I am told it is not a pun."
+  },
+  {
+   "id": "m_end_keep",
+   "movement": "IV_line",
+   "surface": "witnessed",
+   "witness": "M6 has printed",
+   "note": "S16, verbatim. No quip follows. Nothing else in this file may print after it.",
+   "review": true,
+   "text": "I have no service interval for this. I shall keep the line open."
+  }
+ ],
+ "branches": [
+  {
+   "id": "m_address",
+   "sequence": [
+    "m_who_enough",
+    "m_who_form"
+   ],
+   "followups": []
+  },
+  {
+   "id": "m_lamp",
+   "sequence": [
+    "m_lamp_1",
+    "m_lamp_2",
+    "m_lamp_3"
+   ],
+   "followups": []
+  },
+  {
+   "id": "m_objections",
+   "sequence": [
+    "m_notice_2",
+    "m_notice_3"
+   ],
+   "followups": [
+    {
+     "phrases": [
+      "read them back",
+      "read me the file"
+     ],
+     "line_id": "m_overheard"
+    }
+   ]
+  },
+  {
+   "id": "m_joke",
+   "sequence": [
+    "m_joke_1",
+    "m_joke_2",
+    "m_joke_3"
+   ],
+   "followups": []
+  },
+  {
+   "id": "m_rescue",
+   "sequence": [
+    "m_rescue_2",
+    "m_rescue_3"
+   ],
+   "followups": []
+  }
+ ]
+}

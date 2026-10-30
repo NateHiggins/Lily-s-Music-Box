@@ -1,0 +1,46 @@
+{
+ "meta": {
+  "resident_id": "mina_vale",
+  "speaker_default": "MINA VALE",
+  "voice_prefix": "m_mv_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "HOLD. Her canon tree belongs to MinaCaseGameplay and is not edited. This is a hook for the case owner, and its reason for striking the entry must be reconciled with her authored account before any use."
+ },
+ "entries": {
+  "mv_struck": "mv_1"
+ },
+ "threads": [
+  {
+   "id": "mv_struck",
+   "from": "1929-07-23",
+   "until": "1929-11-09",
+   "topic": "You struck out an entry.",
+   "requires": [
+    "m_mina_log"
+   ],
+   "hold": true,
+   "source": "S09, B15. Pocket log, 23:36.",
+   "root": "mv_1"
+  }
+ ],
+ "nodes": {
+  "mv_1": {
+   "silence_goto": "mv_1s",
+   "line": "You read other people's pockets now? Twenty-three thirty-six. LIGHT IN SHOP. I'd written a word after that, and I took it out.",
+   "choices": [
+    {
+     "label": "What word?",
+     "goto": "mv_2"
+    }
+   ]
+  },
+  "mv_1s": {
+   "line": "That's a silence I can annotate. WITNESS DECLINES. Go on."
+  },
+  "mv_2": {
+   "flag": "m_mina_light",
+   "line": "I saw light. I wrote a person. Those are different entries."
+  }
+ }
+}

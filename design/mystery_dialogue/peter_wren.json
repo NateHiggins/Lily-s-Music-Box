@@ -1,0 +1,119 @@
+{
+ "meta": {
+  "resident_id": "peter_wren",
+  "speaker_default": "PETER WREN",
+  "voice_prefix": "m_pw_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "A qualification that suddenly leaves him responsible for the answer. His firm's copy of the deed. Courage is one unmodified verb. WR-03 is unsettled: he stops at what the document shows."
+ },
+ "entries": {
+  "pw_returns": "pw_r1",
+  "pw_copy": "pw_c1",
+  "pw_receipt": "pw_rc1"
+ },
+ "threads": [
+  {
+   "id": "pw_returns",
+   "from": "1928-11-10",
+   "until": "1929-07-19",
+   "topic": "Is that returned post?",
+   "source": "Comedy. A membership the Derby's patron keeps refusing. Procedural.",
+   "root": "pw_r1"
+  },
+  {
+   "id": "pw_copy",
+   "from": "1929-06-08",
+   "until": "1929-11-09",
+   "topic": "Your firm certified the Arcade's copy.",
+   "source": "S05, B03.",
+   "root": "pw_c1"
+  },
+  {
+   "id": "pw_receipt",
+   "from": "1929-08-01",
+   "until": "1929-11-09",
+   "topic": "She collected in August. Look at this.",
+   "requires": [
+    "m_receipt_seen"
+   ],
+   "source": "WR-03. Stops at the consequence. One unmodified verb.",
+   "root": "pw_rc1"
+  }
+ ],
+ "nodes": {
+  "pw_r1": {
+   "bank": "JF007-A02",
+   "silence_goto": "pw_r2",
+   "line": "It was misfiled to me on the grounds that I can read. A person at the Arcade has applied to a literary society. Twenty-four applications, twenty-four refusals, and it's now within the by-laws for me to consider joining as the treasurer, purely in order to see the file. I'm not going to. I'm only saying it's permitted.",
+   "choices": [
+    {
+     "label": "Why would you?",
+     "goto": "pw_r2"
+    }
+   ]
+  },
+  "pw_r2": {
+   "line": "Somebody ought to tell them their refusal letter has a mistake in it. I don't mean it should be accepted. I mean there's a comma."
+  },
+  "pw_c1": {
+   "silence_goto": "pw_c1s",
+   "line": "The copy is correct.",
+   "choices": [
+    {
+     "label": "And the collection?",
+     "goto": "pw_c2"
+    },
+    {
+     "label": "I've read the schedule.",
+     "goto": "pw_c3",
+     "requires": [
+      "m_lease_read"
+     ]
+    }
+   ]
+  },
+  "pw_c1s": {
+   "line": "I can give you that in writing. I can also, if you require, certify that I gave it to you in writing, though I'd need you to sign for the first one."
+  },
+  "pw_c2": {
+   "silence_goto": "pw_c3",
+   "line": "I was asked to certify the copy. I haven't said the collection is.",
+   "choices": [
+    {
+     "label": "I'm asking you.",
+     "goto": "pw_c3"
+    }
+   ]
+  },
+  "pw_c3": {
+   "flag": "m_lease_read",
+   "silence_goto": "pw_c4",
+   "line": "Then we ought to read the same line. Here. \"Together with the reversion of the adjoining parcel.\" Adjoining which, you'll say, and it gives the lot and block, and I would prefer you read those aloud, so that it's you who said them.",
+   "choices": [
+    {
+     "label": "That's this building.",
+     "goto": "pw_c4"
+    }
+   ]
+  },
+  "pw_c4": {
+   "flag": "m_lease_clause",
+   "line": "It's what the paper says. It is the first of August. I filed it. Nobody asked me to read it for anything. I read it."
+  },
+  "pw_rc1": {
+   "silence_goto": "pw_rc2",
+   "line": "That's a rent receipt in the Estate's name, dated after the term. Strictly, that shows the Estate collected. Whether it was entitled to is a question for a court, and whether a court would ask depends on who petitions, and the petitioner would want counsel who'd read... you've read it.",
+   "choices": [
+    {
+     "label": "Would you put your name to that?",
+     "goto": "pw_rc2"
+    }
+   ]
+  },
+  "pw_rc2": {
+   "flag": "m_peter_will_sign",
+   "line": "I'd need... The firm would never... Yes."
+  }
+ }
+}

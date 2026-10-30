@@ -1,0 +1,107 @@
+{
+ "meta": {
+  "resident_id": "transient_guests",
+  "speaker_default": "THE GUESTS",
+  "voice_prefix": "m_tg_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Agree with different questions; a concrete question separates them. Their agreement makes them neither truthful nor innocent. Two voices in one line, split by an em dash. The \"lodger\" statement starts here. Twenty-two fifty is theirs."
+ },
+ "entries": {
+  "tg_lodger": "tg_l1",
+  "tg_stairs": "tg_s1",
+  "tg_rumor": "tg_r1"
+ },
+ "threads": [
+  {
+   "id": "tg_lodger",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "You told the officer she lodged here.",
+   "requires": [
+    "m_patrol_sheet"
+   ],
+   "source": "B11, B14, S08. Paper names them as source.",
+   "root": "tg_l1"
+  },
+  {
+   "id": "tg_stairs",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "Before the laundry clock rang, or after?",
+   "requires": [
+    "m_guests_lodger_source"
+   ],
+   "source": "S08, 4.3. Separates them; the sighting comes only from the specific question.",
+   "root": "tg_s1"
+  },
+  {
+   "id": "tg_rumor",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "Anything new in the house?",
+   "source": "Comedy. Bank line on a verified mirror only.",
+   "root": "tg_r1"
+  }
+ ],
+ "nodes": {
+  "tg_l1": {
+   "silence_goto": "tg_l2",
+   "line": "We agreed she lodged. — She was always on the roof. — Where would a person go up, if she didn't live up? — Quite.",
+   "choices": [
+    {
+     "label": "Did you ever see her come home?",
+     "goto": "tg_l2"
+    }
+   ]
+  },
+  "tg_l2": {
+   "flag": "m_guests_lodger_source",
+   "silence_goto": "tg_l3",
+   "line": "We see everyone come home. — Eleven o'clock is checkout. — It is, isn't it? — We told him what was likely.",
+   "choices": [
+    {
+     "label": "She had a shop across the road.",
+     "goto": "tg_l3"
+    }
+   ]
+  },
+  "tg_l3": {
+   "line": "So she did. — So we've heard. — I always said so. — We agree you said so."
+  },
+  "tg_s1": {
+   "silence_goto": "tg_s1s",
+   "line": "We agreed it was late. — Quite late. — Before. — After the lift.",
+   "choices": [
+    {
+     "label": "Which? You first. On the stairs, that night. What did you see?",
+     "goto": "tg_s2"
+    }
+   ]
+  },
+  "tg_s1s": {
+   "line": "It's nice how you wait. — We thought you might. — We've been here a long time. — Have we? Yes."
+  },
+  "tg_s2": {
+   "flag": "m_guests_sighting",
+   "line": "A lady in gloves going down, with a lamp she did not light. — Ten to eleven. — I'd have said a gentleman. — You'd have said anything. — I would. It's very restful. — She had a good bag. — Did she? — I don't know now."
+  },
+  "tg_r1": {
+   "silence_goto": "tg_r2",
+   "line": "We had an appointment. — We were told to wait. — It's very good, the waiting here. — It's why we came.",
+   "choices": [
+    {
+     "label": "What about the mirror on four?",
+     "goto": "tg_r2",
+     "requires": [
+      "m_mirror_seen"
+     ]
+    }
+   ]
+  },
+  "tg_r2": {
+   "bank": "JF014-A02",
+   "line": "The mirror showed me Tuesday, Thursday, and a gentleman who looked disappointed in all three. — That's the wardrobe. — I thought we agreed about the wardrobe."
+  }
+ }
+}

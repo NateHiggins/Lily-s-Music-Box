@@ -1,0 +1,200 @@
+{
+ "meta": {
+  "resident_id": "mae_kessler",
+  "speaker_default": "MAE KESSLER",
+  "voice_prefix": "m_mk_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Ownership spoken as grammar. Offended at the handling before the accusation. Her bigotry is named and wrong and is never evidence. No confession, no remorse speech, no court. Never says \"Miss Voss\" unprompted. Never says what happened on the roof."
+ },
+ "entries": {
+  "mk_tea": "mk_t1",
+  "mk_afterward": "mk_a1",
+  "mk_glove": "mk_g1",
+  "mk_box": "mk_b1"
+ },
+ "threads": [
+  {
+   "id": "mk_tea",
+   "from": "1929-06-13",
+   "until": "1929-06-13",
+   "topic": "Your radiator, Mrs. Kessler.",
+   "review": true,
+   "hours": [
+    "16:30",
+    "17:30"
+   ],
+   "source": "S04, B04. The player is in the room with a wrench, as furniture. Nadia speaks here too.",
+   "root": "mk_t1"
+  },
+  {
+   "id": "mk_afterward",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "You knew the woman from the Arcade.",
+   "source": "B14 onward. She appraises the question first.",
+   "root": "mk_a1"
+  },
+  {
+   "id": "mk_glove",
+   "from": "1929-08-07",
+   "until": "1929-11-09",
+   "topic": "I found this in the yard drain.",
+   "requires": [
+    "m_glove_scrap"
+   ],
+   "source": "B17 to B20. She is offended at the handling.",
+   "root": "mk_g1"
+  },
+  {
+   "id": "mk_box",
+   "from": "1929-11-09",
+   "until": "1929-11-09",
+   "topic": "Mrs. Kessler. Miss Quell brought Mr. Ewald's letter.",
+   "requires": [
+    "m_letter_compared"
+   ],
+   "review": true,
+   "hours": [
+    "16:00",
+    "21:00"
+   ],
+   "source": "S14, B25. Access stays with the existing owners; this tree opens nothing. Stops on Nadia's line.",
+   "root": "mk_b1"
+  }
+ ],
+ "nodes": {
+  "mk_t1": {
+   "silence_goto": "mk_t2",
+   "line": "The valve is behind the walnut, not on it. The person from the counter can leave the copies there.",
+   "choices": [
+    {
+     "label": "Stay at the valve.",
+     "goto": "mk_t2"
+    }
+   ]
+  },
+  "mk_t2": {
+   "speaker": "NADIA",
+   "silence_goto": "mk_t3",
+   "line": "Miss Voss.",
+   "choices": [
+    {
+     "label": "Keep your eyes on the valve.",
+     "goto": "mk_t3"
+    }
+   ]
+  },
+  "mk_t3": {
+   "flag": "m_tea_seen",
+   "silence_goto": "mk_t4",
+   "line": "I know who you mean.",
+   "choices": [
+    {
+     "label": "Bleed the radiator, loudly.",
+     "goto": "mk_t4"
+    }
+   ]
+  },
+  "mk_t4": {
+   "speaker": "NADIA",
+   "flag": "m_motive_known",
+   "line": "Then use her name. Texas wrote the color of Mrs. De Priest's skin into a resolution and you're reading it to me over the cups, Mae. I can do the whole afternoon like this. There's a clause in that deed I should mention before I lose my temper."
+  },
+  "mk_a1": {
+   "silence_goto": "mk_a2",
+   "line": "I knew a counter. Who sends you? Not the question; the question I can date. It has the Record's fingerprints on it and it's been handled by the maintenance, which accounts for the damage.",
+   "choices": [
+    {
+     "label": "She copied your deed.",
+     "goto": "mk_a2"
+    },
+    {
+     "label": "Where were you on the Friday?",
+     "goto": "mk_a3"
+    }
+   ]
+  },
+  "mk_a2": {
+   "line": "She copied a deed. It has my family's name on it, as does your ceiling. Gloves are by the door, should you wish to touch anything else."
+  },
+  "mk_a3": {
+   "flag": "m_mae_alibi_stated",
+   "silence_goto": "mk_a4",
+   "line": "Here. I had the wireless on, as everyone on this floor will tell you with some resentment. I have been asked that by a patrolman, who at least took his hat off.",
+   "choices": [
+    {
+     "label": "Which programme?",
+     "goto": "mk_a4",
+     "requires": [
+      "m_drama_disc"
+     ],
+     "trust": -1
+    }
+   ],
+   "silence_trust": -1
+  },
+  "mk_a4": {
+   "line": "The one that was on. I don't attribute a wireless programme. Do you know, I've appraised for thirty years, and that is the first time anyone has asked me to authenticate an evening?"
+  },
+  "mk_g1": {
+   "silence_goto": "mk_g2",
+   "line": "Not on the table. Who taught you to carry kid in a wet rag? French, second quality, and whoever cut that didn't need to. A button is not an identity. I have sold you nothing, I have mended nothing, and you will take it out by the service door.",
+   "choices": [
+    {
+     "label": "I didn't say whose it was.",
+     "goto": "mk_g2"
+    }
+   ]
+  },
+  "mk_g2": {
+   "flag": "m_mae_named_mend",
+   "line": "No. You did not. You will find I very rarely repeat a compliment, so do not wait for that one."
+  },
+  "mk_b1": {
+   "silence_goto": "mk_b2",
+   "line": "Those are private papers.",
+   "choices": [
+    {
+     "label": "Mine are in there.",
+     "goto": "mk_b2"
+    }
+   ]
+  },
+  "mk_b2": {
+   "silence_goto": "mk_b3",
+   "line": "They concern my family.",
+   "choices": [
+    {
+     "label": "You kept my note with them.",
+     "goto": "mk_b3"
+    }
+   ]
+  },
+  "mk_b3": {
+   "silence_goto": "mk_b4",
+   "line": "You are the maintenance tenant. I would ask what you imagine you are saying, but you'd only tell me.",
+   "choices": [
+    {
+     "label": "Your letter says she fell. Cam Ortiz had it in his bag at six-forty.",
+     "goto": "mk_b4"
+    }
+   ]
+  },
+  "mk_b4": {
+   "silence_goto": "mk_b5",
+   "line": "I have been asked quite enough about that woman.",
+   "choices": [
+    {
+     "label": "Say nothing.",
+     "goto": "mk_b5"
+    }
+   ]
+  },
+  "mk_b5": {
+   "speaker": "NADIA",
+   "flag": "m_mae_answered",
+   "line": "Adela Voss."
+  }
+ }
+}

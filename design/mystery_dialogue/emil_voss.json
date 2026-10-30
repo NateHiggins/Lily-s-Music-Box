@@ -1,0 +1,64 @@
+{
+ "meta": {
+  "resident_id": "emil_voss",
+  "speaker_default": "EMIL VOSS",
+  "voice_prefix": "m_ev_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Not a sidekick, and he does not validate her. He came with wrapping paper. No jokes and no companion reply in this thread. Pictures are never clue rewards."
+ },
+ "entries": {
+  "ev_home": "ev_1"
+ },
+ "threads": [
+  {
+   "id": "ev_home",
+   "from": "1929-07-22",
+   "until": "1929-07-22",
+   "topic": "Can I help you with those?",
+   "review": true,
+   "hours": [
+    "10:00",
+    "16:00"
+   ],
+   "source": "S11, B15",
+   "root": "ev_1"
+  }
+ ],
+ "nodes": {
+  "ev_1": {
+   "silence_goto": "ev_1s",
+   "line": "These can come home.",
+   "choices": [
+    {
+     "label": "I'll hold the paper.",
+     "goto": "ev_2"
+    },
+    {
+     "label": "The paper said she lodged at the Orison.",
+     "goto": "ev_3"
+    }
+   ]
+  },
+  "ev_1s": {
+   "line": "He puts the pin carefully back in its hole and does not begin."
+  },
+  "ev_2": {
+   "line": "Mind the corner. No, you've got it. She did that one the winter the pipes froze. Don't look at it, it isn't for looking at, it's for the wall."
+  },
+  "ev_3": {
+   "flag": "m_address_fact",
+   "silence_goto": "ev_3s",
+   "line": "Over this shop. Eleven years. Her rent book is in the drawer the thief didn't want. I don't know who told them lodged. Nobody told me anything, I had it from the paper too.",
+   "choices": [
+    {
+     "label": "I'll hold the paper.",
+     "goto": "ev_2"
+    }
+   ]
+  },
+  "ev_3s": {
+   "line": "These can come home. I've said that. I'll just do this one."
+  }
+ }
+}

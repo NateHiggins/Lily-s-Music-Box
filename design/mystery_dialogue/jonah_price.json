@@ -1,0 +1,92 @@
+{
+ "meta": {
+  "resident_id": "jonah_price",
+  "speaker_default": "JONAH PRICE",
+  "voice_prefix": "m_jp_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Revises a sentence when asked for a fact. Heard a drama line; composed \"white hands\". Rare finality sounds almost violent. Admission comes only if the player keeps asking."
+ },
+ "entries": {
+  "jp_page": "jp_p1",
+  "jp_book": "jp_f1"
+ },
+ "threads": [
+  {
+   "id": "jp_page",
+   "from": "1929-08-06",
+   "until": "1929-11-09",
+   "topic": "\"19 July.\" That's one of your notebooks.",
+   "requires": [
+    "m_notebook_spine"
+   ],
+   "source": "B16, S09, 4.6.",
+   "root": "jp_p1"
+  },
+  {
+   "id": "jp_book",
+   "from": "1928-11-10",
+   "until": "1929-07-19",
+   "topic": "How's the book?",
+   "source": "Character. Comedy, ending withheld.",
+   "root": "jp_f1"
+  }
+ ],
+ "nodes": {
+  "jp_p1": {
+   "flag": "m_jonah_page",
+   "silence_goto": "jp_p1s",
+   "line": "Don't touch \"white.\" It took me an hour. \"The set died at four minutes to nine and the wall went on talking, ticking as it talked, 'Inspector, the clock is four minutes fast,' and somebody slammed a door on it.\" And then white hands, museum-white, on the sill, or on a sill, or, no, it wants a sill.",
+   "choices": [
+    {
+     "label": "Which part did you hear?",
+     "goto": "jp_p2"
+    },
+    {
+     "label": "Did you see the hands?",
+     "goto": "jp_p3"
+    }
+   ]
+  },
+  "jp_p1s": {
+   "line": "You've read it, then, and you're doing the silence critics do. It's very good. I've done it to Noel."
+  },
+  "jp_p2": {
+   "silence_goto": "jp_p4",
+   "line": "It wants two beats there. You can hear that.",
+   "choices": [
+    {
+     "label": "Which part did you hear?",
+     "goto": "jp_p4"
+    }
+   ]
+  },
+  "jp_p3": {
+   "silence_goto": "jp_p4",
+   "line": "No. The white was... it's a figure, it stands for... my brother's a conservator, it's a very rich... No.",
+   "choices": [
+    {
+     "label": "Which part did you hear?",
+     "goto": "jp_p4"
+    }
+   ]
+  },
+  "jp_p4": {
+   "flag": "m_jonah_heard",
+   "line": "The inspector's line. The door. The tick, I thought the tick was the play's clock. Through the wall, through her wall, when my set had gone. The hands are the sentence. I heard that. I didn't see anything. I have never in my life seen anything."
+  },
+  "jp_f1": {
+   "silence_goto": "jp_f2",
+   "line": "It has a beginning, which I've kept, and a second beginning. I wrote the neighbour an apology on Monday for the noise and by Thursday it was six pages and she owed me money.",
+   "choices": [
+    {
+     "label": "Send it.",
+     "goto": "jp_f2"
+    }
+   ]
+  },
+  "jp_f2": {
+   "line": "It isn't finished."
+  }
+ }
+}

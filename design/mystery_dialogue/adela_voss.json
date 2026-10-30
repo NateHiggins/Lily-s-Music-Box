@@ -1,0 +1,310 @@
+{
+ "meta": {
+  "resident_id": "adela_voss",
+  "speaker_default": "ADELA VOSS",
+  "voice_prefix": "m_av_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "The living woman, met on visited dates before 19 July 1929. Every line here is gated on trans-reader review. She is good company and a sharp edit, and sometimes wrong about who a picture belongs to. She has no idea who is holding her corner. No foreshadowing: she is having a good year. Her name and gender are ordinary knowledge, never a reveal."
+ },
+ "entries": {
+  "av_window": "av_w1",
+  "av_derby": "av_d1",
+  "av_science": "av_s1",
+  "av_rhea": "av_r1",
+  "av_key11": "av_k1",
+  "av_nineteen": "av_n1"
+ },
+ "threads": [
+  {
+   "id": "av_window",
+   "from": "1928-11-10",
+   "until": "1929-07-19",
+   "topic": "Need a hand with that?",
+   "review": true,
+   "source": "S02, B01",
+   "root": "av_w1"
+  },
+  {
+   "id": "av_derby",
+   "from": "1928-11-10",
+   "until": "1929-07-19",
+   "topic": "How's the Derby?",
+   "review": true,
+   "source": "Her weekly loss. S03's plate joke is Nadia's scene, not this one.",
+   "root": "av_d1"
+  },
+  {
+   "id": "av_science",
+   "from": "1928-11-10",
+   "until": "1929-07-19",
+   "topic": "That's a cheap magazine for a serious shop.",
+   "review": true,
+   "source": "World. Aliens are common and ignore people. Atmosphere only; no message, no faction.",
+   "root": "av_s1"
+  },
+  {
+   "id": "av_rhea",
+   "from": "1929-04-20",
+   "until": "1929-07-19",
+   "topic": "Miss Sato's picture isn't in the window any more.",
+   "review": true,
+   "source": "WR-07. She is wrong here and half knows it. S06 is its scene.",
+   "root": "av_r1"
+  },
+  {
+   "id": "av_key11",
+   "from": "1929-07-11",
+   "until": "1929-07-11",
+   "topic": "You wanted the roof.",
+   "requires": [
+    "m_adela_wants_roof"
+   ],
+   "review": true,
+   "source": "B02. The loan she will not recognise. No wink at it; only the player knows.",
+   "root": "av_k1"
+  },
+  {
+   "id": "av_nineteen",
+   "from": "1929-07-19",
+   "until": "1929-07-19",
+   "topic": "Evening, Miss Voss.",
+   "review": true,
+   "hours": [
+    "18:05",
+    "20:59"
+   ],
+   "source": "B08 to B10 and the O2 branches. Each flag writes one line in the key book. Never shows her going up after agreeing not to.",
+   "root": "av_n1"
+  }
+ ],
+ "nodes": {
+  "av_w1": {
+   "silence_goto": "av_w1s",
+   "line": "Hold that corner. Higher.",
+   "choices": [
+    {
+     "label": "Like this?",
+     "goto": "av_w2"
+    },
+    {
+     "label": "What does the card say?",
+     "goto": "av_w2"
+    }
+   ]
+  },
+  "av_w1s": {
+   "silence_goto": "av_w2",
+   "line": "You can stand there, night man, but you're in my light and I'm charging you for it.",
+   "choices": [
+    {
+     "label": "Sorry.",
+     "goto": "av_w2"
+    }
+   ]
+  },
+  "av_w2": {
+   "silence_goto": "av_w3",
+   "line": "No, higher on the glass. I'm not trying to improve the street. Mrs. Owen, going to Congress. The Speaker wants to know where she'll hang her hat.",
+   "choices": [
+    {
+     "label": "What did you tell him?",
+     "goto": "av_w3"
+    },
+    {
+     "label": "You don't like his paper.",
+     "goto": "av_w3b"
+    }
+   ]
+  },
+  "av_w3": {
+   "silence_goto": "av_w3b",
+   "line": "To move his.",
+   "choices": [
+    {
+     "label": "You don't like his paper.",
+     "goto": "av_w3b"
+    }
+   ]
+  },
+  "av_w3b": {
+   "flag": "m_met_adela",
+   "silence_goto": "av_w4",
+   "line": "I buy it every day. A woman has to have a vice she can leave in a window.",
+   "choices": [
+    {
+     "label": "Why the roof? You keep looking up there.",
+     "goto": "av_w4"
+    }
+   ]
+  },
+  "av_w4": {
+   "flag": "m_adela_wants_roof",
+   "line": "You've got the keys to the only decent horizon in Long Island City and you use it to look at pipes. If you ever want a sky taken properly, I'd take it for the price of the door."
+  },
+  "av_d1": {
+   "bank": "JF007-A01",
+   "silence_goto": "av_d1s",
+   "line": "I have been expelled from twenty-four literary societies. One of them was founded expressly to hear my appeal. The Derby is the only body that keeps writing back. Here's Saturday's. Why did the portrait sue? It had been framed.",
+   "choices": [
+    {
+     "label": "That's terrible.",
+     "goto": "av_d2"
+    },
+    {
+     "label": "He'll print it.",
+     "goto": "av_d3"
+    }
+   ]
+  },
+  "av_d1s": {
+   "line": "Silence. He sends that too, but on better paper."
+  },
+  "av_d2": {
+   "line": "Thank you. Terrible is a category. He only files the merely bad ones. Last week he sent mine back marked \"told to us by our father.\""
+  },
+  "av_d3": {
+   "line": "He will not. Don't be kind, night man, it's bad for the form."
+  },
+  "av_s1": {
+   "bank": "JF002-A01",
+   "silence_goto": "av_s2",
+   "line": "Fifteen cents. \"The visitor from the fourth dimension could explain the universe. I tied my shoelace and he asked me to do it again.\" I keep it for the pictures. They've drawn him with a collar.",
+   "choices": [
+    {
+     "label": "Have you ever got one of the real ones on a plate?",
+     "goto": "av_s2"
+    },
+    {
+     "label": "You believe that stuff?",
+     "goto": "av_s3"
+    }
+   ]
+  },
+  "av_s2": {
+   "flag": "m_adela_sky_plates",
+   "line": "Six. A smear, a smear, a very fine smear of the gasworks. They went over again Tuesday and didn't look down. I've had sitters like that. Aldermen, mostly."
+  },
+  "av_s3": {
+   "line": "I believe it's fifteen cents. The ones over the river are real enough. I just wouldn't take their word on a shoelace."
+  },
+  "av_r1": {
+   "silence_goto": "av_r1s",
+   "line": "Noticed that, did you? Best thing I've done since Christmas. Her whole face stops performing for a fiftieth of a second. She wants it burned.",
+   "choices": [
+    {
+     "label": "It's her face.",
+     "goto": "av_r2"
+    },
+    {
+     "label": "It's your plate.",
+     "goto": "av_r3",
+     "trust": -1
+    }
+   ]
+  },
+  "av_r1s": {
+   "silence_goto": "av_r2",
+   "line": "Go on. Everyone else has an opinion and you've got a wrench, so I expect yours is better.",
+   "choices": [
+    {
+     "label": "It's her face.",
+     "goto": "av_r2"
+    }
+   ]
+  },
+  "av_r2": {
+   "flag": "m_adela_was_wrong",
+   "line": "It's her face, and my fiftieth of a second, and I took it down, and I will keep that negative until one of us is dead. There. That's the most reasonable I get."
+  },
+  "av_r3": {
+   "line": "Thank you, that's what I've been telling myself. You'd think it would sound better from a stranger."
+  },
+  "av_k1": {
+   "silence_goto": "av_k2",
+   "line": "Tonight? You're a prince of the service stair. Give me that and put me in your book. I'll be up there till the sky stops being interesting, and I'll sign for it like a citizen.",
+   "choices": [
+    {
+     "label": "Sign here. \"A.V., roof.\"",
+     "goto": "av_k2"
+    }
+   ]
+  },
+  "av_k2": {
+   "flag": "m_key_loan_11",
+   "line": "Your capitals are terrible. Look, hold it like a grease pencil, from up here. You'd be surprised how much of a person's character is in the E."
+  },
+  "av_n1": {
+   "silence_goto": "av_n1s",
+   "line": "Night man. Your clock and my watch have just agreed about something, which makes one of us. You're carrying the book. Storm's coming over the Gate and I'd like my door.",
+   "choices": [
+    {
+     "label": "Here's the key.",
+     "goto": "av_n2"
+    },
+    {
+     "label": "No key tonight.",
+     "goto": "av_n3"
+    },
+    {
+     "label": "Don't go up. Stay in the shop.",
+     "goto": "av_n4",
+     "requires": [
+      "m_motive_known"
+     ]
+    },
+    {
+     "label": "Let me come up with you.",
+     "goto": "av_n5"
+    },
+    {
+     "label": "Bring Miss Quell and Mr. Ewald tonight. Not Monday.",
+     "goto": "av_n6",
+     "requires": [
+      "m_lease_read"
+     ]
+    }
+   ]
+  },
+  "av_n1s": {
+   "silence_goto": "av_n2",
+   "line": "You look like somebody reading their own handwriting. The key, if it's all the same.",
+   "choices": [
+    {
+     "label": "Here's the key.",
+     "goto": "av_n2"
+    }
+   ]
+  },
+  "av_n2": {
+   "flag": "m_key_loan_19",
+   "line": "Good. Nineteenth, A.V., roof, storm. Spell it how you like, the E's your own problem now."
+  },
+  "av_n3": {
+   "flag": "m_o2_refused_key",
+   "line": "All right. It's your roof. I don't know what I've done to it, but I'm sure there's a form."
+  },
+  "av_n4": {
+   "flag": "m_o2_kept_shop",
+   "silence_goto": "av_n4b",
+   "line": "Is that the maintenance department's view of the weather? No, don't. You've gone a very bad colour. Fine. I've got prints to wash. Nobody ever died of an evening with a clean enlarger.",
+   "choices": [
+    {
+     "label": "Thank you.",
+     "goto": "av_n4b"
+    }
+   ]
+  },
+  "av_n4b": {
+   "line": "Don't thank me, you'll give me the idea I've done something. Go on. Mind your pipes."
+  },
+  "av_n5": {
+   "flag": "m_o2_stood_roof",
+   "line": "Can you hold a focusing cloth in a gale and not talk? Then you're better staffed than the Record."
+  },
+  "av_n6": {
+   "flag": "m_o2_brought_monday",
+   "line": "Half past six? For a schedule to a deed? You've read it, haven't you. Nobody reads it. All right, night man, go and get them, and if they bring Mrs. Kessler I'm charging her for the chair."
+  }
+ }
+}

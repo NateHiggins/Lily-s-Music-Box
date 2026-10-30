@@ -1,0 +1,74 @@
+{
+ "meta": {
+  "resident_id": "malcolm_reed",
+  "speaker_default": "MALCOLM REED",
+  "voice_prefix": "m_mr_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Time measured by what can grow; a very possessive pot. Last on the roof with her before dark. Roof user, not a suspect by default. Quiet oldest fact."
+ },
+ "entries": {
+  "mr_roses": "mr_r1",
+  "mr_last": "mr_l1"
+ },
+ "threads": [
+  {
+   "id": "mr_roses",
+   "from": "1928-11-10",
+   "until": "1929-07-19",
+   "topic": "That planter's got its elbows out.",
+   "source": "World and character. Bank line placed before the case can touch him.",
+   "root": "mr_r1"
+  },
+  {
+   "id": "mr_last",
+   "from": "1929-07-19",
+   "until": "1929-11-09",
+   "topic": "You were up there that evening.",
+   "review": true,
+   "source": "B09. On the day it is a plain exchange; after, he measures it.",
+   "root": "mr_l1"
+  }
+ ],
+ "nodes": {
+  "mr_r1": {
+   "bank": "JF003-A01",
+   "silence_goto": "mr_r2",
+   "line": "I was told to get closer to nature. The roses have thorns, the nettles have knives, and the goose has a lawyer. Don't laugh, you haven't met the goose. Mind the cutting.",
+   "choices": [
+    {
+     "label": "Who else comes up here?",
+     "goto": "mr_r2"
+    }
+   ]
+  },
+  "mr_r2": {
+   "flag": "m_roof_users",
+   "line": "Everyone with a grievance. Sacha Reed with the camera, Thursdays. The young lady with the wire. Lately the photographer from over the road, who stands in my beans and tells me my light's wrong. It is wrong. I have told the beans."
+  },
+  "mr_l1": {
+   "silence_goto": "mr_l1s",
+   "line": "Twenty-five past six. She set up by the rear wall with that tripod. I said mind the cutting. She said mind the sky, yours will wait. Well, it has. It has put on nine inches. I don't know what to do with that.",
+   "choices": [
+    {
+     "label": "Did you see anyone else?",
+     "goto": "mr_l2"
+    },
+    {
+     "label": "Is that the same cutting?",
+     "goto": "mr_l3"
+    }
+   ]
+  },
+  "mr_l1s": {
+   "line": "You needn't stay. The soil won't mind. It's got a very long memory for who overwaters it, and very little else."
+  },
+  "mr_l2": {
+   "flag": "m_last_on_roof",
+   "line": "I took my pots down before seven, ahead of the wet. Nobody. There's a good many places to be nobody on that roof, though, I've tried them."
+  },
+  "mr_l3": {
+   "line": "She took a slip of it. In a tobacco tin. I've seen that tin on her sill from up here all summer, across the road. Someone ought to water it. It's not my business whose it is."
+  }
+ }
+}

@@ -1,0 +1,115 @@
+{
+ "meta": {
+  "resident_id": "juno_kells",
+  "speaker_default": "JUNO KELLS",
+  "voice_prefix": "m_jk_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Admits a smaller recording offense quickly. Roof mic, wall tape, the Harukiya pocket tape. Fast associative cuts. Does not preach about preservation. A recorder is not a person."
+ },
+ "entries": {
+  "jk_mic": "jk_m1",
+  "jk_wall": "jk_w1",
+  "jk_trade": "jk_t1"
+ },
+ "threads": [
+  {
+   "id": "jk_mic",
+   "from": "1929-07-11",
+   "until": "1929-11-09",
+   "topic": "There's a microphone under the coping.",
+   "requires": [
+    "m_found_mic"
+   ],
+   "source": "B02. Small offense first.",
+   "root": "jk_m1"
+  },
+  {
+   "id": "jk_wall",
+   "from": "1929-08-20",
+   "until": "1929-11-09",
+   "topic": "\"July 19, wall. Play on a quiet day.\"",
+   "requires": [
+    "m_reel_box"
+   ],
+   "review": true,
+   "source": "B18, S12. She waits. Listening follows at its own pace. No jokes on 20 August.",
+   "root": "jk_w1"
+  },
+  {
+   "id": "jk_trade",
+   "from": "1929-08-24",
+   "until": "1929-11-09",
+   "topic": "Your log has Cal Dwyer down for Saturday.",
+   "requires": [
+    "m_trade_log"
+   ],
+   "source": "B19. The lead that sends the player to 5B. Bank line: a household noise.",
+   "root": "jk_t1"
+  }
+ ],
+ "nodes": {
+  "jk_m1": {
+   "bank": "JF015-A01",
+   "silence_goto": "jk_m2",
+   "line": "Oh, that's me, that's a mic, don't touch it, it's fine, I also have the plumber's on a loop and I've been using the Reverend for rhythm. You've seen the tabulating machine they put in at the insurance? Instructions for waking, working, eating and sleeping. Left out the part where a person gets to be alive. I'm recording that part. Somebody should.",
+   "choices": [
+    {
+     "label": "Who else knows it's up there?",
+     "goto": "jk_m2"
+    },
+    {
+     "label": "Did you ask anyone?",
+     "goto": "jk_m3",
+     "trust": 1
+    }
+   ]
+  },
+  "jk_m2": {
+   "flag": "m_juno_roof_mic",
+   "line": "Sacha, Thursdays, because Thursdays are Sacha's and we fight about it. The lady with the camera told me my cable was in her shot and moved it. Nicely! Moved it nicely! And she never told a soul. Whoever that makes her."
+  },
+  "jk_m3": {
+   "line": "... No. That's a real question, you're allowed that one. No."
+  },
+  "jk_w1": {
+   "silence_goto": "jk_w1s",
+   "line": "I have the tape. We don't have to play it now.",
+   "choices": [
+    {
+     "label": "Not now.",
+     "goto": "jk_w2"
+    },
+    {
+     "label": "Play it.",
+     "goto": "jk_w3"
+    }
+   ]
+  },
+  "jk_w1s": {
+   "line": "Yeah."
+  },
+  "jk_w2": {
+   "line": "Okay. It's on the shelf where you left it. It's on the shelf, I mean. I don't know why I said that."
+  },
+  "jk_w3": {
+   "flag": "m_wall_tape",
+   "line": "Lights died, deck kept going, I'd rigged it off a cell because I'm like that. Thump of the house going off. Then rain. Then some hours of rain. Nobody on it. It's the best rain I ever got. I'm sorry, that's what I think, I don't have another thing to think."
+  },
+  "jk_t1": {
+   "bank": "JF005-A02",
+   "silence_goto": "jk_t2",
+   "line": "\"Saturday the twenty-fourth, three p.m., C.D., WLBQ twelfth and nineteenth July.\" We swap air. He gets my cold splices and I get his night dial. Lena through the wall is the only audience we've got, I tell her a joke: nothing. I slam the cupboard: hysterics. There's something wrong with the profession.",
+   "choices": [
+    {
+     "label": "Why those two dates?",
+     "goto": "jk_t2"
+    }
+   ]
+  },
+  "jk_t2": {
+   "flag": "m_drama_lead",
+   "line": "He says somebody's clock was in both and he hates it. Go ask him, bring a chair, he'll play it till you agree with him."
+  }
+ }
+}

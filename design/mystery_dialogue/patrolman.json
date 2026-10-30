@@ -1,0 +1,50 @@
+{
+ "meta": {
+  "resident_id": "patrolman",
+  "speaker_default": "PATROLMAN",
+  "voice_prefix": "m_pm_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Institutional haste. The sheet does the talking. Nobody is a villain; he has a beat."
+ },
+ "entries": {
+  "pm_sheet": "pm_1"
+ },
+ "threads": [
+  {
+   "id": "pm_sheet",
+   "from": "1929-07-20",
+   "until": "1929-07-20",
+   "topic": "Who's the sheet going to?",
+   "hours": [
+    "03:40",
+    "06:00"
+   ],
+   "source": "B11. Where \"lodger\" and \"after a lightning stroke\" begin.",
+   "root": "pm_1"
+  }
+ ],
+ "nodes": {
+  "pm_1": {
+   "flag": "m_patrol_sheet",
+   "silence_goto": "pm_2",
+   "line": "Precinct. Female, thirty-eight or so, photographer, fell off the roof in that weather. Crystal broke, stopped nine-oh-seven, there's your time. The couple in four-D say she lodged. That's a name and a time and an address, that's a good sheet.",
+   "choices": [
+    {
+     "label": "Nails torn. Is that all you've got for her hand?",
+     "goto": "pm_2"
+    },
+    {
+     "label": "Did anyone see her fall?",
+     "goto": "pm_3"
+    }
+   ]
+  },
+  "pm_2": {
+   "line": "Nails torn. Nurse had a whole page about it. There's one line on the form, friend, and it's that long."
+  },
+  "pm_3": {
+   "line": "In that? Lightning's seen her fall. Mind your feet, you're in my yard."
+  }
+ }
+}
