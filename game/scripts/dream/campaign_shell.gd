@@ -21,6 +21,7 @@ var attention_ledger: AttentionLedger
 var active_world: Node
 var active_kind := ""
 var _swap_queued := false
+var _opening_veil: CanvasLayer
 
 
 func _ready() -> void:
@@ -47,7 +48,36 @@ func _ready() -> void:
 	add_child(sleep_pressure)
 	sleep_pressure.setup(dream_director)
 	dream_director.world_swap_requested.connect(_on_world_swap_requested)
+	if uses_prologue_entry() and dream_director.phase() not in ["entered", "active"]:
+		# Composition yields while the real companion services load. Hide the
+		# unfinished world, leaving pause/error UI and its input ownership alone.
+		_opening_veil = CanvasLayer.new()
+		_opening_veil.name = "OpeningLoadingVeil"
+		_opening_veil.layer = -1
+		var shade := ColorRect.new()
+		shade.color = Color.BLACK
+		shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		_opening_veil.add_child(shade)
+		add_child(_opening_veil)
 	_restore_world()
+
+
+## Scene-root campaigns use the replacement opening. Embedded campaign
+## fixtures still exercise independent shift/dream systems. Old completed
+## saves without this optional domain retain their established resume route.
+func uses_prologue_entry() -> bool:
+	if get_parent() != get_tree().root or _selected_waking_path() != BuildingSelector.path_for("v2"):
+		return false
+	var saved: Variant = RealityState.data.get("prologue", {})
+	return preload("res://scripts/game/prologue_state.gd").valid(saved) \
+			and (not saved.is_empty() or not bool(RealityState.data.get("intro_complete", false)))
+
+
+func release_opening_veil(owner_world: Node) -> void:
+	if owner_world == active_world and is_instance_valid(_opening_veil):
+		_opening_veil.queue_free()
+		_opening_veil = null
 
 
 ## BuildingRoot calls this after all scene-owned domain services and the player

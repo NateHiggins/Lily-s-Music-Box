@@ -40,6 +40,10 @@ var core_loop: CoreLoopDirector
 var safety_net: SafetyNet
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
+var prologue_director: Node
+var _opening_retry: Timer
+var _opening_starting := false
+var _opening_placed := false
 var service_round: ServiceRoundDirector
 var conversations: ResidentConversations
 var newspapers: NewspaperCatalog
@@ -293,6 +297,89 @@ func _ready() -> void:
 	structural_occlusion.setup(_blockout)
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
+
+## Called by the existing onboarding owner. Returning true reserves startup
+## even while composition/input is busy; never fall back to the old curb spawn.
+func request_prologue_entry() -> bool:
+	var shell := get_tree().get_first_node_in_group("campaign_shell") as CampaignShell
+	if shell == null or shell.active_world != self or not shell.uses_prologue_entry():
+		return false
+	if not is_instance_valid(_opening_retry):
+		_opening_retry = Timer.new()
+		_opening_retry.wait_time = 0.2
+		_opening_retry.timeout.connect(_try_prologue_entry)
+		add_child(_opening_retry)
+		_opening_retry.start()
+	return true
+
+
+func _try_prologue_entry() -> void:
+	if startup_failed:
+		_opening_retry.stop()
+		var failed_shell := get_tree().get_first_node_in_group("campaign_shell") as CampaignShell
+		if failed_shell != null:failed_shell.release_opening_veil(self)
+		return
+	if _opening_starting or startup_ms <= 0.0 \
+			or get_tree().paused or RealityState.save_write_blocked:
+		return
+	var shell := get_tree().get_first_node_in_group("campaign_shell") as CampaignShell
+	if shell == null or shell.active_world != self or not shell.uses_prologue_entry():
+		_opening_retry.stop()
+		return
+	if player.protected_input_active() or player.text_input_owner != null or not player.camera.is_current():
+		return
+	_opening_starting = true
+	# Support-wall rays need a registered physics world, not merely a finished
+	# asynchronous _ready. Recheck ownership after the yield before moving anyone.
+	await get_tree().physics_frame
+	_opening_starting = false
+	if not is_inside_tree() or shell.active_world != self or get_tree().paused \
+			or RealityState.save_write_blocked or not shell.uses_prologue_entry():
+		return
+	if player.protected_input_active() or player.text_input_owner != null or not player.camera.is_current():
+		return
+	if not _opening_placed:
+		if not core_loop.return_player_to_safe_anchor():
+			_opening_retry.stop()
+			startup_failed = true
+			startup_failure_reason = "Production prologue bedside anchor unavailable"
+			push_error(startup_failure_reason)
+			shell.release_opening_veil(self)
+			return
+		_opening_placed = true
+	if not is_instance_valid(prologue_director):
+		prologue_director = preload("res://scripts/game/prologue_director.gd").new()
+		prologue_director.name = "PrologueDirector"
+		add_child(prologue_director)
+		if not prologue_director.configure(self):
+			_opening_retry.stop()
+			prologue_director.shutdown()
+			startup_failed = true
+			startup_failure_reason = "Production prologue binding failed"
+			# Do not hide diagnostic/pause UI behind a failed loading presentation.
+			shell.release_opening_veil(self)
+			return
+		prologue_director.phase_changed.connect(_on_prologue_phase_changed)
+	if prologue_director.resume_opening(preload("res://assets/props/prologue_wake_cover.glb")):
+		_opening_retry.stop()
+		# The retired title used a free pointer. Capture only after our own
+		# presentation is accepted; never steal a deliberately released pointer.
+		if not player.mouse_released and not player.protected_input_active():
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		shell.release_opening_veil(self)
+		_on_prologue_phase_changed(str(prologue_director.state.phase))
+	elif not prologue_director.errors.is_empty():
+		_opening_retry.stop()
+		prologue_director.shutdown()
+		startup_failed = true
+		startup_failure_reason = "Production prologue presentation failed"
+		shell.release_opening_veil(self)
+
+
+func _on_prologue_phase_changed(phase: String) -> void:
+	if phase == "prologue_complete":
+		first_shift_director.acknowledge_replacement_intro()
+
 
 func _compose_authorities() -> void:
 	objective_tracker = ObjectiveTracker.new()
@@ -1223,6 +1310,7 @@ func shutdown_for_tests() -> void:
 	if acoustic_topology!=null: acoustic_topology.release()
 
 func _exit_tree() -> void:
+	if is_instance_valid(prologue_director):prologue_director.shutdown()
 	if is_instance_valid(bathroom_moisture):bathroom_moisture.shutdown()
 	if public_landings!=null:public_landings.teardown();public_landings=null
 	if public_regions!=null:public_regions.teardown();public_regions=null

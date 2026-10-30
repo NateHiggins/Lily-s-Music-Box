@@ -66,6 +66,9 @@ func _ready() -> void:
 func _begin_if_needed() -> void:
 	var shell := get_tree().get_first_node_in_group("campaign_shell") as CampaignShell
 	var campaign_world := shell != null and shell.active_world == building
+	if campaign_world and building.has_method("request_prologue_entry") \
+			and building.call("request_prologue_entry"):
+		return
 	if bool(RealityState.data.get("intro_complete", false)):
 		# complete_return has already placed the rebuilt player at the bedside.
 		# This deferred startup must not move them back outside on the next frame.
@@ -101,6 +104,18 @@ func begin_first_shift() -> bool:
 		tracker.show_objective("FIRST SHIFT — ORISON APARTMENTS",
 				ARRIVAL_INSTRUCTION)
 	_emit_ritual()
+	return true
+
+
+## The new opening completes onboarding, not a maintenance shift. Keep this
+## compatibility fact with its existing owner; no report/job is fabricated.
+func acknowledge_replacement_intro() -> bool:
+	if RealityState.save_write_blocked \
+			or RealityState.data.get("prologue", {}).get("phase", "") != "prologue_complete":
+		return false
+	if not bool(RealityState.data.get("intro_complete", false)):
+		RealityState.data.intro_complete = true
+		RealityState.commit_background()
 	return true
 
 
@@ -390,7 +405,7 @@ func _show(title: String, text: String) -> void:
 func _on_intro_finished() -> void:
 	if bool(RealityState.data.get("intro_complete", false)):
 		return
-	begin_first_shift()
+	_begin_if_needed()
 
 
 func _place_at_arrival() -> void:

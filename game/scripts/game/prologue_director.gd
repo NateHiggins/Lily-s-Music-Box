@@ -1,6 +1,6 @@
 extends Node
 ## Working slices: waking/shower guidance and the console/sky/historical finale.
-## Not installed into normal entry until the complete opening is qualified.
+## Campaign entry resumes this owner after the composed world is ready.
 signal phase_changed(phase: String)
 signal transcription_changed(text: String)
 const State := preload("res://scripts/game/prologue_state.gd")
@@ -299,6 +299,10 @@ func _enter_phase() -> void:
 			if is_instance_valid(_carrier):_carrier.reading=true
 		"temporal_synchronization":
 			if world!=null and world.has_node("WakingAtmosphere"):begin_temporal_sky()
+		"prologue_complete":
+			writing.clear()
+			_running=false
+			set_process(false)
 	phase_changed.emit(state.phase)
 
 func _say(id: String, bathroom: bool) -> void:
