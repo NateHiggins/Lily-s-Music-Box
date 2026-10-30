@@ -2469,3 +2469,57 @@ path; no persistent configuration or foreign index changes. Future required
 import timing must establish any benefit before a speedup claim. The original
 native substrate failure and successful actual-closed-owner correction remain
 unchanged. This named native WIP is preserved before main reconciliation.
+
+Local native WIP **6931a0a9** is followed by main reconciliation **6bcf1b29**,
+bringing verified integration/report-only **dafd79cf** into the city branch.
+The sole conflict is the city report: both complete canonical integration notes
+and this separate Hampton entry are retained. Original conflict bytes remain in
+**hampton_footway_01/main_merge_conflict_01.json**. Delta versus main is the12
+expected city paths. Subsequent maintenance of the existing native street
+reviewer distinguishes level stair stocks from grade-relative curb courses;
+all prior curb predicates remain,with six explicit actual-tread controls.
+Its executed source-only review passes4,913 checks,zero failures. The four
+unchanged actual native images remain reusable and inspected.
+
+Post-merge imports complete18.24/7.04s; parser3/0,empty stderr. The isolated
+Hampton street bench completes13.96s,433 checks,zero failures,51 loaded parts,
+36 reducing replacements. All10 actual fullscreen3440x1440 captures were
+inspected. New visible geometry is504 near/168 far primitives; the selected
+whole walk partition switches at25.8397–25.8398m,with narrow-FOV and inward
+return recovering near indices. Complete stairs remain at both levels.
+
+The unchanged test-written schema-2 **route_01/hampton_footway_contract.json**
+passes46 checks and nine continuous normal-controller legs from one nearby
+retained-sidewalk start. It proves the join,frontage,stair ascent,strict actual
+level landing,descent,return,three loaded finish partitions/six textures and
+world-root retirement. Wrapper195s,empty stderr. All three actual street PNGs
+were inspected. No scenic door operation,new interior,player-speed change,
+deadline/tolerance relaxation,noclip or safety rescue is used.
+
+Host contention is explicit: unrelated Android traversal is active and two
+long-lived QEMU processes consume1.6875/1.15625 CPU-seconds over an approximately
+one-second census; observed GPU utilization11%. These are exploratory timings,
+not an uncontended baseline or matched improvement. This also corrects any
+earlier city implication that coordinating only Orison/Godot/Blender/Python jobs
+established whole-host quiet: prior raw results stay unchanged and causal
+attribution remains open. Current isolated repeated GPU medians0.500/0.502ms
+far/near; first near has39.227ms maximum wall sample. The1,060 walking samples
+have wall median20.1775/p9538.114/max211.408ms,main GPU median6.7375/p9513.225/
+max22.770ms,and main CPU median1.356/p9517.121/max130.179ms. Setup133.416s and
+maximum first settle7.504s are retained outside walking samples. Engine global
+draw/primitive counters include other viewports. No performance budget accepted.
+
+The lane is released for canonical's matched moving diagnostic. Final physical
+packet renewal and candidate comparison remain pending; no additional Godot
+programme or heavy city job is queued during that measurement slot. Count stays
+17 technical building studies/132 remaining; new public paving is not an18th study.
+
+To avoid duplicate full-world renewals,the canonical owner requested this frozen
+native/focused-runtime checkpoint be pushed with combined physical/static
+verification explicitly pending. After its matched sink after-route,the owner
+will integrate the immutable city commit and run one combined physical-only
+renewal and116-gate comparison. This city task will not run a redundant full
+surface/board pass or repin any old receipt. Until those actual results exist,
+the new footway is not a fully qualified integration or artistic acceptance.
+Original raw evidence remains under **hampton_footway_01/**; its committed
+archive follows after the measurement hold,without changing runtime sources.
