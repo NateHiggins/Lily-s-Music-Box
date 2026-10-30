@@ -1673,3 +1673,41 @@ no main merge is performed here. Fresh-worktree import is not tested by this
 in-place verifier. Continue the full city goal after this technical checkpoint.
 
 MERGE-CANDIDATE 6e5e9a7a96e46d4925dd5197ea05a25afde276ec
+
+### Native continuation - complete traffic body replacements, 2026-10-30
+
+This is an **INERT, unintegrated native study**, not another runtime checkpoint.
+Shared integration sources remain frozen at **9aece84e** during prologue/city
+reconciliation. The city checkout and canonical checkout receive no vehicle
+rendering or gameplay change from this study.
+
+Reused the existing owner Model A delivery; independently verified all63
+delivery-file hashes. Closed manufactured stocks supply442 assembled stock
+instances, including four wheels, spare, chassis, interior and driver. The
+actual complete replacement bodies contain **29,662 /12,378 /7,600 triangles**.
+All33 exported parts retain their native triangle count and exactly match
+round-trip triangle-position multisets. Exported maximum relative metric UV
+edge error is **0.000055535**; minimum tangent agreement **0.999999704**.
+These are geometry measurements, not rendering-cost measurements.
+
+Original global simplification and subsequent export-face-loss failures are
+preserved. The producer now rejects invalid, flattened/zero-volume or excessively
+distorted stock, retaining complete replacement bodies rather than omitting
+wheels or figures. Sampled accepted vertex deviations are at most16.606mm and
+53.461mm for the two lower levels; these do not prove continuous silhouette error.
+Actual inspection covered14 rendered views: five native and five corrected
+round-trip views remain current; four original round-trip views had an incorrect
+preview UV-layer lookup and are retained as superseded diagnostics. The source
+delivery itself remains byte-identical.
+
+Editable study, exports, original failures, raw measurements and inspected-view
+index remain under **C:/ov/reports/city_streets_20261029**, specifically
+**tudor_stock_lod_study_05**. The current study producer is
+**tudor_stock_lod_study_03.py**; the original failed version is separately retained.
+Runtime integration, camera-relative selection, other vehicle kinds, imported
+precision, loaded mipmaps, optical glass, signal-arm/wheel motion, collision,
+graded-road appearance, actual rendering cost and transition distances remain
+open. Coarse tyre/lamp/spare silhouettes and strong existing paint wear are
+visible close up. Regional tyre-envelope minima span approximately-2.106mm to
++5.029mm relative to the authored road plane; no continuous contact proof.
+No artistic acceptance or completed-city claim follows from this study.
