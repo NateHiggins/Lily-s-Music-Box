@@ -207,6 +207,10 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
 - **Static baseline provenance:** freeze inputs until the gate board finishes;
   its Git metadata is collected after its gates run. Restoring a clean tree at
   the end does not establish that earlier checks ran against that same tree.
+- **Gate selection:** request each gate with a separate `--only` argument and
+  inspect the resulting rows. An empty board proves no checks ran. Unknown
+  selections now refuse before execution; do not treat an older empty green
+  result as verification. See `tools/tests/test_gate_board.py`.
 - **Evidence pitfalls:** runtime-composing MultiMesh tests need the windowed
   backend here; headless identity readback is not proof of corrupt source poses.
   Use the pinned patched Vulkan engine and lane receipts. A graceful exit can
