@@ -42,7 +42,7 @@ inhabited twice over.
 lights, their laundry, their grudges and their groceries. A maintenance
 tenant — androgynous, exhausted, guarded; the residents call it the night
 man — takes apartment 4B in exchange for working nights. *(Rewritten
-2026-10-29, at the owner's direction.)* It is not a person. It is a construct
+2026-10-29, at the owner's direction.)* It was not made as a person. It is a construct
 the Tenant (§III.1) set into the vacant tenancy to explore the bridge it has
 built through time. The player rides it: **Adela Voss**, the photographer from
 the Vantry Arcade across the street, after her death. The keys, the box and
@@ -59,8 +59,9 @@ Vantry service set, amended by the Tenant into a crude intelligence, carries
 the player's interface. It reaches the past only asynchronously. Everything
 written on its phosphor paper is read, later, by the Tenant, which holds that
 paper in the future; what the Tenant sends back arrives as a received copy,
-rarely, and late. The companion is literal, careful and not clever, and it
-never knows what it is working for.
+rarely, and late. The companion is literal, careful and more resourceful than
+its maker intended; it knows only what it has witnessed, and it never knows
+what it is working for.
 
 **The bridge lasts as long as the player takes to let go.** *(Ruled
 2026-10-29.)* The campaign year is the span of it: that is how long it took
