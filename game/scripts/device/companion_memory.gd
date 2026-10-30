@@ -1,6 +1,8 @@
 extends RefCounted
 ## Bounded, JSON-safe conversation memory. Facts must be supplied by witnesses.
-const LIMIT := 48
+## A campaign year of correspondence, about two exchanges a day, fits without
+## dropping its beginning; each record stays clipped to 512/2048 characters.
+const LIMIT := 1024
 var history: Array[Dictionary] = []
 var counts: Dictionary = {}
 var seen: Dictionary = {}
