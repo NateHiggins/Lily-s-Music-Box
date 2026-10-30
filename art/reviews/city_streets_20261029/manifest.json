@@ -6085,5 +6085,72 @@
       }
     },
     "limits": "Original failures, native and isolated imported diagnostics only. No duplicated blend/glb/material-image assets. No schema-2 composed runtime/access/save, whole-city, budget or artistic acceptance grant."
+  },
+  "gaslamp_night_route_archive": {
+    "evidence_class": "INERT",
+    "source_checkpoint": "1277336baf9acc084883e5120462bfe87f3bf3b0 plus archived test-only programme",
+    "archive": "gaslamp_night_route_qualification.zip",
+    "archive_bytes": 15432754,
+    "archive_sha256": "5401f8a3aef6071af2abe060ad22f486708d24d37514acf33334685d676d58a6",
+    "member_count": 14,
+    "members": {
+      "night_parser_01.log": {
+        "bytes": 228,
+        "raw_sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "night_parser_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "night_parser_01.log.receipt.json": {
+        "bytes": 1715,
+        "raw_sha256": "d8909756f9b9d01e5c12c82445581e61a8da481c8c307a476a278a64e15d366c"
+      },
+      "night_route_01.log": {
+        "bytes": 2324,
+        "raw_sha256": "49737df90393b0ac67a3a02e2da609129de6f0db48243eaf3432c414b30d7f1b"
+      },
+      "night_route_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "night_route_01.log.receipt.json": {
+        "bytes": 1711,
+        "raw_sha256": "31ea1d2c423b5a4bf8f1cfe38424aaad918244fb803f05cd9ec978234d6547b1"
+      },
+      "night_parser_route_01_batch.json": {
+        "bytes": 750,
+        "raw_sha256": "7528933d35a025ad0bfaee22c245f33af9855cb4a4939c7d4953fb474c8f8023"
+      },
+      "night_route_01/actual_visual_inspection.json": {
+        "bytes": 1707,
+        "raw_sha256": "6bd9581013f3019fa0ad56f3cc66a5a9b022556e0ddb5ceb4d002cb4297d5747"
+      },
+      "night_route_01/gaslamp_street_contract.json": {
+        "bytes": 78834,
+        "raw_sha256": "8e9e323b63bda2ac53dd4c4c9cf4505aff5dd2efbfb23b17bef7164954fe2d44"
+      },
+      "night_route_01/night_arcade_post.png": {
+        "bytes": 4803355,
+        "raw_sha256": "7b6480b38168ea6d60ed992550fecdc31c69ffda55b786f5c85173af765bef1c"
+      },
+      "night_route_01/night_crossing_signal.png": {
+        "bytes": 4089604,
+        "raw_sha256": "a98c2bc1ac450d79cd7bc1fad3c28ad3fda6b9e916282c09b6dd8e70b8094852"
+      },
+      "night_route_01/night_orison_post.png": {
+        "bytes": 3493336,
+        "raw_sha256": "bbdea09eac2f5b6d6b2ab30ec3ca4b2180a4eddf3ecef0c486566e67b7b8b479"
+      },
+      "night_route_01/night_west_post.png": {
+        "bytes": 3002051,
+        "raw_sha256": "6a6a05f84a9a3cc8cd15882b4f65832937283651908b0f421b8de1e81caaebd5"
+      },
+      "source_lf/game/tests/v2_city_transport_route.gd": {
+        "bytes": 49159,
+        "raw_sha256": "f9a5033b1aff45becc70594a8826d8dd75b7c219d2e518cbec6950d1d800d1ce"
+      }
+    },
+    "scope": "Original test-written schema2 contract:17 checks,8 normal-controller legs,4 actual cylinder contacts/night gating. Three intended night lamp views clear; distant arcade target occluded and explicitly unaccepted. No close arcade-lamp access,door/shop/save/clockprogress/full-city/artistic acceptance. Source belongs city checkpoint,not a repinned merged canopy candidate."
   }
 }

@@ -324168,6 +324168,40 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "688290a67a03e8b9",
+   "kind": "vector3_coordinate",
+   "token": "_run_gaslamps",
+   "file": "game/tests/v2_city_transport_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run_gaslamps"
+   ],
+   "lines": [
+    119,
+    119,
+    119,
+    119
+   ],
+   "count": 4,
+   "context": [
+    "var view: Dictionary={0:{\"id\":\"night_west_post\",\"target\":Vector3(-9.6,3.86,4.815)},1:{\"id\":\"night_orison_post\",\"target\":Vector3(8.1,3.86,4.815)},6:{\"id\":\"night_"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
