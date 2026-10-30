@@ -2411,5 +2411,11 @@ prologue playthrough,save matrix or artistic acceptance. Previous unchanged
 interaction/intro evidence retains its original scope. City native authoring
 could overlap this nonperformance run; no timing baseline is claimed. The
 three new buildings raise the technical study count to17/149,132 remaining.
-Hampton paving/access repairs are separate work after frozenfbf0. The merge's
-clean static candidate comparison is still pending at this entry.
+Hampton paving/access repairs are separate work after frozenfbf0. Clean merged candidate **374c2792296e34be9bb1db88dd94529ee6666e3a**
+passes116 gates against the exact verifiedbd4cde97 baseline:zero regressions
+or improvements,17 protected paths unchanged,V2,zero lint errors,no requirement
+promotions or accepted exceptions. The sole gate-file diff is the reviewed
+append-only test-fixture record. Raw comparison and explicit gate review are
+under **city_main_integration_01/candidate/comparison/**. The in-place verifier
+uses **--no-godot** with the separately executed combined physical run above;
+fresh-checkout import,whole-game and artistic acceptance remain outside scope.
