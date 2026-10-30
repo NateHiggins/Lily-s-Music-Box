@@ -229,9 +229,20 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   On Windows inspect junctions/reparse points before archiving, moving or
   removing a worktree. Resolve their targets and keep linked subtrees out of
   bulk file enumeration so cleanup cannot move the owner's only asset copy.
+- **Owner-tick evidence:** an idle timer completing does not establish that a
+  physics-polled owner has run. Await its normal state/tick with a bounded
+  deadline and assert the result; do not force the refresh or outcome. Godot4.7
+  `SceneTree.create_timer` defaults to process, not physics. Retain observed
+  tick counts and original failures; clock projection, visibility and lifecycle
+  are separate claims. See the prologue ledger's temporal identity diagnosis.
 - **Static baseline provenance:** freeze inputs until the gate board finishes;
   its Git metadata is collected after its gates run. Restoring a clean tree at
   the end does not establish that earlier checks ran against that same tree.
+- **Changed verification instruments:** inspect candidate changes to audits,
+  exceptions, fixtures and source manifests before trusting their passing output.
+  Keep any necessary owner-authorized exception narrow and retain negative
+  controls for side effects and unrelated callers. See the prologue ledger's
+  candidate instrument review for the source-bound checks and their limits.
 - **Gate selection:** request each gate with a separate `--only` argument and
   inspect the resulting rows. An empty board proves no checks ran. Unknown
   selections now refuse before execution; do not treat an older empty green
