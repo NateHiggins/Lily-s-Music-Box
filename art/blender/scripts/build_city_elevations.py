@@ -664,8 +664,8 @@ for name,p in groups.items():
             windows=len(window_rows)-first_window,roof_height=top,shaft_bottom=0.,shaft_top=eave,
             setback_height=eave,original_roof_rect=final_rect,main_rect=rect0,floor_heights=p['floor_heights']))
         roof_details.append(dict(building=name,style=commercial.specs[name]['style'],body_height=top,
-            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key=='city_slate' for v in vv),
-            edited_legacy_roof=True))
+            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key==({'ottendorfer':'roof_bitumen','engine258':'galvanized_roof','hampton':'roof_bitumen'}.get(commercial.specs[name]['style'],'city_slate')) for v in vv),
+            edited_legacy_roof=commercial.specs[name]['style']!='ottendorfer'))
         continue
     for r in rr:
         suffix=r['id'][len(name)+1:]
@@ -820,8 +820,8 @@ for asset,data in contact_sources.items():
 for window in window_rows:
     # Sample inside an actual pane, clear of both sash rails and paired mullions.
     point=Vector(window['pane_sample'])
-    normal=[Vector((0,-1,0)),Vector((1,0,0)),Vector((0,1,0)),Vector((-1,0,0))][window['side']]
-    hit,n,index,distance=bvh.ray_cast(point+normal*.1,-normal,.4);expected=point-normal*(window['recess_m']+.044);native_windows+=1
+    normal=Vector(window.get('normal',[(0,-1,0),(1,0,0),(0,1,0),(-1,0,0)][window['side']]))
+    hit,n,index,distance=bvh.ray_cast(point+normal*.1,-normal,.4);expected=point-normal*window.get('pane_depth_m',window['recess_m']+.044);native_windows+=1
     if hit is None or (hit-expected).length>=.0001 or not face_owners[index].endswith('__mirror_aged'):native_failures.append(dict(kind='pane',window=window))
 for portal in portal_rows:
     normal=[Vector((0,-1,0)),Vector((1,0,0)),Vector((0,1,0)),Vector((-1,0,0))][portal['side']]
@@ -886,6 +886,7 @@ projection=ROOT/'game/data/orison_v2/exterior/city_elevations.json'
 projection.write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8',newline='\n')
 bindings=[ROOT/p for p in ['art/data/city_elevations/source_plan.json','art/blender/city_closure.blend','art/blender/city_closure_construction.json','art/blender/city_shells.blend','art/blender/city_shells_registration.json','game/data/runtime_material_sets.json','game/data/orison_v2/exterior/city_elevations.json','game/tests/fixtures/orison_city_masts.json','game/tests/fixtures/orison_city_aerials.json','game/tests/fixtures/orison_city_tanks.json','game/scripts/building/orison_v2_city_shells.gd','game/scripts/building/orison_v2_city_placement.gd','art/blender/scripts/city_horizon_geometry.py','art/blender/scripts/fabrication_native_batch.py','art/blender/scripts/fabrication_normals.py','art/blender/scripts/fabrication_uvs.py']]+[Path(__file__)]
 bindings.append(ROOT/'art/blender/scripts/city_commercial_architecture.py')
+bindings.append(ROOT/'art/blender/scripts/frame_mitre_geometry.py')
 for key in {key for name,key in buffers}:
     bindings.extend(ROOT/'game/assets/building/textures'/f for f in catalog[key]['files'])
 construction={k:report[k] for k in ['original_records','source_parapet_stocks','closed_joined_parapets','corner_stations','capture_offsets_godot','skyline_views_godot']}
@@ -897,7 +898,11 @@ scene.render.resolution_x=1280;scene.render.resolution_y=800;scene.render.resolu
 scene.world=bpy.data.worlds.new('NeutralReview');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.6,.7,.8,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
 d=bpy.data.lights.new('ReviewSun','SUN');d.energy=3;d.angle=.08;sun=bpy.data.objects.new(d.name,d);scene.collection.objects.link(sun);sun.rotation_euler=(.45,-.35,-.7)
 d=bpy.data.cameras.new('Review');cam=bpy.data.objects.new(d.name,d);scene.collection.objects.link(cam);scene.camera=cam;d.lens=32
-for label,at,target in [('north_skyline',(3,-12,24),(0,40,29)),('west_neighbors',(-7,-23,8),(-28,-2,10)),('south_skyline',(5,10,25),(0,-55,25)),('near_elevation',(9,-20,9),(21,-1,9))]:
+overview_views=[('north_skyline',(3,-12,24),(0,40,29)),('west_neighbors',(-7,-23,8),(-28,-2,10)),('south_skyline',(5,10,25),(0,-55,25)),('near_elevation',(9,-20,9),(21,-1,9))]
+# Changed-building native reviews can supply their own targeted cameras. This
+# opt-in skips only these unrelated overviews, never geometry or source checks.
+if os.environ.get('CITY_ELEVATIONS_SKIP_OVERVIEW_RENDERS')=='1':overview_views=[]
+for label,at,target in overview_views:
     cam.location=at;cam.rotation_euler=(Vector(target)-cam.location).to_track_quat('-Z','Y').to_euler();scene.render.filepath=str(OUT/(label+'.png'));bpy.ops.render.render(write_still=True)
 # Review cameras/lights remain disposable; the saved production native precedes them.
 (OUT/'construction.json').write_text(json.dumps(dict(evidence_class='INERT',scope='Read-only native visual review of the rebuilt source; no runtime acceptance',buildings=stats,windows=len(window_rows),window_rows=window_rows,partitions=len(draws),triangles=sum(len(o.data.polygons) for o in draws)),indent=2)+'\n',encoding='utf-8')

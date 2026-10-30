@@ -502,8 +502,8 @@
     },
     {
       "id": "site_sw3",
-      "description": "Broad-window workshop and tenanted upper storeys",
-      "massing": "single_upper_setback",
+      "description": "Engine258-inspired double apparatus front with bronze cant bays and a five-step Dutch Renaissance gable",
+      "massing": "straight_eave",
       "storey_height": 3.02,
       "bay_pitch": 2.38,
       "window_width": 1.37,
@@ -511,15 +511,15 @@
       "sash": "door_paint",
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.86,
-        0.82,
-        0.75,
+        0.69,
+        0.59,
+        0.51,
         1
       ],
       "frame_tint": [
-        0.65,
-        0.59,
-        0.48,
+        0.22,
+        0.28,
+        0.25,
         1
       ],
       "window_recess": 0.17,
@@ -530,7 +530,23 @@
       "window_treatment": "mixed",
       "sill_projection": 0.14,
       "lintel_height": 0.18,
-      "variation_seed": 2132
+      "variation_seed": 2132,
+      "floor_heights": [
+        4.5,
+        4.0,
+        4.0,
+        4.5,
+        1.5
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "engine258",
+        "front_side": 2,
+        "front_floor_count": 3,
+        "front_bays": 3,
+        "roof_depth_m": 2.0,
+        "precedent": "Engine258/Hook and Ladder115,Bradford Lee Gilbert,1902-04; LPC LP-2200. Narrowed fictional Queens adaptation; closed timber doors are authored period interpretation,not copied modern red shutters. Retained parcel and roof plant."
+      }
     },
     {
       "id": "site_se2",
@@ -566,7 +582,7 @@
     },
     {
       "id": "site_se3",
-      "description": "Stone-faced commercial block with paired sash and mixed shades",
+      "description": "Ottendorfer-inspired broad three-storey library front with elliptical entry and tall round-headed sash",
       "massing": "straight_eave",
       "storey_height": 3.08,
       "bay_pitch": 2.4,
@@ -576,8 +592,8 @@
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
         0.78,
-        0.72,
-        0.65,
+        0.58,
+        0.43,
         1
       ],
       "frame_tint": [
@@ -594,7 +610,21 @@
       "window_treatment": "mixed",
       "sill_projection": 0.12,
       "lintel_height": 0.21,
-      "variation_seed": 2166
+      "variation_seed": 2166,
+      "floor_heights": [
+        3.4,
+        3.4,
+        3.4
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "ottendorfer",
+        "front_side": 2,
+        "front_floor_count": 3,
+        "front_bays": 3,
+        "roof_depth_m": 0.0,
+        "precedent": "Ottendorfer Library,1883-84,William Schickel; LPC LP-0969 and1917 published photograph. Broadened fictional Queens adaptation; retained parcel and plant roof."
+      }
     },
     {
       "id": "site_back_w",
@@ -672,8 +702,8 @@
     },
     {
       "id": "site_far_nw",
-      "description": "Hampton Court, 35-16 79th Street, George H. Wells, 1919\u201321 \u2014 authored proportion repair; individual architectural study remains open",
-      "massing": "single_upper_setback",
+      "description": "Hampton Court-inspired five-storey brick apartment with two canted bay stacks and stone openwork crown",
+      "massing": "straight_eave",
       "storey_height": 3.02,
       "bay_pitch": 2.38,
       "window_width": 1.37,
@@ -681,15 +711,15 @@
       "sash": "door_paint",
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.95,
-        0.92,
-        0.86,
+        0.7,
+        0.56,
+        0.46,
         1
       ],
       "frame_tint": [
-        0.3,
-        0.33,
-        0.3,
+        0.82,
+        0.79,
+        0.7,
         1
       ],
       "window_recess": 0.17,
@@ -721,7 +751,16 @@
         "pdf_pages": [
           129
         ],
-        "adaptation": "Documented storey hierarchy, authored dimensions. Fixed original footprint and roof equipment retained for this repair. Angled frontage bays, central entry and five-storey Georgian block remain to be individually constructed."
+        "adaptation": "Five-storey height,central entry,canted bays and openwork crown authored to retained parcel; no exact historical replica or runtime acceptance."
+      },
+      "architecture": {
+        "type": "commercial_front",
+        "style": "hampton",
+        "front_side": 0,
+        "front_floor_count": 5,
+        "front_bays": 7,
+        "roof_depth_m": 0.0,
+        "precedent": "Hampton Court,35-16 79th Street,George H.Wells,1919-21; LPC LP-1831,p129 and modern HDC surviving-form photographs. One broadened fictional building; no new garden or interior. Retained parcel,slab,bulkhead and plant bearings."
       }
     },
     {

@@ -2115,3 +2115,95 @@ Blender rebuild or full gate-board repetition is needed for prose/archive data.
 
 MERGE-CANDIDATE 4282de16751af820dd00f776eded252b11c81cd5 (static comparison only;
 no main merge authorized or performed; broader city/artistic work remains open).
+
+
+### 2026-10-30 library construction in progress (INERT)
+
+Pushed city branch now ends at **988f731bbf2f434ce54e6c95241fe233df54ffe6**;
+remote equality was checked. Coordinating prologue chat is reconciling that
+frozen checkpoint only. Subsequent library work below remains isolated,
+uncommitted and outside its runtime qualification. No main merge by city.
+
+The next parcel **site_se3** now has an authored Ottendorfer-inspired body:
+three floors,elliptical glazed entrance with a closed2.2m door pair,two upper
+three-axis round-headed registers,horizontal mineral cornices and sparse
+voussoirs/corbels. All existing roof cap/parapet,bulkhead,mast/aerial contacts,
+parcel and assembly placement are retained. Materials use catalogue brick,
+terracotta,limestone,paint,bronze and existing glazing/linen/backing. No library
+interior,service,lettering or new access authority. Specific precedent remains
+the1917 published photograph and LP-0969,not a claim of exact historical fit.
+
+First native export **library_production_01/** passed1,205 roof bearings,
+3,057 pane samples,94 roof samples and12 existing return samples at the
+unchanged0.1mm predicate. Its244 untouched parts across24 other buildings
+retain exact float32 attributes,indices and transforms. Initial library was
+8,186 near/7,178 lower triangles across12 parts,with28 actual pane samples;
+all39 existing northwest lower parts stayed exact and metric UV checks passed.
+These initial numbers precede the frame repair and are not final runtime cost.
+
+Actual native/round-trip image review caught coplanar frame intersections and
+corbel/arch contacts. Shared full-depth45-degree frame stock replaced the
+intersecting head/jambs; rails now terminate at stiles and corbels clear the
+arch blocks. Lower02 then correctly failed on inward frame winding. Original
+sources,failed output and frames remain under the external library01/02
+records. The local placement reflection now produces positive signed volume;
+the shared helper and strict volume predicate are unchanged. Diagnostic
+**library_frame_winding_diagnostic_01.json** records both signs and exact caps.
+Native03 high and lower builds pass; its first two inspected frames show the
+door's black joint artifacts removed. Final remaining native images and export
+comparison are pending before any Godot check. No new technical-study count,
+loaded-mipmap,walk/access,LOD-transition,performance or artistic promotion yet.
+The intended firehouse/Hampton work has not been authored. Batch their native
+work before a combined focused engine check; do not repeat the district tour.
+
+
+Library native03 review subsequently completed. All eight selected near/lower
+native and same-level glTF round-trip images were actually inspected; their
+hashes and limitations are in **library_production_03/actual_native_inspection.json**.
+The repaired door joints are clean in the actual entry frames; no unresolved
+missing material is observed. Coarse lower arch segmentation is intentionally
+visible in these close diagnostic views and still needs runtime transition
+review. Source UV/float32 comparison03 passes for all12 parts at each level;
+measured final counts are8,198 near/7,190 lower triangles. All244 unrelated near
+parts and all39 prior northwest lower parts retain exact attributes/indices/
+transforms. Complete closed-stock,170 selected roof-bearing and107 selected
+pane samples pass in the lower producer. High checks remain1,205/3,057/94/12
+bearings/panes/roof/returns,zero failures. The library's original flat roof is
+explicitly marked retained rather than an edited mansard. No Godot launched,
+no added runtime-study promotion and no new source-bound surface acceptance.
+
+
+### 2026-10-30 opposing/background batch WIP (INERT)
+
+Native batch01 now includes library,Engine258-inspired firehouse and Hampton
+Court-inspired apartment. All25 city reservations and assembly placements remain.
+Fast lower-producer preflight03 passes5,303 closed positive-volume stocks,
+290 retained bearing samples and308 panes across71 material parts for six
+complete replacement bodies. The first slanted fire-pane preflight failed
+with masonry-depth joinery; thin bronze sash with direct pane depths now passes.
+Original failed source/output is preserved in **opposing_geometry_preflight_01/**.
+
+Owning serial masts/aerials/tanks/beacons/closure/elevations/lower/streets replay
+and both targeted native render programmes completed. Eight retained GLB payloads
+remain byte-identical; unaffected near/lower arrays,indices and transforms,
+including library03,are exact in **opposing_batch_01/retention_comparison_01.json**.
+High native checks:1,205 roof bearings,3,064 panes,113 roof samples,12 return
+samples,zero failures. Lower export:71 parts,69,940 triangles,290 bearings,
+308 panes,zero failures. These are executed native results,not engine budgets.
+
+Actual first native views expose an unacceptable firehouse metal visor that
+obscures the stepped gable. Hampton overview framing crops its body; its stone
+openwork also needs continuous bearing spandrels rather than point contacts.
+Correct these before new runtime qualification. Original native sources/logs/
+images remain external under **opposing_batch_01/**. First six near views were
+inspected; no claim that the four lower images were inspected yet. The existing
+city bench source now explicitly covers17 closed scenic leaves,308 panes with
+actual angled normals/depths,nine openwork holes/adjacent solid controls,and an
+opposing-only measured LOD selection. That edited harness has NOT run yet.
+
+This local named-path WIP preserves construction before fetching/reconciling
+main,as coordinated with the prologue owner. Their merged039fb64a/codeb4413984
+and reportbdada656 include the frozen prior city checkpoint. No mainline merge
+or canonical checkout modification by this city task. No added runtime-study,
+full-city,450m ground-access,performance or artistic promotion follows. Keep
+14 technically qualified studies/135 remaining until this new batch qualifies.
