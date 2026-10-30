@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/v2_city_west_frontage.gd" id="1"]
+
+[node name="V2CityWestFrontage" type="Node"]
+script = ExtResource("1")

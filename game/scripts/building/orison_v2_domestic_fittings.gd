@@ -51,7 +51,10 @@ func mount_source(adapter: Variant, parsed: Variant) -> bool:
 		errors.append("domestic fitting acoustic anchors could not be rebound")
 		return false
 	for record: Dictionary in parsed.fittings:
-		var consumer: FunctionalProp = SCRIPTS[record.kind].new()
+		var factory:GDScript=SCRIPTS[record.kind]
+		if record.kind=="shower" and record.id=="F04_4B_SHOWER_01":
+			factory=preload("res://scripts/props/clawfoot_bath_prop.gd")
+		var consumer:FunctionalProp=factory.new()
 		consumer.prop_type = str(record.kind)
 		consumer.set("unit", str(record.unit))
 		if record.kind == "fridge": consumer.set_meta("native_fridge_factory", native)

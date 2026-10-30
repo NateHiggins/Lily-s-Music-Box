@@ -75,6 +75,18 @@ class PeriodDateTests(unittest.TestCase):
             self.assertEqual(failures, [])
             self.assertTrue(any("authored_campaign_calendar" in note for note in notes))
 
+    def test_annual_destination_is_classified_without_exempting_other_year_consumers(self):
+        self.assertEqual(audit.EXPECTED_CONSUMERS["game/scripts/game/prologue_state.gd"],
+                         "validated_annual_prologue_destination_projection")
+        with tempfile.TemporaryDirectory(prefix="period_dates_") as tmp:
+            root = Path(tmp)
+            make_repo(root)
+            path = root / "game/scripts/game/unreviewed_calendar.gd"
+            path.write_text('func date_of(record):\n\treturn record.year\n', encoding="utf-8")
+            failures, _ = audit.audit(root)
+            self.assertTrue(any("unclassified structural year consumer: game/scripts/game/unreviewed_calendar.gd" in item
+                                for item in failures))
+
     def test_phone_host_date_is_rejected_even_with_fictional_year_prefix(self):
         with tempfile.TemporaryDirectory(prefix="period_dates_") as tmp:
             root = Path(tmp)

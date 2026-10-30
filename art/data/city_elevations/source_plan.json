@@ -1,6 +1,7 @@
 {
   "schema": "orison.city-elevations.v1",
   "evidence_class": "INERT",
+  "commercial_body_lod_error_m": 0.2,
   "scope": "Passive V2 masonry adaptation. Explicit vertical_profile rows project frozen V1 stock into V2; other original reservations and roof datums are retained. No occupied interior or play area added.",
   "buildings": [
     {
@@ -33,22 +34,27 @@
       "window_treatment": "draped",
       "sill_projection": 0.1,
       "lintel_height": 0.14,
-      "variation_seed": 1928
+      "variation_seed": 1928,
+      "assembly_translation_m": [
+        -35,
+        35,
+        0
+      ]
     },
     {
       "id": "site_nw1",
-      "description": "Broad-window workshop and tenanted upper storeys",
+      "description": "Germania-inspired narrow brick front with grouped attic dormer",
       "massing": "straight_eave",
       "storey_height": 3.02,
       "bay_pitch": 2.38,
-      "window_width": 1.37,
+      "window_width": 1.28,
       "window_height": 1.91,
       "sash": "door_paint",
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.95,
-        0.92,
-        0.86,
+        0.74,
+        0.55,
+        0.42,
         1
       ],
       "frame_tint": [
@@ -65,7 +71,27 @@
       "window_treatment": "mixed",
       "sill_projection": 0.14,
       "lintel_height": 0.18,
-      "variation_seed": 1945
+      "variation_seed": 1945,
+      "assembly_translation_m": [
+        0,
+        8,
+        0
+      ],
+      "floor_heights": [
+        4.2,
+        4.1,
+        4.1,
+        4.0
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "germania",
+        "front_side": 0,
+        "front_floor_count": 3,
+        "front_bays": 3,
+        "roof_depth_m": 3.0,
+        "precedent": "Germania Fire Insurance Bowery Building,1870; LPC LP-2354; fictional Queens adaptation"
+      }
     },
     {
       "id": "site_nw2",
@@ -117,22 +143,27 @@
           4
         ],
         "adaptation": "One brick Italianate house with its street frontage on the narrow end of the original 8 x 23.7 m parcel. The long sides remain party walls beside neighboring buildings. Three storeys, four-bracket cornice, segmental hoods and pediment derive from the LPC record. The closed street-level entry adapts the source raised stoop; no surveyed replica or accessible interior is implied."
-      }
+      },
+      "assembly_translation_m": [
+        0,
+        8,
+        0
+      ]
     },
     {
       "id": "site_nw3",
-      "description": "Stone-faced commercial block with paired sash and mixed shades",
+      "description": "Robbins and Appleton-inspired four-module painted cast-iron front",
       "massing": "single_upper_setback",
       "storey_height": 3.08,
       "bay_pitch": 2.4,
-      "window_width": 1.4,
+      "window_width": 1.62,
       "window_height": 1.94,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "door_paint",
       "wall_tint": [
-        1,
-        1,
-        1,
+        0.73,
+        0.71,
+        0.65,
         1
       ],
       "frame_tint": [
@@ -149,22 +180,44 @@
       "window_treatment": "mixed",
       "sill_projection": 0.12,
       "lintel_height": 0.21,
-      "variation_seed": 1979
+      "variation_seed": 1979,
+      "assembly_translation_m": [
+        0,
+        8,
+        0
+      ],
+      "floor_heights": [
+        4.1,
+        3.2,
+        3.2,
+        3.2,
+        3.2,
+        2.3
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "robbins",
+        "front_side": 0,
+        "front_floor_count": 5,
+        "front_bays": 4,
+        "roof_depth_m": 1.15,
+        "precedent": "Robbins and Appleton Building,1879-80; LPC LP-1038; reduced four-module fictional Queens adaptation"
+      }
     },
     {
       "id": "site_nw4",
-      "description": "Stone-faced commercial block with paired sash and mixed shades",
+      "description": "Scheffel-inspired three-axis mineral front with scroll gable and blind oculus",
       "massing": "straight_eave",
       "storey_height": 3.08,
       "bay_pitch": 2.4,
-      "window_width": 1.4,
+      "window_width": 1.75,
       "window_height": 1.94,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "terracotta",
       "wall_tint": [
-        0.86,
-        0.82,
-        0.75,
+        0.87,
+        0.81,
+        0.7,
         1
       ],
       "frame_tint": [
@@ -181,7 +234,27 @@
       "window_treatment": "mixed",
       "sill_projection": 0.12,
       "lintel_height": 0.21,
-      "variation_seed": 1996
+      "variation_seed": 1996,
+      "assembly_translation_m": [
+        0,
+        8,
+        0
+      ],
+      "floor_heights": [
+        3.8,
+        3.65,
+        3.65,
+        2.5
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "scheffel",
+        "front_side": 0,
+        "front_floor_count": 3,
+        "front_bays": 3,
+        "roof_depth_m": 3.0,
+        "precedent": "Scheffel Hall,1894-95; LPC LP-1959; fictional Queens adaptation; authored finish colour"
+      }
     },
     {
       "id": "site_nbr_e",
@@ -245,7 +318,12 @@
       "window_treatment": "mixed",
       "sill_projection": 0.14,
       "lintel_height": 0.18,
-      "variation_seed": 2030
+      "variation_seed": 2030,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_ne2",
@@ -277,7 +355,12 @@
       "window_treatment": "roller",
       "sill_projection": 0.085,
       "lintel_height": 0.12,
-      "variation_seed": 2047
+      "variation_seed": 2047,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_ne3",
@@ -309,7 +392,12 @@
       "window_treatment": "roller",
       "sill_projection": 0.085,
       "lintel_height": 0.12,
-      "variation_seed": 2064
+      "variation_seed": 2064,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_ne4",
@@ -341,7 +429,12 @@
       "window_treatment": "mixed",
       "sill_projection": 0.12,
       "lintel_height": 0.21,
-      "variation_seed": 2081
+      "variation_seed": 2081,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_nbr_s2",
@@ -533,7 +626,12 @@
       "window_treatment": "draped",
       "sill_projection": 0.1,
       "lintel_height": 0.14,
-      "variation_seed": 2183
+      "variation_seed": 2183,
+      "assembly_translation_m": [
+        0,
+        6,
+        0
+      ]
     },
     {
       "id": "site_back_e",
@@ -565,7 +663,12 @@
       "window_treatment": "draped",
       "sill_projection": 0.1,
       "lintel_height": 0.14,
-      "variation_seed": 2200
+      "variation_seed": 2200,
+      "assembly_translation_m": [
+        0,
+        46,
+        0
+      ]
     },
     {
       "id": "site_far_nw",
@@ -825,7 +928,12 @@
             ]
           ]
         }
-      }
+      },
+      "assembly_translation_m": [
+        0,
+        18,
+        0
+      ]
     },
     {
       "id": "site_far_e",
@@ -902,7 +1010,12 @@
           "wall_height_m": 3.3,
           "roof_height_m": 4.1
         }
-      }
+      },
+      "assembly_translation_m": [
+        30,
+        30,
+        0
+      ]
     },
     {
       "id": "site_far_se",
@@ -1194,7 +1307,12 @@
         "recess_depth_m": 0.9,
         "stair_window_width_m": 2.65,
         "arch_rise_m": 0.6
-      }
+      },
+      "assembly_translation_m": [
+        -28,
+        55,
+        0
+      ]
     }
   ]
 }

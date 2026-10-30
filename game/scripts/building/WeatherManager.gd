@@ -310,7 +310,7 @@ func _update_phenomena(delta: float) -> void:
 func _resolve_active() -> Array[Dictionary]:
 	var found: Array[Dictionary] = []
 	if schedule.phenomena.is_empty(): return found
-	var minute := clock.absolute_minutes()
+	var minute := clock.calendar_minutes()
 	var date := clock.local_datetime()
 	if is_finite(minute) and not date.is_empty():
 		var rolled: Array = []

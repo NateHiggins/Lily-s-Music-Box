@@ -1,0 +1,240 @@
+{
+  "schema": "orison.city-transport.v1",
+  "evidence_class": "INERT",
+  "frame": "CITY_ELEVATIONS_SOURCE",
+  "scope": "Authored Queensboro-derived elevated plaza, not a surveyed 1928 reconstruction. Native structural stock, public paving and stair connections; existing Orison, shops, traffic, calendar and save owners remain. Operating rail service is not introduced by this source.",
+  "references": [
+    {
+      "title": "Public Service Commission, New Subways for New York, June 1913",
+      "url": "https://www.nycsubway.org/wiki/New_Subways_for_New_York:_The_Dual_System_of_Rapid_Transit_(1913)",
+      "use": "Contemporary proposed station elevation (Chapter II, newsubways083), for stacked structural hierarchy. The separate ornamental concrete viaduct drawing is not the source for this riveted steel adaptation; proposal is not as-built evidence."
+    },
+    {
+      "title": "New York Times, August 1, 1920, Queensboro Plaza extension",
+      "url": "https://www.nycsubway.org/wiki/Broadway-Fifty-ninth_Street_Extension_of_B.R.T._Subway,_Opened_to_Queensboro_Plaza..._(1920)",
+      "use": "Contemporary transfer-station/plaza context. Fictional dimensions below preserve existing playable geography."
+    },
+    {
+      "title": "LPC LP-2570",
+      "url": "https://s-media.nyc.gov/agencies/lpc/lp/2570.pdf",
+      "use": "1917 elevated / 1933 underground distinction; no modern underground entrance copied."
+    }
+  ],
+  "station": {
+    "id": "EasternPlaza",
+    "x_ends_m": [
+      28.0,
+      103.0
+    ],
+    "bent_x_m": [
+      28.0,
+      43.0,
+      58.0,
+      73.0,
+      88.0,
+      103.0
+    ],
+    "column_y_m": [
+      -27.45,
+      -11.0,
+      3.45
+    ],
+    "track_y_m": [
+      -25.2,
+      -14.8,
+      -9.2,
+      1.2
+    ],
+    "islands_y_m": [
+      [
+        -23.64,
+        -16.36
+      ],
+      [
+        -7.64,
+        -0.36
+      ]
+    ],
+    "deck_top_m": [
+      10.1,
+      15.4
+    ],
+    "rail_top_m": [
+      10.25,
+      15.55
+    ],
+    "platform_top_m": [
+      11.38,
+      16.68
+    ],
+    "roof_eave_m": 20.1,
+    "roof_ridge_m": 20.85,
+    "track_gauge_m": 1.435,
+    "sleeper_pitch_m": 0.66,
+    "column_web_m": 0.28,
+    "column_flange_m": 0.46,
+    "column_plate_m": 0.035,
+    "girder_depth_m": 1.05,
+    "platform_plank_pitch_m": 0.26,
+    "platform_plank_joint_m": 0.003,
+    "platform_stock_depth_m": 0.1,
+    "footing_bottom_m": -0.7,
+    "footing_top_m": -0.04,
+    "base_plate_top_m": 0.025,
+    "mezzanine_top_m": 6.2,
+    "mezzanine_x_m": [
+      29.6,
+      32.0
+    ],
+    "mezzanine_y_m": [
+      -22.0,
+      7.2
+    ],
+    "entry_stair": {
+      "x_start_m": 32.0,
+      "y_start_m": 4.2,
+      "flight_width_m": 1.35,
+      "well_gap_m": 0.2,
+      "steps_per_flight": 18,
+      "tread_m": 0.28,
+      "landing_m": 1.5
+    },
+    "platform_stairs": {
+      "lower_x_m": 32.0,
+      "upper_x_m": 62.0,
+      "flight_width_m": 1.35,
+      "well_gap_m": 0.2,
+      "lower_steps_per_flight": 15,
+      "upper_steps_per_flight": 16,
+      "tread_m": 0.28,
+      "landing_m": 1.5
+    },
+    "handrail_height_m": 1.1,
+    "chunk_length_m": 15.0,
+    "lod_error_m": 0.04,
+    "arrangement": "Four tracks and two island platforms on each of two levels; eight tracks total. Authored adaptation, not an as-built survey.",
+    "sleeper_depth_m": 0.08,
+    "track_stringer_depth_m": 0.4,
+    "rail_clearance_envelope": {
+      "half_width_m": 1.4,
+      "height_m": 3.8,
+      "scope": "Authored empty rolling-stock clearance above each rail, not a historical vehicle specification or operating service."
+    }
+  },
+  "plaza": {
+    "x_ends_m": [
+      25.5,
+      106.0
+    ],
+    "y_ends_m": [
+      -14.75,
+      9.8
+    ],
+    "surface_top_m": 0.0,
+    "slab_bottom_m": -0.3,
+    "joint_pitch_m": 2.0,
+    "joint_m": 0.004,
+    "south_y_ends_m": [
+      -28.316,
+      -23.894
+    ]
+  },
+  "finishes": {
+    "structure": {
+      "catalog_key": "iron_neutral",
+      "metallic": 0.0,
+      "tint": [
+        0.3,
+        0.34,
+        0.31,
+        1.0
+      ],
+      "normal": 0.45,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "rail": {
+      "catalog_key": "iron_neutral",
+      "metallic": 1.0,
+      "tint": [
+        0.67,
+        0.65,
+        0.6,
+        1.0
+      ],
+      "normal": 0.25,
+      "roughness": 0.85,
+      "pigment": 1.0
+    },
+    "timber": {
+      "catalog_key": "timber",
+      "tint": [
+        0.47,
+        0.4,
+        0.29,
+        1.0
+      ],
+      "normal": 0.45,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "paving": {
+      "catalog_key": "concrete",
+      "tint": [
+        0.65,
+        0.63,
+        0.56,
+        1.0
+      ],
+      "normal": 0.45,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "roof": {
+      "catalog_key": "galvanized_roof",
+      "tint": [
+        0.49,
+        0.51,
+        0.46,
+        1.0
+      ],
+      "normal": 0.4,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "sleeper": {
+      "catalog_key": "timber",
+      "tint": [
+        0.42,
+        0.37,
+        0.3,
+        1.0
+      ],
+      "normal": 0.4,
+      "roughness": 1.0,
+      "pigment": 1.0
+    }
+  },
+  "preview": {
+    "scope": "Diagnostic native light only. Existing catalogue PBR; no recreation of runtime sky, lamp, weather or optical shaders.",
+    "resolution": [
+      1600,
+      900
+    ],
+    "samples": 12,
+    "world_rgba": [
+      0.55,
+      0.65,
+      0.8,
+      1.0
+    ],
+    "world_strength": 0.7,
+    "sun_energy": 3.0,
+    "sun_euler": [
+      0.45,
+      -0.35,
+      -0.7
+    ],
+    "lens_mm": 25
+  }
+}

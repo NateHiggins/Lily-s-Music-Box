@@ -8,6 +8,7 @@ var passed := 0
 class EmptyRegion extends Node3D:
 	const CELLS := []
 	var cell_nodes := {}
+	var receiving_row: Node3D
 
 func _ready() -> void:
 	call_deferred("_run")
@@ -26,19 +27,19 @@ func _run() -> void:
 	add_child(section)
 	var boundary := Boundaries.new()
 	section.add_child(boundary)
-	var closure := boundary.get_node("ShedTemporaryClosure") as StaticBody3D
-	var notice := closure.get_node_or_null("ContractorClosureNotice") as Label3D
-	_check(notice != null, "closure panel owns its lettering")
-	if notice != null:
-		var mesh := closure.get_child(0) as MeshInstance3D
-		var surface_z: float = (mesh.mesh as BoxMesh).size.z * 0.5
-		_check(notice.position.is_equal_approx(Vector3(0, .35, surface_z + .045)),
-				"lettering clearance derives from the panel front face")
-		var original := notice.global_position
-		closure.transform = Transform3D(Basis(Vector3.UP, -.39), Vector3(30, 2, -8))
-		_check(notice.global_position.is_equal_approx(closure.to_global(Vector3(0, .35, surface_z + .045)))
-				and not notice.global_position.is_equal_approx(original),
-				"moving and rotating the physical closure carries lettering")
+	_check(boundary.get_node_or_null("ShedTemporaryClosure") == null and boundary.get_node_or_null("RetainedStreetEnds") == null, "old local travel limits are retired")
+	var limit := boundary.get_node("TemporaryExteriorLimit") as StaticBody3D
+	_check(is_equal_approx(float(limit.get_meta("radius_m")),450.), "temporary exploration distance is explicit")
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	for angle: float in [0.,.71,PI/2,PI,3*PI/2]:
+		var direction := Vector3(cos(angle),0,sin(angle))
+		var inside := boundary.to_global(direction*449. + Vector3.UP*10.)
+		var outside := boundary.to_global(direction*451. + Vector3.UP*10.)
+		var hit := boundary.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(inside,outside))
+		var local: Vector3 = boundary.to_local(hit.position) if not hit.is_empty() else Vector3.ZERO
+		var distance := Vector2(local.x,local.z).length()
+		_check(not hit.is_empty() and hit.collider == limit and distance > 449.8 and distance <= 450.001, "radial collision follows the translated and rotated threshold frame")
 	var region := EmptyRegion.new()
 	region.position = Vector3(-.35, 0, -9.795)
 	section.add_child(region)

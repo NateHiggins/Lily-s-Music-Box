@@ -123,6 +123,7 @@ func _route() -> void:
 func _walk(local_target: Vector3) -> bool:
 	var target: Vector3 = world.adapter.root.to_global(local_target)
 	var started := Time.get_ticks_msec()
+	var physics_started:=Engine.get_physics_frames()
 	var travel_budget_ms := maxi(6000, int(player.global_position.distance_to(target) / player.WALK * 1000.0) + 2000)
 	var contacts := {}
 	var frames := 0
@@ -153,7 +154,7 @@ func _walk(local_target: Vector3) -> bool:
 		failures.append(label)
 		push_error(route_label + ": " + label)
 		var residency: Dictionary=world.passage_region.residency.snapshot() if world.passage_region!=null and world.passage_region.residency!=null else {}
-		print("ROUTE_COLLISION_DIAGNOSTIC ", JSON.stringify({"contacts":contacts,"frames":frames,"elapsed_ms":Time.get_ticks_msec()-started,"call_locked":player.call_locked,"inspecting":player.inspecting(),"physics":player.is_physics_processing(),"velocity":str(player.velocity),"passage_residency":residency}))
+		print("ROUTE_COLLISION_DIAGNOSTIC ", JSON.stringify({"contacts":contacts,"frames":frames,"physics_ticks":Engine.get_physics_frames()-physics_started,"elapsed_ms":Time.get_ticks_msec()-started,"time_scale":Engine.time_scale,"physics_ticks_per_second":Engine.physics_ticks_per_second,"max_physics_steps_per_frame":Engine.max_physics_steps_per_frame,"mouse_released":player.mouse_released,"move_strength":Input.get_action_strength("move_forward"),"call_locked":player.call_locked,"inspecting":player.inspecting(),"physics":player.is_physics_processing(),"velocity":str(player.velocity),"host_memory":OS.get_memory_info(),"godot_static_bytes":OS.get_static_memory_usage(),"render_video_bytes":RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_VIDEO_MEM_USED),"passage_residency":residency}))
 	return ok
 
 ## Every street round now passes the same closed production landmark leaf.

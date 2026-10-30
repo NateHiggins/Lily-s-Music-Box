@@ -86,6 +86,10 @@ python tools/gate_board.py --compare-only old/board.json new/board.json
 python tools/gate_board.py --only ledger --only reader --no-tests
 ```
 
+Repeat **--only** for each requested id; **--only test** selects the tools-test
+family. An unknown selection, including a comma-separated list, exits3 before
+running gates or writing a board. Inspect actual rows, not just the process exit.
+
 Gates: ledger, spatial, systemic, period, reader, carriers, rulings and every
 `tools/tests/test_*.py`. Each row keeps the gate's real exit code, a
 severity (PASS, INCOMPLETE, FAIL, ERROR) and the named defects behind its

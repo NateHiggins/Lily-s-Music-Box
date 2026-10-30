@@ -8,12 +8,14 @@ static func mount(city: Node3D) -> Node3D:
 	# Each water tower's roof apex carries St. Elmo's fire in a high-charge storm.
 	var StElmo := preload("res://scripts/building/orison_v2_st_elmo.gd")
 	var apex: Dictionary={}
+	var placement := preload("res://scripts/building/orison_v2_city_placement.gd").new()
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		var key:=str(draw.name).split("__")[-1]
 		assert(MatLib.SETS.has(key),"Tank material must be catalogued: "+key)
 		if not materials.has(key):
 			var material:=MatLib.get_mat(key).duplicate() as StandardMaterial3D
 			material.uv1_triplanar=false;materials[key]=material
+		placement.apply(draw)
 		draw.material_override=materials[key]
 		var body:=StaticBody3D.new();body.name="TankCollision"
 		var shape:=CollisionShape3D.new();shape.name="Surface";shape.shape=draw.mesh.create_trimesh_shape()

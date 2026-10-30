@@ -3,6 +3,11 @@ extends Node3D
 ## Created explicitly by a companion presentation; no production autoload.
 signal keyboard_settled(open: bool)
 const DATA := "res://data/device/service_companion_v2.json"
+const KEY_TRAVEL:=.0014
+var typing_arm:Node
+var temporal_register:Node
+var _automatic_key:=-1
+var _automatic_depth:=0.0
 var device: ServiceSetProp
 var model: Node3D
 var keyboard: Node3D
@@ -38,6 +43,7 @@ var _settled := true
 var _last_latched := true
 var _rotor_angle := 0.0
 var _display_clock := 0.0
+var face_emotion:="" # Transient presentation, set only by the carrier's input owner.
 var reaction_player: Node
 var _reaction_clock := 0.0
 var profile_callbacks := false
@@ -193,6 +199,8 @@ func set_glass_moisture(inside: float, outside: float) -> void:
 	_glass_outside = outside
 
 func request_keyboard(open: bool) -> void:
+	if not open and typing_arm!=null and typing_arm.active():
+		typing_arm.cancel();return
 	if keyboard_requested == open: return
 	keyboard_requested = open
 	_settled = false
@@ -201,7 +209,7 @@ func typing_ready() -> bool:
 	return keyboard_requested and keyboard_open >= .999 and failures.is_empty()
 
 func play_reaction(id: String) -> bool:
-	if reaction_player == null or not device.radio_powered or device.teletype.printing or keyboard_open > .05: return false
+	if reaction_player == null or not face_emotion.is_empty() or not device.radio_powered or device.teletype.printing or keyboard_open > .05: return false
 	return reaction_player.request(id)
 
 func pulse_key(character: String) -> void:
@@ -221,6 +229,7 @@ func _process(delta: float) -> void:
 
 func _advance_mechanism(delta: float) -> void:
 	if keyboard == null or not failures.is_empty(): return
+	display.set_process(device.radio_powered and not display.settled())
 	_reaction_clock += maxf(0.0, delta)
 	if reaction_player != null and not reaction_player.current.is_empty() and (not device.radio_powered or device.teletype.printing or keyboard_requested):
 		reaction_player.cancel(device.radio_powered and not keyboard_requested)
@@ -238,21 +247,37 @@ func _advance_mechanism(delta: float) -> void:
 	_display_clock += delta
 	if _display_clock >= .12 and device.radio_powered and not keyboard_requested and keyboard_open <= .05 and not display.illustration_active:
 		_display_clock = fmod(_display_clock, .12)
+		var blink:=fposmod(_reaction_clock,4.7)>=4.46
+		var gaze:int=[0,1,0,-1][floori(_reaction_clock/2.8)%4]
+		var emotion:String=face_emotion if not face_emotion.is_empty() else "speaking" if device.teletype.printing else "content"
 		if device.teletype.printing:
 			var cadence: Array[float] = [.1, .7, .3, 1.0, .45, .15]
-			display.set_expression("speaking", cadence[floori(float(device.teletype.printed_characters) * .5) % cadence.size()])
-		else: display.set_expression("content")
+			display.set_expression(emotion, cadence[floori(float(device.teletype.printed_characters) * .5) % cadence.size()],false,blink,gaze)
+		else: display.set_expression(emotion,0.0,false,blink,gaze)
 	for index in _depressions.size():
 		if _depressions[index] <= 0.0: continue
 		_depressions[index] = move_toward(_depressions[index], 0.0, delta * 10.0)
 		var pose := _key_homes[index]
-		pose.origin.z += .0014 * _depressions[index]
+		if index==_automatic_key:_depressions[index]=_automatic_depth
+		pose.origin.z += KEY_TRAVEL * _depressions[index]
 		_set_key_transform(index, pose)
 
 func key_transform(index: int) -> Transform3D:
 	var draw: GeometryInstance3D = _key_draws[index]
 	if draw is MultiMeshInstance3D: return draw.multimesh.get_instance_transform(_key_instances[index])
 	return (draw as MeshInstance3D).transform
+
+func automated_key(owner:Node,character:String,depth:float) -> void:
+	if owner!=typing_arm or not is_finite(depth):return
+	if _automatic_key>=0:
+		_depressions[_automatic_key]=0
+		_set_key_transform(_automatic_key,_key_homes[_automatic_key])
+	_automatic_key=_key_names.find(character);_automatic_depth=clampf(depth,0,1)
+	if _automatic_key>=0:
+		_depressions[_automatic_key]=_automatic_depth
+		var pose:Transform3D=_key_homes[_automatic_key]
+		pose.origin.z+=KEY_TRAVEL*_automatic_depth
+		_set_key_transform(_automatic_key,pose)
 
 func _set_key_transform(index: int, pose: Transform3D) -> void:
 	var draw: GeometryInstance3D = _key_draws[index]

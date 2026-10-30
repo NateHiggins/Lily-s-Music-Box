@@ -3,6 +3,31 @@
 Evidence class: **INERT**. Owner-directed V2 work and implementation log;
 not runtime qualification or artistic acceptance.
 
+## Helical Resonance boundary — October28,2026
+
+Bible VIII.2 supplies fictional temporal communication, not a new astronomical
+or clock authority. **CelestialEphemeris** already derives Julian day and solar
+geometry from explicit UTC; **skywatch_astronomy.gd** supplies sidereal observer
+geometry and precession from CampaignClock. Preserve those pure presentation
+owners, star/planet/Moon behavior and Queens observer reference.
+
+Future Temporal Coordinates need orbital/rotational phase, source/destination
+epochs, local anchor geometry, solar displacement, perturbation/precession and
+fictional Tachyonic Shear correction. Present code is not a galactic ephemeris,
+N-body integrator, Echo Window solver or validated temporal-channel simulation.
+Galactic wake/sidebands/correction need bounded authored fictional parameters;
+do not label them measured physics or match Gregorian dates as a substitute for
+phase. Derive/cache data on demand without another RNG, campaign clock or
+per-frame historical-world simulation. These calculations remain deferred.
+
+The prologue sky must visualize changing astronomical/seasonal state through
+access, lock and translation, decelerating to the immutable sampled present.
+Optional helical diagrams may not disrupt the established sky sequence or add
+opening exposition. Preserve the exact UTC instant and printed player-local
+offset; astronomical viewing remains anchored to Queens rather than inferred
+player location. No sky shader, historical event schedule, lunar cycle or
+astronomical accuracy claim changes merely because this canon is documented.
+
 ## Order and preserved baseline
 
 The owner requests Parts 6–9 of the astronomical brief next, integrated with

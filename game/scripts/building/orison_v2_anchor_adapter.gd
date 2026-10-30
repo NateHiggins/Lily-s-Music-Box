@@ -30,12 +30,24 @@ func explicit_bed() -> Node3D:
 	return resolve("F04_B_BED") as Node3D
 
 func resolve_return_anchor(identity: String) -> Dictionary:
-	if identity != "F04_B_BED": return {}
-	var stance := resolve("F04_B_BEDSIDE_RETURN") as Node3D
-	if stance == null: return {}
+	if identity != "F04_B_BED" or root == null: return {}
+	# Both fixed ids share a prefix. Resolve them in one synchronous traversal,
+	# preserving exact-name uniqueness and fresh transforms without a cache.
+	var stance: Node3D
+	var bed: Node3D
+	var stance_count := 0
+	var bed_count := 0
+	for candidate: Node in root.find_children("F04_B_BED*", "", true, false):
+		match str(candidate.name):
+			"F04_B_BEDSIDE_RETURN":
+				stance_count += 1
+				stance = candidate as Node3D
+			"F04_B_BED":
+				bed_count += 1
+				bed = candidate as Node3D
+	if stance_count != 1 or stance == null: return {}
 	var result := {"id": identity, "position": stance.global_position}
-	var bed := explicit_bed()
-	if bed != null:
+	if bed_count == 1 and bed != null:
 		result["facing_position"] = bed.global_position + Vector3.UP * .2
 	return result
 

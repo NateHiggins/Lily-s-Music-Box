@@ -45,7 +45,26 @@ metric charts; `fabrication_grain.py` for stock grain; `fabrication_normals.py`
 and `check_exported_tangents.py` for shading/export derivatives. Preserve curved
 rest-length charts where appropriate. Read each helper's actual contract first.
 
+Drive a moving stock around its measured local mechanism axis with an explicit
+pivot. Euler channels on an already tilted stock can rotate about the wrong
+axis; compare closed, intermediate and endpoint poses after export.
+
 ## Surface and export decisions
+
+Keep material and shader ownership in the existing shared pipeline. Bind
+registered materials, maps and reusable preview presets rather than embedding
+copies of runtime shader logic or scattering hard-coded palette, optical and
+material-response values through asset builders. Resolve existing appearance
+parameters from their catalogue or source material; make any necessary preview
+binding reusable and data-driven.
+
+Blender studies own geometry, UVs, semantic attributes and deformation. Runtime
+lamp gating, optical attenuation, observer privacy and state-dependent effects
+remain with their runtime owners unless the task explicitly authorizes shader
+development. Use existing native materials or clearly labelled diagnostic
+materials for CPU review; record missing renderer effects instead of recreating
+them to make a preview look finished. A Blender preview does not qualify the
+runtime shader or its behavior.
 
 Use registered custom PBR recipes, physical UV scale, grain along each stock,
 linear data maps and the existing OpenGL normal convention. Primary maps must
@@ -67,12 +86,34 @@ glTF. Record source/builder bindings and review the saved blend, final float32
 export and Godot import, including UV degeneracy, tangents and loaded mipmaps.
 Apply import/compression exceptions only to demonstrated defects and register them.
 
+Solidify can leave a sewn thickness rim with coincident UVs. Chart the rim in
+metres before exporting; do not exempt it from UV/tangent checks. Curved cloth
+can also merge incident chart derivatives during glTF deduplication. Reuse the
+shared metric exporter's corner tangent guide when demonstrated, preserving
+smooth normals and texture phase. The DREAM/wake cover failures and native
+review are recorded in the [prologue ledger](../../../design/V2_PROLOGUE_2026-10-28.md);
+their native pass does not establish Godot morph shading or artistic acceptance.
+
 For planar extrusions, derive winding from the actual tangent/up/outward frame;
 facade and dial frames can have opposite handedness. Check named front normals
 and mechanical layer clearances in transformed float32 exports, then the loaded
 result. Bind newly reused geometry helpers in the family's source provenance.
 If Windows blocks direct export replacement, prefer the existing validated
 temporary-export path with bounded replacement; retain the original failure.
+
+For external deliveries, run the repository's exported derivative checker before
+integration. Unit length and orthogonality alone do not establish a correct UV
+tangent. The October29 car/lamp studies needed per-corner derivative guides to
+prevent deduplication from averaging incompatible charts. Re-export from native
+source, then compare triangle positions/normals/UVs, named transforms and encoded
+images against the original; preserve the failed exports. Do not change palettes,
+wheel normalization or light ownership as an incidental tangent repair.
+
+For a partial architectural delivery, merge only its declared replacement stocks
+and moving branch. A complete installed facade may also own marquee supports,
+window surrounds and water tables. Verify untouched draw arrays exactly; in mixed
+batches, compare retained triangle attributes after removing only the specified
+source faces. Do not replace the full asset with a portal-only GLB.
 
 ## Verify in a bounded batch
 

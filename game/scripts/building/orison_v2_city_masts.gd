@@ -6,7 +6,9 @@ static func mount(city: Node3D) -> Node3D:
 	model.name="RooftopMasts";city.add_child(model)
 	var material:=MatLib.get_mat("galvanized_roof").duplicate() as StandardMaterial3D
 	material.uv1_triplanar=false
+	var placement := preload("res://scripts/building/orison_v2_city_placement.gd").new()
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+		placement.apply(draw)
 		draw.material_override=material
 		var body:=StaticBody3D.new();body.name="MastCollision"
 		var shape:=CollisionShape3D.new();shape.name="Surface";shape.shape=draw.mesh.create_trimesh_shape()

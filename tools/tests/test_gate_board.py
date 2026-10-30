@@ -4,6 +4,10 @@ from __future__ import annotations
 
 import sys
 import unittest
+from contextlib import redirect_stderr
+from io import StringIO
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parents[1]
@@ -21,6 +25,29 @@ def board(*rows, commit="a" * 40, version=None):
     return {"schema": gb.BOARD_SCHEMA, "commit": commit, "tree": "t", "gates": list(rows),
             "tool_version": gb.TOOL_VERSION if version is None else version,
             "status_order": gb._FALLBACK_STATUS_ORDER, "created_utc": "x", "dirty_paths": []}
+
+
+class SelectionTests(unittest.TestCase):
+    def test_unknown_selection_refuses_without_writing_an_empty_board(self):
+        for selectors in [["spatial,reader"], ["spatial", "typo"]]:
+            with self.subTest(selectors=selectors), TemporaryDirectory() as directory:
+                args = ["--root", str(TOOLS.parent), "--no-tests", "--out", directory]
+                for selector in selectors:
+                    args.extend(["--only", selector])
+                errors = StringIO()
+                with redirect_stderr(errors):
+                    self.assertEqual(gb.main(args), 3)
+                self.assertIn("unknown gate selection", errors.getvalue())
+                self.assertFalse((Path(directory) / "board.json").exists())
+
+    def test_repeated_ids_and_test_prefix_select_every_requested_gate(self):
+        with patch.object(gb, "run_gate", side_effect=lambda root, gate, timeout: row(gate["id"])):
+            result = gb.build_board(TOOLS.parent, True, ["spatial", "reader", "test"], 1, 30)
+        ids = [gate["id"] for gate in result["gates"]]
+        self.assertIn("spatial", ids)
+        self.assertIn("reader", ids)
+        self.assertIn("test:test_gate_board", ids)
+        self.assertTrue(all(gate in ["spatial", "reader"] or gate.startswith("test:") for gate in ids))
 
 
 class CompareTests(unittest.TestCase):

@@ -24,7 +24,9 @@ registration=json.loads(registration_path.read_text())
 def digest(path):return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n') if path.suffix not in ['.blend','.glb','.png'] else path.read_bytes()).hexdigest()
 assert plan['classification']=='ADAPTATION' and digest(native_path)==registration['source_native_sha256']
 for path,value in registration['bindings'].items():
- if path!='game/data/orison_v2_blockout.json':assert digest(ROOT/path)==value,path
+ if path not in ['game/data/orison_v2_blockout.json','art/data/city_elevations/source_plan.json']:assert digest(ROOT/path)==value,path
+# The exact consumed V2 height projection below, followed by335 native bounds,
+# owns plan geometry. Commercial facade fields do not alter registered roof stock.
 from city_closure_source import check_registered_layout, v2_layout
 height_plan=json.loads((ROOT/'art/data/city_elevations/source_plan.json').read_text())
 check_registered_layout(layout,json.loads((ROOT/'art/blender/city_shells_consumed_layout.json').read_text()),registration,height_plan)

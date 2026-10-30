@@ -9,6 +9,11 @@ var extra_monitors: Dictionary = {}
 func _init() -> void:
 	route_label = "V2 RESPONSIVENESS DIAGNOSTIC"
 
+func _ready() -> void:
+	GameBoot.settings.weather_network_enabled=false
+	CampaignTime.set_frozen_for_tests(true)
+	super._ready()
+
 func _process(_delta: float) -> void:
 	var now := Time.get_ticks_usec()
 	if sampling and last_usec > 0:
@@ -58,8 +63,14 @@ func _route() -> void:
 	DirAccess.make_dir_recursive_absolute(directory)
 	var file := FileAccess.open(directory.path_join("frames.json"), FileAccess.WRITE)
 	file.store_string(JSON.stringify({"evidence_class":"INERT", "kind":"performance_diagnostic",
+		"scope":"Two nearby lobby/entrance/streaming cycles, then stationary attribution if requested; no whole-world or cold-start performance acceptance.",
 		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","draw_calls","primitives","residency","engine_monitors"],
 		"resolution":str(get_viewport().get_visible_rect().size), "vsync":false,
+		"settings":{"engine":Engine.get_version_info(),"renderer":RenderingServer.get_current_rendering_method(),
+			"adapter":RenderingServer.get_video_adapter_name(),"msaa_3d":get_viewport().msaa_3d,"taa":get_viewport().use_taa,
+			"max_fps":Engine.max_fps,"physics_ticks_per_second":Engine.physics_ticks_per_second,
+			"campaign_minute":world.campaign_clock.minute_of_day(),"calendar_frozen":true,"weather_network":false},
+		"counter_limits":"Process/physics monitors are overlapping one-second peaks, not independent per-frame script/physics costs. Main viewport GPU excludes private viewports. Global rendering/compilation counters retain global scope; no additive attribution or matched speedup inferred.",
 		"startup_ms":world.startup_ms,"samples":samples,"failures":failures,
 		"streaming":world.passage_region.residency.snapshot(),"interaction_costs":player._grab.profile_records}, "\t"))
 	file.close()
@@ -79,9 +90,11 @@ func _attribution(directory: String) -> void:
 	# Disabled ticking is diagnostic only and is always restored before teardown.
 	var results := {}
 	var shadow: Node3D=world.get_node("LampAtmosphere").scene_shadow
+	var original_process_mode:=world.process_mode
+	var original_shadow_mode: int=shadow.viewport.render_target_update_mode
 	for treatment in ["live", "world_ticks_disabled", "frozen_without_lamp_shadow_view", "world_ticks_restored_control", "live_restored"]:
-		world.process_mode = Node.PROCESS_MODE_INHERIT if treatment in ["live","live_restored"] else Node.PROCESS_MODE_DISABLED
-		shadow.viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED if treatment=="frozen_without_lamp_shadow_view" else SubViewport.UPDATE_ALWAYS
+		world.process_mode = original_process_mode if treatment in ["live","live_restored"] else Node.PROCESS_MODE_DISABLED
+		shadow.viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED if treatment=="frozen_without_lamp_shadow_view" else original_shadow_mode
 		for i in 30: await get_tree().process_frame
 		var rows: Array = []
 		for i in 120:
@@ -91,4 +104,9 @@ func _attribution(directory: String) -> void:
 				RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),
 				RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid())])
 		results[treatment]=rows
-	FileAccess.open(directory.path_join("attribution.json"),FileAccess.WRITE).store_string(JSON.stringify({"kind":"diagnostic","columns":["wall_ms","viewport_cpu_ms","viewport_gpu_ms"],"treatments":results},"\t"))
+	world.process_mode=original_process_mode
+	shadow.viewport.render_target_update_mode=original_shadow_mode
+	FileAccess.open(directory.path_join("attribution.json"),FileAccess.WRITE).store_string(JSON.stringify({"kind":"diagnostic",
+		"scope":"Same-process stationary controls; no readback during samples. Freezing world scripts/physics does not isolate their individual costs or stop all rendering-server work. The fourth block restores the original shadow mode while world ticking remains disabled; the final block restores live ticking.",
+		"initial_process_mode":original_process_mode,"initial_shadow_mode":original_shadow_mode,
+		"columns":["wall_ms","viewport_cpu_ms","viewport_gpu_ms"],"treatments":results},"\t"))

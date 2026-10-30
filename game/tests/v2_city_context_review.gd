@@ -40,3 +40,36 @@ static func capture_station(space: PhysicsDirectSpaceState3D, horizon: Node3D, s
 				if hit.is_empty() or not bodies.has(hit.collider.get_rid()) or hit.position.distance_to(target)>.001:continue
 				return {"eye":eye,"target":target,"retained_camera":pass_index==0,"building":row.building}
 	return {}
+
+
+static func placed_fixture(original: Dictionary) -> Dictionary:
+	var result: Dictionary = original.duplicate(true)
+	var placement := preload("res://scripts/building/orison_v2_city_placement.gd").new()
+	for row: Dictionary in result.get("buildings", []):
+		var offset: Vector3 = placement.source_offset(str(row.id))
+		for key: String in ["main_rect", "original_roof_rect"]:
+			if not row.has(key): continue
+			for index in 4: row[key][index] += offset.x if index % 2 == 0 else offset.y
+	for field: String in ["window_rows", "portals", "roof_samples", "townhouse_details", "court_details", "contacts", "architecture_checks", "roof_details"]:
+		for row: Dictionary in result.get(field, []):
+			var offset: Vector3 = placement.source_offset(str(row.get("building", row.get("id", ""))))
+			for key: String in ["center", "pane_sample", "point", "probe", "void_probe"]:
+				if not row.has(key): continue
+				for index in 3: row[key][index] += offset[index]
+			for point: Array in row.get("footprint", []):
+				for index in 3: point[index] += offset[index]
+			for point: Array in row.get("outline", []):
+				for index in 2: point[index] += offset[index]
+			for key: String in ["tower_rect", "rect"]:
+				if not row.has(key): continue
+				for index in 4: row[key][index] += offset.x if index % 2 == 0 else offset.y
+	for row: Dictionary in result.get("clock_hands", []):
+		var offset: Vector3 = placement.city_offset(str(row.part))
+		for index in 3: row.pivot[index] += offset[index]
+	for row: Dictionary in result.get("anchor_seats", []):
+		var offset: Vector3 = placement.source_offset(str(row.source_owner))
+		for rect: Array in row.pieces:
+			for index in 4: rect[index] += offset.x if index % 2 == 0 else offset.y
+		row.bottom += offset.z
+		row.top += offset.z
+	return result

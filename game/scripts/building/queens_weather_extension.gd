@@ -219,19 +219,30 @@ func set_transport(transport: PackedFloat64Array,cloud_scale: float) -> void:
 func publish(sky: ShaderMaterial,camera_position_m: Vector3,air: ShaderMaterial=null) -> void:
 	RenderingServer.global_shader_parameter_set("wetness",wetness)
 	RenderingServer.global_shader_parameter_set("weather_blood",blood_deposit)
-	var whiteout := smoothstep(0.60,1.0,weights.z)
-	var parameters := {"severe_storm_threat":threat,"vortex_intensity":vortex,"wx_cyclone":cyclone,"wx_hail":weights.w,"wx_blood_rain":blood_rain,
-		"wx_whiteout":whiteout,"wx_formation":formation,"wx_formation_strength":formation_strength,
-		"wx_phase":fposmod(phase,TAU*2.0),"wx_cyclone_phase":cyclone_phase,
-		"wx_texture_phase":fposmod(phase*.0001,1.0),"wx_fluctus_phase":fposmod(phase*.25,1.0),
-		"wx_cloud_drift":_cloud_drift,"wx_asperitas_drift":_asperitas_drift,"wx_cirrus_drift":_cirrus_drift,
-		"wx_camera_km":camera_position_m*0.001,"wx_iridescence_ramp":_ramp}
+	var parameters:=sky_parameters(camera_position_m)
 	for key: String in parameters:sky.set_shader_parameter(key,parameters[key])
+	var whiteout:=smoothstep(0.60,1.0,weights.z)
 	if air!=null:
 		air.set_shader_parameter("cyclone_strength",cyclone)
 		air.set_shader_parameter("whiteout_strength",whiteout)
 		air.set_shader_parameter("fog_offset",fog_offset)
 		air.set_shader_parameter("dust_offset",_dust_drift)
+
+## Render-only temporal projection: no surface wetting, fallout or world writes.
+func project_sky(stamp:float,transport:PackedFloat64Array) -> void:
+	weights=_target_weights;threat=_target_threat;cyclone=_target_cyclone
+	vortex=_target_vortex;wind_mps=_target_wind;formation=_target_formation
+	move_calendar_fields(stamp,transport)
+	set_transport(transport,.22)
+
+func sky_parameters(camera_position_m:Vector3) -> Dictionary:
+	var whiteout := smoothstep(0.60,1.0,weights.z)
+	return {"severe_storm_threat":threat,"vortex_intensity":vortex,"wx_cyclone":cyclone,"wx_hail":weights.w,"wx_blood_rain":blood_rain,
+		"wx_whiteout":whiteout,"wx_formation":formation,"wx_formation_strength":formation_strength,
+		"wx_phase":fposmod(phase,TAU*2.0),"wx_cyclone_phase":cyclone_phase,
+		"wx_texture_phase":fposmod(phase*.0001,1.0),"wx_fluctus_phase":fposmod(phase*.25,1.0),
+		"wx_cloud_drift":_cloud_drift,"wx_asperitas_drift":_asperitas_drift,"wx_cirrus_drift":_cirrus_drift,
+		"wx_camera_km":camera_position_m*0.001,"wx_iridescence_ramp":_ramp}
 
 func lighting(base_sun: Color,base_energy: float,base_ambient: Color,base_ambient_energy: float,to_sun: Vector3,base_saturation: float=1.0) -> Dictionary:
 	# Apply these returned values at the END of the existing DayNightDirector profile.

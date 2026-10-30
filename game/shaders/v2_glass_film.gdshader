@@ -1,6 +1,7 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_never, cull_disabled;
 #include "res://shaders/v2_condensation.gdshaderinc"
+#include "res://shaders/prologue_mirror_film.gdshaderinc"
 uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
 uniform sampler2D rough_tex : filter_linear_mipmap_anisotropic, repeat_enable;
 uniform sampler2D normal_tex : hint_normal, filter_linear_mipmap_anisotropic, repeat_enable;
@@ -22,6 +23,7 @@ void vertex() {
 }
 void fragment() {
 	float wet=face>0.5 ? outside_wet : inside_wet;
+	if(mirror_surface)wet=prologue_mirror_wet(pane_metres/glass_size+vec2(.5),wet);
 	vec4 film=glass_moisture(pane_metres,wet,TIME);
 	// Rain beads on the outer face without giving the whole window a steam veil.
 	film.z*=mirror_surface || face< -0.5 ? 1.0 : 0.12;

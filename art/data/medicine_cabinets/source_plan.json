@@ -494,6 +494,14 @@
       "source_id": "F02_2A_MIRROR_01"
     },
     {
+      "id": "MedicineLeftDown6",
+      "kind": "medicine_mount",
+      "hinge_side": "left",
+      "source_id": "F04_4B_MIRROR_01",
+      "wall_pitch_degrees": -6,
+      "base_variant": "MedicineLeft"
+    },
+    {
       "id": "MedicineItem_aspirin",
       "kind": "cabinet_item",
       "source_name": "aspirin",
@@ -677,7 +685,7 @@
     },
     {
       "id": "F04_4B_MIRROR_01",
-      "variant": "MedicineLeft"
+      "variant": "MedicineLeftDown6"
     },
     {
       "id": "F05_5A_MIRROR_01",
@@ -777,7 +785,8 @@
   },
   "adaptations": [
     "Folded enamel sheet, rolled flange, actual shelf clips, segmented pinned hinges and closed mirror leaf. Original MirrorGlass node, reflection owner, 95-degree hinge, collision and household inventory remain.",
-    "Kept household items retain the original names, counts, deterministic shelf allocation, X/Z jitter and yaw. Native prototypes seat the source stock on the actual glass shelves."
+    "Kept household items retain the original names, counts, deterministic shelf allocation, X/Z jitter and yaw. Native prototypes seat the source stock on the actual glass shelves.",
+    "4B entire cabinet pitches down six degrees about its bottom rear edge; two native tapered enamel mounting rails retain the original wall datum. Other eleven installations remain unchanged. Mounting rises 30mm to preserve full leaf clearance above the existing shelf and cup."
   ],
   "optics": {
     "role": "Glazing",
@@ -788,5 +797,16 @@
   "open_work": [
     "Native geometry and integration in progress; no acceptance claimed."
   ],
-  "tint_space": "linear"
+  "tint_space": "linear",
+  "mounts": {
+    "F04_4B_MIRROR_01": {
+      "pitch_degrees": -6,
+      "pivot": [
+        0,
+        1.2,
+        0.058
+      ],
+      "rise": 0.03
+    }
+  }
 }

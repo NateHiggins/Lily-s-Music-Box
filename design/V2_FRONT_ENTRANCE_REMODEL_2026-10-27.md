@@ -1,7 +1,51 @@
 # Orison front entrance: remodel plan and example adaptation
 
-Evidence class: **INERT**. Queued authoring plan, not modeled work, runtime
-qualification or artistic acceptance. Weather/noise repair remains first.
+Evidence class: **INERT**. Authoring plan and native integration record;
+runtime qualification and artistic acceptance are reported separately below.
+
+## October30 research reconciliation — proposal only
+
+Read the external **facade_window_research_20261028/AUDIT.md** and
+**candidate_inventory.md** alongside current authorities and the storefront
+plan. LF-normalized comparison against their51 source records finds39 unchanged,
+12 changed, none missing. All99 window records still match the researched
+dimensions, centres, room/level owners and axes. Seven bathroom windows remain;
+the4B opening into the4C studio and the compressed eastern bay remain repair
+leads. The18 surround/pier overlaps are metadata findings requiring current
+native/imported contact checks, not18 newly verified triangle intersections.
+
+The provenance packet's older68-part/37,687-triangle baseline and its statement
+that no newer ornate candidate exists are superseded. The installed inventory
+now binds633 stocks,59 parts and41,302 triangles to the exact current GLB hash;
+the October29 selective integration below preserves its original authorities.
+Keep that improved portal. Do not restore deleted snapshots or reauthor its leaf.
+
+Proposed construction order, after current qualification repairs:
+
+1. Resurvey the current wall/aperture owners, both occupied rooms beside4B,
+   restoration stone, canopy bearings, ventilation and below-grade boiler inlet.
+   Draw one full-depth entrance/slab/canopy section before changing stock.
+2. Resolve the seven windowless-bathroom conflicts through their authoring
+   owners with supported opaque wall and matching interior finish. Preserve
+   rooms, partitions, floors, stairs and the four ventilation stacks. Reconcile
+   existing bathroom curtain/inspection behavior before retiring any opening;
+   the temporal finale already uses the bedroom exterior window.
+3. Fit the narrow service-window surrounds to the retained pier; compose the
+   main gallery rhythm and subordinate service bay without imposing uniform
+   spacing or moving occupied partitions. Reuse installed portal/hardware,
+   glass, stone profiles and full-depth mitre helpers wherever compatible.
+4. Coordinate only the immediate frontage interfaces with the shared storefront
+   kit in **V2_STOREFRONT_REFIT_PLAN_2026-10-29.md**. Background city-body work is
+   separate; freeze shared ground/frontage envelopes before native authoring.
+
+Unresolved: native severity of the18 metadata overlaps; the boiler inlet's
+actual exterior lightwell; the bathroom curtain/inspection migration; and the
+canonical/V2 basement datum discrepancy. None authorizes moving a floor or
+removing an installed interaction in this research pass. Verify changed stock
+in native sections and a small imported bench, then use nearby standing views,
+real affected door/window input and targeted reload checks. Reuse unchanged
+qualified routes; no whole-city walk or full survey per cosmetic iteration.
+No geometry, gameplay or acceptance status changes in this reconciliation.
 
 ## Owner direction and form references
 
@@ -83,3 +127,285 @@ readability. Exercise actual grab/motion/release, easy passage and affected
 save/load owners. Compare frame-time distributions on the same approach route;
 triangle targets alone do not qualify responsiveness. Preserve original defects
 and renew only affected evidence after sources settle.
+
+## October29 delivery intake and selective native integration
+
+REPORT — ENTRANCE-NATIVE-INTAKE — 2026-10-29. Parent **fccd68cb**.
+The external **C:/ov/asset-prototypes/orison-front-entrance-20261029/** delivery
+passes128 manifest hashes,20 current source bindings and both repository tangent
+checks. Its final source SHA256 is
+**d210b8927737ae57be9f9bd12fb8a8f5158749bf337f17eba1ce7058a38db7d4**.
+It is a partial portal, not a complete replacement facade. The combined source
+is merged in Blender by retiring only the seven named fixed stocks in its
+replacement manifest and the old moving leaf. No donor context, copied original
+construction, reference pixels, lettering, cameras or lights are installed.
+
+**385 retained editable stocks** have unchanged native fingerprints. All arrays
+and transforms in52 untouched export draws remain exact. In the eight mixed
+draws, every retained triangle's position, normal, UV and tangent remains exact;
+only the1,308 declared retired fixed triangles are removed. All five new portal
+partitions retain the delivered arrays exactly. The complete asset is59 draws,
+41,302 triangles versus68/37,687 previously, with no embedded materials/images.
+GLB size falls from5,654,716 to5,306,272bytes. These are asset measurements,
+not a frame-time improvement. Closed construction now totals633 stocks.
+
+The first external merge attempt stops on a missing retained material binding
+after removal of the old oak; the original failure remains in **merge_first.log**.
+Capturing material owners before retirement fixes it. Native previews inspect
+the combined closed approach and open rear joinery. Canonical export succeeds
+with minimum tangent agreement0.9999954422, noncollapsed geometry/UVs and all
+draws bounded to4metres. Existing fixture evidence is renewed for the actual
+complete asset, without changing retained source bindings. The native source and
+**export_front_facade.py** drive ordinary rebuilds; the old generator delegates
+to that export, reserving **--legacy-baseline** for historical reconstruction.
+
+The local finish proposal uses dark oiled oak and warm stone through duplicated
+materials; shared catalogue defaults and the established clear-glass owner are
+retained. Door, lock, save, closer, mail repair, panic bar, marquee, acoustic sign,
+lamp and entrance placement authorities are unchanged. Actual loaded appearance,
+glass, player grab and composed fit remain pending the queued shared-lane review.
+The existing facade test now uses the golden route's physical mouse driver for
+the new leaf. This statement records implementation, not a passing playtest.
+
+Evidence and preserved originals are under
+**C:/ov/reports/prologue_20261028/entrance_delivery_review/**: **manifest_check.json**,
+**source_recheck.json**, **combined_candidate/merge_review.json**,
+**export_preservation.json**, **mixed_draw_preservation.json** and
+**donor_stream_preservation.json** within that combined-candidate directory.
+The two combined CPU images are native review only. Six scoped static gates
+pass with0NEW unread fields and no regressions against the retained board;
+this does not replace current-main candidate verification or surface renewal.
+
+### Other waiting deliveries: actual disposition
+
+- **Phone-scale arm and clawfoot tub:** already installed with later cassette,
+  plumbing, curtain and UV repairs. Do not overwrite these with earlier external
+  prototypes or apply the arm's0.42scale again.
+- **Model A Tudor:**63 manifest files match. The complete assembly is29,662
+  triangles including four wheel instances and driver;22,390 counts unique
+  mesh data only. Original export fails the canonical UV-derivative tangent
+  check at the rear quarter, despite unit/orthogonal tangents. An external native
+  corner-guide re-export passes0.9999999570 minimum agreement, preserving all
+  triangle positions/normals/UVs,27 encoded images and named transforms exactly.
+  It is not installed. Catalogue/traffic batches, physical0.381m wheel radius,
+  driver ownership, lamp optics and runtime cost still need integration.
+- **Gas streetlamp:**40 manifest files match. The original22,444triangle export
+  fails the same derivative check at the base cock. A native corner-guide study
+  passes0.9999999590 while preserving triangle positions/normals/UVs,14 encoded
+  images and transforms exactly. It is not installed. The existing gaslight
+  clock, emitter budget, crossing signal box, glass and collision owners must
+  survive conversion; a visible mantle does not create a simulated gas service.
+- **Tardi organ:** remains explicitly INERT research-only. Intake does not
+  authorize runtime attachment or changes to Tardi's exterior/current shader.
+- **Voice sketch:** audio, not a Blender delivery; not treated as an installed
+  companion voice system.
+
+Car/lamp originals, manifest results and failed checks remain external alongside
+**other_delivery_checks.json**, **tangent_studies/review.json** and
+**tangent_studies/preservation.json**. Four original car/lamp CPU views are
+inspected for form; the re-export preservation checks are not optical renders
+or artistic acceptance. Their bundled maps still require catalogue integration.
+The Blender skill records both derivative and selective-merge lessons; its
+structural validator passes. No broad task or V2 completion is declared.
+
+## Approved small entrance batch — October29
+
+The owner delegates selection from the twelve proposed props. Approve only
+these two isolated native candidates, in order; this is authoring authorization,
+not placement, runtime qualification or artistic acceptance:
+
+1. **Cast-iron boot scraper:** one restrained ornamental casting with a worn
+   scraping edge, credible base and real pavement anchors. Static visual prop;
+   no new boot-cleaning mechanic or interaction actor.
+2. **Umbrella stand and removable drip tray:** practical period iron construction,
+   stable feet, rounded contact edges and a seated tray with a clear extraction
+   path. Reuse suitable existing umbrella/stand stock before rebuilding it.
+   Separate the tray for possible later direct manipulation; do not implement
+   water simulation or promise new inventory/save behavior.
+
+The external Blender agent owns authoring once given the handoff; canonical
+Codex owns later integration. Use **C:/ov/asset-prototypes/orison-entry-small-stock-20261029/**;
+the repository stays read-only for that agent. Inspect current entrance blend,
+runtime anchors and **entry_vestibule.json** before choosing dimensions. Show a
+measured placement proposal and explicit keep-clear envelope for the door,
+threshold, mailbox approach and normal full-size player route. If neither prop
+fits, report it rather than relocating doors, lights or other contributors' work.
+
+Deliver one concise construction report for both props, editable native source,
+efficient material-key exports and modest closed/service/grazing CPU views.
+Keep meaningful manufacturing stocks editable, batch static render partitions,
+and provide a simple replacement body LOD if silhouette cost warrants one.
+Use existing registered PBR maps with metre charts and loaded-mipmap-compatible
+bindings; report triangles, material partitions and any new texture bytes.
+Run the repository's final float32 metric/UV/tangent checks rather than checking
+only normal/tangent orthogonality. Reference pixels and texture lettering stay
+out. Do not copy packed catalogue images or historical authoring logs into the
+repository. No Godot, catalogue, scene, interaction or placement edits in the
+external authoring chat. No deadline is assigned.
+
+Defer the other suggestions from this batch, without deleting installed work:
+
+- **Mailbox bank:** already native via **mail_bank.blend** and
+  **orison_v2_native_mail_bank.gd**, with real compartment/motion, mail custody,
+  resident cards and inventory owners. A new formed-steel style is not approved
+  as an incidental replacement of its existing finishes and behavior.
+- **Entrance gas lantern, lobby radiator and notice cabinet:** current
+  **orison_v2_entry_vestibule.gd**, native stock and data already provide gas
+  fittings, radiator dress and authored notice frames. No demonstrated defect
+  here justifies another parallel replacement or another light.
+- **Mosaic threshold:** defer until the door/threshold and street-grade work
+  are qualified; avoid competing floor transitions and additional texture work.
+- **Doorbell/annunciator and service electrical cabinet:** preserve the existing
+  telephone, dispatch, electrical and direct-manipulation owners; no replacement
+  is authorized by this small decorative batch.
+- **High-level cistern, shower curtain and kitchen sink:** outside the entrance
+  batch. Preserve the repaired close-coupled toilet, clawfoot bath/plumbing and
+  curtain, plus existing kitchen fixtures. Revisit only a reproduced defect or
+  separately approved need.
+
+The two-prop approval adds no V2-wide completion gate. Existing prologue, city,
+weather, audio, persistence and performance commitments retain their priorities.
+
+
+### First composed entrance review — October29
+
+**import.log.receipt.json** passes in27.42seconds with empty stderr. The first
+occupied fullscreen3440x1440 run, **world_first.log.receipt.json**, ends exit1
+in188.33seconds:672 checks report one failure. Loaded metric mapping, materials,
+matching fixed collision, retained bearings and door sweep report no failures,
+but this failed aggregate grants no runtime qualification. Its new hand check
+mistakenly uses layout coordinates as world coordinates: the logged camera is
+at worldZ-13.55 while its actual leaf contact is atZ+0.315. Correct the fixture
+stance through **door.to_global**, preserving production reach and collision.
+The original failure, six optical frames and stderr remain external.
+
+The loaded close/approach images show the new oak, carved panels, six retained
+glass lights and stone arch; the facade is not artistically accepted. A diagonal
+white streak remains visible in the review. Inspection finds the temporary
+Camera3D uses its default all-layer mask, including the reflection-only player
+avatar that the real first-person camera excludes. The review now copies the
+actual player camera mask and asserts avatar privacy; attribution/removal of
+the streak still requires a fresh render. No avatar, mirror or sky production
+shader is modified. The corrected hand/camera rerun is queued on the same live
+shared-lane waiter, with other contributors' processes preserved. It has not yet
+returned a result. Routine import rewrites are verified normalization-only and
+excluded from staging; no other contributor's assets or UIDs are discarded.
+
+
+### Source-bound renewal gate — October29
+
+The complete114-gate **entrance_delivery_review/full_board/board.json** at
+**6aa0ce92** records only the expected surface-qualification regressions against
+retained baseline **39314900**: missing/stale rendered review and changed
+rendering inputs. Four comparison messages describe those two expiry defects;
+all other gate results match the baseline, including its existing failures.
+No current-main/candidate pass is claimed. The source-expiry guard is retained;
+renew actual loaded review and full-world surfaces after final source freeze.
+
+The first corrected-run wait expires after20minutes with **nothing started**;
+there is no runtime receipt for that refusal. A new single40-minute waiter is
+queued for the same unlaunched **world_stance** review. No other agent's engine
+process is interrupted. Changed test source copies the first-person camera's
+visibility mask and derives its hand stance from the real door transform.
+These corrections remain unverified in Godot until that run actually executes.
+
+
+### Corrected occupied entrance review — October29
+
+**world_stance.log.receipt.json** completes exit0 in203.13seconds, empty stderr,
+fullscreen3440x1440 on the patched Vulkan engine. All673 checks pass, including
+loaded native metre UVs/derivatives, existing PBR and clear glass, matching fixed
+collision, retained bearings, sampled standing stations and actual primary-click
+acquisition, mouse travel to86degrees and next-click release. The same actual
+leaf owns the gesture and is released; no endpoint/toggle substitution is used.
+The receipt verifier reports RECEIPT BINDS before this report update. This
+fixture writes no schema-2 runtime contract: its result is a scoped diagnostic,
+not global space/save/campaign qualification.
+
+All six current native-resolution captures are inspected. The diagonal white
+streak is absent after inheriting the player's camera mask, confirming the
+review-only avatar-layer artifact. Production avatar/mirror/sky behavior is
+unchanged. Oak grain, carved panels, brass fittings, six glass lights, warm stone,
+marquee and retained sign are visible in the loaded scene. This is technical
+optical review under the fixture's night lighting, not owner artistic acceptance
+or a complete facade-window repair. The hand operation occurs after these six
+captures; an open-pose Game screenshot is not claimed. Native open/back views
+and sampled clearance evidence remain separate.
+
+Original failed **world_first** receipt/stderr/captures remain intact; the
+intervening busy waits launch nothing and confer no test result. Source-bound
+full-world surface renewal and current-main candidate/regression work remain
+open. Reconcile the facade/window research against actual installed interiors
+before changing their openings; this portal delivery does not close that work.
+The Godot skill records the demonstrated camera-mask and coordinate-frame
+lessons. Car/lamp preparation is still external and does not qualify new traffic
+or street-light behavior. No whole-V2 or whole-prologue completion is declared.
+
+### Small-stock delivery intake — October29
+
+**K-V2-ENTRY-SMALL-STOCK** moves from external authoring to canonical integration,
+queued after current repairs. Delivery root:
+**C:/ov/asset-prototypes/orison-entry-small-stock-20261029/**. Its construction
+report records3,676triangles/two partitions for **boot_scraper.glb** and
+4,624/six for **umbrella_stand.glb**:8,300triangles/eight partitions total,
+with no newly authored texture bytes. Editable blends, finish bindings and
+native checks are delivered. All76 **DELIVERY_MANIFEST.json** file hashes were
+independently checked with zero failures. This verifies delivery integrity,
+not a rerun of the author's native geometry tests or loaded performance.
+
+The measured entrance plan and tray-service CPU preview were inspected. Proposed
+positions are blockout-root-local Godot metres, yaw0: scraper **(1.95,0,-12.65)**,
+stand **(-2.05,0,-9.60)**. Convert through that actual parent exactly once;
+these are not final world transforms. The donor reports201 sampled door poses
+and a conservative1.20m hinge reserve, preserved central/mailbox approaches,
+and an8mm lift then340mm withdrawal for the separated tray. Preserve those
+datums without introducing a decorative mechanism or simulation.
+
+Next: retarget only **F01_vestibule_umbrella_stand** or selectively replace
+its declared stock, preserving other domestic-object instances. Bind the
+image/material-free GLBs through **material_bindings.json** and existing local
+catalogue owners. Keep packed map duplicates and authoring logs outside game
+packaging; preserve recoverable editable construction. Verify current floor
+support and60mm scraper anchoring against the evolving street grade, collision,
+full door travel, player/mail access, loaded metric UVs/derivatives/mips and
+same-settings cost. Separate tray geometry is preparation for possible later
+direct manipulation, not approval of a new maintenance/inventory/save system.
+No Godot integration, placement, forces or human artistic acceptance is claimed.
+
+
+### Next external Blender batch after small-stock delivery
+
+Proposal only; no additional asset is marked delivered, installed or accepted.
+Keep **K-V2-ENTRY-SMALL-STOCK** as the single canonical integration task for
+both delivered props. Native delivery checks and CPU previews remain separate
+from loaded collision, optical, interaction and performance verification.
+
+Recommend **K-V2-TIME-REGISTER** next: first the compact folding temporal
+readout, then its mechanically supported, glass-covered three-branch capacitor
+homage. This advances the already requested prologue companion rather than
+adding another entrance family while its integration is pending. Use the
+[existing fabrication brief](V2_PROLOGUE_2026-10-28.md#proposed-external-time-register-batch--october29).
+This recommendation does not assign an agent or authorize runtime integration.
+
+Suggested message to the Blender agent:
+
+> The boot scraper and umbrella stand are received; canonical integration is
+> queued, not yet accepted in Godot. Proposed next batch: the companion's folding
+> time register, followed by its glass-covered three-branch capacitor module.
+> Read the existing time-register brief, current companion source and repository
+> Blender skill before authoring. Survey the installed phone-scale body and arm;
+> preserve paper/keyboard readability, rotor sweep, cassette access and right-third
+> framing. Build convincing hinges, stops, latches, wire routes and glass retention.
+> Keep luminous parts restrained; lettering stays separate from textures. Reuse
+> catalogue finishes and keep the two modules independently exportable. Work in
+> one isolated external prototype folder, repository read-only, no Godot launches.
+> Deliver editable blends, efficient GLBs, closed/open CPU views and measured
+> attachment/clearance, UV/tangent, triangle/material and export reports. Do not
+> add another chassis refit or change clock, power, input or save authorities.
+
+Mailbox and annunciator families already have native builders in
+**art/blender/scripts/build_mail_bank.py**, **build_annunciator_controls.py**
+and **build_annunciator_dispatch.py**. Their existence does not establish artistic
+acceptance, but it makes replacement authoring premature without a demonstrated
+gap. The delivered street gaslight is not automatically an entrance lantern;
+leave that separate proposal deferred rather than assuming interchangeability.
