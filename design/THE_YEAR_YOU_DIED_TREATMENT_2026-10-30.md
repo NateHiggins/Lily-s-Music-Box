@@ -57,6 +57,17 @@ The owner's answers to this treatment's open items:
   sketch (section 10.1). It is **not canon**. B and C are kept briefly as not
   chosen.
 
+**Owner rulings, 2026-10-30 (the fire escape and the conclusive beat).**
+
+- **A rear fire escape is built.** The V2 layout has none today. It becomes a
+  planned separate iron fitting on the rear wall, with no blockout edit. Every
+  route, window, tank and vantage in the text now fits `origin/main`'s blockout
+  (section 4.7).
+- **The ending gets one conclusive piece of evidence.** "A supported case
+  finding" alone is not accepted. The beat is the sealed letter (section 4.5),
+  with one alternate. It uses no dark hour, no witness inside them, no recording
+  of the moment, no confession and no verdict.
+
 ## Outside review, 2026-10-30
 
 An outside editorial review was folded in. Its factual claims were checked before
@@ -66,7 +77,7 @@ were not reopened. All new lines and facts are **PROPOSED**.
 
 | # | Finding | Disposition | Where |
 |---|---|---|---|
-| 1 | The convergence proves concealment better than the push; test against "stole the evidence after an accidental fall" | **Partly fixed.** New positive fact: white kid under Adela's nails in Teresa's note, meeting three independent carriers. Vantry's vantage, timing and identification tightened. Mae's route made hidden. The accident story is tested, not eliminated: whose hand moved first stays reconstructed | §4.5 |
+| 1 | The convergence proves concealment better than the push; test against "stole the evidence after an accidental fall" | **Fixed (owner ruling 2026-10-30).** White kid under Adela's nails puts the wearer at the fall, and three independent carriers meet it. The sealed letter then eliminates the accident story: Mae's report of the fall was in Cam's bag at 18:40, 2 hours 23 minutes before it. Vantry's vantage, timing and identification tightened. Mae's route made hidden and fitted to the blockout | §4.5, §4.7; B08, B15, B25 |
 | 2 | Option A can read as a woman's suffering becoming material for a man's awakening | **Fixed in the text; the cumulative test needs the trans-reader.** "Essential" is now a limit of the Tenant's machinery. She was whole alive. Her release is her act. His continuation is a consequence | §10.1 A.1, A.2, A.4; §12 |
 | 3 | Date handoffs rest on hunches (boiler report, "Sacha keeps duplicates", "Tuesday") | **Fixed.** All 25 beats audited. Each has a carrier naming its date, readable outside route order | §3.1; B23 |
 | 4 | Killing the photographer cannot erase the lease | **Fixed for the story; law stays pending.** Her calculation is separated from the deed's actual effect | §3, "What Mae thinks she can stop" |
@@ -321,14 +332,14 @@ resident holds.
 | B05 | Mon 4 Feb 1929, Photo Supplies | The ledger box at the edge of a certificate negative | Mae's custody of the Estate's lease copy. Evelyn's ordering and Mae's edge-of-frame alarm do the work | Evelyn (carried the box) | EVELYN, re-squaring the objects on the table while Adela works: "Your seven is open at the top. Someone will read it as a nine." (Mae's box is where Evelyn put it. Adela moves it. Evelyn moves it back.) |
 | B06 | Sat 20 Apr 1929, the Arcade | Ash wall; Rhea's disputed proofs | Rhea's real privacy claim. Adela concedes the window but keeps the negatives [WR-07] | Rhea (a claim on negatives later stolen) | RHEA: "You may keep the negative. You may not keep putting me in the window." [S06] |
 | B07 | Tue 14 May 1929, Photo Supplies | Omar's bell-triggered recorder; his spare key | Exactly what a triggered recording can and cannot identify | Omar (a key and the recorder) | OMAR: "Bell starts it. That's all it does." [S07, kept for his precision] |
-| B08 | Fri 19 Jul 1929, 18:05–18:10, lobby | Adela sets her watch by the lobby clock at 18:05; Cam's envelope to 6C at 18:10 | The watch now agrees with that clock (its error is checked separately, §4.4). Delivery proved; the reader's action is not. The first rescue lever | Cam (carried the envelope) | CAM: "Six C. In her hand. Nobody's offered a rate for thoughts." [S08] |
+| B08 | Fri 19 Jul 1929, 18:05–18:40, lobby | Adela sets her watch by the lobby clock at 18:05; Cam's envelope to 6C at 18:10; at 18:40 Cam brings a sealed envelope down from 6C and marks its flap at the rack | The watch now agrees with that clock (its error is checked separately, §4.4). Delivery proved; the reader's action is not. The first rescue lever. The 18:40 envelope is only a held piece of post that evening (§4.5) | Cam (carried the envelope) | CAM: "Six C. In her hand. Nobody's offered a rate for thoughts." [S08] |
 | B09 | Fri 19 Jul, 18:25, roof | Plate 13 set; compost; St Elmo's fire | Mutual correction and pleasure in the storm. Malcolm is a roof user, not a suspect by default | Malcolm (last on the roof with her before dark) | MALCOLM: "Mind the cutting." ADELA: "Mind the sky. Yours will wait." |
 | B10 | Fri 19 Jul, to the boundary | The last recorded interval; Cal at the bulkhead | One clean interruption at the boundary (section 4) | Cal (near the bulkhead before the boundary) | PAPER: "NO RECORD. 21:01 TO 03:02. THE BUILDING DID NOT HEAR THESE HOURS." [S10] |
 | B11 | Sat 20 Jul, 03:02 | Teresa; the body; her written note (with what was under the nails, §4.5); later the patrolman's sheet | Reconciled per section 4. A friend names her before a form categorises her | Teresa (found her); the Guests (the "lodger" statement) | TERESA: "Adela. Get a blanket." |
 | B12 | Sat 20 Jul, early, F02 | The bag; the intact purse; Lena's basket | Custody, not guilt | Lena (has the bag) | LENA: "I was going to mend the strap." Then she stops. |
 | B13 | Sat 20 Jul, 13:00, roof | Iris's sketch; the chalk; the hat | Existing paint versus marks introduced around the camera | Iris (paint on the coping) | IRIS: "That's cadmium, that's mine, I can't afford it now. What are those? Somebody ticks like a bookkeeper." [S09, revised] |
 | B14 | Sun 21 Jul | The wrong back-page notice (N16) | Compare the sources without a lecture; the item's size and place stay visible | the Guests (named as the source) | PAPER, on request: "They have a source for the lodging. It is the Guests. We can ask them." |
-| B15 | Mon 22 Jul, Photo Supplies | The empty drawer; the shop cylinder; Emil | Hold on Emil and the prints. The next prompt waits until the player turns back to the work | Mina (her struck log entry) | EMIL: "These can come home." No companion reply. [S11] |
+| B15 | Mon 22 Jul, Photo Supplies | The empty drawer; the shop cylinder; Emil; Mr. Ewald, who came anyway and mentions a rude note from 6C, on his file with its envelope (§4.5) | Hold on Emil and the prints. The next prompt waits until the player turns back to the work | Mina (her struck log entry) | EMIL: "These can come home." No companion reply. [S11] |
 | B16 | Tue 6 Aug, 6B | Jonah's page; the borrowed drama line | What he heard against what he composed. "Museum-white" is his comparison, not an identification of Noel | Jonah (a witness who composed); Noel (named by a simile) | JONAH, defending it first: "Don't touch 'white.' It took me an hour." PLAYER: "Which part did you hear?" JONAH: "It wants two beats there. You can hear that." [S09, revised; the admission comes only if she keeps asking] |
 | B17 | Wed 7 Aug, rear yard | The glove scrap and pearl button; drain access through an ordinary repair | Compare material and construction. No compulsory full shift | — | NOEL: "Not on the blotter. Who let you bring that in wet?" (The gloves come out only after the cloth does.) |
 | B18 | Tue 20 Aug | Crosson street scene; Juno's preserved recordings | Straight memorial. Listening follows at its own pace. Timing fix: the Record's window carries the wire bulletin of the search; the N11 obituary is readable from 21 Aug | — | (No line at the card.) JUNO: "I have the tape. We don't have to play it now." [S12] |
@@ -338,7 +349,7 @@ resident holds.
 | B22 | Fri 18 Oct, 6A | Sacha's duplicate negative | The motive on glass. Timing fix: the Persons news is printed 19 Oct, so Nadia's card goes up on the 19th, and the night man's own small card with it (reported by M4 on the 20th); the discovery date stays the 18th | Mae (the lease) | SACHA: "The duplicate is here. I wrote the date on the sleeve." |
 | B23 | Tue 29 Oct, 6A darkroom | Surviving half of plate 13 | Partial image only (section 4). Sacha set the date on the 18th: "Tuesday the twenty-ninth." Timing fix: the N14 radium item (31 Oct) is read later, not in this room | Mae (convergent) | SACHA: "This part survived. I haven't repaired the rest into it." [S13] |
 | B24 | Sat 2 Nov, the Arcade | Vantry's bounded testimony (§4.5) | A later testimonial carrier for the murder-night sighting; never a flashback. It places a gloved woman leaving the roof, not at the fall. Timing fix: the Ninety-Nines item (N15, 4 Nov) is not yet printed, so Nadia's card goes up on the 4th | Mae (Vantry's sighting) | VANTRY: "I thought saying nothing would keep me out of it." PAPER, if asked: "It kept you out of the report." |
-| B25 | Sat 9 Nov | Mae's box; the supported correction | Converges without a confession. Followed by the two codas only when intentionally entered | Mae | MAE: "Those are private papers." ADELA: "Mine are in there." [S14] |
+| B25 | Sat 9 Nov | Mae's box; Mr. Ewald's pinned letter set against Cam's route book; the correction | The letter settles it (§4.5), without a confession. Followed by the two codas only when intentionally entered | Mae | MAE: "Those are private papers." ADELA: "Mine are in there." [S14] |
 
 **When the ending can be entered.** 9 November remains an ordinarily visitable
 date. The concluding sequence is entered intentionally, after the case's
@@ -374,7 +385,7 @@ was only a hunch, the table says what replaced it.
 | B05 | 4 Feb 1929 | Register: "Mrs. K., certificate plates, Mon. 4 Feb." | Photo Supplies | — |
 | B06 | 20 Apr 1929 | Register: "Miss S., 3D, sat Sat. 20 April. DO NOT PRINT" | Photo Supplies | — |
 | B07 | 14 May 1929 | Omar's job tag: "Photo Supplies, door trigger, Tues. 14 May" | Omar's bench; window log | — |
-| B08–B10 | 19 Jul 1929 | Key book: "19 July, A.V., roof, storm". The Record's ear, "Storms tonight" (**DATA**) | 4B desk; news rack | — |
+| B08–B10 | 19 Jul 1929 | Key book: "19 July, A.V., roof, storm". The Record's ear, "Storms tonight" (**DATA**). Cam's route book: "Fri. 19 Jul., 6.40 p.m., 6C to Mr. Ewald, hold, first run Sat." | 4B desk; news rack; Cam | — |
 | B11 | 20 Jul, 03:02 | The companion's slip, "NO RECORD. 21:01 TO 03:02"; Omar's panel log, "breaker reset 3:02" | Paper; B1 panel | — |
 | B12 | 20 Jul, 05:00 | Lena's mending ticket: "bag, clasp, off the chair, 20 July" | 2B basket | — |
 | B13 | 20 Jul, 13:00 | Iris's sketch, dated in its corner | 5C | — |
@@ -447,7 +458,7 @@ explicitly.
 | Time | What happens | Carrier |
 |---|---|---|
 | about **03:00** | Teresa comes down for her Saturday laundry hour (canon block). Omar arrives for his breaker check (canon block) | schedules |
-| about **03:01** | Teresa sees a sleeve through the laundry window and goes out to the yard. **This is before the record resumes**, so it is known from her testimony, not the house | Teresa's statement |
+| about **03:01** | The laundry has no window and the breaker is out. Teresa goes up the service stair and out of the rear service door for the wash left on the yard lines through the storm. Along the wall she finds a sleeve and takes it for washing, until she doesn't. **This is before the record resumes**, so it is known from her testimony, not the house | Teresa's statement |
 | **03:02** | Omar finds the house breaker tripped and resets it. The house hears again. Its first sound is Teresa, already kneeling, partway through Adela's name | the resumed record |
 | about **03:05** | Omar comes out into the yard and finds her | the record; Omar |
 | 03:40 | The patrolman; the Guests' "lodger" | the patrolman's sheet |
@@ -501,13 +512,16 @@ inside it.
   - It makes no medical finding. Teresa's "no burns" stays her attributed
     observation, not a companion diagnosis.
 - **Plate 13: the surviving image, with an intelligible viewpoint.**
-  - The camera stood at the rear parapet, angled along the coping toward the
-    roof tank so the storm would rise behind it. Plate 12 framed a tank leg the
-    same way.
+  - The tripod stood at the north end of the west deck, a little in from the
+    rear parapet, looking south down the length of the deck. The tank stands
+    some 16 m off along that line, and by nine the cell had crossed the Gate and
+    stood beyond it. Plate 12 framed a tank leg from the same end of the deck.
   - The 21:01 stroke exposed it. The fire in September cooked half the
     emulsion.
-  - **What survives:** the parapet; Adela turning toward the flash; the tank's
-    edge; at that edge, a pale raised shape consistent with a gloved hand.
+  - **What survives:** the wet deck; Adela's arm and shoulder at the near edge,
+    turning toward the flash; the tank small and black; at its edge a pale raised
+    mark about a millimetre high on the glass. It is consistent with a gloved
+    hand, and nobody should swear to more at that distance.
   - **No brooch, face or gesture is restored into it** [WR-04]. v4–v6's brooch
     silhouette is withdrawn. The identification of Mae does not rest on the
     plate. See section 4.5.
@@ -517,7 +531,8 @@ inside it.
 **The competing story.** "Adela fell by accident in the storm. Mae found the bag
 and the plate on the roof, panicked about the lease, and stole the evidence."
 Concealment alone fits that story. The case has to reach further than
-concealment, and it stays short of a confession or a clean photograph.
+concealment, and it does so without a confession or a clean photograph. The glove
+puts her at the fall, and the letter ends the accident.
 
 **The new positive fact** (**PROPOSED**, on existing carriers): **Teresa's note
 records shreds of white kid leather under the nails of Adela's right hand.**
@@ -539,49 +554,119 @@ records shreds of white kid leather under the nails of Adela's right hand.**
 - **What it does not establish.** Whose hand moved first. "She snatched at Mae,
   who was trying to catch her" is still possible on this evidence alone.
 
-**What separates a push from a failed rescue.** No single item. The accident
-story has to explain all of these together:
+**The conclusive beat: the sealed letter** (**PROPOSED**, on existing carriers;
+the wording goes to trans-reader review). Mae reported the fall before it happened.
+
+> Sat. 20 July. Mr. Ewald: The person who kept the counter at the Arcade fell from
+> the roof of this house in last night's storm and is dead. You and Miss Quell
+> need not attend on Monday. M. Kessler.
+
+- **When it was written.** At 18:10 Adela's note tells Mae the date she has to
+  beat. At 18:40, on his evening collection, Cam takes a sealed envelope from
+  her hand: to Mr. Ewald, hold for the first run on Saturday. That is 2 hours
+  23 minutes before the fall, and 2 hours 21 before the first stroke.
+- **Why she wrote it then.** It is the same care that built the alibi. From nine
+  o'clock she means to be nowhere. On Saturday the house will be full of
+  patrolmen, and she won't be seen hunting for the carrier. A letter dated for
+  the day it will be read is ordinary office practice, and if the sky had cleared
+  she could have asked for it back at seven. She has handed Cam held pieces all
+  year.
+- **Why it stayed hidden.** Cam takes it to the lobby rack and enters it, as he
+  enters every held piece, by the hour he took it. There he pencils "C.O., 6.40"
+  across the flap, so that nobody can say he opened it. Mae has never read a
+  carrier's book. He delivers it on Saturday's first run; Mr. Ewald's clerk stamps
+  it RECEIVED JUL 20 8.50 A.M. and pins the envelope behind it. By ten to nine the
+  whole street knows, so the note reads as bad manners and no more. Nobody turns
+  it over for sixteen weeks. Its date is correct for the day it arrived, and the
+  only thing wrong with it is on the back.
+- **How it is found.** A concrete question, S08's method, gets Cam's route book.
+  Mr. Ewald brings the letter to the shop on 22 July as an insult (B15) and to 6C
+  on 9 November (B25). The two meet there.
+
+**Why it is conclusive.** Every accident story, with or without a rescue, needs
+Mae to learn of the fall after it happened. This letter is sealed, in her hand,
+naming the roof and the storm, while Adela is alive and setting up plate 13. A
+woman can't report at 18:40 a slip at 21:03. With the white kid in Adela's grip,
+no innocent account is left. It uses no dark hour, no witness inside them and no
+recording, and it is not a confession: it doesn't say who pushed anyone, and Mae
+never has to admit it. It cannot be a forgery of convenience, because the hand is
+the certificate hand of B05, the mark is Cam's, the stamp is a stranger's, and
+none of them had been looking.
+
+- **Limits.** The letter does not show the push. The time of the fall stays about
+  9:03 (section 4.4), and the deed is still reconstructed, never watched. It adds
+  nothing to plate 13.
+- **Rescue.** It adds no new lever. Cam's envelope stays sealed in the bag, and
+  the five O2 lines stand (section 6).
+
+**Alternate, not chosen: two palms in oil.** The back of the coat Adela wore
+carries two flat palm marks in Iris's cadmium, fingers up, between the shoulder
+blades. It was wet on the coping that afternoon, oil does not lift in rain, and
+the palm seams of the mended glove in Mae's box hold the same colour (carriers:
+Emil, who collected the coat from the funeral parlour; Iris's dated sketch; B13;
+B25). It is conclusive because the accident story has no way to put two palms on
+her back: a rescuer takes a sleeve or a collar and leaves a gather, and a woman
+falling alone leaves no marks at all. It is the only physical trace on offer that
+only a push makes, but it is an inference from smears where the letter is a
+document, and it leans closer to a detective story's laboratory.
+
+**What the rest adds.** The letter settles it. The accident story has already had
+to explain all of these together:
 
 | Item | Carrier | What the accident story must then claim |
 |---|---|---|
-| Her flat was already sounding occupied | The disc (B19; limits in §4.6) | She happened to leave a recording of last week's drama running while she went up a fire stair in a storm |
-| She came by the back way | Vantry; Cal's "someone at the tank" | She climbed to the roof by the rear iron stair, not the house stair, for no reason she has ever given |
+| Her flat was already sounding occupied | The disc (B19; limits in §4.6) | She happened to leave a recording of last week's drama running while she went up a fire escape in a storm |
+| She came by the back way | Vantry; Cal's "someone at the tank" | She climbed to the roof by the rear fire escape, not the house stair, for no reason she has ever given |
+| The rear parapet is a guard | The roof itself: 1.1 m to the coping, the whole width of the wall | Adela, leaning on it to see why the back of the house had gone dark, went over without help |
 | She had read what lightning does | The 26 June Record, kept in her box with the lightning item marked | Coincidence |
 | She had a reason that date | Adela's note of 18:10, in her box (B25) | She received it and went up to talk |
 | She reported nothing, then or later | No call on the porter board; the patrolman's sheet | A rescuer who failed said nothing for four months, took the plate and bag, and emptied a dead woman's drawer |
 
-**Mae's route** (**PROPOSED**; geometry to check against the V2 layout). She
-leaves 6C by the kitchen window onto the rear fire stair and goes up behind the
-tank.
+**Mae's route** (**PROPOSED**; checked against the blockout, section 4.7). 6C's
+kitchen is an inner room with no window, so she leaves by her **bedroom** window,
+**F06_C_WINDOW_2**, the one the fire escape serves.
 
+- Out onto the top landing and up the ladder, over the coping onto the north
+  deck. Through the 1.1 m passage to the west deck and past the vent fans to the
+  far side of the tank, in the dark, while Adela is under the focusing cloth at
+  the other end of the deck.
 - That is why a visitor in the corridors or on the roof stair before 21:01
   never sees her pass. The drama goes on behind her door. It also keeps the
   evening's boundary intact.
-- Cal, at the bulkhead, hears "someone at the tank" and takes it for the tank
-  ticking.
+- Cal, at the public bulkhead door, is about 8.5 m from the tank and sees its
+  east side. He hears "someone at the tank" and takes it for the tank ticking.
+- **After the stroke** (reconstructed, never shown). The house goes dark at
+  21:01. Mae has about 16 m of open deck and two minutes to cross it. She is
+  back on the top landing by about 21:07, with the plate and the bag.
 
 **Vantry, tightened** (**PROPOSED**).
 
-- **Vantage.** The rear window and fire-stair landing of 3C, three floors below
-  6C on the same iron stair. He stepped out at about 21:05 to close his shutter
-  against the rain.
+- **Vantage.** The sealed flat 3C has no window on the rear wall at all, so he
+  has none to stand at. He is on the fire escape itself, on the stretch that
+  crosses 3C's blank back wall, three floors below 6C's landing and looking up
+  through the iron treads. It is the one stretch with no window on it, which is
+  why a man who is not supposed to be there takes his air on it. He gets to it
+  by the service stair, the roof and the ladder. The house had gone dark, so he
+  was out by about 21:05.
 - **Timing.** About 21:07 by his own watch. He is a man who says "Correct": he
   keeps it by the time signal, and it is not set by the lobby clock.
 - **What he saw.** In the lightning, a woman in pale gloves coming down the
   ladder from the roof to the sixth-floor landing, with something flat under
-  her arm and a bag on her wrist, and going in at a kitchen window.
+  her arm and a bag on her wrist, and going in at the one window on that landing.
 - **Identification, bounded.** He does not swear to a face at three floors in a
-  flash. He swears to the window: the sixth floor, third along, the line he can
-  count from his own. And he knows the walk. He sat across a table from Mae
+  flash. He swears to the landing: the top one on the stair he was standing on,
+  with one window on it, and that window is 6C's. And he knows the walk. He sat across a table from Mae
   Kessler in the spring of 1928 (`mk_vantry`, **DATA**).
 - **Limits.** A hidden man with his own reasons, speaking fifteen weeks late.
-  He saw her leaving. He saw no fall and says so.
+  He saw her leaving. He saw no fall and says so. Adela lay some 10 m along the
+  wall from the foot of his stair, and he says he did not look down. That is the
+  question he will be asked.
 
-**The finding.** "Mae Kessler pushed her" is the case's supported conclusion: the
-wearer was at the fall, the evening was prepared, the route was hidden, the motive
-was dated, and everything afterwards was concealed. The partial plate adds only
-a gloved shape at the tank. There is no confession. It is a case finding, not a
-court judgment (section 7).
+**The finding.** "Mae Kessler pushed her" is settled. Her letter reporting the
+fall was sealed and in Cam's bag at 18:40. The wearer of her glove was at the fall,
+the evening was prepared, the route was hidden, the motive was dated, and everything
+afterwards was concealed. The partial plate adds only a small pale mark at the tank.
+There is no confession and no court in it, and nobody is convicted (section 7).
 
 ### 4.6 What the replayed drama does and doesn't prove [outside review 7]
 
@@ -617,6 +702,59 @@ Her presence with Adela rests on section 4.5.
 **Who else this limit binds** [WR-02]. Any recording: Juno's tapes, the shop
 cylinder, Rhea's take. A running recorder is not a person.
 
+### 4.7 Buildability notes: the fire escape and the roof [owner ruling 2026-10-30]
+
+Read from `game/data/orison_v2_blockout.json` on `origin/main` (**d9288236**).
+Coordinates are metres: +x east, +z north, the street to the south. Nothing here
+is built or authorised. It is what the story now asks of the build.
+
+**Owed: a new rear fire escape fitting.** It is a separate iron fitting on the
+rear wall (z 11.65), reachable from the roof, with no blockout edit. **Clearance
+and route checks are owed** before anyone relies on it. The player can then also
+use it. That gives a route, not a new entry into anyone's flat: no window
+authority is claimed.
+
+| Part | Where | Why |
+|---|---|---|
+| Stack | x about 2.1, on the second C window of each floor | **F06_C_WINDOW_2** is Mae's "principal sleep and clothing" room. x −3.0 is her main room, and x 5.4 is the spare |
+| Landings | Below **F06_C_WINDOW_2**, **F05_C_WINDOW_2**, **F04_C_WINDOW_2**, **F02_C_WINDOW_2** | The same window stack serves those floors (sill 0.8 m, height 1.7 m, width 1.5 m) |
+| Blank stretch | F03, a stair past **F03_C_RESTRICTED** with no window on it | F03 has no C windows. Its only rear window is **F03_A_BED_WINDOW_N**, x −12.3 |
+| Roof ladder | From the F06 landing (about y 16.5) over **ROOF_PARAPET_NORTH** and **ROOF_COPING_NORTH** (top about y 20.4) onto **ROOF_DECK_NORTH** (y 19.2) | About 3.9 m, with a goose-neck over a guard 1.1 m high |
+| Foot | A drop ladder above the yard, below F02 | No window at ground level: B1 and F01 have none on the rear wall |
+
+**The roof route, as measured.**
+
+| Leg | Length | Check |
+|---|---|---|
+| Ladder head (2.1, 11) to **ROOF_DECK_WEST_NORTH_PASSAGE** (−2.2, 7) | about 6 m | Clear of **ROOF_PUBLIC_CORE**, which ends at z 3.85 |
+| Passage to behind **ROOF_TANK_BODY** (−8.6, −5.7) | about 14 m | The fans at (−6.2, 4.4) and (−6.2, 5.8) stand between |
+| Tank to the tripod (about −8, 10.5) | about 16 m | Open deck, in the two minutes the case needs |
+| **ROOF_PUBLIC_DOOR** (−2.2, 0) to the tripod | about 12 m | Cal can see her at the parapet |
+| Fall line, (−8, 11.65) to the yard | about 19 m | Lands some 10 m west of the fire escape's foot, below **F06_B_WINDOW_4** |
+
+**Checks that failed, and what changed.**
+
+| Text said | The blockout says | Now |
+|---|---|---|
+| A kitchen window at 6C | The kitchen is interior, with no window | Bedroom, **F06_C_WINDOW_2** |
+| Vantry at 3C's rear window and landing | F03 has no C windows; 3C has no interior built | On the fire escape, at the blank stretch |
+| "Sixth floor, third along" | 6C's bedroom is the fourth window along from the west, and counting wasn't needed anyway | He swears to the landing |
+| Plate 13 along the rear coping toward the tank; plate 12 with it | The tank is on **ROOF_DECK_WEST**, in the street half of the roof, 16–17 m from that coping. It is not visible along the coping | Camera looks south down the deck. The plate's mark is shrunk to what that distance allows |
+| A gloved hand on the plate at the tank's edge | At 16 m a hand is about a millimetre on the glass | "A pale raised mark", no more |
+| Teresa sees a sleeve through the laundry window | **B1_LAUNDRY** has no window and is not on the rear wall. B1 and F01 have no rear windows | She goes out by **F01_REAR_SERVICE_DOOR** for the wash on the lines |
+
+**Still open: the yard.** The story's rear yard (B11, B17, N16's misreport) is not
+in the blockout. Its bounds stop at z 12, and the only rear ground it has is
+**F01_REAR_APRON**, x 7.8 to 10, some 16 m east of where she lands. The body and
+the drain need a planned yard strip north of the rear wall, and the wash lines
+need dressing. This is flagged for the owner, the same kind of planned exterior
+piece as the fire escape.
+
+**Checked and fine.** The rear parapet is continuous and guarded at 1.1 m (it
+goes in the table in section 4.5). Canon's "behind the roof tank" stands. 6C's
+rear windows open on the same wall she fell from. Jonah's page rests on his wall,
+not his window, so 6B's rear windows change nothing.
+
 ---
 
 ## 5. The cast: what each person holds [WR-02; cast map]
@@ -637,7 +775,7 @@ lines.
 | Omar Bell, 3B | Spare shop key; the recorder; the salvaged plate | Offense at workmanship; an economical answer |
 | Rhea Sato, 3D | A real privacy claim on negatives that were stolen | Manages how a moment appears until a plain objection arrives. Privacy never reads as guilt |
 | Peter Wren, 4A | His firm's copy of the deed | A qualification that suddenly leaves him responsible for the answer |
-| Cam Ortiz, 4C | Delivered the envelope to 6C | Route and delivery; no rate for thoughts |
+| Cam Ortiz, 4C | Delivered the envelope to 6C; took her sealed letter at 18:40 and marked its flap | Route and delivery; no rate for thoughts |
 | Noel Price, 4C | Named by a simile; his gloves have no buttons | A handling instruction more alarming than the object warrants |
 | Transient Guests, 4D | The "lodger" statement; the 22:50 sighting | Agree with different questions; a concrete question separates them |
 | Nadia Quell, 5A | Told Mae; keeps the window afterwards | A plan that includes everybody before asking anybody |
@@ -805,6 +943,7 @@ when each line's evidence is in hand [packet §7; WR-06]:
 > HER CAMERA REMAINED ON ITS TRIPOD ON THE ROOF.
 > THE PAPER GAVE NO EYEWITNESS FOR ITS ACCOUNT OF AN ACCIDENT.
 > RECONSTRUCTED TIME: ABOUT 9:03 P.M.; THE LOBBY CLOCK WAS FOUR MINUTES FAST.
+> MAE KESSLER'S LETTER REPORTING THE FALL WAS SEALED AT 6:40 P.M.
 > CASE FINDING: MAE KESSLER PUSHED HER.
 
 Each line has its own carrier:
@@ -813,7 +952,9 @@ Each line has its own carrier:
 - **The camera:** Iris's sketch and the patrolman's sheet (B13).
 - **"No eyewitness":** the patrolman's sheet.
 - **The time:** section 4.4.
-- **The finding:** the converged case (B25).
+- **The sealed letter:** Mr. Ewald's pinned letter and envelope, with Cam's route
+  book (B08, B15, B25).
+- **The finding:** the letter and the converged case (section 4.5; B25).
 
 Printing it changes no old edition and proves nothing by being printed.
 **Proposed staging** [WR-06]: Nadia and Mr. Ewald receive a copy with its
@@ -1416,6 +1557,8 @@ edits in §I, verified in memory by `verify_canon_patch_2.py`.
   Residents' "the night man" never misidentifies the player.
 - **Period property law:** the WR-03 reversion clause and the August receipt
   stay PROPOSED until reviewed.
+- **Trans-reader review, the sealed letter:** Mae's "the person" is her bigotry,
+  named and wrong, in a document the player will read more than once.
 
 **Integration holds, with no runtime work authorised here.**
 
@@ -1425,6 +1568,9 @@ edits in §I, verified in memory by `verify_canon_patch_2.py`.
   prologue (owner-ruled).
 - Write all chosen text to witnessed carriers and existing owners. **No runtime
   prose generator.**
+- **The rear fire escape** is owed as a new fitting, with clearance and route
+  checks, and **the rear yard strip** is still unplanned (section 4.7). This
+  treatment builds neither.
 
 **Questions only the owner can answer.**
 
