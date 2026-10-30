@@ -38,7 +38,8 @@ func _route() -> void:
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(), true)
 	for i in 60: await get_tree().process_frame
 	sampling = true
-	for cycle in 2:
+	var stationary_only := OS.get_environment("ORISON_PERF_STATIONARY") == "1"
+	for cycle in (0 if stationary_only else 2):
 		phase = "lobby_turn_%d" % cycle
 		for i in 120:
 			var motion := InputEventMouseMotion.new()
@@ -79,6 +80,60 @@ func _route() -> void:
 		await preload("res://tests/v2_lamp_glare_probe.gd").new().run(world,directory.path_join("glare_controls"))
 	if OS.get_environment("ORISON_PERF_ATTRIBUTION") == "1":
 		await _attribution(directory)
+	if OS.get_environment("ORISON_PERF_CALLBACKS") == "1":
+		await _callback_attribution(directory)
+
+func _callback_attribution(directory: String) -> void:
+	# Test-only subtraction controls. Never call callbacks manually or save the
+	# diagnostically frozen state. Keep processing modes and renderer unchanged.
+	var states: Array[Dictionary] = []
+	var inventory := {}
+	var selected := OS.get_environment("ORISON_PERF_SCRIPT")
+	var nodes: Array[Node] = [world]
+	nodes.append_array(world.find_children("*", "", true, false))
+	for node: Node in nodes:
+		var script := node.get_script() as Script
+		var path := script.resource_path if script != null else "<native>"
+		var process := node.is_processing()
+		var physics := node.is_physics_processing()
+		if not process and not physics: continue
+		if not inventory.has(path): inventory[path] = {"process":0,"physics":0}
+		inventory[path].process += int(process)
+		inventory[path].physics += int(physics)
+		if selected.is_empty() or path == selected:
+			states.append({"node":node,"process":process,"physics":physics})
+	if states.is_empty(): failures.append("callback selection matched no active nodes: " + selected)
+	var results := {}
+	for treatment: String in ["live_before", "process_disabled", "live_between", "physics_disabled", "live_after"]:
+		for state: Dictionary in states:
+			var node: Node = state.node
+			if not is_instance_valid(node): continue
+			node.set_process(state.process and treatment != "process_disabled")
+			node.set_physics_process(state.physics and treatment != "physics_disabled")
+		for i in 30: await get_tree().process_frame
+		var rows: Array = []
+		for i in 120:
+			var start := Time.get_ticks_usec()
+			await get_tree().process_frame
+			rows.append([(Time.get_ticks_usec()-start)/1000.0,
+				RenderingServer.viewport_get_measured_render_time_cpu(get_viewport().get_viewport_rid()),
+				RenderingServer.viewport_get_measured_render_time_gpu(get_viewport().get_viewport_rid()),
+				Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),
+				Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME)])
+		results[treatment] = {"samples":rows,"player_position":str(player.global_position)}
+	var restored := true
+	for state: Dictionary in states:
+		var node: Node = state.node
+		if not is_instance_valid(node): continue
+		node.set_process(state.process)
+		node.set_physics_process(state.physics)
+		restored = restored and node.is_processing() == state.process and node.is_physics_processing() == state.physics
+	if not restored: failures.append("callback flags failed restoration")
+	FileAccess.open(directory.path_join("callbacks.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","kind":"performance_diagnostic","selected_script":selected,
+		"scope":"Stationary subtraction controls; callbacks are disabled individually, not invoked manually. Physics server, rendering and autoloads remain live. Frozen behavior can affect presentation; differences are not additive script timings or production speedups.",
+		"columns":["wall_ms","viewport_cpu_ms","viewport_gpu_ms","draw_calls","primitives"],
+		"active_script_inventory":inventory,"selected_nodes":states.size(),"flags_restored":restored,"treatments":results},"\t"))
 
 func _monitor_values() -> Dictionary:
 	var result: Dictionary={}

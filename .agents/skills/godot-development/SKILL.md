@@ -97,6 +97,10 @@ checkpoints or changes whose dependency coverage genuinely requires them.
 Reuse valid unchanged route evidence instead of repeating it for each repair,
 visual adjustment, report edit or diagnostic. A performance experiment should
 measure a short, repeatable representative segment, excluding unrelated travel.
+For performance captures, coordinate CPU-heavy native construction and rendering
+as well as GPU work with other agents. Record concurrent host load; a free Godot
+lane alone does not establish an uncontended timing baseline. Callback counts
+identify candidates, not cost: use reversible controls before reducing fidelity.
 Do not shorten runs by raising player speed, relaxing deadlines/tolerances,
 bypassing affected interactions or weakening acceptance. An interrupted run is
 partial evidence even if closing its window returns exit zero: require the
