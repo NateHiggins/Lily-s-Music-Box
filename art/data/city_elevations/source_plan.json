@@ -136,7 +136,7 @@
         "terraces": 1
       },
       "precedent": {
-        "name": "21-13 45th Avenue, Root and Rust, 1871–72",
+        "name": "21-13 45th Avenue, Root and Rust, 1871\u201372",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/0450.pdf",
         "pdf_pages": [
           3,
@@ -396,24 +396,24 @@
     },
     {
       "id": "site_ne3",
-      "description": "Older brick flats with slender sash and uneven roller shades",
+      "description": "Two-storey AU terra-cotta works office, stepped front gable, semicircular bay and hollow Tudor pots; retained rear service loft and plant deck",
       "massing": "straight_eave",
-      "storey_height": 2.86,
+      "storey_height": 3.4,
       "bay_pitch": 2.22,
-      "window_width": 1.0,
-      "window_height": 1.76,
+      "window_width": 1.12,
+      "window_height": 2.23,
       "sash": "door_paint",
       "wall_key": "arcade_brick_bond",
       "wall_tint": [
         0.86,
-        0.82,
-        0.75,
+        0.76,
+        0.61,
         1
       ],
       "frame_tint": [
+        0.28,
         0.3,
-        0.33,
-        0.3,
+        0.25,
         1
       ],
       "window_recess": 0.17,
@@ -429,28 +429,41 @@
         0,
         24,
         0
-      ]
+      ],
+      "floor_heights": [
+        3.4,
+        3.4
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "terracotta_works",
+        "front_side": 0,
+        "front_floor_count": 2,
+        "front_bays": 3,
+        "roof_depth_m": 8.0,
+        "precedent": "INERT: LPC LP-1304 New York Architectural Terra Cotta Works office1892. Explicit AU10.8m short-front transposition of long principal facade; one closed scenic entry, semicircular bay, stepped gable, tiled front roof and three hollow pots. Rear service loft/full sampled plant deck retained; no company lettering or new gameplay authority."
+      }
     },
     {
       "id": "site_ne4",
-      "description": "Stone-faced commercial block with paired sash and mixed shades",
+      "description": "Four-storey AU Jamaica-derived limestone bank front with rusticated base, genuine ocular apertures, fluted giant order and supported bow balcony; retained blind service step",
       "massing": "single_upper_setback",
-      "storey_height": 3.08,
+      "storey_height": 4.16,
       "bay_pitch": 2.4,
-      "window_width": 1.4,
-      "window_height": 1.94,
+      "window_width": 1.32,
+      "window_height": 2.62,
       "sash": "door_paint",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "limestone",
       "wall_tint": [
-        0.95,
-        0.92,
-        0.86,
+        0.94,
+        0.91,
+        0.84,
         1
       ],
       "frame_tint": [
-        0.65,
-        0.59,
-        0.48,
+        0.27,
+        0.28,
+        0.24,
         1
       ],
       "window_recess": 0.17,
@@ -466,7 +479,22 @@
         0,
         24,
         0
-      ]
+      ],
+      "floor_heights": [
+        4.8,
+        4.0,
+        3.9,
+        3.94
+      ],
+      "architecture": {
+        "type": "commercial_front",
+        "style": "jamaica",
+        "front_side": 0,
+        "front_floor_count": 4,
+        "front_bays": 3,
+        "roof_depth_m": 0,
+        "precedent": "INERT: LPC LP-2109 Jamaica Savings Bank1897-98, four-storey limestone/giant-order front. AU9m-wide parcel,16.64m occupied-looking main body with retained16.9-17.8m blind service step and full plant decks. Abstract stone ornament without copied signage; no bank/shop gameplay or openable authority."
+      }
     },
     {
       "id": "site_nbr_s2",
@@ -778,7 +806,7 @@
         3.3
       ],
       "precedent": {
-        "name": "Hampton Court, 35-16 79th Street, George H. Wells, 1919–21",
+        "name": "Hampton Court, 35-16 79th Street, George H. Wells, 1919\u201321",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           129
@@ -841,7 +869,7 @@
         3.25
       ],
       "precedent": {
-        "name": "Greystone Apartments, 35-15 80th Street, George H. Wells, 1916–18",
+        "name": "Greystone Apartments, 35-15 80th Street, George H. Wells, 1916\u201318",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           30,
@@ -954,7 +982,7 @@
         3.2
       ],
       "precedent": {
-        "name": "The Towers, 33-51 80th Street, Andrew J. Thomas, 1923–25",
+        "name": "The Towers, 33-51 80th Street, Andrew J. Thomas, 1923\u201325",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           143,
@@ -1090,7 +1118,7 @@
     },
     {
       "id": "site_far_se",
-      "description": "Elm Court, 34-27 79th Street, George H. Wells, 1921–22 — authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
+      "description": "Elm Court, 34-27 79th Street, George H. Wells, 1921\u201322 \u2014 authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
       "massing": "single_upper_setback",
       "storey_height": 2.95,
       "bay_pitch": 2.8,
@@ -1133,7 +1161,7 @@
         3.3
       ],
       "precedent": {
-        "name": "Elm Court, 34-27 79th Street, George H. Wells, 1921–22",
+        "name": "Elm Court, 34-27 79th Street, George H. Wells, 1921\u201322",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           136
@@ -1198,7 +1226,7 @@
         3.3
       ],
       "precedent": {
-        "name": "The Chateau, 34-01–34-05 80th Street, Andrew J. Thomas, 1922",
+        "name": "The Chateau, 34-01\u201334-05 80th Street, Andrew J. Thomas, 1922",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           145,
@@ -1260,7 +1288,7 @@
         3.3
       ],
       "precedent": {
-        "name": "Laburnum Court, 37-15 79th Street, George H. Wells, 1921–22",
+        "name": "Laburnum Court, 37-15 79th Street, George H. Wells, 1921\u201322",
         "source": "https://s-media.nyc.gov/agencies/lpc/lp/1831.pdf",
         "pdf_pages": [
           138,
@@ -1317,7 +1345,7 @@
     },
     {
       "id": "site_far_w",
-      "description": "Cambridge Court, 37-14 86th Street, George H. Wells, 1922 — authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
+      "description": "Cambridge Court, 37-14 86th Street, George H. Wells, 1922 \u2014 authored four-storey passive study; actual shallow open court, seated entry assembly and distinct upper stair glazing",
       "massing": "single_upper_setback",
       "storey_height": 2.86,
       "bay_pitch": 2.7,

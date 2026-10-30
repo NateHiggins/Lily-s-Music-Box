@@ -667,8 +667,8 @@ for name,p in groups.items():
             old_last=next(r for r in source_rows if r['id']==last['id'])
             stats[-1]['previous_roof_height']=old_last['z0']+old_last['h']
         roof_details.append(dict(building=name,style=commercial.specs[name]['style'],body_height=top,
-            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key in {'ottendorfer':('roof_bitumen',),'engine258':('galvanized_roof','roof_bitumen'),'hampton':('roof_bitumen',),'faber':('roof_bitumen',),'fulton':('roof_bitumen',)}.get(commercial.specs[name]['style'],('city_slate',)) for v in vv),
-            edited_legacy_roof=commercial.specs[name]['style'] not in ['ottendorfer','faber','fulton']))
+            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key in {'ottendorfer':('roof_bitumen',),'engine258':('galvanized_roof','roof_bitumen'),'hampton':('roof_bitumen',),'faber':('roof_bitumen',),'fulton':('roof_bitumen',),'jamaica':('roof_bitumen',),'terracotta_works':('city_roof_clay','roof_bitumen')}.get(commercial.specs[name]['style'],('city_slate',)) for v in vv),
+            edited_legacy_roof=commercial.specs[name]['style'] not in ['ottendorfer','faber','fulton','jamaica']))
         continue
     for r in rr:
         suffix=r['id'][len(name)+1:]

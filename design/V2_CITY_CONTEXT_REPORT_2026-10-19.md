@@ -2993,3 +2993,107 @@ Keep17 qualified technical studies/132 remaining until intake qualification.
 NE3 terra-cotta office/NE4 bank remain researched, not built. Broader landmark,
 continuous450m exterior ground/access and cityscape commitments remain open.
 No repeated world tour was used; canonical owns composition/intake/tank LOD.
+
+
+### October30 next northeast pair: native construction WIP
+
+Evidence class: **INERT**. Native source progress; no new qualification.
+
+**site_ne3** now has a two-storey terra-cotta office front, off-centre
+semicircular bay, stepped gable, tiled roof and three hollow pots. The retained
+rear service annex/deck is an explicit AU fit, not a claim about the historical
+building's entire form. **site_ne4** adapts the four-storey Jamaica bank with
+real ocular apertures,12-flute giant order, supported bow balcony and stone
+crown; the0.9m upper service step and both decks remain. Registered materials,
+all bearings and existing nonvisual authorities are retained. Primary photos
+LP-1304/LP-2109 were reinspected externally and supply no committed pixels.
+
+Near native probes:1205 bearings/2710 windows/106 roof/12 returns,zero failures;
+all1645 new near stocks pass manifold/positive-volume controls. Complete lower
+bodies pass9224 stocks,480 bearings and512 pane samples. NE3 body5914/5290
+triangles,NE4 body18,962/16,086,near/lower respectively. The244 unaffected near
+parts and92 previous lower parts are exact in exported attributes/indices/poses.
+Only these two additional source profiles changed. Eighteen actual native frames
+were inspected: the first10 preserve the1cm pot-lip overlap and brick corner-strip
+defects; corrected8 show2cm pot-lip clearance and side-wall returns behind the
+stone front at both levels. Sources,logs and original frames remain externally
+under **northeast_block_01/next_pair_build_01/** pending the portable checkpoint.
+
+Fourteen city static tests pass and reader NEW0. No loaded-engine,controller,
+composed runtime or artistic acceptance yet. Before first engine checks, reconcile
+canonical's tank/import and provenance checkpoint, then run owning closure→near→
+lower→streets replay and compare actual unchanged payloads. Full-file binding
+drift cannot be closed by a consumed-field diagnostic or by repinning old runtime
+receipts. The previous pair's canonical six-leg route now passes184/0; its first
+physical run refused stale dependent-native bindings before world startup.
+Canonical preserved the refusal and replayed owning natives, with five GLBs and
+541 mesh payloads exact, before its next physical run. Building count remains17
+qualified/132 open until source-bound composed qualification is complete.
+
+
+Own NE3/4 provenance follow-up: closure→near→lower→streets replay completed.
+All five GLB payloads remain byte-for-byte identical to frozen **fe64e85b**,
+with335 consumed height records/25 street cuts equal. Four native fixture
+preflights pass; reviewed native frames are reused by exact payload identity.
+The first setup named a nonexistent closure GLB; its failure is preserved and
+the exact pre-replay baseline was recovered from the previously clean frozen
+Git blobs (actual owner **city_shells.glb**), not from in-progress outputs.
+No test-written runtime receipt was repinned. Main/tank reconciliation and first
+new-pair loaded engine checks remain pending. This still grants no qualification.
+
+
+### October30 office/bank isolated engine checkpoint, composed work pending
+
+Evidence class: **INERT**. Diagnostic checkpoint; no new runtime/art acceptance.
+
+The office/bank source and native WIP **fe64e85b**, owning replay **2153c125**
+and canonical intake reconciliation **b6386bc5** now pass the first isolated
+engine bench: **6974 checks/0 failures**,35.32s wrapper receipt,empty stderr.
+Two imports and targeted parsing pass; V2 texture import policy needs0 repairs.
+Loaded PBR/mips, authored metric charts/tangent derivatives, visible/collision
+identity,512 studied panes,23 closed scenic leaves and retained1205 bearings
+pass. Fourteen actual3440x1440 views were inspected (12 unique, two byte-exact
+before/return duplicates). Corrected new forms and both complete body levels
+are present. Bank's retained tank stays intact at forced-far; its unchanged
+asset/import/fixture match500d20ff exactly, permitting reuse of canonical's
+166-part tank control. That optional tank-control branch was not repeated in
+the current6974 run. No broader proof is inferred from the reuse.
+
+Natural threshold1 material LOD brackets: NE3 terracotta **190.1631702/
+190.1809475m**,1788→1212 triangles; NE4 limestone **201.2520160/201.2758441m**,
+9686→7410. Narrow field of view restores near indices; inward return matches
+before images exactly. These isolated material views are not full-building
+artistic acceptance or controller travel at those distances.
+
+Whole-building plus retained-equipment draw/primitives: NE3 **29/10,836 near
+and29/10,148 far**; NE4 **48/51,492 and48/48,007**. Each case records90 warmed
+uncapped frames at3440x1440,MSAA3,TAA off. First NE3 near GPU median/p95/max
+**4.064/5.729/6.654ms**,wall maximum **7.244ms**; repeated near/far GPU medians
+**.600/.600ms**,repeat near wall maximum1.130ms. NE4 repeated near/far GPU
+medians **.645/.642ms**,wall maxima1.174/1.192ms. QEMU and shared static CPU/I/O
+activity remain recorded. This is neither a matched causal speedup nor a cold
+startup/whole-world performance budget. All49 closure/80 near/71 lower/17
+streets native bindings and201 loaded-profile inputs remain exact, no repin.
+Only638 own generated untracked UIDs were individually removed after verified
+raw-byte backup. Tracked source/import work is preserved.
+
+Verified canonical main **8b553c28** now qualifies the earlier workshop/oriel
+pair:19 technical studies/130 remaining. Its final117-gate exact4ec comparison
+has0 regressions,17 protected paths unchanged,V2 and no promotions/waivers.
+It retains651/0 physical,184/6 actual controller route and7167 tank checks,
+empty stderr and independent surface packet0 defects. Only its two final
+report/queue paths were reconciled after this new bench, without repeating it.
+An attempted moving-origin merge had picked up later unrelated narrative work;
+it was aborted uncommitted, then the exact8b city checkpoint was merged. No
+such narrative/companion authority edits were retained in this city branch.
+
+Portable **northeast_office_bank_native_isolated_review.zip** is indexed by the
+existing manifest:108 members/32,463,865 bytes,SHA256 **770434e44422ecb302580f96646efd0d1e47bb662f82d52d1852baf4a5eb5634**.
+It preserves the18 native images (including original defects),14 loaded views,
+raw source-bound timing samples, wrapper/parser receipts, producer/source
+comparisons and failed setup/aborted-merge records. No reference photographs or
+duplicate production meshes. Actual approach, narrow eastern passage support,
+source-bound composed runtime qualification and artistic acceptance for these
+two newer bodies remain pending; they are not added to19 qualified studies.
+The known occluded arcade lamp view still needs its clear roadside capture in
+the next necessary composed cohort. Bridge and full-city commitments remain open.
