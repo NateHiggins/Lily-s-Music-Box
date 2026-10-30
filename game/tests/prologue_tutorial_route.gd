@@ -92,7 +92,9 @@ func _route() -> void:
 		await _review_crossing_snapshot(crossing_source)
 		return
 	carrier.session.draft="Unsubmitted draft survives the opening."
-	if not _require(director.begin_waking_preview(),"explicit waking-only slice begins without fake dream acceptance"): return
+	if OS.get_environment("PROLOGUE_FULL_SEQUENCE")=="1":
+		if not await _full_sequence_wake():return
+	elif not _require(director.begin_waking_preview(),"explicit waking-only slice begins without fake dream acceptance"): return
 	carrier.release_story_absence(world) # An unrelated caller cannot reveal it.
 	carrier.set_capture_hidden(true)
 	carrier.set_capture_hidden(false) # Review visibility cannot defeat story absence.
@@ -173,6 +175,9 @@ func _route() -> void:
 	if not await _review_mirror_reveal():return
 	if not await _review_visitor():return
 	if not await _review_crossing():return
+	if OS.get_environment("PROLOGUE_FULL_SEQUENCE")=="1":
+		await _full_sequence_ending()
+		return
 	var before: Dictionary=shower.mechanism_snapshot()
 	director.shutdown()
 	_require(before==shower.mechanism_snapshot(),"presentation retirement does not alter physical mechanisms")
@@ -1094,3 +1099,61 @@ func _shot(name_: String) -> void:
 	await RenderingServer.frame_post_draw
 	var saved := get_viewport().get_texture().get_image().save_png(OS.get_environment("SHOT_DIR").path_join(name_))
 	_require(saved==OK,"capture written "+name_)
+
+
+func _full_sequence_wake() -> bool:
+	# No reducer advancement, seek or skip: use the public production shot owner.
+	if not _require(director.resume_opening(preload("res://assets/props/prologue_wake_cover.glb")),"full sequence begins actual DREAM through public resume"):return false
+	var deadline:=Time.get_ticks_msec()+30000
+	var captured:=false
+	while director.state.phase in ["dream","awakening"] and Time.get_ticks_msec()<deadline:
+		await get_tree().process_frame
+		if not captured and is_instance_valid(director.waking) and director.waking.age>=6:
+			captured=true;await _shot("full_sequence_dream.png")
+	return _require(captured and director.state.phase=="bedroom_exploration" and player.camera.is_current() and player.text_input_owner==null,"natural DREAM/wake hands camera and input to actual bedroom exploration")
+
+func _full_sequence_ending() -> void:
+	var carrier:Node=world.service_set_carrier
+	var rig_id:int=carrier.rig.get_instance_id()
+	var draft:String=carrier.session.draft
+	var expected:Array[String]=["Sorry you died.","But if it makes you feel better, I can help you solve your murder!","First we need to solve a bigger mystery.","Who were you?","I am connecting you to the present, please stay on the line..."]
+	var seen:Array[String]=[]
+	var phase_trace:Array[Dictionary]=[]
+	var last_phase:=""
+	var captured_cutaway:Array[int]=[]
+	var deadline:=Time.get_ticks_msec()+240000
+	var start_clock:Dictionary=RealityState.data.campaign_clock.duplicate(true)
+	while director.state.phase!="prologue_complete" and Time.get_ticks_msec()<deadline and failures.is_empty():
+		await get_tree().process_frame
+		var phase:String=director.state.phase
+		if phase!=last_phase:
+			phase_trace.append({"phase":phase,"usec":Time.get_ticks_usec()});last_phase=phase
+		var paper:Node=carrier.device.teletype
+		var copy:String=" ".join(str(paper.ink.text).replace("\n"," ").split(" ",false))
+		if paper.copy_delivered() and expected.has(copy) and not seen.has(copy):
+			seen.append(copy)
+			_require(await _contact_ink_pixels(paper)>copy.length()*4,"full sequence delivers visible physical copy: "+copy)
+			await _shot("full_sequence_contact_%d.png"%seen.size())
+		if phase=="title_reveal" and is_instance_valid(director.temporal_sky):
+			var clip:Node=director.temporal_sky
+			if is_instance_valid(clip.cutaway):
+				for boundary:int in [45,85,140]:
+					if clip.cutaway.age>=float(boundary)/10.0 and not captured_cutaway.has(boundary):
+						captured_cutaway.append(boundary);await _shot("full_sequence_stinger_%03d.png"%boundary)
+	_require(seen==expected,"full sequence delivers the five exact lines in order without a staged first-contact save")
+	_require(director.errors.is_empty() and director.state.phase=="prologue_complete" and not director.state.skipped,"real arm command, natural seasonal sky and unskipped17-second cutaway finish")
+	_require(captured_cutaway==[45,85,140],"natural cutaway reaches silhouette, wait and title without seeking its clock")
+	_require(director.state.effects.clock_applied and director.state.effects.companion_materialized and carrier.rig.get_instance_id()==rig_id and carrier.session.draft==draft,"one companion and its typed draft survive natural temporal completion")
+	_require(player.camera.is_current() and player.text_input_owner==null and not director.is_processing(),"completed sequence releases cinematic camera, input and director polling")
+	if failures.is_empty():
+		var old_path:String=RealityState.save_path
+		var old_enabled:bool=RealityState.persistence_enabled
+		var facts:Dictionary=director.state.duplicate(true)
+		RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("full_sequence_complete_save.json")
+		RealityState.persistence_enabled=true
+		if _require(RealityState.save_game(),"completed actual sequence writes a validated campaign save"):
+			RealityState.load_game();await get_tree().process_frame;await get_tree().process_frame
+			_require(director.state==facts and player.text_input_owner==null and player.camera.is_current() and carrier.rig.get_instance_id()==rig_id,"completed sequence reload is idempotent and retains its single machine")
+		RealityState.persistence_enabled=old_enabled;RealityState.save_path=old_path
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("full_sequence_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"One occupied world, public DREAM/wake owner, actual bed-to-bath movement and gestures, existing witnessed-visitor/crossing reload controls, natural first-contact/arm/sky/stinger and completed validated reload. No title-button launch, uninterrupted no-reload run, complete save-boundary matrix or human acceptance.","phases":phase_trace,"lines":seen,"cutaway_samples":captured_cutaway,"initial_clock":start_clock,"final_clock":RealityState.data.campaign_clock,"state":director.state,"failures":failures},"\t"))
+	frame_trace.complete=failures.is_empty()
