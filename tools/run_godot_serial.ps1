@@ -89,6 +89,10 @@ $previousShotDir = $env:SHOT_DIR
 $refusalCode = $EXIT_CANNOT_RUN
 
 try {
+    if ((Get-Command Test-OrisonLaneQueueAhead -ErrorAction SilentlyContinue) -and (Test-OrisonLaneQueueAhead)) {
+        $refusalCode = $EXIT_LANE_BUSY
+        throw "LANE BUSY: other runs are queued for the lane; no process was started. Use tools/lane.ps1 run -WaitMinutes N to join the queue."
+    }
     try {
         $ownsMutex = $mutex.WaitOne(0)
     }

@@ -382,6 +382,7 @@ class FitJob extends RefCounted:
 	var profile_buffer_read_us:=0
 	var profile_hash_step_peak_us:=0
 	var prepared:=false
+	var preparation_stage:=0
 	var done:=false
 	var ok:=false
 	var skipped:=false
@@ -393,6 +394,7 @@ class FitJob extends RefCounted:
 	var profile_start:=0
 	var profile_cut:=0
 	var profile_load:=0
+	var profile_load_us:=0
 	var profile_instance:=0
 	var profile_model_us:=0
 	var profile_material_us:=0
@@ -417,6 +419,25 @@ class FitJob extends RefCounted:
 		if done:return
 		cooperative=cooperative or budget_usec>0
 		var started:=Time.get_ticks_usec()
+		# The measured canopy preparation must not accumulate its snapshot,
+		# source cutting and model loading in one advance. Capture immutable
+		# layout and source guards BEFORE yielding, retaining mutation refusal.
+		if not prepared and cooperative and data_path=="res://data/orison_v2/arcade_canopy.json":
+			data_digest=FileAccess.get_sha256(data_path)
+			layout=layout_identity.duplicate(true)
+			for source: MeshInstance3D in cell.find_children("*","MeshInstance3D",true,false):
+				if not source.has_meta("material_key"):_watch_source(source)
+			prepared=true;preparation_stage=1
+			return
+		if preparation_stage>0:
+			if not _sources_valid():_fail();return
+			if preparation_stage==1:
+				if not _prepare(true):_fail();return
+				if not done:preparation_stage=2
+				return
+			if not _prepare_model():_fail();return
+			preparation_stage=0
+			return
 		if not prepared:
 			prepared=true
 			data_digest=FileAccess.get_sha256(data_path)
@@ -534,7 +555,7 @@ class FitJob extends RefCounted:
 
 	static func _v(value: Array) -> Vector3:return Vector3(value[0],value[1],value[2])
 
-	func _prepare() -> bool:
+	func _prepare(defer_model: bool=false) -> bool:
 		profile_start = Time.get_ticks_usec()
 		data=JSON.parse_string(FileAccess.get_file_as_string(data_path))
 		if data is not Dictionary or int(data.get("schema_version",0))!=1:return false
@@ -595,11 +616,16 @@ class FitJob extends RefCounted:
 			if counts[str(box.id)]!=int(box.expected_triangles):
 				push_error("Shop seating boundary mismatch: "+str(box.id)+" count="+str(counts[str(box.id)]));return false
 		profile_cut = Time.get_ticks_usec()
+		return true if defer_model else _prepare_model()
+
+	func _prepare_model() -> bool:
+		var load_started:=Time.get_ticks_usec()
 		# The loader cache is weak. The residency owner releases its prefetched
 		# scenes on activation/cancellation; this fitter retains no scene cache.
 		var packed:=ResourceLoader.load(str(data.asset),"PackedScene",ResourceLoader.CACHE_MODE_REUSE) as PackedScene
 		if packed==null:return false
 		profile_load = Time.get_ticks_usec()
+		profile_load_us = profile_load-load_started
 		model=packed.instantiate() as Node3D
 		profile_instance = Time.get_ticks_usec()
 		if model==null:return false
@@ -732,7 +758,7 @@ class FitJob extends RefCounted:
 		cell.add_child(model)
 		if OS.get_environment("ORISON_PROFILE_NATIVE")=="1" or OS.get_environment("ORISON_PROFILE_RESIDENCY")=="1":
 			print("NATIVE_FIT_DETAIL ",JSON.stringify({"cell":str(cell.name),"data":data_path,
-				"hash_step_peak_ms":profile_hash_step_peak_us/1000.0,"buffer_read_ms":profile_buffer_read_us/1000.0,"cooperative":cooperative,"material_ms":profile_material_us/1000.0,"slot_assignment_ms":profile_assign_us/1000.0,"cut_ms":(profile_cut-profile_start)/1000.0,"duplicate_ms":profile_duplicate_us/1000.0,"collision_ms":profile_collision_us/1000.0,"mesh_hash_ms":profile_mesh_hash_us/1000.0,"face_hash_ms":profile_face_hash_us/1000.0,"attach_ms":profile_attach_us/1000.0,"load_ms":(profile_load-profile_cut)/1000.0,
+				"hash_step_peak_ms":profile_hash_step_peak_us/1000.0,"buffer_read_ms":profile_buffer_read_us/1000.0,"cooperative":cooperative,"material_ms":profile_material_us/1000.0,"slot_assignment_ms":profile_assign_us/1000.0,"cut_ms":(profile_cut-profile_start)/1000.0,"duplicate_ms":profile_duplicate_us/1000.0,"collision_ms":profile_collision_us/1000.0,"mesh_hash_ms":profile_mesh_hash_us/1000.0,"face_hash_ms":profile_face_hash_us/1000.0,"attach_ms":profile_attach_us/1000.0,"load_ms":profile_load_us/1000.0,
 				"instantiate_ms":(profile_instance-profile_load)/1000.0,"model_and_collision_ms":profile_model_us/1000.0,
 				"publish_ms":(Time.get_ticks_usec()-profile_models)/1000.0}))
 		return true

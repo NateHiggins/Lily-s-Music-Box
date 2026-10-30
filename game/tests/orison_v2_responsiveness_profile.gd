@@ -25,10 +25,12 @@ func _process(_delta: float) -> void:
 			RenderingServer.viewport_get_measured_render_time_gpu(rid),
 			Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),
 			Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME),
-			world.passage_region.residency.state, _monitor_values()])
+			world.passage_region.residency.state, _monitor_values(), Engine.get_process_frames(), now])
 	last_usec = now
 
 func _route() -> void:
+	# Opt-in existing caller timers; no production scheduling change.
+	world.passage_region.residency.load_profiling = OS.get_environment("ORISON_PERF_LOADING") == "1"
 	for monitor: String in ClassDB.class_get_integer_constant_list("Performance"):
 		if monitor.begins_with("PIPELINE_COMPILATIONS_") or monitor in ["RENDER_VIDEO_MEM_USED","RENDER_TEXTURE_MEM_USED","RENDER_BUFFER_MEM_USED"]:
 			extra_monitors[monitor]=ClassDB.class_get_integer_constant("Performance",monitor)
@@ -60,12 +62,16 @@ func _route() -> void:
 	phase = "idle"
 	for i in 120: await get_tree().process_frame
 	sampling = false
+	if world.passage_region.residency.load_profiling:
+		var loading: Dictionary = world.passage_region.residency.snapshot().load_profile
+		if loading.records.is_empty() or loading.dropped != 0:
+			failures.append("loading attribution missing or truncated")
 	var directory := OS.get_environment("SHOT_DIR")
 	DirAccess.make_dir_recursive_absolute(directory)
 	var file := FileAccess.open(directory.path_join("frames.json"), FileAccess.WRITE)
 	file.store_string(JSON.stringify({"evidence_class":"INERT", "kind":"performance_diagnostic",
 		"scope":"Two nearby lobby/entrance/streaming cycles, then stationary attribution if requested; no whole-world or cold-start performance acceptance.",
-		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","draw_calls","primitives","residency","engine_monitors"],
+		"columns":["phase","wall_ms","process_ms","physics_ms","render_cpu_ms","render_gpu_ms","draw_calls","primitives","residency","engine_monitors","process_frame","sample_usec"],
 		"resolution":str(get_viewport().get_visible_rect().size), "vsync":false,
 		"settings":{"engine":Engine.get_version_info(),"renderer":RenderingServer.get_current_rendering_method(),
 			"adapter":RenderingServer.get_video_adapter_name(),"msaa_3d":get_viewport().msaa_3d,"taa":get_viewport().use_taa,

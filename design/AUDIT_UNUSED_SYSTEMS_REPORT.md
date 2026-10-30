@@ -135,3 +135,52 @@ P3 | art/data/gen_layout.py:2349 and 2372; game/data/building_layout.json marker
   basement switchgear, and graph generation now fails if any marker-backed
   acoustic node has no connection. The invalid generic `ROOF_CORRLIGHT_S`
   target no longer exists even transiently.
+
+
+## October30 — renewed physical file census
+
+Evidence class remains **INERT**. Owner reports an unmanageable roughly100,000
+files; the non-destructive census at current canonical checkout finds69,554
+tracked index paths and472,520 physical files totaling205,625,325,106 bytes.
+Physical count includes nested worktrees,Gitobjects,generated caches and review
+copies; it is not a claim that all these files ship. No symlinks/junctions were
+traversed,no errors were reported,and no files were deleted. External worktrees
+and evidence outside the canonical root are excluded. Raw grouping and method
+scope are in **C:/ov/reports/repo_cleanup_20261030/inventory_01.json**.
+
+| Directory group | Files | Bytes | Interpretation / next check |
+|---|---:|---:|---|
+| .claude/worktrees |185,308|61,223,312,908|Nested registered/shared checkouts; inspect owners,dirty work and unique commits before any app/Git-managed archival. No blanket removal.|
+| .git/objects |80,248|46,211,488,700|Shared repository storage; not disposable game assets. Maintenance requires safe coordination and recoverability,not manual deletion.|
+| art/reviews |27,273|6,706,070,401|27,258 tracked; distinguish current evidence from already archived historical material and actual consumers.|
+| tmp/v2-fire-hand-20261019 |24,662|2,202,697,320|Untracked retained review copy; audit receipts,unique work and recovery before archiving/removal.|
+| art/renders |18,267|6,607,098,698|18,263 tracked; preserve current source-bound packets and original failure provenance.|
+| game/.godot |16,592|8,334,413,127|Generated engine/import state; clearing causes imports and shader cold starts,so do not invalidate active qualification for cosmetic file-count reduction.|
+| tmp/v2-finish-review |14,232|6,163,553,474|Untracked review copy; same consumer/recovery audit required.|
+
+Prior PR76–79 reductions remain completed history. Next cleanup should select
+one bounded,consumer-audited batch from this current inventory,record indexed
+recovery and before/after files/bytes,and verify affected consumers. Counts alone
+do not authorize deleting another contributor's worktree,branch or evidence.
+
+
+The initial consumer scan finds retained fire-capacity source evidence under
+**tmp/v2-fire-hand-20261019/capacity_stock_native1**,and finish-review provenance
+in existing fabrication reports and **art/blender/v2_space_review.json**.
+Several native preview generators still target **tmp/v2-finish-review**.
+These are concrete consumers:neither directory is classified as disposable.
+A future bounded archival batch must preserve referenced originals and resolve
+producer destinations/indexed path lookup before clearing the local copies.
+The four nested .claude worktrees appear in Git's registered worktree list;
+no owner or unique-work audit has yet authorized their removal.
+
+
+Byte totals above sum file lengths; they are not allocated/deduplicated disk
+usage. A read-only **git count-objects -vH** and **git prune-packed -n** finds
+80,240 loose objects/24.95GiB,54,163 packed objects/17.74GiB,five packs and534
+loose copies already represented in packs. Git also reports59 temporary files
+as garbage (365.12MiB); they were not removed or presumed ownerless. No Git
+storage mutation was performed during qualification. A bounded duplicate-only
+cleanup remains a candidate; preserve recoverability and coordinate shared
+repository writes before executing it. [Official Git command scope](https://git-scm.com/docs/git-prune-packed)
+distinguishes already-packed duplicate cleanup from unreachable-object pruning.

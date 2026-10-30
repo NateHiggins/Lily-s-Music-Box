@@ -36,9 +36,10 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
   `tools/run_godot_serial.ps1` (180 s ceiling), `tools/run_godot_long_suite.ps1`
   (1,500 s) or `tools/lane.ps1`. Never start Godot directly, and never close
   someone else's Godot process to free the lane.
-- Exit 73 means the lane is busy and nothing started. Use
+- Exit 73 means the lane is busy or others are queued, and nothing started. Use
   `pwsh -File tools/lane.ps1 status` to see who holds it, and
-  `tools/lane.ps1 run|batch -WaitMinutes N` to wait instead of failing.
+  `tools/lane.ps1 run|batch -WaitMinutes N` to join the first-come queue instead
+  of failing.
 - 124 means the runner killed a run at its ceiling. The suite reported
   nothing.
 - A fresh worktree needs `--import` twice before any suite. "Nonexistent
@@ -128,6 +129,12 @@ For Godot implementation, debugging, integration and performance work, use the
 repository skill [godot-development](.agents/skills/godot-development/SKILL.md).
 Its ethos is **deeper, not bigger**: improve execution without expanding scope;
 use a lightweight pass for small edits.
+
+For generating images, this machine has a local generator: SDXL on the RTX 4080,
+`python art/tools/imagegen.py --prompt "..." --out <dir> --seeds 4` (or `--batch`).
+It costs nothing and sends nothing anywhere, and works for Codex/ChatGPT as well
+as Claude. It is a GPU task on the Godot lane and queues there with Godot runs. Look at every result before using it. RUL-007 and RUL-008 still apply.
+See "Local image generation" in `tools/PIPELINE_TOOLS.md`.
 
 For texture, material, glass, sky and shader appearance work, also use
 [godot-textures-and-shaders](.agents/skills/godot-textures-and-shaders/SKILL.md).

@@ -8,6 +8,7 @@ var checks: Array=[]
 var cache: RefCounted
 var layout: Dictionary
 var packed: PackedScene
+var advance_timings: Array=[]
 
 func check(ok: bool,label: String) -> void:
 	checks.append({"ok":ok,"label":label});print("NATIVE JOB: ",label," = ",ok)
@@ -42,6 +43,9 @@ func snapshot(cell: Node3D) -> Dictionary:
 		var mats: Array=[]
 		for surface in draw.mesh.get_surface_count():mats.append(material_value(draw.get_active_material(surface)))
 		result[key]={"pose":draw.transform,"visible":draw.visible,"shadow":draw.cast_shadow,"mesh":Cache.mesh_signature(draw.mesh),"materials":mats,"collisions":faces,"material_key":draw.get_meta("material_key",""),"native_key":draw.get_meta("native_collision_key","")}
+	for owner: Node in cell.find_children("*","",true,false):
+		if owner.has_meta("removed_triangles"):
+			result["removed_triangles/"+str(owner.name)]=owner.get_meta("removed_triangles").duplicate(true)
 	var model:=cell.get_node_or_null("CobblerFittings")
 	if model!=null:result["removed_triangles"]=model.get_meta("removed_triangles").duplicate(true)
 	return result
@@ -49,7 +53,9 @@ func snapshot(cell: Node3D) -> Dictionary:
 func drive(job: RefCounted) -> int:
 	var calls:=0
 	while not job.done and calls<1000:
+		var started:=Time.get_ticks_usec()
 		job.advance(500);calls+=1
+		advance_timings.append({"data":job.data_path,"call":calls,"usec":Time.get_ticks_usec()-started})
 		await get_tree().process_frame
 	return calls
 
@@ -65,6 +71,8 @@ func run() -> void:
 		check(false,"frozen original fitter source hash matches declared baseline");finish();return
 	var original: Script=load(original_path)
 	if original==null:check(false,"frozen original fitter compiles");finish();return
+	if OS.get_environment("V2_FIT_FAMILY_ONLY")=="arcade_canopy":
+		await check_streamed_families(original);finish();return
 	var baseline:=packed.instantiate() as Node3D;baseline.name="shop_shoe_rebuilding"
 	check(bool(original.call("mount_cobbler",baseline,layout)),"frozen pre-refactor fitter accepts actual authored cell")
 	var reference:=snapshot(baseline)
@@ -74,7 +82,9 @@ func run() -> void:
 	check(not job.done and job.prepared and not cell.has_node("CobblerFittings") and snapshot(cell)==before,"prepare keeps public cell byte/pose/material/collision state unchanged")
 	var unpublished:=true;var calls:=0
 	while not job.done and calls<1000:
+		var started:=Time.get_ticks_usec()
 		job.advance(500);calls+=1
+		advance_timings.append({"data":job.data_path,"call":calls,"usec":Time.get_ticks_usec()-started})
 		if not job.done:unpublished=unpublished and not cell.has_node("CobblerFittings") and snapshot(cell)==before
 		await get_tree().process_frame
 	check(job.done and job.ok and calls>2 and unpublished,"part chunks yield without partial publication")
@@ -166,6 +176,7 @@ func check_streamed_families(original: Script) -> void:
 		["hardware_drawers","shop_hardware_paint","res://assets/building/floor_01_cells/shop_hardware_paint.gltf"],
 		["hardware_stock","shop_hardware_paint","res://assets/building/floor_01_cells/shop_hardware_paint.gltf"],
 		["druggist_drawers","shop_otis_son","res://assets/building/floor_01_cells/shop_otis_son.gltf"]]:
+		if OS.get_environment("V2_FIT_FAMILY_ONLY")=="arcade_canopy" and str(spec[0])!="arcade_canopy":continue
 		var scene: PackedScene=load(str(spec[2]))
 		var baseline:=scene.instantiate() as Node3D;baseline.name=str(spec[1])
 		var accepted: bool=original.call("mount_"+str(spec[0]),baseline,layout)
@@ -182,9 +193,40 @@ func check_streamed_families(original: Script) -> void:
 		check(job.ok and calls>2 and snapshot(cell)==reference,str(spec[0])+" yielded mesh/material/pose/collision output equals frozen original")
 		cell.set_meta("prepared_native_fit",job)
 		check(bool(Fitter.new().call("mount_"+str(spec[0]),cell,layout)) and not cell.has_meta("prepared_native_fit"),str(spec[0])+" exact original entry consumes prepared result")
-		job=null;cell.free();baseline.free();local_cache.dispose()
+		job=null;cell.free()
+		if str(spec[0])=="arcade_canopy":await check_canopy_boundaries(scene,local_cache)
+		baseline.free();local_cache.dispose()
+
+func check_canopy_boundaries(scene: PackedScene,local_cache: RefCounted) -> void:
+	for stage in [1,2,3]:
+		var cell:=scene.instantiate() as Node3D;cell.name="passage"
+		cell.set_meta("native_collision_paths",local_cache.paths)
+		cell.set_meta("native_collision_shapes",local_cache.shapes.duplicate())
+		var before:=snapshot(cell)
+		var job:=Fitter.begin_streamed_fitting("arcade_canopy",cell,layout)
+		for step in stage:
+			job.advance(500);await get_tree().process_frame
+		var private_model: WeakRef=weakref(job.model) if is_instance_valid(job.model) else null
+		check(not job.done and not cell.has_node("ArcadeCanopy") and snapshot(cell)==before,"canopy stage "+str(stage)+" keeps all public buffers,poses,materials and collision unchanged")
+		job.cancel()
+		check(job.done and not job.ok and (private_model==null or private_model.get_ref()==null) and snapshot(cell)==before,"canopy stage "+str(stage)+" cancellation releases private model without public mutation")
+		job=null;cell.free()
+	for change: String in ["layout","pose","resource"]:
+		var cell:=scene.instantiate() as Node3D;cell.name="passage"
+		var source_layout: Dictionary=layout.duplicate(true)
+		var job:=Fitter.begin_streamed_fitting("arcade_canopy",cell,source_layout)
+		job.advance(500);await get_tree().process_frame
+		var draw: MeshInstance3D=job.source_guards[0].draw
+		var original_material: Material=draw.mesh.surface_get_material(0)
+		if change=="layout":source_layout["canopy_mutation_control"]=true
+		elif change=="pose":draw.position.x+=.01
+		else:draw.mesh.surface_set_material(0,original_material.duplicate())
+		job.advance(500)
+		check(job.done and not job.ok and not cell.has_node("ArcadeCanopy"),"canopy initial yield refuses changed "+change+" before loading or publication")
+		if change=="resource":draw.mesh.surface_set_material(0,original_material)
+		job=null;cell.free()
 
 func finish() -> void:
 	var ok: bool=checks.all(func(row):return row.ok)
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("job_checks.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual imported component and frozen original fitter equivalence/cancellation checks; not player input or runtime_contract.","checks":checks},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("job_checks.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual imported component and frozen original fitter equivalence/cancellation checks; not player input or runtime_contract.","checks":checks,"advance_timings":advance_timings},"\t"))
 	print("NATIVE JOB: ","PASS" if ok else "FAIL"," checks=",checks.size());get_tree().quit(0 if ok else 1)

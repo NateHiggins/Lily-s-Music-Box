@@ -6,6 +6,7 @@ extends Node
 const Selector := preload("res://scripts/building/building_root_selector.gd")
 const Lamps := preload("res://scripts/building/orison_v2_street_lamps.gd")
 var directory: String
+var externally_managed:=false
 var world: OrisonV2RuntimeRoot
 var failures := 0
 var summary := {"checks": [], "captures": []}
@@ -19,7 +20,7 @@ class BenchHost extends Node3D:
 
 
 func _ready() -> void:
-	_run.call_deferred()
+	if not externally_managed:_run.call_deferred()
 
 
 func check(ok: bool, label: String) -> void:

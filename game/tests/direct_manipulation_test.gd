@@ -4,6 +4,13 @@ var failures: Array[String] = []
 var checks := 0
 var player: PlayerController
 
+class PoseWatch extends Node3D:
+	var changes:=0
+	func _ready() -> void:
+		set_notify_transform(true)
+	func _notification(what:int) -> void:
+		if what==NOTIFICATION_TRANSFORM_CHANGED:changes+=1
+
 func _ready() -> void:
 	_run.call_deferred()
 
@@ -24,6 +31,9 @@ func drag(delta: Vector2) -> void:
 	player._unhandled_input(event)
 
 func _run() -> void:
+	if OS.get_environment("ORISON_TAP_PRESENTATION_ONLY")=="1":
+		await _run_tap_presentation()
+		return
 	RealityState.persistence_enabled = false
 	var environment := WorldEnvironment.new()
 	environment.environment = Environment.new()
@@ -411,6 +421,84 @@ func _run() -> void:
 	lamp.free();fan.free();toaster.free();radiator.free();stove.free();washer.free();airer.free();boiler.free();sun.free();environment.free()
 	await get_tree().process_frame
 	print("DIRECT MANIPULATION: ","PASS" if failures.is_empty() else "FAIL","; ",checks," checks; ",failures.size()," failures")
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _tap_idle(watches:Array[PoseWatch],label:String) -> Dictionary:
+	await get_tree().create_timer(.6).timeout
+	await RenderingServer.frame_post_draw
+	for watch:PoseWatch in watches:watch.changes=0
+	for frame in 20:await RenderingServer.frame_post_draw
+	var counts:Dictionary={}
+	for watch:PoseWatch in watches:counts[str(watch.get_parent().name)]=watch.changes
+	check(counts.values().all(func(value:int)->bool:return value==0),"settled tap parts emit no redundant transform notifications: "+label+" "+str(counts))
+	return counts
+
+func _run_tap_presentation() -> void:
+	# A nearby fixture, not a replacement production spawn or a manual tick.
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"tap evidence directory is writable before captures")
+	if not failures.is_empty():get_tree().quit(1);return
+	RealityState.persistence_enabled=false
+	var environment:=WorldEnvironment.new();environment.environment=Environment.new()
+	environment.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR
+	environment.environment.ambient_light_color=Color.WHITE;environment.environment.ambient_light_energy=.65
+	add_child(environment)
+	var sun:=DirectionalLight3D.new();sun.rotation_degrees=Vector3(-35,-25,0);sun.light_energy=1.6;add_child(sun)
+	player=PlayerController.new();add_child(player);player.set_physics_process(false)
+	player.set_lamp_enabled(false);player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+	if player.carried_device!=null:player.carried_device.set_capture_hidden(true)
+	var floor_body:=StaticBody3D.new();floor_body.position.y=-.1;add_child(floor_body)
+	var shape:=CollisionShape3D.new();var box:=BoxShape3D.new();box.size=Vector3(12,.2,12);shape.shape=box;floor_body.add_child(shape)
+	var hand:=preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new();add_child(hand);hand.player=player
+	var observations:Array=[]
+	for compact:bool in [false,true]:
+		var tap:=preload("res://scripts/building/orison_v2_kitchen_sink.gd").new()
+		tap.fixture="kitchen_sink";tap.prop_type="sink";tap.compact_kitchen=compact;add_child(tap)
+		check(preload("res://scripts/building/orison_v2_sink.gd").new().mount(tap),"native sink collision mounts: "+str(compact))
+		tap.set_running(false);tap.set_stopper(true)
+		var watches:Array[PoseWatch]=[]
+		for part:Node3D in [tap._handles[0],tap._handles[1],tap._basin_water,tap._kitchen_plug]:
+			var watch:=PoseWatch.new();part.add_child(watch);watches.append(watch)
+		var dry:Dictionary=await _tap_idle(watches,"dry "+str(compact))
+		var saved:Dictionary=tap.mechanism_snapshot();saved.water=.5
+		tap.restore_mechanism(saved)
+		var wet:Dictionary=await _tap_idle(watches,"retained water "+str(compact))
+		check(is_equal_approx(tap.get_flow_state().water_level,.5) and tap._basin_water.visible,"closed plug retains visible water without freezing simulation")
+		var at:Vector3=tap._handles[0].to_global(Vector3(-.025,0,-.06))
+		player.position=at+Vector3(0,-player.camera.position.y,-.75)
+		check(await hand.operate(at,PI*.5,tap),"actual hot cap grabs,moves and releases")
+		check(tap._valve_openings.x>.99 and tap._held_valve==-1,"hot valve authority follows released hand")
+		await get_tree().create_timer(.25).timeout
+		check(tap.get_flow_state().water_level>.5 and watches[0].changes>0 and watches[2].changes>0,"flow and moving poses still update; notification observer has a positive control")
+		await RenderingServer.frame_post_draw
+		var shot_path:=OS.get_environment("SHOT_DIR").path_join("tap_flow_"+("compact" if compact else "standard")+".png")
+		check(get_viewport().get_texture().get_image().save_png(shot_path)==OK,"actual flowing native sink capture saved")
+		at=tap._handles[0].to_global(Vector3(-.025,0,-.06))
+		check(await hand.operate(at,0,tap),"actual hot cap closes")
+		var plug:Vector3=tap._kitchen_plug.global_position
+		player.position=tap.position+Vector3(0,.02,-.7);player.camera.look_at(plug)
+		player.velocity=Vector3.ZERO;player.set_physics_process(true)
+		await get_tree().physics_frame;await get_tree().physics_frame
+		check(player._grab.find_target().get("part")==tap._kitchen_plug,"ray selects the actual loose plug")
+		click();check(player._grab.active() and tap._plug_hand.held,"primary click holds the plug")
+		drag(Vector2(0,-32))
+		for frame in 8:await get_tree().physics_frame
+		check(player._grab.holding_pickup() and not tap._stopper,"normal controller carries and unseats the grabbed plug")
+		click();player.set_physics_process(false)
+		await get_tree().create_timer(.4).timeout
+		check(not tap._plug_hand.held and tap._plug_hand.resting and not tap._stopper,"mouse lift/release unseats plug and settles naturally")
+		var level:float=tap._water_level
+		await get_tree().create_timer(.3).timeout
+		check(tap._water_level<level,"released open drain continues emptying")
+		var partial:Dictionary=tap.mechanism_snapshot()
+		check(tap.valid_mechanism(partial),"partial valve,plug and water snapshot remains valid")
+		tap.restore_mechanism(partial);await get_tree().process_frame
+		check(tap._valve_openings==Vector2(partial.hot,partial.cold),"mechanism restoration retains authoritative valve values")
+		observations.append({"compact":compact,"dry_notifications":dry,"wet_notifications":wet,"snapshot":partial})
+		tap.free()
+	hand.free();player.free();floor_body.free();sun.free();environment.free()
+	FileAccess.open(directory.path_join("tap_presentation.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Normal callbacks in two native kitchen fixtures,settled transform notifications with moving positive controls,actual cap/plug input,live fill/drain and mechanism restore. No occupied-world,disk-reload,whole-bathroom or performance acceptance.","checks":checks,"failures":failures,"observations":observations},"\t"))
+	print("TAP PRESENTATION: ",checks," checks; ",failures.size()," failures")
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 ## Restoration is synchronous; no elapsed-time event grants custody.

@@ -2537,6 +2537,18 @@ the engine's identical LF bytes without changing shared Git configuration.
 Production input closure still matches the unchanged nine-leg test contract.
 
 
+Canonical footway/sink candidate **4a04279e** is now technically qualified:
+physical-only651/0,zero unresolved surfaces,empty stderr; clean116-gate comparison
+against374c2792 has zero regressions,17 protected paths unchanged and no ledger
+promotions/waivers. All11,049 prior spatial records are preserved; only live
+Hampton camera fixture **f5b5359bf29719fb** was appended. Original native/scoped
+route receipts and failed controls retain their source scope in the bb81a68f
+archive above. Full prologue,save matrices,450m city access,performance and
+artistic acceptance were not repeated or inferred. Combined runtime and static
+receipts are indexed in **design/V2_PROLOGUE_2026-10-28.md**, under idle sink
+presentation and Hampton footway joint qualification. This is still17 building
+studies/132 remaining,not a new whole-city acceptance.
+
 ### October30 next construction: complete gaslamp replacement body
 
 Evidence class remains **INERT**. City continuation starts from pushed
@@ -2680,3 +2692,17 @@ indexed by the existing review manifest. It preserves the original runtime
 contract,wrapper/parser receipts,all four frames including the occluded one,
 raw timing/trace data,inspection notes and LF test source. No ledger promotion
 or broader proof is implied by this INERT report or archive index.
+
+
+Canonical reconciled **d238bc36** now qualifies the combined lamp/canopy
+checkpoint:652 physical checks,zero unresolved surfaces,empty stderr and zero
+packet defects; two actual fixed-camera daytime street/head views inspected.
+Clean117-gate comparison against exact PR93 mainb98b6d6c has zero regressions,
+17 protected paths unchanged and no requirement promotions/waivers. Native175
+and original night17/eight-leg evidence keep their source scope; the occluded
+arcade night frame remains unaccepted. The existing body,clock/weather/gas,
+collision and four light/shadow authorities remain. Current stage is still17
+building studies/132 remaining,not whole-city,save,performance or artistic
+acceptance. Detailed combined failures,receipts and source binding are indexed
+in **design/V2_PROLOGUE_2026-10-28.md**. Separate FIFO compiler smoke passes
+22.62s without repeating a city/world tour.
