@@ -138,6 +138,11 @@ readability, and feel.
 - **Physical UI:** stored text and a finished print flag do not establish
   readable output. Inspect the delivered glyphs against glass, moving covers,
   keyboards and actual camera framing; wait for the real delivery motion.
+  Continuous playthrough checks must inspect nested helpers too: differential
+  captures may deliberately pause or hide the subject. Keep those controls in
+  a separate recovery/optical programme and review ordinary captures in the
+  uninterrupted route; never silently waive the interruption. See the prologue
+  ledger's continuous actual-title programme.
   Validate optical checks against known obscured/hidden controls. A positive
   colour count is not proof if unrelated emissive hardware can satisfy it.
   Let the real lamp and pose transitions settle before freezing a capture;
