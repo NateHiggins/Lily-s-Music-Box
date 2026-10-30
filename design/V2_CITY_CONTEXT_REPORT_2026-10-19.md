@@ -2535,3 +2535,37 @@ Named cleanup preserves1,660 EOL-only imports and638 generated UIDs externally,
 then restores only proven own-worktree noise. Per-command autocrlf=false retains
 the engine's identical LF bytes without changing shared Git configuration.
 Production input closure still matches the unchanged nine-leg test contract.
+
+
+### October30 next construction: complete gaslamp replacement body
+
+Evidence class remains **INERT**. City continuation starts from pushed
+**bb81a68fe9693288c1e3ef9f853a0290b7062b6f**; immutable footway construction is
+**a1c32fa2945916a03eea5d9ccf20b1c17c0c51dd**. Canonical owns its combined
+physical/static qualification. City has no competing Godot run. Coordination
+assigns the delivered municipal gaslamp replacement and LOD to this isolated
+city branch; entrance lantern/portal remains canonical. Existing placement,
+crossing signal box,collision,clock,weather,gas and light authorities remain.
+
+External **C:/ov/reports/city_streets_20261029/gaslamp_lod_01/** contains a
+completed native replacement-body study from the unchanged114-stock donor.
+Six complete finish partitions reduce22,444 to7,502 triangles. All114 closed
+manufacturing stocks remain: no decorative-stock deletion. Service aperture,
+solid-shell negative control,exhaust,intake and rain-hood probes pass along
+with the explicit stock roster; final exported derivatives pass with minimum
+tangent agreement0.999999959. Bidirectional vertex-to-triangle samples across
+all114 stocks measure maximum9.251mm error; this is not a continuous Hausdorff
+bound. Original donor SHA256 **c371738e8fdb52f42af425ebfedbb9c0bc0bd2c4a7e8a351042152a0e4c5a8a4**
+is unchanged.
+
+Four actual two-thread CPU renders of near/lower assembly and head were
+inspected. Both retain base,shaft,crook,scroll,head,keepers and mantle pair.
+The enlarged lower body visibly facets the base,roof and scroll; runtime
+transition distance remains to be qualified. Donor preview glass/illumination
+is not runtime optical acceptance. Source,controls,render hashes and actual
+inspection notes are retained externally. No production asset or loader has
+changed yet. Loaded precision,mips,glass,clocked mantle,access,LOD transitions,
+rendering cost and combined surfaces remain open. Native work overlapped the
+canonical nonperformance physical survey by explicit coordination; no timing
+or uncontended-host inference follows. The tracker retains17 building studies
+and132 remaining; neither paving nor a lamp is another completed building.
