@@ -3576,3 +3576,58 @@ clean e145 static baseline. Source snapshots are included; production GLBs are
 not duplicated. This is an INERT index of scoped evidence,not a whole-city
 acceptance or renewed physical-surface packet. The candidate is kept local until
 E/Bodega repair,current-source physical renewal and final baseline comparison.
+
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Evidence class: **INERT**. Bodega reconciliation in progress; no acceptance.
+
+The actual composed controller run preserved234 checks/6 legs/2 failures.
+West four-step ascent/descent passed. East footway passed but the scenic
+left-entry approach contacted **SHOP_BODEGA/Collision** at world
+(17.60919,.76,2.235). The isolated city bench did not mount this shop and
+cannot establish retained-shop access. Keep the original failure receipts.
+
+Read-only source survey **bodega_frontage_reconciliation_01/authority_survey_01.json**
+measures shop world origin(18.655,0,2.125), city threshold(18.655,-11.92,0),
+physical bounds X16.415..20.895/sourceY-12.07..+.78 and ceiling3.25/front3.55.
+The installed template equals canonical exactly; receiving remains the same
+shop instance. Preferred repair removes new city ground frontage and reserves
+shop/receiving volume, preserving all shop boxes, entrance, counter and doors.
+Hayden upper floors/12.8m body and roof stay fixed; profile3.55/3.25/3/3
+preserves upper floor tops. Native review and actual controller rerun remain open.
+
+SW2 native carriagehouse WIP is preserved/pushed at **28834fea** on the original
+city branch; no SW2 Godot qualification. The same worktree now uses isolated
+**codex/v2-city-bodega-fix-20261030**, from **fe4899a5**, for this urgent repair.
+Published tally remains **21/149,128 remaining**. No authority bypass or new
+acceptance claim. Shared Project tracker editor has been sent these facts.
+
+Native repair checkpoint: E-only city geometry now reserves the retained shop
+and receiving room, derived from actual registered sources; unsupported frame
+drift fails the producer. No shop source, collision, location, leaf, counter or
+back-room authority changed. Both near and replacement lower bodies reserve
+this volume; the near body retains collision authority. New front beam starts
+at3.55m and seats on actual retained piers. Upper side walls start3.25m; actual
+3.26m cornice is included in the retained-box checks, not silently exempted.
+
+Final native checks: **246/0** across near/lower:186 reservation/template-box
+checks (91 actual boxes per body),44 actual receiving-native-bound checks and
+16 concrete/pier contact rays. Open masks erode0.1mm to distinguish intended
+boundary bearings; no volume waiver. Ten actual native views inspected; two
+initial whole-body crops retained, superseded by bounded complete framing.
+The existing fixed shop frame and receiving native meshes are included;
+primitive retained-box/leaf context is neutral DIAGNOSTIC, not runtime appearance.
+Near621 narrow-house stocks are closed/positive. Complete lower9809 stocks,
+520 bearings and542 panes pass. Near106 roof/12 return/1205 bearing/2572 pane
+samples pass. Four source preflights,14 tools tests and2-asset UV audit pass;
+reader NEW0 and17 protected paths remain unchanged from the repair base.
+261 near and130 lower unrelated parts (including west house) preserve exact
+exported attributes,indices and transforms. Both E bodies retain13 material
+parts; E pane count14 and scenic portal count0, family542 panes/24 portals.
+No new runtime, loaded mipmap, LOD, frame-time, controller or artistic claim.
+Canonical owner will run the short actual central Bodega door/inside/outside
+route and isolated loaded checks after native intake; lane currently imagegen.
+Archive: **bodega_frontage_native_reconciliation.zip**, indexed in the existing
+review manifest with every member hash and CRC checked. Original failed composed
+route stays canonical-owned and is not replaced by these native diagnostics.

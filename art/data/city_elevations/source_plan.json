@@ -307,8 +307,8 @@
       "lintel_height": 0.14,
       "variation_seed": 2013,
       "floor_heights": [
-        3.5,
-        3.3,
+        3.55,
+        3.25,
         3.0,
         3.0
       ],
@@ -319,11 +319,12 @@
         "front_floor_count": 4,
         "front_bays": 2,
         "roof_depth_m": 0,
-        "precedent": "INERT: LPC LP-2102 Murray Hill Historic District, 113 East35th Street,1856-57 Daniel Hayden,12.6ft/two-bay/four-storey English-basement house. Round-arched ground openings and pilaster order adopted as AU form; upper trim an explicit AU restoration, not1928 proof. Both adapted to4.4m parcel and retained12.8m roof/plant datum. Registered coated plaster/limestone replaces historical brownstone. Recessed scenic closed door and steps stay within footprint; no interior/access/gameplay authority.",
+        "precedent": "INERT: LPC LP-2102 Murray Hill Historic District, 113 East35th Street,1856-57 Daniel Hayden,12.6ft/two-bay/four-storey English-basement house. Round-arched ground openings and pilaster order adopted as AU form; upper trim an explicit AU restoration, not1928 proof. Both adapted to4.4m parcel and retained12.8m roof/plant datum. Registered coated plaster/limestone replaces historical brownstone. Ground floor is the installed Bodega conversion: its centred operable entrance, frontage, occupied room and receiving area remain exclusive shop authorities. Hayden upper floors, cornice and retained roof remain city-owned.",
         "entry_ground_m": 0.0,
         "entry_floor_m": 0.18,
         "entry_recess_m": 0.9,
-        "entry_run_start_m": 0.2
+        "entry_run_start_m": 0.2,
+        "retained_shop_id": "SHOP_BODEGA"
       }
     },
     {
