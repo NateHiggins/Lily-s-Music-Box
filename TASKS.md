@@ -1298,7 +1298,13 @@ Performance/counter procedure: `.agents/skills/godot-development/SKILL.md`.
   detail. Compare cold/warm same-settings frame distributions, draws, triangles,
   shadows and memory; inspect actual rendered transitions and affected input,
   then qualify the candidate. Roll out only where measured benefits justify it.
-  **QUEUED: design only; no runtime implementation or acceptance yet.**
+  City elevation/street/transport/gaslamp families already have scoped authored
+  replacement bodies; this traffic-schema rollout remains unimplemented. Reuse
+  the completed INERT Model A stock study (29,662/12,378/7,600 triangles) after
+  its imported/motion/cost checks rather than rebuilding it. The demonstrated
+  retained-tank automatic-tail collapse is repaired by holding original bodies;
+  complete authored tank replacements remain a measured follow-up.
+  **QUEUED: traffic integration and family rollout are not runtime acceptance.**
 
 ## I — Prop and set interaction review / the service wire
 

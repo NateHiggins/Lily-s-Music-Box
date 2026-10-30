@@ -1,5 +1,84 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### Canonical northeast intake and tank LOD repair — October30
+
+Evidence class: **INERT**. Frozen architect checkpoint **b9732450** with
+construction **c061b5a4** is integrated locally at **8a35792c** for combined
+qualification. The TASKS conflict preserves the latest city-first direction;
+both prior source-review and new native/isolated report sections remain below.
+The123-member native archive is retained unchanged,including original failures.
+This intake alone is not composed-world,access,save or artistic acceptance.
+
+Actual near/far NE2 images exposed a retained rooftop tank whose automatic
+imported LOD collapses its cylindrical wall. This is separate from the newly
+authored building-body LOD. The bounded repair sets only
+**game/assets/props/city_tanks.glb.import**'s automatic LOD generation to false.
+The native asset,all166 LOD0 tank partitions/material charts,collision and
+clock/weather/St.Elmo owners remain unchanged. Full tank bodies are retained
+until a separately reviewed complete replacement body exists; no global LOD
+disable or culling bypass is introduced. This follows the engine's documented
+[per-mesh broken-LOD remedy](https://docs.godotengine.org/en/stable/tutorials/3d/mesh_lod.html)
+and is executed on the pinned patched Vulkan4.7.1 build rather than inferred
+from documentation alone.
+
+**C:/ov/reports/city_streets_20261029/tank_lod_repair_01/** retains original
+source snapshot,import/parser/bench receipts and raw repeated90-frame samples.
+Import39s,parser PASS; isolated bench56s,7167 checks/zero failures,empty stderr.
+All166 imported partitions have no automatic tail and preserve source triangle
+counts; unchanged broad native metric/mip/collision and body-LOD checks pass.
+Actual **bench/site_ne2_profile_far.png** was inspected: the cylinder is intact
+where the earlier **northeast_block_01/bench_02/** far image visibly collapsed.
+
+Complete NE2 rendering has49,213 near/46,969 forced-far primitives and46 draws
+at both levels. Earlier forced-far was36,877: the repair adds10,092 primitives
+in this view,not draws. New building-body reduction still operates. Repeated
+isolated GPU medians are0.608ms before/0.613ms after; host contention and no
+matched old/new control prevent causal cost,whole-world budget or speed claims.
+NE1 remains21,825/20,769 primitives and23 draws. Native buffers are not reauthored
+or receipt hashes repinned. Full-family authored replacement-body LOD remains
+engineering debt,not an excuse to ship the demonstrated broken silhouette.
+
+Canonical has prepared a scoped northeast controller programme in the existing
+transport-route test: one floor-validated nearby start,six normal-controller
+plaza legs past both fronts and21 selected loaded body partitions. Original
+opposing programme retains its three starts/twelve legs and unchanged predicates.
+Compilation passes for both changed scripts. Actual route and combined physical
+qualification are pending; the count remains17 technical studies/132 remaining
+until their terminal evidence is reviewed. No duplicate Godot world is composed
+by the reused material readers; no firehose route or unchanged city tour is added.
+
+The scoped route subsequently completes184 checks/six waypoints/zero failures
+with empty stderr in264s. Its original schema2
+**canonical_city_intake_01/route/northeast_frontage_contract.json** records
+production composition,21 selected loaded body partitions,the connected plaza
+walk and root retirement. Actual workshop/oriel standing captures were inspected;
+their close upward framing demonstrates installed frontage detail,not full
+district composition. Source start(26.5,8) is a test-only nearby placement on
+unfiltered public floor; all six following legs use normal controller input.
+No rescue,noclip,crouch,speed change,door operation or save reconstruction.
+Architect native CPU work may overlap startup; these walking samples are not an
+uncontended performance baseline.
+
+The original combined physical run refuses before composition in25s because
+closure/streets native fixtures still bind the earlier full elevation-plan file
+and street fixture binds the earlier elevation fixture. The refusal and original
+stderr remain in **canonical_city_intake_01/**. A335-height/25-placed-footprint
+consumed-field diagnostic,including changed-height/changed-footprint negative
+controls,is retained; its initial metadata-only renewal was restored and is
+explicitly **not qualification**. No generic preflight predicate or old runtime
+receipt was changed.
+
+Following the prior owning-producer procedure,one Blender5.2/two-thread batch
+replays closure,near elevations,lower elevations and streets in dependency order.
+Original outputs are backed up under **before_native_replay/**. All five exported
+GLBs are byte-identical; independent logical-accessor/pose/material comparison
+also passes all541 parts. Four saved native files and their freshly generated
+construction/fixture bindings close the new provenance. All four affected
+fixture preflights pass. Reuse unchanged native/loaded images and the already
+completed route; no second walk is needed. The physical-only rerun is under
+**canonical_city_intake_02/**. It remains pending at this record; source/mesh
+equivalence is not substituted for its test-written result.
+
 ## October30 cityscape priority and district review
 
 Evidence class: **INERT**. Lily's latest direction is to finish the cityscape

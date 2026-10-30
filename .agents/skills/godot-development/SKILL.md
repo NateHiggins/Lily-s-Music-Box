@@ -122,6 +122,15 @@ readability, and feel.
 
 ## Reuse demonstrated project lessons
 
+- **Body LOD and retained equipment:** inspect the whole rendered assembly at
+  distance, not only the new body indices. A correct authored building LOD can
+  coexist with a destructively simplified retained rooftop tank. Isolate the
+  affected owner; preserve native/LOD0 buffers and collision. If the automatic
+  tail is broken, remove it only for that asset, inspect the same far view and
+  record the added primitives/draws and measured timing limits. Retaining a full
+  body is an explicit interim cost; keep a complete replacement-body task open.
+  See the city report's canonical northeast intake/tank repair.
+
 - **Yield boundaries:** capture immutable layout and source guards before the
   first cooperative yield. Taking a snapshot after validation can bless an
   intervening mutation. Test cancellation and source/layout/pose changes at

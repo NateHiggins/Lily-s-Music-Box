@@ -13,13 +13,14 @@ const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[
 func _ready() -> void:
 	_route_scope=OS.get_environment("ORISON_CITY_ROUTE_SCOPE")
 	if _route_scope.is_empty():_route_scope="full"
-	if _route_scope not in ["full","northwest","opposing","hampton","gaslamps"]:
+	if _route_scope not in ["full","northwest","opposing","northeast","hampton","gaslamps"]:
 		push_error("Unknown ORISON_CITY_ROUTE_SCOPE: "+_route_scope)
 		get_tree().quit(64)
 		return
 	super._ready()
 	route_label = "V2 CITY NORTHWEST" if _route_scope=="northwest" else "V2 CITY EXTERIOR"
 	if _route_scope=="opposing":route_label="V2 CITY OPPOSING"
+	if _route_scope=="northeast":route_label="V2 CITY NORTHEAST"
 	if _route_scope=="hampton":route_label="V2 CITY HAMPTON FOOTWAY"
 	if _route_scope=="gaslamps":
 		route_label="V2 CITY NIGHT GASLAMPS"
@@ -60,8 +61,8 @@ func _run() -> void:
 	if _route_scope=="hampton":
 		await _run_hampton()
 		return
-	if _route_scope=="opposing":
-		await _run_opposing()
+	if _route_scope in ["opposing","northeast"]:
+		await _run_opposing(_route_scope=="northeast")
 		return
 	if _route_scope=="northwest":
 		await _run_northwest()
@@ -210,13 +211,17 @@ func _opposing_start(city: Node3D,source: Vector3,identity: String) -> bool:
 	city_observations["local_start_fixtures"]=starts
 	return player.is_on_floor() and not player.noclip
 
-func _run_opposing() -> void:
+func _run_opposing(northeast: bool=false) -> void:
+	var expected_legs:=6 if northeast else 12
+	var expected_programmes:=1 if northeast else 3
+	var surface_key:="northeast_surfaces" if northeast else "opposing_surfaces"
+	var walk_key:="northeast_connected_walk" if northeast else "opposing_local_walks"
 	var directory:=OS.get_environment("SHOT_DIR")
-	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"opposing evidence directory exists before startup/captures")
+	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"selected frontage evidence directory exists before startup/captures")
 	if not failures.is_empty():get_tree().quit(1);return
 	source_before=_digest();programme_before=_programme_sources()
 	city_observations["programme_sources"]=programme_before
-	city_observations["route_scope"]="opposing"
+	city_observations["route_scope"]="northeast" if northeast else "opposing"
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true)
@@ -225,19 +230,24 @@ func _run_opposing() -> void:
 	world=Runtime.instantiate();add_child(world)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(not world.startup_failed and world.player!=null,"production composition starts for three selected fronts")
+	check(not world.startup_failed and world.player!=null,"production composition starts for selected frontage programme")
 	if not world.startup_failed and world.player!=null:
 		player=world.player
 		player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		var city:=world.get_node("CityShells") as Node3D
 		city_observations["startup_ms"]=(Time.get_ticks_usec()-started)/1000.
 		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold}
-		_check_frontage_surfaces(city,["site_se3","site_sw3","site_far_nw"],32,"opposing_surfaces")
+		if northeast:_check_frontage_surfaces(city,["site_ne1","site_ne2"],21,surface_key)
+		else:_check_frontage_surfaces(city,["site_se3","site_sw3","site_far_nw"],32,surface_key)
 		var recoveries_before: int=int(world.safety_net.recoveries)
 		var programmes: Array=[
 			{"id":"site_sw3","start":Vector3(-56.8,-26.5,0),"points":[Vector3(-47.8,-26.5,0),Vector3(-55,-26.5,0),Vector3(-55,-13,0),Vector3(-55,-26.5,0)],"target":Vector3(-52.3,-28.32,1.6)},
 			{"id":"site_se3","start":Vector3(46,-26.5,0),"points":[Vector3(51.55,-26.5,0),Vector3(57,-26.5,0),Vector3(51.55,-26.5,0),Vector3(46,-26.5,0)],"target":Vector3(51.55,-28.32,1.6)},
 			{"id":"site_far_nw","start":Vector3(-92,27,0),"points":[Vector3(-88,27,0),Vector3(-80,27,0),Vector3(-72,27,0),Vector3(-92,27,0)],"target":Vector3(-80,30,8)}]
+		if northeast:
+			# One nearby start on retained plaza paving; every following leg is
+			# normal controller movement along the two changed fronts.
+			programmes=[{"id":"northeast_pair","start":Vector3(26.5,8,0),"points":[Vector3(30,8,0),Vector3(34,8,0),Vector3(38,8,0),Vector3(41.5,8,0),Vector3(34,8,0),Vector3(26.5,8,0)],"target":Vector3(38.78,9.8,8)}]
 		var completed:=0
 		for programme: Dictionary in programmes:
 			if not failures.is_empty():break
@@ -245,12 +255,14 @@ func _run_opposing() -> void:
 			var first:=trace.size()
 			for point: Vector3 in programme.points:
 				if not await _city_walk(point):break
+				if northeast and point.x==30.:await _station_view("northeast_workshop_standing",Vector3(30,9.8,7))
+				if northeast and point.x==38.:await _station_view("northeast_oriel_standing",Vector3(38.78,9.8,8))
 				if str(programme.id)=="site_sw3" and point.y==-13.:await _station_view("firehouse_from_opposite_walk",Vector3(-52.3,-28.32,8))
 			if not failures.is_empty():break
-			check(trace.size()-first==4,"four actual controller legs execute for "+str(programme.id))
+			check(trace.size()-first==programme.points.size(),"all declared actual controller legs execute for "+str(programme.id))
 			await _station_view(str(programme.id)+"_standing_frontage",programme.target)
 			completed+=1
-		check(completed==3 and trace.size()==12,"all three independent local programmes and twelve actual controller legs execute")
+		check(completed==expected_programmes and trace.size()==expected_legs,"all selected programmes and exact controller-leg count execute")
 		check(world.safety_net.recoveries==recoveries_before,"selected fronts have no safety-net rescue")
 		check(not player.noclip and not player.crouched and is_equal_approx(player.STANDING_HEIGHT,1.524),"selected fronts retain the five-foot standing production body")
 		city_observations["walking_timing"]={"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"samples":_exploration_samples,"scope":"Only actual selected controller walking; independent placements,settles and PNG captures excluded. No matched before/after speedup or full-city performance claim."}
@@ -261,12 +273,12 @@ func _run_opposing() -> void:
 	check(not source_after.is_empty() and source_before==source_after and programme_before==_programme_sources(),"selected production/test/asset sources remain frozen")
 	var passed:=failures.is_empty()
 	var receipt: Dictionary={"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Three independent floor-validated nearby starts,twelve actual production-controller legs and changed32-body-part surfaces. Includes retained x=-55 crossing roundtrip. No continuous access between starts,entrance/station/distant/radius/save/full-city/artistic acceptance.",
+		"scope":"One nearby floor-validated start,six continuous production-controller plaza legs past both changed northeast fronts and21 loaded body partitions. No entrance/station/distant/radius,door operation,save/full-city/artistic acceptance." if northeast else "Three independent floor-validated nearby starts,twelve actual production-controller legs and changed32-body-part surfaces. Includes retained x=-55 crossing roundtrip. No continuous access between starts,entrance/station/distant/radius/save/full-city/artistic acceptance.",
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
 		"source":{"test_path":"game/tests/v2_city_transport_route.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
-		"contracts":{"production_composition":{"executed":true,"passed":passed},"opposing_local_walks":{"executed":not trace.is_empty(),"passed":passed and trace.size()==12,"waypoints":trace.size()},"opposing_loaded_surfaces":{"executed":city_observations.has("opposing_surfaces"),"passed":passed},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
+		"contracts":{"production_composition":{"executed":true,"passed":passed},walk_key:{"executed":not trace.is_empty(),"passed":passed and trace.size()==expected_legs,"waypoints":trace.size()},surface_key:{"executed":city_observations.has(surface_key),"passed":passed},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
 		"checks":city_checks,"failures":failures,"trace":trace,"observations":city_observations}
-	FileAccess.open(directory.path_join("opposing_frontage_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
+	FileAccess.open(directory.path_join("northeast_frontage_contract.json" if northeast else "opposing_frontage_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
 	print("%s: %d checks; %d waypoints; %d failures"%[route_label,city_checks,trace.size(),failures.size()])
 	get_tree().quit(0 if passed else 1)
 
@@ -400,7 +412,7 @@ func _city_walk(point: Vector3,literal_height: bool=false) -> bool:
 	if is_zero_approx(point.z) and not literal_height:
 		point.z = preload("res://scripts/building/orison_v2_city_streets.gd").surface_height(point.x)
 	print("CITY STATION WALK: source target ",point)
-	var focused: bool=_route_scope in ["northwest","opposing","hampton"]
+	var focused: bool=_route_scope in ["northwest","opposing","northeast","hampton"]
 	if focused:
 		RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 		_previous_exploration_usec=0
