@@ -3209,3 +3209,202 @@ with explicit frame/terrain/equipment/support limits,not an accepted placement.
 The next city work is the architect's grade-aware narrow pair and the bridge's
 supported approach/shoreline registration; full-city/save/art acceptance stays
 open. No other contributor's imports,UIDs,branches or geometry were discarded.
+
+
+### Retained architect progression through fe4899a5
+
+Evidence class: **INERT**. Historical native/isolated worktree record. Earlier
+pending-count or unmerged-main statements below describe their recording time;
+they do not replace canonical21/149 qualification or its preserved newer work.
+
+### October30 tracker refresh and next narrow-parcel section
+
+Report-only update after pushed **975a49ac**; no runtime inputs changed and
+no verification rerun is implied. Canonical coordination reports a terminal
+warm route: **223 checks/eight actual controller legs/0 failures**,212s wrapper,
+empty stderr. It includes both directions through the bank's eastern passage,
+valid full-capsule/floor starts and a separate clear roadside arcade lamp view.
+Five loaded night frames and the combined physical survey/packet remain under
+canonical review. This is a reported integration result, not this document's
+independent receipt validation or artistic acceptance. Preserve the original
+115s Windows Application Hang1002 closure, exit -805306369, empty stderr and
+absent runtime contract; cause remains undetermined. The retry does not erase
+that failure. Qualified tally remains **19/149**, **130 remaining** until the
+source-bound composed cohort is published.
+
+The next bounded construction target is the two generic narrow four-storey
+neighbors. Official LPC Murray Hill report LP-2102 supplies specific two-bay
+English-basement house proportions at113 and119 East35th Street. Retained
+original detailing is an explicit AU adaptation where1928 condition is not
+proved. Photos of113/115 East36th are different buildings and are not exact
+reference images of the selected houses. No reference pixels enter assets.
+Registered coated-plaster/limestone materials remain the available palette;
+no unregistered brownstone material is inferred.
+
+Ground fit precedes authoring: **site_nbr_w** is assembled at city-source
+rect[-57.8,23,-53.4,47], not beside the west Orison wall. Its foundation and
+ground meshes use the separate registered building frame. Measure the actual
+installed frame and solid sections before any outside-footprint steps; central
+zero grade is not valid westward. **site_nbr_e** occupies[16.455,-12,20.855,12]
+and neighbors the retained front footway. Source/reference selection grants
+no new footprint or access authority. No new geometry has yet been authored
+for this pair.975 stays frozen for canonical office/bank intake.
+
+### October30 narrow-house native construction WIP, entry repair open
+
+The next two generic4.4x24m masses now have source-specific four-storey
+fronts: **site_nbr_w** adapts119 East35th Street's Linford two-bay Italianate
+segmental heads, pedimented entry and bracketed cornice; **site_nbr_e** adapts
+113 East35th Street's Hayden round-arched ground order, pilasters and paneled
+cornice. Both retain12.8m body/roof plant datums, cap/bulkhead/roof hardware,
+original footprints and assembly offsets. Coated plaster and limestone are
+explicit registered AU material substitutions, not a new brownstone recipe.
+Long blind brick party walls and genuine recessed panes replace generic
+fenestration. Closed scenic doors add no interior or gameplay authority.
+
+Near body triangles: **5702 west/4894 east**; replacement lower bodies
+**4694/4390**,13 material parts each. All713 new near construction stocks
+are manifold with positive volume. Native producer reports1205 bearing,2574
+window,106 roof and12 return probes with0 failures; complete lower family
+9877 closed stocks,520 bearings and544 panes,0 failures. Exported UV audit
+has0 failed surfaces.248 unaffected near parts and117 existing lower parts
+retain exact exported attributes/indices/poses;23 other source profiles and
+three contextual GLBs are exact. Four fixture preflights,14 city static tests
+and reader NEW0 pass. These diagnostics are not runtime or artistic acceptance.
+
+Original producer failures remain external under **narrow_neighbors_01**:
+roof-cap material metadata initially omitted the expected bitumen group; the
+round-headed scenic door's old probe intersected its midrail instead of its
+stile. Both causes were repaired without weakening the actual leaf check.
+First native images also exposed incorrectly registered native support context
+and backlighting; the next review imports the actual exported solid supports
+and uses a front key. All first six images remain preserved and inspected.
+
+Entry repair remains open before Godot:50 actual exported ground sections plus
+a denser ten-point west entry section establish soil around-.476m at the door
+center and retained foundation top-.2m beginning betweenfront+.30/.40m. The
+current stair begins+.20m and its first tread is partly buried. Move the run
+forward.20m within the same footprint, then review the actual corrected support
+and lower silhouette. No shared foundation/ground/access producer edit is
+required. The newer pair is unqualified; no whole-city count is promoted.
+External evidence root: **C:/ov/reports/city_streets_20261029/narrow_neighbors_01**.
+
+### October30 published office/bank count and corrected entry diagnosis
+
+Fetched exact canonical **c574d0b8d6d3cb3f0e5b8f8355e500de5676b1ca** and read
+its committed report. Qualified candidate **f14307a7** plus final follow-up
+records223 checks/eight actual controller legs/0 failures,651/0 composed
+physical checks,empty stderr and independent surface packet0 defects. Final
+117-gate comparison against exactfb6851f2 has0 regressions/4 surface-gate
+improvements,17 protected paths unchanged and no waivers/promotions. The
+scoped technical count is now **21/149,128 remaining**; original Windows hang
+remains unexplained. Canonical's sole-editor project Page is updated. These
+are canonical publication facts, not new runtime runs in this worktree.
+Unrelated incoming mystery authorities have not been merged into this city
+branch. New narrow-house WIP is not included in that qualified cohort.
+
+The newer entry investigation corrects an incomplete earlier diagnosis: our
+new full ground slab also buried lower treads. Three closed slabs now leave
+the well open, and717 new near stocks pass. Onlywest limestone and both new
+concrete parts change againstb9cd9997;271 near/140 lower parts retain exact
+exported attributes/indices/poses. Combined vertical sections34/0 distinguish
+treads from closed-leaf controls. The original expectation failure mistook
+the east's first of two9cm risers and the door's55mm rail for landing levels;
+it remains preserved.
+
+Actual native sight rays reveal a separate blocking face invisible to vertical
+floor sections: retainedwest foundation front atcity-sourceY23.008 reachesZ0,
+obscuring/obstructing the two lower negative-height treads. First hits are the
+foundation,while the two upper treads/landing are clear. Floor-only success is
+therefore not approach acceptance. Preserve the foundation and fit a four-riser
+external stoop on actual soil: **[-57.26,22.04,-56.14,23.0]**,1.12m wide/.96m
+run,164mm risers from-.476 to+.18m. The+.18 landing clears the retained face.
+This is a measured construction correction under the city scope,not a footprint
+reservation inferred from historical research. Main building mass/roof/assembly
+and east retained footway stay fixed; canonical bridge/district owner was
+notified of the stoop extent. Source authoring and native/capsule review for
+this corrected projection are next,not yet acceptance. Original images,rays
+and source/native WIP remain preserved.
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Branch / HEAD at bench / origin/main / retained integration:
+**codex/v2-city-20261029 / b02aee3d with16 named construction changes /
+c574d0b8 / 8b553c28**. Original city start **3ea80715**. This records a
+scoped isolated checkpoint; no merge into main. Worktree at recording contains
+only those16 owned source/native/export/fixture changes plus this queue/report;
+no foreign work. Protected17/17 unchanged against8b by actual working-tree
+diff; selector staysV2. Ledger not rerun; INERT document lint adds no promotion.
+
+Gates: four native-fixture preflights PASS;14 earlier city tools tests PASS
+(reused unchanged tools); reader NEW0; final exported UV audit0 failed surfaces;
+V2 import policy1474/1474 correct,0 repairs. Parser1/0. Pinned patched
+Vulkan4.7.1/RTX4080 fullscreen3440x1440 bench writes **7090 checks,1205 bearing
+samples,1063 draws,0 failures**,32.87s wrapper,empty stderr. Receipt:
+**narrow_neighbors_01/bench_01.log.receipt.json** under the external root.
+This is suite_run/INERT diagnostic evidence,not a runtime_contract. The editor
+import's missing-UID cache warnings are retained separately; it completed0.
+
+Numbers: both four-storey fronts retain4.4x24m masses and12.8m body datum;
+west/east near triangles **5726/4918**, complete lower bodies **4718/4414**,
+13 parts each.717 new closed positive stocks; complete lower family9881 stocks,
+520 bearings/544 panes,0 failures. The west flight projects.96m onto measured
+soil, four164mm risers, supported+.18m landing; foundation/access owners remain
+unchanged.38 actual exported tread/closed-leaf sections and5 actual native
+sight rays pass.28 native images,including original setup/tread failures, and
+14 loaded images are inspected. Two loaded return images are exact before
+duplicates. Final native/export triangle-position multisets match at both LODs.
+
+Whole building plus equipment: west **17 draws/7526 near→6518 far primitives**;
+east **17/6620→6116**. Ninety warmed uncapped frames per case,MSAA3,TAA off.
+First west near GPU median/p95/max **4.002/4.7534/5.600ms**,wall max **6.115ms**.
+Repeated near/far GPU medians west **.567/.566ms**,east **.572/.571ms**; repeated
+wall maxima west **.910/.883ms**,east **.899/.900ms**. No quiet-host baseline,
+causal speedup,cold-start or whole-city budget is claimed. Canonical reported
+a native CPU build shortly afterward; timing overlap is not established, and
+shared-host/QEMU contention remains a measurement limitation.
+
+Default threshold1 wood-body LOD brackets: west **189.7776572/189.7983099m**,
+804→516 triangles; east **189.7708720/189.7914859m**,724→580. Narrow FOV restores
+near indices and inward return is exact. These are material-body probes,not
+controller travel or whole-building artistic acceptance at those distances.
+All **207 loaded input hashes** remain exact after measurement. Original
+335-stock closure and street exports remain exact;248 unaffected near and117
+prior lower parts retain exact exported attributes/indices/transforms. Only
+west limestone and both new concrete parts differ from initialb9 native WIP.
+638 own new untracked UIDs were raw-byte archived,CRC/hash/reparse/tracked/path
+checked and individually removed; no tracked imports or unrelated files changed.
+
+Changes beyond the initial assumed boundary: the measured west stoop extends
+the scenic entry into soil to clear a retained vertical foundation face;
+canonical district owner acknowledged the exact extent. Main body/roof and
+east retained footway stay fixed. Original floor-only diagnostic success is
+not promoted to approach acceptance; failed sight rays and setup frames stay
+preserved. Incoming mystery authorities have not been merged.
+
+Open findings: production standing-body ascent/descent and approach, composed
+physical/source-bound qualification and lighting/artistic acceptance for this
+new pair. Published technical tally stays **21/149,128 remaining**. Existing
+Windows startup hang and whole-city frame spikes remain open. No owner decision
+is needed; canonical will combine controller/composed checks with its next
+necessary bridge cohort after separate native/loaded review.
+
+BLOCKED for merge: new-pair controller/composed qualification remains.
+
+Portable **narrow_neighbors_native_isolated_review.zip** now indexes the frozen
+**a06ad398** construction checkpoint: **167 members/37,633,793 bytes**,
+SHA256 **d98d8d10cf99984dc9546087fa316c003e1f9c89a97e5429b00c63b2c7c73c40**.
+It retains42 actual inspected native/loaded images,original failures and sight
+rays,raw timing samples,source-bound wrapper logs/receipts and frozen producer
+sources. Reference photographs,PDFs and duplicate production meshes are excluded.
+The included nearby controller-fit guide is INERT; its starts/landing targets
+still require actual unfiltered support/full-capsule and traversal checks.
+All member bytes and ZIP CRCs were verified; no runtime receipt was repinned.
+
+
+Canonical reconciliation of frozen **fe4899a5** preserves current main mystery
+and shop-proposal authorities. Only the narrow pair and its native/isolated
+evidence enter this next candidate; actual controller/composed qualification
+is still pending. Shared foundation/ground/bridge files were not replaced by
+the architect branch. Manifest archives are unioned with hash identities intact,
+not overwritten. Qualified tally stays21/149 until the next source-bound pass.

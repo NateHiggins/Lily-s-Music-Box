@@ -3,6 +3,28 @@
   "scope": "Complete closed lower commercial bodies with authored UVs, retained panes/blinds/doors/roofs and original near export frames. Near city meshes retain all collision. No runtime transition, rendering-cost or artistic acceptance.",
   "buildings": [
     {
+      "id": "site_nbr_w",
+      "style": "linford119",
+      "registered_rect": [
+        -22.799999999999997,
+        -12.0,
+        -18.399999999999995,
+        12.0
+      ],
+      "assembly_translation_m": [
+        -35,
+        35,
+        0
+      ],
+      "eave": 12.8,
+      "body_top": 12.8,
+      "roof_deck_top": 13.06,
+      "entry_ground_m": -0.476,
+      "entry_recess_m": 0.9,
+      "entry_run_start_m": -0.96,
+      "entry_risers": 4
+    },
+    {
       "id": "site_nw1",
       "style": "germania",
       "registered_rect": [
@@ -55,6 +77,28 @@
       "eave": 11.1,
       "body_top": 13.6,
       "roof_deck_top": 13.86
+    },
+    {
+      "id": "site_nbr_e",
+      "style": "hayden113",
+      "registered_rect": [
+        16.455000000000002,
+        -12.0,
+        20.855000000000004,
+        12.0
+      ],
+      "assembly_translation_m": [
+        0,
+        0,
+        0
+      ],
+      "eave": 12.8,
+      "body_top": 12.8,
+      "roof_deck_top": 13.06,
+      "entry_ground_m": 0.0,
+      "entry_recess_m": 0.9,
+      "entry_run_start_m": 0.2,
+      "entry_risers": 2
     },
     {
       "id": "site_ne1",
@@ -272,6 +316,240 @@
         -80,
         0,
         -43.849998474121094
+      ]
+    },
+    {
+      "name": "site_nbr_e__arcade_brick_bond",
+      "triangles": 408,
+      "near_translation_gltf": [
+        18.655000686645508,
+        0,
+        -0.1400000900030136
+      ]
+    },
+    {
+      "name": "site_nbr_e__brass_mesh",
+      "triangles": 44,
+      "near_translation_gltf": [
+        18.295719146728516,
+        0,
+        6.09352445602417
+      ]
+    },
+    {
+      "name": "site_nbr_e__brick",
+      "triangles": 88,
+      "near_translation_gltf": [
+        19.148761749267578,
+        0,
+        4.8195085525512695
+      ]
+    },
+    {
+      "name": "site_nbr_e__bronze_sheet",
+      "triangles": 44,
+      "near_translation_gltf": [
+        19.701807022094727,
+        0,
+        4.405492305755615
+      ]
+    },
+    {
+      "name": "site_nbr_e__concrete",
+      "triangles": 36,
+      "near_translation_gltf": [
+        18.655000686645508,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_e__door_paint",
+      "triangles": 900,
+      "near_translation_gltf": [
+        18.655000686645508,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_e__galvanized_roof",
+      "triangles": 44,
+      "near_translation_gltf": [
+        18.295719146728516,
+        0,
+        5.4335246086120605
+      ]
+    },
+    {
+      "name": "site_nbr_e__limestone",
+      "triangles": 1248,
+      "near_translation_gltf": [
+        18.654998779296875,
+        0,
+        0.0025000572204589844
+      ]
+    },
+    {
+      "name": "site_nbr_e__limewash_plaster",
+      "triangles": 602,
+      "near_translation_gltf": [
+        18.65500259399414,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_e__linen",
+      "triangles": 144,
+      "near_translation_gltf": [
+        18.655000686645508,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_e__mirror_aged",
+      "triangles": 232,
+      "near_translation_gltf": [
+        18.655000686645508,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_e__roof_bitumen",
+      "triangles": 44,
+      "near_translation_gltf": [
+        18.655000686645508,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_e__wood_dark",
+      "triangles": 580,
+      "near_translation_gltf": [
+        18.654998779296875,
+        0,
+        0.44500017166137695
+      ]
+    },
+    {
+      "name": "site_nbr_w__arcade_brick_bond",
+      "triangles": 408,
+      "near_translation_gltf": [
+        -20.600000381469727,
+        0,
+        -0.1400000900030136
+      ]
+    },
+    {
+      "name": "site_nbr_w__brass_mesh",
+      "triangles": 44,
+      "near_translation_gltf": [
+        -20.77811050415039,
+        0,
+        0.23365241289138794
+      ]
+    },
+    {
+      "name": "site_nbr_w__brick",
+      "triangles": 88,
+      "near_translation_gltf": [
+        -20.183433532714844,
+        0,
+        -0.4781569242477417
+      ]
+    },
+    {
+      "name": "site_nbr_w__bronze_sheet",
+      "triangles": 44,
+      "near_translation_gltf": [
+        -19.888757705688477,
+        0,
+        -0.4781569242477417
+      ]
+    },
+    {
+      "name": "site_nbr_w__concrete",
+      "triangles": 36,
+      "near_translation_gltf": [
+        -20.600000381469727,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_w__door_paint",
+      "triangles": 900,
+      "near_translation_gltf": [
+        -20.599998474121094,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_w__galvanized_roof",
+      "triangles": 44,
+      "near_translation_gltf": [
+        -20.77811050415039,
+        0,
+        -0.42634761333465576
+      ]
+    },
+    {
+      "name": "site_nbr_w__limestone",
+      "triangles": 1520,
+      "near_translation_gltf": [
+        -20.599998474121094,
+        0,
+        0.49000024795532227
+      ]
+    },
+    {
+      "name": "site_nbr_w__limewash_plaster",
+      "triangles": 630,
+      "near_translation_gltf": [
+        -20.599998474121094,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_w__linen",
+      "triangles": 132,
+      "near_translation_gltf": [
+        -20.599998474121094,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_w__mirror_aged",
+      "triangles": 312,
+      "near_translation_gltf": [
+        -20.599998474121094,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_w__roof_bitumen",
+      "triangles": 44,
+      "near_translation_gltf": [
+        -20.600000381469727,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "site_nbr_w__wood_dark",
+      "triangles": 516,
+      "near_translation_gltf": [
+        -20.599998474121094,
+        0,
+        0.44500017166137695
       ]
     },
     {
@@ -1238,91 +1516,94 @@
       ]
     }
   ],
-  "closed_stocks": 9224,
-  "bearing_samples": 480,
-  "pane_samples": 512,
+  "closed_stocks": 9881,
+  "bearing_samples": 520,
+  "pane_samples": 544,
   "error_m": 0.2,
-  "triangles": 122489,
+  "triangles": 131621,
   "export_check": {
     "asset": "C:\\ov\\city\\game\\assets\\props\\city_elevations_lod1.glb",
-    "primitives": 117,
-    "triangles": 122489,
+    "primitives": 143,
+    "triangles": 131621,
     "minimum_tangent_agreement": 0.9996993655482446,
     "status": "PASS"
   },
-  "asset_sha256": "18618971a5d51e6ceb94f51b3b94ad8e35d7bb99ce8f2559b7af133eb2a20120",
+  "asset_sha256": "44e7e514b1c175b84d531ff08252cfebe41bff7aa363f715def335827922770b",
   "source_bindings": {
-    "art/blender/scripts/build_city_elevation_lods.py": "e55dd02b2c6693b90d79981aade41df810f0cb5d7474e83f7b15e928d3788684",
-    "art/blender/scripts/build_city_elevations.py": "54c852d04a1b597a1f5633b2b3e8c0e71d6e644d929e9d2d2cd393bd9a3a9c2c",
-    "art/blender/scripts/city_commercial_architecture.py": "ab1012237d974213bbb946c54b3b15c4a6ce80b5ac795071e069d214965d4133",
+    "art/blender/scripts/build_city_elevation_lods.py": "88577b2a89864c1784b076c3f426e4e688ac3f15e60c4ffc69d8d253dd015d30",
+    "art/blender/scripts/build_city_elevations.py": "a01cd4bafedc9175b298023802fbdbc1795c4ef3e01e7fc5ac0705aa0fe42213",
+    "art/blender/scripts/city_commercial_architecture.py": "b04087e96302e7517fdbd5eae2783dde5b8903eb3d29edeab150bbc4ace7de45",
     "art/blender/scripts/fabrication_native_batch.py": "a3d3007a1e8e46e29031b9fe3e1f40c06f6e76169cbf505cf548b05e82b2abea",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
-    "art/data/city_elevations/source_plan.json": "4eb7e9bf61f4bf0de95b0df7f3a84867a33d2cbea4b26944058f27bd132426bd",
-    "art/blender/city_closure.blend": "9769ef95b08c691192728a6adf496936fbcbf0cd72ca340a7230f0c6b4bf2a8c",
-    "art/blender/city_closure_construction.json": "c2078210be17650336a636bd54893d58a425dbec7e8b191851cc73f752c75cdc",
-    "game/assets/props/city_elevations.glb": "3b1074a99500d7f68367968b82b1fadd546b6e2476d8a0ba3250072faffabc08",
-    "game/data/orison_v2/exterior/city_elevations.json": "ead8c334aa048003ecc59a7aecd36dbc51bb9fbc15d779aab21ac80c529edd95",
+    "art/data/city_elevations/source_plan.json": "776b54f8ea1977e9b4de8da77204a67e50761204560c3eb11d83d5dec79bdcfb",
+    "art/blender/city_closure.blend": "c6b028bf045aae5187fb349185cdd3de8b216076f3d8d07bd8ab3b04857fd0f9",
+    "art/blender/city_closure_construction.json": "c10e7efbd9b4516b33f81f4f66e007ab52559e6aa40bdc1b769bf4f04377e3e0",
+    "game/assets/props/city_elevations.glb": "8bf4a0af849ec8a3f498d2960ce19a2e6d6bd895665f2e9ece2fed5a2ac79943",
+    "game/data/orison_v2/exterior/city_elevations.json": "e05f81993dbdf6e1829633035fb5b73891afa48a1cdd077a888a1b16bb9ff076",
     "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc",
     "game/tests/fixtures/orison_city_masts.json": "e4452094e0c6a26d8eb78e39c54910be1eb6c9348a4ae02b2f866f8d579364c5",
     "game/tests/fixtures/orison_city_aerials.json": "d43bd15e4508b24992b2b166134ea17103bdce2a6ba4b49cf5004b00e3aceb6a",
     "game/tests/fixtures/orison_city_tanks.json": "90de22bffd4e8374b738bb5cbfe7ccd5d887463248d60d5fd3f21ed4d542bfb7",
     "art/blender/scripts/frame_mitre_geometry.py": "b470bd89fe11f87c7da20bb016ceeca762d7b3d8dfd8ecb843d57f8f708f6bdc",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
-    "game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png": "599ccf878c2fb74c6462a8e961addfe12fb5f90e9c85b68b0601edb0921ee547",
-    "game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png": "23e9482180b08d41394fcbf259e5cc69c813da4e1f3c6a0b1b82755e39e2b1ca",
-    "game/assets/building/textures/T_ai_materials_soot_normal.png": "87975ab4abf0d0c6629b3c43078a83ddc9721afabf4a808bdfdfc3112aa33444",
-    "game/assets/building/textures/T_ai_materials_door_paint_albedo.png": "3a68fb4497fb0f5b56edfcd168a4d05593b760b0437c20aa4b2ec4e97f19616f",
-    "game/assets/building/textures/T_ai_materials_door_paint_rough.png": "31232d24578d907132c6a97ff15fe93939ab644529968fdad466551647cf83d0",
-    "game/assets/building/textures/T_ai_materials_door_paint_normal.png": "660c2582ee91be3aae0746662cc7c24bf9eb77467cbde8aece2104f920127cc5",
-    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_albedo.png": "b30bf3cff86c0718b3d9e1424739caacc388635289b2dd821ac9fbe5f947e14d",
-    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_rough.png": "e5521a01503ef13b22bd53900bc8e7a7bde5b3bf0c0e17e61b79a0c93f7aa258",
-    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_normal.png": "bd48e9cb520637eca05c09fc774962a8ea191424eed92cb639bb20ab0357736b",
-    "game/assets/building/textures/T_ai_materials_roof_bitumen_albedo.png": "19b9e24bb67c7b494806ac445f961515915998d3c4841db9b3c4874e4227ddd7",
-    "game/assets/building/textures/T_ai_materials_roof_bitumen_rough.png": "1dea72e00110ba4a2aa7ea8469b827d19d060b8af49018bfcd247a73671c80b4",
-    "game/assets/building/textures/T_ai_materials_roof_bitumen_normal.png": "ebc5c3411201d5ecc337fbc3571f4d36f626427c166d51167556765af1ad7f7b",
-    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
-    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
-    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
-    "game/assets/building/textures/T_ai_materials_city_roof_clay_albedo.png": "13e01c560e45e50026cf9cccc3c0e6a34625949eca1149936a097428217ede7e",
-    "game/assets/building/textures/T_ai_materials_city_roof_clay_rough.png": "43556ebf8af6d266e8b93e15836ee2963fb7f3b51dee5ceecf9e41043cc3e1c4",
-    "game/assets/building/textures/T_ai_materials_city_roof_clay_normal.png": "d861f0a0d652f38613e46a9fd2a73acd56eda78c88dfe3b0c274ae89a72c8e93",
-    "game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png": "028870c51a301aae725e85a96aba0f64f8bdc85e29d64a4fca9406ba5eef089b",
-    "game/assets/building/textures/T_ai_materials_brass_mesh_rough.png": "7ed0cf343d586a266eba266d98896b7eb4e6004487f822f59995e03304b9659a",
-    "game/assets/building/textures/T_ai_materials_brass_mesh_normal.png": "ffa3452fa9e62d83138a2c22e79cd3b811886800face31861409f7b2450d9def",
-    "game/assets/building/textures/T_ai_materials_brick_albedo.png": "832731a0eb590c719c2df4d18269d900fba901409ad959b7250fcfa7ccbd47a6",
-    "game/assets/building/textures/T_ai_materials_brick_rough.png": "13981cad068720de19ae2108c4f3fa38b92f6fa016527c382632d65d6c43674a",
-    "game/assets/building/textures/T_ai_materials_brick_normal.png": "c6a75f76f4053be29629bb1a8b235eebef29d60d60b01cc66332abdaf8711a19",
     "game/assets/building/textures/T_ai_materials_concrete_albedo.png": "ff9788841dbf3c791f1c031cdeb15d516e57858f5490a8a8223161cb79430237",
     "game/assets/building/textures/T_ai_materials_concrete_rough.png": "a003c68088e072bc58b4cb0da97217908d410a7dd5b37c9259f05afb06b36c2f",
     "game/assets/building/textures/T_ai_materials_concrete_normal.png": "7b579bc100dd5ef450130141ca028f75f918dfcc1e2be147c2adbf46a4a3af79",
-    "game/assets/building/textures/T_ai_materials_galvanized_roof_albedo.png": "4f5200041f815f4e58eec3607a61dc014291743f807029e958eee2f35ed8f429",
-    "game/assets/building/textures/T_ai_materials_galvanized_roof_rough.png": "4aaf1617b32a3c3fcfe8494cead7a50a963fb55f6dfadaa9095e37f09db30f7b",
-    "game/assets/building/textures/T_ai_materials_galvanized_roof_normal.png": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf",
-    "game/assets/building/textures/T_ai_materials_city_slate_albedo.png": "3a250aa366d3b92367e3eb5a76cd05432b05bc39dbfa9d4f2be5c2bbaa29f4c3",
-    "game/assets/building/textures/T_ai_materials_city_slate_rough.png": "7434112acf770c09577d6a69bb4ad586f0f53ae8bb5f9c5e64e51ed1318ff2d2",
-    "game/assets/building/textures/T_ai_materials_city_slate_normal.png": "804d23b925298958935f2b502066f99fd391b62698e38236c237dfd1750dcd09",
-    "game/assets/building/textures/T_ai_materials_terracotta_albedo.png": "b347747cd57b9720ef6cd7f187356d4a4f8f619c4def3dcc71b37302826f09ef",
-    "game/assets/building/textures/T_ai_materials_terracotta_rough.png": "a79208b2b89bd63d199c89f6d756853c9f54e054b67fedc987b6d03ae52c318c",
-    "game/assets/building/textures/T_ai_materials_terracotta_normal.png": "3f506e18a888f232658bc2a741d74768de9497eca813dd7c43546853034113da",
-    "game/assets/building/textures/T_ai_materials_limestone_albedo.png": "98dc560a3b41c71fdac9e0fcc4d78410a7f48377c22152dfe9f18c1d284d2d91",
-    "game/assets/building/textures/T_ai_materials_limestone_rough.png": "dc2118543d957385564364c56a9f000377d530ce4c07b30e66273014a1b16b16",
-    "game/assets/building/textures/T_ai_materials_limestone_normal.png": "160a35cceaa8b2b296f34a28f9c3e8929f16f813986ab3f0503bf7e7eb4c22c4",
-    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
-    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
-    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_ai_materials_city_roof_clay_albedo.png": "13e01c560e45e50026cf9cccc3c0e6a34625949eca1149936a097428217ede7e",
+    "game/assets/building/textures/T_ai_materials_city_roof_clay_rough.png": "43556ebf8af6d266e8b93e15836ee2963fb7f3b51dee5ceecf9e41043cc3e1c4",
+    "game/assets/building/textures/T_ai_materials_city_roof_clay_normal.png": "d861f0a0d652f38613e46a9fd2a73acd56eda78c88dfe3b0c274ae89a72c8e93",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png": "599ccf878c2fb74c6462a8e961addfe12fb5f90e9c85b68b0601edb0921ee547",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png": "23e9482180b08d41394fcbf259e5cc69c813da4e1f3c6a0b1b82755e39e2b1ca",
+    "game/assets/building/textures/T_ai_materials_soot_normal.png": "87975ab4abf0d0c6629b3c43078a83ddc9721afabf4a808bdfdfc3112aa33444",
+    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_albedo.png": "b30bf3cff86c0718b3d9e1424739caacc388635289b2dd821ac9fbe5f947e14d",
+    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_rough.png": "e5521a01503ef13b22bd53900bc8e7a7bde5b3bf0c0e17e61b79a0c93f7aa258",
+    "game/assets/building/textures/T_ai_materials_arcade_brick_bond_normal.png": "bd48e9cb520637eca05c09fc774962a8ea191424eed92cb639bb20ab0357736b",
     "game/assets/building/textures/T_ai_materials_city_grey_brick_albedo.png": "f38f9cffbb9e007f0eb0513b2867b7d23773b13fa72ba2b9b904f94a15e3b0b0",
     "game/assets/building/textures/T_ai_materials_city_grey_brick_rough.png": "ea90cde3a877606b48744d343273d68be736e01452912593141a5467c8187e82",
     "game/assets/building/textures/T_ai_materials_city_grey_brick_normal.png": "1b5fc43ea910eb306fb3c6991cbc5f9a4eacd789bbfcc602482a35fb4c3cf716",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
+    "game/assets/building/textures/T_ai_materials_limestone_albedo.png": "98dc560a3b41c71fdac9e0fcc4d78410a7f48377c22152dfe9f18c1d284d2d91",
+    "game/assets/building/textures/T_ai_materials_limestone_rough.png": "dc2118543d957385564364c56a9f000377d530ce4c07b30e66273014a1b16b16",
+    "game/assets/building/textures/T_ai_materials_limestone_normal.png": "160a35cceaa8b2b296f34a28f9c3e8929f16f813986ab3f0503bf7e7eb4c22c4",
+    "game/assets/building/textures/T_ai_materials_city_slate_albedo.png": "3a250aa366d3b92367e3eb5a76cd05432b05bc39dbfa9d4f2be5c2bbaa29f4c3",
+    "game/assets/building/textures/T_ai_materials_city_slate_rough.png": "7434112acf770c09577d6a69bb4ad586f0f53ae8bb5f9c5e64e51ed1318ff2d2",
+    "game/assets/building/textures/T_ai_materials_city_slate_normal.png": "804d23b925298958935f2b502066f99fd391b62698e38236c237dfd1750dcd09",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_limewash_plaster_albedo.png": "d86e614a73d3cf3683eae6f314cdf86c989329b5359984cef3a9c5956313c7c7",
+    "game/assets/building/textures/T_ai_materials_limewash_plaster_rough.png": "503c932c64a5dbfae827cab96f8f2450b213054c84c7ec07bc9a4ff132bc3114",
+    "game/assets/building/textures/T_ai_materials_limewash_plaster_normal.png": "dc76ec4d7246ffdc2b311d8d0461a3eac6d9e660aa3a0d4cec2d7a668d7ae7dc",
+    "game/assets/building/textures/T_ai_materials_roof_bitumen_albedo.png": "19b9e24bb67c7b494806ac445f961515915998d3c4841db9b3c4874e4227ddd7",
+    "game/assets/building/textures/T_ai_materials_roof_bitumen_rough.png": "1dea72e00110ba4a2aa7ea8469b827d19d060b8af49018bfcd247a73671c80b4",
+    "game/assets/building/textures/T_ai_materials_roof_bitumen_normal.png": "ebc5c3411201d5ecc337fbc3571f4d36f626427c166d51167556765af1ad7f7b",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
     "game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
     "game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
     "game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
-    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
-    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
-    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490"
+    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
+    "game/assets/building/textures/T_ai_materials_galvanized_roof_albedo.png": "4f5200041f815f4e58eec3607a61dc014291743f807029e958eee2f35ed8f429",
+    "game/assets/building/textures/T_ai_materials_galvanized_roof_rough.png": "4aaf1617b32a3c3fcfe8494cead7a50a963fb55f6dfadaa9095e37f09db30f7b",
+    "game/assets/building/textures/T_ai_materials_galvanized_roof_normal.png": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf",
+    "game/assets/building/textures/T_ai_materials_brick_albedo.png": "832731a0eb590c719c2df4d18269d900fba901409ad959b7250fcfa7ccbd47a6",
+    "game/assets/building/textures/T_ai_materials_brick_rough.png": "13981cad068720de19ae2108c4f3fa38b92f6fa016527c382632d65d6c43674a",
+    "game/assets/building/textures/T_ai_materials_brick_normal.png": "c6a75f76f4053be29629bb1a8b235eebef29d60d60b01cc66332abdaf8711a19",
+    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+    "game/assets/building/textures/T_ai_materials_terracotta_albedo.png": "b347747cd57b9720ef6cd7f187356d4a4f8f619c4def3dcc71b37302826f09ef",
+    "game/assets/building/textures/T_ai_materials_terracotta_rough.png": "a79208b2b89bd63d199c89f6d756853c9f54e054b67fedc987b6d03ae52c318c",
+    "game/assets/building/textures/T_ai_materials_terracotta_normal.png": "3f506e18a888f232658bc2a741d74768de9497eca813dd7c43546853034113da",
+    "game/assets/building/textures/T_ai_materials_door_paint_albedo.png": "3a68fb4497fb0f5b56edfcd168a4d05593b760b0437c20aa4b2ec4e97f19616f",
+    "game/assets/building/textures/T_ai_materials_door_paint_rough.png": "31232d24578d907132c6a97ff15fe93939ab644529968fdad466551647cf83d0",
+    "game/assets/building/textures/T_ai_materials_door_paint_normal.png": "660c2582ee91be3aae0746662cc7c24bf9eb77467cbde8aece2104f920127cc5",
+    "game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png": "028870c51a301aae725e85a96aba0f64f8bdc85e29d64a4fca9406ba5eef089b",
+    "game/assets/building/textures/T_ai_materials_brass_mesh_rough.png": "7ed0cf343d586a266eba266d98896b7eb4e6004487f822f59995e03304b9659a",
+    "game/assets/building/textures/T_ai_materials_brass_mesh_normal.png": "ffa3452fa9e62d83138a2c22e79cd3b811886800face31861409f7b2450d9def"
   },
   "failures": []
 }

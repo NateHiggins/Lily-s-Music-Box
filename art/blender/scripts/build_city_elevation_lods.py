@@ -80,7 +80,7 @@ for (name,key),(vv,ff) in sorted(buffers.items()):
     stock=bpy.data.objects.new('Raw',mesh)
     obj=partition(exports,identity,[stock],finish,mat,Matrix.Translation(center),catalog)
     if key in ['city_slate','city_roof_clay']:roof_metric_charts(obj)
-    if name=='site_ne1' and key=='wood_dark':wood_stock_charts(obj,catalog[key]['files'][0])
+    if name in ['site_ne1','site_nbr_w','site_nbr_e'] and key=='wood_dark':wood_stock_charts(obj,catalog[key]['files'][0])
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
     parts.append({'name':identity,'triangles':len(obj.data.polygons),'near_translation_gltf':t})
 assert {r['name'] for r in parts}==set(programme['parts'])

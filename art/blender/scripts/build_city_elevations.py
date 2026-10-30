@@ -667,8 +667,8 @@ for name,p in groups.items():
             old_last=next(r for r in source_rows if r['id']==last['id'])
             stats[-1]['previous_roof_height']=old_last['z0']+old_last['h']
         roof_details.append(dict(building=name,style=commercial.specs[name]['style'],body_height=top,
-            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key in {'ottendorfer':('roof_bitumen',),'engine258':('galvanized_roof','roof_bitumen'),'hampton':('roof_bitumen',),'faber':('roof_bitumen',),'fulton':('roof_bitumen',),'jamaica':('roof_bitumen',),'terracotta_works':('city_roof_clay','roof_bitumen')}.get(commercial.specs[name]['style'],('city_slate',)) for v in vv),
-            edited_legacy_roof=commercial.specs[name]['style'] not in ['ottendorfer','faber','fulton','jamaica']))
+            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key in {'ottendorfer':('roof_bitumen',),'engine258':('galvanized_roof','roof_bitumen'),'hampton':('roof_bitumen',),'linford119':('roof_bitumen',),'hayden113':('roof_bitumen',),'faber':('roof_bitumen',),'fulton':('roof_bitumen',),'jamaica':('roof_bitumen',),'terracotta_works':('city_roof_clay','roof_bitumen')}.get(commercial.specs[name]['style'],('city_slate',)) for v in vv),
+            edited_legacy_roof=commercial.specs[name]['style'] not in ['ottendorfer','faber','fulton','jamaica','linford119','hayden113']))
         continue
     for r in rr:
         suffix=r['id'][len(name)+1:]
@@ -828,7 +828,7 @@ for (name,key),(vv,ff) in sorted(buffers.items()):
     bm.to_mesh(mesh);bm.free()
     obj=partition(exports,name+'__'+key,[stock],finish,mat,Matrix.Translation(center),catalog)
     if key in ['city_slate','city_roof_clay']:roof_metric_charts(obj)
-    if name=='site_ne1' and key=='wood_dark':wood_stock_charts(obj,catalog[key]['files'][0])
+    if name in ['site_ne1','site_nbr_w','site_nbr_e'] and key=='wood_dark':wood_stock_charts(obj,catalog[key]['files'][0])
     assert obj.name==name+'__'+key,(name,key,obj.name)
     obj.hide_render=False;obj.hide_set(False);draws.append(obj)
     bpy.data.objects.remove(stock);bpy.data.meshes.remove(mesh)
