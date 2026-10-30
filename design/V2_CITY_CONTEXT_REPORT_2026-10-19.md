@@ -2523,3 +2523,15 @@ surface/board pass or repin any old receipt. Until those actual results exist,
 the new footway is not a fully qualified integration or artistic acceptance.
 Original raw evidence remains under **hampton_footway_01/**; its committed
 archive follows after the measurement hold,without changing runtime sources.
+
+The released slot permits preservation of **hampton_footway_qualification.zip**:
+73 members,25,014,239 bytes,SHA256 **a23590d81823c240ee31fd6fc088ed805bf03c9834b9e676dd061c780ebdd11a**,
+indexed by the existing review manifest. Frozen construction/focused-proof
+checkpoint is pushed **a1c32fa2945916a03eea5d9ccf20b1c17c0c51dd**. This archive
+follow-up changes no runtime source,asset or receipt. Combined canonical
+physical/static results remain pending and must be cited separately when real.
+
+Named cleanup preserves1,660 EOL-only imports and638 generated UIDs externally,
+then restores only proven own-worktree noise. Per-command autocrlf=false retains
+the engine's identical LF bytes without changing shared Git configuration.
+Production input closure still matches the unchanged nine-leg test contract.
