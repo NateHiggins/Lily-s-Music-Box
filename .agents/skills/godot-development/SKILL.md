@@ -149,6 +149,13 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   replacement consumes existing mechanical/state owners; visual, simulated and
   player-operable are distinct capabilities. Assert nonzero expected part/owner
   counts so retired arrays cannot produce an empty passing loop.
+- **Production parenting:** exercise the real node hierarchy. A cinematic tested
+  beside the world can behave differently when installed beneath it. World-tree
+  observers should distinguish borrowed world presentation from their own
+  subtree, so they cannot hide their own veil/title or mute their own audio.
+  Inspect the delivered frame: a completed timeline and visible Label property
+  do not prove visible output. Use a demonstrated obscured frame as a negative
+  control when adding optical checks.
 - **Shared resources and lifecycle:** duplicate only when local ownership needs
   it; preserve catalogue defaults, optical tint/alpha/culling and teardown
   restoration. Cache lifetime must follow the actual owner. Strong restoration
