@@ -3271,3 +3271,13 @@ is needed; canonical will combine controller/composed checks with its next
 necessary bridge cohort after separate native/loaded review.
 
 BLOCKED for merge: new-pair controller/composed qualification remains.
+
+Portable **narrow_neighbors_native_isolated_review.zip** now indexes the frozen
+**a06ad398** construction checkpoint: **167 members/37,633,793 bytes**,
+SHA256 **d98d8d10cf99984dc9546087fa316c003e1f9c89a97e5429b00c63b2c7c73c40**.
+It retains42 actual inspected native/loaded images,original failures and sight
+rays,raw timing samples,source-bound wrapper logs/receipts and frozen producer
+sources. Reference photographs,PDFs and duplicate production meshes are excluded.
+The included nearby controller-fit guide is INERT; its starts/landing targets
+still require actual unfiltered support/full-capsule and traversal checks.
+All member bytes and ZIP CRCs were verified; no runtime receipt was repinned.
