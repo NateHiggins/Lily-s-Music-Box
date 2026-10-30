@@ -2863,3 +2863,14 @@ physical run refused stale dependent-native bindings before world startup.
 Canonical preserved the refusal and replayed owning natives, with five GLBs and
 541 mesh payloads exact, before its next physical run. Building count remains17
 qualified/132 open until source-bound composed qualification is complete.
+
+
+Own NE3/4 provenance follow-up: closure→near→lower→streets replay completed.
+All five GLB payloads remain byte-for-byte identical to frozen **fe64e85b**,
+with335 consumed height records/25 street cuts equal. Four native fixture
+preflights pass; reviewed native frames are reused by exact payload identity.
+The first setup named a nonexistent closure GLB; its failure is preserved and
+the exact pre-replay baseline was recovered from the previously clean frozen
+Git blobs (actual owner **city_shells.glb**), not from in-progress outputs.
+No test-written runtime receipt was repinned. Main/tank reconciliation and first
+new-pair loaded engine checks remain pending. This still grants no qualification.
