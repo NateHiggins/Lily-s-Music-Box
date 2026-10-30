@@ -141,8 +141,16 @@ func run() -> void:
 			RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_SURFACE),clip.cutaway.age if is_instance_valid(clip.cutaway) else -1.0]);last=now
 	check(saw_cutaway and held_correctly,"natural sky hands directly into historical cutaway while the authoritative clock stays present")
 	check(not clip.active and not clip.holding and director.state.phase=="prologue_complete" and director.state.effects.clock_applied,"natural cinematic and17-second ending finish through their authoritative owners")
-	var arrival_drift:=fposmod(CampaignWeather.clock_seconds(clock)-float(target.utc_unix_seconds-18000),float(Opening.LOOP_SECONDS))
-	check(arrival_drift<60.0,"completed scene lands at the fixed annual coordinate and resumes ordinary time, including across the annual seam")
+	var arrival_actual:=CampaignWeather.clock_seconds(clock)
+	var arrival_expected:=float(Opening.annual_destination(target).utc_unix_seconds-18000)
+	# Calendar-minute subtraction loses a few microseconds at this epoch.
+	# Signed circular distance must not turn that rounding into a whole year.
+	var arrival_drift:=wrapf(arrival_actual-arrival_expected,-Opening.LOOP_SECONDS*.5,Opening.LOOP_SECONDS*.5)
+	FileAccess.open(directory.path_join("arrival_clock.json"),FileAccess.WRITE).store_string(JSON.stringify({
+		"evidence_class":"INERT","actual_local_seconds":arrival_actual,"expected_local_seconds":arrival_expected,
+		"raw_difference_seconds":arrival_actual-arrival_expected,"signed_loop_difference_seconds":arrival_drift,
+		"clock":RealityState.data.campaign_clock.duplicate(true),"target":target},"\t"))
+	check(arrival_drift>=-.0001 and arrival_drift<60.0,"completed scene lands at the fixed annual coordinate and resumes ordinary time, including across the annual seam")
 	check(world.process_mode==mode and player.text_input_owner==null and player.camera.is_current(),"natural completion returns camera/input/world control")
 	FileAccess.open(directory.path_join("publication_costs.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","samples":clip.sample_costs,"finish":clip.finish_costs,"scope":"synchronous cinematic publication cost; not a playable movement profile"},"\t"))
 	FileAccess.open(directory.path_join("frame_times.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","samples":frame_times,"viewport":str(get_viewport().size),"msaa_3d":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"fps_cap":Engine.max_fps,"vsync":DisplayServer.window_get_vsync_mode(),"engine":Engine.get_version_info(),"target":target,"scope":"uninterrupted optical cinematic only; no PNG readback within this trace; main-viewport CPU/GPU times exclude private viewports"},"\t"))

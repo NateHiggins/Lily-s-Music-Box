@@ -124,6 +124,9 @@ readability, and feel.
   shutdown and preserve foreign input/camera ownership. Test each transient
   phase owner: DREAM recovery does not establish synchronization or title retry.
   A camera-only successor needs protection even when no text editor is active.
+  For floating-point annual/seam checks, retain raw values and use signed cyclic
+  distance with an explicit precision tolerance; positive modulo can turn a
+  microsecond rounding error into an apparent full-year offset.
 - **Clock coordinates:** separate reversible calendar presentation from
   monotonic elapsed/deadline counters. An annual civil loop must not wrap a
   service deadline. Derive paper, sky and adopted destination from one immutable
