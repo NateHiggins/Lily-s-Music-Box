@@ -138,6 +138,9 @@ product proof, not another spine rewrite.
 
 - **K-V2-RESIDENT-CLOSURE — Canonical Codex and resident-route owner where confirmed: reconcile V1-derived heroes and simultaneous preferred bar places with current V2 attendance.** Eighteen-model/idle and bar-approach family preflight exists; it does not prove all residents navigate or socialize in production. Preserve merged Juno/Nadia routes (PR85) and isolated draft PR53 Rhea/Guests work; establish ownership before integration, then verify actual navigation, distinct places/circulation, conversations, materials, saves and measured crowd cost. [Family proof and limits](design/V2_RESIDENT_CAST_AND_BAR_PLACES_2026-10-24.md). Do not infer an active owner from a branch's existence.
 
+- **K-V2-BACKGROUND-STICKFIGURES — Unclaimed: populate streets and shops with anonymous stick-figure pedestrians and visitors.** Owner direction2026-10-30: reuse the player's child-drawing/stick-figure model with varied walking,idling,browsing and shop-entry/exit animations; keep named residents' distinct models so they stand out in the deliberately surreal crowd. Schedule after current prologue/voice priorities. Reuse existing navigation,shop hours,streaming and crowd/LOD ownership where available; background fill must not create named residents,story witnesses,inventory or quest facts. Budget density,animation and collision from measured occupied-world cost; preserve player passage and existing resident routes. Verify street/shop transitions,occlusion and frame-time tails with a focused route. No implementation or acceptance yet; no deadline.
+
+
 ## D — Unresolved decisions and integration
 
 **D1–D4** travel with the deferred studio brief below. **D5** was answered by the
