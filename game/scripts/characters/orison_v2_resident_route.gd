@@ -218,7 +218,10 @@ func _physics_process(delta: float) -> void:
 	query.exclude = [world.player.get_rid()]
 	var obstacles := space.intersect_shape(query,1)
 	if not obstacles.is_empty():
-		blocked_reason = "capsule blocked by %s at %v" % [obstacles[0].collider.get_path(),next]
+		var obstacle: Node3D = obstacles[0].collider
+		var root: Node3D = world.adapter.root
+		blocked_reason = "capsule blocked by %s (%s, route %v) at %v, route %v" % [obstacle.get_path(),
+				obstacle.get_class(),root.to_local(obstacle.global_position),next,root.to_local(next)]
 		_blocked(delta)
 		return
 	actor.global_position = next
