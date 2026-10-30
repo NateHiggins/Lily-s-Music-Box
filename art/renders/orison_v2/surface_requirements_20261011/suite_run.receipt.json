@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 1064.17,
+  "elapsed_s": 1056.33,
   "exit_code": 0,
-  "finished_utc": "2026-10-30T05:46:57Z",
-  "started_utc": "2026-10-30T05:29:12Z",
+  "finished_utc": "2026-10-30T08:03:35Z",
+  "started_utc": "2026-10-30T07:45:58Z",
   "timed_out": false
  },
  "log": {
@@ -13,52 +13,52 @@
   "fail_lines": [],
   "pass_count": 1,
   "pass_lines": [
-   "V2 SURFACE QUALIFICATION: PASS; 40981 checks; 0 failures"
+   "V2 SURFACE QUALIFICATION: PASS; 44221 checks; 0 failures"
   ],
   "script_error_count": 0,
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/prologue_20261028/candidate_surface/current.log.stderr",
+  "stderr": "C:/ov/reports/prologue_20261028/combined_qualification/surface.log.stderr",
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout": "C:/ov/reports/prologue_20261028/candidate_surface/current.log",
-  "stdout_sha256": "8919c2e44e0e149517e9f44c0b82c82553bb8d795efe9bf630ebac1a1ea14751"
+  "stdout": "C:/ov/reports/prologue_20261028/combined_qualification/surface.log",
+  "stdout_sha256": "b56521760558765b868328a113997cfabc67b1bda663dd51505c3624554c0534"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/prologue_20261028/candidate_surface/current",
+ "shot_dir": "C:\\ov\\reports\\prologue_20261028\\combined_qualification\\surface",
  "source": {
-  "dirty_paths": 639,
+  "dirty_paths": 653,
   "dirty_sample": [
    "M game/assets/building/floor_03.gltf",
+   " M game/assets/building/textures/T_ai_materials_weather_frog_skin_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_weather_frog_skin_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_weather_frog_skin_rough.png.import",
+   " M game/assets/dream/microscopy/tardigrade_membrane/albedo.png.import",
+   " M game/assets/dream/microscopy/tardigrade_membrane/normal.png.import",
+   " M game/assets/dream/microscopy/tardigrade_membrane/roughness.png.import",
+   " M game/assets/dream/microscopy/tardigrade_mineral/albedo.png.import",
+   " M game/assets/dream/microscopy/tardigrade_mineral/normal.png.import",
+   " M game/assets/dream/microscopy/tardigrade_mineral/roughness.png.import",
+   " M game/assets/dream/microscopy/tardigrade_organ/albedo.png.import",
+   " M game/assets/dream/microscopy/tardigrade_organ/normal.png.import",
+   " M game/assets/dream/microscopy/tardigrade_organ/roughness.png.import",
+   " M game/assets/environment/moon_lola_height.png.import",
+   " M game/assets/environment/moon_lroc_4k.jpg.import",
    "?? .codex-attachments/",
    "?? game/native/hose_math/hose_math.gdextension.uid",
    "?? game/scripts/building/WeatherManager.gd.uid",
    "?? game/scripts/building/living_sky.gd.uid",
-   "?? game/scripts/building/orison_v2_acoustic_flue.gd.uid",
-   "?? game/scripts/building/orison_v2_acoustic_heating.gd.uid",
-   "?? game/scripts/building/orison_v2_acoustic_topology.gd.uid",
-   "?? game/scripts/building/orison_v2_arcade_fabric.gd.uid",
-   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
-   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
-   "?? game/scripts/building/orison_v2_basement.gd.uid",
-   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
-   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
-   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid",
-   "?? game/scripts/building/orison_v2_bookshelf.gd.uid",
-   "?? game/scripts/building/orison_v2_bookshelves.gd.uid",
-   "?? game/scripts/building/orison_v2_c_stove_stack.gd.uid",
-   "?? game/scripts/building/orison_v2_cab_controls.gd.uid",
-   "?? game/scripts/building/orison_v2_cage_light_apertures.gd.uid"
+   "?? game/scripts/building/orison_v2_acoustic_flue.gd.uid"
   ],
-  "repository_head": "0b626c7711c7263b88cbe6f56f5edef22b86dc66",
-  "repository_tree": "c863b30cfb8891fa68583e726d6b12051d92b416",
-  "runtime_inputs_sha256": "384e133cb24233e72ab3496720dc406ca6516cb4d744cb2ba4289e87f79af1ef",
+  "repository_head": "f916b0cbbdba3631caef0fd8751a96b73592a663",
+  "repository_tree": "afffeb3089a6a45b49e9f37fccdd5cc23be6614e",
+  "runtime_inputs_sha256": "6ffadd49e3c0781cb62cc620c2f25b860e79386f615891a167ffa8cee0402996",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
-  "test_sha256": "a1dc59193ef170d2488917cad20044c7969aeab8d215b6bf264eca451d239192"
+  "test_sha256": "8450a458e4c4852261b70249452b587b71d5109112764a021262c5c4ca64bcdb"
  },
  "windowed": true
 }

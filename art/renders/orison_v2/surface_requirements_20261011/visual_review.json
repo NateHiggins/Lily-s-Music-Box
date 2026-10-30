@@ -1,53 +1,63 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "surface_inputs_sha256": "bcbccf3e50c91413e4a800149cc98b55231308815e114ab51184281c3c116fd8",
   "images": [
     {
       "file": "city_street_skyline.png",
-      "sha256": "dde8e8e1649d6aeb9dd8e91dfa14a281ab7e0e33dd426f41cba346aaff5d044b",
-      "observation": "Current canonical street view shows brick courses, stone window surrounds, slatted blinds, canopy, lamp and roof tank. Separate expanded-city branch is not included or accepted here."
+      "sha256": "6620fb9bb1df99affb47b5f0db14fec9940b46c44922bc6bf450e17295f13612",
+      "observation": "Current combined street view shows brick relief, stone sill/lintel stock, separate slatted blinds, canopy, lamp and rooftop tank. This posed view does not prove city access, NPC routes or facade artistic acceptance."
     },
     {
-      "file": "city_weather_storm.png",
-      "sha256": "00f3a9986f793a86f6b2533d954075ce19cfa18f86813c2270dded0ff31ac6d7",
-      "observation": "Roof tanks, aerials and near silhouettes remain readable beneath the grey/sepia ceiling. The flat storm appearance does not establish dramatic or annual weather artistic acceptance."
+      "file": "city_east_roof.png",
+      "sha256": "ac51ec530fb2652908d4c8693df0fa16e35cb43bee5c9f723b462768838ede06",
+      "observation": "Rooftop tanks and aerials are visible against broad pale cloud sheets. Cloud relief is weak in this view; it does not demonstrate painterly cloud-depth or annual-weather acceptance."
     },
     {
-      "file": "front_gallery_05.png",
-      "sha256": "21e82e1d949623e4a2e25379db7b0a29d72154d60944954d291bbb88b249aff3",
-      "observation": "Four window/blind assemblies, continuous timber wainscot, benches and ceiling fittings are present. Bright practicals remain; this is loaded surface review, not final lighting acceptance."
-    },
-    {
-      "file": "street_paving.png",
-      "sha256": "5003d7c83c501be33f2a9996f27f6997083c1e56772666285666011959760f0b",
-      "observation": "Paving, wall, drainpipe and scaffold footings are visible together; no obvious open gap is visible at this station. Expanded city access and traffic remain separate qualifications."
+      "file": "city_west_roof.png",
+      "sha256": "e3a8aff0ace4bd22b00fdf2ab37e4c44acf15cea605a33764b92a8a42042fd81",
+      "observation": "Near roof tank/aerial/chimney silhouettes and the background building grid are visible. Generic distant window repetition remains visible; this is not final city diversity or LOD-transition acceptance."
     },
     {
       "file": "front_restored_entrance.png",
-      "sha256": "fd378cf342374490dce589bb558f6f562cce3b73c2c624d57b1f4bdea710a616",
-      "observation": "Installed carved door, brass hardware, stone arch, canopy and retained lettering are visible together. This replaces the previous review wording that the entrance candidate was not installed; facade/window and artistic acceptance remain open."
+      "sha256": "b1b36293219ec4a69dbd4e4b7ed612ff5013b93a392c602f560233b032a91f03",
+      "observation": "Installed carved leaf, brass pull/mail slot, stone arch, canopy and retained Orison signage are visible together. The leaf is dark in this lighting; full facade/window composition and artistic acceptance remain open."
+    },
+    {
+      "file": "front_gallery_05.png",
+      "sha256": "3f80ee1b683e6ef0777fb240eb44a44e8d1fce4f4d266d800819c20410ace57b",
+      "observation": "Four window/blind/curtain assemblies, continuous timber wainscot, benches, conduits and ceiling fittings are present. Strong practical-light ceiling hotspots remain; this does not grant lighting acceptance."
+    },
+    {
+      "file": "city_weather_storm.png",
+      "sha256": "6c6b660d9a152186cdbd7b068608707526a30e365e18bb631f3d58cb4b12bfb8",
+      "observation": "Roof tanks/aerials and distant outlines remain visible below a nearly uniform grey/sepia ceiling. Convincing storm-cloud relief is not demonstrated; dramatic and whole-year artistic qualification remain open."
+    },
+    {
+      "file": "street_paving.png",
+      "sha256": "70e7ce0bafc4b938b2e19c3e436882a0bf372f5da52c36efac6732db52d403be",
+      "observation": "Combined scene shows scored concrete paving, kerb/road, retained drainpipe and scaffold feet under the expanded elevated structure. No obvious open seam is visible from this stance; collision and continuous walking remain separate evidence."
     },
     {
       "file": "public_arcade_hall.png",
-      "sha256": "7805d33249aa3998aeba9b1f0e6ac058be9d9776b6bdfe00a83fd8d86e8f681f",
-      "observation": "Shopfront glazing, brick, stone piers, lower joinery, signs and roof structure remain visible with coloured light and shadows. This image does not prove commerce, door input or continuous circulation."
-    },
-    {
-      "file": "tile_F02_A_BATH_corner.png",
-      "sha256": "8d6e9c62f3a11372d2b5b0ccd1349e3ff93ec540456b8405e169cf118876ff0c",
-      "observation": "Tile termination beside the door, exposed sink fittings, floor hexagons, cloth, rail and rings are visible. Mirror state and other bathrooms retain separate interaction and artistic review."
+      "sha256": "08eec45d95f5cc25ea67570c7a4afc61d6cea867775e8a4d3f49b1cce043b289",
+      "observation": "Composed arcade glazing, brick, stone piers, wainscot, signs and overhead ironwork are visible under coloured lighting. This image alone does not prove shop interaction, circulation, lighting polish or artistic acceptance."
     },
     {
       "file": "4B_wake_bed_bedding_0.png",
-      "sha256": "3d1f8bb6711703a262df5a126a57771a346b7a2fff1be1903ae2ade265ccb449",
-      "observation": "Installed waking bed, mattress, pillows and folded cover show distinct cloth surfaces on the retained frame. This still image is not opening animation or Tardi timing proof."
+      "sha256": "e2f7229c01ec35ae1e5fc5cab889e49adc0b40a035ee527bc82f4676d850a26f",
+      "observation": "Installed 4B waking bed frame, mattress, pillows and cover show separate cloth surfaces with visible folds and contacts. A still frame does not qualify waking motion, creature timing or full opening interaction."
+    },
+    {
+      "file": "tile_F02_A_BATH_corner.png",
+      "sha256": "1e5e4485eb1aa4ab26f3ba3101f42e7076fca33965bc586ee34b26157ada3639",
+      "observation": "2A bathroom shows half-height tile with termination beside the door frame, hexagonal floor, separate sink fittings, cloth, shower rail and rings. This posed corner does not qualify wet-state mirrors, physical controls or artistic lighting."
     },
     {
       "file": "tile_F04_B_BATH_corner.png",
-      "sha256": "5c8f75c7af30a7a225c04cad9ea8ce4082e2cf83cc075f0c6b87789614528377",
-      "observation": "Current 4B tub edge, separate shower curtain, rail/rings, wall plumbing, wainscot termination and raised switch are visible. No mechanism or whole-room artistic acceptance is inferred."
+      "sha256": "833f1da3de1aab750d8ba4f3f0e98662d87c77d3e28efee7910435b1014b383c",
+      "observation": "Current4B corner shows the tub edge, separate shower/window curtains, rail/rings, exposed plumbing, tile border and switch wholly above the tile termination. Curtain motion, mirror viewing and whole-room atmosphere require their actual input review."
     }
   ],
-  "limits": "Nine actual current composed technical observations; not human acceptance, whole-opening input/save qualification or full V2 completion. Companion paper/keyboard retains separate prior reviewed evidence; no old images copied into this packet."
+  "limits": "Eleven individually inspected current composed technical observations; atmosphere/lighting/window-diversity artistic limits are retained in the image notes. No human acceptance, full-opening input/save proof or whole V2 completion.",
+  "surface_inputs_sha256": "4ed32dc3a3db81c47889a641abca8d1b93843c156c3335a00b10651b03fb889e"
 }
