@@ -173,6 +173,12 @@
       "source_record": "F02_2A_MIRROR_01"
     },
     {
+      "id": "MedicineLeftDown6",
+      "kind": "medicine_mount",
+      "cell": "shared",
+      "source_record": "F04_4B_MIRROR_01"
+    },
+    {
       "id": "MedicineItem_aspirin",
       "kind": "cabinet_item",
       "cell": "shared",
@@ -1135,6 +1141,18 @@
       "volume_m3": 3.7605662561258357e-06
     },
     {
+      "name": "MedicineLeftDown6_TaperedWallRail-0.15",
+      "assembly": "MedicineLeftDown6",
+      "key": "enamel",
+      "volume_m3": 0.0004468613438362971
+    },
+    {
+      "name": "MedicineLeftDown6_TaperedWallRail0.15",
+      "assembly": "MedicineLeftDown6",
+      "key": "enamel",
+      "volume_m3": 0.0004468613438362971
+    },
+    {
       "name": "MedicineItem_aspirin_Bottle",
       "assembly": "MedicineItem_aspirin",
       "key": "bottle",
@@ -1491,6 +1509,66 @@
       "label": "original cabinet back"
     },
     {
+      "assembly": "MedicineLeftDown6",
+      "owner": "wall",
+      "point": [
+        -0.15000000596046448,
+        1.2994521856307983,
+        0.068452849984169
+      ],
+      "direction": [
+        0.0,
+        0.10452858358621597,
+        -0.9945218563079834
+      ],
+      "label": "tapered rail on original wall"
+    },
+    {
+      "assembly": "MedicineLeftDown6",
+      "owner": "wall",
+      "point": [
+        -0.15000000596046448,
+        1.6972609758377075,
+        0.11026428639888763
+      ],
+      "direction": [
+        0.0,
+        0.10452858358621597,
+        -0.9945218563079834
+      ],
+      "label": "tapered rail on original wall"
+    },
+    {
+      "assembly": "MedicineLeftDown6",
+      "owner": "wall",
+      "point": [
+        0.15000000596046448,
+        1.2994521856307983,
+        0.068452849984169
+      ],
+      "direction": [
+        0.0,
+        0.10452858358621597,
+        -0.9945218563079834
+      ],
+      "label": "tapered rail on original wall"
+    },
+    {
+      "assembly": "MedicineLeftDown6",
+      "owner": "wall",
+      "point": [
+        0.15000000596046448,
+        1.6972609758377075,
+        0.11026428639888763
+      ],
+      "direction": [
+        0.0,
+        0.10452858358621597,
+        -0.9945218563079834
+      ],
+      "label": "tapered rail on original wall"
+    },
+    {
       "assembly": "MedicineItem_aspirin",
       "owner": "support",
       "point": [
@@ -1756,6 +1834,13 @@
       "triangles": 188
     },
     {
+      "name": "MedicineLeftDown6__Body_ON_enamel",
+      "assembly": "MedicineLeftDown6",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 24
+    },
+    {
       "name": "MedicineItem_aspirin__Body_ON_bakelite",
       "assembly": "MedicineItem_aspirin",
       "cell": "shared",
@@ -1889,7 +1974,7 @@
       "triangles": 384
     }
   ],
-  "triangles": 48260,
+  "triangles": 48284,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -2069,6 +2154,110 @@
             "key": "mirror",
             "tile": 0.55,
             "catalog_key": "mirror_aged",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineLeftDown6",
+        "parts": [
+          {
+            "name": "MedicineLeft__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineLeft__Body_ON_glassish",
+            "component": "Body",
+            "key": "glassish",
+            "tile": 1.6,
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "MedicineLeft__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineLeft__CabinetDoor_ON_bakelite",
+            "component": "CabinetDoor",
+            "key": "bakelite",
+            "tile": 0.04,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 1.0,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "MedicineLeft__CabinetDoor_ON_enamel",
+            "component": "CabinetDoor",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineLeft__CabinetDoor_ON_nickel",
+            "component": "CabinetDoor",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineLeft__Mirror_ON_mirror",
+            "component": "Mirror",
+            "key": "mirror",
+            "tile": 0.55,
+            "catalog_key": "mirror_aged",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineLeftDown6__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
             "finish": {
               "normal_scale": 0.025,
               "roughness": 0.35
@@ -2503,7 +2692,7 @@
       },
       {
         "id": "F04_4B_MIRROR_01",
-        "variant": "MedicineLeft"
+        "variant": "MedicineLeftDown6"
       },
       {
         "id": "F05_5A_MIRROR_01",
@@ -2531,6 +2720,17 @@
       }
     ],
     "tint_space": "linear",
+    "mounts": {
+      "F04_4B_MIRROR_01": {
+        "pitch_degrees": -6,
+        "pivot": [
+          0,
+          1.2,
+          0.058
+        ],
+        "rise": 0.03
+      }
+    },
     "local_materials": {
       "glassish": {
         "files": [
@@ -2557,17 +2757,17 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "52595584e3ffe41088696f4e97e2586f8e39bc90e1688edbd6e4235e5f178108",
+  "asset_sha256": "9b10805dd54a517cbfd87cdd2b28748b351cee4efbccb2b0bf0ab3b980077a28",
   "source_bindings": {
-    "art/data/medicine_cabinets/source_plan.json": "d68862aa903f9b9cb83cac308cbe203724d66fd8a32fc27f2d6787ac1801dbcf",
+    "art/data/medicine_cabinets/source_plan.json": "211ad2e069893bd0b36de651c0edda00b9489f77301bd93e1464c44aea7da7c0",
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
-    "art/blender/scripts/build_medicine_cabinets.py": "7ce6b6f2534e0a219e41fc0eede498ccf1eb437794ee41294fb2af5e3feda181",
+    "art/blender/scripts/build_medicine_cabinets.py": "39d1c8b6600690ecd22a242951847ecff1682cfc696a912b83add308acb36407",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
-    "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916",
-    "game/scripts/generated/material_sets.gd": "d5bce039ca146345d9f698d9654389973ae2d49a6d7d002ac00f8bb5d7cf8fe4",
+    "game/data/runtime_material_sets.json": "053761fac29499e8bc9a80a62f37d7411226157919b5cdc5421b9686569d38cc",
+    "game/scripts/generated/material_sets.gd": "4020c5ea404ef8551b59abe5cdd87ac48759141f0fe87de9d7c8c4aa9b79d038",
     "game/assets/props/medicine_cabinets.glb.import": "537d80d39f99973a02f436e34ab9929d0cbafa2ec486ad20ef3d263c54ff7f9f",
     "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
     "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
@@ -2600,13 +2800,13 @@
     "game/assets/building/textures/T_library_furniture_porcelain_normal.png": "800359566e5913a649d47b0d243cd872d6810b9c75f7311611965bf422092559",
     "game/assets/building/textures/T_glass_rough.png": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
     "game/assets/building/textures/T_glass_normal.png": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
-    "art/tools/fix_runtime_texture_imports.py": "e9494ea48ff8dc04bbacbd5b04620b6f987a1b8c44a2cc365b6438dbf7dca6fd",
-    "art/data/material_catalog.json": "153538df6eb5f3284fb4dd961597803b1b96de2184ae4c4739440953bb1fd5ca",
-    "art/textures/catalog_mapping.json": "1fde8f0d1d9980d292e4a99b7af1e3b7274299a68451214fe2efbe6c518f36d8",
-    "art/tools/generate_runtime_materials.py": "12415cb6c99635eaf249dec6dd52dde31ac1748a268265f0e351ac5be45255bd",
+    "art/tools/fix_runtime_texture_imports.py": "69dae9abce69f0e14d477f32e4f6e2d02eb05df299a5f04c3a5aff684a6c416c",
+    "art/data/material_catalog.json": "b43c41c8b75918f3feafbd6298125c598a78e99bcb11df81d7b63d375512c381",
+    "art/textures/catalog_mapping.json": "001534e79873af692528dee9bf5e160c633befed62a35a9e2f0b6335170a9022",
+    "art/tools/generate_runtime_materials.py": "f7bc8aa53f00b99e6a3bf6840a2c69b982acbcde2b1ee2c323ae99a2a7aebfd1",
     "art/blender/scripts/inspect_medicine_cabinets.py": "ca2895c7295eb8075d4e525db635bb23f692540083bf64188d212076f122debe",
-    "art/blender/scripts/render_medicine_cabinets.py": "e2672c4422c6168500211bb127dc78f3e16033480b20869cd7e6c8485fc4c07a",
-    "art/blender/scripts/medicine_cabinets_geometry.py": "591e5c615c2b1144763f92dba160f6fca0d469817049f7ea0331026dc860d7ba",
+    "art/blender/scripts/render_medicine_cabinets.py": "0e8c86f3758ac537e41042ddfab5162a6eb1a69f9678969b67fa88bd508eb98a",
+    "art/blender/scripts/medicine_cabinets_geometry.py": "1d40785a86b3fab574b84a90cc1a88b6e976383644a9e6da156ec63c7d58b2c4",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "game/data/orison_v2/domestic_furniture.json": "cc91252a2630d26b2632f5e266350378a321f0646e859367346b848b711d4c93",
     "game/data/orison_v2/completion_interiors.json": "ad4c99dd215a65ea7a9798ae2fa30ef683e7292811526796fbe99d5aa82de97c",
@@ -2616,9 +2816,9 @@
     "game/shaders/lamp_glass_surface.gdshader": "b17cfda6b765fd72c3509eacda38bce4ed33ac3f3a588bdbfaa012931b3c24c8",
     "art/blender/scripts/inspect_household_toaster_motion.py": "9019c8b4a08f01cd6e80f582ad5d76813eb11452db98a74c1a9782ad25553bb8",
     "art/blender/scripts/render_medicine_cabinet_interiors.py": "1a5f7d76c7bb7a660fa5a74aaf589ea3a560d805e5221f94588d7e0b1af43e2a",
-    "art/blender/scripts/inspect_medicine_cabinet_motion.py": "43161df45bf2ed3b3dec753c00ba592bc523b281d997837135dfd9f5d02b90cc",
-    "art/blender/scripts/inspect_medicine_cabinets_context.py": "6b426ed36fa3d7e5d275f2ad81164e01e5ee0b3f0910fc22bd70fcf0f11f7295",
-    "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
+    "art/blender/scripts/inspect_medicine_cabinet_motion.py": "10b0a82f0a5a13d6b7478f16631a96e1bd37226616609de4452ad40108d927d5",
+    "art/blender/scripts/inspect_medicine_cabinets_context.py": "2e8926edf0610cfeebd870d37e9fd62c07941f455ebb31cfb270eaac686dc121",
+    "game/data/orison_v2_blockout.json": "6e00cca60be64c26bbc46013ffaf7550963ee988614fc38e2c2a9c0474df0630",
     "art/blender/work_tables.blend": "ef7682bb04de1c1569eed3ab33b2e33636dde6d555adf2e4696b962fd18711a0",
     "game/data/orison_v2/domestic_surface_props.json": "20ec7e5a42f4db8d81db0eb63707b59aaa1eeafa053e8881d38d30800552acae",
     "game/tests/fixtures/orison_surface_stock.json": "3572b79b0f0d0e55f01ccae49a477ffc812bc9c3bc13a187c1421ffec19b7a97",
@@ -2626,7 +2826,7 @@
     "art/blender/prep_cabinets.blend": "6f0d2baeab5fc4ac8be675be9c2f3373e0cf93e1d87dfaeaba699a669ffa9754",
     "art/blender/household_wardrobes.blend": "94cacaf3169b9f7bd755b7483d8bb4d1abafcf9a12834cc95313affe702ca2da",
     "art/blender/domestic_objects.blend": "b57a08c58f62b51c423e8efb0a8305165fc687ee5cad6c43e00d7bd3a15436c2",
-    "game/scripts/props/medicine_cabinet_prop.gd": "a3c5ff8a692895bc7c7627903b82695a14b5beb1e190cba7b01c9e5bce46b540",
+    "game/scripts/props/medicine_cabinet_prop.gd": "be726141e605578712884880b6491e216f7e85d7b2e9899dd53b50a1083e79c9",
     "game/scripts/props/functional_prop.gd": "eac077969d96b0c8f5c099e549d23df52a44c217119de8d6de42821a3854eb51",
     "game/data/orison_v2/household_accessories.json": "cb5a8580d11fedac2fe7a0b1ae6dfaa82421803b9b7d3c2abc666e81c0ff1a32",
     "art/blender/scripts/surface_stock_geometry.py": "d7be3aa02882d35e512e23fe2a719916833095ac347c4cffe865482b77a367a1",
@@ -2963,6 +3163,20 @@
         "MedicineRight_MovingKnuckle1.688",
         "MedicineRight_Pull",
         "MedicineRight_FrictionCatch"
+      ]
+    },
+    {
+      "assembly": "MedicineLeftDown6",
+      "id": "MedicineLeftDown6_TaperedWallRail-0.15",
+      "stocks": [
+        "MedicineLeftDown6_TaperedWallRail-0.15"
+      ]
+    },
+    {
+      "assembly": "MedicineLeftDown6",
+      "id": "MedicineLeftDown6_TaperedWallRail0.15",
+      "stocks": [
+        "MedicineLeftDown6_TaperedWallRail0.15"
       ]
     },
     {

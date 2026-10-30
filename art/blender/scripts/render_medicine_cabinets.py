@@ -1,7 +1,7 @@
 """Neutral native inspection of every distinct household/studio object."""
 from pathlib import Path
 import bpy,json,math,os
-from mathutils import Vector
+from mathutils import Vector, Matrix
 r=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file());out=r/'tmp/v2-finish-review/medicine-cabinets-native';out.mkdir(exist_ok=True)
 plan=json.loads((r/'art/data/medicine_cabinets/source_plan.json').read_text(encoding='utf-8'));bpy.ops.wm.open_mainfile(filepath=str(r/'art/blender/medicine_cabinets.blend'));scene=bpy.context.scene
 draws=[o for o in scene.objects if o.type=='MESH' and '__' in o.name and not o.hide_render]
@@ -14,12 +14,16 @@ bpy.ops.mesh.primitive_plane_add(size=10,rotation=(math.pi/2,0,0));wall=bpy.cont
 views=[]
 for row in plan['variants']:
  if os.environ.get('MEDICINE_CABINETS_RENDER_IDS') and row['id'] not in os.environ['MEDICINE_CABINETS_RENDER_IDS'].split(','):continue
- identity=row['id'];selected=[o for o in draws if o.name.startswith(identity+'__')]
+ identity=row['id'];selected=[o for o in draws if o.name.startswith(identity+'__') or (row.get('base_variant') and o.name.startswith(row['base_variant']+'__'))]
  for obj in draws:obj.hide_render=obj not in selected
- wall.hide_render=row['kind']!='medicine_cabinet';ground.hide_render=not wall.hide_render
+ if row.get('wall_pitch_degrees'):
+  pivot=Vector((0,-.058,1.20));mount=Matrix.Translation((0,0,.03))@Matrix.Translation(pivot)@Matrix.Rotation(math.radians(row['wall_pitch_degrees']),4,'X')@Matrix.Translation(-pivot)
+  for obj in selected:obj.matrix_world=mount@obj.matrix_world
+ bpy.context.view_layer.update()
+ wall.hide_render=row['kind'] not in ['medicine_cabinet','medicine_mount'];ground.hide_render=not wall.hide_render
  if not wall.hide_render:wall.location=(0,-.05804,1.505)
  points=[o.matrix_world@v.co for o in selected for v in o.data.vertices];low=Vector(tuple(min(p[i] for p in points) for i in range(3)));high=Vector(tuple(max(p[i] for p in points) for i in range(3)));center=(low+high)*.5;span=max(high-low)
- direction=Vector((1.3,3.,.7) if row['kind']=='medicine_cabinet' else (1.3,3.,2.)).normalized()
+ direction=Vector((1.3,3.,.7) if row['kind'] in ['medicine_cabinet','medicine_mount'] else (1.3,3.,2.)).normalized()
  if row['kind'] in ['pinboard','toolboard']:direction=Vector((.3,3,.4)).normalized()
  elif row['kind']=='softbox':direction=Vector((1.3,3.5,.1)).normalized()
  eye=center+direction*max(span*2.1,.025)

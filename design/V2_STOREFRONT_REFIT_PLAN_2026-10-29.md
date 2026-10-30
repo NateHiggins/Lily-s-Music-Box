@@ -4,6 +4,31 @@ Evidence class: **INERT**. A plan for building the six reference cards in
 **C:/ov/reports/storefront_research_20261028** (REFERENCE_CARDS.md, dated
 2026-10-28). Nothing here is built, rendered or accepted.
 
+## October30 intake and coordination
+
+The reference cards and **sources.md** have been read with the entrance audit
+and current installed sources. Of19 research source records,15 remain identical
+after LF normalization; the four changes are instructions/Bible/city reporting,
+not the packet's storefront geometry/owner sources. Historical dates, inaccessible
+images and estimated dimensions retain their original uncertainty labels.
+The current entrance portal is newer than the facade packet's baseline; see
+**V2_FRONT_ENTRANCE_REMODEL_2026-10-27.md** for that reconciliation.
+
+Proposed compact batch: first survey the six existing frontages and their exact
+retirement boundaries; prove the shared profiles on Otis & Son; then reuse them
+for Luncheonette, Hardware & Paint and News & Cigars. Extend the existing bodega
+builder for its street awning and finish with Harukiya's restrained surround.
+Keep the bodega and bar on the street and all four arcade shops inside Vantry.
+No new shop mechanics, rooms or playable interiors. Reuse existing doors, counter
+displays, globes, stools, papers, glass and catalogue finishes rather than
+rebuilding functioning apparatus. The entrance/window repair and ongoing
+background-city work must agree on shared ground and support envelopes first.
+
+Recommended unresolved choices: reuse a suitable registered cloth initially,
+propose dark green for the grocery, and omit the optional news hatch unless it
+can demonstrably preserve the live counter approach. These are proposed artistic
+defaults, not approved new catalogue stock or a commission to begin rebuilding.
+
 ## 1. Scope
 
 The cards cover six existing frontages. None moves, and none gains gameplay:
@@ -89,12 +114,14 @@ per **art/blender/v2_batch_workflow.md**.
 
 - Native Blender renders and the inspect script.
 - One windowed Godot capture batch for the slice.
-- **OrisonV2SurfaceInventory**: no new unresolved surfaces.
-- Route tests crossing the changed frontage:
+- A small imported family bench checks changed surfaces, loaded maps and
+  contacts; reuse unchanged family evidence. Renew the complete surface packet
+  once at a coherent integration checkpoint, not after every slice.
+- Short actual-controller/input segments crossing the changed frontage:
   - arcade shop routes and the public doors;
   - the resident key route (News & Cigars);
   - the bodega route and **OrisonV2RouteProbe** for every registered
-    resident with a "bodega" place.
+    resident with a "bodega" place whose approach is affected.
 - The spatial manifest regenerated as LF, and the reader gate at NEW 0.
 - The 17 protected paths and the V2 selector unchanged. The blockout is
   not edited, so the ~30 hash-bound artefacts it would expire stay valid.

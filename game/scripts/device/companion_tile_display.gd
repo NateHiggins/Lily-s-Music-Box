@@ -16,6 +16,8 @@ var _enqueued: Dictionary = {}
 var _credit := 0.0
 var _last_expression := ""
 var _last_mouth := -1
+var _last_blink:=false
+var _last_gaze:=0
 var transform_writes := 0
 var illustration_active := false
 var _click: AudioStreamPlayer3D
@@ -87,21 +89,24 @@ func set_pixels(pixels: PackedByteArray, instant := false) -> bool:
 	set_process(not _waiting.is_empty() or not _active.is_empty())
 	return true
 
-func set_expression(expression: String, openness := 0.0, instant := false) -> void:
+func set_expression(expression: String, openness := 0.0, instant := false, blink:=false,gaze:=0) -> void:
 	var mouth := clampi(int(round(openness * 4.0)), 0, 4)
-	if expression == _last_expression and mouth == _last_mouth and not instant: return
-	var pixels := expression_pixels(expression, mouth / 4.0)
+	gaze=clampi(gaze,-1,1)
+	if expression == _last_expression and mouth == _last_mouth and blink==_last_blink and gaze==_last_gaze and not instant: return
+	var pixels := expression_pixels(expression, mouth / 4.0,blink,gaze)
 	set_pixels(pixels, instant)
 	illustration_active = false
 	_last_expression = expression
 	_last_mouth = mouth
+	_last_blink=blink;_last_gaze=gaze
 
-static func expression_pixels(expression: String, openness := 0.0) -> PackedByteArray:
+static func expression_pixels(expression: String, openness := 0.0,blink:=false,gaze:=0) -> PackedByteArray:
 	var pixels := PackedByteArray()
 	pixels.resize(WIDTH * HEIGHT)
 	for row in HEIGHT:
 		for column in WIDTH:
-			var eye := column in [10, 11, 20, 21] and row in [3, 4]
+			var eye_column:=column-clampi(gaze,-1,1)
+			var eye := eye_column in [10, 11, 20, 21] and row in [3, 4]
 			var mouth := false
 			if expression == "sleeping":
 				eye = row == 4 and (column in [9, 10, 11, 20, 21, 22])
@@ -109,12 +114,28 @@ static func expression_pixels(expression: String, openness := 0.0) -> PackedByte
 			elif expression == "speaking" and openness > .2:
 				var ellipse := pow((column - 15.5) / 5.5, 2.0) + pow((row - 8.5) / (1.0 + openness), 2.0)
 				mouth = ellipse >= .45 and ellipse <= 1.3
+			elif expression == "sympathetic":
+				eye = (row == 4 and eye_column in [9,10,11,20,21,22]) or (row in [5,6] and eye_column in [9,22])
+				mouth = (row == 8 and column in [14,15,16,17]) or (row == 9 and column in [12,13,18,19])
+			elif expression == "grinning":
+				eye = (row == 3 and eye_column in [10,11,20,21]) or (row == 4 and eye_column in [9,12,19,22])
+				mouth = (row in [7,10] and column >= 11 and column <= 20) or (row in [8,9] and column in [10,21])
+			elif expression == "conspiratorial":
+				eye = (row in [3,5] and ((eye_column>=8 and eye_column<=12) or (eye_column>=19 and eye_column<=23))) or (row==4 and eye_column in [8,11,12,19,22,23])
+				mouth = row == 9 and column >= 14 and column <= 19
+			elif expression == "thoughtful":
+				eye = (row==3 and eye_column in [9,10,11,20,21,22]) or (row==4 and eye_column in [9,20])
+				mouth = (row==8 and column in [14,15,16,17]) or (row==9 and column in [13,18]) or (row==10 and column in [22,23,24])
 			elif expression == "worried":
 				mouth = (row == 8 and column >= 12 and column <= 19) or (row == 9 and column in [10, 11, 20, 21]) or (row == 10 and column in [9, 22])
 			elif expression in ["listening", "speaking"]:
 				mouth = row == 8 and column >= 12 and column <= 19
 			else:
 				mouth = (row == 8 and column in [9, 22]) or (row == 9 and column in [10, 11, 20, 21]) or (row == 10 and column >= 12 and column <= 19)
+			if blink:eye=row==4 and eye_column in [9,10,11,20,21,22]
+			if openness>.2 and expression in ["sympathetic","grinning","conspiratorial","thoughtful"]:
+				var ellipse:=pow((column-15.5)/4.5,2.0)+pow((row-8.5)/(1.0+openness),2.0)
+				mouth=ellipse>=.5 and ellipse<=1.25
 			pixels[row * WIDTH + column] = 1 if eye or mouth else 0
 	return pixels
 

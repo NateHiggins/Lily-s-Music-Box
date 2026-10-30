@@ -47,6 +47,20 @@ for obj in loaded.objects:
     # Carry the exact saved bottom plane. Outer worked arrises remain separate.
     profiles.append({'id':obj.name,'native_bounds':bounds,'underside':rect,'underside_faces':faces,
                      'classification':'actual_planar_native_underside'})
+# Re-site the complete passive assembly before fitting to retained occupied stock.
+# The old cutouts are not translated: the ground builder regenerates them from
+# these newly fitted components, filling vacated sites with ordinary grade.
+placement_path=root/'art/data/city_elevations/source_plan.json'
+placements={r['id']:r.get('assembly_translation_m',[0,0,0]) for r in json.loads(placement_path.read_text())['buildings']}
+for profile in profiles:
+    identity=profile['id'].removesuffix('_base0')
+    dx,dy,dz=placements.get(identity,[0,0,0])
+    assert all(math.isfinite(v) for v in [dx,dy,dz])
+    offset=[-dx,dz,dy]
+    profile['native_bounds']=[v+offset[i%3] for i,v in enumerate(profile['native_bounds'])]
+    profile['underside']=[v+offset[0 if i%2==0 else 2] for i,v in enumerate(profile['underside'])]
+    profile['underside_faces']=[[[v+offset[i] for i,v in enumerate(p)] for p in face] for face in profile['underside_faces']]
+    profile['assembly_translation_m']=[dx,dy,dz]
 for index, first in enumerate(profiles):
     a,b,c,d=first['underside']
     for second in profiles[index+1:]:
@@ -198,7 +212,7 @@ io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
 asset=root/'game/assets/props/city_foundations.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',export_yup=True,export_tangents=True,use_selection=True)
 assert ExportUVHandedness.count==len(parts)
-bindings={str(p.relative_to(root)).replace('\\','/'):hashlib.sha256(p.read_bytes() if p.suffix in ['.blend','.glb'] else p.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest() for p in [source,frame_path,layout_path,retained_path,roster_path,sets_path,Path(__file__)]}
+bindings={str(p.relative_to(root)).replace('\\','/'):hashlib.sha256(p.read_bytes() if p.suffix in ['.blend','.glb'] else p.read_text(encoding='utf-8').replace('\r\n','\n').encode()).hexdigest() for p in [source,frame_path,layout_path,retained_path,roster_path,sets_path,placement_path,Path(__file__)]}
 margin=float(roster.get('grade_margin_m',0))
 grid=float(roster.get('grade_grid_m',4))
 assert margin>=0 and grid>0

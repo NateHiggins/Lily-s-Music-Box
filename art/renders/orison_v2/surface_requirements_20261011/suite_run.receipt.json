@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 812.42,
+  "elapsed_s": 280.76,
   "exit_code": 0,
-  "finished_utc": "2026-10-28T15:33:55Z",
-  "started_utc": "2026-10-28T15:20:23Z",
+  "finished_utc": "2026-10-30T14:03:25Z",
+  "started_utc": "2026-10-30T13:58:44Z",
   "timed_out": false
  },
  "log": {
@@ -13,31 +13,52 @@
   "fail_lines": [],
   "pass_count": 1,
   "pass_lines": [
-   "V2 SURFACE QUALIFICATION: PASS; 39427 checks; 0 failures"
+   "V2 SURFACE QUALIFICATION: PASS; 651 checks; 0 failures"
   ],
   "script_error_count": 0,
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/passage_load_attribution_20261028/surface.log.stderr",
+  "stderr": "C:/ov/reports/prologue_20261028/combined_qualification/northwest_register/physical_01.log.stderr",
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout": "C:/ov/reports/passage_load_attribution_20261028/surface.log",
-  "stdout_sha256": "abee11d12dc6905437edf4436f68ba8ada857deca39c4db9017468ff568aaefc"
+  "stdout": "C:/ov/reports/prologue_20261028/combined_qualification/northwest_register/physical_01.log",
+  "stdout_sha256": "7eaaa4051e3044e2bd5248d7a56fff3b43a7310a864d3d370448ee5229e4ff67"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/passage_load_attribution_20261028/surface",
+ "shot_dir": "C:/ov/reports/prologue_20261028/combined_qualification/northwest_register/physical_01",
  "source": {
-  "dirty_paths": 0,
-  "dirty_sample": [],
-  "repository_head": "b6f4307cf4d6ff8b8036abd58e4ecbe676678abe",
-  "repository_tree": "8c39549019ba0321b21209ffca9b7e3057307d5c",
-  "runtime_inputs_sha256": "56dd932665ca732d229a11cea1c4c4546e2b66a2bebc8075e171e3d9b8a855f4",
+  "dirty_paths": 648,
+  "dirty_sample": [
+   "M game/assets/dream/microscopy/tardigrade_membrane/albedo.png.import",
+   " M game/assets/dream/microscopy/tardigrade_membrane/normal.png.import",
+   " M game/assets/dream/microscopy/tardigrade_membrane/roughness.png.import",
+   " M game/assets/dream/microscopy/tardigrade_mineral/albedo.png.import",
+   " M game/assets/dream/microscopy/tardigrade_mineral/normal.png.import",
+   " M game/assets/dream/microscopy/tardigrade_mineral/roughness.png.import",
+   " M game/assets/dream/microscopy/tardigrade_organ/albedo.png.import",
+   " M game/assets/dream/microscopy/tardigrade_organ/normal.png.import",
+   " M game/assets/dream/microscopy/tardigrade_organ/roughness.png.import",
+   "?? .codex-attachments/",
+   "?? game/native/hose_math/hose_math.gdextension.uid",
+   "?? game/scripts/building/WeatherManager.gd.uid",
+   "?? game/scripts/building/living_sky.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_heating.gd.uid",
+   "?? game/scripts/building/orison_v2_acoustic_topology.gd.uid",
+   "?? game/scripts/building/orison_v2_arcade_fabric.gd.uid",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid"
+  ],
+  "repository_head": "26e769e81bc66e97aa9e1c7900575801785d865a",
+  "repository_tree": "9529d50ad491c49acb045a4183cb88415f075b02",
+  "runtime_inputs_sha256": "1a7a885433a93dc19c1e39763ec9d4139c67475f172a32e88c88a6403db56749",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
-  "test_sha256": "a1dc59193ef170d2488917cad20044c7969aeab8d215b6bf264eca451d239192"
+  "test_sha256": "2559e63200d9a9632226cf91ea4d71c5b816609afbeaf6a88318ddb1b17c615e"
  },
  "windowed": true
 }

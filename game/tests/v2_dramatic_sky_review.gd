@@ -33,8 +33,7 @@ func run() -> void:
 	if extension==null:world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	var sky: ShaderMaterial=atmosphere.sky_material
 	check(world.find_children("StormCurtain_*","MeshInstance3D",true,false).is_empty(),"road-end fog cards are absent")
-	var boundary:=world.get_node("StreetBoundaries/RetainedStreetEnds/StreetEndConstructionBoundary")
-	check(not boundary.has_node("WestStormCore") and not boundary.has_node("EastStormCore"),"retired fog has no invisible road collider")
+	check(world.get_node_or_null("StreetBoundaries/RetainedStreetEnds") == null,"retired street-end stock has no invisible road collider")
 	for side in [-1.0,1.0]:
 		var ray:=PhysicsRayQueryParameters3D.create(Vector3(side*19,1.2,9.5),Vector3(side*23,1.2,9.5),1<<20)
 		check(world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(),"old road mouth is physically open")

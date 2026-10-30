@@ -1,8 +1,9 @@
 extends Node
-## The two daily papers, headless: the year loads whole and valid, today's
+## The two daily papers: the year loads whole and valid, today's
 ## date comes off the campaign clock, the rack offers the right days, a paper
 ## taken is kept on the campaign document, the shelf lists it, and the panel
-## builds a front page without a scene.
+## builds a front page without a scene. Run windowed for the actual page-turn
+## input checks; headless viewport geometry is not a playable pointer surface.
 
 var _fails := 0
 
@@ -160,6 +161,8 @@ func _back_page(catalog: NewspaperCatalog) -> void:
 	await get_tree().process_frame
 	_check("a back page curls the sheet's corner", panel._corner.visible and panel.side == "front")
 	var corner: Vector2 = panel._corner.get_global_rect().get_center()
+	print("NEWSPAPER INPUT GEOMETRY ",JSON.stringify({"viewport":str(get_viewport().get_visible_rect()),"corner":str(panel._corner.get_global_rect()),"outside_click":str(Vector2(40,40))}))
+	_check("outside click and corner are distinct visible targets",not panel._corner.get_global_rect().has_point(Vector2(40,40)) and get_viewport().get_visible_rect().has_point(corner))
 	await _press(Vector2(40, 40))
 	_check("a click away from the corner takes nothing", not panel._gripped)
 	await _press(corner)
@@ -178,6 +181,11 @@ func _back_page(catalog: NewspaperCatalog) -> void:
 			and texts.has("A NEWS HEADLINE") and texts.has("A classified body.")
 			and texts.has("One line at the foot."))
 	_check("the front has gone from the sheet", not texts.has("HOOVER WINS BY A HAIR, LOSES BY A WIRE"))
+	var shots:=OS.get_environment("SHOT_DIR")
+	if not shots.is_empty() and DisplayServer.get_name()!="headless":
+		DirAccess.make_dir_recursive_absolute(shots)
+		await RenderingServer.frame_post_draw
+		_check("turned back page capture saves",get_viewport().get_texture().get_image().save_png(shots.path_join("newspaper_turned_back.png"))==OK)
 	await _press(corner)
 	await _drag(Vector2(-320, 0))
 	await _press(corner)

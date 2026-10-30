@@ -1,6 +1,85 @@
-# Early Access distribution and marketing project
+# Prologue teaser distribution and historical release charter
 
-Evidence class: **INERT**. Historical charter, retained as provenance.
+Evidence class: **INERT**. Active distribution plan and historical provenance;
+no accounts, billing, uploaded build or entitlement flow is verified here.
+
+## Active milestone — owner direction, October30,2026
+
+The polished V2 prologue is the teaser. Prepare distribution alongside its
+visual/audio/interaction acceptance, without waiting for the complete city or
+all of V2. This narrowly reopens the requested Patreon/itch.io/Discord/Butler
+infrastructure; it does not revive the retired fundraising, marketing, outreach
+or fundability programme below. No calendar deadline or platform qualification
+is invented. Canonical Codex owns repository tooling and evidence; the owner
+supplies/controls the creator accounts, payout/tax verification and final
+appearance/offer decisions. Existing active account details are not yet known.
+
+Requested offer:3USD Supporter (Discord/lore polls/devlog);10USD Early Access
+(build access/behind-the-scenes);25USD Superfan (playtests/design input/prompt
+logs/credits). Preserve authorial control over NPC/clue canon. Sanitize any
+published prompt logs for secrets and private material. These are requested
+tiers, not claims that paid offers are live or that their benefits are delivered.
+
+Implementation sequence:
+
+1. Inventory existing Patreon campaign, itch creator/project and Discord server;
+   keep project setup Draft until ready to test Restricted access. Confirm exact
+   tiers, currency, beneficiary accounts and role permissions. Tax/payout
+   verification requires the owner's real account evidence, not a repo checkbox.
+2. Add deterministic build identification to title/pause presentation and export
+   tooling. Separate source commit, human-readable build ID and SHA256 of final
+   artifacts; commit-plus-timestamp alone is not a cryptographic artifact hash.
+   Avoid self-hashing the binary containing its own digest. Retain release
+   manifests externally and show a compact readable identifier in-game.
+3. Pin the approved engine/export tooling and Butler version. Stage a clean
+   exported artifact, verify its manifest, then upload through a protected CI
+   publishing job with a secret-scoped credential. Never embed tokens in the
+   game, repo, logs or public download URLs. Keep first experimental upload
+   separate from making a paid offer live. Preserve the shared Godot lane.
+4. Configure native Patreon/itch tier eligibility and Discord mappings. Exercise
+   unauthenticated,3USD,10USD,25USD,declined,lapsed,cancelled-but-still-paid and
+   annual/gifted cases. Verify private channels and bot-role hierarchy. Measure
+   the requested five-minute role-assignment target; it is not an established
+   provider SLA. Reconcile cancellation and downgrade timing with paid entitlement.
+5. Test owner-controlled patron join→claim→download→launch→Discord, then a second
+   build/update, rollback and save compatibility. Preserve upload receipts,
+   artifact hashes, displayed build IDs and actual entitlement results. Billing,
+   account linking and publication remain unverified until these actions occur.
+
+Official-source corrections checked October30:
+
+- [itch Patreon integration](https://itch.io/docs/creators/patreon) currently uses
+  Edit→Distribute→Patreon Access and a displayed **/patreon-access** claim URL.
+  Prefer explicit Early Access/Superfan tier eligibility over minimum amounts,
+  which have currency limitations. The docs describe one issued key per patron
+  and manual revocation; automatic cancellation-based key expiry is not proven.
+  Strict active-member download access therefore remains a design/QA blocker,
+  not a promise supplied by OAuth alone. Existing downloaded binaries are a
+  separate matter; no online DRM is proposed.
+- [Subscription billing](https://support.patreon.com/hc/en-us/articles/8779192853261-Subscription-Billing-FAQ)
+  differs from legacy first-of-month charge-upfront billing. Annual plans have
+  [eligibility requirements](https://support.patreon.com/hc/en-us/articles/360041721372-Annual-memberships-creator-overview),
+  including account/payment history; a new campaign may not offer them immediately.
+  Keep the requested10–15percent annual discount conditional on availability.
+- [Discord setup](https://support.patreon.com/hc/en-us/articles/213552323-Setting-up-Discord-for-your-members)
+  requires suitable managed roles and bot placement. Do not treat role removal
+  as removal from the server or assume an unmeasured five-minute guarantee.
+- [Butler pushes](https://itch.io/docs/butler/pushing.html) use a consistent
+  **windows-64**, **mac-universal**, **linux-64** channel map and **--userversion**.
+  Differential app updates and browser downloads are different delivery paths;
+  browser users do not receive automatic patch application. Current repository
+  export presets are Windows and retained Android only. The first required upload
+  is Windows; macOS/Linux builds and tests remain unimplemented deliverables,
+  not shipping platforms established by naming channels.
+
+Acceptance remains the owner's six requested checks: verified account/tiers;
+tested entitlement allow/deny; real experimental Butler Windows upload;
+measured Discord grant/removal; visibly correct title/pause identification;
+and end-to-end patron QA. Also retain the access-revocation/annual-eligibility
+limitations above. The prologue still needs artistic acceptance and its open
+audio/readability/save/performance work; this plan does not declare it ready.
+
+## Retired October27 charter — provenance only
 
 **Status: retired from active scope by the owner, 2026-10-27.** Funding,
 fundability and marketing work are not current project goals. The owner wants

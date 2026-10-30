@@ -190,6 +190,110 @@
       "yaw": 0
     },
     {
+      "id": "MedicineLeftDown6",
+      "parts": [
+        {
+          "name": "MedicineLeft__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineLeft__Body_ON_glassish",
+          "component": "Body",
+          "key": "glassish",
+          "tile": 1.6,
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "MedicineLeft__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineLeft__CabinetDoor_ON_bakelite",
+          "component": "CabinetDoor",
+          "key": "bakelite",
+          "tile": 0.04,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 1.0,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "MedicineLeft__CabinetDoor_ON_enamel",
+          "component": "CabinetDoor",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineLeft__CabinetDoor_ON_nickel",
+          "component": "CabinetDoor",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineLeft__Mirror_ON_mirror",
+          "component": "Mirror",
+          "key": "mirror",
+          "tile": 0.55,
+          "catalog_key": "mirror_aged",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineLeftDown6__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
       "id": "MedicineItem_aspirin",
       "parts": [
         {
@@ -610,7 +714,7 @@
     },
     {
       "id": "F04_4B_MIRROR_01",
-      "variant": "MedicineLeft"
+      "variant": "MedicineLeftDown6"
     },
     {
       "id": "F05_5A_MIRROR_01",
@@ -638,6 +742,17 @@
     }
   ],
   "tint_space": "linear",
+  "mounts": {
+    "F04_4B_MIRROR_01": {
+      "pitch_degrees": -6,
+      "pivot": [
+        0,
+        1.2,
+        0.058
+      ],
+      "rise": 0.03
+    }
+  },
   "local_materials": {
     "glassish": {
       "files": [

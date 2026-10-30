@@ -620,6 +620,52 @@ world that got very good at listening and no better at anything else.**
 The infection is audio-borne because audio is the only thing here that
 was ever given room to grow.
 
+#### Helical Resonance — owner canon extension, 2026-10-28
+
+The future singularity addresses distinct events through **Helical Resonance**:
+astronomically compatible configurations can couple across time. Earth's path
+can be pictured as locally helical in a moving galactic frame; the helix is
+frame-dependent, and successive turns are never the same spacetime event.
+The **Solar Tachyon Wake**, **Tachyonic Shear**, retrocausal coupling and its
+engineering are fictional physics, not established astronomy.
+**The Signal** is the established phenomenon carrying these channels.
+
+The ordered mechanism is: **Helical Resonance** identifies compatibility;
+an **Echo Window** supplies favorable access; a provisional channel is opened;
+tachyonic correction cancels the relevant **Tachyonic Shear**; **Phase Lock**
+stabilizes that channel; sideband **Phase Translation** tunes it to the requested
+**Temporal Coordinate**; a bounded **Temporal Aperture** permits matter transfer
+when required. Translation cannot substitute for initial resonance access.
+
+A Temporal Coordinate includes epoch, orbital phase, rotational phase, solar
+displacement, local anchor geometry and tachyonic correction. Favorable windows
+recur approximately annually but are calculated from astronomical state,
+including precession/perturbations, not matching Gregorian month/day strings.
+This explanation adds no automatic access prohibition, resource currency,
+cooldown, damage or paradox penalty. Preserve free-order investigation.
+
+Phase-Locked information can produce environmental writing and mechanical
+messages without matter transfer. The prologue's incomplete reflected companion
+crosses only through a stabilized, translated Temporal Aperture aligned to the
+room's local anchor. Reflective geometry assists that anchor; mirrors are not
+universally supernatural. The companion remains visibly propelled machinery;
+this rule grants no general antigravity or unrelated technology advance.
+
+The date command samples the player's present once, accesses an Echo Window,
+corrects and locks the channel, then translates to that exact destination.
+**DATE ACCEPTED** acknowledges the fictional destination/lock, never an OS
+clock change. Keep November10,1928 as the prologue source and retain the
+historical bedroom stinger without resetting the authoritative present.
+No scientific explanation is added to the opening's established dialogue.
+
+Temporal access is not omniscience. The companion knows the protagonist was
+murdered but not who they were. Do not resolve the protagonist's composition,
+identity or origin, identify the singularity with the Dream organism, or settle
+historical alteration, causal loops, branches and paradoxes through this rule.
+Existing knowledge, publication, inventory, save and committed-fact authorities
+remain binding. Sources, implementation boundaries and unresolved work are in
+**design/V2_PROLOGUE_2026-10-28.md** and the post-V2 temporal-forensics goal.
+
 ### VIII.3 The Orison as a demonstration
 
 **Vantry & Co. built the Orison in 1912 as a showcase**, which is why an
@@ -1091,6 +1137,70 @@ are retired from active scope. Make the best game: responsive interaction, sound
 readability, accessibility, reliable saves, atmosphere and honest verification
 remain engineering requirements. The exact approved dispositions are recorded in
 **design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md**.
+
+**VIII.5.p — THE V2 OPENING IS AN UNFORTUNATE DEVELOPMENT.**
+*(Owner directive and clarification, 2026-10-28.)*
+
+The bedroom/shower/mirror/companion prologue is the **V2 intro**, not deferred
+with the later murder-year investigation. After the current verified checkpoint,
+prioritize it before resuming city construction. Replace the old player-facing
+curb, clock-in and introductory cinematics; retain useful independent technical
+fixtures and the mechanical, resident, inventory, work-order, case, reading,
+calendar/weather and validated save authorities. Other V2 commitments remain.
+
+Begin in the existing 4B home on November 10, 1928. Teach actual curtain, hot/cold
+valve and medicine-cabinet manipulation. Reveal the drawn protagonist quietly,
+then the reflection-only companion crossing into physical space. Use the
+established bot, printer and tile face, plus the required aftermarket typing
+arm. Preserve exact dialogue and pacing in **design/V2_PROLOGUE_2026-10-28.md**
+and its identified owner brief. The final line is **I am connecting you to the
+present, please stay on the line...** No dialogue follows. The simulated
+privileged command never touches the OS; sample host time once, traverse the
+sky parametrically and apply the destination through the campaign clock. Keep
+Queens as geographic reference. Do not simulate intervening days or infer new
+future news, identity answers, modern city assets or resident history from the
+jump. End at the title; preserve accessible pacing, input, reload and skip.
+
+The owner's final-stinger addendum cuts back to the empty historical bedroom
+after that completed warp, without changing the player's present-day timeline.
+The established friendly Tardi emerges from under the bed, gives a small
+front-leg greeting, waits and retreats. Preserve its current V2 shader look
+and scale over conflicting fallback design suggestions. The single timeline
+lasts exactly17 seconds, including black at13.50, title at14.00 and end at17.00;
+the full beat table is in the prologue ledger. No dialogue, ominous behavior,
+music, added reveal or post-title scene.
+
+This supersedes older opening and city-first sequencing where they conflict.
+Full V2 and the later mystery still need qualification. Owner direction does
+not prove completed gameplay.
+
+**Annual present and companion hardware — owner amendment, 2026-10-29.**
+The jump reaches the user's sampled local month, day and time within the modeled
+November10,1928–November10,1929 annual loop, not the user's modern calendar year.
+Extra seasonal laps may show off the sky without lengthening the bounded shot.
+The opening's staged date does not establish the unknown date/time of the murder.
+Keep elapsed/deadline time monotonic while the civil/weather calendar repeats.
+The historical Tardi cutaway keeps its exact17-second timeline and does not
+rewrite the annual destination or the existing ecology's dated presence rules.
+
+**Prologue release direction,2026-10-30.** The polished prologue is the teaser;
+prepare its Patreon/itch.io/Discord distribution and Butler build delivery to be
+ready alongside it, without waiting for all V2 construction. This is a narrow
+exception to the retired funding/marketing programme, not its wholesale return.
+No date is set; appearance, audio, responsiveness, saves and honest verification
+remain release requirements. Account setup, entitlement rules and build tracing
+are tracked in **design/EARLY_ACCESS_GO_TO_MARKET_PROJECT.md**; proposed platform
+channels do not establish qualified builds or live subscriptions.
+
+The signal-bound companion may have a folding temporal readout and an original
+three-branch flux-capacitor homage, manufactured in its existing mechanical
+language. References inform form, not copied labels/textures or a new nuclear
+fuel/gameplay authority. Its vocal system begins in synthetic babble/emotes and
+learns spoken English from witnessed words; its articulate written dialogue is
+preserved. Separately, rights-reviewed recorded reactions may be anachronistic.
+They remain context-sensitive, respect protected speech and silence, and cannot
+teach the machine by replaying its own recordings. These specific directions
+do not extend the signal exception to unrelated city technology.
 
 ### VIII.6 What this does not license
 

@@ -257,8 +257,10 @@ HOST_CLOCK_RE = re.compile(
     r"Time\.get_ticks_usec\(|Time\.get_datetime_(?:dict|string)_from_system\(|"
     r"Time\.get_time_(?:dict|string)_from_system\(|"
     r"Time\.get_date_dict_from_system\(|"
+    r"Time\.get_time_zone_from_system\(|"
     r"OS\.get_ticks")
 HOST_UNIX_RE = re.compile(r"Time\.get_unix_time_from_system\(")
+HOST_ZONE_RE = re.compile(r"Time\.get_time_zone_from_system\(")
 HOST_CALENDAR_RE = re.compile(
     r"Time\.get_(?:date_dict|datetime_dict|datetime_string)_from_system\(")
 CALENDAR_FIELD_ACCESS_RE = re.compile(
@@ -382,7 +384,7 @@ class FileContext:
         for name, body in bodies.items():
             filename_only = (rel, name) in HOST_FILENAME_SCOPES and \
                 not CALENDAR_DURABLE_RE.search(body)
-            if (HOST_CALENDAR_RE.search(body) or HOST_UNIX_RE.search(body)) and not filename_only \
+            if (HOST_CALENDAR_RE.search(body) or HOST_UNIX_RE.search(body) or HOST_ZONE_RE.search(body)) and not filename_only \
                     and not _pure_seed_entropy(rel, name, body):
                 self.calendar_sources.add(name)
         changed = True
@@ -915,6 +917,32 @@ def _pure_seed_entropy(rel, scope, body):
             not CALENDAR_DURABLE_RE.search(body))
 
 
+def _pure_prologue_destination(ctx, scope, body):
+    # Bible VIII.5.p authorizes a once-captured present destination, not a
+    # general host-calendar exemption. Accept only this read/validate/return
+    # boundary; unreviewed writes, extra reads, calls and unchecked returns fail.
+    # The reducer/save tests separately prove immutable destination adoption.
+    if ctx.rel != "game/scripts/game/prologue_state.gd" or scope != "sample_destination":
+        return False
+    expected = '''static func sample_destination() -> Dictionary:
+        var stamp := int(floor(Time.get_unix_time_from_system()))
+        var zone := Time.get_time_zone_from_system()
+        var target := {"utc_unix_seconds":stamp,"local_bias_minutes":zone.get("bias",0),
+            "local_zone":zone.get("name","")}
+        return annual_destination(target)'''
+    projection = '''static func annual_destination(anchor:Dictionary) -> Dictionary:
+        if not valid_target(anchor):return {}
+        var date:=Time.get_datetime_dict_from_unix_time(int(anchor.utc_unix_seconds)+int(anchor.local_bias_minutes)*60)
+        date.year=1928 if int(date.month)*100+int(date.day)>=1110 else 1929
+        if date.month==2 and date.day==29:date.day=28
+        return {"utc_unix_seconds":Time.get_unix_time_from_datetime_dict(date)+18000,"local_bias_minutes":-300,"local_zone":"Queens EST"}'''
+    helper = "\n".join(line.split("#", 1)[0] for line in ctx.function_body("annual_destination").splitlines())
+    # The owner narrowed the destination to the authored annual loop. Permit
+    # exactly that pure projection, never an unchecked or world-writing helper.
+    normalize = lambda value: re.sub(r"\s+", "", value)
+    return normalize(body) == normalize(expected) and normalize(helper) == normalize(projection)
+
+
 def _scan_host_clock(ctx, findings, line, scope, line_no):
     helper_read = not FUNC_RE.match(line.strip()) and any(
         re.search(r"\b" + re.escape(source) + r"\s*\(", line)
@@ -924,10 +952,12 @@ def _scan_host_clock(ctx, findings, line, scope, line_no):
     body = ctx.function_body(scope)
     code_body = "\n".join(raw.split("#", 1)[0] for raw in body.splitlines())
     campaign_owner = ctx.rel == "game/scripts/game/campaign_clock.gd"
-    civil_host_read = HOST_CALENDAR_RE.search(line) or \
+    civil_host_read = HOST_CALENDAR_RE.search(line) or HOST_ZONE_RE.search(line) or \
         re.search(r"Time\.get_time_(?:dict|string)_from_system\(", line)
     unix_host_read = HOST_UNIX_RE.search(line)
     if _pure_seed_entropy(ctx.rel, scope, code_body):
+        return
+    if _pure_prologue_destination(ctx, scope, code_body):
         return
     if _artifact_timestamp_only(ctx, scope, line):
         return
@@ -952,7 +982,9 @@ def _scan_host_clock(ctx, findings, line, scope, line_no):
             "use campaign_calendar.json and the simulation clock; only "
             "CampaignClock._sample_local_minute_of_day may sample local "
             "hour/minute once, without calendar fields or durable writes; "
-            "Unix host time is reserved for reviewed seed entropy or pure IDs",
+            "Unix host time is otherwise reserved for reviewed seed entropy, pure IDs "
+            "or the exact validated PrologueState.sample_destination boundary "
+            "authorized by Bible VIII.5.p; it cannot apply clock changes itself",
             "REVIEW" if ctx.tier == "test" else "FIX", ctx.tier))
         return
     profiling = PROFILING_CONTEXT_RE.search(line) or \

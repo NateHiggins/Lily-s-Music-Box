@@ -33,6 +33,12 @@ func advance_frame(delta: float) -> void:
 
 func apply_output() -> void:
 	state.write_output(output)
+	# A historical prologue can withhold the physical source without changing
+	# its electrical/save authority. Observation adapters consume this real output.
+	if is_instance_valid(player.carried_device) and player.carried_device.has_method("is_story_absent") \
+			and player.carried_device.is_story_absent():
+		output.intensity = 0.0
+		output.filament_emission = 0.0
 	player.flashlight.visible = float(output.intensity) > .001
 	player.flashlight.light_energy = player._lamp_base_energy * float(output.intensity)
 	player.flashlight.light_color = output.color

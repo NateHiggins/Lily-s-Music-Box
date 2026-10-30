@@ -117,7 +117,22 @@ class RegionProofTests(unittest.TestCase):
             changed=dict(second);changed[field]=value
             with self.subTest(field=field,value=value):self.assertFalse(consecutive_motion(first,changed,height))
         self.assertFalse(consecutive_motion(dict(first,on_floor=False),second,height))
-        with self.assertRaises(ValueError):controller_step_height(text.replace('global_position.y += 0.30','global_position.y += 0.31'))
+        # Mutate the actual current expression, including fixture-aware lifts;
+        # a stale literal replacement would no longer exercise the refusal.
+        import re
+        changed,count=re.subn(r'global_position\.y\s*\+=\s*[^\n]+','global_position.y += 0.31',text)
+        self.assertEqual(count,1)
+        with self.assertRaises(ValueError):controller_step_height(changed)
+
+    def test_fixture_step_cannot_expand_exterior_motion_allowance(self):
+        text='func _try_step_up(delta: float) -> void:\n\tvar step_height:=.30\n\tstep_height=maxf(step_height,.64)\n\tvar lift := Vector3.UP * step_height\n\tglobal_position.y += step_height\n'
+        height=controller_step_height(text)
+        self.assertEqual(height,.30)
+        first=dict(actual=[0,0,0],physics_frame=10,on_floor=True)
+        second=dict(actual=[.05,.64,0],physics_frame=11,on_floor=False)
+        self.assertFalse(consecutive_motion(first,second,height))
+        for changed in [text.replace('var step_height:=.30',''),text.replace('global_position.y += step_height','global_position.y += other_height'),text.replace('var step_height:=.30','var step_height:=unknown()')]:
+            with self.subTest(source=changed),self.assertRaises(ValueError):controller_step_height(changed)
 
     def test_actual_engine_shape_decimal_rounding_without_smaller_body_allowance(self):
         data=copy.deepcopy(self.data)

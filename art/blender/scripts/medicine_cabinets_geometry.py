@@ -78,6 +78,22 @@ def cabinet(side):
  retained_stock.append({'assembly':identity,'hinge_side':'left' if side==1 else 'right','hinge_pivot_godot':[side*.230,c,-.060],'angle_degrees':95,'mirror_center_godot':[0,c,-.070],'mirror_size':[.420,.570],'shelf_top_y':[1.404,1.594]})
  group('FittedCabinet',start)
 
+def wall_mount():
+ pitch=math.radians(row['wall_pitch_degrees']);pivot=Vector((0,-.058,1.20))
+ inverse=Matrix.Rotation(-pitch,3,'X')
+ # Two broad tapered fixing rails, continuous from bottom seat to upper mount.
+ # Rear vertices are the original wall points expressed in cabinet coordinates.
+ for x in [-.15,.15]:
+  start=len(stock_checks)
+  low,high=1.205,1.795
+  rear=[pivot+inverse@(Vector((px,-.058,z))-pivot) for z in [low,high] for px in [x-.012,x+.012]]
+  front=[Vector((px,-.0578,z)) for z in [low,high] for px in [x-.012,x+.012]]
+  solid(identity+'_TaperedWallRail'+str(x),rear+front,[(0,1,3,2),(4,6,7,5),(0,4,5,1),(2,3,7,6),(0,2,6,4),(1,5,7,3)],identity,'enamel')
+  for z in [1.30,1.70]:
+   point=pivot+inverse@(Vector((x,-.058,z))-pivot)
+   support(identity,'wall',point,inverse@Vector((0,1,0)),'tapered rail on original wall')
+  group('TaperedWallRail'+str(x),start)
+
 def kept(row):
  name,colour,w,h=row['source_item'];start=len(stock_checks)
  if h>w:
@@ -120,4 +136,5 @@ def kept(row):
 for assembly in assemblies:
  identity=assembly['id'];row=variants[identity]
  if row['kind']=='medicine_cabinet':cabinet(1 if row['hinge_side']=='left' else -1)
+ elif row['kind']=='medicine_mount':wall_mount()
  else:kept(row)

@@ -7,6 +7,8 @@ func additional_checks() -> void:
 	if not check(await wait_for(func(): return carrier.session.typing), "first owner takes native typing focus before handoff"): return
 	await type_text(" a draft")
 	var pending: String = carrier.session.draft
+	var automatic_keys:Array[String]=["A"]
+	check(not carrier.rig.typing_arm.begin(automatic_keys) and carrier.session.draft==pending,"typing arm cannot steal the human editor or its unsent draft")
 	var old: Node = carrier
 	var next := preload("res://scripts/device/companion_world_carrier.gd").new()
 	await next.setup(player, player.camera, null)
@@ -41,3 +43,30 @@ func additional_checks() -> void:
 	await type_text("help")
 	await key(KEY_ESCAPE)
 	check(carrier.session.draft == "help" and not carrier.session.chatter_enabled, "an unsent draft does not revoke the explicit quiet preference")
+	var arm:Node=carrier.rig.typing_arm
+	var draft_before:String=carrier.session.draft
+	check(arm.begin(automatic_keys) and player.text_input_owner==arm,"explicit automatic typing obtains the existing exclusive input lease")
+	carrier._advance_presentation(.016)
+	check(arm.active(),"the companion does not mistake its own arm lease for a foreign protected conversation")
+	carrier.witness._sample_left=0;carrier.witness._hesitation=19
+	carrier.witness.observe(.3)
+	check(carrier.witness._hesitation==0,"machine-owned input cannot become a witnessed player hesitation")
+	var before:float=arm.elapsed
+	get_tree().paused=true;arm.advance(1.0);get_tree().paused=false
+	check(arm.elapsed==before and player.text_input_owner==arm,"pause retains the exact automatic pose and lease")
+	player.call_locked=true;arm.advance(.016)
+	check(not arm.active() and player.text_input_owner==null and player.protected_input_active() and carrier.session.draft==draft_before,"protected conversation cancels waiting arm without unlocking the call or changing the draft")
+	player.call_locked=false
+	check(arm.begin(automatic_keys),"physical automatic cycle starts on the live foreground companion")
+	var captured:=false
+	var deadline:=Time.get_ticks_msec()+20000
+	while arm.active() and Time.get_ticks_msec()<deadline:
+		await frames(1)
+		if not captured and arm.phase=="press":
+			captured=true;await capture("automatic_arm.png")
+	check(captured and not arm.active() and player.text_input_owner==null and carrier.session.draft==draft_before,"live foreground cycle finishes and returns input without rewriting the human draft")
+	carrier.rig.request_keyboard(false)
+	carrier.rig.keyboard_open=0;carrier.rig._apply_keyboard()
+	check(arm.begin(automatic_keys),"stalled keyboard control begins with an owned input lease")
+	arm.advance(8.1)
+	check(not arm.active() and player.text_input_owner==null and carrier.session.draft==draft_before,"stalled keyboard releases only its own lease at the bounded opening deadline")

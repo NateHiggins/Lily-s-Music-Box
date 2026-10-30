@@ -79,7 +79,7 @@ def reveal_cell(left,bottom,right,top,wl,low,wr,high,depth):
 
 
 def ray_hit(origin,direction,row,height):
-    if float(row['height_m'])<height:return False
+    if float(row['height_m'])+float(row.get('grade_datum_m',0.))<height:return False
     a,b,c,d=row['rect'];entry=0.;leave=1000.
     for at,component,lo,hi in zip(origin,direction,[a,b],[c,d]):
         if abs(component)<1e-12:
@@ -94,7 +94,7 @@ def party_wall_overlap(first,last,floor_bottom,neighbours):
     """Actual outward wall segment, in root X/Z, covered by another mass."""
     x,z=first;X,Z=last
     for row in neighbours:
-        if floor_bottom>=float(row['height_m'])+.65:continue
+        if floor_bottom>=float(row['height_m'])+float(row.get('grade_datum_m',0.))+.65:continue
         a,b,c,d=row['rect']
         if abs(x-X)<1e-8:
             if a<x<c and min(max(z,Z),d)>max(min(z,Z),b)+1e-8:return True

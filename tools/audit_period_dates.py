@@ -26,6 +26,15 @@ EXPECTED_CONSUMERS = {
     "game/scripts/building/deterministic_lightning_manager.gd": "campaign_minute_keyed_electrical_presentation",
     # Authored Gregorian calendar; host hour/minute may be sampled once.
     "game/scripts/game/campaign_clock.gd": "authored_campaign_calendar",
+    # Owner October29 annual-present amendment: pure validated month/day/time
+    # projection into1928/1929; the systemic audit still rejects other host reads.
+    "game/scripts/game/prologue_state.gd": "validated_annual_prologue_destination_projection",
+    # Bible VIII.5.p: detached render projection of the already captured target;
+    # no host read, campaign bind/write, weather publication or dated reporting.
+    "game/scripts/game/prologue_temporal_sky.gd": "prologue_render_only_utc_projection_no_publication",
+    # Physical readout formats only validated command/borrowed-clock UTC inputs.
+    # No host read, inferred death date, campaign mutation or news publication.
+    "game/scripts/device/companion_temporal_register.gd": "command_owned_temporal_readout_only",
     # Pure dated projection of CampaignClock, with as-of press dispatches.
     "game/scripts/game/campaign_weather.gd": "authored_campaign_weather_and_issued_forecasts",
     "game/scripts/game/historical_radio_notice.gd": "observed_printed_historical_notice",
@@ -95,7 +104,9 @@ def audit(repo: Path) -> tuple[list[str], list[str]]:
     failures.extend(campaign_calendar_failures(calendar))
     failures.extend(campaign_host_clock_failures(repo))
     notes.append("campaign calendar: authored 1928-11-10, fixed EST; "
-                 "one local hour/minute sample, no host calendar persistence")
+                 "one local hour/minute creation sample; Bible VIII.5.p also "
+                 "permits the exact pure validated prologue destination sampler, "
+                 "with immutable adoption and clock application owned elsewhere")
 
     wire = load_object(repo / "game/data/prop_service_wire.json")
     try:

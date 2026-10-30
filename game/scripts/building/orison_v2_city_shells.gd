@@ -2,6 +2,7 @@ extends Node3D
 ## Closed source-derived city masses. Existing street, shop and alley owners
 ## retain their ground, openings and actors; this region adds none of those.
 const ASSET := preload("res://assets/props/city_elevations.glb")
+const BODY_LOD := preload("res://assets/props/city_elevations_lod1.glb")
 const FINISHES := "res://data/orison_v2/exterior/city_elevations.json"
 var _clock := CampaignClock.new()
 var _clock_hands: Array[Dictionary] = []
@@ -18,10 +19,20 @@ func _ready() -> void:
 	position.z = -float(section.source_threshold_z)
 	var model := ASSET.instantiate() as Node3D
 	add_child(model)
+	var placement := preload("res://scripts/building/orison_v2_city_placement.gd").new()
 	var materials: Dictionary={}
 	var profiles: Dictionary={}
 	var finish_data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(FINISHES))
 	assert(int(finish_data.schema)==1)
+	var body_programme: Dictionary=finish_data.body_lod
+	assert(float(body_programme.error_m)>0. and not body_programme.parts.is_empty())
+	var lower:=BODY_LOD.instantiate() as Node3D
+	var lower_parts: Dictionary={}
+	for part: MeshInstance3D in lower.find_children("*","MeshInstance3D",true,false):
+		placement.apply(part)
+		assert(not lower_parts.has(str(part.name)) and str(part.name) in body_programme.parts)
+		lower_parts[str(part.name)]=part
+	assert(lower_parts.size()==body_programme.parts.size())
 	var hands: Dictionary={}
 	for hand: Dictionary in finish_data.get("clock_hands",[]):
 		assert(not hands.has(str(hand.part)))
@@ -29,6 +40,8 @@ func _ready() -> void:
 	for profile: Dictionary in finish_data.buildings:profiles[str(profile.id)]=profile
 	var roof_finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd").new()
 	for mesh: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+		placement.apply(mesh)
+		var collision_mesh:=mesh.mesh
 		mesh.set_meta("retained_city_shell",true)
 		var key := str(mesh.name).split("__")[-1]
 		var building := str(mesh.name).split("__")[0]
@@ -59,11 +72,19 @@ func _ready() -> void:
 		if key == "galvanized_roof":
 			mesh.set_meta("v2_city_roof_source",materials[cache_key])
 			mesh.material_override=roof_finishes.material_for(materials[cache_key],"roof")
+		if str(mesh.name) in body_programme.parts:
+			assert(lower_parts.has(str(mesh.name)))
+			var replacement: MeshInstance3D=lower_parts[str(mesh.name)]
+			assert(mesh.transform.is_equal_approx(replacement.transform))
+			assert(collision_mesh.get_surface_count()==1 and replacement.mesh.get_surface_count()==1)
+			mesh.mesh=preload("res://scripts/building/orison_v2_city_transport.gd")._with_lod(collision_mesh,replacement.mesh,float(body_programme.error_m))
+			mesh.set_meta("v2_city_body_lod",true)
+			lower_parts.erase(str(mesh.name))
 		var body := StaticBody3D.new()
 		body.set_meta("retained_city_shell",true)
 		body.name = str(mesh.name)+"Collision"
 		var collision := CollisionShape3D.new()
-		collision.shape = mesh.mesh.create_trimesh_shape()
+		collision.shape = collision_mesh.create_trimesh_shape()
 		collision.transform = mesh.transform
 		body.add_child(collision)
 		model.add_child(body)
@@ -75,7 +96,9 @@ func _ready() -> void:
 			var period:=float(hand.period_minutes)
 			assert(is_equal_approx(axis.length(),1.) and period in [60.,720.])
 			_clock_hands.append({"draw":mesh,"collision":collision,"rest":mesh.transform,
-				"pivot":Vector3(pivot[0],pivot[1],pivot[2]),"normal":axis,"period":period})
+				"pivot":Vector3(pivot[0],pivot[1],pivot[2])+placement.city_offset(str(mesh.name)),"normal":axis,"period":period})
+	assert(lower_parts.is_empty())
+	lower.free()
 	assert(_clock_hands.size()==hands.size())
 	refresh_clock_from_campaign()
 	set_process(not _clock_hands.is_empty())
@@ -83,6 +106,8 @@ func _ready() -> void:
 	preload("res://scripts/building/orison_v2_city_aerials.gd").mount(self)
 	preload("res://scripts/building/orison_v2_city_tanks.gd").mount(self)
 	preload("res://scripts/building/orison_v2_city_beacons.gd").mount(self)
+	preload("res://scripts/building/orison_v2_city_transport.gd").mount(self)
+	preload("res://scripts/building/orison_v2_city_streets.gd").mount(self)
 
 func _process(delta: float) -> void:
 	_clock_elapsed+=delta

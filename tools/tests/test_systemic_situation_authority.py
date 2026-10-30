@@ -444,6 +444,32 @@ class HostCalendarTests(unittest.TestCase):
         audit.scan_file(audit.FileContext(path, source), findings)
         return of_class(findings, "HOST_CLOCK_MUTATES_WORLD")
 
+    def test_exact_prologue_destination_boundary_and_side_effect_refusal(self):
+        path="game/scripts/game/prologue_state.gd"
+        source=(REPO_ROOT/path).read_text(encoding="utf-8")
+        self.assertEqual(self._find(source,path),[])
+        changes=[
+            ('var zone :=', 'var again := Time.get_unix_time_from_system()\n\tvar zone :='),
+            ('return annual_destination(target)', 'RealityState.data.target = target\n\treturn annual_destination(target)'),
+            ('return annual_destination(target)', 'OS.execute("date",[])\n\treturn annual_destination(target)'),
+            ('return annual_destination(target)', 'return target'),
+            ('if not valid_target(anchor):return {}', 'if not valid_target(anchor):return {}\n\tRealityState.data.target = anchor'),
+            ('if not valid_target(anchor):return {}', 'if not valid_target(anchor):return {}\n\tOS.execute("date",[])'),
+            ('if not valid_target(anchor):return {}', 'if not valid_target(anchor):return {}\n\tvar extra = Time.get_unix_time_from_system()'),
+            ('static func sample_destination()', 'static func other_destination()')]
+        for before,after in changes:
+            changed=source.replace(before,after)
+            self.assertNotEqual(changed,source)
+            with self.subTest(change=after):self.assertTrue(self._find(changed,path))
+        self.assertTrue(self._find(source,"game/scripts/game/other_prologue.gd"))
+
+    def test_zone_only_and_durable_sampler_helper_reads_are_not_exempt(self):
+        self.assertTrue(self._find('func set_zone():\n\tRealityState.data.zone = Time.get_time_zone_from_system()\n'))
+        source=(REPO_ROOT/'game/scripts/game/prologue_state.gd').read_text(encoding="utf-8")
+        source+='\nstatic func unsafe_consumer():\n\tvar copied = sample_destination()\n\tRealityState.data.target = copied\n'
+        hits=self._find(source,"game/scripts/game/prologue_state.gd")
+        self.assertTrue(any(hit['scope']=='unsafe_consumer' for hit in hits))
+
     def test_only_pure_local_minute_sampler_is_authorized(self):
         source = ('extends RefCounted\n'
                   'func _sample_local_minute_of_day() -> int:\n'

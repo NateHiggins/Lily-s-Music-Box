@@ -130980,164 +130980,6 @@
    "target_exists": true
   },
   {
-   "key": "1ba54804a7c46e82",
-   "kind": "id_reference",
-   "token": "F02_C_ENTRY_DOOR",
-   "file": "game/data/orison_v2/juno_kells_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/doors[0]"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "48f2acc0d07edec8",
-   "kind": "id_reference",
-   "token": "F02_C_PRIVATE_HALL_BATH_DOOR",
-   "file": "game/data/orison_v2/juno_kells_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/doors[1]"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "4772ddc6ec21c4ce",
-   "kind": "id_reference",
-   "token": "F02_C_PRIVATE_HALL_BED1_DOOR",
-   "file": "game/data/orison_v2/juno_kells_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/doors[2]"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "a942870a5bed3112",
-   "kind": "id_reference",
-   "token": "F02_C_PRIVATE_HALL_BED2_DOOR",
-   "file": "game/data/orison_v2/juno_kells_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/doors[*]"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "da13f19b605d435d",
-   "kind": "id_reference",
-   "token": "F02_C_PRIVATE_HALL_KITCHEN_DOOR",
-   "file": "game/data/orison_v2/juno_kells_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/doors[*]"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "025bd5d63f561528",
-   "kind": "unit_reference",
-   "token": "2C",
-   "file": "game/data/orison_v2/juno_kells_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/unit"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
    "key": "b8b3b69a4f354409",
    "kind": "unit_reference",
    "token": "1A",
@@ -139914,198 +139756,6 @@
    "kind": "unit_reference",
    "token": "2A",
    "file": "game/data/orison_v2/mina_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/unit"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
-   "key": "99424fde25ce44f4",
-   "kind": "id_reference",
-   "token": "F05_A_KITCHEN_STUDY_DOOR",
-   "file": "game/data/orison_v2/nadia_quell_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/doors[0]"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "b6fa192012f30556",
-   "kind": "id_reference",
-   "token": "F05_A_MAIN_BED_DOOR",
-   "file": "game/data/orison_v2/nadia_quell_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/doors[1]"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "a29cae56ddb21dae",
-   "kind": "id_reference",
-   "token": "F05_A_PRIVATE_HALL_BATH_DOOR",
-   "file": "game/data/orison_v2/nadia_quell_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/doors[2]"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "6a0803321cf6c502",
-   "kind": "id_reference",
-   "token": "F05_A_PRIVATE_HALL_KITCHEN_DOOR",
-   "file": "game/data/orison_v2/nadia_quell_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/doors[*]"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "d7ba9504bc3b0dfc",
-   "kind": "id_reference",
-   "token": "F05_DOOR_02",
-   "file": "game/data/orison_v2/nadia_quell_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/doors[*]"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F05/marker+v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "49afbd0078b18b8d",
-   "kind": "id_reference",
-   "token": "bed",
-   "file": "game/data/orison_v2/nadia_quell_routine.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/paths[0][*][0]",
-    "/places/unit:bed",
-    "/places/unit:bedroom"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F04/furniture",
-   "target_exists": true
-  },
-  {
-   "key": "f1b03c22bb0307c5",
-   "kind": "unit_reference",
-   "token": "5A",
-   "file": "game/data/orison_v2/nadia_quell_routine.json",
    "tier": "data",
    "subsystem": "data",
    "symbols": [
@@ -301829,39 +301479,6 @@
    "target_exists": null
   },
   {
-   "key": "6efe92f59ac20344",
-   "kind": "vector3_coordinate",
-   "token": "atmosphere_review",
-   "file": "game/tests/skywatch_optical_review.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "atmosphere_review"
-   ],
-   "lines": [
-    523,
-    542
-   ],
-   "count": 2,
-   "context": [
-    "light.position=bench.camera.position+Vector3(0,-5,-25)",
-    "blocker.global_position=light.global_position+Vector3(0,10,10)"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
    "key": "472973a0b5714df8",
    "kind": "plan_coordinate",
    "token": "_ready",
@@ -308500,37 +308117,6 @@
    "target_exists": null
   },
   {
-   "key": "35e7ac0be826085f",
-   "kind": "vector3_coordinate",
-   "token": "_run",
-   "file": "game/tests/v2_city_elevation_bench.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_run"
-   ],
-   "lines": [
-    269
-   ],
-   "count": 1,
-   "context": [
-    "camera.global_position=city.to_global(center+Vector3(-11,3,-11))"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
    "key": "5040a33ad7b0f93e",
    "kind": "vector3_coordinate",
    "token": "run",
@@ -312768,44 +312354,6 @@
    "target_exists": null
   },
   {
-   "key": "f5ae045727817f7a",
-   "kind": "vector3_coordinate",
-   "token": "_survey_skywatch_roof",
-   "file": "game/tests/v2_roof_clearance_probe.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_survey_skywatch_roof"
-   ],
-   "lines": [
-    161,
-    161,
-    161,
-    161,
-    161,
-    161,
-    161,
-    161
-   ],
-   "count": 8,
-   "context": [
-    "for pose: Dictionary in [{\"name\":\"roof_overhead\",\"eye\":Vector3(0,50,0),\"target\":Vector3(0,19.2,0),\"ortho\":true},{\"name\":\"roof_southwest\",\"eye\":Vector3(-13,20.85"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
    "key": "4ccfefe3f2b6bf53",
    "kind": "floor_reference",
    "token": "B1",
@@ -314466,41 +314014,6 @@
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
-  },
-  {
-   "key": "cee1682db04cbbbe",
-   "kind": "vector3_coordinate",
-   "token": "_profile_mirage_route",
-   "file": "game/tests/v2_weather_route_profile.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_profile_mirage_route"
-   ],
-   "lines": [
-    184,
-    194,
-    196
-   ],
-   "count": 3,
-   "context": [
-    "if not await _walk(world.adapter.root.to_local(Vector3(0,0,3))):_collect=false;break",
-    "if not await _walk(Vector3(0,0,-13.15)):break",
-    "if not await _walk(Vector3(0,0,-10.6)):break"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
   },
   {
    "key": "6aaaedb8f9f2d043",
@@ -322705,6 +322218,1781 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "6efe92f59ac20344",
+   "kind": "vector3_coordinate",
+   "token": "atmosphere_review",
+   "file": "game/tests/skywatch_optical_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "atmosphere_review"
+   ],
+   "lines": [
+    523,
+    542
+   ],
+   "count": 2,
+   "context": [
+    "light.position=bench.camera.position+Vector3(0,-5,-25)",
+    "blocker.global_position=light.global_position+Vector3(0,10,10)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f5ae045727817f7a",
+   "kind": "vector3_coordinate",
+   "token": "_survey_skywatch_roof",
+   "file": "game/tests/v2_roof_clearance_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_survey_skywatch_roof"
+   ],
+   "lines": [
+    161,
+    161,
+    161,
+    161,
+    161,
+    161,
+    161,
+    161
+   ],
+   "count": 8,
+   "context": [
+    "for pose: Dictionary in [{\"name\":\"roof_overhead\",\"eye\":Vector3(0,50,0),\"target\":Vector3(0,19.2,0),\"ortho\":true},{\"name\":\"roof_southwest\",\"eye\":Vector3(-13,20.85"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cee1682db04cbbbe",
+   "kind": "vector3_coordinate",
+   "token": "_profile_mirage_route",
+   "file": "game/tests/v2_weather_route_profile.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_profile_mirage_route"
+   ],
+   "lines": [
+    184,
+    194,
+    196
+   ],
+   "count": 3,
+   "context": [
+    "if not await _walk(world.adapter.root.to_local(Vector3(0,0,3))):_collect=false;break",
+    "if not await _walk(Vector3(0,0,-13.15)):break",
+    "if not await _walk(Vector3(0,0,-10.6)):break"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "35e7ac0be826085f",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_city_elevation_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    269
+   ],
+   "count": 1,
+   "context": [
+    "camera.global_position=city.to_global(center+Vector3(-11,3,-11))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1eb43adef1577e60",
+   "kind": "id_reference",
+   "token": "F04_4B_SHOWER_01",
+   "file": "game/scripts/building/orison_v2_domestic_fittings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_source"
+   ],
+   "lines": [
+    55
+   ],
+   "count": 1,
+   "context": [
+    "if record.kind==\"shower\" and record.id==\"F04_4B_SHOWER_01\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3a2cd6edad42b72c",
+   "kind": "id_reference",
+   "token": "F04_4B_SHOWER_01",
+   "file": "game/scripts/game/prologue_director.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "configure"
+   ],
+   "lines": [
+    38
+   ],
+   "count": 1,
+   "context": [
+    "shower=world.adapter.resolve(\"F04_4B_SHOWER_01\") as TapProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "18392fcb3c230e88",
+   "kind": "id_reference",
+   "token": "F04_B_BATH",
+   "file": "game/scripts/game/prologue_director.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "_process"
+   ],
+   "lines": [
+    175
+   ],
+   "count": 1,
+   "context": [
+    "if world.room_at_world(player.global_position+Vector3.UP*.7)==\"F04_B_BATH\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a2276f4c94e83697",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/scripts/game/prologue_director.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "configure"
+   ],
+   "lines": [
+    59
+   ],
+   "count": 1,
+   "context": [
+    "if world.is_ancestor_of(treatment) and treatment.get_meta(\"unit\",\"\")==\"4B\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "58a1ccf0a453a7c7",
+   "kind": "generated_name",
+   "token": "show_message",
+   "file": "game/scripts/game/signal_surface_writing.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "show_message"
+   ],
+   "lines": [
+    43
+   ],
+   "count": 1,
+   "context": [
+    "\"SignalWord%d\" % _words.size()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "189bb41e4e524f85",
+   "kind": "generated_name",
+   "token": "_init",
+   "file": "game/scripts/props/clawfoot_curtain_motion.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "_init"
+   ],
+   "lines": [
+    26
+   ],
+   "count": 1,
+   "context": [
+    "\"CurtainSelect%02d\"%i"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "5b9520a1b3f1d051",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/clawfoot_bath_hand_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    102
+   ],
+   "count": 1,
+   "context": [
+    "bath=Bath.new();bath.prop_type=\"shower\";bath.fixture=\"shower\";bath.unit=\"4B\";add_child(bath)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "c04216bf36c28cae",
+   "kind": "id_reference",
+   "token": "F04_4B_SHOWER_01",
+   "file": "game/tests/prologue_tutorial_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review_installed_bath",
+    "_save_rebuild_bath"
+   ],
+   "lines": [
+    197,
+    268,
+    288
+   ],
+   "count": 3,
+   "context": [
+    "var tap:TapProp=world.adapter.resolve(\"F04_4B_SHOWER_01\")",
+    "if not _require(RealityState.data[key].records[\"F04_4B_SHOWER_01\"].value==wanted,\"campaign snapshot contains the actual released tub controls\"):return",
+    "var restored:TapProp=world.adapter.resolve(\"F04_4B_SHOWER_01\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a70b4c93c194416c",
+   "kind": "id_reference",
+   "token": "F04_B_BATH",
+   "file": "game/tests/prologue_tutorial_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_save_rebuild_bath"
+   ],
+   "lines": [
+    297
+   ],
+   "count": 1,
+   "context": [
+    "_require(world.bathroom_moisture._rooms[\"F04_B_BATH\"].humidity==0.0,\"transient room steam does not reappear as stale saved observations\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6861dffc63cc9eaa",
+   "kind": "id_reference",
+   "token": "F04_B_BATH_DOOR",
+   "file": "game/tests/prologue_tutorial_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    81
+   ],
+   "count": 1,
+   "context": [
+    "if not await _open_door(\"F04_B_BATH_DOOR\"): return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8c310cc2fee12331",
+   "kind": "id_reference",
+   "token": "F04_B_BATH_LT_FLUSH_DOME",
+   "file": "game/tests/prologue_tutorial_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    91
+   ],
+   "count": 1,
+   "context": [
+    "var fixture: Node=world.adapter.resolve(\"F04_B_BATH_LT_FLUSH_DOME\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1da5a96c2f326f4d",
+   "kind": "id_reference",
+   "token": "F04_B_BATH_SWITCH",
+   "file": "game/tests/prologue_tutorial_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    90
+   ],
+   "count": 1,
+   "context": [
+    "var plate: Node3D=world.adapter.resolve(\"F04_B_BATH_SWITCH\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a22a9c7c48b78bfe",
+   "kind": "node_path",
+   "token": "F04_B_BATH_WINDOW_E/WindowTreatment",
+   "file": "game/tests/prologue_tutorial_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    105
+   ],
+   "count": 1,
+   "context": [
+    "var window := world.adapter.root.get_node_or_null(\"F04_B_BATH_WINDOW_E/WindowTreatment\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1a0d41ef042023af",
+   "kind": "vector3_coordinate",
+   "token": "_review_installed_bath",
+   "file": "game/tests/prologue_tutorial_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review_installed_bath"
+   ],
+   "lines": [
+    200
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position=tap.model.to_global(Vector3(0,0,-1.05));player.velocity=Vector3.ZERO"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a0e21717e4ca2f60",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/prologue_tutorial_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    79,
+    79,
+    79,
+    79,
+    82,
+    82,
+    113,
+    121
+   ],
+   "count": 8,
+   "context": [
+    "for at: Vector3 in [Vector3(-11.95,9.6,7.25),Vector3(-9.8,9.6,7.25),Vector3(-9.8,9.6,5.5),Vector3(-10.5,9.6,4.75)]:",
+    "for at: Vector3 in [Vector3(-7.9,9.6,4.75),Vector3(-8.45,9.6,4.35)]:",
+    "if not await _walk(Vector3(-6.9,9.6,4.75)): return",
+    "if not await _walk(Vector3(-8.45,9.6,4.35)): return"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "be77601c4a0d9a7b",
+   "kind": "vector3_coordinate",
+   "token": "_ready",
+   "file": "game/tests/prologue_writing_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [
+    "var camera := Camera3D.new();camera.position=Vector3(0,0,2.0);camera.fov=72"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c508a59700be72e5",
+   "kind": "id_reference",
+   "token": "F04_B_ALCOVE",
+   "file": "game/scripts/game/prologue_temporal_sky.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "_find_window"
+   ],
+   "lines": [
+    179
+   ],
+   "count": 1,
+   "context": [
+    "if str(record.space)!=\"F04_B_ALCOVE\" or str(record.axis)!=\"z\":continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime. Finale staging uses the existing sleeping-alcove west exterior; the former bath lookup faced retained interior stock. See V2_PROLOGUE_2026-10-28.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e03c7029e8d5033f",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/prologue_temporal_sky_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e7f761977684b20e",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/prologue_temporal_sky_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    50,
+    52
+   ],
+   "count": 2,
+   "context": [
+    "player.global_position=world.adapter.root.to_global(Vector3(-8.4,9.62,4.75))",
+    "player.camera.look_at(world.adapter.root.to_global(Vector3(-5.9,11.5,4.75)))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ddbc39d4f0b4d5bb",
+   "kind": "id_reference",
+   "token": "4B_wake_bed",
+   "file": "game/tests/orison_v2_bedding_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    111
+   ],
+   "count": 1,
+   "context": [
+    "if str(record.id)==\"4B_wake_bed\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed measured 4B bedding-clearance diagnostic. Original bed owner remains authoritative; survey coordinates are test camera stations, not gameplay access or runtime qualification.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0b8f574653b1d622",
+   "kind": "vector3_coordinate",
+   "token": "survey_bed",
+   "file": "game/tests/prologue_temporal_sky_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "survey_bed"
+   ],
+   "lines": [
+    168,
+    183,
+    184,
+    187,
+    188
+   ],
+   "count": 5,
+   "context": [
+    "world.player.global_position=frame.to_global(Vector3(-11.95,9.65,8.9))",
+    "world.player.camera.global_position=frame.to_global(Vector3(-11.5,10.25,8.9))",
+    "world.player.camera.look_at(frame.to_global(Vector3(-13.15,9.85,8.9)))",
+    "world.player.camera.global_position=frame.to_global(Vector3(-11.95,9.88,8.9))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Reviewed measured 4B bedding-clearance diagnostic. Original bed owner remains authoritative; survey coordinates are test camera stations, not gameplay access or runtime qualification.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d698c43708dc9c4d",
+   "kind": "id_reference",
+   "token": "4B_wake_bed",
+   "file": "game/scripts/game/prologue_tardi_stinger.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "start"
+   ],
+   "lines": [
+    70
+   ],
+   "count": 1,
+   "context": [
+    "var bed:Node3D=scope.world.adapter.resolve(\"4B_wake_bed\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "16c8216ea5bccf0e",
+   "kind": "id_reference",
+   "token": "F04_B_BATH_DOOR",
+   "file": "game/scripts/game/prologue_tardi_stinger.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "start"
+   ],
+   "lines": [
+    77
+   ],
+   "count": 1,
+   "context": [
+    "if str(door.id)==\"F04_B_BATH_DOOR\":departure=frame.to_global(Vector3(float(door.center[0]),bed_at.y,float(door.center[1])))"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a930d47ae45c222d",
+   "kind": "id_reference",
+   "token": "F04_4B_MIRROR_01",
+   "file": "game/tests/orison_v2_medicine_cabinets_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review_story_film"
+   ],
+   "lines": [
+    202
+   ],
+   "count": 1,
+   "context": [
+    "var prop:=world.adapter.resolve(\"F04_4B_MIRROR_01\") as Cabinet"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/marker",
+   "target_exists": true
+  },
+  {
+   "key": "a642d93db1391b6c",
+   "kind": "id_reference",
+   "token": "F04_4B_MIRROR_01",
+   "file": "game/scripts/building/orison_v2_native_medicine_cabinets.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare",
+    "mounting_pose"
+   ],
+   "lines": [
+    8,
+    30
+   ],
+   "count": 2,
+   "context": [
+    "if data.mounts.keys() != [\"F04_4B_MIRROR_01\"]: return false",
+    "if identity != \"F04_4B_MIRROR_01\": return Transform3D.IDENTITY"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/marker",
+   "target_exists": true
+  },
+  {
+   "key": "b7c14a0671172eca",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/v2_player_rig_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    39,
+    39,
+    64
+   ],
+   "count": 3,
+   "context": [
+    "var observer:=Camera3D.new();add_child(observer);observer.position=Vector3(0,1.1,-2.0);observer.look_at(Vector3(0,1.05,0));observer.make_current()",
+    "holder.velocity=Vector3(1,0,0);holder.camera.rotation.x=deg_to_rad(-20)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate. Native isolated rig camera and movement stimulus, verified by player_face_aim/native_first; not an installed world station.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "eaeb07b24b0e2941",
+   "kind": "id_reference",
+   "token": "4B_wake_bed",
+   "file": "game/scripts/game/prologue_waking.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "start"
+   ],
+   "lines": [
+    39
+   ],
+   "count": 1,
+   "context": [
+    "_bed=owner.world.adapter.resolve(\"4B_wake_bed\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0bd3ab4d1e0f939a",
+   "kind": "id_reference",
+   "token": "F04_B_BEDSIDE_RETURN",
+   "file": "game/tests/prologue_tutorial_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_return_anchor_resolution"
+   ],
+   "lines": [
+    958,
+    970,
+    973
+   ],
+   "count": 3,
+   "context": [
+    "var stance:=Node3D.new();stance.name=\"F04_B_BEDSIDE_RETURN\";fixture.add_child(stance)",
+    "var duplicate_stance:=Node3D.new();duplicate_stance.name=\"F04_B_BEDSIDE_RETURN\";group.add_child(duplicate_stance)",
+    "var wrong_kind:=Node.new();wrong_kind.name=\"F04_B_BEDSIDE_RETURN\";fixture.add_child(wrong_kind)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c9c38a76bc440979",
+   "kind": "runtime_id",
+   "token": "F04_B_BED",
+   "file": "game/tests/prologue_tutorial_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_return_anchor_resolution"
+   ],
+   "lines": [
+    960,
+    962,
+    965,
+    967,
+    968,
+    971,
+    974
+   ],
+   "count": 7,
+   "context": [
+    "var bed:=Node3D.new();bed.name=\"F04_B_BED\";fixture.add_child(bed)",
+    "var resolved:Dictionary=adapter.resolve_return_anchor(\"F04_B_BED\")",
+    "ok=_require(adapter.resolve_return_anchor(\"F04_B_BED\").position==stance.global_position,\"return anchor reads moved markers without stale caching\") and ok",
+    "var duplicate_bed:=Node3D.new();duplicate_bed.name=\"F04_B_BED\";group.add_child(duplicate_bed)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "1f0d544550e37d10",
+   "kind": "node_path",
+   "token": "StreetEndHoardingFaces",
+   "file": "game/scripts/building/v2_street_end_details.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_street_ends"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [
+    "var faces := parent.get_node(\"StreetEndHoardingFaces\") as MultiMeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "47822334352089b5",
+   "kind": "runtime_id",
+   "token": "StreetEndHoardingFaces",
+   "file": "game/scripts/building/v2_street_end_details.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_street_ends"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [
+    "var faces := parent.get_node(\"StreetEndHoardingFaces\") as MultiMeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "1ebb70d8a68aeec7",
+   "kind": "vector3_coordinate",
+   "token": "_closed_footway_control",
+   "file": "game/tests/v2_city_west_frontage.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_closed_footway_control"
+   ],
+   "lines": [
+    189
+   ],
+   "count": 1,
+   "context": [
+    "if not await _walk(world.adapter.root.to_local(Vector3(-16,0,3))): return"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "64892251559dfd81",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/v2_city_west_frontage.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    74,
+    74,
+    74,
+    74,
+    74,
+    74,
+    78,
+    98,
+    133
+   ],
+   "count": 9,
+   "context": [
+    "for point: Vector3 in [Vector3(0,0,3),Vector3(-8,0,3),Vector3(-16,0,3),Vector3(-19.2,0,3),Vector3(-16,0,3),Vector3(0,0,3)]:",
+    "if not await _walk(world.adapter.root.to_local(Vector3(0,0,3))): return",
+    "player.face_world_point(Vector3(-130,4,3))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c935d3dca5f621ec",
+   "kind": "vector3_coordinate",
+   "token": "_west_ray",
+   "file": "game/tests/v2_city_west_frontage.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_west_ray"
+   ],
+   "lines": [
+    67,
+    67
+   ],
+   "count": 2,
+   "context": [
+    "return world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(Vector3(0,1.41,3),Vector3(-130,4,3),1,[player.get_rid()]))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4a28ad98dfe6e7a9",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_city_transport_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    68,
+    69,
+    98,
+    98,
+    98,
+    98
+   ],
+   "count": 6,
+   "context": [
+    "var target := Vector3(65, 9, 10)",
+    "camera.position = Vector3(65, 90, 240)",
+    "for view: Dictionary in [{\"id\":\"public_stair\", \"eye\":Vector3(27, 1.41, -8), \"target\":Vector3(35, 3.3, -5)}, {\"id\":\"lower_platform\", \"eye\":Vector3(45, 12.79, 20)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "5c5d7c28d6494c1d",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/v2_city_transport_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    78,
+    78,
+    78,
+    78,
+    81,
+    83,
+    83,
+    83,
+    83,
+    83,
+    83,
+    83,
+    85,
+    86,
+    86,
+    86,
+    86,
+    88,
+    108,
+    126
+   ],
+   "count": 28,
+   "context": [
+    "for point: Vector3 in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-10.2),Vector3(0,0,-10.8)]:",
+    "if not await _walk(Vector3(0,0,-12.2)): return",
+    "for point: Vector3 in [Vector3(0,0,3),Vector3(14,0,3),Vector3(19.5,0,3),Vector3(24,0,3),Vector3(24,0,-4),Vector3(30,0,-4),Vector3(30,0,3)]:",
+    "await _station_view(\"plaza_approach\",Vector3(65,-10,8))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e061e91a3e0b087c",
+   "kind": "vector3_coordinate",
+   "token": "_street_block_tour",
+   "file": "game/tests/v2_city_transport_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_street_block_tour"
+   ],
+   "lines": [
+    156,
+    156,
+    157,
+    157,
+    158,
+    158
+   ],
+   "count": 6,
+   "context": [
+    "if point == Vector3(-76,-13,0): await _station_view(\"street_west_junction\",Vector3(-68,-22,1))",
+    "if point == Vector3(64.3,24,0): await _station_view(\"street_east_narrow_walk\",Vector3(66,-13,1))",
+    "if point == Vector3(80,-26.5,0): await _station_view(\"street_pier_islands\",Vector3(73,-27.45,1))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7b77fbb17e124910",
+   "kind": "vector3_coordinate",
+   "token": "_height_contacts",
+   "file": "game/tests/orison_v2_traffic_behaviour_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_height_contacts"
+   ],
+   "lines": [
+    287
+   ],
+   "count": 1,
+   "context": [
+    "person.position = Vector3(0,0,-50)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Isolated traffic-height fixture restores its probe off-road after flat/graded and transformed-owner contact controls; no playable coordinate or authority.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1ba54804a7c46e82",
+   "kind": "id_reference",
+   "token": "F02_C_ENTRY_DOOR",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[0]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "48f2acc0d07edec8",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_BATH_DOOR",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[1]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4772ddc6ec21c4ce",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_BED1_DOOR",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[2]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a942870a5bed3112",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_BED2_DOOR",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "da13f19b605d435d",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "025bd5d63f561528",
+   "kind": "unit_reference",
+   "token": "2C",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "99424fde25ce44f4",
+   "kind": "id_reference",
+   "token": "F05_A_KITCHEN_STUDY_DOOR",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[0]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b6fa192012f30556",
+   "kind": "id_reference",
+   "token": "F05_A_MAIN_BED_DOOR",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[1]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a29cae56ddb21dae",
+   "kind": "id_reference",
+   "token": "F05_A_PRIVATE_HALL_BATH_DOOR",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[2]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6a0803321cf6c502",
+   "kind": "id_reference",
+   "token": "F05_A_PRIVATE_HALL_KITCHEN_DOOR",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d7ba9504bc3b0dfc",
+   "kind": "id_reference",
+   "token": "F05_DOOR_02",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "49afbd0078b18b8d",
+   "kind": "id_reference",
+   "token": "bed",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/paths[0][*][0]",
+    "/places/unit:bed",
+    "/places/unit:bedroom"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f1b03c22bb0307c5",
+   "kind": "unit_reference",
+   "token": "5A",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "fbe76acdb72d8a83",
+   "kind": "generated_name",
+   "token": "configure",
+   "file": "game/scripts/device/companion_temporal_register.gd",
+   "tier": "production",
+   "subsystem": "device",
+   "symbols": [
+    "configure"
+   ],
+   "lines": [
+    71
+   ],
+   "count": 1,
+   "context": [
+    "\"Temporal\" + row"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6422412044f27838",
+   "kind": "vector3_coordinate",
+   "token": "_run_northwest",
+   "file": "game/tests/v2_city_transport_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run_northwest"
+   ],
+   "lines": [
+    107
+   ],
+   "count": 1,
+   "context": [
+    "if point.x==-40.:await _station_view(\"northwest_row_from_south_walk\",Vector3(-42,-6.2,8))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

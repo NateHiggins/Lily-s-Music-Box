@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "finishes": [
+    {
+      "alias": "structure",
+      "catalog_key": "iron_neutral",
+      "metallic": 0.0,
+      "tint": [
+        0.3,
+        0.34,
+        0.31,
+        1.0
+      ],
+      "normal": 0.45,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    {
+      "alias": "rail",
+      "catalog_key": "iron_neutral",
+      "metallic": 1.0,
+      "tint": [
+        0.67,
+        0.65,
+        0.6,
+        1.0
+      ],
+      "normal": 0.25,
+      "roughness": 0.85,
+      "pigment": 1.0
+    },
+    {
+      "alias": "timber",
+      "catalog_key": "timber",
+      "tint": [
+        0.47,
+        0.4,
+        0.29,
+        1.0
+      ],
+      "normal": 0.45,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    {
+      "alias": "paving",
+      "catalog_key": "concrete",
+      "tint": [
+        0.65,
+        0.63,
+        0.56,
+        1.0
+      ],
+      "normal": 0.45,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    {
+      "alias": "roof",
+      "catalog_key": "galvanized_roof",
+      "tint": [
+        0.49,
+        0.51,
+        0.46,
+        1.0
+      ],
+      "normal": 0.4,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    {
+      "alias": "sleeper",
+      "catalog_key": "timber",
+      "tint": [
+        0.42,
+        0.37,
+        0.3,
+        1.0
+      ],
+      "normal": 0.4,
+      "roughness": 1.0,
+      "pigment": 1.0
+    }
+  ],
+  "lod_error_m": 0.04,
+  "parts": [
+    "Transport_0_L0__paving",
+    "Transport_0_L0__structure",
+    "Transport_1_L0__paving",
+    "Transport_1_L0__structure",
+    "Transport_2_L0__paving",
+    "Transport_2_L0__structure",
+    "Transport_3_L0__paving",
+    "Transport_3_L0__structure",
+    "Transport_4_L0__paving",
+    "Transport_4_L0__structure",
+    "Transport_0_L0__rail",
+    "Transport_0_L0__sleeper",
+    "Transport_1_L0__rail",
+    "Transport_1_L0__sleeper",
+    "Transport_2_L0__rail",
+    "Transport_2_L0__sleeper",
+    "Transport_3_L0__rail",
+    "Transport_3_L0__sleeper",
+    "Transport_4_L0__rail",
+    "Transport_4_L0__sleeper",
+    "Transport_0_L0__timber",
+    "Transport_1_L0__timber",
+    "Transport_2_L0__timber",
+    "Transport_3_L0__timber",
+    "Transport_4_L0__timber",
+    "Transport_0_L0__roof",
+    "Transport_1_L0__roof",
+    "Transport_2_L0__roof",
+    "Transport_3_L0__roof",
+    "Transport_4_L0__roof"
+  ]
+}

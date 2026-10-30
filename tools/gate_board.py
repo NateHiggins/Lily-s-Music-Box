@@ -299,6 +299,11 @@ def build_board(root: Path, include_tests: bool, only: list[str], jobs: int, tim
     gates = [g for g in GATES if not g.get("optional") or (root / g["argv"][0]).is_file()]
     gates += test_gates(root) if include_tests else []
     if only:
+        unknown = [o for o in only if not any(
+            g["id"] == o or g["id"].startswith(o + ":") for g in gates)]
+        if unknown:
+            raise ValueError("unknown gate selection: " + ", ".join(unknown)
+                             + "; repeat --only for each gate id")
         gates = [g for g in gates if any(g["id"] == o or g["id"].startswith(o + ":") for o in only)]
     with ThreadPoolExecutor(max_workers=max(1, jobs)) as pool:
         rows = list(pool.map(lambda g: run_gate(root, g, timeout), gates))
@@ -470,7 +475,11 @@ def main(argv=None) -> int:
         print(f"usage: {exc}", file=sys.stderr)
         return 3
 
-    board = build_board(root, not args.no_tests, args.only, args.jobs, args.timeout)
+    try:
+        board = build_board(root, not args.no_tests, args.only, args.jobs, args.timeout)
+    except ValueError as exc:
+        print(f"usage: {exc}", file=sys.stderr)
+        return 3
     comparison = compare(baseline, board) if baseline is not None else None
     if comparison is not None:
         board["comparison"] = comparison

@@ -7,6 +7,8 @@ var parked: Vector3
 var held := false
 var falling_speed := 0.0
 var triangles: Array[Vector3] = []
+const SUPPORT_CELL := .04
+var _support_cells: Dictionary = {}
 var ceiling := 0.0
 var resting := true
 
@@ -24,6 +26,7 @@ func _init(fixture: Node3D, plug: Node3D, drain: Vector3, rest: Vector3) -> void
 			if maxf(a.y,maxf(b.y,c.y))<seat.y-.04 or minf(a.y,minf(b.y,c.y))>ceiling: continue
 			if absf((b-a).cross(c-a).y)<.0000001: continue
 			triangles.append_array([a,b,c])
+	_index_support()
 	part.position.y=maxf(part.position.y,support(part.position))
 	preload("res://scripts/props/manipulation_area.gd").install(part,func(): return grip())
 	update_seal()
@@ -38,9 +41,24 @@ func support(at: Vector3) -> float:
 		height=maxf(height,_surface_height(at+Vector3(cos(angle)*.018,0,sin(angle)*.018)))
 	return height
 
+func _index_support() -> void:
+	# Fixed casting in fixture-local coordinates. Conservative XZ bins only
+	# reject distant triangles; retain the original barycentric test below.
+	_support_cells.clear()
+	for i in range(0,triangles.size(),3):
+		var a:=triangles[i];var b:=triangles[i+1];var c:=triangles[i+2]
+		var low:=Vector2(minf(a.x,minf(b.x,c.x)),minf(a.z,minf(b.z,c.z)))-Vector2.ONE*.000001
+		var high:=Vector2(maxf(a.x,maxf(b.x,c.x)),maxf(a.z,maxf(b.z,c.z)))+Vector2.ONE*.000001
+		for x in range(floori(low.x/SUPPORT_CELL),floori(high.x/SUPPORT_CELL)+1):
+			for z in range(floori(low.y/SUPPORT_CELL),floori(high.y/SUPPORT_CELL)+1):
+				var key:=Vector2i(x,z)
+				if not _support_cells.has(key):_support_cells[key]=[]
+				_support_cells[key].append(i)
+
 func _surface_height(at: Vector3) -> float:
 	var height := seat.y
-	for i in range(0,triangles.size(),3):
+	var key:=Vector2i(floori(at.x/SUPPORT_CELL),floori(at.z/SUPPORT_CELL))
+	for i:int in _support_cells.get(key,[]):
 		var a:=triangles[i];var b:=triangles[i+1];var c:=triangles[i+2]
 		var den: float=(b.z-c.z)*(a.x-c.x)+(c.x-b.x)*(a.z-c.z)
 		var u: float=((b.z-c.z)*(at.x-c.x)+(c.x-b.x)*(at.z-c.z))/den
