@@ -980,7 +980,7 @@ class CommercialFronts:
         """Two source-specific Italianate fronts on retained narrow parcels.
 
         The entry's ground level comes from an exported installed-solid section,
-        not a city-wide zero assumption. All stair stock stays inside the parcel.
+        not a city-wide zero assumption. The west stoop projects onto measured soil; the east stays in its parcel.
         """
         spec=self.specs[name];plan=self.plans[name];a=plan['architecture']
         hayden=spec['style']=='hayden113'
@@ -996,7 +996,13 @@ class CommercialFronts:
         self.original_stock(name,spec['wall'],self.rings[name])
         # Retained foundations carry this closed ground slab; the front plinth
         # descends into the measured soil rather than floating at zero.
-        self.box(name,'concrete',(x+.2,y+.2,-.65),(X-.2,Y-.2,0))
+        # Three closed slabs leave the lower stair well genuinely open. A
+        # full rectangular slab at zero would bury the first west treads.
+        door_l=x+width*.25-.56;door_r=x+width*.25+.56
+        for lo,hi in [((x+.2,y+.2,-.65),(door_l,Y-.2,0)),
+                      ((door_r,y+.2,-.65),(X-.2,Y-.2,0)),
+                      ((door_l,y+1.40,-.65),(door_r,Y-.2,0))]:
+            self.box(name,'concrete',lo,hi)
         levels=[0.]
         for h in spec['front_heights']:levels.append(levels[-1]+h)
         u=Vector((1,0,0));out=Vector((0,-1,0));origin=Vector((x,y,0))
@@ -1030,13 +1036,13 @@ class CommercialFronts:
                     # Sample the door stile clear of the round-head midrail;
                     # its height differs from the rectangular entry's rail.
                     self.portal_rows[-1]['point'][2]=low+.8
-                    # Four shallow risers west, one east: final landing reaches
+                    # Four shallow risers west, two east: final landing reaches
                     # the scenic door sill. Bottom is embedded in retained solid.
                     ground=float(a['entry_ground_m']);n=max(1,math.ceil((low-ground)/.17));run=.96/n
                     for i in range(n):
-                        start=.2+i*run;end=.2+(i+1)*run
+                        start=float(a['entry_run_start_m'])+i*run;end=start+run
                         self.local_box(name,'limestone',origin,u,out,(left,-end,-.65),(right,-start,ground+(low-ground)*(i+1)/n))
-                    self.local_box(name,'limestone',origin,u,out,(left,-1.38,-.65),(right,-1.16,low))
+                    self.local_box(name,'limestone',origin,u,out,(left,-1.38,-.65),(right,-(float(a['entry_run_start_m'])+.96),low))
                     if not hayden:
                         # Bracketed entry entablature and actual triangular cap.
                         self.local_box(name,'limestone',origin,u,out,(left-.20,-.31,high+.02),(right+.20,.035,high+.14))
@@ -1087,7 +1093,7 @@ class CommercialFronts:
                 # Raised panel frame rather than an engraved texture.
                 for L,R,B,T in [(l,r,top-.59,top-.55),(l,r,top-.30,top-.26),(l,l+.035,top-.55,top-.30),(r-.035,r,top-.55,top-.30)]:
                     self.local_box(name,'wood_dark',origin,u,out,(L,-.085,B),(R,-.055,T))
-        self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=[x,y,X,Y],assembly_translation_m=plan.get('assembly_translation_m',[0,0,0]),eave=top,body_top=top,roof_deck_top=top+.26,entry_ground_m=a['entry_ground_m'],entry_recess_m=a['entry_recess_m'],entry_risers=max(1,math.ceil((.18-float(a['entry_ground_m']))/.17))))
+        self.building_rows.append(dict(id=name,style=spec['style'],registered_rect=[x,y,X,Y],assembly_translation_m=plan.get('assembly_translation_m',[0,0,0]),eave=top,body_top=top,roof_deck_top=top+.26,entry_ground_m=a['entry_ground_m'],entry_recess_m=a['entry_recess_m'],entry_run_start_m=a['entry_run_start_m'],entry_risers=max(1,math.ceil((.18-float(a['entry_ground_m']))/.17))))
 
     def build(self, name):
         if self.specs[name]['style'] in ['linford119','hayden113']:

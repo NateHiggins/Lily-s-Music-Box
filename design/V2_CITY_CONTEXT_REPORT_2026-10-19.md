@@ -3206,3 +3206,68 @@ and east retained footway stay fixed; canonical bridge/district owner was
 notified of the stoop extent. Source authoring and native/capsule review for
 this corrected projection are next,not yet acceptance. Original images,rays
 and source/native WIP remain preserved.
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Branch / HEAD at bench / origin/main / retained integration:
+**codex/v2-city-20261029 / b02aee3d with16 named construction changes /
+c574d0b8 / 8b553c28**. Original city start **3ea80715**. This records a
+scoped isolated checkpoint; no merge into main. Worktree at recording contains
+only those16 owned source/native/export/fixture changes plus this queue/report;
+no foreign work. Protected17/17 unchanged against8b by actual working-tree
+diff; selector staysV2. Ledger not rerun; INERT document lint adds no promotion.
+
+Gates: four native-fixture preflights PASS;14 earlier city tools tests PASS
+(reused unchanged tools); reader NEW0; final exported UV audit0 failed surfaces;
+V2 import policy1474/1474 correct,0 repairs. Parser1/0. Pinned patched
+Vulkan4.7.1/RTX4080 fullscreen3440x1440 bench writes **7090 checks,1205 bearing
+samples,1063 draws,0 failures**,32.87s wrapper,empty stderr. Receipt:
+**narrow_neighbors_01/bench_01.log.receipt.json** under the external root.
+This is suite_run/INERT diagnostic evidence,not a runtime_contract. The editor
+import's missing-UID cache warnings are retained separately; it completed0.
+
+Numbers: both four-storey fronts retain4.4x24m masses and12.8m body datum;
+west/east near triangles **5726/4918**, complete lower bodies **4718/4414**,
+13 parts each.717 new closed positive stocks; complete lower family9881 stocks,
+520 bearings/544 panes,0 failures. The west flight projects.96m onto measured
+soil, four164mm risers, supported+.18m landing; foundation/access owners remain
+unchanged.38 actual exported tread/closed-leaf sections and5 actual native
+sight rays pass.28 native images,including original setup/tread failures, and
+14 loaded images are inspected. Two loaded return images are exact before
+duplicates. Final native/export triangle-position multisets match at both LODs.
+
+Whole building plus equipment: west **17 draws/7526 near→6518 far primitives**;
+east **17/6620→6116**. Ninety warmed uncapped frames per case,MSAA3,TAA off.
+First west near GPU median/p95/max **4.002/4.7534/5.600ms**,wall max **6.115ms**.
+Repeated near/far GPU medians west **.567/.566ms**,east **.572/.571ms**; repeated
+wall maxima west **.910/.883ms**,east **.899/.900ms**. No quiet-host baseline,
+causal speedup,cold-start or whole-city budget is claimed. Canonical reported
+a native CPU build shortly afterward; timing overlap is not established, and
+shared-host/QEMU contention remains a measurement limitation.
+
+Default threshold1 wood-body LOD brackets: west **189.7776572/189.7983099m**,
+804→516 triangles; east **189.7708720/189.7914859m**,724→580. Narrow FOV restores
+near indices and inward return is exact. These are material-body probes,not
+controller travel or whole-building artistic acceptance at those distances.
+All **207 loaded input hashes** remain exact after measurement. Original
+335-stock closure and street exports remain exact;248 unaffected near and117
+prior lower parts retain exact exported attributes/indices/transforms. Only
+west limestone and both new concrete parts differ from initialb9 native WIP.
+638 own new untracked UIDs were raw-byte archived,CRC/hash/reparse/tracked/path
+checked and individually removed; no tracked imports or unrelated files changed.
+
+Changes beyond the initial assumed boundary: the measured west stoop extends
+the scenic entry into soil to clear a retained vertical foundation face;
+canonical district owner acknowledged the exact extent. Main body/roof and
+east retained footway stay fixed. Original floor-only diagnostic success is
+not promoted to approach acceptance; failed sight rays and setup frames stay
+preserved. Incoming mystery authorities have not been merged.
+
+Open findings: production standing-body ascent/descent and approach, composed
+physical/source-bound qualification and lighting/artistic acceptance for this
+new pair. Published technical tally stays **21/149,128 remaining**. Existing
+Windows startup hang and whole-city frame spikes remain open. No owner decision
+is needed; canonical will combine controller/composed checks with its next
+necessary bridge cohort after separate native/loaded review.
+
+BLOCKED for merge: new-pair controller/composed qualification remains.
