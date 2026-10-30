@@ -37,6 +37,12 @@ const SLICE_PATHS: Array[String] = [
 	"res://data/newspapers/1929-10b.json",
 	"res://data/newspapers/1929-11a.json",
 ]
+const ADS_PATH := "res://data/newspapers/advertisements.json"
+const CARTOONS_PATH := "res://data/newspapers/cartoons.json"
+## How many boxed advertisements the back of the sheet carries.
+const ADS_PER_PAGE := 6
+## How six advertisements fill a page; the panel lays them out in this order.
+const AD_PLANS := [["T", "S", "S", "W", "W", "S"], ["W", "S", "T", "S", "S", "W"], ["S", "S", "S", "W", "S", "B"]]
 const PAPER_IDS: Array[String] = ["record", "speaker"]
 ## The back page, where an issue has one: what each paper runs behind its front.
 const BACK_COLUMNS := 4
@@ -58,6 +64,9 @@ var papers: Dictionary = {}
 var issues: Dictionary = {}   # "YYYY-MM-DD" -> issue dictionary (record, speaker, weekday)
 var dates: Array[String] = []
 var errors: Array[String] = []
+var _ads: Array[Dictionary] = []
+var _firms: Dictionary = {}  # firm name -> identity and contact lines
+var _cartoons: Dictionary = {}  # "YYYY-MM-DD" -> the Speaker's weekly cartoon
 var _clock: CampaignClock
 var _sky := SkyPhenomena.new()
 
@@ -72,6 +81,7 @@ func load_all() -> void:
 	errors.clear()
 	_load_papers()
 	_load_slices()
+	_load_advertising()
 	if not _sky.load_schedule():
 		for problem in _sky.errors: errors.append("sky phenomena: %s" % problem)
 
@@ -80,6 +90,44 @@ func load_all() -> void:
 
 func paper(paper_id: String) -> Dictionary:
 	return papers.get(paper_id, {})
+
+
+## The advertisements on the back of this paper's sheet today. The advertisers
+## buy space by the season, so the same day always carries the same boxes.
+func ads_for(paper_id: String, date: String) -> Array[Dictionary]:
+	var chosen: Array[Dictionary] = []
+	var seed_value := absi(hash(date + paper_id))
+	var pools := {}
+	for ad in _ads:
+		if str(ad.paper) == paper_id or str(ad.paper) == "both":
+			if not pools.has(ad.size):
+				pools[ad.size] = []
+			pools[ad.size].append(ad)
+	var used := {}
+	for size: String in AD_PLANS[ad_plan_for(paper_id, date)]:
+		var pool: Array = pools.get(size, [])
+		if pool.is_empty():
+			continue
+		chosen.append(pool[(seed_value + int(used.get(size, 0))) % pool.size()])
+		used[size] = int(used.get(size, 0)) + 1
+	return chosen
+
+
+## The firm an advertisement names: who it is and how to reach it.
+func firm_for(ad: Dictionary) -> Dictionary:
+	return _firms.get(str(ad.get("firm", "")), {})
+
+
+## Which of AD_PLANS shapes this page's advertising.
+func ad_plan_for(paper_id: String, date: String) -> int:
+	return absi(hash(date + paper_id)) % AD_PLANS.size()
+
+
+## The weekly cartoon, where this issue has one: {image, caption}.
+func cartoon_for(paper_id: String, date: String) -> Dictionary:
+	if paper_id != "speaker":
+		return {}
+	return _cartoons.get(date, {})
 
 
 func has_issue(date: String) -> bool:
@@ -246,6 +294,44 @@ func _load_slices() -> void:
 				issues[date] = entry
 	dates.assign(issues.keys())
 	dates.sort()
+
+
+func _load_advertising() -> void:
+	_ads.clear()
+	_cartoons.clear()
+	_firms.clear()
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(ADS_PATH))
+	if parsed is not Dictionary or parsed.get("ads") is not Array or parsed.get("firms") is not Dictionary:
+		errors.append("advertisements unreadable: %s" % ADS_PATH)
+	else:
+		_firms = parsed.firms
+		for firm_name in _firms:
+			for field in ["mark", "mark_shape", "id_line", "address", "telephone", "hours", "slogan"]:
+				if _firms[firm_name] is not Dictionary or not _firms[firm_name].has(field):
+					errors.append("%s: firm %s has no %s" % [ADS_PATH, firm_name, field])
+		for ad in parsed.ads:
+			if ad is Dictionary and ((ad.has("items") and ad.items is not Array)
+					or (ad.has("offer") and str(ad.offer) == "") or (ad.has("signed") and str(ad.signed) == "")):
+				errors.append("%s: %s has a malformed items, offer or signed" % [ADS_PATH, ad.get("headline", "")])
+			if ad is not Dictionary or not _firms.has(str(ad.get("firm", ""))) \
+					or str(ad.get("headline", "")) == "" or str(ad.get("body", "")) == "" \
+					or str(ad.get("paper", "")) not in ["record", "speaker", "both"] \
+					or not NewspaperAd.has_style(str(ad.get("style", ""))) \
+					or str(ad.get("size", "")) not in ["S", "W", "T", "B"] \
+					or not ResourceLoader.exists(str(ad.get("image", ""))):
+				errors.append("%s: an advertisement needs a known firm, style and size, headline, body, paper and an image that exists" % ADS_PATH)
+				continue
+			_ads.append(ad)
+	parsed = JSON.parse_string(FileAccess.get_file_as_string(CARTOONS_PATH))
+	if parsed is not Dictionary or parsed.get("cartoons") is not Array:
+		errors.append("cartoons unreadable: %s" % CARTOONS_PATH)
+		return
+	for cartoon in parsed.cartoons:
+		if cartoon is not Dictionary or str(cartoon.get("date", "")) == "" \
+				or str(cartoon.get("caption", "")) == "" or not ResourceLoader.exists(str(cartoon.get("image", ""))):
+			errors.append("%s: a cartoon needs date, caption and an image that exists" % CARTOONS_PATH)
+			continue
+		_cartoons[str(cartoon.date)] = cartoon
 
 
 ## An issue's optional back page: four typed columns and a one-line foot.
