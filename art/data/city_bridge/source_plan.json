@@ -4,10 +4,25 @@
   "scope": "Queensboro-derived full-scale engineering-frame native study. No installed siting, access, structural rating, historical paint specification or runtime acceptance.",
   "frame": "BRIDGE_ENGINEERING_X_MANHATTAN_TO_QUEENS_Z_HIGH_WATER",
   "references": [
-    {"source": "William H. Burr, Queensboro Bridge: Report on Design and Construction, 1908", "url": "https://www.loc.gov/item/09009940/", "pages": "PDF11-12 and figure3/PDF23", "use": "Unequal span chain, paired truss centres, revised two-level section; superseded four-elevated-track proposal excluded."},
-    {"source": "City engineering drawing4347/4357/4936", "packet": "C:/ov/reports/bridge_research_20261028/", "use": "Four steel tower frames, chord-centre depth185ft, Queens approach3.4percent; inspected primary drawings and research register, not a surveyed fictional parcel."}
+    {
+      "source": "William H. Burr, Queensboro Bridge: Report on Design and Construction, 1908",
+      "url": "https://www.loc.gov/item/09009940/",
+      "pages": "PDF11-12 and figure3/PDF23",
+      "use": "Unequal span chain, paired truss centres, revised two-level section; superseded four-elevated-track proposal excluded."
+    },
+    {
+      "source": "City engineering drawing4347/4357/4936",
+      "packet": "C:/ov/reports/bridge_research_20261028/",
+      "use": "Four steel tower frames, chord-centre depth185ft, Queens approach3.4percent; inspected primary drawings and research register, not a surveyed fictional parcel."
+    }
   ],
-  "spans_m": [143.1036, 360.2736, 192.024, 299.9232, 139.9032],
+  "spans_m": [
+    143.1036,
+    360.2736,
+    192.024,
+    299.9232,
+    139.9032
+  ],
   "truss_centres_m": 18.288,
   "outer_envelope_m": 26.2128,
   "road_width_m": 16.2306,
@@ -15,7 +30,7 @@
   "tower_chord_depth_m": 56.388,
   "central_level_length_m": 518.16,
   "end_grade": 0.034,
-  "approach_length_m": 451.7261,
+  "approach_length_m": 451.7009,
   "rail_gauge_m": 1.435,
   "authored": {
     "road_mid_crown_m": 44.5,
@@ -27,13 +42,204 @@
     "crest_height_m": 6.0,
     "pier_bottom_m": -6.0,
     "paint_note": "Restrained gray-brown trial, not a documented1928 paint match.",
-    "shape_note": "Intermediate chord curves, panel divisions, sections, connection plates and crest are authored approximations guided by the primary elevation. Native high-water zero is not game ASL. Siting and supported shoreline/island continuation remain open."
+    "shape_note": "Intermediate chord curves, panel divisions, sections, connection plates and crest are authored approximations guided by the primary elevation. Native high-water zero is not game ASL. Siting and supported shoreline/island continuation remain open.",
+    "approach_chord_top_above_road_m": 8.8,
+    "approach_panel_target_m": 5.8,
+    "approach_column_width_m": 0.65,
+    "approach_column_depth_m": 0.85,
+    "continuation_length_m": 480.0,
+    "background_rects_building_m": [
+      [
+        -900.0,
+        500.0,
+        1800.0,
+        2200.0
+      ],
+      [
+        500.0,
+        -500.0,
+        1800.0,
+        500.0
+      ],
+      [
+        -900.0,
+        -500.0,
+        -500.0,
+        500.0
+      ]
+    ],
+    "island_west_profile": [
+      [
+        500.0,
+        -8.0
+      ],
+      [
+        600.0,
+        -8.0
+      ],
+      [
+        620.0,
+        -1.0
+      ],
+      [
+        805.0,
+        -1.0
+      ],
+      [
+        825.0,
+        -8.0
+      ],
+      [
+        1100.0,
+        -8.0
+      ],
+      [
+        1120.0,
+        -2.0
+      ],
+      [
+        1180.0,
+        -0.02
+      ],
+      [
+        1800.0,
+        -0.02
+      ]
+    ],
+    "masonry_note": "AU dressed-limestone masonry uses the existing catalogue and loaded PBR pipeline; not a documented historical granite match.",
+    "continuation_source_path": {
+      "first_control_distance_m": 35.0,
+      "second_control_xy_m": [
+        250.0,
+        315.0
+      ],
+      "curve_end_xy_m": [
+        340.0,
+        315.0
+      ],
+      "end_xy_m": [
+        620.0,
+        315.0
+      ],
+      "scope": "AU curved supported continuation keeps its piers north/east of retained149 bodies. Printed451.7009m steel approach remains straight and unchanged; this additional road is not claimed historical."
+    }
   },
   "finishes": {
-    "painted_steel": {"catalog_key": "iron_neutral", "metallic": 0.0, "tint": [0.34, 0.35, 0.32, 1.0], "normal": 0.45, "roughness": 1.0, "pigment": 1.0},
-    "rail": {"catalog_key": "iron_neutral", "metallic": 1.0, "tint": [0.65, 0.64, 0.60, 1.0], "normal": 0.25, "roughness": 0.85, "pigment": 1.0},
-    "paving": {"catalog_key": "asphalt", "metallic": 0.0, "tint": [0.38, 0.37, 0.34, 1.0], "normal": 0.55, "roughness": 1.0, "pigment": 1.0},
-    "stone": {"catalog_key": "limestone", "metallic": 0.0, "tint": [0.53, 0.51, 0.46, 1.0], "normal": 0.65, "roughness": 1.0, "pigment": 1.0},
-    "timber": {"catalog_key": "timber", "metallic": 0.0, "tint": [0.34, 0.29, 0.23, 1.0], "normal": 0.45, "roughness": 1.0, "pigment": 1.0}
+    "painted_steel": {
+      "catalog_key": "iron_neutral",
+      "metallic": 0.0,
+      "tint": [
+        0.34,
+        0.35,
+        0.32,
+        1.0
+      ],
+      "normal": 0.45,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "rail": {
+      "catalog_key": "iron_neutral",
+      "metallic": 1.0,
+      "tint": [
+        0.65,
+        0.64,
+        0.6,
+        1.0
+      ],
+      "normal": 0.25,
+      "roughness": 0.85,
+      "pigment": 1.0
+    },
+    "paving": {
+      "catalog_key": "asphalt",
+      "metallic": 0.0,
+      "tint": [
+        0.38,
+        0.37,
+        0.34,
+        1.0
+      ],
+      "normal": 0.55,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "stone": {
+      "catalog_key": "limestone",
+      "metallic": 0.0,
+      "tint": [
+        0.53,
+        0.51,
+        0.46,
+        1.0
+      ],
+      "normal": 0.65,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "timber": {
+      "catalog_key": "timber",
+      "metallic": 0.0,
+      "tint": [
+        0.34,
+        0.29,
+        0.23,
+        1.0
+      ],
+      "normal": 0.45,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "soil": {
+      "catalog_key": "soil",
+      "metallic": 0.0,
+      "tint": [
+        0.48,
+        0.42,
+        0.33,
+        1.0
+      ],
+      "normal": 0.55,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "water_clear": {
+      "catalog_key": "water_clear",
+      "metallic": 0.0,
+      "tint": [
+        0.14,
+        0.2,
+        0.18,
+        1.0
+      ],
+      "normal": 0.18,
+      "roughness": 0.22,
+      "pigment": 1.0
+    }
+  },
+  "approach_spans_m": [
+    44.3484,
+    44.3484,
+    44.3484,
+    16.9672,
+    50.5587,
+    50.5587,
+    50.5587,
+    16.9672,
+    44.3484,
+    44.3484,
+    44.3484
+  ],
+  "approach_source_note": "Sheet4936 eleven-span chain: six145ft6in,three165ft10.5in,two55ft8in openings; total1481ft11.5in=451.7009m. Packet451.7261m was a conversion error,not a different physical source extent. Structural sections and adaptive continuation remain authored.",
+  "placement": {
+    "frame": "CITY_ELEVATIONS_SOURCE",
+    "queens_abutment_xy_m": [
+      -250.0,
+      520.0
+    ],
+    "eastbound_azimuth_deg": 119.70833333333333,
+    "water_scene_y_m": -6.0,
+    "building_to_city_y_m": 1.855,
+    "scope": "Authored AU background placement screened against149 body bounds; no new travel,real parcel claim or accepted rooftop composition."
   }
 }

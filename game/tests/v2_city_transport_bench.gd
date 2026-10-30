@@ -19,15 +19,19 @@ func _run() -> void:
 	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory) == OK, "writable diagnostic output directory")
 	var family := OS.get_environment("CITY_BENCH_FAMILY")
 	if family.is_empty(): family = "city_transport"
-	assert(family in ["city_transport", "city_streets"])
+	assert(family in ["city_transport", "city_streets", "city_bridge"])
 	var bench_scope:=OS.get_environment("CITY_BENCH_SCOPE")
 	if bench_scope.is_empty():bench_scope="all"
 	if bench_scope not in ["all","hampton"] or (bench_scope=="hampton" and family!="city_streets"):
 		push_error("Unknown or incompatible CITY_BENCH_SCOPE: "+bench_scope)
 		get_tree().quit(64);return
 	var initial_sources := _bench_sources(family)
+	var catalogue_before: Dictionary=_bridge_catalogue_state() if family=="city_bridge" else {}
 	var mount_started := Time.get_ticks_usec()
-	var station: Node3D = preload("res://scripts/building/orison_v2_city_streets.gd").mount(self) if family == "city_streets" else preload("res://scripts/building/orison_v2_city_transport.gd").mount(self)
+	var station: Node3D
+	if family=="city_bridge":station=preload("res://scripts/building/orison_v2_city_bridge.gd").mount(self)
+	elif family=="city_streets":station=preload("res://scripts/building/orison_v2_city_streets.gd").mount(self)
+	else:station=preload("res://scripts/building/orison_v2_city_transport.gd").mount(self)
 	var mount_ms := (Time.get_ticks_usec() - mount_started) / 1000.
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/exterior/"+family+".json"))
 	if family == "city_streets":
@@ -77,11 +81,14 @@ func _run() -> void:
 		for finish: Dictionary in data.finishes:
 			if str(finish.alias) == alias and finish.has("metallic"):
 				check(is_equal_approx(material.metallic, float(finish.metallic)), "loaded coating/substrate metallic response: " + str(draw.name))
-		if family == "city_streets": check(loaded is ShaderMaterial and is_equal_approx(float(loaded.get_shader_parameter("weather_exposure")),1.), "existing exterior weather adapter is bound: " + str(draw.name))
+		if family == "city_streets" or (family=="city_bridge" and alias!="water_clear"): check(loaded is ShaderMaterial and is_equal_approx(float(loaded.get_shader_parameter("weather_exposure")),1.), "existing exterior weather adapter is bound: " + str(draw.name))
 		for texture: Texture2D in [material.albedo_texture, material.roughness_texture, material.normal_texture]:
 			check(texture != null and texture.get_image().has_mipmaps(), "loaded PBR mip chain: " + str(draw.name))
-		var shape := draw.get_node("SourceCollision/NearSurface") as CollisionShape3D
-		check((shape.shape as ConcavePolygonShape3D).get_faces() == mesh.get_faces(), "near-only visible collision: " + str(draw.name))
+		if family=="city_bridge" and alias in ["soil","water_clear"]:
+			check(not draw.has_node("SourceCollision"),"outside-kilometre backdrop does not add a duplicate floor or water slab collision: "+str(draw.name))
+		else:
+			var shape := draw.get_node("SourceCollision/NearSurface") as CollisionShape3D
+			check((shape.shape as ConcavePolygonShape3D).get_faces() == mesh.get_faces(), "near-only visible collision: " + str(draw.name))
 	check(parts == data.parts.size() and parts > 0, "nonempty source roster")
 	check(lod_parts > 0, "nonempty replacement body roster")
 	if bench_scope=="hampton":
@@ -90,6 +97,15 @@ func _run() -> void:
 		transition_focus=focus
 	check(metrics.failures.is_empty(), "imported metre charts and tangent metrics: " + str(metrics.failures))
 	metrics.free()
+	if family=="city_bridge":
+		transition_focus=station.find_child("Bridge_15_L0__painted_steel",true,false) as MeshInstance3D
+		focus=transition_focus
+		check(focus!=null and int(low_counts[str(focus.name).replace("_L0__","_L1__")])<focus.mesh.surface_get_array_index_len(0),"Queens tower is the complete reducing structural body used for optical transitions")
+		var q: Array=data.queens_source_xy_m
+		check((station.transform*Vector3(float(data.main_length_m),0,0)).distance_to(Vector3(float(q[0]),float(data.water_scene_y_m),-float(q[1])))<.001,"bridge engineering endpoint reaches the declared city-source/water datum")
+		if not failures.is_empty():
+			FileAccess.open(directory.path_join("bridge_import_failure.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures,"source_hashes":_bench_sources(family),"scope":"Failed isolated import preflight; no optical,performance or composed qualification."},"\t")+"\n")
+			station.free();get_tree().quit(1);return
 	var environment := WorldEnvironment.new()
 	environment.environment = Environment.new()
 	environment.environment.background_mode = Environment.BG_COLOR
@@ -109,13 +125,26 @@ func _run() -> void:
 	var target := Vector3(65, 9, 10)
 	camera.position = Vector3(65, 90, 240)
 	camera.look_at(target)
+	if family=="city_bridge":
+		camera.far=10000.
+		camera.position=station.to_global(Vector3(float(data.main_length_m)*.5,280,950))
+		camera.look_at(station.to_global(Vector3(float(data.main_length_m)*.5,42,0)))
 	var viewport := get_viewport()
 	var original_threshold := viewport.mesh_lod_threshold
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	Engine.max_fps = 0
 	RenderingServer.viewport_set_measure_render_time(viewport.get_viewport_rid(), true)
 	for row: Dictionary in [{"id":"forced_near", "threshold":0., "fov":75.}, {"id":"forced_far", "threshold":10000., "fov":75.}, {"id":"wide", "threshold":1., "fov":75.}, {"id":"narrow", "threshold":1., "fov":5.}, {"id":"forced_far_repeat", "threshold":10000., "fov":75.}, {"id":"forced_near_repeat", "threshold":0., "fov":75.}]:
-		var focused := family == "city_streets" and str(row.id) in ["wide", "narrow"]
+		var focused := family in ["city_streets","city_bridge"] and str(row.id) in ["wide", "narrow"]
+		if family=="city_bridge":
+			for draw: MeshInstance3D in station.find_children("*","MeshInstance3D",true,false):draw.visible=draw==focus if focused else true
+			if focused:
+				var center: Vector3=_physical_target(focus,Vector3(.3,.6,1.).normalized(),true)
+				camera.position=center+Vector3(.3,.6,1.).normalized()*600.
+				camera.look_at(center)
+			else:
+				camera.position=station.to_global(Vector3(float(data.main_length_m)*.5,280,950))
+				camera.look_at(station.to_global(Vector3(float(data.main_length_m)*.5,42,0)))
 		if family == "city_streets":
 			for draw: MeshInstance3D in station.find_children("*", "MeshInstance3D", true, false): draw.visible = (draw==focus) if focused else (bench_scope!="hampton" or str(draw.name).begins_with("Street_Hampton_"))
 			if focused:
@@ -151,6 +180,11 @@ func _run() -> void:
 	var views: Array = [{"id":"public_stair", "eye":Vector3(27, 1.41, -8), "target":Vector3(35, 3.3, -5)}, {"id":"lower_platform", "eye":Vector3(45, 12.79, 20), "target":Vector3(86, 12.38, 20)}]
 	if family == "city_streets": views = [{"id":"east_crossing", "eye":Vector3(68.8,1.41,30), "target":Vector3(69,0,9)}, {"id":"curb_grazing", "eye":Vector3(-55,.45,16), "target":Vector3(-65,0,14.75)}]
 	if bench_scope=="hampton":views=[{"id":"hampton_public_footway","eye":Vector3(-100,7,-18),"target":Vector3(-80,0,-27)},{"id":"hampton_level_stoop","eye":Vector3(-83,1.4,-24),"target":Vector3(-80,-.2,-29)}]
+	if family=="city_bridge":
+		var end:=float(data.main_length_m)
+		views=[{"id":"bridge_tower","eye":station.to_global(Vector3(1060,105,145)),"target":station.to_global(Vector3(995,65,0))},
+			{"id":"queens_approach","eye":station.to_global(Vector3(end+325,90,220)),"target":station.to_global(Vector3(end+220,26,0))},
+			{"id":"upper_track_clearance","eye":station.to_global(Vector3(end-55,43,0)),"target":station.to_global(Vector3(end+30,41,0))}]
 	for view: Dictionary in views:
 		camera.position = view.eye
 		camera.look_at(view.target)
@@ -165,15 +199,24 @@ func _run() -> void:
 	if not output.is_empty():
 		file = FileAccess.open(output.path_join("transport_bench.json"), FileAccess.WRITE)
 		check(file != null, "diagnostic record opens")
+	station.free()
+	await get_tree().process_frame
+	if family=="city_bridge":
+		check(_bridge_catalogue_state()==catalogue_before,"first bridge retirement leaves shared catalogue materials exact")
+		var second: Node3D=preload("res://scripts/building/orison_v2_city_bridge.gd").mount(self)
+		await get_tree().physics_frame
+		check(second.find_children("*","MeshInstance3D",true,false).size()==parts,"second independent bridge restores every source part")
+		check(_bridge_catalogue_state()==catalogue_before,"second bridge world preserves shared catalogue ownership")
+		second.free()
+		await get_tree().process_frame
 	var result := {"evidence_class":"INERT", "scope":"Isolated imported geometry, collision, PBR maps, per-view LOD and repeated uncapped 90-frame viewport timings after warmup. Timings exclude captures. No composed route, whole-world performance or artistic acceptance.", "checks":checks,"failures":failures,"observations":observations,"source_hashes":sources,"draw_parts":parts,"replacement_parts":lod_parts,"mount_cpu_ms":mount_ms,"settings":{"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"max_fps":Engine.max_fps,"vsync":DisplayServer.window_get_vsync_mode()}}
+	if family=="city_bridge":result["mount_scope"]="mount() only; scenes preloaded and shared catalogue warmed by ownership snapshot. Excludes cold asset parsing, import, shader compilation and occupied startup."
 	result["family"] = family
 	result["bench_scope"]=bench_scope
 	result["natural_transitions"] = transitions
 	if file != null:
 		file.store_string(JSON.stringify(result,"\t")+"\n")
 		file.close()
-	station.free()
-	await get_tree().process_frame
 	print("TRANSPORT BENCH: %d checks; %d failures" % [checks, failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
@@ -184,11 +227,7 @@ func _natural_probe(camera: Camera3D, center: Vector3, direction: Vector3, dista
 	var viewport := get_viewport()
 	return {"distance_m":distance_m,"primitives":RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME),"draws":RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME)}
 
-func _natural_transitions(station: Node3D,camera: Camera3D,focus: MeshInstance3D,low_counts: Dictionary,directory: String) -> Dictionary:
-	check(focus != null,"a reducing body is available for natural-distance LOD inspection")
-	if focus == null: return {}
-	for draw: MeshInstance3D in station.find_children("*","MeshInstance3D",true,false): draw.visible = draw == focus
-	var direction := Vector3(.3,.6,1.).normalized()
+func _physical_target(focus: MeshInstance3D,direction: Vector3,broad_stock: bool=false) -> Vector3:
 	var arrays: Array = focus.mesh.surface_get_arrays(0)
 	var points: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 	var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
@@ -203,10 +242,23 @@ func _natural_transitions(station: Node3D,camera: Camera3D,focus: MeshInstance3D
 		var normal: Vector3=(focus.global_basis*(normals[a]+normals[b]+normals[c])).normalized()
 		if normal.dot(direction)<=.05: continue
 		var local_point: Vector3=(points[a]+points[b]+points[c])/3.
-		var distance_sq: float=local_point.distance_squared_to(bounds.get_center())
+		# Bridge arrises can be smaller than a pixel at the natural switch.
+		# Aim at the broadest actual projected face of a primary structural
+		# part; retain the same centre-coverage and full-body LOD assertions.
+		var area: float=((points[b]-points[a]).cross(points[c]-points[a])).length()*normal.dot(direction)
+		var distance_sq: float=-area if broad_stock else local_point.distance_squared_to(bounds.get_center())
 		if distance_sq<best:
 			best=distance_sq;center=focus.global_transform*local_point
 	check(is_finite(best),"natural optical target is an actual camera-facing native triangle")
+	return center
+
+func _natural_transitions(station: Node3D,camera: Camera3D,focus: MeshInstance3D,low_counts: Dictionary,directory: String) -> Dictionary:
+	check(focus != null,"a reducing body is available for natural-distance LOD inspection")
+	if focus == null: return {}
+	for draw: MeshInstance3D in station.find_children("*","MeshInstance3D",true,false): draw.visible = draw == focus
+	var direction := Vector3(.3,.6,1.).normalized()
+	var bounds: AABB=focus.get_aabb()
+	var center: Vector3=_physical_target(focus,direction,OS.get_environment("CITY_BENCH_FAMILY")=="city_bridge")
 	var radius := 0.
 	for i in 8: radius=maxf(radius,center.distance_to(focus.global_transform*bounds.get_endpoint(i)))
 	camera.fov = 75.
@@ -258,4 +310,20 @@ func _bench_sources(family: String) -> Dictionary:
 	var sources: Dictionary = {}
 	for path: String in ["res://tests/v2_city_transport_bench.gd", "res://scripts/building/orison_v2_city_transport.gd", "res://scripts/building/orison_v2_"+family+".gd", "res://assets/props/"+family+".glb", "res://assets/props/"+family+"_lod1.glb", "res://data/orison_v2/exterior/"+family+".json", "res://data/runtime_material_sets.json", "res://scripts/material_library.gd", "res://scripts/building/surface_pass.gd", "res://shaders/orison_surface.gdshader"]:
 		sources[path] = FileAccess.get_sha256(path)
+	if family=="city_bridge":
+		for path: String in ["res://assets/props/city_bridge.glb.import","res://assets/props/city_bridge_lod1.glb.import"]:sources[path]=FileAccess.get_sha256(path)
+		var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/exterior/city_bridge.json"))
+		for spec: Dictionary in data.finishes:
+			for name: String in MatLib.SETS[str(spec.catalog_key)].slice(0,3):
+				var path: String="res://assets/building/textures/"+name
+				sources[path]=FileAccess.get_sha256(path);sources[path+".import"]=FileAccess.get_sha256(path+".import")
 	return sources
+
+func _bridge_catalogue_state() -> Dictionary:
+	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/exterior/city_bridge.json"))
+	var result: Dictionary={}
+	for spec: Dictionary in data.finishes:
+		var key:=str(spec.catalog_key)
+		var material:=MatLib.get_mat(key) as StandardMaterial3D
+		result[key]=[material.get_instance_id(),material.albedo_color,material.uv1_triplanar,material.uv1_scale,material.normal_scale,material.roughness,material.metallic,material.transparency,material.albedo_texture.get_instance_id(),material.roughness_texture.get_instance_id(),material.normal_texture.get_instance_id()]
+	return result

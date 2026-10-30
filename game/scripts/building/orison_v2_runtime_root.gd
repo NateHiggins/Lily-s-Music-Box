@@ -1031,6 +1031,10 @@ func _compose_exterior() -> bool:
 	horizon.name = "CityHorizon"
 	horizon.transform = city_shells.global_transform.affine_inverse() * _blockout.global_transform
 	city_shells.add_child(horizon)
+	var bridge_started:=Time.get_ticks_usec()
+	var bridge:=preload("res://scripts/building/orison_v2_city_bridge.gd").mount(city_shells)
+	if bridge==null:return false
+	bridge.set_meta("v2_mount_cpu_ms",(Time.get_ticks_usec()-bridge_started)/1000.)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
 	if preload("res://scripts/building/orison_v2_entry_vestibule.gd").mount(self) == null:return false
 	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false

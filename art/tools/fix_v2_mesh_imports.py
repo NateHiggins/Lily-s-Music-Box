@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/city_bridge.glb", "props/city_bridge_lod1.glb", # bridge isolated01: default compression stretches metric charts up to41.24%; native derivatives pass. Complete authored body LODs retain all structural stocks.
     "props/service_companion_v2.glb", # mechanism_v1: small worked charts stretch 1-4% and tangent derivatives fail under default compression; original native charts pass.
     "props/lift_frame_mitres.glb", # loaded_v3: grooved landing head metre chart stretches 0.618%, beyond the unchanged 0.5% limit.
     "props/door_lining_mitres.glb", # lining loaded_v1: a complete frame's imported metre chart exceeds its edge by 51.23 micrometres, past the retained 50 micrometre bound.

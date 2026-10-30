@@ -13,7 +13,7 @@ const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[
 func _ready() -> void:
 	_route_scope=OS.get_environment("ORISON_CITY_ROUTE_SCOPE")
 	if _route_scope.is_empty():_route_scope="full"
-	if _route_scope not in ["full","northwest","opposing","northeast","northeast2","hampton","gaslamps"]:
+	if _route_scope not in ["full","northwest","opposing","northeast","northeast2","narrow","bridge","hampton","gaslamps"]:
 		push_error("Unknown ORISON_CITY_ROUTE_SCOPE: "+_route_scope)
 		get_tree().quit(64)
 		return
@@ -24,6 +24,8 @@ func _ready() -> void:
 	if _route_scope=="northeast2":
 		route_label="V2 CITY WORKS/BANK NIGHT FOOTWAY"
 		OS.set_environment("DAYNIGHT_FORCE","21:00")
+	if _route_scope=="bridge":route_label="V2 CITY BRIDGE ROOF"
+	if _route_scope=="narrow":route_label="V2 CITY NARROW NEIGHBORS"
 	if _route_scope=="hampton":route_label="V2 CITY HAMPTON FOOTWAY"
 	if _route_scope=="gaslamps":
 		route_label="V2 CITY NIGHT GASLAMPS"
@@ -55,16 +57,22 @@ func _programme_sources() -> Dictionary:
 		result[path] = FileAccess.get_sha256(path)
 	for path: String in ["res://assets/props/city_streets.glb","res://assets/props/city_streets_lod1.glb","res://tests/fixtures/orison_city_streets.json"]:
 		result[path] = FileAccess.get_sha256(path)
+	if _route_scope in ["narrow","bridge"]:
+		for path: String in ["res://scripts/building/orison_v2_city_bridge.gd","res://data/orison_v2/exterior/city_bridge.json","res://assets/props/city_bridge.glb","res://assets/props/city_bridge.glb.import","res://assets/props/city_bridge_lod1.glb","res://assets/props/city_bridge_lod1.glb.import"]:
+			result[path]=FileAccess.get_sha256(path)
 	return result
 
 func _run() -> void:
+	if _route_scope=="bridge":
+		await _run_bridge()
+		return
 	if _route_scope=="gaslamps":
 		await _run_gaslamps()
 		return
 	if _route_scope=="hampton":
 		await _run_hampton()
 		return
-	if _route_scope in ["opposing","northeast","northeast2"]:
+	if _route_scope in ["opposing","northeast","northeast2","narrow"]:
 		await _run_opposing(_route_scope)
 		return
 	if _route_scope=="northwest":
@@ -193,7 +201,7 @@ func _run_hampton() -> void:
 
 func _opposing_start(city: Node3D,source: Vector3,identity: String,capsule_required: bool=false) -> bool:
 	# Independent local fixture, never a player spawn or a travel shortcut in game.
-	var nominal:=city.to_global(GameBoot.b2g([source.x,source.y,0.]))
+	var nominal:=city.to_global(GameBoot.b2g([source.x,source.y,source.z]))
 	var excluded: Array[RID]=[]
 	excluded.append(player.get_rid())
 	var hit:=city.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(nominal+Vector3.UP*3.,nominal-Vector3.UP*20.,1,excluded))
@@ -210,24 +218,30 @@ func _opposing_start(city: Node3D,source: Vector3,identity: String,capsule_requi
 	player.global_position=hit.position+Vector3.UP*.03
 	player.velocity=Vector3.ZERO
 	var samples: Array=[]
+	var render_samples: Array=[]
+	var viewport_rid: RID=get_viewport().get_viewport_rid()
+	RenderingServer.viewport_set_measure_render_time(viewport_rid,true)
 	var previous:=Time.get_ticks_usec()
 	for frame in 12:
 		await RenderingServer.frame_post_draw
 		var now:=Time.get_ticks_usec()
 		samples.append((now-previous)/1000.);previous=now
+		render_samples.append([RenderingServer.viewport_get_measured_render_time_cpu(viewport_rid),RenderingServer.viewport_get_measured_render_time_gpu(viewport_rid)])
+	RenderingServer.viewport_set_measure_render_time(viewport_rid,false)
 	check(player.is_on_floor() and not player.noclip,"local start settles on actual floor with the production body: "+identity)
 	var starts: Array=city_observations.get("local_start_fixtures",[])
-	starts.append({"building":identity,"source_xy":[source.x,source.y],"floor_world":str(hit.position),"floor_height_delta":hit.position.y-nominal.y,"floor_owner":str(hit.collider.get_path()),"settle_wall_ms":samples,"scope":"Independent explicit test-only placement; subsequent legs use normal controller input. No continuous access between fixture starts."})
+	starts.append({"building":identity,"source_xy":[source.x,source.y],"floor_world":str(hit.position),"floor_height_delta":hit.position.y-nominal.y,"floor_owner":str(hit.collider.get_path()),"settle_wall_ms":samples,"settle_main_render_cpu_gpu_ms":render_samples,"scope":"Independent explicit test-only placement; subsequent legs use normal controller input. No continuous access between fixture starts."})
 	city_observations["local_start_fixtures"]=starts
 	return player.is_on_floor() and not player.noclip
 
 func _run_opposing(selection: String="opposing") -> void:
+	var narrow:=selection=="narrow"
 	var northeast:=selection=="northeast"
 	var northeast2:=selection=="northeast2"
-	var expected_legs:=8 if northeast2 else 6 if northeast else 12
-	var expected_programmes:=1 if northeast or northeast2 else 3
-	var surface_key:="works_bank_surfaces" if northeast2 else "northeast_surfaces" if northeast else "opposing_surfaces"
-	var walk_key:="works_bank_connected_walk" if northeast2 else "northeast_connected_walk" if northeast else "opposing_local_walks"
+	var expected_legs:=8 if northeast2 or narrow else 6 if northeast else 12
+	var expected_programmes:=2 if narrow else 1 if northeast or northeast2 else 3
+	var surface_key:="narrow_neighbor_surfaces" if narrow else "works_bank_surfaces" if northeast2 else "northeast_surfaces" if northeast else "opposing_surfaces"
+	var walk_key:="narrow_neighbor_walks" if narrow else "works_bank_connected_walk" if northeast2 else "northeast_connected_walk" if northeast else "opposing_local_walks"
 	var directory:=OS.get_environment("SHOT_DIR")
 	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"selected frontage evidence directory exists before startup/captures")
 	if not failures.is_empty():get_tree().quit(1);return
@@ -249,7 +263,8 @@ func _run_opposing(selection: String="opposing") -> void:
 		var city:=world.get_node("CityShells") as Node3D
 		city_observations["startup_ms"]=(Time.get_ticks_usec()-started)/1000.
 		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold}
-		if northeast2:_check_frontage_surfaces(city,["site_ne3","site_ne4"],25,surface_key)
+		if narrow:_check_frontage_surfaces(city,["site_nbr_w","site_nbr_e"],26,surface_key)
+		elif northeast2:_check_frontage_surfaces(city,["site_ne3","site_ne4"],25,surface_key)
 		elif northeast:_check_frontage_surfaces(city,["site_ne1","site_ne2"],21,surface_key)
 		else:_check_frontage_surfaces(city,["site_se3","site_sw3","site_far_nw"],32,surface_key)
 		var recoveries_before: int=int(world.safety_net.recoveries)
@@ -263,13 +278,21 @@ func _run_opposing(selection: String="opposing") -> void:
 			programmes=[{"id":"northeast_pair","start":Vector3(26.5,8,0),"points":[Vector3(30,8,0),Vector3(34,8,0),Vector3(38,8,0),Vector3(41.5,8,0),Vector3(34,8,0),Vector3(26.5,8,0)],"target":Vector3(38.78,9.8,8)}]
 		if northeast2:
 			programmes=[{"id":"works_bank_pair","start":Vector3(44,7.5,0),"points":[Vector3(49,7.5,0),Vector3(55,7.5,0),Vector3(60,7.5,0),Vector3(64.3,7.5,0),Vector3(64.3,14,0),Vector3(64.3,22,0),Vector3(64.3,14,0),Vector3(64.3,7.5,0)],"target":Vector3(59,9.8,7)}]
+		if narrow:
+			# Independently measured source-solid starts. Each subsequent leg uses
+			# normal production input; these placements are not continuous travel.
+			programmes=[{"id":"narrow_west","start":Vector3(-56.7,21.3,-.476),"points":[Vector3(-56.7,23.75,.18),Vector3(-56.7,21.3,-.476)],"target":Vector3(-56.7,24.28,2.2)},
+				{"id":"narrow_east","start":Vector3(14.5,-13.3,0),"points":[Vector3(17.555,-13.3,0),Vector3(22,-13.3,0),Vector3(17.555,-13.3,0),Vector3(17.555,-11.15,.18),Vector3(17.555,-13.3,0),Vector3(14.5,-13.3,0)],"target":Vector3(18.6,-11.99,4)}]
 		var completed:=0
 		for programme: Dictionary in programmes:
 			if not failures.is_empty():break
-			if not await _opposing_start(city,programme.start,str(programme.id),northeast2):break
+			if not await _opposing_start(city,programme.start,str(programme.id),northeast2 or narrow):break
 			var first:=trace.size()
 			for point: Vector3 in programme.points:
-				if not await _city_walk(point):break
+				if not await _city_walk(point,narrow):break
+				if narrow:
+					check(player.is_on_floor() and absf(city.to_local(player.global_position).y-point.z)<.025,"actual standing narrow-neighbor floor/landing height: "+str(point))
+					if point.z==.18:await _station_view(str(programme.id)+"_landing",programme.target)
 				if northeast2 and point.x==49.:await _station_view("terracotta_works_standing",Vector3(48.58,9.8,5))
 				if northeast2 and point.x==60.:await _station_view("bank_front_standing",Vector3(59.08,9.8,7))
 				if northeast2 and point.y==22.:await _station_view("bank_side_passage",Vector3(63.58,16,5))
@@ -285,6 +308,7 @@ func _run_opposing(selection: String="opposing") -> void:
 		check(not player.noclip and not player.crouched and is_equal_approx(player.STANDING_HEIGHT,1.524),"selected fronts retain the five-foot standing production body")
 		city_observations["walking_timing"]={"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"samples":_exploration_samples,"scope":"Only actual selected controller walking; independent placements,settles and PNG captures excluded. No matched before/after speedup or full-city performance claim."}
 		if northeast2 and failures.is_empty():await _arcade_roadside_view(city)
+		if narrow and failures.is_empty():await _bridge_roof_views(city)
 	Input.action_release("move_forward")
 	world.shutdown_for_tests();world.free()
 	await get_tree().physics_frame
@@ -292,14 +316,107 @@ func _run_opposing(selection: String="opposing") -> void:
 	check(not source_after.is_empty() and source_before==source_after and programme_before==_programme_sources(),"selected production/test/asset sources remain frozen")
 	var passed:=failures.is_empty()
 	var receipt: Dictionary={"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"One full-capsule/floor-validated nearby start,eight continuous production-controller plaza/side-passage legs and25 loaded works/bank body partitions. Separately labelled roadside lamp-view placement with unfiltered sightline at21:00. No continuous travel to that view,interior/door operation,station/distant/radius,save/full-city/artistic acceptance." if northeast2 else "One nearby floor-validated start,six continuous production-controller plaza legs past both changed northeast fronts and21 loaded body partitions. No entrance/station/distant/radius,door operation,save/full-city/artistic acceptance." if northeast else "Three independent floor-validated nearby starts,twelve actual production-controller legs and changed32-body-part surfaces. Includes retained x=-55 crossing roundtrip. No continuous access between starts,entrance/station/distant/radius/save/full-city/artistic acceptance.",
+		"scope":"Two independent full-capsule/floor-validated nearby starts, eight normal-controller legs: west four-riser ascent/descent, east retained footway and two-riser ascent/descent;26 loaded body partitions. Separate full-capsule/floor-validated roof fixture checks a bridge optical sightline excluding only the exact nonrendered travel boundary and captures ordinary/narrow views with same-pose bridge-visible/hidden ABBA frame samples. No continuous travel between fixture starts,roof access,scenic door/interior operation,station/radius,save/full-city/artistic acceptance." if narrow else "One full-capsule/floor-validated nearby start,eight continuous production-controller plaza/side-passage legs and25 loaded works/bank body partitions. Separately labelled roadside lamp-view placement with unfiltered sightline at21:00. No continuous travel to that view,interior/door operation,station/distant/radius,save/full-city/artistic acceptance." if northeast2 else "One nearby floor-validated start,six continuous production-controller plaza legs past both changed northeast fronts and21 loaded body partitions. No entrance/station/distant/radius,door operation,save/full-city/artistic acceptance." if northeast else "Three independent floor-validated nearby starts,twelve actual production-controller legs and changed32-body-part surfaces. Includes retained x=-55 crossing roundtrip. No continuous access between starts,entrance/station/distant/radius/save/full-city/artistic acceptance.",
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
 		"source":{"test_path":"game/tests/v2_city_transport_route.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
 		"contracts":{"production_composition":{"executed":true,"passed":passed},walk_key:{"executed":not trace.is_empty(),"passed":passed and trace.size()==expected_legs,"waypoints":trace.size()},surface_key:{"executed":city_observations.has(surface_key),"passed":passed},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
 		"checks":city_checks,"failures":failures,"trace":trace,"observations":city_observations}
-	FileAccess.open(directory.path_join("works_bank_frontage_contract.json" if northeast2 else "northeast_frontage_contract.json" if northeast else "opposing_frontage_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
+	if narrow:receipt.contracts["bridge_roof_views"]={"executed":city_observations.has("bridge_roof"),"passed":passed and city_observations.has("bridge_roof")}
+	FileAccess.open(directory.path_join("narrow_neighbors_contract.json" if narrow else "works_bank_frontage_contract.json" if northeast2 else "northeast_frontage_contract.json" if northeast else "opposing_frontage_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
 	print("%s: %d checks; %d waypoints; %d failures"%[route_label,city_checks,trace.size(),failures.size()])
 	get_tree().quit(0 if passed else 1)
+
+func _run_bridge() -> void:
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"bridge roof evidence directory exists")
+	if not failures.is_empty():get_tree().quit(1);return
+	source_before=_digest();programme_before=_programme_sources()
+	city_observations["programme_sources"]=programme_before;city_observations["route_scope"]="bridge"
+	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
+	CampaignTime.set_frozen_for_tests(true);CampaignClock.new().configure_date(1928,11,10,720)
+	var started:=Time.get_ticks_usec()
+	world=Runtime.instantiate();add_child(world)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	while not world.startup_failed and world.startup_ms<=0.:await get_tree().physics_frame
+	check(not world.startup_failed and world.player!=null and world.startup_ms>0.,"production city completes actual startup before bridge optical review")
+	if not world.startup_failed and world.player!=null:
+		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+		city_observations["startup_ms"]=(Time.get_ticks_usec()-started)/1000.
+		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold}
+		await _bridge_roof_views(world.get_node("CityShells") as Node3D)
+	Input.action_release("move_forward");world.shutdown_for_tests();world.free()
+	await get_tree().physics_frame
+	var source_after:=_digest()
+	check(not source_after.is_empty() and source_before==source_after and programme_before==_programme_sources(),"bridge composition/test/asset sources remain frozen")
+	var passed:=failures.is_empty()
+	var receipt: Dictionary={"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
+		"scope":"Independent full-capsule/floor-validated standing roof fixture,bridge stock optical sightline excluding only the exact nonrendered travel boundary,ordinary/narrow actual frames and same-pose bridge-visible/hidden ABBA timing. No walking/narrow-house access,roof-access route,station/radius,save/full-city/artistic acceptance.",
+		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
+		"source":{"test_path":"game/tests/v2_city_transport_route.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
+		"contracts":{"production_composition":{"executed":true,"passed":passed},"bridge_roof_views":{"executed":city_observations.has("bridge_roof"),"passed":passed and city_observations.has("bridge_roof")},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
+		"checks":city_checks,"failures":failures,"observations":city_observations}
+	FileAccess.open(directory.path_join("bridge_roof_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
+	print("%s: %d checks; %d failures"%[route_label,city_checks,failures.size()])
+	get_tree().quit(0 if passed else 1)
+
+func _bridge_roof_views(city: Node3D) -> void:
+	var bridge:=city.get_node_or_null("QueensboroBridge") as Node3D
+	check(bridge!=null,"bridge is mounted by the production composition")
+	if bridge==null:return
+	# The established rooftop route uses this standing deck pose. It is an
+	# independent nearby fixture here, not evidence of walking to the roof.
+	var at: Vector3=city.to_local(world.adapter.root.to_global(Vector3(14,19.2,-9)))
+	if not await _opposing_start(city,Vector3(at.x,-at.z,at.y),"independent_bridge_roof_view",true):return
+	var focus:=bridge.find_child("Bridge_15_L0__painted_steel",true,false) as MeshInstance3D
+	check(focus!=null,"Queens tower has its full source-painted steel partition")
+	if focus==null:return
+	# Reuse the isolated bench's actual-triangle aim. Never attach its Node:
+	# its deferred standalone programme must not compose another scene.
+	var helper:=preload("res://tests/v2_city_transport_bench.gd").new()
+	var toward: Vector3=(player.camera.global_position-focus.global_transform*focus.get_aabb().get_center()).normalized()
+	var target: Vector3=helper._physical_target(focus,toward,true)
+	check(helper.failures.is_empty(),"roof optical target resolves to real camera-facing native stock")
+	helper.free()
+	var direction: Vector3=(target-player.camera.global_position).normalized()
+	var hit:=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(player.camera.global_position,target+direction*.1,1,[player.get_rid()]))
+	var limit:=world.get_node("StreetBoundaries/TemporaryExteriorLimit") as StaticBody3D
+	var prior_layer: int=limit.collision_layer
+	var prior_shape: RID=(limit.get_node("RadialWall") as CollisionShape3D).shape.get_rid()
+	check(limit.is_in_group("temporary_exterior_limit") and limit.find_children("*","GeometryInstance3D",true,false).is_empty(),"the exact exploration limit is a declared nonrendered physics boundary")
+	check(not hit.is_empty() and hit.collider==limit,"unfiltered physics ray still encounters the enabled exploration limit")
+	# This skyward landmark is beyond the movement boundary. Only that
+	# nonrendered administrative wall is excluded from the optical ray;
+	# every actual wall,roof,prop and other bridge stock remains a blocker.
+	var optical:=world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(player.camera.global_position,target+direction*.1,1,[player.get_rid(),limit.get_rid()]))
+	var visible: bool=not optical.is_empty() and bridge.is_ancestor_of(optical.collider)
+	check(visible,"ordinary roof optical sightline reaches bridge stock before any rendered world blocker")
+	check(limit.collision_layer==prior_layer and prior_layer!=0 and (limit.get_node("RadialWall") as CollisionShape3D).shape.get_rid()==prior_shape,"optical measurement leaves the physical exploration boundary exact")
+	city_observations["bridge_roof"]={"fixture_scope":"Independent actual standing deck placement,not roof access","target":str(target),"first_physics_hit":str(hit),"first_optical_hit":str(optical),"optical_exclusion":"Only player and exact declared nonrendered TemporaryExteriorLimit; all other layer1 blockers retained; no collision state modified","source_parts":bridge.find_children("*","MeshInstance3D",true,false).size(),"mount_cpu_ms":bridge.get_meta("v2_mount_cpu_ms",-1.),"resources_before":_resource_snapshot(),"frame_samples":[]}
+	if not visible:return
+	var viewport:=get_viewport()
+	var original_fov: float=player.camera.fov
+	player.face_world_point(target)
+	for frame in 12:await RenderingServer.frame_post_draw
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(viewport.get_texture().get_image().save_png(directory.path_join("bridge_roof_ordinary.png"))==OK,"actual standing ordinary roof bridge frame saved")
+	RenderingServer.viewport_set_measure_render_time(viewport.get_viewport_rid(),true)
+	for shown: bool in [true,false,false,true]:
+		bridge.visible=shown
+		for frame in 12:await RenderingServer.frame_post_draw
+		var samples: Array=[]
+		var previous:=Time.get_ticks_usec()
+		for frame in 60:
+			await RenderingServer.frame_post_draw
+			var now:=Time.get_ticks_usec()
+			samples.append([(now-previous)/1000.,RenderingServer.viewport_get_measured_render_time_cpu(viewport.get_viewport_rid()),RenderingServer.viewport_get_measured_render_time_gpu(viewport.get_viewport_rid())]);previous=now
+		city_observations.bridge_roof.frame_samples.append({"bridge_visible":shown,"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms"],"samples":samples,"visible_draws":RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME),"visible_primitives":RenderingServer.viewport_get_render_info(viewport.get_viewport_rid(),RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME)})
+	RenderingServer.viewport_set_measure_render_time(viewport.get_viewport_rid(),false)
+	bridge.visible=true
+	player.camera.fov=5.
+	for frame in 8:await RenderingServer.frame_post_draw
+	check(viewport.get_texture().get_image().save_png(directory.path_join("bridge_roof_narrow.png"))==OK,"actual standing narrow-field bridge frame saved")
+	player.camera.fov=original_fov
+	city_observations.bridge_roof["timing_scope"]="Same standing roof pose/FOV,12-frame settle then60 samples per ABBA visible/hidden leg. Rendering toggle leaves collision,clock and gameplay owners intact. No cold/streaming/shader attribution,uncontended budget or matched movement speedup. Narrow frame is optical review,not telescope interaction."
 
 func _arcade_roadside_view(city: Node3D) -> void:
 	var data:=preload("res://scripts/building/orison_v2_street_lamps.gd").load_table()
@@ -452,7 +569,7 @@ func _city_walk(point: Vector3,literal_height: bool=false) -> bool:
 	if is_zero_approx(point.z) and not literal_height:
 		point.z = preload("res://scripts/building/orison_v2_city_streets.gd").surface_height(point.x)
 	print("CITY STATION WALK: source target ",point)
-	var focused: bool=_route_scope in ["northwest","opposing","northeast","northeast2","hampton"]
+	var focused: bool=_route_scope in ["northwest","opposing","northeast","northeast2","narrow","bridge","hampton"]
 	if focused:
 		RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 		_previous_exploration_usec=0

@@ -3408,3 +3408,171 @@ evidence enter this next candidate; actual controller/composed qualification
 is still pending. Shared foundation/ground/bridge files were not replaced by
 the architect branch. Manifest archives are unioned with hash identities intact,
 not overwritten. Qualified tally stays21/149 until the next source-bound pass.
+
+
+## October30 bridge approach and current-main intake — pending runtime qualification
+
+Canonical main locally reconciles frozen architect **fe4899a5** and upstream
+**e145b129** through **b0ce3a85**, preserving PR97 newspaper content and PR96/98
+shop rulings. **2cd31702** reconciles Claude's reported task ownership and the
+known knock-route failure; it is not gameplay verification. Exact clean e145
+baseline has117 gates: the acknowledged stale surface qualification is FAIL,
+ledger remains INCOMPLETE, all other gates pass. Existing21/149 technical tally
+is unchanged until the narrow pair's actual controller/composed pass.
+
+Bridge native revision05 adds the supported Queens approach, authored curved
+continuation and disjoint outside-kilometre backing. Reinspection of the primary
+span chain corrected the packet conversion:1481ft11.5in is451.7009m, comprising
+six145ft6in,three165ft10.5in and two55ft8in openings. The continuation beyond it
+is explicitly AU construction, not a historical survey. Native coordinates are
+engineering X Manhattan-to-Queens/Z above high water; one rigid bearing places
+the Queens endpoint at sourceXY[-250,520],water sceneY-6,azimuth119.7083333°.
+No second Blender/Godot axis conversion or miniature bridge scaling is used.
+
+Near/lower replacement bodies contain470528/197184 triangles and154 material/
+chunk partitions apiece;31132 closed stocks total. Actual Blender5.2 glTF
+reimports match triangle counts and stock extents exactly. Both changed
+continuation frames were inspected at their own levels: lower chords now seat
+the risers; upper chords,diagonals,rails,buffers and guards remain. Unchanged
+whole/approach views reuse build04 review. Neutral CPU context includes retained
+ground/apron; it is not city lighting or artistic acceptance. Original missing
+support/context failures and revisions remain in the external native report
+cohort, rather than overwritten as successes.
+
+Native/loaded intake sources are now copied to canonical. The passive loader is
+**not yet mounted** into the playable city. It uses existing catalogue finishes,
+local duplicates, existing weather adapter and complete-body LOD selection.
+Structural collision retains near geometry; soil/water backing beyond the old
+kilometre adds no duplicate public-floor collision. No new travel,train service,
+clock,inventory,dialogue,save or lighting authority is added. First import and
+semantic compilation are queued through the FIFO lane. Imported precision,
+loaded maps,shared-material retirement,actual siting/access and runtime cost
+remain unverified; no physical receipt is repinned.
+
+The existing family bench is extended rather than adding another test scene.
+Its bridge import checks precede optical/timing work and retain any first
+compression failure. Existing controller route gains an eight-leg narrow-pair
+programme with two independent full-capsule/floor-validated starts: west four
+risers up/down,then east footway and two risers up/down. Literal landing/floor
+heights are asserted after actual production input. Grammar checks pass for
+the loader and both affected tests; reader preflight reports NEW0. These static
+results do not establish semantic compilation or an executed route.
+
+External native evidence: **C:/ov/reports/city_streets_20261029/bridge_native_01/**,
+including build05,actual_native_review_05,roundtrip_05 and the two previews_05
+frames. Canonical run cohort: **canonical_bridge_01/**. Portable archive and
+source-bound combined renewal are pending. Architect may proceed with the next
+SW2 body in its independent checkout; canonical intake no longer reads its
+working producer files. City remains the immediate priority,Claude owns shop
+slice1 and cartoon redraws; all waiters retain the shared FIFO/no-pre-emption rule.
+
+
+### Loaded bridge repair and first actual narrow route
+
+The bridge is now **mounted in the local production candidate**, superseding
+its unmounted status above; combined qualification is not complete. Import01
+and semantic loader/bench compilation pass on the pinned custom Vulkan4.7.1
+engine. Runtime texture policy checks all1474 referenced images with0 repairs.
+First isolated bench01 fails at its intended import preflight: default compression
+stretches near charts41.238%,lower4.468%,with3903 near tangent-derivative failures.
+Both original sidecars,raw failures and receipts remain. Named compression
+exceptions are registered only for the two bridge exports; importer automatic
+LODs are disabled because the loader constructs complete authored bodies.
+
+Isolated02 passes loaded maps/UVs/tangents/collision/ownership but retains three
+failed optical-centre checks: the smallest reducing partition was a subpixel
+end-cap arris,so ordinary transition frames were blank. The optical programme
+now selects the Queens tower's broad actual camera-facing face. It retains all
+centre-coverage,unchanged threshold,whole-body index-count,narrow-FOV recovery
+and inward-return checks. Original blank controls remain. Original test bytes
+for01/02 were reconstructed and verified against both recorded source hashes,
+not silently relabelled as the corrected script.
+
+Isolated03 passes1287 checks/0 failures in20s,empty shutdown stderr; all eleven
+3440×1440 captures were inspected. Both levels retain154 partitions;33 reduce.
+Forced whole-family near/far renders470528/197184 triangles at154 draws. Queens
+tower naturally switches near14060/far5580 triangles around303.657m at threshold1;
+5° restores the complete near body. Loaded UVs/tangents,mips,local catalogue
+ownership,near collision and a second independent mount/retirement pass. Repeated
+90-frame GPU medians are1.116–1.219ms near and1.042–1.044ms far; wall maximum5.520ms.
+These are isolated uncapped warm measurements,not a whole-city target or precise
+causal speedup. Warm mount() costs1182.6ms after preload/catalogue warmup; cold
+asset parsing,shader compilation and occupied loading remain separate debt.
+
+| Location | Reproduction | Severity | Evidence | Repair | Verification |
+| - | - | - | - | - | - |
+| East narrow house/Bodega ground frontage | From source17.555,-13.3 walk toward17.555,-11.15,+.18 | Access/layout conflict | Actual controller stops on retained SHOP_BODEGA/Collision bulkhead at world17.60919,.76,2.235; route01 has234 checks,6 attempted legs,2 failures | Pending measured ground-front reconciliation; preserve Bodega location,real threshold,collision,counter and authorities | Original failed schema2 contract/log/stderr retained; no acceptance |
+| Bridge imported fine charts | Default import of both generated exports | Surface defect | Near41.238% stretch/3903 derivative failures,lower4.468% stretch | Named lossless geometry imports; authored LODs retained | Isolated03 passes unchanged physical metric/derivative checks |
+| Transition optical fixture | Smallest-part automatic target at natural switch | Diagnostic weakness | Three blank wide transition images despite valid indices | Primary tower/broad physical-face target,unchanged visible-centre assertion | All four corrected transition frames inspected; blank originals retained |
+
+First actual narrow route01 completes207s with234 checks/six attempted legs/two
+failures. West four-riser ascent/descent succeeds,and east footway14.5→17.555→22→
+17.555 atY-13.3 succeeds. The east proposed left entrance instead hits the
+working Bodega's existing left bulkhead/window. This is not justification for
+removing shop collision,moving the shop or weakening the route. The retained
+4.4m Bodega frontage has a central door; the new4.4m house has a left-hand
+scenic door. Architect is reconciling the new ground frontage before further
+SW2 installation. Partial legs do not qualify the pair; tally remains21/149.
+
+The first explicit nearby settle includes an8358.689ms frame. Attribution is
+unproven; this is retained cold/first-view debt,not charged to continuous walking
+or described as a shader diagnosis. New test-only settle samples record viewport
+CPU/GPU alongside wall time. Bridge-only roof review is separately queued through
+the same existing scene,avoiding a repeated failing east entry or unrelated walk.
+Its contract will not claim narrow-house/roof-access/save/full-city acceptance.
+Portable native archive now retains51 members/29503449 bytes,
+SHA256 **84bb275709a7214308adbe6456c95ecca3dc5d1df56a68cf3c3b0ffbedb26c4f**;
+all previous member identities remain exact. Loaded/composed archive and final
+surface renewal/candidate comparison remain pending.
+
+
+### Bridge roof qualification and retained loading limits
+
+Bridge roof01 fails its first optical precondition because the unfiltered ray
+hits the deliberately nonrendered450m **TemporaryExteriorLimit**. The boundary
+is a physics-only administrative wall,not an opaque rendered obstruction. Its
+original result,exact executed test source and13.525s first settle remain.
+Bridge roof02 separates the optical measurement: it excludes only the player
+and that exact declared nonrendered boundary RID,retains every other layer1
+blocker,and asserts unchanged nonzero collision layer and shape identity.
+The unfiltered control must still hit the enabled boundary. No game collision,
+travel radius,world geometry or shader depth rule is changed.
+
+Corrected roof02 completes205s with15 checks/0 failures and empty stderr. Its
+schema2 contract covers production startup,one independently floor/full-capsule
+validated standing deck fixture,actual bridge stock visibility,two actual
+3440×1440 frames and root retirement. Both frames were inspected: ordinary view
+shows the bridge beyond retained roofs;5° retains the lattice structure through
+the current haze. It does not prove walking to the roof,street views,whole-city
+access,save reconstruction or artistic acceptance. Narrow-house qualification
+remains failed/pending the Bodega fit repair; it is not promoted by this result.
+
+Current settings: native3440×1440,MSAA enum3,TAA on,VSync1,uncapped engine,pixel
+LOD threshold1,patched Vulkan4.7.1/RTX4080. Four60-frame ABBA legs after12-frame
+settles keep the same standing pose/FOV; bridge visibility alone is toggled,
+leaving its collision and every gameplay owner intact. Visible-leg wall medians
+20.009/19.972ms,p95s21.782/21.296,max22.956/43.381ms; hidden20.021/20.009ms,p95s
+20.271/20.360,max20.604/20.446ms. Visible GPU medians5.956/6.774ms;hidden5.756/
+6.375ms. View draws1838/1708/1701/1820 and primitives1386263/1214429/1212397/
+1380025 are raw observations. GPU/background drift and two foreign QEMU processes
+with substantial private memory prevent a precise incremental overhead or
+uncontended hardware budget claim. These stationary samples do not measure
+movement,streaming or full-city frame distributions.
+
+Production mount()896.606ms remains synchronous loading debt. Root reports
+142955.594ms startup; the test's startup interval152675.323ms includes initial
+frame handoff. Nearby settle begins9671.345/1305.506ms before ordinary frames.
+The preceding root01 settle began13524.571ms. GPU timestamps are unavailable
+for those first query frames; zero is not evidence of free GPU work or a CPU-only
+cause. Cold composition/deferred publication/driver/asset costs remain unseparated
+and unacceptable as a production-loading claim; no speedup is inferred from warm
+20ms medians. Existing whole-game stalls stay open under **K-V2-FIRST-VIEW-HITCH**.
+
+Portable **bridge_loaded_composed_intake.zip** retains85 members/18212371 bytes,
+SHA256 **ad54a8b25b852d5e38ffb83fc875a5ceecce73ab5598bf32fbf607eea3329878**:
+all original import/optical/narrow-route failures,original source/sidecars,
+loaded/roof frames,raw logs,wrapper receipts and completed contracts,plus exact
+clean e145 static baseline. Source snapshots are included; production GLBs are
+not duplicated. This is an INERT index of scoped evidence,not a whole-city
+acceptance or renewed physical-surface packet. The candidate is kept local until
+E/Bodega repair,current-source physical renewal and final baseline comparison.

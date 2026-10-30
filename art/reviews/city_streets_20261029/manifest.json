@@ -7335,8 +7335,8 @@
   "bridge_native_study": {
     "evidence_class": "INERT",
     "archive": "bridge_native_study.zip",
-    "bytes": 13079985,
-    "sha256": "3648e6c7df7da6bddd7c4ea5c08a4bfb2e9ec74ccb6f08f39080c2d8a7edb4e6",
+    "bytes": 29503449,
+    "sha256": "84bb275709a7214308adbe6456c95ecca3dc5d1df56a68cf3c3b0ffbedb26c4f",
     "members": {
       "native/city_bridge_construction.json": {
         "bytes": 6261832,
@@ -7421,9 +7421,129 @@
       "bridge_corridor_screen_01.json": {
         "bytes": 74339,
         "sha256": "337873b432b72f8bd645075a5c3361ae7b16282620e4a14a9ccf82ed11e96255"
+      },
+      "approach_revisions/actual_native_review_03.json": {
+        "bytes": 1980,
+        "sha256": "3acdd5b99bef84979a4daa855d2495fb141d958d854f56d2acefdeb22e1231d6"
+      },
+      "approach_revisions/actual_native_review_05.json": {
+        "bytes": 1217,
+        "sha256": "4f5e5179e28b3e78d3ecbca915380a811961d5b98d1580a4bf26167a62ef11f5"
+      },
+      "approach_revisions/build_03.log": {
+        "bytes": 31862,
+        "sha256": "d9a9c3a1db24912394c12d51405afc61503cbc99e123a5a4a8a32f4b5224b4e1"
+      },
+      "approach_revisions/build_04.log": {
+        "bytes": 32063,
+        "sha256": "f56cde178a185001d4d7633bbc4281156634d776e2aaaeeed8bfcc9583afa4d8"
+      },
+      "approach_revisions/build_05.log": {
+        "bytes": 32062,
+        "sha256": "2f1604a98a7c91b1a4fd0edde79b3a4156dc55e482cd234699693f825cc11212"
+      },
+      "approach_revisions/render_bridge_03.py": {
+        "bytes": 1844,
+        "sha256": "17f858c649598a7f2c4e425ef07677b36f37dd75272bbcfb12be136132e00418"
+      },
+      "approach_revisions/render_bridge_04.py": {
+        "bytes": 2903,
+        "sha256": "73e499bbea55cbd9dd6eff298ca9a4c2442a9e1d587257bc751a9b26f44211c6"
+      },
+      "approach_revisions/render_bridge_05.py": {
+        "bytes": 2840,
+        "sha256": "71b5a98e93025fc49d18ac8c3adcf6ecb18961a385daaa75681e45049eb5172b"
+      },
+      "approach_revisions/render_03.log": {
+        "bytes": 1010,
+        "sha256": "3b5593528ae38f33707f44701d2a90aaab0aafe12ecc884b345f28ab8109988d"
+      },
+      "approach_revisions/render_04.log": {
+        "bytes": 209810,
+        "sha256": "4869c76fcbd05a8276fdadfbce5f9e32bd7d42bd0aeb05d8cac1ae4baa5c4799"
+      },
+      "approach_revisions/render_05.log": {
+        "bytes": 209573,
+        "sha256": "347921ffc0adaa2f05072f6301b9f1e54f2a5e9144683692a17dd6a8e1b4ffcb"
+      },
+      "approach_revisions/roundtrip_05.py": {
+        "bytes": 1702,
+        "sha256": "dcf2ff422307005dd2d39ade812e0fb1a766a2f2d5001807790f7519fa502a52"
+      },
+      "approach_revisions/roundtrip_05.log": {
+        "bytes": 20917,
+        "sha256": "623511a7f8c415c9c9e15ef47aca3a820c99fa097c7527279b071d647bb658e9"
+      },
+      "approach_revisions/roundtrip_05.json": {
+        "bytes": 1265,
+        "sha256": "39719cf5ac708c7036c633cbeaea69bfc54650035429d3c56eb6ccf4aca36aac"
+      },
+      "approach_revisions/previews_03/approach_lower.png": {
+        "bytes": 1564820,
+        "sha256": "5445e235a8e57b184a7eec458c2a63fe0f071ef656185db7da12f587425c43ed"
+      },
+      "approach_revisions/previews_03/approach_structure.png": {
+        "bytes": 1569235,
+        "sha256": "109216d37f58b54eda26951785317f4342b97e388fc7d4c337d3344ddabe0fe6"
+      },
+      "approach_revisions/previews_03/curved_continuation.png": {
+        "bytes": 1417772,
+        "sha256": "3b07ea3f95a4df3ea41280052b871315d7c1d7b1f11b04558b02a5f024801692"
+      },
+      "approach_revisions/previews_03/whole_supported.png": {
+        "bytes": 1394730,
+        "sha256": "cd564aaa1ba17e50152bbf1bbfb8956c991e29dbd38864b4fa2d8acbc4bb5b8d"
+      },
+      "approach_revisions/previews_04/approach_lower.png": {
+        "bytes": 1598944,
+        "sha256": "e64888308ff9af92361c54ee5853be690b25479a7a9dfb5f599eae33f5e2176d"
+      },
+      "approach_revisions/previews_04/approach_structure.png": {
+        "bytes": 1605172,
+        "sha256": "9984d581bc966d28b08d96b3fa1c4b3d4aa40d3c75227f4cf75f0fe5716dba87"
+      },
+      "approach_revisions/previews_04/curved_continuation.png": {
+        "bytes": 1419138,
+        "sha256": "20e5264975db4f3440f19c5f7f1ddca40dd787dd27446f1f0a7332d149c1bbae"
+      },
+      "approach_revisions/previews_04/whole_supported.png": {
+        "bytes": 1426219,
+        "sha256": "9b10382af910e300fc3dd179fa6a2d47eb7c82e1792a590f9214bb31f76fc479"
+      },
+      "approach_revisions/previews_05/curved_continuation_lower.png": {
+        "bytes": 1418373,
+        "sha256": "6342a9487be3aba58b9fc8e67c9887a0d9c0f0a2b844d46ad9f42935a1ac8662"
+      },
+      "approach_revisions/previews_05/curved_continuation_near.png": {
+        "bytes": 1418488,
+        "sha256": "9c6877b0ea7d3c2790f3190dcfc26a6712500deb554baa4906d5e805cdb15f67"
+      },
+      "approach_revisions/before_build_04/build_city_bridge.py": {
+        "bytes": 25341,
+        "sha256": "a24ad2aeb077c0d6179fd85985d16747128532614dd45a0fea893504d6ddb705"
+      },
+      "approach_revisions/before_build_04/source_plan.json": {
+        "bytes": 5946,
+        "sha256": "9d6bbc3efec22e8567699ab7a77dfca117cfeff006cc55932b080349201a3467"
+      },
+      "approach_revisions/before_build_04/city_bridge_construction.json": {
+        "bytes": 10369234,
+        "sha256": "35149cc7e5c8d4e8224afae0c74d7f634757697d662a66860188b3b19d04fdac"
+      },
+      "approach_revisions/before_build_05/build_city_bridge.py": {
+        "bytes": 29015,
+        "sha256": "a1a2ca4a7d22e676ddf09ddc6478f8cb33df637752606023aa1dbd33db4bccf2"
+      },
+      "approach_revisions/before_build_05/source_plan.json": {
+        "bytes": 5946,
+        "sha256": "9d6bbc3efec22e8567699ab7a77dfca117cfeff006cc55932b080349201a3467"
+      },
+      "approach_revisions/before_build_05/city_bridge_construction.json": {
+        "bytes": 10663389,
+        "sha256": "1d4de34841d75452fd41ad9224ac6f982db997518d06b57df9115ad3ef0530d7"
       }
     },
-    "scope": "Eight actual CPU native frames including original crop; first and revised native logs, derivative/stock checks and actual two-level Blender reimport. External native/GLBs not duplicated. No reference photos, runtime integration, gameplay or artistic acceptance. Additional conservative149-body corridor screening is INERT forward work,not accepted siting; it changes no installed footprint."
+    "scope": "Retains original eight CPU frames and revision02 proof. Added approach revisions03\u201305 preserve missing backing/unsupported continuation findings, native source/report snapshots,10 additional inspected CPU views, repaired two-body reimport and source-bound logs. Current production meshes/blend/construction report are separate canonical assets,not duplicated in this ZIP. No reference photographs/PDFs. Native review only; actual Godot/siting/access/performance/artistic qualification remains separate."
   },
   "northeast_composed_intake": {
     "evidence_class": "INERT",
@@ -8416,5 +8536,354 @@
       }
     },
     "scope": "Native/isolated diagnostics for two narrow houses and supported external stoop; no production controller/composed/artistic acceptance."
+  },
+  "bridge_loaded_composed_intake": {
+    "evidence_class": "INERT",
+    "archive": "bridge_loaded_composed_intake.zip",
+    "bytes": 18212371,
+    "sha256": "ad54a8b25b852d5e38ffb83fc875a5ceecce73ab5598bf32fbf607eea3329878",
+    "members": {
+      "import_01.log": {
+        "bytes": 32862,
+        "sha256": "b9905ab59db4182e0d940118ca43095e314b938c241b3e0922c6ae3dc29353f8"
+      },
+      "import_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "import_01.log.receipt.json": {
+        "bytes": 2599,
+        "sha256": "38940d830483c114cc4bcc5e30c85ef4c42b1e8f793327568b779f4624d28bde"
+      },
+      "import_02.log": {
+        "bytes": 3631,
+        "sha256": "470d123d51f4b96675aa9873a6f3ca7248dfcfd57ad517642ce609a864cfc473"
+      },
+      "import_02.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "import_02.log.receipt.json": {
+        "bytes": 2623,
+        "sha256": "be6156a1be01f55e72d58416b2d8f0ed8359e7489d841b7c92b7207241e76927"
+      },
+      "parser_01.log": {
+        "bytes": 299,
+        "sha256": "730358cc1fafb0fb561c7cef70a38a953eb9908864462525d0dc33bb1b1c1d76"
+      },
+      "parser_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "parser_01.log.receipt.json": {
+        "bytes": 2811,
+        "sha256": "93fb7c575e00749d9640067ed21f9139b923bd861ab8e9e3c41f4d56ade2d005"
+      },
+      "route_parser_01.log": {
+        "bytes": 228,
+        "sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "route_parser_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "route_parser_01.log.receipt.json": {
+        "bytes": 2856,
+        "sha256": "2aaceb11da32efd268ef19300e49474153a0b4218aa37f0a343393e44e096782"
+      },
+      "parser_03.log": {
+        "bytes": 290,
+        "sha256": "963217ef37885dd3506ff3d6d406fd1f6ffec2a92d3b47e02eb7ac4c370371cf"
+      },
+      "parser_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "parser_03.log.receipt.json": {
+        "bytes": 2835,
+        "sha256": "ad4c8db44bcbbf9adf6adde29f9cc79cf62a832ac9cf997bade5c2b7cae47aa0"
+      },
+      "composed_parser_01.log": {
+        "bytes": 300,
+        "sha256": "1999fb6b2cab034688c0627f79fb6f93880659b7288b3073a739c35c1c8d9385"
+      },
+      "composed_parser_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "composed_parser_01.log.receipt.json": {
+        "bytes": 2871,
+        "sha256": "5435c4efa4df6341d7b41751e781a81c33aa4012c1b5032617666a1fe99e6fb3"
+      },
+      "bridge_parser_01.log": {
+        "bytes": 228,
+        "sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "bridge_parser_01.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "bridge_parser_01.log.receipt.json": {
+        "bytes": 2839,
+        "sha256": "25ae1d300d386167944c3e744c3656cf65bb77d2138934a9f5dbff843eb0943b"
+      },
+      "bridge_parser_02.log": {
+        "bytes": 228,
+        "sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "bridge_parser_02.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "bridge_parser_02.log.receipt.json": {
+        "bytes": 2839,
+        "sha256": "5a236856678cb299e83075246831b4968c54c1cddfdd4cc594ee7906da26cea6"
+      },
+      "isolated_01.log": {
+        "bytes": 71499,
+        "sha256": "9b236a5ed54607d339a65cf424efcf090219d4b74f8ff6d6997030fccef86feb"
+      },
+      "isolated_01.log.stderr": {
+        "bytes": 164423,
+        "sha256": "903608dfeff75e23f75372a63d15811f0a02324635036b92d0288cb63e8f25d3"
+      },
+      "isolated_01.log.receipt.json": {
+        "bytes": 2839,
+        "sha256": "1551c9c0f0bde1fd5a4af11f4b43e89fe6d902eb552fc3dce2f9fd917be98284"
+      },
+      "isolated_01/bridge_import_failure.json": {
+        "bytes": 26504,
+        "sha256": "e857f03a29b2e86afc0f3203a9c447507ba806df62289b23e504d58e78cb6377"
+      },
+      "isolated_02.log": {
+        "bytes": 63910,
+        "sha256": "c0b8148ca86d9b3e72aef1675be22ed5dc46b3ab3864a912836bc249fa53f24a"
+      },
+      "isolated_02.log.stderr": {
+        "bytes": 1253,
+        "sha256": "0357a9da6dc4b3ab0065929af411be1118b11313c2ead255f45fec9a49fbad42"
+      },
+      "isolated_02.log.receipt.json": {
+        "bytes": 2830,
+        "sha256": "32f0b3c73ee5eb60be84374576547a93dd41680bc79bef98cea5a8220b5b6762"
+      },
+      "isolated_02/bridge_tower.png": {
+        "bytes": 953939,
+        "sha256": "761f0cf4c62c4b110bc75501527119bc34a28e27d608aa7b46a6cfb3a339a6a9"
+      },
+      "isolated_02/forced_far.png": {
+        "bytes": 198842,
+        "sha256": "ad70b3ecd447edd11976e0b99bb548555bf212d4de8317995807da91dd93cb69"
+      },
+      "isolated_02/forced_near.png": {
+        "bytes": 201868,
+        "sha256": "02dfd252ca65f880b04373e6ebd843cbb734c27aba4caa4fc10220fc734f1472"
+      },
+      "isolated_02/narrow.png": {
+        "bytes": 17944,
+        "sha256": "f558965c6bd0f525c7172e6f8aaedba86b29810e79b82e934714c98eff91fd10"
+      },
+      "isolated_02/natural_after.png": {
+        "bytes": 17231,
+        "sha256": "80bb1ec18f57e1a81ba2fa3b823c0156213053fd1dcbb4255a0209aeae3f4435"
+      },
+      "isolated_02/natural_before.png": {
+        "bytes": 17239,
+        "sha256": "aaf7a2f68eadbf6eb55b886300307dda997df8ba95d1db321a9f3461b04f1d5f"
+      },
+      "isolated_02/natural_narrow.png": {
+        "bytes": 18820,
+        "sha256": "9bc828866ca80e89b56ef97f0e9f0e364e0fbf546376900a7e2eda8ebe643e52"
+      },
+      "isolated_02/natural_return.png": {
+        "bytes": 17239,
+        "sha256": "aaf7a2f68eadbf6eb55b886300307dda997df8ba95d1db321a9f3461b04f1d5f"
+      },
+      "isolated_02/queens_approach.png": {
+        "bytes": 534577,
+        "sha256": "455800c8c494e78c2beef6aa36530842b289f3e6eded5bd10e77261fe916e1ab"
+      },
+      "isolated_02/transport_bench.json": {
+        "bytes": 76996,
+        "sha256": "475ff69c1f3a53510e944da19ace9ed6acf6396e206da4ed54e27c7c4e1b2b92"
+      },
+      "isolated_02/upper_track_clearance.png": {
+        "bytes": 2523681,
+        "sha256": "4b409c8e9e96c51213be590e44310b63e8fd233c7cf4a835b633afd4e2c9d31e"
+      },
+      "isolated_02/wide.png": {
+        "bytes": 17231,
+        "sha256": "a6dbc8c18233be6cac9d9b96c50e012e472f6b6814f97fe8e0d73174599d3595"
+      },
+      "isolated_03.log": {
+        "bytes": 63910,
+        "sha256": "39cdb8725b9bdc4ba79a782af426a5a8dadf7fa139a251d5837f39b76c23b269"
+      },
+      "isolated_03.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "isolated_03.log.receipt.json": {
+        "bytes": 2830,
+        "sha256": "04c6b033a3dafb3c3a497f51df19628de156ee44090a00a67a06da3487de0140"
+      },
+      "isolated_03/bridge_tower.png": {
+        "bytes": 953939,
+        "sha256": "761f0cf4c62c4b110bc75501527119bc34a28e27d608aa7b46a6cfb3a339a6a9"
+      },
+      "isolated_03/forced_far.png": {
+        "bytes": 198842,
+        "sha256": "ad70b3ecd447edd11976e0b99bb548555bf212d4de8317995807da91dd93cb69"
+      },
+      "isolated_03/forced_near.png": {
+        "bytes": 201868,
+        "sha256": "02dfd252ca65f880b04373e6ebd843cbb734c27aba4caa4fc10220fc734f1472"
+      },
+      "isolated_03/narrow.png": {
+        "bytes": 815556,
+        "sha256": "8dff2cad0d25530681885c92e5937b9b2ea78ae90b2b955126f0cd254f3ad67d"
+      },
+      "isolated_03/natural_after.png": {
+        "bytes": 52622,
+        "sha256": "4253fcec9690af2a19fa1ea500690432960a58712029122596ca678948179e5c"
+      },
+      "isolated_03/natural_before.png": {
+        "bytes": 55041,
+        "sha256": "529721156b61715f6b57a49fbb8c4d13168380b3b1546d8a0cd7a026c24a49d1"
+      },
+      "isolated_03/natural_narrow.png": {
+        "bytes": 1755550,
+        "sha256": "bb3f02a05631d38b2d9d7cbcd7c9ed1ca510304a8c1f2fdb71362002c532df48"
+      },
+      "isolated_03/natural_return.png": {
+        "bytes": 55041,
+        "sha256": "529721156b61715f6b57a49fbb8c4d13168380b3b1546d8a0cd7a026c24a49d1"
+      },
+      "isolated_03/queens_approach.png": {
+        "bytes": 534577,
+        "sha256": "455800c8c494e78c2beef6aa36530842b289f3e6eded5bd10e77261fe916e1ab"
+      },
+      "isolated_03/transport_bench.json": {
+        "bytes": 76613,
+        "sha256": "b50fff7dd447360f9589a7ffced0623be784023986db4681b785561cc7339c25"
+      },
+      "isolated_03/upper_track_clearance.png": {
+        "bytes": 2523681,
+        "sha256": "4b409c8e9e96c51213be590e44310b63e8fd233c7cf4a835b633afd4e2c9d31e"
+      },
+      "isolated_03/wide.png": {
+        "bytes": 30818,
+        "sha256": "4083bb76f5eb1be5f57fa2395fdb34d1583128f7d683aa05a077c2baf29e29e8"
+      },
+      "route_01.log": {
+        "bytes": 9490,
+        "sha256": "6a563110349976aa5836531674936c0a3a879c6f79e6b6722fecaef07f3925d9"
+      },
+      "route_01.log.stderr": {
+        "bytes": 745,
+        "sha256": "8faedaaa698979498b944412a5ee6a400713355a8da5c190eb70b836f26e73af"
+      },
+      "route_01.log.receipt.json": {
+        "bytes": 2844,
+        "sha256": "b3694219836530ee2e78b539394ecb77996fcaf1fc42d177ee652a32b43748ca"
+      },
+      "route_01/narrow_neighbors_contract.json": {
+        "bytes": 77850,
+        "sha256": "c622da3d4af7ab79c2d8cef40e61c58b4d405e60744f0d273430a9ca7050df20"
+      },
+      "route_01/narrow_west_standing_frontage.png": {
+        "bytes": 3189725,
+        "sha256": "466fbc1b6a307c6a5f48f7aa0cd9b7df011aef443c5f99fb8ea87c51cf9fd86b"
+      },
+      "bridge_route_01.log": {
+        "bytes": 2310,
+        "sha256": "8e381c0ba5ec96beb9c5c008a8297b577a7347884bb420569fa5a160e4c9d337"
+      },
+      "bridge_route_01.log.stderr": {
+        "bytes": 420,
+        "sha256": "28189925beebaa0931137e797d85a08cf2ade45db6e90892436321c52791c98a"
+      },
+      "bridge_route_01.log.receipt.json": {
+        "bytes": 2833,
+        "sha256": "433d9b25b51e5272a3d6aa63e97ec0ac4f074882f0d905203d0860118dfbcb61"
+      },
+      "bridge_route_01/bridge_roof_contract.json": {
+        "bytes": 25924,
+        "sha256": "69585f6216359825ca2b2979c952a380183c0b231fcf81d353e80cfbd3fc7530"
+      },
+      "bridge_route_02.log": {
+        "bytes": 2310,
+        "sha256": "d86ed43190187744b3c13a7be86a8379ac384522bd3cd43c58fbeb17171f0c8f"
+      },
+      "bridge_route_02.log.stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "bridge_route_02.log.receipt.json": {
+        "bytes": 2832,
+        "sha256": "72f817afb43fa43bf69a19234abec80f8e6715714b4de510c6b6a8407bd7576d"
+      },
+      "bridge_route_02/bridge_roof_contract.json": {
+        "bytes": 46897,
+        "sha256": "71b5d2e9476c9d7620fa8af23ec00ac8a9f5ee9fac20c314b63af98df7f61f4e"
+      },
+      "bridge_route_02/bridge_roof_narrow.png": {
+        "bytes": 875421,
+        "sha256": "324cbbecbd5d2ee08dd11b5ddbaa2c73a4c4a782d5a57cfa2217bd578034a69b"
+      },
+      "bridge_route_02/bridge_roof_ordinary.png": {
+        "bytes": 2550857,
+        "sha256": "0d0ff26e427c8db6315dd0fabdb76a58418160b0c8970f5d92b0cb7325b4fe4a"
+      },
+      "original_import_settings/city_bridge.glb.import": {
+        "bytes": 1159,
+        "sha256": "76599f187ea26bcb627ac4ed85c195f554156bb45444fa355507b54d381dc262"
+      },
+      "original_import_settings/city_bridge_lod1.glb.import": {
+        "bytes": 1175,
+        "sha256": "6fad683cb1bc67160ad8c1dedac6d5ee1451d92f2a02200939697699109ad75a"
+      },
+      "original_test_source/v2_city_transport_bench.gd": {
+        "bytes": 23621,
+        "sha256": "e22786fefb8c063ca27630522b4d764341cbaa6e2dde2203ea38cfe7e42ec72a"
+      },
+      "original_test_source/v2_city_transport_route_01.gd": {
+        "bytes": 60879,
+        "sha256": "9f41025c32a7b7420011beea4714448c27f74ff44f9823f7f100720deb7cd486"
+      },
+      "original_test_source/v2_city_transport_route_bridge_01.gd": {
+        "bytes": 64621,
+        "sha256": "baaf685f3ed831d5d7a7482ac2313501aa6a5ec39516cff07da790983d96d814"
+      },
+      "baseline_e145/board.json": {
+        "bytes": 131096,
+        "sha256": "fc78488770165b0466581774dcb023b5b5531ae6ae56891bba9409ea809703cf"
+      },
+      "baseline_e145/board.md": {
+        "bytes": 8610,
+        "sha256": "6fd3cd675a53681c45f8984d35f0310de16dd9d3009879aa4ad7b40e7783237f"
+      },
+      "reader_preflight_01.txt": {
+        "bytes": 172,
+        "sha256": "3574951275ab1392a566ce7a13b149dd859a2eb24ec6e10d667bfe09e6e05f1f"
+      },
+      "executed_source/game/tests/v2_city_transport_bench.gd": {
+        "bytes": 24351,
+        "sha256": "3399bf48c4c7cacbc5a7e2462b80454e3a8d15e50e2e85969b99862544d86a9c"
+      },
+      "executed_source/game/tests/v2_city_transport_route.gd": {
+        "bytes": 66087,
+        "sha256": "bd2e32c5f6ef0ad1ec0cd7b0dfc794746bfb5fbf6de1c685b7cc43e8ec91230c"
+      },
+      "executed_source/game/scripts/building/orison_v2_city_bridge.gd": {
+        "bytes": 3769,
+        "sha256": "a07e18ab8e9322ba6e570229d962fc232fdcfadd3b2c6adf1f47afe044405b37"
+      },
+      "executed_source/game/scripts/building/orison_v2_runtime_root.gd": {
+        "bytes": 67871,
+        "sha256": "98707557df90f34584d8f9538e1c2aff88f59aca4f3ab12ddd6dafb08a87b83c"
+      }
+    },
+    "scope": "Original compression failure and blank optical controls preserved; isolated1287/0 and two actual bridge roof frames/15-check schema2 contract,unchanged physical450m boundary. Failed narrow234checks/6legs/2 retained,not accepted. Raw logs/wrappers/source snapshots and clean e145117-gate baseline. No duplicate production GLBs,full-city/save/physical-surface renewal or artistic acceptance. E/Bodega reconciliation remains pending."
   }
 }
