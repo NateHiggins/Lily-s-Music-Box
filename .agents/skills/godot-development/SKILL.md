@@ -73,6 +73,28 @@ Add tests for meaningful behavior, not implementation-shaped assertions. Keep
 verification proportionate; reuse unchanged evidence where valid and repeat a
 check only when changed inputs, failures, or unresolved concerns justify it.
 
+## Minimize time spent running Godot
+
+Fast iteration is a priority. Before launching, identify the changed behavior,
+the smallest check that can expose its failure, and the expected startup/run
+cost from existing receipts. Do not repeat long walks through unchanged areas
+to reach the work. Use an explicit test-only starting fixture near the affected
+area, then exercise its real controller, input, collision and state owners.
+Keep that fixture separate from production spawning; report its narrower scope.
+
+Use static checks or an existing small family bench before composing the world.
+Combine closely related checks when this saves startup cost without creating
+an oversized failure-prone suite. Reserve full played routes for integration
+checkpoints or changes whose dependency coverage genuinely requires them.
+Reuse valid unchanged route evidence instead of repeating it for each repair,
+visual adjustment, report edit or diagnostic. A performance experiment should
+measure a short, repeatable representative segment, excluding unrelated travel.
+Do not shorten runs by raising player speed, relaxing deadlines/tolerances,
+bypassing affected interactions or weakening acceptance. An interrupted run is
+partial evidence even if closing its window returns exit zero: require the
+test-written completed contract before claiming a pass. Respect shared-lane
+ownership when cancelling or rescheduling; never stop another agent's run.
+
 ## Report the evidence honestly
 
 Separate what changed, what ran, what passed, and what remains unverified. Retain

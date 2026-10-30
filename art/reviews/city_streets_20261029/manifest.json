@@ -2399,5 +2399,1576 @@
     "runtime_contract_raw_sha256": "d59481bfd9157e025eb8e88a1f4ce1f988206c7457859f2f10ea00a76c6ac56b",
     "surface_inputs_sha256": "d12f359b8854bd6517639fa4e610c8ae08d34a7cb9a02e6016435c4b5f585667",
     "reviewed_images": 9
+  },
+  "northwest_architecture_qualification_archive": {
+    "file": "northwest_architecture_qualification.zip",
+    "bytes": 68058428,
+    "sha256": "a355685cacc9e3b0bfcbb960926344922e365a6795d1dc201e1059f1f589d7e3",
+    "member_count": 297,
+    "evidence_class": "INERT",
+    "scope": "Original native/import/parser failures, current native/body-LOD diagnostics, exact retained geometry, fresh grade discovery, and narrow test-written production frontage/surface contract. No duplicate mesh payloads/reference photographs, full-city or artistic acceptance.",
+    "members": {
+      "phase06_northwest/build_nw_architecture_study_09.py": {
+        "bytes": 8009,
+        "raw_sha256": "b8e7931811a083d0e94befd935b63e05041090dec9cc0286121ab939dc3e8413",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "b8e7931811a083d0e94befd935b63e05041090dec9cc0286121ab939dc3e8413"
+      },
+      "phase06_northwest/check_nw_profile_equivalence_11.py": {
+        "bytes": 4192,
+        "raw_sha256": "03217685c6fb1705c0179daff68f82a2839842f9f9101c3a6341a40e62629506",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "03217685c6fb1705c0179daff68f82a2839842f9f9101c3a6341a40e62629506"
+      },
+      "phase06_northwest/city_commercial_architecture_body_lod02.py": {
+        "bytes": 20675,
+        "raw_sha256": "3d3def7779f6077088356fddc740420f3cc35592c77624f881c16996e9208371",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "3d3def7779f6077088356fddc740420f3cc35592c77624f881c16996e9208371"
+      },
+      "phase06_northwest/city_commercial_architecture_candidate11.py": {
+        "bytes": 21286,
+        "raw_sha256": "d2eba3384dd61ba3b5e4cd256de52f3e2aa52f41d6442696f98795ffc5180f57",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "d2eba3384dd61ba3b5e4cd256de52f3e2aa52f41d6442696f98795ffc5180f57"
+      },
+      "phase06_northwest/city_commercial_architecture_window09.py": {
+        "bytes": 20688,
+        "raw_sha256": "f9d77b7604fcfbf38ce44d9ae03921d0edf96993f47f1f759b27d763cb1a0e69",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "f9d77b7604fcfbf38ce44d9ae03921d0edf96993f47f1f759b27d763cb1a0e69"
+      },
+      "phase06_northwest/compare_nw_lod_production_02.py": {
+        "bytes": 2097,
+        "raw_sha256": "340587605254392d1452c0aaa371bd07fa9fbce7edb4306449daa182952a10ee",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "340587605254392d1452c0aaa371bd07fa9fbce7edb4306449daa182952a10ee"
+      },
+      "phase06_northwest/compare_nw_production_02.log": {
+        "bytes": 1150,
+        "raw_sha256": "e1a5d6264c6817f6ebdb01105bf88994de7c74a4d0fec6a9f396ca32135984a3",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "478b414f84d43a5b3b1f42e36903e9be35415145ca16077dce60d54dd7ce7877"
+      },
+      "phase06_northwest/compare_nw_production_02_original_failed_source.py": {
+        "bytes": 4420,
+        "raw_sha256": "8236118111403df9a04d5099f722e64ea3e1c0194d822c9177638393de07f65f",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "8236118111403df9a04d5099f722e64ea3e1c0194d822c9177638393de07f65f"
+      },
+      "phase06_northwest/compare_nw_production_04.log": {
+        "bytes": 1422,
+        "raw_sha256": "c94904e4c46346105e314fa6c0139877a6b2ad94bbb739fafe4939fd4b238244",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "514fe9f267cfe656a80df4be2d0215b25ebecd2d915a94a981b1ea2c92b4164d"
+      },
+      "phase06_northwest/compare_nw_production_04.py": {
+        "bytes": 5372,
+        "raw_sha256": "5130c11d83416ae588b48abda50887f34b8e92a22453209a2ffa2a582f0aab8f",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "5130c11d83416ae588b48abda50887f34b8e92a22453209a2ffa2a582f0aab8f"
+      },
+      "phase06_northwest/nw_aerials_replay_02.execution.json": {
+        "bytes": 230,
+        "raw_sha256": "963000a9aed40315ad071a2eeab447dfd7af817ed40c9604f03c0cc0832aca9e",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "3a6f25275073941166e79265fc854c04a55afd5e990fc8c2cecf64c4a29a40ee"
+      },
+      "phase06_northwest/nw_aerials_replay_02.log": {
+        "bytes": 34601,
+        "raw_sha256": "96bb93ea322c2bb17d0f3693d0c9d018b57adc3c0cda4d700d84bb77eb267967",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "6dc5042d76712187b2fcea4468bf624bac4de2d873cbdaca4da2c8e4865c0c15"
+      },
+      "phase06_northwest/nw_architecture_study_01.log": {
+        "bytes": 1147,
+        "raw_sha256": "22574f6c941d5fe7db416096aa560ea7122dd6452de2f76e2979be187f76e967",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "7d3d007a275b492c429f390d60f15364ec0a5c7c6f97bcb8ef2a1ed5d52e103e"
+      },
+      "phase06_northwest/nw_architecture_study_02.log": {
+        "bytes": 1793,
+        "raw_sha256": "e7dc3b60c4edf6f9a2b25b5f76ce4051588850321771f8ae7e09470771afde7a",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "775a5a0cfa6fd0566d62ccf3afbafc33b3f45be217e4c150dc63e0351a6aa228"
+      },
+      "phase06_northwest/nw_architecture_study_03.log": {
+        "bytes": 2142,
+        "raw_sha256": "3bb3faacfeffb65a3736a895aaef2914f7e5f054838147ddb4ed9a852ccfba56",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "4f46106d8bb27a0fa3809f95c0bea62e1618e0265bf42158515f21351b55f468"
+      },
+      "phase06_northwest/nw_architecture_study_03/bearing_and_pane_diagnostic.json": {
+        "bytes": 22589,
+        "raw_sha256": "93d9df9c1ff991843efde8ad4d9a386a29b66043fc2b9d50cd4b35e80d2eda60",
+        "role": "earlier diagnostic/probe; superseded or failed, not acceptance",
+        "lf_sha256": "93d9df9c1ff991843efde8ad4d9a386a29b66043fc2b9d50cd4b35e80d2eda60"
+      },
+      "phase06_northwest/nw_architecture_study_04.log": {
+        "bytes": 2142,
+        "raw_sha256": "0b57b66b58cdaa22aa892e1428fe08613a7e5cd8417aec409596c5a2607edad0",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "d651b076ea60ccbf5b43128075510099e7c0d95e58559ca75d04048e1769d654"
+      },
+      "phase06_northwest/nw_architecture_study_04/bearing_and_pane_diagnostic.json": {
+        "bytes": 27481,
+        "raw_sha256": "9effa57dfb78bb6946f6c7707b7e7100289527f08881d06e1992bd73fb1d3217",
+        "role": "earlier diagnostic/probe; superseded or failed, not acceptance",
+        "lf_sha256": "9effa57dfb78bb6946f6c7707b7e7100289527f08881d06e1992bd73fb1d3217"
+      },
+      "phase06_northwest/nw_architecture_study_05.log": {
+        "bytes": 7998,
+        "raw_sha256": "39500b86fc609930b612b28eb2bb8a110faab1ff5f63c84b7517637026ab0455",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "88da621deb9fabd02d16f0a510ea596f34e8eaa124ebc0346c9e2d9238a02ed2"
+      },
+      "phase06_northwest/nw_architecture_study_06.log": {
+        "bytes": 4771,
+        "raw_sha256": "50ea94ed554285a961c676c2ff84b9c963c02acce9033d6d304f91990d4e517d",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "aa74003922cd1c7b8fc6d3681318184e1ded528d63bb7282bce122143bc36c80"
+      },
+      "phase06_northwest/nw_architecture_study_07.log": {
+        "bytes": 4718,
+        "raw_sha256": "7041e3d99004fbdfdb4adea60f1e8f317fb0883fae77dadc1e7d6e0058c31fa1",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "4a58ea9c41a88a4d9c2da0e7c0e67cb9402073d632bf64061a278a95b5f0fa39"
+      },
+      "phase06_northwest/nw_architecture_study_08.log": {
+        "bytes": 4718,
+        "raw_sha256": "2166f680e2367152a9bc9b87e87c35cbcbd5f2ae498db4ec498457490a903154",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "7248f5eb53b748c1ab1c1f66e2d5fd4a62107aaa791d4b249236f7e34e0943f6"
+      },
+      "phase06_northwest/nw_architecture_study_09.log": {
+        "bytes": 5015,
+        "raw_sha256": "86df8881984aa51ae2d1b98397dabd088951ec2b354a03aa07811826e8c74d62",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "e390f358dea69ad250bfb1e6424ea6409e69312b45720f632c1067e25a306d06"
+      },
+      "phase06_northwest/nw_architecture_study_09/bearing_and_pane_diagnostic.json": {
+        "bytes": 5960,
+        "raw_sha256": "fc2ca3a6a457bdce71b9bbff6c9f5e42c7ccdbd79eb888f6f1f3d3b9649a6802",
+        "role": "original preview with missing alpha; superseded, only first two images inspected",
+        "lf_sha256": "fc2ca3a6a457bdce71b9bbff6c9f5e42c7ccdbd79eb888f6f1f3d3b9649a6802"
+      },
+      "phase06_northwest/nw_architecture_study_09/construction.json": {
+        "bytes": 10197,
+        "raw_sha256": "8f29ec21d74bbaa2338737091e0f2c8ac5308116fbb1b2d92638c5945a7f3dbc",
+        "role": "original preview with missing alpha; superseded, only first two images inspected",
+        "lf_sha256": "8f29ec21d74bbaa2338737091e0f2c8ac5308116fbb1b2d92638c5945a7f3dbc"
+      },
+      "phase06_northwest/nw_architecture_study_09/executed_window_helper.py": {
+        "bytes": 20688,
+        "raw_sha256": "f9d77b7604fcfbf38ce44d9ae03921d0edf96993f47f1f759b27d763cb1a0e69",
+        "role": "original preview with missing alpha; superseded, only first two images inspected",
+        "lf_sha256": "f9d77b7604fcfbf38ce44d9ae03921d0edf96993f47f1f759b27d763cb1a0e69"
+      },
+      "phase06_northwest/nw_architecture_study_09/native_review.json": {
+        "bytes": 8419,
+        "raw_sha256": "f6fad582325333e4003ebaa6b62122d404723a055e565eb9efc951fa448ac5f8",
+        "role": "original preview with missing alpha; superseded, only first two images inspected",
+        "lf_sha256": "f6fad582325333e4003ebaa6b62122d404723a055e565eb9efc951fa448ac5f8"
+      },
+      "phase06_northwest/nw_architecture_study_09/northwest_roofs_native.png": {
+        "bytes": 2120288,
+        "raw_sha256": "a1ffabf65f67fd6a496edc2e1ab0c867dee1fb22f410fec517fed83e17f76a5b",
+        "role": "original preview with missing alpha; superseded, only first two images inspected"
+      },
+      "phase06_northwest/nw_architecture_study_09/northwest_row_native.png": {
+        "bytes": 1842651,
+        "raw_sha256": "c73ffe730362133065564a3070299974450fcfe20b9a8fd74e7cedf9a3c10533",
+        "role": "original preview with missing alpha; superseded, only first two images inspected"
+      },
+      "phase06_northwest/nw_architecture_study_09/site_nw1_native_front.png": {
+        "bytes": 1091271,
+        "raw_sha256": "656a74b6217f50b69adf877f5afeb7259779783b50b88f0cc3fc1b30dcdc1a97",
+        "role": "original preview with missing alpha; superseded, only first two images inspected"
+      },
+      "phase06_northwest/nw_architecture_study_09/site_nw1_roundtrip_street.png": {
+        "bytes": 1037550,
+        "raw_sha256": "be74a5331f8e77a6fe3e7274323aa224b0e5b2eadf223e1c6fb424f89391616a",
+        "role": "original preview with missing alpha; superseded, only first two images inspected"
+      },
+      "phase06_northwest/nw_architecture_study_09/site_nw3_native_front.png": {
+        "bytes": 1113798,
+        "raw_sha256": "1ce7b31b996fe445609a0ff83dbd07823e7ed918e235fde805ac5a62278855e8",
+        "role": "original preview with missing alpha; superseded, only first two images inspected"
+      },
+      "phase06_northwest/nw_architecture_study_09/site_nw3_roundtrip_street.png": {
+        "bytes": 1095193,
+        "raw_sha256": "7478da249fb5cbcc6da8a694f6435631474b26d71ff7c5b0019a9c1031937bf9",
+        "role": "original preview with missing alpha; superseded, only first two images inspected"
+      },
+      "phase06_northwest/nw_architecture_study_09/site_nw4_native_front.png": {
+        "bytes": 1115199,
+        "raw_sha256": "2f085c6a9e90ead16e7f6d1ec0b1f1f3a20bbeca4f2d8fb47bd93709a906a1d7",
+        "role": "original preview with missing alpha; superseded, only first two images inspected"
+      },
+      "phase06_northwest/nw_architecture_study_09/site_nw4_roundtrip_street.png": {
+        "bytes": 1040525,
+        "raw_sha256": "1670ecaa1c24e77483f243ed1f33eb3d72f3e21615d72cb3c2cdda695af9ccac",
+        "role": "original preview with missing alpha; superseded, only first two images inspected"
+      },
+      "phase06_northwest/nw_beacons_replay_02.execution.json": {
+        "bytes": 230,
+        "raw_sha256": "4fc6c61f856986bb7875916b1c3c1946e6c6c7f67161eca652e9ad3c4e498a01",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "36df34213d1aa8dbab590644441e66d1e204dbe7052d490a779ac7f6a2cd0b76"
+      },
+      "phase06_northwest/nw_beacons_replay_02.log": {
+        "bytes": 6141,
+        "raw_sha256": "59430053ee4fbdd1bc54f34156404525970f4016d77b36fb6b0a49890926c918",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "bdff45005692c12b3046447be9b01f9c3320dd08ebc1c738b2fd3646f120566d"
+      },
+      "phase06_northwest/nw_bench01_diagnostic_summary.json": {
+        "bytes": 19974,
+        "raw_sha256": "32ec28d2966c930c1d87eff9f51a0b600a1ab7a7854e815b1b196512e82b9cb6",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "32ec28d2966c930c1d87eff9f51a0b600a1ab7a7854e815b1b196512e82b9cb6"
+      },
+      "phase06_northwest/nw_bench02_cancellation.json": {
+        "bytes": 646,
+        "raw_sha256": "088930cde7889137205a78970e9d272214cba09b509b3ae88fea458a96d22a2c",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "fae14c679e9c4584dfd5bc0a0822a93817503b0d56c0f94036bd553bd374659c"
+      },
+      "phase06_northwest/nw_bench02_executed_source.gd": {
+        "bytes": 39030,
+        "raw_sha256": "31004f62ec4826790fecf99942fcefb1bcbed844e7ddf741c9903acf5c78182d",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "31004f62ec4826790fecf99942fcefb1bcbed844e7ddf741c9903acf5c78182d"
+      },
+      "phase06_northwest/nw_body_lod_review_02/actual_inspection.json": {
+        "bytes": 1656,
+        "raw_sha256": "507b1556a90de347f128a35d0b7eddd86fbaba0cad34a5ebd9900d6cd839a397",
+        "role": "reviewed external replacement geometry and sampled deviations; superseded by production export",
+        "lf_sha256": "507b1556a90de347f128a35d0b7eddd86fbaba0cad34a5ebd9900d6cd839a397"
+      },
+      "phase06_northwest/nw_body_lod_review_02/native_review.json": {
+        "bytes": 8418,
+        "raw_sha256": "564517733a092c24607f0e2542c4ec79dd99ab67fedd431893662c36672f2b21",
+        "role": "reviewed external replacement geometry and sampled deviations; superseded by production export",
+        "lf_sha256": "564517733a092c24607f0e2542c4ec79dd99ab67fedd431893662c36672f2b21"
+      },
+      "phase06_northwest/nw_body_lod_review_02/northwest_roofs_native.png": {
+        "bytes": 2120593,
+        "raw_sha256": "60ccf7b414485791ac4f8e4cac0f7c31f26501dbba3559bc25e4b4369feb65c2",
+        "role": "reviewed external replacement geometry and sampled deviations; superseded by production export"
+      },
+      "phase06_northwest/nw_body_lod_review_02/northwest_row_native.png": {
+        "bytes": 1835393,
+        "raw_sha256": "2d9e4fb661b0848d9c1c37cbb154847716a5a9d05ed886cae422767618f084c4",
+        "role": "reviewed external replacement geometry and sampled deviations; superseded by production export"
+      },
+      "phase06_northwest/nw_body_lod_review_02/site_nw1_native_front.png": {
+        "bytes": 1090623,
+        "raw_sha256": "f3d3c676d47c034d5d208aa2456df2ee37dc7cb25c05365de8be6eefbf9ff916",
+        "role": "reviewed external replacement geometry and sampled deviations; superseded by production export"
+      },
+      "phase06_northwest/nw_body_lod_review_02/site_nw1_roundtrip_street.png": {
+        "bytes": 1033535,
+        "raw_sha256": "8214be1d146926b7dde69015ed83b11758e2c2fc011eff79d6b27400e37aff66",
+        "role": "reviewed external replacement geometry and sampled deviations; superseded by production export"
+      },
+      "phase06_northwest/nw_body_lod_review_02/site_nw3_native_front.png": {
+        "bytes": 1117124,
+        "raw_sha256": "e51bfa3091a251a3210a749652468f3a8818104aa5a3dcd1960701fd70d98761",
+        "role": "reviewed external replacement geometry and sampled deviations; superseded by production export"
+      },
+      "phase06_northwest/nw_body_lod_review_02/site_nw3_roundtrip_street.png": {
+        "bytes": 1090745,
+        "raw_sha256": "a1a2f3a181583b7a081a03fce14abe67fd95cf4316811d7f778c34d9e43a5041",
+        "role": "reviewed external replacement geometry and sampled deviations; superseded by production export"
+      },
+      "phase06_northwest/nw_body_lod_review_02/site_nw4_native_front.png": {
+        "bytes": 1112735,
+        "raw_sha256": "35cca2bd98e6b364f18dbe2e873f9e66bf5a70a30eb910bd4c89acf50b0b7430",
+        "role": "reviewed external replacement geometry and sampled deviations; superseded by production export"
+      },
+      "phase06_northwest/nw_body_lod_review_02/site_nw4_roundtrip_street.png": {
+        "bytes": 1038319,
+        "raw_sha256": "28c77cd881c95a812ba4095497b79a063bdab851622fc12c8ed752b246a5681c",
+        "role": "reviewed external replacement geometry and sampled deviations; superseded by production export"
+      },
+      "phase06_northwest/nw_body_lod_review_02/surface_deviation.json": {
+        "bytes": 38401,
+        "raw_sha256": "15741dd890efbbf10cc35c9b4d6bdd9cf2c1b2f09ecf04c9439ea2f2db90c7ac",
+        "role": "reviewed external replacement geometry and sampled deviations; superseded by production export",
+        "lf_sha256": "15741dd890efbbf10cc35c9b4d6bdd9cf2c1b2f09ecf04c9439ea2f2db90c7ac"
+      },
+      "phase06_northwest/nw_body_lod_study_01.log": {
+        "bytes": 5023,
+        "raw_sha256": "55118faf43c06998299c5bd351b6a22c646e22533ac51393cb6c204f57963724",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "bbfd6ed328fa9b23f30ad03c7023817c0ce32c8a7d19da0d87e8a0cfa49b50ac"
+      },
+      "phase06_northwest/nw_body_lod_study_02.log": {
+        "bytes": 5024,
+        "raw_sha256": "e5a7e54f937fe8eaade01006d82af559c4315661e5e05f8d03f41555a8a40cae",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "fcc3364c18499fe1e26b75c65ec8ef850c66c40caaced1a96c2d3b79319ede17"
+      },
+      "phase06_northwest/nw_body_review02_host_timing.json": {
+        "bytes": 304,
+        "raw_sha256": "f79a4b766ba3292fd61b1783cc9d6469fd6868a3a01f1343e8a6c5e539c525fb",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "153a2413717d06e30833538818364e37e26cfd82baa632e879922f4c58ee05ed"
+      },
+      "phase06_northwest/nw_closure_replay_02.execution.json": {
+        "bytes": 230,
+        "raw_sha256": "a6d4d25b02c26761c056c3cc753ca361430ffb115c47fb41efc9f489f2502efa",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "b66c44a2cf365c770f8abd9174a507ede5ff0ec1e4a6278856feb7a800f19f0f"
+      },
+      "phase06_northwest/nw_closure_replay_02.log": {
+        "bytes": 9368,
+        "raw_sha256": "27a02b6ab2c6674c0bfb6ef2c4f400f162023591ea97aa60696b489cb892ef3a",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "2d0056cc5754fbdfbad11ae67bd70454ec1b283805def997da701728bb2b8cfe"
+      },
+      "phase06_northwest/nw_consumed_geometry_guard_tests_01.log": {
+        "bytes": 108,
+        "raw_sha256": "f987982a03897518311989993fb682cb26e1e45f9b88b7c4ea22dd047860aa22",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "1331e4863ff22dc2b643160660ee2917b3382c304424d21f3ed77a8ac15f895a"
+      },
+      "phase06_northwest/nw_consumed_inputs_01.json": {
+        "bytes": 1229,
+        "raw_sha256": "b8efbb71a0c4ef8fe3e684ce41b031347845ed2a9d62876811ed7d1e2e9b3934",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "b8efbb71a0c4ef8fe3e684ce41b031347845ed2a9d62876811ed7d1e2e9b3934"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before.json": {
+        "bytes": 3287310,
+        "raw_sha256": "29f26c190b0150e26f3522f72d40c631b0809de6e32b65d3dd77f300f1a4f9b5",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "29f26c190b0150e26f3522f72d40c631b0809de6e32b65d3dd77f300f1a4f9b5"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/city_aerials_construction.json": {
+        "bytes": 242806,
+        "raw_sha256": "891cd847331990af1386db8ba34a3ab4ca903cf2315170d9d03c9259e1268f0a",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "891cd847331990af1386db8ba34a3ab4ca903cf2315170d9d03c9259e1268f0a"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/city_beacons_construction.json": {
+        "bytes": 156620,
+        "raw_sha256": "d48c000217da5a57ecb66b05b100dd9522f80ff034bc036339cf7ad4329cd366",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "d48c000217da5a57ecb66b05b100dd9522f80ff034bc036339cf7ad4329cd366"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/city_closure_construction.json": {
+        "bytes": 181144,
+        "raw_sha256": "51c793600b4a7b6fd4b9448475635ea6ed5f0fc459f3b093fea9b063e9002354",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "51c793600b4a7b6fd4b9448475635ea6ed5f0fc459f3b093fea9b063e9002354"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/city_elevations_construction.json": {
+        "bytes": 1326811,
+        "raw_sha256": "270ff814dd4a69f913bb37eb95ca5bb7c73898a45089c69f7198efbc32f91bb2",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "270ff814dd4a69f913bb37eb95ca5bb7c73898a45089c69f7198efbc32f91bb2"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/city_foundations_construction.json": {
+        "bytes": 476141,
+        "raw_sha256": "db3c7a40fbaafba4ddc9d0c2211917e9f31fa59be4672805a461aad6be82e914",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "db3c7a40fbaafba4ddc9d0c2211917e9f31fa59be4672805a461aad6be82e914"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/city_masts_construction.json": {
+        "bytes": 174819,
+        "raw_sha256": "588f3d55b5c622af7f62c47247c0388cf04a9189cec4be7589086bd7254e2e55",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "588f3d55b5c622af7f62c47247c0388cf04a9189cec4be7589086bd7254e2e55"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/city_streets_construction.json": {
+        "bytes": 2521157,
+        "raw_sha256": "5e21d197fd32ec861d9a27be0ddbf5c1f27b71fd7a185ce5a53c549bd68889e1",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "5e21d197fd32ec861d9a27be0ddbf5c1f27b71fd7a185ce5a53c549bd68889e1"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/city_tanks_construction.json": {
+        "bytes": 195537,
+        "raw_sha256": "c303cce0c54727ece7fb7892645cd08664250f1fb5c47ef5236d3ac7f56b2a84",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "c303cce0c54727ece7fb7892645cd08664250f1fb5c47ef5236d3ac7f56b2a84"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/scripts/build_city_aerials.py": {
+        "bytes": 26965,
+        "raw_sha256": "b4b430be54bb85d4399ab6ed3cb8666815e25e83b3c9d9ae5ed2deee1800e501",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "b4b430be54bb85d4399ab6ed3cb8666815e25e83b3c9d9ae5ed2deee1800e501"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/scripts/build_city_beacons.py": {
+        "bytes": 22479,
+        "raw_sha256": "118e36f8ff6e70318dd3ad0580d038f07630ca7ac24e609e26b12d7d3352098b",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "118e36f8ff6e70318dd3ad0580d038f07630ca7ac24e609e26b12d7d3352098b"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/scripts/build_city_closure.py": {
+        "bytes": 19849,
+        "raw_sha256": "a35b02cb8824d9f0fcd6abfffbfa6e7964f48d7b39025a93c65958a7ddf7dc59",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "a35b02cb8824d9f0fcd6abfffbfa6e7964f48d7b39025a93c65958a7ddf7dc59"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/scripts/build_city_masts.py": {
+        "bytes": 22584,
+        "raw_sha256": "bbf77136a1abf7a8a4919f69ab677fd23b261443eca4022b58a65fb62be436f5",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "bbf77136a1abf7a8a4919f69ab677fd23b261443eca4022b58a65fb62be436f5"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/art/blender/scripts/build_city_tanks.py": {
+        "bytes": 32565,
+        "raw_sha256": "098edd93539329607d952e57754c7a8303ee95efb6fa323c4832d2dcc47f971a",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "098edd93539329607d952e57754c7a8303ee95efb6fa323c4832d2dcc47f971a"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/game/tests/fixtures/orison_city_aerials.json": {
+        "bytes": 242806,
+        "raw_sha256": "891cd847331990af1386db8ba34a3ab4ca903cf2315170d9d03c9259e1268f0a",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "891cd847331990af1386db8ba34a3ab4ca903cf2315170d9d03c9259e1268f0a"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/game/tests/fixtures/orison_city_beacons.json": {
+        "bytes": 156620,
+        "raw_sha256": "d48c000217da5a57ecb66b05b100dd9522f80ff034bc036339cf7ad4329cd366",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "d48c000217da5a57ecb66b05b100dd9522f80ff034bc036339cf7ad4329cd366"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/game/tests/fixtures/orison_city_closure.json": {
+        "bytes": 181144,
+        "raw_sha256": "51c793600b4a7b6fd4b9448475635ea6ed5f0fc459f3b093fea9b063e9002354",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "51c793600b4a7b6fd4b9448475635ea6ed5f0fc459f3b093fea9b063e9002354"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/game/tests/fixtures/orison_city_elevations.json": {
+        "bytes": 1326811,
+        "raw_sha256": "270ff814dd4a69f913bb37eb95ca5bb7c73898a45089c69f7198efbc32f91bb2",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "270ff814dd4a69f913bb37eb95ca5bb7c73898a45089c69f7198efbc32f91bb2"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/game/tests/fixtures/orison_city_masts.json": {
+        "bytes": 174819,
+        "raw_sha256": "588f3d55b5c622af7f62c47247c0388cf04a9189cec4be7589086bd7254e2e55",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "588f3d55b5c622af7f62c47247c0388cf04a9189cec4be7589086bd7254e2e55"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/game/tests/fixtures/orison_city_streets.json": {
+        "bytes": 2521157,
+        "raw_sha256": "5e21d197fd32ec861d9a27be0ddbf5c1f27b71fd7a185ce5a53c549bd68889e1",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "5e21d197fd32ec861d9a27be0ddbf5c1f27b71fd7a185ce5a53c549bd68889e1"
+      },
+      "phase06_northwest/nw_dependency_replay_01/before/game/tests/fixtures/orison_city_tanks.json": {
+        "bytes": 195537,
+        "raw_sha256": "c303cce0c54727ece7fb7892645cd08664250f1fb5c47ef5236d3ac7f56b2a84",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "c303cce0c54727ece7fb7892645cd08664250f1fb5c47ef5236d3ac7f56b2a84"
+      },
+      "phase06_northwest/nw_dependency_replay_01/comparison_nw.json": {
+        "bytes": 1699,
+        "raw_sha256": "aca8453c8e09ab92c497091674ac7c7ae2d8b849c876627bf9e922265f1ed5c0",
+        "role": "original metadata and complete GLB signatures; actual GLBs excluded",
+        "lf_sha256": "aca8453c8e09ab92c497091674ac7c7ae2d8b849c876627bf9e922265f1ed5c0"
+      },
+      "phase06_northwest/nw_dependency_snapshot_01.py": {
+        "bytes": 3917,
+        "raw_sha256": "bd24cb669148d106c8f3ed5dffb678f97bfb45c6ccab12a8fb40bdbf5fb00a8c",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "bd24cb669148d106c8f3ed5dffb678f97bfb45c6ccab12a8fb40bdbf5fb00a8c"
+      },
+      "phase06_northwest/nw_elevation_bench_01.log": {
+        "bytes": 251269,
+        "raw_sha256": "5340c42f35125ece0f6af26cdf7fcc29504abdd11bd5cd88409ac542dfdd0761",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "98ec964131a3178f848cabbdf50c3f6a4af2ced326bf4ae50dd7827049acf117"
+      },
+      "phase06_northwest/nw_elevation_bench_01.log.receipt.json": {
+        "bytes": 2885,
+        "raw_sha256": "d3cec3d3a845c2c3c44905d87521be8ca98f635c7f1b5b48ddfca4d30d08700c",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "d3cec3d3a845c2c3c44905d87521be8ca98f635c7f1b5b48ddfca4d30d08700c"
+      },
+      "phase06_northwest/nw_elevation_bench_01.log.stderr": {
+        "bytes": 14361,
+        "raw_sha256": "276176614f0a16b789074c46ebd042ca3c4c4e80b84a981824d26b6ea179ffbb",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "50e869da99621836bc5fe682847ca26319ddac34fceebe0d51d1481dd4eabe4a"
+      },
+      "phase06_northwest/nw_elevation_bench_01/city_elevation_profile.json": {
+        "bytes": 200842,
+        "raw_sha256": "4fa3a478214463bfc12a09e8174e514c93e0522e0911b65c6d850e9c71dded6f",
+        "role": "original failed bench; diagnostic captures, not all inspected",
+        "lf_sha256": "4fa3a478214463bfc12a09e8174e514c93e0522e0911b65c6d850e9c71dded6f"
+      },
+      "phase06_northwest/nw_elevation_bench_01/executed_source.gd": {
+        "bytes": 35870,
+        "raw_sha256": "65ef295b432302ea7cfc677ea67cad736dfebb199ce2fcf9936f2befa9537a4e",
+        "role": "original failed bench; diagnostic captures, not all inspected",
+        "lf_sha256": "65ef295b432302ea7cfc677ea67cad736dfebb199ce2fcf9936f2befa9537a4e"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw1.png": {
+        "bytes": 255088,
+        "raw_sha256": "c70424ab679c3ebd6d22b9447b65bbec7aed3ce53484d78a4e26ca6cab7854aa",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw1_natural_after.png": {
+        "bytes": 17420,
+        "raw_sha256": "081b97e284c906b077a1e3acfe0b4975ad1c9763ae00d09c2d64c7c770c206b5",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw1_natural_before.png": {
+        "bytes": 17419,
+        "raw_sha256": "04a543f8daca9df7b3ca962542d08b39815b83e3181a0719496493d1458557ce",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw1_natural_narrow.png": {
+        "bytes": 27916,
+        "raw_sha256": "81af99bf0a4662dc83ed4807798d578a52c9fa70acc41afd494687741e394d70",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw1_natural_return.png": {
+        "bytes": 17419,
+        "raw_sha256": "04a543f8daca9df7b3ca962542d08b39815b83e3181a0719496493d1458557ce",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw1_profile_far.png": {
+        "bytes": 192745,
+        "raw_sha256": "7f9c2d9a813ac68072eda24d2c628b5ddc4ad458b71b78d3f5e5614693627c50",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw1_profile_near.png": {
+        "bytes": 228504,
+        "raw_sha256": "a7818ea6f2a1f4a5909e649bfa632315db854e12dc20fa11f3edf0f6d687e327",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw3.png": {
+        "bytes": 338754,
+        "raw_sha256": "e2d2832cbf952492ea381b1a85ddd43c076851e9c249957d85bceee2bae89fe4",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw3_natural_after.png": {
+        "bytes": 17490,
+        "raw_sha256": "c9dc0f90d34512121c633c10c32f599412d9c08547320d7e69d6b60c2dad1f5c",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw3_natural_before.png": {
+        "bytes": 17541,
+        "raw_sha256": "a368abf8e8ddbb4eb997892be764e3947c66e11011376bf6b953139d1a2af3dc",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw3_natural_narrow.png": {
+        "bytes": 32734,
+        "raw_sha256": "66472c56a261c47b9f3b3215876368eaff1150439ec31b9fc261e130d9e5ec10",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw3_natural_return.png": {
+        "bytes": 17541,
+        "raw_sha256": "a368abf8e8ddbb4eb997892be764e3947c66e11011376bf6b953139d1a2af3dc",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw3_profile_far.png": {
+        "bytes": 230581,
+        "raw_sha256": "585da0406e3d7554665d051643ba2298cd28714df442ff9e9fccd73c6eb69e13",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw3_profile_near.png": {
+        "bytes": 277090,
+        "raw_sha256": "64001cff09b7b5ee6865e2b7c80672172e132c9b972daa168f42180e621ef840",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw4.png": {
+        "bytes": 727505,
+        "raw_sha256": "4a5173158c5bf2068f8ef5e1cc65082ba0c9a8fbdc9b77b9a42cfd9bc054f92b",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw4_natural_after.png": {
+        "bytes": 17715,
+        "raw_sha256": "3b38089881232bc92da5fd9bc64af94fba6ef6c8c802af5cb15cab7950deba6c",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw4_natural_before.png": {
+        "bytes": 17720,
+        "raw_sha256": "dbd3b103f53382cb79eb24f723e978ce49ec29c745d8395ef540331abdfa4b1a",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw4_natural_narrow.png": {
+        "bytes": 48479,
+        "raw_sha256": "6216523d4e67aef454630a72ad1b19d590a758b5401761ee9e6246cce9cd1c72",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw4_natural_return.png": {
+        "bytes": 17720,
+        "raw_sha256": "dbd3b103f53382cb79eb24f723e978ce49ec29c745d8395ef540331abdfa4b1a",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw4_profile_far.png": {
+        "bytes": 296501,
+        "raw_sha256": "e4846a9ccdcb1a94c444ca027cf44dcc35a95f81fae4aa4fc09b7c23bfb1aa4f",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_01/site_nw4_profile_near.png": {
+        "bytes": 375075,
+        "raw_sha256": "50a8f536f2c03525298ac659ffb652f97a2355e3b5c837b673a140fb01df4dcb",
+        "role": "original failed bench; diagnostic captures, not all inspected"
+      },
+      "phase06_northwest/nw_elevation_bench_02.log": {
+        "bytes": 223,
+        "raw_sha256": "98552acc7a3605d7115015e594ec92d2224a821f89629d37dfa43f787c293045",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "e5df0aebb862ec280e5ddcc8474de216659155d64d60dd3e8dfaf9cc0fd83605"
+      },
+      "phase06_northwest/nw_elevation_bench_02.log.receipt.json": {
+        "bytes": 2773,
+        "raw_sha256": "eeaea6aa7ad07748ef4f9b65b45af1665420de0857633a15efcb4a3788c691da",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "eeaea6aa7ad07748ef4f9b65b45af1665420de0857633a15efcb4a3788c691da"
+      },
+      "phase06_northwest/nw_elevation_bench_02.log.stderr": {
+        "bytes": 345,
+        "raw_sha256": "047c97ea748cd2525be339df5a9aafced84fee04d4196ca7275003806ea96d0e",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "be1ec26a7c6cdf3c1367c67121965098f51d5f799f8d03ffeeae15ec21cb3cc0"
+      },
+      "phase06_northwest/nw_elevation_lods_production_01.execution.json": {
+        "bytes": 237,
+        "raw_sha256": "38a98fec6cdc426fdd10ed812820946f04b10c5a69b7315d808f350b85dbd07a",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "b96f7b7813905c64215e03b329a5b315704c803fb9a4ac09467e48f77c1824f0"
+      },
+      "phase06_northwest/nw_elevation_lods_production_01.log": {
+        "bytes": 4732,
+        "raw_sha256": "20a27b9cc133b60d5c505ee5788b0a791dc1311bd55d073ca545f06e1e733389",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "ab3ab85d64466ca152a8dbaeb82d5f17d3172dd32cfab8cdebe59e287dd0fb8b"
+      },
+      "phase06_northwest/nw_elevation_lods_production_02.log": {
+        "bytes": 4732,
+        "raw_sha256": "076d04997311bb9cec4deaeb4240493b2dd418a177fe9a8f2877e46624743860",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "00ad0ad13b7d90d99ce69ee1b7c4b81928997c7680a6b56422c4b5f40499e555"
+      },
+      "phase06_northwest/nw_elevations_production_03.execution.json": {
+        "bytes": 233,
+        "raw_sha256": "ecc08a29f99ee725a70567c99a06f17225a93246e0e8d8064551e1d94d50590f",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "b7d4f87c49cb0df91c87d3423ce9dccff8b5df2b6542a17f9572b8d3b3ecc29c"
+      },
+      "phase06_northwest/nw_elevations_production_03.log": {
+        "bytes": 28000,
+        "raw_sha256": "cab7574ae8665f85d511fe7468810b6a6194b437caf178d795ed6c557425f071",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "7d1da3d582b1e13de9174f398421c35c48b883ff574e299f6c82ff38f8556d21"
+      },
+      "phase06_northwest/nw_first_runtime_01.json": {
+        "bytes": 1029,
+        "raw_sha256": "149367c35868614413f92b6ec01ed2a5669c8725fd9f66b7dd10ddc2d4ea2cea",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "149367c35868614413f92b6ec01ed2a5669c8725fd9f66b7dd10ddc2d4ea2cea"
+      },
+      "phase06_northwest/nw_first_runtime_01_lane.log": {
+        "bytes": 1819,
+        "raw_sha256": "db18238d754300df60d3d898a8ae88c262de4443bd8bce8af7c0ef811ab4eafd",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "617b6f4da979228a18255655e705ac279b573e81c814ef97dd794f2f6597823c"
+      },
+      "phase06_northwest/nw_first_runtime_02.json": {
+        "bytes": 1028,
+        "raw_sha256": "acc451f674ae3c51b71c5635203c8f120bde307c9816fc44491cb8889bb9f4a7",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "acc451f674ae3c51b71c5635203c8f120bde307c9816fc44491cb8889bb9f4a7"
+      },
+      "phase06_northwest/nw_first_runtime_02_lane.log": {
+        "bytes": 1732,
+        "raw_sha256": "21ec88581d6273411d9a61c64fc15eedc98184d433675166247586877a73e18f",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "f2627815c9b2a54c757a7a6cd389d4b0bb1c97cd879638b22ad481e5d9cd4f2d"
+      },
+      "phase06_northwest/nw_first_runtime_03.json": {
+        "bytes": 887,
+        "raw_sha256": "998aced8dfe09463c21b62c7dfa986ddddb546cc827b6dbc72bb88271ad7bcc7",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "203cb384d12770dda2d34641a917b21e43bf3cefe49f472e9fefec3e4de22f5a"
+      },
+      "phase06_northwest/nw_first_runtime_03_cancelled.json": {
+        "bytes": 616,
+        "raw_sha256": "4af6a8a256cf570eff00ffb6498f8b0eb1451361cfdc68b2fe3005f26341a143",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "d5d7e244ca1244c808c64176d592129dde89943d7f74ba6255dd9dc8fb91a1a1"
+      },
+      "phase06_northwest/nw_full_source_preflight_01.log": {
+        "bytes": 918,
+        "raw_sha256": "bc27aed16f599740ef7fedc51899db2aea83a7db62f7a44364824892d71a7155",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "64221d68d2369fa03691f576b74edae638c67141f16086550bccda5d2a88a1c3"
+      },
+      "phase06_northwest/nw_full_source_preflight_02.log": {
+        "bytes": 5076,
+        "raw_sha256": "6f7be686ae53498555d0238bd936b2c7c5e1276dad12513f2741c4586e508470",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "7a2f3ed33a6d9f8e7f12c51aeaea8ec460a4b62ada55972342f47932e0dcb063"
+      },
+      "phase06_northwest/nw_full_source_preflight_03.log": {
+        "bytes": 739,
+        "raw_sha256": "98b0d85539a3e4b9bafa2fb748e62d907f025c687e296ad0a6ecea9634dd7ad9",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "2c4c4e02772ba08ab23d26e4fafeb2c876740afbec0119329d86eb58cbed89af"
+      },
+      "phase06_northwest/nw_import_01.log": {
+        "bytes": 356661,
+        "raw_sha256": "f80464addd922d86126e06b518ee5df15224ae133f3e0b579a38f91a0daf702d",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "9586fcd4557e549d042016b76ad73b94c492766be98e02635336ffae3bfaaf59"
+      },
+      "phase06_northwest/nw_import_01.log.receipt.json": {
+        "bytes": 2685,
+        "raw_sha256": "7c85a0c0514694046a7049d83ac70662895d1fcd9d76c734ea025c0ecabfde67",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "7c85a0c0514694046a7049d83ac70662895d1fcd9d76c734ea025c0ecabfde67"
+      },
+      "phase06_northwest/nw_import_01.log.stderr": {
+        "bytes": 123869,
+        "raw_sha256": "4b9326342414c9dfcf1d8bd28c6ac8b52e6a3eca4d3a8029fba3d313398bf10f",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "9cfd50d4e558b11bd75fb85ce253b55e7c5d7dd76a95445c2a2d6fa0433f3099"
+      },
+      "phase06_northwest/nw_import_02.log": {
+        "bytes": 231350,
+        "raw_sha256": "7fb57eac856af3e856b16a9e960d00f401ddb3e43690518d1519fc98ae8a31b4",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "69254553f7dc13c4bded655fe3a07caeaa0294fbb2a5939aa2e921dea32654c7"
+      },
+      "phase06_northwest/nw_import_02.log.receipt.json": {
+        "bytes": 2679,
+        "raw_sha256": "527d9f51db7e2b1e43a0a4d9f985714631fdb2ecb68962c8c31a42f42cb82b69",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "527d9f51db7e2b1e43a0a4d9f985714631fdb2ecb68962c8c31a42f42cb82b69"
+      },
+      "phase06_northwest/nw_import_02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase06_northwest/nw_import_03.log": {
+        "bytes": 1027,
+        "raw_sha256": "c265badae3056814d67bc2f671cd1548ef1a06a989d2fa3dc4249e3953f37588",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "c966c84c3beab01200b988a4cd2be828d1c959bc64071380f4e50b9e772f355b"
+      },
+      "phase06_northwest/nw_import_03.log.receipt.json": {
+        "bytes": 2680,
+        "raw_sha256": "71302ee0817fbd5a3e03aa064c04fb4161568a3827373a4f7a3c89facb8c2cf5",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "71302ee0817fbd5a3e03aa064c04fb4161568a3827373a4f7a3c89facb8c2cf5"
+      },
+      "phase06_northwest/nw_import_03.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase06_northwest/nw_import_04.log": {
+        "bytes": 3942,
+        "raw_sha256": "c300f7125e99fd175e8fac22f7b089a780b517c812314e2d2f1f285783f92df8",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "87cade4ba9fe14e82e862ff67f031707ba7f07a2772645beb5d7ffc4fa9df26b"
+      },
+      "phase06_northwest/nw_import_04.log.receipt.json": {
+        "bytes": 2334,
+        "raw_sha256": "9ca624beec4ba8d65eb5ac2ca2bec1cecb501fde7c97ed9f297e90e38377cf6f",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "9ca624beec4ba8d65eb5ac2ca2bec1cecb501fde7c97ed9f297e90e38377cf6f"
+      },
+      "phase06_northwest/nw_import_04.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase06_northwest/nw_import_05.log": {
+        "bytes": 1027,
+        "raw_sha256": "c265badae3056814d67bc2f671cd1548ef1a06a989d2fa3dc4249e3953f37588",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "c966c84c3beab01200b988a4cd2be828d1c959bc64071380f4e50b9e772f355b"
+      },
+      "phase06_northwest/nw_import_05.log.receipt.json": {
+        "bytes": 2336,
+        "raw_sha256": "eff84749923128803eab717fcac88a286571551b1dc7baab4e810478b4ef6057",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "eff84749923128803eab717fcac88a286571551b1dc7baab4e810478b4ef6057"
+      },
+      "phase06_northwest/nw_import_05.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase06_northwest/nw_lod_source_hash_failure_01/asset_before.json": {
+        "bytes": 184,
+        "raw_sha256": "96715b1a2b74c629b6779714413a842944d3f24772bd75ccab3b6086541db79b",
+        "role": "original PNG hash failure; metadata/source unchanged",
+        "lf_sha256": "2a8adff83efeaaa7a5aa894431ebcca94f48fc487b0fc844321dcdc88c1542c7"
+      },
+      "phase06_northwest/nw_lod_source_hash_failure_01/build_city_elevation_lods.py": {
+        "bytes": 7568,
+        "raw_sha256": "c1cc3c1059d88e112221ca62b562d06b4b922601dd7f609da84247aec34ffa96",
+        "role": "original PNG hash failure; metadata/source unchanged",
+        "lf_sha256": "c1cc3c1059d88e112221ca62b562d06b4b922601dd7f609da84247aec34ffa96"
+      },
+      "phase06_northwest/nw_lod_source_hash_failure_01/city_elevations_lod1_construction.json": {
+        "bytes": 16631,
+        "raw_sha256": "d422cf315c9b75a3f381bd3c25ff68eb8f26a0908a818411c4915d3e97bf68df",
+        "role": "original PNG hash failure; metadata/source unchanged",
+        "lf_sha256": "d422cf315c9b75a3f381bd3c25ff68eb8f26a0908a818411c4915d3e97bf68df"
+      },
+      "phase06_northwest/nw_lod_source_hash_failure_01/orison_city_elevations_lod1.json": {
+        "bytes": 16631,
+        "raw_sha256": "d422cf315c9b75a3f381bd3c25ff68eb8f26a0908a818411c4915d3e97bf68df",
+        "role": "original PNG hash failure; metadata/source unchanged",
+        "lf_sha256": "d422cf315c9b75a3f381bd3c25ff68eb8f26a0908a818411c4915d3e97bf68df"
+      },
+      "phase06_northwest/nw_masts_replay_01.execution.json": {
+        "bytes": 228,
+        "raw_sha256": "89539c1ab564ec7eed210f10bf8aa9f9495a167f8b74db64e4a474a1b98d1d57",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "b70b287facee8e7c92a4da615110bf28eeee789e84163639a7830800dfd7f88f"
+      },
+      "phase06_northwest/nw_masts_replay_01.log": {
+        "bytes": 511,
+        "raw_sha256": "8a820ed0acf94d335e401c43798ca92c334065ddaf70157f6bf9fe5a8846adce",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "a38356fd5d78fe53a774de9dba97ac24079147d12a3f2b50834c82f8212f146a"
+      },
+      "phase06_northwest/nw_masts_replay_02.execution.json": {
+        "bytes": 228,
+        "raw_sha256": "5ad1d80df7155c1ec03b19e601a60e6b7beb9b9d544771ee7865ae679eeb184f",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "0ac69e6282d1c3efb908f9bb7275bdc3e7fb2e94ca431d7d4ab3c8c311c5a5d6"
+      },
+      "phase06_northwest/nw_masts_replay_02.log": {
+        "bytes": 27511,
+        "raw_sha256": "21836281818c7d293923c6ab294d94f418b2e7fe2dbc799202d2d1a5bd99a1d8",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "f483a3de518fa11618a4195cc643a81e7da6dea55192baded86ff08b77d6377d"
+      },
+      "phase06_northwest/nw_native_replay_03.ps1": {
+        "bytes": 2249,
+        "raw_sha256": "2cfc5ec7df8fdc00e8d80dac1ed2b1910ec29bb975a5c8d5a4773cbf35626090",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "2cfc5ec7df8fdc00e8d80dac1ed2b1910ec29bb975a5c8d5a4773cbf35626090"
+      },
+      "phase06_northwest/nw_native_replay_04.ps1": {
+        "bytes": 2249,
+        "raw_sha256": "c79906b0857c794bbfbbf1ac802eda892148968351559ed02eeb4184d860ae18",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "c79906b0857c794bbfbbf1ac802eda892148968351559ed02eeb4184d860ae18"
+      },
+      "phase06_northwest/nw_production_01.log": {
+        "bytes": 839,
+        "raw_sha256": "a0f9330936a6b5e6930d9b5ad0aafdbf0f3c2ad72a9cef6884948f213269b886",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "0ac6dbd5a0abe7e65cee2b5258029f6497fb6dc958769c18703f539efbd9a1db"
+      },
+      "phase06_northwest/nw_production_02.log": {
+        "bytes": 27702,
+        "raw_sha256": "0192ca0e8110555710381f57a561a27930f57cc4d8b8162ce227da9c24cc9b60",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "2c5b03835ae2db26a6544fe3f23b4fddace8ab46c65ed737159afc4626640fad"
+      },
+      "phase06_northwest/nw_production_02/construction.json": {
+        "bytes": 1201085,
+        "raw_sha256": "cc0f0216efdcdd3056df7faf03d14d55466b6b0f2661999995d7ed177b963ef1",
+        "role": "earlier diagnostic/probe; superseded or failed, not acceptance",
+        "lf_sha256": "e160776f7a509441888d9deafd402e7108999f0684570e5097b5cb71bccb3b0a"
+      },
+      "phase06_northwest/nw_production_02/corrected_scheffel_review.json": {
+        "bytes": 453,
+        "raw_sha256": "a5f8ed14380c49ba43ce0c1bab6471463f032b1f3f8386a10dc86ed51810554c",
+        "role": "earlier diagnostic/probe; superseded or failed, not acceptance",
+        "lf_sha256": "a5f8ed14380c49ba43ce0c1bab6471463f032b1f3f8386a10dc86ed51810554c"
+      },
+      "phase06_northwest/nw_production_02/export_comparison.json": {
+        "bytes": 29543,
+        "raw_sha256": "fe58ab34911f47d29a9904be8807d4da3373217745f8f96c79224bf06edb8219",
+        "role": "earlier diagnostic/probe; superseded or failed, not acceptance",
+        "lf_sha256": "fe58ab34911f47d29a9904be8807d4da3373217745f8f96c79224bf06edb8219"
+      },
+      "phase06_northwest/nw_production_02/export_comparison_03.json": {
+        "bytes": 34702,
+        "raw_sha256": "8f8482cc8dcfc13e6be239e25f403208a2c5af9438b11240950f0bcb2b259d20",
+        "role": "earlier diagnostic/probe; superseded or failed, not acceptance",
+        "lf_sha256": "8f8482cc8dcfc13e6be239e25f403208a2c5af9438b11240950f0bcb2b259d20"
+      },
+      "phase06_northwest/nw_production_02/host_timing.json": {
+        "bytes": 165,
+        "raw_sha256": "5ebb93843580d668f96108b5381c992b66b054ae65f03919e06fd30f0947aec6",
+        "role": "earlier diagnostic/probe; superseded or failed, not acceptance",
+        "lf_sha256": "175e6636bf2cd9e7ea10adf420e6028478545f45dff53985b03f4f3a17ae92b7"
+      },
+      "phase06_northwest/nw_production_02/sources/build_city_elevations.py": {
+        "bytes": 68286,
+        "raw_sha256": "4fef460093bb501182967d8cba6886ff08a174dd905429bf1fa69278e6e9cd21",
+        "role": "earlier diagnostic/probe; superseded or failed, not acceptance",
+        "lf_sha256": "4fef460093bb501182967d8cba6886ff08a174dd905429bf1fa69278e6e9cd21"
+      },
+      "phase06_northwest/nw_production_02/sources/city_commercial_architecture.py": {
+        "bytes": 20187,
+        "raw_sha256": "f518e338e2f6e9052ecdfe80bafc0104c589e8a657f502c4e0e5ac33b55871c6",
+        "role": "earlier diagnostic/probe; superseded or failed, not acceptance",
+        "lf_sha256": "f518e338e2f6e9052ecdfe80bafc0104c589e8a657f502c4e0e5ac33b55871c6"
+      },
+      "phase06_northwest/nw_production_02/sources/source_plan.json": {
+        "bytes": 33415,
+        "raw_sha256": "857d665421f0909508bf5196ee5e1651557f90eac93a2c142553245fdfd6a7c2",
+        "role": "earlier diagnostic/probe; superseded or failed, not acceptance",
+        "lf_sha256": "857d665421f0909508bf5196ee5e1651557f90eac93a2c142553245fdfd6a7c2"
+      },
+      "phase06_northwest/nw_production_03/actual_native_inspection.json": {
+        "bytes": 2610,
+        "raw_sha256": "f9040d68365e34a9427e1f70dbfac1107cf2cb7aa9bf57c2d08570929bc5f8f8",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "f9040d68365e34a9427e1f70dbfac1107cf2cb7aa9bf57c2d08570929bc5f8f8"
+      },
+      "phase06_northwest/nw_production_03/construction.json": {
+        "bytes": 1201085,
+        "raw_sha256": "e09c0f4a3e0d5e39e2eb3c39c790a4ecff153cec4a4d9dce372b53eb2e600b61",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "99c4b6c0aefd04a0205b61aa3daa6170a28edae027907db377b39deb1fec45b4"
+      },
+      "phase06_northwest/nw_production_03/export_comparison_04.json": {
+        "bytes": 35527,
+        "raw_sha256": "6f4d681357271972d2cef77b114cad9f24e9e5ece8d81d0a28431fecbfa4ad7f",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "6f4d681357271972d2cef77b114cad9f24e9e5ece8d81d0a28431fecbfa4ad7f"
+      },
+      "phase06_northwest/nw_production_03/lower_export_comparison_02.json": {
+        "bytes": 10346,
+        "raw_sha256": "049190ffb473bb5eb592f509a79fe47eaeb7ea0633d649c208f8050c8f451404",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "049190ffb473bb5eb592f509a79fe47eaeb7ea0633d649c208f8050c8f451404"
+      },
+      "phase06_northwest/nw_production_03/lower_native_review/native_review.json": {
+        "bytes": 8418,
+        "raw_sha256": "cb7bd176c1532590065bd27c1511c7325b34ea07b0f8303e289eb5dc1a7437ee",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "cb7bd176c1532590065bd27c1511c7325b34ea07b0f8303e289eb5dc1a7437ee"
+      },
+      "phase06_northwest/nw_production_03/lower_native_review/northwest_roofs_native.png": {
+        "bytes": 2120815,
+        "raw_sha256": "0f42bc9014fc76a7ee1e3e2e25919d870b24f0a7e44b8f8ba29e9f755f939f80",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_production_03/lower_native_review/northwest_row_native.png": {
+        "bytes": 1834500,
+        "raw_sha256": "f1686fca24f2b5760941a9fc24e0ed7e21c11f787b8951d7dff82a36fb20698a",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_production_03/lower_native_review/site_nw1_native_front.png": {
+        "bytes": 1091196,
+        "raw_sha256": "9e0eed1b571574512a6a3233da9b30110eacd45fb2a318074aa001ed2d102991",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_production_03/lower_native_review/site_nw1_roundtrip_street.png": {
+        "bytes": 1033809,
+        "raw_sha256": "052aae5c500b5bcdcdff6eacabb9628b2db08015f90657272329ae65d61c1adb",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_production_03/lower_native_review/site_nw3_native_front.png": {
+        "bytes": 1117279,
+        "raw_sha256": "ffdd5611b76ea36eb1afc24077266b57bcc613fccd5adfe5ffdd2d023b7fd998",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_production_03/lower_native_review/site_nw3_roundtrip_street.png": {
+        "bytes": 1090258,
+        "raw_sha256": "d7f7dbd5de946929f7e47fc56a3d48b4f91a8894556028c3711a5b08b8f63c05",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_production_03/lower_native_review/site_nw4_native_front.png": {
+        "bytes": 1112641,
+        "raw_sha256": "48d857886b13eea77548c607a729f2609261197c68c550d726c7c53c5d954592",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_production_03/lower_native_review/site_nw4_roundtrip_street.png": {
+        "bytes": 1038840,
+        "raw_sha256": "10858b0f508785c6aec9516822e97baef3f388018a6bc480cc96b704746476c0",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_production_03/near_elevation.png": {
+        "bytes": 1780330,
+        "raw_sha256": "54474b0ca32782ae39330d3aad2a8b4e3d5403140d54be082cfdb03a986c8a4f",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_production_03/north_skyline.png": {
+        "bytes": 1096437,
+        "raw_sha256": "1a6c4c0e77aea1d900c59b85c009cb82a3e71527e9afd9a68f0d960251cde561",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_production_03/sources/art/blender/scripts/build_city_aerials.py": {
+        "bytes": 27179,
+        "raw_sha256": "759e6c47180ccae57cd2df246fb52483af999d4547f2a3e6ca5e2abaf4820411",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "759e6c47180ccae57cd2df246fb52483af999d4547f2a3e6ca5e2abaf4820411"
+      },
+      "phase06_northwest/nw_production_03/sources/art/blender/scripts/build_city_beacons.py": {
+        "bytes": 22693,
+        "raw_sha256": "4aba7e67c0b0378aed6c0b9eca97b98fb24bb4d20fcff29cd38cef0020a7959c",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "4aba7e67c0b0378aed6c0b9eca97b98fb24bb4d20fcff29cd38cef0020a7959c"
+      },
+      "phase06_northwest/nw_production_03/sources/art/blender/scripts/build_city_closure.py": {
+        "bytes": 20048,
+        "raw_sha256": "af747604ef82124f629259a7ab3f23969106fca2c42b2f5fbe51f441d319d4e2",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "af747604ef82124f629259a7ab3f23969106fca2c42b2f5fbe51f441d319d4e2"
+      },
+      "phase06_northwest/nw_production_03/sources/art/blender/scripts/build_city_elevation_lods.py": {
+        "bytes": 7568,
+        "raw_sha256": "c1cc3c1059d88e112221ca62b562d06b4b922601dd7f609da84247aec34ffa96",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "c1cc3c1059d88e112221ca62b562d06b4b922601dd7f609da84247aec34ffa96"
+      },
+      "phase06_northwest/nw_production_03/sources/art/blender/scripts/build_city_elevations.py": {
+        "bytes": 68587,
+        "raw_sha256": "3743bbdc19d3534eadcd494b6c1f8833fc41fd972810297fd4cf1df38900503d",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "3743bbdc19d3534eadcd494b6c1f8833fc41fd972810297fd4cf1df38900503d"
+      },
+      "phase06_northwest/nw_production_03/sources/art/blender/scripts/build_city_masts.py": {
+        "bytes": 22798,
+        "raw_sha256": "9ff8395814fdce3993277e9fbe9ae29490c57978e2883ccdc22202ddee4c659c",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "9ff8395814fdce3993277e9fbe9ae29490c57978e2883ccdc22202ddee4c659c"
+      },
+      "phase06_northwest/nw_production_03/sources/art/blender/scripts/build_city_tanks.py": {
+        "bytes": 32779,
+        "raw_sha256": "df7d72beeb4e88b6e7ce3490d2e304282bd92292c77125b462b66ee9f65f39e1",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "df7d72beeb4e88b6e7ce3490d2e304282bd92292c77125b462b66ee9f65f39e1"
+      },
+      "phase06_northwest/nw_production_03/sources/art/blender/scripts/city_commercial_architecture.py": {
+        "bytes": 21286,
+        "raw_sha256": "d2eba3384dd61ba3b5e4cd256de52f3e2aa52f41d6442696f98795ffc5180f57",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "d2eba3384dd61ba3b5e4cd256de52f3e2aa52f41d6442696f98795ffc5180f57"
+      },
+      "phase06_northwest/nw_production_03/sources/art/data/city_elevations/source_plan.json": {
+        "bytes": 33453,
+        "raw_sha256": "21e390479a625408944e9b00cd2f248bdd949e01de80fb8fc8ff572e99982a82",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "21e390479a625408944e9b00cd2f248bdd949e01de80fb8fc8ff572e99982a82"
+      },
+      "phase06_northwest/nw_production_03/sources/game/scripts/building/orison_v2_city_shells.gd": {
+        "bytes": 6743,
+        "raw_sha256": "66da137d4eb503e70f8d38f58401dea16dda3e3fdd07ff059845551ee6802f63",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "66da137d4eb503e70f8d38f58401dea16dda3e3fdd07ff059845551ee6802f63"
+      },
+      "phase06_northwest/nw_production_03/sources_final/art/blender/scripts/build_city_elevation_lods.py": {
+        "bytes": 7572,
+        "raw_sha256": "9b37544995b6af77f0982d437ff4851c55ed59fa4d25c340062ee9e9b2364fd6",
+        "role": "current native production/UV review; INERT",
+        "lf_sha256": "9b37544995b6af77f0982d437ff4851c55ed59fa4d25c340062ee9e9b2364fd6"
+      },
+      "phase06_northwest/nw_production_03/south_skyline.png": {
+        "bytes": 1177477,
+        "raw_sha256": "c6db6ec6a3a20e953ad33e4317e4f195ea1d43e3a861900dc4ebcc942944ceeb",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_production_03/west_neighbors.png": {
+        "bytes": 1613647,
+        "raw_sha256": "d247bb5e184b498c21a34802400377a05b3a5d806d75961c15c8e9be745c9f1b",
+        "role": "current native production/UV review; INERT"
+      },
+      "phase06_northwest/nw_profile_equivalence_11.log": {
+        "bytes": 1428,
+        "raw_sha256": "5f5fd25ee87d1a6c21a104533c1401eeb7b8ae39da3faf250ab0b17679ebea7f",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "3f2a5ca0841187c2e1bcbaac5bb8f1d232c4fbbf5c8e19d48d612b4a6684e85a"
+      },
+      "phase06_northwest/nw_profile_equivalence_11/equivalence.json": {
+        "bytes": 1129,
+        "raw_sha256": "3bbeda62af002a864107e16e7ad5df160ea62c77ffac542c69b87f56213a13e4",
+        "role": "exact closed-stock source equivalence; INERT",
+        "lf_sha256": "3bbeda62af002a864107e16e7ad5df160ea62c77ffac542c69b87f56213a13e4"
+      },
+      "phase06_northwest/nw_review08_host_timing.json": {
+        "bytes": 291,
+        "raw_sha256": "375c49979e7696e4d9e289333bd5e922ea5e85dedbaf60a8dfec96f032ab0729",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "4b913d20c533e420c39d3b7631f247662afc2d87051fd16c276ac31dffb691b8"
+      },
+      "phase06_northwest/nw_review09_host_timing.json": {
+        "bytes": 324,
+        "raw_sha256": "2c371bfe5bcfd511e5ce25ed758420c85180efe9fe6954f25aa2b1350dd0a895",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "d2f1959819f97ab798f047c79a859f3fbfe80009f29c6446584c29054bbbcf88"
+      },
+      "phase06_northwest/nw_review10_host_timing.json": {
+        "bytes": 321,
+        "raw_sha256": "4ad8298188444e4ab93bc95b641d67a67e3a7cbbd11ef823c24d25a9df9ada4c",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "957f3327b0ee09e5377cd101989cfba08b70df209b2c0627fb3c3b78474c1086"
+      },
+      "phase06_northwest/nw_runtime_04.json": {
+        "bytes": 1028,
+        "raw_sha256": "1a80e4ba8d3d8bc7b7680f270afa8ea4b2731efbec3d7adaeada3da407ea12bb",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "1a80e4ba8d3d8bc7b7680f270afa8ea4b2731efbec3d7adaeada3da407ea12bb"
+      },
+      "phase06_northwest/nw_runtime_05.json": {
+        "bytes": 863,
+        "raw_sha256": "11b91e94d34d698a014eff4e37fca679e82beefdd8ea9ab3573f0cfd87f2b933",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "11b91e94d34d698a014eff4e37fca679e82beefdd8ea9ab3573f0cfd87f2b933"
+      },
+      "phase06_northwest/nw_source_preflight_01.log": {
+        "bytes": 302,
+        "raw_sha256": "017fe391535d47e0345acc4fdeb94d2d34d2b9c9eb4d2ad219c517d37504cb98",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "a812ace1a1d05db47ff25ef9ddd7486075f6e88102abd063d476dc45cc2f6f44"
+      },
+      "phase06_northwest/nw_static_01.log": {
+        "bytes": 6854,
+        "raw_sha256": "ef332f8e505caea48dba6448d71f4e6098bc2ad515d945a7524bc25f6b7c5e2e",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "6f00a1e02d62f68b3aea0d4648a23b7326bc5c242370361daa980852865aafd3"
+      },
+      "phase06_northwest/nw_static_02.log": {
+        "bytes": 6980,
+        "raw_sha256": "a8f5c73213a34f164c0e139ddce99a13aa87cb0052b8e02fd3bea15333826b6f",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "a49e2625c15a8bcb9f22c115c04e2cfb400cb3495c42f83ce375b0d3c7e782f5"
+      },
+      "phase06_northwest/nw_streets_replay_02.execution.json": {
+        "bytes": 230,
+        "raw_sha256": "8441c0c673bc57058b1ca6845266a8eb715f58fe969c13c501d55eda61be85bd",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "f13657f12b22cfcf66f6d677dcff707f46e3b629c008cab5493bf4bfc307e35a"
+      },
+      "phase06_northwest/nw_streets_replay_02.log": {
+        "bytes": 10146,
+        "raw_sha256": "7651964082e7e778573a21f325e371776165773f2cf0bdccd1dfe03ce13a98ac",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "0d012aea2fb9ac97804d7f1f1a6ba2af95a40382681e92d43e74df846a69fdaa"
+      },
+      "phase06_northwest/nw_tanks_replay_02.execution.json": {
+        "bytes": 228,
+        "raw_sha256": "69cc186c951d4045bc805bf7f3bb2fa5e37700c61d3bff3f38ce7eba33e74b9a",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "29309863a3612de89d9227e8b134eb60163d13439fd8369ec05d0856e452beb6"
+      },
+      "phase06_northwest/nw_tanks_replay_02.log": {
+        "bytes": 21032,
+        "raw_sha256": "18bbb9b5f524b72faec48cf8042e4fedbe4075411bd64f0e8d1a5a126801641a",
+        "role": "terminal_diagnostic_or_job_spec; not runtime qualification",
+        "lf_sha256": "9ef877efe4141f951329bf33407eb44316ca2dc86e8f6248f96c67715bfe4ae8"
+      },
+      "phase06_northwest/nw_window_review_10/actual_inspection.json": {
+        "bytes": 1984,
+        "raw_sha256": "a4382bce49079a01d5b299b07ad019bbe98a06ed11e9a74e94245fa0775e4c75",
+        "role": "reviewed external window geometry; superseded by production export",
+        "lf_sha256": "a4382bce49079a01d5b299b07ad019bbe98a06ed11e9a74e94245fa0775e4c75"
+      },
+      "phase06_northwest/nw_window_review_10/native_review.json": {
+        "bytes": 8419,
+        "raw_sha256": "959a6264d9ef91240ea35c88d392a57cdd054b864d12999a72a8209259d817c5",
+        "role": "reviewed external window geometry; superseded by production export",
+        "lf_sha256": "959a6264d9ef91240ea35c88d392a57cdd054b864d12999a72a8209259d817c5"
+      },
+      "phase06_northwest/nw_window_review_10/northwest_roofs_native.png": {
+        "bytes": 2120706,
+        "raw_sha256": "64f2bfeedb408b1311be99a69a05b40808d41fdd7db466695859914f64979e06",
+        "role": "reviewed external window geometry; superseded by production export"
+      },
+      "phase06_northwest/nw_window_review_10/northwest_row_native.png": {
+        "bytes": 1835436,
+        "raw_sha256": "dce074168786a530d8a122911c904a139619834019ea02e0529ee793ee614900",
+        "role": "reviewed external window geometry; superseded by production export"
+      },
+      "phase06_northwest/nw_window_review_10/site_nw1_native_front.png": {
+        "bytes": 1090542,
+        "raw_sha256": "650eae340b60ab913e7f122e47c6e0eadb35a5aa647641d9024400adf45d5eb6",
+        "role": "reviewed external window geometry; superseded by production export"
+      },
+      "phase06_northwest/nw_window_review_10/site_nw1_roundtrip_street.png": {
+        "bytes": 1033335,
+        "raw_sha256": "345ab4b121c3528cac5a0311ab84a10ad7fa6b46b612dcd8e10492b62bdf056a",
+        "role": "reviewed external window geometry; superseded by production export"
+      },
+      "phase06_northwest/nw_window_review_10/site_nw3_native_front.png": {
+        "bytes": 1116698,
+        "raw_sha256": "f22b1e818b447de2a21f3b8f6021b053adb3f1ff25cad52ea7ff139da2658dbc",
+        "role": "reviewed external window geometry; superseded by production export"
+      },
+      "phase06_northwest/nw_window_review_10/site_nw3_roundtrip_street.png": {
+        "bytes": 1091616,
+        "raw_sha256": "579aac683de3362e73fa0df887aaf9d4f3fec5495eb85ded0aac27b998007b23",
+        "role": "reviewed external window geometry; superseded by production export"
+      },
+      "phase06_northwest/nw_window_review_10/site_nw4_native_front.png": {
+        "bytes": 1112698,
+        "raw_sha256": "42448a3251c031980304725df27602ba63b577ff2e05b53a47fe456daa97ef75",
+        "role": "reviewed external window geometry; superseded by production export"
+      },
+      "phase06_northwest/nw_window_review_10/site_nw4_roundtrip_street.png": {
+        "bytes": 1038447,
+        "raw_sha256": "f3bc653f18b2da8ec6a3659c0b836280f44437fe35ded47249da5a22c74eead5",
+        "role": "reviewed external window geometry; superseded by production export"
+      },
+      "phase06_northwest/review_nw_architecture_06.log": {
+        "bytes": 3084,
+        "raw_sha256": "9406b3d40b2a10584fcab1bd190b61453ed1d45aa85eb40aab434a32f4143590",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "ef1c53fc62ea6bd26f0a95b670d4062b0540ef2caeebc699a8eaa2c78d65aa4e"
+      },
+      "phase06_northwest/review_nw_body_lod_02.py": {
+        "bytes": 9147,
+        "raw_sha256": "1c1725b8b9412b4800b3212eab1180e7096d39d5368ec81d4ba963454f9594b6",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "1c1725b8b9412b4800b3212eab1180e7096d39d5368ec81d4ba963454f9594b6"
+      },
+      "phase06_northwest/review_nw_production_03.py": {
+        "bytes": 7033,
+        "raw_sha256": "644cc2d3eb4b9923b7c8e77720ea713cc799a7366040e2aae68f774b21104946",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "644cc2d3eb4b9923b7c8e77720ea713cc799a7366040e2aae68f774b21104946"
+      },
+      "phase06_northwest/review_nw_window_10.py": {
+        "bytes": 7005,
+        "raw_sha256": "18c6dd685b47081fd9fda6a16a88e1a20f27a3ac2c77ee14a645810e1db02199",
+        "role": "executed diagnostic source or original failure; INERT",
+        "lf_sha256": "18c6dd685b47081fd9fda6a16a88e1a20f27a3ac2c77ee14a645810e1db02199"
+      },
+      "phase06_northwest_completed/nw_apron_replay_01.log": {
+        "bytes": 2014,
+        "raw_sha256": "070d56a2650bb182c1d5d0f92ec4f4f9a5d763f8bb9729acff1339beffba9b4b"
+      },
+      "phase06_northwest_completed/nw_bar_reservations_01.log": {
+        "bytes": 102,
+        "raw_sha256": "2383bfa97f7ce5014c7a2dbd2dbe0507faa10635458b09848ef6b01158cfbec0"
+      },
+      "phase06_northwest_completed/nw_bench03_diagnostic_summary.json": {
+        "bytes": 25368,
+        "raw_sha256": "cd9146e711c68cf61fce5ee105929a97696cbad1e4ab956c1a75056b401e147a"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03.log": {
+        "bytes": 259313,
+        "raw_sha256": "6d32d5065fd0a80c4dd347c58682b7aaec73604f50cd6fadd1ec362416a72a59"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03.log.receipt.json": {
+        "bytes": 2544,
+        "raw_sha256": "6945679cc69c6594ff58669f63d05a5441c6c06f8245069a76b04faf47e03f45"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/city_elevation_profile.json": {
+        "bytes": 199119,
+        "raw_sha256": "4926c51af326377b11ee9f6b68b108c76bc28eaf93aa9eccbc88dbd67e92a66c"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw1.png": {
+        "bytes": 243409,
+        "raw_sha256": "ac5ccc86a3c140c92b6cfcad363914efd07bb19ae838af722a79c22dd8965c24"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw1_natural_after.png": {
+        "bytes": 21795,
+        "raw_sha256": "ce4a8bdef46b5bfbfe8bf9686022a4d621d99a2a5b832b6efa1c24fc855c6615"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw1_natural_before.png": {
+        "bytes": 21808,
+        "raw_sha256": "904ac7c3bbbfcdb8d81b218ce24ef8dffaa90ef095e7a82c7ec90d24e5b60bb6"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw1_natural_narrow.png": {
+        "bytes": 1172302,
+        "raw_sha256": "bd8328474fc5af8b5e0bdcd3eee04582f6fb8de5617133b0dd5f3b1e6e60932a"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw1_natural_return.png": {
+        "bytes": 21808,
+        "raw_sha256": "904ac7c3bbbfcdb8d81b218ce24ef8dffaa90ef095e7a82c7ec90d24e5b60bb6"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw1_profile_far.png": {
+        "bytes": 218810,
+        "raw_sha256": "38da58f98d79a9cd0807be8ad4f3bef5470c371a71e4ddc26bb5565c28fd486b"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw1_profile_near.png": {
+        "bytes": 221209,
+        "raw_sha256": "0a9e77bf43b878027078e74449a71039c5fad03c9d8d59a496e5fa960b180926"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw3.png": {
+        "bytes": 314372,
+        "raw_sha256": "c6ea22a740ebd67c38b99c89182fd34db856a5014086692c8c4dc62e9dd0050b"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw3_natural_after.png": {
+        "bytes": 24919,
+        "raw_sha256": "d595c582d407896620a48ef05d80f9dd7072ea32ae87888811b26c2c04c38f5b"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw3_natural_before.png": {
+        "bytes": 25218,
+        "raw_sha256": "4f8ff6e40bc3da5ae92afa023e9e5d6a0e903abd0c178c18360e52c74cf570f7"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw3_natural_narrow.png": {
+        "bytes": 537898,
+        "raw_sha256": "7063dbe5a5f83946f499e9ad6730d2ca0249a6174336ff98cc89badbc50bd344"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw3_natural_return.png": {
+        "bytes": 25218,
+        "raw_sha256": "4f8ff6e40bc3da5ae92afa023e9e5d6a0e903abd0c178c18360e52c74cf570f7"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw3_profile_far.png": {
+        "bytes": 260380,
+        "raw_sha256": "7180031f947af7cc89b2ecca8cefb2f0d0416f81908c77a721171535e8052477"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw3_profile_near.png": {
+        "bytes": 263761,
+        "raw_sha256": "f4bb2b806a74e50cbbd5d17729f80108cc248726a0f2f420194266071daff189"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw4.png": {
+        "bytes": 665751,
+        "raw_sha256": "926a61e71555a3db3b23c426da5da88dd20048dbc04251ddce926121fe2d84c1"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw4_natural_after.png": {
+        "bytes": 20547,
+        "raw_sha256": "5f53ec34013edbcaac9c77cf8e1b9d128b18aae1ca7281e6802fd66ce4d0df63"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw4_natural_before.png": {
+        "bytes": 20484,
+        "raw_sha256": "539b228208f6db48d132c64fdba5fd470ca7a1383862c65a6e869ba86a34ab5e"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw4_natural_narrow.png": {
+        "bytes": 819857,
+        "raw_sha256": "4c5a5a7360e65dff80ba0f60992e02cf6867d68c02b51ce492dd3f87e10e2d37"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw4_natural_return.png": {
+        "bytes": 20484,
+        "raw_sha256": "539b228208f6db48d132c64fdba5fd470ca7a1383862c65a6e869ba86a34ab5e"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw4_profile_far.png": {
+        "bytes": 359484,
+        "raw_sha256": "01f6487e4e6110a4fb3c444955d83901b7dce9417965113f01e88329ecb60558"
+      },
+      "phase06_northwest_completed/nw_elevation_bench_03/site_nw4_profile_near.png": {
+        "bytes": 359421,
+        "raw_sha256": "0cb7d12190dced305d19f9414fc2afb564d0e045d377c673148348c2e86bd056"
+      },
+      "phase06_northwest_completed/nw_focused01_executed_source.gd": {
+        "bytes": 29280,
+        "raw_sha256": "c9e5d52fd57ddb88bf3c46fdb3a4b245542aff9e2aa2150bd99c0e42a099fa7f"
+      },
+      "phase06_northwest_completed/nw_focused_actual_inspection_02.json": {
+        "bytes": 1646,
+        "raw_sha256": "657186ca3a89548846d544c3f49d902f7144567604ea4ff93c2f3f93951f63ff"
+      },
+      "phase06_northwest_completed/nw_focused_route_01.log": {
+        "bytes": 10246,
+        "raw_sha256": "9ecde772856e8cb59eb79f762c46be2874ec85c552a8f03e743d02d85694f31e"
+      },
+      "phase06_northwest_completed/nw_focused_route_01.log.receipt.json": {
+        "bytes": 2546,
+        "raw_sha256": "8d207cc098ba0f3bb1f76c8c2eebfc9cb5711e9740f7b0296fea88a9a991413a"
+      },
+      "phase06_northwest_completed/nw_focused_route_01.log.stderr": {
+        "bytes": 2420,
+        "raw_sha256": "12016d17ad83935560674740e7224fdff747ae2e5ced57f6600933204949de96"
+      },
+      "phase06_northwest_completed/nw_focused_route_01/northwest_frontage_contract.json": {
+        "bytes": 121604,
+        "raw_sha256": "45ede7468112547e56610b2e7090af0bf8b96337595ef0481bdab3483687c14e"
+      },
+      "phase06_northwest_completed/nw_focused_route_02.log": {
+        "bytes": 10825,
+        "raw_sha256": "f04facb0341c0a753d538352db0af6406dcd8b00f228f77681a7820a359e0a9e"
+      },
+      "phase06_northwest_completed/nw_focused_route_02.log.receipt.json": {
+        "bytes": 2547,
+        "raw_sha256": "8037191e69dbbb87f06ba67a99d704dc47cc29e687d89eb1b37ab83b923d3bf9"
+      },
+      "phase06_northwest_completed/nw_focused_route_02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase06_northwest_completed/nw_focused_route_02/northwest_frontage_contract.json": {
+        "bytes": 199672,
+        "raw_sha256": "0bd9569dd4f5a00a5269c87c152e7e85cb61eb20569c70014387f37d6560f05d"
+      },
+      "phase06_northwest_completed/nw_focused_route_02/northwest_row_from_south_walk.png": {
+        "bytes": 3149299,
+        "raw_sha256": "3ff2e9acba952061c1bcbd95943ce37c5a63b890529a68a38ba0c11f4d52d65e"
+      },
+      "phase06_northwest_completed/nw_focused_route_02/site_nw1_standing_frontage.png": {
+        "bytes": 1338797,
+        "raw_sha256": "32967f7671b4299bdb173a0687e44d0e26e73c2fe5977e8419c73fdc4a87276f"
+      },
+      "phase06_northwest_completed/nw_focused_route_02/site_nw3_standing_frontage.png": {
+        "bytes": 2248733,
+        "raw_sha256": "9e9f3e6c14eec387b985e5a874933a34f09015a725414751e4e964609dbfad56"
+      },
+      "phase06_northwest_completed/nw_focused_route_02/site_nw4_standing_frontage.png": {
+        "bytes": 3172487,
+        "raw_sha256": "15c3c006d64ccb10c9a50256718f8ddf683745aa43920ce0ee756e4ada0d9cc2"
+      },
+      "phase06_northwest_completed/nw_focused_runtime_01_batch.json": {
+        "bytes": 617,
+        "raw_sha256": "b36b37bf42724eb61e28329452d81be5cf1acc867f33b871051d5b21422c1dd1"
+      },
+      "phase06_northwest_completed/nw_focused_runtime_02_batch.json": {
+        "bytes": 617,
+        "raw_sha256": "cfb67552eed4395733d95f15582aee8a594b04112d66b26200ab07ad7ccf9dff"
+      },
+      "phase06_northwest_completed/nw_focused_timing_summary_02.json": {
+        "bytes": 1610,
+        "raw_sha256": "106ce80714dd452d357f38a3f9f1e273c3c37fb19a974f963fb6599f417c192d"
+      },
+      "phase06_northwest_completed/nw_foundations_replay_01.log": {
+        "bytes": 120196,
+        "raw_sha256": "8411dc84a90c8da1d718a204f26065f238eeff2ef270abca600b93c870b5263f"
+      },
+      "phase06_northwest_completed/nw_grade_survey_01.log": {
+        "bytes": 2727,
+        "raw_sha256": "28f39b2a3b8c18b2b8347543f473c76318ef3268f5fc67dbffd38fe09c200d57"
+      },
+      "phase06_northwest_completed/nw_grade_survey_01.log.receipt.json": {
+        "bytes": 2586,
+        "raw_sha256": "75e773794733ff858e4410230bb12f72f4455ff616438aa014c04c7381af2556"
+      },
+      "phase06_northwest_completed/nw_grade_survey_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase06_northwest_completed/nw_grade_survey_01/grade_owners.json": {
+        "bytes": 336795,
+        "raw_sha256": "4bcaeef6b40f33f7aa28b78b4a4fcb893fba2fb0c6cc7518d85f601f70867706"
+      },
+      "phase06_northwest_completed/nw_ground_geometry_comparison_01.log": {
+        "bytes": 1063,
+        "raw_sha256": "9b290138de42352215abc70054dad7365599571f5b1cbb97c722018cad3a8615"
+      },
+      "phase06_northwest_completed/nw_ground_replay_01.log": {
+        "bytes": 330581,
+        "raw_sha256": "479a707fcc908fda43a187e1d1b02897756d699b800b2ffef3417d7ee389fafe"
+      },
+      "phase06_northwest_completed/nw_ground_replay_01.ps1": {
+        "bytes": 2124,
+        "raw_sha256": "395975dc46d4dad0a1d57ede391571bfeab8f3556f002f6a9e626563672b6d1b"
+      },
+      "phase06_northwest_completed/nw_ground_replay_01/before.json": {
+        "bytes": 7853691,
+        "raw_sha256": "9a70fbaaf32571192fbd37ffe859a33e732ecc7d42b3245d8bc9d6ad3ffd490f"
+      },
+      "phase06_northwest_completed/nw_ground_replay_01/candidate_physical_comparison.json": {
+        "bytes": 6573,
+        "raw_sha256": "65e6f35e38ef66bb00ea1066efc874312e229e338d72247459545b088c9f3d00"
+      },
+      "phase06_northwest_completed/nw_ground_replay_01/comparison.json": {
+        "bytes": 1025,
+        "raw_sha256": "82000503369995ec2d83b7633b34dad0729f495c59740a4e57ba06795cb6ea03"
+      },
+      "phase06_northwest_completed/nw_ground_replay_01/grade_plan_report.json": {
+        "bytes": 17080,
+        "raw_sha256": "77024dc51e6a91473737b5d3f04c29a7b67e6ff756a7470a8712ebf5c1ec23aa"
+      },
+      "phase06_northwest_completed/nw_ground_replay_01/native_sources.json": {
+        "bytes": 1637498,
+        "raw_sha256": "a8d15acc8ce93c64ba03459a69a7050a3c16f9914441a40df481932aa1ac98a0"
+      },
+      "phase06_northwest_completed/nw_ground_replay_01/retained_grade_candidate.json": {
+        "bytes": 2922146,
+        "raw_sha256": "eb7eef8d42f41faec9a6b45847c596305872e8c6dab4e09aab00625678f450ea"
+      },
+      "phase06_northwest_completed/nw_horizon_replay_01.log": {
+        "bytes": 77830,
+        "raw_sha256": "f9d6b0a296e41dbe6a23d84d38c4c2a6f005f50226f3e0a300951dabc74597bf"
+      },
+      "phase06_northwest_completed/nw_parser02_executed_source.gd": {
+        "bytes": 28997,
+        "raw_sha256": "e2847cff1332adb65a4396f32a6f82667c01c282edc39c54e9296e39c1dde345"
+      },
+      "phase06_northwest_completed/nw_resource_process_samples_01.jsonl": {
+        "bytes": 26069,
+        "raw_sha256": "89a2ba2b475fab3605ce2ccecf03b9c69b1c1db6e5d84ef8dbf2ddcaa2e93be0"
+      },
+      "phase06_northwest_completed/nw_resources_summary_01.json": {
+        "bytes": 1519,
+        "raw_sha256": "fb8dec53751f415b51802d21a788d1fbb918f89caa537d614fdc248e93686b11"
+      },
+      "phase06_northwest_completed/nw_route_parser_01.log": {
+        "bytes": 69,
+        "raw_sha256": "fea7fdb582953206683f4e6a631535a4afb00d1664dda5c993cd2eb79ff3a54f"
+      },
+      "phase06_northwest_completed/nw_route_parser_01.log.receipt.json": {
+        "bytes": 3064,
+        "raw_sha256": "b7eb46cfa59a46b13bf755b85f2cd4e4f0dc0c969cc40c0115cc0c0245966d43"
+      },
+      "phase06_northwest_completed/nw_route_parser_01.log.stderr": {
+        "bytes": 1226,
+        "raw_sha256": "0261f28dd4707b3cf37985af38bf4028d520c9fb684b0cc7dbe06acd42200da7"
+      },
+      "phase06_northwest_completed/nw_route_parser_02.log": {
+        "bytes": 228,
+        "raw_sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "phase06_northwest_completed/nw_route_parser_02.log.receipt.json": {
+        "bytes": 2570,
+        "raw_sha256": "a0bd780edfeccedac7f0201fb65e03afb0c2b68c629ddb92ff6c923708f2e1a6"
+      },
+      "phase06_northwest_completed/nw_route_parser_02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase06_northwest_completed/nw_route_parser_03.log": {
+        "bytes": 228,
+        "raw_sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "phase06_northwest_completed/nw_route_parser_03.log.receipt.json": {
+        "bytes": 2570,
+        "raw_sha256": "e725e48b24ad2cb3e614ec398cd44a2f4c1eae8b2a0e3e286461068635d1a180"
+      },
+      "phase06_northwest_completed/nw_route_parser_03.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase06_northwest_completed/nw_route_parser_04.log": {
+        "bytes": 228,
+        "raw_sha256": "8aa4519d9b4252d8740feba121b607c627778634fd62744eea3b1ac799fe37b5"
+      },
+      "phase06_northwest_completed/nw_route_parser_04.log.receipt.json": {
+        "bytes": 2569,
+        "raw_sha256": "7b0b49861cfceaf1c0ed4ef02b1f13b15178af00f9b66d64e9ce8fed3bae4124"
+      },
+      "phase06_northwest_completed/nw_route_parser_04.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase06_northwest_completed/nw_source_preflight_04.log": {
+        "bytes": 331,
+        "raw_sha256": "88db18bd7c004d45ed537385e34a6924f84f90493c053e861ba6459a0f83d6e6"
+      },
+      "phase06_northwest_completed/prepare_nw_grade_replay_01.ps1": {
+        "bytes": 2169,
+        "raw_sha256": "2f2a35a6b9e1a1094fc7ca7a4f583b496da6a3886ad4a9e96ce88978347ac279"
+      },
+      "phase06_northwest_completed/review_nw_grade_candidate_01.py": {
+        "bytes": 2053,
+        "raw_sha256": "a5dff5ac25e861fccc38da8e6a39bf640f8dfc45a62c7f64a2a20c22e3f77f57"
+      },
+      "phase06_northwest_completed/summarize_nw_bench03_01.py": {
+        "bytes": 2843,
+        "raw_sha256": "8234c1e1dbeb2ead84645613836506ed93f32c24b8d791cc4f0bb747bb40e2f1"
+      },
+      "phase06_northwest_completed/summarize_nw_resources_01.py": {
+        "bytes": 1701,
+        "raw_sha256": "9870e996a78dfc5293aea621214b2b64bd7dbe713ffe00a06373e3b664c4d793"
+      },
+      "phase06_northwest_completed/validate_nw_grade_for_replay_01.py": {
+        "bytes": 1395,
+        "raw_sha256": "01467bebf828e18c718f575065e975aeada6c60b618232dbfe45fb017e075890"
+      },
+      "phase06_northwest_completed/watch_nw_resources_01.ps1": {
+        "bytes": 3933,
+        "raw_sha256": "6a399b473c0690a961c07be22c894567d8c148c014d89bc4f5123c75e588b1c5"
+      }
+    }
   }
 }

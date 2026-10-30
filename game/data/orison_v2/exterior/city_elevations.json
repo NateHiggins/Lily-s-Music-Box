@@ -24,11 +24,11 @@
     },
     {
       "id": "site_nw1",
-      "wall_key": "limestone",
+      "wall_key": "arcade_brick_bond",
       "wall_tint": [
-        0.95,
-        0.92,
-        0.86,
+        0.74,
+        0.55,
+        0.42,
         1
       ],
       "frame_tint": [
@@ -66,11 +66,11 @@
     },
     {
       "id": "site_nw3",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "door_paint",
       "wall_tint": [
-        1,
-        1,
-        1,
+        0.73,
+        0.71,
+        0.65,
         1
       ],
       "frame_tint": [
@@ -87,11 +87,11 @@
     },
     {
       "id": "site_nw4",
-      "wall_key": "arcade_brick_bond",
+      "wall_key": "terracotta",
       "wall_tint": [
-        0.86,
-        0.82,
-        0.75,
+        0.87,
+        0.81,
+        0.7,
         1
       ],
       "frame_tint": [
@@ -585,5 +585,49 @@
       ],
       "period_minutes": 60
     }
-  ]
+  ],
+  "body_lod": {
+    "parts": [
+      "site_nw1__arcade_brick_bond",
+      "site_nw1__brass_mesh",
+      "site_nw1__brick",
+      "site_nw1__bronze_sheet",
+      "site_nw1__city_slate",
+      "site_nw1__concrete",
+      "site_nw1__door_paint",
+      "site_nw1__galvanized_roof",
+      "site_nw1__limestone",
+      "site_nw1__linen",
+      "site_nw1__mirror_aged",
+      "site_nw1__roof_bitumen",
+      "site_nw1__wood_dark",
+      "site_nw3__arcade_brick_bond",
+      "site_nw3__brick",
+      "site_nw3__bronze_sheet",
+      "site_nw3__city_slate",
+      "site_nw3__concrete",
+      "site_nw3__door_paint",
+      "site_nw3__galvanized_roof",
+      "site_nw3__limestone",
+      "site_nw3__linen",
+      "site_nw3__mirror_aged",
+      "site_nw3__roof_bitumen",
+      "site_nw3__wood_dark",
+      "site_nw4__arcade_brick_bond",
+      "site_nw4__brass_mesh",
+      "site_nw4__brick",
+      "site_nw4__city_slate",
+      "site_nw4__concrete",
+      "site_nw4__door_paint",
+      "site_nw4__galvanized_roof",
+      "site_nw4__limestone",
+      "site_nw4__linen",
+      "site_nw4__mirror_aged",
+      "site_nw4__roof_bitumen",
+      "site_nw4__soot",
+      "site_nw4__terracotta",
+      "site_nw4__wood_dark"
+    ],
+    "error_m": 0.2
+  }
 }

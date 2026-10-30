@@ -9,6 +9,7 @@ ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot'
 sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 from fabrication_native_batch import material,partition,export
 from city_horizon_geometry import cornice_ring
+from city_commercial_architecture import CommercialFronts
 OUT=Path(os.environ.get('CITY_ELEVATIONS_REVIEW_DIR',str(ROOT/'tmp/v2-city-rework-20261018')));OUT.mkdir(exist_ok=True,parents=True)
 profiles=json.loads((ROOT/'art/data/city_elevations/source_plan.json').read_text())
 catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']
@@ -641,6 +642,9 @@ def facade(name,p,rect,z0,z1):
                 window_rows.append(dict(building=name,side=side,floor=floor,bay=bay,center=list(origin+tangent*cx+Vector((0,0,(low+high)/2))),width=w,height=h,recess_m=recess,
                     pane_sample=list(origin+tangent*(cx+w*.22)+Vector((0,0,high-.14 if portal and p.get('_entry',False) else (low+high)/2+h*.2)))))
     return count
+commercial=CommercialFronts(groups,rows,original,rings,dict(add=add,box=box,
+    profile_stock=profile_stock,arch_stock=arch_stock,turned_stock=turned_stock,
+    roof_panel=roof_panel,clip_roof_polygon=clip_roof_polygon))
 for name,p in groups.items():
     assert p['massing'] in ['straight_eave','single_upper_setback']
     factory=p.get('architecture',{}).get('type')=='sohmer_factory'
@@ -649,6 +653,20 @@ for name,p in groups.items():
     rr=[r for r in rows if group(r['id'])==name];ss=sorted([r for r in rr if re.search(r'_s\d+$',r['id'])],key=lambda r:r['z0'])
     last=ss[-1];dx=last['registration_offset_x'];top=last['z0']+last['h'];rect0=list(ss[0]['rect']);rect0[0]+=dx;rect0[2]+=dx
     final_rect=list(last['rect']);final_rect[0]+=dx;final_rect[2]+=dx
+    if name in commercial.specs:
+        first_commercial_window=len(commercial.window_rows)
+        first_commercial_portal=len(commercial.portal_rows)
+        commercial.build(name)
+        window_rows.extend(commercial.window_rows[first_commercial_window:])
+        portal_rows.extend(commercial.portal_rows[first_commercial_portal:])
+        eave=commercial.specs[name]['eave']
+        stats.append(dict(id=name,old_setbacks=len(ss)-1,new_setbacks=int(p['massing']=='single_upper_setback'),
+            windows=len(window_rows)-first_window,roof_height=top,shaft_bottom=0.,shaft_top=eave,
+            setback_height=eave,original_roof_rect=final_rect,main_rect=rect0,floor_heights=p['floor_heights']))
+        roof_details.append(dict(building=name,style=commercial.specs[name]['style'],body_height=top,
+            mansard_base=eave,roof_top=max(v[2] for (owner,key),(vv,ff) in buffers.items() if owner==name and key=='city_slate' for v in vv),
+            edited_legacy_roof=True))
+        continue
     for r in rr:
         suffix=r['id'][len(name)+1:]
         if ('vertical_profile' in p or townhouse) and (suffix.startswith('base') or suffix=='bcorn'):continue
@@ -861,9 +879,13 @@ def sha(path):
     if path.suffix in {'.json','.py','.gd'}:raw=raw.replace(b'\r\n',b'\n')
     return hashlib.sha256(raw).hexdigest()
 runtime={'schema':1,'buildings':[{k:p[k] for k in ['id','wall_key','wall_tint','frame_tint']+(['assembly_translation_m'] if 'assembly_translation_m' in p else [])} for p in profiles['buildings']], 'clock_hands':clock_hands}
+runtime['body_lod']={'parts':[str(obj.name) for obj in draws if str(obj.name).split('__')[0] in commercial.specs],
+    'error_m':float(profiles['commercial_body_lod_error_m'])}
+assert runtime['body_lod']['parts'] and math.isfinite(runtime['body_lod']['error_m']) and runtime['body_lod']['error_m']>0.
 projection=ROOT/'game/data/orison_v2/exterior/city_elevations.json'
 projection.write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8',newline='\n')
 bindings=[ROOT/p for p in ['art/data/city_elevations/source_plan.json','art/blender/city_closure.blend','art/blender/city_closure_construction.json','art/blender/city_shells.blend','art/blender/city_shells_registration.json','game/data/runtime_material_sets.json','game/data/orison_v2/exterior/city_elevations.json','game/tests/fixtures/orison_city_masts.json','game/tests/fixtures/orison_city_aerials.json','game/tests/fixtures/orison_city_tanks.json','game/scripts/building/orison_v2_city_shells.gd','game/scripts/building/orison_v2_city_placement.gd','art/blender/scripts/city_horizon_geometry.py','art/blender/scripts/fabrication_native_batch.py','art/blender/scripts/fabrication_normals.py','art/blender/scripts/fabrication_uvs.py']]+[Path(__file__)]
+bindings.append(ROOT/'art/blender/scripts/city_commercial_architecture.py')
 for key in {key for name,key in buffers}:
     bindings.extend(ROOT/'game/assets/building/textures'/f for f in catalog[key]['files'])
 construction={k:report[k] for k in ['original_records','source_parapet_stocks','closed_joined_parapets','corner_stations','capture_offsets_godot','skyline_views_godot']}
