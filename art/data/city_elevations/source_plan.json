@@ -33,7 +33,12 @@
       "window_treatment": "draped",
       "sill_projection": 0.1,
       "lintel_height": 0.14,
-      "variation_seed": 1928
+      "variation_seed": 1928,
+      "assembly_translation_m": [
+        -35,
+        35,
+        0
+      ]
     },
     {
       "id": "site_nw1",
@@ -65,7 +70,12 @@
       "window_treatment": "mixed",
       "sill_projection": 0.14,
       "lintel_height": 0.18,
-      "variation_seed": 1945
+      "variation_seed": 1945,
+      "assembly_translation_m": [
+        0,
+        8,
+        0
+      ]
     },
     {
       "id": "site_nw2",
@@ -117,7 +127,12 @@
           4
         ],
         "adaptation": "One brick Italianate house with its street frontage on the narrow end of the original 8 x 23.7 m parcel. The long sides remain party walls beside neighboring buildings. Three storeys, four-bracket cornice, segmental hoods and pediment derive from the LPC record. The closed street-level entry adapts the source raised stoop; no surveyed replica or accessible interior is implied."
-      }
+      },
+      "assembly_translation_m": [
+        0,
+        8,
+        0
+      ]
     },
     {
       "id": "site_nw3",
@@ -149,7 +164,12 @@
       "window_treatment": "mixed",
       "sill_projection": 0.12,
       "lintel_height": 0.21,
-      "variation_seed": 1979
+      "variation_seed": 1979,
+      "assembly_translation_m": [
+        0,
+        8,
+        0
+      ]
     },
     {
       "id": "site_nw4",
@@ -181,7 +201,12 @@
       "window_treatment": "mixed",
       "sill_projection": 0.12,
       "lintel_height": 0.21,
-      "variation_seed": 1996
+      "variation_seed": 1996,
+      "assembly_translation_m": [
+        0,
+        8,
+        0
+      ]
     },
     {
       "id": "site_nbr_e",
@@ -245,7 +270,12 @@
       "window_treatment": "mixed",
       "sill_projection": 0.14,
       "lintel_height": 0.18,
-      "variation_seed": 2030
+      "variation_seed": 2030,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_ne2",
@@ -277,7 +307,12 @@
       "window_treatment": "roller",
       "sill_projection": 0.085,
       "lintel_height": 0.12,
-      "variation_seed": 2047
+      "variation_seed": 2047,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_ne3",
@@ -309,7 +344,12 @@
       "window_treatment": "roller",
       "sill_projection": 0.085,
       "lintel_height": 0.12,
-      "variation_seed": 2064
+      "variation_seed": 2064,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_ne4",
@@ -341,7 +381,12 @@
       "window_treatment": "mixed",
       "sill_projection": 0.12,
       "lintel_height": 0.21,
-      "variation_seed": 2081
+      "variation_seed": 2081,
+      "assembly_translation_m": [
+        0,
+        24,
+        0
+      ]
     },
     {
       "id": "site_nbr_s2",
@@ -533,7 +578,12 @@
       "window_treatment": "draped",
       "sill_projection": 0.1,
       "lintel_height": 0.14,
-      "variation_seed": 2183
+      "variation_seed": 2183,
+      "assembly_translation_m": [
+        0,
+        6,
+        0
+      ]
     },
     {
       "id": "site_back_e",
@@ -565,7 +615,12 @@
       "window_treatment": "draped",
       "sill_projection": 0.1,
       "lintel_height": 0.14,
-      "variation_seed": 2200
+      "variation_seed": 2200,
+      "assembly_translation_m": [
+        0,
+        46,
+        0
+      ]
     },
     {
       "id": "site_far_nw",
@@ -825,7 +880,12 @@
             ]
           ]
         }
-      }
+      },
+      "assembly_translation_m": [
+        0,
+        18,
+        0
+      ]
     },
     {
       "id": "site_far_e",
@@ -902,7 +962,12 @@
           "wall_height_m": 3.3,
           "roof_height_m": 4.1
         }
-      }
+      },
+      "assembly_translation_m": [
+        30,
+        30,
+        0
+      ]
     },
     {
       "id": "site_far_se",
@@ -1194,7 +1259,12 @@
         "recess_depth_m": 0.9,
         "stair_window_width_m": 2.65,
         "arch_rise_m": 0.6
-      }
+      },
+      "assembly_translation_m": [
+        -28,
+        55,
+        0
+      ]
     }
   ]
 }

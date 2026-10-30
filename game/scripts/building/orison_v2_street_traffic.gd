@@ -26,6 +26,7 @@ extends Node3D
 ## a person. Only stepping into the side of a moving vehicle earns the shove.
 
 const DATA := "res://data/orison_v2/exterior/street_traffic.json"
+const StreetSurface := preload("res://scripts/building/orison_v2_city_streets.gd")
 const SCHEMA := "orison.v2.street-traffic.v1"
 ## Walk sequence: left hind, left fore, right hind, right fore, in the table's
 ## leg order (fore left, fore right, hind left, hind right).
@@ -35,6 +36,8 @@ const VOICES := 4
 ## The clock is read this often (seconds); the schedule changes by the minute.
 const CLOCK_PERIOD := 4.0
 const PLAYER_RADIUS := 0.35
+## The existing parked-vehicle collision envelope also bounds moving contacts.
+const CONTACT_HEIGHT := 1.0
 const SIGNAL_POSES := {"left": 0.0, "right": 1.05, "stop": -0.8}
 ## Every warning a class may sound, each a cue in game/data/audio_cues.json.
 const WARNING_CUES := ["traffic.klaxon", "traffic.bulb_horn", "traffic.foot_gong",
@@ -292,13 +295,13 @@ func _park(parked: Dictionary) -> void:
 	var shape := CollisionShape3D.new()
 	var box := BoxShape3D.new()
 	var extent: Array = parked.extent
-	box.size = Vector3(float(extent[1]) - float(extent[0]), 1.0, float(parked.width))
+	box.size = Vector3(float(extent[1]) - float(extent[0]), CONTACT_HEIGHT, float(parked.width))
 	shape.shape = box
 	body.add_child(shape)
 	var middle := (float(extent[0]) + float(extent[1])) * 0.5
-	body.position = Vector3(record.px, float(data.site.road_y) + 0.5, record.pz) \
-			+ Basis(Vector3.UP, yaw) * Vector3(middle, 0, 0)
-	body.rotation.y = yaw
+	body.transform = Transform3D(StreetSurface.road_basis(float(record.px), yaw),
+			Vector3(record.px, float(data.site.road_y) + StreetSurface.surface_height(float(record.px)), record.pz)) \
+			* Transform3D(Basis.IDENTITY, Vector3(middle, CONTACT_HEIGHT * 0.5, 0))
 	add_child(body)
 
 
@@ -645,6 +648,8 @@ func _person_ahead(v: Dictionary, kind: Dictionary, front: float) -> float:
 		return INF
 	var here := to_local(_player.global_position)
 	var site: Dictionary = data.site
+	if not _shares_road_level(here):
+		return INF
 	if here.z < float(site.carriageway_z[0]) - 0.3 or here.z > float(site.carriageway_z[1]) + 0.3:
 		return INF
 	if absf(here.z - float(v.lane_z)) > float(kind.width) * 0.5 + PLAYER_RADIUS + 0.15:
@@ -861,7 +866,7 @@ func _put(stock: String, counts: Dictionary, transform_: Transform3D, colour: Co
 
 func _write_vehicle(kind: Dictionary, v: Dictionary, counts: Dictionary, road_y: float,
 		x: float, z: float, yaw: float, detailed: bool) -> void:
-	var frame := Transform3D(Basis(Vector3.UP, yaw), Vector3(x, road_y, z))
+	var frame := Transform3D(StreetSurface.road_basis(x, yaw), Vector3(x, road_y + StreetSurface.surface_height(x), z))
 	var travel := float(v.travel)
 	var speed := float(v.get("speed", 0.0))
 	_put(str(kind.stock), counts, frame, v.paint)
@@ -903,10 +908,20 @@ func _write_vehicle(kind: Dictionary, v: Dictionary, counts: Dictionary, road_y:
 
 # ---------------------------------------------------------------- contact
 
+func _shares_road_level(here: Vector3) -> bool:
+	# A person on the station above the road is neither a road obstruction nor
+	# a side contact. Keep the existing proxy height and player-radius margin;
+	# follow the authored street grade rather than a global flat Y threshold.
+	var road_y := float(data.site.road_y) + StreetSurface.surface_height(here.x)
+	return here.y >= road_y - PLAYER_RADIUS and here.y <= road_y + CONTACT_HEIGHT
+
+
 func _check_shove() -> void:
 	if _player == null or _shove_cooldown > 0.0 or not is_inside_tree():
 		return
 	var here := to_local(_player.global_position)
+	if not _shares_road_level(here):
+		return
 	for v in _live:
 		if str(v.phase) != "street" or float(v.speed) < 0.6:
 			continue
@@ -954,7 +969,7 @@ func _voice_nearest() -> void:
 		elif not voice.playing:
 			voice.play()
 		var pose := _world_pose(v)
-		voice.position = Vector3(float(pose[0]), 1.0, float(pose[1]))
+		voice.position = Vector3(float(pose[0]), 1.0 + StreetSurface.surface_height(float(pose[0])), float(pose[1]))
 		var heavy := 0.72 if str(kind.voice) == "heavy" else 1.0
 		voice.pitch_scale = clampf(float(v.speed) / 5.5, 0.5, 1.4) * heavy
 		voice.volume_db = -13.0 if float(v.speed) > 0.3 else -24.0

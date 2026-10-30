@@ -4,6 +4,7 @@ extends RefCounted
 func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	var city := world.get_node("CityShells") as Node3D
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_elevations.json"))
+	fixture = preload("res://tests/v2_city_context_review.gd").placed_fixture(fixture)
 	suite.check(FileAccess.get_sha256("res://assets/props/city_elevations.glb")==fixture.asset_sha256,"city elevation native export matches installed asset")
 	var bodies: Dictionary={}
 	var parts := 0
@@ -25,6 +26,28 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 			for texture: Texture2D in [stock.albedo_texture,stock.roughness_texture,stock.normal_texture]:
 				suite.check(texture!=null and texture.get_image().has_mipmaps(),"city custom PBR has a real loaded mip chain")
 	suite.check(parts==fixture.parts.size() and triangles==int(fixture.triangles),"full installed city inventory matches the rebuilt native source")
+	# Check the fitted subgrade in its actual production mount as well as the
+	# body-side contacts exercised by the controller frontage contract.
+	var foundation_source: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_foundations_construction.json"))
+	suite.check(FileAccess.get_sha256("res://assets/props/city_foundations.glb")==foundation_source.source_native_sha256,"installed city foundations match their fitted native export")
+	var foundation_parts: Dictionary={}
+	for row: Dictionary in foundation_source.parts: foundation_parts[str(row.id)]=row
+	var foundation_root := world.adapter.root.get_node("CityFoundations") as Node3D
+	var foundation_count := 0
+	for draw: MeshInstance3D in foundation_root.find_children("*","MeshInstance3D",true,false):
+		var identity := str(draw.name)
+		suite.check(foundation_parts.has(identity),"fitted foundation partition retains its source identity: "+identity)
+		if not foundation_parts.has(identity):continue
+		var bounds: Array=foundation_parts[identity].bounds
+		var expected := AABB(Vector3(bounds[0],bounds[1],bounds[2]),Vector3(bounds[3]-bounds[0],bounds[4]-bounds[1],bounds[5]-bounds[2]))
+		var pose: Transform3D=world.adapter.root.global_transform.affine_inverse()*draw.global_transform
+		var actual: AABB=pose*draw.get_aabb()
+		suite.check(actual.position.distance_to(expected.position)<.0001 and actual.end.distance_to(expected.end)<.0001,"production foundation is at its actual fitted bounds: "+identity)
+		var backing := draw.get_node("GroundCollision") as StaticBody3D
+		var shape := backing.get_child(0) as CollisionShape3D
+		suite.check(shape.shape is ConcavePolygonShape3D and (shape.shape as ConcavePolygonShape3D).get_faces()==draw.mesh.get_faces() and shape.global_transform.is_equal_approx(draw.global_transform),"fitted foundation has identical visible and physical stock: "+identity)
+		foundation_count+=1
+	suite.check(foundation_count==foundation_parts.size() and foundation_count==1049,"all fitted foundation partitions are checked in the production world")
 	suite.check(fixture.buildings.size()==25 and int(fixture.windows)>2500,"all 25 city buildings have physically built window stock")
 	for building: Dictionary in fixture.buildings:
 		suite.check(int(building.new_setbacks)<=1,"no repeated ziggurat tiers: "+str(building.id))
@@ -59,6 +82,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	var contacts := 0
 	for asset: String in ["masts","aerials","tanks"]:
 		var original: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_"+asset+".json"))
+		original = preload("res://tests/v2_city_context_review.gd").placed_fixture(original)
 		for contact: Dictionary in original.contacts:
 			var n := city.global_basis*Vector3(contact.normal[0],contact.normal[2],-contact.normal[1])
 			for sample: Array in [contact.point]+contact.footprint:
@@ -84,7 +108,7 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	var apron := ground.find_child("DistantApron", true, false) as Node3D
 	var apron_source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_ground_apron.json"))
 	suite.check(apron != null and FileAccess.get_sha256("res://assets/props/city_ground_apron.glb") == apron_source.asset_sha256, "installed distant grade matches the native source")
-	suite.check(FileAccess.get_sha256("res://assets/props/orison_ground.glb") == apron_source.retained_ground_sha256, "retained ground and its underground reservations remain byte-identical")
+	suite.check(FileAccess.get_sha256("res://assets/props/orison_ground.glb") == apron_source.retained_ground_sha256, "installed ground matches the source-fitted apron binding")
 	var apron_samples := 0
 	if apron != null:
 		for row: Dictionary in apron_source.boxes:
@@ -158,6 +182,13 @@ func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 			await _review_inspection_camera(world,suite,camera.global_transform)
 			break
 		suite.check(visible,"townhouse street front is genuinely visible with real world blockers retained")
+	# The owner opened exterior exploration. Review the actual former closure
+	# instead of remounting retired stock just to satisfy its historical capture.
+	suite.check(world.get_node_or_null("StreetBoundaries/RetainedStreetEnds") == null,"short street-end limits remain retired in the composed surface review")
+	camera.global_position=Vector3(-16,1.41,3)
+	camera.look_at(Vector3(-45,1.41,3))
+	await suite.get_tree().create_timer(.6).timeout
+	await suite.shot("city_open_west_frontage")
 	await _review_apartment_batch(world,suite,camera,city,fixture,bodies)
 	await preload("res://tests/v2_city_horizon_review.gd").new().run(world,suite,camera)
 	# Presentation-only comparisons in the same composed world and camera.

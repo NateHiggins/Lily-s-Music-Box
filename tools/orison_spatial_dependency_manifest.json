@@ -323256,6 +323256,330 @@
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
+  },
+  {
+   "key": "1f0d544550e37d10",
+   "kind": "node_path",
+   "token": "StreetEndHoardingFaces",
+   "file": "game/scripts/building/v2_street_end_details.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_street_ends"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [
+    "var faces := parent.get_node(\"StreetEndHoardingFaces\") as MultiMeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "47822334352089b5",
+   "kind": "runtime_id",
+   "token": "StreetEndHoardingFaces",
+   "file": "game/scripts/building/v2_street_end_details.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_street_ends"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [
+    "var faces := parent.get_node(\"StreetEndHoardingFaces\") as MultiMeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "1ebb70d8a68aeec7",
+   "kind": "vector3_coordinate",
+   "token": "_closed_footway_control",
+   "file": "game/tests/v2_city_west_frontage.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_closed_footway_control"
+   ],
+   "lines": [
+    189
+   ],
+   "count": 1,
+   "context": [
+    "if not await _walk(world.adapter.root.to_local(Vector3(-16,0,3))): return"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "64892251559dfd81",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/v2_city_west_frontage.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    74,
+    74,
+    74,
+    74,
+    74,
+    74,
+    78,
+    98,
+    133
+   ],
+   "count": 9,
+   "context": [
+    "for point: Vector3 in [Vector3(0,0,3),Vector3(-8,0,3),Vector3(-16,0,3),Vector3(-19.2,0,3),Vector3(-16,0,3),Vector3(0,0,3)]:",
+    "if not await _walk(world.adapter.root.to_local(Vector3(0,0,3))): return",
+    "player.face_world_point(Vector3(-130,4,3))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c935d3dca5f621ec",
+   "kind": "vector3_coordinate",
+   "token": "_west_ray",
+   "file": "game/tests/v2_city_west_frontage.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_west_ray"
+   ],
+   "lines": [
+    67,
+    67
+   ],
+   "count": 2,
+   "context": [
+    "return world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(Vector3(0,1.41,3),Vector3(-130,4,3),1,[player.get_rid()]))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4a28ad98dfe6e7a9",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_city_transport_bench.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    68,
+    69,
+    98,
+    98,
+    98,
+    98
+   ],
+   "count": 6,
+   "context": [
+    "var target := Vector3(65, 9, 10)",
+    "camera.position = Vector3(65, 90, 240)",
+    "for view: Dictionary in [{\"id\":\"public_stair\", \"eye\":Vector3(27, 1.41, -8), \"target\":Vector3(35, 3.3, -5)}, {\"id\":\"lower_platform\", \"eye\":Vector3(45, 12.79, 20)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "5c5d7c28d6494c1d",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/v2_city_transport_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    78,
+    78,
+    78,
+    78,
+    81,
+    83,
+    83,
+    83,
+    83,
+    83,
+    83,
+    83,
+    85,
+    86,
+    86,
+    86,
+    86,
+    88,
+    108,
+    126
+   ],
+   "count": 28,
+   "context": [
+    "for point: Vector3 in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-10.2),Vector3(0,0,-10.8)]:",
+    "if not await _walk(Vector3(0,0,-12.2)): return",
+    "for point: Vector3 in [Vector3(0,0,3),Vector3(14,0,3),Vector3(19.5,0,3),Vector3(24,0,3),Vector3(24,0,-4),Vector3(30,0,-4),Vector3(30,0,3)]:",
+    "await _station_view(\"plaza_approach\",Vector3(65,-10,8))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e061e91a3e0b087c",
+   "kind": "vector3_coordinate",
+   "token": "_street_block_tour",
+   "file": "game/tests/v2_city_transport_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_street_block_tour"
+   ],
+   "lines": [
+    156,
+    156,
+    157,
+    157,
+    158,
+    158
+   ],
+   "count": 6,
+   "context": [
+    "if point == Vector3(-76,-13,0): await _station_view(\"street_west_junction\",Vector3(-68,-22,1))",
+    "if point == Vector3(64.3,24,0): await _station_view(\"street_east_narrow_walk\",Vector3(66,-13,1))",
+    "if point == Vector3(80,-26.5,0): await _station_view(\"street_pier_islands\",Vector3(73,-27.45,1))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7b77fbb17e124910",
+   "kind": "vector3_coordinate",
+   "token": "_height_contacts",
+   "file": "game/tests/orison_v2_traffic_behaviour_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_height_contacts"
+   ],
+   "lines": [
+    287
+   ],
+   "count": 1,
+   "context": [
+    "person.position = Vector3(0,0,-50)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Isolated traffic-height fixture restores its probe off-road after flat/graded and transformed-owner contact controls; no playable coordinate or authority.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

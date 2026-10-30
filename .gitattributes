@@ -3304,3 +3304,59 @@ game/shaders/prologue_mirror_film.gdshaderinc -text
 game/scripts/game/prologue_waking.gd -text
 
 art/blender/scripts/build_prologue_wake_cover.py -text
+
+# City composition and its test-written source hashes.
+game/scripts/building/orison_v2_city_placement.gd -text
+game/tests/v2_city_west_frontage.gd -text
+game/tests/V2CityWestFrontage.tscn -text
+art/blender/scripts/review_city_composition.py -text
+
+# Source-owned west works body and construction/runtime projections.
+art/data/city_frontage/source_plan.json -text
+art/blender/scripts/build_city_frontage.py -text
+art/blender/city_frontage.blend -text
+art/blender/city_frontage_construction.json -text
+game/assets/props/city_frontage.glb -text
+game/data/orison_v2/exterior/city_frontage.json -text
+game/tests/fixtures/orison_city_frontage.json -text
+
+# Source-owned elevated plaza and per-view replacement bodies.
+art/data/city_transport/source_plan.json -text
+art/blender/scripts/build_city_transport.py -text
+art/blender/scripts/review_city_transport.py -text
+art/blender/city_transport.blend -text
+art/blender/city_transport_construction.json -text
+game/assets/props/city_transport.glb -text
+game/assets/props/city_transport_lod1.glb -text
+game/data/orison_v2/exterior/city_transport.json -text
+game/tests/fixtures/orison_city_transport.json -text
+game/scripts/building/orison_v2_city_transport.gd -text
+game/tests/v2_city_transport_bench.gd -text
+game/tests/V2CityTransportBench.tscn -text
+game/tests/v2_city_transport_route.gd -text
+game/tests/V2CityTransportRoute.tscn -text
+
+# Continuous native street and fitted station crossing.
+art/data/city_streets/source_plan.json -text
+art/blender/scripts/city_street_geometry.py -text
+art/blender/scripts/build_city_streets.py -text
+art/blender/scripts/review_city_streets.py -text
+art/blender/city_streets.blend -text
+art/blender/city_streets_construction.json -text
+game/assets/props/city_streets.glb -text
+game/assets/props/city_streets_lod1.glb -text
+game/data/orison_v2/exterior/city_streets.json -text
+game/tests/fixtures/orison_city_streets.json -text
+game/scripts/building/orison_v2_city_streets.gd -text
+
+# Immutable city street diagnostic bytes and archive integrity manifest.
+art/reviews/city_streets_20261029/diagnostics.zip -text
+art/reviews/city_streets_20261029/exterior_qualification.zip -text
+art/reviews/city_streets_20261029/manifest.json -text
+art/reviews/city_streets_20261029/traffic_height_qualification.zip -text
+game/tests/orison_v2_traffic_behaviour_test.gd -text
+game/scripts/building/orison_v2_street_traffic.gd -text
+game/tests/orison_v2_roof_bulkhead_caps_test.gd -text
+tools/tests/test_city_ground_apron.py -text
+tools/tests/test_v2_surface_requirements.py -text
+game/data/orison_v2/exterior/city_ground_relief.json -text

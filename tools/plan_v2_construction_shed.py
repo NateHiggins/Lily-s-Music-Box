@@ -64,7 +64,8 @@ def build(root=ROOT):
                            'plane_m':plank_back,'height_m':y,'count':count})
     panel_faces={'ShedRoadHoarding':(2,-1),'ShedEastHoarding':(0,-1),
         'ShedInnerReturn':(0,1),'ShedTemporaryClosure':(2,1),'ShedInnerStreetHoarding':(2,1)}
-    for identity,face in panel_faces.items():panel(boxes[identity],*face)
+    for identity,face in panel_faces.items():
+        if identity in boxes:panel(boxes[identity],*face)
     for identity in ['ShedStreetRoof','ShedTurnRoof','ShedTurnFloor']:
         row=boxes[identity];c=row['center'];size=row['size'];floor=identity.endswith('Floor')
         # Secondary members cross the retained primary beams. The walking
@@ -146,18 +147,19 @@ def build(root=ROOT):
     # The retained diagonal brace was 18.5 mm off the hoarding boards.
     # Real cleats and through bolts bridge that source gap without moving
     # the collision-bearing brace, closure or notice.
-    brace=boxes['ClosureCrossbrace'];panel=boxes['ShedTemporaryClosure'];pitch=panel['size'][0]/math.ceil(panel['size'][0]/.145)
-    face=panel['center'][2]+panel['size'][2]/2-.0035
-    brace_back=brace['center'][2]-brace['size'][2]/2
-    for i,side in enumerate([-1,1]):
-        desired=brace['center'][0]+side*.9
-        slot=round((desired-(panel['center'][0]-panel['size'][0]/2+pitch/2))/pitch)
-        x=panel['center'][0]-panel['size'][0]/2+pitch*(slot+.5)
-        y=brace['center'][1]+(x-brace['center'][0])*math.tan(math.radians(brace.get('roll_degrees',0)))
-        stock(f'ClosureBraceCleat{i}','ClosureCrossbrace',[x,y,(face+brace_back)/2],[.055,.12,brace_back-face],roll=brace.get('roll_degrees',0))
-        hardware=fastener(f'ClosureBraceBolt{i}','ClosureCrossbrace',[x,y,face],[0.,0.,1.],'bolt')
-        hardware['bearing_offsets_m']=[-.022,brace['center'][2]+brace['size'][2]/2-face]
-        joints.append({'kind':'brace_cleat','actor':'ClosureCrossbrace','plane_axis':2,'plane_m':brace_back,'sample_m':[x,y,brace_back]})
+    if 'ClosureCrossbrace' in boxes and 'ShedTemporaryClosure' in boxes:
+        brace=boxes['ClosureCrossbrace'];panel=boxes['ShedTemporaryClosure'];pitch=panel['size'][0]/math.ceil(panel['size'][0]/.145)
+        face=panel['center'][2]+panel['size'][2]/2-.0035
+        brace_back=brace['center'][2]-brace['size'][2]/2
+        for i,side in enumerate([-1,1]):
+            desired=brace['center'][0]+side*.9
+            slot=round((desired-(panel['center'][0]-panel['size'][0]/2+pitch/2))/pitch)
+            x=panel['center'][0]-panel['size'][0]/2+pitch*(slot+.5)
+            y=brace['center'][1]+(x-brace['center'][0])*math.tan(math.radians(brace.get('roll_degrees',0)))
+            stock(f'ClosureBraceCleat{i}','ClosureCrossbrace',[x,y,(face+brace_back)/2],[.055,.12,brace_back-face],roll=brace.get('roll_degrees',0))
+            hardware=fastener(f'ClosureBraceBolt{i}','ClosureCrossbrace',[x,y,face],[0.,0.,1.],'bolt')
+            hardware['bearing_offsets_m']=[-.022,brace['center'][2]+brace['size'][2]/2-face]
+            joints.append({'kind':'brace_cleat','actor':'ClosureCrossbrace','plane_axis':2,'plane_m':brace_back,'sample_m':[x,y,brace_back]})
     # Verify the remaining contact after all intersecting joints are cut.
     # Hardware is centred on a surviving bearing patch, never a bevel edge.
     by_id={p['id']:p for p in parts}

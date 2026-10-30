@@ -34,6 +34,7 @@ func _run() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_elevations.json"))
+	fixture = preload("res://tests/v2_city_context_review.gd").placed_fixture(fixture)
 	var metrics := preload("res://tests/orison_v2_domestic_native_test.gd").new()
 	var shells: Dictionary={}
 	var draws := 0
@@ -59,6 +60,30 @@ func _run() -> void:
 		apron_parts+=1
 	check(apron_parts==int(apron_data.export_check.primitives) and apron_parts>=4,"retained apron geometry roster")
 	apron.free()
+	var frontage := preload("res://scripts/building/v2_street_end_details.gd").new()
+	add_child(frontage)
+	frontage.build_boundaries_only(frontage,true)
+	var frontage_data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/exterior/city_frontage.json"))
+	var frontage_fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_frontage.json"))
+	check(FileAccess.get_sha256(str(frontage_data.asset))==frontage_fixture.asset_sha256,"native street barricade export is installed")
+	var frontage_model := frontage.get_node("WestFrontageNative") as Node3D
+	var frontage_draws := 0
+	var frontage_bounds := AABB()
+	for draw: MeshInstance3D in frontage_model.find_children("*","MeshInstance3D",true,false):
+		metrics._check_cap_mapping(draw.mesh,true)
+		var bounds: AABB=draw.global_transform*draw.get_aabb()
+		frontage_bounds=bounds if frontage_draws==0 else frontage_bounds.merge(bounds)
+		frontage_draws+=1
+		var stock := draw.material_override as StandardMaterial3D
+		check(stock!=null and not stock.uv1_triplanar,"barricade consumes its authored metre charts")
+		if stock!=null:
+			for texture: Texture2D in [stock.albedo_texture,stock.roughness_texture,stock.normal_texture]:
+				check(texture!=null and texture.get_image().has_mipmaps(),"barricade custom maps have loaded mip chains")
+	var boundary := frontage.get_node("StreetEndConstructionBoundary/WestNorthWorks") as CollisionShape3D
+	var boundary_box := boundary.shape as BoxShape3D
+	var physical_bounds: AABB=boundary.global_transform*AABB(-boundary_box.size*.5,boundary_box.size)
+	check(frontage_draws==2 and frontage_bounds.position.distance_to(physical_bounds.position)<.0001 and frontage_bounds.end.distance_to(physical_bounds.end)<.0001,"two native barricade draws fit the retained closed-boundary footprint and new physical height")
+	frontage.free()
 	check(metrics.failures.is_empty(),"imported UV/normal/tangent checks")
 	metrics.free()
 	var exclude: Array[RID]=[]
@@ -67,6 +92,7 @@ func _run() -> void:
 	var contacts := 0
 	for family: String in ["elevations","masts","aerials","tanks","beacons"]:
 		var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_"+family+".json"))
+		data = preload("res://tests/v2_city_context_review.gd").placed_fixture(data)
 		check(FileAccess.get_sha256("res://assets/props/city_"+family+".glb")==data.asset_sha256,"installed source hash: "+family)
 		if family not in ["masts","aerials","tanks"]:continue
 		for contact: Dictionary in data.contacts:

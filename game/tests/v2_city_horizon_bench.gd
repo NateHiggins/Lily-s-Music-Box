@@ -37,6 +37,17 @@ func run() -> void:
 				mapped[key] = true
 				metrics._check_cap_mapping(draw.mesh, true)
 	check(metrics.failures.is_empty(), "loaded metric charts and tangents across both asset/material families")
+	var ground_parts := 0
+	for draw: MeshInstance3D in ground.find_children("*","MeshInstance3D",true,false):
+		ground_parts += 1
+		metrics._check_cap_mapping(draw.mesh,true,true)
+		var loaded := draw.material_override
+		var material := loaded.get_meta("v2_weather_source",loaded) as StandardMaterial3D
+		check(material != null and not material.uv1_triplanar and not MatLib.is_shared_material(material),"local authored ground finish: "+str(draw.name))
+		if material != null:
+			for texture: Texture2D in [material.albedo_texture,material.roughness_texture,material.normal_texture]:
+				check(texture != null and texture.get_image().has_mipmaps(),"actual loaded ground PBR mip chain: "+str(draw.name))
+	check(ground_parts>0 and metrics.failures.is_empty(),"complete imported ground charts and derivatives")
 	metrics.free()
 	check(bounds.size() == fixture.buildings.size(), "all authored building identities loaded once")
 	for row: Dictionary in fixture.buildings:
@@ -68,7 +79,7 @@ func run() -> void:
 			check(not hit.is_empty() and ground.is_ancestor_of(hit.collider) and hit.position.distance_to(point)<.0001,"actual exposed grade beside new foundations: "+str(strip.id))
 	# Independent intended elevations, including submerged beds. Water must not
 	# become a solid platform above them.
-	for point: Vector3 in [Vector3(450,-8,0),Vector3(-400,-3.5,0),Vector3(0,-8,-360),Vector3(112,-.02,0),Vector3(-108,-.02,0)]:
+	for point: Vector3 in [Vector3(450,-8,0),Vector3(-400,-3.5,0),Vector3(0,-8,-360),Vector3(112,-1.3055,0),Vector3(140,-1.7255,60),Vector3(180,-2.3255,60),Vector3(280,-3.8255,60),Vector3(-108,-.02,0)]:
 		var hit:=ground.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(point+Vector3.UP*12,point-Vector3.UP*.1,1))
 		check(not hit.is_empty() and ground.is_ancestor_of(hit.collider) and hit.position.distance_to(point)<.0001,"actual retained datum, rail cut or submerged bed: "+str(point))
 	var relief_parts:=0
