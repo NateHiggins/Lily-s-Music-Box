@@ -343,6 +343,13 @@ func review_cutaway(target:Dictionary) -> void:
 	var ending:Node=clip.cutaway;ending.set_process(false)
 	var saved_pose:Dictionary=ending.original.duplicate(true)
 	var population:int=ending.controller.critters.size()
+	var tardi_id:int=ending.specimen.id
+	var tardi_species:String=ending.specimen.morph.species
+	var life_events:Array[Dictionary]=[]
+	var on_birth:Callable=func(identity:int,species:String):life_events.append({"event":"born","id":identity,"species":species})
+	var on_death:Callable=func(identity:int):life_events.append({"event":"died","id":identity})
+	ending.controller.critter_born.connect(on_birth)
+	ending.controller.critter_died.connect(on_death)
 	var present:Dictionary=RealityState.data.campaign_clock.duplicate(true)
 	var hold:=""
 	for stamp:float in [0.0,4.5,6.5,8.5,10.5,12.5,13.5,14.0,16.9]:
@@ -368,7 +375,7 @@ func review_cutaway(target:Dictionary) -> void:
 	check(outside.seek_utc(float(Opening.LOOP_START_UTC+2*Opening.LOOP_SECONDS)) and not CampaignWeather.has_date(CampaignWeather.date_key(outside.local_datetime())),"unsupported-date control actually projects outside the authored calendar")
 	world.campaign_clock=outside
 	await _wait_temporal_presence(ending.controller,true)
-	check(ending.controller._temporal_hidden and not ending.controller.visible and ending.controller.critters.size()==population,"detached unsupported date still withholds the historical animal without a lifecycle event")
+	check(ending.controller._temporal_hidden and not ending.controller.visible and _same_tardi(ending.controller,ending.specimen,tardi_id,tardi_species),"detached unsupported date withholds the same single historical Tardi")
 	outside.seek_utc(float(Opening.LOOP_START_UTC+18*3600))
 	await _wait_temporal_presence(ending.controller,false)
 	check(not ending.controller._temporal_hidden and ending.controller.visible and ending.controller.companion.specimen_id==int(ending.specimen.id),"returning to the historical year restores the same specimen through normal polling")
@@ -380,6 +387,17 @@ func review_cutaway(target:Dictionary) -> void:
 		if key!="elapsed_minutes":same_epoch=same_epoch and current.get(key)==present[key]
 	var elapsed_delta:float=float(current.elapsed_minutes)-float(present.elapsed_minutes)
 	check(not ending.controller._temporal_hidden and ending.controller.visible and same_epoch and elapsed_delta>=0 and elapsed_delta<5,"returning to annual present restores normal ecology while only the real clock driver advances elapsed time")
+	var tardi_events:=life_events.filter(func(row:Dictionary)->bool:return int(row.id)==tardi_id or str(row.get("species",""))==tardi_species)
+	check(tardi_events.is_empty() and _same_tardi(ending.controller,ending.specimen,tardi_id,tardi_species),"calendar presentation neither creates nor retires nor duplicates the original private Tardi")
+	print("TEMPORAL ECOLOGY EVENTS ",JSON.stringify({"initial_population":population,"final_population":ending.controller.critters.size(),"tardi_id":tardi_id,"events":life_events,"tardi_events":tardi_events}))
+	FileAccess.open(directory.path_join("temporal_ecology_events.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","initial_population":population,"final_population":ending.controller.critters.size(),"tardi_id":tardi_id,"events":life_events,"tardi_events":tardi_events},"\t"))
+	ending.controller.critter_born.disconnect(on_birth)
+	ending.controller.critter_died.disconnect(on_death)
+
+func _same_tardi(controller:Node,original:Dictionary,identity:int,species:String) -> bool:
+	var bodies:Array=controller.critters.filter(func(row:Dictionary)->bool:return str(row.morph.species)==species)
+	return controller.companion.specimen_id==identity and bodies.size()==1 and int(bodies[0].id)==identity and is_same(bodies[0],original)
+
 
 func _wait_temporal_presence(controller:Node,hidden:bool) -> void:
 	# The owner polls in physics, not the idle timer used by the old fixture.
@@ -390,7 +408,7 @@ func _wait_temporal_presence(controller:Node,hidden:bool) -> void:
 		await get_tree().physics_frame
 		await get_tree().process_frame
 		if controller._temporal_hidden==hidden and controller.visible!=hidden:break
-	print("TEMPORAL PRESENCE POLL ",JSON.stringify({"expected_hidden":hidden,"hidden":controller._temporal_hidden,"visible":controller.visible,"physics_ticks":Engine.get_physics_frames()-began,"poll_remaining":controller._temporal_poll,"enabled":controller.enabled,"processing":controller.is_physics_processing(),"can_process":controller.can_process(),"world_mode":world.process_mode,"clock":world.campaign_clock.local_datetime(),"applied":RealityState.data.prologue.effects.clock_applied}))
+	print("TEMPORAL PRESENCE POLL ",JSON.stringify({"expected_hidden":hidden,"hidden":controller._temporal_hidden,"visible":controller.visible,"physics_ticks":Engine.get_physics_frames()-began,"population":controller.critters.size(),"poll_remaining":controller._temporal_poll,"enabled":controller.enabled,"processing":controller.is_physics_processing(),"can_process":controller.can_process(),"world_mode":world.process_mode,"clock":world.campaign_clock.local_datetime(),"applied":RealityState.data.prologue.effects.clock_applied}))
 
 
 func review_cutaway_optics(ending:Node) -> void:
