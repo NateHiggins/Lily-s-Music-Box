@@ -327,3 +327,41 @@ full door travel, player/mail access, loaded metric UVs/derivatives/mips and
 same-settings cost. Separate tray geometry is preparation for possible later
 direct manipulation, not approval of a new maintenance/inventory/save system.
 No Godot integration, placement, forces or human artistic acceptance is claimed.
+
+
+### Next external Blender batch after small-stock delivery
+
+Proposal only; no additional asset is marked delivered, installed or accepted.
+Keep **K-V2-ENTRY-SMALL-STOCK** as the single canonical integration task for
+both delivered props. Native delivery checks and CPU previews remain separate
+from loaded collision, optical, interaction and performance verification.
+
+Recommend **K-V2-TIME-REGISTER** next: first the compact folding temporal
+readout, then its mechanically supported, glass-covered three-branch capacitor
+homage. This advances the already requested prologue companion rather than
+adding another entrance family while its integration is pending. Use the
+[existing fabrication brief](V2_PROLOGUE_2026-10-28.md#proposed-external-time-register-batch--october29).
+This recommendation does not assign an agent or authorize runtime integration.
+
+Suggested message to the Blender agent:
+
+> The boot scraper and umbrella stand are received; canonical integration is
+> queued, not yet accepted in Godot. Proposed next batch: the companion's folding
+> time register, followed by its glass-covered three-branch capacitor module.
+> Read the existing time-register brief, current companion source and repository
+> Blender skill before authoring. Survey the installed phone-scale body and arm;
+> preserve paper/keyboard readability, rotor sweep, cassette access and right-third
+> framing. Build convincing hinges, stops, latches, wire routes and glass retention.
+> Keep luminous parts restrained; lettering stays separate from textures. Reuse
+> catalogue finishes and keep the two modules independently exportable. Work in
+> one isolated external prototype folder, repository read-only, no Godot launches.
+> Deliver editable blends, efficient GLBs, closed/open CPU views and measured
+> attachment/clearance, UV/tangent, triangle/material and export reports. Do not
+> add another chassis refit or change clock, power, input or save authorities.
+
+Mailbox and annunciator families already have native builders in
+**art/blender/scripts/build_mail_bank.py**, **build_annunciator_controls.py**
+and **build_annunciator_dispatch.py**. Their existence does not establish artistic
+acceptance, but it makes replacement authoring premature without a demonstrated
+gap. The delivered street gaslight is not automatically an entrance lantern;
+leave that separate proposal deferred rather than assuming interchangeability.
