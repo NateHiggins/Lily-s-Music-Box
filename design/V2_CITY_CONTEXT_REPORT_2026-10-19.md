@@ -3097,3 +3097,36 @@ source-bound composed runtime qualification and artistic acceptance for these
 two newer bodies remain pending; they are not added to19 qualified studies.
 The known occluded arcade lamp view still needs its clear roadside capture in
 the next necessary composed cohort. Bridge and full-city commitments remain open.
+
+### October30 tracker refresh and next narrow-parcel section
+
+Report-only update after pushed **975a49ac**; no runtime inputs changed and
+no verification rerun is implied. Canonical coordination reports a terminal
+warm route: **223 checks/eight actual controller legs/0 failures**,212s wrapper,
+empty stderr. It includes both directions through the bank's eastern passage,
+valid full-capsule/floor starts and a separate clear roadside arcade lamp view.
+Five loaded night frames and the combined physical survey/packet remain under
+canonical review. This is a reported integration result, not this document's
+independent receipt validation or artistic acceptance. Preserve the original
+115s Windows Application Hang1002 closure, exit -805306369, empty stderr and
+absent runtime contract; cause remains undetermined. The retry does not erase
+that failure. Qualified tally remains **19/149**, **130 remaining** until the
+source-bound composed cohort is published.
+
+The next bounded construction target is the two generic narrow four-storey
+neighbors. Official LPC Murray Hill report LP-2102 supplies specific two-bay
+English-basement house proportions at113 and119 East35th Street. Retained
+original detailing is an explicit AU adaptation where1928 condition is not
+proved. Photos of113/115 East36th are different buildings and are not exact
+reference images of the selected houses. No reference pixels enter assets.
+Registered coated-plaster/limestone materials remain the available palette;
+no unregistered brownstone material is inferred.
+
+Ground fit precedes authoring: **site_nbr_w** is assembled at city-source
+rect[-57.8,23,-53.4,47], not beside the west Orison wall. Its foundation and
+ground meshes use the separate registered building frame. Measure the actual
+installed frame and solid sections before any outside-footprint steps; central
+zero grade is not valid westward. **site_nbr_e** occupies[16.455,-12,20.855,12]
+and neighbors the retained front footway. Source/reference selection grants
+no new footprint or access authority. No new geometry has yet been authored
+for this pair.975 stays frozen for canonical office/bank intake.
