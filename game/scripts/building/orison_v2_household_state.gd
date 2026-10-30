@@ -259,6 +259,7 @@ func _restore(saved: Dictionary) -> void:
 	for player: Node in get_tree().get_nodes_in_group("player_controller"):
 		if player.has_method("cancel_manipulation"): player.cancel_manipulation()
 	for identity: String in _subjects:
+		var restore_started:=_profile_start()
 		var record: Dictionary = saved.records.get(identity, _defaults.records[identity])
 		var prop: Node = _subjects[identity]
 		match record.kind:
@@ -281,6 +282,7 @@ func _restore(saved: Dictionary) -> void:
 				else: prop.restore_mechanism(record.value)
 			"prep", "mirror": prop.call("restore_travel",float(record.value))
 			_: prop.call("restore_open_state", record.value)
+		_profile_end("restore:"+identity,restore_started)
 	_last_saved = saved.duplicate(true)
 	_state_document = RealityState.data
 	_restoring = false

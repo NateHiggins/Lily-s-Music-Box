@@ -976,13 +976,48 @@ func _check_return_anchor_resolution() -> bool:
 	fixture.free()
 	return ok
 
+func _check_plug_support_index() -> bool:
+	var count:=0
+	var points:=0
+	for fixture:Node in world.household_state._subjects.values():
+		if not fixture is TapProp:continue
+		var plug:Variant=fixture.get("_plug_hand")
+		if plug==null or plug.get_script()!=preload("res://scripts/props/basin_plug.gd"):continue
+		count+=1
+		# Include bin boundaries, the drain opening and disc-rim queries beyond
+		# the manipulation envelope. Compare actual imported casting triangles.
+		for x in [-.168,-.15,-.12,-.04,0.,.04,.12,.15,.168]:
+			for z in [-.093,-.075,-.04,0.,.04,.075,.093]:
+				var at:Vector3=plug.seat+Vector3(x,0,z)
+				var expected:float=plug.seat.y
+				for i in range(0,plug.triangles.size(),3):
+					var a:Vector3=plug.triangles[i];var b:Vector3=plug.triangles[i+1];var c:Vector3=plug.triangles[i+2]
+					var den:float=(b.z-c.z)*(a.x-c.x)+(c.x-b.x)*(a.z-c.z)
+					var u:float=((b.z-c.z)*(at.x-c.x)+(c.x-b.x)*(at.z-c.z))/den
+					var v:float=((c.z-a.z)*(at.x-c.x)+(a.x-c.x)*(at.z-c.z))/den
+					if u<0 or v<0 or u+v>1:continue
+					var y:float=u*a.y+v*b.y+(1-u-v)*c.y
+					if y<=plug.ceiling:expected=maxf(expected,y+.006)
+				if absf(plug._surface_height(at)-expected)>.0000001:
+					return _require(false,"indexed basin support matches full casting scan: "+str(fixture.name))
+				points+=1
+	return _require(count>=24 and points>=1512,"indexed basin support matches original full scan across %d installed plugs and %d points"%[count,points])
+
 func _profile_waking_start(scene:PackedScene) -> bool:
 	# Diagnostic controls only. Keep reload/shot owners intact and never use
 	# disabled presentation as a production optimization or acceptance route.
+	if not _check_plug_support_index():return false
 	var trials:Array=[]
 	var old_path:String=RealityState.save_path
+	var household_profile_before:bool=world.household_state.profiling
+	var save_profile_before:bool=RealityState.background_save_profiling
+	world.household_state.profiling=true
+	RealityState.background_save_profiling=true
 	var viewport:RID=get_viewport().get_viewport_rid()
-	RenderingServer.viewport_set_measure_render_time(viewport,true)
+	var measured_views:Array[Viewport]=[get_viewport()]
+	for node:Node in get_tree().root.find_children("*","Viewport",true,false):
+		if node!=get_viewport():measured_views.append(node as Viewport)
+	for view:Viewport in measured_views:RenderingServer.viewport_set_measure_render_time(view.get_viewport_rid(),true)
 	var compile_infos:Array[int]=[RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_CANVAS,
 		RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_MESH,
 		RenderingServer.RENDERING_INFO_PIPELINE_COMPILATIONS_SURFACE,
@@ -997,35 +1032,62 @@ func _profile_waking_start(scene:PackedScene) -> bool:
 		RealityState.persistence_enabled=true;RealityState.load_game()
 		RealityState.persistence_enabled=false;RealityState.save_path=old_path
 		var loaded:=Time.get_ticks_usec()
-		var trial:Dictionary={"presentation":presentation,"reload_sync_ms":(loaded-began)/1000.0,"frames":[]}
+		var trial:Dictionary={"presentation":presentation,"reload_sync_ms":(loaded-began)/1000.0,"reload_begin_usec":began,"reload_end_usec":loaded,"frames":[]}
 		var start_began:=Time.get_ticks_usec()
 		if presentation:
 			if not _require(director.begin_opening(scene),"profile control starts the real waking owner"):return false
 			trial.same_clip_start_costs_ms=director.waking.start_costs.duplicate(true)
 		trial.start_call_sync_ms=(Time.get_ticks_usec()-start_began)/1000.0
 		var previous_wall:=start_began
+		var previous_physics:=Engine.get_physics_frames()
 		for frame in 32:
-			await get_tree().process_frame
+			# The first draw belongs to this triggering iteration. Waiting for
+			# another process_frame here would skip precisely the suspected work.
+			if frame>0:await get_tree().process_frame
 			var process_at:=Time.get_ticks_usec()
+			await RenderingServer.frame_pre_draw
+			var pre_at:=Time.get_ticks_usec()
 			await RenderingServer.frame_post_draw
 			var post_at:=Time.get_ticks_usec()
+			var probe_began:=post_at
 			var counters:Array=[]
 			for info:int in compile_infos:counters.append(RenderingServer.get_rendering_info(info))
-			trial.frames.append({"index":frame,"engine_drawn":Engine.get_frames_drawn(),
+			var view_times:Array=[]
+			for view:Viewport in measured_views:
+				if not is_instance_valid(view) or not view.is_inside_tree():continue
+				var rid:=view.get_viewport_rid()
+				view_times.append({"owner":str(view.get_path()),"update_mode":view.render_target_update_mode if view is SubViewport else -1,
+					"cpu_ms":RenderingServer.viewport_get_measured_render_time_cpu(rid),
+					"gpu_ms":RenderingServer.viewport_get_measured_render_time_gpu(rid)})
+			var current_physics:=Engine.get_physics_frames()
+			var sample:Dictionary={"index":frame,"engine_drawn":Engine.get_frames_drawn(),
+				"process_usec":process_at,"pre_draw_usec":pre_at,"post_draw_usec":post_at,
 				"wall_ms":(post_at-previous_wall)/1000.0,"process_to_post_draw_ms":(post_at-process_at)/1000.0,
+				"process_to_pre_draw_ms":(pre_at-process_at)/1000.0,"pre_to_post_draw_ms":(post_at-pre_at)/1000.0,
+				"physics_steps":current_physics-previous_physics,"viewports":view_times,
+				"process_peak_monitor_ms":Performance.get_monitor(Performance.TIME_PROCESS)*1000.0,
+				"physics_peak_monitor_ms":Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.0,
 				"render_setup_cpu_ms":RenderingServer.get_frame_setup_time_cpu(),
 				"main_viewport_cpu_ms":RenderingServer.viewport_get_measured_render_time_cpu(viewport),
 				"main_viewport_gpu_ms":RenderingServer.viewport_get_measured_render_time_gpu(viewport),
-				"pipeline_totals":counters})
+				"pipeline_totals":counters}
+			sample.probe_sync_ms=(Time.get_ticks_usec()-probe_began)/1000.0
+			trial.frames.append(sample)
 			previous_wall=post_at
+			previous_physics=current_physics
 		trial.phase_after=director.state.phase
+		trial.household_events=world.household_state.profile_records.filter(func(row:Dictionary)->bool:return int(row.start_usec)>=began)
+		trial.household_causes=world.household_state.profile_causes.filter(func(row:Dictionary)->bool:return int(row.start_usec)>=began)
+		trial.save_events=RealityState.background_save_records.filter(func(row:Dictionary)->bool:return int(row.get("started_usec",row.get("adopted_usec",0)))>=began)
 		trials.append(trial)
 	if is_instance_valid(director.waking):director.waking.cancel()
 	director.set_process(true)
+	world.household_state.profiling=household_profile_before
+	RealityState.background_save_profiling=save_profile_before
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_start_controls.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","trials":trials,"settings":frame_trace.settings,
 		"pipeline_columns":["canvas","mesh","surface","draw","specialization"],
-		"limits":"ABBA reload-without-shot / reload-with-shot controls in one occupied world. Only automatic presentation is held in no-shot controls; the real save/read, camera and renderer owners still run. Main viewport timings exclude private viewports and can lag; draw signal wall time is not GPU time. Pipeline counters are cumulative correlation. Extra timing instrumentation affects these diagnostics; not runtime or artistic acceptance."},"\t"))
+		"limits":"ABBA reload-without-shot / reload-with-shot controls in one occupied world. The triggering draw is captured before waiting for another process_frame. Only automatic presentation is held in no-shot controls; real save/read, camera and renderer owners still run. Per-viewport last-frame metrics can lag or stay stale when inactive; do not sum them into a same-frame GPU total. Draw signal wall time is not GPU time; process/physics monitors are one-second peaks, not per-frame costs. Physics step counts show cadence only. Pipeline counters are cumulative correlation. probe_sync_ms records metric-read overhead, which can enter the following wall sample. Extra instrumentation affects these diagnostics; not runtime or artistic acceptance."},"\t"))
 	return _require(trials.size()==4 and director.state.phase=="dream","ABBA controls retain the same saved DREAM without fabricated progression")
 
 func _shot(name_: String) -> void:

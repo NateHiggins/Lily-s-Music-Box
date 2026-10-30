@@ -185,6 +185,12 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   shader compilation and render costs before assigning a cause or a speedup.
   A small timed reader/presenter excludes only its synchronous work; report
   deferred engine costs separately rather than clearing the whole feature.
+  For repeated fixed-geometry queries, profile the actual restored/settling
+  owner before optimizing. A conservative spatial index can retain the exact
+  narrow phase; compare against the original scan on imported geometry, including
+  negative coordinates, cell boundaries and holes. Separate synchronous reload
+  costs from the following draw interval; retain residual spikes. The prologue
+  ledger records the basin-plug equivalence and before/after evidence.
   Time the same invocation as the spike, not a previous instance's setup.
   Awaiting the next process frame before post-draw can miss an immediate draw
   after reload; retain that observation gap and sample the triggering iteration.
