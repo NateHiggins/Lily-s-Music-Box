@@ -56,6 +56,7 @@ var _contact_owns:=false
 var _contact_copies:Array[int]=[]
 var waking:Node
 var _opening_cover:PackedScene
+var _resume_pending:=false
 
 
 func _ready() -> void:
@@ -145,7 +146,11 @@ func resume_opening(cover_scene:PackedScene) -> bool:
 	# Campaign startup must resume validated facts, never use the preview's
 	# deliberate DREAM advancement. A completed opening is an inert no-op.
 	if world==null or not errors.is_empty() or not is_same(_document,RealityState.data) or get_tree().paused or RealityState.save_write_blocked:return false
-	if state.phase=="prologue_complete":return true
+	if state.phase=="prologue_complete":
+		# Retain the bound presentation resource for a later validated backward
+		# reload; completion itself must remain inert and consume no frame polling.
+		_opening_cover=cover_scene
+		return true
 	if player.protected_input_active():return false
 	if player.text_input_owner!=null or not player.camera.is_current():
 		# Our own active presentation is already resumed; a foreign owner must
@@ -251,6 +256,9 @@ func _restore() -> void:
 			if state.effects.companion_materialized:_carrier.release_story_absence(self)
 			elif not _carrier.acquire_story_absence(self):_fail("restored opening absence refused");return
 		_enter_phase()
+	elif (changed or replaced) and _opening_cover!=null and errors.is_empty():
+		_resume_pending=state.phase!="prologue_complete"
+		set_process(_resume_pending)
 
 func _store(next: Dictionary) -> bool:
 	if next.is_empty() or RealityState.save_write_blocked: return _fail("prologue transition refused")
@@ -303,6 +311,7 @@ func _enter_phase() -> void:
 			if world!=null and world.has_node("WakingAtmosphere"):begin_temporal_sky()
 		"prologue_complete":
 			writing.clear()
+			_resume_pending=false
 			_running=false
 			set_process(false)
 	phase_changed.emit(state.phase)
@@ -345,6 +354,15 @@ func _window_released(control: String, before: float, after: float) -> void:
 		_say("wrong_curtain",true)
 
 func _process(delta: float) -> void:
+	if _resume_pending:
+		# A completed owner can receive an earlier save. Wait for the successor
+		# input/view rather than restaging over it or inventing a new phase.
+		if player.call_locked or player.mouse_released or RealityState.save_write_blocked or not is_same(_document,RealityState.data):return
+		_poll+=maxf(delta,0.0)
+		if _poll>=PERIOD:
+			_poll=0.0
+			if resume_opening(_opening_cover):_resume_pending=false
+		return
 	if _visitor_active:_pose_visitor()
 	if _running and state.phase in ["first_contact","identity_mystery"]:
 		_contact_tick(delta);return
@@ -592,6 +610,7 @@ func shutdown() -> void:
 	mirror_crossing=null
 	_end_visitor()
 	_running=false;set_process(false)
+	_resume_pending=false
 	_opening_cover=null
 	if is_instance_valid(_knock):_knock.stop();_knock.queue_free()
 	_knock=null

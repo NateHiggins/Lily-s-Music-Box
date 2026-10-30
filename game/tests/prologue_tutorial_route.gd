@@ -870,6 +870,8 @@ func _review_waking() -> void:
 	RealityState.persistence_enabled=false;RealityState.save_path=old_path
 	var continuous_begin:int=frame_trace.rows.size()
 	var continuous_started:=Time.get_ticks_usec()
+	var preceding_frame_tail_ms:float=(continuous_started-frame_trace.previous)/1000.0
+	frame_trace.previous=continuous_started # Align this interval, retaining its preceding tail below.
 	var transitions:Array[Dictionary]=[]
 	var observe_phase:=func(phase:String):transitions.append({"phase":phase,"wall_s":(Time.get_ticks_usec()-continuous_started)/1000000.0})
 	director.phase_changed.connect(observe_phase)
@@ -888,7 +890,55 @@ func _review_waking() -> void:
 	for transition:Dictionary in transitions:phases.append(str(transition.phase))
 	_require(phases==["awakening","bedroom_exploration"],"continuous playback acknowledges each phase once in order")
 	var continuous_frames:Array=frame_trace.rows.slice(continuous_begin,continuous_end)
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_continuous_frames.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","columns":["phase","fps_cap","process_delta_ms","wall_ms","process_monitor_ms","physics_monitor_ms","draw_calls"],"frames":continuous_frames,"transitions":transitions,"wall_s":continuous_wall_s,"settings":frame_trace.settings,"limits":"One occupied, warmed DREAM playback including synchronous setup and handoff. No screenshot readbacks, seeks, pause or disk operations inside the measured interval. CPU monitors overlap/lag; no separated GPU/compiler/loading attribution or matched optimization claim."},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("waking_continuous_frames.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","columns":["phase","fps_cap","process_delta_ms","wall_ms","process_monitor_ms","physics_monitor_ms","draw_calls"],"frames":continuous_frames,"transitions":transitions,"wall_s":continuous_wall_s,"preceding_frame_tail_ms":preceding_frame_tail_ms,"settings":frame_trace.settings,"limits":"One occupied, warmed DREAM playback including synchronous setup and handoff. Wall counter starts at the interval boundary; preceding_frame_tail_ms retains the excluded pre-boundary tail including reload. No screenshot readbacks, seeks, pause or disk operations inside the measured interval. CPU monitors overlap/lag; no separated GPU/compiler/loading attribution or matched optimization claim."},"\t"))
+	# Synthetic completed-save boundary only: this does not claim the finale
+	# was played, apply a clock jump, or fabricate earned gameplay observations.
+	var completed:Dictionary=director.state.duplicate(true)
+	completed.phase="prologue_complete";completed.skipped=true
+	completed.effects={"companion_materialized":true,"clock_applied":true}
+	completed.target={"utc_unix_seconds":preload("res://scripts/game/prologue_state.gd").LOOP_START_UTC+86400,"local_bias_minutes":-300,"local_zone":"Queens EST"}
+	if not _require(preload("res://scripts/game/prologue_state.gd").valid(completed),"synthetic completed boundary satisfies the prologue validator"):return
+	RealityState.data.prologue=completed
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("completed_boundary.json")
+	RealityState.persistence_enabled=true;saved=RealityState.save_game();RealityState.load_game()
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	if not _require(saved and director.state.phase=="prologue_complete" and not director.is_processing(),"validated completed boundary retires active presentation"):return
+	director.shutdown();director.queue_free()
+	await get_tree().process_frame
+	director=Director.new();world.add_child(director);frame_trace.director=director
+	if not _require(director.configure(world) and director.resume_opening(scene) and not director._running and director.waking==null,"fresh completed-save owner remains inert without replay"):return
+	if not _require(player.acquire_text_input(self),"successor editor owns input across completed-to-earlier reload"):return
+	var before_reload_position:Vector3=player.global_position
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("bedroom_resume.json")
+	RealityState.persistence_enabled=true;RealityState.load_game()
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	var restored_facts:Dictionary=director.state.duplicate(true)
+	await get_tree().create_timer(.3).timeout
+	if not _require(player.text_input_owner==self and not director._running and director.state==restored_facts and player.global_position.distance_to(before_reload_position)<.05,"earlier reload waits without stealing editor input, moving the player or advancing facts"):return
+	player.release_text_input(self)
+	get_tree().paused=true
+	await get_tree().create_timer(.2,true).timeout
+	var paused_reload_dormant:bool=not director._running and player.text_input_owner==null
+	get_tree().paused=false
+	if not _require(paused_reload_dormant,"pending completed-to-earlier resume remains dormant while paused"):return
+	await get_tree().create_timer(.3).timeout
+	if not _require(director._running and director.waking==null and director.message_id=="wake_passed" and director.state==restored_facts,"completed-to-earlier reload automatically resumes saved bedroom after input release"):return
+	await get_tree().create_timer(1.5).timeout
+	await _shot("wake_after_completed_reload.png")
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("completed_boundary.json")
+	RealityState.persistence_enabled=true;RealityState.load_game()
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	if not _require(director.state.phase=="prologue_complete" and not director.is_processing(),"forward reload retires the resumed opening again"):return
+	var reload_camera:=Camera3D.new();reload_camera.cull_mask=player.camera.cull_mask;add_child(reload_camera)
+	reload_camera.global_transform=player.camera.global_transform;reload_camera.make_current()
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("waking_reload.json")
+	RealityState.persistence_enabled=true;RealityState.load_game()
+	RealityState.persistence_enabled=false;RealityState.save_path=old_path
+	await get_tree().create_timer(.3).timeout
+	if not _require(reload_camera.is_current() and not director._running and director.waking==null and director.state.phase=="dream","completed-to-DREAM reload preserves a foreign camera while waiting"):return
+	player.camera.make_current();reload_camera.queue_free()
+	await get_tree().create_timer(.3).timeout
+	if not _require(is_instance_valid(director.waking) and director.waking.active and director.state.phase=="dream" and not world.player_avatar.visible and carrier.is_story_absent(),"completed-to-DREAM reload starts the saved shot after foreign view release"):return
 	director.shutdown()
 	await get_tree().create_timer(.3).timeout
 	_require(carrier.session.draft=="Unsubmitted waking draft.","waking does not alter typed drafts")
