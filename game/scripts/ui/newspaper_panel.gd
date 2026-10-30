@@ -15,10 +15,20 @@ const RED := Color(0.58, 0.12, 0.10)
 const PAPER := Color(0.86, 0.83, 0.74)
 const RULE := Color(0.32, 0.29, 0.25)
 const MARGIN := 48
+## Pixels of leftward travel that carry the sheet fully over.
+const TURN_TRAVEL_PX := 320.0
+const CORNER_SIZE := 72.0
 
 var catalog: NewspaperCatalog
 var paper_id := ""
 var date := ""
+var side := "front"
+var _sheet: Control
+var _scroll: ScrollContainer
+var _corner: Control
+var _gripped := false
+var _grip_from := "front"
+var _turn := 0.0
 var _player: Node
 var _on_close: Callable = Callable()
 var _page: VBoxContainer
@@ -108,10 +118,12 @@ func _build() -> void:
 	sheet.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	sheet.add_theme_stylebox_override("panel", TelegramStyle.paper_panel())
 	row.add_child(sheet)
+	_sheet = sheet
 	var scroll := ScrollContainer.new()
 	scroll.name = "Scroll"
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	sheet.add_child(scroll)
+	_scroll = scroll
 	var margin := MarginContainer.new()
 	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	for side in ["left", "right", "top", "bottom"]:
@@ -122,11 +134,28 @@ func _build() -> void:
 	_page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_page.add_theme_constant_override("separation", 8)
 	margin.add_child(_page)
+	# The sheet's lower corner, curled up where there is a back page to turn to.
+	_corner = Control.new()
+	_corner.name = "Corner"
+	_corner.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+	_corner.offset_left = -CORNER_SIZE
+	_corner.offset_top = -CORNER_SIZE
+	_corner.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	_corner.visible = false
+	add_child(_corner)
+	var curl := Polygon2D.new()
+	curl.name = "Curl"
+	curl.color = PAPER.darkened(0.25)
+	curl.polygon = PackedVector2Array([Vector2(CORNER_SIZE, 0), Vector2(0, CORNER_SIZE),
+			Vector2(CORNER_SIZE, CORNER_SIZE)])
+	_corner.add_child(curl)
 
 
-func _show(paper: String, issue_date: String) -> void:
+func _show(paper: String, issue_date: String, page_side := "front") -> void:
 	paper_id = paper
 	date = issue_date
+	side = page_side
+	_corner.visible = false
 	for child in _page.get_children():
 		_page.remove_child(child)
 		child.queue_free()
@@ -144,6 +173,11 @@ func _show(paper: String, issue_date: String) -> void:
 		var carrier: Node = _player.carried_device
 		if carrier.get("witness") != null:
 			carrier.witness.paper_shown(catalog, paper, issue_date)
+	var back: Variant = page.get("back", null)
+	_corner.visible = back is Dictionary
+	if side == "back" and back is Dictionary:
+		_show_back(meta, back)
+		return
 	var red: bool = str(meta.get("ink", "black")) == "red"
 	# Masthead.
 	_label(str(meta.get("name", paper)).to_upper(), 44, RED if red else INK, _bold,
@@ -213,6 +247,27 @@ func _show(paper: String, issue_date: String) -> void:
 	_label("ESC closes the paper", 12, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
+## The back of the sheet: a running head, four typed columns, the foot.
+func _show_back(meta: Dictionary, back: Dictionary) -> void:
+	_label("%s   %s" % [str(meta.get("name", paper_id)), catalog.long_date(date)], 14, INK_SOFT, _italic,
+			HORIZONTAL_ALIGNMENT_CENTER)
+	_rule(2)
+	var columns := HBoxContainer.new()
+	columns.add_theme_constant_override("separation", 24)
+	_page.add_child(columns)
+	for column: Dictionary in back.get("columns", []):
+		var box := VBoxContainer.new()
+		box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		box.add_theme_constant_override("separation", 6)
+		columns.add_child(box)
+		_label_into(box, str(column.get("kind", "")).replace("_", " ").to_upper(), 12, INK_SOFT, _italic)
+		_label_into(box, str(column.get("headline", "")).to_upper(), 16, INK, _bold)
+		_label_into(box, str(column.get("body", "")), 15, INK)
+	_rule(1)
+	_label(str(back.get("foot", "")), 14, INK_SOFT, _italic)
+	_label("ESC closes the paper", 12, INK_SOFT, _italic, HORIZONTAL_ALIGNMENT_RIGHT)
+
+
 func _empty_shelf() -> void:
 	for child in _page.get_children():
 		_page.remove_child(child)
@@ -253,6 +308,37 @@ func _on_shelf_selected(index: int) -> void:
 	if index < 0 or index >= _shelf_entries.size():
 		return
 	_show(_shelf_entries[index].paper, _shelf_entries[index].date)
+
+
+## Click takes the curled corner, leftward motion carries the sheet over, the
+## next click lets go (RUL-013). Past halfway it settles on the other side.
+func _input(event: InputEvent) -> void:
+	if _closed or _corner == null: return
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if _gripped:
+			_release_corner()
+		elif _corner.visible and _corner.get_global_rect().has_point(event.position):
+			_gripped = true
+			_grip_from = side
+			_turn = 0.0
+		else:
+			return
+		get_viewport().set_input_as_handled()
+	elif _gripped and event is InputEventMouseMotion:
+		_turn = clampf(_turn - event.relative.x / TURN_TRAVEL_PX, 0.0, 1.0)
+		var shown := _grip_from if _turn < 0.5 else ("back" if _grip_from == "front" else "front")
+		if shown != side:
+			_show(paper_id, date, shown)
+			_scroll.scroll_vertical = 0
+		_sheet.pivot_offset = _sheet.size * 0.5
+		_sheet.scale.x = maxf(absf(1.0 - 2.0 * _turn), 0.02)
+		get_viewport().set_input_as_handled()
+
+
+func _release_corner() -> void:
+	_gripped = false
+	_turn = 0.0
+	create_tween().tween_property(_sheet, "scale", Vector2.ONE, 0.12)
 
 
 func _unhandled_input(event: InputEvent) -> void:

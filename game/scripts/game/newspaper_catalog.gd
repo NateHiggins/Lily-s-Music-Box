@@ -38,6 +38,12 @@ const SLICE_PATHS: Array[String] = [
 	"res://data/newspapers/1929-11a.json",
 ]
 const PAPER_IDS: Array[String] = ["record", "speaker"]
+## The back page, where an issue has one: what each paper runs behind its front.
+const BACK_COLUMNS := 4
+const BACK_KINDS := {
+	"record": ["news", "notices", "sport", "weather", "markets", "classified"],
+	"speaker": ["news", "sport", "pun_derby", "ask_operator", "listening_lady", "classified"],
+}
 const FIRST_DATE := "1928-11-10"
 const LAST_DATE := "1929-11-09"
 ## The rack keeps a few days; older issues are gone with the ice men.
@@ -231,12 +237,44 @@ func _load_slices() -> void:
 				continue
 			var ok := true
 			for paper_id in PAPER_IDS:
-				if not _valid_page(entry.get(paper_id, null), "%s %s %s" % [path, date, paper_id]):
+				var where := "%s %s %s" % [path, date, paper_id]
+				if not _valid_page(entry.get(paper_id, null), where):
+					ok = false
+				elif not _valid_back(entry[paper_id].get("back", null), paper_id, where):
 					ok = false
 			if ok:
 				issues[date] = entry
 	dates.assign(issues.keys())
 	dates.sort()
+
+
+## An issue's optional back page: four typed columns and a one-line foot.
+## Absent is ordinary; present and malformed is a startup message.
+func _valid_back(back: Variant, paper_id: String, where: String) -> bool:
+	if back == null:
+		return true
+	if back is not Dictionary:
+		errors.append("%s: back page is not an object" % where)
+		return false
+	var ok := true
+	var columns: Variant = back.get("columns", null)
+	if columns is not Array or columns.size() != BACK_COLUMNS:
+		errors.append("%s: back page wants %d columns" % [where, BACK_COLUMNS])
+		ok = false
+	else:
+		for column in columns:
+			if column is not Dictionary or str(column.get("headline", "")) == "" \
+					or str(column.get("body", "")) == "":
+				errors.append("%s: a back-page column needs headline and body" % where)
+				ok = false
+			elif str(column.get("kind", "")) not in BACK_KINDS[paper_id]:
+				errors.append("%s: no back-page column kind %s" % [where, column.get("kind", "")])
+				ok = false
+	var foot := str(back.get("foot", ""))
+	if foot == "" or "\n" in foot:
+		errors.append("%s: back-page foot must be one line" % where)
+		ok = false
+	return ok
 
 
 ## The authored front page, checked at load so a broken file is a startup
