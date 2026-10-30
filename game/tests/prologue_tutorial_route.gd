@@ -289,8 +289,17 @@ func _review_visitor() -> bool:
 	_require(not carrier.rig.visible,"carrier independently protects observer privacy while the crossing implementation is pending")
 	player.camera.make_current();held_observer.queue_free()
 	await get_tree().process_frame;await get_tree().process_frame
-	_require(carrier.rig.visible and carrier.device.get_instance_id()==device_id,"return to the player retains the same private machine at the handoff boundary")
-	return true
+	# The observer legitimately cancels the crossing. Its owner retries on the
+	# existing 0.1-second poll; two process frames need not include that poll.
+	# Observe normal recovery without posing the rig or restarting the clip.
+	var recovery_deadline:=Time.get_ticks_msec()+3000
+	var recovery_frames:=0
+	while not carrier.rig.visible and Time.get_ticks_msec()<recovery_deadline:
+		await get_tree().process_frame
+		recovery_frames+=1
+	var recovered:bool=carrier.rig.visible and carrier.device.get_instance_id()==device_id and carrier.rig.get_instance_id()==rig_id and carrier.is_story_absent() and is_instance_valid(director.mirror_crossing) and director.mirror_crossing.active and not director.mirror_crossing.world_stage and player.text_input_owner==director.mirror_crossing
+	print("VISITOR HANDOFF RECOVERY ",JSON.stringify({"frames":recovery_frames,"visible":carrier.rig.visible,"same_device":carrier.device.get_instance_id()==device_id,"same_rig":carrier.rig.get_instance_id()==rig_id,"absent":carrier.is_story_absent(),"phase":director.state.phase,"poll":director._poll,"active":is_instance_valid(director.mirror_crossing) and director.mirror_crossing.active}))
+	return _require(recovered,"return to the player retains the same private machine at the handoff boundary")
 
 func _crossing_age(target:float) -> bool:
 	var deadline:=Time.get_ticks_msec()+20000
@@ -1161,7 +1170,7 @@ func _full_sequence_ending() -> void:
 	_require(player.camera.is_current() and player.text_input_owner==null and not director.is_processing(),"completed sequence releases cinematic camera, input and director polling")
 	_require(world.shop_simulation.advance_current() and not world.shop_simulation.failed,"existing shop authority accepts the adopted clock without a future elapsed cursor")
 	if failures.is_empty():await _reload_completed_sequence(carrier,rig_id)
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("full_sequence_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"One occupied world, public DREAM/wake owner, actual bed-to-bath movement and gestures, existing witnessed-visitor/crossing reload controls, natural first-contact/arm/sky/stinger and completed validated reload. No title-button launch, uninterrupted no-reload run, complete save-boundary matrix or human acceptance.","phases":phase_trace,"lines":seen,"cutaway_samples":captured_cutaway,"initial_clock":start_clock,"final_clock":RealityState.data.campaign_clock,"state":director.state,"failures":failures},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("full_sequence_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"One occupied world, public DREAM/wake owner, actual bed-to-bath movement and gestures, existing witnessed-visitor/crossing reload controls, natural first-contact/arm/sky/stinger and completed validated reload. No uninterrupted no-reload run, complete save-boundary matrix or human acceptance.","actual_title_launch":use_installed_director,"phases":phase_trace,"lines":seen,"cutaway_samples":captured_cutaway,"initial_clock":start_clock,"final_clock":RealityState.data.campaign_clock,"state":director.state,"failures":failures},"\t"))
 	frame_trace.complete=failures.is_empty()
 
 
