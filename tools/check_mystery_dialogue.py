@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Hold the proposed mystery dialogue (design/mystery_dialogue) to its own rules.
+"""Hold the first-draft mystery dialogue (game/data/mystery) to its own rules.
 
     python tools/check_mystery_dialogue.py [--render design/mystery_dialogue/READ_ALOUD.md]
 
-The drafts are not live. Failures are structural or rule breaks a machine can
+Every line is still a draft for the owner's playtest. Failures are structural or rule breaks a machine can
 see; whether a line is funny, or right for Adela, stays with people. Each tree
 also passes tools/audit_authored_voice.py, which owns the shared tree contract.
 """
@@ -16,7 +16,7 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-DRAFTS = ROOT / "design/mystery_dialogue"
+DRAFTS = ROOT / "game/data/mystery"
 LIVE_COMPANION = ROOT / "game/data/dialogue/companion.json"
 YEAR = ("1928-11-10", "1929-11-09")
 DEATH = "1929-07-19"

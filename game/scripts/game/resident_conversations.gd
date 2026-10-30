@@ -80,6 +80,39 @@ const OPINION_PATHS: Array[String] = [
 ]
 const OPINION_PREFIX := "op:"
 const OPINION_MENU := "op_menu"
+## The mystery threads (design/ORISON_MYSTERY_DIALOGUE_2026-10-30.md): dated,
+## houred and earned topics on the same panel. Flags are what the player knows,
+## never what a resident knows, and they move no trust and touch no case.
+## Literal paths for the reader gate.
+const MYSTERY_PATHS: Array[String] = [
+	"res://data/mystery/adela_voss.json",
+	"res://data/mystery/cal_dwyer.json",
+	"res://data/mystery/cam_ortiz.json",
+	"res://data/mystery/emil_voss.json",
+	"res://data/mystery/evelyn_marsh.json",
+	"res://data/mystery/h_vantry.json",
+	"res://data/mystery/iris_bell.json",
+	"res://data/mystery/jonah_price.json",
+	"res://data/mystery/juno_kells.json",
+	"res://data/mystery/lena_ortiz.json",
+	"res://data/mystery/mae_kessler.json",
+	"res://data/mystery/malcolm_reed.json",
+	"res://data/mystery/mina_vale.json",
+	"res://data/mystery/mr_ewald.json",
+	"res://data/mystery/nadia_quell.json",
+	"res://data/mystery/noel_price.json",
+	"res://data/mystery/omar_bell.json",
+	"res://data/mystery/patrolman.json",
+	"res://data/mystery/peter_wren.json",
+	"res://data/mystery/rhea_sato.json",
+	"res://data/mystery/sacha_reed.json",
+	"res://data/mystery/teresa_vale.json",
+	"res://data/mystery/transient_guests.json",
+]
+const MYSTERY_FLAG_PREFIX := "m_"
+const MYSTERY_HEARD_PREFIX := "mt:"
+const MYSTERY_MENU := "mystery_menu"
+const PLAYTEST_ENV := "ORISON_MYSTERY_PLAYTEST"
 
 ## Trust at which a resident moves on from first contact, and at which the one
 ## quiet integration beat is offered. Mina's case uses its own stages.
@@ -91,6 +124,12 @@ var trees: Dictionary = {}
 var units: Dictionary = {}
 var notes: Dictionary = {}
 var opinions: Dictionary = {}   # resident_id -> {hook, hook_line, opinions: [..]}
+var mystery: Dictionary = {}    # resident_id -> {meta, entries, threads, nodes}
+## Set only by the playtest panel: read the threads as of this date and minute,
+## with held threads open, without moving the clock or anything that reads it.
+var playtest_date := ""
+var playtest_minute := -1
+var playtest_holds := false
 var _last_player: Node = null
 var _clock: CampaignClock
 var errors: Array[String] = []
@@ -113,6 +152,9 @@ func setup(panel: CaseDialoguePanel, player_unit := Callable(),
 	_load_trees()
 	_load_notes()
 	_load_opinions()
+	_load_mystery()
+	if OS.get_environment(PLAYTEST_ENV) == "1":
+		add_child(preload("res://scripts/game/mystery_playtest.gd").new())
 
 
 func _ready() -> void:
@@ -191,7 +233,8 @@ func start(resident_id: String) -> bool:
 			RealityCases.interact_with_resident(resident_id)
 			return true
 		return false
-	var tree: Dictionary = with_weather(resident_id,with_opinions(resident_id, trees[resident_id], today()))
+	var tree: Dictionary = with_weather(resident_id,with_opinions(resident_id,
+			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today()))
 	var entry_id := entry_for(resident_id)
 	var entries: Dictionary = tree.get("entries", {})
 	var node_id := str(entries.get(entry_id, entries.get("first_stable", "")))
@@ -246,7 +289,8 @@ func _available(resident_id: String, choice: Dictionary) -> bool:
 
 
 func _record(resident_id: String, flag: String, trust: int) -> void:
-	if flag.begins_with("wx:"):
+	if flag.begins_with("wx:") or flag.begins_with(MYSTERY_FLAG_PREFIX) \
+			or flag.begins_with(MYSTERY_HEARD_PREFIX):
 		RealityState.grant_knowledge(flag)
 		RealityState.commit()
 		return
@@ -339,6 +383,8 @@ func with_weather(resident_id: String, tree: Dictionary) -> Dictionary:
 
 ## The campaign date as YYYY-MM-DD, or "" when no clock is bound (a bare test).
 func today() -> String:
+	if playtest_date != "":
+		return playtest_date
 	if _clock == null:
 		_clock = CampaignClock.new()
 	if not _clock.bind_state():
@@ -422,6 +468,170 @@ func with_opinions(resident_id: String, tree: Dictionary, date: String) -> Dicti
 		choices.append({"label": str(record.get("hook", "You've seen the paper.")), "goto": hook_goto})
 		entry_node["choices"] = choices
 	return copy
+
+
+## --- mystery threads -----------------------------------------------------
+
+## The campaign minute of the day, or -1 when no clock is bound.
+func minute_now() -> int:
+	if playtest_minute >= 0:
+		return playtest_minute
+	if _clock == null:
+		_clock = CampaignClock.new()
+	if not _clock.bind_state():
+		return -1
+	var local := _clock.local_datetime()
+	if local.is_empty():
+		return -1
+	return int(local.hour) * 60 + int(local.minute)
+
+
+static func _clock_minute(value: String) -> int:
+	var parts := value.split(":")
+	return int(parts[0]) * 60 + int(parts[1])
+
+
+## The threads a person would open now: inside the dates and hours, every
+## `requires` known, not yet heard, and not held for another owner's canon.
+func active_threads(resident_id: String, date: String, minute: int) -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	if date == "":
+		return out
+	for thread in (mystery.get(resident_id, {}).get("threads", []) as Array):
+		if date < str(thread.from) or date > str(thread.until):
+			continue
+		if thread.has("hold") and not playtest_holds:
+			continue
+		if RealityState.has_knowledge(MYSTERY_HEARD_PREFIX + str(thread.id)):
+			continue
+		if thread.has("hours"):
+			if minute < _clock_minute(str(thread.hours[0])) or minute > _clock_minute(str(thread.hours[1])):
+				continue
+		var ready := true
+		for flag in thread.get("requires", []):
+			if not RealityState.has_knowledge(str(flag)):
+				ready = false
+		if ready:
+			out.append(thread)
+	return out
+
+
+## A working copy of the tree with the open threads grafted on: every entry node
+## gains each thread's topic, and arriving at its root marks it heard. A thread
+## ends the conversation where its own nodes end.
+func with_mystery(resident_id: String, tree: Dictionary, date: String, minute: int) -> Dictionary:
+	var active := active_threads(resident_id, date, minute)
+	if active.is_empty():
+		return tree
+	var copy: Dictionary = tree.duplicate(true)
+	_graft_thread_nodes(resident_id, copy, active)
+	var entries: Dictionary = copy.get("entries", {})
+	for entry_name in entries:
+		var entry_node: Dictionary = copy.nodes.get(str(entries[entry_name]), {})
+		if entry_node.is_empty():
+			continue
+		var choices: Array = entry_node.get("choices", [])
+		for thread in active:
+			if not choices.any(func(c): return str(c.get("goto", "")) == str(thread.root)):
+				choices.append({"label": str(thread.topic), "goto": str(thread.root)})
+		entry_node["choices"] = choices
+	return copy
+
+
+func _graft_thread_nodes(resident_id: String, into: Dictionary, active: Array[Dictionary]) -> void:
+	var source: Dictionary = mystery[resident_id].nodes
+	for node_id in source:
+		into.nodes[node_id] = (source[node_id] as Dictionary).duplicate(true)
+	for thread in active:
+		var root: Dictionary = into.nodes[str(thread.root)]
+		var flags: Array = root.get("flags", [])
+		flags.append(MYSTERY_HEARD_PREFIX + str(thread.id))
+		root["flags"] = flags
+
+
+## Open a person's threads with no door tree behind them, from a menu of their
+## topics. False when nothing is open. Adela, Emil, Mr. Ewald, Vantry and the
+## patrolman have no door in the world yet, so this is how they are read.
+func start_mystery(resident_id: String) -> bool:
+	if dialogue == null or dialogue.attention_active():
+		return false
+	var active := active_threads(resident_id, today(), minute_now())
+	if active.is_empty():
+		return false
+	var tree := {"meta": (mystery[resident_id].meta as Dictionary).duplicate(), "nodes": {}}
+	_graft_thread_nodes(resident_id, tree, active)
+	var menu := {"line": "...", "choices": []}
+	for thread in active:
+		menu.choices.append({"label": str(thread.topic), "goto": str(thread.root)})
+	tree.nodes[MYSTERY_MENU] = menu
+	_active_resident = resident_id
+	dialogue.run_tree(tree, MYSTERY_MENU,
+			func(flag: String, trust: int): _record(resident_id, flag, trust),
+			Callable(),
+			{"available": func(choice: Dictionary): return _available(resident_id, choice),
+			 "on_node_flag": func(flag: String): _record(resident_id, flag, 0)})
+	conversation_started.emit(resident_id, MYSTERY_MENU)
+	return true
+
+
+func _load_mystery() -> void:
+	mystery.clear()
+	for path in MYSTERY_PATHS:
+		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+		if parsed is not Dictionary or str(parsed.get("meta", {}).get("resident_id", "")) == "":
+			errors.append("mystery tree unreadable: %s" % path)
+			continue
+		if _valid_mystery(parsed, path):
+			mystery[str(parsed.meta.resident_id)] = parsed
+
+
+func _valid_mystery(doc: Dictionary, path: String) -> bool:
+	var ok := true
+	var nodes: Dictionary = doc.get("nodes", {})
+	for field in ["speaker_default", "voice_prefix", "voice_status", "status", "notes"]:
+		if str(doc.meta.get(field, "")) == "":
+			errors.append("%s: meta.%s is empty" % [path, field])
+			ok = false
+	for entry in doc.get("entries", {}):
+		if not nodes.has(str(doc.entries[entry])):
+			errors.append("%s: entry %s names a missing node" % [path, entry])
+			ok = false
+	for thread in doc.get("threads", []):
+		for field in ["id", "from", "until", "topic", "source", "root"]:
+			if str(thread.get(field, "")) == "":
+				errors.append("%s: a thread has no %s" % [path, field])
+				ok = false
+		if not nodes.has(str(thread.get("root", ""))):
+			errors.append("%s: thread %s root is missing" % [path, thread.get("id", "")])
+			ok = false
+		if thread.has("hours") and (thread.hours is not Array or thread.hours.size() != 2):
+			errors.append("%s: thread %s hours is not a pair" % [path, thread.get("id", "")])
+			ok = false
+		if thread.has("hold") and str(thread.hold) == "":
+			errors.append("%s: thread %s hold names nothing" % [path, thread.get("id", "")])
+			ok = false
+	for node_id in nodes:
+		var node: Dictionary = nodes[node_id]
+		if str(node.get("line", "")) == "":
+			errors.append("%s: node %s has no line" % [path, node_id])
+			ok = false
+		if node.has("bank") and str(node.bank) == "":
+			errors.append("%s: node %s bank is empty" % [path, node_id])
+			ok = false
+		if node.has("speaker") and str(node.speaker) == "":
+			errors.append("%s: node %s speaker is empty" % [path, node_id])
+			ok = false
+		if node.has("silence_goto") and not nodes.has(str(node.silence_goto)):
+			errors.append("%s: node %s silence_goto is missing" % [path, node_id])
+			ok = false
+		for choice in node.get("choices", []):
+			if str(choice.get("label", "")) == "":
+				errors.append("%s: node %s has an unlabelled choice" % [path, node_id])
+				ok = false
+			if choice.has("goto") and not nodes.has(str(choice.goto)):
+				errors.append("%s: node %s goto '%s' is missing" % [path, node_id, choice.goto])
+				ok = false
+	return ok
 
 
 func _load_opinions() -> void:
