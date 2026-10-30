@@ -13,13 +13,14 @@ const WESTERN_SOIL_PROFILE := [[20.3,-.02],[24.3,-.03],[28.3,-.06],[32.3,-.11],[
 func _ready() -> void:
 	_route_scope=OS.get_environment("ORISON_CITY_ROUTE_SCOPE")
 	if _route_scope.is_empty():_route_scope="full"
-	if _route_scope not in ["full","northwest","opposing"]:
+	if _route_scope not in ["full","northwest","opposing","hampton"]:
 		push_error("Unknown ORISON_CITY_ROUTE_SCOPE: "+_route_scope)
 		get_tree().quit(64)
 		return
 	super._ready()
 	route_label = "V2 CITY NORTHWEST" if _route_scope=="northwest" else "V2 CITY EXTERIOR"
 	if _route_scope=="opposing":route_label="V2 CITY OPPOSING"
+	if _route_scope=="hampton":route_label="V2 CITY HAMPTON FOOTWAY"
 
 func _process(_delta: float) -> void:
 	if not _collect_exploration: return
@@ -50,6 +51,9 @@ func _programme_sources() -> Dictionary:
 	return result
 
 func _run() -> void:
+	if _route_scope=="hampton":
+		await _run_hampton()
+		return
 	if _route_scope=="opposing":
 		await _run_opposing()
 		return
@@ -60,6 +64,54 @@ func _run() -> void:
 	city_observations["programme_sources"] = programme_before
 	city_observations["route_scope"]="full"
 	await super._run()
+
+func _run_hampton() -> void:
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"footway evidence directory exists before startup/captures")
+	if not failures.is_empty():get_tree().quit(1);return
+	source_before=_digest();programme_before=_programme_sources()
+	city_observations["programme_sources"]=programme_before
+	city_observations["route_scope"]="hampton"
+	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
+	CampaignTime.set_frozen_for_tests(true);CampaignClock.new().configure_date(1928,11,10,720)
+	var started:=Time.get_ticks_usec()
+	world=Runtime.instantiate();add_child(world)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	check(not world.startup_failed and world.player!=null,"production composition starts for connected Hampton public footway")
+	if not world.startup_failed and world.player!=null:
+		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
+		var city:=world.get_node("CityShells") as Node3D
+		city_observations["startup_ms"]=(Time.get_ticks_usec()-started)/1000.
+		city_observations["render_settings"]={"resolution":str(get_viewport().get_visible_rect().size),"msaa":get_viewport().msaa_3d,"taa":get_viewport().use_taa,"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"mesh_lod_threshold":get_viewport().mesh_lod_threshold}
+		_check_frontage_surfaces(city,["Street_Hampton_-5_L0","Street_Hampton_-6_L0"],3,"hampton_public_surfaces",true)
+		var recoveries_before: int=int(world.safety_net.recoveries)
+		if await _opposing_start(city,Vector3(-75.4,20.2,0),"retained_western_sidewalk"):
+			var points: Array[Vector3]=[Vector3(-75.4,25.2,-.7365),Vector3(-75.4,26.6,-.7365),Vector3(-93.7,26.6,-1.011),Vector3(-80,26.6,-.8055),Vector3(-80,29.5,0),Vector3(-80,26.6,-.8055),Vector3(-65,26.6,-.5805),Vector3(-75.4,26.6,-.7365),Vector3(-75.4,20.2,-.7365)]
+			for index in points.size():
+				if not await _city_walk(points[index],true):break
+				if index==1:await _station_view("hampton_connected_walk",Vector3(-84,27,1.2))
+				if index==4:
+					check(absf(city.to_local(player.global_position).y)<.025 and player.is_on_floor(),"normal controller reaches actual level landing,not merely the penultimate tread")
+					await _station_view("hampton_stoop_landing",Vector3(-80,30.7,1.6))
+				if index==6:await _station_view("hampton_frontage_walk",Vector3(-84,27,.7))
+		check(trace.size()==9,"nine continuous normal-controller legs join retained sidewalk,whole frontage and stair ascent/descent")
+		check(world.safety_net.recoveries==recoveries_before,"public footway has no safety-net rescue")
+		check(not player.noclip and not player.crouched and is_equal_approx(player.STANDING_HEIGHT,1.524),"public footway retains the five-foot standing production body")
+		city_observations["walking_timing"]={"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"samples":_exploration_samples,"scope":"Nine actual walking legs only; initial explicit nearby placement,settles and PNG writes excluded. No matched speedup or whole-city performance claim."}
+	Input.action_release("move_forward");world.shutdown_for_tests();world.free()
+	await get_tree().physics_frame
+	var source_after:=_digest()
+	check(not source_after.is_empty() and source_before==source_after and programme_before==_programme_sources(),"public footway production/test/asset sources remain frozen")
+	var passed:=failures.is_empty()
+	var receipt: Dictionary={"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
+		"scope":"One explicit nearby retained-sidewalk start followed by nine continuous normal-controller legs through new public paving and level-tread stoop. Actual three new loaded finish partitions inspected. No scenic door operation,new interior,entrance/station/distant/radius/save/full-city/artistic acceptance.",
+		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
+		"source":{"test_path":"game/tests/v2_city_transport_route.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
+		"contracts":{"production_composition":{"executed":true,"passed":passed},"hampton_connected_walk":{"executed":not trace.is_empty(),"passed":passed and trace.size()==9,"waypoints":trace.size()},"hampton_loaded_surfaces":{"executed":city_observations.has("hampton_public_surfaces"),"passed":passed},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
+		"checks":city_checks,"failures":failures,"trace":trace,"observations":city_observations}
+	FileAccess.open(directory.path_join("hampton_footway_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
+	print("%s: %d checks; %d waypoints; %d failures"%[route_label,city_checks,trace.size(),failures.size()])
+	get_tree().quit(0 if passed else 1)
 
 func _opposing_start(city: Node3D,source: Vector3,identity: String) -> bool:
 	# Independent local fixture, never a player spawn or a travel shortcut in game.
@@ -218,19 +270,26 @@ func _run_northwest() -> void:
 func _check_northwest_surfaces(city: Node3D) -> void:
 	_check_frontage_surfaces(city,["site_nw1","site_nw3","site_nw4"],39,"northwest_surfaces")
 
-func _check_frontage_surfaces(city: Node3D,identities: Array,expected_count: int,observation_key: String) -> void:
+func _check_frontage_surfaces(city: Node3D,identities: Array,expected_count: int,observation_key: String,streets: bool=false) -> void:
 	var metrics:=preload("res://tests/orison_v2_domestic_native_test.gd").new()
 	var inventory:=preload("res://tests/orison_v2_surface_inventory.gd").new()
 	var parts: Array[String]=[]
 	var expected_names: Array[String]=[]
-	var authored: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_elevations_lod1.json"))
-	for part: Dictionary in authored.parts:
-		if str(part.name).split("__")[0] in identities:expected_names.append(str(part.name))
+	var authored: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/exterior/city_streets.json" if streets else "res://tests/fixtures/orison_city_elevations_lod1.json"))
+	if streets:
+		for part: String in authored.parts:
+			if part.split("__")[0] in identities:expected_names.append(part)
+	else:
+		for part: Dictionary in authored.parts:
+			if str(part.name).split("__")[0] in identities:expected_names.append(str(part.name))
 	for draw: MeshInstance3D in city.find_children("*","MeshInstance3D",true,false):
-		if not draw.get_meta("v2_city_body_lod",false) or str(draw.name).split("__")[0] not in identities:continue
+		if not draw.get_meta("v2_city_streets" if streets else "v2_city_body_lod",false) or str(draw.name).split("__")[0] not in identities:continue
 		parts.append(str(draw.name))
 		metrics._check_cap_mapping(draw.mesh,true)
 		var key: String=str(draw.name).split("__")[-1]
+		if streets:
+			for finish: Dictionary in authored.finishes:
+				if str(finish.alias)==key:key=str(finish.catalog_key);break
 		var actual: Material=draw.get_active_material(0)
 		check(MatLib.SETS.has(key) and actual!=null,"new frontage has its registered physical finish: "+str(draw.name))
 		if actual==null:continue
@@ -262,12 +321,12 @@ func _evidence_scope() -> String:
 func _evidence_file() -> String:
 	return "city_exterior_contract.json"
 
-func _city_walk(point: Vector3) -> bool:
+func _city_walk(point: Vector3,literal_height: bool=false) -> bool:
 	var city := world.get_node("CityShells") as Node3D
-	if is_zero_approx(point.z):
+	if is_zero_approx(point.z) and not literal_height:
 		point.z = preload("res://scripts/building/orison_v2_city_streets.gd").surface_height(point.x)
 	print("CITY STATION WALK: source target ",point)
-	var focused: bool=_route_scope in ["northwest","opposing"]
+	var focused: bool=_route_scope in ["northwest","opposing","hampton"]
 	if focused:
 		RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),true)
 		_previous_exploration_usec=0

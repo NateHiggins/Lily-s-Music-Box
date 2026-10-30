@@ -28,6 +28,16 @@
   "retained_front_walk_rect": [-20.3, -14.75, 25.5, -9.795],
   "retained_south_walk_rect": [-20.3, -28.316, 22.0, -23.894],
   "protected_pier_margin_m": 0.15,
+  "public_footways": [
+    {
+      "id": "Hampton",
+      "walk_rects_m": [[-96.0,25.4,-64.0,27.8],[-76.6,25.0,-74.2,27.8]],
+      "stoop_rect_m": [-81.2,27.6,-78.8,30.0],
+      "stoop_landing_m": 1.0,
+      "stoop_risers": 6,
+      "stoop_top_m": 0.0
+    }
+  ],
   "finishes": {
     "road": {"catalog_key":"asphalt","tint":[0.73,0.72,0.68,1],"normal":0.35,"roughness":1.0,"pigment":1.0},
     "walk": {"catalog_key":"concrete","tint":[0.65,0.63,0.56,1],"normal":0.45,"roughness":1.0,"pigment":1.0},

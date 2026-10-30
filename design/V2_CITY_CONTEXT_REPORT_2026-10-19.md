@@ -2368,3 +2368,53 @@ Decision needed from owner:none for continued isolated construction. No merge
 into main is performed or implied by this candidate result.
 
 MERGE-CANDIDATE **8bac893c43679c2a5200cbd712df9e61b97f3831**
+
+### Hampton public footway and stoop WIP — October30 (INERT)
+
+After the prologue owner released the isolated source freeze,the next construction
+starts from pushed **fbf0e73c**. Canonical integration uses that immutable commit;
+this new work stays separate. The western cross street ends at sourceY25,while
+Hampton beginsY30. A new2.4m jointed public strip atY25.4–27.8 connects to its
+existing western sidewalk; a2.4m-wide six-rise limestone stoop meets the retained
+floor atY30,top0.0m. Its landing is1m deep; tread runs0.28m and nominal rises
+0.13425m. The scenic leaf,recess and existing0.12m threshold stay unchanged.
+This is authored AU construction,not a historical street-layout claim.
+
+Owning street production adds56 closed stocks and three material partitions at
+each level. Both complete exports retain all48 previous mesh attributes,indices
+and transforms exactly; all2,388 old stocks,traffic topology and retained owner
+footprints are exact. Exported family triangles change19,752→20,256 near and
+8,184→8,352 lower. Lower paving keeps its full body with coarser joints; every
+stair tread and landing remains. No new material key,gameplay authority,building
+placement,shop,road lane or traffic rule is introduced.
+
+Original native review01 fails five substrate controls because it incorrectly
+selected render exports,which deliberately omit buried and site-base faces.
+The failure,driver and native controls remain external. Review02 selects the
+actual retained **OrisonGroundClosedUnion** construction plus native foundations,
+with the same stations and orientation checks. It passes73 controls,including
+12 fixed floor/tread stations and five buried-base probes inside genuine native
+substrate. All four near/lower overview and stoop PNGs were actually inspected.
+Existing ground/foundation assets remain unchanged; no survey or receipt repinned.
+Saved plain native ground preview is context,not runtime PBR/art acceptance.
+
+The existing street bench now has an explicit Hampton scope; the existing route
+has a nine-leg connected sidewalk/frontage/stair ascent/descent programme from
+one nearby start. Neither new programme has executed yet. Default routes and
+movement speed,deadlines,tolerances,noclip and collision authorities stay unchanged.
+Nonmeasured import/parser is queued while canonical's static comparison finishes;
+no city measured run overlaps it. **hampton_footway_01/** holds raw native failures,
+successful controls,actual inspection and exact export retention comparison.
+The city count remains17 studies/132 remaining; this WIP grants no runtime,
+450m continuous district,performance or artistic acceptance.
+
+Required import subsequently completes304.85s with zero script errors; the
+existing parser passes all three affected scripts in11.06s,empty stderr. These
+are terminal nonmeasured checks,not playable qualification. Measured city work
+waits for the canonical owner's stationary callback diagnostic slot. The shared
+lane is released. A one-file EOL-only import experiment restores identical LF
+bytes with per-command autocrlf=false and produces clean Git status for that
+path; no persistent configuration or foreign index changes. Future required
+import timing must establish any benefit before a speedup claim. The original
+native substrate failure and successful actual-closed-owner correction remain
+unchanged. This named native WIP is preserved before main reconciliation.
