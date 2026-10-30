@@ -6778,5 +6778,558 @@
       }
     },
     "scope": "Native and isolated engine diagnostics only. Preserved authoring/harness failures, raw source-bound samples and inspected images. No runtime_contract, whole-city/access/performance or artistic acceptance. Retained equipment tank forced-far deformation remains open."
+  },
+  "northeast_office_bank_native_isolated_archive": {
+    "evidence_class": "INERT",
+    "checkpoint": "b6386bc538fa2dfa88e9d2e8d8ee011964301fa2",
+    "construction": "fe64e85b",
+    "owning_native_provenance": "2153c125",
+    "archive": "northeast_office_bank_native_isolated_review.zip",
+    "archive_sha256": "770434e44422ecb302580f96646efd0d1e47bb662f82d52d1852baf4a5eb5634",
+    "archive_bytes": 32463865,
+    "member_count": 108,
+    "members": {
+      "actual_corrected_native_inspection_02.json": {
+        "bytes": 2619,
+        "raw_sha256": "744fe1e5f103057d545436273d0196146f95314c520b97341adf9e12ed81fe56",
+        "lf_normalized_source": false
+      },
+      "actual_initial_native_inspection_01.json": {
+        "bytes": 2522,
+        "raw_sha256": "4170aa0e228307197ed4cd216c04a829b0199b567e0bda0535db123d1800b383",
+        "lf_normalized_source": false
+      },
+      "actual_loaded_inspection_01.json": {
+        "bytes": 3751,
+        "raw_sha256": "b967a25bffc70249aafaa2d56200499d3c076f62674f663eb92ffab5e73fd5a8",
+        "lf_normalized_source": false
+      },
+      "baseline.json": {
+        "bytes": 570447,
+        "raw_sha256": "39040e58e03c36d49e0cd283bab4eb7ea00b500661bb609479c752f0fe852b93",
+        "lf_normalized_source": false
+      },
+      "before_bench.gd": {
+        "bytes": 42604,
+        "raw_sha256": "b74eee74f766d8ee3cfc53403422d81dcda6d6fe5ba09d97ae4da402a716749a",
+        "lf_normalized_source": false
+      },
+      "before_main_candidate_merge_01.json": {
+        "bytes": 1884,
+        "raw_sha256": "efa48e084348cbe9e002d8e646eb5763ef18cc25ecccf563217cecc707a2f3d6",
+        "lf_normalized_source": false
+      },
+      "before_visual_repairs_source.py": {
+        "bytes": 77905,
+        "raw_sha256": "ea031e6be7ca0ebdefc07b06d47826d564f457e2a0d8cc9c1169d8c20a7f142e",
+        "lf_normalized_source": false
+      },
+      "bench_01/city_elevation_profile.json": {
+        "bytes": 143003,
+        "raw_sha256": "dc57344adea702257b4f13327155982c511245f597e0cc3bc6b8c2c29ad03b0a",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne3.png": {
+        "bytes": 1004800,
+        "raw_sha256": "edfc7bb2bb0c0d270800dc62e7830c0aa8bb96e3f4513cd9fd2f08695379ac54",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne3_natural_after.png": {
+        "bytes": 18913,
+        "raw_sha256": "846219a068000788abfc34f4f75e88c00655fec35c65ecefb1a0d22935b24a98",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne3_natural_before.png": {
+        "bytes": 18917,
+        "raw_sha256": "cb03831ff4c3b324e5b9c7edad667478ad3775bca2320f7630753a08d10f4306",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne3_natural_narrow.png": {
+        "bytes": 192672,
+        "raw_sha256": "cbe09440474810cceffb75914445e422acdd23e51cdb5f4fc2c7a360180d684a",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne3_natural_return.png": {
+        "bytes": 18917,
+        "raw_sha256": "cb03831ff4c3b324e5b9c7edad667478ad3775bca2320f7630753a08d10f4306",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne3_profile_far.png": {
+        "bytes": 345346,
+        "raw_sha256": "c63686a7f7e44b8a8c9e05fe9f7a31237f023bda85f81979f4df117896909d84",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne3_profile_near.png": {
+        "bytes": 345669,
+        "raw_sha256": "425c136ba46c0731a09d5d2d4b0c3b9d1e008d48cffdaf093fab2dcb03d6087f",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne4.png": {
+        "bytes": 577239,
+        "raw_sha256": "1c7dfa1bee740ee9d4a4c878e8fbd50db1a74bf9185445956928067533822115",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne4_natural_after.png": {
+        "bytes": 27782,
+        "raw_sha256": "89ee1fd6e11ac5d25b789fe1fa2caeef929c06289af157352d13dfdfa3a03e5b",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne4_natural_before.png": {
+        "bytes": 27817,
+        "raw_sha256": "a39ad0d237c37d73c7839646d152f4045706aebeacebfc3512eae7e68c1fd23b",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne4_natural_narrow.png": {
+        "bytes": 1684521,
+        "raw_sha256": "a00e5e6af1e0121221c19c92549e506c4fa1e03fae1453bcf0de338cfbdc3870",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne4_natural_return.png": {
+        "bytes": 27817,
+        "raw_sha256": "a39ad0d237c37d73c7839646d152f4045706aebeacebfc3512eae7e68c1fd23b",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne4_profile_far.png": {
+        "bytes": 335366,
+        "raw_sha256": "c051da64150cead82d3801a79e8a76665cde0570333d436cd132e4ca76cc18ed",
+        "lf_normalized_source": false
+      },
+      "bench_01/site_ne4_profile_near.png": {
+        "bytes": 335385,
+        "raw_sha256": "f12dc49e55bba6a8fdf2b4de59dd7247581d33634856e9c735e4db2ecf4fcd88",
+        "lf_normalized_source": false
+      },
+      "bench_01.log": {
+        "bytes": 279727,
+        "raw_sha256": "0a828d3fa6f6567b75606d3dc9ccfb6f1e39be83be0ea90492a93f493b1a8131",
+        "lf_normalized_source": false
+      },
+      "bench_01.log.receipt.json": {
+        "bytes": 2917,
+        "raw_sha256": "b4b0f26dc6689a88cf1e495ca1353ab53eba4c0184d57098da1038e7a187d7cb",
+        "lf_normalized_source": false
+      },
+      "bench_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "lf_normalized_source": false
+      },
+      "bench_01_batch.json": {
+        "bytes": 512,
+        "raw_sha256": "7f1c2417f5f588fba93d8d374c4b1d1918dbc801fc83c84d3351bd692a343c0d",
+        "lf_normalized_source": false
+      },
+      "bench_01_source.gd": {
+        "bytes": 43332,
+        "raw_sha256": "b8dded1d042b6e502783b357a9ceb5327b23589840bdf01422d9bdb9c7022642",
+        "lf_normalized_source": false
+      },
+      "bench_01_summary.json": {
+        "bytes": 9893,
+        "raw_sha256": "e9504f39a9b66f6db63133fb2e68b8fe0a7ac70a160d2650a6b72c54d34e6ef6",
+        "lf_normalized_source": false
+      },
+      "bench_01_wrapper.log": {
+        "bytes": 876,
+        "raw_sha256": "ab87e8209648364ac8d5bd59f10d3a3d50a38647e337e12a17d4d4fcef9a2d34",
+        "lf_normalized_source": false
+      },
+      "build_city_elevations.py": {
+        "bytes": 71101,
+        "raw_sha256": "54c852d04a1b597a1f5633b2b3e8c0e71d6e644d929e9d2d2cd393bd9a3a9c2c",
+        "lf_normalized_source": false
+      },
+      "build_low_01.log": {
+        "bytes": 12649,
+        "raw_sha256": "1ac4b23e61c5b5cf829e9a7109fc6afd49d62b307bab31a8f9a89cb572c7145d",
+        "lf_normalized_source": false
+      },
+      "build_low_02.log": {
+        "bytes": 12649,
+        "raw_sha256": "eb44f6d83d6670fd29ac5747d10fe2fb5757dc761b3f110f3599bee06fb86c8c",
+        "lf_normalized_source": false
+      },
+      "build_near_01.log": {
+        "bytes": 29316,
+        "raw_sha256": "117bac342498712280e2793cad2beb8e121ae530ddf34c4a20e0bdf291c17154",
+        "lf_normalized_source": false
+      },
+      "build_near_02.log": {
+        "bytes": 29315,
+        "raw_sha256": "2ef673283c6793de34fc90ca1fbb52f0935f47735ac8db2554dc7cf180e037f7",
+        "lf_normalized_source": false
+      },
+      "candidate_merge_retention_01.json": {
+        "bytes": 355,
+        "raw_sha256": "cd1560d460a8c4958906922a8943181ee0c7185b9a54ec4db9ab62a85fd76529",
+        "lf_normalized_source": false
+      },
+      "check_near_closed_stocks_02.py": {
+        "bytes": 3253,
+        "raw_sha256": "a15e018be815c548df6b75be9646014fb66b4b858351614cd065de645a37fbe8",
+        "lf_normalized_source": false
+      },
+      "city_commercial_architecture.py": {
+        "bytes": 76783,
+        "raw_sha256": "acfbd7a585915ae069d97c0bfe166f10aa697b390e15d29798eddb0d79a4958f",
+        "lf_normalized_source": false
+      },
+      "city_static_tests_01.log": {
+        "bytes": 118,
+        "raw_sha256": "a521135164d17d557e281f3d1022e8c13bd1f3c3a8563f1f97a043637909c5c9",
+        "lf_normalized_source": false
+      },
+      "compare_export_preservation_01.py": {
+        "bytes": 2043,
+        "raw_sha256": "1197971b9376f72c667e2e68e3c7c741cab14cb7009b57008ce3c52204604d83",
+        "lf_normalized_source": false
+      },
+      "compare_export_preservation_02.py": {
+        "bytes": 2043,
+        "raw_sha256": "8f19b0a3f5c7dd4858834f46df79f138155a3105b93829f8e1f9375357fe4016",
+        "lf_normalized_source": false
+      },
+      "export_preservation_01.json": {
+        "bytes": 1644,
+        "raw_sha256": "273891aac98b0c51d34c345244e75c4f20a9510149413ec06abc74ea7d3fdfd9",
+        "lf_normalized_source": false
+      },
+      "export_preservation_02.json": {
+        "bytes": 1644,
+        "raw_sha256": "de484b54cc3224bf0d9cc354124bede15adb52d6d3300b1e626b5012a30c4505",
+        "lf_normalized_source": false
+      },
+      "generated_uid_cleanup_01.json": {
+        "bytes": 105001,
+        "raw_sha256": "f9fcd5feaefd23673b98fb0fc376426d4bb229c3016da832dfcd8d0b95f97c4e",
+        "lf_normalized_source": false
+      },
+      "host_census_01.json": {
+        "bytes": 600,
+        "raw_sha256": "c88f662cfd54f871309f4e30e4de43bdad80b68520ea779c4309aaceee3e0c44",
+        "lf_normalized_source": false
+      },
+      "import_01.log": {
+        "bytes": 5115,
+        "raw_sha256": "b7b10776b694fa3895faa749c57e5564e0daa1eaed2129316832cac7f4a28f2c",
+        "lf_normalized_source": false
+      },
+      "import_01.log.receipt.json": {
+        "bytes": 2700,
+        "raw_sha256": "5a014f1ac4343b75ec1038ba3cc69b730b8959f2aaf8b152e64fbcc2252eabad",
+        "lf_normalized_source": false
+      },
+      "import_01.log.stderr": {
+        "bytes": 126252,
+        "raw_sha256": "3a97d2a574c9dd14601769dc364e2239d60e839cdee13124800cf6d0883cb0ed",
+        "lf_normalized_source": false
+      },
+      "import_02.log": {
+        "bytes": 1027,
+        "raw_sha256": "c265badae3056814d67bc2f671cd1548ef1a06a989d2fa3dc4249e3953f37588",
+        "lf_normalized_source": false
+      },
+      "import_02.log.receipt.json": {
+        "bytes": 2699,
+        "raw_sha256": "1ccba229b443423e5c208631024b534f5cc5ad2a7ca57b6e8e979303724deda2",
+        "lf_normalized_source": false
+      },
+      "import_02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "lf_normalized_source": false
+      },
+      "import_parser_01_batch.json": {
+        "bytes": 849,
+        "raw_sha256": "dca7183da48d5dd15b80cceb6de267f650c6a94758f9c2e144085ef8ad7257f6",
+        "lf_normalized_source": false
+      },
+      "import_parser_01_wrapper.log": {
+        "bytes": 1734,
+        "raw_sha256": "41dbdc3327540275ce8ff75b3aa1c900538f40616b48641f1f98eb8f76fe9b40",
+        "lf_normalized_source": false
+      },
+      "import_policy_01.log": {
+        "bytes": 100,
+        "raw_sha256": "dd7a6854f9093325bb423773aef90d0b8ed6fa3c5fde83beca218d3225098035",
+        "lf_normalized_source": false
+      },
+      "lower_native_review_01/bank_bow_balcony.png": {
+        "bytes": 1691885,
+        "raw_sha256": "1e2a22c6be9a1e5dbd977b2238cc2fb19c17a45f2acd5200fb9b60077e01142b",
+        "lf_normalized_source": false
+      },
+      "lower_native_review_01/bank_complete.png": {
+        "bytes": 1406153,
+        "raw_sha256": "e7067d4b9bb58e6fe38ee7775b5a44a93176f7b46710d5721ddf347a1cdc2e05",
+        "lf_normalized_source": false
+      },
+      "lower_native_review_01/native_review.json": {
+        "bytes": 5460,
+        "raw_sha256": "7e77d8e2d8a100b731a218f99c7b0d6eeeda1bba3940bc9974a14b06915ae01e",
+        "lf_normalized_source": false
+      },
+      "lower_native_review_01/works_bay_roof.png": {
+        "bytes": 1809281,
+        "raw_sha256": "03fe2685d4c5b0d99c0c7707adbeeb1af7dc07edecf4603e55d8eb5a07a3884c",
+        "lf_normalized_source": false
+      },
+      "lower_native_review_01/works_complete.png": {
+        "bytes": 1272937,
+        "raw_sha256": "01312c893c5f383329c0dd9b468b651da89b5b6a5fd58c768b3d766d50b7a204",
+        "lf_normalized_source": false
+      },
+      "lower_native_review_02/bank_complete.png": {
+        "bytes": 1401481,
+        "raw_sha256": "d7d349a0bdad9efdebccd828d9cc821c5e8050c4508cc90d2e04a0bc65a1dc7a",
+        "lf_normalized_source": false
+      },
+      "lower_native_review_02/bank_oculi_order.png": {
+        "bytes": 1707039,
+        "raw_sha256": "8fda435c55bdb59a8c46c89d954777df6767f618a36d2ed0f6538476ec1616ae",
+        "lf_normalized_source": false
+      },
+      "lower_native_review_02/native_review.json": {
+        "bytes": 5475,
+        "raw_sha256": "03ce41a25f813293b5ba52dbfc07b5bdd0f331bcd6fe753fc33d7f182b41d939",
+        "lf_normalized_source": false
+      },
+      "lower_native_review_02/works_complete.png": {
+        "bytes": 1272864,
+        "raw_sha256": "c2b3283a513180a89adb48cf5c64bbef301cd75c4248c9ed0fc7418ab24fc346",
+        "lf_normalized_source": false
+      },
+      "lower_native_review_02/works_hollow_pots.png": {
+        "bytes": 1498597,
+        "raw_sha256": "10332f8acaeeba36f03dec78caf36415bddf0f5543b92965b9a92505cb553492",
+        "lf_normalized_source": false
+      },
+      "moving_main_merge_aborted_01.json": {
+        "bytes": 338,
+        "raw_sha256": "d84f63c113be0653fe6d4449b7140cb3341ec9f3b470a3656d0c6b140917619a",
+        "lf_normalized_source": false
+      },
+      "near_closed_stocks_02.json": {
+        "bytes": 262408,
+        "raw_sha256": "18a558b5f78f5e8282c9db1427b28a5ff93d6819ab63fed7aca68f88baaf0434",
+        "lf_normalized_source": false
+      },
+      "near_closed_stocks_02.log": {
+        "bytes": 302,
+        "raw_sha256": "3b13bbb5e0ecae48281b85389b1bbb705640ea0d5b7056c3870c3b720405f751",
+        "lf_normalized_source": false
+      },
+      "near_native_review_01/bank_bow_balcony.png": {
+        "bytes": 1690824,
+        "raw_sha256": "351004733277d5d5fc3ea179001acdce76e506df54458a6ed4d61e1ccea7685d",
+        "lf_normalized_source": false
+      },
+      "near_native_review_01/bank_complete.png": {
+        "bytes": 1405950,
+        "raw_sha256": "9c27b13b4dcb9623ed38e0a5421821e6c285b8919d7afb82cdbf810c9674cf42",
+        "lf_normalized_source": false
+      },
+      "near_native_review_01/bank_oculi_order.png": {
+        "bytes": 1762705,
+        "raw_sha256": "60ccd062e2526b9fc1a3e524165e18bcaf652d3939dafe02f67ced8b764dbd55",
+        "lf_normalized_source": false
+      },
+      "near_native_review_01/native_review.json": {
+        "bytes": 6371,
+        "raw_sha256": "fa7b7d8b1a6bf42c9f8ac4816c0ee7ac3714d42497d4e8577522a5a5d9c8ceaa",
+        "lf_normalized_source": false
+      },
+      "near_native_review_01/works_bay_roof.png": {
+        "bytes": 1810158,
+        "raw_sha256": "aff3242624b3cd7cef70c832ab122298c07b917cefbcb7e22ecacd278e998939",
+        "lf_normalized_source": false
+      },
+      "near_native_review_01/works_complete.png": {
+        "bytes": 1273197,
+        "raw_sha256": "fd00eb4f169e687d0b4377c0d7bab1d1d2512f8fc49a050e0cf973f076a76b86",
+        "lf_normalized_source": false
+      },
+      "near_native_review_01/works_hollow_pots.png": {
+        "bytes": 1497987,
+        "raw_sha256": "d9bbce7f6643fb9925f31a03a20108a8fcb525285f340773ec57acdf2c907d87",
+        "lf_normalized_source": false
+      },
+      "near_native_review_02/bank_complete.png": {
+        "bytes": 1402714,
+        "raw_sha256": "097aaa514606c5078a8a38b3640f93b507600917e5ab69475388c37042d0b105",
+        "lf_normalized_source": false
+      },
+      "near_native_review_02/bank_oculi_order.png": {
+        "bytes": 1705663,
+        "raw_sha256": "068b36c322421f184701434f0631965cd796a6d1c62cff0a32507e3e955d3061",
+        "lf_normalized_source": false
+      },
+      "near_native_review_02/native_review.json": {
+        "bytes": 5478,
+        "raw_sha256": "7d31da3c5a23fe151391f00aa1cdfec9fd885a8a800a9739f9f10d53f2ebfef8",
+        "lf_normalized_source": false
+      },
+      "near_native_review_02/works_complete.png": {
+        "bytes": 1273169,
+        "raw_sha256": "ff2fd77af4acc2fcfdc32480133adea73ded5d44da32f5919646b3bd2fd407b1",
+        "lf_normalized_source": false
+      },
+      "near_native_review_02/works_hollow_pots.png": {
+        "bytes": 1498879,
+        "raw_sha256": "6878d84b797f08e4d6d195e8c6fee551cd052beaae16611e1e77eb720b45281d",
+        "lf_normalized_source": false
+      },
+      "owning_replay_01/baseline_setup_01_failure.json": {
+        "bytes": 465,
+        "raw_sha256": "ff1828a9a610fedee4242607946301f5e82b374ee91cc0e93184f542f3ce79fa",
+        "lf_normalized_source": false
+      },
+      "owning_replay_01/before.json": {
+        "bytes": 860,
+        "raw_sha256": "15977394466931679897aeb3e003b5a58c6d31e48e6244502989a5135b0a2a0c",
+        "lf_normalized_source": false
+      },
+      "owning_replay_01/closure.log": {
+        "bytes": 9367,
+        "raw_sha256": "dc3dca88edc93114412ace5511bfcbc9dc188ab2ae69f181bf4281a05268a30b",
+        "lf_normalized_source": false
+      },
+      "owning_replay_01/comparison.json": {
+        "bytes": 498,
+        "raw_sha256": "40d635c5c44972776ffc5ad2dde70d0d185ad725e8de0b537478e5fa2de492b5",
+        "lf_normalized_source": false
+      },
+      "owning_replay_01/low.log": {
+        "bytes": 12648,
+        "raw_sha256": "e33abf1bc9bee695b1347c7c1ba238f021eeeb36385e85c86a81c04023951fb8",
+        "lf_normalized_source": false
+      },
+      "owning_replay_01/near.log": {
+        "bytes": 29316,
+        "raw_sha256": "9bc50d11153f6e78d2c42ea8a067ef3fca71cbd15639030de9abf33cb5d51b19",
+        "lf_normalized_source": false
+      },
+      "owning_replay_01/preflight.log": {
+        "bytes": 195,
+        "raw_sha256": "5d0f1f3f4038fab6b8d97f18451d6326848a5fb601c39bf8bcb8ca0c30ff275d",
+        "lf_normalized_source": false
+      },
+      "owning_replay_01/streets.log": {
+        "bytes": 10788,
+        "raw_sha256": "a046c10bdf27eac99a9ada9f8d0f9709c735dd0d4d202c27cd0c8ec1962f2ff2",
+        "lf_normalized_source": false
+      },
+      "parser_01.log": {
+        "bytes": 228,
+        "raw_sha256": "b34a0016e6ce616495d083b2e51d4915fa985210f3192a4e44c6662241a3122f",
+        "lf_normalized_source": false
+      },
+      "parser_01.log.receipt.json": {
+        "bytes": 2912,
+        "raw_sha256": "08769b51f4797ad28180a88888b2629726c511c397d90b06520e852e398f1db4",
+        "lf_normalized_source": false
+      },
+      "parser_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "lf_normalized_source": false
+      },
+      "post_merge_preflight_01.log": {
+        "bytes": 195,
+        "raw_sha256": "5d0f1f3f4038fab6b8d97f18451d6326848a5fb601c39bf8bcb8ca0c30ff275d",
+        "lf_normalized_source": false
+      },
+      "post_review_source_identity_01.json": {
+        "bytes": 733,
+        "raw_sha256": "3072e4538fa9d83a09a283a7e42f03152a849a6b8b081422d219d420f475604d",
+        "lf_normalized_source": false
+      },
+      "reader_01.log": {
+        "bytes": 172,
+        "raw_sha256": "3574951275ab1392a566ce7a13b149dd859a2eb24ec6e10d667bfe09e6e05f1f",
+        "lf_normalized_source": false
+      },
+      "review_lower_01.log": {
+        "bytes": 8744,
+        "raw_sha256": "57af3ffedff71d86f7bf35b82e5bd2d5707ef1d98a2e085ceed41ddf6264c029",
+        "lf_normalized_source": false
+      },
+      "review_lower_01.py": {
+        "bytes": 7585,
+        "raw_sha256": "cc2b60a9ec9d747dd863cfc21e5ba52e7503e7f54e5785fd858b80c0898dc526",
+        "lf_normalized_source": false
+      },
+      "review_lower_02.log": {
+        "bytes": 8747,
+        "raw_sha256": "1a4f59f2d0e5ed382fe35fd3f7a66efb91b2d38493d369a9cbd58edc0ca1b886",
+        "lf_normalized_source": false
+      },
+      "review_lower_02.py": {
+        "bytes": 7590,
+        "raw_sha256": "bad3ceb86a4a3c910371394912a1c78069821c9e12b7089084ba5bc1fc194884",
+        "lf_normalized_source": false
+      },
+      "review_near_01.log": {
+        "bytes": 19651,
+        "raw_sha256": "c46d393f2bfbdb0bd9279df240eeafb3fb3a353af5358636d364c39aad8fc2a8",
+        "lf_normalized_source": false
+      },
+      "review_near_01.py": {
+        "bytes": 7725,
+        "raw_sha256": "3f8c01e64849988ac130e50077f984ebefea835a91413da209774380ec513384",
+        "lf_normalized_source": false
+      },
+      "review_near_02.log": {
+        "bytes": 19339,
+        "raw_sha256": "11be6150efc280f436da842c73427c2bb62a35fc0cdf8b6ef52f4615a78a7599",
+        "lf_normalized_source": false
+      },
+      "review_near_02.py": {
+        "bytes": 7558,
+        "raw_sha256": "a6b99789a45c1a4d11d7ad65560117c3c4578ef82bf3441ca1416793bcc37fef",
+        "lf_normalized_source": false
+      },
+      "source_plan.json": {
+        "bytes": 37955,
+        "raw_sha256": "4eb7e9bf61f4bf0de95b0df7f3a84867a33d2cbea4b26944058f27bd132426bd",
+        "lf_normalized_source": false
+      },
+      "final_sources/art/blender/scripts/build_city_closure.py": {
+        "bytes": 20048,
+        "raw_sha256": "af747604ef82124f629259a7ab3f23969106fca2c42b2f5fbe51f441d319d4e2",
+        "lf_normalized_source": true
+      },
+      "final_sources/art/blender/scripts/build_city_elevations.py": {
+        "bytes": 71101,
+        "raw_sha256": "54c852d04a1b597a1f5633b2b3e8c0e71d6e644d929e9d2d2cd393bd9a3a9c2c",
+        "lf_normalized_source": true
+      },
+      "final_sources/art/blender/scripts/build_city_elevation_lods.py": {
+        "bytes": 8340,
+        "raw_sha256": "e55dd02b2c6693b90d79981aade41df810f0cb5d7474e83f7b15e928d3788684",
+        "lf_normalized_source": true
+      },
+      "final_sources/art/blender/scripts/build_city_streets.py": {
+        "bytes": 14522,
+        "raw_sha256": "4935d8daa05bc3b10ecfe29e9271486a127c0c590637594dc4b008b4b6f836fe",
+        "lf_normalized_source": true
+      },
+      "final_sources/art/blender/scripts/city_commercial_architecture.py": {
+        "bytes": 76795,
+        "raw_sha256": "ab1012237d974213bbb946c54b3b15c4a6ce80b5ac795071e069d214965d4133",
+        "lf_normalized_source": true
+      },
+      "final_sources/art/data/city_elevations/source_plan.json": {
+        "bytes": 37955,
+        "raw_sha256": "4eb7e9bf61f4bf0de95b0df7f3a84867a33d2cbea4b26944058f27bd132426bd",
+        "lf_normalized_source": true
+      },
+      "final_sources/game/tests/v2_city_elevation_bench.gd": {
+        "bytes": 43332,
+        "raw_sha256": "b8dded1d042b6e502783b357a9ceb5327b23589840bdf01422d9bdb9c7022642",
+        "lf_normalized_source": true
+      }
+    },
+    "scope": "Native/isolated diagnostics only:6974/0,18native14loadedframesincludingoriginalvisualdefects. No source-bound composed controller/surface runtime contract or city/art/performance acceptance for this pair yet. Original setup/aborted moving-ref merge preserved; no receipt repin or reference photographs."
   }
 }
