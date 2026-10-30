@@ -106,6 +106,26 @@ measurements,not a matched speedup or a city frame budget. Global rendering
 counters include private viewports; CPU/native host overlap is not fully excluded.
 The316.861ms stall and broader performance qualification remain open.
 
+Final clean candidate **500d20ffbe71802a08b940f8548771f5a1bbb6c3** passes
+117 gates against the complete clean **4ec26518** board:zero regressions or
+improvements,all17 protected paths unchanged,V2 selected,zero lint errors,
+no accepted exceptions and no requirement promotions. Existing ledger block
+counts remain7/8/110/42/134/136. Evidence is in
+**canonical_city_intake_02/verification/verification.json**; **--no-godot** reuses
+the separately executed original runtime programmes above. This is clean
+in-place verification,not fresh-checkout import or autocrlf qualification.
+The earlier **398f67c4** comparison remains preserved with four regression
+entries from the single stale-surface-packet gate before publication; its
+failure was corrected by the new executed packet,not a waiver or weakened gate.
+
+The completed intake now records19 technical building studies/130 remaining.
+The architect's next NE3 terracotta works/NE4 bank native studies and provenance
+replay remain separate,unqualified work; their existence does not reduce that
+count. City-wide composition,bridge/Manhattan,yard/steam,waterfront/Dutch Kills,
+continuous450m ground access,full saves,performance and human artistic acceptance
+remain open. Report/queue-only follow-up does not change the qualified rendering
+inputs or require another Godot walk.
+
 ## October30 cityscape priority and district review
 
 Evidence class: **INERT**. Lily's latest direction is to finish the cityscape
