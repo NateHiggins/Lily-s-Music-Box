@@ -2750,3 +2750,80 @@ lamp view remains unaccepted and will be corrected in the next necessary world
 cohort, not by repeating a full tour solely for that image. Original failures,
 raw timings and test-written receipts remain preserved under the existing review
 archives; research, diagnostics and wrapper receipts grant no runtime acceptance.
+
+
+### October30 northeast workshop and stepped oriel construction checkpoint
+
+Evidence class: **INERT**. Native and isolated diagnostics; no new acceptance grant.
+
+REPORT - K-V2-CITY-REVAMP - 2026-10-30
+
+Deliverable: **c061b5a4** builds **site_ne1/site_ne2** in the existing architecture
+helper/source plan, near/low producers, editable natives, exports, runtime material
+projection, fixtures and city bench. No apartment, companion, Tardi, campaign,
+weather, narrative, save or shop/access authority changes. No canonical checkout
+or index changes. Registered footprints, roof slabs/plant and NE2's17.5m step
+remain. NE1 has four plausible workshop storeys, incised fired-clay lintels and
+bracketed mitred timber cornice; NE2 has six storeys, arched iron base, central
+two-storey arch, angled metal oriel and roof balustrade. Reference forms remain
+explicit AU adaptations. New lower bodies retain every architectural stock,
+reducing curve tessellation rather than removing the body or its cornice.
+
+Native results: near1205 bearing/2880 window/103 roof/12 return probes pass at
+100 micrometres; all2365 new near stocks pass manifold/positive-volume checks.
+Lower producer passes7677 complete stocks,385 bearing and432 pane samples.
+NE1 body11 partitions/17,250 near and16,194 lower triangles; NE2 body10 partitions/
+16,839 near and14,595 lower. All242 unaffected near parts and all71 previous
+lower parts retain exact exported attributes, indices and transforms. The other
+23 source profiles are unchanged. Eleven actual CPU native frames were inspected,
+including the preserved first grain defect and corrected near/lower cornice views.
+Exact roundtrip triangle-position controls cover both new bodies.
+
+Preserved failures and repairs: first near build lacked the new styles in the
+roof-summary material list and stopped before export. First lower export caught
+one retained parapet triangle collapsing at float32; the lower path now uses the
+near producer's exact-zero cleanup, with original stock manifold/volume and all
+contact tolerances unchanged. Actual rendering caught vertical grain on the long
+cornice: existing stock-grain helpers now chart each connected NE1 wood stock.
+First parser invocation omitted the required script-list environment variable;
+corrected parsing passes. First6792-check engine bench had one failure because
+its natural-LOD probe selected the unchanged brick body; the corrected probe
+uses the actual reduced cornice material, retaining all selection thresholds,
+distance bisection, narrow-view recovery and inward-return checks.
+
+Current isolated bench: **6799 checks/0 failures**,45.48s wrapper receipt,empty
+stderr,patched Vulkan engine,fullscreen3440x1440,MSAA3,TAA off. Loaded PBR/mips,
+metric UV/tangent derivatives, exact visible collision, closed scenic leaves,
+real panes and original roof contacts pass. Natural default-threshold1 material
+LOD brackets are214.4770568/214.5003341m (NE1 wood3160 to2104 triangles) and
+200.5775089/200.6011146m (NE2 brick2923 to2899); narrower view restores near
+indices, and return PNGs exactly match before. These are isolated material
+selection diagnostics, not a walk at those distances or whole-building acceptance.
+Fourteen actual loaded views were inspected, with three exact-byte reuses from
+the first run and two exact before/return duplicates.
+
+Measured whole-building plus retained-equipment draws/primitives: NE1 **23/
+21,825 near to23/20,769 far**; NE2 **46/49,213 to46/36,877**. Ninety warmed
+uncapped frames per case: first near/far GPU medians NE1 **1.4365/.9195ms**,
+NE2 **.611/.608ms**; repeats **.576/.747ms** and **.612/.608ms** respectively.
+The first NE1 wall maximum is **37.651ms**, repeat1.226ms. QEMU contention remains;
+there is no matched old baseline, causal speedup or whole-world budget claim.
+Forced-far NE2 visibly deforms the retained tank's automatic equipment LOD.
+That frame is unaccepted; canonical owns its separate bounded repair. New body
+geometry is complete at both levels. Isolated lighting is not composed weather.
+
+Evidence: existing review manifest indexes **northeast_native_isolated_review.zip**,
+123 members/22,489,036 bytes,SHA256 **4fcac903724e755379e96a12ca2a24fc209d18f06b93ddd3369c9e3feb17cd6d**.
+It retains original failures/sources, raw timings, receipts, inspected frames and
+input comparisons, with no reference photographs or duplicate production meshes.
+All80 near/68 lower producer bindings and201 loaded-profile inputs remain exact
+after review; no receipt repin. Fourteen city static tests pass, reader NEW0,
+spatial audit clean and texture import policy needs0 repairs. Only638 own generated
+untracked UIDs were individually removed after a verified raw-byte backup.
+
+Remaining: no schema-2 composed runtime contract, local controller access proof,
+combined physical qualification or human artistic acceptance for this pair yet.
+Keep17 qualified technical studies/132 remaining until intake qualification.
+NE3 terra-cotta office/NE4 bank remain researched, not built. Broader landmark,
+continuous450m exterior ground/access and cityscape commitments remain open.
+No repeated world tour was used; canonical owns composition/intake/tank LOD.
