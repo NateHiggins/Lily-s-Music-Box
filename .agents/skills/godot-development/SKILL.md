@@ -255,6 +255,11 @@ into a whole-world test campaign. Read linked evidence for its date and limits.
   result as verification. See `tools/tests/test_gate_board.py`.
 - **Evidence pitfalls:** runtime-composing MultiMesh tests need the windowed
   backend here; headless identity readback is not proof of corrupt source poses.
+  Pointer/UI tests also need a real viewport: log its rectangle and require
+  intended outside-clicks to lie outside the actual target before interpreting
+  a failed gesture. Headless display sizes can be dummy values; passing model
+  checks does not establish the rendered layout or pointer route. The prologue
+  ledger retains the newspaper's headless failure and fullscreen comparison.
   Use the pinned patched Vulkan engine and lane receipts. A graceful exit can
   precede test completion: require the test's complete output/contract. Freeze
   rendering inputs during source-bound runs; renew stale qualification rather
