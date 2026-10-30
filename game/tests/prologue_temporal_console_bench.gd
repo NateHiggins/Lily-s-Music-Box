@@ -42,11 +42,23 @@ func additional_checks() -> void:
 	if not check(await wait_for(func():return console.cursor>=12,30),"real finger contacts progressively type the command"):director.shutdown();return
 	check(not console.returned and accepted_count==0 and "destination_accepted" not in director.state.events,"partial command cannot accept the date")
 	check(paper.pages[0].contains(console.text.substr(0,8)) and paper.printing,"physical paper consumes actual contact characters")
+	var register:Node=carrier.rig.temporal_register
+	check(register.phase=="open" and register._target==destination and register.labels.Departure.text=="DEPARTURE  UNKNOWN","physical register presents immutable destination without inventing departure")
+	var visible_rows:=true
+	var frame:Node=carrier.screen_frame
+	var aperture:=Rect2(Vector2.ZERO,Vector2(frame.view.size)).grow(-1)
+	for label:Label3D in register.labels.values():
+		var box:AABB=label.get_aabb()
+		for corner in 8:
+			visible_rows=visible_rows and aperture.has_point(frame.view_camera.unproject_position(label.to_global(box.get_endpoint(corner))))
+	check(visible_rows and frame.safe_rect.position.x>=.67,"all temporal rows fit the real right-third reading frame")
 	await capture("temporal_typing.png")
 	get_tree().paused=true
 	var at:int=console.cursor
+	var register_pose:Transform3D=register.hinge.transform
 	await frames(3)
 	check(console.cursor==at and player.text_input_owner==carrier.rig.typing_arm,"pause retains command progress and its exclusive input lease")
+	check(register.hinge.transform==register_pose,"pause retains the deployed temporal hardware")
 	get_tree().paused=false
 	if not check(await wait_for(func():return console.returned,35),"Return follows the complete physically typed command"):director.shutdown();return
 	check(console.cursor==console.text.length() and contact_keys.back()=="ENTER" and contact_keys.size()==console.text.length()+1,"every command character and Return has exactly one contact")
@@ -69,6 +81,7 @@ func additional_checks() -> void:
 		director=mount_director(RealityState.data.prologue)
 		check(director.begin_temporal_command() and director.state.phase=="temporal_synchronization" and director.state.target==destination,"reload resumes beyond acceptance without resampling or retyping")
 		check(not carrier.arm_busy() and carrier.device.printed_count==reports+1,"reload produces no second physical copy or arm cycle")
+		check(register.phase=="idle" and register._owner==null,"accepted-command reload leaves no stale register owner")
 		director.shutdown();director.queue_free()
 	RealityState.save_path=original_path;RealityState.persistence_enabled=original_enabled
 	check(not RealityState.data.prologue.effects.clock_applied,"typing acceptance does not bypass campaign-clock authority")
@@ -92,6 +105,7 @@ func additional_checks() -> void:
 		await wait_for(func():return interrupted.cursor>=2,20)
 		carrier.device.print_telegram_card({"title":"PRIORITY CONTROL","body":"Original field copy wins."})
 		check(not interrupted.active and not interrupted.returned and paper.pages[0].contains("Original field copy wins."),"incoming field copy cancels automatic typing without restoring stale paper")
+		check(register._owner==null and register.capacitor.get_shader_parameter("capacitor_charge")==0.0,"priority copy releases temporal readout and retires capacitor")
 		check(carrier.session.draft==draft and accepted_count==1,"interruption neither submits the human draft nor accepts another date")
 		await wait_for(func():return not carrier.arm_busy() and not paper.printing)
 	interrupted.queue_free()

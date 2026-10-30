@@ -58,6 +58,8 @@ func setup(owner_carrier: Node3D, source_camera: Camera3D) -> void:
 						reading_bounds = AABB(point, Vector3.ZERO); _has_reading_bounds = true
 					else: reading_bounds = reading_bounds.expand(point)
 	rig.keyboard_open = saved; rig._apply_keyboard()
+	if rig.temporal_register != null:
+		stock_bounds = stock_bounds.merge(rig.temporal_register.envelope_in_rig())
 	view = SubViewport.new(); view.name = "CompanionForeground"
 	view.transparent_bg = true
 	view.handle_input_locally = false
@@ -185,6 +187,8 @@ func advance(delta: float, reading: bool) -> void:
 	# corner protector would shrink the copy to an unreadable postage stamp.
 	# Peripheral machinery may leave the cropped frame, never enter the view.
 	var source := reading_bounds if reading and _has_reading_bounds else stock_bounds
+	if reading and carrier.rig.temporal_register != null and carrier.rig.temporal_register.opening > 0:
+		source = source.merge(carrier.rig.temporal_register.envelope_in_rig())
 	var fitted := AABB(source.position * carrier.PRESENTATION_SCALE, source.size * carrier.PRESENTATION_SCALE)
 	var rotated := AABB(relative_basis * fitted.get_endpoint(0), Vector3.ZERO)
 	for corner in range(1, 8): rotated = rotated.expand(relative_basis * fitted.get_endpoint(corner))

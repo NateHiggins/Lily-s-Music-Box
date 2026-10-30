@@ -5,6 +5,7 @@ signal keyboard_settled(open: bool)
 const DATA := "res://data/device/service_companion_v2.json"
 const KEY_TRAVEL:=.0014
 var typing_arm:Node
+var temporal_register:Node
 var _automatic_key:=-1
 var _automatic_depth:=0.0
 var device: ServiceSetProp

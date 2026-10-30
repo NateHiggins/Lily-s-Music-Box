@@ -192,6 +192,10 @@ func setup(player: PlayerController, camera: Camera3D, work_orders: WorkOrders) 
 	rig.add_child(rig.typing_arm)
 	if not rig.typing_arm.configure(rig,player,_arm_permitted):
 		failure="Native typing arm refused";push_error(failure);return
+	rig.temporal_register=preload("res://scripts/device/companion_temporal_register.gd").new()
+	rig.add_child(rig.temporal_register)
+	if not rig.temporal_register.configure(rig,self):
+		failure="Native temporal register refused";push_error(failure);return
 	setup_records.append({"stage":"asset_and_presentation_bind", "start_usec":asset_started, "end_usec":Time.get_ticks_usec()})
 	device = rig.device
 	var lens: MeshInstance3D = device.teletype.torch_lens

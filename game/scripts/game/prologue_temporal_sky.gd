@@ -162,6 +162,7 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 	_above=_window+_outward*2.0+Vector3.UP*12.0
 	_window_start=Transform3D(Basis.looking_at(_outward,Vector3.UP),_window-_outward*1.45)
 	active=true;age=0;_publish_age=-INF
+	if _carrier.rig.temporal_register != null:_carrier.rig.temporal_register.begin(self,opening.target)
 	set_process(true);set_process_unhandled_input(true);seek(0)
 	return true
 
@@ -197,6 +198,7 @@ func seek(seconds:float) -> void:
 	age=clampf(seconds,0,DURATION)
 	sampled_utc=destination_utc if age>=30 else State.wrap_loop_utc(time_at(age,source_utc,_travel_destination))
 	if not view_clock.seek_utc(sampled_utc):cancel();return
+	if _carrier.rig.temporal_register != null:_carrier.rig.temporal_register.sample_clock(self,sampled_utc)
 	var entering:=smoothstep(2.6,4.3,age)
 	var crossing:=smoothstep(4.3,5.7,age)
 	var rising:=smoothstep(5.7,7.5,age)
@@ -335,6 +337,7 @@ func _cleanup() -> void:
 	_audio.clear()
 	var effects:int=Time.get_ticks_usec() if profile_samples else 0
 	if is_instance_valid(_carrier):_carrier.release_story_absence(self)
+	if is_instance_valid(_carrier) and _carrier.rig.temporal_register != null:_carrier.rig.temporal_register.release(self,true)
 	var carrier:int=Time.get_ticks_usec() if profile_samples else 0
 	if is_instance_valid(player):player.release_text_input(self)
 	var input:int=Time.get_ticks_usec() if profile_samples else 0
