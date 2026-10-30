@@ -3097,3 +3097,62 @@ source-bound composed runtime qualification and artistic acceptance for these
 two newer bodies remain pending; they are not added to19 qualified studies.
 The known occluded arcade lamp view still needs its clear roadside capture in
 the next necessary composed cohort. Bridge and full-city commitments remain open.
+
+
+### October30 canonical office/bank intake and bridge engineering study
+
+Evidence class: **INERT**. Work in progress; no new composed qualification.
+
+Canonical main preserved newer mystery wiring **fb6851f2** and merged the
+architect's frozen **975a49ac** as **127f0c24**, without conflicts. The clean
+exact-fb baseline has117 gates, including existing stale physical-packet debt.
+The works/bank candidate remains outside the19 qualified technical studies
+until its eight-leg production-controller approach and eastern side passage,
+loaded surfaces and renewed combined physical packet pass. The new programme
+uses full standing-capsule/floor checks at its explicit nearby start; a separate
+roadside arcade-lamp fixture is labelled independent, not continuous travel.
+Four native source-binding preflights pass and the spatial audit remains clean;
+these source checks do not substitute for the queued windowed execution.
+
+The root-owned Queensboro source study has an editable external native, five
+unequal full-scale spans and four steel tower frames. Both exported body levels
+retain all7212 declared stocks:171,152 near /86,544 lower triangles. Native
+closed-stock/positive-volume and exported tangent controls passed. Four CPU
+native frames were inspected in **C:/ov/reports/city_streets_20261029/bridge_native_01/**;
+original source/output backups and image hashes preserve this first candidate.
+Sources are **art/data/city_bridge/source_plan.json** and
+**art/blender/scripts/build_city_bridge.py**; outputs remain outside the game at
+**C:/ov/asset-prototypes/queensboro-bridge-20261030/**. Nothing is mounted.
+
+Open defects: cropped close crest framing, simple unrefined portal/crest stock,
+missing deck stringer detail and Queens approach. Limestone is explicitly only
+a temporary native preview binding, not accepted period granite. Native
+high-water zero is separate from game sea level; full-scale siting, shore/island
+backing, roundtrip, loaded precision/PBR/mips, actual street/roof/telescope
+sightlines and composed cost remain open. No historical engineering rating,
+full-city coverage, runtime or artistic acceptance is claimed.
+
+
+Bridge source revision2 adds longitudinal road/track/walk stringers, separate
+surface-car deck strips, seated nominal deck datums, arched upper portals, four
+transverse brace tiers, tiered capitals and tapered lattice crowns/needles.
+Both complete levels retain9096 stocks,79 material/chunk parts each:
+**246,880 near /109,152 lower triangles**. Closed positive stocks and exported
+UV/tangent controls pass. Four revised CPU frames were actually inspected;
+near/lower tower framing now includes the crest. Actual Blender glTF reimport
+retains both triangle totals and complete engineering-frame bounds with maximum
+error **0.000012305m**. Native output remains external/unmounted. Support-contact
+qualification, approach, finish, siting/backing and loaded Godot checks remain
+open. These revisions do not qualify the landmark or add a building-study count.
+
+The office/bank warm route now passes **223 checks/eight actual controller legs/
+0 failures**,212s wrapper,empty stderr. It includes full standing-capsule starts,
+the eastern side-passage roundtrip and a separate clear roadside arcade-lamp
+view at21:00. Five actual3440x1440 night frames were inspected; close upward
+façade details are not full-district artistic acceptance. Walking833 frames:
+wall median/p95/p99/max **20.020/23.609/27.736/45.430ms**; GPU
+**6.565/9.676/10.129/16.475ms**. No matched old route/settings or uncontended
+city budget is claimed. Original first run exited115s before gameplay with
+**-805306369**,Windows Application Hang1002,empty stderr/no contract. Cause is
+undetermined; original logs are retained rather than promoted by the retry.
+The combined physical survey remains queued.

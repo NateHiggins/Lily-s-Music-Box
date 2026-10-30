@@ -105,9 +105,9 @@ def main_bridge():
                         n=6 if LOD==0 else 4
                         profile=[(.035*math.cos(k*math.tau/n),.035*math.sin(k*math.tau/n)) for k in range(n)]
                         extrusion(f'NodeBolt_{side}_{j}_{label}_{face}_{dx}_{dz}','painted_steel',(s+dx,y+face*.13,z+dz),(s+dx,y+face*.155,z+dz),profile,'connection_head')
-        beam(f'FloorBeam_{j}',(s,-half-3.95,road(s)-1.28),(s,half+3.95,road(s)-1.28),.40,2.2,'lower_floor_beam')
+        beam(f'FloorBeam_{j}',(s,-half-3.95,road(s)-1.48),(s,half+3.95,road(s)-1.48),.40,2.0,'lower_floor_beam')
         rail=road(s)+float(plan['upper_base_rail_offset_m'])
-        beam(f'UpperFloorBeam_{j}',(s,-half-3.95,rail-.64),(s,half+3.95,rail-.64),.32,1.05,'upper_floor_beam')
+        beam(f'UpperFloorBeam_{j}',(s,-half-3.95,rail-.945),(s,half+3.95,rail-.945),.32,1.05,'upper_floor_beam')
         if j==0:continue
         a=panel_stations[j-1];b=s
         for side in range(2):
@@ -120,15 +120,23 @@ def main_bridge():
             beam(f'LateralX_{high}_{j}_A',f'{prefix}0_{j-1}',f'{prefix}1_{j}',.16,.20,'lateral_brace')
             beam(f'LateralX_{high}_{j}_B',f'{prefix}1_{j-1}',f'{prefix}0_{j}',.16,.20,'lateral_brace')
         beam(f'Road_{j}',(a,0,road(a)-.09),(b,0,road(b)-.09),float(plan['road_width_m']),.18,'motor_road','paving')
+        # Nominal deck/stringer/bearing datums explain the support chain;
+        # final tilted-stock contacts still need the native seating review.
+        for yy in [-7.,-3.5,0.,3.5,7.,-10.45,10.45]:
+            beam(f'RoadStringer_{j}_{yy}',(a,yy,road(a)-.33),(b,yy,road(b)-.33),.20,.30,'deck_stringer')
         for yy in [-10.45,10.45]:
+            beam(f'SurfaceCarDeck_{j}_{yy}',(a,yy,road(a)-.09),(b,yy,road(b)-.09),2.8,.18,'surface_car_deck','paving')
             for offset in [-float(plan['rail_gauge_m'])/2,float(plan['rail_gauge_m'])/2]:
                 beam(f'TrolleyRail_{j}_{yy}_{offset}',(a,yy+offset,road(a)+.06),(b,yy+offset,road(b)+.06),.075,.12,'surface_car_rail','rail')
         for yy in [-3.,3.]:
-            beam(f'UpperTrackBed_{j}_{yy}',(a,yy,road(a)+float(plan['upper_base_rail_offset_m'])-.24),(b,yy,road(b)+float(plan['upper_base_rail_offset_m'])-.24),2.7,.24,'track_bed','timber')
+            beam(f'UpperTrackBed_{j}_{yy}',(a,yy,road(a)+float(plan['upper_base_rail_offset_m'])-.12),(b,yy,road(b)+float(plan['upper_base_rail_offset_m'])-.12),2.7,.24,'track_bed','timber')
+            for edge in [-1,1]:
+                beam(f'TrackStringer_{j}_{yy}_{edge}',(a,yy+edge*.9,road(a)+float(plan['upper_base_rail_offset_m'])-.33),(b,yy+edge*.9,road(b)+float(plan['upper_base_rail_offset_m'])-.33),.20,.18,'track_stringer')
             for offset in [-float(plan['rail_gauge_m'])/2,float(plan['rail_gauge_m'])/2]:
                 beam(f'ElevatedRail_{j}_{yy}_{offset}',(a,yy+offset,road(a)+float(plan['upper_base_rail_offset_m'])+.06),(b,yy+offset,road(b)+float(plan['upper_base_rail_offset_m'])+.06),.075,.12,'elevated_rail','rail')
         for yy in [-11.45,11.45]:
             beam(f'UpperWalk_{j}_{yy}',(a,yy,road(a)+float(plan['upper_base_rail_offset_m'])-.1),(b,yy,road(b)+float(plan['upper_base_rail_offset_m'])-.1),3.30,.20,'upper_walk','timber')
+            for edge in [-1,1]:beam(f'WalkStringer_{j}_{yy}_{edge}',(a,yy+edge*1.35,road(a)+float(plan['upper_base_rail_offset_m'])-.31),(b,yy+edge*1.35,road(b)+float(plan['upper_base_rail_offset_m'])-.31),.18,.22,'walk_stringer')
             for edge in [-1,1]:beam(f'WalkRail_{j}_{yy}_{edge}',(a,yy+edge*1.56,road(a)+float(plan['upper_base_rail_offset_m'])+1.1),(b,yy+edge*1.56,road(b)+float(plan['upper_base_rail_offset_m'])+1.1),.07,.09,'walk_guard')
     for i,s in enumerate(stations):
         top=road(s)-2.58
@@ -140,12 +148,33 @@ def main_bridge():
         peak=road(s)-2.+float(plan['tower_chord_depth_m'])
         for side,y in enumerate([-half,half]):
             beam(f'TowerLeg_{i}_{side}',(s,y,top),(s,y,peak),1.15,1.30,'tower_leg')
-            beam(f'Pinnacle_{i}_{side}',(s,y,peak),(s,y,peak+float(authored['crest_height_m'])),.30,.30,'tower_pinnacle')
-        beam(f'TowerCrest_{i}',(s,-half,peak),(s,half,peak),.60,.95,'tower_crest')
+            # Tiered cornice and tapered lattice crown, guided by drawing4357.
+            # Section sizes remain authored; no historical dimensional claim.
+            for tier,width,z in [(0,2.1,peak+.25),(1,2.5,peak+.65),(2,2.8,peak+1.0)]:
+                box(f'Capital_{i}_{side}_{tier}','painted_steel',(s-width/2,y-width/2,z-.12),(s+width/2,y+width/2,z+.12),'tower_capital')
+            crown=peak+float(authored['crest_height_m'])
+            for edge in [-1,1]:
+                beam(f'PinnacleRail_{i}_{side}_{edge}',(s,y+edge*.65,peak+1.12),(s,y+edge*.17,crown),.10,.10,'tower_pinnacle')
+            for row in range(4):
+                z0=peak+1.12+(crown-peak-1.12)*row/4
+                z1=peak+1.12+(crown-peak-1.12)*(row+1)/4
+                w0=.65+(.17-.65)*row/4;w1=.65+(.17-.65)*(row+1)/4
+                for edge in [-1,1]:beam(f'PinnacleLattice_{i}_{side}_{row}_{edge}',(s,y+edge*w0,z0),(s,y-edge*w1,z1),.055,.055,'tower_pinnacle_lattice')
+            beam(f'PinnacleNeedle_{i}_{side}',(s,y,crown),(s,y,crown+4.),.065,.065,'tower_needle')
+        for tier,(z,w,h) in enumerate([(peak-.35,.60,.95),(peak+.35,.85,.25),(peak+.7,1.05,.22)]):
+            beam(f'TowerCrest_{i}_{tier}',(s,-half-.9,z),(s,half+.9,z),w,h,'tower_crest')
         clear=road(s)+float(plan['upper_base_rail_offset_m'])+5.0
         beam(f'TowerPortal_{i}',(s,-half,clear),(s,half,clear),.45,.85,'tower_portal')
-        beam(f'TowerX_{i}_A',(s,-half,clear),(s,half,peak),.35,.45,'tower_portal_brace')
-        beam(f'TowerX_{i}_B',(s,half,clear),(s,-half,peak),.35,.45,'tower_portal_brace')
+        arch_base=peak-8.
+        for j in range(12):
+            y0=-half+2*half*j/12;y1=-half+2*half*(j+1)/12
+            z0=arch_base+3.6*math.sqrt(max(0.,1-(y0/half)**2))
+            z1=arch_base+3.6*math.sqrt(max(0.,1-(y1/half)**2))
+            beam(f'UpperPortalArch_{i}_{j}',(s,y0,z0),(s,y1,z1),.32,.45,'upper_portal_arch')
+        for row in range(4):
+            z0=clear+(arch_base-clear)*row/4;z1=clear+(arch_base-clear)*(row+1)/4
+            beam(f'TowerX_{i}_{row}_A',(s,-half,z0),(s,half,z1),.22,.30,'tower_portal_brace')
+            beam(f'TowerX_{i}_{row}_B',(s,half,z0),(s,-half,z1),.22,.30,'tower_portal_brace')
 
 for LOD in range(2):main_bridge()
 assert {r['id'] for r in records if r['lod']==0}=={r['id'] for r in records if r['lod']==1}
