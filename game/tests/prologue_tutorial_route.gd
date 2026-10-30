@@ -1153,19 +1153,23 @@ func _full_sequence_ending() -> void:
 	_require(director.state.effects.clock_applied and director.state.effects.companion_materialized and carrier.rig.get_instance_id()==rig_id and carrier.session.draft==draft,"one companion and its typed draft survive natural temporal completion")
 	_require(player.camera.is_current() and player.text_input_owner==null and not director.is_processing(),"completed sequence releases cinematic camera, input and director polling")
 	_require(world.shop_simulation.advance_current() and not world.shop_simulation.failed,"existing shop authority accepts the adopted clock without a future elapsed cursor")
-	if failures.is_empty():
-		var old_path:String=RealityState.save_path
-		var old_enabled:bool=RealityState.persistence_enabled
-		var facts:Dictionary=director.state.duplicate(true)
-		RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("full_sequence_complete_save.json")
-		RealityState.persistence_enabled=true
-		if _require(RealityState.save_game(),"completed actual sequence writes a validated campaign save"):
-			RealityState.load_game();await get_tree().process_frame;await get_tree().process_frame
-			_require(director.state==facts and player.text_input_owner==null and player.camera.is_current() and carrier.rig.get_instance_id()==rig_id,"completed sequence reload is idempotent and retains its single machine")
-			_require(world.shop_simulation.advance_current() and not world.shop_simulation.failed,"completed reload retains a usable shop simulation and cursor")
-		RealityState.persistence_enabled=old_enabled;RealityState.save_path=old_path
+	if failures.is_empty():await _reload_completed_sequence(carrier,rig_id)
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("full_sequence_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"One occupied world, public DREAM/wake owner, actual bed-to-bath movement and gestures, existing witnessed-visitor/crossing reload controls, natural first-contact/arm/sky/stinger and completed validated reload. No title-button launch, uninterrupted no-reload run, complete save-boundary matrix or human acceptance.","phases":phase_trace,"lines":seen,"cutaway_samples":captured_cutaway,"initial_clock":start_clock,"final_clock":RealityState.data.campaign_clock,"state":director.state,"failures":failures},"\t"))
 	frame_trace.complete=failures.is_empty()
+
+
+func _reload_completed_sequence(carrier:Node,rig_id:int) -> void:
+	# This is a real validated save/reload, independent of cinematic timing.
+	var old_path:String=RealityState.save_path
+	var old_enabled:bool=RealityState.persistence_enabled
+	var facts:Dictionary=director.state.duplicate(true)
+	RealityState.save_path=OS.get_environment("SHOT_DIR").path_join("full_sequence_complete_save.json")
+	RealityState.persistence_enabled=true
+	if _require(RealityState.save_game(),"completed actual sequence writes a validated campaign save"):
+		RealityState.load_game();await get_tree().process_frame;await get_tree().process_frame
+		_require(director.state==facts and player.text_input_owner==null and player.camera.is_current() and carrier.rig.get_instance_id()==rig_id,"completed sequence reload is idempotent and retains its single machine")
+		_require(world.shop_simulation.advance_current() and not world.shop_simulation.failed,"completed reload retains a usable shop simulation and cursor")
+	RealityState.persistence_enabled=old_enabled;RealityState.save_path=old_path
 
 
 func _full_sequence_title_pixels() -> bool:
