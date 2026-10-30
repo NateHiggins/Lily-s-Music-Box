@@ -1,5 +1,45 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+## October30 cityscape priority and district review
+
+Evidence class: **INERT**. Lily's latest direction is to finish the cityscape
+with the architect. This updates work order,not acceptance or the unfinished
+prologue's release criteria. Canonical main at review is **4ec26518**; the
+architect owns **C:/ov/city**,branch **codex/v2-city-20261029**. Canonical owns
+integration,district composition/access and combined verification; the architect
+retains its NE geometry,producers,source plan and family bench. No duplicate
+geometry authoring or foreign worktree edits are authorized by this allocation.
+
+| Work | Current evidence / gap | Owner and next concrete action |
+|---|---|---|
+| NE1 workshop / NE2 arched-oriel house | Native candidates; prior near242 and lower71 partitions reported exact. Cornice grain defect found in an actual render and corrected; final imported checks pending. Not two accepted buildings yet. | Architect: finish reviewed near/lower previews,loaded PBR/mips/collision,natural LOD and focused real-controller route; freeze named checkpoint for canonical intake. |
+| Remaining unique architecture | Existing17 technical studies/132 remaining across25 near and124 horizon buildings. Repeated source-plan descriptions and generic background blocks are still visible. | Architect: NE3 terracotta office/NE4 bank next,then remaining individual source-backed adaptations; canonical reviews actual street/roof composition. Native completion alone does not reduce qualified counts. |
+| Queensboro and Manhattan | Installed source **city_transport** authors the elevated plaza,not the bridge. Its source plan has no bridge field. Retained roof view does not establish a recognizable river crossing or Manhattan silhouette. | Canonical: reconcile research and existing assets before assigning a separate bounded landmark construction batch; retain historical/AU distinctions and existing station/access. |
+| Sunnyside servicing/steam | Retained **city_relief_rail_cut.png** shows a terrain depression,not a legible passenger-servicing yard. | Canonical: identify existing rail/industrial stock and wind/weather owners; complete yard composition without inventing operating rail gameplay. |
+| Waterfront / Dutch Kills | Retained **city_relief_canal.png** shows broad banks/water bands without convincing waterfront construction. Relief is installed; setting is unfinished. | Canonical: source-backed shoreline/bulkhead/industrial composition and surface review,keeping terrain and occupied foundations authoritative. |
+| Street / gaslight / access | Existing narrow/full routes retain their exact scopes. One distant arcade lamp frame is occluded;450m continuous ground and whole-district artistic review remain open. | Architect: clear roadside lamp frame in next already-required cohort. Canonical: targeted gap routes,then integration checkpoints; no unchanged full-tour repetition. |
+
+This review actually inspected retained **exterior_route_11/west_from_front_walk.png**
+and **plaza_approach.png**,plus **full_surface_03/city_west_roof.png**,
+**city_relief_canal.png** and **city_relief_rail_cut.png** under
+**C:/ov/reports/city_streets_20261029/**. These are earlier scoped optical records,
+not fresh main captures. They support the stated artistic gap judgments,not a
+new runtime,access or save grant. Source inspection separately confirms the
+installed terrain profiles and elevated-plaza scope. Native NE previews
+**near_native_review_01/fulton_complete.png** and
+**near_native_review_02/workshop_complete.png** were also inspected; imported
+appearance and distance transition remain unverified. No reference photo is
+used as a texture and no new weather,clock,inventory,resident or save owner is
+introduced. No deadline has been set.
+
+Queue history condensed from **5505b041:TASKS.md** retains all source records
+below and the prologue integration ledger. Latest integrated gaslamp/canopy
+checkpoint **d238bc36** has652 physical checks/zero failures and117 static gates
+with zero regressions against exact b98 main; those existing receipts are reused
+unchanged. No whole-city or artistic acceptance follows. City expansion must
+retain complete replacement-body LOD and measure realistic composed costs;
+isolated contended lamp timings do not establish a district performance budget.
+
 Evidence class: **INERT**. Publication report; no additional acceptance grant.
 
 ## Main integration — October 28 UTC
