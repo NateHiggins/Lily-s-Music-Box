@@ -2535,3 +2535,16 @@ Named cleanup preserves1,660 EOL-only imports and638 generated UIDs externally,
 then restores only proven own-worktree noise. Per-command autocrlf=false retains
 the engine's identical LF bytes without changing shared Git configuration.
 Production input closure still matches the unchanged nine-leg test contract.
+
+
+Canonical footway/sink candidate **4a04279e** is now technically qualified:
+physical-only651/0,zero unresolved surfaces,empty stderr; clean116-gate comparison
+against374c2792 has zero regressions,17 protected paths unchanged and no ledger
+promotions/waivers. All11,049 prior spatial records are preserved; only live
+Hampton camera fixture **f5b5359bf29719fb** was appended. Original native/scoped
+route receipts and failed controls retain their source scope in the bb81a68f
+archive above. Full prologue,save matrices,450m city access,performance and
+artistic acceptance were not repeated or inferred. Combined runtime and static
+receipts are indexed in **design/V2_PROLOGUE_2026-10-28.md**, under idle sink
+presentation and Hampton footway joint qualification. This is still17 building
+studies/132 remaining,not a new whole-city acceptance.
