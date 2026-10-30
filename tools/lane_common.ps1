@@ -27,6 +27,36 @@ function Get-OrisonLaneStateDir {
     return $dir
 }
 
+# The queue. A broker registers a record under <state>/waiters when it starts
+# waiting and only the oldest live record may take the lane, so the lane is
+# first come, first served. A record is live only if its process exists and was
+# already running when the record was stamped, so a dead broker or a reused pid
+# can never block the queue. Ties within a second go to the lower pid.
+function Get-OrisonLaneQueue {
+    $waitDir = Join-Path (Get-OrisonLaneStateDir) "waiters"
+    if (-not (Test-Path -LiteralPath $waitDir)) { return @() }
+    $live = foreach ($file in Get-ChildItem -LiteralPath $waitDir -Filter "*.json" -ErrorAction SilentlyContinue) {
+        try {
+            $record = Get-Content -LiteralPath $file.FullName -Raw | ConvertFrom-Json -DateKind String
+            $since = [datetime]::Parse($record.since_utc, [cultureinfo]::InvariantCulture,
+                [System.Globalization.DateTimeStyles]::AssumeUniversal -bor [System.Globalization.DateTimeStyles]::AdjustToUniversal)
+            $process = Get-Process -Id $record.pid -ErrorAction SilentlyContinue
+            if ($process -and $process.StartTime.ToUniversalTime() -le $since.AddSeconds(5)) {
+                [pscustomobject]@{ pid = [int]$record.pid; since = $since; scene = $record.scene; worktree = $record.worktree }
+            }
+        }
+        catch {}
+    }
+    return @($live | Sort-Object since, pid)
+}
+
+# True when someone is queued and this process is not the broker they queued
+# behind. A runner started directly must not walk past the queue.
+function Test-OrisonLaneQueueAhead {
+    if ($env:ORISON_LANE_BROKER -eq "$PID") { return $false }
+    return @(Get-OrisonLaneQueue).Count -gt 0
+}
+
 function Get-OrisonLaneHolderPath {
     return (Join-Path (Get-OrisonLaneStateDir) "lane_holder.json")
 }

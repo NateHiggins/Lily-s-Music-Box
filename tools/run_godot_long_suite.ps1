@@ -52,6 +52,9 @@ $timedOut = $false
 $launchedExit = $null
 $startedUtc = $null
 try {
+    if ((Get-Command Test-OrisonLaneQueueAhead -ErrorAction SilentlyContinue) -and (Test-OrisonLaneQueueAhead)) {
+        throw [System.InvalidOperationException]::new("LANE BUSY: other runs are queued; use tools/lane.ps1 run -WaitMinutes N to join the queue")
+    }
     try { $owns = $mutex.WaitOne(0) } catch [System.Threading.AbandonedMutexException] { $owns = $true }
     if (-not $owns) { throw [System.InvalidOperationException]::new("LANE BUSY (mutex)") }
     $active = Get-Process -Name "Godot*" -ErrorAction SilentlyContinue
