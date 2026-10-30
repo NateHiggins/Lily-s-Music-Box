@@ -92,6 +92,7 @@ paths.extend(ROOT/f'game/tests/fixtures/orison_city_{family}.json' for family in
 paths.append(ROOT/'art/blender/scripts/frame_mitre_geometry.py')
 paths.append(ROOT/'art/blender/scripts/fabrication_grain.py')
 paths.extend(ROOT/'game/assets/building/textures'/file for key in {key for name,key in buffers} for file in catalog[key]['files'])
+paths.extend(ROOT/p for p in ['game/data/orison_v2/exterior/regions.json','game/data/orison_v2/exterior/exterior_geometry.json'])
 report={'evidence_class':'INERT','scope':'Complete closed lower commercial bodies with authored UVs, retained panes/blinds/doors/roofs and original near export frames. Near city meshes retain all collision. No runtime transition, rendering-cost or artistic acceptance.','buildings':owner.building_rows,'parts':parts,'closed_stocks':len(stocks),'bearing_samples':bearings,'pane_samples':panes,'error_m':programme['error_m'],'triangles':sum(r['triangles'] for r in parts),'export_check':proof,'asset_sha256':sha(ROOT/'game/assets/props/city_elevations_lod1.glb'),'source_bindings':{p.relative_to(ROOT).as_posix():sha(p) for p in paths},'failures':[]}
 for relative in ['art/blender/city_elevations_lod1_construction.json','game/tests/fixtures/orison_city_elevations_lod1.json']:(ROOT/relative).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('CITY COMPLETE BODY LOD',len(parts),report['triangles'],bearings,panes,flush=True)

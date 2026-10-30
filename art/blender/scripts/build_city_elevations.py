@@ -915,6 +915,7 @@ projection=ROOT/'game/data/orison_v2/exterior/city_elevations.json'
 projection.write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8',newline='\n')
 bindings=[ROOT/p for p in ['art/data/city_elevations/source_plan.json','art/blender/city_closure.blend','art/blender/city_closure_construction.json','art/blender/city_shells.blend','art/blender/city_shells_registration.json','game/data/runtime_material_sets.json','game/data/orison_v2/exterior/city_elevations.json','game/tests/fixtures/orison_city_masts.json','game/tests/fixtures/orison_city_aerials.json','game/tests/fixtures/orison_city_tanks.json','game/scripts/building/orison_v2_city_shells.gd','game/scripts/building/orison_v2_city_placement.gd','art/blender/scripts/city_horizon_geometry.py','art/blender/scripts/fabrication_native_batch.py','art/blender/scripts/fabrication_normals.py','art/blender/scripts/fabrication_uvs.py']]+[Path(__file__)]
 bindings.append(ROOT/'art/blender/scripts/city_commercial_architecture.py')
+bindings.extend(ROOT/p for p in ['game/data/orison_v2/exterior/regions.json','game/data/orison_v2/exterior/exterior_geometry.json'])
 bindings.append(ROOT/'art/blender/scripts/fabrication_grain.py')
 bindings.append(ROOT/'art/blender/scripts/frame_mitre_geometry.py')
 for key in {key for name,key in buffers}:
