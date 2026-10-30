@@ -15,7 +15,10 @@ class FrameTrace extends Node:
 	var settings:Dictionary={}
 	var film_rows:Array=[]
 	var film_captures:Array=[]
+	var sample_cap:=16384
+	var total_frames:=0
 	func _ready() -> void:
+		if OS.get_environment("PROLOGUE_FULL_SEQUENCE")=="1":sample_cap=65536
 		if OS.get_environment("PROLOGUE_FILM_CAPTURE")=="1":RenderingServer.frame_post_draw.connect(_capture_film)
 	func _capture_film() -> void:
 		if film_captures.size()>=40 or not is_instance_valid(director) or director.state.phase!="mirror_condensation" or not director._withdrawal_seen or director._phase_age<3 or director._phase_age>5:return
@@ -30,7 +33,8 @@ class FrameTrace extends Node:
 		film_captures.append({"file":name_,"age":director._phase_age,"progress":pane.get_meta("prologue_mirror_film"),"saved":result==OK})
 	func _process(delta:float) -> void:
 		var now:=Time.get_ticks_usec()
-		if previous>0 and rows.size()<16384:
+		total_frames+=1
+		if previous>0 and rows.size()<sample_cap:
 			var phase:String=str(director.state.phase) if is_instance_valid(director) else "retired"
 			rows.append([phase,Engine.max_fps,delta*1000.0,float(now-previous)/1000.0,
 				Performance.get_monitor(Performance.TIME_PROCESS)*1000.0,
@@ -50,7 +54,7 @@ class FrameTrace extends Node:
 		if out.is_empty():return
 		var file:=FileAccess.open(out.path_join("tutorial_frame_times.json"),FileAccess.WRITE)
 		if file==null:return
-		file.store_string(JSON.stringify({"evidence_class":"INERT","complete":complete,
+		file.store_string(JSON.stringify({"evidence_class":"INERT","complete":complete,"sample_cap":sample_cap,"total_frames":total_frames,"truncated":maxi(0,total_frames-1)>rows.size(),
 			"film_captures":film_captures,"film_columns":["phase_age","poll","progress","passes_identical","paused","call_locked"],"film_frames":film_rows,
 			"settings":settings,"columns":["phase","fps_cap","process_delta_ms","wall_ms","process_monitor_ms","physics_monitor_ms","draw_calls"],"frames":rows,
 			"limits":"Occupied route starts after world construction; process/physics monitors overlap and lag. GPU/render-thread, compilation, loading and streaming costs are not independently attributed. Capture stalls and cap changes are retained; compare matched phases/caps, not an aggregate FPS."},"\t",true,true))
