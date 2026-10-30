@@ -1144,6 +1144,9 @@ func _full_sequence_ending() -> void:
 				for boundary:int in [45,85,140]:
 					if clip.cutaway.age>=float(boundary)/10.0 and not captured_cutaway.has(boundary):
 						captured_cutaway.append(boundary);await _shot("full_sequence_stinger_%03d.png"%boundary)
+						if boundary==140:
+							_require(clip._veil.is_visible_in_tree() and clip.cutaway.title.is_visible_in_tree(),"production-parented cinematic retains its own visible veil and title")
+							_require(_full_sequence_title_pixels(),"actual title frame is black with centered white lettering")
 	_require(seen==expected,"full sequence delivers the five exact lines in order without a staged first-contact save")
 	_require(director.errors.is_empty() and director.state.phase=="prologue_complete" and not director.state.skipped,"real arm command, natural seasonal sky and unskipped17-second cutaway finish")
 	_require(captured_cutaway==[45,85,140],"natural cutaway reaches silhouette, wait and title without seeking its clock")
@@ -1161,3 +1164,19 @@ func _full_sequence_ending() -> void:
 		RealityState.persistence_enabled=old_enabled;RealityState.save_path=old_path
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("full_sequence_review.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"One occupied world, public DREAM/wake owner, actual bed-to-bath movement and gestures, existing witnessed-visitor/crossing reload controls, natural first-contact/arm/sky/stinger and completed validated reload. No title-button launch, uninterrupted no-reload run, complete save-boundary matrix or human acceptance.","phases":phase_trace,"lines":seen,"cutaway_samples":captured_cutaway,"initial_clock":start_clock,"final_clock":RealityState.data.campaign_clock,"state":director.state,"failures":failures},"\t"))
 	frame_trace.complete=failures.is_empty()
+
+
+func _full_sequence_title_pixels() -> bool:
+	var path:=OS.get_environment("SHOT_DIR").path_join("full_sequence_stinger_140.png")
+	var frame:=Image.load_from_file(path)
+	if frame==null:return false
+	var sampled:=0
+	var dark:=0
+	var white_center:=0
+	for y in range(0,frame.get_height(),4):
+		for x in range(0,frame.get_width(),4):
+			var pixel:Color=frame.get_pixel(x,y)
+			sampled+=1
+			if maxf(pixel.r,maxf(pixel.g,pixel.b))<.025:dark+=1
+			if x>frame.get_width()/4 and x<frame.get_width()*3/4 and y>frame.get_height()*2/5 and y<frame.get_height()*3/5 and minf(pixel.r,minf(pixel.g,pixel.b))>.7:white_center+=1
+	return float(dark)/sampled>.98 and white_center>100

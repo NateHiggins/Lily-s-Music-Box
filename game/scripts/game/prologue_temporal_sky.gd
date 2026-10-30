@@ -130,6 +130,7 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 	for uniform:Dictionary in manager.sky.shader.get_shader_uniform_list():
 		_old_parameters[str(uniform.name)]=manager.sky.get_shader_parameter(uniform.name)
 	for node:Node in world.find_children("*","",true,false):
+		if is_ancestor_of(node):continue # Our own veil/audio must remain owned by this cinematic.
 		if node is GPUParticles3D:
 			_particles.append({"node":node,"speed":node.speed_scale});node.speed_scale=0
 		if node is CanvasLayer:_canvas_layers.append(node)
@@ -168,7 +169,7 @@ func start(owner_world:Node3D,completion:Callable,cutaway_completion:Callable=Ca
 ## Avoid rescanning the complete building at the historical handoff.
 func _track_added(node:Node) -> void:
 	if node is not AudioStreamPlayer and node is not AudioStreamPlayer3D and node is not CanvasLayer:return
-	if not is_instance_valid(world) or not world.is_ancestor_of(node):return
+	if not is_instance_valid(world) or not world.is_ancestor_of(node) or is_ancestor_of(node):return
 	if node is CanvasLayer:_canvas_layers.append(node)
 	else:_late_audio.append(node)
 
