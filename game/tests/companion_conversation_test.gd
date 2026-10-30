@@ -48,7 +48,7 @@ func _ready() -> void:
 	for index in 5: restored.respond("eat the machine", {})
 	check(restored.respond("eat it", {}).line_id == "eat_persistent", "persistent impossible request acknowledged")
 	check(not restored.event("activation").is_empty() and restored.event("activation").is_empty(), "event lines are once per memory")
-	for index in 70: restored.respond("nonsense", {})
+	for index in Memory.LIMIT + 22: restored.respond("nonsense", {})
 	check(restored.memory.history.size() == Memory.LIMIT, "history stays bounded")
 	var before: Dictionary = restored.memory.snapshot()
 	var invalid := before.duplicate(true)

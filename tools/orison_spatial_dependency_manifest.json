@@ -201424,7 +201424,7 @@
     "_ready"
    ],
    "lines": [
-    52
+    64
    ],
    "count": 1,
    "context": [
@@ -206946,7 +206946,7 @@
     "apply"
    ],
    "lines": [
-    18
+    19
    ],
    "count": 1,
    "context": [
@@ -206976,7 +206976,7 @@
     "apply"
    ],
    "lines": [
-    18
+    19
    ],
    "count": 1,
    "context": [
@@ -207304,7 +207304,7 @@
     "configure"
    ],
    "lines": [
-    57
+    92
    ],
    "count": 1,
    "context": [
@@ -207334,7 +207334,7 @@
     "configure"
    ],
    "lines": [
-    54
+    89
    ],
    "count": 1,
    "context": [
@@ -207362,7 +207362,7 @@
     "configure"
    ],
    "lines": [
-    54
+    89
    ],
    "count": 1,
    "context": [
@@ -215994,7 +215994,7 @@
     "setup"
    ],
    "lines": [
-    82
+    84
    ],
    "count": 1,
    "context": [
@@ -216024,7 +216024,7 @@
     "setup"
    ],
    "lines": [
-    88
+    90
    ],
    "count": 1,
    "context": [
@@ -216054,7 +216054,7 @@
     "setup"
    ],
    "lines": [
-    83
+    85
    ],
    "count": 1,
    "context": [
@@ -216084,7 +216084,7 @@
     "setup"
    ],
    "lines": [
-    69
+    71
    ],
    "count": 1,
    "context": [
@@ -230057,7 +230057,7 @@
     "precipitation_review"
    ],
    "lines": [
-    357
+    415
    ],
    "count": 1,
    "context": [
@@ -230088,7 +230088,7 @@
     "run"
    ],
    "lines": [
-    30
+    33
    ],
    "count": 1,
    "context": [
@@ -254971,7 +254971,7 @@
     "_visit_shop"
    ],
    "lines": [
-    106
+    107
    ],
    "count": 1,
    "context": [
@@ -271298,7 +271298,7 @@
     "_enter_2a"
    ],
    "lines": [
-    136
+    153
    ],
    "count": 1,
    "context": [
@@ -271390,9 +271390,9 @@
     "_enter_front_entrance"
    ],
    "lines": [
-    119,
-    121,
-    122
+    136,
+    138,
+    139
    ],
    "count": 3,
    "context": [
@@ -281348,7 +281348,7 @@
     "_receiver_reload"
    ],
    "lines": [
-    92
+    93
    ],
    "count": 1,
    "context": [
@@ -281707,7 +281707,7 @@
     "_check_removed_cabinets"
    ],
    "lines": [
-    271
+    330
    ],
    "count": 1,
    "context": [
@@ -281737,7 +281737,7 @@
     "_check_specialist_fittings"
    ],
    "lines": [
-    156
+    215
    ],
    "count": 1,
    "context": [
@@ -281767,7 +281767,7 @@
     "_check_specialist_fittings"
    ],
    "lines": [
-    156
+    215
    ],
    "count": 1,
    "context": [
@@ -281798,20 +281798,25 @@
     "_route"
    ],
    "lines": [
-    42,
-    63,
-    63,
-    63,
-    71,
-    71,
-    71,
-    71
+    92,
+    94,
+    94,
+    97,
+    97,
+    120,
+    120,
+    120,
+    128,
+    128,
+    128,
+    128
    ],
-   "count": 8,
+   "count": 12,
    "context": [
     "if not await _walk(Vector3(1.925, 0, -3.5)): return",
-    "for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5), Vector3(0, 0, -10.2)]:",
-    "for point: Vector3 in [Vector3(0,0,3),Vector3(14,0,3),Vector3(14,0,4.2),Vector3(14,-.1,8),Vector3(14,-.1,13.6),Vector3(14,0,15)]:"
+    "for point in [Vector3(1.925,0,-6.5),Vector3(0,0,-8.5)]:",
+    "for point in [Vector3(1.925,0,-6.5),Vector3(1.925,0,-3.5)]:",
+    "for point in [Vector3(1.925, 0, -6.5), Vector3(0, 0, -8.5), Vector3(0, 0, -10.2)]:"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -281838,7 +281843,7 @@
     "_route"
    ],
    "lines": [
-    28
+    30
    ],
    "count": 1,
    "context": [
@@ -281868,23 +281873,24 @@
     "_route"
    ],
    "lines": [
-    17,
-    17,
-    17,
-    18,
-    18,
-    18,
     19,
     19,
     19,
     20,
-    27,
-    49,
-    70,
-    70,
-    70
+    20,
+    20,
+    21,
+    21,
+    21,
+    22,
+    29,
+    51,
+    74,
+    76,
+    76,
+    76
    ],
-   "count": 15,
+   "count": 16,
    "context": [
     "var outward := [Vector3(0, 0, 3), Vector3(14, 0, 3), Vector3(14, 0, 4.2),",
     "Vector3(14, -0.1, 8), Vector3(14, -0.1, 13.6), Vector3(14, 0, 15),",
@@ -289393,7 +289399,7 @@
     "_ready"
    ],
    "lines": [
-    24
+    25
    ],
    "count": 1,
    "context": [],
@@ -289421,7 +289427,7 @@
     "<module>"
    ],
    "lines": [
-    11
+    12
    ],
    "count": 1,
    "context": [
@@ -289449,7 +289455,7 @@
     "<module>"
    ],
    "lines": [
-    11
+    12
    ],
    "count": 1,
    "context": [
@@ -289479,7 +289485,7 @@
     "<module>"
    ],
    "lines": [
-    11
+    12
    ],
    "count": 1,
    "context": [
@@ -290669,20 +290675,20 @@
     "_route"
    ],
    "lines": [
-    9,
-    9,
-    9,
     10,
     10,
     10,
     11,
-    17,
-    27,
-    29,
-    29,
-    32,
-    32,
-    32
+    11,
+    11,
+    12,
+    18,
+    28,
+    30,
+    30,
+    33,
+    33,
+    33
    ],
    "count": 14,
    "context": [
@@ -290823,7 +290829,7 @@
     "_run"
    ],
    "lines": [
-    342
+    349
    ],
    "count": 1,
    "context": [
@@ -290853,7 +290859,7 @@
     "_run"
    ],
    "lines": [
-    337
+    344
    ],
    "count": 1,
    "context": [
@@ -290881,7 +290887,7 @@
     "_run"
    ],
    "lines": [
-    339
+    346
    ],
    "count": 1,
    "context": [
@@ -290909,7 +290915,7 @@
     "_run"
    ],
    "lines": [
-    344
+    351
    ],
    "count": 1,
    "context": [
@@ -290939,7 +290945,7 @@
     "_run"
    ],
    "lines": [
-    304
+    311
    ],
    "count": 1,
    "context": [
@@ -290969,7 +290975,7 @@
     "_run"
    ],
    "lines": [
-    341
+    348
    ],
    "count": 1,
    "context": [
@@ -290999,7 +291005,7 @@
     "_run"
    ],
    "lines": [
-    315
+    322
    ],
    "count": 1,
    "context": [
@@ -291029,7 +291035,7 @@
     "_run"
    ],
    "lines": [
-    304
+    311
    ],
    "count": 1,
    "context": [
@@ -291059,7 +291065,7 @@
     "_run"
    ],
    "lines": [
-    340
+    347
    ],
    "count": 1,
    "context": [
@@ -291089,7 +291095,7 @@
     "_run"
    ],
    "lines": [
-    343
+    350
    ],
    "count": 1,
    "context": [
@@ -291119,7 +291125,7 @@
     "_run"
    ],
    "lines": [
-    304
+    311
    ],
    "count": 1,
    "context": [
@@ -291149,7 +291155,7 @@
     "_run"
    ],
    "lines": [
-    315
+    322
    ],
    "count": 1,
    "context": [
@@ -291179,8 +291185,8 @@
     "_run"
    ],
    "lines": [
-    375,
-    377
+    382,
+    384
    ],
    "count": 2,
    "context": [
@@ -291209,7 +291215,7 @@
     "_run"
    ],
    "lines": [
-    338
+    345
    ],
    "count": 1,
    "context": [
@@ -291240,7 +291246,7 @@
     "_run"
    ],
    "lines": [
-    345
+    352
    ],
    "count": 1,
    "context": [
@@ -294685,8 +294691,8 @@
     "_close_front_entrance"
    ],
    "lines": [
-    174,
-    177
+    175,
+    178
    ],
    "count": 2,
    "context": [
@@ -294747,9 +294753,9 @@
     "_enter_front_entrance"
    ],
    "lines": [
-    169,
-    171,
-    172
+    170,
+    172,
+    173
    ],
    "count": 3,
    "context": [
@@ -294782,7 +294788,7 @@
     "_leave_front_entrance"
    ],
    "lines": [
-    165
+    166
    ],
    "count": 1,
    "context": [
@@ -308121,9 +308127,9 @@
     "run"
    ],
    "lines": [
-    135,
-    136,
-    150
+    166,
+    167,
+    193
    ],
    "count": 3,
    "context": [
@@ -311192,7 +311198,7 @@
     "details"
    ],
    "lines": [
-    148
+    142
    ],
    "count": 1,
    "context": [
@@ -311223,14 +311229,12 @@
    ],
    "lines": [
     68,
-    69,
-    86
+    69
    ],
-   "count": 3,
+   "count": 2,
    "context": [
     "camera.global_position=world.player.global_position+Vector3(0,35,0)",
-    "camera.look_at(camera.global_position+Vector3(0,12,-30),Vector3.UP)",
-    "camera.look_at(camera.global_position+Vector3(1.6,2.3,-2.6)*20,Vector3.UP)"
+    "camera.look_at(camera.global_position+Vector3(0,12,-30),Vector3.UP)"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -311257,7 +311261,7 @@
     "_ready"
    ],
    "lines": [
-    48
+    42
    ],
    "count": 1,
    "context": [],
@@ -311285,7 +311289,7 @@
     "<module>"
    ],
    "lines": [
-    45
+    39
    ],
    "count": 1,
    "context": [],
@@ -312321,13 +312325,13 @@
     "_route"
    ],
    "lines": [
-    13,
-    13,
-    13,
-    56,
-    56,
-    56,
-    67
+    16,
+    16,
+    16,
+    59,
+    59,
+    59,
+    70
    ],
    "count": 7,
    "context": [
@@ -313480,13 +313484,11 @@
    ],
    "lines": [
     27,
-    32,
-    36
+    30
    ],
-   "count": 3,
+   "count": 2,
    "context": [
     "camera.look_at(Vector3(0,12,-30),Vector3.UP)",
-    "camera.look_at(Vector3(1.6,2.3,-2.6),Vector3.UP)",
     "camera.look_at(Vector3(0,4,-30),Vector3.UP)"
    ],
    "gameplay_binding": true,
@@ -313514,8 +313516,8 @@
     "_lightning_review"
    ],
    "lines": [
-    536,
-    540
+    672,
+    676
    ],
    "count": 2,
    "context": [
@@ -313578,7 +313580,7 @@
     "_lightning_review"
    ],
    "lines": [
-    604
+    740
    ],
    "count": 1,
    "context": [
@@ -313609,7 +313611,7 @@
     "_ready"
    ],
    "lines": [
-    81
+    89
    ],
    "count": 1,
    "context": [
@@ -314024,7 +314026,7 @@
     "_route"
    ],
    "lines": [
-    79
+    106
    ],
    "count": 1,
    "context": [
@@ -322228,8 +322230,8 @@
     "atmosphere_review"
    ],
    "lines": [
-    402,
-    421
+    523,
+    542
    ],
    "count": 2,
    "context": [
@@ -322299,9 +322301,9 @@
     "_profile_mirage_route"
    ],
    "lines": [
-    163,
-    173,
-    175
+    184,
+    194,
+    196
    ],
    "count": 3,
    "context": [
@@ -322334,7 +322336,7 @@
     "_run"
    ],
    "lines": [
-    199
+    269
    ],
    "count": 1,
    "context": [
@@ -323005,123 +323007,123 @@
    "target_exists": null
   },
   {
-    "key": "d698c43708dc9c4d",
-    "kind": "id_reference",
-    "token": "4B_wake_bed",
-    "file": "game/scripts/game/prologue_tardi_stinger.gd",
-    "tier": "production",
-    "subsystem": "game",
-    "symbols": [
-      "start"
-    ],
-    "lines": [
-      70
-    ],
-    "count": 1,
-    "context": [
-      "var bed:Node3D=scope.world.adapter.resolve(\"4B_wake_bed\")"
-    ],
-    "gameplay_binding": false,
-    "authority": [
-      "RUNTIME_LOOKUP"
-    ],
-    "spatial": [],
-    "disposition": "PRESERVE_OR_ALIAS",
-    "confidence": "MEDIUM",
-    "rationale": "Production code looks up a layout id at runtime.",
-    "resolved_target": "v2_blockout",
-    "target_exists": true
+   "key": "d698c43708dc9c4d",
+   "kind": "id_reference",
+   "token": "4B_wake_bed",
+   "file": "game/scripts/game/prologue_tardi_stinger.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "start"
+   ],
+   "lines": [
+    70
+   ],
+   "count": 1,
+   "context": [
+    "var bed:Node3D=scope.world.adapter.resolve(\"4B_wake_bed\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   },
   {
-    "key": "16c8216ea5bccf0e",
-    "kind": "id_reference",
-    "token": "F04_B_BATH_DOOR",
-    "file": "game/scripts/game/prologue_tardi_stinger.gd",
-    "tier": "production",
-    "subsystem": "game",
-    "symbols": [
-      "start"
-    ],
-    "lines": [
-      77
-    ],
-    "count": 1,
-    "context": [
-      "if str(door.id)==\"F04_B_BATH_DOOR\":departure=frame.to_global(Vector3(float(door.center[0]),bed_at.y,float(door.center[1])))"
-    ],
-    "gameplay_binding": false,
-    "authority": [
-      "RUNTIME_LOOKUP"
-    ],
-    "spatial": [],
-    "disposition": "PRESERVE_OR_ALIAS",
-    "confidence": "MEDIUM",
-    "rationale": "Production code looks up a layout id at runtime.",
-    "resolved_target": "v2_blockout",
-    "target_exists": true
+   "key": "16c8216ea5bccf0e",
+   "kind": "id_reference",
+   "token": "F04_B_BATH_DOOR",
+   "file": "game/scripts/game/prologue_tardi_stinger.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "start"
+   ],
+   "lines": [
+    77
+   ],
+   "count": 1,
+   "context": [
+    "if str(door.id)==\"F04_B_BATH_DOOR\":departure=frame.to_global(Vector3(float(door.center[0]),bed_at.y,float(door.center[1])))"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   },
   {
-    "key": "a930d47ae45c222d",
-    "kind": "id_reference",
-    "token": "F04_4B_MIRROR_01",
-    "file": "game/tests/orison_v2_medicine_cabinets_test.gd",
-    "tier": "test",
-    "subsystem": "tests",
-    "symbols": [
-      "_review_story_film"
-    ],
-    "lines": [
-      202
-    ],
-    "count": 1,
-    "context": [
-      "var prop:=world.adapter.resolve(\"F04_4B_MIRROR_01\") as Cabinet"
-    ],
-    "gameplay_binding": false,
-    "authority": [
-      "TEST_CONTRACT"
-    ],
-    "spatial": [
-      "SEMANTIC_ANCHOR"
-    ],
-    "disposition": "UPDATE_TEST_FIXTURE",
-    "confidence": "MEDIUM",
-    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-    "resolved_target": "F04/marker",
-    "target_exists": true
+   "key": "a930d47ae45c222d",
+   "kind": "id_reference",
+   "token": "F04_4B_MIRROR_01",
+   "file": "game/tests/orison_v2_medicine_cabinets_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_review_story_film"
+   ],
+   "lines": [
+    202
+   ],
+   "count": 1,
+   "context": [
+    "var prop:=world.adapter.resolve(\"F04_4B_MIRROR_01\") as Cabinet"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/marker",
+   "target_exists": true
   },
   {
-    "key": "a642d93db1391b6c",
-    "kind": "id_reference",
-    "token": "F04_4B_MIRROR_01",
-    "file": "game/scripts/building/orison_v2_native_medicine_cabinets.gd",
-    "tier": "production",
-    "subsystem": "building",
-    "symbols": [
-      "prepare",
-      "mounting_pose"
-    ],
-    "lines": [
-      8,
-      30
-    ],
-    "count": 2,
-    "context": [
-      "if data.mounts.keys() != [\"F04_4B_MIRROR_01\"]: return false",
-      "if identity != \"F04_4B_MIRROR_01\": return Transform3D.IDENTITY"
-    ],
-    "gameplay_binding": false,
-    "authority": [
-      "RUNTIME_LOOKUP"
-    ],
-    "spatial": [
-      "SEMANTIC_ANCHOR"
-    ],
-    "disposition": "PRESERVE_OR_ALIAS",
-    "confidence": "MEDIUM",
-    "rationale": "Production code looks up a layout id at runtime.",
-    "resolved_target": "F04/marker",
-    "target_exists": true
+   "key": "a642d93db1391b6c",
+   "kind": "id_reference",
+   "token": "F04_4B_MIRROR_01",
+   "file": "game/scripts/building/orison_v2_native_medicine_cabinets.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare",
+    "mounting_pose"
+   ],
+   "lines": [
+    8,
+    30
+   ],
+   "count": 2,
+   "context": [
+    "if data.mounts.keys() != [\"F04_4B_MIRROR_01\"]: return false",
+    "if identity != \"F04_4B_MIRROR_01\": return Transform3D.IDENTITY"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/marker",
+   "target_exists": true
   },
   {
    "key": "b7c14a0671172eca",
@@ -323580,6 +323582,356 @@
    "rationale": "Isolated traffic-height fixture restores its probe off-road after flat/graded and transformed-owner contact controls; no playable coordinate or authority.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "1ba54804a7c46e82",
+   "kind": "id_reference",
+   "token": "F02_C_ENTRY_DOOR",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[0]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "48f2acc0d07edec8",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_BATH_DOOR",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[1]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4772ddc6ec21c4ce",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_BED1_DOOR",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[2]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a942870a5bed3112",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_BED2_DOOR",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "da13f19b605d435d",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "025bd5d63f561528",
+   "kind": "unit_reference",
+   "token": "2C",
+   "file": "game/data/orison_v2/juno_kells_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "99424fde25ce44f4",
+   "kind": "id_reference",
+   "token": "F05_A_KITCHEN_STUDY_DOOR",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[0]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b6fa192012f30556",
+   "kind": "id_reference",
+   "token": "F05_A_MAIN_BED_DOOR",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[1]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a29cae56ddb21dae",
+   "kind": "id_reference",
+   "token": "F05_A_PRIVATE_HALL_BATH_DOOR",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[2]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6a0803321cf6c502",
+   "kind": "id_reference",
+   "token": "F05_A_PRIVATE_HALL_KITCHEN_DOOR",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d7ba9504bc3b0dfc",
+   "kind": "id_reference",
+   "token": "F05_DOOR_02",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "49afbd0078b18b8d",
+   "kind": "id_reference",
+   "token": "bed",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/paths[0][*][0]",
+    "/places/unit:bed",
+    "/places/unit:bedroom"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f1b03c22bb0307c5",
+   "kind": "unit_reference",
+   "token": "5A",
+   "file": "game/data/orison_v2/nadia_quell_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
   }
  ]
 }
