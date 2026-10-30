@@ -34,6 +34,17 @@ func _run() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_elevations.json"))
+	if OS.get_environment("ORISON_CITY_TANK_LOD_CHECK")=="1":
+		var tank_fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_tanks.json"))
+		var tank_counts: Dictionary={}
+		for row: Dictionary in tank_fixture.parts:tank_counts[str(row.name)]=int(row.triangles)
+		var tank_parts:=0
+		for draw: MeshInstance3D in city.get_node("RooftopTanks").find_children("*","MeshInstance3D",true,false):
+			var surface:=RenderingServer.mesh_get_surface(draw.mesh.get_rid(),0)
+			check((surface.get("lods",[]) as Array).is_empty(),"retained tank has no destructive automatic tail: "+str(draw.name))
+			check(tank_counts.has(str(draw.name)) and draw.mesh.surface_get_array_index_len(0)==int(tank_counts.get(str(draw.name),-1))*3,"retained tank LOD0 stock remains exact: "+str(draw.name))
+			tank_parts+=1
+		check(tank_parts==tank_counts.size() and tank_parts==166,"nonempty complete retained tank LOD inventory")
 	fixture = preload("res://tests/v2_city_context_review.gd").placed_fixture(fixture)
 	var metrics := preload("res://tests/orison_v2_domestic_native_test.gd").new()
 	var body_data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/exterior/city_elevations.json"))

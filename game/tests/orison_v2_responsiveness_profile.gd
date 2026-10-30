@@ -5,6 +5,29 @@ var samples: Array = []
 var sampling := false
 var last_usec := 0
 var extra_monitors: Dictionary = {}
+var retirement_trace_requested := false
+var retirement_trace_active := false
+var retirement_timeline: Array[Dictionary] = []
+var retirement_trace_dropped := 0
+const RETIREMENT_TRACE_LIMIT := 12000
+
+class RetirementTail extends Node:
+	var host: Node
+	func _process(_delta: float) -> void:
+		host.call("_retirement_mark","scene_tail")
+
+func _retirement_mark(stage: String,stamp: int=0) -> void:
+	if not retirement_trace_active:return
+	if retirement_timeline.size()>=RETIREMENT_TRACE_LIMIT:
+		retirement_trace_dropped+=1;return
+	var residency: Node=world.passage_region.residency
+	var alive:=0
+	for reference: WeakRef in residency._retired:
+		if reference.get_ref()!=null:alive+=1
+	retirement_timeline.append({"stage":stage,"usec":stamp if stamp>0 else Time.get_ticks_usec(),"frame":Engine.get_process_frames(),"phase":phase,"residency":residency.state,"retired_roots_alive":alive})
+
+func _retirement_pre() -> void:_retirement_mark("render_pre")
+func _retirement_post() -> void:_retirement_mark("render_post")
 
 func _init() -> void:
 	route_label = "V2 RESPONSIVENESS DIAGNOSTIC"
@@ -16,6 +39,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var now := Time.get_ticks_usec()
+	if retirement_trace_active:_retirement_mark("sample_begin",now)
 	if sampling and last_usec > 0:
 		var rid := get_viewport().get_viewport_rid()
 		samples.append([phase, (now-last_usec)/1000.0,
@@ -29,10 +53,18 @@ func _process(_delta: float) -> void:
 	last_usec = now
 
 func _route() -> void:
+	retirement_trace_requested=OS.get_environment("ORISON_PERF_RETIRE")=="1"
+	var tail: Node
+	if retirement_trace_requested:
+		var marker:=RetirementTail.new();marker.host=self;marker.process_priority=1000000
+		tail=marker;add_child(marker)
+		retirement_trace_active=true
+		RenderingServer.frame_pre_draw.connect(_retirement_pre)
+		RenderingServer.frame_post_draw.connect(_retirement_post)
 	# Opt-in existing caller timers; no production scheduling change.
 	world.passage_region.residency.load_profiling = OS.get_environment("ORISON_PERF_LOADING") == "1"
 	for monitor: String in ClassDB.class_get_integer_constant_list("Performance"):
-		if monitor.begins_with("PIPELINE_COMPILATIONS_") or monitor in ["RENDER_VIDEO_MEM_USED","RENDER_TEXTURE_MEM_USED","RENDER_BUFFER_MEM_USED"]:
+		if monitor.begins_with("PIPELINE_COMPILATIONS_") or monitor in ["RENDER_VIDEO_MEM_USED","RENDER_TEXTURE_MEM_USED","RENDER_BUFFER_MEM_USED","OBJECT_NODE_COUNT","OBJECT_RESOURCE_COUNT"]:
 			extra_monitors[monitor]=ClassDB.class_get_integer_constant("Performance",monitor)
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 	Engine.max_fps = 0
@@ -62,6 +94,12 @@ func _route() -> void:
 	phase = "idle"
 	for i in 120: await get_tree().process_frame
 	sampling = false
+	if retirement_trace_requested:
+		retirement_trace_active=false
+		RenderingServer.frame_pre_draw.disconnect(_retirement_pre)
+		RenderingServer.frame_post_draw.disconnect(_retirement_post)
+		tail.queue_free()
+		if retirement_timeline.is_empty() or retirement_trace_dropped>0:failures.append("retirement timeline missing or truncated")
 	if world.passage_region.residency.load_profiling:
 		var loading: Dictionary = world.passage_region.residency.snapshot().load_profile
 		if loading.records.is_empty() or loading.dropped != 0:
@@ -79,6 +117,7 @@ func _route() -> void:
 			"campaign_minute":world.campaign_clock.minute_of_day(),"calendar_frozen":true,"weather_network":false},
 		"counter_limits":"Process/physics monitors are overlapping one-second peaks, not independent per-frame script/physics costs. Main viewport GPU excludes private viewports. Global rendering/compilation counters retain global scope; no additive attribution or matched speedup inferred.",
 		"startup_ms":world.startup_ms,"samples":samples,"failures":failures,
+		"retirement_trace":{"enabled":retirement_trace_requested,"limit":RETIREMENT_TRACE_LIMIT,"dropped":retirement_trace_dropped,"scope":"Warmup and route are separately phase-labelled. Late test callback and renderer signals bracket CPU work,not GPU completion/presentation or exclusive deletion time. WeakRefs observe root lifetime,not mesh-memory ownership.","events":retirement_timeline},
 		"streaming":world.passage_region.residency.snapshot(),"interaction_costs":player._grab.profile_records}, "\t"))
 	file.close()
 	print("RESPONSIVENESS samples=", samples.size(), " failures=", failures)

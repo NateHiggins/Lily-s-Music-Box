@@ -1,5 +1,151 @@
 # REPORT - V2-CITY-CONTEXT - 2026-10-19
 
+### Canonical northeast intake and tank LOD repair — October30
+
+Evidence class: **INERT**. Frozen architect checkpoint **b9732450** with
+construction **c061b5a4** is integrated locally at **8a35792c** for combined
+qualification. The TASKS conflict preserves the latest city-first direction;
+both prior source-review and new native/isolated report sections remain below.
+The123-member native archive is retained unchanged,including original failures.
+This intake alone is not composed-world,access,save or artistic acceptance.
+
+Actual near/far NE2 images exposed a retained rooftop tank whose automatic
+imported LOD collapses its cylindrical wall. This is separate from the newly
+authored building-body LOD. The bounded repair sets only
+**game/assets/props/city_tanks.glb.import**'s automatic LOD generation to false.
+The native asset,all166 LOD0 tank partitions/material charts,collision and
+clock/weather/St.Elmo owners remain unchanged. Full tank bodies are retained
+until a separately reviewed complete replacement body exists; no global LOD
+disable or culling bypass is introduced. This follows the engine's documented
+[per-mesh broken-LOD remedy](https://docs.godotengine.org/en/stable/tutorials/3d/mesh_lod.html)
+and is executed on the pinned patched Vulkan4.7.1 build rather than inferred
+from documentation alone.
+
+**C:/ov/reports/city_streets_20261029/tank_lod_repair_01/** retains original
+source snapshot,import/parser/bench receipts and raw repeated90-frame samples.
+Import39s,parser PASS; isolated bench56s,7167 checks/zero failures,empty stderr.
+All166 imported partitions have no automatic tail and preserve source triangle
+counts; unchanged broad native metric/mip/collision and body-LOD checks pass.
+Actual **bench/site_ne2_profile_far.png** was inspected: the cylinder is intact
+where the earlier **northeast_block_01/bench_02/** far image visibly collapsed.
+
+Complete NE2 rendering has49,213 near/46,969 forced-far primitives and46 draws
+at both levels. Earlier forced-far was36,877: the repair adds10,092 primitives
+in this view,not draws. New building-body reduction still operates. Repeated
+isolated GPU medians are0.608ms before/0.613ms after; host contention and no
+matched old/new control prevent causal cost,whole-world budget or speed claims.
+NE1 remains21,825/20,769 primitives and23 draws. Native buffers are not reauthored
+or receipt hashes repinned. Full-family authored replacement-body LOD remains
+engineering debt,not an excuse to ship the demonstrated broken silhouette.
+
+Canonical has prepared a scoped northeast controller programme in the existing
+transport-route test: one floor-validated nearby start,six normal-controller
+plaza legs past both fronts and21 selected loaded body partitions. Original
+opposing programme retains its three starts/twelve legs and unchanged predicates.
+Compilation passes for both changed scripts. Actual route and combined physical
+qualification are pending; the count remains17 technical studies/132 remaining
+until their terminal evidence is reviewed. No duplicate Godot world is composed
+by the reused material readers; no firehose route or unchanged city tour is added.
+
+The scoped route subsequently completes184 checks/six waypoints/zero failures
+with empty stderr in264s. Its original schema2
+**canonical_city_intake_01/route/northeast_frontage_contract.json** records
+production composition,21 selected loaded body partitions,the connected plaza
+walk and root retirement. Actual workshop/oriel standing captures were inspected;
+their close upward framing demonstrates installed frontage detail,not full
+district composition. Source start(26.5,8) is a test-only nearby placement on
+unfiltered public floor; all six following legs use normal controller input.
+No rescue,noclip,crouch,speed change,door operation or save reconstruction.
+Architect native CPU work may overlap startup; these walking samples are not an
+uncontended performance baseline.
+
+The original combined physical run refuses before composition in25s because
+closure/streets native fixtures still bind the earlier full elevation-plan file
+and street fixture binds the earlier elevation fixture. The refusal and original
+stderr remain in **canonical_city_intake_01/**. A335-height/25-placed-footprint
+consumed-field diagnostic,including changed-height/changed-footprint negative
+controls,is retained; its initial metadata-only renewal was restored and is
+explicitly **not qualification**. No generic preflight predicate or old runtime
+receipt was changed.
+
+Following the prior owning-producer procedure,one Blender5.2/two-thread batch
+replays closure,near elevations,lower elevations and streets in dependency order.
+Original outputs are backed up under **before_native_replay/**. All five exported
+GLBs are byte-identical; independent logical-accessor/pose/material comparison
+also passes all541 parts. Four saved native files and their freshly generated
+construction/fixture bindings close the new provenance. All four affected
+fixture preflights pass. Reuse unchanged native/loaded images and the already
+completed route; no second walk is needed. The physical-only rerun is under
+**canonical_city_intake_02/**. It remains pending at this record; source/mesh
+equivalence is not substituted for its test-written result.
+
+The rerun subsequently completes in350s at native3440x1440 fullscreen on the
+pinned patched Vulkan4.7.1 engine:651 checks/zero failures,empty stderr,
+29,130 draws/18,330 meshes/6,376 materials/542 textures. The test-written
+**canonical_city_intake_02/raw/runtime_contract.json** executes production
+composition,surface requirements and teardown; save reconstruction and interaction
+programmes are **NOT_EXECUTED**. Its measured contract interval is317.6s,
+distinct from the wrapper's350s. The previous652 count additionally included an
+optional fixed-camera lamp-context check; that unchanged capture programme was
+not repeated here. No predicate was removed.
+
+The reviewed packet is published with the existing atomic publisher,retaining
+the previous packet under **canonical_city_intake_02/publication/**. Independent
+qualification returns PASS/zero defects. Rendering-input digest is
+**7d448985c4622a0b26114b30df0dbac3b4f44f162e5440c5f138554be87e7605**.
+The current bookcase frame was inspected,with sparse dressing explicitly still
+open. The two actual northeast route frames are reused with their original
+origin/scope after byte-identical native replay; close upward frontage detail
+does not supply a full-facade or district-wide aesthetic verdict. No contract
+or old image is repinned to claim a new run. Clean final candidate comparison
+and publication to main remain pending at this entry.
+
+The374 walking frames measure wall median20.418/p9553.424/p9968.491/max316.861ms;
+main GPU median6.750/p9517.362/max18.693ms. These are descriptive local-route
+measurements,not a matched speedup or a city frame budget. Global rendering
+counters include private viewports; CPU/native host overlap is not fully excluded.
+The316.861ms stall and broader performance qualification remain open.
+
+## October30 cityscape priority and district review
+
+Evidence class: **INERT**. Lily's latest direction is to finish the cityscape
+with the architect. This updates work order,not acceptance or the unfinished
+prologue's release criteria. Canonical main at review is **4ec26518**; the
+architect owns **C:/ov/city**,branch **codex/v2-city-20261029**. Canonical owns
+integration,district composition/access and combined verification; the architect
+retains its NE geometry,producers,source plan and family bench. No duplicate
+geometry authoring or foreign worktree edits are authorized by this allocation.
+
+| Work | Current evidence / gap | Owner and next concrete action |
+|---|---|---|
+| NE1 workshop / NE2 arched-oriel house | Native candidates; prior near242 and lower71 partitions reported exact. Cornice grain defect found in an actual render and corrected; final imported checks pending. Not two accepted buildings yet. | Architect: finish reviewed near/lower previews,loaded PBR/mips/collision,natural LOD and focused real-controller route; freeze named checkpoint for canonical intake. |
+| Remaining unique architecture | Existing17 technical studies/132 remaining across25 near and124 horizon buildings. Repeated source-plan descriptions and generic background blocks are still visible. | Architect: NE3 terracotta office/NE4 bank next,then remaining individual source-backed adaptations; canonical reviews actual street/roof composition. Native completion alone does not reduce qualified counts. |
+| Queensboro and Manhattan | Installed source **city_transport** authors the elevated plaza,not the bridge. Its source plan has no bridge field. Retained roof view does not establish a recognizable river crossing or Manhattan silhouette. | Canonical: reconcile research and existing assets before assigning a separate bounded landmark construction batch; retain historical/AU distinctions and existing station/access. |
+| Sunnyside servicing/steam | Retained **city_relief_rail_cut.png** shows a terrain depression,not a legible passenger-servicing yard. | Canonical: identify existing rail/industrial stock and wind/weather owners; complete yard composition without inventing operating rail gameplay. |
+| Waterfront / Dutch Kills | Retained **city_relief_canal.png** shows broad banks/water bands without convincing waterfront construction. Relief is installed; setting is unfinished. | Canonical: source-backed shoreline/bulkhead/industrial composition and surface review,keeping terrain and occupied foundations authoritative. |
+| Street / gaslight / access | Existing narrow/full routes retain their exact scopes. One distant arcade lamp frame is occluded;450m continuous ground and whole-district artistic review remain open. | Architect: clear roadside lamp frame in next already-required cohort. Canonical: targeted gap routes,then integration checkpoints; no unchanged full-tour repetition. |
+
+This review actually inspected retained **exterior_route_11/west_from_front_walk.png**
+and **plaza_approach.png**,plus **full_surface_03/city_west_roof.png**,
+**city_relief_canal.png** and **city_relief_rail_cut.png** under
+**C:/ov/reports/city_streets_20261029/**. These are earlier scoped optical records,
+not fresh main captures. They support the stated artistic gap judgments,not a
+new runtime,access or save grant. Source inspection separately confirms the
+installed terrain profiles and elevated-plaza scope. Native NE previews
+**near_native_review_01/fulton_complete.png** and
+**near_native_review_02/workshop_complete.png** were also inspected; imported
+appearance and distance transition remain unverified. No reference photo is
+used as a texture and no new weather,clock,inventory,resident or save owner is
+introduced. No deadline has been set.
+
+Queue history condensed from **5505b041:TASKS.md** retains all source records
+below and the prologue integration ledger. Latest integrated gaslamp/canopy
+checkpoint **d238bc36** has652 physical checks/zero failures and117 static gates
+with zero regressions against exact b98 main; those existing receipts are reused
+unchanged. No whole-city or artistic acceptance follows. City expansion must
+retain complete replacement-body LOD and measure realistic composed costs;
+isolated contended lamp timings do not establish a district performance budget.
+
 Evidence class: **INERT**. Publication report; no additional acceptance grant.
 
 ## Main integration — October 28 UTC
