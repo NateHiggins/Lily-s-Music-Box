@@ -20,6 +20,11 @@ func _run() -> void:
 	var family := OS.get_environment("CITY_BENCH_FAMILY")
 	if family.is_empty(): family = "city_transport"
 	assert(family in ["city_transport", "city_streets"])
+	var bench_scope:=OS.get_environment("CITY_BENCH_SCOPE")
+	if bench_scope.is_empty():bench_scope="all"
+	if bench_scope not in ["all","hampton"] or (bench_scope=="hampton" and family!="city_streets"):
+		push_error("Unknown or incompatible CITY_BENCH_SCOPE: "+bench_scope)
+		get_tree().quit(64);return
 	var initial_sources := _bench_sources(family)
 	var mount_started := Time.get_ticks_usec()
 	var station: Node3D = preload("res://scripts/building/orison_v2_city_streets.gd").mount(self) if family == "city_streets" else preload("res://scripts/building/orison_v2_city_transport.gd").mount(self)
@@ -36,6 +41,11 @@ func _run() -> void:
 				var query := PhysicsRayQueryParameters3D.create(Vector3(x,1.,19.3),Vector3(x,-2.5,19.3))
 				var hit := get_world_3d().direct_space_state.intersect_ray(query)
 				check(not hit.is_empty() and absf(float(hit.position.y)-(grade-.1))<.002, "loaded graded carriageway collision " + str(x))
+		if bench_scope=="hampton":
+			for point: Array in [[-75.4,24.8,-.7365],[-75.4,25.2,-.7365],[-75.4,26.6,-.7365],[-93.7,26.6,-1.011],[-80.3,26.6,-.81],[-65.,26.6,-.5805],[ -80.,27.74,-.67125],[-80.,28.02,-.537],[-80.,28.30,-.40275],[-80.,28.58,-.2685],[-80.,28.86,-.13425],[-80.,29.5,0.]]:
+				var query:=PhysicsRayQueryParameters3D.create(Vector3(float(point[0]),1.,-float(point[1])),Vector3(float(point[0]),-2.5,-float(point[1])),1)
+				var hit:=get_world_3d().direct_space_state.intersect_ray(query)
+				check(not hit.is_empty() and absf(float(hit.position.y)-float(point[2]))<.0001 and hit.normal.y>.99,"actual Hampton public floor/tread station "+str(point))
 	var metrics := preload("res://tests/orison_v2_domestic_native_test.gd").new()
 	var low_source := (load("res://assets/props/"+family+"_lod1.glb") as PackedScene).instantiate()
 	var low_counts: Dictionary = {}
@@ -47,6 +57,7 @@ func _run() -> void:
 	var lod_parts := 0
 	var focus: MeshInstance3D
 	var transition_focus: MeshInstance3D
+	var hampton_parts: Array[String]=[]
 	for draw: MeshInstance3D in station.find_children("*", "MeshInstance3D", true, false):
 		parts += 1
 		var mesh := draw.mesh as ArrayMesh
@@ -56,7 +67,8 @@ func _run() -> void:
 		check((lods.size() == 1 and is_equal_approx(float(lods[0].edge_length), float(data.lod_error_m))) if replacement_reduces else lods.is_empty(), "replacement LOD where it reduces geometry: " + str(draw.name))
 		if replacement_reduces: lod_parts += 1
 		if replacement_reduces and (transition_focus == null or draw.get_aabb().size.length() < transition_focus.get_aabb().size.length()): transition_focus = draw
-		if family == "city_streets" and replacement_reduces and str(draw.name).ends_with("__walk") and focus == null: focus = draw
+		if str(draw.name).begins_with("Street_Hampton_"):hampton_parts.append(str(draw.name))
+		if family == "city_streets" and replacement_reduces and str(draw.name).ends_with("__walk") and focus == null and (bench_scope!="hampton" or str(draw.name).begins_with("Street_Hampton_")): focus = draw
 		metrics._check_cap_mapping(mesh, true)
 		var loaded := draw.material_override
 		var material := loaded.get_meta("v2_weather_source", loaded) as StandardMaterial3D
@@ -72,6 +84,10 @@ func _run() -> void:
 		check((shape.shape as ConcavePolygonShape3D).get_faces() == mesh.get_faces(), "near-only visible collision: " + str(draw.name))
 	check(parts == data.parts.size() and parts > 0, "nonempty source roster")
 	check(lod_parts > 0, "nonempty replacement body roster")
+	if bench_scope=="hampton":
+		hampton_parts.sort()
+		check(hampton_parts==["Street_Hampton_-5_L0__curb","Street_Hampton_-5_L0__walk","Street_Hampton_-6_L0__walk"],"three explicit loaded public-footway and stoop partitions")
+		transition_focus=focus
 	check(metrics.failures.is_empty(), "imported metre charts and tangent metrics: " + str(metrics.failures))
 	metrics.free()
 	var environment := WorldEnvironment.new()
@@ -101,15 +117,15 @@ func _run() -> void:
 	for row: Dictionary in [{"id":"forced_near", "threshold":0., "fov":75.}, {"id":"forced_far", "threshold":10000., "fov":75.}, {"id":"wide", "threshold":1., "fov":75.}, {"id":"narrow", "threshold":1., "fov":5.}, {"id":"forced_far_repeat", "threshold":10000., "fov":75.}, {"id":"forced_near_repeat", "threshold":0., "fov":75.}]:
 		var focused := family == "city_streets" and str(row.id) in ["wide", "narrow"]
 		if family == "city_streets":
-			for draw: MeshInstance3D in station.find_children("*", "MeshInstance3D", true, false): draw.visible = not focused or draw == focus
+			for draw: MeshInstance3D in station.find_children("*", "MeshInstance3D", true, false): draw.visible = (draw==focus) if focused else (bench_scope!="hampton" or str(draw.name).begins_with("Street_Hampton_"))
 			if focused:
 				assert(focus != null)
 				var center := focus.global_transform * focus.get_aabb().get_center()
 				camera.position = center + Vector3(0,60,280)
 				camera.look_at(center)
 			else:
-				camera.position = Vector3(0,65,220)
-				camera.look_at(Vector3(0,0,17))
+				camera.position = Vector3(-80,8,-1) if bench_scope=="hampton" else Vector3(0,65,220)
+				camera.look_at(Vector3(-80,-.4,-27) if bench_scope=="hampton" else Vector3(0,0,17))
 		viewport.mesh_lod_threshold = float(row.threshold)
 		camera.fov = float(row.fov)
 		for frame in 12: await get_tree().process_frame
@@ -134,6 +150,7 @@ func _run() -> void:
 	camera.fov = 72.
 	var views: Array = [{"id":"public_stair", "eye":Vector3(27, 1.41, -8), "target":Vector3(35, 3.3, -5)}, {"id":"lower_platform", "eye":Vector3(45, 12.79, 20), "target":Vector3(86, 12.38, 20)}]
 	if family == "city_streets": views = [{"id":"east_crossing", "eye":Vector3(68.8,1.41,30), "target":Vector3(69,0,9)}, {"id":"curb_grazing", "eye":Vector3(-55,.45,16), "target":Vector3(-65,0,14.75)}]
+	if bench_scope=="hampton":views=[{"id":"hampton_public_footway","eye":Vector3(-100,7,-18),"target":Vector3(-80,0,-27)},{"id":"hampton_level_stoop","eye":Vector3(-83,1.4,-24),"target":Vector3(-80,-.2,-29)}]
 	for view: Dictionary in views:
 		camera.position = view.eye
 		camera.look_at(view.target)
@@ -150,6 +167,7 @@ func _run() -> void:
 		check(file != null, "diagnostic record opens")
 	var result := {"evidence_class":"INERT", "scope":"Isolated imported geometry, collision, PBR maps, per-view LOD and repeated uncapped 90-frame viewport timings after warmup. Timings exclude captures. No composed route, whole-world performance or artistic acceptance.", "checks":checks,"failures":failures,"observations":observations,"source_hashes":sources,"draw_parts":parts,"replacement_parts":lod_parts,"mount_cpu_ms":mount_ms,"settings":{"msaa":viewport.msaa_3d,"taa":viewport.use_taa,"max_fps":Engine.max_fps,"vsync":DisplayServer.window_get_vsync_mode()}}
 	result["family"] = family
+	result["bench_scope"]=bench_scope
 	result["natural_transitions"] = transitions
 	if file != null:
 		file.store_string(JSON.stringify(result,"\t")+"\n")

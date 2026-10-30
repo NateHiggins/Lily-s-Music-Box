@@ -435,6 +435,9 @@ func _tap_idle(watches:Array[PoseWatch],label:String) -> Dictionary:
 
 func _run_tap_presentation() -> void:
 	# A nearby fixture, not a replacement production spawn or a manual tick.
+	var directory:=OS.get_environment("SHOT_DIR")
+	check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"tap evidence directory is writable before captures")
+	if not failures.is_empty():get_tree().quit(1);return
 	RealityState.persistence_enabled=false
 	var environment:=WorldEnvironment.new();environment.environment=Environment.new()
 	environment.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR
@@ -467,6 +470,9 @@ func _run_tap_presentation() -> void:
 		check(tap._valve_openings.x>.99 and tap._held_valve==-1,"hot valve authority follows released hand")
 		await get_tree().create_timer(.25).timeout
 		check(tap.get_flow_state().water_level>.5 and watches[0].changes>0 and watches[2].changes>0,"flow and moving poses still update; notification observer has a positive control")
+		await RenderingServer.frame_post_draw
+		var shot_path:=OS.get_environment("SHOT_DIR").path_join("tap_flow_"+("compact" if compact else "standard")+".png")
+		check(get_viewport().get_texture().get_image().save_png(shot_path)==OK,"actual flowing native sink capture saved")
 		at=tap._handles[0].to_global(Vector3(-.025,0,-.06))
 		check(await hand.operate(at,0,tap),"actual hot cap closes")
 		var plug:Vector3=tap._kitchen_plug.global_position
@@ -491,7 +497,6 @@ func _run_tap_presentation() -> void:
 		observations.append({"compact":compact,"dry_notifications":dry,"wet_notifications":wet,"snapshot":partial})
 		tap.free()
 	hand.free();player.free();floor_body.free();sun.free();environment.free()
-	var directory:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
 	FileAccess.open(directory.path_join("tap_presentation.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Normal callbacks in two native kitchen fixtures,settled transform notifications with moving positive controls,actual cap/plug input,live fill/drain and mechanism restore. No occupied-world,disk-reload,whole-bathroom or performance acceptance.","checks":checks,"failures":failures,"observations":observations},"\t"))
 	print("TAP PRESENTATION: ",checks," checks; ",failures.size()," failures")
 	get_tree().quit(0 if failures.is_empty() else 1)

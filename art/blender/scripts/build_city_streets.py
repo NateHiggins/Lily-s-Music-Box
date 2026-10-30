@@ -52,9 +52,9 @@ elevations=read('game/tests/fixtures/orison_city_elevations.json');offsets={r['i
 for row in elevations['buildings']:
     a,b,c,d=row['main_rect'];x,y,z=offsets[row['id']];retained.append([a+x,b+y,c+x,d+y])
 
-def emit_stock(name,key,p,low,high,lod,physical_name,physical_polygon):
+def emit_stock(name,key,p,low,high,lod,physical_name,physical_polygon,graded=True,district=None):
     assert high>low and area(p)>1e-10
-    n=len(p);verts=[(x,y,z+grade_at(x,plan['grade_profile_m'])) for z in [low,high] for x,y in p]
+    n=len(p);verts=[(x,y,z+(grade_at(x,plan['grade_profile_m']) if graded else 0.)) for z in [low,high] for x,y in p]
     faces=[tuple(reversed(range(n))),tuple(range(n,2*n))]+[(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
     bm=bmesh.new();vv=[bm.verts.new(v) for v in verts]
     for face in faces:bm.faces.new([vv[i] for i in face])
@@ -62,11 +62,12 @@ def emit_stock(name,key,p,low,high,lod,physical_name,physical_polygon):
     assert all(e.is_manifold for e in bm.edges) and bm.calc_volume(signed=True)>1e-10,name
     mesh=bpy.data.meshes.new(name);bm.to_mesh(mesh);bm.free();obj=bpy.data.objects.new(name,mesh);closed[lod].objects.link(obj)
     b=bounds(p);cell=math.floor((b[0]+b[2])*.5/plan['chunk_length_m'])
-    groups[(lod,cell,key)].append(obj)
-    grade_low=min(grade_at(x,plan['grade_profile_m']) for x,y in p);grade_high=max(grade_at(x,plan['grade_profile_m']) for x,y in p)
+    group=(lod,cell,key)+((district,) if district else ())
+    groups[group].append(obj)
+    grade_low=min(grade_at(x,plan['grade_profile_m']) for x,y in p) if graded else 0.;grade_high=max(grade_at(x,plan['grade_profile_m']) for x,y in p) if graded else 0.
     records.append(dict(id=name,physical_id=physical_name,physical_polygon=physical_polygon,lod=lod,chunk=cell,finish=key,polygon=p,bottom_m=low,top_m=high,surface_low_m=high+grade_low,surface_high_m=high+grade_high,bounds=[b[0],b[1],low+grade_low,b[2],b[3],high+grade_high]))
 
-def emit(name,key,p,low,high,lod):
+def emit(name,key,p,low,high,lod,district=None):
     # Both replacement bodies use identical spatial chunk boundaries. A long
     # far curb must not collapse several near chunk identities into one part.
     a,b,c,d=bounds(p);pitch=plan['chunk_length_m']
@@ -76,7 +77,7 @@ def emit(name,key,p,low,high,lod):
         breaks=[max(a,cell*pitch)]+[x for x,h in plan['grade_profile_m'] if max(a,cell*pitch)<x<min(c,(cell+1)*pitch)]+[min(c,(cell+1)*pitch)]
         for i,(left,right) in enumerate(zip(breaks,breaks[1:])):
             piece=intersection(q,rectangle([left,b,right,d]))
-            if piece:emit_stock(name+'_C'+str(cell)+'_G'+str(i),key,piece,low,high,lod,name,p)
+            if piece:emit_stock(name+'_C'+str(cell)+'_G'+str(i),key,piece,low,high,lod,name,p,district=district)
 
 def cells(rect,pitch):
     a,b,c,d=rect;xs=[a]+[i*pitch for i in range(math.floor(a/pitch)+1,math.ceil(c/pitch))]+[c];ys=[b]+[i*pitch for i in range(math.floor(b/pitch)+1,math.ceil(d/pitch))]+[d]
@@ -120,6 +121,38 @@ for lod in range(2):
                 for k,piece in enumerate(cut(q,outside)):
                     emit(f'{role}_L{lod}_{i}_{j}_Retained{k}',key,piece,plan['walk_top_m'],high,lod)
 
+# Additions use distinct export groups: all pre-existing chunk arrays and
+# indices remain untouched. Public paving is clipped against every retained
+# owner and against the closed, level-tread stoop, never another hidden floor.
+for footway in plan.get('public_footways',[]):
+    identity=footway['id'];rects=footway['walk_rects_m']
+    a,b,c,d=footway['stoop_rect_m'];risers=int(footway['stoop_risers'])
+    landing=float(footway['stoop_landing_m']);top=float(footway['stoop_top_m'])
+    assert identity.isalnum() and risers>=2 and 0.<landing<d-b
+    tread=(d-b-landing)/(risers-1)
+    assert tread>=.25 and c-a>=1.8
+    start=grade_at((a+c)/2,plan['grade_profile_m'])
+    rise=(top-start)/risers
+    assert .10<=rise<=.18 and rise+abs(grade_at(a,plan['grade_profile_m'])-start)<=.20
+    base=min(grade_at(x,plan['grade_profile_m']) for x in [a,c])+plan['body_bottom_m']
+    stoop=rectangle([a,b,c,d])
+    assert all(not intersection(stoop,rectangle(mask)) for mask in retained),'Stoop enters retained ownership'
+    for lod in range(2):
+        previous=[]
+        masks=[rectangle(r) for r in retained]+shape['road']+[stoop]
+        for j,rect in enumerate(rects):
+            for i,cell in enumerate(cells(rect,plan['joint_pitch_m'] if not lod else 8.)):
+                x,y,X,Y=cell;gap=plan['joint_m']/2 if not lod else 0.
+                p=rectangle([x+(gap if x>rect[0]+1e-8 else 0.),y+(gap if y>rect[1]+1e-8 else 0.),X-(gap if X<rect[2]-1e-8 else 0.),Y-(gap if Y<rect[3]-1e-8 else 0.)])
+                for k,q in enumerate(cut(p,masks+previous)):
+                    emit(f'Walk_{identity}_L{lod}_{j}_{i}_{k}','walk',q,plan['body_bottom_m'],plan['walk_top_m'],lod,identity)
+            previous.append(rectangle(rect))
+        for step in range(risers):
+            front=b+step*tread
+            back=d if step==risers-1 else front+tread
+            p=rectangle([a,front,c,back]);height=start+(step+1)*rise
+            emit_stock(f'Stoop_{identity}_L{lod}_{step}','curb',p,base,height,lod,f'Stoop_{identity}_{step}',p,graded=False,district=identity)
+
 provider_overlaps=[]
 for row in records:
     if not row['id'].startswith('Walk_'):continue
@@ -127,13 +160,14 @@ for row in records:
         overlap=intersection(row['polygon'],rectangle(provider['city_source_footprint']))
         if overlap and area(overlap)>1e-10:provider_overlaps.append([row['id'],provider['id'],area(overlap)])
 assert not provider_overlaps,('New pavement overlaps retained physical floor authority',provider_overlaps)
-assert {(cell,key) for lod,cell,key in groups if lod==0}=={(cell,key) for lod,cell,key in groups if lod==1},'Replacement material/chunk rosters must match'
-for (lod,cell,key),objects in groups.items():
+assert {group[1:] for group in groups if group[0]==0}=={group[1:] for group in groups if group[0]==1},'Replacement material/chunk rosters must match'
+for group,objects in groups.items():
+    lod,cell,key=group[:3];district=group[3]+'_' if len(group)>3 else ''
     origin=Vector((cell*plan['chunk_length_m'],0,0))
     for obj in objects:
         for v in obj.data.vertices:v.co-=origin
         obj.location=origin
-    partition(exports[lod],f'Street_{cell}_L{lod}__{key}',objects,finishes[key],mats[key],Matrix.Translation(origin),catalog)
+    partition(exports[lod],f'Street_{district}{cell}_L{lod}__{key}',objects,finishes[key],mats[key],Matrix.Translation(origin),catalog)
 bpy.context.view_layer.update();proof0=export(ROOT,'city_streets',exports[0],staged_output=True)
 bpy.ops.object.select_all(action='DESELECT')
 for obj in exports[1].objects:obj.select_set(True)

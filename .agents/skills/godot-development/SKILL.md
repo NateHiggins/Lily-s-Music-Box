@@ -127,6 +127,12 @@ readability, and feel.
   registration. If it appears stuck, record frame count, callback clock, power,
   pause and ancestor processing modes before extending a timeout. Use a fresh
   log directory for every retry; archive original failures before any reuse.
+- **Native CLI arrays:** pass multiargument engine overrides through the lane
+  JSON batch format. A comma-separated array passed through another pwsh -File
+  can become one literal argument. Inspect the actual child command and native
+  viewport before treating a launch as input/visual evidence. Preserve and
+  retire only a demonstrated malformed run owned by this task; never stop a
+  foreign process. See the prologue ledger's sink presentation qualification.
 - **Runtime branches:** parsing and successful instantiation do not execute
   conditional branches. Exercise the changed branch with actual values. On the
   pinned Godot build, a ternary producing an untyped Array can fail when assigned

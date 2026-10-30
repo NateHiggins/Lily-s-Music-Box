@@ -324104,6 +324104,39 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "f5b5359bf29719fb",
+   "kind": "vector3_coordinate",
+   "token": "_run_hampton",
+   "file": "game/tests/v2_city_transport_route.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run_hampton"
+   ],
+   "lines": [
+    92,
+    95
+   ],
+   "count": 2,
+   "context": [
+    "if index==1:await _station_view(\"hampton_connected_walk\",Vector3(-84,27,1.2))",
+    "await _station_view(\"hampton_stoop_landing\",Vector3(-80,30.7,1.6))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

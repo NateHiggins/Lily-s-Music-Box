@@ -64,11 +64,20 @@ for row in paving['contacts']:
     provider_samples+=1
 check(provider_samples>0,'nonempty independent retained pavement contact roster',samples=provider_samples)
 physical_seen=set()
+stoop_samples=0
 for row in meta['stocks']:
     if row['lod']!=0 or row['finish'] not in ['curb','cap']:continue
     if row['physical_id'] in physical_seen:continue
     physical_seen.add(row['physical_id'])
     p=row['physical_polygon'];center=Vector((sum(x for x,y in p)/len(p),sum(y for x,y in p)/len(p),0))
+    if row['physical_id'].startswith('Stoop_'):
+        # These are level stair stocks using the registered limestone finish,
+        # not grade-relative curb courses seated on paving slabs.
+        center.z=row['top_m']
+        hit,n,index,d=all_geometry.ray_cast(center+Vector((0,0,.03)),Vector((0,0,-1)),.06)
+        check(hit is not None and abs(hit.z-center.z)<.0001 and n.z>.999 and all_names[index].endswith('__curb'),'actual level public stair tread or landing',id=row['id'],point=list(center),owner=all_names[index] if hit is not None else None)
+        stoop_samples+=1
+        continue
     # A stone can bridge the authored four-millimetre slab joints. Test
     # distributed actual bearing points, not its outside rectangular AABB.
     probes=[center]+[center.lerp(Vector((x,y,0)),.55) for x,y in p]
@@ -79,6 +88,7 @@ for row in meta['stocks']:
         hit,n,index,d=support_tree.ray_cast(at+Vector((0,0,.015)),Vector((0,0,-1)),.04)
         if hit is not None and abs(hit.z-at.z)<.0001 and n.z>.99:hits.append(support_names[index])
     check(len(hits)>=min(3,len(probes)),'actual buried curb or cap bearing',id=row['id'],supports=sorted(set(hits)),samples=len(probes),supported=len(hits))
+check(stoop_samples==sum(int(r['stoop_risers']) for r in plan.get('public_footways',[])),'complete public stair tread and landing roster',samples=stoop_samples)
 for x in [-85,-76,-60,-44,-24,24,40,60,80,100,112]:
     for y in [-22.0,-19.3,-17.0]:
         grade=grade_at(x,plan['grade_profile_m'])
