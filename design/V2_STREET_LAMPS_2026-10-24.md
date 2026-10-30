@@ -115,3 +115,38 @@ Sources: [Forgotten New York: Bishop Crooks](https://forgotten-ny.com/?p=2784),
 [Forgotten New York: NYC's lost gaslamps](https://forgotten-ny.com/?p=113441),
 [Forgotten New York: Police call boxes](https://forgotten-ny.com/?p=42067),
 [Forgotten New York: Gamewell fire alarm, Woodside](https://forgotten-ny.com/?p=103305).
+
+
+## October29 delivered gas-crook preparation
+
+The external **gas-streetlamp-20261028** delivery passes all40 manifest hashes;
+original source, source maps, previews and failures remain unchanged. A canonical
+UV-derivative tangent check rejects its base-cock chart despite the author's
+orthogonality check. A native corner guide resolves the defect in an external
+study, retaining triangle positions/normals/UVs,14 encoded images and transforms.
+This is native repair evidence, not imported optical acceptance.
+
+A compact catalogue-key candidate is prepared under
+**C:/ov/reports/prologue_20261028/entrance_delivery_review/gaslamp_stock/**:
+**gas_streetlamp_stock.glb** contains22,444 triangles in six **bishops_crook__finish**
+partitions,3,372,640bytes, no embedded images/materials. All six names and metre
+charts pass; maximum relative metric edge error0.0000099343, minimum tangent
+agreement0.9999999590. The final GLB reimports with zero maximum vertex displacement
+in both directions against the source's physical triangle corners. The car's
+14-part candidate is checked in the same native batch and also reimports with
+zero displacement. Neither candidate has been integrated into Godot.
+
+The compact blend is export stock, not a substitute for the114 editable
+manufacturing pieces retained in the donor source. All nine attachment datums
+remain recorded; ground origin and luminous point **(0,3.86,.84)** are unchanged.
+Later integration must preserve the separate crossing signal-box variant, all
+placements, the .22m-radius collision owner, clock/dusk/dawn and existing
+light/shadow allocation. The clock should drive the new mantle material while
+the envelope uses the existing clear-glass owner. Painted iron needs local
+dielectric response; cached shared materials remain intact. No new street gas
+simulation, flare geometry, actors or additional lights follow from this model.
+Loaded precision/mips, optical appearance, replacement LOD/cost, access and
+current-source surface qualification remain open. Native/export success is not
+artistic acceptance. Evidence: **stock_preparation.json**,
+**metric_and_binding_check.json** and the preserved **stock_roundtrip_batch.log**
+under the existing entrance-delivery review directory.

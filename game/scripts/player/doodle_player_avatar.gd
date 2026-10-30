@@ -2,6 +2,7 @@ extends Node3D
 ## Owner-supplied rig is presentation only; the existing controller owns motion.
 const LAYER:=1<<15
 const MODEL:="res://assets/characters/player_doodle/player_doodle.glb"
+const FACE_SHADER:=preload("res://shaders/player_doodle.gdshader")
 var holder: PlayerController
 var animator: AnimationPlayer
 var skeleton: Skeleton3D
@@ -9,6 +10,22 @@ var idle_clip: StringName
 var native_ready:=false
 var reflected:=false
 var _moving:=false
+var head_aim:HeadAim
+
+class HeadAim extends SkeletonModifier3D:
+	var camera:Camera3D
+	var head:=-1
+	var parent_bone:=-1
+	var face_frame:=Basis.IDENTITY
+	func _process_modification_with_delta(_delta:float) -> void:
+		if head<0 or not is_instance_valid(camera):return
+		var rig:=get_skeleton()
+		# Model-front is derived from its native markers, not assumed to share
+		# an imported bone axis. Solve after animation; retain position/scale.
+		var aim:=Basis.looking_at(camera.global_basis.z,camera.global_basis.y)
+		var desired:=rig.global_basis.orthonormalized().inverse()*aim*face_frame.inverse()
+		var parent_pose:=rig.get_bone_global_pose(parent_bone).basis.orthonormalized()
+		rig.set_bone_pose_rotation(head,(parent_pose.inverse()*desired).get_rotation_quaternion().normalized())
 
 func _ready() -> void:
 	set_process(false)
@@ -40,12 +57,42 @@ func _ready() -> void:
 	if idle_clip.is_empty():return
 	animator.get_animation(idle_clip).loop_mode=Animation.LOOP_LINEAR
 	animator.play(idle_clip);animator.advance(0);animator.active=false
+	var head:=skeleton.find_bone("smartrig_Head")
+	var front:=skeleton.find_bone("headfront")
+	var top:=skeleton.find_bone("smartrig_HeadTop_End")
+	if head<0 or front<0 or top<0 or skeleton.get_bone_parent(head)<0:return
+	for draw:MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+		if not _bind_face(draw,finish,head):return
+	var rest:=skeleton.get_bone_global_rest(head)
+	var forward:=rest.basis.inverse()*(skeleton.get_bone_global_rest(front).origin-rest.origin)
+	var up:=rest.basis.inverse()*(skeleton.get_bone_global_rest(top).origin-rest.origin)
+	head_aim=HeadAim.new();head_aim.name="CameraHeadAim"
+	head_aim.camera=holder.camera;head_aim.head=head;head_aim.parent_bone=skeleton.get_bone_parent(head)
+	head_aim.face_frame=Basis.looking_at(-forward.normalized(),up.normalized())
+	head_aim.active=false;skeleton.add_child(head_aim)
 	holder.camera.cull_mask&=~LAYER
 	native_ready=true
 
+func _bind_face(draw:MeshInstance3D,base:StandardMaterial3D,head:int) -> bool:
+	if draw.skin==null:return false
+	var head_bind:=-1
+	for index in draw.skin.get_bind_count():
+		if draw.skin.get_bind_bone(index)==head or draw.skin.get_bind_name(index)==skeleton.get_bone_name(head):head_bind=index;break
+	if head_bind<0:return false
+	var finish:=ShaderMaterial.new();finish.shader=FACE_SHADER
+	finish.set_shader_parameter("albedo_tex",base.albedo_texture)
+	finish.set_shader_parameter("rough_tex",base.roughness_texture)
+	finish.set_shader_parameter("normal_tex",base.normal_texture)
+	finish.set_shader_parameter("stock_tint",base.albedo_color)
+	finish.set_shader_parameter("roughness_gain",base.roughness)
+	finish.set_shader_parameter("normal_strength",base.normal_scale)
+	finish.set_shader_parameter("head_bind",head_bind)
+	draw.material_override=finish
+	return true
+
 func set_reflection_active(enabled: bool) -> void:
 	if not native_ready or reflected==enabled:return
-	reflected=enabled;animator.active=enabled;set_process(enabled)
+	reflected=enabled;animator.active=enabled;head_aim.active=enabled;set_process(enabled)
 
 func _process(_delta: float) -> void:
 	var moving: bool=holder.planar_speed()>.10

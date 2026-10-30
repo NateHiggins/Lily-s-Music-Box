@@ -70,8 +70,10 @@ func retire() -> void:
 
 func available() -> bool:
 	return not retired and is_instance_valid(_carrier) and _carrier.world_ready and _carrier.device.radio_powered \
+		and not _carrier.arm_busy() \
 		and not _carrier.device.incoming_call and not get_tree().paused \
 		and not _player.protected_input_active() and not _player.mouse_released \
+		and (not is_instance_valid(_player.text_input_owner) or _player.text_input_owner==self) \
 		and _carrier._sleep_onset <= .8 \
 		and (_player.telegram_hud == null or not _player.telegram_hud._conversation_active) \
 		and not _foreign_editor_active() \

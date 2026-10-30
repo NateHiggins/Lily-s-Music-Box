@@ -1,8 +1,10 @@
 extends "res://tests/v2_fire_hand_bench.gd"
 ## Actual imported screw stock and real input. No room/route/human grant.
 func pickup_with_mouse(joint: Node3D) -> bool:
-	await cursor_to(player.camera.unproject_position(joint.nut.to_global(Vector3(0,.020,.027))))
-	if player._grab.find_target().get("part")!=joint.nut:return false
+	# Use the same bounded visible-surface acquisition as other native parts.
+	# A single projected pixel can miss delayed native cursor delivery; require
+	# the real picker to identify this nut before sending the actual click.
+	if not await acquire_surface(joint.nut,joint.nut.to_global(Vector3(0,.020,.027))):return false
 	var before: Transform3D=joint.body.transform
 	click()
 	if not check(player._grab.active() and joint.body.transform==before and joint.loose,"grabbing inserted nut leaves nozzle pose and engagement unchanged"):return false
@@ -104,6 +106,26 @@ func _run() -> void:
 	if not failures.is_empty():get_tree().quit(1);return
 	await exercise_fps_carry(actor)
 	if not failures.is_empty():get_tree().quit(1);return
+	# Exercise the composed review's failed restoration rays in this small
+	# fixture, including its exact installed frame when requested. A passing
+	# isolated result does not qualify the full world's broadphase lifecycle.
+	var capture_pose: Dictionary=actor.mechanism_snapshot()
+	actor.restore_mechanism(initial_mechanism)
+	await RenderingServer.frame_post_draw
+	await get_tree().physics_frame;await get_tree().physics_frame
+	check(actor.mechanism_snapshot()==initial_mechanism and not actor.door_open,"post-input fixture restores the original closed mechanism")
+	var centre:=PhysicsRayQueryParameters3D.create(actor.to_global(Vector3(0,.390,.60)),actor.to_global(Vector3(0,.390,0)),1,[player.get_rid()])
+	var patch:=PhysicsRayQueryParameters3D.create(actor._door_pivot.to_global(Vector3(-.4,.1,.035)),actor._door_pivot.to_global(Vector3(-.4,.1,-.035)),1,[player.get_rid()])
+	for query: PhysicsRayQueryParameters3D in [centre,patch]:
+		var hit: Dictionary=get_world_3d().direct_space_state.intersect_ray(query)
+		check(not hit.is_empty() and hit.collider==actor._bodies.door,"restored closed leaf answers the actual "+("assembly-centre" if query==centre else "exposed-patch")+" ray")
+		if hit.is_empty() or hit.collider!=actor._bodies.door:
+			print("ISOLATED CLOSED LEAF: actor=",actor.global_transform," leaf=",actor._door_pivot.global_transform," server=",PhysicsServer3D.body_get_state(actor._bodies.door.get_rid(),PhysicsServer3D.BODY_STATE_TRANSFORM)," hit=",hit)
+	if not failures.is_empty():get_tree().quit(1);return
+	actor.restore_mechanism(capture_pose)
+	await RenderingServer.frame_post_draw
+	await get_tree().physics_frame;await get_tree().physics_frame
+	check(actor.mechanism_snapshot()==capture_pose,"closed-leaf diagnostic restores the original nozzle capture pose")
 	player.set_lamp_enabled(false)
 	env.environment.sky=Sky.new();env.environment.sky.sky_material=ProceduralSkyMaterial.new();env.environment.reflected_light_source=Environment.REFLECTION_SOURCE_SKY
 	var close:=Camera3D.new();close.fov=38.;add_child(close);close.global_position=actor.to_global(Vector3(-.04,.24,.58));close.look_at(actor.to_global(Vector3(-.04,.07,.112)));close.make_current()

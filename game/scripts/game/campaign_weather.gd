@@ -154,7 +154,7 @@ static func cloud_transport(date: Dictionary) -> Vector2:
 
 ## Read the existing clock without quantizing it through a civil-date dictionary.
 static func clock_seconds(clock: CampaignClock) -> float:
-	return (clock.absolute_minutes()-float(CampaignClock._ordinal(1970,1,1))*1440.0)*60.0
+	return (clock.calendar_minutes()-float(CampaignClock._ordinal(1970,1,1))*1440.0)*60.0
 
 ## Double-precision prefix integral; Vector2 loses metre-scale movement after
 ## months of transport. No per-frame year scan or additional clock/save owner.
@@ -206,6 +206,10 @@ static func valid_day(row: Dictionary) -> bool:
 static func date_key(date: Dictionary) -> String:
 	return "%04d-%02d-%02d" % [int(date.get("year", 0)), int(date.get("month", 0)),
 		int(date.get("day", date.get("day_of_month", 0)))]
+
+## Membership only; no weather projection or new time authority.
+static func has_date(date: String) -> bool:
+	return load_calendar() and _days.has(date)
 
 static func day(date: String) -> Dictionary:
 	return _days.get(date, {}).duplicate(true) if load_calendar() else {}

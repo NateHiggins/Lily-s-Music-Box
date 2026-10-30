@@ -17,7 +17,10 @@ def bp(p):return Vector((p[0],-p[2],p[1]))
 def pose(identity):
  if identity in supports_by_id:
   row=next(x for x in cabinet_rows if x['id']==identity)
-  return pose(row['support'])@Matrix.Translation(bp(row['position']))@Matrix.Rotation(float(row['yaw']),4,'Z')
+  base=pose(row['support'])@Matrix.Translation(bp(row['position']))@Matrix.Rotation(float(row['yaw']),4,'Z')
+  if identity=='F04_4B_MIRROR_01':
+   pivot=bp([0,1.20,.058]);base=base@Matrix.Translation((0,0,.03))@Matrix.Translation(pivot)@Matrix.Rotation(math.radians(-6),4,'X')@Matrix.Translation(-pivot)
+  return base
  a=anchors[identity];at=bp(a['position']);at.z+=levels[a['level']]
  return Matrix.Translation(at)@Matrix.Rotation(float(a['yaw']),4,'Z')
 
@@ -56,9 +59,10 @@ for family in ['medicine_cabinets','domestic_objects','household_wardrobes','pre
  bpy.context.view_layer.update()
  fixture=json.loads((r/f'game/tests/fixtures/orison_{family}.json').read_text())
  for row in fixture['assemblies']:
-  identity=row['id'];mesh=merge([native_mesh(o) for o in objects if o.name.startswith(identity+'__')]);assert mesh[0],identity
+  identity=row['id'];names={part['name'] for record in fixture['runtime']['assemblies'] if record['id']==identity for part in record['parts']}
+  mesh=merge([native_mesh(o) for o in objects if o.name in names]);assert mesh[0],identity
   native[identity]=mesh
-  if family=='medicine_cabinets' and identity in ['MedicineLeft','MedicineRight']:leaves[identity]=merge([native_mesh(o) for o in objects if o.name.startswith(identity+'__') and o.name.split('__')[1].split('_ON_')[0] in ['CabinetDoor','Mirror']])
+  if family=='medicine_cabinets' and identity in ['MedicineLeft','MedicineRight','MedicineLeftDown6']:leaves[identity]=merge([native_mesh(o) for o in objects if o.name in names and o.name.split('__')[1].split('_ON_')[0] in ['CabinetDoor','Mirror']])
  if family=='work_tables':
   for row in fixture['assemblies']:owners[row['id']]=row['id']
   # The completion bench is an exact source-template copy of the already
@@ -169,7 +173,24 @@ assert len(kept)==28
 for record in cabinet_rows:
  identity=record['id'];variant=variants[identity];side=1 if record['hinge_side']=='left' else -1
  matrix=pose(identity);pivot=np.asarray(matrix@Vector((side*.230,.060,1.505)));points=np.asarray([matrix@p for p in leaves[variant][0]])
- low,high=arc_bounds(points,pivot,*sorted([0.,-side*math.radians(95)]));near=[]
+ local_points=np.asarray(leaves[variant][0]);local_pivot=np.asarray((side*.230,.060,1.505))
+ a,b=sorted([0.,-side*math.radians(95)]);q=local_points-local_pivot
+ basis=np.asarray(matrix.to_3x3());center=np.asarray(matrix@Vector(local_pivot))
+ # Exact coordinate extrema around the inclined hinge, without rotating an
+ # already-expanded AABB (which falsely overlaps the bath shelf).
+ ca=q[:,0,None]*basis[:,0]
+ ca+=q[:,1,None]*basis[:,1]
+ cb=-q[:,1,None]*basis[:,0]+q[:,0,None]*basis[:,1]
+ cc=center+q[:,2,None]*basis[:,2]
+ endpoints=np.stack([cc+ca*math.cos(t)+cb*math.sin(t) for t in [a,b]])
+ low=endpoints.min(axis=(0,1));high=endpoints.max(axis=(0,1))
+ for axis in range(3):
+  for k in range(-2,4):
+   angle=np.arctan2(cb[:,axis],ca[:,axis])+k*math.pi;valid=(angle>=a)&(angle<=b)
+   if valid.any():
+    values=cc[valid,axis]+ca[valid,axis]*np.cos(angle[valid])+cb[valid,axis]*np.sin(angle[valid])
+    low[axis]=min(low[axis],values.min());high[axis]=max(high[axis],values.max())
+ near=[]
  for other,obstacle in world.items():
   if other==identity:continue
   if np.any(high<=obstacle['low']+.00003) or np.any(obstacle['high']<=low+.00003):continue

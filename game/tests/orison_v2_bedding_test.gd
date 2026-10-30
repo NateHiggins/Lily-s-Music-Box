@@ -6,6 +6,8 @@ func _ready() -> void:
 	if not batch_mode: _run.call_deferred()
 
 func _run() -> void:
+	if OS.get_environment("ORISON_BEDDING_IMPORT_ONLY")=="1":
+		validate_imported_library();get_tree().quit(0 if failures.is_empty() else 1);return
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,20*60)
@@ -16,6 +18,44 @@ func _run() -> void:
 	var result: Dictionary = await validate_in_world(world)
 	world.shutdown_for_tests();world.free()
 	get_tree().quit(0 if result.failures.is_empty() else 1)
+
+func surface_defects(mesh:ArrayMesh) -> Vector2i:
+	var defects:=Vector2i.ZERO
+	for surface in mesh.get_surface_count():
+		var arrays:=mesh.surface_get_arrays(surface)
+		if arrays[Mesh.ARRAY_VERTEX] is not PackedVector3Array or arrays[Mesh.ARRAY_TEX_UV] is not PackedVector2Array:return Vector2i(1,1)
+		var vertices:PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
+		var uv:PackedVector2Array=arrays[Mesh.ARRAY_TEX_UV]
+		var indices:PackedInt32Array=arrays[Mesh.ARRAY_INDEX] if arrays[Mesh.ARRAY_INDEX] is PackedInt32Array else PackedInt32Array()
+		if uv.size()!=vertices.size():return Vector2i(1,1)
+		if indices.is_empty():
+			for vertex in vertices.size():indices.append(vertex)
+		for index in range(0,indices.size(),3):
+			var a:=indices[index];var b:=indices[index+1];var c:=indices[index+2]
+			if not vertices[a].is_finite() or not vertices[b].is_finite() or not vertices[c].is_finite() or (vertices[b]-vertices[a]).cross(vertices[c]-vertices[a]).length_squared()==0:defects.x+=1
+			if not uv[a].is_finite() or not uv[b].is_finite() or not uv[c].is_finite() or (uv[b]-uv[a]).cross(uv[c]-uv[a])==0:defects.y+=1
+	return defects
+
+func validate_imported_library() -> void:
+	var library:=preload("res://assets/props/bedding.glb").instantiate()
+	var meshes:=library.find_children("*","MeshInstance3D",true,false)
+	check(meshes.size()==24,"all six bedding variants and four roles load")
+	var results:Array=[]
+	for instance:MeshInstance3D in meshes:
+		var defects:=surface_defects(instance.mesh)
+		check(defects==Vector2i.ZERO,"loaded bedding triangles and UVs remain finite and noncollapsed: "+str(instance.name))
+		results.append({"part":str(instance.name),"geometry_defects":defects.x,"uv_defects":defects.y})
+	library.free()
+	var arrays:Array=[];arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX]=PackedVector3Array([Vector3.ZERO,Vector3.RIGHT,Vector3.UP])
+	arrays[Mesh.ARRAY_TEX_UV]=PackedVector2Array([Vector2.ZERO,Vector2.ZERO,Vector2.ZERO])
+	var control:=ArrayMesh.new();control.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
+	check(surface_defects(control).y==1,"loaded UV check rejects a collapsed-chart negative control")
+	var directory:=OS.get_environment("SHOT_DIR")
+	if not directory.is_empty():
+		DirAccess.make_dir_recursive_absolute(directory)
+		FileAccess.open(directory.path_join("imported_bedding.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":results,"failures":failures},"\t"))
+	print("BEDDING IMPORT ","PASS" if failures.is_empty() else "FAIL"," parts=",results.size()," checks=",checks," failures=",failures.size())
 
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_bedding.json"))
@@ -52,6 +92,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var pillow_z := 0.0
 		var pillow_low := INF
 		var mattress_high := -INF
+		var frame_low := INF
 		for mesh: MeshInstance3D in meshes:
 			unique_meshes[mesh.mesh.get_instance_id()]=true
 			var transform := body.global_transform.affine_inverse()*mesh.global_transform
@@ -59,6 +100,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 				var local: Vector3=transform*v
 				faces.append(local)
 				if str(mesh.name).ends_with("Frame") and local.y>.75:head_z+=local.z
+				if str(mesh.name).ends_with("Frame"):frame_low=minf(frame_low,local.y)
 				if str(mesh.name).ends_with("Pillows"):pillow_z+=local.z
 				if str(mesh.name).ends_with("Pillows"):pillow_low=minf(pillow_low,local.y)
 				if str(mesh.name).ends_with("Mattress"):mattress_high=maxf(mattress_high,local.y)
@@ -66,6 +108,12 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		# Imported compressed vertices round the native 0.051 mm intrusion to
 		# 0.100 mm; include 0.010 mm for that bound's float representation.
 		check(absf(pillow_low-mattress_high)<.00011,"compressed pillow undersides meet mattress within 0.11 mm: %s low=%.8f top=%.8f" % [record.id,pillow_low,mattress_high])
+		if str(record.id)=="4B_wake_bed":
+			check(absf(frame_low)<.00011 and absf(mattress_high-.68)<.0002,"4B taller posts retain floor contact and support the raised mattress")
+			var clear:=PhysicsRayQueryParameters3D.create(body.to_global(Vector3(-w*.5-.1,.365,0)),body.to_global(Vector3(w*.5+.1,.365,0)),1,[world.player.get_rid()])
+			var rail:=PhysicsRayQueryParameters3D.create(body.to_global(Vector3(-w*.5-.1,.42,0)),body.to_global(Vector3(w*.5+.1,.42,0)),1,[world.player.get_rid()])
+			check(world.get_world_3d().direct_space_state.intersect_ray(clear).get("collider")!=body,"4B under-bed route clears the established creature height")
+			check(world.get_world_3d().direct_space_state.intersect_ray(rail).get("collider")==body,"4B raised rail retains physical collision protection")
 		for origin in [Vector3(0,1.2,.2),Vector3(-.29,1.2,length*.5-.33),Vector3(.29,1.2,length*.5-.33),Vector3(0,1.2,length*.5-.56)]:
 			var nearest := INF
 			for i in range(0,faces.size(),3):

@@ -54,7 +54,7 @@ func setup(main_camera: Camera3D,avatar: Node3D=null) -> void:
 	_camera.name = "ReflectedCamera"
 	_camera.fov = main_camera.fov
 	_camera.far = main_camera.far
-	_camera.cull_mask = main_camera.cull_mask & ~MIRROR_LAYER
+	_camera.cull_mask = (main_camera.cull_mask & ~MIRROR_LAYER) | (1 << (ServiceSetProp.DEVICE_LAYER-1))
 	if _avatar!=null:_camera.cull_mask|=preload("res://scripts/player/doodle_player_avatar.gd").LAYER
 	_camera.current = true
 	_view.add_child(_camera)
@@ -87,6 +87,7 @@ func _process(_delta: float) -> void:
 		if is_instance_valid(_active):
 			_active.set_live_mirror_material(null)
 		_active = candidate
+		if _material!=null:_material.set_shader_parameter("crossing",Vector2.ZERO)
 		if is_instance_valid(_active) and _texture_bound:
 			_active.set_live_mirror_material(_material)
 	if not is_instance_valid(_active) or not _texture_bound:
@@ -142,6 +143,7 @@ func _pose_reflection(cabinet: Variant) -> void:
 	var near_plane := maxf(.01, plane_distance + .005)
 	var size: Vector2 = cabinet.mirror_surface().get_meta("mirror_size")
 	_material.set_shader_parameter("glass_size", size)
+	_material.set_shader_parameter("prologue_film",cabinet.mirror_surface().get_meta("prologue_mirror_film",Vector2(-1,0)))
 	_material.set_shader_parameter("condensation",float(cabinet.mirror_surface().get_meta("v2_condensation",0.0)))
 	_view.size = Vector2i(roundi(HEIGHT * size.x / size.y), HEIGHT)
 	var local_center := _camera.to_local(center)
@@ -169,6 +171,16 @@ func _sleep() -> void:
 	_active = null
 	set_meta("active_unit", "")
 
+
+func set_mirror_story(pane:MeshInstance3D,value:Vector2) -> void:
+	# The pane metadata remains the authority when selection changes. Updating
+	# the borrowed material now keeps both optical passes on the same frame.
+	if not _stopped and is_instance_valid(_active) and _active.mirror_surface()==pane:
+		_material.set_shader_parameter("prologue_film",value)
+
+func set_mirror_crossing(pane:MeshInstance3D,value:Vector2) -> void:
+	if _material!=null and is_instance_valid(_active) and _active.mirror_surface()==pane:
+		_material.set_shader_parameter("crossing",value)
 
 func active_mirror() -> Variant:
 	return _active

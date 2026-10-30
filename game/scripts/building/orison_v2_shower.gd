@@ -3,6 +3,8 @@ extends RefCounted
 const Controls := preload("res://scripts/building/orison_v2_water_controls.gd")
 
 func mount(tap: TapProp) -> bool:
+	if tap!=null and tap.has_method("mount_fixture_collision"):
+		return bool(tap.mount_fixture_collision())
 	var controls := Controls.new()
 	if not controls.can_mount(tap) or tap.fixture != "shower" \
 			or tap.get_node_or_null("FixtureBody") != null:

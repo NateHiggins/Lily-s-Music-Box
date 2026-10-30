@@ -50,6 +50,9 @@ var director = null
 var ecology_director = null
 var enabled := true
 var companion: RefCounted = null
+var _temporal_poll := 0.0
+var _temporal_hidden := false
+var _temporal_was_visible := true
 var critters: Array = []
 
 var material: ShaderMaterial
@@ -293,6 +296,12 @@ func _append_tubes(verts: PackedVector3Array, normals: PackedVector3Array,
 func _physics_process(delta: float) -> void:
 	if not enabled or (companion == null and (field == null or field.state == null)):
 		return
+	if companion != null:
+		_temporal_poll -= delta
+		if _temporal_poll <= 0.0:
+			_temporal_poll = .25
+			refresh_temporal_presence()
+		if _temporal_hidden:return
 	_clock += delta
 	if companion != null:
 		companion.refresh(delta)
@@ -308,6 +317,24 @@ func _physics_process(delta: float) -> void:
 	_walk(delta)
 	_apply_ecology_support(delta)
 	_push()
+
+
+## The prologue leaves this private animal behind in the authored historical
+## year. Returning to that year restores the same specimen; no saved lifecycle,
+## clock mutation, duplicate animal or restriction on ordinary ecology.
+func refresh_temporal_presence() -> void:
+	if companion == null or not is_instance_valid(companion.building):return
+	var applied:bool=bool(RealityState.data.get("prologue",{}).get("effects",{}).get("clock_applied",false))
+	var absent:=false
+	if applied and "campaign_clock" in companion.building:
+		var clock:CampaignClock=companion.building.campaign_clock
+		if clock != null:
+			var date:=clock.local_datetime()
+			absent=not date.is_empty() and not CampaignWeather.has_date(CampaignWeather.date_key(date))
+	if absent and not _temporal_hidden:
+		_temporal_was_visible=visible;hide();_temporal_hidden=true
+	elif not absent and _temporal_hidden:
+		visible=_temporal_was_visible;_temporal_hidden=false
 
 
 ## They live where the Dream has reached, so they are born on a surface a live

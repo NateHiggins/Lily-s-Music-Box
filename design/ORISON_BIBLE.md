@@ -25,8 +25,8 @@ true**. The Orison is a real prewar block in Queens, and it is purgatory.
 The residents are tenants with leases and grudges, and they are souls who
 have been here — some of them — for centuries. The infection is an
 audio-borne anomaly in the wiring, and it is the building remembering out
-loud. The player is a night-shift maintenance tech, and the work is the
-work of release. No scene may resolve the ambiguity; every explanation
+loud. The player is a woman who has already died, riding a night-shift
+maintenance tech the building made, and the work is the work of release. No scene may resolve the ambiguity; every explanation
 offered must be true, and neither is allowed to win. The horror is never
 the jump — it is the slow recognition that the ordinary reading and the
 impossible reading have been describing the same night all along.
@@ -40,14 +40,33 @@ inhabited twice over.
 
 **The first inhabitation is ordinary.** Eighteen residents keep their
 lights, their laundry, their grudges and their groceries. A maintenance
-tenant — the player, androgynous, exhausted, guarded — takes apartment 4B
-in exchange for working nights.
+tenant — androgynous, exhausted, guarded; the residents call it the night
+man — takes apartment 4B in exchange for working nights. *(Rewritten
+2026-10-29, at the owner's direction.)* It was not made as a person. It is a construct
+the Tenant (§III.1) set into the vacant tenancy to explore the bridge it has
+built through time. The player rides it: **Adela Voss**, the photographer from
+the Vantry Arcade across the street, after her death. The keys, the box and
+the board answer to the night man. The player answers to her own name.
 
 **The second inhabitation is the infection.** An audio-borne pattern — a
 motif of four sounds and one *missing* fifth — moves through the
 building's pipes, speakers, wiring and voices. It learns people by
 discarding what it mistakes for noise. It is not a villain; it is a
 listener with terrible manners.
+
+**The companion is the Tenant's go-between.** *(Ruled 2026-10-29.)* A
+Vantry service set, amended by the Tenant into a crude intelligence, carries
+the player's interface. It reaches the past only asynchronously. Everything
+written on its phosphor paper is read, later, by the Tenant, which holds that
+paper in the future; what the Tenant sends back arrives as a received copy,
+rarely, and late. The companion is literal, careful and more resourceful than
+its maker intended; it knows only what it has witnessed, and it never knows
+what it is working for.
+
+**The bridge lasts as long as the player takes to let go.** *(Ruled
+2026-10-29.)* The campaign year is the span of it: that is how long it took
+Adela Voss to let go of her attachments to this world. The building keeps her
+until her case closes, as it keeps everyone.
 
 The game runs on **two case systems, and they are layers, not rivals**:
 
@@ -69,15 +88,20 @@ The game runs on **two case systems, and they are layers, not rivals**:
 The two layers share residents, share the motif, and share one law: **a
 case is weak if it can be solved by the obviously compassionate option.**
 
-A third presence is planned and not yet incarnate: **the player's shadow**,
-which learns a vocabulary from resolved cases and eventually attempts one
-incomplete, contestable message. Its production order lives in the execution
-plan; the one-Tenant ruling in §III.1 prevents it becoming a second monster.
+A third presence is **the player's shadow**, and it is the night man.
+*(Ruled 2026-10-29.)* Carrying the player through her year, it learns a
+vocabulary from what she resolves and releases, borrows her gestures, and at
+the year's end attempts one incomplete, contestable message: that it would
+like a life of its own. Its production order lives in the execution plan; the
+one-Tenant ruling in §III.1 prevents it becoming a second monster. What it
+wants is ordinary, and it is never the Tenant's face.
 
 ### I.1 THE SHIFT
 
 *Ruled 2026-08-13, at the owner's direction. Product sequencing lives in the
-execution plan; this paragraph binds the fiction it depends on.*
+execution plan; this paragraph binds the fiction it depends on. Read with §I
+as rewritten 2026-10-29: in this movement “the player” is the night man as the
+player rides it, and the sleep that takes it is the construct's.*
 
 **The player's campaign repeats one night-shift movement:** a building fault is
 discovered or reported; diagnosis sends the player out to the street shops; the
@@ -179,6 +203,9 @@ making it malicious.
   about. A shape of its own would make it a monster, and a monster can be beaten.
 - **It is not the hum.** Room 0 hums because the building is awake; the hum is a
   vital sign, not a voice.
+- **It has instruments, not a face.** *(Ruled 2026-10-29.)* The night man (§I)
+  and the companion are things it made or amended. Neither is its form, and
+  neither may be shown as the Tenant.
 
 ### III.2 THE PHONAUTOGRAPH — it records now; the future plays it too fast
 
@@ -282,7 +309,7 @@ face, and wound. Faces are the four cast boards in
 | 3B ● | **Omar Bell** | repair technician, apron of categorized tools | cannot declare anything unrepairable; *some things are not repairable* |
 | 3D ○ | **Rhea Sato** | vocal coach and recording artist, severe bob, tuning fork | her mistakes accumulate as a captive note; *imperfection can be voluntary* |
 | 4A ● | **Peter Wren** | legal clerk, rumpled brown, overfilled wallet | every uncertainty demands another form; *uncertainty does not prevent action* |
-| 4B | **the player** | night maintenance; the desk is the tidiest thing in the flat | *ruled:* the best way to honor a beginning is with the release of an ending — the player's arc bends toward a release, and the shadow is writing the message |
+| 4B | **the night man** | the Tenant's construct in the night-maintenance tenancy, ridden by the player, Adela Voss; the desk is the tidiest thing in the flat | *ruled:* the best way to honor a beginning is with the release of an ending — the player's arc bends toward a release, and the shadow is writing the message |
 | 4C | **Cam Ortiz** | bicycle courier, maroon shell, never fully still | rest reads as collapse; *weight can be shared* |
 | 4C | **Noel Price** | museum preparator, chore coat, archival gloves | preserved the family life into untouchability; *use and change are forms of love* |
 | 4D | **Transient Guests** | a replaceable pair, mismatched luggage | perpetual departure postpones the decision; *departure is a decision* |
@@ -592,6 +619,52 @@ The rule also explains why the horror lives where it does. **This is a
 world that got very good at listening and no better at anything else.**
 The infection is audio-borne because audio is the only thing here that
 was ever given room to grow.
+
+#### Helical Resonance — owner canon extension, 2026-10-28
+
+The future singularity addresses distinct events through **Helical Resonance**:
+astronomically compatible configurations can couple across time. Earth's path
+can be pictured as locally helical in a moving galactic frame; the helix is
+frame-dependent, and successive turns are never the same spacetime event.
+The **Solar Tachyon Wake**, **Tachyonic Shear**, retrocausal coupling and its
+engineering are fictional physics, not established astronomy.
+**The Signal** is the established phenomenon carrying these channels.
+
+The ordered mechanism is: **Helical Resonance** identifies compatibility;
+an **Echo Window** supplies favorable access; a provisional channel is opened;
+tachyonic correction cancels the relevant **Tachyonic Shear**; **Phase Lock**
+stabilizes that channel; sideband **Phase Translation** tunes it to the requested
+**Temporal Coordinate**; a bounded **Temporal Aperture** permits matter transfer
+when required. Translation cannot substitute for initial resonance access.
+
+A Temporal Coordinate includes epoch, orbital phase, rotational phase, solar
+displacement, local anchor geometry and tachyonic correction. Favorable windows
+recur approximately annually but are calculated from astronomical state,
+including precession/perturbations, not matching Gregorian month/day strings.
+This explanation adds no automatic access prohibition, resource currency,
+cooldown, damage or paradox penalty. Preserve free-order investigation.
+
+Phase-Locked information can produce environmental writing and mechanical
+messages without matter transfer. The prologue's incomplete reflected companion
+crosses only through a stabilized, translated Temporal Aperture aligned to the
+room's local anchor. Reflective geometry assists that anchor; mirrors are not
+universally supernatural. The companion remains visibly propelled machinery;
+this rule grants no general antigravity or unrelated technology advance.
+
+The date command samples the player's present once, accesses an Echo Window,
+corrects and locks the channel, then translates to that exact destination.
+**DATE ACCEPTED** acknowledges the fictional destination/lock, never an OS
+clock change. Keep November10,1928 as the prologue source and retain the
+historical bedroom stinger without resetting the authoritative present.
+No scientific explanation is added to the opening's established dialogue.
+
+Temporal access is not omniscience. The companion knows the protagonist was
+murdered but not who they were. Do not resolve the protagonist's composition,
+identity or origin, identify the singularity with the Dream organism, or settle
+historical alteration, causal loops, branches and paradoxes through this rule.
+Existing knowledge, publication, inventory, save and committed-fact authorities
+remain binding. Sources, implementation boundaries and unresolved work are in
+**design/V2_PROLOGUE_2026-10-28.md** and the post-V2 temporal-forensics goal.
 
 ### VIII.3 The Orison as a demonstration
 
@@ -946,6 +1019,11 @@ own input lease; unsolicited printing may not take focus or cover a protected
 conversation. The richer “Night Stock” surface treatment is a proposal, not
 additional canon or a new simulation authority.
 
+*Ruled 2026-10-29:* the amendment the companion speaks of is the Tenant's
+(§I). The paper is its channel: the Tenant holds it in the future and reads
+everything written on it; replies arrive as numbered received copies. The
+companion acts on nothing and knows nothing of what it serves.
+
 **VIII.5.l — THE WORLD IS A FIDGET TOY.**
 *(Ruled 2026-10-12, at the owner's direction; RUL-013. Implementation and
 migration requirements: `design/DIRECT_MANIPULATION_2026-10-12.md`.)*
@@ -1019,9 +1097,22 @@ The primary game is the nonlinear temporal-forensic mystery **The Year You
 Died**: investigate the murder year out of order and solve the player's own
 murder. The player is “quantum leaping into maintenance worker,” in the owner's
 words. Maintenance subplots and existing dream material are secondary optional
-investigations, not a required repeating repair/narcolepsy ladder. This establishes
-the narrative direction, not the host's identity, number of hosts, murder date,
-killer or the mechanics of host memory. Do not invent those answers as canon.
+investigations, not a required repeating repair/narcolepsy ladder. *Amended
+2026-10-29, at the owner's direction:* §I rules the host and the player. There
+is one host, the night man, a construct the Tenant made, with no memory of its
+own to rule on; the player riding it is Adela Voss. **The murder is ruled.**
+On Friday, 19 July 1929, in the storm that crossed Hell Gate, Mae Kessler of
+6C pushed Adela Voss from the Orison's rear roof parapet at about 9:03 p.m.
+Adela had copied the Vantry Arcade deed for the tenants' counsel and read in
+its schedule that the Kessler Estate's ground lease on the Orison's lot ends
+on 1 August 1929; she meant to show the tenants on the Monday, and sent Mae a
+copy first. Mae played last week's recorded drama in 6C for her neighbour's
+wall, waited behind the roof tank for the first stroke, and took the exposed
+plate from the camera. **The murder hours are dark to the building.**
+Lightning silenced the house from 9:01 p.m. to 3:02 a.m.; nothing of those
+hours is in the record, the Tenant did not hear them, and no visit may enter
+them. The crime is reconstructed, never watched. The mystery's design
+documents carry the evidence chain; the larger conspiracy is not ruled here.
 Preserve the opening and other owner-authored material in
 **design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md**.
 
@@ -1046,6 +1137,70 @@ are retired from active scope. Make the best game: responsive interaction, sound
 readability, accessibility, reliable saves, atmosphere and honest verification
 remain engineering requirements. The exact approved dispositions are recorded in
 **design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md**.
+
+**VIII.5.p — THE V2 OPENING IS AN UNFORTUNATE DEVELOPMENT.**
+*(Owner directive and clarification, 2026-10-28.)*
+
+The bedroom/shower/mirror/companion prologue is the **V2 intro**, not deferred
+with the later murder-year investigation. After the current verified checkpoint,
+prioritize it before resuming city construction. Replace the old player-facing
+curb, clock-in and introductory cinematics; retain useful independent technical
+fixtures and the mechanical, resident, inventory, work-order, case, reading,
+calendar/weather and validated save authorities. Other V2 commitments remain.
+
+Begin in the existing 4B home on November 10, 1928. Teach actual curtain, hot/cold
+valve and medicine-cabinet manipulation. Reveal the drawn protagonist quietly,
+then the reflection-only companion crossing into physical space. Use the
+established bot, printer and tile face, plus the required aftermarket typing
+arm. Preserve exact dialogue and pacing in **design/V2_PROLOGUE_2026-10-28.md**
+and its identified owner brief. The final line is **I am connecting you to the
+present, please stay on the line...** No dialogue follows. The simulated
+privileged command never touches the OS; sample host time once, traverse the
+sky parametrically and apply the destination through the campaign clock. Keep
+Queens as geographic reference. Do not simulate intervening days or infer new
+future news, identity answers, modern city assets or resident history from the
+jump. End at the title; preserve accessible pacing, input, reload and skip.
+
+The owner's final-stinger addendum cuts back to the empty historical bedroom
+after that completed warp, without changing the player's present-day timeline.
+The established friendly Tardi emerges from under the bed, gives a small
+front-leg greeting, waits and retreats. Preserve its current V2 shader look
+and scale over conflicting fallback design suggestions. The single timeline
+lasts exactly17 seconds, including black at13.50, title at14.00 and end at17.00;
+the full beat table is in the prologue ledger. No dialogue, ominous behavior,
+music, added reveal or post-title scene.
+
+This supersedes older opening and city-first sequencing where they conflict.
+Full V2 and the later mystery still need qualification. Owner direction does
+not prove completed gameplay.
+
+**Annual present and companion hardware — owner amendment, 2026-10-29.**
+The jump reaches the user's sampled local month, day and time within the modeled
+November10,1928–November10,1929 annual loop, not the user's modern calendar year.
+Extra seasonal laps may show off the sky without lengthening the bounded shot.
+The opening's staged date does not establish the unknown date/time of the murder.
+Keep elapsed/deadline time monotonic while the civil/weather calendar repeats.
+The historical Tardi cutaway keeps its exact17-second timeline and does not
+rewrite the annual destination or the existing ecology's dated presence rules.
+
+**Prologue release direction,2026-10-30.** The polished prologue is the teaser;
+prepare its Patreon/itch.io/Discord distribution and Butler build delivery to be
+ready alongside it, without waiting for all V2 construction. This is a narrow
+exception to the retired funding/marketing programme, not its wholesale return.
+No date is set; appearance, audio, responsiveness, saves and honest verification
+remain release requirements. Account setup, entitlement rules and build tracing
+are tracked in **design/EARLY_ACCESS_GO_TO_MARKET_PROJECT.md**; proposed platform
+channels do not establish qualified builds or live subscriptions.
+
+The signal-bound companion may have a folding temporal readout and an original
+three-branch flux-capacitor homage, manufactured in its existing mechanical
+language. References inform form, not copied labels/textures or a new nuclear
+fuel/gameplay authority. Its vocal system begins in synthetic babble/emotes and
+learns spoken English from witnessed words; its articulate written dialogue is
+preserved. Separately, rights-reviewed recorded reactions may be anachronistic.
+They remain context-sensitive, respect protected speech and silence, and cannot
+teach the machine by replaying its own recordings. These specific directions
+do not extend the signal exception to unrelated city technology.
 
 ### VIII.6 What this does not license
 
@@ -1090,10 +1245,11 @@ represented only through a borrowed shadows-only silhouette, architecture and
 sound. It has no model, face, attack animation or true form.
 
 The player does not die in the dream. Capture, falling or contact with a hazard
-cuts the passage and wakes the same living person at the authored 4B bedside,
+cuts the passage and wakes the night man, the player still riding it, at the authored 4B bedside,
 without a failure screen or loss of committed work. Campaign run ceilings are
-28, 38, 50, 62, 76 and 90 seconds. The player's own shadow is reserved for
-endgame design outside the six-case production scope.
+28, 38, 50, 62, 76 and 90 seconds. The player's own shadow, the night man
+(§I), is reserved for endgame design outside the six-case production scope;
+it is never the pursuer.
 
 *Amended 2026-08-20 at the owner's direction:* the six release prints are
 ordered **Mina, Peter, Juno, Mae, Cal, Omar**. Their surface incarnations are

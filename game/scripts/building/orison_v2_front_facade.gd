@@ -33,6 +33,7 @@ static func mount(world: Node3D) -> bool:
 	legacy.free()
 	if stone==null:movable.free();return false
 	stone.uv1_triplanar=false;stone.uv1_scale=Vector3.ONE/SurfacePass.TILE_M.limestone
+	stone.albedo_color*=Color(.88,.85,.78)
 	var materials: Dictionary={"limestone_b":stone}
 	var glass:=ShaderMaterial.new();glass.shader=preload("res://shaders/lamp_glass_surface.gdshader");materials.glass=glass
 	preload("res://scripts/building/v2_clear_glass_finish.gd").apply(glass)
@@ -40,9 +41,11 @@ static func mount(world: Node3D) -> bool:
 		for draw: MeshInstance3D in branch.find_children("*","MeshInstance3D",true,false):
 			var key:=str(draw.name).split("__")[1]
 			if not materials.has(key):
-				var tint: Color={"door_oak":Color(.82,.76,.67),"cast_iron":Color(.12,.13,.12),"metal":Color(.24,.25,.23),"brass":Color(.72,.63,.46)}.get(key,Color.WHITE)
+				var tint: Color={"door_oak":Color(.43,.30,.20),"cast_iron":Color(.12,.13,.12),"metal":Color(.24,.25,.23),"brass":Color(.72,.63,.46)}.get(key,Color.WHITE)
 				var material:=MatLib.get_mat(key,tint).duplicate() as StandardMaterial3D
-				if key=="door_oak":material.normal_scale=.45
+				if key=="door_oak":
+					material.normal_scale=.45
+					material.clearcoat_enabled=true;material.clearcoat=.18;material.clearcoat_roughness=.35
 				material.uv1_triplanar=false;materials[key]=material
 			draw.material_override=materials[key];draw.set_meta("facade_material_key",key)
 			if branch==movable:continue

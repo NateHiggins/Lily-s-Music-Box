@@ -11,6 +11,8 @@ extends FunctionalProp
 ## cheap static fallback. In production, PlanarMirrorRenderer borrows one
 ## reflected camera for whichever cabinet is actually useful to the player.
 
+signal manipulation_released(before_fraction:float,after_fraction:float)
+
 const W := 0.46
 const H := 0.61
 const DEPTH := 0.095
@@ -282,6 +284,9 @@ func _build_kept() -> void:
 func _build_interaction() -> void:
 	var area := Area3D.new()
 	area.name = "CabinetReach"
+	# Retained diagnostic/legacy path, never a player query volume. Its broad
+	# box otherwise wins the ray before the actual moving leaf target.
+	area.collision_layer=0;area.collision_mask=0;area.monitoring=false
 	var collision := CollisionShape3D.new()
 	var shape := BoxShape3D.new()
 	shape.size = Vector3(W + 0.08, H + 0.08, 0.24)
@@ -326,6 +331,7 @@ func interact(_player: Node) -> void:
 
 var _hand_pose := false
 var _hand_held := false
+var _hand_start := 0.0
 
 func _build_primary_interaction() -> void:
 	preload("res://scripts/props/manipulation_area.gd").install(_door,_door_grip)
@@ -337,6 +343,7 @@ func _door_grip() -> Dictionary:
 		"owns":func(): return _hand_held,
 		"begin":func():
 			if _hand_held or RealityState.save_write_blocked: return false
+			_hand_start=_swing
 			_hand_pose = true;_hand_held = true
 			return true,
 		"write":func(value: float):
@@ -344,6 +351,7 @@ func _door_grip() -> Dictionary:
 			_swing = value/DOOR_ANGLE;_open = _swing>.001;_apply_swing(),
 		"end":func():
 			_hand_held = false
+			manipulation_released.emit(_hand_start,_swing)
 			if has_signal("open_state_changed"): emit_signal("open_state_changed",_open)}
 
 func manipulation_target(hit: Dictionary) -> Dictionary:

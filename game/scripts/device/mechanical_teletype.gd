@@ -1,5 +1,6 @@
 extends Node3D
 signal card_presenting(card: Dictionary, serial: int)
+signal keyed_copy_interrupted(owner:Node)
 ## Physical paper and mechanism only. Gameplay supplies the complete message.
 const MODEL := preload("res://assets/props/service_radiophone_v2.glb")
 var model_scene: PackedScene = MODEL
@@ -30,6 +31,9 @@ var spools: Array[Node3D]=[]
 var feed_wheels: Array[Node]=[]
 var powered := true
 var printing := false
+var _keyed_owner:WeakRef
+var _keyed_before:Dictionary={}
+var _keyed_column:=0
 var printed_characters := 0
 var _clock := 0.0
 var _advance := 0.0
@@ -71,6 +75,24 @@ var _draft_heading := ""
 var _draft_text := ""
 var _reading_lit := false
 const DELIVERY_FEED := .020
+const UPPER_DELIVERY_FEED:=.062 # Short copies above the closed keyboard's face.
+var _delivery_feed:=DELIVERY_FEED
+
+func copy_delivered() -> bool:
+	return not printing and (_paper_motion==null or not _paper_motion.is_running())
+
+func retire_transient_copies(serials:Array[int]) -> void:
+	# A narrative document replacement may invalidate only its own copies.
+	# Preserve unrelated field reports and the monotonic device print count.
+	if serials.is_empty():return
+	var retire_current:=_serial>0 and serials.has(_serial)
+	var browsing:int=int(reports[report_index].serial) if report_index>=0 and report_index<reports.size() else -1
+	for index in range(reports.size()-1,-1,-1):
+		if serials.has(int(reports[index].serial)):reports.remove_at(index)
+	report_index=reports.size()-1
+	for index in reports.size():
+		if int(reports[index].serial)==browsing:report_index=index;break
+	if retire_current:present({"title":"","body":""},0)
 
 func _ready() -> void:
 	model = model_scene.instantiate()
@@ -208,8 +230,16 @@ func _label(at: Vector3, pixel: float) -> Label3D:
 	label.no_depth_test=false; label.shaded=false
 	return label
 
-func present(card: Dictionary, serial: int) -> void:
+func present(card: Dictionary, serial: int,raised_copy:=false) -> void:
+	# A genuine field copy has priority over an unfinished automatic copy.
+	# Clear ownership before notifying its controller, so cancellation cannot
+	# restore the old page over the incoming report.
+	if _keyed_owner!=null:
+		var previous:Node=_keyed_owner.get_ref()
+		_keyed_owner=null;_keyed_before.clear()
+		if is_instance_valid(previous):keyed_copy_interrupted.emit(previous)
 	card_presenting.emit(card, serial)
+	_delivery_feed=UPPER_DELIVERY_FEED if raised_copy else DELIVERY_FEED
 	hide_draft()
 	var text := str(card.get("title","FIELD COPY"))+"\n\n"+str(card.get("body",""))
 	var condition := str(card.get("condition",""))
@@ -239,6 +269,7 @@ func browse_report(direction: int) -> void:
 	if reports.is_empty(): return
 	report_index=posmod(report_index+direction,reports.size())
 	var record: Dictionary=reports[report_index]
+	_delivery_feed=DELIVERY_FEED
 	pages.assign(record.pages)
 	_serial=int(record.serial)
 	heading.text="SERVICE WIRE / %04d" % _serial
@@ -252,7 +283,7 @@ func _show_copy() -> void:
 	printing=false; printed_characters=pages[page].length()
 	if _hot_writer:_hot_writer.stop()
 	ink.text=pages[page]; _column=0; _return_left=0
-	ink.position=_ink_home+Vector3.UP*DELIVERY_FEED
+	ink.position=_ink_home+Vector3.UP*_delivery_feed
 	carriage.position=_carriage_home; hammer.position=_hammer_home
 	_update_footer()
 
@@ -292,6 +323,52 @@ func hide_draft() -> void:
 	ink.visible = true
 	heading.text = _draft_heading
 	_update_footer()
+
+func owns_keyed_copy(owner:Node) -> bool:
+	return _keyed_owner!=null and _keyed_owner.get_ref()==owner
+
+func begin_keyed_copy(owner:Node,title:String,prompt:String) -> bool:
+	if not is_instance_valid(owner) or not powered or printing or _keyed_owner!=null:return false
+	if _draft_ink!=null and _draft_ink.visible:return false
+	var previous:={"pages":pages.duplicate(),"page":page,"serial":_serial,"heading":heading.text,"reviewing":_reviewing,"delivery_feed":_delivery_feed}
+	present({"title":title,"body":prompt},0)
+	# Keep the live command in the same reading window as a delivered copy.
+	# Character impressions still drive the existing head/carriage mechanism.
+	ink.position=_ink_home+Vector3.UP*DELIVERY_FEED
+	_keyed_before=previous;_keyed_owner=weakref(owner)
+	_keyed_column=prompt.length()%COLUMNS
+	return true
+
+func append_keyed_copy(owner:Node,character:String) -> bool:
+	if not owns_keyed_copy(owner) or not powered or character.length()!=1 or pages[0].length()>=512:return false
+	if character!="\n" and (character.unicode_at(0)<32 or character.unicode_at(0)==127):return false
+	if character!="\n" and _keyed_column>=COLUMNS:
+		pages[0]+="\n";_keyed_column=0
+	pages[0]+=character
+	_keyed_column=0 if character=="\n" else _keyed_column+1
+	printing=true
+	return true
+
+func finish_keyed_copy(owner:Node,response:String,serial:int) -> bool:
+	if not owns_keyed_copy(owner) or not powered or serial<=0 or response.is_empty():return false
+	for character:String in "\n\n"+response:
+		if not append_keyed_copy(owner,character):return false
+	_keyed_owner=null;_keyed_before.clear();_serial=serial
+	reports.append({"serial":serial,"pages":pages.duplicate()})
+	if reports.size()>HISTORY_LIMIT:reports.pop_front()
+	report_index=reports.size()-1;heading.text="TEMPORAL SERVICE / %04d"%serial
+	_update_footer()
+	return true
+
+func abort_keyed_copy(owner:Node) -> bool:
+	if not owns_keyed_copy(owner):return false
+	var previous:=_keyed_before
+	_delivery_feed=float(previous.get("delivery_feed",DELIVERY_FEED))
+	_keyed_owner=null;_keyed_before={}
+	pages.assign(previous.pages);page=int(previous.page);_serial=int(previous.serial)
+	_reviewing=bool(previous.reviewing);heading.text=str(previous.heading)
+	_show_copy()
+	return true
 
 func set_reading_illumination(enabled: bool) -> void:
 	if enabled == _reading_lit: return
@@ -369,6 +446,12 @@ func _begin_page() -> void:
 	if _feed.stream: _feed.play()
 
 func _process(delta: float) -> void:
+	if _keyed_owner!=null and _keyed_owner.get_ref()==null:
+		# A departing scene cannot leave a perpetual printing/focus surrogate.
+		var previous:=_keyed_before;_keyed_owner=null;_keyed_before={}
+		_delivery_feed=float(previous.get("delivery_feed",DELIVERY_FEED))
+		pages.assign(previous.pages);page=int(previous.page);_serial=int(previous.serial)
+		_reviewing=bool(previous.reviewing);heading.text=str(previous.heading);_show_copy()
 	if not powered or not printing:
 		if not powered and _hot_writer:_hot_writer.stop()
 		return
@@ -405,6 +488,11 @@ func _process(delta: float) -> void:
 		hammer.position=_hammer_home
 		if _return_left<=0: hammer.position.z+=sin(_clock*TAU*24)*.002
 	if printed_characters==pages[page].length():
+		if _keyed_owner!=null:
+			# Wait at the impression datum. Do not deliver the page between
+			# physical key contacts or accumulate seconds of print catch-up.
+			_advance=minf(_advance,CHARACTER_SECONDS)
+			return
 		printing=false
 		if _hot_writer==null:hammer.position=_hammer_home
 		_return_motion = create_tween()
@@ -412,7 +500,7 @@ func _process(delta: float) -> void:
 		# Feed finished copy above the head. Keep the continuous web seated;
 		# only the ink advances through the fixed viewing window.
 		_paper_motion=create_tween().set_parallel(true)
-		_paper_motion.tween_property(ink,"position",_ink_home+Vector3.UP*DELIVERY_FEED,.24)
-		_paper_motion.tween_property(platen,"rotation:x",platen.rotation.x+DELIVERY_FEED/.008,.24)
-		for wheel in feed_wheels:_paper_motion.tween_property(wheel,"rotation:x",wheel.rotation.x+DELIVERY_FEED/.008,.24)
+		_paper_motion.tween_property(ink,"position",_ink_home+Vector3.UP*_delivery_feed,.24)
+		_paper_motion.tween_property(platen,"rotation:x",platen.rotation.x+_delivery_feed/.008,.24)
+		for wheel in feed_wheels:_paper_motion.tween_property(wheel,"rotation:x",wheel.rotation.x+_delivery_feed/.008,.24)
 		if _feed.stream:_feed.play()

@@ -13,13 +13,13 @@ static func configure_starfield(material: ShaderMaterial) -> void:
 
 static func precise_utc(clock: CampaignClock) -> Dictionary:
 	var utc := clock.utc_datetime()
-	utc.second=float(utc.get("second",0))+fposmod(clock.absolute_minutes()*60.,1.)
+	utc.second=float(utc.get("second",0))+fposmod(clock.calendar_minutes()*60.,1.)
 	return utc
 
 static func publish_star_frame(material: ShaderMaterial,camera: Camera3D,clock: CampaignClock,observer := Vector2(40.75,-73.92)) -> void:
 	if material==null or camera==null or clock==null or not bool(material.get_meta("analytical_stars",false)):return
 	# Campaign fractions preserve deterministic forward/backward/reload sampling.
-	material.set_shader_parameter("star_animation_seconds",fposmod(clock.absolute_minutes()*60.,4096.))
+	material.set_shader_parameter("star_animation_seconds",fposmod(clock.calendar_minutes()*60.,4096.))
 	# The retained lighting cadence is eight seconds. At 0.1 degrees that
 	# would jump hundreds of pixels: publish presentation geometry separately.
 	var jd := Ephemeris.julian_day(precise_utc(clock))

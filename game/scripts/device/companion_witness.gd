@@ -68,7 +68,7 @@ func observe(delta: float) -> void:
 	_sample_left -= delta
 	if _sample_left > 0.0: return
 	_sample_left = .25
-	if get_tree().paused or player.protected_input_active() or session.typing or session.opening \
+	if get_tree().paused or player.protected_input_active() or session.typing or session.opening or session.get_parent().arm_busy() \
 			or not session.get_parent().device.radio_powered:
 		_hesitation = 0.0; _room_dwell = 0.0; return
 	if is_instance_valid(world) and world.has_method("room_at_world"):

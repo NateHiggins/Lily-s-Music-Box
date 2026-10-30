@@ -62,7 +62,36 @@ func _run() -> void:
 	if not check(carrier.world_ready, "native companion and session initialize"): finish(); return
 	await exercise()
 
+func exercise_story_reflection_privacy() -> void:
+	var owner:=Node.new();owner.name="ReflectionLeaseOwner";add_child(owner)
+	var home:Transform3D=carrier.motion.global_transform
+	var draft:String=carrier.session.draft
+	check(carrier.acquire_story_absence(owner) and carrier.begin_story_reflection(owner),"story projection borrows the original absent device")
+	check(not carrier.begin_story_reflection(self) and not carrier.pose_story_reflection(self,Transform3D.IDENTITY,true),"foreign story caller cannot acquire or move the projection")
+	check(carrier.pose_story_reflection(owner,home,true),"owned story pose is accepted without a second rig")
+	await frames(2)
+	check(carrier.rig.visible and carrier.is_capture_hidden(),"story rig is present only behind disabled ordinary framing")
+	get_tree().paused=true
+	var other:=Camera3D.new();other.name="PausedProjectionObserver"
+	other.cull_mask=player.camera.cull_mask|(1<<(ServiceSetProp.DEVICE_LAYER-1))
+	add_child(other);other.global_transform=player.camera.global_transform;other.make_current()
+	await frames(2);await RenderingServer.frame_post_draw
+	var hidden:bool=not carrier.rig.visible
+	check(hidden,"paused observer change cannot expose a reflection-only device")
+	if not hidden:await capture("paused_projection_forbidden.png")
+	else:await capture("paused_projection_hidden.png")
+	player.camera.make_current();other.queue_free()
+	await frames(2);await RenderingServer.frame_post_draw
+	check(carrier.rig.visible and carrier.motion.global_transform.is_equal_approx(home),"paused return restores only visibility and preserves the exact frozen pose")
+	get_tree().paused=false
+	carrier.end_story_reflection(owner)
+	check(carrier.motion.global_transform.is_equal_approx(home) and not carrier._story_reflection,"projection retirement restores its borrowed pose")
+	carrier.release_story_absence(owner)
+	check(not carrier.is_story_absent() and carrier.session.draft==draft,"projection retirement preserves the unsent draft and releases only its owner")
+	owner.queue_free()
+
 func exercise() -> void:
+	await exercise_story_reflection_privacy()
 	await exercise_screen_framing()
 	await measure_foreground_cost()
 	await joy(JOY_BUTTON_DPAD_DOWN)

@@ -7,6 +7,7 @@ var _world: Node3D
 var _sources: Array=[]
 var _rooms: Dictionary={}
 var _surfaces: Array=[]
+var _mirror_surfaces: Dictionary={}
 var _retiring: Array[int]=[]
 var _elapsed:=0.0
 var _stopped:=false
@@ -21,9 +22,13 @@ func configure(world: Node3D) -> bool:
 	_water.uv1_triplanar=false;_water.normal_enabled=true;_water.normal_scale=0.1
 	_water.albedo_color=Color(0.72,0.86,0.94,0.58);_water.roughness=0.12
 	_water.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
+	# A player can stand inside the cone. Fade the nearest drops rather than
+	# letting a centimetre-long streak clip into a bright screen-sized polygon.
+	_water.distance_fade_mode=BaseMaterial3D.DISTANCE_FADE_PIXEL_ALPHA
+	_water.distance_fade_min_distance=0.25;_water.distance_fade_max_distance=0.55
 	_water.emission_enabled=true;_water.emission=Color(0.85,0.92,1.0);_water.emission_energy_multiplier=0.3
 	_water.texture_filter=BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
-	_drop_mesh=SphereMesh.new();_drop_mesh.radius=0.003;_drop_mesh.height=0.035
+	_drop_mesh=SphereMesh.new();_drop_mesh.radius=0.0008;_drop_mesh.height=0.035
 	_drop_mesh.radial_segments=6;_drop_mesh.rings=2;_drop_mesh.material=_water
 	_drop_process=ParticleProcessMaterial.new();_drop_process.direction=Vector3.DOWN
 	_drop_process.spread=10.0;_drop_process.gravity=Vector3.DOWN*3.0
@@ -133,13 +138,26 @@ func _bind_surface(pane: MeshInstance3D,room: String,size: Vector2,along_z: bool
 	film.set_shader_parameter("pane_center",pane.mesh.get_aabb().get_center())
 	film.set_shader_parameter("outside_sign",outside_sign)
 	film.set_shader_parameter("mirror_surface",mirror)
-	_surfaces.append({"pane":pane,"room":room,"material":film,"mirror":mirror,"exposed":exposed,"inside":0.0,"outside":0.0,"last_inside":-1.0,"last_outside":-1.0})
+	var surface:Dictionary={"pane":pane,"room":room,"material":film,"mirror":mirror,"exposed":exposed,"inside":0.0,"outside":0.0,"last_inside":-1.0,"last_outside":-1.0}
+	_surfaces.append(surface)
+	if mirror:_mirror_surfaces[pane.get_instance_id()]=surface
+	return true
+
+func set_mirror_story(pane:MeshInstance3D,value:Vector2) -> bool:
+	# Cached once at binding: no per-frame surface scan or second phase clock.
+	if _stopped or not is_instance_valid(pane) or not _mirror_surfaces.has(pane.get_instance_id()):return false
+	var surface:Dictionary=_mirror_surfaces[pane.get_instance_id()]
+	if value.x<0:pane.remove_meta("prologue_mirror_film")
+	else:pane.set_meta("prologue_mirror_film",value)
+	if value!=surface.get("last_story",Vector2.INF):
+		surface.material.set_shader_parameter("prologue_film",value);surface.last_story=value
 	return true
 
 func _sync_spray(index: int) -> void:
 	if _stopped:return
 	var source: Dictionary=_sources[index]
 	var amount: float=float(source.tap.get_flow_state().flow)
+	if source.tap.has_method("spray_flow_amount"):amount=float(source.tap.spray_flow_amount())
 	var emitting:=amount>0.0001
 	if source.spray.emitting!=emitting:
 		source.spray.emitting=emitting
@@ -182,6 +200,10 @@ func _process(delta: float) -> void:
 		surface.inside=move_toward(float(surface.inside),humidity,step*0.05)
 		surface.outside=move_toward(float(surface.outside),rain if surface.exposed else 0.0,step*(0.12 if rain>float(surface.outside) else 0.02))
 		var film: ShaderMaterial=surface.material
+		if surface.mirror:
+			var story:Vector2=surface.pane.get_meta("prologue_mirror_film",Vector2(-1,0))
+			if story!=surface.get("last_story",Vector2.INF):
+				film.set_shader_parameter("prologue_film",story);surface.last_story=story
 		if float(surface.inside)!=float(surface.last_inside) or float(surface.outside)!=float(surface.last_outside):
 			film.set_shader_parameter("inside_wet",0.0 if surface.mirror else float(surface.inside))
 			film.set_shader_parameter("outside_wet",float(surface.inside) if surface.mirror else float(surface.outside))
@@ -197,7 +219,9 @@ func shutdown() -> void:
 	for surface: Dictionary in _surfaces:
 		if is_instance_valid(surface.pane):
 			if surface.pane.material_overlay==surface.material:surface.pane.material_overlay=null
-			if surface.mirror:surface.pane.remove_meta("v2_condensation")
+			if surface.mirror:
+				surface.pane.remove_meta("v2_condensation")
+				surface.pane.remove_meta("prologue_mirror_film")
 	for index in _sources.size():
 		var source: Dictionary=_sources[index]
 		if is_instance_valid(source.tap) and source.tap.flow_changed.is_connected(_sync_spray.bind(index)):
@@ -206,6 +230,6 @@ func shutdown() -> void:
 		if is_instance_valid(source.spray):source.spray.free()
 	for state: Dictionary in _rooms.values():
 		if state.has("steam") and is_instance_valid(state.steam):state.steam.free()
-	_sources.clear();_retiring.clear();_rooms.clear();_surfaces.clear();_drop_mesh=null;_drop_process=null;_water=null
+	_sources.clear();_retiring.clear();_rooms.clear();_surfaces.clear();_mirror_surfaces.clear();_drop_mesh=null;_drop_process=null;_water=null
 
 func _exit_tree() -> void:shutdown()

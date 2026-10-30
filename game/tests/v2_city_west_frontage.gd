@@ -30,12 +30,23 @@ func _evidence_scope() -> String:
 func _evidence_file() -> String:
 	return "west_frontage_contract.json"
 
+func _resource_snapshot() -> Dictionary:
+	return {"process_id":OS.get_process_id(),"host_memory":OS.get_memory_info(),
+		"godot_static_bytes":OS.get_static_memory_usage(),
+		"render_texture_bytes":RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TEXTURE_MEM_USED),
+		"render_buffer_bytes":RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_BUFFER_MEM_USED),
+		"render_video_bytes":RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_VIDEO_MEM_USED),
+		"process_frame":Engine.get_process_frames(),"physics_frame":Engine.get_physics_frames(),
+		"time_scale":Engine.time_scale,"physics_ticks_per_second":Engine.physics_ticks_per_second,
+		"max_physics_steps_per_frame":Engine.max_physics_steps_per_frame}
+
 func _run() -> void:
 	source_before = _digest()
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true)
 	CampaignClock.new().configure_date(1928, 11, 10, 720)
+	city_observations["resources_before_composition"]=_resource_snapshot()
 	world = Runtime.instantiate()
 	add_child(world)
 	await get_tree().physics_frame
@@ -52,13 +63,17 @@ func _run() -> void:
 		# Preserve the cold first-frame stalls as startup diagnostics. Do not
 		# charge renderer publication to a controller's bounded travel deadline.
 		var startup_frames: Array = []
+		var startup_resources: Array = []
 		var previous := Time.get_ticks_usec()
 		for frame in 40:
 			await RenderingServer.frame_post_draw
 			var now := Time.get_ticks_usec()
 			startup_frames.append((now-previous)/1000.)
+			startup_resources.append(_resource_snapshot())
 			previous = now
 		city_observations["startup_settle_wall_ms"] = startup_frames
+		city_observations["startup_resource_samples"] = startup_resources
+		city_observations["startup_resource_limits"]="Forty bounded post-draw observations; small sampling cost included. Engine allocation estimates are not driver residency or dedicated/shared GPU allocation. Host memory includes unrelated applications. No cause or speedup inferred."
 		city_observations["settled_passage_residency"] = world.passage_region.residency.snapshot()
 		await _route()
 	Input.action_release("move_forward")

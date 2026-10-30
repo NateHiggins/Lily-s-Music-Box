@@ -1977,6 +1977,25 @@ game/tests/V2RoofClearanceProbe.tscn -text
 game/scripts/building/orison_v2_sink.gd -text
 game/scripts/building/orison_v2_water_valve.gd -text
 game/scripts/building/orison_v2_window_treatment.gd -text
+art/blender/companion_typing_arm.blend -text
+art/blender/scripts/export_companion_typing_arm.py -text
+art/blender/scripts/metric_gltf_export.py -text
+game/assets/props/companion_typing_arm.glb -text
+game/assets/props/companion_typing_arm.glb.import -text
+game/scripts/device/companion_typing_arm.gd -text
+game/tests/companion_typing_arm_bench.gd -text
+game/tests/CompanionTypingArmBench.tscn -text
+game/scripts/props/clawfoot_curtain_motion.gd -text
+game/shaders/clawfoot_curtain.gdshader -text
+art/blender/clawfoot_bath.blend -text
+art/blender/scripts/export_clawfoot_bath.py -text
+game/scripts/props/clawfoot_bath_prop.gd -text
+game/scripts/props/clawfoot_bath_prop.gd.uid -text
+game/scripts/props/clawfoot_curtain_motion.gd.uid -text
+game/shaders/clawfoot_curtain.gdshader.uid -text
+game/tests/ClawfootBathHandBench.tscn -text
+game/tests/clawfoot_bath_hand_bench.gd -text
+game/tests/clawfoot_bath_hand_bench.gd.uid -text
 game/scripts/building/switch_plate.gd -text
 game/scripts/player/constrained_grab.gd -text
 game/scripts/player/player_controller.gd -text
@@ -3256,6 +3275,35 @@ design/astra/evidence/resident_f01_haunt/nav_validation/nav_direct_*/source_snap
 art/renders/HISTORICAL_CAPTURES.json -text
 design/astra/evidence/SOURCE_ARCHIVES.json -text
 design/astra/evidence/*/source_snapshots.tar.gz -text
+# Keep new prologue script/scene receipt bindings stable on Windows checkouts.
+game/scripts/game/prologue_state.gd -text
+game/tests/prologue_state_test.gd -text
+game/tests/PrologueStateTest.tscn -text
+game/scripts/game/prologue_director.gd -text
+game/scripts/game/prologue_temporal_console.gd -text
+game/scripts/game/prologue_temporal_sky.gd -text
+game/scripts/game/prologue_tardi_stinger.gd -text
+game/shaders/prologue_temporal_residue.gdshader -text
+game/scripts/building/queens_weather_extension.gd -text
+game/tests/prologue_temporal_sky_review.gd -text
+game/tests/PrologueTemporalSkyReview.tscn -text
+game/tests/prologue_temporal_console_bench.gd -text
+game/tests/PrologueTemporalConsoleBench.tscn -text
+game/scripts/game/signal_surface_writing.gd -text
+game/data/dialogue/prologue.json -text
+game/tests/prologue_tutorial_route.gd -text
+game/tests/PrologueTutorialRoute.tscn -text
+game/tests/prologue_writing_bench.gd -text
+game/tests/PrologueWritingBench.tscn -text
+game/scripts/device/companion_world_carrier.gd -text
+game/scripts/device/companion_screen_frame.gd -text
+game/scripts/building/orison_v2_window_treatment.gd -text
+
+game/shaders/prologue_mirror_film.gdshaderinc -text
+
+game/scripts/game/prologue_waking.gd -text
+
+art/blender/scripts/build_prologue_wake_cover.py -text
 
 # City composition and its test-written source hashes.
 game/scripts/building/orison_v2_city_placement.gd -text

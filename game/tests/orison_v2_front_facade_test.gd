@@ -79,7 +79,9 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(not hit.is_empty() and str(hit.collider.get_path()).contains("ExteriorMasonry") and hit.position.distance_to(at)<.0001,"original blade bracket has a real retained pier")
 		var approach:=PhysicsRayQueryParameters3D.create(Vector3(blade.global_position.x,y,4),at,1,[world.player.get_rid()])
 		print("FACADE STREET OCCLUDER at y=",y," hit=",world.get_world_3d().direct_space_state.intersect_ray(approach))
-	var camera:=Camera3D.new();world.add_child(camera);camera.make_current();camera.fov=65
+	var camera:=Camera3D.new();camera.cull_mask=world.player.camera.cull_mask
+	world.add_child(camera);camera.make_current();camera.fov=65
+	check((camera.cull_mask & preload("res://scripts/player/doodle_player_avatar.gd").LAYER)==0,"ordinary facade camera preserves first-person avatar privacy")
 	for view: Array in [["front",Vector3(0,1.43,6),Vector3(0,2.7,0)],["approach",Vector3(3,1.43,4),Vector3(0,2.7,0)],["door",Vector3(.45,1.43,1.55),Vector3(0,1.6,0)],["canopy",Vector3(1.5,1.43,2.8),Vector3(0,3.1,.4)],["blade",Vector3(9,1.43,4),blade.global_position+Vector3(0,0,.65)],["front_wide",Vector3(0,1.43,11),Vector3(0,6,0)]]:
 		var feet: Vector3=view[1]-Vector3.UP*world.player.STANDING_EYE
 		var ground:=PhysicsRayQueryParameters3D.create(feet+Vector3.UP*.35,feet-Vector3.UP*.40,1,[world.player.get_rid()])
@@ -101,6 +103,18 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var inspect_ray:=PhysicsRayQueryParameters3D.create(world.player.camera.global_position,world.player.camera.global_position-world.player.camera.global_basis.z*2.1,1,[world.player.get_rid()]);inspect_ray.collide_with_areas=true
 	print("FACADE INSPECTION ",world.get_world_3d().direct_space_state.intersect_ray(inspect_ray)," prompt=",world.player._prompt.text)
 	check(world.player._prompt.text.contains("Inspect ORISON neon"),"original low transformer inspection is reachable from the pavement")
+	# The replacement is qualified with the same physical input driver used by
+	# the golden route, rather than the legacy endpoint/toggle command.
+	world.player.camera.make_current()
+	world.player.global_position=door.to_global(Vector3(door.width*.5,.02,-1.40))
+	world.player.set_mouse_released(false)
+	await get_tree().physics_frame
+	var hand:=preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
+	add_child(hand);hand.player=world.player
+	var contact: Vector3=door._body.to_global(Vector3(door.width/3.0,1.1,door._hinge_offset))
+	var moved: bool=await hand.operate(contact,deg_to_rad(86),door)
+	check(moved and hand.follows_cursor and door.open and not door._hand_gripped,"new native entrance opens through actual grab, mouse travel and next-click release")
+	hand.free()
 	print("FRONT FACADE TEST: parts=",parts," triangles=",triangles," checks=",checks," failures=",failures.size())
 	world.player.global_transform=old_player_pose
 	world.player.camera.transform=old_camera_pose

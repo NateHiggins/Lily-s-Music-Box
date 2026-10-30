@@ -2,7 +2,8 @@ extends Node
 ## Authoring probe for resident route files: in the production V2 root, every
 ## node and every 10 cm along every edge must have floor support and room for
 ## the resident's capsule. Blocked nodes get the nearest clear spot suggested
-## in route coordinates (tools/apply_route_probe.py moves them there).
+## in route coordinates, blocked edges a clear way round
+## (tools/apply_route_probe.py moves and inserts them).
 ## ROUTE_FILE picks the files, comma-separated (default Lena's); each finding
 ## is printed with its file.
 
@@ -77,9 +78,11 @@ func _probe(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
 							and _blocked(world, space, at + along) != "no floor":
 						continue
 					if why != "":
-						var hint := _clear_near(world, space, root, at)
+						var hint := _route_around(world, space, root, a, b)
+						if hint == "":
+							hint = _clear_near(world, space, root, at).replace("clear at", "detour at")
 						failures.append("[%s] edge %s -> %s at %d%%: %s; %s" % [_file, previous[0], record[0], i * 100 / steps, why,
-								hint.replace("clear at", "detour at") if hint != "" else "no clear spot within 0.8 m"])
+								hint if hint != "" else "no clear spot within 0.8 m"])
 						break
 			previous = record
 	for id: String in nodes:
@@ -90,6 +93,96 @@ func _probe(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
 			continue
 		var hint := _clear_near(world, space, root, at)
 		failures.append("[%s] node %s: %s; %s" % [_file, id, why, hint if hint != "" else "no clear spot within 0.8 m"])
+
+
+const GRID := .15
+
+
+## A clear way from a to b on their floor: an 8-connected search over a 15 cm
+## grid of capsule stances within 1.5 m of the edge, pulled tight to the
+## fewest waypoints whose straight runs are themselves clear. Returned as
+## "route via [x, y, z] ..." in route coordinates, or "" when none is found.
+func _route_around(world: OrisonV2RuntimeRoot, space: PhysicsDirectSpaceState3D, root: Node3D, a: Vector3, b: Vector3) -> String:
+	var low := Vector2(minf(a.x, b.x), minf(a.z, b.z)) - Vector2.ONE * 1.5
+	var size := Vector2i(((Vector2(maxf(a.x, b.x), maxf(a.z, b.z)) + Vector2.ONE * 1.5 - low) / GRID).ceil())
+	var cell_at := func(c: Vector2i) -> Vector3: return Vector3(low.x + c.x * GRID, a.y, low.y + c.y * GRID)
+	var free := {}
+	var is_free := func(c: Vector2i) -> bool:
+		if c.x < 0 or c.y < 0 or c.x > size.x or c.y > size.y: return false
+		if not free.has(c): free[c] = _clear(world, space, cell_at.call(c))
+		return free[c]
+	var start := Vector2i(((Vector2(a.x, a.z) - low) / GRID).round())
+	var goal := Vector2i(((Vector2(b.x, b.z) - low) / GRID).round())
+	var open: Array[Vector2i] = [start]
+	var came := {start: start}
+	var cost := {start: 0.0}
+	var found := false
+	while not open.is_empty() and came.size() < 6000:
+		var best := 0
+		for k in open.size():
+			if cost[open[k]] + Vector2(open[k] - goal).length() < cost[open[best]] + Vector2(open[best] - goal).length(): best = k
+		var at: Vector2i = open.pop_at(best)
+		if at == goal:
+			found = true
+			break
+		for step: Vector2i in [Vector2i(1,0), Vector2i(-1,0), Vector2i(0,1), Vector2i(0,-1), Vector2i(1,1), Vector2i(1,-1), Vector2i(-1,1), Vector2i(-1,-1)]:
+			var next := at + step
+			var spent: float = cost[at] + Vector2(step).length()
+			if (not cost.has(next) or spent < cost[next]) and (next == goal or is_free.call(next)):
+				cost[next] = spent
+				came[next] = at
+				if next not in open: open.append(next)
+	if not found:
+		# b stands in a pocket the search cannot enter: offer the reachable
+		# stance nearest it, which the apply tool takes as b's new place.
+		var nearest := start
+		for cell: Vector2i in came:
+			if Vector2(cell - goal).length() < Vector2(nearest - goal).length(): nearest = cell
+		if nearest == start:
+			return ""
+		var local := root.to_local(cell_at.call(nearest))
+		return "reach at [%.2f, %.2f, %.2f]" % [local.x, local.y, local.z]
+	var cells: Array[Vector3] = [b]
+	var walk := goal
+	while walk != start:
+		walk = came[walk]
+		cells.push_front(cell_at.call(walk))
+	cells[0] = a
+	var kept: Array[Vector3] = []
+	var from := 0
+	while from < cells.size() - 1:
+		var reach := from + 1
+		for to in range(cells.size() - 1, from + 1, -1):
+			if _clear_run(world, space, cells[from], cells[to]):
+				reach = to
+				break
+		if reach < cells.size() - 1: kept.append(cells[reach])
+		from = reach
+	if kept.is_empty():
+		return ""
+	var words: Array[String] = []
+	for point in kept:
+		var local := root.to_local(point)
+		words.append("[%.2f, %.2f, %.2f]" % [local.x, local.y, local.z])
+	return "route via " + " ".join(words)
+
+
+## The capsule stands clear here, or over a threshold gap it bridges.
+func _clear(world: OrisonV2RuntimeRoot, space: PhysicsDirectSpaceState3D, at: Vector3) -> bool:
+	var why := _blocked(world, space, at)
+	if why != "no floor":
+		return why == ""
+	for along: Vector3 in [Vector3(GRID, 0, 0), Vector3(0, 0, GRID)]:
+		if _blocked(world, space, at - along) == "" and _blocked(world, space, at + along) == "":
+			return true
+	return false
+
+
+func _clear_run(world: OrisonV2RuntimeRoot, space: PhysicsDirectSpaceState3D, a: Vector3, b: Vector3) -> bool:
+	var steps := maxi(1, ceili(a.distance_to(b) / .1))
+	for i in range(1, steps):
+		if not _clear(world, space, a.lerp(b, float(i) / steps)): return false
+	return true
 
 
 ## The nearest spot within 0.8 m where the capsule stands clear, in route

@@ -101,6 +101,35 @@ func _run() -> void:
 	rig.device.set_radio_powered(true)
 	for index in 20: await get_tree().physics_frame
 	check(not face.illustration_active and player.current.is_empty(), "power restoration returns ownership to normal mouth animation")
+	var idle_poses:Dictionary={}
+	var until:=Time.get_ticks_msec()+6200
+	while Time.get_ticks_msec()<until:
+		await get_tree().create_timer(.12).timeout
+		idle_poses[hash(face.target)]=true
+	check(idle_poses.size()>=3,"idle face keeps blinking and shifting its eyes instead of resting on one image")
+	for emotion:String in ["sympathetic","grinning","conspiratorial","thoughtful"]:
+		rig.face_emotion=emotion
+		rig.device.print_telegram_card({"title":"","body":"A little mechanical expression, printed one character at a time."})
+		var poses:Dictionary={}
+		while not rig.device.teletype.copy_delivered():
+			await get_tree().process_frame
+			poses[hash(face.target)]=true
+		check(poses.size()>=2,"actual printing animates the mouth while retaining its mood: "+emotion)
+		await RenderingServer.frame_post_draw
+		check(get_viewport().get_texture().get_image().save_png(directory.path_join("live_"+emotion+".png"))==OK,"render live mood: "+emotion)
+	rig.face_emotion=""
+	rig.device.set_radio_powered(false)
+	await get_tree().process_frame
+	var writes:int=face.transform_writes
+	await get_tree().create_timer(.3).timeout
+	check(face.transform_writes==writes,"unpowered face stops physical tile movement")
+	rig.device.set_radio_powered(true)
+	await get_tree().process_frame
+	writes=face.transform_writes;get_tree().paused=true
+	await get_tree().create_timer(.3,true,false,true).timeout
+	check(face.transform_writes==writes,"pause freezes physical face movement")
+	get_tree().paused=false
+	check(peak_active<=32 and peak_writes<=64,"continuous moods retain the existing per-step tile work budget")
 	finish()
 
 func check_request(id: String, cap: int) -> bool:

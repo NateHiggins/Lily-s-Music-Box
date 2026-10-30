@@ -1,8 +1,9 @@
 extends Node
-## The two daily papers, headless: the year loads whole and valid, today's
+## The two daily papers: the year loads whole and valid, today's
 ## date comes off the campaign clock, the rack offers the right days, a paper
 ## taken is kept on the campaign document, the shelf lists it, and the panel
-## builds a front page without a scene.
+## builds a front page without a scene. Run windowed for the actual page-turn
+## input checks; headless viewport geometry is not a playable pointer surface.
 
 var _fails := 0
 
@@ -103,6 +104,7 @@ func _run() -> void:
 	_check("fifty-three Saturdays of the Speaker carry the editorial, and the Record none", saturdays == 53)
 	panel.close()
 	await get_tree().process_frame
+	await _back_page(catalog)
 	var shelf := NewspaperPanel.new()
 	add_child(shelf)
 	shelf.open_shelf(null, catalog)
@@ -126,6 +128,97 @@ func _run() -> void:
 			and (rack.interact_control("knock", null) as Dictionary).is_empty())
 
 	await _input_ownership(catalog)
+
+
+## The back of the sheet: optional, validated, and turned by hand (RUL-013).
+func _back_page(catalog: NewspaperCatalog) -> void:
+	var column := func(kind: String) -> Dictionary:
+		return {"kind": kind, "headline": "A %s headline" % kind, "body": "A %s body." % kind}
+	var good := {"columns": [column.call("news"), column.call("sport"), column.call("pun_derby"),
+			column.call("classified")], "foot": "One line at the foot."}
+	_check("an issue without a back page is valid", catalog._valid_back(null, "speaker", "test"))
+	_check("four typed columns and a foot are valid", catalog._valid_back(good, "speaker", "test"))
+	var errors_before := catalog.errors.size()
+	var short := good.duplicate(true)
+	short.columns.pop_back()
+	_check("three columns are refused", not catalog._valid_back(short, "speaker", "test"))
+	_check("a kind from the other paper is refused", not catalog._valid_back(good, "record", "test"))
+	var long_foot := good.duplicate(true)
+	long_foot.foot = "Two\nlines"
+	_check("a two-line foot is refused", not catalog._valid_back(long_foot, "speaker", "test"))
+	catalog.errors.resize(errors_before)
+	var panel := NewspaperPanel.new()
+	add_child(panel)
+	panel.open(null, catalog, "speaker", "1928-11-10")
+	await get_tree().process_frame
+	_check("no corner to turn without a back page", not panel._corner.visible)
+	panel.close()
+	await get_tree().process_frame
+	catalog.issues["1928-11-10"].speaker.back = good
+	panel = NewspaperPanel.new()
+	add_child(panel)
+	panel.open(null, catalog, "speaker", "1928-11-10")
+	await get_tree().process_frame
+	_check("a back page curls the sheet's corner", panel._corner.visible and panel.side == "front")
+	var corner: Vector2 = panel._corner.get_global_rect().get_center()
+	print("NEWSPAPER INPUT GEOMETRY ",JSON.stringify({"viewport":str(get_viewport().get_visible_rect()),"corner":str(panel._corner.get_global_rect()),"outside_click":str(Vector2(40,40))}))
+	_check("outside click and corner are distinct visible targets",not panel._corner.get_global_rect().has_point(Vector2(40,40)) and get_viewport().get_visible_rect().has_point(corner))
+	await _press(Vector2(40, 40))
+	_check("a click away from the corner takes nothing", not panel._gripped)
+	await _press(corner)
+	_check("a click takes the corner", panel._gripped)
+	await _drag(Vector2(-100, 0))
+	_check("a short drag stays on the front", panel.side == "front" and panel._gripped)
+	await _press(corner)
+	_check("the next click lets go short of halfway, on the front", not panel._gripped and panel.side == "front")
+	await _press(corner)
+	await _drag(Vector2(-220, 0))
+	_check("past halfway the back comes round", panel.side == "back")
+	await _press(corner)
+	await get_tree().process_frame
+	var texts := _texts(panel)
+	_check("the back prints its kinds, heads, bodies and foot", texts.has("PUN DERBY")
+			and texts.has("A NEWS HEADLINE") and texts.has("A classified body.")
+			and texts.has("One line at the foot."))
+	_check("the front has gone from the sheet", not texts.has("HOOVER WINS BY A HAIR, LOSES BY A WIRE"))
+	var shots:=OS.get_environment("SHOT_DIR")
+	if not shots.is_empty() and DisplayServer.get_name()!="headless":
+		DirAccess.make_dir_recursive_absolute(shots)
+		await RenderingServer.frame_post_draw
+		_check("turned back page capture saves",get_viewport().get_texture().get_image().save_png(shots.path_join("newspaper_turned_back.png"))==OK)
+	await _press(corner)
+	await _drag(Vector2(-320, 0))
+	await _press(corner)
+	await get_tree().process_frame
+	_check("the sheet turns back to the front", panel.side == "front"
+			and _texts(panel).has("HOOVER WINS BY A HAIR, LOSES BY A WIRE"))
+	panel.close()
+	catalog.issues["1928-11-10"].speaker.erase("back")
+	await get_tree().process_frame
+
+
+func _press(at: Vector2) -> void:
+	var event := InputEventMouseButton.new()
+	event.button_index = MOUSE_BUTTON_LEFT
+	event.position = at
+	event.global_position = at
+	event.pressed = true
+	Input.parse_input_event(event)
+	Input.flush_buffered_events()
+	await get_tree().process_frame
+	var up: InputEventMouseButton = event.duplicate()
+	up.pressed = false
+	Input.parse_input_event(up)
+	Input.flush_buffered_events()
+	await get_tree().process_frame
+
+
+func _drag(by: Vector2) -> void:
+	var event := InputEventMouseMotion.new()
+	event.relative = by
+	Input.parse_input_event(event)
+	Input.flush_buffered_events()
+	await get_tree().process_frame
 
 
 static func _texts(node: Node) -> Array:

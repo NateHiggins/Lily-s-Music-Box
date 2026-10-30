@@ -2,6 +2,57 @@
 
 Evidence class: **INERT**. Living observations, not acceptance.
 
+## October30 — reversible dates and monotonic deadlines are different coordinates (L1)
+
+Problem: the prologue adopts the user's month/day/time inside the authored
+annual calendar. Resetting elapsed minutes to the destination's second fraction
+put the existing bodega simulation cursor ahead of the clock. Its interval guard
+correctly refused the next update. A zero-exit full-route diagnostic still
+contained this production error; original logs remain in the
+[prologue ledger](V2_PROLOGUE_2026-10-28.md#monotonic-handoff-and-occupied-replay--october30).
+
+Repair **73f1ff4b** preserves elapsed time and reanchors civil presentation
+within the annual calendar, with less than one forward minute of fractional
+alignment. The completed occupied replay **22ceee7f** passes287 checks with
+empty stderr, including the existing shop update after handoff and validated
+reload. The corrected domain fixture passes118 checks; the later detached-clock
+extension passes121. No shop cursor, inventory, deadline guard or calendar owner
+is reset. Evidence and exact limits remain in that linked ledger.
+
+Reusable observation: represent civil/calendar coordinates separately from
+monotonic service/deadline coordinates. Verify both at annual/midnight seams,
+long preludes and disk reloads. A render-only date projection cannot publish
+news, advance residents or simulate the intervening year. Do not generalize the
+specific fractional alignment to arbitrary clocks: Orison's civil epoch is
+minute-granular and its elapsed state/save schema already owns these conversions.
+This is local production evidence, not a standalone time-travel API or proof
+of the still-incomplete prologue/save-boundary matrix.
+
+## October30 — cinematic presentation must exclude its own subtree (L1)
+
+Problem: the title passed state/timing assertions but the actual14-second frame
+still showed the bedroom. The cinematic had been exercised beside the world;
+installed beneath it, its world-tree traversal and late-node watcher included
+its own CanvasLayer, then hid its own veil/title.
+
+Repair **c4c7fe8e** excludes that subtree from both paths. The retained missing
+frame is a negative control; the delivered-title check measures mostly black
+pixels and central white lettering as well as the owner's state. The occupied
+full route at **b6a6226d** passes287 checks with empty stderr, and its14-second
+image was inspected. The later67-check temporal regression at **0183fbee** also
+preserves late audio restoration, foreign observer privacy, real blockers,
+reload, skip and reduced-flash behavior. See the
+[source-linked failure and replay history](V2_PROLOGUE_2026-10-28.md#current-source-regression-stop--october30).
+
+Reusable observation: qualify the actual production hierarchy and distinguish
+borrowed world presentation from presentation owned by the borrowing cinematic.
+Check dynamically added descendants as well as the initial scan, and inspect
+delivered pixels rather than a Label's visible property alone. Godot tree
+membership, CanvasLayer composition and observer callbacks make parenting part
+of runtime behavior. Orison's private creature/device layers and exact17-second
+cutaway remain game-specific; this is not a generalized cinematic framework or
+human acceptance of its atmosphere. The real-title whole route remains pending.
+
 ## October 28 — cooperative budgets require atomic-step attribution (L1)
 
 Problem: occupied passage reconstruction still stalls despite an8ms fitting

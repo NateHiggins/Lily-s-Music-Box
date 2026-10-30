@@ -134,6 +134,8 @@ func _fresh_data() -> Dictionary:
 	return {
 		"version": SAVE_VERSION,
 		"intro_complete": false,
+		# New V2 opening facts. Old intro_complete never fabricates its witnesses.
+		"prologue": {},
 		"current_case_id": "",
 		"cases": {},
 		"building_stability": 0.0,
