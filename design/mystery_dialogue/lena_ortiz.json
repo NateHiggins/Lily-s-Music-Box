@@ -1,0 +1,95 @@
+{
+ "meta": {
+  "resident_id": "lena_ortiz",
+  "speaker_default": "LENA ORTIZ",
+  "voice_prefix": "m_lo_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Judgment hidden in useful advice. Has the bag; has the dated button book. No grief-unlocked confession: the book is evidence on request. Another woman's death is never a key."
+ },
+ "entries": {
+  "lo_bag": "lo_b1",
+  "lo_book": "lo_k1"
+ },
+ "threads": [
+  {
+   "id": "lo_bag",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "That's a good bag, on your chair.",
+   "source": "B12. Custody, not guilt.",
+   "root": "lo_b1"
+  },
+  {
+   "id": "lo_book",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "You keep a book of buttons.",
+   "source": "B20, S12. On request, on any date after. It does not need Mrs. Wiggins.",
+   "root": "lo_k1"
+  }
+ ],
+ "nodes": {
+  "lo_b1": {
+   "silence_goto": "lo_b1s",
+   "line": "I was going to mend the strap.",
+   "choices": [
+    {
+     "label": "Whose is it?",
+     "goto": "lo_b2"
+    },
+    {
+     "label": "Where was it?",
+     "goto": "lo_b3"
+    }
+   ]
+  },
+  "lo_b1s": {
+   "line": "Sit, you're dripping. That coat has been let out by somebody who hated the coat. No. I'll do it when you bring it. Sit."
+  },
+  "lo_b2": {
+   "line": "You know whose. Everyone knows whose. I had it on Saturday morning off the chair on our landing, where nobody leaves a good bag, and I said to myself the clasp wants doing. So I wrote the ticket. And then I stopped."
+  },
+  "lo_b3": {
+   "flag": "m_bag_ticket",
+   "line": "\"Bag, clasp, off the chair, twentieth July.\" Purse is still in it. Nobody took a purse. So you can ask yourself what kind of a thief that is, and then you can ask me about your cuffs."
+  },
+  "lo_k1": {
+   "silence_goto": "lo_k1s",
+   "line": "Every button that comes through that door, with who, since before you'd believe. People think it's thrift. It's so that when somebody tells me they never had a thing, I can tell them what colour.",
+   "choices": [
+    {
+     "label": "Anything on the twentieth of July?",
+     "goto": "lo_k2"
+    },
+    {
+     "label": "Pearl?",
+     "goto": "lo_k3",
+     "requires": [
+      "m_glove_scrap"
+     ]
+    }
+   ]
+  },
+  "lo_k1s": {
+   "line": "You don't have to think of a question. I can always use someone to hold the other end of a sheet."
+  },
+  "lo_k2": {
+   "silence_goto": "lo_k3",
+   "line": "Six in the morning, before I'd got my shoes on. You'd be surprised who can't wait.",
+   "choices": [
+    {
+     "label": "Pearl?",
+     "goto": "lo_k3",
+     "requires": [
+      "m_glove_scrap"
+     ]
+    }
+   ]
+  },
+  "lo_k3": {
+   "flag": "m_button_book",
+   "line": "Six C. For a glove. I wrote it down that morning. One pearl, and she wanted it matched by noon, and I had one near enough. It's the book I use."
+  }
+ }
+}

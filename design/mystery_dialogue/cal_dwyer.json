@@ -1,0 +1,109 @@
+{
+ "meta": {
+  "resident_id": "cal_dwyer",
+  "speaker_default": "CAL DWYER",
+  "voice_prefix": "m_cd_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Controls, repeatability, a grudge against bad reception. Near the bulkhead before the boundary; the two tapes. His voice at 21:00:40 clears him of nothing and he is simply not where the evidence meets. Does not summarise. Tunes around the noun."
+ },
+ "entries": {
+  "cd_bad_joke": "cd_b1",
+  "cd_roof": "cd_r1",
+  "cd_playback": "cd_p1"
+ },
+ "threads": [
+  {
+   "id": "cd_bad_joke",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "What do you actually listen for?",
+   "source": "World. Bank line kept to a ritual; no speech system is promised.",
+   "root": "cd_b1"
+  },
+  {
+   "id": "cd_roof",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "You were at the bulkhead that night.",
+   "requires": [
+    "m_roof_users"
+   ],
+   "source": "B10, 4.1. His private marks and their limit.",
+   "root": "cd_r1"
+  },
+  {
+   "id": "cd_playback",
+   "from": "1929-08-24",
+   "until": "1929-11-09",
+   "topic": "Play me the twelfth.",
+   "requires": [
+    "m_drama_lead"
+   ],
+   "source": "S13, 4.6, B19. Shows the door and lets the player compare.",
+   "root": "cd_p1"
+  }
+ ],
+ "nodes": {
+  "cd_b1": {
+   "bank": "JF022-A01",
+   "silence_goto": "cd_b2",
+   "line": "Have you a good joke? No? Even better. The receiver prefers the bad ones; they travel farther. I'm serious. Clean signal dies at the river. A really poor pun you can pick up in Yonkers.",
+   "choices": [
+    {
+     "label": "Do you ever pick up the ones overhead?",
+     "goto": "cd_b2"
+    }
+   ]
+  },
+  "cd_b2": {
+   "line": "Everyone's had a go. Not a peep on any band I own. They aren't talking to you. I find that restful. It's more than I can say for WLBQ."
+  },
+  "cd_r1": {
+   "silence_goto": "cd_r2",
+   "line": "I was at the door with the long wire. Tapes start on the eight o'clock pips, you can set a watch by them, unlike some. I've got her at the parapet, I've got me saying \"There,\" twenty seconds to nine-oh-one. Then Mrs. Bell with a hammer. Then the hum drops out at nine-oh-one and I'm on a stair in the dark with a very expensive tape of nothing.",
+   "choices": [
+    {
+     "label": "Did you see anyone else up there?",
+     "goto": "cd_r2"
+    }
+   ]
+  },
+  "cd_r2": {
+   "flag": "m_someone_at_tank",
+   "line": "No. Something at the tank. I took it for the tank. You hear tanks tick, when they cool. That's what I'd say if you asked me on a good day. Don't ask me on a good day."
+  },
+  "cd_p1": {
+   "silence_goto": "cd_p2",
+   "line": "Sit. Don't talk. \"Inspector, the clock is four minutes fast.\" Wait. There. Door. Every time.",
+   "choices": [
+    {
+     "label": "That's the line Jonah wrote down.",
+     "goto": "cd_p2",
+     "requires": [
+      "m_jonah_page"
+     ]
+    },
+    {
+     "label": "And the nineteenth?",
+     "goto": "cd_p3"
+    }
+   ]
+  },
+  "cd_p2": {
+   "flag": "m_door_match",
+   "silence_goto": "cd_p3",
+   "line": "On the nineteenth? That went out on the twelfth. Play it again. Door.",
+   "choices": [
+    {
+     "label": "And the nineteenth?",
+     "goto": "cd_p3"
+    }
+   ]
+  },
+  "cd_p3": {
+   "flag": "m_drama_disc",
+   "line": "Static from four minutes to nine. You want to hear static, I've got an hour of it. WLBQ had a different episode listed anyway, I've got the card, and nobody else carried it. So I don't know what your friend heard on the sixth floor. I know what wasn't on the air."
+  }
+ }
+}

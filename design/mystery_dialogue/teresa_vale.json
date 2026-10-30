@@ -1,0 +1,99 @@
+{
+ "meta": {
+  "resident_id": "teresa_vale",
+  "speaker_default": "TERESA VALE",
+  "voice_prefix": "m_tv_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Practical instruction that puts someone to work. Never a joke at the body. She names a friend before a form can categorise her. She wrote the note about the nails on the ward habit, and it is about what the hand held, not about Adela's body or history."
+ },
+ "entries": {
+  "tv_yard": "tv_y1",
+  "tv_note": "tv_n1"
+ },
+ "threads": [
+  {
+   "id": "tv_yard",
+   "from": "1929-07-20",
+   "until": "1929-07-20",
+   "topic": "I heard you from the stairs.",
+   "hours": [
+    "03:02",
+    "03:40"
+   ],
+   "source": "B11, 4.2. No visit starts earlier. She is already kneeling. The player is in the body of a stranger, kneeling at their own.",
+   "root": "tv_y1"
+  },
+  {
+   "id": "tv_note",
+   "from": "1929-07-21",
+   "until": "1929-11-09",
+   "topic": "You wrote something down, that night.",
+   "requires": [
+    "m_patrol_sheet"
+   ],
+   "source": "B11, 4.5. Eighteen days before anyone looks for a glove.",
+   "root": "tv_n1"
+  }
+ ],
+ "nodes": {
+  "tv_y1": {
+   "silence_goto": "tv_y2",
+   "line": "Adela. Get a blanket.",
+   "choices": [
+    {
+     "label": "Get the blanket.",
+     "goto": "tv_y2"
+    },
+    {
+     "label": "Is she...?",
+     "goto": "tv_y3"
+    }
+   ]
+  },
+  "tv_y2": {
+   "flag": "m_teresa_named_her",
+   "line": "Not that. Off the line, that's wet. Inside. And tell Omar to stop looking at his breaker and come out here. Some six hours, in this. I'll tell him myself."
+  },
+  "tv_y3": {
+   "line": "Some six hours. I've told you what to get."
+  },
+  "tv_n1": {
+   "silence_goto": "tv_n1s",
+   "line": "Everything goes in the book. You chart it or it didn't happen, and then it happens to the next person. Why are you asking? You weren't on shift.",
+   "choices": [
+    {
+     "label": "The sheet says \"nails torn.\" Is that all?",
+     "goto": "tv_n2"
+    },
+    {
+     "label": "Were you close?",
+     "goto": "tv_n3"
+    }
+   ]
+  },
+  "tv_n1s": {
+   "line": "If you've got something, say it. I'm on at seven and there's a man on my ward who's been dying since Tuesday with great consideration."
+  },
+  "tv_n2": {
+   "flag": "m_white_kid",
+   "silence_goto": "tv_n2s",
+   "line": "That's what he copied. Right hand. Three-ten by my watch. \"White kid under the nails, shreds. Not hers.\" Her gloves were in her bag and they were cotton, for the plates. I wrote what she was holding, because nobody else was going to ask her. Now you've asked.",
+   "choices": [
+    {
+     "label": "Has anyone else seen that?",
+     "goto": "tv_n4"
+    }
+   ]
+  },
+  "tv_n2s": {
+   "line": "Keep it dry if you take a copy. I need that book."
+  },
+  "tv_n3": {
+   "line": "She let me sit in the shop with my shoes off on my one Sunday and she didn't ask how I was. That's as close as it gets, with me. What else?"
+  },
+  "tv_n4": {
+   "line": "He had the page in his hand. He wanted a time and an address. Nobody reads a nurse's chart until somebody's dead, and then it turns out they don't read it then."
+  }
+ }
+}

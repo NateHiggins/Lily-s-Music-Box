@@ -1,0 +1,83 @@
+{
+ "meta": {
+  "resident_id": "noel_price",
+  "speaker_default": "NOEL PRICE",
+  "voice_prefix": "m_np_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "A handling instruction more alarming than the object warrants. Named by a simile in Jonah's page; his gloves have no buttons. Comic engine: conservation ethics applied to what nobody wants."
+ },
+ "entries": {
+  "np_keepsake": "np_k1",
+  "np_gloves": "np_g1"
+ },
+ "threads": [
+  {
+   "id": "np_keepsake",
+   "from": "1928-11-10",
+   "until": "1929-11-09",
+   "topic": "What's that little photograph?",
+   "source": "Bank lines; a quiet beat, and the one joke he tells against himself.",
+   "root": "np_k1"
+  },
+  {
+   "id": "np_gloves",
+   "from": "1929-08-07",
+   "until": "1929-11-09",
+   "topic": "Is this kid?",
+   "requires": [
+    "m_glove_scrap"
+   ],
+   "source": "S09, B17. A scrap on a blotter. Cleared only for what it clears.",
+   "root": "np_g1"
+  }
+ ],
+ "nodes": {
+  "np_k1": {
+   "bank": "JF018-A01",
+   "silence_goto": "np_k2",
+   "line": "They tell me it is of no practical value. That is the finest thing anyone has said about it. Please don't breathe on it. I don't mean it unkindly.",
+   "choices": [
+    {
+     "label": "You don't let people in much.",
+     "goto": "np_k2"
+    }
+   ]
+  },
+  "np_k2": {
+   "bank": "JF006-A02",
+   "line": "I wrote six months of condition reports on that door. Hinges, draught, hours of use. The woman across the landing asked whether I had considered knocking on it. It has been written up."
+  },
+  "np_g1": {
+   "silence_goto": "np_g2",
+   "line": "Not on the blotter. Who let you bring that in wet?",
+   "choices": [
+    {
+     "label": "Put the cloth down first.",
+     "goto": "np_g2"
+    },
+    {
+     "label": "Jonah says you've got white hands.",
+     "goto": "np_g3",
+     "requires": [
+      "m_jonah_page"
+     ]
+    }
+   ]
+  },
+  "np_g2": {
+   "flag": "m_glove_read",
+   "silence_goto": "np_g3",
+   "line": "Thank you. Kid. Glacé, French, a good cheap copy of a good dear glove. Pearl on a shank, sewn after, by a different hand. It has been pulled, you see, from there, in the direction the seam can't go. Those have buttons. Mine don't.",
+   "choices": [
+    {
+     "label": "You sound relieved.",
+     "goto": "np_g3"
+    }
+   ]
+  },
+  "np_g3": {
+   "line": "They're still wet. I wear cotton, you'll note, with a tape closure, because a button marks. My brother has written a great many things about my hands. They are all very well observed and he has never once looked."
+  }
+ }
+}
