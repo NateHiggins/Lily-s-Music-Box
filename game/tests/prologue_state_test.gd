@@ -114,6 +114,8 @@ func _ready() -> void:
 	RealityState.persistence_enabled=old_persistence
 	for suffix in ["",".bak",".txn",".tmp"]:
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(path+suffix))
+	# Let the real owners retire their queued presentation nodes before exit.
+	await get_tree().process_frame
 	print("PROLOGUE STATE TEST: ",checks," checks; ",failures.size()," failures; domain/save only, not playable acceptance")
 	get_tree().quit(0 if failures.is_empty() else 1)
 
@@ -151,6 +153,8 @@ func _test_clock_handoff(opening:Dictionary) -> void:
 	check(clock.apply_prologue_destination() and clock.absolute_minutes()==progressed,"retry cannot rewind time after play resumes")
 	var director:Node=preload("res://scripts/game/prologue_director.gd").new();add_child(director)
 	RealityState.data.prologue=opening.duplicate(true)
+	director.writing=preload("res://scripts/game/signal_surface_writing.gd").new()
+	director.add_child(director.writing)
 	director.state=State.restore(opening);director._document=RealityState.data
 	check(director.finish_temporal_synchronization() and director.state.phase=="title_reveal" and "temporal_transition_complete" in director.state.events,"ordinary completed transition records only its real clock acknowledgement")
 	var accepted_clock:Dictionary=RealityState.data.campaign_clock.duplicate(true)
@@ -162,6 +166,8 @@ func _test_clock_handoff(opening:Dictionary) -> void:
 	var skip:Dictionary=opening.duplicate(true);skip.skipped=true;skip.events=[]
 	RealityState.data.prologue=skip
 	director=preload("res://scripts/game/prologue_director.gd").new();add_child(director)
+	director.writing=preload("res://scripts/game/signal_surface_writing.gd").new()
+	director.add_child(director.writing)
 	director.state=State.restore(skip);director._document=RealityState.data
 	check(director.finish_temporal_synchronization() and director.state.effects.clock_applied and director.state.events.is_empty(),"skip performs the real clock handoff without inventing witnessed transition events")
 	check(director.finish_historical_cutaway(true) and director.state.phase=="prologue_complete" and director.state.events.is_empty(),"skipped cutaway completes without invented title or creature observations")
