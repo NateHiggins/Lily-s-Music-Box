@@ -20,8 +20,7 @@ These sources stay untouched: v1–v6, `CANON_PATCH.json`, and the packet folder
 **Discipline.**
 
 - All new dialogue is **PROPOSED**.
-- Trans-reader review gates Adela's lines, the Nadia scene, both endings and the
-  morning after.
+- Lily reads everything by playtesting the first draft (owner ruling below).
 - No new mechanical, inventory, relationship, quest, calendar, reading or save
   authority is claimed.
 - The prologue's five fixed lines and its exact 17-second Tardi ending are
@@ -42,7 +41,7 @@ The owner's answers to this treatment's open items:
      edits, both in §I, and was verified in memory (section 11).
 2. **S01** goes after the prologue, as placed. The prologue is unchanged.
 3. **"HE IS QUALIFIED" is revised.** The replacement and two alternates are in
-   section 9. All are flagged for trans-reader review.
+   section 9.
 4. **The ground beneath the body is no longer evidence.** The v3–v6 note and
    its timing claim are removed from the treatment.
 5. **The larger conspiracy:** options drafted for the owner, none canon
@@ -50,12 +49,14 @@ The owner's answers to this treatment's open items:
 
 **Owner choices, 2026-10-30.**
 
-- **The final line** is "HE WOULD LIKE TO. THAT WILL DO." It is still flagged
-  for trans-reader review. Alternates B and C are moved to a "considered" note
+- **The final line** is "HE WOULD LIKE TO. THAT WILL DO." Alternates B and C are moved to a "considered" note
   (section 9).
 - **The larger conspiracy:** develop Option A, "the interpreter", as a design
   sketch (section 10.1). It is **not canon**. B and C are kept briefly as not
   chosen.
+
+**Owner ruling, 2026-10-30 (reading the draft).** The trans-reader gate is removed.
+Lily is trans and will read every line herself by playtesting the first draft.
 
 **Owner rulings, 2026-10-30 (the fire escape and the conclusive beat).**
 
@@ -78,7 +79,7 @@ were not reopened. All new lines and facts are **PROPOSED**.
 | # | Finding | Disposition | Where |
 |---|---|---|---|
 | 1 | The convergence proves concealment better than the push; test against "stole the evidence after an accidental fall" | **Fixed (owner ruling 2026-10-30).** White kid under Adela's nails puts the wearer at the fall, and three independent carriers meet it. The sealed letter then eliminates the accident story: Mae's report of the fall was in Cam's bag at 18:40, 2 hours 23 minutes before it. Vantry's vantage, timing and identification tightened. Mae's route made hidden and fitted to the blockout | §4.5, §4.7; B08, B15, B25 |
-| 2 | Option A can read as a woman's suffering becoming material for a man's awakening | **Fixed in the text; the cumulative test needs the trans-reader.** "Essential" is now a limit of the Tenant's machinery. She was whole alive. Her release is her act. His continuation is a consequence | §10.1 A.1, A.2, A.4; §12 |
+| 2 | Option A can read as a woman's suffering becoming material for a man's awakening | **Fixed in the text; the cumulative test is the owner's, in the playtest.** "Essential" is now a limit of the Tenant's machinery. She was whole alive. Her release is her act. His continuation is a consequence | §10.1 A.1, A.2, A.4; §12 |
 | 3 | Date handoffs rest on hunches (boiler report, "Sacha keeps duplicates", "Tuesday") | **Fixed.** All 25 beats audited. Each has a carrier naming its date, readable outside route order | §3.1; B23 |
 | 4 | Killing the photographer cannot erase the lease | **Fixed for the story; law stays pending.** Her calculation is separated from the deed's actual effect | §3, "What Mae thinks she can stop" |
 | 5 | M4 dated before the card it reports | **Fixed.** The act is on 19 Oct, the copy on 20 Oct; the duplicate's discovery stays on the 18th | §8; B22 |
@@ -554,8 +555,7 @@ records shreds of white kid leather under the nails of Adela's right hand.**
 - **What it does not establish.** Whose hand moved first. "She snatched at Mae,
   who was trying to catch her" is still possible on this evidence alone.
 
-**The conclusive beat: the sealed letter** (**PROPOSED**, on existing carriers;
-the wording goes to trans-reader review). Mae reported the fall before it happened.
+**The conclusive beat: the sealed letter** (**PROPOSED**, on existing carriers). Mae reported the fall before it happened.
 
 > Sat. 20 July. Mr. Ewald: The person who kept the counter at the Arcade fell from
 > the roof of this house in last night's storm and is dead. You and Miss Quell
@@ -898,8 +898,7 @@ texts are in section 7.1.
 | N9 | 1929-07-06 · Speaker · col 3 | Miss Wills keeps the title; our smile inquiry gets no return | A bad pun she is delighted with: WILLS POWER. Evelyn adds, in red: "See me." |
 | N10 | 1929-08-19 · Speaker · col 3 | Twenty lady fliers leave for Cleveland; our desk attends to powder | (Nadia's later hand) PLEASE SEND AN AVIATION EDITOR. It comes down for the Crosson card [S12] |
 
-All window cards are **PROPOSED** and *for trans-reader review before shipping*
-where they are Adela's.
+All window cards are **PROPOSED**.
 
 **Record items: no jokes.** N2, N4, N5, N11, N12, N13, N14 and N15 keep their
 latest texts:
@@ -1061,8 +1060,7 @@ needing the companion owner's confirmation).
 
 ## 9. Scenes kept, adapted or added [WR handoff 3; S01–S16]
 
-All lines are **PROPOSED**. Every line Adela speaks, the Nadia scene, both
-endings and the morning after are **for trans-reader review before shipping**.
+All lines are **PROPOSED**.
 
 **S01, the answer to "Who were you?" — adapted; placement owner-ruled.**
 
@@ -1092,7 +1090,7 @@ visit. The ordinary debt is the stool's short leg, "Solvent." It gives the late
 recognition an ordinary shared object, not a password.
 
 It also shows one of her losing jokes [outside review 12]. Her pleasure matters
-more than its quality. *For trans-reader review before shipping.*
+more than its quality.
 
 > ADELA: What did the plate say to the darkroom? "I'm nothing without you, but leave the door shut."
 > NADIA: That isn't a pun.
@@ -1100,8 +1098,7 @@ more than its quality. *For trans-reader review before shipping.*
 
 It does not place. She pins the rejection up beside the others.
 
-**S04, added: the Texas item names what it is** [outside review 12]. *Adela's
-line is for trans-reader review before shipping.*
+**S04, added: the Texas item names what it is** [outside review 12].
 
 > MAE, reading: "Texas has expressed its concern."
 > NADIA: Its concern is the color of Mrs. De Priest's skin. They wrote it into a resolution.
@@ -1192,7 +1189,7 @@ both.
   clause, "HE IS QUALIFIED", is replaced. The new line keeps the
   correction-card form and the joke's late turn. Nothing in it makes his life
   conditional on being useful: what completes the sentence is that he wants
-  something. *For trans-reader review before shipping.*
+  something.
 
   > I WOULD LIKE TO — CROSS OUT "INSTRUMENT." WRITE "NIGHT MAN, 4B." HE WOULD LIKE TO. THAT WILL DO. — A.V.
 
@@ -1208,8 +1205,7 @@ both.
   - "… HE SAYS GOOD MORNING. THE GUESTS AGREE."
   - "… WRITE "HE." SPELL IT RIGHT."
 
-  Both stay on record for the trans-reader review in case it argues against the
-  chosen line.
+  Both stay on record in case the playtest argues against the chosen line.
 
 - **Leave it:** the pencil goes down beside the paper. There is no failure sound
   and nobody calls the player cruel.
@@ -1398,8 +1394,7 @@ The paper's last lines are the same in both: M6, "INSTRUMENT, ACKNOWLEDGE."
 then the construct's own "I WOULD LIKE TO". They differ only after that.
 
 - **Finished:** "I WOULD LIKE TO — CROSS OUT "INSTRUMENT." WRITE "NIGHT MAN,
-  4B." HE WOULD LIKE TO. THAT WILL DO. — A.V." *For trans-reader review before
-  shipping.*
+  4B." HE WOULD LIKE TO. THAT WILL DO. — A.V."
   - The lexicon ends with a correction of the Tenant's own category, written in
     the hand of the life it learned from.
   - The night man lives his own life, and the Tenant is satisfied (canon:
@@ -1538,27 +1533,26 @@ edits in §I, verified in memory by `verify_canon_patch_2.py`.
 
 ## 12. Gates, holds and questions for the owner
 
-**Review gates before anything ships.**
+**What the owner's playtest will read for** (owner ruling, 2026-10-30; these are
+notes for her, not gates).
 
-- **Trans-reader review:** all of Adela's lines, S01, S15 (Nadia), S16 and both
-  endings, the morning after, and her section-1 background (Yorkville, the
-  *Pleasure Man* crowd, Rockland Palace, the Berlin letter).
-- **Trans-reader review, the cumulative concern** [outside review 2]: read the
-  whole of Option A and the ending together, and ask whether **a woman's
-  suffering becomes useful material for a man's awakening**. That includes her
-  death being "essential", the Tenant harvesting her releases as a vocabulary, and
-  the male-addressed construct gaining a future from them. The treatment now
-  frames all of this as the Tenant's limitation, her release as her own act, and
-  his continuation as a consequence, but the reviewer should test the sum, not
-  only the lines.
-- **Read aloud:** the Adela and Nadia scene and the final request. Mark lines
-  that feel too polished or insufficiently her [handoff].
-- **Pronouns:** the construct pronoun question stays with that review.
-  Residents' "the night man" never misidentifies the player.
-- **Period property law:** the WR-03 reversion clause and the August receipt
-  stay PROPOSED until reviewed.
-- **Trans-reader review, the sealed letter:** Mae's "the person" is her bigotry,
-  named and wrong, in a document the player will read more than once.
+- All of Adela's lines, S01, S15 (Nadia), S16 and both endings, the morning after,
+  and her section-1 background.
+- **The cumulative concern** [outside review 2]: Option A and the ending together,
+  and whether **a woman's suffering becomes useful material for a man's
+  awakening**. The treatment frames all of this as the Tenant's limitation, her
+  release as her own act, and his continuation as a consequence. Test the sum.
+- **The Adela and Nadia scene and the final request:** lines that feel too polished
+  or insufficiently her [handoff].
+- **Pronouns:** the construct pronoun question is hers. Residents' "the night man"
+  never misidentifies the player.
+- **The sealed letter:** Mae's "the person" is her bigotry, named and wrong, in a
+  document the player will read more than once.
+
+**Factual check before anything ships.**
+
+- **Period property law:** the WR-03 reversion clause and the August receipt stay
+  PROPOSED until reviewed.
 
 **Integration holds, with no runtime work authorised here.**
 
@@ -1580,7 +1574,7 @@ edits in §I, verified in memory by `verify_canon_patch_2.py`.
    the history-bound decision (section 10.1, A.5).
 3. **S01 placement:** ruled. After the prologue.
 4. **The finished line:** chosen (2026-10-30): "HE WOULD LIKE TO. THAT WILL
-   DO." It stays under trans-reader review.
+   DO."
 
 ---
 

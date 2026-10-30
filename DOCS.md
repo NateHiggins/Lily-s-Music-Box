@@ -34,7 +34,7 @@ Knowing which kind you are reading tells you how much to trust it.
 ## Where to look forâ€¦
 
 | If you want to knowâ€¦ | Read |
-| The Year You Died murder treatment: Adela Voss, the night man, the evidence chain, both endings and the conspiracy option A (INERT; trans-reader review gates her lines) | `design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md` |
+| The Year You Died murder treatment: Adela Voss, the night man, the evidence chain, both endings and the conspiracy option A (INERT; Lily reads her lines by playtest) | `design/THE_YEAR_YOU_DIED_TREATMENT_2026-10-30.md` |
 | Storefront refit plan: six reference cards into a shop_frontage kit, slices and owner decisions (INERT) | `design/V2_STOREFRONT_REFIT_PLAN_2026-10-29.md` |
 | Creature acceptance, installed Tardi visibility and acoustic-branch integration to main (INERT) | `design/CREATURE_MAIN_INTEGRATION_2026-10-26.md` |
 | New V2 prologue: An Unfortunate Development; production target, ownership and unfinished implementation | `design/V2_PROLOGUE_2026-10-28.md` |

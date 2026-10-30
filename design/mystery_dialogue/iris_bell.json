@@ -1,0 +1,68 @@
+{
+ "meta": {
+  "resident_id": "iris_bell",
+  "speaker_default": "IRIS BELL",
+  "voice_prefix": "m_ib_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Color before cause; a small fight over composition. Paint on the coping, the dated sketch. Rejects an honest mess because it looks too deliberately honest."
+ },
+ "entries": {
+  "ib_sketch": "ib_s1",
+  "ib_audience": "ib_a1"
+ },
+ "threads": [
+  {
+   "id": "ib_sketch",
+   "from": "1929-07-20",
+   "until": "1929-11-09",
+   "topic": "You drew the roof the next day.",
+   "source": "B13, S09. One o'clock, with the chalk and the hat.",
+   "root": "ib_s1"
+  },
+  {
+   "id": "ib_audience",
+   "from": "1928-11-10",
+   "until": "1929-07-19",
+   "topic": "She's got your canvas in her window.",
+   "source": "Character. A small fight while she is alive.",
+   "root": "ib_a1"
+  }
+ ],
+ "nodes": {
+  "ib_s1": {
+   "silence_goto": "ib_s2",
+   "line": "That's cadmium, that's mine, I can't afford it now. What are those? Somebody ticks like a bookkeeper. Look at the spacing. Whoever put that camera there meant to find its feet again.",
+   "choices": [
+    {
+     "label": "Who moved the camera?",
+     "goto": "ib_s2"
+    },
+    {
+     "label": "Could I see the sketch?",
+     "goto": "ib_s3"
+    }
+   ]
+  },
+  "ib_s2": {
+   "line": "I don't do who. I do what colour. The tripod's where she'd put it, and the plate's gone, and it's the only part of that roof that's been tidied. I'd never have composed it that way, it looks arranged."
+  },
+  "ib_s3": {
+   "flag": "m_iris_sketch",
+   "line": "\"July 20, one o'clock.\" Yes, I dated it, I date everything, it's so they'll know I was there. It's bad. The hat's too good. Nobody would believe that hat. It was there."
+  },
+  "ib_a1": {
+   "silence_goto": "ib_a2",
+   "line": "A fortnight, with a card. \"NOBODY ASKED THE PAINTER.\" I've been waiting ten years for someone to write that about me. I'm furious. Do you think people stopped?",
+   "choices": [
+    {
+     "label": "A few.",
+     "goto": "ib_a2"
+    }
+   ]
+  },
+  "ib_a2": {
+   "line": "A few. How few? Don't tell me. Tell her she's hung it in the wrong light, and that I've been past three times to check."
+  }
+ }
+}
