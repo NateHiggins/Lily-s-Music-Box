@@ -41,7 +41,6 @@
    "surface": "witnessed",
    "witness": "the 4B employment form is the current inspected object",
    "bank": "JF013-A01",
-   "review": true,
    "note": "Reworked. Aimed at the form's taxonomy and never at identity.",
    "text": "Occupation, one only. This tenancy has been tenant, messenger and repairman since Monday. I have entered Other. Other has written back requesting a reference. I gave the radiator."
   },
@@ -54,7 +53,6 @@
     "the form is wrong"
    ],
    "bank": "JF013-A02",
-   "review": true,
    "note": "Reworked.",
    "text": "CATEGORY: MISCELLANEOUS.\nCATEGORY FULL. SEE MISCELLANEOUS."
   },
@@ -77,7 +75,6 @@
     "i am adela voss",
     "i was adela voss"
    ],
-   "review": true,
    "text": "SUBJECT: ADELA VOSS. TRADE: PHOTOGRAPHER.",
    "then": "m_who_enough",
    "note": "S01, owner-ruled to the first keyboard offer after the prologue."
@@ -89,7 +86,6 @@
    "phrases": [
     "is that enough"
    ],
-   "review": true,
    "text": "It is enough to address you correctly."
   },
   {
@@ -100,7 +96,6 @@
     "what else do you know about me",
     "what do you know about me"
    ],
-   "review": true,
    "text": "Your name and your trade. The form has no further questions. I expect that is the form's fault."
   },
   {
@@ -173,7 +168,6 @@
     "lamp lower"
    ],
    "witness": "the lamp is on and an object is in view",
-   "review": true,
    "text": "Lowered. I was told I was to light the valve and I have lit the valve. You appear to want it lit as though it had a past."
   },
   {
@@ -185,7 +179,6 @@
     "lamp higher"
    ],
    "witness": "the lamp is on and an object is in view",
-   "review": true,
    "text": "Higher. This is the third adjustment. I have now illuminated this radiator more respectfully than the landlord has since 1924."
   },
   {
@@ -197,7 +190,6 @@
     "try it from the side"
    ],
    "witness": "the lamp is on and an object is in view",
-   "review": true,
    "text": "From the side. Oh. It has a seam I did not report. I withdraw my previous description, which was accurate."
   },
   {
@@ -205,7 +197,6 @@
    "movement": "IV_line",
    "surface": "witnessed",
    "witness": "the player has stood at Photo Supplies with the lamp on after m_lamp_3, and is not in a memorial or Emil's scene",
-   "review": true,
    "text": "I have moved the lamp to the side. You did not ask. It is how you would have wanted it, and I am not certain when I began knowing that."
   },
   {
@@ -280,7 +271,6 @@
     "i had sitters like that",
     "aldermen"
    ],
-   "review": true,
    "text": "I am told they do not hold still either. You may keep your plates. I shall keep the observation that nothing up there has asked for you to move your hat."
   },
   {
@@ -288,7 +278,6 @@
    "movement": "II_lamp",
    "surface": "witnessed",
    "witness": "the 1929-06 Record item naming Mr. Harlan Voss is the active read issue",
-   "review": true,
    "text": "Counsel for Queens Light & Power is a Mr. Harlan Voss. You have stopped reading. I shall wait for you to tell me whether that is relevant, or merely a pity."
   },
   {
@@ -311,7 +300,6 @@
     "lose the proprietor",
     "start with the floor"
    ],
-   "review": true,
    "text": "Who is paying for the floor? A maintenance set is present. This is shorter. I have been told a thing improves when it is shorter, by a person with twenty-four rejections, and I ask the file to keep that in mind."
   },
   {
@@ -323,7 +311,6 @@
     "that is not a joke",
     "that isn t a pun"
    ],
-   "review": true,
    "text": "It has got a floor in it."
   },
   {
@@ -339,7 +326,6 @@
    "requires": [
     "m_met_adela"
    ],
-   "review": true,
    "text": "The Speaker has printed the winner. It concerns a mule. You did not win. You are welcome to dispute the mule."
   },
   {
@@ -351,7 +337,6 @@
     "enter me in the derby",
     "enter the derby"
    ],
-   "review": true,
    "text": "I have no route to the Speaker, and you have no postage, on several grounds. I will hold the entry. It is the first thing I have held for someone that was not a lamp."
   },
   {
@@ -359,7 +344,6 @@
    "movement": "III_notice",
    "surface": "witnessed",
    "witness": "N16 is the active read issue for the first time",
-   "review": true,
    "delay": "only if she types, or after she has closed the paper",
    "text": "The Record has given an account. You have read it twice. I have nothing to add unless you want it compared."
   },
@@ -377,7 +361,6 @@
    "requires": [
     "m_c_n16"
    ],
-   "review": true,
    "text": "Noted. I have opened a file: objections from the deceased. There is no such department. It is, at the moment, the only one that is keeping up."
   },
   {
@@ -393,7 +376,6 @@
    "requires": [
     "m_c_n16"
    ],
-   "review": true,
    "text": "Filed. That is the fourth. The first three remain under review by nobody, in the strictest confidence."
   },
   {
@@ -407,7 +389,6 @@
    "requires": [
     "m_defended_seven"
    ],
-   "review": true,
    "text": "I have seen the register. The seven is open at the top. Mrs. Marsh has an outstanding note. I can file your objection beside it, where they may continue the discussion without either of you."
   },
   {
@@ -419,7 +400,6 @@
     "they don t know it s me",
     "they don t know who i am"
    ],
-   "review": true,
    "text": "No. You have been very well reviewed for a person who is not in the room. I would not correct them. I have tried it. People do not take a correction well from the wall."
   },
   {
@@ -433,7 +413,6 @@
    "requires": [
     "m_rhea_claim"
    ],
-   "review": true,
    "text": "I did not witness the picture. I witnessed you ask her what she had asked for. I am reporting the second, and leaving the first with its owner."
   },
   {
@@ -462,7 +441,6 @@
     "m_rescue_seen"
    ],
    "exhaust": 1,
-   "review": true,
    "text": "You did."
   },
   {
@@ -477,7 +455,6 @@
     "m_rescue_seen"
    ],
    "exhaust": 1,
-   "review": true,
    "text": "I have your attempt and what we found afterwards. I cannot account for the hours between them."
   },
   {
@@ -552,7 +529,6 @@
    "requires": [
     "m_c_n16"
    ],
-   "review": true,
    "text": "You have a notice saying so. I have a warranty saying otherwise. We are a poor pair to consult. I would still rather consult you."
   },
   {
@@ -564,7 +540,6 @@
     "whose hands are these",
     "who is he"
    ],
-   "review": true,
    "text": "The book says the night man, 4B. You say you. I have only ever been addressed by you. I have noticed he has started signing his own E's."
   },
   {
@@ -582,7 +557,6 @@
    ],
    "exhaust": 1,
    "not_after": "1929-11-09T22:00",
-   "review": true,
    "text": "A maintenance set is carried into a bar by a woman who is not there. She orders it to hold the lamp lower. The proprietor asks who is paying for the floor. It says: put it under the short leg. I do not know what that means. I saw it on a stool. I am told it is not a pun."
   },
   {
@@ -591,7 +565,6 @@
    "surface": "witnessed",
    "witness": "M6 has printed",
    "note": "S16, verbatim. No quip follows. Nothing else in this file may print after it.",
-   "review": true,
    "text": "I have no service interval for this. I shall keep the line open."
   }
  ],

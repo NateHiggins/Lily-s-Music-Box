@@ -123,7 +123,7 @@ The bank has 45 proposed lines across 28 ideas. **32 are placed**, each once, wi
 its id on the node. The owner answered the review questionnaire on 2026-10-30: seven
 held lines used as written, five reworked, four withheld lines put back on the table,
 and public is fine. The four are placed as proposals with the bank's cautions on the
-thread, and **JF012-A01** also goes to the trans-reader and a queer-history read.
+thread, and **JF012-A01** also needs a history check.
 
 | Disposition | Lines |
 |---|---|
@@ -133,7 +133,7 @@ thread, and **JF012-A01** also goes to the trans-reader and a queer-history read
 | Owner: back on the table (4) | **JF011-A01**, **JF012-A01**, **JF024-A01** in trees; **JF011-A02** as object copy |
 | Placed on the companion (3) | **JF002-A02**, **JF015-A02**, **JF018-A02** |
 | Next pass, needs its surface (4) | **JF001-A02** (a Derby entry), **JF003-A02**, **JF004-A02**, **JF017-A02** (back pages) |
-| Next pass, fits a resident (2) | **JF017-A01** (Juno), **JF014-A01** (a note in Adela's contact sheet; trans-reader) |
+| Next pass, fits a resident (2) | **JF017-A01** (Juno), **JF014-A01** (a note in Adela's contact sheet) |
 | Spare alternates and duplicates (5) | **JF020-A01**, **JF023-A01**, **JF025-A01**, **JF026-A01**, **JF028-A01** |
 | Not used: a pitch note, barred by the bank (1) | **JF027-A01** |
 | Not used: breaks a ruling (1) | **JF010-A02**. It wants to be a received copy, and there are exactly six |
@@ -152,7 +152,7 @@ passed may be here, unattributed.
 - Every required flag has a grant. Carriers must each be used.
 - Nothing may call the player "sir", "mister", "young man" or "maintenance man".
   The residents' ruled job title is "the night man". The construct pronoun question
-  stays with the trans-reader. No joke here is about her body or the body she rides.
+  stays with the owner. No joke here is about her body or the body she rides.
 - No resident says "the Tenant", "instrument" or "Signal Pro". The companion cannot
   name what it serves.
 - A thread entirely before her death can't speak from after it.
@@ -194,15 +194,14 @@ door, and these threads are the same idea with depth.
 
 ## 9. Gates and open calls
 
-**Before anything ships.** Trans-reader review covers every thread marked `review`,
-which is all of Adela's lines, the Nadia scene, her neighbours talking about her
-after the death, and the companion lines marked `review`. The treatment's own gates
-stand: the read-aloud, the period-law check, and the Mina hold.
+**Owner ruling, 2026-10-30.** There is no separate trans-reader gate. Lily is
+trans and will read everything herself by playtesting the first draft. Her read
+decides what stays. The factual checks stand: period property law, the history
+check on **JF012-A01**, and the Mina hold.
 
 **For Lily.**
 
 1. Read the thread placements in `READ_ALOUD.md`.
-2. Do the five reworks and the four placements land? They are the only lines here
-   she has not read in this form.
+2. Do the five reworks and the four placements land? The playtest will show.
 
 **Ruled 2026-10-30.** The core idea stands. The last bar joke stays.
