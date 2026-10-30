@@ -15,10 +15,10 @@ note and the treatment disagree, the treatment wins.
 
 | Piece | Where |
 |---|---|
-| Trees for 23 speakers: 66 threads, 210 nodes | `design/mystery_dialogue/<speaker>.json` |
-| Companion addendum: 47 lines, 5 branches, 4 movements | `design/mystery_dialogue/companion_mystery.json` |
-| The 17 things the world must hand the player | `design/mystery_dialogue/carriers.json` |
-| Printed copy with no speaker | `design/mystery_dialogue/object_copy.json` |
+| Trees for 23 speakers: 66 threads, 210 nodes | `game/data/mystery/<speaker>.json` |
+| Companion addendum: 47 lines, 5 branches, 4 movements | `game/data/mystery/companion_mystery.json` |
+| The 17 things the world must hand the player | `game/data/mystery/carriers.json` |
+| Printed copy with no speaker | `game/data/mystery/object_copy.json` |
 | A readable version of every tree | `design/mystery_dialogue/READ_ALOUD.md` |
 | The checker, and what it refuses | `tools/check_mystery_dialogue.py` |
 
@@ -205,3 +205,23 @@ check on **JF012-A01**, and the Mina hold.
 2. Do the five reworks and the four placements land? The playtest will show.
 
 **Ruled 2026-10-30.** The core idea stands. The last bar joke stays.
+
+## First-draft wiring
+
+The trees are game data, read by `ResidentConversations` and
+`companion_conversation.gd`. Every line is still a draft for the owner's playtest.
+
+- **At a door.** A resident's open threads appear as topics on their door tree,
+  gated by date, hour, flags and hold, and each is heard once. Flags are knowledge
+  only: they move no trust and reach no case.
+- **On the set.** Typed lines answer their phrases under their own gates. Reading
+  the Record of 21 July 1929 grants **m_c_n16** and prints **m_notice_1**.
+- **Everything else, by the playtest panel.** Set `ORISON_MYSTERY_PLAYTEST=1` and
+  press F9 in the V2 building. It sets the date and hour the threads read as, holds
+  or drops any flag, talks to anyone on the real panel and prints any companion
+  line on the real set. It writes no save and moves no clock.
+
+Not built, so reachable only through the panel: the 17 carriers except N16, a way
+to visit dates, doors for Adela, Emil, Mr. Ewald, Vantry and the patrolman, the
+witnessed companion producers, and the silence rule on witnessed lines. Door hours
+come from the resident schedules, so a thread's hours can fall when nobody answers.

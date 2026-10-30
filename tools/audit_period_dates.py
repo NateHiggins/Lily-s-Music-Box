@@ -25,6 +25,7 @@ EXPECTED_CONSUMERS = {
     "game/scripts/building/WeatherManager.gd": "campaign_season_and_weather_presentation",
     "game/scripts/building/deterministic_lightning_manager.gd": "campaign_minute_keyed_electrical_presentation",
     # Authored Gregorian calendar; host hour/minute may be sampled once.
+    "game/scripts/device/companion_conversation.gd": "authored_campaign_calendar",
     "game/scripts/game/campaign_clock.gd": "authored_campaign_calendar",
     # Owner October29 annual-present amendment: pure validated month/day/time
     # projection into1928/1929; the systemic audit still rejects other host reads.

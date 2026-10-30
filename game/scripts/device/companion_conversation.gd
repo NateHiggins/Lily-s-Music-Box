@@ -5,6 +5,10 @@ const Intent = preload("res://scripts/device/companion_intent.gd")
 const CalendarContext = preload("res://scripts/device/companion_calendar_context.gd")
 const Memory = preload("res://scripts/device/companion_memory.gd")
 const LIBRARY := "res://data/dialogue/companion.json"
+# The mystery addendum: typed lines are gated on what the player knows and what
+# the set has already said; witnessed lines print only when a producer asks.
+const MYSTERY_LIBRARY := "res://data/mystery/companion_mystery.json"
+const SEEN_LIMIT := 128
 # Explicit producer requests only; exhaust each small repertoire, then stay quiet.
 const EVENT_SEQUENCES := {
 	"hesitation":["hesitation_event_1","hesitation_event_2","hesitation_event_3"],
@@ -19,10 +23,17 @@ var memory := Memory.new()
 var lines: Dictionary = {}
 var branches: Dictionary = {}
 var followups: Dictionary = {}
+var mystery_typed: Dictionary = {} # normalized phrase -> [line record]
+var mystery_lines: Array[Dictionary] = []
 var errors: Array[String] = []
 
 func _init() -> void:
-	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(LIBRARY))
+	_load_library(LIBRARY)
+	_load_library(MYSTERY_LIBRARY)
+	_index_mystery()
+
+func _load_library(path: String) -> void:
+	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
 	if data is not Dictionary or data.get("schema_version") != 1:
 		errors.append("Invalid companion dialogue document")
 		return
@@ -38,6 +49,7 @@ func _init() -> void:
 			errors.append("Invalid or duplicate line: " + id)
 			continue
 		lines[id] = record.text
+		if path == MYSTERY_LIBRARY: mystery_lines.append(record)
 	for record: Variant in data.branches:
 		if record is not Dictionary or record.get("id") is not String or record.get("sequence") is not Array:
 			errors.append("Invalid branch record")
@@ -60,6 +72,48 @@ func _init() -> void:
 			for phrase: Variant in reply.phrases:
 				if phrase is not String or phrase.is_empty() or phrase != Intent.normalize(phrase): errors.append("Invalid followup phrase: " + id)
 
+func _index_mystery() -> void:
+	for record: Dictionary in mystery_lines:
+		for field: String in ["movement", "surface"]:
+			if str(record.get(field, "")).is_empty(): errors.append("Mystery line without %s: %s" % [field, record.id])
+		if record.has("then") and not lines.has(str(record.then)): errors.append("Missing mystery line: " + str(record.then))
+		for phrase: Variant in record.get("phrases", []):
+			if phrase is not String or phrase != Intent.normalize(phrase): errors.append("Invalid mystery phrase: " + str(record.id))
+			elif mystery_typed.has(phrase): mystery_typed[phrase].append(record)
+			else: mystery_typed[phrase] = [record]
+
+# A flag is player knowledge; a line id is something the set has already said.
+func _mystery_known(flag: String) -> bool:
+	return bool(memory.seen.get(flag, false)) or RealityState.has_knowledge(flag)
+
+func _mystery_open(record: Dictionary, context: Dictionary) -> bool:
+	for flag: Variant in record.get("requires", []):
+		if not _mystery_known(str(flag)): return false
+	if record.has("exhaust") and bool(memory.seen.get(record.id, false)): return false
+	var now := str(context.get("now_iso", ""))
+	if record.has("not_after") and not now.is_empty() and now > str(record.not_after): return false
+	# It knows only what it witnesses: a lamp remark needs the lamp and a subject.
+	if str(record.id).begins_with("m_lamp_") and not (bool(context.get("lamp_on", false)) and not context.get("visible", []).is_empty()):
+		return false
+	return true
+
+func _mystery_reply(text: String, context: Dictionary) -> String:
+	for record: Dictionary in mystery_typed.get(text, []):
+		if _mystery_open(record, context): return str(record.id)
+	return ""
+
+# Print the line, then let "go on" continue from it rather than repeat it.
+func _mystery_said(id: String, record_then: String) -> void:
+	if memory.seen.size() < SEEN_LIMIT: memory.seen[id] = true
+	var lookup := id if record_then.is_empty() else record_then
+	for branch_id: String in branches:
+		var at: int = branches[branch_id].find(lookup)
+		if at < 0: continue
+		memory.branch = branch_id
+		if memory.counts.has("branch:" + branch_id) or memory.counts.size() < 64:
+			memory.counts["branch:" + branch_id] = at + (1 if record_then.is_empty() else 0)
+		return
+
 func respond(raw: String, context: Dictionary) -> Dictionary:
 	if not errors.is_empty(): return {"text":"The correspondence file cannot be read.", "line_id":"", "intent":"failure"}
 	var parsed := Intent.parse(raw)
@@ -81,10 +135,17 @@ func respond(raw: String, context: Dictionary) -> Dictionary:
 				branch_reply = str(reply.line_id)
 				break
 		if not branch_reply.is_empty(): break
+	var mystery_reply := _mystery_reply(text, context)
 	if intent == "leave":
 		id = "leave"
 	elif not branch_reply.is_empty():
 		id = branch_reply
+	elif not mystery_reply.is_empty():
+		id = mystery_reply
+		var then_id := ""
+		for record: Dictionary in mystery_typed[text]:
+			if str(record.id) == id: then_id = str(record.get("then", ""))
+		_mystery_said(id, then_id)
 	elif following and not memory.branch.is_empty():
 		id = _branch_line(memory.branch)
 	elif not memory.pending_ids.is_empty():
@@ -235,4 +296,7 @@ func _with_comment(report: String, value: Variant) -> String:
 func respond_calendar(raw: String, context: Dictionary, clock: CampaignClock,
 		source: String, conditions: Dictionary, catalog: NewspaperCatalog = null,
 		read_issue: Dictionary = {}) -> Dictionary:
+	var local := clock.local_datetime() if clock != null else {}
+	if not local.is_empty():
+		context["now_iso"] = "%04d-%02d-%02dT%02d:%02d" % [int(local.year), int(local.month), int(local.day), int(local.hour), int(local.minute)]
 	return respond(raw, CalendarContext.enrich(context, clock, source, conditions, catalog, read_issue))

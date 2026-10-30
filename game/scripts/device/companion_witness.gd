@@ -26,7 +26,8 @@ func setup(owner: Node, holder: PlayerController, root: Node) -> void:
 	session.calendar_provider = calendar
 
 func context() -> Dictionary:
-	var result := {"visible":[], "inventory":PersonInventory.pocket_lines()}
+	var result := {"visible":[], "inventory":PersonInventory.pocket_lines(),
+		"lamp_on":bool(session.get_parent().device.get("lamp_enabled"))}
 	if is_instance_valid(world) and world.has_method("room_at_world"):
 		var room: String = world.room_at_world(player.global_position)
 		if not room.is_empty(): result.location = "Current space: " + room.replace("_", " ")
@@ -63,6 +64,11 @@ func paper_shown(catalog: NewspaperCatalog, paper: String, date: String) -> void
 	if catalog == null or not catalog.published_now(paper, date): return
 	_catalog = catalog
 	last_read = {"paper":paper, "date":date}
+	# N16: the paper's account of her death. The set only says so after she
+	# has read it, and the objections file opens from here.
+	if paper == "record" and date == "1929-07-21" and RealityState.grant_knowledge("m_c_n16"):
+		RealityState.commit()
+		session.queue_event("m_notice_1", 600.0)
 
 func observe(delta: float) -> void:
 	_sample_left -= delta
