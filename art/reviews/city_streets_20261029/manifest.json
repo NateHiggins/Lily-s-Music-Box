@@ -5213,5 +5213,306 @@
         "raw_sha256": "7e110101a852c5c47923ff8bd7176486daf742d0be301a7299c095744a57f892"
       }
     }
+  },
+  "hampton_footway_qualification_archive": {
+    "evidence_class": "INERT",
+    "file": "hampton_footway_qualification.zip",
+    "bytes": 25014239,
+    "sha256": "a23590d81823c240ee31fd6fc088ed805bf03c9834b9e676dd061c780ebdd11a",
+    "scope": "Original native failed wrong-owner control,actual closed-owner correction,73/4913 native controls,4 inspected native frames,433-check isolated bench/10 inspected frames,unchanged test-written46-check9-leg route/3 inspected frames,original import/parser logs,retention and QEMU contention records. Combined physical/static qualification owned separately by canonical; no repinned receipts or artistic/full-city acceptance.",
+    "members": {
+      "phase08_hampton_footway/before/art/blender/scripts/build_city_streets.py": {
+        "bytes": 12228,
+        "raw_sha256": "72223c3bd6caf8d40de2ba0adddcda1810e76413d55a22e8b087438253084f81"
+      },
+      "phase08_hampton_footway/before/art/data/city_streets/source_plan.json": {
+        "bytes": 1644,
+        "raw_sha256": "3a71fdafa14fe72a51e8116db680b086cabd51e1a4183955426a73415a73115f"
+      },
+      "phase08_hampton_footway/before/game/data/orison_v2/exterior/city_streets.json": {
+        "bytes": 2391,
+        "raw_sha256": "27bc565be544dbd5b4f32d48a91cb1bcb81ea3cf78a8904f1bbae9f71620a1d0"
+      },
+      "phase08_hampton_footway/before/game/tests/fixtures/orison_city_streets.json": {
+        "bytes": 2521157,
+        "raw_sha256": "612e781e60ec073ebc0db1469cdd74d6d1d92957bb6a7e32e30707cad9968774"
+      },
+      "phase08_hampton_footway/before.json": {
+        "bytes": 153214,
+        "raw_sha256": "7634c8b0c206ef8fd9b1cbfd30c6dd7d4ea04038a2162ac819d7cc4425ec90c9"
+      },
+      "phase08_hampton_footway/bench_01/actual_visual_inspection.json": {
+        "bytes": 2220,
+        "raw_sha256": "86a76d1f2dd7b6c5110c7f744381d86f2c240fda39e4e783e23f4d145765d533"
+      },
+      "phase08_hampton_footway/bench_01/forced_far.png": {
+        "bytes": 66218,
+        "raw_sha256": "56a8d72e5699d20fbfc4e06cf924eb07c494f6420efb8d870776cad8f65edfde"
+      },
+      "phase08_hampton_footway/bench_01/forced_near.png": {
+        "bytes": 67384,
+        "raw_sha256": "8b9635a8b36079c7d572921c360ac870b7c21aaaea027c415701445c22d040f9"
+      },
+      "phase08_hampton_footway/bench_01/hampton_level_stoop.png": {
+        "bytes": 1943891,
+        "raw_sha256": "2e5aa47b75f80a343b663a0cd1aa858dde3790e114be4da39007e8ac0f73194d"
+      },
+      "phase08_hampton_footway/bench_01/hampton_public_footway.png": {
+        "bytes": 682551,
+        "raw_sha256": "2716656cb5494dff2569dcb8911b6c281c418ca9b30a5085f25cfda1f87e506c"
+      },
+      "phase08_hampton_footway/bench_01/narrow.png": {
+        "bytes": 66804,
+        "raw_sha256": "85d3ec27ef93b500f38efc5c1f4469fb5247a39c662f5dc8b7daad72a32dba86"
+      },
+      "phase08_hampton_footway/bench_01/natural_after.png": {
+        "bytes": 58559,
+        "raw_sha256": "b1afa1fff7d5966a9eaabefaaceb0772fc748c290051ee9c3e264b3016bd622f"
+      },
+      "phase08_hampton_footway/bench_01/natural_before.png": {
+        "bytes": 59759,
+        "raw_sha256": "02005dafb0076c7f7bbada79e98da64a0796d77c06c0f89de24e1bdb1e7b24be"
+      },
+      "phase08_hampton_footway/bench_01/natural_narrow.png": {
+        "bytes": 4340497,
+        "raw_sha256": "b49a2b9171dcd3986917701db50d0f13144fe7bf892ec82187913a0a4dee1126"
+      },
+      "phase08_hampton_footway/bench_01/natural_return.png": {
+        "bytes": 59759,
+        "raw_sha256": "02005dafb0076c7f7bbada79e98da64a0796d77c06c0f89de24e1bdb1e7b24be"
+      },
+      "phase08_hampton_footway/bench_01/transport_bench.json": {
+        "bytes": 70973,
+        "raw_sha256": "cafc8a2f8ffa5e87cbed67223a1116e4a15fa2026405ee0225dc0ad31c6448b9"
+      },
+      "phase08_hampton_footway/bench_01/wide.png": {
+        "bytes": 17533,
+        "raw_sha256": "ba9ee575fb566ad7c6eb54b6cbded594a85e684c534cb7642ff0f83ee0f70b11"
+      },
+      "phase08_hampton_footway/bench_01.log": {
+        "bytes": 20970,
+        "raw_sha256": "86723284199b1b495455f6686bab9d7150019c1d83cf9f00b405bdf88458f885"
+      },
+      "phase08_hampton_footway/bench_01.log.receipt.json": {
+        "bytes": 2995,
+        "raw_sha256": "a21b718ea2eb297589f89cdae3c7e3a295a1d47ae97023d3934c06d322e15f32"
+      },
+      "phase08_hampton_footway/bench_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase08_hampton_footway/bench_01_batch.json": {
+        "bytes": 474,
+        "raw_sha256": "dc566e8e208a739b0127cb2b7397b6f1484359b5bde13dc49f6c7a3fd7548aae"
+      },
+      "phase08_hampton_footway/common_native_controls_01/native_geometry_checks.json": {
+        "bytes": 847243,
+        "raw_sha256": "81b95aff405cd71e5dcb10e34936d138f66c2ffd24e19b328bbea08f47e6184a"
+      },
+      "phase08_hampton_footway/common_native_controls_01.log": {
+        "bytes": 224,
+        "raw_sha256": "34d99f0eecdabf03f2dffec9886a8e3fcce28a1d7bd1545d51758e7b452f64f7"
+      },
+      "phase08_hampton_footway/host_census_01.json": {
+        "bytes": 1594,
+        "raw_sha256": "f77264951931927d6fcf130d37187e7345c6e69fad63bd3b18349516dd16d68f"
+      },
+      "phase08_hampton_footway/import_01.log": {
+        "bytes": 401403,
+        "raw_sha256": "e3b15f47c68daf69c04febe30d7e7fcf911a875e7ecf2ea0b2fe0bf667a9b020"
+      },
+      "phase08_hampton_footway/import_01.log.receipt.json": {
+        "bytes": 2744,
+        "raw_sha256": "cf1f9c57bfedf7d24a8b000d8c04c0a6ee1327aca0cc14901254227ca86e0b7b"
+      },
+      "phase08_hampton_footway/import_01.log.stderr": {
+        "bytes": 126454,
+        "raw_sha256": "493359099d6543268a6f13a7215edcdabed7fe22888c63c4a4470db33bcafc5c"
+      },
+      "phase08_hampton_footway/import_parser_01_batch.json": {
+        "bytes": 521,
+        "raw_sha256": "804f3d0ab3c8b25f4b94928c4280e543ba2980c54612b0f7e64d6877f0739731"
+      },
+      "phase08_hampton_footway/main_clean_board/provenance.json": {
+        "bytes": 393,
+        "raw_sha256": "bfa65b6c3c33b2e20f5d6ed16ac6552afb3a04d00f5a89b7229c21c7de6d4e3c"
+      },
+      "phase08_hampton_footway/main_import_01.log": {
+        "bytes": 2906,
+        "raw_sha256": "156adc3d60297e9bb59c3c903fcfd4a76300ded937668a26f938f83fa9ca573e"
+      },
+      "phase08_hampton_footway/main_import_01.log.receipt.json": {
+        "bytes": 2806,
+        "raw_sha256": "118221aa6317779fee310bfd7c9f69d00a9b91f91260787fb52d78146170788a"
+      },
+      "phase08_hampton_footway/main_import_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase08_hampton_footway/main_import_02.log": {
+        "bytes": 1027,
+        "raw_sha256": "c265badae3056814d67bc2f671cd1548ef1a06a989d2fa3dc4249e3953f37588"
+      },
+      "phase08_hampton_footway/main_import_02.log.receipt.json": {
+        "bytes": 2805,
+        "raw_sha256": "a604e7fa2b255f628bdf086a9b887c7b6a76e6071458f1dbbd6238f05eb13952"
+      },
+      "phase08_hampton_footway/main_import_02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase08_hampton_footway/main_merge_conflict_01.json": {
+        "bytes": 181573,
+        "raw_sha256": "42fee22ff5122df912222e3c36cf5c29dc5ec9aed2fa5f35512c681d13bbbdc5"
+      },
+      "phase08_hampton_footway/native_build_01.execution.json": {
+        "bytes": 230,
+        "raw_sha256": "927670b1e03709b500c88986ca54ff5a9b40be272a38d8d64c8fe4a5f3302c31"
+      },
+      "phase08_hampton_footway/native_build_01.log": {
+        "bytes": 10788,
+        "raw_sha256": "2dc33b324b44ea0bef032e857f9426c768a51f97217148a7a8f05eaed09f2a79"
+      },
+      "phase08_hampton_footway/native_review_01/native_controls.json": {
+        "bytes": 13884,
+        "raw_sha256": "a951a2558aa66147b7951dcff0204987a8a6ff18fdf54dace518a37623cd8c2d"
+      },
+      "phase08_hampton_footway/native_review_01.log": {
+        "bytes": 1295,
+        "raw_sha256": "a8e73f6baf928353810d98bad3bceec8a19687903816d62aafd0868c4f1e04a6"
+      },
+      "phase08_hampton_footway/native_review_02/actual_visual_inspection.json": {
+        "bytes": 2429,
+        "raw_sha256": "f00a472cf605cc86de34073d7df43d0f8eda946e84aaad04838437a5e22602cf"
+      },
+      "phase08_hampton_footway/native_review_02/native_controls.json": {
+        "bytes": 12792,
+        "raw_sha256": "4b472bf496715e49cfdecf8b1aa837cbea97ce8336e4a35f2ed73698a8a93877"
+      },
+      "phase08_hampton_footway/native_review_02/native_review.json": {
+        "bytes": 1931,
+        "raw_sha256": "f0bbb0c479e4427ce24f43b3a40b135ceb954058545c1ca1369db3e291162b8a"
+      },
+      "phase08_hampton_footway/native_review_02/overview_L0.png": {
+        "bytes": 1841605,
+        "raw_sha256": "17f2b19cc3880e34a92e16a27698dd33dee4512a1da04a73f5ef651e7a2baef3"
+      },
+      "phase08_hampton_footway/native_review_02/overview_L1.png": {
+        "bytes": 1841021,
+        "raw_sha256": "bff2c1bddd6675fe1bb8be5a860d62d890cb2264129e28dc655d2f0382c8cdf6"
+      },
+      "phase08_hampton_footway/native_review_02/stoop_L0.png": {
+        "bytes": 1786854,
+        "raw_sha256": "04a60e6e5b75db5199cff4dd9997a06a20438fb8c15a31f43a0a6f28ab55bd7c"
+      },
+      "phase08_hampton_footway/native_review_02/stoop_L1.png": {
+        "bytes": 1783128,
+        "raw_sha256": "4b48938067789d42e41b7377af9ab776876c20c4cb8b08dc30cb10319c8aa718"
+      },
+      "phase08_hampton_footway/native_review_02.log": {
+        "bytes": 1026,
+        "raw_sha256": "d059b1173b5b3eabd0938fcbec3950ad07ed38ab42c5df2081370cb8eba80b94"
+      },
+      "phase08_hampton_footway/parser_01.log": {
+        "bytes": 356,
+        "raw_sha256": "7442f21e8fa594acc32ef68b8f986cd0b29430fe5cae3883c008d51d32f574ac"
+      },
+      "phase08_hampton_footway/parser_01.log.receipt.json": {
+        "bytes": 2955,
+        "raw_sha256": "a7bbc4942d0d47038115e69f7e87bf88d9af8b13ab9a22695dab13790a9115c0"
+      },
+      "phase08_hampton_footway/parser_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase08_hampton_footway/parser_02.log": {
+        "bytes": 356,
+        "raw_sha256": "7442f21e8fa594acc32ef68b8f986cd0b29430fe5cae3883c008d51d32f574ac"
+      },
+      "phase08_hampton_footway/parser_02.log.receipt.json": {
+        "bytes": 3008,
+        "raw_sha256": "001fd32b8a6ea36f6ce12a56141e91ac41d1b5ac8955d3781452005c9cb15226"
+      },
+      "phase08_hampton_footway/parser_02.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase08_hampton_footway/physical_01_batch.json": {
+        "bytes": 482,
+        "raw_sha256": "931cc50dbe99b24fafe46d8de4eb432ee8cdedb510d765cca29664ddd62ee272"
+      },
+      "phase08_hampton_footway/post_main_qualification_01_batch.json": {
+        "bytes": 1735,
+        "raw_sha256": "6b10b2f6ec1088a50d0720aa167ab9b28376824ad0ce4ed8aede8308f20a3ec4"
+      },
+      "phase08_hampton_footway/retention_comparison_01.json": {
+        "bytes": 871,
+        "raw_sha256": "17ed8b56e1534ef28f3f681ce36364ff800af3e36da1ee56b5ab9f3a591b8cb7"
+      },
+      "phase08_hampton_footway/review_common_controls_01.py": {
+        "bytes": 9295,
+        "raw_sha256": "e9392b913507da94fc3419c49baa9cf40e1972a94e51e5dc4f10dd5bc6b27b25"
+      },
+      "phase08_hampton_footway/review_native_01.py": {
+        "bytes": 7186,
+        "raw_sha256": "9e2e8f4d0aabae0ada625bc66918c8a8fa81854fdacf996528dd699cea080e28"
+      },
+      "phase08_hampton_footway/review_native_02.py": {
+        "bytes": 7481,
+        "raw_sha256": "bc8b8382719c61733000dda7418fcbcb74e70b0c8b28f2c0d0be7e0fcda0789d"
+      },
+      "phase08_hampton_footway/route_01/actual_visual_inspection.json": {
+        "bytes": 1094,
+        "raw_sha256": "b43e4a89f76f2f95ee30c6dbb02cb9b9dd85de24415ea95fbd0fa532629a76ce"
+      },
+      "phase08_hampton_footway/route_01/hampton_connected_walk.png": {
+        "bytes": 3052068,
+        "raw_sha256": "4ea2f0af5de3fa761ae2cd902ce50c30de5bfcb91e020dd18cb5f232d9fc795e"
+      },
+      "phase08_hampton_footway/route_01/hampton_footway_contract.json": {
+        "bytes": 132894,
+        "raw_sha256": "d8d84e04db4188f4e2c0716e695aee4f8fb973eb6db48492cb2b8522843d4e2c"
+      },
+      "phase08_hampton_footway/route_01/hampton_frontage_walk.png": {
+        "bytes": 3513647,
+        "raw_sha256": "bcd42f05334e54f1afd42eb064672eb36ebbcc5444deb81e369174fe458fcbd7"
+      },
+      "phase08_hampton_footway/route_01/hampton_stoop_landing.png": {
+        "bytes": 3231868,
+        "raw_sha256": "1df8a194b525c9acce4d66211abf5acbdda6f58047ec7f6652f7985176e50bdb"
+      },
+      "phase08_hampton_footway/route_01.log": {
+        "bytes": 4101,
+        "raw_sha256": "8434c74f3f8d9d1023806ef8d88189d574a26855aa66a7c6626b921e86f61df1"
+      },
+      "phase08_hampton_footway/route_01.log.receipt.json": {
+        "bytes": 2994,
+        "raw_sha256": "0c1fbc89924a0b03afc66e675a45769167d3d1f8b1278b62b01b83c0c4e61a9c"
+      },
+      "phase08_hampton_footway/route_01.log.stderr": {
+        "bytes": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "phase08_hampton_footway/route_01_batch.json": {
+        "bytes": 472,
+        "raw_sha256": "03a0efd7ff88bdc4083b742a1962c24411f8f6bb92b09f8222059d9a918c40b5"
+      },
+      "phase08_hampton_footway/route_summary_01.json": {
+        "bytes": 961,
+        "raw_sha256": "59a958188d5500bdf75f5d6c7431be93a04819fabb76ad54cb40dac8f2f57197"
+      },
+      "phase08_hampton_footway/single_import_eol_before_01.bin": {
+        "bytes": 1324,
+        "raw_sha256": "5fb3da0d4da603a991ddf00f6994387f0e1d774b920d4cf322a8cf99ff6c07aa"
+      },
+      "phase08_hampton_footway/single_import_eol_restore_01.json": {
+        "bytes": 766,
+        "raw_sha256": "1d3e232aa3d1a231506ea7d5d53f3f328a8f6f8710acfd2fc341fe7f5a6c829e"
+      },
+      "phase08_hampton_footway/spatial_audit_01.json": {
+        "bytes": 8215189,
+        "raw_sha256": "0b7a7ae51ba9d92a3fc6862c050c4ea7fda06b1224527d196901260967a7e8a6"
+      }
+    }
   }
 }
